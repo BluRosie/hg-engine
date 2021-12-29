@@ -1,0 +1,77 @@
+022C0214
+
+EXPAND P_GLB like the flags were done -> not an option realistically
+ !  REPOINT POKE_LIST !
+
+only thing to do is to make poke_list a pointer in the p_glb structure.
+
+all the routines that would need to be modified are here though:
+
+
+the two poke_list things:
+022C0A8C - 0x878 off
+- 021EDDF4
+- 021F815C
+- 021F890C
+- 021F894C
+022C1244 - 0x1030 off
+- 021E6C80
+- 021F1618
+- 021F884C
+- 021F8900
+
+to clear:
+
+zkn_sys.c -> find DeleteZkn or ZKN_GLBDATA_Delete (immediately after Init so it should be good) and sys_FreeMemoryEz both lists.  shouldn't be too bad
+
+
+
+
+overlays loaded during dex:
+12 00 00 00 01 00 00 00 02 00 00 00 00 00 00 00
+03 00 00 00 00 00 00 00 1B 00 00 00 00 00 00 00
+
+0x12 - 21E5900
+0x01 - 21E5900?
+0x02 - 2245B80?
+0x03 - 2253E20?
+0x1B - 2259F80
+
+shouldn't be overwritten????  is, it's whatever.
+
+
+
+0x1032 access!  god damn it !
+there are 10 (TEN) of these!  - with the above edited out (might have been 11 + 1 87A)
+12B0
+8FB0
+90F0
+9230
+92E0
+9464
+C568
+C8E8
+D5FC
+13014
+
+
+why is 102C not being written to?  what did i mess up, more or less
+8D30
+98E0
+A764
+13004
+13044
+
+yo what the fuck
+878 + 7B4 = 102C
+that's hella foul, need to rewrite these for that then damn
+7B4
+12928
+12F80
+
+now find where it writes to 102E !  why !
+
+that's done?
+
+
+still crashes.

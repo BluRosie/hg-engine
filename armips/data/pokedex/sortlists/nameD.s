@@ -1,0 +1,43 @@
+.nds
+.thumb
+
+.create "a214/021.bin", 0x0
+
+.halfword SPECIES_DARKRAI
+.halfword SPECIES_DARMANITAN
+.halfword SPECIES_DARUMAKA
+.halfword SPECIES_DEERLING
+.halfword SPECIES_DEINO
+.halfword SPECIES_DELCATTY
+.halfword SPECIES_DELIBIRD
+.halfword SPECIES_DEOXYS
+.halfword SPECIES_DEWGONG
+.halfword SPECIES_DEWOTT
+.halfword SPECIES_DIALGA
+.halfword SPECIES_DIGLETT
+.halfword SPECIES_DITTO
+.halfword SPECIES_DODRIO
+.halfword SPECIES_DODUO
+.halfword SPECIES_DONPHAN
+.halfword SPECIES_DRAGONAIR
+.halfword SPECIES_DRAGONITE
+.halfword SPECIES_DRAPION
+.halfword SPECIES_DRATINI
+.halfword SPECIES_DRIFBLIM
+.halfword SPECIES_DRIFLOON
+.halfword SPECIES_DRILBUR
+.halfword SPECIES_DROWZEE
+.halfword SPECIES_DRUDDIGON
+.halfword SPECIES_DUCKLETT
+.halfword SPECIES_DUGTRIO
+.halfword SPECIES_DUNSPARCE
+.halfword SPECIES_DUOSION
+.halfword SPECIES_DURANT
+.halfword SPECIES_DUSCLOPS
+.halfword SPECIES_DUSKNOIR
+.halfword SPECIES_DUSKULL
+.halfword SPECIES_DUSTOX
+.halfword SPECIES_DWEBBLE
+
+
+.close

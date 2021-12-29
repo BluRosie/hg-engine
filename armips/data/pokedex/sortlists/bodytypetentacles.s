@@ -1,0 +1,31 @@
+.nds
+.thumb
+
+.create "a214/089.bin", 0x0
+
+.halfword SPECIES_TENTACOOL
+.halfword SPECIES_TENTACRUEL
+.halfword SPECIES_OMANYTE
+.halfword SPECIES_OMASTAR
+.halfword SPECIES_OCTILLERY
+.halfword SPECIES_CARNIVINE
+.halfword SPECIES_GIRATINA
+.halfword SPECIES_BOLDORE
+.halfword SPECIES_GIGALITH
+.halfword SPECIES_FRILLISH
+.halfword SPECIES_JELLICENT
+.halfword SPECIES_FERROTHORN
+//.halfword SPECIES_INKAY
+//.halfword SPECIES_TREVENANT
+//.halfword SPECIES_TOXAPEX
+//.halfword SPECIES_WIMPOD
+//.halfword SPECIES_NIHILEGO
+//.halfword SPECIES_BUZZWOLE
+//.halfword SPECIES_SIZZLIPEDE
+//.halfword SPECIES_CLOBBOPUS
+//.halfword SPECIES_PINCURCHIN
+//.halfword SPECIES_CENTISKORCH
+//.halfword SPECIES_GRAPPLOCT
+
+
+.close

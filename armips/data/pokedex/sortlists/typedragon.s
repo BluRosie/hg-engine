@@ -1,0 +1,65 @@
+.nds
+.thumb
+
+.create "a214/077.bin", 0x0
+
+.halfword SPECIES_DRATINI
+.halfword SPECIES_DRAGONAIR
+.halfword SPECIES_DRAGONITE
+.halfword SPECIES_KINGDRA
+.halfword SPECIES_VIBRAVA
+.halfword SPECIES_FLYGON
+.halfword SPECIES_ALTARIA
+.halfword SPECIES_BAGON
+.halfword SPECIES_SHELGON
+.halfword SPECIES_SALAMENCE
+.halfword SPECIES_LATIAS
+.halfword SPECIES_LATIOS
+.halfword SPECIES_RAYQUAZA
+.halfword SPECIES_GIBLE
+.halfword SPECIES_GABITE
+.halfword SPECIES_GARCHOMP
+.halfword SPECIES_DIALGA
+.halfword SPECIES_PALKIA
+.halfword SPECIES_GIRATINA
+.halfword SPECIES_AXEW
+.halfword SPECIES_FRAXURE
+.halfword SPECIES_HAXORUS
+.halfword SPECIES_DRUDDIGON
+.halfword SPECIES_DEINO
+.halfword SPECIES_ZWEILOUS
+.halfword SPECIES_HYDREIGON
+.halfword SPECIES_RESHIRAM
+.halfword SPECIES_ZEKROM
+.halfword SPECIES_KYUREM
+//.halfword SPECIES_DRAGALGE
+//.halfword SPECIES_TYRUNT
+//.halfword SPECIES_TYRANTRUM
+//.halfword SPECIES_GOOMY
+//.halfword SPECIES_SLIGGOO
+//.halfword SPECIES_GOODRA
+//.halfword SPECIES_NOIBAT
+//.halfword SPECIES_NOIVERN
+//.halfword SPECIES_ZYGARDE
+//.halfword SPECIES_TURTONATOR
+//.halfword SPECIES_DRAMPA
+//.halfword SPECIES_JANGMO_O
+//.halfword SPECIES_HAKAMO_O
+//.halfword SPECIES_KOMMO_O
+//.halfword SPECIES_GUZZLORD
+//.halfword SPECIES_NECROZMA
+//.halfword SPECIES_NAGANADEL
+//.halfword SPECIES_APPLIN
+//.halfword SPECIES_FLAPPLE
+//.halfword SPECIES_APPLETUN
+//.halfword SPECIES_DRACOZOLT
+//.halfword SPECIES_DRACOVISH
+//.halfword SPECIES_DURALUDON
+//.halfword SPECIES_DREEPY
+//.halfword SPECIES_DRAKLOAK
+//.halfword SPECIES_DRAGAPULT
+//.halfword SPECIES_ETERNATUS
+//.halfword SPECIES_REGIDRAGO
+
+
+.close

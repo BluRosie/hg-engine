@@ -1,0 +1,31 @@
+.nds
+.thumb
+
+.create "a214/088.bin", 0x0
+
+.halfword SPECIES_ODDISH
+.halfword SPECIES_POLIWAG
+.halfword SPECIES_DODUO
+.halfword SPECIES_TANGELA
+.halfword SPECIES_PORYGON
+.halfword SPECIES_DODRIO
+.halfword SPECIES_EXEGGUTOR
+.halfword SPECIES_WOOPER
+.halfword SPECIES_TORCHIC
+.halfword SPECIES_SEEDOT
+.halfword SPECIES_SHROOMISH
+.halfword SPECIES_AZURILL
+.halfword SPECIES_PORYGON2
+.halfword SPECIES_BONSLY
+.halfword SPECIES_CHERRIM
+.halfword SPECIES_ROGGENROLA
+//.halfword SPECIES_SWIRLIX
+//.halfword SPECIES_DEWPIDER
+//.halfword SPECIES_BOUNSWEET
+//.halfword SPECIES_CARKOL
+//.halfword SPECIES_HATENNA
+//.halfword SPECIES_STONJOURNER
+//.halfword SPECIES_DRACOVISH
+
+
+.close

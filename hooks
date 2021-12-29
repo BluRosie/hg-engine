@@ -1,0 +1,26 @@
+0012 ServerBeforeAct 08011A4C 2
+0012 ServerWazaBefore 08014ACC 2
+
+#mega
+0012 LoadMegaOam 0802F89C 1
+0012 MegaButtonCheck 08030644 2
+0012 load_mega_button 0802FBFC 1
+0012 Sub_PokeIconResourceLoad 080308D4 1
+0012 Sub_PokeIconResourceFree 08030954 1
+
+arm9 PokePicLoad 080701EC 1
+arm9 PokeOtherFormMonsNoGet 08072634 2
+arm9 PokeIconIndexGetByMonsNumber 080741BC 3
+arm9 PokeIconCgxPatternGet 080742CC 1
+arm9 GetFormEvo 08070ED4 1
+arm9 IconPalGet 08074364 2
+arm9 ItemDataTableLoad 08078138 1
+0007 hook_7_spriteOffsetSpecies 08018A48 3
+#0012 hook_12_spriteOffsetSpecies 08022154 2
+0012 Battle_End 08000B90 1
+0012 FormResert 080069AC 2
+0012 CheckCanTakeItem 08009A74 0
+
+#expand items
+arm9 GetItemIndex 08077C18 2
+arm9 GetItemArcData 08077CE8 3

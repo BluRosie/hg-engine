@@ -1,0 +1,64 @@
+.nds
+.thumb
+
+.create "a214/078.bin", 0x0
+
+.halfword SPECIES_UMBREON
+.halfword SPECIES_MURKROW
+.halfword SPECIES_SNEASEL
+.halfword SPECIES_HOUNDOUR
+.halfword SPECIES_HOUNDOOM
+.halfword SPECIES_TYRANITAR
+.halfword SPECIES_POOCHYENA
+.halfword SPECIES_MIGHTYENA
+.halfword SPECIES_NUZLEAF
+.halfword SPECIES_SHIFTRY
+.halfword SPECIES_SABLEYE
+.halfword SPECIES_CARVANHA
+.halfword SPECIES_SHARPEDO
+.halfword SPECIES_CACTURNE
+.halfword SPECIES_CRAWDAUNT
+.halfword SPECIES_ABSOL
+.halfword SPECIES_HONCHKROW
+.halfword SPECIES_STUNKY
+.halfword SPECIES_SKUNTANK
+.halfword SPECIES_SPIRITOMB
+.halfword SPECIES_DRAPION
+.halfword SPECIES_WEAVILE
+.halfword SPECIES_DARKRAI
+.halfword SPECIES_PURRLOIN
+.halfword SPECIES_LIEPARD
+.halfword SPECIES_SANDILE
+.halfword SPECIES_KROKOROK
+.halfword SPECIES_KROOKODILE
+.halfword SPECIES_SCRAGGY
+.halfword SPECIES_SCRAFTY
+.halfword SPECIES_ZORUA
+.halfword SPECIES_ZOROARK
+.halfword SPECIES_PAWNIARD
+.halfword SPECIES_BISHARP
+.halfword SPECIES_VULLABY
+.halfword SPECIES_MANDIBUZZ
+.halfword SPECIES_DEINO
+.halfword SPECIES_ZWEILOUS
+.halfword SPECIES_HYDREIGON
+//.halfword SPECIES_GRENINJA
+//.halfword SPECIES_PANGORO
+//.halfword SPECIES_INKAY
+//.halfword SPECIES_MALAMAR
+//.halfword SPECIES_YVELTAL
+//.halfword SPECIES_HOOPA
+//.halfword SPECIES_INCINEROAR
+//.halfword SPECIES_GUZZORD
+//.halfword SPECIES_NICKIT
+//.halfword SPECIES_THIEVUL
+//.halfword SPECIES_IMPIDIMP
+//.halfword SPECIES_MORGREM
+//.halfword SPECIES_GRIMMSNARL
+//.halfword SPECIES_OBSTAGOON
+//.halfword SPECIES_MORPEKO
+//.halfword SPECIES_URSHIFU
+//.halfword SPECIES_ZARUDE
+
+
+.close

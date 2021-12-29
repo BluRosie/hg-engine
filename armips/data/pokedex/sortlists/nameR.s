@@ -1,0 +1,33 @@
+.nds
+.thumb
+
+.create "a214/035.bin", 0x0
+
+.halfword SPECIES_RAICHU
+.halfword SPECIES_RAIKOU
+.halfword SPECIES_RALTS
+.halfword SPECIES_RAMPARDOS
+.halfword SPECIES_RAPIDASH
+.halfword SPECIES_RATICATE
+.halfword SPECIES_RATTATA
+.halfword SPECIES_RAYQUAZA
+.halfword SPECIES_REGICE
+.halfword SPECIES_REGIGIGAS
+.halfword SPECIES_REGIROCK
+.halfword SPECIES_REGISTEEL
+.halfword SPECIES_RELICANTH
+.halfword SPECIES_REMORAID
+.halfword SPECIES_RESHIRAM
+.halfword SPECIES_REUNICLUS
+.halfword SPECIES_RHYDON
+.halfword SPECIES_RHYHORN
+.halfword SPECIES_RHYPERIOR
+.halfword SPECIES_RIOLU
+.halfword SPECIES_ROGGENROLA
+.halfword SPECIES_ROSELIA
+.halfword SPECIES_ROSERADE
+.halfword SPECIES_ROTOM
+.halfword SPECIES_RUFFLET
+
+
+.close

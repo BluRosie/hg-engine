@@ -1,0 +1,20 @@
+# generated
+*.nds
+*.ini
+build/*
+base/*
+narc/*
+1.txt
+3.txt
+9.txt
+12.txt
+9.txr
+定点捕捉等宠物.txt
+技能表表格.txt
+心金898测试版.zip
+b.c
+dump.py
+dumpitem.py
+
+# pycache files
+*.pyc

@@ -1,0 +1,50 @@
+.nds
+.thumb
+
+.create "a214/024.bin", 0x0
+
+.halfword SPECIES_GABITE
+.halfword SPECIES_GALLADE
+.halfword SPECIES_GALVANTULA
+.halfword SPECIES_GARBODOR
+.halfword SPECIES_GARCHOMP
+.halfword SPECIES_GARDEVOIR
+.halfword SPECIES_GASTLY
+.halfword SPECIES_GASTRODON
+.halfword SPECIES_GENESECT
+.halfword SPECIES_GENGAR
+.halfword SPECIES_GEODUDE
+.halfword SPECIES_GIBLE
+.halfword SPECIES_GIGALITH
+.halfword SPECIES_GIRAFARIG
+.halfword SPECIES_GIRATINA
+.halfword SPECIES_GLACEON
+.halfword SPECIES_GLALIE
+.halfword SPECIES_GLAMEOW
+.halfword SPECIES_GLIGAR
+.halfword SPECIES_GLISCOR
+.halfword SPECIES_GLOOM
+.halfword SPECIES_GOLBAT
+.halfword SPECIES_GOLDEEN
+.halfword SPECIES_GOLDUCK
+.halfword SPECIES_GOLEM
+.halfword SPECIES_GOLETT
+.halfword SPECIES_GOLURK
+.halfword SPECIES_GOREBYSS
+.halfword SPECIES_GOTHITA
+.halfword SPECIES_GOTHITELLE
+.halfword SPECIES_GOTHORITA
+.halfword SPECIES_GRANBULL
+.halfword SPECIES_GRAVELER
+.halfword SPECIES_GRIMER
+.halfword SPECIES_GROTLE
+.halfword SPECIES_GROUDON
+.halfword SPECIES_GROVYLE
+.halfword SPECIES_GROWLITHE
+.halfword SPECIES_GRUMPIG
+.halfword SPECIES_GULPIN
+.halfword SPECIES_GURDURR
+.halfword SPECIES_GYARADOS
+
+
+.close

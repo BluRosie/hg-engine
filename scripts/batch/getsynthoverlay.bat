@@ -1,0 +1,1 @@
+tools\narchive extract filesys\data\a\0\2\8 -o a028 -nf

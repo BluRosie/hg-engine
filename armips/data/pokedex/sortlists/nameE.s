@@ -1,0 +1,28 @@
+.nds
+.thumb
+
+.create "a214/022.bin", 0x0
+
+.halfword SPECIES_EELEKTRIK
+.halfword SPECIES_EELEKTROSS
+.halfword SPECIES_EEVEE
+.halfword SPECIES_EKANS
+.halfword SPECIES_ELECTABUZZ
+.halfword SPECIES_ELECTIVIRE
+.halfword SPECIES_ELECTRIKE
+.halfword SPECIES_ELECTRODE
+.halfword SPECIES_ELEKID
+.halfword SPECIES_ELGYEM
+.halfword SPECIES_EMBOAR
+.halfword SPECIES_EMOLGA
+.halfword SPECIES_EMPOLEON
+.halfword SPECIES_ENTEI
+.halfword SPECIES_ESCAVALIER
+.halfword SPECIES_ESPEON
+.halfword SPECIES_EXCADRILL
+.halfword SPECIES_EXEGGCUTE
+.halfword SPECIES_EXEGGUTOR
+.halfword SPECIES_EXPLOUD
+
+
+.close

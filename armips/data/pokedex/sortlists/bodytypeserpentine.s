@@ -1,0 +1,45 @@
+.nds
+.thumb
+
+.create "a214/082.bin", 0x0
+
+.halfword SPECIES_EKANS
+.halfword SPECIES_METAPOD
+.halfword SPECIES_KAKUNA
+.halfword SPECIES_ARBOK
+.halfword SPECIES_ONIX
+.halfword SPECIES_DRATINI
+.halfword SPECIES_GYARADOS
+.halfword SPECIES_DRAGONAIR
+.halfword SPECIES_DUNSPARCE
+.halfword SPECIES_SLUGMA
+.halfword SPECIES_STEELIX
+.halfword SPECIES_MAGCARGO
+.halfword SPECIES_PUPITAR
+.halfword SPECIES_SEVIPER
+.halfword SPECIES_MILOTIC
+.halfword SPECIES_HUNTAIL
+.halfword SPECIES_GOREBYSS
+.halfword SPECIES_RAYQUAZA
+.halfword SPECIES_SHELLOS
+.halfword SPECIES_CRESSELIA
+.halfword SPECIES_SERPERIOR
+//.halfword SPECIES_GOOMY
+//.halfword SPECIES_ZYGARDE
+//.halfword SPECIES_CLAWITZER
+//.halfword SPECIES_SLIGGOO
+//.halfword SPECIES_CHARJABUG
+//.halfword SPECIES_SANDYGAST
+//.halfword SPECIES_PYUKUMUKU
+//.halfword SPECIES_MIMIKYU
+//.halfword SPECIES_DRAMPA
+//.halfword SPECIES_APPLIN
+//.halfword SPECIES_PALOSSAND
+//.halfword SPECIES_SILICOBRA
+//.halfword SPECIES_SNOM
+//.halfword SPECIES_DREEPY
+.halfword SPECIES_GASTRODON
+//.halfword SPECIES_SANDACONDA
+
+
+.close
