@@ -18,3 +18,4 @@ dumpitem.py
 
 # pycache files
 *.pyc
+*.sav
