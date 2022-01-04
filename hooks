@@ -15,7 +15,7 @@ arm9 PokeIconCgxPatternGet 080742CC 1
 arm9 GetFormEvo 08070ED4 1
 arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
-0007 hook_7_spriteOffsetSpecies 08018A48 3
+#0007 hook_7_spriteOffsetSpecies 08018A48 3
 #0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 Battle_End 08000B90 1
 0012 FormResert 080069AC 2

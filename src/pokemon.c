@@ -578,6 +578,8 @@ void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp,
     
     sp->battlemon[client].type1 = GetMonData(pp2, 177, 0);
     sp->battlemon[client].type2 = GetMonData(pp2, 178, 0);
+
+    sp->battlemon[client].species = PokeOtherFormMonsNoGet(sp->battlemon[client].species, form_no);
 }
 
 bool8 ReverFormChange(void *pp, u16 species, u8 form_no)

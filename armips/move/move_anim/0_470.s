@@ -45,7 +45,7 @@ MegaAnimScript:
 
     wait 15
     callfunction 0x24, 5, 2, 0, 1, 4, 8 | 0x100, 0, 0, 0, 0, 0
-    callfunction 69, 4, 0, 1, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    //callfunction 69, 4, 0, 1, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     transform 0
     waitstate
