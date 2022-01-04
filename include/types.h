@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TYPES_H
+#define TYPES_H
 
 #include <stdint.h>
 
@@ -41,3 +42,5 @@ void __attribute__((long_call)) ArcUtil_PalSet(u32 fileIdx, u32 dataIdx, u8 palT
 void *__attribute__((long_call)) ArchiveDataLoadMalloc(int arcID, int datID, int heapID);
 void __attribute__((long_call))ArchiveDataLoad(void *data, int arcID, int datID);
 void *__attribute__((long_call))ArchiveDataLoadMallocOfs(int arcID, int datID, int heapID, int ofs, int size);
+
+#endif

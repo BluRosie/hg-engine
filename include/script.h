@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCRIPT_H
+#define SCRIPT_H
 
 #include "types.h"
 
@@ -60,3 +61,5 @@ void* __attribute__((long_call)) EncDataSave_GetSaveDataPtr(void* savedata);
 u16* __attribute__((long_call)) VarGet(void* savedata,u16 Var);
 void __attribute__((long_call)) WORDSET_RegisterAbilityName( void* wordset, u32 bufID, u32 wazaID );
 void __attribute__((long_call)) EventSet_Script(void *fsys, u16 scr_id, void* obj);
+
+#endif

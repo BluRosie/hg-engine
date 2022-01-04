@@ -1,4 +1,5 @@
-#pragma once
+#ifndef POKEDEX_H
+#define POKEDEX_H
 
 #include "types.h"
 
@@ -23,3 +24,5 @@ struct Save_DexData
     u16 link_caught_count;
     u16 lure;
 };
+
+#endif

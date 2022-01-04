@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BATTLE_H
+#define BATTLE_H
 
 #include "types.h"
 #include "sprite.h"
@@ -597,3 +598,5 @@ void __attribute__((long_call)) ST_ServerTotteokiCountCalc(void *bw,void *sp);
 void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp);
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
 void __attribute__((long_call))SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
+
+#endif

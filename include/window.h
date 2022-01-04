@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include "types.h"
 
@@ -28,3 +29,5 @@ void __attribute__((long_call)) FillWindowPixelBuffer(void*,u8);
 void __attribute__((long_call)) PutWindows(void*);
 void __attribute__((long_call)) ConvertNumToString(void *, u32 msg_id, u32 num, u8 keta, u8 type);
 void __attribute__((long_call)) StringPut(void *wk, void *win, u32 col, u32 mode);
+
+#endif

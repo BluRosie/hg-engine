@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONSTANTS_MOVES_H
+#define CONSTANTS_MOVES_H
 
 #define MOVE_NONE 0
 #define MOVE_POUND 1
@@ -567,3 +568,5 @@
 #define MOVE_FUSION_BOLT 562
 
 #define NUM_OF_MOVES 563
+
+#endif

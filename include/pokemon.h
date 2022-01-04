@@ -1,4 +1,5 @@
-#pragma once
+#ifndef POKEMON_H
+#define POKEMON_H
 
 #include "types.h"
 
@@ -244,3 +245,5 @@ void *__attribute__((long_call)) SodateyaWork_GetPokePasoPointer(void *ppd, int 
 void *__attribute__((long_call)) PokeParaPersonalRndChange(void *pp, u32 personal_rnd);
 u8 __attribute__((long_call)) PokeNatureGet(u32);
 void __attribute__((long_call)) PokeSetMove(void *ppp);
+
+#endif

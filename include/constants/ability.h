@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONSTANTS_ABILITY_H
+#define CONSTANTS_ABILITY_H
 
 #define ABILITY_NONE 0
 #define ABILITY_STENCH 1
@@ -78,7 +79,7 @@
 #define ABILITY_SHELL_ARMOR 75
 #define ABILITY_AIR_LOCK 76
 
-//gen 4
+// gen 4
 #define ABILITY_TANGLED_FEET 77
 #define ABILITY_MOTOR_DRIVE 78
 #define ABILITY_RIVALRY 79
@@ -126,3 +127,7 @@
 #define ABILITY_MULTITYPE 121
 #define ABILITY_FLOWER_GIFT 122
 #define ABILITY_BAD_DREAMS 123
+
+// gen 5
+
+#endif

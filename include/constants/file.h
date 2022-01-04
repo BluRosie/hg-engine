@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONSTANTS_FILE_H
+#define CONSTANTS_FILE_H
 
 //NARC files
 #define ARC_SUB_SEQ 1
@@ -11,3 +12,5 @@
 #define SEQ_FORM_CHANGE 262
 
 #define SERVER_WAZA_SEQUENCE_NO 22
+
+#endif
