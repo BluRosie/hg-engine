@@ -3,6 +3,10 @@
 
 #include "types.h"
 
+#define POKEMON_GENDER_MALE 0
+#define POKEMON_GENDER_FEMALE 1
+#define POKEMON_GENDER_UNKNOWN 2
+
 struct pokemon_paso_param
 {
     u32 personal_rnd;          //04h	個性乱数

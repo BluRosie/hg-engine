@@ -7,19 +7,6 @@
 #define MAX_MOVE_NUM 742 //old 467
 #define CLIENT_MAX 4
 
-#define WEATHER_RAIN            0x1
-#define WEATHER_RAIN_2          0x2
-#define WEATHER_RAIN_ALL        0x3
-#define WEATHER_SANDSTORM       0x4
-#define WEATHER_SANDSTORM_2     0x8
-#define WEATHER_SANDSTORM_ALL   0xC
-#define WEATHER_SUN             0x10
-#define WEATHER_SUN_2           0x20
-#define WEATHER_SUN_ALL         0x30
-#define WEATHER_HAIL            0x40
-#define WEATHER_HAIL_2          0x80
-#define WEATHER_HAIL_ALL        0xC0
-
 #define TYPE_NORMAL   0x00
 #define TYPE_FIGHTING 0x01
 #define TYPE_FLYING   0x02
@@ -44,93 +31,70 @@
 #define SELECT_POKEMON_COMMAND 3
 #define SELECT_ESCAPE_COMMAND 4
 
-#define BATTLE_STATE_TOXIC 0x8
-#define BATTLE_STATE_BURN 0x10
-#define BATTLE_STATE_TOXIC_2 0x80
-
-#define SPLIT_PHYSICAL 0
-#define SPLIT_SPECIAL 1
-#define SPLIT_STATUS 2
-
-#define	ADD_STATE_ATKUP	0xF
-#define	ADD_STATE_DEFUP	0x10
+#define ADD_STATE_ATKUP 0xF
+#define ADD_STATE_DEFUP 0x10
 #define ADD_STATE_SPEUP 0x11
 #define ADD_STATE_SPATKUP 0x12
 
-#define	ADD_STATE_ATKDOWN 0x16
+#define ADD_STATE_ATKDOWN 0x16
 #define ADD_STATE_DEFDOWN 0x17
 #define ADD_STATE_SPEDOWN 0x18
 
-#define	ADD_STATE_ATKUP2    0x27
-#define	ADD_STATE_ATKDOWN2  0x2e
+#define ADD_STATE_ATKUP2    0x27
+#define ADD_STATE_ATKDOWN2  0x2e
 
 #define ADD_EFFECT_ABILITY 3
 
-#define BATTLE_TYPE_BATTLE_TOWER 0x80
-
 
 // defines that i believe are straight from source
-#define	SERVER_STATUS_FLAG2_U_TURN			(0x00000010)        //u-turn flag
+#define SERVER_STATUS_FLAG2_U_TURN          (0x00000010)        //u-turn flag
 
-#define	WAZA_STATUS_FLAG_NOHIT					(0x00000001)
-#define	WAZA_STATUS_FLAG_BATSUGUN				(0x00000002)
-#define	WAZA_STATUS_FLAG_IMAHITOTSU				(0x00000004)
-#define	WAZA_STATUS_FLAG_KOUKANAI				(0x00000008)
-#define	WAZA_STATUS_FLAG_CRITICAL				(0x00000010)
-#define	WAZA_STATUS_FLAG_ICHIGEKI				(0x00000020)
-#define	WAZA_STATUS_FLAG_UMAKUKIMARAN			(0x00000040)
-#define	WAZA_STATUS_FLAG_KORAETA				(0x00000080)
-#define	WAZA_STATUS_FLAG_ITEM_KORAETA			(0x00000100)
-#define	WAZA_STATUS_FLAG_PP_NONE				(0x00000200)
-#define	WAZA_STATUS_FLAG_LOCK_ON				(0x00000400)
-#define	WAZA_STATUS_FLAG_JIMEN_NOHIT			(0x00000800)
-#define	WAZA_STATUS_FLAG_ICHIGEKI_NOHIT			(0x00001000)
-#define	WAZA_STATUS_FLAG_NANIMOOKORAN			(0x00002000)
-#define	WAZA_STATUS_FLAG_RENZOKU_NOHIT			(0x00004000)
-#define	WAZA_STATUS_FLAG_MAMORU_NOHIT			(0x00008000)
-#define	WAZA_STATUS_FLAG_KIE_NOHIT				(0x00010000)
-#define	WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT		(0x00020000)
-#define	WAZA_STATUS_FLAG_BATSUGUN_NOHIT			(0x00040000)
-#define	WAZA_STATUS_FLAG_GANZYOU_NOHIT			(0x00080000)
-#define	WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT		(0x00100000)
+#define WAZA_STATUS_FLAG_NOHIT                  (0x00000001)
+#define WAZA_STATUS_FLAG_BATSUGUN               (0x00000002)
+#define WAZA_STATUS_FLAG_IMAHITOTSU             (0x00000004)
+#define WAZA_STATUS_FLAG_KOUKANAI               (0x00000008)
+#define WAZA_STATUS_FLAG_CRITICAL               (0x00000010)
+#define WAZA_STATUS_FLAG_ICHIGEKI               (0x00000020)
+#define WAZA_STATUS_FLAG_UMAKUKIMARAN           (0x00000040)
+#define WAZA_STATUS_FLAG_KORAETA                (0x00000080)
+#define WAZA_STATUS_FLAG_ITEM_KORAETA           (0x00000100)
+#define WAZA_STATUS_FLAG_PP_NONE                (0x00000200)
+#define WAZA_STATUS_FLAG_LOCK_ON                (0x00000400)
+#define WAZA_STATUS_FLAG_JIMEN_NOHIT            (0x00000800)
+#define WAZA_STATUS_FLAG_ICHIGEKI_NOHIT         (0x00001000)
+#define WAZA_STATUS_FLAG_NANIMOOKORAN           (0x00002000)
+#define WAZA_STATUS_FLAG_RENZOKU_NOHIT          (0x00004000)
+#define WAZA_STATUS_FLAG_MAMORU_NOHIT           (0x00008000)
+#define WAZA_STATUS_FLAG_KIE_NOHIT              (0x00010000)
+#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT       (0x00020000)
+#define WAZA_STATUS_FLAG_BATSUGUN_NOHIT         (0x00040000)
+#define WAZA_STATUS_FLAG_GANZYOU_NOHIT          (0x00080000)
+#define WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT       (0x00100000)
 
-#define	WAZA_STATUS_FLAG_SIPPAI					(0x80000000)
+#define WAZA_STATUS_FLAG_SIPPAI                 (0x80000000)
 
-#define	WAZA_STATUS_FLAG_NOHIT_OFF		(WAZA_STATUS_FLAG_NOHIT^0xffffffff)
-#define	WAZA_STATUS_FLAG_BATSUGUN_OFF	(WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
-#define	WAZA_STATUS_FLAG_IMAHITOTSU_OFF	(WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
+#define WAZA_STATUS_FLAG_NOHIT_OFF      (WAZA_STATUS_FLAG_NOHIT^0xffffffff)
+#define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
+#define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
-#define	WAZA_STATUS_FLAG_HAZURE			(WAZA_STATUS_FLAG_NOHIT|WAZA_STATUS_FLAG_KOUKANAI|\
-										 WAZA_STATUS_FLAG_UMAKUKIMARAN|\
-										 WAZA_STATUS_FLAG_JIMEN_NOHIT|\
-										 WAZA_STATUS_FLAG_ICHIGEKI_NOHIT|\
-										 WAZA_STATUS_FLAG_RENZOKU_NOHIT|\
-										 WAZA_STATUS_FLAG_MAMORU_NOHIT|\
-										 WAZA_STATUS_FLAG_KIE_NOHIT|\
-										 WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
-										 WAZA_STATUS_FLAG_BATSUGUN_NOHIT|\
-										 WAZA_STATUS_FLAG_GANZYOU_NOHIT|\
-										 WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT)
+#define WAZA_STATUS_FLAG_HAZURE         (WAZA_STATUS_FLAG_NOHIT|WAZA_STATUS_FLAG_KOUKANAI|\
+                                         WAZA_STATUS_FLAG_UMAKUKIMARAN|\
+                                         WAZA_STATUS_FLAG_JIMEN_NOHIT|\
+                                         WAZA_STATUS_FLAG_ICHIGEKI_NOHIT|\
+                                         WAZA_STATUS_FLAG_RENZOKU_NOHIT|\
+                                         WAZA_STATUS_FLAG_MAMORU_NOHIT|\
+                                         WAZA_STATUS_FLAG_KIE_NOHIT|\
+                                         WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
+                                         WAZA_STATUS_FLAG_BATSUGUN_NOHIT|\
+                                         WAZA_STATUS_FLAG_GANZYOU_NOHIT|\
+                                         WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT)
 
-#define	WAZA_STATUS_FLAG_NO_OUT			(WAZA_STATUS_FLAG_HAZURE|\
-										 WAZA_STATUS_FLAG_PP_NONE|\
-										 WAZA_STATUS_FLAG_SIPPAI)
+#define WAZA_STATUS_FLAG_NO_OUT         (WAZA_STATUS_FLAG_HAZURE|\
+                                         WAZA_STATUS_FLAG_PP_NONE|\
+                                         WAZA_STATUS_FLAG_SIPPAI)
 
-#define	WAZA_STATUS_FLAG_SOUSAI			(WAZA_STATUS_FLAG_BATSUGUN|\
-										 WAZA_STATUS_FLAG_IMAHITOTSU)
-
-#define	FIELD_CONDITION_AME				(0x00000001)	//雨状態
-#define	FIELD_CONDITION_AMEHURASHI		(0x00000002)	//雨状態（特性orフィールド天候）
-#define	FIELD_CONDITION_AME_ALL			(0x00000003)	//雨状態（すべて）
-#define	FIELD_CONDITION_SUNAARASHI		(0x00000004)	//砂嵐状態
-#define	FIELD_CONDITION_SUNAOKOSHI		(0x00000008)	//砂嵐状態(特性orフィールド天候）
-#define	FIELD_CONDITION_SUNAARASHI_ALL	(0x0000000c)	//砂嵐状態(すべて）
-#define	FIELD_CONDITION_HARE			(0x00000010)	//晴れ状態
-#define	FIELD_CONDITION_HIDERI			(0x00000020)	//晴れ状態(特性orフィールド天候）
-#define	FIELD_CONDITION_HARE_ALL		(0x00000030)	//晴れ状態(すべて）
-#define	FIELD_CONDITION_ARARE			(0x00000040)	//あられ状態
-#define	FIELD_CONDITION_YUKIHURASHI		(0x00000080)	//あられ状態(特性orフィールド天候）
-#define	FIELD_CONDITION_ARARE_ALL		(0x000000c0)	//あられ状態(すべて）
+#define WAZA_STATUS_FLAG_SOUSAI         (WAZA_STATUS_FLAG_BATSUGUN|\
+                                         WAZA_STATUS_FLAG_IMAHITOTSU)
 
 #define ADD_STATUS_NONE (0)       //追加効果種類：追加効果なし
 #define ADD_STATUS_DIRECT (1)     //追加効果種類：直接
@@ -141,15 +105,74 @@
 #define ADD_STATUS_DOKUBISI (6)   //追加効果種類：どくびし追加効果
 #define ADD_STATUS_IGNORE (7)     //追加効果種類：いうことをきかない時の追加効果
 
-#define	COND_HP				(0x00)	///<体力
-#define	COND_POW			(0x01)	///<攻撃力
-#define	COND_DEF			(0x02)	///<防御力
-#define	COND_AGI			(0x03)	///<素早さ
-#define	COND_SPEPOW			(0x04)	///<特攻
-#define	COND_SPEDEF			(0x05)	///<特防
-#define	COND_HIT			(0x06)	///<命中率
-#define	COND_AVOID			(0x07)	///<回避率
-#define	COND_MAX			(0x08)	///<CONDのMAX（くろいきり用）
+#define COND_HP             (0x00)  ///<体力
+#define COND_POW            (0x01)  ///<攻撃力
+#define COND_DEF            (0x02)  ///<防御力
+#define COND_AGI            (0x03)  ///<素早さ
+#define COND_SPEPOW         (0x04)  ///<特攻
+#define COND_SPEDEF         (0x05)  ///<特防
+#define COND_HIT            (0x06)  ///<命中率
+#define COND_AVOID          (0x07)  ///<回避率
+#define COND_MAX            (0x08)  ///<CONDのMAX（くろいきり用）
+
+
+
+
+
+// battle type defines
+#define BATTLE_TYPE_SINGLE 0x00
+#define BATTLE_TYPE_TRAINER 0x01
+#define BATTLE_TYPE_DOUBLE 0x02
+#define BATTLE_TYPE_WIRELESS 0x04
+#define BATTLE_TYPE_MULTI 0x08
+#define BATTLE_TYPE_TAG 0x10
+#define BATTLE_TYPE_SAFARI 0x20
+#define BATTLE_TYPE_NPC_MULTI 0x40
+#define BATTLE_TYPE_BATTLE_TOWER 0x80
+#define BATTLE_TYPE_ROAMER 0x100
+#define BATTLE_TYPE_POKE_PARK 0x200
+#define BATTLE_TYPE_CATCHING_DEMO 0x400
+
+// move effect flags/waza_kouka
+#define MOVE_EFFECT_FLAG_CHARGE (0x200)
+#define MOVE_EFFECT_FLAG_MUD_SPORT (0x10000)
+#define MOVE_EFFECT_FLAG_WATER_SPORT (0x20000)
+
+// status condition flags
+#define STATUS_FLAG_POISONED (0x8)
+#define STATUS_FLAG_BURNED (0x10)
+#define STATUS_FLAG_BADLY_POISONED (0x80)
+
+// status2/condition2 flags
+#define STATUS2_FLAG_TRANSFORMED (0x200000)
+
+// side status flags
+#define SIDE_STATUS_REFLECT 0x1
+#define SIDE_STATUS_LIGHT_SCREEN 0x2
+
+// physical/special split values
+#define SPLIT_PHYSICAL 0
+#define SPLIT_SPECIAL 1
+#define SPLIT_STATUS 2
+
+// field status
+#define WEATHER_RAIN                    (0x00000001)
+#define WEATHER_RAIN_PERMANENT          (0x00000002)
+#define WEATHER_RAIN_ANY                (WEATHER_RAIN | WEATHER_RAIN_PERMANENT)
+#define WEATHER_SANDSTORM               (0x00000004)
+#define WEATHER_SANDSTORM_PERMANENT     (0x00000008)
+#define WEATHER_SANDSTORM_ANY           (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)
+#define WEATHER_SUNNY                   (0x00000010)
+#define WEATHER_SUNNY_PERMANENT         (0x00000020)
+#define WEATHER_SUNNY_ANY               (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT)
+#define WEATHER_HAIL                    (0x00000040)
+#define WEATHER_HAIL_PERMANENT          (0x00000080)
+#define WEATHER_HAIL_ANY                (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)
+
+#define FIELD_STATUS_UPROAR             (0x00000f00)
+#define FIELD_STATUS_GRAVITY            (0x00007000)
+#define FIELD_STATUS_FOG                (0x00008000)
+#define FIELD_STATUS_TRICK_ROOM         (0x00070000)
 
 //技能flag
 #define FLAG_CONTACT 1  //接触类招式
@@ -193,7 +216,7 @@ struct OneTurnEffect
     u32 waruagaki_flag : 1; //わるあがきフラグ
     u32 pp_dec_flag : 1;    //PPを減らしたフラグ
     u32 mamoru_flag : 1;    //まもるフラグ
-    u32 tedasuke_flag : 1;  //てだすけフラグ
+    u32 helping_hand_flag : 1;  //てだすけフラグ
     u32 magic_cort_flag : 1;
     u32 yokodori_flag : 1;
     u32 haneyasume_flag : 1;
@@ -305,17 +328,17 @@ struct BattlePokemon
     u8 rare : 1;
     u8 ability;
 
-    u32 appear_check_flag : 1;   //2ch	登場時天候系特性チェックをしたかどうか
-    u32 ikaku_flag : 1;          //2ch	登場時いかくチェックしたかどうか
-    u32 trace_flag : 1;          //2ch	登場時トレースチェックしたかどうか
-    u32 download_flag : 1;       //2ch	登場時ダウンロードチェック
-    u32 kikenyochi_flag : 1;     //2ch	登場時きけんよちチェック
-    u32 yochimu_flag : 1;        //2ch	登場時よちむチェック
-    u32 slow_start_flag : 1;     //2ch	登場時スロースタートチェック
-    u32 slow_start_end_flag : 1; //2ch	スロースタート終了チェック
-    u32 omitooshi_flag : 1;      //2ch	登場時おみとおしチェック
-    u32 katayaburi_flag : 1;     //2ch	登場時かたやぶりチェック
-    u32 pressure_flag : 1;       //2ch	登場時プレッシャーチェック
+    u32 appear_check_flag : 1;   //2ch  登場時天候系特性チェックをしたかどうか
+    u32 ikaku_flag : 1;          //2ch  登場時いかくチェックしたかどうか
+    u32 trace_flag : 1;          //2ch  登場時トレースチェックしたかどうか
+    u32 download_flag : 1;       //2ch  登場時ダウンロードチェック
+    u32 kikenyochi_flag : 1;     //2ch  登場時きけんよちチェック
+    u32 yochimu_flag : 1;        //2ch  登場時よちむチェック
+    u32 slow_start_flag : 1;     //2ch  登場時スロースタートチェック
+    u32 slow_start_end_flag : 1; //2ch  スロースタート終了チェック
+    u32 omitooshi_flag : 1;      //2ch  登場時おみとおしチェック
+    u32 katayaburi_flag : 1;     //2ch  登場時かたやぶりチェック
+    u32 pressure_flag : 1;       //2ch  登場時プレッシャーチェック
     u32 imposter_flag : 1;       //变身
     u32 sword_flag :1;           //不屈之剑
     u32 sheild_flag:1;           //不屈之盾
@@ -348,8 +371,8 @@ struct BattlePokemon
     u8 sex : 4;
     u8 oyasex : 4;
     u8 get_ball;
-    u32 waza_kouka;
-	u32 waza_kouka_temp;
+    u32 effect_of_moves; // think like charge, lock on
+    u32 effect_of_moves_temp;
 
     struct battle_moveflag moveeffect;
 };
@@ -494,7 +517,7 @@ struct tcb_skill_intp_work
 enum
 {
     CHECK_PLAYER_SIDE_ALL = 0,
-    CHECK_PALYER_SIDE_ALIVE,
+    CHECK_PLAYER_SIDE_ALIVE,
     CHECK_ENEMY_SIDE_ALL,
     CHECK_ENEMY_SIDE_ALIVE,
     CHECK_ALL_BATTLER_ALIVE = 8,
@@ -508,19 +531,38 @@ enum
     BATTLE_MON_DATA_SPE,
     BATTLE_MON_DATA_SPATK,
     BATTLE_MON_DATA_SPDEF,
-    BATTLE_MON_DATA_STATE_ATK = 19,
+    BATTLE_MON_DATA_MOVE_1,
+    BATTLE_MON_DATA_MOVE_2,
+    BATTLE_MON_DATA_MOVE_3,
+    BATTLE_MON_DATA_MOVE_4,
+    BATTLE_MON_DATA_HP_RND,
+    BATTLE_MON_DATA_ATK_RND,
+    BATTLE_MON_DATA_DEF_RND,
+    BATTLE_MON_DATA_SPD_RND,
+    BATTLE_MON_DATA_SPATK_RND,
+    BATTLE_MON_DATA_SPDEF_RND,
+    BATTLE_MON_DATA_IS_EGG,
+    BATTLE_MON_DATA_IS_NICKNAMED,
+    BATTLE_MON_DATA_STATE_HP,
+    BATTLE_MON_DATA_STATE_ATK,
     BATTLE_MON_DATA_STATE_DEF,
     BATTLE_MON_DATA_STATE_SPE,
     BATTLE_MON_DATA_STATE_SPATK,
     BATTLE_MON_DATA_STATE_SPDEF,
-    BATTLE_MON_DATA_TYPE1 = 27,
+    BATTLE_MON_DATA_STATE_ACCURACY,
+    BATTLE_MON_DATA_STATE_EVASIVENESS,
+    BATTLE_MON_DATA_ABILITY,
+    BATTLE_MON_DATA_TYPE1,
     BATTLE_MON_DATA_TYPE2,
     BATTLE_MON_DATA_SEX,
     BATTLE_MON_DATA_LEVEL = 43,
     BATTLE_MON_DATA_HP = 47,
     BATTLE_MON_DATA_MAX_HP,
     BATTLE_MON_DATA_MAX_CONDITION = 52,
-    BATTLE_MON_DATA_SOLW_START = 89,
+    BATTLE_MON_DATA_STATUS2 = 53,
+    BATTLE_MON_HELD_ITEM = 55,
+    BATTLE_MON_FLASH_FIRE_ACTIVATED = 73,
+    BATTLE_MON_DATA_SLOW_START_COUNTER = 89,
 };
 
 #define MEGA_NEED 1
@@ -548,7 +590,7 @@ struct BATTLE_PARAM
 };
 
 int SkinAbilityTypeChange(int ability, int movetype);
-u16	GetMonItem(struct BattleStruct *sp,int client_no);
+u16 GetMonItem(struct BattleStruct *sp,int client_no);
 bool8 CheckMoveOnTable(u16 move, const u16 table[]);
 bool8 CheckAbilityOnTable(u8 ability, const u8 table[]);
 void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp, bool8 SwitchAbility);
@@ -565,14 +607,14 @@ s32 __attribute__((long_call)) ItemDataGet(void*,u16,u16);
 u32 __attribute__((long_call)) BattleTypeGet(void*);
 int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
 int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int client_no,int speabi);
-u8 __attribute__((long_call)) CheckAttackCount(void*,void*,int ,int);
+u8 __attribute__((long_call)) CheckNumMonsHit(void*,void*,int ,int);
 BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
 void __attribute__((long_call)) ST_ServerSequenceLoad(void*,int,int);
 struct POKEMON_PARAM* __attribute__((long_call))BattleWorkPokemonParamGet(void*,int,int);
 
 int __attribute__((long_call))BattleWorkEnemyClientNoGet(void*,int,int);
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
-int	__attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
+int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
 
 BOOL __attribute__((long_call)) ServerCriticalMessage(void*,void*);
 BOOL __attribute__((long_call)) ServerWazaStatusMessage(void*,void*);

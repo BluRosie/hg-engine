@@ -1,12 +1,11 @@
-0012 ServerBeforeAct 08011A4C 2
-0012 ServerWazaBefore 08014ACC 2
-
 #mega
 0012 LoadMegaOam 0802F89C 1
 0012 MegaButtonCheck 08030644 2
 0012 load_mega_button 0802FBFC 1
 0012 Sub_PokeIconResourceLoad 080308D4 1
 0012 Sub_PokeIconResourceFree 08030954 1
+0012 ServerBeforeAct 08011A4C 2
+0012 ServerWazaBefore 08014ACC 2
 
 arm9 PokePicLoad 080701EC 1
 arm9 PokeOtherFormMonsNoGet 08072634 2
@@ -24,3 +23,6 @@ arm9 ItemDataTableLoad 08078138 1
 #expand items
 arm9 GetItemIndex 08077C18 2
 arm9 GetItemArcData 08077CE8 3
+
+#battle hooks
+0012 calc_base_damage_hook 0801F73C 1
