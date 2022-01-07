@@ -79,17 +79,18 @@ static const u8 StatBoostModifiers[][2] = {
         {          40,          10 },
 };
 
-int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32 field_cond,u16 pow,u8 type,u8 attacker,u8 defender,u8 critical)
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, 
+                   u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical)
 {
     u32 i;
     s32 damage = 0;
     s32 damage2 = 0;
     u8 movetype;
     u8 movesplit;
-    u16 pokeatk;
-    u16 pokedef;
-    u16 pokespatk;
-    u16 pokespdef;
+    u16 attack;
+    u16 defense;
+    u16 sp_attack;
+    u16 sp_defense;
     s8 atkstate;
     s8 defstate;
     s8 spatkstate;
@@ -102,10 +103,10 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
     struct sDamageCalc AttackingMon;
     struct sDamageCalc DefendingMon;
 
-    pokeatk = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
-    pokedef = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
-    pokespatk = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
-    pokespdef = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
+    attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+    defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
+    sp_attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
+    sp_defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
 
     atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
@@ -115,26 +116,25 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
     level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
+    DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
     AttackingMon.hp = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_HP, NULL);
+    DefendingMon.hp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_HP, NULL);
     AttackingMon.maxhp = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_HP, NULL);
+    DefendingMon.maxhp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_HP, NULL);
     AttackingMon.condition = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_CONDITION, NULL);
+    DefendingMon.condition = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_CONDITION, NULL);
     AttackingMon.ability = GetTargetAbility(sp, attacker);
+    DefendingMon.ability = GetTargetAbility(sp, defender);
     AttackingMon.sex = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SEX, NULL);
+    DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
     AttackingMon.type1 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL);
+    DefendingMon.type1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
     AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
+    DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     
     item = GetMonItem(sp, attacker);
     AttackingMon.item_held_effect = ItemDataGet(sp, item, 1);
     AttackingMon.item_power = ItemDataGet(sp, item, 2);
-    
-    DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
-    DefendingMon.hp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_HP, NULL);
-    DefendingMon.maxhp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_HP, NULL);
-    DefendingMon.condition = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_CONDITION, NULL);
-    DefendingMon.ability = GetTargetAbility(sp, defender);
-    DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
-    DefendingMon.type1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
-    DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
 
     item = GetMonItem(sp, defender);
     DefendingMon.item_held_effect = ItemDataGet(sp, item, 1);
@@ -173,12 +173,12 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
 
     // handle huge power + pure power
     if ((AttackingMon.ability == ABILITY_HUGE_POWER) || (AttackingMon.ability == ABILITY_PURE_POWER))
-        pokeatk = pokeatk * 2;
+        attack = attack * 2;
 
     // handle slow start
     if ((AttackingMon.ability == ABILITY_SLOW_START) 
      && ((BattleWorkMonDataGet(bw, sp, 3, 0) - BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SLOW_START_COUNTER, NULL)) < 5))
-        pokeatk /= 2;
+        attack /= 2;
 
     // type boosting held items
     for (i = 0; i < NELEMS(HeldItemPowerUpTable); i++)
@@ -191,30 +191,30 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
     }
     // handle choice band
     if (AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_BAND)
-        pokeatk = pokeatk * 150 / 100;
+        attack = attack * 150 / 100;
 
     // handle choice specs
     if (AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_SPECS)
-        pokespatk = pokespatk * 150 / 100;
+        sp_attack = sp_attack * 150 / 100;
 
     // handle soul dew
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW) &&
         ((battle_type & BATTLE_TYPE_BATTLE_TOWER) == 0) &&
         ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS)))
-        pokespatk = pokespatk * 150 / 100;
+        sp_attack = sp_attack * 150 / 100;
 
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW) &&
         ((battle_type & BATTLE_TYPE_BATTLE_TOWER) == 0) &&
         ((DefendingMon.species == SPECIES_LATIOS) || (DefendingMon.species == SPECIES_LATIAS)))
-        pokespdef = pokespdef * 150 / 100;
+        sp_defense = sp_defense * 150 / 100;
 
     // handle deep sea tooth
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_DEEP_SEA_TOOTH) && (AttackingMon.species == SPECIES_CLAMPERL))
-        pokespatk *= 2;
+        sp_attack *= 2;
 
     // handle deep sea scale
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_DEEP_SEA_SCALE) && (DefendingMon.species == SPECIES_CLAMPERL))
-        pokespdef *= 2;
+        sp_defense *= 2;
 
     // handle light ball
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_LIGHT_BALL) && (AttackingMon.species == SPECIES_PIKACHU))
@@ -222,13 +222,13 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
 
     // handle metal powder
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_METAL_POWDER) && (DefendingMon.species == SPECIES_DITTO))
-        pokedef *= 2;
+        defense *= 2;
 
     // handle thick club
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_THICK_CLUB)
      && ((AttackingMon.species == SPECIES_CUBONE)
       || (AttackingMon.species == SPECIES_MAROWAK)))
-        pokeatk *= 2;
+        attack *= 2;
 
     // handle adamant/lustrous/griseous orb
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_ADAMANT_ORB) &&
@@ -274,32 +274,32 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
     // handle hustle
     if (AttackingMon.ability == ABILITY_HUSTLE)
     {
-        pokeatk = pokeatk * 150 / 100;
+        attack = attack * 150 / 100;
     }
 
     // handle guts
     if ((AttackingMon.ability == ABILITY_GUTS) && (AttackingMon.condition))
     {
-        pokeatk = pokeatk * 150 / 100;
+        attack = attack * 150 / 100;
     }
 
     // handle marvel scale
     if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
     {
-        pokedef = pokedef * 150 / 100;
+        defense = defense * 150 / 100;
     }
 
     // handle plus/minus
     if ((AttackingMon.ability == ABILITY_PLUS) &&
         (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_MINUS)))
     {
-        pokespatk = pokespatk * 150 / 100;
+        sp_attack = sp_attack * 150 / 100;
     }
 
     if ((AttackingMon.ability == ABILITY_MINUS) &&
         (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_PLUS)))
     {
-        pokespatk = pokespatk * 150 / 100;
+        sp_attack = sp_attack * 150 / 100;
     }
 
     // handle mud/water sport
@@ -438,29 +438,29 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
     {
         if ((field_cond & WEATHER_SUNNY_ANY) && (AttackingMon.ability == ABILITY_SOLAR_POWER))
         {
-            pokespatk = pokespatk * 15 / 10;
+            sp_attack = sp_attack * 15 / 10;
         }
         if ((field_cond & WEATHER_SANDSTORM_ANY) &&
             ((DefendingMon.type1 == TYPE_ROCK) || (DefendingMon.type2 == TYPE_ROCK)))
         {
-            pokespdef = pokespdef * 15 / 10;
+            sp_defense = sp_defense * 15 / 10;
         }
         if ((field_cond & WEATHER_SUNNY_ANY) &&
             (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_FLOWER_GIFT)))
         {
-            pokeatk = pokeatk * 15 / 10;
+            attack = attack * 15 / 10;
         }
         if ((field_cond & WEATHER_SUNNY_ANY) &&
             (GetTargetAbility(sp, attacker) != ABILITY_MOLD_BREAKER) &&
             (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, defender, ABILITY_FLOWER_GIFT)))
         {
-            pokespdef = pokespdef * 15 / 10;
+            sp_defense = sp_defense * 15 / 10;
         }
     }
 
     // halve the defense if using selfdestruct/explosion
-    if(sp->old_moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
-		pokedef = pokedef / 2;
+    if (sp->old_moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
+		defense = defense / 2;
 
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
@@ -469,17 +469,17 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
         {
             if (atkstate > 6)
             {
-                damage = pokeatk * StatBoostModifiers[atkstate][0];
+                damage = attack * StatBoostModifiers[atkstate][0];
                 damage /= StatBoostModifiers[atkstate][1];
             }
             else
             {
-                damage = pokeatk;
+                damage = attack;
             }
         }
         else
         {
-            damage = pokeatk * StatBoostModifiers[atkstate][0];
+            damage = attack * StatBoostModifiers[atkstate][0];
             damage /= StatBoostModifiers[atkstate][1];
         }
 
@@ -490,17 +490,17 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
         {
             if (defstate < 6)
             {
-                damage2 = pokedef * StatBoostModifiers[defstate][0];
+                damage2 = defense * StatBoostModifiers[defstate][0];
                 damage2 /= StatBoostModifiers[defstate][1];
             }
             else
             {
-                damage2 = pokedef;
+                damage2 = defense;
             }
         }
         else
         {
-            damage2 = pokedef * StatBoostModifiers[defstate][0];
+            damage2 = defense * StatBoostModifiers[defstate][0];
             damage2 /= StatBoostModifiers[defstate][1];
         }
 
@@ -512,6 +512,7 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
         {
             damage /= 2;
         }
+        
         // handle reflect
         if (((side_cond & SIDE_STATUS_REFLECT) != 0) && 
             (critical == 1) && 
@@ -527,23 +528,23 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
             }
         }
     }
-    else if (movesplit == SPLIT_SPECIAL) // same as above, handle special moves
+    else// if (movesplit == SPLIT_SPECIAL) // same as above, handle special moves
     {
         if (critical > 1)
         {
             if (spatkstate > 6)
             {
-                damage = pokespatk * StatBoostModifiers[spatkstate][0];
+                damage = sp_attack * StatBoostModifiers[spatkstate][0];
                 damage /= StatBoostModifiers[spatkstate][1];
             }
             else
             {
-                damage = pokespatk;
+                damage = sp_attack;
             }
         }
         else
         {
-            damage = pokespatk * StatBoostModifiers[spatkstate][0];
+            damage = sp_attack * StatBoostModifiers[spatkstate][0];
             damage /= StatBoostModifiers[spatkstate][1];
         }
 
@@ -554,17 +555,17 @@ int	CalcBaseDamage(void *bw,struct BattleStruct *sp,int moveno,u32 side_cond,u32
         {
             if (spdefstate < 6)
             {
-                damage2 = pokespdef * StatBoostModifiers[spdefstate][0];
+                damage2 = sp_defense * StatBoostModifiers[spdefstate][0];
                 damage2 /= StatBoostModifiers[spdefstate][1];
             }
             else
             {
-                damage2 = pokespdef;
+                damage2 = sp_defense;
             }
         }
         else
         {
-            damage2 = pokespdef * StatBoostModifiers[spdefstate][0];
+            damage2 = sp_defense * StatBoostModifiers[spdefstate][0];
             damage2 /= StatBoostModifiers[spdefstate][1];
         }
 

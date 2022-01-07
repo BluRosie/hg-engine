@@ -1,4 +1,4 @@
 # damage calc hook setup
-# push {r5, lr}
-# mov r5, r1
-0012 0801F738 20 B5 0d 00
+# push {r5-r6}
+# nop
+0012 0801F738 60 b4 C0 46

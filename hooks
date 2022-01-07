@@ -28,4 +28,4 @@ arm9 GetItemArcData 08077CE8 3
 arm9 GetPokemonOwNum 0806A304 1
 
 #battle hooks
-0012 calc_base_damage_hook 0801F73C 1
+0012 calc_base_damage_hook 0801F73C 5

@@ -177,7 +177,7 @@
 //技能flag
 #define FLAG_CONTACT 1  //接触类招式
 
-struct sDamageCalc
+struct __attribute__((packed)) sDamageCalc
 {
     u16 species;
     s16 hp;
@@ -194,7 +194,7 @@ struct sDamageCalc
     u8 type2;
 };
 
-struct BattleMove
+struct __attribute__((packed)) BattleMove
 {
     u16 effect;
     u8 split;
@@ -211,7 +211,7 @@ struct BattleMove
     u8 unk[4];
 };
 
-struct OneTurnEffect
+struct __attribute__((packed)) OneTurnEffect
 {
     u32 waruagaki_flag : 1; //わるあがきフラグ
     u32 pp_dec_flag : 1;    //PPを減らしたフラグ
@@ -235,7 +235,7 @@ struct OneTurnEffect
     int dameoshi_damage;
 };
 
-struct OneSelfTurnEffect
+struct __attribute__((packed)) OneSelfTurnEffect
 {
     u32 no_pressure_flag : 1;  ///<特性プレッシャーの効果を受けない
     u32 hiraisin_flag : 1;     ///<特性ひらいしんの効果が発動
@@ -254,7 +254,7 @@ struct OneSelfTurnEffect
     int kaigara_damage;        ///<かいがらのすず用ダメージ量
 };
 
-struct battle_moveflag
+struct __attribute__((packed)) battle_moveflag
 {
     u32 kanashibari_count : 3;      ///<かなしばりカウンタ
     u32 encore_count : 3;           ///<アンコールカウンタ
@@ -303,7 +303,7 @@ struct battle_moveflag
 
     int item_hp_recover;
 };
-struct BattlePokemon
+struct __attribute__((packed)) BattlePokemon
 {
     u16 species;
     u16 atk;
@@ -339,17 +339,8 @@ struct BattlePokemon
     u32 omitooshi_flag : 1;      //2ch  登場時おみとおしチェック
     u32 katayaburi_flag : 1;     //2ch  登場時かたやぶりチェック
     u32 pressure_flag : 1;       //2ch  登場時プレッシャーチェック
-    u32 imposter_flag : 1;       //变身
-    u32 sword_flag :1;           //不屈之剑
-    u32 sheild_flag:1;           //不屈之盾
-    u32 dark_flag:1;             //黑暗光环
-    u32 fairy_flag:1;            //妖精光环
-    u32 aura_break_flag:1;       //光环破坏
-    u32 sword_change_flag:1;     //腐朽之剑
-    u32 sheild_change_flag:1;    //腐朽之盾
-    u32 canMega:1;               //可以mega
-    u32 bazhu_flag:1;            //霸主气场
-    u32 : 11;                    //2ch
+    u32 canMega : 1;
+    u32 : 20;                    //2ch
 
     u8 pp[4];
     u8 pp_count[4];
@@ -377,10 +368,10 @@ struct BattlePokemon
     struct battle_moveflag moveeffect;
 };
 
-struct BattleStruct
+struct __attribute__((packed)) BattleStruct
 {
-    /*0x0*/ u8 com_seq_no[4];
-    /*0x4*/ u8 ret_seq_no[4];
+    /*0x0*/ u8 com_seq_no[CLIENT_MAX];
+    /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
     /*0x8*/ int server_seq_no;
     /*0xC*/ int next_server_seq_no;
     /*0x10*/ int fcc_seq_no;
@@ -508,7 +499,7 @@ struct BattleStruct
     /*...*/
 };
 
-struct tcb_skill_intp_work
+struct __attribute__((packed)) tcb_skill_intp_work
 {
     void *bw;
     struct BattleStruct *sp;
@@ -569,7 +560,7 @@ enum
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0
 
-struct newBattleStruct
+struct __attribute__((packed)) newBattleStruct
 {
     u8 SideMega[2];//检查双方是否mega过,0我方,1敌方
     u8 playerWantMega;
@@ -583,7 +574,7 @@ struct newBattleStruct
     u8 CanMega:4;
 };
 
-struct BATTLE_PARAM
+struct __attribute__((packed)) BATTLE_PARAM
 {
     u8 fill[0x1C0];
     void* savedata;

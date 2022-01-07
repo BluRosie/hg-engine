@@ -95,7 +95,6 @@ all: $(OUTPUT)
 	$(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
-	$(NARCHIVE) extract base/root/a/0/2/7 -o build/text -nf
 	$(PYTHON) scripts/build.py
 	make move_narc
 	$(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
