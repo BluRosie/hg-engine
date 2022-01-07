@@ -24,5 +24,8 @@ arm9 ItemDataTableLoad 08078138 1
 arm9 GetItemIndex 08077C18 2
 arm9 GetItemArcData 08077CE8 3
 
+#mon expansion
+arm9 GetPokemonOwNum 0806A304 1
+
 #battle hooks
 0012 calc_base_damage_hook 0801F73C 1

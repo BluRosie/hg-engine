@@ -10,7 +10,7 @@ import _io
 OFFSET_TO_PUT = 0
 SOURCE_ROM = "rom.nds"
 ROM_NAME = "test.nds"
-OFFSET_START = 0x023C8000 + 0x3400 # 0x3400 is the offset in the synthetic overlay.  change to where you need it to be.
+OFFSET_START = 0x023C8000 + 0x4000 # 0x3400 is the offset in the synthetic overlay.  change to where you need it to be.
 
 if sys.platform.startswith('win'):
     PathVar = os.environ.get('Path')

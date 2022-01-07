@@ -190,7 +190,10 @@ move_narc:
 	$(NARCHIVE) create base/root/a/0/2/0 build/pokemonicon -nf
 	
 	@echo "pokemon overworlds:"
+	mkdir -p build/a141
+	$(ARMIPS) armips/data/monoverworlds.s
 	cp build/pokemonow.narc base/root/a/0/8/1
+	$(NARCHIVE) create base/root/a/1/4/1 build/a141 -nf
 	
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s

@@ -91,15 +91,10 @@ get_mon_ow_tag:
 .endarea
 
 
-.org 0x0206A30C
-
-.word gSpeciesToOWNum // update the table, wherever it is
-
-
 .org 0x0206A338
 
-.area 0x28
 
+.area 0x28
 
 // rewrite this to use a byte per mon instead of a whole hword
 // might rewrite to use a nybble eventually
@@ -114,7 +109,6 @@ does_species_have_dimorphism:
     ble @@_validMon
 
 @@_invalidMon:
-    bl 0x0202551C
     mov r0, #0
     b @@_getDimorphism
     
