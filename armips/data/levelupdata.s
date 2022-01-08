@@ -4,6 +4,7 @@
 .include "armips/include/macros.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/asm/levelup.s"
 
 // the level up moves for each pokemon
 

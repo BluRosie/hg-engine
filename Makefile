@@ -226,7 +226,7 @@ move_narc:
 	$(NARCHIVE) create base/root/a/0/6/9 rawdata/footprints -nf
 	
 	@echo "mon learnset data:"
-	$(NARCHIVE) extract base/root/a/0/3/3 -o build/a033 -nf
+	mkdir -p build/a033
 	$(ARMIPS) armips/data/levelupdata.s
 	$(NARCHIVE) create base/root/a/0/3/3 build/a033 -nf
 
