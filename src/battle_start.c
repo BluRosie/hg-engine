@@ -310,7 +310,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
         sp->wb_seq_no++;
         //引水等特性检查
     case SEQ_DEFENCE_CHANGE_CHECK:
-        ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->movetype_now);//8019158h
+        ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
         sp->wb_seq_no = 0;
     }
 
@@ -321,7 +321,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
     else
     {
         sp->server_status_flag2 |= 0x40;
-        ST_ServerSequenceLoad(sp, 0, sp->movetype_now);
+        ST_ServerSequenceLoad(sp, 0, sp->current_move_index);
         sp->server_seq_no = 0x16;
         sp->next_server_seq_no = 0x18;
         ST_ServerTotteokiCountCalc(bw, sp);//801B570h

@@ -154,3 +154,14 @@ Sub_ScrnOffsetRewrite = 0x31624 + 0x022378C1;
 EffectTCB_Add = 0x315C4 + 0x022378C1;
 
 Snd_SePlay = 0x0200604C | 1;
+
+
+
+
+
+
+
+/* new battle engine */
+GetBattlerAbility = 0x022527CC | 1;
+MoldBreakerAbilityCheck = 0x02252834 | 1;
+BattleDamageDivide = 0x02253178 | 1;

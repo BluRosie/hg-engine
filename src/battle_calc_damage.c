@@ -645,7 +645,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     return damage + 2;
 }
 
-u16	GetMonItem(struct BattleStruct *sp,int client_no)
+u16	GetMonItem(struct BattleStruct *sp, int client_no)
 {
 	if((GetTargetAbility(sp,client_no)==ABILITY_KLUTZ)){
 		return 0;

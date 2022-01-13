@@ -1,4 +1,16 @@
 # damage calc hook setup
 # push {r5-r6}
 # nop
-0012 0801F738 60 b4 C0 46
+0012 0801F738 60 B4 C0 46
+
+## CalcAccuracy hook setup
+## 0224BCC4
+#0012 08014404 60 B4 C0 46
+#
+## CalcSpeed hook setup
+## 0224FC48
+#0012 08018388 60 B4 C0 46
+#
+## CalcCritical hook setup
+## 02257C5C
+#0012 0802039C 60 B4 C0 46

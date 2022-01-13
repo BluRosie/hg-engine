@@ -141,6 +141,7 @@
 // status condition flags
 #define STATUS_FLAG_POISONED (0x8)
 #define STATUS_FLAG_BURNED (0x10)
+#define STATUS_FLAG_FROZEN (0x20)
 #define STATUS_FLAG_BADLY_POISONED (0x80)
 
 // status2/condition2 flags
@@ -474,9 +475,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
     /*0x2700*/ int SkillSeqWork[400];
-    /*0x2D40*/ struct BattlePokemon battlemon[4]; //0xc0
+    /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
     /*0x3040*/ u32 waza_no_temp;
-    /*0x3044*/ u32 movetype_now;
+    /*0x3044*/ u32 current_move_index;
     /*0x3048*/ u8 unk_bytes4[0xC0];
     /*0x3108*/ u8 no_reshuffle_client;
     /*0x3109*/ u8 level_up_pokemon;
@@ -580,10 +581,6 @@ struct __attribute__((packed)) BATTLE_PARAM
     void* savedata;
 };
 
-int SkinAbilityTypeChange(int ability, int movetype);
-u16 GetMonItem(struct BattleStruct *sp,int client_no);
-bool8 CheckMoveOnTable(u16 move, const u16 table[]);
-bool8 CheckAbilityOnTable(u8 ability, const u8 table[]);
 void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp, bool8 SwitchAbility);
 
 extern struct newBattleStruct newBS;
@@ -631,5 +628,25 @@ void __attribute__((long_call)) ST_ServerTotteokiCountCalc(void *bw,void *sp);
 void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp);
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
 void __attribute__((long_call))SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
+
+
+
+
+
+
+/* new battle engine declarations*/
+int __attribute__((long_call)) GetBattlerAbility(void *sp, int client);
+u32 __attribute__((long_call)) MoldBreakerAbilityCheck(void *sp, int attacker, int defender, int ability);
+int __attribute__((long_call)) BattleDamageDivide(int data, int divisor);
+
+// defined in battle_calc_damage.c
+u16 GetMonItem(struct BattleStruct *sp, int client_no);
+
+
+
+
+
+
+
 
 #endif
