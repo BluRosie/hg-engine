@@ -50,9 +50,9 @@
 #define SERVER_STATUS_FLAG2_U_TURN          (0x00000010)        //u-turn flag
 
 #define WAZA_STATUS_FLAG_NOHIT                  (0x00000001)
-#define WAZA_STATUS_FLAG_BATSUGUN               (0x00000002)
-#define WAZA_STATUS_FLAG_IMAHITOTSU             (0x00000004)
-#define WAZA_STATUS_FLAG_KOUKANAI               (0x00000008)
+#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE        (0x00000002)
+#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE     (0x00000004)
+#define MOVE_STATUS_FLAG_NOT_EFFECTIVE          (0x00000008)
 #define WAZA_STATUS_FLAG_CRITICAL               (0x00000010)
 #define WAZA_STATUS_FLAG_ICHIGEKI               (0x00000020)
 #define WAZA_STATUS_FLAG_UMAKUKIMARAN           (0x00000040)
@@ -77,7 +77,7 @@
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
 #define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
-#define WAZA_STATUS_FLAG_HAZURE         (WAZA_STATUS_FLAG_NOHIT|WAZA_STATUS_FLAG_KOUKANAI|\
+#define WAZA_STATUS_FLAG_HAZURE         (WAZA_STATUS_FLAG_NOHIT|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          WAZA_STATUS_FLAG_UMAKUKIMARAN|\
                                          WAZA_STATUS_FLAG_JIMEN_NOHIT|\
                                          WAZA_STATUS_FLAG_ICHIGEKI_NOHIT|\
@@ -96,28 +96,20 @@
 #define WAZA_STATUS_FLAG_SOUSAI         (WAZA_STATUS_FLAG_BATSUGUN|\
                                          WAZA_STATUS_FLAG_IMAHITOTSU)
 
-#define ADD_STATUS_NONE (0)       //追加効果種類：追加効果なし
-#define ADD_STATUS_DIRECT (1)     //追加効果種類：直接
-#define ADD_STATUS_INDIRECT (2)   //追加効果種類：間接
-#define ADD_STATUS_TOKUSEI (3)    //追加効果種類：特性
-#define ADD_STATUS_WAZA_KOUKA (4) //追加効果種類：技効果
-#define ADD_STATUS_SOUBIITEM (5)  //追加効果種類：装備アイテム効果
-#define ADD_STATUS_DOKUBISI (6)   //追加効果種類：どくびし追加効果
-#define ADD_STATUS_IGNORE (7)     //追加効果種類：いうことをきかない時の追加効果
-
-#define COND_HP             (0x00)  ///<体力
-#define COND_POW            (0x01)  ///<攻撃力
-#define COND_DEF            (0x02)  ///<防御力
-#define COND_AGI            (0x03)  ///<素早さ
-#define COND_SPEPOW         (0x04)  ///<特攻
-#define COND_SPEDEF         (0x05)  ///<特防
-#define COND_HIT            (0x06)  ///<命中率
-#define COND_AVOID          (0x07)  ///<回避率
-#define COND_MAX            (0x08)  ///<CONDのMAX（くろいきり用）
 
 
 
 
+// stat definitions
+#define STAT_HP             (0x00)
+#define STAT_ATTACK         (0x01)
+#define STAT_DEFENSE        (0x02)
+#define STAT_SPEED          (0x03)
+#define STAT_SPATK          (0x04)
+#define STAT_SPDEF          (0x05)
+#define STAT_ACCURACY       (0x06)
+#define STAT_EVASION        (0x07)
+#define STAT_MAX            (0x08)
 
 // battle type defines
 #define BATTLE_TYPE_SINGLE 0x00
@@ -145,7 +137,8 @@
 #define STATUS_FLAG_BADLY_POISONED (0x80)
 
 // status2/condition2 flags
-#define STATUS2_FLAG_TRANSFORMED (0x200000)
+#define STATUS2_FLAG_TRANSFORMED (0x00200000)
+#define STATUS2_FLAG_SUBSTITUTE (0x01000000)
 
 // side status flags
 #define SIDE_STATUS_REFLECT 0x1
@@ -175,8 +168,19 @@
 #define FIELD_STATUS_FOG                (0x00008000)
 #define FIELD_STATUS_TRICK_ROOM         (0x00070000)
 
-//技能flag
-#define FLAG_CONTACT 1  //接触类招式
+// opponent positions
+#define	BATTLER_POSITION_SIDE_RIGHT (0)
+#define	BATTLER_POSITION_SIDE_LEFT  (2)
+
+// move flags for BattleMove flag field
+#define FLAG_CONTACT     (0x01)
+#define FLAG_PROTECT     (0x02)
+#define FLAG_MAGIC_COAT  (0x04)
+#define FLAG_SNATCH      (0x08)
+#define FLAG_MIRROR_MOVE (0x10)
+#define FLAG_KINGS_ROCK  (0x20)
+#define FLAG_KEEP_HP_BAR (0x40)
+#define FLAG_HIDE_SHADOW (0x80)
 
 struct __attribute__((packed)) sDamageCalc
 {
@@ -241,7 +245,7 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 no_pressure_flag : 1;  ///<特性プレッシャーの効果を受けない
     u32 hiraisin_flag : 1;     ///<特性ひらいしんの効果が発動
     u32 yobimizu_flag : 1;     ///<特性よびみずのの効果が発動
-    u32 katayaburi_flag : 1;   ///<特性かたやぶりの効果が発動
+    u32 mold_breaker_flag : 1;   ///<特性かたやぶりの効果が発動
     u32 trickroom_flag : 1;    ///<トリックルーム発動
     u32 item_koraeru_flag : 1; ///<こらえるフラグ（装備道具効果）
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
@@ -330,18 +334,19 @@ struct __attribute__((packed)) BattlePokemon
     u8 ability;
 
     u32 appear_check_flag : 1;   //2ch  登場時天候系特性チェックをしたかどうか
-    u32 ikaku_flag : 1;          //2ch  登場時いかくチェックしたかどうか
+    u32 intimidate_flag : 1;          //2ch  登場時いかくチェックしたかどうか
     u32 trace_flag : 1;          //2ch  登場時トレースチェックしたかどうか
     u32 download_flag : 1;       //2ch  登場時ダウンロードチェック
-    u32 kikenyochi_flag : 1;     //2ch  登場時きけんよちチェック
-    u32 yochimu_flag : 1;        //2ch  登場時よちむチェック
+    u32 anticipation_flag : 1;     //2ch  登場時きけんよちチェック
+    u32 forewarn_flag : 1;        //2ch  登場時よちむチェック
     u32 slow_start_flag : 1;     //2ch  登場時スロースタートチェック
     u32 slow_start_end_flag : 1; //2ch  スロースタート終了チェック
-    u32 omitooshi_flag : 1;      //2ch  登場時おみとおしチェック
-    u32 katayaburi_flag : 1;     //2ch  登場時かたやぶりチェック
+    u32 frisk_flag : 1;      //2ch  登場時おみとおしチェック
+    u32 mold_breaker_flag : 1;     //2ch  登場時かたやぶりチェック
     u32 pressure_flag : 1;       //2ch  登場時プレッシャーチェック
     u32 canMega : 1;
-    u32 : 20;                    //2ch
+    u32 unnerve_flag : 1;
+    u32 : 19;                    //2ch
 
     u8 pp[4];
     u8 pp_count[4];
@@ -393,7 +398,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x4c*/ int woc_seq_no;
     /*0x50*/ int ssc_seq_no;
     /*0x54*/ int stc_seq_no;
-    /*0x58*/ int spac_seq_no;
+    /*0x58*/ int switch_in_check_seq_no;
     /*0x5C*/ int svc_work;
 
     /*0x60*/ int waza_seq_adrs;
@@ -449,7 +454,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x215C*/ int hp_calc_work;
     /*0x2160*/ int move_type;
     /*0x2164*/ int waza_eff_cnt;
-    /*0x2168*/ int okodukai_value;
+    /*0x2168*/ int money_multiplier;
     /*0x216C*/ u32 waza_status_flag;
 
     /*0x2170*/ u32 add_status_flag_direct;
@@ -470,7 +475,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x21A4*/ u8 ai_reshuffle_sel_mons_no[CLIENT_MAX];
     /*0x21A8*/ u32 client_act_work[4][4];
     /*0x21E8*/ u8 client_agi_work[4];
-    /*0x21EC*/ u8 psp_agi_work[4];
+    /*0x21EC*/ u8 turn_order[4];
     /*0x21F0*/ u32 psp_agi_point[4];
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
@@ -591,7 +596,7 @@ extern const u8 CondChgTable[][2];
 BOOL __attribute__((long_call)) CheckDefenceAbility(void *, int, int, int);
 int __attribute__((long_call)) BattlePokemonParamGet(void*,int ,int,void*);
 int __attribute__((long_call)) GetTargetAbility(void *gBattleRam,int target);
-s32 __attribute__((long_call)) ItemDataGet(void*,u16,u16);
+s32 __attribute__((long_call)) BattleItemDataGet(void*,u16,u16);
 u32 __attribute__((long_call)) BattleTypeGet(void*);
 int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
 int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int client_no,int speabi);
@@ -600,7 +605,6 @@ BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
 void __attribute__((long_call)) ST_ServerSequenceLoad(void*,int,int);
 struct POKEMON_PARAM* __attribute__((long_call))BattleWorkPokemonParamGet(void*,int,int);
 
-int __attribute__((long_call))BattleWorkEnemyClientNoGet(void*,int,int);
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
 int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
 
@@ -627,7 +631,7 @@ void __attribute__((long_call)) ST_ServerDefenceClientTokuseiCheck(void *bw, voi
 void __attribute__((long_call)) ST_ServerTotteokiCountCalc(void *bw,void *sp);
 void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp);
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
-void __attribute__((long_call))SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
+void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
 
 
 
@@ -638,6 +642,18 @@ void __attribute__((long_call))SCIO_StatusEffectSet(void *bw,void *sp,int send_c
 int __attribute__((long_call)) GetBattlerAbility(void *sp, int client);
 u32 __attribute__((long_call)) MoldBreakerAbilityCheck(void *sp, int attacker, int defender, int ability);
 int __attribute__((long_call)) BattleDamageDivide(int data, int divisor);
+int __attribute__((long_call)) BattleWorkWeatherGet(void *bw);
+int __attribute__((long_call)) BattleWorkEnemyClientGet(void *bw, int client, int side);
+int __attribute__((long_call)) TraceClientGet(void *bw, struct BattleStruct *sp, int def1, int def2);
+u8 __attribute__((long_call)) IsClientEnemy(void *bw, int client);
+int __attribute__((long_call)) TypeCalc(void *bw, void *sp, int movenum, int movetype, int attacker, int defender, int damage, u32 *flag);
+u32 __attribute__((long_call)) AnticipateMoveEffectListCheck(void *sp, int movenum);
+u16 __attribute__((long_call)) BattleRand(void *bw);
+int __attribute__((long_call)) ChooseRandomTarget(void *bw, void *sp, int client);
+int __attribute__((long_call)) CountBattlerMoves(void *bw, void *sp, int client_no);
+u32 __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *seq_no);
+u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, void *sp, int client_no, int act_flag);
+u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, void *sp, int client_no, int *seq_no);
 
 // defined in battle_calc_damage.c
 u16 GetMonItem(struct BattleStruct *sp, int client_no);

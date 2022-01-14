@@ -7,10 +7,17 @@
     .thumb_func
     .type __aeabi_idiv,function
 __aeabi_idiv:
+    .force_thumb
+    .syntax unified
+    .global __aeabi_idivmod
+    .thumb_func
+    .type __aeabi_idivmod,function
+__aeabi_idivmod:
     push {lr}
     blx  0x020f2998
     pop {pc}
 	.size __aeabi_idiv, . - __aeabi_idiv
+	.size __aeabi_idivmod, . - __aeabi_idivmod
 
     .force_thumb
 	.syntax unified

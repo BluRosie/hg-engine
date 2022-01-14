@@ -34,8 +34,8 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 calc_base_damage_hook 0801F73C 5
 #02252EC8
 0012 MoveEndAbilityCheck 0801B608 3
-##02253194
-#0012 SwitchInAbilityCheck 0801B8D4 2
+#02253194
+0012 SwitchInAbilityCheck 0801B8D4 2
 ##02253068
 #0012 TurnEndAbilityCheck 0801B7A8 3
 ##0224BCC4+4

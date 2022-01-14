@@ -148,6 +148,9 @@ move_narc:
 	$(MSGENC) -e -c charmap.txt data/text/222.txt build/text/7_222
 	$(MSGENC) -e -c charmap.txt data/text/223.txt build/text/7_223
 	$(MSGENC) -e -c charmap.txt data/text/237.txt build/text/7_237
+	$(MSGENC) -e -c charmap.txt data/text/720.txt build/text/7_720
+	$(MSGENC) -e -c charmap.txt data/text/721.txt build/text/7_721
+	$(MSGENC) -e -c charmap.txt data/text/722.txt build/text/7_722
 	$(MSGENC) -e -c charmap.txt data/text/803.txt build/text/7_803
 	$(MSGENC) -e -c charmap.txt data/text/811.txt build/text/7_811
 	$(MSGENC) -e -c charmap.txt data/text/812.txt build/text/7_812

@@ -1280,3 +1280,6 @@ The foe’s {STRVAR_1 1, 0, 0} is reacting to\nits Mega Stone!
 {STRVAR_1 1, 0, 0} has Mega Evolved!
 The wild {STRVAR_1 1, 0, 0} has Mega Evolved!
 The foe’s {STRVAR_1 1, 0, 0} has Mega Evolved!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes the foe’s\nteam too nervous to eat Berries!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!

@@ -178,7 +178,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
     client_set_max = BattleWorkClientSetMaxGet(bw);
     for (i = 0; i < client_set_max;i++)
     {
-        client_no = sp->psp_agi_work[i];
+        client_no = sp->turn_order[i];
         if(newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
         {
             if(client_no == 0 || client_no == 2)

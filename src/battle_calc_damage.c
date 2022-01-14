@@ -62,7 +62,7 @@ static const u16 IronFistMovesTable[] = {
     MOVE_SKY_UPPERCUT,
 };
 
-static const u8 StatBoostModifiers[][2] = {
+const u8 StatBoostModifiers[][2] = {
          // numerator, denominator
         {          10,          40 },
         {          10,          35 },
@@ -133,12 +133,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     
     item = GetMonItem(sp, attacker);
-    AttackingMon.item_held_effect = ItemDataGet(sp, item, 1);
-    AttackingMon.item_power = ItemDataGet(sp, item, 2);
+    AttackingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
+    AttackingMon.item_power = BattleItemDataGet(sp, item, 2);
 
     item = GetMonItem(sp, defender);
-    DefendingMon.item_held_effect = ItemDataGet(sp, item, 1);
-    DefendingMon.item_power = ItemDataGet(sp, item, 2);
+    DefendingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
+    DefendingMon.item_power = BattleItemDataGet(sp, item, 2);
 
     battle_type = BattleTypeGet(bw);
 
