@@ -65,7 +65,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     SCIO_BlankMessage(bw);
                     sp->client_work = client_no;
                     sp->battlemon[client_no].form_no = 1;
-                    ST_ServerSequenceLoad(sp, 1, 0xE8);
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, 0xE8);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 0x16;
                     return;
@@ -200,7 +200,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             
             newBS.needMega[client_no] = MEGA_CHECK_APPER;
             sp->client_work = client_no;
-            ST_ServerSequenceLoad(sp,1,297); // load sequence 297 and execute
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, 297); // load sequence 297 and execute
 	        sp->next_server_seq_no=sp->server_seq_no;
 	        sp->server_seq_no=0x16;
             return TRUE;
@@ -211,7 +211,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             seq = ST_ServerPokeAppearCheck(bw,sp);
             if(seq)
             {
-                ST_ServerSequenceLoad(sp,1,seq);
+                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq);
 	            sp->next_server_seq_no=sp->server_seq_no;
 	            sp->server_seq_no=0x16;
                 return TRUE;
@@ -275,7 +275,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                     break;
                 }
                 sp->server_seq_no = 0x16;
-                ST_ServerSequenceLoad(sp, 1, seq_no);
+                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
                 return;
             }
         }
@@ -321,7 +321,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
     else
     {
         sp->server_status_flag2 |= 0x40;
-        ST_ServerSequenceLoad(sp, 0, sp->current_move_index);
+        LoadBattleSubSeqScript(sp, FILE_MOVE_BATTLE_SCRIPTS, sp->current_move_index);
         sp->server_seq_no = 0x16;
         sp->next_server_seq_no = 0x18;
         ST_ServerTotteokiCountCalc(bw, sp);//801B570h

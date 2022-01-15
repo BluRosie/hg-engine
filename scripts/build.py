@@ -122,8 +122,8 @@ def build_anim_script():
         RunCommand(cmd)
 
 def build_seq_script():
-    DIR = "armips/move/move_seq/"
-    BUILD = "build/move/move_seq/"
+    DIR = "armips/move/battle_sub_seq/"
+    BUILD = "build/move/battle_sub_seq/"
 
     get_dir = os.listdir(DIR)
     if len(get_dir) == 0:

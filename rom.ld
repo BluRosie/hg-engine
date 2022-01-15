@@ -18,7 +18,6 @@ ST_ServerSelectWazaGet = 0x1AA30 + 0x022378C1;
 ST_ServerNamakeCheck = 0x1B380 + 0x022378C1;
 SCIO_BlankMessage = 0x2CA30 + 0x022378C1;
 
-ST_ServerSequenceLoad = 0x172DC + 0x022378C1;
 ServerCriticalMessage = 0x166BC+ 0x022378C1;
 ServerWazaStatusMessage = 0x166D8 + 0x022378C1;
 ST_ServerAddStatusCheck = 0x18BD0 + 0x022378C1;
@@ -176,3 +175,4 @@ CountBattlerMoves = 0x02252EA8 | 1;
 BattleFormChangeCheck = 0x02256914 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
 HeldItemHealCheck = 0x02254E7C | 1;
+LoadBattleSubSeqScript = 0x172DC + 0x022378C1;

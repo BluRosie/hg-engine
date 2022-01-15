@@ -732,7 +732,65 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     return scriptnum;
 }
 
-/*BOOL TurnEndAbilityCheck(BATTLE_WORK *bw, BattleStruct *sp, int client_no)
+u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
 {
-    
-}*/
+    u32 ret = FALSE;
+    int seq_no;
+
+    switch (GetBattlerAbility(sp,client_no))
+    {
+    case ABILITY_SPEED_BOOST:
+        if ((sp->battlemon[client_no].hp)
+         && (sp->battlemon[client_no].states[STAT_SPEED] < 12)
+         && (sp->battlemon[client_no].moveeffect.fake_out_count != (sp->total_turn + 1)))
+        {
+            sp->addeffect_param = ADD_STATE_SPEED_UP;
+            sp->addeffect_type = ADD_EFFECT_ABILITY;
+            sp->state_client = client_no;
+            seq_no = SUB_SEQ_STAT_STAGE_CHANGE;
+            ret = TRUE;
+        }
+        break;
+    case ABILITY_SHED_SKIN:
+        if ((sp->battlemon[client_no].condition & STATUS_ANY_PERSISTENT)
+         && (sp->battlemon[client_no].hp)
+         && (BattleRand(bw) % 10 < 3)) // 30% chance
+        {
+            if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
+            {
+                sp->msg_work = MSG_HEAL_SLEEP;
+            }
+            else if (sp->battlemon[client_no].condition & STATUS_POISON_ANY)
+            {
+                sp->msg_work = MSG_HEAL_POISON;
+            }
+            else if (sp->battlemon[client_no].condition & STATUS_FLAG_BURNED)
+            {
+                sp->msg_work = MSG_HEAL_BURN;
+            }
+            else if (sp->battlemon[client_no].condition & STATUS_FLAG_PARALYZED)
+            {
+                sp->msg_work = MSG_HEAL_PARALYSIS;
+            }
+            else
+            {
+                sp->msg_work = MSG_HEAL_FROZEN;
+            }
+            sp->client_work = client_no;
+            seq_no = SUB_SEQ_HANDLE_SHED_SKIN;
+            ret = TRUE;
+        }
+        break;
+    default:
+        break;
+    }
+
+    if (ret == TRUE)
+    {
+        LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+        sp->next_server_seq_no = sp->server_seq_no;
+        sp->server_seq_no = MOVE_SEQUENCE_NO; // not sure what this corresponds to
+    }
+
+    return ret;
+}

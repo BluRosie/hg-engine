@@ -31,19 +31,20 @@
 #define SELECT_POKEMON_COMMAND 3
 #define SELECT_ESCAPE_COMMAND 4
 
-#define ADD_STATE_ATKUP 0xF
-#define ADD_STATE_DEFUP 0x10
-#define ADD_STATE_SPEUP 0x11
-#define ADD_STATE_SPATKUP 0x12
-
-#define ADD_STATE_ATKDOWN 0x16
-#define ADD_STATE_DEFDOWN 0x17
-#define ADD_STATE_SPEDOWN 0x18
-
-#define ADD_STATE_ATKUP2    0x27
-#define ADD_STATE_ATKDOWN2  0x2e
 
 #define ADD_EFFECT_ABILITY 3
+
+#define ADD_STATE_ATTACK_UP 0xF
+#define ADD_STATE_DEFENSE_UP 0x10
+#define ADD_STATE_SPEED_UP 0x11
+#define ADD_STATE_SP_ATK_UP 0x12
+
+#define ADD_STATE_ATTACK_DOWN 0x16
+#define ADD_STATE_DEFENSE_DOWN 0x17
+#define ADD_STATE_SPEED_DOWN 0x18
+
+#define ADD_STATE_ATTACK_UP_2    0x27
+#define ADD_STATE_ATTACK_DOWN_2  0x2e
 
 
 // defines that i believe are straight from source
@@ -131,10 +132,16 @@
 #define MOVE_EFFECT_FLAG_WATER_SPORT (0x20000)
 
 // status condition flags
-#define STATUS_FLAG_POISONED (0x8)
+#define STATUS_FLAG_ASLEEP (0x07)
+#define STATUS_FLAG_POISONED (0x08)
 #define STATUS_FLAG_BURNED (0x10)
 #define STATUS_FLAG_FROZEN (0x20)
+#define STATUS_FLAG_PARALYZED (0x40)
 #define STATUS_FLAG_BADLY_POISONED (0x80)
+#define STATUS_FLAG_TOXIC_COUNT (0xf00)
+
+#define STATUS_POISON_ANY (STATUS_FLAG_POISONED | STATUS_FLAG_BADLY_POISONED | STATUS_FLAG_TOXIC_COUNT)
+#define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED)
 
 // status2/condition2 flags
 #define STATUS2_FLAG_TRANSFORMED (0x00200000)
@@ -181,6 +188,24 @@
 #define FLAG_KINGS_ROCK  (0x20)
 #define FLAG_KEEP_HP_BAR (0x40)
 #define FLAG_HIDE_SHADOW (0x80)
+
+// msg work
+enum
+{
+    MSG_HEAL_SLEEP = 0,
+    MSG_HEAL_POISON,
+    MSG_HEAL_BURN,
+    MSG_HEAL_PARALYSIS,
+    MSG_HEAL_FROZEN,
+};
+
+// archives to load from
+enum
+{
+	FILE_MOVE_BATTLE_SCRIPTS = 0,
+	FILE_BATTLE_SUB_SCRIPTS,
+};
+
 
 struct __attribute__((packed)) sDamageCalc
 {
@@ -292,7 +317,7 @@ struct __attribute__((packed)) battle_moveflag
     u32 : 1;
 
     int handou_count;
-    int nekodamashi_count;
+    int fake_out_count;
     int slow_start_count;
     int sakidori_count;
     int migawari_hp;
@@ -602,7 +627,6 @@ int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
 int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int client_no,int speabi);
 u8 __attribute__((long_call)) CheckNumMonsHit(void*,void*,int ,int);
 BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
-void __attribute__((long_call)) ST_ServerSequenceLoad(void*,int,int);
 struct POKEMON_PARAM* __attribute__((long_call))BattleWorkPokemonParamGet(void*,int,int);
 
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
@@ -654,6 +678,7 @@ int __attribute__((long_call)) CountBattlerMoves(void *bw, void *sp, int client_
 u32 __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *seq_no);
 u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, void *sp, int client_no, int act_flag);
 u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, void *sp, int client_no, int *seq_no);
+void __attribute__((long_call)) LoadBattleSubSeqScript(void *, int, int);
 
 // defined in battle_calc_damage.c
 u16 GetMonItem(struct BattleStruct *sp, int client_no);
