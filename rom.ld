@@ -1,5 +1,4 @@
 CheckSideAbility = 0x1AA64 + 0x022378C1;
-GetTargetAbility = 0x1AF0C + 0x022378C1;
 CheckDefenceAbility = 0x1AF74 + 0x022378C1;
 BattlePokemonParamGet = 0x17520 + 0x022378C1;
 BattleWorkMonDataGet = 0x20914 + 0x022378C1;
@@ -176,3 +175,6 @@ BattleFormChangeCheck = 0x02256914 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
 HeldItemHealCheck = 0x02254E7C | 1;
 LoadBattleSubSeqScript = 0x172DC + 0x022378C1;
+HeldItemHoldEffectGet = 0x02255830 | 1;
+HeldItemAtkGet = 0x02255844 | 1;
+IsMovingAfterClient = 0x0225561C | 1;

@@ -123,8 +123,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     DefendingMon.maxhp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_HP, NULL);
     AttackingMon.condition = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_CONDITION, NULL);
     DefendingMon.condition = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_CONDITION, NULL);
-    AttackingMon.ability = GetTargetAbility(sp, attacker);
-    DefendingMon.ability = GetTargetAbility(sp, defender);
+    AttackingMon.ability = GetBattlerAbility(sp, attacker);
+    DefendingMon.ability = GetBattlerAbility(sp, defender);
     AttackingMon.sex = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SEX, NULL);
     DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
     AttackingMon.type1 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL);
@@ -451,7 +451,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             attack = attack * 15 / 10;
         }
         if ((field_cond & WEATHER_SUNNY_ANY) &&
-            (GetTargetAbility(sp, attacker) != ABILITY_MOLD_BREAKER) &&
+            (GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER) &&
             (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, defender, ABILITY_FLOWER_GIFT)))
         {
             sp_defense = sp_defense * 15 / 10;
@@ -647,7 +647,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
 u16	GetMonItem(struct BattleStruct *sp, int client_no)
 {
-	if((GetTargetAbility(sp,client_no)==ABILITY_KLUTZ)){
+	if((GetBattlerAbility(sp,client_no)==ABILITY_KLUTZ)){
 		return 0;
 	}
 	if(sp->battlemon[client_no].moveeffect.shutout_count){

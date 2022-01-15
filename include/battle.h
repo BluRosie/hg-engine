@@ -50,7 +50,7 @@
 // defines that i believe are straight from source
 #define SERVER_STATUS_FLAG2_U_TURN          (0x00000010)        //u-turn flag
 
-#define WAZA_STATUS_FLAG_NOHIT                  (0x00000001)
+#define MOVE_STATUS_FLAG_MISS                   (0x00000001)
 #define MOVE_STATUS_FLAG_SUPER_EFFECTIVE        (0x00000002)
 #define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE     (0x00000004)
 #define MOVE_STATUS_FLAG_NOT_EFFECTIVE          (0x00000008)
@@ -127,9 +127,10 @@
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 
 // move effect flags/waza_kouka
-#define MOVE_EFFECT_FLAG_CHARGE (0x200)
-#define MOVE_EFFECT_FLAG_MUD_SPORT (0x10000)
-#define MOVE_EFFECT_FLAG_WATER_SPORT (0x20000)
+#define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
+#define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
+#define MOVE_EFFECT_FLAG_WATER_SPORT (0x00020000)
+#define MOVE_EFFECT_FLAG_MIRACLE_EYE (0x00400000)
 
 // status condition flags
 #define STATUS_FLAG_ASLEEP (0x07)
@@ -143,9 +144,15 @@
 #define STATUS_POISON_ANY (STATUS_FLAG_POISONED | STATUS_FLAG_BADLY_POISONED | STATUS_FLAG_TOXIC_COUNT)
 #define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED)
 
+// server status flags
+#define SERVER_STATUS_FLAG_x20 (0x00000020)
+#define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
+
 // status2/condition2 flags
+#define STATUS2_FLAG_CONFUSED (0x00000007)
 #define STATUS2_FLAG_TRANSFORMED (0x00200000)
 #define STATUS2_FLAG_SUBSTITUTE (0x01000000)
+#define STATUS2_FLAG_FORESIGHT (0x20000000)
 
 // side status flags
 #define SIDE_STATUS_REFLECT 0x1
@@ -310,7 +317,7 @@ struct __attribute__((packed)) battle_moveflag
     u32 shutout_count : 3;       ///<シャットアウトカウンタ
     u32 karuwaza_flag : 1;       ///<かるわざフラグ
     u32 metronome_work : 4;      ///<メトロノームワーク
-    u32 once_hit_up : 1;         ///<装備効果で一度だけ命中UPフラグ
+    u32 boost_accuracy_once : 1;         ///<装備効果で一度だけ命中UPフラグ
     u32 once_agi_up : 1;         ///<装備効果で一度だけ先制攻撃フラグ
     u32 sensei_flag : 1;
     u32 sakidori_flag : 1;
@@ -620,7 +627,6 @@ extern const u8 CondChgTable[][2];
 
 BOOL __attribute__((long_call)) CheckDefenceAbility(void *, int, int, int);
 int __attribute__((long_call)) BattlePokemonParamGet(void*,int ,int,void*);
-int __attribute__((long_call)) GetTargetAbility(void *gBattleRam,int target);
 s32 __attribute__((long_call)) BattleItemDataGet(void*,u16,u16);
 u32 __attribute__((long_call)) BattleTypeGet(void*);
 int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
@@ -679,6 +685,10 @@ u32 __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *se
 u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, void *sp, int client_no, int act_flag);
 u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, void *sp, int client_no, int *seq_no);
 void __attribute__((long_call)) LoadBattleSubSeqScript(void *, int, int);
+int __attribute__((long_call)) HeldItemHoldEffectGet(void *sp, int client_no);
+int __attribute__((long_call)) HeldItemAtkGet(void *sp, int client_no, int flag);
+u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
+
 
 // defined in battle_calc_damage.c
 u16 GetMonItem(struct BattleStruct *sp, int client_no);

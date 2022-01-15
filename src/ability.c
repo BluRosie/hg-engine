@@ -60,7 +60,7 @@ int MoveEndAbilityCheck(struct BattleStruct *sp, int attacker, int defender)
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
     {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & (0x00000020)) == 0) && (sp->old_moveTbl[sp->current_move_index].power))
+        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->old_moveTbl[sp->current_move_index].power))
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_RECOVERED_HP;
@@ -72,7 +72,7 @@ int MoveEndAbilityCheck(struct BattleStruct *sp, int attacker, int defender)
     {
         if ((movetype == TYPE_FIRE)
          && ((sp->battlemon[defender].condition & STATUS_FLAG_FROZEN) == 0) 
-         && ((sp->server_status_flag & (0x00000020)) == 0) 
+         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) 
          && ((sp->old_moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP)))
         {
             scriptnum = SUB_SEQ_HANDLE_FLASH_FIRE;
@@ -108,7 +108,7 @@ int MoveEndAbilityCheck(struct BattleStruct *sp, int attacker, int defender)
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE)
     {
         if ((movetype == TYPE_WATER)
-         && ((sp->server_status_flag & (0x00000020)) == 0)
+         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
          && (sp->old_moveTbl[sp->current_move_index].power))
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
