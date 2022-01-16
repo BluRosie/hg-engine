@@ -42,5 +42,7 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 CalcAccuracy_hook 08014408 5
 #0224FC48+4
 0012 CalcSpeed_hook 0801838C 5
-##02257C5C+4
-#0012 CalcCritical_hook 080203A0 5
+#02257C5C+4
+0012 CalcCritical_hook 080203A0 5
+#022555EC
+0012 GetBattleMonItem 0801DD2C 2

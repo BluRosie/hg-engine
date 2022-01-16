@@ -132,11 +132,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
     DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     
-    item = GetMonItem(sp, attacker);
+    item = GetBattleMonItem(sp, attacker);
     AttackingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
     AttackingMon.item_power = BattleItemDataGet(sp, item, 2);
 
-    item = GetMonItem(sp, defender);
+    item = GetBattleMonItem(sp, defender);
     DefendingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
     DefendingMon.item_power = BattleItemDataGet(sp, item, 2);
 
@@ -645,12 +645,15 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     return damage + 2;
 }
 
-u16	GetMonItem(struct BattleStruct *sp, int client_no)
+// GetBattleMonItem needs to be rewritten AND hooked from.  interesting
+u16	GetBattleMonItem(struct BattleStruct *sp, int client_no)
 {
-	if((GetBattlerAbility(sp,client_no)==ABILITY_KLUTZ)){
+	if ((GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ))
+    {
 		return 0;
 	}
-	if(sp->battlemon[client_no].moveeffect.shutout_count){
+	if (sp->battlemon[client_no].moveeffect.embargo_count)
+    {
 		return 0;
 	}
 	

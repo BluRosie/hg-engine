@@ -128,6 +128,7 @@
 
 // move effect flags/waza_kouka
 #define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
+#define MOVE_EFFECT_NO_CRITICAL_HITS (0x00008000)
 #define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
 #define MOVE_EFFECT_FLAG_WATER_SPORT (0x00020000)
 #define MOVE_EFFECT_FLAG_MIRACLE_EYE (0x00400000)
@@ -150,6 +151,7 @@
 
 // status2/condition2 flags
 #define STATUS2_FLAG_CONFUSED (0x00000007)
+#define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
 #define STATUS2_FLAG_TRANSFORMED (0x00200000)
 #define STATUS2_FLAG_SUBSTITUTE (0x01000000)
 #define STATUS2_FLAG_FORESIGHT (0x20000000)
@@ -158,6 +160,7 @@
 #define SIDE_STATUS_REFLECT (0x1)
 #define SIDE_STATUS_LIGHT_SCREEN (0x2)
 #define SIDE_STATUS_TAILWIND (0x300)
+#define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 // physical/special split values
 #define SPLIT_PHYSICAL 0
@@ -315,7 +318,7 @@ struct __attribute__((packed)) battle_moveflag
     u32 totteoki_count : 3;      ///<とっておき用技を出したフラグ
     u32 denzihuyuu_count : 3;    ///<でんじふゆうカウンタ
     u32 healblock_count : 3;     ///<ヒールブロックカウンタ
-    u32 shutout_count : 3;       ///<シャットアウトカウンタ
+    u32 embargo_count : 3;       ///<シャットアウトカウンタ
     u32 unburden_flag : 1;       ///<かるわざフラグ
     u32 metronome_work : 4;      ///<メトロノームワーク
     u32 boost_accuracy_once : 1;         ///<装備効果で一度だけ命中UPフラグ
@@ -694,7 +697,7 @@ u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
 
 
 // defined in battle_calc_damage.c
-u16 GetMonItem(struct BattleStruct *sp, int client_no);
+u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 
 

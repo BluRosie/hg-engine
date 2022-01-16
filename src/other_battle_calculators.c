@@ -602,7 +602,60 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
     return ret;
 }
 
-/*int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
+
+const u8 CriticalRateTable[] =
 {
-    
-}*/
+	16,
+    8,
+    4,
+    3,
+    2,
+};
+
+// calculates the critical hit multiplier
+int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
+{
+    u16 temp;
+    u16 item;
+    int hold_effect;
+    u16 species;
+    u32 condition2;
+    u32 move_effect;
+    int multiplier = 1;
+    int ability;
+
+    item = GetBattleMonItem(sp, attacker);
+    hold_effect = BattleItemDataGet(sp, item, 1);
+
+    species = sp->battlemon[attacker].species;
+    condition2 = sp->battlemon[attacker].condition2;
+    move_effect = sp->battlemon[defender].effect_of_moves;
+    ability = sp->battlemon[attacker].ability;
+
+    temp = (((condition2 & STATUS2_FLAG_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_BOOST_CRITICAL_RATE) + critical_count + (ability == ABILITY_SUPER_LUCK)
+         + (2 * ((hold_effect == HOLD_EFFECT_BOOST_CHANSEY_CRITICAL) && (species == SPECIES_CHANSEY)))
+         + (2 * ((hold_effect == HOLD_EFFECT_BOOST_FARFETCHD_CRITICAL) && (species == SPECIES_FARFETCHD)));
+
+    if (temp > 4)
+    {
+        temp = 4;
+    }
+
+    if (BattleRand(bw) % CriticalRateTable[temp] == 0)
+    {
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
+         && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
+         && ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
+         && ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0))
+        {
+            multiplier = 2;
+        }
+    }
+
+    if ((multiplier == 2) && (GetBattlerAbility(sp, attacker) == ABILITY_SNIPER))
+    {
+        multiplier = 3;
+    }
+
+    return multiplier;
+}
