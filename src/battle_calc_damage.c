@@ -656,6 +656,13 @@ u16	GetBattleMonItem(struct BattleStruct *sp, int client_no)
     {
 		return 0;
 	}
+    // handle unnerve:  if an opposing pokemon has unnerve and the item it is holding is a berry, then no item will be read.
+    if (((GetBattlerAbility(sp, BATTLER_OPPONENT(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0) 
+      || (GetBattlerAbility(sp, BATTLER_ACROSS(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
+     && (IS_ITEM_BERRY(sp->battlemon[client_no].item)))
+    {
+        return 0;
+    }
 	
 	return sp->battlemon[client_no].item;
 }
