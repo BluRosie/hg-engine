@@ -13,11 +13,18 @@ __aeabi_idiv:
     .thumb_func
     .type __aeabi_idivmod,function
 __aeabi_idivmod:
+    .force_thumb
+    .syntax unified
+    .global __aeabi_uidiv
+    .thumb_func
+    .type __aeabi_uidiv,function
+__aeabi_uidiv:
     push {lr}
     blx  0x020f2998
     pop {pc}
 	.size __aeabi_idiv, . - __aeabi_idiv
 	.size __aeabi_idivmod, . - __aeabi_idivmod
+	.size __aeabi_uidiv, . - __aeabi_uidiv
 
     .force_thumb
 	.syntax unified

@@ -74,11 +74,11 @@
 
 #define WAZA_STATUS_FLAG_SIPPAI                 (0x80000000)
 
-#define WAZA_STATUS_FLAG_NOHIT_OFF      (WAZA_STATUS_FLAG_NOHIT^0xffffffff)
+#define WAZA_STATUS_FLAG_NOHIT_OFF      (MOVE_STATUS_FLAG_MISS^0xffffffff)
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
 #define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
-#define WAZA_STATUS_FLAG_HAZURE         (WAZA_STATUS_FLAG_NOHIT|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
+#define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          WAZA_STATUS_FLAG_UMAKUKIMARAN|\
                                          WAZA_STATUS_FLAG_JIMEN_NOHIT|\
                                          WAZA_STATUS_FLAG_ICHIGEKI_NOHIT|\
@@ -155,8 +155,9 @@
 #define STATUS2_FLAG_FORESIGHT (0x20000000)
 
 // side status flags
-#define SIDE_STATUS_REFLECT 0x1
-#define SIDE_STATUS_LIGHT_SCREEN 0x2
+#define SIDE_STATUS_REFLECT (0x1)
+#define SIDE_STATUS_LIGHT_SCREEN (0x2)
+#define SIDE_STATUS_TAILWIND (0x300)
 
 // physical/special split values
 #define SPLIT_PHYSICAL 0
@@ -250,7 +251,7 @@ struct __attribute__((packed)) BattleMove
 
 struct __attribute__((packed)) OneTurnEffect
 {
-    u32 waruagaki_flag : 1; //わるあがきフラグ
+    u32 struggle_flag : 1; //わるあがきフラグ
     u32 pp_dec_flag : 1;    //PPを減らしたフラグ
     u32 mamoru_flag : 1;    //まもるフラグ
     u32 helping_hand_flag : 1;  //てだすけフラグ
@@ -315,11 +316,11 @@ struct __attribute__((packed)) battle_moveflag
     u32 denzihuyuu_count : 3;    ///<でんじふゆうカウンタ
     u32 healblock_count : 3;     ///<ヒールブロックカウンタ
     u32 shutout_count : 3;       ///<シャットアウトカウンタ
-    u32 karuwaza_flag : 1;       ///<かるわざフラグ
+    u32 unburden_flag : 1;       ///<かるわざフラグ
     u32 metronome_work : 4;      ///<メトロノームワーク
     u32 boost_accuracy_once : 1;         ///<装備効果で一度だけ命中UPフラグ
-    u32 once_agi_up : 1;         ///<装備効果で一度だけ先制攻撃フラグ
-    u32 sensei_flag : 1;
+    u32 raise_speed_once : 1;         ///<装備効果で一度だけ先制攻撃フラグ
+    u32 quick_claw_flag : 1;
     u32 sakidori_flag : 1;
     u32 : 1;
 
@@ -343,9 +344,9 @@ struct __attribute__((packed)) battle_moveflag
 struct __attribute__((packed)) BattlePokemon
 {
     u16 species;
-    u16 atk;
-    u16 def;
-    u16 spe;
+    u16 attack;
+    u16 defense;
+    u16 speed;
     u16 spatk;
     u16 spdef;
     u16 move[4];
@@ -468,7 +469,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x178*/ u8 unk_bytes5[8];
     /*0x180*/ int field_condition;
     /*0x184*/ u32 field_condition_count;
-    /*0x188*/ u8 unk_bytes2[0x4C];
+    /*0x188*/ u32 side_condition[2];
+    /*0x190*/ u8 unk_bytes2[0x44];
     /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
     /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
     /*0x344*/ u8 dummy3[0x9A];
@@ -515,7 +517,10 @@ struct __attribute__((packed)) BattleStruct
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
     /*0x3040*/ u32 waza_no_temp;
     /*0x3044*/ u32 current_move_index;
-    /*0x3048*/ u8 unk_bytes4[0xC0];
+    /*0x3048*/ u8 unk_bytes4[0x74];
+    /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
+    /*0x30C4*/ u8 unk_bytes_4[0x44];
+    
     /*0x3108*/ u8 no_reshuffle_client;
     /*0x3109*/ u8 level_up_pokemon;
     /*0x310A*/ u16 que_check_wait;
@@ -621,9 +626,7 @@ struct __attribute__((packed)) BATTLE_PARAM
 void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp, bool8 SwitchAbility);
 
 extern struct newBattleStruct newBS;
-extern const u8 SoubiItemWazaTypePowUpTbl[33][2];
 extern const u16 TetsunoKobushiTable[0xF];
-extern const u8 CondChgTable[][2];
 
 BOOL __attribute__((long_call)) CheckDefenceAbility(void *, int, int, int);
 int __attribute__((long_call)) BattlePokemonParamGet(void*,int ,int,void*);

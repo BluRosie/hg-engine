@@ -8,10 +8,13 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
+
+extern const u8 StatBoostModifiers[][2];
+
 typedef struct
 {
-	u8	numerator;
-	u8	denominator;
+    u8  numerator;
+    u8  denominator;
 } AccuracyStatChangeRatio;
 
 const AccuracyStatChangeRatio sAccStatChanges[] =
@@ -37,7 +40,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 {
     u16 accuracy;
     s8 temp;
-    s8 stat_stage_acc,stat_stage_evasion;
+    s8 stat_stage_acc, stat_stage_evasion;
     int hold_effect;
     int hold_effect_atk;
     u8 move_type;
@@ -209,12 +212,397 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     return FALSE;
 }
 
-/*u8 CalcSpeed(void *bw, struct BattleStruct *sp, int cl1, int cl2, int flag)
+const u8 DecreaseSpeedHoldEffects[] = 
 {
+    HOLD_EFFECT_DOUBLE_EV_GAIN,
+    HOLD_EFFECT_HALVE_SPEED,
+    HOLD_EFFECT_GAIN_HP_EVS,
+    HOLD_EFFECT_GAIN_ATTACK_EVS,
+    HOLD_EFFECT_GAIN_DEFENSE_EVS,
+    HOLD_EFFECT_GAIN_SPEED_EVS,
+    HOLD_EFFECT_GAIN_SP_ATK_EVS,
+    HOLD_EFFECT_GAIN_SP_DEF_EVS,
+};
+
+// return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
+u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
+{
+    u8 ret = 0;
+    u32 speed1, speed2;
+    u16 move1 = 0, move2 =   0;
+    u8 hold_effect1;
+    u8 hold_atk1;
+    u8 hold_effect2;
+    u8 hold_atk2;
+    s8 priority1 = 0;
+    s8 priority2 = 0;
+    u8 quick_claw1 = 0, quick_claw2 = 0;
+    u8 move_last1 = 0, move_last2 = 0;
+    int command1;
+    int command2;
+    int move_pos1;
+    int move_pos2;
+    int ability1;
+    int ability2;
+    int stat_stage_spd1;
+    int stat_stage_spd2;
+    u32 i;
+
+    // if one mon is fainted and the other isn't, then the alive one obviously goes first
+    if ((sp->battlemon[client1].hp == 0) && (sp->battlemon[client2].hp))
+    {
+        return 1;
+    }
+    if ((sp->battlemon[client1].hp) && (sp->battlemon[client2].hp == 0))
+    {
+        return 0;
+    }
+
+    ability1 = GetBattlerAbility(sp, client1);
+    ability2 = GetBattlerAbility(sp, client2);
+
+    hold_effect1 = HeldItemHoldEffectGet(sp, client1);
+    hold_atk1 = HeldItemAtkGet(sp, client1, 0);
+    hold_effect2 = HeldItemHoldEffectGet(sp, client2);
+    hold_atk2 = HeldItemAtkGet(sp, client2, 0);
+
+    stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
+    stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
+
+    if (GetBattlerAbility(sp, client1) == ABILITY_SIMPLE)
+    {
+        stat_stage_spd1 = 6 + ((stat_stage_spd1 - 6) * 2);
+        if (stat_stage_spd1 > 12)
+        {
+            stat_stage_spd1 = 12;
+        }
+        if (stat_stage_spd1 < 0)
+        {
+            stat_stage_spd1 = 0;
+        }
+    }
+    if (GetBattlerAbility(sp, client2) == ABILITY_SIMPLE)
+    {
+        stat_stage_spd2 = 6 + ((stat_stage_spd2 - 6) * 2);
+        if (stat_stage_spd2 > 12)
+        {
+            stat_stage_spd2 = 12;
+        }
+        if (stat_stage_spd2 < 0)
+        {
+            stat_stage_spd2 = 0;
+        }
+    }
     
+    speed1 = sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1];
+    speed2 = sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1];
+
+    if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE)==0)
+     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK)==0))
+    {
+        if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
+         || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY)))
+        {
+            speed1 *= 2;
+        }
+        if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
+         || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY)))
+        {
+            speed2 *= 2;
+        }
+    }
+
+    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
+    {
+        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i])
+        {
+            speed1 /= 2;
+            break;
+        }
+    }
+
+    if (hold_effect1 == HOLD_EFFECT_INCREASE_SPEED)
+    {
+        speed1 = speed1 * 15 / 10;
+    }
+
+    if ((hold_effect1 == HOLD_EFFECT_BOOST_DITTO_SPEED) && (sp->battlemon[client1].species == SPECIES_DITTO))
+    {
+        speed1 *= 2;
+    }
+
+    if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT))
+    {
+        speed1 = speed1 * 15 / 10;
+    }
+    else
+    {
+        if (sp->battlemon[client1].condition & STATUS_FLAG_PARALYZED)
+        {
+            speed1 /= 4;
+        }
+    }
+
+    if ((ability1 == ABILITY_SLOW_START)
+     && ((sp->total_turn - sp->battlemon[client1].moveeffect.slow_start_count) < 5))
+    {
+        speed1 /= 2;
+    }
+
+    if ((ability1 == ABILITY_UNBURDEN)
+     && (sp->battlemon[client1].moveeffect.unburden_flag)
+     && (sp->battlemon[client1].item == 0))
+    {
+        speed1 *= 2;
+    }
+
+    if (sp->side_condition[IsClientEnemy(bw, client1)] & SIDE_STATUS_TAILWIND)
+    {
+        speed1 *= 2;
+    }
+
+    if (hold_effect1 == HOLD_EFFECT_QUICK_CLAW)
+    {
+        if ((sp->agi_rand[client1] % (100 / hold_atk1)) == 0)
+        {
+            quick_claw1 = 1;
+            if (flag == 0)
+            {
+                sp->battlemon[client1].moveeffect.quick_claw_flag = 1;
+            }
+        }
+    }
+    
+    if (hold_effect1 == HOLD_EFFECT_RAISE_SPEED_IN_PINCH)
+    {
+        if (GetBattlerAbility(sp, client1) == ABILITY_GLUTTONY)
+        {
+            hold_atk1 /= 2;
+        }
+        if (sp->battlemon[client1].hp <= (s32)(sp->battlemon[client1].maxhp / hold_atk1))
+        {
+            quick_claw1 = 1;
+            if (flag == 0)
+            {
+                sp->battlemon[client1].moveeffect.raise_speed_once = 1;
+            }
+        }
+    }
+
+    if (hold_effect1 == HOLD_EFFECT_LAGGING_TAIL)
+    {
+        move_last1 = 1;
+    }
+
+    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
+    {
+        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i])
+        {
+            speed2 /= 2;
+            break;
+        }
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_INCREASE_SPEED)
+    {
+        speed2 = speed2 * 15 / 10;
+    }
+
+    if ((hold_effect2 == HOLD_EFFECT_BOOST_DITTO_SPEED) && (sp->battlemon[client2].species == SPECIES_DITTO))
+    {
+        speed2 *= 2;
+    }
+
+    if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT))
+    {
+        speed2 = speed2 * 15 / 10;
+    }
+    else
+    {
+        if (sp->battlemon[client2].condition & STATUS_FLAG_PARALYZED)
+        {
+            speed2 /= 4;
+        }
+    }
+
+    if ((ability2 == ABILITY_SLOW_START)
+     && ((sp->total_turn - sp->battlemon[client2].moveeffect.slow_start_count) < 5))
+    {
+        speed2 /= 2;
+    }
+
+    if ((ability2 == ABILITY_UNBURDEN)
+     && (sp->battlemon[client2].moveeffect.unburden_flag)
+     && (sp->battlemon[client2].item == 0))
+    {
+        speed2 *= 2;
+    }
+
+    if (sp->side_condition[IsClientEnemy(bw, client2)] & SIDE_STATUS_TAILWIND)
+    {
+        speed2 *= 2;
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_QUICK_CLAW)
+    {
+        if ((sp->agi_rand[client2] % (100 / hold_atk2)) == 0)
+        {
+            quick_claw2=1;
+            if (flag == 0)
+            {
+                sp->battlemon[client2].moveeffect.quick_claw_flag = 1;
+            }
+        }
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_RAISE_SPEED_IN_PINCH)
+    {
+        if (GetBattlerAbility(sp, client2) == ABILITY_GLUTTONY)
+        {
+            hold_atk2/=2;
+        }
+        if (sp->battlemon[client2].hp <= (s32)(sp->battlemon[client2].maxhp / hold_atk2))
+        {
+            quick_claw2 = 1;
+            if(flag == 0)
+            {
+                sp->battlemon[client2].moveeffect.raise_speed_once = 1;
+            }
+        }
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_LAGGING_TAIL)
+    {
+        move_last2 = 1;
+    }
+
+    sp->psp_agi_point[client1]=speed1;
+    sp->psp_agi_point[client2]=speed2;
+
+    if (flag == 0)
+    {
+        command1 = sp->client_act_work[client1][3];
+        command2 = sp->client_act_work[client2][3];
+        move_pos1 = sp->waza_no_pos[client1];
+        move_pos2 = sp->waza_no_pos[client2];
+        
+        if(command1 == SELECT_FIGHT_COMMAND)
+        {
+            if(sp->oneTurnFlag[client1].struggle_flag)
+            {
+                move1 = MOVE_STRUGGLE;
+            }
+            else
+            {
+                move1 = BattlePokemonParamGet(sp, client1, BATTLE_MON_DATA_MOVE_1 + move_pos1, NULL);
+            }
+        }
+        if (command2 == SELECT_FIGHT_COMMAND)
+        {
+            if (sp->oneTurnFlag[client2].struggle_flag)
+            {
+                move2 = MOVE_STRUGGLE;
+            }
+            else
+            {
+                move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
+            }
+        }
+        priority1 = sp->old_moveTbl[move1].priority;
+        priority2 = sp->old_moveTbl[move2].priority;
+    }
+
+    if (priority1 == priority2)
+    {
+        if ((quick_claw1) && (quick_claw2)) // both mons quick claws activates/items that put them first
+        {
+            if (speed1 < speed2)
+            {
+                ret = 1; // client 2 goes
+            }
+            else if ((speed1 == speed2) && (BattleRand(bw) & 1))
+            {
+                ret = 2; // random roll
+            }
+        }
+        else if ((quick_claw1 == 0) && (quick_claw2)) // client2 quick claw activate
+        {
+            ret = 1;
+        }
+        else if ((quick_claw1) && (quick_claw2 == 0)) // client1 quick claw activate
+        {
+            ret = 0;
+        }
+        else if ((move_last1) && (move_last2)) // both clients have lagging tail
+        {
+            if (speed1 > speed2) // if client1 is faster with lagging tail, it moves last
+            {
+                ret = 1; // client 2 moves first
+            }
+            else if ((speed1 == speed2) && (BattleRand(bw) & 1)) // random roll
+            {
+                ret = 2;
+            }
+        }
+        else if ((move_last1) && (move_last2 == 0)) // client1 has lagging tail
+        {
+            ret = 1;
+        }
+        else if ((move_last1==0) && (move_last2)) // client2 has lagging tail
+        {
+            ret = 0;
+        }
+        else if ((ability1 == ABILITY_STALL) && (ability2 == ABILITY_STALL))
+        {
+            if (speed1 > speed2)
+            {
+                ret = 1;
+            }
+            else if ((speed1 == speed2) && (BattleRand(bw) & 1))
+            {
+                ret = 2;
+            }
+        }
+        else if ((ability1 == ABILITY_STALL) && (ability2 != ABILITY_STALL))
+        {
+            ret = 1;
+        }
+        else if ((ability1 != ABILITY_STALL) && (ability2 == ABILITY_STALL))
+        {
+            ret = 0;
+        }
+        else if (sp->field_condition & FIELD_STATUS_TRICK_ROOM)
+        {
+            if (speed1 > speed2)
+            {
+                ret = 1;
+            }
+            if ((speed1 == speed2) && (BattleRand(bw) & 1))
+            {
+                ret = 2;
+            }
+        }
+        else
+        {
+            if (speed1 < speed2)
+            {
+                ret = 1;
+            }
+            if ((speed1 == speed2) && (BattleRand(bw) & 1))
+            {
+                ret = 2;
+            }
+        }
+    }
+    else if (priority1 < priority2)
+    {
+        ret = 1;
+    }
+
+    return ret;
 }
 
-int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
+/*int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
 {
     
 }*/

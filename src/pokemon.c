@@ -1323,9 +1323,9 @@ void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp,
     }
     
 
-    sp->battlemon[client].atk = GetMonData(pp2, 165, 0);
-    sp->battlemon[client].def = GetMonData(pp2, 166, 0);
-    sp->battlemon[client].spe = GetMonData(pp2, 167, 0);
+    sp->battlemon[client].attack = GetMonData(pp2, 165, 0);
+    sp->battlemon[client].defense = GetMonData(pp2, 166, 0);
+    sp->battlemon[client].speed = GetMonData(pp2, 167, 0);
     sp->battlemon[client].spatk = GetMonData(pp2, 168, 0);
     sp->battlemon[client].spdef = GetMonData(pp2, 169, 0);
     

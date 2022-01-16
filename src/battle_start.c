@@ -60,7 +60,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                 if (((sp->battlemon[client_no].condition & 7) == 0) &&
                     (ST_ServerSelectWazaGet(sp, client_no) == 264) &&
                     (ST_ServerNamakeCheck(sp, client_no) == FALSE) &&
-                    (sp->oneTurnFlag[client_no].waruagaki_flag == 0))
+                    (sp->oneTurnFlag[client_no].struggle_flag == 0))
                 {
                     SCIO_BlankMessage(bw);
                     sp->client_work = client_no;

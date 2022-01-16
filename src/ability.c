@@ -331,7 +331,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                              && ((sp->battlemon[num].condition2 & STATUS2_FLAG_SUBSTITUTE) == 0)
                              && (sp->battlemon[num].hp))
                             {
-                                def += sp->battlemon[num].def * StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][0] / StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][1];
+                                def += sp->battlemon[num].defense * StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][0] / StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][1];
                                 spdef += sp->battlemon[num].spdef * StatBoostModifiers[sp->battlemon[num].states[STAT_SPDEF]][0] / StatBoostModifiers[sp->battlemon[num].states[STAT_SPDEF]][1];
                             }
                         }
