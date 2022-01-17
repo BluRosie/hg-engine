@@ -166,7 +166,8 @@ enum
     SEQ_PP_CHECK,
     SEQ_DEFENCE_CHECK,
     SEQ_WAZAKOYUU_CHECK,
-    SEQ_DEFENCE_CHANGE_CHECK
+    SEQ_DEFENCE_CHANGE_CHECK,
+    SEQ_PROTEAN_CHECK
 };
 
 static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
@@ -311,7 +312,15 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
         //引水等特性检查
     case SEQ_DEFENCE_CHANGE_CHECK:
         ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
-        sp->wb_seq_no = 0;
+            sp->wb_seq_no++;
+    case SEQ_PROTEAN_CHECK:
+        if(sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN)
+        {
+            sp->battlemon[sp->attack_client].type1 = sp->move_type;
+            sp->battlemon[sp->attack_client].type2 = sp->move_type;
+            //TODO add battle script for Protean
+            sp->wb_seq_no = 0;
+        }
     }
 
     if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT)
