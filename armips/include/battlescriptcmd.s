@@ -170,6 +170,7 @@ BATTLER_x14              equ 0x14
 BATTLER_x15              equ 0x15
 BATTLER_ALL_REPLACED     equ 0x16
 BATTLER_xFF              equ 0xFF
+BATTLER_WORK             equ 0xFF
 
 .macro pokemonencounter,battler
     .word 0x1, battler

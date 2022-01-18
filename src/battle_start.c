@@ -1,10 +1,11 @@
-#include "../include/types.h"
 #include "../include/battle.h"
-#include "../include/pokemon.h"
 #include "../include/mega.h"
+#include "../include/pokemon.h"
+#include "../include/types.h"
 #include "../include/constants/ability.h"
-#include "../include/constants/item.h"
+#include "../include/constants/battle_script_constants.h"
 #include "../include/constants/file.h"
+#include "../include/constants/item.h"
 #include "../include/constants/species.h"
 
 /********************************************************************************************************************/
@@ -228,6 +229,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
 //08014ACC
 void ServerWazaBefore(void *bw, struct BattleStruct *sp)
 {
+    u32 runMyScriptInstead = 0;
     switch (sp->wb_seq_no)
     {
     case SEQ_MEGA_CHECK:
@@ -312,27 +314,43 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
         //引水等特性检查
     case SEQ_DEFENCE_CHANGE_CHECK:
         ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
-            sp->wb_seq_no++;
+        sp->wb_seq_no++;
     case SEQ_PROTEAN_CHECK:
-        if(sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN)
+        if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
+         && (sp->battlemon[sp->attack_client].type1 != sp->old_moveTbl[sp->current_move_index].type  // if either type is not the move's type
+          || sp->battlemon[sp->attack_client].type2 != sp->old_moveTbl[sp->current_move_index].type)
+         && sp->old_moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
         {
-            sp->battlemon[sp->attack_client].type1 = sp->move_type;
-            sp->battlemon[sp->attack_client].type2 = sp->move_type;
-            //TODO add battle script for Protean
+            sp->battlemon[sp->attack_client].type1 = sp->old_moveTbl[sp->current_move_index].type;
+            sp->battlemon[sp->attack_client].type2 = sp->old_moveTbl[sp->current_move_index].type;
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
+            sp->msg_work = sp->battlemon[sp->attack_client].type1;
+            sp->client_work = sp->attack_client;
+            runMyScriptInstead = 1;
+        }
+        else
+        {
             sp->wb_seq_no = 0;
         }
     }
 
     if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT)
     {
-        sp->server_seq_no = 26;//0x1a
+        sp->server_seq_no = 26;
     }
     else
     {
         sp->server_status_flag2 |= 0x40;
-        LoadBattleSubSeqScript(sp, FILE_MOVE_BATTLE_SCRIPTS, sp->current_move_index);
-        sp->server_seq_no = 0x16;
-        sp->next_server_seq_no = 0x18;
+        sp->server_seq_no = 22; // execute protean OR the move
+        if (runMyScriptInstead == 0)
+        {
+            LoadBattleSubSeqScript(sp, FILE_MOVE_BATTLE_SCRIPTS, sp->current_move_index);
+            sp->next_server_seq_no = 24; // after that 
+        }
+        else // might want to move this else to be up before the NO_OUT check above
+        {
+            sp->next_server_seq_no = 23; // loop back to this one after the protean executes so that it can catch the actual move as well
+        }
         ST_ServerTotteokiCountCalc(bw, sp);//801B570h
     }
     ST_ServerMetronomeBeforeCheck(bw, sp);//801ED20h

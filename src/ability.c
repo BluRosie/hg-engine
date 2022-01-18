@@ -29,7 +29,7 @@ u16 SoundproofMoveList[] =
     MOVE_CHATTER,
 };
 
-int MoveEndAbilityCheck(struct BattleStruct *sp, int attacker, int defender)
+int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender)
 {
     int scriptnum = 0;
     int movetype;

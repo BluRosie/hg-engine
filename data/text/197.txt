@@ -1283,3 +1283,6 @@ The foe’s {STRVAR_1 1, 0, 0} has Mega Evolved!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes the foe’s\nteam too nervous to eat Berries!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
 The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it the {STRVAR_1 15, 2, 0} type!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
+The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!

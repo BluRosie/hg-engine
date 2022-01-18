@@ -42,6 +42,7 @@
 
 // new sub_seq entries:
 #define SUB_SEQ_HANDLE_UNNERVE_MESSAGE (298)
+#define SUB_SEQ_HANDLE_PROTEAN_MESSAGE (299)
 
 
 
