@@ -149,6 +149,9 @@
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 
+// server status2 falgs
+#define SERVER_STATUS2_FLAG_x10 (0x00000010)
+
 // status2/condition2 flags
 #define STATUS2_FLAG_CONFUSED (0x00000007)
 #define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
@@ -187,8 +190,8 @@
 #define FIELD_STATUS_TRICK_ROOM         (0x00070000)
 
 // opponent positions
-#define	BATTLER_POSITION_SIDE_RIGHT (0)
-#define	BATTLER_POSITION_SIDE_LEFT  (2)
+#define BATTLER_POSITION_SIDE_RIGHT (0)
+#define BATTLER_POSITION_SIDE_LEFT  (2)
 
 // move flags for BattleMove flag field
 #define FLAG_CONTACT     (0x01)
@@ -217,8 +220,8 @@ enum
 // archives to load from
 enum
 {
-	FILE_MOVE_BATTLE_SCRIPTS = 0,
-	FILE_BATTLE_SUB_SCRIPTS,
+    FILE_MOVE_BATTLE_SCRIPTS = 0,
+    FILE_BATTLE_SUB_SCRIPTS,
 };
 
 
@@ -291,10 +294,10 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
     u32 : 23;                  ///<ステータス上昇下降エフェクトを発動
 
-    int butsuri_ostf_damage;   ///存在物理伤害量
-    int butsuri_ostf_client;   ///<物理攻撃したクライアント
-    int tokusyu_ostf_damage;   ///存在特殊伤害量
-    int tokusyu_ostf_client;   ///<特殊攻撃したクライアント
+    int physical_damage;   ///存在物理伤害量
+    int physical_damager;   ///<物理攻撃したクライアント
+    int special_damage;   ///存在特殊伤害量
+    int special_damager;   ///<特殊攻撃したクライアント
     int status_flag;           ///<ステータスフラグ（battle_server.hにdefine定義）
     int kaigara_damage;        ///<かいがらのすず用ダメージ量
 };
@@ -411,7 +414,74 @@ struct __attribute__((packed)) BattlePokemon
     u32 effect_of_moves; // think like charge, lock on
     u32 effect_of_moves_temp;
 
-    struct battle_moveflag moveeffect;
+    struct __attribute__((packed)) battle_moveflag moveeffect;
+};
+
+typedef struct {
+    u32 alloc_size;
+    u32 alloc_ofs;
+    u16 type;       // Vram確保した表示面
+    u16 conttype;   // 管理方法
+} __attribute__((packed)) CHAR_MANAGER_ALLOCDATA;
+
+struct __attribute__((packed)) field_condition_count
+{
+    u32     weather_count;                      ///<天候変化用カウンタ
+
+    u8      miraiyochi_count[CLIENT_MAX];       ///<みらいよちカウンタ
+    u8      negaigoto_count[CLIENT_MAX];        ///<ねがいごとカウンタ
+
+    u16     miraiyochi_wazano[CLIENT_MAX];      ///<みらいよち技ナンバーワーク
+    int     miraiyochi_client_no[CLIENT_MAX];   ///<みらいよちしたClientNo
+    s32     miraiyochi_damage[CLIENT_MAX];      ///<みらいよちダメージ
+
+    u8      negaigoto_sel_mons[CLIENT_MAX];     ///<ねがいごとをしたポケモンの手持ちの位置
+};
+
+struct __attribute__((packed)) tcb_skill_intp_work
+{
+    void *bw;
+    struct BattleStruct *sp;
+    void *bms;
+    void *cap[2]; ///<控えポケモンレベルアップ用アイコン表示
+    void *fop;    ///<控えポケモンレベルアップ用アイコン表示
+    CHAR_MANAGER_ALLOCDATA cma;
+    int flag;
+    int seq_no;
+    int ballID; ///<ポケモンゲット時の投げるボールID
+    int work[8];
+    void *work_p[2]; ///<汎用ワークポインタ
+};
+
+typedef struct
+{
+    u8  command_code;
+    u8  msg_tag;
+    u16 msg_id;
+    int msg_para[6];
+    int msg_keta;
+    int msg_client;
+} __attribute__((packed)) MESSAGE_PARAM;
+
+struct __attribute__((packed)) side_condition_work
+{
+    u32     butsuri_guard_client    : 2;        ///<物理ガード効果を発生させたClientNoを格納
+    u32     butsuri_guard_count     : 3;        ///<物理ガード効果カウンタ
+    u32     tokusyu_guard_client    : 2;        ///<特殊ガード効果を発生させたClientNoを格納
+    u32     tokusyu_guard_count     : 3;        ///<特殊ガード効果カウンタ
+    u32     shiroikiri_client       : 2;        ///<しろいきり効果を発生させたClientNoを格納
+    u32     shiroikiri_count        : 3;        ///<しろいきり効果カウンタ
+    u32     shinpi_client           : 2;        ///<しんぴのまもり効果を発生させたClientNoを格納
+    u32     shinpi_count            : 3;        ///<しんぴのまもり効果カウンタ
+
+    u32     konoyubitomare_flag     : 1;        ///<このゆびとまれフラグ
+    u32     konoyubitomare_client   : 2;        ///<このゆびとまれを発動したClientNo
+    u32     hatakiotosu_item        : 6;        ///<はたきおとすされているSelMonsNoをbitで格納
+    u32     oikaze_count            : 3;        ///<おいかぜカウンタ
+
+    u32     makibisi_count          : 2;        ///<まきびしカウンタ
+    u32     dokubisi_count          : 2;        ///<どくびしカウンタ
+    u32                             :28;
 };
 
 struct __attribute__((packed)) BattleStruct
@@ -457,7 +527,20 @@ struct __attribute__((packed)) BattleStruct
     /*0x90*/ int addeffect_flag;
 
     /*0x94*/ int state_client;
-    /*0x98*/ u8 dummy2[0x80];
+    /*0x98*/ int push_client;                            
+    /*0x9C*/ int get_exp;                                
+    /*0xA0*/ int gakusyuu_get_exp;                       
+    /*0xA4*/ u32 get_exp_right_flag[2];                  
+    /*0xAC*/ int skill_arc_kind;                         
+    /*0xB0*/ int skill_arc_index;                        
+    /*0xB4*/ int skill_seq_no;                           
+    /*0xB8*/ int push_count;                             
+    /*0xBC*/ int push_skill_arc_kind[4];   
+    /*0xCC*/ int push_skill_arc_index[4];  
+    /*0xDC*/ int push_skill_seq_no[4];     
+    /*0xEC*/ int agi_cnt;                                
+    /*0xF0*/ int wait_cnt;                               
+    /*0xF4*/ MESSAGE_PARAM mp;
     /*0x118*/ int client_work;
     /*0x11C*/ int attack_client_work;
     /*0x120*/ int defence_client_work;
@@ -473,17 +556,18 @@ struct __attribute__((packed)) BattleStruct
     /*0x154*/ int total_hinshi[CLIENT_MAX];
     /*0x164*/ int total_damage[CLIENT_MAX];
     /*0x174*/ int sakidori_total_turn;
-    /*0x178*/ u8 unk_bytes5[8];
-    /*0x180*/ int field_condition;
-    /*0x184*/ u32 field_condition_count;
-    /*0x188*/ u32 side_condition[2];
-    /*0x190*/ u8 unk_bytes2[0x44];
+    /*0x178*/ struct tcb_skill_intp_work *tciw;
+    /*0x17C*/ void *work;
+    /*0x180*/ u32 field_condition;
+    /*0x184*/ struct field_condition_count fcc;
+    /*0x1BC*/ u32 side_condition[2];
+    /*0x1C4*/ struct side_condition_work scw[2];
     /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
     /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
-    /*0x344*/ u8 dummy3[0x9A];
+    /*0x344*/ u8 dummy3[0x9A]; // wocf, AIWT start
 
     /*0x3DE*/ struct BattleMove old_moveTbl[467 + 1]; //old
-    /*0x211E*/ u8 dummy6[0x1E];
+    /*0x211E*/ u8 dummy6[0x1E]; // fuck the rest of ai stuff
     /*0x213C*/ u32 server_status_flag;
     /*0x2140*/ u32 server_status_flag2;
     /*0x2144*/ int damage;
@@ -524,9 +608,33 @@ struct __attribute__((packed)) BattleStruct
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
     /*0x3040*/ u32 waza_no_temp;
     /*0x3044*/ u32 current_move_index;
-    /*0x3048*/ u8 unk_bytes4[0x74];
+    // u8 unk_bytes4[0x74];
+    
+    /*0x3048*/ u32 waza_no_last;
+    /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
+    
+    /*0x305C*/ u16 waza_no_mamoru[CLIENT_MAX];
+    /*0x    */ u16 waza_no_hit[CLIENT_MAX];
+    /*0x    */ u16 waza_no_hit_client[CLIENT_MAX];
+    /*0x    */ u16 waza_no_hit_type[CLIENT_MAX];
+    /*0x    */ u16 waza_no_old[CLIENT_MAX];
+    /*0x    */ u16 waza_no_oumu[CLIENT_MAX];
+    /*0x    */ u16 waza_no_oumu_hit[CLIENT_MAX][CLIENT_MAX];
+    /*0x    */ u16 waza_no_sketch[CLIENT_MAX];
+    /*0x    */ u16 waza_no_select[CLIENT_MAX];
+    
     /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
-    /*0x30C4*/ u8 unk_bytes_4[0x44];
+    /*0x30C4*/ //u8 unk_bytes_4[0x44];
+    /*0x    */ u16 waza_no_texture2[CLIENT_MAX];
+    /*0x    */ u16 waza_no_texture2_client[CLIENT_MAX];
+    /*0x    */ u16 waza_no_texture2_type[CLIENT_MAX];
+    /*0x    */ u16 waza_no_metronome[CLIENT_MAX];
+        
+    /*0x    */ int store_damage[CLIENT_MAX];                    ///<がまん用のダメージストックワーク
+        
+    /*0x    */ int client_no_hit[CLIENT_MAX];                   ///<技を最後に当てたClientNoを格納
+        
+    /*0x    */ int client_no_agi;
     
     /*0x3108*/ u8 no_reshuffle_client;
     /*0x3109*/ u8 level_up_pokemon;
@@ -547,12 +655,6 @@ struct __attribute__((packed)) BattleStruct
     /*0x312C*/ u8 unk4[0x52];
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
     /*...*/
-};
-
-struct __attribute__((packed)) tcb_skill_intp_work
-{
-    void *bw;
-    struct BattleStruct *sp;
 };
 
 enum
@@ -698,6 +800,7 @@ void __attribute__((long_call)) LoadBattleSubSeqScript(void *, int, int);
 int __attribute__((long_call)) HeldItemHoldEffectGet(void *sp, int client_no);
 int __attribute__((long_call)) HeldItemAtkGet(void *sp, int client_no, int flag);
 u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
+u32 __attribute__((long_call)) CheckSubstitute(struct BattleStruct *sp, int client_no);
 
 
 // defined in battle_calc_damage.c

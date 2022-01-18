@@ -178,3 +178,4 @@ LoadBattleSubSeqScript = 0x172DC + 0x022378C1;
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
+CheckSubstitute = 0x02256838 | 1;
