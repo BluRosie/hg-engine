@@ -614,11 +614,25 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 client_no = sp->turn_order[i];
                 if ((sp->battlemon[client_no].mold_breaker_flag == 0)
                  && (sp->battlemon[client_no].hp)
-                 && (GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER))
+                 && ((GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER) ||
+                        (GetBattlerAbility(sp, client_no) == ABILITY_TURBOBLAZE) ||
+                        (GetBattlerAbility(sp, client_no) == ABILITY_TERAVOLT)))
                 {
                     sp->battlemon[client_no].mold_breaker_flag = 1;
                     sp->client_work = client_no;
-                    scriptnum = SUB_SEQ_HANDLE_MOLD_BREAKER;
+                    if(GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER)
+                    {
+                        scriptnum = SUB_SEQ_HANDLE_MOLD_BREAKER;
+                    }
+                    else if(GetBattlerAbility(sp, client_no) == ABILITY_TURBOBLAZE)
+                    {
+                        scriptnum = SUB_SEQ_HANDLE_TURBOBLAZE_MESSAGE;
+                    }
+                    else if(GetBattlerAbility(sp, client_no) == ABILITY_TERAVOLT)
+                    {
+                        scriptnum = SUB_SEQ_HANDLE_TERAVOLT_MESSAGE;
+                    }
+
                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                     break;
                 }
@@ -1046,9 +1060,9 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
     }
     else
     {
-        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attack].mold_breaker_flag == 0))
+        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].mold_breaker_flag == 0))
         {
-            sp->oneSelfFlag[attack].mold_breaker_flag = 1;
+            sp->oneSelfFlag[attacker].mold_breaker_flag = 1;
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOLD_BREAKER;
         }
     }
