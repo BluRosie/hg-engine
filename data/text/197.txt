@@ -1301,3 +1301,6 @@ The foe’s {STRVAR_1 1, 0, 0} is radiating a\nblazing aura!
 {STRVAR_1 1, 0, 0} is radiating a bursting\naura!
 The wild {STRVAR_1 1, 0, 0} is radiating a\nbursting aura!
 The foe’s {STRVAR_1 1, 0, 0} is radiating a\nbursting aura!
+{STRVAR_1 1, 0, 0} is hurt by Innards Out!
+The wild {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
+The foe’s {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
