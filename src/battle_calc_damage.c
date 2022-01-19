@@ -694,8 +694,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         damage /= 2;
     }
-
-#define DEBUG
+    
 #ifdef DEBUG
     *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->old_moveTbl[moveno].power : pow;
     *((u32 *)(0x23D8004 + 0xC*(attacker&1))) = movepower;
