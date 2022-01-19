@@ -180,6 +180,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
      && ((BattleWorkMonDataGet(bw, sp, 3, 0) - BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SLOW_START_COUNTER, NULL)) < 5))
         attack /= 2;
 
+    // handle defeatist
+    if ((AttackingMon.ability == ABILITY_DEFEATIST) && (AttackingMon.hp <= AttackingMon.maxhp / 2))
+    {
+        attack /= 2;
+        sp_attack /= 2;
+    }
+
+
     // type boosting held items
     for (i = 0; i < NELEMS(HeldItemPowerUpTable); i++)
     {
@@ -281,6 +289,18 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if ((AttackingMon.ability == ABILITY_GUTS) && (AttackingMon.condition))
     {
         attack = attack * 150 / 100;
+    }
+
+    //handle toxic boost
+    if ((AttackingMon.ability == ABILITY_TOXIC_BOOST) && ((AttackingMon.condition & STATUS_FLAG_BADLY_POISONED) || (AttackingMon.condition & STATUS_FLAG_POISONED)))
+    {
+        attack = attack * 150 / 100;
+    }
+
+    //handle flare boost
+    if ((AttackingMon.ability == ABILITY_FLARE_BOOST) && ((AttackingMon.condition & STATUS_FLAG_BURNED)))
+    {
+        sp_attack = sp_attack * 150 / 100;
     }
 
     // handle marvel scale
@@ -641,8 +661,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         damage = damage * 15 / 10;
     }
-    
-    return damage + 2;
+
+    //handles multiscale
+    if ((DefendingMon.ability == ABILITY_MULTISCALE) && (DefendingMon.hp == DefendingMon.maxhp))
+    {
+        damage /= 2;
+    }
+
+        return damage + 2;
 }
 
 // GetBattleMonItem needs to be rewritten AND hooked from.  interesting
