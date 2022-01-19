@@ -926,7 +926,6 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
         }
             break;
         case ABILITY_ROUGH_SKIN:
-        case ABILITY_PROTEAN:
             if ((sp->battlemon[sp->attack_client].hp)
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -1032,6 +1031,19 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 4);
                 sp->client_work = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_AFTERMATH;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_INNARDS_OUT:
+            if ((sp->defence_client == sp->fainting_client)
+                && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+                sp->hp_calc_work = sp->damage * -1;
+                sp->client_work = sp->attack_client;
+                seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
                 ret = TRUE;
             }
             break;
