@@ -491,6 +491,9 @@ struct __attribute__((packed)) BattlePokemon
     u32 pressure_flag : 1;       //2ch  登場時プレッシャーチェック
     u32 canMega : 1;
     u32 unnerve_flag : 1;
+    u32 dark_aura_flag : 1;
+    u32 fairy_aura_flag : 1;
+    u32 aura_break_flag : 1;
     u32 : 19;                    //2ch
 
     u8 pp[4];

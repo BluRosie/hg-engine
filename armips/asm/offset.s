@@ -1,1 +1,1 @@
-PokeIconPalNumGet equ 0x023CB960
+PokeIconPalNumGet equ 0x023CF6C4

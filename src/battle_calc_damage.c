@@ -354,6 +354,33 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 150 / 100;
     }
 
+    // if dark aura is present but not aura break
+    if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DARK_AURA) != 0)
+      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) == 0)) 
+    movepower = movepower * 133 / 100;
+
+    // if dark aura is present AND aura break
+    else if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DARK_AURA) != 0)
+      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
+    movepower = movepower * 100 / 133;
+
+    // if FAIRY aura is present but not aura break
+    if ((movetype == TYPE_MYSTERY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0) 
+      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) == 0))
+    movepower = movepower * 133 / 100;
+
+    // if FAIRY aura is present AND aura break
+    else if ((movetype == TYPE_MYSTERY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0)
+      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
+    movepower = movepower * 100 / 133;
+
+
+    //handle friend guard
+    if ((GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD) == TRUE)
+    {
+        movepower = movepower * 75 / 100;
+    }
+
     // handle heatproof/dry skin
     if ((movetype == TYPE_FIRE) && (CheckDefenceAbility(sp, attacker, defender, ABILITY_HEATPROOF) == TRUE))
     {
@@ -668,6 +695,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
 
+#define DEBUG
 #ifdef DEBUG
     *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->old_moveTbl[moveno].power : pow;
     *((u32 *)(0x23D8004 + 0xC*(attacker&1))) = movepower;

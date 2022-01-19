@@ -1286,3 +1286,12 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervo
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it the {STRVAR_1 15, 2, 0} type!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
 The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
+{STRVAR_1 1, 0, 0} is radiating\na dark aura!
+The wild {STRVAR_1 1, 0, 0} is radiating\na dark aura!
+The foe’s {STRVAR_1 1, 0, 0} is radiating\na dark aura!
+{STRVAR_1 1, 0, 0} is radiating\na fairy aura!
+The wild {STRVAR_1 1, 0, 0} is radiating\na fairy aura!
+The foe’s {STRVAR_1 1, 0, 0} is radiating a fairy aura!
+{STRVAR_1 1, 0, 0} reversed all other\nPokémon’s auras!
+The wild {STRVAR_1 1, 0, 0} reversed all other\nPokémon’s auras!
+The foe’s {STRVAR_1 1, 0, 0} reversed all other\nPokémon’s auras!

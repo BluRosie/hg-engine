@@ -139,6 +139,9 @@ enum
     SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_HEAL_STATUS,
     SWITCH_IN_CHECK_UNNERVE,
+    SWITCH_IN_CHECK_DARK_AURA,
+    SWITCH_IN_CHECK_FAIRY_AURA,
+    SWITCH_IN_CHECK_AURA_BREAK,
     SWITCH_IN_CHECK_END,
 };
 
@@ -713,6 +716,63 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     sp->battlemon[client_no].unnerve_flag = 1;
                     sp->client_work = client_no;
                     scriptnum = SUB_SEQ_HANDLE_UNNERVE_MESSAGE;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    break;
+                }
+            }
+            if(i == client_set_max){
+                sp->switch_in_check_seq_no++;
+            }
+            break;
+        case SWITCH_IN_CHECK_DARK_AURA:
+            for(i = 0; i < client_set_max; i++)
+            {
+                client_no = sp->turn_order[i];
+                if ((sp->battlemon[client_no].dark_aura_flag == 0)
+                 && (sp->battlemon[client_no].hp)
+                 && (GetBattlerAbility(sp, client_no) == ABILITY_DARK_AURA))
+                {
+                    sp->battlemon[client_no].dark_aura_flag = 1;
+                    sp->client_work = client_no;
+                    scriptnum = SUB_SEQ_HANDLE_DARK_AURA_MESSAGE;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    break;
+                }
+            }
+            if(i == client_set_max){
+                sp->switch_in_check_seq_no++;
+            }
+            break;
+        case SWITCH_IN_CHECK_FAIRY_AURA:
+            for(i = 0; i < client_set_max; i++)
+            {
+                client_no = sp->turn_order[i];
+                if ((sp->battlemon[client_no].fairy_aura_flag == 0)
+                 && (sp->battlemon[client_no].hp)
+                 && (GetBattlerAbility(sp, client_no) == ABILITY_FAIRY_AURA))
+                {
+                    sp->battlemon[client_no].fairy_aura_flag = 1;
+                    sp->client_work = client_no;
+                    scriptnum = SUB_SEQ_HANDLE_FAIRY_AURA_MESSAGE;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    break;
+                }
+            }
+            if(i == client_set_max){
+                sp->switch_in_check_seq_no++;
+            }
+            break;
+        case SWITCH_IN_CHECK_AURA_BREAK:
+            for(i = 0; i < client_set_max; i++)
+            {
+                client_no = sp->turn_order[i];
+                if ((sp->battlemon[client_no].aura_break_flag == 0)
+                 && (sp->battlemon[client_no].hp)
+                 && (GetBattlerAbility(sp, client_no) == ABILITY_AURA_BREAK))
+                {
+                    sp->battlemon[client_no].aura_break_flag = 1;
+                    sp->client_work = client_no;
+                    scriptnum = SUB_SEQ_HANDLE_AURA_BREAK_MESSAGE;
                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                     break;
                 }

@@ -6,12 +6,12 @@
 #define ITEM_DATA_MAX 536
 #define NEW_ITEM_MAX ITEM_MEGA_STONE_DIANCIE
 // the pixie plate takes up slot 803, so in the case it is implemented, the items need to be offset.
-#define ITEM_DATA_ENTRIES 514 + FAIRY_TYPE_IMPLEMENTED
-#define NEW_ITEM_GFX 803 + FAIRY_TYPE_IMPLEMENTED
+#define ITEM_DATA_ENTRIES 514 
+#define NEW_ITEM_GFX 803 
 
 u16 GetItemIndex(u16 item, u16 type)
 {
-    u16 ret = 0;
+    u16 ret = FALSE;
     switch (type)
     {
     case ITEM_GET_DATA:
