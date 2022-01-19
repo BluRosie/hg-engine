@@ -179,3 +179,8 @@ HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
 CheckSubstitute = 0x02256838 | 1;
+
+/*Battle Script Functions*/
+IncrementBattleScriptPtr = 0x02245508 | 1;
+read_battle_script_param = 0x022454E8 | 1;
+TagNickParaMake = 0x022522E0 | 1;
