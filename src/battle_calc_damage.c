@@ -668,7 +668,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
 
-        return damage + 2;
+#ifdef DEBUG
+    *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->old_moveTbl[moveno].power : pow;
+    *((u32 *)(0x23D8004 + 0xC*(attacker&1))) = movepower;
+    *((u32 *)(0x23D8008 + 0xC*(attacker&1))) = damage + 2;
+#endif
+    
+    return damage + 2;
 }
 
 // GetBattleMonItem needs to be rewritten AND hooked from.  interesting
