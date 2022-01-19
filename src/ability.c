@@ -1046,9 +1046,9 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
     }
     else
     {
-        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attack].mold_breaker_flag == 0))
+        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].mold_breaker_flag == 0))
         {
-            sp->oneSelfFlag[attack].mold_breaker_flag = 1;
+            sp->oneSelfFlag[attacker].mold_breaker_flag = 1;
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOLD_BREAKER;
         }
     }
