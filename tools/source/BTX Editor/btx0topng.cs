@@ -9,10 +9,10 @@ using System.Windows.Forms;
 namespace BTX_Editor
 {
 	// Token: 0x02000003 RID: 3
-	public partial class Form1 : Form
+	public class Btx0ToPng
 	{
 		// Token: 0x06000004 RID: 4 RVA: 0x0000246B File Offset: 0x0000066B
-		public Form1(string[] args)
+		public Btx0ToPng(string[] args)
 		{
 			if (args.Length != 2)
 			{
@@ -52,25 +52,25 @@ namespace BTX_Editor
 			openFileDialog.Filter = "BTX (*.btx; *.btx0)|*.btx;*.btx0";
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				this.button_Save.Enabled = false;
-				this.button_Export.Enabled = false;
-				this.button_Import.Enabled = false;
-				this.checkBox_Shiny.Enabled = false;
-				this.checkBox_Shiny.Checked = false;
+// 				this.button_Save.Enabled = false;
+// 				this.button_Export.Enabled = false;
+// 				this.button_Import.Enabled = false;
+// 				this.checkBox_Shiny.Enabled = false;
+// 				this.checkBox_Shiny.Checked = false;
 				this.BTXFile = File.ReadAllBytes(openFileDialog.FileName);
 				this.bm = BTX0.Read(this.BTXFile);
 				if (this.bm != null)
 				{
-					this.button_Save.Enabled = true;
-					this.button_Export.Enabled = true;
-					this.button_Import.Enabled = true;
-					if (Program.PaletteSize == 64U && Program.PaletteCount == 2U)
-					{
-						this.checkBox_Shiny.Enabled = true;
-					}
-					this.pictureBox1.Width = this.bm.Width;
-					this.pictureBox1.Height = this.bm.Height;
-					this.pictureBox1.Image = this.bm;
+// 					this.button_Save.Enabled = true;
+// 					this.button_Export.Enabled = true;
+// 					this.button_Import.Enabled = true;
+// 					if (Program.PaletteSize == 64U && Program.PaletteCount == 2U)
+// 					{
+// 						this.checkBox_Shiny.Enabled = true;
+// 					}
+// 					this.pictureBox1.Width = this.bm.Width;
+// 					this.pictureBox1.Height = this.bm.Height;
+// 					this.pictureBox1.Image = this.bm;
 					return;
 				}
 				MessageBox.Show("This file is not supported.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -116,7 +116,7 @@ namespace BTX_Editor
 					{
 						this.BTXFile = BTX0.Write(this.BTXFile, bitmap);
 						this.bm = BTX0.Read(this.BTXFile);
-						this.pictureBox1.Image = this.bm;
+// 						this.pictureBox1.Image = this.bm;
 						return;
 					}
 					MessageBox.Show(string.Concat(new object[]
@@ -148,19 +148,19 @@ namespace BTX_Editor
 		// Token: 0x06000009 RID: 9 RVA: 0x000027A8 File Offset: 0x000009A8
 		private void checkBox_Shiny_CheckedChanged(object sender, EventArgs e)
 		{
-			if (this.checkBox_Shiny.Checked)
-			{
-				Program.PaletteIndex = 1U;
-			}
-			else
-			{
-				Program.PaletteIndex = 0U;
-			}
-			if (this.checkBox_Shiny.Enabled)
-			{
-				this.bm = BTX0.Read(this.BTXFile);
-				this.pictureBox1.Image = this.bm;
-			}
+// 			if (this.checkBox_Shiny.Checked)
+// 			{
+// 				Program.PaletteIndex = 1U;
+// 			}
+// 			else
+// 			{
+// 				Program.PaletteIndex = 0U;
+// 			}
+// 			if (this.checkBox_Shiny.Enabled)
+// 			{
+// 				this.bm = BTX0.Read(this.BTXFile);
+// 				this.pictureBox1.Image = this.bm;
+// 			}
 		}
 
 		// Token: 0x0600000A RID: 10 RVA: 0x00002800 File Offset: 0x00000A00
@@ -185,36 +185,36 @@ namespace BTX_Editor
 		// Token: 0x0600000B RID: 11 RVA: 0x0000285C File Offset: 0x00000A5C
 		private void button1_Click(object sender, EventArgs e)
 		{
-			this.files = Directory.GetFiles("C:\\Users\\Kazo\\Desktop\\BTX\\", "*.btx0", SearchOption.TopDirectoryOnly);
-			this.comboBox1.Items.Clear();
-			for (int i = 0; i < this.files.Length; i++)
-			{
-				this.comboBox1.Items.Add(i);
-			}
+			this.files = Directory.GetFiles("C:/Users/Kazo/Desktop/BTX/", "*.btx0", SearchOption.TopDirectoryOnly);
+// 			this.comboBox1.Items.Clear();
+// 			for (int i = 0; i < this.files.Length; i++)
+// 			{
+// 				this.comboBox1.Items.Add(i);
+// 			}
 		}
 
 		// Token: 0x0600000C RID: 12 RVA: 0x000028BC File Offset: 0x00000ABC
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			this.button_Save.Enabled = false;
-			this.button_Export.Enabled = false;
-			this.button_Import.Enabled = false;
-			this.checkBox_Shiny.Enabled = false;
-			this.checkBox_Shiny.Checked = false;
-			this.BTXFile = File.ReadAllBytes(this.files[this.comboBox1.SelectedIndex]);
+// 			this.button_Save.Enabled = false;
+// 			this.button_Export.Enabled = false;
+// 			this.button_Import.Enabled = false;
+// 			this.checkBox_Shiny.Enabled = false;
+// 			this.checkBox_Shiny.Checked = false;
+// 			this.BTXFile = File.ReadAllBytes(this.files[this.comboBox1.SelectedIndex]);
 			this.bm = BTX0.Read(this.BTXFile);
 			if (this.bm != null)
 			{
-				this.button_Save.Enabled = true;
-				this.button_Export.Enabled = true;
-				this.button_Import.Enabled = true;
-				if (Program.PaletteSize == 64U && Program.PaletteCount == 2U)
-				{
-					this.checkBox_Shiny.Enabled = true;
-				}
-				this.pictureBox1.Width = this.bm.Width;
-				this.pictureBox1.Height = this.bm.Height;
-				this.pictureBox1.Image = this.bm;
+// 				this.button_Save.Enabled = true;
+// 				this.button_Export.Enabled = true;
+// 				this.button_Import.Enabled = true;
+// 				if (Program.PaletteSize == 64U && Program.PaletteCount == 2U)
+// 				{
+// 					this.checkBox_Shiny.Enabled = true;
+// 				}
+// 				this.pictureBox1.Width = this.bm.Width;
+// 				this.pictureBox1.Height = this.bm.Height;
+// 				this.pictureBox1.Image = this.bm;
 				return;
 			}
 			MessageBox.Show("This file is not supported.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

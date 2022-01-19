@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         }
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
         }
     }
 
-    tutorlistname = "rawdata\\tutorfields.txt";
+    tutorlistname = "rawdata/tutorfields.txt";
 
     if (strcmp(tutorlistname, "-") == 0)
     {
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
             }
             if (i % 8 == 0)
             {
-                printf("\\\n                  ");
+                printf("/\n                  ");
             }
             if (i < 32)
             {
@@ -125,7 +125,7 @@ int main(int argc, char **argv)
             }
             else
             {
-                if (tutordata1 & (1 << i - 32))
+                if (tutordata1 & (1 << (i - 32)))
                 {
                     for (j = 0; j <= i; j++)
                         fgets(textfromfile, BUFF_SIZE, tutorlist);
@@ -136,7 +136,7 @@ int main(int argc, char **argv)
             }
         }
 
-        printf("0\n\n\n", textfromfile);
+//        printf("0\n\n\n", textfromfile);
 
         monnum++;
     }

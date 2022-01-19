@@ -15,9 +15,9 @@ namespace PlatinumSpriteEditor
 {
 	class MainForm
 	{		
-		Rectangle rect;
+		static Rectangle rect;
 
-		public MainForm(string[] args)
+		public static void Main(string[] args)
 		{
 			int i, totalMons;
 
@@ -39,11 +39,11 @@ namespace PlatinumSpriteEditor
 
 			for (i = 7; i <= totalMons + 7; i++)
 			{
-				ncgr = System.IO.File.OpenWrite(args[1] + "\\a020_" + i.ToString("D3")); // icon output file
+				ncgr = System.IO.File.OpenWrite(args[1] + "/a020_" + i.ToString("D3")); // icon output file
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "\\" + (i - 7).ToString("D3") + ".png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + (i - 7).ToString("D3") + ".png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -61,7 +61,7 @@ namespace PlatinumSpriteEditor
 		const int height = 64;
 		const int filesize = width * height;
 				
-		void SaveBin(FileStream fs, Bitmap source)
+		static void SaveBin(FileStream fs, Bitmap source)
 		{
 			BinaryWriter binaryWriter = new BinaryWriter(fs);
 			rect = new Rectangle(0, 0, width, height);
@@ -107,7 +107,7 @@ namespace PlatinumSpriteEditor
 			}
 		}
 
-		byte GetIndexedPixel(byte[] image, int x, int y)
+		static byte GetIndexedPixel(byte[] image, int x, int y)
 		{
 			return image[y * width + x];
 		}

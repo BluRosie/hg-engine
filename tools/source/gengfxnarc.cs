@@ -48,12 +48,12 @@ namespace PlatinumSpriteEditor
 				palSavedNorm = 0;
 				palSavedShiny = 0;
 
-				ncgr = System.IO.File.OpenWrite(args[1] + "\\a004_" + index.ToString("D4")); // female back sprite
-				nclr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 5).ToString("D4")); // shiny pal
+				ncgr = System.IO.File.OpenWrite(args[1] + "/a004_" + index.ToString("D4")); // female back sprite
+				nclr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 5).ToString("D4")); // shiny pal
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "\\" + i.ToString("D3") + "\\00.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/00.png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -67,12 +67,12 @@ namespace PlatinumSpriteEditor
 					palSavedShiny = 1;
 				}
 
-				ncgr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 1).ToString("D4")); // male back sprite
-                //nclr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 5).ToString("D4")); // shiny pal
+				ncgr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 1).ToString("D4")); // male back sprite
+                //nclr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 5).ToString("D4")); // shiny pal
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "\\" + i.ToString("D3") + "\\01.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/01.png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -86,12 +86,12 @@ namespace PlatinumSpriteEditor
 					SavePal(nclr, StandardizeColors(png));
 				}
 					
-				ncgr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 2).ToString("D4")); // female front sprite
-				nclr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 4).ToString("D4")); // normal pal
+				ncgr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 2).ToString("D4")); // female front sprite
+				nclr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 4).ToString("D4")); // normal pal
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "\\" + i.ToString("D3") + "\\02.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/02.png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -105,12 +105,12 @@ namespace PlatinumSpriteEditor
 					palSavedNorm = 1;
 				}
 
-				ncgr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 3).ToString("D4")); // male front sprite
-				//nclr = System.IO.File.OpenWrite(args[1] + "\\a004_" + (index + 4).ToString("D4")); // normal pal
+				ncgr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 3).ToString("D4")); // male front sprite
+				//nclr = System.IO.File.OpenWrite(args[1] + "/a004_" + (index + 4).ToString("D4")); // normal pal
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "\\" + i.ToString("D3") + "\\03.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/03.png");
 				}
 				catch (OutOfMemoryException)
 				{

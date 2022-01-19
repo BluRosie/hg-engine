@@ -13,7 +13,7 @@ namespace BTX_Editor
 			//Application.EnableVisualStyles();
 			//Application.SetCompatibleTextRenderingDefault(false);
 			//Application.Run(new Form1(args));
-			new Form1(args);
+			new PngToBtx0(args);
 		}
 
 		// Token: 0x0400000E RID: 14

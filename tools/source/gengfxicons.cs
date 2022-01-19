@@ -14,9 +14,9 @@ namespace PlatinumSpriteEditor
 {
 	class MainForm
 	{		
-		Rectangle rect;
+		static Rectangle rect;
 
-		public MainForm(string[] args)
+		public static void Main(string[] args)
 		{
 			int i, totalMons;
 
@@ -30,8 +30,8 @@ namespace PlatinumSpriteEditor
 
 			System.IO.Directory.CreateDirectory(args[1]);
 
-			FileStream palList = System.IO.File.OpenRead("rawdata\\iconpalettetable.bin"); // tired of making everything super portable.  set it up correctly and you won't have to deal with anything.
-			FileStream nclr = System.IO.File.OpenRead(args[0] + "\\a020_000"); // all of the palettes
+			FileStream palList = System.IO.File.OpenRead("rawdata/iconpalettetable.bin"); // tired of making everything super portable.  set it up correctly and you won't have to deal with anything.
+			FileStream nclr = System.IO.File.OpenRead(args[0] + "/a020_000"); // all of the palettes
 
 			totalMons = int.Parse(args[2]) + 7;
 
@@ -43,7 +43,7 @@ namespace PlatinumSpriteEditor
 				int species = i - 7;
 				int palNum = binaryReader.ReadByte();
 
-				FileStream ncgr = System.IO.File.OpenRead(args[0] + "\\a020_" + i.ToString("D3"));
+				FileStream ncgr = System.IO.File.OpenRead(args[0] + "/a020_" + i.ToString("D3"));
 
 				if (ncgr.Length > 0)
 				{
@@ -53,7 +53,7 @@ namespace PlatinumSpriteEditor
 				else
 					png = null;
 
-				SavePNG(png, args[1] + "\\" + species.ToString("D3") + ".png");
+				SavePNG(png, args[1] + "/" + species.ToString("D3") + ".png");
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace PlatinumSpriteEditor
 		const int height = 64;
 		const int filesize = width * height;
 
-		Bitmap MakeImage(FileStream fs)
+		static Bitmap MakeImage(FileStream fs)
 		{
 			fs.Seek(48L, SeekOrigin.Begin);
 			BinaryReader binaryReader = new BinaryReader(fs);
@@ -123,14 +123,14 @@ namespace PlatinumSpriteEditor
 			return r_bitmap;
 		}
 
-		byte[] SetIndexedPixel(byte[] retimage, byte[] srcimage, int x, int y, int position)
+		static byte[] SetIndexedPixel(byte[] retimage, byte[] srcimage, int x, int y, int position)
 		{
 			retimage[y * width + x] = srcimage[position];
 
 			return retimage;
 		}
 		
-		ColorPalette SetPal(FileStream fs, int palNum)
+		static ColorPalette SetPal(FileStream fs, int palNum)
 		{
 			fs.Seek((long)(40 + (palNum * 32)), SeekOrigin.Begin);
 			ushort[] array = new ushort[16];
@@ -148,7 +148,7 @@ namespace PlatinumSpriteEditor
 			return palette;
 		}
 		
-		void SavePNG(Bitmap image, string filename)
+		static void SavePNG(Bitmap image, string filename)
 		{
 			if (image != null)
 			{

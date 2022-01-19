@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     int filenum = 11, elementnum, i;
     FILE *entry, *monlist;
     char filename[25], textfromfile[BUFF_SIZE];
-    const char *monlistname = "rawdata\\monnums.txt";
+    const char *monlistname = "rawdata/monnums.txt";
 
     if (argc != 1) // the simple error handling part
     {
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
     _workaround:
 
-    sprintf(filename, "a214\\a214_%03d", filenum);
+    sprintf(filename, "a214/a214_%03d", filenum);
 
     entry = fopen(filename, "rb");
 

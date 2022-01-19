@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     int filenum = 0, monnum = 0, index = 0;
     FILE *entry, *output;
     char filename[25], ch;
-    const char *outputfile = "checkitout\\output.txt";
+    const char *outputfile = "checkitout/output.txt";
 
     if (argc != 1) // the simple error handling part
     {
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 
     filenum = (index * 0x1EF) + monnum;
 
-    sprintf(filename, "checkitout\\xx%04d.txt", filenum);
+    sprintf(filename, "checkitout/xx%04d.txt", filenum);
 
     entry = fopen(filename, "r");
 

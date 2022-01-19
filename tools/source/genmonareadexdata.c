@@ -18,7 +18,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         }
     }
 
-    dexlist1name = "rawdata\\dexlist1.txt";
+    dexlist1name = "rawdata/dexlist1.txt";
 
     if (strcmp(dexlist1name, "-") == 0)
     {
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
         }
     }
 
-    dexlist2name = "rawdata\\dexlist2.txt";
+    dexlist2name = "rawdata/dexlist2.txt";
 
     if (strcmp(dexlist2name, "-") == 0)
     {
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
         }
     }
 
-    dexareaname = "rawdata\\dexarea.bin";
+    dexareaname = "rawdata/dexarea.bin";
 
     if (strcmp(dexareaname, "-") == 0)
     {

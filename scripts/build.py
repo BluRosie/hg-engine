@@ -10,7 +10,10 @@ import subprocess
 import sys
 from datetime import datetime
 
+EXE_PREFIX = ''
+
 if sys.platform.startswith('win'):
+    EXE_SUFFIX = '.exe'
     PathVar = os.environ.get('Path')
     Paths = PathVar.split(';')
     PATH = ''
@@ -23,6 +26,11 @@ if sys.platform.startswith('win'):
         if os.path.isdir(PATH) is False:
             print('...\nDevkit not found.')
             sys.exit(1)
+else:
+    EXE_SUFFIX = ''
+    EXE_PREFIX = 'mono'
+    PATH = ''
+
 
     PREFIX = '/arm-none-eabi-'
     AS = PATH + PREFIX + 'as'
@@ -76,8 +84,10 @@ def build_sprite():
                 continue
             flag = 1
             break
-
-    cmd = ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
+    if sys.platform.startswith('win'):
+        cmd = ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
+    else:
+        cmd = ["mono"] + ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
     print("generating gfx data for folder " + i + "...")
     RunCommand(cmd)
 
@@ -97,7 +107,7 @@ def build_icon():
             OBJ = "build/pokemonicon/1_" + i.replace(".png",".NCGR")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(OBJ):
             continue
-        cmd = ["tools/nitrogfx.exe"] + ["data/graphics/icongfx/" + i, OBJ , "-clobbersize", "-version101"]
+        cmd = ["tools/nitrogfx" + EXE_SUFFIX] + ["data/graphics/icongfx/" + i, OBJ , "-clobbersize", "-version101"]
         flag = True
         RunCommand(cmd)
         
@@ -117,7 +127,7 @@ def build_anim_script():
         OBJ = BUILD + i.replace(".s","")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
             continue
-        cmd = ["tools/armips.exe"] + [DIR + i]
+        cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
         print("script "+i)
         RunCommand(cmd)
 
@@ -133,7 +143,7 @@ def build_seq_script():
         OBJ = BUILD + i.replace(".s","")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
             continue
-        cmd = ["tools/armips.exe"] + [DIR + i]
+        cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
         print("script "+i)
         RunCommand(cmd)
     
@@ -148,10 +158,10 @@ def build_item_sprite():
         OBJ2 = BUILD + "8_" + str(int(i.replace(".png","")) + 1)
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
             continue
-        cmd = ["tools/nitrogfx.exe"] + ["data/graphics/item/" + i, OBJ , "-clobbersize", "-version101"]
+        cmd = ["tools/nitrogfx" + EXE_SUFFIX] + ["data/graphics/item/" + i, OBJ , "-clobbersize", "-version101"]
         print("item "+i)
         RunCommand(cmd)
-        cmd = ["tools/nitrogfx.exe"] + ["data/graphics/item/" + i, OBJ2 + ".NCLR" , "-ir" ,"-bitdepth","4"]
+        cmd = ["tools/nitrogfx" + EXE_SUFFIX] + ["data/graphics/item/" + i, OBJ2 + ".NCLR" , "-ir" ,"-bitdepth","4"]
         RunCommand(cmd)
 
 def build_ow():
@@ -164,8 +174,8 @@ def build_ow():
     flag = False
     file = []
 
-    cmd_extract = ["tools/narchive.exe"] + ["extract", "base/root/a/0/8/1", "-o","build/pokemonow","-nf"]
-    cmd_narc = ["tools/narchive.exe"] + ["create", "build/pokemonow.narc", "build/pokemonow","-nf"]
+    cmd_extract = ["python3"] + ["tools/narcpy.py"] + ["extract", "base/root/a/0/8/1", "-o","build/pokemonow","-nf"]
+    cmd_narc = ["python3"] + ["tools/narcpy.py"] + ["create", "build/pokemonow.narc", "build/pokemonow","-nf"]
 
     for i in get_dir:
         if "_shiny" in i:
@@ -176,7 +186,10 @@ def build_ow():
             OBJ = "build/pokemonow/1_" + i.replace(".png","")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(OBJ):
             continue
-        cmd = ["tools/pngtobtx0.exe"] + [DIR + "/" + i,OBJ]
+        if sys.platform.startswith('win'):
+            cmd = ["tools/pngtobtx0.exe"] + [DIR + "/" + i,OBJ]
+        else:
+            cmd = ["mono"] + ["tools/pngtobtx0.exe"] + [DIR + "/" + i,OBJ]
         print("build " + i)
         file.append(i.replace(".png",''))
         flag = True
