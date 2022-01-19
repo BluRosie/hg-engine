@@ -68,3 +68,20 @@ mov pc, r1
 
 CalcCritical_return_address:
 .word 0
+
+
+.global MoldBreakerAbilityCheck_hook
+MoldBreakerAbilityCheck_hook:
+ldr r5, =MoldBreakerAbilityCheck_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl MoldBreakerAbilityCheck
+ldr r1, =MoldBreakerAbilityCheck_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+MoldBreakerAbilityCheck_return_address:
+.word 0

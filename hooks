@@ -48,6 +48,8 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 CalcCritical_hook 080203A0 5
 #022555EC
 0012 GetBattleMonItem 0801DD2C 2
+#02252834
+0012 MoldBreakerAbilityCheck_hook 0801AF78 5
 
 #battle script command hooks
 #0223ED78

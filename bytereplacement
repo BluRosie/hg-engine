@@ -14,3 +14,7 @@
 # CalcCritical hook setup
 # 02257C5C
 0012 0802039C 60 B4 C0 46
+
+# MoldBreakerAbilityCheck hook setup
+# 02252834
+0012 0801AF74 60 B4 C0 46
