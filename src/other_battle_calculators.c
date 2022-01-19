@@ -139,6 +139,14 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 130 / 100;
     }
 
+    
+    //handle Wonder Skin
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->old_moveTbl[move_no].split == SPLIT_STATUS))
+    {
+        accuracy = accuracy * 50 / 100;
+    }
+
+
     if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
     {
@@ -203,6 +211,12 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     {
         accuracy = accuracy * 10 / 6;
     }
+
+#define DEBUG
+#ifdef DEBUG
+    *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->old_moveTbl[move_no].accuracy;
+    *((u32 *)(0x23D8004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
+#endif
 
     if (((BattleRand(bw) % 100) + 1) > accuracy)
     {
