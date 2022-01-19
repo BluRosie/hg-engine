@@ -179,6 +179,7 @@
 
 // status2/condition2 flags
 #define STATUS2_FLAG_CONFUSED (0x00000007)
+#define STATUS2_FLAG_INFATURATION (0x000f0000)
 #define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
 #define STATUS2_FLAG_TRANSFORMED (0x00200000)
 #define STATUS2_FLAG_SUBSTITUTE (0x01000000)
@@ -617,7 +618,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x68*/ int attack_client_temp;
     /*0x6C*/ int defence_client;
     /*0x70*/ int defence_client_temp;
-    /*0x74*/ int kizetsu_client;
+    /*0x74*/ int fainting_client;
     /*0x78*/ int reshuffle_client;
     /*0x7C*/ int reshuffle_client_temp;
     /*0x80*/ int ability_client;

@@ -15,6 +15,7 @@ narc/*
 b.c
 dump.py
 dumpitem.py
+*_DSPRE_contents/*
 
 # pycache files
 *.pyc
