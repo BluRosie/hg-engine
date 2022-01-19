@@ -495,7 +495,7 @@ struct __attribute__((packed)) BattlePokemon
     u32 dark_aura_flag : 1;
     u32 fairy_aura_flag : 1;
     u32 aura_break_flag : 1;
-    u32 : 19;                    //2ch
+    u32 : 16;                    //2ch
 
     u8 pp[4];
     u8 pp_count[4];
