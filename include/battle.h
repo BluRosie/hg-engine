@@ -1291,7 +1291,7 @@ int __attribute__((long_call)) ServerBadgeCheck(void *bw, void *sp, int *seq_no)
 void __attribute__((long_call)) ST_ServerDefenceClientTokuseiCheck(void *bw, void *sp, int attack, u16 waza_no);
 void __attribute__((long_call)) ST_ServerTotteokiCountCalc(void *bw,void *sp);
 void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp);
-int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp)
+int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
 void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
 
@@ -1328,7 +1328,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
-int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
+int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp);
 
 
 

@@ -11,7 +11,7 @@
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
 
-static BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     int	adrs1;
     int	adrs2;
@@ -38,30 +38,48 @@ static BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     //statesを上げ下げ出来なかったフラグを初期化
     sp->server_status_flag&=SERVER_STATUS_FLAG_COND_CHG_NG_OFF;
 
-    //2段階DOWN
+        //2 steps down
     if(sp->addeffect_param>=ADD_COND2_POWDOWN2){
         para=sp->addeffect_param-ADD_COND2_POWDOWN2;
         value=-2;
         sp->temp_work=STATUS_EFF_DOWN;
     }
-        //2段階UP
+        //2 steps up
     else if(sp->addeffect_param>=ADD_COND2_POWUP2){
         para=sp->addeffect_param-ADD_COND2_POWUP2;
         value=2;
         sp->temp_work=STATUS_EFF_UP;
     }
-        //1段階DOWN
+        //1 step down
     else if(sp->addeffect_param>=ADD_COND2_POWDOWN){
         para=sp->addeffect_param-ADD_COND2_POWDOWN;
         value=-1;
         sp->temp_work=STATUS_EFF_DOWN;
     }
-        //1段階UP
+        //1 step up
     else{
         para=sp->addeffect_param-ADD_COND2_POWUP;
         value=1;
         sp->temp_work=STATUS_EFF_UP;
     }
+
+    if(psp->ability == ABILITY_CONTRARY)
+    {
+        //value
+        value = -value;
+
+        //sp->temp_work
+        if(sp->temp_work == STATUS_EFF_UP)
+        {
+            sp->temp_work= STATUS_EFF_DOWN;
+        }
+        else if(sp->temp_work == STATUS_EFF_DOWN)
+        {
+            sp->temp_work= STATUS_EFF_UP;
+        }
+    }
+
+
     if(value>0){
         if(psp->states[COND_POW+para]==12){
             //statesを上げ下げ出来なかったフラグをセット
