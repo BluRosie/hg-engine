@@ -14,11 +14,9 @@ TOOLCHAIN := $(DEVKITARM)
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
-else
-EXE := .exe
 endif
 
-default: all
+default: build_tools
 
 ROMNAME = rom.nds
 BUILDROM = test.nds
@@ -102,9 +100,51 @@ all: $(OUTPUT)
 	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
 	@echo -e "\e[32;1mDone.\e[37;1m"
 
+build_tools:
+	cd tools ; gcc source/genbabymondata.c -Werror -o genbabymondata$(EXE)
+	cd tools ; gcc source/gendexsortlists.c -Werror -o gendexsortlists$(EXE)
+	cd tools ; gcc source/geneggmovedata.c -Werror -o geneggmovedata$(EXE)
+	cd tools ; gcc source/genevodatatxt.c -Werror -o genevodatatxt$(EXE)
+	cd tools ; gcc source/genheightdata.c -Werror -o genheightdata$(EXE)
+	cd tools ; gcc source/genleveldatatxt.c -Werror -o genleveldatatxt$(EXE)
+	cd tools ; gcc source/genmonareadexdata.c -Werror -o genmonareadexdata$(EXE)
+	cd tools ; gcc source/genmondatatxt.c  -Werror -o genmondatatxt$(EXE)
+	cd tools ; gcc source/gentutormovedata.c  -Werror -o gentutormovedata$(EXE)
+	cd tools ; gcc source/replacehexwithdec.c  -Werror -o replacehexwithdec$(EXE)
+	cd tools ; gcc source/sortmonareadexdata.c  -Werror -o sortmonareadexdata$(EXE)
+
+	cd tools ; csc /target:exe /out:gengfxdata$(EXE) source/gengfxdata.cs
+	cd tools ; csc /target:exe /out:gengfxicons$(EXE) source/gengfxicons.cs
+	cd tools ; csc /target:exe /out:gengfxnarc$(EXE) source/gengfxnarc.cs
+	cd tools ; csc /target:exe /out:geniconnarc$(EXE) source/geniconnarc.cs
+	cd tools ; csc /target:exe /out:ncgrtopng$(EXE) source/ncgrtopng.cs
+	cd tools ; csc /target:exe /out:pngtoncgr$(EXE) source/pngtoncgr.cs
+
+	cd source ; git clone https://github.com/devkitPro/ndstool.git
+	cd source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
+	cd source/ndstool ; ./autogen.sh
+	cd source/ndstool ; ./configure && make && make install
+
+	cd msgenc
+	make
+	mv msgenc$(EXE) ../../msgenc$(EXE)
+	cd ..
+
+	git clone --recursive https://github.com/Kingcom/armips.git
+	cd armips
+	mkdir build && cd build
+	cmake -DCMAKE_BUILD_TYPE=Release ..
+	cmake --build .
+
+
+
+
 clean:
 	rm -r build
 	rm -r base
+	rm -r tools/source/ndstool
+	rm -r tools/source/armips
+
 
 move_narc:
 	@echo "battle hud layout:"
