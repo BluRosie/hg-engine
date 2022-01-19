@@ -1041,7 +1041,16 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 && (sp->battlemon[sp->attack_client].hp)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
             {
-                sp->hp_calc_work = sp->hit_damage * -1;
+//                if (sp->oneSelfFlag[sp->defence_client].physical_damager == sp->attack_client)
+//                {
+//                    sp->hp_calc_work = (sp->oneSelfFlag[sp->defence_client].physical_damage) * -1;
+//                }
+//                else if (sp->oneSelfFlag[sp->defence_client].special_damager == sp->attack_client)
+//                {
+//                    sp->hp_calc_work = (sp->oneSelfFlag[sp->defence_client].special_damage) * -1;
+//                }
+                sp->hp_calc_work = (sp->damage) * -1;
+
                 sp->client_work = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
                 ret = TRUE;
