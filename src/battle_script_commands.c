@@ -59,7 +59,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         sp->temp_work = STATUS_EFF_UP;
     }
 
-    if(battlemon->ability == ABILITY_CONTRARY)
+    if (battlemon->ability == ABILITY_CONTRARY)
     {
         //statchange
         statchange = -statchange;
@@ -78,7 +78,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     if (statchange > 0)
     {
-        if(battlemon->states[STAT_ATTACK+stattochange] == 12)
+        if (battlemon->states[STAT_ATTACK + stattochange] == 12)
         {
             sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
             
@@ -122,18 +122,19 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
             }
             battlemon->states[STAT_ATTACK + stattochange] += statchange;
-            if(battlemon->states[STAT_ATTACK + stattochange] > 12){
+            if (battlemon->states[STAT_ATTACK + stattochange] > 12)
+            {
                 battlemon->states[STAT_ATTACK + stattochange] = 12;
             }
         }
     }
     else
     {
-        if((sp->addeffect_flag & ADD_STATUS_NO_ABILITY) == 0)
+        if ((sp->addeffect_flag & ADD_STATUS_NO_ABILITY) == 0)
         {
-            if(sp->attack_client != sp->state_client)
+            if (sp->attack_client != sp->state_client)
             {
-                if(sp->scw[IsClientEnemy(bw,sp->state_client)].mist_count)
+                if (sp->scw[IsClientEnemy(bw,sp->state_client)].mist_count)
                 {
                     sp->mp.msg_id = 273;
                     sp->mp.msg_tag = TAG_NICK;
