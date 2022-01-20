@@ -869,7 +869,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     return ret;
 }
 
-BOOL MummyAbilityCheck(void *bw, struct BattleStruct *sp)
+BOOL MummyAbilityCheck(struct BattleStruct *sp)
 {
     switch(GetBattlerAbility(sp, sp->attack_client))
     {
@@ -1097,6 +1097,7 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
             {
                 sp->addeffect_param = ADD_STATE_SPEED_DOWN;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->attack_client;
                 sp->client_work = sp->attack_client;
                 seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
                 ret = TRUE;
@@ -1107,7 +1108,7 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                && (MummyAbilityCheck(bw, sp) == TRUE)
+                && (MummyAbilityCheck(sp) == TRUE)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
