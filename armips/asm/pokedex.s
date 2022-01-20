@@ -868,7 +868,7 @@ allocate_lists:
     pop {r0-r7}
     str r1, [r4, r0]
     ldr r0, [r4]
-    pop {lr}
+    pop {pc}
 
 .pool
 

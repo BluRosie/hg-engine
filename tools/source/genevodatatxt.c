@@ -64,7 +64,7 @@ int main(int argc, char **argv)
         }
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
         }
     }
 
-    itemlistname = "rawdata\\itemnums.txt";
+    itemlistname = "rawdata/itemnums.txt";
 
     if (strcmp(itemlistname, "-") == 0)
     {
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
         }
     }
 
-    movelistname = "rawdata\\movenums.txt";
+    movelistname = "rawdata/movenums.txt";
 
     if (strcmp(movelistname, "-") == 0)
     {
@@ -121,7 +121,7 @@ int main(int argc, char **argv)
         }
     }
 
-    evolistname = "rawdata\\evomethods.txt";
+    evolistname = "rawdata/evomethods.txt";
 
     if (strcmp(evolistname, "-") == 0)
     {

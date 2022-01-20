@@ -14,9 +14,9 @@ namespace PlatinumSpriteEditor
 {
 	class MainForm
 	{
-		Rectangle rect;
+		static Rectangle rect;
 		
-		public MainForm(string[] args)
+		public static void Main(string[] args)
 		{
 			//Console.WriteLine("{0}", args[0]);
 
@@ -35,7 +35,7 @@ namespace PlatinumSpriteEditor
 			SavePal(palette, StandardizeColors(source));
 		}
 						
-		Bitmap MakeImage(FileStream fs)
+		static Bitmap MakeImage(FileStream fs)
 		{
 			fs.Seek(48L, SeekOrigin.Current);
 			BinaryReader binaryReader = new BinaryReader(fs);
@@ -90,7 +90,7 @@ namespace PlatinumSpriteEditor
 			return r_bitmap;
 		}
 		
-		ColorPalette SetPal(FileStream fs)
+		static ColorPalette SetPal(FileStream fs)
 		{
 			fs.Seek(40L, SeekOrigin.Current);
 			ushort[] array = new ushort[16];
@@ -108,7 +108,7 @@ namespace PlatinumSpriteEditor
 			return palette;
 		}
 		
-		ColorPalette StandardizeColors(Bitmap image)
+		static ColorPalette StandardizeColors(Bitmap image)
 		{
 			ColorPalette pal = image.Palette;
 			bool OffColor = false;
@@ -133,7 +133,7 @@ namespace PlatinumSpriteEditor
 			return pal;
 		}
 		
-		void SavePNG(Bitmap image, string filename)
+		static void SavePNG(Bitmap image, string filename)
 		{
 			IndexedBitmapHandler Handler = new IndexedBitmapHandler();
 			byte[] array = Handler.GetArray(image);
@@ -143,7 +143,7 @@ namespace PlatinumSpriteEditor
 			temp.Save(filename, ImageFormat.Png);
 		}
 				
-		void SaveBin(FileStream fs, Bitmap source)
+		static void SaveBin(FileStream fs, Bitmap source)
 		{
 			BinaryWriter binaryWriter = new BinaryWriter(fs);
 			rect = new Rectangle(0, 0, 160, 80);
@@ -184,7 +184,7 @@ namespace PlatinumSpriteEditor
 			}
 		}
 
-		void SavePal(FileStream fs, ColorPalette palette)
+		static void SavePal(FileStream fs, ColorPalette palette)
 		{
 			byte[] buffer = new byte[40]
 			{82, 76, 67, 78, 255, 254, 0, 1, 72, 0, 0, 0, 16, 0, 1, 0, 84, 84, 76, 80, 56, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 32, 0, 0, 0, 16, 0, 0, 0};

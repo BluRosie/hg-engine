@@ -62,6 +62,16 @@ static const u16 IronFistMovesTable[] = {
     MOVE_SKY_UPPERCUT,
 };
 
+static const u16 StrongJawMovesTable[] = {
+        MOVE_BITE,
+        MOVE_CRUNCH,
+        MOVE_FIRE_FANG,
+        MOVE_HYPER_FANG,
+        MOVE_ICE_FANG,
+        MOVE_POISON_FANG,
+        MOVE_THUNDER_FANG,
+};
+
 const u8 StatBoostModifiers[][2] = {
          // numerator, denominator
         {          10,          40 },
@@ -475,6 +485,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         if ((IronFistMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_IRON_FIST))
         {
             movepower = movepower * 12 / 10;
+            break;
+        }
+    }
+
+    // handle strong jaw
+    for (i = 0; i < NELEMS(StrongJawMovesTable); i++)
+    {
+        if ((StrongJawMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_STRONG_JAW))
+        {
+            movepower = movepower * 15 / 10;
             break;
         }
     }

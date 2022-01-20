@@ -173,6 +173,7 @@
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 #define SERVER_STATUS_FLAG_STAT_CHANGE (0x00020000)
+#define	SERVER_STATUS_FLAG_MOLD_BREAKER	(0x00800000)
 
 // server status2 falgs
 #define SERVER_STATUS2_FLAG_x10 (0x00000010)
@@ -888,7 +889,6 @@ int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int clie
 
 /* new battle engine declarations*/
 int __attribute__((long_call)) GetBattlerAbility(void *sp, int client);
-u32 __attribute__((long_call)) MoldBreakerAbilityCheck(void *sp, int attacker, int defender, int ability);
 int __attribute__((long_call)) BattleDamageDivide(int data, int divisor);
 int __attribute__((long_call)) BattleWorkWeatherGet(void *bw);
 int __attribute__((long_call)) BattleWorkEnemyClientGet(void *bw, int client, int side);
@@ -909,12 +909,26 @@ u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
 u32 __attribute__((long_call)) CheckSubstitute(struct BattleStruct *sp, int client_no);
 
 
-// defined in battle_calc_damage.c
-u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+
+
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
 int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp);
+
+
+
+
+// defined in battle_calc_damage.c
+u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+
+
+
+
+// defined in ability.c
+u32 __attribute__((long_call)) MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+
+
 
 
 

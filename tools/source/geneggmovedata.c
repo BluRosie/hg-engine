@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         }
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
         }
     }
 
-    movelistname = "rawdata\\movenums.txt";
+    movelistname = "rawdata/movenums.txt";
 
     if (strcmp(movelistname, "-") == 0)
     {

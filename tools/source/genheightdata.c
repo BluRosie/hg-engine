@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 
     if (argc != 2) // the simple error handling part
     {
-        fprintf(stderr, "This generates the mon height data from a formatted narc folder containing all the files.\nDump the text using \nfor file in *: do xxd -p $(basename \"$file\") | tr -d '\\n' >>output.txt; done");
+        fprintf(stderr, "This generates the mon height data from a formatted narc folder containing all the files.\nDump the text using \nfor file in *: do xxd -p $(basename \"$file\") | tr -d '/n' >>output.txt; done");
         return 1;
     }
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         }
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 
         if (strcmp(textfromfile, "\n") != 0) // fback
         {
-            printf("%d, ", strtol(textfromfile, NULL, 0x10));
+            printf("%ld, ", strtol(textfromfile, NULL, 0x10));
         }
         else
         {
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 
         if (strcmp(textfromfile, "\n") != 0) // mback
         {
-            printf("%d, ", strtol(textfromfile, NULL, 0x10));
+            printf("%ld, ", strtol(textfromfile, NULL, 0x10));
         }
         else
         {
@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 
         if (strcmp(textfromfile, "\n") != 0) // ffront
         {
-            printf("%d, ", strtol(textfromfile, NULL, 0x10));
+            printf("%ld, ", strtol(textfromfile, NULL, 0x10));
         }
         else
         {
@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 
         if (strcmp(textfromfile, "\n") != 0) // mfront
         {
-            printf("%d\n", strtol(textfromfile, NULL, 0x10));
+            printf("%ld\n", strtol(textfromfile, NULL, 0x10));
         }
         else
         {

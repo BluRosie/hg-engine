@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         }
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
         }
     }
 
-    typelistname = "rawdata\\typenums.txt";
+    typelistname = "rawdata/typenums.txt";
 
     if (strcmp(typelistname, "-") == 0)
     {
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
         }
     }
 
-    itemlistname = "rawdata\\itemnums.txt";
+    itemlistname = "rawdata/itemnums.txt";
 
     if (strcmp(itemlistname, "-") == 0)
     {
@@ -94,7 +94,7 @@ int main(int argc, char **argv)
         }
     }
 
-    growthlistname = "rawdata\\growthnums.txt";
+    growthlistname = "rawdata/growthnums.txt";
 
     if (strcmp(growthlistname, "-") == 0)
     {
@@ -113,7 +113,7 @@ int main(int argc, char **argv)
         }
     }
 
-    egggrouplistname = "rawdata\\egggroupnums.txt";
+    egggrouplistname = "rawdata/egggroupnums.txt";
 
     if (strcmp(egggrouplistname, "-") == 0)
     {
@@ -132,7 +132,7 @@ int main(int argc, char **argv)
         }
     }
 
-    abilitylistname = "rawdata\\abilitynums.txt";
+    abilitylistname = "rawdata/abilitynums.txt";
 
     if (strcmp(abilitylistname, "-") == 0)
     {
@@ -151,7 +151,7 @@ int main(int argc, char **argv)
         }
     }
 
-    colorlistname = "rawdata\\bodycolornums.txt";
+    colorlistname = "rawdata/bodycolornums.txt";
 
     if (strcmp(colorlistname, "-") == 0)
     {

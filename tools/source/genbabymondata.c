@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         }
     }
 
-    monlistname = "rawdata\\monnums.txt";
+    monlistname = "rawdata/monnums.txt";
 
     if (strcmp(monlistname, "-") == 0)
     {
