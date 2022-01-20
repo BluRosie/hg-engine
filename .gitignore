@@ -63,3 +63,6 @@ dumpitem.py
 /tools/msgenc.exe
 /tools/ndstool
 /tools/ndstool.exe
+
+*.o
+*.d

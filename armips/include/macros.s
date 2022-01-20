@@ -161,7 +161,7 @@
 
 .macro babymon,species,baby
 	.if species == 0
-		.create "base\root\poketool\personal\pms.narc",0
+		.create "base/root/poketool/personal/pms.narc",0
 	.endif
 
 	.org (species * 2)

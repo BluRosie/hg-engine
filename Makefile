@@ -11,10 +11,14 @@ TOOLCHAIN := $(DEVKITARM)
 
 .PHONY: clean all
 
-CSC = 'csc'
-ifeq ($(OS),Windows_NT)
+OUTPUT = $(grep -i 'microsoft' /proc/version)
+
+ifneq ($(OUTPUT),"")
 EXE := .exe
-CSC = 'C:\windows\Microsoft.NET\Framework\v4.7\CSC.exe'
+SEP := \\
+else
+EXE := 
+SEP := /
 endif
 
 default: all
@@ -22,14 +26,14 @@ default: all
 ROMNAME = rom.nds
 BUILDROM = test.nds
 ####################### Tools #########################
-MSGENC = tools/msgenc$(EXE)
-NITROGFX = tools/nitrogfx$(EXE)
-NDSTOOL = tools/ndstool$(EXE)
+MSGENC = tools/msgenc
+NITROGFX = tools/nitrogfx
+NDSTOOL = tools/ndstool
 JSONPROC = tools/jsonproc$(EXE)
 O2NARC = tools/o2narc$(EXE)
 KNARC = tools/knarc$(EXE)
 BLZ = tools/blz$(EXE)
-ARMIPS = tools/armips$(EXE)
+ARMIPS = tools/armips
 POKEPICTOOL = tools/pokepic$(EXE)
 NARCHIVE = tools/narcpy.py
 ####################### Seting ########################
@@ -38,6 +42,7 @@ AS = $(DEVKITARM)/$(PREFIX)as
 CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
+CSC = csc$(EXE)
 
 LDFLAGS = rom.ld -T linker.ld
 ASFLAGS = -mthumb -I ./data
@@ -114,25 +119,25 @@ build_tools:
 	cd tools ; gcc source/replacehexwithdec.c  -Werror -o replacehexwithdec$(EXE)
 	cd tools ; gcc source/sortmonareadexdata.c  -Werror -o sortmonareadexdata$(EXE)
 
-	cd tools ; $(CSC) /target:exe /out:gengfxdata.exe source/gengfxdata.cs source/IndexedBitmapHandler.cs
-	cd tools ; $(CSC) /target:exe /out:gengfxicons.exe source/gengfxicons.cs source/IndexedBitmapHandler.cs
-	cd tools ; $(CSC) /target:exe /out:gengfxnarc.exe source/gengfxnarc.cs
-	cd tools ; $(CSC) /target:exe /out:geniconnarc.exe source/geniconnarc.cs
-	cd tools ; $(CSC) /target:exe /out:ncgrtopng.exe source/ncgrtopng.cs source/IndexedBitmapHandler.cs
-	cd tools ; $(CSC) /target:exe /out:pngtoncgr.exe source/pngtoncgr.cs source/IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:gengfxdata.exe source$(SEP)gengfxdata.cs source$(SEP)IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:gengfxicons.exe source$(SEP)gengfxicons.cs source$(SEP)IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:gengfxnarc.exe source$(SEP)gengfxnarc.cs
+	cd tools ; $(CSC) /target:exe /out:geniconnarc.exe source$(SEP)geniconnarc.cs
+	cd tools ; $(CSC) /target:exe /out:ncgrtopng.exe source$(SEP)ncgrtopng.cs source$(SEP)IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:pngtoncgr.exe source$(SEP)pngtoncgr.cs source$(SEP)IndexedBitmapHandler.cs
 
 	cd tools/source/msgenc ; make
-	mv tools/source/msgenc/msgenc$(EXE) tools/msgenc$(EXE)
+	mv tools/source/msgenc/msgenc tools/msgenc
 
-	cd tools ; $(CSC) /target:exe /out:btx0topng.exe source/BTX\ Editor/Program-B.cs source/BTX\ Editor/btx0topng.cs source/BTX\ Editor/BTX0.cs
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source/BTX\ Editor/Program-P.cs source/BTX\ Editor/pngtobtx0.cs source/BTX\ Editor/BTX0.cs
+	cd tools ; $(CSC) /target:exe /out:btx0topng.exe source$(SEP)BTX\ Editor$(SEP)Program-B.cs source$(SEP)BTX\ Editor$(SEP)btx0topng.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
+	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source$(SEP)BTX\ Editor$(SEP)Program-P.cs source$(SEP)BTX\ Editor$(SEP)pngtobtx0.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
 
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
 	cd tools/source/ndstool ; ./autogen.sh
 	cd tools/source/ndstool ; ./configure && make
-	mv tools/source/ndstool/ndstool$(EXE) tools/ndstool$(EXE)
+	mv tools/source/ndstool/ndstool tools/ndstool
 	rm -r -f tools/source/ndstool
 
 	rm -r -f tools/source/armips
@@ -140,13 +145,13 @@ build_tools:
 	cd tools/source/armips ; mkdir build
 	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
 	cd tools/source/armips/build ; cmake --build .
-	mv tools/source/armips/build/armips$(EXE) tools/armips$(EXE)
+	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
 
 
 build_nitrogfx:
 	cd tools/source/nitrogfx ; make
-	mv tools/source/nitrogfx/nitrogfx$(EXE) tools/nitrogfx$(EXE)
+	mv tools/source/nitrogfx/nitrogfx tools/nitrogfx
 
 
 

@@ -2,6 +2,7 @@
 
 from glob import glob
 from pathlib import Path
+from platform import uname
 import os
 import shutil
 import itertools
@@ -84,7 +85,7 @@ def build_sprite():
                 continue
             flag = 1
             break
-    if sys.platform.startswith('win'):
+    if 'icrosoft' in uname().release:
         cmd = ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
     else:
         cmd = ["mono"] + ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
@@ -186,7 +187,7 @@ def build_ow():
             OBJ = "build/pokemonow/1_" + i.replace(".png","")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(OBJ):
             continue
-        if sys.platform.startswith('win'):
+        if 'icrosoft' in uname().release:
             cmd = ["tools/pngtobtx0.exe"] + [DIR + "/" + i,OBJ]
         else:
             cmd = ["mono"] + ["tools/pngtobtx0.exe"] + [DIR + "/" + i,OBJ]
