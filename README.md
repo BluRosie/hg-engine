@@ -22,7 +22,7 @@
 ## Setup Instructions (Debian Linux)
 1. Download and install Devkitpro using the downloads and instructions [**here**][DEVKITPRO].
 2. In a Terminal window, run the following commands:
-   * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git```
+   * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git automake```
    * ```pip3 install ndspy```
 3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
@@ -33,6 +33,7 @@
    * ```xcode-select --install```
    * ```brew install python3```
    * ```brew install libpng```
+   * ```brew install automake```
    * ```pip3 install ndspy```
 4. Download and install Mono
 5. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
@@ -48,7 +49,7 @@
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take a **QUITE** a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
    * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
-   * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake```
+   * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake automake```
       * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
    * ```pip3 install ndspy```
 6. Download Devkitpro for Linux (one of the .deb files), specifically the amd64 file, [**here**][DEVKITPRO]. The file should be kept in your Downloads folder.
