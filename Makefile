@@ -11,9 +11,9 @@ TOOLCHAIN := $(DEVKITARM)
 
 .PHONY: clean all
 
-OUTPUT = $(grep -i 'microsoft' /proc/version)
+SYSTEM = $(grep -i 'microsoft' /proc/version; echo $$?)
 
-ifneq ($(OUTPUT),"")
+ifeq ($(SYSTEM), 0)
 EXE := .exe
 SEP := \\
 else
@@ -106,30 +106,14 @@ all: $(OUTPUT)
 	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
 	@echo -e "Done."
 
-build_tools:
-	cd tools ; gcc source/genbabymondata.c -Werror -o genbabymondata$(EXE)
-	cd tools ; gcc source/gendexsortlists.c -Werror -o gendexsortlists$(EXE)
-	cd tools ; gcc source/geneggmovedata.c -Werror -o geneggmovedata$(EXE)
-	cd tools ; gcc source/genevodatatxt.c -Werror -o genevodatatxt$(EXE)
-	cd tools ; gcc source/genheightdata.c -Werror -o genheightdata$(EXE)
-	cd tools ; gcc source/genleveldatatxt.c -Werror -o genleveldatatxt$(EXE)
-	cd tools ; gcc source/genmonareadexdata.c -Werror -o genmonareadexdata$(EXE)
-	cd tools ; gcc source/genmondatatxt.c  -Werror -o genmondatatxt$(EXE)
-	cd tools ; gcc source/gentutormovedata.c  -Werror -o gentutormovedata$(EXE)
-	cd tools ; gcc source/replacehexwithdec.c  -Werror -o replacehexwithdec$(EXE)
-	cd tools ; gcc source/sortmonareadexdata.c  -Werror -o sortmonareadexdata$(EXE)
 
-	cd tools ; $(CSC) /target:exe /out:gengfxdata.exe source$(SEP)gengfxdata.cs source$(SEP)IndexedBitmapHandler.cs
-	cd tools ; $(CSC) /target:exe /out:gengfxicons.exe source$(SEP)gengfxicons.cs source$(SEP)IndexedBitmapHandler.cs
+
+build_tools:
 	cd tools ; $(CSC) /target:exe /out:gengfxnarc.exe source$(SEP)gengfxnarc.cs
-	cd tools ; $(CSC) /target:exe /out:geniconnarc.exe source$(SEP)geniconnarc.cs
-	cd tools ; $(CSC) /target:exe /out:ncgrtopng.exe source$(SEP)ncgrtopng.cs source$(SEP)IndexedBitmapHandler.cs
-	cd tools ; $(CSC) /target:exe /out:pngtoncgr.exe source$(SEP)pngtoncgr.cs source$(SEP)IndexedBitmapHandler.cs
 
 	cd tools/source/msgenc ; make
 	mv tools/source/msgenc/msgenc tools/msgenc
 
-	cd tools ; $(CSC) /target:exe /out:btx0topng.exe source$(SEP)BTX\ Editor$(SEP)Program-B.cs source$(SEP)BTX\ Editor$(SEP)btx0topng.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
 	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source$(SEP)BTX\ Editor$(SEP)Program-P.cs source$(SEP)BTX\ Editor$(SEP)pngtobtx0.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
 
 	rm -r -f tools/source/ndstool
@@ -155,12 +139,39 @@ build_nitrogfx:
 
 
 
-
 clean:
 	rm -r -f build
 	rm -r -f base
 	rm -r -f tools/source/ndstool
 	rm -r -f tools/source/armips
+
+
+
+clean_tools:
+	rm -f tools/genbabymondata$(EXE)
+	rm -f tools/gendexsortlists$(EXE)
+	rm -f tools/geneggmovedata$(EXE)
+	rm -f tools/genevodatatxt$(EXE)
+	rm -f tools/genheightdata$(EXE)
+	rm -f tools/genleveldatatxt$(EXE)
+	rm -f tools/genmonareadexdata$(EXE)
+	rm -f tools/genmondatatxt$(EXE)
+	rm -f tools/gentutormovedata$(EXE)
+	rm -f tools/replacehexwithdec$(EXE)
+	rm -f tools/sortmonareadexdata$(EXE)
+	rm -f tools/gengfxdata.exe
+	rm -f tools/gengfxicons.exe
+	rm -f tools/gengfxnarc.exe
+	rm -f tools/geniconnarc.exe
+	rm -f tools/ncgrtopng.exe
+	rm -f tools/pngtoncgr.exe
+	rm -f tools/msgenc
+	rm -f tools/btx0topng.exe
+	rm -f tools/pngtobtx0.exe
+	rm -f tools/ndstool
+	rm -f tools/armips
+	rm -f tools/ndstool
+
 
 
 move_narc:
