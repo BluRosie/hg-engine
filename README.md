@@ -33,6 +33,7 @@
    * ```xcode-select --install```
    * ```brew install python3```
    * ```brew install libpng```
+   * ```pip3 install ndspy```
 4. Download and install Mono
 5. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
