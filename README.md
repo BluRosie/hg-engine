@@ -75,7 +75,7 @@
 2. In Terminal/WSL, run ```cd hg-engine```
 3. In Terminal/WSL, run ```make build_tools```. This will compile most of the tools that hg-engine needs to build.
 4. In Terminal/WSL, run ```make build_nitrogfx```. This will compile nitrogfx, one of the tools needed for hg-engine to build.
-   * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then run the following:
+   * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then open it again and run the following:
      * ```cd Documents/hg-engine```
      * ```make build_nitrogfx```
    * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
