@@ -66,3 +66,4 @@ dumpitem.py
 
 *.o
 *.d
+*.DS_STORE

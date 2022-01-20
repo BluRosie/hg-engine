@@ -11,9 +11,9 @@ TOOLCHAIN := $(DEVKITARM)
 
 .PHONY: clean all
 
-OUTPUT = $(grep -i 'microsoft' /proc/version)
+SYSTEM = $(grep -i 'microsoft' /proc/version; echo $$?)
 
-ifneq ($(OUTPUT),"")
+ifeq ($(SYSTEM), 0)
 EXE := .exe
 SEP := \\
 else
@@ -106,6 +106,8 @@ all: $(OUTPUT)
 	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
 	@echo -e "Done."
 
+
+
 build_tools:
 	cd tools ; gcc source/genbabymondata.c -Werror -o genbabymondata$(EXE)
 	cd tools ; gcc source/gendexsortlists.c -Werror -o gendexsortlists$(EXE)
@@ -155,12 +157,39 @@ build_nitrogfx:
 
 
 
-
 clean:
 	rm -r -f build
 	rm -r -f base
 	rm -r -f tools/source/ndstool
 	rm -r -f tools/source/armips
+
+
+
+clean_tools:
+	rm -f tools/genbabymondata$(EXE)
+	rm -f tools/gendexsortlists$(EXE)
+	rm -f tools/geneggmovedata$(EXE)
+	rm -f tools/genevodatatxt$(EXE)
+	rm -f tools/genheightdata$(EXE)
+	rm -f tools/genleveldatatxt$(EXE)
+	rm -f tools/genmonareadexdata$(EXE)
+	rm -f tools/genmondatatxt$(EXE)
+	rm -f tools/gentutormovedata$(EXE)
+	rm -f tools/replacehexwithdec$(EXE)
+	rm -f tools/sortmonareadexdata$(EXE)
+	rm -f tools/gengfxdata.exe
+	rm -f tools/gengfxicons.exe
+	rm -f tools/gengfxnarc.exe
+	rm -f tools/geniconnarc.exe
+	rm -f tools/ncgrtopng.exe
+	rm -f tools/pngtoncgr.exe
+	rm -f tools/msgenc
+	rm -f tools/btx0topng.exe
+	rm -f tools/pngtobtx0.exe
+	rm -f tools/ndstool
+	rm -f tools/armips
+	rm -f tools/ndstool
+
 
 
 move_narc:
