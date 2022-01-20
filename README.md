@@ -24,7 +24,7 @@
 2. In a Terminal window, run the following commands:
    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git```
    * ```pip3 install ndspy```
-3. Continue to [Further Setup Instructions](#All-Platforms-Setup-Instructions-(Continued-from-Individual-Sections))
+3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 ## Setup Instructions (macOS)
 1. Download and install Devkitpro using the Mac download (.pkg) and instructions [**here**][DEVKITPRO].
@@ -34,7 +34,7 @@
    * ```brew install python3```
    * ```brew install libpng```
 4. Download and install Mono
-5. Continue to [Further Setup Instructions](#All-Platforms-Setup-Instructions-(Continued-from-Individual-Sections))
+5. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Windows)
@@ -54,7 +54,7 @@
 7. In WSL, run the following commands and input your password if asked:
     * ```cd Downloads```
     * ```sudo gdebi devkitpro-pacman.amd64.deb```
-8. Once the last process has finished, continue to [Further Setup Instructions](#All-Platforms-Setup-Instructions-(Continued-from-Individual-Sections))
+8. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Further Setup Instructions (All Platforms) (Continued from Individual Sections)
@@ -67,7 +67,7 @@
 3. In Terminal/WSL, run the following commands:
    * ```cd Documents```
    * ```git clone https://github.com/BluRosie/hg-engine.git```
-4. Continue to [Build Instructions](#-Build-Instructions-(All-Platforms)-(Continued-from-Further-Setup-Instructions))
+4. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
 
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 
