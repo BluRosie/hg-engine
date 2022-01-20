@@ -67,7 +67,7 @@
 3. In Terminal/WSL, run the following commands:
    * ```cd Documents```
    * ```git clone https://github.com/BluRosie/hg-engine.git```
-4. Continue to [Build Instructions](#-Build Instructions-(All-Platforms)-(Continued from Further Setup Instructions))
+4. Continue to [Build Instructions](#-Build-Instructions-(All-Platforms)-(Continued-from-Further-Setup-Instructions))
 
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 
