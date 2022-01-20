@@ -2,7 +2,7 @@
 ## About
  A huge upgrade to the battle engine in HeartGold
 
-##Creators
+## Creators
 * [BluRose](https://github.com/BluRosie)
 * [turtleisaac](https://github.com/turtleisaac)
 * [dog-broad](https://github.com/dog-broad)

@@ -11,9 +11,10 @@ TOOLCHAIN := $(DEVKITARM)
 
 .PHONY: clean all
 
-
+CSC = 'csc'
 ifeq ($(OS),Windows_NT)
 EXE := .exe
+CSC = 'C:\windows\Microsoft.NET\Framework\v4.7\CSC.exe'
 endif
 
 default: all
@@ -113,18 +114,18 @@ build_tools:
 	cd tools ; gcc source/replacehexwithdec.c  -Werror -o replacehexwithdec$(EXE)
 	cd tools ; gcc source/sortmonareadexdata.c  -Werror -o sortmonareadexdata$(EXE)
 
-	cd tools ; csc /target:exe /out:gengfxdata.exe source/gengfxdata.cs source/IndexedBitmapHandler.cs
-	cd tools ; csc /target:exe /out:gengfxicons.exe source/gengfxicons.cs source/IndexedBitmapHandler.cs
-	cd tools ; csc /target:exe /out:gengfxnarc.exe source/gengfxnarc.cs
-	cd tools ; csc /target:exe /out:geniconnarc.exe source/geniconnarc.cs
-	cd tools ; csc /target:exe /out:ncgrtopng.exe source/ncgrtopng.cs source/IndexedBitmapHandler.cs
-	cd tools ; csc /target:exe /out:pngtoncgr.exe source/pngtoncgr.cs source/IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:gengfxdata.exe source/gengfxdata.cs source/IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:gengfxicons.exe source/gengfxicons.cs source/IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:gengfxnarc.exe source/gengfxnarc.cs
+	cd tools ; $(CSC) /target:exe /out:geniconnarc.exe source/geniconnarc.cs
+	cd tools ; $(CSC) /target:exe /out:ncgrtopng.exe source/ncgrtopng.cs source/IndexedBitmapHandler.cs
+	cd tools ; $(CSC) /target:exe /out:pngtoncgr.exe source/pngtoncgr.cs source/IndexedBitmapHandler.cs
 
 	cd tools/source/msgenc ; make
 	mv tools/source/msgenc/msgenc$(EXE) tools/msgenc$(EXE)
 
-	cd tools ; csc /target:exe /out:btx0topng.exe source/BTX\ Editor/Program-B.cs source/BTX\ Editor/btx0topng.cs source/BTX\ Editor/BTX0.cs
-	cd tools ; csc /target:exe /out:pngtobtx0.exe source/BTX\ Editor/Program-P.cs source/BTX\ Editor/pngtobtx0.cs source/BTX\ Editor/BTX0.cs
+	cd tools ; $(CSC) /target:exe /out:btx0topng.exe source/BTX\ Editor/Program-B.cs source/BTX\ Editor/btx0topng.cs source/BTX\ Editor/BTX0.cs
+	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source/BTX\ Editor/Program-P.cs source/BTX\ Editor/pngtobtx0.cs source/BTX\ Editor/BTX0.cs
 
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
