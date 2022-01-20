@@ -926,6 +926,7 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
         }
             break;
         case ABILITY_ROUGH_SKIN:
+        case ABILITY_IRON_BARBS:
             if ((sp->battlemon[sp->attack_client].hp)
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -1044,6 +1045,23 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 sp->hp_calc_work = sp->damage;
                 sp->client_work = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_STAMINA:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_param = ADD_STATE_DEFENSE_UP;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->defence_client;
+                sp->client_work = sp->defence_client;
+                seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
                 ret = TRUE;
             }
             break;
