@@ -1304,3 +1304,6 @@ The foe’s {STRVAR_1 1, 0, 0} is radiating a\nbursting aura!
 {STRVAR_1 1, 0, 0} is hurt by Innards Out!
 The wild {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
 The foe’s {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
+{STRVAR_1 1, 0, 0}'s ability became Mummy!
+The wild {STRVAR_1 1, 0, 0}'s ability\nbecame Mummy!
+The foe’s {STRVAR_1 1, 0, 0}'s ability\nbecame Mummy'!

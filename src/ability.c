@@ -869,6 +869,26 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     return ret;
 }
 
+BOOL MummyAbilityCheck(void *bw, struct BattleStruct *sp)
+{
+    switch(GetBattlerAbility(sp, sp->attack_client))
+    {
+        case ABILITY_MULTITYPE:
+        case ABILITY_ZEN_MODE:
+        case ABILITY_STANCE_CHANGE:
+        case ABILITY_SCHOOLING:
+        case ABILITY_BATTLE_BOND:
+        case ABILITY_POWER_CONSTRUCT:
+        case ABILITY_SHIELDS_DOWN:
+        case ABILITY_RKS_SYSTEM:
+        case ABILITY_DISGUISE:
+        case ABILITY_COMATOSE:
+        case ABILITY_MUMMY:
+            return FALSE;
+        default:
+            return TRUE;
+    }
+}
 
 BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
@@ -1062,6 +1082,39 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 sp->state_client = sp->defence_client;
                 sp->client_work = sp->defence_client;
                 seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_GOOEY:
+        case ABILITY_TANGLING_HAIR:
+            if ((sp->battlemon[sp->attack_client].states[STAT_SPEED] > 0)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_param = ADD_STATE_SPEED_DOWN;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->client_work = sp->attack_client;
+                seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_MUMMY:
+            if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (MummyAbilityCheck(bw, sp) == TRUE)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->client_work = sp->attack_client;
+                sp->battlemon[sp->attack_client].ability = ABILITY_MUMMY;
+                seq_no[0] = SUB_SEQ_HANDLE_MUMMY_MESSAGE;
                 ret = TRUE;
             }
             break;
