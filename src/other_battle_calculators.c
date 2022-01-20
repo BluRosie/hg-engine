@@ -528,6 +528,17 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         }
         priority1 = sp->old_moveTbl[move1].priority;
         priority2 = sp->old_moveTbl[move2].priority;
+                
+        // handle prankster
+        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && sp->old_moveTbl[move1].split == SPLIT_STATUS)
+        {
+            priority1++;
+        }
+        
+        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && sp->old_moveTbl[move2].split == SPLIT_STATUS)
+        {
+            priority2++;
+        }
     }
 
     if (priority1 == priority2)
