@@ -23,13 +23,7 @@ BUILDROM = test.nds
 ####################### Tools #########################
 MSGENC = tools/msgenc$(EXE)
 NITROGFX = tools/nitrogfx$(EXE)
-
-ifeq ($(OS),Windows_NT)
 NDSTOOL = tools/ndstool$(EXE)
-else
-NDSTOOL = ndstool$(EXE)
-endif
-
 JSONPROC = tools/jsonproc$(EXE)
 O2NARC = tools/o2narc$(EXE)
 KNARC = tools/knarc$(EXE)
@@ -136,7 +130,8 @@ build_tools:
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
 	cd tools/source/ndstool ; ./autogen.sh
-	cd tools/source/ndstool ; ./configure && make && make install
+	cd tools/source/ndstool ; ./configure && make
+	mv tools/source/ndstool/ndstool$(EXE) tools/ndstool$(EXE)
 	rm -r -f tools/source/ndstool
 
 	rm -r -f tools/source/armips
