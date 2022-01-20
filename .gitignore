@@ -61,3 +61,5 @@ dumpitem.py
 /tools/replacehexwithdec.exe
 /tools/sortmonareadexdata.exe
 /tools/msgenc.exe
+/tools/ndstool
+/tools/ndstool.exe
