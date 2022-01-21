@@ -1307,3 +1307,12 @@ The foe’s {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
 {STRVAR_1 1, 0, 0}’s ability became Mummy!
 The wild {STRVAR_1 1, 0, 0}’s ability\nbecame Mummy!
 The foe’s {STRVAR_1 1, 0, 0}’s ability\nbecame Mummy!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0} sharply!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}\fsharply!
+The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}\fsharply!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0} drastically!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}\fdrastically!
+The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}\fdrastically!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
