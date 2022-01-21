@@ -1316,3 +1316,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
 The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!

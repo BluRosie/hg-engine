@@ -1127,9 +1127,9 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
                 sp->addeffect_param = ADD_STATE_SPEED_DOWN;
-                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->attack_client;
+                sp->client_work = sp->defence_client;
                 seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
                 ret = TRUE;
             }
