@@ -72,6 +72,15 @@ static const u16 StrongJawMovesTable[] = {
         MOVE_THUNDER_FANG,
 };
 
+static const u16 MegaLauncherMovesTable[] = {
+        MOVE_AURA_SPHERE,
+        MOVE_DARK_PULSE,
+        MOVE_DRAGON_PULSE,
+        MOVE_WATER_PULSE,
+//        MOVE_ORIGIN_PULSE,
+//        MOVE_TERRAIN_PULSE,
+};
+
 const u8 StatBoostModifiers[][2] = {
          // numerator, denominator
         {          10,          40 },
@@ -493,6 +502,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     for (i = 0; i < NELEMS(StrongJawMovesTable); i++)
     {
         if ((StrongJawMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_STRONG_JAW))
+        {
+            movepower = movepower * 15 / 10;
+            break;
+        }
+    }
+
+    // handle mega launcher
+    for (i = 0; i < NELEMS(MegaLauncherMovesTable); i++)
+    {
+        if ((MegaLauncherMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_MEGA_LAUNCHER))
         {
             movepower = movepower * 15 / 10;
             break;
