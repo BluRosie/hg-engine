@@ -926,7 +926,12 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 
 // defined in ability.c
-u32 __attribute__((long_call)) MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+
+
+
+// defined in other_battle_calculators.c
+u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
 
 
 
