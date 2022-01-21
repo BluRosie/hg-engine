@@ -1050,7 +1050,7 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
         //handle rattled
        case ABILITY_RATTLED:
             if ((sp->battlemon[sp->defence_client].hp)
-                && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
+                && (sp->battlemon[sp->defence_client].states[STAT_SPEED] < 12)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
@@ -1066,15 +1066,16 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 } else {
                     movetype = sp->old_moveTbl[sp->current_move_index].type;
                 }
-                    if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG)) 
-                        {
-                            sp->addeffect_param = ADD_STATE_SPEED_UP;
-                            sp->addeffect_type = ADD_EFFECT_ABILITY;
-                            sp->state_client = sp->defence_client;
-                            sp->client_work = sp->defence_client;
-                            seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                            ret = TRUE;
-                        }
+                
+                if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG)) 
+                {
+                    sp->addeffect_param = ADD_STATE_SPEED_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->defence_client;
+                    sp->client_work = sp->defence_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
+                }
             }
         break;
         default:

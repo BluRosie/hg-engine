@@ -67,3 +67,4 @@ dumpitem.py
 *.o
 *.d
 *.DS_STORE
+armips/asm/offset.s
