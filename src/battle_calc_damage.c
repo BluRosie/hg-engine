@@ -72,6 +72,55 @@ static const u16 StrongJawMovesTable[] = {
         MOVE_THUNDER_FANG,
 };
 
+static const u16 MegaLauncherMovesTable[] = {
+        MOVE_AURA_SPHERE,
+        MOVE_DARK_PULSE,
+        MOVE_DRAGON_PULSE,
+        MOVE_WATER_PULSE,
+//        MOVE_ORIGIN_PULSE,
+//        MOVE_TERRAIN_PULSE,
+};
+
+int NormalTypeChangeAbilityHelper(int ability)
+{
+    int movetype;
+
+    switch(ability)
+    {
+        case ABILITY_GALVANIZE:
+            movetype = TYPE_ELECTRIC;
+            break;
+//        case ABILITY_PIXILATE:
+//            movetype = TYPE_FAIRY;
+//            break;
+        case ABILITY_AERILATE:
+            movetype = TYPE_FLYING;
+            break;
+        case ABILITY_REFRIDGERATE:
+            movetype = TYPE_ICE;
+            break;
+        default:
+            movetype = TYPE_NORMAL;
+            break;
+    }
+
+    return movetype;
+}
+
+int NormalTypeChangeAbilityCheck(int ability)
+{
+    switch(ability)
+    {
+        case ABILITY_GALVANIZE:
+        case ABILITY_PIXILATE:
+        case ABILITY_AERILATE:
+        case ABILITY_REFRIDGERATE:
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
+
 const u8 StatBoostModifiers[][2] = {
          // numerator, denominator
         {          10,          40 },
@@ -162,6 +211,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // get the type
     if (AttackingMon.ability == ABILITY_NORMALIZE)
         movetype = TYPE_NORMAL;
+    else if (NormalTypeChangeAbilityCheck(AttackingMon.ability) == TRUE)
+    {
+        movetype = NormalTypeChangeAbilityHelper(AttackingMon.ability);
+        movepower = (movepower * 12) / 10;
+    }
     else if (type == 0)
         movetype = sp->old_moveTbl[moveno].type;
     else
@@ -511,6 +565,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     for (i = 0; i < NELEMS(StrongJawMovesTable); i++)
     {
         if ((StrongJawMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_STRONG_JAW))
+        {
+            movepower = movepower * 15 / 10;
+            break;
+        }
+    }
+
+    // handle mega launcher
+    for (i = 0; i < NELEMS(MegaLauncherMovesTable); i++)
+    {
+        if ((MegaLauncherMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_MEGA_LAUNCHER))
         {
             movepower = movepower * 15 / 10;
             break;

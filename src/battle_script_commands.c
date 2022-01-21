@@ -165,7 +165,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 else if (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
                        && ((STAT_ATTACK + stattochange)==STAT_ACCURACY))
                       || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_HYPER_CUTTER) == TRUE)
-                       && ((STAT_ATTACK + stattochange) == STAT_ATTACK)))
+                       && ((STAT_ATTACK + stattochange) == STAT_ATTACK))
+                       || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_BIG_PECKS) == TRUE)
+                       && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)))
                     {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {

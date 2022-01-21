@@ -813,50 +813,50 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
 
     switch (GetBattlerAbility(sp,client_no))
     {
-    case ABILITY_SPEED_BOOST:
-        if ((sp->battlemon[client_no].hp)
-         && (sp->battlemon[client_no].states[STAT_SPEED] < 12)
-         && (sp->battlemon[client_no].moveeffect.fake_out_count != (sp->total_turn + 1)))
-        {
-            sp->addeffect_param = ADD_STATE_SPEED_UP;
-            sp->addeffect_type = ADD_EFFECT_ABILITY;
-            sp->state_client = client_no;
-            seq_no = SUB_SEQ_STAT_STAGE_CHANGE;
-            ret = TRUE;
-        }
-        break;
-    case ABILITY_SHED_SKIN:
-        if ((sp->battlemon[client_no].condition & STATUS_ANY_PERSISTENT)
-         && (sp->battlemon[client_no].hp)
-         && (BattleRand(bw) % 10 < 3)) // 30% chance
-        {
-            if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
+        case ABILITY_SPEED_BOOST:
+            if ((sp->battlemon[client_no].hp)
+                && (sp->battlemon[client_no].states[STAT_SPEED] < 12)
+                && (sp->battlemon[client_no].moveeffect.fake_out_count != (sp->total_turn + 1)))
             {
-                sp->msg_work = MSG_HEAL_SLEEP;
+                sp->addeffect_param = ADD_STATE_SPEED_UP;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = client_no;
+                seq_no = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret = TRUE;
             }
-            else if (sp->battlemon[client_no].condition & STATUS_POISON_ANY)
+            break;
+        case ABILITY_SHED_SKIN:
+            if ((sp->battlemon[client_no].condition & STATUS_ANY_PERSISTENT)
+                && (sp->battlemon[client_no].hp)
+                && (BattleRand(bw) % 10 < 3)) // 30% chance
             {
-                sp->msg_work = MSG_HEAL_POISON;
+                if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
+                {
+                    sp->msg_work = MSG_HEAL_SLEEP;
+                }
+                else if (sp->battlemon[client_no].condition & STATUS_POISON_ANY)
+                {
+                    sp->msg_work = MSG_HEAL_POISON;
+                }
+                else if (sp->battlemon[client_no].condition & STATUS_FLAG_BURNED)
+                {
+                    sp->msg_work = MSG_HEAL_BURN;
+                }
+                else if (sp->battlemon[client_no].condition & STATUS_FLAG_PARALYZED)
+                {
+                    sp->msg_work = MSG_HEAL_PARALYSIS;
+                }
+                else
+                {
+                    sp->msg_work = MSG_HEAL_FROZEN;
+                }
+                sp->client_work = client_no;
+                seq_no = SUB_SEQ_HANDLE_SHED_SKIN;
+                ret = TRUE;
             }
-            else if (sp->battlemon[client_no].condition & STATUS_FLAG_BURNED)
-            {
-                sp->msg_work = MSG_HEAL_BURN;
-            }
-            else if (sp->battlemon[client_no].condition & STATUS_FLAG_PARALYZED)
-            {
-                sp->msg_work = MSG_HEAL_PARALYSIS;
-            }
-            else
-            {
-                sp->msg_work = MSG_HEAL_FROZEN;
-            }
-            sp->client_work = client_no;
-            seq_no = SUB_SEQ_HANDLE_SHED_SKIN;
-            ret = TRUE;
-        }
-        break;
-    default:
-        break;
+            break;
+        default:
+            break;
     }
 
     if (ret == TRUE)
@@ -869,6 +869,26 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     return ret;
 }
 
+BOOL MummyAbilityCheck(struct BattleStruct *sp)
+{
+    switch(GetBattlerAbility(sp, sp->attack_client))
+    {
+        case ABILITY_MULTITYPE:
+        case ABILITY_ZEN_MODE:
+        case ABILITY_STANCE_CHANGE:
+        case ABILITY_SCHOOLING:
+        case ABILITY_BATTLE_BOND:
+        case ABILITY_POWER_CONSTRUCT:
+        case ABILITY_SHIELDS_DOWN:
+        case ABILITY_RKS_SYSTEM:
+        case ABILITY_DISGUISE:
+        case ABILITY_COMATOSE:
+        case ABILITY_MUMMY:
+            return FALSE;
+        default:
+            return TRUE;
+    }
+}
 
 BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
@@ -926,6 +946,7 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
         }
             break;
         case ABILITY_ROUGH_SKIN:
+        case ABILITY_IRON_BARBS:
             if ((sp->battlemon[sp->attack_client].hp)
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -1066,7 +1087,7 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 } else {
                     movetype = sp->old_moveTbl[sp->current_move_index].type;
                 }
-                
+                                
                 if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG)) 
                 {
                     sp->addeffect_param = ADD_STATE_SPEED_UP;
@@ -1078,7 +1099,131 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
                 }
             }
         break;
+        case ABILITY_STAMINA:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_param = ADD_STATE_DEFENSE_UP;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->defence_client;
+                sp->client_work = sp->defence_client;
+                seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_GOOEY:
+        case ABILITY_TANGLING_HAIR:
+            if ((sp->battlemon[sp->attack_client].states[STAT_SPEED] > 0)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_param = ADD_STATE_SPEED_DOWN;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->attack_client;
+                sp->client_work = sp->attack_client;
+                seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_MUMMY:
+            if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (MummyAbilityCheck(sp) == TRUE)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->client_work = sp->attack_client;
+                sp->battlemon[sp->attack_client].ability = ABILITY_MUMMY;
+                seq_no[0] = SUB_SEQ_HANDLE_MUMMY_MESSAGE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_WATER_COMPACTION:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                u8 movetype;
+
+                if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
+                    movetype = TYPE_NORMAL;
+                } else if (sp->move_type) {
+                    movetype = sp->move_type;
+                } else {
+                    movetype = sp->old_moveTbl[sp->current_move_index].type;
+                }
+
+                if(movetype == TYPE_WATER)
+                {
+                    if(sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 11)
+                    {
+                        sp->addeffect_param = ADD_STATE_DEFENSE_UP_2;
+                        sp->addeffect_type = ADD_EFFECT_ABILITY;
+                        sp->state_client = sp->defence_client;
+                        sp->client_work = sp->defence_client;
+                        seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                        ret = TRUE;
+                    }
+                    else
+                    {
+                        sp->addeffect_param = ADD_STATE_DEFENSE_UP;
+                        sp->addeffect_type = ADD_EFFECT_ABILITY;
+                        sp->state_client = sp->defence_client;
+                        sp->client_work = sp->defence_client;
+                        seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                        ret = TRUE;
+                    }
+                }
+            }
+            break;
         default:
+            //Beast Boost
+//            if ((sp->defence_client == sp->fainting_client)
+//                && (GetBattlerAbility(sp, sp->attack_client) == ABILITY_BEAST_BOOST)
+//                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+//                && (sp->battlemon[sp->attack_client].hp)
+//                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+//            {
+////                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 4);
+////                sp->client_work = sp->attack_client;
+////                seq_no[0] = SUB_SEQ_HANDLE_AFTERMATH;
+////                ret = TRUE;
+//
+//                u8 stats[] = {
+//                        STAT_ATTACK,
+//                        STAT_DEFENSE,
+//                        STAT_SPATK,
+//                        STAT_SPDEF,
+//                        STAT_SPEED
+//                };
+//
+//                if ((sp->battlemon[client_no].states[STAT_SPEED] < 12)
+//                    && (sp->battlemon[client_no].moveeffect.fake_out_count != (sp->total_turn + 1)))
+//                {
+//                    sp->addeffect_param = ADD_STATE_SPEED_UP;
+//                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+//                    sp->state_client = client_no;
+//                    seq_no = SUB_SEQ_STAT_STAGE_CHANGE;
+//                    ret = TRUE;
+//                }
+//
+//            }
             break;
     }
 
