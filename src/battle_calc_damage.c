@@ -385,6 +385,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         sp_attack = sp_attack * 150 / 100;
     }
 
+    //handle tough claws
+    if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) 
+    {
+        movepower = movepower * 130 / 100;
+    }    
+    
     // handle marvel scale
     if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
     {
@@ -434,6 +440,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if ((movetype == TYPE_BUG) && (AttackingMon.ability == ABILITY_SWARM) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
     {
         movepower = movepower * 150 / 100;
+    }
+
+    // handle fur coat
+    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_FUR_COAT) == TRUE))
+    {
+        defense = defense * 150 / 100;
     }
 
     // if dark aura is present but not aura break
