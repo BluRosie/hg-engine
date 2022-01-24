@@ -81,45 +81,45 @@ static const u16 MegaLauncherMovesTable[] = {
 //        MOVE_TERRAIN_PULSE,
 };
 
-int NormalTypeChangeAbilityHelper(int ability)
-{
-    int movetype;
-
-    switch(ability)
-    {
-        case ABILITY_GALVANIZE:
-            movetype = TYPE_ELECTRIC;
-            break;
-//        case ABILITY_PIXILATE:
-//            movetype = TYPE_FAIRY;
+//int NormalTypeChangeAbilityHelper(int ability)
+//{
+//    int movetype;
+//
+//    switch(ability)
+//    {
+//        case ABILITY_GALVANIZE:
+//            movetype = TYPE_ELECTRIC;
 //            break;
-        case ABILITY_AERILATE:
-            movetype = TYPE_FLYING;
-            break;
-        case ABILITY_REFRIDGERATE:
-            movetype = TYPE_ICE;
-            break;
-        default:
-            movetype = TYPE_NORMAL;
-            break;
-    }
-
-    return movetype;
-}
-
-int NormalTypeChangeAbilityCheck(int ability)
-{
-    switch(ability)
-    {
-        case ABILITY_GALVANIZE:
-        case ABILITY_PIXILATE:
-        case ABILITY_AERILATE:
-        case ABILITY_REFRIDGERATE:
-            return TRUE;
-        default:
-            return FALSE;
-    }
-}
+////        case ABILITY_PIXILATE:
+////            movetype = TYPE_FAIRY;
+////            break;
+//        case ABILITY_AERILATE:
+//            movetype = TYPE_FLYING;
+//            break;
+//        case ABILITY_REFRIDGERATE:
+//            movetype = TYPE_ICE;
+//            break;
+//        default:
+//            movetype = TYPE_NORMAL;
+//            break;
+//    }
+//
+//    return movetype;
+//}
+//
+//int NormalTypeChangeAbilityCheck(int ability)
+//{
+//    switch(ability)
+//    {
+//        case ABILITY_GALVANIZE:
+//        case ABILITY_PIXILATE:
+//        case ABILITY_AERILATE:
+//        case ABILITY_REFRIDGERATE:
+//            return TRUE;
+//        default:
+//            return FALSE;
+//    }
+//}
 
 const u8 StatBoostModifiers[][2] = {
          // numerator, denominator
@@ -209,11 +209,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // get the type
     if (AttackingMon.ability == ABILITY_NORMALIZE)
         movetype = TYPE_NORMAL;
-    else if (NormalTypeChangeAbilityCheck(AttackingMon.ability) == TRUE)
-    {
-        movetype = NormalTypeChangeAbilityHelper(AttackingMon.ability);
-        movepower = (movepower * 12) / 10;
-    }
+//    else if (NormalTypeChangeAbilityCheck(AttackingMon.ability) == TRUE)
+//    {
+//        movetype = NormalTypeChangeAbilityHelper(AttackingMon.ability);
+//        movepower = (movepower * 12) / 10;
+//    }
     else if (type == 0)
         movetype = sp->old_moveTbl[moveno].type;
     else
