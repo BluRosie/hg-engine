@@ -7,6 +7,52 @@
 #define POKEMON_GENDER_FEMALE 1
 #define POKEMON_GENDER_UNKNOWN 2
 
+
+#define	ID_base_hp  (0)
+#define	ID_base_atk (1)
+#define	ID_base_def (2)
+#define	ID_base_speed   (3)
+#define	ID_base_spatk   (4)
+#define	ID_base_spdef   (5)
+#define	ID_type1    (6)
+#define	ID_type2    (7)
+#define	ID_get_rate (8)
+#define	ID_exp_yield    (9)
+#define	ID_EV_hp    (10)
+#define	ID_EV_pow   (11)
+#define	ID_EV_def   (12)
+#define	ID_EV_speed	(13)
+#define	ID_EV_spatk	(14)
+#define	ID_EV_spdef	(15)
+#define	ID_item1    (16)
+#define	ID_item2    (17)
+#define	ID_gender   (18)
+#define	ID_egg_cycles   (19)
+#define	ID_base_friendship  (20)
+#define	ID_growth_rate  (21)
+#define	ID_egg_group1   (22)
+#define	ID_egg_group2   (23)
+#define	ID_ability1 (24)
+#define	ID_ability2 (25)
+#define	ID_escape_chance    (26)
+#define	ID_color    (27)
+#define	ID_reverse  (28)
+#define	ID_TM_1 (29)
+#define	ID_TM_2 (30)
+#define	ID_TM_3 (31)
+#define	ID_TM_4 (32)
+
+#define	POW_RND (32)
+
+#define	RND_NO_SET  (0)
+#define	RND_SET (1)
+
+#define	ID_NO_SET   (0)
+#define	ID_SET  (1)
+#define	ID_NO_SHINY (2)
+#define	NO_MOVES_SET    (0xffff)
+#define	SAME_MOVES_SET  (0xfffe)
+
 struct pokemon_paso_param
 {
     u32 personal_rnd;          //04h	個性乱数
@@ -249,5 +295,9 @@ void *__attribute__((long_call)) SodateyaWork_GetPokePasoPointer(void *ppd, int 
 void *__attribute__((long_call)) PokeParaPersonalRndChange(void *pp, u32 personal_rnd);
 u8 __attribute__((long_call)) PokeNatureGet(u32);
 void __attribute__((long_call)) PokeSetMove(void *ppp);
+void __attribute__((long_call)) PokePasoWazaOboe(void *);
+u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
+u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
+void __attribute__((long_call)) PokePasoParaInit(void *);
 
 #endif

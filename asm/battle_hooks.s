@@ -85,3 +85,20 @@ mov pc, r1
 
 MoldBreakerAbilityCheck_return_address:
 .word 0
+
+
+.global PokePasoParaSet_hook
+PokePasoParaSet_hook:
+ldr r5, =PokePasoParaSet_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl PokePasoParaSet
+ldr r1, =PokePasoParaSet_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+PokePasoParaSet_return_address:
+.word 0
