@@ -158,6 +158,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     u16 movepower;
     u16 item;
     u32 battle_type;
+    u32 slowest_client = 4;
+
 
     struct sDamageCalc AttackingMon;
     struct sDamageCalc DefendingMon;
@@ -251,10 +253,26 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         sp_attack /= 2;
     }
 
+    //handle analytic
+    if (AttackingMon.ability == ABILITY_ANALYTIC)
+{
+    for (i = 0; i < 4; i++)
+    {
+        if (attacker != i && sp->battlemon[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0)
+        {
+            break;
+        }            
+    }   
+    if (i == 4)
+    {
+        movepower = movepower * 130 / 100;
+    }
+}
+    
 
     // type boosting held items
     for (i = 0; i < NELEMS(HeldItemPowerUpTable); i++)
-    {
+    {           
         if ((AttackingMon.item_held_effect == HeldItemPowerUpTable[i][0]) && (movetype == HeldItemPowerUpTable[i][1]))
         {
             movepower = movepower * (100 + AttackingMon.item_power) / 100;
@@ -779,6 +797,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
     
+#define DEBUG
 #ifdef DEBUG
     *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->old_moveTbl[moveno].power : pow;
     *((u32 *)(0x23D8004 + 0xC*(attacker&1))) = movepower;

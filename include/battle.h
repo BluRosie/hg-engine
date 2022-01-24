@@ -35,10 +35,16 @@
 // add effect defines
 #define ADD_STATUS_NO_ABILITY (0x08000000)
 
+#define ADD_EFFECT_DIRECT 1
 #define ADD_EFFECT_INDIRECT 2
 #define ADD_EFFECT_ABILITY 3
-
+#define ADD_EFFECT_MOVE_EFFECT 4
 #define ADD_EFFECT_HELD_ITEM 5
+#define ADD_EFFECT_TOXIC_SPIKES 6
+#define ADD_EFFECT_VARIOUS 7
+// new
+#define ADD_EFFECT_PRINT_WORK_ABILITY 8
+
 
 #define ADD_STATE_ATTACK_UP 0xF
 #define ADD_STATE_DEFENSE_UP 0x10
@@ -926,7 +932,12 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 
 // defined in ability.c
-u32 __attribute__((long_call)) MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+
+
+
+// defined in other_battle_calculators.c
+u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
 
 
 
