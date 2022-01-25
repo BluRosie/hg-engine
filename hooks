@@ -56,3 +56,6 @@ arm9 GetPokemonOwNum 0806A304 1
 #battle script command hooks
 #0223ED78
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
+
+#trainer data expansion
+arm9 MakeTrainerPokemonParty 08073604 3

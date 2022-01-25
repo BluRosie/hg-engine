@@ -187,3 +187,15 @@ CheckSubstitute = 0x02256838 | 1;
 IncrementBattleScriptPtr = 0x02245508 | 1;
 read_battle_script_param = 0x022454E8 | 1;
 TagNickParaMake = 0x022522E0 | 1;
+
+/* Trainer data expansion */
+gf_get_seed = 0x0201FD2C | 1;
+PokeParty_Init = 0x020744DC | 1;
+TT_TrainerPokeDataGet = 0x020735E8 | 1;
+TT_TrainerTypeSexGet = 0x020735F8 | 1;
+TrainerCBSet = 0x02072A44 | 1;
+try_force_gender_maybe = 0x02073A98 | 1;
+TrainerMonHandleFrustration = 0x02073AE4 | 1;
+SetPartyPokemonMoveAtPos = 0x020714E8 | 1;
+gf_srand = 0x0201FD38 | 1;
+PokeParty_Add = 0x02074524 | 1;

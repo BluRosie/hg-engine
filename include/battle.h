@@ -179,7 +179,7 @@
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 #define SERVER_STATUS_FLAG_STAT_CHANGE (0x00020000)
-#define	SERVER_STATUS_FLAG_MOLD_BREAKER	(0x00800000)
+#define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
 // server status2 falgs
 #define SERVER_STATUS2_FLAG_x10 (0x00000010)
@@ -240,76 +240,76 @@
 #define BATTLER_OPPONENT(client) (client ^ 1)
 #define BATTLER_ACROSS(client) (client ^ 3)
 
-#define	TAG_NONE						(0)		//タグなし
+#define TAG_NONE                        (0)     //タグなし
 
-#define	TAG_NONE_DIR					(1)		//タグなし（てき、みかた判定あり）
-#define	TAG_NICK						(2)		//nickname
-#define	TAG_WAZA						(3)		//技名
-#define	TAG_STAT						(4)		//ステータス名
-#define	TAG_ITEM						(5)		//道具名
-#define	TAG_NUM							(6)		//数値
-#define	TAG_NUMS						(7)		//数値（右詰め）
-#define	TAG_TRNAME						(8)		//trainer名
+#define TAG_NONE_DIR                    (1)     //タグなし（てき、みかた判定あり）
+#define TAG_NICK                        (2)     //nickname
+#define TAG_WAZA                        (3)     //技名
+#define TAG_STAT                        (4)     //ステータス名
+#define TAG_ITEM                        (5)     //道具名
+#define TAG_NUM                         (6)     //数値
+#define TAG_NUMS                        (7)     //数値（右詰め）
+#define TAG_TRNAME                      (8)     //trainer名
 
-#define	TAG_NICK_NICK					(9)		//nickname		nickname
-#define	TAG_NICK_WAZA					(10)	//nickname		技名
-#define	TAG_NICK_TOKU					(11)	//nickname		特性名
-#define	TAG_NICK_STAT					(12)	//nickname		ステータス名
-#define	TAG_NICK_TYPE					(13)	//nickname		タイプ名
-#define	TAG_NICK_POKE					(14)	//nickname		ポケモン名
-#define	TAG_NICK_ITEM					(15)	//nickname		道具名
-#define	TAG_NICK_PLOC					(16)	//nickname		ポロック名
-#define	TAG_NICK_NUM					(17)	//nickname		数値
-#define	TAG_NICK_TRNAME					(18)	//nickname		trainer名
-#define	TAG_NICK_BOX					(19)	//nickname		ボックス名
-#define	TAG_WAZA_DIR					(20)	//技名（てき、みかた判定あり）
-#define	TAG_WAZA_NICK					(21)	//技名			nickname
-#define	TAG_WAZA_WAZA					(22)	//技名			技名
-#define	TAG_TOKU_NICK					(23)	//特性名		nickname
-#define	TAG_ITEM_WAZA					(24)	//道具名		技名
-#define	TAG_NUM_NUM						(25)	//数値			数値
-#define	TAG_TRNAME_TRNAME				(26)	//trainer名		trainer名
-#define	TAG_TRNAME_NICK					(27)	//trainer名		nickname
-#define	TAG_TRNAME_ITEM					(28)	//trainer名		道具名
-#define	TAG_TRNAME_NUM					(29)	//trainer名		数値
-#define	TAG_TRTYPE_TRNAME				(30)	//trainer種別	trainer名
+#define TAG_NICK_NICK                   (9)     //nickname      nickname
+#define TAG_NICK_WAZA                   (10)    //nickname      技名
+#define TAG_NICK_TOKU                   (11)    //nickname      特性名
+#define TAG_NICK_STAT                   (12)    //nickname      ステータス名
+#define TAG_NICK_TYPE                   (13)    //nickname      タイプ名
+#define TAG_NICK_POKE                   (14)    //nickname      ポケモン名
+#define TAG_NICK_ITEM                   (15)    //nickname      道具名
+#define TAG_NICK_PLOC                   (16)    //nickname      ポロック名
+#define TAG_NICK_NUM                    (17)    //nickname      数値
+#define TAG_NICK_TRNAME                 (18)    //nickname      trainer名
+#define TAG_NICK_BOX                    (19)    //nickname      ボックス名
+#define TAG_WAZA_DIR                    (20)    //技名（てき、みかた判定あり）
+#define TAG_WAZA_NICK                   (21)    //技名            nickname
+#define TAG_WAZA_WAZA                   (22)    //技名            技名
+#define TAG_TOKU_NICK                   (23)    //特性名       nickname
+#define TAG_ITEM_WAZA                   (24)    //道具名       技名
+#define TAG_NUM_NUM                     (25)    //数値            数値
+#define TAG_TRNAME_TRNAME               (26)    //trainer名      trainer名
+#define TAG_TRNAME_NICK                 (27)    //trainer名      nickname
+#define TAG_TRNAME_ITEM                 (28)    //trainer名      道具名
+#define TAG_TRNAME_NUM                  (29)    //trainer名      数値
+#define TAG_TRTYPE_TRNAME               (30)    //trainer種別 trainer名
 
-#define	TAG_NICK_NICK_WAZA				(31)	//nickname		nickname		技名
-#define	TAG_NICK_NICK_TOKU				(32)	//nickname		nickname		特性名
-#define	TAG_NICK_NICK_ITEM				(33)	//nickname		nickname		道具名
-#define	TAG_NICK_WAZA_WAZA				(34)	//nickname		技名			技名
-#define	TAG_NICK_WAZA_NUM				(35)	//nickname		技名			数値
-#define	TAG_NICK_TOKU_NICK				(36)	//nickname		特性名			nickname
-#define	TAG_NICK_TOKU_WAZA				(37)	//nickname		特性名			技名
-#define	TAG_NICK_TOKU_ITEM				(38)	//nickname		特性名			道具名
-#define	TAG_NICK_TOKU_STAT				(39)	//nickname		特性名			ステータス名
-#define	TAG_NICK_TOKU_TYPE				(40)	//nickname		特性名			タイプ名
-#define	TAG_NICK_TOKU_COND				(41)	//nickname		特性名			状態異常名
-#define	TAG_NICK_TOKU_NUM				(42)	//nickname		特性名			数値
-#define	TAG_NICK_ITEM_NICK				(43)	//nickname		道具名			nickname
-#define	TAG_NICK_ITEM_WAZA				(44)	//nickname		道具名			技名
-#define	TAG_NICK_ITEM_STAT				(45)	//nickname		道具名			ステータス名
-#define	TAG_NICK_ITEM_COND				(46)	//nickname		道具名			状態異常名
-#define	TAG_NICK_BOX_BOX				(47)	//nickname		ボックス名		ボックス名
-#define	TAG_ITEM_NICK_TASTE				(48)	//道具名		nickname		木の実の味
-#define	TAG_TRNAME_NICK_NICK			(49)	//trainer名		nickname		nickname
-#define	TAG_TRTYPE_TRNAME_NICK			(50)	//trainer種別	trainer名		nickname
-#define	TAG_TRTYPE_TRNAME_ITEM			(51)	//trainer種別	trainer名		道具名
+#define TAG_NICK_NICK_WAZA              (31)    //nickname      nickname        技名
+#define TAG_NICK_NICK_TOKU              (32)    //nickname      nickname        特性名
+#define TAG_NICK_NICK_ITEM              (33)    //nickname      nickname        道具名
+#define TAG_NICK_WAZA_WAZA              (34)    //nickname      技名          技名
+#define TAG_NICK_WAZA_NUM               (35)    //nickname      技名          数値
+#define TAG_NICK_TOKU_NICK              (36)    //nickname      特性名         nickname
+#define TAG_NICK_TOKU_WAZA              (37)    //nickname      特性名         技名
+#define TAG_NICK_TOKU_ITEM              (38)    //nickname      特性名         道具名
+#define TAG_NICK_TOKU_STAT              (39)    //nickname      特性名         ステータス名
+#define TAG_NICK_TOKU_TYPE              (40)    //nickname      特性名         タイプ名
+#define TAG_NICK_TOKU_COND              (41)    //nickname      特性名         状態異常名
+#define TAG_NICK_TOKU_NUM               (42)    //nickname      特性名         数値
+#define TAG_NICK_ITEM_NICK              (43)    //nickname      道具名         nickname
+#define TAG_NICK_ITEM_WAZA              (44)    //nickname      道具名         技名
+#define TAG_NICK_ITEM_STAT              (45)    //nickname      道具名         ステータス名
+#define TAG_NICK_ITEM_COND              (46)    //nickname      道具名         状態異常名
+#define TAG_NICK_BOX_BOX                (47)    //nickname      ボックス名       ボックス名
+#define TAG_ITEM_NICK_TASTE             (48)    //道具名       nickname        木の実の味
+#define TAG_TRNAME_NICK_NICK            (49)    //trainer名      nickname        nickname
+#define TAG_TRTYPE_TRNAME_NICK          (50)    //trainer種別 trainer名        nickname
+#define TAG_TRTYPE_TRNAME_ITEM          (51)    //trainer種別 trainer名        道具名
 
-#define	TAG_NICK_TOKU_NICK_WAZA			(52)	//nickname		特性名			nickname		技名
-#define	TAG_NICK_TOKU_NICK_TOKU			(53)	//nickname		特性名			nickname		特性名
-#define	TAG_NICK_TOKU_NICK_STAT			(54)	//nickname		特性名			nickname		ステータス名
-#define	TAG_NICK_ITEM_NICK_ITEM			(55)	//nickname		道具名			nickname		道具名
-#define	TAG_TRNAME_NICK_TRNAME_NICK		(56)	//trainer名		nickname		trainer名		nickname
-#define	TAG_TRTYPE_TRNAME_NICK_NICK		(57)	//trainer種別	trainer名		nickname		nickname
-#define	TAG_TRTYPE_TRNAME_NICK_TRNAME	(58)	//trainer種別	trainer名		nickname		trainer名
-#define	TAG_TRTYPE_TRNAME_TRTYPE_TRNAME	(59)	//trainer種別	trainer名		trainer種別		trainer名
+#define TAG_NICK_TOKU_NICK_WAZA         (52)    //nickname      特性名         nickname        技名
+#define TAG_NICK_TOKU_NICK_TOKU         (53)    //nickname      特性名         nickname        特性名
+#define TAG_NICK_TOKU_NICK_STAT         (54)    //nickname      特性名         nickname        ステータス名
+#define TAG_NICK_ITEM_NICK_ITEM         (55)    //nickname      道具名         nickname        道具名
+#define TAG_TRNAME_NICK_TRNAME_NICK     (56)    //trainer名      nickname        trainer名        nickname
+#define TAG_TRTYPE_TRNAME_NICK_NICK     (57)    //trainer種別 trainer名        nickname        nickname
+#define TAG_TRTYPE_TRNAME_NICK_TRNAME   (58)    //trainer種別 trainer名        nickname        trainer名
+#define TAG_TRTYPE_TRNAME_TRTYPE_TRNAME (59)    //trainer種別 trainer名        trainer種別       trainer名
 
-#define	TAG_TRTYPE_TRNAME_NICKx2		(60)	//trainer種別	trainer名		nickname ｘ２
+#define TAG_TRTYPE_TRNAME_NICKx2        (60)    //trainer種別 trainer名        nickname ｘ２
 
-#define	TAG_NO_DIR						(0x80)	//敵、味方、判定をしない
-#define	TAG_DIR							(0x40)	//敵、味方、判定あり
-#define	TAG_NO_DIR_OFF					(0x3f)	//敵、味方、判定をしない
+#define TAG_NO_DIR                      (0x80)  //敵、味方、判定をしない
+#define TAG_DIR                         (0x40)  //敵、味方、判定あり
+#define TAG_NO_DIR_OFF                  (0x3f)  //敵、味方、判定をしない
 
 
 // fuck statbuffchange
@@ -838,11 +838,100 @@ struct __attribute__((packed)) newBattleStruct
     u8 CanMega:4;
 };
 
+#include "pokemon.h"
+
+struct __attribute__((packed)) POKEPARTY {
+    int PokeCountMax;
+    int PokeCount;
+    struct PartyPokemon member[6];
+};
+
+typedef struct {
+    u16 sentence_type;
+    u16 sentence_id;
+    u16 word[2];
+} __attribute__((packed)) PMS_DATA; // size: 8 bytes
+
+typedef struct {
+    u8 data_type;
+    u8 tr_type;
+    u8 tr_gra;
+    u8 poke_count;
+
+    u16 use_item[4];
+
+    u32 aibit;
+    u32 fight_type;
+
+    u16 name[8];
+    PMS_DATA win_word;
+    PMS_DATA lose_word;
+} __attribute__((packed)) TRAINER_DATA; // size: 52 bytes
+
 struct __attribute__((packed)) BATTLE_PARAM
 {
-    u8 fill[0x1C0];
-    void* savedata;
+    /*0x0000*/  u32 fight_type;
+    /*0x0004*/  struct POKEPARTY *poke_party[4];
+    /*0x0008*/  int win_lose_flag;
+    /*0x000C*/  int trainer_id[4];
+    /*0x001C*/  TRAINER_DATA trainer_data[4]; //0xD0 bytes
+    /*0x00EC*/  u8 fill[0xD4];
+    /*0x01C0*/  void* savedata;
 };
+
+typedef	struct
+{
+    u8 ivs;
+    u8 abilityslot;
+    u16 level;
+    u16 monsno;
+    u16 custom;
+} __attribute__((packed)) TRAINER_MON_DATA_NOTHING;
+
+typedef	struct
+{
+    u8 ivs;
+    u8 abilityslot;
+    u16 level;
+    u16 monsno;
+    u16 moves[4];
+    u16 custom;
+} __attribute__((packed)) TRAINER_MON_DATA_MOVES;
+
+typedef	struct
+{
+    u8 ivs;
+    u8 abilityslot;
+    u16 level;
+    u16 monsno;
+    u16 itemno;
+    u16 custom;
+} __attribute__((packed)) TRAINER_MON_DATA_HELD_ITEM;
+
+typedef	struct
+{
+    u8 ivs;
+    u8 abilityslot;
+    u16 level;
+    u16 monsno;
+    u16 itemno;
+    u16 moves[4];
+    u16 custom;
+} __attribute__((packed)) TRAINER_MON_DATA_MOVES_AND_HELD_ITEM;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp, bool8 SwitchAbility);
 
@@ -857,7 +946,7 @@ int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
 int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int client_no,int speabi);
 u8 __attribute__((long_call)) CheckNumMonsHit(void*,void*,int ,int);
 BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
-struct POKEMON_PARAM* __attribute__((long_call))BattleWorkPokemonParamGet(void*,int,int);
+struct PartyPokemon * __attribute__((long_call)) BattleWorkPokemonParamGet(void*,int,int);
 
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
 int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
@@ -913,10 +1002,16 @@ int __attribute__((long_call)) HeldItemHoldEffectGet(void *sp, int client_no);
 int __attribute__((long_call)) HeldItemAtkGet(void *sp, int client_no, int flag);
 u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
 u32 __attribute__((long_call)) CheckSubstitute(struct BattleStruct *sp, int client_no);
-
-
-
-
+u32 __attribute__((long_call)) gf_get_seed(void);
+void __attribute__((long_call)) PokeParty_Init(struct POKEPARTY *party, int max);
+void __attribute__((long_call)) TT_TrainerPokeDataGet(int tr_id, void *tpd);
+u8 __attribute__((long_call)) TT_TrainerTypeSexGet(int trtype);
+u32 __attribute__((long_call)) TrainerCBSet(int index, struct PartyPokemon* pp, int heap);
+void __attribute__((long_call)) try_force_gender_maybe(int species, int formnum, u8 a2, u32 *genderratio);
+void __attribute__((long_call)) TrainerMonHandleFrustration(struct PartyPokemon *pp);
+void __attribute__((long_call)) SetPartyPokemonMoveAtPos(struct PartyPokemon *pp, u16 movenum, u8 pos);
+void __attribute__((long_call)) gf_srand(u32 seed);
+u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct PartyPokemon *poke);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
