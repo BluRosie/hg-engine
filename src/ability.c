@@ -9,6 +9,7 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
+#include "../include/constants/battle_message_constants.h"
 
 
 extern const u8 StatBoostModifiers[][2];
@@ -113,6 +114,20 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_RECOVERED_HP;
+        }
+    }
+
+    //handle sap_sipper
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
+    {
+        if ((movetype == TYPE_GRASS) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_SAP_SIPPER;
+            sp->mp.msg_id = BATTLE_MSG_ABILITY_RAISED_STAT;
+            sp->mp.msg_tag = TAG_NICK_TOKU_STAT;
+            sp->mp.msg_para[0] = TagNickParaMake(sp, defender);
+            sp->mp.msg_para[1] = sp->battlemon[defender].ability;
+            sp->mp.msg_para[2] = STAT_ATTACK;
         }
     }
 
