@@ -527,16 +527,7 @@ def changeoffset():
             word = i.replace(" ", '').split('/')[0].split(":")[1]
             break
 
-    txt = open("armips/asm/offset.s", 'r', encoding="utf-8")
-    p = txt.readlines()
-    txt.close()
-
-    f = 0
-    for i in p:
-        if "PokeIconPalNumGet" in i:
-            p[f] = "PokeIconPalNumGet equ 0x" + word + "\n"
-            break
-        f += 1
+    p = "PokeIconPalNumGet equ 0x" + word + "\n"
     txt = open("armips/asm/offset.s", 'w', encoding="utf-8")
     txt.writelines(p)
     txt.close()
