@@ -177,11 +177,12 @@
 
 // server status flags
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
+#define	SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 #define SERVER_STATUS_FLAG_STAT_CHANGE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
-// server status2 falgs
+// server status2 flags
 #define SERVER_STATUS2_FLAG_x10 (0x00000010)
 
 // status2/condition2 flags
@@ -197,6 +198,12 @@
 #define SIDE_STATUS_LIGHT_SCREEN (0x2)
 #define SIDE_STATUS_TAILWIND (0x300)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
+
+// One Self Turn Flags
+#define	STATUS_FLAG_EQPITEM_POWDOWN	(0x00000001)	//装備効果によって技の威力を弱めたフラグ
+#define	STATUS_FLAG_TSUIBAMU			(0x00000002)	//ついばむ発動
+#define	STATUS_FLAG_MEROMERO			(0x00000004)	//メロメロになった
+#define	STATUS_FLAG_MIGAWARI_HIT		(0x00000008)	//みがわりで防いだ
 
 // physical/special split values
 #define SPLIT_PHYSICAL 0
@@ -994,7 +1001,7 @@ u32 __attribute__((long_call)) AnticipateMoveEffectListCheck(void *sp, int moven
 u16 __attribute__((long_call)) BattleRand(void *bw);
 int __attribute__((long_call)) ChooseRandomTarget(void *bw, void *sp, int client);
 int __attribute__((long_call)) CountBattlerMoves(void *bw, void *sp, int client_no);
-u32 __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *seq_no);
+BOOL __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *seq_no);
 u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, void *sp, int client_no, int act_flag);
 u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, void *sp, int client_no, int *seq_no);
 void __attribute__((long_call)) LoadBattleSubSeqScript(void *, int, int);
