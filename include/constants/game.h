@@ -1,3 +1,6 @@
+#ifndef CONSTANTS_GAME_H
+#define CONSTANTS_GAME_H
+
 #define		VERSION_SAPPHIRE	1
 #define		VERSION_RUBY		2
 #define		VERSION_EMERALD		3
@@ -22,6 +25,4 @@
 #define		LANG_SPAIN		7
 #define		LANG_KOREA		8
 
-
-#define CasetteVersion 12
-#define CasetteLanguage 2
+#endif

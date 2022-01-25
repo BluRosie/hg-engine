@@ -8,41 +8,45 @@
 #define POKEMON_GENDER_UNKNOWN 2
 
 
-#define	ID_base_hp  (0)
-#define	ID_base_atk (1)
-#define	ID_base_def (2)
-#define	ID_base_speed   (3)
-#define	ID_base_spatk   (4)
-#define	ID_base_spdef   (5)
-#define	ID_type1    (6)
-#define	ID_type2    (7)
-#define	ID_get_rate (8)
-#define	ID_exp_yield    (9)
-#define	ID_EV_hp    (10)
-#define	ID_EV_pow   (11)
-#define	ID_EV_def   (12)
-#define	ID_EV_speed	(13)
-#define	ID_EV_spatk	(14)
-#define	ID_EV_spdef	(15)
-#define	ID_item1    (16)
-#define	ID_item2    (17)
-#define	ID_gender   (18)
-#define	ID_egg_cycles   (19)
-#define	ID_base_friendship  (20)
-#define	ID_growth_rate  (21)
-#define	ID_egg_group1   (22)
-#define	ID_egg_group2   (23)
-#define	ID_ability1 (24)
-#define	ID_ability2 (25)
-#define	ID_escape_chance    (26)
-#define	ID_color    (27)
-#define	ID_reverse  (28)
-#define	ID_TM_1 (29)
-#define	ID_TM_2 (30)
-#define	ID_TM_3 (31)
-#define	ID_TM_4 (32)
+// personal narc fields
+enum
+{
+    PERSONAL_BASE_HP = 0,
+    PERSONAL_BASE_ATTACK,
+    PERSONAL_BASE_DEFENSE,
+    PERSONAL_BASE_SPEED,
+    PERSONAL_BASE_SP_ATTACK,
+    PERSONAL_BASE_SP_DEFENSE,
+    PERSONAL_TYPE_1,
+    PERSONAL_TYPE_2,
+    PERSONAL_CATCH_RATE,
+    PERSONAL_EXP_YIELD,
+    PERSONAL_EV_YIELD_HP,
+    PERSONAL_EV_YIELD_ATTACK,
+    PERSONAL_EV_YIELD_DEFENSE,
+    PERSONAL_EV_YIELD_SPEED,
+    PERSONAL_EV_YIELD_SP_ATTACK,
+    PERSONAL_EV_YIELD_SP_DEFENSE,
+    PERSONAL_ITEM_1,
+    PERSONAL_ITEM_2,
+    PERSONAL_GENDER_RATIO,
+    PERSONAL_EGG_CYCLES,
+    PERSONAL_BASE_FRIENDSHIP,
+    PERSONAL_EXP_GROUP,
+    PERSONAL_EGG_GROUP_1,
+    PERSONAL_EGG_GROUP_2,
+    PERSONAL_ABILITY_1,
+    PERSONAL_ABILITY_2,
+    PERSONAL_RUN_CHANCE,
+    PERSONAL_BODY_COLOR,
+    PERSONAL_FLIP,
+    PERSONAL_TM_ARRAY_1,
+    PERSONAL_TM_ARRAY_2,
+    PERSONAL_TM_ARRAY_3,
+    PERSONAL_TM_ARRAY_4,
+};
 
-#define	POW_RND (32)
+#define	MAX_IVS (31)
 
 #define	RND_NO_SET  (0)
 #define	RND_SET (1)
@@ -53,7 +57,7 @@
 #define	NO_MOVES_SET    (0xffff)
 #define	SAME_MOVES_SET  (0xfffe)
 
-struct pokemon_paso_param
+struct BoxPokemon
 {
     u32 personal_rnd;          //04h	個性乱数
     u16 pp_fast_mode : 1;      //06h	暗号／復号／チェックサム生成を後回しにして、処理を高速化モード
@@ -63,9 +67,9 @@ struct pokemon_paso_param
     u16 checksum;              //08h	チェックサム
 };
 
-struct POKEMON_PARAM
+struct PartyPokemon
 {
-    struct pokemon_paso_param boxMonData; //88h
+    struct BoxPokemon boxMonData; //88h
 };
 
 enum
@@ -264,7 +268,7 @@ enum
     ID_PARA_end //パラメータを追加するときは、ここから上に追加
 };
 
-void ChangePokemonPersonal(struct POKEMON_PARAM *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
+void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);
 void PokePasoParaSpeabiSet(void *ppp);
 u8 GetMonHideAbility(u16 mon, u8 Form_no);
@@ -277,7 +281,7 @@ void __attribute__((long_call)) SetPokemonSee(void *zw, void *pp);
 void __attribute__((long_call)) SetPokemonGet(void *zw, void *pp);
 void *__attribute__((long_call))PokeStatusPokeParamGet(void*);
 void __attribute__((long_call))PokeCopyPPtoPP(void*,void*);
-void __attribute__((long_call)) PokeParaCalc( struct POKEMON_PARAM *ppd );
+void __attribute__((long_call)) PokeParaCalc( struct PartyPokemon *ppd );
 void __attribute__((long_call)) PokeParaSpeabiSet( void *ppd );
 
 u32 __attribute__((long_call)) GetMonData(void*,int,void*);
@@ -286,18 +290,18 @@ u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
 u32 __attribute__((long_call)) PokePasoParaGet(void *ppp, int id, void *buf);
 void *__attribute__((long_call))PokeParty_GetMemberPointer(const void * party, int pos);
 u32	__attribute__((long_call))PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
-u8 __attribute__((long_call)) PokePasoSexGet(void *ppp);
+u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
 u8 __attribute__((long_call)) PokeSexGetMonsNo(u16 monsno,u32 rnd);
-void __attribute__((long_call)) PokePasoParaFastModeOff(void*,BOOL);
-BOOL __attribute__((long_call)) PokePasoParaFastModeOn(void*);
-void  __attribute__((long_call)) PokePasoParaPut(void *ppp,int id,const void *buf);
+void __attribute__((long_call)) BoxMonSetFastModeOff(void*,BOOL);
+BOOL __attribute__((long_call)) BoxMonSetFastModeOn(void*);
+void  __attribute__((long_call)) BoxMonDataSet(void *ppp,int id,const void *buf);
 void *__attribute__((long_call)) SodateyaWork_GetPokePasoPointer(void *ppd, int ID);
 void *__attribute__((long_call)) PokeParaPersonalRndChange(void *pp, u32 personal_rnd);
 u8 __attribute__((long_call)) PokeNatureGet(u32);
 void __attribute__((long_call)) PokeSetMove(void *ppp);
-void __attribute__((long_call)) PokePasoWazaOboe(void *);
+void __attribute__((long_call)) FillInBoxMonLearnset(void *);
 u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
 u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
-void __attribute__((long_call)) PokePasoParaInit(void *);
+void __attribute__((long_call)) BoxMonInit(void *);
 
 #endif

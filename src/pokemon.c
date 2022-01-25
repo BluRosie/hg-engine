@@ -1400,7 +1400,7 @@ bool8 IsMonShiny(u32 id, u32 rnd)
     return ((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((rnd & 0xffff0000) >> 16) ^ (rnd & 0xffff)) < 16);
 }
 
-void GetMonEvoData(struct POKEMON_PARAM *poke, void* pst)
+void GetMonEvoData(struct PartyPokemon *poke, void* pst)
 {
     int mons_no = GetMonData(poke, ID_PARA_monsno, NULL);
     u8 form = GetMonData(poke, ID_PARA_form_no, NULL);

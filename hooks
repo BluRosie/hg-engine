@@ -16,7 +16,7 @@ arm9 GetFormEvo 08070ED4 1
 arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
 #0206DED0+4
-arm9 PokePasoParaSet_hook 0806DED4 5
+arm9 CreateBoxMonData_hook 0806DED4 5
 #0007 hook_7_spriteOffsetSpecies 08018A48 3
 #0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 Battle_End 08000B90 1

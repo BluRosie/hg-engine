@@ -87,18 +87,18 @@ MoldBreakerAbilityCheck_return_address:
 .word 0
 
 
-.global PokePasoParaSet_hook
-PokePasoParaSet_hook:
-ldr r5, =PokePasoParaSet_return_address
+.global CreateBoxMonData_hook
+CreateBoxMonData_hook:
+ldr r5, =CreateBoxMonData_return_address
 mov r6, lr
 str r6, [r5]
 pop {r5-r6}
-bl PokePasoParaSet
-ldr r1, =PokePasoParaSet_return_address
+bl CreateBoxMonData
+ldr r1, =CreateBoxMonData_return_address
 ldr r1, [r1]
 mov pc, r1
 
 .pool
 
-PokePasoParaSet_return_address:
+CreateBoxMonData_return_address:
 .word 0
