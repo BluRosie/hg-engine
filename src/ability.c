@@ -14,7 +14,7 @@
 
 extern const u8 StatBoostModifiers[][2];
 
-u16 SoundproofMoveList[] =
+const u16 SoundproofMoveList[] =
 {
     MOVE_GROWL,
     MOVE_ROAR,

@@ -255,19 +255,33 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     //handle analytic
     if (AttackingMon.ability == ABILITY_ANALYTIC)
-{
-    for (i = 0; i < 4; i++)
     {
-        if (attacker != i && sp->battlemon[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0)
+        for (i = 0; i < 4; i++)
         {
-            break;
-        }            
-    }   
-    if (i == 4)
-    {
-        movepower = movepower * 130 / 100;
+            if (attacker != i && sp->battlemon[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0)
+            {
+                break;
+            }
+        }
+        if (i == 4)
+        {
+            movepower = movepower * 130 / 100;
+        }
+
     }
-}
+
+    // handle punk rock TODO uncomment
+//    if (AttackingMon.ability == ABILITY_PUNK_ROCK)
+//    {
+//        for(i = 0; i < NELEMS(SoundproofMoveList); i++)
+//        {
+//            if(moveno == SoundproofMoveList[i])
+//            {
+//                movepower = movepower * 130 / 100;
+//                break;
+//            }
+//        }
+//    }
     
 
     // type boosting held items
@@ -442,6 +456,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         defense = defense * 150 / 100;
     }
+
+    // handle ice scales TODO uncomment
+//    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_ICE_SCALES == TRUE))
+//    {
+//        sp_defense = sp_defense * 150 / 100;
+//    }
 
     // if dark aura is present but not aura break
     if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DARK_AURA) != 0)
@@ -803,6 +823,19 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         damage /= 2;
     }
+
+    // handle punk rock TODO uncomment
+//    if (DefendingMon.ability == ABILITY_PUNK_ROCK)
+//    {
+//        for(i = 0; i < NELEMS(SoundproofMoveList); i++)
+//        {
+//            if(moveno == SoundproofMoveList[i])
+//            {
+//                damage /= 2;
+//                break;
+//            }
+//        }
+//    }
     
 #define DEBUG
 #ifdef DEBUG
