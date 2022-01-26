@@ -308,3 +308,9 @@ move_narc:
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s
+	
+	@echo "trainer data:"
+	mkdir -p build/a055 build/a056
+	$(ARMIPS) armips/data/trainers/trainers.s
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/5/5 build/a055 -nf
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/5/6 build/a056 -nf

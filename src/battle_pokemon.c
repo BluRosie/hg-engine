@@ -219,11 +219,12 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
             {
                 nature = buf[offset];
+                offset++;
             }
             
             // ball seal field 
             ballseal = buf[offset] | (buf[offset+1] << 8);
-            offset += 2; // this is necessary for some reason, but matches?  what the fuck?
+            offset += 2;
             
             // now set mon data
             try_force_gender_maybe(species, form_no, abilityslot, &rnd_tmp);
