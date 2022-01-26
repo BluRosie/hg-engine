@@ -14,7 +14,7 @@
 
 extern const u8 StatBoostModifiers[][2];
 
-u16 SoundproofMoveList[] =
+const u16 SoundproofMoveList[] =
 {
     MOVE_GROWL,
     MOVE_ROAR,
@@ -1316,4 +1316,93 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
     }
 
     return ret;
+}
+
+BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
+{
+    BOOL ret;
+    int	seq_no;
+
+    ret = FALSE;
+
+    seq_no = 0;
+
+	if((sp->defence_client != 0xFF) && //defense side check
+	   (GetBattlerAbility(sp,sp->defence_client) == ABILITY_SYNCHRONIZE) &&
+	   (sp->defence_client == sp->state_client) &&
+	   (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    {
+		sp->client_work = sp->defence_client;
+		sp->state_client = sp->attack_client;
+		ret=TRUE;
+	}
+	else if((GetBattlerAbility(sp,sp->attack_client)==ABILITY_SYNCHRONIZE) && //attacker side check
+	   (sp->attack_client == sp->state_client) &&
+	   (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    {
+		sp->client_work = sp->attack_client;
+		sp->state_client = sp->defence_client;
+		ret = TRUE;
+	}
+
+	if(ret==TRUE)
+    {
+		if(sp->battlemon[sp->client_work].condition & STATUS_POISON_ANY) {
+			seq_no = SUB_SEQ_POISON_MON;
+		}
+		else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_BURNED) {
+			seq_no = SUB_SEQ_BURN_MON;
+		}
+		else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_PARALYZED) {
+			seq_no = SUB_SEQ_PARALYZE_MON;
+		}
+		if(seq_no) {
+			sp->addeffect_type = ADD_STATUS_ABILITY;
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+			sp->next_server_seq_no = server_seq_no;
+			sp->server_seq_no = 22;
+
+			return ret;
+		}
+	}
+
+    //check to see if both synchronise and a battle form change are occurring at this stage
+    ret = BattleFormChangeCheck(bw, sp, &seq_no);
+    if(ret == TRUE) {
+        LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+        sp->next_server_seq_no = server_seq_no;
+        sp->server_seq_no = 22;
+        return ret;
+    }
+
+    //check to see if both synchronise and a destiny knot effect are occurring at this stage
+    if((sp->defence_client != 0xFF) &&
+       (HeldItemHoldEffectGet(sp,sp->defence_client) == 108) && //item effect 108, defense side check
+       (sp->defence_client == sp->state_client) &&
+       (sp->oneSelfFlag[sp->defence_client].status_flag & STATUS_FLAG_MEROMERO))
+    {
+        sp->client_work = sp->defence_client;
+        sp->state_client = sp->attack_client;
+        ret = TRUE;
+    }
+    else if((HeldItemHoldEffectGet(sp,sp->attack_client) == 108) &&  //item effect 108, attacking side check
+            (sp->attack_client == sp->state_client) &&
+            (sp->oneSelfFlag[sp->attack_client].status_flag & STATUS_FLAG_MEROMERO))
+    {
+        sp->client_work = sp->attack_client;
+        sp->state_client = sp->defence_client;
+        ret = TRUE;
+    }
+
+    if(ret == TRUE) {
+        seq_no =  SUB_SEQ_HANDLE_CUTE_CHARM;
+        sp->addeffect_type = ADD_STATUS_SOUBIITEM;
+        LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+        sp->next_server_seq_no = server_seq_no;
+        sp->server_seq_no = 22;
+
+        return ret;
+    }
+
+    return FALSE;
 }
