@@ -104,8 +104,8 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
 #define TRAINER_DATA_TYPE_ITEMS 0x02
 #define TRAINER_DATA_TYPE_ABILITY 0x04
 #define TRAINER_DATA_TYPE_BALL 0x08
-#define TRAINER_DATA_TYPE_IV_SET 0x10
-#define TRAINER_DATA_TYPE_EV_SET 0x20
+#define TRAINER_DATA_TYPE_IV_EV_SET 0x10
+#define TRAINER_DATA_TYPE_NATURE_SET 0x20
 
 #define TRAINER_DATA_TYPE_COMPLETELY_CUSTOM 0x80
 
@@ -144,7 +144,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         u16 moves[4];
         u8 ivnums[6];
         u8 evnums[6];
-        u8 form_no, abilityslot, ballseal;
+        u8 form_no, abilityslot, nature, ballseal;
         
         for (i = 0; i < bp->trainer_data[num].poke_count; i++)
         {
@@ -197,8 +197,8 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 offset += 2;
             }
 
-            //ivs field
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_SET)
+            //ivs and evs fields
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
             {
                 for(j = 0; j < 6; j++)
                 {
@@ -207,16 +207,18 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                         ivnums[j] = 31;
                     offset++;
                 }
-            }
 
-            //evs field
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_EV_SET)
-            {
                 for(j = 0; j < 6; j++)
                 {
                     evnums[j] = buf[offset];
                     offset++;
                 }
+            }
+
+            //nature field
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
+            {
+                nature = buf[offset];
             }
             
             // ball seal field 
@@ -254,19 +256,24 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             {
                 SetMonData(pp, ID_PARA_get_ball, &ball);
             }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_SET)
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
             {
                 for(j = 0; j < 6; j++)
                 {
                     SetMonData(pp,ID_PARA_hp_rnd + j, &ivnums[j]);
                 }
-            }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_EV_SET)
-            {
+
                 for(j = 0; j < 6; j++)
                 {
                     SetMonData(pp,ID_PARA_hp_exp + j, &evnums[j]);
                 }
+            }
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
+            {
+                u32 pid = GetMonData(pp, ID_PARA_personal_rnd, NULL);
+                u8 currentNature = pid % 25;
+                pid = pid + nature - currentNature;
+                SetMonData(pp, ID_PARA_personal_rnd, &pid);
             }
             SetMonData(pp, ID_PARA_form_no, &form_no);
             TrainerMonHandleFrustration(pp);
