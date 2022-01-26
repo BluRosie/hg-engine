@@ -167,24 +167,23 @@ def build_item_sprite():
 
 def build_ow():
     DIR = "data/graphics/overworlds"
+    OUTPUTDIR = "build/pokemonow"
     NARC = "build/pokemonow.narc"
 
     get_dir = os.listdir(DIR)
     fileExists = os.path.isfile(NARC)
+    get_out = os.listdir(OUTPUTDIR)
 
     flag = False
     file = []
 
     cmd_extract = ["python3"] + ["tools/narcpy.py"] + ["extract", "base/root/a/0/8/1", "-o","build/pokemonow","-nf"]
     cmd_narc = ["python3"] + ["tools/narcpy.py"] + ["create", "build/pokemonow.narc", "build/pokemonow","-nf"]
-
+    
     for i in get_dir:
         if "_shiny" in i:
             continue
-        if len(i) > 7:
-            OBJ = "build/pokemonow/2_" + i.replace(".png","")
-        else:
-            OBJ = "build/pokemonow/1_" + i.replace(".png","")
+        OBJ = "build/pokemonow/2_" + i.replace(".png","")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(OBJ):
             continue
         if 'icrosoft' in uname().release:
@@ -198,6 +197,11 @@ def build_ow():
         
     if not fileExists or flag:
         RunCommand(cmd_extract)
+        if os.path.isfile(OUTPUTDIR + "/1_000"):
+            for i in range(297, 863):
+                if os.path.isfile(OUTPUTDIR + "/1_" + str(i)):
+                    os.remove(OUTPUTDIR + "/1_" + str(i))
+
         #for i in file:
         #    if len(i) > 3:
         #        shutil.copyfile("build/pokemonow/2_" + i, "build/pokemonow/2_" + i)
