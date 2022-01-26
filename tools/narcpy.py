@@ -32,6 +32,7 @@ elif args[0] == 'create':
         idx += 1
 
     narc = ndspy.narc.NARC.fromFilesAndNames(files=files)
+    narc.endiannessOfBeginning = '>'
     narc.saveToFile(args[1])
 
 
