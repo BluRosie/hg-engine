@@ -885,39 +885,12 @@ typedef	struct
     u8 abilityslot;
     u16 level;
     u16 monsno;
-    u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_NOTHING;
-
-typedef	struct
-{
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
-    u16 moves[4];
-    u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_MOVES;
-
-typedef	struct
-{
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
-    u16 itemno;
-    u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_HELD_ITEM;
-
-typedef	struct
-{
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
     u16 itemno;
     u16 moves[4];
+    u16 ability;
+    u16 ball;
     u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_MOVES_AND_HELD_ITEM;
+} __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
 
 
 

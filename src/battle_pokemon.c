@@ -102,11 +102,15 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
 #define TRAINER_DATA_TYPE_NOTHING 0x00
 #define TRAINER_DATA_TYPE_MOVES 0x01
 #define TRAINER_DATA_TYPE_ITEMS 0x02
+#define TRAINER_DATA_TYPE_ABILITY 0x04
+#define TRAINER_DATA_TYPE_BALL 0x08
+
+#define TRAINER_DATA_TYPE_COMPLETELY_CUSTOM 0x80
 
 
 void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 {
-    void *buf;
+    u8 *buf;
     int i, j;
     u32 rnd_tmp, rnd, seed_tmp;
     u8 pow;
@@ -116,7 +120,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
     PokeParty_Init(bp->poke_party[num], 6);
 
-    buf = sys_AllocMemory(heapID, sizeof(TRAINER_MON_DATA_MOVES_AND_HELD_ITEM) * 6);
+    buf = (u8 *)sys_AllocMemory(heapID, sizeof(FULL_TRAINER_MON_DATA_STRUCTURE) * 6);
     pp = PokemonParam_AllocWork(heapID);
 
     TT_TrainerPokeDataGet(bp->trainer_id[num], buf);
@@ -129,133 +133,107 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     {
         rnd_tmp = 136;
     }
-
-    switch(bp->trainer_data[num].data_type)
+    
+    // goal:  get rid of massive switch statement with each individual byte.  make the trainer type a bitfield
+    if ((bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_COMPLETELY_CUSTOM) == 0)
     {
-    case TRAINER_DATA_TYPE_NOTHING:
+        u16 species, item, ability, level, ball;
+        u16 offset = 0;
+        u16 moves[4];
+        u8 form_no, abilityslot, ballseal;
+        
+        for (i = 0; i < bp->trainer_data[num].poke_count; i++)
         {
-            TRAINER_MON_DATA_NOTHING *tr_mon_data;
-            u16 monsno;
-            u8 form_no, ability;
-
-            tr_mon_data = (TRAINER_MON_DATA_NOTHING *)buf;
-            for (i = 0; i < bp->trainer_data[num].poke_count; i++)
+            // ivs field
+            pow = buf[offset];
+            offset++;
+            
+            // abilityslot field
+            abilityslot = buf[offset];
+            offset++;
+            
+            // level field
+            level = buf[offset] | (buf[offset+1] << 8);
+            offset += 2;
+            
+            // species field
+            species = buf[offset] | (buf[offset+1] << 8);
+            offset += 2;
+            form_no = (species & 0xFC00) >> 10;
+            species &= 0x03FF;  
+            
+            // item field - conditional
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
             {
-                monsno = tr_mon_data[i].monsno & 0x03ff;
-                form_no = (tr_mon_data[i].monsno & 0xfc00) >> 10;
-                // new:  maybe forces specific gender for specific trainers?
-                try_force_gender_maybe(monsno, form_no, tr_mon_data[num].abilityslot, &rnd_tmp);
-                rnd = tr_mon_data[i].ivs + tr_mon_data[i].level + monsno + bp->trainer_id[num];
-                gf_srand(rnd);
-                for (j = 0; j < bp->trainer_data[num].tr_type; j++)
-                {
-                    rnd = gf_rand();
-                }  
-                rnd = (rnd << 8) + rnd_tmp;
-                pow = tr_mon_data[i].ivs * 31 / 255;
-                PokeParaSet(pp, monsno, tr_mon_data[i].level, pow, 1, rnd, 2, 0);
-                TrainerCBSet(tr_mon_data[i].custom, pp, heapID);
-                SetMonData(pp, ID_PARA_form_no, &form_no);
-                // also new:  set mon friendship to 0 if it has frustration
-                TrainerMonHandleFrustration(pp);
-                PokeParty_Add(bp->poke_party[num], pp);
+                item = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
             }
-        }
-        break;
-    case TRAINER_DATA_TYPE_MOVES:
-        {
-            TRAINER_MON_DATA_MOVES *tr_mon_data;
-            u16 monsno;
-            u8 form_no;
-
-            tr_mon_data = (TRAINER_MON_DATA_MOVES *)buf;
-            for (i = 0; i < bp->trainer_data[num].poke_count; i++)
+            
+            // moves field - conditional
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
             {
-                monsno = tr_mon_data[i].monsno & 0x03ff;
-                form_no = (tr_mon_data[i].monsno & 0xfc00) >> 10;
-                try_force_gender_maybe(monsno, form_no, tr_mon_data[num].abilityslot, &rnd_tmp);
-                rnd = tr_mon_data[i].ivs + tr_mon_data[i].level + monsno + bp->trainer_id[num];
-                gf_srand(rnd);
-                for(j = 0; j < bp->trainer_data[num].tr_type; j++)
-                {
-                    rnd = gf_rand();
-                }
-                rnd = (rnd << 8) + rnd_tmp;
-                pow = tr_mon_data[i].ivs * 31 / 255;
-                PokeParaSet(pp, monsno, tr_mon_data[i].level, pow, 1 , rnd, 2, 0);
                 for (j = 0; j < 4; j++)
                 {
-                    SetPartyPokemonMoveAtPos(pp, tr_mon_data[i].moves[j], j);
+                    moves[j] = buf[offset] | (buf[offset+1] << 8);
+                    offset += 2;
                 }
-                TrainerCBSet(tr_mon_data[i].custom, pp, heapID);
-                SetMonData(pp, ID_PARA_form_no, &form_no);
-                TrainerMonHandleFrustration(pp);
-                PokeParty_Add(bp->poke_party[num], pp);
             }
-        }
-        break;
-    case TRAINER_DATA_TYPE_ITEMS:
-        {
-            TRAINER_MON_DATA_HELD_ITEM *tr_mon_data;
-            u16 monsno;
-            u8 form_no;
-
-            tr_mon_data = (TRAINER_MON_DATA_HELD_ITEM *)buf;
-            for (i = 0; i < bp->trainer_data[num].poke_count; i++)
+            
+            // ability field
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
             {
-                monsno = tr_mon_data[i].monsno & 0x03ff;
-                form_no = (tr_mon_data[i].monsno & 0xfc00) >> 10;
-                try_force_gender_maybe(monsno, form_no, tr_mon_data[num].abilityslot, &rnd_tmp);
-                rnd = tr_mon_data[i].ivs + tr_mon_data[i].level + monsno + bp->trainer_id[num];
-                gf_srand(rnd);
-                for(j = 0; j < bp->trainer_data[num].tr_type; j++)
-                {
-                    rnd = gf_rand();
-                }
-                rnd = (rnd << 8) + rnd_tmp;
-                pow = tr_mon_data[i].ivs * 31 / 255;
-                PokeParaSet(pp, monsno, tr_mon_data[i].level, pow, 1,rnd, 2, 0);
-                SetMonData(pp, ID_PARA_item, (u8 *)&tr_mon_data[i].itemno); //interesting
-                TrainerCBSet(tr_mon_data[i].custom, pp, heapID);
-                SetMonData(pp, ID_PARA_form_no, &form_no);
-                TrainerMonHandleFrustration(pp);
-                PokeParty_Add(bp->poke_party[num], pp);
+                ability = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
             }
-        }
-        break;
-    case TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS:
-        {
-            TRAINER_MON_DATA_MOVES_AND_HELD_ITEM *tr_mon_data;
-            u16 monsno;
-            u8 form_no;
-
-            tr_mon_data = (TRAINER_MON_DATA_MOVES_AND_HELD_ITEM *)buf;
-            for (i = 0; i < bp->trainer_data[num].poke_count; i++)
+            
+            // custom ball field
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
             {
-                monsno = tr_mon_data[i].monsno & 0x03ff;
-                form_no = (tr_mon_data[i].monsno & 0xfc00) >> 10;
-                try_force_gender_maybe(monsno, form_no, tr_mon_data[num].abilityslot, &rnd_tmp);
-                rnd = tr_mon_data[i].ivs + tr_mon_data[i].level + monsno + bp->trainer_id[num];
-                gf_srand(rnd);
-                for (j = 0;j<bp->trainer_data[num].tr_type;j++){
-                    rnd = gf_rand();
-                }
-                rnd = (rnd << 8) + rnd_tmp;
-                pow = tr_mon_data[i].ivs * 31 / 255;
-                PokeParaSet(pp, monsno, tr_mon_data[i].level, pow, 1, rnd, 2, 0);
-                SetMonData(pp, ID_PARA_item, (u8 *)&tr_mon_data[i].itemno);
+                ball = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+            
+            // ball seal field 
+            ballseal = buf[offset] | (buf[offset+1] << 8);
+            offset += 2; // this is necessary for some reason, but matches?  what the fuck?
+            
+            // now set mon data
+            try_force_gender_maybe(species, form_no, abilityslot, &rnd_tmp);
+            rnd = pow + level + species + bp->trainer_id[num];
+            gf_srand(rnd);
+            for (j = 0; j < bp->trainer_data[num].tr_type; j++)
+            {
+                rnd = gf_rand();
+            }
+            rnd = (rnd << 8) + rnd_tmp;
+            pow = pow * 31 / 255;
+            PokeParaSet(pp, species, level, pow, 1, rnd, 2, 0);
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
+            {
+                SetMonData(pp, ID_PARA_item, &item);
+            }
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
+            {
                 for (j = 0; j < 4; j++)
                 {
-                    SetPartyPokemonMoveAtPos(pp, tr_mon_data[i].moves[j], j);
+                    SetPartyPokemonMoveAtPos(pp, moves[j], j);
                 }
-                TrainerCBSet(tr_mon_data[i].custom, pp, heapID);
-                SetMonData(pp, ID_PARA_form_no, &form_no);
-                TrainerMonHandleFrustration(pp);
-                PokeParty_Add(bp->poke_party[num], pp);
             }
+            TrainerCBSet(ballseal, pp, heapID);
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
+            {
+                SetMonData(pp, ID_PARA_speabino, &ability);
+            }
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
+            {
+                SetMonData(pp, ID_PARA_get_ball, &ball);
+            }
+            SetMonData(pp, ID_PARA_form_no, &form_no);
+            TrainerMonHandleFrustration(pp);
+            PokeParty_Add(bp->poke_party[num], pp);
         }
-        break;
     }
+
     sys_FreeMemoryEz(buf);
     sys_FreeMemoryEz(pp);
 
