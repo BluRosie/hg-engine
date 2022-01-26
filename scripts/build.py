@@ -180,10 +180,15 @@ def build_ow():
     cmd_extract = ["python3"] + ["tools/narcpy.py"] + ["extract", "base/root/a/0/8/1", "-o","build/pokemonow","-nf"]
     cmd_narc = ["python3"] + ["tools/narcpy.py"] + ["create", "build/pokemonow.narc", "build/pokemonow","-nf"]
     
+    RunCommand(cmd_extract)
+    
     for i in get_dir:
         if "_shiny" in i:
             continue
-        OBJ = "build/pokemonow/2_" + i.replace(".png","")
+        if os.path.isfile(OUTPUTDIR + "/1_0000"):
+            OBJ = "build/pokemonow/1_" + i.replace(".png","")        
+        else:
+            OBJ = "build/pokemonow/2_" + i.replace(".png","")
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(OBJ):
             continue
         if 'icrosoft' in uname().release:
@@ -196,7 +201,6 @@ def build_ow():
         RunCommand(cmd)
         
     if not fileExists or flag:
-        RunCommand(cmd_extract)
         if os.path.isfile(OUTPUTDIR + "/1_000"):
             for i in range(297, 863):
                 if os.path.isfile(OUTPUTDIR + "/1_" + str(i)):
