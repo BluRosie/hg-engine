@@ -398,14 +398,9 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle plus/minus
-    if ((AttackingMon.ability == ABILITY_PLUS) &&
-        (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_MINUS)))
-    {
-        sp_attack = sp_attack * 150 / 100;
-    }
-
-    if ((AttackingMon.ability == ABILITY_MINUS) &&
-        (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_PLUS)))
+    if (((AttackingMon.ability == ABILITY_PLUS) || (AttackingMon.ability == ABILITY_MINUS)) &&
+        (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_MINUS) ||
+        CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_PLUS)))
     {
         sp_attack = sp_attack * 150 / 100;
     }
