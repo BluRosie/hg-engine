@@ -896,6 +896,8 @@ typedef	struct
     u16 moves[4];
     u16 ability;
     u16 ball;
+    u8 ivnums[6];
+    u8 evnums[6];
     u16 custom;
 } __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
 
