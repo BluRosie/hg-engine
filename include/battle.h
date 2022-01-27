@@ -899,6 +899,7 @@ typedef	struct
     u8 ivnums[6];
     u8 evnums[6];
     u8 nature;
+    u8 shinylock;
     u16 custom;
 } __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
 

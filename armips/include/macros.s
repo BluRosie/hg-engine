@@ -433,6 +433,30 @@
 	.halfword num
 .endmacro
 
+.macro ability,num
+	.halfword num
+.endmacro
+
+.macro ball,num
+	.halfword num
+.endmacro
+
+.macro setivs,hp,atk,def,spd,spatk,spdef
+	.byte hp, atk, def, spd, spatk, spdef
+.endmacro
+
+.macro setevs,hp,atk,def,spd,spatk,spdef
+	.byte hp, atk, def, spd, spatk, spdef
+.endmacro
+
+.macro nature,num
+	.byte num
+.endmacro
+
+.macro shinylock,num
+	.byte num
+.endmacro
+
 .macro endparty
 	.close
 .endmacro

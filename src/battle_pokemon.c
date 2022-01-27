@@ -106,6 +106,7 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
 #define TRAINER_DATA_TYPE_BALL 0x08
 #define TRAINER_DATA_TYPE_IV_EV_SET 0x10
 #define TRAINER_DATA_TYPE_NATURE_SET 0x20
+#define TRAINER_DATA_TYPE_SHINY_LOCK 0x40
 
 #define TRAINER_DATA_TYPE_COMPLETELY_CUSTOM 0x80
 
@@ -139,12 +140,13 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     // goal:  get rid of massive switch statement with each individual byte.  make the trainer type a bitfield
     if ((bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_COMPLETELY_CUSTOM) == 0)
     {
+        u32 id;
         u16 species, item, ability, level, ball;
         u16 offset = 0;
         u16 moves[4];
         u8 ivnums[6];
         u8 evnums[6];
-        u8 form_no, abilityslot, nature, ballseal;
+        u8 form_no, abilityslot, nature, ballseal, shinylock;
         
         for (i = 0; i < bp->trainer_data[num].poke_count; i++)
         {
@@ -222,6 +224,13 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 offset++;
             }
             
+            // shiny lock field
+            if (bp->trainer_data[num].data_type & 0x40)
+            {
+                shinylock = buf[offset];
+                offset++;
+            }
+            
             // ball seal field 
             ballseal = buf[offset] | (buf[offset+1] << 8);
             offset += 2;
@@ -275,6 +284,17 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 u8 currentNature = pid % 25;
                 pid = pid + nature - currentNature;
                 SetMonData(pp, ID_PARA_personal_rnd, &pid);
+            }
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_SHINY_LOCK)
+            {
+                u32 pid = GetMonData(pp, ID_PARA_personal_rnd, NULL);
+                if (shinylock != 0)
+                {
+                    do{
+                        id = (gf_rand() | (gf_rand() << 16));
+                    } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((pid & 0xffff0000) >> 16) ^ (pid & 0xffff)) >= 8);
+                    SetMonData(pp, ID_PARA_id_no, &id);
+                }
             }
             SetMonData(pp, ID_PARA_form_no, &form_no);
             TrainerMonHandleFrustration(pp);

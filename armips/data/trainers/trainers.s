@@ -9,7 +9,7 @@
 .include "armips/include/monnums.s"
 
 trainerdata 0 //  -
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PKMN_TRAINER_0
     battletype SINGLE_BATTLE
     nummons 0
@@ -31,7 +31,7 @@ trainerdata 0 //  -
     endparty
 
 trainerdata 1 // Silver
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 3
@@ -67,7 +67,7 @@ trainerdata 1 // Silver
     endparty
 
 trainerdata 2 // Silver
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 1
@@ -89,7 +89,7 @@ trainerdata 2 // Silver
     endparty
 
 trainerdata 3 // Silver
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 1
@@ -111,7 +111,7 @@ trainerdata 3 // Silver
     endparty
 
 trainerdata 4 // Wade
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 4
@@ -154,7 +154,7 @@ trainerdata 4 // Wade
     endparty
 
 trainerdata 5 // Victoria
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 3
@@ -190,7 +190,7 @@ trainerdata 5 // Victoria
     endparty
 
 trainerdata 6 // Keith
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POLICEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -212,7 +212,7 @@ trainerdata 6 // Keith
     endparty
 
 trainerdata 7 // Irwin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_JUGGLER
     battletype SINGLE_BATTLE
     nummons 4
@@ -255,7 +255,7 @@ trainerdata 7 // Irwin
     endparty
 
 trainerdata 8 // Joey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -277,7 +277,7 @@ trainerdata 8 // Joey
     endparty
 
 trainerdata 9 // Elaine
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -299,7 +299,7 @@ trainerdata 9 // Elaine
     endparty
 
 trainerdata 10 // Amy & Mimi
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -328,7 +328,7 @@ trainerdata 10 // Amy & Mimi
     endparty
 
 trainerdata 11 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_KIMONO_GIRL
     battletype SINGLE_BATTLE
     nummons 3
@@ -364,7 +364,7 @@ trainerdata 11 // Mickey
     endparty
 
 trainerdata 12 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -400,7 +400,7 @@ trainerdata 12 // Grunt
     endparty
 
 trainerdata 13 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -429,7 +429,7 @@ trainerdata 13 // Grunt
     endparty
 
 trainerdata 14 // Duncan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BURGLAR
     battletype SINGLE_BATTLE
     nummons 3
@@ -465,7 +465,7 @@ trainerdata 14 // Duncan
     endparty
 
 trainerdata 15 // Otis
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -501,7 +501,7 @@ trainerdata 15 // Otis
     endparty
 
 trainerdata 16 // Simon
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -530,7 +530,7 @@ trainerdata 16 // Simon
     endparty
 
 trainerdata 17 // Kenji
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 1
@@ -552,7 +552,7 @@ trainerdata 17 // Kenji
     endparty
 
 trainerdata 18 // Justin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -595,7 +595,7 @@ trainerdata 18 // Justin
     endparty
 
 trainerdata 19 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -631,7 +631,7 @@ trainerdata 19 // Mickey
     endparty
 
 trainerdata 20 // Falkner
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -670,7 +670,7 @@ trainerdata 20 // Falkner
     endparty
 
 trainerdata 21 // Bugsy
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -721,7 +721,7 @@ trainerdata 21 // Bugsy
     endparty
 
 trainerdata 22 // Carrie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 1
@@ -747,7 +747,7 @@ trainerdata 22 // Carrie
     endparty
 
 trainerdata 23 // Larry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 1
@@ -769,7 +769,7 @@ trainerdata 23 // Larry
     endparty
 
 trainerdata 24 // Alan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -791,7 +791,7 @@ trainerdata 24 // Alan
     endparty
 
 trainerdata 25 // Russel
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -827,7 +827,7 @@ trainerdata 25 // Russel
     endparty
 
 trainerdata 26 // Roland
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -849,7 +849,7 @@ trainerdata 26 // Roland
     endparty
 
 trainerdata 27 // Liz
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -871,7 +871,7 @@ trainerdata 27 // Liz
     endparty
 
 trainerdata 28 // Jake
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -919,7 +919,7 @@ trainerdata 28 // Jake
     endparty
 
 trainerdata 29 // Rod
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -948,7 +948,7 @@ trainerdata 29 // Rod
     endparty
 
 trainerdata 30 // Whitney
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER
     battletype SINGLE_BATTLE
     nummons 2
@@ -987,7 +987,7 @@ trainerdata 30 // Whitney
     endparty
 
 trainerdata 31 // Morty
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_0
     battletype SINGLE_BATTLE
     nummons 4
@@ -1050,7 +1050,7 @@ trainerdata 31 // Morty
     endparty
 
 trainerdata 32 // Pryce
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -1101,7 +1101,7 @@ trainerdata 32 // Pryce
     endparty
 
 trainerdata 33 // Jasmine
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_2
     battletype SINGLE_BATTLE
     nummons 3
@@ -1152,7 +1152,7 @@ trainerdata 33 // Jasmine
     endparty
 
 trainerdata 34 // Chuck
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_3
     battletype SINGLE_BATTLE
     nummons 2
@@ -1191,7 +1191,7 @@ trainerdata 34 // Chuck
     endparty
 
 trainerdata 35 // Clair
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_4
     battletype SINGLE_BATTLE
     nummons 4
@@ -1254,7 +1254,7 @@ trainerdata 35 // Clair
     endparty
 
 trainerdata 36 // Joyce
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -1291,7 +1291,7 @@ trainerdata 36 // Joyce
     endparty
 
 trainerdata 37 // Preston
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -1320,7 +1320,7 @@ trainerdata 37 // Preston
     endparty
 
 trainerdata 38 // Colette
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -1342,7 +1342,7 @@ trainerdata 38 // Colette
     endparty
 
 trainerdata 39 // Eugene
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 3
@@ -1378,7 +1378,7 @@ trainerdata 39 // Eugene
     endparty
 
 trainerdata 40 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -1400,7 +1400,7 @@ trainerdata 40 // Mickey
     endparty
 
 trainerdata 41 // Clyde
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GUITARIST
     battletype SINGLE_BATTLE
     nummons 1
@@ -1422,7 +1422,7 @@ trainerdata 41 // Clyde
     endparty
 
 trainerdata 42 // Nathan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -1444,7 +1444,7 @@ trainerdata 42 // Nathan
     endparty
 
 trainerdata 43 // Chow
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 3
@@ -1480,7 +1480,7 @@ trainerdata 43 // Chow
     endparty
 
 trainerdata 44 // Derek
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -1506,7 +1506,7 @@ trainerdata 44 // Derek
     endparty
 
 trainerdata 45 // Ruth
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -1532,7 +1532,7 @@ trainerdata 45 // Ruth
     endparty
 
 trainerdata 46 // Martha
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 3
@@ -1568,7 +1568,7 @@ trainerdata 46 // Martha
     endparty
 
 trainerdata 47 // Mikey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -1597,7 +1597,7 @@ trainerdata 47 // Mikey
     endparty
 
 trainerdata 48 // Rob
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -1626,7 +1626,7 @@ trainerdata 48 // Rob
     endparty
 
 trainerdata 49 // Albert
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -1655,7 +1655,7 @@ trainerdata 49 // Albert
     endparty
 
 trainerdata 50 // Abe
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -1677,7 +1677,7 @@ trainerdata 50 // Abe
     endparty
 
 trainerdata 51 // Nico
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 3
@@ -1713,7 +1713,7 @@ trainerdata 51 // Nico
     endparty
 
 trainerdata 52 // Edmond
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 3
@@ -1749,7 +1749,7 @@ trainerdata 52 // Edmond
     endparty
 
 trainerdata 53 // Jin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 1
@@ -1771,7 +1771,7 @@ trainerdata 53 // Jin
     endparty
 
 trainerdata 54 // Troy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 2
@@ -1800,7 +1800,7 @@ trainerdata 54 // Troy
     endparty
 
 trainerdata 55 // Neal
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 1
@@ -1822,7 +1822,7 @@ trainerdata 55 // Neal
     endparty
 
 trainerdata 56 // Gordon
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -1844,7 +1844,7 @@ trainerdata 56 // Gordon
     endparty
 
 trainerdata 57 // Ralph
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -1866,7 +1866,7 @@ trainerdata 57 // Ralph
     endparty
 
 trainerdata 58 // Arnold
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -1888,7 +1888,7 @@ trainerdata 58 // Arnold
     endparty
 
 trainerdata 59 // Kyle
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -1924,7 +1924,7 @@ trainerdata 59 // Kyle
     endparty
 
 trainerdata 60 // Henry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -1953,7 +1953,7 @@ trainerdata 60 // Henry
     endparty
 
 trainerdata 61 // Anthony
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -1982,7 +1982,7 @@ trainerdata 61 // Anthony
     endparty
 
 trainerdata 62 // Samuel
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 4
@@ -2025,7 +2025,7 @@ trainerdata 62 // Samuel
     endparty
 
 trainerdata 63 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -2047,7 +2047,7 @@ trainerdata 63 // Mickey
     endparty
 
 trainerdata 64 // Ian
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -2084,7 +2084,7 @@ trainerdata 64 // Ian
     endparty
 
 trainerdata 65 // Gina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -2120,7 +2120,7 @@ trainerdata 65 // Gina
     endparty
 
 trainerdata 66 // Todd
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2142,7 +2142,7 @@ trainerdata 66 // Todd
     endparty
 
 trainerdata 67 // Benny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -2178,7 +2178,7 @@ trainerdata 67 // Benny
     endparty
 
 trainerdata 68 // Al
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -2207,7 +2207,7 @@ trainerdata 68 // Al
     endparty
 
 trainerdata 69 // Josh
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2229,7 +2229,7 @@ trainerdata 69 // Josh
     endparty
 
 trainerdata 70 // Samantha
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 2
@@ -2266,7 +2266,7 @@ trainerdata 70 // Samantha
     endparty
 
 trainerdata 71 // Cathy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 3
@@ -2302,7 +2302,7 @@ trainerdata 71 // Cathy
     endparty
 
 trainerdata 72 // Bryan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -2331,7 +2331,7 @@ trainerdata 72 // Bryan
     endparty
 
 trainerdata 73 // Theo
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 5
@@ -2381,7 +2381,7 @@ trainerdata 73 // Theo
     endparty
 
 trainerdata 74 // Ivan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -2417,7 +2417,7 @@ trainerdata 74 // Ivan
     endparty
 
 trainerdata 75 // Elliot
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 2
@@ -2446,7 +2446,7 @@ trainerdata 75 // Elliot
     endparty
 
 trainerdata 76 // Brooke
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2472,7 +2472,7 @@ trainerdata 76 // Brooke
     endparty
 
 trainerdata 77 // Kim
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2494,7 +2494,7 @@ trainerdata 77 // Kim
     endparty
 
 trainerdata 78 // Arnie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2516,7 +2516,7 @@ trainerdata 78 // Arnie
     endparty
 
 trainerdata 79 // Ken
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -2545,7 +2545,7 @@ trainerdata 79 // Ken
     endparty
 
 trainerdata 80 // Dirk
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POLICEMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -2574,7 +2574,7 @@ trainerdata 80 // Dirk
     endparty
 
 trainerdata 81 // Tori & Til
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -2603,7 +2603,7 @@ trainerdata 81 // Tori & Til
     endparty
 
 trainerdata 82 // Toby
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -2639,7 +2639,7 @@ trainerdata 82 // Toby
     endparty
 
 trainerdata 83 // Cindy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2665,7 +2665,7 @@ trainerdata 83 // Cindy
     endparty
 
 trainerdata 84 // Barry
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -2691,7 +2691,7 @@ trainerdata 84 // Barry
     endparty
 
 trainerdata 85 // Paula
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -2720,7 +2720,7 @@ trainerdata 85 // Paula
     endparty
 
 trainerdata 86 // Randall
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -2768,7 +2768,7 @@ trainerdata 86 // Randall
     endparty
 
 trainerdata 87 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 1
@@ -2790,7 +2790,7 @@ trainerdata 87 // Mickey
     endparty
 
 trainerdata 88 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 5
@@ -2840,7 +2840,7 @@ trainerdata 88 // Mickey
     endparty
 
 trainerdata 89 // Grace
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 2
@@ -2869,7 +2869,7 @@ trainerdata 89 // Grace
     endparty
 
 trainerdata 90 // Kaylee
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -2917,7 +2917,7 @@ trainerdata 90 // Kaylee
     endparty
 
 trainerdata 91 // Susie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -2954,7 +2954,7 @@ trainerdata 91 // Susie
     endparty
 
 trainerdata 92 // Denise
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -2976,7 +2976,7 @@ trainerdata 92 // Denise
     endparty
 
 trainerdata 93 // Kara
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3005,7 +3005,7 @@ trainerdata 93 // Kara
     endparty
 
 trainerdata 94 // Wendy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3042,7 +3042,7 @@ trainerdata 94 // Wendy
     endparty
 
 trainerdata 95 // Charlie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3078,7 +3078,7 @@ trainerdata 95 // Charlie
     endparty
 
 trainerdata 96 // George
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 6
@@ -3135,7 +3135,7 @@ trainerdata 96 // George
     endparty
 
 trainerdata 97 // Berke
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -3157,7 +3157,7 @@ trainerdata 97 // Berke
     endparty
 
 trainerdata 98 // Ronald
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -3186,7 +3186,7 @@ trainerdata 98 // Ronald
     endparty
 
 trainerdata 99 // Matthew
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -3208,7 +3208,7 @@ trainerdata 99 // Matthew
     endparty
 
 trainerdata 100 // Anthony
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -3237,7 +3237,7 @@ trainerdata 100 // Anthony
     endparty
 
 trainerdata 101 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -3266,7 +3266,7 @@ trainerdata 101 // Grunt
     endparty
 
 trainerdata 102 // Gaven
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3314,7 +3314,7 @@ trainerdata 102 // Gaven
     endparty
 
 trainerdata 103 // Blake
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3362,7 +3362,7 @@ trainerdata 103 // Blake
     endparty
 
 trainerdata 104 // Brian
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -3388,7 +3388,7 @@ trainerdata 104 // Brian
     endparty
 
 trainerdata 105 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3424,7 +3424,7 @@ trainerdata 105 // Mickey
     endparty
 
 trainerdata 106 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3460,7 +3460,7 @@ trainerdata 106 // Mickey
     endparty
 
 trainerdata 107 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3496,7 +3496,7 @@ trainerdata 107 // Mickey
     endparty
 
 trainerdata 108 // Ryan
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -3533,7 +3533,7 @@ trainerdata 108 // Ryan
     endparty
 
 trainerdata 109 // Alton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3569,7 +3569,7 @@ trainerdata 109 // Alton
     endparty
 
 trainerdata 110 // Paulo
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -3605,7 +3605,7 @@ trainerdata 110 // Paulo
     endparty
 
 trainerdata 111 // Mike
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -3627,7 +3627,7 @@ trainerdata 111 // Mike
     endparty
 
 trainerdata 112 // Cody
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -3656,7 +3656,7 @@ trainerdata 112 // Cody
     endparty
 
 trainerdata 113 // Jamie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3693,7 +3693,7 @@ trainerdata 113 // Jamie
     endparty
 
 trainerdata 114 // Reena
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -3729,7 +3729,7 @@ trainerdata 114 // Reena
     endparty
 
 trainerdata 115 // Megan
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -3777,7 +3777,7 @@ trainerdata 115 // Megan
     endparty
 
 trainerdata 116 // Lois
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3814,7 +3814,7 @@ trainerdata 116 // Lois
     endparty
 
 trainerdata 117 // Lola
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3843,7 +3843,7 @@ trainerdata 117 // Lola
     endparty
 
 trainerdata 118 // Kate
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3872,7 +3872,7 @@ trainerdata 118 // Kate
     endparty
 
 trainerdata 119 // Fran
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -3894,7 +3894,7 @@ trainerdata 119 // Fran
     endparty
 
 trainerdata 120 // Irene
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -3923,7 +3923,7 @@ trainerdata 120 // Irene
     endparty
 
 trainerdata 121 // Kelly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -3959,7 +3959,7 @@ trainerdata 121 // Kelly
     endparty
 
 trainerdata 122 // Marvin
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -4007,7 +4007,7 @@ trainerdata 122 // Marvin
     endparty
 
 trainerdata 123 // Tully
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -4029,7 +4029,7 @@ trainerdata 123 // Tully
     endparty
 
 trainerdata 124 // Wilton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -4065,7 +4065,7 @@ trainerdata 124 // Wilton
     endparty
 
 trainerdata 125 // Edgar
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -4102,7 +4102,7 @@ trainerdata 125 // Edgar
     endparty
 
 trainerdata 126 // Andre
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -4124,7 +4124,7 @@ trainerdata 126 // Andre
     endparty
 
 trainerdata 127 // Raymond
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -4167,7 +4167,7 @@ trainerdata 127 // Raymond
     endparty
 
 trainerdata 128 // Jonah
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -4210,7 +4210,7 @@ trainerdata 128 // Jonah
     endparty
 
 trainerdata 129 // Shane
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 2
@@ -4239,7 +4239,7 @@ trainerdata 129 // Shane
     endparty
 
 trainerdata 130 // Beckett
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 1
@@ -4261,7 +4261,7 @@ trainerdata 130 // Beckett
     endparty
 
 trainerdata 131 // Brent
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 2
@@ -4290,7 +4290,7 @@ trainerdata 131 // Brent
     endparty
 
 trainerdata 132 // Ron
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 1
@@ -4312,7 +4312,7 @@ trainerdata 132 // Ron
     endparty
 
 trainerdata 133 // Morgan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 2
@@ -4341,7 +4341,7 @@ trainerdata 133 // Morgan
     endparty
 
 trainerdata 134 // Benjamin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -4377,7 +4377,7 @@ trainerdata 134 // Benjamin
     endparty
 
 trainerdata 135 // Johnny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -4413,7 +4413,7 @@ trainerdata 135 // Johnny
     endparty
 
 trainerdata 136 // Linda
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 3
@@ -4461,7 +4461,7 @@ trainerdata 136 // Linda
     endparty
 
 trainerdata 137 // Vance
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -4490,7 +4490,7 @@ trainerdata 137 // Vance
     endparty
 
 trainerdata 138 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4512,7 +4512,7 @@ trainerdata 138 // Mickey
     endparty
 
 trainerdata 139 // Debra
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4534,7 +4534,7 @@ trainerdata 139 // Debra
     endparty
 
 trainerdata 140 // Doug
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -4563,7 +4563,7 @@ trainerdata 140 // Doug
     endparty
 
 trainerdata 141 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4585,7 +4585,7 @@ trainerdata 141 // Mickey
     endparty
 
 trainerdata 142 // Gina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -4621,7 +4621,7 @@ trainerdata 142 // Gina
     endparty
 
 trainerdata 143 // Erik
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -4657,7 +4657,7 @@ trainerdata 143 // Erik
     endparty
 
 trainerdata 144 // Michael
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -4693,7 +4693,7 @@ trainerdata 144 // Michael
     endparty
 
 trainerdata 145 // Parry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4715,7 +4715,7 @@ trainerdata 145 // Parry
     endparty
 
 trainerdata 146 // Timothy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -4752,7 +4752,7 @@ trainerdata 146 // Timothy
     endparty
 
 trainerdata 147 // Ted
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4774,7 +4774,7 @@ trainerdata 147 // Ted
     endparty
 
 trainerdata 148 // Lloyd
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4796,7 +4796,7 @@ trainerdata 148 // Lloyd
     endparty
 
 trainerdata 149 // Dean
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 2
@@ -4825,7 +4825,7 @@ trainerdata 149 // Dean
     endparty
 
 trainerdata 150 // Sid
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -4861,7 +4861,7 @@ trainerdata 150 // Sid
     endparty
 
 trainerdata 151 // Erin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -4890,7 +4890,7 @@ trainerdata 151 // Erin
     endparty
 
 trainerdata 152 // Hope
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -4912,7 +4912,7 @@ trainerdata 152 // Hope
     endparty
 
 trainerdata 153 // Sharon
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -4941,7 +4941,7 @@ trainerdata 153 // Sharon
     endparty
 
 trainerdata 154 // Bailey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 5
@@ -4991,7 +4991,7 @@ trainerdata 154 // Bailey
     endparty
 
 trainerdata 155 // Anthony
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -5027,7 +5027,7 @@ trainerdata 155 // Anthony
     endparty
 
 trainerdata 156 // Yoshi
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 1
@@ -5053,7 +5053,7 @@ trainerdata 156 // Yoshi
     endparty
 
 trainerdata 157 // Lao
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 1
@@ -5079,7 +5079,7 @@ trainerdata 157 // Lao
     endparty
 
 trainerdata 158 // Kiyo
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 2
@@ -5108,7 +5108,7 @@ trainerdata 158 // Kiyo
     endparty
 
 trainerdata 159 // Lung
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 3
@@ -5144,7 +5144,7 @@ trainerdata 159 // Lung
     endparty
 
 trainerdata 160 // Naoko
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_KIMONO_GIRL
     battletype SINGLE_BATTLE
     nummons 1
@@ -5171,7 +5171,7 @@ trainerdata 160 // Naoko
     endparty
 
 trainerdata 161 // Sayo
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_KIMONO_GIRL
     battletype SINGLE_BATTLE
     nummons 1
@@ -5198,7 +5198,7 @@ trainerdata 161 // Sayo
     endparty
 
 trainerdata 162 // Zuki
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_KIMONO_GIRL
     battletype SINGLE_BATTLE
     nummons 1
@@ -5225,7 +5225,7 @@ trainerdata 162 // Zuki
     endparty
 
 trainerdata 163 // Kuni
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_KIMONO_GIRL
     battletype SINGLE_BATTLE
     nummons 1
@@ -5252,7 +5252,7 @@ trainerdata 163 // Kuni
     endparty
 
 trainerdata 164 // Miki
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_KIMONO_GIRL
     battletype SINGLE_BATTLE
     nummons 1
@@ -5279,7 +5279,7 @@ trainerdata 164 // Miki
     endparty
 
 trainerdata 165 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -5301,7 +5301,7 @@ trainerdata 165 // Mickey
     endparty
 
 trainerdata 166 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -5323,7 +5323,7 @@ trainerdata 166 // Mickey
     endparty
 
 trainerdata 167 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -5345,7 +5345,7 @@ trainerdata 167 // Mickey
     endparty
 
 trainerdata 168 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -5381,7 +5381,7 @@ trainerdata 168 // Mickey
     endparty
 
 trainerdata 169 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -5410,7 +5410,7 @@ trainerdata 169 // Mickey
     endparty
 
 trainerdata 170 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -5446,7 +5446,7 @@ trainerdata 170 // Mickey
     endparty
 
 trainerdata 171 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -5482,7 +5482,7 @@ trainerdata 171 // Mickey
     endparty
 
 trainerdata 172 // Brent
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 3
@@ -5518,7 +5518,7 @@ trainerdata 172 // Brent
     endparty
 
 trainerdata 173 // Brent
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 4
@@ -5561,7 +5561,7 @@ trainerdata 173 // Brent
     endparty
 
 trainerdata 174 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -5597,7 +5597,7 @@ trainerdata 174 // Mickey
     endparty
 
 trainerdata 175 // Bethany
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 1
@@ -5619,7 +5619,7 @@ trainerdata 175 // Bethany
     endparty
 
 trainerdata 176 // Margaret
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 1
@@ -5641,7 +5641,7 @@ trainerdata 176 // Margaret
     endparty
 
 trainerdata 177 // Ethel
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 1
@@ -5663,7 +5663,7 @@ trainerdata 177 // Ethel
     endparty
 
 trainerdata 178 // Jack
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -5692,7 +5692,7 @@ trainerdata 178 // Jack
     endparty
 
 trainerdata 179 // Kipp
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -5735,7 +5735,7 @@ trainerdata 179 // Kipp
     endparty
 
 trainerdata 180 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -5757,7 +5757,7 @@ trainerdata 180 // Mickey
     endparty
 
 trainerdata 181 // William
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -5779,7 +5779,7 @@ trainerdata 181 // William
     endparty
 
 trainerdata 182 // Beverly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -5801,7 +5801,7 @@ trainerdata 182 // Beverly
     endparty
 
 trainerdata 183 // Alice
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 3
@@ -5849,7 +5849,7 @@ trainerdata 183 // Alice
     endparty
 
 trainerdata 184 // Krise
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -5878,7 +5878,7 @@ trainerdata 184 // Krise
     endparty
 
 trainerdata 185 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -5907,7 +5907,7 @@ trainerdata 185 // Grunt
     endparty
 
 trainerdata 186 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -5943,7 +5943,7 @@ trainerdata 186 // Grunt
     endparty
 
 trainerdata 187 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 5
@@ -5993,7 +5993,7 @@ trainerdata 187 // Grunt
     endparty
 
 trainerdata 188 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -6022,7 +6022,7 @@ trainerdata 188 // Grunt
     endparty
 
 trainerdata 189 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 4
@@ -6065,7 +6065,7 @@ trainerdata 189 // Grunt
     endparty
 
 trainerdata 190 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -6087,7 +6087,7 @@ trainerdata 190 // Grunt
     endparty
 
 trainerdata 191 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -6116,7 +6116,7 @@ trainerdata 191 // Grunt
     endparty
 
 trainerdata 192 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -6152,7 +6152,7 @@ trainerdata 192 // Grunt
     endparty
 
 trainerdata 193 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -6188,7 +6188,7 @@ trainerdata 193 // Grunt
     endparty
 
 trainerdata 194 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -6210,7 +6210,7 @@ trainerdata 194 // Mickey
     endparty
 
 trainerdata 195 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -6232,7 +6232,7 @@ trainerdata 195 // Grunt
     endparty
 
 trainerdata 196 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -6261,7 +6261,7 @@ trainerdata 196 // Grunt
     endparty
 
 trainerdata 197 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -6290,7 +6290,7 @@ trainerdata 197 // Grunt
     endparty
 
 trainerdata 198 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -6312,7 +6312,7 @@ trainerdata 198 // Grunt
     endparty
 
 trainerdata 199 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -6341,7 +6341,7 @@ trainerdata 199 // Grunt
     endparty
 
 trainerdata 200 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET_1
     battletype SINGLE_BATTLE
     nummons 4
@@ -6384,7 +6384,7 @@ trainerdata 200 // Grunt
     endparty
 
 trainerdata 201 // Andrew
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 2
@@ -6413,7 +6413,7 @@ trainerdata 201 // Andrew
     endparty
 
 trainerdata 202 // Calvin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 1
@@ -6435,7 +6435,7 @@ trainerdata 202 // Calvin
     endparty
 
 trainerdata 203 // Phillip
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -6464,7 +6464,7 @@ trainerdata 203 // Phillip
     endparty
 
 trainerdata 204 // Leonard
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -6493,7 +6493,7 @@ trainerdata 204 // Leonard
     endparty
 
 trainerdata 205 // Nick
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -6541,7 +6541,7 @@ trainerdata 205 // Nick
     endparty
 
 trainerdata 206 // Gwen
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 4
@@ -6584,7 +6584,7 @@ trainerdata 206 // Gwen
     endparty
 
 trainerdata 207 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -6606,7 +6606,7 @@ trainerdata 207 // Mickey
     endparty
 
 trainerdata 208 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -6628,7 +6628,7 @@ trainerdata 208 // Mickey
     endparty
 
 trainerdata 209 // Cassie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 2
@@ -6657,7 +6657,7 @@ trainerdata 209 // Cassie
     endparty
 
 trainerdata 210 // Caroline
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 3
@@ -6693,7 +6693,7 @@ trainerdata 210 // Caroline
     endparty
 
 trainerdata 211 // Huey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -6722,7 +6722,7 @@ trainerdata 211 // Huey
     endparty
 
 trainerdata 212 // Terrell
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 1
@@ -6744,7 +6744,7 @@ trainerdata 212 // Terrell
     endparty
 
 trainerdata 213 // Kent
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -6781,7 +6781,7 @@ trainerdata 213 // Kent
     endparty
 
 trainerdata 214 // Roberto
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 3
@@ -6817,7 +6817,7 @@ trainerdata 214 // Roberto
     endparty
 
 trainerdata 215 // Connie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 1
@@ -6839,7 +6839,7 @@ trainerdata 215 // Connie
     endparty
 
 trainerdata 216 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 4
@@ -6882,7 +6882,7 @@ trainerdata 216 // Grunt
     endparty
 
 trainerdata 217 // Denis
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -6918,7 +6918,7 @@ trainerdata 217 // Denis
     endparty
 
 trainerdata 218 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -6940,7 +6940,7 @@ trainerdata 218 // Grunt
     endparty
 
 trainerdata 219 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -6976,7 +6976,7 @@ trainerdata 219 // Grunt
     endparty
 
 trainerdata 220 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -7005,7 +7005,7 @@ trainerdata 220 // Grunt
     endparty
 
 trainerdata 221 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -7027,7 +7027,7 @@ trainerdata 221 // Mickey
     endparty
 
 trainerdata 222 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -7049,7 +7049,7 @@ trainerdata 222 // Grunt
     endparty
 
 trainerdata 223 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -7078,7 +7078,7 @@ trainerdata 223 // Grunt
     endparty
 
 trainerdata 224 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -7114,7 +7114,7 @@ trainerdata 224 // Grunt
     endparty
 
 trainerdata 225 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -7136,7 +7136,7 @@ trainerdata 225 // Mickey
     endparty
 
 trainerdata 226 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -7158,7 +7158,7 @@ trainerdata 226 // Mickey
     endparty
 
 trainerdata 227 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -7187,7 +7187,7 @@ trainerdata 227 // Grunt
     endparty
 
 trainerdata 228 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -7216,7 +7216,7 @@ trainerdata 228 // Grunt
     endparty
 
 trainerdata 229 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -7245,7 +7245,7 @@ trainerdata 229 // Mickey
     endparty
 
 trainerdata 230 // Franklin
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -7282,7 +7282,7 @@ trainerdata 230 // Franklin
     endparty
 
 trainerdata 231 // Edward
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -7304,7 +7304,7 @@ trainerdata 231 // Edward
     endparty
 
 trainerdata 232 // Vincent
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_GUITARIST
     battletype SINGLE_BATTLE
     nummons 3
@@ -7352,7 +7352,7 @@ trainerdata 232 // Vincent
     endparty
 
 trainerdata 233 // Eric
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 2
@@ -7381,7 +7381,7 @@ trainerdata 233 // Eric
     endparty
 
 trainerdata 234 // Eoin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -7417,7 +7417,7 @@ trainerdata 234 // Eoin
     endparty
 
 trainerdata 235 // Noland
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -7446,7 +7446,7 @@ trainerdata 235 // Noland
     endparty
 
 trainerdata 236 // Shaye
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -7494,7 +7494,7 @@ trainerdata 236 // Shaye
     endparty
 
 trainerdata 237 // Carol
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -7542,7 +7542,7 @@ trainerdata 237 // Carol
     endparty
 
 trainerdata 238 // Stanly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 3
@@ -7578,7 +7578,7 @@ trainerdata 238 // Stanly
     endparty
 
 trainerdata 239 // Jeff
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -7607,7 +7607,7 @@ trainerdata 239 // Jeff
     endparty
 
 trainerdata 240 // Garrett
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 1
@@ -7629,7 +7629,7 @@ trainerdata 240 // Garrett
     endparty
 
 trainerdata 241 // Kenneth
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 4
@@ -7672,7 +7672,7 @@ trainerdata 241 // Kenneth
     endparty
 
 trainerdata 242 // Fritz
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_JUGGLER
     battletype SINGLE_BATTLE
     nummons 3
@@ -7720,7 +7720,7 @@ trainerdata 242 // Fritz
     endparty
 
 trainerdata 243 // Katie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -7742,7 +7742,7 @@ trainerdata 243 // Katie
     endparty
 
 trainerdata 244 // Lance
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CHAMPION
     battletype SINGLE_BATTLE
     nummons 6
@@ -7829,7 +7829,7 @@ trainerdata 244 // Lance
     endparty
 
 trainerdata 245 // Will
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_0
     battletype SINGLE_BATTLE
     nummons 5
@@ -7904,7 +7904,7 @@ trainerdata 245 // Will
     endparty
 
 trainerdata 246 // Karen
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_1
     battletype SINGLE_BATTLE
     nummons 5
@@ -7979,7 +7979,7 @@ trainerdata 246 // Karen
     endparty
 
 trainerdata 247 // Koga
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_2
     battletype SINGLE_BATTLE
     nummons 5
@@ -8054,7 +8054,7 @@ trainerdata 247 // Koga
     endparty
 
 trainerdata 248 // Ed
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -8090,7 +8090,7 @@ trainerdata 248 // Ed
     endparty
 
 trainerdata 249 // Don
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -8119,7 +8119,7 @@ trainerdata 249 // Don
     endparty
 
 trainerdata 250 // Kenji
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 4
@@ -8162,7 +8162,7 @@ trainerdata 250 // Kenji
     endparty
 
 trainerdata 251 // Nob
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 2
@@ -8199,7 +8199,7 @@ trainerdata 251 // Nob
     endparty
 
 trainerdata 252 // Harold
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -8228,7 +8228,7 @@ trainerdata 252 // Harold
     endparty
 
 trainerdata 253 // Brock
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_5
     battletype SINGLE_BATTLE
     nummons 5
@@ -8303,7 +8303,7 @@ trainerdata 253 // Brock
     endparty
 
 trainerdata 254 // Misty
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_6
     battletype SINGLE_BATTLE
     nummons 4
@@ -8366,7 +8366,7 @@ trainerdata 254 // Misty
     endparty
 
 trainerdata 255 // Lt. Surge
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_7
     battletype SINGLE_BATTLE
     nummons 5
@@ -8441,7 +8441,7 @@ trainerdata 255 // Lt. Surge
     endparty
 
 trainerdata 256 // Erika
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_8
     battletype SINGLE_BATTLE
     nummons 4
@@ -8504,7 +8504,7 @@ trainerdata 256 // Erika
     endparty
 
 trainerdata 257 // Janine
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_9
     battletype SINGLE_BATTLE
     nummons 5
@@ -8579,7 +8579,7 @@ trainerdata 257 // Janine
     endparty
 
 trainerdata 258 // Sabrina
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_10
     battletype SINGLE_BATTLE
     nummons 3
@@ -8630,7 +8630,7 @@ trainerdata 258 // Sabrina
     endparty
 
 trainerdata 259 // Blaine
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_11
     battletype SINGLE_BATTLE
     nummons 3
@@ -8681,7 +8681,7 @@ trainerdata 259 // Blaine
     endparty
 
 trainerdata 260 // Red
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_9
     battletype SINGLE_BATTLE
     nummons 6
@@ -8768,7 +8768,7 @@ trainerdata 260 // Red
     endparty
 
 trainerdata 261 // Blue
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_12
     battletype SINGLE_BATTLE
     nummons 6
@@ -8855,7 +8855,7 @@ trainerdata 261 // Blue
     endparty
 
 trainerdata 262 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 3
@@ -8891,7 +8891,7 @@ trainerdata 262 // Mickey
     endparty
 
 trainerdata 263 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 4
@@ -8950,7 +8950,7 @@ trainerdata 263 // Silver
     endparty
 
 trainerdata 264 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -9031,7 +9031,7 @@ trainerdata 264 // Silver
     endparty
 
 trainerdata 265 // Silver
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 1
@@ -9053,7 +9053,7 @@ trainerdata 265 // Silver
     endparty
 
 trainerdata 266 // Silver
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 3
@@ -9089,7 +9089,7 @@ trainerdata 266 // Silver
     endparty
 
 trainerdata 267 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 4
@@ -9148,7 +9148,7 @@ trainerdata 267 // Silver
     endparty
 
 trainerdata 268 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -9229,7 +9229,7 @@ trainerdata 268 // Silver
     endparty
 
 trainerdata 269 // Silver
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 3
@@ -9265,7 +9265,7 @@ trainerdata 269 // Silver
     endparty
 
 trainerdata 270 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 4
@@ -9324,7 +9324,7 @@ trainerdata 270 // Silver
     endparty
 
 trainerdata 271 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 5
@@ -9394,7 +9394,7 @@ trainerdata 271 // Silver
     endparty
 
 trainerdata 272 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -9475,7 +9475,7 @@ trainerdata 272 // Silver
     endparty
 
 trainerdata 273 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -9511,7 +9511,7 @@ trainerdata 273 // Mickey
     endparty
 
 trainerdata 274 // Todd
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -9547,7 +9547,7 @@ trainerdata 274 // Todd
     endparty
 
 trainerdata 275 // Todd
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -9590,7 +9590,7 @@ trainerdata 275 // Todd
     endparty
 
 trainerdata 276 // Liz
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -9619,7 +9619,7 @@ trainerdata 276 // Liz
     endparty
 
 trainerdata 277 // Liz
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -9655,7 +9655,7 @@ trainerdata 277 // Liz
     endparty
 
 trainerdata 278 // Kenji
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 4
@@ -9698,7 +9698,7 @@ trainerdata 278 // Kenji
     endparty
 
 trainerdata 279 // Joey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -9720,7 +9720,7 @@ trainerdata 279 // Joey
     endparty
 
 trainerdata 280 // Joey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -9746,7 +9746,7 @@ trainerdata 280 // Joey
     endparty
 
 trainerdata 281 // Richard
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -9768,7 +9768,7 @@ trainerdata 281 // Richard
     endparty
 
 trainerdata 282 // Ned
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -9804,7 +9804,7 @@ trainerdata 282 // Ned
     endparty
 
 trainerdata 283 // Orson
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BURGLAR
     battletype SINGLE_BATTLE
     nummons 2
@@ -9841,7 +9841,7 @@ trainerdata 283 // Orson
     endparty
 
 trainerdata 284 // Corey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BURGLAR
     battletype SINGLE_BATTLE
     nummons 4
@@ -9884,7 +9884,7 @@ trainerdata 284 // Corey
     endparty
 
 trainerdata 285 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -9965,7 +9965,7 @@ trainerdata 285 // Silver
     endparty
 
 trainerdata 286 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -10046,7 +10046,7 @@ trainerdata 286 // Silver
     endparty
 
 trainerdata 287 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -10127,7 +10127,7 @@ trainerdata 287 // Silver
     endparty
 
 trainerdata 288 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 5
@@ -10197,7 +10197,7 @@ trainerdata 288 // Silver
     endparty
 
 trainerdata 289 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 5
@@ -10267,7 +10267,7 @@ trainerdata 289 // Silver
     endparty
 
 trainerdata 290 // Li
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ELDER
     battletype SINGLE_BATTLE
     nummons 3
@@ -10303,7 +10303,7 @@ trainerdata 290 // Li
     endparty
 
 trainerdata 291 // Debbie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -10325,7 +10325,7 @@ trainerdata 291 // Debbie
     endparty
 
 trainerdata 292 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -10347,7 +10347,7 @@ trainerdata 292 // Mickey
     endparty
 
 trainerdata 293 // Nicole
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -10383,7 +10383,7 @@ trainerdata 293 // Nicole
     endparty
 
 trainerdata 294 // Lori
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -10431,7 +10431,7 @@ trainerdata 294 // Lori
     endparty
 
 trainerdata 295 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -10453,7 +10453,7 @@ trainerdata 295 // Mickey
     endparty
 
 trainerdata 296 // Nikki
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -10482,7 +10482,7 @@ trainerdata 296 // Nikki
     endparty
 
 trainerdata 297 // Diana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -10508,7 +10508,7 @@ trainerdata 297 // Diana
     endparty
 
 trainerdata 298 // Briana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -10545,7 +10545,7 @@ trainerdata 298 // Briana
     endparty
 
 trainerdata 299 // Hank
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -10574,7 +10574,7 @@ trainerdata 299 // Hank
     endparty
 
 trainerdata 300 // Roy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -10603,7 +10603,7 @@ trainerdata 300 // Roy
     endparty
 
 trainerdata 301 // Boris
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -10639,7 +10639,7 @@ trainerdata 301 // Boris
     endparty
 
 trainerdata 302 // Bob
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -10661,7 +10661,7 @@ trainerdata 302 // Bob
     endparty
 
 trainerdata 303 // Jose
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -10683,7 +10683,7 @@ trainerdata 303 // Jose
     endparty
 
 trainerdata 304 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -10726,7 +10726,7 @@ trainerdata 304 // Mickey
     endparty
 
 trainerdata 305 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -10769,7 +10769,7 @@ trainerdata 305 // Mickey
     endparty
 
 trainerdata 306 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -10812,7 +10812,7 @@ trainerdata 306 // Mickey
     endparty
 
 trainerdata 307 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -10855,7 +10855,7 @@ trainerdata 307 // Mickey
     endparty
 
 trainerdata 308 // Jerry
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -10881,7 +10881,7 @@ trainerdata 308 // Jerry
     endparty
 
 trainerdata 309 // Dwayne
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 4
@@ -10924,7 +10924,7 @@ trainerdata 309 // Dwayne
     endparty
 
 trainerdata 310 // Harris
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -10946,7 +10946,7 @@ trainerdata 310 // Harris
     endparty
 
 trainerdata 311 // Zeke
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -10975,7 +10975,7 @@ trainerdata 311 // Zeke
     endparty
 
 trainerdata 312 // Charles
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -11011,7 +11011,7 @@ trainerdata 312 // Charles
     endparty
 
 trainerdata 313 // Reese
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -11033,7 +11033,7 @@ trainerdata 313 // Reese
     endparty
 
 trainerdata 314 // Joel
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -11062,7 +11062,7 @@ trainerdata 314 // Joel
     endparty
 
 trainerdata 315 // Glenn
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -11098,7 +11098,7 @@ trainerdata 315 // Glenn
     endparty
 
 trainerdata 316 // Herman
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -11146,7 +11146,7 @@ trainerdata 316 // Herman
     endparty
 
 trainerdata 317 // Fidel
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -11172,7 +11172,7 @@ trainerdata 317 // Fidel
     endparty
 
 trainerdata 318 // Burt
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -11209,7 +11209,7 @@ trainerdata 318 // Burt
     endparty
 
 trainerdata 319 // Bill
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -11238,7 +11238,7 @@ trainerdata 319 // Bill
     endparty
 
 trainerdata 320 // Martin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -11267,7 +11267,7 @@ trainerdata 320 // Martin
     endparty
 
 trainerdata 321 // Stephen
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -11303,7 +11303,7 @@ trainerdata 321 // Stephen
     endparty
 
 trainerdata 322 // Barney
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -11339,7 +11339,7 @@ trainerdata 322 // Barney
     endparty
 
 trainerdata 323 // Tully
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -11361,7 +11361,7 @@ trainerdata 323 // Tully
     endparty
 
 trainerdata 324 // Tully
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -11397,7 +11397,7 @@ trainerdata 324 // Tully
     endparty
 
 trainerdata 325 // Wilton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -11433,7 +11433,7 @@ trainerdata 325 // Wilton
     endparty
 
 trainerdata 326 // Jo & Zoe
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -11470,7 +11470,7 @@ trainerdata 326 // Jo & Zoe
     endparty
 
 trainerdata 327 // Danny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -11506,7 +11506,7 @@ trainerdata 327 // Danny
     endparty
 
 trainerdata 328 // Tommy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -11543,7 +11543,7 @@ trainerdata 328 // Tommy
     endparty
 
 trainerdata 329 // Dudley
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -11566,7 +11566,7 @@ trainerdata 329 // Dudley
     endparty
 
 trainerdata 330 // Joe
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -11597,7 +11597,7 @@ trainerdata 330 // Joe
     endparty
 
 trainerdata 331 // Billy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -11633,7 +11633,7 @@ trainerdata 331 // Billy
     endparty
 
 trainerdata 332 // Heidi
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -11662,7 +11662,7 @@ trainerdata 332 // Heidi
     endparty
 
 trainerdata 333 // Edna
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -11691,7 +11691,7 @@ trainerdata 333 // Edna
     endparty
 
 trainerdata 334 // Gina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -11727,7 +11727,7 @@ trainerdata 334 // Gina
     endparty
 
 trainerdata 335 // Erin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -11756,7 +11756,7 @@ trainerdata 335 // Erin
     endparty
 
 trainerdata 336 // Tanya
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -11782,7 +11782,7 @@ trainerdata 336 // Tanya
     endparty
 
 trainerdata 337 // Gregory
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -11830,7 +11830,7 @@ trainerdata 337 // Gregory
     endparty
 
 trainerdata 338 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -11852,7 +11852,7 @@ trainerdata 338 // Mickey
     endparty
 
 trainerdata 339 // Wai
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 3
@@ -11888,7 +11888,7 @@ trainerdata 339 // Wai
     endparty
 
 trainerdata 340 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -11910,7 +11910,7 @@ trainerdata 340 // Mickey
     endparty
 
 trainerdata 341 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -11932,7 +11932,7 @@ trainerdata 341 // Mickey
     endparty
 
 trainerdata 342 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -11954,7 +11954,7 @@ trainerdata 342 // Mickey
     endparty
 
 trainerdata 343 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -11976,7 +11976,7 @@ trainerdata 343 // Mickey
     endparty
 
 trainerdata 344 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -11998,7 +11998,7 @@ trainerdata 344 // Mickey
     endparty
 
 trainerdata 345 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -12020,7 +12020,7 @@ trainerdata 345 // Mickey
     endparty
 
 trainerdata 346 // Julia
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 3
@@ -12068,7 +12068,7 @@ trainerdata 346 // Julia
     endparty
 
 trainerdata 347 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -12090,7 +12090,7 @@ trainerdata 347 // Mickey
     endparty
 
 trainerdata 348 // Robert
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -12112,7 +12112,7 @@ trainerdata 348 // Robert
     endparty
 
 trainerdata 349 // Joshua
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 6
@@ -12169,7 +12169,7 @@ trainerdata 349 // Joshua
     endparty
 
 trainerdata 350 // Carter
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -12205,7 +12205,7 @@ trainerdata 350 // Carter
     endparty
 
 trainerdata 351 // Trevor
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -12227,7 +12227,7 @@ trainerdata 351 // Trevor
     endparty
 
 trainerdata 352 // Georgia
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 5
@@ -12277,7 +12277,7 @@ trainerdata 352 // Georgia
     endparty
 
 trainerdata 353 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -12299,7 +12299,7 @@ trainerdata 353 // Grunt
     endparty
 
 trainerdata 354 // Laura
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 3
@@ -12338,7 +12338,7 @@ trainerdata 354 // Laura
     endparty
 
 trainerdata 355 // Shannon
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 3
@@ -12374,7 +12374,7 @@ trainerdata 355 // Shannon
     endparty
 
 trainerdata 356 // Michelle
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 3
@@ -12422,7 +12422,7 @@ trainerdata 356 // Michelle
     endparty
 
 trainerdata 357 // Clarke
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -12451,7 +12451,7 @@ trainerdata 357 // Clarke
     endparty
 
 trainerdata 358 // Kenny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -12487,7 +12487,7 @@ trainerdata 358 // Kenny
     endparty
 
 trainerdata 359 // Jim
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -12509,7 +12509,7 @@ trainerdata 359 // Jim
     endparty
 
 trainerdata 360 // Arnie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -12531,7 +12531,7 @@ trainerdata 360 // Arnie
     endparty
 
 trainerdata 361 // Kevin
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -12579,7 +12579,7 @@ trainerdata 361 // Kevin
     endparty
 
 trainerdata 362 // Quinn
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -12616,7 +12616,7 @@ trainerdata 362 // Quinn
     endparty
 
 trainerdata 363 // Emma
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -12638,7 +12638,7 @@ trainerdata 363 // Emma
     endparty
 
 trainerdata 364 // Sam
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 2
@@ -12669,7 +12669,7 @@ trainerdata 364 // Sam
     endparty
 
 trainerdata 365 // Tyrone
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 3
@@ -12705,7 +12705,7 @@ trainerdata 365 // Tyrone
     endparty
 
 trainerdata 366 // Pat
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -12732,7 +12732,7 @@ trainerdata 366 // Pat
     endparty
 
 trainerdata 367 // Shawn
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 3
@@ -12771,7 +12771,7 @@ trainerdata 367 // Shawn
     endparty
 
 trainerdata 368 // Rebecca
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 2
@@ -12808,7 +12808,7 @@ trainerdata 368 // Rebecca
     endparty
 
 trainerdata 369 // Darcy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 2
@@ -12845,7 +12845,7 @@ trainerdata 369 // Darcy
     endparty
 
 trainerdata 370 // Jerome
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -12888,7 +12888,7 @@ trainerdata 370 // Jerome
     endparty
 
 trainerdata 371 // Tucker
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -12917,7 +12917,7 @@ trainerdata 371 // Tucker
     endparty
 
 trainerdata 372 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -12953,7 +12953,7 @@ trainerdata 372 // Mickey
     endparty
 
 trainerdata 373 // Frankie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -12975,7 +12975,7 @@ trainerdata 373 // Frankie
     endparty
 
 trainerdata 374 // Tyson
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -13012,7 +13012,7 @@ trainerdata 374 // Tyson
     endparty
 
 trainerdata 375 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -13048,7 +13048,7 @@ trainerdata 375 // Mickey
     endparty
 
 trainerdata 376 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -13084,7 +13084,7 @@ trainerdata 376 // Mickey
     endparty
 
 trainerdata 377 // Parker
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -13121,7 +13121,7 @@ trainerdata 377 // Parker
     endparty
 
 trainerdata 378 // Warren
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -13150,7 +13150,7 @@ trainerdata 378 // Warren
     endparty
 
 trainerdata 379 // Jimmy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 3
@@ -13186,7 +13186,7 @@ trainerdata 379 // Jimmy
     endparty
 
 trainerdata 380 // Owen
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -13208,7 +13208,7 @@ trainerdata 380 // Owen
     endparty
 
 trainerdata 381 // Jason
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -13237,7 +13237,7 @@ trainerdata 381 // Jason
     endparty
 
 trainerdata 382 // Hillary
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -13266,7 +13266,7 @@ trainerdata 382 // Hillary
     endparty
 
 trainerdata 383 // Peter
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -13302,7 +13302,7 @@ trainerdata 383 // Peter
     endparty
 
 trainerdata 384 // Daniel
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -13324,7 +13324,7 @@ trainerdata 384 // Daniel
     endparty
 
 trainerdata 385 // Dara & Dia
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -13353,7 +13353,7 @@ trainerdata 385 // Dara & Dia
     endparty
 
 trainerdata 386 // Greg
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -13379,7 +13379,7 @@ trainerdata 386 // Greg
     endparty
 
 trainerdata 387 // Amy & Mimi
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -13408,7 +13408,7 @@ trainerdata 387 // Amy & Mimi
     endparty
 
 trainerdata 388 // Walt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -13437,7 +13437,7 @@ trainerdata 388 // Walt
     endparty
 
 trainerdata 389 // Nelson
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -13474,7 +13474,7 @@ trainerdata 389 // Nelson
     endparty
 
 trainerdata 390 // Ray
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -13496,7 +13496,7 @@ trainerdata 390 // Ray
     endparty
 
 trainerdata 391 // Issac
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 1
@@ -13522,7 +13522,7 @@ trainerdata 391 // Issac
     endparty
 
 trainerdata 392 // Donald
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 2
@@ -13551,7 +13551,7 @@ trainerdata 392 // Donald
     endparty
 
 trainerdata 393 // Teru
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 4
@@ -13594,7 +13594,7 @@ trainerdata 393 // Teru
     endparty
 
 trainerdata 394 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -13630,7 +13630,7 @@ trainerdata 394 // Mickey
     endparty
 
 trainerdata 395 // Mark
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -13678,7 +13678,7 @@ trainerdata 395 // Mark
     endparty
 
 trainerdata 396 // Horton
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_JUGGLER
     battletype SINGLE_BATTLE
     nummons 3
@@ -13726,7 +13726,7 @@ trainerdata 396 // Horton
     endparty
 
 trainerdata 397 // Chad
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -13748,7 +13748,7 @@ trainerdata 397 // Chad
     endparty
 
 trainerdata 398 // Valerie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 2
@@ -13785,7 +13785,7 @@ trainerdata 398 // Valerie
     endparty
 
 trainerdata 399 // Lyle
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -13821,7 +13821,7 @@ trainerdata 399 // Lyle
     endparty
 
 trainerdata 400 // Dana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -13858,7 +13858,7 @@ trainerdata 400 // Dana
     endparty
 
 trainerdata 401 // Alfred
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -13880,7 +13880,7 @@ trainerdata 401 // Alfred
     endparty
 
 trainerdata 402 // Tiffany
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -13906,7 +13906,7 @@ trainerdata 402 // Tiffany
     endparty
 
 trainerdata 403 // Spencer
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -13942,7 +13942,7 @@ trainerdata 403 // Spencer
     endparty
 
 trainerdata 404 // Grunt
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TEAM_ROCKET_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -13979,7 +13979,7 @@ trainerdata 404 // Grunt
     endparty
 
 trainerdata 405 // Phil
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14016,7 +14016,7 @@ trainerdata 405 // Phil
     endparty
 
 trainerdata 406 // Zach
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 1
@@ -14038,7 +14038,7 @@ trainerdata 406 // Zach
     endparty
 
 trainerdata 407 // Allen
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14075,7 +14075,7 @@ trainerdata 407 // Allen
     endparty
 
 trainerdata 408 // Cybil
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -14112,7 +14112,7 @@ trainerdata 408 // Cybil
     endparty
 
 trainerdata 409 // Brandon
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14141,7 +14141,7 @@ trainerdata 409 // Brandon
     endparty
 
 trainerdata 410 // Harry
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 1
@@ -14167,7 +14167,7 @@ trainerdata 410 // Harry
     endparty
 
 trainerdata 411 // Vernon
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -14189,7 +14189,7 @@ trainerdata 411 // Vernon
     endparty
 
 trainerdata 412 // Eli
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -14225,7 +14225,7 @@ trainerdata 412 // Eli
     endparty
 
 trainerdata 413 // Scott
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -14273,7 +14273,7 @@ trainerdata 413 // Scott
     endparty
 
 trainerdata 414 // Jose
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -14295,7 +14295,7 @@ trainerdata 414 // Jose
     endparty
 
 trainerdata 415 // Jared
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -14343,7 +14343,7 @@ trainerdata 415 // Jared
     endparty
 
 trainerdata 416 // Jo & Zoe
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -14380,7 +14380,7 @@ trainerdata 416 // Jo & Zoe
     endparty
 
 trainerdata 417 // Jenn
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -14409,7 +14409,7 @@ trainerdata 417 // Jenn
     endparty
 
 trainerdata 418 // Bruno
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_3
     battletype SINGLE_BATTLE
     nummons 5
@@ -14484,7 +14484,7 @@ trainerdata 418 // Bruno
     endparty
 
 trainerdata 419 // Ellen
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -14513,7 +14513,7 @@ trainerdata 419 // Ellen
     endparty
 
 trainerdata 420 // Perry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -14535,7 +14535,7 @@ trainerdata 420 // Perry
     endparty
 
 trainerdata 421 // Bret
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -14564,7 +14564,7 @@ trainerdata 421 // Bret
     endparty
 
 trainerdata 422 // Rodney
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PSYCHIC_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14593,7 +14593,7 @@ trainerdata 422 // Rodney
     endparty
 
 trainerdata 423 // Jeremy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -14629,7 +14629,7 @@ trainerdata 423 // Jeremy
     endparty
 
 trainerdata 424 // Colin
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -14655,7 +14655,7 @@ trainerdata 424 // Colin
     endparty
 
 trainerdata 425 // Meg & Peg
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -14684,7 +14684,7 @@ trainerdata 425 // Meg & Peg
     endparty
 
 trainerdata 426 // Meg & Peg
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -14713,7 +14713,7 @@ trainerdata 426 // Meg & Peg
     endparty
 
 trainerdata 427 // Shirley
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -14742,7 +14742,7 @@ trainerdata 427 // Shirley
     endparty
 
 trainerdata 428 // Nate
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14771,7 +14771,7 @@ trainerdata 428 // Nate
     endparty
 
 trainerdata 429 // Ricky
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14802,7 +14802,7 @@ trainerdata 429 // Ricky
     endparty
 
 trainerdata 430 // Jack
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14831,7 +14831,7 @@ trainerdata 430 // Jack
     endparty
 
 trainerdata 431 // Jack
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14860,7 +14860,7 @@ trainerdata 431 // Jack
     endparty
 
 trainerdata 432 // Alan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14889,7 +14889,7 @@ trainerdata 432 // Alan
     endparty
 
 trainerdata 433 // Alan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -14932,7 +14932,7 @@ trainerdata 433 // Alan
     endparty
 
 trainerdata 434 // Chad
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14961,7 +14961,7 @@ trainerdata 434 // Chad
     endparty
 
 trainerdata 435 // Chad
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -14990,7 +14990,7 @@ trainerdata 435 // Chad
     endparty
 
 trainerdata 436 // Beverly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -15012,7 +15012,7 @@ trainerdata 436 // Beverly
     endparty
 
 trainerdata 437 // Beverly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -15034,7 +15034,7 @@ trainerdata 437 // Beverly
     endparty
 
 trainerdata 438 // Derek
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -15063,7 +15063,7 @@ trainerdata 438 // Derek
     endparty
 
 trainerdata 439 // Derek
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -15106,7 +15106,7 @@ trainerdata 439 // Derek
     endparty
 
 trainerdata 440 // Huey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -15135,7 +15135,7 @@ trainerdata 440 // Huey
     endparty
 
 trainerdata 441 // Huey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -15164,7 +15164,7 @@ trainerdata 441 // Huey
     endparty
 
 trainerdata 442 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 1
@@ -15186,7 +15186,7 @@ trainerdata 442 // Mickey
     endparty
 
 trainerdata 443 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 1
@@ -15208,7 +15208,7 @@ trainerdata 443 // Mickey
     endparty
 
 trainerdata 444 // Reena
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -15244,7 +15244,7 @@ trainerdata 444 // Reena
     endparty
 
 trainerdata 445 // Reena
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -15280,7 +15280,7 @@ trainerdata 445 // Reena
     endparty
 
 trainerdata 446 // Jose
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -15309,7 +15309,7 @@ trainerdata 446 // Jose
     endparty
 
 trainerdata 447 // Vance
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -15338,7 +15338,7 @@ trainerdata 447 // Vance
     endparty
 
 trainerdata 448 // Vance
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -15374,7 +15374,7 @@ trainerdata 448 // Vance
     endparty
 
 trainerdata 449 // Arnie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -15400,7 +15400,7 @@ trainerdata 449 // Arnie
     endparty
 
 trainerdata 450 // Wilton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -15436,7 +15436,7 @@ trainerdata 450 // Wilton
     endparty
 
 trainerdata 451 // Parry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -15465,7 +15465,7 @@ trainerdata 451 // Parry
     endparty
 
 trainerdata 452 // Parry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -15494,7 +15494,7 @@ trainerdata 452 // Parry
     endparty
 
 trainerdata 453 // Erin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -15530,7 +15530,7 @@ trainerdata 453 // Erin
     endparty
 
 trainerdata 454 // Irwin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_JUGGLER
     battletype SINGLE_BATTLE
     nummons 4
@@ -15573,7 +15573,7 @@ trainerdata 454 // Irwin
     endparty
 
 trainerdata 455 // Irwin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_JUGGLER
     battletype SINGLE_BATTLE
     nummons 4
@@ -15616,7 +15616,7 @@ trainerdata 455 // Irwin
     endparty
 
 trainerdata 456 // Gaven
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -15664,7 +15664,7 @@ trainerdata 456 // Gaven
     endparty
 
 trainerdata 457 // Gaven
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -15712,7 +15712,7 @@ trainerdata 457 // Gaven
     endparty
 
 trainerdata 458 // Jamie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -15749,7 +15749,7 @@ trainerdata 458 // Jamie
     endparty
 
 trainerdata 459 // Jamie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -15786,7 +15786,7 @@ trainerdata 459 // Jamie
     endparty
 
 trainerdata 460 // Wade
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 4
@@ -15845,7 +15845,7 @@ trainerdata 460 // Wade
     endparty
 
 trainerdata 461 // Wade
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 4
@@ -15904,7 +15904,7 @@ trainerdata 461 // Wade
     endparty
 
 trainerdata 462 // Ralph
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -15926,7 +15926,7 @@ trainerdata 462 // Ralph
     endparty
 
 trainerdata 463 // Ralph
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -15955,7 +15955,7 @@ trainerdata 463 // Ralph
     endparty
 
 trainerdata 464 // Dana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -15992,7 +15992,7 @@ trainerdata 464 // Dana
     endparty
 
 trainerdata 465 // Dana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -16029,7 +16029,7 @@ trainerdata 465 // Dana
     endparty
 
 trainerdata 466 // Tiffany
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -16055,7 +16055,7 @@ trainerdata 466 // Tiffany
     endparty
 
 trainerdata 467 // Tiffany
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -16081,7 +16081,7 @@ trainerdata 467 // Tiffany
     endparty
 
 trainerdata 468 // Ross
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -16110,7 +16110,7 @@ trainerdata 468 // Ross
     endparty
 
 trainerdata 469 // Mitch
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -16132,7 +16132,7 @@ trainerdata 469 // Mitch
     endparty
 
 trainerdata 470 // Gregg
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -16168,7 +16168,7 @@ trainerdata 470 // Gregg
     endparty
 
 trainerdata 471 // Garett
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -16204,7 +16204,7 @@ trainerdata 471 // Garett
     endparty
 
 trainerdata 472 // Trenton
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -16230,7 +16230,7 @@ trainerdata 472 // Trenton
     endparty
 
 trainerdata 473 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 2
@@ -16259,7 +16259,7 @@ trainerdata 473 // Mickey
     endparty
 
 trainerdata 474 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -16281,7 +16281,7 @@ trainerdata 474 // Mickey
     endparty
 
 trainerdata 475 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 3
@@ -16317,7 +16317,7 @@ trainerdata 475 // Mickey
     endparty
 
 trainerdata 476 // Mickey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 3
@@ -16353,7 +16353,7 @@ trainerdata 476 // Mickey
     endparty
 
 trainerdata 477 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -16379,7 +16379,7 @@ trainerdata 477 // Mickey
     endparty
 
 trainerdata 478 // Ariana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_EXECUTIVE
     battletype SINGLE_BATTLE
     nummons 3
@@ -16427,7 +16427,7 @@ trainerdata 478 // Ariana
     endparty
 
 trainerdata 479 // Ariana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_EXECUTIVE
     battletype SINGLE_BATTLE
     nummons 3
@@ -16475,7 +16475,7 @@ trainerdata 479 // Ariana
     endparty
 
 trainerdata 480 // Diana
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SKIER
     battletype SINGLE_BATTLE
     nummons 1
@@ -16497,7 +16497,7 @@ trainerdata 480 // Diana
     endparty
 
 trainerdata 481 // Jill
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SKIER
     battletype SINGLE_BATTLE
     nummons 1
@@ -16519,7 +16519,7 @@ trainerdata 481 // Jill
     endparty
 
 trainerdata 482 // Deandre
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BOARDER
     battletype SINGLE_BATTLE
     nummons 3
@@ -16555,7 +16555,7 @@ trainerdata 482 // Deandre
     endparty
 
 trainerdata 483 // Patton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BOARDER
     battletype SINGLE_BATTLE
     nummons 2
@@ -16584,7 +16584,7 @@ trainerdata 483 // Patton
     endparty
 
 trainerdata 484 // Gerardo
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BOARDER
     battletype SINGLE_BATTLE
     nummons 3
@@ -16632,7 +16632,7 @@ trainerdata 484 // Gerardo
     endparty
 
 trainerdata 485 // Archer
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_EXECUTIVE_0
     battletype SINGLE_BATTLE
     nummons 3
@@ -16680,7 +16680,7 @@ trainerdata 485 // Archer
     endparty
 
 trainerdata 486 // Proton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_EXECUTIVE_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -16709,7 +16709,7 @@ trainerdata 486 // Proton
     endparty
 
 trainerdata 487 // Petrel
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_EXECUTIVE_2
     battletype SINGLE_BATTLE
     nummons 6
@@ -16790,7 +16790,7 @@ trainerdata 487 // Petrel
     endparty
 
 trainerdata 488 // Petrel
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_EXECUTIVE_2
     battletype SINGLE_BATTLE
     nummons 3
@@ -16826,7 +16826,7 @@ trainerdata 488 // Petrel
     endparty
 
 trainerdata 489 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -16907,7 +16907,7 @@ trainerdata 489 // Silver
     endparty
 
 trainerdata 490 // Silver
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -16988,7 +16988,7 @@ trainerdata 490 // Silver
     endparty
 
 trainerdata 491 // Silver
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 6
@@ -17075,7 +17075,7 @@ trainerdata 491 // Silver
     endparty
 
 trainerdata 492 // Alex
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -17111,7 +17111,7 @@ trainerdata 492 // Alex
     endparty
 
 trainerdata 493 // Edith
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 1
@@ -17133,7 +17133,7 @@ trainerdata 493 // Edith
     endparty
 
 trainerdata 494 // Georgina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_MEDIUM
     battletype SINGLE_BATTLE
     nummons 5
@@ -17183,7 +17183,7 @@ trainerdata 494 // Georgina
     endparty
 
 trainerdata 495 // Boy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PASSERBY
     battletype SINGLE_BATTLE
     nummons 1
@@ -17205,7 +17205,7 @@ trainerdata 495 // Boy
     endparty
 
 trainerdata 496 // Boy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PASSERBY
     battletype SINGLE_BATTLE
     nummons 1
@@ -17227,7 +17227,7 @@ trainerdata 496 // Boy
     endparty
 
 trainerdata 497 // Boy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PASSERBY
     battletype SINGLE_BATTLE
     nummons 1
@@ -17249,7 +17249,7 @@ trainerdata 497 // Boy
     endparty
 
 trainerdata 498 // Eusine
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_MYSTERY_MAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -17297,7 +17297,7 @@ trainerdata 498 // Eusine
     endparty
 
 trainerdata 499 // Grunt
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 2
@@ -17334,7 +17334,7 @@ trainerdata 499 // Grunt
     endparty
 
 trainerdata 500 // Kobe
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -17360,7 +17360,7 @@ trainerdata 500 // Kobe
     endparty
 
 trainerdata 501 // Piper
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -17408,7 +17408,7 @@ trainerdata 501 // Piper
     endparty
 
 trainerdata 502 // Clea & Gil
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -17445,7 +17445,7 @@ trainerdata 502 // Clea & Gil
     endparty
 
 trainerdata 503 // Jack
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -17493,7 +17493,7 @@ trainerdata 503 // Jack
     endparty
 
 trainerdata 504 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -17541,7 +17541,7 @@ trainerdata 504 // Mickey
     endparty
 
 trainerdata 505 // Alan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -17584,7 +17584,7 @@ trainerdata 505 // Alan
     endparty
 
 trainerdata 506 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -17643,7 +17643,7 @@ trainerdata 506 // Mickey
     endparty
 
 trainerdata 507 // Chad
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -17680,7 +17680,7 @@ trainerdata 507 // Chad
     endparty
 
 trainerdata 508 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -17717,7 +17717,7 @@ trainerdata 508 // Mickey
     endparty
 
 trainerdata 509 // Huey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -17754,7 +17754,7 @@ trainerdata 509 // Huey
     endparty
 
 trainerdata 510 // Joey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -17780,7 +17780,7 @@ trainerdata 510 // Joey
     endparty
 
 trainerdata 511 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 1
@@ -17806,7 +17806,7 @@ trainerdata 511 // Mickey
     endparty
 
 trainerdata 512 // Wade
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 4
@@ -17865,7 +17865,7 @@ trainerdata 512 // Wade
     endparty
 
 trainerdata 513 // Arnie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -17902,7 +17902,7 @@ trainerdata 513 // Arnie
     endparty
 
 trainerdata 514 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -17928,7 +17928,7 @@ trainerdata 514 // Mickey
     endparty
 
 trainerdata 515 // Ralph
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -17957,7 +17957,7 @@ trainerdata 515 // Ralph
     endparty
 
 trainerdata 516 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -17994,7 +17994,7 @@ trainerdata 516 // Mickey
     endparty
 
 trainerdata 517 // Tully
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -18042,7 +18042,7 @@ trainerdata 517 // Tully
     endparty
 
 trainerdata 518 // Liz
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18078,7 +18078,7 @@ trainerdata 518 // Liz
     endparty
 
 trainerdata 519 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18126,7 +18126,7 @@ trainerdata 519 // Mickey
     endparty
 
 trainerdata 520 // Gina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18162,7 +18162,7 @@ trainerdata 520 // Gina
     endparty
 
 trainerdata 521 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18210,7 +18210,7 @@ trainerdata 521 // Mickey
     endparty
 
 trainerdata 522 // Tiffany
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -18236,7 +18236,7 @@ trainerdata 522 // Tiffany
     endparty
 
 trainerdata 523 // Anthony
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18272,7 +18272,7 @@ trainerdata 523 // Anthony
     endparty
 
 trainerdata 524 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18320,7 +18320,7 @@ trainerdata 524 // Mickey
     endparty
 
 trainerdata 525 // Todd
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -18363,7 +18363,7 @@ trainerdata 525 // Todd
     endparty
 
 trainerdata 526 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 4
@@ -18422,7 +18422,7 @@ trainerdata 526 // Mickey
     endparty
 
 trainerdata 527 // Irwin
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_JUGGLER
     battletype SINGLE_BATTLE
     nummons 4
@@ -18481,7 +18481,7 @@ trainerdata 527 // Irwin
     endparty
 
 trainerdata 528 // Dana
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -18518,7 +18518,7 @@ trainerdata 528 // Dana
     endparty
 
 trainerdata 529 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -18555,7 +18555,7 @@ trainerdata 529 // Mickey
     endparty
 
 trainerdata 530 // Brent
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 4
@@ -18598,7 +18598,7 @@ trainerdata 530 // Brent
     endparty
 
 trainerdata 531 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -18635,7 +18635,7 @@ trainerdata 531 // Mickey
     endparty
 
 trainerdata 532 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 4
@@ -18694,7 +18694,7 @@ trainerdata 532 // Mickey
     endparty
 
 trainerdata 533 // Wayne
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -18723,7 +18723,7 @@ trainerdata 533 // Wayne
     endparty
 
 trainerdata 534 // Kimberly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -18745,7 +18745,7 @@ trainerdata 534 // Kimberly
     endparty
 
 trainerdata 535 // Marigold
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -18767,7 +18767,7 @@ trainerdata 535 // Marigold
     endparty
 
 trainerdata 536 // Bertrand
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -18803,7 +18803,7 @@ trainerdata 536 // Bertrand
     endparty
 
 trainerdata 537 // Harrison
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKE_MANIAC
     battletype SINGLE_BATTLE
     nummons 2
@@ -18832,7 +18832,7 @@ trainerdata 537 // Harrison
     endparty
 
 trainerdata 538 // Hugh
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -18858,7 +18858,7 @@ trainerdata 538 // Hugh
     endparty
 
 trainerdata 539 // Markus
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -18884,7 +18884,7 @@ trainerdata 539 // Markus
     endparty
 
 trainerdata 540 // Rex
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -18906,7 +18906,7 @@ trainerdata 540 // Rex
     endparty
 
 trainerdata 541 // Andy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -18928,7 +18928,7 @@ trainerdata 541 // Andy
     endparty
 
 trainerdata 542 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 2
@@ -18965,7 +18965,7 @@ trainerdata 542 // Mickey
     endparty
 
 trainerdata 543 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 2
@@ -19002,7 +19002,7 @@ trainerdata 543 // Mickey
     endparty
 
 trainerdata 544 // Mickey
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAGE
     battletype SINGLE_BATTLE
     nummons 2
@@ -19039,7 +19039,7 @@ trainerdata 544 // Mickey
     endparty
 
 trainerdata 545 // French
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -19078,7 +19078,7 @@ trainerdata 545 // French
     endparty
 
 trainerdata 546 // Sherman
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -19115,7 +19115,7 @@ trainerdata 546 // Sherman
     endparty
 
 trainerdata 547 // Bruce
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -19151,7 +19151,7 @@ trainerdata 547 // Bruce
     endparty
 
 trainerdata 548 // Manford
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 1
@@ -19177,7 +19177,7 @@ trainerdata 548 // Manford
     endparty
 
 trainerdata 549 // Zac & Jen
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_DOUBLE_TEAM
     battletype SINGLE_BATTLE
     nummons 2
@@ -19214,7 +19214,7 @@ trainerdata 549 // Zac & Jen
     endparty
 
 trainerdata 550 // Ander
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 3
@@ -19250,7 +19250,7 @@ trainerdata 550 // Ander
     endparty
 
 trainerdata 551 // Dwight
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -19279,7 +19279,7 @@ trainerdata 551 // Dwight
     endparty
 
 trainerdata 552 // Regis
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -19308,7 +19308,7 @@ trainerdata 552 // Regis
     endparty
 
 trainerdata 553 // Moe & Lulu
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -19337,7 +19337,7 @@ trainerdata 553 // Moe & Lulu
     endparty
 
 trainerdata 554 // Milton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -19359,7 +19359,7 @@ trainerdata 554 // Milton
     endparty
 
 trainerdata 555 // Justin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -19388,7 +19388,7 @@ trainerdata 555 // Justin
     endparty
 
 trainerdata 556 // Gail
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -19417,7 +19417,7 @@ trainerdata 556 // Gail
     endparty
 
 trainerdata 557 // Vic & Tara
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -19454,7 +19454,7 @@ trainerdata 557 // Vic & Tara
     endparty
 
 trainerdata 558 // Kyler
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -19490,7 +19490,7 @@ trainerdata 558 // Kyler
     endparty
 
 trainerdata 559 // Tim & Sue
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -19519,7 +19519,7 @@ trainerdata 559 // Tim & Sue
     endparty
 
 trainerdata 560 // Clark
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19541,7 +19541,7 @@ trainerdata 560 // Clark
     endparty
 
 trainerdata 561 // Tanner
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19563,7 +19563,7 @@ trainerdata 561 // Tanner
     endparty
 
 trainerdata 562 // Piper
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19585,7 +19585,7 @@ trainerdata 562 // Piper
     endparty
 
 trainerdata 563 // Ginger
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19607,7 +19607,7 @@ trainerdata 563 // Ginger
     endparty
 
 trainerdata 564 // Clarice
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -19646,7 +19646,7 @@ trainerdata 564 // Clarice
     endparty
 
 trainerdata 565 // Josh
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -19668,7 +19668,7 @@ trainerdata 565 // Josh
     endparty
 
 trainerdata 566 // Connor
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -19695,7 +19695,7 @@ trainerdata 566 // Connor
     endparty
 
 trainerdata 567 // Torin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -19724,7 +19724,7 @@ trainerdata 567 // Torin
     endparty
 
 trainerdata 568 // Travis
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 1
@@ -19750,7 +19750,7 @@ trainerdata 568 // Travis
     endparty
 
 trainerdata 569 // Kay & Tia
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -19787,7 +19787,7 @@ trainerdata 569 // Kay & Tia
     endparty
 
 trainerdata 570 // Boone
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -19816,7 +19816,7 @@ trainerdata 570 // Boone
     endparty
 
 trainerdata 571 // Eleanor
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -19845,7 +19845,7 @@ trainerdata 571 // Eleanor
     endparty
 
 trainerdata 572 // Dale
-    trainermontype NO_MOVES_HELD_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19868,7 +19868,7 @@ trainerdata 572 // Dale
     endparty
 
 trainerdata 573 // Jacob
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -19897,7 +19897,7 @@ trainerdata 573 // Jacob
     endparty
 
 trainerdata 574 // Aiden
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19919,7 +19919,7 @@ trainerdata 574 // Aiden
     endparty
 
 trainerdata 575 // Dan
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -19955,7 +19955,7 @@ trainerdata 575 // Dan
     endparty
 
 trainerdata 576 // Theron
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19977,7 +19977,7 @@ trainerdata 576 // Theron
     endparty
 
 trainerdata 577 // Markey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -19999,7 +19999,7 @@ trainerdata 577 // Markey
     endparty
 
 trainerdata 578 // Teddy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -20021,7 +20021,7 @@ trainerdata 578 // Teddy
     endparty
 
 trainerdata 579 // Ernest
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -20050,7 +20050,7 @@ trainerdata 579 // Ernest
     endparty
 
 trainerdata 580 // Pedro
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -20077,7 +20077,7 @@ trainerdata 580 // Pedro
     endparty
 
 trainerdata 581 // Adrian
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -20099,7 +20099,7 @@ trainerdata 581 // Adrian
     endparty
 
 trainerdata 582 // Cheyenne
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -20121,7 +20121,7 @@ trainerdata 582 // Cheyenne
     endparty
 
 trainerdata 583 // Bert
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -20150,7 +20150,7 @@ trainerdata 583 // Bert
     endparty
 
 trainerdata 584 // Ernie
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -20172,7 +20172,7 @@ trainerdata 584 // Ernie
     endparty
 
 trainerdata 585 // Elmo
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -20201,7 +20201,7 @@ trainerdata 585 // Elmo
     endparty
 
 trainerdata 586 // Luis
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -20230,7 +20230,7 @@ trainerdata 586 // Luis
     endparty
 
 trainerdata 587 // Leona
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -20252,7 +20252,7 @@ trainerdata 587 // Leona
     endparty
 
 trainerdata 588 // Mina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -20288,7 +20288,7 @@ trainerdata 588 // Mina
     endparty
 
 trainerdata 589 // Murphy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -20331,7 +20331,7 @@ trainerdata 589 // Murphy
     endparty
 
 trainerdata 590 // Liam
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -20353,7 +20353,7 @@ trainerdata 590 // Liam
     endparty
 
 trainerdata 591 // Gideon
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 2
@@ -20390,7 +20390,7 @@ trainerdata 591 // Gideon
     endparty
 
 trainerdata 592 // Chelan
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -20416,7 +20416,7 @@ trainerdata 592 // Chelan
     endparty
 
 trainerdata 593 // Kendra
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -20438,7 +20438,7 @@ trainerdata 593 // Kendra
     endparty
 
 trainerdata 594 // Esteban
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -20467,7 +20467,7 @@ trainerdata 594 // Esteban
     endparty
 
 trainerdata 595 // Duane
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -20496,7 +20496,7 @@ trainerdata 595 // Duane
     endparty
 
 trainerdata 596 // Kinsley
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -20532,7 +20532,7 @@ trainerdata 596 // Kinsley
     endparty
 
 trainerdata 597 // Easton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 4
@@ -20575,7 +20575,7 @@ trainerdata 597 // Easton
     endparty
 
 trainerdata 598 // Day & Dani
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -20604,7 +20604,7 @@ trainerdata 598 // Day & Dani
     endparty
 
 trainerdata 599 // Virgil
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 1
@@ -20626,7 +20626,7 @@ trainerdata 599 // Virgil
     endparty
 
 trainerdata 600 // Selina
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -20648,7 +20648,7 @@ trainerdata 600 // Selina
     endparty
 
 trainerdata 601 // Grunt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEAM_ROCKET
     battletype SINGLE_BATTLE
     nummons 1
@@ -20670,7 +20670,7 @@ trainerdata 601 // Grunt
     endparty
 
 trainerdata 602 // Jose
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -20706,7 +20706,7 @@ trainerdata 602 // Jose
     endparty
 
 trainerdata 603 // Erin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PICNICKER
     battletype SINGLE_BATTLE
     nummons 4
@@ -20749,7 +20749,7 @@ trainerdata 603 // Erin
     endparty
 
 trainerdata 604 // Gaven
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -20797,7 +20797,7 @@ trainerdata 604 // Gaven
     endparty
 
 trainerdata 605 // Kenji
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BLACK_BELT
     battletype SINGLE_BATTLE
     nummons 4
@@ -20840,7 +20840,7 @@ trainerdata 605 // Kenji
     endparty
 
 trainerdata 606 // Parry
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -20869,7 +20869,7 @@ trainerdata 606 // Parry
     endparty
 
 trainerdata 607 // Reena
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 3
@@ -20917,7 +20917,7 @@ trainerdata 607 // Reena
     endparty
 
 trainerdata 608 // Wilton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -20953,7 +20953,7 @@ trainerdata 608 // Wilton
     endparty
 
 trainerdata 609 // Jamie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -20990,7 +20990,7 @@ trainerdata 609 // Jamie
     endparty
 
 trainerdata 610 // Derek
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -21033,7 +21033,7 @@ trainerdata 610 // Derek
     endparty
 
 trainerdata 611 // Beverly
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_POKEFAN_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -21055,7 +21055,7 @@ trainerdata 611 // Beverly
     endparty
 
 trainerdata 612 // Vance
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 3
@@ -21091,7 +21091,7 @@ trainerdata 612 // Vance
     endparty
 
 trainerdata 613 // Krise
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -21120,7 +21120,7 @@ trainerdata 613 // Krise
     endparty
 
 trainerdata 614 // Krise
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -21149,7 +21149,7 @@ trainerdata 614 // Krise
     endparty
 
 trainerdata 615 // Krise
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_LASS
     battletype SINGLE_BATTLE
     nummons 2
@@ -21178,7 +21178,7 @@ trainerdata 615 // Krise
     endparty
 
 trainerdata 616 // Ian
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21207,7 +21207,7 @@ trainerdata 616 // Ian
     endparty
 
 trainerdata 617 // Ian
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21236,7 +21236,7 @@ trainerdata 617 // Ian
     endparty
 
 trainerdata 618 // Ian
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21265,7 +21265,7 @@ trainerdata 618 // Ian
     endparty
 
 trainerdata 619 // Walt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21294,7 +21294,7 @@ trainerdata 619 // Walt
     endparty
 
 trainerdata 620 // Walt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21323,7 +21323,7 @@ trainerdata 620 // Walt
     endparty
 
 trainerdata 621 // Walt
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FIREBREATHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -21359,7 +21359,7 @@ trainerdata 621 // Walt
     endparty
 
 trainerdata 622 // Doug
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21388,7 +21388,7 @@ trainerdata 622 // Doug
     endparty
 
 trainerdata 623 // Doug
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21417,7 +21417,7 @@ trainerdata 623 // Doug
     endparty
 
 trainerdata 624 // Doug
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21446,7 +21446,7 @@ trainerdata 624 // Doug
     endparty
 
 trainerdata 625 // Rob
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21475,7 +21475,7 @@ trainerdata 625 // Rob
     endparty
 
 trainerdata 626 // Rob
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21504,7 +21504,7 @@ trainerdata 626 // Rob
     endparty
 
 trainerdata 627 // Rob
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21533,7 +21533,7 @@ trainerdata 627 // Rob
     endparty
 
 trainerdata 628 // Reese
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21570,7 +21570,7 @@ trainerdata 628 // Reese
     endparty
 
 trainerdata 629 // Reese
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21607,7 +21607,7 @@ trainerdata 629 // Reese
     endparty
 
 trainerdata 630 // Reese
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21644,7 +21644,7 @@ trainerdata 630 // Reese
     endparty
 
 trainerdata 631 // Aiden
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21673,7 +21673,7 @@ trainerdata 631 // Aiden
     endparty
 
 trainerdata 632 // Aiden
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21702,7 +21702,7 @@ trainerdata 632 // Aiden
     endparty
 
 trainerdata 633 // Aiden
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -21738,7 +21738,7 @@ trainerdata 633 // Aiden
     endparty
 
 trainerdata 634 // Ernest
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21767,7 +21767,7 @@ trainerdata 634 // Ernest
     endparty
 
 trainerdata 635 // Ernest
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21796,7 +21796,7 @@ trainerdata 635 // Ernest
     endparty
 
 trainerdata 636 // Ernest
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIKER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21825,7 +21825,7 @@ trainerdata 636 // Ernest
     endparty
 
 trainerdata 637 // Hillary
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21854,7 +21854,7 @@ trainerdata 637 // Hillary
     endparty
 
 trainerdata 638 // Hillary
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21883,7 +21883,7 @@ trainerdata 638 // Hillary
     endparty
 
 trainerdata 639 // Hillary
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TEACHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -21912,7 +21912,7 @@ trainerdata 639 // Hillary
     endparty
 
 trainerdata 640 // Billy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -21948,7 +21948,7 @@ trainerdata 640 // Billy
     endparty
 
 trainerdata 641 // Billy
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -21984,7 +21984,7 @@ trainerdata 641 // Billy
     endparty
 
 trainerdata 642 // Billy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 4
@@ -22043,7 +22043,7 @@ trainerdata 642 // Billy
     endparty
 
 trainerdata 643 // Kay & Tia
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -22080,7 +22080,7 @@ trainerdata 643 // Kay & Tia
     endparty
 
 trainerdata 644 // Kay & Tia
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -22117,7 +22117,7 @@ trainerdata 644 // Kay & Tia
     endparty
 
 trainerdata 645 // Kay & Tia
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_TWINS
     battletype SINGLE_BATTLE
     nummons 2
@@ -22154,7 +22154,7 @@ trainerdata 645 // Kay & Tia
     endparty
 
 trainerdata 646 // Josh
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -22183,7 +22183,7 @@ trainerdata 646 // Josh
     endparty
 
 trainerdata 647 // Josh
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -22212,7 +22212,7 @@ trainerdata 647 // Josh
     endparty
 
 trainerdata 648 // Josh
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -22241,7 +22241,7 @@ trainerdata 648 // Josh
     endparty
 
 trainerdata 649 // Torin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -22277,7 +22277,7 @@ trainerdata 649 // Torin
     endparty
 
 trainerdata 650 // Torin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -22313,7 +22313,7 @@ trainerdata 650 // Torin
     endparty
 
 trainerdata 651 // Torin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SCHOOL_KID_M
     battletype SINGLE_BATTLE
     nummons 3
@@ -22349,7 +22349,7 @@ trainerdata 651 // Torin
     endparty
 
 trainerdata 652 // Tim & Sue
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -22378,7 +22378,7 @@ trainerdata 652 // Tim & Sue
     endparty
 
 trainerdata 653 // Tim & Sue
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -22415,7 +22415,7 @@ trainerdata 653 // Tim & Sue
     endparty
 
 trainerdata 654 // Tim & Sue
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -22452,7 +22452,7 @@ trainerdata 654 // Tim & Sue
     endparty
 
 trainerdata 655 // Kenny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 4
@@ -22495,7 +22495,7 @@ trainerdata 655 // Kenny
     endparty
 
 trainerdata 656 // Kenny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 4
@@ -22538,7 +22538,7 @@ trainerdata 656 // Kenny
     endparty
 
 trainerdata 657 // Kenny
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 4
@@ -22581,7 +22581,7 @@ trainerdata 657 // Kenny
     endparty
 
 trainerdata 658 // Tanner
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 2
@@ -22610,7 +22610,7 @@ trainerdata 658 // Tanner
     endparty
 
 trainerdata 659 // Tanner
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -22646,7 +22646,7 @@ trainerdata 659 // Tanner
     endparty
 
 trainerdata 660 // Tanner
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 3
@@ -22682,7 +22682,7 @@ trainerdata 660 // Tanner
     endparty
 
 trainerdata 661 // Kyle
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 3
@@ -22718,7 +22718,7 @@ trainerdata 661 // Kyle
     endparty
 
 trainerdata 662 // Kyle
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -22761,7 +22761,7 @@ trainerdata 662 // Kyle
     endparty
 
 trainerdata 663 // Kyle
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -22804,7 +22804,7 @@ trainerdata 663 // Kyle
     endparty
 
 trainerdata 664 // Kyler
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 4
@@ -22847,7 +22847,7 @@ trainerdata 664 // Kyler
     endparty
 
 trainerdata 665 // Kyler
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 5
@@ -22897,7 +22897,7 @@ trainerdata 665 // Kyler
     endparty
 
 trainerdata 666 // Kyler
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FISHERMAN
     battletype SINGLE_BATTLE
     nummons 6
@@ -22954,7 +22954,7 @@ trainerdata 666 // Kyler
     endparty
 
 trainerdata 667 // Cheryl
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_2
     battletype SINGLE_BATTLE
     nummons 5
@@ -23029,7 +23029,7 @@ trainerdata 667 // Cheryl
     endparty
 
 trainerdata 668 // Marley
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_4
     battletype SINGLE_BATTLE
     nummons 5
@@ -23104,7 +23104,7 @@ trainerdata 668 // Marley
     endparty
 
 trainerdata 669 // Mira
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_6
     battletype SINGLE_BATTLE
     nummons 5
@@ -23179,7 +23179,7 @@ trainerdata 669 // Mira
     endparty
 
 trainerdata 670 // Riley
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_3
     battletype SINGLE_BATTLE
     nummons 5
@@ -23254,7 +23254,7 @@ trainerdata 670 // Riley
     endparty
 
 trainerdata 671 // Buck
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_5
     battletype SINGLE_BATTLE
     nummons 5
@@ -23329,7 +23329,7 @@ trainerdata 671 // Buck
     endparty
 
 trainerdata 672 // Alfred
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -23351,7 +23351,7 @@ trainerdata 672 // Alfred
     endparty
 
 trainerdata 673 // Alfred
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -23373,7 +23373,7 @@ trainerdata 673 // Alfred
     endparty
 
 trainerdata 674 // Alfred
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_GENTLEMAN
     battletype SINGLE_BATTLE
     nummons 1
@@ -23399,7 +23399,7 @@ trainerdata 674 // Alfred
     endparty
 
 trainerdata 675 // Lance
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_10
     battletype SINGLE_BATTLE
     nummons 1
@@ -23425,7 +23425,7 @@ trainerdata 675 // Lance
     endparty
 
 trainerdata 676 // Parker
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 2
@@ -23462,7 +23462,7 @@ trainerdata 676 // Parker
     endparty
 
 trainerdata 677 // Eddie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SAILOR
     battletype SINGLE_BATTLE
     nummons 1
@@ -23488,7 +23488,7 @@ trainerdata 677 // Eddie
     endparty
 
 trainerdata 678 // Joy
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SWIMMER_F
     battletype SINGLE_BATTLE
     nummons 1
@@ -23514,7 +23514,7 @@ trainerdata 678 // Joy
     endparty
 
 trainerdata 679 // Callie
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 2
@@ -23551,7 +23551,7 @@ trainerdata 679 // Callie
     endparty
 
 trainerdata 680 // Kassandra
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 2
@@ -23588,7 +23588,7 @@ trainerdata 680 // Kassandra
     endparty
 
 trainerdata 681 // Arabella
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -23625,7 +23625,7 @@ trainerdata 681 // Arabella
     endparty
 
 trainerdata 682 // Bonita
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     battletype SINGLE_BATTLE
     nummons 2
@@ -23662,7 +23662,7 @@ trainerdata 682 // Bonita
     endparty
 
 trainerdata 683 // Salma
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_F
     battletype SINGLE_BATTLE
     nummons 2
@@ -23701,7 +23701,7 @@ trainerdata 683 // Salma
     endparty
 
 trainerdata 684 // Elan & Ida
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_DOUBLE_TEAM
     battletype SINGLE_BATTLE
     nummons 2
@@ -23740,7 +23740,7 @@ trainerdata 684 // Elan & Ida
     endparty
 
 trainerdata 685 // Edwin
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 1
@@ -23766,7 +23766,7 @@ trainerdata 685 // Edwin
     endparty
 
 trainerdata 686 // Bryce
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BOARDER
     battletype SINGLE_BATTLE
     nummons 2
@@ -23795,7 +23795,7 @@ trainerdata 686 // Bryce
     endparty
 
 trainerdata 687 // Shaun
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BOARDER
     battletype SINGLE_BATTLE
     nummons 2
@@ -23824,7 +23824,7 @@ trainerdata 687 // Shaun
     endparty
 
 trainerdata 688 // Cady
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SKIER
     battletype SINGLE_BATTLE
     nummons 1
@@ -23846,7 +23846,7 @@ trainerdata 688 // Cady
     endparty
 
 trainerdata 689 // Cary
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -23872,7 +23872,7 @@ trainerdata 689 // Cary
     endparty
 
 trainerdata 690 // Waldo
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -23898,7 +23898,7 @@ trainerdata 690 // Waldo
     endparty
 
 trainerdata 691 // Merle
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SUPER_NERD
     battletype SINGLE_BATTLE
     nummons 1
@@ -23924,7 +23924,7 @@ trainerdata 691 // Merle
     endparty
 
 trainerdata 692 // Lowell
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -23950,7 +23950,7 @@ trainerdata 692 // Lowell
     endparty
 
 trainerdata 693 // Linden
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -23976,7 +23976,7 @@ trainerdata 693 // Linden
     endparty
 
 trainerdata 694 // Daniel
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCIENTIST_1
     battletype SINGLE_BATTLE
     nummons 1
@@ -24002,7 +24002,7 @@ trainerdata 694 // Daniel
     endparty
 
 trainerdata 695 // Dane
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 2
@@ -24031,7 +24031,7 @@ trainerdata 695 // Dane
     endparty
 
 trainerdata 696 // Dion
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 1
@@ -24053,7 +24053,7 @@ trainerdata 696 // Dion
     endparty
 
 trainerdata 697 // Stacey
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -24089,7 +24089,7 @@ trainerdata 697 // Stacey
     endparty
 
 trainerdata 698 // Ellis
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -24125,7 +24125,7 @@ trainerdata 698 // Ellis
     endparty
 
 trainerdata 699 // Abner
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     battletype SINGLE_BATTLE
     nummons 3
@@ -24161,7 +24161,7 @@ trainerdata 699 // Abner
     endparty
 
 trainerdata 700 // Giovanni
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ROCKET_BOSS
     battletype SINGLE_BATTLE
     nummons 4
@@ -24224,7 +24224,7 @@ trainerdata 700 // Giovanni
     endparty
 
 trainerdata 701 // Lance
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CHAMPION
     battletype SINGLE_BATTLE
     nummons 6
@@ -24311,7 +24311,7 @@ trainerdata 701 // Lance
     endparty
 
 trainerdata 702 // Will
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_0
     battletype SINGLE_BATTLE
     nummons 6
@@ -24398,7 +24398,7 @@ trainerdata 702 // Will
     endparty
 
 trainerdata 703 // Koga
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_2
     battletype SINGLE_BATTLE
     nummons 6
@@ -24485,7 +24485,7 @@ trainerdata 703 // Koga
     endparty
 
 trainerdata 704 // Bruno
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_3
     battletype SINGLE_BATTLE
     nummons 6
@@ -24572,7 +24572,7 @@ trainerdata 704 // Bruno
     endparty
 
 trainerdata 705 // Karen
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_1
     battletype SINGLE_BATTLE
     nummons 6
@@ -24659,7 +24659,7 @@ trainerdata 705 // Karen
     endparty
 
 trainerdata 706 // Proton
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_EXECUTIVE_1
     battletype SINGLE_BATTLE
     nummons 2
@@ -24696,7 +24696,7 @@ trainerdata 706 // Proton
     endparty
 
 trainerdata 707 // Palmer
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_TOWER_TYCOON
     battletype SINGLE_BATTLE
     nummons 1
@@ -24718,7 +24718,7 @@ trainerdata 707 // Palmer
     endparty
 
 trainerdata 708 // Argenta
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HALL_MATRON
     battletype SINGLE_BATTLE
     nummons 1
@@ -24740,7 +24740,7 @@ trainerdata 708 // Argenta
     endparty
 
 trainerdata 709 // Thorton
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_FACTORY_HEAD
     battletype SINGLE_BATTLE
     nummons 1
@@ -24762,7 +24762,7 @@ trainerdata 709 // Thorton
     endparty
 
 trainerdata 710 // Dahlia
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_ARCADE_STAR
     battletype SINGLE_BATTLE
     nummons 1
@@ -24784,7 +24784,7 @@ trainerdata 710 // Dahlia
     endparty
 
 trainerdata 711 // Darach
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CASTLE_VALET
     battletype SINGLE_BATTLE
     nummons 1
@@ -24806,7 +24806,7 @@ trainerdata 711 // Darach
     endparty
 
 trainerdata 712 // Falkner
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_M
     battletype SINGLE_BATTLE
     nummons 6
@@ -24893,7 +24893,7 @@ trainerdata 712 // Falkner
     endparty
 
 trainerdata 713 // Bugsy
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_F
     battletype SINGLE_BATTLE
     nummons 6
@@ -24980,7 +24980,7 @@ trainerdata 713 // Bugsy
     endparty
 
 trainerdata 714 // Whitney
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER
     battletype SINGLE_BATTLE
     nummons 6
@@ -25067,7 +25067,7 @@ trainerdata 714 // Whitney
     endparty
 
 trainerdata 715 // Morty
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_0
     battletype SINGLE_BATTLE
     nummons 6
@@ -25154,7 +25154,7 @@ trainerdata 715 // Morty
     endparty
 
 trainerdata 716 // Pryce
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_1
     battletype SINGLE_BATTLE
     nummons 6
@@ -25241,7 +25241,7 @@ trainerdata 716 // Pryce
     endparty
 
 trainerdata 717 // Jasmine
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_2
     battletype SINGLE_BATTLE
     nummons 6
@@ -25328,7 +25328,7 @@ trainerdata 717 // Jasmine
     endparty
 
 trainerdata 718 // Chuck
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_3
     battletype SINGLE_BATTLE
     nummons 6
@@ -25415,7 +25415,7 @@ trainerdata 718 // Chuck
     endparty
 
 trainerdata 719 // Clair
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_4
     battletype SINGLE_BATTLE
     nummons 6
@@ -25502,7 +25502,7 @@ trainerdata 719 // Clair
     endparty
 
 trainerdata 720 // Brock
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_5
     battletype SINGLE_BATTLE
     nummons 6
@@ -25589,7 +25589,7 @@ trainerdata 720 // Brock
     endparty
 
 trainerdata 721 // Misty
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_6
     battletype SINGLE_BATTLE
     nummons 6
@@ -25676,7 +25676,7 @@ trainerdata 721 // Misty
     endparty
 
 trainerdata 722 // Lt. Surge
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_7
     battletype SINGLE_BATTLE
     nummons 6
@@ -25763,7 +25763,7 @@ trainerdata 722 // Lt. Surge
     endparty
 
 trainerdata 723 // Erika
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_8
     battletype SINGLE_BATTLE
     nummons 6
@@ -25850,7 +25850,7 @@ trainerdata 723 // Erika
     endparty
 
 trainerdata 724 // Janine
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_9
     battletype SINGLE_BATTLE
     nummons 6
@@ -25937,7 +25937,7 @@ trainerdata 724 // Janine
     endparty
 
 trainerdata 725 // Sabrina
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_10
     battletype SINGLE_BATTLE
     nummons 6
@@ -26024,7 +26024,7 @@ trainerdata 725 // Sabrina
     endparty
 
 trainerdata 726 // Blaine
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_11
     battletype SINGLE_BATTLE
     nummons 6
@@ -26111,7 +26111,7 @@ trainerdata 726 // Blaine
     endparty
 
 trainerdata 727 // Blue
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_12
     battletype SINGLE_BATTLE
     nummons 6
@@ -26198,7 +26198,7 @@ trainerdata 727 // Blue
     endparty
 
 trainerdata 728 // Charlotte
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BEAUTY
     battletype SINGLE_BATTLE
     nummons 1
@@ -26220,7 +26220,7 @@ trainerdata 728 // Charlotte
     endparty
 
 trainerdata 729 // Duff & Eda
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNG_COUPLE
     battletype SINGLE_BATTLE
     nummons 2
@@ -26249,7 +26249,7 @@ trainerdata 729 // Duff & Eda
     endparty
 
 trainerdata 730 // Thom & Kae
-    trainermontype MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_DOUBLE_TEAM
     battletype SINGLE_BATTLE
     nummons 2
@@ -26286,7 +26286,7 @@ trainerdata 730 // Thom & Kae
     endparty
 
 trainerdata 731 // Devin
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_HIKER
     battletype SINGLE_BATTLE
     nummons 3
@@ -26322,7 +26322,7 @@ trainerdata 731 // Devin
     endparty
 
 trainerdata 732 // Grant
-    trainermontype NO_MOVES_NO_ITEM
+    trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_CAMPER
     battletype SINGLE_BATTLE
     nummons 2
@@ -26351,7 +26351,7 @@ trainerdata 732 // Grant
     endparty
 
 trainerdata 733 // Lance
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CHAMPION
     battletype SINGLE_BATTLE
     nummons 3
@@ -26402,7 +26402,7 @@ trainerdata 733 // Lance
     endparty
 
 trainerdata 734 // Clair
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_4
     battletype SINGLE_BATTLE
     nummons 3
@@ -26453,7 +26453,7 @@ trainerdata 734 // Clair
     endparty
 
 trainerdata 735 // Silver
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 3
@@ -26504,7 +26504,7 @@ trainerdata 735 // Silver
     endparty
 
 trainerdata 736 // Silver
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 3
@@ -26555,7 +26555,7 @@ trainerdata 736 // Silver
     endparty
 
 trainerdata 737 // Silver
-    trainermontype MOVES_AND_ITEM
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     battletype SINGLE_BATTLE
     nummons 3
