@@ -13463,3 +13463,20 @@ mondata SPECIES_MEGA_DIANCIE
 	runchance 0
 	colorflip 0, 0
 	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+mondata SPECIES_DARMANITAN_ZEN_MODE
+	basestats 105, 30, 105, 55, 140, 105
+	types TYPE_FIRE, TYPE_PSYCHIC
+    catchrate 60
+    baseexp 109
+    evyields 0, 0, 0, 0, 2, 0
+    items ITEM_RAWST_BERRY, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_ZEN_MODE, ABILITY_NONE // fix ability
+    runchance 0
+    colorflip BODY_COLOR_RED, 0
+    tmdata SPECIES_DARMANITAN_TM_DATA_0, SPECIES_DARMANITAN_TM_DATA_1, SPECIES_DARMANITAN_TM_DATA_2, SPECIES_DARMANITAN_TM_DATA_3

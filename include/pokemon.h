@@ -280,7 +280,6 @@ void __attribute__((long_call))PokeParaSet(void *pp,int mons_no,int level,int po
 void __attribute__((long_call)) SetPokemonSee(void *zw, void *pp);
 void __attribute__((long_call)) SetPokemonGet(void *zw, void *pp);
 void *__attribute__((long_call))PokeStatusPokeParamGet(void*);
-void __attribute__((long_call))PokeCopyPPtoPP(void*,void*);
 void __attribute__((long_call)) PokeParaCalc( struct PartyPokemon *ppd );
 void __attribute__((long_call)) PokeParaSpeabiSet( void *ppd );
 

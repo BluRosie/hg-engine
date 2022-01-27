@@ -2,6 +2,7 @@
 #include "../include/battle.h"
 #include "../include/pokemon.h"
 #include "../include/constants/ability.h"
+#include "../include/constants/battle_script_constants.h"
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
 #include "../include/constants/item.h"
@@ -306,4 +307,231 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     sys_FreeMemoryEz(pp);
 
     gf_srand(seed_tmp);
+}
+
+BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+{
+    int i, form_no;
+    BOOL ret=FALSE;
+
+    for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
+    {
+        sp->client_work = sp->turn_order[i];
+        
+        //handle castform
+        if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)
+         && (sp->battlemon[sp->client_work].hp)
+         && (GetBattlerAbility(sp,sp->client_work) == ABILITY_FORECAST))
+        {
+            if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
+             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
+            {
+                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
+                 && (sp->battlemon[sp->client_work].type1 != TYPE_NORMAL)
+                 && (sp->battlemon[sp->client_work].type2 != TYPE_NORMAL))
+                {
+                    sp->battlemon[sp->client_work].type1 = TYPE_NORMAL;
+                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
+                      && (sp->battlemon[sp->client_work].type1 != TYPE_FIRE)
+                      && (sp->battlemon[sp->client_work].type2 != TYPE_FIRE))
+                {
+                    sp->battlemon[sp->client_work].type1 = TYPE_FIRE;
+                    sp->battlemon[sp->client_work].type2 = TYPE_FIRE;
+                    sp->battlemon[sp->client_work].form_no = 1;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else if ((sp->field_condition & WEATHER_RAIN_ANY)
+                      && (sp->battlemon[sp->client_work].type1 != TYPE_WATER)
+                      && (sp->battlemon[sp->client_work].type2 != TYPE_WATER))
+                {
+                    sp->battlemon[sp->client_work].type1 = TYPE_WATER;
+                    sp->battlemon[sp->client_work].type2 = TYPE_WATER;
+                    sp->battlemon[sp->client_work].form_no = 2;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else if ((sp->field_condition & WEATHER_HAIL_ANY)
+                      && (sp->battlemon[sp->client_work].type1 != TYPE_ICE)
+                      && (sp->battlemon[sp->client_work].type2 != TYPE_ICE))
+                {
+                    sp->battlemon[sp->client_work].type1 = TYPE_ICE;
+                    sp->battlemon[sp->client_work].type2 = TYPE_ICE;
+                    sp->battlemon[sp->client_work].form_no = 3;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+            }
+            else
+            {
+                if ((sp->battlemon[sp->client_work].type1 != TYPE_NORMAL)
+                 && (sp->battlemon[sp->client_work].type2 != TYPE_NORMAL))
+                {
+                    sp->battlemon[sp->client_work].type1 = TYPE_NORMAL;
+                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+            }
+        }
+
+        // handle cherrim
+        if ((sp->battlemon[sp->client_work].species == SPECIES_CHERRIM)
+         && (sp->battlemon[sp->client_work].hp))
+        {
+            if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
+             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
+            {
+                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
+                 && (sp->battlemon[sp->client_work].form_no == 1))
+                {
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
+                      && (sp->battlemon[sp->client_work].form_no == 0))
+                {
+                    sp->battlemon[sp->client_work].form_no = 1;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else if ((sp->field_condition & WEATHER_RAIN_ANY)
+                      && (sp->battlemon[sp->client_work].form_no == 1))
+                {
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else if ((sp->field_condition & WEATHER_HAIL_ANY)
+                      && (sp->battlemon[sp->client_work].form_no == 1))
+                {
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+            }
+            else
+            {
+                if (sp->battlemon[sp->client_work].form_no == 1)
+                {
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+            }
+        }
+        
+        // handle arceus
+        if ((sp->battlemon[sp->client_work].species == SPECIES_ARCEUS)
+         && (sp->battlemon[sp->client_work].hp)
+         && (GetBattlerAbility(sp, sp->client_work) == ABILITY_MULTITYPE))
+        {
+            form_no = GetArceusType(BattleItemDataGet(sp, sp->battlemon[sp->client_work].item, 1));
+            if(sp->battlemon[sp->client_work].form_no != form_no)
+            {
+                sp->battlemon[sp->client_work].form_no = form_no;
+                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                ret = TRUE;
+                break;
+            }
+        }
+        
+        // handle giratina
+        if ((sp->battlemon[sp->client_work].species == SPECIES_GIRATINA)
+         && (sp->battlemon[sp->client_work].hp)
+         && (sp->battlemon[sp->client_work].form_no == 1))
+        {
+            if ((sp->battlemon[sp->client_work].condition2 & STATUS2_FLAG_TRANSFORMED)
+             || (((BattleWorkBattleStatusFlagGet(bw) & 0x80) == 0) // probably distortion world check
+              && (sp->battlemon[sp->client_work].item != ITEM_GRISEOUS_ORB)))
+            {
+                if(sp->battlemon[sp->client_work].condition2 & STATUS2_FLAG_TRANSFORMED)
+                {
+                    struct PartyPokemon *pp;
+                    int defence;
+                    int work;
+
+                    pp = PokemonParam_AllocWork(5);
+                    if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
+                    {
+                        defence = sp->client_act_work[sp->client_work][1];
+                    }
+                    else
+                    {
+                        defence = BATTLER_OPPONENT(sp->client_work);
+                    }
+                    PokeCopyPPtoPP(BattleWorkPokemonParamGet(bw, defence, sp->sel_mons_no[defence]), pp);
+                    work = 0;
+                    SetMonData(pp, ID_PARA_item, &work);
+                    work = 0;
+                    SetMonData(pp, ID_PARA_form_no, &work);
+                    PokeParaGiratinaFormChange(pp);
+                    sp->battlemon[sp->client_work].attack =  GetMonData(pp,ID_PARA_pow,      0);
+                    sp->battlemon[sp->client_work].defense = GetMonData(pp,ID_PARA_def,      0);
+                    sp->battlemon[sp->client_work].speed =   GetMonData(pp,ID_PARA_agi,      0);
+                    sp->battlemon[sp->client_work].spatk =   GetMonData(pp,ID_PARA_spepow,   0);
+                    sp->battlemon[sp->client_work].spdef =   GetMonData(pp,ID_PARA_spedef,   0);
+                    sp->battlemon[sp->client_work].ability = GetMonData(pp,ID_PARA_speabino, 0);
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    sp->server_status_flag2 |= SERVER_STATUS2_FLAG_FORM_CHANGE;
+                    SCIO_PSPtoPPCopy(bw, sp, sp->client_work);
+                    sys_FreeMemoryEz(pp);
+                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+                else
+                {
+                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHANGE;
+                    ret = TRUE;
+                    break;
+                }
+            }
+        }
+        
+        // handle darmanitan zen mode
+        if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
+         && (GetBattlerAbility(sp, sp->client_work) == ABILITY_ZEN_MODE)
+         && (sp->battlemon[sp->client_work].hp)
+         && (sp->battlemon[sp->client_work].hp < (sp->battlemon[sp->client_work].maxhp / 2))
+         && (sp->battlemon[sp->client_work].form_no == 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+        
+        if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN_ZEN_MODE || sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN) // not checking for ability makes this also handle darmanitan in zen mode without ability
+         && (sp->battlemon[sp->client_work].hp)
+         && (sp->battlemon[sp->client_work].hp >= (sp->battlemon[sp->client_work].maxhp / 2))
+         && (sp->battlemon[sp->client_work].form_no != 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 0;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+    }
+
+    return ret;
 }

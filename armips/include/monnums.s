@@ -753,3 +753,22 @@ SPECIES_MEGA_AUDINO equ (SPECIES_MEGA_START + 46)
 SPECIES_MEGA_DIANCIE equ (SPECIES_MEGA_START + 47)
 
 NUM_OF_MEGAS equ 48
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SPECIES_DARMANITAN_ZEN_MODE equ (748) // placeholder for the moment

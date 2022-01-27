@@ -17,7 +17,7 @@ arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
 #0206DED0+4
 arm9 CreateBoxMonData_hook 0806DED4 5
-#0007 hook_7_spriteOffsetSpecies 08018A48 3
+0007 hook_7_spriteOffsetSpecies 08018A48 3
 #0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 Battle_End 08000B90 1
 0012 FormResert 080069AC 2
@@ -54,6 +54,8 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 MoldBreakerAbilityCheck_hook 0801AF78 5
 #02254580
 0012 SynchroniseAbilityCheck 08254580 3
+#02256914
+0012 BattleFormChangeCheck 0801F054 3
 
 #battle script command hooks
 #0223ED78

@@ -174,7 +174,6 @@ AnticipateMoveEffectListCheck = 0x0225865C | 1;
 BattleRand = 0x0223BD98 | 1;
 ChooseRandomTarget = 0x02253DA0 | 1;
 CountBattlerMoves = 0x02252EA8 | 1;
-BattleFormChangeCheck = 0x02256914 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
 HeldItemHealCheck = 0x02254E7C | 1;
 LoadBattleSubSeqScript = 0x172DC + 0x022378C1;
@@ -182,6 +181,11 @@ HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
 CheckSubstitute = 0x02256838 | 1;
+GetArceusType = 0x02071C28 | 1;
+BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
+PokeParaGiratinaFormChange = 0x02071CA0 | 1;
+SCIO_PSPtoPPCopy = 0x02263B4C | 1;
+
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;

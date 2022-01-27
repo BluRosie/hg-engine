@@ -184,6 +184,7 @@
 
 // server status2 flags
 #define SERVER_STATUS2_FLAG_x10 (0x00000010)
+#define SERVER_STATUS2_FLAG_FORM_CHANGE (0x04000000)
 
 // status2/condition2 flags
 #define STATUS2_FLAG_CONFUSED (0x00000007)
@@ -978,7 +979,6 @@ u32 __attribute__((long_call)) AnticipateMoveEffectListCheck(void *sp, int moven
 u16 __attribute__((long_call)) BattleRand(void *bw);
 int __attribute__((long_call)) ChooseRandomTarget(void *bw, void *sp, int client);
 int __attribute__((long_call)) CountBattlerMoves(void *bw, void *sp, int client_no);
-BOOL __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *seq_no);
 u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, void *sp, int client_no, int act_flag);
 u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, void *sp, int client_no, int *seq_no);
 void __attribute__((long_call)) LoadBattleSubSeqScript(void *, int, int);
@@ -996,6 +996,11 @@ void __attribute__((long_call)) TrainerMonHandleFrustration(struct PartyPokemon 
 void __attribute__((long_call)) SetPartyPokemonMoveAtPos(struct PartyPokemon *pp, u16 movenum, u8 pos);
 void __attribute__((long_call)) gf_srand(u32 seed);
 u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct PartyPokemon *poke);
+u8 __attribute__((long_call)) GetArceusType(u16 held_effect);
+u32 __attribute__((long_call)) BattleWorkBattleStatusFlagGet(void *bw);
+void __attribute__((long_call)) PokeCopyPPtoPP(struct PartyPokemon *pp_src, struct PartyPokemon *pp_dest);
+void __attribute__((long_call)) SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *sp, int send_client);
+int __attribute__((long_call)) PokeParaGiratinaFormChange(struct PartyPokemon *pp);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
