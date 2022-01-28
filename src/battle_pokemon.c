@@ -97,8 +97,7 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
 }
 
 
-// defining this as a bitfield for both best tool compatibility/not having to write massive case statements when parsing
-
+/**Trainer Data File Bitfield**/
 #define TRAINER_DATA_TYPE_NOTHING 0x00
 #define TRAINER_DATA_TYPE_MOVES 0x01
 #define TRAINER_DATA_TYPE_ITEMS 0x02
@@ -107,8 +106,22 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
 #define TRAINER_DATA_TYPE_IV_EV_SET 0x10
 #define TRAINER_DATA_TYPE_NATURE_SET 0x20
 #define TRAINER_DATA_TYPE_SHINY_LOCK 0x40
+#define TRAINER_DATA_TYPE_ADDITIONAL_FLAGS 0x80 //whether or not to read extra flags in trpoke entry
 
-#define TRAINER_DATA_TYPE_COMPLETELY_CUSTOM 0x80
+
+/**Trainer Pokemon File Extra Bitfield**/
+#define TRAINER_DATA_EXTRA_TYPE_NOTHING 0x00
+#define TRAINER_DATA_EXTRA_TYPE_STATUS 0x01
+#define TRAINER_DATA_EXTRA_TYPE_HP 0x02
+#define TRAINER_DATA_EXTRA_TYPE_ATK 0x04
+#define TRAINER_DATA_EXTRA_TYPE_DEF 0x08
+#define TRAINER_DATA_EXTRA_TYPE_SPEED 0x10
+#define TRAINER_DATA_EXTRA_TYPE_SP_ATK 0x20
+#define TRAINER_DATA_EXTRA_TYPE_SP_DEF 0x40
+#define TRAINER_DATA_EXTRA_TYPE_TYPES 0x80
+#define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x100
+#define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x200
+
 
 
 void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
@@ -136,170 +149,309 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     {
         rnd_tmp = 136;
     }
-    
+
     // goal:  get rid of massive switch statement with each individual byte.  make the trainer type a bitfield
-    if ((bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_COMPLETELY_CUSTOM) == 0)
+    u32 id;
+    u16 species, item, ability, level, ball, hp, atk, def, speed, spatk, spdef;
+    u16 offset = 0;
+    u16 moves[4];
+    u8 ivnums[6];
+    u8 evnums[6];
+    u8 types[2];
+    u8 ppcounts[4];
+    u16 nickname[11];
+    u8 form_no, abilityslot, nature, ballseal, shinylock, status;
+    u32 additionalflags;
+
+    for (i = 0; i < bp->trainer_data[num].poke_count; i++)
     {
-        u32 id;
-        u16 species, item, ability, level, ball;
-        u16 offset = 0;
-        u16 moves[4];
-        u8 ivnums[6];
-        u8 evnums[6];
-        u8 form_no, abilityslot, nature, ballseal, shinylock;
-        
-        for (i = 0; i < bp->trainer_data[num].poke_count; i++)
+        // ivs field
+        pow = buf[offset];
+        offset++;
+
+        // abilityslot field
+        abilityslot = buf[offset];
+        offset++;
+
+        // level field
+        level = buf[offset] | (buf[offset+1] << 8);
+        offset += 2;
+
+        // species field
+        species = buf[offset] | (buf[offset+1] << 8);
+        offset += 2;
+        form_no = (species & 0xFC00) >> 10;
+        species &= 0x03FF;
+
+        // item field - conditional
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
         {
-            // ivs field
-            pow = buf[offset];
-            offset++;
-            
-            // abilityslot field
-            abilityslot = buf[offset];
-            offset++;
-            
-            // level field
-            level = buf[offset] | (buf[offset+1] << 8);
+            item = buf[offset] | (buf[offset+1] << 8);
             offset += 2;
-            
-            // species field
-            species = buf[offset] | (buf[offset+1] << 8);
-            offset += 2;
-            form_no = (species & 0xFC00) >> 10;
-            species &= 0x03FF;  
-            
-            // item field - conditional
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
+        }
+
+        // moves field - conditional
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
+        {
+            for (j = 0; j < 4; j++)
             {
-                item = buf[offset] | (buf[offset+1] << 8);
+                moves[j] = buf[offset] | (buf[offset+1] << 8);
                 offset += 2;
             }
-            
-            // moves field - conditional
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
+        }
+
+        // ability field
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
+        {
+            ability = buf[offset] | (buf[offset+1] << 8);
+            offset += 2;
+        }
+
+        // custom ball field
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
+        {
+            ball = buf[offset] | (buf[offset+1] << 8);
+            offset += 2;
+        }
+
+        // ivs and evs fields
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
+        {
+            for(j = 0; j < 6; j++)
             {
-                for (j = 0; j < 4; j++)
+                ivnums[j] = buf[offset];
+                if(ivnums[j] > 31)
+                    ivnums[j] = 31;
+                offset++;
+            }
+
+            for(j = 0; j < 6; j++)
+            {
+                evnums[j] = buf[offset];
+                offset++;
+            }
+        }
+
+        // nature field
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
+        {
+            nature = buf[offset];
+            offset++;
+        }
+
+        // shiny lock field
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_SHINY_LOCK)
+        {
+            shinylock = buf[offset];
+            offset++;
+        }
+
+        // reads extra flags from the trainer pokemon file
+        if(bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ADDITIONAL_FLAGS)
+        {
+            additionalflags = buf[offset] | (buf[offset+1] << 8) | (buf[offset+2] << 16) | (buf[offset+3] << 24);
+            offset += 4;
+
+            // status pre-set field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)
+            {
+                status = buf[offset];
+                offset++;
+            }
+
+            // custom hp stat field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_HP)
+            {
+                hp = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+
+            // custom atk stat field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_ATK)
+            {
+                atk = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+
+            // custom def stat field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_DEF)
+            {
+                def = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+
+            // custom speed stat field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SPEED)
+            {
+                speed = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+
+            // custom spatk stat field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_ATK)
+            {
+                spatk = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+
+            // custom spdef stat field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_DEF)
+            {
+                spdef = buf[offset] | (buf[offset+1] << 8);
+                offset += 2;
+            }
+
+            // custom types field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
+            {
+                for(j = 0; j < 2; j++)
                 {
-                    moves[j] = buf[offset] | (buf[offset+1] << 8);
+                    types[j] = buf[offset];
+                    offset++;
+                }
+            }
+
+            // move PP counts field
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
+            {
+                for(j = 0; j < 4; j++)
+                {
+                    ppcounts[j] = buf[offset];
+                    offset++;
+                }
+            }
+
+            // nickname field
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
+            {
+                for(j = 0; j < 10; j++)
+                {
+                    nickname[j] = buf[offset] | (buf[offset+1] << 8);
                     offset += 2;
                 }
             }
-            
-            // ability field
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
-            {
-                ability = buf[offset] | (buf[offset+1] << 8);
-                offset += 2;
-            }
-            
-            // custom ball field
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
-            {
-                ball = buf[offset] | (buf[offset+1] << 8);
-                offset += 2;
-            }
-
-            //ivs and evs fields
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
-            {
-                for(j = 0; j < 6; j++)
-                {
-                    ivnums[j] = buf[offset];
-                    if(ivnums[j] > 31)
-                        ivnums[j] = 31;
-                    offset++;
-                }
-
-                for(j = 0; j < 6; j++)
-                {
-                    evnums[j] = buf[offset];
-                    offset++;
-                }
-            }
-
-            //nature field
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
-            {
-                nature = buf[offset];
-                offset++;
-            }
-            
-            // shiny lock field
-            if (bp->trainer_data[num].data_type & 0x40)
-            {
-                shinylock = buf[offset];
-                offset++;
-            }
-            
-            // ball seal field 
-            ballseal = buf[offset] | (buf[offset+1] << 8);
-            offset += 2;
-            
-            // now set mon data
-            try_force_gender_maybe(species, form_no, abilityslot, &rnd_tmp);
-            rnd = pow + level + species + bp->trainer_id[num];
-            gf_srand(rnd);
-            for (j = 0; j < bp->trainer_data[num].tr_type; j++)
-            {
-                rnd = gf_rand();
-            }
-            rnd = (rnd << 8) + rnd_tmp;
-            pow = pow * 31 / 255;
-            PokeParaSet(pp, species, level, pow, 1, rnd, 2, 0);
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
-            {
-                SetMonData(pp, ID_PARA_item, &item);
-            }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
-            {
-                for (j = 0; j < 4; j++)
-                {
-                    SetPartyPokemonMoveAtPos(pp, moves[j], j);
-                }
-            }
-            TrainerCBSet(ballseal, pp, heapID);
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
-            {
-                SetMonData(pp, ID_PARA_speabino, &ability);
-            }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
-            {
-                SetMonData(pp, ID_PARA_get_ball, &ball);
-            }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
-            {
-                for(j = 0; j < 6; j++)
-                {
-                    SetMonData(pp,ID_PARA_hp_rnd + j, &ivnums[j]);
-                }
-
-                for(j = 0; j < 6; j++)
-                {
-                    SetMonData(pp,ID_PARA_hp_exp + j, &evnums[j]);
-                }
-            }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
-            {
-                u32 pid = GetMonData(pp, ID_PARA_personal_rnd, NULL);
-                u8 currentNature = pid % 25;
-                pid = pid + nature - currentNature;
-                SetMonData(pp, ID_PARA_personal_rnd, &pid);
-            }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_SHINY_LOCK)
-            {
-                u32 pid = GetMonData(pp, ID_PARA_personal_rnd, NULL);
-                if (shinylock != 0)
-                {
-                    do{
-                        id = (gf_rand() | (gf_rand() << 16));
-                    } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((pid & 0xffff0000) >> 16) ^ (pid & 0xffff)) >= 8);
-                    SetMonData(pp, ID_PARA_id_no, &id);
-                }
-            }
-            SetMonData(pp, ID_PARA_form_no, &form_no);
-            TrainerMonHandleFrustration(pp);
-            PokeParty_Add(bp->poke_party[num], pp);
         }
+
+        // ball seal field
+        ballseal = buf[offset] | (buf[offset+1] << 8);
+        offset += 2;
+
+        // now set mon data
+        try_force_gender_maybe(species, form_no, abilityslot, &rnd_tmp);
+        rnd = pow + level + species + bp->trainer_id[num];
+        gf_srand(rnd);
+        for (j = 0; j < bp->trainer_data[num].tr_type; j++)
+        {
+            rnd = gf_rand();
+        }
+        rnd = (rnd << 8) + rnd_tmp;
+        pow = pow * 31 / 255;
+        PokeParaSet(pp, species, level, pow, 1, rnd, 2, 0);
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
+        {
+            SetMonData(pp, ID_PARA_item, &item);
+        }
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
+        {
+            for (j = 0; j < 4; j++)
+            {
+                SetPartyPokemonMoveAtPos(pp, moves[j], j);
+            }
+        }
+        TrainerCBSet(ballseal, pp, heapID);
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
+        {
+            SetMonData(pp, ID_PARA_speabino, &ability);
+        }
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
+        {
+            SetMonData(pp, ID_PARA_get_ball, &ball);
+        }
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
+        {
+            for(j = 0; j < 6; j++)
+            {
+                SetMonData(pp,ID_PARA_hp_rnd + j, &ivnums[j]);
+            }
+
+            for(j = 0; j < 6; j++)
+            {
+                SetMonData(pp,ID_PARA_hp_exp + j, &evnums[j]);
+            }
+        }
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
+        {
+            u32 pid = GetMonData(pp, ID_PARA_personal_rnd, NULL);
+            u8 currentNature = pid % 25;
+            pid = pid + nature - currentNature;
+            SetMonData(pp, ID_PARA_personal_rnd, &pid);
+        }
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_SHINY_LOCK)
+        {
+            u32 pid = GetMonData(pp, ID_PARA_personal_rnd, NULL);
+            if (shinylock != 0)
+            {
+                do{
+                    id = (gf_rand() | (gf_rand() << 16));
+                } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((pid & 0xffff0000) >> 16) ^ (pid & 0xffff)) >= 8);
+                SetMonData(pp, ID_PARA_id_no, &id);
+            }
+        }
+        if(bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ADDITIONAL_FLAGS)
+        {
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)
+            {
+                SetMonData(pp,ID_PARA_condition, &status);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_HP)
+            {
+                SetMonData(pp,ID_PARA_hpmax, &hp);
+                SetMonData(pp,ID_PARA_hp, &hp);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_ATK)
+            {
+                SetMonData(pp,ID_PARA_pow, &atk);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_DEF)
+            {
+                SetMonData(pp,ID_PARA_def, &def);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SPEED)
+            {
+                SetMonData(pp,ID_PARA_agi, &speed);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_ATK)
+            {
+                SetMonData(pp,ID_PARA_spepow, &spatk);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_DEF)
+            {
+                SetMonData(pp,ID_PARA_spedef, &spdef);
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
+            {
+                for(j = 0; j < 2; j++)
+                {
+                    SetMonData(pp,ID_PARA_type1+j, &types[j]);
+                }
+            }
+            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
+            {
+                for(j = 0; j < 4; j++)
+                {
+                    SetMonData(pp,ID_PARA_pp_count1+j, &ppcounts[j]);
+                }
+            }
+            if (bp->trainer_data[num].data_type & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
+            {
+//                nickname[10] = 0x00;
+//                SetMonData(pp,ID_PARA_nickname_flag, 1);
+//                SetMonData(pp,ID_PARA_nickname, &nickname);
+            }
+        }
+        SetMonData(pp, ID_PARA_form_no, &form_no);
+        TrainerMonHandleFrustration(pp);
+        PokeParty_Add(bp->poke_party[num], pp);
     }
 
     sys_FreeMemoryEz(buf);

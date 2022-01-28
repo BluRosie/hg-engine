@@ -323,6 +323,12 @@
 #define STATUS_EFF_UP (12)
 #define STATUS_EFF_DOWN (13)
 
+
+// (possibly) implement challenge/ easy modes
+#define NORMAL_MODE (0)
+#define CHALLENGE_MODE (1)
+#define EASY_MODE (2)
+
 // msg work
 enum
 {
@@ -900,6 +906,17 @@ typedef	struct
     u8 evnums[6];
     u8 nature;
     u8 shinylock;
+    u32 additionalflags;
+    u8 status;
+    u16 hp;
+    u16 atk;
+    u16 def;
+    u16 speed;
+    u16 spatk;
+    u16 spdef;
+    u8 types[2];
+    u8 ppcounts[4];
+    u16 nickname;
     u16 custom;
 } __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
 
