@@ -1077,13 +1077,228 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 1,
         .file = SPECIES_MEGA_AUDINO,
     },
-    /*{
+    {
         .species = SPECIES_DIANCIE,
         .form_no = 1,
         .need_rev = 1,
         .file = SPECIES_MEGA_DIANCIE,
-    }*/
-    
+    },
+    {
+            .species = SPECIES_RATTATA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_RATTATA,
+    },
+    {
+            .species = SPECIES_RATICATE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_RATICATE,
+    },
+    {
+            .species = SPECIES_RAICHU,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_RAICHU,
+    },
+    {
+            .species = SPECIES_SANDSHREW,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_SANDSHREW,
+    },
+    {
+            .species = SPECIES_SANDSLASH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_SANDSLASH,
+    },
+    {
+            .species = SPECIES_VULPIX,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_VULPIX,
+    },
+    {
+            .species = SPECIES_DIGLETT,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_DIGLETT,
+    },
+    {
+            .species = SPECIES_DUGTRIO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_DUGTRIO,
+    },
+    {
+            .species = SPECIES_MEOWTH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_MEOWTH,
+    },
+    {
+            .species = SPECIES_PERSIAN,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_PERSIAN,
+    },
+    {
+            .species = SPECIES_GEODUDE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GEODUDE,
+    },
+    {
+            .species = SPECIES_GRAVELER,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GRAVELER,
+    },
+    {
+            .species = SPECIES_GOLEM,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GOLEM,
+    },
+    {
+            .species = SPECIES_GRIMER,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GRIMER,
+    },
+    {
+            .species = SPECIES_MUK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_MUK,
+    },
+    {
+            .species = SPECIES_EXEGGUTOR,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_EXEGGUTOR,
+    },
+    {
+            .species = SPECIES_MAROWAK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_MAROWAK,
+    },
+    {
+            .species = SPECIES_MEOWTH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_MEOWTH,
+    },
+    {
+            .species = SPECIES_PONYTA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_PONYTA,
+    },
+    {
+            .species = SPECIES_RAPIDASH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_RAPIDASH,
+    },
+    {
+            .species = SPECIES_SLOWPOKE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_SLOWPOKE,
+    },
+    {
+            .species = SPECIES_SLOWBRO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_SLOWBRO,
+    },
+    {
+            .species = SPECIES_FARFETCHD,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_FARFETCHD,
+    },
+    {
+            .species = SPECIES_WEEZING,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_WEEZING,
+    },
+    {
+            .species = SPECIES_MR_MIME,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_MR_MIME,
+    },
+    {
+            .species = SPECIES_ARTICUNO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_ARTICUNO,
+    },
+    {
+            .species = SPECIES_ZAPDOS,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_ZAPDOS,
+    },
+    {
+            .species = SPECIES_MOLTRES,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_MOLTRES,
+    },
+    {
+            .species = SPECIES_SLOWKING,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_SLOWKING,
+    },
+    {
+            .species = SPECIES_CORSOLA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_CORSOLA,
+    },
+    {
+            .species = SPECIES_ZIGZAGOON,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_ZIGZAGOON,
+    },
+    {
+            .species = SPECIES_LINOONE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_LINOONE,
+    },
+    {
+            .species = SPECIES_DARUMAKA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_DARUMAKA,
+    },
+    {
+            .species = SPECIES_DARMANITAN,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_DARMANITAN,
+    },
+    {
+            .species = SPECIES_YAMASK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_YAMASK,
+    },
+    {
+            .species = SPECIES_STUNFISK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_STUNFISK,
+    },
     
     
     
@@ -1095,8 +1310,8 @@ const struct FormData PokeFormDataTbl[]=
     
     {
         .species = SPECIES_DARMANITAN,
-        .form_no = 1,
-        .need_rev = 0,
+        .form_no = 2,
+        .need_rev = 1,
         .file = SPECIES_DARMANITAN_ZEN_MODE,
     },
 };
