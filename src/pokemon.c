@@ -1122,6 +1122,12 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_ALOLAN_VULPIX,
     },
     {
+            .species = SPECIES_NINETALES,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_NINETALES,
+    },
+    {
             .species = SPECIES_DIGLETT,
             .form_no = 1,
             .need_rev = 0,
@@ -1215,7 +1221,7 @@ const struct FormData PokeFormDataTbl[]=
     },
     {
             .species = SPECIES_SLOWBRO,
-            .form_no = 1,
+            .form_no = 2,
             .need_rev = 0,
             .file = SPECIES_GALARIAN_SLOWBRO,
     },
@@ -1448,6 +1454,18 @@ const struct FormData PokeFormDataTbl[]=
             .form_no = 1,
             .need_rev = 0,
             .file = SPECIES_LANDORUS_THERIAN,
+    },
+    {
+            .species = SPECIES_KYUREM,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_WHITE_KYUREM,
+    },
+    {
+            .species = SPECIES_KYUREM,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_BLACK_KYUREM,
     },
     {
             .species = SPECIES_KELDEO,
@@ -1822,6 +1840,12 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_LYCANROC_DUSK,
     },
     {
+            .species = SPECIES_MAGEARNA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_MAGEARNA_ORIGINAL,
+    },
+    {
             .species = SPECIES_TOXTRICITY,
             .form_no = 1,
             .need_rev = 0,
@@ -1864,19 +1888,192 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_CALYREX_SHADOW_RIDER,
     },
 
-
-
-
-
-
-
-
-
-{
-        .species = SPECIES_DARMANITAN,
-        .form_no = 2,
-        .need_rev = 1,
-        .file = SPECIES_DARMANITAN_ZEN_MODE,
+    /**Battle Forms**/
+    {
+            .species = SPECIES_CASTFORM,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_CASTFORM_SUN,
+    },
+    {
+            .species = SPECIES_CASTFORM,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_CASTFORM_RAIN,
+    },
+    {
+            .species = SPECIES_CASTFORM,
+            .form_no = 3,
+            .need_rev = 1,
+            .file = SPECIES_CASTFORM_SNOW,
+    },
+    {
+            .species = SPECIES_CHERRIM,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_CHERRIM_SUNSHINE,
+    },
+    {
+            .species = SPECIES_SHELLOS,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_SHELLOS_EAST_SEA,
+    },
+    {
+            .species = SPECIES_GASTRODON,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_GASTRODON_EAST_SEA,
+    },
+    {
+            .species = SPECIES_DARMANITAN,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_DARMANITAN_ZEN_MODE,
+    },
+    {
+            .species = SPECIES_DARMANITAN,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_GALARIAN_DARMANITAN_ZEN_MODE,
+    },
+    {
+            .species = SPECIES_MELOETTA,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MELOETTA_PIROUETTE,
+    },
+    {
+            .species = SPECIES_GRENINJA,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_GRENINJA_ASH,
+    },
+    {
+            .species = SPECIES_AEGISLASH,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_AEGISLASH_BLADE,
+    },
+    {
+            .species = SPECIES_XERNEAS,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_XERNEAS_ACTIVE,
+    },
+    {
+            .species = SPECIES_WISHIWASHI,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_WISHIWASHI_SCHOOL,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_RED,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_ORANGE,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 3,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_YELLOW,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 4,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_GREEN,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 5,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_BLUE,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 6,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_INDIGO,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 7,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_VIOLET,
+    },
+    {
+            .species = SPECIES_MIMIKYU,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MIMIKYU_BUSTED,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_NECROZMA_DUSK_MANE,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_NECROZMA_DAWN_WINGS,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 3,
+            .need_rev = 1,
+            .file = SPECIES_NECROZMA_ULTRA_DUSK_MANE,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 4,
+            .need_rev = 1,
+            .file = SPECIES_NECROZMA_ULTRA_DAWN_WINGS,
+    },
+    {
+            .species = SPECIES_CRAMORANT,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_CRAMORANT_GULPING,
+    },
+    {
+            .species = SPECIES_CRAMORANT,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_CRAMORANT_GORGING,
+    },
+    {
+            .species = SPECIES_EISCUE,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_EISCUE_NOICE_FACE,
+    },
+    {
+            .species = SPECIES_MORPEKO,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MORPEKO_HANGRY,
+    },
+    {
+            .species = SPECIES_ZACIAN,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_ZACIAN_CROWNED,
+    },
+    {
+            .species = SPECIES_ZAMAZENTA,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_ZAMAZENTA_CROWNED,
     },
 };
 
@@ -2153,6 +2350,12 @@ bool8 ReverFormChange(void *pp, u16 species, u8 form_no)
     {
         if (species == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no && PokeFormDataTbl[i].need_rev)
         {
+            if(species == SPECIES_DARMANITAN && form_no == 3)
+                work = 1;
+            else if(species == SPECIES_NECROZMA && form_no == 3)
+                work = 1;
+            else if(species == SPECIES_NECROZMA && form_no == 4)
+                work = 2;
             SetMonData(pp,112,&work);
             return TRUE;
         }
