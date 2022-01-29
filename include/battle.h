@@ -921,6 +921,54 @@ typedef	struct
     u16 custom;
 } __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
 
+struct __attribute__((packed)) CLIENT_PARAM
+{
+    /*0x0000*/ u8 filler1[0x94];
+    /*0x0094*/ u8 client_buffer[256];
+    /*0x0194*/ u8 client_no;
+    /*0x0195*/ u8 client_type;
+};
+
+struct __attribute__((packed)) POKEMON_ENCOUNT_PARAM
+{
+    u8 command_code;
+    u8 sex:2;
+    u8 rare:1;
+    u8 form_no:5;
+    u16 monsno;
+    u32 personal_rnd;
+    int voice;
+    u16 wazano[4];
+    u16 pp[4];
+    u16 ppmax[4];
+    u16 nickname[11];
+};
+
+struct __attribute__((packed)) POKEMON_APPEAR_PARAM
+{
+    u8 command_code;
+    u8 sex:2;
+    u8 rare:1;
+    u8 form_no:5;
+    u16 monsno;
+    u32 personal_rnd;
+    int voice;
+    int sel_mons_no;
+    int ballID;
+    int flag;
+    u16 wazano[4];
+    u16 pp[4];
+    u16 ppmax[4];
+    u16 nickname[11];
+    int pair_sel_mons_no;
+    int migawari_flag;
+    u16 wep_mons_no[CLIENT_MAX];
+    u8 wep_sex[CLIENT_MAX];
+    u8 wep_rare[CLIENT_MAX];
+    u8 wep_form_no[CLIENT_MAX];
+    u32 wep_personal_rnd[CLIENT_MAX];
+};
+
 
 
 
@@ -1018,6 +1066,12 @@ u32 __attribute__((long_call)) BattleWorkBattleStatusFlagGet(void *bw);
 void __attribute__((long_call)) PokeCopyPPtoPP(struct PartyPokemon *pp_src, struct PartyPokemon *pp_dest);
 void __attribute__((long_call)) SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *sp, int send_client);
 int __attribute__((long_call)) PokeParaGiratinaFormChange(struct PartyPokemon *pp);
+void __attribute__((long_call)) CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_ENCOUNT_PARAM *pep);
+void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
+void __attribute__((long_call)) CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
+void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
+struct __attribute__((long_call)) POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
+int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
@@ -1029,6 +1083,10 @@ int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
 // defined in battle_calc_damage.c
 u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
+
+
+// defined in battle_pokemon.c;
+BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 

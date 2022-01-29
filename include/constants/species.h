@@ -953,7 +953,7 @@
 #define SPECIES_SPECTRIER 946
 #define SPECIES_CALYREX 947
 
-#define MAX_MON_NUM SPECIES_CALYREX
+#define MAX_MON_NUM (SPECIES_GENESECT) // keep as this for now
 
 //mega
 #define SPECIES_MEGA_START (MAX_MON_NUM+1)

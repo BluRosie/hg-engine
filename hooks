@@ -63,3 +63,11 @@ arm9 GetPokemonOwNum 0806A304 1
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
+
+#illusion hooks
+#02258EE0
+0012 ClientPokemonEncount 08021620 2
+#02258EF4
+0012 ClientPokemonEncountAppear 08021634 2
+#02258F08
+0012 ClientPokemonAppear 08021648 2

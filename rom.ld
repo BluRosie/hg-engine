@@ -63,7 +63,6 @@ PokeParaCalc = 0x0206E250 | 1;
 PokeParaSpeabiSet = 0x020722D4 |1;
 PokeFuseiFormNoCheck = 0x02070438 |1;
 PokePasoParaUnknownFormGet = 0x02070DA0 |1;
-PokeParty_GetMemberPointer = 0x02074644 |1;
 PokeFormNoPersonalParaGet = 0x0206FBC4 |1;
 GetBoxMonGender = 0x0206FF90 |1;
 PokeSexGetMonsNo = 0x0206FFC8 |1;
@@ -160,8 +159,6 @@ Snd_SePlay = 0x0200604C | 1;
 
 
 
-
-
 /* new battle engine */
 GetBattlerAbility = 0x022527CC | 1;
 BattleDamageDivide = 0x02253178 | 1;
@@ -203,3 +200,12 @@ TrainerMonHandleFrustration = 0x02073AE4 | 1;
 SetPartyPokemonMoveAtPos = 0x020714E8 | 1;
 gf_srand = 0x0201FD38 | 1;
 PokeParty_Add = 0x02074524 | 1;
+
+/* Illusion */
+CT_PokemonEncountSet = 0x02259968 | 1;
+CT_PokemonEncountAppearSet = 0x02259BA8 | 1;
+CT_PokemonAppearSet = 0x02259D48 | 1;
+ClientCommandReset = 0x02259928 | 1;
+BattleWorkPokePartyGet = 0x0223A7F4 | 1;
+PokeParty_GetPokeCount = 0x02074640 | 1;
+PokeParty_GetMemberPointer = 0x02074644 | 1;

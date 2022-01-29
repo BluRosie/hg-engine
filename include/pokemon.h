@@ -287,7 +287,7 @@ u32 __attribute__((long_call)) GetMonData(void*,int,void*);
 void __attribute__((long_call)) SetMonData(void*,int,void*);
 u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
 u32 __attribute__((long_call)) PokePasoParaGet(void *ppp, int id, void *buf);
-void *__attribute__((long_call))PokeParty_GetMemberPointer(const void * party, int pos);
+struct PartyPokemon * __attribute__((long_call)) PokeParty_GetMemberPointer(void * party, int pos);
 u32	__attribute__((long_call))PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
 u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
 u8 __attribute__((long_call)) PokeSexGetMonsNo(u16 monsno,u32 rnd);

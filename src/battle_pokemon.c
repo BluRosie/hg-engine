@@ -124,7 +124,6 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
 #define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x200
 
 
-
 void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 {
     u8 *buf;
@@ -461,10 +460,12 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     gf_srand(seed_tmp);
 }
 
+u8 gIsSideInIllusion[2] = {0};
+
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     int i, form_no;
-    BOOL ret=FALSE;
+    BOOL ret = FALSE;
 
     for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
     {
@@ -683,7 +684,102 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         }
+        
+        // fuck illusion
+        if ((sp->battlemon[sp->client_work].species == SPECIES_ZORUA || sp->battlemon[sp->client_work].species == SPECIES_ZOROARK)
+         && gIsSideInIllusion[sp->client_work & 1] == 1
+         && (sp->oneSelfFlag[sp->client_work].physical_damage || sp->oneSelfFlag[sp->client_work].special_damage))
+        {
+            gIsSideInIllusion[sp->client_work & 1] = 0;
+            BattleFormChange(sp->client_work, 0, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+            
     }
 
     return ret;
+}
+
+void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
+{
+    struct POKEMON_ENCOUNT_PARAM *pep = (struct POKEMON_ENCOUNT_PARAM *)&cp->client_buffer[0];
+    u8 side, newform;
+    u16 newmon;
+    
+    side = ((cp->client_type & 1) != 0);
+    
+    if (pep->monsno == SPECIES_ZORUA || pep->monsno == SPECIES_ZOROARK)
+    {
+        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->PokeCount;
+        newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
+        newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
+        
+        if (newmon != pep->monsno || newform != pep->form_no)
+        {
+            pep->monsno = newmon;
+            pep->form_no = newform;
+            gIsSideInIllusion[side] = 1;
+            
+        }
+    }
+
+    CT_PokemonEncountSet(bw, cp, pep);
+    ClientCommandReset(cp);
+}
+
+void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
+{
+    struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
+    u8 side, newform;
+    u16 newmon;
+    
+    side = ((cp->client_type & 1) != 0);
+    
+    if (pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
+    {
+        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->PokeCount;
+        newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
+        newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
+        
+        if (newmon != pap->monsno || newform != pap->form_no)
+        {
+            pap->monsno = newmon;
+            pap->form_no = newform;
+            gIsSideInIllusion[side] = 1;
+        }
+    }
+
+    CT_PokemonEncountAppearSet(bw, cp, pap);
+    ClientCommandReset(cp);
+}
+
+void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
+{
+    struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
+    u8 side, newform;
+    u16 newmon;
+    
+    side = ((cp->client_type & 1) != 0);
+    
+    if (pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
+    {    
+        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->PokeCount;
+        newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
+        newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
+        
+        if (newmon != pap->monsno || newform != pap->form_no)
+        {
+            pap->monsno = newmon;
+            pap->form_no = newform;
+            gIsSideInIllusion[side] = 1;
+        }
+    }
+    
+    CT_PokemonAppearSet(bw, cp, pap);
+    ClientCommandReset(cp);
 }
