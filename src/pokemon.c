@@ -1877,43 +1877,43 @@ const struct FormData PokeFormDataTbl[]=
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 2,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_MATCHA_CREAM,
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 3,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_MINT_CREAM,
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 4,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_LEMON_CREAM,
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 5,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_SALTED_CREAM,
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 6,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_RUBY_SWIRL,
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 7,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_CARAMEL_SWIRL,
     },
     {
             .species = SPECIES_ALCREMIE,
-            .form_no = 1,
+            .form_no = 8,
             .need_rev = 0,
             .file = SPECIES_ALCREMIE_RAINBOW_SWIRL,
     },
@@ -2036,42 +2036,84 @@ const struct FormData PokeFormDataTbl[]=
     {
             .species = SPECIES_MINIOR,
             .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_RED,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_ORANGE,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_YELLOW,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_GREEN,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_BLUE,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 6,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_INDIGO,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 7,
+            .need_rev = 0,
+            .file = SPECIES_MINIOR_METEOR_VIOLET,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 8,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_RED,
     },
     {
             .species = SPECIES_MINIOR,
-            .form_no = 2,
+            .form_no = 9,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_ORANGE,
     },
     {
             .species = SPECIES_MINIOR,
-            .form_no = 3,
+            .form_no = 10,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_YELLOW,
     },
     {
             .species = SPECIES_MINIOR,
-            .form_no = 4,
+            .form_no = 11,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_GREEN,
     },
     {
             .species = SPECIES_MINIOR,
-            .form_no = 5,
+            .form_no = 12,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_BLUE,
     },
     {
             .species = SPECIES_MINIOR,
-            .form_no = 6,
+            .form_no = 13,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_INDIGO,
     },
     {
             .species = SPECIES_MINIOR,
-            .form_no = 7,
+            .form_no = 14,
             .need_rev = 1,
             .file = SPECIES_MINIOR_CORE_VIOLET,
     },
@@ -2424,6 +2466,8 @@ bool8 ReverFormChange(void *pp, u16 species, u8 form_no)
                 work = 2;
             else if(species == SPECIES_GRENINJA)
                 work = 1;
+            else if(species == SPECIES_MINIOR)
+                work = form_no-7;
             SetMonData(pp,112,&work);
             return TRUE;
         }
