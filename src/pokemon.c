@@ -1962,6 +1962,18 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_XERNEAS_ACTIVE,
     },
     {
+            .species = SPECIES_ZYGARDE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ZYGARDE_10,
+    },
+    {
+            .species = SPECIES_ZYGARDE,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_ZYGARDE_100,
+    },
+    {
             .species = SPECIES_WISHIWASHI,
             .form_no = 1,
             .need_rev = 1,
