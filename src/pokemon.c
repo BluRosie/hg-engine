@@ -1498,6 +1498,12 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_GENESECT_DOUSE,
     },
     {
+            .species = SPECIES_GRENINJA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GRENINJA_BATTLE_BOND,
+    },
+    {
             .species = SPECIES_VIVILLON,
             .form_no = 1,
             .need_rev = 0,
@@ -1864,6 +1870,54 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_POLTEAGEIST_ANTIQUE,
     },
     {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_RUBY_CREAM,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_MATCHA_CREAM,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_MINT_CREAM,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_LEMON_CREAM,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_SALTED_CREAM,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_RUBY_SWIRL,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_CARAMEL_SWIRL,
+    },
+    {
+            .species = SPECIES_ALCREMIE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALCREMIE_RAINBOW_SWIRL,
+    },
+    {
             .species = SPECIES_URSHIFU,
             .form_no = 1,
             .need_rev = 0,
@@ -1935,7 +1989,7 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_DARMANITAN,
             .form_no = 2,
             .need_rev = 1,
-            .file = SPECIES_GALARIAN_DARMANITAN_ZEN_MODE,
+            .file = SPECIES_DARMANITAN_ZEN_MODE_GALARIAN,
     },
     {
             .species = SPECIES_MELOETTA,
@@ -1945,7 +1999,7 @@ const struct FormData PokeFormDataTbl[]=
     },
     {
             .species = SPECIES_GRENINJA,
-            .form_no = 1,
+            .form_no = 2,
             .need_rev = 1,
             .file = SPECIES_GRENINJA_ASH,
     },
@@ -1971,7 +2025,7 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_ZYGARDE,
             .form_no = 2,
             .need_rev = 1,
-            .file = SPECIES_ZYGARDE_100,
+            .file = SPECIES_ZYGARDE_COMPLETE,
     },
     {
             .species = SPECIES_WISHIWASHI,
@@ -2368,6 +2422,8 @@ bool8 ReverFormChange(void *pp, u16 species, u8 form_no)
                 work = 1;
             else if(species == SPECIES_NECROZMA && form_no == 4)
                 work = 2;
+            else if(species == SPECIES_GRENINJA)
+                work = 1;
             SetMonData(pp,112,&work);
             return TRUE;
         }
