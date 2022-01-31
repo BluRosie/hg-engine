@@ -19031,7 +19031,7 @@ mondata SPECIES_DARMANITAN_ZEN_MODE
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
-mondata SPECIES_DARMANITAN_ZEN_MODE
+mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN
 	basestats 105, 160, 55, 135, 30, 55
 	types TYPE_ICE, TYPE_FIRE
     catchrate 60
@@ -20291,7 +20291,7 @@ mondata SPECIES_ZYGARDE_10
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
-mondata SPECIES_ZYGARDE_10
+mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT
 	basestats 54, 100, 71, 115, 61, 85
 	types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
@@ -20324,6 +20324,42 @@ mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_ZYGARDE_10_COMPLETE
+	basestats 216, 100, 121, 85, 91, 95
+	types TYPE_DRAGON, TYPE_GROUND
+    catchrate 3
+    baseexp 319
+    evyields 3, 0, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_BLACK, 1
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_ZYGARDE_50_COMPLETE
+	basestats 216, 100, 121, 85, 91, 95
+	types TYPE_DRAGON, TYPE_GROUND
+    catchrate 3
+    baseexp 319
+    evyields 3, 0, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_BLACK, 1
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
@@ -20756,6 +20792,42 @@ mondata SPECIES_NECROZMA_DAWN_WINGS
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 1
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE
+	basestats 97, 167, 97, 129, 167, 97
+	types TYPE_PSYCHIC, TYPE_DRAGON
+    catchrate 255
+    baseexp 339
+    evyields 0, 1, 0, 1, 1, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_NEUROFORCE, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_YELLOW, 1
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS
+	basestats 97, 167, 97, 129, 167, 97
+	types TYPE_PSYCHIC, TYPE_DRAGON
+    catchrate 255
+    baseexp 339
+    evyields 0, 1, 0, 1, 1, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_NEUROFORCE, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_YELLOW, 1
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
