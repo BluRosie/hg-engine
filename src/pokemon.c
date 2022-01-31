@@ -19,9 +19,9 @@ typedef struct
 
 struct FormData
 {
-    u16 species:11;
-    u16 form_no:4;
-    u16 need_rev:1;
+    u16 species;
+    u16 form_no;
+    u16 need_rev;
 
     u16 file;
 };
@@ -1077,27 +1077,1003 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 1,
         .file = SPECIES_MEGA_AUDINO,
     },
-    /*{
+    {
         .species = SPECIES_DIANCIE,
         .form_no = 1,
         .need_rev = 1,
         .file = SPECIES_MEGA_DIANCIE,
-    }*/
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    },
+
+    /**alolan forms**/
     {
-        .species = SPECIES_DARMANITAN,
-        .form_no = 1,
-        .need_rev = 0,
-        .file = SPECIES_DARMANITAN_ZEN_MODE,
+            .species = SPECIES_RATTATA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_RATTATA,
+    },
+    {
+            .species = SPECIES_RATICATE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_RATICATE,
+    },
+    {
+            .species = SPECIES_RAICHU,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_RAICHU,
+    },
+    {
+            .species = SPECIES_SANDSHREW,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_SANDSHREW,
+    },
+    {
+            .species = SPECIES_SANDSLASH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_SANDSLASH,
+    },
+    {
+            .species = SPECIES_VULPIX,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_VULPIX,
+    },
+    {
+            .species = SPECIES_NINETALES,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_NINETALES,
+    },
+    {
+            .species = SPECIES_DIGLETT,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_DIGLETT,
+    },
+    {
+            .species = SPECIES_DUGTRIO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_DUGTRIO,
+    },
+    {
+            .species = SPECIES_MEOWTH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_MEOWTH,
+    },
+    {
+            .species = SPECIES_PERSIAN,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_PERSIAN,
+    },
+    {
+            .species = SPECIES_GEODUDE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GEODUDE,
+    },
+    {
+            .species = SPECIES_GRAVELER,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GRAVELER,
+    },
+    {
+            .species = SPECIES_GOLEM,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GOLEM,
+    },
+    {
+            .species = SPECIES_GRIMER,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_GRIMER,
+    },
+    {
+            .species = SPECIES_MUK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_MUK,
+    },
+    {
+            .species = SPECIES_EXEGGUTOR,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_EXEGGUTOR,
+    },
+    {
+            .species = SPECIES_MAROWAK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ALOLAN_MAROWAK,
+    },
+
+    /**galarian forms**/
+    {
+            .species = SPECIES_MEOWTH,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_MEOWTH,
+    },
+    {
+            .species = SPECIES_PONYTA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_PONYTA,
+    },
+    {
+            .species = SPECIES_RAPIDASH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_RAPIDASH,
+    },
+    {
+            .species = SPECIES_SLOWPOKE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_SLOWPOKE,
+    },
+    {
+            .species = SPECIES_SLOWBRO,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_SLOWBRO,
+    },
+    {
+            .species = SPECIES_FARFETCHD,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_FARFETCHD,
+    },
+    {
+            .species = SPECIES_WEEZING,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_WEEZING,
+    },
+    {
+            .species = SPECIES_MR_MIME,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_MR_MIME,
+    },
+    {
+            .species = SPECIES_ARTICUNO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_ARTICUNO,
+    },
+    {
+            .species = SPECIES_ZAPDOS,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_ZAPDOS,
+    },
+    {
+            .species = SPECIES_MOLTRES,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_MOLTRES,
+    },
+    {
+            .species = SPECIES_SLOWKING,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_SLOWKING,
+    },
+    {
+            .species = SPECIES_CORSOLA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_CORSOLA,
+    },
+    {
+            .species = SPECIES_ZIGZAGOON,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_ZIGZAGOON,
+    },
+    {
+            .species = SPECIES_LINOONE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_LINOONE,
+    },
+    {
+            .species = SPECIES_DARUMAKA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_DARUMAKA,
+    },
+    {
+            .species = SPECIES_DARMANITAN,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_DARMANITAN,
+    },
+    {
+            .species = SPECIES_YAMASK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_YAMASK,
+    },
+    {
+            .species = SPECIES_STUNFISK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GALARIAN_STUNFISK,
+    },
+
+    /**cosmetic forms**/
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_COSPLAY,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_ROCK_STAR,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_BELLE,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_POP_STAR,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_PHD,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 6,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_LIBRE,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 7,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_ORIGINAL,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 8,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_HOENN,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 9,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_SINNOH,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 10,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_UNOVA,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 11,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_KALOS,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 12,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_ALOLA,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 13,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_PARTNER,
+    },
+    {
+            .species = SPECIES_PIKACHU,
+            .form_no = 14,
+            .need_rev = 0,
+            .file = SPECIES_PIKACHU_CAP_WORLD,
+    },
+    {
+            .species = SPECIES_BASCULIN,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_BASCULIN_BLUE_STRIPE,
+    },
+    {
+            .species = SPECIES_DEERLING,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_DEERLING_SUMMER,
+    },
+    {
+            .species = SPECIES_DEERLING,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_DEERLING_AUTUMN,
+    },
+    {
+            .species = SPECIES_DEERLING,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_DEERLING_WINTER,
+    },
+    {
+            .species = SPECIES_SAWSBUCK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_SAWSBUCK_SUMMER,
+    },
+    {
+            .species = SPECIES_SAWSBUCK,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_SAWSBUCK_AUTUMN,
+    },
+    {
+            .species = SPECIES_SAWSBUCK,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_SAWSBUCK_WINTER,
+    },
+    {
+            .species = SPECIES_TORNADUS,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_TORNADUS_THERIAN,
+    },
+    {
+            .species = SPECIES_THUNDURUS,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_THUNDURUS_THERIAN,
+    },
+    {
+            .species = SPECIES_LANDORUS,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_LANDORUS_THERIAN,
+    },
+    {
+            .species = SPECIES_KYUREM,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_WHITE_KYUREM,
+    },
+    {
+            .species = SPECIES_KYUREM,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_BLACK_KYUREM,
+    },
+    {
+            .species = SPECIES_KELDEO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_KELDEO_RESOLUTE,
+    },
+    {
+            .species = SPECIES_GENESECT,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GENESECT_SHOCK,
+    },
+    {
+            .species = SPECIES_GENESECT,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_GENESECT_BURN,
+    },
+    {
+            .species = SPECIES_GENESECT,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_GENESECT_CHILL,
+    },
+    {
+            .species = SPECIES_GENESECT,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_GENESECT_DOUSE,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_ARCHIPELAGO,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_CONTINENTAL,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_ELEGANT,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_GARDEN,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_HIGH_PLAINS,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 6,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_ICY_SNOW,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 7,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_JUNGLE,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 8,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_MARINE,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 9,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_MODERN,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 10,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_MONSOON,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 11,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_OCEAN,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 12,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_POLAR,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 13,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_RIVER,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 14,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_SANDSTORM,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 15,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_SAVANNA,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 16,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_SUN,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 17,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_TUNDRA,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 18,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_POKEBALL,
+    },
+    {
+            .species = SPECIES_VIVILLON,
+            .form_no = 19,
+            .need_rev = 0,
+            .file = SPECIES_VIVILLON_FANCY,
+    },
+    {
+            .species = SPECIES_FLABEBE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_FLABEBE_RED,
+    },
+    {
+            .species = SPECIES_FLABEBE,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_FLABEBE_YELLOW,
+    },
+    {
+            .species = SPECIES_FLABEBE,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_FLABEBE_ORANGE,
+    },
+    {
+            .species = SPECIES_FLABEBE,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_FLABEBE_BLUE,
+    },
+    {
+            .species = SPECIES_FLABEBE,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_FLABEBE_WHITE,
+    },
+    {
+            .species = SPECIES_FLOETTE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_FLOETTE_RED,
+    },
+    {
+            .species = SPECIES_FLOETTE,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_FLOETTE_YELLOW,
+    },
+    {
+            .species = SPECIES_FLOETTE,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_FLOETTE_ORANGE,
+    },
+    {
+            .species = SPECIES_FLOETTE,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_FLOETTE_BLUE,
+    },
+    {
+            .species = SPECIES_FLOETTE,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_FLOETTE_WHITE,
+    },
+    {
+            .species = SPECIES_FLOETTE,
+            .form_no = 6,
+            .need_rev = 0,
+            .file = SPECIES_FLOETTE_ETERNAL,
+    },
+    {
+            .species = SPECIES_FLORGES,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_FLORGES_RED,
+    },
+    {
+            .species = SPECIES_FLORGES,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_FLORGES_YELLOW,
+    },
+    {
+            .species = SPECIES_FLORGES,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_FLORGES_ORANGE,
+    },
+    {
+            .species = SPECIES_FLORGES,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_FLORGES_BLUE,
+    },
+    {
+            .species = SPECIES_FLORGES,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_FLORGES_WHITE,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_HEART,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_STAR,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_DIAMOND,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 4,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_DEBUTANTE,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 5,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_MATRON,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 6,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_DANDY,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 7,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_LA_REINE,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 8,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_KABUKI,
+    },
+    {
+            .species = SPECIES_FURFROU,
+            .form_no = 9,
+            .need_rev = 0,
+            .file = SPECIES_FURFROU_PHARAOH,
+    },
+    {
+            .species = SPECIES_PUMPKABOO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_PUMPKABOO_SMALL,
+    },
+    {
+            .species = SPECIES_PUMPKABOO,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_PUMPKABOO_LARGE,
+    },
+    {
+            .species = SPECIES_PUMPKABOO,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_PUMPKABOO_SUPER,
+    },
+    {
+            .species = SPECIES_GOURGEIST,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GOURGEIST_SMALL,
+    },
+    {
+            .species = SPECIES_GOURGEIST,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_GOURGEIST_LARGE,
+    },
+    {
+            .species = SPECIES_GOURGEIST,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_GOURGEIST_SUPER,
+    },
+    {
+            .species = SPECIES_HOOPA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_HOOPA_UNBOUND,
+    },
+    {
+            .species = SPECIES_ORICORIO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ORICORIO_POM_POM,
+    },
+    {
+            .species = SPECIES_ORICORIO,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_ORICORIO_PAU,
+    },
+    {
+            .species = SPECIES_ORICORIO,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_ORICORIO_SENSU,
+    },
+    {
+            .species = SPECIES_ROCKRUFF,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ROCKRUFF_DUSK,
+    },
+    {
+            .species = SPECIES_LYCANROC,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_LYCANROC_MIDNIGHT,
+    },
+    {
+            .species = SPECIES_LYCANROC,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_LYCANROC_DUSK,
+    },
+    {
+            .species = SPECIES_MAGEARNA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_MAGEARNA_ORIGINAL,
+    },
+    {
+            .species = SPECIES_TOXTRICITY,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_TOXTRICITY_LOW_KEY,
+    },
+    {
+            .species = SPECIES_SINISTEA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_SINISTEA_ANTIQUE,
+    },
+    {
+            .species = SPECIES_POLTEAGEIST,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_POLTEAGEIST_ANTIQUE,
+    },
+    {
+            .species = SPECIES_URSHIFU,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_URSHIFU_RAPID_STRIKE,
+    },
+    {
+            .species = SPECIES_ZARUDE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ZARUDE_DADA,
+    },
+    {
+            .species = SPECIES_CALYREX,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_CALYREX_ICE_RIDER,
+    },
+    {
+            .species = SPECIES_CALYREX,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_CALYREX_SHADOW_RIDER,
+    },
+
+    /**Battle Forms**/
+    {
+            .species = SPECIES_CASTFORM,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_CASTFORM_SUN,
+    },
+    {
+            .species = SPECIES_CASTFORM,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_CASTFORM_RAIN,
+    },
+    {
+            .species = SPECIES_CASTFORM,
+            .form_no = 3,
+            .need_rev = 1,
+            .file = SPECIES_CASTFORM_SNOW,
+    },
+    {
+            .species = SPECIES_CHERRIM,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_CHERRIM_SUNSHINE,
+    },
+    {
+            .species = SPECIES_SHELLOS,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_SHELLOS_EAST_SEA,
+    },
+    {
+            .species = SPECIES_GASTRODON,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_GASTRODON_EAST_SEA,
+    },
+    {
+            .species = SPECIES_DARMANITAN,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_DARMANITAN_ZEN_MODE,
+    },
+    {
+            .species = SPECIES_DARMANITAN,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_GALARIAN_DARMANITAN_ZEN_MODE,
+    },
+    {
+            .species = SPECIES_MELOETTA,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MELOETTA_PIROUETTE,
+    },
+    {
+            .species = SPECIES_GRENINJA,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_GRENINJA_ASH,
+    },
+    {
+            .species = SPECIES_AEGISLASH,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_AEGISLASH_BLADE,
+    },
+    {
+            .species = SPECIES_XERNEAS,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_XERNEAS_ACTIVE,
+    },
+    {
+            .species = SPECIES_WISHIWASHI,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_WISHIWASHI_SCHOOL,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_RED,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_ORANGE,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 3,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_YELLOW,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 4,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_GREEN,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 5,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_BLUE,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 6,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_INDIGO,
+    },
+    {
+            .species = SPECIES_MINIOR,
+            .form_no = 7,
+            .need_rev = 1,
+            .file = SPECIES_MINIOR_CORE_VIOLET,
+    },
+    {
+            .species = SPECIES_MIMIKYU,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MIMIKYU_BUSTED,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_NECROZMA_DUSK_MANE,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_NECROZMA_DAWN_WINGS,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 3,
+            .need_rev = 1,
+            .file = SPECIES_NECROZMA_ULTRA_DUSK_MANE,
+    },
+    {
+            .species = SPECIES_NECROZMA,
+            .form_no = 4,
+            .need_rev = 1,
+            .file = SPECIES_NECROZMA_ULTRA_DAWN_WINGS,
+    },
+    {
+            .species = SPECIES_CRAMORANT,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_CRAMORANT_GULPING,
+    },
+    {
+            .species = SPECIES_CRAMORANT,
+            .form_no = 2,
+            .need_rev = 1,
+            .file = SPECIES_CRAMORANT_GORGING,
+    },
+    {
+            .species = SPECIES_EISCUE,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_EISCUE_NOICE_FACE,
+    },
+    {
+            .species = SPECIES_MORPEKO,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_MORPEKO_HANGRY,
+    },
+    {
+            .species = SPECIES_ZACIAN,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_ZACIAN_CROWNED,
+    },
+    {
+            .species = SPECIES_ZAMAZENTA,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_ZAMAZENTA_CROWNED,
     },
 };
 
@@ -1374,6 +2350,12 @@ bool8 ReverFormChange(void *pp, u16 species, u8 form_no)
     {
         if (species == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no && PokeFormDataTbl[i].need_rev)
         {
+            if(species == SPECIES_DARMANITAN && form_no == 3)
+                work = 1;
+            else if(species == SPECIES_NECROZMA && form_no == 3)
+                work = 1;
+            else if(species == SPECIES_NECROZMA && form_no == 4)
+                work = 2;
             SetMonData(pp,112,&work);
             return TRUE;
         }

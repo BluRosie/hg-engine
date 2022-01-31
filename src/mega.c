@@ -204,10 +204,10 @@ const struct MegaStruct sMegaTable[] =
         .monindex = SPECIES_AUDINO, 
         .itemindex = ITEM_MEGA_STONE_AUDINO,
     },
-    /*{
+    {
         .monindex = SPECIES_DIANCIE, 
         .itemindex = ITEM_MEGA_STONE_DIANCIE,
-    },*/
+    },
 };
 
 static BOOL CheckMegaData(u16 mon, u16 item);
