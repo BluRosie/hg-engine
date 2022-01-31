@@ -3,8 +3,10 @@
 .macro levelup,species
 
 	.if species < 10
-		.create "build/a033/learnset_00" + tostring(species),0
+		.create "build/a033/learnset_000" + tostring(species),0
 	.elseif species < 100
+		.create "build/a033/learnset_00" + tostring(species),0
+	.elseif species < 1000
 		.create "build/a033/learnset_0" + tostring(species),0
 	.else
 		.create "build/a033/learnset_" + tostring(species),0
@@ -28,8 +30,10 @@
 .macro mondata,species
 
 	.if species < 10
-		.create "build/a002/mondata_00" + tostring(species),0
+		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
+		.create "build/a002/mondata_00" + tostring(species),0
+	.elseif species < 1000
 		.create "build/a002/mondata_0" + tostring(species),0
 	.else
 		.create "build/a002/mondata_" + tostring(species),0
@@ -114,8 +118,10 @@
 .macro evodata,species
 
 	.if species < 10
-		.create "build/a034/evodata_00" + tostring(species),0
+		.create "build/a034/evodata_000" + tostring(species),0
 	.elseif species < 100
+		.create "build/a034/evodata_00" + tostring(species),0
+	.elseif species < 1000
 		.create "build/a034/evodata_0" + tostring(species),0
 	.else
 		.create "build/a034/evodata_" + tostring(species),0
@@ -271,8 +277,10 @@
 
 .macro overworlddata,ownum,canenter,bouncespeed
 	.if ownum < 10
-		.create "build/a141/a141_00" + tostring(ownum),0
+		.create "build/a141/a141_000" + tostring(ownum),0
 	.elseif ownum < 100
+		.create "build/a141/a141_00" + tostring(ownum),0
+	.elseif ownum < 1000
 		.create "build/a141/a141_0" + tostring(ownum),0
 	.else
 		.create "build/a141/a141_" + tostring(ownum),0
