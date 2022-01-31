@@ -1074,7 +1074,7 @@
 //hisuians
 #define SPECIES_HISUIAN_REGIONAL_START (MAX_GALARIAN_REGIONAL_NUM + 1)
 
-#define MAX_HISUIAN_REGIONAL_NUM (SPECIES_HISUIAN_REGIONAL_START)
+#define MAX_HISUIAN_REGIONAL_NUM (MAX_GALARIAN_REGIONAL_NUM) // skip over it for the moment--come back to it
 
 
 //misc forms
