@@ -3156,4 +3156,759 @@ eggmoveentry SPECIES_LARVESTA
     eggmove MOVE_ZEN_HEADBUTT
 
 
+eggmoveentry SPECIES_CHESPIN
+	eggmove MOVE_SYNTHESIS
+	eggmove MOVE_BELLY_DRUM
+	eggmove MOVE_CURSE
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_SPIKES
+	eggmove MOVE_DEFENSE_CURL
+	eggmove MOVE_ROLLOUT
+
+eggmoveentry SPECIES_FENNEKIN
+	eggmove MOVE_WISH
+	eggmove MOVE_HYPNOSIS
+	eggmove MOVE_HEAT_WAVE
+	eggmove MOVE_MAGIC_COAT
+
+eggmoveentry SPECIES_FROAKIE
+	eggmove MOVE_BESTOW
+	eggmove MOVE_MIND_READER
+	eggmove MOVE_TOXIC_SPIKES
+	eggmove MOVE_MUD_SPORT
+	eggmove MOVE_CAMOUFLAGE
+	eggmove MOVE_WATER_SPORT
+
+eggmoveentry SPECIES_BUNNELBY
+	eggmove MOVE_SPIKES
+	eggmove MOVE_DEFENSE_CURL
+	eggmove MOVE_ROLLOUT
+
+eggmoveentry SPECIES_FLETCHLING
+	eggmove MOVE_TAILWIND
+	eggmove MOVE_SNATCH
+	eggmove MOVE_QUICK_GUARD
+
+eggmoveentry SPECIES_SCATTERBUG
+	eggmove MOVE_STUN_SPORE
+	eggmove MOVE_POISON_POWDER
+	eggmove MOVE_RAGE_POWDER
+
+eggmoveentry SPECIES_LITLEO
+	eggmove MOVE_ENTRAINMENT
+	eggmove MOVE_YAWN
+	eggmove MOVE_SNATCH
+	eggmove MOVE_FIRE_SPIN
+	eggmove MOVE_FLARE_BLITZ
+
+eggmoveentry SPECIES_FLABEBE
+	eggmove MOVE_COPYCAT
+	eggmove MOVE_CAPTIVATE
+	eggmove MOVE_CAMOUFLAGE
+
+eggmoveentry SPECIES_SKIDDO
+	eggmove MOVE_DEFENSE_CURL
+	eggmove MOVE_ROLLOUT
+	eggmove MOVE_MILK_DRINK
+
+eggmoveentry SPECIES_PANCHAM
+	eggmove MOVE_QUASH
+	eggmove MOVE_ME_FIRST
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_FOUL_PLAY
+	eggmove MOVE_STORM_THROW
+
+eggmoveentry SPECIES_FURFROU
+	eggmove MOVE_ROLE_PLAY
+	eggmove MOVE_WORK_UP
+	eggmove MOVE_MIMIC
+	eggmove MOVE_CAPTIVATE
+	eggmove MOVE_REFRESH
+
+eggmoveentry SPECIES_ESPURR
+	eggmove MOVE_TRICK
+	eggmove MOVE_YAWN
+	eggmove MOVE_ASSIST
+	eggmove MOVE_BARRIER
+
+eggmoveentry SPECIES_HONEDGE
+	eggmove MOVE_METAL_SOUND
+	eggmove MOVE_SHADOW_SNEAK
+	eggmove MOVE_DESTINY_BOND
+	eggmove MOVE_WIDE_GUARD
+
+eggmoveentry SPECIES_SPRITZEE
+	eggmove MOVE_DISABLE
+	eggmove MOVE_WISH
+	eggmove MOVE_CAPTIVATE
+	eggmove MOVE_REFRESH
+	eggmove MOVE_NASTY_PLOT
+
+eggmoveentry SPECIES_SWIRLIX
+	eggmove MOVE_AFTER_YOU
+	eggmove MOVE_YAWN
+	eggmove MOVE_BELLY_DRUM
+	eggmove MOVE_COPYCAT
+
+eggmoveentry SPECIES_INKAY
+	eggmove MOVE_SIMPLE_BEAM
+	eggmove MOVE_POWER_SPLIT
+	eggmove MOVE_CAMOUFLAGE
+	eggmove MOVE_FLATTER
+	eggmove MOVE_DESTINY_BOND
+	eggmove MOVE_GUARD_SWAP
+
+eggmoveentry SPECIES_BINACLE
+	eggmove MOVE_TICKLE
+	eggmove MOVE_SWITCHEROO
+	eggmove MOVE_HELPING_HAND
+	eggmove MOVE_WATER_SPORT
+
+eggmoveentry SPECIES_SKRELP
+	eggmove MOVE_TOXIC_SPIKES
+	eggmove MOVE_HAZE
+	eggmove MOVE_ACID_ARMOR
+
+eggmoveentry SPECIES_CLAUNCHER
+	eggmove MOVE_AQUA_JET
+	eggmove MOVE_ENTRAINMENT
+	eggmove MOVE_ENDURE
+	eggmove MOVE_CRABHAMMER
+	eggmove MOVE_HELPING_HAND
+
+eggmoveentry SPECIES_HELIOPTILE
+	eggmove MOVE_AGILITY
+	eggmove MOVE_GLARE
+	eggmove MOVE_CAMOUFLAGE
+
+eggmoveentry SPECIES_TYRUNT
+	eggmove MOVE_DRAGON_DANCE
+	eggmove MOVE_THUNDER_FANG
+	eggmove MOVE_ICE_FANG
+	eggmove MOVE_POISON_FANG
+	eggmove MOVE_ROCK_POLISH
+	eggmove MOVE_FIRE_FANG
+	eggmove MOVE_CURSE
+
+eggmoveentry SPECIES_AMAURA
+	eggmove MOVE_HAZE
+	eggmove MOVE_BARRIER
+	eggmove MOVE_MIRROR_COAT
+	eggmove MOVE_MAGNET_RISE
+	eggmove MOVE_DISCHARGE
+
+eggmoveentry SPECIES_HAWLUCHA
+	eggmove MOVE_AGILITY
+	eggmove MOVE_ME_FIRST
+	eggmove MOVE_ALLY_SWITCH
+	eggmove MOVE_ENTRAINMENT
+	eggmove MOVE_MUD_SPORT
+	eggmove MOVE_BATON_PASS
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_FEINT
+
+eggmoveentry SPECIES_DEDENNE
+	eggmove MOVE_COVET
+	eggmove MOVE_HELPING_HAND
+	eggmove MOVE_NATURAL_GIFT
+
+eggmoveentry SPECIES_GOOMY
+	eggmove MOVE_ACID_ARMOR
+	eggmove MOVE_CURSE
+	eggmove MOVE_IRON_TAIL
+	eggmove MOVE_POISON_TAIL
+	eggmove MOVE_COUNTER
+	eggmove MOVE_ENDURE
+
+eggmoveentry SPECIES_KLEFKI
+	eggmove MOVE_SWITCHEROO
+	eggmove MOVE_THIEF
+	eggmove MOVE_LOCK_ON
+	eggmove MOVE_IRON_DEFENSE
+
+eggmoveentry SPECIES_PHANTUMP
+	eggmove MOVE_GRUDGE
+	eggmove MOVE_BESTOW
+	eggmove MOVE_IMPRISON
+
+eggmoveentry SPECIES_PUMPKABOO
+	eggmove MOVE_DISABLE
+	eggmove MOVE_BESTOW
+	eggmove MOVE_DESTINY_BOND
+	eggmove MOVE_CURSE
+
+eggmoveentry SPECIES_BERGMITE
+	eggmove MOVE_RECOVER
+	eggmove MOVE_MIST
+	eggmove MOVE_BARRIER
+	eggmove MOVE_MIRROR_COAT
+
+eggmoveentry SPECIES_NOIBAT
+	eggmove MOVE_SWITCHEROO
+	eggmove MOVE_SNATCH
+	eggmove MOVE_OUTRAGE
+	eggmove MOVE_TAILWIND
+
+eggmoveentry SPECIES_ROWLET
+	eggmove MOVE_CURSE
+	eggmove MOVE_CONFUSE_RAY
+	eggmove MOVE_OMINOUS_WIND
+	eggmove MOVE_HAZE
+	eggmove MOVE_BATON_PASS
+	eggmove MOVE_DEFOG
+
+eggmoveentry SPECIES_LITTEN
+	eggmove MOVE_NASTY_PLOT
+	eggmove MOVE_BODY_SLAM
+	eggmove MOVE_CRUNCH
+	eggmove MOVE_FAKE_OUT
+	eggmove MOVE_REVENGE
+	eggmove MOVE_HEAT_WAVE
+
+eggmoveentry SPECIES_POPPLIO
+	eggmove MOVE_CHARM
+	eggmove MOVE_AMNESIA
+	eggmove MOVE_AQUA_RING
+	eggmove MOVE_PERISH_SONG
+	eggmove MOVE_WONDER_ROOM
+
+eggmoveentry SPECIES_PIKIPEK
+	eggmove MOVE_BRAVE_BIRD
+	eggmove MOVE_MIRROR_MOVE
+	eggmove MOVE_TAILWIND
+	eggmove MOVE_UPROAR
+
+eggmoveentry SPECIES_YUNGOOS
+	eggmove MOVE_REVENGE
+	eggmove MOVE_LAST_RESORT
+	eggmove MOVE_FIRE_FANG
+	eggmove MOVE_ICE_FANG
+	eggmove MOVE_THUNDER_FANG
+
+eggmoveentry SPECIES_GRUBBIN
+	eggmove MOVE_HARDEN
+	eggmove MOVE_ELECTROWEB
+	eggmove MOVE_MUD_SHOT
+	eggmove MOVE_ENDURE
+
+eggmoveentry SPECIES_CRABRAWLER
+	eggmove MOVE_WIDE_GUARD
+	eggmove MOVE_SUPERPOWER
+	eggmove MOVE_ENDEAVOR
+	eggmove MOVE_AMNESIA
+
+eggmoveentry SPECIES_ORICORIO
+	eggmove MOVE_PLUCK
+	eggmove MOVE_TAILWIND
+	eggmove MOVE_SAFEGUARD
+	eggmove MOVE_CAPTIVATE
+
+eggmoveentry SPECIES_CUTIEFLY
+	eggmove MOVE_BATON_PASS
+	eggmove MOVE_SKILL_SWAP
+	eggmove MOVE_BESTOW
+
+eggmoveentry SPECIES_ROCKRUFF
+	eggmove MOVE_CRUSH_CLAW
+	eggmove MOVE_FIRE_FANG
+	eggmove MOVE_THUNDER_FANG
+	eggmove MOVE_SUCKER_PUNCH
+	eggmove MOVE_THRASH
+
+eggmoveentry SPECIES_WISHIWASHI
+	eggmove MOVE_MUDDY_WATER
+	eggmove MOVE_MIST
+	eggmove MOVE_WATER_PULSE
+	eggmove MOVE_WATER_SPORT
+	eggmove MOVE_WHIRLPOOL
+
+eggmoveentry SPECIES_MAREANIE
+	eggmove MOVE_STOCKPILE
+	eggmove MOVE_SWALLOW
+	eggmove MOVE_SPIT_UP
+	eggmove MOVE_HAZE
+
+eggmoveentry SPECIES_MUDBRAY
+	eggmove MOVE_BODY_SLAM
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_MAGNITUDE
+	eggmove MOVE_CLOSE_COMBAT
+	eggmove MOVE_MUD_BOMB
+
+eggmoveentry SPECIES_DEWPIDER
+	eggmove MOVE_POWER_SPLIT
+	eggmove MOVE_AURORA_BEAM
+	eggmove MOVE_STOCKPILE
+	eggmove MOVE_SPIT_UP
+
+eggmoveentry SPECIES_FOMANTIS
+	eggmove MOVE_WEATHER_BALL
+	eggmove MOVE_GIGA_DRAIN
+	eggmove MOVE_AROMATHERAPY
+	eggmove MOVE_DEFOG
+	eggmove MOVE_LEAF_STORM
+
+eggmoveentry SPECIES_MORELULL
+	eggmove MOVE_AMNESIA
+	eggmove MOVE_POISON_POWDER
+	eggmove MOVE_STUN_SPORE
+	eggmove MOVE_GROWTH
+	eggmove MOVE_LEECH_SEED
+
+eggmoveentry SPECIES_SALANDIT
+	eggmove MOVE_KNOCK_OFF
+	eggmove MOVE_SAND_ATTACK
+	eggmove MOVE_SNATCH
+	eggmove MOVE_FAKE_OUT
+
+eggmoveentry SPECIES_STUFFUL
+	eggmove MOVE_ICE_PUNCH
+	eggmove MOVE_THUNDER_PUNCH
+	eggmove MOVE_FORCE_PALM
+	eggmove MOVE_ENDURE
+	eggmove MOVE_WIDE_GUARD
+	eggmove MOVE_MEGA_KICK
+
+eggmoveentry SPECIES_BOUNSWEET
+	eggmove MOVE_GRASS_WHISTLE
+	eggmove MOVE_SYNTHESIS
+	eggmove MOVE_FEINT
+	eggmove MOVE_CHARM
+	eggmove MOVE_ACUPRESSURE
+
+eggmoveentry SPECIES_COMFEY
+	eggmove MOVE_ENDURE
+	eggmove MOVE_AMNESIA
+	eggmove MOVE_AFTER_YOU
+	eggmove MOVE_LUCKY_CHANT
+
+eggmoveentry SPECIES_ORANGURU
+	eggmove MOVE_EXTRASENSORY
+	eggmove MOVE_WONDER_ROOM
+
+eggmoveentry SPECIES_PASSIMIAN
+	eggmove MOVE_SEISMIC_TOSS
+	eggmove MOVE_VITAL_THROW
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_IRON_HEAD
+	eggmove MOVE_QUICK_ATTACK
+	eggmove MOVE_FEINT
+
+eggmoveentry SPECIES_WIMPOD
+	eggmove MOVE_SPIKES
+	eggmove MOVE_METAL_CLAW
+	eggmove MOVE_WIDE_GUARD
+	eggmove MOVE_HARDEN
+	eggmove MOVE_AQUA_JET
+
+eggmoveentry SPECIES_SANDYGAST
+	eggmove MOVE_AMNESIA
+	eggmove MOVE_DESTINY_BOND
+	eggmove MOVE_ANCIENT_POWER
+	eggmove MOVE_STOCKPILE
+	eggmove MOVE_SWALLOW
+	eggmove MOVE_SPIT_UP
+	eggmove MOVE_CURSE
+
+eggmoveentry SPECIES_PYUKUMUKU
+	eggmove MOVE_ENDURE
+	eggmove MOVE_BESTOW
+	eggmove MOVE_TICKLE
+	eggmove MOVE_SPITE
+
+eggmoveentry SPECIES_KOMALA
+	eggmove MOVE_CHARM
+	eggmove MOVE_WISH
+	eggmove MOVE_SING
+
+eggmoveentry SPECIES_TURTONATOR
+	eggmove MOVE_WIDE_GUARD
+	eggmove MOVE_REVENGE
+	eggmove MOVE_HEAD_SMASH
+	eggmove MOVE_FIRE_SPIN
+
+eggmoveentry SPECIES_TOGEDEMARU
+	eggmove MOVE_REVERSAL
+	eggmove MOVE_PRESENT
+	eggmove MOVE_ENCORE
+	eggmove MOVE_TWINEEDLE
+	eggmove MOVE_WISH
+	eggmove MOVE_FAKE_OUT
+	eggmove MOVE_TICKLE
+	eggmove MOVE_FLAIL
+
+eggmoveentry SPECIES_MIMIKYU
+	eggmove MOVE_GRUDGE
+	eggmove MOVE_DESTINY_BOND
+	eggmove MOVE_CURSE
+	eggmove MOVE_NIGHTMARE
+
+eggmoveentry SPECIES_BRUXISH
+	eggmove MOVE_WATER_PULSE
+	eggmove MOVE_POISON_FANG
+	eggmove MOVE_ICE_FANG
+	eggmove MOVE_RAGE
+
+eggmoveentry SPECIES_DRAMPA
+	eggmove MOVE_HURRICANE
+	eggmove MOVE_DRAGON_RUSH
+	eggmove MOVE_RAZOR_WIND
+	eggmove MOVE_MIST
+
+eggmoveentry SPECIES_JANGMO_O
+	eggmove MOVE_COUNTER
+	eggmove MOVE_REVERSAL
+	eggmove MOVE_DRAGON_BREATH
+
+eggmoveentry SPECIES_GROOKEY
+	eggmove MOVE_GROWTH
+	eggmove MOVE_HAMMER_ARM
+	eggmove MOVE_FAKE_OUT
+	eggmove MOVE_STRENGTH
+	eggmove MOVE_NATURE_POWER
+	eggmove MOVE_WORRY_SEED
+	eggmove MOVE_LEECH_SEED
+
+eggmoveentry SPECIES_SCORBUNNY
+	eggmove MOVE_HI_JUMP_KICK
+	eggmove MOVE_SAND_ATTACK
+	eggmove MOVE_SUCKER_PUNCH
+	eggmove MOVE_SUPER_FANG
+
+eggmoveentry SPECIES_SOBBLE
+	eggmove MOVE_AQUA_JET
+	eggmove MOVE_DOUBLE_TEAM
+	eggmove MOVE_AQUA_RING
+	eggmove MOVE_MIST
+	eggmove MOVE_HAZE
+	eggmove MOVE_ICE_SHARD
+
+eggmoveentry SPECIES_SKWOVET
+	eggmove MOVE_ROLLOUT
+	eggmove MOVE_DEFENSE_CURL
+	eggmove MOVE_LAST_RESORT
+	eggmove MOVE_BELLY_DRUM
+
+eggmoveentry SPECIES_ROOKIDEE
+	eggmove MOVE_SKY_ATTACK
+	eggmove MOVE_SAND_ATTACK
+	eggmove MOVE_TAILWIND
+	eggmove MOVE_DEFOG
+	eggmove MOVE_ROCK_SMASH
+	eggmove MOVE_SPITE
+	eggmove MOVE_ROOST
+
+eggmoveentry SPECIES_BLIPBUG
+	eggmove MOVE_SUPERSONIC
+	eggmove MOVE_RECOVER
+
+eggmoveentry SPECIES_NICKIT
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_KNOCK_OFF
+	eggmove MOVE_HOWL
+	eggmove MOVE_TORMENT
+
+eggmoveentry SPECIES_GOSSIFLEUR
+	eggmove MOVE_GROWTH
+	eggmove MOVE_LEECH_SEED
+	eggmove MOVE_WORRY_SEED
+	eggmove MOVE_POISON_POWDER
+	eggmove MOVE_STUN_SPORE
+	eggmove MOVE_SLEEP_POWDER
+
+eggmoveentry SPECIES_WOOLOO
+	eggmove MOVE_STOMP
+	eggmove MOVE_SWAGGER
+	eggmove MOVE_COUNTER
+
+eggmoveentry SPECIES_CHEWTLE
+	eggmove MOVE_SKULL_BASH
+	eggmove MOVE_GASTRO_ACID
+	eggmove MOVE_DRAGON_TAIL
+
+eggmoveentry SPECIES_YAMPER
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_SAND_ATTACK
+	eggmove MOVE_FLAME_CHARGE
+	eggmove MOVE_DISCHARGE
+	eggmove MOVE_HOWL
+
+eggmoveentry SPECIES_ROLYCOLY
+	eggmove MOVE_EXPLOSION
+	eggmove MOVE_MUD_SLAP
+	eggmove MOVE_BLOCK
+
+eggmoveentry SPECIES_APPLIN
+	eggmove MOVE_SUCKER_PUNCH
+	eggmove MOVE_ROLLOUT
+	eggmove MOVE_DEFENSE_CURL
+	eggmove MOVE_RECYCLE
+
+eggmoveentry SPECIES_SILICOBRA
+	eggmove MOVE_DRAGON_RUSH
+	eggmove MOVE_MUD_SLAP
+	eggmove MOVE_LAST_RESORT
+	eggmove MOVE_POISON_TAIL
+
+eggmoveentry SPECIES_CRAMORANT
+	eggmove MOVE_DEFOG
+	eggmove MOVE_AERIAL_ACE
+	eggmove MOVE_FEATHER_DANCE
+	eggmove MOVE_AQUA_RING
+	eggmove MOVE_ROOST
+
+eggmoveentry SPECIES_ARROKUDA
+	eggmove MOVE_THRASH
+	eggmove MOVE_ACUPRESSURE
+	eggmove MOVE_SLASH
+	eggmove MOVE_NIGHT_SLASH
+
+eggmoveentry SPECIES_TOXEL
+	eggmove MOVE_ENDEAVOR
+	eggmove MOVE_METAL_SOUND
+
+eggmoveentry SPECIES_SIZZLIPEDE
+	eggmove MOVE_KNOCK_OFF
+	eggmove MOVE_STRUGGLE_BUG
+	eggmove MOVE_ROLLOUT
+	eggmove MOVE_DEFENSE_CURL
+
+eggmoveentry SPECIES_CLOBBOPUS
+	eggmove MOVE_PAIN_SPLIT
+	eggmove MOVE_SOAK
+	eggmove MOVE_SUCKER_PUNCH
+	eggmove MOVE_CIRCLE_THROW
+	eggmove MOVE_SEISMIC_TOSS
+
+eggmoveentry SPECIES_HATENNA
+	eggmove MOVE_AFTER_YOU
+	eggmove MOVE_QUASH
+
+eggmoveentry SPECIES_MILCERY
+	eggmove MOVE_LAST_RESORT
+
+eggmoveentry SPECIES_PINCURCHIN
+	eggmove MOVE_MEMENTO
+	eggmove MOVE_SUCKER_PUNCH
+
+eggmoveentry SPECIES_SNOM
+	eggmove MOVE_MIRROR_COAT
+	eggmove MOVE_BUG_BITE
+
+eggmoveentry SPECIES_STONJOURNER
+	eggmove MOVE_CURSE
+	eggmove MOVE_ANCIENT_POWER
+
+eggmoveentry SPECIES_EISCUE
+	eggmove MOVE_SOAK
+	eggmove MOVE_AQUA_RING
+	eggmove MOVE_BELLY_DRUM
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_ICICLE_CRASH
+	eggmove MOVE_HEAD_SMASH
+
+eggmoveentry SPECIES_INDEEDEE
+	eggmove MOVE_PSYCH_UP
+	eggmove MOVE_FAKE_OUT
+	eggmove MOVE_EXTRASENSORY
+
+eggmoveentry SPECIES_MORPEKO
+	eggmove MOVE_SWAGGER
+	eggmove MOVE_SUPER_FANG
+	eggmove MOVE_CHARGE
+	eggmove MOVE_TICKLE
+	eggmove MOVE_RAPID_SPIN
+	eggmove MOVE_QUASH
+	eggmove MOVE_FAKE_OUT
+
+eggmoveentry SPECIES_CUFANT
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_CURSE
+	eggmove MOVE_SLAM
+	eggmove MOVE_FISSURE
+	eggmove MOVE_SWAGGER
+	eggmove MOVE_WHIRLWIND
+	eggmove MOVE_DEFENSE_CURL
+
+eggmoveentry SPECIES_DURALUDON
+	eggmove MOVE_SLASH
+	eggmove MOVE_NIGHT_SLASH
+	eggmove MOVE_MIRROR_COAT
+
+eggmoveentry SPECIES_DREEPY
+	eggmove MOVE_CURSE
+	eggmove MOVE_GRUDGE
+	eggmove MOVE_CONFUSE_RAY
+	eggmove MOVE_DOUBLE_TEAM
+	eggmove MOVE_DISABLE
+	eggmove MOVE_DRAGON_TAIL
+	eggmove MOVE_SUCKER_PUNCH
+
+eggmoveentry SPECIES_RATTATA_ALOLAN
+	eggmove MOVE_COUNTER
+	eggmove MOVE_FINAL_GAMBIT
+	eggmove MOVE_FURY_SWIPES
+	eggmove MOVE_ME_FIRST
+	eggmove MOVE_REVENGE
+	eggmove MOVE_REVERSAL
+	eggmove MOVE_SNATCH
+	eggmove MOVE_STOCKPILE
+	eggmove MOVE_SWALLOW
+	eggmove MOVE_SWITCHEROO
+	eggmove MOVE_UPROAR
+
+eggmoveentry SPECIES_SANDSHREW_ALOLAN
+	eggmove MOVE_AMNESIA
+	eggmove MOVE_CHIP_AWAY
+	eggmove MOVE_COUNTER
+	eggmove MOVE_CRUSH_CLAW
+	eggmove MOVE_CURSE
+	eggmove MOVE_ENDURE
+	eggmove MOVE_FLAIL
+	eggmove MOVE_HONE_CLAWS
+	eggmove MOVE_ICICLE_CRASH
+	eggmove MOVE_ICICLE_SPEAR
+	eggmove MOVE_METAL_CLAW
+	eggmove MOVE_NIGHT_SLASH
+
+eggmoveentry SPECIES_VULPIX_ALOLAN
+	eggmove MOVE_AGILITY
+	eggmove MOVE_CHARM
+	eggmove MOVE_DISABLE
+	eggmove MOVE_ENCORE
+	eggmove MOVE_EXTRASENSORY
+	eggmove MOVE_FLAIL
+	eggmove MOVE_HOWL
+	eggmove MOVE_HYPNOSIS
+	eggmove MOVE_POWER_SWAP
+	eggmove MOVE_SPITE
+	eggmove MOVE_SECRET_POWER
+	eggmove MOVE_TAIL_SLAP
+
+eggmoveentry SPECIES_DIGLETT_ALOLAN
+	eggmove MOVE_ANCIENT_POWER
+	eggmove MOVE_BEAT_UP
+	eggmove MOVE_ENDURE
+	eggmove MOVE_FAINT_ATTACK
+	eggmove MOVE_FINAL_GAMBIT
+	eggmove MOVE_HEADBUTT
+	eggmove MOVE_MEMENTO
+	eggmove MOVE_METAL_SOUND
+	eggmove MOVE_PURSUIT
+	eggmove MOVE_REVERSAL
+	eggmove MOVE_THRASH
+
+eggmoveentry SPECIES_MEOWTH_ALOLAN
+	eggmove MOVE_AMNESIA
+	eggmove MOVE_ASSIST
+	eggmove MOVE_CHARM
+	eggmove MOVE_COVET
+	eggmove MOVE_FLAIL
+	eggmove MOVE_FLATTER
+	eggmove MOVE_FOUL_PLAY
+	eggmove MOVE_HYPNOSIS
+	eggmove MOVE_PUNISHMENT
+	eggmove MOVE_SNATCH
+	eggmove MOVE_SPITE
+
+eggmoveentry SPECIES_GEODUDE_ALOLAN
+	eggmove MOVE_AUTOTOMIZE
+	eggmove MOVE_BLOCK
+	eggmove MOVE_COUNTER
+	eggmove MOVE_CURSE
+	eggmove MOVE_ENDURE
+	eggmove MOVE_FLAIL
+	eggmove MOVE_MAGNET_RISE
+	eggmove MOVE_ROCK_CLIMB
+	eggmove MOVE_SCREECH
+	eggmove MOVE_WIDE_GUARD
+
+eggmoveentry SPECIES_GRIMER_ALOLAN
+	eggmove MOVE_ASSURANCE
+	eggmove MOVE_CLEAR_SMOG
+	eggmove MOVE_CURSE
+	eggmove MOVE_IMPRISON
+	eggmove MOVE_MEAN_LOOK
+	eggmove MOVE_PURSUIT
+	eggmove MOVE_SCARY_FACE
+	eggmove MOVE_SHADOW_SNEAK
+	eggmove MOVE_SPITE
+	eggmove MOVE_SPIT_UP
+	eggmove MOVE_STOCKPILE
+	eggmove MOVE_SWALLOW
+
+eggmoveentry SPECIES_MEOWTH_GALARIAN
+	eggmove MOVE_SPITE
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_CURSE
+	eggmove MOVE_FLAIL
+	eggmove MOVE_NIGHT_SLASH
+	eggmove MOVE_COVET
+
+eggmoveentry SPECIES_PONYTA_GALARIAN
+	eggmove MOVE_THRASH
+	eggmove MOVE_DOUBLE_KICK
+	eggmove MOVE_HYPNOSIS
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_HORN_DRILL
+	eggmove MOVE_MORNING_SUN
+
+eggmoveentry SPECIES_SLOWPOKE_GALARIAN
+	eggmove MOVE_BELLY_DRUM
+	eggmove MOVE_BLOCK
+	eggmove MOVE_STOMP
+
+eggmoveentry SPECIES_FARFETCHD_GALARIAN
+	eggmove MOVE_COUNTER
+	eggmove MOVE_QUICK_ATTACK
+	eggmove MOVE_FLAIL
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_CURSE
+	eggmove MOVE_COVET
+	eggmove MOVE_NIGHT_SLASH
+	eggmove MOVE_SIMPLE_BEAM
+	eggmove MOVE_DOUBLE_EDGE
+	eggmove MOVE_FEINT
+	eggmove MOVE_SKY_ATTACK
+
+eggmoveentry SPECIES_MR_MIME_GALARIAN
+	eggmove MOVE_FAKE_OUT
+	eggmove MOVE_CONFUSE_RAY
+	eggmove MOVE_POWER_SPLIT
+	eggmove MOVE_TICKLE
+
+eggmoveentry SPECIES_CORSOLA_GALARIAN
+	eggmove MOVE_HAZE
+	eggmove MOVE_CONFUSE_RAY
+	eggmove MOVE_NATURE_POWER
+	eggmove MOVE_DESTINY_BOND
+	eggmove MOVE_WATER_PULSE
+	eggmove MOVE_HEAD_SMASH
+
+eggmoveentry SPECIES_ZIGZAGOON_GALARIAN
+	eggmove MOVE_QUICK_GUARD
+	eggmove MOVE_KNOCK_OFF
+
+eggmoveentry SPECIES_DARUMAKA_GALARIAN
+	eggmove MOVE_FOCUS_PUNCH
+	eggmove MOVE_HAMMER_ARM
+	eggmove MOVE_TAKE_DOWN
+	eggmove MOVE_FLAME_WHEEL
+	eggmove MOVE_YAWN
+	eggmove MOVE_INCINERATE
+
+eggmoveentry SPECIES_YAMASK_GALARIAN
+	eggmove MOVE_MEMENTO
+
+eggmoveentry SPECIES_STUNFISK_GALARIAN
+	eggmove MOVE_BIND
+	eggmove MOVE_YAWN
+	eggmove MOVE_ASTONISH
+	eggmove MOVE_CURSE
+	eggmove MOVE_SPITE
+	eggmove MOVE_COUNTER
+	eggmove MOVE_PAIN_SPLIT
+	eggmove MOVE_REFLECT_TYPE
+
+
 terminateeggmoves

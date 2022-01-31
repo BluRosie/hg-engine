@@ -1,0 +1,2 @@
+#for file in data/graphics/icongfx/*; do cp -r data/graphics/icongfx/$(basename "$file") data/graphics/icongfx/0$(basename "$file"); rm -r data/graphics/icongfx/$(basename "$file"); done
+for i in {949..999}; do rm -r data/graphics/sprites/0$i; cp -r data/graphics/sprites/0$(($i - 249)) data/graphics/sprites/0$i; cp -r data/graphics/sprites/0001/* data/graphics/sprites/0$(($i - 249)); done

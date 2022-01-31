@@ -53,7 +53,7 @@ namespace PlatinumSpriteEditor
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/00.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D4") + "/00.png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -72,7 +72,7 @@ namespace PlatinumSpriteEditor
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/01.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D4") + "/01.png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -91,7 +91,7 @@ namespace PlatinumSpriteEditor
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/02.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D4") + "/02.png");
 				}
 				catch (OutOfMemoryException)
 				{
@@ -110,7 +110,7 @@ namespace PlatinumSpriteEditor
 
 				try
 				{
-					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D3") + "/03.png");
+					png = (Bitmap)Image.FromFile(args[0] + "/" + i.ToString("D4") + "/03.png");
 				}
 				catch (OutOfMemoryException)
 				{
