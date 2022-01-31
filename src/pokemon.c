@@ -1399,7 +1399,7 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_BASCULIN,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_BASCULIN_BLUE_STRIPE,
+            .file = SPECIES_BASCULIN_BLUE_STRIPED,
     },
     {
             .species = SPECIES_DEERLING,
@@ -1477,25 +1477,25 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_GENESECT,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_GENESECT_SHOCK,
+            .file = SPECIES_GENESECT_DOUSE_DRIVE,
     },
     {
             .species = SPECIES_GENESECT,
             .form_no = 2,
             .need_rev = 0,
-            .file = SPECIES_GENESECT_BURN,
+            .file = SPECIES_GENESECT_SHOCK_DRIVE,
     },
     {
             .species = SPECIES_GENESECT,
             .form_no = 3,
             .need_rev = 0,
-            .file = SPECIES_GENESECT_CHILL,
+            .file = SPECIES_GENESECT_BURN_DRIVE,
     },
     {
             .species = SPECIES_GENESECT,
             .form_no = 4,
             .need_rev = 0,
-            .file = SPECIES_GENESECT_DOUSE,
+            .file = SPECIES_GENESECT_CHILL_DRIVE,
     },
     {
             .species = SPECIES_GRENINJA,
@@ -1507,19 +1507,19 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_VIVILLON,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_ARCHIPELAGO,
+            .file = SPECIES_VIVILLON_POLAR,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 2,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_CONTINENTAL,
+            .file = SPECIES_VIVILLON_TUNDRA,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 3,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_ELEGANT,
+            .file = SPECIES_VIVILLON_CONTINENTAL,
     },
     {
             .species = SPECIES_VIVILLON,
@@ -1531,19 +1531,19 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_VIVILLON,
             .form_no = 5,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_HIGH_PLAINS,
+            .file = SPECIES_VIVILLON_ELEGANT,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 6,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_ICY_SNOW,
+            .file = SPECIES_VIVILLON_MEADOW,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 7,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_JUNGLE,
+            .file = SPECIES_VIVILLON_MODERN,
     },
     {
             .species = SPECIES_VIVILLON,
@@ -1555,163 +1555,145 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_VIVILLON,
             .form_no = 9,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_MODERN,
+            .file = SPECIES_VIVILLON_ARCHIPELAGO,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 10,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_MONSOON,
+            .file = SPECIES_VIVILLON_HIGH_PLAINS,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 11,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_OCEAN,
+            .file = SPECIES_VIVILLON_SANDSTORM,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 12,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_POLAR,
+            .file = SPECIES_VIVILLON_RIVER,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 13,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_RIVER,
+            .file = SPECIES_VIVILLON_MONSOON,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 14,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_SANDSTORM,
+            .file = SPECIES_VIVILLON_SAVANNA,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 15,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_SAVANNA,
+            .file = SPECIES_VIVILLON_SUN,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 16,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_SUN,
+            .file = SPECIES_VIVILLON_OCEAN,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 17,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_TUNDRA,
+            .file = SPECIES_VIVILLON_JUNGLE,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 18,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_POKE_BALL,
+            .file = SPECIES_VIVILLON_FANCY,
     },
     {
             .species = SPECIES_VIVILLON,
             .form_no = 19,
             .need_rev = 0,
-            .file = SPECIES_VIVILLON_FANCY,
+            .file = SPECIES_VIVILLON_POKE_BALL,
     },
     {
             .species = SPECIES_FLABEBE,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_FLABEBE_RED,
+            .file = SPECIES_FLABEBE_YELLOW_FLOWER,
     },
     {
             .species = SPECIES_FLABEBE,
             .form_no = 2,
             .need_rev = 0,
-            .file = SPECIES_FLABEBE_YELLOW,
+            .file = SPECIES_FLABEBE_ORANGE_FLOWER,
     },
     {
             .species = SPECIES_FLABEBE,
             .form_no = 3,
             .need_rev = 0,
-            .file = SPECIES_FLABEBE_ORANGE,
+            .file = SPECIES_FLABEBE_BLUE_FLOWER,
     },
     {
             .species = SPECIES_FLABEBE,
             .form_no = 4,
             .need_rev = 0,
-            .file = SPECIES_FLABEBE_BLUE,
-    },
-    {
-            .species = SPECIES_FLABEBE,
-            .form_no = 5,
-            .need_rev = 0,
-            .file = SPECIES_FLABEBE_WHITE,
+            .file = SPECIES_FLABEBE_WHITE_FLOWER,
     },
     {
             .species = SPECIES_FLOETTE,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_FLOETTE_RED,
+            .file = SPECIES_FLOETTE_YELLOW_FLOWER,
     },
     {
             .species = SPECIES_FLOETTE,
             .form_no = 2,
             .need_rev = 0,
-            .file = SPECIES_FLOETTE_YELLOW,
+            .file = SPECIES_FLOETTE_ORANGE_FLOWER,
     },
     {
             .species = SPECIES_FLOETTE,
             .form_no = 3,
             .need_rev = 0,
-            .file = SPECIES_FLOETTE_ORANGE,
+            .file = SPECIES_FLOETTE_BLUE_FLOWER,
     },
     {
             .species = SPECIES_FLOETTE,
             .form_no = 4,
             .need_rev = 0,
-            .file = SPECIES_FLOETTE_BLUE,
+            .file = SPECIES_FLOETTE_WHITE_FLOWER,
     },
     {
             .species = SPECIES_FLOETTE,
             .form_no = 5,
             .need_rev = 0,
-            .file = SPECIES_FLOETTE_WHITE,
-    },
-    {
-            .species = SPECIES_FLOETTE,
-            .form_no = 6,
-            .need_rev = 0,
-            .file = SPECIES_FLOETTE_ETERNAL,
+            .file = SPECIES_FLOETTE_ETERNAL_FLOWER,
     },
     {
             .species = SPECIES_FLORGES,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_FLORGES_RED,
+            .file = SPECIES_FLORGES_YELLOW_FLOWER,
     },
     {
             .species = SPECIES_FLORGES,
             .form_no = 2,
             .need_rev = 0,
-            .file = SPECIES_FLORGES_YELLOW,
+            .file = SPECIES_FLORGES_ORANGE_FLOWER,
     },
     {
             .species = SPECIES_FLORGES,
             .form_no = 3,
             .need_rev = 0,
-            .file = SPECIES_FLORGES_ORANGE,
+            .file = SPECIES_FLORGES_BLUE_FLOWER,
     },
     {
             .species = SPECIES_FLORGES,
             .form_no = 4,
             .need_rev = 0,
-            .file = SPECIES_FLORGES_BLUE,
-    },
-    {
-            .species = SPECIES_FLORGES,
-            .form_no = 5,
-            .need_rev = 0,
-            .file = SPECIES_FLORGES_WHITE,
+            .file = SPECIES_FLORGES_WHITE_FLOWER,
     },
     {
             .species = SPECIES_FURFROU,
@@ -1831,7 +1813,7 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_ROCKRUFF,
             .form_no = 1,
             .need_rev = 0,
-            .file = SPECIES_ROCKRUFF_DUSK,
+            .file = SPECIES_ROCKRUFF_OWN_TEMPO,
     },
     {
             .species = SPECIES_LYCANROC,
@@ -1947,19 +1929,19 @@ const struct FormData PokeFormDataTbl[]=
             .species = SPECIES_CASTFORM,
             .form_no = 1,
             .need_rev = 1,
-            .file = SPECIES_CASTFORM_SUN,
+            .file = SPECIES_CASTFORM_SUNNY,
     },
     {
             .species = SPECIES_CASTFORM,
             .form_no = 2,
             .need_rev = 1,
-            .file = SPECIES_CASTFORM_RAIN,
+            .file = SPECIES_CASTFORM_RAINY,
     },
     {
             .species = SPECIES_CASTFORM,
             .form_no = 3,
             .need_rev = 1,
-            .file = SPECIES_CASTFORM_SNOW,
+            .file = SPECIES_CASTFORM_SNOWY,
     },
     {
             .species = SPECIES_CHERRIM,
@@ -2024,8 +2006,26 @@ const struct FormData PokeFormDataTbl[]=
     {
             .species = SPECIES_ZYGARDE,
             .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_ZYGARDE_10_POWER_CONSTRUCT,
+    },
+    {
+            .species = SPECIES_ZYGARDE,
+            .form_no = 3,
+            .need_rev = 0,
+            .file = SPECIES_ZYGARDE_50_POWER_CONSTRUCT,
+    },
+    {
+            .species = SPECIES_ZYGARDE,
+            .form_no = 4,
             .need_rev = 1,
-            .file = SPECIES_ZYGARDE_COMPLETE,
+            .file = SPECIES_ZYGARDE_10_COMPLETE,
+    },
+    {
+            .species = SPECIES_ZYGARDE,
+            .form_no = 5,
+            .need_rev = 1,
+            .file = SPECIES_ZYGARDE_50_COMPLETE,
     },
     {
             .species = SPECIES_WISHIWASHI,
@@ -2177,6 +2177,12 @@ const struct FormData PokeFormDataTbl[]=
             .need_rev = 1,
             .file = SPECIES_ZAMAZENTA_CROWNED,
     },
+    {
+            .species = SPECIES_ETERNATUS,
+            .form_no = 1,
+            .need_rev = 1,
+            .file = SPECIES_ETERNATUS_ETERNAMAX,
+    }
 };
 
 extern u32 word_to_store_form_at;
@@ -2454,14 +2460,15 @@ bool8 ReverFormChange(void *pp, u16 species, u8 form_no)
         {
             if(species == SPECIES_DARMANITAN && form_no == 3)
                 work = 1;
-            else if(species == SPECIES_NECROZMA && form_no == 3)
-                work = 1;
-            else if(species == SPECIES_NECROZMA && form_no == 4)
-                work = 2;
+            else if(species == SPECIES_NECROZMA)
+                work = form_no-2;
             else if(species == SPECIES_GRENINJA)
                 work = 1;
             else if(species == SPECIES_MINIOR)
                 work = form_no-7;
+            else if(species == SPECIES_ZYGARDE)
+                work = form_no-2;
+
             SetMonData(pp,112,&work);
             return TRUE;
         }
