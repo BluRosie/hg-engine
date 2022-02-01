@@ -174,7 +174,7 @@
 	
 	.halfword baby
 	
-	.if species == NUM_OF_MONS+NUM_OF_MEGAS
+	.if species == NUM_OF_TOTAL_MONS_PLUS_FORMS
 		.close
 	.endif
 .endmacro
@@ -194,14 +194,14 @@
 .endmacro
 
 .macro heightentry,species,fback,mback,ffront,mfront
-	.if (species * 4) < 10
-		.create "build/a005/a005_000" + tostring(species * 4),0
-	.elseif (species * 4) < 100
-		.create "build/a005/a005_00" + tostring(species * 4),0
-	.elseif (species * 4) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4),0
+	.if ((species) * 4) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4),0
+	.elseif ((species) * 4) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4),0
+	.elseif ((species) * 4) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4),0
+		.create "build/a005/a005_" + tostring((species) * 4),0
 	.endif
 	
 	.if fback != "null"
@@ -210,14 +210,14 @@
 	
 	.close
 
-	.if (species * 4 + 1) < 10
-		.create "build/a005/a005_000" + tostring(species * 4 + 1),0
-	.elseif (species * 4 + 1) < 100
-		.create "build/a005/a005_00" + tostring(species * 4 + 1),0
-	.elseif (species * 4 + 1) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4 + 1),0
+	.if ((species) * 4 + 1) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4 + 1),0
+	.elseif ((species) * 4 + 1) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4 + 1),0
+	.elseif ((species) * 4 + 1) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4 + 1),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4 + 1),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 1),0
 	.endif
 	
 	.if mback != "null"
@@ -226,14 +226,14 @@
 	
 	.close
 
-	.if (species * 4 + 2) < 10
-		.create "build/a005/a005_000" + tostring(species * 4 + 2),0
-	.elseif (species * 4 + 2) < 100
-		.create "build/a005/a005_00" + tostring(species * 4 + 2),0
-	.elseif (species * 4 + 2) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4 + 2),0
+	.if ((species) * 4 + 2) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4 + 2),0
+	.elseif ((species) * 4 + 2) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4 + 2),0
+	.elseif ((species) * 4 + 2) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4 + 2),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4 + 2),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 2),0
 	.endif
 	
 	.if ffront != "null"
@@ -242,14 +242,14 @@
 	
 	.close
 
-	.if (species * 4 + 3) < 10
-		.create "build/a005/a005_000" + tostring(species * 4 + 3),0
-	.elseif (species * 4 + 3) < 100
-		.create "build/a005/a005_00" + tostring(species * 4 + 3),0
-	.elseif (species * 4 + 3) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4 + 3),0
+	.if ((species) * 4 + 3) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4 + 3),0
+	.elseif ((species) * 4 + 3) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4 + 3),0
+	.elseif ((species) * 4 + 3) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4 + 3),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4 + 3),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 3),0
 	.endif
 	
 	.if mfront != "null"
@@ -260,10 +260,10 @@
 .endmacro
 
 .macro dataentry,species,monoffy,shadowoffx,shadowsize
-	.if species <= SPECIES_ARCEUS // a species in the current game
-		.orga (species * 0x59) + 0x56 // edit the last 3 bytes of the structure apparently
+	.if (species) <= SPECIES_ARCEUS // a species in the current game
+		.orga ((species) * 0x59) + 0x56 // edit the last 3 bytes of the structure apparently
 	.else // generic frame data (it is bulbasaur)
-		.orga (species * 0x59)
+		.orga ((species) * 0x59)
 		.byte 0x00, 0x02, 0x00, 0x00, 0x04, 0x00, 0x00, 0x01, 0x0A, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x09, 0x05, 0x0B, 0x00, 0x0B, 0x00, 0x00, 0x01, 0x0F, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00
 	.endif
 	
