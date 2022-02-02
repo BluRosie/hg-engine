@@ -683,6 +683,66 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         }
+
+
+
+        //handle zacian crowned
+        if ((sp->battlemon[sp->client_work].species == SPECIES_ZACIAN)
+            && (GetBattlerAbility(sp, sp->client_work) == ABILITY_INTREPID_SWORD)
+//            && (sp->battlemon[sp->client_work].item == ITEM_RUSTED_SWORD)
+            && (sp->battlemon[sp->client_work].hp)
+            && (sp->battlemon[sp->client_work].form_no == 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+
+
+        //handle zamazenta crowned
+        if ((sp->battlemon[sp->client_work].species == SPECIES_ZAMAZENTA)
+            && (GetBattlerAbility(sp, sp->client_work) == ABILITY_DAUNTLESS_SHIELD)
+            //            && (sp->battlemon[sp->client_work].item == ITEM_RUSTED_SHIELD)
+            && (sp->battlemon[sp->client_work].hp)
+            && (sp->battlemon[sp->client_work].form_no == 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+
+
+        //handle xerneas active
+        if ((sp->battlemon[sp->client_work].species == SPECIES_XERNEAS)
+            && (sp->battlemon[sp->client_work].hp)
+            && (sp->battlemon[sp->client_work].form_no == 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+
+
+
+        //handle wishiwashi schooling
+        if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
+            && (sp->battlemon[sp->client_work].hp)
+            && (sp->battlemon[sp->client_work].hp >= (sp->battlemon[sp->client_work].maxhp / 4))
+            && (sp->battlemon[sp->client_work].level >= 20)
+            && (sp->battlemon[sp->client_work].form_no == 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
     }
 
     return ret;
