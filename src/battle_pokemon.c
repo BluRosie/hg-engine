@@ -604,7 +604,24 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 break;
             }
         }
-        
+
+
+        // handle silvally TODO double check
+        if ((sp->battlemon[sp->client_work].species == SPECIES_SILVALLY)
+            && (sp->battlemon[sp->client_work].hp)
+            && (GetBattlerAbility(sp, sp->client_work) == ABILITY_RKS_SYSTEM))
+        {
+            form_no = GetArceusType(BattleItemDataGet(sp, sp->battlemon[sp->client_work].item, 1));
+            if(sp->battlemon[sp->client_work].form_no != form_no)
+            {
+                sp->battlemon[sp->client_work].form_no = form_no;
+                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                ret = TRUE;
+                break;
+            }
+        }
+
+
         // handle giratina
         if ((sp->battlemon[sp->client_work].species == SPECIES_GIRATINA)
          && (sp->battlemon[sp->client_work].hp)
@@ -686,7 +703,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
 
 
-        //handle zacian crowned
+        //handle zacian crowned TODO change to be before send-in once merged with illusion branch
         if ((sp->battlemon[sp->client_work].species == SPECIES_ZACIAN)
             && (GetBattlerAbility(sp, sp->client_work) == ABILITY_INTREPID_SWORD)
 //            && (sp->battlemon[sp->client_work].item == ITEM_RUSTED_SWORD)
@@ -701,7 +718,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         }
 
 
-        //handle zamazenta crowned
+        //handle zamazenta crowned TODO change to be before send-in once merged with illusion branch
         if ((sp->battlemon[sp->client_work].species == SPECIES_ZAMAZENTA)
             && (GetBattlerAbility(sp, sp->client_work) == ABILITY_DAUNTLESS_SHIELD)
             //            && (sp->battlemon[sp->client_work].item == ITEM_RUSTED_SHIELD)
@@ -716,7 +733,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         }
 
 
-        //handle xerneas active
+        //handle xerneas active TODO change to be before send-in once merged with illusion branch
         if ((sp->battlemon[sp->client_work].species == SPECIES_XERNEAS)
             && (sp->battlemon[sp->client_work].hp)
             && (sp->battlemon[sp->client_work].form_no == 0))

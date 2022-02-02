@@ -16771,7 +16771,7 @@ levelup SPECIES_MEGA_DIANCIE
     learnset MOVE_LAST_RESORT, 1
     terminatelearnset
     
-levelup SPECIES_PRIMAL_KYOGRE
+levelup SPECIES_KYOGRE_PRIMAL
     learnset MOVE_WATER_PULSE, 1 
     learnset MOVE_SCARY_FACE, 5 
     learnset MOVE_BODY_SLAM, 15 
@@ -16787,7 +16787,7 @@ levelup SPECIES_PRIMAL_KYOGRE
     learnset MOVE_HYDRO_PUMP, 90 
     terminatelearnset
 
-levelup SPECIES_PRIMAL_GROUDON
+levelup SPECIES_GROUDON_PRIMAL
     learnset MOVE_MUD_SHOT, 1 
     learnset MOVE_SCARY_FACE, 5 
     learnset MOVE_LAVA_PLUME, 15 
