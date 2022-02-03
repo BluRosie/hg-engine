@@ -17792,40 +17792,6 @@ mondata SPECIES_MEGA_LATIOS
 	colorflip 0, 0
 	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
-//mondata SPECIES_PRIMAL_GROUDON
-//	basestats 100, 180, 160, 90, 150, 90
-//	types TYPE_GROUND, TYPE_FIRE
-//	catchrate 5
-//	baseexp 230
-//	evyields 0, 3, 0, 0, 0, 0
-//	items ITEM_NONE, ITEM_NONE
-//	genderratio 255
-//	eggcycles 120
-//	basefriendship 0
-//	growthrate GROWTH_SLOW
-//	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-//	abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
-//	runchance 0
-//	colorflip 0, 0
-//	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
-//
-//mondata SPECIES_PRIMAL_KYOGRE
-//	basestats 100, 150, 90, 90, 180, 160
-//	types TYPE_WATER, TYPE_WATER
-//	catchrate 5
-//	baseexp 230
-//	evyields 0, 0, 0, 0, 3, 0
-//	items ITEM_NONE, ITEM_NONE
-//	genderratio 255
-//	eggcycles 120
-//	basefriendship 0
-//	growthrate GROWTH_SLOW
-//	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-//	abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
-//	runchance 0
-//	colorflip 0, 0
-//	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
-
 mondata SPECIES_MEGA_RAYQUAZA
 	basestats 105, 180, 100, 115, 180, 100
 	types TYPE_DRAGON, TYPE_FLYING
@@ -17961,7 +17927,40 @@ mondata SPECIES_MEGA_DIANCIE
 	runchance 0
 	colorflip 0, 0
 	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
-	
+
+mondata SPECIES_GROUDON_PRIMAL
+	basestats 100, 180, 160, 90, 150, 90
+	types TYPE_GROUND, TYPE_FIRE
+	catchrate 5
+	baseexp 230
+	evyields 0, 3, 0, 0, 0, 0
+	items ITEM_NONE, ITEM_NONE
+	genderratio 255
+	eggcycles 120
+	basefriendship 0
+	growthrate GROWTH_SLOW
+	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+	abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
+	runchance 0
+	colorflip 0, 0
+	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+mondata SPECIES_KYOGRE_PRIMAL
+	basestats 100, 150, 90, 90, 180, 160
+	types TYPE_WATER, TYPE_WATER
+	catchrate 5
+	baseexp 230
+	evyields 0, 0, 0, 0, 3, 0
+	items ITEM_NONE, ITEM_NONE
+	genderratio 255
+	eggcycles 120
+	basefriendship 0
+	growthrate GROWTH_SLOW
+	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+	abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
+	runchance 0
+	colorflip 0, 0
+	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 	
 mondata SPECIES_RATTATA_ALOLAN
 	basestats 30, 56, 35, 72, 25, 35

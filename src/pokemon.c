@@ -1969,7 +1969,7 @@ const struct FormData PokeFormDataTbl[]=
     },
     {
             .species = SPECIES_DARMANITAN,
-            .form_no = 2,
+            .form_no = 3,
             .need_rev = 1,
             .file = SPECIES_DARMANITAN_ZEN_MODE_GALARIAN,
     },

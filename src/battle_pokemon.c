@@ -680,22 +680,22 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && (GetBattlerAbility(sp, sp->client_work) == ABILITY_ZEN_MODE)
          && (sp->battlemon[sp->client_work].hp)
          && (sp->battlemon[sp->client_work].hp < (sp->battlemon[sp->client_work].maxhp / 2))
-         && (sp->battlemon[sp->client_work].form_no == 0))
+         && (sp->battlemon[sp->client_work].form_no < 2)) // forms 0 and 1
         {
-            sp->battlemon[sp->client_work].form_no = 1;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            sp->battlemon[sp->client_work].form_no += 2;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
             *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
             ret = TRUE;
             break;
         }
         
-        if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN_ZEN_MODE || sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN) // not checking for ability makes this also handle darmanitan in zen mode without ability
+        if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp >= (sp->battlemon[sp->client_work].maxhp / 2))
-         && (sp->battlemon[sp->client_work].form_no != 0))
+         && (sp->battlemon[sp->client_work].hp >= (sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
+         && (sp->battlemon[sp->client_work].form_no >= 2)) // forms 2 and 3 
         {
-            sp->battlemon[sp->client_work].form_no = 0;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            sp->battlemon[sp->client_work].form_no -= 2;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
             *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
             ret = TRUE;
             break;
