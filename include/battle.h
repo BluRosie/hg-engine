@@ -996,7 +996,7 @@ int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
 int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int client_no,int speabi);
 u8 __attribute__((long_call)) CheckNumMonsHit(void*,void*,int ,int);
 BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
-struct PartyPokemon * __attribute__((long_call)) BattleWorkPokemonParamGet(void*,int,int);
+struct PartyPokemon * __attribute__((long_call)) BattleWorkPokemonParamGet(void *bw, int client_no, int sel_mons_no);
 
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
 int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
