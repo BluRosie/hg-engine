@@ -969,6 +969,13 @@ struct __attribute__((packed)) POKEMON_APPEAR_PARAM
     u32 wep_personal_rnd[CLIENT_MAX];
 };
 
+struct __attribute__((packed)) ILLUSION_STRUCT
+{
+    u8 isSideInIllusion[2];
+    u8 illusionPos[2];
+    u16 illusionNameBuf[2][11];
+};
+
 
 
 

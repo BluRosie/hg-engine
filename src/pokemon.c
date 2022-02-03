@@ -6,6 +6,8 @@
 #include "../include/constants/species.h"
 #include "../include/constants/file.h"
 
+extern struct ILLUSION_STRUCT gIllusionStruct;
+
 typedef struct
 {
     u16 arc_no;
@@ -2492,7 +2494,7 @@ void TryRevertFormChange(struct BattleStruct *sp, void* bw, int client_no)
 
 void BattleEndRevertFormChange(void *bw)
 {
-    int i;
+    int i, j;
     void *pp;
     u16 monsno;
     u16 form;
@@ -2505,6 +2507,22 @@ void BattleEndRevertFormChange(void *bw)
     newBS.CanMega = 0;
     newBS.ChangeBgFlag = 0;
     newBS.MegaIconLight = 0;
+    
+    for (i = 0; i < 2; i++)
+    {
+        // revert illusion
+        if (gIllusionStruct.isSideInIllusion[i])
+        {
+            pp = BattleWorkPokemonParamGet(bw, 0, gIllusionStruct.illusionPos[i]);
+            SetMonData(pp, ID_PARA_nickname, gIllusionStruct.illusionNameBuf[i]);
+        }
+        
+        // clear the illusion structure
+        gIllusionStruct.isSideInIllusion[i] = 0;
+        gIllusionStruct.illusionPos[i] = 0;
+        for (j = 0; j < 11; j++)
+            gIllusionStruct.illusionNameBuf[i][j] = 0;
+    }
 
     for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
     {

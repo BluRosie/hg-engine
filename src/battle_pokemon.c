@@ -460,13 +460,6 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     gf_srand(seed_tmp);
 }
 
-struct __attribute__((packed)) ILLUSION_STRUCT
-{
-    u8 isSideInIllusion[2];
-    u8 illusionPos[2];
-    u16 illusionNameBuf[2][11];
-};
-
 struct ILLUSION_STRUCT gIllusionStruct = {0};
 
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
@@ -740,12 +733,16 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
             
             pep->monsno = newmon;
             pep->form_no = newform;
-            gIllusionStruct.isSideInIllusion[side] = 1;
-            strlen = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
-            GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
-            gIllusionStruct.illusionPos[side] = 0;
             
-            SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), ID_PARA_nickname, strbuf);
+            if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
+            {
+                gIllusionStruct.isSideInIllusion[side] = 1;
+                GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
+                GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
+                gIllusionStruct.illusionPos[side] = 0;
+                
+                SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), ID_PARA_nickname, strbuf);
+            }
         }
     }
 
@@ -777,12 +774,16 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
             
             pap->monsno = newmon;
             pap->form_no = newform;
-            gIllusionStruct.isSideInIllusion[side] = 1;
-            strlen = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
-            GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
-            gIllusionStruct.illusionPos[side] = pap->sel_mons_no;
             
-            SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, strbuf);
+            if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
+            {
+                gIllusionStruct.isSideInIllusion[side] = 1;
+                GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
+                GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
+                gIllusionStruct.illusionPos[side] = pap->sel_mons_no;
+                
+                SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, strbuf);
+            }
         }
     }
 
@@ -814,12 +815,16 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
             
             pap->monsno = newmon;
             pap->form_no = newform;
-            gIllusionStruct.isSideInIllusion[side] = 1;
-            strlen = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
-            GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
-            gIllusionStruct.illusionPos[side] = pap->sel_mons_no;
-            
-            SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, strbuf);
+        
+            if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
+            {
+                gIllusionStruct.isSideInIllusion[side] = 1;
+                GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
+                GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
+                gIllusionStruct.illusionPos[side] = pap->sel_mons_no;
+                
+                SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, strbuf);
+            }
         }
     }
     
