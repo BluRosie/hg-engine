@@ -469,7 +469,11 @@ def decompress():
         bin = rom.read()
         if len(bin) < 0xBC000:
             print("Decompress arm9.")
-            dec = ndspy.codeCompression.decompress(bin)
+            dec = bytearray(ndspy.codeCompression.decompress(bin))
+            dec[0xbb4] = 0
+            dec[0xbb5] = 0
+            dec[0xbb6] = 0
+            dec[0xbb7] = 0
             arm9.write(dec)
             shutil.copyfile("build/arm9.bin", "base/arm9.bin")
         rom.close()

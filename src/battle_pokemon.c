@@ -161,7 +161,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u8 types[2];
     u8 ppcounts[4];
     u16 nickname[11];
-    u8 form_no, abilityslot, nature, ballseal, shinylock, status;
+    u8 form_no, abilityslot, nature, ballseal, shinylock, status, ab1, ab2;
     u32 additionalflags;
 
     for (i = 0; i < bp->trainer_data[num].poke_count; i++)
@@ -348,6 +348,24 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         rnd = (rnd << 8) + rnd_tmp;
         pow = pow * 31 / 255;
         PokeParaSet(pp, species, level, pow, 1, rnd, 2, 0);
+        SetMonData(pp, ID_PARA_form_no, &form_no);
+
+        //set default abilities
+        species = PokeOtherFormMonsNoGet(species, form_no);
+        ab1 = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
+        ab2 = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
+        if(ab2!=0){
+            if(abilityslot&1){
+                SetMonData(pp,ID_PARA_speabino,(u8 *)&ab1);
+            }
+            else{
+                SetMonData(pp,ID_PARA_speabino,(u8 *)&ab2);
+            }
+        }
+        else{
+            SetMonData(pp,ID_PARA_speabino,(u8 *)&ab1);
+        }
+
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
         {
             SetMonData(pp, ID_PARA_item, &item);
@@ -450,7 +468,6 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 //                SetMonData(pp,ID_PARA_nickname, &nickname);
             }
         }
-        SetMonData(pp, ID_PARA_form_no, &form_no);
         TrainerMonHandleFrustration(pp);
         PokeParty_Add(bp->poke_party[num], pp);
     }

@@ -303,4 +303,6 @@ u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
 u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
 void __attribute__((long_call)) BoxMonInit(void *);
 
+int PokeOtherFormMonsNoGet(int mons_no, int form_no);
+
 #endif
