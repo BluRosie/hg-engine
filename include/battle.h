@@ -1078,7 +1078,8 @@ void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIE
 void __attribute__((long_call)) CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
 struct __attribute__((long_call)) POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
-int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party);
+int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party); // this function is cursed to be arm for no fucking reason whatsoever
+int __attribute__((long_call)) SideClientNoGet(void *bw, struct BattleStruct *sp, int side);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

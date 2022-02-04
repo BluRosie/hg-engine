@@ -71,3 +71,5 @@ arm9 MakeTrainerPokemonParty 08073604 3
 0012 ClientPokemonEncountAppear 08021634 2
 #02258F08
 0012 ClientPokemonAppear 08021648 2
+#022480C0
+0012 MessageParam_GetNickname 08010800 3

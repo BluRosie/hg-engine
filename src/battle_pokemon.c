@@ -831,3 +831,37 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     CT_PokemonAppearSet(bw, cp, pap);
     ClientCommandReset(cp);
 }
+
+// need to highjack the message creator somewhere in order to buffer the last mon's name in the circumstance that we shouldn't be showing the current mon's nickname
+int	MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
+{
+    int ret;
+    int client;
+    u32 side;
+    
+    client = SideClientNoGet(bw, sp, para);
+    side = (client & 1) != 0;
+    
+    ret = client;
+    
+    if (sp->battlemon[client].species == SPECIES_ZORUA || sp->battlemon[client].species == SPECIES_ZOROARK)
+    {
+        struct POKEPARTY *party;
+        u32 count;
+    
+        party = BattleWorkPokePartyGet(bw, side);
+        count = party->PokeCount - 1;
+        
+        ret |= count << 8;
+    }
+    else if (para == 0x16) // switch after the attack?
+    {
+        ret |= sp->reshuffle_sel_mons_no[client] << 8;
+    }
+    else
+    {
+        ret |= sp->sel_mons_no[client] << 8;
+    }
+    
+    return ret;
+}
