@@ -210,3 +210,4 @@ BattleWorkPokePartyGet = 0x0223A7F4 | 1;
 PokeParty_GetPokeCount = 0x02074640 | 1;
 PokeParty_GetMemberPointer = 0x02074644 | 1;
 SideClientNoGet = 0x0224768C | 1;
+BattleWorkClientNoGet = 0x0223AAD8 | 1;

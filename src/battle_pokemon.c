@@ -2,6 +2,7 @@
 #include "../include/battle.h"
 #include "../include/pokemon.h"
 #include "../include/constants/ability.h"
+#include "../include/constants/battle_message_constants.h"
 #include "../include/constants/battle_script_constants.h"
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
@@ -816,7 +817,7 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
             pap->monsno = newmon;
             pap->form_no = newform;
         
-            if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
+            if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again.  we definitely abuse this, don't worry
             {
                 gIllusionStruct.isSideInIllusion[side] = 1;
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
@@ -833,7 +834,7 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 }
 
 // need to highjack the message creator somewhere in order to buffer the last mon's name in the circumstance that we shouldn't be showing the current mon's nickname
-int	MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
+int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
 {
     int ret;
     int client;
@@ -864,4 +865,83 @@ int	MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     }
     
     return ret;
+}
+
+void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITCH_MESSAGE_PARAM *smp, MESSAGE_PARAM *mp)
+{
+    if (cp->client_type & 1)
+    {
+        struct POKEPARTY *party;
+        u32 count = 0;
+        u32 species = 0;
+        
+        party = BattleWorkPokePartyGet(bw, 1);
+        
+        species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), ID_PARA_monsno, NULL);
+        if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
+        {
+            smp->sel_mons_no = party->PokeCount - 1;
+        }
+        
+        if ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0)
+        {
+            mp->msg_id = BATTLE_MSG_SWITCH_IN_ENEMY_MSG;
+            mp->msg_tag = TAG_TRTYPE_TRNAME_NICK;
+            mp->msg_para[0] = cp->client_no;
+            mp->msg_para[1] = cp->client_no;
+            mp->msg_para[2] = cp->client_no | (smp->sel_mons_no << 8);
+        }
+        else
+        {
+            mp->msg_id = BATTLE_MSG_SWITCH_IN_TITLELESS;
+            mp->msg_tag = TAG_TRNAME_NICK;
+            mp->msg_para[0] = cp->client_no;
+            mp->msg_para[1] = cp->client_no | (smp->sel_mons_no << 8);
+        }
+    }
+    else
+    {
+        struct POKEPARTY *party;
+        u32 count = 0;
+        u32 species = 0;
+        
+        party = BattleWorkPokePartyGet(bw, 0);
+        
+        species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), ID_PARA_monsno, NULL);
+        if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
+        {
+            smp->sel_mons_no = party->PokeCount - 1;
+        }
+        
+        if (((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) == 0)
+         && ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0))
+        {
+            if (smp->rate < 100)
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_3;
+            }
+            else if (smp->rate < 325)
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_4;
+            }
+            else if (smp->rate < 550)
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_2;
+            }
+            else if (smp->rate < 775)
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_1;
+            }
+            else
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
+            }
+        }
+        else
+        {
+            mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
+        }
+        mp->msg_tag = TAG_NICK;
+        mp->msg_para[0] = cp->client_no | (smp->sel_mons_no << 8);
+    }
 }

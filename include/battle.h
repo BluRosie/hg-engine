@@ -976,6 +976,13 @@ struct __attribute__((packed)) ILLUSION_STRUCT
     u16 illusionNameBuf[2][11];
 };
 
+struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
+{
+    u8 command_code;
+    u8 sel_mons_no;
+    u16 rate;	
+};
+
 
 
 
@@ -1033,6 +1040,7 @@ void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp)
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
 void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
+int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
 
 
 

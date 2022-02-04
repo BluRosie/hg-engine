@@ -19,6 +19,10 @@
 # 02252834
 0012 0801AF74 60 B4 C0 46
 
-#PokePasoParaSet hook setup
+# PokePasoParaSet hook setup
 # 0206DED0
 arm9 0806DED0 60 B4 C0 46
+
+# CT_SwitchInMessageParamMake hook setup
+# 02261464
+0012 08029BA4 60 B4 C0 46
