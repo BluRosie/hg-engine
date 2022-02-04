@@ -457,11 +457,23 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         defense = defense * 150 / 100;
     }
 
-    // handle ice scales TODO uncomment
-//    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_ICE_SCALES == TRUE))
-//    {
-//        sp_defense = sp_defense * 150 / 100;
-//    }
+    // handle ice scales
+    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_ICE_SCALES == TRUE)))
+    {
+        sp_defense = sp_defense * 150 / 100;
+    }
+
+    //handle dragon's maw
+    if(GetBattlerAbility(sp, attacker) == ABILITY_DRAGONS_MAW && (movetype == TYPE_DRAGON))
+    {
+        movepower = movepower * 150 / 100;
+    }
+
+    //handle transistor
+    if(GetBattlerAbility(sp, attacker) == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
+    {
+        movepower = movepower * 150 / 100;
+    }
 
     // if dark aura is present but not aura break
     if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DARK_AURA) != 0)
@@ -606,6 +618,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             movepower = movepower * 15 / 10;
             break;
         }
+    }
+
+    //handles water bubble
+    if((AttackingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_WATER))
+    {
+        movepower = movepower * 2;
     }
 
     // handle weather boosts
@@ -820,6 +838,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     //handles multiscale
     if ((DefendingMon.ability == ABILITY_MULTISCALE) && (DefendingMon.hp == DefendingMon.maxhp))
+    {
+        damage /= 2;
+    }
+
+    //handles water bubble
+    if ((DefendingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_FIRE))
     {
         damage /= 2;
     }

@@ -169,6 +169,7 @@ enum
     SEQ_WAZAKOYUU_CHECK,
     SEQ_DEFENCE_CHANGE_CHECK,
     SEQ_PROTEAN_CHECK
+//    SEQ_STANCE_CHANGE_CHECK
 };
 
 static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
@@ -232,106 +233,119 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
     u32 runMyScriptInstead = 0;
     switch (sp->wb_seq_no)
     {
-    case SEQ_MEGA_CHECK:
-        if(MegaEvolution(bw,sp))
-        {
-           return;
-           break;
-        }
-        else
+        case SEQ_MEGA_CHECK:
+            if(MegaEvolution(bw,sp))
+            {
+                return;
+                break;
+            }
+            else
+                sp->wb_seq_no++;
+        case SEQ_SENSEI_CHECK:
+            ServerSenseiCheck(bw, sp); ///先制之爪效果 80143E4h
             sp->wb_seq_no++;
-    case SEQ_SENSEI_CHECK:
-        ServerSenseiCheck(bw, sp); ///先制之爪效果 80143E4h
-        sp->wb_seq_no++;
-        return;
-        break;
-    case SEQ_STATUS_CHECK:
-        if ((sp->waza_out_check_on_off & 0x4) == 0)
-        {
-            //异常状态检查
-            if (ServerStatusCheck(bw, sp) == TRUE)//8013C68h
-            {
-                return;
-            }
-        }
-        sp->wb_seq_no++;
-    case SEQ_BADGE_CHECK:
-    {
-        int ret;
-        int seq_no;
-
-        if ((sp->waza_out_check_on_off & 0x1) == 0)
-        {
-            ret = ServerBadgeCheck(bw, sp, &seq_no);//8013610h
-            if (ret)
-            {
-                switch (ret)
-                {
-                case 1:
-                    sp->next_server_seq_no = 0x27;
-                    break;
-                case 2: 
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    break;
-                case 3:
-                    sp->next_server_seq_no = 0x22;
-                    break;
-                }
-                sp->server_seq_no = 0x16;
-                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
-                return;
-            }
-        }
-    }
-        sp->wb_seq_no++;
-    case SEQ_PP_CHECK:
-        if ((sp->waza_out_check_on_off & 0x8) == 0)
-        {
-            //pp检查
-            if (ServerPPCheck(bw, sp) == TRUE)//801393Ch
-            {
-                return;
-            }
-        }
-        sp->wb_seq_no++;
-        //攻击对象检查，包括了蓄力技能
-    case SEQ_DEFENCE_CHECK:
-        if (ServerDefenceCheck(bw, sp) == TRUE)//8013AD8h
-        {
             return;
-        }
-        sp->wb_seq_no++;
-        //防御效果检查，魔法守护等
-    case SEQ_WAZAKOYUU_CHECK:
-        if ((sp->waza_out_check_on_off & 0x80) == 0)
+            break;
+        case SEQ_STATUS_CHECK:
+            if ((sp->waza_out_check_on_off & 0x4) == 0)
+            {
+                //异常状态检查
+                if (ServerStatusCheck(bw, sp) == TRUE)//8013C68h
+                {
+                    return;
+                }
+            }
+            sp->wb_seq_no++;
+        case SEQ_BADGE_CHECK:
         {
-            if (ServerWazaKoyuuCheck(bw, sp) == TRUE)//8014944h
+            int ret;
+            int seq_no;
+
+            if ((sp->waza_out_check_on_off & 0x1) == 0)
+            {
+                ret = ServerBadgeCheck(bw, sp, &seq_no);//8013610h
+                if (ret)
+                {
+                    switch (ret)
+                    {
+                        case 1:
+                            sp->next_server_seq_no = 0x27;
+                            break;
+                        case 2:
+                            sp->next_server_seq_no = sp->server_seq_no;
+                            break;
+                        case 3:
+                            sp->next_server_seq_no = 0x22;
+                            break;
+                    }
+                    sp->server_seq_no = 0x16;
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    return;
+                }
+            }
+        }
+            sp->wb_seq_no++;
+        case SEQ_PP_CHECK:
+            if ((sp->waza_out_check_on_off & 0x8) == 0)
+            {
+                //pp检查
+                if (ServerPPCheck(bw, sp) == TRUE)//801393Ch
+                {
+                    return;
+                }
+            }
+            sp->wb_seq_no++;
+            //攻击对象检查，包括了蓄力技能
+        case SEQ_DEFENCE_CHECK:
+            if (ServerDefenceCheck(bw, sp) == TRUE)//8013AD8h
             {
                 return;
             }
-        }
-        sp->wb_seq_no++;
-        //引水等特性检查
-    case SEQ_DEFENCE_CHANGE_CHECK:
-        ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
-        sp->wb_seq_no++;
-    case SEQ_PROTEAN_CHECK:
-        if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
-         && (sp->battlemon[sp->attack_client].type1 != sp->old_moveTbl[sp->current_move_index].type  // if either type is not the move's type
-          || sp->battlemon[sp->attack_client].type2 != sp->old_moveTbl[sp->current_move_index].type)
-         && sp->old_moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
-        {
-            sp->battlemon[sp->attack_client].type1 = sp->old_moveTbl[sp->current_move_index].type;
-            sp->battlemon[sp->attack_client].type2 = sp->old_moveTbl[sp->current_move_index].type;
-            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
-            sp->msg_work = sp->battlemon[sp->attack_client].type1;
-            sp->client_work = sp->attack_client;
-            runMyScriptInstead = 1;
-        }
-        else
-        {
-            sp->wb_seq_no = 0;
-        }
+            sp->wb_seq_no++;
+            //防御效果检查，魔法守护等
+        case SEQ_WAZAKOYUU_CHECK:
+            if ((sp->waza_out_check_on_off & 0x80) == 0)
+            {
+                if (ServerWazaKoyuuCheck(bw, sp) == TRUE)//8014944h
+                {
+                    return;
+                }
+            }
+            sp->wb_seq_no++;
+            //引水等特性检查
+        case SEQ_DEFENCE_CHANGE_CHECK:
+            ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
+            sp->wb_seq_no++;
+            break;
+        case SEQ_PROTEAN_CHECK:
+            if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
+                && (sp->battlemon[sp->attack_client].type1 != sp->old_moveTbl[sp->current_move_index].type  // if either type is not the move's type
+                    || sp->battlemon[sp->attack_client].type2 != sp->old_moveTbl[sp->current_move_index].type)
+                && sp->old_moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
+            {
+                sp->battlemon[sp->attack_client].type1 = sp->old_moveTbl[sp->current_move_index].type;
+                sp->battlemon[sp->attack_client].type2 = sp->old_moveTbl[sp->current_move_index].type;
+                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
+                sp->msg_work = sp->battlemon[sp->attack_client].type1;
+                sp->client_work = sp->attack_client;
+                runMyScriptInstead = 1;
+            }
+            else
+            {
+                sp->wb_seq_no = 0;
+            }
+//        case SEQ_STANCE_CHANGE_CHECK:
+//            if(sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
+//            {
+//                if(sp->old_moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
+//                {
+//                    //change to shield form
+//                }
+//                else if(sp->old_moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
+//                {
+//                    //change to blade form
+//                }
+//            }
     }
 
     if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT)
