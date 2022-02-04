@@ -851,6 +851,8 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 }
 
 // need to highjack the message creator somewhere in order to buffer the last mon's name in the circumstance that we shouldn't be showing the current mon's nickname
+
+// might not need to setmondata if this one works out
 int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
 {
     int ret;
@@ -862,7 +864,9 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     
     ret = client;
     
-    if (sp->battlemon[client].species == SPECIES_ZORUA || sp->battlemon[client].species == SPECIES_ZOROARK)
+    if ((sp->battlemon[client].species == SPECIES_ZORUA || sp->battlemon[client].species == SPECIES_ZOROARK)
+     //&& gIllusionStruct.isSideInIllusion[client & 1]
+       )
     {
         struct POKEPARTY *party;
         u32 count;
@@ -960,5 +964,258 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         }
         mp->msg_tag = TAG_NICK;
         mp->msg_para[0] = cp->client_no | (smp->sel_mons_no << 8);
+    }
+}
+
+// seriously FUCK illusion
+void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp)
+{
+    u32 fight_type;
+    int client1;
+    int client2;
+
+    fight_type = BattleTypeGet(bw);
+
+    if (cp->client_type & 1)
+    {
+        if (fight_type & BATTLE_TYPE_DOUBLE)
+        {
+            client1 = cp->client_no;
+            client2 = BattleWorkPartnerClientNoGet(bw, cp->client_no);
+        }
+        else
+        {
+            client1 = cp->client_no;
+            client2 = client1;
+        }
+        
+        { // fuck fuck fuck fuck
+            struct POKEPARTY *party;
+            u32 count = 0;
+            u32 species = 0;
+            
+            party = BattleWorkPokePartyGet(bw, client1);
+            
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL); // WHY HAS GOD ABANDONED US
+            if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK) // this check is fuckin failing.  i don't know what to do
+            {
+                esomp->sel_mons_no[client1] = party->PokeCount - 1;
+            }
+        }
+
+        if (client1 != client2)
+        { // why has god abandoned us
+            struct POKEPARTY *party;
+            u32 count = 0;
+            u32 species = 0;
+            
+            party = BattleWorkPokePartyGet(bw, client2);
+            
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL);
+            if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
+            {
+                esomp->sel_mons_no[client2] = party->PokeCount - 1;
+            }
+        }
+        
+    
+        if (fight_type & BATTLE_TYPE_WIRELESS)
+        {
+            if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
+            {
+                mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICKx2;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1;
+                mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[3] = client2;
+                mp->msg_para[4] = client2;
+                mp->msg_para[5] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else if (fight_type & BATTLE_TYPE_MULTI)
+            {
+                mp->msg_id = BATTLE_MSG_MULTI_BATTLE_SEND_OUT_MESSAGE;
+                mp->msg_tag = TAG_TRNAME_NICK_TRNAME_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[2] = client2;
+                mp->msg_para[3] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            {
+                mp->msg_id = BATTLE_MSG_DOUBLE_BATTLE_SEND_OUT_WIRELESS;
+                mp->msg_tag = TAG_TRNAME_NICK_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[2] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else
+            {
+                mp->msg_id = BATTLE_MSG_SWITCH_IN_TITLELESS;
+                mp->msg_tag = TAG_TRNAME_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
+            }
+        }
+        else
+        {
+            if ((fight_type & BATTLE_TYPE_TAG)
+             || (fight_type & BATTLE_TYPE_MULTI))
+            {
+                mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICKx2;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1;
+                mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[3] = client2;
+                mp->msg_para[4] = client2;
+                mp->msg_para[5] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            {
+                mp->msg_id = BATTLE_MSG_ENEMY_SEND_OUT_DOUBLES;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1;
+                mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[3] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else
+            {
+                mp->msg_id = BATTLE_MSG_SWITCH_IN_ENEMY_MSG;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1;
+                mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
+            }
+        }
+    }
+    else
+    {
+        if (fight_type & BATTLE_TYPE_WIRELESS) // fuck wireless battles
+        {
+            u8 sio_id = BattleWorkCommIDGet(bw);
+
+            if (fight_type & BATTLE_TYPE_MULTI)
+            {
+                switch (BattleWorkCommStandNoGet(bw,sio_id))
+                {
+                case 0:
+                case 3:
+                    client1 = BattleWorkClientNoGet(bw, 4);
+                    client2 = BattleWorkClientNoGet(bw, 2);
+                    break;
+                case 1:
+                case 2:
+                    client1 = BattleWorkClientNoGet(bw, 2);
+                    client2 = BattleWorkClientNoGet(bw, 4);
+                    break;
+                }
+            }
+            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            {
+                client1 = BattleWorkClientNoGet(bw, 2);
+                client2 = BattleWorkClientNoGet(bw, 4);
+            }
+            else
+            {
+                client1 = BattleWorkClientNoGet(bw, 0);
+                client2 = client1;
+            }
+        }
+        else if (fight_type & BATTLE_TYPE_MULTI)
+        {
+            client1 = BattleWorkPartnerClientNoGet(bw, cp->client_no);
+            client2 = cp->client_no;
+        }
+        else if (fight_type & BATTLE_TYPE_DOUBLE)
+        {
+            client1 = BattleWorkClientNoGet(bw, 2);
+            client2 = BattleWorkClientNoGet(bw, 4);
+        }
+        else
+        {
+            client1 = cp->client_no;
+            client2 = client1;
+        }
+        
+        { // FUCK FUCK FUCK FUCK
+            struct POKEPARTY *party;
+            u32 count = 0;
+            u32 species = 0;
+            
+            party = BattleWorkPokePartyGet(bw, client1);
+            
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL);
+            if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
+            {
+                esomp->sel_mons_no[client1] = party->PokeCount - 1;
+            }
+        }
+
+        if (client1 != client2)
+        {
+            struct POKEPARTY *party;
+            u32 count = 0;
+            u32 species = 0;
+            
+            party = BattleWorkPokePartyGet(bw, client2);
+            
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL);
+            if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
+            {
+                esomp->sel_mons_no[client2] = party->PokeCount - 1;
+            }
+        }
+    
+        if (fight_type & BATTLE_TYPE_WIRELESS)
+        {
+            if (fight_type & BATTLE_TYPE_MULTI)
+            {
+                mp->msg_id = BATTLE_MSG_MULTI_BATTLE_PLAYER_SEND_OUT_MESSAGE;
+                mp->msg_tag = TAG_TRNAME_NICK_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[2] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            {
+                mp->msg_id = BATTLE_MSG_SEND_OUT_DOUBLES;
+                mp->msg_tag = TAG_NICK_NICK;
+                mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[1] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
+                mp->msg_tag = TAG_NICK;
+                mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
+            }
+        }
+        else
+        {
+            if (fight_type & BATTLE_TYPE_MULTI)
+            {
+                mp->msg_id = BATTLE_MSG_MULTI_BATTLE_PLAYER_SIDE_SEND_OUT;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_NICK;
+                mp->msg_para[0] = client1;
+                mp->msg_para[1] = client1;
+                mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[3] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            {
+                mp->msg_id = BATTLE_MSG_SEND_OUT_DOUBLES;
+                mp->msg_tag = TAG_NICK_NICK;
+                mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
+                mp->msg_para[1] = client2 | (esomp->sel_mons_no[client2] << 8);
+            }
+            else
+            {
+                mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
+                mp->msg_tag = TAG_NICK;
+                mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
+            }
+        }
     }
 }

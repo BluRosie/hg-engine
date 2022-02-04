@@ -983,6 +983,14 @@ struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
     u16 rate;	
 };
 
+struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
+{
+    u8 command_code;
+    u8 dummy[3];
+    u8 sel_mons_no[CLIENT_MAX];
+};
+
+
 
 
 
@@ -1088,6 +1096,9 @@ void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
 struct __attribute__((long_call)) POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
 int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party); // this function is cursed to be arm for no fucking reason whatsoever
 int __attribute__((long_call)) SideClientNoGet(void *bw, struct BattleStruct *sp, int side);
+int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client_no);
+u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
+int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

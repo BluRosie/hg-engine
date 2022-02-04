@@ -211,3 +211,6 @@ PokeParty_GetPokeCount = 0x02074640 | 1;
 PokeParty_GetMemberPointer = 0x02074644 | 1;
 SideClientNoGet = 0x0224768C | 1;
 BattleWorkClientNoGet = 0x0223AAD8 | 1;
+BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
+BattleWorkCommIDGet = 0x0223BFC0 | 1;
+BattleWorkCommStandNoGet = 0x0223BFCC | 1;

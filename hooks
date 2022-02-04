@@ -75,3 +75,5 @@ arm9 MakeTrainerPokemonParty 08073604 3
 0012 MessageParam_GetNickname 08010800 3
 #02261464+4
 0012 CT_SwitchInMessageParamMake_hook 08029BA8 5
+#022615F0+4
+0012 CT_EncountSendOutMessageParamMake_hook 08029D34 5
