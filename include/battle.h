@@ -157,6 +157,7 @@
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 
 // move effect flags/waza_kouka
+#define	MOVE_EFFECT_LOCK_ON          (0x00000018)
 #define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
 #define MOVE_EFFECT_NO_CRITICAL_HITS (0x00008000)
 #define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
@@ -367,19 +368,21 @@ struct __attribute__((packed)) sDamageCalc
 
 struct __attribute__((packed)) BattleMove
 {
-    u16 effect;
-    u8 split;
-    u8 power;
+    u16 effect; //0x0
+    u8 split; //0x2
+    u8 power; //0x3
 
-    u8 type;
-    u8 accuracy;
-    u8 pp;
-    u8 secondaryEffectChance;
+    u8 type; //0x4
+    u8 accuracy; //0x5
+    u8 pp; //0x6
+    u8 secondaryEffectChance; //0x7
 
-    u16 target;
-    s8 priority;
-    u8 flag;
-    u8 unk[4];
+    u16 target; //0x8
+    s8 priority; //0xA
+    u8 flag; //0xB
+    u8 unk[4]; //0xC, length = 4
+
+    //this takes up 0x10
 };
 
 struct __attribute__((packed)) OneTurnEffect
@@ -408,6 +411,7 @@ struct __attribute__((packed)) OneTurnEffect
 
 struct __attribute__((packed)) OneSelfTurnEffect
 {
+    //0x0
     u32 no_pressure_flag : 1;  ///<特性プレッシャーの効果を受けない
     u32 hiraisin_flag : 1;     ///<特性ひらいしんの効果が発動
     u32 yobimizu_flag : 1;     ///<特性よびみずのの効果が発動
@@ -417,12 +421,29 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
     u32 : 23;                  ///<ステータス上昇下降エフェクトを発動
 
-    int physical_damage;   ///存在物理伤害量
-    int physical_damager;   ///<物理攻撃したクライアント
-    int special_damage;   ///存在特殊伤害量
-    int special_damager;   ///<特殊攻撃したクライアント
-    int status_flag;           ///<ステータスフラグ（battle_server.hにdefine定義）
-    int kaigara_damage;        ///<かいがらのすず用ダメージ量
+    int physical_damage;   ///0x4 存在物理伤害量
+    int physical_damager;   ///0x8 <物理攻撃したクライアント
+    int special_damage;   ///0xC 存在特殊伤害量
+    int special_damager;   ///0x10 <特殊攻撃したクライアント
+    int status_flag;           ///0x14 <ステータスフラグ（battle_server.hにdefine定義）
+    int kaigara_damage;        ///0x18 <かいがらのすず用ダメージ量
+
+    //length 0x1C
+};
+
+struct __attribute__((packed)) MoveOutCheck
+{
+    u32	mahi_flag :1;		//まひで技がだせない
+    u32	koukanai_flag :1;		//効果がない技だった
+    u32	huuin_flag :1;		//ふういんされて技がだせない
+    u32	meromero_flag :1;		//メロメロで技がだせない
+    u32	kanashibari_flag :1;		//かなしばりで技がだせない
+    u32	chouhatsu_flag :1;		//ちょうはつされて技がだせない
+    u32	hirumu_flag	 :1;		//ひるんで技がだせない
+    u32	konran_flag	 :1;		//こんらんして自分を攻撃
+    u32	juuryoku_flag :1;		//じゅうりょくで技がだせない
+    u32	healblock_flag :1;		//ヒールブロックで技がだせない
+    u32	dummy :21;
 };
 
 struct __attribute__((packed)) battle_moveflag
@@ -610,6 +631,86 @@ struct __attribute__((packed)) side_condition_work
     u32                             :28;
 };
 
+struct __attribute__((packed)) BattleAIWorkTable
+{
+    u8 ai_seq_no; //0x0
+    u8 ai_move_pos; //0x1
+    u16 ai_move_no; //0x2
+
+    s8 ai_move_point[4]; //0x4
+
+    int ai_calc_work; //0x8
+    u32 ai_think_bit; //0xC
+
+    u8 ai_status_flag; //0x10
+    u8 ai_think_no; //0x11
+    u8 ai_all_move_check_loop_count; //0x12
+    u8 ai_all_move_check_push_pos; //0x13
+
+    u8* ai_all_move_check_loop_address; //0x14
+    u8 ai_damage_amount[4]; //0x18
+
+    u16 ai_defence_use_move[4][4]; //0x1C, length = 32 = 0x20 bytes
+
+    u8 ai_tokusyu_no[4]; //0x3C
+    u16 ai_soubi_item[4]; //0x40
+
+    u16 ai_have_item[2][4]; //0x48, length = 16 = 0x10 bytes
+
+    u32 push_address_buffer[8]; //0x58, length = 32 = 0x20 bytes
+    u8 push_address_count; //0x78
+    u8 ai_item_count[2]; //0x79
+    u8 ai_attack_client; //0x7B
+    u8 ai_defence_client; //0x7C
+
+    u8 ai_item_type[2]; //0x7D
+    u8 ai_item_condition[2]; //0x7F
+
+    //implicit padding here, one byte
+
+    u16 ai_item_no[2]; //0x82
+
+    u8 ai_dir_select_client[CLIENT_MAX]; //0x86
+    struct BattleMove old_moveTbl[467 + 1]; //0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
+
+    //implicit padding here, two bytes
+
+    struct ItemData *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
+
+    u16 ai_calc_count[CLIENT_MAX]; //0x1DD0
+    u16 ai_calc_continue[CLIENT_MAX]; //0x1DD8
+
+    //length is 0x1DE0
+    //the end of this struct is at 0x2134 in the BattleStruct
+};
+
+struct __attribute__((packed)) ItemData
+{
+    u16	price;
+    u8	equipment_effect;
+    u8	power;
+
+    u8	pluck_effect;
+    u8	fling_effect;
+    u8	fling_power;
+    u8	naturalgift_power;
+
+    u16	naturalgift_type:5;
+    u16	cant_discard:1;
+    u16	register_able:1;
+    u16	field_pocket:4;
+    u16	battle_pocket:5;
+
+    u8	field_function;
+    u8	battle_function;
+    u8	item_type;
+
+    u8	dummy;
+
+    u8	work[20];
+};
+
+
 struct __attribute__((packed)) BattleStruct
 {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
@@ -690,10 +791,12 @@ struct __attribute__((packed)) BattleStruct
     /*0x1C4*/ struct side_condition_work scw[2];
     /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
     /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
-    /*0x344*/ u8 dummy3[0x9A]; // wocf, AIWT start
+    /*0x344*/ struct MoveOutCheck moveOutCheck[4];
 
-    /*0x3DE*/ struct BattleMove old_moveTbl[467 + 1]; //old
-    /*0x211E*/ u8 dummy6[0x1E]; // fuck the rest of ai stuff
+    /*0x354*/ struct BattleAIWorkTable aiWorkTable;
+    /*0x2134*/ u32 *ai_seq_work;
+    /*0x2138*/ u32 ai_seq_address;
+
     /*0x213C*/ u32 server_status_flag;
     /*0x2140*/ u32 server_status_flag2;
     /*0x2144*/ int damage;

@@ -319,12 +319,12 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             break;
         case SEQ_PROTEAN_CHECK:
             if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
-                && (sp->battlemon[sp->attack_client].type1 != sp->old_moveTbl[sp->current_move_index].type  // if either type is not the move's type
-                    || sp->battlemon[sp->attack_client].type2 != sp->old_moveTbl[sp->current_move_index].type)
-                && sp->old_moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
+                && (sp->battlemon[sp->attack_client].type1 != sp->aiWorkTable.old_moveTbl[sp->current_move_index].type  // if either type is not the move's type
+                    || sp->battlemon[sp->attack_client].type2 != sp->aiWorkTable.old_moveTbl[sp->current_move_index].type)
+                && sp->aiWorkTable.old_moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
             {
-                sp->battlemon[sp->attack_client].type1 = sp->old_moveTbl[sp->current_move_index].type;
-                sp->battlemon[sp->attack_client].type2 = sp->old_moveTbl[sp->current_move_index].type;
+                sp->battlemon[sp->attack_client].type1 = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+                sp->battlemon[sp->attack_client].type2 = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
                 LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
                 sp->msg_work = sp->battlemon[sp->attack_client].type1;
                 sp->client_work = sp->attack_client;
@@ -337,11 +337,11 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
 //        case SEQ_STANCE_CHANGE_CHECK:
 //            if(sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
 //            {
-//                if(sp->old_moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
+//                if(sp->aiWorkTable.old_moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
 //                {
 //                    //change to shield form
 //                }
-//                else if(sp->old_moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
+//                else if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
 //                {
 //                    //change to blade form
 //                }

@@ -204,7 +204,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     battle_type = BattleTypeGet(bw);
 
     if (pow == 0)
-        movepower = sp->old_moveTbl[moveno].power;
+        movepower = sp->aiWorkTable.old_moveTbl[moveno].power;
     else
         movepower = pow;
 
@@ -217,7 +217,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 //        movepower = (movepower * 12) / 10;
 //    }
     else if (type == 0)
-        movetype = sp->old_moveTbl[moveno].type;
+        movetype = sp->aiWorkTable.old_moveTbl[moveno].type;
     else
         movetype = type & 0x3f;
 
@@ -235,7 +235,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if ((AttackingMon.ability == ABILITY_TECHNICIAN) && (moveno != MOVE_STRUGGLE) && (movepower <= 60))
         movepower = movepower * 15 / 10;
 
-    movesplit = sp->old_moveTbl[moveno].split;
+    movesplit = sp->aiWorkTable.old_moveTbl[moveno].split;
 
     // handle huge power + pure power
     if ((AttackingMon.ability == ABILITY_HUGE_POWER) || (AttackingMon.ability == ABILITY_PURE_POWER))
@@ -400,7 +400,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     //handle tough claws
-    if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (sp->old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) 
+    if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) 
     {
         movepower = movepower * 130 / 100;
     }    
@@ -653,7 +653,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // halve the defense if using selfdestruct/explosion
-    if (sp->old_moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
+    if (sp->aiWorkTable.old_moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
 		defense = defense / 2;
 
     // handle physical moves
@@ -710,7 +710,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         // handle reflect
         if (((side_cond & SIDE_STATUS_REFLECT) != 0) && 
             (critical == 1) && 
-            (sp->old_moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS))
+            (sp->aiWorkTable.old_moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS))
         {
             if ((battle_type & BATTLE_TYPE_DOUBLE) && (CheckNumMonsHit(bw, sp, 1, defender) == 2))
             {
@@ -769,7 +769,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         // handle light screen
         if (((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0) && 
             (critical == 1) && 
-            (sp->old_moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS))
+            (sp->aiWorkTable.old_moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS))
         {
             if ((battle_type & BATTLE_TYPE_DOUBLE) && (CheckNumMonsHit(bw, sp, 1, defender) == 2))
             {
@@ -783,14 +783,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->old_moveTbl[moveno].target == 0x4) &&
+        (sp->aiWorkTable.old_moveTbl[moveno].target == 0x4) &&
         (CheckNumMonsHit(bw, sp, 1, defender) == 2))
     {
         damage = damage * 3 / 4;
     }
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->old_moveTbl[moveno].target == 0x8) &&
+        (sp->aiWorkTable.old_moveTbl[moveno].target == 0x8) &&
         (CheckNumMonsHit(bw, sp, 1, defender) >= 2))
     {
         damage = damage * 3 / 4;
@@ -863,7 +863,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     
 #define DEBUG
 #ifdef DEBUG
-    *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->old_moveTbl[moveno].power : pow;
+    *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->aiWorkTable.old_moveTbl[moveno].power : pow;
     *((u32 *)(0x23D8004 + 0xC*(attacker&1))) = movepower;
     *((u32 *)(0x23D8008 + 0xC*(attacker&1))) = damage + 2;
 #endif

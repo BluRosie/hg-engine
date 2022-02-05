@@ -323,3 +323,77 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     return	FALSE;
 }
 
+
+//BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
+//{
+//    u16	hit;
+//    IncrementBattleScriptPtr(sp,1);
+//
+//    //通常の命中率計算をしないようにする
+//    sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
+//
+//    //特性がんじょうは、一撃必殺できない
+//    if(MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE)
+//    {
+//        sp->waza_status_flag |= WAZA_STATUS_FLAG_GANZYOU_NOHIT;
+//    }
+//    else{
+//        if(((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON) == 0)
+//            && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_NO_GUARD)
+//            && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
+//        {
+//            hit = sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+//            if(((BattleWorkRandGet(bw) % 100) < hit)
+//                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+//            {
+//                hit = 1;
+//            }
+//            else
+//            {
+//                hit = 0;
+//            }
+//        }
+//        else
+//        {
+//            if((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON))
+//                    || (GetBattlerAbility(sp,sp->attack_client) == ABILITY_NO_GUARD)
+//                    || (GetBattlerAbility(sp,sp->defence_client) == ABILITY_NO_GUARD))
+//                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+//            {
+//                hit = 1;
+//            }
+//            else{
+//                hit=sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+//                if(((BattleWorkRandGet(bw) % 100) < hit)
+//                    &&(sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+//                {
+//                    hit = 1;
+//                }
+//                else
+//                {
+//                    hit = 0;
+//                }
+//            }
+//            sp->waza_status_flag |= WAZA_STATUS_FLAG_LOCK_ON;
+//        }
+//        if(hit)
+//        {
+//            sp->damage = sp->battlemon[sp->defence_client].hp * -1;
+//            sp->waza_status_flag |= WAZA_STATUS_FLAG_ICHIGEKI;
+//        }
+//        else
+//        {
+//            if(sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)
+//            {
+//                sp->waza_status_flag |= FLAG_CONTACT;
+//            }
+//            else
+//            {
+//                sp->waza_status_flag |= WAZA_STATUS_FLAG_ICHIGEKI_NOHIT;
+//            }
+//        }
+//    }
+//
+//    return FALSE;
+//}
+
