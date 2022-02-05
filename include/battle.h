@@ -444,7 +444,7 @@ struct __attribute__((packed)) MoveOutCheck
     u32	konran_flag	 :1;		//こんらんして自分を攻撃
     u32	juuryoku_flag :1;		//じゅうりょくで技がだせない
     u32	healblock_flag :1;		//ヒールブロックで技がだせない
-    u32	dummy :21;
+    u32	dummy :22;
 };
 
 struct __attribute__((packed)) battle_moveflag
@@ -667,14 +667,14 @@ struct __attribute__((packed)) BattleAIWorkTable
     u8 ai_item_type[2]; //0x7D
     u8 ai_item_condition[2]; //0x7F
 
-    //implicit padding here, one byte
+    u8 padding_81; //implicit padding here, one byte
 
     u16 ai_item_no[2]; //0x82
 
     u8 ai_dir_select_client[CLIENT_MAX]; //0x86
     struct BattleMove old_moveTbl[467 + 1]; //0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
 
-    //implicit padding here, two bytes
+    u16 padding_1DCA; //implicit padding here, two bytes
 
     struct ItemTable *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
 
@@ -1106,6 +1106,12 @@ int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
 
 // defined in battle_calc_damage.c
 u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+
+
+
+
+// defined in battle_pokemon.c;
+BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 

@@ -218,7 +218,6 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 10 / 6;
     }
 
-#define DEBUG
 #ifdef DEBUG
     *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->aiWorkTable.old_moveTbl[move_no].accuracy;
     *((u32 *)(0x23D8004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
