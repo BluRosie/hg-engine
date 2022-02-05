@@ -132,7 +132,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     //handle lightning rod
-    if(MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
+    if(MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE) //TODO finish
     {
         if((movetype == TYPE_ELECTRIC) && (attacker != defender))
         {
