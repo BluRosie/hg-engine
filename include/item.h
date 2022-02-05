@@ -12,23 +12,23 @@ struct ItemTable
     u8 pluck_effect;
     u8 fling_effect;
     u8 fling_damage;
-    u8 natural_gift;
+    u8 naturalgift_power;
 
-    u16	natural_gift_type:5;		// しぜんのめぐみタイプ
-	u16	imp:1;				// 重要
-	u16	cnv_btn:1;			// 便利ボタン
-	u16	feild_pocket:4;		// フィールド保存先（ポケット番号）
-	u16	battle_pocket:5;		// 戦闘保存先（ポケット番号）
+    u16	naturalgift_type:5;		// しぜんのめぐみタイプ
+    u16	cant_discard:1;
+    u16	register_able:1;
+    u16	field_pocket:4;
+    u16	battle_pocket:5;
 
-    u8	field_func;			// field機0
-	u8	battle_func;		// battle機0
-	u8	work_type;			// ワークタイプ
+    u8	field_function;
+    u8	battle_function;
+    u8	item_type;
 
 	u8	dmy;				// ダミー
 
-    u8 reciver;
+    u8 recovery;
 
-	u8 feild_recive;
+	u8 field_effects;
 
 	u8 exp_up1;
 
@@ -36,9 +36,9 @@ struct ItemTable
 
 	u8 exp_up3;
 
-	u8	nulizhi;
+	u8	recovery_ev_changes;
 
-	u8	friend;
+	u8	happiness;
 
 	u8	prm_hp_exp;				// HP努力値
 	u8	prm_pow_exp;			// 攻撃努力値
