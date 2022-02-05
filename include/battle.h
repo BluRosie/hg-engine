@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "sprite.h"
+#include "item.h"
 
 #define MAX_MOVE_NUM 742 //old 467
 #define CLIENT_MAX 4
@@ -675,39 +676,13 @@ struct __attribute__((packed)) BattleAIWorkTable
 
     //implicit padding here, two bytes
 
-    struct ItemData *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
+    struct ItemTable *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
 
     u16 ai_calc_count[CLIENT_MAX]; //0x1DD0
     u16 ai_calc_continue[CLIENT_MAX]; //0x1DD8
 
     //length is 0x1DE0
     //the end of this struct is at 0x2134 in the BattleStruct
-};
-
-struct __attribute__((packed)) ItemData
-{
-    u16	price;
-    u8	equipment_effect;
-    u8	power;
-
-    u8	pluck_effect;
-    u8	fling_effect;
-    u8	fling_power;
-    u8	naturalgift_power;
-
-    u16	naturalgift_type:5;
-    u16	cant_discard:1;
-    u16	register_able:1;
-    u16	field_pocket:4;
-    u16	battle_pocket:5;
-
-    u8	field_function;
-    u8	battle_function;
-    u8	item_type;
-
-    u8	dummy;
-
-    u8	work[20];
 };
 
 
@@ -1142,6 +1117,9 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
 
 // defined in other_battle_calculators.c
 u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
+
+// defined in battle_pokemon.c
+BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 
