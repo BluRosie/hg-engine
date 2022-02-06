@@ -397,3 +397,48 @@ BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+
+BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
+{
+    int	side;
+    int	client_no;
+    int	eqp;
+    int	atk;
+    int	flag = 0;
+
+    //命令コード分を読み飛ばし
+    IncrementBattleScriptPtr(sp,1);
+
+    //sideをロード
+    side = read_battle_script_param(sp);
+
+    client_no = SideClientNoGet(bw,sp,side);
+    eqp = HeldItemHoldEffectGet(sp,client_no);
+    atk = HeldItemAtkGet(sp,client_no,ATK_CHECK_NORMAL);
+
+    if(sp->battlemon[client_no].ability == ABILITY_STURDY)
+    {
+        flag = 2;
+    }
+    else if((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
+    {
+        flag = 1;
+    }
+    else if((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    {
+        flag = 1;
+    }
+    if(flag)
+    {
+        //気絶してしまう時は、１残すようにする
+        if((sp->battlemon[client_no].hp + sp->hp_calc_work) <= 0)
+        {
+            sp->hp_calc_work = (sp->battlemon[client_no].hp - 1) * -1;
+            if(flag != 2)
+                sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
+        }
+    }
+
+    return FALSE;
+}
+

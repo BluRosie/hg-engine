@@ -62,6 +62,8 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
 #022404e1
 0012 btl_scr_cmd_54_singlestrike 08008C21 3
+#02245009
+0012 btl_scr_cmd_d0_hp_1_check 0800D749 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

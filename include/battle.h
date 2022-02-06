@@ -327,6 +327,12 @@
 #define STATUS_EFF_DOWN (13)
 
 
+//held item attack effect
+#define	ATK_CHECK_NORMAL	(0)	//チェックあり
+#define	ATK_CHECK_NONE		(1)	//チェックなし
+#define	ATK_CHECK_SHUTOUT	(2)	//シャットアウトだけチェックあり
+
+
 // (possibly) implement challenge/ easy modes
 #define NORMAL_MODE (0)
 #define CHALLENGE_MODE (1)
