@@ -61,9 +61,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
     else
     {
-        move_type = sp->old_moveTbl[move_no].type;
+        move_type = sp->aiWorkTable.old_moveTbl[move_no].type;
     }
-    move_split = sp->old_moveTbl[move_no].split;
+    move_split = sp->aiWorkTable.old_moveTbl[move_no].split;
 
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
@@ -105,7 +105,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         temp = 12;
     }
 
-    accuracy = sp->old_moveTbl[move_no].accuracy;
+    accuracy = sp->aiWorkTable.old_moveTbl[move_no].accuracy;
 
     if (accuracy == 0)
     {
@@ -125,7 +125,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
     {
-        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->old_moveTbl[move_no].effect == 152)) // thunder sucks in the sun
+        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->aiWorkTable.old_moveTbl[move_no].effect == 152)) // thunder sucks in the sun
         {
             accuracy = 50;
         }
@@ -141,7 +141,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     
     //handle Wonder Skin
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->old_moveTbl[move_no].split == SPLIT_STATUS))
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->aiWorkTable.old_moveTbl[move_no].split == SPLIT_STATUS))
     {
         accuracy = accuracy * 50 / 100;
     }
@@ -218,9 +218,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 10 / 6;
     }
 
-#define DEBUG
 #ifdef DEBUG
-    *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->old_moveTbl[move_no].accuracy;
+    *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->aiWorkTable.old_moveTbl[move_no].accuracy;
     *((u32 *)(0x23D8004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
 #endif
 
@@ -532,16 +531,16 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
                 move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
             }
         }
-        priority1 = sp->old_moveTbl[move1].priority;
-        priority2 = sp->old_moveTbl[move2].priority;
+        priority1 = sp->aiWorkTable.old_moveTbl[move1].priority;
+        priority2 = sp->aiWorkTable.old_moveTbl[move2].priority;
                 
         // handle prankster
-        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && sp->old_moveTbl[move1].split == SPLIT_STATUS)
+        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && sp->aiWorkTable.old_moveTbl[move1].split == SPLIT_STATUS)
         {
             priority1++;
         }
         
-        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && sp->old_moveTbl[move2].split == SPLIT_STATUS)
+        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && sp->aiWorkTable.old_moveTbl[move2].split == SPLIT_STATUS)
         {
             priority2++;
         }
