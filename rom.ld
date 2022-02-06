@@ -182,6 +182,7 @@ GetArceusType = 0x02071C28 | 1;
 BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
 PokeParaGiratinaFormChange = 0x02071CA0 | 1;
 SCIO_PSPtoPPCopy = 0x02263B4C | 1;
+SCIO_IncRecord = 0x02263F0C | 1;
 
 
 /*Battle Script Functions*/

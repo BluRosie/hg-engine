@@ -5,6 +5,8 @@
 
 
 // sub sequence defines
+#define	SUB_SEQ_HP_CALC (2)
+
 #define SUB_SEQ_STAT_STAGE_CHANGE (12)
 
 #define SUB_SEQ_PUT_MON_TO_SLEEP (18)
@@ -14,6 +16,8 @@
 #define SUB_SEQ_BURN_MON (25)
 
 #define SUB_SEQ_PARALYZE_MON (31)
+
+#define	SUB_SEQ_MIGAWARI_HIT (90)
 
 #define SUB_SEQ_HANDLE_CUTE_CHARM (106)
 

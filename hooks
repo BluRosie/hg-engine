@@ -7,6 +7,8 @@
 0012 Sub_PokeIconResourceFree 08030954 1
 0012 ServerBeforeAct 08011A4C 2
 0012 ServerWazaBefore 08014ACC 2
+#0224C690
+0012 ServerHPCalc 08014DD0 2
 
 arm9 PokePicLoad 080701EC 1
 arm9 PokeOtherFormMonsNoGet 08072634 2

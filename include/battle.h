@@ -181,6 +181,7 @@
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
 #define	SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
+#define	SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
@@ -331,6 +332,17 @@
 #define	ATK_CHECK_NORMAL	(0)	//チェックあり
 #define	ATK_CHECK_NONE		(1)	//チェックなし
 #define	ATK_CHECK_SHUTOUT	(2)	//シャットアウトだけチェックあり
+
+//inc record
+#define	CLIENT_BOOT_TYPE_MINE		(0)
+#define	CLIENT_BOOT_TYPE_NOMINE		(1)
+
+//save data
+#define	RECID_TEMOTI_MAKIZOE (71+26)
+
+//ai condition flags 2
+#define	CONDITION2_SUBSTITUTE		(0x01000000)
+#define	CONDITION2_SUBSTITUTE_OFF		(0x01000000^0xffffffff)
 
 
 // (possibly) implement challenge/ easy modes
@@ -1134,7 +1146,7 @@ void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw,void *sp,int send_
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
 int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
 
-
+u32	No2Bit(int no);
 
 
 
@@ -1183,6 +1195,7 @@ int __attribute__((long_call)) SideClientNoGet(void *bw, struct BattleStruct *sp
 int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client_no);
 u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
 int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
+void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int param1, int param2);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
@@ -1201,11 +1214,6 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 
-// defined in battle_pokemon.c;
-BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
-
-
-
 
 // defined in ability.c
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
@@ -1214,9 +1222,6 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
 
 // defined in other_battle_calculators.c
 u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
-
-// defined in battle_pokemon.c
-BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 

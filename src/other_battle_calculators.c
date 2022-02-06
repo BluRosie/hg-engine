@@ -3,10 +3,12 @@
 #include "../include/types.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/hold_item_effects.h"
+#include "../include/constants/battle_script_constants.h"
 #include "../include/constants/item.h"
 #include "../include/constants/move_effects.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
+#include "../include/constants/file.h"
 
 
 extern const u8 StatBoostModifiers[][2];
@@ -692,4 +694,143 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     }
 
     return multiplier;
+}
+
+
+void ServerHPCalc(void *bw, struct BattleStruct *sp)
+{
+    int	eqp;
+    int	atk;
+
+    //一撃必殺の時は、HPMAXをダメージに代入
+    if(sp->waza_status_flag & WAZA_STATUS_FLAG_ICHIGEKI)
+    {
+        sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
+    }
+    if(sp->damage)
+    {
+        eqp = HeldItemHoldEffectGet(sp,sp->defence_client);
+        atk = HeldItemAtkGet(sp,sp->defence_client,ATK_CHECK_NORMAL);
+
+        if(IsClientEnemy(bw,sp->attack_client) == IsClientEnemy(bw,sp->defence_client))
+        {
+            SCIO_IncRecord(bw,sp->attack_client,CLIENT_BOOT_TYPE_MINE,RECID_TEMOTI_MAKIZOE);
+        }
+
+        sp->client_no_hit[sp->defence_client] = sp->attack_client;
+
+        if((sp->battlemon[sp->defence_client].condition2 & CONDITION2_SUBSTITUTE) && (sp->damage < 0))
+        {
+            if((sp->battlemon[sp->defence_client].moveeffect.migawari_hp + sp->damage) <= 0)
+            {
+                sp->oneSelfFlag[sp->attack_client].kaigara_damage += (sp->battlemon[sp->defence_client].moveeffect.migawari_hp * -1);
+                sp->battlemon[sp->defence_client].condition2 &= CONDITION2_SUBSTITUTE_OFF;
+                sp->hit_damage = sp->battlemon[sp->defence_client].moveeffect.migawari_hp * -1;
+                sp->battlemon[sp->defence_client].moveeffect.migawari_hp = 0;
+            }
+            else
+            {
+                sp->oneSelfFlag[sp->attack_client].kaigara_damage += sp->damage;
+                sp->battlemon[sp->defence_client].moveeffect.migawari_hp += sp->damage;
+                sp->hit_damage = sp->damage;
+            }
+            sp->oneSelfFlag[sp->defence_client].status_flag |= STATUS_FLAG_MIGAWARI_HIT;
+            sp->client_work = sp->defence_client;
+            LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_MIGAWARI_HIT);
+            sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+            sp->next_server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
+        }
+        else
+        {
+            if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].effect == 101)
+            {
+                //気絶してしまう時は、１残すようにする
+                if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+                {
+                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
+                }
+            }
+            //技のこらえるが成功している時は、アイテムのチェックをしない
+            if(sp->oneTurnFlag[sp->defence_client].koraeru_flag == 0)
+            {
+                //アイテムこらえるチェック
+                if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE))
+                {
+                    sp->oneTurnFlag[sp->defence_client].koraeru_flag = 1;
+                }
+                else if((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
+                {
+                    sp->oneSelfFlag[sp->defence_client].item_koraeru_flag = 1;
+                }
+                else if((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+                {
+                    sp->oneSelfFlag[sp->defence_client].item_koraeru_flag = 1;
+                }
+            }
+            //こらえるチェック
+            if((sp->oneTurnFlag[sp->defence_client].koraeru_flag) || (sp->oneSelfFlag[sp->defence_client].item_koraeru_flag))
+            {
+                //気絶してしまう時は、１残すようにする
+                if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+                {
+                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
+                    if(sp->oneTurnFlag[sp->defence_client].koraeru_flag)
+                    {
+                        sp->waza_status_flag |= WAZA_STATUS_FLAG_KORAETA;
+                    }
+                    else
+                    {
+                        sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
+                    }
+                }
+            }
+
+            sp->store_damage[sp->defence_client] += sp->damage;
+
+            if(sp->battlemon[sp->defence_client].hit_count < 255)
+            {
+                sp->battlemon[sp->defence_client].hit_count++;
+            }
+            if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
+            {
+                sp->oneTurnFlag[sp->defence_client].butsuri_otf_damage[sp->attack_client] = sp->damage;
+                sp->oneTurnFlag[sp->defence_client].butsuri_otf_client = sp->attack_client;
+                sp->oneTurnFlag[sp->defence_client].butsuri_otf_client_bit |= No2Bit(sp->attack_client);
+                sp->oneSelfFlag[sp->defence_client].physical_damage = sp->damage;
+                sp->oneSelfFlag[sp->defence_client].physical_damager = sp->attack_client;
+            }
+            else if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].split == SPLIT_SPECIAL)
+            {
+                sp->oneTurnFlag[sp->defence_client].tokusyu_otf_damage[sp->attack_client] = sp->damage;
+                sp->oneTurnFlag[sp->defence_client].tokusyu_otf_client = sp->attack_client;
+                sp->oneTurnFlag[sp->defence_client].tokusyu_otf_client_bit |= No2Bit(sp->attack_client);
+                sp->oneSelfFlag[sp->defence_client].special_damage = sp->damage;
+                sp->oneSelfFlag[sp->defence_client].special_damager = sp->attack_client;
+            }
+
+            if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+            {
+                sp->oneSelfFlag[sp->attack_client].kaigara_damage += (sp->battlemon[sp->defence_client].hp * -1);
+            }
+            else
+            {
+                sp->oneSelfFlag[sp->attack_client].kaigara_damage += sp->damage;
+            }
+            sp->oneTurnFlag[sp->defence_client].last_otf_damage = sp->damage;
+            sp->oneTurnFlag[sp->defence_client].last_otf_client = sp->attack_client;
+
+            sp->client_work = sp->defence_client;
+            sp->hp_calc_work = sp->damage;
+
+            LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_HP_CALC);
+            sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+            sp->next_server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
+
+            sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+        }
+    }
+    else
+    {
+        sp->server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
+    }
 }
