@@ -754,7 +754,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             if(sp->oneTurnFlag[sp->defence_client].koraeru_flag == 0)
             {
                 //アイテムこらえるチェック
-                if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE))
+                if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
                 {
                     sp->oneTurnFlag[sp->defence_client].koraeru_flag = 1;
                 }
