@@ -280,7 +280,6 @@ void __attribute__((long_call))PokeParaSet(void *pp,int mons_no,int level,int po
 void __attribute__((long_call)) SetPokemonSee(void *zw, void *pp);
 void __attribute__((long_call)) SetPokemonGet(void *zw, void *pp);
 void *__attribute__((long_call))PokeStatusPokeParamGet(void*);
-void __attribute__((long_call))PokeCopyPPtoPP(void*,void*);
 void __attribute__((long_call)) PokeParaCalc( struct PartyPokemon *ppd );
 void __attribute__((long_call)) PokeParaSpeabiSet( void *ppd );
 
@@ -288,7 +287,7 @@ u32 __attribute__((long_call)) GetMonData(void*,int,void*);
 void __attribute__((long_call)) SetMonData(void*,int,void*);
 u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
 u32 __attribute__((long_call)) PokePasoParaGet(void *ppp, int id, void *buf);
-void *__attribute__((long_call))PokeParty_GetMemberPointer(const void * party, int pos);
+struct PartyPokemon * __attribute__((long_call)) PokeParty_GetMemberPointer(void * party, int pos);
 u32	__attribute__((long_call))PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
 u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
 u8 __attribute__((long_call)) PokeSexGetMonsNo(u16 monsno,u32 rnd);
@@ -303,5 +302,7 @@ void __attribute__((long_call)) FillInBoxMonLearnset(void *);
 u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
 u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
 void __attribute__((long_call)) BoxMonInit(void *);
+
+int PokeOtherFormMonsNoGet(int mons_no, int form_no);
 
 #endif

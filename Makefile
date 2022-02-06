@@ -94,6 +94,7 @@ all: $(OUTPUT)
 	mkdir -p build/move
 	mkdir -p build/move/move_seq
 	mkdir -p build/move/move_anim
+	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
 	@echo -e "$(ROMNAME) Decompression successful!!"
 	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
@@ -308,3 +309,9 @@ move_narc:
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s
+	
+	@echo "trainer data:"
+	mkdir -p build/a055 build/a056
+	$(ARMIPS) armips/data/trainers/trainers.s
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/5/5 build/a055 -nf
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/5/6 build/a056 -nf

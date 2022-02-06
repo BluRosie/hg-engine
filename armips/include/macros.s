@@ -3,8 +3,10 @@
 .macro levelup,species
 
 	.if species < 10
-		.create "build/a033/learnset_00" + tostring(species),0
+		.create "build/a033/learnset_000" + tostring(species),0
 	.elseif species < 100
+		.create "build/a033/learnset_00" + tostring(species),0
+	.elseif species < 1000
 		.create "build/a033/learnset_0" + tostring(species),0
 	.else
 		.create "build/a033/learnset_" + tostring(species),0
@@ -28,8 +30,10 @@
 .macro mondata,species
 
 	.if species < 10
-		.create "build/a002/mondata_00" + tostring(species),0
+		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
+		.create "build/a002/mondata_00" + tostring(species),0
+	.elseif species < 1000
 		.create "build/a002/mondata_0" + tostring(species),0
 	.else
 		.create "build/a002/mondata_" + tostring(species),0
@@ -114,8 +118,10 @@
 .macro evodata,species
 
 	.if species < 10
-		.create "build/a034/evodata_00" + tostring(species),0
+		.create "build/a034/evodata_000" + tostring(species),0
 	.elseif species < 100
+		.create "build/a034/evodata_00" + tostring(species),0
+	.elseif species < 1000
 		.create "build/a034/evodata_0" + tostring(species),0
 	.else
 		.create "build/a034/evodata_" + tostring(species),0
@@ -168,7 +174,7 @@
 	
 	.halfword baby
 	
-	.if species == NUM_OF_MONS+NUM_OF_MEGAS
+	.if species == NUM_OF_TOTAL_MONS_PLUS_FORMS
 		.close
 	.endif
 .endmacro
@@ -188,14 +194,14 @@
 .endmacro
 
 .macro heightentry,species,fback,mback,ffront,mfront
-	.if (species * 4) < 10
-		.create "build/a005/a005_000" + tostring(species * 4),0
-	.elseif (species * 4) < 100
-		.create "build/a005/a005_00" + tostring(species * 4),0
-	.elseif (species * 4) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4),0
+	.if ((species) * 4) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4),0
+	.elseif ((species) * 4) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4),0
+	.elseif ((species) * 4) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4),0
+		.create "build/a005/a005_" + tostring((species) * 4),0
 	.endif
 	
 	.if fback != "null"
@@ -204,14 +210,14 @@
 	
 	.close
 
-	.if (species * 4 + 1) < 10
-		.create "build/a005/a005_000" + tostring(species * 4 + 1),0
-	.elseif (species * 4 + 1) < 100
-		.create "build/a005/a005_00" + tostring(species * 4 + 1),0
-	.elseif (species * 4 + 1) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4 + 1),0
+	.if ((species) * 4 + 1) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4 + 1),0
+	.elseif ((species) * 4 + 1) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4 + 1),0
+	.elseif ((species) * 4 + 1) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4 + 1),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4 + 1),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 1),0
 	.endif
 	
 	.if mback != "null"
@@ -220,14 +226,14 @@
 	
 	.close
 
-	.if (species * 4 + 2) < 10
-		.create "build/a005/a005_000" + tostring(species * 4 + 2),0
-	.elseif (species * 4 + 2) < 100
-		.create "build/a005/a005_00" + tostring(species * 4 + 2),0
-	.elseif (species * 4 + 2) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4 + 2),0
+	.if ((species) * 4 + 2) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4 + 2),0
+	.elseif ((species) * 4 + 2) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4 + 2),0
+	.elseif ((species) * 4 + 2) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4 + 2),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4 + 2),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 2),0
 	.endif
 	
 	.if ffront != "null"
@@ -236,14 +242,14 @@
 	
 	.close
 
-	.if (species * 4 + 3) < 10
-		.create "build/a005/a005_000" + tostring(species * 4 + 3),0
-	.elseif (species * 4 + 3) < 100
-		.create "build/a005/a005_00" + tostring(species * 4 + 3),0
-	.elseif (species * 4 + 3) < 1000
-		.create "build/a005/a005_0" + tostring(species * 4 + 3),0
+	.if ((species) * 4 + 3) < 10
+		.create "build/a005/a005_000" + tostring((species) * 4 + 3),0
+	.elseif ((species) * 4 + 3) < 100
+		.create "build/a005/a005_00" + tostring((species) * 4 + 3),0
+	.elseif ((species) * 4 + 3) < 1000
+		.create "build/a005/a005_0" + tostring((species) * 4 + 3),0
 	.else
-		.create "build/a005/a005_" + tostring(species * 4 + 3),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 3),0
 	.endif
 	
 	.if mfront != "null"
@@ -253,14 +259,19 @@
 	.close
 .endmacro
 
-.macro dataentry,species,monoffy,shadowoffx,shadowsize
-	.if species <= SPECIES_ARCEUS // a species in the current game
-		.orga (species * 0x59) + 0x56 // edit the last 3 bytes of the structure apparently
-	.else // generic frame data (it is bulbasaur)
-		.orga (species * 0x59)
+.macro dataentry,species,monfrontanim,monbackanim,monoffy,shadowoffx,shadowsize
+	.if (species) > SPECIES_ARCEUS // fill in generic frame data for new mons (it is bulbasaur)
+		.orga ((species) * 0x59)
 		.byte 0x00, 0x02, 0x00, 0x00, 0x04, 0x00, 0x00, 0x01, 0x0A, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x09, 0x05, 0x0B, 0x00, 0x0B, 0x00, 0x00, 0x01, 0x0F, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00
-	.endif
+	.endif 
 	
+	.orga ((species) * 0x59) + 1
+	.byte monfrontanim
+	
+	.orga ((species) * 0x59) + 0x2C
+	.byte monbackanim
+	
+	.orga ((species) * 0x59) + 0x56
 	.byte monoffy
 	.byte shadowoffx
 	.byte shadowsize
@@ -271,8 +282,10 @@
 
 .macro overworlddata,ownum,canenter,bouncespeed
 	.if ownum < 10
-		.create "build/a141/a141_00" + tostring(ownum),0
+		.create "build/a141/a141_000" + tostring(ownum),0
 	.elseif ownum < 100
+		.create "build/a141/a141_00" + tostring(ownum),0
+	.elseif ownum < 1000
 		.create "build/a141/a141_0" + tostring(ownum),0
 	.else
 		.create "build/a141/a141_" + tostring(ownum),0
@@ -340,6 +353,124 @@
 .macro dexendareadata
 	.word 0
 	
+	.close
+.endmacro
+
+
+// trainer data macros
+
+.macro trainerdata,num
+	.if num < 10
+		.create "build/a055/5_00" + tostring(num),0
+	.elseif num < 100
+		.create "build/a055/5_0" + tostring(num),0
+	.else
+		.create "build/a055/5_" + tostring(num),0
+	.endif
+.endmacro
+
+.macro trainermontype,num
+	.byte num
+.endmacro
+
+.macro trainerclass,num
+	.byte num
+.endmacro
+
+.macro battletype,num
+	.byte num
+.endmacro
+
+.macro nummons,num
+	.byte num
+.endmacro
+
+// 4 items
+
+.macro aiflags,num
+	.word num
+.endmacro
+
+.macro battletype2,num
+	.byte num
+.endmacro
+
+.macro endentry
+	.byte 0, 0, 0
+	
+	.close
+.endmacro
+
+
+// trainer mon data macros
+
+.macro party,num
+	.if num < 10
+		.create "build/a056/6_00" + tostring(num),0
+	.elseif num < 100
+		.create "build/a056/6_0" + tostring(num),0
+	.else
+		.create "build/a056/6_" + tostring(num),0
+	.endif
+.endmacro
+
+.macro ivs,num
+	.byte num
+.endmacro
+
+.macro abilityslot,num
+	.byte num
+.endmacro
+
+.macro level,num
+	.halfword num
+.endmacro
+
+.macro monwithform,species,formid
+	.halfword (species | (formid<<10))
+.endmacro
+
+.macro pokemon,num
+	monwithform num, 0
+.endmacro
+
+.macro ballseal,num
+	.halfword num
+.endmacro
+
+.macro move,num
+	.halfword num
+.endmacro
+
+.macro item,num
+	.halfword num
+.endmacro
+
+.macro ability,num
+	.halfword num
+.endmacro
+
+.macro ball,num
+	.halfword num
+.endmacro
+
+.macro setivs,hp,atk,def,spd,spatk,spdef
+	.byte hp, atk, def, spd, spatk, spdef
+.endmacro
+
+.macro setevs,hp,atk,def,spd,spatk,spdef
+	.byte hp, atk, def, spd, spatk, spdef
+.endmacro
+
+.macro nature,num
+	.byte num
+.endmacro
+
+.macro shinylock,num
+	.byte num
+.endmacro
+
+.macro endparty
 	.close
 .endmacro
 

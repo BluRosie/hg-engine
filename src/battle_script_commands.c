@@ -165,7 +165,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     flag = 1;
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
-                      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE))
+                      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
+                      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FULL_METAL_BODY) == TRUE)
+                      || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE) &&
+                            (sp->battlemon[sp->attack_client].type1 == TYPE_GRASS || sp->battlemon[sp->attack_client].type2 == TYPE_GRASS)))
                     {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
@@ -318,5 +321,126 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     }
 
     return	FALSE;
+}
+
+
+BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
+{
+    u16	hit;
+    IncrementBattleScriptPtr(sp,1);
+
+    //通常の命中率計算をしないようにする
+    sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
+
+    //特性がんじょうは、一撃必殺できない
+    if(MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE)
+    {
+        sp->waza_status_flag |= WAZA_STATUS_FLAG_GANZYOU_NOHIT;
+    }
+    else{
+        if(((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON) == 0)
+            && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_NO_GUARD)
+            && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
+        {
+            hit = sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+            if(((BattleWorkRandGet(bw) % 100) < hit)
+                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+            {
+                hit = 1;
+            }
+            else
+            {
+                hit = 0;
+            }
+        }
+        else
+        {
+            if((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON))
+                    || (GetBattlerAbility(sp,sp->attack_client) == ABILITY_NO_GUARD)
+                    || (GetBattlerAbility(sp,sp->defence_client) == ABILITY_NO_GUARD))
+                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+            {
+                hit = 1;
+            }
+            else{
+                hit=sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+                if(((BattleWorkRandGet(bw) % 100) < hit)
+                    &&(sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+                {
+                    hit = 1;
+                }
+                else
+                {
+                    hit = 0;
+                }
+            }
+            sp->waza_status_flag |= WAZA_STATUS_FLAG_LOCK_ON;
+        }
+        if(hit)
+        {
+            sp->damage = sp->battlemon[sp->defence_client].hp * -1;
+            sp->waza_status_flag |= WAZA_STATUS_FLAG_ICHIGEKI;
+        }
+        else
+        {
+            if(sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)
+            {
+                sp->waza_status_flag |= FLAG_CONTACT;
+            }
+            else
+            {
+                sp->waza_status_flag |= WAZA_STATUS_FLAG_ICHIGEKI_NOHIT;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+
+BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
+{
+    int	side;
+    int	client_no;
+    int	eqp;
+    int	atk;
+    int	flag = 0;
+
+    //命令コード分を読み飛ばし
+    IncrementBattleScriptPtr(sp,1);
+
+    //sideをロード
+    side = read_battle_script_param(sp);
+
+    client_no = SideClientNoGet(bw,sp,side);
+    eqp = HeldItemHoldEffectGet(sp,client_no);
+    atk = HeldItemAtkGet(sp,client_no,ATK_CHECK_NORMAL);
+
+    if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    {
+        flag = 2;
+    }
+    else if((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
+    {
+        flag = 1;
+    }
+    else if((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    {
+        flag = 1;
+    }
+    if(flag)
+    {
+        //気絶してしまう時は、１残すようにする
+        if((sp->battlemon[client_no].hp + sp->hp_calc_work) <= 0)
+        {
+            sp->hp_calc_work = (sp->battlemon[client_no].hp - 1) * -1;
+            if(flag != 2)
+                sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
+            else
+                sp->waza_status_flag |= WAZA_STATUS_FLAG_KORAETA;
+        }
+    }
+
+    return FALSE;
 }
 

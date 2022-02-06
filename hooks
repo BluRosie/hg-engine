@@ -7,6 +7,8 @@
 0012 Sub_PokeIconResourceFree 08030954 1
 0012 ServerBeforeAct 08011A4C 2
 0012 ServerWazaBefore 08014ACC 2
+#0224C690
+0012 ServerHPCalc 08014DD0 2
 
 arm9 PokePicLoad 080701EC 1
 arm9 PokeOtherFormMonsNoGet 08072634 2
@@ -17,7 +19,7 @@ arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
 #0206DED0+4
 arm9 CreateBoxMonData_hook 0806DED4 5
-#0007 hook_7_spriteOffsetSpecies 08018A48 3
+0007 hook_7_spriteOffsetSpecies 08018A48 3
 #0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 Battle_End 08000B90 1
 0012 FormResert 080069AC 2
@@ -52,10 +54,32 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 GetBattleMonItem 0801DD2C 2
 #02252834
 0012 MoldBreakerAbilityCheck_hook 0801AF78 5
+#02254580
+0012 SynchroniseAbilityCheck 08254580 3
+#02256914
+0012 BattleFormChangeCheck 0801F054 3
 
 #battle script command hooks
 #0223ED78
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
+#022404e1
+0012 btl_scr_cmd_54_singlestrike 08008C21 3
+#02245009
+0012 btl_scr_cmd_d0_hp_1_check 0800D749 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
+
+#illusion hooks
+#02258EE0
+0012 ClientPokemonEncount 08021620 2
+#02258EF4
+0012 ClientPokemonEncountAppear 08021634 2
+#02258F08
+0012 ClientPokemonAppear 08021648 2
+#022480C0
+0012 MessageParam_GetNickname 08010800 3
+#02261464+4
+0012 CT_SwitchInMessageParamMake_hook 08029BA8 5
+#022615F0+4
+0012 CT_EncountSendOutMessageParamMake_hook 08029D34 5

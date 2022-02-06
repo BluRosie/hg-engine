@@ -106,3 +106,14 @@ __gnu_thumb1_case_si:
     pop {r0, r1}
     mov pc, lr
     .size __gnu_thumb1_case_uhi, . - __gnu_thumb1_case_uhi
+
+    .force_thumb
+    .syntax unified
+    .global memset
+    .thumb_func
+    .type memset,function
+memset:
+    push {lr}
+    blx 0x020E5B44
+    pop {pc}
+    .size memset, . - memset

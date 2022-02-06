@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "sprite.h"
+#include "item.h"
 
 #define MAX_MOVE_NUM 742 //old 467
 #define CLIENT_MAX 4
@@ -157,6 +158,7 @@
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 
 // move effect flags/waza_kouka
+#define	MOVE_EFFECT_LOCK_ON          (0x00000018)
 #define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
 #define MOVE_EFFECT_NO_CRITICAL_HITS (0x00008000)
 #define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
@@ -177,12 +179,15 @@
 
 // server status flags
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
+#define	SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
+#define	SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
-// server status2 falgs
+// server status2 flags
 #define SERVER_STATUS2_FLAG_x10 (0x00000010)
+#define SERVER_STATUS2_FLAG_FORM_CHANGE (0x04000000)
 
 // status2/condition2 flags
 #define STATUS2_FLAG_CONFUSED (0x00000007)
@@ -197,6 +202,12 @@
 #define SIDE_STATUS_LIGHT_SCREEN (0x2)
 #define SIDE_STATUS_TAILWIND (0x300)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
+
+// One Self Turn Flags
+#define	STATUS_FLAG_EQPITEM_POWDOWN	(0x00000001)	//装備効果によって技の威力を弱めたフラグ
+#define	STATUS_FLAG_TSUIBAMU			(0x00000002)	//ついばむ発動
+#define	STATUS_FLAG_MEROMERO			(0x00000004)	//メロメロになった
+#define	STATUS_FLAG_MIGAWARI_HIT		(0x00000008)	//みがわりで防いだ
 
 // physical/special split values
 #define SPLIT_PHYSICAL 0
@@ -316,6 +327,29 @@
 #define STATUS_EFF_UP (12)
 #define STATUS_EFF_DOWN (13)
 
+
+//held item attack effect
+#define	ATK_CHECK_NORMAL	(0)	//チェックあり
+#define	ATK_CHECK_NONE		(1)	//チェックなし
+#define	ATK_CHECK_SHUTOUT	(2)	//シャットアウトだけチェックあり
+
+//inc record
+#define	CLIENT_BOOT_TYPE_MINE		(0)
+#define	CLIENT_BOOT_TYPE_NOMINE		(1)
+
+//save data
+#define	RECID_TEMOTI_MAKIZOE (71+26)
+
+//ai condition flags 2
+#define	CONDITION2_SUBSTITUTE		(0x01000000)
+#define	CONDITION2_SUBSTITUTE_OFF		(0x01000000^0xffffffff)
+
+
+// (possibly) implement challenge/ easy modes
+#define NORMAL_MODE (0)
+#define CHALLENGE_MODE (1)
+#define EASY_MODE (2)
+
 // msg work
 enum
 {
@@ -353,19 +387,21 @@ struct __attribute__((packed)) sDamageCalc
 
 struct __attribute__((packed)) BattleMove
 {
-    u16 effect;
-    u8 split;
-    u8 power;
+    u16 effect; //0x0
+    u8 split; //0x2
+    u8 power; //0x3
 
-    u8 type;
-    u8 accuracy;
-    u8 pp;
-    u8 secondaryEffectChance;
+    u8 type; //0x4
+    u8 accuracy; //0x5
+    u8 pp; //0x6
+    u8 secondaryEffectChance; //0x7
 
-    u16 target;
-    s8 priority;
-    u8 flag;
-    u8 unk[4];
+    u16 target; //0x8
+    s8 priority; //0xA
+    u8 flag; //0xB
+    u8 unk[4]; //0xC, length = 4
+
+    //this takes up 0x10
 };
 
 struct __attribute__((packed)) OneTurnEffect
@@ -394,6 +430,7 @@ struct __attribute__((packed)) OneTurnEffect
 
 struct __attribute__((packed)) OneSelfTurnEffect
 {
+    //0x0
     u32 no_pressure_flag : 1;  ///<特性プレッシャーの効果を受けない
     u32 hiraisin_flag : 1;     ///<特性ひらいしんの効果が発動
     u32 yobimizu_flag : 1;     ///<特性よびみずのの効果が発動
@@ -403,12 +440,29 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
     u32 : 23;                  ///<ステータス上昇下降エフェクトを発動
 
-    int physical_damage;   ///存在物理伤害量
-    int physical_damager;   ///<物理攻撃したクライアント
-    int special_damage;   ///存在特殊伤害量
-    int special_damager;   ///<特殊攻撃したクライアント
-    int status_flag;           ///<ステータスフラグ（battle_server.hにdefine定義）
-    int kaigara_damage;        ///<かいがらのすず用ダメージ量
+    int physical_damage;   ///0x4 存在物理伤害量
+    int physical_damager;   ///0x8 <物理攻撃したクライアント
+    int special_damage;   ///0xC 存在特殊伤害量
+    int special_damager;   ///0x10 <特殊攻撃したクライアント
+    int status_flag;           ///0x14 <ステータスフラグ（battle_server.hにdefine定義）
+    int kaigara_damage;        ///0x18 <かいがらのすず用ダメージ量
+
+    //length 0x1C
+};
+
+struct __attribute__((packed)) MoveOutCheck
+{
+    u32	mahi_flag :1;		//まひで技がだせない
+    u32	koukanai_flag :1;		//効果がない技だった
+    u32	huuin_flag :1;		//ふういんされて技がだせない
+    u32	meromero_flag :1;		//メロメロで技がだせない
+    u32	kanashibari_flag :1;		//かなしばりで技がだせない
+    u32	chouhatsu_flag :1;		//ちょうはつされて技がだせない
+    u32	hirumu_flag	 :1;		//ひるんで技がだせない
+    u32	konran_flag	 :1;		//こんらんして自分を攻撃
+    u32	juuryoku_flag :1;		//じゅうりょくで技がだせない
+    u32	healblock_flag :1;		//ヒールブロックで技がだせない
+    u32	dummy :22;
 };
 
 struct __attribute__((packed)) battle_moveflag
@@ -596,6 +650,60 @@ struct __attribute__((packed)) side_condition_work
     u32                             :28;
 };
 
+struct __attribute__((packed)) BattleAIWorkTable
+{
+    u8 ai_seq_no; //0x0
+    u8 ai_move_pos; //0x1
+    u16 ai_move_no; //0x2
+
+    s8 ai_move_point[4]; //0x4
+
+    int ai_calc_work; //0x8
+    u32 ai_think_bit; //0xC
+
+    u8 ai_status_flag; //0x10
+    u8 ai_think_no; //0x11
+    u8 ai_all_move_check_loop_count; //0x12
+    u8 ai_all_move_check_push_pos; //0x13
+
+    u8* ai_all_move_check_loop_address; //0x14
+    u8 ai_damage_amount[4]; //0x18
+
+    u16 ai_defence_use_move[4][4]; //0x1C, length = 32 = 0x20 bytes
+
+    u8 ai_tokusyu_no[4]; //0x3C
+    u16 ai_soubi_item[4]; //0x40
+
+    u16 ai_have_item[2][4]; //0x48, length = 16 = 0x10 bytes
+
+    u32 push_address_buffer[8]; //0x58, length = 32 = 0x20 bytes
+    u8 push_address_count; //0x78
+    u8 ai_item_count[2]; //0x79
+    u8 ai_attack_client; //0x7B
+    u8 ai_defence_client; //0x7C
+
+    u8 ai_item_type[2]; //0x7D
+    u8 ai_item_condition[2]; //0x7F
+
+    u8 padding_81; //implicit padding here, one byte
+
+    u16 ai_item_no[2]; //0x82
+
+    u8 ai_dir_select_client[CLIENT_MAX]; //0x86
+    struct BattleMove old_moveTbl[467 + 1]; //0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
+
+    u16 padding_1DCA; //implicit padding here, two bytes
+
+    struct ItemTable *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
+
+    u16 ai_calc_count[CLIENT_MAX]; //0x1DD0
+    u16 ai_calc_continue[CLIENT_MAX]; //0x1DD8
+
+    //length is 0x1DE0
+    //the end of this struct is at 0x2134 in the BattleStruct
+};
+
+
 struct __attribute__((packed)) BattleStruct
 {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
@@ -676,10 +784,12 @@ struct __attribute__((packed)) BattleStruct
     /*0x1C4*/ struct side_condition_work scw[2];
     /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
     /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
-    /*0x344*/ u8 dummy3[0x9A]; // wocf, AIWT start
+    /*0x344*/ struct MoveOutCheck moveOutCheck[4];
 
-    /*0x3DE*/ struct BattleMove old_moveTbl[467 + 1]; //old
-    /*0x211E*/ u8 dummy6[0x1E]; // fuck the rest of ai stuff
+    /*0x354*/ struct BattleAIWorkTable aiWorkTable;
+    /*0x2134*/ u32 *ai_seq_work;
+    /*0x2138*/ u32 ai_seq_address;
+
     /*0x213C*/ u32 server_status_flag;
     /*0x2140*/ u32 server_status_flag2;
     /*0x2144*/ int damage;
@@ -885,39 +995,97 @@ typedef	struct
     u8 abilityslot;
     u16 level;
     u16 monsno;
-    u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_NOTHING;
-
-typedef	struct
-{
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
-    u16 moves[4];
-    u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_MOVES;
-
-typedef	struct
-{
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
-    u16 itemno;
-    u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_HELD_ITEM;
-
-typedef	struct
-{
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
     u16 itemno;
     u16 moves[4];
+    u16 ability;
+    u16 ball;
+    u8 ivnums[6];
+    u8 evnums[6];
+    u8 nature;
+    u8 shinylock;
+    u32 additionalflags;
+    u8 status;
+    u16 hp;
+    u16 atk;
+    u16 def;
+    u16 speed;
+    u16 spatk;
+    u16 spdef;
+    u8 types[2];
+    u8 ppcounts[4];
+    u16 nickname;
     u16 custom;
-} __attribute__((packed)) TRAINER_MON_DATA_MOVES_AND_HELD_ITEM;
+} __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
+
+struct __attribute__((packed)) CLIENT_PARAM
+{
+    /*0x0000*/ u8 filler1[0x94];
+    /*0x0094*/ u8 client_buffer[256];
+    /*0x0194*/ u8 client_no;
+    /*0x0195*/ u8 client_type;
+};
+
+struct __attribute__((packed)) POKEMON_ENCOUNT_PARAM
+{
+    u8 command_code;
+    u8 sex:2;
+    u8 rare:1;
+    u8 form_no:5;
+    u16 monsno;
+    u32 personal_rnd;
+    int voice;
+    u16 wazano[4];
+    u16 pp[4];
+    u16 ppmax[4];
+    u16 nickname[11];
+};
+
+struct __attribute__((packed)) POKEMON_APPEAR_PARAM
+{
+    u8 command_code;
+    u8 sex:2;
+    u8 rare:1;
+    u8 form_no:5;
+    u16 monsno;
+    u32 personal_rnd;
+    int voice;
+    int sel_mons_no;
+    int ballID;
+    int flag;
+    u16 wazano[4];
+    u16 pp[4];
+    u16 ppmax[4];
+    u16 nickname[11];
+    int pair_sel_mons_no;
+    int migawari_flag;
+    u16 wep_mons_no[CLIENT_MAX];
+    u8 wep_sex[CLIENT_MAX];
+    u8 wep_rare[CLIENT_MAX];
+    u8 wep_form_no[CLIENT_MAX];
+    u32 wep_personal_rnd[CLIENT_MAX];
+};
+
+struct __attribute__((packed)) ILLUSION_STRUCT
+{
+    u8 isSideInIllusion[2];
+    u8 illusionPos[2];
+    u16 illusionNameBuf[2][11];
+};
+
+struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
+{
+    u8 command_code;
+    u8 sel_mons_no;
+    u16 rate;	
+};
+
+struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
+{
+    u8 command_code;
+    u8 dummy[3];
+    u8 sel_mons_no[CLIENT_MAX];
+};
+
 
 
 
@@ -946,7 +1114,7 @@ int __attribute__((long_call)) BattleWorkMonDataGet(void*,void*,int ,int);
 int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int client_no,int speabi);
 u8 __attribute__((long_call)) CheckNumMonsHit(void*,void*,int ,int);
 BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
-struct PartyPokemon * __attribute__((long_call)) BattleWorkPokemonParamGet(void*,int,int);
+struct PartyPokemon * __attribute__((long_call)) BattleWorkPokemonParamGet(void *bw, int client_no, int sel_mons_no);
 
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
 int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
@@ -976,8 +1144,9 @@ void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp)
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
 void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
+int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
 
-
+u32	No2Bit(int no);
 
 
 
@@ -994,7 +1163,6 @@ u32 __attribute__((long_call)) AnticipateMoveEffectListCheck(void *sp, int moven
 u16 __attribute__((long_call)) BattleRand(void *bw);
 int __attribute__((long_call)) ChooseRandomTarget(void *bw, void *sp, int client);
 int __attribute__((long_call)) CountBattlerMoves(void *bw, void *sp, int client_no);
-u32 __attribute__((long_call)) BattleFormChangeCheck(void *bw, void *sp, int *seq_no);
 u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, void *sp, int client_no, int act_flag);
 u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, void *sp, int client_no, int *seq_no);
 void __attribute__((long_call)) LoadBattleSubSeqScript(void *, int, int);
@@ -1012,6 +1180,22 @@ void __attribute__((long_call)) TrainerMonHandleFrustration(struct PartyPokemon 
 void __attribute__((long_call)) SetPartyPokemonMoveAtPos(struct PartyPokemon *pp, u16 movenum, u8 pos);
 void __attribute__((long_call)) gf_srand(u32 seed);
 u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct PartyPokemon *poke);
+u8 __attribute__((long_call)) GetArceusType(u16 held_effect);
+u32 __attribute__((long_call)) BattleWorkBattleStatusFlagGet(void *bw);
+void __attribute__((long_call)) PokeCopyPPtoPP(struct PartyPokemon *pp_src, struct PartyPokemon *pp_dest);
+void __attribute__((long_call)) SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *sp, int send_client);
+int __attribute__((long_call)) PokeParaGiratinaFormChange(struct PartyPokemon *pp);
+void __attribute__((long_call)) CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_ENCOUNT_PARAM *pep);
+void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
+void __attribute__((long_call)) CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
+void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
+struct __attribute__((long_call)) POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
+int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party); // this function is cursed to be arm for no fucking reason whatsoever
+int __attribute__((long_call)) SideClientNoGet(void *bw, struct BattleStruct *sp, int side);
+int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client_no);
+u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
+int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
+void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int param1, int param2);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
@@ -1022,6 +1206,11 @@ int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
 
 // defined in battle_calc_damage.c
 u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+
+
+
+// defined in battle_pokemon.c;
+BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 

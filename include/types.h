@@ -17,6 +17,8 @@ typedef int64_t  s64;
 #define FALSE 0
 
 #define NELEMS(array) (sizeof(array) / sizeof(array[0]))
+#define offsetof(st, m) \
+    ((u32)&(((st *)0)->m))
 
 typedef u8  bool8;
 typedef int  BOOL;

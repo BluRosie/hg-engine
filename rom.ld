@@ -63,7 +63,6 @@ PokeParaCalc = 0x0206E250 | 1;
 PokeParaSpeabiSet = 0x020722D4 |1;
 PokeFuseiFormNoCheck = 0x02070438 |1;
 PokePasoParaUnknownFormGet = 0x02070DA0 |1;
-PokeParty_GetMemberPointer = 0x02074644 |1;
 PokeFormNoPersonalParaGet = 0x0206FBC4 |1;
 GetBoxMonGender = 0x0206FF90 |1;
 PokeSexGetMonsNo = 0x0206FFC8 |1;
@@ -160,8 +159,6 @@ Snd_SePlay = 0x0200604C | 1;
 
 
 
-
-
 /* new battle engine */
 GetBattlerAbility = 0x022527CC | 1;
 BattleDamageDivide = 0x02253178 | 1;
@@ -174,7 +171,6 @@ AnticipateMoveEffectListCheck = 0x0225865C | 1;
 BattleRand = 0x0223BD98 | 1;
 ChooseRandomTarget = 0x02253DA0 | 1;
 CountBattlerMoves = 0x02252EA8 | 1;
-BattleFormChangeCheck = 0x02256914 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
 HeldItemHealCheck = 0x02254E7C | 1;
 LoadBattleSubSeqScript = 0x172DC + 0x022378C1;
@@ -182,6 +178,12 @@ HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
 CheckSubstitute = 0x02256838 | 1;
+GetArceusType = 0x02071C28 | 1;
+BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
+PokeParaGiratinaFormChange = 0x02071CA0 | 1;
+SCIO_PSPtoPPCopy = 0x02263B4C | 1;
+SCIO_IncRecord = 0x02263F0C | 1;
+
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
@@ -199,3 +201,17 @@ TrainerMonHandleFrustration = 0x02073AE4 | 1;
 SetPartyPokemonMoveAtPos = 0x020714E8 | 1;
 gf_srand = 0x0201FD38 | 1;
 PokeParty_Add = 0x02074524 | 1;
+
+/* Illusion */
+CT_PokemonEncountSet = 0x02259968 | 1;
+CT_PokemonEncountAppearSet = 0x02259BA8 | 1;
+CT_PokemonAppearSet = 0x02259D48 | 1;
+ClientCommandReset = 0x02259928 | 1;
+BattleWorkPokePartyGet = 0x0223A7F4 | 1;
+PokeParty_GetPokeCount = 0x02074640 | 1;
+PokeParty_GetMemberPointer = 0x02074644 | 1;
+SideClientNoGet = 0x0224768C | 1;
+BattleWorkClientNoGet = 0x0223AAD8 | 1;
+BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
+BattleWorkCommIDGet = 0x0223BFC0 | 1;
+BattleWorkCommStandNoGet = 0x0223BFCC | 1;

@@ -102,3 +102,37 @@ mov pc, r1
 
 CreateBoxMonData_return_address:
 .word 0
+
+
+.global CT_SwitchInMessageParamMake_hook
+CT_SwitchInMessageParamMake_hook:
+ldr r5, =CT_SwitchInMessageParamMake_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl CT_SwitchInMessageParamMake
+ldr r1, =CT_SwitchInMessageParamMake_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+CT_SwitchInMessageParamMake_return_address:
+.word 0
+
+
+.global CT_EncountSendOutMessageParamMake_hook
+CT_EncountSendOutMessageParamMake_hook:
+ldr r5, =CT_EncountSendOutMessageParamMake_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl CT_EncountSendOutMessageParamMake
+ldr r1, =CT_EncountSendOutMessageParamMake_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+CT_EncountSendOutMessageParamMake_return_address:
+.word 0
