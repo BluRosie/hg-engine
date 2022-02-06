@@ -436,6 +436,8 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
             sp->hp_calc_work = (sp->battlemon[client_no].hp - 1) * -1;
             if(flag != 2)
                 sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
+            else
+                sp->waza_status_flag |= WAZA_STATUS_FLAG_KORAETA;
         }
     }
 
