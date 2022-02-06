@@ -416,7 +416,7 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
     eqp = HeldItemHoldEffectGet(sp,client_no);
     atk = HeldItemAtkGet(sp,client_no,ATK_CHECK_NORMAL);
 
-    if((sp->battlemon[client_no].ability == ABILITY_STURDY) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
     {
         flag = 2;
     }
