@@ -1225,7 +1225,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 // defined in battle_pokemon.c;
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
-
+BOOL AddPokemonParam(int inTarget, const ENC_FLD_SPA *inFldSpa, struct PartyPokemon *ioPokeParam, struct BATTLE_PARAM *ioBattleParam );
 
 
 

@@ -55,6 +55,7 @@ PokemonParam_AllocWork = 0x0206DD2C | 1;
 PokeParaInit = 0x0206DCE4 |1;
 PokeParaSet = 0x0206DE38 |1;
 PokeParaSetChr = 0x0206E108 |1;
+PokeParaSetSexChr = 0x0206E14C |1;
 PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 PokePasoParaGet = 0x0206E640 |1;
@@ -216,3 +217,7 @@ BattleWorkClientNoGet = 0x0223AAD8 | 1;
 BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
 BattleWorkCommIDGet = 0x0223BFC0 | 1;
 BattleWorkCommStandNoGet = 0x0223BFCC | 1;
+
+
+/*Overworld Code*/
+AddPokemonParam = 0x02203890 | 1;

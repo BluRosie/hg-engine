@@ -289,6 +289,7 @@ void __attribute__((long_call)) SetPokemonGet(void *zw, void *pp);
 void *__attribute__((long_call))PokeStatusPokeParamGet(void*);
 void __attribute__((long_call)) PokeParaCalc( struct PartyPokemon *ppd );
 void __attribute__((long_call)) PokeParaSpeabiSet( void *ppd );
+void __attribute__((long_call)) PokeParaSetSexChr(struct PartyPokemon *pp, u16 pokeno, u8 level, u8 pow, u8 sex, u8 chr, u8 annon);
 
 u32 __attribute__((long_call)) GetMonData(void*,int,void*);
 void __attribute__((long_call)) SetMonData(void*,int,void*);
