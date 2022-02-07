@@ -7,6 +7,12 @@
 #define POKEMON_GENDER_FEMALE 1
 #define POKEMON_GENDER_UNKNOWN 2
 
+#define	MONS_MALE		(0)
+#define	MONS_FEMALE		(254)
+#define	MONS_UNKNOWN	(255)
+
+#define	POW_RND	(32)
+
 
 // personal narc fields
 enum
@@ -276,6 +282,7 @@ bool8 ReverFormChange(void *pp, u16 species, u8 form_no);
 
 void* __attribute__((long_call)) PokemonParam_AllocWork(u32 heapid);
 void __attribute__((long_call)) PokeParaInit(void* pokemon);
+void __attribute__((long_call))PokeParaSetChr(struct PartyPokemon *pp, u16 pokeno, u8 level, u8 pow, u8 chr);
 void __attribute__((long_call))PokeParaSet(void *pp,int mons_no,int level,int pow,int rndflag,u32 rnd,int idflag,u32 id);
 void __attribute__((long_call)) SetPokemonSee(void *zw, void *pp);
 void __attribute__((long_call)) SetPokemonGet(void *zw, void *pp);

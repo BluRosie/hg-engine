@@ -54,6 +54,7 @@ ArchiveDataLoadMallocOfs = 0x0200757C | 1;
 PokemonParam_AllocWork = 0x0206DD2C | 1;
 PokeParaInit = 0x0206DCE4 |1;
 PokeParaSet = 0x0206DE38 |1;
+PokeParaSetChr = 0x0206E108 |1;
 PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 PokePasoParaGet = 0x0206E640 |1;

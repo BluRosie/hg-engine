@@ -834,3 +834,19 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
         sp->server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
     }
 }
+
+u16 gf_p_rand(const u16 denominator)
+{
+    if (denominator <= 1)
+    {
+        return 0;
+    }
+    else
+    {
+        u16 per;
+        u16 val;
+        per = (0xffff / denominator) + 1;
+        val = gf_rand()/per;
+        return val;
+    }
+}

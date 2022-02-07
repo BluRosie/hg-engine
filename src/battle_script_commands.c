@@ -324,7 +324,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 }
 
 
-BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 {
     u16	hit;
     IncrementBattleScriptPtr(sp,1);
@@ -362,10 +362,11 @@ BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
             {
                 hit = 1;
             }
-            else{
-                hit=sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+            else
+            {
+                hit = sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
                 if(((BattleWorkRandGet(bw) % 100) < hit)
-                    &&(sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+                    && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
                 {
                     hit = 1;
                 }
