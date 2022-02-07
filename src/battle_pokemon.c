@@ -1221,75 +1221,75 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 }
 
 //TODO add to hooks; figure out where the function is in rom; find PokeParaSetSexChr, GetEncountChar, AddPokemonParam
-void EncountParamSet(u16 poke, u8 lv, const int inTarget, ENC_FLD_SPA *inFldSpa, struct PartyPokemon *inPokeParam, struct BATTLE_PARAM *outBattleParam )
-{
-    u8 valid_flg;	//特性有効チェックフラグ
-    u8 sex, form_no;
-    BOOL rc;
-    struct PartyPokemon *pp;
-    pp = PokemonParam_AllocWork(HEAPID_WORLD);
-    PokeParaInit(pp);
-
-    form_no = (poke & 0xFC00) >> 10;
-    poke &= 0x03FF;
-
-    valid_flg = 1;
-
-    //エンカウントするポケモンの性別ベクトルを調べる
-    {
-        u32 sex_vec;
-        sex_vec = PokePersonalParaGet(poke, PERSONAL_GENDER_RATIO);
-        switch(sex_vec)
-        {
-            case    MONS_MALE:
-            case    MONS_FEMALE:
-            case    MONS_UNKNOWN:
-                valid_flg = 0;
-        }
-    }
-
-    if (valid_flg)
-    {
-        //選出したポケモンが性別なし、もしくは、固定の場合は、特性チェックなし
-        //先頭ポケモンの特性がメロメロボディのときは異性が出やすくなる
-        // 先頭のポケモンがタマゴでない
-        if(inFldSpa->egg == 0)
-        {
-            if(inFldSpa->spa == ABILITY_CUTE_CHARM)
-            {
-                // 2/3で特性発動
-                if(gf_p_rand(3) > 0)
-                {
-                    sex = GetMonData(inPokeParam, ID_PARA_sex, NULL);//PokeSexGet(inPokeParam);
-                    //異性を発生させる
-                    if (sex == POKEMON_GENDER_FEMALE)
-                    {
-                        sex = POKEMON_GENDER_MALE;
-                    }
-                    else if (sex == POKEMON_GENDER_MALE)
-                    {
-                        sex = POKEMON_GENDER_FEMALE;
-                    }
-                    else
-                    {
-//                        GF_ASSERT(0 && "性別不明");
-                    }
-                    PokeParaSetSexChr(pp, poke, lv, POW_RND, sex, GetEncountChar(inPokeParam, inFldSpa), 0);
-                    SetMonData(pp, ID_PARA_id_no, &inFldSpa->trainerID);
-                    rc = AddPokemonParam(inTarget, inFldSpa, pp, outBattleParam);
-//                    GF_ASSERT(rc&&"ポケモンの追加に失敗");
-                    sys_FreeMemoryEz(pp);
-                    return;
-                }
-            }
-        }
-    }
-
-    SetMonData(pp, ID_PARA_form_no, &form_no);
-
-    PokeParaSetChr(pp, poke, lv, POW_RND, GetEncountChar(inPokeParam, inFldSpa));
-    SetMonData(pp, ID_PARA_id_no, &inFldSpa->trainerID);
-    rc = AddPokemonParam(inTarget, inFldSpa, pp, outBattleParam);
-//    GF_ASSERT(rc && "ポケモンの追加に失敗");
-    sys_FreeMemoryEz(pp);
-}
+//void EncountParamSet(u16 poke, u8 lv, const int inTarget, ENC_FLD_SPA *inFldSpa, struct PartyPokemon *inPokeParam, struct BATTLE_PARAM *outBattleParam )
+//{
+//    u8 valid_flg;	//特性有効チェックフラグ
+//    u8 sex, form_no;
+//    BOOL rc;
+//    struct PartyPokemon *pp;
+//    pp = PokemonParam_AllocWork(HEAPID_WORLD);
+//    PokeParaInit(pp);
+//
+//    form_no = (poke & 0xFC00) >> 10;
+//    poke &= 0x03FF;
+//
+//    valid_flg = 1;
+//
+//    //エンカウントするポケモンの性別ベクトルを調べる
+//    {
+//        u32 sex_vec;
+//        sex_vec = PokePersonalParaGet(poke, PERSONAL_GENDER_RATIO);
+//        switch(sex_vec)
+//        {
+//            case    MONS_MALE:
+//            case    MONS_FEMALE:
+//            case    MONS_UNKNOWN:
+//                valid_flg = 0;
+//        }
+//    }
+//
+//    if (valid_flg)
+//    {
+//        //選出したポケモンが性別なし、もしくは、固定の場合は、特性チェックなし
+//        //先頭ポケモンの特性がメロメロボディのときは異性が出やすくなる
+//        // 先頭のポケモンがタマゴでない
+//        if(inFldSpa->egg == 0)
+//        {
+//            if(inFldSpa->spa == ABILITY_CUTE_CHARM)
+//            {
+//                // 2/3で特性発動
+//                if(gf_p_rand(3) > 0)
+//                {
+//                    sex = GetMonData(inPokeParam, ID_PARA_sex, NULL);//PokeSexGet(inPokeParam);
+//                    //異性を発生させる
+//                    if (sex == POKEMON_GENDER_FEMALE)
+//                    {
+//                        sex = POKEMON_GENDER_MALE;
+//                    }
+//                    else if (sex == POKEMON_GENDER_MALE)
+//                    {
+//                        sex = POKEMON_GENDER_FEMALE;
+//                    }
+//                    else
+//                    {
+////                        GF_ASSERT(0 && "性別不明");
+//                    }
+//                    PokeParaSetSexChr(pp, poke, lv, POW_RND, sex, GetEncountChar(inPokeParam, inFldSpa), 0);
+//                    SetMonData(pp, ID_PARA_id_no, &inFldSpa->trainerID);
+//                    rc = AddPokemonParam(inTarget, inFldSpa, pp, outBattleParam);
+////                    GF_ASSERT(rc&&"ポケモンの追加に失敗");
+//                    sys_FreeMemoryEz(pp);
+//                    return;
+//                }
+//            }
+//        }
+//    }
+//
+//    SetMonData(pp, ID_PARA_form_no, &form_no);
+//
+//    PokeParaSetChr(pp, poke, lv, POW_RND, GetEncountChar(inPokeParam, inFldSpa));
+//    SetMonData(pp, ID_PARA_id_no, &inFldSpa->trainerID);
+//    rc = AddPokemonParam(inTarget, inFldSpa, pp, outBattleParam);
+////    GF_ASSERT(rc && "ポケモンの追加に失敗");
+//    sys_FreeMemoryEz(pp);
+//}
