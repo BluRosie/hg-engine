@@ -344,6 +344,9 @@
 #define	CONDITION2_SUBSTITUTE		(0x01000000)
 #define	CONDITION2_SUBSTITUTE_OFF		(0x01000000^0xffffffff)
 
+#define	SWOAM_NORMAL	(0)
+#define	SWOAM_LOOP		(1)
+
 
 // (possibly) implement challenge/ easy modes
 #define NORMAL_MODE (0)
@@ -1231,6 +1234,7 @@ BOOL AddPokemonParam(int inTarget, const ENC_FLD_SPA *inFldSpa, struct PartyPoke
 
 // defined in ability.c
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 
