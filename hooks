@@ -35,10 +35,10 @@ arm9 GetItemArcData 08077CE8 3
 arm9 GetPokemonOwNum 0806A304 1
 
 #fucking losing it ?
-##02247A18
-#0002 EncountParamSet 08001E98 0
+#02247A18
+0002 get_form_out_of_encounter_species 08001E98 4
 #02247D8C
-0002 modify_species_encounter_data 0800220C 3
+0002 modify_species_encounter_data 08001FC2 3
 
 #battle hooks
 #02256FF8+4

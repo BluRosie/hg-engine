@@ -203,38 +203,56 @@ bx r0
 .pool
 
 
-// 02247D8C
-// r5 is param
+// 02247A18
+// edits to the beginning of EncountParamSet to extract species + form
+// r0 is species | (form << 10)
+// treating r4-r7 as free since this function is only called at the end of other ones
+.global get_form_out_of_encounter_species
+get_form_out_of_encounter_species:
+// ldr r4, =0xFC00
+mov r4, #0xFC
+lsl r4, #8
+and r4, r0
+lsr r4, #10
+ldr r5, =space_for_setmondata
+str r4, [r5]
+
+// ldr r4, =0x03FF
+mov r4, #3
+lsl r4, #8
+add r4, #0xFF
+and r0, r4 // make r0 solely the species
+
+// reset the function up
+push {r3-r7, lr}
+sub sp, #0x20
+str r0, [sp, #0xC]
+ldr r0, [sp, #0x3C]
+ldr r4, =0x02247A20 | 1
+bx r4
+
+
+// 02247B42 - end of above function
+// r4 is param
+// need to set form
 .global modify_species_encounter_data
 modify_species_encounter_data:
-lsl r0, r0, #3
-ldr r0, [r4, r0]
-
-ldr r3, =0xFC00
-and r3, r0
-lsr r3, #10
-ldr r4, =word_to_store_form_at_enc
-str r3, [r4]
-
-ldr r3, =0x3FF
-and r0, r3
-
-mov r3, #0
-bl 0x02247A18 // EncountParamSet
-//SetMonData(pp, ID_PARA_form_no, &form_no);
-ldr r2, =word_to_store_form_at_enc
-mov r0, r6 // pp
+bl call_setmondata // set the id number
+mov r0, r4 // pp
 mov r1, #112 // ID_PARA_form_no
-bl bx_via_r3
-nop
-ldr r0, =0x02247D9A | 1
-bx r0
+ldr r2, =space_for_setmondata // &form
+bl call_setmondata
+ldr r0, [sp, #0x14]
+ldr r3, [sp, #0x40]
+mov r1, r7
+ldr r5, =0x02247B4C | 1
+bx r5
 
-bx_via_r3:
+call_setmondata:
 ldr r3, =0x0206EC40 | 1
 bx r3
 
 .pool
 
-word_to_store_form_at_enc:
+space_for_setmondata:
 .word 0
