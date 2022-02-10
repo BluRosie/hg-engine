@@ -1069,7 +1069,7 @@ struct __attribute__((packed)) ILLUSION_STRUCT
 {
     u8 isSideInIllusion[2];
     u8 illusionPos[2];
-    u16 illusionNameBuf[2][11];
+    u16 illusionNameBuf[2][12];
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
@@ -1085,19 +1085,6 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 dummy[3];
     u8 sel_mons_no[CLIENT_MAX];
 };
-
-
-typedef struct ENC_FLD_SPA_tag
-{
-    u32 trainerID;
-    BOOL repelCheck;		//flag for checking if repel is active
-    BOOL EncCancelSpInvalid;//戦闘回避特性無効	TRUE:無効	FALSE:有効		(現状では、あまいかおり・あまいミツ用)
-    u8	 partySlotOneLevel; //minimum level to use for repel functionality
-    u8	 egg;				//is first slot an egg
-    u8	 spa;				//特性
-    u8   formProbability[2];		//シーウシ・シードルゴ用フォルム変更確率　0：シーウシ　1：シードルゴ
-    u8	 unownTableType;
-}ENC_FLD_SPA;
 
 
 
@@ -1184,7 +1171,7 @@ int __attribute__((long_call)) HeldItemAtkGet(void *sp, int client_no, int flag)
 u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
 u32 __attribute__((long_call)) CheckSubstitute(struct BattleStruct *sp, int client_no);
 u32 __attribute__((long_call)) gf_get_seed(void);
-u16 __attribute__((long_call)) gf_p_rand(const u16 denominator);
+//u16 __attribute__((long_call)) gf_p_rand(const u16 denominator);
 void __attribute__((long_call)) PokeParty_Init(struct POKEPARTY *party, int max);
 void __attribute__((long_call)) TT_TrainerPokeDataGet(int tr_id, void *tpd);
 u8 __attribute__((long_call)) TT_TrainerTypeSexGet(int trtype);
@@ -1225,7 +1212,6 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 // defined in battle_pokemon.c;
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
-BOOL AddPokemonParam(int inTarget, const ENC_FLD_SPA *inFldSpa, struct PartyPokemon *ioPokeParam, struct BATTLE_PARAM *ioBattleParam );
 
 
 

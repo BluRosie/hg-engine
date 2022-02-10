@@ -199,3 +199,42 @@ bx r0
 backToThief_1:
 ldr r0, =0x9A86 + Overlay_12_Start
 bx r0
+
+.pool
+
+
+// 02247D8C
+// r5 is param
+.global modify_species_encounter_data
+modify_species_encounter_data:
+lsl r0, r0, #3
+ldr r0, [r4, r0]
+
+ldr r3, =0xFC00
+and r3, r0
+lsr r3, #10
+ldr r4, =word_to_store_form_at_enc
+str r3, [r4]
+
+ldr r3, =0x3FF
+and r0, r3
+
+mov r3, #0
+bl 0x02247A18 // EncountParamSet
+//SetMonData(pp, ID_PARA_form_no, &form_no);
+ldr r2, =word_to_store_form_at_enc
+mov r0, r6 // pp
+mov r1, #112 // ID_PARA_form_no
+bl bx_via_r3
+nop
+ldr r0, =0x02247D9A | 1
+bx r0
+
+bx_via_r3:
+ldr r3, =0x0206EC40 | 1
+bx r3
+
+.pool
+
+word_to_store_form_at_enc:
+.word 0

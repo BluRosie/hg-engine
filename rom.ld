@@ -220,4 +220,5 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 
 
 /*Overworld Code*/
-AddPokemonParam = 0x02203890 | 1;
+AddPokemonParam = 0x0224855C | 1;
+GetEncountChar = 0x02247854 | 1;
