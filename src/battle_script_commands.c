@@ -29,7 +29,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     flag = 0;
 
-    sp->server_status_flag &= !(SERVER_STATUS_FLAG_STAT_CHANGE);
+    sp->server_status_flag &= ~(SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE);
 
         //2 steps down
     if (sp->addeffect_param >= ADD_STATE_ATTACK_DOWN_2)
@@ -81,12 +81,13 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     {
         if (battlemon->states[STAT_ATTACK + stattochange] == 12)
         {
-            sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
+            sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
             
             if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
              || (sp->addeffect_type == ADD_EFFECT_ABILITY))
             {
                 IncrementBattleScriptPtr(sp, address2);
+                return FALSE;
             }
             else
             {
@@ -95,6 +96,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                 sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
                 IncrementBattleScriptPtr(sp, address1);
+                return FALSE;
             }
         }
         else
@@ -189,7 +191,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     flag = 1;
                 }
                 else if (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
-                       && ((STAT_ATTACK + stattochange)==STAT_ACCURACY))
+                       && ((STAT_ATTACK + stattochange) == STAT_ACCURACY))
                       || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_HYPER_CUTTER) == TRUE)
                        && ((STAT_ATTACK + stattochange) == STAT_ATTACK))
                        || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_BIG_PECKS) == TRUE)
@@ -216,7 +218,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else if (battlemon->states[STAT_ATTACK + stattochange] == 0)
                 {
-                    sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
+                    sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
                     if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
                      || (sp->addeffect_type == ADD_EFFECT_ABILITY))
                     {
@@ -245,7 +247,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             }
             else if (battlemon->states[STAT_ATTACK + stattochange] == 0)
             {
-                sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
+                sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
                 if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
                  || (sp->addeffect_type == ADD_EFFECT_ABILITY))
                 {
@@ -320,7 +322,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         }
     }
 
-    return	FALSE;
+    return 0;
 }
 
 
@@ -329,10 +331,8 @@ BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
     u16	hit;
     IncrementBattleScriptPtr(sp,1);
 
-    //通常の命中率計算をしないようにする
     sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
 
-    //特性がんじょうは、一撃必殺できない
     if(MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE)
     {
         sp->waza_status_flag |= WAZA_STATUS_FLAG_GANZYOU_NOHIT;
