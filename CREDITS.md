@@ -21,6 +21,8 @@ Kingcom - armips
 
 loadingNOW - thenewpoketext
 
+MaMe and maple - a lot of mega sprites
+
 Mikelan98 and Nomura - synthetic overlay approach and graphics compilation
 
 nickworonekin - narchive
