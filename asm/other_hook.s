@@ -242,6 +242,15 @@ mov r0, r4 // pp
 mov r1, #112 // ID_PARA_form_no
 ldr r2, =space_for_setmondata // &form
 bl call_setmondata
+
+// hopefully with form set, this grabs everything correctly
+mov r0, r4
+ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+bl call_via_r3
+mov r0, r4
+ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+bl call_via_r3
+
 ldr r0, [sp, #0x14]
 ldr r3, [sp, #0x40]
 mov r1, r7
@@ -250,6 +259,7 @@ bx r5
 
 call_setmondata:
 ldr r3, =0x0206EC40 | 1
+call_via_r3:
 bx r3
 
 .pool
