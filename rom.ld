@@ -191,6 +191,7 @@ SCIO_IncRecord = 0x02263F0C | 1;
 IncrementBattleScriptPtr = 0x02245508 | 1;
 read_battle_script_param = 0x022454E8 | 1;
 TagNickParaMake = 0x022522E0 | 1;
+JumpToMoveEffectScript = 0x02245518 | 1;
 
 /* Trainer data expansion */
 gf_get_seed = 0x0201FD2C | 1;

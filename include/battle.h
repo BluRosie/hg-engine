@@ -558,7 +558,8 @@ struct __attribute__((packed)) BattlePokemon
     u32 dark_aura_flag : 1;
     u32 fairy_aura_flag : 1;
     u32 aura_break_flag : 1;
-    u32 : 16;                    //2ch
+    u32 sheer_force_flag : 1;
+    u32 : 15;                    //2ch
 
     u8 pp[4];
     u8 pp_count[4];
@@ -1204,6 +1205,7 @@ void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
 int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp);
+void __attribute__((long_call)) JumpToMoveEffectScript(void *sp, int archive, int effect);
 
 
 

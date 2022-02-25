@@ -269,6 +269,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
 
     }
+    
+    // handle sheer force
+    if (AttackingMon.ability == ABILITY_SHEER_FORCE && sp->battlemon[attacker].sheer_force_flag == 1)
+    {
+        movepower = movepower * 130 / 100;
+    }
 
     // handle punk rock TODO uncomment
 //    if (AttackingMon.ability == ABILITY_PUNK_ROCK)

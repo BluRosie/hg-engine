@@ -67,6 +67,8 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 BattleFormChangeCheck 0801F054 3
 
 #battle script command hooks
+#0223E568
+0012 btl_scr_cmd_24_jumptocurmoveeffectscript 08006CA8 3
 #0223ED78
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
 #022404e1

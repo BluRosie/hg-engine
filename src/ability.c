@@ -1304,7 +1304,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 }
 
 
-BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
+/*BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
 
     if (sp->defence_client == 0xFF) {
@@ -1396,7 +1396,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
     }
 
     return ret;
-}
+}*/
 
 
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability)
@@ -1537,7 +1537,7 @@ enum{
 };
 
 //TODO find offset and add to hooks
-void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
+/*void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 {
     switch(sp->swoam_type)
     {
@@ -1698,4 +1698,4 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     }
     sp->swoam_seq_no = 0;
     sp->server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
-}
+}*/
