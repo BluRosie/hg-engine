@@ -10,6 +10,7 @@
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
 #include "../include/constants/battle_message_constants.h"
+#include "../include/constants/file.h"
 
 
 extern const u8 StatBoostModifiers[][2];
@@ -948,7 +949,7 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
     return max;
 }
 
-BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
+BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
 
     if (sp->defence_client == 0xFF) {
@@ -1299,87 +1300,99 @@ BOOL MoveHitAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
             break;
     }
 
-    if(ret == FALSE)
+    return ret;
+}
+
+
+BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
+    BOOL ret = FALSE;
+
+    if (sp->defence_client == 0xFF) {
+        return ret;
+    }
+
+    if (CheckSubstitute(sp, sp->defence_client) == TRUE) {
+        return ret;
+    }
+
+    switch (GetBattlerAbility(sp, sp->attack_client))
     {
-        switch (GetBattlerAbility(sp, sp->attack_client))
-        {
-            case ABILITY_POISON_TOUCH:
-                if ((sp->battlemon[sp->defence_client].hp)
-                    && (sp->battlemon[sp->defence_client].condition == 0)
-                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-                    && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-                    && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
-                        (sp->oneSelfFlag[sp->defence_client].special_damage))
-                    && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                    && (BattleRand(bw) % 10 < 3))
+        case ABILITY_POISON_TOUCH:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].condition == 0)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage))
+                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (BattleRand(bw) % 10 < 3))
+            {
+                sp->addeffect_type = ADD_STATUS_ABILITY;
+                sp->state_client = sp->defence_client;
+                sp->client_work = sp->attack_client;
+                seq_no[0] = SUB_SEQ_POISON_MON;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_BEAST_BOOST:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+                u8 stat = BeastBoostGreatestStatHelper(sp);
+
+                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
+                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
                 {
-                    sp->addeffect_type = ADD_STATUS_ABILITY;
-                    sp->state_client = sp->defence_client;
-                    sp->client_work = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_POISON_MON;
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP + stat;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
                     ret = TRUE;
                 }
-                break;
-            case ABILITY_BEAST_BOOST:
-                if ((sp->defence_client == sp->fainting_client)
-                    && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                    && (sp->battlemon[sp->attack_client].hp)
-                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-                {
-                    u8 stat = BeastBoostGreatestStatHelper(sp);
+            }
+            break;
+        case ABILITY_CHILLING_NEIGH:
+        case ABILITY_AS_ONE_GLASTRIER:
+        case ABILITY_MOXIE:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
 
-                    if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
-                        && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
-                    {
-                        sp->addeffect_param = ADD_STATE_ATTACK_UP + stat;
-                        sp->addeffect_type = ADD_EFFECT_ABILITY;
-                        sp->state_client = sp->attack_client;
-                        seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                        ret = TRUE;
-                    }
-                }
-                break;
-            case ABILITY_CHILLING_NEIGH:
-            case ABILITY_AS_ONE_GLASTRIER:
-            case ABILITY_MOXIE:
-                if ((sp->defence_client == sp->fainting_client)
-                    && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                    && (sp->battlemon[sp->attack_client].hp)
-                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
+                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
                 {
-
-                    if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
-                        && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
-                    {
-                        sp->addeffect_param = ADD_STATE_ATTACK_UP;
-                        sp->addeffect_type = ADD_EFFECT_ABILITY;
-                        sp->state_client = sp->attack_client;
-                        seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                        ret = TRUE;
-                    }
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
                 }
-                break;
-            case ABILITY_GRIM_NEIGH:
-            case ABILITY_AS_ONE_SPECTRIER:
-                if ((sp->defence_client == sp->fainting_client)
-                    && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                    && (sp->battlemon[sp->attack_client].hp)
-                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            }
+            break;
+        case ABILITY_GRIM_NEIGH:
+        case ABILITY_AS_ONE_SPECTRIER:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+
+                if ((sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
+                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
                 {
-
-                    if ((sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
-                        && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
-                    {
-                        sp->addeffect_param = ADD_STATE_SP_ATK_UP;
-                        sp->addeffect_type = ADD_EFFECT_ABILITY;
-                        sp->state_client = sp->attack_client;
-                        seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                        ret = TRUE;
-                    }
+                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
                 }
-                break;
-        }
+            }
+            break;
     }
 
     return ret;
@@ -1500,4 +1513,189 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
     }
 
     return FALSE;
+}
+
+
+enum{
+    SEQ_NORMAL_CRITICAL_MSG=0,
+    SEQ_NORMAL_MOVE_STATUS_MSG,
+    SEQ_NORMAL_ADD_STATUS_MSG,
+    SEQ_NORMAL_FORM_CHG_CHECK,
+    SEQ_NORMAL_IKARI_CHECK,
+    SEQ_NORMAL_DEFENDER_ABILITY_CHECK,
+    SEQ_NORMAL_HIRUMASERU_CHECK,
+    SEQ_NORMAL_ATTACKER_ABILITY_CHECK,
+
+    SEQ_LOOP_CRITICAL_MSG=0,
+    SEQ_LOOP_ADD_STATUS_MSG,
+    SEQ_LOOP_FORM_CHG_CHECK,
+    SEQ_LOOP_IKARI_CHECK,
+    SEQ_LOOP_DEFENDER_ABILITY_CHECK,
+    SEQ_LOOP_MOVE_STATUS_MSG,
+    SEQ_LOOP_HIRUMASERU_CHECK,
+    SEQ_LOOP_ATTACKER_ABILITY_CHECK,
+};
+
+//TODO find offset and add to hooks
+void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
+{
+    switch(sp->swoam_type)
+    {
+        case SWOAM_NORMAL:
+            switch(sp->swoam_seq_no)
+            {
+                case SEQ_NORMAL_CRITICAL_MSG:
+                    sp->swoam_seq_no++;
+                    if(ServerCriticalMessage(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                case SEQ_NORMAL_MOVE_STATUS_MSG:
+                    sp->swoam_seq_no++;
+                    if(ServerWazaStatusMessage(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                case SEQ_NORMAL_ADD_STATUS_MSG:
+                {
+                    int	seq_no;
+
+                    sp->swoam_seq_no++;
+                    if((ST_ServerAddStatusCheck(bw,sp,&seq_no) == TRUE)
+                       && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                    {
+                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                        return;
+                    }
+                }
+                case SEQ_NORMAL_FORM_CHG_CHECK:
+                    sp->swoam_seq_no++;
+                    LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_HANDLE_FORM_CHANGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                    return;
+                case SEQ_NORMAL_IKARI_CHECK:
+                    sp->swoam_seq_no++;
+                    if(ServerIkariCheck(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                case SEQ_NORMAL_DEFENDER_ABILITY_CHECK:
+                {
+                    int	seq_no;
+
+                    sp->swoam_seq_no =  SEQ_NORMAL_ATTACKER_ABILITY_CHECK;
+                    if(MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
+                    {
+                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                        return;
+                    }
+                }
+                case SEQ_NORMAL_ATTACKER_ABILITY_CHECK:
+                {
+                    int	seq_no;
+
+                    sp->swoam_seq_no = SEQ_NORMAL_DEFENDER_ABILITY_CHECK + 1;
+                    if(MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
+                    {
+                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                        return;
+                    }
+                }
+                case SEQ_NORMAL_HIRUMASERU_CHECK:
+                    sp->swoam_seq_no += 2;
+                    if(ServerHirumaseruCheck(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                default:
+                    break;
+            }
+            break;
+        case SWOAM_LOOP:
+            switch(sp->swoam_seq_no)
+            {
+                case SEQ_LOOP_CRITICAL_MSG:
+                    sp->swoam_seq_no++;
+                    if(ServerCriticalMessage(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                case SEQ_LOOP_ADD_STATUS_MSG:
+                {
+                    int	seq_no;
+
+                    sp->swoam_seq_no++;
+                    if((ST_ServerAddStatusCheck(bw,sp,&seq_no) == TRUE)
+                       && ((sp->waza_status_flag&WAZA_STATUS_FLAG_HAZURE) == 0))
+                    {
+                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
+                        sp->next_server_seq_no=  sp->server_seq_no;
+                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                        return;
+                    }
+                }
+                case SEQ_LOOP_FORM_CHG_CHECK:
+                    sp->swoam_seq_no++;
+                    LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_HANDLE_FORM_CHANGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                    return;
+                case SEQ_LOOP_IKARI_CHECK:
+                    sp->swoam_seq_no++;
+                    if(ServerIkariCheck(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                case SEQ_LOOP_DEFENDER_ABILITY_CHECK:
+                {
+                    int	seq_no;
+
+                    sp->swoam_seq_no = SEQ_LOOP_ATTACKER_ABILITY_CHECK;
+                    if(MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
+                    {
+                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                        return;
+                    }
+                }
+                case SEQ_LOOP_ATTACKER_ABILITY_CHECK:
+                {
+                    int	seq_no;
+
+                    sp->swoam_seq_no = SEQ_LOOP_DEFENDER_ABILITY_CHECK + 1;
+                    if(MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
+                    {
+                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
+                        return;
+                    }
+                }
+                case SEQ_LOOP_MOVE_STATUS_MSG:
+                    sp->swoam_seq_no++;
+                    if(ServerWazaStatusMessage(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                case SEQ_LOOP_HIRUMASERU_CHECK:
+                    sp->swoam_seq_no += 2;
+                    if(ServerHirumaseruCheck(bw,sp) == TRUE)
+                    {
+                        return;
+                    }
+                default:
+                    break;
+            }
+            break;
+    }
+    sp->swoam_seq_no = 0;
+    sp->server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
 }

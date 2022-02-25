@@ -50,7 +50,7 @@ arm9 GetPokemonOwNum 0806A304 1
 #02253068
 0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
-0012 MoveHitAbilityCheck 0801C544 3
+0012 MoveHitDefenderAbilityCheck 0801C544 3
 #0224BCC4+4
 0012 CalcAccuracy_hook 08014408 5
 #0224FC48+4
