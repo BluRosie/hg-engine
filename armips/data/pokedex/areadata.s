@@ -24913,3 +24913,8196 @@ specialareas SPECIES_GENESECT, DEX_SPECIAL
 routesandcities SPECIES_GENESECT, DEX_SPECIAL
     dexendareadata
 
+
+specialareas SPECIES_CHESPIN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CHESPIN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CHESPIN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CHESPIN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CHESPIN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CHESPIN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CHESPIN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CHESPIN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_QUILLADIN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_QUILLADIN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_QUILLADIN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_QUILLADIN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_QUILLADIN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_QUILLADIN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_QUILLADIN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_QUILLADIN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CHESNAUGHT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CHESNAUGHT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CHESNAUGHT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CHESNAUGHT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CHESNAUGHT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CHESNAUGHT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CHESNAUGHT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CHESNAUGHT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FENNEKIN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FENNEKIN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FENNEKIN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FENNEKIN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FENNEKIN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FENNEKIN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FENNEKIN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FENNEKIN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BRAIXEN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BRAIXEN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BRAIXEN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BRAIXEN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BRAIXEN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BRAIXEN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BRAIXEN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BRAIXEN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DELPHOX, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DELPHOX, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DELPHOX, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DELPHOX, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DELPHOX, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DELPHOX, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DELPHOX, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DELPHOX, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FROAKIE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FROAKIE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FROAKIE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FROAKIE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FROAKIE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FROAKIE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FROAKIE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FROAKIE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FROGADIER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FROGADIER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FROGADIER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FROGADIER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FROGADIER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FROGADIER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FROGADIER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FROGADIER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GRENINJA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GRENINJA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GRENINJA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GRENINJA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GRENINJA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GRENINJA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GRENINJA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GRENINJA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BUNNELBY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BUNNELBY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BUNNELBY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BUNNELBY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BUNNELBY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BUNNELBY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BUNNELBY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BUNNELBY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DIGGERSBY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DIGGERSBY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DIGGERSBY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DIGGERSBY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DIGGERSBY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DIGGERSBY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DIGGERSBY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DIGGERSBY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHLING, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHLING, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHLING, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHLING, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHLING, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHLING, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHLING, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHLING, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHINDER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHINDER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHINDER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHINDER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHINDER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHINDER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FLETCHINDER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FLETCHINDER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TALONFLAME, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TALONFLAME, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TALONFLAME, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TALONFLAME, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TALONFLAME, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TALONFLAME, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TALONFLAME, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TALONFLAME, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SCATTERBUG, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SCATTERBUG, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SCATTERBUG, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SCATTERBUG, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SCATTERBUG, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SCATTERBUG, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SCATTERBUG, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SCATTERBUG, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SPEWPA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SPEWPA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SPEWPA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SPEWPA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SPEWPA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SPEWPA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SPEWPA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SPEWPA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_VIVILLON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_VIVILLON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_VIVILLON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_VIVILLON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_VIVILLON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_VIVILLON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_VIVILLON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_VIVILLON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_LITLEO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_LITLEO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_LITLEO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_LITLEO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_LITLEO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_LITLEO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_LITLEO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_LITLEO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PYROAR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PYROAR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PYROAR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PYROAR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PYROAR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PYROAR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PYROAR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PYROAR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FLABEBE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FLABEBE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FLABEBE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FLABEBE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FLABEBE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FLABEBE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FLABEBE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FLABEBE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FLOETTE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FLOETTE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FLOETTE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FLOETTE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FLOETTE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FLOETTE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FLOETTE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FLOETTE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FLORGES, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FLORGES, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FLORGES, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FLORGES, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FLORGES, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FLORGES, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FLORGES, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FLORGES, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SKIDDO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SKIDDO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SKIDDO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SKIDDO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SKIDDO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SKIDDO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SKIDDO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SKIDDO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOGOAT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOGOAT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOGOAT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOGOAT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOGOAT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOGOAT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOGOAT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOGOAT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PANCHAM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PANCHAM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PANCHAM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PANCHAM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PANCHAM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PANCHAM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PANCHAM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PANCHAM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PANGORO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PANGORO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PANGORO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PANGORO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PANGORO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PANGORO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PANGORO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PANGORO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FURFROU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FURFROU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FURFROU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FURFROU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FURFROU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FURFROU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FURFROU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FURFROU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ESPURR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ESPURR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ESPURR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ESPURR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ESPURR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ESPURR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ESPURR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ESPURR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MEOWSTIC, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MEOWSTIC, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MEOWSTIC, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MEOWSTIC, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MEOWSTIC, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MEOWSTIC, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MEOWSTIC, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MEOWSTIC, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HONEDGE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HONEDGE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HONEDGE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HONEDGE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HONEDGE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HONEDGE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HONEDGE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HONEDGE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DOUBLADE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DOUBLADE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DOUBLADE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DOUBLADE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DOUBLADE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DOUBLADE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DOUBLADE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DOUBLADE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_AEGISLASH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_AEGISLASH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_AEGISLASH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_AEGISLASH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_AEGISLASH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_AEGISLASH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_AEGISLASH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_AEGISLASH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SPRITZEE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SPRITZEE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SPRITZEE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SPRITZEE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SPRITZEE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SPRITZEE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SPRITZEE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SPRITZEE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_AROMATISSE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_AROMATISSE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_AROMATISSE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_AROMATISSE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_AROMATISSE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_AROMATISSE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_AROMATISSE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_AROMATISSE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SWIRLIX, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SWIRLIX, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SWIRLIX, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SWIRLIX, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SWIRLIX, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SWIRLIX, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SWIRLIX, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SWIRLIX, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SLURPUFF, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SLURPUFF, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SLURPUFF, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SLURPUFF, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SLURPUFF, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SLURPUFF, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SLURPUFF, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SLURPUFF, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_INKAY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_INKAY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_INKAY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_INKAY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_INKAY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_INKAY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_INKAY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_INKAY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MALAMAR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MALAMAR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MALAMAR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MALAMAR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MALAMAR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MALAMAR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MALAMAR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MALAMAR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BINACLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BINACLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BINACLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BINACLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BINACLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BINACLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BINACLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BINACLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BARBARACLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BARBARACLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BARBARACLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BARBARACLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BARBARACLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BARBARACLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BARBARACLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BARBARACLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SKRELP, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SKRELP, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SKRELP, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SKRELP, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SKRELP, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SKRELP, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SKRELP, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SKRELP, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRAGALGE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRAGALGE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRAGALGE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGALGE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGALGE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGALGE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRAGALGE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGALGE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CLAUNCHER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CLAUNCHER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CLAUNCHER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CLAUNCHER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CLAUNCHER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CLAUNCHER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CLAUNCHER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CLAUNCHER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CLAWITZER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CLAWITZER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CLAWITZER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CLAWITZER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CLAWITZER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CLAWITZER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CLAWITZER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CLAWITZER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HELIOPTILE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HELIOPTILE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HELIOPTILE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOPTILE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOPTILE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOPTILE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HELIOPTILE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOPTILE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HELIOLISK, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HELIOLISK, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HELIOLISK, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOLISK, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOLISK, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOLISK, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HELIOLISK, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HELIOLISK, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TYRUNT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TYRUNT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TYRUNT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TYRUNT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TYRUNT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TYRUNT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TYRUNT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TYRUNT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TYRANTRUM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TYRANTRUM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TYRANTRUM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TYRANTRUM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TYRANTRUM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TYRANTRUM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TYRANTRUM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TYRANTRUM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_AMAURA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_AMAURA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_AMAURA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_AMAURA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_AMAURA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_AMAURA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_AMAURA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_AMAURA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_AURORUS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_AURORUS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_AURORUS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_AURORUS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_AURORUS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_AURORUS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_AURORUS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_AURORUS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SYLVEON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SYLVEON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SYLVEON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SYLVEON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SYLVEON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SYLVEON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SYLVEON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SYLVEON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HAWLUCHA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HAWLUCHA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HAWLUCHA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HAWLUCHA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HAWLUCHA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HAWLUCHA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HAWLUCHA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HAWLUCHA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DEDENNE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DEDENNE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DEDENNE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DEDENNE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DEDENNE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DEDENNE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DEDENNE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DEDENNE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CARBINK, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CARBINK, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CARBINK, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CARBINK, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CARBINK, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CARBINK, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CARBINK, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CARBINK, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOOMY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOOMY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOOMY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOOMY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOOMY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOOMY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOOMY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOOMY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SLIGGOO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SLIGGOO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SLIGGOO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SLIGGOO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SLIGGOO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SLIGGOO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SLIGGOO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SLIGGOO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOODRA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOODRA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOODRA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOODRA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOODRA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOODRA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOODRA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOODRA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_KLEFKI, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_KLEFKI, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_KLEFKI, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_KLEFKI, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_KLEFKI, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_KLEFKI, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_KLEFKI, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_KLEFKI, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PHANTUMP, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PHANTUMP, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PHANTUMP, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PHANTUMP, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PHANTUMP, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PHANTUMP, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PHANTUMP, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PHANTUMP, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TREVENANT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TREVENANT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TREVENANT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TREVENANT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TREVENANT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TREVENANT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TREVENANT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TREVENANT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PUMPKABOO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PUMPKABOO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PUMPKABOO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PUMPKABOO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PUMPKABOO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PUMPKABOO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PUMPKABOO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PUMPKABOO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOURGEIST, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOURGEIST, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOURGEIST, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOURGEIST, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOURGEIST, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOURGEIST, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOURGEIST, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOURGEIST, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BERGMITE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BERGMITE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BERGMITE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BERGMITE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BERGMITE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BERGMITE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BERGMITE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BERGMITE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_AVALUGG, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_AVALUGG, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_AVALUGG, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_AVALUGG, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_AVALUGG, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_AVALUGG, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_AVALUGG, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_AVALUGG, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_NOIBAT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_NOIBAT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_NOIBAT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_NOIBAT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_NOIBAT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_NOIBAT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_NOIBAT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_NOIBAT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_NOIVERN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_NOIVERN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_NOIVERN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_NOIVERN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_NOIVERN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_NOIVERN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_NOIVERN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_NOIVERN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_XERNEAS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_XERNEAS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_XERNEAS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_XERNEAS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_XERNEAS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_XERNEAS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_XERNEAS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_XERNEAS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_YVELTAL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_YVELTAL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_YVELTAL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_YVELTAL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_YVELTAL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_YVELTAL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_YVELTAL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_YVELTAL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ZYGARDE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ZYGARDE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ZYGARDE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ZYGARDE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ZYGARDE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ZYGARDE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ZYGARDE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ZYGARDE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DIANCIE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DIANCIE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DIANCIE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DIANCIE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DIANCIE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DIANCIE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DIANCIE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DIANCIE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HOOPA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HOOPA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HOOPA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HOOPA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HOOPA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HOOPA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HOOPA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HOOPA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_VOLCANION, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_VOLCANION, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_VOLCANION, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_VOLCANION, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_VOLCANION, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_VOLCANION, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_VOLCANION, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_VOLCANION, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ROWLET, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ROWLET, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ROWLET, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ROWLET, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ROWLET, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ROWLET, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ROWLET, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ROWLET, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DARTRIX, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DARTRIX, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DARTRIX, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DARTRIX, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DARTRIX, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DARTRIX, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DARTRIX, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DARTRIX, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DECIDUEYE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DECIDUEYE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DECIDUEYE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DECIDUEYE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DECIDUEYE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DECIDUEYE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DECIDUEYE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DECIDUEYE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_LITTEN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_LITTEN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_LITTEN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_LITTEN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_LITTEN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_LITTEN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_LITTEN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_LITTEN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TORRACAT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TORRACAT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TORRACAT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TORRACAT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TORRACAT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TORRACAT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TORRACAT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TORRACAT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_INCINEROAR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_INCINEROAR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_INCINEROAR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_INCINEROAR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_INCINEROAR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_INCINEROAR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_INCINEROAR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_INCINEROAR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_POPPLIO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_POPPLIO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_POPPLIO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_POPPLIO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_POPPLIO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_POPPLIO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_POPPLIO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_POPPLIO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BRIONNE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BRIONNE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BRIONNE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BRIONNE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BRIONNE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BRIONNE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BRIONNE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BRIONNE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PRIMARINA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PRIMARINA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PRIMARINA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PRIMARINA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PRIMARINA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PRIMARINA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PRIMARINA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PRIMARINA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PIKIPEK, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PIKIPEK, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PIKIPEK, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PIKIPEK, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PIKIPEK, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PIKIPEK, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PIKIPEK, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PIKIPEK, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TRUMBEAK, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TRUMBEAK, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TRUMBEAK, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TRUMBEAK, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TRUMBEAK, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TRUMBEAK, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TRUMBEAK, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TRUMBEAK, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TOUCANNON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TOUCANNON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TOUCANNON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TOUCANNON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TOUCANNON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TOUCANNON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TOUCANNON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TOUCANNON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_YUNGOOS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_YUNGOOS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_YUNGOOS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_YUNGOOS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_YUNGOOS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_YUNGOOS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_YUNGOOS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_YUNGOOS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GUMSHOOS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GUMSHOOS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GUMSHOOS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GUMSHOOS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GUMSHOOS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GUMSHOOS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GUMSHOOS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GUMSHOOS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GRUBBIN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GRUBBIN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GRUBBIN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GRUBBIN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GRUBBIN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GRUBBIN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GRUBBIN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GRUBBIN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CHARJABUG, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CHARJABUG, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CHARJABUG, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CHARJABUG, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CHARJABUG, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CHARJABUG, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CHARJABUG, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CHARJABUG, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_VIKAVOLT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_VIKAVOLT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_VIKAVOLT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_VIKAVOLT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_VIKAVOLT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_VIKAVOLT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_VIKAVOLT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_VIKAVOLT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CRABRAWLER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CRABRAWLER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CRABRAWLER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CRABRAWLER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CRABRAWLER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CRABRAWLER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CRABRAWLER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CRABRAWLER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CRABOMINABLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CRABOMINABLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CRABOMINABLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CRABOMINABLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CRABOMINABLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CRABOMINABLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CRABOMINABLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CRABOMINABLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ORICORIO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ORICORIO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ORICORIO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ORICORIO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ORICORIO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ORICORIO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ORICORIO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ORICORIO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CUTIEFLY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CUTIEFLY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CUTIEFLY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CUTIEFLY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CUTIEFLY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CUTIEFLY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CUTIEFLY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CUTIEFLY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_RIBOMBEE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_RIBOMBEE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_RIBOMBEE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_RIBOMBEE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_RIBOMBEE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_RIBOMBEE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_RIBOMBEE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_RIBOMBEE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ROCKRUFF, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ROCKRUFF, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ROCKRUFF, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ROCKRUFF, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ROCKRUFF, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ROCKRUFF, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ROCKRUFF, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ROCKRUFF, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_LYCANROC, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_LYCANROC, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_LYCANROC, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_LYCANROC, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_LYCANROC, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_LYCANROC, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_LYCANROC, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_LYCANROC, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_WISHIWASHI, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_WISHIWASHI, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_WISHIWASHI, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_WISHIWASHI, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_WISHIWASHI, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_WISHIWASHI, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_WISHIWASHI, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_WISHIWASHI, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MAREANIE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MAREANIE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MAREANIE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MAREANIE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MAREANIE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MAREANIE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MAREANIE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MAREANIE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TOXAPEX, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TOXAPEX, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TOXAPEX, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TOXAPEX, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TOXAPEX, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TOXAPEX, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TOXAPEX, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TOXAPEX, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MUDBRAY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MUDBRAY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MUDBRAY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MUDBRAY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MUDBRAY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MUDBRAY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MUDBRAY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MUDBRAY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MUDSDALE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MUDSDALE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MUDSDALE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MUDSDALE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MUDSDALE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MUDSDALE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MUDSDALE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MUDSDALE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DEWPIDER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DEWPIDER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DEWPIDER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DEWPIDER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DEWPIDER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DEWPIDER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DEWPIDER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DEWPIDER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ARAQUANID, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ARAQUANID, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ARAQUANID, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ARAQUANID, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ARAQUANID, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ARAQUANID, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ARAQUANID, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ARAQUANID, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FOMANTIS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FOMANTIS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FOMANTIS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FOMANTIS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FOMANTIS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FOMANTIS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FOMANTIS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FOMANTIS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_LURANTIS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_LURANTIS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_LURANTIS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_LURANTIS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_LURANTIS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_LURANTIS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_LURANTIS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_LURANTIS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MORELULL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MORELULL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MORELULL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MORELULL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MORELULL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MORELULL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MORELULL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MORELULL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SHIINOTIC, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SHIINOTIC, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SHIINOTIC, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SHIINOTIC, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SHIINOTIC, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SHIINOTIC, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SHIINOTIC, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SHIINOTIC, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SALANDIT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SALANDIT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SALANDIT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SALANDIT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SALANDIT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SALANDIT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SALANDIT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SALANDIT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SALAZZLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SALAZZLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SALAZZLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SALAZZLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SALAZZLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SALAZZLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SALAZZLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SALAZZLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_STUFFUL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_STUFFUL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_STUFFUL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_STUFFUL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_STUFFUL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_STUFFUL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_STUFFUL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_STUFFUL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BEWEAR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BEWEAR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BEWEAR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BEWEAR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BEWEAR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BEWEAR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BEWEAR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BEWEAR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BOUNSWEET, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BOUNSWEET, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BOUNSWEET, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BOUNSWEET, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BOUNSWEET, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BOUNSWEET, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BOUNSWEET, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BOUNSWEET, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_STEENEE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_STEENEE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_STEENEE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_STEENEE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_STEENEE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_STEENEE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_STEENEE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_STEENEE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TSAREENA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TSAREENA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TSAREENA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TSAREENA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TSAREENA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TSAREENA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TSAREENA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TSAREENA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_COMFEY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_COMFEY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_COMFEY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_COMFEY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_COMFEY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_COMFEY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_COMFEY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_COMFEY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ORANGURU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ORANGURU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ORANGURU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ORANGURU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ORANGURU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ORANGURU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ORANGURU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ORANGURU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PASSIMIAN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PASSIMIAN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PASSIMIAN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PASSIMIAN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PASSIMIAN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PASSIMIAN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PASSIMIAN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PASSIMIAN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_WIMPOD, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_WIMPOD, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_WIMPOD, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_WIMPOD, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_WIMPOD, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_WIMPOD, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_WIMPOD, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_WIMPOD, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOLISOPOD, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOLISOPOD, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOLISOPOD, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOLISOPOD, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOLISOPOD, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOLISOPOD, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOLISOPOD, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOLISOPOD, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SANDYGAST, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SANDYGAST, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SANDYGAST, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SANDYGAST, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SANDYGAST, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SANDYGAST, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SANDYGAST, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SANDYGAST, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PALOSSAND, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PALOSSAND, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PALOSSAND, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PALOSSAND, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PALOSSAND, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PALOSSAND, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PALOSSAND, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PALOSSAND, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PYUKUMUKU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PYUKUMUKU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PYUKUMUKU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PYUKUMUKU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PYUKUMUKU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PYUKUMUKU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PYUKUMUKU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PYUKUMUKU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TYPE_NULL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TYPE_NULL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TYPE_NULL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TYPE_NULL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TYPE_NULL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TYPE_NULL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TYPE_NULL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TYPE_NULL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SILVALLY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SILVALLY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SILVALLY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SILVALLY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SILVALLY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SILVALLY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SILVALLY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SILVALLY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MINIOR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MINIOR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MINIOR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MINIOR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MINIOR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MINIOR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MINIOR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MINIOR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_KOMALA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_KOMALA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_KOMALA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_KOMALA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_KOMALA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_KOMALA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_KOMALA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_KOMALA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TURTONATOR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TURTONATOR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TURTONATOR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TURTONATOR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TURTONATOR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TURTONATOR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TURTONATOR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TURTONATOR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TOGEDEMARU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TOGEDEMARU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TOGEDEMARU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TOGEDEMARU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TOGEDEMARU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TOGEDEMARU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TOGEDEMARU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TOGEDEMARU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MIMIKYU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MIMIKYU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MIMIKYU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MIMIKYU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MIMIKYU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MIMIKYU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MIMIKYU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MIMIKYU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BRUXISH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BRUXISH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BRUXISH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BRUXISH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BRUXISH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BRUXISH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BRUXISH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BRUXISH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRAMPA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRAMPA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRAMPA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRAMPA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRAMPA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRAMPA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRAMPA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRAMPA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DHELMISE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DHELMISE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DHELMISE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DHELMISE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DHELMISE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DHELMISE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DHELMISE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DHELMISE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_JANGMO_O, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_JANGMO_O, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_JANGMO_O, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_JANGMO_O, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_JANGMO_O, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_JANGMO_O, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_JANGMO_O, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_JANGMO_O, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HAKAMO_O, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HAKAMO_O, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HAKAMO_O, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HAKAMO_O, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HAKAMO_O, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HAKAMO_O, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HAKAMO_O, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HAKAMO_O, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_KOMMO_O, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_KOMMO_O, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_KOMMO_O, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_KOMMO_O, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_KOMMO_O, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_KOMMO_O, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_KOMMO_O, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_KOMMO_O, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_KOKO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_KOKO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_KOKO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_KOKO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_KOKO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_KOKO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_KOKO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_KOKO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_LELE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_LELE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_LELE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_LELE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_LELE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_LELE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_LELE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_LELE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_BULU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_BULU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_BULU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_BULU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_BULU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_BULU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_BULU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_BULU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_FINI, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_FINI, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_FINI, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_FINI, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_FINI, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_FINI, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TAPU_FINI, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TAPU_FINI, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_COSMOG, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_COSMOG, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_COSMOG, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOG, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOG, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOG, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_COSMOG, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOG, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_COSMOEM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_COSMOEM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_COSMOEM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOEM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOEM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOEM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_COSMOEM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_COSMOEM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SOLGALEO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SOLGALEO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SOLGALEO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SOLGALEO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SOLGALEO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SOLGALEO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SOLGALEO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SOLGALEO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_LUNALA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_LUNALA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_LUNALA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_LUNALA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_LUNALA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_LUNALA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_LUNALA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_LUNALA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_NIHILEGO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_NIHILEGO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_NIHILEGO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_NIHILEGO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_NIHILEGO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_NIHILEGO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_NIHILEGO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_NIHILEGO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BUZZWOLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BUZZWOLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BUZZWOLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BUZZWOLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BUZZWOLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BUZZWOLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BUZZWOLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BUZZWOLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PHEROMOSA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PHEROMOSA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PHEROMOSA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PHEROMOSA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PHEROMOSA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PHEROMOSA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PHEROMOSA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PHEROMOSA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_XURKITREE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_XURKITREE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_XURKITREE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_XURKITREE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_XURKITREE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_XURKITREE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_XURKITREE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_XURKITREE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CELESTEELA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CELESTEELA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CELESTEELA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CELESTEELA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CELESTEELA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CELESTEELA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CELESTEELA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CELESTEELA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_KARTANA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_KARTANA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_KARTANA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_KARTANA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_KARTANA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_KARTANA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_KARTANA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_KARTANA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GUZZLORD, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GUZZLORD, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GUZZLORD, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GUZZLORD, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GUZZLORD, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GUZZLORD, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GUZZLORD, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GUZZLORD, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_NECROZMA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_NECROZMA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_NECROZMA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_NECROZMA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_NECROZMA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_NECROZMA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_NECROZMA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_NECROZMA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MAGEARNA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MAGEARNA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MAGEARNA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MAGEARNA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MAGEARNA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MAGEARNA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MAGEARNA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MAGEARNA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MARSHADOW, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MARSHADOW, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MARSHADOW, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MARSHADOW, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MARSHADOW, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MARSHADOW, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MARSHADOW, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MARSHADOW, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_POIPOLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_POIPOLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_POIPOLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_POIPOLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_POIPOLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_POIPOLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_POIPOLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_POIPOLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_NAGANADEL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_NAGANADEL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_NAGANADEL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_NAGANADEL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_NAGANADEL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_NAGANADEL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_NAGANADEL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_NAGANADEL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_STAKATAKA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_STAKATAKA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_STAKATAKA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_STAKATAKA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_STAKATAKA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_STAKATAKA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_STAKATAKA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_STAKATAKA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BLACEPHALON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BLACEPHALON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BLACEPHALON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BLACEPHALON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BLACEPHALON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BLACEPHALON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BLACEPHALON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BLACEPHALON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ZERAORA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ZERAORA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ZERAORA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ZERAORA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ZERAORA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ZERAORA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ZERAORA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ZERAORA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MELTAN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MELTAN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MELTAN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MELTAN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MELTAN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MELTAN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MELTAN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MELTAN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MELMETAL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MELMETAL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MELMETAL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MELMETAL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MELMETAL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MELMETAL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MELMETAL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MELMETAL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GROOKEY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GROOKEY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GROOKEY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GROOKEY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GROOKEY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GROOKEY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GROOKEY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GROOKEY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_THWACKEY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_THWACKEY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_THWACKEY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_THWACKEY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_THWACKEY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_THWACKEY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_THWACKEY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_THWACKEY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_RILLABOOM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_RILLABOOM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_RILLABOOM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_RILLABOOM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_RILLABOOM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_RILLABOOM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_RILLABOOM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_RILLABOOM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SCORBUNNY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SCORBUNNY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SCORBUNNY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SCORBUNNY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SCORBUNNY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SCORBUNNY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SCORBUNNY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SCORBUNNY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_RABOOT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_RABOOT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_RABOOT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_RABOOT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_RABOOT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_RABOOT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_RABOOT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_RABOOT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CINDERACE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CINDERACE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CINDERACE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CINDERACE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CINDERACE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CINDERACE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CINDERACE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CINDERACE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SOBBLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SOBBLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SOBBLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SOBBLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SOBBLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SOBBLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SOBBLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SOBBLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRIZZILE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRIZZILE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRIZZILE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRIZZILE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRIZZILE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRIZZILE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRIZZILE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRIZZILE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_INTELEON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_INTELEON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_INTELEON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_INTELEON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_INTELEON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_INTELEON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_INTELEON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_INTELEON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SKWOVET, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SKWOVET, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SKWOVET, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SKWOVET, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SKWOVET, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SKWOVET, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SKWOVET, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SKWOVET, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GREEDENT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GREEDENT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GREEDENT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GREEDENT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GREEDENT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GREEDENT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GREEDENT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GREEDENT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ROOKIDEE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ROOKIDEE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ROOKIDEE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ROOKIDEE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ROOKIDEE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ROOKIDEE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ROOKIDEE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ROOKIDEE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CORVISQUIRE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CORVISQUIRE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CORVISQUIRE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CORVISQUIRE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CORVISQUIRE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CORVISQUIRE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CORVISQUIRE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CORVISQUIRE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CORVIKNIGHT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CORVIKNIGHT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CORVIKNIGHT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CORVIKNIGHT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CORVIKNIGHT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CORVIKNIGHT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CORVIKNIGHT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CORVIKNIGHT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BLIPBUG, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BLIPBUG, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BLIPBUG, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BLIPBUG, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BLIPBUG, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BLIPBUG, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BLIPBUG, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BLIPBUG, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DOTTLER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DOTTLER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DOTTLER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DOTTLER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DOTTLER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DOTTLER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DOTTLER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DOTTLER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ORBEETLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ORBEETLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ORBEETLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ORBEETLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ORBEETLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ORBEETLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ORBEETLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ORBEETLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_NICKIT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_NICKIT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_NICKIT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_NICKIT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_NICKIT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_NICKIT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_NICKIT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_NICKIT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_THIEVUL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_THIEVUL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_THIEVUL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_THIEVUL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_THIEVUL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_THIEVUL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_THIEVUL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_THIEVUL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOSSIFLEUR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOSSIFLEUR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOSSIFLEUR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOSSIFLEUR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOSSIFLEUR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOSSIFLEUR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOSSIFLEUR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOSSIFLEUR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ELDEGOSS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ELDEGOSS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ELDEGOSS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ELDEGOSS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ELDEGOSS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ELDEGOSS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ELDEGOSS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ELDEGOSS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_WOOLOO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_WOOLOO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_WOOLOO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_WOOLOO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_WOOLOO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_WOOLOO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_WOOLOO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_WOOLOO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DUBWOOL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DUBWOOL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DUBWOOL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DUBWOOL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DUBWOOL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DUBWOOL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DUBWOOL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DUBWOOL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CHEWTLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CHEWTLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CHEWTLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CHEWTLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CHEWTLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CHEWTLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CHEWTLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CHEWTLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DREDNAW, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DREDNAW, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DREDNAW, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DREDNAW, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DREDNAW, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DREDNAW, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DREDNAW, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DREDNAW, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_YAMPER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_YAMPER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_YAMPER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_YAMPER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_YAMPER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_YAMPER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_YAMPER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_YAMPER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BOLTUND, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BOLTUND, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BOLTUND, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BOLTUND, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BOLTUND, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BOLTUND, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BOLTUND, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BOLTUND, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ROLYCOLY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ROLYCOLY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ROLYCOLY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ROLYCOLY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ROLYCOLY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ROLYCOLY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ROLYCOLY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ROLYCOLY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CARKOL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CARKOL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CARKOL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CARKOL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CARKOL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CARKOL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CARKOL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CARKOL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_COALOSSAL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_COALOSSAL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_COALOSSAL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_COALOSSAL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_COALOSSAL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_COALOSSAL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_COALOSSAL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_COALOSSAL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_APPLIN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_APPLIN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_APPLIN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_APPLIN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_APPLIN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_APPLIN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_APPLIN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_APPLIN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FLAPPLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FLAPPLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FLAPPLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FLAPPLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FLAPPLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FLAPPLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FLAPPLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FLAPPLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_APPLETUN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_APPLETUN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_APPLETUN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_APPLETUN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_APPLETUN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_APPLETUN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_APPLETUN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_APPLETUN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SILICOBRA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SILICOBRA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SILICOBRA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SILICOBRA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SILICOBRA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SILICOBRA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SILICOBRA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SILICOBRA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SANDACONDA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SANDACONDA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SANDACONDA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SANDACONDA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SANDACONDA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SANDACONDA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SANDACONDA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SANDACONDA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CRAMORANT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CRAMORANT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CRAMORANT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CRAMORANT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CRAMORANT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CRAMORANT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CRAMORANT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CRAMORANT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ARROKUDA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ARROKUDA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ARROKUDA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ARROKUDA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ARROKUDA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ARROKUDA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ARROKUDA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ARROKUDA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BARRASKEWDA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BARRASKEWDA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BARRASKEWDA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BARRASKEWDA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BARRASKEWDA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BARRASKEWDA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BARRASKEWDA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BARRASKEWDA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TOXEL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TOXEL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TOXEL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TOXEL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TOXEL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TOXEL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TOXEL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TOXEL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_TOXTRICITY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_TOXTRICITY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_TOXTRICITY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_TOXTRICITY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_TOXTRICITY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_TOXTRICITY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_TOXTRICITY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_TOXTRICITY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SIZZLIPEDE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SIZZLIPEDE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SIZZLIPEDE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SIZZLIPEDE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SIZZLIPEDE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SIZZLIPEDE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SIZZLIPEDE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SIZZLIPEDE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CENTISKORCH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CENTISKORCH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CENTISKORCH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CENTISKORCH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CENTISKORCH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CENTISKORCH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CENTISKORCH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CENTISKORCH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CLOBBOPUS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CLOBBOPUS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CLOBBOPUS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CLOBBOPUS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CLOBBOPUS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CLOBBOPUS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CLOBBOPUS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CLOBBOPUS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GRAPPLOCT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GRAPPLOCT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GRAPPLOCT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GRAPPLOCT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GRAPPLOCT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GRAPPLOCT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GRAPPLOCT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GRAPPLOCT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SINISTEA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SINISTEA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SINISTEA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SINISTEA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SINISTEA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SINISTEA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SINISTEA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SINISTEA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_POLTEAGEIST, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_POLTEAGEIST, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_POLTEAGEIST, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_POLTEAGEIST, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_POLTEAGEIST, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_POLTEAGEIST, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_POLTEAGEIST, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_POLTEAGEIST, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HATENNA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HATENNA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HATENNA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HATENNA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HATENNA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HATENNA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HATENNA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HATENNA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HATTREM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HATTREM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HATTREM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HATTREM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HATTREM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HATTREM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HATTREM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HATTREM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HATTERENE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HATTERENE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HATTERENE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HATTERENE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HATTERENE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HATTERENE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HATTERENE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HATTERENE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_IMPIDIMP, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_IMPIDIMP, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_IMPIDIMP, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_IMPIDIMP, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_IMPIDIMP, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_IMPIDIMP, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_IMPIDIMP, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_IMPIDIMP, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MORGREM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MORGREM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MORGREM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MORGREM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MORGREM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MORGREM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MORGREM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MORGREM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GRIMMSNARL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GRIMMSNARL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GRIMMSNARL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GRIMMSNARL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GRIMMSNARL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GRIMMSNARL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GRIMMSNARL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GRIMMSNARL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_OBSTAGOON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_OBSTAGOON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_OBSTAGOON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_OBSTAGOON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_OBSTAGOON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_OBSTAGOON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_OBSTAGOON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_OBSTAGOON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PERRSERKER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PERRSERKER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PERRSERKER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PERRSERKER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PERRSERKER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PERRSERKER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PERRSERKER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PERRSERKER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CURSOLA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CURSOLA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CURSOLA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CURSOLA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CURSOLA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CURSOLA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CURSOLA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CURSOLA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SIRFETCHD, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SIRFETCHD, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SIRFETCHD, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SIRFETCHD, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SIRFETCHD, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SIRFETCHD, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SIRFETCHD, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SIRFETCHD, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MR_RIME, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MR_RIME, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MR_RIME, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MR_RIME, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MR_RIME, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MR_RIME, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MR_RIME, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MR_RIME, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_RUNERIGUS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_RUNERIGUS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_RUNERIGUS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_RUNERIGUS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_RUNERIGUS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_RUNERIGUS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_RUNERIGUS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_RUNERIGUS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MILCERY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MILCERY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MILCERY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MILCERY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MILCERY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MILCERY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MILCERY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MILCERY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ALCREMIE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ALCREMIE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ALCREMIE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ALCREMIE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ALCREMIE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ALCREMIE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ALCREMIE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ALCREMIE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FALINKS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FALINKS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FALINKS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FALINKS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FALINKS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FALINKS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FALINKS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FALINKS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PINCURCHIN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PINCURCHIN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PINCURCHIN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PINCURCHIN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PINCURCHIN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PINCURCHIN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PINCURCHIN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PINCURCHIN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SNOM, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SNOM, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SNOM, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SNOM, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SNOM, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SNOM, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SNOM, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SNOM, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_FROSMOTH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_FROSMOTH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_FROSMOTH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_FROSMOTH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_FROSMOTH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_FROSMOTH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_FROSMOTH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FROSMOTH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_STONJOURNER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_STONJOURNER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_STONJOURNER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_STONJOURNER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_STONJOURNER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_STONJOURNER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_STONJOURNER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_STONJOURNER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_EISCUE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_EISCUE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_EISCUE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_EISCUE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_EISCUE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_EISCUE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_EISCUE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_EISCUE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_INDEEDEE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_INDEEDEE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_INDEEDEE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_INDEEDEE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_INDEEDEE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_INDEEDEE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_INDEEDEE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_INDEEDEE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_MORPEKO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_MORPEKO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_MORPEKO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_MORPEKO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_MORPEKO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_MORPEKO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_MORPEKO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_MORPEKO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CUFANT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CUFANT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CUFANT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CUFANT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CUFANT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CUFANT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CUFANT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CUFANT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_COPPERAJAH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_COPPERAJAH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_COPPERAJAH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_COPPERAJAH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_COPPERAJAH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_COPPERAJAH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_COPPERAJAH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_COPPERAJAH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRACOZOLT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRACOZOLT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRACOZOLT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOZOLT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOZOLT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOZOLT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRACOZOLT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOZOLT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOZOLT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOZOLT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOZOLT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOZOLT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOZOLT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOZOLT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOZOLT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOZOLT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRACOVISH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRACOVISH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRACOVISH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOVISH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOVISH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOVISH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRACOVISH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRACOVISH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOVISH, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOVISH, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOVISH, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOVISH, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOVISH, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOVISH, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ARCTOVISH, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ARCTOVISH, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DURALUDON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DURALUDON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DURALUDON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DURALUDON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DURALUDON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DURALUDON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DURALUDON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DURALUDON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DREEPY, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DREEPY, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DREEPY, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DREEPY, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DREEPY, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DREEPY, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DREEPY, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DREEPY, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRAKLOAK, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRAKLOAK, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRAKLOAK, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRAKLOAK, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRAKLOAK, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRAKLOAK, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRAKLOAK, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRAKLOAK, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_DRAGAPULT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_DRAGAPULT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_DRAGAPULT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGAPULT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGAPULT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGAPULT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_DRAGAPULT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_DRAGAPULT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ZACIAN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ZACIAN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ZACIAN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ZACIAN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ZACIAN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ZACIAN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ZACIAN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ZACIAN, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ZAMAZENTA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ZAMAZENTA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ZAMAZENTA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ZAMAZENTA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ZAMAZENTA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ZAMAZENTA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ZAMAZENTA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ZAMAZENTA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ETERNATUS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ETERNATUS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ETERNATUS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ETERNATUS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ETERNATUS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ETERNATUS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ETERNATUS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ETERNATUS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_KUBFU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_KUBFU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_KUBFU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_KUBFU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_KUBFU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_KUBFU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_KUBFU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_KUBFU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_URSHIFU, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_URSHIFU, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_URSHIFU, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_URSHIFU, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_URSHIFU, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_URSHIFU, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_URSHIFU, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_URSHIFU, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ZARUDE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ZARUDE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ZARUDE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ZARUDE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ZARUDE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ZARUDE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ZARUDE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ZARUDE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_REGIELEKI, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_REGIELEKI, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_REGIELEKI, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_REGIELEKI, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_REGIELEKI, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_REGIELEKI, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_REGIELEKI, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_REGIELEKI, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_REGIDRAGO, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_REGIDRAGO, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_REGIDRAGO, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_REGIDRAGO, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_REGIDRAGO, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_REGIDRAGO, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_REGIDRAGO, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_REGIDRAGO, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GLASTRIER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GLASTRIER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GLASTRIER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GLASTRIER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GLASTRIER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GLASTRIER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GLASTRIER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GLASTRIER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SPECTRIER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SPECTRIER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SPECTRIER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SPECTRIER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SPECTRIER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SPECTRIER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SPECTRIER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SPECTRIER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_CALYREX, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_CALYREX, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_CALYREX, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_CALYREX, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_CALYREX, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_CALYREX, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_CALYREX, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_CALYREX, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_WYRDEER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_WYRDEER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_WYRDEER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_WYRDEER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_WYRDEER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_WYRDEER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_WYRDEER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_WYRDEER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_KLEAVOR, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_KLEAVOR, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_KLEAVOR, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_KLEAVOR, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_KLEAVOR, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_KLEAVOR, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_KLEAVOR, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_KLEAVOR, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_URSALUNA, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_URSALUNA, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_URSALUNA, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_URSALUNA, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_URSALUNA, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_URSALUNA, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_URSALUNA, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_URSALUNA, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_BASCULEGION, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_BASCULEGION, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_BASCULEGION, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_BASCULEGION, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_BASCULEGION, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_BASCULEGION, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_BASCULEGION, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_BASCULEGION, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_SNEASLER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_SNEASLER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_SNEASLER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_SNEASLER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_SNEASLER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_SNEASLER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_SNEASLER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_SNEASLER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_OVERQWIL, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_OVERQWIL, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_OVERQWIL, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_OVERQWIL, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_OVERQWIL, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_OVERQWIL, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_OVERQWIL, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_OVERQWIL, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ENAMORUS, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ENAMORUS, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ENAMORUS, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ENAMORUS, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ENAMORUS, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ENAMORUS, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ENAMORUS, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ENAMORUS, DEX_SPECIAL
+    dexendareadata
+
+
