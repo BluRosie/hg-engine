@@ -12619,8 +12619,8 @@ mondata SPECIES_GENESECT
 
 
 mondata SPECIES_CHESPIN
-	basestats 56, 61, 65, 38, 48, 45
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 56, 61, 65, 38, 48, 45
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 63
     evyields 0, 0, 1, 0, 0, 0
@@ -12637,8 +12637,8 @@ mondata SPECIES_CHESPIN
 
 
 mondata SPECIES_QUILLADIN
-	basestats 61, 78, 95, 57, 56, 58
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 61, 78, 95, 57, 56, 58
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 142
     evyields 0, 0, 2, 0, 0, 0
@@ -12655,8 +12655,8 @@ mondata SPECIES_QUILLADIN
 
 
 mondata SPECIES_CHESNAUGHT
-	basestats 88, 107, 122, 64, 74, 75
-	types TYPE_GRASS, TYPE_FIGHTING
+    basestats 88, 107, 122, 64, 74, 75
+    types TYPE_GRASS, TYPE_FIGHTING
     catchrate 45
     baseexp 239
     evyields 0, 0, 3, 0, 0, 0
@@ -12673,8 +12673,8 @@ mondata SPECIES_CHESNAUGHT
 
 
 mondata SPECIES_FENNEKIN
-	basestats 40, 45, 40, 60, 62, 60
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 40, 45, 40, 60, 62, 60
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 61
     evyields 0, 0, 0, 0, 1, 0
@@ -12691,8 +12691,8 @@ mondata SPECIES_FENNEKIN
 
 
 mondata SPECIES_BRAIXEN
-	basestats 59, 59, 58, 73, 90, 70
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 59, 59, 58, 73, 90, 70
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 143
     evyields 0, 0, 0, 0, 2, 0
@@ -12709,8 +12709,8 @@ mondata SPECIES_BRAIXEN
 
 
 mondata SPECIES_DELPHOX
-	basestats 75, 69, 72, 104, 114, 100
-	types TYPE_FIRE, TYPE_PSYCHIC
+    basestats 75, 69, 72, 104, 114, 100
+    types TYPE_FIRE, TYPE_PSYCHIC
     catchrate 45
     baseexp 240
     evyields 0, 0, 0, 0, 3, 0
@@ -12727,8 +12727,8 @@ mondata SPECIES_DELPHOX
 
 
 mondata SPECIES_FROAKIE
-	basestats 41, 56, 40, 71, 62, 44
-	types TYPE_WATER, TYPE_WATER
+    basestats 41, 56, 40, 71, 62, 44
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 63
     evyields 0, 0, 0, 1, 0, 0
@@ -12745,8 +12745,8 @@ mondata SPECIES_FROAKIE
 
 
 mondata SPECIES_FROGADIER
-	basestats 54, 63, 52, 97, 83, 56
-	types TYPE_WATER, TYPE_WATER
+    basestats 54, 63, 52, 97, 83, 56
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 142
     evyields 0, 0, 0, 2, 0, 0
@@ -12763,8 +12763,8 @@ mondata SPECIES_FROGADIER
 
 
 mondata SPECIES_GRENINJA
-	basestats 72, 95, 67, 122, 103, 71
-	types TYPE_WATER, TYPE_DARK
+    basestats 72, 95, 67, 122, 103, 71
+    types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 239
     evyields 0, 0, 0, 3, 0, 0
@@ -12781,8 +12781,8 @@ mondata SPECIES_GRENINJA
 
 
 mondata SPECIES_BUNNELBY
-	basestats 38, 36, 38, 57, 32, 36
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 38, 36, 38, 57, 32, 36
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 47
     evyields 0, 0, 0, 1, 0, 0
@@ -12799,8 +12799,8 @@ mondata SPECIES_BUNNELBY
 
 
 mondata SPECIES_DIGGERSBY
-	basestats 85, 56, 77, 78, 50, 77
-	types TYPE_NORMAL, TYPE_GROUND
+    basestats 85, 56, 77, 78, 50, 77
+    types TYPE_NORMAL, TYPE_GROUND
     catchrate 127
     baseexp 148
     evyields 2, 0, 0, 0, 0, 0
@@ -12817,8 +12817,8 @@ mondata SPECIES_DIGGERSBY
 
 
 mondata SPECIES_FLETCHLING
-	basestats 45, 50, 43, 62, 40, 38
-	types TYPE_NORMAL, TYPE_FLYING
+    basestats 45, 50, 43, 62, 40, 38
+    types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 56
     evyields 0, 0, 0, 1, 0, 0
@@ -12835,8 +12835,8 @@ mondata SPECIES_FLETCHLING
 
 
 mondata SPECIES_FLETCHINDER
-	basestats 62, 73, 55, 84, 56, 52
-	types TYPE_FIRE, TYPE_FLYING
+    basestats 62, 73, 55, 84, 56, 52
+    types TYPE_FIRE, TYPE_FLYING
     catchrate 120
     baseexp 134
     evyields 0, 0, 0, 2, 0, 0
@@ -12853,8 +12853,8 @@ mondata SPECIES_FLETCHINDER
 
 
 mondata SPECIES_TALONFLAME
-	basestats 78, 81, 71, 126, 74, 69
-	types TYPE_FIRE, TYPE_FLYING
+    basestats 78, 81, 71, 126, 74, 69
+    types TYPE_FIRE, TYPE_FLYING
     catchrate 45
     baseexp 175
     evyields 0, 0, 0, 3, 0, 0
@@ -12871,8 +12871,8 @@ mondata SPECIES_TALONFLAME
 
 
 mondata SPECIES_SCATTERBUG
-	basestats 38, 35, 40, 35, 27, 25
-	types TYPE_BUG, TYPE_BUG
+    basestats 38, 35, 40, 35, 27, 25
+    types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 40
     evyields 0, 0, 1, 0, 0, 0
@@ -12889,8 +12889,8 @@ mondata SPECIES_SCATTERBUG
 
 
 mondata SPECIES_SPEWPA
-	basestats 45, 22, 60, 29, 27, 30
-	types TYPE_BUG, TYPE_BUG
+    basestats 45, 22, 60, 29, 27, 30
+    types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 75
     evyields 0, 0, 2, 0, 0, 0
@@ -12907,8 +12907,8 @@ mondata SPECIES_SPEWPA
 
 
 mondata SPECIES_VIVILLON
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -12925,8 +12925,8 @@ mondata SPECIES_VIVILLON
 
 
 mondata SPECIES_LITLEO
-	basestats 62, 50, 58, 72, 73, 54
-	types TYPE_FIRE, TYPE_NORMAL
+    basestats 62, 50, 58, 72, 73, 54
+    types TYPE_FIRE, TYPE_NORMAL
     catchrate 220
     baseexp 74
     evyields 0, 0, 0, 0, 1, 0
@@ -12943,8 +12943,8 @@ mondata SPECIES_LITLEO
 
 
 mondata SPECIES_PYROAR
-	basestats 86, 68, 72, 106, 109, 66
-	types TYPE_FIRE, TYPE_NORMAL
+    basestats 86, 68, 72, 106, 109, 66
+    types TYPE_FIRE, TYPE_NORMAL
     catchrate 65
     baseexp 177
     evyields 0, 0, 0, 0, 2, 0
@@ -12961,8 +12961,8 @@ mondata SPECIES_PYROAR
 
 
 mondata SPECIES_FLABEBE
-	basestats 44, 38, 39, 42, 61, 79
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 44, 38, 39, 42, 61, 79
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
@@ -12979,8 +12979,8 @@ mondata SPECIES_FLABEBE
 
 
 mondata SPECIES_FLOETTE
-	basestats 54, 45, 47, 52, 75, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 54, 45, 47, 52, 75, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
@@ -12997,8 +12997,8 @@ mondata SPECIES_FLOETTE
 
 
 mondata SPECIES_FLORGES
-	basestats 78, 65, 68, 75, 112, 154
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 78, 65, 68, 75, 112, 154
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
@@ -13015,8 +13015,8 @@ mondata SPECIES_FLORGES
 
 
 mondata SPECIES_SKIDDO
-	basestats 66, 65, 48, 52, 62, 57
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 66, 65, 48, 52, 62, 57
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 200
     baseexp 70
     evyields 1, 0, 0, 0, 0, 0
@@ -13033,8 +13033,8 @@ mondata SPECIES_SKIDDO
 
 
 mondata SPECIES_GOGOAT
-	basestats 123, 100, 62, 68, 97, 81
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 123, 100, 62, 68, 97, 81
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 186
     evyields 2, 0, 0, 0, 0, 0
@@ -13051,8 +13051,8 @@ mondata SPECIES_GOGOAT
 
 
 mondata SPECIES_PANCHAM
-	basestats 67, 82, 62, 43, 46, 48
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 67, 82, 62, 43, 46, 48
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 220
     baseexp 70
     evyields 0, 1, 0, 0, 0, 0
@@ -13069,8 +13069,8 @@ mondata SPECIES_PANCHAM
 
 
 mondata SPECIES_PANGORO
-	basestats 95, 124, 78, 58, 69, 71
-	types TYPE_FIGHTING, TYPE_DARK
+    basestats 95, 124, 78, 58, 69, 71
+    types TYPE_FIGHTING, TYPE_DARK
     catchrate 65
     baseexp 173
     evyields 0, 2, 0, 0, 0, 0
@@ -13087,8 +13087,8 @@ mondata SPECIES_PANGORO
 
 
 mondata SPECIES_FURFROU
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -13105,8 +13105,8 @@ mondata SPECIES_FURFROU
 
 
 mondata SPECIES_ESPURR
-	basestats 62, 48, 54, 68, 63, 60
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 62, 48, 54, 68, 63, 60
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 71
     evyields 0, 0, 0, 1, 0, 0
@@ -13123,8 +13123,8 @@ mondata SPECIES_ESPURR
 
 
 mondata SPECIES_MEOWSTIC
-	basestats 74, 48, 76, 104, 83, 81
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 74, 48, 76, 104, 83, 81
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 163
     evyields 0, 0, 0, 2, 0, 0
@@ -13141,8 +13141,8 @@ mondata SPECIES_MEOWSTIC
 
 
 mondata SPECIES_HONEDGE
-	basestats 45, 80, 100, 28, 35, 37
-	types TYPE_STEEL, TYPE_GHOST
+    basestats 45, 80, 100, 28, 35, 37
+    types TYPE_STEEL, TYPE_GHOST
     catchrate 180
     baseexp 65
     evyields 0, 0, 1, 0, 0, 0
@@ -13159,8 +13159,8 @@ mondata SPECIES_HONEDGE
 
 
 mondata SPECIES_DOUBLADE
-	basestats 59, 110, 150, 35, 45, 49
-	types TYPE_STEEL, TYPE_GHOST
+    basestats 59, 110, 150, 35, 45, 49
+    types TYPE_STEEL, TYPE_GHOST
     catchrate 90
     baseexp 157
     evyields 0, 0, 2, 0, 0, 0
@@ -13177,8 +13177,8 @@ mondata SPECIES_DOUBLADE
 
 
 mondata SPECIES_AEGISLASH
-	basestats 60, 50, 150, 60, 50, 150
-	types TYPE_STEEL, TYPE_GHOST
+    basestats 60, 50, 150, 60, 50, 150
+    types TYPE_STEEL, TYPE_GHOST
     catchrate 45
     baseexp 234
     evyields 0, 0, 2, 0, 0, 1
@@ -13195,8 +13195,8 @@ mondata SPECIES_AEGISLASH
 
 
 mondata SPECIES_SPRITZEE
-	basestats 78, 52, 60, 23, 63, 65
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 78, 52, 60, 23, 63, 65
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 200
     baseexp 68
     evyields 1, 0, 0, 0, 0, 0
@@ -13213,8 +13213,8 @@ mondata SPECIES_SPRITZEE
 
 
 mondata SPECIES_AROMATISSE
-	basestats 101, 72, 72, 29, 99, 89
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 101, 72, 72, 29, 99, 89
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 140
     baseexp 162
     evyields 2, 0, 0, 0, 0, 0
@@ -13231,8 +13231,8 @@ mondata SPECIES_AROMATISSE
 
 
 mondata SPECIES_SWIRLIX
-	basestats 62, 48, 66, 49, 59, 57
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 62, 48, 66, 49, 59, 57
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 200
     baseexp 68
     evyields 0, 0, 1, 0, 0, 0
@@ -13249,8 +13249,8 @@ mondata SPECIES_SWIRLIX
 
 
 mondata SPECIES_SLURPUFF
-	basestats 82, 80, 86, 72, 85, 75
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 82, 80, 86, 72, 85, 75
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 140
     baseexp 168
     evyields 0, 0, 2, 0, 0, 0
@@ -13267,8 +13267,8 @@ mondata SPECIES_SLURPUFF
 
 
 mondata SPECIES_INKAY
-	basestats 53, 54, 53, 45, 37, 46
-	types TYPE_DARK, TYPE_PSYCHIC
+    basestats 53, 54, 53, 45, 37, 46
+    types TYPE_DARK, TYPE_PSYCHIC
     catchrate 190
     baseexp 58
     evyields 0, 1, 0, 0, 0, 0
@@ -13285,8 +13285,8 @@ mondata SPECIES_INKAY
 
 
 mondata SPECIES_MALAMAR
-	basestats 86, 92, 88, 73, 68, 75
-	types TYPE_DARK, TYPE_PSYCHIC
+    basestats 86, 92, 88, 73, 68, 75
+    types TYPE_DARK, TYPE_PSYCHIC
     catchrate 80
     baseexp 169
     evyields 0, 2, 0, 0, 0, 0
@@ -13303,8 +13303,8 @@ mondata SPECIES_MALAMAR
 
 
 mondata SPECIES_BINACLE
-	basestats 42, 52, 67, 50, 39, 56
-	types TYPE_ROCK, TYPE_WATER
+    basestats 42, 52, 67, 50, 39, 56
+    types TYPE_ROCK, TYPE_WATER
     catchrate 120
     baseexp 61
     evyields 0, 1, 0, 0, 0, 0
@@ -13321,8 +13321,8 @@ mondata SPECIES_BINACLE
 
 
 mondata SPECIES_BARBARACLE
-	basestats 72, 105, 115, 68, 54, 86
-	types TYPE_ROCK, TYPE_WATER
+    basestats 72, 105, 115, 68, 54, 86
+    types TYPE_ROCK, TYPE_WATER
     catchrate 45
     baseexp 175
     evyields 0, 2, 0, 0, 0, 0
@@ -13339,8 +13339,8 @@ mondata SPECIES_BARBARACLE
 
 
 mondata SPECIES_SKRELP
-	basestats 50, 60, 60, 30, 60, 60
-	types TYPE_POISON, TYPE_WATER
+    basestats 50, 60, 60, 30, 60, 60
+    types TYPE_POISON, TYPE_WATER
     catchrate 225
     baseexp 64
     evyields 0, 0, 0, 0, 0, 1
@@ -13357,8 +13357,8 @@ mondata SPECIES_SKRELP
 
 
 mondata SPECIES_DRAGALGE
-	basestats 65, 75, 90, 44, 97, 123
-	types TYPE_POISON, TYPE_DRAGON
+    basestats 65, 75, 90, 44, 97, 123
+    types TYPE_POISON, TYPE_DRAGON
     catchrate 55
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -13375,8 +13375,8 @@ mondata SPECIES_DRAGALGE
 
 
 mondata SPECIES_CLAUNCHER
-	basestats 50, 53, 62, 44, 58, 63
-	types TYPE_WATER, TYPE_WATER
+    basestats 50, 53, 62, 44, 58, 63
+    types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 66
     evyields 0, 0, 0, 0, 1, 0
@@ -13393,8 +13393,8 @@ mondata SPECIES_CLAUNCHER
 
 
 mondata SPECIES_CLAWITZER
-	basestats 71, 73, 88, 59, 120, 89
-	types TYPE_WATER, TYPE_WATER
+    basestats 71, 73, 88, 59, 120, 89
+    types TYPE_WATER, TYPE_WATER
     catchrate 55
     baseexp 100
     evyields 0, 0, 0, 0, 2, 0
@@ -13411,8 +13411,8 @@ mondata SPECIES_CLAWITZER
 
 
 mondata SPECIES_HELIOPTILE
-	basestats 44, 38, 33, 70, 61, 43
-	types TYPE_ELECTRIC, TYPE_NORMAL
+    basestats 44, 38, 33, 70, 61, 43
+    types TYPE_ELECTRIC, TYPE_NORMAL
     catchrate 190
     baseexp 58
     evyields 0, 0, 0, 1, 0, 0
@@ -13429,8 +13429,8 @@ mondata SPECIES_HELIOPTILE
 
 
 mondata SPECIES_HELIOLISK
-	basestats 62, 55, 52, 109, 109, 94
-	types TYPE_ELECTRIC, TYPE_NORMAL
+    basestats 62, 55, 52, 109, 109, 94
+    types TYPE_ELECTRIC, TYPE_NORMAL
     catchrate 75
     baseexp 168
     evyields 0, 0, 0, 1, 1, 0
@@ -13447,8 +13447,8 @@ mondata SPECIES_HELIOLISK
 
 
 mondata SPECIES_TYRUNT
-	basestats 58, 89, 77, 48, 45, 45
-	types TYPE_ROCK, TYPE_DRAGON
+    basestats 58, 89, 77, 48, 45, 45
+    types TYPE_ROCK, TYPE_DRAGON
     catchrate 45
     baseexp 72
     evyields 0, 1, 0, 0, 0, 0
@@ -13465,8 +13465,8 @@ mondata SPECIES_TYRUNT
 
 
 mondata SPECIES_TYRANTRUM
-	basestats 82, 121, 119, 71, 69, 59
-	types TYPE_ROCK, TYPE_DRAGON
+    basestats 82, 121, 119, 71, 69, 59
+    types TYPE_ROCK, TYPE_DRAGON
     catchrate 45
     baseexp 182
     evyields 0, 2, 0, 0, 0, 0
@@ -13483,8 +13483,8 @@ mondata SPECIES_TYRANTRUM
 
 
 mondata SPECIES_AMAURA
-	basestats 77, 59, 50, 46, 67, 63
-	types TYPE_ROCK, TYPE_ICE
+    basestats 77, 59, 50, 46, 67, 63
+    types TYPE_ROCK, TYPE_ICE
     catchrate 45
     baseexp 72
     evyields 1, 0, 0, 0, 0, 0
@@ -13501,8 +13501,8 @@ mondata SPECIES_AMAURA
 
 
 mondata SPECIES_AURORUS
-	basestats 123, 77, 72, 58, 99, 92
-	types TYPE_ROCK, TYPE_ICE
+    basestats 123, 77, 72, 58, 99, 92
+    types TYPE_ROCK, TYPE_ICE
     catchrate 45
     baseexp 104
     evyields 2, 0, 0, 0, 0, 0
@@ -13519,8 +13519,8 @@ mondata SPECIES_AURORUS
 
 
 mondata SPECIES_SYLVEON
-	basestats 95, 65, 65, 60, 110, 130
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 95, 65, 65, 60, 110, 130
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 184
     evyields 0, 0, 0, 0, 0, 2
@@ -13537,8 +13537,8 @@ mondata SPECIES_SYLVEON
 
 
 mondata SPECIES_HAWLUCHA
-	basestats 78, 92, 75, 118, 74, 63
-	types TYPE_FIGHTING, TYPE_FLYING
+    basestats 78, 92, 75, 118, 74, 63
+    types TYPE_FIGHTING, TYPE_FLYING
     catchrate 100
     baseexp 175
     evyields 0, 2, 0, 0, 0, 0
@@ -13555,8 +13555,8 @@ mondata SPECIES_HAWLUCHA
 
 
 mondata SPECIES_DEDENNE
-	basestats 67, 58, 57, 101, 81, 67
-	types TYPE_ELECTRIC, TYPE_FAIRY
+    basestats 67, 58, 57, 101, 81, 67
+    types TYPE_ELECTRIC, TYPE_FAIRY
     catchrate 180
     baseexp 151
     evyields 0, 0, 0, 2, 0, 0
@@ -13573,8 +13573,8 @@ mondata SPECIES_DEDENNE
 
 
 mondata SPECIES_CARBINK
-	basestats 50, 50, 150, 50, 50, 150
-	types TYPE_ROCK, TYPE_FAIRY
+    basestats 50, 50, 150, 50, 50, 150
+    types TYPE_ROCK, TYPE_FAIRY
     catchrate 60
     baseexp 100
     evyields 0, 0, 1, 0, 0, 1
@@ -13591,8 +13591,8 @@ mondata SPECIES_CARBINK
 
 
 mondata SPECIES_GOOMY
-	basestats 45, 50, 35, 40, 55, 75
-	types TYPE_DRAGON, TYPE_DRAGON
+    basestats 45, 50, 35, 40, 55, 75
+    types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 60
     evyields 0, 0, 0, 0, 0, 1
@@ -13609,8 +13609,8 @@ mondata SPECIES_GOOMY
 
 
 mondata SPECIES_SLIGGOO
-	basestats 68, 75, 53, 60, 83, 113
-	types TYPE_DRAGON, TYPE_DRAGON
+    basestats 68, 75, 53, 60, 83, 113
+    types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 158
     evyields 0, 0, 0, 0, 0, 2
@@ -13627,8 +13627,8 @@ mondata SPECIES_SLIGGOO
 
 
 mondata SPECIES_GOODRA
-	basestats 90, 100, 70, 80, 110, 150
-	types TYPE_DRAGON, TYPE_DRAGON
+    basestats 90, 100, 70, 80, 110, 150
+    types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 270
     evyields 0, 0, 0, 0, 0, 3
@@ -13645,8 +13645,8 @@ mondata SPECIES_GOODRA
 
 
 mondata SPECIES_KLEFKI
-	basestats 57, 80, 91, 75, 80, 87
-	types TYPE_STEEL, TYPE_FAIRY
+    basestats 57, 80, 91, 75, 80, 87
+    types TYPE_STEEL, TYPE_FAIRY
     catchrate 75
     baseexp 165
     evyields 0, 0, 1, 0, 0, 0
@@ -13663,8 +13663,8 @@ mondata SPECIES_KLEFKI
 
 
 mondata SPECIES_PHANTUMP
-	basestats 43, 70, 48, 38, 50, 60
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 43, 70, 48, 38, 50, 60
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 62
     evyields 0, 1, 0, 0, 0, 0
@@ -13681,8 +13681,8 @@ mondata SPECIES_PHANTUMP
 
 
 mondata SPECIES_TREVENANT
-	basestats 85, 110, 76, 56, 65, 82
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 85, 110, 76, 56, 65, 82
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 166
     evyields 0, 2, 0, 0, 0, 0
@@ -13699,8 +13699,8 @@ mondata SPECIES_TREVENANT
 
 
 mondata SPECIES_PUMPKABOO
-	basestats 49, 66, 70, 51, 44, 55
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 49, 66, 70, 51, 44, 55
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
     evyields 0, 0, 1, 0, 0, 0
@@ -13717,8 +13717,8 @@ mondata SPECIES_PUMPKABOO
 
 
 mondata SPECIES_GOURGEIST
-	basestats 65, 90, 122, 84, 58, 75
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 65, 90, 122, 84, 58, 75
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
     evyields 0, 0, 2, 0, 0, 0
@@ -13735,8 +13735,8 @@ mondata SPECIES_GOURGEIST
 
 
 mondata SPECIES_BERGMITE
-	basestats 55, 69, 85, 28, 32, 35
-	types TYPE_ICE, TYPE_ICE
+    basestats 55, 69, 85, 28, 32, 35
+    types TYPE_ICE, TYPE_ICE
     catchrate 190
     baseexp 61
     evyields 0, 0, 1, 0, 0, 0
@@ -13753,8 +13753,8 @@ mondata SPECIES_BERGMITE
 
 
 mondata SPECIES_AVALUGG
-	basestats 95, 117, 184, 28, 44, 46
-	types TYPE_ICE, TYPE_ICE
+    basestats 95, 117, 184, 28, 44, 46
+    types TYPE_ICE, TYPE_ICE
     catchrate 55
     baseexp 180
     evyields 0, 0, 2, 0, 0, 0
@@ -13771,8 +13771,8 @@ mondata SPECIES_AVALUGG
 
 
 mondata SPECIES_NOIBAT
-	basestats 40, 30, 35, 55, 45, 40
-	types TYPE_FLYING, TYPE_DRAGON
+    basestats 40, 30, 35, 55, 45, 40
+    types TYPE_FLYING, TYPE_DRAGON
     catchrate 190
     baseexp 49
     evyields 0, 0, 0, 1, 0, 0
@@ -13789,8 +13789,8 @@ mondata SPECIES_NOIBAT
 
 
 mondata SPECIES_NOIVERN
-	basestats 85, 70, 80, 123, 97, 80
-	types TYPE_FLYING, TYPE_DRAGON
+    basestats 85, 70, 80, 123, 97, 80
+    types TYPE_FLYING, TYPE_DRAGON
     catchrate 45
     baseexp 187
     evyields 0, 0, 0, 2, 0, 0
@@ -13807,8 +13807,8 @@ mondata SPECIES_NOIVERN
 
 
 mondata SPECIES_XERNEAS
-	basestats 126, 131, 95, 99, 131, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 126, 131, 95, 99, 131, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 306
     evyields 3, 0, 0, 0, 0, 0
@@ -13825,8 +13825,8 @@ mondata SPECIES_XERNEAS
 
 
 mondata SPECIES_YVELTAL
-	basestats 126, 131, 95, 99, 131, 98
-	types TYPE_DARK, TYPE_FLYING
+    basestats 126, 131, 95, 99, 131, 98
+    types TYPE_DARK, TYPE_FLYING
     catchrate 45
     baseexp 306
     evyields 3, 0, 0, 0, 0, 0
@@ -13843,8 +13843,8 @@ mondata SPECIES_YVELTAL
 
 
 mondata SPECIES_ZYGARDE
-	basestats 108, 100, 121, 95, 81, 95
-	types TYPE_DRAGON, TYPE_GROUND
+    basestats 108, 100, 121, 95, 81, 95
+    types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 270
     evyields 3, 0, 0, 0, 0, 0
@@ -13861,8 +13861,8 @@ mondata SPECIES_ZYGARDE
 
 
 mondata SPECIES_DIANCIE
-	basestats 50, 100, 150, 50, 100, 150
-	types TYPE_ROCK, TYPE_FAIRY
+    basestats 50, 100, 150, 50, 100, 150
+    types TYPE_ROCK, TYPE_FAIRY
     catchrate 3
     baseexp 270
     evyields 0, 0, 1, 0, 0, 2
@@ -13879,8 +13879,8 @@ mondata SPECIES_DIANCIE
 
 
 mondata SPECIES_HOOPA
-	basestats 80, 110, 60, 70, 150, 130
-	types TYPE_PSYCHIC, TYPE_GHOST
+    basestats 80, 110, 60, 70, 150, 130
+    types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 3
     baseexp 270
     evyields 0, 0, 0, 0, 3, 0
@@ -13897,8 +13897,8 @@ mondata SPECIES_HOOPA
 
 
 mondata SPECIES_VOLCANION
-	basestats 80, 110, 120, 70, 130, 90
-	types TYPE_FIRE, TYPE_WATER
+    basestats 80, 110, 120, 70, 130, 90
+    types TYPE_FIRE, TYPE_WATER
     catchrate 3
     baseexp 270
     evyields 0, 0, 0, 0, 3, 0
@@ -13915,8 +13915,8 @@ mondata SPECIES_VOLCANION
 
 
 mondata SPECIES_ROWLET
-	basestats 68, 55, 55, 42, 50, 50
-	types TYPE_GRASS, TYPE_FLYING
+    basestats 68, 55, 55, 42, 50, 50
+    types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 64
     evyields 1, 0, 0, 0, 0, 0
@@ -13933,8 +13933,8 @@ mondata SPECIES_ROWLET
 
 
 mondata SPECIES_DARTRIX
-	basestats 78, 75, 75, 52, 70, 70
-	types TYPE_GRASS, TYPE_FLYING
+    basestats 78, 75, 75, 52, 70, 70
+    types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 147
     evyields 2, 0, 0, 0, 0, 0
@@ -13951,8 +13951,8 @@ mondata SPECIES_DARTRIX
 
 
 mondata SPECIES_DECIDUEYE
-	basestats 78, 107, 75, 70, 100, 100
-	types TYPE_GRASS, TYPE_GHOST
+    basestats 78, 107, 75, 70, 100, 100
+    types TYPE_GRASS, TYPE_GHOST
     catchrate 45
     baseexp 239
     evyields 0, 3, 0, 0, 0, 0
@@ -13969,8 +13969,8 @@ mondata SPECIES_DECIDUEYE
 
 
 mondata SPECIES_LITTEN
-	basestats 45, 65, 40, 70, 60, 40
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 45, 65, 40, 70, 60, 40
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 64
     evyields 0, 0, 0, 1, 0, 0
@@ -13987,8 +13987,8 @@ mondata SPECIES_LITTEN
 
 
 mondata SPECIES_TORRACAT
-	basestats 65, 85, 50, 90, 80, 50
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 65, 85, 50, 90, 80, 50
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 147
     evyields 0, 0, 0, 2, 0, 0
@@ -14005,8 +14005,8 @@ mondata SPECIES_TORRACAT
 
 
 mondata SPECIES_INCINEROAR
-	basestats 95, 115, 90, 60, 80, 90
-	types TYPE_FIRE, TYPE_DARK
+    basestats 95, 115, 90, 60, 80, 90
+    types TYPE_FIRE, TYPE_DARK
     catchrate 45
     baseexp 239
     evyields 0, 3, 0, 0, 0, 0
@@ -14023,8 +14023,8 @@ mondata SPECIES_INCINEROAR
 
 
 mondata SPECIES_POPPLIO
-	basestats 50, 54, 54, 40, 66, 56
-	types TYPE_WATER, TYPE_WATER
+    basestats 50, 54, 54, 40, 66, 56
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 64
     evyields 0, 0, 0, 0, 1, 0
@@ -14041,8 +14041,8 @@ mondata SPECIES_POPPLIO
 
 
 mondata SPECIES_BRIONNE
-	basestats 60, 69, 69, 50, 91, 81
-	types TYPE_WATER, TYPE_WATER
+    basestats 60, 69, 69, 50, 91, 81
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 147
     evyields 0, 0, 0, 0, 2, 0
@@ -14059,8 +14059,8 @@ mondata SPECIES_BRIONNE
 
 
 mondata SPECIES_PRIMARINA
-	basestats 80, 74, 74, 60, 126, 116
-	types TYPE_WATER, TYPE_FAIRY
+    basestats 80, 74, 74, 60, 126, 116
+    types TYPE_WATER, TYPE_FAIRY
     catchrate 45
     baseexp 239
     evyields 0, 0, 0, 0, 3, 0
@@ -14077,8 +14077,8 @@ mondata SPECIES_PRIMARINA
 
 
 mondata SPECIES_PIKIPEK
-	basestats 35, 75, 30, 65, 30, 30
-	types TYPE_NORMAL, TYPE_FLYING
+    basestats 35, 75, 30, 65, 30, 30
+    types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 53
     evyields 0, 1, 0, 0, 0, 0
@@ -14095,8 +14095,8 @@ mondata SPECIES_PIKIPEK
 
 
 mondata SPECIES_TRUMBEAK
-	basestats 55, 85, 50, 75, 40, 50
-	types TYPE_NORMAL, TYPE_FLYING
+    basestats 55, 85, 50, 75, 40, 50
+    types TYPE_NORMAL, TYPE_FLYING
     catchrate 120
     baseexp 124
     evyields 0, 2, 0, 0, 0, 0
@@ -14113,8 +14113,8 @@ mondata SPECIES_TRUMBEAK
 
 
 mondata SPECIES_TOUCANNON
-	basestats 80, 120, 75, 60, 75, 75
-	types TYPE_NORMAL, TYPE_FLYING
+    basestats 80, 120, 75, 60, 75, 75
+    types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 218
     evyields 0, 3, 0, 0, 0, 0
@@ -14131,8 +14131,8 @@ mondata SPECIES_TOUCANNON
 
 
 mondata SPECIES_YUNGOOS
-	basestats 48, 70, 30, 45, 30, 30
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 48, 70, 30, 45, 30, 30
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 51
     evyields 0, 1, 0, 0, 0, 0
@@ -14149,8 +14149,8 @@ mondata SPECIES_YUNGOOS
 
 
 mondata SPECIES_GUMSHOOS
-	basestats 88, 110, 60, 45, 55, 60
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 88, 110, 60, 45, 55, 60
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 127
     baseexp 146
     evyields 0, 2, 0, 0, 0, 0
@@ -14167,8 +14167,8 @@ mondata SPECIES_GUMSHOOS
 
 
 mondata SPECIES_GRUBBIN
-	basestats 47, 62, 45, 46, 55, 45
-	types TYPE_BUG, TYPE_BUG
+    basestats 47, 62, 45, 46, 55, 45
+    types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 60
     evyields 0, 1, 0, 0, 0, 0
@@ -14185,8 +14185,8 @@ mondata SPECIES_GRUBBIN
 
 
 mondata SPECIES_CHARJABUG
-	basestats 57, 82, 95, 36, 55, 75
-	types TYPE_BUG, TYPE_ELECTRIC
+    basestats 57, 82, 95, 36, 55, 75
+    types TYPE_BUG, TYPE_ELECTRIC
     catchrate 120
     baseexp 140
     evyields 0, 0, 2, 0, 0, 0
@@ -14204,8 +14204,8 @@ mondata SPECIES_CHARJABUG
 
 
 mondata SPECIES_VIKAVOLT
-	basestats 77, 70, 90, 43, 145, 75
-	types TYPE_BUG, TYPE_ELECTRIC
+    basestats 77, 70, 90, 43, 145, 75
+    types TYPE_BUG, TYPE_ELECTRIC
     catchrate 45
     baseexp 225
     evyields 0, 0, 0, 0, 3, 0
@@ -14222,8 +14222,8 @@ mondata SPECIES_VIKAVOLT
 
 
 mondata SPECIES_CRABRAWLER
-	basestats 47, 82, 57, 63, 42, 47
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 47, 82, 57, 63, 42, 47
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 225
     baseexp 68
     evyields 0, 1, 0, 0, 0, 0
@@ -14240,8 +14240,8 @@ mondata SPECIES_CRABRAWLER
 
 
 mondata SPECIES_CRABOMINABLE
-	basestats 97, 132, 77, 43, 62, 67
-	types TYPE_FIGHTING, TYPE_ICE
+    basestats 97, 132, 77, 43, 62, 67
+    types TYPE_FIGHTING, TYPE_ICE
     catchrate 60
     baseexp 167
     evyields 0, 2, 0, 0, 0, 0
@@ -14258,8 +14258,8 @@ mondata SPECIES_CRABOMINABLE
 
 
 mondata SPECIES_ORICORIO
-	basestats 75, 70, 70, 93, 98, 70
-	types TYPE_FIRE, TYPE_FLYING
+    basestats 75, 70, 70, 93, 98, 70
+    types TYPE_FIRE, TYPE_FLYING
     catchrate 45
     baseexp 167
     evyields 0, 0, 0, 0, 2, 0
@@ -14276,8 +14276,8 @@ mondata SPECIES_ORICORIO
 
 
 mondata SPECIES_CUTIEFLY
-	basestats 40, 45, 40, 84, 55, 40
-	types TYPE_BUG, TYPE_FAIRY
+    basestats 40, 45, 40, 84, 55, 40
+    types TYPE_BUG, TYPE_FAIRY
     catchrate 190
     baseexp 61
     evyields 0, 0, 0, 1, 0, 0
@@ -14294,8 +14294,8 @@ mondata SPECIES_CUTIEFLY
 
 
 mondata SPECIES_RIBOMBEE
-	basestats 60, 55, 60, 124, 95, 70
-	types TYPE_BUG, TYPE_FAIRY
+    basestats 60, 55, 60, 124, 95, 70
+    types TYPE_BUG, TYPE_FAIRY
     catchrate 75
     baseexp 162
     evyields 0, 0, 0, 2, 0, 0
@@ -14312,8 +14312,8 @@ mondata SPECIES_RIBOMBEE
 
 
 mondata SPECIES_ROCKRUFF
-	basestats 45, 65, 40, 60, 30, 40
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 45, 65, 40, 60, 30, 40
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 190
     baseexp 56
     evyields 0, 1, 0, 0, 0, 0
@@ -14330,8 +14330,8 @@ mondata SPECIES_ROCKRUFF
 
 
 mondata SPECIES_LYCANROC
-	basestats 75, 115, 65, 112, 55, 65
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 75, 115, 65, 112, 55, 65
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 90
     baseexp 170
     evyields 0, 2, 0, 0, 0, 0
@@ -14348,8 +14348,8 @@ mondata SPECIES_LYCANROC
 
 
 mondata SPECIES_WISHIWASHI
-	basestats 45, 20, 20, 40, 25, 25
-	types TYPE_WATER, TYPE_WATER
+    basestats 45, 20, 20, 40, 25, 25
+    types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 61
     evyields 1, 0, 0, 0, 0, 0
@@ -14366,8 +14366,8 @@ mondata SPECIES_WISHIWASHI
 
 
 mondata SPECIES_MAREANIE
-	basestats 50, 53, 62, 45, 43, 52
-	types TYPE_POISON, TYPE_WATER
+    basestats 50, 53, 62, 45, 43, 52
+    types TYPE_POISON, TYPE_WATER
     catchrate 190
     baseexp 61
     evyields 0, 0, 1, 0, 0, 0
@@ -14384,8 +14384,8 @@ mondata SPECIES_MAREANIE
 
 
 mondata SPECIES_TOXAPEX
-	basestats 50, 63, 152, 35, 53, 142
-	types TYPE_POISON, TYPE_WATER
+    basestats 50, 63, 152, 35, 53, 142
+    types TYPE_POISON, TYPE_WATER
     catchrate 75
     baseexp 173
     evyields 0, 0, 2, 0, 0, 0
@@ -14402,8 +14402,8 @@ mondata SPECIES_TOXAPEX
 
 
 mondata SPECIES_MUDBRAY
-	basestats 70, 100, 70, 45, 45, 55
-	types TYPE_GROUND, TYPE_GROUND
+    basestats 70, 100, 70, 45, 45, 55
+    types TYPE_GROUND, TYPE_GROUND
     catchrate 190
     baseexp 77
     evyields 0, 1, 0, 0, 0, 0
@@ -14420,8 +14420,8 @@ mondata SPECIES_MUDBRAY
 
 
 mondata SPECIES_MUDSDALE
-	basestats 100, 125, 100, 35, 55, 85
-	types TYPE_GROUND, TYPE_GROUND
+    basestats 100, 125, 100, 35, 55, 85
+    types TYPE_GROUND, TYPE_GROUND
     catchrate 60
     baseexp 175
     evyields 0, 2, 0, 0, 0, 0
@@ -14438,8 +14438,8 @@ mondata SPECIES_MUDSDALE
 
 
 mondata SPECIES_DEWPIDER
-	basestats 38, 40, 52, 27, 40, 72
-	types TYPE_WATER, TYPE_BUG
+    basestats 38, 40, 52, 27, 40, 72
+    types TYPE_WATER, TYPE_BUG
     catchrate 200
     baseexp 54
     evyields 0, 0, 0, 0, 0, 1
@@ -14456,8 +14456,8 @@ mondata SPECIES_DEWPIDER
 
 
 mondata SPECIES_ARAQUANID
-	basestats 68, 70, 92, 42, 50, 132
-	types TYPE_WATER, TYPE_BUG
+    basestats 68, 70, 92, 42, 50, 132
+    types TYPE_WATER, TYPE_BUG
     catchrate 100
     baseexp 159
     evyields 0, 0, 0, 0, 0, 2
@@ -14474,8 +14474,8 @@ mondata SPECIES_ARAQUANID
 
 
 mondata SPECIES_FOMANTIS
-	basestats 40, 55, 35, 35, 50, 35
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 40, 55, 35, 35, 50, 35
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 50
     evyields 0, 1, 0, 0, 0, 0
@@ -14492,8 +14492,8 @@ mondata SPECIES_FOMANTIS
 
 
 mondata SPECIES_LURANTIS
-	basestats 70, 105, 90, 45, 80, 90
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 70, 105, 90, 45, 80, 90
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 168
     evyields 0, 2, 0, 0, 0, 0
@@ -14510,8 +14510,8 @@ mondata SPECIES_LURANTIS
 
 
 mondata SPECIES_MORELULL
-	basestats 40, 35, 55, 15, 65, 75
-	types TYPE_GRASS, TYPE_FAIRY
+    basestats 40, 35, 55, 15, 65, 75
+    types TYPE_GRASS, TYPE_FAIRY
     catchrate 190
     baseexp 57
     evyields 0, 0, 0, 0, 0, 1
@@ -14529,8 +14529,8 @@ mondata SPECIES_MORELULL
 
 
 mondata SPECIES_SHIINOTIC
-	basestats 60, 45, 80, 30, 90, 100
-	types TYPE_GRASS, TYPE_FAIRY
+    basestats 60, 45, 80, 30, 90, 100
+    types TYPE_GRASS, TYPE_FAIRY
     catchrate 75
     baseexp 142
     evyields 0, 0, 0, 0, 0, 2
@@ -14548,8 +14548,8 @@ mondata SPECIES_SHIINOTIC
 
 
 mondata SPECIES_SALANDIT
-	basestats 48, 44, 40, 77, 71, 40
-	types TYPE_POISON, TYPE_FIRE
+    basestats 48, 44, 40, 77, 71, 40
+    types TYPE_POISON, TYPE_FIRE
     catchrate 120
     baseexp 64
     evyields 0, 0, 0, 1, 0, 0
@@ -14566,8 +14566,8 @@ mondata SPECIES_SALANDIT
 
 
 mondata SPECIES_SALAZZLE
-	basestats 68, 64, 60, 117, 111, 60
-	types TYPE_POISON, TYPE_FIRE
+    basestats 68, 64, 60, 117, 111, 60
+    types TYPE_POISON, TYPE_FIRE
     catchrate 45
     baseexp 168
     evyields 0, 0, 0, 2, 0, 0
@@ -14584,8 +14584,8 @@ mondata SPECIES_SALAZZLE
 
 
 mondata SPECIES_STUFFUL
-	basestats 70, 75, 50, 50, 45, 50
-	types TYPE_NORMAL, TYPE_FIGHTING
+    basestats 70, 75, 50, 50, 45, 50
+    types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 140
     baseexp 68
     evyields 0, 1, 0, 0, 0, 0
@@ -14602,8 +14602,8 @@ mondata SPECIES_STUFFUL
 
 
 mondata SPECIES_BEWEAR
-	basestats 120, 125, 80, 60, 55, 60
-	types TYPE_NORMAL, TYPE_FIGHTING
+    basestats 120, 125, 80, 60, 55, 60
+    types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 70
     baseexp 175
     evyields 0, 2, 0, 0, 0, 0
@@ -14620,8 +14620,8 @@ mondata SPECIES_BEWEAR
 
 
 mondata SPECIES_BOUNSWEET
-	basestats 42, 30, 38, 32, 30, 38
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 42, 30, 38, 32, 30, 38
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 235
     baseexp 42
     evyields 1, 0, 0, 0, 0, 0
@@ -14639,8 +14639,8 @@ mondata SPECIES_BOUNSWEET
 
 
 mondata SPECIES_STEENEE
-	basestats 52, 40, 48, 62, 40, 48
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 52, 40, 48, 62, 40, 48
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 120
     baseexp 102
     evyields 0, 0, 0, 2, 0, 0
@@ -14658,8 +14658,8 @@ mondata SPECIES_STEENEE
 
 
 mondata SPECIES_TSAREENA
-	basestats 72, 120, 98, 72, 50, 98
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 72, 120, 98, 72, 50, 98
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 230
     evyields 0, 3, 0, 0, 0, 0
@@ -14677,8 +14677,8 @@ mondata SPECIES_TSAREENA
 
 
 mondata SPECIES_COMFEY
-	basestats 51, 52, 90, 100, 82, 110
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 51, 52, 90, 100, 82, 110
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 60
     baseexp 170
     evyields 0, 0, 0, 0, 0, 2
@@ -14696,8 +14696,8 @@ mondata SPECIES_COMFEY
 
 
 mondata SPECIES_ORANGURU
-	basestats 90, 60, 80, 60, 90, 110
-	types TYPE_NORMAL, TYPE_PSYCHIC
+    basestats 90, 60, 80, 60, 90, 110
+    types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 45
     baseexp 172
     evyields 0, 0, 0, 0, 0, 2
@@ -14714,8 +14714,8 @@ mondata SPECIES_ORANGURU
 
 
 mondata SPECIES_PASSIMIAN
-	basestats 100, 120, 90, 80, 40, 60
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 100, 120, 90, 80, 40, 60
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 172
     evyields 0, 2, 0, 0, 0, 0
@@ -14732,8 +14732,8 @@ mondata SPECIES_PASSIMIAN
 
 
 mondata SPECIES_WIMPOD
-	basestats 25, 35, 40, 80, 20, 30
-	types TYPE_BUG, TYPE_WATER
+    basestats 25, 35, 40, 80, 20, 30
+    types TYPE_BUG, TYPE_WATER
     catchrate 90
     baseexp 46
     evyields 0, 0, 0, 1, 0, 0
@@ -14750,8 +14750,8 @@ mondata SPECIES_WIMPOD
 
 
 mondata SPECIES_GOLISOPOD
-	basestats 75, 125, 140, 40, 60, 90
-	types TYPE_BUG, TYPE_WATER
+    basestats 75, 125, 140, 40, 60, 90
+    types TYPE_BUG, TYPE_WATER
     catchrate 45
     baseexp 186
     evyields 0, 0, 2, 0, 0, 0
@@ -14768,8 +14768,8 @@ mondata SPECIES_GOLISOPOD
 
 
 mondata SPECIES_SANDYGAST
-	basestats 55, 55, 80, 15, 70, 45
-	types TYPE_GHOST, TYPE_GROUND
+    basestats 55, 55, 80, 15, 70, 45
+    types TYPE_GHOST, TYPE_GROUND
     catchrate 140
     baseexp 64
     evyields 0, 0, 1, 0, 0, 0
@@ -14786,8 +14786,8 @@ mondata SPECIES_SANDYGAST
 
 
 mondata SPECIES_PALOSSAND
-	basestats 85, 75, 110, 35, 100, 75
-	types TYPE_GHOST, TYPE_GROUND
+    basestats 85, 75, 110, 35, 100, 75
+    types TYPE_GHOST, TYPE_GROUND
     catchrate 60
     baseexp 168
     evyields 0, 0, 2, 0, 0, 0
@@ -14804,8 +14804,8 @@ mondata SPECIES_PALOSSAND
 
 
 mondata SPECIES_PYUKUMUKU
-	basestats 55, 60, 130, 5, 30, 130
-	types TYPE_WATER, TYPE_WATER
+    basestats 55, 60, 130, 5, 30, 130
+    types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 144
     evyields 0, 0, 0, 0, 0, 2
@@ -14822,8 +14822,8 @@ mondata SPECIES_PYUKUMUKU
 
 
 mondata SPECIES_TYPE_NULL
-	basestats 95, 95, 95, 59, 95, 95
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 95, 95, 95, 59, 95, 95
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 107
     evyields 2, 0, 0, 0, 0, 0
@@ -14840,8 +14840,8 @@ mondata SPECIES_TYPE_NULL
 
 
 mondata SPECIES_SILVALLY
-	basestats 95, 95, 95, 95, 95, 95
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 95, 95, 95, 95, 95, 95
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 257
     evyields 3, 0, 0, 0, 0, 0
@@ -14858,8 +14858,8 @@ mondata SPECIES_SILVALLY
 
 
 mondata SPECIES_MINIOR
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -14876,8 +14876,8 @@ mondata SPECIES_MINIOR
 
 
 mondata SPECIES_KOMALA
-	basestats 65, 115, 65, 65, 75, 95
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 65, 115, 65, 65, 75, 95
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 168
     evyields 0, 2, 0, 0, 0, 0
@@ -14894,8 +14894,8 @@ mondata SPECIES_KOMALA
 
 
 mondata SPECIES_TURTONATOR
-	basestats 60, 78, 135, 36, 91, 85
-	types TYPE_FIRE, TYPE_DRAGON
+    basestats 60, 78, 135, 36, 91, 85
+    types TYPE_FIRE, TYPE_DRAGON
     catchrate 70
     baseexp 170
     evyields 0, 0, 2, 0, 0, 0
@@ -14912,8 +14912,8 @@ mondata SPECIES_TURTONATOR
 
 
 mondata SPECIES_TOGEDEMARU
-	basestats 65, 98, 63, 96, 40, 73
-	types TYPE_ELECTRIC, TYPE_STEEL
+    basestats 65, 98, 63, 96, 40, 73
+    types TYPE_ELECTRIC, TYPE_STEEL
     catchrate 180
     baseexp 152
     evyields 0, 2, 0, 0, 0, 0
@@ -14931,8 +14931,8 @@ mondata SPECIES_TOGEDEMARU
 
 
 mondata SPECIES_MIMIKYU
-	basestats 55, 90, 80, 96, 50, 105
-	types TYPE_GHOST, TYPE_FAIRY
+    basestats 55, 90, 80, 96, 50, 105
+    types TYPE_GHOST, TYPE_FAIRY
     catchrate 45
     baseexp 167
     evyields 0, 0, 0, 0, 0, 2
@@ -14949,8 +14949,8 @@ mondata SPECIES_MIMIKYU
 
 
 mondata SPECIES_BRUXISH
-	basestats 68, 105, 70, 92, 70, 70
-	types TYPE_WATER, TYPE_PSYCHIC
+    basestats 68, 105, 70, 92, 70, 70
+    types TYPE_WATER, TYPE_PSYCHIC
     catchrate 80
     baseexp 166
     evyields 0, 2, 0, 0, 0, 0
@@ -14967,8 +14967,8 @@ mondata SPECIES_BRUXISH
 
 
 mondata SPECIES_DRAMPA
-	basestats 78, 60, 85, 36, 135, 91
-	types TYPE_NORMAL, TYPE_DRAGON
+    basestats 78, 60, 85, 36, 135, 91
+    types TYPE_NORMAL, TYPE_DRAGON
     catchrate 70
     baseexp 170
     evyields 0, 0, 0, 0, 2, 0
@@ -14985,8 +14985,8 @@ mondata SPECIES_DRAMPA
 
 
 mondata SPECIES_DHELMISE
-	basestats 70, 131, 100, 40, 86, 90
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 70, 131, 100, 40, 86, 90
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 25
     baseexp 181
     evyields 0, 2, 0, 0, 0, 0
@@ -15003,8 +15003,8 @@ mondata SPECIES_DHELMISE
 
 
 mondata SPECIES_JANGMO_O
-	basestats 45, 55, 65, 45, 45, 45
-	types TYPE_DRAGON, TYPE_DRAGON
+    basestats 45, 55, 65, 45, 45, 45
+    types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 60
     evyields 0, 0, 1, 0, 0, 0
@@ -15021,8 +15021,8 @@ mondata SPECIES_JANGMO_O
 
 
 mondata SPECIES_HAKAMO_O
-	basestats 55, 75, 90, 65, 65, 70
-	types TYPE_DRAGON, TYPE_FIGHTING
+    basestats 55, 75, 90, 65, 65, 70
+    types TYPE_DRAGON, TYPE_FIGHTING
     catchrate 45
     baseexp 147
     evyields 0, 0, 2, 0, 0, 0
@@ -15039,8 +15039,8 @@ mondata SPECIES_HAKAMO_O
 
 
 mondata SPECIES_KOMMO_O
-	basestats 75, 110, 125, 85, 100, 105
-	types TYPE_DRAGON, TYPE_FIGHTING
+    basestats 75, 110, 125, 85, 100, 105
+    types TYPE_DRAGON, TYPE_FIGHTING
     catchrate 45
     baseexp 270
     evyields 0, 0, 3, 0, 0, 0
@@ -15057,8 +15057,8 @@ mondata SPECIES_KOMMO_O
 
 
 mondata SPECIES_TAPU_KOKO
-	basestats 70, 115, 85, 130, 95, 75
-	types TYPE_ELECTRIC, TYPE_FAIRY
+    basestats 70, 115, 85, 130, 95, 75
+    types TYPE_ELECTRIC, TYPE_FAIRY
     catchrate 3
     baseexp 257
     evyields 0, 0, 0, 3, 0, 0
@@ -15075,8 +15075,8 @@ mondata SPECIES_TAPU_KOKO
 
 
 mondata SPECIES_TAPU_LELE
-	basestats 70, 85, 75, 95, 130, 115
-	types TYPE_PSYCHIC, TYPE_FAIRY
+    basestats 70, 85, 75, 95, 130, 115
+    types TYPE_PSYCHIC, TYPE_FAIRY
     catchrate 3
     baseexp 257
     evyields 0, 0, 0, 0, 3, 0
@@ -15093,8 +15093,8 @@ mondata SPECIES_TAPU_LELE
 
 
 mondata SPECIES_TAPU_BULU
-	basestats 70, 130, 115, 75, 85, 95
-	types TYPE_GRASS, TYPE_FAIRY
+    basestats 70, 130, 115, 75, 85, 95
+    types TYPE_GRASS, TYPE_FAIRY
     catchrate 3
     baseexp 257
     evyields 0, 3, 0, 0, 0, 0
@@ -15111,8 +15111,8 @@ mondata SPECIES_TAPU_BULU
 
 
 mondata SPECIES_TAPU_FINI
-	basestats 70, 75, 115, 85, 95, 130
-	types TYPE_WATER, TYPE_FAIRY
+    basestats 70, 75, 115, 85, 95, 130
+    types TYPE_WATER, TYPE_FAIRY
     catchrate 3
     baseexp 257
     evyields 0, 0, 0, 0, 0, 3
@@ -15129,8 +15129,8 @@ mondata SPECIES_TAPU_FINI
 
 
 mondata SPECIES_COSMOG
-	basestats 43, 29, 31, 37, 29, 31
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 43, 29, 31, 37, 29, 31
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 40
     evyields 1, 0, 0, 0, 0, 0
@@ -15147,8 +15147,8 @@ mondata SPECIES_COSMOG
 
 
 mondata SPECIES_COSMOEM
-	basestats 43, 29, 131, 37, 29, 131
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 43, 29, 131, 37, 29, 131
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 140
     evyields 0, 0, 1, 0, 0, 1
@@ -15165,8 +15165,8 @@ mondata SPECIES_COSMOEM
 
 
 mondata SPECIES_SOLGALEO
-	basestats 137, 137, 107, 97, 113, 89
-	types TYPE_PSYCHIC, TYPE_STEEL
+    basestats 137, 137, 107, 97, 113, 89
+    types TYPE_PSYCHIC, TYPE_STEEL
     catchrate 45
     baseexp 306
     evyields 0, 3, 0, 0, 0, 0
@@ -15183,8 +15183,8 @@ mondata SPECIES_SOLGALEO
 
 
 mondata SPECIES_LUNALA
-	basestats 137, 113, 89, 97, 137, 107
-	types TYPE_PSYCHIC, TYPE_GHOST
+    basestats 137, 113, 89, 97, 137, 107
+    types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 45
     baseexp 306
     evyields 0, 0, 0, 0, 3, 0
@@ -15201,8 +15201,8 @@ mondata SPECIES_LUNALA
 
 
 mondata SPECIES_NIHILEGO
-	basestats 109, 53, 47, 103, 127, 131
-	types TYPE_ROCK, TYPE_POISON
+    basestats 109, 53, 47, 103, 127, 131
+    types TYPE_ROCK, TYPE_POISON
     catchrate 45
     baseexp 257
     evyields 0, 0, 0, 0, 0, 3
@@ -15219,8 +15219,8 @@ mondata SPECIES_NIHILEGO
 
 
 mondata SPECIES_BUZZWOLE
-	basestats 107, 139, 139, 79, 53, 53
-	types TYPE_BUG, TYPE_FIGHTING
+    basestats 107, 139, 139, 79, 53, 53
+    types TYPE_BUG, TYPE_FIGHTING
     catchrate 45
     baseexp 257
     evyields 0, 1, 2, 0, 0, 0
@@ -15237,8 +15237,8 @@ mondata SPECIES_BUZZWOLE
 
 
 mondata SPECIES_PHEROMOSA
-	basestats 71, 137, 37, 151, 137, 37
-	types TYPE_BUG, TYPE_FIGHTING
+    basestats 71, 137, 37, 151, 137, 37
+    types TYPE_BUG, TYPE_FIGHTING
     catchrate 45
     baseexp 257
     evyields 0, 0, 0, 3, 0, 0
@@ -15255,8 +15255,8 @@ mondata SPECIES_PHEROMOSA
 
 
 mondata SPECIES_XURKITREE
-	basestats 83, 89, 71, 83, 173, 71
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 83, 89, 71, 83, 173, 71
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 257
     evyields 0, 0, 0, 0, 3, 0
@@ -15273,8 +15273,8 @@ mondata SPECIES_XURKITREE
 
 
 mondata SPECIES_CELESTEELA
-	basestats 97, 101, 103, 61, 107, 101
-	types TYPE_STEEL, TYPE_FLYING
+    basestats 97, 101, 103, 61, 107, 101
+    types TYPE_STEEL, TYPE_FLYING
     catchrate 45
     baseexp 257
     evyields 0, 1, 1, 0, 1, 0
@@ -15291,8 +15291,8 @@ mondata SPECIES_CELESTEELA
 
 
 mondata SPECIES_KARTANA
-	basestats 59, 181, 131, 109, 59, 31
-	types TYPE_GRASS, TYPE_STEEL
+    basestats 59, 181, 131, 109, 59, 31
+    types TYPE_GRASS, TYPE_STEEL
     catchrate 45
     baseexp 257
     evyields 0, 3, 0, 0, 0, 0
@@ -15309,8 +15309,8 @@ mondata SPECIES_KARTANA
 
 
 mondata SPECIES_GUZZLORD
-	basestats 223, 101, 53, 43, 97, 53
-	types TYPE_DARK, TYPE_DRAGON
+    basestats 223, 101, 53, 43, 97, 53
+    types TYPE_DARK, TYPE_DRAGON
     catchrate 45
     baseexp 257
     evyields 3, 0, 0, 0, 0, 0
@@ -15327,8 +15327,8 @@ mondata SPECIES_GUZZLORD
 
 
 mondata SPECIES_NECROZMA
-	basestats 97, 107, 101, 79, 127, 89
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 97, 107, 101, 79, 127, 89
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 270
     evyields 0, 1, 0, 0, 2, 0
@@ -15345,8 +15345,8 @@ mondata SPECIES_NECROZMA
 
 
 mondata SPECIES_MAGEARNA
-	basestats 80, 95, 115, 65, 130, 115
-	types TYPE_STEEL, TYPE_FAIRY
+    basestats 80, 95, 115, 65, 130, 115
+    types TYPE_STEEL, TYPE_FAIRY
     catchrate 3
     baseexp 270
     evyields 0, 0, 0, 0, 3, 0
@@ -15363,8 +15363,8 @@ mondata SPECIES_MAGEARNA
 
 
 mondata SPECIES_MARSHADOW
-	basestats 90, 125, 80, 125, 90, 90
-	types TYPE_FIGHTING, TYPE_GHOST
+    basestats 90, 125, 80, 125, 90, 90
+    types TYPE_FIGHTING, TYPE_GHOST
     catchrate 3
     baseexp 270
     evyields 0, 2, 0, 1, 0, 0
@@ -15381,8 +15381,8 @@ mondata SPECIES_MARSHADOW
 
 
 mondata SPECIES_POIPOLE
-	basestats 67, 73, 67, 73, 73, 67
-	types TYPE_POISON, TYPE_POISON
+    basestats 67, 73, 67, 73, 73, 67
+    types TYPE_POISON, TYPE_POISON
     catchrate 45
     baseexp 189
     evyields 0, 0, 0, 1, 0, 0
@@ -15399,8 +15399,8 @@ mondata SPECIES_POIPOLE
 
 
 mondata SPECIES_NAGANADEL
-	basestats 73, 73, 73, 121, 127, 73
-	types TYPE_POISON, TYPE_DRAGON
+    basestats 73, 73, 73, 121, 127, 73
+    types TYPE_POISON, TYPE_DRAGON
     catchrate 45
     baseexp 243
     evyields 0, 0, 0, 0, 3, 0
@@ -15417,8 +15417,8 @@ mondata SPECIES_NAGANADEL
 
 
 mondata SPECIES_STAKATAKA
-	basestats 61, 131, 211, 13, 53, 101
-	types TYPE_ROCK, TYPE_STEEL
+    basestats 61, 131, 211, 13, 53, 101
+    types TYPE_ROCK, TYPE_STEEL
     catchrate 30
     baseexp 257
     evyields 0, 0, 3, 0, 0, 0
@@ -15435,8 +15435,8 @@ mondata SPECIES_STAKATAKA
 
 
 mondata SPECIES_BLACEPHALON
-	basestats 53, 127, 53, 107, 151, 79
-	types TYPE_FIRE, TYPE_GHOST
+    basestats 53, 127, 53, 107, 151, 79
+    types TYPE_FIRE, TYPE_GHOST
     catchrate 30
     baseexp 257
     evyields 0, 0, 0, 0, 3, 0
@@ -15453,8 +15453,8 @@ mondata SPECIES_BLACEPHALON
 
 
 mondata SPECIES_ZERAORA
-	basestats 88, 112, 75, 143, 102, 80
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 88, 112, 75, 143, 102, 80
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 3
     baseexp 270
     evyields 0, 0, 0, 3, 0, 0
@@ -15471,8 +15471,8 @@ mondata SPECIES_ZERAORA
 
 
 mondata SPECIES_MELTAN
-	basestats 46, 65, 65, 34, 55, 35
-	types TYPE_STEEL, TYPE_STEEL
+    basestats 46, 65, 65, 34, 55, 35
+    types TYPE_STEEL, TYPE_STEEL
     catchrate 3
     baseexp 135
     evyields 0, 1, 0, 0, 0, 0
@@ -15489,8 +15489,8 @@ mondata SPECIES_MELTAN
 
 
 mondata SPECIES_MELMETAL
-	basestats 135, 143, 143, 34, 80, 65
-	types TYPE_STEEL, TYPE_STEEL
+    basestats 135, 143, 143, 34, 80, 65
+    types TYPE_STEEL, TYPE_STEEL
     catchrate 3
     baseexp 270
     evyields 0, 3, 0, 0, 0, 0
@@ -15507,8 +15507,8 @@ mondata SPECIES_MELMETAL
 
 
 mondata SPECIES_GROOKEY
-	basestats 50, 65, 50, 65, 40, 40
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 50, 65, 50, 65, 40, 40
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 62
     evyields 0, 1, 0, 0, 0, 0
@@ -15525,8 +15525,8 @@ mondata SPECIES_GROOKEY
 
 
 mondata SPECIES_THWACKEY
-	basestats 70, 85, 70, 80, 55, 60
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 70, 85, 70, 80, 55, 60
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 147
     evyields 0, 2, 0, 0, 0, 0
@@ -15543,8 +15543,8 @@ mondata SPECIES_THWACKEY
 
 
 mondata SPECIES_RILLABOOM
-	basestats 100, 125, 90, 85, 60, 70
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 100, 125, 90, 85, 60, 70
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 265
     evyields 0, 3, 0, 0, 0, 0
@@ -15561,8 +15561,8 @@ mondata SPECIES_RILLABOOM
 
 
 mondata SPECIES_SCORBUNNY
-	basestats 50, 71, 40, 69, 40, 40
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 50, 71, 40, 69, 40, 40
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 62
     evyields 0, 0, 0, 1, 0, 0
@@ -15579,8 +15579,8 @@ mondata SPECIES_SCORBUNNY
 
 
 mondata SPECIES_RABOOT
-	basestats 65, 86, 60, 94, 55, 60
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 65, 86, 60, 94, 55, 60
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 147
     evyields 0, 0, 0, 2, 0, 0
@@ -15597,8 +15597,8 @@ mondata SPECIES_RABOOT
 
 
 mondata SPECIES_CINDERACE
-	basestats 80, 116, 75, 119, 65, 75
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 80, 116, 75, 119, 65, 75
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 265
     evyields 0, 0, 0, 3, 0, 0
@@ -15615,8 +15615,8 @@ mondata SPECIES_CINDERACE
 
 
 mondata SPECIES_SOBBLE
-	basestats 50, 40, 40, 70, 70, 40
-	types TYPE_WATER, TYPE_WATER
+    basestats 50, 40, 40, 70, 70, 40
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 62
     evyields 0, 0, 0, 1, 0, 1
@@ -15633,8 +15633,8 @@ mondata SPECIES_SOBBLE
 
 
 mondata SPECIES_DRIZZILE
-	basestats 65, 60, 55, 90, 95, 55
-	types TYPE_WATER, TYPE_WATER
+    basestats 65, 60, 55, 90, 95, 55
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 147
     evyields 0, 0, 0, 0, 2, 0
@@ -15651,8 +15651,8 @@ mondata SPECIES_DRIZZILE
 
 
 mondata SPECIES_INTELEON
-	basestats 70, 85, 65, 120, 125, 65
-	types TYPE_WATER, TYPE_WATER
+    basestats 70, 85, 65, 120, 125, 65
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 265
     evyields 0, 0, 0, 3, 0, 0
@@ -15669,8 +15669,8 @@ mondata SPECIES_INTELEON
 
 
 mondata SPECIES_SKWOVET
-	basestats 70, 55, 55, 25, 35, 35
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 70, 55, 55, 25, 35, 35
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 55
     evyields 1, 0, 0, 0, 0, 0
@@ -15687,8 +15687,8 @@ mondata SPECIES_SKWOVET
 
 
 mondata SPECIES_GREEDENT
-	basestats 120, 95, 95, 20, 55, 75
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 120, 95, 95, 20, 55, 75
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 161
     evyields 2, 0, 0, 0, 0, 0
@@ -15705,8 +15705,8 @@ mondata SPECIES_GREEDENT
 
 
 mondata SPECIES_ROOKIDEE
-	basestats 38, 47, 35, 57, 33, 35
-	types TYPE_FLYING, TYPE_FLYING
+    basestats 38, 47, 35, 57, 33, 35
+    types TYPE_FLYING, TYPE_FLYING
     catchrate 255
     baseexp 49
     evyields 0, 0, 0, 1, 0, 0
@@ -15723,8 +15723,8 @@ mondata SPECIES_ROOKIDEE
 
 
 mondata SPECIES_CORVISQUIRE
-	basestats 68, 67, 55, 77, 43, 55
-	types TYPE_FLYING, TYPE_FLYING
+    basestats 68, 67, 55, 77, 43, 55
+    types TYPE_FLYING, TYPE_FLYING
     catchrate 120
     baseexp 128
     evyields 0, 0, 0, 2, 0, 0
@@ -15741,8 +15741,8 @@ mondata SPECIES_CORVISQUIRE
 
 
 mondata SPECIES_CORVIKNIGHT
-	basestats 98, 87, 105, 67, 53, 85
-	types TYPE_FLYING, TYPE_STEEL
+    basestats 98, 87, 105, 67, 53, 85
+    types TYPE_FLYING, TYPE_STEEL
     catchrate 45
     baseexp 248
     evyields 0, 0, 3, 0, 0, 0
@@ -15759,8 +15759,8 @@ mondata SPECIES_CORVIKNIGHT
 
 
 mondata SPECIES_BLIPBUG
-	basestats 25, 20, 20, 45, 25, 45
-	types TYPE_BUG, TYPE_BUG
+    basestats 25, 20, 20, 45, 25, 45
+    types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 36
     evyields 0, 0, 0, 0, 0, 1
@@ -15777,8 +15777,8 @@ mondata SPECIES_BLIPBUG
 
 
 mondata SPECIES_DOTTLER
-	basestats 50, 35, 80, 30, 50, 90
-	types TYPE_BUG, TYPE_PSYCHIC
+    basestats 50, 35, 80, 30, 50, 90
+    types TYPE_BUG, TYPE_PSYCHIC
     catchrate 120
     baseexp 117
     evyields 0, 0, 0, 0, 0, 2
@@ -15796,8 +15796,8 @@ mondata SPECIES_DOTTLER
 
 
 mondata SPECIES_ORBEETLE
-	basestats 60, 45, 110, 90, 80, 120
-	types TYPE_BUG, TYPE_PSYCHIC
+    basestats 60, 45, 110, 90, 80, 120
+    types TYPE_BUG, TYPE_PSYCHIC
     catchrate 45
     baseexp 253
     evyields 0, 0, 0, 0, 0, 3
@@ -15815,8 +15815,8 @@ mondata SPECIES_ORBEETLE
 
 
 mondata SPECIES_NICKIT
-	basestats 40, 28, 28, 50, 47, 52
-	types TYPE_DARK, TYPE_DARK
+    basestats 40, 28, 28, 50, 47, 52
+    types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 49
     evyields 0, 0, 0, 0, 0, 1
@@ -15833,8 +15833,8 @@ mondata SPECIES_NICKIT
 
 
 mondata SPECIES_THIEVUL
-	basestats 70, 58, 58, 90, 87, 92
-	types TYPE_DARK, TYPE_DARK
+    basestats 70, 58, 58, 90, 87, 92
+    types TYPE_DARK, TYPE_DARK
     catchrate 127
     baseexp 159
     evyields 0, 0, 0, 0, 0, 2
@@ -15851,8 +15851,8 @@ mondata SPECIES_THIEVUL
 
 
 mondata SPECIES_GOSSIFLEUR
-	basestats 40, 40, 60, 10, 40, 60
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 40, 40, 60, 10, 40, 60
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 50
     evyields 0, 0, 0, 0, 0, 1
@@ -15869,8 +15869,8 @@ mondata SPECIES_GOSSIFLEUR
 
 
 mondata SPECIES_ELDEGOSS
-	basestats 60, 50, 90, 60, 80, 120
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 60, 50, 90, 60, 80, 120
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 161
     evyields 0, 0, 0, 0, 0, 2
@@ -15887,8 +15887,8 @@ mondata SPECIES_ELDEGOSS
 
 
 mondata SPECIES_WOOLOO
-	basestats 42, 40, 55, 48, 40, 45
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 42, 40, 55, 48, 40, 45
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 122
     evyields 0, 0, 1, 0, 0, 0
@@ -15905,8 +15905,8 @@ mondata SPECIES_WOOLOO
 
 
 mondata SPECIES_DUBWOOL
-	basestats 72, 80, 100, 88, 60, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 72, 80, 100, 88, 60, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 127
     baseexp 172
     evyields 0, 0, 2, 0, 0, 0
@@ -15923,8 +15923,8 @@ mondata SPECIES_DUBWOOL
 
 
 mondata SPECIES_CHEWTLE
-	basestats 50, 64, 50, 44, 38, 38
-	types TYPE_WATER, TYPE_WATER
+    basestats 50, 64, 50, 44, 38, 38
+    types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 57
     evyields 0, 1, 0, 0, 0, 0
@@ -15941,8 +15941,8 @@ mondata SPECIES_CHEWTLE
 
 
 mondata SPECIES_DREDNAW
-	basestats 90, 115, 90, 74, 48, 68
-	types TYPE_WATER, TYPE_ROCK
+    basestats 90, 115, 90, 74, 48, 68
+    types TYPE_WATER, TYPE_ROCK
     catchrate 75
     baseexp 170
     evyields 0, 2, 0, 0, 0, 0
@@ -15959,8 +15959,8 @@ mondata SPECIES_DREDNAW
 
 
 mondata SPECIES_YAMPER
-	basestats 59, 45, 50, 26, 40, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 59, 45, 50, 26, 40, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 54
     evyields 1, 0, 0, 0, 0, 0
@@ -15977,8 +15977,8 @@ mondata SPECIES_YAMPER
 
 
 mondata SPECIES_BOLTUND
-	basestats 69, 90, 60, 121, 90, 60
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 69, 90, 60, 121, 90, 60
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 172
     evyields 0, 0, 0, 2, 0, 0
@@ -15995,8 +15995,8 @@ mondata SPECIES_BOLTUND
 
 
 mondata SPECIES_ROLYCOLY
-	basestats 30, 40, 50, 30, 40, 50
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 30, 40, 50, 30, 40, 50
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 48
     evyields 0, 0, 1, 0, 0, 0
@@ -16013,8 +16013,8 @@ mondata SPECIES_ROLYCOLY
 
 
 mondata SPECIES_CARKOL
-	basestats 80, 60, 90, 50, 60, 70
-	types TYPE_ROCK, TYPE_FIRE
+    basestats 80, 60, 90, 50, 60, 70
+    types TYPE_ROCK, TYPE_FIRE
     catchrate 120
     baseexp 144
     evyields 0, 0, 2, 0, 0, 0
@@ -16031,8 +16031,8 @@ mondata SPECIES_CARKOL
 
 
 mondata SPECIES_COALOSSAL
-	basestats 110, 80, 120, 30, 80, 90
-	types TYPE_ROCK, TYPE_FIRE
+    basestats 110, 80, 120, 30, 80, 90
+    types TYPE_ROCK, TYPE_FIRE
     catchrate 45
     baseexp 255
     evyields 0, 0, 3, 0, 0, 0
@@ -16049,8 +16049,8 @@ mondata SPECIES_COALOSSAL
 
 
 mondata SPECIES_APPLIN
-	basestats 40, 40, 80, 20, 40, 40
-	types TYPE_GRASS, TYPE_DRAGON
+    basestats 40, 40, 80, 20, 40, 40
+    types TYPE_GRASS, TYPE_DRAGON
     catchrate 255
     baseexp 52
     evyields 0, 0, 1, 0, 0, 0
@@ -16067,8 +16067,8 @@ mondata SPECIES_APPLIN
 
 
 mondata SPECIES_FLAPPLE
-	basestats 70, 110, 80, 70, 95, 60
-	types TYPE_GRASS, TYPE_DRAGON
+    basestats 70, 110, 80, 70, 95, 60
+    types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 170
     evyields 0, 2, 0, 0, 0, 0
@@ -16085,8 +16085,8 @@ mondata SPECIES_FLAPPLE
 
 
 mondata SPECIES_APPLETUN
-	basestats 110, 85, 80, 30, 100, 80
-	types TYPE_GRASS, TYPE_DRAGON
+    basestats 110, 85, 80, 30, 100, 80
+    types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 170
     evyields 2, 0, 0, 0, 0, 0
@@ -16103,8 +16103,8 @@ mondata SPECIES_APPLETUN
 
 
 mondata SPECIES_SILICOBRA
-	basestats 52, 57, 75, 46, 35, 50
-	types TYPE_GROUND, TYPE_GROUND
+    basestats 52, 57, 75, 46, 35, 50
+    types TYPE_GROUND, TYPE_GROUND
     catchrate 255
     baseexp 63
     evyields 0, 0, 1, 0, 0, 0
@@ -16121,8 +16121,8 @@ mondata SPECIES_SILICOBRA
 
 
 mondata SPECIES_SANDACONDA
-	basestats 72, 107, 125, 71, 65, 70
-	types TYPE_GROUND, TYPE_GROUND
+    basestats 72, 107, 125, 71, 65, 70
+    types TYPE_GROUND, TYPE_GROUND
     catchrate 120
     baseexp 179
     evyields 0, 0, 2, 0, 0, 0
@@ -16139,8 +16139,8 @@ mondata SPECIES_SANDACONDA
 
 
 mondata SPECIES_CRAMORANT
-	basestats 70, 85, 55, 85, 85, 95
-	types TYPE_FLYING, TYPE_WATER
+    basestats 70, 85, 55, 85, 85, 95
+    types TYPE_FLYING, TYPE_WATER
     catchrate 45
     baseexp 166
     evyields 0, 0, 0, 0, 0, 2
@@ -16157,8 +16157,8 @@ mondata SPECIES_CRAMORANT
 
 
 mondata SPECIES_ARROKUDA
-	basestats 41, 63, 40, 66, 40, 30
-	types TYPE_WATER, TYPE_WATER
+    basestats 41, 63, 40, 66, 40, 30
+    types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 56
     evyields 0, 0, 0, 1, 0, 0
@@ -16175,8 +16175,8 @@ mondata SPECIES_ARROKUDA
 
 
 mondata SPECIES_BARRASKEWDA
-	basestats 61, 123, 60, 136, 60, 50
-	types TYPE_WATER, TYPE_WATER
+    basestats 61, 123, 60, 136, 60, 50
+    types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 172
     evyields 0, 0, 0, 2, 0, 0
@@ -16193,8 +16193,8 @@ mondata SPECIES_BARRASKEWDA
 
 
 mondata SPECIES_TOXEL
-	basestats 40, 38, 35, 40, 54, 35
-	types TYPE_ELECTRIC, TYPE_POISON
+    basestats 40, 38, 35, 40, 54, 35
+    types TYPE_ELECTRIC, TYPE_POISON
     catchrate 75
     baseexp 48
     evyields 0, 0, 0, 0, 1, 0
@@ -16211,8 +16211,8 @@ mondata SPECIES_TOXEL
 
 
 mondata SPECIES_TOXTRICITY
-	basestats 75, 98, 70, 75, 114, 70
-	types TYPE_ELECTRIC, TYPE_POISON
+    basestats 75, 98, 70, 75, 114, 70
+    types TYPE_ELECTRIC, TYPE_POISON
     catchrate 45
     baseexp 176
     evyields 0, 0, 0, 0, 2, 0
@@ -16229,8 +16229,8 @@ mondata SPECIES_TOXTRICITY
 
 
 mondata SPECIES_SIZZLIPEDE
-	basestats 50, 65, 45, 45, 50, 50
-	types TYPE_FIRE, TYPE_BUG
+    basestats 50, 65, 45, 45, 50, 50
+    types TYPE_FIRE, TYPE_BUG
     catchrate 190
     baseexp 61
     evyields 0, 1, 0, 0, 0, 0
@@ -16247,8 +16247,8 @@ mondata SPECIES_SIZZLIPEDE
 
 
 mondata SPECIES_CENTISKORCH
-	basestats 100, 115, 65, 65, 90, 90
-	types TYPE_FIRE, TYPE_BUG
+    basestats 100, 115, 65, 65, 90, 90
+    types TYPE_FIRE, TYPE_BUG
     catchrate 75
     baseexp 184
     evyields 0, 2, 0, 0, 0, 0
@@ -16265,8 +16265,8 @@ mondata SPECIES_CENTISKORCH
 
 
 mondata SPECIES_CLOBBOPUS
-	basestats 50, 68, 60, 32, 50, 50
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 50, 68, 60, 32, 50, 50
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 180
     baseexp 62
     evyields 0, 1, 0, 0, 0, 0
@@ -16283,8 +16283,8 @@ mondata SPECIES_CLOBBOPUS
 
 
 mondata SPECIES_GRAPPLOCT
-	basestats 80, 118, 90, 42, 70, 80
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 80, 118, 90, 42, 70, 80
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 168
     evyields 0, 2, 0, 0, 0, 0
@@ -16301,8 +16301,8 @@ mondata SPECIES_GRAPPLOCT
 
 
 mondata SPECIES_SINISTEA
-	basestats 40, 45, 45, 50, 74, 54
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 40, 45, 45, 50, 74, 54
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 120
     baseexp 62
     evyields 0, 0, 0, 0, 1, 0
@@ -16319,8 +16319,8 @@ mondata SPECIES_SINISTEA
 
 
 mondata SPECIES_POLTEAGEIST
-	basestats 60, 65, 65, 70, 134, 114
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 60, 65, 65, 70, 134, 114
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 178
     evyields 0, 0, 0, 0, 2, 0
@@ -16337,8 +16337,8 @@ mondata SPECIES_POLTEAGEIST
 
 
 mondata SPECIES_HATENNA
-	basestats 42, 30, 45, 39, 56, 53
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 42, 30, 45, 39, 56, 53
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 235
     baseexp 53
     evyields 0, 0, 0, 0, 1, 0
@@ -16355,8 +16355,8 @@ mondata SPECIES_HATENNA
 
 
 mondata SPECIES_HATTREM
-	basestats 57, 40, 65, 49, 86, 73
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 57, 40, 65, 49, 86, 73
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 2, 0
@@ -16373,8 +16373,8 @@ mondata SPECIES_HATTREM
 
 
 mondata SPECIES_HATTERENE
-	basestats 57, 90, 95, 29, 136, 103
-	types TYPE_PSYCHIC, TYPE_FAIRY
+    basestats 57, 90, 95, 29, 136, 103
+    types TYPE_PSYCHIC, TYPE_FAIRY
     catchrate 45
     baseexp 255
     evyields 0, 0, 0, 0, 3, 0
@@ -16391,8 +16391,8 @@ mondata SPECIES_HATTERENE
 
 
 mondata SPECIES_IMPIDIMP
-	basestats 45, 45, 30, 50, 55, 40
-	types TYPE_DARK, TYPE_FAIRY
+    basestats 45, 45, 30, 50, 55, 40
+    types TYPE_DARK, TYPE_FAIRY
     catchrate 255
     baseexp 53
     evyields 0, 0, 0, 0, 1, 0
@@ -16409,8 +16409,8 @@ mondata SPECIES_IMPIDIMP
 
 
 mondata SPECIES_MORGREM
-	basestats 65, 60, 45, 70, 75, 55
-	types TYPE_DARK, TYPE_FAIRY
+    basestats 65, 60, 45, 70, 75, 55
+    types TYPE_DARK, TYPE_FAIRY
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 2, 0
@@ -16427,8 +16427,8 @@ mondata SPECIES_MORGREM
 
 
 mondata SPECIES_GRIMMSNARL
-	basestats 95, 120, 65, 60, 95, 75
-	types TYPE_DARK, TYPE_FAIRY
+    basestats 95, 120, 65, 60, 95, 75
+    types TYPE_DARK, TYPE_FAIRY
     catchrate 45
     baseexp 255
     evyields 0, 3, 0, 0, 0, 0
@@ -16445,8 +16445,8 @@ mondata SPECIES_GRIMMSNARL
 
 
 mondata SPECIES_OBSTAGOON
-	basestats 93, 90, 101, 95, 60, 81
-	types TYPE_DARK, TYPE_NORMAL
+    basestats 93, 90, 101, 95, 60, 81
+    types TYPE_DARK, TYPE_NORMAL
     catchrate 45
     baseexp 260
     evyields 0, 0, 3, 0, 0, 0
@@ -16463,8 +16463,8 @@ mondata SPECIES_OBSTAGOON
 
 
 mondata SPECIES_PERRSERKER
-	basestats 70, 110, 100, 50, 50, 60
-	types TYPE_STEEL, TYPE_STEEL
+    basestats 70, 110, 100, 50, 50, 60
+    types TYPE_STEEL, TYPE_STEEL
     catchrate 90
     baseexp 154
     evyields 0, 2, 0, 0, 0, 0
@@ -16481,8 +16481,8 @@ mondata SPECIES_PERRSERKER
 
 
 mondata SPECIES_CURSOLA
-	basestats 60, 95, 50, 30, 145, 130
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 60, 95, 50, 30, 145, 130
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 30
     baseexp 179
     evyields 0, 0, 0, 0, 2, 0
@@ -16499,8 +16499,8 @@ mondata SPECIES_CURSOLA
 
 
 mondata SPECIES_SIRFETCHD
-	basestats 62, 135, 95, 65, 68, 82
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 62, 135, 95, 65, 68, 82
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 177
     evyields 0, 2, 0, 0, 0, 0
@@ -16518,8 +16518,8 @@ mondata SPECIES_SIRFETCHD
 
 
 mondata SPECIES_MR_RIME
-	basestats 80, 85, 75, 70, 110, 100
-	types TYPE_ICE, TYPE_PSYCHIC
+    basestats 80, 85, 75, 70, 110, 100
+    types TYPE_ICE, TYPE_PSYCHIC
     catchrate 45
     baseexp 182
     evyields 0, 0, 0, 0, 3, 0
@@ -16536,8 +16536,8 @@ mondata SPECIES_MR_RIME
 
 
 mondata SPECIES_RUNERIGUS
-	basestats 58, 95, 145, 30, 50, 105
-	types TYPE_GROUND, TYPE_GHOST
+    basestats 58, 95, 145, 30, 50, 105
+    types TYPE_GROUND, TYPE_GHOST
     catchrate 90
     baseexp 169
     evyields 0, 0, 2, 0, 0, 0
@@ -16554,8 +16554,8 @@ mondata SPECIES_RUNERIGUS
 
 
 mondata SPECIES_MILCERY
-	basestats 45, 40, 40, 34, 50, 61
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 45, 40, 40, 34, 50, 61
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 200
     baseexp 54
     evyields 0, 0, 0, 0, 0, 1
@@ -16572,8 +16572,8 @@ mondata SPECIES_MILCERY
 
 
 mondata SPECIES_ALCREMIE
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -16590,8 +16590,8 @@ mondata SPECIES_ALCREMIE
 
 
 mondata SPECIES_FALINKS
-	basestats 65, 100, 100, 75, 70, 60
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 65, 100, 100, 75, 70, 60
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 165
     evyields 0, 2, 0, 0, 0, 1
@@ -16608,8 +16608,8 @@ mondata SPECIES_FALINKS
 
 
 mondata SPECIES_PINCURCHIN
-	basestats 48, 101, 95, 15, 91, 85
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 48, 101, 95, 15, 91, 85
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 75
     baseexp 152
     evyields 0, 2, 0, 0, 0, 0
@@ -16626,8 +16626,8 @@ mondata SPECIES_PINCURCHIN
 
 
 mondata SPECIES_SNOM
-	basestats 30, 25, 35, 20, 45, 30
-	types TYPE_ICE, TYPE_BUG
+    basestats 30, 25, 35, 20, 45, 30
+    types TYPE_ICE, TYPE_BUG
     catchrate 190
     baseexp 37
     evyields 0, 0, 0, 0, 1, 0
@@ -16645,8 +16645,8 @@ mondata SPECIES_SNOM
 
 
 mondata SPECIES_FROSMOTH
-	basestats 70, 65, 60, 65, 125, 90
-	types TYPE_ICE, TYPE_BUG
+    basestats 70, 65, 60, 65, 125, 90
+    types TYPE_ICE, TYPE_BUG
     catchrate 75
     baseexp 166
     evyields 0, 0, 0, 0, 2, 0
@@ -16663,8 +16663,8 @@ mondata SPECIES_FROSMOTH
 
 
 mondata SPECIES_STONJOURNER
-	basestats 100, 125, 135, 70, 20, 20
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 100, 125, 135, 70, 20, 20
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 60
     baseexp 165
     evyields 0, 0, 2, 0, 0, 0
@@ -16681,8 +16681,8 @@ mondata SPECIES_STONJOURNER
 
 
 mondata SPECIES_EISCUE
-	basestats 75, 80, 110, 50, 65, 90
-	types TYPE_ICE, TYPE_ICE
+    basestats 75, 80, 110, 50, 65, 90
+    types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 165
     evyields 0, 0, 2, 0, 0, 0
@@ -16699,8 +16699,8 @@ mondata SPECIES_EISCUE
 
 
 mondata SPECIES_INDEEDEE
-	basestats 60, 65, 55, 95, 105, 95
-	types TYPE_PSYCHIC, TYPE_NORMAL
+    basestats 60, 65, 55, 95, 105, 95
+    types TYPE_PSYCHIC, TYPE_NORMAL
     catchrate 30
     baseexp 166
     evyields 0, 0, 0, 0, 2, 0
@@ -16717,8 +16717,8 @@ mondata SPECIES_INDEEDEE
 
 
 mondata SPECIES_MORPEKO
-	basestats 58, 95, 58, 97, 70, 58
-	types TYPE_ELECTRIC, TYPE_DARK
+    basestats 58, 95, 58, 97, 70, 58
+    types TYPE_ELECTRIC, TYPE_DARK
     catchrate 180
     baseexp 153
     evyields 0, 0, 0, 2, 0, 0
@@ -16735,8 +16735,8 @@ mondata SPECIES_MORPEKO
 
 
 mondata SPECIES_CUFANT
-	basestats 72, 80, 49, 40, 40, 49
-	types TYPE_STEEL, TYPE_STEEL
+    basestats 72, 80, 49, 40, 40, 49
+    types TYPE_STEEL, TYPE_STEEL
     catchrate 190
     baseexp 66
     evyields 0, 1, 0, 0, 0, 0
@@ -16753,8 +16753,8 @@ mondata SPECIES_CUFANT
 
 
 mondata SPECIES_COPPERAJAH
-	basestats 122, 130, 69, 30, 80, 69
-	types TYPE_STEEL, TYPE_STEEL
+    basestats 122, 130, 69, 30, 80, 69
+    types TYPE_STEEL, TYPE_STEEL
     catchrate 90
     baseexp 175
     evyields 0, 2, 0, 0, 0, 0
@@ -16771,8 +16771,8 @@ mondata SPECIES_COPPERAJAH
 
 
 mondata SPECIES_DRACOZOLT
-	basestats 90, 100, 90, 75, 80, 70
-	types TYPE_ELECTRIC, TYPE_DRAGON
+    basestats 90, 100, 90, 75, 80, 70
+    types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 45
     baseexp 177
     evyields 0, 2, 0, 0, 0, 0
@@ -16789,8 +16789,8 @@ mondata SPECIES_DRACOZOLT
 
 
 mondata SPECIES_ARCTOZOLT
-	basestats 90, 100, 90, 55, 90, 80
-	types TYPE_ELECTRIC, TYPE_ICE
+    basestats 90, 100, 90, 55, 90, 80
+    types TYPE_ELECTRIC, TYPE_ICE
     catchrate 45
     baseexp 177
     evyields 0, 2, 0, 0, 0, 0
@@ -16807,8 +16807,8 @@ mondata SPECIES_ARCTOZOLT
 
 
 mondata SPECIES_DRACOVISH
-	basestats 90, 90, 100, 75, 70, 80
-	types TYPE_WATER, TYPE_DRAGON
+    basestats 90, 90, 100, 75, 70, 80
+    types TYPE_WATER, TYPE_DRAGON
     catchrate 45
     baseexp 177
     evyields 0, 0, 2, 0, 0, 0
@@ -16825,8 +16825,8 @@ mondata SPECIES_DRACOVISH
 
 
 mondata SPECIES_ARCTOVISH
-	basestats 90, 90, 100, 55, 80, 90
-	types TYPE_WATER, TYPE_ICE
+    basestats 90, 90, 100, 55, 80, 90
+    types TYPE_WATER, TYPE_ICE
     catchrate 45
     baseexp 177
     evyields 0, 0, 2, 0, 0, 0
@@ -16843,8 +16843,8 @@ mondata SPECIES_ARCTOVISH
 
 
 mondata SPECIES_DURALUDON
-	basestats 70, 95, 115, 85, 120, 50
-	types TYPE_STEEL, TYPE_DRAGON
+    basestats 70, 95, 115, 85, 120, 50
+    types TYPE_STEEL, TYPE_DRAGON
     catchrate 45
     baseexp 187
     evyields 0, 0, 0, 0, 2, 0
@@ -16861,8 +16861,8 @@ mondata SPECIES_DURALUDON
 
 
 mondata SPECIES_DREEPY
-	basestats 28, 60, 30, 82, 40, 30
-	types TYPE_DRAGON, TYPE_GHOST
+    basestats 28, 60, 30, 82, 40, 30
+    types TYPE_DRAGON, TYPE_GHOST
     catchrate 45
     baseexp 54
     evyields 0, 0, 0, 1, 0, 0
@@ -16879,8 +16879,8 @@ mondata SPECIES_DREEPY
 
 
 mondata SPECIES_DRAKLOAK
-	basestats 68, 80, 50, 102, 60, 50
-	types TYPE_DRAGON, TYPE_GHOST
+    basestats 68, 80, 50, 102, 60, 50
+    types TYPE_DRAGON, TYPE_GHOST
     catchrate 45
     baseexp 144
     evyields 0, 0, 0, 2, 0, 0
@@ -16897,8 +16897,8 @@ mondata SPECIES_DRAKLOAK
 
 
 mondata SPECIES_DRAGAPULT
-	basestats 88, 120, 75, 142, 100, 75
-	types TYPE_DRAGON, TYPE_GHOST
+    basestats 88, 120, 75, 142, 100, 75
+    types TYPE_DRAGON, TYPE_GHOST
     catchrate 45
     baseexp 300
     evyields 0, 0, 0, 3, 0, 0
@@ -16915,8 +16915,8 @@ mondata SPECIES_DRAGAPULT
 
 
 mondata SPECIES_ZACIAN
-	basestats 92, 130, 115, 138, 80, 115
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 92, 130, 115, 138, 80, 115
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 10
     baseexp 335
     evyields 0, 0, 0, 3, 0, 0
@@ -16933,8 +16933,8 @@ mondata SPECIES_ZACIAN
 
 
 mondata SPECIES_ZAMAZENTA
-	basestats 92, 130, 115, 138, 80, 115
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 92, 130, 115, 138, 80, 115
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 10
     baseexp 335
     evyields 0, 0, 0, 3, 0, 0
@@ -16951,8 +16951,8 @@ mondata SPECIES_ZAMAZENTA
 
 
 mondata SPECIES_ETERNATUS
-	basestats 140, 85, 95, 130, 145, 95
-	types TYPE_POISON, TYPE_DRAGON
+    basestats 140, 85, 95, 130, 145, 95
+    types TYPE_POISON, TYPE_DRAGON
     catchrate 255
     baseexp 345
     evyields 3, 0, 0, 0, 0, 0
@@ -16969,8 +16969,8 @@ mondata SPECIES_ETERNATUS
 
 
 mondata SPECIES_KUBFU
-	basestats 60, 90, 60, 72, 53, 50
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 60, 90, 60, 72, 53, 50
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 3
     baseexp 77
     evyields 0, 1, 0, 0, 0, 0
@@ -16987,8 +16987,8 @@ mondata SPECIES_KUBFU
 
 
 mondata SPECIES_URSHIFU
-	basestats 100, 130, 100, 97, 63, 60
-	types TYPE_FIGHTING, TYPE_DARK
+    basestats 100, 130, 100, 97, 63, 60
+    types TYPE_FIGHTING, TYPE_DARK
     catchrate 3
     baseexp 275
     evyields 0, 3, 0, 0, 0, 0
@@ -17005,8 +17005,8 @@ mondata SPECIES_URSHIFU
 
 
 mondata SPECIES_ZARUDE
-	basestats 105, 120, 105, 105, 70, 95
-	types TYPE_DARK, TYPE_GRASS
+    basestats 105, 120, 105, 105, 70, 95
+    types TYPE_DARK, TYPE_GRASS
     catchrate 3
     baseexp 300
     evyields 0, 3, 0, 0, 0, 0
@@ -17023,8 +17023,8 @@ mondata SPECIES_ZARUDE
 
 
 mondata SPECIES_REGIELEKI
-	basestats 80, 100, 50, 200, 100, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 80, 100, 50, 200, 100, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 3
     baseexp 290
     evyields 0, 0, 0, 3, 0, 0
@@ -17041,8 +17041,8 @@ mondata SPECIES_REGIELEKI
 
 
 mondata SPECIES_REGIDRAGO
-	basestats 200, 100, 50, 80, 100, 50
-	types TYPE_DRAGON, TYPE_DRAGON
+    basestats 200, 100, 50, 80, 100, 50
+    types TYPE_DRAGON, TYPE_DRAGON
     catchrate 3
     baseexp 290
     evyields 3, 0, 0, 0, 0, 0
@@ -17059,8 +17059,8 @@ mondata SPECIES_REGIDRAGO
 
 
 mondata SPECIES_GLASTRIER
-	basestats 100, 145, 130, 30, 65, 110
-	types TYPE_ICE, TYPE_ICE
+    basestats 100, 145, 130, 30, 65, 110
+    types TYPE_ICE, TYPE_ICE
     catchrate 3
     baseexp 290
     evyields 0, 3, 0, 0, 0, 0
@@ -17077,8 +17077,8 @@ mondata SPECIES_GLASTRIER
 
 
 mondata SPECIES_SPECTRIER
-	basestats 100, 65, 60, 130, 145, 80
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 100, 65, 60, 130, 145, 80
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 3
     baseexp 290
     evyields 0, 0, 0, 0, 3, 0
@@ -17095,8 +17095,8 @@ mondata SPECIES_SPECTRIER
 
 
 mondata SPECIES_CALYREX
-	basestats 100, 80, 80, 80, 80, 80
-	types TYPE_PSYCHIC, TYPE_GRASS
+    basestats 100, 80, 80, 80, 80, 80
+    types TYPE_PSYCHIC, TYPE_GRASS
     catchrate 3
     baseexp 250
     evyields 3, 0, 0, 0, 0, 0
@@ -17256,841 +17256,841 @@ mondata SPECIES_MEGA_VENUSAUR
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_CHARIZARD_X
-	basestats 78, 130, 111, 100, 130, 85
-	types TYPE_FIRE, TYPE_DRAGON
-	catchrate 45
-	baseexp 209
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
-	abilities ABILITY_PRESSURE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 78, 130, 111, 100, 130, 85
+    types TYPE_FIRE, TYPE_DRAGON
+    catchrate 45
+    baseexp 209
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
+    abilities ABILITY_PRESSURE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_CHARIZARD_Y
-	basestats 78, 104, 78, 100, 159, 115
-	types TYPE_FIRE, TYPE_FLYING
-	catchrate 45
-	baseexp 209
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
-	abilities ABILITY_DROUGHT, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 78, 104, 78, 100, 159, 115
+    types TYPE_FIRE, TYPE_FLYING
+    catchrate 45
+    baseexp 209
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
+    abilities ABILITY_DROUGHT, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BLASTOISE
-	basestats 79, 103, 120, 78, 135, 115
-	types TYPE_WATER, TYPE_WATER
-	catchrate 45
-	baseexp 210
-	evyields 0, 0, 0, 0, 0, 3
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
-	abilities ABILITY_SWIFT_SWIM, ABILITY_NONE //ABILITY_MEGALAUNCHER, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 79, 103, 120, 78, 135, 115
+    types TYPE_WATER, TYPE_WATER
+    catchrate 45
+    baseexp 210
+    evyields 0, 0, 0, 0, 0, 3
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
+    abilities ABILITY_SWIFT_SWIM, ABILITY_NONE //ABILITY_MEGALAUNCHER, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BEEDRILL
-	basestats 65, 150, 40, 145, 15, 80
-	types TYPE_BUG, TYPE_POISON
-	catchrate 45
-	baseexp 159
-	evyields 0, 2, 0, 0, 0, 1
-	items ITEM_NONE, ITEM_POISON_BARB
-	genderratio 127
-	eggcycles 15
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-	abilities ABILITY_ADAPTABILITY, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 65, 150, 40, 145, 15, 80
+    types TYPE_BUG, TYPE_POISON
+    catchrate 45
+    baseexp 159
+    evyields 0, 2, 0, 0, 0, 1
+    items ITEM_NONE, ITEM_POISON_BARB
+    genderratio 127
+    eggcycles 15
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
+    abilities ABILITY_ADAPTABILITY, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_PIDGEOT
-	basestats 83, 80, 80, 121, 135, 80
-	types TYPE_NORMAL, TYPE_FLYING
-	catchrate 45
-	baseexp 172
-	evyields 0, 0, 0, 3, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 15
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-	abilities ABILITY_NO_GUARD, ABILITY_NO_GUARD
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 83, 80, 80, 121, 135, 80
+    types TYPE_NORMAL, TYPE_FLYING
+    catchrate 45
+    baseexp 172
+    evyields 0, 0, 0, 3, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 15
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
+    abilities ABILITY_NO_GUARD, ABILITY_NO_GUARD
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ALAKAZAM
-	basestats 55, 50, 65, 150, 175, 105
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
-	catchrate 50
-	baseexp 186
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_TWISTEDSPOON
-	genderratio 63
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_TRACE, ABILITY_TRACE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 55, 50, 65, 150, 175, 105
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    catchrate 50
+    baseexp 186
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_TWISTEDSPOON
+    genderratio 63
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
+    abilities ABILITY_TRACE, ABILITY_TRACE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SLOWBRO
-	basestats 95, 75, 180, 30, 130, 80
-	types TYPE_WATER, TYPE_PSYCHIC
-	catchrate 75
-	baseexp 164
-	evyields 0, 0, 2, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
-	abilities ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 95, 75, 180, 30, 130, 80
+    types TYPE_WATER, TYPE_PSYCHIC
+    catchrate 75
+    baseexp 164
+    evyields 0, 0, 2, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
+    abilities ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GENGAR
-	basestats 60, 65, 80, 130, 170, 95
-	types TYPE_GHOST, TYPE_POISON
-	catchrate 45
-	baseexp 190
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_SPELL_TAG
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-	abilities ABILITY_SHADOW_TAG, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 60, 65, 80, 130, 170, 95
+    types TYPE_GHOST, TYPE_POISON
+    catchrate 45
+    baseexp 190
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_SPELL_TAG
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
+    abilities ABILITY_SHADOW_TAG, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_KANGASKHAN
-	basestats 105, 125, 100, 100, 60, 100
-	types TYPE_NORMAL, TYPE_NORMAL
-	catchrate 45
-	baseexp 175
-	evyields 2, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 254
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
-	abilities ABILITY_PURE_POWER, ABILITY_PURE_POWER //ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND
-	runchance 125
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 105, 125, 100, 100, 60, 100
+    types TYPE_NORMAL, TYPE_NORMAL
+    catchrate 45
+    baseexp 175
+    evyields 2, 0, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
+    abilities ABILITY_PURE_POWER, ABILITY_PURE_POWER //ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND
+    runchance 125
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_PINSIR
-	basestats 65, 155, 120, 105, 65, 90
-	types TYPE_BUG, TYPE_FLYING
-	catchrate 45
-	baseexp 200
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 25
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-	abilities ABILITY_PURE_POWER, ABILITY_PURE_POWER //ABILITY_AERILATE, ABILITY_AERILATE
-	runchance 125
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 65, 155, 120, 105, 65, 90
+    types TYPE_BUG, TYPE_FLYING
+    catchrate 45
+    baseexp 200
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 25
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
+    abilities ABILITY_PURE_POWER, ABILITY_PURE_POWER //ABILITY_AERILATE, ABILITY_AERILATE
+    runchance 125
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GYARADOS
-	basestats 95, 155, 109, 81, 70, 130
-	types TYPE_WATER, TYPE_DARK
-	catchrate 45
-	baseexp 214
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 5
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
-	abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 95, 155, 109, 81, 70, 130
+    types TYPE_WATER, TYPE_DARK
+    catchrate 45
+    baseexp 214
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 5
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
+    abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AERODACTYL
-	basestats 80, 135, 85, 150, 70, 95
-	types TYPE_ROCK, TYPE_FLYING
-	catchrate 45
-	baseexp 202
-	evyields 0, 0, 0, 2, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 35
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-	abilities ABILITY_PRESSURE, ABILITY_PRESSURE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 135, 85, 150, 70, 95
+    types TYPE_ROCK, TYPE_FLYING
+    catchrate 45
+    baseexp 202
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 35
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
+    abilities ABILITY_PRESSURE, ABILITY_PRESSURE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MEWTWO_X
-	basestats 106, 190, 100, 130, 154, 100
-	types TYPE_PSYCHIC, TYPE_FIGHTING
-	catchrate 3
-	baseexp 220
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 255
-	eggcycles 120
-	basefriendship 0
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_STEADFAST, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 106, 190, 100, 130, 154, 100
+    types TYPE_PSYCHIC, TYPE_FIGHTING
+    catchrate 3
+    baseexp 220
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_STEADFAST, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MEWTWO_Y
-	basestats 106, 150, 70, 140, 194, 120
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
-	catchrate 3
-	baseexp 220
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 255
-	eggcycles 120
-	basefriendship 0
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_INSOMNIA, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 106, 150, 70, 140, 194, 120
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    catchrate 3
+    baseexp 220
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_INSOMNIA, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AMPHAROS
-	basestats 90, 95, 105, 45, 165, 110
-	types TYPE_ELECTRIC, TYPE_DRAGON
-	catchrate 45
-	baseexp 194
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
-	abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 90, 95, 105, 45, 165, 110
+    types TYPE_ELECTRIC, TYPE_DRAGON
+    catchrate 45
+    baseexp 194
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
+    abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_STEELIX
-	basestats 75, 125, 230, 30, 55, 95
-	types TYPE_STEEL, TYPE_GROUND
-	catchrate 25
-	baseexp 196
-	evyields 0, 0, 2, 0, 0, 0
-	items ITEM_NONE, ITEM_METAL_COAT
-	genderratio 127
-	eggcycles 25
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-	abilities ABILITY_PRESSURE, ABILITY_PRESSURE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 75, 125, 230, 30, 55, 95
+    types TYPE_STEEL, TYPE_GROUND
+    catchrate 25
+    baseexp 196
+    evyields 0, 0, 2, 0, 0, 0
+    items ITEM_NONE, ITEM_METAL_COAT
+    genderratio 127
+    eggcycles 25
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
+    abilities ABILITY_PRESSURE, ABILITY_PRESSURE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SCIZOR
-	basestats 70, 150, 140, 75, 65, 100
-	types TYPE_BUG, TYPE_STEEL
-	catchrate 25
-	baseexp 200
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 25
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-	abilities ABILITY_TECHNICIAN, ABILITY_TECHNICIAN
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 150, 140, 75, 65, 100
+    types TYPE_BUG, TYPE_STEEL
+    catchrate 25
+    baseexp 200
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 25
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
+    abilities ABILITY_TECHNICIAN, ABILITY_TECHNICIAN
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_HERACROSS
-	basestats 80, 185, 115, 75, 40, 105
-	types TYPE_BUG, TYPE_FIGHTING
-	catchrate 45
-	baseexp 200
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 25
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-	abilities ABILITY_SKILL_LINK, ABILITY_SKILL_LINK
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 185, 115, 75, 40, 105
+    types TYPE_BUG, TYPE_FIGHTING
+    catchrate 45
+    baseexp 200
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 25
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
+    abilities ABILITY_SKILL_LINK, ABILITY_SKILL_LINK
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_HOUNDOOM
-	basestats 75, 90, 90, 115, 140, 90
-	types TYPE_DARK, TYPE_FIRE
-	catchrate 45
-	baseexp 204
-	evyields 0, 0, 0, 0, 2, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-	abilities ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 75, 90, 90, 115, 140, 90
+    types TYPE_DARK, TYPE_FIRE
+    catchrate 45
+    baseexp 204
+    evyields 0, 0, 0, 0, 2, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_TYRANITAR
-	basestats 100, 164, 150, 71, 95, 120
-	types TYPE_ROCK, TYPE_DARK
-	catchrate 45
-	baseexp 218
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 40
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
-	abilities ABILITY_SAND_STREAM, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 100, 164, 150, 71, 95, 120
+    types TYPE_ROCK, TYPE_DARK
+    catchrate 45
+    baseexp 218
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 40
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
+    abilities ABILITY_SAND_STREAM, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SCEPTILE
-	basestats 70, 110, 75, 145, 145, 85
-	types TYPE_GRASS, TYPE_DRAGON
-	catchrate 45
-	baseexp 208
-	evyields 0, 0, 0, 3, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
-	abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 110, 75, 145, 145, 85
+    types TYPE_GRASS, TYPE_DRAGON
+    catchrate 45
+    baseexp 208
+    evyields 0, 0, 0, 3, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
+    abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BLAZIKEN
-	basestats 80, 160, 80, 100, 130, 80
-	types TYPE_FIRE, TYPE_FIGHTING
-	catchrate 45
-	baseexp 209
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-	abilities ABILITY_SPEED_BOOST, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 160, 80, 100, 130, 80
+    types TYPE_FIRE, TYPE_FIGHTING
+    catchrate 45
+    baseexp 209
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_SPEED_BOOST, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SWAMPERT
-	basestats 100, 150, 110, 70, 95, 110
-	types TYPE_WATER, TYPE_GROUND
-	catchrate 45
-	baseexp 210
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
-	abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 100, 150, 110, 70, 95, 110
+    types TYPE_WATER, TYPE_GROUND
+    catchrate 45
+    baseexp 210
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
+    abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GARDEVOIR
-	basestats 68, 85, 65, 100, 165, 135
-	types TYPE_PSYCHIC, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
-	catchrate 45
-	baseexp 208
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-	abilities ABILITY_SYNCHRONIZE, ABILITY_TRACE //ABILITY_PIXILATE, ABILITY_PIXILATE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 68, 85, 65, 100, 165, 135
+    types TYPE_PSYCHIC, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
+    catchrate 45
+    baseexp 208
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
+    abilities ABILITY_SYNCHRONIZE, ABILITY_TRACE //ABILITY_PIXILATE, ABILITY_PIXILATE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SABLEYE
-	basestats 50, 85, 125, 20, 85, 115
-	types TYPE_DARK, TYPE_GHOST
-	catchrate 45
-	baseexp 98
-	evyields 0, 1, 1, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 25
-	basefriendship 35
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_PRESSURE, ABILITY_FRISK //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 50, 85, 125, 20, 85, 115
+    types TYPE_DARK, TYPE_GHOST
+    catchrate 45
+    baseexp 98
+    evyields 0, 1, 1, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 25
+    basefriendship 35
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
+    abilities ABILITY_PRESSURE, ABILITY_FRISK //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MAWILE
-	basestats 50, 105, 125, 50, 55, 95
-	types TYPE_STEEL, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_STEEL
-	catchrate 45
-	baseexp 98
-	evyields 0, 1, 1, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_FAST
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
-	abilities ABILITY_HUGE_POWER, ABILITY_HUGE_POWER
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 50, 105, 125, 50, 55, 95
+    types TYPE_STEEL, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_STEEL
+    catchrate 45
+    baseexp 98
+    evyields 0, 1, 1, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
+    abilities ABILITY_HUGE_POWER, ABILITY_HUGE_POWER
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AGGRON
-	basestats 70, 140, 230, 50, 60, 80
-	types TYPE_STEEL, TYPE_STEEL
-	catchrate 45
-	baseexp 205
-	evyields 0, 0, 3, 0, 0, 0
-	items ITEM_NONE, ITEM_HARD_STONE
-	genderratio 127
-	eggcycles 35
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
-	abilities ABILITY_FILTER, ABILITY_FILTER
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 140, 230, 50, 60, 80
+    types TYPE_STEEL, TYPE_STEEL
+    catchrate 45
+    baseexp 205
+    evyields 0, 0, 3, 0, 0, 0
+    items ITEM_NONE, ITEM_HARD_STONE
+    genderratio 127
+    eggcycles 35
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
+    abilities ABILITY_FILTER, ABILITY_FILTER
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MEDICHAM
-	basestats 60, 100, 85, 100, 80, 85
-	types TYPE_FIGHTING, TYPE_PSYCHIC
-	catchrate 90
-	baseexp 153
-	evyields 0, 0, 0, 2, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_PURE_POWER, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 60, 100, 85, 100, 80, 85
+    types TYPE_FIGHTING, TYPE_PSYCHIC
+    catchrate 90
+    baseexp 153
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
+    abilities ABILITY_PURE_POWER, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MANECTRIC
-	basestats 70, 75, 80, 135, 135, 80
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
-	catchrate 45
-	baseexp 168
-	evyields 0, 0, 0, 2, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-	abilities ABILITY_INTIMIDATE, ABILITY_INTIMIDATE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 75, 80, 135, 135, 80
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
+    catchrate 45
+    baseexp 168
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_INTIMIDATE, ABILITY_INTIMIDATE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SHARPEDO
-	basestats 70, 140, 70, 105, 110, 65
-	types TYPE_WATER, TYPE_DARK
-	catchrate 60
-	baseexp 175
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
-	abilities ABILITY_SPEED_BOOST, ABILITY_NONE //ABILITY_STRONG_JAW, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 140, 70, 105, 110, 65
+    types TYPE_WATER, TYPE_DARK
+    catchrate 60
+    baseexp 175
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
+    abilities ABILITY_SPEED_BOOST, ABILITY_NONE //ABILITY_STRONG_JAW, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_CAMERUPT
-	basestats 70, 120, 100, 20, 145, 105
-	types TYPE_FIRE, TYPE_GROUND
-	catchrate 150
-	baseexp 175
-	evyields 0, 1, 0, 0, 1, 0
-	items ITEM_RAWST_BERRY, ITEM_RAWST_BERRY
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-	abilities ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK //ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 120, 100, 20, 145, 105
+    types TYPE_FIRE, TYPE_GROUND
+    catchrate 150
+    baseexp 175
+    evyields 0, 1, 0, 0, 1, 0
+    items ITEM_RAWST_BERRY, ITEM_RAWST_BERRY
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK //ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ALTARIA
-	basestats 75, 110, 110, 80, 110, 105
-	types TYPE_DRAGON, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_NORMAL
-	catchrate 45
-	baseexp 188
-	evyields 0, 0, 0, 0, 0, 2
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_ERRATIC
-	egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
-	abilities ABILITY_PRESSURE, ABILITY_NONE //ABILITY_PIXILATE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 75, 110, 110, 80, 110, 105
+    types TYPE_DRAGON, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_NORMAL
+    catchrate 45
+    baseexp 188
+    evyields 0, 0, 0, 0, 0, 2
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_ERRATIC
+    egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
+    abilities ABILITY_PRESSURE, ABILITY_NONE //ABILITY_PIXILATE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BANETTE
-	basestats 64, 165, 75, 75, 93, 83
-	types TYPE_GHOST, TYPE_GHOST
-	catchrate 45
-	baseexp 179
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_SPELL_TAG
-	genderratio 127
-	eggcycles 25
-	basefriendship 35
-	growthrate GROWTH_FAST
-	egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-	abilities ABILITY_FRISK, ABILITY_FRISK //ABILITY_PRANKSTER, ABILITY_PRANKSTER
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 64, 165, 75, 75, 93, 83
+    types TYPE_GHOST, TYPE_GHOST
+    catchrate 45
+    baseexp 179
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_SPELL_TAG
+    genderratio 127
+    eggcycles 25
+    basefriendship 35
+    growthrate GROWTH_FAST
+    egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
+    abilities ABILITY_FRISK, ABILITY_FRISK //ABILITY_PRANKSTER, ABILITY_PRANKSTER
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ABSOL
-	basestats 65, 150, 60, 115, 115, 60
-	types TYPE_DARK, TYPE_DARK
-	catchrate 30
-	baseexp 174
-	evyields 0, 2, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 25
-	basefriendship 35
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-	abilities ABILITY_PRESSURE, ABILITY_PRESSURE //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 65, 150, 60, 115, 115, 60
+    types TYPE_DARK, TYPE_DARK
+    catchrate 30
+    baseexp 174
+    evyields 0, 2, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 25
+    basefriendship 35
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_PRESSURE, ABILITY_PRESSURE //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GLALIE
-	basestats 80, 120, 80, 100, 120, 80
-	types TYPE_ICE, TYPE_ICE
-	catchrate 75
-	baseexp 187
-	evyields 2, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NEVERMELTICE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
-	abilities ABILITY_INNER_FOCUS, ABILITY_ICE_BODY //ABILITY_REFRIGERATE, ABILITY_REFRIGERATE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 120, 80, 100, 120, 80
+    types TYPE_ICE, TYPE_ICE
+    catchrate 75
+    baseexp 187
+    evyields 2, 0, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NEVERMELTICE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
+    abilities ABILITY_INNER_FOCUS, ABILITY_ICE_BODY //ABILITY_REFRIGERATE, ABILITY_REFRIGERATE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SALAMENCE
-	basestats 95, 145, 130, 120, 120, 90
-	types TYPE_DRAGON, TYPE_FLYING
-	catchrate 45
-	baseexp 218
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 40
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
-	abilities ABILITY_PRESSURE, ABILITY_NONE //ABILITY_AERILATE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 95, 145, 130, 120, 120, 90
+    types TYPE_DRAGON, TYPE_FLYING
+    catchrate 45
+    baseexp 218
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 40
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
+    abilities ABILITY_PRESSURE, ABILITY_NONE //ABILITY_AERILATE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_METAGROSS
-	basestats 80, 145, 150, 110, 105, 110
-	types TYPE_STEEL, TYPE_PSYCHIC
-	catchrate 3
-	baseexp 210
-	evyields 0, 0, 3, 0, 0, 0
-	items ITEM_NONE, ITEM_METAL_COAT
-	genderratio 255
-	eggcycles 40
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-	abilities ABILITY_PRESSURE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 145, 150, 110, 105, 110
+    types TYPE_STEEL, TYPE_PSYCHIC
+    catchrate 3
+    baseexp 210
+    evyields 0, 0, 3, 0, 0, 0
+    items ITEM_NONE, ITEM_METAL_COAT
+    genderratio 255
+    eggcycles 40
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
+    abilities ABILITY_PRESSURE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LATIAS
-	basestats 80, 100, 120, 110, 140, 150
-	types TYPE_DRAGON, TYPE_PSYCHIC
-	catchrate 3
-	baseexp 211
-	evyields 0, 0, 0, 0, 0, 3
-	items ITEM_NONE, ITEM_NONE
-	genderratio 254
-	eggcycles 120
-	basefriendship 90
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_LEVITATE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 100, 120, 110, 140, 150
+    types TYPE_DRAGON, TYPE_PSYCHIC
+    catchrate 3
+    baseexp 211
+    evyields 0, 0, 0, 0, 0, 3
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 120
+    basefriendship 90
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_LEVITATE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LATIOS
-	basestats 80, 130, 100, 110, 160, 120
-	types TYPE_DRAGON, TYPE_PSYCHIC
-	catchrate 3
-	baseexp 211
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 120
-	basefriendship 90
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_LEVITATE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 80, 130, 100, 110, 160, 120
+    types TYPE_DRAGON, TYPE_PSYCHIC
+    catchrate 3
+    baseexp 211
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 0
+    eggcycles 120
+    basefriendship 90
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_LEVITATE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_RAYQUAZA
-	basestats 105, 180, 100, 115, 180, 100
-	types TYPE_DRAGON, TYPE_FLYING
-	catchrate 3
-	baseexp 230
-	evyields 0, 2, 0, 0, 1, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 255
-	eggcycles 120
-	basefriendship 0
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_CLOUD_NINE /*ABILITY_DELTA_STREAM*/, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 105, 180, 100, 115, 180, 100
+    types TYPE_DRAGON, TYPE_FLYING
+    catchrate 3
+    baseexp 230
+    evyields 0, 2, 0, 0, 1, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_CLOUD_NINE /*ABILITY_DELTA_STREAM*/, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LOPUNNY
-	basestats 65, 136, 94, 135, 54, 96
-	types TYPE_NORMAL, TYPE_FIGHTING
-	catchrate 60
-	baseexp 168
-	evyields 0, 0, 0, 2, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_SCRAPPY, ABILITY_SCRAPPY
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 65, 136, 94, 135, 54, 96
+    types TYPE_NORMAL, TYPE_FIGHTING
+    catchrate 60
+    baseexp 168
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
+    abilities ABILITY_SCRAPPY, ABILITY_SCRAPPY
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GARCHOMP
-	basestats 108, 170, 115, 92, 120, 95
-	types TYPE_DRAGON, TYPE_GROUND
-	catchrate 45
-	baseexp 218
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 40
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_DRAGON, EGG_GROUP_MONSTER
-	abilities ABILITY_PRESSURE, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 108, 170, 115, 92, 120, 95
+    types TYPE_DRAGON, TYPE_GROUND
+    catchrate 45
+    baseexp 218
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 40
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_DRAGON, EGG_GROUP_MONSTER
+    abilities ABILITY_PRESSURE, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LUCARIO
-	basestats 70, 145, 88, 112, 140, 70
-	types TYPE_FIGHTING, TYPE_STEEL
-	catchrate 45
-	baseexp 204
-	evyields 0, 1, 0, 0, 1, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 31
-	eggcycles 25
-	basefriendship 50
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 70, 145, 88, 112, 140, 70
+    types TYPE_FIGHTING, TYPE_STEEL
+    catchrate 45
+    baseexp 204
+    evyields 0, 1, 0, 0, 1, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 25
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
+    abilities ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ABOMASNOW
-	basestats 90, 132, 105, 30, 132, 105
-	types TYPE_GRASS, TYPE_ICE
-	catchrate 60
-	baseexp 214
-	evyields 0, 1, 0, 0, 1, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
-	abilities ABILITY_SNOW_WARNING, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 90, 132, 105, 30, 132, 105
+    types TYPE_GRASS, TYPE_ICE
+    catchrate 60
+    baseexp 214
+    evyields 0, 1, 0, 0, 1, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
+    abilities ABILITY_SNOW_WARNING, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GALLADE
-	basestats 68, 165, 95, 110, 65, 115
-	types TYPE_PSYCHIC, TYPE_FIGHTING
-	catchrate 45
-	baseexp 233
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 20
-	basefriendship 35
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
-	abilities ABILITY_INNER_FOCUS, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 68, 165, 95, 110, 65, 115
+    types TYPE_PSYCHIC, TYPE_FIGHTING
+    catchrate 45
+    baseexp 233
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 0
+    eggcycles 20
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
+    abilities ABILITY_INNER_FOCUS, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AUDINO
-	basestats 103, 60, 126, 50, 80, 126
-	types TYPE_NORMAL, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_NORMAL
-	catchrate 255
-	baseexp 245
-	evyields 2, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 127
-	eggcycles 20
-	basefriendship 50
-	growthrate GROWTH_FAST
-	egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
-	abilities ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE // fix ability
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 103, 60, 126, 50, 80, 126
+    types TYPE_NORMAL, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_NORMAL
+    catchrate 255
+    baseexp 245
+    evyields 2, 0, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_FAST
+    egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
+    abilities ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE // fix ability
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_DIANCIE
-	basestats 50, 160, 110, 110, 160, 110
-	types TYPE_ROCK, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
-	catchrate 3
-	baseexp 255
-	evyields 0, 0, 1, 0, 0, 2
-	items ITEM_NONE, ITEM_NONE
-	genderratio 255
-	eggcycles 25
-	basefriendship 50
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_NATURAL_CURE, ABILITY_NONE // fix ability
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 50, 160, 110, 110, 160, 110
+    types TYPE_ROCK, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
+    catchrate 3
+    baseexp 255
+    evyields 0, 0, 1, 0, 0, 2
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 25
+    basefriendship 50
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_NATURAL_CURE, ABILITY_NONE // fix ability
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_GROUDON_PRIMAL
-	basestats 100, 180, 160, 90, 150, 90
-	types TYPE_GROUND, TYPE_FIRE
-	catchrate 5
-	baseexp 230
-	evyields 0, 3, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 255
-	eggcycles 120
-	basefriendship 0
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    basestats 100, 180, 160, 90, 150, 90
+    types TYPE_GROUND, TYPE_FIRE
+    catchrate 5
+    baseexp 230
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_KYOGRE_PRIMAL
-	basestats 100, 150, 90, 90, 180, 160
-	types TYPE_WATER, TYPE_WATER
-	catchrate 5
-	baseexp 230
-	evyields 0, 0, 0, 0, 3, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 255
-	eggcycles 120
-	basefriendship 0
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
-	runchance 0
-	colorflip 0, 0
-	tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
-	
+    basestats 100, 150, 90, 90, 180, 160
+    types TYPE_WATER, TYPE_WATER
+    catchrate 5
+    baseexp 230
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
+    runchance 0
+    colorflip 0, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+    
 mondata SPECIES_RATTATA_ALOLAN
-	basestats 30, 56, 35, 72, 25, 35
-	types TYPE_DARK, TYPE_NORMAL
+    basestats 30, 56, 35, 72, 25, 35
+    types TYPE_DARK, TYPE_NORMAL
     catchrate 255
     baseexp 51
     evyields 0, 0, 0, 1, 0, 0
@@ -18107,8 +18107,8 @@ mondata SPECIES_RATTATA_ALOLAN
 
 
 mondata SPECIES_RATICATE_ALOLAN
-	basestats 75, 71, 70, 77, 40, 80
-	types TYPE_DARK, TYPE_NORMAL
+    basestats 75, 71, 70, 77, 40, 80
+    types TYPE_DARK, TYPE_NORMAL
     catchrate 127
     baseexp 145
     evyields 0, 0, 0, 2, 0, 0
@@ -18125,8 +18125,8 @@ mondata SPECIES_RATICATE_ALOLAN
 
 
 mondata SPECIES_RAICHU_ALOLAN
-	basestats 60, 85, 50, 110, 95, 85
-	types TYPE_ELECTRIC, TYPE_PSYCHIC
+    basestats 60, 85, 50, 110, 95, 85
+    types TYPE_ELECTRIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 218
     evyields 0, 0, 0, 3, 0, 0
@@ -18143,8 +18143,8 @@ mondata SPECIES_RAICHU_ALOLAN
 
 
 mondata SPECIES_SANDSHREW_ALOLAN
-	basestats 50, 75, 90, 40, 10, 35
-	types TYPE_ICE, TYPE_STEEL
+    basestats 50, 75, 90, 40, 10, 35
+    types TYPE_ICE, TYPE_STEEL
     catchrate 255
     baseexp 60
     evyields 0, 0, 1, 0, 0, 0
@@ -18161,8 +18161,8 @@ mondata SPECIES_SANDSHREW_ALOLAN
 
 
 mondata SPECIES_SANDSLASH_ALOLAN
-	basestats 75, 100, 120, 65, 25, 65
-	types TYPE_ICE, TYPE_STEEL
+    basestats 75, 100, 120, 65, 25, 65
+    types TYPE_ICE, TYPE_STEEL
     catchrate 90
     baseexp 158
     evyields 0, 0, 2, 0, 0, 0
@@ -18179,8 +18179,8 @@ mondata SPECIES_SANDSLASH_ALOLAN
 
 
 mondata SPECIES_VULPIX_ALOLAN
-	basestats 38, 41, 40, 65, 50, 65
-	types TYPE_ICE, TYPE_ICE
+    basestats 38, 41, 40, 65, 50, 65
+    types TYPE_ICE, TYPE_ICE
     catchrate 190
     baseexp 60
     evyields 0, 0, 0, 1, 0, 0
@@ -18198,8 +18198,8 @@ mondata SPECIES_VULPIX_ALOLAN
 
 
 mondata SPECIES_NINETALES_ALOLAN
-	basestats 73, 67, 75, 109, 81, 100
-	types TYPE_ICE, TYPE_FAIRY
+    basestats 73, 67, 75, 109, 81, 100
+    types TYPE_ICE, TYPE_FAIRY
     catchrate 75
     baseexp 177
     evyields 0, 0, 0, 1, 0, 1
@@ -18216,8 +18216,8 @@ mondata SPECIES_NINETALES_ALOLAN
 
 
 mondata SPECIES_DIGLETT_ALOLAN
-	basestats 10, 55, 30, 90, 35, 45
-	types TYPE_GROUND, TYPE_STEEL
+    basestats 10, 55, 30, 90, 35, 45
+    types TYPE_GROUND, TYPE_STEEL
     catchrate 255
     baseexp 53
     evyields 0, 0, 0, 1, 0, 0
@@ -18234,8 +18234,8 @@ mondata SPECIES_DIGLETT_ALOLAN
 
 
 mondata SPECIES_DUGTRIO_ALOLAN
-	basestats 35, 100, 60, 110, 50, 70
-	types TYPE_GROUND, TYPE_STEEL
+    basestats 35, 100, 60, 110, 50, 70
+    types TYPE_GROUND, TYPE_STEEL
     catchrate 50
     baseexp 149
     evyields 0, 0, 0, 2, 0, 0
@@ -18252,8 +18252,8 @@ mondata SPECIES_DUGTRIO_ALOLAN
 
 
 mondata SPECIES_MEOWTH_ALOLAN
-	basestats 40, 35, 35, 90, 50, 40
-	types TYPE_DARK, TYPE_DARK
+    basestats 40, 35, 35, 90, 50, 40
+    types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 58
     evyields 0, 0, 0, 1, 0, 0
@@ -18270,8 +18270,8 @@ mondata SPECIES_MEOWTH_ALOLAN
 
 
 mondata SPECIES_PERSIAN_ALOLAN
-	basestats 65, 60, 60, 115, 75, 65
-	types TYPE_DARK, TYPE_DARK
+    basestats 65, 60, 60, 115, 75, 65
+    types TYPE_DARK, TYPE_DARK
     catchrate 90
     baseexp 154
     evyields 0, 0, 0, 2, 0, 0
@@ -18288,8 +18288,8 @@ mondata SPECIES_PERSIAN_ALOLAN
 
 
 mondata SPECIES_GEODUDE_ALOLAN
-	basestats 40, 80, 100, 20, 30, 30
-	types TYPE_ROCK, TYPE_ELECTRIC
+    basestats 40, 80, 100, 20, 30, 30
+    types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 255
     baseexp 60
     evyields 0, 0, 1, 0, 0, 0
@@ -18307,8 +18307,8 @@ mondata SPECIES_GEODUDE_ALOLAN
 
 
 mondata SPECIES_GRAVELER_ALOLAN
-	basestats 55, 95, 115, 35, 45, 45
-	types TYPE_ROCK, TYPE_ELECTRIC
+    basestats 55, 95, 115, 35, 45, 45
+    types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 120
     baseexp 137
     evyields 0, 0, 2, 0, 0, 0
@@ -18326,8 +18326,8 @@ mondata SPECIES_GRAVELER_ALOLAN
 
 
 mondata SPECIES_GOLEM_ALOLAN
-	basestats 80, 120, 130, 45, 55, 65
-	types TYPE_ROCK, TYPE_ELECTRIC
+    basestats 80, 120, 130, 45, 55, 65
+    types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 45
     baseexp 223
     evyields 0, 0, 3, 0, 0, 0
@@ -18344,8 +18344,8 @@ mondata SPECIES_GOLEM_ALOLAN
 
 
 mondata SPECIES_GRIMER_ALOLAN
-	basestats 80, 80, 50, 25, 40, 50
-	types TYPE_POISON, TYPE_DARK
+    basestats 80, 80, 50, 25, 40, 50
+    types TYPE_POISON, TYPE_DARK
     catchrate 190
     baseexp 65
     evyields 1, 0, 0, 0, 0, 0
@@ -18362,8 +18362,8 @@ mondata SPECIES_GRIMER_ALOLAN
 
 
 mondata SPECIES_MUK_ALOLAN
-	basestats 105, 105, 75, 50, 65, 100
-	types TYPE_POISON, TYPE_DARK
+    basestats 105, 105, 75, 50, 65, 100
+    types TYPE_POISON, TYPE_DARK
     catchrate 75
     baseexp 175
     evyields 1, 1, 0, 0, 0, 0
@@ -18380,8 +18380,8 @@ mondata SPECIES_MUK_ALOLAN
 
 
 mondata SPECIES_EXEGGUTOR_ALOLAN
-	basestats 95, 105, 85, 45, 125, 75
-	types TYPE_GRASS, TYPE_DRAGON
+    basestats 95, 105, 85, 45, 125, 75
+    types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 186
     evyields 0, 0, 0, 0, 2, 0
@@ -18398,8 +18398,8 @@ mondata SPECIES_EXEGGUTOR_ALOLAN
 
 
 mondata SPECIES_MAROWAK_ALOLAN
-	basestats 60, 80, 110, 45, 50, 80
-	types TYPE_FIRE, TYPE_GHOST
+    basestats 60, 80, 110, 45, 50, 80
+    types TYPE_FIRE, TYPE_GHOST
     catchrate 75
     baseexp 149
     evyields 0, 0, 2, 0, 0, 0
@@ -18416,8 +18416,8 @@ mondata SPECIES_MAROWAK_ALOLAN
 
 
 mondata SPECIES_MEOWTH_GALARIAN
-	basestats 50, 65, 55, 40, 40, 40
-	types TYPE_STEEL, TYPE_STEEL
+    basestats 50, 65, 55, 40, 40, 40
+    types TYPE_STEEL, TYPE_STEEL
     catchrate 255
     baseexp 58
     evyields 0, 1, 0, 0, 0, 0
@@ -18434,8 +18434,8 @@ mondata SPECIES_MEOWTH_GALARIAN
 
 
 mondata SPECIES_PONYTA_GALARIAN
-	basestats 50, 85, 55, 90, 65, 65
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 50, 85, 55, 90, 65, 65
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 82
     evyields 0, 0, 0, 1, 0, 0
@@ -18452,8 +18452,8 @@ mondata SPECIES_PONYTA_GALARIAN
 
 
 mondata SPECIES_RAPIDASH_GALARIAN
-	basestats 65, 100, 70, 105, 80, 80
-	types TYPE_PSYCHIC, TYPE_FAIRY
+    basestats 65, 100, 70, 105, 80, 80
+    types TYPE_PSYCHIC, TYPE_FAIRY
     catchrate 60
     baseexp 175
     evyields 0, 0, 0, 2, 0, 0
@@ -18470,8 +18470,8 @@ mondata SPECIES_RAPIDASH_GALARIAN
 
 
 mondata SPECIES_SLOWPOKE_GALARIAN
-	basestats 90, 65, 65, 15, 40, 40
-	types TYPE_PSYCHIC, TYPE_PSYCHIC
+    basestats 90, 65, 65, 15, 40, 40
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 63
     evyields 1, 0, 0, 0, 0, 0
@@ -18488,8 +18488,8 @@ mondata SPECIES_SLOWPOKE_GALARIAN
 
 
 mondata SPECIES_SLOWBRO_GALARIAN
-	basestats 95, 100, 95, 30, 100, 70
-	types TYPE_POISON, TYPE_PSYCHIC
+    basestats 95, 100, 95, 30, 100, 70
+    types TYPE_POISON, TYPE_PSYCHIC
     catchrate 75
     baseexp 172
     evyields 0, 2, 0, 0, 0, 0
@@ -18506,8 +18506,8 @@ mondata SPECIES_SLOWBRO_GALARIAN
 
 
 mondata SPECIES_FARFETCHD_GALARIAN
-	basestats 52, 95, 55, 55, 58, 62
-	types TYPE_FIGHTING, TYPE_FIGHTING
+    basestats 52, 95, 55, 55, 58, 62
+    types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 132
     evyields 0, 1, 0, 0, 0, 0
@@ -18525,8 +18525,8 @@ mondata SPECIES_FARFETCHD_GALARIAN
 
 
 mondata SPECIES_WEEZING_GALARIAN
-	basestats 65, 90, 120, 60, 85, 70
-	types TYPE_POISON, TYPE_FAIRY
+    basestats 65, 90, 120, 60, 85, 70
+    types TYPE_POISON, TYPE_FAIRY
     catchrate 60
     baseexp 172
     evyields 0, 0, 2, 0, 0, 0
@@ -18544,8 +18544,8 @@ mondata SPECIES_WEEZING_GALARIAN
 
 
 mondata SPECIES_MR_MIME_GALARIAN
-	basestats 50, 65, 65, 100, 90, 90
-	types TYPE_ICE, TYPE_PSYCHIC
+    basestats 50, 65, 65, 100, 90, 90
+    types TYPE_ICE, TYPE_PSYCHIC
     catchrate 45
     baseexp 161
     evyields 0, 0, 0, 2, 0, 0
@@ -18562,8 +18562,8 @@ mondata SPECIES_MR_MIME_GALARIAN
 
 
 mondata SPECIES_ARTICUNO_GALARIAN
-	basestats 90, 85, 85, 95, 125, 100
-	types TYPE_PSYCHIC, TYPE_FLYING
+    basestats 90, 85, 85, 95, 125, 100
+    types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 3
     baseexp 290
     evyields 0, 0, 0, 0, 3, 0
@@ -18580,8 +18580,8 @@ mondata SPECIES_ARTICUNO_GALARIAN
 
 
 mondata SPECIES_ZAPDOS_GALARIAN
-	basestats 90, 125, 90, 100, 85, 90
-	types TYPE_FIGHTING, TYPE_FLYING
+    basestats 90, 125, 90, 100, 85, 90
+    types TYPE_FIGHTING, TYPE_FLYING
     catchrate 3
     baseexp 290
     evyields 0, 3, 0, 0, 0, 0
@@ -18598,8 +18598,8 @@ mondata SPECIES_ZAPDOS_GALARIAN
 
 
 mondata SPECIES_MOLTRES_GALARIAN
-	basestats 90, 85, 90, 90, 100, 125
-	types TYPE_DARK, TYPE_FLYING
+    basestats 90, 85, 90, 90, 100, 125
+    types TYPE_DARK, TYPE_FLYING
     catchrate 3
     baseexp 290
     evyields 0, 0, 0, 0, 0, 3
@@ -18616,8 +18616,8 @@ mondata SPECIES_MOLTRES_GALARIAN
 
 
 mondata SPECIES_SLOWKING_GALARIAN
-	basestats 95, 65, 80, 30, 110, 110
-	types TYPE_POISON, TYPE_PSYCHIC
+    basestats 95, 65, 80, 30, 110, 110
+    types TYPE_POISON, TYPE_PSYCHIC
     catchrate 70
     baseexp 172
     evyields 0, 0, 0, 0, 0, 2
@@ -18634,8 +18634,8 @@ mondata SPECIES_SLOWKING_GALARIAN
 
 
 mondata SPECIES_CORSOLA_GALARIAN
-	basestats 60, 55, 100, 30, 65, 100
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 60, 55, 100, 30, 65, 100
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 144
     evyields 0, 0, 0, 0, 0, 1
@@ -18652,8 +18652,8 @@ mondata SPECIES_CORSOLA_GALARIAN
 
 
 mondata SPECIES_ZIGZAGOON_GALARIAN
-	basestats 38, 30, 41, 60, 30, 41
-	types TYPE_DARK, TYPE_NORMAL
+    basestats 38, 30, 41, 60, 30, 41
+    types TYPE_DARK, TYPE_NORMAL
     catchrate 255
     baseexp 56
     evyields 0, 0, 0, 1, 0, 0
@@ -18670,8 +18670,8 @@ mondata SPECIES_ZIGZAGOON_GALARIAN
 
 
 mondata SPECIES_LINOONE_GALARIAN
-	basestats 78, 70, 61, 100, 50, 61
-	types TYPE_DARK, TYPE_NORMAL
+    basestats 78, 70, 61, 100, 50, 61
+    types TYPE_DARK, TYPE_NORMAL
     catchrate 90
     baseexp 147
     evyields 0, 0, 0, 2, 0, 0
@@ -18688,8 +18688,8 @@ mondata SPECIES_LINOONE_GALARIAN
 
 
 mondata SPECIES_DARUMAKA_GALARIAN
-	basestats 70, 90, 45, 50, 15, 45
-	types TYPE_ICE, TYPE_ICE
+    basestats 70, 90, 45, 50, 15, 45
+    types TYPE_ICE, TYPE_ICE
     catchrate 120
     baseexp 63
     evyields 0, 1, 0, 0, 0, 0
@@ -18706,8 +18706,8 @@ mondata SPECIES_DARUMAKA_GALARIAN
 
 
 mondata SPECIES_DARMANITAN_GALARIAN
-	basestats 105, 140, 55, 95, 30, 55
-	types TYPE_ICE, TYPE_ICE
+    basestats 105, 140, 55, 95, 30, 55
+    types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 168
     evyields 0, 2, 0, 0, 0, 0
@@ -18724,8 +18724,8 @@ mondata SPECIES_DARMANITAN_GALARIAN
 
 
 mondata SPECIES_YAMASK_GALARIAN
-	basestats 38, 55, 85, 30, 30, 65
-	types TYPE_GROUND, TYPE_GHOST
+    basestats 38, 55, 85, 30, 30, 65
+    types TYPE_GROUND, TYPE_GHOST
     catchrate 190
     baseexp 61
     evyields 0, 0, 1, 0, 0, 0
@@ -18742,8 +18742,8 @@ mondata SPECIES_YAMASK_GALARIAN
 
 
 mondata SPECIES_STUNFISK_GALARIAN
-	basestats 109, 81, 99, 32, 66, 84
-	types TYPE_GROUND, TYPE_STEEL
+    basestats 109, 81, 99, 32, 66, 84
+    types TYPE_GROUND, TYPE_STEEL
     catchrate 75
     baseexp 165
     evyields 2, 0, 0, 0, 0, 0
@@ -18760,8 +18760,8 @@ mondata SPECIES_STUNFISK_GALARIAN
 
 
 mondata SPECIES_PIKACHU_COSPLAY
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18778,8 +18778,8 @@ mondata SPECIES_PIKACHU_COSPLAY
 
 
 mondata SPECIES_PIKACHU_ROCK_STAR
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18796,8 +18796,8 @@ mondata SPECIES_PIKACHU_ROCK_STAR
 
 
 mondata SPECIES_PIKACHU_BELLE
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18814,8 +18814,8 @@ mondata SPECIES_PIKACHU_BELLE
 
 
 mondata SPECIES_PIKACHU_POP_STAR
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18832,8 +18832,8 @@ mondata SPECIES_PIKACHU_POP_STAR
 
 
 mondata SPECIES_PIKACHU_PH_D
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18850,8 +18850,8 @@ mondata SPECIES_PIKACHU_PH_D
 
 
 mondata SPECIES_PIKACHU_LIBRE
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18868,8 +18868,8 @@ mondata SPECIES_PIKACHU_LIBRE
 
 
 mondata SPECIES_PIKACHU_ORIGINAL_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18886,8 +18886,8 @@ mondata SPECIES_PIKACHU_ORIGINAL_CAP
 
 
 mondata SPECIES_PIKACHU_HOENN_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18904,8 +18904,8 @@ mondata SPECIES_PIKACHU_HOENN_CAP
 
 
 mondata SPECIES_PIKACHU_SINNOH_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18922,8 +18922,8 @@ mondata SPECIES_PIKACHU_SINNOH_CAP
 
 
 mondata SPECIES_PIKACHU_UNOVA_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18940,8 +18940,8 @@ mondata SPECIES_PIKACHU_UNOVA_CAP
 
 
 mondata SPECIES_PIKACHU_KALOS_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18958,8 +18958,8 @@ mondata SPECIES_PIKACHU_KALOS_CAP
 
 
 mondata SPECIES_PIKACHU_ALOLA_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18976,8 +18976,8 @@ mondata SPECIES_PIKACHU_ALOLA_CAP
 
 
 mondata SPECIES_PIKACHU_PARTNER_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -18994,8 +18994,8 @@ mondata SPECIES_PIKACHU_PARTNER_CAP
 
 
 mondata SPECIES_PIKACHU_WORLD_CAP
-	basestats 35, 55, 40, 90, 50, 50
-	types TYPE_ELECTRIC, TYPE_ELECTRIC
+    basestats 35, 55, 40, 90, 50, 50
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
     evyields 0, 0, 0, 2, 0, 0
@@ -19012,8 +19012,8 @@ mondata SPECIES_PIKACHU_WORLD_CAP
 
 
 mondata SPECIES_CASTFORM_SUNNY
-	basestats 70, 70, 70, 70, 70, 70
-	types TYPE_FIRE, TYPE_FIRE
+    basestats 70, 70, 70, 70, 70, 70
+    types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 147
     evyields 1, 0, 0, 0, 0, 0
@@ -19030,8 +19030,8 @@ mondata SPECIES_CASTFORM_SUNNY
 
 
 mondata SPECIES_CASTFORM_RAINY
-	basestats 70, 70, 70, 70, 70, 70
-	types TYPE_WATER, TYPE_WATER
+    basestats 70, 70, 70, 70, 70, 70
+    types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 147
     evyields 1, 0, 0, 0, 0, 0
@@ -19048,8 +19048,8 @@ mondata SPECIES_CASTFORM_RAINY
 
 
 mondata SPECIES_CASTFORM_SNOWY
-	basestats 70, 70, 70, 70, 70, 70
-	types TYPE_ICE, TYPE_ICE
+    basestats 70, 70, 70, 70, 70, 70
+    types TYPE_ICE, TYPE_ICE
     catchrate 45
     baseexp 147
     evyields 1, 0, 0, 0, 0, 0
@@ -19066,8 +19066,8 @@ mondata SPECIES_CASTFORM_SNOWY
 
 
 mondata SPECIES_CHERRIM_SUNSHINE
-	basestats 70, 60, 70, 85, 87, 78
-	types TYPE_GRASS, TYPE_GRASS
+    basestats 70, 60, 70, 85, 87, 78
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 158
     evyields 0, 0, 0, 0, 2, 0
@@ -19084,8 +19084,8 @@ mondata SPECIES_CHERRIM_SUNSHINE
 
 
 mondata SPECIES_SHELLOS_EAST_SEA
-	basestats 76, 48, 48, 34, 57, 62
-	types TYPE_WATER, TYPE_WATER
+    basestats 76, 48, 48, 34, 57, 62
+    types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 65
     evyields 1, 0, 0, 0, 0, 0
@@ -19102,8 +19102,8 @@ mondata SPECIES_SHELLOS_EAST_SEA
 
 
 mondata SPECIES_GASTRODON_EAST_SEA
-	basestats 111, 83, 68, 39, 92, 82
-	types TYPE_WATER, TYPE_GROUND
+    basestats 111, 83, 68, 39, 92, 82
+    types TYPE_WATER, TYPE_GROUND
     catchrate 75
     baseexp 166
     evyields 2, 0, 0, 0, 0, 0
@@ -19119,9 +19119,64 @@ mondata SPECIES_GASTRODON_EAST_SEA
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
+mondata SPECIES_DIALGA_ORIGIN
+    basestats 100, 100, 120, 90, 150, 120
+    types TYPE_STEEL, TYPE_DRAGON
+    catchrate 30
+    baseexp 220
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_PRESSURE, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_WHITE, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_PALKIA_ORIGIN
+    basestats 90, 100, 100, 120, 150, 120
+    types TYPE_WATER, TYPE_DRAGON
+    catchrate 45
+    baseexp 220
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 255
+    eggcycles 120
+    basefriendship 0
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_PRESSURE, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_PURPLE, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
 mondata SPECIES_BASCULIN_BLUE_STRIPED
-	basestats 70, 92, 65, 98, 80, 55
-	types TYPE_WATER, TYPE_WATER
+    basestats 70, 92, 65, 98, 80, 55
+    types TYPE_WATER, TYPE_WATER
+    catchrate 25
+    baseexp 161
+    evyields 0, 0, 0, 2, 0, 0
+//    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 40
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
+    abilities ABILITY_ROCK_HEAD,  ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip BODY_COLOR_GREEN, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_BASCULIN_WHITE_STRIPED
+    basestats 70, 92, 65, 98, 80, 55
+    types TYPE_WATER, TYPE_WATER
     catchrate 25
     baseexp 161
     evyields 0, 0, 0, 2, 0, 0
@@ -19139,8 +19194,8 @@ mondata SPECIES_BASCULIN_BLUE_STRIPED
 
 
 mondata SPECIES_DARMANITAN_ZEN_MODE
-	basestats 105, 30, 105, 55, 140, 105
-	types TYPE_FIRE, TYPE_PSYCHIC
+    basestats 105, 30, 105, 55, 140, 105
+    types TYPE_FIRE, TYPE_PSYCHIC
     catchrate 60
     baseexp 189
     evyields 0, 0, 0, 0, 2, 0
@@ -19157,8 +19212,8 @@ mondata SPECIES_DARMANITAN_ZEN_MODE
 
 
 mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN
-	basestats 105, 160, 55, 135, 30, 55
-	types TYPE_ICE, TYPE_FIRE
+    basestats 105, 160, 55, 135, 30, 55
+    types TYPE_ICE, TYPE_FIRE
     catchrate 60
     baseexp 189
     evyields 0, 0, 0, 0, 2, 0
@@ -19175,8 +19230,8 @@ mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN
 
 
 mondata SPECIES_DEERLING_SUMMER
-	basestats 60, 60, 50, 75, 40, 50
-	types TYPE_NORMAL, TYPE_GRASS
+    basestats 60, 60, 50, 75, 40, 50
+    types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 67
     evyields 0, 0, 0, 1, 0, 0
@@ -19193,8 +19248,8 @@ mondata SPECIES_DEERLING_SUMMER
 
 
 mondata SPECIES_DEERLING_AUTUMN
-	basestats 60, 60, 50, 75, 40, 50
-	types TYPE_NORMAL, TYPE_GRASS
+    basestats 60, 60, 50, 75, 40, 50
+    types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 67
     evyields 0, 0, 0, 1, 0, 0
@@ -19211,8 +19266,8 @@ mondata SPECIES_DEERLING_AUTUMN
 
 
 mondata SPECIES_DEERLING_WINTER
-	basestats 60, 60, 50, 75, 40, 50
-	types TYPE_NORMAL, TYPE_GRASS
+    basestats 60, 60, 50, 75, 40, 50
+    types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 67
     evyields 0, 0, 0, 1, 0, 0
@@ -19229,8 +19284,8 @@ mondata SPECIES_DEERLING_WINTER
 
 
 mondata SPECIES_SAWSBUCK_SUMMER
-	basestats 80, 100, 70, 95, 60, 70
-	types TYPE_NORMAL, TYPE_GRASS
+    basestats 80, 100, 70, 95, 60, 70
+    types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 166
     evyields 0, 2, 0, 0, 0, 0
@@ -19247,8 +19302,8 @@ mondata SPECIES_SAWSBUCK_SUMMER
 
 
 mondata SPECIES_SAWSBUCK_AUTUMN
-	basestats 80, 100, 70, 95, 60, 70
-	types TYPE_NORMAL, TYPE_GRASS
+    basestats 80, 100, 70, 95, 60, 70
+    types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 166
     evyields 0, 2, 0, 0, 0, 0
@@ -19265,8 +19320,8 @@ mondata SPECIES_SAWSBUCK_AUTUMN
 
 
 mondata SPECIES_SAWSBUCK_WINTER
-	basestats 80, 100, 70, 95, 60, 70
-	types TYPE_NORMAL, TYPE_GRASS
+    basestats 80, 100, 70, 95, 60, 70
+    types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 166
     evyields 0, 2, 0, 0, 0, 0
@@ -19283,8 +19338,8 @@ mondata SPECIES_SAWSBUCK_WINTER
 
 
 mondata SPECIES_TORNADUS_THERIAN
-	basestats 79, 100, 80, 121, 110, 90
-	types TYPE_FLYING, TYPE_FLYING
+    basestats 79, 100, 80, 121, 110, 90
+    types TYPE_FLYING, TYPE_FLYING
     catchrate 3
     baseexp 261
     evyields 0, 3, 0, 0, 0, 0
@@ -19301,8 +19356,8 @@ mondata SPECIES_TORNADUS_THERIAN
 
 
 mondata SPECIES_THUNDURUS_THERIAN
-	basestats 79, 105, 70, 101, 145, 80
-	types TYPE_ELECTRIC, TYPE_FLYING
+    basestats 79, 105, 70, 101, 145, 80
+    types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 3
     baseexp 261
     evyields 0, 0, 0, 0, 3, 0
@@ -19319,8 +19374,8 @@ mondata SPECIES_THUNDURUS_THERIAN
 
 
 mondata SPECIES_LANDORUS_THERIAN
-	basestats 89, 145, 90, 91, 105, 80
-	types TYPE_GROUND, TYPE_FLYING
+    basestats 89, 145, 90, 91, 105, 80
+    types TYPE_GROUND, TYPE_FLYING
     catchrate 3
     baseexp 270
     evyields 0, 3, 0, 0, 0, 0
@@ -19337,8 +19392,8 @@ mondata SPECIES_LANDORUS_THERIAN
 
 
 mondata SPECIES_KYUREM_WHITE
-	basestats 125, 120, 90, 95, 170, 100
-	types TYPE_DRAGON, TYPE_ICE
+    basestats 125, 120, 90, 95, 170, 100
+    types TYPE_DRAGON, TYPE_ICE
     catchrate 3
     baseexp 315
     evyields 0, 0, 0, 0, 3, 0
@@ -19355,8 +19410,8 @@ mondata SPECIES_KYUREM_WHITE
 
 
 mondata SPECIES_KYUREM_BLACK
-	basestats 125, 170, 100, 95, 120, 90
-	types TYPE_DRAGON, TYPE_ICE
+    basestats 125, 170, 100, 95, 120, 90
+    types TYPE_DRAGON, TYPE_ICE
     catchrate 3
     baseexp 315
     evyields 0, 3, 0, 0, 0, 0
@@ -19373,8 +19428,8 @@ mondata SPECIES_KYUREM_BLACK
 
 
 mondata SPECIES_KELDEO_RESOLUTE
-	basestats 91, 72, 90, 108, 129, 90
-	types TYPE_WATER, TYPE_FIGHTING
+    basestats 91, 72, 90, 108, 129, 90
+    types TYPE_WATER, TYPE_FIGHTING
     catchrate 3
     baseexp 261
     evyields 0, 0, 0, 0, 3, 0
@@ -19391,8 +19446,8 @@ mondata SPECIES_KELDEO_RESOLUTE
 
 
 mondata SPECIES_MELOETTA_PIROUETTE
-	basestats 100, 128, 90, 128, 77, 77
-	types TYPE_NORMAL, TYPE_FIGHTING
+    basestats 100, 128, 90, 128, 77, 77
+    types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 3
     baseexp 270
     evyields 0, 1, 1, 1, 0, 0
@@ -19409,8 +19464,8 @@ mondata SPECIES_MELOETTA_PIROUETTE
 
 
 mondata SPECIES_GENESECT_DOUSE_DRIVE
-	basestats 71, 120, 95, 99, 120, 95
-	types TYPE_BUG, TYPE_STEEL
+    basestats 71, 120, 95, 99, 120, 95
+    types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
     evyields 0, 1, 0, 1, 1, 0
@@ -19427,8 +19482,8 @@ mondata SPECIES_GENESECT_DOUSE_DRIVE
 
 
 mondata SPECIES_GENESECT_SHOCK_DRIVE
-	basestats 71, 120, 95, 99, 120, 95
-	types TYPE_BUG, TYPE_STEEL
+    basestats 71, 120, 95, 99, 120, 95
+    types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
     evyields 0, 1, 0, 1, 1, 0
@@ -19445,8 +19500,8 @@ mondata SPECIES_GENESECT_SHOCK_DRIVE
 
 
 mondata SPECIES_GENESECT_BURN_DRIVE
-	basestats 71, 120, 95, 99, 120, 95
-	types TYPE_BUG, TYPE_STEEL
+    basestats 71, 120, 95, 99, 120, 95
+    types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
     evyields 0, 1, 0, 1, 1, 0
@@ -19463,8 +19518,8 @@ mondata SPECIES_GENESECT_BURN_DRIVE
 
 
 mondata SPECIES_GENESECT_CHILL_DRIVE
-	basestats 71, 120, 95, 99, 120, 95
-	types TYPE_BUG, TYPE_STEEL
+    basestats 71, 120, 95, 99, 120, 95
+    types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
     evyields 0, 1, 0, 1, 1, 0
@@ -19481,8 +19536,8 @@ mondata SPECIES_GENESECT_CHILL_DRIVE
 
 
 mondata SPECIES_GRENINJA_BATTLE_BOND
-	basestats 72, 95, 67, 122, 103, 71
-	types TYPE_WATER, TYPE_DARK
+    basestats 72, 95, 67, 122, 103, 71
+    types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 239
     evyields 0, 0, 0, 3, 0, 0
@@ -19499,8 +19554,8 @@ mondata SPECIES_GRENINJA_BATTLE_BOND
 
 
 mondata SPECIES_GRENINJA_ASH
-	basestats 72, 145, 67, 132, 153, 71
-	types TYPE_WATER, TYPE_DARK
+    basestats 72, 145, 67, 132, 153, 71
+    types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 288
     evyields 0, 0, 0, 3, 0, 0
@@ -19517,8 +19572,8 @@ mondata SPECIES_GRENINJA_ASH
 
 
 mondata SPECIES_VIVILLON_POLAR
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19535,8 +19590,8 @@ mondata SPECIES_VIVILLON_POLAR
 
 
 mondata SPECIES_VIVILLON_TUNDRA
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19553,8 +19608,8 @@ mondata SPECIES_VIVILLON_TUNDRA
 
 
 mondata SPECIES_VIVILLON_CONTINENTAL
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19571,8 +19626,8 @@ mondata SPECIES_VIVILLON_CONTINENTAL
 
 
 mondata SPECIES_VIVILLON_GARDEN
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19589,8 +19644,8 @@ mondata SPECIES_VIVILLON_GARDEN
 
 
 mondata SPECIES_VIVILLON_ELEGANT
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19607,8 +19662,8 @@ mondata SPECIES_VIVILLON_ELEGANT
 
 
 mondata SPECIES_VIVILLON_MEADOW
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19625,8 +19680,8 @@ mondata SPECIES_VIVILLON_MEADOW
 
 
 mondata SPECIES_VIVILLON_MODERN
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19643,8 +19698,8 @@ mondata SPECIES_VIVILLON_MODERN
 
 
 mondata SPECIES_VIVILLON_MARINE
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19661,8 +19716,8 @@ mondata SPECIES_VIVILLON_MARINE
 
 
 mondata SPECIES_VIVILLON_ARCHIPELAGO
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19679,8 +19734,8 @@ mondata SPECIES_VIVILLON_ARCHIPELAGO
 
 
 mondata SPECIES_VIVILLON_HIGH_PLAINS
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19697,8 +19752,8 @@ mondata SPECIES_VIVILLON_HIGH_PLAINS
 
 
 mondata SPECIES_VIVILLON_SANDSTORM
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19715,8 +19770,8 @@ mondata SPECIES_VIVILLON_SANDSTORM
 
 
 mondata SPECIES_VIVILLON_RIVER
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19733,8 +19788,8 @@ mondata SPECIES_VIVILLON_RIVER
 
 
 mondata SPECIES_VIVILLON_MONSOON
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19751,8 +19806,8 @@ mondata SPECIES_VIVILLON_MONSOON
 
 
 mondata SPECIES_VIVILLON_SAVANNA
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19769,8 +19824,8 @@ mondata SPECIES_VIVILLON_SAVANNA
 
 
 mondata SPECIES_VIVILLON_SUN
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19787,8 +19842,8 @@ mondata SPECIES_VIVILLON_SUN
 
 
 mondata SPECIES_VIVILLON_OCEAN
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19805,8 +19860,8 @@ mondata SPECIES_VIVILLON_OCEAN
 
 
 mondata SPECIES_VIVILLON_JUNGLE
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19823,8 +19878,8 @@ mondata SPECIES_VIVILLON_JUNGLE
 
 
 mondata SPECIES_VIVILLON_FANCY
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19841,8 +19896,8 @@ mondata SPECIES_VIVILLON_FANCY
 
 
 mondata SPECIES_VIVILLON_POKE_BALL
-	basestats 80, 52, 50, 89, 90, 50
-	types TYPE_BUG, TYPE_FLYING
+    basestats 80, 52, 50, 89, 90, 50
+    types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
     evyields 1, 0, 0, 1, 1, 0
@@ -19859,8 +19914,8 @@ mondata SPECIES_VIVILLON_POKE_BALL
 
 
 mondata SPECIES_FLABEBE_YELLOW_FLOWER
-	basestats 44, 38, 39, 42, 61, 79
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 44, 38, 39, 42, 61, 79
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
@@ -19877,8 +19932,8 @@ mondata SPECIES_FLABEBE_YELLOW_FLOWER
 
 
 mondata SPECIES_FLABEBE_ORANGE_FLOWER
-	basestats 44, 38, 39, 42, 61, 79
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 44, 38, 39, 42, 61, 79
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
@@ -19895,8 +19950,8 @@ mondata SPECIES_FLABEBE_ORANGE_FLOWER
 
 
 mondata SPECIES_FLABEBE_BLUE_FLOWER
-	basestats 44, 38, 39, 42, 61, 79
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 44, 38, 39, 42, 61, 79
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
@@ -19913,8 +19968,8 @@ mondata SPECIES_FLABEBE_BLUE_FLOWER
 
 
 mondata SPECIES_FLABEBE_WHITE_FLOWER
-	basestats 44, 38, 39, 42, 61, 79
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 44, 38, 39, 42, 61, 79
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
@@ -19931,8 +19986,8 @@ mondata SPECIES_FLABEBE_WHITE_FLOWER
 
 
 mondata SPECIES_FLOETTE_YELLOW_FLOWER
-	basestats 54, 45, 47, 52, 75, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 54, 45, 47, 52, 75, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
@@ -19949,8 +20004,8 @@ mondata SPECIES_FLOETTE_YELLOW_FLOWER
 
 
 mondata SPECIES_FLOETTE_ORANGE_FLOWER
-	basestats 54, 45, 47, 52, 75, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 54, 45, 47, 52, 75, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
@@ -19967,8 +20022,8 @@ mondata SPECIES_FLOETTE_ORANGE_FLOWER
 
 
 mondata SPECIES_FLOETTE_BLUE_FLOWER
-	basestats 54, 45, 47, 52, 75, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 54, 45, 47, 52, 75, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
@@ -19985,8 +20040,8 @@ mondata SPECIES_FLOETTE_BLUE_FLOWER
 
 
 mondata SPECIES_FLOETTE_WHITE_FLOWER
-	basestats 54, 45, 47, 52, 75, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 54, 45, 47, 52, 75, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
@@ -20003,8 +20058,8 @@ mondata SPECIES_FLOETTE_WHITE_FLOWER
 
 
 mondata SPECIES_FLOETTE_ETERNAL_FLOWER
-	basestats 74, 65, 67, 92, 125, 128
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 74, 65, 67, 92, 125, 128
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 243
     evyields 0, 0, 0, 0, 0, 2
@@ -20021,8 +20076,8 @@ mondata SPECIES_FLOETTE_ETERNAL_FLOWER
 
 
 mondata SPECIES_FLORGES_YELLOW_FLOWER
-	basestats 78, 65, 68, 75, 112, 154
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 78, 65, 68, 75, 112, 154
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
@@ -20039,8 +20094,8 @@ mondata SPECIES_FLORGES_YELLOW_FLOWER
 
 
 mondata SPECIES_FLORGES_ORANGE_FLOWER
-	basestats 78, 65, 68, 75, 112, 154
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 78, 65, 68, 75, 112, 154
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
@@ -20057,8 +20112,8 @@ mondata SPECIES_FLORGES_ORANGE_FLOWER
 
 
 mondata SPECIES_FLORGES_BLUE_FLOWER
-	basestats 78, 65, 68, 75, 112, 154
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 78, 65, 68, 75, 112, 154
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
@@ -20075,8 +20130,8 @@ mondata SPECIES_FLORGES_BLUE_FLOWER
 
 
 mondata SPECIES_FLORGES_WHITE_FLOWER
-	basestats 78, 65, 68, 75, 112, 154
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 78, 65, 68, 75, 112, 154
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
@@ -20093,8 +20148,8 @@ mondata SPECIES_FLORGES_WHITE_FLOWER
 
 
 mondata SPECIES_FURFROU_HEART
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20111,8 +20166,8 @@ mondata SPECIES_FURFROU_HEART
 
 
 mondata SPECIES_FURFROU_STAR
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20129,8 +20184,8 @@ mondata SPECIES_FURFROU_STAR
 
 
 mondata SPECIES_FURFROU_DIAMOND
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20147,8 +20202,8 @@ mondata SPECIES_FURFROU_DIAMOND
 
 
 mondata SPECIES_FURFROU_DEBUTANTE
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20165,8 +20220,8 @@ mondata SPECIES_FURFROU_DEBUTANTE
 
 
 mondata SPECIES_FURFROU_MATRON
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20183,8 +20238,8 @@ mondata SPECIES_FURFROU_MATRON
 
 
 mondata SPECIES_FURFROU_DANDY
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20201,8 +20256,8 @@ mondata SPECIES_FURFROU_DANDY
 
 
 mondata SPECIES_FURFROU_LA_REINE
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20219,8 +20274,8 @@ mondata SPECIES_FURFROU_LA_REINE
 
 
 mondata SPECIES_FURFROU_KABUKI
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20237,8 +20292,8 @@ mondata SPECIES_FURFROU_KABUKI
 
 
 mondata SPECIES_FURFROU_PHARAOH
-	basestats 75, 80, 60, 102, 65, 90
-	types TYPE_NORMAL, TYPE_NORMAL
+    basestats 75, 80, 60, 102, 65, 90
+    types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
     evyields 0, 0, 0, 1, 0, 0
@@ -20255,8 +20310,8 @@ mondata SPECIES_FURFROU_PHARAOH
 
 
 mondata SPECIES_AEGISLASH_BLADE
-	basestats 60, 140, 50, 60, 140, 50
-	types TYPE_STEEL, TYPE_GHOST
+    basestats 60, 140, 50, 60, 140, 50
+    types TYPE_STEEL, TYPE_GHOST
     catchrate 45
     baseexp 234
     evyields 0, 0, 2, 0, 0, 1
@@ -20273,8 +20328,8 @@ mondata SPECIES_AEGISLASH_BLADE
 
 
 mondata SPECIES_PUMPKABOO_SMALL
-	basestats 44, 66, 70, 56, 44, 55
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 44, 66, 70, 56, 44, 55
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
     evyields 0, 0, 1, 0, 0, 0
@@ -20291,8 +20346,8 @@ mondata SPECIES_PUMPKABOO_SMALL
 
 
 mondata SPECIES_PUMPKABOO_LARGE
-	basestats 54, 66, 70, 46, 44, 55
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 54, 66, 70, 46, 44, 55
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
     evyields 0, 0, 1, 0, 0, 0
@@ -20309,8 +20364,8 @@ mondata SPECIES_PUMPKABOO_LARGE
 
 
 mondata SPECIES_PUMPKABOO_SUPER
-	basestats 59, 66, 70, 41, 44, 55
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 59, 66, 70, 41, 44, 55
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
     evyields 0, 0, 1, 0, 0, 0
@@ -20327,8 +20382,8 @@ mondata SPECIES_PUMPKABOO_SUPER
 
 
 mondata SPECIES_GOURGEIST_SMALL
-	basestats 55, 85, 122, 99, 58, 75
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 55, 85, 122, 99, 58, 75
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
     evyields 0, 0, 2, 0, 0, 0
@@ -20345,8 +20400,8 @@ mondata SPECIES_GOURGEIST_SMALL
 
 
 mondata SPECIES_GOURGEIST_LARGE
-	basestats 75, 95, 122, 69, 58, 75
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 75, 95, 122, 69, 58, 75
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
     evyields 0, 0, 2, 0, 0, 0
@@ -20363,8 +20418,8 @@ mondata SPECIES_GOURGEIST_LARGE
 
 
 mondata SPECIES_GOURGEIST_SUPER
-	basestats 85, 100, 122, 54, 58, 75
-	types TYPE_GHOST, TYPE_GRASS
+    basestats 85, 100, 122, 54, 58, 75
+    types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
     evyields 0, 0, 2, 0, 0, 0
@@ -20381,8 +20436,8 @@ mondata SPECIES_GOURGEIST_SUPER
 
 
 mondata SPECIES_XERNEAS_ACTIVE
-	basestats 126, 131, 95, 99, 131, 98
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 126, 131, 95, 99, 131, 98
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 306
     evyields 3, 0, 0, 0, 0, 0
@@ -20399,8 +20454,8 @@ mondata SPECIES_XERNEAS_ACTIVE
 
 
 mondata SPECIES_ZYGARDE_10
-	basestats 54, 100, 71, 115, 61, 85
-	types TYPE_DRAGON, TYPE_GROUND
+    basestats 54, 100, 71, 115, 61, 85
+    types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 219
     evyields 3, 0, 0, 0, 0, 0
@@ -20417,8 +20472,8 @@ mondata SPECIES_ZYGARDE_10
 
 
 mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT
-	basestats 54, 100, 71, 115, 61, 85
-	types TYPE_DRAGON, TYPE_GROUND
+    basestats 54, 100, 71, 115, 61, 85
+    types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 219
     evyields 3, 0, 0, 0, 0, 0
@@ -20435,8 +20490,8 @@ mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT
 
 
 mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT
-	basestats 108, 100, 121, 95, 81, 95
-	types TYPE_DRAGON, TYPE_GROUND
+    basestats 108, 100, 121, 95, 81, 95
+    types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 270
     evyields 3, 0, 0, 0, 0, 0
@@ -20453,8 +20508,8 @@ mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT
 
 
 mondata SPECIES_ZYGARDE_10_COMPLETE
-	basestats 216, 100, 121, 85, 91, 95
-	types TYPE_DRAGON, TYPE_GROUND
+    basestats 216, 100, 121, 85, 91, 95
+    types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 319
     evyields 3, 0, 0, 0, 0, 0
@@ -20471,8 +20526,8 @@ mondata SPECIES_ZYGARDE_10_COMPLETE
 
 
 mondata SPECIES_ZYGARDE_50_COMPLETE
-	basestats 216, 100, 121, 85, 91, 95
-	types TYPE_DRAGON, TYPE_GROUND
+    basestats 216, 100, 121, 85, 91, 95
+    types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 319
     evyields 3, 0, 0, 0, 0, 0
@@ -20489,8 +20544,8 @@ mondata SPECIES_ZYGARDE_50_COMPLETE
 
 
 mondata SPECIES_HOOPA_UNBOUND
-	basestats 80, 160, 60, 80, 170, 130
-	types TYPE_PSYCHIC, TYPE_DARK
+    basestats 80, 160, 60, 80, 170, 130
+    types TYPE_PSYCHIC, TYPE_DARK
     catchrate 3
     baseexp 270
     evyields 0, 0, 0, 0, 3, 0
@@ -20507,8 +20562,8 @@ mondata SPECIES_HOOPA_UNBOUND
 
 
 mondata SPECIES_ORICORIO_POM_POM
-	basestats 75, 70, 70, 93, 98, 70
-	types TYPE_ELECTRIC, TYPE_FLYING
+    basestats 75, 70, 70, 93, 98, 70
+    types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 45
     baseexp 167
     evyields 0, 0, 0, 0, 2, 0
@@ -20525,8 +20580,8 @@ mondata SPECIES_ORICORIO_POM_POM
 
 
 mondata SPECIES_ORICORIO_PAU
-	basestats 75, 70, 70, 93, 98, 70
-	types TYPE_PSYCHIC, TYPE_FLYING
+    basestats 75, 70, 70, 93, 98, 70
+    types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 45
     baseexp 167
     evyields 0, 0, 0, 0, 2, 0
@@ -20543,8 +20598,8 @@ mondata SPECIES_ORICORIO_PAU
 
 
 mondata SPECIES_ORICORIO_SENSU
-	basestats 75, 70, 70, 93, 98, 70
-	types TYPE_GHOST, TYPE_FLYING
+    basestats 75, 70, 70, 93, 98, 70
+    types TYPE_GHOST, TYPE_FLYING
     catchrate 45
     baseexp 167
     evyields 0, 0, 0, 0, 2, 0
@@ -20561,8 +20616,8 @@ mondata SPECIES_ORICORIO_SENSU
 
 
 mondata SPECIES_ROCKRUFF_OWN_TEMPO
-	basestats 45, 65, 40, 60, 30, 40
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 45, 65, 40, 60, 30, 40
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 190
     baseexp 56
     evyields 0, 1, 0, 0, 0, 0
@@ -20579,8 +20634,8 @@ mondata SPECIES_ROCKRUFF_OWN_TEMPO
 
 
 mondata SPECIES_LYCANROC_MIDNIGHT
-	basestats 85, 115, 75, 82, 55, 75
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 85, 115, 75, 82, 55, 75
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 90
     baseexp 170
     evyields 0, 2, 0, 0, 0, 0
@@ -20597,8 +20652,8 @@ mondata SPECIES_LYCANROC_MIDNIGHT
 
 
 mondata SPECIES_LYCANROC_DUSK
-	basestats 75, 117, 65, 110, 55, 65
-	types TYPE_ROCK, TYPE_ROCK
+    basestats 75, 117, 65, 110, 55, 65
+    types TYPE_ROCK, TYPE_ROCK
     catchrate 90
     baseexp 170
     evyields 0, 2, 0, 0, 0, 0
@@ -20615,8 +20670,8 @@ mondata SPECIES_LYCANROC_DUSK
 
 
 mondata SPECIES_WISHIWASHI_SCHOOL
-	basestats 45, 140, 130, 30, 140, 135
-	types TYPE_WATER, TYPE_WATER
+    basestats 45, 140, 130, 30, 140, 135
+    types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 61
     evyields 1, 0, 0, 0, 0, 0
@@ -20633,8 +20688,8 @@ mondata SPECIES_WISHIWASHI_SCHOOL
 
 
 mondata SPECIES_MINIOR_METEOR_ORANGE
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20651,8 +20706,8 @@ mondata SPECIES_MINIOR_METEOR_ORANGE
 
 
 mondata SPECIES_MINIOR_METEOR_YELLOW
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20669,8 +20724,8 @@ mondata SPECIES_MINIOR_METEOR_YELLOW
 
 
 mondata SPECIES_MINIOR_METEOR_GREEN
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20687,8 +20742,8 @@ mondata SPECIES_MINIOR_METEOR_GREEN
 
 
 mondata SPECIES_MINIOR_METEOR_BLUE
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20705,8 +20760,8 @@ mondata SPECIES_MINIOR_METEOR_BLUE
 
 
 mondata SPECIES_MINIOR_METEOR_INDIGO
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20723,8 +20778,8 @@ mondata SPECIES_MINIOR_METEOR_INDIGO
 
 
 mondata SPECIES_MINIOR_METEOR_VIOLET
-	basestats 60, 60, 100, 60, 60, 100
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 60, 100, 60, 60, 100
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20741,8 +20796,8 @@ mondata SPECIES_MINIOR_METEOR_VIOLET
 
 
 mondata SPECIES_MINIOR_CORE_RED
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20759,8 +20814,8 @@ mondata SPECIES_MINIOR_CORE_RED
 
 
 mondata SPECIES_MINIOR_CORE_ORANGE
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20777,8 +20832,8 @@ mondata SPECIES_MINIOR_CORE_ORANGE
 
 
 mondata SPECIES_MINIOR_CORE_YELLOW
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20795,8 +20850,8 @@ mondata SPECIES_MINIOR_CORE_YELLOW
 
 
 mondata SPECIES_MINIOR_CORE_GREEN
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20813,8 +20868,8 @@ mondata SPECIES_MINIOR_CORE_GREEN
 
 
 mondata SPECIES_MINIOR_CORE_BLUE
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20831,8 +20886,8 @@ mondata SPECIES_MINIOR_CORE_BLUE
 
 
 mondata SPECIES_MINIOR_CORE_INDIGO
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20849,8 +20904,8 @@ mondata SPECIES_MINIOR_CORE_INDIGO
 
 
 mondata SPECIES_MINIOR_CORE_VIOLET
-	basestats 60, 100, 60, 120, 100, 60
-	types TYPE_ROCK, TYPE_FLYING
+    basestats 60, 100, 60, 120, 100, 60
+    types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
     evyields 0, 0, 1, 0, 0, 1
@@ -20867,8 +20922,8 @@ mondata SPECIES_MINIOR_CORE_VIOLET
 
 
 mondata SPECIES_MIMIKYU_BUSTED
-	basestats 55, 90, 80, 96, 50, 105
-	types TYPE_GHOST, TYPE_FAIRY
+    basestats 55, 90, 80, 96, 50, 105
+    types TYPE_GHOST, TYPE_FAIRY
     catchrate 45
     baseexp 167
     evyields 0, 0, 0, 0, 0, 2
@@ -20885,8 +20940,8 @@ mondata SPECIES_MIMIKYU_BUSTED
 
 
 mondata SPECIES_NECROZMA_DUSK_MANE
-	basestats 97, 157, 127, 77, 113, 109
-	types TYPE_PSYCHIC, TYPE_STEEL
+    basestats 97, 157, 127, 77, 113, 109
+    types TYPE_PSYCHIC, TYPE_STEEL
     catchrate 255
     baseexp 306
     evyields 0, 3, 0, 0, 0, 0
@@ -20903,8 +20958,8 @@ mondata SPECIES_NECROZMA_DUSK_MANE
 
 
 mondata SPECIES_NECROZMA_DAWN_WINGS
-	basestats 97, 113, 109, 77, 157, 127
-	types TYPE_PSYCHIC, TYPE_GHOST
+    basestats 97, 113, 109, 77, 157, 127
+    types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 255
     baseexp 306
     evyields 0, 0, 0, 0, 3, 0
@@ -20921,8 +20976,8 @@ mondata SPECIES_NECROZMA_DAWN_WINGS
 
 
 mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE
-	basestats 97, 167, 97, 129, 167, 97
-	types TYPE_PSYCHIC, TYPE_DRAGON
+    basestats 97, 167, 97, 129, 167, 97
+    types TYPE_PSYCHIC, TYPE_DRAGON
     catchrate 255
     baseexp 339
     evyields 0, 1, 0, 1, 1, 0
@@ -20939,8 +20994,8 @@ mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE
 
 
 mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS
-	basestats 97, 167, 97, 129, 167, 97
-	types TYPE_PSYCHIC, TYPE_DRAGON
+    basestats 97, 167, 97, 129, 167, 97
+    types TYPE_PSYCHIC, TYPE_DRAGON
     catchrate 255
     baseexp 339
     evyields 0, 1, 0, 1, 1, 0
@@ -20957,8 +21012,8 @@ mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS
 
 
 mondata SPECIES_MAGEARNA_ORIGINAL
-	basestats 80, 95, 115, 65, 130, 115
-	types TYPE_STEEL, TYPE_FAIRY
+    basestats 80, 95, 115, 65, 130, 115
+    types TYPE_STEEL, TYPE_FAIRY
     catchrate 3
     baseexp 270
     evyields 0, 0, 0, 0, 3, 0
@@ -20975,8 +21030,8 @@ mondata SPECIES_MAGEARNA_ORIGINAL
 
 
 mondata SPECIES_CRAMORANT_GULPING
-	basestats 70, 85, 55, 85, 85, 95
-	types TYPE_FLYING, TYPE_WATER
+    basestats 70, 85, 55, 85, 85, 95
+    types TYPE_FLYING, TYPE_WATER
     catchrate 45
     baseexp 166
     evyields 0, 0, 0, 0, 0, 2
@@ -20993,8 +21048,8 @@ mondata SPECIES_CRAMORANT_GULPING
 
 
 mondata SPECIES_CRAMORANT_GORGING
-	basestats 70, 85, 55, 85, 85, 95
-	types TYPE_FLYING, TYPE_WATER
+    basestats 70, 85, 55, 85, 85, 95
+    types TYPE_FLYING, TYPE_WATER
     catchrate 45
     baseexp 166
     evyields 0, 0, 0, 0, 0, 2
@@ -21011,8 +21066,8 @@ mondata SPECIES_CRAMORANT_GORGING
 
 
 mondata SPECIES_TOXTRICITY_LOW_KEY
-	basestats 75, 98, 70, 75, 114, 70
-	types TYPE_ELECTRIC, TYPE_POISON
+    basestats 75, 98, 70, 75, 114, 70
+    types TYPE_ELECTRIC, TYPE_POISON
     catchrate 45
     baseexp 176
     evyields 0, 0, 0, 0, 2, 0
@@ -21029,8 +21084,8 @@ mondata SPECIES_TOXTRICITY_LOW_KEY
 
 
 mondata SPECIES_SINISTEA_ANTIQUE
-	basestats 40, 45, 45, 50, 74, 54
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 40, 45, 45, 50, 74, 54
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 120
     baseexp 62
     evyields 0, 0, 0, 0, 1, 0
@@ -21047,8 +21102,8 @@ mondata SPECIES_SINISTEA_ANTIQUE
 
 
 mondata SPECIES_POLTEAGEIST_ANTIQUE
-	basestats 60, 65, 65, 70, 134, 114
-	types TYPE_GHOST, TYPE_GHOST
+    basestats 60, 65, 65, 70, 134, 114
+    types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 178
     evyields 0, 0, 0, 0, 2, 0
@@ -21065,8 +21120,8 @@ mondata SPECIES_POLTEAGEIST_ANTIQUE
 
 
 mondata SPECIES_ALCREMIE_RUBY_CREAM
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21083,8 +21138,8 @@ mondata SPECIES_ALCREMIE_RUBY_CREAM
 
 
 mondata SPECIES_ALCREMIE_MATCHA_CREAM
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21101,8 +21156,8 @@ mondata SPECIES_ALCREMIE_MATCHA_CREAM
 
 
 mondata SPECIES_ALCREMIE_MINT_CREAM
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21119,8 +21174,8 @@ mondata SPECIES_ALCREMIE_MINT_CREAM
 
 
 mondata SPECIES_ALCREMIE_LEMON_CREAM
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21137,8 +21192,8 @@ mondata SPECIES_ALCREMIE_LEMON_CREAM
 
 
 mondata SPECIES_ALCREMIE_SALTED_CREAM
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21155,8 +21210,8 @@ mondata SPECIES_ALCREMIE_SALTED_CREAM
 
 
 mondata SPECIES_ALCREMIE_RUBY_SWIRL
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21173,8 +21228,8 @@ mondata SPECIES_ALCREMIE_RUBY_SWIRL
 
 
 mondata SPECIES_ALCREMIE_CARAMEL_SWIRL
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21191,8 +21246,8 @@ mondata SPECIES_ALCREMIE_CARAMEL_SWIRL
 
 
 mondata SPECIES_ALCREMIE_RAINBOW_SWIRL
-	basestats 65, 60, 75, 64, 110, 121
-	types TYPE_FAIRY, TYPE_FAIRY
+    basestats 65, 60, 75, 64, 110, 121
+    types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
@@ -21209,8 +21264,8 @@ mondata SPECIES_ALCREMIE_RAINBOW_SWIRL
 
 
 mondata SPECIES_EISCUE_NOICE_FACE
-	basestats 75, 80, 70, 130, 65, 50
-	types TYPE_ICE, TYPE_ICE
+    basestats 75, 80, 70, 130, 65, 50
+    types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 165
     evyields 0, 0, 2, 0, 0, 0
@@ -21227,8 +21282,8 @@ mondata SPECIES_EISCUE_NOICE_FACE
 
 
 mondata SPECIES_MORPEKO_HANGRY
-	basestats 58, 95, 58, 97, 70, 58
-	types TYPE_ELECTRIC, TYPE_DARK
+    basestats 58, 95, 58, 97, 70, 58
+    types TYPE_ELECTRIC, TYPE_DARK
     catchrate 180
     baseexp 153
     evyields 0, 0, 0, 2, 0, 0
@@ -21245,8 +21300,8 @@ mondata SPECIES_MORPEKO_HANGRY
 
 
 mondata SPECIES_ZACIAN_CROWNED
-	basestats 92, 170, 115, 148, 80, 115
-	types TYPE_FAIRY, TYPE_STEEL
+    basestats 92, 170, 115, 148, 80, 115
+    types TYPE_FAIRY, TYPE_STEEL
     catchrate 10
     baseexp 360
     evyields 0, 0, 0, 3, 0, 0
@@ -21263,8 +21318,8 @@ mondata SPECIES_ZACIAN_CROWNED
 
 
 mondata SPECIES_ZAMAZENTA_CROWNED
-	basestats 92, 130, 145, 128, 80, 145
-	types TYPE_FIGHTING, TYPE_STEEL
+    basestats 92, 130, 145, 128, 80, 145
+    types TYPE_FIGHTING, TYPE_STEEL
     catchrate 10
     baseexp 360
     evyields 0, 0, 0, 3, 0, 0
@@ -21281,8 +21336,8 @@ mondata SPECIES_ZAMAZENTA_CROWNED
 
 
 mondata SPECIES_ETERNATUS_ETERNAMAX
-	basestats 255, 115, 250, 130, 125, 250
-	types TYPE_POISON, TYPE_DRAGON
+    basestats 255, 115, 250, 130, 125, 250
+    types TYPE_POISON, TYPE_DRAGON
     catchrate 255
     baseexp 563
     evyields 3, 0, 0, 0, 0, 0
@@ -21299,8 +21354,8 @@ mondata SPECIES_ETERNATUS_ETERNAMAX
 
 
 mondata SPECIES_URSHIFU_RAPID_STRIKE
-	basestats 100, 130, 100, 97, 63, 60
-	types TYPE_FIGHTING, TYPE_WATER
+    basestats 100, 130, 100, 97, 63, 60
+    types TYPE_FIGHTING, TYPE_WATER
     catchrate 3
     baseexp 275
     evyields 0, 3, 0, 0, 0, 0
@@ -21317,8 +21372,8 @@ mondata SPECIES_URSHIFU_RAPID_STRIKE
 
 
 mondata SPECIES_ZARUDE_DADA
-	basestats 105, 120, 105, 105, 70, 95
-	types TYPE_DARK, TYPE_GRASS
+    basestats 105, 120, 105, 105, 70, 95
+    types TYPE_DARK, TYPE_GRASS
     catchrate 3
     baseexp 300
     evyields 0, 3, 0, 0, 0, 0
@@ -21335,8 +21390,8 @@ mondata SPECIES_ZARUDE_DADA
 
 
 mondata SPECIES_CALYREX_ICE_RIDER
-	basestats 100, 165, 150, 50, 85, 130
-	types TYPE_PSYCHIC, TYPE_ICE
+    basestats 100, 165, 150, 50, 85, 130
+    types TYPE_PSYCHIC, TYPE_ICE
     catchrate 3
     baseexp 340
     evyields 0, 3, 0, 0, 0, 0
@@ -21353,8 +21408,8 @@ mondata SPECIES_CALYREX_ICE_RIDER
 
 
 mondata SPECIES_CALYREX_SHADOW_RIDER
-	basestats 100, 85, 80, 150, 165, 100
-	types TYPE_PSYCHIC, TYPE_GHOST
+    basestats 100, 85, 80, 150, 165, 100
+    types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 3
     baseexp 340
     evyields 0, 0, 0, 0, 3, 0

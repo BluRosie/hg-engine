@@ -977,6 +977,7 @@ gIconPalTable:
 /* SPECIES_SNEASLER        */ .byte  0x1
 /* SPECIES_OVERQWIL        */ .byte  0x1
 /* SPECIES_ENAMORUS        */ .byte  0x1
+
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
 /* SPECIES_MEGA_CHARIZARD_Y*/ .byte  0x0
@@ -1084,7 +1085,10 @@ gIconPalTable:
 /* SPECIES_CHERRIM_SUNSHINE            */ .byte  0x1
 /* SPECIES_SHELLOS_EAST_SEA            */ .byte  0x1
 /* SPECIES_GASTRODON_EAST_SEA          */ .byte  0x1
+/* SPECIES_DIALGA_ORIGIN               */ .byte  0x1
+/* SPECIES_PALKIA_ORIGIN               */ .byte  0x1
 /* SPECIES_BASCULIN_BLUE_STRIPED       */ .byte  0x1
+/* SPECIES_BASCULIN_WHITE_STRIPED      */ .byte  0x1
 /* SPECIES_DARMANITAN_ZEN_MODE         */ .byte  0x0
 /* SPECIES_DARMANITAN_ZEN_MODE_GALARIAN*/ .byte  0x1
 /* SPECIES_DEERLING_SUMMER             */ .byte  0x1

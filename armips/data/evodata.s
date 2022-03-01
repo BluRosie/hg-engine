@@ -10645,7 +10645,37 @@ evodata SPECIES_GASTRODON_EAST_SEA
 	evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
+evodata SPECIES_DIALGA_ORIGIN
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+evodata SPECIES_PALKIA_ORIGIN
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
 evodata SPECIES_BASCULIN_BLUE_STRIPED
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+evodata SPECIES_BASCULIN_WHITE_STRIPED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
