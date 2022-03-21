@@ -1319,3 +1319,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
 The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
+{STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
+The wild {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
+The foe’s {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!

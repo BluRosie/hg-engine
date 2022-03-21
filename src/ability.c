@@ -922,7 +922,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                     sp->msg_work = MSG_HEAL_FROZEN;
                 }
                 sp->client_work = client_no;
-                seq_no = SUB_SEQ_HANDLE_SHED_SKIN;
+                seq_no = SUB_SEQ_HANDLE_HEALER;
                 ret = TRUE;
             }
             break;
