@@ -850,7 +850,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     u32 ret = FALSE;
     int seq_no;
 
-    switch (GetBattlerAbility(sp,client_no))
+    switch (GetBattlerAbility(sp, client_no))
     {
         case ABILITY_SPEED_BOOST:
             if ((sp->battlemon[client_no].hp)
@@ -869,6 +869,38 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 && (sp->battlemon[client_no].hp)
                 && (BattleRand(bw) % 10 < 3)) // 30% chance
             {
+                if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
+                {
+                    sp->msg_work = MSG_HEAL_SLEEP;
+                }
+                else if (sp->battlemon[client_no].condition & STATUS_POISON_ANY)
+                {
+                    sp->msg_work = MSG_HEAL_POISON;
+                }
+                else if (sp->battlemon[client_no].condition & STATUS_FLAG_BURNED)
+                {
+                    sp->msg_work = MSG_HEAL_BURN;
+                }
+                else if (sp->battlemon[client_no].condition & STATUS_FLAG_PARALYZED)
+                {
+                    sp->msg_work = MSG_HEAL_PARALYSIS;
+                }
+                else
+                {
+                    sp->msg_work = MSG_HEAL_FROZEN;
+                }
+                sp->client_work = client_no;
+                seq_no = SUB_SEQ_HANDLE_SHED_SKIN;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_HEALER: // TODO:  fix the message
+            if ((sp->battlemon[BATTLER_ALLY(client_no)].condition & STATUS_ANY_PERSISTENT) // if the partner of the client has a status condition
+                && (sp->battlemon[client_no].hp)
+                && (sp->battlemon[BATTLER_ALLY(client_no)].hp)
+                && (BattleRand(bw) % 10 < 3)) // 30% chance
+            {
+                client_no = BATTLER_ALLY(client_no);
                 if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
                 {
                     sp->msg_work = MSG_HEAL_SLEEP;
