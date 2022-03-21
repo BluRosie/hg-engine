@@ -441,7 +441,8 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 trickroom_flag : 1;    ///<トリックルーム発動
     u32 item_koraeru_flag : 1; ///<こらえるフラグ（装備道具効果）
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
-    u32 : 23;                  ///<ステータス上昇下降エフェクトを発動
+    u32 defiant_flag : 1; // set (hypothetically) when defiant needs to activate
+    u32 : 22;                  ///<ステータス上昇下降エフェクトを発動
 
     int physical_damage;   ///0x4 存在物理伤害量
     int physical_damager;   ///0x8 <物理攻撃したクライアント

@@ -978,31 +978,33 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 ret = TRUE;
             }
             break;
-        case ABILITY_COLOR_CHANGE: {
-            u8 movetype;
+        case ABILITY_COLOR_CHANGE: 
+            if (sp->battlemon[sp->attack_client].sheer_force_flag == 0) // sheer force disables color change
+            {
+                u8 movetype;
 
-            if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
-                movetype = TYPE_NORMAL;
-            } else if (sp->move_type) {
-                movetype = sp->move_type;
-            } else {
-                movetype = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
-            }
+                if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
+                    movetype = TYPE_NORMAL;
+                } else if (sp->move_type) {
+                    movetype = sp->move_type;
+                } else {
+                    movetype = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+                }
 
-            if ((sp->battlemon[sp->defence_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-                && (sp->current_move_index != MOVE_STRUGGLE)
-                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
-                    (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].power)
-                && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
-                && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)) {
-                seq_no[0] = SUB_SEQ_HANDLE_COLOR_CHANGE;
-                sp->msg_work = movetype;
-                ret = TRUE;
+                if ((sp->battlemon[sp->defence_client].hp)
+                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                    && (sp->current_move_index != MOVE_STRUGGLE)
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                        (sp->oneSelfFlag[sp->defence_client].special_damage))
+                    && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                    && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].power)
+                    && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
+                    && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)) {
+                    seq_no[0] = SUB_SEQ_HANDLE_COLOR_CHANGE;
+                    sp->msg_work = movetype;
+                    ret = TRUE;
+                }
             }
-        }
             break;
         case ABILITY_ROUGH_SKIN:
         case ABILITY_IRON_BARBS:
@@ -1296,6 +1298,22 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 ret = TRUE;
             }
         break;
+        case ABILITY_DEFIANT:
+            if ((sp->battlemon[sp->defence_client].hp != 0)
+             && (sp->oneSelfFlag[sp->state_client].defiant_flag)
+             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
+             && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+             && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0))
+            {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+                sp->state_client = sp->defence_client;
+                sp->client_work = sp->defence_client;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                seq_no[0] = SUB_SEQ_HANDLE_DEFIANT;
+                ret = TRUE;
+            }
+            break;
         default:
             break;
     }

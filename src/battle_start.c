@@ -15,7 +15,8 @@
 /********************************************************************************************************************/
 
 enum{
-	SBA_FOCUS_PUNCH=0,
+    SBA_RESET_DEFIANT = 0,
+	SBA_FOCUS_PUNCH,
 	SBA_RAGE,
 	SBA_RANDOM_SPEED_ROLL,
     SBA_MEGA,
@@ -48,6 +49,14 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
     {
         switch (sp->sba_seq_no)
         {
+        case SBA_RESET_DEFIANT:
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+            }
+            sp->sba_work = 0;
+            sp->sba_seq_no++;
+            break;
         case SBA_FOCUS_PUNCH:
             while (sp->sba_work < client_set_max)
             {

@@ -148,6 +148,23 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             sp->temp_work= STATUS_EFF_UP;
         }
     }
+    
+    // try and handle defiant lol
+    if (GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT
+     && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
+     && statchange < 0
+     && sp->state_client != sp->attack_client // can't raise own stats
+     && sp->state_client != BattleWorkPartnerClientNoGet(sp, sp->attack_client) // can't raise partner's stats
+     && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+     && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+     && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0))
+    {
+        sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
+    }
+    else
+    {
+        sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+    }
 
 
     if (statchange > 0)
@@ -160,6 +177,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
              || (sp->addeffect_type == ADD_EFFECT_ABILITY))
             {
                 IncrementBattleScriptPtr(sp, address2);
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 return FALSE;
             }
             else
@@ -168,6 +186,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 sp->mp.msg_tag = TAG_NICK_STAT;
                 sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                 sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address1);
                 return FALSE;
             }
@@ -295,6 +314,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
                      || (sp->addeffect_type == ADD_EFFECT_ABILITY))
                     {
+                        sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address2);
                         return FALSE;
                     }
@@ -304,6 +324,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                         sp->mp.msg_tag = TAG_NICK_STAT;
                         sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                         sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                        sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address1);
                         return FALSE;
                     }
@@ -324,6 +345,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
                  || (sp->addeffect_type == ADD_EFFECT_ABILITY))
                 {
+                    sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address2);
                     return FALSE;
                 }
@@ -333,22 +355,26 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     sp->mp.msg_tag = TAG_NICK_STAT;
                     sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                     sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                    sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address1);
                     return FALSE;
                 }
             }
             if ((flag == 2) && (sp->addeffect_type == ADD_STATUS_DIRECT))
             {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address3);
                 return FALSE;
             }
             else if ((flag) && (sp->addeffect_type == ADD_EFFECT_INDIRECT))
             {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address2);
                 return FALSE;
             }
             else if (flag)
             {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address1);
                 return FALSE;
             }
