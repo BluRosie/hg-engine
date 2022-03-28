@@ -1404,6 +1404,12 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_BASCULIN_BLUE_STRIPED,
     },
     {
+            .species = SPECIES_BASCULIN,
+            .form_no = 2,
+            .need_rev = 0,
+            .file = SPECIES_BASCULIN_WHITE_STRIPED,
+    },
+    {
             .species = SPECIES_DEERLING,
             .form_no = 1,
             .need_rev = 0,
@@ -1964,6 +1970,18 @@ const struct FormData PokeFormDataTbl[]=
             .file = SPECIES_GASTRODON_EAST_SEA,
     },
     {
+            .species = SPECIES_DIALGA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_DIALGA_ORIGIN,
+    },
+    {
+            .species = SPECIES_PALKIA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_PALKIA_ORIGIN,
+    },
+    {
             .species = SPECIES_DARMANITAN,
             .form_no = 2,
             .need_rev = 1,
@@ -2184,7 +2202,112 @@ const struct FormData PokeFormDataTbl[]=
             .form_no = 1,
             .need_rev = 1,
             .file = SPECIES_ETERNATUS_ETERNAMAX,
-    }
+    },
+    {
+            .species = SPECIES_ENAMORUS,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ENAMORUS_THERIAN,
+    },
+
+    /**hisuian forms**/
+    {
+            .species = SPECIES_GROWLITHE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GROWLITHE_HISUIAN,
+    },
+    {
+            .species = SPECIES_ARCANINE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ARCANINE_HISUIAN,
+    },
+    {
+            .species = SPECIES_VOLTORB,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_VOLTORB_HISUIAN,
+    },
+    {
+            .species = SPECIES_ELECTRODE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ELECTRODE_HISUIAN,
+    },
+    {
+            .species = SPECIES_TYPHLOSION,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_TYPHLOSION_HISUIAN,
+    },
+    {
+            .species = SPECIES_QWILFISH,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_QWILFISH_HISUIAN,
+    },
+    {
+            .species = SPECIES_SNEASEL,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_SNEASEL_HISUIAN,
+    },
+    {
+            .species = SPECIES_SAMUROTT,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_SAMUROTT_HISUIAN,
+    },
+    {
+            .species = SPECIES_LILLIGANT,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_LILLIGANT_HISUIAN,
+    },
+    {
+            .species = SPECIES_ZORUA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ZORUA_HISUIAN,
+    },
+    {
+            .species = SPECIES_ZOROARK,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_ZOROARK_HISUIAN,
+    },
+    {
+            .species = SPECIES_BRAVIARY,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_BRAVIARY_HISUIAN,
+    },
+    {
+            .species = SPECIES_SLIGGOO,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_SLIGGOO_HISUIAN,
+    },
+    {
+            .species = SPECIES_GOODRA,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_GOODRA_HISUIAN,
+    },
+    {
+            .species = SPECIES_AVALUGG,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_AVALUGG_HISUIAN,
+    },
+    {
+            .species = SPECIES_DECIDUEYE,
+            .form_no = 1,
+            .need_rev = 0,
+            .file = SPECIES_DECIDUEYE_HISUIAN,
+    },
+
 };
 
 extern u32 word_to_store_form_at;
