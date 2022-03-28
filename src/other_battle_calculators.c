@@ -63,9 +63,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
     else
     {
-        move_type = sp->aiWorkTable.old_moveTbl[move_no].type;
+        move_type = sp->moveTbl[move_no].type;
     }
-    move_split = sp->aiWorkTable.old_moveTbl[move_no].split;
+    move_split = sp->moveTbl[move_no].split;
 
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
@@ -107,7 +107,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         temp = 12;
     }
 
-    accuracy = sp->aiWorkTable.old_moveTbl[move_no].accuracy;
+    accuracy = sp->moveTbl[move_no].accuracy;
 
     if (accuracy == 0)
     {
@@ -127,7 +127,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
      && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
     {
-        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->aiWorkTable.old_moveTbl[move_no].effect == 152)) // thunder sucks in the sun
+        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->moveTbl[move_no].effect == 152)) // thunder sucks in the sun
         {
             accuracy = 50;
         }
@@ -143,7 +143,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     
     //handle Wonder Skin
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->aiWorkTable.old_moveTbl[move_no].split == SPLIT_STATUS))
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->moveTbl[move_no].split == SPLIT_STATUS))
     {
         accuracy = accuracy * 50 / 100;
     }
@@ -221,7 +221,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
 #ifdef DEBUG
-    *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->aiWorkTable.old_moveTbl[move_no].accuracy;
+    *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->moveTbl[move_no].accuracy;
     *((u32 *)(0x23D8004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
 #endif
 
@@ -533,16 +533,16 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
                 move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
             }
         }
-        priority1 = sp->aiWorkTable.old_moveTbl[move1].priority;
-        priority2 = sp->aiWorkTable.old_moveTbl[move2].priority;
+        priority1 = sp->moveTbl[move1].priority;
+        priority2 = sp->moveTbl[move2].priority;
                 
         // handle prankster
-        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && sp->aiWorkTable.old_moveTbl[move1].split == SPLIT_STATUS)
+        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && sp->moveTbl[move1].split == SPLIT_STATUS)
         {
             priority1++;
         }
         
-        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && sp->aiWorkTable.old_moveTbl[move2].split == SPLIT_STATUS)
+        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && sp->moveTbl[move2].split == SPLIT_STATUS)
         {
             priority2++;
         }
@@ -742,7 +742,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
         }
         else
         {
-            if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].effect == 101)
+            if(sp->moveTbl[sp->current_move_index].effect == 101)
             {
                 //気絶してしまう時は、１残すようにする
                 if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
@@ -791,7 +791,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             {
                 sp->battlemon[sp->defence_client].hit_count++;
             }
-            if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
+            if(sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
             {
                 sp->oneTurnFlag[sp->defence_client].butsuri_otf_damage[sp->attack_client] = sp->damage;
                 sp->oneTurnFlag[sp->defence_client].butsuri_otf_client = sp->attack_client;
@@ -799,7 +799,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->oneSelfFlag[sp->defence_client].physical_damage = sp->damage;
                 sp->oneSelfFlag[sp->defence_client].physical_damager = sp->attack_client;
             }
-            else if(sp->aiWorkTable.old_moveTbl[sp->current_move_index].split == SPLIT_SPECIAL)
+            else if(sp->moveTbl[sp->current_move_index].split == SPLIT_SPECIAL)
             {
                 sp->oneTurnFlag[sp->defence_client].tokusyu_otf_damage[sp->attack_client] = sp->damage;
                 sp->oneTurnFlag[sp->defence_client].tokusyu_otf_client = sp->attack_client;

@@ -16,7 +16,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
     int effect;
     
     IncrementBattleScriptPtr(sp, 1);    
-    effect = sp->aiWorkTable.old_moveTbl[sp->current_move_index].effect;    
+    effect = sp->moveTbl[sp->current_move_index].effect;    
     
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE)
     {
@@ -441,7 +441,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
             && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_NO_GUARD)
             && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
         {
-            hit = sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+            hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
             if(((BattleWorkRandGet(bw) % 100) < hit)
                 && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
             {
@@ -463,7 +463,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
             }
             else
             {
-                hit = sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+                hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
                 if(((BattleWorkRandGet(bw) % 100) < hit)
                     && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
                 {

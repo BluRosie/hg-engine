@@ -99,7 +99,10 @@
 .open "build/a028/8_0", 0x023C8000
 
 .orga (START_ADDRESS + ((NUM_OF_MON_OVERWORLDS + 450) * 6) + NUM_OF_TOTAL_MONS_PLUS_FORMS)
-.align 2
+
+.align 16
+.ascii "AI CHANGES HERE" // interesting.
+.align 16
 
 getmovetarget:
     add r3, sp, #0x18

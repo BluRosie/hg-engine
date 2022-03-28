@@ -1,11 +1,11 @@
 .nds
 .thumb
 
-.include "armips/armips/include/battlescriptcmd.s"
-.include "armips/armips/include/abilities.s"
-.include "armips/armips/include/itemnums.s"
-.include "armips/armips/include/monnums.s"
-.include "armips/armips/include/movenums.s"
+.include "armips/include/battlescriptcmd.s"
+.include "armips/include/abilities.s"
+.include "armips/include/itemnums.s"
+.include "armips/include/monnums.s"
+.include "armips/include/movenums.s"
 
 .create "build/move/battle_sub_seq/1_311", 0
 

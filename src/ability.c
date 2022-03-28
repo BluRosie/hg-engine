@@ -46,7 +46,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
     else
     {
-        movetype=sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+        movetype=sp->moveTbl[sp->current_move_index].type;
     }
 
     // 02252EF4
@@ -62,7 +62,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
     {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].power))
+        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_RECOVERED_HP;
@@ -75,7 +75,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         if ((movetype == TYPE_FIRE)
          && ((sp->battlemon[defender].condition & STATUS_FLAG_FROZEN) == 0) 
          && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) 
-         && ((sp->aiWorkTable.old_moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP)))
+         && ((sp->moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP)))
         {
             scriptnum = SUB_SEQ_HANDLE_FLASH_FIRE;
         }
@@ -111,7 +111,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     {
         if ((movetype == TYPE_WATER)
          && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-         && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].power))
+         && (sp->moveTbl[sp->current_move_index].power))
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_RECOVERED_HP;
@@ -433,7 +433,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                             if (((flag & MOVE_STATUS_FLAG_NOT_EFFECTIVE) == 0)
                                                 && (AnticipateMoveEffectListCheck(sp, movenum) == FALSE) // move effects that deal fixed damage don't activate anticipation--see psywave, dragon rage, etc.
                                                 && ((flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
-                                                    || ((sp->aiWorkTable.old_moveTbl[movenum].effect == 38) // one-hit ko
+                                                    || ((sp->moveTbl[movenum].effect == 38) // one-hit ko
                                                         && (sp->battlemon[client_no].level<=sp->battlemon[num].level))))
                                             {
                                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -483,11 +483,11 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     for(pos = 0; pos < 4; pos++)
                                     {
                                         movenum = sp->battlemon[num].move[pos];
-                                        basepower = sp->aiWorkTable.old_moveTbl[movenum].power;
+                                        basepower = sp->moveTbl[movenum].power;
                                         switch (basepower) // basically handle 1 base power moves
                                         {
                                             case 1:
-                                                switch(sp->aiWorkTable.old_moveTbl[movenum].effect)
+                                                switch(sp->moveTbl[movenum].effect)
                                                 {
                                                     case 38: // one-hit ko
                                                         if ((basepower_temp < 150)
@@ -1001,7 +1001,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
@@ -1020,7 +1020,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 } else if (sp->move_type) {
                     movetype = sp->move_type;
                 } else {
-                    movetype = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+                    movetype = sp->moveTbl[sp->current_move_index].type;
                 }
 
                 if ((sp->battlemon[sp->defence_client].hp)
@@ -1029,7 +1029,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                         (sp->oneSelfFlag[sp->defence_client].special_damage))
                     && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                    && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].power)
+                    && (sp->moveTbl[sp->current_move_index].power)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)) {
                     seq_no[0] = SUB_SEQ_HANDLE_COLOR_CHANGE;
@@ -1047,7 +1047,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 8);
                 sp->client_work = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_ROUGH_SKIN;
@@ -1062,7 +1062,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (BattleRand(bw) % 10 < 3)) {
                 switch (BattleRand(bw) % 3) {
                     case 0:
@@ -1090,7 +1090,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
@@ -1107,7 +1107,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
@@ -1124,7 +1124,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (sp->battlemon[sp->defence_client].hp)
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
@@ -1141,7 +1141,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && (sp->battlemon[sp->attack_client].hp)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 4);
                 sp->client_work = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_AFTERMATH;
@@ -1178,7 +1178,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 } else if (sp->move_type) {
                     movetype = sp->move_type;
                 } else {
-                    movetype = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+                    movetype = sp->moveTbl[sp->current_move_index].type;
                 }
                                 
                 if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG)) 
@@ -1215,7 +1215,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
@@ -1231,7 +1231,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (MummyAbilityCheck(sp) == TRUE)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
@@ -1259,7 +1259,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 } else if (sp->move_type) {
                     movetype = sp->move_type;
                 } else {
-                    movetype = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+                    movetype = sp->moveTbl[sp->current_move_index].type;
                 }
 
                 if(movetype == TYPE_WATER)
@@ -1301,7 +1301,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 } else if (sp->move_type) {
                     movetype = sp->move_type;
                 } else {
-                    movetype = sp->aiWorkTable.old_moveTbl[sp->current_move_index].type;
+                    movetype = sp->moveTbl[sp->current_move_index].type;
                 }
                                 
                 if (movetype == TYPE_DARK) 
@@ -1375,7 +1375,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->aiWorkTable.old_moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
                 && (BattleRand(bw) % 10 < 3))
             {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
