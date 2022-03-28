@@ -7,3 +7,6 @@ START_ADDRESS equ 0x0
 
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type has been implemented as type 9 or not.  it will be replaced with TYPE_NORMAL if the following is 0, 1 if the fairy type has been implemented
 FAIRY_TYPE_IMPLEMENTED equ 0
+
+// DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
+DEBUG_NEEDS_TESTING equ 0

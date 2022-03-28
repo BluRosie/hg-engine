@@ -92,3 +92,7 @@ arm9 MakeTrainerPokemonParty 08073604 3
 0012 CT_SwitchInMessageParamMake_hook 08029BA8 5
 #022615F0+4
 0012 CT_EncountSendOutMessageParamMake_hook 08029D34 5
+
+#move expansion
+#0225839A - edits to ST_ServerAddStatusParamSet to be better
+0012 remap_move_effect_to_subscript_table 08020ADA 0

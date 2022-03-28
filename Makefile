@@ -91,8 +91,8 @@ all: $(OUTPUT)
 	mkdir -p build/pokemonicon
 	mkdir -p build/a018
 	mkdir -p build/text
-	mkdir -p build/move
-	mkdir -p build/move/move_seq
+	mkdir -p build/move build/a011
+	mkdir -p build/move/battle_sub_seq build/move/battle_eff_seq build/move/battle_move_seq build/move/move_anim build/move/move_sub_anim
 	mkdir -p build/move/move_anim
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
@@ -182,6 +182,10 @@ move_narc:
 	cp -r rawdata/battle_sprite/. build/a007
 	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/7 build/a007/ -nf
 	rm -rf build/a007/
+	
+	@echo "move data:"
+	$(ARMIPS) armips/data/moves.s
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/1 build/a011/ -nf
 
 	@echo "move particles:"
 	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/9 -o build/a029/ -nf
@@ -190,16 +194,19 @@ move_narc:
 	rm -rf build/a029/
 
 	@echo "move animations:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/1/0 -o build/a010/ -nf
-	cp -r build/move/move_anim/. build/a010
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/0 build/a010/ -nf
-	#rm -rf build/a010/
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/0 build/move/move_anim -nf
 
-	@echo "move subeffects:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/0/1 -o build/a001/ -nf
-	cp -r build/move/move_seq/. build/a001
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/1 build/a001/ -nf
-	rm -rf build/a001/
+	@echo "move sub animations:"
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/6/1 build/move/move_sub_anim -nf
+
+	@echo "battle move scripts:"
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/0 build/move/battle_move_seq -nf
+
+	@echo "battle effect scripts:"
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/3/0 build/move/battle_eff_seq -nf
+
+	@echo "battle sub effects:"
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/1 build/move/battle_sub_seq -nf
 
 	@echo "item gfx:"
 	$(PYTHON) $(NARCHIVE) extract base/root/a/0/1/8 -o build/a018/ -nf
@@ -213,6 +220,7 @@ move_narc:
 
 	@echo "text data:"
 	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/7 -o build/text/ -nf
+	$(MSGENC) -e -c charmap.txt data/text/003.txt build/text/7_003
 	$(MSGENC) -e -c charmap.txt data/text/197.txt build/text/7_197
 	$(MSGENC) -e -c charmap.txt data/text/221.txt build/text/7_221
 	$(MSGENC) -e -c charmap.txt data/text/222.txt build/text/7_222
@@ -221,6 +229,9 @@ move_narc:
 	$(MSGENC) -e -c charmap.txt data/text/720.txt build/text/7_720
 	$(MSGENC) -e -c charmap.txt data/text/721.txt build/text/7_721
 	$(MSGENC) -e -c charmap.txt data/text/722.txt build/text/7_722
+	$(MSGENC) -e -c charmap.txt data/text/749.txt build/text/7_749
+	$(MSGENC) -e -c charmap.txt data/text/750.txt build/text/7_750
+	$(MSGENC) -e -c charmap.txt data/text/751.txt build/text/7_751
 	$(MSGENC) -e -c charmap.txt data/text/803.txt build/text/7_803
 	$(MSGENC) -e -c charmap.txt data/text/811.txt build/text/7_811
 	$(MSGENC) -e -c charmap.txt data/text/812.txt build/text/7_812

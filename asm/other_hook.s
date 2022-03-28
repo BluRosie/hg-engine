@@ -266,3 +266,13 @@ bx r3
 
 space_for_setmondata:
 .word 0
+
+
+// need to expand the table that remaps "move effects" to subscripts
+// r4 is effect to grab, r0 and r1 are free, needs to pop {r4, pc} at the end
+.global remap_move_effect_to_subscript_table
+remap_move_effect_to_subscript_table:
+ldr r0, =move_effect_to_subscripts
+lsl r1, r4, #2
+ldr r0, [r0, r1]
+pop {r4, pc}

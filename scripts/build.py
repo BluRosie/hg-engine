@@ -118,7 +118,7 @@ def build_icon():
 
 def build_anim_script():
     DIR = "armips/move/move_anim/"
-    BUILD = "build/move/move_anim/"
+    BUILD = "build/move/move_anim/0_"
 
     get_dir = os.listdir(DIR)
     if len(get_dir) == 0:
@@ -129,12 +129,12 @@ def build_anim_script():
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
             continue
         cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
-        print("script "+i)
+        print("battle anim script "+i)
         RunCommand(cmd)
 
-def build_seq_script():
-    DIR = "armips/move/battle_sub_seq/"
-    BUILD = "build/move/battle_sub_seq/"
+def build_anim_sub_script():
+    DIR = "armips/move/move_sub_anim/"
+    BUILD = "build/move/move_sub_anim/1_"
 
     get_dir = os.listdir(DIR)
     if len(get_dir) == 0:
@@ -145,7 +145,55 @@ def build_seq_script():
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
             continue
         cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
-        print("script "+i)
+        print("anim sub script "+i)
+        RunCommand(cmd)
+    
+def build_battle_sub_seq_script():
+    DIR = "armips/move/battle_sub_seq/"
+    BUILD = "build/move/battle_sub_seq/1_"
+
+    get_dir = os.listdir(DIR)
+    if len(get_dir) == 0:
+        return
+
+    for i in get_dir:
+        OBJ = BUILD + i.replace(".s","")
+        if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
+            continue
+        cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
+        print("battle sub script "+i)
+        RunCommand(cmd)
+    
+def build_battle_move_seq_script():
+    DIR = "armips/move/battle_move_seq/"
+    BUILD = "build/move/battle_move_seq/0_"
+
+    get_dir = os.listdir(DIR)
+    if len(get_dir) == 0:
+        return
+
+    for i in get_dir:
+        OBJ = BUILD + i.replace(".s","")
+        if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
+            continue
+        cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
+        print("battle move script "+i)
+        RunCommand(cmd)
+    
+def build_battle_eff_seq_script():
+    DIR = "armips/move/battle_eff_seq/"
+    BUILD = "build/move/battle_eff_seq/0_"
+
+    get_dir = os.listdir(DIR)
+    if len(get_dir) == 0:
+        return
+
+    for i in get_dir:
+        OBJ = BUILD + i.replace(".s","")
+        if os.path.isfile(OBJ) and os.path.getmtime(DIR + i) < os.path.getmtime(OBJ):
+            continue
+        cmd = ["tools/armips" + EXE_SUFFIX] + [DIR + i]
+        print("battle eff script "+i)
         RunCommand(cmd)
     
 def build_item_sprite():
@@ -218,6 +266,9 @@ if __name__ == '__main__':
     build_sprite()
     build_icon()
     build_anim_script()
-    build_seq_script()
+    build_anim_sub_script()
+    build_battle_eff_seq_script()
+    build_battle_move_seq_script()
+    build_battle_sub_seq_script()
     build_item_sprite()
     build_ow()
