@@ -14,4 +14,7 @@
 #define SERVER_WAZA_SEQUENCE_NO 22
 #define SERVER_WAZA_OUT_AFTER_MESSAGE_NO 29
 
+//heap IDs
+#define HEAPID_WORLD 11
+
 #endif

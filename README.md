@@ -89,6 +89,7 @@
 5. In Terminal/WSL, type `make`.
 6. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
    * It is important to note that this alone will not add new pokemon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.
+   * You can edit various game data such as trainers, dex entries, pokemon stats, and more in the files in `armips/data`
 
 # Credits
 * [CREDITS.md](CREDITS.md).

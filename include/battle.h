@@ -182,7 +182,7 @@
 #define	SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 #define	SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
-#define SERVER_STATUS_FLAG_STAT_CHANGE (0x00020000)
+#define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
 // server status2 flags
@@ -344,6 +344,9 @@
 #define	CONDITION2_SUBSTITUTE		(0x01000000)
 #define	CONDITION2_SUBSTITUTE_OFF		(0x01000000^0xffffffff)
 
+#define	SWOAM_NORMAL	(0)
+#define	SWOAM_LOOP		(1)
+
 
 // (possibly) implement challenge/ easy modes
 #define NORMAL_MODE (0)
@@ -438,7 +441,8 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 trickroom_flag : 1;    ///<トリックルーム発動
     u32 item_koraeru_flag : 1; ///<こらえるフラグ（装備道具効果）
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
-    u32 : 23;                  ///<ステータス上昇下降エフェクトを発動
+    u32 defiant_flag : 1; // set (hypothetically) when defiant needs to activate
+    u32 : 22;                  ///<ステータス上昇下降エフェクトを発動
 
     int physical_damage;   ///0x4 存在物理伤害量
     int physical_damager;   ///0x8 <物理攻撃したクライアント
@@ -555,7 +559,8 @@ struct __attribute__((packed)) BattlePokemon
     u32 dark_aura_flag : 1;
     u32 fairy_aura_flag : 1;
     u32 aura_break_flag : 1;
-    u32 : 16;                    //2ch
+    u32 sheer_force_flag : 1;
+    u32 : 15;                    //2ch
 
     u8 pp[4];
     u8 pp_count[4];
@@ -1069,7 +1074,7 @@ struct __attribute__((packed)) ILLUSION_STRUCT
 {
     u8 isSideInIllusion[2];
     u8 illusionPos[2];
-    u16 illusionNameBuf[2][11];
+    u16 illusionNameBuf[2][12];
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
@@ -1171,6 +1176,7 @@ int __attribute__((long_call)) HeldItemAtkGet(void *sp, int client_no, int flag)
 u32 __attribute__((long_call)) IsMovingAfterClient(void *sp, int client_no);
 u32 __attribute__((long_call)) CheckSubstitute(struct BattleStruct *sp, int client_no);
 u32 __attribute__((long_call)) gf_get_seed(void);
+//u16 __attribute__((long_call)) gf_p_rand(const u16 denominator);
 void __attribute__((long_call)) PokeParty_Init(struct POKEPARTY *party, int max);
 void __attribute__((long_call)) TT_TrainerPokeDataGet(int tr_id, void *tpd);
 u8 __attribute__((long_call)) TT_TrainerTypeSexGet(int trtype);
@@ -1200,6 +1206,7 @@ void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
 int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp);
+void __attribute__((long_call)) JumpToMoveEffectScript(void *sp, int archive, int effect);
 
 
 
@@ -1214,9 +1221,9 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 
-
 // defined in ability.c
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 

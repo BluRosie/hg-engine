@@ -199,3 +199,80 @@ bx r0
 backToThief_1:
 ldr r0, =0x9A86 + Overlay_12_Start
 bx r0
+
+.pool
+
+
+// 02247A18
+// edits to the beginning of EncountParamSet to extract species + form
+// r0 is species | (form << 10)
+// treating r4-r7 as free since this function is only called at the end of other ones
+.global get_form_out_of_encounter_species
+get_form_out_of_encounter_species:
+// ldr r4, =0xFC00
+mov r4, #0xFC
+lsl r4, #8
+and r4, r0
+lsr r4, #10
+ldr r5, =space_for_setmondata
+str r4, [r5]
+
+// ldr r4, =0x03FF
+mov r4, #3
+lsl r4, #8
+add r4, #0xFF
+and r0, r4 // make r0 solely the species
+
+// reset the function up
+push {r3-r7, lr}
+sub sp, #0x20
+str r0, [sp, #0xC]
+ldr r0, [sp, #0x3C]
+ldr r4, =0x02247A20 | 1
+bx r4
+
+
+// 02247B42 - end of above function
+// r4 is param
+// need to set form
+.global modify_species_encounter_data
+modify_species_encounter_data:
+bl call_setmondata // set the id number
+mov r0, r4 // pp
+mov r1, #112 // ID_PARA_form_no
+ldr r2, =space_for_setmondata // &form
+bl call_setmondata
+
+// hopefully with form set, this grabs everything correctly
+mov r0, r4
+ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+bl call_via_r3
+mov r0, r4
+ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+bl call_via_r3
+
+ldr r0, [sp, #0x14]
+ldr r3, [sp, #0x40]
+mov r1, r7
+ldr r5, =0x02247B4C | 1
+bx r5
+
+call_setmondata:
+ldr r3, =0x0206EC40 | 1
+call_via_r3:
+bx r3
+
+.pool
+
+space_for_setmondata:
+.word 0
+
+
+// need to expand the table that remaps "move effects" to subscripts
+// r4 is effect to grab, r0 and r1 are free, needs to pop {r4, pc} at the end
+.global remap_move_effect_to_subscript_table
+remap_move_effect_to_subscript_table:
+ldr r0, =move_effect_to_subscripts
+lsl r1, r4, #2
+ldr r0, [r0, r1]
+pop {r4, pc}

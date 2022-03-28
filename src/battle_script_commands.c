@@ -11,6 +11,79 @@
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
 
+BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
+{
+    int effect;
+    
+    IncrementBattleScriptPtr(sp, 1);    
+    effect = sp->moveTbl[sp->current_move_index].effect;    
+    
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE)
+    {
+        // list taken from bulbapedia article on sheer force and the moves affected.
+        switch (effect)
+        {
+            case MOVE_EFFECT_FLINCH_HIT:
+            case MOVE_EFFECT_RAISE_ALL_STATS_HIT:
+            case MOVE_EFFECT_BLIZZARD:
+            case MOVE_EFFECT_PARALYZE_HIT:
+            case MOVE_EFFECT_LOWER_SPEED_HIT:
+            case MOVE_EFFECT_RAISE_SP_ATK_HIT:
+            case MOVE_EFFECT_CONFUSE_HIT:
+            case MOVE_EFFECT_LOWER_DEFENSE_HIT:
+            case MOVE_EFFECT_LOWER_SP_DEF_HIT:
+            case MOVE_EFFECT_BURN_HIT:
+            case MOVE_EFFECT_FLINCH_BURN_HIT:
+            case MOVE_EFFECT_RAISE_SPEED_HIT:
+            case MOVE_EFFECT_POISON_HIT:
+            case MOVE_EFFECT_FREEZE_HIT:
+            case MOVE_EFFECT_FLINCH_FREEZE_HIT:
+            case MOVE_EFFECT_RAISE_ATTACK_HIT:
+            case MOVE_EFFECT_LOWER_ACCURACY_HIT:
+            case MOVE_EFFECT_FLINCH_POISON_HIT:
+            //case MOVE_EFFECT_SECRET_POWER: // need a different way of doing this i think
+            case MOVE_EFFECT_LOWER_SP_ATK_HIT:
+            case MOVE_EFFECT_THUNDER:
+            case MOVE_EFFECT_FLINCH_PARALYZE_HIT:
+            case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE: // removes the double damage flying too
+            case MOVE_EFFECT_LOWER_SP_DEF_2_HIT:
+            case MOVE_EFFECT_LOWER_ATTACK_HIT:
+            //case MOVE_EFFECT_THAW_AND_BURN_HIT: // would not thaw otherwise
+            case MOVE_EFFECT_CHATTER: // confuse chance based on volume of cry
+            case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
+            case MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT:
+                effect = MOVE_EFFECT_HIT;
+                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                break;
+
+            case MOVE_EFFECT_POISON_MULTI_HIT: // twineedle
+                effect = MOVE_EFFECT_MULTI_HIT;
+                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                break;
+
+            case MOVE_EFFECT_HIGH_CRITICAL_BURN_HIT: // blaze kick
+            case MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT: // cross poison
+                effect = MOVE_EFFECT_HIGH_CRITICAL;
+                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                break;
+
+            case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
+            case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
+                effect = MOVE_EFFECT_RECOIL_HIT;
+                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                break;
+
+            default:
+                sp->battlemon[sp->attack_client].sheer_force_flag = 0;
+                break;
+        }
+    }
+    
+    JumpToMoveEffectScript(sp, 30, effect);
+    
+    return FALSE;
+};
+
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     int address1;
@@ -29,7 +102,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     flag = 0;
 
-    sp->server_status_flag &= !(SERVER_STATUS_FLAG_STAT_CHANGE);
+    sp->server_status_flag &= ~(SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE);
 
         //2 steps down
     if (sp->addeffect_param >= ADD_STATE_ATTACK_DOWN_2)
@@ -75,18 +148,37 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             sp->temp_work= STATUS_EFF_UP;
         }
     }
+    
+    // try and handle defiant lol
+    if (GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT
+     && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
+     && statchange < 0
+     && sp->state_client != sp->attack_client // can't raise own stats
+     && sp->state_client != BattleWorkPartnerClientNoGet(sp, sp->attack_client) // can't raise partner's stats
+     && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+     && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+     && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0))
+    {
+        sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
+    }
+    else
+    {
+        sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+    }
 
 
     if (statchange > 0)
     {
         if (battlemon->states[STAT_ATTACK + stattochange] == 12)
         {
-            sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
+            sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
             
             if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
              || (sp->addeffect_type == ADD_EFFECT_ABILITY))
             {
                 IncrementBattleScriptPtr(sp, address2);
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+                return FALSE;
             }
             else
             {
@@ -94,7 +186,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 sp->mp.msg_tag = TAG_NICK_STAT;
                 sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                 sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address1);
+                return FALSE;
             }
         }
         else
@@ -189,7 +283,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     flag = 1;
                 }
                 else if (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
-                       && ((STAT_ATTACK + stattochange)==STAT_ACCURACY))
+                       && ((STAT_ATTACK + stattochange) == STAT_ACCURACY))
                       || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_HYPER_CUTTER) == TRUE)
                        && ((STAT_ATTACK + stattochange) == STAT_ATTACK))
                        || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_BIG_PECKS) == TRUE)
@@ -216,10 +310,11 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else if (battlemon->states[STAT_ATTACK + stattochange] == 0)
                 {
-                    sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
+                    sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
                     if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
                      || (sp->addeffect_type == ADD_EFFECT_ABILITY))
                     {
+                        sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address2);
                         return FALSE;
                     }
@@ -229,6 +324,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                         sp->mp.msg_tag = TAG_NICK_STAT;
                         sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                         sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                        sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address1);
                         return FALSE;
                     }
@@ -245,10 +341,11 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             }
             else if (battlemon->states[STAT_ATTACK + stattochange] == 0)
             {
-                sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE;
+                sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
                 if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
                  || (sp->addeffect_type == ADD_EFFECT_ABILITY))
                 {
+                    sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address2);
                     return FALSE;
                 }
@@ -258,22 +355,26 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     sp->mp.msg_tag = TAG_NICK_STAT;
                     sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                     sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                    sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address1);
                     return FALSE;
                 }
             }
             if ((flag == 2) && (sp->addeffect_type == ADD_STATUS_DIRECT))
             {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address3);
                 return FALSE;
             }
             else if ((flag) && (sp->addeffect_type == ADD_EFFECT_INDIRECT))
             {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address2);
                 return FALSE;
             }
             else if (flag)
             {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address1);
                 return FALSE;
             }
@@ -320,19 +421,17 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         }
     }
 
-    return	FALSE;
+    return 0;
 }
 
 
-BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 {
     u16	hit;
     IncrementBattleScriptPtr(sp,1);
 
-    //通常の命中率計算をしないようにする
     sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
 
-    //特性がんじょうは、一撃必殺できない
     if(MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE)
     {
         sp->waza_status_flag |= WAZA_STATUS_FLAG_GANZYOU_NOHIT;
@@ -342,7 +441,7 @@ BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
             && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_NO_GUARD)
             && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
         {
-            hit = sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+            hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
             if(((BattleWorkRandGet(bw) % 100) < hit)
                 && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
             {
@@ -362,10 +461,11 @@ BOOL btl_scr_cmd_54_singlestrike(void *bw, struct BattleStruct *sp)
             {
                 hit = 1;
             }
-            else{
-                hit=sp->aiWorkTable.old_moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
+            else
+            {
+                hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
                 if(((BattleWorkRandGet(bw) % 100) < hit)
-                    &&(sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+                    && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
                 {
                     hit = 1;
                 }

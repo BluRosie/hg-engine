@@ -970,6 +970,14 @@ gIconPalTable:
 /* SPECIES_GLASTRIER       */ .byte  0x1
 /* SPECIES_SPECTRIER       */ .byte  0x1
 /* SPECIES_CALYREX         */ .byte  0x1
+/* SPECIES_WYRDEER         */ .byte  0x1
+/* SPECIES_KLEAVOR         */ .byte  0x1
+/* SPECIES_URSALUNA        */ .byte  0x1
+/* SPECIES_BASCULEGION     */ .byte  0x1
+/* SPECIES_SNEASLER        */ .byte  0x1
+/* SPECIES_OVERQWIL        */ .byte  0x1
+/* SPECIES_ENAMORUS        */ .byte  0x1
+
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
 /* SPECIES_MEGA_CHARIZARD_Y*/ .byte  0x0
@@ -1077,7 +1085,10 @@ gIconPalTable:
 /* SPECIES_CHERRIM_SUNSHINE            */ .byte  0x1
 /* SPECIES_SHELLOS_EAST_SEA            */ .byte  0x1
 /* SPECIES_GASTRODON_EAST_SEA          */ .byte  0x1
+/* SPECIES_DIALGA_ORIGIN               */ .byte  0x1
+/* SPECIES_PALKIA_ORIGIN               */ .byte  0x1
 /* SPECIES_BASCULIN_BLUE_STRIPED       */ .byte  0x1
+/* SPECIES_BASCULIN_WHITE_STRIPED      */ .byte  0x1
 /* SPECIES_DARMANITAN_ZEN_MODE         */ .byte  0x0
 /* SPECIES_DARMANITAN_ZEN_MODE_GALARIAN*/ .byte  0x1
 /* SPECIES_DEERLING_SUMMER             */ .byte  0x1
@@ -1202,6 +1213,22 @@ gIconPalTable:
 /* SPECIES_ZARUDE_DADA                 */ .byte  0x1
 /* SPECIES_CALYREX_ICE_RIDER           */ .byte  0x1
 /* SPECIES_CALYREX_SHADOW_RIDER        */ .byte  0x1
+/* SPECIES_ENAMORUS_THERIAN            */ .byte  0x1
+/* SPECIES_GROWLITHE_HISUIAN           */ .byte  0x1
+/* SPECIES_ARCANINE_HISUIAN            */ .byte  0x1
+/* SPECIES_VOLTORB_HISUIAN             */ .byte  0x1
+/* SPECIES_ELECTRODE_HISUIAN           */ .byte  0x1
+/* SPECIES_TYPHLOSION_HISUIAN          */ .byte  0x1
+/* SPECIES_QWILFISH_HISUIAN            */ .byte  0x1
+/* SPECIES_SNEASEL_HISUIAN             */ .byte  0x1
+/* SPECIES_SAMUROTT_HISUIAN            */ .byte  0x1
+/* SPECIES_LILLIGANT_HISUIAN           */ .byte  0x1
+/* SPECIES_ZORUA_HISUIAN               */ .byte  0x1
+/* SPECIES_ZOROARK_HISUIAN             */ .byte  0x1
+/* SPECIES_BRAVIARY_HISUIAN            */ .byte  0x1
+/* SPECIES_GOODRA_HISUIAN              */ .byte  0x1
+/* SPECIES_AVALUGG_HISUIAN             */ .byte  0x1
+/* SPECIES_DECIDUEYE_HISUIAN           */ .byte  0x1
 
 
 .endarea

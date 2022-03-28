@@ -7,7 +7,7 @@ Bubble791 - strong basis for where this came from
 
 Contributors to MrDollSteak's DS-Style 64x64 Pokemon Sprite Resource - Mega Sprite placeholders
 
-Gnomowladny, Krune, Prodigal96 on DeviantArt - Mega Sprites
+Gnomowladny, Krune, Prodigal96, zerudez, leparagon, diegotoon20, gardow, greyenna, conyjams, kingofthe-x-roads on DeviantArt, and MaMe, maple - Mega Sprites
 
 goodri63 - GenIVSpriteReplacer (which is gengfxdata, png2ncgr, gengfxicons, ncgr2png, and gengfxnarc)
 
@@ -21,7 +21,9 @@ Kingcom - armips
 
 loadingNOW - thenewpoketext
 
-Mikelan98 and Nomura - synthetic overlay approach and graphics compilation
+MaMe and maple - a lot of mega sprites touched up
+
+Mikelan98 and Nomura - synthetic overlay approach and initial graphics compilation
 
 nickworonekin - narchive
 
