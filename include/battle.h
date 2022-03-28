@@ -810,18 +810,18 @@ struct __attribute__((packed)) BattleStruct
     /*0x216C*/ u32 waza_status_flag;
 
     /*0x2170*/ u32 add_status_flag_direct;
-    u32 add_status_flag_indirect;
-    u32 add_status_flag_tokusei;
-    u8 renzoku_count;
-    u8 renzoku_count_temp;
-    u8 client_loop;
-    u8 hukurodataki_count;
+    /*0x2174*/ u32 add_status_flag_indirect;
+    /*0x2178*/ u32 add_status_flag_tokusei;
+    /*0x217C*/ u8 renzoku_count;
+    /*0x217D*/ u8 renzoku_count_temp;
+    /*0x217E*/ u8 client_loop;
+    /*0x217F*/ u8 hukurodataki_count;
 
-    u32 loop_flag;
-    u32 waza_out_check_on_off;
-    u32 loop_hit_check;
+    /*0x2180*/ u32 loop_flag;
+    /*0x2184*/ u32 waza_out_check_on_off;
+    /*0x2188*/ u32 loop_hit_check;
 
-    u32 condition2_off_req[CLIENT_MAX];
+    /*0x218C*/ u32 condition2_off_req[CLIENT_MAX];
     /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];
     /*0x21A0*/ u8 reshuffle_sel_mons_no[CLIENT_MAX];
     /*0x21A4*/ u8 ai_reshuffle_sel_mons_no[CLIENT_MAX];
@@ -841,14 +841,14 @@ struct __attribute__((packed)) BattleStruct
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
     
     /*0x305C*/ u16 waza_no_mamoru[CLIENT_MAX];
-    /*0x    */ u16 waza_no_hit[CLIENT_MAX];
-    /*0x    */ u16 waza_no_hit_client[CLIENT_MAX];
-    /*0x    */ u16 waza_no_hit_type[CLIENT_MAX];
-    /*0x    */ u16 waza_no_old[CLIENT_MAX];
-    /*0x    */ u16 waza_no_oumu[CLIENT_MAX];
-    /*0x    */ u16 waza_no_oumu_hit[CLIENT_MAX][CLIENT_MAX];
-    /*0x    */ u16 waza_no_sketch[CLIENT_MAX];
-    /*0x    */ u16 waza_no_select[CLIENT_MAX];
+    /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];
+    /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];
+    /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];
+    /*0x307C*/ u16 waza_no_old[CLIENT_MAX];
+    /*0x3084*/ u16 waza_no_oumu[CLIENT_MAX];
+    /*0x308C*/ u16 waza_no_oumu_hit[CLIENT_MAX][CLIENT_MAX];
+    /*0x30AC*/ u16 waza_no_sketch[CLIENT_MAX];
+    /*0x30B4*/ u16 waza_no_select[CLIENT_MAX];
     
     /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
     /*0x30C4*/ //u8 unk_bytes_4[0x44];
@@ -879,7 +879,14 @@ struct __attribute__((packed)) BattleStruct
     /*0x3122*/ s16 hp_temp;
 
     /*0x3124*/ u16 recycle_item[CLIENT_MAX];
-    /*0x312C*/ u8 unk4[0x52];
+    /*0x312C*/ u8 list_row[4][6];
+    /*0x3144*/ int jingle_flag;
+    /*0x3148*/ int server_queue_time_out;
+    /*0x314C*/ u8 rec_select_flag[4];
+    /*0x3150*/ int client_working_count;
+    /*0x3154*/ u32 battle_progress_flag : 1;
+               u32 : 31;
+    /*0x3158*/ u8 padding_3158[0x26]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
     /*...*/
 };

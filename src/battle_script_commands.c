@@ -11,6 +11,45 @@
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
 
+
+BOOL btl_scr_cmd_E1_test_new_cmd(void *bw, struct BattleStruct *sp);
+
+
+typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
+#define START_OF_NEW_BTL_SCR_CMDS 0xE1
+extern const btl_scr_cmd_func BattleScriptCmdTable[];
+
+const btl_scr_cmd_func NewBattleScriptCmdTable[] =
+{
+    [0xE1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E1_test_new_cmd,
+};
+
+BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
+{
+    BOOL ret;
+    u32 command;
+
+    do {
+        command = sp->SkillSeqWork[sp->skill_seq_no];
+
+        if (command < START_OF_NEW_BTL_SCR_CMDS)
+        {
+            ret = BattleScriptCmdTable[command](bw, sp);
+        }
+        else
+        {
+            ret = NewBattleScriptCmdTable[command - START_OF_NEW_BTL_SCR_CMDS](bw, sp);
+        }
+
+    } while ((sp->battle_progress_flag == 0) && ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0));
+
+    sp->battle_progress_flag = 0;
+
+    return ret;
+}
+
+
+
 BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
 {
     int effect;
@@ -427,7 +466,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 {
-    u16	hit;
+    u16 hit;
     IncrementBattleScriptPtr(sp,1);
 
     sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
@@ -500,11 +539,11 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 
 BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
 {
-    int	side;
-    int	client_no;
-    int	eqp;
-    int	atk;
-    int	flag = 0;
+    int side;
+    int client_no;
+    int eqp;
+    int atk;
+    int flag = 0;
 
     //命令コード分を読み飛ばし
     IncrementBattleScriptPtr(sp,1);
@@ -541,6 +580,18 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
         }
     }
 
+    return FALSE;
+}
+
+
+// NEW BATTLE SCRIPT COMMANDS
+
+BOOL btl_scr_cmd_E1_test_new_cmd(void *bw, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+    
+    sp->battlemon[sp->attack_client].hp = 999;
+    
     return FALSE;
 }
 

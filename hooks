@@ -96,3 +96,7 @@ arm9 MakeTrainerPokemonParty 08073604 3
 #move expansion
 #0225839A - edits to ST_ServerAddStatusParamSet to be better
 0012 remap_move_effect_to_subscript_table 08020ADA 0
+
+#battle script command expansion
+#0223CF68 - edits to the battle script command handler
+0012 BattleScriptCommandHandler 080056A8 2

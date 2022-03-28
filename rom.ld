@@ -223,3 +223,6 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 /*Overworld Code*/
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
+
+/*first E0 battle script commands*/
+BattleScriptCmdTable = 0x0226C6C8;
