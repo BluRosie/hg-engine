@@ -12,17 +12,21 @@
 #include "../include/constants/weather_numbers.h"
 
 
-BOOL btl_scr_cmd_E1_test_new_cmd(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp);
 
 
 typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
 #define START_OF_NEW_BTL_SCR_CMDS 0xE1
 extern const btl_scr_cmd_func BattleScriptCmdTable[];
 
+
+
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
-    [0xE1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E1_test_new_cmd,
+    [0xE1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E1_reduceweight,
 };
+
+
 
 BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 {
@@ -537,6 +541,68 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 }
 
 
+const u16 sLowKickWeightToPower[][2] = 
+{
+    {   100,     20}, //   0- 10 kg ->  20 bp
+    {   250,     40}, //  10- 25 kg ->  40 bp
+    {   500,     60}, //  25- 50 kg ->  60 bp
+    {  1000,     80}, //  50-100 kg ->  80 bp
+    {  2000,    100}, // 100-200 kg -> 100 bp
+    {0xFFFF, 0xFFFF},
+};
+
+s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client)
+{
+    s32 weight;
+    
+    weight = sp->battlemon[client].weight;
+    
+    if (GetBattlerAbility(sp, client) == ABILITY_HEAVY_METAL)
+    {
+        weight *= 2;
+    }
+    else if (GetBattlerAbility(sp, client) == ABILITY_LIGHT_METAL)
+    {
+        weight /= 2;
+    }
+    
+    return weight;
+}
+
+// also handles grass knot
+BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp)
+{
+    int i;
+    int weight;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    i = 0;
+
+    weight = GetPokemonWeight(bw, sp, sp->defence_client);
+
+    while (sLowKickWeightToPower[i][0] != 0xFFFF)
+    {
+        if (sLowKickWeightToPower[i][0] >= weight)
+        {
+            break;
+        }
+        i++;
+    }
+
+    if (sLowKickWeightToPower[i][0] != 0xFFFF)
+    {
+        sp->damage_power = sLowKickWeightToPower[i][1];
+    }
+    else
+    {
+        sp->damage_power = 120;
+    }
+
+    return FALSE;
+}
+
+
 BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
 {
     int side;
@@ -586,12 +652,18 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
 
 // NEW BATTLE SCRIPT COMMANDS
 
-BOOL btl_scr_cmd_E1_test_new_cmd(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp)
 {
+    s32 delta;
+    
     IncrementBattleScriptPtr(sp, 1);
-    
-    sp->battlemon[sp->attack_client].hp = 999;
-    
+
+    delta = read_battle_script_param(sp);
+    if (delta >= sp->battlemon[sp->attack_client].weight)
+        sp->battlemon[sp->attack_client].weight = 1;
+    else
+        sp->battlemon[sp->attack_client].weight -= delta;
+
     return FALSE;
 }
 

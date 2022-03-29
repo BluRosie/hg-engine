@@ -22,6 +22,7 @@ a001_306:
     gotosubscript 12
     changevar VAR_OP_CLEARMASK, VAR_60, 0x2
     changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    reduceweight 1000 // weight reduced by 100.0 kg
     endscript
 NoStatusEffect:
     printattackmessage
