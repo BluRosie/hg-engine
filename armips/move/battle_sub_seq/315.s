@@ -8,7 +8,7 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
-SoakMsg equ 1282
+SoakMsg equ 1330
 
 .create "build/move/battle_sub_seq/1_315", 0
 
