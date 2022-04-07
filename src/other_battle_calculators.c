@@ -37,7 +37,7 @@ const AccuracyStatChangeRatio sAccStatChanges[] =
 };
 
 
-// return FALSE if a hit, set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
+// set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
     u16 accuracy;
@@ -50,6 +50,15 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
     {
+        return FALSE;
+    }
+
+    // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
+    if ((attacker & 1) == (defender & 1) // attacker and defender are on the same side
+     && GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
+     && sp->moveTbl[move_no].power != 0) // move actually damages
+    {
+        sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         return FALSE;
     }
 
