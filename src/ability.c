@@ -979,7 +979,7 @@ BOOL MummyAbilityCheck(struct BattleStruct *sp)
 
 u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
 {
-    u8 stats[] = {
+    u16 stats[] = {
             sp->battlemon[sp->attack_client].attack,
             sp->battlemon[sp->attack_client].defense,
             sp->battlemon[sp->attack_client].speed,
@@ -997,8 +997,116 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
     return max;
 }
 
+
+BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
+    BOOL ret = FALSE;
+
+    if (sp->defence_client == 0xFF) {
+        return ret;
+    }
+
+    switch (GetBattlerAbility(sp, sp->attack_client))
+    {
+        case ABILITY_POISON_TOUCH:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].condition == 0)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage))
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (CheckSubstitute(sp, sp->defence_client) == TRUE)
+                && (BattleRand(bw) % 10 < 3))
+            {
+                sp->addeffect_type = ADD_STATUS_ABILITY;
+                sp->state_client = sp->defence_client;
+                sp->client_work = sp->attack_client;
+                seq_no[0] = SUB_SEQ_POISON_MON;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_BEAST_BOOST:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+                u8 stat = BeastBoostGreatestStatHelper(sp);
+
+                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
+                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
+                {
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP + stat;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
+                }
+            }
+            break;
+        case ABILITY_CHILLING_NEIGH:
+        case ABILITY_AS_ONE_GLASTRIER:
+        case ABILITY_MOXIE:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+
+                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
+                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
+                {
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
+                }
+            }
+            break;
+        case ABILITY_GRIM_NEIGH:
+        case ABILITY_AS_ONE_SPECTRIER:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+
+                if ((sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
+                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
+                {
+                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
+                }
+            }
+            break;
+    }
+
+    return ret;
+}
+
+
 BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
+	
+	// signal to the handler that it needs to come back and check this again.
+    if (seq_no != &sp->temp_work) // will be a stack variable otherwise
+    {
+        if (gNewBS.ability_check_has_looped == 0)
+        {
+            sp->swoam_seq_no--;
+            gNewBS.ability_check_has_looped = 1;
+        }
+        else
+        {
+            gNewBS.ability_check_has_looped = 0;
+            return MoveHitAttackerAbilityCheck(bw, sp, seq_no);
+        }
+    }
 
     if (sp->defence_client == 0xFF) {
         return ret;
@@ -1368,101 +1476,6 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
     return ret;
 }
-
-
-/*BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
-    BOOL ret = FALSE;
-
-    if (sp->defence_client == 0xFF) {
-        return ret;
-    }
-
-    if (CheckSubstitute(sp, sp->defence_client) == TRUE) {
-        return ret;
-    }
-
-    switch (GetBattlerAbility(sp, sp->attack_client))
-    {
-        case ABILITY_POISON_TOUCH:
-            if ((sp->battlemon[sp->defence_client].hp)
-                && (sp->battlemon[sp->defence_client].condition == 0)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
-                    (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                && (BattleRand(bw) % 10 < 3))
-            {
-                sp->addeffect_type = ADD_STATUS_ABILITY;
-                sp->state_client = sp->defence_client;
-                sp->client_work = sp->attack_client;
-                seq_no[0] = SUB_SEQ_POISON_MON;
-                ret = TRUE;
-            }
-            break;
-        case ABILITY_BEAST_BOOST:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-                u8 stat = BeastBoostGreatestStatHelper(sp);
-
-                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
-                {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP + stat;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                    ret = TRUE;
-                }
-            }
-            break;
-        case ABILITY_CHILLING_NEIGH:
-        case ABILITY_AS_ONE_GLASTRIER:
-        case ABILITY_MOXIE:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
-                {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                    ret = TRUE;
-                }
-            }
-            break;
-        case ABILITY_GRIM_NEIGH:
-        case ABILITY_AS_ONE_SPECTRIER:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if ((sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
-                {
-                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                    ret = TRUE;
-                }
-            }
-            break;
-    }
-
-    return ret;
-}*/
 
 
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability)
