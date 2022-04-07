@@ -894,11 +894,11 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 ret = TRUE;
             }
             break;
-        case ABILITY_HEALER: // TODO:  fix the message
+        case ABILITY_HEALER:
             if ((sp->battlemon[BATTLER_ALLY(client_no)].condition & STATUS_ANY_PERSISTENT) // if the partner of the client has a status condition
-                && (sp->battlemon[client_no].hp)
-                && (sp->battlemon[BATTLER_ALLY(client_no)].hp)
-                && (BattleRand(bw) % 10 < 3)) // 30% chance
+             && (sp->battlemon[client_no].hp)
+             && (sp->battlemon[BATTLER_ALLY(client_no)].hp)
+             && (BattleRand(bw) % 10 < 3)) // 30% chance
             {
                 client_no = BATTLER_ALLY(client_no);
                 if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
@@ -923,6 +923,22 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 }
                 sp->client_work = client_no;
                 seq_no = SUB_SEQ_HANDLE_HEALER;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_HARVEST:
+            if ((sp->battlemon[client_no].hp)
+             && IS_ITEM_BERRY(sp->recycle_item[client_no])
+             && ((BattleRand(bw) % 2 == 0) // 50% chance
+              // OR sun is active + abilities are not fucking it
+              || ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
+               && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+               && (sp->field_condition & WEATHER_SUNNY_ANY))))
+            {
+                sp->item_work = sp->recycle_item[client_no];
+                sp->recycle_item[client_no] = 0;
+                sp->battlemon[client_no].item = sp->item_work;
+                seq_no = SUB_SEQ_HANDLE_HARVEST;
                 ret = TRUE;
             }
             break;

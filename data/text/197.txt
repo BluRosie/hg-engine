@@ -1331,3 +1331,6 @@ The foe’s {STRVAR_1 1, 0, 0} shared its\npower with the target!
 {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
 The foe’s {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
+{STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
+The foe’s {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
