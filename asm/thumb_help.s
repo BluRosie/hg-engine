@@ -117,3 +117,21 @@ memset:
     blx 0x020E5B44
     pop {pc}
     .size memset, . - memset
+    
+    .force_thumb
+    .syntax unified
+    .global __gnu_thumb1_case_shi
+    .thumb_func
+    .type __gnu_thumb1_case_shi,function
+__gnu_thumb1_case_shi:
+	push    {r0, r1}
+	mov     r1, lr
+	lsrs    r1, r1, #1
+	lsls    r0, r0, #1
+	lsls    r1, r1, #1
+	ldrsh   r1, [r1, r0]
+	lsls    r1, r1, #1
+	add     lr, lr, r1
+	pop     {r0, r1}
+	bx      lr
+    .size __gnu_thumb1_case_shi, . - __gnu_thumb1_case_shi

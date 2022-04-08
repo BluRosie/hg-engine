@@ -998,12 +998,13 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
 }
 
 
-BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
+BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) 
+{
     BOOL ret = FALSE;
 
-    if (sp->defence_client == 0xFF) {
-        return ret;
-    }
+    //if (sp->defence_client == 0xFF) {
+    //    return ret;
+    //}
 
     switch (GetBattlerAbility(sp, sp->attack_client))
     {
@@ -1054,8 +1055,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
             {
 
-                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
+                if (sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
                 {
                     sp->addeffect_param = ADD_STATE_ATTACK_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
@@ -1073,8 +1073,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
             {
 
-                if ((sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
+                if (sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
                 {
                     sp->addeffect_param = ADD_STATE_SP_ATK_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
@@ -1084,6 +1083,8 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 }
             }
             break;
+        default:
+            break;
     }
 
     return ret;
@@ -1092,21 +1093,6 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
 BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
-	
-	// signal to the handler that it needs to come back and check this again.
-    if (seq_no != &sp->temp_work) // will be a stack variable otherwise
-    {
-        if (gNewBS.ability_check_has_looped == 0)
-        {
-            sp->swoam_seq_no--;
-            gNewBS.ability_check_has_looped = 1;
-        }
-        else
-        {
-            gNewBS.ability_check_has_looped = 0;
-            return MoveHitAttackerAbilityCheck(bw, sp, seq_no);
-        }
-    }
 
     if (sp->defence_client == 0xFF) {
         return ret;
@@ -1508,50 +1494,50 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
 BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
 {
     BOOL ret;
-    int	seq_no;
+    int seq_no;
 
     ret = FALSE;
 
     seq_no = 0;
 
-	if((sp->defence_client != 0xFF) && //defense side check
-	   (GetBattlerAbility(sp,sp->defence_client) == ABILITY_SYNCHRONIZE) &&
-	   (sp->defence_client == sp->state_client) &&
-	   (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    if((sp->defence_client != 0xFF) && //defense side check
+       (GetBattlerAbility(sp,sp->defence_client) == ABILITY_SYNCHRONIZE) &&
+       (sp->defence_client == sp->state_client) &&
+       (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
     {
-		sp->client_work = sp->defence_client;
-		sp->state_client = sp->attack_client;
-		ret=TRUE;
-	}
-	else if((GetBattlerAbility(sp,sp->attack_client)==ABILITY_SYNCHRONIZE) && //attacker side check
-	   (sp->attack_client == sp->state_client) &&
-	   (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+        sp->client_work = sp->defence_client;
+        sp->state_client = sp->attack_client;
+        ret=TRUE;
+    }
+    else if((GetBattlerAbility(sp,sp->attack_client)==ABILITY_SYNCHRONIZE) && //attacker side check
+       (sp->attack_client == sp->state_client) &&
+       (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
     {
-		sp->client_work = sp->attack_client;
-		sp->state_client = sp->defence_client;
-		ret = TRUE;
-	}
+        sp->client_work = sp->attack_client;
+        sp->state_client = sp->defence_client;
+        ret = TRUE;
+    }
 
-	if(ret==TRUE)
+    if(ret==TRUE)
     {
-		if(sp->battlemon[sp->client_work].condition & STATUS_POISON_ANY) {
-			seq_no = SUB_SEQ_POISON_MON;
-		}
-		else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_BURNED) {
-			seq_no = SUB_SEQ_BURN_MON;
-		}
-		else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_PARALYZED) {
-			seq_no = SUB_SEQ_PARALYZE_MON;
-		}
-		if(seq_no) {
-			sp->addeffect_type = ADD_STATUS_ABILITY;
+        if(sp->battlemon[sp->client_work].condition & STATUS_POISON_ANY) {
+            seq_no = SUB_SEQ_POISON_MON;
+        }
+        else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_BURNED) {
+            seq_no = SUB_SEQ_BURN_MON;
+        }
+        else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_PARALYZED) {
+            seq_no = SUB_SEQ_PARALYZE_MON;
+        }
+        if(seq_no) {
+            sp->addeffect_type = ADD_STATUS_ABILITY;
             LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
-			sp->next_server_seq_no = server_seq_no;
-			sp->server_seq_no = 22;
+            sp->next_server_seq_no = server_seq_no;
+            sp->server_seq_no = 22;
 
-			return ret;
-		}
-	}
+            return ret;
+        }
+    }
 
     //check to see if both synchronise and a battle form change are occurring at this stage
     ret = BattleFormChangeCheck(bw, sp, &seq_no);
@@ -1595,186 +1581,187 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 }
 
 
-enum{
-    SEQ_NORMAL_CRITICAL_MSG=0,
+enum
+{
+    SEQ_NORMAL_CRITICAL_MSG = 0,
     SEQ_NORMAL_MOVE_STATUS_MSG,
     SEQ_NORMAL_ADD_STATUS_MSG,
     SEQ_NORMAL_FORM_CHG_CHECK,
     SEQ_NORMAL_IKARI_CHECK,
+    SEQ_NORMAL_ATTACKER_ABILITY_CHECK,
     SEQ_NORMAL_DEFENDER_ABILITY_CHECK,
     SEQ_NORMAL_HIRUMASERU_CHECK,
-    SEQ_NORMAL_ATTACKER_ABILITY_CHECK,
 
-    SEQ_LOOP_CRITICAL_MSG=0,
+    SEQ_LOOP_CRITICAL_MSG = 0,
     SEQ_LOOP_ADD_STATUS_MSG,
     SEQ_LOOP_FORM_CHG_CHECK,
     SEQ_LOOP_IKARI_CHECK,
+    SEQ_LOOP_ATTACKER_ABILITY_CHECK,
     SEQ_LOOP_DEFENDER_ABILITY_CHECK,
     SEQ_LOOP_MOVE_STATUS_MSG,
     SEQ_LOOP_HIRUMASERU_CHECK,
-    SEQ_LOOP_ATTACKER_ABILITY_CHECK,
 };
 
-//TODO find offset and add to hooks
-/*void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
+// fuck moxie
+void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 {
     switch(sp->swoam_type)
     {
-        case SWOAM_NORMAL:
-            switch(sp->swoam_seq_no)
+    case SWOAM_NORMAL:
+        switch (sp->swoam_seq_no)
+        {
+        case SEQ_NORMAL_CRITICAL_MSG:
+            sp->swoam_seq_no++;
+            if (ServerCriticalMessage(bw, sp) == TRUE)
             {
-                case SEQ_NORMAL_CRITICAL_MSG:
-                    sp->swoam_seq_no++;
-                    if(ServerCriticalMessage(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                case SEQ_NORMAL_MOVE_STATUS_MSG:
-                    sp->swoam_seq_no++;
-                    if(ServerWazaStatusMessage(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                case SEQ_NORMAL_ADD_STATUS_MSG:
-                {
-                    int	seq_no;
-
-                    sp->swoam_seq_no++;
-                    if((ST_ServerAddStatusCheck(bw,sp,&seq_no) == TRUE)
-                       && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
-                    {
-                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
-                        sp->next_server_seq_no = sp->server_seq_no;
-                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                        return;
-                    }
-                }
-                case SEQ_NORMAL_FORM_CHG_CHECK:
-                    sp->swoam_seq_no++;
-                    LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_HANDLE_FORM_CHANGE);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                    return;
-                case SEQ_NORMAL_IKARI_CHECK:
-                    sp->swoam_seq_no++;
-                    if(ServerIkariCheck(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                case SEQ_NORMAL_DEFENDER_ABILITY_CHECK:
-                {
-                    int	seq_no;
-
-                    sp->swoam_seq_no =  SEQ_NORMAL_ATTACKER_ABILITY_CHECK;
-                    if(MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
-                    {
-                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
-                        sp->next_server_seq_no = sp->server_seq_no;
-                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                        return;
-                    }
-                }
-                case SEQ_NORMAL_ATTACKER_ABILITY_CHECK:
-                {
-                    int	seq_no;
-
-                    sp->swoam_seq_no = SEQ_NORMAL_DEFENDER_ABILITY_CHECK + 1;
-                    if(MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
-                    {
-                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
-                        sp->next_server_seq_no = sp->server_seq_no;
-                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                        return;
-                    }
-                }
-                case SEQ_NORMAL_HIRUMASERU_CHECK:
-                    sp->swoam_seq_no += 2;
-                    if(ServerHirumaseruCheck(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                default:
-                    break;
+                return;
             }
-            break;
-        case SWOAM_LOOP:
-            switch(sp->swoam_seq_no)
+        case SEQ_NORMAL_MOVE_STATUS_MSG:
+            sp->swoam_seq_no++;
+            if (ServerWazaStatusMessage(bw, sp) == TRUE)
             {
-                case SEQ_LOOP_CRITICAL_MSG:
-                    sp->swoam_seq_no++;
-                    if(ServerCriticalMessage(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                case SEQ_LOOP_ADD_STATUS_MSG:
-                {
-                    int	seq_no;
-
-                    sp->swoam_seq_no++;
-                    if((ST_ServerAddStatusCheck(bw,sp,&seq_no) == TRUE)
-                       && ((sp->waza_status_flag&WAZA_STATUS_FLAG_HAZURE) == 0))
-                    {
-                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
-                        sp->next_server_seq_no=  sp->server_seq_no;
-                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                        return;
-                    }
-                }
-                case SEQ_LOOP_FORM_CHG_CHECK:
-                    sp->swoam_seq_no++;
-                    LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_HANDLE_FORM_CHANGE);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                    return;
-                case SEQ_LOOP_IKARI_CHECK:
-                    sp->swoam_seq_no++;
-                    if(ServerIkariCheck(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                case SEQ_LOOP_DEFENDER_ABILITY_CHECK:
-                {
-                    int	seq_no;
-
-                    sp->swoam_seq_no = SEQ_LOOP_ATTACKER_ABILITY_CHECK;
-                    if(MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
-                    {
-                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
-                        sp->next_server_seq_no = sp->server_seq_no;
-                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                        return;
-                    }
-                }
-                case SEQ_LOOP_ATTACKER_ABILITY_CHECK:
-                {
-                    int	seq_no;
-
-                    sp->swoam_seq_no = SEQ_LOOP_DEFENDER_ABILITY_CHECK + 1;
-                    if(MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
-                    {
-                        LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,seq_no);
-                        sp->next_server_seq_no = sp->server_seq_no;
-                        sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-                        return;
-                    }
-                }
-                case SEQ_LOOP_MOVE_STATUS_MSG:
-                    sp->swoam_seq_no++;
-                    if(ServerWazaStatusMessage(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                case SEQ_LOOP_HIRUMASERU_CHECK:
-                    sp->swoam_seq_no += 2;
-                    if(ServerHirumaseruCheck(bw,sp) == TRUE)
-                    {
-                        return;
-                    }
-                default:
-                    break;
+                return;
             }
+        case SEQ_NORMAL_ADD_STATUS_MSG:
+            {
+                int seq_no;
+
+                sp->swoam_seq_no++;
+                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                {
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
+            }
+        case SEQ_NORMAL_FORM_CHG_CHECK:
+            sp->swoam_seq_no++;
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_CHECK_FORM_CHANGE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
+            return;
+        case SEQ_NORMAL_IKARI_CHECK:
+            sp->swoam_seq_no++;
+            if (ServerIkariCheck(bw, sp) == TRUE)
+            {
+                return;
+            }
+        case SEQ_NORMAL_ATTACKER_ABILITY_CHECK:
+            {
+                int seq_no;
+    
+                sp->swoam_seq_no++;
+                if (MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
+                {
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
+            }
+        case SEQ_NORMAL_DEFENDER_ABILITY_CHECK:
+            {
+                int seq_no;
+    
+                sp->swoam_seq_no++;
+                if (MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
+                {
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
+            }
+        case SEQ_NORMAL_HIRUMASERU_CHECK:
+            sp->swoam_seq_no++;
+            if (ServerHirumaseruCheck(bw, sp) == TRUE)
+            {
+                return;
+            }
+        default:
             break;
+        }
+        break;
+    
+    case SWOAM_LOOP:
+        switch (sp->swoam_seq_no)
+        {
+        case SEQ_LOOP_CRITICAL_MSG:
+            sp->swoam_seq_no++;
+            if (ServerCriticalMessage(bw, sp) == TRUE)
+            {
+                return;
+            }
+        case SEQ_LOOP_ADD_STATUS_MSG:
+            {
+                int seq_no;
+
+                sp->swoam_seq_no++;
+                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                {
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
+            }
+        case SEQ_LOOP_FORM_CHG_CHECK:
+            sp->swoam_seq_no++;
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_CHECK_FORM_CHANGE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
+            return;
+        case SEQ_LOOP_IKARI_CHECK:
+            sp->swoam_seq_no++;
+            if (ServerIkariCheck(bw, sp) == TRUE)
+            {
+                return;
+            }
+        case SEQ_LOOP_ATTACKER_ABILITY_CHECK:
+            {
+                int seq_no;
+    
+                sp->swoam_seq_no++;
+                if (MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
+                {
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
+            }
+        case SEQ_LOOP_DEFENDER_ABILITY_CHECK:
+            {
+                int seq_no;
+    
+                sp->swoam_seq_no++;
+                if (MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
+                {
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
+            }
+        case SEQ_LOOP_MOVE_STATUS_MSG:
+            sp->swoam_seq_no++;
+            if (ServerWazaStatusMessage(bw, sp) == TRUE)
+            {
+                return;
+            }
+        case SEQ_LOOP_HIRUMASERU_CHECK:
+            sp->swoam_seq_no++;
+            if (ServerHirumaseruCheck(bw, sp) == TRUE)
+            {
+                return;
+            }
+        default:
+            break;
+        }
+        break;
     }
+    
     sp->swoam_seq_no = 0;
-    sp->server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
-}*/
+    sp->server_seq_no = 31;
+}
