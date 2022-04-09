@@ -15,3 +15,6 @@ bank 237 is mon names.  238 appears unused?
 817 is names again, not necessary to replace
 818-822 are different language names
 823-828 are categories in different languages
+
+
+starter ID's can be found in overlay 61, starting from 0x1A98
