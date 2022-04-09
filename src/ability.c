@@ -845,6 +845,19 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     return scriptnum;
 }
 
+BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value)
+{
+    for (int i = 0; i < 7; i++)
+    {
+        if (sp->battlemon[client].states[i] != value)
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}
+
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
 {
     u32 ret = FALSE;
@@ -942,6 +955,46 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 ret = TRUE;
             }
             break;
+        case ABILITY_MOODY: // this is going to be interesting
+            if (sp->battlemon[client_no].hp)
+            {
+                int temp = BattleRand(bw) % 7;
+                
+                if (AreAnyStatsNotAtValue(sp, client_no, 12)) // if any stat can be lowered
+                {
+                    while (sp->battlemon[client_no].states[temp] == 12)
+                    {
+                        temp = BattleRand(bw) % 7;
+                    }
+                }
+                else
+                {
+                    sp->calc_work = 8; // skip the raising if this is the case
+                }
+                sp->calc_work = temp; // VAR_09
+                
+                
+                temp = BattleRand(bw) % 7;
+                
+                if (AreAnyStatsNotAtValue(sp, client_no, 0)) // if any stat can be raised
+                {
+                    while (sp->battlemon[client_no].states[temp] == 0
+                        || temp == sp->calc_work)
+                    {
+                        temp = BattleRand(bw) % 7;
+                    }
+                }
+                else
+                {
+                    sp->tokusei_work = 8; // skip the lowering if this is the case
+                }
+                sp->tokusei_work = temp; // VAR_ABILITY_TEMP2
+                
+                sp->client_work = client_no;
+                sp->state_client = client_no;
+                seq_no = SUB_SEQ_HANDLE_MOODY;
+                ret = TRUE;
+            }
         default:
             break;
     }
