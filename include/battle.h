@@ -1136,7 +1136,6 @@ BOOL __attribute__((long_call)) ServerWazaStatusMessage(void*,void*);
 BOOL __attribute__((long_call)) ST_ServerAddStatusCheck(void*,void*,int *seq_no);
 BOOL __attribute__((long_call)) ServerIkariCheck(void*,void*);
 BOOL __attribute__((long_call)) ST_ServerWazaHitTokuseiCheck_Old(void*,void*,int *seq_no);
-BOOL __attribute__((long_call)) ServerHirumaseruCheck(void*,void*);
 int __attribute__((long_call)) ST_ServerWaruagakiCheck(void *bw, void *sp, int client_no, int waza_bit, int check_bit);
 struct Save_DexData* __attribute__((long_call)) BattleWorkZukanWorkGet(void *bw);
 int __attribute__((long_call)) BattleWorkClientSetMaxGet(void*);

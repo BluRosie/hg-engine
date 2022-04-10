@@ -182,13 +182,26 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u32 additionalflags;
 
     int partyOrder[pokecount];
-    for(i = 0; i < pokecount; i++)
+    if (randomorder_flag)
     {
         if(gf_rand() % 2 == 0)
         {
-            partyOrder[i] = pokecount - 1 - i;
+            for(i = 0; i < pokecount; i++)
+            {
+                partyOrder[i] = pokecount - 1 - i;
+            }
         }
         else
+        {
+            for(i = 0; i < pokecount; i++)
+            {
+                partyOrder[i] = i;
+            }
+        }
+    }
+    else
+    {
+        for(i = 0; i < pokecount; i++)
         {
             partyOrder[i] = i;
         }

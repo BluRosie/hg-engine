@@ -1571,7 +1571,7 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
         ret = TRUE;
     }
 
-    if(ret==TRUE)
+    if (ret == TRUE)
     {
         if(sp->battlemon[sp->client_work].condition & STATUS_POISON_ANY) {
             seq_no = SUB_SEQ_POISON_MON;
@@ -1634,6 +1634,43 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 }
 
 
+BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
+{
+    BOOL ret = FALSE;
+    int heldeffect;
+    int atk;
+
+    heldeffect = HeldItemHoldEffectGet(sp, sp->attack_client);
+    atk = HeldItemAtkGet(sp, sp->attack_client, 0);
+    
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_STENCH) // stench adds 10% flinch chance
+    {
+        atk += 10;
+        heldeffect = HOLD_EFFECT_INCREASE_FLINCH; // doesn't permanently change the hold effect, just for this function
+    }
+
+    if (sp->defence_client != 0xFF)
+    {
+        if ((heldeffect == HOLD_EFFECT_INCREASE_FLINCH)
+         && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+         && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+          || (sp->oneSelfFlag[sp->defence_client].special_damage))
+         && ((BattleRand(bw) % 100) < atk)
+         && (sp->moveTbl[sp->current_move_index].flag & FLAG_KINGS_ROCK)
+         && (sp->battlemon[sp->defence_client].hp))
+        {
+            sp->state_client = sp->defence_client;
+            sp->addeffect_type = ADD_STATUS_INDIRECT;
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FLINCH);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
+            ret = TRUE;
+        }
+    }
+    return ret;
+}
+
+
 enum
 {
     SEQ_NORMAL_CRITICAL_MSG = 0,
@@ -1643,7 +1680,7 @@ enum
     SEQ_NORMAL_IKARI_CHECK,
     SEQ_NORMAL_ATTACKER_ABILITY_CHECK,
     SEQ_NORMAL_DEFENDER_ABILITY_CHECK,
-    SEQ_NORMAL_HIRUMASERU_CHECK,
+    SEQ_NORMAL_FLINCH_CHECK,
 
     SEQ_LOOP_CRITICAL_MSG = 0,
     SEQ_LOOP_ADD_STATUS_MSG,
@@ -1652,7 +1689,7 @@ enum
     SEQ_LOOP_ATTACKER_ABILITY_CHECK,
     SEQ_LOOP_DEFENDER_ABILITY_CHECK,
     SEQ_LOOP_MOVE_STATUS_MSG,
-    SEQ_LOOP_HIRUMASERU_CHECK,
+    SEQ_LOOP_FLINCH_CHECK,
 };
 
 // fuck moxie
@@ -1726,9 +1763,9 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
-        case SEQ_NORMAL_HIRUMASERU_CHECK:
+        case SEQ_NORMAL_FLINCH_CHECK:
             sp->swoam_seq_no++;
-            if (ServerHirumaseruCheck(bw, sp) == TRUE)
+            if (ServerFlinchCheck(bw, sp) == TRUE)
             {
                 return;
             }
@@ -1803,9 +1840,9 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
-        case SEQ_LOOP_HIRUMASERU_CHECK:
+        case SEQ_LOOP_FLINCH_CHECK:
             sp->swoam_seq_no++;
-            if (ServerHirumaseruCheck(bw, sp) == TRUE)
+            if (ServerFlinchCheck(bw, sp) == TRUE)
             {
                 return;
             }

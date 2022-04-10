@@ -20,7 +20,7 @@ _0054:
 _0068:
     endscript
 _006C:
-    if IF_EQUAL, VAR_CURRENT_MOVE, 0xFC, _0094
+    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_FAKE_OUT, _0094
     if IF_NOTEQUAL, VAR_05, 0x1, _00B4
 _0094:
     printmessage 0x2E1, 0xB, 0x7, 0x7, "NaN", "NaN", "NaN", "NaN"

@@ -9,6 +9,8 @@
 
 #define SUB_SEQ_STAT_STAGE_CHANGE (12)
 
+#define SUB_SEQ_HANDLE_FLINCH (14)
+
 #define SUB_SEQ_PUT_MON_TO_SLEEP (18)
 
 #define SUB_SEQ_POISON_MON (22)
