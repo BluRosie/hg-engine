@@ -14,6 +14,7 @@
  
 load_arm9_expansion: // load the narc subfile with arm9 expansion data
     push {r2, lr}
+    bl rom_self_check //perform self check
     ldr r0, =0x023C8000 // destination ram offset
     mov r1, #028 // a028
     mov r2, #0 // 0th file of a028
@@ -21,7 +22,33 @@ load_arm9_expansion: // load the narc subfile with arm9 expansion data
     mov r0, #0
     mov r1, #3
     pop {r2, pc}
- 
+
 .pool
+
+.org 0x0211025C
+
+rom_self_check: // scan self for non-corrupted data
+    push {r3, lr}
+    ldr r0, =0x023C8000 // destination ram offset
+    ldr r1, =#262 // a262
+    mov r2, #5 // 5th file of a262
+    bl 0x2007508 // load_from_narc(&(0x023C8000), 262, 5);
+    ldr r0, =0xFFFF
+    ldr r1, =0x023C8000
+    ldr r2, =0xC2A
+    swi 0x0e //crc-16
+    ldr r1, =0xD65B
+    cmp r0, r1
+    bne rom_invalid
+    mov r0, #0
+    mov r1, #3
+    pop {r3, pc}
+
+.pool
+
+.org 0x021102D4
+
+rom_invalid:
+    swi 0x00
  
 .close
