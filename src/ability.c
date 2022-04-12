@@ -97,7 +97,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // 02252FDC   
+    // 02252FDC
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MOTOR_DRIVE) == TRUE)
     {
         if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
@@ -118,26 +118,30 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    //handle sap_sipper
+    // handle sap sipper
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
     {
         if ((movetype == TYPE_GRASS) && (attacker != defender))
         {
             scriptnum = SUB_SEQ_HANDLE_SAP_SIPPER;
-            sp->mp.msg_id = BATTLE_MSG_ABILITY_RAISED_STAT;
-            sp->mp.msg_tag = TAG_NICK_TOKU_STAT;
-            sp->mp.msg_para[0] = TagNickParaMake(sp, defender);
-            sp->mp.msg_para[1] = sp->battlemon[defender].ability;
-            sp->mp.msg_para[2] = STAT_ATTACK;
         }
     }
 
-    //handle lightning rod
-    if(MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE) //TODO finish
+    // handle lightning rod
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
     {
-        if((movetype == TYPE_ELECTRIC) && (attacker != defender))
+        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
         {
+            scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+        }
+    }
 
+    // handle storm drain
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_STORM_DRAIN) == TRUE)
+    {
+        if ((movetype == TYPE_WATER) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
         }
     }
 
