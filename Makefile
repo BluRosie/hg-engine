@@ -247,6 +247,12 @@ move_narc:
 	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/7 build/itemdata -nf
 
 
+	@echo "opening demo files"
+	$(PYTHON) $(NARCHIVE) extract base/root/a/2/6/2 -o build/a262 -nf
+	cp -r rawdata/op_demo/. build/a262
+	$(PYTHON) $(NARCHIVE) create base/root/a/2/6/2 build/a262 -nf
+
+
 
 	@echo "mon data:"
 	mkdir -p build/a002
