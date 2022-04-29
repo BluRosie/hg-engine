@@ -11,13 +11,22 @@ ADD_STATUS_COIL equ 150
 ADD_STATUS_SHIFT_GEAR equ 151
 ADD_STATUS_SHELL_SMASH equ 152
 ADD_STATUS_V_CREATE equ 153
-ADD_STATUS_AUTOTOMIZE equ 154 //did not change weight
+ADD_STATUS_AUTOTOMIZE equ 154
 
 // status change
 
 ADD_STATUS_SIDE     equ 0x20000000
 ADD_STATUS_ATTACKER equ 0x40000000
 ADD_STATUS_DEFENDER equ 0x80000000
+
+STAT_HP equ 0
+STAT_ATTACK equ 1
+STAT_DEFENSE equ 2
+STAT_SPEED equ 3
+STAT_SPATK equ 4
+STAT_SPDEF equ 5
+STAT_ACCURACY equ 6
+STAT_EVASION equ 7
 
 ATTACK_UP equ 15
 DEFENSE_UP equ 16
@@ -1324,5 +1333,14 @@ VAR_90 equ 90
 
 .macro endscript
     .word 0xE0
+.endmacro
+
+
+// new script commands
+
+// reduce attacker weight in hectograms (increments of 0.1 kg) (num can be positive or negative, negative actually increases the weight)
+.macro reduceweight,num
+    .word 0xE1
+    .word num
 .endmacro
 

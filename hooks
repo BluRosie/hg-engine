@@ -65,16 +65,22 @@ arm9 GetPokemonOwNum 0806A304 1
 0012 SynchroniseAbilityCheck 08254580 3
 #02256914
 0012 BattleFormChangeCheck 0801F054 3
+#0224CAA4
+0012 ServerWazaOutAfterMessage 080151E4 3
+#0224E078
+0012 ServerFlinchCheck 080167B8 3
 
 #battle script command hooks
 #0223E568
 0012 btl_scr_cmd_24_jumptocurmoveeffectscript 08006CA8 3
 #0223ED78
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
-#022404e1
-0012 btl_scr_cmd_54_ohko_move_handle 08008C21 3
-#02245009
-0012 btl_scr_cmd_d0_hp_1_check 0800D749 3
+#022404e0
+0012 btl_scr_cmd_54_ohko_move_handle 08008C20 3
+#0224324C
+0012 btl_scr_cmd_8c_lowkickdamagecalc 0800B98C 3
+#02245008
+0012 btl_scr_cmd_d0_hp_1_check 0800D748 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -96,3 +102,7 @@ arm9 MakeTrainerPokemonParty 08073604 3
 #move expansion
 #0225839A - edits to ST_ServerAddStatusParamSet to be better
 0012 remap_move_effect_to_subscript_table 08020ADA 0
+
+#battle script command expansion
+#0223CF68 - edits to the battle script command handler
+0012 BattleScriptCommandHandler 080056A8 2

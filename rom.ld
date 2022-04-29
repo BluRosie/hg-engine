@@ -22,7 +22,6 @@ ServerWazaStatusMessage = 0x166D8 + 0x022378C1;
 ST_ServerAddStatusCheck = 0x18BD0 + 0x022378C1;
 ServerIkariCheck = 0x1672C + 0x022378C1;
 ST_ServerWazaHitTokuseiCheck_Old = 0x1C544 + 0x022378C1;
-ServerHirumaseruCheck = 0x167B8 + 0x022378C1;
 ST_ServerWaruagakiCheck = 0x19F2C + 0x022378C1;
 ServerSenseiCheck = 0x143E4 + 0x022378C1;
 ServerStatusCheck = 0x13C68 + 0x022378C1;
@@ -223,3 +222,6 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 /*Overworld Code*/
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
+
+/*first E0 battle script commands*/
+BattleScriptCmdTable = 0x0226C6C8;

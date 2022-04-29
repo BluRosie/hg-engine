@@ -7,7 +7,7 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
-GuardSplitMsg equ 1276 // new word
+GuardSplitMsg equ 1324 // new word
 
 .create "build/move/battle_sub_seq/1_312", 0
 

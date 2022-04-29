@@ -1322,3 +1322,15 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 
 {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
 The wild {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
 The foe’s {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
+{STRVAR_1 1, 0, 0} shared its\nguard with the target!
+The wild {STRVAR_1 1, 0, 0} shared its\nguard with the target!
+The foe’s {STRVAR_1 1, 0, 0} shared its\nguard with the target!
+{STRVAR_1 1, 0, 0} shared its\npower with the target!
+The wild {STRVAR_1 1, 0, 0} shared its\npower with the target!
+The foe’s {STRVAR_1 1, 0, 0} shared its\npower with the target!
+{STRVAR_1 1, 0, 0} transformed\ninto the Water type!
+The wild {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
+The foe’s {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
+{STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
+The foe’s {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!

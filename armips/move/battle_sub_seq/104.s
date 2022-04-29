@@ -21,6 +21,7 @@ _0028:
     if IF_EQUAL, VAR_HP_TEMP, 0x0, _016C
     if IF_GREATER, VAR_HP_TEMP, 0x0, _0134
     abilitycheck 0x0, BATTLER_xFF, ABILITY_MAGIC_GUARD, _016C
+    abilitycheck 0x0, BATTLER_xFF, ABILITY_OVERCOAT, _016C // handle overcoat
     if IF_MASK, VAR_FIELD_EFFECT, 0x30, _00B8
     printmessage 0x11D, 0x15, 0xFF, 0xFF, "NaN", "NaN", "NaN", "NaN"
     goto _00FC

@@ -424,6 +424,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         sp_attack = sp_attack * 150 / 100;
     }
+    
+    // handle fur coat - double defense
+    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_FUR_COAT) == TRUE))
+    {
+        defense *= 2;
+    }
+
+
 
     // handle mud/water sport
     if ((movetype == TYPE_ELECTRIC) && (CheckFieldMoveEffect(bw, sp, MOVE_EFFECT_FLAG_MUD_SPORT)))
@@ -457,16 +465,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 150 / 100;
     }
 
-    // handle fur coat
-    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_FUR_COAT) == TRUE))
+    // handle ice scales - halve damage if move is special, regardless of if it uses defense stat
+    if (CheckDefenceAbility(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL)
     {
-        defense = defense * 150 / 100;
-    }
-
-    // handle ice scales
-    if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_ICE_SCALES == TRUE)))
-    {
-        sp_defense = sp_defense * 150 / 100;
+        movepower *= 2;
     }
 
     //handle dragon's maw
@@ -484,22 +486,22 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // if dark aura is present but not aura break
     if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DARK_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) == 0)) 
-    movepower = movepower * 133 / 100;
+        movepower = movepower * 133 / 100;
 
     // if dark aura is present AND aura break
     else if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DARK_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
-    movepower = movepower * 100 / 133;
+        movepower = movepower * 100 / 133;
 
     // if FAIRY aura is present but not aura break
     if ((movetype == TYPE_MYSTERY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0) 
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) == 0))
-    movepower = movepower * 133 / 100;
+        movepower = movepower * 133 / 100;
 
     // if FAIRY aura is present AND aura break
     else if ((movetype == TYPE_MYSTERY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
-    movepower = movepower * 100 / 133;
+        movepower = movepower * 100 / 133;
 
 
     //handle friend guard

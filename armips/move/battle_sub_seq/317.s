@@ -9,7 +9,7 @@
 
 .create "build/move/battle_sub_seq/1_317", 0
 
-// autotomize move effect
+// shift gear move effect
 
 a001_303:
     //attack
