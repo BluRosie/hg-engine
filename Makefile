@@ -109,6 +109,28 @@ all: $(OUTPUT)
 	@echo -e "Done."
 
 
+code_and_data_only: $(OUTPUT)
+    ### solely rebuilding the code and moving the narcs ###
+	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
+	$(PYTHON) scripts/make.py
+	$(ARMIPS) armips/global.s
+	make move_narc
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
+	@echo -e "Making ROM.."
+	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+	@echo -e "Done."
+
+
+code_only: $(OUTPUT)
+    ### solely rebuilding the code and moving the narcs ###
+	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
+	$(PYTHON) scripts/make.py
+	$(ARMIPS) armips/global.s
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
+	@echo -e "Making ROM.."
+	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+	@echo -e "Done."
+
 
 build_tools:
 	cd tools ; $(CSC) /target:exe /out:gengfxnarc.exe source$(SEP)gengfxnarc.cs
