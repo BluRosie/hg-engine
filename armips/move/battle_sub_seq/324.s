@@ -59,14 +59,14 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>hg-engine/battle_script_constants.h at d434d0ca984a30bfdefd9bb01183eab9aa0b0453 · BluRosie/hg-engine</title>
+  <title>hg-engine/324.s at d434d0ca984a30bfdefd9bb01183eab9aa0b0453 · BluRosie/hg-engine</title>
     <meta name="description" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub.">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
   <meta property="fb:app_id" content="1401488693436528">
   <meta name="apple-itunes-app" content="app-id=1477376905" />
-    <meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/16446370?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="hg-engine/battle_script_constants.h at d434d0ca984a30bfdefd9bb01183eab9aa0b0453 · BluRosie/hg-engine" /><meta name="twitter:description" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub." />
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/16446370?s=400&amp;v=4" /><meta property="og:image:alt" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub." /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="hg-engine/battle_script_constants.h at d434d0ca984a30bfdefd9bb01183eab9aa0b0453 · BluRosie/hg-engine" /><meta property="og:url" content="https://github.com/BluRosie/hg-engine" /><meta property="og:description" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub." />
+    <meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/16446370?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="hg-engine/324.s at d434d0ca984a30bfdefd9bb01183eab9aa0b0453 · BluRosie/hg-engine" /><meta name="twitter:description" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub." />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/16446370?s=400&amp;v=4" /><meta property="og:image:alt" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub." /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="hg-engine/324.s at d434d0ca984a30bfdefd9bb01183eab9aa0b0453 · BluRosie/hg-engine" /><meta property="og:url" content="https://github.com/BluRosie/hg-engine" /><meta property="og:description" content="complete heart gold engine. Contribute to BluRosie/hg-engine development by creating an account on GitHub." />
     
 
 
@@ -74,12 +74,12 @@
     
 
   <link rel="assets" href="https://github.githubassets.com/">
-    <link rel="shared-web-socket" href="wss://alive.github.com/_sockets/u/74148058/ws?session=eyJ2IjoiVjMiLCJ1Ijo3NDE0ODA1OCwicyI6ODYyNTY5NjY5LCJjIjoxNjA1MjQwMTYyLCJ0IjoxNjUxODk4OTk1fQ==--610b0f6632f9d8f2dddbe70a6554210aba8442145084a749727ff94211c9a5de" data-refresh-url="/_alive" data-session-id="e5c9c62091bd48eae2e535b0e7a8223abc565c6192cf523758da8d08bcf5fdcc">
+    <link rel="shared-web-socket" href="wss://alive.github.com/_sockets/u/74148058/ws?session=eyJ2IjoiVjMiLCJ1Ijo3NDE0ODA1OCwicyI6ODYyNTY5NjY5LCJjIjozNzE2NzQ3NjQ3LCJ0IjoxNjUxODk4OTQ2fQ==--292b7a4bc3c4f312f75bb6bedc204578edf381dc8a83dfa5b5b0cbb023408750" data-refresh-url="/_alive" data-session-id="e5c9c62091bd48eae2e535b0e7a8223abc565c6192cf523758da8d08bcf5fdcc">
     <link rel="shared-web-socket-src" href="/assets-cdn/worker/socket-worker-b98ccfd9236e.js">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
 
 
-  <meta name="request-id" content="FB49:4AF3:C13D81:EE957E:6275FA73" data-pjax-transient="true" /><meta name="html-safe-nonce" content="32f5b4061465a897485b086f15488e4dfd184a453f09ed426cc4ea9eafecbb66" data-pjax-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9CbHVSb3NpZS9oZy1lbmdpbmUvdHJlZS9kNDM0ZDBjYTk4NGEzMGJmZGVmZDliYjAxMTgzZWFiOWFhMGIwNDUzL2luY2x1ZGUvY29uc3RhbnRzIiwicmVxdWVzdF9pZCI6IkZCNDk6NEFGMzpDMTNEODE6RUU5NTdFOjYyNzVGQTczIiwidmlzaXRvcl9pZCI6IjU1MTYwODQ2MTA4MDczMjQwODkiLCJyZWdpb25fZWRnZSI6ImFwLXNvdXRoLTEiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-pjax-transient="true" /><meta name="visitor-hmac" content="16f19bffd9986470e25b17f2dee03797a31875b224ace65525f3e36328da473e" data-pjax-transient="true" />
+  <meta name="request-id" content="FB3C:5CFB:83B155:A228CB:6275FA36" data-pjax-transient="true" /><meta name="html-safe-nonce" content="32f5b4061465a897485b086f15488e4dfd184a453f09ed426cc4ea9eafecbb66" data-pjax-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9CbHVSb3NpZS9oZy1lbmdpbmUvdHJlZS9kNDM0ZDBjYTk4NGEzMGJmZGVmZDliYjAxMTgzZWFiOWFhMGIwNDUzL2FybWlwcy9tb3ZlL2JhdHRsZV9zdWJfc2VxIiwicmVxdWVzdF9pZCI6IkZCM0M6NUNGQjo4M0IxNTU6QTIyOENCOjYyNzVGQTM2IiwidmlzaXRvcl9pZCI6IjU1MTYwODQ2MTA4MDczMjQwODkiLCJyZWdpb25fZWRnZSI6ImFwLXNvdXRoLTEiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=" data-pjax-transient="true" /><meta name="visitor-hmac" content="fa320f22a30b14455e2cf827a24ad7470bda93ee344ff16bc183bd44cf7f96bb" data-pjax-transient="true" />
 
     <meta name="hovercard-subject-tag" content="repository:442713152" data-pjax-transient>
 
@@ -115,7 +115,7 @@
 
       <meta name="expected-hostname" content="github.com">
 
-      <meta name="js-proxy-site-detection-payload" content="ZTE0YjcwNDUyOGYzYmU3Y2IxODFiYTFhYmZiMDI5MWVlNjUzYWRjNjRjYjVkODFkZGYxMTM0Yzk3MDFiOGM1Znx7InJlbW90ZV9hZGRyZXNzIjoiMTAzLjE2NC4yMDAuNzUiLCJyZXF1ZXN0X2lkIjoiRkI0OTo0QUYzOkMxM0Q4MTpFRTk1N0U6NjI3NUZBNzMiLCJ0aW1lc3RhbXAiOjE2NTE4OTg5OTUsImhvc3QiOiJnaXRodWIuY29tIn0=">
+      <meta name="js-proxy-site-detection-payload" content="NGEyOTdlNzMwNTc5NWFlMDI1MTJjNTM1NjNiODNmMjYwOGQ4Mjk1N2NiNjU4YTA5YWRkNGRmMmQ5MTBjYmM3OXx7InJlbW90ZV9hZGRyZXNzIjoiMTAzLjE2NC4yMDAuNzUiLCJyZXF1ZXN0X2lkIjoiRkIzQzo1Q0ZCOjgzQjE1NTpBMjI4Q0I6NjI3NUZBMzYiLCJ0aW1lc3RhbXAiOjE2NTE4OTg5NDYsImhvc3QiOiJnaXRodWIuY29tIn0=">
 
     <meta name="enabled-features" content="ACTIONS_CALLABLE_WORKFLOWS,COMMAND_PALETTE_MULTI_PAGE_COMMANDS,MARKETPLACE_PENDING_INSTALLATIONS,PRESENCE_IDLE">
 
@@ -134,7 +134,7 @@
 
 
 
-    <link rel="canonical" href="https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -226,7 +226,7 @@
           spellcheck="false"
           autocomplete="off"
         >
-        <input type="hidden" value="RP7p0Y3JV6aY6FpLxxgTHu06LTnD5he3Efl32Dcr6leHBSa_YuNz2M94rjTL82tQR4pKUNKTnlJpg97eq5661g" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
+        <input type="hidden" value="C3GJPX_KowzaZfEDB2prV5hmEZnSe7C7O4M4uYu_BWLIikZTkOCHco31BXwLgRMZMtZ28MMOOV5D-ZG_FwpV4w" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
         <input type="hidden" class="js-site-search-type-field" name="type" >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1 header-search-key-slash"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#979A9C" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
 
@@ -425,7 +425,7 @@
 
     <a class="js-selected-navigation-item Header-link d-block d-md-none py-2 py-md-3 border-top border-md-top-0 border-white-fade" data-ga-click="Header, click, Nav menu - item:workspaces context:user" data-turbo="false" data-selected-links="/codespaces /codespaces" href="/codespaces">Codespaces</a>
 
-      <a class="js-selected-navigation-item Header-link d-block d-md-none py-2 py-md-3 border-top border-md-top-0 border-white-fade" data-ga-click="Header, click, Nav menu - item:Sponsors" data-hydro-click="{&quot;event_type&quot;:&quot;sponsors.button_click&quot;,&quot;payload&quot;:{&quot;button&quot;:&quot;HEADER_SPONSORS_DASHBOARD&quot;,&quot;sponsorable_login&quot;:&quot;dog-broad&quot;,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="3be8581deab2b233608fd59c7a7dffcb62b2c3d77c32b4d68072a250c566736d" data-turbo="false" data-selected-links=" /sponsors/accounts" href="/sponsors/accounts">Sponsors</a>
+      <a class="js-selected-navigation-item Header-link d-block d-md-none py-2 py-md-3 border-top border-md-top-0 border-white-fade" data-ga-click="Header, click, Nav menu - item:Sponsors" data-hydro-click="{&quot;event_type&quot;:&quot;sponsors.button_click&quot;,&quot;payload&quot;:{&quot;button&quot;:&quot;HEADER_SPONSORS_DASHBOARD&quot;,&quot;sponsorable_login&quot;:&quot;dog-broad&quot;,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="59851b4ecd798a0b90837587f0b479833ed13b0991a4ab5f21b57553eba3a475" data-turbo="false" data-selected-links=" /sponsors/accounts" href="/sponsors/accounts">Sponsors</a>
 
     <a class="Header-link d-block d-md-none mr-0 mr-md-3 py-2 py-md-3 border-top border-md-top-0 border-white-fade" data-turbo="false" href="/settings/profile">Settings</a>
 
@@ -433,7 +433,7 @@
       <img class="avatar avatar-user" loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/74148058?s=40&amp;v=4" width="20" height="20" alt="@dog-broad" />
       dog-broad
 </a>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="LgqXpOpacaV4VXP9E_ZmzzGmgOteTE-NPwb_qXfbaa-WkmS9gK666uINxyXVM8AnGq4wt6Kl89p7O7-1Tj_w0w" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/logout" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="8SjJ1ZPC4IZoJ9XrRNykvfdFXFpPOesqMus9b0ZBFPtJsDrM-TYryfJ_YTOCGQJV3E3sBrPQV3121n1zf6WNhw" />
       <button
         type="submit"
         class="Header-link mr-0 mr-md-3 py-2 py-md-3 border-top border-md-top-0 border-white-fade d-md-none btn-link d-block width-full text-left"
@@ -472,7 +472,7 @@
       <notification-indicator
         class="js-socket-channel"
         data-test-selector="notifications-indicator"
-        data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6NzQxNDgwNTgiLCJ0IjoxNjUxODk4OTk1fQ==--f12d6bdf172491635fb3c9b7f825d06feed52370a401b6cc332df5c47f907bd3">
+        data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6NzQxNDgwNTgiLCJ0IjoxNjUxODk4OTQ2fQ==--d751b5ce5804b71368611e003e4207ac9c098afc0c903258d6dedde474473918">
         <a href="/notifications"
           class="Header-link notification-indicator position-relative tooltipped tooltipped-sw"
           
@@ -610,7 +610,7 @@
   <details-dialog class="command-palette-details-dialog d-flex flex-column flex-justify-center height-fit" aria-label="command palette">
     <command-palette
       class="command-palette color-bg-default rounded-3 border color-shadow-small"
-      data-return-to=/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h
+      data-return-to=/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s
       data-user-id="74148058"
       data-activation-hotkey="Mod+k,Mod+Alt+k"
       data-command-mode-hotkey="Mod+Shift+k"
@@ -1569,7 +1569,7 @@
         data-action="toggle:notifications-list-subscription-form#detailsToggled"
       >
 
-      <summary data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="147c11addc5878073e4fa5b78205726584d404ef978162c676e15b17e18d1e9b" data-ga-click="Repository, click Watch settings, action:blob#show" aria-label="Notification settings" data-view-component="true" class="btn-sm btn">  <span data-menu-button>
+      <summary data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="0abc820c0f0b471d041e10774d0874c46af3badd4144b6d6af4a348ec359c636" data-ga-click="Repository, click Watch settings, action:blob#show" aria-label="Notification settings" data-view-component="true" class="btn-sm btn">  <span data-menu-button>
             <span
               
               
@@ -1622,7 +1622,7 @@
             </header>
 
             <div class="SelectMenu-list">
-              <form data-target="notifications-list-subscription-form.form" data-action="submit:notifications-list-subscription-form#submitForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="YmVBnPmYPBWDJ4tjbuGBzRzgBenVaL47cZyiG-2xXHImTZxlQL2rIWrNpKIqzFFzXAcvI8pGCEcrL01XX3it4A" autocomplete="off" />
+              <form data-target="notifications-list-subscription-form.form" data-action="submit:notifications-list-subscription-form#submitForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="V3ZpbFx5IaapcvlVNdcRpgzJDPiF46dY3Tu_64sbaHsTXrSV5Vy2kkCY1pRx-sEYTC4mMprNESSHiFCnOdKZ6Q" autocomplete="off" />
 
                 <input type="hidden" name="repository_id" value="442713152">
 
@@ -1740,7 +1740,7 @@
           hidden
         >
           <div class="SelectMenu-modal notifications-component-dialog-modal overflow-visible">
-            <form data-target="notifications-list-subscription-form.customform" data-action="submit:notifications-list-subscription-form#submitCustomForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="loViUH8V9e1_djFwoqpNtGIclXtOIJNlplOlMKzYXEHSrb-pxjBi2ZacHrHmh50KIvu_sVEOJRn84Ep8HhGt0w" autocomplete="off" />
+            <form data-target="notifications-list-subscription-form.customform" data-action="submit:notifications-list-subscription-form#submitCustomForm" data-turbo="false" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="vLf_J_SfLV8DB8EVC9tYJPomBVLVye-I3FO4fUGgdxr4nyLeTbq6a-rt7tRP9oiausEvmMrnWfSG4Fcx82mGiA" autocomplete="off" />
 
               <input type="hidden" name="repository_id" value="442713152">
 
@@ -1887,7 +1887,7 @@
   </li>
 
   <li>
-            <a href="/BluRosie/hg-engine/fork" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FORK_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="9b873e3777529e1d4371158d695a5285511966b60ac2fce4b535edfa34a4eec4" data-ga-click="Repository, show fork modal, action:blob#show; text:Fork" aria-label="Fork your own copy of BluRosie/hg-engine" data-view-component="true" class="btn-sm btn float-left">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo-forked mr-2">
+            <a href="/BluRosie/hg-engine/fork" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FORK_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="076b1a7f113aa25d9d8700f6bba976c5c4c6f38e2774051d52bf7cfe15251f29" data-ga-click="Repository, show fork modal, action:blob#show; text:Fork" aria-label="Fork your own copy of BluRosie/hg-engine" data-view-component="true" class="btn-sm btn float-left">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo-forked mr-2">
     <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
 </svg>Fork
           <span id="repo-network-counter" data-pjax-replace="true" title="0" data-view-component="true" class="Counter">0</span>
@@ -1916,19 +1916,19 @@
 </template>
 
   <div data-view-component="true" class="js-toggler-container js-social-container starring-container on BtnGroup d-flex">
-    <form class="starred js-social-form BtnGroup-parent flex-auto js-deferred-toggler-target" data-turbo="false" action="/BluRosie/hg-engine/unstar" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="MVkFMwmJHd2EVp4PULIiouMLCYAYR3DZ1H9KITGY4v-X-hcwl5x7h9_7UBaqy5D2infJk57WNKFrknEMxXJRNg" autocomplete="off" />
-        <input type="hidden" value="ACCXfebpmZjNHZP9u97QUmULUOG-3uwG7ChX6pq5W9Smg4V-ePz_wpawXeRBp2IGDHeQ8jhPqH5TxWzHblPoHQ" data-csrf="true" class="js-confirm-csrf-token" />
+    <form class="starred js-social-form BtnGroup-parent flex-auto js-deferred-toggler-target" data-turbo="false" action="/BluRosie/hg-engine/unstar" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="D862BvYZ30RT1jCP8dgH80GXy-VtyCBAf9y2EDTV1d6pbaQFaAy5Hgh7_pYLobWnKOsL9utZZDjAMY09wD9mFw" autocomplete="off" />
+        <input type="hidden" value="vjI1eqpIhQxaydXXQd2bJ6Dz-_uVxcZOymfauXfTefwYkSd5NF3jVgFkG867pClzyY876BNUgjZ1iuGUgznKNQ" data-csrf="true" class="js-confirm-csrf-token" />
       <input type="hidden" name="context" value="repository">
-      <button data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="6ea8af56cf88b2defaf8ee10fda83dd31b4a72da0594fd7653d61eeea3a5f5a7" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar" aria-label="Unstar this repository" type="submit" data-view-component="true" class="rounded-left-2 border-right-0 btn-sm btn BtnGroup-item">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star-fill starred-button-icon d-inline-block mr-2">
+      <button data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="257ea55922d9c695a2c8f6466cb0a52ae2e122d18361384c5126ea8612dee29b" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar" aria-label="Unstar this repository" type="submit" data-view-component="true" class="rounded-left-2 border-right-0 btn-sm btn BtnGroup-item">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star-fill starred-button-icon d-inline-block mr-2">
     <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path>
 </svg><span data-view-component="true" class="d-inline">
           Starred
 </span>          <span id="repo-stars-counter-unstar" aria-label="1 user starred this repository" data-singular-suffix="user starred this repository" data-plural-suffix="users starred this repository" data-pjax-replace="true" title="1" data-view-component="true" class="Counter js-social-count">1</span>
   
 </button></form>
-    <form class="unstarred js-social-form BtnGroup-parent flex-auto" data-turbo="false" action="/BluRosie/hg-engine/star" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="KLMRkHf6LN_Arnsaclx9AAuRr9aGe3ml52eRTxUF2EyrsljiI2sUgtXe8J42Wpd4oBX_aK0I_Nd6uaJlfvLg2g" autocomplete="off" />
+    <form class="unstarred js-social-form BtnGroup-parent flex-auto" data-turbo="false" action="/BluRosie/hg-engine/star" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="LYqmT--0l_JgJq036PCfiU-1Y2yD4xyEP7ojSMyorFOui-89uyWvr3VWJrOs9nXx5DEz0qiQmfaiZBBip1-UxQ" autocomplete="off" />
       <input type="hidden" name="context" value="repository">
-      <button data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="01676d30c8037677209fe14c516827fbb64135604e11784bf5eebf5a033f6729" data-ga-click="Repository, click star button, action:blob#show; text:Star" aria-label="Star this repository" type="submit" data-view-component="true" class="js-toggler-target rounded-left-2 btn-sm btn BtnGroup-item">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star d-inline-block mr-2">
+      <button data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="0c58e142fc8dab105e224915e933517bc749490a32acde47c2ffff18c97eedf8" data-ga-click="Repository, click star button, action:blob#show; text:Star" aria-label="Star this repository" type="submit" data-view-component="true" class="js-toggler-target rounded-left-2 btn-sm btn BtnGroup-item">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star d-inline-block mr-2">
     <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path>
 </svg><span data-view-component="true" class="d-inline">
           Star
@@ -1949,13 +1949,13 @@
       
 >
     <div class="SelectMenu-modal">
-        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-c46b86">
+        <button class="SelectMenu-closeButton position-absolute right-0 m-2" type="button" aria-label="Close menu" data-toggle-for="details-c96b5b">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
     <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
 </svg>
         </button>
       <div
-        id="filter-menu-c46b86"
+        id="filter-menu-c96b5b"
         class="d-flex flex-column flex-1 overflow-hidden"
 >
         <div
@@ -2142,7 +2142,7 @@
 
 
     
-<a class="d-none js-permalink-shortcut" data-hotkey="y" href="/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h">Permalink</a>
+<a class="d-none js-permalink-shortcut" data-hotkey="y" href="/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s">Permalink</a>
 
 <div class="d-flex flex-items-start flex-shrink-0 pb-3 flex-wrap flex-md-nowrap flex-justify-between flex-md-justify-start">
   
@@ -2212,10 +2212,10 @@
             </template>
 
               <template data-target="ref-selector.noMatchTemplate">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/BluRosie/hg-engine/branches" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="v5taGwBVfhhTNwsKsDF0tac7oF95yN7zZUacEV-fqeYEHwfI-tBlOjg57-1SiI70Gl5hDpie1QJ9VKJCp5nGSA" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" action="/BluRosie/hg-engine/branches" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="7w6WdNQIBragFf-VSsgEdc2hjiV43LP40hQMvxQUFVJUisunLo0dlMsbG3Kocf40cMRPdJmKuAnKBjLs7BJ6_A" />
       <input type="hidden" name="name" value="{{ refName }}">
       <input type="hidden" name="branch"  value="d434d0ca984a30bfdefd9bb01183eab9aa0b0453">
-      <input type="hidden" name="path_binary" value="aW5jbHVkZS9jb25zdGFudHMvYmF0dGxlX3NjcmlwdF9jb25zdGFudHMuaA==">
+      <input type="hidden" name="path_binary" value="YXJtaXBzL21vdmUvYmF0dGxlX3N1Yl9zZXEvMzI0LnM=">
 
       <button class="SelectMenu-item wb-break-word" type="submit" role="menuitem" data-index="{{ index }}">
         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-git-branch SelectMenu-icon flex-self-baseline">
@@ -2239,7 +2239,7 @@
             </div>
 
               <template data-target="ref-selector.itemTemplate">
-  <a href="https://github.com/BluRosie/hg-engine/blob/{{ urlEncodedRefName }}/include/constants/battle_script_constants.h" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
+  <a href="https://github.com/BluRosie/hg-engine/blob/{{ urlEncodedRefName }}/armips/move/battle_sub_seq/324.s" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check">
     <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
 </svg>
@@ -2279,7 +2279,7 @@
             </template>
 
               <template data-target="ref-selector.itemTemplate">
-  <a href="https://github.com/BluRosie/hg-engine/blob/{{ urlEncodedRefName }}/include/constants/battle_script_constants.h" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
+  <a href="https://github.com/BluRosie/hg-engine/blob/{{ urlEncodedRefName }}/armips/move/battle_sub_seq/324.s" class="SelectMenu-item" role="menuitemradio" rel="nofollow" aria-checked="{{ isCurrent }}" data-index="{{ index }}">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check">
     <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
 </svg>
@@ -2310,7 +2310,7 @@
 </div>
 
   <h2 id="blob-path" class="breadcrumb flex-auto flex-self-center min-width-0 text-normal mx-2 width-full width-md-auto flex-order-1 flex-md-order-none mt-3 mt-md-0">
-    <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453"><span>hg-engine</span></a></span></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include"><span>include</span></a></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants"><span>constants</span></a></span><span class="separator">/</span><strong class="final-path">battle_script_constants.h</strong>
+    <span class="js-repo-root text-bold"><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453"><span>hg-engine</span></a></span></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips"><span>armips</span></a></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move"><span>move</span></a></span><span class="separator">/</span><span class="js-path-segment d-inline-block wb-break-all"><a data-pjax="#repo-content-pjax-container" rel="nofollow" href="/BluRosie/hg-engine/tree/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq"><span>battle_sub_seq</span></a></span><span class="separator">/</span><strong class="final-path">324.s</strong>
   </h2>
   <a href="/BluRosie/hg-engine/find/d434d0ca984a30bfdefd9bb01183eab9aa0b0453" data-pjax="" data-hotkey="t" data-view-component="true" class="js-pjax-capture-input btn mr-2 d-none d-md-block">  Go to file
   
@@ -2323,7 +2323,7 @@
 </summary>
   <div data-view-component="true">      <ul class="dropdown-menu dropdown-menu-sw">
         <li class="d-block d-md-none">
-          <a class="dropdown-item d-flex flex-items-baseline" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="7310be97ae9124b207a56a8c0071b5a3cce651006cd354da255b38e7b7703459" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/BluRosie/hg-engine/find/d434d0ca984a30bfdefd9bb01183eab9aa0b0453">
+          <a class="dropdown-item d-flex flex-items-baseline" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="fec14ad808ed4453b1720911d1381297487ac7d3b39538160d89cdc2e0dfb4da" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/BluRosie/hg-engine/find/d434d0ca984a30bfdefd9bb01183eab9aa0b0453">
             <span class="flex-auto">Go to file</span>
             <span class="text-small color-fg-muted" aria-hidden="true">T</span>
 </a>        </li>
@@ -2336,13 +2336,13 @@
 </button>        </li>
         <li class="dropdown-divider" role="none"></li>
         <li>
-          <clipboard-copy data-toggle-for="blob-more-options-details" aria-label="Copy path" value="include/constants/battle_script_constants.h" data-view-component="true" class="dropdown-item cursor-pointer">
+          <clipboard-copy data-toggle-for="blob-more-options-details" aria-label="Copy path" value="armips/move/battle_sub_seq/324.s" data-view-component="true" class="dropdown-item cursor-pointer">
     
             Copy path
 
 </clipboard-copy>        </li>
         <li>
-          <clipboard-copy data-toggle-for="blob-more-options-details" aria-label="Copy permalink" value="https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" data-view-component="true" class="dropdown-item cursor-pointer">
+          <clipboard-copy data-toggle-for="blob-more-options-details" aria-label="Copy permalink" value="https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" data-view-component="true" class="dropdown-item cursor-pointer">
     
             <span class="d-flex flex-items-baseline">
               <span class="flex-auto">Copy permalink</span>
@@ -2374,7 +2374,7 @@
     <include-fragment src="/BluRosie/hg-engine/spoofed_commit_check/d434d0ca984a30bfdefd9bb01183eab9aa0b0453" data-test-selector="spoofed-commit-check"></include-fragment>
 
     <div class="Box d-flex flex-column flex-shrink-0 mb-3">
-  <include-fragment src="/BluRosie/hg-engine/contributors/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" class="commit-loader">
+  <include-fragment src="/BluRosie/hg-engine/contributors/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" class="commit-loader">
     <div class="Box-header d-flex flex-items-center">
       <div class="Skeleton avatar avatar-user flex-shrink-0 ml-n1 mr-n1 mt-n1 mb-n1" style="width:24px;height:24px;"></div>
       <div class="Skeleton Skeleton--text col-5 ml-2">&nbsp;</div>
@@ -2407,18 +2407,18 @@
 
   <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1">
 
-      119 lines (85 sloc)
+      31 lines (26 sloc)
       <span class="file-info-divider"></span>
-    3.18 KB
+    799 Bytes
   </div>
 
   <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between hide-sm hide-md">
       
 
     <div class="BtnGroup">
-      <a href="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" id="raw-url" data-view-component="true" class="btn-sm btn BtnGroup-item">  Raw
+      <a href="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" id="raw-url" data-view-component="true" class="btn-sm btn BtnGroup-item">  Raw
   
-</a>        <a href="/BluRosie/hg-engine/blame/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" data-hotkey="b" data-view-component="true" class="js-update-url-with-hash btn-sm btn BtnGroup-item">  Blame
+</a>        <a href="/BluRosie/hg-engine/blame/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" data-hotkey="b" data-view-component="true" class="js-update-url-with-hash btn-sm btn BtnGroup-item">  Blame
   
 </a>    </div>
 
@@ -2431,11 +2431,11 @@
 </svg>
           </button>
 
-        <remote-clipboard-copy class="d-inline-block btn-octicon" style="height: 26px" data-src="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" data-action="click:remote-clipboard-copy#remoteCopy">
+        <remote-clipboard-copy class="d-inline-block btn-octicon" style="height: 26px" data-src="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" data-action="click:remote-clipboard-copy#remoteCopy">
   
 
 
-  <span data-target="remote-clipboard-copy.idle">            <span class="tooltipped tooltipped-nw cursor-pointer" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;COPY_RAW_CONTENTS_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="ff0bb9ced5f5a93beea21e16b24c1239bdfc0cf41da9136689adefc7410962f1" aria-label="Copy raw contents">
+  <span data-target="remote-clipboard-copy.idle">            <span class="tooltipped tooltipped-nw cursor-pointer" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;COPY_RAW_CONTENTS_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="422fbdc1f725514870a6227778c1b691bc5b84e27dff4fa1f461dfbb0fa66c8f" aria-label="Copy raw contents">
               <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy">
     <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
 </svg>
@@ -2458,13 +2458,13 @@
             </span>
 </span>
 </remote-clipboard-copy>
-          <a href="/login?return_to=https%3A%2F%2Fgithub.com%2FBluRosie%2Fhg-engine%2Fblob%2Fd434d0ca984a30bfdefd9bb01183eab9aa0b0453%2Finclude%2Fconstants%2Fbattle_script_constants.h" class="btn-octicon disabled tooltipped tooltipped-nw"
+          <a href="/login?return_to=https%3A%2F%2Fgithub.com%2FBluRosie%2Fhg-engine%2Fblob%2Fd434d0ca984a30bfdefd9bb01183eab9aa0b0453%2Farmips%2Fmove%2Fbattle_sub_seq%2F324.s" class="btn-octicon disabled tooltipped tooltipped-nw"
             aria-label="You must be on a branch to make or propose changes to this file">
             <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-pencil">
     <path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path>
 </svg>
           </a>
-          <a href="/login?return_to=https%3A%2F%2Fgithub.com%2FBluRosie%2Fhg-engine%2Fblob%2Fd434d0ca984a30bfdefd9bb01183eab9aa0b0453%2Finclude%2Fconstants%2Fbattle_script_constants.h" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
+          <a href="/login?return_to=https%3A%2F%2Fgithub.com%2FBluRosie%2Fhg-engine%2Fblob%2Fd434d0ca984a30bfdefd9bb01183eab9aa0b0453%2Farmips%2Fmove%2Fbattle_sub_seq%2F324.s" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
             aria-label="You must be on a branch to make or propose changes to this file">
             <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-trash">
     <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
@@ -2485,15 +2485,15 @@
             <li>
             </li>
           <li>
-            <a class="dropdown-item" href="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h">
+            <a class="dropdown-item" href="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s">
               View raw
             </a>
           </li>
             <li>
-              <remote-clipboard-copy class="dropdown-item" data-src="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h" data-action="click:remote-clipboard-copy#remoteCopy">
+              <remote-clipboard-copy class="dropdown-item" data-src="/BluRosie/hg-engine/raw/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s" data-action="click:remote-clipboard-copy#remoteCopy">
   
 
-  <span data-target="remote-clipboard-copy.idle">                  <span class="cursor-pointer" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;COPY_RAW_CONTENTS_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="ff0bb9ced5f5a93beea21e16b24c1239bdfc0cf41da9136689adefc7410962f1">
+  <span data-target="remote-clipboard-copy.idle">                  <span class="cursor-pointer" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;COPY_RAW_CONTENTS_BUTTON&quot;,&quot;repository_id&quot;:442713152,&quot;originating_url&quot;:&quot;https://github.com/BluRosie/hg-engine/blob/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s&quot;,&quot;user_id&quot;:74148058}}" data-hydro-click-hmac="422fbdc1f725514870a6227778c1b691bc5b84e27dff4fa1f461dfbb0fa66c8f">
                     Copy raw contents
 </span></span>
   <span data-target="remote-clipboard-copy.fetching" hidden="hidden">                  Copy raw contents
@@ -2516,7 +2516,7 @@
 </span>
 </remote-clipboard-copy>            </li>
             <li>
-              <a class="dropdown-item" href="/BluRosie/hg-engine/blame/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h">
+              <a class="dropdown-item" href="/BluRosie/hg-engine/blame/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s">
                 View blame
               </a>
             </li>
@@ -2528,7 +2528,7 @@
 
 
       
-    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-c  gist-border-0">
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-unix-assembly  gist-border-0">
 
         
 <div class="js-check-bidi js-blob-code-container blob-code-content">
@@ -2557,14 +2557,14 @@
 </svg>
 </span></template>
 
-  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="C" data-tagsearch-path="include/constants/battle_script_constants.h">
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="Unix Assembly" data-tagsearch-path="armips/move/battle_sub_seq/324.s">
         <tr>
           <td id="L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
-          <td id="LC1" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">ifndef</span> CONSTANTS_BATTLE_SCRIPT_CONSTANTS_H</td>
+          <td id="LC1" class="blob-code blob-code-inner js-file-line">.nds</td>
         </tr>
         <tr>
           <td id="L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
-          <td id="LC2" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">CONSTANTS_BATTLE_SCRIPT_CONSTANTS_H</span></td>
+          <td id="LC2" class="blob-code blob-code-inner js-file-line">.thumb</td>
         </tr>
         <tr>
           <td id="L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
@@ -2573,25 +2573,23 @@
         </tr>
         <tr>
           <td id="L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
-          <td id="LC4" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">MOVE_SEQUENCE_NO</span> (<span class="pl-c1">22</span>)</td>
+          <td id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">.include</span> <span class="pl-s">&quot;armips/include/battlescriptcmd.s&quot;</span></td>
         </tr>
         <tr>
           <td id="L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
-          <td id="LC5" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">.include</span> <span class="pl-s">&quot;armips/include/abilities.s&quot;</span></td>
         </tr>
         <tr>
           <td id="L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
-          <td id="LC6" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">.include</span> <span class="pl-s">&quot;armips/include/itemnums.s&quot;</span></td>
         </tr>
         <tr>
           <td id="L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
-          <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> sub sequence defines</span></td>
+          <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">.include</span> <span class="pl-s">&quot;armips/include/monnums.s&quot;</span></td>
         </tr>
         <tr>
           <td id="L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
-          <td id="LC8" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span>	<span class="pl-en">SUB_SEQ_HP_CALC</span> (<span class="pl-c1">2</span>)</td>
+          <td id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">.include</span> <span class="pl-s">&quot;armips/include/movenums.s&quot;</span></td>
         </tr>
         <tr>
           <td id="L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
@@ -2600,7 +2598,7 @@
         </tr>
         <tr>
           <td id="L10" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="10"></td>
-          <td id="LC10" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_STAT_STAGE_CHANGE</span> (<span class="pl-c1">12</span>)</td>
+          <td id="LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c">//handle pickpocket for defender</span></td>
         </tr>
         <tr>
           <td id="L11" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="11"></td>
@@ -2609,7 +2607,7 @@
         </tr>
         <tr>
           <td id="L12" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="12"></td>
-          <td id="LC12" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_FLINCH</span> (<span class="pl-c1">14</span>)</td>
+          <td id="LC12" class="blob-code blob-code-inner js-file-line">.create <span class="pl-s">&quot;build/move/battle_sub_seq/1_324&quot;</span>, <span class="pl-c1">0x0</span></td>
         </tr>
         <tr>
           <td id="L13" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="13"></td>
@@ -2618,455 +2616,76 @@
         </tr>
         <tr>
           <td id="L14" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="14"></td>
-          <td id="LC14" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_PUT_MON_TO_SLEEP</span> (<span class="pl-c1">18</span>)</td>
+          <td id="LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-k">a001_085:</span></td>
         </tr>
         <tr>
           <td id="L15" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="15"></td>
-          <td id="LC15" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC15" class="blob-code blob-code-inner js-file-line">    seteffectprimary BATTLER_ATTACKER</td>
         </tr>
         <tr>
           <td id="L16" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="16"></td>
-          <td id="LC16" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_POISON_MON</span> (<span class="pl-c1">22</span>)</td>
+          <td id="LC16" class="blob-code blob-code-inner js-file-line">    waitmessage</td>
         </tr>
         <tr>
           <td id="L17" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="17"></td>
-          <td id="LC17" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC17" class="blob-code blob-code-inner js-file-line">    printmessage <span class="pl-c1">0x191</span>, <span class="pl-c1">0x21</span>, <span class="pl-c1">0x2</span>, <span class="pl-c1">0x1</span>, <span class="pl-c1">0x1</span>, <span class="pl-s">&quot;NaN&quot;</span>, <span class="pl-s">&quot;NaN&quot;</span>, <span class="pl-s">&quot;NaN&quot;</span></td>
         </tr>
         <tr>
           <td id="L18" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="18"></td>
-          <td id="LC18" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_BURN_MON</span> (<span class="pl-c1">25</span>)</td>
+          <td id="LC18" class="blob-code blob-code-inner js-file-line">    waitmessage</td>
         </tr>
         <tr>
           <td id="L19" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="19"></td>
-          <td id="LC19" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">wait</span> <span class="pl-c1">0x1E</span></td>
         </tr>
         <tr>
           <td id="L20" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="20"></td>
-          <td id="LC20" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_PARALYZE_MON</span> (<span class="pl-c1">31</span>)</td>
+          <td id="LC20" class="blob-code blob-code-inner js-file-line">    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_ATTACKER, <span class="pl-c1">0x37</span>, VAR_43</td>
         </tr>
         <tr>
           <td id="L21" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="21"></td>
-          <td id="LC21" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC21" class="blob-code blob-code-inner js-file-line">    changevartomonvalue2 VAR_OP_SET, BATTLER_DEFENDER, <span class="pl-c1">0x37</span>, VAR_43</td>
         </tr>
         <tr>
           <td id="L22" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="22"></td>
-          <td id="LC22" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span>	<span class="pl-en">SUB_SEQ_MIGAWARI_HIT</span> (<span class="pl-c1">90</span>)</td>
+          <td id="LC22" class="blob-code blob-code-inner js-file-line">    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, <span class="pl-c1">0x37</span>, <span class="pl-c1">0x0</span></td>
         </tr>
         <tr>
           <td id="L23" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="23"></td>
-          <td id="LC23" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC23" class="blob-code blob-code-inner js-file-line">    goto _00C4</td>
         </tr>
         <tr>
           <td id="L24" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="24"></td>
-          <td id="LC24" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_CUTE_CHARM</span> (<span class="pl-c1">106</span>)</td>
+          <td id="LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-k">_00A0:</span></td>
         </tr>
         <tr>
           <td id="L25" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="25"></td>
-          <td id="LC25" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC25" class="blob-code blob-code-inner js-file-line">    printmessage <span class="pl-c1">0x2CA</span>, <span class="pl-c1">0x25</span>, <span class="pl-c1">0x2</span>, <span class="pl-c1">0x2</span>, <span class="pl-c1">0x1</span>, <span class="pl-s">&quot;NaN&quot;</span>, <span class="pl-s">&quot;NaN&quot;</span>, <span class="pl-s">&quot;NaN&quot;</span></td>
         </tr>
         <tr>
           <td id="L26" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="26"></td>
-          <td id="LC26" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_MOLD_BREAKER</span> (<span class="pl-c1">177</span>)</td>
+          <td id="LC26" class="blob-code blob-code-inner js-file-line">    waitmessage</td>
         </tr>
         <tr>
           <td id="L27" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="27"></td>
-          <td id="LC27" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_ABILITY_RECOVERED_HP</span> (<span class="pl-c1">178</span>)</td>
+          <td id="LC27" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">wait</span> <span class="pl-c1">0x1E</span></td>
         </tr>
         <tr>
           <td id="L28" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="28"></td>
-          <td id="LC28" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_FLASH_FIRE</span> (<span class="pl-c1">179</span>)</td>
+          <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-k">_00C4:</span></td>
         </tr>
         <tr>
           <td id="L29" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="29"></td>
-          <td id="LC29" class="blob-code blob-code-inner js-file-line">
-</td>
+          <td id="LC29" class="blob-code blob-code-inner js-file-line">    endscript</td>
         </tr>
         <tr>
           <td id="L30" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="30"></td>
-          <td id="LC30" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SOUNDPROOF</span> (<span class="pl-c1">181</span>)</td>
+          <td id="LC30" class="blob-code blob-code-inner js-file-line">
+</td>
         </tr>
         <tr>
           <td id="L31" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="31"></td>
-          <td id="LC31" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_MOTOR_DRIVE</span> (<span class="pl-c1">182</span>)</td>
-        </tr>
-        <tr>
-          <td id="L32" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="32"></td>
-          <td id="LC32" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_DRIZZLE</span> (<span class="pl-c1">183</span>)</td>
-        </tr>
-        <tr>
-          <td id="L33" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="33"></td>
-          <td id="LC33" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SAND_STREAM</span> (<span class="pl-c1">184</span>)</td>
-        </tr>
-        <tr>
-          <td id="L34" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="34"></td>
-          <td id="LC34" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_DROUGHT</span> (<span class="pl-c1">185</span>)</td>
-        </tr>
-        <tr>
-          <td id="L35" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="35"></td>
-          <td id="LC35" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_INTIMIDATE</span> (<span class="pl-c1">186</span>)</td>
-        </tr>
-        <tr>
-          <td id="L36" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="36"></td>
-          <td id="LC36" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_TRACE</span> (<span class="pl-c1">187</span>)</td>
-        </tr>
-        <tr>
-          <td id="L37" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="37"></td>
-          <td id="LC37" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_COLOR_CHANGE</span> (<span class="pl-c1">188</span>)</td>
-        </tr>
-        <tr>
-          <td id="L38" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="38"></td>
-          <td id="LC38" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_ROUGH_SKIN</span> (<span class="pl-c1">189</span>)</td>
-        </tr>
-        <tr>
-          <td id="L39" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="39"></td>
-          <td id="LC39" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SHED_SKIN</span> (<span class="pl-c1">190</span>)</td>
-        </tr>
-        <tr>
-          <td id="L40" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="40"></td>
-          <td id="LC40" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L41" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="41"></td>
-          <td id="LC41" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_AFTERMATH</span> (<span class="pl-c1">193</span>)</td>
-        </tr>
-        <tr>
-          <td id="L42" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="42"></td>
-          <td id="LC42" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_ANTICIPATION</span> (<span class="pl-c1">194</span>)</td>
-        </tr>
-        <tr>
-          <td id="L43" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="43"></td>
-          <td id="LC43" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_FOREWARN</span> (<span class="pl-c1">195</span>)</td>
-        </tr>
-        <tr>
-          <td id="L44" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="44"></td>
-          <td id="LC44" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SLOW_START</span> (<span class="pl-c1">196</span>)</td>
-        </tr>
-        <tr>
-          <td id="L45" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="45"></td>
-          <td id="LC45" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SLOW_START_END</span> (<span class="pl-c1">197</span>)</td>
-        </tr>
-        <tr>
-          <td id="L46" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="46"></td>
-          <td id="LC46" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L47" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="47"></td>
-          <td id="LC47" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_STATUS_HEAL_ABILITIES</span> (<span class="pl-c1">221</span>)</td>
-        </tr>
-        <tr>
-          <td id="L48" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="48"></td>
-          <td id="LC48" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L49" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="49"></td>
-          <td id="LC49" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SNOW_WARNING</span> (<span class="pl-c1">252</span>)</td>
-        </tr>
-        <tr>
-          <td id="L50" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="50"></td>
-          <td id="LC50" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_FRISK</span> (<span class="pl-c1">253</span>)</td>
-        </tr>
-        <tr>
-          <td id="L51" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="51"></td>
-          <td id="LC51" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L52" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="52"></td>
-          <td id="LC52" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_FORM_CHANGE</span> (<span class="pl-c1">262</span>)</td>
-        </tr>
-        <tr>
-          <td id="L53" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="53"></td>
-          <td id="LC53" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L54" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="54"></td>
-          <td id="LC54" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_OVERWORLD_RAIN</span> (<span class="pl-c1">271</span>)</td>
-        </tr>
-        <tr>
-          <td id="L55" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="55"></td>
-          <td id="LC55" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_OVERWORLD_HAIL</span> (<span class="pl-c1">272</span>)</td>
-        </tr>
-        <tr>
-          <td id="L56" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="56"></td>
-          <td id="LC56" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_OVERWORLD_SANDSTORM</span> (<span class="pl-c1">273</span>)</td>
-        </tr>
-        <tr>
-          <td id="L57" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="57"></td>
-          <td id="LC57" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_OVERWORLD_FOG</span> (<span class="pl-c1">274</span>)</td>
-        </tr>
-        <tr>
-          <td id="L58" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="58"></td>
-          <td id="LC58" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L59" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="59"></td>
-          <td id="LC59" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_PRESSURE</span> (<span class="pl-c1">285</span>)</td>
-        </tr>
-        <tr>
-          <td id="L60" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="60"></td>
-          <td id="LC60" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L61" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="61"></td>
-          <td id="LC61" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_CHECK_FORM_CHANGE</span> (<span class="pl-c1">293</span>)</td>
-        </tr>
-        <tr>
-          <td id="L62" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="62"></td>
-          <td id="LC62" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_OVERWORLD_DROUGHT</span> (<span class="pl-c1">294</span>)</td>
-        </tr>
-        <tr>
-          <td id="L63" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="63"></td>
-          <td id="LC63" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_OVERWORLD_TRICK_ROOM</span> (<span class="pl-c1">295</span>)</td>
-        </tr>
-        <tr>
-          <td id="L64" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="64"></td>
-          <td id="LC64" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_GIRATINA_FORM_CHANGE</span> (<span class="pl-c1">296</span>)</td>
-        </tr>
-        <tr>
-          <td id="L65" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="65"></td>
-          <td id="LC65" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L66" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="66"></td>
-          <td id="LC66" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> new sub_seq entries:</span></td>
-        </tr>
-        <tr>
-          <td id="L67" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="67"></td>
-          <td id="LC67" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_UNNERVE_MESSAGE</span> (<span class="pl-c1">298</span>)</td>
-        </tr>
-        <tr>
-          <td id="L68" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="68"></td>
-          <td id="LC68" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_PROTEAN_MESSAGE</span> (<span class="pl-c1">299</span>)</td>
-        </tr>
-        <tr>
-          <td id="L69" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="69"></td>
-          <td id="LC69" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_DARK_AURA_MESSAGE</span> (<span class="pl-c1">300</span>)</td>
-        </tr>
-        <tr>
-          <td id="L70" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="70"></td>
-          <td id="LC70" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_FAIRY_AURA_MESSAGE</span> (<span class="pl-c1">301</span>)</td>
-        </tr>
-        <tr>
-          <td id="L71" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="71"></td>
-          <td id="LC71" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_AURA_BREAK_MESSAGE</span> (<span class="pl-c1">302</span>)</td>
-        </tr>
-        <tr>
-          <td id="L72" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="72"></td>
-          <td id="LC72" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_TURBOBLAZE_MESSAGE</span> (<span class="pl-c1">303</span>)</td>
-        </tr>
-        <tr>
-          <td id="L73" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="73"></td>
-          <td id="LC73" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_TERAVOLT_MESSAGE</span> (<span class="pl-c1">304</span>)</td>
-        </tr>
-        <tr>
-          <td id="L74" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="74"></td>
-          <td id="LC74" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE</span> (<span class="pl-c1">305</span>)</td>
-        </tr>
-        <tr>
-          <td id="L75" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="75"></td>
-          <td id="LC75" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_MUMMY_MESSAGE</span> (<span class="pl-c1">306</span>)</td>
-        </tr>
-        <tr>
-          <td id="L76" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="76"></td>
-          <td id="LC76" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_WEAK_ARMOR</span> (<span class="pl-c1">307</span>)</td>
-        </tr>
-        <tr>
-          <td id="L77" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="77"></td>
-          <td id="LC77" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_SAP_SIPPER</span> (<span class="pl-c1">308</span>)</td>
-        </tr>
-        <tr>
-          <td id="L78" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="78"></td>
-          <td id="LC78" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_DEFIANT</span> (<span class="pl-c1">309</span>)</td>
-        </tr>
-        <tr>
-          <td id="L79" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="79"></td>
-          <td id="LC79" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_HEALER</span> (<span class="pl-c1">310</span>)</td>
-        </tr>
-        <tr>
-          <td id="L80" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="80"></td>
-          <td id="LC80" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_RAISE_ATTACK_AND_ACCURACY</span> (<span class="pl-c1">311</span>)</td>
-        </tr>
-        <tr>
-          <td id="L81" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="81"></td>
-          <td id="LC81" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_GUARD_SPLIT</span> (<span class="pl-c1">312</span>)</td>
-        </tr>
-        <tr>
-          <td id="L82" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="82"></td>
-          <td id="LC82" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_POWER_SPLIT</span> (<span class="pl-c1">313</span>)</td>
-        </tr>
-        <tr>
-          <td id="L83" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="83"></td>
-          <td id="LC83" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_QUIVER_DANCE</span> (<span class="pl-c1">314</span>)</td>
-        </tr>
-        <tr>
-          <td id="L84" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="84"></td>
-          <td id="LC84" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_CHANGE_TARGET_TO_WATER_TYPE</span> (<span class="pl-c1">315</span>)</td>
-        </tr>
-        <tr>
-          <td id="L85" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="85"></td>
-          <td id="LC85" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_COIL</span> (<span class="pl-c1">316</span>)</td>
-        </tr>
-        <tr>
-          <td id="L86" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="86"></td>
-          <td id="LC86" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_SHIFT_GEAR</span> (<span class="pl-c1">317</span>)</td>
-        </tr>
-        <tr>
-          <td id="L87" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="87"></td>
-          <td id="LC87" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_SHELL_SMASH</span> (<span class="pl-c1">318</span>)</td>
-        </tr>
-        <tr>
-          <td id="L88" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="88"></td>
-          <td id="LC88" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_V_CREATE</span> (<span class="pl-c1">319</span>)</td>
-        </tr>
-        <tr>
-          <td id="L89" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="89"></td>
-          <td id="LC89" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_AUTOTOMIZE</span> (<span class="pl-c1">320</span>)</td>
-        </tr>
-        <tr>
-          <td id="L90" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="90"></td>
-          <td id="LC90" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_HARVEST</span> (<span class="pl-c1">321</span>)</td>
-        </tr>
-        <tr>
-          <td id="L91" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="91"></td>
-          <td id="LC91" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_MOODY</span> (<span class="pl-c1">322</span>)</td>
-        </tr>
-        <tr>
-          <td id="L92" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="92"></td>
-          <td id="LC92" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK</span> (<span class="pl-c1">323</span>)</td>
-        </tr>
-        <tr>
-          <td id="L93" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="93"></td>
-          <td id="LC93" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_PICKPOCKET_DEF</span> (<span class="pl-c1">324</span>)</td>
-        </tr>
-        <tr>
-          <td id="L94" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="94"></td>
-          <td id="LC94" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">SUB_SEQ_HANDLE_PICKPOCKET_ATK</span> (<span class="pl-c1">325</span>)</td>
-        </tr>
-        <tr>
-          <td id="L95" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="95"></td>
-          <td id="LC95" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L96" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="96"></td>
-          <td id="LC96" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L97" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="97"></td>
-          <td id="LC97" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L98" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="98"></td>
-          <td id="LC98" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L99" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="99"></td>
-          <td id="LC99" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L100" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="100"></td>
-          <td id="LC100" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L101" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="101"></td>
-          <td id="LC101" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L102" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="102"></td>
-          <td id="LC102" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L103" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="103"></td>
-          <td id="LC103" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L104" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="104"></td>
-          <td id="LC104" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L105" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="105"></td>
-          <td id="LC105" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L106" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="106"></td>
-          <td id="LC106" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> additional effect constants</span></td>
-        </tr>
-        <tr>
-          <td id="L107" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="107"></td>
-          <td id="LC107" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_NONE</span> (<span class="pl-c1">0</span>)</td>
-        </tr>
-        <tr>
-          <td id="L108" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="108"></td>
-          <td id="LC108" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_DIRECT</span> (<span class="pl-c1">1</span>)</td>
-        </tr>
-        <tr>
-          <td id="L109" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="109"></td>
-          <td id="LC109" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_INDIRECT</span> (<span class="pl-c1">2</span>)</td>
-        </tr>
-        <tr>
-          <td id="L110" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="110"></td>
-          <td id="LC110" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_ABILITY</span> (<span class="pl-c1">3</span>)</td>
-        </tr>
-        <tr>
-          <td id="L111" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="111"></td>
-          <td id="LC111" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_WAZA_KOUKA</span> (<span class="pl-c1">4</span>)</td>
-        </tr>
-        <tr>
-          <td id="L112" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="112"></td>
-          <td id="LC112" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_SOUBIITEM</span> (<span class="pl-c1">5</span>)</td>
-        </tr>
-        <tr>
-          <td id="L113" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="113"></td>
-          <td id="LC113" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_DOKUBISI</span> (<span class="pl-c1">6</span>)</td>
-        </tr>
-        <tr>
-          <td id="L114" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="114"></td>
-          <td id="LC114" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span> <span class="pl-en">ADD_STATUS_IGNORE</span> (<span class="pl-c1">7</span>)</td>
-        </tr>
-        <tr>
-          <td id="L115" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="115"></td>
-          <td id="LC115" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L116" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="116"></td>
-          <td id="LC116" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span>	<span class="pl-en">ADD_STAGE_ATTACK_UP</span> (<span class="pl-c1">15</span>)</td>
-        </tr>
-        <tr>
-          <td id="L117" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="117"></td>
-          <td id="LC117" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">define</span>	<span class="pl-en">ADD_STAGE_SP_ATK_UP</span> (<span class="pl-c1">18</span>)</td>
-        </tr>
-        <tr>
-          <td id="L118" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="118"></td>
-          <td id="LC118" class="blob-code blob-code-inner js-file-line">
-</td>
-        </tr>
-        <tr>
-          <td id="L119" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="119"></td>
-          <td id="LC119" class="blob-code blob-code-inner js-file-line">#<span class="pl-k">endif</span></td>
+          <td id="LC31" class="blob-code blob-code-inner js-file-line">.close</td>
         </tr>
   </table>
 </div>
@@ -3092,7 +2711,7 @@
             Copy permalink
           </clipboard-copy>
         </li>
-        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/BluRosie/hg-engine/blame/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/include/constants/battle_script_constants.h">View git blame</a></li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/BluRosie/hg-engine/blame/d434d0ca984a30bfdefd9bb01183eab9aa0b0453/armips/move/battle_sub_seq/324.s">View git blame</a></li>
           <li><a class="dropdown-item" id="js-new-issue" role="menuitem" href="/BluRosie/hg-engine/issues/new">Reference in new issue</a></li>
       </ul>
     </details-menu>
