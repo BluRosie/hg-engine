@@ -1225,24 +1225,24 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && ((GetBattleMonItem(sp, sp->defence_client) < ITEM_GRASS_MAIL) 
                   || (GetBattleMonItem(sp, sp->defence_client) > ITEM_BRICK_MAIL))
              && (
-                 ((AttackingMon.species !=  SPECIES_GIRATINA) || (DefendingMon.species != SPECIES_GIRATINA))
+                 ((DefendingMon.species != SPECIES_GIRATINA))
                  && 
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_GRISEOUS_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_GRISEOUS_ORB))
+                 ((GetBattleMonItem(sp, sp-> defence_client) != ITEM_GRISEOUS_ORB))
                 )
              && (
-                 ((AttackingMon.species != SPECIES_ARCEUS) || (DefendingMon.species != SPECIES_ARCEUS))
+                 ((DefendingMon.species != SPECIES_ARCEUS))
                  &&
-                 ((GetBattleMonItem(sp, sp->attack_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp-> defence_client) > ITEM_IRON_PLATE))
+                 ((GetBattleMonItem(sp, sp-> defence_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp-> defence_client) > ITEM_IRON_PLATE))
                 )
              && (
-                 ((AttackingMon.species != SPECIES_KYOGRE) || (DefendingMon.species != SPECIES_KYOGRE))
+                 ((DefendingMon.species != SPECIES_KYOGRE))
                  &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_BLUE_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_BLUE_ORB))
+                 ((GetBattleMonItem(sp, sp-> defence_client) != ITEM_BLUE_ORB))
                 )
              && (
-                 ((AttackingMon.species != SPECIES_GROUDON) || (DefendingMon.species != SPECIES_GROUDON))
+                 ((DefendingMon.species != SPECIES_GROUDON))
                  &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_RED_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_RED_ORB))
+                 ((GetBattleMonItem(sp, sp-> defence_client) != ITEM_RED_ORB))
                 )
              )
             {
@@ -1642,24 +1642,24 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && ((GetBattleMonItem(sp, sp->attack_client) < ITEM_GRASS_MAIL) 
                   || (GetBattleMonItem(sp, sp->attack_client) > ITEM_BRICK_MAIL))
              && (
-                 ((AttackingMon.species !=  SPECIES_GIRATINA) || (DefendingMon.species != SPECIES_GIRATINA))
+                 ((AttackingMon.species !=  SPECIES_GIRATINA))
                  && 
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_GRISEOUS_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_GRISEOUS_ORB))
+                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_GRISEOUS_ORB))
                 )
              && (
-                 ((AttackingMon.species != SPECIES_ARCEUS) || (DefendingMon.species != SPECIES_ARCEUS))
+                 ((AttackingMon.species != SPECIES_ARCEUS))
                  &&
-                 ((GetBattleMonItem(sp, sp->attack_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp-> defence_client) > ITEM_IRON_PLATE))
+                 ((GetBattleMonItem(sp, sp->attack_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp->attack_client) > ITEM_IRON_PLATE))
                 )
              && (
-                 ((AttackingMon.species != SPECIES_KYOGRE) || (DefendingMon.species != SPECIES_KYOGRE))
+                 ((AttackingMon.species != SPECIES_KYOGRE))
                  &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_BLUE_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_BLUE_ORB))
+                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_BLUE_ORB))
                 )
              && (
-                 ((AttackingMon.species != SPECIES_GROUDON) || (DefendingMon.species != SPECIES_GROUDON))
+                 ((AttackingMon.species != SPECIES_GROUDON))
                  &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_RED_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_RED_ORB))
+                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_RED_ORB))
                 )
              )
             {
