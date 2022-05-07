@@ -126,6 +126,11 @@ code_only: $(OUTPUT)
 	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
+
+	@echo "pokemon icons:"
+	$(ARMIPS) armips/data/iconpalettetable.s
+	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/0 build/pokemonicon -nf
+
 	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
