@@ -2817,7 +2817,7 @@ mondata SPECIES_CYNDAQUIL
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_BLAZE, ABILITY_NONE
+    abilities ABILITY_PICKPOCKET, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_CYNDAQUIL_TM_DATA_0, SPECIES_CYNDAQUIL_TM_DATA_1, SPECIES_CYNDAQUIL_TM_DATA_2, SPECIES_CYNDAQUIL_TM_DATA_3
@@ -6897,7 +6897,7 @@ mondata SPECIES_KYOGRE
     catchrate 5
     baseexp 218
     evyields 0, 0, 0, 0, 3, 0
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_BLUE_ORB, ITEM_BLUE_ORB
     genderratio 255
     eggcycles 120
     basefriendship 0
@@ -6915,7 +6915,7 @@ mondata SPECIES_GROUDON
     catchrate 5
     baseexp 218
     evyields 0, 3, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_RED_ORB, ITEM_RED_ORB
     genderratio 255
     eggcycles 120
     basefriendship 0
@@ -8787,7 +8787,7 @@ mondata SPECIES_GIRATINA
     catchrate 3
     baseexp 220
     evyields 3, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_GRISEOUS_ORB , ITEM_GRISEOUS_ORB 
     genderratio 255
     eggcycles 120
     basefriendship 0
@@ -8895,7 +8895,7 @@ mondata SPECIES_ARCEUS
     catchrate 3
     baseexp 255
     evyields 3, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_FLAME_PLATE , ITEM_FLAME_PLATE 
     genderratio 255
     eggcycles 120
     basefriendship 0
