@@ -58,7 +58,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
             scriptnum = SUB_SEQ_ABILITY_RECOVERED_HP;
         }
     }
-
+    
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
     {
@@ -73,8 +73,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLASH_FIRE) == TRUE)
     {
         if ((movetype == TYPE_FIRE)
-         && ((sp->battlemon[defender].condition & STATUS_FLAG_FROZEN) == 0)
-         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+         && ((sp->battlemon[defender].condition & STATUS_FLAG_FROZEN) == 0) 
+         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) 
          && ((sp->moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP)))
         {
             scriptnum = SUB_SEQ_HANDLE_FLASH_FIRE;
@@ -858,7 +858,7 @@ BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value)
             return TRUE;
         }
     }
-
+    
     return FALSE;
 }
 
@@ -963,7 +963,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
             if (sp->battlemon[client_no].hp)
             {
                 int temp = BattleRand(bw) % 7;
-
+                
                 if (AreAnyStatsNotAtValue(sp, client_no, 12)) // if any stat can be lowered
                 {
                     while (sp->battlemon[client_no].states[temp] == 12)
@@ -976,10 +976,10 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                     sp->calc_work = 8; // skip the raising if this is the case
                 }
                 sp->calc_work = temp; // VAR_09
-
-
+                
+                
                 temp = BattleRand(bw) % 7;
-
+                
                 if (AreAnyStatsNotAtValue(sp, client_no, 0)) // if any stat can be raised
                 {
                     while (sp->battlemon[client_no].states[temp] == 0
@@ -993,7 +993,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                     sp->tokusei_work = 8; // skip the lowering if this is the case
                 }
                 sp->tokusei_work = temp; // VAR_ABILITY_TEMP2
-
+                
                 sp->client_work = client_no;
                 sp->state_client = client_no;
                 seq_no = SUB_SEQ_HANDLE_MOODY;
@@ -1034,75 +1034,6 @@ BOOL MummyAbilityCheck(struct BattleStruct *sp)
     }
 }
 
-    BOOL PickpocketItemCheck(struct BattleStruct *sp, int client_no)
-    {
-        switch(GetBattleMonItem(sp, client_no))
-        {
-            case ITEM_GRASS_MAIL:
-            case ITEM_FLAME_MAIL:
-            case ITEM_BUBBLE_MAIL:
-            case ITEM_BLOOM_MAIL:
-            case ITEM_TUNNEL_MAIL:
-            case ITEM_STEEL_MAIL:
-            case ITEM_HEART_MAIL:
-            case ITEM_SNOW_MAIL:
-            case ITEM_SPACE_MAIL:
-            case ITEM_AIR_MAIL:
-            case ITEM_MOSAIC_MAIL:
-            case ITEM_BRICK_MAIL:
-            case ITEM_MEGA_STONE_VENUSAUR :
-            case ITEM_MEGA_STONE_CHARIZARD_X:
-            case ITEM_MEGA_STONE_CHARIZARD_Y:
-            case ITEM_MEGA_STONE_BLASTOISE:
-            case ITEM_MEGA_STONE_BEEDRILL :
-            case ITEM_MEGA_STONE_PIDGEOT:
-            case ITEM_MEGA_STONE_ALAKAZAM:
-            case ITEM_MEGA_STONE_SLOWBRO:
-            case ITEM_MEGA_STONE_GENGAR:
-            case ITEM_MEGA_STONE_KANGASKHAN:
-            case ITEM_MEGA_STONE_PINSIR:
-            case ITEM_MEGA_STONE_GYARADOS:
-            case ITEM_MEGA_STONE_AERODACTYL:
-            case ITEM_MEGA_STONE_MEWTWO_X:
-            case ITEM_MEGA_STONE_MEWTWO_Y:
-            case ITEM_MEGA_STONE_AMPHAROS:
-            case ITEM_MEGA_STONE_STEELIX:
-            case ITEM_MEGA_STONE_SCIZOR:
-            case ITEM_MEGA_STONE_HERACROSS:
-            case ITEM_MEGA_STONE_HOUNDOOM:
-            case ITEM_MEGA_STONE_TYRANITAR:
-            case ITEM_MEGA_STONE_SCEPTILE:
-            case ITEM_MEGA_STONE_BLAZIKEN:
-            case ITEM_MEGA_STONE_SWAMPERT:
-            case ITEM_MEGA_STONE_GARDEVOIR:
-            case ITEM_MEGA_STONE_SABLEYE:
-            case ITEM_MEGA_STONE_MAWILE:
-            case ITEM_MEGA_STONE_AGGRON:
-            case ITEM_MEGA_STONE_MEDICHAM :
-            case ITEM_MEGA_STONE_MANECTRIC:
-            case ITEM_MEGA_STONE_SHARPEDO :
-            case ITEM_MEGA_STONE_CAMERUPT :
-            case ITEM_MEGA_STONE_ALTARIA:
-            case ITEM_MEGA_STONE_BANETTE:
-            case ITEM_MEGA_STONE_ABSOL:
-            case ITEM_MEGA_STONE_GLALIE:
-            case ITEM_MEGA_STONE_SALAMENCE:
-            case ITEM_MEGA_STONE_METAGROSS:
-            case ITEM_MEGA_STONE_LATIAS:
-            case ITEM_MEGA_STONE_LATIOS:
-            case ITEM_MEGA_STONE_LOPUNNY:
-            case ITEM_MEGA_STONE_GARCHOMP:
-            case ITEM_MEGA_STONE_LUCARIO:
-            case ITEM_MEGA_STONE_ABOMASNOW:
-            case ITEM_MEGA_STONE_GALLADE:
-            case ITEM_MEGA_STONE_AUDINO:
-            case ITEM_MEGA_STONE_DIANCIE:
-                return FALSE;
-            default:
-                return TRUE;
-        }
-    }
-
 u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
 {
     u16 stats[] = {
@@ -1124,7 +1055,7 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
 }
 
 
-BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) 
 {
     BOOL ret = FALSE;
 
@@ -1209,50 +1140,6 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 }
             }
             break;
-        //handle pickpocket for attacker
-        case ABILITY_PICKPOCKET:
-            u8 attacker; u8 defender;
-            struct sDamageCalc AttackingMon;
-            struct sDamageCalc DefendingMon;
-
-            u16    GetBattleMonItem(struct BattleStruct *sp, int client_no);
-            AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
-            DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
-            if (
-             (GetBattleMonItem(sp, sp->attack_client) == ITEM_NONE) 
-             && (GetBattleMonItem(sp, sp->defence_client) != ITEM_NONE)
-             && (GetBattleMonItem(sp, sp->defence_client) < ITEM_MEGA_STONES_START) 
-             && ((GetBattleMonItem(sp, sp->defence_client) < ITEM_GRASS_MAIL) 
-                  || (GetBattleMonItem(sp, sp->defence_client) > ITEM_BRICK_MAIL))
-             && (
-                 ((AttackingMon.species !=  SPECIES_GIRATINA) || (DefendingMon.species != SPECIES_GIRATINA))
-                 && 
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_GRISEOUS_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_GRISEOUS_ORB))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_ARCEUS) || (DefendingMon.species != SPECIES_ARCEUS))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp-> defence_client) > ITEM_IRON_PLATE))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_KYOGRE) || (DefendingMon.species != SPECIES_KYOGRE))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_BLUE_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_BLUE_ORB))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_GROUDON) || (DefendingMon.species != SPECIES_GROUDON))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_RED_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_RED_ORB))
-                )
-             )
-            {
-                if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                {
-                    seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_ATK;
-                    ret = TRUE;
-                }   
-            }
-            break;
         default:
             break;
     }
@@ -1290,7 +1177,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 ret = TRUE;
             }
             break;
-        case ABILITY_COLOR_CHANGE:
+        case ABILITY_COLOR_CHANGE: 
             if (sp->battlemon[sp->attack_client].sheer_force_flag == 0) // sheer force disables color change
             {
                 u8 movetype;
@@ -1460,8 +1347,8 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 } else {
                     movetype = sp->moveTbl[sp->current_move_index].type;
                 }
-
-                if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG))
+                                
+                if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG)) 
                 {
                     sp->addeffect_param = ADD_STATE_SPEED_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
@@ -1583,8 +1470,8 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 } else {
                     movetype = sp->moveTbl[sp->current_move_index].type;
                 }
-
-                if (movetype == TYPE_DARK)
+                                
+                if (movetype == TYPE_DARK) 
                 {
                     sp->addeffect_param = ADD_STATE_ATTACK_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
@@ -1624,50 +1511,6 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 seq_no[0] = SUB_SEQ_HANDLE_DEFIANT;
                 ret = TRUE;
-            }
-            break;
-        //handle pickpocket for defender
-        case ABILITY_PICKPOCKET:
-            u8 attacker; u8 defender;
-            struct sDamageCalc AttackingMon;
-            struct sDamageCalc DefendingMon;
-
-            u16    GetBattleMonItem(struct BattleStruct *sp, int client_no);
-            AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
-            DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
-            if (
-             (GetBattleMonItem(sp, sp->attack_client) != ITEM_NONE) 
-             && (GetBattleMonItem(sp, sp->defence_client) == ITEM_NONE)
-             && (GetBattleMonItem(sp, sp->attack_client) < ITEM_MEGA_STONES_START) 
-             && ((GetBattleMonItem(sp, sp->attack_client) < ITEM_GRASS_MAIL) 
-                  || (GetBattleMonItem(sp, sp->attack_client) > ITEM_BRICK_MAIL))
-             && (
-                 ((AttackingMon.species !=  SPECIES_GIRATINA) || (DefendingMon.species != SPECIES_GIRATINA))
-                 && 
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_GRISEOUS_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_GRISEOUS_ORB))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_ARCEUS) || (DefendingMon.species != SPECIES_ARCEUS))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp-> defence_client) > ITEM_IRON_PLATE))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_KYOGRE) || (DefendingMon.species != SPECIES_KYOGRE))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_BLUE_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_BLUE_ORB))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_GROUDON) || (DefendingMon.species != SPECIES_GROUDON))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_RED_ORB) || (GetBattleMonItem(sp, sp-> defence_client) != ITEM_RED_ORB))
-                )
-             )
-            {
-                if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                {
-                    seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_DEF;
-                    ret = TRUE;
-                }
             }
             break;
         default:
@@ -1803,7 +1646,7 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
 
     heldeffect = HeldItemHoldEffectGet(sp, sp->attack_client);
     atk = HeldItemAtkGet(sp, sp->attack_client, 0);
-
+    
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_STENCH) // stench adds 10% flinch chance
     {
         atk += 10;
@@ -1901,7 +1744,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         case SEQ_NORMAL_ATTACKER_ABILITY_CHECK:
             {
                 int seq_no;
-
+    
                 sp->swoam_seq_no++;
                 if (MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
@@ -1914,7 +1757,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         case SEQ_NORMAL_DEFENDER_ABILITY_CHECK:
             {
                 int seq_no;
-
+    
                 sp->swoam_seq_no++;
                 if (MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
@@ -1934,7 +1777,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             break;
         }
         break;
-
+    
     case SWOAM_LOOP:
         switch (sp->swoam_seq_no)
         {
@@ -1972,7 +1815,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         case SEQ_LOOP_ATTACKER_ABILITY_CHECK:
             {
                 int seq_no;
-
+    
                 sp->swoam_seq_no++;
                 if (MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
@@ -1985,7 +1828,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         case SEQ_LOOP_DEFENDER_ABILITY_CHECK:
             {
                 int seq_no;
-
+    
                 sp->swoam_seq_no++;
                 if (MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
@@ -2012,7 +1855,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         }
         break;
     }
-
+    
     sp->swoam_seq_no = 0;
     sp->server_seq_no = 31;
 }
