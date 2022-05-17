@@ -470,6 +470,44 @@
 	.byte num
 .endmacro
 
+.macro status,num
+	.word num
+.endmacro
+
+.macro stathp,num
+	.halfword num
+.endmacro
+
+.macro statatk,num
+	.halfword num
+.endmacro
+
+.macro statdef,num
+	.halfword num
+.endmacro
+
+.macro statspeed,num
+	.halfword num
+.endmacro
+
+.macro statspatk,num
+	.halfword num
+.endmacro
+
+.macro statspdef,num
+	.halfword num
+.endmacro
+
+// types already exists
+
+.macro ppcounts,num1,num2,num3,num4
+	.byte num1, num2, num3, num4
+.endmacro
+
+.marco nickname,nick
+	.stringn nick
+.endmacro
+
 .macro endparty
 	.close
 .endmacro

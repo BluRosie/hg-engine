@@ -380,7 +380,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             // nickname field
             if (bp->trainer_data[num].data_type & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
-                for(j = 0; j < 10; j++)
+                for(j = 0; j < 11; j++)
                 {
                     nickname[j] = buf[offset] | (buf[offset+1] << 8);
                     offset += 2;
@@ -518,9 +518,9 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             }
             if (bp->trainer_data[num].data_type & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
-//                nickname[10] = 0x00;
-//                SetMonData(pp,ID_PARA_nickname_flag, 1);
-//                SetMonData(pp,ID_PARA_nickname, &nickname);
+                u32 one = 1;
+                SetMonData(pp,ID_PARA_nickname_flag, &one);
+                SetMonData(pp,ID_PARA_nickname, &nickname[0]);
             }
         }
         TrainerMonHandleFrustration(mons[i]);
