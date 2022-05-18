@@ -514,10 +514,13 @@ def decompress():
 
 
 def decompress_file(path):
-    with open(path, 'rb') as f:
-        dec = ndspy.codeCompression.decompress(f.read())
-    with open(path, 'wb') as f:
-        f.write(dec)
+    try:
+        with open(path, 'rb') as f:
+            dec = ndspy.codeCompression.decompress(f.read())
+        with open(path, 'wb') as f:
+            f.write(dec)
+    except ValueError: # do nothing, file is already decompressed
+        print("")
 
 
 def changeoffset():
