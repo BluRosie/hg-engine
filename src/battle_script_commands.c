@@ -127,6 +127,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
     return FALSE;
 };
 
+
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     int address1;
@@ -605,47 +606,87 @@ BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp)
 
 BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
 {
-    int side;
-    int client_no;
-    int eqp;
+    int side, client_no, holdeffect;
     int atk;
     int flag = 0;
 
-    //命令コード分を読み飛ばし
-    IncrementBattleScriptPtr(sp,1);
-
-    //sideをロード
+    IncrementBattleScriptPtr(sp, 1);
     side = read_battle_script_param(sp);
 
-    client_no = SideClientNoGet(bw,sp,side);
-    eqp = HeldItemHoldEffectGet(sp,client_no);
-    atk = HeldItemAtkGet(sp,client_no,ATK_CHECK_NORMAL);
+    client_no = SideClientNoGet(bw, sp, side);
+    holdeffect = HeldItemHoldEffectGet(sp,client_no);
+    atk = HeldItemAtkGet(sp, client_no, ATK_CHECK_NORMAL);
 
-    if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
     {
         flag = 2;
     }
-    else if((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
+    else if ((holdeffect == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
     {
         flag = 1;
     }
-    else if((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    else if ((holdeffect == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
     {
         flag = 1;
     }
-    if(flag)
+    if (flag)
     {
-        //気絶してしまう時は、１残すようにする
-        if((sp->battlemon[client_no].hp + sp->hp_calc_work) <= 0)
+        if ((sp->battlemon[client_no].hp + sp->hp_calc_work) <= 0)
         {
             sp->hp_calc_work = (sp->battlemon[client_no].hp - 1) * -1;
-            if(flag != 2)
+            if (flag != 2)
                 sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
             else
                 sp->waza_status_flag |= WAZA_STATUS_FLAG_KORAETA;
         }
     }
 
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
+{
+    int side, client_no, address, ability, condition;
+    struct PartyPokemon *pp;
+
+    IncrementBattleScriptPtr(sp, 1);
+    side = read_battle_script_param(sp);
+    address = read_battle_script_param(sp);
+
+    client_no = SideClientNoGet(bw, sp, side);
+    if ((sp->psp[client_no].hp) && (sp->sel_mons_no[client_no] != 6))
+    {
+        pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
+        ability = GetMonData(pp, ID_PARA_speabino, NULL);
+        condition = GetMonData(pp, ID_PARA_condition, NULL);
+
+        // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
+        if ((sp->psp[client_no].speabino != ABILITY_NATURAL_CURE)
+         && (ST_ServerTokuseiStatusRecoverReshuffleCheck(sp, ability, condition) == FALSE)) // SwitchAbilityStatusRecoverCheck
+        {
+            IncrementBattleScriptPtr(sp, address);
+        }
+        
+        // handle regenerator--mon restores 1/3 hp on switch
+        if (ability == ABILITY_REGENERATOR) // switching mon ability is regenerator--not affected by gastro acid or etc
+        {
+            int hp = GetMonData(pp, ID_PARA_hp, NULL), hpmax = GetMonData(pp, ID_PARA_hpmax, NULL);
+            
+            int hpdelta = hpmax / 3;
+            
+            if ((hp + hpdelta) > hpmax)
+                hp = hpmax;
+            else
+                hp += hpdelta;
+            
+            SetMonData(pp, ID_PARA_hp, (u16 *)&hp);
+        }
+    }
+    else
+    {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    
     return FALSE;
 }
 
