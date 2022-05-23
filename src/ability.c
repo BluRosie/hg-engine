@@ -171,6 +171,7 @@ enum
     SWITCH_IN_CHECK_DARK_AURA,
     SWITCH_IN_CHECK_FAIRY_AURA,
     SWITCH_IN_CHECK_AURA_BREAK,
+    SWITCH_IN_CHECK_IMPOSTER,
     SWITCH_IN_CHECK_END,
 };
 
@@ -835,6 +836,50 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
                 if(i == client_set_max){
+                    sp->switch_in_check_seq_no++;
+                }
+                break;
+            case SWITCH_IN_CHECK_IMPOSTER: // automatically queue up transform
+                for(i = 0; i < client_set_max; i++)
+                {
+                    client_no = sp->turn_order[i];
+                    if ((sp->battlemon[client_no].imposter_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 || sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER))
+                    {
+                        sp->battlemon[client_no].imposter_flag = 1;
+                        sp->client_work = client_no;
+                        scriptnum = SUB_SEQ_TRANSFORM; // 92
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+                
+                if (i == client_set_max) // went all the way through the loop
+                {
+                    sp->switch_in_check_seq_no++;
+                    break;
+                }
+
+                sp->attack_client = client_no;
+                if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
+                {
+                    sp->defence_client = (client_no & 1) + ((BattleRand(bw) & 1) * 2); // get random defender
+                }
+                else if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
+                {
+                    sp->defence_client = BATTLER_OPPONENT(client_no);
+                }
+                else if (sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
+                {
+                    sp->defence_client = BATTLER_ACROSS(client_no);
+                }
+                else // it shouldn't get to this point, but just in case, advance the loop if the mon reads valid in for loop but not in these checks.
+                {
+                    i = client_set_max;
+                    ret = SWITCH_IN_CHECK_LOOP;
+                    scriptnum = 0;
                     sp->switch_in_check_seq_no++;
                 }
                 break;
