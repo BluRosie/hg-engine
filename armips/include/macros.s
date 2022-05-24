@@ -504,7 +504,7 @@
 	.byte num1, num2, num3, num4
 .endmacro
 
-.marco nickname,nick
+.macro nickname,nick
 	.stringn nick
 .endmacro
 

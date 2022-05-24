@@ -560,7 +560,8 @@ struct __attribute__((packed)) BattlePokemon
     u32 fairy_aura_flag : 1;
     u32 aura_break_flag : 1;
     u32 sheer_force_flag : 1;
-    u32 : 15;                    //2ch
+    u32 imposter_flag : 1;
+    u32 : 14;                    //2ch
 
     u8 pp[4];
     u8 pp_count[4];
@@ -1201,13 +1202,14 @@ void __attribute__((long_call)) CT_PokemonEncountSet(void *bw, struct CLIENT_PAR
 void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 void __attribute__((long_call)) CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
-struct __attribute__((long_call)) POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
+struct POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
 int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party); // this function is cursed to be arm for no fucking reason whatsoever
 int __attribute__((long_call)) SideClientNoGet(void *bw, struct BattleStruct *sp, int side);
 int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client_no);
 u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
 int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
 void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int param1, int param2);
+BOOL __attribute__((long_call)) ST_ServerTokuseiStatusRecoverReshuffleCheck(struct BattleStruct *sp, int ability, int condition);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

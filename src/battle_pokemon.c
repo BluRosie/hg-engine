@@ -1056,7 +1056,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             
             party = BattleWorkPokePartyGet(bw, client1);
             
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL); // WHY HAS GOD ABANDONED US
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), ID_PARA_monsno, NULL); // WHY HAS GOD ABANDONED US
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK) // this check is fuckin failing.  i don't know what to do
             {
                 esomp->sel_mons_no[client1] = party->PokeCount - 1;
@@ -1071,7 +1071,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             
             party = BattleWorkPokePartyGet(bw, client2);
             
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL);
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), ID_PARA_monsno, NULL);
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
                 esomp->sel_mons_no[client2] = party->PokeCount - 1;
@@ -1206,7 +1206,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             
             party = BattleWorkPokePartyGet(bw, client1);
             
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL);
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), ID_PARA_monsno, NULL);
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
                 esomp->sel_mons_no[client1] = party->PokeCount - 1;
@@ -1221,7 +1221,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             
             party = BattleWorkPokePartyGet(bw, client2);
             
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no), ID_PARA_monsno, NULL);
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), ID_PARA_monsno, NULL);
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
                 esomp->sel_mons_no[client2] = party->PokeCount - 1;

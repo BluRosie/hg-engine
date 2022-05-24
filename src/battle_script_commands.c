@@ -654,14 +654,14 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
     address = read_battle_script_param(sp);
 
     client_no = SideClientNoGet(bw, sp, side);
-    if ((sp->psp[client_no].hp) && (sp->sel_mons_no[client_no] != 6))
+    if ((sp->battlemon[client_no].hp) && (sp->sel_mons_no[client_no] != 6))
     {
         pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
         ability = GetMonData(pp, ID_PARA_speabino, NULL);
         condition = GetMonData(pp, ID_PARA_condition, NULL);
 
         // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
-        if ((sp->psp[client_no].speabino != ABILITY_NATURAL_CURE)
+        if ((sp->battlemon[client_no].ability != ABILITY_NATURAL_CURE)
          && (ST_ServerTokuseiStatusRecoverReshuffleCheck(sp, ability, condition) == FALSE)) // SwitchAbilityStatusRecoverCheck
         {
             IncrementBattleScriptPtr(sp, address);
