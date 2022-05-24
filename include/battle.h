@@ -341,6 +341,8 @@
 #define	RECID_TEMOTI_MAKIZOE (71+26)
 
 //ai condition flags 2
+#define CONDITION2_TRANSFORM        (0x00200000)
+#define CONDITION2_TRANSFORM_OFF       (0x00200000 ^ 0xffffffff)
 #define	CONDITION2_SUBSTITUTE		(0x01000000)
 #define	CONDITION2_SUBSTITUTE_OFF		(0x01000000^0xffffffff)
 

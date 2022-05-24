@@ -850,7 +850,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->battlemon[client_no].imposter_flag = 1;
                         sp->client_work = client_no;
-                        scriptnum = SUB_SEQ_TRANSFORM; // 92
+                        scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
                     }
@@ -862,25 +862,64 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     break;
                 }
 
-                sp->attack_client = client_no;
+                sp->attack_client = client_no; // attack transforms into defence
+                sp->current_move_index = MOVE_TRANSFORM;
                 if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
                 {
                     sp->defence_client = (client_no & 1) + ((BattleRand(bw) & 1) * 2); // get random defender
-                }
-                else if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
-                {
-                    sp->defence_client = BATTLER_OPPONENT(client_no);
                 }
                 else if (sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
                 {
                     sp->defence_client = BATTLER_ACROSS(client_no);
                 }
-                else // it shouldn't get to this point, but just in case, advance the loop if the mon reads valid in for loop but not in these checks.
+                else //if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
                 {
-                    i = client_set_max;
-                    ret = SWITCH_IN_CHECK_LOOP;
-                    scriptnum = 0;
-                    sp->switch_in_check_seq_no++;
+                    sp->defence_client = BATTLER_OPPONENT(client_no);
+                }
+                
+                // fuck it get rid of transform script command:
+                sp->battlemon[sp->attack_client].condition2 |= CONDITION2_TRANSFORM;
+                sp->battlemon[sp->attack_client].moveeffect.kanashibari_wazano = 0;
+                sp->battlemon[sp->attack_client].moveeffect.kanashibari_count = 0;
+                sp->battlemon[sp->attack_client].moveeffect.henshin_rnd = sp->battlemon[sp->defence_client].personal_rnd;
+                sp->battlemon[sp->attack_client].moveeffect.henshin_sex = sp->battlemon[sp->defence_client].sex;
+                sp->battlemon[sp->attack_client].moveeffect.monomane_bit = 0;
+                sp->battlemon[sp->attack_client].moveeffect.totteoki_count = 0;
+
+                u8 *src, *dest;
+                src = (u8 *)&sp->battlemon[sp->attack_client];
+                dest = (u8 *)&sp->battlemon[sp->defence_client];
+
+                for (i = 0; i < offsetof(struct BattlePokemon, ability) + 1; i++)
+                {
+                    src[i] = dest[i];
+                }
+
+                sp->battlemon[sp->attack_client].appear_check_flag = 0;
+                sp->battlemon[sp->attack_client].intimidate_flag = 0;
+                sp->battlemon[sp->attack_client].trace_flag = 0;
+                sp->battlemon[sp->attack_client].download_flag = 0;
+                sp->battlemon[sp->attack_client].anticipation_flag = 0;
+                sp->battlemon[sp->attack_client].forewarn_flag = 0;
+                sp->battlemon[sp->attack_client].frisk_flag = 0;
+                sp->battlemon[sp->attack_client].mold_breaker_flag = 0;
+                sp->battlemon[sp->attack_client].pressure_flag = 0;
+                sp->battlemon[sp->attack_client].moveeffect.namake_bit = sp->total_turn & 1;
+                sp->battlemon[sp->attack_client].moveeffect.slow_start_count = sp->total_turn + 1;
+                sp->battlemon[sp->attack_client].slow_start_flag = 0;
+                sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
+                
+                for(i = 0; i < 4; i++)
+                {
+                    sp->battlemon[sp->attack_client].move[i] = sp->battlemon[sp->defence_client].move[i];
+                    if(sp->moveTbl[sp->battlemon[sp->attack_client].move[i]].pp < 5)
+                    {
+                        sp->battlemon[sp->attack_client].pp[i] = sp->moveTbl[sp->battlemon[sp->attack_client].move[i]].pp;
+                    }
+                    else
+                    {
+                        sp->battlemon[sp->attack_client].pp[i] = 5;
+                    }
                 }
                 break;
                 // 02253D78
