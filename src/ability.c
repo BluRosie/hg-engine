@@ -42,11 +42,11 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
     else if (sp->move_type) // 02252EE0
     {
-        movetype=sp->move_type;
+        movetype = sp->move_type;
     }
     else
     {
-        movetype=sp->moveTbl[sp->current_move_index].type;
+        movetype = sp->moveTbl[sp->current_move_index].type;
     }
 
     // 02252EF4
@@ -142,6 +142,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         if ((movetype == TYPE_WATER) && (attacker != defender))
         {
             scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+        }
+    }
+
+    // handle magic bounce
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MAGIC_BOUNCE) == TRUE)
+    {
+        if ((sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_MAGIC_COAT; // 139
         }
     }
 
