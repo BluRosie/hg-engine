@@ -2110,7 +2110,7 @@ u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
-    if(sp->defence_client == 0xFF)
+    if (sp->defence_client == 0xFF)
     {
         return FALSE;
     }

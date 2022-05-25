@@ -716,9 +716,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
         
         // handle reflect
-        if (((side_cond & SIDE_STATUS_REFLECT) != 0) && 
-            (critical == 1) && 
-            (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS))
+        if (((side_cond & SIDE_STATUS_REFLECT) != 0)
+         && (critical == 1)
+         && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
+         && (AttackingMon.ability != ABILITY_INFILTRATOR))
         {
             if ((battle_type & BATTLE_TYPE_DOUBLE) && (CheckNumMonsHit(bw, sp, 1, defender) == 2))
             {
@@ -775,9 +776,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 50;
 
         // handle light screen
-        if (((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0) && 
-            (critical == 1) && 
-            (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS))
+        if (((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
+         && (critical == 1)
+         && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
+         && (AttackingMon.ability != ABILITY_INFILTRATOR))
         {
             if ((battle_type & BATTLE_TYPE_DOUBLE) && (CheckNumMonsHit(bw, sp, 1, defender) == 2))
             {
@@ -821,11 +823,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             }
         }
 
-        if ((field_cond & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY)) && (moveno == MOVE_SOLAR_BEAM))
+        if ((field_cond & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY)) && (moveno == MOVE_SOLAR_BEAM)) // solar beam nerf
         {
             damage /= 2;
         }
-        if (field_cond & WEATHER_SUNNY_ANY)
+
+        if (field_cond & WEATHER_SUNNY_ANY) // sun boosts fire but nerfs water
         {
             switch (movetype)
             {
@@ -836,6 +839,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                 damage /= 2;
                 break;
             }
+        }
+        
+        if (AttackingMon.ability == ABILITY_SAND_FORCE // sand force boosts damage in sand for certain move types
+         && field_cond & WEATHER_SANDSTORM_ANY
+         && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL))
+        {
+            damage = damage * 130 / 100;
         }
     }
 

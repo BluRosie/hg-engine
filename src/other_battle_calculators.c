@@ -728,7 +728,9 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
 
         sp->client_no_hit[sp->defence_client] = sp->attack_client;
 
-        if((sp->battlemon[sp->defence_client].condition2 & CONDITION2_SUBSTITUTE) && (sp->damage < 0))
+        if ((sp->battlemon[sp->defence_client].condition2 & CONDITION2_SUBSTITUTE)
+         && (sp->damage < 0)
+         && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR))
         {
             if((sp->battlemon[sp->defence_client].moveeffect.migawari_hp + sp->damage) <= 0)
             {
