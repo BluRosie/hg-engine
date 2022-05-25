@@ -1118,26 +1118,30 @@ BOOL MummyAbilityCheck(struct BattleStruct *sp)
     }
 }
 
-BOOL PickpocketItemCheck(struct BattleStruct *sp, int client_no)
+BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
 {
     switch(GetBattleMonItem(sp, client_no))
     {
         case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
         case ITEM_MEGA_STONE_VENUSAUR ... ITEM_MEGA_STONE_DIANCIE:
+        case ITEM_BLUE_ORB:
+        case ITEM_RED_ORB:
+        case ITEM_GRISEOUS_ORB:
+        case ITEM_NONE:
             return FALSE;
         default:
             return TRUE;
     }
 }
 
-u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
+u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
-            sp->battlemon[sp->attack_client].attack,
-            sp->battlemon[sp->attack_client].defense,
-            sp->battlemon[sp->attack_client].speed,
-            sp->battlemon[sp->attack_client].spatk,
-            sp->battlemon[sp->attack_client].spdef
+            sp->battlemon[client].attack,
+            sp->battlemon[client].defense,
+            sp->battlemon[client].speed,
+            sp->battlemon[client].spatk,
+            sp->battlemon[client].spdef
     };
 
     u8 max = 0;
@@ -1155,9 +1159,9 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 
-    //if (sp->defence_client == 0xFF) {
-    //    return ret;
-    //}
+    if (sp->attack_client == 0xFF) {
+        return ret;
+    }
 
     switch (GetBattlerAbility(sp, sp->attack_client))
     {
@@ -1186,7 +1190,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && (sp->battlemon[sp->attack_client].hp)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
             {
-                u8 stat = BeastBoostGreatestStatHelper(sp);
+                u8 stat = BeastBoostGreatestStatHelper(sp, sp->attack_client);
 
                 if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
                     && (sp->battlemon[sp->attack_client].moveeffect.fake_out_count != (sp->total_turn + 1)))
@@ -1234,50 +1238,6 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
                     ret = TRUE;
                 }
-            }
-            break;
-        //handle pickpocket for attacker
-        case ABILITY_PICKPOCKET:
-            u8 attacker; u8 defender;
-            struct sDamageCalc AttackingMon;
-            struct sDamageCalc DefendingMon;
-
-            u16    GetBattleMonItem(struct BattleStruct *sp, int client_no);
-            AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
-            DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
-            if (
-             (GetBattleMonItem(sp, sp->attack_client) == ITEM_NONE) 
-             && (GetBattleMonItem(sp, sp->defence_client) != ITEM_NONE)
-             && (GetBattleMonItem(sp, sp->defence_client) < ITEM_MEGA_STONES_START) 
-             && ((GetBattleMonItem(sp, sp->defence_client) < ITEM_GRASS_MAIL) 
-                  || (GetBattleMonItem(sp, sp->defence_client) > ITEM_BRICK_MAIL))
-             && (
-                 ((DefendingMon.species != SPECIES_GIRATINA))
-                 && 
-                 ((GetBattleMonItem(sp, sp-> defence_client) != ITEM_GRISEOUS_ORB))
-                )
-             && (
-                 ((DefendingMon.species != SPECIES_ARCEUS))
-                 &&
-                 ((GetBattleMonItem(sp, sp-> defence_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp-> defence_client) > ITEM_IRON_PLATE))
-                )
-             && (
-                 ((DefendingMon.species != SPECIES_KYOGRE))
-                 &&
-                 ((GetBattleMonItem(sp, sp-> defence_client) != ITEM_BLUE_ORB))
-                )
-             && (
-                 ((DefendingMon.species != SPECIES_GROUDON))
-                 &&
-                 ((GetBattleMonItem(sp, sp-> defence_client) != ITEM_RED_ORB))
-                )
-             )
-            {
-                if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                {
-                    seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_ATK;
-                    ret = TRUE;
-                }   
             }
             break;
         default:
@@ -1653,54 +1613,22 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 ret = TRUE;
             }
             break;
-        //handle pickpocket for defender
+        //handle pickpocket - steal attacker's item if it can
         case ABILITY_PICKPOCKET:
-            u8 attacker; u8 defender;
-            struct sDamageCalc AttackingMon;
-            struct sDamageCalc DefendingMon;
-
-            u16    GetBattleMonItem(struct BattleStruct *sp, int client_no);
-            AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
-            DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
-            if (
-             (GetBattleMonItem(sp, sp->attack_client) != ITEM_NONE) 
-             && (GetBattleMonItem(sp, sp->defence_client) == ITEM_NONE)
-             && (GetBattleMonItem(sp, sp->attack_client) < ITEM_MEGA_STONES_START) 
-             && ((GetBattleMonItem(sp, sp->attack_client) < ITEM_GRASS_MAIL) 
-                  || (GetBattleMonItem(sp, sp->attack_client) > ITEM_BRICK_MAIL))
-             && (
-                 ((AttackingMon.species !=  SPECIES_GIRATINA))
-                 && 
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_GRISEOUS_ORB))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_ARCEUS))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) < ITEM_FLAME_PLATE) || (GetBattleMonItem(sp, sp->attack_client) > ITEM_IRON_PLATE))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_KYOGRE))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_BLUE_ORB))
-                )
-             && (
-                 ((AttackingMon.species != SPECIES_GROUDON))
-                 &&
-                 ((GetBattleMonItem(sp, sp->attack_client) != ITEM_RED_ORB))
-                )
-             )
+            if (sp->battlemon[sp->defence_client].hp != 0
+             && sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT
+             && sp->moveTbl[sp->current_move_index].basepower != 0
+             && CanPickpocketStealClientItem(sp, sp->attack_client))
             {
-                if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
-                {
-                    seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_DEF;
-                    ret = TRUE;
-                }
+                seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_DEF;
+                ret = TRUE;
             }
             break;
-        // handle cursed body - disable the last used move by the pokemon
+        // handle cursed body - disable the last used move by the pokemon.  disabling is handled here, script just displays the message
         case ABILITY_CURSED_BODY:
             u32 move_pos = ST_ServerWazaPosGet(&sp->battlemon[sp->attack_client], sp->current_move_index);
-            if (sp->battlemon[sp->attack_client].moveeffect.kanashibari_wazano == 0
+            if (sp->battlemon[sp->defence_client].hp != 0
+             && sp->battlemon[sp->attack_client].moveeffect.kanashibari_wazano == 0
              && move_pos != 4 // is a valid move the mon knows
              && sp->battlemon[sp->attack_client].pp[move_pos] != 0 // pp is nonzero
              && sp->current_move_index != 0 // a move has already been used
