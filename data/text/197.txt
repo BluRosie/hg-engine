@@ -1337,3 +1337,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas bounced back by Magic Bounce!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was bounced back by\fMagic Bounce!
 The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was bounced back by\fMagic Bounce!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
+The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!

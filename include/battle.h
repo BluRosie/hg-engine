@@ -1212,6 +1212,7 @@ int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
 void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int param1, int param2);
 BOOL __attribute__((long_call)) ST_ServerTokuseiStatusRecoverReshuffleCheck(struct BattleStruct *sp, int ability, int condition);
 void __attribute__((long_call)) ST_ServerPressurePPDecCheck(struct BattleStruct *sp, int attack, int defence);
+int __attribute__((long_call)) ST_ServerWazaPosGet(struct BattlePokemon *battlemon, u16 move);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

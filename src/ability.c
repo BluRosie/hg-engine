@@ -1118,74 +1118,17 @@ BOOL MummyAbilityCheck(struct BattleStruct *sp)
     }
 }
 
-    BOOL PickpocketItemCheck(struct BattleStruct *sp, int client_no)
+BOOL PickpocketItemCheck(struct BattleStruct *sp, int client_no)
+{
+    switch(GetBattleMonItem(sp, client_no))
     {
-        switch(GetBattleMonItem(sp, client_no))
-        {
-            case ITEM_GRASS_MAIL:
-            case ITEM_FLAME_MAIL:
-            case ITEM_BUBBLE_MAIL:
-            case ITEM_BLOOM_MAIL:
-            case ITEM_TUNNEL_MAIL:
-            case ITEM_STEEL_MAIL:
-            case ITEM_HEART_MAIL:
-            case ITEM_SNOW_MAIL:
-            case ITEM_SPACE_MAIL:
-            case ITEM_AIR_MAIL:
-            case ITEM_MOSAIC_MAIL:
-            case ITEM_BRICK_MAIL:
-            case ITEM_MEGA_STONE_VENUSAUR :
-            case ITEM_MEGA_STONE_CHARIZARD_X:
-            case ITEM_MEGA_STONE_CHARIZARD_Y:
-            case ITEM_MEGA_STONE_BLASTOISE:
-            case ITEM_MEGA_STONE_BEEDRILL :
-            case ITEM_MEGA_STONE_PIDGEOT:
-            case ITEM_MEGA_STONE_ALAKAZAM:
-            case ITEM_MEGA_STONE_SLOWBRO:
-            case ITEM_MEGA_STONE_GENGAR:
-            case ITEM_MEGA_STONE_KANGASKHAN:
-            case ITEM_MEGA_STONE_PINSIR:
-            case ITEM_MEGA_STONE_GYARADOS:
-            case ITEM_MEGA_STONE_AERODACTYL:
-            case ITEM_MEGA_STONE_MEWTWO_X:
-            case ITEM_MEGA_STONE_MEWTWO_Y:
-            case ITEM_MEGA_STONE_AMPHAROS:
-            case ITEM_MEGA_STONE_STEELIX:
-            case ITEM_MEGA_STONE_SCIZOR:
-            case ITEM_MEGA_STONE_HERACROSS:
-            case ITEM_MEGA_STONE_HOUNDOOM:
-            case ITEM_MEGA_STONE_TYRANITAR:
-            case ITEM_MEGA_STONE_SCEPTILE:
-            case ITEM_MEGA_STONE_BLAZIKEN:
-            case ITEM_MEGA_STONE_SWAMPERT:
-            case ITEM_MEGA_STONE_GARDEVOIR:
-            case ITEM_MEGA_STONE_SABLEYE:
-            case ITEM_MEGA_STONE_MAWILE:
-            case ITEM_MEGA_STONE_AGGRON:
-            case ITEM_MEGA_STONE_MEDICHAM :
-            case ITEM_MEGA_STONE_MANECTRIC:
-            case ITEM_MEGA_STONE_SHARPEDO :
-            case ITEM_MEGA_STONE_CAMERUPT :
-            case ITEM_MEGA_STONE_ALTARIA:
-            case ITEM_MEGA_STONE_BANETTE:
-            case ITEM_MEGA_STONE_ABSOL:
-            case ITEM_MEGA_STONE_GLALIE:
-            case ITEM_MEGA_STONE_SALAMENCE:
-            case ITEM_MEGA_STONE_METAGROSS:
-            case ITEM_MEGA_STONE_LATIAS:
-            case ITEM_MEGA_STONE_LATIOS:
-            case ITEM_MEGA_STONE_LOPUNNY:
-            case ITEM_MEGA_STONE_GARCHOMP:
-            case ITEM_MEGA_STONE_LUCARIO:
-            case ITEM_MEGA_STONE_ABOMASNOW:
-            case ITEM_MEGA_STONE_GALLADE:
-            case ITEM_MEGA_STONE_AUDINO:
-            case ITEM_MEGA_STONE_DIANCIE:
-                return FALSE;
-            default:
-                return TRUE;
-        }
+        case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
+        case ITEM_MEGA_STONE_VENUSAUR ... ITEM_MEGA_STONE_DIANCIE:
+            return FALSE;
+        default:
+            return TRUE;
     }
+}
 
 u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp)
 {
@@ -1753,6 +1696,24 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                 }
             }
+            break;
+        // handle cursed body - disable the last used move by the pokemon
+        case ABILITY_CURSED_BODY:
+            u32 move_pos = ST_ServerWazaPosGet(&sp->battlemon[sp->attack_client], sp->current_move_index);
+            if (sp->battlemon[sp->attack_client].moveeffect.kanashibari_wazano == 0
+             && move_pos != 4 // is a valid move the mon knows
+             && sp->battlemon[sp->attack_client].pp[move_pos] != 0 // pp is nonzero
+             && sp->current_move_index != 0 // a move has already been used
+             && sp->moveTbl[sp->current_move_index].power != 0
+             && BattleRand(bw) % 10 < 3)
+            {
+                sp->waza_work = sp->current_move_index;
+                sp->battlemon[sp->attack_client].moveeffect.kanashibari_wazano = sp->waza_work;
+                sp->battlemon[sp->attack_client].moveeffect.kanashibari_count = 4; // cursed body disables for 4 turns every time
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                seq_no[0] = SUB_SEQ_HANDLE_CURSED_BODY;
+                ret = TRUE;
+            } 
             break;
         default:
             break;

@@ -185,6 +185,7 @@ SCIO_PSPtoPPCopy = 0x02263B4C | 1;
 SCIO_IncRecord = 0x02263F0C | 1;
 ST_ServerTokuseiStatusRecoverReshuffleCheck = 0x0225451C | 1;
 ST_ServerPressurePPDecCheck = 0x02258180 | 1;
+ST_ServerWazaPosGet = 0x02251C60 | 1;
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
