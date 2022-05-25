@@ -145,15 +145,6 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle magic bounce
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MAGIC_BOUNCE) == TRUE)
-    {
-        if ((sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT) && (attacker != defender))
-        {
-            scriptnum = SUB_SEQ_HANDLE_MAGIC_COAT; // 139
-        }
-    }
-
     return scriptnum;
 }
 
@@ -2108,4 +2099,60 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 
     sp->swoam_seq_no = 0;
     sp->server_seq_no = 31;
+}
+
+
+u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
+{
+    int i;
+    int client_no;
+    int client_set_max;
+
+    client_set_max = BattleWorkClientSetMaxGet(bw);
+
+    if(sp->defence_client == 0xFF)
+    {
+        return FALSE;
+    }
+
+    if (((sp->waza_status_flag & 0x801FDA49) == 0) // just what is in the rom already
+     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag || GetBattlerAbility(sp, sp->defence_client) == ABILITY_MAGIC_BOUNCE)
+     && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
+    {
+        sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
+        sp->waza_no_mamoru[sp->attack_client] = 0;
+        sp->waza_no_old[sp->attack_client] = sp->waza_no_temp;
+        sp->waza_no_last = sp->waza_no_temp;
+        sp->server_status_flag |= (0x00100000);
+        LoadBattleSubSeqScript(sp, 1, SUB_SEQ_HANDLE_MAGIC_COAT_MESSAGE);
+        sp->next_server_seq_no = sp->server_seq_no;
+        sp->server_seq_no = 22;
+        ST_ServerPressurePPDecCheck(sp, sp->defence_client, sp->attack_client);
+        return TRUE;
+    }
+    for(i = 0; i < client_set_max; i++)
+    {
+        client_no = sp->turn_order[i];
+        if (((sp->waza_status_flag & 0x801FDA49) == 0)
+         && (sp->oneTurnFlag[client_no].yokodori_flag)
+         && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
+        {
+            sp->client_work = client_no;
+            sp->oneTurnFlag[client_no].yokodori_flag=0;
+            if ((sp->server_status_flag & (0x00100000)) == 0)
+            {
+                sp->waza_no_mamoru[sp->attack_client] = 0;
+                sp->waza_no_old[sp->attack_client] = sp->waza_no_temp;
+                sp->waza_no_last = sp->waza_no_temp;
+                sp->server_status_flag |= (0x00100000);
+            }
+            LoadBattleSubSeqScript(sp, 1, SUB_SEQ_HANDLE_SNATCH);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
+            ST_ServerPressurePPDecCheck(sp, client_no, sp->attack_client);
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }

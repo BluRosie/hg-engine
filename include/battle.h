@@ -1148,7 +1148,6 @@ BOOL __attribute__((long_call))  ST_ServerNamakeCheck(void*,int);
 void __attribute__((long_call)) SCIO_BlankMessage(void*);
 BOOL __attribute__((long_call)) ServerSenseiCheck(void *bw, void *sp);
 BOOL __attribute__((long_call)) ServerPPCheck(void *bw, void *sp);
-BOOL __attribute__((long_call)) ServerWazaKoyuuCheck(void *bw, void *sp);
 BOOL __attribute__((long_call)) ServerDefenceCheck(void *bw, void *sp);
 BOOL __attribute__((long_call)) ServerStatusCheck(void *bw, void *sp);
 int __attribute__((long_call)) ServerBadgeCheck(void *bw, void *sp, int *seq_no);
@@ -1212,6 +1211,7 @@ u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
 int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
 void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int param1, int param2);
 BOOL __attribute__((long_call)) ST_ServerTokuseiStatusRecoverReshuffleCheck(struct BattleStruct *sp, int ability, int condition);
+void __attribute__((long_call)) ST_ServerPressurePPDecCheck(struct BattleStruct *sp, int attack, int defence);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
