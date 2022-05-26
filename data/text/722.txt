@@ -122,9 +122,6 @@ Powers up moves that\nhave recoil damage.
 Changes type to match\nthe held Plate.
 Powers up party Pokémon\nwhen it is sunny.
 Reduces a sleeping\nfoe’s HP.
------
------
------
 Steals an item when\nhit by another Pokémon.
 Removes added effects to\nincrease move damage.
 Makes stat changes\nhave an opposite effect.
@@ -165,7 +162,7 @@ Inflicts damage to\nthe Pokémon on contact.
 Changes the Pokémon’s shape\nwhen HP is halved.
 Boosts the accuracy of\nits allies and itself.
 Moves can be used\nregardless of Abilities.
-#Moves can be used regardless of Abilities. TERAVOLT uses the same description as TURBOBLAZE
+Moves can be used\nregardless of Abilities.
 Protects against attacks\nthat limit move choices.
 Protects Grass-type allies\nfrom stat/status effects.
 Restores HP as well when\nthe Pokémon eats a Berry.
@@ -224,7 +221,7 @@ Makes foes unable to\nuse priority attacks.
 Boosts Sp. Atk each\ntime a Pokémon faints.
 Contact with it lowers\nthe attacker’s Speed.
 Copies the Ability of\na defeated ally.
-#Copies the Ability of a defeated ally. POWER OF ALCHEMY uses the same description as RECEIVER
+Copies the Ability of\na defeated ally.
 Boosts its best stat\neach time it deals a KO.
 Its type matches\nthe memory disc it holds.
 Turns the ground\ninto Electric Terrain.
