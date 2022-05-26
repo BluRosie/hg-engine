@@ -54,6 +54,76 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 
 
 
+BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
+{
+    int side;
+    u16 move;
+
+    IncrementBattleScriptPtr(sp, 1);
+    side = read_battle_script_param(sp);
+
+    if (side == 0xFF)
+    {
+        move = sp->waza_work;
+    }
+    else
+    {
+        move = sp->current_move_index;
+    }
+
+    if ((((sp->server_status_flag & SERVER_STATUS_FLAG_NO_ANIMATIONS) == 0)
+      && (BattleWorkConfigWazaEffectOnOffCheck(bw) == TRUE))
+     || (move == MOVE_TRANSFORM || move == MOVE_470)) // mega evolution is animation 470--force it to play regardless of whether or not animations are on
+    {
+        sp->server_status_flag |= SERVER_STATUS_FLAG_NO_ANIMATIONS;
+        SCIO_WazaEffectSet(bw, sp, move);
+    }
+    if (BattleWorkConfigWazaEffectOnOffCheck(bw) == FALSE)
+    {
+        SkillSequenceGosub(sp, 1, SUB_SEQ_WAIT_FOR_UNPLAYED_ANIMATION);
+    }
+
+    return FALSE;
+}
+
+
+BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
+{
+    int side, attack, defence, cli_a, cli_d;
+    u16 move;
+
+    IncrementBattleScriptPtr(sp, 1);
+    side = read_battle_script_param(sp);
+    attack = read_battle_script_param(sp);
+    defence = read_battle_script_param(sp);
+
+    if (side == 0xFF)
+    {
+        move = sp->waza_work;
+    }
+    else{
+        move = sp->current_move_index;
+    }
+
+    cli_a = SideClientNoGet(bw, sp, attack);
+    cli_d = SideClientNoGet(bw, sp, defence);
+
+    if ((((sp->server_status_flag&SERVER_STATUS_FLAG_NO_ANIMATIONS)==0)
+      && (BattleWorkConfigWazaEffectOnOffCheck(bw) == TRUE))
+     || (move == MOVE_TRANSFORM || move == MOVE_470))
+    {
+        sp->server_status_flag |= SERVER_STATUS_FLAG_NO_ANIMATIONS;
+        SCIO_WazaEffect2Set(bw, sp, move, cli_a, cli_d);
+    }
+    if (BattleWorkConfigWazaEffectOnOffCheck(bw) == FALSE)
+    {
+        SkillSequenceGosub(sp, 1, SUB_SEQ_WAIT_FOR_UNPLAYED_ANIMATION);
+    }
+
+    return FALSE;
+}
+
+
 BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
 {
     int effect;

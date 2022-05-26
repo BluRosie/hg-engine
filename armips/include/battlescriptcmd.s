@@ -317,10 +317,12 @@ BATTLER_WORK             equ 0xFF
     .endif
 .endmacro
 
+// playanimation
 .macro seteffectprimary,battler
     .word 0x17, battler
 .endmacro
 
+// playanimation2
 .macro seteffectsecondary,battler,attacker,defender
     .word 0x18, battler, attacker, defender
 .endmacro
@@ -1261,6 +1263,7 @@ VAR_90 equ 90
     .word 0xCF
 .endmacro
 
+// check1hp
 .macro cmd_D0_checkhpsomething,battler
     .word 0xD0, battler
 .endmacro

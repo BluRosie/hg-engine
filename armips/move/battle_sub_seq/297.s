@@ -11,7 +11,7 @@ MegaMsg equ 1276
 mega:
     // set up animation
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x1
-    changevar VAR_OP_SET, VAR_MOVE_TEMP2, 470
+    changevar VAR_OP_SET, VAR_MOVE_TEMP2, 470 // set temporary move to be 470, which is the move the setstatus2effect will treat as "mega"
     // play text
     printmessage MegaMsg, 0xB, 0xFF, 0x15,0,0,0,0
     waitmessage

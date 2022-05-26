@@ -182,6 +182,7 @@
 #define	SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 #define	SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
+#define SERVER_STATUS_FLAG_NO_ANIMATIONS (0x00004000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
@@ -1213,6 +1214,10 @@ void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int 
 BOOL __attribute__((long_call)) ST_ServerTokuseiStatusRecoverReshuffleCheck(struct BattleStruct *sp, int ability, int condition);
 void __attribute__((long_call)) ST_ServerPressurePPDecCheck(struct BattleStruct *sp, int attack, int defence);
 int __attribute__((long_call)) ST_ServerWazaPosGet(struct BattlePokemon *battlemon, u16 move);
+BOOL __attribute__((long_call)) BattleWorkConfigWazaEffectOnOffCheck(void *bw);
+void __attribute__((long_call)) SCIO_WazaEffectSet(void *bw, struct BattleStruct *sp, u16 move);
+void __attribute__((long_call)) SCIO_WazaEffect2Set(void *bw, struct BattleStruct *sp, u16 waza_no, int attack, int defence);
+void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int file, int subfile);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

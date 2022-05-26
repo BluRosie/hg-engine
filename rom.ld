@@ -186,6 +186,10 @@ SCIO_IncRecord = 0x02263F0C | 1;
 ST_ServerTokuseiStatusRecoverReshuffleCheck = 0x0225451C | 1;
 ST_ServerPressurePPDecCheck = 0x02258180 | 1;
 ST_ServerWazaPosGet = 0x02251C60 | 1;
+BattleWorkConfigWazaEffectOnOffCheck = 0x0223B6D4 | 1;
+SCIO_WazaEffectSet = 0x0226340C | 1;
+SCIO_WazaEffect2Set = 0x0226343C | 1;
+SkillSequenceGosub = 0x02245520 | 1;
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;

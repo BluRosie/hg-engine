@@ -1617,7 +1617,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         case ABILITY_PICKPOCKET:
             if (sp->battlemon[sp->defence_client].hp != 0
              && sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT
-             && sp->moveTbl[sp->current_move_index].basepower != 0
+             && sp->moveTbl[sp->current_move_index].power != 0
              && CanPickpocketStealClientItem(sp, sp->attack_client))
             {
                 seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_DEF;
