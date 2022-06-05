@@ -13916,7 +13916,7 @@ mondata SPECIES_VOLCANION
 
 mondata SPECIES_ROWLET
     basestats 68, 55, 55, 42, 50, 50
-    types TYPE_GRASS, TYPE_FLYING
+    types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 64
     evyields 1, 0, 0, 0, 0, 0
