@@ -1,4 +1,5 @@
 #include "../include/battle.h"
+#include "../include/config.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
 #include "../include/constants/ability.h"
@@ -229,9 +230,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 10 / 6;
     }
 
-#ifdef DEBUG
-    *((u32 *)(0x23D8000 + 0xC*2 + 0x8*(attacker&1))) = sp->moveTbl[move_no].accuracy;
-    *((u32 *)(0x23D8004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
+#ifdef DEBUG_ADJUSTED_ACCURACY
+    *((u32 *)(0x23DF000 + 0xC*2 + 0x8*(attacker&1))) = sp->moveTbl[move_no].accuracy;
+    *((u32 *)(0x23DF004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
 #endif
 
     if (((BattleRand(bw) % 100) + 1) > accuracy)
