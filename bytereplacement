@@ -30,3 +30,9 @@ arm9 0806DED0 60 B4 C0 46
 # CT_EncountSendOutMessageParamMake hook setup
 # 022615F0
 0012 08029D30 60 B4 C0 46
+
+# expand evolutions to 9 per mon
+arm9 08070ECE 36
+arm9 08071168 09
+arm9 0807119E 09
+arm9 0807122C 09
