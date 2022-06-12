@@ -18,10 +18,14 @@ evodata SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BULBASAUR
     evolution EVO_LEVEL_UP, 16, SPECIES_IVYSAUR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -38,9 +42,13 @@ evodata SPECIES_IVYSAUR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VENUSAUR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -58,6 +66,8 @@ evodata SPECIES_CHARMANDER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CHARMELEON
@@ -68,9 +78,13 @@ evodata SPECIES_CHARMELEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CHARIZARD
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -88,6 +102,8 @@ evodata SPECIES_SQUIRTLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WARTORTLE
@@ -98,9 +114,13 @@ evodata SPECIES_WARTORTLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BLASTOISE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -118,6 +138,8 @@ evodata SPECIES_CATERPIE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_METAPOD
@@ -128,9 +150,13 @@ evodata SPECIES_METAPOD
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BUTTERFREE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -148,6 +174,8 @@ evodata SPECIES_WEEDLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KAKUNA
@@ -158,9 +186,13 @@ evodata SPECIES_KAKUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BEEDRILL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -178,6 +210,8 @@ evodata SPECIES_PIDGEY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PIDGEOTTO
@@ -188,9 +222,13 @@ evodata SPECIES_PIDGEOTTO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PIDGEOT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -208,9 +246,13 @@ evodata SPECIES_RATTATA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RATICATE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -228,9 +270,13 @@ evodata SPECIES_SPEAROW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FEAROW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -248,9 +294,13 @@ evodata SPECIES_EKANS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ARBOK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -268,9 +318,13 @@ evodata SPECIES_PIKACHU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RAICHU
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -288,9 +342,13 @@ evodata SPECIES_SANDSHREW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SANDSLASH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -308,6 +366,8 @@ evodata SPECIES_NIDORAN_F
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NIDORINA
@@ -318,9 +378,13 @@ evodata SPECIES_NIDORINA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NIDOQUEEN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -338,6 +402,8 @@ evodata SPECIES_NIDORAN_M
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NIDORINO
@@ -348,9 +414,13 @@ evodata SPECIES_NIDORINO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NIDOKING
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -368,9 +438,13 @@ evodata SPECIES_CLEFAIRY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CLEFABLE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -388,9 +462,13 @@ evodata SPECIES_VULPIX
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NINETALES
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -408,9 +486,13 @@ evodata SPECIES_JIGGLYPUFF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WIGGLYTUFF
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -428,10 +510,14 @@ evodata SPECIES_ZUBAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOLBAT
     evolution EVO_HAPPINESS, 0, SPECIES_CROBAT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -448,6 +534,8 @@ evodata SPECIES_ODDISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GLOOM
@@ -458,9 +546,13 @@ evodata SPECIES_GLOOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VILEPLUME
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -478,9 +570,13 @@ evodata SPECIES_PARAS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PARASECT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -498,9 +594,13 @@ evodata SPECIES_VENONAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VENOMOTH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -518,9 +618,13 @@ evodata SPECIES_DIGLETT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DUGTRIO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -538,9 +642,13 @@ evodata SPECIES_MEOWTH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PERSIAN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -558,9 +666,13 @@ evodata SPECIES_PSYDUCK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOLDUCK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -578,9 +690,13 @@ evodata SPECIES_MANKEY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PRIMEAPE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -598,9 +714,13 @@ evodata SPECIES_GROWLITHE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ARCANINE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -618,6 +738,8 @@ evodata SPECIES_POLIWAG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_POLIWHIRL
@@ -628,9 +750,13 @@ evodata SPECIES_POLIWHIRL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_POLIWRATH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -648,6 +774,8 @@ evodata SPECIES_ABRA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KADABRA
@@ -658,9 +786,13 @@ evodata SPECIES_KADABRA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ALAKAZAM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -678,6 +810,8 @@ evodata SPECIES_MACHOP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MACHOKE
@@ -688,9 +822,13 @@ evodata SPECIES_MACHOKE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MACHAMP
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -708,6 +846,8 @@ evodata SPECIES_BELLSPROUT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WEEPINBELL
@@ -718,9 +858,13 @@ evodata SPECIES_WEEPINBELL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VICTREEBEL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -738,9 +882,13 @@ evodata SPECIES_TENTACOOL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TENTACRUEL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -758,6 +906,8 @@ evodata SPECIES_GEODUDE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GRAVELER
@@ -768,9 +918,13 @@ evodata SPECIES_GRAVELER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOLEM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -788,9 +942,13 @@ evodata SPECIES_PONYTA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RAPIDASH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -808,9 +966,13 @@ evodata SPECIES_SLOWPOKE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SLOWBRO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -828,6 +990,8 @@ evodata SPECIES_MAGNEMITE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAGNETON
@@ -838,9 +1002,13 @@ evodata SPECIES_MAGNETON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FARFETCHD
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -858,9 +1026,13 @@ evodata SPECIES_DODUO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DODRIO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -878,9 +1050,13 @@ evodata SPECIES_SEEL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DEWGONG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -898,9 +1074,13 @@ evodata SPECIES_GRIMER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MUK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -918,9 +1098,13 @@ evodata SPECIES_SHELLDER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CLOYSTER
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -938,6 +1122,8 @@ evodata SPECIES_GASTLY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HAUNTER
@@ -948,9 +1134,13 @@ evodata SPECIES_HAUNTER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GENGAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -968,6 +1158,8 @@ evodata SPECIES_ONIX
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DROWZEE
@@ -978,9 +1170,13 @@ evodata SPECIES_DROWZEE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HYPNO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -998,9 +1194,13 @@ evodata SPECIES_KRABBY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KINGLER
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1018,9 +1218,13 @@ evodata SPECIES_VOLTORB
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ELECTRODE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1038,9 +1242,13 @@ evodata SPECIES_EXEGGCUTE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EXEGGUTOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1058,9 +1266,13 @@ evodata SPECIES_CUBONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAROWAK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1078,9 +1290,13 @@ evodata SPECIES_HITMONLEE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HITMONCHAN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1098,6 +1314,8 @@ evodata SPECIES_LICKITUNG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KOFFING
@@ -1108,9 +1326,13 @@ evodata SPECIES_KOFFING
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WEEZING
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1128,10 +1350,14 @@ evodata SPECIES_RHYHORN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RHYDON
     evolution EVO_TRADE_ITEM, ITEM_PROTECTOR, SPECIES_RHYPERIOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1148,6 +1374,8 @@ evodata SPECIES_CHANSEY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TANGELA
@@ -1158,9 +1386,13 @@ evodata SPECIES_TANGELA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KANGASKHAN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1178,10 +1410,14 @@ evodata SPECIES_HORSEA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SEADRA
     evolution EVO_TRADE_ITEM, ITEM_DRAGON_SCALE, SPECIES_KINGDRA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1198,9 +1434,13 @@ evodata SPECIES_GOLDEEN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SEAKING
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1218,9 +1458,13 @@ evodata SPECIES_STARYU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STARMIE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1238,6 +1482,8 @@ evodata SPECIES_MR_MIME
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SCYTHER
@@ -1248,9 +1494,13 @@ evodata SPECIES_SCYTHER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_JYNX
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1268,6 +1518,8 @@ evodata SPECIES_ELECTABUZZ
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAGMAR
@@ -1278,9 +1530,13 @@ evodata SPECIES_MAGMAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PINSIR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1298,6 +1554,8 @@ evodata SPECIES_TAUROS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAGIKARP
@@ -1308,9 +1566,13 @@ evodata SPECIES_MAGIKARP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GYARADOS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1328,9 +1590,13 @@ evodata SPECIES_LAPRAS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DITTO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1348,9 +1614,13 @@ evodata SPECIES_EEVEE
     evolution EVO_USE_ITEM, ITEM_FIRE_STONE, SPECIES_FLAREON
     evolution EVO_HAPPINESS_DAY, 0, SPECIES_ESPEON
     evolution EVO_HAPPINESS_NIGHT, 0, SPECIES_UMBREON
+    evolution EVO_KNOWS_MOVE, MOVE_BABY_DOLL_EYES, SPECIES_SYLVEON // replacement for the moment, need to program a new evolution method
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VAPOREON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1368,9 +1638,13 @@ evodata SPECIES_JOLTEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FLAREON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1388,6 +1662,8 @@ evodata SPECIES_PORYGON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_OMANYTE
@@ -1398,9 +1674,13 @@ evodata SPECIES_OMANYTE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_OMASTAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1418,9 +1698,13 @@ evodata SPECIES_KABUTO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KABUTOPS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1438,9 +1722,13 @@ evodata SPECIES_AERODACTYL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SNORLAX
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1458,9 +1746,13 @@ evodata SPECIES_ARTICUNO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ZAPDOS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1478,10 +1770,14 @@ evodata SPECIES_MOLTRES
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DRATINI
     evolution EVO_LEVEL_UP, 30, SPECIES_DRAGONAIR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1498,9 +1794,13 @@ evodata SPECIES_DRAGONAIR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DRAGONITE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1518,9 +1818,13 @@ evodata SPECIES_MEWTWO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1538,6 +1842,8 @@ evodata SPECIES_CHIKORITA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BAYLEEF
@@ -1548,9 +1854,13 @@ evodata SPECIES_BAYLEEF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGANIUM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1568,6 +1878,8 @@ evodata SPECIES_CYNDAQUIL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_QUILAVA
@@ -1578,9 +1890,13 @@ evodata SPECIES_QUILAVA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TYPHLOSION
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1598,6 +1914,8 @@ evodata SPECIES_TOTODILE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CROCONAW
@@ -1608,9 +1926,13 @@ evodata SPECIES_CROCONAW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FERALIGATR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1628,9 +1950,13 @@ evodata SPECIES_SENTRET
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FURRET
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1648,9 +1974,13 @@ evodata SPECIES_HOOTHOOT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NOCTOWL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1668,9 +1998,13 @@ evodata SPECIES_LEDYBA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LEDIAN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1688,9 +2022,13 @@ evodata SPECIES_SPINARAK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ARIADOS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1708,6 +2046,8 @@ evodata SPECIES_CROBAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CHINCHOU
@@ -1718,9 +2058,13 @@ evodata SPECIES_CHINCHOU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LANTURN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1738,10 +2082,14 @@ evodata SPECIES_PICHU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CLEFFA
     evolution EVO_HAPPINESS, 0, SPECIES_CLEFAIRY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1758,10 +2106,14 @@ evodata SPECIES_IGGLYBUFF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TOGEPI
     evolution EVO_HAPPINESS, 0, SPECIES_TOGETIC
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1778,6 +2130,8 @@ evodata SPECIES_TOGETIC
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NATU
@@ -1788,9 +2142,13 @@ evodata SPECIES_NATU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_XATU
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1808,6 +2166,8 @@ evodata SPECIES_MAREEP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FLAAFFY
@@ -1818,9 +2178,13 @@ evodata SPECIES_FLAAFFY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_AMPHAROS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1838,6 +2202,8 @@ evodata SPECIES_BELLOSSOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MARILL
@@ -1848,9 +2214,13 @@ evodata SPECIES_MARILL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_AZUMARILL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1868,9 +2238,13 @@ evodata SPECIES_SUDOWOODO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_POLITOED
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1888,6 +2262,8 @@ evodata SPECIES_HOPPIP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SKIPLOOM
@@ -1898,9 +2274,13 @@ evodata SPECIES_SKIPLOOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_JUMPLUFF
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1918,6 +2298,8 @@ evodata SPECIES_AIPOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SUNKERN
@@ -1928,9 +2310,13 @@ evodata SPECIES_SUNKERN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SUNFLORA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1948,6 +2334,8 @@ evodata SPECIES_YANMA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WOOPER
@@ -1958,9 +2346,13 @@ evodata SPECIES_WOOPER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_QUAGSIRE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1978,9 +2370,13 @@ evodata SPECIES_ESPEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_UMBREON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1998,9 +2394,13 @@ evodata SPECIES_MURKROW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SLOWKING
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2018,9 +2418,13 @@ evodata SPECIES_MISDREAVUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_UNOWN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2038,9 +2442,13 @@ evodata SPECIES_WOBBUFFET
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GIRAFARIG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2058,9 +2466,13 @@ evodata SPECIES_PINECO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FORRETRESS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2078,6 +2490,8 @@ evodata SPECIES_DUNSPARCE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GLIGAR
@@ -2088,9 +2502,13 @@ evodata SPECIES_GLIGAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STEELIX
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2108,9 +2526,13 @@ evodata SPECIES_SNUBBULL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GRANBULL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2128,9 +2550,13 @@ evodata SPECIES_QWILFISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SCIZOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2148,9 +2574,13 @@ evodata SPECIES_SHUCKLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HERACROSS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2168,6 +2598,8 @@ evodata SPECIES_SNEASEL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TEDDIURSA
@@ -2178,9 +2610,13 @@ evodata SPECIES_TEDDIURSA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_URSARING
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2198,9 +2634,13 @@ evodata SPECIES_SLUGMA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAGCARGO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2218,6 +2658,8 @@ evodata SPECIES_SWINUB
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PILOSWINE
@@ -2228,9 +2670,13 @@ evodata SPECIES_PILOSWINE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CORSOLA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2248,9 +2694,13 @@ evodata SPECIES_REMORAID
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_OCTILLERY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2268,9 +2718,13 @@ evodata SPECIES_DELIBIRD
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MANTINE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2288,6 +2742,8 @@ evodata SPECIES_SKARMORY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HOUNDOUR
@@ -2298,9 +2754,13 @@ evodata SPECIES_HOUNDOUR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HOUNDOOM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2318,6 +2778,8 @@ evodata SPECIES_KINGDRA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PHANPY
@@ -2328,9 +2790,13 @@ evodata SPECIES_PHANPY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DONPHAN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2348,9 +2814,13 @@ evodata SPECIES_PORYGON2
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STANTLER
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2368,6 +2838,8 @@ evodata SPECIES_SMEARGLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TYROGUE
@@ -2378,9 +2850,13 @@ evodata SPECIES_TYROGUE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HITMONTOP
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2398,10 +2874,14 @@ evodata SPECIES_SMOOCHUM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ELEKID
     evolution EVO_LEVEL_UP, 30, SPECIES_ELECTABUZZ
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2418,9 +2898,13 @@ evodata SPECIES_MAGBY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MILTANK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2438,9 +2922,13 @@ evodata SPECIES_BLISSEY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RAIKOU
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2458,9 +2946,13 @@ evodata SPECIES_ENTEI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SUICUNE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2478,6 +2970,8 @@ evodata SPECIES_LARVITAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PUPITAR
@@ -2488,9 +2982,13 @@ evodata SPECIES_PUPITAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TYRANITAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2508,9 +3006,13 @@ evodata SPECIES_LUGIA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HO_OH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2528,10 +3030,14 @@ evodata SPECIES_CELEBI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TREECKO
     evolution EVO_LEVEL_UP, 16, SPECIES_GROVYLE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2548,9 +3054,13 @@ evodata SPECIES_GROVYLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SCEPTILE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2568,6 +3078,8 @@ evodata SPECIES_TORCHIC
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_COMBUSKEN
@@ -2578,9 +3090,13 @@ evodata SPECIES_COMBUSKEN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BLAZIKEN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2598,6 +3114,8 @@ evodata SPECIES_MUDKIP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MARSHTOMP
@@ -2608,9 +3126,13 @@ evodata SPECIES_MARSHTOMP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SWAMPERT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2628,9 +3150,13 @@ evodata SPECIES_POOCHYENA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MIGHTYENA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2648,9 +3174,13 @@ evodata SPECIES_ZIGZAGOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LINOONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2668,6 +3198,8 @@ evodata SPECIES_WURMPLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SILCOON
@@ -2678,9 +3210,13 @@ evodata SPECIES_SILCOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BEAUTIFLY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2698,9 +3234,13 @@ evodata SPECIES_CASCOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DUSTOX
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2718,6 +3258,8 @@ evodata SPECIES_LOTAD
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LOMBRE
@@ -2728,9 +3270,13 @@ evodata SPECIES_LOMBRE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LUDICOLO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2748,6 +3294,8 @@ evodata SPECIES_SEEDOT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NUZLEAF
@@ -2758,9 +3306,13 @@ evodata SPECIES_NUZLEAF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SHIFTRY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2778,9 +3330,13 @@ evodata SPECIES_TAILLOW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SWELLOW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2798,9 +3354,13 @@ evodata SPECIES_WINGULL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PELIPPER
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2818,6 +3378,8 @@ evodata SPECIES_RALTS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KIRLIA
@@ -2828,9 +3390,13 @@ evodata SPECIES_KIRLIA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GARDEVOIR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2848,9 +3414,13 @@ evodata SPECIES_SURSKIT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MASQUERAIN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2868,9 +3438,13 @@ evodata SPECIES_SHROOMISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BRELOOM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2888,6 +3462,8 @@ evodata SPECIES_SLAKOTH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VIGOROTH
@@ -2898,9 +3474,13 @@ evodata SPECIES_VIGOROTH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SLAKING
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2918,9 +3498,13 @@ evodata SPECIES_NINCADA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NINJASK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2938,10 +3522,14 @@ evodata SPECIES_SHEDINJA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WHISMUR
     evolution EVO_LEVEL_UP, 20, SPECIES_LOUDRED
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2958,9 +3546,13 @@ evodata SPECIES_LOUDRED
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EXPLOUD
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2978,9 +3570,13 @@ evodata SPECIES_MAKUHITA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HARIYAMA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2998,10 +3594,14 @@ evodata SPECIES_AZURILL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_NOSEPASS
     evolution EVO_LEVEL_ELECTRIC_FIELD, 0, SPECIES_PROBOPASS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3018,9 +3618,13 @@ evodata SPECIES_SKITTY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DELCATTY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3038,9 +3642,13 @@ evodata SPECIES_SABLEYE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAWILE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3058,6 +3666,8 @@ evodata SPECIES_ARON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LAIRON
@@ -3068,9 +3678,13 @@ evodata SPECIES_LAIRON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_AGGRON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3088,9 +3702,13 @@ evodata SPECIES_MEDITITE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEDICHAM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3108,9 +3726,13 @@ evodata SPECIES_ELECTRIKE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MANECTRIC
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3128,9 +3750,13 @@ evodata SPECIES_PLUSLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MINUN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3148,9 +3774,13 @@ evodata SPECIES_VOLBEAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ILLUMISE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3168,6 +3798,8 @@ evodata SPECIES_ROSELIA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GULPIN
@@ -3178,9 +3810,13 @@ evodata SPECIES_GULPIN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SWALOT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3198,9 +3834,13 @@ evodata SPECIES_CARVANHA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SHARPEDO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3218,9 +3858,13 @@ evodata SPECIES_WAILMER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WAILORD
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3238,9 +3882,13 @@ evodata SPECIES_NUMEL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CAMERUPT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3258,6 +3906,8 @@ evodata SPECIES_TORKOAL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SPOINK
@@ -3268,9 +3918,13 @@ evodata SPECIES_SPOINK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GRUMPIG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3288,10 +3942,14 @@ evodata SPECIES_SPINDA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TRAPINCH
     evolution EVO_LEVEL_UP, 35, SPECIES_VIBRAVA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3308,9 +3966,13 @@ evodata SPECIES_VIBRAVA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FLYGON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3328,9 +3990,13 @@ evodata SPECIES_CACNEA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CACTURNE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3348,9 +4014,13 @@ evodata SPECIES_SWABLU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ALTARIA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3368,9 +4038,13 @@ evodata SPECIES_ZANGOOSE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SEVIPER
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3388,9 +4062,13 @@ evodata SPECIES_LUNATONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SOLROCK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3408,9 +4086,13 @@ evodata SPECIES_BARBOACH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WHISCASH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3428,9 +4110,13 @@ evodata SPECIES_CORPHISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CRAWDAUNT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3448,9 +4134,13 @@ evodata SPECIES_BALTOY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CLAYDOL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3468,9 +4158,13 @@ evodata SPECIES_LILEEP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CRADILY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3488,9 +4182,13 @@ evodata SPECIES_ANORITH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ARMALDO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3508,9 +4206,13 @@ evodata SPECIES_FEEBAS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MILOTIC
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3528,9 +4230,13 @@ evodata SPECIES_CASTFORM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KECLEON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3548,9 +4254,13 @@ evodata SPECIES_SHUPPET
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BANETTE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3568,6 +4278,8 @@ evodata SPECIES_DUSKULL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DUSCLOPS
@@ -3578,9 +4290,13 @@ evodata SPECIES_DUSCLOPS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TROPIUS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3598,9 +4314,13 @@ evodata SPECIES_CHIMECHO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ABSOL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3618,6 +4338,8 @@ evodata SPECIES_WYNAUT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SNORUNT
@@ -3628,9 +4350,13 @@ evodata SPECIES_SNORUNT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GLALIE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3648,6 +4374,8 @@ evodata SPECIES_SPHEAL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SEALEO
@@ -3658,9 +4386,13 @@ evodata SPECIES_SEALEO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WALREIN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3678,9 +4410,13 @@ evodata SPECIES_CLAMPERL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HUNTAIL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3698,9 +4434,13 @@ evodata SPECIES_GOREBYSS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RELICANTH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3718,10 +4458,14 @@ evodata SPECIES_LUVDISC
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BAGON
     evolution EVO_LEVEL_UP, 30, SPECIES_SHELGON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3738,9 +4482,13 @@ evodata SPECIES_SHELGON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SALAMENCE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3758,6 +4506,8 @@ evodata SPECIES_BELDUM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_METANG
@@ -3768,9 +4518,13 @@ evodata SPECIES_METANG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_METAGROSS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3788,9 +4542,13 @@ evodata SPECIES_REGIROCK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_REGICE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3808,9 +4566,13 @@ evodata SPECIES_REGISTEEL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LATIAS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3828,9 +4590,13 @@ evodata SPECIES_LATIOS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KYOGRE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3848,9 +4614,13 @@ evodata SPECIES_GROUDON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RAYQUAZA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3868,9 +4638,13 @@ evodata SPECIES_JIRACHI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DEOXYS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3888,6 +4662,8 @@ evodata SPECIES_TURTWIG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GROTLE
@@ -3898,9 +4674,13 @@ evodata SPECIES_GROTLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TORTERRA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3918,6 +4698,8 @@ evodata SPECIES_CHIMCHAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MONFERNO
@@ -3928,9 +4710,13 @@ evodata SPECIES_MONFERNO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_INFERNAPE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3948,6 +4734,8 @@ evodata SPECIES_PIPLUP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PRINPLUP
@@ -3958,9 +4746,13 @@ evodata SPECIES_PRINPLUP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EMPOLEON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3978,6 +4770,8 @@ evodata SPECIES_STARLY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STARAVIA
@@ -3988,9 +4782,13 @@ evodata SPECIES_STARAVIA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STARAPTOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4008,9 +4806,13 @@ evodata SPECIES_BIDOOF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BIBAREL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4028,9 +4830,13 @@ evodata SPECIES_KRICKETOT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KRICKETUNE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4048,6 +4854,8 @@ evodata SPECIES_SHINX
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LUXIO
@@ -4058,9 +4866,13 @@ evodata SPECIES_LUXIO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LUXRAY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4078,9 +4890,13 @@ evodata SPECIES_BUDEW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ROSERADE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4098,9 +4914,13 @@ evodata SPECIES_CRANIDOS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RAMPARDOS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4118,9 +4938,13 @@ evodata SPECIES_SHIELDON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BASTIODON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4138,9 +4962,13 @@ evodata SPECIES_BURMY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WORMADAM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4158,6 +4986,8 @@ evodata SPECIES_MOTHIM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_COMBEE
@@ -4168,9 +4998,13 @@ evodata SPECIES_COMBEE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VESPIQUEN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4188,6 +5022,8 @@ evodata SPECIES_PACHIRISU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BUIZEL
@@ -4198,9 +5034,13 @@ evodata SPECIES_BUIZEL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FLOATZEL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4218,9 +5058,13 @@ evodata SPECIES_CHERUBI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CHERRIM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4238,9 +5082,13 @@ evodata SPECIES_SHELLOS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GASTRODON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4258,6 +5106,8 @@ evodata SPECIES_AMBIPOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DRIFLOON
@@ -4268,9 +5118,13 @@ evodata SPECIES_DRIFLOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DRIFBLIM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4288,9 +5142,13 @@ evodata SPECIES_BUNEARY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LOPUNNY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4308,9 +5166,13 @@ evodata SPECIES_MISMAGIUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HONCHKROW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4328,9 +5190,13 @@ evodata SPECIES_GLAMEOW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PURUGLY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4348,6 +5214,8 @@ evodata SPECIES_CHINGLING
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STUNKY
@@ -4358,9 +5226,13 @@ evodata SPECIES_STUNKY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SKUNTANK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4378,9 +5250,13 @@ evodata SPECIES_BRONZOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BRONZONG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4398,10 +5274,14 @@ evodata SPECIES_BONSLY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MIMEJR
     evolution EVO_KNOWS_MOVE, MOVE_MIMIC, SPECIES_MR_MIME
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4418,9 +5298,13 @@ evodata SPECIES_HAPPINY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CHATOT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4438,10 +5322,14 @@ evodata SPECIES_SPIRITOMB
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GIBLE
     evolution EVO_LEVEL_UP, 24, SPECIES_GABITE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4458,9 +5346,13 @@ evodata SPECIES_GABITE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GARCHOMP
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4478,6 +5370,8 @@ evodata SPECIES_MUNCHLAX
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RIOLU
@@ -4488,9 +5382,13 @@ evodata SPECIES_RIOLU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LUCARIO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4508,9 +5406,13 @@ evodata SPECIES_HIPPOPOTAS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HIPPOWDON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4528,9 +5430,13 @@ evodata SPECIES_SKORUPI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DRAPION
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4548,9 +5454,13 @@ evodata SPECIES_CROAGUNK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TOXICROAK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4568,6 +5478,8 @@ evodata SPECIES_CARNIVINE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FINNEON
@@ -4578,9 +5490,13 @@ evodata SPECIES_FINNEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LUMINEON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4598,6 +5514,8 @@ evodata SPECIES_MANTYKE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SNOVER
@@ -4608,9 +5526,13 @@ evodata SPECIES_SNOVER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ABOMASNOW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4628,9 +5550,13 @@ evodata SPECIES_WEAVILE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MAGNEZONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4648,9 +5574,13 @@ evodata SPECIES_LICKILICKY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RHYPERIOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4668,9 +5598,13 @@ evodata SPECIES_TANGROWTH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ELECTIVIRE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4688,9 +5622,13 @@ evodata SPECIES_MAGMORTAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TOGEKISS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4708,9 +5646,13 @@ evodata SPECIES_YANMEGA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LEAFEON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4728,9 +5670,13 @@ evodata SPECIES_GLACEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GLISCOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4748,9 +5694,13 @@ evodata SPECIES_MAMOSWINE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PORYGON_Z
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4768,9 +5718,13 @@ evodata SPECIES_GALLADE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PROBOPASS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4788,9 +5742,13 @@ evodata SPECIES_DUSKNOIR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FROSLASS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4808,9 +5766,13 @@ evodata SPECIES_ROTOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_UXIE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4828,9 +5790,13 @@ evodata SPECIES_MESPRIT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_AZELF
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4848,9 +5814,13 @@ evodata SPECIES_DIALGA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PALKIA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4868,9 +5838,13 @@ evodata SPECIES_HEATRAN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_REGIGIGAS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4888,9 +5862,13 @@ evodata SPECIES_GIRATINA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CRESSELIA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4908,9 +5886,13 @@ evodata SPECIES_PHIONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MANAPHY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4928,9 +5910,13 @@ evodata SPECIES_DARKRAI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SHAYMIN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4948,9 +5934,13 @@ evodata SPECIES_ARCEUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EGG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4968,9 +5958,13 @@ evodata SPECIES_BAD_EGG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DEOXYS_ATTACK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4988,9 +5982,13 @@ evodata SPECIES_DEOXYS_DEFENSE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DEOXYS_SPEED
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5008,9 +6006,13 @@ evodata SPECIES_WORMADAM_SANDY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WORMADAM_TRASHY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5028,9 +6030,13 @@ evodata SPECIES_GIRATINA_ORIGIN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SHAYMIN_SKY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5048,9 +6054,13 @@ evodata SPECIES_ROTOM_HEAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ROTOM_WASH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5068,6 +6078,8 @@ evodata SPECIES_ROTOM_FROST
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ROTOM_FAN
@@ -5078,9 +6090,13 @@ evodata SPECIES_ROTOM_FAN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ROTOM_MOW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5102,9 +6118,13 @@ evodata SPECIES_508
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_509
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5122,9 +6142,13 @@ evodata SPECIES_510
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_511
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5142,9 +6166,13 @@ evodata SPECIES_512
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_513
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5162,9 +6190,13 @@ evodata SPECIES_514
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_515
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5182,9 +6214,13 @@ evodata SPECIES_516
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_517
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5202,9 +6238,13 @@ evodata SPECIES_518
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_519
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5222,9 +6262,13 @@ evodata SPECIES_520
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_521
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5242,9 +6286,13 @@ evodata SPECIES_522
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_523
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5262,9 +6310,13 @@ evodata SPECIES_524
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_525
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5282,9 +6334,13 @@ evodata SPECIES_526
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_527
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5302,9 +6358,13 @@ evodata SPECIES_528
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_529
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5322,9 +6382,13 @@ evodata SPECIES_530
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_531
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5342,9 +6406,13 @@ evodata SPECIES_532
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_533
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5362,9 +6430,13 @@ evodata SPECIES_534
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_535
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5382,9 +6454,13 @@ evodata SPECIES_536
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_537
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5402,9 +6478,13 @@ evodata SPECIES_538
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_539
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5422,9 +6502,13 @@ evodata SPECIES_540
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_541
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5442,9 +6526,13 @@ evodata SPECIES_542
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_543
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5462,10 +6550,14 @@ evodata SPECIES_VICTINI
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SNIVY
     evolution EVO_LEVEL_UP, 17, SPECIES_SERVINE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5482,9 +6574,13 @@ evodata SPECIES_SERVINE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SERPERIOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5502,6 +6598,8 @@ evodata SPECIES_TEPIG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PIGNITE
@@ -5512,9 +6610,13 @@ evodata SPECIES_PIGNITE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EMBOAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5532,6 +6634,8 @@ evodata SPECIES_OSHAWOTT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DEWOTT
@@ -5542,9 +6646,13 @@ evodata SPECIES_DEWOTT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SAMUROTT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5562,9 +6670,13 @@ evodata SPECIES_PATRAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WATCHOG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5582,6 +6694,8 @@ evodata SPECIES_LILLIPUP
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HERDIER
@@ -5592,9 +6706,13 @@ evodata SPECIES_HERDIER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_STOUTLAND
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5612,9 +6730,13 @@ evodata SPECIES_PURRLOIN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LIEPARD
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5632,9 +6754,13 @@ evodata SPECIES_PANSAGE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SIMISAGE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5652,9 +6778,13 @@ evodata SPECIES_PANSEAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SIMISEAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5672,9 +6802,13 @@ evodata SPECIES_PANPOUR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SIMIPOUR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5692,9 +6826,13 @@ evodata SPECIES_MUNNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MUSHARNA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5712,6 +6850,8 @@ evodata SPECIES_PIDOVE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TRANQUILL
@@ -5722,9 +6862,13 @@ evodata SPECIES_TRANQUILL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_UNFEZANT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5742,9 +6886,13 @@ evodata SPECIES_BLITZLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ZEBSTRIKA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5762,6 +6910,8 @@ evodata SPECIES_ROGGENROLA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BOLDORE
@@ -5772,9 +6922,13 @@ evodata SPECIES_BOLDORE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GIGALITH
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5792,9 +6946,13 @@ evodata SPECIES_WOOBAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SWOOBAT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5812,9 +6970,13 @@ evodata SPECIES_DRILBUR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EXCADRILL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5832,10 +6994,14 @@ evodata SPECIES_AUDINO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TIMBURR
     evolution EVO_LEVEL_UP, 25, SPECIES_GURDURR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5852,9 +7018,13 @@ evodata SPECIES_GURDURR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CONKELDURR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5872,6 +7042,8 @@ evodata SPECIES_TYMPOLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_PALPITOAD
@@ -5882,9 +7054,13 @@ evodata SPECIES_PALPITOAD
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SEISMITOAD
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5902,9 +7078,13 @@ evodata SPECIES_THROH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SAWK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5922,6 +7102,8 @@ evodata SPECIES_SEWADDLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SWADLOON
@@ -5932,9 +7114,13 @@ evodata SPECIES_SWADLOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LEAVANNY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5952,6 +7138,8 @@ evodata SPECIES_VENIPEDE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WHIRLIPEDE
@@ -5962,9 +7150,13 @@ evodata SPECIES_WHIRLIPEDE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SCOLIPEDE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5982,9 +7174,13 @@ evodata SPECIES_COTTONEE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_WHIMSICOTT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6002,9 +7198,13 @@ evodata SPECIES_PETILIL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LILLIGANT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6022,10 +7222,14 @@ evodata SPECIES_BASCULIN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SANDILE
     evolution EVO_LEVEL_UP, 29, SPECIES_KROKOROK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6042,9 +7246,13 @@ evodata SPECIES_KROKOROK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KROOKODILE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6062,9 +7270,13 @@ evodata SPECIES_DARUMAKA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DARMANITAN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6082,6 +7294,8 @@ evodata SPECIES_MARACTUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DWEBBLE
@@ -6092,9 +7306,13 @@ evodata SPECIES_DWEBBLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CRUSTLE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6112,9 +7330,13 @@ evodata SPECIES_SCRAGGY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SCRAFTY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6132,6 +7354,8 @@ evodata SPECIES_SIGILYPH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_YAMASK
@@ -6142,9 +7366,13 @@ evodata SPECIES_YAMASK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_COFAGRIGUS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6162,9 +7390,13 @@ evodata SPECIES_TIRTOUGA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CARRACOSTA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6182,9 +7414,13 @@ evodata SPECIES_ARCHEN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ARCHEOPS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6202,9 +7438,13 @@ evodata SPECIES_TRUBBISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GARBODOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6222,9 +7462,13 @@ evodata SPECIES_ZORUA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ZOROARK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6242,9 +7486,13 @@ evodata SPECIES_MINCCINO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CINCCINO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6262,6 +7510,8 @@ evodata SPECIES_GOTHITA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOTHORITA
@@ -6272,9 +7522,13 @@ evodata SPECIES_GOTHORITA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOTHITELLE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6292,6 +7546,8 @@ evodata SPECIES_SOLOSIS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DUOSION
@@ -6302,9 +7558,13 @@ evodata SPECIES_DUOSION
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_REUNICLUS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6322,9 +7582,13 @@ evodata SPECIES_DUCKLETT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SWANNA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6342,6 +7606,8 @@ evodata SPECIES_VANILLITE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VANILLISH
@@ -6352,9 +7618,13 @@ evodata SPECIES_VANILLISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VANILLUXE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6372,9 +7642,13 @@ evodata SPECIES_DEERLING
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SAWSBUCK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6392,6 +7666,8 @@ evodata SPECIES_EMOLGA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KARRABLAST
@@ -6402,9 +7678,13 @@ evodata SPECIES_KARRABLAST
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ESCAVALIER
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6422,9 +7702,13 @@ evodata SPECIES_FOONGUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_AMOONGUSS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6442,9 +7726,13 @@ evodata SPECIES_FRILLISH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_JELLICENT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6462,6 +7750,8 @@ evodata SPECIES_ALOMOMOLA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_JOLTIK
@@ -6472,9 +7762,13 @@ evodata SPECIES_JOLTIK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GALVANTULA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6492,9 +7786,13 @@ evodata SPECIES_FERROSEED
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FERROTHORN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6512,6 +7810,8 @@ evodata SPECIES_KLINK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KLANG
@@ -6522,9 +7822,13 @@ evodata SPECIES_KLANG
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KLINKLANG
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6542,6 +7846,8 @@ evodata SPECIES_TYNAMO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EELEKTRIK
@@ -6552,9 +7858,13 @@ evodata SPECIES_EELEKTRIK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_EELEKTROSS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6572,9 +7882,13 @@ evodata SPECIES_ELGYEM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BEHEEYEM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6592,6 +7906,8 @@ evodata SPECIES_LITWICK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LAMPENT
@@ -6602,9 +7918,13 @@ evodata SPECIES_LAMPENT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_CHANDELURE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6622,6 +7942,8 @@ evodata SPECIES_AXEW
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_FRAXURE
@@ -6632,9 +7954,13 @@ evodata SPECIES_FRAXURE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HAXORUS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6652,9 +7978,13 @@ evodata SPECIES_CUBCHOO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BEARTIC
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6672,6 +8002,8 @@ evodata SPECIES_CRYOGONAL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_SHELMET
@@ -6682,9 +8014,13 @@ evodata SPECIES_SHELMET
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ACCELGOR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6702,6 +8038,8 @@ evodata SPECIES_STUNFISK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MIENFOO
@@ -6712,9 +8050,13 @@ evodata SPECIES_MIENFOO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MIENSHAO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6732,6 +8074,8 @@ evodata SPECIES_DRUDDIGON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOLETT
@@ -6742,9 +8086,13 @@ evodata SPECIES_GOLETT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GOLURK
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6762,9 +8110,13 @@ evodata SPECIES_PAWNIARD
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BISHARP
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6782,6 +8134,8 @@ evodata SPECIES_BOUFFALANT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RUFFLET
@@ -6792,9 +8146,13 @@ evodata SPECIES_RUFFLET
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_BRAVIARY
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6812,9 +8170,13 @@ evodata SPECIES_VULLABY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MANDIBUZZ
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6832,9 +8194,13 @@ evodata SPECIES_HEATMOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_DURANT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6852,6 +8218,8 @@ evodata SPECIES_DEINO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_ZWEILOUS
@@ -6862,9 +8230,13 @@ evodata SPECIES_ZWEILOUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_HYDREIGON
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6882,9 +8254,13 @@ evodata SPECIES_LARVESTA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_VOLCARONA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6902,9 +8278,13 @@ evodata SPECIES_COBALION
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TERRAKION
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6922,9 +8302,13 @@ evodata SPECIES_VIRIZION
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_TORNADUS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6942,9 +8326,13 @@ evodata SPECIES_THUNDURUS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_RESHIRAM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6962,9 +8350,13 @@ evodata SPECIES_ZEKROM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_LANDORUS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6982,9 +8374,13 @@ evodata SPECIES_KYUREM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KELDEO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -7002,9 +8398,13 @@ evodata SPECIES_MELOETTA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_GENESECT
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -7022,6 +8422,8 @@ evodata SPECIES_CHESPIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_QUILLADIN
@@ -7032,6 +8434,8 @@ evodata SPECIES_QUILLADIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CHESNAUGHT
@@ -7042,6 +8446,8 @@ evodata SPECIES_CHESNAUGHT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FENNEKIN
@@ -7052,6 +8458,8 @@ evodata SPECIES_FENNEKIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BRAIXEN
@@ -7062,6 +8470,8 @@ evodata SPECIES_BRAIXEN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DELPHOX
@@ -7072,6 +8482,8 @@ evodata SPECIES_DELPHOX
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FROAKIE
@@ -7082,6 +8494,8 @@ evodata SPECIES_FROAKIE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FROGADIER
@@ -7092,6 +8506,8 @@ evodata SPECIES_FROGADIER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRENINJA
@@ -7102,6 +8518,8 @@ evodata SPECIES_GRENINJA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BUNNELBY
@@ -7112,6 +8530,8 @@ evodata SPECIES_BUNNELBY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DIGGERSBY
@@ -7122,6 +8542,8 @@ evodata SPECIES_DIGGERSBY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLETCHLING
@@ -7132,6 +8554,8 @@ evodata SPECIES_FLETCHLING
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLETCHINDER
@@ -7142,6 +8566,8 @@ evodata SPECIES_FLETCHINDER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TALONFLAME
@@ -7152,6 +8578,8 @@ evodata SPECIES_TALONFLAME
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SCATTERBUG
@@ -7162,6 +8590,8 @@ evodata SPECIES_SCATTERBUG
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SPEWPA
@@ -7172,6 +8602,8 @@ evodata SPECIES_SPEWPA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON
@@ -7182,6 +8614,8 @@ evodata SPECIES_VIVILLON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LITLEO
@@ -7192,6 +8626,8 @@ evodata SPECIES_LITLEO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PYROAR
@@ -7202,6 +8638,8 @@ evodata SPECIES_PYROAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLABEBE
@@ -7212,6 +8650,8 @@ evodata SPECIES_FLABEBE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLOETTE
@@ -7222,6 +8662,8 @@ evodata SPECIES_FLOETTE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLORGES
@@ -7232,6 +8674,8 @@ evodata SPECIES_FLORGES
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SKIDDO
@@ -7242,6 +8686,8 @@ evodata SPECIES_SKIDDO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOGOAT
@@ -7252,6 +8698,8 @@ evodata SPECIES_GOGOAT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PANCHAM
@@ -7262,6 +8710,8 @@ evodata SPECIES_PANCHAM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PANGORO
@@ -7272,6 +8722,8 @@ evodata SPECIES_PANGORO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU
@@ -7282,6 +8734,8 @@ evodata SPECIES_FURFROU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ESPURR
@@ -7292,6 +8746,8 @@ evodata SPECIES_ESPURR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MEOWSTIC
@@ -7302,6 +8758,8 @@ evodata SPECIES_MEOWSTIC
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HONEDGE
@@ -7312,6 +8770,8 @@ evodata SPECIES_HONEDGE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DOUBLADE
@@ -7322,6 +8782,8 @@ evodata SPECIES_DOUBLADE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AEGISLASH
@@ -7332,6 +8794,8 @@ evodata SPECIES_AEGISLASH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SPRITZEE
@@ -7342,6 +8806,8 @@ evodata SPECIES_SPRITZEE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AROMATISSE
@@ -7352,6 +8818,8 @@ evodata SPECIES_AROMATISSE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SWIRLIX
@@ -7362,6 +8830,8 @@ evodata SPECIES_SWIRLIX
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SLURPUFF
@@ -7372,6 +8842,8 @@ evodata SPECIES_SLURPUFF
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_INKAY
@@ -7382,6 +8854,8 @@ evodata SPECIES_INKAY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MALAMAR
@@ -7392,6 +8866,8 @@ evodata SPECIES_MALAMAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BINACLE
@@ -7402,6 +8878,8 @@ evodata SPECIES_BINACLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BARBARACLE
@@ -7412,6 +8890,8 @@ evodata SPECIES_BARBARACLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SKRELP
@@ -7422,6 +8902,8 @@ evodata SPECIES_SKRELP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRAGALGE
@@ -7432,6 +8914,8 @@ evodata SPECIES_DRAGALGE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CLAUNCHER
@@ -7442,6 +8926,8 @@ evodata SPECIES_CLAUNCHER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CLAWITZER
@@ -7452,6 +8938,8 @@ evodata SPECIES_CLAWITZER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HELIOPTILE
@@ -7462,6 +8950,8 @@ evodata SPECIES_HELIOPTILE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HELIOLISK
@@ -7472,6 +8962,8 @@ evodata SPECIES_HELIOLISK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TYRUNT
@@ -7482,6 +8974,8 @@ evodata SPECIES_TYRUNT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TYRANTRUM
@@ -7492,6 +8986,8 @@ evodata SPECIES_TYRANTRUM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AMAURA
@@ -7502,6 +8998,8 @@ evodata SPECIES_AMAURA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AURORUS
@@ -7512,6 +9010,8 @@ evodata SPECIES_AURORUS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SYLVEON
@@ -7522,6 +9022,8 @@ evodata SPECIES_SYLVEON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HAWLUCHA
@@ -7532,6 +9034,8 @@ evodata SPECIES_HAWLUCHA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DEDENNE
@@ -7542,6 +9046,8 @@ evodata SPECIES_DEDENNE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CARBINK
@@ -7552,6 +9058,8 @@ evodata SPECIES_CARBINK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOOMY
@@ -7562,6 +9070,8 @@ evodata SPECIES_GOOMY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SLIGGOO
@@ -7572,6 +9082,8 @@ evodata SPECIES_SLIGGOO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOODRA
@@ -7582,6 +9094,8 @@ evodata SPECIES_GOODRA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KLEFKI
@@ -7592,6 +9106,8 @@ evodata SPECIES_KLEFKI
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PHANTUMP
@@ -7602,6 +9118,8 @@ evodata SPECIES_PHANTUMP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TREVENANT
@@ -7612,6 +9130,8 @@ evodata SPECIES_TREVENANT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PUMPKABOO
@@ -7622,6 +9142,8 @@ evodata SPECIES_PUMPKABOO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOURGEIST
@@ -7632,6 +9154,8 @@ evodata SPECIES_GOURGEIST
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BERGMITE
@@ -7642,6 +9166,8 @@ evodata SPECIES_BERGMITE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AVALUGG
@@ -7652,6 +9178,8 @@ evodata SPECIES_AVALUGG
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NOIBAT
@@ -7662,6 +9190,8 @@ evodata SPECIES_NOIBAT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NOIVERN
@@ -7672,6 +9202,8 @@ evodata SPECIES_NOIVERN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_XERNEAS
@@ -7682,6 +9214,8 @@ evodata SPECIES_XERNEAS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_YVELTAL
@@ -7692,6 +9226,8 @@ evodata SPECIES_YVELTAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZYGARDE
@@ -7702,6 +9238,8 @@ evodata SPECIES_ZYGARDE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DIANCIE
@@ -7712,6 +9250,8 @@ evodata SPECIES_DIANCIE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HOOPA
@@ -7722,6 +9262,8 @@ evodata SPECIES_HOOPA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VOLCANION
@@ -7732,6 +9274,8 @@ evodata SPECIES_VOLCANION
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ROWLET
@@ -7742,6 +9286,8 @@ evodata SPECIES_ROWLET
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DARTRIX
@@ -7752,6 +9298,8 @@ evodata SPECIES_DARTRIX
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DECIDUEYE
@@ -7762,6 +9310,8 @@ evodata SPECIES_DECIDUEYE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LITTEN
@@ -7772,6 +9322,8 @@ evodata SPECIES_LITTEN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TORRACAT
@@ -7782,6 +9334,8 @@ evodata SPECIES_TORRACAT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_INCINEROAR
@@ -7792,6 +9346,8 @@ evodata SPECIES_INCINEROAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_POPPLIO
@@ -7802,6 +9358,8 @@ evodata SPECIES_POPPLIO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BRIONNE
@@ -7812,6 +9370,8 @@ evodata SPECIES_BRIONNE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PRIMARINA
@@ -7822,6 +9382,8 @@ evodata SPECIES_PRIMARINA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKIPEK
@@ -7832,6 +9394,8 @@ evodata SPECIES_PIKIPEK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TRUMBEAK
@@ -7842,6 +9406,8 @@ evodata SPECIES_TRUMBEAK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TOUCANNON
@@ -7852,6 +9418,8 @@ evodata SPECIES_TOUCANNON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_YUNGOOS
@@ -7862,6 +9430,8 @@ evodata SPECIES_YUNGOOS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GUMSHOOS
@@ -7872,6 +9442,8 @@ evodata SPECIES_GUMSHOOS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRUBBIN
@@ -7882,6 +9454,8 @@ evodata SPECIES_GRUBBIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CHARJABUG
@@ -7892,6 +9466,8 @@ evodata SPECIES_CHARJABUG
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIKAVOLT
@@ -7902,6 +9478,8 @@ evodata SPECIES_VIKAVOLT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CRABRAWLER
@@ -7912,6 +9490,8 @@ evodata SPECIES_CRABRAWLER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CRABOMINABLE
@@ -7922,6 +9502,8 @@ evodata SPECIES_CRABOMINABLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ORICORIO
@@ -7932,6 +9514,8 @@ evodata SPECIES_ORICORIO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CUTIEFLY
@@ -7942,6 +9526,8 @@ evodata SPECIES_CUTIEFLY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RIBOMBEE
@@ -7952,6 +9538,8 @@ evodata SPECIES_RIBOMBEE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ROCKRUFF
@@ -7962,6 +9550,8 @@ evodata SPECIES_ROCKRUFF
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LYCANROC
@@ -7972,6 +9562,8 @@ evodata SPECIES_LYCANROC
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_WISHIWASHI
@@ -7982,6 +9574,8 @@ evodata SPECIES_WISHIWASHI
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MAREANIE
@@ -7992,6 +9586,8 @@ evodata SPECIES_MAREANIE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TOXAPEX
@@ -8002,6 +9598,8 @@ evodata SPECIES_TOXAPEX
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MUDBRAY
@@ -8012,6 +9610,8 @@ evodata SPECIES_MUDBRAY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MUDSDALE
@@ -8022,6 +9622,8 @@ evodata SPECIES_MUDSDALE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DEWPIDER
@@ -8032,6 +9634,8 @@ evodata SPECIES_DEWPIDER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ARAQUANID
@@ -8042,6 +9646,8 @@ evodata SPECIES_ARAQUANID
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FOMANTIS
@@ -8052,6 +9658,8 @@ evodata SPECIES_FOMANTIS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LURANTIS
@@ -8062,6 +9670,8 @@ evodata SPECIES_LURANTIS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MORELULL
@@ -8072,6 +9682,8 @@ evodata SPECIES_MORELULL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SHIINOTIC
@@ -8082,6 +9694,8 @@ evodata SPECIES_SHIINOTIC
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SALANDIT
@@ -8092,6 +9706,8 @@ evodata SPECIES_SALANDIT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SALAZZLE
@@ -8102,6 +9718,8 @@ evodata SPECIES_SALAZZLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_STUFFUL
@@ -8112,6 +9730,8 @@ evodata SPECIES_STUFFUL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BEWEAR
@@ -8122,6 +9742,8 @@ evodata SPECIES_BEWEAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BOUNSWEET
@@ -8132,6 +9754,8 @@ evodata SPECIES_BOUNSWEET
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_STEENEE
@@ -8142,6 +9766,8 @@ evodata SPECIES_STEENEE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TSAREENA
@@ -8152,6 +9778,8 @@ evodata SPECIES_TSAREENA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_COMFEY
@@ -8162,6 +9790,8 @@ evodata SPECIES_COMFEY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ORANGURU
@@ -8172,6 +9802,8 @@ evodata SPECIES_ORANGURU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PASSIMIAN
@@ -8182,6 +9814,8 @@ evodata SPECIES_PASSIMIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_WIMPOD
@@ -8192,6 +9826,8 @@ evodata SPECIES_WIMPOD
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOLISOPOD
@@ -8202,6 +9838,8 @@ evodata SPECIES_GOLISOPOD
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SANDYGAST
@@ -8212,6 +9850,8 @@ evodata SPECIES_SANDYGAST
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PALOSSAND
@@ -8222,6 +9862,8 @@ evodata SPECIES_PALOSSAND
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PYUKUMUKU
@@ -8232,6 +9874,8 @@ evodata SPECIES_PYUKUMUKU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TYPE_NULL
@@ -8242,6 +9886,8 @@ evodata SPECIES_TYPE_NULL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SILVALLY
@@ -8252,6 +9898,8 @@ evodata SPECIES_SILVALLY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR
@@ -8262,6 +9910,8 @@ evodata SPECIES_MINIOR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KOMALA
@@ -8272,6 +9922,8 @@ evodata SPECIES_KOMALA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TURTONATOR
@@ -8282,6 +9934,8 @@ evodata SPECIES_TURTONATOR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TOGEDEMARU
@@ -8292,6 +9946,8 @@ evodata SPECIES_TOGEDEMARU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MIMIKYU
@@ -8302,6 +9958,8 @@ evodata SPECIES_MIMIKYU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BRUXISH
@@ -8312,6 +9970,8 @@ evodata SPECIES_BRUXISH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRAMPA
@@ -8322,6 +9982,8 @@ evodata SPECIES_DRAMPA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DHELMISE
@@ -8332,6 +9994,8 @@ evodata SPECIES_DHELMISE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_JANGMO_O
@@ -8342,6 +10006,8 @@ evodata SPECIES_JANGMO_O
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HAKAMO_O
@@ -8352,6 +10018,8 @@ evodata SPECIES_HAKAMO_O
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KOMMO_O
@@ -8362,6 +10030,8 @@ evodata SPECIES_KOMMO_O
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TAPU_KOKO
@@ -8372,6 +10042,8 @@ evodata SPECIES_TAPU_KOKO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TAPU_LELE
@@ -8382,6 +10054,8 @@ evodata SPECIES_TAPU_LELE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TAPU_BULU
@@ -8392,6 +10066,8 @@ evodata SPECIES_TAPU_BULU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TAPU_FINI
@@ -8402,6 +10078,8 @@ evodata SPECIES_TAPU_FINI
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_COSMOG
@@ -8412,6 +10090,8 @@ evodata SPECIES_COSMOG
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_COSMOEM
@@ -8422,6 +10102,8 @@ evodata SPECIES_COSMOEM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SOLGALEO
@@ -8432,6 +10114,8 @@ evodata SPECIES_SOLGALEO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LUNALA
@@ -8442,6 +10126,8 @@ evodata SPECIES_LUNALA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NIHILEGO
@@ -8452,6 +10138,8 @@ evodata SPECIES_NIHILEGO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BUZZWOLE
@@ -8462,6 +10150,8 @@ evodata SPECIES_BUZZWOLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PHEROMOSA
@@ -8472,6 +10162,8 @@ evodata SPECIES_PHEROMOSA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_XURKITREE
@@ -8482,6 +10174,8 @@ evodata SPECIES_XURKITREE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CELESTEELA
@@ -8492,6 +10186,8 @@ evodata SPECIES_CELESTEELA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KARTANA
@@ -8502,6 +10198,8 @@ evodata SPECIES_KARTANA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GUZZLORD
@@ -8512,6 +10210,8 @@ evodata SPECIES_GUZZLORD
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NECROZMA
@@ -8522,6 +10222,8 @@ evodata SPECIES_NECROZMA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MAGEARNA
@@ -8532,6 +10234,8 @@ evodata SPECIES_MAGEARNA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MARSHADOW
@@ -8542,6 +10246,8 @@ evodata SPECIES_MARSHADOW
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_POIPOLE
@@ -8552,6 +10258,8 @@ evodata SPECIES_POIPOLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NAGANADEL
@@ -8562,6 +10270,8 @@ evodata SPECIES_NAGANADEL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_STAKATAKA
@@ -8572,6 +10282,8 @@ evodata SPECIES_STAKATAKA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BLACEPHALON
@@ -8582,6 +10294,8 @@ evodata SPECIES_BLACEPHALON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZERAORA
@@ -8592,6 +10306,8 @@ evodata SPECIES_ZERAORA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MELTAN
@@ -8602,6 +10318,8 @@ evodata SPECIES_MELTAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MELMETAL
@@ -8612,6 +10330,8 @@ evodata SPECIES_MELMETAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GROOKEY
@@ -8622,6 +10342,8 @@ evodata SPECIES_GROOKEY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_THWACKEY
@@ -8632,6 +10354,8 @@ evodata SPECIES_THWACKEY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RILLABOOM
@@ -8642,6 +10366,8 @@ evodata SPECIES_RILLABOOM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SCORBUNNY
@@ -8652,6 +10378,8 @@ evodata SPECIES_SCORBUNNY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RABOOT
@@ -8662,6 +10390,8 @@ evodata SPECIES_RABOOT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CINDERACE
@@ -8672,6 +10402,8 @@ evodata SPECIES_CINDERACE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SOBBLE
@@ -8682,6 +10414,8 @@ evodata SPECIES_SOBBLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRIZZILE
@@ -8692,6 +10426,8 @@ evodata SPECIES_DRIZZILE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_INTELEON
@@ -8702,6 +10438,8 @@ evodata SPECIES_INTELEON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SKWOVET
@@ -8712,6 +10450,8 @@ evodata SPECIES_SKWOVET
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GREEDENT
@@ -8722,6 +10462,8 @@ evodata SPECIES_GREEDENT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ROOKIDEE
@@ -8732,6 +10474,8 @@ evodata SPECIES_ROOKIDEE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CORVISQUIRE
@@ -8742,6 +10486,8 @@ evodata SPECIES_CORVISQUIRE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CORVIKNIGHT
@@ -8752,6 +10498,8 @@ evodata SPECIES_CORVIKNIGHT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BLIPBUG
@@ -8762,6 +10510,8 @@ evodata SPECIES_BLIPBUG
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DOTTLER
@@ -8772,6 +10522,8 @@ evodata SPECIES_DOTTLER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ORBEETLE
@@ -8782,6 +10534,8 @@ evodata SPECIES_ORBEETLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NICKIT
@@ -8792,6 +10546,8 @@ evodata SPECIES_NICKIT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_THIEVUL
@@ -8802,6 +10558,8 @@ evodata SPECIES_THIEVUL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOSSIFLEUR
@@ -8812,6 +10570,8 @@ evodata SPECIES_GOSSIFLEUR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ELDEGOSS
@@ -8822,6 +10582,8 @@ evodata SPECIES_ELDEGOSS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_WOOLOO
@@ -8832,6 +10594,8 @@ evodata SPECIES_WOOLOO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DUBWOOL
@@ -8842,6 +10606,8 @@ evodata SPECIES_DUBWOOL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CHEWTLE
@@ -8852,6 +10618,8 @@ evodata SPECIES_CHEWTLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DREDNAW
@@ -8862,6 +10630,8 @@ evodata SPECIES_DREDNAW
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_YAMPER
@@ -8872,6 +10642,8 @@ evodata SPECIES_YAMPER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BOLTUND
@@ -8882,6 +10654,8 @@ evodata SPECIES_BOLTUND
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ROLYCOLY
@@ -8892,6 +10666,8 @@ evodata SPECIES_ROLYCOLY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CARKOL
@@ -8902,6 +10678,8 @@ evodata SPECIES_CARKOL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_COALOSSAL
@@ -8912,6 +10690,8 @@ evodata SPECIES_COALOSSAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_APPLIN
@@ -8922,6 +10702,8 @@ evodata SPECIES_APPLIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLAPPLE
@@ -8932,6 +10714,8 @@ evodata SPECIES_FLAPPLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_APPLETUN
@@ -8942,6 +10726,8 @@ evodata SPECIES_APPLETUN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SILICOBRA
@@ -8952,6 +10738,8 @@ evodata SPECIES_SILICOBRA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SANDACONDA
@@ -8962,6 +10750,8 @@ evodata SPECIES_SANDACONDA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CRAMORANT
@@ -8972,6 +10762,8 @@ evodata SPECIES_CRAMORANT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ARROKUDA
@@ -8982,6 +10774,8 @@ evodata SPECIES_ARROKUDA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BARRASKEWDA
@@ -8992,6 +10786,8 @@ evodata SPECIES_BARRASKEWDA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TOXEL
@@ -9002,6 +10798,8 @@ evodata SPECIES_TOXEL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TOXTRICITY
@@ -9012,6 +10810,8 @@ evodata SPECIES_TOXTRICITY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SIZZLIPEDE
@@ -9022,6 +10822,8 @@ evodata SPECIES_SIZZLIPEDE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CENTISKORCH
@@ -9032,6 +10834,8 @@ evodata SPECIES_CENTISKORCH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CLOBBOPUS
@@ -9042,6 +10846,8 @@ evodata SPECIES_CLOBBOPUS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRAPPLOCT
@@ -9052,6 +10858,8 @@ evodata SPECIES_GRAPPLOCT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SINISTEA
@@ -9062,6 +10870,8 @@ evodata SPECIES_SINISTEA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_POLTEAGEIST
@@ -9072,6 +10882,8 @@ evodata SPECIES_POLTEAGEIST
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HATENNA
@@ -9082,6 +10894,8 @@ evodata SPECIES_HATENNA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HATTREM
@@ -9092,6 +10906,8 @@ evodata SPECIES_HATTREM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HATTERENE
@@ -9102,6 +10918,8 @@ evodata SPECIES_HATTERENE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_IMPIDIMP
@@ -9112,6 +10930,8 @@ evodata SPECIES_IMPIDIMP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MORGREM
@@ -9122,6 +10942,8 @@ evodata SPECIES_MORGREM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRIMMSNARL
@@ -9132,6 +10954,8 @@ evodata SPECIES_GRIMMSNARL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_OBSTAGOON
@@ -9142,6 +10966,8 @@ evodata SPECIES_OBSTAGOON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PERRSERKER
@@ -9152,6 +10978,8 @@ evodata SPECIES_PERRSERKER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CURSOLA
@@ -9162,6 +10990,8 @@ evodata SPECIES_CURSOLA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SIRFETCHD
@@ -9172,6 +11002,8 @@ evodata SPECIES_SIRFETCHD
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MR_RIME
@@ -9182,6 +11014,8 @@ evodata SPECIES_MR_RIME
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RUNERIGUS
@@ -9192,6 +11026,8 @@ evodata SPECIES_RUNERIGUS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MILCERY
@@ -9202,6 +11038,8 @@ evodata SPECIES_MILCERY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE
@@ -9212,6 +11050,8 @@ evodata SPECIES_ALCREMIE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FALINKS
@@ -9222,6 +11062,8 @@ evodata SPECIES_FALINKS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PINCURCHIN
@@ -9232,6 +11074,8 @@ evodata SPECIES_PINCURCHIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SNOM
@@ -9242,6 +11086,8 @@ evodata SPECIES_SNOM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FROSMOTH
@@ -9252,6 +11098,8 @@ evodata SPECIES_FROSMOTH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_STONJOURNER
@@ -9262,6 +11110,8 @@ evodata SPECIES_STONJOURNER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_EISCUE
@@ -9272,6 +11122,8 @@ evodata SPECIES_EISCUE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_INDEEDEE
@@ -9282,6 +11134,8 @@ evodata SPECIES_INDEEDEE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MORPEKO
@@ -9292,6 +11146,8 @@ evodata SPECIES_MORPEKO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CUFANT
@@ -9302,6 +11158,8 @@ evodata SPECIES_CUFANT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_COPPERAJAH
@@ -9312,6 +11170,8 @@ evodata SPECIES_COPPERAJAH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRACOZOLT
@@ -9322,6 +11182,8 @@ evodata SPECIES_DRACOZOLT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ARCTOZOLT
@@ -9332,6 +11194,8 @@ evodata SPECIES_ARCTOZOLT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRACOVISH
@@ -9342,6 +11206,8 @@ evodata SPECIES_DRACOVISH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ARCTOVISH
@@ -9352,6 +11218,8 @@ evodata SPECIES_ARCTOVISH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DURALUDON
@@ -9362,6 +11230,8 @@ evodata SPECIES_DURALUDON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DREEPY
@@ -9372,6 +11242,8 @@ evodata SPECIES_DREEPY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRAKLOAK
@@ -9382,6 +11254,8 @@ evodata SPECIES_DRAKLOAK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DRAGAPULT
@@ -9392,6 +11266,8 @@ evodata SPECIES_DRAGAPULT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZACIAN
@@ -9402,6 +11278,8 @@ evodata SPECIES_ZACIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZAMAZENTA
@@ -9412,6 +11290,8 @@ evodata SPECIES_ZAMAZENTA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ETERNATUS
@@ -9422,6 +11302,8 @@ evodata SPECIES_ETERNATUS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KUBFU
@@ -9432,6 +11314,8 @@ evodata SPECIES_KUBFU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_URSHIFU
@@ -9442,6 +11326,8 @@ evodata SPECIES_URSHIFU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZARUDE
@@ -9452,6 +11338,8 @@ evodata SPECIES_ZARUDE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_REGIELEKI
@@ -9462,6 +11350,8 @@ evodata SPECIES_REGIELEKI
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_REGIDRAGO
@@ -9472,6 +11362,8 @@ evodata SPECIES_REGIDRAGO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GLASTRIER
@@ -9482,6 +11374,8 @@ evodata SPECIES_GLASTRIER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SPECTRIER
@@ -9492,6 +11386,8 @@ evodata SPECIES_SPECTRIER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CALYREX
@@ -9502,6 +11398,8 @@ evodata SPECIES_CALYREX
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_WYRDEER
@@ -9512,6 +11410,8 @@ evodata SPECIES_WYRDEER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KLEAVOR
@@ -9522,6 +11422,8 @@ evodata SPECIES_KLEAVOR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_URSALUNA
@@ -9532,6 +11434,8 @@ evodata SPECIES_URSALUNA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BASCULEGION
@@ -9542,6 +11446,8 @@ evodata SPECIES_BASCULEGION
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SNEASLER
@@ -9552,6 +11458,8 @@ evodata SPECIES_SNEASLER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_OVERQWIL
@@ -9562,6 +11470,8 @@ evodata SPECIES_OVERQWIL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ENAMORUS
@@ -9572,10 +11482,14 @@ evodata SPECIES_ENAMORUS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 
 evodata SPECIES_MEGA_VENUSAUR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9593,9 +11507,13 @@ evodata SPECIES_MEGA_CHARIZARD_X
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_CHARIZARD_Y
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9613,9 +11531,13 @@ evodata SPECIES_MEGA_BLASTOISE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_BEEDRILL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9633,9 +11555,13 @@ evodata SPECIES_MEGA_PIDGEOT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_ALAKAZAM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9653,9 +11579,13 @@ evodata SPECIES_MEGA_SLOWBRO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_GENGAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9673,9 +11603,13 @@ evodata SPECIES_MEGA_KANGASKHAN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_PINSIR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9693,9 +11627,13 @@ evodata SPECIES_MEGA_GYARADOS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_AERODACTYL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9713,9 +11651,13 @@ evodata SPECIES_MEGA_MEWTWO_X
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_MEWTWO_Y
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9733,9 +11675,13 @@ evodata SPECIES_MEGA_AMPHAROS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_STEELIX
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9753,9 +11699,13 @@ evodata SPECIES_MEGA_SCIZOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_HERACROSS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9773,9 +11723,13 @@ evodata SPECIES_MEGA_HOUNDOOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_TYRANITAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9793,9 +11747,13 @@ evodata SPECIES_MEGA_SCEPTILE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_BLAZIKEN
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9813,9 +11771,13 @@ evodata SPECIES_MEGA_SWAMPERT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_GARDEVOIR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9833,9 +11795,13 @@ evodata SPECIES_MEGA_SABLEYE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_MAWILE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9853,9 +11819,13 @@ evodata SPECIES_MEGA_AGGRON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_MEDICHAM
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9873,9 +11843,13 @@ evodata SPECIES_MEGA_MANECTRIC
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_SHARPEDO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9893,9 +11867,13 @@ evodata SPECIES_MEGA_CAMERUPT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_ALTARIA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9913,9 +11891,13 @@ evodata SPECIES_MEGA_BANETTE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_ABSOL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9933,9 +11915,13 @@ evodata SPECIES_MEGA_GLALIE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_SALAMENCE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9953,9 +11939,13 @@ evodata SPECIES_MEGA_METAGROSS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_LATIAS
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9973,9 +11963,13 @@ evodata SPECIES_MEGA_LATIOS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_RAYQUAZA
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9993,9 +11987,13 @@ evodata SPECIES_MEGA_LOPUNNY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_GARCHOMP
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -10013,9 +12011,13 @@ evodata SPECIES_MEGA_LUCARIO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_ABOMASNOW
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -10033,9 +12035,13 @@ evodata SPECIES_MEGA_GALLADE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_MEGA_AUDINO
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -10053,6 +12059,8 @@ evodata SPECIES_MEGA_DIANCIE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
 evodata SPECIES_KYOGRE_PRIMAL
@@ -10063,6 +12071,8 @@ evodata SPECIES_KYOGRE_PRIMAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GROUDON_PRIMAL
@@ -10073,6 +12083,8 @@ evodata SPECIES_GROUDON_PRIMAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RATTATA_ALOLAN
@@ -10083,6 +12095,8 @@ evodata SPECIES_RATTATA_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RATICATE_ALOLAN
@@ -10093,6 +12107,8 @@ evodata SPECIES_RATICATE_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RAICHU_ALOLAN
@@ -10103,6 +12119,8 @@ evodata SPECIES_RAICHU_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SANDSHREW_ALOLAN
@@ -10113,6 +12131,8 @@ evodata SPECIES_SANDSHREW_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SANDSLASH_ALOLAN
@@ -10123,6 +12143,8 @@ evodata SPECIES_SANDSLASH_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VULPIX_ALOLAN
@@ -10133,6 +12155,8 @@ evodata SPECIES_VULPIX_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NINETALES_ALOLAN
@@ -10143,6 +12167,8 @@ evodata SPECIES_NINETALES_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DIGLETT_ALOLAN
@@ -10153,6 +12179,8 @@ evodata SPECIES_DIGLETT_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DUGTRIO_ALOLAN
@@ -10163,6 +12191,8 @@ evodata SPECIES_DUGTRIO_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MEOWTH_ALOLAN
@@ -10173,6 +12203,8 @@ evodata SPECIES_MEOWTH_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PERSIAN_ALOLAN
@@ -10183,6 +12215,8 @@ evodata SPECIES_PERSIAN_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GEODUDE_ALOLAN
@@ -10193,6 +12227,8 @@ evodata SPECIES_GEODUDE_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRAVELER_ALOLAN
@@ -10203,6 +12239,8 @@ evodata SPECIES_GRAVELER_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOLEM_ALOLAN
@@ -10213,6 +12251,8 @@ evodata SPECIES_GOLEM_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRIMER_ALOLAN
@@ -10223,6 +12263,8 @@ evodata SPECIES_GRIMER_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MUK_ALOLAN
@@ -10233,6 +12275,8 @@ evodata SPECIES_MUK_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_EXEGGUTOR_ALOLAN
@@ -10243,6 +12287,8 @@ evodata SPECIES_EXEGGUTOR_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MAROWAK_ALOLAN
@@ -10253,6 +12299,8 @@ evodata SPECIES_MAROWAK_ALOLAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MEOWTH_GALARIAN
@@ -10263,6 +12311,8 @@ evodata SPECIES_MEOWTH_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PONYTA_GALARIAN
@@ -10273,6 +12323,8 @@ evodata SPECIES_PONYTA_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_RAPIDASH_GALARIAN
@@ -10283,6 +12335,8 @@ evodata SPECIES_RAPIDASH_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SLOWPOKE_GALARIAN
@@ -10293,6 +12347,8 @@ evodata SPECIES_SLOWPOKE_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SLOWBRO_GALARIAN
@@ -10303,6 +12359,8 @@ evodata SPECIES_SLOWBRO_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FARFETCHD_GALARIAN
@@ -10313,6 +12371,8 @@ evodata SPECIES_FARFETCHD_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_WEEZING_GALARIAN
@@ -10323,6 +12383,8 @@ evodata SPECIES_WEEZING_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MR_MIME_GALARIAN
@@ -10333,6 +12395,8 @@ evodata SPECIES_MR_MIME_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ARTICUNO_GALARIAN
@@ -10343,6 +12407,8 @@ evodata SPECIES_ARTICUNO_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZAPDOS_GALARIAN
@@ -10353,6 +12419,8 @@ evodata SPECIES_ZAPDOS_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MOLTRES_GALARIAN
@@ -10363,6 +12431,8 @@ evodata SPECIES_MOLTRES_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SLOWKING_GALARIAN
@@ -10373,6 +12443,8 @@ evodata SPECIES_SLOWKING_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CORSOLA_GALARIAN
@@ -10383,6 +12455,8 @@ evodata SPECIES_CORSOLA_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZIGZAGOON_GALARIAN
@@ -10393,6 +12467,8 @@ evodata SPECIES_ZIGZAGOON_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LINOONE_GALARIAN
@@ -10403,6 +12479,8 @@ evodata SPECIES_LINOONE_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DARUMAKA_GALARIAN
@@ -10413,6 +12491,8 @@ evodata SPECIES_DARUMAKA_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DARMANITAN_GALARIAN
@@ -10423,6 +12503,8 @@ evodata SPECIES_DARMANITAN_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_YAMASK_GALARIAN
@@ -10433,6 +12515,8 @@ evodata SPECIES_YAMASK_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_STUNFISK_GALARIAN
@@ -10443,6 +12527,8 @@ evodata SPECIES_STUNFISK_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_COSPLAY
@@ -10453,6 +12539,8 @@ evodata SPECIES_PIKACHU_COSPLAY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_ROCK_STAR
@@ -10463,6 +12551,8 @@ evodata SPECIES_PIKACHU_ROCK_STAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_BELLE
@@ -10473,6 +12563,8 @@ evodata SPECIES_PIKACHU_BELLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_POP_STAR
@@ -10483,6 +12575,8 @@ evodata SPECIES_PIKACHU_POP_STAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_PH_D
@@ -10493,6 +12587,8 @@ evodata SPECIES_PIKACHU_PH_D
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_LIBRE
@@ -10503,6 +12599,8 @@ evodata SPECIES_PIKACHU_LIBRE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_ORIGINAL_CAP
@@ -10513,6 +12611,8 @@ evodata SPECIES_PIKACHU_ORIGINAL_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_HOENN_CAP
@@ -10523,6 +12623,8 @@ evodata SPECIES_PIKACHU_HOENN_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_SINNOH_CAP
@@ -10533,6 +12635,8 @@ evodata SPECIES_PIKACHU_SINNOH_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_UNOVA_CAP
@@ -10543,6 +12647,8 @@ evodata SPECIES_PIKACHU_UNOVA_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_KALOS_CAP
@@ -10553,6 +12659,8 @@ evodata SPECIES_PIKACHU_KALOS_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_ALOLA_CAP
@@ -10563,6 +12671,8 @@ evodata SPECIES_PIKACHU_ALOLA_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_PARTNER_CAP
@@ -10573,6 +12683,8 @@ evodata SPECIES_PIKACHU_PARTNER_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PIKACHU_WORLD_CAP
@@ -10583,6 +12695,8 @@ evodata SPECIES_PIKACHU_WORLD_CAP
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CASTFORM_SUNNY
@@ -10593,6 +12707,8 @@ evodata SPECIES_CASTFORM_SUNNY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CASTFORM_RAINY
@@ -10603,6 +12719,8 @@ evodata SPECIES_CASTFORM_RAINY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CASTFORM_SNOWY
@@ -10613,6 +12731,8 @@ evodata SPECIES_CASTFORM_SNOWY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CHERRIM_SUNSHINE
@@ -10623,6 +12743,8 @@ evodata SPECIES_CHERRIM_SUNSHINE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SHELLOS_EAST_SEA
@@ -10633,6 +12755,8 @@ evodata SPECIES_SHELLOS_EAST_SEA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GASTRODON_EAST_SEA
@@ -10643,6 +12767,8 @@ evodata SPECIES_GASTRODON_EAST_SEA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DIALGA_ORIGIN
@@ -10653,6 +12779,8 @@ evodata SPECIES_DIALGA_ORIGIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PALKIA_ORIGIN
@@ -10663,6 +12791,8 @@ evodata SPECIES_PALKIA_ORIGIN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BASCULIN_BLUE_STRIPED
@@ -10673,6 +12803,8 @@ evodata SPECIES_BASCULIN_BLUE_STRIPED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BASCULIN_WHITE_STRIPED
@@ -10683,6 +12815,8 @@ evodata SPECIES_BASCULIN_WHITE_STRIPED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DARMANITAN_ZEN_MODE
@@ -10693,6 +12827,8 @@ evodata SPECIES_DARMANITAN_ZEN_MODE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN
@@ -10703,6 +12839,8 @@ evodata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DEERLING_SUMMER
@@ -10713,6 +12851,8 @@ evodata SPECIES_DEERLING_SUMMER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DEERLING_AUTUMN
@@ -10723,6 +12863,8 @@ evodata SPECIES_DEERLING_AUTUMN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DEERLING_WINTER
@@ -10733,6 +12875,8 @@ evodata SPECIES_DEERLING_WINTER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SAWSBUCK_SUMMER
@@ -10743,6 +12887,8 @@ evodata SPECIES_SAWSBUCK_SUMMER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SAWSBUCK_AUTUMN
@@ -10753,6 +12899,8 @@ evodata SPECIES_SAWSBUCK_AUTUMN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SAWSBUCK_WINTER
@@ -10763,6 +12911,8 @@ evodata SPECIES_SAWSBUCK_WINTER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TORNADUS_THERIAN
@@ -10773,6 +12923,8 @@ evodata SPECIES_TORNADUS_THERIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_THUNDURUS_THERIAN
@@ -10783,6 +12935,8 @@ evodata SPECIES_THUNDURUS_THERIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LANDORUS_THERIAN
@@ -10793,6 +12947,8 @@ evodata SPECIES_LANDORUS_THERIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KYUREM_WHITE
@@ -10803,6 +12959,8 @@ evodata SPECIES_KYUREM_WHITE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KYUREM_BLACK
@@ -10813,6 +12971,8 @@ evodata SPECIES_KYUREM_BLACK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_KELDEO_RESOLUTE
@@ -10823,6 +12983,8 @@ evodata SPECIES_KELDEO_RESOLUTE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MELOETTA_PIROUETTE
@@ -10833,6 +12995,8 @@ evodata SPECIES_MELOETTA_PIROUETTE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GENESECT_DOUSE_DRIVE
@@ -10843,6 +13007,8 @@ evodata SPECIES_GENESECT_DOUSE_DRIVE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GENESECT_SHOCK_DRIVE
@@ -10853,6 +13019,8 @@ evodata SPECIES_GENESECT_SHOCK_DRIVE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GENESECT_BURN_DRIVE
@@ -10863,6 +13031,8 @@ evodata SPECIES_GENESECT_BURN_DRIVE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GENESECT_CHILL_DRIVE
@@ -10873,6 +13043,8 @@ evodata SPECIES_GENESECT_CHILL_DRIVE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRENINJA_BATTLE_BOND
@@ -10883,6 +13055,8 @@ evodata SPECIES_GRENINJA_BATTLE_BOND
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GRENINJA_ASH
@@ -10893,6 +13067,8 @@ evodata SPECIES_GRENINJA_ASH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_POLAR
@@ -10903,6 +13079,8 @@ evodata SPECIES_VIVILLON_POLAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_TUNDRA
@@ -10913,6 +13091,8 @@ evodata SPECIES_VIVILLON_TUNDRA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_CONTINENTAL
@@ -10923,6 +13103,8 @@ evodata SPECIES_VIVILLON_CONTINENTAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_GARDEN
@@ -10933,6 +13115,8 @@ evodata SPECIES_VIVILLON_GARDEN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_ELEGANT
@@ -10943,6 +13127,8 @@ evodata SPECIES_VIVILLON_ELEGANT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_MEADOW
@@ -10953,6 +13139,8 @@ evodata SPECIES_VIVILLON_MEADOW
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_MODERN
@@ -10963,6 +13151,8 @@ evodata SPECIES_VIVILLON_MODERN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_MARINE
@@ -10973,6 +13163,8 @@ evodata SPECIES_VIVILLON_MARINE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_ARCHIPELAGO
@@ -10983,6 +13175,8 @@ evodata SPECIES_VIVILLON_ARCHIPELAGO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_HIGH_PLAINS
@@ -10993,6 +13187,8 @@ evodata SPECIES_VIVILLON_HIGH_PLAINS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_SANDSTORM
@@ -11003,6 +13199,8 @@ evodata SPECIES_VIVILLON_SANDSTORM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_RIVER
@@ -11013,6 +13211,8 @@ evodata SPECIES_VIVILLON_RIVER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_MONSOON
@@ -11023,6 +13223,8 @@ evodata SPECIES_VIVILLON_MONSOON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_SAVANNA
@@ -11033,6 +13235,8 @@ evodata SPECIES_VIVILLON_SAVANNA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_SUN
@@ -11043,6 +13247,8 @@ evodata SPECIES_VIVILLON_SUN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_OCEAN
@@ -11053,6 +13259,8 @@ evodata SPECIES_VIVILLON_OCEAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_JUNGLE
@@ -11063,6 +13271,8 @@ evodata SPECIES_VIVILLON_JUNGLE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_FANCY
@@ -11073,6 +13283,8 @@ evodata SPECIES_VIVILLON_FANCY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VIVILLON_POKE_BALL
@@ -11083,6 +13295,8 @@ evodata SPECIES_VIVILLON_POKE_BALL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLABEBE_YELLOW_FLOWER
@@ -11093,6 +13307,8 @@ evodata SPECIES_FLABEBE_YELLOW_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLABEBE_ORANGE_FLOWER
@@ -11103,6 +13319,8 @@ evodata SPECIES_FLABEBE_ORANGE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLABEBE_BLUE_FLOWER
@@ -11113,6 +13331,8 @@ evodata SPECIES_FLABEBE_BLUE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLABEBE_WHITE_FLOWER
@@ -11123,6 +13343,8 @@ evodata SPECIES_FLABEBE_WHITE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLOETTE_YELLOW_FLOWER
@@ -11133,6 +13355,8 @@ evodata SPECIES_FLOETTE_YELLOW_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLOETTE_ORANGE_FLOWER
@@ -11143,6 +13367,8 @@ evodata SPECIES_FLOETTE_ORANGE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLOETTE_BLUE_FLOWER
@@ -11153,6 +13379,8 @@ evodata SPECIES_FLOETTE_BLUE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLOETTE_WHITE_FLOWER
@@ -11163,6 +13391,8 @@ evodata SPECIES_FLOETTE_WHITE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLOETTE_ETERNAL_FLOWER
@@ -11173,6 +13403,8 @@ evodata SPECIES_FLOETTE_ETERNAL_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLORGES_YELLOW_FLOWER
@@ -11183,6 +13415,8 @@ evodata SPECIES_FLORGES_YELLOW_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLORGES_ORANGE_FLOWER
@@ -11193,6 +13427,8 @@ evodata SPECIES_FLORGES_ORANGE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLORGES_BLUE_FLOWER
@@ -11203,6 +13439,8 @@ evodata SPECIES_FLORGES_BLUE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FLORGES_WHITE_FLOWER
@@ -11213,6 +13451,8 @@ evodata SPECIES_FLORGES_WHITE_FLOWER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_HEART
@@ -11223,6 +13463,8 @@ evodata SPECIES_FURFROU_HEART
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_STAR
@@ -11233,6 +13475,8 @@ evodata SPECIES_FURFROU_STAR
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_DIAMOND
@@ -11243,6 +13487,8 @@ evodata SPECIES_FURFROU_DIAMOND
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_DEBUTANTE
@@ -11253,6 +13499,8 @@ evodata SPECIES_FURFROU_DEBUTANTE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_MATRON
@@ -11263,6 +13511,8 @@ evodata SPECIES_FURFROU_MATRON
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_DANDY
@@ -11273,6 +13523,8 @@ evodata SPECIES_FURFROU_DANDY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_LA_REINE
@@ -11283,6 +13535,8 @@ evodata SPECIES_FURFROU_LA_REINE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_KABUKI
@@ -11293,6 +13547,8 @@ evodata SPECIES_FURFROU_KABUKI
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_FURFROU_PHARAOH
@@ -11303,6 +13559,8 @@ evodata SPECIES_FURFROU_PHARAOH
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AEGISLASH_BLADE
@@ -11313,6 +13571,8 @@ evodata SPECIES_AEGISLASH_BLADE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PUMPKABOO_SMALL
@@ -11323,6 +13583,8 @@ evodata SPECIES_PUMPKABOO_SMALL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PUMPKABOO_LARGE
@@ -11333,6 +13595,8 @@ evodata SPECIES_PUMPKABOO_LARGE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_PUMPKABOO_SUPER
@@ -11343,6 +13607,8 @@ evodata SPECIES_PUMPKABOO_SUPER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOURGEIST_SMALL
@@ -11353,6 +13619,8 @@ evodata SPECIES_GOURGEIST_SMALL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOURGEIST_LARGE
@@ -11363,6 +13631,8 @@ evodata SPECIES_GOURGEIST_LARGE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOURGEIST_SUPER
@@ -11373,6 +13643,8 @@ evodata SPECIES_GOURGEIST_SUPER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_XERNEAS_ACTIVE
@@ -11383,6 +13655,8 @@ evodata SPECIES_XERNEAS_ACTIVE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZYGARDE_10
@@ -11393,6 +13667,8 @@ evodata SPECIES_ZYGARDE_10
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZYGARDE_10_POWER_CONSTRUCT
@@ -11403,6 +13679,8 @@ evodata SPECIES_ZYGARDE_10_POWER_CONSTRUCT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZYGARDE_50_POWER_CONSTRUCT
@@ -11413,6 +13691,8 @@ evodata SPECIES_ZYGARDE_50_POWER_CONSTRUCT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZYGARDE_10_COMPLETE
@@ -11423,6 +13703,8 @@ evodata SPECIES_ZYGARDE_10_COMPLETE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZYGARDE_50_COMPLETE
@@ -11433,6 +13715,8 @@ evodata SPECIES_ZYGARDE_50_COMPLETE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_HOOPA_UNBOUND
@@ -11443,6 +13727,8 @@ evodata SPECIES_HOOPA_UNBOUND
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ORICORIO_POM_POM
@@ -11453,6 +13739,8 @@ evodata SPECIES_ORICORIO_POM_POM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ORICORIO_PAU
@@ -11463,6 +13751,8 @@ evodata SPECIES_ORICORIO_PAU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ORICORIO_SENSU
@@ -11473,6 +13763,8 @@ evodata SPECIES_ORICORIO_SENSU
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ROCKRUFF_OWN_TEMPO
@@ -11483,6 +13775,8 @@ evodata SPECIES_ROCKRUFF_OWN_TEMPO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LYCANROC_MIDNIGHT
@@ -11493,6 +13787,8 @@ evodata SPECIES_LYCANROC_MIDNIGHT
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LYCANROC_DUSK
@@ -11503,6 +13799,8 @@ evodata SPECIES_LYCANROC_DUSK
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_WISHIWASHI_SCHOOL
@@ -11513,6 +13811,8 @@ evodata SPECIES_WISHIWASHI_SCHOOL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_METEOR_ORANGE
@@ -11523,6 +13823,8 @@ evodata SPECIES_MINIOR_METEOR_ORANGE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_METEOR_YELLOW
@@ -11533,6 +13835,8 @@ evodata SPECIES_MINIOR_METEOR_YELLOW
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_METEOR_GREEN
@@ -11543,6 +13847,8 @@ evodata SPECIES_MINIOR_METEOR_GREEN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_METEOR_BLUE
@@ -11553,6 +13859,8 @@ evodata SPECIES_MINIOR_METEOR_BLUE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_METEOR_INDIGO
@@ -11563,6 +13871,8 @@ evodata SPECIES_MINIOR_METEOR_INDIGO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_METEOR_VIOLET
@@ -11573,6 +13883,8 @@ evodata SPECIES_MINIOR_METEOR_VIOLET
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_RED
@@ -11583,6 +13895,8 @@ evodata SPECIES_MINIOR_CORE_RED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_ORANGE
@@ -11593,6 +13907,8 @@ evodata SPECIES_MINIOR_CORE_ORANGE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_YELLOW
@@ -11603,6 +13919,8 @@ evodata SPECIES_MINIOR_CORE_YELLOW
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_GREEN
@@ -11613,6 +13931,8 @@ evodata SPECIES_MINIOR_CORE_GREEN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_BLUE
@@ -11623,6 +13943,8 @@ evodata SPECIES_MINIOR_CORE_BLUE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_INDIGO
@@ -11633,6 +13955,8 @@ evodata SPECIES_MINIOR_CORE_INDIGO
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MINIOR_CORE_VIOLET
@@ -11643,6 +13967,8 @@ evodata SPECIES_MINIOR_CORE_VIOLET
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MIMIKYU_BUSTED
@@ -11653,6 +13979,8 @@ evodata SPECIES_MIMIKYU_BUSTED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NECROZMA_DUSK_MANE
@@ -11663,6 +13991,8 @@ evodata SPECIES_NECROZMA_DUSK_MANE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NECROZMA_DAWN_WINGS
@@ -11673,6 +14003,8 @@ evodata SPECIES_NECROZMA_DAWN_WINGS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NECROZMA_ULTRA_DUSK_MANE
@@ -11683,6 +14015,8 @@ evodata SPECIES_NECROZMA_ULTRA_DUSK_MANE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_NECROZMA_ULTRA_DAWN_WINGS
@@ -11693,6 +14027,8 @@ evodata SPECIES_NECROZMA_ULTRA_DAWN_WINGS
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MAGEARNA_ORIGINAL
@@ -11703,6 +14039,8 @@ evodata SPECIES_MAGEARNA_ORIGINAL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CRAMORANT_GULPING
@@ -11713,6 +14051,8 @@ evodata SPECIES_CRAMORANT_GULPING
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CRAMORANT_GORGING
@@ -11723,6 +14063,8 @@ evodata SPECIES_CRAMORANT_GORGING
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TOXTRICITY_LOW_KEY
@@ -11733,6 +14075,8 @@ evodata SPECIES_TOXTRICITY_LOW_KEY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SINISTEA_ANTIQUE
@@ -11743,6 +14087,8 @@ evodata SPECIES_SINISTEA_ANTIQUE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_POLTEAGEIST_ANTIQUE
@@ -11753,6 +14099,8 @@ evodata SPECIES_POLTEAGEIST_ANTIQUE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_RUBY_CREAM
@@ -11763,6 +14111,8 @@ evodata SPECIES_ALCREMIE_RUBY_CREAM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_MATCHA_CREAM
@@ -11773,6 +14123,8 @@ evodata SPECIES_ALCREMIE_MATCHA_CREAM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_MINT_CREAM
@@ -11783,6 +14135,8 @@ evodata SPECIES_ALCREMIE_MINT_CREAM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_LEMON_CREAM
@@ -11793,6 +14147,8 @@ evodata SPECIES_ALCREMIE_LEMON_CREAM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_SALTED_CREAM
@@ -11803,6 +14159,8 @@ evodata SPECIES_ALCREMIE_SALTED_CREAM
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_RUBY_SWIRL
@@ -11813,6 +14171,8 @@ evodata SPECIES_ALCREMIE_RUBY_SWIRL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_CARAMEL_SWIRL
@@ -11823,6 +14183,8 @@ evodata SPECIES_ALCREMIE_CARAMEL_SWIRL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ALCREMIE_RAINBOW_SWIRL
@@ -11833,6 +14195,8 @@ evodata SPECIES_ALCREMIE_RAINBOW_SWIRL
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_EISCUE_NOICE_FACE
@@ -11843,6 +14207,8 @@ evodata SPECIES_EISCUE_NOICE_FACE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_MORPEKO_HANGRY
@@ -11853,6 +14219,8 @@ evodata SPECIES_MORPEKO_HANGRY
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZACIAN_CROWNED
@@ -11863,6 +14231,8 @@ evodata SPECIES_ZACIAN_CROWNED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZAMAZENTA_CROWNED
@@ -11873,6 +14243,8 @@ evodata SPECIES_ZAMAZENTA_CROWNED
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ETERNATUS_ETERNAMAX
@@ -11883,6 +14255,8 @@ evodata SPECIES_ETERNATUS_ETERNAMAX
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_URSHIFU_RAPID_STRIKE
@@ -11893,6 +14267,8 @@ evodata SPECIES_URSHIFU_RAPID_STRIKE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZARUDE_DADA
@@ -11903,6 +14279,8 @@ evodata SPECIES_ZARUDE_DADA
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CALYREX_ICE_RIDER
@@ -11913,6 +14291,8 @@ evodata SPECIES_CALYREX_ICE_RIDER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_CALYREX_SHADOW_RIDER
@@ -11923,6 +14303,8 @@ evodata SPECIES_CALYREX_SHADOW_RIDER
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ENAMORUS_THERIAN
@@ -11933,6 +14315,8 @@ evodata SPECIES_ENAMORUS_THERIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GROWLITHE_HISUIAN
@@ -11943,6 +14327,8 @@ evodata SPECIES_GROWLITHE_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ARCANINE_HISUIAN
@@ -11953,6 +14339,8 @@ evodata SPECIES_ARCANINE_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_VOLTORB_HISUIAN
@@ -11963,6 +14351,8 @@ evodata SPECIES_VOLTORB_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ELECTRODE_HISUIAN
@@ -11973,6 +14363,8 @@ evodata SPECIES_ELECTRODE_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_TYPHLOSION_HISUIAN
@@ -11983,6 +14375,8 @@ evodata SPECIES_TYPHLOSION_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_QWILFISH_HISUIAN
@@ -11993,6 +14387,8 @@ evodata SPECIES_QWILFISH_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SNEASEL_HISUIAN
@@ -12003,6 +14399,8 @@ evodata SPECIES_SNEASEL_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_SAMUROTT_HISUIAN
@@ -12013,6 +14411,8 @@ evodata SPECIES_SAMUROTT_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_LILLIGANT_HISUIAN
@@ -12023,6 +14423,8 @@ evodata SPECIES_LILLIGANT_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZORUA_HISUIAN
@@ -12033,6 +14435,8 @@ evodata SPECIES_ZORUA_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_ZOROARK_HISUIAN
@@ -12043,6 +14447,8 @@ evodata SPECIES_ZOROARK_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_BRAVIARY_HISUIAN
@@ -12053,6 +14459,8 @@ evodata SPECIES_BRAVIARY_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_GOODRA_HISUIAN
@@ -12063,6 +14471,8 @@ evodata SPECIES_GOODRA_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_AVALUGG_HISUIAN
@@ -12073,6 +14483,8 @@ evodata SPECIES_AVALUGG_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
 evodata SPECIES_DECIDUEYE_HISUIAN
@@ -12083,4 +14495,6 @@ evodata SPECIES_DECIDUEYE_HISUIAN
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata

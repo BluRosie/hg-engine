@@ -1,4 +1,5 @@
 #include "../include/battle.h"
+#include "../include/config.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
 #include "../include/constants/ability.h"
@@ -879,10 +880,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 //        }
 //    }
 
-#ifdef DEBUG
-    *((u32 *)(0x23D8000 + 0xC*(attacker&1))) = (pow == 0) ? sp->moveTbl[moveno].power : pow;
-    *((u32 *)(0x23D8004 + 0xC*(attacker&1))) = movepower;
-    *((u32 *)(0x23D8008 + 0xC*(attacker&1))) = damage + 2;
+#ifdef DEBUG_ADJUSTED_DAMAGE
+    *((u32 *)(0x23DF000 + 0xC*(attacker&1))) = (pow == 0) ? sp->moveTbl[moveno].power : pow;
+    *((u32 *)(0x23DF004 + 0xC*(attacker&1))) = movepower;
+    *((u32 *)(0x23DF008 + 0xC*(attacker&1))) = damage + 2;
 #endif
     
     return damage + 2;

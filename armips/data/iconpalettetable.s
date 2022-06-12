@@ -972,11 +972,11 @@ gIconPalTable:
 /* SPECIES_CALYREX         */ .byte  0x1
 /* SPECIES_WYRDEER         */ .byte  0x0
 /* SPECIES_KLEAVOR         */ .byte  0x0
-/* SPECIES_URSALUNA        */ .byte  0x0
-/* SPECIES_BASCULEGION     */ .byte  0x0
-/* SPECIES_SNEASLER        */ .byte  0x0
-/* SPECIES_OVERQWIL        */ .byte  0x0
-/* SPECIES_ENAMORUS        */ .byte  0x0
+/* SPECIES_URSALUNA        */ .byte  0x2
+/* SPECIES_BASCULEGION     */ .byte  0x1
+/* SPECIES_SNEASLER        */ .byte  0x2
+/* SPECIES_OVERQWIL        */ .byte  0x2
+/* SPECIES_ENAMORUS        */ .byte  0x2
 
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
@@ -1214,21 +1214,21 @@ gIconPalTable:
 /* SPECIES_CALYREX_ICE_RIDER           */ .byte  0x1
 /* SPECIES_CALYREX_SHADOW_RIDER        */ .byte  0x1
 /* SPECIES_ENAMORUS_THERIAN            */ .byte  0x1
-/* SPECIES_GROWLITHE_HISUIAN           */ .byte  0x1
-/* SPECIES_ARCANINE_HISUIAN            */ .byte  0x1
-/* SPECIES_VOLTORB_HISUIAN             */ .byte  0x1
-/* SPECIES_ELECTRODE_HISUIAN           */ .byte  0x1
+/* SPECIES_GROWLITHE_HISUIAN           */ .byte  0x2
+/* SPECIES_ARCANINE_HISUIAN            */ .byte  0x2
+/* SPECIES_VOLTORB_HISUIAN             */ .byte  0x2
+/* SPECIES_ELECTRODE_HISUIAN           */ .byte  0x2
 /* SPECIES_TYPHLOSION_HISUIAN          */ .byte  0x1
 /* SPECIES_QWILFISH_HISUIAN            */ .byte  0x1
 /* SPECIES_SNEASEL_HISUIAN             */ .byte  0x1
-/* SPECIES_SAMUROTT_HISUIAN            */ .byte  0x1
+/* SPECIES_SAMUROTT_HISUIAN            */ .byte  0x0
 /* SPECIES_LILLIGANT_HISUIAN           */ .byte  0x1
-/* SPECIES_ZORUA_HISUIAN               */ .byte  0x1
-/* SPECIES_ZOROARK_HISUIAN             */ .byte  0x1
-/* SPECIES_BRAVIARY_HISUIAN            */ .byte  0x1
+/* SPECIES_ZORUA_HISUIAN               */ .byte  0x0
+/* SPECIES_ZOROARK_HISUIAN             */ .byte  0x0
+/* SPECIES_BRAVIARY_HISUIAN            */ .byte  0x2
 /* SPECIES_GOODRA_HISUIAN              */ .byte  0x1
 /* SPECIES_AVALUGG_HISUIAN             */ .byte  0x1
-/* SPECIES_DECIDUEYE_HISUIAN           */ .byte  0x1
+/* SPECIES_DECIDUEYE_HISUIAN           */ .byte  0x0
 
 
 .endarea
