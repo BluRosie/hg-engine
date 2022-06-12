@@ -645,7 +645,7 @@ mondata SPECIES_NIDOKING
 
 mondata SPECIES_CLEFAIRY
     basestats 70, 45, 48, 35, 60, 65
-    types TYPE_NORMAL, TYPE_NORMAL
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 150
     baseexp 68
     evyields 2, 0, 0, 0, 0, 0
@@ -663,7 +663,7 @@ mondata SPECIES_CLEFAIRY
 
 mondata SPECIES_CLEFABLE
     basestats 95, 70, 73, 60, 85, 90
-    types TYPE_NORMAL, TYPE_NORMAL
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 25
     baseexp 129
     evyields 3, 0, 0, 0, 0, 0
@@ -717,7 +717,7 @@ mondata SPECIES_NINETALES
 
 mondata SPECIES_JIGGLYPUFF
     basestats 115, 45, 20, 20, 45, 25
-    types TYPE_NORMAL, TYPE_NORMAL
+    types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 170
     baseexp 76
     evyields 2, 0, 0, 0, 0, 0
@@ -735,7 +735,7 @@ mondata SPECIES_JIGGLYPUFF
 
 mondata SPECIES_WIGGLYTUFF
     basestats 140, 70, 45, 45, 75, 50
-    types TYPE_NORMAL, TYPE_NORMAL
+    types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 50
     baseexp 109
     evyields 3, 0, 0, 0, 0, 0
@@ -2213,7 +2213,7 @@ mondata SPECIES_STARMIE
 
 mondata SPECIES_MR_MIME
     basestats 40, 45, 65, 90, 100, 120
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 45
     baseexp 136
     evyields 0, 0, 0, 0, 0, 2
@@ -3131,7 +3131,7 @@ mondata SPECIES_PICHU
 
 mondata SPECIES_CLEFFA
     basestats 50, 25, 28, 15, 45, 55
-    types TYPE_NORMAL, TYPE_NORMAL
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 150
     baseexp 37
     evyields 0, 0, 0, 0, 0, 1
@@ -3149,7 +3149,7 @@ mondata SPECIES_CLEFFA
 
 mondata SPECIES_IGGLYBUFF
     basestats 90, 30, 15, 15, 40, 20
-    types TYPE_NORMAL, TYPE_NORMAL
+    types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 170
     baseexp 39
     evyields 1, 0, 0, 0, 0, 0
@@ -3167,7 +3167,7 @@ mondata SPECIES_IGGLYBUFF
 
 mondata SPECIES_TOGEPI
     basestats 35, 20, 65, 20, 40, 65
-    types TYPE_NORMAL, TYPE_NORMAL
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 190
     baseexp 74
     evyields 0, 0, 0, 0, 0, 1
@@ -3185,7 +3185,7 @@ mondata SPECIES_TOGEPI
 
 mondata SPECIES_TOGETIC
     basestats 55, 40, 85, 40, 80, 105
-    types TYPE_NORMAL, TYPE_FLYING
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 75
     baseexp 114
     evyields 0, 0, 0, 0, 0, 2
@@ -3311,7 +3311,7 @@ mondata SPECIES_BELLOSSOM
 
 mondata SPECIES_MARILL
     basestats 70, 20, 50, 40, 20, 50
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 190
     baseexp 58
     evyields 2, 0, 0, 0, 0, 0
@@ -3329,7 +3329,7 @@ mondata SPECIES_MARILL
 
 mondata SPECIES_AZUMARILL
     basestats 100, 50, 80, 50, 50, 80
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 75
     baseexp 153
     evyields 3, 0, 0, 0, 0, 0
@@ -3779,7 +3779,7 @@ mondata SPECIES_STEELIX
 
 mondata SPECIES_SNUBBULL
     basestats 60, 80, 50, 30, 40, 40
-    types TYPE_NORMAL, TYPE_NORMAL
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 190
     baseexp 63
     evyields 0, 1, 0, 0, 0, 0
@@ -3797,7 +3797,7 @@ mondata SPECIES_SNUBBULL
 
 mondata SPECIES_GRANBULL
     basestats 90, 120, 75, 45, 60, 60
-    types TYPE_NORMAL, TYPE_NORMAL
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 75
     baseexp 178
     evyields 0, 2, 0, 0, 0, 0
@@ -5057,7 +5057,7 @@ mondata SPECIES_PELIPPER
 
 mondata SPECIES_RALTS
     basestats 28, 25, 25, 40, 45, 35
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 235
     baseexp 70
     evyields 0, 0, 0, 0, 1, 0
@@ -5075,7 +5075,7 @@ mondata SPECIES_RALTS
 
 mondata SPECIES_KIRLIA
     basestats 38, 35, 35, 50, 65, 55
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 120
     baseexp 140
     evyields 0, 0, 0, 0, 2, 0
@@ -5093,7 +5093,7 @@ mondata SPECIES_KIRLIA
 
 mondata SPECIES_GARDEVOIR
     basestats 68, 65, 65, 80, 125, 115
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 45
     baseexp 208
     evyields 0, 0, 0, 0, 3, 0
@@ -5381,7 +5381,7 @@ mondata SPECIES_HARIYAMA
 
 mondata SPECIES_AZURILL
     basestats 50, 20, 40, 20, 20, 40
-    types TYPE_NORMAL, TYPE_NORMAL
+    types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 150
     baseexp 33
     evyields 1, 0, 0, 0, 0, 0
@@ -5471,7 +5471,7 @@ mondata SPECIES_SABLEYE
 
 mondata SPECIES_MAWILE
     basestats 50, 85, 85, 50, 55, 55
-    types TYPE_STEEL, TYPE_STEEL
+    types TYPE_STEEL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_STEEL
     catchrate 45
     baseexp 98
     evyields 0, 1, 1, 0, 0, 0
@@ -7919,7 +7919,7 @@ mondata SPECIES_BONSLY
 
 mondata SPECIES_MIMEJR
     basestats 20, 25, 45, 60, 70, 90
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 145
     baseexp 78
     evyields 0, 0, 0, 0, 0, 1
@@ -8441,7 +8441,7 @@ mondata SPECIES_MAGMORTAR
 
 mondata SPECIES_TOGEKISS
     basestats 85, 50, 95, 80, 120, 115
-    types TYPE_NORMAL, TYPE_FLYING
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 30
     baseexp 220
     evyields 0, 0, 0, 0, 2, 1
@@ -10746,7 +10746,7 @@ mondata SPECIES_SCOLIPEDE
 
 mondata SPECIES_COTTONEE
     basestats 40, 27, 60, 66, 37, 50
-    types TYPE_GRASS, TYPE_GRASS
+    types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 190
     baseexp 36
     evyields 0, 0, 0, 1, 0, 0
@@ -10764,7 +10764,7 @@ mondata SPECIES_COTTONEE
 
 mondata SPECIES_WHIMSICOTT
     basestats 60, 67, 85, 116, 77, 75
-    types TYPE_GRASS, TYPE_GRASS
+    types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 75
     baseexp 109
     evyields 0, 0, 0, 2, 0, 0

@@ -7,13 +7,13 @@ Bubble791 - strong basis for where this came from
 
 Contributors to MrDollSteak's DS-Style 64x64 Pokemon Sprite Resource - Mega Sprite placeholders
 
-Gnomowladny, Krune, Prodigal96, zerudez, leparagon, diegotoon20, gardow, greyenna, conyjams, kingofthe-x-roads on DeviantArt, and MaMe, maple - Mega Sprites
+LennyBitao, Gnomowladny, Krune, n-kin, joshr691, onigin_pixelart, Jefelin, MultiDiegoDani, Prodigal96, zerudez, leparagon, diegotoon20, gardow, greyenna, conyjams, kingofthe-x-roads on DeviantArt, and MaMe, maple - Pokémon Sprites
 
 goodri63 - GenIVSpriteReplacer (which is gengfxdata, png2ncgr, gengfxicons, ncgr2png, and gengfxnarc)
 
 Gota7 - Nitro Studio
 
-HamsterSkull, nintendoplz, Kyle-Dove, 2and2makes5, PokeGirl4Ever, Fernandojl, Silver-Skie, TyranitarDark, Getsuei-H, Milomilotic11, Kyt66, kdiamo11, ChocoSrawloid, StyleDude, Gallanty, Gizamimi-Pichu, Kid1513 on deviantart - overworlds
+HamsterSkull, wolfang62, nintendoplz, Kyle-Dove, 2and2makes5, PokeGirl4Ever, Fernandojl, Silver-Skie, TyranitarDark, Getsuei-H, Milomilotic11, Kyt66, kdiamo11, ChocoSrawloid, StyleDude, Gallanty, Gizamimi-Pichu, Kid1513 on deviantart - Overworlds
 
 KazoWAR - BTX-Editor (which is png2btx0 and btx02png)
 
