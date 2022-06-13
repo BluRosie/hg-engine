@@ -230,7 +230,7 @@ mondata SPECIES_METAPOD
 
 
 mondata SPECIES_BUTTERFREE
-    basestats 60, 45, 50, 70, 80, 80
+    basestats 60, 45, 50, 70, 90, 80
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 160
@@ -284,7 +284,7 @@ mondata SPECIES_KAKUNA
 
 
 mondata SPECIES_BEEDRILL
-    basestats 65, 80, 40, 75, 45, 80
+    basestats 65, 90, 40, 75, 45, 80
     types TYPE_BUG, TYPE_POISON
     catchrate 45
     baseexp 159
@@ -338,7 +338,7 @@ mondata SPECIES_PIDGEOTTO
 
 
 mondata SPECIES_PIDGEOT
-    basestats 83, 80, 75, 91, 70, 70
+    basestats 83, 80, 75, 101, 70, 70
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 172
@@ -446,7 +446,7 @@ mondata SPECIES_EKANS
 
 
 mondata SPECIES_ARBOK
-    basestats 60, 85, 69, 80, 65, 79
+    basestats 60, 95, 69, 80, 65, 79
     types TYPE_POISON, TYPE_POISON
     catchrate 90
     baseexp 147
@@ -464,7 +464,7 @@ mondata SPECIES_ARBOK
 
 
 mondata SPECIES_PIKACHU
-    basestats 35, 55, 30, 90, 50, 40
+    basestats 35, 55, 40, 90, 50, 50
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 82
@@ -482,7 +482,7 @@ mondata SPECIES_PIKACHU
 
 
 mondata SPECIES_RAICHU
-    basestats 60, 90, 55, 100, 90, 80
+    basestats 60, 90, 55, 110, 90, 80
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 75
     baseexp 122
@@ -572,7 +572,7 @@ mondata SPECIES_NIDORINA
 
 
 mondata SPECIES_NIDOQUEEN
-    basestats 90, 82, 87, 76, 75, 85
+    basestats 90, 92, 87, 76, 75, 85
     types TYPE_POISON, TYPE_GROUND
     catchrate 45
     baseexp 194
@@ -626,7 +626,7 @@ mondata SPECIES_NIDORINO
 
 
 mondata SPECIES_NIDOKING
-    basestats 81, 92, 77, 85, 85, 75
+    basestats 81, 102, 77, 85, 85, 75
     types TYPE_POISON, TYPE_GROUND
     catchrate 45
     baseexp 195
@@ -662,7 +662,7 @@ mondata SPECIES_CLEFAIRY
 
 
 mondata SPECIES_CLEFABLE
-    basestats 95, 70, 73, 60, 85, 90
+    basestats 95, 70, 73, 60, 95, 90
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 25
     baseexp 129
@@ -734,7 +734,7 @@ mondata SPECIES_JIGGLYPUFF
 
 
 mondata SPECIES_WIGGLYTUFF
-    basestats 140, 70, 45, 45, 75, 50
+    basestats 140, 70, 45, 45, 85, 50
     types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 50
     baseexp 109
@@ -824,7 +824,7 @@ mondata SPECIES_GLOOM
 
 
 mondata SPECIES_VILEPLUME
-    basestats 75, 80, 85, 50, 100, 90
+    basestats 75, 80, 85, 50, 110, 90
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 184
@@ -934,7 +934,7 @@ mondata SPECIES_DIGLETT
 
 
 mondata SPECIES_DUGTRIO
-    basestats 35, 80, 50, 120, 50, 70
+    basestats 35, 100, 50, 120, 50, 70
     types TYPE_GROUND, TYPE_GROUND
     catchrate 50
     baseexp 153
@@ -1132,7 +1132,7 @@ mondata SPECIES_POLIWHIRL
 
 
 mondata SPECIES_POLIWRATH
-    basestats 90, 85, 95, 70, 70, 90
+    basestats 90, 95, 95, 70, 70, 90
     types TYPE_WATER, TYPE_FIGHTING
     catchrate 45
     baseexp 185
@@ -1186,7 +1186,7 @@ mondata SPECIES_KADABRA
 
 
 mondata SPECIES_ALAKAZAM
-    basestats 55, 50, 45, 120, 135, 85
+    basestats 55, 50, 45, 120, 135, 95
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 50
     baseexp 186
@@ -1294,7 +1294,7 @@ mondata SPECIES_WEEPINBELL
 
 
 mondata SPECIES_VICTREEBEL
-    basestats 80, 105, 65, 70, 100, 60
+    basestats 80, 105, 65, 70, 100, 70
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 191
@@ -1384,7 +1384,7 @@ mondata SPECIES_GRAVELER
 
 
 mondata SPECIES_GOLEM
-    basestats 80, 110, 130, 45, 55, 65
+    basestats 80, 120, 130, 45, 55, 65
     types TYPE_ROCK, TYPE_GROUND
     catchrate 45
     baseexp 177
@@ -1510,7 +1510,7 @@ mondata SPECIES_MAGNETON
 
 
 mondata SPECIES_FARFETCHD
-    basestats 52, 65, 55, 60, 58, 62
+    basestats 52, 90, 55, 60, 58, 62
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 94
@@ -1546,7 +1546,7 @@ mondata SPECIES_DODUO
 
 
 mondata SPECIES_DODRIO
-    basestats 60, 110, 70, 100, 60, 60
+    basestats 60, 110, 70, 110, 60, 60
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 158
@@ -1834,7 +1834,7 @@ mondata SPECIES_VOLTORB
 
 
 mondata SPECIES_ELECTRODE
-    basestats 60, 50, 70, 140, 80, 80
+    basestats 60, 50, 70, 150, 80, 80
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 60
     baseexp 150
@@ -1870,7 +1870,7 @@ mondata SPECIES_EXEGGCUTE
 
 
 mondata SPECIES_EXEGGUTOR
-    basestats 95, 95, 85, 55, 125, 65
+    basestats 95, 95, 85, 55, 125, 75
     types TYPE_GRASS, TYPE_PSYCHIC
     catchrate 45
     baseexp 212
@@ -2968,7 +2968,7 @@ mondata SPECIES_HOOTHOOT
 
 
 mondata SPECIES_NOCTOWL
-    basestats 100, 50, 50, 70, 76, 96
+    basestats 100, 50, 50, 70, 86, 96
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 90
     baseexp 162
@@ -3040,7 +3040,7 @@ mondata SPECIES_SPINARAK
 
 
 mondata SPECIES_ARIADOS
-    basestats 70, 90, 70, 40, 60, 60
+    basestats 70, 90, 70, 40, 60, 70
     types TYPE_BUG, TYPE_POISON
     catchrate 90
     baseexp 134
@@ -3274,7 +3274,7 @@ mondata SPECIES_FLAAFFY
 
 
 mondata SPECIES_AMPHAROS
-    basestats 90, 75, 75, 55, 115, 90
+    basestats 90, 75, 85, 55, 115, 90
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 194
@@ -3292,7 +3292,7 @@ mondata SPECIES_AMPHAROS
 
 
 mondata SPECIES_BELLOSSOM
-    basestats 75, 80, 85, 50, 90, 100
+    basestats 75, 80, 95, 50, 90, 100
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 184
@@ -3328,7 +3328,7 @@ mondata SPECIES_MARILL
 
 
 mondata SPECIES_AZUMARILL
-    basestats 100, 50, 80, 50, 50, 80
+    basestats 100, 50, 80, 50, 60, 80
     types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 75
     baseexp 153
@@ -3418,7 +3418,7 @@ mondata SPECIES_SKIPLOOM
 
 
 mondata SPECIES_JUMPLUFF
-    basestats 75, 55, 70, 110, 55, 85
+    basestats 75, 55, 70, 110, 55, 95
     types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 176
@@ -3814,7 +3814,7 @@ mondata SPECIES_GRANBULL
 
 
 mondata SPECIES_QWILFISH
-    basestats 65, 95, 75, 85, 55, 55
+    basestats 65, 95, 85, 85, 55, 55
     types TYPE_WATER, TYPE_POISON
     catchrate 45
     baseexp 100
@@ -3958,7 +3958,7 @@ mondata SPECIES_SLUGMA
 
 
 mondata SPECIES_MAGCARGO
-    basestats 50, 50, 120, 30, 80, 80
+    basestats 60, 50, 120, 30, 90, 80
     types TYPE_FIRE, TYPE_ROCK
     catchrate 75
     baseexp 154
@@ -4012,7 +4012,7 @@ mondata SPECIES_PILOSWINE
 
 
 mondata SPECIES_CORSOLA
-    basestats 55, 55, 85, 35, 65, 85
+    basestats 65, 55, 95, 35, 65, 95
     types TYPE_WATER, TYPE_ROCK
     catchrate 60
     baseexp 113
@@ -4084,7 +4084,7 @@ mondata SPECIES_DELIBIRD
 
 
 mondata SPECIES_MANTINE
-    basestats 65, 40, 70, 70, 80, 140
+    basestats 85, 40, 70, 70, 80, 140
     types TYPE_WATER, TYPE_FLYING
     catchrate 25
     baseexp 168
@@ -4822,7 +4822,7 @@ mondata SPECIES_SILCOON
 
 
 mondata SPECIES_BEAUTIFLY
-    basestats 60, 70, 50, 65, 90, 50
+    basestats 60, 70, 50, 65, 100, 50
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 161
@@ -5002,7 +5002,7 @@ mondata SPECIES_TAILLOW
 
 
 mondata SPECIES_SWELLOW
-    basestats 60, 85, 60, 125, 50, 50
+    basestats 60, 85, 60, 125, 75, 50
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 162
@@ -5038,7 +5038,7 @@ mondata SPECIES_WINGULL
 
 
 mondata SPECIES_PELIPPER
-    basestats 60, 50, 100, 65, 85, 70
+    basestats 60, 50, 100, 65, 95, 70
     types TYPE_WATER, TYPE_FLYING
     catchrate 45
     baseexp 164
@@ -5128,7 +5128,7 @@ mondata SPECIES_SURSKIT
 
 
 mondata SPECIES_MASQUERAIN
-    basestats 70, 60, 62, 60, 80, 82
+    basestats 70, 60, 62, 80, 100, 82
     types TYPE_BUG, TYPE_FLYING
     catchrate 75
     baseexp 128
@@ -5326,7 +5326,7 @@ mondata SPECIES_LOUDRED
 
 
 mondata SPECIES_EXPLOUD
-    basestats 104, 91, 63, 68, 91, 63
+    basestats 104, 91, 63, 68, 91, 73
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 184
@@ -5434,7 +5434,7 @@ mondata SPECIES_SKITTY
 
 
 mondata SPECIES_DELCATTY
-    basestats 70, 65, 65, 70, 55, 55
+    basestats 70, 65, 65, 90, 55, 55
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 60
     baseexp 138
@@ -5650,7 +5650,7 @@ mondata SPECIES_MINUN
 
 
 mondata SPECIES_VOLBEAT
-    basestats 65, 73, 55, 85, 47, 75
+    basestats 65, 73, 75, 85, 47, 85
     types TYPE_BUG, TYPE_BUG
     catchrate 150
     baseexp 146
@@ -5668,7 +5668,7 @@ mondata SPECIES_VOLBEAT
 
 
 mondata SPECIES_ILLUMISE
-    basestats 65, 47, 55, 85, 73, 75
+    basestats 65, 47, 75, 85, 73, 85
     types TYPE_BUG, TYPE_BUG
     catchrate 150
     baseexp 146
@@ -6082,7 +6082,7 @@ mondata SPECIES_SEVIPER
 
 
 mondata SPECIES_LUNATONE
-    basestats 70, 55, 65, 70, 95, 85
+    basestats 90, 55, 65, 70, 95, 85
     types TYPE_ROCK, TYPE_PSYCHIC
     catchrate 45
     baseexp 150
@@ -6100,7 +6100,7 @@ mondata SPECIES_LUNATONE
 
 
 mondata SPECIES_SOLROCK
-    basestats 70, 95, 85, 70, 55, 65
+    basestats 90, 95, 85, 70, 55, 65
     types TYPE_ROCK, TYPE_PSYCHIC
     catchrate 45
     baseexp 150
@@ -6460,7 +6460,7 @@ mondata SPECIES_TROPIUS
 
 
 mondata SPECIES_CHIMECHO
-    basestats 65, 50, 70, 65, 95, 80
+    basestats 75, 50, 80, 65, 95, 90
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 147
@@ -7180,7 +7180,7 @@ mondata SPECIES_STARAVIA
 
 
 mondata SPECIES_STARAPTOR
-    basestats 85, 120, 70, 100, 50, 50
+    basestats 85, 120, 70, 100, 50, 60
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 172
@@ -7342,7 +7342,7 @@ mondata SPECIES_BUDEW
 
 
 mondata SPECIES_ROSERADE
-    basestats 60, 70, 55, 90, 125, 105
+    basestats 60, 70, 65, 90, 125, 105
     types TYPE_GRASS, TYPE_POISON
     catchrate 75
     baseexp 204
@@ -10061,7 +10061,7 @@ mondata SPECIES_HERDIER
 
 
 mondata SPECIES_STOUTLAND
-    basestats 85, 100, 90, 80, 45, 90
+    basestats 85, 110, 90, 80, 45, 90
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 144
@@ -10295,7 +10295,7 @@ mondata SPECIES_TRANQUILL
 
 
 mondata SPECIES_UNFEZANT
-    basestats 80, 105, 80, 93, 65, 55
+    basestats 80, 115, 80, 93, 65, 55
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 140
@@ -10385,7 +10385,7 @@ mondata SPECIES_BOLDORE
 
 
 mondata SPECIES_GIGALITH
-    basestats 85, 135, 130, 25, 60, 70
+    basestats 85, 135, 130, 25, 60, 80
     types TYPE_ROCK, TYPE_ROCK
     catchrate 45
     baseexp 148
@@ -10403,7 +10403,7 @@ mondata SPECIES_GIGALITH
 
 
 mondata SPECIES_WOOBAT
-    basestats 55, 45, 43, 72, 55, 43
+    basestats 65, 45, 43, 72, 55, 43
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 190
     baseexp 41
@@ -10583,7 +10583,7 @@ mondata SPECIES_PALPITOAD
 
 
 mondata SPECIES_SEISMITOAD
-    basestats 105, 85, 75, 74, 85, 75
+    basestats 105, 95, 75, 74, 85, 75
     types TYPE_WATER, TYPE_GROUND
     catchrate 45
     baseexp 147
@@ -10673,7 +10673,7 @@ mondata SPECIES_SWADLOON
 
 
 mondata SPECIES_LEAVANNY
-    basestats 75, 103, 80, 92, 70, 70
+    basestats 75, 103, 80, 92, 70, 80
     types TYPE_BUG, TYPE_GRASS
     catchrate 45
     baseexp 144
@@ -10727,7 +10727,7 @@ mondata SPECIES_WHIRLIPEDE
 
 
 mondata SPECIES_SCOLIPEDE
-    basestats 60, 90, 89, 112, 55, 69
+    basestats 60, 100, 89, 112, 55, 69
     types TYPE_BUG, TYPE_POISON
     catchrate 45
     baseexp 139
@@ -10871,7 +10871,7 @@ mondata SPECIES_KROKOROK
 
 
 mondata SPECIES_KROOKODILE
-    basestats 95, 117, 70, 92, 65, 70
+    basestats 95, 117, 80, 92, 65, 70
     types TYPE_GROUND, TYPE_DARK
     catchrate 45
     baseexp 149
@@ -10961,7 +10961,7 @@ mondata SPECIES_DWEBBLE
 
 
 mondata SPECIES_CRUSTLE
-    basestats 70, 95, 125, 45, 65, 75
+    basestats 70, 105, 125, 45, 65, 75
     types TYPE_BUG, TYPE_ROCK
     catchrate 75
     baseexp 108
@@ -11971,7 +11971,7 @@ mondata SPECIES_CUBCHOO
 
 
 mondata SPECIES_BEARTIC
-    basestats 95, 110, 80, 50, 70, 80
+    basestats 95, 130, 80, 50, 70, 80
     types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 111
@@ -11989,7 +11989,7 @@ mondata SPECIES_BEARTIC
 
 
 mondata SPECIES_CRYOGONAL
-    basestats 70, 50, 30, 105, 95, 135
+    basestats 80, 50, 50, 105, 95, 135
     types TYPE_ICE, TYPE_ICE
     catchrate 25
     baseexp 111
@@ -13177,7 +13177,7 @@ mondata SPECIES_DOUBLADE
 
 
 mondata SPECIES_AEGISLASH
-    basestats 60, 50, 150, 60, 50, 150
+    basestats 60, 50, 140, 60, 50, 140
     types TYPE_STEEL, TYPE_GHOST
     catchrate 45
     baseexp 234
@@ -19066,7 +19066,7 @@ mondata SPECIES_CASTFORM_SNOWY
 
 
 mondata SPECIES_CHERRIM_SUNSHINE
-    basestats 70, 60, 70, 85, 87, 78
+    basestats 70, 90, 70, 85, 87, 117
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 158
