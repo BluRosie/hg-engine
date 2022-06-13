@@ -9071,7 +9071,7 @@ mondata SPECIES_SHAYMIN_SKY
 
 mondata SPECIES_ROTOM_HEAT
     basestats 50, 65, 107, 86, 105, 107
-    types TYPE_ELECTRIC, TYPE_GHOST
+    types TYPE_ELECTRIC, TYPE_FIRE
     catchrate 45
     baseexp 132
     evyields 0, 0, 0, 1, 1, 0
@@ -9089,7 +9089,7 @@ mondata SPECIES_ROTOM_HEAT
 
 mondata SPECIES_ROTOM_WASH
     basestats 50, 65, 107, 86, 105, 107
-    types TYPE_ELECTRIC, TYPE_GHOST
+    types TYPE_ELECTRIC, TYPE_WATER
     catchrate 45
     baseexp 132
     evyields 0, 0, 0, 1, 1, 0
@@ -9107,7 +9107,7 @@ mondata SPECIES_ROTOM_WASH
 
 mondata SPECIES_ROTOM_FROST
     basestats 50, 65, 107, 86, 105, 107
-    types TYPE_ELECTRIC, TYPE_GHOST
+    types TYPE_ELECTRIC, TYPE_ICE
     catchrate 45
     baseexp 132
     evyields 0, 0, 0, 1, 1, 0
@@ -9125,7 +9125,7 @@ mondata SPECIES_ROTOM_FROST
 
 mondata SPECIES_ROTOM_FAN
     basestats 50, 65, 107, 86, 105, 107
-    types TYPE_ELECTRIC, TYPE_GHOST
+    types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 45
     baseexp 132
     evyields 0, 0, 0, 1, 1, 0
@@ -9143,7 +9143,7 @@ mondata SPECIES_ROTOM_FAN
 
 mondata SPECIES_ROTOM_MOW
     basestats 50, 65, 107, 86, 105, 107
-    types TYPE_ELECTRIC, TYPE_GHOST
+    types TYPE_ELECTRIC, TYPE_GRASS
     catchrate 45
     baseexp 132
     evyields 0, 0, 0, 1, 1, 0
