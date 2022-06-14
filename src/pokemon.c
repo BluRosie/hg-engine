@@ -730,6 +730,267 @@ static const u16 sSpeciesToOWGfx[] =
     [SPECIES_KELDEO             ] = 733,
     [SPECIES_MELOETTA           ] = 734,
     [SPECIES_GENESECT           ] = 736,
+
+    [SPECIES_CHESPIN            ] = 0,
+    [SPECIES_QUILLADIN          ] = 0,
+    [SPECIES_CHESNAUGHT         ] = 0,
+    [SPECIES_FENNEKIN           ] = 0,
+    [SPECIES_BRAIXEN            ] = 0,
+    [SPECIES_DELPHOX            ] = 0,
+    [SPECIES_FROAKIE            ] = 0,
+    [SPECIES_FROGADIER          ] = 0,
+    [SPECIES_GRENINJA           ] = 0,
+    [SPECIES_BUNNELBY           ] = 0,
+    [SPECIES_DIGGERSBY          ] = 0,
+    [SPECIES_FLETCHLING         ] = 0,
+    [SPECIES_FLETCHINDER        ] = 0,
+    [SPECIES_TALONFLAME         ] = 0,
+    [SPECIES_SCATTERBUG         ] = 0,
+    [SPECIES_SPEWPA             ] = 0,
+    [SPECIES_VIVILLON           ] = 0,
+    [SPECIES_LITLEO             ] = 0,
+    [SPECIES_PYROAR             ] = 0,
+    [SPECIES_FLABEBE            ] = 0,
+    [SPECIES_FLOETTE            ] = 0,
+    [SPECIES_FLORGES            ] = 0,
+    [SPECIES_SKIDDO             ] = 0,
+    [SPECIES_GOGOAT             ] = 0,
+    [SPECIES_PANCHAM            ] = 0,
+    [SPECIES_PANGORO            ] = 0,
+    [SPECIES_FURFROU            ] = 0,
+    [SPECIES_ESPURR             ] = 0,
+    [SPECIES_MEOWSTIC           ] = 0,
+    [SPECIES_HONEDGE            ] = 0,
+    [SPECIES_DOUBLADE           ] = 0,
+    [SPECIES_AEGISLASH          ] = 0,
+    [SPECIES_SPRITZEE           ] = 0,
+    [SPECIES_AROMATISSE         ] = 0,
+    [SPECIES_SWIRLIX            ] = 0,
+    [SPECIES_SLURPUFF           ] = 0,
+    [SPECIES_INKAY              ] = 0,
+    [SPECIES_MALAMAR            ] = 0,
+    [SPECIES_BINACLE            ] = 0,
+    [SPECIES_BARBARACLE         ] = 0,
+    [SPECIES_SKRELP             ] = 0,
+    [SPECIES_DRAGALGE           ] = 0,
+    [SPECIES_CLAUNCHER          ] = 0,
+    [SPECIES_CLAWITZER          ] = 0,
+    [SPECIES_HELIOPTILE         ] = 0,
+    [SPECIES_HELIOLISK          ] = 0,
+    [SPECIES_TYRUNT             ] = 0,
+    [SPECIES_TYRANTRUM          ] = 0,
+    [SPECIES_AMAURA             ] = 0,
+    [SPECIES_AURORUS            ] = 0,
+    [SPECIES_SYLVEON            ] = 0,
+    [SPECIES_HAWLUCHA           ] = 0,
+    [SPECIES_DEDENNE            ] = 0,
+    [SPECIES_CARBINK            ] = 0,
+    [SPECIES_GOOMY              ] = 0,
+    [SPECIES_SLIGGOO            ] = 0,
+    [SPECIES_GOODRA             ] = 0,
+    [SPECIES_KLEFKI             ] = 0,
+    [SPECIES_PHANTUMP           ] = 0,
+    [SPECIES_TREVENANT          ] = 0,
+    [SPECIES_PUMPKABOO          ] = 0,
+    [SPECIES_GOURGEIST          ] = 0,
+    [SPECIES_BERGMITE           ] = 0,
+    [SPECIES_AVALUGG            ] = 0,
+    [SPECIES_NOIBAT             ] = 0,
+    [SPECIES_NOIVERN            ] = 0,
+    [SPECIES_XERNEAS            ] = 0,
+    [SPECIES_YVELTAL            ] = 0,
+    [SPECIES_ZYGARDE            ] = 0,
+    [SPECIES_DIANCIE            ] = 0,
+    [SPECIES_HOOPA              ] = 0,
+    [SPECIES_VOLCANION          ] = 0,
+
+    [SPECIES_ROWLET             ] = 0,
+    [SPECIES_DARTRIX            ] = 0,
+    [SPECIES_DECIDUEYE          ] = 0,
+    [SPECIES_LITTEN             ] = 0,
+    [SPECIES_TORRACAT           ] = 0,
+    [SPECIES_INCINEROAR         ] = 0,
+    [SPECIES_POPPLIO            ] = 0,
+    [SPECIES_BRIONNE            ] = 0,
+    [SPECIES_PRIMARINA          ] = 0,
+    [SPECIES_PIKIPEK            ] = 0,
+    [SPECIES_TRUMBEAK           ] = 0,
+    [SPECIES_TOUCANNON          ] = 0,
+    [SPECIES_YUNGOOS            ] = 0,
+    [SPECIES_GUMSHOOS           ] = 0,
+    [SPECIES_GRUBBIN            ] = 0,
+    [SPECIES_CHARJABUG          ] = 0,
+    [SPECIES_VIKAVOLT           ] = 0,
+    [SPECIES_CRABRAWLER         ] = 0,
+    [SPECIES_CRABOMINABLE       ] = 0,
+    [SPECIES_ORICORIO           ] = 0,
+    [SPECIES_CUTIEFLY           ] = 0,
+    [SPECIES_RIBOMBEE           ] = 0,
+    [SPECIES_ROCKRUFF           ] = 0,
+    [SPECIES_LYCANROC           ] = 0,
+    [SPECIES_WISHIWASHI         ] = 0,
+    [SPECIES_MAREANIE           ] = 0,
+    [SPECIES_TOXAPEX            ] = 0,
+    [SPECIES_MUDBRAY            ] = 0,
+    [SPECIES_MUDSDALE           ] = 0,
+    [SPECIES_DEWPIDER           ] = 0,
+    [SPECIES_ARAQUANID          ] = 0,
+    [SPECIES_FOMANTIS           ] = 0,
+    [SPECIES_LURANTIS           ] = 0,
+    [SPECIES_MORELULL           ] = 0,
+    [SPECIES_SHIINOTIC          ] = 0,
+    [SPECIES_SALANDIT           ] = 0,
+    [SPECIES_SALAZZLE           ] = 0,
+    [SPECIES_STUFFUL            ] = 0,
+    [SPECIES_BEWEAR             ] = 0,
+    [SPECIES_BOUNSWEET          ] = 0,
+    [SPECIES_STEENEE            ] = 0,
+    [SPECIES_TSAREENA           ] = 0,
+    [SPECIES_COMFEY             ] = 0,
+    [SPECIES_ORANGURU           ] = 0,
+    [SPECIES_PASSIMIAN          ] = 0,
+    [SPECIES_WIMPOD             ] = 0,
+    [SPECIES_GOLISOPOD          ] = 0,
+    [SPECIES_SANDYGAST          ] = 0,
+    [SPECIES_PALOSSAND          ] = 0,
+    [SPECIES_PYUKUMUKU          ] = 0,
+    [SPECIES_TYPE_NULL          ] = 0,
+    [SPECIES_SILVALLY           ] = 0,
+    [SPECIES_MINIOR             ] = 0,
+    [SPECIES_KOMALA             ] = 0,
+    [SPECIES_TURTONATOR         ] = 0,
+    [SPECIES_TOGEDEMARU         ] = 0,
+    [SPECIES_MIMIKYU            ] = 0,
+    [SPECIES_BRUXISH            ] = 0,
+    [SPECIES_DRAMPA             ] = 0,
+    [SPECIES_DHELMISE           ] = 0,
+    [SPECIES_JANGMO_O           ] = 0,
+    [SPECIES_HAKAMO_O           ] = 0,
+    [SPECIES_KOMMO_O            ] = 0,
+    [SPECIES_TAPU_KOKO          ] = 0,
+    [SPECIES_TAPU_LELE          ] = 0,
+    [SPECIES_TAPU_BULU          ] = 0,
+    [SPECIES_TAPU_FINI          ] = 0,
+    [SPECIES_COSMOG             ] = 0,
+    [SPECIES_COSMOEM            ] = 0,
+    [SPECIES_SOLGALEO           ] = 0,
+    [SPECIES_LUNALA             ] = 0,
+    [SPECIES_NIHILEGO           ] = 0,
+    [SPECIES_BUZZWOLE           ] = 0,
+    [SPECIES_PHEROMOSA          ] = 0,
+    [SPECIES_XURKITREE          ] = 0,
+    [SPECIES_CELESTEELA         ] = 0,
+    [SPECIES_KARTANA            ] = 0,
+    [SPECIES_GUZZLORD           ] = 0,
+    [SPECIES_NECROZMA           ] = 0,
+    [SPECIES_MAGEARNA           ] = 0,
+    [SPECIES_MARSHADOW          ] = 0,
+    [SPECIES_POIPOLE            ] = 0,
+    [SPECIES_NAGANADEL          ] = 0,
+    [SPECIES_STAKATAKA          ] = 0,
+    [SPECIES_BLACEPHALON        ] = 0,
+    [SPECIES_ZERAORA            ] = 0,
+    [SPECIES_MELTAN             ] = 0,
+    [SPECIES_MELMETAL           ] = 0,
+
+    [SPECIES_GROOKEY            ] = 0,
+    [SPECIES_THWACKEY           ] = 0,
+    [SPECIES_RILLABOOM          ] = 0,
+    [SPECIES_SCORBUNNY          ] = 0,
+    [SPECIES_RABOOT             ] = 0,
+    [SPECIES_CINDERACE          ] = 0,
+    [SPECIES_SOBBLE             ] = 0,
+    [SPECIES_DRIZZILE           ] = 0,
+    [SPECIES_INTELEON           ] = 0,
+    [SPECIES_SKWOVET            ] = 0,
+    [SPECIES_GREEDENT           ] = 0,
+    [SPECIES_ROOKIDEE           ] = 0,
+    [SPECIES_CORVISQUIRE        ] = 0,
+    [SPECIES_CORVIKNIGHT        ] = 0,
+    [SPECIES_BLIPBUG            ] = 0,
+    [SPECIES_DOTTLER            ] = 0,
+    [SPECIES_ORBEETLE           ] = 0,
+    [SPECIES_NICKIT             ] = 0,
+    [SPECIES_THIEVUL            ] = 0,
+    [SPECIES_GOSSIFLEUR         ] = 0,
+    [SPECIES_ELDEGOSS           ] = 0,
+    [SPECIES_WOOLOO             ] = 0,
+    [SPECIES_DUBWOOL            ] = 0,
+    [SPECIES_CHEWTLE            ] = 0,
+    [SPECIES_DREDNAW            ] = 0,
+    [SPECIES_YAMPER             ] = 0,
+    [SPECIES_BOLTUND            ] = 0,
+    [SPECIES_ROLYCOLY           ] = 0,
+    [SPECIES_CARKOL             ] = 0,
+    [SPECIES_COALOSSAL          ] = 0,
+    [SPECIES_APPLIN             ] = 0,
+    [SPECIES_FLAPPLE            ] = 0,
+    [SPECIES_APPLETUN           ] = 0,
+    [SPECIES_SILICOBRA          ] = 0,
+    [SPECIES_SANDACONDA         ] = 0,
+    [SPECIES_CRAMORANT          ] = 0,
+    [SPECIES_ARROKUDA           ] = 0,
+    [SPECIES_BARRASKEWDA        ] = 0,
+    [SPECIES_TOXEL              ] = 0,
+    [SPECIES_TOXTRICITY         ] = 0,
+    [SPECIES_SIZZLIPEDE         ] = 0,
+    [SPECIES_CENTISKORCH        ] = 0,
+    [SPECIES_CLOBBOPUS          ] = 0,
+    [SPECIES_GRAPPLOCT          ] = 0,
+    [SPECIES_SINISTEA           ] = 0,
+    [SPECIES_POLTEAGEIST        ] = 0,
+    [SPECIES_HATENNA            ] = 0,
+    [SPECIES_HATTREM            ] = 0,
+    [SPECIES_HATTERENE          ] = 0,
+    [SPECIES_IMPIDIMP           ] = 0,
+    [SPECIES_MORGREM            ] = 0,
+    [SPECIES_GRIMMSNARL         ] = 0,
+    [SPECIES_OBSTAGOON          ] = 0,
+    [SPECIES_PERRSERKER         ] = 0,
+    [SPECIES_CURSOLA            ] = 0,
+    [SPECIES_SIRFETCHD          ] = 0,
+    [SPECIES_MR_RIME            ] = 0,
+    [SPECIES_RUNERIGUS          ] = 0,
+    [SPECIES_MILCERY            ] = 0,
+    [SPECIES_ALCREMIE           ] = 0,
+    [SPECIES_FALINKS            ] = 0,
+    [SPECIES_PINCURCHIN         ] = 0,
+    [SPECIES_SNOM               ] = 0,
+    [SPECIES_FROSMOTH           ] = 0,
+    [SPECIES_STONJOURNER        ] = 0,
+    [SPECIES_EISCUE             ] = 0,
+    [SPECIES_INDEEDEE           ] = 0,
+    [SPECIES_MORPEKO            ] = 0,
+    [SPECIES_CUFANT             ] = 0,
+    [SPECIES_COPPERAJAH         ] = 0,
+    [SPECIES_DRACOZOLT          ] = 0,
+    [SPECIES_ARCTOZOLT          ] = 0,
+    [SPECIES_DRACOVISH          ] = 0,
+    [SPECIES_ARCTOVISH          ] = 0,
+    [SPECIES_DURALUDON          ] = 0,
+    [SPECIES_DREEPY             ] = 0,
+    [SPECIES_DRAKLOAK           ] = 0,
+    [SPECIES_DRAGAPULT          ] = 0,
+    [SPECIES_ZACIAN             ] = 0,
+    [SPECIES_ZAMAZENTA          ] = 0,
+    [SPECIES_ETERNATUS          ] = 0,
+    [SPECIES_KUBFU              ] = 0,
+    [SPECIES_URSHIFU            ] = 0,
+    [SPECIES_ZARUDE             ] = 0,
+    [SPECIES_REGIELEKI          ] = 0,
+    [SPECIES_REGIDRAGO          ] = 0,
+    [SPECIES_GLASTRIER          ] = 0,
+    [SPECIES_SPECTRIER          ] = 0,
+    [SPECIES_CALYREX            ] = 0,
+
+    [SPECIES_WYRDEER            ] = 0,
+    [SPECIES_KLEAVOR            ] = 0,
+    [SPECIES_URSALUNA           ] = 0,
+    [SPECIES_BASCULEGION        ] = 0,
+    [SPECIES_SNEASLER           ] = 0,
+    [SPECIES_OVERQWIL           ] = 0,
+    [SPECIES_ENAMORUS           ] = 0,
+
     [SPECIES_MEGA_VENUSAUR      ] = 0,
     [SPECIES_MEGA_CHARIZARD_X   ] = 0,
     [SPECIES_MEGA_CHARIZARD_Y   ] = 0,
@@ -2312,7 +2573,7 @@ const struct FormData PokeFormDataTbl[]=
 
 extern u32 word_to_store_form_at;
 
-u8 GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col,u8 form_no)
+u8 GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no)
 {
     word_to_store_form_at = form_no;
 
@@ -2338,32 +2599,32 @@ int PokeOtherFormMonsNoGet(int mons_no, int form_no)
     u8 i;
     switch (mons_no)
     {
-    case 386:
+    case SPECIES_DEOXYS:
         if ((form_no) && (form_no <= 3))
         {
             mons_no = 495 + form_no;
         }
         break;
-    case 413:
+    case SPECIES_WORMADAM:
         if ((form_no) && (form_no <= 2))
         {
             mons_no = 498 + form_no;
         }
         break;
 
-    case 487:
+    case SPECIES_GIRATINA:
         if ((form_no) && (form_no <= 1))
         {
             mons_no = 500 + form_no;
         }
         break;
-    case 492:
+    case SPECIES_SHAYMIN:
         if ((form_no) && (form_no <= 1))
         {
             mons_no = 501 + form_no;
         }
         break;
-    case 479:
+    case SPECIES_ROTOM:
         if ((form_no) && (form_no <= 5))
         {
             mons_no = 502 + form_no;
@@ -2392,6 +2653,7 @@ u16 GetSpeciesBasedOnForm(int mons_no, int form_no)
     return mons_no;
 }
 
+// icons handled here--no need to worry about fixing shellos, gastrodon, cherrim, castform
 u32 PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 {
     u8 i;
@@ -2399,13 +2661,13 @@ u32 PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 
     if (egg == 1)
     {
-        if (mons == 490)
+        if (mons == SPECIES_MANAPHY)
         {
-            return 502;
+            return 502; // manaphy egg icon
         }
         else
         {
-            return 501;
+            return 501; // normal egg icon
         }
     }
 
@@ -2413,47 +2675,42 @@ u32 PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 
     if (pat != 0)
     {
-        if (mons == 386)
+        if (mons == SPECIES_DEOXYS)
         {
             return (503 + pat - 1);
         }
-        if (mons == 201)
+        if (mons == SPECIES_UNOWN)
         {
             return (507 + pat - 1);
         }
-        if (mons == 412)
+        if (mons == SPECIES_BURMY)
         {
             return (534 + pat - 1);
         }
-        if (mons == 413)
+        if (mons == SPECIES_WORMADAM)
         {
             return (536 + pat - 1);
         }
-        if (mons == 422)
+        if (mons == SPECIES_SHELLOS)
         {
             return (538 + pat - 1);
         }
-        if (mons == 423)
+        if (mons == SPECIES_GASTRODON)
         {
             return (539 + pat - 1);
         }
-        if (mons == 487)
+        if (mons == SPECIES_GIRATINA)
         {
             return (540 + pat - 1);
         }
-        if (mons == 492)
+        if (mons == SPECIES_SHAYMIN)
         {
             return (541 + pat - 1);
         }
-        if (mons == 479)
+        if (mons == SPECIES_ROTOM)
         {
             return (542 + pat - 1);
         }
-    }
-
-    if (mons > 950)
-    {
-        mons = 0;
     }
 
     for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
@@ -2473,15 +2730,15 @@ u16 PokeIconCgxPatternGet(const void *ppp)
 
     switch (monsno)
     {
-    case 201:
-    case 386:
-    case 412:
-    case 413:
-    case 422:
-    case 423:
-    case 487:
-    case 492:
-    case 479:
+    case SPECIES_UNOWN:
+    case SPECIES_DEOXYS:
+    case SPECIES_BURMY:
+    case SPECIES_WORMADAM:
+    case SPECIES_SHELLOS:
+    case SPECIES_GASTRODON:
+    case SPECIES_GIRATINA:
+    case SPECIES_SHAYMIN:
+    case SPECIES_ROTOM:
         return PokePasoParaGet((void *)ppp, 0x70, NULL);
 
     default:
@@ -2501,39 +2758,39 @@ u32 PokeIconPalNumGet(u32 mons, u32 form)
 
     if (form != 0)
     {
-        if (mons == 386)
+        if (mons == SPECIES_DEOXYS)
         {
             mons = 496 + form - 1;
         }
-        else if (mons == 201)
+        else if (mons == SPECIES_UNOWN)
         {
             mons = 499 + form - 1;
         }
-        else if (mons == 412)
+        else if (mons == SPECIES_BURMY)
         {
             mons = 527 + form - 1;
         }
-        else if (mons == 413)
+        else if (mons == SPECIES_WORMADAM)
         {
             mons = 529 + form - 1;
         }
-        else if (mons == 422)
+        else if (mons == SPECIES_SHELLOS)
         {
             mons = 531 + form - 1;
         }
-        else if (mons == 423)
+        else if (mons == SPECIES_GASTRODON)
         {
             mons = 532 + form - 1;
         }
-        else if (mons == 487)
+        else if (mons == SPECIES_GIRATINA)
         {
             mons = 533 + form - 1;
         }
-        else if (mons == 492)
+        else if (mons == SPECIES_SHAYMIN)
         {
             mons = 534 + form - 1;
         }
-        else if (mons == 479)
+        else if (mons == SPECIES_ROTOM)
         {
             mons = 535 + form - 1;
         }
@@ -2552,10 +2809,10 @@ void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp,
     void *pp2;
 
     pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
-    SetMonData(pp2,112,&form_no);
+    SetMonData(pp2, 112, &form_no);
 
     PokeParaCalc(pp2);
-    if(SwitchAbility)
+    if (SwitchAbility)
     {
         PokeParaSpeabiSet(pp2);
         sp->battlemon[client].ability = GetMonData(pp2, 10, 0);
@@ -2671,9 +2928,9 @@ void GetMonEvoData(struct PartyPokemon *poke, void* pst)
     int mons_no = GetMonData(poke, ID_PARA_monsno, NULL);
     u8 form = GetMonData(poke, ID_PARA_form_no, NULL);
 
-    mons_no = PokeOtherFormMonsNoGet(mons_no,form);
+    mons_no = PokeOtherFormMonsNoGet(mons_no, form); // different forms have different evolutions--fair enough.  fuck gen 8
 
-    ArchiveDataLoad(pst,0x22,mons_no);
+    ArchiveDataLoad(pst, 34, mons_no); // a034 file
 }
 
 u16 GetPokemonOwNum(u16 species)
