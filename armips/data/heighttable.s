@@ -724,7 +724,7 @@ heightentry SPECIES_BUNNELBY, 18, 18, 22, 22
 heightentry SPECIES_DIGGERSBY, 18, 18, 22, 22
 heightentry SPECIES_FLETCHLING, 18, 18, 22, 22
 heightentry SPECIES_FLETCHINDER, 18, 18, 22, 22
-heightentry SPECIES_TALONFLAME, 18, 18, 22, 22
+heightentry SPECIES_TALONFLAME, 3, 3, 0, 0
 heightentry SPECIES_SCATTERBUG, 18, 18, 22, 22
 heightentry SPECIES_SPEWPA, 18, 18, 22, 22
 heightentry SPECIES_VIVILLON, 18, 18, 22, 22
@@ -759,11 +759,11 @@ heightentry SPECIES_HELIOPTILE, 18, 18, 22, 22
 heightentry SPECIES_HELIOLISK, 18, 18, 22, 22
 heightentry SPECIES_TYRUNT, 18, 18, 22, 22
 heightentry SPECIES_TYRANTRUM, 18, 18, 22, 22
-heightentry SPECIES_AMAURA, 18, 18, 22, 22
+heightentry SPECIES_AMAURA, 8, 8, 0, 0
 heightentry SPECIES_AURORUS, 18, 18, 22, 22
 heightentry SPECIES_SYLVEON, 18, 18, 22, 22
 heightentry SPECIES_HAWLUCHA, 18, 18, 22, 22
-heightentry SPECIES_DEDENNE, 18, 18, 22, 22
+heightentry SPECIES_DEDENNE, 16, 16, 16, 16
 heightentry SPECIES_CARBINK, 18, 18, 22, 22
 heightentry SPECIES_GOOMY, 18, 18, 22, 22
 heightentry SPECIES_SLIGGOO, 18, 18, 22, 22
