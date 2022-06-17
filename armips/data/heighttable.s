@@ -728,7 +728,7 @@ heightentry SPECIES_TALONFLAME, 3, 3, 0, 0
 heightentry SPECIES_SCATTERBUG, 18, 18, 22, 22
 heightentry SPECIES_SPEWPA, 18, 18, 22, 22
 heightentry SPECIES_VIVILLON, 18, 18, 22, 22
-heightentry SPECIES_LITLEO, 18, 18, 22, 22
+heightentry SPECIES_LITLEO, 0, 0, 10, 10
 heightentry SPECIES_PYROAR, 18, 18, 22, 22
 heightentry SPECIES_FLABEBE, 18, 18, 22, 22
 heightentry SPECIES_FLOETTE, 18, 18, 22, 22
@@ -922,7 +922,7 @@ heightentry SPECIES_HATTREM, 18, 18, 22, 22
 heightentry SPECIES_HATTERENE, 18, 18, 22, 22
 heightentry SPECIES_IMPIDIMP, 18, 18, 22, 22
 heightentry SPECIES_MORGREM, 18, 18, 22, 22
-heightentry SPECIES_GRIMMSNARL, 18, 18, 22, 22
+heightentry SPECIES_GRIMMSNARL, 0, 0, 0, 0
 heightentry SPECIES_OBSTAGOON, 18, 18, 22, 22
 heightentry SPECIES_PERRSERKER, 18, 18, 22, 22
 heightentry SPECIES_CURSOLA, 18, 18, 22, 22
