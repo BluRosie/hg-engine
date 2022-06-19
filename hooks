@@ -114,3 +114,6 @@ arm9 MakeTrainerPokemonParty 08073604 3
 #battle script command expansion
 #0223CF68 - edits to the battle script command handler
 0012 BattleScriptCommandHandler 080056A8 2
+
+#hidden ability
+arm9 SetBoxMonAbility 080722DC 1

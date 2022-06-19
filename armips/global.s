@@ -10,6 +10,9 @@
 .include "armips/asm/trainer_ai.s" // repoints all the move table defines for trainer ai within the structure
 .include "armips/asm/syntheticoverlay.s"
 
+// code addon list
+.include "armips/data/hiddenabilities.s" // the hidden ability list
+
 /*
 CURRENT SYNTHETIC NARC ARMIPS USAGE - starting at START_ADDRESS (armips/include/config.s), sequentially
 armips/data/monoverworlds.s - ((NUM_OF_MON_OVERWORLDS + 450) * 6)

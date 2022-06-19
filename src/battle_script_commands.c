@@ -108,7 +108,7 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
     cli_a = SideClientNoGet(bw, sp, attack);
     cli_d = SideClientNoGet(bw, sp, defence);
 
-    if ((((sp->server_status_flag&SERVER_STATUS_FLAG_NO_ANIMATIONS)==0)
+    if ((((sp->server_status_flag & SERVER_STATUS_FLAG_NO_ANIMATIONS)==0)
       && (BattleWorkConfigWazaEffectOnOffCheck(bw) == TRUE))
      || (move == MOVE_TRANSFORM || move == MOVE_470))
     {

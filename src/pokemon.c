@@ -2858,3 +2858,58 @@ u16 GetPokemonOwNum(u16 species)
 {
     return sSpeciesToOWGfx[species];
 }
+
+u16 GetMonHiddenAbility(u16 species, u32 form)
+{
+    u16 ability = 0;
+    u16* hiddenAbilityTable = sys_AllocMemory(0, 3000);
+
+    species = PokeOtherFormMonsNoGet(species, form);
+    ArchiveDataLoad(hiddenAbilityTable, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST);
+    ability = hiddenAbilityTable[species];
+    sys_FreeMemoryEz(hiddenAbilityTable);
+
+    return ability;
+}
+
+void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter, but that doesn't need to be properly defined yet
+{
+    BOOL fastMode;
+    int mons_no, form;
+    u32 ability1, ability2, hiddenability;
+    u32 pid;
+    u16 has_hidden_ability;
+
+    fastMode = BoxMonSetFastModeOn(boxmon);
+
+    mons_no = PokePasoParaGet(boxmon, ID_PARA_monsno, NULL);
+    pid = PokePasoParaGet(boxmon, ID_PARA_personal_rnd, NULL);
+    form = PokePasoParaGet(boxmon, ID_PARA_form_no, NULL);
+    has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & 0x01; // dummy_p2_2 & hidden ability mask
+
+    ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
+    ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
+    hiddenability = GetMonHiddenAbility(mons_no, form);
+
+    if (has_hidden_ability && hiddenability != 0)
+    {
+        BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&hiddenability);
+    }
+    else if (ability2 != 0)
+    {
+        if (pid & 1)
+        {
+            BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&ability2);
+        }
+        else
+        {
+            BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&ability1);
+        }
+    }
+    else
+    {
+        BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&ability1);
+    }
+
+    BoxMonSetFastModeOff(boxmon, fastMode);
+}
