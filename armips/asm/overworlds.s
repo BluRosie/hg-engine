@@ -55,7 +55,7 @@ get_mon_ow_tag:
     mov r5, r0
     mov r6, r1
     mov r7, r2
-    ldr r1, =(SPECIES_ARCEUS)
+    ldr r1, =(SPECIES_MAGNEZONE) // new split
     cmp r5, r1
     bgt @@_handleNewMons
     mov r4, #0x1AC / 2
@@ -73,6 +73,10 @@ get_mon_ow_tag:
     bl does_species_have_dimorphism
     cmp r0, #0
     beq @@_handleForms
+
+    cmp r5, #(SPECIES_PIKACHU)
+    beq @@_handlePikachu
+@@_handleGender:
     cmp r7, #1
     bne @@_return_r4
     add r4, r4, #1
@@ -85,6 +89,11 @@ get_mon_ow_tag:
     mov r0, r4
     pop {r3-r7, pc}
 
+@@_handlePikachu:
+    cmp r6, #0 // form is 0
+    beq @@_handleGender // gender is the only thing that can switch
+    add r4, #1 // form overworlds are offset by female overworld
+    b @@_handleForms
 
 .pool
 
