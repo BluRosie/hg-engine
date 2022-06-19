@@ -159,7 +159,7 @@ Boosts Attack when\nhit by a Grass-type move.
 Gives priority to\na status move.
 Boosts certain moves’\npower in a sandstorm.
 Inflicts damage to\nthe Pokémon on contact.
-Changes the Pokémon’s shape\nwhen HP is halved.
+Changes the Pokémon’s\nshape when HP is halved.
 Boosts the accuracy of\nits allies and itself.
 Moves can be used\nregardless of Abilities.
 Moves can be used\nregardless of Abilities.

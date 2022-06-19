@@ -741,7 +741,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (GetBattlerAbility(sp, sp->client_work) == ABILITY_ZEN_MODE)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp < (sp->battlemon[sp->client_work].maxhp / 2))
+         && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 2))
          && (sp->battlemon[sp->client_work].form_no < 2)) // forms 0 and 1
         {
             sp->battlemon[sp->client_work].form_no += 2;
@@ -749,11 +749,9 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
             ret = TRUE;
             break;
-        }
-        
-        if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
+        } else if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp >= (sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
+         && (sp->battlemon[sp->client_work].hp > (sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
          && (sp->battlemon[sp->client_work].form_no >= 2)) // forms 2 and 3 
         {
             sp->battlemon[sp->client_work].form_no -= 2;
