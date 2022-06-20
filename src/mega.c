@@ -260,6 +260,36 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     return IsMegaSpecies(mon);
 }
 
+BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
+{
+    void *pp;
+    u16 form_no;
+    u16 mon;
+
+    pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
+    mon = GetMonData(pp, 5, 0);
+    form_no = GetMonData(pp, 112, 0);
+    if (!form_no)
+        return FALSE;
+
+    return (mon == SPECIES_GROUDON);
+}
+
+BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
+{
+    void *pp;
+    u16 form_no;
+    u16 mon;
+
+    pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
+    mon = GetMonData(pp, 5, 0);
+    form_no = GetMonData(pp, 112, 0);
+    if (!form_no)
+        return FALSE;
+
+    return (mon == SPECIES_KYOGRE);
+}
+
 static BOOL CheckMegaData(u16 mon, u16 item)
 {
     u8 i;

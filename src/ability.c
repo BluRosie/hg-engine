@@ -1,4 +1,5 @@
 #include "../include/battle.h"
+#include "../include/debug.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
 #include "../include/constants/ability.h"
@@ -153,6 +154,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 enum
 {
     SWITCH_IN_CHECK_WEATHER = 0,
+    SWITCH_IN_CHECK_PRIMAL_REVERSION,
     SWITCH_IN_CHECK_TRACE,
     SWITCH_IN_CHECK_WEATHER_ABILITY,
     SWITCH_IN_CHECK_INTIMIDATE,
@@ -254,8 +256,41 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
                 sp->switch_in_check_seq_no++;
                 break;
-                // 02253274
-            case SWITCH_IN_CHECK_TRACE:
+            case SWITCH_IN_CHECK_PRIMAL_REVERSION:
+                for (i = 0; i < client_set_max; i++)
+                {
+                    client_no = sp->turn_order[i];
+                    if (((sp->battlemon[client_no].species == SPECIES_KYOGRE
+                       #ifdef DEBUG_PRIMAL_REVERSION
+                       && GetBattleMonItem(sp, client_no) == ITEM_NONE
+                       #else
+                       && GetBattleMonItem(sp, client_no) == ITEM_BLUE_ORB
+                       #endif
+                       )
+                      || (sp->battlemon[client_no].species == SPECIES_GROUDON
+                       #ifdef DEBUG_PRIMAL_REVERSION
+                       && GetBattleMonItem(sp, client_no) == ITEM_NONE
+                       #else
+                       && GetBattleMonItem(sp, client_no) == ITEM_RED_ORB
+                       #endif
+                         ))
+                     && sp->battlemon[client_no].hp != 0
+                     && sp->battlemon[client_no].form_no == 0)
+                    {
+                        BattleFormChange(client_no, 1, bw, sp, TRUE);
+                        sp->battlemon[client_no].form_no = 1;
+                        sp->client_work = client_no;
+                        scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+                
+                if (i == client_set_max){
+                    sp->switch_in_check_seq_no++;
+                }
+                break;
+            case SWITCH_IN_CHECK_TRACE: // 02253274
             {
                 int def1,def2;
 

@@ -28,9 +28,11 @@ struct newBattleStruct newBS = {0};
 #define MEGA_BUTTON_PAL_TAG 20055
 
 // shift these by 1 if the fairy type has been implemented in the hgss-filesys-example branch.
-#define MEGA_ICON_FIGHT_GFX 797 + FAIRY_TYPE_IMPLEMENTED
-#define MEGA_ICON_SELECTED_GFX 799 + FAIRY_TYPE_IMPLEMENTED
-#define MEGA_ICON_BLANK_GFX 801 + FAIRY_TYPE_IMPLEMENTED
+#define MEGA_ICON_FIGHT_GFX (797 + FAIRY_TYPE_IMPLEMENTED)
+#define PRIMAL_REVERSION_OMEGA_GFX (799 + FAIRY_TYPE_IMPLEMENTED)
+#define PRIMAL_REVERSION_ALPHA_GFX (801 + FAIRY_TYPE_IMPLEMENTED)
+#define MEGA_ICON_SELECTED_GFX (803 + FAIRY_TYPE_IMPLEMENTED)
+#define MEGA_ICON_BLANK_GFX (805 + FAIRY_TYPE_IMPLEMENTED)
 
 
 const ButtonTBL SkillMenuTouchData[] = {
@@ -120,7 +122,18 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 
 	OAM_LoadResourceCellAnmArc(csp, crp, ARC_POKEICON, PokeIconAnmCellAnmArcIndexGet(), 0, 20021);
 
-	OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+	if (CheckIsPrimalGroudon(bip))
+	{
+		OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+	}
+	else if (CheckIsPrimalKyogre(bip))
+	{
+		OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+	}
+	else
+	{
+		OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+	}
 
 	OAM_LoadResourceCellArc(csp, crp, ARC_ITEMICON, 1, 0, MEGA_ICON_CELL_TAG);
 
@@ -178,6 +191,24 @@ void LoadMegaIcon(struct BI_PARAM *bip)
 		crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
 		OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+		newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+		OAM_ObjectUpdate(newBS.MegaOAM->act);
+	}
+	else if (!newBS.MegaOAM && CheckIsPrimalGroudon(bip))
+	{
+		csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
+		crp = BattleWorkCATS_RES_PTRGet(bip->bw);
+
+		OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+		newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+		OAM_ObjectUpdate(newBS.MegaOAM->act);
+	}
+	else if (!newBS.MegaOAM && CheckIsPrimalKyogre(bip))
+	{
+		csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
+		crp = BattleWorkCATS_RES_PTRGet(bip->bw);
+
+		OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
 		newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
 		OAM_ObjectUpdate(newBS.MegaOAM->act);
 	}

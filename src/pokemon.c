@@ -1,5 +1,7 @@
 #include "../include/types.h"
 #include "../include/battle.h"
+#include "../include/config.h"
+#include "../include/debug.h"
 #include "../include/pokemon.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/item.h"
@@ -1278,6 +1280,18 @@ const struct FormData PokeFormDataTbl[]=
         .form_no = 1,
         .need_rev = 1,
         .file = SPECIES_MEGA_DIANCIE,
+    },
+    {
+        .species = SPECIES_KYOGRE,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_KYOGRE_PRIMAL,
+    },
+    {
+        .species = SPECIES_GROUDON,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_GROUDON_PRIMAL,
     },
 
     /**alolan forms**/
@@ -2881,6 +2895,11 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     u16 has_hidden_ability;
 
     fastMode = BoxMonSetFastModeOn(boxmon);
+
+#ifdef DEBUG_HIDDEN_ABILITIES
+    has_hidden_ability = *(u8 *)(0x023E0000);
+    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&has_hidden_ability);
+#endif // DEBUG_HIDDEN_ABILITIES
 
     mons_no = PokePasoParaGet(boxmon, ID_PARA_monsno, NULL);
     pid = PokePasoParaGet(boxmon, ID_PARA_personal_rnd, NULL);

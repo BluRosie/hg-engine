@@ -201,20 +201,20 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             if((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_MEGA_STONE_CHARIZARD_Y) || 
                (sp->battlemon[client_no].species == SPECIES_MEWTWO && sp->battlemon[client_no].item == ITEM_MEGA_STONE_MEWTWO_Y))
             {
-                BattleFormChange(client_no,2,bw,sp,TRUE);
+                BattleFormChange(client_no, 2, bw, sp, TRUE);
                 sp->battlemon[client_no].form_no = 2;
             }
             else
             {
-                BattleFormChange(client_no,1,bw,sp,TRUE);
+                BattleFormChange(client_no, 1, bw, sp, TRUE);
                 sp->battlemon[client_no].form_no = 1;
             }
             
             newBS.needMega[client_no] = MEGA_CHECK_APPER;
             sp->client_work = client_no;
-            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, 297); // load sequence 297 and execute
-	        sp->next_server_seq_no=sp->server_seq_no;
-	        sp->server_seq_no=0x16;
+            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_MEGA_EVOLUTION); // load sequence 297 and execute
+	        sp->next_server_seq_no = sp->server_seq_no;
+	        sp->server_seq_no = 22;
             return TRUE;
         }
         if(newBS.needMega[client_no] == MEGA_CHECK_APPER && sp->battlemon[sp->attack_client].hp)
@@ -224,8 +224,8 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             if(seq)
             {
                 LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq);
-	            sp->next_server_seq_no=sp->server_seq_no;
-	            sp->server_seq_no=0x16;
+	            sp->next_server_seq_no = sp->server_seq_no;
+	            sp->server_seq_no = 22;
                 return TRUE;
             }
 

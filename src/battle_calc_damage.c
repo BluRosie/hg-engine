@@ -1,5 +1,6 @@
 #include "../include/battle.h"
 #include "../include/config.h"
+#include "../include/debug.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
 #include "../include/constants/ability.h"

@@ -1340,3 +1340,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was bounced back by\fMagi
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
 The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
+{STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
+The wild {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
+The foe’s {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!

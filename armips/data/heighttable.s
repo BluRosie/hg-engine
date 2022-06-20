@@ -1018,8 +1018,8 @@ heightentry SPECIES_MEGA_GALLADE, 3, 3, 0, 0
 heightentry SPECIES_MEGA_AUDINO, 3, 3, 0, 0
 heightentry SPECIES_MEGA_DIANCIE, 3, 3, 0, 0
 
-heightentry SPECIES_KYOGRE_PRIMAL, 18, 18, 22, 22
-heightentry SPECIES_GROUDON_PRIMAL, 18, 18, 22, 22
+heightentry SPECIES_KYOGRE_PRIMAL, "null", 0, "null", 2
+heightentry SPECIES_GROUDON_PRIMAL, "null", 6, "null", 1
 heightentry SPECIES_RATTATA_ALOLAN, 18, 18, 22, 22
 heightentry SPECIES_RATICATE_ALOLAN, 18, 18, 22, 22
 heightentry SPECIES_RAICHU_ALOLAN, 18, 18, 22, 22
