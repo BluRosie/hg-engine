@@ -68,16 +68,16 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                 }
                 sp->sba_work++;
                 if (((sp->battlemon[client_no].condition & 7) == 0) &&
-                    (ST_ServerSelectWazaGet(sp, client_no) == 264) &&
+                    (ST_ServerSelectWazaGet(sp, client_no) == MOVE_FOCUS_PUNCH) &&
                     (ST_ServerNamakeCheck(sp, client_no) == FALSE) &&
                     (sp->oneTurnFlag[client_no].struggle_flag == 0))
                 {
                     SCIO_BlankMessage(bw);
                     sp->client_work = client_no;
-                    sp->battlemon[client_no].form_no = 1;
-                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, 0xE8);
+                    sp->battlemon[client_no].form_no = 1; // ?
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, 232); // SUB_SEQ_HANDLE_FOCUS_PUNCH
                     sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 0x16;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -87,7 +87,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
         case SBA_RAGE:
             for (client_no = 0; client_no < client_set_max; client_no++)
             {
-                if ((sp->battlemon[client_no].condition2 & 0x800000) && (ST_ServerSelectWazaGet(sp, client_no) != 99))
+                if ((sp->battlemon[client_no].condition2 & 0x800000) && (ST_ServerSelectWazaGet(sp, client_no) != MOVE_RAGE))
                 {
                     sp->battlemon[client_no].condition2 &= 0x800000;
                 }
@@ -109,19 +109,20 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     sp->client_act_work[2][3] != SELECT_ESCAPE_COMMAND)
                 {
                     //player requests mega
-                    if (client_no == 0 || client_no == 2)
+                    if (client_no & 1 == 0)
                     {
-                        if (CheckCanMega(sp, client_no) && newBS.playerWantMega)
+                        if ((CheckCanMega(sp, client_no) && newBS.playerWantMega)
+                         || CheckCanMoveMegaEvolve(sp, client_no))
                         {
                             sp->battlemon[client_no].canMega = 1;
-                               newBS.SideMega[0] = TRUE;
+                            newBS.SideMega[0] = TRUE;
                             flag = TRUE;
                         }
                     }
                     //ai requests mega
                     else
                     { 
-                        if (CheckCanMega(sp, client_no))
+                        if (CheckCanMega(sp, client_no) || CheckCanMoveMegaEvolve(sp, u32 client_no))
                         {
                             sp->battlemon[client_no].canMega = 1;
                             newBS.SideMega[1] = TRUE;
