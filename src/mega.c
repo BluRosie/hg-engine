@@ -6,12 +6,19 @@
 #include "../include/constants/ability.h"
 #include "../include/constants/item.h"
 #include "../include/constants/file.h"
+#include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
 struct MegaStruct
 {
     u16 monindex;
     u16 itemindex;
+};
+
+struct MegaStructMove
+{
+    u16 monindex;
+    u16 moveindex;
 };
 
 const struct MegaStruct sMegaTable[] =
@@ -176,10 +183,6 @@ const struct MegaStruct sMegaTable[] =
         .monindex = SPECIES_LATIOS, 
         .itemindex = ITEM_MEGA_STONE_LATIOS,
     },
-    /*{
-        .monindex = SPECIES_RAYQUAZA, 
-        .itemindex = ITEM_MEGA_STONE_RAYQUAZA,
-    },*/
     {
         .monindex = SPECIES_LOPUNNY, 
         .itemindex = ITEM_MEGA_STONE_LOPUNNY,
@@ -207,6 +210,14 @@ const struct MegaStruct sMegaTable[] =
     {
         .monindex = SPECIES_DIANCIE, 
         .itemindex = ITEM_MEGA_STONE_DIANCIE,
+    },
+};
+
+const struct MegaStructMove sMegaMoveTable[] =
+{
+    {
+        .monindex = SPECIES_RAYQUAZA, 
+        .moveindex = MOVE_DRAGON_ASCENT,
     },
 };
 
@@ -314,4 +325,24 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     mon = GetMonData(pp,5,0);
 
     return CheckMegaData(mon,item);
+}
+
+BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client)
+{
+    int i = 0;
+    u16 species, move;
+
+    species = sp->battlemon[client].species;
+    move = ST_ServerSelectWazaGet(sp, client_no);
+
+    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    {
+        
+        if (species == sMegaMoveTable[i].monindex && move == sMegaMoveTable[i].moveindex)
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
 }
