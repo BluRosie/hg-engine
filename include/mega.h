@@ -8,5 +8,6 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip);
 BOOL CheckIsMega(struct BI_PARAM *bip);
 BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip);
 BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip);
+BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client);
 
 #endif
