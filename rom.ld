@@ -28,7 +28,6 @@ ServerStatusCheck = 0x13C68 + 0x022378C1;
 ServerBadgeCheck = 0x13610 + 0x022378C1;
 ServerPPCheck = 0x1393C + 0x022378C1;
 ServerDefenceCheck = 0x13AD8 + 0x022378C1;
-ServerWazaKoyuuCheck = 0x14944 + 0x022378C1;
 ST_ServerDefenceClientTokuseiCheck = 0x19158 + 0x022378C1;
 ST_ServerTotteokiCountCalc = 0x1B570 + 0x022378C1;
 ST_ServerMetronomeBeforeCheck = 0x1ED20 + 0x022378C1;

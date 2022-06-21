@@ -1150,7 +1150,6 @@ void __attribute__((long_call)) SCIO_BlankMessage(void*);
 BOOL __attribute__((long_call)) ServerSenseiCheck(void *bw, void *sp);
 BOOL __attribute__((long_call)) ServerPPCheck(void *bw, void *sp);
 BOOL __attribute__((long_call)) ServerDefenceCheck(void *bw, void *sp);
-BOOL __attribute__((long_call)) ServerWazaKoyuuCheck(void *bw, void *sp);
 BOOL __attribute__((long_call)) ServerStatusCheck(void *bw, void *sp);
 int __attribute__((long_call)) ServerBadgeCheck(void *bw, void *sp, int *seq_no);
 void __attribute__((long_call)) ST_ServerDefenceClientTokuseiCheck(void *bw, void *sp, int attack, u16 waza_no);
@@ -1241,6 +1240,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 // defined in ability.c
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
 BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
 
 

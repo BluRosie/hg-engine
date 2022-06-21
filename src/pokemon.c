@@ -2883,7 +2883,7 @@ u16 GetMonHiddenAbility(u16 species, u32 form, u32 sex)
     ability = hiddenAbilityTable[species];
     sys_FreeMemoryEz(hiddenAbilityTable);
 
-    if (species == SPECIES_MEOWSTIC && sex == GENDER_FEMALE)
+    if (species == SPECIES_MEOWSTIC && sex == POKEMON_GENDER_FEMALE)
     {
         ability = ABILITY_COMPETITIVE;
     }
@@ -2891,7 +2891,7 @@ u16 GetMonHiddenAbility(u16 species, u32 form, u32 sex)
     return ability;
 }
 
-u16 GetMonHiddenAbility(u16 species, u32 form)
+u16 GetMonHiddenAbility_(u16 species, u32 form)
 {
     return GetMonHiddenAbility(species, form, POKEMON_GENDER_MALE);
 }
