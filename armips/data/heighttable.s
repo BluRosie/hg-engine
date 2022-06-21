@@ -743,8 +743,8 @@ heightentry SPECIES_MEOWSTIC, 18, 18, 22, 22
 heightentry SPECIES_HONEDGE, 18, 18, 22, 22
 heightentry SPECIES_DOUBLADE, 18, 18, 22, 22
 heightentry SPECIES_AEGISLASH, 18, 18, 22, 22
-heightentry SPECIES_SPRITZEE, 18, 18, 22, 22
-heightentry SPECIES_AROMATISSE, 18, 18, 22, 22
+heightentry SPECIES_SPRITZEE, 0, 0, 6, 6
+heightentry SPECIES_AROMATISSE, 8, 8, 10, 10
 heightentry SPECIES_SWIRLIX, 18, 18, 22, 22
 heightentry SPECIES_SLURPUFF, 18, 18, 22, 22
 heightentry SPECIES_INKAY, 18, 18, 22, 22
