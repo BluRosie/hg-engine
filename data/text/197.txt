@@ -1343,3 +1343,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Bo
 {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
 The wild {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
 The foe’s {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
+The fervent wish reached\n{STRVAR_1 1, 0, 0}!
+The wild {STRVAR_1 1, 0, 0} wished\nfervently!
+The foe’s fervent wish reached\nits {STRVAR_1 1, 0, 0}!

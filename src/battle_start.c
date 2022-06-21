@@ -199,6 +199,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             {
                 newBS.PlayerMegaed = TRUE;
             }
+
             // handle charizard/mewtwo branch mega evos
             if((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_MEGA_STONE_CHARIZARD_Y) || 
                (sp->battlemon[client_no].species == SPECIES_MEWTWO && sp->battlemon[client_no].item == ITEM_MEGA_STONE_MEWTWO_Y))
@@ -214,8 +215,15 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             
             newBS.needMega[client_no] = MEGA_CHECK_APPER;
             sp->client_work = client_no;
-            LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_MEGA_EVOLUTION); // load sequence 297 and execute
-	        sp->next_server_seq_no = sp->server_seq_no;
+            if (CheckCanSpeciesMegaEvolveByMove(sp, client_no))
+            {
+                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_MOVE_MEGA_EVOLUTION);
+            }
+            else
+            {
+                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_MEGA_EVOLUTION); // load sequence 297 and execute
+	        }
+            sp->next_server_seq_no = sp->server_seq_no;
 	        sp->server_seq_no = 22;
             return TRUE;
         }

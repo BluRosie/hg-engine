@@ -217,7 +217,7 @@ const struct MegaStructMove sMegaMoveTable[] =
 {
     {
         .monindex = SPECIES_RAYQUAZA, 
-        .moveindex = MOVE_DRAGON_ASCENT,
+        .moveindex = MOVE_TWISTER,
     },
 };
 
@@ -268,7 +268,7 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     if (!form_no)
         return FALSE;
 
-    return IsMegaSpecies(mon);
+    return IsMegaSpecies(mon) || IsMegaSpeciesByMove(mon);
 }
 
 BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
@@ -329,16 +329,51 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
 
 BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client)
 {
-    int i = 0;
+    int i = 0, form = 0;
     u16 species, move;
 
     species = sp->battlemon[client].species;
+    form = sp->battlemon[client].form_no;
     move = ST_ServerSelectWazaGet(sp, client);
+
+    if (form != 0 || newBS.PlayerMegaed) return FALSE;
 
     for (i = 0; i < NELEMS(sMegaMoveTable); i++)
     {
-        
         if (species == sMegaMoveTable[i].monindex && move == sMegaMoveTable[i].moveindex)
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}
+
+BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
+{
+    int i, species, move;
+    
+    species = sp->battlemon[client].species;
+    move = ST_ServerSelectWazaGet(sp, client);
+    
+    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    {
+        if (species == sMegaMoveTable[i].monindex && move == sMegaMoveTable[i].moveindex)
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}
+
+BOOL IsMegaSpeciesByMove(u16 species)
+{
+    int i;
+    
+    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    {
+        if (species == sMegaMoveTable[i].monindex)
         {
             return TRUE;
         }
