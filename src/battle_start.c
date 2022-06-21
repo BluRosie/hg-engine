@@ -1,11 +1,12 @@
+#include "../include/types.h"
 #include "../include/battle.h"
 #include "../include/mega.h"
 #include "../include/pokemon.h"
-#include "../include/types.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/battle_script_constants.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
+#include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
 /********************************************************************************************************************/
@@ -122,7 +123,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     //ai requests mega
                     else
                     { 
-                        if (CheckCanMega(sp, client_no) || CheckCanMoveMegaEvolve(sp, u32 client_no))
+                        if (CheckCanMega(sp, client_no) || CheckCanMoveMegaEvolve(sp, client_no))
                         {
                             sp->battlemon[client_no].canMega = 1;
                             newBS.SideMega[1] = TRUE;
