@@ -2873,7 +2873,7 @@ u16 GetPokemonOwNum(u16 species)
     return sSpeciesToOWGfx[species];
 }
 
-u16 GetMonHiddenAbility(u16 species, u32 form)
+u16 GetMonHiddenAbility(u16 species, u32 form, u32 sex)
 {
     u16 ability = 0;
     u16* hiddenAbilityTable = sys_AllocMemory(0, 3000);
@@ -2883,13 +2883,25 @@ u16 GetMonHiddenAbility(u16 species, u32 form)
     ability = hiddenAbilityTable[species];
     sys_FreeMemoryEz(hiddenAbilityTable);
 
+    if (species == SPECIES_MEOWSTIC && sex == GENDER_FEMALE)
+    {
+        ability = ABILITY_COMPETITIVE;
+    }
+
     return ability;
 }
+
+u16 GetMonHiddenAbility(u16 species, u32 form)
+{
+    return GetMonHiddenAbility(species, form, POKEMON_GENDER_MALE);
+}
+
+u8 HiddenAbilityToggleByte = 0;
 
 void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter, but that doesn't need to be properly defined yet
 {
     BOOL fastMode;
-    int mons_no, form;
+    int mons_no, form, sex;
     u32 ability1, ability2, hiddenability;
     u32 pid;
     u16 has_hidden_ability;
@@ -2904,11 +2916,23 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     mons_no = PokePasoParaGet(boxmon, ID_PARA_monsno, NULL);
     pid = PokePasoParaGet(boxmon, ID_PARA_personal_rnd, NULL);
     form = PokePasoParaGet(boxmon, ID_PARA_form_no, NULL);
-    has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & 0x01; // dummy_p2_2 & hidden ability mask
+    sex = PokePasoParaGet(boxmon, ID_PARA_sex, NULL);
+
+    if (HiddenAbilityToggleByte != 0) // HA toggle is nonzero, give the mon its hidden ability.  toggle it off to prevent it from setting ability on form change later on in the battle and the like.
+    {
+        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL);
+        has_hidden_ability |= 0x0001;
+        BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&has_hidden_ability);
+        HiddenAbilityToggleByte = 0;
+    }
+    else
+    {
+        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & 0x0001; // dummy_p2_2 & hidden ability mask
+    }
 
     ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
     ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
-    hiddenability = GetMonHiddenAbility(mons_no, form);
+    hiddenability = GetMonHiddenAbility(mons_no, form, sex);
 
     if (has_hidden_ability && hiddenability != 0)
     {
