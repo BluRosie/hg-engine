@@ -12949,7 +12949,7 @@ mondata SPECIES_PYROAR
     baseexp 177
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 223
+    genderratio 225
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
