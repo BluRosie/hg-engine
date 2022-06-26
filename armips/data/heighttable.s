@@ -719,8 +719,8 @@ heightentry SPECIES_BRAIXEN, 18, 18, 22, 22
 heightentry SPECIES_DELPHOX, 18, 18, 22, 22
 heightentry SPECIES_FROAKIE, 18, 18, 22, 22
 heightentry SPECIES_FROGADIER, 18, 18, 22, 22
-heightentry SPECIES_GRENINJA, 18, 18, 22, 22
-heightentry SPECIES_BUNNELBY, 18, 18, 22, 22
+heightentry SPECIES_GRENINJA, 8, 8, 9, 9
+heightentry SPECIES_BUNNELBY, 0, 0, 9, 9
 heightentry SPECIES_DIGGERSBY, 18, 18, 22, 22
 heightentry SPECIES_FLETCHLING, 18, 18, 22, 22
 heightentry SPECIES_FLETCHINDER, 18, 18, 22, 22
@@ -762,7 +762,7 @@ heightentry SPECIES_TYRANTRUM, 18, 18, 22, 22
 heightentry SPECIES_AMAURA, 8, 8, 0, 0
 heightentry SPECIES_AURORUS, 18, 18, 22, 22
 heightentry SPECIES_SYLVEON, 18, 18, 22, 22
-heightentry SPECIES_HAWLUCHA, 18, 18, 22, 22
+heightentry SPECIES_HAWLUCHA, 18, 18, 6, 6
 heightentry SPECIES_DEDENNE, 16, 16, 16, 16
 heightentry SPECIES_CARBINK, 18, 18, 22, 22
 heightentry SPECIES_GOOMY, 18, 18, 22, 22
