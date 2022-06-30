@@ -55,7 +55,7 @@ get_mon_ow_tag:
     mov r5, r0
     mov r6, r1
     mov r7, r2
-    ldr r1, =(SPECIES_MAGNEZONE) // new split
+    ldr r1, =(SPECIES_LICKILICKY) // new split
     cmp r5, r1
     bgt @@_handleNewMons
     mov r4, #0x1AC / 2
