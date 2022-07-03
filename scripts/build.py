@@ -237,6 +237,7 @@ def build_ow():
             OBJ = "build/pokemonow/1_" + i.replace(".png","")        
         else:
             OBJ = "build/pokemonow/2_" + i.replace(".png","")
+            flag = True
         if os.path.isfile(OBJ) and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(OBJ):
             continue
         if 'icrosoft' in uname().release:
@@ -245,14 +246,12 @@ def build_ow():
             cmd = ["mono"] + ["tools/pngtobtx0.exe"] + [DIR + "/" + i,OBJ]
         print("build " + i)
         file.append(i.replace(".png",''))
-        flag = True
         RunCommand(cmd)
         
-    if not fileExists or flag:
-        if os.path.isfile(OUTPUTDIR + "/1_000"):
-            for i in range(297, 863):
-                if os.path.isfile(OUTPUTDIR + "/1_" + str(i)):
-                    os.remove(OUTPUTDIR + "/1_" + str(i))
+    if flag == True:
+        for i in range(297, 863):
+            if os.path.isfile(OUTPUTDIR + "/1_" + str(i)):
+                os.remove(OUTPUTDIR + "/1_" + str(i))
 
         #for i in file:
         #    if len(i) > 3:
