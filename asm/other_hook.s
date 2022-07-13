@@ -250,6 +250,9 @@ bl call_via_r3
 mov r0, r4
 ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
 bl call_via_r3
+mov r0, r4 // me when the boxmon is at offset 0 of the PartyPokemon structure so i should be able to just pass it like this and have it work :)
+ldr r3, =0x020712D8 | 1 //InitBoxMonMoveset(ppp);
+bl call_via_r3
 
 ldr r0, [sp, #0x14]
 ldr r3, [sp, #0x40]
