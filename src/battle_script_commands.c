@@ -321,7 +321,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     sp->mp.msg_id = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY;
                     break;
                 }
-                sp->mp.msg_tag = TAG_NICK_TOKU_STAT;
+                sp->mp.msg_tag = TAG_NICK_ABILITY_STAT;
                 sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                 sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                 sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
@@ -381,7 +381,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICK_TOKU_NICK_TOKU;
+                        sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_ABILITY;
                         sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                         sp->mp.msg_para[2] = TagNickParaMake(sp, sp->attack_client);
@@ -390,7 +390,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_PREVENTS_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICK_TOKU;
+                        sp->mp.msg_tag = TAG_NICK_ABILITY;
                         sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                     }
@@ -406,7 +406,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICK_TOKU_NICK_TOKU;
+                        sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_ABILITY;
                         sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                         sp->mp.msg_para[2] = TagNickParaMake(sp, sp->attack_client);
@@ -415,7 +415,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICK_TOKU_STAT;
+                        sp->mp.msg_tag = TAG_NICK_ABILITY_STAT;
                         sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                         sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
@@ -496,7 +496,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         if (sp->addeffect_type == ADD_EFFECT_ABILITY && sp->client_work == sp->state_client)
         {
             sp->mp.msg_id = BATTLE_MSG_ABILITY_LOWERED_ITS_OWN_STAT;
-            sp->mp.msg_tag = TAG_NICK_TOKU_STAT;
+            sp->mp.msg_tag = TAG_NICK_ABILITY_STAT;
             sp->mp.msg_para[0] = TagNickParaMake(sp, sp->client_work);
             sp->mp.msg_para[1] = sp->battlemon[sp->client_work].ability;
             sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
@@ -504,7 +504,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         else if (sp->addeffect_type == ADD_EFFECT_ABILITY)
         {
             sp->mp.msg_id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
-            sp->mp.msg_tag = TAG_NICK_TOKU_NICK_STAT;
+            sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_STAT;
             sp->mp.msg_para[0] = TagNickParaMake(sp, sp->attack_client);
             sp->mp.msg_para[1] = sp->battlemon[sp->attack_client].ability;
             sp->mp.msg_para[2] = TagNickParaMake(sp, sp->state_client);
@@ -514,7 +514,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         else if (sp->addeffect_type == ADD_EFFECT_PRINT_WORK_ABILITY)
         {
             sp->mp.msg_id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
-            sp->mp.msg_tag = TAG_NICK_TOKU_NICK_STAT;
+            sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_STAT;
             sp->mp.msg_para[0] = TagNickParaMake(sp, sp->client_work);
             sp->mp.msg_para[1] = sp->battlemon[sp->client_work].ability;
             sp->mp.msg_para[2] = TagNickParaMake(sp, sp->state_client);
