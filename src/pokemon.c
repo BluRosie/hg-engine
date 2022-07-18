@@ -2646,6 +2646,14 @@ u32 PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
         {
             return (542 + pat - 1);
         }
+        else if (mons == SPECIES_CASTFORM)
+        {
+            return (540 + pat - 1);
+        }
+        else if (mons == SPECIES_CHERRIM)
+        {
+            return (543 + pat - 1);
+        }
     }
 
     for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
@@ -2737,6 +2745,14 @@ u32 PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
         else if (mons == SPECIES_ROTOM)
         {
             mons = 535 + form - 1;
+        }
+        else if (mons == SPECIES_CASTFORM)
+        {
+            mons = 540 + form - 1;
+        }
+        else if (mons == SPECIES_CHERRIM)
+        {
+            mons = 543 + form - 1;
         }
         for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
         {
