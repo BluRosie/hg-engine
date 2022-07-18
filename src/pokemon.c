@@ -2687,9 +2687,18 @@ u16 PokeIconCgxPatternGet(const void *ppp)
     return 0;
 }
 
-u32 PokeIconPalNumGet(u32 mons, u32 form)
+u32 PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
 {
     u8 i;
+    
+    if (isegg)
+    {
+        if (mons == SPECIES_MANAPHY)
+            mons = 495;
+        else
+            mons = 494;
+        return mons;
+    }
 
     if (form != 0)
     {
