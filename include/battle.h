@@ -252,76 +252,78 @@
 #define BATTLER_OPPONENT(client) (client ^ 1)
 #define BATTLER_ACROSS(client) (client ^ 3)
 
-#define TAG_NONE                        (0)     //タグなし
+#define TAG_NONE                        (0)     //nothing
 
-#define TAG_NONE_DIR                    (1)     //タグなし（てき、みかた判定あり）
+#define TAG_NONE_DIR                    (1)     //nothing (but judgment type?)
 #define TAG_NICK                        (2)     //nickname
-#define TAG_WAZA                        (3)     //技名
-#define TAG_STAT                        (4)     //ステータス名
-#define TAG_ITEM                        (5)     //道具名
-#define TAG_NUM                         (6)     //数値
-#define TAG_NUMS                        (7)     //数値（右詰め）
-#define TAG_TRNAME                      (8)     //trainer名
+#define TAG_MOVE                        (3)     //move
+#define TAG_STAT                        (4)     //stat
+#define TAG_ITEM                        (5)     //helditem
+#define TAG_NUM                         (6)     //number
+#define TAG_NUMS                        (7)     //number(right aligned)
+#define TAG_TRNAME                      (8)     //trainername
 
 #define TAG_NICK_NICK                   (9)     //nickname      nickname
-#define TAG_NICK_WAZA                   (10)    //nickname      技名
-#define TAG_NICK_TOKU                   (11)    //nickname      特性名
-#define TAG_NICK_STAT                   (12)    //nickname      ステータス名
-#define TAG_NICK_TYPE                   (13)    //nickname      タイプ名
-#define TAG_NICK_POKE                   (14)    //nickname      ポケモン名
-#define TAG_NICK_ITEM                   (15)    //nickname      道具名
-#define TAG_NICK_PLOC                   (16)    //nickname      ポロック名
-#define TAG_NICK_NUM                    (17)    //nickname      数値
-#define TAG_NICK_TRNAME                 (18)    //nickname      trainer名
-#define TAG_NICK_BOX                    (19)    //nickname      ボックス名
-#define TAG_WAZA_DIR                    (20)    //技名（てき、みかた判定あり）
-#define TAG_WAZA_NICK                   (21)    //技名            nickname
-#define TAG_WAZA_WAZA                   (22)    //技名            技名
-#define TAG_TOKU_NICK                   (23)    //特性名       nickname
-#define TAG_ITEM_WAZA                   (24)    //道具名       技名
-#define TAG_NUM_NUM                     (25)    //数値            数値
-#define TAG_TRNAME_TRNAME               (26)    //trainer名      trainer名
-#define TAG_TRNAME_NICK                 (27)    //trainer名      nickname
-#define TAG_TRNAME_ITEM                 (28)    //trainer名      道具名
-#define TAG_TRNAME_NUM                  (29)    //trainer名      数値
-#define TAG_TRTYPE_TRNAME               (30)    //trainer種別 trainer名
+#define TAG_NICK_MOVE                   (10)    //nickname      move
+#define TAG_NICK_ABILITY                (11)    //nickname      ability
+#define TAG_NICK_STAT                   (12)    //nickname      stat
+#define TAG_NICK_TYPE                   (13)    //nickname      type
+#define TAG_NICK_POKE                   (14)    //nickname      pokemon
+#define TAG_NICK_ITEM                   (15)    //nickname      helditem
+#define TAG_NICK_UNK                    (16)    //nickname      ?
+#define TAG_NICK_NUM                    (17)    //nickname      number
+#define TAG_NICK_TRNAME                 (18)    //nickname      trainername
+#define TAG_NICK_BOX                    (19)    //nickname      boxname
+#define TAG_MOVE_DIR                    (20)    //move          (but judgment type?)
+#define TAG_MOVE_NICK                   (21)    //move          nickname
+#define TAG_MOVE_MOVE                   (22)    //move          move
+#define TAG_ABILITY_NICK                (23)    //ability       nickname
+#define TAG_ITEM_MOVE                   (24)    //helditem      move
+#define TAG_NUM_NUM                     (25)    //number        number
+#define TAG_TRNAME_TRNAME               (26)    //trainername   trainername
+#define TAG_TRNAME_NICK                 (27)    //trainername   nickname
+#define TAG_TRNAME_ITEM                 (28)    //trainername   helditem
+#define TAG_TRNAME_NUM                  (29)    //trainername   number
+#define TAG_TRTITLE_TRNAME              (30)    //trainertitle  trainername
 
-#define TAG_NICK_NICK_WAZA              (31)    //nickname      nickname        技名
-#define TAG_NICK_NICK_TOKU              (32)    //nickname      nickname        特性名
-#define TAG_NICK_NICK_ITEM              (33)    //nickname      nickname        道具名
-#define TAG_NICK_WAZA_WAZA              (34)    //nickname      技名          技名
-#define TAG_NICK_WAZA_NUM               (35)    //nickname      技名          数値
-#define TAG_NICK_TOKU_NICK              (36)    //nickname      特性名         nickname
-#define TAG_NICK_TOKU_WAZA              (37)    //nickname      特性名         技名
-#define TAG_NICK_TOKU_ITEM              (38)    //nickname      特性名         道具名
-#define TAG_NICK_TOKU_STAT              (39)    //nickname      特性名         ステータス名
-#define TAG_NICK_TOKU_TYPE              (40)    //nickname      特性名         タイプ名
-#define TAG_NICK_TOKU_COND              (41)    //nickname      特性名         状態異常名
-#define TAG_NICK_TOKU_NUM               (42)    //nickname      特性名         数値
-#define TAG_NICK_ITEM_NICK              (43)    //nickname      道具名         nickname
-#define TAG_NICK_ITEM_WAZA              (44)    //nickname      道具名         技名
-#define TAG_NICK_ITEM_STAT              (45)    //nickname      道具名         ステータス名
-#define TAG_NICK_ITEM_COND              (46)    //nickname      道具名         状態異常名
-#define TAG_NICK_BOX_BOX                (47)    //nickname      ボックス名       ボックス名
-#define TAG_ITEM_NICK_TASTE             (48)    //道具名       nickname        木の実の味
-#define TAG_TRNAME_NICK_NICK            (49)    //trainer名      nickname        nickname
-#define TAG_TRTYPE_TRNAME_NICK          (50)    //trainer種別 trainer名        nickname
-#define TAG_TRTYPE_TRNAME_ITEM          (51)    //trainer種別 trainer名        道具名
+#define TAG_NICK_NICK_MOVE              (31)    //nickname      nickname        move
+#define TAG_NICK_NICK_ABILITY           (32)    //nickname      nickname        ability
+#define TAG_NICK_NICK_ITEM              (33)    //nickname      nickname        helditem
+#define TAG_NICK_MOVE_MOVE              (34)    //nickname      move            move
+#define TAG_NICK_MOVE_NUM               (35)    //nickname      move            number
+#define TAG_NICK_ABILITY_NICK           (36)    //nickname      ability         nickname
+#define TAG_NICK_ABILITY_MOVE           (37)    //nickname      ability         move
+#define TAG_NICK_ABILITY_ITEM           (38)    //nickname      ability         helditem
+#define TAG_NICK_ABILITY_STAT           (39)    //nickname      ability         stat
+#define TAG_NICK_ABILITY_TYPE           (40)    //nickname      ability         type
+#define TAG_NICK_ABILITY_COND           (41)    //nickname      ability         condition
+#define TAG_NICK_ABILITY_NUM            (42)    //nickname      ability         number
+#define TAG_NICK_ITEM_NICK              (43)    //nickname      helditem        nickname
+#define TAG_NICK_ITEM_MOVE              (44)    //nickname      helditem        move
+#define TAG_NICK_ITEM_STAT              (45)    //nickname      helditem        stat
+#define TAG_NICK_ITEM_COND              (46)    //nickname      helditem        condition
+#define TAG_NICK_BOX_BOX                (47)    //nickname      box             box
+#define TAG_ITEM_NICK_TASTE             (48)    //helditem      nickname        taste
+#define TAG_TRNAME_NICK_NICK            (49)    //trainername   nickname        nickname
+#define TAG_TRTYPE_TRNAME_NICK          (50)    //trainertitle  trainername     nickname
+#define TAG_TRTYPE_TRNAME_ITEM          (51)    //trainertitle  trainername     helditem
 
-#define TAG_NICK_TOKU_NICK_WAZA         (52)    //nickname      特性名         nickname        技名
-#define TAG_NICK_TOKU_NICK_TOKU         (53)    //nickname      特性名         nickname        特性名
-#define TAG_NICK_TOKU_NICK_STAT         (54)    //nickname      特性名         nickname        ステータス名
-#define TAG_NICK_ITEM_NICK_ITEM         (55)    //nickname      道具名         nickname        道具名
-#define TAG_TRNAME_NICK_TRNAME_NICK     (56)    //trainer名      nickname        trainer名        nickname
-#define TAG_TRTYPE_TRNAME_NICK_NICK     (57)    //trainer種別 trainer名        nickname        nickname
-#define TAG_TRTYPE_TRNAME_NICK_TRNAME   (58)    //trainer種別 trainer名        nickname        trainer名
-#define TAG_TRTYPE_TRNAME_TRTYPE_TRNAME (59)    //trainer種別 trainer名        trainer種別       trainer名
+#define TAG_NICK_ABILITY_NICK_MOVE      (52)    //nickname      ability         nickname        move
+#define TAG_NICK_ABILITY_NICK_ABILITY   (53)    //nickname      ability         nickname        ability
+#define TAG_NICK_ABILITY_NICK_STAT      (54)    //nickname      ability         nickname        stat
+#define TAG_NICK_ITEM_NICK_ITEM         (55)    //nickname      helditem        nickname        helditem
+#define TAG_TRNAME_NICK_TRNAME_NICK     (56)    //trainername   nickname        trainername     nickname
+#define TAG_TRTYPE_TRNAME_NICK_NICK     (57)    //trainertitle  trainername     nickname        nickname
+#define TAG_TRTYPE_TRNAME_NICK_TRNAME   (58)    //trainertitle  trainername     nickname        trainername
+#define TAG_TRTYPE_TRNAME_TRTYPE_TRNAME (59)    //trainertitle  trainername     trainertitle    trainername
 
-#define TAG_TRTYPE_TRNAME_NICKx2        (60)    //trainer種別 trainer名        nickname ｘ２
+#define TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK \
+                                        (60)    //trainertitle  trainername     nickname        trainertitle  trainername     nickname
 
-#define TAG_NO_DIR                      (0x80)  //敵、味方、判定をしない
-#define TAG_DIR                         (0x40)  //敵、味方、判定あり
-#define TAG_NO_DIR_OFF                  (0x3f)  //敵、味方、判定をしない
+
+#define TAG_NO_DIR                      (0x80)
+#define TAG_DIR                         (0x40)
+#define TAG_NO_DIR_OFF                  (0x3f)
 
 
 // fuck statbuffchange

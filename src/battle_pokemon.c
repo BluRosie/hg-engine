@@ -1082,7 +1082,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICKx2;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
@@ -1121,7 +1121,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
              || (fight_type & BATTLE_TYPE_MULTI))
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICKx2;
+                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
