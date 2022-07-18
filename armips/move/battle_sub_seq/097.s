@@ -17,7 +17,7 @@ a001_097:
     changevartomonvalue VAR_OP_SETMASK, BATTLER_DEFENDER, 0x35, 0x10000000
     changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
     changevar VAR_OP_MUL, VAR_HP_TEMP, 0xFFFFFFFF
-    damagediv 32, 2
+    damagediv VAR_HP_TEMP, 2
     changevar VAR_OP_SETMASK, VAR_06, 0x40
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     gotosubscript 2
