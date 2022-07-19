@@ -6218,7 +6218,7 @@ movedata MOVE_BRAVE_BIRD
     terminatedata
 
 movedata MOVE_EARTH_POWER
-    battleeffect 0198
+    battleeffect 72
     pss SPLIT_SPECIAL
     basepower 90
     type TYPE_GROUND
@@ -6233,7 +6233,7 @@ movedata MOVE_EARTH_POWER
     terminatedata
 
 movedata MOVE_SWITCHEROO
-    battleeffect 7
+    battleeffect 177
     pss SPLIT_STATUS
     basepower 0
     type TYPE_DARK
