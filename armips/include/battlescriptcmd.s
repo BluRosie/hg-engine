@@ -1157,6 +1157,19 @@ VAR_90 equ 90
     .word ((address - org()) / 4) - 1
 .endmacro
 
+MOVE_DATA_BATTLE_EFFECT equ 0
+MOVE_DATA_SPLIT equ 1
+MOVE_DATA_BASE_POWER equ 2
+MOVE_DATA_TYPE equ 3
+MOVE_DATA_ACCURACY equ 4
+MOVE_DATA_PP equ 5
+MOVE_DATA_EFFECT_CHANCE equ 6
+MOVE_DATA_TARGET equ 7
+MOVE_DATA_PRIORITY equ 8
+MOVE_DATA_FLAGS equ 9
+MOVE_DATA_APPEAL equ 10
+MOVE_DATA_CONTEST_TYPE equ 11
+
 .macro getmoveparameter,field
     .word 0xB7, field
 .endmacro
