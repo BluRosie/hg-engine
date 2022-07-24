@@ -138,6 +138,8 @@ void randomize(int arr[], int n) {
     }
 }
 
+extern u32 gLastPokemonLevelForMoneyCalc;
+
 void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 {
     u8 *buf;
@@ -150,7 +152,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
     PokeParty_Init(bp->poke_party[num], 6);
 
-    buf = (u8 *)sys_AllocMemory(heapID, sizeof(FULL_TRAINER_MON_DATA_STRUCTURE) * 6);
+    buf = (u8 *)sys_AllocMemory(heapID, sizeof(struct FULL_TRAINER_MON_DATA_STRUCTURE) * 6);
     pp = PokemonParam_AllocWork(heapID);
 
     TT_TrainerPokeDataGet(bp->trainer_id[num], buf);
@@ -231,6 +233,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
         // level field
         level = buf[offset] | (buf[offset+1] << 8);
+        gLastPokemonLevelForMoneyCalc = level; // ends up being the last level at the end of the loop that we use for the money calc loop default case
         offset += 2;
 
         // species field

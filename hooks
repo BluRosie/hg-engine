@@ -92,6 +92,8 @@ arm9 GetPokemonOwNum 0806A304 1
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
+#fix money calculation - 
+0012 fix_money_calc 0800829E 0
 
 #illusion hooks
 #02258EE0

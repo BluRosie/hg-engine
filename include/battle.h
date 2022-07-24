@@ -1007,33 +1007,36 @@ struct __attribute__((packed)) BATTLE_PARAM
     /*0x01C0*/  void* savedata;
 };
 
-typedef	struct
+
+struct __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE
 {
-    u8 ivs;
-    u8 abilityslot;
-    u16 level;
-    u16 monsno;
-    u16 itemno;
-    u16 moves[4];
-    u16 ability;
-    u16 ball;
-    u8 ivnums[6];
-    u8 evnums[6];
-    u8 nature;
-    u8 shinylock;
-    u32 additionalflags;
-    u8 status;
-    u16 hp;
-    u16 atk;
-    u16 def;
-    u16 speed;
-    u16 spatk;
-    u16 spdef;
-    u8 types[2];
-    u8 ppcounts[4];
-    u16 nickname;
-    u16 custom;
-} __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE;
+    /* 0x0 */ u8 ivs;
+    /* 0x1 */ u8 abilityslot;
+    /* 0x2 */ u16 level;
+    /* 0x4 */ u16 monsno;
+    /* 0x6 */ u16 itemno;
+    /* 0x8 */ u16 moves[4];
+    /* 0x10 */ u16 ability;
+    /* 0x12 */ u16 ball;
+    /* 0x14 */ u8 ivnums[6];
+    /* 0x1A */ u8 evnums[6];
+    /* 0x20 */ u8 nature;
+    /* 0x21 */ u8 shinylock;
+    /* 0x22 */ u8 padding[2]; // ?
+    /* 0x24 */ u32 additionalflags;
+    /* 0x28 */ u8 status;
+    /* 0x29 */ u8 padding2[1]; // fuck my life
+    /* 0x2A */ u16 hp;
+    /* 0x2C */ u16 atk;
+    /* 0x2E */ u16 def;
+    /* 0x30 */ u16 speed;
+    /* 0x32 */ u16 spatk;
+    /* 0x34 */ u16 spdef;
+    /* 0x36 */ u8 types[2];
+    /* 0x38 */ u8 ppcounts[4];
+    /* 0x3C */ u16 nickname;
+    /* 0x3E */ u16 custom;
+};
 
 struct __attribute__((packed)) CLIENT_PARAM
 {

@@ -279,3 +279,15 @@ ldr r0, =move_effect_to_subscripts
 lsl r1, r4, #2
 ldr r0, [r0, r1]
 pop {r4, pc}
+
+
+.global fix_money_calc
+fix_money_calc:
+ldr r5, =gLastPokemonLevelForMoneyCalc
+ldrh r5, [r5]
+ldr r0, =0x0223FBBE | 1
+bx r0
+
+.global gLastPokemonLevelForMoneyCalc
+gLastPokemonLevelForMoneyCalc:
+.word 0
