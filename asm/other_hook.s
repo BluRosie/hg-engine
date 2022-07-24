@@ -288,6 +288,8 @@ ldrh r5, [r5]
 ldr r0, =0x0223FBBE | 1
 bx r0
 
+.pool
+
 .global gLastPokemonLevelForMoneyCalc
 gLastPokemonLevelForMoneyCalc:
 .word 0
