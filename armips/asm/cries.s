@@ -1,7 +1,7 @@
 .nds
 .thumb
 
-.include "armips/include/monnums.s"
+//.include "armips/include/monnums.s" // included by global
 
 .open "base/arm9.bin", 0x2000000
 

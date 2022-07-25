@@ -9,6 +9,7 @@
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure
 .include "armips/asm/trainer_ai.s" // repoints all the move table defines for trainer ai within the structure
 .include "armips/asm/syntheticoverlay.s"
+.include "armips/asm/cries.s"
 
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list
