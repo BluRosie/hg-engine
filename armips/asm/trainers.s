@@ -1,13 +1,13 @@
 .nds
 .thumb
 
-// mikelan98 originally found this offset
+// mikelan98 originally found this offset, for trainer name length limiter
 
 .open "base/arm9.bin", 0x02000000
 
 .org 0x0207342E //location of 08 22 B3 F7 1A FB 30 1C B2 F7 A3 FF 00 98 01 9A, in other words the trainer name length limiter
 
-.byte 0x0C
+.byte 0x0C //replacing 0x08 with 0x0C, changing limit from 8 to 12
 
 .close
 
