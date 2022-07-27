@@ -2981,3 +2981,41 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
 
     BoxMonSetFastModeOff(boxmon, fastMode);
 }
+
+
+// used for HoF/pokeathlon overworlds
+struct OVERWORLD_TAG *grab_overworld_ptr(u16 tag)
+{
+    int i = 0;
+    while (gOWTagToFileNum[i].tag != 0xFFFF)
+    {
+        if (gOWTagToFileNum[i].tag == tag)
+            return &gOWTagToFileNum[i];
+        i++;
+    }
+    return &gOWTagToFileNum[2]; // default error failure
+}
+
+u16 get_a081_index_from_tag(u16 tag)
+{
+    struct OVERWORLD_TAG *overworldData = grab_overworld_ptr(tag);
+    
+    return overworldData->gfx;
+}
+
+u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
+{
+    u32 ret, tag;
+
+    if (species <= 0 || species > MAX_MON_NUM) // base species, Enamorus
+        ret = 1;
+    else 
+    {
+        // get the mon ow tag
+        tag = get_mon_ow_tag(species, form, isFemale);
+        
+        ret = get_a081_index_from_tag(tag);
+    }
+
+    return ret;
+}

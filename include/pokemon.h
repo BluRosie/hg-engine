@@ -1,6 +1,7 @@
 #ifndef POKEMON_H
 #define POKEMON_H
 
+#include "config.h"
 #include "types.h"
 
 #define POKEMON_GENDER_MALE 0
@@ -274,6 +275,15 @@ enum
     ID_PARA_end //パラメータを追加するときは、ここから上に追加
 };
 
+struct OVERWORLD_TAG
+{
+    u16 tag;
+    u16 gfx; // index in a081
+    u16 callback_params;
+};
+
+#define gOWTagToFileNum ((struct OVERWORLD_TAG *) (0x023C8000 + START_ADDRESS)) // i hate this lol
+
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);
 void PokePasoParaSpeabiSet(void *ppp);
@@ -310,6 +320,7 @@ void __attribute__((long_call)) FillInBoxMonLearnset(void *);
 u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
 u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
 void __attribute__((long_call)) BoxMonInit(void *);
+u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 
 int PokeOtherFormMonsNoGet(int mons_no, int form_no);
 
