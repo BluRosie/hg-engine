@@ -1346,3 +1346,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a prima
 The fervent wish reached\n{STRVAR_1 1, 0, 0}!
 The wild {STRVAR_1 1, 0, 0} wished\nfervently!
 The foe’s fervent wish reached\nits {STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0} illusion\nfaded!
+The wild {STRVAR_1 1, 0, 0}\nillusion faded!
+The foe’s {STRVAR_1 1, 0, 0}\nillusion faded!

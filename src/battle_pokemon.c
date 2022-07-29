@@ -778,7 +778,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 gIllusionStruct.illusionNameBuf[sp->client_work & 1][k] = 0;
             }
             BattleFormChange(sp->client_work, 0, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_HANDLE_ILLUSION_FADED;
             ret = TRUE;
             break;
         }

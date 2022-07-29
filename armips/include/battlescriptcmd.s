@@ -249,6 +249,73 @@ BATTLER_WORK             equ 0xFF
     .word 0x11
 .endmacro
 
+TAG_NONE                        equ (0)     //nothing
+
+TAG_NONE_DIR                    equ (1)     //nothing (but judgment type?)
+TAG_NICK                        equ (2)     //nickname
+TAG_MOVE                        equ (3)     //move
+TAG_STAT                        equ (4)     //stat
+TAG_ITEM                        equ (5)     //helditem
+TAG_NUM                         equ (6)     //number
+TAG_NUMS                        equ (7)     //number(right aligned)
+TAG_TRNAME                      equ (8)     //trainername
+
+TAG_NICK_NICK                   equ (9)     //nickname      nickname
+TAG_NICK_MOVE                   equ (10)    //nickname      move
+TAG_NICK_ABILITY                equ (11)    //nickname      ability
+TAG_NICK_STAT                   equ (12)    //nickname      stat
+TAG_NICK_TYPE                   equ (13)    //nickname      type
+TAG_NICK_POKE                   equ (14)    //nickname      pokemon
+TAG_NICK_ITEM                   equ (15)    //nickname      helditem
+TAG_NICK_UNK                    equ (16)    //nickname      ?
+TAG_NICK_NUM                    equ (17)    //nickname      number
+TAG_NICK_TRNAME                 equ (18)    //nickname      trainername
+TAG_NICK_BOX                    equ (19)    //nickname      boxname
+TAG_MOVE_DIR                    equ (20)    //move          (but judgment type?)
+TAG_MOVE_NICK                   equ (21)    //move          nickname
+TAG_MOVE_MOVE                   equ (22)    //move          move
+TAG_ABILITY_NICK                equ (23)    //ability       nickname
+TAG_ITEM_MOVE                   equ (24)    //helditem      move
+TAG_NUM_NUM                     equ (25)    //number        number
+TAG_TRNAME_TRNAME               equ (26)    //trainername   trainername
+TAG_TRNAME_NICK                 equ (27)    //trainername   nickname
+TAG_TRNAME_ITEM                 equ (28)    //trainername   helditem
+TAG_TRNAME_NUM                  equ (29)    //trainername   number
+TAG_TRTITLE_TRNAME              equ (30)    //trainertitle  trainername
+
+TAG_NICK_NICK_MOVE              equ (31)    //nickname      nickname        move
+TAG_NICK_NICK_ABILITY           equ (32)    //nickname      nickname        ability
+TAG_NICK_NICK_ITEM              equ (33)    //nickname      nickname        helditem
+TAG_NICK_MOVE_MOVE              equ (34)    //nickname      move            move
+TAG_NICK_MOVE_NUM               equ (35)    //nickname      move            number
+TAG_NICK_ABILITY_NICK           equ (36)    //nickname      ability         nickname
+TAG_NICK_ABILITY_MOVE           equ (37)    //nickname      ability         move
+TAG_NICK_ABILITY_ITEM           equ (38)    //nickname      ability         helditem
+TAG_NICK_ABILITY_STAT           equ (39)    //nickname      ability         stat
+TAG_NICK_ABILITY_TYPE           equ (40)    //nickname      ability         type
+TAG_NICK_ABILITY_COND           equ (41)    //nickname      ability         condition
+TAG_NICK_ABILITY_NUM            equ (42)    //nickname      ability         number
+TAG_NICK_ITEM_NICK              equ (43)    //nickname      helditem        nickname
+TAG_NICK_ITEM_MOVE              equ (44)    //nickname      helditem        move
+TAG_NICK_ITEM_STAT              equ (45)    //nickname      helditem        stat
+TAG_NICK_ITEM_COND              equ (46)    //nickname      helditem        condition
+TAG_NICK_BOX_BOX                equ (47)    //nickname      box             box
+TAG_ITEM_NICK_TASTE             equ (48)    //helditem      nickname        taste
+TAG_TRNAME_NICK_NICK            equ (49)    //trainername   nickname        nickname
+TAG_TRTYPE_TRNAME_NICK          equ (50)    //trainertitle  trainername     nickname
+TAG_TRTYPE_TRNAME_ITEM          equ (51)    //trainertitle  trainername     helditem
+
+TAG_NICK_ABILITY_NICK_MOVE      equ (52)    //nickname      ability         nickname        move
+TAG_NICK_ABILITY_NICK_ABILITY   equ (53)    //nickname      ability         nickname        ability
+TAG_NICK_ABILITY_NICK_STAT      equ (54)    //nickname      ability         nickname        stat
+TAG_NICK_ITEM_NICK_ITEM         equ (55)    //nickname      helditem        nickname        helditem
+TAG_TRNAME_NICK_TRNAME_NICK     equ (56)    //trainername   nickname        trainername     nickname
+TAG_TRTYPE_TRNAME_NICK_NICK     equ (57)    //trainertitle  trainername     nickname        nickname
+TAG_TRTYPE_TRNAME_NICK_TRNAME   equ (58)    //trainertitle  trainername     nickname        trainername
+TAG_TRTYPE_TRNAME_TRTYPE_TRNAME equ (59)    //trainertitle  trainername     trainertitle    trainername
+
+TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK equ (60)    //trainertitle  trainername     nickname        trainertitle  trainername     nickname
+
 .macro printmessage,msgid,tag,num1,num2,num3,num4,num5,num6
     .word 0x12, msgid, tag
     .if tag == 0
