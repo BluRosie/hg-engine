@@ -14,6 +14,8 @@
 * Updated effects for gen 4 and prior abilities
 * All new functional Mega Stones added after the already-existing items
 
+*A more comprehensive list of features can be found by visiting the hg-engine wiki.*
+
 ## Coming Soon:
 * Move expansion
 * Updated effects for gen 4 and prior moves
@@ -35,7 +37,7 @@
    * ```brew install libpng```
    * ```brew install automake```
    * ```pip3 install ndspy```
-4. Download and install Mono
+4. Download and install Mono using the download and instructions [**here**](https://www.mono-project.com/docs/getting-started/install/mac/).
 5. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
