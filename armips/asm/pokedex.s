@@ -1,7 +1,7 @@
 .nds
 .thumb
 
-ALWAYS_HAVE_NATIONAL_DEX equ 1
+.include "armips/include/config.s"
 
 .open "base/overlay/overlay_0018.bin", 0x021E5900
 

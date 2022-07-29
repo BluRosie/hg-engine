@@ -11,5 +11,8 @@ FAIRY_TYPE_IMPLEMENTED equ 0
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
 DEBUG_NEEDS_TESTING equ 0
 
-// BATTLE_MODE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
-BATTLE_MODE_SET equ 0
+// BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
+BATTLE_MODE_FORCE_SET equ 0
+
+// ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
+ALWAYS_HAVE_NATIONAL_DEX equ 0

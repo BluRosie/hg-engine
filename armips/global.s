@@ -11,6 +11,7 @@
 .include "armips/asm/syntheticoverlay.s"
 .include "armips/asm/trainers.s"
 .include "armips/asm/cries.s"
+.include "armips/asm/user_config.s"
 
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list

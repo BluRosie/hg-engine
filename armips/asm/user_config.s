@@ -1,19 +1,27 @@
 .nds
 .thumb
 
-.include "armips/include/config.s"
+// included by armips/global.s
 
 .open "base/arm9.bin", 0x02000000
 
-.if BATTLE_MODE_SET
+.if BATTLE_MODE_FORCE_SET
 
-    .org 0x0202AD90 //location of battle mon switching rule get routine
+.org 0x0202AD90
 
-    .byte 0x4f, 0xf0, 0x01, 0x00, 0x00, 0xbf, 0x70, 0x47 //this makes it so the mon switching rule is always "set"
+getSetMode:
+    mov r0, #1
+    bx lr
 
-    .org 0x0202AD98 //location of battle mon switching rule set routine - this makes it so player can't change selection from "set"
 
-    .byte 0x02, 0x88, 0x40, 0x21, 0x11, 0x43, 0x01, 0x80, 0x00, 0xbf, 0x00, 0xbf, 0x00, 0xbf, 0x00, 0xbf, 0x00, 0xbf, 0x70, 0x47
+.org 0x0202AD98 // location of battle mon switching rule set routine - this makes it so player can not change selection from "set"
+
+battleStyleSelectionCallback:
+    ldrh r2, [r0]
+    mov r1, #0x40
+    orr r1, r2
+    strh r1, [r0]
+    bx lr
 
 .endif
 
