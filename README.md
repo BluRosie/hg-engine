@@ -49,6 +49,7 @@
      * In the new window, press "New", then "Browse". Navigate to "This PC", then "Local Disk", and then from there, go to "Windows/Microsoft .NET/Framework". Here, you will see all of the versions of .NET Framework that you have installed. Select the newest one by clicking on its name, then press the "OK" button. Now you just need to press "OK" on every Window you had open to get to this point to save your changes.
 3. Open the Windows Command Prompt as Administrator (look up "Command Prompt" on your Start Menu, Right Click -> Run as Administrator). Once you have done that, execute the following command: ```dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all```
     * Once this process finishes, you will have to restart your PC by entering "Y"
+    * If Windows is not cooperating and has issues logging in when your PC reboots, do not worry! You likely just need to enable virtualization in your BIOS. For instructions on that, look [**here**](https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html).
 4. Go to the Microsoft Store and search "Ubuntu 18.04 LTS". Go to its page in the store and click the blue "Get" button.
    * Once Ubuntu finishes installing, launch it from its page in the Microsoft Store so it can finish setting itself up.
    * Once Ubuntu finishes setting itself up, it will ask you to enter a username (in lowercase letters only) and password. After doing so, you can close Ubuntu.
