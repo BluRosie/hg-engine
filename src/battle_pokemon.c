@@ -775,6 +775,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             gIllusionStruct.illusionPos[sp->client_work & 1] = 0;
             for (int k = 0; k < 11; k++)
             {
+                sp->battlemon[sp->client_work].nickname[k] = gIllusionStruct.illusionNameBuf[sp->client_work & 1][k];
                 gIllusionStruct.illusionNameBuf[sp->client_work & 1][k] = 0;
             }
             BattleFormChange(sp->client_work, 0, bw, sp, 0);
