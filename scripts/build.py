@@ -258,7 +258,8 @@ def build_ow():
         #        shutil.copyfile("build/pokemonow/2_" + i, "build/pokemonow/2_" + i)
         #    else:
         #        shutil.copyfile("build/pokemonow/1_" + i, "build/pokemonow/1_" + i)
-        RunCommand(cmd_narc)
+    
+    RunCommand(cmd_narc)
 
 
 if __name__ == '__main__':

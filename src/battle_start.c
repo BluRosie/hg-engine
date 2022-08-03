@@ -43,7 +43,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
     int client_set_max;
 
     ret = 0;
-    u8 flag = FALSE;
+    u32 flag = FALSE;
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
     do
@@ -110,7 +110,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     sp->client_act_work[2][3] != SELECT_ESCAPE_COMMAND)
                 {
                     //player requests mega
-                    if (client_no & 1 == 0)
+                    if (!(client_no & 1))
                     {
                         if ((CheckCanMega(sp, client_no) && newBS.playerWantMega)
                          || CheckCanMoveMegaEvolve(sp, client_no))
@@ -132,11 +132,12 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     }
 
                 }
+
                 if(flag)
                 {
                     newBS.needMega[client_no] = MEGA_NEED;
-                    if ((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_MEGA_STONE_CHARIZARD_Y) ||
-                        (sp->battlemon[client_no].species == SPECIES_MEWTWO && sp->battlemon[client_no].item == ITEM_MEGA_STONE_MEWTWO_Y))
+                    if ((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_MEGA_STONE_CHARIZARD_Y)
+                     || (sp->battlemon[client_no].species == SPECIES_MEWTWO && sp->battlemon[client_no].item == ITEM_MEGA_STONE_MEWTWO_Y))
                     {
                         sp->battlemon[client_no].form_no = 2;
                         BattleFormChange(client_no, 2, bw, sp, FALSE);
