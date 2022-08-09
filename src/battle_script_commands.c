@@ -714,6 +714,7 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+// treating this additionally as a switching hook.  we'll handle meloetta etc. here
 BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
 {
     int side, client_no, address, ability, condition;
@@ -730,6 +731,15 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
         ability = GetMonData(pp, ID_PARA_speabino, NULL);
         condition = GetMonData(pp, ID_PARA_condition, NULL);
 
+        // handle meloetta pirouette form changing back to normal when switched out
+        if ((sp->battlemon[client_no].mons != SPECIES_MELOETTA)
+         && (sp->battlemon[client_no].form_no != 0))
+        {
+            u32 form_no = 0;
+            sp->battlemon[client_no].form_no = form_no;
+            SetMonData(pp, ID_PARA_form_no, &form_no);
+        }
+        
         // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
         if ((sp->battlemon[client_no].ability != ABILITY_NATURAL_CURE)
          && (ST_ServerTokuseiStatusRecoverReshuffleCheck(sp, ability, condition) == FALSE)) // SwitchAbilityStatusRecoverCheck
