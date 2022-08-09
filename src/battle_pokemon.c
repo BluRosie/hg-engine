@@ -423,6 +423,16 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         else{
             SetMonData(mons[i],ID_PARA_speabino,(u8 *)&ab1);
         }
+        
+        // if abilityslot is 2 force hidden ability with the bit set.  this specifically to cover darmanitan with zen mode switching between forms and such.
+        if (abilityslot == 2)
+        {
+            u16 hiddenability = GetMonHiddenAbility_(species, form_no);
+            u16 dummy2 = GetMonData(mons[i], ID_PARA_dummy_p2_2, NULL);
+            dummy2 |= DUMMY_P2_2_HIDDEN_ABILITY_MASK;
+            SetMonData(mons[i], ID_PARA_dummy_p2_2, (u8 *)&dummy2);
+            SetMonData(mons[i],ID_PARA_speabino,(u8 *)&hiddenability);
+        }
 
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
         {

@@ -12,6 +12,9 @@
 #define	MONS_FEMALE		(254)
 #define	MONS_UNKNOWN	(255)
 
+// ID_PARA_dummy_p2_2 fields
+#define DUMMY_P2_2_HIDDEN_ABILITY_MASK (0x0001)
+
 #define	POW_RND	(32)
 
 
@@ -287,8 +290,9 @@ struct OVERWORLD_TAG
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);
 void PokePasoParaSpeabiSet(void *ppp);
-u8 GetMonHideAbility(u16 mon, u8 Form_no);
 bool8 ReverFormChange(void *pp, u16 species, u8 form_no);
+u16 GetMonHiddenAbility(u16 species, u32 form, u32 sex);
+u16 GetMonHiddenAbility_(u16 species, u32 form);
 
 void* __attribute__((long_call)) PokemonParam_AllocWork(u32 heapid);
 void __attribute__((long_call)) PokeParaInit(void* pokemon);

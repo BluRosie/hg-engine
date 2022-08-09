@@ -2946,13 +2946,13 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     if (HiddenAbilityToggleByte != 0) // HA toggle is nonzero, give the mon its hidden ability.  toggle it off to prevent it from setting ability on form change later on in the battle and the like.
     {
         has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL);
-        has_hidden_ability |= 0x0001;
+        has_hidden_ability |= DUMMY_P2_2_HIDDEN_ABILITY_MASK;
         BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&has_hidden_ability);
         HiddenAbilityToggleByte = 0;
     }
     else
     {
-        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & 0x0001; // dummy_p2_2 & hidden ability mask
+        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & DUMMY_P2_2_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
     }
 
     ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
