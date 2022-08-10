@@ -7,6 +7,7 @@
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
 #include "../include/constants/item.h"
+#include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
 void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id)
@@ -797,10 +798,11 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         // handle meloetta - change form to pirouette when using relic song.  changes back when switching/battle ends too
         if ((sp->battlemon[sp->client_work].species == SPECIES_MELOETTA)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->current_move_index == MOVE_RELIC_SONG)
+         && (sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
          && (sp->battlemon[sp->client_work].form_no != 1))
         {
             sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
             *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
             ret = TRUE;
             break;

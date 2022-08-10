@@ -732,12 +732,13 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
         condition = GetMonData(pp, ID_PARA_condition, NULL);
 
         // handle meloetta pirouette form changing back to normal when switched out
-        if ((sp->battlemon[client_no].mons != SPECIES_MELOETTA)
+        if ((sp->battlemon[client_no].species == SPECIES_MELOETTA)
          && (sp->battlemon[client_no].form_no != 0))
         {
             u32 form_no = 0;
             sp->battlemon[client_no].form_no = form_no;
-            SetMonData(pp, ID_PARA_form_no, &form_no);
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
+            SetMonData(pp, ID_PARA_form_no, (u8 *)&form_no);
         }
         
         // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
@@ -759,7 +760,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
             else
                 hp += hpdelta;
             
-            SetMonData(pp, ID_PARA_hp, (u16 *)&hp);
+            SetMonData(pp, ID_PARA_hp, (u8 *)&hp);
         }
     }
     else
