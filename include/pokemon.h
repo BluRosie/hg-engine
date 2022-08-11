@@ -14,6 +14,8 @@
 
 // ID_PARA_dummy_p2_2 fields
 #define DUMMY_P2_2_HIDDEN_ABILITY_MASK (0x0001)
+#define SET_MON_HIDDEN_ABILTY_BIT(mon) { u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_2, 0); tempvarassumeunused |= DUMMY_P2_2_HIDDEN_ABILITY_MASK; SetMonData(mon, ID_PARA_dummy_p2_2, (u8 *)&tempvarassumeunused); }
+#define SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon) { u16 tempvarassumeunused = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, 0); tempvarassumeunused |= DUMMY_P2_2_HIDDEN_ABILITY_MASK; BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&tempvarassumeunused); }
 
 #define	POW_RND	(32)
 

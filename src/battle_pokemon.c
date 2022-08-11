@@ -429,10 +429,8 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         if (abilityslot == 2)
         {
             u16 hiddenability = GetMonHiddenAbility_(species, form_no);
-            u16 dummy2 = GetMonData(mons[i], ID_PARA_dummy_p2_2, NULL);
-            dummy2 |= DUMMY_P2_2_HIDDEN_ABILITY_MASK;
-            SetMonData(mons[i], ID_PARA_dummy_p2_2, (u8 *)&dummy2);
-            SetMonData(mons[i],ID_PARA_speabino,(u8 *)&hiddenability);
+            SET_MON_HIDDEN_ABILTY_BIT(mons[i])
+            SetMonData(mons[i], ID_PARA_speabino, (u8 *)&hiddenability);
         }
 
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
