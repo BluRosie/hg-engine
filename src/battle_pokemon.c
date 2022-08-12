@@ -796,7 +796,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         // handle meloetta - change form to pirouette when using relic song.  changes back when switching/battle ends too
         if ((sp->battlemon[sp->client_work].species == SPECIES_MELOETTA)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+         && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
          && (sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
          && (sp->battlemon[sp->client_work].form_no != 1))
         {
