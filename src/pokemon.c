@@ -3046,12 +3046,12 @@ u32 GetGenesectForme(u16 item)
 }
 
 
-// add genesect handling to this function that changes form in the party silently
-void sub_2071BD0(struct PartyPokemon *pp)
+// add genesect handling to this function that changes form in the party silently.  i think it's only supposed to handle arceus, but it works for the party
+void ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
 {
-    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
-    u32 ability = GetMonData(pp, ID_PARA_speabino, NULL);
-    u32 item = GetMonData(pp, ID_PARA_item, NULL);
+    u32 species = GetMonData(bp, ID_PARA_monsno, NULL);
+    u32 ability = GetMonData(bp, ID_PARA_speabino, NULL);
+    u32 item = GetMonData(bp, ID_PARA_item, NULL);
     u32 form = 0;
     
     if (species == SPECIES_ARCEUS
@@ -3059,14 +3059,39 @@ void sub_2071BD0(struct PartyPokemon *pp)
     {
         u32 held_effect = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 0); // heap id 0 gang
         form = GetArceusType(held_effect);
-        SetMonData(pp, ID_PARA_form_no, &form);
+        SetMonData(bp, ID_PARA_form_no, &form);
     }
 
     if (species == SPECIES_GENESECT)
     {
         form = GetGenesectForme(item);
-        SetMonData(pp, ID_PARA_form_no, &form);
+        SetMonData(bp, ID_PARA_form_no, &form);
     }
 }
 
-// now we need to do the other one, hopefully responsible for pc
+// overlay 14 is responsible for pc
+u32 HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
+{
+    u32 species = PokePasoParaGet(bp, ID_PARA_monsno, NULL);
+    
+    if (species == SPECIES_ARCEUS || species == SPECIES_GENESECT)
+    {
+        u32 form_no = PokePasoParaGet(bp, ID_PARA_form_no, NULL);
+        
+        ArceusBoxPokemonFormeChange(bp);
+        
+        if (PokePasoParaGet(bp, ID_PARA_form_no, NULL) != form_no)
+            return 1;
+    }
+    else if (species == SPECIES_GIRATINA)
+    {
+        u32 form_no = PokePasoParaGet(bp, ID_PARA_form_no, NULL);
+        
+        GiratinaBoxPokemonFormChange(bp);
+        
+        if (PokePasoParaGet(bp, ID_PARA_form_no, NULL) != form_no)
+            return 1;
+    }
+    
+    return 0;
+}

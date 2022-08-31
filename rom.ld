@@ -238,3 +238,4 @@ PokePasoParaFastModeOff = 0x0206DE00 |1;
 
 /* i can't believe i haven't used this one yet */
 GetItemData = 0x02077D88 | 1;
+GiratinaBoxPokemonFormChange = 0x02071CBC | 1;

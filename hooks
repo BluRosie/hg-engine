@@ -125,6 +125,6 @@ arm9 SetBoxMonAbility 080722DC 1
 0096 grab_overworld_a081_index 080038B8 3
 
 #genesect formes
-arm9 sub_2071BD0 08071BD0 3
-#not what i thought it was
-#arm9 PCScreenFormChange 0806EBD8 0
+arm9 ArceusBoxPokemonFormeChange 08071BD0 3
+#pc screen forme change
+0014 HandleBoxPokemonFormeChanges 08000BD0 3
