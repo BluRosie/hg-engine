@@ -9,24 +9,30 @@
 
 .create "build/move/battle_sub_seq/1_088", 0
 
-a001_088:
+// subscript for heal bell and aromatherapy
+
+healBellSubscript:
     healbell
-    if IF_EQUAL, VAR_CURRENT_MOVE, 0x138, _002C
-    printmessage 0x335, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_AROMATHERAPY, _002C
+    // "A bell chimed!"
+    printmessage 821, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0038
 _002C:
-    printmessage 0x250, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    // "A soothing aroma wafted\nthrough the area!"
+    printmessage 592, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
 _0038:
     waitmessage
     wait 0x1E
-    if IF_EQUAL, VAR_CURRENT_MOVE, 0x138, _00C8
+    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_AROMATHERAPY, _00C8
     if IF_NOTMASK, VAR_09, 0x1, _0090
-    printmessage 0x2B1, 0x25, 0x1, 0x1, 0xFF, "NaN", "NaN", "NaN"
+    // "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nblocks {STRVAR_1 6, 2, 0}!"
+    printmessage 689, TAG_NICK_ABILITY_MOVE, BATTLER_ATTACKER, BATTLER_ATTACKER, BATTLER_xFF, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
 _0090:
     if IF_NOTMASK, VAR_09, 0x2, _00C8
-    printmessage 0x2B1, 0x25, 0x10, 0x10, 0xFF, "NaN", "NaN", "NaN"
+    // "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nblocks {STRVAR_1 6, 2, 0}!"
+    printmessage 689, TAG_NICK_ABILITY_MOVE, BATTLER_ATTACKER_PARTNER, BATTLER_ATTACKER_PARTNER, BATTLER_xFF, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
 _00C8:
