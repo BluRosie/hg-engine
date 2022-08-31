@@ -83,6 +83,10 @@ get_mon_ow_tag:
     b @@_return_r4 // if female then no further adjustment needs to be made
 
 @@_handleForms:
+    ldr r0, =(SPECIES_LICKILICKY)
+    add r0, #(SPECIES_GENESECT - SPECIES_LICKILICKY)
+    cmp r5, r0
+    beq @@_return_r4 // genesect handling
     add r4, r4, r6 // if a mon has no form, then there is no reason the form field should have a value
 
 @@_return_r4:

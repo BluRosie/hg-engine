@@ -329,5 +329,7 @@ void __attribute__((long_call)) BoxMonInit(void *);
 u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 
 int PokeOtherFormMonsNoGet(int mons_no, int form_no);
+u32 GetGenesectType(u16 item);
+u32 GetGenesectForme(u16 item);
 
 #endif

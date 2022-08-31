@@ -235,3 +235,6 @@ BattleScriptCmdTable = 0x0226C6C8;
 /*hidden abilities*/
 PokePasoParaFastModeOn = 0x0206DDD8 |1;
 PokePasoParaFastModeOff = 0x0206DE00 |1;
+
+/* i can't believe i haven't used this one yet */
+GetItemData = 0x02077D88 | 1;

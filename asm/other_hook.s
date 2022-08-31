@@ -293,3 +293,49 @@ bx r0
 .global gLastPokemonLevelForMoneyCalc
 gLastPokemonLevelForMoneyCalc:
 .word 0
+
+
+// *r5 = species
+// r4 = heap id
+// return forme in r4
+//.global PCScreenFormChange
+//PCScreenFormChange:
+//ldrh r0, [r5]
+//ldr r1, =493 // SPECIES_ARCEUS
+//cmp r0, r1
+//bne check_genesect //_return_to_206EBFC
+//ldrb r1, [r5, #0xD]
+//cmp r1, #121 // multitype comparison
+//bne check_genesect
+//ldrh r0, [r5, #2] // item
+//mov r1, #1 // ITEM_PARAM_HOLD_EFFECT
+//mov r2, r4 // heap id
+//ldr r3, =0x02077D88 | 1 // GetItemData
+//bl call_via_r3
+//ldr r3, =0x02071C28 | 1 // get_arceus_type_from_held_effect
+//bl call_via_r3
+//mov r4, r0
+//b _return_to_206EC36
+//
+//check_genesect:
+//ldr r1, =699 // SPECIES_GENESECT
+//cmp r0, r1
+//bne _return_to_206EBFC
+//ldrh r0, [r5, #2]
+//bl GetGenesectForme
+////ldr r3, =GetGenesectForme | 1
+////bl call_via_r3
+//mov r4, r0
+//b _return_to_206EC36
+//
+//
+//_return_to_206EBFC:
+//ldr r1, =0x0206EBFC | 1
+//bx r1
+//
+//_return_to_206EC36:
+//ldr r0, =0x0206EC36 | 1
+//bx r0
+//
+//.pool
+

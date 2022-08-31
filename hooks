@@ -123,3 +123,8 @@ arm9 SetBoxMonAbility 080722DC 1
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3
 0096 grab_overworld_a081_index 080038B8 3
+
+#genesect formes
+arm9 sub_2071BD0 08071BD0 3
+#not what i thought it was
+#arm9 PCScreenFormChange 0806EBD8 0

@@ -3010,6 +3010,8 @@ u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
     else 
     {
         // get the mon ow tag
+        if (species == SPECIES_GENESECT)
+            form = 0; // fuck genesect forme overworlds
         tag = get_mon_ow_tag(species, form, isFemale);
         
         ret = get_a081_index_from_tag(tag);
@@ -3017,3 +3019,54 @@ u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
 
     return ret;
 }
+
+
+u32 GetGenesectType(u16 item) // this may just go unused
+{
+    switch (item)
+    {
+        case ITEM_DOUSE_DRIVE: return TYPE_WATER;
+        case ITEM_SHOCK_DRIVE: return TYPE_ELECTRIC;
+        case ITEM_BURN_DRIVE:  return TYPE_FIRE;
+        case ITEM_CHILL_DRIVE: return TYPE_ICE;
+    }
+    return TYPE_NORMAL;
+}
+
+u32 GetGenesectForme(u16 item)
+{
+    switch (item)
+    {
+        case ITEM_DOUSE_DRIVE: return 1;
+        case ITEM_SHOCK_DRIVE: return 2;
+        case ITEM_BURN_DRIVE:  return 3;
+        case ITEM_CHILL_DRIVE: return 4;
+    }
+    return 0;
+}
+
+
+// add genesect handling to this function that changes form in the party silently
+void sub_2071BD0(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    u32 ability = GetMonData(pp, ID_PARA_speabino, NULL);
+    u32 item = GetMonData(pp, ID_PARA_item, NULL);
+    u32 form = 0;
+    
+    if (species == SPECIES_ARCEUS
+     && ability == ABILITY_MULTITYPE)
+    {
+        u32 held_effect = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 0); // heap id 0 gang
+        form = GetArceusType(held_effect);
+        SetMonData(pp, ID_PARA_form_no, &form);
+    }
+
+    if (species == SPECIES_GENESECT)
+    {
+        form = GetGenesectForme(item);
+        SetMonData(pp, ID_PARA_form_no, &form);
+    }
+}
+
+// now we need to do the other one, hopefully responsible for pc

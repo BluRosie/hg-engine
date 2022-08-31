@@ -806,6 +806,20 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         }
+        
+        // handle genesect
+        if ((sp->battlemon[sp->client_work].species == SPECIES_GENESECT)
+         && (sp->battlemon[sp->client_work].hp))
+        {
+            form_no = GetGenesectForme(sp->battlemon[sp->client_work].item);
+            if(sp->battlemon[sp->client_work].form_no != form_no)
+            {
+                sp->battlemon[sp->client_work].form_no = form_no;
+                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                ret = TRUE;
+                break;
+            }
+        }
     }
 
     return ret;
