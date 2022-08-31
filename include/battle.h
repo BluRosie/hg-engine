@@ -110,7 +110,7 @@
 #define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
 #define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
-                                         WAZA_STATUS_FLAG_UMAKUKIMARAN|\
+                                         MOVE_STATUS_FLAG_FAILED|\
                                          WAZA_STATUS_FLAG_JIMEN_NOHIT|\
                                          WAZA_STATUS_FLAG_ICHIGEKI_NOHIT|\
                                          WAZA_STATUS_FLAG_RENZOKU_NOHIT|\
