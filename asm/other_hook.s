@@ -294,3 +294,22 @@ bx r0
 gLastPokemonLevelForMoneyCalc:
 .word 0
 
+
+.global UseItemFormeChange_hook
+UseItemFormeChange_hook:
+push {r1-r7}
+
+mov r0, r5
+mov r1, r4 // so that the memory can be freed
+bl UseItemFormeChangeCheck
+
+pop {r1-r7}
+cmp r0, #1
+bne return_to_0207C2D2
+mov r0, #31
+ldr r1, =0x0207C2D0 | 1 // else return 31
+bx r1
+
+return_to_0207C2D2:
+ldr r0, =0x0207C2D2 | 1
+bx r0

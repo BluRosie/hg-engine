@@ -3095,3 +3095,49 @@ u32 HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
     
     return 0;
 }
+
+u32 CanUseRevealMirror(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    u32 form_no = GetMonData(pp, ID_PARA_form_no, NULL);
+    
+    if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
+{
+    struct PartyPokemon *pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
+    if (wk->dat->item == ITEM_GRACIDEA
+     && GrashideaFeasibleCheck(pp) == 1)
+    {
+        wk->dat->after_mons = 1; // change to sky forme
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        return 1;
+    }
+    
+    if (wk->dat->item == ITEM_REVEAL_MIRROR
+     && CanUseRevealMirror(pp) == 1)
+    {
+        if (GetMonData(pp, ID_PARA_form_no, NULL) == 1)
+            wk->dat->after_mons = 0; // change to incarnate forme
+        else
+            wk->dat->after_mons = 1; // change to therian forme
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works but alright
+        return 1;
+    }
+    
+    return 0;
+}
+
+void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
+{
+    if (form != GetMonData(pp, ID_PARA_form_no, NULL))
+        SetMonData(pp, ID_PARA_form_no, &form);
+}

@@ -287,6 +287,47 @@ struct OVERWORLD_TAG
     u16 callback_params;
 };
 
+
+// frick new formes
+struct PLIST_DATA
+{
+    /* 0x00 */ void *pp;
+    /* 0x04 */ void *myitem;
+    /* 0x08 */ void *mailblock;
+    /* 0x0C */ void *cfg;
+    /* 0x10 */ void *tvwk;
+    /* 0x14 */ void *reg;
+    /* 0x18 */ void *scwk;
+    /* 0x1C */ void *fsys;
+               void *padsmth;
+    /* 0x20+4 */ u8 mode;
+    /* 0x21+4 */ u8 type;
+    /* 0x22+4 */ u8 ret_sel;
+    /* 0x23+4 */ u8 ret_mode;
+    /* 0x24+4 */ u16 item; // this is actually 0x28
+    /* 0x26+4 */ u16 move;
+    /* 0x28+4 */ u8 movepos;
+    /* 0x29+4 */ u8 con_mode;
+    /* 0x2A+4 */ u8 con_type;
+    /* 0x2B+4 */ u8 con_rank;
+    /* 0x2C+4 */ u8 in_num[6];
+    /* 0x32+4 */ u8 in_min:4;
+                 u8 in_max:4;
+    /* 0x33+4 */ u8 in_lv;
+    /* 0x34+4 */ s32 lv_cnt;
+    /* 0x38+4 */ u16 after_mons;
+    /* 0x3C+4 */ s32 shinka_cond;
+};
+
+struct PLIST_WORK
+{
+    u8 padding_x0[0x654];
+    struct PLIST_DATA *dat;
+    u8 padding_x658[0xC65-0x658];
+    u8 pos;
+};
+
+
 #define gOWTagToFileNum ((struct OVERWORLD_TAG *) (0x023C8000 + START_ADDRESS)) // i hate this lol
 
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
@@ -327,9 +368,14 @@ u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
 u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
 void __attribute__((long_call)) BoxMonInit(void *);
 u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
+void __attribute__((long_call)) GiratinaBoxPokemonFormChange(struct BoxPokemon *bp);
+u32 __attribute__((long_call)) GrashideaFeasibleCheck(struct PartyPokemon *pp);
+void __attribute__((long_call)) PokeList_FormDemoOverlayLoad(struct PLIST_WORK *wk);
 
 int PokeOtherFormMonsNoGet(int mons_no, int form_no);
 u32 GetGenesectType(u16 item);
 u32 GetGenesectForme(u16 item);
+u32 CanUseRevealMirror(struct PartyPokemon *pp);
+void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form);
 
 #endif

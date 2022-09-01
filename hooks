@@ -128,3 +128,6 @@ arm9 SetBoxMonAbility 080722DC 1
 arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
+
+#use item forme change
+arm9 UseItemFormeChange_hook 0807C29C 0
