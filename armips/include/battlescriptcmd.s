@@ -1116,8 +1116,17 @@ OTF_ROOST equ 6
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro checkbattlercondition,battler,mode,num,address
-    .word 0x9B, battler, mode, num
+// side status defines as checked for as the status field
+
+SIDE_STATUS_LIGHT_SCREEN equ 0
+SIDE_STATUS_REFLECT equ 1
+SIDE_STATUS_MIST equ 2
+SIDE_STATUS_SAFEGUARD equ 3
+SIDE_STATUS_SPIKES equ 4
+SIDE_STATUS_TOXIC_SPIKES equ 5
+
+.macro checkbattlercondition,battler,mode,status,address
+    .word 0x9B, battler, mode, status
     .word ((address - org()) / 4) - 1
 .endmacro
 

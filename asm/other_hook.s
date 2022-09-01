@@ -313,3 +313,18 @@ bx r1
 return_to_0207C2D2:
 ldr r0, =0x0207C2D2 | 1
 bx r0
+
+.pool
+
+
+.global Sav2_Misc_init_new_fields_hook
+Sav2_Misc_init_new_fields_hook:
+mov r0, r4
+bl Sav2_Misc_init_new_fields // new init function
+mov r0, r4
+bl 0x0202ADEC // ApricornTrees_Init, should not need longcall honestly
+mov r0, #2
+ldr r1, =(0x0202A8D4 | 1)
+bx r1
+
+.pool

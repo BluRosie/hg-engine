@@ -131,3 +131,8 @@ arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 
 #use item forme change
 arm9 UseItemFormeChange_hook 0807C29C 0
+
+#0202A8B4 - get different save size for the misc fields
+arm9 Sav2_Misc_sizeof 0802A8B4 0
+#0202A8BC+0x10 - add in initialization of berry tree spots at the same time as apricorn trees
+arm9 Sav2_Misc_init_new_fields_hook 0802A8CC 0

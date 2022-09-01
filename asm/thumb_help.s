@@ -135,3 +135,14 @@ __gnu_thumb1_case_shi:
 	pop     {r0, r1}
 	bx      lr
     .size __gnu_thumb1_case_shi, . - __gnu_thumb1_case_shi
+
+    .force_thumb
+    .syntax unified
+    .global memcpy
+    .thumb_func
+    .type memcpy,function
+memcpy:
+    push {lr}
+    blx 0x020E5AD8
+    pop {pc}
+    .size memcpy, . - memcpy

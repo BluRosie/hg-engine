@@ -1162,8 +1162,8 @@ gOWTagToFileNum:  // skip down a bit to see the parts that are specifically for 
 .halfword 1280, 1027, OVERWORLD_SIZE_LARGE // SPECIES_LANDORUS
 .halfword 1281, 1028, OVERWORLD_SIZE_LARGE // therian
 .halfword 1282, 1029, OVERWORLD_SIZE_LARGE // SPECIES_KYUREM
-.halfword 1283, 1029, OVERWORLD_SIZE_LARGE // white
-.halfword 1284, 1029, OVERWORLD_SIZE_LARGE // black
+.halfword 1283, 1094, OVERWORLD_SIZE_LARGE // white
+.halfword 1284, 1095, OVERWORLD_SIZE_LARGE // black
 .halfword 1285, 1030, OVERWORLD_SIZE_SMALL // SPECIES_KELDEO
 .halfword 1286,  297, OVERWORLD_SIZE_SMALL // resolute
 .halfword 1287, 1031, OVERWORLD_SIZE_SMALL // SPECIES_MELOETTA

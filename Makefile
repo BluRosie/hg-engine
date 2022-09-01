@@ -89,6 +89,7 @@ all: $(OUTPUT)
 	mkdir -p base
 	mkdir -p build/pokemonow
 	mkdir -p build/pokemonicon
+	mkdir -p build/pokemonpic
 	mkdir -p build/a018
 	mkdir -p build/text
 	mkdir -p build/move build/a011

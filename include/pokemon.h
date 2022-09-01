@@ -69,19 +69,159 @@ enum
 #define	NO_MOVES_SET    (0xffff)
 #define	SAME_MOVES_SET  (0xfffe)
 
-struct BoxPokemon
-{
-    u32 personal_rnd;          //04h	個性乱数
-    u16 pp_fast_mode : 1;      //06h	暗号／復号／チェックサム生成を後回しにして、処理を高速化モード
-    u16 ppp_fast_mode : 1;     //06h	暗号／復号／チェックサム生成を後回しにして、処理を高速化モード
-    u16 fusei_tamago_flag : 1; //06h	ダメタマゴフラグ
-    u16 : 13;                  //06h
-    u16 checksum;              //08h	チェックサム
+typedef struct SEAL {
+    u8 kind;           // ID of the seal
+    u8 x;              // X coordinate on the capsule
+    u8 y;              // Y coordinate on the capsule
+} SEAL;
+
+/*
+ * Capsule that you put on your ball
+ */
+typedef struct CAPSULE {
+    SEAL seals[8];  // The seals on the capsule
+} CAPSULE;
+
+typedef struct {
+    /* 0x00 */ u16 species;
+    /* 0x02 */ u16 heldItem;
+    /* 0x04 */ u32 otID; // low 16: visible; high 16: secret
+    /* 0x08 */ u32 exp;
+    /* 0x0C */ u8 friendship;
+    /* 0x0D */ u8 ability;
+    /* 0x0E */ u8 markings; // circle, triangle, square, heart, star, diamond
+    /* 0x0F */ u8 originLanguage;
+    /* 0x10 */ u8 hpEV;
+    /* 0x11 */ u8 atkEV;
+    /* 0x12 */ u8 defEV;
+    /* 0x13 */ u8 spdEV;
+    /* 0x14 */ u8 spatkEV;
+    /* 0x15 */ u8 spdefEV;
+    /* 0x16 */ u8 coolStat;
+    /* 0x17 */ u8 beautyStat;
+    /* 0x18 */ u8 cuteStat;
+    /* 0x19 */ u8 smartStat;
+    /* 0x1A */ u8 toughStat;
+    /* 0x1B */ u8 sheen;
+    // TODO: Finish SinnohRibbonSet1
+    /* 0x1C */ u32 sinnohRibbons;
+//    u8 sinnohChampRibbon:1, abilityRibbon:1;
+//    u8 field_0x1d;
+//    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
+//    u8 field_0x1f;
+} PokemonDataBlockA;
+
+typedef struct {
+    /* 0x00 */ u16 moves[4];
+    /* 0x08 */ u8 movePP[4];
+    /* 0x0C */ u8 movePpUps[4];
+    /* 0x10 */ u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
+    // TODO: Finish HoennRibbonSet
+    /* 0x14 */ u32 ribbonFlags; // cool, ...
+    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForm:5;
+    /* 0x19 */ u8 HGSS_shinyLeaves:6;
+    /* 0x19 */ u8 unk_19_6:2;
+    /* 0x1A */ u16 Unused;
+    /* 0x1C */ u16 Platinum_EggLocation;
+    /* 0x1E */ u16 Platinum_MetLocation;
+} PokemonDataBlockB;
+
+typedef struct {
+    /* 0x00 */ u16 nickname[11];
+    /* 0x16 */ u8 Unused;
+    /* 0x17 */ u8 originGame;
+    // TODO: Finish SinnohRibbonSet2
+    /* 0x18 */ u64 sinnohRibbons2; // cool, ...
+} PokemonDataBlockC;
+
+typedef struct {
+    /* 0x00 */ u16 otTrainerName[8];
+    /* 0x10 */ u8 dateEggReceived[3];
+    /* 0x13 */ u8 dateMet[3];
+    /* 0x16 */ u16 DP_EggLocation;
+    /* 0x18 */ u16 DP_MetLocation;
+    /* 0x1A */ u8 pokerus;
+    /* 0x1B */ u8 pokeball;
+    /* 0x1C */ u8 metLevel:7;
+    u8 metGender:1;
+    /* 0x1D */ u8 encounterType;
+    /* 0x1E */ u8 HGSS_Pokeball;
+    /* 0x1F */ s8 mood;
+} PokemonDataBlockD;
+
+typedef union {
+    PokemonDataBlockA blockA;
+    PokemonDataBlockB blockB;
+    PokemonDataBlockC blockC;
+    PokemonDataBlockD blockD;
+} PokemonDataBlock;
+
+struct BoxPokemon {
+    /* 0x000 */ u32 pid;
+    /* 0x004 */ u16 party_lock:1;
+                u16 box_lock:1;
+                u16 checksum_fail:1;
+                u16 Unused:13;    // Might be used for validity checks
+    /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
+    /* 0x008 */ PokemonDataBlock substructs[4];
 };
 
-struct PartyPokemon
+union MailPatternData
 {
-    struct BoxPokemon boxMonData; //88h
+    u16 raw;
+    struct {
+        u16 icon:12;
+        u16 pal:4;
+    };
+};
+
+#define MAILMSG_BANK_NONE           (0xFFFF)
+#define MAILMSG_FIELDS_MAX          (2)
+
+typedef struct MailMessage {
+    u16 msg_bank;
+    u16 msg_no;
+    u16 fields[MAILMSG_FIELDS_MAX];
+} MAIL_MESSAGE;
+
+typedef struct Mail
+{
+    u32 author_otId;
+    u8 author_gender;
+    u8 author_language;
+    u8 author_version;
+    u8 mail_type;
+    u16 author_name[7 + 1];
+    union MailPatternData mon_icons[3];
+    u16 forme_flags; // bitfield of three 5-bit values
+    MAIL_MESSAGE unk_20[3];
+} MAIL;
+
+typedef struct PartyOnlyPokemon {
+    /* 0x088 */ u32 status; // slp:3, psn:1, brn:1, frz:1, prz:1, tox:1, ...
+    /* 0x08C */ u8 level;
+    /* 0x08D */ u8 capsule;
+    /* 0x08E */ u16 hp;
+    /* 0x090 */ u16 maxHp;
+    /* 0x092 */ u16 atk;
+    /* 0x094 */ u16 def;
+    /* 0x096 */ u16 speed;
+    /* 0x098 */ u16 spatk;
+    /* 0x09A */ u16 spdef;
+    /* 0x09C */ MAIL mail;
+    /* 0x0D4 */ CAPSULE sealCoords; // seal coords
+} PARTYONLYMON;
+
+struct PartyPokemon {
+    /* 0x000 */ struct BoxPokemon box;
+    /* 0x088 */ PARTYONLYMON party;
+}; // size: 0xEC
+
+struct Party
+{
+    s32 maxPossibleCount;
+    s32 count;
+    // all the other mons here
 };
 
 enum
@@ -291,7 +431,7 @@ struct OVERWORLD_TAG
 // frick new formes
 struct PLIST_DATA
 {
-    /* 0x00 */ void *pp;
+    /* 0x00 */ struct Party *pp;
     /* 0x04 */ void *myitem;
     /* 0x08 */ void *mailblock;
     /* 0x0C */ void *cfg;
@@ -371,11 +511,15 @@ u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemal
 void __attribute__((long_call)) GiratinaBoxPokemonFormChange(struct BoxPokemon *bp);
 u32 __attribute__((long_call)) GrashideaFeasibleCheck(struct PartyPokemon *pp);
 void __attribute__((long_call)) PokeList_FormDemoOverlayLoad(struct PLIST_WORK *wk);
+//void __attribute__((long_call)) PokeParty_Add(void *party, struct PartyPokemon *pp); // defined in battle.h
+void __attribute__((long_call)) PokeParty_Delete(void *party, u32 pos);
+u32 __attribute__((long_call)) PokeListProc_End(void *proc, int *seq);
 
 int PokeOtherFormMonsNoGet(int mons_no, int form_no);
 u32 GetGenesectType(u16 item);
 u32 GetGenesectForme(u16 item);
 u32 CanUseRevealMirror(struct PartyPokemon *pp);
 void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form);
+void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove);
 
 #endif

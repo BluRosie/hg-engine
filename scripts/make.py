@@ -421,14 +421,17 @@ def repoint():
                 if line.strip().startswith('#') or line.strip() == '':
                     continue
 
-                symbol, address = line.split()
+                files, symbol, address = line.split()
                 offset = int(address, 16) - 0x08000000
                 try:
                     code = table[symbol]
                 except KeyError:
                     print('Symbol missing:', symbol)
                     continue
-                rom2 = open("base/arm9.bin",'rb+')
+                if files == "arm9":
+                    rom2 = open("base/arm9.bin", 'rb+')
+                else:
+                    rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
                 Repoint(rom2, code, offset, 1)
                 rom2.close()
 

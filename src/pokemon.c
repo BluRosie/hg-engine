@@ -3,10 +3,12 @@
 #include "../include/config.h"
 #include "../include/debug.h"
 #include "../include/pokemon.h"
+#include "../include/save.h"
 #include "../include/constants/ability.h"
-#include "../include/constants/item.h"
-#include "../include/constants/species.h"
 #include "../include/constants/file.h"
+#include "../include/constants/item.h"
+#include "../include/constants/moves.h"
+#include "../include/constants/species.h"
 
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
@@ -3099,7 +3101,6 @@ u32 HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
 u32 CanUseRevealMirror(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
-    u32 form_no = GetMonData(pp, ID_PARA_form_no, NULL);
     
     if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS)
     {
@@ -3107,6 +3108,39 @@ u32 CanUseRevealMirror(struct PartyPokemon *pp)
     }
     return 0;
 }
+
+
+#define RESHIRAM_MASK (0x80)
+#define JUST_SPLICER_POS_MASK (0x7F)
+
+u32 CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party)
+{
+    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    u32 form_no = GetMonData(pp, ID_PARA_form_no, NULL);
+    
+    if (species != SPECIES_KYUREM) // return invalid party slot if species isn't kyurem
+    {
+        return 6;
+    }
+    
+    for (u32 i = 0; i < ((form_no != 0) ? 6 : party->count); i++) // check all 6 party slots if looking to revert
+    {
+        struct PartyPokemon *currentmon = PokeParty_GetMemberPointer(party, i);
+        u32 species2 = GetMonData(currentmon, ID_PARA_monsno, NULL);
+        
+        if (species2 == 0 && form_no != 0) // looking for empty slot to dump reshiram to from save
+        {
+            return i;
+        }
+        else if ((species2 == SPECIES_RESHIRAM || species2 == SPECIES_ZEKROM) && form_no == 0) // looking for a reshiram to store to the save
+        {
+            return ((species2 == SPECIES_RESHIRAM ? RESHIRAM_MASK : 0) | i);
+        }
+    }
+    return 6;
+}
+
+u32 queueAddPokeCount = 0;
 
 u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
 {
@@ -3129,15 +3163,110 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
             wk->dat->after_mons = 1; // change to therian forme
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
-        ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works but alright
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
+        return 1;
+    }
+    
+    u32 splicer_pos = CanUseDNASplicersGrabSplicerPos(pp, wk->dat->pp);
+    u32 reshiramBool = splicer_pos & RESHIRAM_MASK;
+    splicer_pos &= JUST_SPLICER_POS_MASK;
+    
+    if (wk->dat->item == ITEM_DNA_SPLICERS
+     && (splicer_pos < 6))
+    {
+        void *saveData = SaveBlock2_get();
+        struct SAVE_MISC_DATA *saveMiscData = Sav2_Misc_get(saveData);
+        
+        if (GetMonData(pp, ID_PARA_form_no, NULL) != 0 && saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS]) // revert forme and put reshiram back in party
+        {
+            u32 currForm = GetMonData(pp, ID_PARA_form_no, NULL);
+
+            // grab reshiram from save
+            // add reshiram to party--can't just use PokeParty_Add because icons freak out when you tell them to animate something that isn't there
+            //PokeParty_Add(wk->dat->pp, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
+            struct PartyPokemon *reshiram = PokeParty_GetMemberPointer(wk->dat->pp, splicer_pos);
+            *reshiram = saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS];
+            queueAddPokeCount = 1;
+
+            // delete reshiram from save--may just be able to leave the old data without having to deal with memset as long as we flag it as no mon there
+            memset(&saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS], 0, sizeof(struct PartyPokemon));
+            saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 0;
+            
+            wk->dat->after_mons = 0;
+            
+            ChangePartyPokemonToFormSwapMove(pp, wk->dat->after_mons, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+        }
+        else if (saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] == 0) // return nothing otherwise
+        {
+            // grab reshiram from party
+            // store reshiram in save
+            saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS] = *PokeParty_GetMemberPointer(wk->dat->pp, splicer_pos); // may have to directly memcpy this but this is good for the moment
+            // delete reshiram from party--splicer_pos has the position to delete
+            PokeParty_Delete(wk->dat->pp, splicer_pos);
+            saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 1;
+            
+            if (splicer_pos < wk->pos) // adjust this position back so that the right pokemon's forme gets changed
+            {
+                wk->pos--;
+                pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
+            }
+            
+            if (reshiramBool) // turn to white kyurem
+                wk->dat->after_mons = 1;
+            else              // turn to black kyurem
+                wk->dat->after_mons = 2;
+            
+            ChangePartyPokemonToFormSwapMove(pp, wk->dat->after_mons, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
+        }
+        else { return 0; } // get out because no changes should be made
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
         return 1;
     }
     
     return 0;
 }
 
+u32 PokeListProc_End_Extend(void *proc, int *seq) // finally add to pokecount so that icons are fine
+{
+    struct PLIST_WORK *wk = PROC_GetWork(proc);
+    
+    if (queueAddPokeCount)
+    {
+        queueAddPokeCount = 0;
+        wk->dat->pp->count++;
+    }
+
+    return PokeListProc_End(proc, seq);
+}
+
 void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
 {
     if (form != GetMonData(pp, ID_PARA_form_no, NULL))
+    {
         SetMonData(pp, ID_PARA_form_no, &form);
+        PokeParaCalc(pp);
+        PokeParaSpeabiSet(pp);
+    }
+}
+
+void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove)
+{
+    if (form != GetMonData(pp, ID_PARA_form_no, NULL))
+    {
+        ChangePartyPokemonToForm(pp, form);
+        for (u32 i = 0; i < 4; i++)
+        {
+            if (GetMonData(pp, ID_PARA_waza1+i, NULL) == oldMove)
+            {
+                SetMonData(pp, ID_PARA_waza1+i, &newMove);
+                u32 maxPP = GetMonData(pp, ID_PARA_pp_max1+i, NULL);
+                if (GetMonData(pp, ID_PARA_pp1+i, NULL) > maxPP)
+                {
+                    SetMonData(pp, ID_PARA_pp1+i, &maxPP);
+                }
+                break;
+            }
+        }
+    }
 }

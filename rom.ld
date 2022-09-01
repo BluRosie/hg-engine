@@ -241,3 +241,13 @@ GetItemData = 0x02077D88 | 1;
 GiratinaBoxPokemonFormChange = 0x02071CBC | 1;
 GrashideaFeasibleCheck = 0x02071DB4 | 1;
 PokeList_FormDemoOverlayLoad = 0x0207CB54 | 1;
+
+/* save stuff */
+SaveBlock2_get = 0x020272B0 | 1;
+Sav2_Misc_get = 0x0202A954 | 1;
+PokeParty_Delete = 0x0207456C | 1;
+Overlay_UnloadID = 0x02006F7C | 1;
+Overlay_Load = 0x02006FF8 | 1;
+WIPE_SYS_EndCheck = 0x0200FB5C | 1;
+PokeListProc_End = 0x020795E0 | 1;
+PROC_GetWork = 0x02007290 | 1;
