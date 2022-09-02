@@ -102,7 +102,7 @@ all: $(OUTPUT)
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(PYTHON) scripts/build.py
-	make move_narc
+	$(MAKE) move_narc
 	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
@@ -114,7 +114,7 @@ code_and_data_only: $(OUTPUT)
 	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
-	make move_narc
+	$(MAKE) move_narc
 	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
@@ -140,7 +140,7 @@ code_only: $(OUTPUT)
 build_tools:
 	cd tools ; $(CSC) /target:exe /out:gengfxnarc.exe source$(SEP)gengfxnarc.cs
 
-	cd tools/source/msgenc ; make
+	cd tools/source/msgenc ; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source$(SEP)BTX\ Editor$(SEP)Program-P.cs source$(SEP)BTX\ Editor$(SEP)pngtobtx0.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
@@ -149,7 +149,7 @@ build_tools:
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
 	cd tools/source/ndstool ; ./autogen.sh
-	cd tools/source/ndstool ; ./configure && make
+	cd tools/source/ndstool ; ./configure && $(MAKE)
 	mv tools/source/ndstool/ndstool tools/ndstool
 	rm -r -f tools/source/ndstool
 
@@ -163,7 +163,7 @@ build_tools:
 
 
 build_nitrogfx:
-	cd tools/source/nitrogfx ; make
+	cd tools/source/nitrogfx ; $(MAKE)
 	mv tools/source/nitrogfx/nitrogfx tools/nitrogfx
 
 
