@@ -1141,14 +1141,15 @@ OTF_ROOST equ 6
     .word ((address - org()) / 4) - 1
 .endmacro
 
+// TODO:  come and fix this urgently
 .macro checktoxicspikes,address
     .word 0xA0
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro moldbreakerabilitycheck,num,battler,ability,address
-    .word 0xA1, num, battler, ability
-    .word ((address - org()) / 4) - 1
+.macro moldbreakerabilitycheck,checker,battler,ability,destination
+    .word 0xA1, checker, battler, ability
+    .word ((destination - org()) / 4) - 1
 .endmacro
 
 .macro checkbattlersequal,battler1,battler2,address
@@ -1266,8 +1267,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xB7, field
 .endmacro
 
-.macro mosaic,battler,num,wait
-    .word 0xB8, battler, num, wait
+.macro mosaic,battler,mosaicness,wait
+    .word 0xB8, battler, mosaicness, wait
 .endmacro
 
 .macro changeform,battler
@@ -1368,7 +1369,6 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xCF
 .endmacro
 
-// check1hp
 .macro cmd_D0_checkhpsomething,battler
     .word 0xD0, battler
 .endmacro
