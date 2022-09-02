@@ -1057,6 +1057,16 @@ VAR_90 equ 90
     .word 0x8F
 .endmacro
 
+// oneturnflag defines for flag value in the following script commands
+
+OTF_STRUGGLE equ 0
+OTF_PP_DECREASE equ 1
+OTF_PROTECT equ 2
+OTF_HELPING_HAND equ 3
+OTF_MAGIC_COAT equ 4
+OTF_SNATCH equ 5
+OTF_ROOST equ 6
+
 .macro checkoneturnflag,battler,flag,value,address
     .word 0x90, battler, flag, value
     .word ((address - org()) / 4) - 1
