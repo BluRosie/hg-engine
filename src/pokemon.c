@@ -3194,7 +3194,8 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
             
             wk->dat->after_mons = 0;
             
-            ChangePartyPokemonToFormSwapMove(pp, wk->dat->after_mons, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+            SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+            SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
         }
         else if (saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] == 0) // return nothing otherwise
         {
@@ -3216,7 +3217,8 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
             else              // turn to black kyurem
                 wk->dat->after_mons = 2;
             
-            ChangePartyPokemonToFormSwapMove(pp, wk->dat->after_mons, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
+            SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
+            SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->dat->after_mons == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
         }
         else { return 0; } // get out because no changes should be made
         sys_FreeMemoryEz(dat);
@@ -3250,23 +3252,28 @@ void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
     }
 }
 
+void SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove)
+{
+    for (u32 i = 0; i < 4; i++)
+    {
+        if (GetMonData(pp, ID_PARA_waza1+i, NULL) == oldMove)
+        {
+            SetMonData(pp, ID_PARA_waza1+i, &newMove);
+            u32 maxPP = GetMonData(pp, ID_PARA_pp_max1+i, NULL);
+            if (GetMonData(pp, ID_PARA_pp1+i, NULL) > maxPP)
+            {
+                SetMonData(pp, ID_PARA_pp1+i, &maxPP);
+            }
+            break;
+        }
+    }
+}
+
 void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove)
 {
     if (form != GetMonData(pp, ID_PARA_form_no, NULL))
     {
         ChangePartyPokemonToForm(pp, form);
-        for (u32 i = 0; i < 4; i++)
-        {
-            if (GetMonData(pp, ID_PARA_waza1+i, NULL) == oldMove)
-            {
-                SetMonData(pp, ID_PARA_waza1+i, &newMove);
-                u32 maxPP = GetMonData(pp, ID_PARA_pp_max1+i, NULL);
-                if (GetMonData(pp, ID_PARA_pp1+i, NULL) > maxPP)
-                {
-                    SetMonData(pp, ID_PARA_pp1+i, &maxPP);
-                }
-                break;
-            }
-        }
+        SwapPartyPokemonMove(pp, oldMove, newMove);
     }
 }

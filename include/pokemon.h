@@ -520,6 +520,7 @@ u32 GetGenesectType(u16 item);
 u32 GetGenesectForme(u16 item);
 u32 CanUseRevealMirror(struct PartyPokemon *pp);
 void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form);
+void SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove);
 void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove);
 
 #endif
