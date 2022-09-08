@@ -13,7 +13,7 @@
 
 
 BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp);
-
+BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp);
 
 typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
 #define START_OF_NEW_BTL_SCR_CMDS 0xE1
@@ -24,6 +24,7 @@ extern const btl_scr_cmd_func BattleScriptCmdTable[];
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
     [0xE1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E1_reduceweight,
+    [0xE2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E2_heavyslamdamagecalc,
 };
 
 
@@ -789,3 +790,25 @@ BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
+{
+    u32 ratio;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    // grab the ratio of defense weight/attack weight as a % to 2 decimal places
+    ratio = (sp->battlemon[sp->defence_client].weight * 1000) / sp->battlemon[sp->attack_client].weight;
+
+    if (ratio <= 2000)      // < 20.00%
+        sp->damage_power = 120;
+    else if (ratio <= 2500) // 20.01% - 25.00%
+        sp->damage_power = 100;
+    else if (ratio <= 3334) // 25.01% - 33.34%
+        sp->damage_power = 80;
+    else if (ratio <= 5000) // 33.35% - 50.00%
+        sp->damage_power = 60;
+    else                    // > 50.01%
+        sp->damage_power = 40;
+
+    return FALSE;
+}

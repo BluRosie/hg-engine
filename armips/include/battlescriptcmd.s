@@ -1461,3 +1461,6 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word num
 .endmacro
 
+.macro heavyslamdamagecalc
+    .word 0xE2
+.endmacro
