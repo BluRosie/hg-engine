@@ -3281,64 +3281,64 @@ void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 old
 }
 
 
-u32 GrabCurrentDeerlingForm(void)
-{
-    struct RTCDate date;
-    GF_RTC_CopyDate(&date);
-    
-    return date.month % 4;
-}
-
-BOOL Party_UpdateDeerlingSeasonForm(struct Party *party)
-{
-    u32 ret = FALSE;
-
-    for (int i = 0; i < party->count; i++)
-    {
-        struct PartyPokemon *pp = PokeParty_GetMemberPointer(party, i);
-        u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
-        u32 newForm = GrabCurrentDeerlingForm();
-        if (newForm != GetMonData(pp, ID_PARA_form_no, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK))
-        {
-            SetMonData(pp, ID_PARA_form_no, &newForm);
-            ret = TRUE;
-        }
-    }
-    
-    return ret;
-}
-
-// expand this to change deerling's form
-BOOL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time) 
-{
-    u32 ret = FALSE;
-    // new:  deerling handling
-    ret = Party_UpdateDeerlingSeasonForm(party);
-
-    // shaymin handling from pokeheartgold
-    int hour, minute;
-    if (time->hour >= 20 || time->hour < 4) {
-        hour = time->hour;
-        if (hour < 4) {
-            hour += 24;
-        }
-        minute = time->minute + 60 * (hour - 20);
-        if (minute < min_max + 1) {
-            Party_ResetAllShayminToLandForme(party);
-            ret = TRUE;
-        }/* else {
-            return FALSE;
-        }*/
-    } else {
-        hour = time->hour;
-        minute = time->minute + 60 * (hour - 4);
-        if (minute < min_max) {
-            Party_ResetAllShayminToLandForme(party);
-            ret = TRUE;
-        }/* else {
-            return FALSE;
-        }*/
-    }
-    
-    return ret;
-}
+//u32 GrabCurrentDeerlingForm(void)
+//{
+//    struct RTCDate date;
+//    GF_RTC_CopyDate(&date);
+//    
+//    return date.month % 4;
+//}
+//
+//BOOL Party_UpdateDeerlingSeasonForm(struct Party *party)
+//{
+//    u32 ret = FALSE;
+//
+//    for (int i = 0; i < party->count; i++)
+//    {
+//        struct PartyPokemon *pp = PokeParty_GetMemberPointer(party, i);
+//        u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+//        u32 newForm = GrabCurrentDeerlingForm();
+//        if (newForm != GetMonData(pp, ID_PARA_form_no, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK))
+//        {
+//            SetMonData(pp, ID_PARA_form_no, &newForm);
+//            ret = TRUE;
+//        }
+//    }
+//    
+//    return ret;
+//}
+//
+//// expand this to change deerling's form
+//BOOL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time) 
+//{
+//    u32 ret = FALSE;
+//    // new:  deerling handling
+//    ret = Party_UpdateDeerlingSeasonForm(party);
+//
+//    // shaymin handling from pokeheartgold
+//    int hour, minute;
+//    if (time->hour >= 20 || time->hour < 4) {
+//        hour = time->hour;
+//        if (hour < 4) {
+//            hour += 24;
+//        }
+//        minute = time->minute + 60 * (hour - 20);
+//        if (minute < min_max + 1) {
+//            Party_ResetAllShayminToLandForme(party);
+//            ret = TRUE;
+//        }/* else {
+//            return FALSE;
+//        }*/
+//    } else {
+//        hour = time->hour;
+//        minute = time->minute + 60 * (hour - 4);
+//        if (minute < min_max) {
+//            Party_ResetAllShayminToLandForme(party);
+//            ret = TRUE;
+//        }/* else {
+//            return FALSE;
+//        }*/
+//    }
+//    
+//    return ret;
+//}

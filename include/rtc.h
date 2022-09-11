@@ -42,8 +42,8 @@ struct RTCTime {
 };
 
 struct GF_RTC_DateTime {
-    RTCDate date;
-    RTCTime time;
+    struct RTCDate date;
+    struct RTCTime time;
 };
 
 void __attribute__((longcall)) GF_RTC_CopyDateTime(struct RTCDate *date, struct RTCTime *time);
