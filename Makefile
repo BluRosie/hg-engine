@@ -28,10 +28,10 @@ BUILDROM = test.nds
 ####################### Tools #########################
 MSGENC = tools/msgenc
 NDSTOOL = tools/ndstool
-BLZ = tools/blz$(EXE)
+BLZ = tools/blz
 ARMIPS = tools/armips
 NARCHIVE = tools/narcpy.py
-GFX = tools/nitrogfx$(EXE)
+GFX = tools/nitrogfx
 ####################### Seting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as

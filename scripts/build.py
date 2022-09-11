@@ -66,32 +66,6 @@ def RunCommand(cmd: [str]):
         sys.exit(1)
 
 
-def build_sprite():
-    DIR = "data/graphics/sprites"
-    NARC = "build/pokemonpic.narc"
-    BUILD = "build/pokemonpic"
-
-    get_dir = os.listdir(DIR)
-    fileExists = os.path.isfile(NARC)
-
-    flag = 0
-    if not os.path.exists(BUILD):
-        os.makedirs(BUILD)
-
-    for i in get_dir:
-        flag = 0
-        for s in os.listdir(DIR +"/" + i):
-            if fileExists and os.path.getmtime(DIR + "/" + i) < os.path.getmtime(NARC):
-                continue
-            flag = 1
-            break
-    if 'icrosoft' in uname().release:
-        cmd = ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
-    else:
-        cmd = ["mono"] + ["tools/gengfxnarc.exe"] + ["data/graphics/sprites",BUILD,str(len(get_dir) - 1)]
-    print("generating gfx data for folder " + i + "...")
-    RunCommand(cmd)
-
 def build_icon():
     DIR = "data/graphics/icongfx"
     NARC = "build/pokemonicon.narc"
@@ -263,7 +237,6 @@ def build_ow():
 
 
 if __name__ == '__main__':
-    build_sprite()
     build_icon()
     build_anim_script()
     build_anim_sub_script()
