@@ -27,15 +27,11 @@ ROMNAME = rom.nds
 BUILDROM = test.nds
 ####################### Tools #########################
 MSGENC = tools/msgenc
-NITROGFX = tools/nitrogfx
 NDSTOOL = tools/ndstool
-JSONPROC = tools/jsonproc$(EXE)
-O2NARC = tools/o2narc$(EXE)
-KNARC = tools/knarc$(EXE)
 BLZ = tools/blz$(EXE)
 ARMIPS = tools/armips
-POKEPICTOOL = tools/pokepic$(EXE)
 NARCHIVE = tools/narcpy.py
+GFX = tools/nitrogfx$(EXE)
 ####################### Seting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
@@ -69,6 +65,9 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 OW_SPRITES_SRC := $(wildcard data/graphics/overworlds/*.png)
 OW_SPRITES_OBJS := $(patsubst data/graphics/overworlds/*.png,build/data/graphics/overworlds/%.swav,$(OW_SPRITES_SRC))
 
+## includes
+include data/graphics/pokegra.mk
+
 ####################### Build #########################
 build/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
@@ -84,7 +83,7 @@ $(LINK):$(OBJS)
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
-all: $(OUTPUT)
+all: $(OUTPUT) $(NARC_FILES)
 	rm -rf base
 	mkdir -p base
 	mkdir -p build/pokemonow
