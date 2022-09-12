@@ -3195,7 +3195,8 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 0;
             
             wk->dat->after_mons = 0;
-            
+
+            ChangePartyPokemonToForm(pp, 0);
             SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
             SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
         }
@@ -3218,7 +3219,8 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
                 wk->dat->after_mons = 1;
             else              // turn to black kyurem
                 wk->dat->after_mons = 2;
-            
+
+            ChangePartyPokemonToForm(pp, wk->dat->after_mons);
             SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
             SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->dat->after_mons == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
         }
