@@ -13,7 +13,7 @@ goodri63 - GenIVSpriteReplacer (which is gengfxdata, png2ncgr, gengfxicons, ncgr
 
 Gota7 - Nitro Studio
 
-HamsterSkull, wolfang62, nintendoplz, Kyle-Dove, 2and2makes5, PokeGirl4Ever, Fernandojl, Silver-Skie, TyranitarDark, Getsuei-H, Milomilotic11, Kyt66, kdiamo11, ChocoSrawloid, StyleDude, Gallanty, Gizamimi-Pichu, Kid1513 on deviantart - Overworlds
+HamsterSkull, wolfang62, nintendoplz, Kyle-Dove, 2and2makes5, PokeGirl4Ever, Fernandojl, Silver-Skie, TyranitarDark, Getsuei-H, Milomilotic11, Kyt66, kdiamo11, ChocoSrawloid, StyleDude, Gallanty, Gizamimi-Pichu, Kid1513, princess-phoenix, Ezerart, DarkusShadow, Anarlaurendil, Lasse00 on deviantart - Overworlds
 
 KazoWAR - BTX-Editor (which is png2btx0 and btx02png)
 
