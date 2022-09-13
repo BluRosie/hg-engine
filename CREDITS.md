@@ -7,7 +7,7 @@ Bubble791 - strong basis for where this came from
 
 Contributors to MrDollSteak's DS-Style 64x64 Pokemon Sprite Resource - Mega Sprite placeholders
 
-LennyBitao, Gnomowladny, Krune, n-kin, joshr691, onigin_pixelart, Jefelin, MultiDiegoDani, Prodigal96, zerudez, leparagon, diegotoon20, gardow, greyenna, conyjams, kingofthe-x-roads, RayquazaFlygon on DeviantArt, and MaMe, maple, Layell - Pokémon Sprites
+LennyBitao, Gnomowladny, Krune, n-kin, joshr691, onigin_pixelart, Jefelin, MultiDiegoDani, Prodigal96, zerudez, leparagon, diegotoon20, gardow, greyenna, conyjams, kingofthe-x-roads, RayquazaFlygon, MyMarshlands on DeviantArt, and MaMe, maple, Layell - Pokémon Sprites
 
 goodri63 - GenIVSpriteReplacer (which is gengfxdata, png2ncgr, gengfxicons, ncgr2png, and gengfxnarc)
 

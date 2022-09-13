@@ -251,3 +251,12 @@ Overlay_Load = 0x02006FF8 | 1;
 WIPE_SYS_EndCheck = 0x0200FB5C | 1;
 PokeListProc_End = 0x020795E0 | 1;
 PROC_GetWork = 0x02007290 | 1;
+
+/* rtc functions */
+Party_ResetAllShayminToLandForme = 0x02071E2C | 1;
+GF_RTC_CopyDateTime = 0x02014708 | 1;
+GF_RTC_CopyTime = 0x0201474C | 1;
+GF_RTC_CopyDate = 0x02014780 | 1;
+GF_RTC_GetTimeOfDay = 0x0201481C | 1;
+GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
+GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;

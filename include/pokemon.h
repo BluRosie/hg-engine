@@ -522,5 +522,6 @@ u32 CanUseRevealMirror(struct PartyPokemon *pp);
 void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form);
 void SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove);
 void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove);
+u32 GrabCurrentSeason(void);
 
 #endif
