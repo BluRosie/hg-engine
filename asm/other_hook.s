@@ -226,6 +226,28 @@ and r0, r4 // make r0 solely the species
 // reset the function up
 push {r3-r7, lr}
 sub sp, #0x20
+
+// handle deerling
+// ldr r4, =635
+mov r4, #255
+add r4, #255 // 510
+add r4, #(635-510)
+cmp r0, r4
+beq grabDeerlingForm
+add r4, #1 // 636
+cmp r0, r4
+bne skipDeerling
+
+grabDeerlingForm:
+mov r5, r0
+push {r1-r3}
+bl GrabCurrentSeason
+pop {r1-r3}
+ldr r4, space_for_setmondata
+str r0, [r4]
+mov r0, r5
+
+skipDeerling:
 str r0, [sp, #0xC]
 ldr r0, [sp, #0x3C]
 ldr r4, =0x02247A20 | 1
