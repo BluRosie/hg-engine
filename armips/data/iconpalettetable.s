@@ -1092,10 +1092,10 @@ gIconPalTable:
 /* SPECIES_DARMANITAN_ZEN_MODE         */ .byte  0x0
 /* SPECIES_DARMANITAN_ZEN_MODE_GALARIAN*/ .byte  0x1
 /* SPECIES_DEERLING_SUMMER             */ .byte  0x1
-/* SPECIES_DEERLING_AUTUMN             */ .byte  0x1
+/* SPECIES_DEERLING_AUTUMN             */ .byte  0x0
 /* SPECIES_DEERLING_WINTER             */ .byte  0x1
 /* SPECIES_SAWSBUCK_SUMMER             */ .byte  0x1
-/* SPECIES_SAWSBUCK_AUTUMN             */ .byte  0x1
+/* SPECIES_SAWSBUCK_AUTUMN             */ .byte  0x0
 /* SPECIES_SAWSBUCK_WINTER             */ .byte  0x1
 /* SPECIES_TORNADUS_THERIAN            */ .byte  0x1
 /* SPECIES_THUNDURUS_THERIAN           */ .byte  0x0
