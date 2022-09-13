@@ -251,6 +251,7 @@ Overlay_Load = 0x02006FF8 | 1;
 WIPE_SYS_EndCheck = 0x0200FB5C | 1;
 PokeListProc_End = 0x020795E0 | 1;
 PROC_GetWork = 0x02007290 | 1;
+SavArray_PlayerParty_get = 0x02074904 | 1;
 
 /* rtc functions */
 Party_ResetAllShayminToLandForme = 0x02071E2C | 1;

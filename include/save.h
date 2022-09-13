@@ -40,6 +40,7 @@ struct SAVE_MISC_DATA
 
 void *__attribute__((long_call)) SaveBlock2_get(void);
 struct SAVE_MISC_DATA *__attribute__((long_call)) Sav2_Misc_get(void *saveblock2);
+struct Party *__attribute__((long_call)) SavArray_PlayerParty_get(void *saveData);
 
 /* overlay func defines */
 void __attribute__((long_call)) Overlay_UnloadID(u32 ovl_id);
