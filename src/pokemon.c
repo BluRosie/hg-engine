@@ -3290,6 +3290,17 @@ u32 GrabCurrentSeason(void)
     return ((u8)(date.month-1)) % 4;
 }
 
+void UpdateFormIfDeerling(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    
+    if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
+    {
+        u32 form = GrabCurrentSeason();
+        SetMonData(pp, ID_PARA_form_no, &form);
+    }
+}
+
 BOOL Party_UpdateDeerlingSeasonForm(struct Party *party)
 {
     u32 ret = FALSE;
