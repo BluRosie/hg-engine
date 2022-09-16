@@ -219,12 +219,6 @@ move_narc:
 	$(PYTHON) $(NARCHIVE) extract base/root/a/0/1/8 -o build/a018/ -nf
 	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/8 build/a018/ -nf
 
-	@echo "scripts:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/1/2 -o build/a012/ -nf
-	cp -r data/script/. build/a012
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/2 build/a012/ -nf
-	rm -rf build/a012/
-
 	@echo "text data:"
 	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/7 -o build/text/ -nf
 	$(MSGENC) -e -c charmap.txt data/text/003.txt build/text/7_003
