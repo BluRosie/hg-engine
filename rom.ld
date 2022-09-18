@@ -190,6 +190,7 @@ BattleWorkConfigWazaEffectOnOffCheck = 0x0223B6D4 | 1;
 SCIO_WazaEffectSet = 0x0226340C | 1;
 SCIO_WazaEffect2Set = 0x0226343C | 1;
 SkillSequenceGosub = 0x02245520 | 1;
+ServerKizetsuCheck = 0x0224DC74 | 1;
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;

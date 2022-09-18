@@ -734,17 +734,17 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
          && (sp->damage < 0)
          && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR))
         {
-            if((sp->battlemon[sp->defence_client].moveeffect.migawari_hp + sp->damage) <= 0)
+            if((sp->battlemon[sp->defence_client].moveeffect.substitute_hp + sp->damage) <= 0)
             {
-                sp->oneSelfFlag[sp->attack_client].kaigara_damage += (sp->battlemon[sp->defence_client].moveeffect.migawari_hp * -1);
+                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].moveeffect.substitute_hp * -1);
                 sp->battlemon[sp->defence_client].condition2 &= CONDITION2_SUBSTITUTE_OFF;
-                sp->hit_damage = sp->battlemon[sp->defence_client].moveeffect.migawari_hp * -1;
-                sp->battlemon[sp->defence_client].moveeffect.migawari_hp = 0;
+                sp->hit_damage = sp->battlemon[sp->defence_client].moveeffect.substitute_hp * -1;
+                sp->battlemon[sp->defence_client].moveeffect.substitute_hp = 0;
             }
             else
             {
-                sp->oneSelfFlag[sp->attack_client].kaigara_damage += sp->damage;
-                sp->battlemon[sp->defence_client].moveeffect.migawari_hp += sp->damage;
+                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += sp->damage;
+                sp->battlemon[sp->defence_client].moveeffect.substitute_hp += sp->damage;
                 sp->hit_damage = sp->damage;
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= STATUS_FLAG_MIGAWARI_HIT;
@@ -823,11 +823,11 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
 
             if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
             {
-                sp->oneSelfFlag[sp->attack_client].kaigara_damage += (sp->battlemon[sp->defence_client].hp * -1);
+                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].hp * -1);
             }
             else
             {
-                sp->oneSelfFlag[sp->attack_client].kaigara_damage += sp->damage;
+                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += sp->damage;
             }
             sp->oneTurnFlag[sp->defence_client].last_otf_damage = sp->damage;
             sp->oneTurnFlag[sp->defence_client].last_otf_client = sp->attack_client;

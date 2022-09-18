@@ -1293,6 +1293,10 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
     if (CheckSubstitute(sp, sp->defence_client) == TRUE) {
         return ret;
     }
+    
+    if (sp->battlemon[sp->attack_client].sheer_force_flag == 1) { // sheer force skips all of these if the attacker has it
+        return ret;
+    }
 
     switch (GetBattlerAbility(sp, sp->defence_client)) {
         case ABILITY_STATIC:
@@ -1313,7 +1317,6 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             }
             break;
         case ABILITY_COLOR_CHANGE:
-            if (sp->battlemon[sp->attack_client].sheer_force_flag == 0) // sheer force disables color change
             {
                 u8 movetype;
 

@@ -195,6 +195,7 @@
 #define STATUS2_FLAG_INFATURATION (0x000f0000)
 #define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
 #define STATUS2_FLAG_TRANSFORMED (0x00200000)
+#define STATUS2_FLAG_RAGE (0x00800000)
 #define STATUS2_FLAG_SUBSTITUTE (0x01000000)
 #define STATUS2_FLAG_FORESIGHT (0x20000000)
 
@@ -332,9 +333,9 @@
 
 
 //held item attack effect
-#define	ATK_CHECK_NORMAL	(0)	//チェックあり
-#define	ATK_CHECK_NONE		(1)	//チェックなし
-#define	ATK_CHECK_SHUTOUT	(2)	//シャットアウトだけチェックあり
+#define	ATK_CHECK_NORMAL	(0)
+#define	ATK_CHECK_NONE		(1)
+#define	ATK_CHECK_SHUTOUT	(2)
 
 //inc record
 #define	CLIENT_BOOT_TYPE_MINE		(0)
@@ -425,14 +426,14 @@ struct __attribute__((packed)) OneTurnEffect
     u32 koraeru_flag : 1; ///<こらえるフラグ
     u32 : 22;
 
-    int butsuri_otf_damage[4];
-    int butsuri_otf_client;
-    int butsuri_otf_client_bit;
-    int tokusyu_otf_damage[4];
-    int tokusyu_otf_client;
-    int tokusyu_otf_client_bit;
-    int last_otf_damage;
-    int last_otf_client;
+    int physical_damage[4];
+    int physical_damager;
+    int physical_damager_bit;
+    int special_damage[4];
+    int special_damager;
+    int special_damager_bit;
+    int last_damage;
+    int last_damager;
     int dameoshi_damage;
 };
 
@@ -454,7 +455,7 @@ struct __attribute__((packed)) OneSelfTurnEffect
     int special_damage;   ///0xC 存在特殊伤害量
     int special_damager;   ///0x10 <特殊攻撃したクライアント
     int status_flag;           ///0x14 <ステータスフラグ（battle_server.hにdefine定義）
-    int kaigara_damage;        ///0x18 <かいがらのすず用ダメージ量
+    int shell_bell_damage;        ///0x18 <かいがらのすず用ダメージ量
 
     //length 0x1C
 };
@@ -510,7 +511,7 @@ struct __attribute__((packed)) battle_moveflag
     int fake_out_count;
     int slow_start_count;
     int sakidori_count;
-    int migawari_hp;
+    int substitute_hp;
     u32 henshin_rnd;
 
     u16 kanashibari_wazano;
@@ -1223,6 +1224,7 @@ BOOL __attribute__((long_call)) BattleWorkConfigWazaEffectOnOffCheck(void *bw);
 void __attribute__((long_call)) SCIO_WazaEffectSet(void *bw, struct BattleStruct *sp, u16 move);
 void __attribute__((long_call)) SCIO_WazaEffect2Set(void *bw, struct BattleStruct *sp, u16 waza_no, int attack, int defence);
 void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int file, int subfile);
+int __attribute__((long_call)) ServerKizetsuCheck(struct BattleStruct *sp, int next_seq, int no_set_seq, int flag);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
