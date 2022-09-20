@@ -806,17 +806,17 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             }
             if(sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
             {
-                sp->oneTurnFlag[sp->defence_client].butsuri_otf_damage[sp->attack_client] = sp->damage;
-                sp->oneTurnFlag[sp->defence_client].butsuri_otf_client = sp->attack_client;
-                sp->oneTurnFlag[sp->defence_client].butsuri_otf_client_bit |= No2Bit(sp->attack_client);
+                sp->oneTurnFlag[sp->defence_client].physical_damage[sp->attack_client] = sp->damage;
+                sp->oneTurnFlag[sp->defence_client].physical_damager = sp->attack_client;
+                sp->oneTurnFlag[sp->defence_client].physical_damager_bit |= No2Bit(sp->attack_client);
                 sp->oneSelfFlag[sp->defence_client].physical_damage = sp->damage;
                 sp->oneSelfFlag[sp->defence_client].physical_damager = sp->attack_client;
             }
             else if(sp->moveTbl[sp->current_move_index].split == SPLIT_SPECIAL)
             {
-                sp->oneTurnFlag[sp->defence_client].tokusyu_otf_damage[sp->attack_client] = sp->damage;
-                sp->oneTurnFlag[sp->defence_client].tokusyu_otf_client = sp->attack_client;
-                sp->oneTurnFlag[sp->defence_client].tokusyu_otf_client_bit |= No2Bit(sp->attack_client);
+                sp->oneTurnFlag[sp->defence_client].special_damage[sp->attack_client] = sp->damage;
+                sp->oneTurnFlag[sp->defence_client].special_damager = sp->attack_client;
+                sp->oneTurnFlag[sp->defence_client].special_damager_bit |= No2Bit(sp->attack_client);
                 sp->oneSelfFlag[sp->defence_client].special_damage = sp->damage;
                 sp->oneSelfFlag[sp->defence_client].special_damager = sp->attack_client;
             }
@@ -829,8 +829,8 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             {
                 sp->oneSelfFlag[sp->attack_client].shell_bell_damage += sp->damage;
             }
-            sp->oneTurnFlag[sp->defence_client].last_otf_damage = sp->damage;
-            sp->oneTurnFlag[sp->defence_client].last_otf_client = sp->attack_client;
+            sp->oneTurnFlag[sp->defence_client].last_damage = sp->damage;
+            sp->oneTurnFlag[sp->defence_client].last_damager = sp->attack_client;
 
             sp->client_work = sp->defence_client;
             sp->hp_calc_work = sp->damage;
