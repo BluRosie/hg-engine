@@ -11,55 +11,38 @@ enum
     SPECIAL_BUFFER_ABILITY_NAME,
 };
 
+typedef struct SCRIPTCONTEXT SCRIPTCONTEXT;
+typedef BOOL (*ScrCmdFunc)(SCRIPTCONTEXT* ctx);
 
-struct Unkstruct
-{
-    void *unk_0;
-    void *unk_4;
-    void *unk_8;
-    /*0xC*/void *savedata;
+struct SCRIPTCONTEXT {
+    u8 stack_depth;
+    u8 mode;
+    u8 comparison_result;
+    u8 id;
+    ScrCmdFunc native_ptr;
+    const u8* script_ptr;
+    const u8* stack[20];
+    const ScrCmdFunc* cmd_table;
+    u32 cmd_count;
+    u32 data[4];
+    void *taskman;//TaskManager* taskman;
+    void *msg_data;//MSGDATA* msg_data;
+    u8* mapScripts;
+    void *fsys;//FieldSystem* fsys;
 };
 
-struct Script_Struct
-{
-    u8 unk_0[4];
-    void* unk_3;
-    /*0x8*/const u8 *scriptPtr;
-    void *array[20];
-    void *command_table;
-    u32 cmd_max;
-    u32 reg[4];
-    void *unk_4;
-    void *unk_5;
-    void *pScript;
-    /*0x80*/struct Unkstruct *fsys;
-};
-
-struct Save_Data
-{
-    int a1;
-    int a2;
-    void* ptr;
-};
-
-struct SaveBlock
-{
-    int unknow[5];
-    struct Save_Data data[0x2A];
-    /*...*/
-};
-
-void* __attribute__((long_call)) GetBagSaveData(void*);
-u8* __attribute__((long_call)) SaveData_GetRepelPtr(void*);
-void* __attribute__((long_call)) SaveData_GetEventPtr(void*);
-void* __attribute__((long_call)) SaveData_GetDexPtr(void*);
-void* __attribute__((long_call)) SaveData_GetPlayerPartyPtr(void*);
-
-void* __attribute__((long_call))GetEvScriptWorkMemberAdrs( void* fsys, u32 id );
-u16* __attribute__((long_call)) GetVarAdrs(void*,u16);
+void* __attribute__((long_call)) GetEvScriptWorkMemberAdrs( void* fsys, u32 id );
+u16* __attribute__((long_call)) GetVarAdrs(void *fsys, u16 var);
 void* __attribute__((long_call)) EncDataSave_GetSaveDataPtr(void* savedata);
-u16* __attribute__((long_call)) VarGet(void* savedata,u16 Var);
+u16* __attribute__((long_call)) VarGet(void *savedata, u16 var);
 void __attribute__((long_call)) WORDSET_RegisterAbilityName( void* wordset, u32 bufID, u32 wazaID );
 void __attribute__((long_call)) EventSet_Script(void *fsys, u16 scr_id, void* obj);
+
+// there are actual functions for ScriptReadHalfword and ScriptReadWord, but it's whatever
+#define ScriptReadByte(ctx) *(ctx->script_ptr++)
+#define ScriptReadHalfword(ctx) (ScriptReadByte(ctx) | (ScriptReadByte(ctx) << 8))
+#define ScriptReadWord(ctx) (ScriptReadHalfword(ctx) | (ScriptReadHalfword(ctx) << 16))
+
+#define ScriptGetVarPointer(ctx) GetVarAdrs(ctx->fsys, ScriptReadHalfword(ctx))
 
 #endif
