@@ -8,7 +8,7 @@
 
 // pokeheartgold coming through
 
-struct FieldSystem {
+typedef struct FieldSystem {
     u8 unk0[0x8];
     void *bg_config;
     void *savedata;//SAVEDATA* savedata;
@@ -33,7 +33,7 @@ struct FieldSystem {
     //void *unk114;//struct UnkFsysSub_114* unk114;
     //void *bugContest;//BUGCONTEST* bugContest;
     //u8 unk11C[0xC];
-}; // size: 0x128
+} FieldSystem; // size: 0x128
 
 
 
