@@ -1,7 +1,43 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
+#include "map_events_internal.h"
 #include "types.h"
+#include "save.h"
+
+
+// pokeheartgold coming through
+
+struct FieldSystem {
+    u8 unk0[0x8];
+    void *bg_config;
+    void *savedata;//SAVEDATA* savedata;
+    void *taskman;//TaskManager* taskman;
+    MAP_EVENTS* map_events; // what we are here for
+    //u8 unk18[0x8];
+    //Location* location;
+    //u8 unk24[0xC];
+    //MAPMATRIX* map_matrix;
+    //u8 unk34[0x8];
+    //MapObjectMan* unk3C;
+    //FIELD_PLAYER_AVATAR *playerAvatar;
+    //u8 unk44[0x68];
+    //u32 unkAC;
+    //u8 unkB0[0x4];
+    //s64 unkB4;
+    //u8 unkBC[0x28];
+    //FollowMon followMon;
+    //u8 unk104[4];
+    //void *unk108;//struct FieldSystemUnk108 *unk108;
+    //u8 filler_10C[8];
+    //void *unk114;//struct UnkFsysSub_114* unk114;
+    //void *bugContest;//BUGCONTEST* bugContest;
+    //u8 unk11C[0xC];
+}; // size: 0x128
+
+
+
+
 
 enum
 {
@@ -28,7 +64,7 @@ struct SCRIPTCONTEXT {
     void *taskman;//TaskManager* taskman;
     void *msg_data;//MSGDATA* msg_data;
     u8* mapScripts;
-    void *fsys;//FieldSystem* fsys;
+    FieldSystem* fsys;
 };
 
 void* __attribute__((long_call)) GetEvScriptWorkMemberAdrs( void* fsys, u32 id );
