@@ -64,7 +64,7 @@ struct SCRIPTCONTEXT {
     void *taskman;//TaskManager* taskman;
     void *msg_data;//MSGDATA* msg_data;
     u8* mapScripts;
-    FieldSystem* fsys;
+    void *fsys; // cyclical dependency
 };
 
 void* __attribute__((long_call)) GetEvScriptWorkMemberAdrs( void* fsys, u32 id );
@@ -74,6 +74,7 @@ u16* __attribute__((long_call)) VarGet(void *savedata, u16 var);
 void __attribute__((long_call)) WORDSET_RegisterAbilityName( void* wordset, u32 bufID, u32 wazaID );
 void __attribute__((long_call)) EventSet_Script(void *fsys, u16 scr_id, void* obj);
 void __attribute__((long_call)) ScriptJump(SCRIPTCONTEXT* ctx, const u8* ptr); // this is important
+void *__attribute__((long_call)) FieldSysGetAttrAddr(FieldSystem *fsys, int field);
 
 // there are actual functions for ScriptReadHalfword and ScriptReadWord, but it's whatever
 #define ScriptReadByte(ctx) *(u8*)(ctx->script_ptr++)

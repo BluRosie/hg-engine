@@ -281,3 +281,4 @@ MapObject_SetParam = 0x0205F2D0 | 1;
 MapObject_GetParam = 0x0205F2F4 | 1;
 MapObject_SetXRange = 0x0205F318 | 1;
 MapObject_SetYRange = 0x0205F320 | 1;
+FieldSysGetAttrAddr = 0x020402F0 | 1;
