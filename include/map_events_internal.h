@@ -138,7 +138,7 @@ struct LocalMapObject {
     /*0x128*/ FieldSystem *fsys;
 };
 
-LocalMapObject * __attribute__((long_call)) GetMapObjectByID(MapObjectMan *arr, int id);
+LocalMapObject * __attribute__((long_call)) GetMapObjectByID(void *arr, int id);
 int __attribute__((long_call)) MapObject_GetMovement(LocalMapObject *mapObject);
 u32 __attribute__((long_call)) MapObject_GetGfxID(LocalMapObject *mapObject);
 void __attribute__((long_call)) MapObject_SetGfxID(LocalMapObject *mapObject, u32 spriteId);
