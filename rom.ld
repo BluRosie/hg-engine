@@ -263,3 +263,21 @@ GF_RTC_CopyDate = 0x02014780 | 1;
 GF_RTC_GetTimeOfDay = 0x0201481C | 1;
 GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
+
+/* map object funcs */
+GetMapObjectByID = 0x0205EE60 | 1;
+MapObject_GetMovement = 0x0205F264 | 1;
+MapObject_GetGfxID = 0x0205F25C | 1;
+MapObject_SetGfxID = 0x0205F258 | 1;
+sub_0205F6AC = 0x0205F6AC | 1;
+MapObject_SetBits = 0x0205F20C | 1;
+MapObject_ClearBits = 0x0205F214 | 1;
+MapObject_SetID = 0x0205F248 | 1;
+MapObject_SetType = 0x0205F268 | 1;
+MapObject_GetType = 0x0205F26C | 1;
+MapObject_SetFlagID = 0x0205F270 | 1;
+MapObject_SetScript = 0x0205F278 | 1;
+MapObject_SetParam = 0x0205F2D0 | 1;
+MapObject_GetParam = 0x0205F2F4 | 1;
+MapObject_SetXRange = 0x0205F318 | 1;
+MapObject_SetYRange = 0x0205F320 | 1;
