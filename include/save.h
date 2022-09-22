@@ -38,14 +38,29 @@ struct SAVE_MISC_DATA
     u8 isMonStored[NUM_OF_STORED_MONS];
 };
 
+// vars
+typedef struct ScriptState {
+    u16 vars[0x170];
+    u8 flags[2912 / 8];
+} SCRIPT_STATE;
+
 void *__attribute__((long_call)) SaveBlock2_get(void);
 struct SAVE_MISC_DATA *__attribute__((long_call)) Sav2_Misc_get(void *saveData);
+struct SCRIPT_STATE *__attribute__((long_call)) SavArray_Flags_get(void *saveData);
 struct Party *__attribute__((long_call)) SavArray_PlayerParty_get(void *saveData);
 void* __attribute__((long_call)) GetBagSaveData(void *saveData);
 u8* __attribute__((long_call)) SaveData_GetRepelPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetEventPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetDexPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetPlayerPartyPtr(void *saveData);
+
+// grab var data from the save -> pass in SavArray_Flags_get for both flags/vars
+u32 __attribute__((long_call)) SetScriptVar(SCRIPT_STATE* state, u16 var_id, u16 value);
+u16 __attribute__((long_call)) GetScriptVar(SCRIPT_STATE* state, u16 var_id);
+// grab flag data from the save
+void __attribute__((long_call)) SetScriptFlag(SCRIPT_STATE* state, u16 flag_id);
+void __attribute__((long_call)) ClearScriptFlag(SCRIPT_STATE* state, u16 flag_id);
+BOOL __attribute__((long_call)) CheckScriptFlag(SCRIPT_STATE* state, u16 flag_id);
 
 /* overlay func defines */
 void __attribute__((long_call)) Overlay_UnloadID(u32 ovl_id);

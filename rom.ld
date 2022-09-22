@@ -87,7 +87,9 @@ SaveData_GetPlayerPartyPtr = 0x02074904 |1;
 
 GetVarAdrs = 0x020504A4 | 1;
 EncDataSave_GetSaveDataPtr = 0x0202D9C4 | 1;
-VarGet = 0x02040374 |1;
+GetVarPointer = 0x02040374 |1;
+VarSet = 0x020403C0 | 1;
+VarGet = 0x020403AC | 1;
 GF_CpuCopy8 = 0x0204D450;
 GetEvScriptWorkMemberAdrs = 0x020402F0 |1;
 WORDSET_RegisterAbilityName = 0x0200C060|1;
@@ -254,6 +256,11 @@ PokeListProc_End = 0x020795E0 | 1;
 PROC_GetWork = 0x02007290 | 1;
 SavArray_PlayerParty_get = 0x02074904 | 1;
 ScriptJump = 0x0203FE0C | 1;
+SetScriptVar = 0x02066A7C | 1;
+GetScriptVar = 0x02066AAC | 1;
+SetScriptFlag = 0x0206659C | 1;
+ClearScriptFlag = 0x020665A4 | 1;
+CheckScriptFlag = 0x020665AC | 1;
 
 /* rtc functions */
 Party_ResetAllShayminToLandForme = 0x02071E2C | 1;
