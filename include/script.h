@@ -14,12 +14,12 @@ typedef struct FieldSystem {
     void *savedata;//SAVEDATA* savedata;
     void *taskman;//TaskManager* taskman;
     MAP_EVENTS* map_events; // what we are here for
-    //u8 unk18[0x8];
-    //Location* location;
-    //u8 unk24[0xC];
-    //MAPMATRIX* map_matrix;
+    u8 unk18[0x8];
+    void */*Location**/ location;
+    u8 unk24[0xC];
+    void */*MAPMATRIX**/ map_matrix;
+    void */*MapObjectMan**/ mapObjectMan;
     //u8 unk34[0x8];
-    //MapObjectMan* unk3C;
     //FIELD_PLAYER_AVATAR *playerAvatar;
     //u8 unk44[0x68];
     //u32 unkAC;
@@ -76,7 +76,7 @@ void __attribute__((long_call)) EventSet_Script(void *fsys, u16 scr_id, void* ob
 void __attribute__((long_call)) ScriptJump(SCRIPTCONTEXT* ctx, const u8* ptr); // this is important
 
 // there are actual functions for ScriptReadHalfword and ScriptReadWord, but it's whatever
-#define ScriptReadByte(ctx) *(ctx->script_ptr++)
+#define ScriptReadByte(ctx) *(u8*)(ctx->script_ptr++)
 #define ScriptReadHalfword(ctx) (ScriptReadByte(ctx) | (ScriptReadByte(ctx) << 8))
 #define ScriptReadWord(ctx) (ScriptReadHalfword(ctx) | (ScriptReadHalfword(ctx) << 16))
 
