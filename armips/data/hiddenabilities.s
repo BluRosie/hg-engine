@@ -1,7 +1,7 @@
 .nds
 .thumb
 
-//.include "armips/include/abilities.s"
+//.include "armips/include/abilities.s" // included by armips/global.s
 
 .create "build/a028/8_7", 0
 
@@ -1209,6 +1209,7 @@
 /* SPECIES_ZORUA_HISUIAN               */ .halfword ABILITY_NONE
 /* SPECIES_ZOROARK_HISUIAN             */ .halfword ABILITY_NONE
 /* SPECIES_BRAVIARY_HISUIAN            */ .halfword ABILITY_NONE
+/* SPECIES_SLIGGOO_HISUIAN             */ .halfword ABILITY_NONE
 /* SPECIES_GOODRA_HISUIAN              */ .halfword ABILITY_NONE
 /* SPECIES_AVALUGG_HISUIAN             */ .halfword ABILITY_NONE
 /* SPECIES_DECIDUEYE_HISUIAN           */ .halfword ABILITY_NONE

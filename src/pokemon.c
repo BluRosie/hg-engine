@@ -2985,6 +2985,21 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
 }
 
 
+u32 GetSpeciesBaseExp(u32 species, u32 form)
+{
+    u16 *baseExpTable = sys_AllocMemory(0, 3000);
+    u16 baseExp;
+    
+    species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
+
+    ArchiveDataLoad(baseExpTable, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST);
+    baseExp = baseExpTable[species];
+    sys_FreeMemoryEz(baseExpTable);
+
+    return baseExp;
+}
+
+
 // used for HoF/pokeathlon overworlds
 struct OVERWORLD_TAG *grab_overworld_ptr(u16 tag)
 {

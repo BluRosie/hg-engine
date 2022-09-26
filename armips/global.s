@@ -15,6 +15,7 @@
 
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list
+.include "armips/data/baseexp.s" // the hidden ability list
 
 /*
 CURRENT SYNTHETIC NARC ARMIPS USAGE - starting at START_ADDRESS (armips/include/config.s), sequentially

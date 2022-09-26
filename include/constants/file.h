@@ -12,6 +12,7 @@
 //a028 file indexes
 #define CODE_ADDON_SYNTHETIC_NARC_EXTENSION 0
 #define CODE_ADDON_HIDDEN_ABILITY_LIST 7
+#define CODE_ADDON_BASE_EXPERIENCE_LIST 8
 
 // TODO:  move these
 //stat change

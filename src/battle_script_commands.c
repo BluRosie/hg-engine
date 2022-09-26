@@ -216,11 +216,11 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
         int mons_getting_exp = 0;
         int mons_getting_exp_from_item = 0;
         u16 item;
-        u16 totalexp;
+        u32 totalexp;
         int eqp;
         struct PartyPokemon *pp;
 
-        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++)
+        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++) // this doesn't feel good for some reason
         {
             pp = BattleWorkPokemonParamGet(bw, 0, i);
             if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
@@ -239,7 +239,8 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
                 }
             }
         }
-        totalexp = PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
+        // multiply by 255/390 (map audino to 255) to not get massively inflated experience rates
+        totalexp = 255 * GetSpeciesBaseExp(GetMonData(pp, ID_PARA_monsno, NULL), GetMonData(pp, ID_PARA_form_no, NULL)) / 390;//PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
         totalexp = (totalexp * sp->battlemon[sp->fainting_client].level) / 7;
         if (mons_getting_exp_from_item)
         {
