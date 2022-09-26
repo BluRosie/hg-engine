@@ -1,6 +1,7 @@
-#include "../include/battle.h"
-#include "../include/pokemon.h"
 #include "../include/types.h"
+#include "../include/battle.h"
+#include "../include/config.h"
+#include "../include/pokemon.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/battle_script_constants.h"
 #include "../include/constants/battle_message_constants.h"
@@ -239,8 +240,9 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
                 }
             }
         }
+#if 1//EXPERIENCE_FORMULA_GEN <= 4 || EXPERIENCE_FORMULA_GEN == 6 
         // multiply by 255/390 (map audino to 255) to not get massively inflated experience rates
-        totalexp = 255 * GetSpeciesBaseExp(GetMonData(pp, ID_PARA_monsno, NULL), GetMonData(pp, ID_PARA_form_no, NULL)) / 390;//PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
+        totalexp = 255 * GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no) / 390;//PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
         totalexp = (totalexp * sp->battlemon[sp->fainting_client].level) / 7;
         if (mons_getting_exp_from_item)
         {
@@ -264,6 +266,44 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
             }
             sp->exp_share_obtained_exp = 0;
         }
+#else
+        pp = BattleWorkPokemonParamGet(bw, 0, sp->sel_mons_no[sp->attack_client & 2]); // grab the killer's level as the basis.  need to better figure this out
+        u32 Lp = GetMonData(pp, ID_PARA_level, NULL); // this is the hard part and why we get to rewrite entirely how this works eventually
+        u32 level = sp->battlemon[sp->fainting_client].level; // need to calculate exp individually for each mon it seems
+
+        totalexp = GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no); // base experience
+        totalexp = (totalexp * level) / 5;
+
+        u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
+        u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
+        
+        totalexp *= top;
+        totalexp /= bottom;
+        totalexp *= sqrt(2*level + 10);
+
+        if (mons_getting_exp_from_item)
+        {
+            sp->obtained_exp = (totalexp / 2) / mons_getting_exp;
+            if (sp->obtained_exp == 0)
+            {
+                sp->obtained_exp = 1;
+            }
+            sp->exp_share_obtained_exp = (totalexp / 2) / mons_getting_exp_from_item;
+            if(sp->exp_share_obtained_exp == 0)
+            {
+                sp->exp_share_obtained_exp = 1;
+            }
+        }
+        else
+        {
+            sp->obtained_exp = totalexp / mons_getting_exp;
+            if (sp->obtained_exp == 0)
+            {
+                sp->obtained_exp = 1;
+            }
+            sp->exp_share_obtained_exp = 0;
+        }
+#endif
     }
     else
     {

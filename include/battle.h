@@ -897,6 +897,7 @@ struct __attribute__((packed)) BattleStruct
                u32 : 31;
     /*0x3158*/ u8 padding_3158[0x26]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
+    /*0xUhhh*/ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*...*/
 };
 
