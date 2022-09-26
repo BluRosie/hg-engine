@@ -157,6 +157,8 @@
 #define BATTLE_TYPE_POKE_PARK 0x200
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 
+#define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
+
 // move effect flags/waza_kouka
 #define	MOVE_EFFECT_LOCK_ON          (0x00000018)
 #define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
@@ -760,9 +762,9 @@ struct __attribute__((packed)) BattleStruct
 
     /*0x94*/ int state_client;
     /*0x98*/ int push_client;                            
-    /*0x9C*/ int get_exp;                                
-    /*0xA0*/ int gakusyuu_get_exp;                       
-    /*0xA4*/ u32 get_exp_right_flag[2];                  
+    /*0x9C*/ int obtained_exp;
+    /*0xA0*/ int exp_share_obtained_exp;                       
+    /*0xA4*/ u32 obtained_exp_right_flag[2];                  
     /*0xAC*/ int skill_arc_kind;                         
     /*0xB0*/ int skill_arc_index;                        
     /*0xB4*/ int skill_seq_no;                           

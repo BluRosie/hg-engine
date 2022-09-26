@@ -199,6 +199,80 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
 };
 
 
+BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
+{
+    int adrs;
+    u32 fight_type = BattleTypeGet(bw);
+    //CLIENT_PARAM *cp = BattleWorkClientParamGet(bw, sp->fainting_client);
+
+    IncrementBattleScriptPtr(sp,1);
+
+    adrs = read_battle_script_param(sp);
+
+    if((/*cp->client_type*/sp->fainting_client & 1) && ((fight_type & BATTLE_TYPE_NO_EXPERIENCE) == 0))
+    {
+        int i;
+        int total_exp;
+        int mons_getting_exp = 0;
+        int mons_getting_exp_from_item = 0;
+        u16 item;
+        u16 totalexp;
+        int eqp;
+        struct PartyPokemon *pp;
+
+        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++)
+        {
+            pp = BattleWorkPokemonParamGet(bw, 0, i);
+            if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
+            {
+                if (sp->obtained_exp_right_flag[(sp->fainting_client >> 1) & 1] & No2Bit(i))
+                {
+                    mons_getting_exp++;
+                }
+
+                item = GetMonData(pp, ID_PARA_item, NULL);
+                eqp = BattleItemDataGet(sp, item, 1);
+
+                if (eqp == HOLD_EFFECT_EXP_SHARE)
+                {
+                    mons_getting_exp_from_item++;
+                }
+            }
+        }
+        totalexp = PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
+        totalexp = (totalexp * sp->battlemon[sp->fainting_client].level) / 7;
+        if (mons_getting_exp_from_item)
+        {
+            sp->obtained_exp = (totalexp / 2) / mons_getting_exp;
+            if (sp->obtained_exp == 0)
+            {
+                sp->obtained_exp = 1;
+            }
+            sp->exp_share_obtained_exp = (totalexp / 2) / mons_getting_exp_from_item;
+            if(sp->exp_share_obtained_exp == 0)
+            {
+                sp->exp_share_obtained_exp = 1;
+            }
+        }
+        else
+        {
+            sp->obtained_exp = totalexp / mons_getting_exp;
+            if (sp->obtained_exp == 0)
+            {
+                sp->obtained_exp = 1;
+            }
+            sp->exp_share_obtained_exp = 0;
+        }
+    }
+    else
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+
+
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     int address1;
