@@ -1150,9 +1150,9 @@ SIDE_STATUS_TOXIC_SPIKES equ 5
     .word ((address - org()) / 4) - 1
 .endmacro
 
-// TODO:  come and fix this urgently
-.macro checktoxicspikes,address
+.macro checktoxicspikes,battler,address
     .word 0xA0
+    .word battler
     .word ((address - org()) / 4) - 1
 .endmacro
 

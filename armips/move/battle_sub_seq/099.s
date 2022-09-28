@@ -18,11 +18,8 @@ a001_099:
     ifmonstat IF_EQUAL, BATTLER_REPLACE, MON_DATA_TYPE_2, 0x2, _0158
     ifmonstat IF_MASK, BATTLER_REPLACE, MON_DATA_MOVE_STATE, 0x8000000, _0158
 _0098:
-    checktoxicspikes _00B8
-    monflicker 0x20
-    startencounter
-    trainerslidein BATTLER_DEFENDER, 0x12
-_00B8:
+    checktoxicspikes BATTLER_REPLACE, _0108
+    if IF_EQUAL, VAR_09, 0x2, _0100
     if IF_EQUAL, VAR_09, 0x1, _00F0
     printmessage 0x429, 0x1, 0x6, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
@@ -31,6 +28,7 @@ _00B8:
 _00F0:
     gotosubscript 22
     goto _0108
+_0100:
     gotosubscript 47
 _0108:
     checkspikes BATTLER_REPLACE, _0158
