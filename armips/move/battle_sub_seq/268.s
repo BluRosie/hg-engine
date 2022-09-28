@@ -25,7 +25,7 @@ a001_268:
     printmessage 0x380, 0xF, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     goto _0190
 _00D4:
-    changevartomonvalue VAR_OP_CLEARMASK, BATTLER_ATTACKER, 0x35, 0x7
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_ATTACKER, 0x35, 0x7
     printmessage 0x37A, 0xF, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     goto _01A4
 _0104:
@@ -44,7 +44,7 @@ _0174:
     printmessage 0x377, 0xF, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     goto _0190
 _0190:
-    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, 0x34, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x34, 0x0
 _01A4:
     waitmessage
     setstatusicon BATTLER_ATTACKER, 0x0

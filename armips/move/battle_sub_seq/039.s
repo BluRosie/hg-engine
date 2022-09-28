@@ -19,7 +19,7 @@ a001_039:
     waitmessage
     wait 0x1E
     clearsomeflag BATTLER_ATTACKER
-    cmd_D0_checkhpsomething BATTLER_ATTACKER
+    checkshouldleavewith1hp BATTLER_ATTACKER
     gotosubscript 2
     gotosubscript 21
     endscript

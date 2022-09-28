@@ -18,7 +18,7 @@ a001_011:
     changevar VAR_OP_AND, VAR_43, 0xFF
     if IF_NOTEQUAL, VAR_43, 0x4, _0078
     trynaturalcure BATTLER_PLAYER, _0078
-    changevartomonvalue VAR_OP_SET, BATTLER_PLAYER, 0x34, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_PLAYER, 0x34, 0x0
 _0078:
     if IF_NOTMASK, VAR_BATTLE_TYPE, 0x1000, _00F4
     if IF_MASK, VAR_BATTLE_RESULT, 0x4, _00F4

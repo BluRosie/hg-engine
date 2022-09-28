@@ -12,7 +12,7 @@
 a001_023:
     abilitycheck 0x0, BATTLER_xFF, ABILITY_MAGIC_GUARD, _00E0
     abilitycheck 0x1, BATTLER_xFF, ABILITY_POISON_HEAL, _009C
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
     ifmonstat2 IF_EQUAL, BATTLER_xFF, VAR_47, 0x20, _00E0
     damagediv 32, 8
     changevar VAR_OP_SETMASK, VAR_06, 0x40

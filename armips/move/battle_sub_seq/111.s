@@ -10,9 +10,9 @@
 .create "build/move/battle_sub_seq/1_111", 0
 
 a001_111:
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_09
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_09
     ifmonstat2 IF_EQUAL, BATTLER_xFF, VAR_47, 0x9, _0094
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     changevar VAR_OP_SETMASK, VAR_06, 0x40
     if IF_NOTMASK, VAR_60, 0x100, _006C

@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_105", 0
 
 a001_105:
-    checknostatus BATTLER_DEFENDER, _0080
+    checksubstitute BATTLER_DEFENDER, _0080
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_STAT_STAGE_ATTACK, 0xC, _0044
     ifmonstat IF_NOTMASK, BATTLER_DEFENDER, MON_DATA_STATUS_2, 0x7, _0074
     goto _0080

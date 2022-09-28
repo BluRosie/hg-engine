@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_066", 0
 
 a001_066:
-    changevartomonvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x800000
+    changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x800000
     endscript
 
 .close

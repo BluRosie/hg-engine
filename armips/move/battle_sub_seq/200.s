@@ -16,8 +16,8 @@ a001_200:
     waitmessage
     setstatusicon BATTLER_xFF, 0x0
     wait 0x1E
-    changevartomonvalue VAR_OP_SET, BATTLER_xFF, 0x34, 0x0
-    changevartomonvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x35, 0x8000000
+    changemondatabyvalue VAR_OP_SET, BATTLER_xFF, 0x34, 0x0
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x35, 0x8000000
     gotosubscript 290
     endscript
 

@@ -13,7 +13,7 @@ a001_056:
     changevar2 VAR_OP_SET, VAR_MOVE_BACKUP, VAR_CURRENT_MOVE
     random 3, 3
     changevar VAR_OP_LSH, VAR_09, 0x4
-    changevartomonvalue2 VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, VAR_09
+    changemondatabyvar VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, VAR_09
     changevar2 VAR_OP_TO_BIT, VAR_09, VAR_ATTACKER
     changevar VAR_OP_LSH, VAR_09, 0x8
     changevar2 VAR_OP_SETMASK, VAR_FIELD_EFFECT, VAR_09

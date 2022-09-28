@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_217", 0
 
 a001_217:
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     ifmonstat IF_NOTMASK, BATTLER_ATTACKER, MON_DATA_MOVE_STATE, 0x200400C0, _0030
     togglevanish BATTLER_ATTACKER, 0x1

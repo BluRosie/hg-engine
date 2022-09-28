@@ -15,7 +15,7 @@ a001_123:
     wait 0xF
     printpreparedmessage
     waitmessage
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     endscript
 

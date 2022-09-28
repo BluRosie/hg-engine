@@ -17,7 +17,7 @@ a001_061:
     wait 0x1E
     changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_DAMAGE
     damagediv 32, 2
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x30, VAR_43
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x30, VAR_43
     changevar VAR_OP_MUL, VAR_43, 0xFFFFFFFF
     damagediv 43, 2
     if2 IF_LESSTHAN, VAR_43, 0x20, _00B4

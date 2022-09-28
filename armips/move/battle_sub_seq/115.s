@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_115", 0
 
 a001_115:
-    dorapidspineffect
+    rapidspin
     endscript
 
 .close

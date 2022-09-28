@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_226", 0
 
 a030_226:
-    checknostatus BATTLER_DEFENDER, _0018
+    checksubstitute BATTLER_DEFENDER, _0018
     tryacupressure _0018
     endscript
 _0018:

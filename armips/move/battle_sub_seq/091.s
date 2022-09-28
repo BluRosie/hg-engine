@@ -17,7 +17,7 @@ a001_091:
     trywhirlwind _012C
     gotosubscript 76
     trynaturalcure BATTLER_DEFENDER, _0084
-    changevartomonvalue VAR_OP_SET, BATTLER_DEFENDER, 0x34, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x34, 0x0
 _0084:
     deletepokemon BATTLER_DEFENDER
     waitmessage

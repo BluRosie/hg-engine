@@ -11,7 +11,7 @@
 
 a001_009:
     trynaturalcure BATTLER_REPLACE, _0020
-    changevartomonvalue VAR_OP_SET, BATTLER_REPLACE, 0x34, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_REPLACE, 0x34, 0x0
 _0020:
     returnmessage BATTLER_REPLACE
     waitmessage
@@ -26,7 +26,7 @@ _0054:
 _006C:
     switchindataupdate BATTLER_REPLACE
     loadballgfx
-    initballguage BATTLER_REPLACE
+    initballgauge BATTLER_REPLACE
     waitmessage
     if IF_EQUAL, VAR_43, 0x1, _00A8
     sentoutmessage BATTLER_REPLACE
@@ -35,7 +35,7 @@ _00A8:
     printmessage 0x3D3, 0x2, 0x6, "NaN", "NaN", "NaN", "NaN", "NaN"
 _00B8:
     waitmessage
-    deleteballguage BATTLER_REPLACE
+    deleteballgauge BATTLER_REPLACE
     waitmessage
     deleteballgfx
     pokemonappear BATTLER_REPLACE

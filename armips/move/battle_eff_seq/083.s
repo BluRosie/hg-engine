@@ -13,7 +13,7 @@ a030_083:
     printattackmessage
     waitmessage
     wait 0x1E
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     metronome
     jumptoeffectscript 0

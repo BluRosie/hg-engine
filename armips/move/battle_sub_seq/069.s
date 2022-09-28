@@ -12,7 +12,7 @@
 a001_069:
     setstatus2effect2 BATTLER_ATTACKER2, BATTLER_DEFENDER2, 0x20
     waitmessage
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_DEFENDER2, 0x30, VAR_HP_TEMP
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER2, 0x30, VAR_HP_TEMP
     damagediv 32, 8
     changevar VAR_OP_MUL, VAR_HP_TEMP, 0xFFFFFFFF
     changevar VAR_OP_SETMASK, VAR_06, 0x40

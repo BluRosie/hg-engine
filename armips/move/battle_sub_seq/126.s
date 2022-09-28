@@ -13,7 +13,7 @@ a001_126:
     if IF_NOTEQUAL, VAR_05, 0x1, _0028
     printattackmessage
     waitmessage
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
 _0028:
     printpreparedmessage

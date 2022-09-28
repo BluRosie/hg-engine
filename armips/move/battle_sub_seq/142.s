@@ -10,12 +10,12 @@
 .create "build/move/battle_sub_seq/1_142", 0
 
 a001_142:
-    checknostatus BATTLER_DEFENDER, _0084
+    checksubstitute BATTLER_DEFENDER, _0084
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_ABILITY, 0x79, _0084
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_ITEM, 0x70, _0084
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_86, 0x0, _0084
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_85, 0x0, _0084
-    tryknockitemoff _0084
+    tryknockoff _0084
     printpreparedmessage
     waitmessage
     wait 0x1E

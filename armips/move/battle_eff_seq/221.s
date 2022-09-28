@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_221", 0
 
 a030_221:
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x30, VAR_09
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x30, VAR_09
     changevar VAR_OP_DIV, VAR_09, 0x2
     ifmonstat2 IF_GREATER, BATTLER_DEFENDER, VAR_47, 0x9, _0054
     changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0x14

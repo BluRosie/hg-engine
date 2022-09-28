@@ -27,7 +27,7 @@ _0038:
     ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_TYPE_2, 0x2, _013C
     goto _0158
 _0108:
-    changevartomonvalue VAR_OP_SET, BATTLER_xFF, 0x4F, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_xFF, 0x4F, 0x0
     goto _013C
 _0124:
     clearsomeflag BATTLER_xFF
@@ -39,7 +39,7 @@ _013C:
     wait 0x1E
 _0158:
     changevar VAR_OP_ADD, VAR_39, 0x1
-    exitloopatvalue 0x27, _0038
+    jumpifvarisvalidbattler 0x27, _0038
     endscript
 
 .close

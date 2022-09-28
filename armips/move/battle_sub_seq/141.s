@@ -18,7 +18,7 @@ a001_141:
 _0058:
     printattackmessage
     waitmessage
-    checknostatus BATTLER_ADDL_EFFECT, _0138
+    checksubstitute BATTLER_ADDL_EFFECT, _0138
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_SOUNDPROOF, _0094
     if IF_MASK, VAR_FIELD_EFFECT, 0xF00, _0138
 _0094:
@@ -26,7 +26,7 @@ _0094:
     if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _0150
     if IF_MASK, VAR_10, 0x10001, _0138
     tryyawn _0138
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     printmessage 0x221, 0x9, 0x1, 0x7, "NaN", "NaN", "NaN", "NaN"
     waitmessage

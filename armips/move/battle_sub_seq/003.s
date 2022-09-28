@@ -11,10 +11,10 @@
 
 a001_003:
     trynaturalcure BATTLER_PLAYER_LEFT, _0020
-    changevartomonvalue VAR_OP_SET, BATTLER_PLAYER_LEFT, 0x34, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_PLAYER_LEFT, 0x34, 0x0
 _0020:
     trynaturalcure BATTLER_PLAYER_RIGHT, _0040
-    changevartomonvalue VAR_OP_SET, BATTLER_PLAYER_RIGHT, 0x34, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_PLAYER_RIGHT, 0x34, 0x0
 _0040:
     playse BATTLER_ATTACKER, 0x6FF
     if IF_MASK, VAR_BATTLE_TYPE, 0x80, _0108

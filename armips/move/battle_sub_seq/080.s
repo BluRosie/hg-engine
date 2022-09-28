@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_080", 0
 
 a001_080:
-    checknostatus BATTLER_DEFENDER, _0040
+    checksubstitute BATTLER_DEFENDER, _0040
     trysketch _0040
     gotosubscript 76
     printmessage 0x181, 0xA, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"

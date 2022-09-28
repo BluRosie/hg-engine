@@ -39,7 +39,7 @@ _0160:
     waitmessage
 _017C:
     if IF_EQUAL, VAR_05, 0x3, _019C
-    checknostatus BATTLER_ADDL_EFFECT, _03B8
+    checksubstitute BATTLER_ADDL_EFFECT, _03B8
 _019C:
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x7, _044C
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_SOUNDPROOF, _01DC
@@ -50,13 +50,13 @@ _01DC:
     if IF_MASK, VAR_10, 0x10001, _03B8
     if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _0500
     if IF_NOTEQUAL, VAR_05, 0x1, _0250
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
 _0250:
     setstatus2effect BATTLER_ADDL_EFFECT, 0x1
     waitmessage
     random 3, 2
-    changevartomonvalue2 VAR_OP_SETMASK, BATTLER_ADDL_EFFECT, 0x34, VAR_09
+    changemondatabyvar VAR_OP_SETMASK, BATTLER_ADDL_EFFECT, 0x34, VAR_09
     if IF_EQUAL, VAR_05, 0x3, _02AC
     printmessage 0x2F, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _02C4

@@ -25,10 +25,10 @@ _005C:
     wait 0x1E
 _00A0:
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_86, 0x0, _00CC
-    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, 0x56, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x56, 0x0
 _00CC:
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_85, 0x0, _0100
-    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, 0x55, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x55, 0x0
     removeitem BATTLER_ATTACKER
 _0100:
     endscript

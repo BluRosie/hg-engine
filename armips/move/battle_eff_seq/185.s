@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_185", 0
 
 a030_185:
-    dorevenge
+    revengedamagecalc
     critcalc
     damagecalc
     endscript

@@ -13,7 +13,7 @@ a030_241:
     trymefirst _0024
     printattackmessage
     waitmessage
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     jumptoeffectscript 0
 _0024:

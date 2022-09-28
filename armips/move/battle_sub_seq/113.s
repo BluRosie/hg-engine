@@ -19,7 +19,7 @@ a001_113:
     wait 0x1E
 _0040:
     if IF_MASK, VAR_10, 0x1FD849, _0060
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
 _0060:
     endscript

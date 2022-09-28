@@ -12,7 +12,7 @@
 a030_088:
     changevar VAR_OP_SETMASK, VAR_06, 0x800
     random 10, 5
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x2B, VAR_DAMAGE
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x2B, VAR_DAMAGE
     changevar2 VAR_OP_MUL, VAR_DAMAGE, VAR_09
     changevar VAR_OP_DIV, VAR_DAMAGE, 0xA
     if IF_NOTEQUAL, VAR_DAMAGE, 0x0, _0074

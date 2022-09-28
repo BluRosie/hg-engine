@@ -47,11 +47,11 @@ _0104:
     changevar2 VAR_OP_SET, VAR_SWITCHED_BATTLER, VAR_SWITCHED_BATTLER_TEMP
 _0114:
     loadballgfx
-    initballguage BATTLER_REPLACE
+    initballgauge BATTLER_REPLACE
     waitmessage
     sentoutmessage BATTLER_REPLACE
     waitmessage
-    deleteballguage BATTLER_REPLACE
+    deleteballgauge BATTLER_REPLACE
     waitmessage
     deleteballgfx
     pokemonappear BATTLER_REPLACE

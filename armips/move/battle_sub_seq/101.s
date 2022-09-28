@@ -26,7 +26,7 @@ _0058:
     wait 0x1E
 _0098:
     changevar VAR_OP_ADD, VAR_39, 0x1
-    exitloopatvalue 0x27, _0058
+    jumpifvarisvalidbattler 0x27, _0058
     endscript
 _00B8:
     changevar VAR_OP_SETMASK, VAR_10, 0x40

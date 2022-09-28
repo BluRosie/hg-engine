@@ -13,7 +13,7 @@ a030_009:
     printattackmessage
     waitmessage
     wait 0x1E
-    checkifchatot
+    setmovetomirrormove
     printmessage 0x31E, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

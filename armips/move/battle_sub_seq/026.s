@@ -11,7 +11,7 @@
 
 a001_026:
     abilitycheck 0x0, BATTLER_xFF, ABILITY_MAGIC_GUARD, _00A8
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
     damagediv 32, 8
     abilitycheck 0x1, BATTLER_xFF, ABILITY_HEATPROOF, _0054
     damagediv 32, 2

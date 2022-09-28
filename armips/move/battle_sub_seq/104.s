@@ -48,7 +48,7 @@ _0134:
     wait 0x1E
 _016C:
     changevar VAR_OP_ADD, VAR_39, 0x1
-    exitloopatvalue 0x27, _0028
+    jumpifvarisvalidbattler 0x27, _0028
     endscript
 _018C:
     gotosubscript 190

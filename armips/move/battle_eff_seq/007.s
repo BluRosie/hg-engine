@@ -15,7 +15,7 @@ a030_007:
     changevar VAR_OP_SET, VAR_09, 0x10000000
     changevar2 VAR_OP_LSH, VAR_09, VAR_ATTACKER
     changevar2 VAR_OP_SETMASK, VAR_06, VAR_09
-    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, 0x2F, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x2F, 0x0
     changevar VAR_OP_SET, VAR_HP_TEMP, 0x7FFF
     healthbarupdate BATTLER_ATTACKER
     waitmessage

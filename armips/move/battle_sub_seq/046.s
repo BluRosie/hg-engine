@@ -12,7 +12,7 @@
 a001_046:
     printattackmessage
     waitmessage
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
     damagediv 32, 2
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     gotosubscript 111

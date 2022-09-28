@@ -11,7 +11,7 @@
 
 a001_295:
     changevar VAR_OP_SET, VAR_MOVE_TEMP2, 0x1B1
-    seteffectprimary BATTLER_xFF
+    playanimation BATTLER_xFF
     waitmessage
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
     changevar VAR_OP_CLEARMASK, VAR_06, 0x4000

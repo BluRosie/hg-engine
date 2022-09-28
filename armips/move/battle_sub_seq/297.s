@@ -26,8 +26,8 @@ mega:
     setstatus2effect BATTLER_xFF, 0x10
     waitmessage
     // clear doubles flag?
-    changevartomonvalue VAR_OP_CLEARMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000
-    seteffectsecondary BATTLER_xFF, BATTLER_x15, BATTLER_xFF
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000
+    playanimation2 BATTLER_xFF, BATTLER_x15, BATTLER_xFF
     wait 0x7e
     wait 0x16e
     // change form
@@ -36,20 +36,20 @@ mega:
     waitmessage
     wait 0x1E
     // restore doubles flag
-    changevartomonvalue VAR_OP_SETMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000
+    changemondatabyvalue VAR_OP_SETMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
     changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
     ifmonstat IF_NOTMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000, _00EC
     setstatus2effect BATTLER_xFF, 0xF
     waitmessage
-    cmd_D6 BATTLER_xFF
+    swaptosubstitutesprite BATTLER_xFF
     waitmessage
     setstatus2effect BATTLER_xFF, 0x10
     waitmessage
     endscript
 _0044:
     // play set up animation
-    seteffectsecondary BATTLER_xFF, BATTLER_x15, BATTLER_xFF
+    playanimation2 BATTLER_xFF, BATTLER_x15, BATTLER_xFF
     wait 0x7e
     wait 0x16e
     // change form

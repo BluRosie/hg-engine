@@ -18,7 +18,7 @@ a001_146:
     changevar2 VAR_OP_SET, VAR_ATTACKER, VAR_BATTLER_SOMETHING
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x1
     changevar VAR_OP_SET, VAR_MOVE_TEMP2, 0x121
-    seteffectprimary BATTLER_xFF
+    playanimation BATTLER_xFF
     waitmessage
     printmessage 0x244, 0x9, 0xFF, 0xE, "NaN", "NaN", "NaN", "NaN"
     waitmessage

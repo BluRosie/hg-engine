@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_232", 0
 
 a030_232:
-    checknostatus BATTLER_DEFENDER, _0020
+    checksubstitute BATTLER_DEFENDER, _0020
     changevar VAR_OP_SET, VAR_ADD_STATUS1, 0xA0000086
     endscript
 _0020:

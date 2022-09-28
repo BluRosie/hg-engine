@@ -18,15 +18,15 @@ a001_135:
     gotosubscript 76
     changevar2 VAR_OP_SET, VAR_43, VAR_TURNS
     changevar VAR_OP_AND, VAR_43, 0x1
-    changevartomonvalue2 VAR_OP_SET, BATTLER_ATTACKER, 0x48, VAR_43
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x1A, VAR_43
-    changevartomonvalue2 VAR_OP_SET, BATTLER_ATTACKER, 0x1A, VAR_43
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x48, VAR_43
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x1A, VAR_43
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x1A, VAR_43
     if IF_NOTEQUAL, VAR_43, 0x70, _0148
     changevar2 VAR_OP_SET, VAR_43, VAR_TURNS
     changevar VAR_OP_ADD, VAR_43, 0x1
-    changevartomonvalue2 VAR_OP_SET, BATTLER_ATTACKER, 0x59, VAR_43
-    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, 0x60, 0x0
-    changevartomonvalue VAR_OP_SET, BATTLER_ATTACKER, 0x61, 0x0
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x59, VAR_43
+    changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x60, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x61, 0x0
 _0148:
     printmessage 0x20B, 0x20, 0x1, 0x2, 0x2, "NaN", "NaN", "NaN"
     waitmessage

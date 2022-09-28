@@ -12,9 +12,9 @@
 a030_173:
     printattackmessage
     waitmessage
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
-    donaturepower
+    naturepower
     printmessage 0x1EA, 0x16, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

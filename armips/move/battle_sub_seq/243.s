@@ -14,7 +14,7 @@ a001_243:
     printmessage 0x424, 0xA, 0xFF, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevartomonvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x3B, 0x2000000
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x3B, 0x2000000
     endscript
 
 .close

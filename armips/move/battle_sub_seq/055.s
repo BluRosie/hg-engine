@@ -18,21 +18,21 @@ a001_055:
     abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_SOUNDPROOF, _0070
     if IF_MASK, VAR_FIELD_EFFECT, 0xF00, _01D0
 _0070:
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
     ifmonstat2 IF_EQUAL, BATTLER_ATTACKER, VAR_47, 0x20, _0228
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_1, 0xFFFFFFF8, _00D8
     printmessage 0xCD, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0108
 _00D8:
     setstatusicon BATTLER_ATTACKER, 0x0
-    changevartomonvalue VAR_OP_CLEARMASK, BATTLER_ATTACKER, 0x34, 0xFFFFFFF8
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_ATTACKER, 0x34, 0xFFFFFFF8
     printmessage 0xD0, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
 _0108:
     waitmessage
     wait 0x1E
-    changevartomonvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x34, 0x3
+    changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x34, 0x3
     setstatusicon BATTLER_ATTACKER, 0x1
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     changevar VAR_OP_SETMASK, VAR_06, 0x40

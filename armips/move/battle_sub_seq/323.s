@@ -18,7 +18,7 @@ a001_308:
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_STAT_STAGE_SPATK, 12, _0084
     setstatus2effect BATTLER_DEFENDER, 0xC
     waitmessage
-    changevartomonvalue VAR_OP_ADD, BATTLER_DEFENDER, MON_DATA_STAT_STAGE_SPATK, 0x1
+    changemondatabyvalue VAR_OP_ADD, BATTLER_DEFENDER, MON_DATA_STAT_STAGE_SPATK, 0x1
     changevar VAR_OP_SET, VAR_22, STAT_SPATK
     printmessage 0x26E, 0x27, 0x2, 0x2, 0xFF, "NaN", "NaN", "NaN"
     waitmessage

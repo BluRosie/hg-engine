@@ -25,7 +25,7 @@ msg_ability:
 script_end:
     waitmessage
     wait 0x1E
-    trymagiccoat2
+    magiccoat
     changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
     endscript
 

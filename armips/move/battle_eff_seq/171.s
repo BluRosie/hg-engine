@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_171", 0
 
 a030_171:
-    checknostatus BATTLER_DEFENDER, _005C
+    checksubstitute BATTLER_DEFENDER, _005C
     ifmonstat IF_MASK, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0x40, _003C
     changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xA
     goto _005C

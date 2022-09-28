@@ -16,7 +16,7 @@ a001_012:
     waitmessage
 _002C:
     if IF_NOTEQUAL, VAR_05, 0x1, _004C
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
 _004C:
     if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_RAPID_SPIN, _doRapidSpin
@@ -48,7 +48,7 @@ _00F4:
     endscript
 
 _doRapidSpin:
-    dorapidspineffect
+    rapidspin
     goto _return
 
 .close

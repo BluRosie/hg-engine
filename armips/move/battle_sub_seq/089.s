@@ -16,7 +16,7 @@ a001_089:
     trysubstitute _0094
     setstatus2effect BATTLER_ATTACKER, 0x19
     waitmessage
-    changevartomonvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x1000000
+    changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x1000000
     changevar VAR_OP_SETMASK, VAR_06, 0x40
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     gotosubscript 2

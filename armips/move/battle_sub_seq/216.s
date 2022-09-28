@@ -10,9 +10,9 @@
 .create "build/move/battle_sub_seq/1_216", 0
 
 a001_216:
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x37, VAR_43
-    changevartomonvalue2 VAR_OP_SET, BATTLER_ATTACKER, 0x37, VAR_43
-    changevartomonvalue VAR_OP_SET, BATTLER_DEFENDER, 0x37, 0x0
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x37, VAR_43
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x37, VAR_43
+    changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x37, 0x0
     endscript
 
 .close

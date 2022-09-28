@@ -400,12 +400,12 @@ TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK equ (60)    //trainertitle  trainernam
 .endmacro
 
 // playanimation
-.macro seteffectprimary,battler
+.macro playanimation,battler
     .word 0x17, battler
 .endmacro
 
 // playanimation2
-.macro seteffectsecondary,battler,attacker,defender
+.macro playanimation2,battler,attacker,defender
     .word 0x18, battler, attacker, defender
 .endmacro
 
@@ -645,7 +645,7 @@ VAR_90 equ 90
     .word ((address3 - org()) / 4) - 1
 .endmacro
 
-.macro changevartomonvalue,operator,battler,var,value
+.macro changemondatabyvalue,operator,battler,var,value
     .word 0x34, operator, battler, var, value
 .endmacro
 
@@ -670,7 +670,7 @@ VAR_90 equ 90
     .word 0x39, operator, var, value
 .endmacro
 
-.macro changevartomonvalue2,operator,battler,value,var
+.macro changemondatabyvar,operator,battler,value,var
     .word 0x3A, operator, battler, value, var
 .endmacro
 
@@ -687,7 +687,7 @@ VAR_90 equ 90
     .word 0x3D, num
 .endmacro
 
-.macro checkifchatot // i think it is this
+.macro setmovetomirrormove
     .word 0x3E
 .endmacro
 
@@ -854,7 +854,7 @@ VAR_90 equ 90
     .word ((address2 - org()) / 4) - 1
 .endmacro
 
-.macro willprotectwork,address
+.macro tryprotect,address
     .word 0x64
     .word ((address - org()) / 4) - 1
 .endmacro
@@ -892,7 +892,7 @@ VAR_90 equ 90
     .word 0x6B, value
 .endmacro
 
-.macro exitloopatvalue,value,address // something like that
+.macro jumpifvarisvalidbattler,value,address
     .word 0x6C, value
     .word ((address - org()) / 4) - 1
 .endmacro
@@ -933,7 +933,7 @@ VAR_90 equ 90
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro dorapidspineffect
+.macro rapidspin
     .word 0x75
 .endmacro
 
@@ -945,7 +945,7 @@ VAR_90 equ 90
     .word 0x77
 .endmacro
 
-.macro dopsychup
+.macro psychup
     .word 0x78
 .endmacro
 
@@ -968,7 +968,7 @@ VAR_90 equ 90
     .word 0x7C
 .endmacro
 
-.macro dofollowme
+.macro followme
     .word 0x7D
 .endmacro
 
@@ -993,16 +993,16 @@ VAR_90 equ 90
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro trymagiccoat,address
+.macro trysetmagiccoat,address
     .word 0x82
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro trymagiccoat2
+.macro magiccoat
     .word 0x83
 .endmacro
 
-.macro dorevenge
+.macro revengedamagecalc
     .word 0x84
 .endmacro
 
@@ -1016,7 +1016,7 @@ VAR_90 equ 90
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro tryknockitemoff,address
+.macro tryknockoff,address
     .word 0x87
     .word ((address - org()) / 4) - 1
 .endmacro
@@ -1125,7 +1125,7 @@ SIDE_STATUS_SAFEGUARD equ 3
 SIDE_STATUS_SPIKES equ 4
 SIDE_STATUS_TOXIC_SPIKES equ 5
 
-.macro checkbattlercondition,battler,mode,status,address
+.macro checksidecondition,battler,mode,status,address
     .word 0x9B, battler, mode, status
     .word ((address - org()) / 4) - 1
 .endmacro
@@ -1161,16 +1161,16 @@ SIDE_STATUS_TOXIC_SPIKES equ 5
     .word ((destination - org()) / 4) - 1
 .endmacro
 
-.macro checkbattlersequal,battler1,battler2,address
+.macro checkonsameteam,battler1,battler2,address
     .word 0xA2, battler1, battler2
     .word ((address - org()) / 4) - 1
 .endmacro
  
-.macro trypickup
+.macro pickup
     .word 0xA3
 .endmacro
 
-.macro dotrickroom
+.macro trickroom
     .word 0xA4
 .endmacro
 
@@ -1197,7 +1197,7 @@ SIDE_STATUS_TOXIC_SPIKES equ 5
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro donaturepower
+.macro naturepower
     .word 0xAA
 .endmacro
 
@@ -1297,19 +1297,19 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro initstartballguage,battler
+.macro initstartballgauge,battler
     .word 0xBD, battler
 .endmacro
 
-.macro deletestartballguage,battler
+.macro deletestartballgauge,battler
     .word 0xBE, battler
 .endmacro
 
-.macro initballguage,battler
+.macro initballgauge,battler
     .word 0xBF, battler
 .endmacro
 
-.macro deleteballguage,battler
+.macro deleteballgauge,battler
     .word 0xC0, battler
 .endmacro
 
@@ -1321,7 +1321,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xC2
 .endmacro
 
-.macro incrementgamestat,battler,num,id // i think
+.macro incrementgamestat,battler,num,id
     .word 0xC3, battler, num, id
 .endmacro
 
@@ -1329,7 +1329,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xC4, battler
 .endmacro
 
-.macro checkifcurrentmovehits,address // i think
+.macro abilityeffectcheckonhit,address
     .word 0xC5
     .word ((address - org()) / 4) - 1
 .endmacro
@@ -1378,7 +1378,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xCF
 .endmacro
 
-.macro cmd_D0_checkhpsomething,battler
+.macro checkshouldleavewith1hp,battler
     .word 0xD0, battler
 .endmacro
 
@@ -1387,7 +1387,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro checknostatus,battler,address
+.macro checksubstitute,battler,address
     .word 0xD2, battler
     .word ((address - org()) / 4) - 1
 .endmacro
@@ -1401,12 +1401,12 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xD4, battler
 .endmacro
 
-.macro checkwhenitemmakesmovehit,address
+.macro checkuturnitemeffect,address
     .word 0xD5
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro cmd_D6,battler
+.macro swaptosubstitutesprite,battler
     .word 0xD6, battler
 .endmacro
 
@@ -1427,7 +1427,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xDA, time
 .endmacro
 
-.macro checkmovetypematches,type,address
+.macro checkifcurrentmoveistype,type,address
     .word 0xDB, type
     .word ((address - org()) / 4) - 1
 .endmacro

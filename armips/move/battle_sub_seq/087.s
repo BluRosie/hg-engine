@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_087", 0
 
 a001_087:
-    willprotectwork _001C
+    tryprotect _001C
     gotosubscript 76
     gotosubscript 57
     endscript

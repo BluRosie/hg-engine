@@ -12,7 +12,7 @@
 a001_076:
     printattackmessage
     waitmessage
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     endscript
 

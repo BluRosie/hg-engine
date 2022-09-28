@@ -31,7 +31,7 @@ _0044:
     ifmonstat IF_NOTMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000, _00EC
     setstatus2effect BATTLER_xFF, 0xF
     waitmessage
-    cmd_D6 BATTLER_xFF
+    swaptosubstitutesprite BATTLER_xFF
     waitmessage
     setstatus2effect BATTLER_xFF, 0x10
     waitmessage

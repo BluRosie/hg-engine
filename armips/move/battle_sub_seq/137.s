@@ -15,7 +15,7 @@ a001_137:
     printmessage 0x21B, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevartomonvalue2 VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
     damagediv 32, 16
     checkitemeffect 0x1, BATTLER_xFF, 0x7C, _009C
     getitempower BATTLER_xFF, 0x9

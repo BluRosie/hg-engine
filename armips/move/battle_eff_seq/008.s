@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_008", 0
 
 a030_008:
-    checknostatus BATTLER_DEFENDER, _0040
+    checksubstitute BATTLER_DEFENDER, _0040
     ifmonstat IF_NOTMASK, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0x7, _0040
     changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000003D
     critcalc

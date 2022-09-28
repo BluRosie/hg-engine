@@ -14,7 +14,7 @@ a001_132:
     if IF_MASK, VAR_10, 0x10001, _0074
     gotosubscript 76
     random 2, 3
-    changevartomonvalue2 VAR_OP_SET, BATTLER_DEFENDER, 0x40, VAR_09
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x40, VAR_09
     printmessage 0x1F4, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

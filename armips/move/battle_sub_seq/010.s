@@ -15,11 +15,11 @@ a001_010:
 _0008:
     switchindataupdate BATTLER_REPLACE
     loadballgfx
-    initballguage BATTLER_REPLACE
+    initballgauge BATTLER_REPLACE
     waitmessage
     sentoutmessage BATTLER_REPLACE
     waitmessage
-    deleteballguage BATTLER_REPLACE
+    deleteballgauge BATTLER_REPLACE
     waitmessage
     deleteballgfx
     pokemonappear BATTLER_REPLACE

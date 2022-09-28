@@ -19,7 +19,7 @@ _003C:
     preparemessage 0x431, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
 _005C:
     changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000005A
-    dotrickroom
+    trickroom
     endscript
     changevar VAR_OP_SETMASK, VAR_10, 0x40
     endscript

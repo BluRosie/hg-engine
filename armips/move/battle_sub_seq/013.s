@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_013", 0
 
 a001_013:
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     printpreparedmessage
     waitmessage

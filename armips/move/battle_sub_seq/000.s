@@ -65,20 +65,20 @@ _01DC:
     starttrainerencounter BATTLER_ALL
     waitwithoutbuttonpress 0x60
     loadballgfx
-    initstartballguage BATTLER_OPPONENT
-    initstartballguage BATTLER_PLAYER
+    initstartballgauge BATTLER_OPPONENT
+    initstartballgauge BATTLER_PLAYER
     encountermessage BATTLER_OPPONENT
     waitmessage
     wait 0x1E
     encountermessage2 BATTLER_OPPONENT
-    deletestartballguage BATTLER_OPPONENT
+    deletestartballgauge BATTLER_OPPONENT
     throwpokeball BATTLER_OPPONENT, 0x0
     pokemonslidein BATTLER_OPPONENT
     waitwithoutbuttonpress 0x70
     hpgaugeslidewait BATTLER_OPPONENT
     waitmessage
     encountermessage2 BATTLER_PLAYER
-    deletestartballguage BATTLER_PLAYER
+    deletestartballgauge BATTLER_PLAYER
     throwpokeball BATTLER_PLAYER, 0x0
     pokemonslidein BATTLER_PLAYER
     waitwithoutbuttonpress 0x60
@@ -91,20 +91,20 @@ _02A8:
     starttrainerencounter BATTLER_ALL
     waitwithoutbuttonpress 0x60
     loadballgfx
-    initstartballguage BATTLER_OPPONENT
-    initstartballguage BATTLER_PLAYER
+    initstartballgauge BATTLER_OPPONENT
+    initstartballgauge BATTLER_PLAYER
     encountermessage BATTLER_OPPONENT
     waitmessage
     wait 0x1E
     encountermessage2 BATTLER_PLAYER
-    deletestartballguage BATTLER_PLAYER
+    deletestartballgauge BATTLER_PLAYER
     throwpokeball BATTLER_PLAYER, 0x0
     pokemonslidein BATTLER_PLAYER
     waitwithoutbuttonpress 0x60
     hpgaugeslidewait BATTLER_PLAYER
     waitmessage
     encountermessage2 BATTLER_OPPONENT
-    deletestartballguage BATTLER_OPPONENT
+    deletestartballgauge BATTLER_OPPONENT
     throwpokeball BATTLER_OPPONENT, 0x0
     pokemonslidein BATTLER_OPPONENT
     waitwithoutbuttonpress 0x70

@@ -10,11 +10,11 @@
 .create "build/move/battle_sub_seq/1_173", 0
 
 a001_173:
-    checknostatus BATTLER_DEFENDER, _0074
+    checksubstitute BATTLER_DEFENDER, _0074
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_HEAL_BLOCK_COUNTER, 0x0, _0074
     gotosubscript 76
-    changevartomonvalue VAR_OP_SETMASK, BATTLER_DEFENDER, 0x3B, 0x2000000
-    changevartomonvalue VAR_OP_SET, BATTLER_DEFENDER, 0x50, 0x5
+    changemondatabyvalue VAR_OP_SETMASK, BATTLER_DEFENDER, 0x3B, 0x2000000
+    changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x50, 0x5
     printmessage 0x41B, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

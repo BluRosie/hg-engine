@@ -17,7 +17,7 @@ a001_092:
     //gotosubscript 76
     //transform
     //waitmessage
-    seteffectprimary BATTLER_ATTACKER
+    playanimation BATTLER_ATTACKER
     waitmessage
     printmessage 0x159, 0xE, 0x1, 0x2, "NaN", "NaN", "NaN", "NaN"
     waitmessage

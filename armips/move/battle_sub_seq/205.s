@@ -15,7 +15,7 @@ a001_205:
     printmessage 0x37A, 0xF, 0xFF, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevartomonvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x35, 0x7
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x35, 0x7
     gotosubscript 290
     endscript
 

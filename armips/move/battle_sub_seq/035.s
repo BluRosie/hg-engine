@@ -12,7 +12,7 @@
 a001_035:
     gotosubscript 76
     setsomeflag BATTLER_ATTACKER
-    changevartomonvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x200
+    changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x200
     changevar VAR_OP_SET, VAR_DAMAGE_BACKUP, 0x0
     endscript
 

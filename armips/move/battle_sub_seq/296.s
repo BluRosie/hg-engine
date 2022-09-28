@@ -11,7 +11,7 @@
 
 a001_296:
     changevar VAR_OP_SETMASK, VAR_60, 0x8000000
-    changevartomonvalue VAR_OP_SET, BATTLER_x15, 0x62, 0x0
+    changemondatabyvalue VAR_OP_SET, BATTLER_x15, 0x62, 0x0
     changevar VAR_OP_SET, VAR_43, 0x0
     ifmonstat IF_MASK, BATTLER_x15, MON_DATA_PID, 0x1, _0064
     getdatafrompersonalnarc SPECIES_GIRATINA, VAR_43, 0x18
@@ -19,7 +19,7 @@ a001_296:
 _0064:
     getdatafrompersonalnarc SPECIES_GIRATINA, VAR_43, 0x19
 _0074:
-    changevartomonvalue2 VAR_OP_SET, BATTLER_x15, 0x1A, VAR_09
+    changemondatabyvar VAR_OP_SET, BATTLER_x15, 0x1A, VAR_09
     gotosubscript 262
     refreshmondata BATTLER_x15
     endscript
