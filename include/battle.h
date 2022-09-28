@@ -898,6 +898,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x3158*/ u8 padding_3158[0x26]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
     /*0xUhhh*/ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
+    /*0xUhhh*/ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*...*/
 };
 
@@ -1140,6 +1141,20 @@ int __attribute__((long_call)) CheckSideAbility(void *bw,void *sp,int flag,int c
 u8 __attribute__((long_call)) CheckNumMonsHit(void*,void*,int ,int);
 BOOL __attribute__((long_call)) CheckFieldMoveEffect(void *bw, void* ,int );
 struct PartyPokemon * __attribute__((long_call)) BattleWorkPokemonParamGet(void *bw, int client_no, int sel_mons_no);
+void *__attribute__((long_call)) BattleWorkFightMsgGet(void *bw);
+void __attribute__((long_call)) BattleWorkPinchSEFlagSet(void *bw, u32 mode);
+void __attribute__((long_call)) Snd_BgmPlay(u32 id);
+u32 __attribute__((long_call)) ST_ServerPokeOneSelfCheckActPP(void *bw, struct PartyPokemon *pp);
+void __attribute__((long_call)) PokeExpCalc(struct Party *ppt, int pos, int mons_no, int form_no);
+u8 __attribute__((long_call)) BattleWorkConfigMsgSpeedGet(void *bw);
+u8 __attribute__((long_call)) BattleMSG_Print(void *bw, void *msg_m, MESSAGE_PARAM *mp, int wait);
+u8 __attribute__((long_call)) GF_MSG_PrintEndCheck(u8 msg_index);
+void __attribute__((long_call)) SCIO_EXPGaugeCalcSet(void *bw, struct BattleStruct *sp, int send_client, int now_exp);
+u32 __attribute__((long_call)) ST_ServerQueCheck(struct BattleStruct *sp);
+void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw, struct BattleStruct *sp, int send_client, int status);
+void __attribute__((long_call)) SCIO_LevelUpEffectSet(void *bw, int send_client);
+u32 __attribute__((long_call)) BattleWorkPlaceIDGet(void *bw);
+void __attribute__((long_call)) Task_DistributeExp(void *arg0, void *work);
 
 u16 __attribute__((long_call)) BattleWorkRandGet(void*);
 int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
@@ -1165,7 +1180,6 @@ void __attribute__((long_call)) ST_ServerDefenceClientTokuseiCheck(void *bw, voi
 void __attribute__((long_call)) ST_ServerTotteokiCountCalc(void *bw,void *sp);
 void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,void *sp);
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
-void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw,void *sp,int send_client,int status);
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
 int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
 

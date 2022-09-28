@@ -16,6 +16,9 @@ Sub_GaugeObjHeadGet = 0x2E2F8 + 0x022378C1;
 ST_ServerSelectWazaGet = 0x1AA30 + 0x022378C1;
 ST_ServerNamakeCheck = 0x1B380 + 0x022378C1;
 SCIO_BlankMessage = 0x2CA30 + 0x022378C1;
+BattleWorkFightMsgGet = 0x0223A930 | 1;
+Task_DistributeExp = 0x02245898 | 1;
+
 
 ServerCriticalMessage = 0x166BC+ 0x022378C1;
 ServerWazaStatusMessage = 0x166D8 + 0x022378C1;
@@ -78,6 +81,8 @@ SodateyaWork_GetPokePasoPointer = 0x0206BDB0 |1;
 PokeParaPersonalRndChange = 0x0207235C | 1;
 PokeNatureGet = 0x0206FE2C |1;
 PokeSetMove = 0x020712D8 |1;
+PokeParaLevelExpGet = 0x0206FCDC | 1;
+PokeLevelUpCheck = 0x02070DB4 | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;
@@ -194,6 +199,18 @@ SCIO_WazaEffectSet = 0x0226340C | 1;
 SCIO_WazaEffect2Set = 0x0226343C | 1;
 SkillSequenceGosub = 0x02245520 | 1;
 ServerKizetsuCheck = 0x0224DC74 | 1;
+Snd_BgmPlay = 0x02005D48 | 1;
+BattleWorkPinchSEFlagSet = 0x0223BD3C | 1;
+ST_ServerPokeOneSelfCheckActPP = 0x022568B0 | 1;
+PokeExpCalc = 0x022463E8 | 1;
+BattleWorkConfigMsgSpeedGet = 0x0223B718 | 1;
+BattleMSG_Print = 0x0223C494 | 1;
+GF_MSG_PrintEndCheck = 0x02020094 | 1;
+SCIO_EXPGaugeCalcSet = 0x02263564 | 1;
+ST_ServerQueCheck = 0x0224ED48 | 1;
+SCIO_StatusEffectSet = 0x02263848 | 1;
+SCIO_LevelUpEffectSet = 0x0226399C | 1;
+BattleWorkPlaceIDGet = 0x0223AB60 | 1;
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;

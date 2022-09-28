@@ -19,4 +19,7 @@
 // uncomment the define to activate
 //#define DEBUG_PRIMAL_REVERSION
 
+// DEBUG_SCALED_EXPERIENCE is used to debug the new scaled experience system.
+//#define DEBUG_SCALED_EXPERIENCE
+
 #endif // DEBUG_H

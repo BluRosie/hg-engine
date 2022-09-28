@@ -1,6 +1,7 @@
 #include "../include/types.h"
 #include "../include/battle.h"
 #include "../include/config.h"
+#include "../include/debug.h"
 #include "../include/pokemon.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/battle_script_constants.h"
@@ -212,6 +213,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 
     if((/*cp->client_type*/sp->fainting_client & 1) && ((fight_type & BATTLE_TYPE_NO_EXPERIENCE) == 0))
     {
+#if EXPERIENCE_FORMULA_GEN < 5 || EXPERIENCE_FORMULA_GEN == 6 // flat exp rate
         int i;
         int total_exp;
         int mons_getting_exp = 0;
@@ -221,7 +223,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
         int eqp;
         struct PartyPokemon *pp;
 
-        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++) // this doesn't feel good for some reason
+        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++)
         {
             pp = BattleWorkPokemonParamGet(bw, 0, i);
             if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
@@ -240,7 +242,6 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
                 }
             }
         }
-#if 1//EXPERIENCE_FORMULA_GEN <= 4 || EXPERIENCE_FORMULA_GEN == 6 
         // multiply by 255/390 (map audino to 255) to not get massively inflated experience rates
         totalexp = 255 * GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no) / 390;//PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
         totalexp = (totalexp * sp->battlemon[sp->fainting_client].level) / 7;
@@ -252,44 +253,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
                 sp->obtained_exp = 1;
             }
             sp->exp_share_obtained_exp = (totalexp / 2) / mons_getting_exp_from_item;
-            if(sp->exp_share_obtained_exp == 0)
-            {
-                sp->exp_share_obtained_exp = 1;
-            }
-        }
-        else
-        {
-            sp->obtained_exp = totalexp / mons_getting_exp;
-            if (sp->obtained_exp == 0)
-            {
-                sp->obtained_exp = 1;
-            }
-            sp->exp_share_obtained_exp = 0;
-        }
-#else
-        pp = BattleWorkPokemonParamGet(bw, 0, sp->sel_mons_no[sp->attack_client & 2]); // grab the killer's level as the basis.  need to better figure this out
-        u32 Lp = GetMonData(pp, ID_PARA_level, NULL); // this is the hard part and why we get to rewrite entirely how this works eventually
-        u32 level = sp->battlemon[sp->fainting_client].level; // need to calculate exp individually for each mon it seems
-
-        totalexp = GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no); // base experience
-        totalexp = (totalexp * level) / 5;
-
-        u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
-        u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
-        
-        totalexp *= top;
-        totalexp /= bottom;
-        totalexp *= sqrt(2*level + 10);
-
-        if (mons_getting_exp_from_item)
-        {
-            sp->obtained_exp = (totalexp / 2) / mons_getting_exp;
-            if (sp->obtained_exp == 0)
-            {
-                sp->obtained_exp = 1;
-            }
-            sp->exp_share_obtained_exp = (totalexp / 2) / mons_getting_exp_from_item;
-            if(sp->exp_share_obtained_exp == 0)
+            if (sp->exp_share_obtained_exp == 0)
             {
                 sp->exp_share_obtained_exp = 1;
             }
@@ -312,6 +276,128 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 
     return FALSE;
 }
+
+// ov12_02245898 handles the experience calculator with all the other boosts.  should just do the entire exp calc there instead
+// case 0 appears to handle it.  can i just branch out of that?  i better be able to
+
+struct EXP_CALCULATOR
+{
+    /* 0x00 */ void *bw;
+    /* 0x04 */ struct BattleStruct *sp;
+    /* 0x08 */ u8 unk8[0x28-0x8];
+    /* 0x28 */ u32 seq_no;
+    /* 0x2C */ u32 ballID;
+    /* 0x30 */ u32 work[8];
+};
+
+// forgot i could do this so fucking nice
+void Task_DistributeExp_Extend(void *arg0, void *work)
+{
+#if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
+    int sel_mons_no;
+    struct EXP_CALCULATOR *expcalc = work;
+    struct PartyPokemon *pp;
+    int client_no;
+    int exp_client_no;
+    int item;
+    int eqp;
+    u32 mons_getting_exp_from_item = 0;
+    u32 mons_getting_exp = 0;
+    u32 totalexp = 0;
+
+    client_no = (expcalc->sp->fainting_client) >> 1 & 1;
+    exp_client_no = 0;
+
+    // count how many pokémon are getting experience
+    for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->PokeCount; i++)
+    {
+        pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+        if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
+        {
+            if (expcalc->sp->obtained_exp_right_flag[(expcalc->sp->fainting_client >> 1) & 1] & No2Bit(i))
+            {
+                mons_getting_exp++;
+            }
+
+            item = GetMonData(pp, ID_PARA_item, NULL);
+            eqp = BattleItemDataGet(expcalc->sp, item, 1);
+
+            if (eqp == HOLD_EFFECT_EXP_SHARE)
+            {
+                mons_getting_exp_from_item++;
+            }
+        }
+    }
+
+    // grab the pokémon that is actually gaining the experience
+    for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+    {
+        pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+        item = GetMonData(pp, ID_PARA_item, NULL);
+        eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+        if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
+        {
+            break;
+        }
+    }
+
+    // actually calculate the experience
+    u32 Lp = GetMonData(pp, ID_PARA_level, NULL); // this should contain the level of the person getting experience
+#ifdef DEBUG_SCALED_EXPERIENCE
+    *((u32 *)(0x23DF000)) = Lp;
+#endif
+    u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level + 1; // need to calculate exp individually for each mon it seems
+#ifdef DEBUG_SCALED_EXPERIENCE
+    *((u32 *)(0x23DF004)) = level;
+#endif
+
+    totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
+#ifdef DEBUG_SCALED_EXPERIENCE
+    *((u32 *)(0x23DF008)) = totalexp;
+#endif
+    totalexp = (totalexp * level) / 5;
+
+    u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
+    u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
+
+    totalexp *= top;
+    totalexp /= bottom;
+    totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
+
+#ifdef DEBUG_SCALED_EXPERIENCE
+    *((u32 *)(0x23DF00C)) = totalexp;
+#endif
+
+    if (mons_getting_exp_from_item)
+    {
+        expcalc->sp->obtained_exp = (totalexp / 2) / mons_getting_exp;
+        if (expcalc->sp->obtained_exp == 0)
+        {
+            expcalc->sp->obtained_exp = 1;
+        }
+        expcalc->sp->exp_share_obtained_exp = (totalexp / 2) / mons_getting_exp_from_item;
+        if (expcalc->sp->exp_share_obtained_exp == 0)
+        {
+            expcalc->sp->exp_share_obtained_exp = 1;
+        }
+    }
+    else
+    {
+        expcalc->sp->obtained_exp = totalexp / mons_getting_exp;
+        if (expcalc->sp->obtained_exp == 0)
+        {
+            expcalc->sp->obtained_exp = 1;
+        }
+        expcalc->sp->exp_share_obtained_exp = 0;
+    }
+#endif
+    Task_DistributeExp(arg0, work);
+}
+
+
+
+
+
 
 
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
@@ -803,7 +889,7 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
     holdeffect = HeldItemHoldEffectGet(sp,client_no);
     atk = HeldItemAtkGet(sp, client_no, ATK_CHECK_NORMAL);
 
-    if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[client_no].hp == (s32)sp->battlemon[client_no].maxhp))
     {
         flag = 2;
     }
