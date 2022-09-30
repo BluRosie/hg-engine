@@ -1,6 +1,7 @@
 #include "../include/types.h"
 #include "../include/item.h"
 #include "../include/config.h"
+#include "../include/constants/file.h"
 #include "../include/constants/item.h"
 
 #define ITEM_DATA_MAX (536)
@@ -89,11 +90,11 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
     switch (type)
     {
     case ITEM_GET_DATA:
-        return ArchiveDataLoadMalloc(0x11, dataid, heap_id);
+        return ArchiveDataLoadMalloc(ARC_ITEM_DATA, dataid, heap_id);
     case ITEM_GET_ICON_CGX:
-        return ArchiveDataLoadMalloc(0x12, picid, heap_id);
+        return ArchiveDataLoadMalloc(ARC_ITEM_GFX_DATA, picid, heap_id);
     case ITEM_GET_ICON_PAL:
-        return ArchiveDataLoadMalloc(0x12, palid, heap_id);
+        return ArchiveDataLoadMalloc(ARC_ITEM_GFX_DATA, palid, heap_id);
     }
     return NULL;
 }
@@ -104,7 +105,7 @@ void *ItemDataTableLoad(int heapID)
 
     max = GetItemIndex(NEW_ITEM_MAX, ITEM_GET_DATA);
 
-    return ArchiveDataLoadMallocOfs(0x11, 0, heapID, 0, 36 * max);//800757Ch
+    return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, 36 * max);//800757Ch
 }
 
 bool8 CheckItemByThief(u16 item)
