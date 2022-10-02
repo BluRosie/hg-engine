@@ -11,7 +11,7 @@
 
 a001_095:
     changemondatabyvalue VAR_OP_SETMASK, BATTLER_ADDL_EFFECT, 0x3B, 0x100
-    changevar VAR_OP_SET, VAR_34, 0x15
+    changevar VAR_OP_SET, VAR_34, 0x2D
     jumptosubseq 12
 
 .close
