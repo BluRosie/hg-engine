@@ -15,7 +15,7 @@ a001_058:
     printpreparedmessage
     waitmessage
     wait 0x1E
-    random 3, 3
+    random 1, 5
     checkitemeffect 0x1, BATTLER_ATTACKER, 0x72, _0064
     changevar VAR_OP_SET, VAR_09, 0x6
 _0064:

@@ -36,3 +36,9 @@ arm9 08070ECE 36
 arm9 08071168 09
 arm9 0807119E 09
 arm9 0807122C 09
+
+#updating old moves
+
+#Binding moves 1/8th
+# 0224A112
+0012 08012852 08
