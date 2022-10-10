@@ -152,7 +152,6 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 130 / 100;
     }
 
-    
     //handle Wonder Skin
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->moveTbl[move_no].split == SPLIT_STATUS))
     {
@@ -235,6 +234,14 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     *((u32 *)(0x23DF000 + 0xC*2 + 0x8*(attacker&1))) = sp->moveTbl[move_no].accuracy;
     *((u32 *)(0x23DF004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
 #endif
+
+    //Toxic when used by a poison type
+    if (move_no == MOVE_TOXIC
+    && (BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
+    || BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON))
+    {
+        return FALSE;
+    } 
 
     if (((BattleRand(bw) % 100) + 1) > accuracy)
     {
