@@ -86,21 +86,21 @@
 #define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE     (0x00000004)
 #define MOVE_STATUS_FLAG_NOT_EFFECTIVE          (0x00000008)
 #define WAZA_STATUS_FLAG_CRITICAL               (0x00000010)
-#define WAZA_STATUS_FLAG_ICHIGEKI               (0x00000020)
+#define MOVE_STATUS_FLAG_OHKO_HIT               (0x00000020)
 #define MOVE_STATUS_FLAG_FAILED                 (0x00000040)
-#define WAZA_STATUS_FLAG_KORAETA                (0x00000080)
-#define WAZA_STATUS_FLAG_ITEM_KORAETA           (0x00000100)
+#define MOVE_STATUS_FLAG_HELD_ON_ABILITY        (0x00000080)
+#define MOVE_STATUS_FLAG_HELD_ON_ITEM           (0x00000100)
 #define WAZA_STATUS_FLAG_PP_NONE                (0x00000200)
-#define WAZA_STATUS_FLAG_LOCK_ON                (0x00000400)
+#define MOVE_STATUS_FLAG_LOCK_ON                (0x00000400)
 #define WAZA_STATUS_FLAG_JIMEN_NOHIT            (0x00000800)
-#define WAZA_STATUS_FLAG_ICHIGEKI_NOHIT         (0x00001000)
+#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT         (0x00001000)
 #define WAZA_STATUS_FLAG_NANIMOOKORAN           (0x00002000)
 #define WAZA_STATUS_FLAG_RENZOKU_NOHIT          (0x00004000)
 #define WAZA_STATUS_FLAG_MAMORU_NOHIT           (0x00008000)
 #define WAZA_STATUS_FLAG_KIE_NOHIT              (0x00010000)
 #define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT       (0x00020000)
 #define WAZA_STATUS_FLAG_BATSUGUN_NOHIT         (0x00040000)
-#define WAZA_STATUS_FLAG_GANZYOU_NOHIT          (0x00080000)
+#define MOVE_STATUS_FLAG_NO_OHKO                (0x00080000)
 #define WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT       (0x00100000)
 
 #define WAZA_STATUS_FLAG_SIPPAI                 (0x80000000)
@@ -112,13 +112,13 @@
 #define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          MOVE_STATUS_FLAG_FAILED|\
                                          WAZA_STATUS_FLAG_JIMEN_NOHIT|\
-                                         WAZA_STATUS_FLAG_ICHIGEKI_NOHIT|\
+                                         MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
                                          WAZA_STATUS_FLAG_RENZOKU_NOHIT|\
                                          WAZA_STATUS_FLAG_MAMORU_NOHIT|\
                                          WAZA_STATUS_FLAG_KIE_NOHIT|\
                                          WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
                                          WAZA_STATUS_FLAG_BATSUGUN_NOHIT|\
-                                         WAZA_STATUS_FLAG_GANZYOU_NOHIT|\
+                                         MOVE_STATUS_FLAG_NO_OHKO|\
                                          WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT)
 
 #define WAZA_STATUS_FLAG_NO_OUT         (WAZA_STATUS_FLAG_HAZURE|\

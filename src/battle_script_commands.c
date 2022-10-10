@@ -748,9 +748,9 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 
     sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
 
-    if(MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE)
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE)
     {
-        sp->waza_status_flag |= WAZA_STATUS_FLAG_GANZYOU_NOHIT;
+        sp->waza_status_flag |= MOVE_STATUS_FLAG_NO_OHKO;
     }
     else{
         if(((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON) == 0)
@@ -758,8 +758,8 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
             && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
         {
             hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-            if(((BattleWorkRandGet(bw) % 100) < hit)
-                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
+            if (((BattleWorkRandGet(bw) % 100) < hit)
+             && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
             {
                 hit = 1;
             }
@@ -770,7 +770,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
         }
         else
         {
-            if((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON))
+            if ((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON))
                     || (GetBattlerAbility(sp,sp->attack_client) == ABILITY_NO_GUARD)
                     || (GetBattlerAbility(sp,sp->defence_client) == ABILITY_NO_GUARD))
                 && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
@@ -790,12 +790,12 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
                     hit = 0;
                 }
             }
-            sp->waza_status_flag |= WAZA_STATUS_FLAG_LOCK_ON;
+            sp->waza_status_flag |= MOVE_STATUS_FLAG_LOCK_ON;
         }
-        if(hit)
+        if (hit)
         {
             sp->damage = sp->battlemon[sp->defence_client].hp * -1;
-            sp->waza_status_flag |= WAZA_STATUS_FLAG_ICHIGEKI;
+            sp->waza_status_flag |= MOVE_STATUS_FLAG_OHKO_HIT;
         }
         else
         {
@@ -805,7 +805,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
             }
             else
             {
-                sp->waza_status_flag |= WAZA_STATUS_FLAG_ICHIGEKI_NOHIT;
+                sp->waza_status_flag |= MOVE_STATUS_FLAG_OHKO_HIT_NOHIT;
             }
         }
     }
@@ -876,7 +876,7 @@ BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp)
 }
 
 
-BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
 {
     int side, client_no, holdeffect;
     int atk;
@@ -907,9 +907,9 @@ BOOL btl_scr_cmd_d0_hp_1_check(void *bw, struct BattleStruct *sp)
         {
             sp->hp_calc_work = (sp->battlemon[client_no].hp - 1) * -1;
             if (flag != 2)
-                sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
+                sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
             else
-                sp->waza_status_flag |= WAZA_STATUS_FLAG_KORAETA;
+                sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
         }
     }
 
@@ -998,7 +998,7 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
 
     // grab the ratio of defense weight/attack weight as a % to 2 decimal places
-    ratio = (sp->battlemon[sp->defence_client].weight * 1000) / sp->battlemon[sp->attack_client].weight;
+    ratio = (GetPokemonWeight(bw, sp, sp->defence_client) * 1000) / GetPokemonWeight(bw, sp, sp->attack_client);
 
     if (ratio <= 2000)      // < 20.00%
         sp->damage_power = 120;

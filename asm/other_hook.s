@@ -33,8 +33,8 @@ pop {r0-r3}
 pop {r3-r7,pc}
 
 //形态变化恢复
-.global FormResert
-FormResert:
+.global TryRevertFormChange_hook
+TryRevertFormChange_hook:
 lsl r0, r0, #0x2
 add r2, r5, r0
 lsl r1, r4, #0x2
