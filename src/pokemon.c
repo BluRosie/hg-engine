@@ -2779,23 +2779,23 @@ void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp,
     if (SwitchAbility)
     {
         PokeParaSpeabiSet(pp2);
-        sp->battlemon[client].ability = GetMonData(pp2, 10, 0);
+        sp->battlemon[client].ability = GetMonData(pp2, ID_PARA_speabino, NULL);
     }
     
 
-    sp->battlemon[client].attack = GetMonData(pp2, 165, 0);
-    sp->battlemon[client].defense = GetMonData(pp2, 166, 0);
-    sp->battlemon[client].speed = GetMonData(pp2, 167, 0);
-    sp->battlemon[client].spatk = GetMonData(pp2, 168, 0);
-    sp->battlemon[client].spdef = GetMonData(pp2, 169, 0);
+    sp->battlemon[client].attack = GetMonData(pp2, ID_PARA_pow, NULL);
+    sp->battlemon[client].defense = GetMonData(pp2, ID_PARA_def, NULL);
+    sp->battlemon[client].speed = GetMonData(pp2, ID_PARA_agi, NULL);
+    sp->battlemon[client].spatk = GetMonData(pp2, ID_PARA_spepow, NULL);
+    sp->battlemon[client].spdef = GetMonData(pp2, ID_PARA_spedef, NULL);
     
-    sp->battlemon[client].type1 = GetMonData(pp2, 177, 0);
-    sp->battlemon[client].type2 = GetMonData(pp2, 178, 0);
+    sp->battlemon[client].type1 = GetMonData(pp2, ID_PARA_type1, NULL);
+    sp->battlemon[client].type2 = GetMonData(pp2, ID_PARA_type2, NULL);
 
     //sp->battlemon[client].species = PokeOtherFormMonsNoGet(sp->battlemon[client].species, form_no);
 }
 
-bool8 ReverFormChange(void *pp, u16 species, u8 form_no)
+bool8 RevertFormChange(void *pp, u16 species, u8 form_no)
 {
     u8 i;
     int work = 0;
@@ -2829,7 +2829,7 @@ void TryRevertFormChange(struct BattleStruct *sp, void* bw, int client_no)
 
     void *pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
 
-    if(ReverFormChange(pp,species,form_no))
+    if (RevertFormChange(pp,species,form_no))
     {
         PokeParaCalc(pp);
         PokeParaSpeabiSet(pp);
@@ -2874,7 +2874,7 @@ void BattleEndRevertFormChange(void *bw)
         monsno = GetMonData(pp, 174, 0);
         form = GetMonData(pp, 112, 0);
 
-        if(ReverFormChange(pp,monsno,form))
+        if (RevertFormChange(pp,monsno,form))
         {
             PokeParaCalc(pp);
             PokeParaSpeabiSet(pp);

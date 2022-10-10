@@ -15,7 +15,8 @@
 /********************************************************************************************************************/
 /********************************************************************************************************************/
 
-enum{
+enum
+{
     SBA_RESET_DEFIANT = 0,
 	SBA_FOCUS_PUNCH,
 	SBA_RAGE,
@@ -76,7 +77,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     SCIO_BlankMessage(bw);
                     sp->client_work = client_no;
                     sp->battlemon[client_no].form_no = 1; // ?
-                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, 232); // SUB_SEQ_HANDLE_FOCUS_PUNCH
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FOCUS_PUNCH);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     return;
@@ -289,16 +290,16 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                     switch (ret)
                     {
                         case 1:
-                            sp->next_server_seq_no = 0x27;
+                            sp->next_server_seq_no = 39;
                             break;
                         case 2:
                             sp->next_server_seq_no = sp->server_seq_no;
                             break;
                         case 3:
-                            sp->next_server_seq_no = 0x22;
+                            sp->next_server_seq_no = 34;
                             break;
                     }
-                    sp->server_seq_no = 0x16;
+                    sp->server_seq_no = 22;
                     LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq_no);
                     return;
                 }
@@ -354,10 +355,11 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             {
                 sp->wb_seq_no = 0;
             }
+            break;
 //        case SEQ_STANCE_CHANGE_CHECK:
-//            if(sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
+//            if (sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
 //            {
-//                if(sp->moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
+//                if (sp->moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
 //                {
 //                    //change to shield form
 //                }
@@ -366,6 +368,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
 //                    //change to blade form
 //                }
 //            }
+//            break;
     }
 
     if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT)

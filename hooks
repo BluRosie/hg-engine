@@ -24,7 +24,7 @@ arm9 CreateBoxMonData_hook 0806DED4 5
 0007 hook_7_spriteOffsetSpecies 08018A48 3
 #0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 Battle_End 08000B90 1
-0012 FormResert 080069AC 2
+0012 TryRevertFormChange_hook 080069AC 2
 0012 CheckCanTakeItem 08009A74 0
 
 #expand items
@@ -82,7 +82,7 @@ arm9 GetPokemonOwNum 0806A304 1
 #0224324C
 0012 btl_scr_cmd_8c_lowkickdamagecalc 0800B98C 3
 #02245008
-0012 btl_scr_cmd_d0_hp_1_check 0800D748 3
+0012 btl_scr_cmd_d0_checkshouldleavewith1hp 0800D748 3
 #022450B0
 0012 btl_scr_cmd_d1_trynaturalcure 0800D7F0 3
 #0223E004

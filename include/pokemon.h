@@ -513,7 +513,7 @@ u32 __attribute__((long_call)) PokeLevelUpCheck(struct PartyPokemon *pp);
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);
 void PokePasoParaSpeabiSet(void *ppp);
-bool8 ReverFormChange(void *pp, u16 species, u8 form_no);
+bool8 RevertFormChange(void *pp, u16 species, u8 form_no);
 u16 GetMonHiddenAbility(u16 species, u32 form, u32 sex);
 u16 GetMonHiddenAbility_(u16 species, u32 form);
 u32 GetSpeciesBaseExp(u32 species, u32 form);
