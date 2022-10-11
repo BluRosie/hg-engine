@@ -1464,3 +1464,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro heavyslamdamagecalc
     .word 0xE2
 .endmacro
+
+.macro isuserlowerlevel,address
+    .word 0xE3
+    .word ((address - org()) / 4) - 1
+.endmacro

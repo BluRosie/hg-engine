@@ -282,12 +282,12 @@ movedata MOVE_WHIRLWIND
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
-    accuracy DEBUG_NEEDS_TESTING ? 0 : 100
+    accuracy 0
     pp 20
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority -6
-    flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x09
     contesttype CONTEST_SMART
     terminatedata
