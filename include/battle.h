@@ -425,7 +425,7 @@ struct __attribute__((packed)) OneTurnEffect
     u32 yokodori_flag : 1;
     u32 haneyasume_flag : 1;
     u32 escape_flag : 2;  //にげたフラグ（特性or装備道具効果）
-    u32 koraeru_flag : 1; ///<こらえるフラグ
+    u32 prevent_one_hit_ko_ability : 1; ///<こらえるフラグ
     u32 : 22;
 
     int physical_damage[4];
@@ -447,7 +447,7 @@ struct __attribute__((packed)) OneSelfTurnEffect
     u32 yobimizu_flag : 1;     ///<特性よびみずのの効果が発動
     u32 mold_breaker_flag : 1;   ///<特性かたやぶりの効果が発動
     u32 trickroom_flag : 1;    ///<トリックルーム発動
-    u32 item_koraeru_flag : 1; ///<こらえるフラグ（装備道具効果）
+    u32 prevent_one_hit_ko_item : 1; ///<こらえるフラグ（装備道具効果）
     u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
     u32 defiant_flag : 1; // set (hypothetically) when defiant needs to activate
     u32 : 22;                  ///<ステータス上昇下降エフェクトを発動

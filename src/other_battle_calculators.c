@@ -721,7 +721,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
     int	atk;
 
     //一撃必殺の時は、HPMAXをダメージに代入
-    if(sp->waza_status_flag & WAZA_STATUS_FLAG_ICHIGEKI)
+    if(sp->waza_status_flag & MOVE_STATUS_FLAG_OHKO_HIT)
     {
         sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
     }
@@ -771,36 +771,36 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 }
             }
             //技のこらえるが成功している時は、アイテムのチェックをしない
-            if(sp->oneTurnFlag[sp->defence_client].koraeru_flag == 0)
+            if(sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == 0)
             {
                 //アイテムこらえるチェック
                 if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
                 {
-                    sp->oneTurnFlag[sp->defence_client].koraeru_flag = 1;
+                    sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = 1;
                 }
                 else if((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
                 {
-                    sp->oneSelfFlag[sp->defence_client].item_koraeru_flag = 1;
+                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = 1;
                 }
                 else if((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
                 {
-                    sp->oneSelfFlag[sp->defence_client].item_koraeru_flag = 1;
+                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = 1;
                 }
             }
             //こらえるチェック
-            if((sp->oneTurnFlag[sp->defence_client].koraeru_flag) || (sp->oneSelfFlag[sp->defence_client].item_koraeru_flag))
+            if((sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability) || (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item))
             {
                 //気絶してしまう時は、１残すようにする
                 if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
                 {
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
-                    if(sp->oneTurnFlag[sp->defence_client].koraeru_flag)
+                    if(sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability)
                     {
-                        sp->waza_status_flag |= WAZA_STATUS_FLAG_KORAETA;
+                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
                     }
                     else
                     {
-                        sp->waza_status_flag |= WAZA_STATUS_FLAG_ITEM_KORAETA;
+                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
                     }
                 }
             }
