@@ -3369,3 +3369,36 @@ BOOL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTim
     
     return ret;
 }
+
+// form egg moves + egg move expansion
+u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
+{
+    u16 n;
+    u16 *kowaza_list;
+    u16 offset;
+    u16 species;
+    u16 i;
+
+    kowaza_list = sys_AllocMemory(0, 15000);
+    ArchiveDataLoad(kowaza_list, ARC_EGG_MOVES, 0);
+
+    n = 0;
+    offset = 0;
+
+    species = PokeOtherFormMonsNoGet(GetMonData(pokemon, ID_PARA_monsno, NULL), GetMonData(pokemon, ID_PARA_form_no, NULL));
+    for (i = 0; i < NUM_EGG_MOVES_TOTAL; i++) {
+        if (species + 20000 == kowaza_list[i]) {
+            offset = i + 1;
+            break;
+        }
+    }
+    for (i = 0; i < EGG_MOVES_PER_MON; i++) {
+        if (kowaza_list[offset + i] > 20000) {
+            break;
+        }
+        dest[i] = kowaza_list[offset + i];
+        n++;
+    }
+    sys_FreeMemoryEz(kowaza_list);
+    return n;
+}
