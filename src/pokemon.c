@@ -3379,7 +3379,7 @@ u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
     u16 species;
     u16 i;
 
-    kowaza_list = sys_AllocMemory(0, 15000);
+    kowaza_list = sys_AllocMemory(0, NUM_EGG_MOVES_TOTAL*2);
     ArchiveDataLoad(kowaza_list, ARC_EGG_MOVES, 0);
 
     n = 0;

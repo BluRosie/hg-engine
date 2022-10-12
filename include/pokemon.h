@@ -470,7 +470,7 @@ struct PLIST_WORK
 
 #define gOWTagToFileNum ((struct OVERWORLD_TAG *) (0x023C8000 + START_ADDRESS)) // i hate this lol
 #define EGG_MOVES_PER_MON 16 // need to go through later and make this editable
-#define NUM_EGG_MOVES_TOTAL 4000
+#define NUM_EGG_MOVES_TOTAL 8000
 
 void* __attribute__((long_call)) PokemonParam_AllocWork(u32 heapid);
 void __attribute__((long_call)) PokeParaInit(void* pokemon);
