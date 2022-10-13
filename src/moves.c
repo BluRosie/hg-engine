@@ -165,6 +165,6 @@ u32 move_effect_to_subscripts[] =
     [151] = 317, // shift gear
     [152] = 318, // shell smash
     [153] = 319, // v create
-    [154] = 320, // autotomize (need to change weight still)
+    [154] = 320, // autotomize
     [155] = 331, // new growth subscript
 };
