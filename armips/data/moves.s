@@ -1516,7 +1516,7 @@ movedata MOVE_TELEPORT
     pp 20
     effectchance 0
     target MOVE_TARGET_USER
-    priority 0
+    priority -6
     flags 0
     appeal 0x01
     contesttype CONTEST_COOL
