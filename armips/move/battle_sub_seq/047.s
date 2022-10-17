@@ -13,7 +13,7 @@ a001_047:
     if IF_NOTEQUAL, VAR_05, 0x6, _0060
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_IMMUNITY, _03E8
     checkcloudnine _01E8
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _01E8
+    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _01E8 ;if not sun
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _03E8
     goto _01E8
 _0060:
@@ -54,7 +54,7 @@ _0204:
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, 0x8, _04EC
     ifmonstat IF_NOTEQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x0, _0450
     if IF_MASK, VAR_10, 0x10001, _0450
-    if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _0534
+    if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _safeguard
     if IF_NOTEQUAL, VAR_05, 0x1, _0300
     playanimation BATTLER_ATTACKER
     waitmessage
@@ -112,7 +112,7 @@ _04EC:
     wait 0x1E
     printmessage 0x1B, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0574
-_0534:
+_safeguard:
     if IF_EQUAL, VAR_05, 0x2, _0590
     if IF_EQUAL, VAR_05, 0x6, _0590
     wait 0x1E
