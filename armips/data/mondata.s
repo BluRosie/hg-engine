@@ -10301,7 +10301,7 @@ mondata SPECIES_UNFEZANT
     baseexp 140
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
@@ -11581,7 +11581,7 @@ mondata SPECIES_FRILLISH
     baseexp 43
     evyields 0, 0, 0, 0, 0, 1
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -11599,7 +11599,7 @@ mondata SPECIES_JELLICENT
     baseexp 109
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -12949,7 +12949,7 @@ mondata SPECIES_PYROAR
     baseexp 177
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 225
+    genderratio 0
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
@@ -13129,7 +13129,7 @@ mondata SPECIES_MEOWSTIC
     baseexp 163
     evyields 0, 0, 0, 2, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -21711,3 +21711,93 @@ mondata SPECIES_DECIDUEYE_HISUIAN
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
+mondata SPECIES_UNFEZANT_FEMALE
+    basestats 80, 115, 80, 93, 65, 55
+    types TYPE_NORMAL, TYPE_FLYING
+    catchrate 45
+    baseexp 140
+    evyields 0, 3, 0, 0, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 15
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
+    abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
+    runchance 0
+    colorflip BODY_COLOR_GRAY, 0
+    tmdata SPECIES_UNFEZANT_TM_DATA_0, SPECIES_UNFEZANT_TM_DATA_1, SPECIES_UNFEZANT_TM_DATA_2, SPECIES_UNFEZANT_TM_DATA_3
+
+
+mondata SPECIES_FRILLISH_FEMALE
+    basestats 55, 40, 50, 40, 65, 85
+    types TYPE_WATER, TYPE_GHOST
+    catchrate 190
+    baseexp 43
+    evyields 0, 0, 0, 0, 0, 1
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 20
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
+    abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
+    runchance 0
+    colorflip BODY_COLOR_WHITE, 0
+    tmdata SPECIES_FRILLISH_TM_DATA_0, SPECIES_FRILLISH_TM_DATA_1, SPECIES_FRILLISH_TM_DATA_2, SPECIES_FRILLISH_TM_DATA_3
+
+
+mondata SPECIES_JELLICENT_FEMALE
+    basestats 100, 60, 70, 60, 85, 105
+    types TYPE_WATER, TYPE_GHOST
+    catchrate 60
+    baseexp 109
+    evyields 0, 0, 0, 0, 0, 2
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 20
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
+    abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
+    runchance 0
+    colorflip BODY_COLOR_WHITE, 0
+    tmdata SPECIES_JELLICENT_TM_DATA_0, SPECIES_JELLICENT_TM_DATA_1, SPECIES_JELLICENT_TM_DATA_2, SPECIES_JELLICENT_TM_DATA_3
+
+
+mondata SPECIES_PYROAR_FEMALE
+    basestats 86, 68, 72, 106, 109, 66
+    types TYPE_FIRE, TYPE_NORMAL
+    catchrate 65
+    baseexp 177
+    evyields 0, 0, 0, 0, 2, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 20
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_RIVALRY,  ABILITY_UNNERVE
+    runchance 0
+    colorflip BODY_COLOR_BROWN, 0
+    tmdata SPECIES_PYROAR_TM_DATA_0, SPECIES_PYROAR_TM_DATA_1, SPECIES_PYROAR_TM_DATA_2, SPECIES_PYROAR_TM_DATA_3
+
+
+mondata SPECIES_MEOWSTIC_FEMALE
+    basestats 74, 48, 76, 104, 83, 81
+    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    catchrate 75
+    baseexp 163
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 20
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
+    abilities ABILITY_KEEN_EYE,  ABILITY_INFILTRATOR
+    runchance 0
+    colorflip BODY_COLOR_BLUE, 0
+    tmdata SPECIES_MEOWSTIC_TM_DATA_0, SPECIES_MEOWSTIC_TM_DATA_1, SPECIES_MEOWSTIC_TM_DATA_2, SPECIES_MEOWSTIC_TM_DATA_3

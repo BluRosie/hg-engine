@@ -1213,5 +1213,10 @@
 /* SPECIES_GOODRA_HISUIAN              */ .halfword ABILITY_NONE
 /* SPECIES_AVALUGG_HISUIAN             */ .halfword ABILITY_NONE
 /* SPECIES_DECIDUEYE_HISUIAN           */ .halfword ABILITY_NONE
+/* SPECIES_UNFEZANT_FEMALE             */ .halfword ABILITY_RIVALRY
+/* SPECIES_FRILLISH_FEMALE             */ .halfword ABILITY_DAMP
+/* SPECIES_JELLICENT_FEMALE            */ .halfword ABILITY_DAMP
+/* SPECIES_PYROAR_FEMALE               */ .halfword ABILITY_MOXIE
+/* SPECIES_MEOWSTIC_FEMALE             */ .halfword ABILITY_COMPETITIVE
 
 .close

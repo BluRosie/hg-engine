@@ -3910,5 +3910,12 @@ eggmoveentry SPECIES_STUNFISK_GALARIAN
 	eggmove MOVE_PAIN_SPLIT
 	eggmove MOVE_REFLECT_TYPE
 
+eggmoveentry SPECIES_FRILLISH_FEMALE
+    eggmove MOVE_ACID_ARMOR
+    eggmove MOVE_CONFUSE_RAY
+    eggmove MOVE_CONSTRICT
+    eggmove MOVE_MIST
+    eggmove MOVE_PAIN_SPLIT
+    eggmove MOVE_RECOVER
 
 terminateeggmoves

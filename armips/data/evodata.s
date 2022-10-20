@@ -14510,3 +14510,63 @@ evodata SPECIES_DECIDUEYE_HISUIAN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
+
+evodata SPECIES_UNFEZANT_FEMALE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    terminateevodata
+
+evodata SPECIES_FRILLISH_FEMALE
+    evolution EVO_LEVEL_UP, 40, SPECIES_JELLICENT
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+evodata SPECIES_JELLICENT_FEMALE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+evodata SPECIES_PYROAR_FEMALE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+evodata SPECIES_MEOWSTIC_FEMALE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+	evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata

@@ -20820,3 +20820,107 @@ levelup SPECIES_DECIDUEYE_HISUIAN
     learnset MOVE_FEATHER_DANCE, 51
     learnset MOVE_BRAVE_BIRD, 58
     terminatelearnset
+
+levelup SPECIES_UNFEZANT_FEMALE
+    learnset MOVE_GUST, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_LEER, 1
+    learnset MOVE_QUICK_ATTACK, 1
+    learnset MOVE_GROWL, 4
+    learnset MOVE_LEER, 8
+    learnset MOVE_QUICK_ATTACK, 11
+    learnset MOVE_AIR_CUTTER, 15
+    learnset MOVE_ROOST, 18
+    learnset MOVE_DETECT, 23
+    learnset MOVE_TAUNT, 27
+    learnset MOVE_AIR_SLASH, 33
+    learnset MOVE_RAZOR_WIND, 38
+    learnset MOVE_FEATHER_DANCE, 44
+    learnset MOVE_SWAGGER, 49
+    learnset MOVE_FACADE, 55
+    learnset MOVE_TAILWIND, 60
+    learnset MOVE_SKY_ATTACK, 66
+    terminatelearnset
+
+levelup SPECIES_FRILLISH_FEMALE
+    learnset MOVE_BUBBLE, 1
+    learnset MOVE_WATER_SPORT, 1
+    learnset MOVE_ABSORB, 5
+    learnset MOVE_NIGHT_SHADE, 9
+    learnset MOVE_BUBBLE_BEAM, 13
+    learnset MOVE_RECOVER, 17
+    learnset MOVE_WATER_PULSE, 22
+    learnset MOVE_OMINOUS_WIND, 27
+    learnset MOVE_BRINE, 32
+    learnset MOVE_RAIN_DANCE, 37
+    //learnset MOVE_HEX, 43
+    learnset MOVE_HYDRO_PUMP, 49
+    learnset MOVE_WRING_OUT, 55
+    learnset MOVE_WATER_SPOUT, 61
+    terminatelearnset
+
+levelup SPECIES_JELLICENT_FEMALE
+    learnset MOVE_BUBBLE, 1
+    learnset MOVE_WATER_SPORT, 1
+    learnset MOVE_ABSORB, 1
+    learnset MOVE_NIGHT_SHADE, 1
+    learnset MOVE_ABSORB, 5
+    learnset MOVE_NIGHT_SHADE, 9
+    learnset MOVE_BUBBLE_BEAM, 13
+    learnset MOVE_RECOVER, 17
+    learnset MOVE_WATER_PULSE, 22
+    learnset MOVE_OMINOUS_WIND, 27
+    learnset MOVE_BRINE, 32
+    learnset MOVE_RAIN_DANCE, 37
+    //learnset MOVE_HEX, 45
+    learnset MOVE_HYDRO_PUMP, 53
+    learnset MOVE_WRING_OUT, 61
+    learnset MOVE_WATER_SPOUT, 69
+    terminatelearnset
+
+levelup SPECIES_PYROAR_FEMALE
+	learnset MOVE_HYPER_BEAM, 1
+	learnset MOVE_TACKLE, 1
+	learnset MOVE_LEER, 1
+	learnset MOVE_EMBER, 1
+	learnset MOVE_WORK_UP, 1
+	learnset MOVE_EMBER, 5
+	learnset MOVE_WORK_UP, 8
+	learnset MOVE_HEADBUTT, 11
+	learnset MOVE_NOBLE_ROAR, 15
+	learnset MOVE_TAKE_DOWN, 20
+	learnset MOVE_FIRE_FANG, 23
+	learnset MOVE_ENDEAVOR, 28
+	learnset MOVE_ECHOED_VOICE, 33
+	learnset MOVE_FLAMETHROWER, 38
+	learnset MOVE_CRUNCH, 42
+	learnset MOVE_HYPER_VOICE, 48
+	learnset MOVE_INCINERATE, 51
+	learnset MOVE_OVERHEAT, 57
+	terminatelearnset
+
+levelup SPECIES_MEOWSTIC_FEMALE
+	learnset MOVE_STORED_POWER, 1
+	learnset MOVE_ME_FIRST, 1
+	learnset MOVE_MAGICAL_LEAF, 1
+	learnset MOVE_SCRATCH, 1
+	learnset MOVE_LEER, 1
+	learnset MOVE_COVET, 5
+	learnset MOVE_CONFUSION, 9
+	learnset MOVE_LIGHT_SCREEN, 13
+	learnset MOVE_PSYBEAM, 17
+	learnset MOVE_FAKE_OUT, 19
+	learnset MOVE_DISARMING_VOICE, 22
+	learnset MOVE_PSYSHOCK, 25
+	learnset MOVE_CHARGE_BEAM, 28
+	learnset MOVE_SHADOW_BALL, 31
+	learnset MOVE_EXTRASENSORY, 35
+	learnset MOVE_PSYCHIC, 40
+	learnset MOVE_ROLE_PLAY, 43
+	learnset MOVE_SIGNAL_BEAM, 45
+	learnset MOVE_SUCKER_PUNCH, 48
+	learnset MOVE_FUTURE_SIGHT, 50
+	learnset MOVE_STORED_POWER, 53
+	terminatelearnset
+
+

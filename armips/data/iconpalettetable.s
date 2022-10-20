@@ -1229,6 +1229,11 @@ gIconPalTable:
 /* SPECIES_GOODRA_HISUIAN              */ .byte  0x1
 /* SPECIES_AVALUGG_HISUIAN             */ .byte  0x1
 /* SPECIES_DECIDUEYE_HISUIAN           */ .byte  0x0
+/* SPECIES_UNFEZANT_FEMALE             */ .byte  0x1
+/* SPECIES_FRILLISH_FEMALE             */ .byte  0x1
+/* SPECIES_JELLICENT_FEMALE            */ .byte  0x1
+/* SPECIES_PYROAR_FEMALE               */ .byte  0x2
+/* SPECIES_MEOWSTIC_FEMALE             */ .byte  0x0
 
 
 .endarea

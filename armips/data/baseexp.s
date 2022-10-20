@@ -1213,5 +1213,10 @@
 /* SPECIES_GOODRA_HISUIAN              */ .halfword 300
 /* SPECIES_AVALUGG_HISUIAN             */ .halfword 180
 /* SPECIES_DECIDUEYE_HISUIAN           */ .halfword 265
+/* SPECIES_UNFEZANT_FEMALE             */ .halfword 244
+/* SPECIES_FRILLISH_FEMALE             */ .halfword 67
+/* SPECIES_JELLICENT_FEMALE            */ .halfword 168
+/* SPECIES_PYROAR_FEMALE               */ .halfword 177
+/* SPECIES_MEOWSTIC_FEMALE             */ .halfword 163
 
 .close
