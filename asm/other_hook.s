@@ -332,3 +332,36 @@ ldr r1, =(0x0202A8D4 | 1)
 bx r1
 
 .pool
+
+
+.global set_proper_mega_status
+set_proper_mega_status:
+push {r0-r6}
+ldr r7, =0x0226E298 // ScrnArcDataNo
+mov r0, r6 // bip
+bl CheckCanDrawMegaButton
+ldr r1, =0x0226E930 // &SkillMenuTouchData
+cmp r0, #1
+beq _setNoMega
+
+// set layout to mega button layout
+mov r0, #37 // figure out which num this should actually be
+strh r0, [r7, #6] // ScrnArcDataNo[3] = 37
+ldr r0, =SkillMenuTouchData
+b _return_from_mega
+
+_setNoMega:
+mov r0, #37
+strh r0, [r7, #6] // ScrnArcDataNo[3] = 37
+ldr r0, =SkillMenuTouchDataNoMega
+
+_return_from_mega:
+str r0, [r1]
+pop {r0-r6}
+mov r4, #0
+str r0, [r6, r1]
+// ldr r7, =0x0226E298 // already loaded this above
+ldr r0, =0x02266130 | 1
+bx r0
+
+.pool

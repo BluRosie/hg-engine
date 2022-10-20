@@ -263,8 +263,8 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    mon = GetMonData(pp, 5, 0);
-    form_no = GetMonData(pp, 112, 0);
+    mon = GetMonData(pp, ID_PARA_monsno, 0);
+    form_no = GetMonData(pp, ID_PARA_form_no, 0);
     if (!form_no)
         return FALSE;
 
@@ -278,8 +278,8 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    mon = GetMonData(pp, 5, 0);
-    form_no = GetMonData(pp, 112, 0);
+    mon = GetMonData(pp, ID_PARA_monsno, 0);
+    form_no = GetMonData(pp, ID_PARA_form_no, 0);
     if (!form_no)
         return FALSE;
 
@@ -293,8 +293,8 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    mon = GetMonData(pp, 5, 0);
-    form_no = GetMonData(pp, 112, 0);
+    mon = GetMonData(pp, ID_PARA_monsno, 0);
+    form_no = GetMonData(pp, ID_PARA_form_no, 0);
     if (!form_no)
         return FALSE;
 
@@ -304,9 +304,9 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
 static BOOL CheckMegaData(u16 mon, u16 item)
 {
     u8 i;
-    for(i = 0; i < NELEMS(sMegaTable);i++)
+    for (i = 0; i < NELEMS(sMegaTable);i++)
     {
-        if(sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item)
+        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item)
         {
             return TRUE;
         }
@@ -321,10 +321,10 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    item = GetMonData(pp,6,0);
-    mon = GetMonData(pp,5,0);
+    item = GetMonData(pp, ID_PARA_item, 0);
+    mon = GetMonData(pp, ID_PARA_monsno, 0);
 
-    return CheckMegaData(mon,item);
+    return CheckMegaData(mon, item);
 }
 
 BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client)
