@@ -9,7 +9,7 @@
 0012 Sub_PokeIconResourceFree 08030954 1
 0012 ServerBeforeAct 08011A4C 2
 0012 ServerWazaBefore 08014ACC 2
-0012 set_proper_mega_status 0802E868 4
+#0012 set_proper_mega_status 0802E868 4
 #0224C690
 0012 ServerHPCalc 08014DD0 2
 

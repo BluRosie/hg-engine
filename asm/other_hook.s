@@ -345,7 +345,7 @@ cmp r0, #1
 beq _setNoMega
 
 // set layout to mega button layout
-mov r0, #37 // figure out which num this should actually be
+ldr r0, =353 // figure out which num this should actually be
 strh r0, [r7, #6] // ScrnArcDataNo[3] = 37
 ldr r0, =SkillMenuTouchData
 b _return_from_mega
