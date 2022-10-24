@@ -342,10 +342,12 @@ mov r0, r6 // bip
 bl CheckCanDrawMegaButton
 ldr r1, =0x0226E930 // &SkillMenuTouchData
 cmp r0, #1
-beq _setNoMega
+bne _setNoMega
 
 // set layout to mega button layout
-ldr r0, =353 // figure out which num this should actually be
+//ldr r0, =353
+mov r0, #255
+add r0, #(353-255)
 strh r0, [r7, #6] // ScrnArcDataNo[3] = 37
 ldr r0, =SkillMenuTouchData
 b _return_from_mega
