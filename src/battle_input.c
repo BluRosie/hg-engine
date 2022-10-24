@@ -59,7 +59,7 @@ const ButtonTBL SkillMenuTouchData[] =
     [TOUCH_DATA_TOTAL ] = {RECT_HIT_END, 0, 0, 0},
 };
 
-const ButtonTBL SkillMenuTouchDataNoMega[] = 
+const ButtonTBL SkillMenuTouchDataNoMega[] =
 {
     //UP DOWN LEFT RIGHT
     [TOUCH_DATA_CANCEL] = {0x13 * 8, 0x18 * 8, 1 * 8, 0x1F * 8},
@@ -376,4 +376,37 @@ static void EFFECT_MegaTouch(void *tcb, void *work)
         }
         break;
     }
+}
+
+void __attribute__((long_call)) BGCallback_Waza(struct BI_PARAM *bip, int select_bg, int force_put);
+
+// should just need to repoint the original to this new one
+void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
+{
+    NNSG2dScreenData *scrnData;
+    void *arc_data;
+    u32 scrn_data_id;
+
+    sys_FreeMemoryEz(bip->scrn_buf[3]);
+
+    bip->scrn_buf[3] = sys_AllocMemory(5, 0x800);
+
+    if (CheckCanDrawMegaButton(bip))
+    {
+        scrn_data_id = 353; // new button layout
+        // swap out touch data ptr
+        bip->scrn_range = SkillMenuTouchData;
+    }
+    else
+    {
+        scrn_data_id = 37; // old button layout
+        // swap out touch data ptr
+        bip->scrn_range = SkillMenuTouchDataNoMega;
+    }
+
+    arc_data = ArcUtil_ScrnDataGet(7, scrn_data_id, 1, &scrnData, 5); // a007 file scrn_data_id (and it is compressed)
+    /*MI_CpuCopy32*/memcpy(scrnData->rawData, bip->scrn_buf[3], 0x800);
+    sys_FreeMemoryEz(arc_data);
+
+    BGCallback_Waza(bip, select_bg, force_put);
 }

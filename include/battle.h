@@ -160,7 +160,7 @@
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
 
 // move effect flags/waza_kouka
-#define	MOVE_EFFECT_LOCK_ON          (0x00000018)
+#define MOVE_EFFECT_LOCK_ON          (0x00000018)
 #define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
 #define MOVE_EFFECT_NO_CRITICAL_HITS (0x00008000)
 #define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
@@ -181,9 +181,9 @@
 
 // server status flags
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
-#define	SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
+#define SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
-#define	SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
+#define SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
 #define SERVER_STATUS_FLAG_NO_ANIMATIONS (0x00004000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
@@ -208,10 +208,10 @@
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 // One Self Turn Flags
-#define	STATUS_FLAG_EQPITEM_POWDOWN	(0x00000001)	//装備効果によって技の威力を弱めたフラグ
-#define	STATUS_FLAG_TSUIBAMU			(0x00000002)	//ついばむ発動
-#define	STATUS_FLAG_MEROMERO			(0x00000004)	//メロメロになった
-#define	STATUS_FLAG_MIGAWARI_HIT		(0x00000008)	//みがわりで防いだ
+#define STATUS_FLAG_EQPITEM_POWDOWN (0x00000001)    //装備効果によって技の威力を弱めたフラグ
+#define STATUS_FLAG_TSUIBAMU            (0x00000002)    //ついばむ発動
+#define STATUS_FLAG_MEROMERO            (0x00000004)    //メロメロになった
+#define STATUS_FLAG_MIGAWARI_HIT        (0x00000008)    //みがわりで防いだ
 
 // physical/special split values
 #define SPLIT_PHYSICAL 0
@@ -335,25 +335,25 @@
 
 
 //held item attack effect
-#define	ATK_CHECK_NORMAL	(0)
-#define	ATK_CHECK_NONE		(1)
-#define	ATK_CHECK_SHUTOUT	(2)
+#define ATK_CHECK_NORMAL    (0)
+#define ATK_CHECK_NONE      (1)
+#define ATK_CHECK_SHUTOUT   (2)
 
 //inc record
-#define	CLIENT_BOOT_TYPE_MINE		(0)
-#define	CLIENT_BOOT_TYPE_NOMINE		(1)
+#define CLIENT_BOOT_TYPE_MINE       (0)
+#define CLIENT_BOOT_TYPE_NOMINE     (1)
 
 //save data
-#define	RECID_TEMOTI_MAKIZOE (71+26)
+#define RECID_TEMOTI_MAKIZOE (71+26)
 
 //ai condition flags 2
 #define CONDITION2_TRANSFORM        (0x00200000)
 #define CONDITION2_TRANSFORM_OFF       (0x00200000 ^ 0xffffffff)
-#define	CONDITION2_SUBSTITUTE		(0x01000000)
-#define	CONDITION2_SUBSTITUTE_OFF		(0x01000000^0xffffffff)
+#define CONDITION2_SUBSTITUTE       (0x01000000)
+#define CONDITION2_SUBSTITUTE_OFF       (0x01000000^0xffffffff)
 
-#define	SWOAM_NORMAL	(0)
-#define	SWOAM_LOOP		(1)
+#define SWOAM_NORMAL    (0)
+#define SWOAM_LOOP      (1)
 
 
 // (possibly) implement challenge/ easy modes
@@ -464,17 +464,17 @@ struct __attribute__((packed)) OneSelfTurnEffect
 
 struct __attribute__((packed)) MoveOutCheck
 {
-    u32	mahi_flag :1;		//まひで技がだせない
-    u32	koukanai_flag :1;		//効果がない技だった
-    u32	huuin_flag :1;		//ふういんされて技がだせない
-    u32	meromero_flag :1;		//メロメロで技がだせない
-    u32	kanashibari_flag :1;		//かなしばりで技がだせない
-    u32	chouhatsu_flag :1;		//ちょうはつされて技がだせない
-    u32	hirumu_flag	 :1;		//ひるんで技がだせない
-    u32	konran_flag	 :1;		//こんらんして自分を攻撃
-    u32	juuryoku_flag :1;		//じゅうりょくで技がだせない
-    u32	healblock_flag :1;		//ヒールブロックで技がだせない
-    u32	dummy :22;
+    u32 mahi_flag :1;       //まひで技がだせない
+    u32 koukanai_flag :1;       //効果がない技だった
+    u32 huuin_flag :1;      //ふういんされて技がだせない
+    u32 meromero_flag :1;       //メロメロで技がだせない
+    u32 kanashibari_flag :1;        //かなしばりで技がだせない
+    u32 chouhatsu_flag :1;      //ちょうはつされて技がだせない
+    u32 hirumu_flag  :1;        //ひるんで技がだせない
+    u32 konran_flag  :1;        //こんらんして自分を攻撃
+    u32 juuryoku_flag :1;       //じゅうりょくで技がだせない
+    u32 healblock_flag :1;      //ヒールブロックで技がだせない
+    u32 dummy :22;
 };
 
 struct __attribute__((packed)) battle_moveflag
@@ -761,19 +761,19 @@ struct __attribute__((packed)) BattleStruct
     /*0x90*/ int addeffect_flag;
 
     /*0x94*/ int state_client;
-    /*0x98*/ int push_client;                            
+    /*0x98*/ int push_client;
     /*0x9C*/ int obtained_exp;
-    /*0xA0*/ int exp_share_obtained_exp;                       
-    /*0xA4*/ u32 obtained_exp_right_flag[2];                  
-    /*0xAC*/ int skill_arc_kind;                         
-    /*0xB0*/ int skill_arc_index;                        
-    /*0xB4*/ int skill_seq_no;                           
-    /*0xB8*/ int push_count;                             
-    /*0xBC*/ int push_skill_arc_kind[4];   
-    /*0xCC*/ int push_skill_arc_index[4];  
-    /*0xDC*/ int push_skill_seq_no[4];     
-    /*0xEC*/ int agi_cnt;                                
-    /*0xF0*/ int wait_cnt;                               
+    /*0xA0*/ int exp_share_obtained_exp;
+    /*0xA4*/ u32 obtained_exp_right_flag[2];
+    /*0xAC*/ int skill_arc_kind;
+    /*0xB0*/ int skill_arc_index;
+    /*0xB4*/ int skill_seq_no;
+    /*0xB8*/ int push_count;
+    /*0xBC*/ int push_skill_arc_kind[4];
+    /*0xCC*/ int push_skill_arc_index[4];
+    /*0xDC*/ int push_skill_seq_no[4];
+    /*0xEC*/ int agi_cnt;
+    /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;
     /*0x118*/ int client_work;
     /*0x11C*/ int attack_client_work;
@@ -845,10 +845,10 @@ struct __attribute__((packed)) BattleStruct
     /*0x3040*/ u32 waza_no_temp;
     /*0x3044*/ u32 current_move_index;
     // u8 unk_bytes4[0x74];
-    
+
     /*0x3048*/ u32 waza_no_last;
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
-    
+
     /*0x305C*/ u16 waza_no_mamoru[CLIENT_MAX];
     /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];
     /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];
@@ -858,20 +858,20 @@ struct __attribute__((packed)) BattleStruct
     /*0x308C*/ u16 waza_no_oumu_hit[CLIENT_MAX][CLIENT_MAX];
     /*0x30AC*/ u16 waza_no_sketch[CLIENT_MAX];
     /*0x30B4*/ u16 waza_no_select[CLIENT_MAX];
-    
+
     /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
     /*0x30C4*/ //u8 unk_bytes_4[0x44];
     /*0x    */ u16 waza_no_texture2[CLIENT_MAX];
     /*0x    */ u16 waza_no_texture2_client[CLIENT_MAX];
     /*0x    */ u16 waza_no_texture2_type[CLIENT_MAX];
     /*0x    */ u16 waza_no_metronome[CLIENT_MAX];
-        
+
     /*0x    */ int store_damage[CLIENT_MAX];                    ///<がまん用のダメージストックワーク
-        
+
     /*0x    */ int client_no_hit[CLIENT_MAX];                   ///<技を最後に当てたClientNoを格納
-        
+
     /*0x    */ int client_no_agi;
-    
+
     /*0x3108*/ u8 no_reshuffle_client;
     /*0x3109*/ u8 level_up_pokemon;
     /*0x310A*/ u16 que_check_wait;
@@ -1104,7 +1104,7 @@ struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
 {
     u8 command_code;
     u8 sel_mons_no;
-    u16 rate;	
+    u16 rate;
 };
 
 struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
@@ -1113,7 +1113,6 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 dummy[3];
     u8 sel_mons_no[CLIENT_MAX];
 };
-
 
 
 
@@ -1185,7 +1184,7 @@ int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, void *sp);
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
 int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
 
-u32	No2Bit(int no);
+u32 No2Bit(int no);
 
 
 
@@ -1230,7 +1229,7 @@ void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIE
 void __attribute__((long_call)) CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
 struct POKEPARTY *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
-int	__attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party); // this function is cursed to be arm for no fucking reason whatsoever
+int __attribute__((long_call)) PokeParty_GetPokeCountMax(const struct POKEPARTY *party); // this function is cursed to be arm for no fucking reason whatsoever
 int __attribute__((long_call)) SideClientNoGet(void *bw, struct BattleStruct *sp, int side);
 int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client_no);
 u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);

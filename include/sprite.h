@@ -63,9 +63,13 @@ struct BI_PARAM
     /*0x1C*/ u8 client_type;
     u8 client_no;
     u8 sel_mons_no;
-    /*0x1F*/ u8 fill[0x67D];
-    s16 seq;
-    s16 wait;
+    /*0x1F*/ u8 fill1F[0x40-0x1F];
+
+    /*0x40*/ u16 *scrn_buf[5]; // 5*4=20=0x14
+    /*0x54*/ u8 fill54[0x69C-0x54];
+
+    /*0x69C*/ s16 seq;
+    /*0x69E*/ s16 wait;
     /*0x6A0*/ const s16 *scrn_offset;
     const ButtonTBL *scrn_range;
     int tp_ret;
@@ -75,6 +79,16 @@ struct BI_PARAM
     u8 waku_type;
     u8 obj_del;
 };
+
+typedef struct NNSG2dScreenData
+{
+    u16 screenWidth;    // screen width (pixels) of rawData
+    u16 screenHeight;   // screen height (pixels) of rawData
+    u16 colorMode;      // charactor data color mode
+    u16 screenFormat;   // screen data format
+    u32 szByte;         // size of rawData
+    u32 rawData[1];     // screen data (variable length)
+}NNSG2dScreenData;
 
 void *__attribute__((long_call)) Sub_GaugeObjHeadGet(u8);
 BOOL __attribute__((long_call)) OAM_LoadResourceCharArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int trans_mode, int id);
@@ -106,5 +120,6 @@ BOOL __attribute__((long_call)) OAM_LoadResourceCharArc(void *csp, void *crp, in
 BOOL __attribute__((long_call)) OAM_LoadResourceCellAnmArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
 BOOL __attribute__((long_call)) OAM_LoadResourceCellArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
 u8 __attribute__((long_call)) OAM_LoadResourcePlttWorkArc(void *pfd, int req, void *csp, void *crp, int arc_id, int data_id, int comp, int num, int trans_mode, int id);
+void *__attribute__((long_call)) ArcUtil_ScrnDataGet(u32 fileIdx, u32 dataIdx, BOOL compressedFlag, NNSG2dScreenData** scrnData, u32 heapID);
 
 #endif
