@@ -1243,6 +1243,7 @@ void __attribute__((long_call)) SCIO_WazaEffectSet(void *bw, struct BattleStruct
 void __attribute__((long_call)) SCIO_WazaEffect2Set(void *bw, struct BattleStruct *sp, u16 waza_no, int attack, int defence);
 void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int file, int subfile);
 int __attribute__((long_call)) ServerKizetsuCheck(struct BattleStruct *sp, int next_seq, int no_set_seq, int flag);
+void *__attribute__((long_call)) BattleWorkGF_BGL_INIGet(void *bw);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

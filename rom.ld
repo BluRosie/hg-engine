@@ -145,6 +145,10 @@ OAM_FreeResourceCellAnm = 0x0200D988 |1;
 OAM_FreeResourcePltt = 0x0200D968 |1;
 CATS_ActorPointerDelete_S = 0x0200D9DC |1;
 
+BG_LoadScreenTilemapData = 0x0201C0A8 | 1;
+ScheduleBgTilemapBufferTransfer = 0x0201EFBC | 1;
+ArcUtil_ScrnDataGet = 0x020079D8 | 1;
+
 /*BATTLE_OAM*/
 BGCallback_FightOnly = 0x2FADC + 0x022378C1;
 BG_SlideSetInit = 0x02F5AC + 0x022378C1;
@@ -160,6 +164,7 @@ EffectTCB_Delete = 0x315F8 + 0x022378C1;
 Sub_TouchEndDelete = 0x314C8 + 0x022378C1;
 Sub_ScrnOffsetRewrite = 0x31624 + 0x022378C1;
 EffectTCB_Add = 0x315C4 + 0x022378C1;
+BattleWorkGF_BGL_INIGet = 0x0223A7D4 | 1;
 
 Snd_SePlay = 0x0200604C | 1;
 
@@ -217,7 +222,6 @@ IncrementBattleScriptPtr = 0x02245508 | 1;
 read_battle_script_param = 0x022454E8 | 1;
 TagNickParaMake = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
-ArcUtil_ScrnDataGet = 0x020079D8 | 1;
 BGCallback_Waza = 0x0226748C | 1;
 
 /* Trainer data expansion */

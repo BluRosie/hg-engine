@@ -88,7 +88,16 @@ typedef struct NNSG2dScreenData
     u16 screenFormat;   // screen data format
     u32 szByte;         // size of rawData
     u32 rawData[1];     // screen data (variable length)
-}NNSG2dScreenData;
+} NNSG2dScreenData;
+
+#define GF_BGL_FRAME0_M	(0)
+#define GF_BGL_FRAME1_M	(1)
+#define GF_BGL_FRAME2_M	(2)
+#define GF_BGL_FRAME3_M	(3)
+#define GF_BGL_FRAME0_S	(4)
+#define GF_BGL_FRAME1_S	(5)
+#define GF_BGL_FRAME2_S	(6)
+#define GF_BGL_FRAME3_S	(7)
 
 void *__attribute__((long_call)) Sub_GaugeObjHeadGet(u8);
 BOOL __attribute__((long_call)) OAM_LoadResourceCharArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int trans_mode, int id);
@@ -121,5 +130,7 @@ BOOL __attribute__((long_call)) OAM_LoadResourceCellAnmArc(void *csp, void *crp,
 BOOL __attribute__((long_call)) OAM_LoadResourceCellArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
 u8 __attribute__((long_call)) OAM_LoadResourcePlttWorkArc(void *pfd, int req, void *csp, void *crp, int arc_id, int data_id, int comp, int num, int trans_mode, int id);
 void *__attribute__((long_call)) ArcUtil_ScrnDataGet(u32 fileIdx, u32 dataIdx, BOOL compressedFlag, NNSG2dScreenData** scrnData, u32 heapID);
+void __attribute__((long_call)) BG_LoadScreenTilemapData(void *bgl, u32 bg_id, u16 *scrn_buf, int size);
+void __attribute__((long_call)) ScheduleBgTilemapBufferTransfer(void *bgl, int bg_id);
 
 #endif
