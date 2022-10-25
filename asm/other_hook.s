@@ -336,33 +336,15 @@ bx r1
 
 .global set_proper_mega_status
 set_proper_mega_status:
-push {r0-r6}
-ldr r7, =0x0226E298 // ScrnArcDataNo
+push {r0-r7}
+
 mov r0, r6 // bip
-bl CheckCanDrawMegaButton
-ldr r1, =0x0226E930 // &SkillMenuTouchData
-cmp r0, #1
-bne _setNoMega
+bl SwapOutBottomScreen
 
-// set layout to mega button layout
-//ldr r0, =353
-mov r0, #255
-add r0, #(353-255)
-strh r0, [r7, #6] // ScrnArcDataNo[3] = 37
-ldr r0, =SkillMenuTouchData
-b _return_from_mega
-
-_setNoMega:
-mov r0, #37
-strh r0, [r7, #6] // ScrnArcDataNo[3] = 37
-ldr r0, =SkillMenuTouchDataNoMega
-
-_return_from_mega:
-str r0, [r1]
-pop {r0-r6}
+pop {r0-r7}
 mov r4, #0
 str r0, [r6, r1]
-// ldr r7, =0x0226E298 // already loaded this above
+ldr r7, =0x0226E298 // already loaded this above
 ldr r0, =0x02266130 | 1
 bx r0
 

@@ -381,6 +381,7 @@ static void EFFECT_MegaTouch(void *tcb, void *work)
 
 void __attribute__((long_call)) BGCallback_Waza(struct BI_PARAM *bip, int select_bg, int force_put);
 
+
 // should just need to repoint the original to this new one
 // hopefully this just works, i don't see why it wouldn't.  rewrites the bg every time, but that's okay and probably what needs to be done.
 void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
@@ -395,17 +396,19 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
     bip->scrn_buf[3] = sys_AllocMemory(5, 0x800);
 
     // me when i commit crimes that transfer to low-level really nicely
-    if (CheckCanDrawMegaButton(bip))
+    if (newBS.CanMega && !newBS.PlayerMegaed)
     {
         scrn_data_id = 353; // new button layout nscr
+        *(u16 *)(0x0226E29E) = 353;
         // swap out touch data ptr
-        (void *)(0x0226E930) = &SkillMenuTouchData; // something like this
+        *(u32 *)(0x0226E930) = &SkillMenuTouchData; // something like this
     }
     else
     {
         scrn_data_id = 37; // old button layout nscr
+        *(u16 *)(0x0226E29E) = 37;
         // swap out touch data ptr
-        (void *)(0x0226E930) = &SkillMenuTouchDataNoMega;
+        *(u32 *)(0x0226E930) = &SkillMenuTouchDataNoMega;
     }
 
     arc_data = ArcUtil_ScrnDataGet(7, scrn_data_id, 1, &scrnData, 5); // a007 file scrn_data_id (and it is compressed) slapped on heap 5.  need return ptr so we can free it too
@@ -417,4 +420,21 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
     ScheduleBgTilemapBufferTransfer(bgl, GF_BGL_FRAME3_S); // GF_BGL_LoadScreenV_Req
 
     BGCallback_Waza(bip, select_bg, force_put);
+}
+
+void SwapOutBottomScreen(struct BI_PARAM *bip)
+{
+    // me when i commit crimes that transfer to low-level really nicely
+    if (newBS.CanMega && !newBS.PlayerMegaed)
+    {
+        *(u16 *)(0x0226E29E) = 353; // new button layout nscr
+        // swap out touch data ptr
+        *(u32 *)(0x0226E930) = &SkillMenuTouchData; // something like this
+    }
+    else
+    {
+        *(u16 *)(0x0226E29E) = 37; // old button layout nscr
+        // swap out touch data ptr
+        *(u32 *)(0x0226E930) = &SkillMenuTouchDataNoMega;
+    }
 }
