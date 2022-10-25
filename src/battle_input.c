@@ -88,6 +88,12 @@ ALIGN4 const u8 SkillMenuPaletteNo[NELEMS(SkillMenuTouchData) - 1] = {
     [TOUCH_DATA_MEGA  ] = 4,
 };
 
+const u8 DPadSelectTouchDataIndex[] = { // dpad touch data index
+    1, 2,
+    3, 4,
+    0, 5,
+};
+
 static const OAMSpriteTemplate PokeIconObjParam = {
     155,
     161,
@@ -405,14 +411,16 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
         scrn_data_id = 353; // new button layout nscr
         *(u16 *)(0x0226E29E) = 353;
         // swap out touch data ptr
-        *(u32 *)(0x0226E930) = &SkillMenuTouchData; // something like this
+        *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchData; // something like this
+        *(u32 *)(0x02269F4C) = (u32)&DPadSelectTouchDataIndex; // new map x/y grid array for dpad movement callback
     }
     else
     {
         scrn_data_id = 37; // old button layout nscr
         *(u16 *)(0x0226E29E) = 37;
         // swap out touch data ptr
-        *(u32 *)(0x0226E930) = &SkillMenuTouchDataNoMega;
+        *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchDataNoMega;
+        *(u32 *)(0x02269F4C) = 0x0226E218; // original map x/y grid array for dpad movement callback
     }
 
     arc_data = ArcUtil_ScrnDataGet(7, scrn_data_id, 1, &scrnData, 5); // a007 file scrn_data_id (and it is compressed) slapped on heap 5.  need return ptr so we can free it too
