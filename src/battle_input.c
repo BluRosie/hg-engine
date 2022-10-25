@@ -283,7 +283,11 @@ ALIGN4 static const s16 MoveSelectScreenOffsets[][3] = {
 };
 
 ALIGN4 static const ButtonTBL MoveSelectButtonScreenRectangle[] = {
-    {0x12, 0x17, 22, 0x1e},
+    {0x12, 0x17, 0x16, 0x1e},
+};
+
+ALIGN4 static const ButtonTBL MoveSelectMegaButtonScreenRectangle[] = {
+    {0x12, 0x17, 0x1, 0x1e},
 };
 
 u8 CheckMegaButton(struct BI_PARAM *bip, int tp_ret)
@@ -419,13 +423,35 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
     BG_LoadScreenTilemapData(bgl, GF_BGL_FRAME3_S, bip->scrn_buf[3], 0x800); // GF_BGL_ScreenBufSet
     ScheduleBgTilemapBufferTransfer(bgl, GF_BGL_FRAME3_S); // GF_BGL_LoadScreenV_Req
 
+    bip->scrn_offset = MoveSelectScreenOffsets[0];
+    bip->scrn_range = &MoveSelectMegaButtonScreenRectangle[0];
+    bip->scrnbuf_no = 3;
+    bip->tp_ret = RECT_HIT_NONE;
+    bip->obj_del = FALSE;
+    Sub_ScrnOffsetRewrite(bip, bip->scrn_offset, bip->scrn_range, bip->scrnbuf_no, 0);
+
     BGCallback_Waza(bip, select_bg, force_put);
 }
+
+
+u32 GrabCancelXValue(void)
+{
+    // me when i commit crimes that transfer to low-level really nicely
+    if (newBS.CanMega && !newBS.PlayerMegaed)
+    {
+        return 92;
+    }
+    else
+    {
+        return 128;
+    }
+}
+
 
 void SwapOutBottomScreen(struct BI_PARAM *bip)
 {
     // me when i commit crimes that transfer to low-level really nicely
-    if (newBS.CanMega && !newBS.PlayerMegaed)
+    if (CheckCanDrawMegaButton(bip) && !newBS.PlayerMegaed)
     {
         *(u16 *)(0x0226E29E) = 353; // new button layout nscr
         // swap out touch data ptr

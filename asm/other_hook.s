@@ -336,16 +336,43 @@ bx r1
 
 .global set_proper_mega_status
 set_proper_mega_status:
+cmp r4, #7
+blt jump_to_2266130
 push {r0-r7}
 
 mov r0, r6 // bip
 bl SwapOutBottomScreen
 
 pop {r0-r7}
-mov r4, #0
-str r0, [r6, r1]
-ldr r7, =0x0226E298 // already loaded this above
+//mov r4, #0
+//str r0, [r6, r1]
+//ldr r7, =0x0226E298 // already loaded this above
+//ldr r0, =0x02266130 | 1
+//bx r0
+ldr r0, [sp, #0xC]
+bl 0x0226ADC4
+ldr r1, =0x0226618E | 1
+bx r1
+
+
+jump_to_2266130:
 ldr r0, =0x02266130 | 1
 bx r0
 
 .pool
+
+
+.global shift_cancel_over
+shift_cancel_over:
+push {r1-r7}
+
+mov r0, r5 // bip
+bl GrabCancelXValue
+
+pop {r1-r7}
+str r0, [sp, #0xC]
+mov r0, #175 // y value
+str r0, [sp, #0x10]
+
+ldr r0, =0x02267634 | 1
+bx r0
