@@ -8,6 +8,7 @@
 #define ARC_ITEM_DATA 17
 #define ARC_ITEM_GFX_DATA 18
 #define ARC_CODE_ADDONS 28
+#define ARC_EVOLUTIONS 34
 #define ARC_OTHER_MON_PIC 114
 #define ARC_EGG_MOVES 231 // 229 because of the two random ones
 

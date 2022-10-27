@@ -7719,7 +7719,7 @@ evodata SPECIES_AMOONGUSS
     terminateevodata
 
 evodata SPECIES_FRILLISH
-    evolution EVO_LEVEL_UP, 40, SPECIES_JELLICENT
+    evolutionwithform EVO_LEVEL_UP_MALE, 40, SPECIES_JELLICENT, 0
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -8619,8 +8619,8 @@ evodata SPECIES_VIVILLON
 terminateevodata
 
 evodata SPECIES_LITLEO
-	evolution EVO_LEVEL_UP, 35, SPECIES_PYROAR
-	evolution EVO_NONE, 0, SPECIES_NONE
+	evolutionwithform EVO_LEVEL_MALE, 35, SPECIES_PYROAR, 0
+	evolutionwithform EVO_LEVEL_FEMALE, 35, SPECIES_PYROAR, 1
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
@@ -8739,8 +8739,8 @@ evodata SPECIES_FURFROU
 terminateevodata
 
 evodata SPECIES_ESPURR
-	evolution EVO_LEVEL_UP, 25, SPECIES_MEOWSTIC
-	evolution EVO_NONE, 0, SPECIES_NONE
+	evolutionwithform EVO_LEVEL_UP_MALE, 25, SPECIES_MEOWSTIC, 0
+	evolutionwithform EVO_LEVEL_UP_FEMALE, 25, SPECIES_MEOWSTIC, 1
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
@@ -9543,8 +9543,8 @@ evodata SPECIES_RIBOMBEE
 terminateevodata
 
 evodata SPECIES_ROCKRUFF
-	evolution EVO_HAPPINESS, 0, SPECIES_LYCANROC
-	evolution EVO_NONE, 0, SPECIES_NONE
+	evolutionwithform EVO_HAPPINESS_DAY, 0, SPECIES_LYCANROC, 0
+	evolutionwithform EVO_HAPPINESS_NIGHT, 0, SPECIES_LYCANROC, 1
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
@@ -13768,7 +13768,7 @@ evodata SPECIES_ORICORIO_SENSU
 terminateevodata
 
 evodata SPECIES_ROCKRUFF_OWN_TEMPO
-	evolution EVO_USE_ITEM, ITEM_DUSK_STONE, SPECIES_LYCANROC
+	evolutionwithform EVO_USE_ITEM, ITEM_DUSK_STONE, SPECIES_LYCANROC, 2
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
@@ -14524,7 +14524,7 @@ evodata SPECIES_UNFEZANT_FEMALE
     terminateevodata
 
 evodata SPECIES_FRILLISH_FEMALE
-    evolution EVO_LEVEL_UP, 40, SPECIES_JELLICENT
+    evolutionwithform EVO_LEVEL_FEMALE, 40, SPECIES_JELLICENT, 1
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE
 	evolution EVO_NONE, 0, SPECIES_NONE

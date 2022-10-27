@@ -423,14 +423,15 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
         *(u32 *)(0x02269F4C) = 0x0226E218; // original map x/y grid array for dpad movement callback
     }
 
+    // swap out tilemap
     arc_data = ArcUtil_ScrnDataGet(7, scrn_data_id, 1, &scrnData, 5); // a007 file scrn_data_id (and it is compressed) slapped on heap 5.  need return ptr so we can free it too
     /*MI_CpuCopy32*/memcpy(bip->scrn_buf[3], scrnData->rawData, 0x800);
     sys_FreeMemoryEz(arc_data);
-
     bgl = BattleWorkGF_BGL_INIGet(bip->bw);
     BG_LoadScreenTilemapData(bgl, GF_BGL_FRAME3_S, bip->scrn_buf[3], 0x800); // GF_BGL_ScreenBufSet
     ScheduleBgTilemapBufferTransfer(bgl, GF_BGL_FRAME3_S); // GF_BGL_LoadScreenV_Req
 
+    // refresh the parts of the screen that are affected
     bip->scrn_offset = MoveSelectScreenOffsets[0];
     bip->scrn_range = &MoveSelectMegaButtonScreenRectangle[0];
     bip->scrnbuf_no = 3;
@@ -444,7 +445,6 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
 
 u32 GrabCancelXValue(void)
 {
-    // me when i commit crimes that transfer to low-level really nicely
     if (newBS.CanMega && !newBS.PlayerMegaed)
     {
         return 92;
@@ -458,17 +458,18 @@ u32 GrabCancelXValue(void)
 
 void SwapOutBottomScreen(struct BI_PARAM *bip)
 {
-    // me when i commit crimes that transfer to low-level really nicely
     if (CheckCanDrawMegaButton(bip) && !newBS.PlayerMegaed)
     {
         *(u16 *)(0x0226E29E) = 353; // new button layout nscr
         // swap out touch data ptr
-        *(u32 *)(0x0226E930) = &SkillMenuTouchData; // something like this
+        *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchData; // something like this
+        *(u32 *)(0x02269F4C) = (u32)&DPadSelectTouchDataIndex; // new map x/y grid array for dpad movement callback
     }
     else
     {
         *(u16 *)(0x0226E29E) = 37; // old button layout nscr
         // swap out touch data ptr
-        *(u32 *)(0x0226E930) = &SkillMenuTouchDataNoMega;
+        *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchDataNoMega;
+        *(u32 *)(0x02269F4C) = 0x0226E218; // original map x/y grid array for dpad movement callback
     }
 }

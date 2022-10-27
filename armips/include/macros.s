@@ -137,6 +137,13 @@
 	.halfword species
 .endmacro
 
+// fucking 5-bit forms
+.macro evolutionwithform,method,parameter,species,form
+	.halfword method
+	.halfword parameter
+	.halfword (species | form << 11)
+.endmacro
+
 .macro terminateevodata
 	.halfword 0
 	

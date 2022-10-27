@@ -50,6 +50,7 @@ void __attribute__((long_call)) Party_ResetAllShayminToLandForme(struct Party *p
 void __attribute__((long_call)) GF_RTC_CopyDateTime(struct RTCDate *date, struct RTCTime *time);
 void __attribute__((long_call)) GF_RTC_CopyTime(struct RTCTime *time);
 void __attribute__((long_call)) GF_RTC_CopyDate(struct RTCDate *date);
+BOOL __attribute__((long_call)) IsNighttime(void);
 TIMEOFDAY __attribute__((long_call)) GF_RTC_GetTimeOfDay(void);
 TIMEOFDAY __attribute__((long_call)) GF_RTC_GetTimeOfDayByHour(s32 hour);
 TimeOfDayWildParam __attribute__((long_call)) GF_RTC_GetTimeOfDayWildParam(void);

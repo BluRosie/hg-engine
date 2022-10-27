@@ -3429,3 +3429,245 @@ u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
     sys_FreeMemoryEz(kowaza_list);
     return n;
 }
+
+
+// top 5 bits are now form bit
+// if the form is nonzero, have to set it to that form.  most mons should keep their forms on evolution, but specifically significant gendered mons will need to not
+#define GET_TARGET_AND_SET_FORM(target, form) { \ 
+    target = evoTable[i].target & 0x7FF; \
+    form = (evoTable[i].target & 0xF100) >> 11; \
+    if (form != 0) { \
+        SetMonData(pokemon, ID_PARA_form_no, &form); \
+    } \
+}
+
+u16 GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
+    u16 species;
+    u16 heldItem;
+    u8 level;
+    int i;
+    u16 target = SPECIES_NONE;
+    u16 friendship;
+    u32 pid;
+    u8 holdEffect;
+    u8 beauty; // for Feebas, but queried unconditionally.
+    u16 pid_hi = 0;
+    struct Evolution *evoTable;
+    int method_local;
+    u32 form = GetMonData(pokemon, ID_PARA_form_no, NULL));
+
+    species = GetMonData(pokemon, ID_PARA_monsno, NULL);
+    heldItem = GetMonData(pokemon, ID_PARA_item, NULL);
+    pid = GetMonData(pokemon, ID_PARA_personal_rnd, NULL);
+    beauty = GetMonData(pokemon, ID_PARA_beautiful, NULL);
+    pid_hi = (u16)((pid & 0xFFFF0000) >> 16);
+    holdEffect = GetItemData(heldItem, ITEM_PARAM_HOLD_EFFECT, 0);
+
+    if (species != SPECIES_KADABRA && holdEffect == HOLD_EFFECT_NO_EVOLVE && context != EVOCTX_ITEM_USE) {
+        return SPECIES_NONE;
+    }
+
+    // Spiky-ear Pichu cannot evolve
+    if (species == SPECIES_PICHU && form == 1) {
+        return SPECIES_NONE;
+    }
+
+    if (method_ret == NULL) {
+        method_ret = &method_local;
+    }
+    
+    species = PokeOtherFormMonsNoGet(species, form); // factor in form into species to cover shit like galarian corsola + cap pikachu that can't evolve
+
+    evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+    ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, species);
+
+    switch (context) {
+    case EVOCTX_LEVELUP:
+        level = (u8)GetMonData(pokemon, ID_PARA_level, NULL);
+        friendship = (u16)GetMonData(pokemon, ID_PARA_friend, NULL);
+        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
+            switch (evoTable[i].method) {
+            case EVO_NONE:
+                break;
+            case EVO_FRIENDSHIP:
+                if (friendship >= 220) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_FRIENDSHIP;
+                }
+                break;
+            case EVO_FRIENDSHIP_DAY:
+                if (IsNighttime() == 0 && friendship >= 220) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_FRIENDSHIP_DAY;
+                }
+                break;
+            case EVO_FRIENDSHIP_NIGHT:
+                if (IsNighttime() == 1 && friendship >= 220) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_FRIENDSHIP_NIGHT;
+                }
+                break;
+            case EVO_LEVEL:
+                if (evoTable[i].param <= level) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL;
+                }
+                break;
+            case EVO_TRADE:
+                break;
+            case EVO_TRADE_ITEM:
+                break;
+            case EVO_STONE:
+                break;
+            case EVO_LEVEL_ATK_GT_DEF:
+                if (evoTable[i].param <= level && GetMonData(pokemon, ID_PARA_pow, NULL) > GetMonData(pokemon, ID_PARA_def, NULL)) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_ATK_GT_DEF;
+                }
+                break;
+            case EVO_LEVEL_ATK_EQ_DEF:
+                if (evoTable[i].param <= level && GetMonData(pokemon, ID_PARA_pow, NULL) == GetMonData(pokemon, ID_PARA_def, NULL)) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_ATK_EQ_DEF;
+                }
+                break;
+            case EVO_LEVEL_ATK_LT_DEF:
+                if (evoTable[i].param <= level && GetMonData(pokemon, ID_PARA_pow, NULL) < GetMonData(pokemon, ID_PARA_def, NULL)) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_ATK_LT_DEF;
+                }
+                break;
+            case EVO_LEVEL_PID_LO:
+                if (evoTable[i].param <= level && pid_hi % 10 < 5) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_PID_LO;
+                }
+                break;
+            case EVO_LEVEL_PID_HI:
+                if (evoTable[i].param <= level && pid_hi % 10 >= 5) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_PID_HI;
+                }
+                break;
+            case EVO_LEVEL_NINJASK:
+                if (evoTable[i].param <= level) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_NINJASK;
+                }
+                break;
+            case EVO_LEVEL_SHEDINJA:
+                *method_ret = EVO_LEVEL_SHEDINJA;
+                break;
+            case EVO_BEAUTY:
+                if (evoTable[i].param <= beauty) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_BEAUTY;
+                }
+                break;
+            case EVO_STONE_MALE:
+                break;
+            case EVO_STONE_FEMALE:
+                break;
+            case EVO_ITEM_DAY:
+                if (IsNighttime() == 0 && evoTable[i].param == heldItem) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_ITEM_DAY;
+                }
+                break;
+            case EVO_ITEM_NIGHT:
+                if (IsNighttime() == 1 && evoTable[i].param == heldItem) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_ITEM_NIGHT;
+                }
+                break;
+            case EVO_HAS_MOVE:
+                if (MonHasMove(pokemon, evoTable[i].param) == TRUE) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_HAS_MOVE;
+                }
+                break;
+            case EVO_OTHER_PARTY_MON:
+                if (party != NULL && PartyHasMon(party, evoTable[i].param) == 1) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_OTHER_PARTY_MON;
+                }
+                break;
+            case EVO_LEVEL_MALE:
+                if (GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_MALE && evoTable[i].param <= level) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_MALE;
+                }
+                break;
+            case EVO_LEVEL_FEMALE:
+                if (GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_FEMALE && evoTable[i].param <= level) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_LEVEL_FEMALE;
+                }
+                break;
+            case EVO_CORONET:
+                if (usedItem == evoTable[i].method) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_CORONET;
+                }
+                break;
+            case EVO_ETERNA:
+                if (usedItem == evoTable[i].method) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_ETERNA;
+                }
+                break;
+            case EVO_ROUTE217:
+                if (usedItem == evoTable[i].method) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_ROUTE217;
+                }
+                break;
+            }
+            if (target != SPECIES_NONE) {
+                break;
+            }
+        }
+        break;
+    case EVOCTX_TRADE:
+        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
+            switch (evoTable[i].method) {
+            case EVO_TRADE:
+                GET_TARGET_AND_SET_FORM(target, form);
+                *method_ret = EVO_TRADE;
+                break;
+            case EVO_TRADE_ITEM:
+                if (heldItem == evoTable[i].param) {
+                    GET_TARGET_AND_SET_FORM(target, form);
+                    *method_ret = EVO_TRADE_ITEM;
+                }
+                break;
+            }
+            if (target != SPECIES_NONE) {
+                break;
+            }
+        }
+        break;
+    case EVOCTX_ITEM_CHECK:
+    case EVOCTX_ITEM_USE:
+        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
+            if (evoTable[i].method == EVO_STONE && usedItem == evoTable[i].param) {
+                GET_TARGET_AND_SET_FORM(target, form);
+                *method_ret = 0;
+                break;
+            }
+            if (evoTable[i].method == EVO_STONE_MALE && GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_MALE && usedItem == evoTable[i].param) {
+                GET_TARGET_AND_SET_FORM(target, form);
+                *method_ret = 0;
+                break;
+            }
+            if (evoTable[i].method == EVO_STONE_FEMALE && GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_FEMALE && usedItem == evoTable[i].param) {
+                GET_TARGET_AND_SET_FORM(target, form);
+                *method_ret = 0;
+                break;
+            }
+        }
+        break;
+    }
+    sys_FreeMemoryEz(evoTable);
+    return target;
+}

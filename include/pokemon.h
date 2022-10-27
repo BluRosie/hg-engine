@@ -468,6 +468,54 @@ struct PLIST_WORK
 };
 
 
+// defines from pokeheartgold
+typedef enum EvoMethod
+{
+    EVO_NONE = 0,
+    EVO_FRIENDSHIP,
+    EVO_FRIENDSHIP_DAY,
+    EVO_FRIENDSHIP_NIGHT,
+    EVO_LEVEL,
+    EVO_TRADE,
+    EVO_TRADE_ITEM,
+    EVO_STONE,
+    EVO_LEVEL_ATK_GT_DEF,
+    EVO_LEVEL_ATK_EQ_DEF,
+    EVO_LEVEL_ATK_LT_DEF,
+    EVO_LEVEL_PID_LO,
+    EVO_LEVEL_PID_HI,
+    EVO_LEVEL_NINJASK,
+    EVO_LEVEL_SHEDINJA,
+    EVO_BEAUTY,
+    EVO_STONE_MALE,
+    EVO_STONE_FEMALE,
+    EVO_ITEM_DAY,
+    EVO_ITEM_NIGHT,
+    EVO_HAS_MOVE,
+    EVO_OTHER_PARTY_MON,
+    EVO_LEVEL_MALE,
+    EVO_LEVEL_FEMALE,
+    EVO_CORONET,
+    EVO_ETERNA,
+    EVO_ROUTE217,
+} EvoMethod;
+
+typedef enum {
+    EVOCTX_LEVELUP,
+    EVOCTX_TRADE,
+    EVOCTX_ITEM_CHECK,
+    EVOCTX_ITEM_USE,
+} EvolveContext;
+
+struct Evolution {
+    u16 method;
+    u16 param;
+    u16 target;
+};
+
+#define MAX_EVOS_PER_POKE (9)
+
+
 #define gOWTagToFileNum ((struct OVERWORLD_TAG *) (0x023C8000 + START_ADDRESS)) // i hate this lol
 #define EGG_MOVES_PER_MON 16 // need to go through later and make this editable
 #define NUM_EGG_MOVES_TOTAL 8000

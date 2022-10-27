@@ -136,3 +136,20 @@ mov pc, r1
 
 CT_EncountSendOutMessageParamMake_return_address:
 .word 0
+
+
+.global GetMonEvolution_hook
+GetMonEvolution_hook:
+ldr r5, =GetMonEvolution_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl GetMonEvolution
+ldr r1, =GetMonEvolution_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+GetMonEvolution_return_address:
+.word 0
