@@ -20,7 +20,6 @@ arm9 PokePicLoad 080701EC 1
 arm9 PokeOtherFormMonsNoGet 08072634 2
 arm9 PokeIconIndexGetByMonsNumber 080741BC 3
 arm9 PokeIconCgxPatternGet 080742CC 1
-arm9 GetFormEvo 08070ED4 1
 arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
 #0206DED0+4

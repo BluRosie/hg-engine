@@ -62,18 +62,6 @@ pop {r0-r3}
 ldr r1, =0xB98 + Overlay_12_Start
 bx r1
 
-//地区形态进化
-.global GetFormEvo
-GetFormEvo:
-str r0, [sp, #0x1C]
-ldr r1, [sp, #0x1C]
-push {r0-r3}
-mov r0, r7
-bl GetMonEvoData
-pop {r0-r3}
-ldr r0, =0x02070EDE + 1
-bx r0
-
 //小图标色板
 .global IconPalGet
 IconPalGet:
