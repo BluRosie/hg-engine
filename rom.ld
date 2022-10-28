@@ -83,6 +83,8 @@ PokeNatureGet = 0x0206FE2C |1;
 PokeSetMove = 0x020712D8 |1;
 PokeParaLevelExpGet = 0x0206FCDC | 1;
 PokeLevelUpCheck = 0x02070DB4 | 1;
+MonHasMove = 0x02071754 | 1;
+PartyHasMon = 0x020748CC | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;

@@ -559,6 +559,8 @@ void __attribute__((long_call)) PokeParty_Delete(void *party, u32 pos);
 u32 __attribute__((long_call)) PokeListProc_End(void *proc, int *seq);
 u32 __attribute__((long_call)) PokeParaLevelExpGet(struct PartyPokemon *pp);
 u32 __attribute__((long_call)) PokeLevelUpCheck(struct PartyPokemon *pp);
+BOOL __attribute__((long_call)) PartyHasMon(struct PokeParty *party, u16 species);
+BOOL __attribute__((long_call)) MonHasMove(struct PartyPokemon *mon, u16 move);
 
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);

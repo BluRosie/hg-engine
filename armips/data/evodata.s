@@ -7719,7 +7719,7 @@ evodata SPECIES_AMOONGUSS
     terminateevodata
 
 evodata SPECIES_FRILLISH
-    evolutionwithform EVO_LEVEL_UP_MALE, 40, SPECIES_JELLICENT, 0
+    evolutionwithform EVO_LEVEL_MALE, 40, SPECIES_JELLICENT, 0
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -8739,8 +8739,8 @@ evodata SPECIES_FURFROU
 terminateevodata
 
 evodata SPECIES_ESPURR
-    evolutionwithform EVO_LEVEL_UP_MALE, 25, SPECIES_MEOWSTIC, 0
-    evolutionwithform EVO_LEVEL_UP_FEMALE, 25, SPECIES_MEOWSTIC, 1
+    evolutionwithform EVO_LEVEL_MALE, 25, SPECIES_MEOWSTIC, 0
+    evolutionwithform EVO_LEVEL_FEMALE, 25, SPECIES_MEOWSTIC, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

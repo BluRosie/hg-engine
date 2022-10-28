@@ -7,6 +7,7 @@
 #include "../include/save.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/file.h"
+#include "../include/constants/hold_item_effects.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
@@ -3444,7 +3445,7 @@ u16 GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 contex
     u16 pid_hi = 0;
     struct Evolution *evoTable;
     int method_local;
-    u32 form = GetMonData(pokemon, ID_PARA_form_no, NULL));
+    u32 form = GetMonData(pokemon, ID_PARA_form_no, NULL);
 
     species = GetMonData(pokemon, ID_PARA_monsno, NULL);
     heldItem = GetMonData(pokemon, ID_PARA_item, NULL);
