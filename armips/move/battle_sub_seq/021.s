@@ -16,6 +16,7 @@ a001_021:
     goto _0180
 _0030:
     if IF_NOTMASK, VAR_10, 0x100, _0098
+    ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_ABILITY, ABILITY_STURDY, _018C
     setstatus2effect BATTLER_DEFENDER, 0xA
     waitmessage
     printmessage 0x390, 0xF, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN"

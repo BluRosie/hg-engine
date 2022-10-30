@@ -41,6 +41,7 @@ _00EC:
     wait 0x1E
 _0174:
     if IF_NOTMASK, VAR_10, 0x100, _01D4
+    ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_ABILITY, ABILITY_STURDY, _01D4
     setstatus2effect BATTLER_xFF, 0xA
     waitmessage
     printmessage 0x390, 0xF, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
