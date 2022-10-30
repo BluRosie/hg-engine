@@ -53,4 +53,35 @@ patch_uncapped_frame_rate:
 
 .endif
 
+
+.if FAST_TEXT_PRINTING
+
+.org 0x02002346
+    mov r1, #0
+
+.org 0x020202EE
+    add r4, r1, #0
+    ldr r0, =0x021D1F6C
+
+.org 0x0202031E
+    pop {r4, pc}
+
+
+.org 0x02020320
+    sub r4, #0x2D
+    b 0x020202F0
+
+
+.org 0x0202032E
+    beq 0x020202F0
+
+.org 0x0202033A
+    b 0x02020320
+
+.org 0x02020354
+.pool
+
+.endif
+
+
 .close
