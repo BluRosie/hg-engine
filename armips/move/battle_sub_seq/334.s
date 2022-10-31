@@ -22,7 +22,7 @@ ZygardePowerConstructFormChange:
     setstatus2effect BATTLER_xFF, 0x10
     waitmessage
 _0044:
-    printmessage ZygardePresenceMessage, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage ZygardePresenceMessage, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x4E
     playse BATTLER_xFF, 0x7BC
@@ -35,7 +35,7 @@ _0044:
     changevar VAR_OP_SETMASK, VAR_06, 0x40
     gotosubscript 2
     waitmessage
-    printmessage ZygardeTransformedMessage, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage ZygardeTransformedMessage, TAG_NICK, BATTLER_WORK, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x4E
     ifmonstat IF_NOTMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000, _00EC

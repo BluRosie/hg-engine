@@ -3,7 +3,7 @@
 
 .include "armips/include/battlescriptcmd.s"
 
-//mega battle script
+//mega battle script specifically for moves (dragon ascent)
 MegaEvolvedMsg equ 1279
 FerventWishMsg equ 1345
 

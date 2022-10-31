@@ -30,10 +30,10 @@ _0044:
     waitmessage
     ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_SPECIES, SPECIES_EISCUE, printEiscue
 printMimikyu:
-    printmessage DisguiseMsg, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage DisguiseMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto afterPrint
 printEiscue:
-    printmessage IceFaceShatterMsg, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage IceFaceShatterMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
 afterPrint:
     waitmessage
     wait 0x1E

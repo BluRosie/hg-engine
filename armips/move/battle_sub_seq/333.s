@@ -27,7 +27,7 @@ _0044:
     playse BATTLER_xFF, 0x7C0
     mosaic BATTLER_xFF, 0x0, 0x1
     waitmessage
-    printmessage IceFaceRestoreMsg, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage IceFaceRestoreMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
     ifmonstat IF_NOTMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000, _00EC
