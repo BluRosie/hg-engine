@@ -1118,9 +1118,10 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 seq_no = SUB_SEQ_HANDLE_MOODY;
                 ret = TRUE;
             }
-        case ABILITY_ICE_FACE:
+        case ABILITY_ICE_FACE: //TODO test this
             if ((sp->battlemon[client_no].species == SPECIES_EISCUE)
              && (sp->battlemon[client_no].hp)
+             && (sp->battlemon[client_no].form_no == 1)
              && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
              && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
              && (sp->field_condition & WEATHER_HAIL_ANY))
@@ -1283,6 +1284,23 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->attack_client;
                     seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
+                }
+            }
+            break;
+        case ABILITY_BATTLE_BOND:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+
+                if (sp->battlemon[sp->attack_client].species == SPECIES_GRENINJA && sp->battlemon[sp->attack_client].form_no == 1)
+                {
+                    sp->state_client = sp->attack_client;
+                    sp->client_work = sp->attack_client;
+                    sp->battlemon[sp->attack_client].form_no = 2;
+                    seq_no[0] = SUB_SEQ_HANDLE_FORM_CHANGE;
                     ret = TRUE;
                 }
             }
@@ -1693,7 +1711,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 ret = TRUE;
             } 
             break;
-        case ABILITY_DISGUISE:
+        case ABILITY_DISGUISE: //TODO test this
         case ABILITY_ICE_FACE:
             if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU || (sp->battlemon[sp->defence_client].species == SPECIES_EISCUE && sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL))
              && (sp->battlemon[sp->defence_client].hp)

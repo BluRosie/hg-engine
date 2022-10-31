@@ -1358,3 +1358,7 @@ The foe’s {STRVAR_1 1, 0, 0}’s ice face\nshattered!
 {STRVAR_1 1, 0, 0}’s ice face was restored!
 The wild {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
 The foe’s {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
+You sense the presence of many!
+{STRVAR_1 1, 0, 0} transformed into its Complete\nForme!
+The wild {STRVAR_1 1, 0, 0} transformed into its\nComplete Forme!
+The foe’s {STRVAR_1 1, 0, 0} transformed into its\nComplete Forme!

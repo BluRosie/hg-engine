@@ -695,6 +695,21 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 break;
             }
         }
+
+        // handle Silvally TODO check if this actually works, eventually change to use the memories instead of plates
+        if ((sp->battlemon[sp->client_work].species == SPECIES_SILVALLY)
+            && (sp->battlemon[sp->client_work].hp)
+            && (GetBattlerAbility(sp, sp->client_work) == ABILITY_RKS_SYSTEM))
+        {
+            form_no = GetArceusType(BattleItemDataGet(sp, sp->battlemon[sp->client_work].item, 1));
+            if(sp->battlemon[sp->client_work].form_no != form_no)
+            {
+                sp->battlemon[sp->client_work].form_no = form_no;
+                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                ret = TRUE;
+                break;
+            }
+        }
         
         // handle giratina
         if ((sp->battlemon[sp->client_work].species == SPECIES_GIRATINA)
@@ -823,20 +838,23 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
 
 
-        // handle Zygarde
+        // handle Zygarde TODO test
         if ((sp->battlemon[sp->client_work].species == SPECIES_ZYGARDE)
          && (sp->battlemon[sp->client_work].hp)
          && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 2))
          && (sp->battlemon[sp->client_work].form_no == 2 || sp->battlemon[sp->client_work].form_no == 3))
         {
-            //TODO add code so it heals
+            //TODO this has not yet been tested
             sp->battlemon[sp->client_work].form_no += 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp - sp->battlemon[sp->attack_client].hp;
+            void *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
+            sp->battlemon[sp->client_work].maxhp = GetMonData(pp2, ID_PARA_hpmax, NULL);
+            *seq_no = SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE;
             ret = TRUE;
         }
 
-        // handle Wishiwashi
+        // handle Wishiwashi TODO test (also at some point add custom transform text)
         if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
             && (sp->battlemon[sp->client_work].hp)
             && (sp->battlemon[sp->client_work].form_no == 0)
