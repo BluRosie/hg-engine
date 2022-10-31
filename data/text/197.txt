@@ -1349,3 +1349,12 @@ The foe’s fervent wish reached\nits {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} illusion\nfaded!
 The wild {STRVAR_1 1, 0, 0}\nillusion faded!
 The foe’s {STRVAR_1 1, 0, 0}\nillusion faded!
+{STRVAR_1 1, 0, 0}’s disguise was busted!
+The wild {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
+The foe’s {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
+{STRVAR_1 1, 0, 0}’s ice face shattered!
+The wild {STRVAR_1 1, 0, 0}’s ice face\nshattered!
+The foe’s {STRVAR_1 1, 0, 0}’s ice face\nshattered!
+{STRVAR_1 1, 0, 0}’s ice face was restored!
+The wild {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
+The foe’s {STRVAR_1 1, 0, 0}’s ice face was\nrestored!

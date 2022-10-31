@@ -361,11 +361,17 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
 //            {
 //                if (sp->moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
 //                {
-//                    //change to shield form
+//                    //CODE HAS NOT BEEN TESTED
+//                    sp->battlemon[sp->client_work].form_no = 0;
+//                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+//                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
 //                }
 //                else if(sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
 //                {
-//                    //change to blade form
+//                    //CODE HAS NOT BEEN TESTED
+//                    sp->battlemon[sp->client_work].form_no = 1;
+//                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+//                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
 //                }
 //            }
 //            break;

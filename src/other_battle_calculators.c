@@ -805,6 +805,33 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 }
             }
 
+            //handle Mimikyu's Disguise
+            if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
+             && (sp->battlemon->form_no == 0))
+            {
+                if (sp->damage)
+                {
+                    sp->damage = 0;
+                    sp->battlemon[sp->defence_client].condition2 |= CONDITION2_SUBSTITUTE;
+                }
+            }
+
+            //handle Eiscue's Ice Face
+            if ((sp->battlemon[sp->defence_client].species == SPECIES_EISCUE)
+                && (sp->battlemon->form_no == 0)
+                && (sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL))
+            {
+                if (sp->damage)
+                {
+                    sp->damage = 0;
+                    sp->battlemon[sp->defence_client].condition2 |= CONDITION2_SUBSTITUTE;
+                }
+            }
+
+            /**
+             * END OF ORIGINAL AND USER-DEFINED DAMAGE CALCULATIONS.
+             * ALL NEW EFFECTS SHOULD BE PLACED ABOVE THIS COMMENT UNLESS YOU WISH TO EDIT THE CODE BELOW.
+             */
             sp->store_damage[sp->defence_client] += sp->damage;
 
             if(sp->battlemon[sp->defence_client].hit_count < 255)

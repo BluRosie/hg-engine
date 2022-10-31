@@ -1118,6 +1118,18 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 seq_no = SUB_SEQ_HANDLE_MOODY;
                 ret = TRUE;
             }
+        case ABILITY_ICE_FACE:
+            if ((sp->battlemon[client_no].species == SPECIES_EISCUE)
+             && (sp->battlemon[client_no].hp)
+             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
+             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+             && (sp->field_condition & WEATHER_HAIL_ANY))
+            {
+                sp->battlemon[client_no].form_no = 0;
+                seq_no = SUB_SEQ_HANDLE_RESTORE_ICE_FACE;
+                ret = TRUE;
+            }
+            break;
         default:
             break;
     }
@@ -1680,6 +1692,20 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 seq_no[0] = SUB_SEQ_HANDLE_CURSED_BODY;
                 ret = TRUE;
             } 
+            break;
+        case ABILITY_DISGUISE:
+        case ABILITY_ICE_FACE:
+            if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU || (sp->battlemon[sp->defence_client].species == SPECIES_EISCUE && sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL))
+             && (sp->battlemon[sp->defence_client].hp)
+             && (sp->battlemon[sp->defence_client].form_no == 0)
+             && (sp->battlemon[sp->defence_client].condition2 & CONDITION2_SUBSTITUTE)
+            )
+            {
+                sp->battlemon[sp->defence_client].condition2 &= CONDITION2_SUBSTITUTE_OFF;
+                sp->battlemon[sp->defence_client].form_no = 1;
+                seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
+                ret = TRUE;
+            }
             break;
         default:
             break;

@@ -820,6 +820,42 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 break;
             }
         }
+
+
+
+        // handle Zygarde
+        if ((sp->battlemon[sp->client_work].species == SPECIES_ZYGARDE)
+         && (sp->battlemon[sp->client_work].hp)
+         && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 2))
+         && (sp->battlemon[sp->client_work].form_no == 2 || sp->battlemon[sp->client_work].form_no == 3))
+        {
+            //TODO add code so it heals
+            sp->battlemon[sp->client_work].form_no += 2;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+        }
+
+        // handle Wishiwashi
+        if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
+            && (sp->battlemon[sp->client_work].hp)
+            && (sp->battlemon[sp->client_work].form_no == 0)
+            && (sp->battlemon[sp->client_work].hp > (sp->battlemon[sp->client_work].maxhp / 4)))
+        {
+            sp->battlemon[sp->client_work].form_no = 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+        } else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
+         && (sp->battlemon[sp->client_work].hp)
+         && (sp->battlemon[sp->client_work].form_no == 1)
+         && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 4)))
+        {
+            sp->battlemon[sp->client_work].form_no = 0;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            ret = TRUE;
+        }
     }
 
     return ret;
