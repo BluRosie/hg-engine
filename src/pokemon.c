@@ -2540,6 +2540,12 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 0,
         .file = SPECIES_MEOWSTIC_FEMALE,
     },
+    {
+        .species = SPECIES_INDEEDEE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_INDEEDEE_FEMALE,
+    },
 
 };
 

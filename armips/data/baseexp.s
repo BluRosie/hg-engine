@@ -1218,5 +1218,6 @@
 /* SPECIES_JELLICENT_FEMALE            */ .halfword 168
 /* SPECIES_PYROAR_FEMALE               */ .halfword 177
 /* SPECIES_MEOWSTIC_FEMALE             */ .halfword 163
+/* SPECIES_INDEEDEE_FEMALE             */ .halfword 166
 
 .close

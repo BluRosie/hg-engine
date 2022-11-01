@@ -1218,5 +1218,6 @@
 /* SPECIES_JELLICENT_FEMALE            */ .halfword ABILITY_DAMP
 /* SPECIES_PYROAR_FEMALE               */ .halfword ABILITY_MOXIE
 /* SPECIES_MEOWSTIC_FEMALE             */ .halfword ABILITY_COMPETITIVE
+/* SPECIES_INDEEDEE_FEMALE             */ .halfword ABILITY_PSYCHIC_SURGE
 
 .close
