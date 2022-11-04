@@ -579,5 +579,6 @@ void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 old
 u32 GrabCurrentSeason(void);
 void UpdateFormIfDeerling(struct PartyPokemon *pp);
 u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest);
+u32 CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2);
 
 #endif
