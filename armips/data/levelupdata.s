@@ -20923,4 +20923,18 @@ levelup SPECIES_MEOWSTIC_FEMALE
 	learnset MOVE_STORED_POWER, 53
 	terminatelearnset
 
-
+levelup SPECIES_INDEEDEE_FEMALE
+	learnset MOVE_STORED_POWER, 1
+	learnset MOVE_PLAY_NICE, 1
+	learnset MOVE_BATON_PASS, 5
+	learnset MOVE_DISARMING_VOICE, 10
+	learnset MOVE_PSYBEAM, 15
+	learnset MOVE_HELPING_HAND, 20
+	learnset MOVE_FOLLOW_ME, 25
+	learnset MOVE_AROMATHERAPY, 30
+	learnset MOVE_PSYCHIC, 35
+	learnset MOVE_CALM_MIND, 40
+	learnset MOVE_GUARD_SPLIT, 45
+	learnset MOVE_PSYCHIC_TERRAIN, 50
+	learnset MOVE_HEALING_WISH, 55
+	terminatelearnset

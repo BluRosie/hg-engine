@@ -16705,7 +16705,7 @@ mondata SPECIES_INDEEDEE
     baseexp 166
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 40
     basefriendship 140
     growthrate GROWTH_FAST
@@ -21801,3 +21801,21 @@ mondata SPECIES_MEOWSTIC_FEMALE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MEOWSTIC_TM_DATA_0, SPECIES_MEOWSTIC_TM_DATA_1, SPECIES_MEOWSTIC_TM_DATA_2, SPECIES_MEOWSTIC_TM_DATA_3
+
+
+mondata SPECIES_INDEEDEE_FEMALE
+    basestats 60, 65, 55, 95, 105, 95
+    types TYPE_PSYCHIC, TYPE_NORMAL
+    catchrate 30
+    baseexp 166
+    evyields 0, 0, 0, 0, 2, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 40
+    basefriendship 140
+    growthrate GROWTH_FAST
+    egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
+    abilities ABILITY_INNER_FOCUS,  ABILITY_SYNCHRONIZE
+    runchance 0
+    colorflip BODY_COLOR_PURPLE, 0
+    tmdata SPECIES_INDEEDEE_TM_DATA_0, SPECIES_INDEEDEE_TM_DATA_1, SPECIES_INDEEDEE_TM_DATA_2, SPECIES_INDEEDEE_TM_DATA_3
