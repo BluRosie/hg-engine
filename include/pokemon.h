@@ -536,7 +536,7 @@ void __attribute__((long_call)) SetMonData(void*,int,void*);
 u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
 u32 __attribute__((long_call)) PokePasoParaGet(void *ppp, int id, void *buf);
 struct PartyPokemon * __attribute__((long_call)) PokeParty_GetMemberPointer(void * party, int pos);
-u32	__attribute__((long_call))PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
+u32	__attribute__((long_call)) PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
 u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
 u8 __attribute__((long_call)) PokeSexGetMonsNo(u16 monsno,u32 rnd);
 void __attribute__((long_call)) BoxMonSetFastModeOff(void*,BOOL);
@@ -580,5 +580,8 @@ u32 GrabCurrentSeason(void);
 void UpdateFormIfDeerling(struct PartyPokemon *pp);
 u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest);
 u32 CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2);
+u32 GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form);
+u32 GetBoxMonSex(struct BoxPokemon *bp);
+
 
 #endif

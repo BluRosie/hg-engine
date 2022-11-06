@@ -21659,6 +21659,24 @@ mondata SPECIES_BRAVIARY_HISUIAN
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
+mondata SPECIES_SLIGGOO_HISUIAN
+    basestats 58, 75, 83, 40, 83, 113
+    types TYPE_STEEL, TYPE_DRAGON
+    catchrate 55
+    baseexp 270
+    evyields 0, 0, 0, 0, 0, 3
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 40
+    basefriendship 35
+    growthrate GROWTH_SLOW
+    egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
+    abilities ABILITY_SAP_SIPPER,  ABILITY_OVERCOAT
+    runchance 0
+    colorflip BODY_COLOR_PURPLE, 0
+    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+
+
 mondata SPECIES_GOODRA_HISUIAN
     basestats 80, 100, 100, 60, 110, 150
     types TYPE_STEEL, TYPE_DRAGON

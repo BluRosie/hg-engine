@@ -1226,6 +1226,7 @@ gIconPalTable:
 /* SPECIES_ZORUA_HISUIAN               */ .byte  0x0
 /* SPECIES_ZOROARK_HISUIAN             */ .byte  0x0
 /* SPECIES_BRAVIARY_HISUIAN            */ .byte  0x2
+/* SPECIES_SLIGGOO_HISUIAN             */ .byte  0x1
 /* SPECIES_GOODRA_HISUIAN              */ .byte  0x1
 /* SPECIES_AVALUGG_HISUIAN             */ .byte  0x1
 /* SPECIES_DECIDUEYE_HISUIAN           */ .byte  0x0

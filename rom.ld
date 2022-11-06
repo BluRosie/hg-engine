@@ -261,10 +261,6 @@ get_mon_ow_tag = 0x02069D70 | 1;
 /*first E0 battle script commands*/
 BattleScriptCmdTable = 0x0226C6C8;
 
-/*hidden abilities*/
-PokePasoParaFastModeOn = 0x0206DDD8 |1;
-PokePasoParaFastModeOff = 0x0206DE00 |1;
-
 /* i can't believe i haven't used this one yet */
 GetItemData = 0x02077D88 | 1;
 GiratinaBoxPokemonFormChange = 0x02071CBC | 1;

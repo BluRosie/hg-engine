@@ -2558,7 +2558,7 @@ u8 GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no)
     if (!form_no)
         return FALSE;
 
-    for (u8 i = 0; i < NELEMS(PokeFormDataTbl); i++)
+    for (u32 i = 0; i < NELEMS(PokeFormDataTbl); i++)
     {
         if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
         {
@@ -2574,7 +2574,7 @@ u8 GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no)
 
 int PokeOtherFormMonsNoGet(int mons_no, int form_no)
 {
-    u8 i;
+    u32 i;
     switch (mons_no)
     {
     case SPECIES_DEOXYS:
@@ -2623,7 +2623,7 @@ int PokeOtherFormMonsNoGet(int mons_no, int form_no)
 
 u16 GetSpeciesBasedOnForm(int mons_no, int form_no)
 {
-    for (u8 i = 0; i < NELEMS(PokeFormDataTbl); i++)
+    for (u32 i = 0; i < NELEMS(PokeFormDataTbl); i++)
     {
         if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
             mons_no = PokeFormDataTbl[i].file;
@@ -2634,7 +2634,7 @@ u16 GetSpeciesBasedOnForm(int mons_no, int form_no)
 // icons handled here--no need to worry about fixing shellos, gastrodon, cherrim, castform
 u32 PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 {
-    u8 i;
+    u32 i;
     u32 pat = form_no;
 
     if (egg == 1)
@@ -2710,7 +2710,7 @@ u32 PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 u16 PokeIconCgxPatternGet(const void *ppp)
 {
     u32 monsno;
-    u8 i;
+    u32 i;
 
     monsno = PokePasoParaGet((void *)ppp, 0xae, NULL);
 
@@ -2740,7 +2740,7 @@ u16 PokeIconCgxPatternGet(const void *ppp)
 
 u32 PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
 {
-    u8 i;
+    u32 i;
     
     if (isegg)
     {
@@ -2836,7 +2836,7 @@ void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp,
 
 bool8 RevertFormChange(void *pp, u16 species, u8 form_no)
 {
-    u8 i;
+    u32 i;
     int work = 0;
 
     for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
@@ -2980,6 +2980,8 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     {
         has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & DUMMY_P2_2_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
     }
+    
+    mons_no = PokeOtherFormMonsNoGet(mons_no, form);
 
     ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
     ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
@@ -3434,8 +3436,8 @@ u32 CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *poke
         return TRUE;
 
     if (GetMonData(pokemon1, ID_PARA_monsno, NULL) == GetMonData(pokemon2, ID_PARA_monsno, NULL)
-     && GetMonData(pokemon1, ID_PARA_personal_rnd, NULL) == GetMonData(pokemon2, ID_PARA_personal_rnd, NULL))
-     && GetMonData(pokemon1, ID_PARA_personal_rnd, NULL) == GetMonData(pokemon2, ID_PARA_personal_rnd, NULL))
+     && GetMonData(pokemon1, ID_PARA_personal_rnd, NULL) == GetMonData(pokemon2, ID_PARA_personal_rnd, NULL)
+     && GetMonData(pokemon1, ID_PARA_id_no, NULL) == GetMonData(pokemon2, ID_PARA_id_no, NULL))
     {
         for (int i = ID_PARA_condition; i <= ID_PARA_spedef; i++) // all the raw stats
         {
@@ -3705,4 +3707,39 @@ u16 GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 contex
     }
     sys_FreeMemoryEz(evoTable);
     return target;
+}
+
+
+u32 GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form)
+{
+    u32 realSpecies = PokeOtherFormMonsNoGet(species, form);
+    u32 genderRatio = PokeFormNoPersonalParaGet(realSpecies, form, PERSONAL_GENDER_RATIO);
+    switch (genderRatio)
+    {
+        case 0:   // fully male
+            return POKEMON_GENDER_MALE;
+        case 254: // fully female
+            return POKEMON_GENDER_FEMALE;
+        case 255: // unknown
+            return POKEMON_GENDER_UNKNOWN;
+    }
+    
+    if (genderRatio > (pid & 0xFF))
+        return POKEMON_GENDER_FEMALE;
+
+    return POKEMON_GENDER_MALE;
+}
+
+
+u32 GetBoxMonSex(struct BoxPokemon *bp)
+{
+    u32 species, pid, flag, form;
+    
+    flag = BoxMonSetFastModeOn(bp);
+    species = PokePasoParaGet(bp, ID_PARA_monsno, NULL);
+    pid = PokePasoParaGet(bp, ID_PARA_personal_rnd, NULL);
+    form = PokePasoParaGet(bp, ID_PARA_form_no, NULL);
+    BoxMonSetFastModeOff(bp, flag);
+    
+    return GrabSexFromSpeciesAndForm(species, pid, form);
 }

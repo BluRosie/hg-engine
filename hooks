@@ -149,6 +149,10 @@ arm9 Sav2_Misc_init_new_fields_hook 0802A8CC 0
 #deerling forms
 arm9 Party_TryResetShaymin 08071E78 3
 
+#significant gender differences forms
+arm9 GetBoxMonSex 0806FF90 1
+arm9 grab_sex_for_GetBoxMonData 0806EA1A 1
+
 #item time baby - 02257FA0
 0012 MoveHitHeldItemEffectCheck 080206E0 3
 #0224E1BC

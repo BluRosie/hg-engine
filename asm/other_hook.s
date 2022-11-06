@@ -364,3 +364,17 @@ str r0, [sp, #0x10]
 
 ldr r0, =0x02267634 | 1
 bx r0
+
+.pool
+
+
+// need to grab species, pid, form
+.global grab_sex_for_GetBoxMonData
+grab_sex_for_GetBoxMonData:
+ldr r1, [sp]
+ldrh r0, [r5]
+ldr r1, [r1]
+ldrb r2, [r6, #0x18]
+bl GrabSexFromSpeciesAndForm
+ldr r1, =0x0206EA24|1
+bx r1
