@@ -14,8 +14,9 @@
 .include "armips/asm/user_config.s"
 
 // code addon list
-.include "armips/data/hiddenabilities.s" // the hidden ability list
-.include "armips/data/baseexp.s" // the hidden ability list
+.include "armips/data/hiddenabilities.s" // the hidden ability list, 7
+.include "armips/data/baseexp.s" // the base experience list, 8
+//.include "armips/data/monoverworlds.s" // included elsewhere, 9
 
 /*
 CURRENT SYNTHETIC NARC ARMIPS USAGE - starting at START_ADDRESS (armips/include/config.s), sequentially

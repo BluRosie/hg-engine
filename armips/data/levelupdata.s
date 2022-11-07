@@ -20753,6 +20753,22 @@ levelup SPECIES_BRAVIARY_HISUIAN
     learnset MOVE_HURRICANE, 80
     terminatelearnset
 
+levelup SPECIES_SLIGGOO_HISUIAN
+    learnset MOVE_FEINT, 1
+    learnset MOVE_ABSORB, 1
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_ABSORB, 5
+    learnset MOVE_PROTECT, 9
+    learnset MOVE_ACID_ARMOR, 13
+    learnset MOVE_IRON_HEAD, 18
+    learnset MOVE_RAIN_DANCE, 25
+    learnset MOVE_DRAGON_BREATH, 28
+    learnset MOVE_BODY_SLAM, 32
+    learnset MOVE_MUDDY_WATER, 38
+    learnset MOVE_POWER_WHIP, 47
+    terminatelearnset
+
 levelup SPECIES_GOODRA_HISUIAN
     learnset MOVE_AQUA_TAIL, 1
     learnset MOVE_ACID_SPRAY, 1
@@ -20938,3 +20954,22 @@ levelup SPECIES_INDEEDEE_FEMALE
 	learnset MOVE_PSYCHIC_TERRAIN, 50
 	learnset MOVE_HEALING_WISH, 55
 	terminatelearnset
+
+levelup SPECIES_BASCULEGION_FEMALE
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_TAIL_WHIP, 1
+    learnset MOVE_TACKLE, 4
+    learnset MOVE_FLAIL, 8
+    learnset MOVE_AQUA_JET, 12
+    learnset MOVE_BITE, 16
+    learnset MOVE_SCARY_FACE, 20
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_SOAK, 28
+    learnset MOVE_CRUNCH, 32
+    learnset MOVE_TAKE_DOWN, 36
+    learnset MOVE_FINAL_GAMBIT, 40
+    learnset MOVE_AQUA_TAIL, 44
+    learnset MOVE_THRASH, 48
+    learnset MOVE_DOUBLE_EDGE, 52
+    learnset MOVE_HEAD_SMASH, 56
+    terminatelearnset

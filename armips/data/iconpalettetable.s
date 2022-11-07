@@ -1236,6 +1236,7 @@ gIconPalTable:
 /* SPECIES_PYROAR_FEMALE               */ .byte  0x2
 /* SPECIES_MEOWSTIC_FEMALE             */ .byte  0x0
 /* SPECIES_INDEEDEE_FEMALE             */ .byte  0x2
+/* SPECIES_BASCULEGION_FEMALE          */ .byte  0x1
 
 
 .endarea

@@ -6855,8 +6855,8 @@ evodata SPECIES_PIDOVE
     terminateevodata
 
 evodata SPECIES_TRANQUILL
-    evolution EVO_LEVEL_UP, 32, SPECIES_UNFEZANT
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolutionwithform EVO_LEVEL_MALE, 32, SPECIES_UNFEZANT, 0
+    evolutionwithform EVO_LEVEL_FEMALE, 32, SPECIES_UNFEZANT, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12808,8 +12808,8 @@ evodata SPECIES_BASCULIN_BLUE_STRIPED
 terminateevodata
 
 evodata SPECIES_BASCULIN_WHITE_STRIPED
-    evolution EVO_LEVEL_UP, 0, SPECIES_BASCULEGION
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolutionwithform EVO_LEVEL_MALE, 0, SPECIES_BASCULEGION, 2 // set to invalid form to force male form
+    evolutionwithform EVO_LEVEL_FEMALE, 0, SPECIES_BASCULEGION, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
