@@ -517,6 +517,7 @@ struct Evolution {
 
 
 #define gOWTagToFileNum ((struct OVERWORLD_TAG *) (0x023C8000 + START_ADDRESS)) // i hate this lol
+#define gDimorphismTable ((u8 *)(0x020FECAE))
 #define EGG_MOVES_PER_MON 16 // need to go through later and make this editable
 #define NUM_EGG_MOVES_TOTAL 8000
 
@@ -550,7 +551,6 @@ void __attribute__((long_call)) FillInBoxMonLearnset(void *);
 u32 __attribute__((long_call)) PokePersonalParaGet(int species, int parameter);
 u32 __attribute__((long_call)) PokeLevelExpGet(int species, int level);
 void __attribute__((long_call)) BoxMonInit(void *);
-u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 void __attribute__((long_call)) GiratinaBoxPokemonFormChange(struct BoxPokemon *bp);
 u32 __attribute__((long_call)) GrashideaFeasibleCheck(struct PartyPokemon *pp);
 void __attribute__((long_call)) PokeList_FormDemoOverlayLoad(struct PLIST_WORK *wk);
@@ -559,8 +559,10 @@ void __attribute__((long_call)) PokeParty_Delete(void *party, u32 pos);
 u32 __attribute__((long_call)) PokeListProc_End(void *proc, int *seq);
 u32 __attribute__((long_call)) PokeParaLevelExpGet(struct PartyPokemon *pp);
 u32 __attribute__((long_call)) PokeLevelUpCheck(struct PartyPokemon *pp);
-BOOL __attribute__((long_call)) PartyHasMon(struct PokeParty *party, u16 species);
+BOOL __attribute__((long_call)) PartyHasMon(struct Party *party, u16 species);
 BOOL __attribute__((long_call)) MonHasMove(struct PartyPokemon *mon, u16 move);
+BOOL __attribute__((long_call)) does_species_have_dimorphism(u32 species);
+BOOL __attribute__((long_call)) get_ow_data_file_num(u32 species);
 
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);
@@ -582,6 +584,8 @@ u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest);
 u32 CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2);
 u32 GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form);
 u32 GetBoxMonSex(struct BoxPokemon *bp);
+u16 get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
+
 
 
 #endif

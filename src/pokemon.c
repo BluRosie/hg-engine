@@ -3743,3 +3743,38 @@ u32 GetBoxMonSex(struct BoxPokemon *bp)
     
     return GrabSexFromSpeciesAndForm(species, pid, form);
 }
+
+
+u16 get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
+{
+    u32 adjustment = 0, ret = 0;
+    if (species > SPECIES_LICKILICKY) // split between 0x1AC and 0x1E4
+    {
+        adjustment = 0x1E4;
+    }
+    else
+    {
+        adjustment = 0x1AC;
+    }
+
+    ret = get_ow_data_file_num(species) + adjustment;
+
+    u8 *form_table = sys_AllocMemory(0, MAX_MON_NUM);
+    ArchiveDataLoad(form_table, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON);
+
+    if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
+    {
+        if (isFemale || form) // both female pikachu and those with forms will need this adjustment
+            ret++;
+        if (form < form_table[SPECIES_PIKACHU]) // invalid pikachu forms will show as female, but that's okay
+            ret += form;
+    }
+    else if (form <= form_table[species])
+        ret += form;
+    else if (isFemale && gDimorphismTable[species-1])
+        ret += isFemale;
+    
+    sys_FreeMemoryEz(form_table);
+
+    return ret;
+}

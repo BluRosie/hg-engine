@@ -132,6 +132,7 @@ arm9 SetBoxMonAbility 080722DC 1
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3
 0096 grab_overworld_a081_index 080038B8 3
+arm9 get_mon_ow_tag 08069D70 3
 
 #genesect formes
 arm9 ArceusBoxPokemonFormeChange 08071BD0 3
