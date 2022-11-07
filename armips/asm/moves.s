@@ -72,6 +72,54 @@ new size (022486A4):
 .org 0x022414EC
     .word 0x317E
 
+
+
+.org 0x0224189E // missed a 0x3186
+
+// need to get at least 1 instruction
+setup_move_copy_loop:
+    mov r0, #0x63
+    mov r5, r6
+    mov r1, #5
+    lsl r0, #7 // 0x3180
+    add r0, #4 // 0x3184 // new instruction
+
+_loop:
+    ldr r3, [r4, #0x64]
+    mov r2, #0xC0
+    mul r2, r3
+    add r3, r4, r2
+    ldr r2, =0x2D4C
+    add r7, r3, r5
+    ldrh r2, [r7, r2]
+    lsl r2, r2, #4
+    add r2, r4, r2
+    ldrb r2, [r2, r0] // grab pp from new move data
+    add r7, r3, r6 // new instruction
+    cmp r2, #5
+    bcs set_less_than_5_pp
+    //add r7, r3, r6 // move this up
+    ldr r3, =0x2D6C
+    strb r2, [r7, r3]
+    b _reset_loop
+
+set_less_than_5_pp:
+    ldr r2, =0x2D6C
+    //add r3, r3, r6 // move this up
+    strb r1, [r7, r2] // change r3 to r7
+
+_reset_loop:
+    add r6, r6, #1
+    add r5, r5, #2
+    cmp r6, #4
+    blt _loop
+
+.org 0x022418F4
+
+.pool
+
+
+
 .org 0x02241F04
     .word 0x3181
 
