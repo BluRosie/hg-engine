@@ -12,10 +12,18 @@
 #define	MONS_FEMALE		(254)
 #define	MONS_UNKNOWN	(255)
 
-// ID_PARA_dummy_p2_2 fields
-#define DUMMY_P2_2_HIDDEN_ABILITY_MASK (0x0001)
-#define SET_MON_HIDDEN_ABILTY_BIT(mon) { u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_2, 0); tempvarassumeunused |= DUMMY_P2_2_HIDDEN_ABILITY_MASK; SetMonData(mon, ID_PARA_dummy_p2_2, (u8 *)&tempvarassumeunused); }
-#define SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon) { u16 tempvarassumeunused = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, 0); tempvarassumeunused |= DUMMY_P2_2_HIDDEN_ABILITY_MASK; BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&tempvarassumeunused); }
+// ID_PARA_dummy_p2_1 fields
+#define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
+#define SET_MON_HIDDEN_ABILTY_BIT(mon) { \
+    u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_2, 0); \
+    tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
+    SetMonData(mon, ID_PARA_dummy_p2_2, (u8 *)&tempvarassumeunused); \
+}
+#define SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon) { \
+    u16 tempvarassumeunused = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, 0); \
+    tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
+    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&tempvarassumeunused); \
+}
 
 #define	POW_RND	(32)
 
@@ -568,8 +576,7 @@ void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,boo
 bool8 IsMonShiny(u32 id, u32 rnd);
 void PokePasoParaSpeabiSet(void *ppp);
 bool8 RevertFormChange(void *pp, u16 species, u8 form_no);
-u16 GetMonHiddenAbility(u16 species, u32 form, u32 sex);
-u16 GetMonHiddenAbility_(u16 species, u32 form);
+u16 GetMonHiddenAbility(u16 species, u32 form);
 u32 GetSpeciesBaseExp(u32 species, u32 form);
 int PokeOtherFormMonsNoGet(int mons_no, int form_no);
 u32 GetGenesectType(u16 item);
