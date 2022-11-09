@@ -2812,13 +2812,12 @@ u32 PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
     return mons;
 }
 
-void BattleFormChange(int client, int form_no, void* bw,struct BattleStruct *sp,bool8 SwitchAbility)
+void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility)
 {
-    //void *pp;
     void *pp2;
 
     pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
-    SetMonData(pp2, 112, &form_no);
+    SetMonData(pp2, ID_PARA_form_no, &form_no);
 
     PokeParaCalc(pp2);
     if (SwitchAbility)
@@ -2849,18 +2848,18 @@ bool8 RevertFormChange(void *pp, u16 species, u8 form_no)
     {
         if (species == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no && PokeFormDataTbl[i].need_rev)
         {
-            if(species == SPECIES_DARMANITAN && form_no == 3)
+            if (species == SPECIES_DARMANITAN && form_no == 3)
                 work = 1;
-            else if(species == SPECIES_NECROZMA)
+            else if (species == SPECIES_NECROZMA)
                 work = form_no-2;
-            else if(species == SPECIES_GRENINJA)
+            else if (species == SPECIES_GRENINJA)
                 work = 1;
-            else if(species == SPECIES_MINIOR)
+            else if (species == SPECIES_MINIOR)
                 work = form_no-7;
-            else if(species == SPECIES_ZYGARDE)
+            else if (species == SPECIES_ZYGARDE)
                 work = form_no-2;
 
-            SetMonData(pp,112,&work);
+            SetMonData(pp, ID_PARA_form_no, &work);
             return TRUE;
         }
     }
@@ -2939,6 +2938,7 @@ u16 GetPokemonOwNum(u16 species)
 
 u16 GetMonHiddenAbility(u16 species, u32 form)
 {
+#if USE_HIDDEN_ABILITIES == TRUE
     u16 ability = 0;
     u16* hiddenAbilityTable = sys_AllocMemory(0, 3000);
 
@@ -2948,6 +2948,8 @@ u16 GetMonHiddenAbility(u16 species, u32 form)
     sys_FreeMemoryEz(hiddenAbilityTable);
 
     return ability;
+#endif // USE_HIDDEN_ABILITIES
+    return 0;
 }
 
 u8 HiddenAbilityToggleByte = 0;
@@ -2980,12 +2982,12 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     {
         has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
     }
-    
+
+    hiddenability = GetMonHiddenAbility(mons_no, form);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
 
     ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
     ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
-    hiddenability = GetMonHiddenAbility(mons_no, form);
 
     if (has_hidden_ability && hiddenability != 0)
     {
