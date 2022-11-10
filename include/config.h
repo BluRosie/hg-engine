@@ -17,8 +17,16 @@
 // i.e. defining this as "5", "7", or "8" would use a scaled formula, whereas "6" and others would use the default formula.  There is a multiplier of 255 / 390 to not artificially inflate the experience given as well with higher base experience.
 #define EXPERIENCE_FORMULA_GEN 8
 
-// USE_HIDDEN_ABILITIES defines whether or not Pokémon with their hidden ability bit set will receive their hidden abilities when being generated/changing form in battle.
-// setting this to FALSE essentially disables hidden abilities to maintain default behavior, while setting this to TRUE will introduce hidden abilities and all of their handling.
-#define USE_HIDDEN_ABILITIES TRUE
+// HIDDEN_ABILITIES defines whether or not Pokémon with their hidden ability bit set will receive their hidden abilities when being generated/changing form in battle.
+// commenting this line out essentially disables hidden abilities to maintain default behavior, while leaving this as-is will introduce hidden abilities and all of their handling.
+#define HIDDEN_ABILITIES
+
+// MEGA_EVOLUTIONS defines whether or not Pokémon that are able to mega evolve will be able to do so.
+// commenting this line out essentially disables mega evolutions and maintains default behavior with respect to them.  leaving this as-is will introduce mega evolutions when applied to the game.
+#define MEGA_EVOLUTIONS
+
+// PRIMAL_REVERSION defines whether or not Kyogre and Groudon, when holding their orbs, will be able to change form when sent out in battle.
+// commenting this line out essentially disables primarl reversion.  leaving this as-is will introduce primal reversions when applied to the game.
+#define PRIMAL_REVERSION
 
 #endif

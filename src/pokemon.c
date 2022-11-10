@@ -998,6 +998,7 @@ static const u16 sSpeciesToOWGfx[] =
 
 const struct FormData PokeFormDataTbl[]=
 {
+#ifdef MEGA_EVOLUTIONS
     {
         .species = SPECIES_VENUSAUR,
         .form_no = 1,
@@ -1286,6 +1287,9 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 1,
         .file = SPECIES_MEGA_DIANCIE,
     },
+#endif // MEGA_EVOLUTIONS
+
+#ifdef PRIMAL_REVERSION
     {
         .species = SPECIES_KYOGRE,
         .form_no = 1,
@@ -1298,6 +1302,7 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 1,
         .file = SPECIES_GROUDON_PRIMAL,
     },
+#endif // PRIMAL_REVERSION
 
     /**alolan forms**/
     {
@@ -2938,7 +2943,7 @@ u16 GetPokemonOwNum(u16 species)
 
 u16 GetMonHiddenAbility(u16 species, u32 form)
 {
-#if USE_HIDDEN_ABILITIES == TRUE
+#ifdef HIDDEN_ABILITIES
     u16 ability = 0;
     u16* hiddenAbilityTable = sys_AllocMemory(0, 3000);
 
@@ -2948,8 +2953,9 @@ u16 GetMonHiddenAbility(u16 species, u32 form)
     sys_FreeMemoryEz(hiddenAbilityTable);
 
     return ability;
-#endif // USE_HIDDEN_ABILITIES
+#else
     return 0;
+#endif // HIDDEN_ABILITIES
 }
 
 u8 HiddenAbilityToggleByte = 0;
@@ -2966,7 +2972,7 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
 
 #ifdef DEBUG_HIDDEN_ABILITIES
     has_hidden_ability = *(u8 *)(0x023E0000);
-    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_2, (u8 *)&has_hidden_ability);
+    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&has_hidden_ability);
 #endif // DEBUG_HIDDEN_ABILITIES
 
     mons_no = PokePasoParaGet(boxmon, ID_PARA_monsno, NULL);
@@ -2980,7 +2986,7 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     }
     else
     {
-        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_2, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
+        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
     }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);

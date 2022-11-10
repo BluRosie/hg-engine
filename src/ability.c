@@ -257,6 +257,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no++;
                 break;
             case SWITCH_IN_CHECK_PRIMAL_REVERSION:
+#ifdef PRIMAL_REVERSION
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no = sp->turn_order[i];
@@ -286,7 +287,9 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
                 
-                if (i == client_set_max){
+                if (i == client_set_max)
+#endif // PRIMAL_REVERSION
+                {
                     sp->switch_in_check_seq_no++;
                 }
                 break;

@@ -21,6 +21,7 @@ struct MegaStructMove
     u16 moveindex;
 };
 
+#ifdef MEGA_EVOLUTIONS
 const struct MegaStruct sMegaTable[] =
 {
     {
@@ -217,9 +218,10 @@ const struct MegaStructMove sMegaMoveTable[] =
 {
     {
         .monindex = SPECIES_RAYQUAZA, 
-        .moveindex = MOVE_TWISTER,
+        .moveindex = MOVE_DRAGON_ASCENT,
     },
 };
+#endif // MEGA_EVOLUTIONS
 
 static BOOL CheckMegaData(u16 mon, u16 item);
 
@@ -245,6 +247,7 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
 
 BOOL IsMegaSpecies(u16 mon)
 {
+#ifdef MEGA_EVOLUTIONS
     u8 i;
     for (i = 0; i < NELEMS(sMegaTable); i++)
     {
@@ -253,6 +256,7 @@ BOOL IsMegaSpecies(u16 mon)
             return TRUE;
         }
     }
+#endif // MEGA_EVOLUTIONS    
     return FALSE;
 }
 
@@ -273,6 +277,7 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
 
 BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
 {
+#ifdef PRIMAL_REVERSION
     void *pp;
     u16 form_no;
     u16 mon;
@@ -284,10 +289,14 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
         return FALSE;
 
     return (mon == SPECIES_GROUDON);
+#else
+    return FALSE;
+#endif // PRIMAL_REVERSION
 }
 
 BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
 {
+#ifdef PRIMAL_REVERSION
     void *pp;
     u16 form_no;
     u16 mon;
@@ -299,10 +308,14 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
         return FALSE;
 
     return (mon == SPECIES_KYOGRE);
+#else
+    return FALSE;
+#endif // PRIMAL_REVERSION
 }
 
 static BOOL CheckMegaData(u16 mon, u16 item)
 {
+#ifdef MEGA_EVOLUTIONS
     u8 i;
     for (i = 0; i < NELEMS(sMegaTable);i++)
     {
@@ -311,6 +324,7 @@ static BOOL CheckMegaData(u16 mon, u16 item)
             return TRUE;
         }
     }
+#endif // MEGA_EVOLUTIONS
     return FALSE;
 }
 
@@ -329,6 +343,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
 
 BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client)
 {
+#ifdef MEGA_EVOLUTIONS
     int i = 0, form = 0;
     u16 species, move;
 
@@ -345,12 +360,14 @@ BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client)
             return TRUE;
         }
     }
+#endif // MEGA_EVOLUTIONS
     
     return FALSE;
 }
 
 BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
 {
+#ifdef MEGA_EVOLUTIONS
     int i, species, move;
     
     species = sp->battlemon[client].species;
@@ -363,12 +380,14 @@ BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
             return TRUE;
         }
     }
+#endif // MEGA_EVOLUTIONS
     
     return FALSE;
 }
 
 BOOL IsMegaSpeciesByMove(u16 species)
 {
+#ifdef MEGA_EVOLUTIONS
     int i;
     
     for (i = 0; i < NELEMS(sMegaMoveTable); i++)
@@ -378,6 +397,7 @@ BOOL IsMegaSpeciesByMove(u16 species)
             return TRUE;
         }
     }
+#endif // MEGA_EVOLUTIONS
     
     return FALSE;
 }
