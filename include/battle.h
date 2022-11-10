@@ -1156,8 +1156,6 @@ void __attribute__((long_call)) SCIO_StatusEffectSet(void *bw, struct BattleStru
 void __attribute__((long_call)) SCIO_LevelUpEffectSet(void *bw, int send_client);
 u32 __attribute__((long_call)) BattleWorkPlaceIDGet(void *bw);
 void __attribute__((long_call)) Task_DistributeExp(void *arg0, void *work);
-
-u16 __attribute__((long_call)) BattleWorkRandGet(void*);
 int __attribute__((long_call)) BattleWorkPokeCountGet(void*,int);
 
 BOOL __attribute__((long_call)) ServerCriticalMessage(void*,void*);

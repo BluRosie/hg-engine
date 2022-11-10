@@ -21,7 +21,7 @@
 
 #define SUB_SEQ_RECOIL (43)
 
-#define SUB_SEQ_MIGAWARI_HIT (90)
+#define SUB_SEQ_SUBSTITUTE_HIT (90)
 
 #define SUB_SEQ_TRANSFORM (92)
 

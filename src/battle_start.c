@@ -99,7 +99,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
         case SBA_RANDOM_SPEED_ROLL:
             for (client_no = 0; client_no < CLIENT_MAX; client_no++)
             {
-                sp->agi_rand[client_no] = BattleWorkRandGet(bw);
+                sp->agi_rand[client_no] = BattleRand(bw);
             }
             sp->sba_seq_no++;
             break;

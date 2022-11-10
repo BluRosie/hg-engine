@@ -2723,7 +2723,7 @@ u16 PokeIconCgxPatternGet(const void *ppp)
     u32 monsno;
     u32 i;
 
-    monsno = PokePasoParaGet((void *)ppp, 0xae, NULL);
+    monsno = GetBoxMonData((void *)ppp, 0xae, NULL);
 
     switch (monsno)
     {
@@ -2736,13 +2736,13 @@ u16 PokeIconCgxPatternGet(const void *ppp)
     case SPECIES_GIRATINA:
     case SPECIES_SHAYMIN:
     case SPECIES_ROTOM:
-        return PokePasoParaGet((void *)ppp, 0x70, NULL);
+        return GetBoxMonData((void *)ppp, 0x70, NULL);
 
     default:
         for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
         {
             if (monsno == PokeFormDataTbl[i].species)
-                return PokePasoParaGet((void *)ppp, 0x70, NULL);
+                return GetBoxMonData((void *)ppp, 0x70, NULL);
         }
         return 0;
     }
@@ -2975,9 +2975,9 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&has_hidden_ability);
 #endif // DEBUG_HIDDEN_ABILITIES
 
-    mons_no = PokePasoParaGet(boxmon, ID_PARA_monsno, NULL);
-    pid = PokePasoParaGet(boxmon, ID_PARA_personal_rnd, NULL);
-    form = PokePasoParaGet(boxmon, ID_PARA_form_no, NULL);
+    mons_no = GetBoxMonData(boxmon, ID_PARA_monsno, NULL);
+    pid = GetBoxMonData(boxmon, ID_PARA_personal_rnd, NULL);
+    form = GetBoxMonData(boxmon, ID_PARA_form_no, NULL);
 
     if (HiddenAbilityToggleByte != 0) // HA toggle is nonzero, give the mon its hidden ability.  toggle it off to prevent it from setting ability on form change later on in the battle and the like.
     {
@@ -2986,7 +2986,7 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     }
     else
     {
-        has_hidden_ability = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
+        has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
     }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
@@ -3125,24 +3125,24 @@ void ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
 // overlay 14 is responsible for pc
 u32 HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
 {
-    u32 species = PokePasoParaGet(bp, ID_PARA_monsno, NULL);
+    u32 species = GetBoxMonData(bp, ID_PARA_monsno, NULL);
     
     if (species == SPECIES_ARCEUS || species == SPECIES_GENESECT)
     {
-        u32 form_no = PokePasoParaGet(bp, ID_PARA_form_no, NULL);
+        u32 form_no = GetBoxMonData(bp, ID_PARA_form_no, NULL);
         
         ArceusBoxPokemonFormeChange(bp);
         
-        if (PokePasoParaGet(bp, ID_PARA_form_no, NULL) != form_no)
+        if (GetBoxMonData(bp, ID_PARA_form_no, NULL) != form_no)
             return 1;
     }
     else if (species == SPECIES_GIRATINA)
     {
-        u32 form_no = PokePasoParaGet(bp, ID_PARA_form_no, NULL);
+        u32 form_no = GetBoxMonData(bp, ID_PARA_form_no, NULL);
         
         GiratinaBoxPokemonFormChange(bp);
         
-        if (PokePasoParaGet(bp, ID_PARA_form_no, NULL) != form_no)
+        if (GetBoxMonData(bp, ID_PARA_form_no, NULL) != form_no)
             return 1;
     }
     
@@ -3744,9 +3744,9 @@ u32 GetBoxMonSex(struct BoxPokemon *bp)
     u32 species, pid, flag, form;
     
     flag = BoxMonSetFastModeOn(bp);
-    species = PokePasoParaGet(bp, ID_PARA_monsno, NULL);
-    pid = PokePasoParaGet(bp, ID_PARA_personal_rnd, NULL);
-    form = PokePasoParaGet(bp, ID_PARA_form_no, NULL);
+    species = GetBoxMonData(bp, ID_PARA_monsno, NULL);
+    pid = GetBoxMonData(bp, ID_PARA_personal_rnd, NULL);
+    form = GetBoxMonData(bp, ID_PARA_form_no, NULL);
     BoxMonSetFastModeOff(bp, flag);
     
     return GrabSexFromSpeciesAndForm(species, pid, form);

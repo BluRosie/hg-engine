@@ -720,19 +720,19 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
     int	eqp;
     int	atk;
 
-    //一撃必殺の時は、HPMAXをダメージに代入
-    if(sp->waza_status_flag & MOVE_STATUS_FLAG_OHKO_HIT)
+    if (sp->waza_status_flag & MOVE_STATUS_FLAG_OHKO_HIT)
     {
         sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
     }
-    if(sp->damage)
-    {
-        eqp = HeldItemHoldEffectGet(sp,sp->defence_client);
-        atk = HeldItemAtkGet(sp,sp->defence_client,ATK_CHECK_NORMAL);
 
-        if(IsClientEnemy(bw,sp->attack_client) == IsClientEnemy(bw,sp->defence_client))
+    if (sp->damage)
+    {
+        eqp = HeldItemHoldEffectGet(sp, sp->defence_client);
+        atk = HeldItemAtkGet(sp, sp->defence_client, ATK_CHECK_NORMAL);
+
+        if (IsClientEnemy(bw, sp->attack_client) == IsClientEnemy(bw, sp->defence_client))
         {
-            SCIO_IncRecord(bw,sp->attack_client,CLIENT_BOOT_TYPE_MINE,RECID_TEMOTI_MAKIZOE);
+            SCIO_IncRecord(bw, sp->attack_client, CLIENT_BOOT_TYPE_MINE, RECID_TEMOTI_MAKIZOE);
         }
 
         sp->client_no_hit[sp->defence_client] = sp->attack_client;
@@ -741,7 +741,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
          && (sp->damage < 0)
          && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR))
         {
-            if((sp->battlemon[sp->defence_client].moveeffect.substitute_hp + sp->damage) <= 0)
+            if ((sp->battlemon[sp->defence_client].moveeffect.substitute_hp + sp->damage) <= 0)
             {
                 sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].moveeffect.substitute_hp * -1);
                 sp->battlemon[sp->defence_client].condition2 &= CONDITION2_SUBSTITUTE_OFF;
@@ -756,45 +756,40 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= STATUS_FLAG_MIGAWARI_HIT;
             sp->client_work = sp->defence_client;
-            LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_MIGAWARI_HIT);
-            sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-            sp->next_server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
+            LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SUBSTITUTE_HIT);
+            sp->server_seq_no = 22;
+            sp->next_server_seq_no = 29;
         }
         else
         {
-            if(sp->moveTbl[sp->current_move_index].effect == 101)
+            if (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_LEAVE_WITH_1_HP)
             {
-                //気絶してしまう時は、１残すようにする
-                if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
                 {
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
                 }
             }
-            //技のこらえるが成功している時は、アイテムのチェックをしない
-            if(sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == 0)
+            if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == 0)
             {
-                //アイテムこらえるチェック
-                if((MoldBreakerAbilityCheck(sp,sp->attack_client,sp->defence_client,ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+                if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
                 {
                     sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = 1;
                 }
-                else if((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
+                else if ((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleRand(bw) % 100) < atk))
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = 1;
                 }
-                else if((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+                else if ((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = 1;
                 }
             }
-            //こらえるチェック
-            if((sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability) || (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item))
+            if ((sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability) || (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item))
             {
-                //気絶してしまう時は、１残すようにする
-                if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
                 {
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
-                    if(sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability)
+                    if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability)
                     {
                         sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
                     }
@@ -834,11 +829,11 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
              */
             sp->store_damage[sp->defence_client] += sp->damage;
 
-            if(sp->battlemon[sp->defence_client].hit_count < 255)
+            if (sp->battlemon[sp->defence_client].hit_count < 255)
             {
                 sp->battlemon[sp->defence_client].hit_count++;
             }
-            if(sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
+            if (sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
             {
                 sp->oneTurnFlag[sp->defence_client].physical_damage[sp->attack_client] = sp->damage;
                 sp->oneTurnFlag[sp->defence_client].physical_damager = sp->attack_client;
@@ -855,7 +850,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->oneSelfFlag[sp->defence_client].special_damager = sp->attack_client;
             }
 
-            if((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+            if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
             {
                 sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].hp * -1);
             }
@@ -869,16 +864,16 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             sp->client_work = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
-            LoadBattleSubSeqScript(sp,ARC_SUB_SEQ,SUB_SEQ_HP_CALC);
-            sp->server_seq_no = SERVER_WAZA_SEQUENCE_NO;
-            sp->next_server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
+            LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_HP_CALC);
+            sp->server_seq_no = 22;
+            sp->next_server_seq_no = 29;
 
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
         }
     }
     else
     {
-        sp->server_seq_no = SERVER_WAZA_OUT_AFTER_MESSAGE_NO;
+        sp->server_seq_no = 29;
     }
 }
 
@@ -893,7 +888,7 @@ u16 gf_p_rand(const u16 denominator)
         u16 per;
         u16 val;
         per = (0xffff / denominator) + 1;
-        val = gf_rand()/per;
+        val = gf_rand() / per;
         return val;
     }
 }

@@ -760,7 +760,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
             && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
         {
             hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-            if (((BattleWorkRandGet(bw) % 100) < hit)
+            if (((BattleRand(bw) % 100) < hit)
              && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
             {
                 hit = 1;
@@ -782,7 +782,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
             else
             {
                 hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-                if(((BattleWorkRandGet(bw) % 100) < hit)
+                if(((BattleRand(bw) % 100) < hit)
                     && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
                 {
                     hit = 1;
@@ -895,7 +895,7 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     {
         flag = 2;
     }
-    else if ((holdeffect == HOLD_EFFECT_FOCUS_BAND) && ((BattleWorkRandGet(bw) % 100) < atk))
+    else if ((holdeffect == HOLD_EFFECT_FOCUS_BAND) && ((BattleRand(bw) % 100) < atk))
     {
         flag = 1;
     }

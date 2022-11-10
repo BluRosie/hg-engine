@@ -20,7 +20,7 @@
     SetMonData(mon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
 }
 #define SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon) { \
-    u16 tempvarassumeunused = PokePasoParaGet(boxmon, ID_PARA_dummy_p2_1, 0); \
+    u16 tempvarassumeunused = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
 }
@@ -543,7 +543,7 @@ void __attribute__((long_call)) PokeParaSetSexChr(struct PartyPokemon *pp, u16 p
 u32 __attribute__((long_call)) GetMonData(void*,int,void*);
 void __attribute__((long_call)) SetMonData(void*,int,void*);
 u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
-u32 __attribute__((long_call)) PokePasoParaGet(void *ppp, int id, void *buf);
+u32 __attribute__((long_call)) GetBoxMonData(void *ppp, int id, void *buf);
 struct PartyPokemon * __attribute__((long_call)) PokeParty_GetMemberPointer(void * party, int pos);
 u32	__attribute__((long_call)) PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
 u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
