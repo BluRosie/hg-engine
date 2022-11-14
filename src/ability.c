@@ -30,6 +30,26 @@ const u16 SoundproofMoveList[] =
     MOVE_HYPER_VOICE,
     MOVE_BUG_BUZZ,
     MOVE_CHATTER,
+    MOVE_BOOMBURST,
+    MOVE_CLANGING_SCALES,
+    MOVE_CLANGOROUS_SOUL,
+    //MOVE_CLANGOROUS_SOULBLAZE,
+    MOVE_CONFIDE,
+    MOVE_DISARMING_VOICE,
+    MOVE_ECHOED_VOICE,
+    MOVE_EERIE_SPELL,
+    //MOVE_HEAL_BELL,
+    //MOVE_HOWL,
+    MOVE_HYPER_VOICE,
+    MOVE_NOBLE_ROAR,
+    MOVE_OVERDRIVE,
+    MOVE_PARTING_SHOT,
+    MOVE_PERISH_SONG,
+    MOVE_RELIC_SONG,
+    MOVE_ROUND,
+    MOVE_SHADOW_PANIC,
+    MOVE_SNARL,
+    MOVE_SPARKLING_ARIA,
 };
 
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender)
@@ -476,7 +496,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                             if (((flag & MOVE_STATUS_FLAG_NOT_EFFECTIVE) == 0)
                                                 && (AnticipateMoveEffectListCheck(sp, movenum) == FALSE) // move effects that deal fixed damage don't activate anticipation--see psywave, dragon rage, etc.
                                                 && ((flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
-                                                    || ((sp->moveTbl[movenum].effect == 38) // one-hit ko
+                                                    || ((sp->moveTbl[movenum].effect == MOVE_EFFECT_ONE_HIT_KO) // one-hit ko
                                                         && (sp->battlemon[client_no].level<=sp->battlemon[num].level))))
                                             {
                                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -520,7 +540,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                             for (num = 0; num < client_set_max; num++)
                             {
-                                if((IsClientEnemy(bw, client_no) != IsClientEnemy(bw, num)) && (sp->battlemon[num].hp))
+                                if ((IsClientEnemy(bw, client_no) != IsClientEnemy(bw, num)) && (sp->battlemon[num].hp))
                                 {
                                     hp += sp->battlemon[num].hp;
                                     for(pos = 0; pos < 4; pos++)
@@ -532,7 +552,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                             case 1:
                                                 switch(sp->moveTbl[movenum].effect)
                                                 {
-                                                    case 38: // one-hit ko
+                                                    case MOVE_EFFECT_ONE_HIT_KO: // one-hit ko
                                                         if ((basepower_temp < 150)
                                                             || ((basepower_temp == 150) && (BattleRand(bw) & 1)))
                                                         {
@@ -541,9 +561,9 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                                         }
                                                         break;
                                                         // counter, mirror coat, metal burst
-                                                    case 89:
-                                                    case 144:
-                                                    case 227:
+                                                    case MOVE_EFFECT_COUNTER:
+                                                    case MOVE_EFFECT_MIRROR_COAT:
+                                                    case MOVE_EFFECT_METAL_BURST:
                                                         if ((basepower_temp < 120)
                                                             || ((basepower_temp == 120) && (BattleRand(bw) & 1)))
                                                         {
@@ -618,7 +638,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 if ((sp->battlemon[def[0]].hp) && (sp->battlemon[def[0]].item)
                                     && (sp->battlemon[def[1]].hp) && (sp->battlemon[def[1]].item)) // if both mons are alive, check one randomly
                                 {
-                                    sp->item_work = sp->battlemon[def[ BattleRand(bw) & 1 ]].item;
+                                    sp->item_work = sp->battlemon[def[BattleRand(bw) & 1]].item;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 }
                                 else if ((sp->battlemon[def[0]].hp) && (sp->battlemon[def[0]].item))
@@ -635,9 +655,9 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                         else
                         {
-                            if ((sp->battlemon[ client_no^1 ].hp) && (sp->battlemon[client_no^1].item)) // xor 1 will always result in opponent in single battle
+                            if ((sp->battlemon[client_no^1].hp) && (sp->battlemon[client_no^1].item)) // xor 1 will always result in opponent in single battle
                             {
-                                sp->item_work = sp->battlemon[ client_no^1 ].item;
+                                sp->item_work = sp->battlemon[client_no^1].item;
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             }
                         }
@@ -684,7 +704,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         break;
                     }
                 }
-                if(i == client_set_max)
+                if (i == client_set_max)
                 {
                     sp->switch_in_check_seq_no++;
                 }

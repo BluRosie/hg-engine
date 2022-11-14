@@ -1024,4 +1024,4 @@ BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp)
     if (sp->battlemon[sp->attack_client].level < sp->battlemon[sp->defence_client].level)
         IncrementBattleScriptPtr(sp, address);
     return FALSE;
-};
+}
