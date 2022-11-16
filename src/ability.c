@@ -47,7 +47,7 @@ const u16 SoundproofMoveList[] =
     MOVE_PERISH_SONG,
     MOVE_RELIC_SONG,
     MOVE_ROUND,
-    MOVE_SHADOW_PANIC,
+    //MOVE_SHADOW_PANIC,
     MOVE_SNARL,
     MOVE_SPARKLING_ARIA,
 };
