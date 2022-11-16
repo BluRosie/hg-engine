@@ -51,7 +51,11 @@ OUTPUT = build/output.bin
 C_SUBDIR = src
 ASM_SUBDIR = asm
 INCLUDE_SUBDIR = include
-BUILD = build
+BUILD := build
+BUILD_NARC := $(BUILD)/narc
+BASE := base
+FILESYS := $(BASE)/root
+
 
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
 
@@ -67,13 +71,14 @@ OW_SPRITES_OBJS := $(patsubst data/graphics/overworlds/*.png,build/data/graphics
 
 ## includes
 include data/graphics/pokegra.mk
+include narcs.mk
 
 ####################### Build #########################
-build/%.d:asm/%.s
+$(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
-build/%.o:src/%.c
-	mkdir -p build
+$(BUILD)/%.o:src/%.c
+	mkdir -p $(BUILD)
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -83,57 +88,59 @@ $(LINK):$(OBJS)
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
-all: $(OUTPUT) $(NARC_FILES)
-	rm -rf base
-	mkdir -p base
-	mkdir -p build/pokemonow
-	mkdir -p build/pokemonicon
-	mkdir -p build/pokemonpic
-	mkdir -p build/a018
-	mkdir -p build/text
-	mkdir -p build/move build/a011
-	mkdir -p build/move/battle_sub_seq build/move/battle_eff_seq build/move/battle_move_seq build/move/move_anim build/move/move_sub_anim
-	mkdir -p build/move/move_anim
+all: $(OUTPUT)
+	rm -rf $(BASE)
+	mkdir -p $(BASE)
+	mkdir -p $(BUILD)
+	mkdir -p $(BUILD)/pokemonow
+	mkdir -p $(BUILD)/pokemonicon
+	mkdir -p $(BUILD)/pokemonpic
+	mkdir -p $(BUILD)/a018
+	mkdir -p $(BUILD)/narc
+	mkdir -p $(BUILD)/text
+	mkdir -p $(BUILD)/move $(BUILD)/a011
+	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim
+	mkdir -p $(BUILD)/move/move_anim
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
-	$(NDSTOOL) -x $(ROMNAME) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "$(ROMNAME) Decompression successful!!"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
+	$(PYTHON) $(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(PYTHON) scripts/build.py
 	$(MAKE) move_narc
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
+	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo -e "Making ROM.."
-	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
 
 
 code_and_data_only: $(OUTPUT)
     ### solely rebuilding the code and moving the narcs ###
-	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
+	#$(PYTHON) $(NARCHIVE) extract $(BASE)/root/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
+	$(PYTHON) $(NARCHIVE) create $(BASE)/root/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo -e "Making ROM.."
-	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
 
 
 code_only: $(OUTPUT)
     ### solely rebuilding the code and moving the narcs ###
-	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/8 -o build/a028/ -nf
+	#$(PYTHON) $(NARCHIVE) extract $(BASE)/root/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 
 	@echo "pokemon icons:"
 	$(ARMIPS) armips/data/iconpalettetable.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/0 build/pokemonicon -nf
+	$(PYTHON) $(NARCHIVE) create $(BASE)/root/a/0/2/0 $(BUILD)/pokemonicon -nf
 
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/8 build/a028/ -nf
+	$(PYTHON) $(NARCHIVE) create $(BASE)/root/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo -e "Making ROM.."
-	$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
 
 
@@ -167,10 +174,10 @@ build_nitrogfx:
 
 
 clean:
-	rm -r -f build
-	rm -r -f base
-	rm -r -f tools/source/ndstool
-	rm -r -f tools/source/armips
+	rm -rf $(BUILD)
+	rm -rf $(BASE)
+	rm -rf tools/source/ndstool
+	rm -rf tools/source/armips
 
 
 
@@ -182,155 +189,99 @@ clean_tools:
 	rm -f tools/nitrogfx
 
 
-
-move_narc:
+# ideally this is all just copying and no building.
+move_narc: $(NARC_FILES)
 	@echo "battle hud layout:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/0/7 -o build/a007/ -nf
-	cp -r rawdata/battle_sprite/. build/a007
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/7 build/a007/ -nf
-	rm -rf build/a007/
+	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
 	
 	@echo "move data:"
-	$(ARMIPS) armips/data/moves.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/1 build/a011/ -nf
+	cp $(MOVEDATA_NARC) $(MOVEDATA_TARGET)
 
 	@echo "move particles:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/9 -o build/a029/ -nf
-	cp -r rawdata/move_spa/. build/a029
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/9 build/a029/ -nf
-	rm -rf build/a029/
-
-	@echo "move animations:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/0 build/move/move_anim -nf
-
-	@echo "move sub animations:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/6/1 build/move/move_sub_anim -nf
-
-	@echo "battle move scripts:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/0 build/move/battle_move_seq -nf
-
-	@echo "battle effect scripts:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/3/0 build/move/battle_eff_seq -nf
-
-	@echo "battle sub effects:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/1 build/move/battle_sub_seq -nf
-
-	@echo "item gfx:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/1/8 -o build/a018/ -nf
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/8 build/a018/ -nf
+	cp $(MOVEPARTICLES_NARC) $(MOVEPARTICLES_TARGET)
 
 	@echo "text data:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/2/7 -o build/text/ -nf
-	$(MSGENC) -e -c charmap.txt data/text/003.txt build/text/7_003
-	$(MSGENC) -e -c charmap.txt data/text/197.txt build/text/7_197
-	$(MSGENC) -e -c charmap.txt data/text/221.txt build/text/7_221
-	$(MSGENC) -e -c charmap.txt data/text/222.txt build/text/7_222
-	$(MSGENC) -e -c charmap.txt data/text/223.txt build/text/7_223
-	$(MSGENC) -e -c charmap.txt data/text/237.txt build/text/7_237
-	$(MSGENC) -e -c charmap.txt data/text/720.txt build/text/7_720
-	$(MSGENC) -e -c charmap.txt data/text/721.txt build/text/7_721
-	$(MSGENC) -e -c charmap.txt data/text/722.txt build/text/7_722
-	$(MSGENC) -e -c charmap.txt data/text/749.txt build/text/7_749
-	$(MSGENC) -e -c charmap.txt data/text/750.txt build/text/7_750
-	$(MSGENC) -e -c charmap.txt data/text/751.txt build/text/7_751
-	$(MSGENC) -e -c charmap.txt data/text/803.txt build/text/7_803
-	$(MSGENC) -e -c charmap.txt data/text/811.txt build/text/7_811
-	$(MSGENC) -e -c charmap.txt data/text/812.txt build/text/7_812
-	$(MSGENC) -e -c charmap.txt data/text/813.txt build/text/7_813
-	$(MSGENC) -e -c charmap.txt data/text/814.txt build/text/7_814
-	$(MSGENC) -e -c charmap.txt data/text/815.txt build/text/7_815
-	$(MSGENC) -e -c charmap.txt data/text/816.txt build/text/7_816
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/7 build/text/ -nf
+	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
 	@echo "item data files:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/0/1/7 -o build/itemdata -nf
-	cp -r rawdata/itemdata/. build/itemdata/
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/1/7 build/itemdata -nf
-
-
-	@echo "opening demo files"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/2/6/2 -o build/a262 -nf
-	cp -r rawdata/op_demo/. build/a262
-	$(PYTHON) $(NARCHIVE) create base/root/a/2/6/2 build/a262 -nf
-
-
-
-	@echo "mon data:"
-	mkdir -p build/a002
-	$(ARMIPS) armips/data/mondata.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/2 build/a002 -nf
+	cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
 
 	@echo "mon sprite data:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/4 build/pokemonpic -nf
-	$(PYTHON) $(NARCHIVE) create base/root/pbr/pokegra.narc build/pokemonpic -nf
+	cp $(POKEGRA_NARC) $(POKEGRA_TARGET)
+	cp $(POKEGRA_NARC) $(PBR_POKEGRA_TARGET)
 
-	@echo "mon sprite offsets (a180):"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/1/8/0 -o build/a180/ -nf
-	$(ARMIPS) armips/data/spriteoffsets.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/1/8/0 build/a180/ -nf
+	@echo "opening demo files:"
+	cp $(OPENDEMO_NARC) $(OPENDEMO_TARGET)
+
+	@echo "mon data properties:"
+	cp $(MONDATA_NARC) $(MONDATA_TARGET)
+
+	@echo "sprite offsets:"
+	cp $(SPRITEOFFSETS_NARC) $(SPRITEOFFSETS_TARGET)
 
 	@echo "mon height offsets (a005):"
-	mkdir -p build/a005
-	#$(PYTHON) $(NARCHIVE) extract base/root/a/0/0/5 -o build/a005/ -nf
-	$(ARMIPS) armips/data/heighttable.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/0/5 build/a005/ -nf
+	cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
 
-	@echo "pokemon icons:"
-	$(ARMIPS) armips/data/iconpalettetable.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/2/0 build/pokemonicon -nf
+	@echo "dex area data:"
+	cp $(DEXAREA_NARC) $(DEXAREA_TARGET)
 
-	@echo "pokemon overworlds:"
-	mkdir -p build/a141
-	$(ARMIPS) armips/data/monoverworlds.s
-	cp build/pokemonow.narc base/root/a/0/8/1
-	$(PYTHON) $(NARCHIVE) create base/root/a/1/4/1 build/a141 -nf
+	@echo "pokedex sort lists:"
+	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
+
+	@echo "egg moves:"
+	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)
+	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET_2)
+
+	@echo "evolution data:"
+	cp $(EVOS_NARC) $(EVOS_TARGET)
+
+	@echo "mon learnset data:"
+	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
+
+	@echo "regional dex order:"
+	cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)
+
+	@echo "trainer data:"
+	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
+	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
+
+	@echo "footprints:"
+	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
+
+	@echo "move anims:"
+	cp $(MOVEANIM_NARC) $(MOVEANIM_TARGET)
+
+	@echo "move sub animations:"
+	cp $(MOVESUBANIM_NARC) $(MOVESUBANIM_TARGET)
+
+	@echo "move battle scripts:"
+	cp $(MOVE_SEQ_NARC) $(MOVE_SEQ_TARGET)
+
+	@echo "move battle scripts:"
+	cp $(BATTLE_EFF_NARC) $(BATTLE_EFF_TARGET)
+
+	@echo "battle sub effects:"
+	cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
+
+	@echo "item gfx:"
+	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
 
 	@echo "move an updated gs_sound_data.sdat:"
-	cp rawdata/gs_sound_data.sdat base/root/data/sound/gs_sound_data.sdat
-
-	@echo "dex area data:"
-	$(PYTHON) $(NARCHIVE) extract base/root/a/1/3/3 -o build/a133 -nf
-	$(ARMIPS) armips/data/pokedex/areadata.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/1/3/3 build/a133 -nf
-
-	@echo "pokedex sort lists:"
-	mkdir -p a214
-	$(ARMIPS) armips/data/pokedex/pokedexdata.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/2/1/4 a214 -nf
-	rm -r a214
-
-	@echo "egg moves:"
-	mkdir -p build/kowaza
-	$(ARMIPS) armips/data/eggmoves.s
-	$(PYTHON) $(NARCHIVE) create base/root/kowaza.narc build/kowaza -nf
-	cp base/root/kowaza.narc base/root/a/2/2/9
-
-	@echo "evolution data:"
-	mkdir -p build/a034
-	$(ARMIPS) armips/data/evodata.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/3/4 build/a034 -nf
-
-	@echo "make footprints:"
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/6/9 rawdata/footprints -nf
-
-	@echo "mon learnset data:"
-	mkdir -p build/a033
-	$(ARMIPS) armips/data/levelupdata.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/3/3 build/a033 -nf
-
-	@echo "regional dex order:"
-	mkdir -p build/a138
-	$(ARMIPS) armips/data/regionaldex.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/1/3/8 build/a138 -nf
+	cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s
-	
-	@echo "trainer data:"
-	mkdir -p build/a055 build/a056
-	$(ARMIPS) armips/data/trainers/trainers.s
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/5/5 build/a055 -nf
-	$(PYTHON) $(NARCHIVE) create base/root/a/0/5/6 build/a056 -nf
+
+	@echo "pokemon icons:"
+	$(ARMIPS) armips/data/iconpalettetable.s
+	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/0 build/pokemonicon -nf
+
+	@echo "pokemon overworlds:"
+	mkdir -p build/a141
+	$(ARMIPS) armips/data/monoverworlds.s
+	cp build/pokemonow.narc $(FILESYS)/a/0/8/1
+	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/1/4/1 build/a141 -nf

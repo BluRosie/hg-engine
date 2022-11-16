@@ -1,7 +1,9 @@
 POKEGRA_DIR := data/graphics
 POKEGRA_SPRITES_DIR := $(POKEGRA_DIR)/sprites
-POKEGRA_BUILD_DIR := build/pokemonpic
-POKEGRA_NARC := build/pokegra.narc
+POKEGRA_BUILD_DIR := $(BUILD)/pokemonpic
+POKEGRA_NARC := $(BUILD_NARC)/pokegra.narc
+POKEGRA_TARGET := $(FILESYS)/a/0/0/4
+PBR_POKEGRA_TARGET := $(FILESYS)/pbr/pokegra.narc
 
 POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty
 POKEGRA_GFX_FLAGS_PAL := -bitdepth 8 -nopad -comp 10
@@ -23,6 +25,6 @@ $(POKEGRA_NARC): $(POKEGRA_PIC_FILES)
 			$(GFX) $(POKEGRA_SPRITES_DIR)/$$a/female/back.png $(POKEGRA_BUILD_DIR)/$$a-05.NCLR $(POKEGRA_GFX_FLAGS_PAL); \
 		fi \
 	done
-	$(PYTHON) $(NARCHIVE) create $(POKEGRA_NARC) $(POKEGRA_BUILD_DIR) -nf
+	$(PYTHON) $(NARCHIVE) create $@ $(POKEGRA_BUILD_DIR) -nf
 
 NARC_FILES += $(POKEGRA_NARC)
