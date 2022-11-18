@@ -8,7 +8,8 @@ PBR_POKEGRA_TARGET := $(FILESYS)/pbr/pokegra.narc
 POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty
 POKEGRA_GFX_FLAGS_PAL := -bitdepth 8 -nopad -comp 10
 
-POKEGRA_PIC_FILES := $(find $(POKEGRA_SPRITES_DIR) -name '*.png')
+# data/graphics/number/gender/*.png
+POKEGRA_PIC_FILES := $(POKEGRA_SPRITES_DIR)/*/*/*.png
 
 $(POKEGRA_NARC): $(POKEGRA_PIC_FILES)
 	mkdir -p $(POKEGRA_BUILD_DIR)

@@ -314,13 +314,11 @@ ICONGFX_NARC := $(BUILD_NARC)/pokemonicon.narc
 ICONGFX_TARGET := $(FILESYS)/a/0/2/0
 ICONGFX_DEPENDENCIES_DIR := data/graphics/icongfx
 ICONGFX_RAWDATA_DIR := rawdata/files_from_a020
-ICONGFX_DEPENDENCIES := data/graphics/icongfx/*
+ICONGFX_DEPENDENCIES := $(ICONGFX_DEPENDENCIES_DIR)/*
 
 $(ICONGFX_NARC): $(ICONGFX_DEPENDENCIES)
 	mkdir -p $(ICONGFX_DIR)
-	echo $(ICONGFX_DEPENDENCIES)
-	echo $?
-	for file in $^; do $(GFX) $$file $(ICONGFX_DIR)/1_$$(basename $$file .png).NCGR -clobbersize -version101; done
+	for file in $?; do $(GFX) $$file $(ICONGFX_DIR)/1_$$(basename $$file .png).NCGR -clobbersize -version101; done
 	cp -r $(ICONGFX_RAWDATA_DIR)/. $(ICONGFX_DIR)
 	$(PYTHON) $(NARCHIVE) create $@ $(ICONGFX_DIR) -nf
 
