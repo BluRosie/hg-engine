@@ -237,7 +237,7 @@ def build_ow():
 
 
 if __name__ == '__main__':
-    build_icon()
+    #build_icon()
     build_anim_script()
     build_anim_sub_script()
     build_battle_eff_seq_script()

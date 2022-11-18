@@ -266,6 +266,10 @@ move_narc: $(NARC_FILES)
 	@echo "item gfx:"
 	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
 
+	@echo "pokemon icons:"
+	$(ARMIPS) armips/data/iconpalettetable.s
+	cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
@@ -275,10 +279,6 @@ move_narc: $(NARC_FILES)
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s
-
-	@echo "pokemon icons:"
-	$(ARMIPS) armips/data/iconpalettetable.s
-	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/0 build/pokemonicon -nf
 
 	@echo "pokemon overworlds:"
 	mkdir -p build/a141
