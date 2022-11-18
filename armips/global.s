@@ -8,15 +8,18 @@
 .include "armips/asm/backgrounds.s" // fixes new move animations
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure
 .include "armips/asm/trainer_ai.s" // repoints all the move table defines for trainer ai within the structure
-.include "armips/asm/syntheticoverlay.s"
-.include "armips/asm/trainers.s"
-.include "armips/asm/cries.s"
-.include "armips/asm/user_config.s"
+.include "armips/asm/syntheticoverlay.s" // code for loading in the synthetic overlay
+.include "armips/asm/trainers.s" // code for fixing the trainer ai accessing move data
+.include "armips/asm/cries.s" // code for remapping species to the file in the sdat
+.include "armips/asm/user_config.s" // user configurable code
+.include "armips/asm/levelup.s" // change the level up moves to be (u16 level, u16 move) + expand learnset to LEARNSET_TOTAL_MOVES (from armips/include/config.s)
+.include "armips/asm/pokedex.s" // code for pokedex expansion, including expanding the save
+//.include "armips/asm/overworlds.s" // code for overworlds, specifically repointing gOWTagToFileNum and making dimorphism a byte instead of a halfword.  currently included and built every time as part of armips/data/monoverworlds.s
 
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list, 7
 .include "armips/data/baseexp.s" // the base experience list, 8
-//.include "armips/data/monoverworlds.s" // included elsewhere, 9
+//.include "armips/data/monoverworlds.s" // built unconditionally in makefile, 9 includes the max amount of forms per mon not including gender differences
 
 /*
 CURRENT SYNTHETIC NARC ARMIPS USAGE - starting at START_ADDRESS (armips/include/config.s), sequentially
@@ -24,5 +27,5 @@ armips/data/monoverworlds.s - ((NUM_OF_MON_OVERWORLDS + 450) * 6)
 armips/data/iconpalettetable.s - (NUM_OF_TOTAL_MONS_PLUS_FORMS)
 armips/asm/trainer_ai.s - ~0x60 bytes of extra code
 
-plus all the c injection stuff.  we are not worried about that here, that's dynamically managed
+plus all the c injection stuff.  we are not worried about that here, that is dynamically managed
 */

@@ -384,10 +384,6 @@ TUTOR_BLOCK                equ 1 << 17
 TUTOR_BUG_BITE             equ 1 << 18
 TUTOR_HEADBUTT             equ 1 << 19
 
-// learnsets
-
-LEARNSET_TOTAL_MOVES equ 31 // 30+terminate
-
 // trainer classes
 
 CLASS_PKMN_TRAINER_0 equ 0

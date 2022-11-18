@@ -4,7 +4,6 @@
 .include "armips/include/constants.s"
 .include "armips/include/macros.s"
 .include "armips/include/monnums.s"
-.include "armips/asm/pokedex.s"
 
 /*
 

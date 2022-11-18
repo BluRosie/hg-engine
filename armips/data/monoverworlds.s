@@ -19,69 +19,69 @@
 
 gOWTagToFileNum:  // skip down a bit to see the parts that are specifically for pokémon
 .halfword    0,  69, 0x1C60
-.halfword 1   , 0  , 0x0000
-.halfword 2   , 1  , 0x0000
-.halfword 3   , 2  , 0x0000
-.halfword 4   , 3  , 0x0000
-.halfword 5   , 4  , 0x0000
-.halfword 6   , 5  , 0x0000
-.halfword 7   , 6  , 0x0000
-.halfword 8   , 7  , 0x0000
-.halfword 9   , 8  , 0x0000
-.halfword 10  , 9  , 0x0000
-.halfword 11  , 10 , 0x0000
-.halfword 12  , 12 , 0x0000
-.halfword 13  , 13 , 0x0000
-.halfword 14  , 14 , 0x0000
-.halfword 15  , 16 , 0x0000
-.halfword 16  , 17 , 0x0000
-.halfword 17  , 18 , 0x0000
-.halfword 18  , 19 , 0x0000
-.halfword 19  , 34 , 0x0000
-.halfword 20  , 35 , 0x0000
-.halfword 21  , 71 , 0x1881
-.halfword 22  , 31 , 0x0000
-.halfword 23  , 32 , 0x0000
-.halfword 24  , 23 , 0x0000
-.halfword 25  , 24 , 0x0000
-.halfword 29  , 25 , 0x0000
-.halfword 30  , 26 , 0x0000
-.halfword 31  , 36 , 0x0000
-.halfword 33  , 22 , 0x0000
-.halfword 34  , 37 , 0x0000
-.halfword 35  , 38 , 0x0000
-.halfword 36  , 39 , 0x0000
-.halfword 37  , 40 , 0x0000
-.halfword 38  , 20 , 0x0001
-.halfword 39  , 21 , 0x0001
-.halfword 40  , 41 , 0x0000
-.halfword 41  , 42 , 0x0000
-.halfword 42  , 43 , 0x0000
-.halfword 43  , 44 , 0x0000
-.halfword 44  , 45 , 0x0000
-.halfword 45  , 46 , 0x0000
-.halfword 50  , 47 , 0x0000
-.halfword 51  , 48 , 0x0000
-.halfword 52  , 49 , 0x0000
-.halfword 53  , 50 , 0x0000
-.halfword 54  , 51 , 0x0000
-.halfword 55  , 52 , 0x0000
-.halfword 56  , 53 , 0x0000
-.halfword 59  , 29 , 0x0000
-.halfword 60  , 30 , 0x0000
-.halfword 62  , 27 , 0x0000
-.halfword 63  , 28 , 0x0000
-.halfword 68  , 11 , 0x0000
-.halfword 69  , 15 , 0x0000
-.halfword 70  , 33 , 0x0000
-.halfword 71  , 68 , 0x0000
-.halfword 84  , 91 , 0x0420
-.halfword 85  , 92 , 0x0820
-.halfword 86  , 93 , 0x0020
-.halfword 87  , 94 , 0x0420
-.halfword 97  , 70 , 0x1C60
-.halfword 98  , 72 , 0x1881
-.halfword 99  , 54 , 0x0000
+.halfword    1,   0, 0x0000
+.halfword    2,   1, 0x0000
+.halfword    3,   2, 0x0000
+.halfword    4,   3, 0x0000
+.halfword    5,   4, 0x0000
+.halfword    6,   5, 0x0000
+.halfword    7,   6, 0x0000
+.halfword    8,   7, 0x0000
+.halfword    9,   8, 0x0000
+.halfword   10,   9, 0x0000
+.halfword   11,  10, 0x0000
+.halfword   12,  12, 0x0000
+.halfword   13,  13, 0x0000
+.halfword   14,  14, 0x0000
+.halfword   15,  16, 0x0000
+.halfword   16,  17, 0x0000
+.halfword   17,  18, 0x0000
+.halfword   18,  19, 0x0000
+.halfword   19,  34, 0x0000
+.halfword   20,  35, 0x0000
+.halfword   21,  71, 0x1881
+.halfword   22,  31, 0x0000
+.halfword   23,  32, 0x0000
+.halfword   24,  23, 0x0000
+.halfword   25,  24, 0x0000
+.halfword   29,  25, 0x0000
+.halfword   30,  26, 0x0000
+.halfword   31,  36, 0x0000
+.halfword   33,  22, 0x0000
+.halfword   34,  37, 0x0000
+.halfword   35,  38, 0x0000
+.halfword   36,  39, 0x0000
+.halfword   37,  40, 0x0000
+.halfword   38,  20, 0x0001
+.halfword   39,  21, 0x0001
+.halfword   40,  41, 0x0000
+.halfword   41,  42, 0x0000
+.halfword   42,  43, 0x0000
+.halfword   43,  44, 0x0000
+.halfword   44,  45, 0x0000
+.halfword   45,  46, 0x0000
+.halfword   50,  47, 0x0000
+.halfword   51,  48, 0x0000
+.halfword   52,  49, 0x0000
+.halfword   53,  50, 0x0000
+.halfword   54,  51, 0x0000
+.halfword   55,  52, 0x0000
+.halfword   56,  53, 0x0000
+.halfword   59,  29, 0x0000
+.halfword   60,  30, 0x0000
+.halfword   62,  27, 0x0000
+.halfword   63,  28, 0x0000
+.halfword   68,  11, 0x0000
+.halfword   69,  15, 0x0000
+.halfword   70,  33, 0x0000
+.halfword   71,  68, 0x0000
+.halfword   84,  91, 0x0420
+.halfword   85,  92, 0x0820
+.halfword   86,  93, 0x0020
+.halfword   87,  94, 0x0420
+.halfword   97,  70, 0x1C60
+.halfword   98,  72, 0x1881
+.halfword   99,  54, 0x0000
 .halfword  126, 215, 0x0000
 .halfword  127, 216, 0x0000
 .halfword  128, 217, 0x0000
@@ -90,63 +90,63 @@ gOWTagToFileNum:  // skip down a bit to see the parts that are specifically for 
 .halfword  131, 220, 0x0000
 .halfword  132, 221, 0x0000
 .halfword  133, 222, 0x0000
-.halfword 141 , 62 , 0x0000
-.halfword 142 , 63 , 0x0000
-.halfword 143 , 64 , 0x0000
-.halfword 144 , 65 , 0x0000
-.halfword 145 , 66 , 0x0000
-.halfword 146 , 67 , 0x0000
-.halfword 148 , 58 , 0x0000
-.halfword 168 , 57 , 0x0000
-.halfword 169 , 61 , 0x0000
-.halfword 175 , 55 , 0x0000
-.halfword 176 , 75 , 0x20A0
-.halfword 177 , 76 , 0x20A0
-.halfword 180 , 77 , 0x28C0
-.halfword 181 , 78 , 0x28C0
-.halfword 178 , 73 , 0x24E0
-.halfword 179 , 74 , 0x24E0
-.halfword 183 , 0  , 0xFDE2
-.halfword 188 , 79 , 0x2D00
-.halfword 189 , 80 , 0x2D00
-.halfword 248 , 81 , 0x3120
-.halfword 249 , 82 , 0x3120
-.halfword 193 , 56 , 0x0000
-.halfword 8192, 0  , 0xFC03
-.halfword 196 , 85 , 0x3D60
-.halfword 197 , 86 , 0x3D60
-.halfword 198 , 87 , 0x40A0
-.halfword 199 , 88 , 0x40A0
-.halfword 200 , 89 , 0x3540
-.halfword 201 , 90 , 0x3540
-.halfword 211 , 170, 0x0000
-.halfword 218 , 171, 0x0000
-.halfword 219 , 83 , 0x0000
-.halfword 220 , 172, 0x0000
-.halfword 221 , 173, 0x0000
-.halfword 222 , 174, 0x0000
-.halfword 223 , 175, 0x0000
-.halfword 224 , 176, 0x0000
-.halfword 293 , 244, 0x0000
-.halfword 294 , 245, 0x0000
-.halfword 225 , 177, 0x0000
-.halfword 227 , 178, 0x0000
-.halfword 229 , 179, 0x0000
-.halfword 232 , 180, 0x0000
+.halfword  141,  62, 0x0000
+.halfword  142,  63, 0x0000
+.halfword  143,  64, 0x0000
+.halfword  144,  65, 0x0000
+.halfword  145,  66, 0x0000
+.halfword  146,  67, 0x0000
+.halfword  148,  58, 0x0000
+.halfword  168,  57, 0x0000
+.halfword  169,  61, 0x0000
+.halfword  175,  55, 0x0000
+.halfword  176,  75, 0x20A0
+.halfword  177,  76, 0x20A0
+.halfword  180,  77, 0x28C0
+.halfword  181,  78, 0x28C0
+.halfword  178,  73, 0x24E0
+.halfword  179,  74, 0x24E0
+.halfword  183,   0, 0xFDE2
+.halfword  188,  79, 0x2D00
+.halfword  189,  80, 0x2D00
+.halfword  248,  81, 0x3120
+.halfword  249,  82, 0x3120
+.halfword  193,  56, 0x0000
+.halfword 8192,   0, 0xFC03
+.halfword  196,  85, 0x3D60
+.halfword  197,  86, 0x3D60
+.halfword  198,  87, 0x40A0
+.halfword  199,  88, 0x40A0
+.halfword  200,  89, 0x3540
+.halfword  201,  90, 0x3540
+.halfword  211, 170, 0x0000
+.halfword  218, 171, 0x0000
+.halfword  219,  83, 0x0000
+.halfword  220, 172, 0x0000
+.halfword  221, 173, 0x0000
+.halfword  222, 174, 0x0000
+.halfword  223, 175, 0x0000
+.halfword  224, 176, 0x0000
+.halfword  293, 244, 0x0000
+.halfword  294, 245, 0x0000
+.halfword  225, 177, 0x0000
+.halfword  227, 178, 0x0000
+.halfword  229, 179, 0x0000
+.halfword  232, 180, 0x0000
 .halfword  233, 223, 0x0000
-.halfword 235 , 181, 0x0000
-.halfword 236 , 182, 0x0000
-.halfword 237 , 183, 0x0000
-.halfword 238 , 213, 0x1C60
-.halfword 239 , 214, 0x1C60
-.halfword 250 , 84 , 0x0C00
-.halfword 251 , 0  , 0xFDE4
-.halfword 252 , 0  , 0xFDE4
-.halfword 253 , 0  , 0xFDE4
-.halfword 254 , 0  , 0xFDE4
-.halfword 255 , 0  , 0xFDE4
-.halfword 256 , 0  , 0xFDE4
-.halfword 257 , 0  , 0xFDE4
+.halfword  235, 181, 0x0000
+.halfword  236, 182, 0x0000
+.halfword  237, 183, 0x0000
+.halfword  238, 213, 0x1C60
+.halfword  239, 214, 0x1C60
+.halfword  250,  84, 0x0C00
+.halfword  251,   0, 0xFDE4
+.halfword  252,   0, 0xFDE4
+.halfword  253,   0, 0xFDE4
+.halfword  254,   0, 0xFDE4
+.halfword  255,   0, 0xFDE4
+.halfword  256,   0, 0xFDE4
+.halfword  257,   0, 0xFDE4
 .halfword  258,  95, 0x1C60
 .halfword  259,  96, 0x1C60
 .halfword  260,  97, 0x3540
@@ -177,110 +177,110 @@ gOWTagToFileNum:  // skip down a bit to see the parts that are specifically for 
 .halfword  285, 101, 0x0000
 .halfword  286, 102, 0x0000
 .halfword  287, 111, 0x0006
-.halfword 288 , 0  , 0xFDE4
-.halfword 289 , 0  , 0xFDE4
-.halfword 290 , 112, 0x1025
-.halfword 291 , 0  , 0xFDE4
-.halfword 292 , 0  , 0xFDE4
-.halfword 295 , 246, 0x1C60
-.halfword 296 , 247, 0x1C60
+.halfword  288,   0, 0xFDE4
+.halfword  289,   0, 0xFDE4
+.halfword  290, 112, 0x1025
+.halfword  291,   0, 0xFDE4
+.halfword  292,   0, 0xFDE4
+.halfword  295, 246, 0x1C60
+.halfword  296, 247, 0x1C60
 .halfword  297, 248, 0x40A0
 .halfword  298, 249, 0x40A0
 .halfword  299, 250, 0x0000
-.halfword 315 , 113, 0x0000
-.halfword 316 , 114, 0x0000
-.halfword 317 , 115, 0x0000
-.halfword 318 , 116, 0x0000
-.halfword 319 , 117, 0x0000
-.halfword 320 , 118, 0x0000
-.halfword 321 , 119, 0x0000
-.halfword 322 , 120, 0x0000
-.halfword 323 , 121, 0x0000
-.halfword 324 , 122, 0x0000
-.halfword 325 , 123, 0x0000
-.halfword 326 , 124, 0x0000
-.halfword 327 , 125, 0x0000
-.halfword 328 , 126, 0x0000
-.halfword 329 , 127, 0x0000
-.halfword 330 , 128, 0x0000
-.halfword 331 , 129, 0x0000
-.halfword 332 , 130, 0x0000
-.halfword 333 , 131, 0x0000
-.halfword 334 , 132, 0x0000
-.halfword 335 , 133, 0x1580
-.halfword 336 , 134, 0x0000
-.halfword 337 , 135, 0x0000
-.halfword 338 , 136, 0x0000
-.halfword 341 , 137, 0x0000
-.halfword 342 , 138, 0x0000
-.halfword 343 , 139, 0x0000
-.halfword 344 , 140, 0x0000
-.halfword 345 , 141, 0x0000
-.halfword 346 , 142, 0x0000
-.halfword 347 , 143, 0x0000
-.halfword 348 , 144, 0x0000
-.halfword 351 , 145, 0x0000
-.halfword 352 , 146, 0x0000
-.halfword 353 , 147, 0x0000
-.halfword 354 , 148, 0x0000
-.halfword 355 , 149, 0x0000
-.halfword 356 , 150, 0x0000
-.halfword 357 , 151, 0x0000
-.halfword 358 , 152, 0x0000
-.halfword 359 , 153, 0x0000
-.halfword 360 , 154, 0x0000
-.halfword 361 , 155, 0x0000
-.halfword 362 , 156, 0x0000
-.halfword 363 , 157, 0x0000
-.halfword 364 , 158, 0x0000
-.halfword 365 , 159, 0x0000
-.halfword 366 , 160, 0x0000
-.halfword 367 , 161, 0x0000
-.halfword 368 , 162, 0x0000
-.halfword 369 , 163, 0x0000
-.halfword 370 , 164, 0x0000
-.halfword 371 , 165, 0x0000
-.halfword 372 , 166, 0x0000
-.halfword 373 , 167, 0x0000
-.halfword 374 , 168, 0x0000
-.halfword 375 , 169, 0x0000
-.halfword 377 , 184, 0x0000
-.halfword 378 , 185, 0x0000
+.halfword  315, 113, 0x0000
+.halfword  316, 114, 0x0000
+.halfword  317, 115, 0x0000
+.halfword  318, 116, 0x0000
+.halfword  319, 117, 0x0000
+.halfword  320, 118, 0x0000
+.halfword  321, 119, 0x0000
+.halfword  322, 120, 0x0000
+.halfword  323, 121, 0x0000
+.halfword  324, 122, 0x0000
+.halfword  325, 123, 0x0000
+.halfword  326, 124, 0x0000
+.halfword  327, 125, 0x0000
+.halfword  328, 126, 0x0000
+.halfword  329, 127, 0x0000
+.halfword  330, 128, 0x0000
+.halfword  331, 129, 0x0000
+.halfword  332, 130, 0x0000
+.halfword  333, 131, 0x0000
+.halfword  334, 132, 0x0000
+.halfword  335, 133, 0x1580
+.halfword  336, 134, 0x0000
+.halfword  337, 135, 0x0000
+.halfword  338, 136, 0x0000
+.halfword  341, 137, 0x0000
+.halfword  342, 138, 0x0000
+.halfword  343, 139, 0x0000
+.halfword  344, 140, 0x0000
+.halfword  345, 141, 0x0000
+.halfword  346, 142, 0x0000
+.halfword  347, 143, 0x0000
+.halfword  348, 144, 0x0000
+.halfword  351, 145, 0x0000
+.halfword  352, 146, 0x0000
+.halfword  353, 147, 0x0000
+.halfword  354, 148, 0x0000
+.halfword  355, 149, 0x0000
+.halfword  356, 150, 0x0000
+.halfword  357, 151, 0x0000
+.halfword  358, 152, 0x0000
+.halfword  359, 153, 0x0000
+.halfword  360, 154, 0x0000
+.halfword  361, 155, 0x0000
+.halfword  362, 156, 0x0000
+.halfword  363, 157, 0x0000
+.halfword  364, 158, 0x0000
+.halfword  365, 159, 0x0000
+.halfword  366, 160, 0x0000
+.halfword  367, 161, 0x0000
+.halfword  368, 162, 0x0000
+.halfword  369, 163, 0x0000
+.halfword  370, 164, 0x0000
+.halfword  371, 165, 0x0000
+.halfword  372, 166, 0x0000
+.halfword  373, 167, 0x0000
+.halfword  374, 168, 0x0000
+.halfword  375, 169, 0x0000
+.halfword  377, 184, 0x0000
+.halfword  378, 185, 0x0000
 .halfword  380, 224, 0x0000
-.halfword 381 , 186, 0x0000
-.halfword 382 , 187, 0x0000
-.halfword 383 , 188, 0x0000
-.halfword 384 , 189, 0x0000
+.halfword  381, 186, 0x0000
+.halfword  382, 187, 0x0000
+.halfword  383, 188, 0x0000
+.halfword  384, 189, 0x0000
 .halfword  385, 225, 0x0000
 .halfword  386, 226, 0x0000
 .halfword  387, 227, 0x0000
-.halfword 389 , 190, 0x0000
+.halfword  389, 190, 0x0000
 .halfword  390, 228, 0x0000
-.halfword 392 , 191, 0x0000
-.halfword 393 , 192, 0x0000
-.halfword 394 , 193, 0x0000
-.halfword 395 , 194, 0x5C06
-.halfword 406 , 195, 0x0006
-.halfword 409 , 200, 0x0000
-.halfword 410 , 198, 0x0000
-.halfword 411 , 197, 0x0000
-.halfword 412 , 199, 0x0000
-.halfword 413 , 196, 0x0000
-.halfword 349 , 243, 0x5C00
-.halfword 234 , 242, 0x0024
-.halfword 350 , 229, 0x0024
-.halfword 376 , 230, 0x0024
-.halfword 379 , 231, 0x0024
-.halfword 210 , 239, 0x5C24
-.halfword 396 , 241, 0x5C24
-.halfword 397 , 240, 0x0024
-.halfword 398 , 237, 0x0024
-.halfword 399 , 234, 0x0024
-.halfword 400 , 235, 0x5C24
-.halfword 401 , 236, 0x0024
-.halfword 402 , 238, 0x0024
-.halfword 403 , 232, 0x0024
-.halfword 404 , 233, 0x0024
+.halfword  392, 191, 0x0000
+.halfword  393, 192, 0x0000
+.halfword  394, 193, 0x0000
+.halfword  395, 194, 0x5C06
+.halfword  406, 195, 0x0006
+.halfword  409, 200, 0x0000
+.halfword  410, 198, 0x0000
+.halfword  411, 197, 0x0000
+.halfword  412, 199, 0x0000
+.halfword  413, 196, 0x0000
+.halfword  349, 243, 0x5C00
+.halfword  234, 242, 0x0024
+.halfword  350, 229, 0x0024
+.halfword  376, 230, 0x0024
+.halfword  379, 231, 0x0024
+.halfword  210, 239, 0x5C24
+.halfword  396, 241, 0x5C24
+.halfword  397, 240, 0x0024
+.halfword  398, 237, 0x0024
+.halfword  399, 234, 0x0024
+.halfword  400, 235, 0x5C24
+.halfword  401, 236, 0x0024
+.halfword  402, 238, 0x0024
+.halfword  403, 232, 0x0024
+.halfword  404, 233, 0x0024
 
 .halfword  407,  99, 0x1C60
 .halfword  408, 100, 0x1C60

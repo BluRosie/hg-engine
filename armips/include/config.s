@@ -11,6 +11,9 @@ FAIRY_TYPE_IMPLEMENTED equ 0
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
 DEBUG_NEEDS_TESTING equ 0
 
+// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
+LEARNSET_TOTAL_MOVES equ 31 // 30+terminate
+
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
 BATTLE_MODE_FORCE_SET equ 0
 

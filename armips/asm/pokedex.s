@@ -1,7 +1,7 @@
 .nds
 .thumb
 
-.include "armips/include/config.s"
+// included by armips/global.s
 
 .open "base/overlay/overlay_0018.bin", 0x021E5900
 

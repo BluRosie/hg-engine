@@ -1,7 +1,7 @@
 .nds
 .thumb
 
-.include "armips/include/constants.s"
+// included by global.s
 
 // all the edits that should be necessary to change the level up moves to be u16 level, u16 move
 // also expand possible moves in learnset to be more than 21
