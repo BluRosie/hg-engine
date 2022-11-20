@@ -243,5 +243,5 @@ if __name__ == '__main__':
     #build_battle_eff_seq_script()
     #build_battle_move_seq_script()
     #build_battle_sub_seq_script()
-    build_item_sprite()
+    #build_item_sprite()
     build_ow()
