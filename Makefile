@@ -32,6 +32,7 @@ BLZ = tools/blz
 ARMIPS = tools/armips
 NARCHIVE = tools/narcpy.py
 GFX = tools/nitrogfx
+BTX = tools/pngtobtx0$(EXE)
 ####################### Seting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
@@ -108,37 +109,8 @@ all: $(OUTPUT)
 	$(PYTHON) $(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
-	$(PYTHON) scripts/build.py
 	$(MAKE) move_narc
 	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
-	@echo -e "Making ROM.."
-	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "Done."
-
-
-code_and_data_only: $(OUTPUT)
-    ### solely rebuilding the code and moving the narcs ###
-	#$(PYTHON) $(NARCHIVE) extract $(BASE)/root/a/0/2/8 -o $(BUILD)/a028/ -nf
-	$(PYTHON) scripts/make.py
-	$(ARMIPS) armips/global.s
-	$(MAKE) move_narc
-	$(PYTHON) $(NARCHIVE) create $(BASE)/root/a/0/2/8 $(BUILD)/a028/ -nf
-	@echo -e "Making ROM.."
-	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "Done."
-
-
-code_only: $(OUTPUT)
-    ### solely rebuilding the code and moving the narcs ###
-	#$(PYTHON) $(NARCHIVE) extract $(BASE)/root/a/0/2/8 -o $(BUILD)/a028/ -nf
-	$(PYTHON) scripts/make.py
-	$(ARMIPS) armips/global.s
-
-	@echo "pokemon icons:"
-	$(ARMIPS) armips/data/iconpalettetable.s
-	$(PYTHON) $(NARCHIVE) create $(BASE)/root/a/0/2/0 $(BUILD)/pokemonicon -nf
-
-	$(PYTHON) $(NARCHIVE) create $(BASE)/root/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
@@ -283,5 +255,5 @@ move_narc: $(NARC_FILES)
 	@echo "pokemon overworlds:"
 	mkdir -p build/a141
 	$(ARMIPS) armips/data/monoverworlds.s
-	cp build/pokemonow.narc $(FILESYS)/a/0/8/1
 	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/1/4/1 build/a141 -nf
+	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
