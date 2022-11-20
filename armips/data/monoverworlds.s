@@ -1545,7 +1545,7 @@ gOWTagToFileNum:  // skip down a bit to see the parts that are specifically for 
 
 .org 0x020FECAE
 
-.area 0x3DC, 0xFF // if this overflows then the routine will need a rewrite
+.area (SPECIES_ARCEUS)*2, 0xFF // if this overflows then the routine will need a rewrite
 
 // this was rewritten to make it a byte per pokémon.  the routine subtracts one, so it starts with bulbasaur
 gDimorphismTable:
