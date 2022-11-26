@@ -967,15 +967,15 @@ get_dex_num_patch:
 
 // here, we need to increase the pokedex structure size to 0x4C0 (originally 0x340)
 // we need to repoint 0x44 within that structure to 0x84 (repoint the seen flags)
-// we then need to repoint 0x84 within that structure to 0x340 (repoint the caught flags)
-// 0xC4 obviously then needs to be 0x3C0
+// we then need to repoint 0x84 within that structure to 0x3C0 (repoint the caught flags)
+// 0xC4 obviously then needs to be 0x440
 
 .open "base/arm9.bin", 0x02000000
 
 .org 0x020293E0
 
 GetPokedexStructSize: // used by the save data to get the struct size needed
-    mov r0, #0x44
+    mov r0, #0x4C0 >> 4
     lsl r0, #0x4
     bx lr
 
@@ -984,7 +984,7 @@ GetPokedexStructSize: // used by the save data to get the struct size needed
 
 AllocatePokedexStructSize: // rewrite for new struct size
     push {r4, lr}
-    mov r1, #0x44
+    mov r1, #0x4C0 >> 4
     lsl r1, #0x4
     bl 0x0201AA8C // AllocMemory
     mov r4, r0
@@ -997,7 +997,7 @@ AllocatePokedexStructSize: // rewrite for new struct size
 
 CopyPokedexStruct: // rewrite for new struct size
     ldr r3, =(0x020D4A50) // CpuCopy8
-    mov r2, #0x44
+    mov r2, #0x4C0 >> 4
     lsl r2, #0x4
     bx r3
 
@@ -1034,13 +1034,13 @@ IsMonNotValid:
     and r3, r1
     mov r6, #1
     lsl r6, r3
-    mov r1, #0x3C
+    mov r1, #0x440 >> 4
     lsl r1, #4
     add r2, r1
     asr r1, r0, #3
 
 .org 0x0202946C // replace 84 with 340
-    mov r3, #0x34
+    mov r3, #0x3C0 >> 4
     lsl r3, #4
     add r5, r3
     sub r3, r0, #1
@@ -1064,7 +1064,7 @@ IsMonNotValid:
     lsl r0, r3
     asr r3, r2, #3
     add r3, r5, r3
-    mov r6, #0x34
+    mov r6, #0x3C0 >> 4
     lsl r6, #4
     add r3, r6
 
@@ -1076,7 +1076,7 @@ IsMonNotValid:
     asr r2, r2, #3
     add r2, r5, r2
     mov r0, #7
-    mov r3, #0x3C
+    mov r3, #0x440 >> 4
     lsl r3, #4
     add r2, r3
 
@@ -1224,7 +1224,7 @@ GetSeenMonCount:
     add r2, #0x84
 
 .org 0x0202A3E8 // replcae 84 with 340
-    mov r3, #0x34
+    mov r3, #0x3C0 >> 4
     lsl r3, #4
     add r2, r3
     ldrb r2, [r2]
@@ -1244,7 +1244,7 @@ GetSeenMonCount:
     add r3, #0x84
 
 .org 0x0202A4BA // replace 84 with 340
-    mov r3, #0x34
+    mov r3, #0x3C0 >> 4
     lsl r3, #4
     add r0, r3
     ldrb r0, [r0]
