@@ -6,20 +6,27 @@
 * [BluRose](https://github.com/BluRosie)
 * [turtleisaac](https://github.com/turtleisaac)
 * [dog-broad](https://github.com/dog-broad)
+* [DavveDP](https://github.com/DavveDP)
+* [Brioche](https://github.com/Brioooche)
+
+## Table of Contents
+- [Features](#features)
+- [Setup Instructions (Debian Linux)](#setup-instructions-debian-linux)
+- [Setup Instructions (MacOS)](#setup-instructions-macos)
+- [Setup Instructions (Windows)](#setup-instructions-windows)
+- [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+- [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
+- [Credits](#credits)
+
 
 ## Features:
-* Mega Evolutions
-* Dex Expansion (currently has up to gen 5)
-* Ability expansion
+* Mega Evolutions + Primal Reversions
+* Dex Expansion (currently has up to gen 5 completely implemented)
+* Ability expansion + Hidden abilities
 * Updated effects for gen 4 and prior abilities
 * All new functional Mega Stones added after the already-existing items
 
-*A more comprehensive list of features can be found by visiting the hg-engine wiki.*
-
-## Coming Soon:
-* Move expansion
-* Updated effects for gen 4 and prior moves
-
+*A more comprehensive list of features + a roadmap can be found by visiting the [hg-engine wiki](https://github.com/BluRosie/hg-engine/wiki).  Please read this README and the Wiki thoroughly before asking questions.*
 
 ## Setup Instructions (Debian Linux)
 1. Download and install Devkitpro using the downloads and instructions [**here**][DEVKITPRO].
@@ -83,13 +90,13 @@
 
 1. Get your ROM, rename it to **rom.nds** and place it in `Documents/hg-engine`.
 2. In Terminal/WSL, run ```cd hg-engine```
-3. In Terminal/WSL, run ```make build_tools```. This will compile most of the tools that hg-engine needs to build.
-4. In Terminal/WSL, run ```make build_nitrogfx```. This will compile nitrogfx, one of the tools needed for hg-engine to build.
+3. In Terminal/WSL, run ```make build_tools --jobs```. This will compile most of the tools that hg-engine needs to build.
+4. In Terminal/WSL, run ```make build_nitrogfx --jobs```. This will compile nitrogfx, one of the tools needed for hg-engine to build.
    * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then open it again and run the following:
      * ```cd Documents/hg-engine```
-     * ```make build_nitrogfx```
+     * ```make build_nitrogfx --jobs```
    * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
-5. In Terminal/WSL, type `make`.
+5. In Terminal/WSL, type `make --jobs`.
 6. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
    * It is important to note that this alone will not add new pokemon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.
    * You can edit various game data such as trainers, dex entries, pokemon stats, and more in the files in `armips/data`
