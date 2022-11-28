@@ -124,6 +124,7 @@ build_tools:
 
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
+	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
 	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
 	cd tools/source/ndstool ; ./autogen.sh
 	cd tools/source/ndstool ; ./configure && $(MAKE)
