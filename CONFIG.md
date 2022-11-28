@@ -5,6 +5,8 @@
 
  ``FAIRY_TYPE_IMPLEMENTED`` should be set to 1 in both of these files before compiling the first time to catch all the fairy type instances.
  
+ ``ALLOW_SAVE_CHANGES`` is by default set to 1 in both of these files to allow for save expansion for expanded dex Pokémon and Kyurem's forme change method that stores Reshiram/Zekrom in the save.  If you want to maintain PKHeX compatibility, all you have to do is set ``ALLOW_SAVE_CHANGES`` in both of these files to 0.  Setting this to zero disables Kyurem's forme change and the registering of new Pokémon in the dex (although the new mons are still implemented).
+ 
  ``DEBUG_NEEDS_TESTING`` (``armips/include/config.s`` only) at the moment just shouldn't be touched.  Keep it at 0.
  
  ``LEARNSET_TOTAL_MOVES`` (``armips/include/config.s`` only) is the amount of moves that should be learned per Pokémon at level up plus one for the termination sequence.

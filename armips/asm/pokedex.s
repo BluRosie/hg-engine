@@ -962,15 +962,38 @@ get_dex_num_patch:
 
 
 
-
-
-
 // here, we need to increase the pokedex structure size to 0x4C0 (originally 0x340)
 // we need to repoint 0x44 within that structure to 0x84 (repoint the seen flags)
 // we then need to repoint 0x84 within that structure to 0x3C0 (repoint the caught flags)
 // 0xC4 obviously then needs to be 0x440
 
 .open "base/arm9.bin", 0x02000000
+
+
+.org 0x02029408
+
+IsMonNotValid:
+    push {r3, lr}
+    cmp r0, #0
+    beq @@_invalid_mon
+    ldr r1, =ALLOW_SAVE_CHANGES == 1 ? (NUM_OF_MONS) : (SPECIES_ARCEUS)
+    cmp r0, r1
+    bls @@_return_valid
+
+@@_invalid_mon:
+    bl 0x0202551C // HandleError
+    mov r0, #1
+    pop {r3, pc}
+
+@@_return_valid:
+    mov r0, #0
+    pop {r3, pc}
+
+.pool
+
+
+// in the name of maintaining PKHeX compatibility for vanilla saves, this whole part needs to be possibly conditionally built.
+.if ALLOW_SAVE_CHANGES == 1
 
 .org 0x020293E0
 
@@ -1004,31 +1027,9 @@ CopyPokedexStruct: // rewrite for new struct size
 .pool
 
 
-.org 0x02029408
-
-IsMonNotValid:
-    push {r3, lr}
-    cmp r0, #0
-    beq @@_invalid_mon
-    ldr r1, =(NUM_OF_MONS)
-    cmp r0, r1
-    bls @@_return_valid
-
-@@_invalid_mon:
-    bl 0x0202551C // HandleError
-    mov r0, #1
-    pop {r3, pc}
-
-@@_return_valid:
-    mov r0, #0
-    pop {r3, pc}
-
-.pool
-
-
 // edits to SetGenderBit
 
-.org 0x0202943E // replace C4 with 3C0
+.org 0x0202943E // replace C4 with 440
     mov r3, r0
     mov r1, #7
     and r3, r1
@@ -1054,7 +1055,7 @@ IsMonNotValid:
 
 // edits to GetNormalMonGender
 
-.org 0x02029C26 // replace 84 with 340
+.org 0x02029C26 // replace 84 with 3C0
     sub r2, r6, #1
     mov r1, #1
     mov r0, #7
@@ -1069,7 +1070,7 @@ IsMonNotValid:
     add r3, r6
 
 
-.org 0x02029C46 // replace C4 with 3C0
+.org 0x02029C46 // replace C4 with 440
     cmp r4, #1
     bne 0x2029C76
     mov r4, r2
@@ -1085,10 +1086,11 @@ IsMonNotValid:
 
 PokedexInit: // rewrite the beginning for new struct size
     push {r4, lr}
-    mov r2, #0x44
+    mov r2, #0x4C0 >> 4
     lsl r2, #4
     mov r1, #0
 
+.endif // ALLOW_SAVE_CHANGES
 
 // edits to GetCaughtMonCount
 
@@ -1116,12 +1118,14 @@ GetCaughtMonCount:
 	lsl r7, #1
 	cmp r4, r7
 	blt @@_loop
+.if ALLOW_SAVE_CHANGES == 1
 	add r7, #(SPECIES_VICTINI - SPECIES_ARCEUS - 1)
 	cmp r4, r7
 	blt @@_increment
 	ldr r7, =NUM_OF_MONS
 	cmp r4, r7
 	ble @@_loop
+.endif // ALLOW_SAVE_CHANGES
 	mov r0, r5
 	pop {r3-r7, pc}
 	
@@ -1156,12 +1160,14 @@ GetSeenMonCount:
 	lsl r7, #1
 	cmp r4, r7
 	blt @@_loop
+.if ALLOW_SAVE_CHANGES == 1
 	add r7, #(SPECIES_VICTINI - SPECIES_ARCEUS - 1)
 	cmp r4, r7
 	blt @@_increment
 	ldr r7, =NUM_OF_MONS
 	cmp r4, r7
 	ble @@_loop
+.endif // ALLOW_SAVE_CHANGES
 	mov r0, r5
 	pop {r3-r7, pc}
 	
@@ -1174,14 +1180,14 @@ GetSeenMonCount:
 
 .org 0x02029EF0
 
-.word NUM_OF_MONS
+.word ALLOW_SAVE_CHANGES == 1 ? (NUM_OF_MONS) : (SPECIES_ARCEUS)
 
 
 // edits to GetRegionalDexSeenCount
 
 .org 0x02029F44
 
-.word NUM_OF_MONS
+.word ALLOW_SAVE_CHANGES == 1 ? (NUM_OF_MONS) : (SPECIES_ARCEUS)
 
 
 // something to do with counting the mons that are not mythical
@@ -1190,15 +1196,17 @@ GetSeenMonCount:
 
 .org 0x02029FA8
 
-.word NUM_OF_MONS
+.word ALLOW_SAVE_CHANGES == 1 ? (NUM_OF_MONS) : (SPECIES_ARCEUS)
 
 
 // edits to sub_2029FAC
 
 .org 0x02029FF4
 
-.word NUM_OF_MONS
+.word ALLOW_SAVE_CHANGES == 1 ? (NUM_OF_MONS) : (SPECIES_ARCEUS)
 
+
+.if ALLOW_SAVE_CHANGES == 1
 
 // edits to GetCaughtFlag
 
@@ -1257,6 +1265,8 @@ GetSeenMonCount:
 
 .org 0x0202A526 // replace 44 with 84
     add r5, #0x84
+
+.endif // ALLOW_SAVE_CHANGES
 
 
 // debug edits to national dex status

@@ -8,6 +8,10 @@ START_ADDRESS equ 0x0
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type has been implemented as type 9 or not.  it will be replaced with TYPE_NORMAL if the following is 0, 1 if the fairy type has been implemented
 FAIRY_TYPE_IMPLEMENTED equ 0
 
+// ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
+// this is required for dex expansion and will break PKHeX compatibility!
+ALLOW_SAVE_CHANGES equ 1
+
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
 DEBUG_NEEDS_TESTING equ 0
 

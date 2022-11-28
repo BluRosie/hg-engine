@@ -1,6 +1,7 @@
 #ifndef SAVE_H
 #define SAVE_H
 
+#include "config.h"
 #include "pokemon.h"
 
 // store a reshiram/zekrom, a lunala, a solgaleo, and a glastrier/spectrier
@@ -33,9 +34,15 @@ struct SAVE_MISC_DATA
     //u8 unk_02DC;
     //u8 dummy_02DD[3];
     u8 original_struct[0x2E0];
+
+#ifdef ALLOW_SAVE_CHANGES
+
     // expanded fields
     struct PartyPokemon storedMons[NUM_OF_STORED_MONS];
     u8 isMonStored[NUM_OF_STORED_MONS];
+
+#endif
+
 };
 
 // vars

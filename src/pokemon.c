@@ -3218,6 +3218,7 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
         return 1;
     }
     
+#ifdef ALLOW_SAVE_CHANGES
     u32 splicer_pos = CanUseDNASplicersGrabSplicerPos(pp, wk->dat->pp);
     u32 reshiramBool = splicer_pos & RESHIRAM_MASK;
     splicer_pos &= JUST_SPLICER_POS_MASK;
@@ -3278,6 +3279,7 @@ u32 UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
         PokeList_FormDemoOverlayLoad(wk);
         return 1;
     }
+#endif
     
     return 0;
 }
