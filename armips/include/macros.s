@@ -479,6 +479,10 @@
 	.byte num
 .endmacro
 
+.macro additionalflags,num
+    .word num
+.endmacro
+
 .macro status,num
 	.word num
 .endmacro

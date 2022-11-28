@@ -9,8 +9,8 @@ START_ADDRESS equ 0x0
 FAIRY_TYPE_IMPLEMENTED equ 0
 
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
-// this is required for dex expansion and will break PKHeX compatibility!
-ALLOW_SAVE_CHANGES equ 1
+// this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.
+.definelabel ALLOW_SAVE_CHANGES, 0
 
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
 DEBUG_NEEDS_TESTING equ 0

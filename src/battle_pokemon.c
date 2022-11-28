@@ -483,6 +483,9 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 SetMonData(mons[i], ID_PARA_id_no, &id);
             }
         }
+
+        PokeParaCalc(mons[i]); // recalculate stats here
+
         if(bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ADDITIONAL_FLAGS)
         {
             if(additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)

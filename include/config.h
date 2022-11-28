@@ -14,8 +14,8 @@
 #define START_ADDRESS 0x0
 
 // ALLOW_SAVE_CHANGES will allow save file field expansions for full feature implementation, but will break compatibility with PKHeX
-// commenting out this define will disable kyurem's forme change method
-#define ALLOW_SAVE_CHANGES 1
+// commenting out this define will disable kyurem's forme change method and keep saves compatible with pkhex
+#define ALLOW_SAVE_CHANGES
 
 // EXPERIENCE_FORMULA_GEN defines the experience formula you would like to use.  Gens 5, 7, and 8 consider the difference between the attacker's level and the fainted's level to scale the experience gained.
 // i.e. defining this as "5", "7", or "8" would use a scaled formula, whereas "6" and others would use the default formula.  There is a multiplier of 255 / 390 to not artificially inflate the experience given as well with higher base experience.
