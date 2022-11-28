@@ -17222,7 +17222,7 @@ mondata SPECIES_OVERQWIL
 
 mondata SPECIES_ENAMORUS
     basestats 74, 115, 70, 106, 135, 80
-    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_POISON
+    types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 3
     baseexp 208
     evyields 0,0,0,0,3,0
