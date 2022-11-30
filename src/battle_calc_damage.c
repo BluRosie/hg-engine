@@ -11,43 +11,46 @@
 #include "../include/constants/species.h"
 
 static const u8 HeldItemPowerUpTable[][2]={
-	{HOLD_EFFECT_BOOST_BUG, TYPE_BUG},
-	{HOLD_EFFECT_BOOST_STEEL, TYPE_STEEL},
-	{HOLD_EFFECT_BOOST_GROUND, TYPE_GROUND},
-	{HOLD_EFFECT_BOOST_ROCK, TYPE_ROCK},
-	{HOLD_EFFECT_BOOST_GRASS, TYPE_GRASS},
-	{HOLD_EFFECT_BOOST_DARK, TYPE_DARK},
-	{HOLD_EFFECT_BOOST_FIGHTING, TYPE_FIGHTING},
-	{HOLD_EFFECT_BOOST_ELECTRIC, TYPE_ELECTRIC},
-	{HOLD_EFFECT_BOOST_WATER, TYPE_WATER},
-	{HOLD_EFFECT_BOOST_FLYING, TYPE_FLYING},
-	{HOLD_EFFECT_BOOST_POISON, TYPE_POISON},
-	{HOLD_EFFECT_BOOST_ICE, TYPE_ICE},
-	{HOLD_EFFECT_BOOST_GHOST, TYPE_GHOST},
-	{HOLD_EFFECT_BOOST_PSYCHIC, TYPE_PSYCHIC},
-	{HOLD_EFFECT_BOOST_FIRE, TYPE_FIRE},
-	{HOLD_EFFECT_BOOST_DRAGON, TYPE_DRAGON},
-	{HOLD_EFFECT_BOOST_NORMAL, TYPE_NORMAL},
-	{HOLD_EFFECT_PLATE_BOOST_FIRE, TYPE_FIRE},
-	{HOLD_EFFECT_PLATE_BOOST_WATER, TYPE_WATER},
-	{HOLD_EFFECT_PLATE_BOOST_ELECTRIC, TYPE_ELECTRIC},
-	{HOLD_EFFECT_PLATE_BOOST_GRASS, TYPE_GRASS},
-	{HOLD_EFFECT_PLATE_BOOST_ICE, TYPE_ICE},
-	{HOLD_EFFECT_PLATE_BOOST_FIGHTING, TYPE_FIGHTING},
-	{HOLD_EFFECT_PLATE_BOOST_POISON, TYPE_POISON},
-	{HOLD_EFFECT_PLATE_BOOST_GROUND, TYPE_GROUND},
-	{HOLD_EFFECT_PLATE_BOOST_FLYING, TYPE_FLYING},
-	{HOLD_EFFECT_PLATE_BOOST_PSYCHIC, TYPE_PSYCHIC},
-	{HOLD_EFFECT_PLATE_BOOST_BUG, TYPE_BUG},
-	{HOLD_EFFECT_PLATE_BOOST_ROCK, TYPE_ROCK},
-	{HOLD_EFFECT_PLATE_BOOST_GHOST, TYPE_GHOST},
-	{HOLD_EFFECT_PLATE_BOOST_DRAGON, TYPE_DRAGON},
-	{HOLD_EFFECT_PLATE_BOOST_DARK, TYPE_DARK},
-	{HOLD_EFFECT_PLATE_BOOST_STEEL, TYPE_STEEL},
+    {HOLD_EFFECT_BOOST_BUG, TYPE_BUG},
+    {HOLD_EFFECT_BOOST_STEEL, TYPE_STEEL},
+    {HOLD_EFFECT_BOOST_GROUND, TYPE_GROUND},
+    {HOLD_EFFECT_BOOST_ROCK, TYPE_ROCK},
+    {HOLD_EFFECT_BOOST_GRASS, TYPE_GRASS},
+    {HOLD_EFFECT_BOOST_DARK, TYPE_DARK},
+    {HOLD_EFFECT_BOOST_FIGHTING, TYPE_FIGHTING},
+    {HOLD_EFFECT_BOOST_ELECTRIC, TYPE_ELECTRIC},
+    {HOLD_EFFECT_BOOST_WATER, TYPE_WATER},
+    {HOLD_EFFECT_BOOST_FLYING, TYPE_FLYING},
+    {HOLD_EFFECT_BOOST_POISON, TYPE_POISON},
+    {HOLD_EFFECT_BOOST_ICE, TYPE_ICE},
+    {HOLD_EFFECT_BOOST_GHOST, TYPE_GHOST},
+    {HOLD_EFFECT_BOOST_PSYCHIC, TYPE_PSYCHIC},
+    {HOLD_EFFECT_BOOST_FIRE, TYPE_FIRE},
+    {HOLD_EFFECT_BOOST_DRAGON, TYPE_DRAGON},
+    {HOLD_EFFECT_BOOST_NORMAL, TYPE_NORMAL},
+    {HOLD_EFFECT_PLATE_BOOST_FIRE, TYPE_FIRE},
+    {HOLD_EFFECT_PLATE_BOOST_WATER, TYPE_WATER},
+    {HOLD_EFFECT_PLATE_BOOST_ELECTRIC, TYPE_ELECTRIC},
+    {HOLD_EFFECT_PLATE_BOOST_GRASS, TYPE_GRASS},
+    {HOLD_EFFECT_PLATE_BOOST_ICE, TYPE_ICE},
+    {HOLD_EFFECT_PLATE_BOOST_FIGHTING, TYPE_FIGHTING},
+    {HOLD_EFFECT_PLATE_BOOST_POISON, TYPE_POISON},
+    {HOLD_EFFECT_PLATE_BOOST_GROUND, TYPE_GROUND},
+    {HOLD_EFFECT_PLATE_BOOST_FLYING, TYPE_FLYING},
+    {HOLD_EFFECT_PLATE_BOOST_PSYCHIC, TYPE_PSYCHIC},
+    {HOLD_EFFECT_PLATE_BOOST_BUG, TYPE_BUG},
+    {HOLD_EFFECT_PLATE_BOOST_ROCK, TYPE_ROCK},
+    {HOLD_EFFECT_PLATE_BOOST_GHOST, TYPE_GHOST},
+    {HOLD_EFFECT_PLATE_BOOST_DRAGON, TYPE_DRAGON},
+    {HOLD_EFFECT_PLATE_BOOST_DARK, TYPE_DARK},
+    {HOLD_EFFECT_PLATE_BOOST_STEEL, TYPE_STEEL},
+#if FAIRY_TYPE_IMPLEMENTED == 1
+    {HOLD_EFFECT_PLATE_BOOST_FAIRY, TYPE_FAIRY},
+#endif
 };
 
 static const u16 IronFistMovesTable[] = {
-	MOVE_ICE_PUNCH,
+    MOVE_ICE_PUNCH,
     MOVE_FIRE_PUNCH,
     MOVE_THUNDER_PUNCH,
     MOVE_MACH_PUNCH,
@@ -495,16 +498,17 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
         movepower = movepower * 100 / 133;
 
+#if FAIRY_TYPE_IMPLEMENTED == 1
     // if FAIRY aura is present but not aura break
-    if ((movetype == TYPE_MYSTERY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0) 
+    if ((movetype == TYPE_FAIRY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0) 
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) == 0))
         movepower = movepower * 133 / 100;
 
     // if FAIRY aura is present AND aura break
-    else if ((movetype == TYPE_MYSTERY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0)
+    else if ((movetype == TYPE_FAIRY) && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_FAIRY_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
         movepower = movepower * 100 / 133;
-
+#endif
 
     //handle friend guard
     if ((GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD) == TRUE)
@@ -518,7 +522,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower /= 2;
     }
 
-	if ((movetype == TYPE_FIRE) && (CheckDefenceAbility(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
+    if ((movetype == TYPE_FIRE) && (CheckDefenceAbility(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
     {
         movepower = movepower * 125 / 100;
     }
@@ -664,7 +668,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // halve the defense if using selfdestruct/explosion
     if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
-		defense = defense / 2;
+        defense = defense / 2;
 
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
@@ -891,16 +895,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 }
 
 // GetBattleMonItem needs to be rewritten AND hooked from.  interesting
-u16	GetBattleMonItem(struct BattleStruct *sp, int client_no)
+u16 GetBattleMonItem(struct BattleStruct *sp, int client_no)
 {
-	if ((GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ))
+    if ((GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ))
     {
-		return 0;
-	}
-	if (sp->battlemon[client_no].moveeffect.embargo_count)
+        return 0;
+    }
+    if (sp->battlemon[client_no].moveeffect.embargo_count)
     {
-		return 0;
-	}
+        return 0;
+    }
     // handle unnerve:  if an opposing pokemon has unnerve and the item it is holding is a berry, then no item will be read.
     if (((GetBattlerAbility(sp, BATTLER_OPPONENT(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0) 
       || (GetBattlerAbility(sp, BATTLER_ACROSS(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
@@ -908,6 +912,6 @@ u16	GetBattleMonItem(struct BattleStruct *sp, int client_no)
     {
         return 0;
     }
-	
-	return sp->battlemon[client_no].item;
+    
+    return sp->battlemon[client_no].item;
 }

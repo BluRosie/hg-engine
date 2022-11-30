@@ -18,6 +18,7 @@
 #define TYPE_GHOST    0x07
 #define TYPE_STEEL    0x08
 #define TYPE_MYSTERY  0x09
+#define TYPE_FAIRY    0x09
 #define TYPE_FIRE     0x0a
 #define TYPE_WATER    0x0b
 #define TYPE_GRASS    0x0c
