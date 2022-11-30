@@ -315,8 +315,8 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             // status pre-set field
             if(additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)
             {
-                status = buf[offset];
-                offset++;
+                status = buf[offset] | (buf[offset+1] << 8) | (buf[offset+2] << 16) | (buf[offset+3] << 24);
+                offset += 4;
             }
 
             // custom hp stat field
