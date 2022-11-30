@@ -29,3 +29,5 @@ SunIsUp:
     changevar VAR_OP_CLEARMASK, VAR_60, 0x2
     changevar VAR_OP_CLEARMASK, VAR_60, 0x80
     endscript
+
+.close
