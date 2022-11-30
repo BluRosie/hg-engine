@@ -965,13 +965,13 @@ get_dex_num_patch:
 // here, we need to increase the pokedex structure size to 0x700 (originally 0x340)
 // trying to support up to 2048 mons = 2048 / 8 = 256 bytes per flags field that we need to support
 // 0x340 gets extended through 0x400 from 0x300, i think that is the language bytes or something
-// we need to repoint 0x44 within that structure to 0x400 (repoint the caught flags)
+// we need to repoint 0x44 within that structure to 0x400 (repoint the seen flags)
 // we then need to repoint 0x84 within that structure to 0x500 (repoint the male flags)
 // 0xC4 obviously then needs to be 0x600 (repoint the female flags)
 // for a total size of 0x700
 
-SEEN_FLAGS_OFFSET equ 0x4
-CAUGHT_FLAGS_OFFSET equ 0x400
+CAUGHT_FLAGS_OFFSET equ 0x4
+SEEN_FLAGS_OFFSET equ 0x400
 MALE_FLAGS_OFFSET equ 0x500
 FEMALE_FLAGS_OFFSET equ 0x600
 DEX_SAVE_SIZE equ 0x700
@@ -1087,8 +1087,8 @@ sub_20298E0: // 0x020298E0
     pop {r4-r6, pc}
 @@_02029908:
     sub r2, r4, #2
-// new:  add CAUGHT_FLAGS_OFFSET instead of 0x44, +6 bytes
-    mov r4, #CAUGHT_FLAGS_OFFSET >> 4
+// new:  add SEEN_FLAGS_OFFSET instead of 0x44, +6 bytes
+    mov r4, #SEEN_FLAGS_OFFSET >> 4
     lsl r4, #4
     add r5, r4
 // -2 bytes
@@ -1290,15 +1290,15 @@ GetCaughtFlag: // 0x02029FF8
     lsl r3, r1
     asr r1, r2, #3
     add r2, r5, r1
-    ldrb r1, [r2, #4]
+    ldrb r1, [r2, #CAUGHT_FLAGS_OFFSET]
     tst r1, r3
     beq @@_0202A03A
 // get rid of old handling, -2 bytes
 //    add r2, #0x44
 // new: +6 bytes
-    mov r4, #CAUGHT_FLAGS_OFFSET >> 4
-    lsl r4, #4
-    add r2, r4
+    mov r5, #SEEN_FLAGS_OFFSET >> 4
+    lsl r5, #4
+    add r2, r5
     ldrb r1, [r2]
     tst r1, r3
     bne @@_0202A03C
@@ -1306,7 +1306,7 @@ GetCaughtFlag: // 0x02029FF8
     mov r0, #0
 @@_0202A03C:
     pop {r3-r5, pc}
-    nop
+//    nop
 
 .pool
 
@@ -1354,7 +1354,7 @@ GetSeenFlag: // 0x0202A044
 // get rid of old handling, -2 bytes
 //    add r1, #0x44
 // new: +6 bytes
-    mov r3, #CAUGHT_FLAGS_OFFSET >> 4
+    mov r3, #SEEN_FLAGS_OFFSET >> 4
     lsl r3, #4
     add r1, r3
     ldrb r1, [r1]
@@ -1403,8 +1403,8 @@ sub_0202A0B4: // 0x0202A0B4
     add r2, r5, r2
     mov r0, #7
 //    add r2, #0x44 // here
-    mov r3, #CAUGHT_FLAGS_OFFSET >> 4
-    lsl r2, #4
+    mov r3, #SEEN_FLAGS_OFFSET >> 4
+    lsl r3, #4
     add r2, r3 // net +4
     mov r1, #1
     and r3, r0
@@ -1474,7 +1474,7 @@ SetMonSeen: // 0x0202A36C
     lsl r0, r2
     add r2, r5, r3
 //    add r2, #0x44 // here
-    mov r1, #CAUGHT_FLAGS_OFFSET >> 4
+    mov r1, #SEEN_FLAGS_OFFSET >> 4
     lsl r1, #4
     add r2, r1 // net +4
     ldrb r2, [r2]
@@ -1521,7 +1521,7 @@ SetMonSeen: // 0x0202A36C
     bl 0x02029AF0
     mov r1, #7
 //    add r5, #0x44 // here
-    mov r0, #CAUGHT_FLAGS_OFFSET >> 4
+    mov r0, #SEEN_FLAGS_OFFSET >> 4
     lsl r0, #4
     add r5, r0 // net +4
     asr r0, r7, #3
@@ -1595,9 +1595,11 @@ SetMonCaught: // 0x0202A434
     asr r0, r3, #3
     add r3, r5, r0
 //    add r3, #0x44 // here
-    mov r0, #CAUGHT_FLAGS_OFFSET >> 4
+    push {r0}
+    mov r0, #SEEN_FLAGS_OFFSET >> 4 ///////////////////////////////////
     lsl r0, #4
     add r3, r0 // net +4
+    pop {r0}
     ldrb r3, [r3]
     tst r3, r1
     bne @@_0202A4B8
@@ -1628,9 +1630,10 @@ SetMonCaught: // 0x0202A434
 @@_next1:
     cmp r2, r6
     beq @@_0202A4DA
-    lsl r1, r6, #0x18
+//    lsl r1, r6, #0x18
     add r0, r5, #0
-    lsr r1, r1, #0x18
+//    lsr r1, r1, #0x18
+	mov r1, r6
     mov r2, #1
     add r3, r4, #0
     bl 0x0202949C
@@ -1658,10 +1661,10 @@ SetMonCaught: // 0x0202A434
     add r0, r5, #0
     bl 0x0202A5DC
 @@_0202A50E:
-    sub r0, r4, #1
-    lsl r0, r0, #0x10
-    lsr r6, r0, #0x10
-    add r1, r5, #4
+    sub r6, r4, #1
+    //lsl r0, r0, #0x10
+    //lsr r6, r0, #0x10
+    add r1, r5, #CAUGHT_FLAGS_OFFSET
     asr r0, r6, #3
     mov r2, #7
     ldrb r4, [r1, r0]
@@ -1671,9 +1674,9 @@ SetMonCaught: // 0x0202A434
     add r2, r4, #0
     orr r2, r3
 //    add r5, #0x44 // here
-    mov r2, #CAUGHT_FLAGS_OFFSET >> 4
-    lsl r2, #4
-    add r5, r2 // net +4
+    mov r4, #SEEN_FLAGS_OFFSET >> 4
+    lsl r4, #4
+    add r5, r4 // net +4
     strb r2, [r1, r0]
     ldrb r1, [r5, r0]
     orr r1, r3
