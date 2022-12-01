@@ -5,8 +5,9 @@
 // the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
 START_ADDRESS equ 0x0
 
-// FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type has been implemented as type 9 or not.  it will be replaced with TYPE_NORMAL if the following is 0, 1 if the fairy type has been implemented
-FAIRY_TYPE_IMPLEMENTED equ 0
+// FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
+// if you do not want this change, then set it to 0
+FAIRY_TYPE_IMPLEMENTED equ 1
 
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.

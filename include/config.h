@@ -2,10 +2,8 @@
 #define CONFIG_H
 
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
-// for this project, it is used to adjust the mega stone item gfx start, as the pixie plate
-// should shift all of the item gfx.
-// set FAIRY_TYPE_IMPLEMENTED to 1 if the above applies to you.  otherwise, leave it as 0
-#define FAIRY_TYPE_IMPLEMENTED 0
+// set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
+#define FAIRY_TYPE_IMPLEMENTED 1
 
 // START_ADDRESS should be the same as armips/include/config.h's START_ADDRESS so that hall of fame/pokéathlon overworlds work properly.
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.

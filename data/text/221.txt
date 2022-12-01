@@ -111,7 +111,7 @@ A peculiar stone that makes certain\nspecies of Pokémon evolve.\nIt sparkles li
 A peculiar stone that makes certain\nspecies of Pokémon evolve.\nIt is shaped like an egg.
 A vital item that is needed to keep a\nstone tower from collapsing. Voices\ncan be heard from it occasionally.
 A glowing orb to be held by GIRATINA.\nIt boosts the power of Dragon- and\nGhost-type moves.
-An item to be held by a Pokémon.\nIt is a stone tablet that boosts the\npower of Fairy-type moves.
+-----
 -----
 -----
 -----
@@ -535,50 +535,51 @@ A sturdy Capsule that can only be\nopened with a special key.
 A shiny red orb that is said to have\na legend and has a deep connection with\nthe Hoenn region.
 A shiny blue orb that is said to have\na legend and has a deep connection with\nthe Hoenn region.
 A crystal ball that was excavated from\nthe ground. A very beautiful stone that\nis covered with bits of rock and earth.
-One of a variety of Mega Stones.\nIt will Mega Evolve VENUSAUR when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve CHARIZARD when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve CHARIZARD when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve BLASTOISE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve BEEDRILL when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve PIDGEOT when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve ALAKAZAM when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SLOWBRO when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve GENGAR when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve KANGASKHAN when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve PINSIR when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve GYARADOS when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve AERODACTYL when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve MEWTWO when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve MEWTWO when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve AMPHAROS when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve STEELIX when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SCIZOR when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve HERACROSS when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve HOUNDOOM when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve TYRANITAR when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SCEPTILE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve BLAZIKEN when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SWAMPERT when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve GARDEVOIR when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SABLEYE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve MAWILE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve AGGRON when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve MEDICHAM when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve MANECTRIC when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SHARPEDO when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve CAMERUPT when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve ALTARIA when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve BANETTE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve ABSOL when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve GLALIE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve SALAMENCE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve METAGROSS when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve LATIAS when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve LATIOS when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve LOPUNNY when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve GARCHOMP when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve LUCARIO when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve ABOMASNOW when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve GALLADE when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve AUDINO when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve DIANCIE when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Venusaur when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Charizard when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Charizard when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Blastoise when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Beedrill when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Pidgeot when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Alakazam when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Slowbro when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Gengar when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Kangaskhan when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Pinsir when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Gyarados when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Aerodactyl when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Mewtwo when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Mewtwo when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Ampharos when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Steelix when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Scizor when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Heracross when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Houndoom when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Tyranitar when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Sceptile when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Blaziken when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Swampert when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Gardevoir when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Sableye when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Mawile when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Aggron when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Medicham when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Manectric when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Sharpedo when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Camerupt when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Altaria when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Banette when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Absol when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Glalie when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Salamence when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Metagross when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Latias when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Latios when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Lopunny when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Garchomp when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Lucario when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Abomasnow when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Gallade when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Audino when held.
+One of a variety of Mega Stones.\nIt will Mega Evolve Diancie when held.
+An item to be held by a Pokémon.\nIt is a stone tablet that boosts the\npower of Fairy-type moves.

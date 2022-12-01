@@ -3,7 +3,7 @@
 ### ``armips\include\config.s`` and ``include\config.h``
  ``START_ADDRESS`` is the start address in both of these files for all the armips assembly (primarily tables) that need to be inserted into the synthetic overlay.  Currently reserve a bit over 0x3000 bytes for it.
 
- ``FAIRY_TYPE_IMPLEMENTED`` should be set to 1 in both of these files in order to implement the fairy type.
+ ``FAIRY_TYPE_IMPLEMENTED`` should be set to 0 in both of these files in order to disable the fairy type implementation.  By default, it is 1 to implement the fairy type.
  
  ``ALLOW_SAVE_CHANGES`` is by default defined in these files to allow for save expansion for expanded dex Pokémon and Kyurem's forme change method that stores Reshiram/Zekrom in the save.  If you want to maintain PKHeX compatibility, all you have to do is comment out the line ``ALLOW_SAVE_CHANGES`` in both of these files.  Commenting this line out disables Kyurem's forme change and the registering of new Pokémon in the dex (although the new mons are still implemented).
  

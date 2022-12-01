@@ -111,7 +111,7 @@ Dawn Stone
 Oval Stone
 Odd Keystone
 Griseous Orb
-Pixie Plate
+???
 ???
 ???
 ???
@@ -582,3 +582,4 @@ Abomasite
 Galladite
 Audinite
 Diancite
+Pixie Plate

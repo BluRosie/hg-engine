@@ -111,7 +111,7 @@ a {COLOR 255}Dawn Stone{COLOR 0}
 an {COLOR 255}Oval Stone{COLOR 0}
 an {COLOR 255}Odd Keystone{COLOR 0}
 a {COLOR 255}Griseous Orb{COLOR 0}
-a {COLOR 255}Pixie Plate{COLOR 0}
+???
 ???
 ???
 ???
@@ -582,3 +582,4 @@ an {COLOR 255}Abomasite{COLOR 0}
 a {COLOR 255}Galladite{COLOR 0}
 an {COLOR 255}Audinite{COLOR 0}
 a {COLOR 255}Diancite{COLOR 0}
+a {COLOR 255}Pixie Plate{COLOR 0}

@@ -93,15 +93,8 @@ all: $(OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
-	mkdir -p $(BUILD)/pokemonow
-	mkdir -p $(BUILD)/pokemonicon
-	mkdir -p $(BUILD)/pokemonpic
-	mkdir -p $(BUILD)/a018
-	mkdir -p $(BUILD)/narc
-	mkdir -p $(BUILD)/text
-	mkdir -p $(BUILD)/move $(BUILD)/a011
-	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim
-	mkdir -p $(BUILD)/move/move_anim
+	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011 
+	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -238,6 +231,15 @@ move_narc: $(NARC_FILES)
 
 	@echo "item gfx:"
 	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
+
+	@echo "dex gfx for fairy:"
+	cp $(DEXGFX_NARC) $(DEXGFX_TARGET)
+
+	@echo "battle gfx for fairy:"
+	cp $(BATTLEGFX_NARC) $(BATTLEGFX_TARGET)
+
+	@echo "otherpoke gfx for fairy:"
+	cp $(OTHERPOKE_NARC) $(OTHERPOKE_TARGET)
 
 	@echo "pokemon icons:"
 	$(ARMIPS) armips/data/iconpalettetable.s

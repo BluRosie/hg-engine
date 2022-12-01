@@ -16,6 +16,14 @@
 .include "armips/asm/pokedex.s" // code for pokedex expansion, including expanding the save
 //.include "armips/asm/overworlds.s" // code for overworlds, specifically repointing gOWTagToFileNum and making dimorphism a byte instead of a halfword.  currently included and built every time as part of armips/data/monoverworlds.s
 
+
+.if FAIRY_TYPE_IMPLEMENTED == 1
+
+.include "armips/asm/fairy.s" // repoints all the move table defines within the structure
+
+.endif
+
+
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list, 7
 .include "armips/data/baseexp.s" // the base experience list, 8
