@@ -51,7 +51,7 @@ CHARMAP := charmap.txt
 
 $(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES)
 	$(PYTHON) $(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
-	for file in $?; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
+	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
 	$(PYTHON) $(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
 
 NARC_FILES += $(MSGDATA_NARC)
