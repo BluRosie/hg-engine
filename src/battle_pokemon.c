@@ -240,8 +240,8 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         // species field
         species = buf[offset] | (buf[offset+1] << 8);
         offset += 2;
-        form_no = (species & 0xFC00) >> 10;
-        species &= 0x03FF;
+        form_no = (species & 0xF800) >> 11;
+        species &= 0x07FF;
 
         // item field - conditional
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)

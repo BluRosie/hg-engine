@@ -436,7 +436,7 @@
 .endmacro
 
 .macro monwithform,species,formid
-	.halfword (species | (formid<<10))
+	.halfword (species | (formid<<11))
 .endmacro
 
 .macro pokemon,num

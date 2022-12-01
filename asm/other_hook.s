@@ -197,16 +197,16 @@ bx r0
 // treating r4-r7 as free since this function is only called at the end of other ones
 .global get_form_out_of_encounter_species
 get_form_out_of_encounter_species:
-// ldr r4, =0xFC00
-mov r4, #0xFC
+// ldr r4, =0xF800
+mov r4, #0xF8
 lsl r4, #8
 and r4, r0
-lsr r4, #10
+lsr r4, #11
 ldr r5, =space_for_setmondata
 str r4, [r5]
 
-// ldr r4, =0x03FF
-mov r4, #3
+// ldr r4, =0x07FF
+mov r4, #7
 lsl r4, #8
 add r4, #0xFF
 and r0, r4 // make r0 solely the species
