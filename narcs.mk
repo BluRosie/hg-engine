@@ -339,7 +339,6 @@ ITEMGFX_DEPENDENCIES := $(ITEMGFX_DEPENDENCIES_DIR)/*
 
 ITEMGFX_SRCS := $(wildcard $(ITEMGFX_DEPENDENCIES_DIR)/*.png)
 ITEMGFX_OBJS := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/9_%-00.NCGR,$(ITEMGFX_SRCS))
-ITEMGFX_REMOVE := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/8_%,$(ITEMGFX_SRCS))
 ITEMGFX_PALS := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/9_%-01.NCLR,$(ITEMGFX_SRCS))
 
 $(ITEMGFX_DIR)/9_%-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
@@ -348,9 +347,11 @@ $(ITEMGFX_DIR)/9_%-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
 $(ITEMGFX_DIR)/9_%-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
 	$(GFX) $< $@ -ir -bitdepth 4
 
+# go overkill on the removal + support 4-digit removal, so that's fine
 $(ITEMGFX_NARC): $(ITEMGFX_OBJS) $(ITEMGFX_PALS)
 	$(PYTHON) $(NARCHIVE) extract $(ITEMGFX_TARGET) -o $(ITEMGFX_DIR) -nf
-	@rm -f $(ITEMGFX_REMOVE)
+	for n in $$(seq 797 $$(expr $$(ls $(ITEMGFX_DIR) | wc -l) - 1)); do rm -f $(ITEMGFX_DIR)/8_$$n; done
+	for n in $$(seq 797 $$(expr $$(ls $(ITEMGFX_DIR) | wc -l) - 1)); do rm -f $(ITEMGFX_DIR)/8_$$(printf "%04d" $$n); done
 	$(PYTHON) $(NARCHIVE) create $@ $(ITEMGFX_DIR) -nf
 
 NARC_FILES += $(ITEMGFX_NARC)
