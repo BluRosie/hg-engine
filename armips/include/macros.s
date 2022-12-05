@@ -525,3 +525,53 @@
 	.close
 .endmacro
 
+// encounter data macros
+
+.macro encounterdata,num
+	.if num < 10
+		.create "build/a037/7_00" + tostring(num),0
+	.elseif num < 100
+		.create "build/a037/7_0" + tostring(num),0
+	.else
+		.create "build/a037/7_" + tostring(num),0
+	.endif
+.endmacro
+
+.macro walkrate,num
+	.byte num
+.endmacro
+
+.macro surfrate,num
+	.byte num
+.endmacro
+
+.macro rocksmashrate,num
+	.byte num
+.endmacro
+
+.macro oldrodrate,num
+	.byte num
+.endmacro
+
+.macro goodrodrate,num
+	.byte num
+.endmacro
+
+.macro superrodrate,num
+	.byte num
+.endmacro
+
+.macro walklevels,num1,num2,num3,num4,num5,num6,num7,num8,num9,num10,num11,num12
+	.org 8
+
+	.byte num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12
+.endmacro
+
+.macro encounterwithform,species,form,minlevel,maxlevel
+	.byte minlevel, maxlevel
+	.halfword (species | (form << 11))
+.endmacro
+
+.macro encounter,species,minlevel,maxlevel
+	encounterwithform species, 0, minlevel, maxlevel
+.endmacro
