@@ -28,7 +28,11 @@
 #define MEGA_EVOLUTIONS
 
 // PRIMAL_REVERSION defines whether or not Kyogre and Groudon, when holding their orbs, will be able to change form when sent out in battle.
-// commenting this line out essentially disables primarl reversion.  leaving this as-is will introduce primal reversions when applied to the game.
+// commenting this line out essentially disables primal reversion.  leaving this as-is will introduce primal reversions when applied to the game.
 #define PRIMAL_REVERSION
+
+// ITEM_POCKET_EXPANSION defines whether or not item pockets will be given extra slots in the save in order to provide space for new items that are implemented
+// commenting this line out will prevent the item pockets from being expanded for the new items
+#define ITEM_POCKET_EXPANSION
 
 #endif

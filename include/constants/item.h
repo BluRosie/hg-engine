@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_ITEM_H
 #define CONSTANTS_ITEM_H
 
+#include "../config.h"
+
 #define ITEM_NONE            0
 #define ITEM_MASTER_BALL     1
 #define ITEM_ULTRA_BALL      2
@@ -594,6 +596,60 @@
 #define ITEM_MEGA_STONE_AUDINO (ITEM_MEGA_STONES_START + 45)
 #define ITEM_MEGA_STONE_DIANCIE (ITEM_MEGA_STONES_START + 46)
 #define ITEM_PIXIE_PLATE (ITEM_MEGA_STONES_START + 47)
+
+#define NUM_MEGA_STONES 48 // includes the pixie plate
+
+
+
+
+
+
+
+
+
+#define POCKET_ITEMS        0
+#define POCKET_MEDICINE     1
+#define POCKET_BALLS        2
+#define POCKET_TMHMS        3
+#define POCKET_BERRIES      4
+#define POCKET_MAIL         5
+#define POCKET_BATTLE_ITEMS 6
+#define POCKET_KEY_ITEMS    7
+#define POCKETS_COUNT       8
+
+
+#ifdef ITEM_POCKET_EXPANSION
+
+// pixie plate + megas
+#define NUM_BAG_ITEMS        165+NUM_MEGA_STONES
+#define NUM_BAG_MEDICINE      40
+#define NUM_BAG_BALLS         24
+#define NUM_BAG_TMS_HMS      101
+#define NUM_BAG_BERRIES       64
+#define NUM_BAG_MAIL          12
+#define NUM_BAG_BATTLE_ITEMS  30
+#define NUM_BAG_KEY_ITEMS     50
+
+#else
+
+#define NUM_BAG_ITEMS        165
+#define NUM_BAG_MEDICINE      40
+#define NUM_BAG_BALLS         24
+#define NUM_BAG_TMS_HMS      101
+#define NUM_BAG_BERRIES       64
+#define NUM_BAG_MAIL          12
+#define NUM_BAG_BATTLE_ITEMS  30
+#define NUM_BAG_KEY_ITEMS     50
+
+#endif
+
+
+
+
+
+
+
+
 
 /// TODO:  item expansion--get rid of these
 #define ITEM_SHOCK_DRIVE ITEM_THUNDERSTONE

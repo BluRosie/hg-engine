@@ -75,4 +75,6 @@ void __attribute__((long_call)) Overlay_Load(u32 ovl_id, u32 mode);
 u32 __attribute__((long_call)) WIPE_SYS_EndCheck(void);
 void *__attribute__((long_call)) PROC_GetWork(void *proc);
 
+/* bag function defines are in bag.h */
+
 #endif // SAVE_H
