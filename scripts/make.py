@@ -457,7 +457,10 @@ def offset():
                 except KeyError:
                     print('Symbol missing:', symbol)
                     continue
-                rom = open("base/overlay/overlay_" + files + ".bin", 'rb+')
+                if files == "arm9":
+                    rom = open("base/arm9.bin", 'rb+')
+                else:
+                    rom = open("base/overlay/overlay_" + files + ".bin", 'rb+')
                 Repoint(rom, code, offset)
                 rom.close()
 

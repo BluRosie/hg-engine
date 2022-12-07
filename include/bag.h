@@ -6,7 +6,7 @@
 #include "save.h"
 //#include "heap.h"
 //#include "bag_view.h"
-#include "bag_cursor.h"
+//#include "bag_cursor.h"
 
 // file is largely just from pokeheartgold
 
@@ -220,7 +220,7 @@ u16 Pocket_GetQuantity(ITEM_SLOT *slots, u32 count, u16 itemId);
  *
  * @returns: Pointer to newly-allocated BAG_VIEW
  */
-BAG_VIEW *CreateBagView(BAG_DATA *bag, const u8 *pockets, int heap_id);
+void *CreateBagView(BAG_DATA *bag, const u8 *pockets, int heap_id);
 
 /*
  * ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n)
@@ -245,6 +245,10 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n);
  *
  * @returns: Pointer to BAG_DATA
  */
-BAG_DATA *Sav2_Bag_get(SAVEDATA *saveData);
+BAG_DATA *__attribute__((long_call)) Sav2_Bag_get(void *saveData);
+
+// fuck BAG_VIEW
+void *__attribute__((long_call)) BagView_New(u8 heap_id);
+void __attribute__((long_call)) BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
 
 #endif //POKEHEARTGOLD_BAG_H

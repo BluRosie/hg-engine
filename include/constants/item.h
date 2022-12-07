@@ -605,7 +605,8 @@
 
 
 
-
+#define BAG_SLOT_QUANTITY_MAX                    999
+#define BAG_TMHM_QUANTITY_MAX                     99
 
 #define POCKET_ITEMS        0
 #define POCKET_MEDICINE     1
@@ -621,14 +622,14 @@
 #ifdef ITEM_POCKET_EXPANSION
 
 // pixie plate + megas
-#define NUM_BAG_ITEMS        165+NUM_MEGA_STONES
+#define NUM_BAG_ITEMS        165+32+NUM_MEGA_STONES
 #define NUM_BAG_MEDICINE      40
-#define NUM_BAG_BALLS         24
+#define NUM_BAG_BALLS         24+2
 #define NUM_BAG_TMS_HMS      101
 #define NUM_BAG_BERRIES       64
 #define NUM_BAG_MAIL          12
 #define NUM_BAG_BATTLE_ITEMS  30
-#define NUM_BAG_KEY_ITEMS     50
+#define NUM_BAG_KEY_ITEMS     50+42
 
 #else
 

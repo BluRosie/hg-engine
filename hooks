@@ -151,34 +151,36 @@ arm9 Sav2_Misc_init_new_fields_hook 0802A8CC 0
 
 #ifdef ITEM_POCKET_EXPANSION
 
-arm9 Sav2_Bag_sizeof 08 0
-arm9 Sav2_Bag_new 08 1
-arm9 Sav2_Bag_init 08 1
-arm9 Sav2_Bag_copy 08 2
-arm9 Bag_GetRegisteredItemSlot1 08 1
-arm9 Bag_GetRegisteredItemSlot2 08 1
-arm9 Bag_TryRegisterItem 08 2
-arm9 Bag_UnregisterItem 08 2
-# needs an extended hook
-arm9 Bag_GetItemPocket 08 5
-arm9 Pocket_GetItemSlotForAdd 08 5
-arm9 Bag_GetItemSlotForAdd 08 5
-arm9 Bag_HasSpaceForItem 08 5
-arm9 Bag_AddItem 08 5
-arm9 Pocket_GetItemSlotForRemove 08 5
-arm9 Bag_GetItemSlotForRemove 08 5
-arm9 Bag_TakeItem 08 5
-arm9 Pocket_TakeItem 08 5
-arm9 Bag_HasItem 08 5
-# no more
-arm9 Bag_PocketNotEmpty 08 2
-arm9 Bag_GetQuantity 08 3
-arm9 Pocket_GetQuantity 08 3
-arm9 SwapItemSlots 08 2
-arm9 PocketCompaction 08 2
-arm9 SortPocket 08 2
-arm9 CreateBagView 08 3
-arm9 Bag_GetPocketSlotN 08 3
+arm9 Sav2_Bag_sizeof 08078180 0
+arm9 Sav2_Bag_new 08078188 1
+arm9 Sav2_Bag_init 080781A0 1
+arm9 Sav2_Bag_copy 080781B4 2
+arm9 Bag_GetRegisteredItemSlot1 080781C4 1
+arm9 Bag_GetRegisteredItemSlot2 080781D0 1
+arm9 Bag_TryRegisterItem 080781DC 2
+arm9 Bag_UnregisterItem 08078208 2
+
+# needs an extended hook +4
+arm9 Bag_GetItemPocket_hook 08078244 5
+arm9 Pocket_GetItemSlotForAdd_hook 080782E0 5
+arm9 Bag_GetItemSlotForAdd_hook 08078344 5
+arm9 Bag_HasSpaceForItem_hook 08078388 5
+arm9 Bag_AddItem_hook 0807839C 5
+arm9 Pocket_GetItemSlotForRemove_hook 080783E4 5
+arm9 Bag_GetItemSlotForRemove_hook 08078414 5
+arm9 Bag_TakeItem_hook 08078438 5
+arm9 Pocket_TakeItem_hook 08078484 5
+arm9 Bag_HasItem_hook 080784B4 5
+
+# no more extended hook
+arm9 Bag_PocketNotEmpty 080784C4 2
+arm9 Bag_GetQuantity 08078550 3
+arm9 Pocket_GetQuantity 08078568 3
+arm9 SwapItemSlots 0807857C 2
+arm9 PocketCompaction 080785A0 2
+arm9 SortPocket 080785EC 2
+arm9 CreateBagView 08078644 3
+arm9 Bag_GetPocketSlotN 08078724 3
 
 #endif
 

@@ -1,6 +1,7 @@
 #include "../include/config.h"
 #include "../include/constants/item.h"
 #include "../include/bag.h"
+#include "../include/item.h"
 #include "../include/save.h"
 
 
@@ -8,6 +9,17 @@
 
 // straight from src/item.c in pokeheartgold
 const u16 sPocketCounts[8] = {
+    NUM_BAG_ITEMS,
+    NUM_BAG_MEDICINE,
+    NUM_BAG_BALLS,
+    NUM_BAG_TMS_HMS,
+    NUM_BAG_BERRIES,
+    NUM_BAG_MAIL,
+    NUM_BAG_BATTLE_ITEMS,
+    NUM_BAG_KEY_ITEMS,
+};
+
+const u8 sPocketCountBytes[8] = {
     NUM_BAG_ITEMS,
     NUM_BAG_MEDICINE,
     NUM_BAG_BALLS,
@@ -77,7 +89,7 @@ void Bag_UnregisterItem(BAG_DATA *bag, u16 itemId) {
 }
 
 u32 Bag_GetItemPocket(BAG_DATA *bag, u16 itemId, ITEM_SLOT **ppSlots, u32 *pCount, int heap_id) {
-    u32 pocket = GetItemAttr(itemId, ITEMATTR_FIELD_POCKET, heap_id);
+    u32 pocket = GetItemData(itemId, ITEM_PARAM_POCKET, heap_id);
     switch (pocket) {
     case POCKET_KEY_ITEMS:
         *ppSlots = bag->keyItems;
@@ -332,7 +344,7 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
 void *CreateBagView(BAG_DATA *bag, const u8 *pockets, int heap_id) {
     int i;
     void *ret = BagView_New(heap_id);
-    for (i = 0; pockets[i] != POCKET_BAG_VIEW_END; i++) {
+    for (i = 0; pockets[i] != 0xFF; i++) {
         switch (pockets[i]) {
         case POCKET_KEY_ITEMS:
             BagView_SetItem(ret, bag->keyItems, POCKET_KEY_ITEMS, i);

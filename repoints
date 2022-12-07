@@ -2,4 +2,12 @@
 0012 SkillMenuTouchRet 08037074
 0012 SkillMenuPaletteNo 08037078
 
-arm9 sPocketCounts 08
+arm9 sPocketCounts 08077C14
+# 021FA000
+0015 sPocketCountBytes 08000C80
+# 021FA16C
+0015 sPocketCountBytes 08000DEC
+# 021FF360
+0015 sPocketCountBytes 08005FE0
+# 021FF4E0
+0015 sPocketCountBytes 08006160
