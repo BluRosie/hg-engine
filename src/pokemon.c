@@ -2958,8 +2958,6 @@ u16 GetMonHiddenAbility(u16 species, u32 form)
 #endif // HIDDEN_ABILITIES
 }
 
-u8 HiddenAbilityToggleByte = 0;
-
 void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter, but that doesn't need to be properly defined yet
 {
     BOOL fastMode;
@@ -2979,10 +2977,10 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     pid = GetBoxMonData(boxmon, ID_PARA_personal_rnd, NULL);
     form = GetBoxMonData(boxmon, ID_PARA_form_no, NULL);
 
-    if (HiddenAbilityToggleByte != 0) // HA toggle is nonzero, give the mon its hidden ability.  toggle it off to prevent it from setting ability on form change later on in the battle and the like.
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
     {
         SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon)
-        HiddenAbilityToggleByte = 0;
+		has_hidden_ability = 1;
     }
     else
     {
