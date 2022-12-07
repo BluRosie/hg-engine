@@ -1338,6 +1338,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
 BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
     BOOL ret = FALSE;
+    u32 move_pos;
 
     if (sp->defence_client == 0xFF) {
         return ret;
@@ -1716,8 +1717,8 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             }
             break;
         // handle cursed body - disable the last used move by the pokemon.  disabling is handled here, script just displays the message
-        case ABILITY_CURSED_BODY:
-            u32 move_pos = ST_ServerWazaPosGet(&sp->battlemon[sp->attack_client], sp->current_move_index);
+        case ABILITY_CURSED_BODY:            
+            move_pos = ST_ServerWazaPosGet(&sp->battlemon[sp->attack_client], sp->current_move_index);
             if (sp->battlemon[sp->defence_client].hp != 0
              && sp->battlemon[sp->attack_client].moveeffect.kanashibari_wazano == 0
              && move_pos != 4 // is a valid move the mon knows
