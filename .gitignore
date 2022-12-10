@@ -63,6 +63,8 @@ dumpitem.py
 /tools/msgenc.exe
 /tools/ndstool
 /tools/ndstool.exe
+/tools/csv2bin
+/tools/o2narc
 
 *.o
 *.d

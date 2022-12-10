@@ -4,9 +4,9 @@
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 
-#define ITEM_DATA_MAX (536)
+#define ITEM_DATA_MAX (ITEM_ENIGMA_STONE)
 #define NEW_ITEM_MAX (ITEM_MEGA_STONE_DIANCIE)
-#define ITEM_DATA_ENTRIES (514)
+#define ITEM_DATA_ENTRIES (513)
 #define NEW_ITEM_GFX (807)
 
 u16 GetItemIndex(u16 item, u16 type)

@@ -26,6 +26,7 @@ default: all
 ROMNAME = rom.nds
 BUILDROM = test.nds
 ####################### Tools #########################
+O2NARC = tools/o2narc
 MSGENC = tools/msgenc
 NDSTOOL = tools/ndstool
 BLZ = tools/blz
@@ -72,6 +73,7 @@ OW_SPRITES_OBJS := $(patsubst data/graphics/overworlds/*.png,build/data/graphics
 
 ## includes
 include data/graphics/pokegra.mk
+include data/itemdata/itemdata.mk
 include narcs.mk
 
 ####################### Build #########################
@@ -136,6 +138,8 @@ build_tools:
 build_nitrogfx:
 	cd tools/source/nitrogfx ; $(MAKE)
 	mv tools/source/nitrogfx/nitrogfx tools/nitrogfx
+	cd tools/source/o2narc ; $(MAKE)
+	mv tools/source/o2narc/o2narc tools/o2narc
 
 
 

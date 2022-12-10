@@ -3,60 +3,86 @@
 
 #include "types.h"
 
-struct ItemTable
+/*
+ * Bit array describing the effects of using the item on a
+ * party member.
+ */
+typedef struct ItemPartyUseParam
+{
+    u8 slp_heal:1;
+    u8 psn_heal:1;
+    u8 brn_heal:1;
+    u8 frz_heal:1;
+    u8 prz_heal:1;
+    u8 cfs_heal:1;
+    u8 inf_heal:1;
+    u8 guard_spec:1;
+    u8 revive:1;
+    u8 revive_all:1;
+    u8 level_up:1;
+    u8 evolve:1;
+    u8 atk_stages:4;
+    u8 def_stages:4;
+    u8 spatk_stages:4;
+    u8 spdef_stages:4;
+    u8 speed_stages:4;
+    u8 accuracy_stages:4;
+    u8 critrate_stages:2;
+    u8 pp_up:1;
+    u8 pp_max:1;
+    u8 pp_restore:1;
+    u8 pp_restore_all:1;
+    u8 hp_restore:1;
+    u8 hp_ev_up:1;
+    u8 atk_ev_up:1;
+    u8 def_ev_up:1;
+    u8 speed_ev_up:1;
+    u8 spatk_ev_up:1;
+    u8 spdef_ev_up:1;
+    u8 friendship_mod_lo:1;
+    u8 friendship_mod_med:1;
+    u8 friendship_mod_hi:1;
+    s8 hp_ev_up_param;
+    s8 atk_ev_up_param;
+    s8 def_ev_up_param;
+    s8 speed_ev_up_param;
+    s8 spatk_ev_up_param;
+    s8 spdef_ev_up_param;
+    u8 hp_restore_param;
+    u8 pp_restore_param;
+    s8 friendship_mod_lo_param;
+    s8 friendship_mod_med_param;
+    s8 friendship_mod_hi_param;
+    u8 padding[2];
+} ITEMPARTYPARAM;
+
+/*
+ * Item parameter data, loaded from itemtool/itemdata/item_data.narc
+ */
+typedef struct ItemData
 {
     u16 price;
-    u8 effect;
-    u8 damage;
-
-    u8 pluck_effect;
-    u8 fling_effect;
-    u8 fling_damage;
-    u8 naturalgift_power;
-
-    u16	naturalgift_type:5;		// しぜんのめぐみタイプ
-    u16	cant_discard:1;
-    u16	register_able:1;
-    u16	field_pocket:4;
-    u16	battle_pocket:5;
-
-    u8	field_function;
-    u8	battle_function;
-    u8	item_type;
-
-	u8	dmy;				// ダミー
-
-    u8 recovery;
-
-	u8 field_effects;
-
-	u8 exp_up1;
-
-	u8 exp_up2;
-
-	u8 exp_up3;
-
-	u8	recovery_ev_changes;
-
-	u8	happiness;
-
-	u8	prm_hp_exp;				// HP努力値
-	u8	prm_pow_exp;			// 攻撃努力値
-	u8	prm_def_exp;			// 防御努力値
-	u8	prm_agi_exp;			// 素早さ努力値
-	u8	prm_spa_exp;			// 特攻努力値
-	u8	prm_spd_exp;			// 特防努力値
-	u8	prm_hp_rcv;				// HP回復値
-	u8	prm_pp_rcv;				// pp回復値
-	u8	prm_friend1;			// なつき度1
-	u8	prm_friend2;			// なつき度2
-	u8	prm_friend3;			// なつき度3
-
-	u8	dummy1;
-    u8  dummy2;		// ダミー（余り）
-	u8  dummysp[2];
-
-};
+    u8 holdEffect;
+    u8 holdEffectParam;
+    u8 pluckEffect;
+    u8 flingEffect;
+    u8 flingPower;
+    u8 naturalGiftPower;
+    u16 naturalGiftType:5;
+    u16 prevent_toss:1;
+    u16 selectable:1;
+    u16 fieldPocket:4;
+    u16 battlePocket:5;
+    u8 fieldUseFunc;
+    u8 battleUseFunc;
+    u8 partyUse;
+    u8 padding_0D;
+    union {
+        u8 dummy;
+        ITEMPARTYPARAM partyUseParam;
+    };
+    u8 padding_22[2];
+} ITEMDATA;
 
 enum
 {

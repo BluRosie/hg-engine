@@ -364,7 +364,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         }
     }
 
-    if (hold_effect1 == HOLD_EFFECT_INCREASE_SPEED)
+    if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED)
     {
         speed1 = speed1 * 15 / 10;
     }
@@ -446,7 +446,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         }
     }
 
-    if (hold_effect2 == HOLD_EFFECT_INCREASE_SPEED)
+    if (hold_effect2 == HOLD_EFFECT_CHOICE_SPEED)
     {
         speed2 = speed2 * 15 / 10;
     }

@@ -709,7 +709,7 @@ struct __attribute__((packed)) BattleAIWorkTable
 
     u16 padding_1DCA; //implicit padding here, two bytes
 
-    struct ItemTable *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
+    ITEMDATA *item; //0x1DCC, this is technically also 0x211E in the BattleStruct
 
     u16 ai_calc_count[CLIENT_MAX]; //0x1DD0
     u16 ai_calc_continue[CLIENT_MAX]; //0x1DD8
