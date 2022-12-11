@@ -181,8 +181,8 @@ enum
     SEQ_DEFENCE_CHECK,
     SEQ_WAZAKOYUU_CHECK,
     SEQ_DEFENCE_CHANGE_CHECK,
-    SEQ_PROTEAN_CHECK
-//    SEQ_STANCE_CHANGE_CHECK
+    SEQ_PROTEAN_CHECK,
+    SEQ_STANCE_CHANGE_CHECK
 };
 
 static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
@@ -356,25 +356,25 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 sp->wb_seq_no = 0;
             }
             break;
-//        case SEQ_STANCE_CHANGE_CHECK:
-//            if (sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
-//            {
-//                if (sp->moveTbl[sp->current_move_index] == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
-//                {
-//                    //CODE HAS NOT BEEN TESTED
-//                    sp->battlemon[sp->client_work].form_no = 0;
-//                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-//                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
-//                }
-//                else if(sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
-//                {
-//                    //CODE HAS NOT BEEN TESTED
-//                    sp->battlemon[sp->client_work].form_no = 1;
-//                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-//                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
-//                }
-//            }
-//            break;
+        case SEQ_STANCE_CHANGE_CHECK: //TODO test this - no clue if this actually will work
+            if (sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
+            {
+                if (sp->current_move_index == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
+                {
+                    //CODE HAS NOT BEEN TESTED
+                    sp->battlemon[sp->client_work].form_no = 0;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
+                }
+                else if(sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
+                {
+                    //CODE HAS NOT BEEN TESTED
+                    sp->battlemon[sp->client_work].form_no = 1;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
+                }
+            }
+            break;
     }
 
     if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT)
