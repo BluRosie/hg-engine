@@ -46,6 +46,7 @@ gf_rand = 0x0201FD44 |1;
 GF_ASSERT = 0x0202551C + 1;
 SetPokemonGet = 0x0202A434 |1;
 SetPokemonSee = 0x0202A36C |1;
+UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
 ArchiveDataLoadMalloc = 0x02007524 | 1;
 ArchiveDataLoad = 0x02007509;
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
@@ -84,6 +85,7 @@ PokeParaLevelExpGet = 0x0206FCDC | 1;
 PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
 PartyHasMon = 0x020748CC | 1;
+sub_020720FC = 0x020720FC | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;
@@ -278,13 +280,13 @@ Overlay_Load = 0x02006FF8 | 1;
 WIPE_SYS_EndCheck = 0x0200FB5C | 1;
 PokeListProc_End = 0x020795E0 | 1;
 PROC_GetWork = 0x02007290 | 1;
-SavArray_PlayerParty_get = 0x02074904 | 1;
 ScriptJump = 0x0203FE0C | 1;
 SetScriptVar = 0x02066A7C | 1;
 GetScriptVar = 0x02066AAC | 1;
 SetScriptFlag = 0x0206659C | 1;
 ClearScriptFlag = 0x020665A4 | 1;
 CheckScriptFlag = 0x020665AC | 1;
+Sav2_PlayerData_GetProfileAddr = 0x02028E9C | 1;
 
 /* rtc functions */
 Party_ResetAllShayminToLandForme = 0x02071E2C | 1;

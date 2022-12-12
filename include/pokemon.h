@@ -19,7 +19,7 @@
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     SetMonData(mon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
 }
-#define SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon) { \
+#define SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon) { \
     u16 tempvarassumeunused = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
@@ -571,6 +571,8 @@ BOOL __attribute__((long_call)) PartyHasMon(struct Party *party, u16 species);
 BOOL __attribute__((long_call)) MonHasMove(struct PartyPokemon *mon, u16 move);
 BOOL __attribute__((long_call)) does_species_have_dimorphism(u32 species);
 BOOL __attribute__((long_call)) get_ow_data_file_num(u32 species);
+BOOL __attribute__((long_call)) sub_020720FC(struct PartyPokemon *pp, void *profile, u16 item, u16 ball, u32 encounterType, int heapId);
+void __attribute__((long_call)) UpdatePokedexWithReceivedSpecies(void *saveData, struct PartyPokemon *pokemon);
 
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
 bool8 IsMonShiny(u32 id, u32 rnd);

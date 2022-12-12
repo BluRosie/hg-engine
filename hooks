@@ -130,6 +130,7 @@ arm9 MakeTrainerPokemonParty 08073604 3
 
 #hidden ability
 arm9 SetBoxMonAbility 080722DC 1
+arm9 GiveMon_hook 080541E0 5
 
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3

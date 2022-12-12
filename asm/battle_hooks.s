@@ -323,3 +323,20 @@ mov pc, r1
 
 Bag_HasItem_return_address:
 .word 0
+
+
+.global GiveMon_hook
+GiveMon_hook:
+ldr r5, =GiveMon_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl GiveMon
+ldr r1, =GiveMon_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+GiveMon_return_address:
+.word 0

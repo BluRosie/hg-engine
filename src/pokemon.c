@@ -2979,8 +2979,10 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
 
     if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
     {
-        SET_BOX_MON_HIDDEN_ABILTY_BIT(boxmon)
+        SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
 		has_hidden_ability = 1;
+        // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
     }
     else
     {
@@ -3785,4 +3787,39 @@ u16 get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
     sys_FreeMemoryEz(form_table);
 
     return ret;
+}
+
+
+BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType) {
+    struct Party *party;
+    struct PartyPokemon *pokemon;
+    void *profile;
+    u32 sp1C;
+    BOOL result;
+
+    profile = Sav2_PlayerData_GetProfileAddr(saveData);
+    party = SaveData_GetPlayerPartyPtr(saveData);
+    {
+        pokemon = PokemonParam_AllocWork(heapId);
+        PokeParaInit(pokemon);
+        PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
+        sub_020720FC(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
+        sp1C = heldItem;
+        SetMonData(pokemon, ID_PARA_item, &sp1C);
+        SetMonData(pokemon, ID_PARA_form_no, &forme);
+
+        PokeParaCalc(pokemon); // recalculate stats
+
+        if (ability != 0) {
+            SetMonData(pokemon, ID_PARA_speabino, &ability);
+        } else {
+            PokeParaSpeabiSet(pokemon); // with the flag set, the hidden ability should be set
+        }
+        result = PokeParty_Add(party, pokemon);
+        if (result) {
+            UpdatePokedexWithReceivedSpecies(saveData, pokemon);
+        }
+        sys_FreeMemoryEz(pokemon);
+    }
+    return result;
 }
