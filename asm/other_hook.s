@@ -191,9 +191,78 @@ bx r0
 .pool
 
 
+
+// 02247910
+// edits to the beginning of EncountParamSetRare to extract species + form
+// r0 is species | (form << 11)
+// treating r4-r7 as free since this function is only called at the end of other ones
+.global get_form_out_of_encounter_species_rare
+get_form_out_of_encounter_species_rare:
+// ldr r4, =0xF800
+mov r4, #0xF8
+lsl r4, #8
+and r4, r0
+lsr r4, #11
+ldr r5, =space_for_setmondata
+strb r4, [r5]
+
+// ldr r4, =0x07FF
+mov r4, #7
+lsl r4, #8
+add r4, #0xFF
+and r0, r4 // make r0 solely the species
+
+
+// reset the function up:
+push {r3-r7, lr}
+sub sp, #0x28
+str r0, [sp, #0x10]
+ldr r6, [sp, #0x40]
+ldr r4, =0x02247918 | 1
+bx r4
+
+
+
+// 02247A00 - end of above function
+// sp1C is param
+// need to set form
+.global modify_species_encounter_data_rare
+modify_species_encounter_data_rare:
+push {r0-r3}
+
+ldr r0, [sp, #(0x1c+0x10)] // pp
+mov r1, #112 // ID_PARA_form_no
+ldr r2, =space_for_setmondata // &form
+bl call_setmondata
+
+ldr r0, [sp, #(0x1c+0x10)] // pp
+bl UpdateFormIfDeerling
+
+// hopefully with form set, this grabs everything correctly (it should please please please)
+ldr r0, [sp, #(0x1c+0x10)] // pp
+ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+bl call_via_r3
+ldr r0, [sp, #(0x1c+0x10)] // pp
+ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+bl call_via_r3
+ldr r0, [sp, #(0x1c+0x10)] // pp
+ldr r3, =0x020712D8 | 1 //InitBoxMonMoveset(ppp);
+bl call_via_r3
+
+pop {r0-r3}
+add r1, r6, #0
+bl 0x0224855C // should not need longcall
+ldr r0, [sp, #0x1c]
+ldr r5, =0x02247A10 | 1
+bx r5
+
+.pool
+
+
+
 // 02247A18
 // edits to the beginning of EncountParamSet to extract species + form
-// r0 is species | (form << 10)
+// r0 is species | (form << 11)
 // treating r4-r7 as free since this function is only called at the end of other ones
 .global get_form_out_of_encounter_species
 get_form_out_of_encounter_species:
@@ -259,6 +328,7 @@ bx r3
 
 .pool
 
+.global space_for_setmondata
 space_for_setmondata:
 .word 0
 

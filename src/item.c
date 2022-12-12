@@ -5,7 +5,6 @@
 #include "../include/constants/item.h"
 
 #define ITEM_DATA_MAX (ITEM_ENIGMA_STONE)
-#define NEW_ITEM_MAX (ITEM_MEGA_STONE_DIANCIE)
 #define ITEM_DATA_ENTRIES (513)
 #define NEW_ITEM_GFX (807)
 

@@ -1,6 +1,11 @@
+#include "include/config.h"
+
 0012 SkillMenuTouchData 08037070
 0012 SkillMenuTouchRet 08037074
 0012 SkillMenuPaletteNo 08037078
+
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef ITEM_POCKET_EXPANSION
 
 arm9 sPocketCounts 08077C14
 # 021FA000
@@ -11,3 +16,6 @@ arm9 sPocketCounts 08077C14
 0015 sPocketCountBytes 08005FE0
 # 021FF4E0
 0015 sPocketCountBytes 08006160
+
+#endif
+#endif

@@ -43,10 +43,14 @@ arm9 GetItemArcData 08077CE8 3
 #mon expansion
 arm9 GetPokemonOwNum 0806A304 1
 
-#fucking losing it ?
+# wild mon hidden ability/form stuff
+#02247910
+0002 get_form_out_of_encounter_species_rare 08001D90 4
+#02247A06
+0002 modify_species_encounter_data_rare 08001E80 1
 #02247A18
 0002 get_form_out_of_encounter_species 08001E98 4
-#02247D8C
+#02247B42
 0002 modify_species_encounter_data 08001FC2 3
 
 #battle hooks
@@ -131,6 +135,9 @@ arm9 MakeTrainerPokemonParty 08073604 3
 #hidden ability
 arm9 SetBoxMonAbility 080722DC 1
 arm9 GiveMon_hook 080541E0 5
+#0224855C
+#need to use this to UpdateFormIfDeerling, reinitialize the moveset, set the hidden ability, recalc stats
+0002 AddWildPartyPokemon_hook 080029E0 5
 
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3

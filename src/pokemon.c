@@ -2931,11 +2931,6 @@ void BattleEndRevertFormChange(void *bw)
     }
 }
 
-bool8 IsMonShiny(u32 id, u32 rnd)
-{
-    return ((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((rnd & 0xffff0000) >> 16) ^ (rnd & 0xffff)) < 16);
-}
-
 u16 GetPokemonOwNum(u16 species)
 {
     return sSpeciesToOWGfx[species];
@@ -2980,7 +2975,7 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
     {
         SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
-		has_hidden_ability = 1;
+        has_hidden_ability = 1;
         // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
         ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
     }
@@ -3799,27 +3794,106 @@ BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 a
 
     profile = Sav2_PlayerData_GetProfileAddr(saveData);
     party = SaveData_GetPlayerPartyPtr(saveData);
+    
+    pokemon = PokemonParam_AllocWork(heapId);
+    PokeParaInit(pokemon);
+    PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
+    sub_020720FC(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
+    sp1C = heldItem;
+    SetMonData(pokemon, ID_PARA_item, &sp1C);
+    SetMonData(pokemon, ID_PARA_form_no, &forme);
+
+    if (forme != 0) // reinitialize moves for different learnsets
     {
-        pokemon = PokemonParam_AllocWork(heapId);
-        PokeParaInit(pokemon);
-        PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
-        sub_020720FC(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
-        sp1C = heldItem;
-        SetMonData(pokemon, ID_PARA_item, &sp1C);
-        SetMonData(pokemon, ID_PARA_form_no, &forme);
-
-        PokeParaCalc(pokemon); // recalculate stats
-
-        if (ability != 0) {
-            SetMonData(pokemon, ID_PARA_speabino, &ability);
-        } else {
-            PokeParaSpeabiSet(pokemon); // with the flag set, the hidden ability should be set
-        }
-        result = PokeParty_Add(party, pokemon);
-        if (result) {
-            UpdatePokedexWithReceivedSpecies(saveData, pokemon);
-        }
-        sys_FreeMemoryEz(pokemon);
+        InitBoxMonMoveset(&pokemon->box);
     }
+
+    PokeParaCalc(pokemon); // recalculate stats
+
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(pokemon)
+        // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    }
+
+    if (ability != 0) {
+        SetMonData(pokemon, ID_PARA_speabino, &ability);
+    } else {
+        PokeParaSpeabiSet(pokemon); // with the flag set, the hidden ability should be set
+    }
+    result = PokeParty_Add(party, pokemon);
+    if (result) {
+        UpdatePokedexWithReceivedSpecies(saveData, pokemon);
+    }
+    sys_FreeMemoryEz(pokemon);
+    
     return result;
+}
+
+
+typedef struct EncounterInfo
+{
+    u32 trainerID;
+    BOOL unk4;
+    BOOL unk8;
+    u8 level;
+    u8 isEgg;
+    u8 ability;
+    u8 unkE[2];
+    u8 unk11;
+} EncounterInfo; // size = 0x12
+
+
+extern u32 space_for_setmondata;
+
+BOOL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam)
+{
+    int range = 0;
+    u8 change_form;
+    u8 form_no;
+    u16 species;
+
+    if (encounterInfo->isEgg == 0 && encounterInfo->ability == ABILITY_COMPOUND_EYES)
+    {
+        range = 1;
+    }
+    
+    species = GetMonData(encounterPartyPokemon, ID_PARA_monsno, NULL);
+    
+    if (space_for_setmondata != 0)
+    {
+        change_form = 1;
+        form_no = space_for_setmondata;//(species & 0xF800) >> 11;
+        space_for_setmondata = 0;
+    }
+    
+    WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
+
+    change_form = 0;
+    if (species == SPECIES_UNOWN)
+    {
+        change_form = 1;
+        form_no = GrabAndRegisterUnownForm(encounterPartyPokemon);
+    }
+    else if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
+    {
+        UpdateFormIfDeerling(encounterPartyPokemon);
+    }
+
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(encounterPartyPokemon)
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+        PokeParaSpeabiSet(encounterPartyPokemon);
+    }
+
+    if (change_form)
+    {
+        SetMonData(encounterPartyPokemon, ID_PARA_form_no, (u8 *)&form_no);
+        PokeParaCalc(encounterPartyPokemon);
+        PokeParaSpeabiSet(encounterPartyPokemon);
+        InitBoxMonMoveset(&encounterPartyPokemon->box);
+    }
+    return PokeParty_Add(encounterBattleParam->poke_party[inTarget], encounterPartyPokemon);
 }

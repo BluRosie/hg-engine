@@ -14,7 +14,7 @@
 
 // ID_PARA_dummy_p2_1 fields
 #define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
-#define SET_MON_HIDDEN_ABILTY_BIT(mon) { \
+#define SET_MON_HIDDEN_ABILITY_BIT(mon) { \
     u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_1, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     SetMonData(mon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
@@ -573,9 +573,13 @@ BOOL __attribute__((long_call)) does_species_have_dimorphism(u32 species);
 BOOL __attribute__((long_call)) get_ow_data_file_num(u32 species);
 BOOL __attribute__((long_call)) sub_020720FC(struct PartyPokemon *pp, void *profile, u16 item, u16 ball, u32 encounterType, int heapId);
 void __attribute__((long_call)) UpdatePokedexWithReceivedSpecies(void *saveData, struct PartyPokemon *pokemon);
+void __attribute__((long_call)) InitBoxMonMoveset(struct BoxPokemon *pokemon);
+void __attribute__((long_call)) WildMonSetRandomHeldItem(struct PartyPokemon *pokemon, u32 fight_type, u32 item_type);
+BOOL __attribute__((long_call)) GrabAndRegisterUnownForm(struct PartyPokemon *pokemon);
+BOOL __attribute__((long_call)) MonIsShiny(struct PartyPokemon *pokemon);
+BOOL __attribute__((long_call)) BoxMonIsShiny(struct BoxPokemon *pokemon);
 
 void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
-bool8 IsMonShiny(u32 id, u32 rnd);
 void PokePasoParaSpeabiSet(void *ppp);
 bool8 RevertFormChange(void *pp, u16 species, u8 form_no);
 u16 GetMonHiddenAbility(u16 species, u32 form);

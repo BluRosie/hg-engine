@@ -411,25 +411,28 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
         //set default abilities
         species = PokeOtherFormMonsNoGet(species, form_no);
-        ab1 = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
-        ab2 = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
-        if(ab2!=0){
-            if(abilityslot&1){
-                SetMonData(mons[i],ID_PARA_speabino,(u8 *)&ab1);
+        ab1 = PokePersonalParaGet(species, PERSONAL_ABILITY_1);
+        ab2 = PokePersonalParaGet(species, PERSONAL_ABILITY_2);
+        if (ab2 != 0)
+        {
+            if (abilityslot & 1)
+            {
+                SetMonData(mons[i], ID_PARA_speabino, (u8 *)&ab1);
             }
             else{
-                SetMonData(mons[i],ID_PARA_speabino,(u8 *)&ab2);
+                SetMonData(mons[i], ID_PARA_speabino, (u8 *)&ab2);
             }
         }
-        else{
-            SetMonData(mons[i],ID_PARA_speabino,(u8 *)&ab1);
+        else
+        {
+            SetMonData(mons[i], ID_PARA_speabino, (u8 *)&ab1);
         }
         
         // if abilityslot is 2 force hidden ability with the bit set.  this specifically to cover darmanitan with zen mode switching between forms and such.
         if (abilityslot == 2)
         {
             u16 hiddenability = GetMonHiddenAbility(species, form_no);
-            SET_MON_HIDDEN_ABILTY_BIT(mons[i])
+            SET_MON_HIDDEN_ABILITY_BIT(mons[i])
             SetMonData(mons[i], ID_PARA_speabino, (u8 *)&hiddenability);
         }
 

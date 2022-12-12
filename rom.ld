@@ -86,6 +86,11 @@ PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
 PartyHasMon = 0x020748CC | 1;
 sub_020720FC = 0x020720FC | 1;
+InitBoxMonMoveset = 0x020712D8 | 1;
+GrabAndRegisterUnownForm = 0x02248444 | 1;
+WildMonSetRandomHeldItem = 0x020721A4 | 1;
+MonIsShiny = 0x0207003C | 1;
+BoxMonIsShiny = 0x02070044 | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;

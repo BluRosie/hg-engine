@@ -1,3 +1,5 @@
+#include "include/config.h"
+
 # damage calc hook setup
 # push {r5-r6}
 # nop
@@ -40,6 +42,10 @@ arm9 08070E34 60 B4 C0 46
 # 0224A112
 0012 08012852 08
 
+
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef ITEM_POCKET_EXPANSION
+
 # bag expansion
 arm9 08078240 60 B4 C0 46
 arm9 080782DC 60 B4 C0 46
@@ -51,6 +57,10 @@ arm9 08078410 60 B4 C0 46
 arm9 08078434 60 B4 C0 46
 arm9 08078480 60 B4 C0 46
 arm9 080784B0 60 B4 C0 46
+
+#endif
+#endif
+
 
 # 021F9380
 # trying a few things out
@@ -71,3 +81,6 @@ arm9 080784B0 60 B4 C0 46
 
 # GiveMon hook setup
 arm9 080541DC 60 B4 C0 46
+
+# AddWildPartyPokemon hook setup
+0002 080029DC 60 B4 C0 46
