@@ -266,3 +266,34 @@ When knocking out a\ntarget, raises Attack.
 When knocking out a\ntarget, raises Sp. Atk.
 Combines Unnerve\nand Chilling Neigh.
 Combines Unnerve\nand Grim Neigh.
+Swaps Abilities with\ncontact-making Pokémon.
+Turns the ground into\nGrassy Terrain if attacked.
+Ups Attack if hit\nby Fire moves. Prevents burns.
+Ups stats if a hit\nmakes its HP half or less.
+Prevents status problems.\nWeakens Ghost moves.
+Raises Defense if hit\nby a Fire-type move.
+Raises Attack if hit\nby a wind-based move.
+Ups Attack if intimidated.\nStops forced switching.
+Powers up\nRock-type moves.
+Becomes charged if hit\nby a wind-based move.
+Becomes Hero Form upon\nswitching out.
+Enters the mouth of\nan ally Dondozo.
+Becomes charged when\nhit by an attack.
+Boosts its best stat\nin harsh sunlight.
+Boosts its best stat\nin Electric Terrain.
+This Pokémon is immune\nto all status moves.
+Lowers the Sp. Atk\nstat of other Pokémon.
+Lowers the Defense\nstat of other Pokémon.
+Lowers the Attack\nstat of other Pokémon.
+Lowers the Sp. Def\nstat of other Pokémon.
+Makes the weather sunny.\nUps Attack in sun.
+Makes Electric Terrain.\nUps Sp. Atk on Electric Terrain.
+If foe raises a stat,\nboosts the stat itself.
+After eating a Berry,\nit’s eaten again next turn.
+Powers up\nslicing moves.
+Ups Attack and Sp. Atk\nif allies were defeated.
+Copies an ally's stat\nchanges when sent out.
+Scatters poison spikes\nif hit by physical moves.
+Makes foes unable to\nuse priority attacks.
+Restores HP if hit by a\nGround-type move.
+Status moves go last\nbut ignore abilities.
