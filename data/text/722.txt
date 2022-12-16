@@ -266,7 +266,7 @@ When knocking out a\ntarget, raises Attack.
 When knocking out a\ntarget, raises Sp. Atk.
 Combines Unnerve\nand Chilling Neigh.
 Combines Unnerve\nand Grim Neigh.
-Swaps Abilities with\ncontact-making Pokémon.
+Contact with this Pokémon\nspreads this Ability.
 Turns the ground into\nGrassy Terrain if attacked.
 Ups Attack if hit\nby Fire moves. Prevents burns.
 Ups stats if a hit\nmakes its HP half or less.
