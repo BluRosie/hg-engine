@@ -1614,7 +1614,7 @@ evodata SPECIES_EEVEE
     evolution EVO_USE_ITEM, ITEM_FIRE_STONE, SPECIES_FLAREON
     evolution EVO_HAPPINESS_DAY, 0, SPECIES_ESPEON
     evolution EVO_HAPPINESS_NIGHT, 0, SPECIES_UMBREON
-    evolution EVO_KNOWS_MOVE, MOVE_BABY_DOLL_EYES, SPECIES_SYLVEON // replacement for the moment, need to program a new evolution method
+    evolution EVO_KNOWS_MOVE, MOVE_BABY_DOLL_EYES, SPECIES_X_SYLVEON // replacement for the moment, need to program a new evolution method
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
@@ -6542,7 +6542,7 @@ evodata SPECIES_543
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_VICTINI
+evodata SPECIES_SYLVEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6554,8 +6554,8 @@ evodata SPECIES_VICTINI
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_SNIVY
-    evolution EVO_LEVEL_UP, 17, SPECIES_SERVINE
+evodata SPECIES_WYRDEER
+    evolution EVO_LEVEL_UP, 17, SPECIES_KLEAVOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6566,8 +6566,8 @@ evodata SPECIES_SNIVY
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_SERVINE
-    evolution EVO_LEVEL_UP, 36, SPECIES_SERPERIOR
+evodata SPECIES_KLEAVOR
+    evolution EVO_LEVEL_UP, 36, SPECIES_URSALUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6578,7 +6578,7 @@ evodata SPECIES_SERVINE
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_SERPERIOR
+evodata SPECIES_URSALUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6590,8 +6590,8 @@ evodata SPECIES_SERPERIOR
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_TEPIG
-    evolution EVO_LEVEL_UP, 17, SPECIES_PIGNITE
+evodata SPECIES_ANNIHILAPE
+    evolution EVO_LEVEL_UP, 17, SPECIES_FARIGIRAF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6602,8 +6602,8 @@ evodata SPECIES_TEPIG
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_PIGNITE
-    evolution EVO_LEVEL_UP, 36, SPECIES_EMBOAR
+evodata SPECIES_FARIGIRAF
+    evolution EVO_LEVEL_UP, 36, SPECIES_DUDUNSPARCE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6614,7 +6614,7 @@ evodata SPECIES_PIGNITE
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_EMBOAR
+evodata SPECIES_DUDUNSPARCE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9014,7 +9014,7 @@ evodata SPECIES_AURORUS
     evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
-evodata SPECIES_SYLVEON
+evodata SPECIES_X_SYLVEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -11402,7 +11402,7 @@ evodata SPECIES_CALYREX
     evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
-evodata SPECIES_WYRDEER
+evodata SPECIES_X_WYRDEER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -11414,7 +11414,7 @@ evodata SPECIES_WYRDEER
     evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
-evodata SPECIES_KLEAVOR
+evodata SPECIES_X_KLEAVOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -11426,7 +11426,7 @@ evodata SPECIES_KLEAVOR
     evolution EVO_NONE, 0, SPECIES_NONE
 terminateevodata
 
-evodata SPECIES_URSALUNA
+evodata SPECIES_X_URSALUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

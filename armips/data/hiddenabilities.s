@@ -549,13 +549,13 @@
 /* castform rain                       */ .halfword ABILITY_NONE
 /* castform ice                        */ .halfword ABILITY_NONE
 /* cherrim sun                         */ .halfword ABILITY_NONE
-/* SPECIES_VICTINI                     */ .halfword ABILITY_NONE
-/* SPECIES_SNIVY                       */ .halfword ABILITY_CONTRARY
-/* SPECIES_SERVINE                     */ .halfword ABILITY_CONTRARY
-/* SPECIES_SERPERIOR                   */ .halfword ABILITY_CONTRARY
-/* SPECIES_TEPIG                       */ .halfword ABILITY_THICK_FAT
-/* SPECIES_PIGNITE                     */ .halfword ABILITY_THICK_FAT
-/* SPECIES_EMBOAR                      */ .halfword ABILITY_RECKLESS
+/* SPECIES_SYLVEON                     */ .halfword ABILITY_NONE
+/* SPECIES_WYRDEER                       */ .halfword ABILITY_CONTRARY
+/* SPECIES_KLEAVOR                     */ .halfword ABILITY_CONTRARY
+/* SPECIES_URSALUNA                   */ .halfword ABILITY_CONTRARY
+/* SPECIES_ANNIHILAPE                       */ .halfword ABILITY_THICK_FAT
+/* SPECIES_FARIGIRAF                     */ .halfword ABILITY_THICK_FAT
+/* SPECIES_DUDUNSPARCE                      */ .halfword ABILITY_RECKLESS
 /* SPECIES_OSHAWOTT                    */ .halfword ABILITY_SHELL_ARMOR
 /* SPECIES_DEWOTT                      */ .halfword ABILITY_SHELL_ARMOR
 /* SPECIES_SAMUROTT                    */ .halfword ABILITY_SHELL_ARMOR
@@ -755,7 +755,7 @@
 /* SPECIES_TYRANTRUM                   */ .halfword ABILITY_ROCK_HEAD
 /* SPECIES_AMAURA                      */ .halfword ABILITY_SNOW_WARNING
 /* SPECIES_AURORUS                     */ .halfword ABILITY_SNOW_WARNING
-/* SPECIES_SYLVEON                     */ .halfword ABILITY_NONE
+/* SPECIES_X_SYLVEON                     */ .halfword ABILITY_NONE
 /* SPECIES_HAWLUCHA                    */ .halfword ABILITY_MOLD_BREAKER
 /* SPECIES_DEDENNE                     */ .halfword ABILITY_PLUS
 /* SPECIES_CARBINK                     */ .halfword ABILITY_STURDY
@@ -954,9 +954,9 @@
 /* SPECIES_GLASTRIER                   */ .halfword ABILITY_NONE
 /* SPECIES_SPECTRIER                   */ .halfword ABILITY_NONE
 /* SPECIES_CALYREX                     */ .halfword ABILITY_NONE
-/* SPECIES_WYRDEER                     */ .halfword ABILITY_NONE
-/* SPECIES_KLEAVOR                     */ .halfword ABILITY_NONE
-/* SPECIES_URSALUNA                    */ .halfword ABILITY_NONE
+/* SPECIES_X_WYRDEER                     */ .halfword ABILITY_NONE
+/* SPECIES_X_KLEAVOR                     */ .halfword ABILITY_NONE
+/* SPECIES_X_URSALUNA                    */ .halfword ABILITY_NONE
 /* SPECIES_BASCULEGION                 */ .halfword ABILITY_NONE
 /* SPECIES_SNEASLER                    */ .halfword ABILITY_NONE
 /* SPECIES_OVERQWIL                    */ .halfword ABILITY_NONE

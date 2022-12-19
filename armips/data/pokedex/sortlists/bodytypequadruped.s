@@ -89,7 +89,7 @@
 .halfword SPECIES_HEATRAN
 .halfword SPECIES_SHAYMIN
 .halfword SPECIES_ARCEUS
-.halfword SPECIES_TEPIG
+.halfword SPECIES_ANNIHILAPE
 .halfword SPECIES_PATRAT
 .halfword SPECIES_LILLIPUP
 .halfword SPECIES_PURRLOIN
@@ -137,7 +137,7 @@
 //.halfword SPECIES_SALANDIT
 //.halfword SPECIES_STUFFUL
 //.halfword SPECIES_AURORUS
-//.halfword SPECIES_SYLVEON
+//.halfword SPECIES_X_SYLVEON
 //.halfword SPECIES_AVALUGG
 //.halfword SPECIES_TORRACAT
 //.halfword SPECIES_GUMSHOOS

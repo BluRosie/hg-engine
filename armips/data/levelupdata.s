@@ -8407,7 +8407,7 @@ levelup SPECIES_542
 levelup SPECIES_543
     terminatelearnset
 
-levelup SPECIES_VICTINI
+levelup SPECIES_SYLVEON
     //learnset MOVE_SEARING_SHOT, 1
     learnset MOVE_FOCUS_ENERGY, 1
     learnset MOVE_CONFUSION, 1
@@ -8427,7 +8427,7 @@ levelup SPECIES_VICTINI
     learnset MOVE_OVERHEAT, 97
     terminatelearnset
 
-levelup SPECIES_SNIVY
+levelup SPECIES_WYRDEER
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 4
     learnset MOVE_VINE_WHIP, 7
@@ -8445,7 +8445,7 @@ levelup SPECIES_SNIVY
     learnset MOVE_LEAF_STORM, 43
     terminatelearnset
 
-levelup SPECIES_SERVINE
+levelup SPECIES_KLEAVOR
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
     learnset MOVE_VINE_WHIP, 1
@@ -8466,7 +8466,7 @@ levelup SPECIES_SERVINE
     learnset MOVE_LEAF_STORM, 52
     terminatelearnset
 
-levelup SPECIES_SERPERIOR
+levelup SPECIES_URSALUNA
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
     learnset MOVE_VINE_WHIP, 1
@@ -8487,7 +8487,7 @@ levelup SPECIES_SERPERIOR
     learnset MOVE_LEAF_STORM, 62
     terminatelearnset
 
-levelup SPECIES_TEPIG
+levelup SPECIES_ANNIHILAPE
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 3
     learnset MOVE_EMBER, 7
@@ -8505,7 +8505,7 @@ levelup SPECIES_TEPIG
     learnset MOVE_FLARE_BLITZ, 43
     terminatelearnset
 
-levelup SPECIES_PIGNITE
+levelup SPECIES_FARIGIRAF
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
     learnset MOVE_EMBER, 1
@@ -8527,7 +8527,7 @@ levelup SPECIES_PIGNITE
     learnset MOVE_FLARE_BLITZ, 52
     terminatelearnset
 
-levelup SPECIES_EMBOAR
+levelup SPECIES_DUDUNSPARCE
     learnset MOVE_HAMMER_ARM, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
@@ -12312,7 +12312,7 @@ levelup SPECIES_AURORUS
 	learnset MOVE_BLIZZARD, 74
 	terminatelearnset
 
-levelup SPECIES_SYLVEON
+levelup SPECIES_X_SYLVEON
 	learnset MOVE_FAIRY_WIND, 1
 	learnset MOVE_DISARMING_VOICE, 1
 	learnset MOVE_HELPING_HAND, 1
@@ -15860,7 +15860,7 @@ levelup SPECIES_CALYREX
 	learnset MOVE_FUTURE_SIGHT, 88
 	terminatelearnset
 
-levelup SPECIES_WYRDEER
+levelup SPECIES_X_WYRDEER
     learnset MOVE_ME_FIRST, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 3
@@ -15879,7 +15879,7 @@ levelup SPECIES_WYRDEER
     learnset MOVE_ME_FIRST, 55
     terminatelearnset
 
-levelup SPECIES_KLEAVOR
+levelup SPECIES_X_KLEAVOR
     learnset MOVE_BULLET_PUNCH, 1
     learnset MOVE_WING_ATTACK, 1
     learnset MOVE_AGILITY, 1
@@ -15900,7 +15900,7 @@ levelup SPECIES_KLEAVOR
     learnset MOVE_SWORDS_DANCE, 48
     terminatelearnset
 
-levelup SPECIES_URSALUNA
+levelup SPECIES_X_URSALUNA
     learnset MOVE_HAMMER_ARM, 1
     learnset MOVE_COVET, 1
     learnset MOVE_SCRATCH, 1

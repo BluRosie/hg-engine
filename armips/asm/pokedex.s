@@ -1168,7 +1168,7 @@ GetCaughtMonCount:
     lsl r7, #1
     cmp r4, r7
     blt @@_loop
-    add r7, #(SPECIES_VICTINI - SPECIES_ARCEUS - 1)
+    add r7, #(SPECIES_SYLVEON - SPECIES_ARCEUS - 1)
     cmp r4, r7
     blt @@_increment
     ldr r7, =NUM_OF_MONS
@@ -1208,7 +1208,7 @@ GetSeenMonCount:
     lsl r7, #1
     cmp r4, r7
     blt @@_loop
-    add r7, #(SPECIES_VICTINI - SPECIES_ARCEUS - 1)
+    add r7, #(SPECIES_SYLVEON - SPECIES_ARCEUS - 1)
     cmp r4, r7
     blt @@_increment
     ldr r7, =NUM_OF_MONS

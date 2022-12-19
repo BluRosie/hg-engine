@@ -554,13 +554,13 @@ heightentry SPECIES_540, "null", "null", "null", "null"
 heightentry SPECIES_541, "null", "null", "null", "null"
 heightentry SPECIES_542, "null", "null", "null", "null"
 heightentry SPECIES_543, "null", "null", "null", "null"
-heightentry SPECIES_VICTINI, "null", 0, "null", 0
-heightentry SPECIES_SNIVY, 12, 12, 0, 0
-heightentry SPECIES_SERVINE, 0, 0, 0, 0
-heightentry SPECIES_SERPERIOR, 0, 0, 0, 0
-heightentry SPECIES_TEPIG, 0, 0, 0, 0
-heightentry SPECIES_PIGNITE, 0, 0, 0, 0
-heightentry SPECIES_EMBOAR, 0, 0, 0, 0
+heightentry SPECIES_SYLVEON, "null", 0, "null", 0
+heightentry SPECIES_WYRDEER, 12, 12, 0, 0
+heightentry SPECIES_KLEAVOR, 0, 0, 0, 0
+heightentry SPECIES_URSALUNA, 0, 0, 0, 0
+heightentry SPECIES_ANNIHILAPE, 0, 0, 0, 0
+heightentry SPECIES_FARIGIRAF, 0, 0, 0, 0
+heightentry SPECIES_DUDUNSPARCE, 0, 0, 0, 0
 heightentry SPECIES_OSHAWOTT, 0, 0, 0, 0
 heightentry SPECIES_DEWOTT, 0, 0, 0, 0
 heightentry SPECIES_SAMUROTT, 0, 0, 0, 0
@@ -761,7 +761,7 @@ heightentry SPECIES_TYRUNT, 22, 22, 12, 12
 heightentry SPECIES_TYRANTRUM, 18, 18, 22, 22
 heightentry SPECIES_AMAURA, 8, 8, 0, 0
 heightentry SPECIES_AURORUS, 18, 18, 22, 22
-heightentry SPECIES_SYLVEON, 18, 18, 22, 22
+heightentry SPECIES_X_SYLVEON, 18, 18, 22, 22
 heightentry SPECIES_HAWLUCHA, 18, 18, 6, 6
 heightentry SPECIES_DEDENNE, 16, 16, 16, 16
 heightentry SPECIES_CARBINK, 18, 18, 22, 22
@@ -961,9 +961,9 @@ heightentry SPECIES_GLASTRIER, 18, 18, 22, 22
 heightentry SPECIES_SPECTRIER, 18, 18, 22, 22
 heightentry SPECIES_CALYREX, 18, 18, 22, 22
 
-heightentry SPECIES_WYRDEER, 18, 18, 22, 22
-heightentry SPECIES_KLEAVOR, 18, 18, 22, 22
-heightentry SPECIES_URSALUNA, 18, 18, 22, 22
+heightentry SPECIES_X_WYRDEER, 18, 18, 22, 22
+heightentry SPECIES_X_KLEAVOR, 18, 18, 22, 22
+heightentry SPECIES_X_URSALUNA, 18, 18, 22, 22
 heightentry SPECIES_BASCULEGION, 18, 18, 22, 22
 heightentry SPECIES_SNEASLER, 0, 0, 2, 2
 heightentry SPECIES_OVERQWIL, 18, 18, 22, 22

@@ -550,13 +550,13 @@
 /* SPECIES_541             */ .word 69
 /* SPECIES_542             */ .word 69
 /* SPECIES_543             */ .word 69
-/* SPECIES_VICTINI         */ .word 40
-/* SPECIES_SNIVY           */ .word 81
-/* SPECIES_SERVINE         */ .word 160
-/* SPECIES_SERPERIOR       */ .word 630
-/* SPECIES_TEPIG           */ .word 99
-/* SPECIES_PIGNITE         */ .word 555
-/* SPECIES_EMBOAR          */ .word 1500
+/* SPECIES_SYLVEON         */ .word 40
+/* SPECIES_WYRDEER           */ .word 81
+/* SPECIES_KLEAVOR         */ .word 160
+/* SPECIES_URSALUNA       */ .word 630
+/* SPECIES_ANNIHILAPE           */ .word 99
+/* SPECIES_FARIGIRAF         */ .word 555
+/* SPECIES_DUDUNSPARCE          */ .word 1500
 /* SPECIES_OSHAWOTT        */ .word 59
 /* SPECIES_DEWOTT          */ .word 245
 /* SPECIES_SAMUROTT        */ .word 946
@@ -756,7 +756,7 @@
 /* SPECIES_TYRANTRUM       */ .word 0 // come back and do this right
 /* SPECIES_AMAURA          */ .word 0 // come back and do this right
 /* SPECIES_AURORUS         */ .word 0 // come back and do this right
-/* SPECIES_SYLVEON         */ .word 0 // come back and do this right
+/* SPECIES_X_SYLVEON         */ .word 0 // come back and do this right
 /* SPECIES_HAWLUCHA        */ .word 0 // come back and do this right
 /* SPECIES_DEDENNE         */ .word 0 // come back and do this right
 /* SPECIES_CARBINK         */ .word 0 // come back and do this right
@@ -955,9 +955,9 @@
 /* SPECIES_GLASTRIER       */ .word 0 // come back and do this right
 /* SPECIES_SPECTRIER       */ .word 0 // come back and do this right
 /* SPECIES_CALYREX         */ .word 0 // come back and do this right
-/* SPECIES_WYRDEER         */ .word 951
-/* SPECIES_KLEAVOR         */ .word 890
-/* SPECIES_URSALUNA        */ .word 2900
+/* SPECIES_X_WYRDEER         */ .word 951
+/* SPECIES_X_KLEAVOR         */ .word 890
+/* SPECIES_X_URSALUNA        */ .word 2900
 /* SPECIES_BASCULEGION     */ .word 1100
 /* SPECIES_SNEASLER        */ .word 430
 /* SPECIES_OVERQWIL        */ .word 605

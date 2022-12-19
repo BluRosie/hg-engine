@@ -56,7 +56,7 @@
 .halfword SPECIES_MESPRIT
 .halfword SPECIES_AZELF
 .halfword SPECIES_CRESSELIA
-.halfword SPECIES_VICTINI
+.halfword SPECIES_SYLVEON
 .halfword SPECIES_MUNNA
 .halfword SPECIES_MUSHARNA
 .halfword SPECIES_WOOBAT

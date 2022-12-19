@@ -549,13 +549,13 @@
 /* castform rain                       */ .halfword 0
 /* castform ice                        */ .halfword 0
 /* cherrim sun                         */ .halfword 0
-/* SPECIES_VICTINI                     */ .halfword 300
-/* SPECIES_SNIVY                       */ .halfword 62
-/* SPECIES_SERVINE                     */ .halfword 145
-/* SPECIES_SERPERIOR                   */ .halfword 264
-/* SPECIES_TEPIG                       */ .halfword 62
-/* SPECIES_PIGNITE                     */ .halfword 146
-/* SPECIES_EMBOAR                      */ .halfword 264
+/* SPECIES_SYLVEON                     */ .halfword 300
+/* SPECIES_WYRDEER                       */ .halfword 62
+/* SPECIES_KLEAVOR                     */ .halfword 145
+/* SPECIES_URSALUNA                   */ .halfword 264
+/* SPECIES_ANNIHILAPE                       */ .halfword 62
+/* SPECIES_FARIGIRAF                     */ .halfword 146
+/* SPECIES_DUDUNSPARCE                      */ .halfword 264
 /* SPECIES_OSHAWOTT                    */ .halfword 62
 /* SPECIES_DEWOTT                      */ .halfword 145
 /* SPECIES_SAMUROTT                    */ .halfword 264
@@ -755,7 +755,7 @@
 /* SPECIES_TYRANTRUM                   */ .halfword 182
 /* SPECIES_AMAURA                      */ .halfword 72
 /* SPECIES_AURORUS                     */ .halfword 104
-/* SPECIES_SYLVEON                     */ .halfword 184
+/* SPECIES_X_SYLVEON                     */ .halfword 184
 /* SPECIES_HAWLUCHA                    */ .halfword 175
 /* SPECIES_DEDENNE                     */ .halfword 151
 /* SPECIES_CARBINK                     */ .halfword 100
@@ -954,9 +954,9 @@
 /* SPECIES_GLASTRIER                   */ .halfword 290
 /* SPECIES_SPECTRIER                   */ .halfword 290
 /* SPECIES_CALYREX                     */ .halfword 250
-/* SPECIES_WYRDEER                     */ .halfword 200
-/* SPECIES_KLEAVOR                     */ .halfword 175
-/* SPECIES_URSALUNA                    */ .halfword 200
+/* SPECIES_X_WYRDEER                     */ .halfword 200
+/* SPECIES_X_KLEAVOR                     */ .halfword 175
+/* SPECIES_X_URSALUNA                    */ .halfword 200
 /* SPECIES_BASCULEGION                 */ .halfword 200
 /* SPECIES_SNEASLER                    */ .halfword 179
 /* SPECIES_OVERQWIL                    */ .halfword 161

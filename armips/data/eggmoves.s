@@ -2450,7 +2450,7 @@ eggmoveentry SPECIES_SNOVER
     eggmove MOVE_SKULL_BASH
 
 
-eggmoveentry SPECIES_SNIVY
+eggmoveentry SPECIES_WYRDEER
     eggmove MOVE_CAPTIVATE
     eggmove MOVE_GLARE
     eggmove MOVE_IRON_TAIL
@@ -2463,7 +2463,7 @@ eggmoveentry SPECIES_SNIVY
     eggmove MOVE_TWISTER
     
 
-eggmoveentry SPECIES_TEPIG
+eggmoveentry SPECIES_ANNIHILAPE
     eggmove MOVE_BODY_SLAM
     eggmove MOVE_COVET
     eggmove MOVE_CURSE
