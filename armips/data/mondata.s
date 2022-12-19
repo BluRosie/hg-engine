@@ -9885,7 +9885,7 @@ mondata SPECIES_ANNIHILAPE
     types TYPE_FIGHTING, TYPE_GHOST
     catchrate 45
     baseexp 149 // Primeape
-    evyields 0, 3, 0, 0, 0, 0, 0
+    evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 20
