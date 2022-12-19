@@ -542,13 +542,13 @@ Alpha Pokémon
 -----
 -----
 -----
-Victory Pokémon
-Grass Snake Pokémon
-Grass Snake Pokémon
-Regal Pokémon
-Fire Pig Pokémon
-Fire Pig Pokémon
-Mega Fire Pig Pokémon
+Sylveon Pokémon
+Wyrdeer Pokémon
+Kleavor Pokémon
+Ursaluna Pokémon
+Annihilape Pokémon
+Farigiraf Pokémon
+Dudunsparce Pokémon
 Sea Otter Pokémon
 Discipline Pokémon
 Formidable Pokémon
