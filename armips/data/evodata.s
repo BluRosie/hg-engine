@@ -6555,7 +6555,7 @@ evodata SPECIES_SYLVEON
     terminateevodata
 
 evodata SPECIES_WYRDEER
-    evolution EVO_LEVEL_UP, 17, SPECIES_KLEAVOR
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6567,7 +6567,7 @@ evodata SPECIES_WYRDEER
     terminateevodata
 
 evodata SPECIES_KLEAVOR
-    evolution EVO_LEVEL_UP, 36, SPECIES_URSALUNA
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6591,7 +6591,7 @@ evodata SPECIES_URSALUNA
     terminateevodata
 
 evodata SPECIES_ANNIHILAPE
-    evolution EVO_LEVEL_UP, 17, SPECIES_FARIGIRAF
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6603,7 +6603,7 @@ evodata SPECIES_ANNIHILAPE
     terminateevodata
 
 evodata SPECIES_FARIGIRAF
-    evolution EVO_LEVEL_UP, 36, SPECIES_DUDUNSPARCE
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
