@@ -566,12 +566,12 @@ gIconPalTable:
 /* castform ice            */ .byte  0x0
 /* cherrim sun             */ .byte  0x1
 /* SPECIES_SYLVEON         */ .byte  0x0
-/* SPECIES_WYRDEER           */ .byte  0x1
-/* SPECIES_KLEAVOR         */ .byte  0x1
-/* SPECIES_URSALUNA       */ .byte  0x1
-/* SPECIES_ANNIHILAPE           */ .byte  0x0
-/* SPECIES_FARIGIRAF         */ .byte  0x0
-/* SPECIES_DUDUNSPARCE          */ .byte  0x0
+/* SPECIES_WYRDEER         */ .byte  0x0
+/* SPECIES_KLEAVOR         */ .byte  0x0
+/* SPECIES_URSALUNA        */ .byte  0x2
+/* SPECIES_ANNIHILAPE      */ .byte  0x2
+/* SPECIES_FARIGIRAF       */ .byte  0x1
+/* SPECIES_DUDUNSPARCE     */ .byte  0x0
 /* SPECIES_OSHAWOTT        */ .byte  0x0
 /* SPECIES_DEWOTT          */ .byte  0x0
 /* SPECIES_SAMUROTT        */ .byte  0x2
