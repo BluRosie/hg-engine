@@ -717,9 +717,9 @@ heightentry SPECIES_CHESNAUGHT, 0, 0, 0, 0
 heightentry SPECIES_FENNEKIN, 0, 0, 0, 0
 heightentry SPECIES_BRAIXEN, 0, 0, 0, 0
 heightentry SPECIES_DELPHOX, 0, 0, 0, 0
-heightentry SPECIES_FROAKIE, 18, 18, 22, 22
-heightentry SPECIES_FROGADIER, 18, 18, 22, 22
-heightentry SPECIES_GRENINJA, 8, 8, 9, 9
+heightentry SPECIES_FROAKIE, 12, 12, 0, 0
+heightentry SPECIES_FROGADIER, 0, 0, 0, 0
+heightentry SPECIES_GRENINJA, 0, 0, 0, 0
 heightentry SPECIES_BUNNELBY, 0, 0, 9, 9
 heightentry SPECIES_DIGGERSBY, 18, 18, 22, 22
 heightentry SPECIES_FLETCHLING, 18, 18, 22, 22
