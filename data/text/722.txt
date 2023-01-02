@@ -292,7 +292,7 @@ If foe raises a stat,\nboosts the stat itself.
 After eating a Berry,\nit’s eaten again next turn.
 Powers up\nslicing moves.
 Ups Attack and Sp. Atk\nif allies were defeated.
-Copies an ally's stat\nchanges when sent out.
+Copies an ally’s stat\nchanges when sent out.
 Scatters poison spikes\nif hit by physical moves.
 Makes foes unable to\nuse priority attacks.
 Restores HP if hit by a\nGround-type move.
