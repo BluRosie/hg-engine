@@ -711,9 +711,9 @@ heightentry SPECIES_KELDEO, 0, 0, 0, 0
 heightentry SPECIES_MELOETTA, 0, 0, 0, 0
 heightentry SPECIES_GENESECT, 0, 0, 0, 0
 
-heightentry SPECIES_CHESPIN, 18, 18, 22, 22
-heightentry SPECIES_QUILLADIN, 18, 18, 22, 22
-heightentry SPECIES_CHESNAUGHT, 18, 18, 22, 22
+heightentry SPECIES_CHESPIN, 0, 0, 0, 0
+heightentry SPECIES_QUILLADIN, 0, 0, 0, 0
+heightentry SPECIES_CHESNAUGHT, 0, 0, 0, 0
 heightentry SPECIES_FENNEKIN, 18, 18, 22, 22
 heightentry SPECIES_BRAIXEN, 18, 18, 22, 22
 heightentry SPECIES_DELPHOX, 18, 18, 22, 22
