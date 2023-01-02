@@ -714,9 +714,9 @@ heightentry SPECIES_GENESECT, 0, 0, 0, 0
 heightentry SPECIES_CHESPIN, 0, 0, 0, 0
 heightentry SPECIES_QUILLADIN, 0, 0, 0, 0
 heightentry SPECIES_CHESNAUGHT, 0, 0, 0, 0
-heightentry SPECIES_FENNEKIN, 18, 18, 22, 22
-heightentry SPECIES_BRAIXEN, 18, 18, 22, 22
-heightentry SPECIES_DELPHOX, 18, 18, 22, 22
+heightentry SPECIES_FENNEKIN, 0, 0, 0, 0
+heightentry SPECIES_BRAIXEN, 0, 0, 0, 0
+heightentry SPECIES_DELPHOX, 0, 0, 0, 0
 heightentry SPECIES_FROAKIE, 18, 18, 22, 22
 heightentry SPECIES_FROGADIER, 18, 18, 22, 22
 heightentry SPECIES_GRENINJA, 8, 8, 9, 9
