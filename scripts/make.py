@@ -3,6 +3,7 @@
 import os
 import subprocess
 import shutil
+import struct
 import sys
 from datetime import datetime
 import _io
@@ -289,12 +290,16 @@ def install():
                 if line.strip().startswith('#') or line.strip() == '':
                     continue
 
-                offset = int(line[4:13], 16) - 0x08000000
+                #offset = int(line[4:13], 16) - 0x08000000
                 openbin = line[:4]
                 if openbin == "arm9":
                     rom2 = open("base/arm9.bin", 'rb+')
+                    offset = int(line[4:13], 16) - 0x02000000
                 else:
                     rom2 = open("base/overlay/overlay_" + openbin + ".bin", 'rb+')
+                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                        y9Table.seek((int(openbin)*0x20)+0x4) # read the overlay memory address for offset calculation
+                        offset = int(line[4:13], 16) - struct.unpack_from("<I", y9Table.read(4)[0])
                 try:
                     ReplaceBytes(rom2, offset, line[13:].strip())
                 except ValueError:  # Try loading from the defines dict if unrecognizable character
@@ -324,7 +329,7 @@ def hook():
                     continue
 
                 files, symbol, address, register = line.split()
-                offset = int(address, 16) - 0x08000000
+                #offset = int(address, 16) - 0x08000000
                 try:
                     code = table[symbol]
                 except KeyError:
@@ -332,8 +337,12 @@ def hook():
                     continue
                 if files == "arm9":
                     rom2 = open("base/arm9.bin", 'rb+')
+                    offset = int(address, 16) - 0x02000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
+                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                        y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4)[0])
                 Hook(rom2, code, offset, int(register))
                 rom2.close()
 
@@ -350,7 +359,7 @@ def writeall():
         rom.close()
 
         for entry in table:
-            table[entry] += OFFSET_START - 0x08000000
+            table[entry] += OFFSET_START
     width = max(map(len, table.keys())) + 1
     if os.path.isfile('offsets.ini'):
         offsetIni = open('offsets.ini', 'r+')
@@ -360,8 +369,7 @@ def writeall():
     offsetIni.truncate()
     for key in sorted(table.keys()):
         fstr = ('{:' + str(width) + '} {:08X}')
-        offsetIni.write(fstr.format(key + ':', table[key] + 0x08000000) + " /" + fstr.format(key + ':', table[
-            key] + 0x08000000 + 0x08000000 - OFFSET_START) + '\n')
+        offsetIni.write(fstr.format(key + ':', table[key]) + " /" + fstr.format(key + ':', table[key] - OFFSET_START) + '\n')
     offsetIni.close()
 
 
@@ -422,7 +430,7 @@ def repoint():
                     continue
 
                 files, symbol, address = line.split()
-                offset = int(address, 16) - 0x08000000
+                #offset = int(address, 16) - 0x08000000
                 try:
                     code = table[symbol]
                 except KeyError:
@@ -430,8 +438,12 @@ def repoint():
                     continue
                 if files == "arm9":
                     rom2 = open("base/arm9.bin", 'rb+')
+                    offset = int(address, 16) - 0x02000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
+                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                        y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4)[0])
                 Repoint(rom2, code, offset, 1)
                 rom2.close()
 
@@ -451,7 +463,7 @@ def offset():
                     continue
 
                 files, symbol, address = line.split()
-                offset = int(address, 16) - 0x08000000
+                #offset = int(address, 16) - 0x08000000
                 try:
                     code = table[symbol]
                 except KeyError:
@@ -459,8 +471,12 @@ def offset():
                     continue
                 if files == "arm9":
                     rom = open("base/arm9.bin", 'rb+')
+                    offset = int(address, 16) - 0x02000000
                 else:
                     rom = open("base/overlay/overlay_" + files + ".bin", 'rb+')
+                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                        y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4)[0])
                 Repoint(rom, code, offset)
                 rom.close()
 
