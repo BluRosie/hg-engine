@@ -737,7 +737,7 @@ heightentry SPECIES_SKIDDO, 18, 18, 22, 22
 heightentry SPECIES_GOGOAT, 18, 18, 22, 22
 heightentry SPECIES_PANCHAM, 18, 18, 22, 22
 heightentry SPECIES_PANGORO, 18, 18, 22, 22
-heightentry SPECIES_FURFROU, 18, 18, 22, 22
+heightentry SPECIES_FURFROU, 0, 0, 0, 0
 heightentry SPECIES_ESPURR, 18, 18, 22, 22
 heightentry SPECIES_MEOWSTIC, 18, 18, 22, 22
 heightentry SPECIES_HONEDGE, 0, 0, 0, 0
@@ -751,7 +751,7 @@ heightentry SPECIES_INKAY, 18, 18, 22, 22
 heightentry SPECIES_MALAMAR, 0, 0, 0, 0
 heightentry SPECIES_BINACLE, 18, 18, 22, 22
 heightentry SPECIES_BARBARACLE, 18, 18, 22, 22
-heightentry SPECIES_SKRELP, 18, 18, 22, 22
+heightentry SPECIES_SKRELP, 0, 0, 0, 0
 heightentry SPECIES_DRAGALGE, 0, 0, 0, 0
 heightentry SPECIES_CLAUNCHER, 18, 18, 22, 22
 heightentry SPECIES_CLAWITZER, 18, 18, 22, 22
@@ -871,7 +871,7 @@ heightentry SPECIES_BLACEPHALON, 18, 18, 22, 22
 heightentry SPECIES_ZERAORA, 18, 18, 22, 22
 heightentry SPECIES_MELTAN, 18, 18, 22, 22
 heightentry SPECIES_MELMETAL, 18, 18, 22, 22
-heightentry SPECIES_GROOKEY, 18, 18, 22, 22
+heightentry SPECIES_GROOKEY, 0, 0, 0, 0
 heightentry SPECIES_THWACKEY, 18, 18, 22, 22
 heightentry SPECIES_RILLABOOM, 18, 18, 22, 22
 heightentry SPECIES_SCORBUNNY, 18, 18, 22, 22
@@ -909,7 +909,7 @@ heightentry SPECIES_SANDACONDA, 18, 18, 22, 22
 heightentry SPECIES_CRAMORANT, 18, 18, 22, 22
 heightentry SPECIES_ARROKUDA, 18, 18, 22, 22
 heightentry SPECIES_BARRASKEWDA, 18, 18, 22, 22
-heightentry SPECIES_TOXEL, 18, 18, 22, 22
+heightentry SPECIES_TOXEL, 0, 0, 0, 0
 heightentry SPECIES_TOXTRICITY, 18, 18, 22, 22
 heightentry SPECIES_SIZZLIPEDE, 18, 18, 22, 22
 heightentry SPECIES_CENTISKORCH, 18, 18, 22, 22
@@ -964,10 +964,10 @@ heightentry SPECIES_CALYREX, 18, 18, 22, 22
 heightentry SPECIES_WYRDEER, 18, 18, 22, 22
 heightentry SPECIES_KLEAVOR, 18, 18, 22, 22
 heightentry SPECIES_URSALUNA, 18, 18, 22, 22
-heightentry SPECIES_BASCULEGION, 18, 18, 22, 22
+heightentry SPECIES_BASCULEGION, 12, 12, 0, 0
 heightentry SPECIES_SNEASLER, 0, 0, 2, 2
 heightentry SPECIES_OVERQWIL, 18, 18, 22, 22
-heightentry SPECIES_ENAMORUS, 18, 18, 22, 22
+heightentry SPECIES_ENAMORUS, 0, 0, 0, 0
 
 heightentry SPECIES_MEGA_VENUSAUR, 3, 3, 0, 0
 heightentry SPECIES_MEGA_CHARIZARD_X, 3, 3, 0, 0
@@ -1228,4 +1228,4 @@ heightentry SPECIES_JELLICENT_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_PYROAR_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_MEOWSTIC_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_INDEEDEE_FEMALE, 18, 18, 22, 22
-heightentry SPECIES_BASCULEGION_FEMALE, 18, 18, 22, 22
+heightentry SPECIES_BASCULEGION_FEMALE, 12, 12, 0, 0

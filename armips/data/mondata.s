@@ -17173,7 +17173,7 @@ mondata SPECIES_BASCULEGION
     baseexp 208
     evyields 2,0,0,0,0,0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 0
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -21837,3 +21837,21 @@ mondata SPECIES_INDEEDEE_FEMALE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_INDEEDEE_TM_DATA_0, SPECIES_INDEEDEE_TM_DATA_1, SPECIES_INDEEDEE_TM_DATA_2, SPECIES_INDEEDEE_TM_DATA_3
+
+
+mondata SPECIES_BASCULEGION_FEMALE
+    basestats 120, 112, 65, 78, 80, 75
+    types TYPE_WATER, TYPE_GHOST
+    catchrate 135
+    baseexp 208
+    evyields 2,0,0,0,0,0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 254
+    eggcycles 0
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
+    abilities ABILITY_RATTLED, ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip BODY_COLOR_GREEN, 0
+    tmdata SPECIES_BASCULEGION_TM_DATA_0, SPECIES_BASCULEGION_TM_DATA_1, SPECIES_BASCULEGION_TM_DATA_2, SPECIES_BASCULEGION_TM_DATA_3
