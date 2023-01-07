@@ -168,3 +168,9 @@ u32 move_effect_to_subscripts[] =
     [154] = 320, // autotomize
     [155] = 331, // new growth subscript
 };
+
+
+void GetMoveDataTable(void *dest)
+{
+    ArchiveDataLoadOfs(dest, ARC_MOVE_DATA, 0, 0, 16*(NUM_OF_MOVES+1));
+}

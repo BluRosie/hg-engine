@@ -50,6 +50,7 @@ UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
 ArchiveDataLoadMalloc = 0x02007524 | 1;
 ArchiveDataLoad = 0x02007509;
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
+ArchiveDataLoadOfs = 0x02007560 | 1;
 sqrt = 0x0200048A | 1;
 
 /*Pokemon*/

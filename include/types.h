@@ -43,7 +43,8 @@ void* __attribute__((long_call)) sys_AllocMemory(u32,u32);
 
 void __attribute__((long_call)) ArcUtil_PalSet(u32 fileIdx, u32 dataIdx, u8 palType, u32 offs, u32 transSize, u32 heapID);
 void *__attribute__((long_call)) ArchiveDataLoadMalloc(int arcID, int datID, int heapID);
-void __attribute__((long_call))ArchiveDataLoad(void *data, int arcID, int datID);
-void *__attribute__((long_call))ArchiveDataLoadMallocOfs(int arcID, int datID, int heapID, int ofs, int size);
+void __attribute__((long_call)) ArchiveDataLoad(void *data, int arcID, int datID);
+void *__attribute__((long_call)) ArchiveDataLoadMallocOfs(int arcID, int datID, int heapID, int ofs, int size);
+void __attribute__((long_call)) ArchiveDataLoadOfs(void *data, int arcID, int datID, int ofs, int size);
 
 #endif

@@ -3,15 +3,6 @@
 
 // file included by armips/global.s--no need for further includes here.
 
-.open "base/arm9.bin", 0x02000000
-
-// edits to GetMoveDataTable -- change size
-.org 0x02073302
-    mov r1, #((NUM_OF_MOVES + 1) * 16) >> 6
-    lsl r1, #6
-
-.close
-
 
 .open "base/overlay/overlay_0012.bin", 0x022378C0
 

@@ -5,6 +5,7 @@
 #define ARC_SUB_SEQ 1
 #define ARC_PERSONAL 2
 #define ARC_MON_PIC 4
+#define ARC_MOVE_DATA 11
 #define ARC_ITEM_DATA 17
 #define ARC_ITEM_GFX_DATA 18
 #define ARC_CODE_ADDONS 28
