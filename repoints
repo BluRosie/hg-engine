@@ -1,8 +1,8 @@
 #include "include/config.h"
 
-0012 SkillMenuTouchData 08037070
-0012 SkillMenuTouchRet 08037074
-0012 SkillMenuPaletteNo 08037078
+0012 SkillMenuTouchData 0226E930
+0012 SkillMenuTouchRet 0226E934
+0012 SkillMenuPaletteNo 0226E938
 
 #ifdef ALLOW_SAVE_CHANGES
 #ifdef ITEM_POCKET_EXPANSION

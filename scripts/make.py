@@ -294,12 +294,12 @@ def install():
                 openbin = line[:4]
                 if openbin == "arm9":
                     rom2 = open("base/arm9.bin", 'rb+')
-                    offset = int(line[4:13], 16) - 0x02000000
+                    offset = int(line[4:13], 16) - 0x02000000 if int(line[4:13], 16) & 0x02000000 else int(line[4:13], 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + openbin + ".bin", 'rb+')
                     with open("base/overarm9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(openbin)*0x20)+0x4) # read the overlay memory address for offset calculation
-                        offset = int(line[4:13], 16) - struct.unpack_from("<I", y9Table.read(4)[0])
+                        offset = int(line[4:13], 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(line[4:13], 16) & 0x02000000 else int(line[4:13], 16) - 0x08000000
                 try:
                     ReplaceBytes(rom2, offset, line[13:].strip())
                 except ValueError:  # Try loading from the defines dict if unrecognizable character
@@ -337,12 +337,12 @@ def hook():
                     continue
                 if files == "arm9":
                     rom2 = open("base/arm9.bin", 'rb+')
-                    offset = int(address, 16) - 0x02000000
+                    offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
                     with open("base/overarm9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
-                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4)[0])
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 Hook(rom2, code, offset, int(register))
                 rom2.close()
 
@@ -438,12 +438,12 @@ def repoint():
                     continue
                 if files == "arm9":
                     rom2 = open("base/arm9.bin", 'rb+')
-                    offset = int(address, 16) - 0x02000000
+                    offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
                     with open("base/overarm9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
-                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4)[0])
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 Repoint(rom2, code, offset, 1)
                 rom2.close()
 
@@ -471,12 +471,12 @@ def offset():
                     continue
                 if files == "arm9":
                     rom = open("base/arm9.bin", 'rb+')
-                    offset = int(address, 16) - 0x02000000
+                    offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom = open("base/overlay/overlay_" + files + ".bin", 'rb+')
                     with open("base/overarm9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
-                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4)[0])
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 Repoint(rom, code, offset)
                 rom.close()
 

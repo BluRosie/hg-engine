@@ -7,7 +7,7 @@
 
 # CalcAccuracy hook setup
 # 0224BCC4
-0012 08014404 60 B4 C0 46
+0012 0224BCC4 60 B4 C0 46
 
 # CalcSpeed hook setup
 # 0224FC48
