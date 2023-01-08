@@ -1,4 +1,6 @@
 # credits
+Adcroc1 - helping significantly with sprite formatting
+
 BagBoy - dex entries
 
 Barro - Swav2Swar
