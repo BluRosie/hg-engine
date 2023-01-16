@@ -58,7 +58,7 @@
 /* SPECIES_DIGLETT                     */ .halfword ABILITY_SAND_FORCE
 /* SPECIES_DUGTRIO                     */ .halfword ABILITY_SAND_FORCE
 /* SPECIES_MEOWTH                      */ .halfword ABILITY_UNNERVE
-/* SPECIES_PERSIAN                     */ .halfword ABILITY_RATTLED
+/* SPECIES_PERSIAN                     */ .halfword ABILITY_UNNERVE
 /* SPECIES_PSYDUCK                     */ .halfword ABILITY_SWIFT_SWIM
 /* SPECIES_GOLDUCK                     */ .halfword ABILITY_SWIFT_SWIM
 /* SPECIES_MANKEY                      */ .halfword ABILITY_DEFIANT
