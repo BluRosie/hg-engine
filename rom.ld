@@ -322,6 +322,29 @@ MapObject_GetParam = 0x0205F2F4 | 1;
 MapObject_SetXRange = 0x0205F318 | 1;
 MapObject_SetYRange = 0x0205F320 | 1;
 FieldSysGetAttrAddr = 0x020402F0 | 1;
+MapObject_GfxDraw = 0x0205f484 | 1;
+
+/* 0x16C54 in overlay1 */
+PlayerAlternate_MapObject_GfxDraw = 0x021FC554 | 1;
+
+CreateFollowingSpriteFieldObject = 0x0206A128 | 1;
+FollowingPokemon_GetSpriteID = 0x02069D70 | 1;
+FollowPokeFsysParamSet = 0x02069F3C | 1;
+FollowPokeMapObjectSetParams = 0x02069EE8 | 1;
+FsysFollowMonClear = 0x0206A06C | 1;
+
+CreateSpecialFieldObject = 0x0205E294 | 1;
+DeleteMapObject = 0x0205E400 | 1;
+MapObject_GetCurrentX = 0x0205F914 | 1;
+MapObject_SetCurrentX = 0x0205F918 | 1;
+MapObject_GetCurrentY = 0x0205F934 | 1;
+MapObject_SetCurrentY = 0x0205F938 | 1;
+MapObject_SetFlag29 = 0x0205F89C | 1;
+sub_02069DC8 = 0x02069DC8 | 1;
+ov01_021F9048 = 0x021F9048 | 1;
+
+MapObjectMan_PauseAllMovement = 0x0205F574 | 1;
+MapObjectMan_UnpauseAllMovement = 0x0205F5A4 | 1;
 
 BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;

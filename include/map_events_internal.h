@@ -2,6 +2,7 @@
 #define POKEHEARTGOLD_MAP_EVENTS_INTERNAL_H
 
 //#include "wild_encounter.h"
+#include "types.h"
 
 typedef struct BG_EVENT {
     u16 scr;
@@ -77,6 +78,54 @@ typedef struct MAP_EVENTS {
 
 typedef struct LocalMapObject LocalMapObject;
 
+typedef struct MapObjectMan {
+    u32 flags;
+    u32 object_count;
+    u32 unk8;
+    u32 unkC;
+    u8 unk10[4];
+    void* mmodel_narc;
+    u8 unk18[4];
+    u8 unk1C[0x124-0x1C];
+    LocalMapObject* objects;
+    FieldSystem* fsys;
+} MapObjectMan; // size: 0x12c
+
+typedef enum MapObjectFlagBits {
+    MAPOBJECTFLAG_ACTIVE = (1 << 0),
+    MAPOBJECTFLAG_SINGLE_MOVEMENT = (1 << 1),
+    MAPOBJECTFLAG_UNK2 = (1 << 2),
+    MAPOBJECTFLAG_UNK3 = (1 << 3),
+    MAPOBJECTFLAG_UNK4 = (1 << 4),
+    MAPOBJECTFLAG_UNK5 = (1 << 5),
+    MAPOBJECTFLAG_MOVEMENT_PAUSED = (1 << 6),
+    MAPOBJECTFLAG_UNK7 = (1 << 7),
+    MAPOBJECTFLAG_UNK8 = (1 << 8),
+    MAPOBJECTFLAG_UNK9 = (1 << 9),
+    MAPOBJECTFLAG_UNK10 = (1 << 10),
+    MAPOBJECTFLAG_UNK11 = (1 << 11),
+    MAPOBJECTFLAG_UNK12 = (1 << 12),
+    MAPOBJECTFLAG_UNK13 = (1 << 13),
+    MAPOBJECTFLAG_UNK14 = (1 << 14),
+    MAPOBJECTFLAG_UNK15 = (1 << 15),
+    MAPOBJECTFLAG_UNK16 = (1 << 16),
+    MAPOBJECTFLAG_UNK17 = (1 << 17),
+    MAPOBJECTFLAG_UNK18 = (1 << 18),
+    MAPOBJECTFLAG_UNK19 = (1 << 19),
+    MAPOBJECTFLAG_UNK20 = (1 << 20),
+    MAPOBJECTFLAG_UNK21 = (1 << 21),
+    MAPOBJECTFLAG_UNK22 = (1 << 22),
+    MAPOBJECTFLAG_UNK23 = (1 << 23),
+    MAPOBJECTFLAG_UNK24 = (1 << 24),
+    MAPOBJECTFLAG_UNK25 = (1 << 25),
+    MAPOBJECTFLAG_UNK26 = (1 << 26),
+    MAPOBJECTFLAG_UNK27 = (1 << 27),
+    MAPOBJECTFLAG_UNK28 = (1 << 28),
+    MAPOBJECTFLAG_UNK29 = (1 << 29),
+    MAPOBJECTFLAG_UNK30 = (1 << 30),
+    MAPOBJECTFLAG_UNK31 = (1 << 31),
+} MapObjectFlagBits;
+
 struct SavedMapObject {
     u8 filler_00[8];
     u8 objId;
@@ -138,6 +187,12 @@ struct LocalMapObject {
     /*0x128*/ FieldSystem *fsys;
 };
 
+#define BIT_MOVE (1<<1)
+#define BIT_MOVE_START (1<<2)
+#define BIT_MOVE_END (1<<3)
+#define BIT_VANISH (1<<9)
+#define BIT_JUMP_START (1<<16)
+
 LocalMapObject * __attribute__((long_call)) GetMapObjectByID(void *arr, int id);
 int __attribute__((long_call)) MapObject_GetMovement(LocalMapObject *mapObject);
 u32 __attribute__((long_call)) MapObject_GetGfxID(LocalMapObject *mapObject);
@@ -155,5 +210,45 @@ int __attribute__((long_call)) MapObject_GetParam(LocalMapObject *mapObject, int
 void __attribute__((long_call)) MapObject_SetXRange(LocalMapObject *mapObject, u32 xRange);
 void __attribute__((long_call)) MapObject_SetYRange(LocalMapObject *mapObject, u32 yRange);
 
+void __attribute__((long_call)) MapObject_GfxDraw(LocalMapObject *mapObject);
+void __attribute__((long_call)) PlayerAlternate_MapObject_GfxDraw(LocalMapObject *mapObject, int sprite_id, void *, void*);
+
+LocalMapObject * __attribute__((long_call)) CreateFollowingSpriteFieldObject(void *mapObjectMan, int species, u16 forme, int gender, int direction, int x, int y, int shiny);
+u32 __attribute__((long_call)) FollowingPokemon_GetSpriteID(int species, u16 forme, u32 gender);
+void __attribute__((long_call)) FollowPokeFsysParamSet(FieldSystem *fsys, int species, u8 forme, BOOL shiny, u8 gender);
+void __attribute__((long_call)) FollowPokeMapObjectSetParams(LocalMapObject *mapObject, int species, u8 forme, BOOL shiny);
+void __attribute__((long_call)) FsysFollowMonClear(FollowMon *followMon);
+LocalMapObject * __attribute__((long_call)) CreateSpecialFieldObject(void *objectMan, u32 x, u32 z, u32 direction, u32 sprite, u32 movement, u32 mapNo);
+void __attribute__((long_call)) DeleteMapObject(LocalMapObject *mapObject);
+u32 __attribute__((long_call)) MapObject_GetCurrentX(LocalMapObject *object);
+u32 __attribute__((long_call)) MapObject_GetCurrentY(LocalMapObject *object);
+void __attribute__((long_call)) MapObject_SetCurrentY(LocalMapObject* object, u32 y);
+void __attribute__((long_call)) MapObject_SetCurrentX(LocalMapObject* object, u32 x);
+void __attribute__((long_call)) MapObject_SetFlag29(LocalMapObject* object, BOOL set);
+void __attribute__((long_call)) sub_02069DC8(LocalMapObject *mapObject, BOOL enable_bit);
+void __attribute__((long_call)) ov01_021F9048(LocalMapObject* map_object);
+void MapObjectMan_PauseAllMovement(MapObjectMan* manager);
+void MapObjectMan_UnpauseAllMovement(MapObjectMan* manager);
+
+//#define FollowPokeObj_GetSpecies(mapObject) MapObject_GetParam(mapObject, 0)
+
+typedef struct FIELD_PLAYER_AVATAR {
+    u32 unk0;
+    u32 transFlag;
+    u32 unk8;
+    u32 unkc;
+    u32 unk10;
+    u32 unk14;
+    int state;
+    u32 gender;
+    u8 unk20;
+    u32 unk24;
+    int unk28;
+    int unk2c;
+    LocalMapObject* mapObject;
+    u32 unk34;
+    void */*FIELD_PLAYER_AVATAR_SUB**/ unk38;
+    u32 unk3c;
+} FIELD_PLAYER_AVATAR; //size: 0x40
 
 #endif //POKEHEARTGOLD_MAP_EVENTS_INTERNAL_H
