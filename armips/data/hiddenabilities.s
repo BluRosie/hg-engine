@@ -252,7 +252,7 @@
 /* SPECIES_ENTEI                       */ .halfword ABILITY_INNER_FOCUS
 /* SPECIES_SUICUNE                     */ .halfword ABILITY_INNER_FOCUS
 /* SPECIES_LARVITAR                    */ .halfword ABILITY_SAND_VEIL
-/* SPECIES_PUPITAR                     */ .halfword ABILITY_NONE
+/* SPECIES_PUPITAR                     */ .halfword ABILITY_SHED_SKIN
 /* SPECIES_TYRANITAR                   */ .halfword ABILITY_UNNERVE
 /* SPECIES_LUGIA                       */ .halfword ABILITY_MULTISCALE
 /* SPECIES_HO_OH                       */ .halfword ABILITY_REGENERATOR
