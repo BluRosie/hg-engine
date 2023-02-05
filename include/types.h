@@ -34,7 +34,7 @@ typedef u32 bool32;
 // Extracts the lower 16 bits of a 32-bit number
 #define LOHALF(n) ((n) & 0xFFFF)
 
-void __attribute__((long_call)) GF_ASSERT(void);
+void __attribute__((long_call)) GF_ASSERT(u32 cond);
 u16 __attribute__((long_call)) gf_rand(void);
 u16 __attribute__((long_call)) sqrt(u32 arg0);
 

@@ -9,10 +9,7 @@ from datetime import datetime
 import _io
 import ndspy.codeCompression
 
-OFFSET_TO_PUT = 0
-SOURCE_ROM = "rom.nds"
-ROM_NAME = "test.nds"
-OFFSET_START = 0x023C8000 + 0x4000 # 0x3400 is the offset in the synthetic overlay.  change to where you need it to be.
+#OFFSET_START = 0x023C8000 + 0x4000 # 0x4000 is the offset in the synthetic overlay.  change to where you need it to be.
 
 if sys.platform.startswith('win'):
     PathVar = os.environ.get('Path')
@@ -43,18 +40,16 @@ else:  # Linux, OSX, etc.
     AS = (PREFIX + 'as')
 
 OUTPUT = 'build/output.bin'
+OUTPUT_FIELD = 'build/output_field.bin'
+OUTPUT_BATTLE = 'build/output_battle.bin'
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
 REPOINTS = 'repoints'
-GENERATED_REPOINTS = 'generatedrepoints'
-REPOINT_ALL = 'repointall'
 ROUTINE_POINTERS = 'routinepointers'
-FUNCTION_REWRITES = 'functionrewrites'
-EVENT_SCRIPTS = "eventscripts"
-SONGS = "songs"
-SPECIAL_INSERTS = 'special_inserts_12.s'
-SPECIAL_INSERTS_OUT = 'build/special_inserts.bin'
 
+LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o']
+OFFSET_START_IN_129 = 0x023C8000 + 0x4000
+OFFSET_START = [0x023C8000, 0x0226EC40, 0x02260D80]
 
 def ExtractPointer(byteList: [bytes]):
     pointer = 0
@@ -64,42 +59,46 @@ def ExtractPointer(byteList: [bytes]):
     return pointer
 
 
-def GetTextSection() -> int:
+def GetTextSection(section=0) -> int:
+    #return 0
     try:
         # Dump sections
-        out = subprocess.check_output([OBJDUMP, '-t', 'build/linked.o'])
+        out = subprocess.check_output([OBJDUMP, '-t', LINKED_SECTIONS[section]])
         lines = out.decode().split('\n')
-
+    
         # Find text section
         text = filter(lambda x: x.strip().endswith('.text'), lines)
         section = (list(text))[0]
-
+    
         # Get the offset
         offset = int(section.split(' ')[0], 16)
         return offset
-
+    
     except:
         print("Error: The insertion process could not be completed.\n"
               + "The linker symbol file was not found. Most likely the compilation process was not completed.")
         sys.exit(1)
 
 
-def GetSymbols(subtract=0) -> {str: int}:
-    out = subprocess.check_output([NM, 'build/linked.o'])
-    lines = out.decode().split('\n')
-
+def GetSymbols() -> {str: int}:
     ret = {}
-    for line in lines:
-        parts = line.strip().split()
 
-        if len(parts) < 3:
-            continue
+    for section in range(0,len(LINKED_SECTIONS) - 1):
+        #subtract = GetTextSection(section)
+        out = subprocess.check_output([NM, LINKED_SECTIONS[section]])
+        lines = out.decode().split('\n')
 
-        if parts[1].lower() not in {'t', 'd'}:
-            continue
+        for line in lines:
+            parts = line.strip().split()
 
-        offset = int(parts[0], 16)
-        ret[parts[2]] = offset - subtract
+            if len(parts) < 3:
+                continue
+
+            if parts[1].lower() not in {'t', 'd'}:
+                continue
+    
+            offset = int(parts[0], 16)
+            ret[parts[2]] = offset# - subtract
 
     return ret
 
@@ -111,6 +110,8 @@ def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
 
     rom.seek(hookAt)
 
+    if (register > 7):
+        print("Register used to hook at " + str(space) + " is > 7 (r" + str(register) + " used).  Modulo'd by 8.")
     register &= 7
 
     if hookAt % 4:
@@ -118,36 +119,8 @@ def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
     else:
         data = bytes([0x00, 0x48 | register, 0x00 | (register << 3), 0x47])
 
-    space += OFFSET_START + 1
-    data += (space.to_bytes(4, 'little'))
-    rom.write(bytes(data))
-
-
-def FunctionWrap(rom: _io.BufferedReader, space: int, hookAt: int, numParams: int, isReturning: int):
-    # Align 2
-    if hookAt & 1:
-        hookAt -= 1
-
-    rom.seek(hookAt)
-    numParams = numParams - 1
-
-    if numParams < 4:
-        data = bytes([0x10, 0xB5, 0x3, 0x4C, 0x0, 0xF0, 0x3, 0xF8, 0x10, 0xBC,
-                      (isReturning + 1), 0xBC, (isReturning << 3), 0x47, 0x20, 0x47])
-    else:
-        k = numParams - 3
-        data = bytes([0x10, 0xB5, 0x82, 0xB0])
-        for i in range(k + 2):
-            data += bytes([i + 2, 0x9C, i, 0x94])
-        data += bytes([0x0, 0x9C, numParams - 1, 0x94, 0x1, 0x9C, numParams, 0x94, 0x2, 0xB0, k + 8, 0x4C,
-                       0x0, 0xF0, (k << 1) + 13, 0xF8, 0x82, 0xB0, numParams, 0x9C, 0x1, 0x94, numParams - 1,
-                       0x9C, 0x0, 0x94])
-
-        for i in reversed(range(k + 2)):
-            data += bytes([i, 0x9C, i + 2, 0x94])
-        data += bytes([0x2, 0xB0, 0x10, 0xBC, isReturning + 1, 0xBC, isReturning << 3, 0x47, 0x20, 0x47])
-
-    space += 0x08000001
+    #space += OFFSET_START + 1
+    space += 1
     data += (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
 
@@ -155,48 +128,10 @@ def FunctionWrap(rom: _io.BufferedReader, space: int, hookAt: int, numParams: in
 def Repoint(rom: _io.BufferedReader, space: int, repointAt: int, slideFactor=0):
     rom.seek(repointAt)
 
-    space += (OFFSET_START + slideFactor)
+    #space += (OFFSET_START + slideFactor)
+    space += (slideFactor)
     data = (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
-
-
-# These offsets contain the word 0x8900000 - the attack data from
-# Mr. DS's rombase. In order to maintain as much compatibility as
-# possible, the data at these offsets is never modified.
-IGNORED_OFFSETS = [0x3986C0, 0x3986EC, 0xDABDF0]
-
-
-def RealRepoint(rom: _io.BufferedReader, offsetTuples: [(int, int, str)]):
-    pointerList = []
-    pointerDict = {}
-    for tup in offsetTuples:  # Format is (Double Pointer, New Pointer, Symbol)
-        offset = tup[0]
-        rom.seek(offset)
-        pointer = ExtractPointer(rom.read(4))
-        pointerList.append(pointer)
-        pointerDict[pointer] = (tup[1] + 0x08000000, tup[2])
-
-    offset = 0
-    offsetList = []
-
-    while offset < 0xFFFFFD:
-        if offset in IGNORED_OFFSETS:
-            offset += 4
-            continue
-
-        rom.seek(offset)
-        word = ExtractPointer(rom.read(4))
-        rom.seek(offset)
-
-        for pointer in pointerList:
-            if word == pointer:
-                offsetList.append((offset, pointerDict[pointer][1]))
-                rom.write(bytes(pointerDict[pointer][0].to_bytes(4, 'little')))
-                break
-
-        offset += 4
-
-    return offsetList
 
 
 def ReplaceBytes(rom: _io.BufferedReader, offset: int, data: str):
@@ -316,7 +251,7 @@ def install():
 
 def hook():
     if os.path.isfile(HOOKS):
-        table = GetSymbols(GetTextSection())
+        table = GetSymbols()
         with open(HOOKS, 'r') as hookList:
             definesDict = {}
             conditionals = []
@@ -348,18 +283,41 @@ def hook():
 
 
 def writeall():
-    OFFECTSFILES = "build/a028/8_0"
-    with open(OFFECTSFILES, 'rb+') as rom:
+    OFFECTSFILES = "base/overlay/overlay_0129.bin"
+    with open(OFFECTSFILES, 'wb+') as rom:
         print("Inserting code.")
-        table = GetSymbols(GetTextSection())
+        table = GetSymbols()
         with open(OUTPUT, 'rb') as binary:
-            rom.seek(OFFSET_START - 0x023c8000)
+            rom.seek(OFFSET_START_IN_129 - OFFSET_START[0])
             rom.write(binary.read())
             binary.close()
         rom.close()
 
-        for entry in table:
-            table[entry] += OFFSET_START
+        #for entry in table:
+        #    table[entry] += OFFSET_START
+
+    OFFECTSFILES = "base/overlay/overlay_0130.bin"
+    with open(OFFECTSFILES, 'wb+') as rom:
+        with open(OUTPUT_BATTLE, 'rb') as binary:
+            rom.seek(0)
+            rom.write(binary.read())
+            binary.close()
+        rom.close()
+
+        #for entry in table:
+        #    table[entry] += OFFSET_START
+
+    OFFECTSFILES = "base/overlay/overlay_0131.bin"
+    with open(OFFECTSFILES, 'wb+') as rom:
+        with open(OUTPUT_FIELD, 'rb') as binary:
+            rom.seek(0)
+            rom.write(binary.read())
+            binary.close()
+        rom.close()
+
+        #for entry in table:
+        #    table[entry] += OFFSET_START
+
     width = max(map(len, table.keys())) + 1
     if os.path.isfile('offsets.ini'):
         offsetIni = open('offsets.ini', 'r+')
@@ -369,55 +327,14 @@ def writeall():
     offsetIni.truncate()
     for key in sorted(table.keys()):
         fstr = ('{:' + str(width) + '} {:08X}')
-        offsetIni.write(fstr.format(key + ':', table[key]) + " /" + fstr.format(key + ':', table[key] - OFFSET_START) + '\n')
+        #offsetIni.write(fstr.format(key + ':', table[key]) + " /" + fstr.format(key + ':', table[key] - OFFSET_START) + '\n')
+        offsetIni.write(fstr.format(key + ':', table[key]) + '\n')
     offsetIni.close()
-
-
-def special():
-    if os.path.isfile(SPECIAL_INSERTS) and os.path.isfile(SPECIAL_INSERTS_OUT):
-        with open(SPECIAL_INSERTS, 'r') as file:
-            offsetList = []
-            for line in file:
-                if line.strip().startswith('.org '):
-                    offsetList.append(int(line.split('.org ')[1].split(',')[0], 16))
-
-            offsetList.sort()
-
-        with open(SPECIAL_INSERTS_OUT, 'rb') as binFile:
-            for offset in offsetList:
-                originalOffset = offset
-                dataList = ""
-
-                if offsetList.index(offset) == len(offsetList) - 1:
-                    while True:
-                        try:
-                            binFile.seek(offset)
-                            dataList += hex(binFile.read(1)[0]) + ' '
-                        except IndexError:
-                            break
-
-                        offset += 1
-                else:
-                    binFile.seek(offset)
-                    word = ExtractPointer(binFile.read(4))
-
-                    while word != 0xFFFFFFFF:
-                        binFile.seek(offset)
-                        dataList += hex(binFile.read(1)[0]) + ' '
-                        offset += 1
-
-                        if offset in offsetList:  # Overlapping data
-                            break
-
-                        word = ExtractPointer(binFile.read(4))
-                rom2 = open("base/overlay/overlay_0012.bin", 'rb+')
-                ReplaceBytes(rom2, originalOffset, dataList.strip())
-                rom2.close()
 
 
 def repoint():
     if os.path.isfile(ROUTINE_POINTERS):
-        table = GetSymbols(GetTextSection())
+        table = GetSymbols()
         with open(ROUTINE_POINTERS, 'r') as pointerlist:
             definesDict = {}
             conditionals = []
@@ -450,7 +367,7 @@ def repoint():
 
 def offset():
     if os.path.isfile(REPOINTS):
-        table = GetSymbols(GetTextSection())
+        table = GetSymbols()
         with open(REPOINTS, 'r') as repointList:
             definesDict = {}
             conditionals = []

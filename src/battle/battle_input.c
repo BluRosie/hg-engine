@@ -1,12 +1,12 @@
-#include "../include/types.h"
-#include "../include/battle.h"
-#include "../include/config.h"
-#include "../include/pokemon.h"
-#include "../include/sprite.h"
-#include "../include/mega.h"
-#include "../include/constants/ability.h"
-#include "../include/constants/item.h"
-#include "../include/constants/file.h"
+#include "../../include/types.h"
+#include "../../include/battle.h"
+#include "../../include/config.h"
+#include "../../include/pokemon.h"
+#include "../../include/sprite.h"
+#include "../../include/mega.h"
+#include "../../include/constants/ability.h"
+#include "../../include/constants/item.h"
+#include "../../include/constants/file.h"
 
 struct newBattleStruct newBS = {0};
 

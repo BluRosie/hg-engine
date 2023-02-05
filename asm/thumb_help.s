@@ -146,3 +146,15 @@ memcpy:
     blx 0x020E5AD8
     pop {pc}
     .size memcpy, . - memcpy
+
+.global debugsyscall
+debugsyscall:
+swi 0xFC
+bx lr
+
+
+.global sprintf
+sprintf:
+push {lr}
+blx 0x020e7f30
+pop {pc}

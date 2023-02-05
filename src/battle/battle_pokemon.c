@@ -1,103 +1,14 @@
-#include "../include/types.h"
-#include "../include/battle.h"
-#include "../include/pokemon.h"
-#include "../include/constants/ability.h"
-#include "../include/constants/battle_message_constants.h"
-#include "../include/constants/battle_script_constants.h"
-#include "../include/constants/file.h"
-#include "../include/constants/game.h"
-#include "../include/constants/item.h"
-#include "../include/constants/moves.h"
-#include "../include/constants/species.h"
-
-void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id)
-{
-    u16 sum;
-    u32 i, j;
-    BOOL flag;
-
-    u32 title, language;
-    title = VERSION_GOLD;
-    language = LANG_ENGLISH;
-
-    BoxMonInit(boxmon);
-
-    flag = BoxMonSetFastModeOn(boxmon);
-
-    if(!rndflag){
-        rnd = (gf_rand() | (gf_rand() << 16));
-    }
-    BoxMonDataSet(boxmon,ID_PARA_personal_rnd,(u8 *)&rnd);
-
-    if(idflag==ID_NO_SHINY){
-        do{
-            id = (gf_rand() | (gf_rand() << 16));
-        } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((rnd & 0xffff0000) >> 16) ^ (rnd & 0xffff)) < 8);
-    }
-    else if(idflag!=ID_SET){
-        id=0;
-    }
-
-    BoxMonDataSet(boxmon,ID_PARA_id_no,(u8 *)&id);
-    BoxMonDataSet(boxmon,ID_PARA_country_code,(u8 *)&language);
-    BoxMonDataSet(boxmon,ID_PARA_monsno,(u8 *)&species);
-    BoxMonDataSet(boxmon,ID_PARA_default_name,NULL);
-
-    i=PokeLevelExpGet(species,level);
-    BoxMonDataSet(boxmon,ID_PARA_exp,(u8 *)&i);
-
-    i=PokePersonalParaGet(species,PERSONAL_BASE_FRIENDSHIP);
-    BoxMonDataSet(boxmon,ID_PARA_friend,(u8 *)&i);
-
-    BoxMonDataSet(boxmon,ID_PARA_get_level,(u8 *)&level);
-    BoxMonDataSet(boxmon,ID_PARA_get_cassette,(u8 *)&title);
-    i=ITEM_POKE_BALL;
-    BoxMonDataSet(boxmon,ID_PARA_get_ball,(u8 *)&i);
-
-    if(pow <= MAX_IVS){
-        BoxMonDataSet(boxmon,ID_PARA_hp_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_pow_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_def_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_agi_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_spepow_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_spedef_rnd,(u8 *)&pow);
-    }
-    else{ // why the fuck is it done like this
-        i=gf_rand();
-        j=(i&(0x001f<< 0))>> 0;
-        BoxMonDataSet(boxmon,ID_PARA_hp_rnd,(u8 *)&j);
-        j=(i&(0x001f<< 5))>> 5;
-        BoxMonDataSet(boxmon,ID_PARA_pow_rnd,(u8 *)&j);
-        j=(i&(0x001f<<10))>>10;
-        BoxMonDataSet(boxmon,ID_PARA_def_rnd,(u8 *)&j);
-        i=gf_rand();
-        j=(i&(0x001f<< 0))>> 0;
-        BoxMonDataSet(boxmon,ID_PARA_agi_rnd,(u8 *)&j);
-        j=(i&(0x001f<< 5))>> 5;
-        BoxMonDataSet(boxmon,ID_PARA_spepow_rnd,(u8 *)&j);
-        j=(i&(0x001f<<10))>>10;
-        BoxMonDataSet(boxmon,ID_PARA_spedef_rnd,(u8 *)&j);
-    }
-
-    i = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
-    j = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
-    if(j!=0){
-        if(rnd&1){
-            BoxMonDataSet(boxmon,ID_PARA_speabino,(u8 *)&j);
-        }
-        else{
-            BoxMonDataSet(boxmon,ID_PARA_speabino,(u8 *)&i);
-        }
-    }
-    else{
-        BoxMonDataSet(boxmon,ID_PARA_speabino,(u8 *)&i);
-    }
-
-    i=GetBoxMonGender(boxmon);
-    BoxMonDataSet(boxmon,ID_PARA_sex,(u8 *)&i);
-    FillInBoxMonLearnset(boxmon);
-    BoxMonSetFastModeOff(boxmon,flag);
-}
+#include "../../include/types.h"
+#include "../../include/battle.h"
+#include "../../include/pokemon.h"
+#include "../../include/constants/ability.h"
+#include "../../include/constants/battle_message_constants.h"
+#include "../../include/constants/battle_script_constants.h"
+#include "../../include/constants/file.h"
+#include "../../include/constants/game.h"
+#include "../../include/constants/item.h"
+#include "../../include/constants/moves.h"
+#include "../../include/constants/species.h"
 
 
 /**Trainer Data File Bitfield**/
@@ -1374,6 +1285,93 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
                 mp->msg_tag = TAG_NICK;
                 mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
             }
+        }
+    }
+}
+
+void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility)
+{
+    void *pp2;
+
+    pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
+    SetMonData(pp2, ID_PARA_form_no, &form_no);
+
+    PokeParaCalc(pp2);
+    if (SwitchAbility)
+    {
+        PokeParaSpeabiSet(pp2);
+        sp->battlemon[client].ability = GetMonData(pp2, ID_PARA_speabino, NULL);
+    }
+    
+
+    sp->battlemon[client].attack = GetMonData(pp2, ID_PARA_pow, NULL);
+    sp->battlemon[client].defense = GetMonData(pp2, ID_PARA_def, NULL);
+    sp->battlemon[client].speed = GetMonData(pp2, ID_PARA_agi, NULL);
+    sp->battlemon[client].spatk = GetMonData(pp2, ID_PARA_spepow, NULL);
+    sp->battlemon[client].spdef = GetMonData(pp2, ID_PARA_spedef, NULL);
+    
+    sp->battlemon[client].type1 = GetMonData(pp2, ID_PARA_type1, NULL);
+    sp->battlemon[client].type2 = GetMonData(pp2, ID_PARA_type2, NULL);
+
+    //sp->battlemon[client].species = PokeOtherFormMonsNoGet(sp->battlemon[client].species, form_no);
+}
+
+void TryRevertFormChange(struct BattleStruct *sp, void* bw, int client_no)
+{
+    u16 species = sp->battlemon[client_no].species;
+    u8 form_no = sp->battlemon[client_no].form_no;
+
+    void *pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
+
+    if (RevertFormChange(pp,species,form_no))
+    {
+        PokeParaCalc(pp);
+        PokeParaSpeabiSet(pp);
+    }
+}
+
+void BattleEndRevertFormChange(void *bw)
+{
+    int i, j;
+    void *pp;
+    u16 monsno;
+    u16 form;
+
+    newBS.SideMega[0] = 0;
+    newBS.SideMega[1] = 0;
+    newBS.playerWantMega = 0;
+    newBS.PlayerMegaed = 0;
+
+    newBS.CanMega = 0;
+    newBS.ChangeBgFlag = 0;
+    newBS.MegaIconLight = 0;
+    
+    for (i = 0; i < 2; i++)
+    {
+        // revert illusion
+        if (gIllusionStruct.isSideInIllusion[i])
+        {
+            pp = BattleWorkPokemonParamGet(bw, 0, gIllusionStruct.illusionPos[i]);
+            SetMonData(pp, ID_PARA_nickname, gIllusionStruct.illusionNameBuf[i]);
+        }
+        
+        // clear the illusion structure
+        gIllusionStruct.isSideInIllusion[i] = 0;
+        gIllusionStruct.illusionPos[i] = 0;
+        for (j = 0; j < 11; j++)
+            gIllusionStruct.illusionNameBuf[i][j] = 0;
+    }
+
+    for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
+    {
+        pp = BattleWorkPokemonParamGet(bw, 0, i);
+        monsno = GetMonData(pp, 174, 0);
+        form = GetMonData(pp, 112, 0);
+
+        if (RevertFormChange(pp,monsno,form))
+        {
+            PokeParaCalc(pp);
+            PokeParaSpeabiSet(pp);
         }
     }
 }

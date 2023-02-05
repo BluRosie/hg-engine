@@ -43,12 +43,18 @@ OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
 CSC = csc$(EXE)
 
 LDFLAGS = rom.ld -T linker.ld
+LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
+LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
 ASFLAGS = -mthumb -I ./data
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Os -fira-loop-pressure -fipa-pta
 
 PYTHON = python3
 LINK = build/linked.o
 OUTPUT = build/output.bin
+BATTLE_LINK = build/battle_linked.o
+BATTLE_OUTPUT = build/output_battle.bin
+FIELD_LINK = build/field_linked.o
+FIELD_OUTPUT = build/output_field.bin
 ####################### output #########################
 C_SUBDIR = src
 ASM_SUBDIR = asm
@@ -68,8 +74,16 @@ ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(ASM_SRCS))
 OBJS     := $(C_OBJS) $(ASM_OBJS)
 
-OW_SPRITES_SRC := $(wildcard data/graphics/overworlds/*.png)
-OW_SPRITES_OBJS := $(patsubst data/graphics/overworlds/*.png,build/data/graphics/overworlds/%.swav,$(OW_SPRITES_SRC))
+BATTLE_C_SRCS := $(wildcard $(C_SUBDIR)/battle/*.c)
+BATTLE_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(BATTLE_C_SRCS))
+BATTLE_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/battle/*.s)
+BATTLE_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(BATTLE_ASM_SRCS))
+BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS)
+
+FIELD_C_SRCS := $(wildcard $(C_SUBDIR)/field/*.c)
+FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
+FIELD_OBJS   := $(FIELD_C_OBJS) build/thumb_help.d
+# just build something so it doesn't crash
 
 ## includes
 include data/graphics/pokegra.mk
@@ -81,17 +95,32 @@ $(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
 $(BUILD)/%.o:src/%.c
-	mkdir -p $(BUILD)
+	mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LINK):$(OBJS)
-	$(LD) $(LDFLAGS) -o $@ $(C_OBJS) $(ASM_OBJS)
+	$(LD) $(LDFLAGS) -o $@ $(OBJS)
 
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
-all: $(OUTPUT)
+$(FIELD_LINK):$(FIELD_OBJS)
+	$(LD) $(LDFLAGS_FIELD) -o $@ $(FIELD_OBJS)
+
+$(FIELD_OUTPUT):$(FIELD_LINK)
+	$(OBJCOPY) -O binary $< $@
+
+$(BATTLE_LINK):$(BATTLE_OBJS)
+	$(LD) $(LDFLAGS_BATTLE) -o $@ $(BATTLE_OBJS)
+
+$(BATTLE_OUTPUT):$(BATTLE_LINK)
+	$(OBJCOPY) -O binary $< $@
+
+generate_output:
+	$(PYTHON) scripts/generate_ld.py
+
+all: | $(OUTPUT) generate_output $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
@@ -157,6 +186,9 @@ clean_tools:
 	rm -f tools/ndstool
 	rm -f tools/armips
 	rm -f tools/nitrogfx
+
+
+print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 
 # ideally this is all just copying and no building.

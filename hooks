@@ -207,3 +207,8 @@ arm9 grab_sex_for_GetBoxMonData 0806EA1A 1
 0012 ServerWazaHitAfterCheckAct 080168FC 2
 
 arm9 GetMoveDataTable 02073300 1
+
+# add linked overlay support
+arm9 HandleLoadOverlay 02006FF8 2
+arm9 UnloadOverlayByID 02006F7C 1
+

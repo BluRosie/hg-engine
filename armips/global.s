@@ -15,6 +15,7 @@
 .include "armips/asm/levelup.s" // change the level up moves to be (u16 level, u16 move) + expand learnset to LEARNSET_TOTAL_MOVES (from armips/include/config.s)
 .include "armips/asm/pokedex.s" // code for pokedex expansion, including expanding the save
 //.include "armips/asm/overworlds.s" // code for overworlds, specifically repointing gOWTagToFileNum and making dimorphism a byte instead of a halfword.  currently included and built every time as part of armips/data/monoverworlds.s
+.include "armips/asm/y9.s" // add new overlay entries to the y9 table
 
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
