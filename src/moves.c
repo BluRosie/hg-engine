@@ -1,11 +1,11 @@
-#include "../../include/types.h"
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/pokemon.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/file.h"
+#include "../include/types.h"
+#include "../include/battle.h"
+#include "../include/config.h"
+#include "../include/pokemon.h"
+#include "../include/constants/ability.h"
+#include "../include/constants/item.h"
+#include "../include/constants/moves.h"
+#include "../include/constants/file.h"
 
 // brackets are there so we can possibly come back and make constants for them
 u32 move_effect_to_subscripts[] =
