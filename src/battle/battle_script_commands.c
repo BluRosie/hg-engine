@@ -255,6 +255,8 @@ const u8 *BattleScrCmdNames[] =
     "heavyslamdamagecalc",
     "isuserlowerlevel",
 };
+
+u32 cmdAddress = 0;
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
 
@@ -276,6 +278,20 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
     do {
         command = sp->SkillSeqWork[sp->skill_seq_no];
 
+#ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
+        if (cmdAddress != (u32)&sp->SkillSeqWork[sp->skill_seq_no])
+        {
+            cmdAddress = (u32)&sp->SkillSeqWork[sp->skill_seq_no];
+            sprintf(buf, "%s - 0x%02X\n", BattleScrCmdNames[command], command);
+            debugsyscall(buf);
+            if (command == 0xE0 || command == 0x24)
+            {
+                debugsyscall("\n");
+                cmdAddress = 0;
+            }
+        }
+#endif //DEBUG_BATTLE_SCRIPT_COMMANDS
+
         if (command < START_OF_NEW_BTL_SCR_CMDS)
         {
             ret = BattleScriptCmdTable[command](bw, sp);
@@ -284,10 +300,6 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
         {
             ret = NewBattleScriptCmdTable[command - START_OF_NEW_BTL_SCR_CMDS](bw, sp);
         }
-#ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
-        sprintf(buf, "%s - 0x%02X\n", BattleScrCmdNames[command], command);
-        debugsyscall(buf);
-#endif //DEBUG_BATTLE_SCRIPT_COMMANDS
     } while ((sp->battle_progress_flag == 0) && ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0));
 
     sp->battle_progress_flag = 0;

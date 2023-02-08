@@ -48,8 +48,10 @@ unloadSecond:
         }
     }
     
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Freed overlay %d.\n", ovyId);
     debugsyscall(buf);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
     
     for (i = 0; i < NELEMS(gLinkedOverlayList); i++)
     {
@@ -87,10 +89,15 @@ loadExtension:
         }
     }
 
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Loaded in overlay_%04d.bin. Total of %d overlays loaded.\n", ovyId, i+1);
     debugsyscall(buf);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
+
     if (i >= 8) {
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
         debugsyscall("ERROR: Too many overlays!\n");
+#endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;
     }
@@ -119,8 +126,10 @@ loadExtension:
     }
 
     if (result == FALSE) {
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
         sprintf(buf, "Failed to load overlay_%04d.bin.\n", ovyId);
         debugsyscall(buf);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;
     }
