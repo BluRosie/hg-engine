@@ -34,7 +34,7 @@ ARMIPS = tools/armips
 NARCHIVE = tools/narcpy.py
 GFX = tools/nitrogfx
 BTX = tools/pngtobtx0$(EXE)
-####################### Seting ########################
+###################### Setting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
 CC = $(DEVKITARM)/$(PREFIX)gcc
@@ -55,7 +55,7 @@ BATTLE_LINK = build/battle_linked.o
 BATTLE_OUTPUT = build/output_battle.bin
 FIELD_LINK = build/field_linked.o
 FIELD_OUTPUT = build/output_field.bin
-####################### output #########################
+####################### output ########################
 C_SUBDIR = src
 ASM_SUBDIR = asm
 INCLUDE_SUBDIR = include
@@ -78,7 +78,7 @@ BATTLE_C_SRCS := $(wildcard $(C_SUBDIR)/battle/*.c)
 BATTLE_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(BATTLE_C_SRCS))
 BATTLE_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/battle/*.s)
 BATTLE_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(BATTLE_ASM_SRCS))
-BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS)
+BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS) build/thumb_help.d
 
 FIELD_C_SRCS := $(wildcard $(C_SUBDIR)/field/*.c)
 FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))

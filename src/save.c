@@ -8,13 +8,13 @@
 // can't get linking to work properly when i strip these
 
 
-u32 Sav2_Misc_sizeof(void)
+u32 __attribute__((long_call)) Sav2_Misc_sizeof(void)
 {
     return sizeof(struct SAVE_MISC_DATA);
 }
 
 
-void InitStoredMons(struct SAVE_MISC_DATA *saveMiscData)
+void __attribute__((long_call)) InitStoredMons(struct SAVE_MISC_DATA *saveMiscData)
 {
 #ifdef ALLOW_SAVE_CHANGES
 
@@ -24,7 +24,7 @@ void InitStoredMons(struct SAVE_MISC_DATA *saveMiscData)
 }
 
 
-void Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData)
+void __attribute__((long_call)) Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData)
 {
     InitStoredMons(saveMiscData);
 }

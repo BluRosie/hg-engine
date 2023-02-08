@@ -521,6 +521,39 @@ struct Evolution {
     u16 target;
 };
 
+typedef struct
+{
+    u16 arc_no;
+    u16 index_chr;
+    u16 index_pal;
+    u16 strike_mons;
+    u8 form_no;
+    u8 dummy[3];
+    u32 personal_rnd;
+} MON_PIC;
+
+struct FormData
+{
+    u16 species;
+
+    u16 form_no:15;
+    u16 need_rev:1;
+
+    u16 file;
+};
+
+typedef struct EncounterInfo
+{
+    u32 trainerID;
+    BOOL unk4;
+    BOOL unk8;
+    u8 level;
+    u8 isEgg;
+    u8 ability;
+    u8 unkE[2];
+    u8 unk11;
+} EncounterInfo; // size = 0x12
+
 #define MAX_EVOS_PER_POKE (9)
 
 
@@ -579,26 +612,46 @@ BOOL __attribute__((long_call)) GrabAndRegisterUnownForm(struct PartyPokemon *po
 BOOL __attribute__((long_call)) MonIsShiny(struct PartyPokemon *pokemon);
 BOOL __attribute__((long_call)) BoxMonIsShiny(struct BoxPokemon *pokemon);
 
-void ChangePokemonPersonal(struct PartyPokemon *poke,u8 abilityNum,u8 nature,bool8 Setshiny);
-void PokePasoParaSpeabiSet(void *ppp);
-bool8 RevertFormChange(void *pp, u16 species, u8 form_no);
-u16 GetMonHiddenAbility(u16 species, u32 form);
-u32 GetSpeciesBaseExp(u32 species, u32 form);
-int PokeOtherFormMonsNoGet(int mons_no, int form_no);
-u32 GetGenesectType(u16 item);
-u32 GetGenesectForme(u16 item);
-u32 CanUseRevealMirror(struct PartyPokemon *pp);
-void ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form);
-void SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove);
-void ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove);
-u32 GrabCurrentSeason(void);
-void UpdateFormIfDeerling(struct PartyPokemon *pp);
-u8 LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest);
-u32 CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2);
-u32 GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form);
-u32 GetBoxMonSex(struct BoxPokemon *bp);
-u16 get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 
+// defined in src/pokemon.c
+u8 __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no);
+int __attribute__((long_call)) PokeOtherFormMonsNoGet(int mons_no, int form_no);
+u16 __attribute__((long_call)) GetSpeciesBasedOnForm(int mons_no, int form_no);
+u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no);
+u16 __attribute__((long_call)) PokeIconCgxPatternGet(const void *ppp);
+u32 __attribute__((long_call)) PokeIconPalNumGet(u32 mons, u32 form, u32 isegg);
+u16 __attribute__((long_call)) GetPokemonOwNum(u16 species);
+u16 __attribute__((long_call)) GetMonHiddenAbility(u16 species, u32 form);
+void __attribute__((long_call)) SetBoxMonAbility(void *boxmon);
+u32 __attribute__((long_call)) GetSpeciesBaseExp(u32 species, u32 form);
+struct OVERWORLD_TAG * __attribute__((long_call)) grab_overworld_ptr(u16 tag);
+u16 __attribute__((long_call)) get_a081_index_from_tag(u16 tag);
+u32 __attribute__((long_call)) grab_overworld_a081_index(u16 species, u32 form, u32 isFemale);
+u32 __attribute__((long_call)) GetGenesectType(u16 item);
+u32 __attribute__((long_call)) GetGenesectForme(u16 item);
+void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *bp);
+u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* bp);
+u32 __attribute__((long_call)) CanUseRevealMirror(struct PartyPokemon *pp);
+u32 __attribute__((long_call)) CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
+u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat);
+u32 __attribute__((long_call)) PokeListProc_End_Extend(void *proc, int *seq);
+void __attribute__((long_call)) ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form);
+void __attribute__((long_call)) SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove);
+void __attribute__((long_call)) ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove);
+u32 __attribute__((long_call)) GrabCurrentSeason(void);
+void __attribute__((long_call)) UpdateFormIfDeerling(struct PartyPokemon *pp);
+BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *party);
+//BOOL __attribute__((long_call)) Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time);
+u8 __attribute__((long_call)) LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest);
+u32 __attribute__((long_call)) CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2);
+u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret);
+u32 __attribute__((long_call)) GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form);
+u32 __attribute__((long_call)) GetBoxMonSex(struct BoxPokemon *bp);
+u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
+BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType);
+//BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
+void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id);
+bool8 __attribute__((long_call)) __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);;
 
 
 #endif

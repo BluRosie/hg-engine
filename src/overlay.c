@@ -24,6 +24,7 @@ typedef struct PMiLoadedOverlay {
 } PMiLoadedOverlay;
 
 
+// overlay util funcs
 u32 __attribute__((long_call)) GetOverlayLoadDestination(u32 overlayID);
 PMiLoadedOverlay  *__attribute__((long_call)) GetLoadedOverlaysInRegion(u32 loadDest);
 void __attribute__((long_call)) FreeOverlayAllocation(PMiLoadedOverlay *loadedOverlay);

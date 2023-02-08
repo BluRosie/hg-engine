@@ -69,6 +69,8 @@ void __attribute__((long_call)) SetScriptFlag(SCRIPT_STATE* state, u16 flag_id);
 void __attribute__((long_call)) ClearScriptFlag(SCRIPT_STATE* state, u16 flag_id);
 BOOL __attribute__((long_call)) CheckScriptFlag(SCRIPT_STATE* state, u16 flag_id);
 
+
+
 /* overlay func defines */
 void __attribute__((long_call)) Overlay_UnloadID(u32 ovl_id);
 void __attribute__((long_call)) Overlay_Load(u32 ovl_id, u32 mode);
@@ -76,5 +78,12 @@ u32 __attribute__((long_call)) WIPE_SYS_EndCheck(void);
 void *__attribute__((long_call)) PROC_GetWork(void *proc);
 
 /* bag function defines are in bag.h */
+
+
+// defined in src/save.c
+u32 __attribute__((long_call)) Sav2_Misc_sizeof(void);
+void __attribute__((long_call)) InitStoredMons(struct SAVE_MISC_DATA *saveMiscData);
+void __attribute__((long_call)) Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData);
+
 
 #endif // SAVE_H
