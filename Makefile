@@ -117,10 +117,10 @@ $(BATTLE_LINK):$(BATTLE_OBJS)
 $(BATTLE_OUTPUT):$(BATTLE_LINK)
 	$(OBJCOPY) -O binary $< $@
 
-generate_output:
+generate_output:$(OUTPUT)
 	$(PYTHON) scripts/generate_ld.py
 
-all: | $(OUTPUT) generate_output $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
+all: | generate_output $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
