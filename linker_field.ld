@@ -1,8 +1,8 @@
 OUTPUT_ARCH(arm)
 MEMORY {
 
-        rom     : ORIGIN = 0x02260D80, LENGTH = 512k
-        ewram   : ORIGIN = 0x02260D80, LENGTH = 512k
+        rom     : ORIGIN = 0x023D0000, LENGTH = 512k
+        ewram   : ORIGIN = 0x023D0000, LENGTH = 512k
 }
 
 SECTIONS {

@@ -19,3 +19,6 @@ arm9 sPocketCounts 08077C14
 
 #endif
 #endif
+
+0001 gOWTagToFileNum 021F92FC
+0001 gOWTagToFileNum 021FA280

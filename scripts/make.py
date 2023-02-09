@@ -49,7 +49,7 @@ ROUTINE_POINTERS = 'routinepointers'
 
 LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o']
 OFFSET_START_IN_129 = 0x023C8000 + 0x4000
-OFFSET_START = [0x023C8000, 0x0226EC40, 0x02260D80]
+OFFSET_START = [0x023C8000, 0x023D0000, 0x023D0000]
 
 def ExtractPointer(byteList: [bytes]):
     pointer = 0
@@ -83,9 +83,9 @@ def GetTextSection(section=0) -> int:
 def GetSymbols() -> {str: int}:
     ret = {}
 
-    for section in range(0,len(LINKED_SECTIONS) - 1):
+    for section in LINKED_SECTIONS:
         #subtract = GetTextSection(section)
-        out = subprocess.check_output([NM, LINKED_SECTIONS[section]])
+        out = subprocess.check_output([NM, section])
         lines = out.decode().split('\n')
 
         for line in lines:

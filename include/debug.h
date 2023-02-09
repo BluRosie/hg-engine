@@ -26,6 +26,6 @@
 //#define DEBUG_BATTLE_SCRIPT_COMMANDS
 
 // DEBUG_PRINT_OVERLAY_LOADS prints out overlay loads and unloads in the desmume window
-//#DEBUG_PRINT_OVERLAY_LOADS
+#define DEBUG_PRINT_OVERLAY_LOADS
 
 #endif // DEBUG_H

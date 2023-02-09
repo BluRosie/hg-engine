@@ -557,7 +557,6 @@ typedef struct EncounterInfo
 #define MAX_EVOS_PER_POKE (9)
 
 
-#define gOWTagToFileNum ((struct OVERWORLD_TAG *) (0x023C8000 + START_ADDRESS)) // i hate this lol
 #define gDimorphismTable ((u8 *)(0x020FECAE))
 #define EGG_MOVES_PER_MON 16 // need to go through later and make this editable
 #define NUM_EGG_MOVES_TOTAL 8000
@@ -624,9 +623,9 @@ u16 __attribute__((long_call)) GetPokemonOwNum(u16 species);
 u16 __attribute__((long_call)) GetMonHiddenAbility(u16 species, u32 form);
 void __attribute__((long_call)) SetBoxMonAbility(void *boxmon);
 u32 __attribute__((long_call)) GetSpeciesBaseExp(u32 species, u32 form);
-struct OVERWORLD_TAG * __attribute__((long_call)) grab_overworld_ptr(u16 tag);
-u16 __attribute__((long_call)) get_a081_index_from_tag(u16 tag);
-u32 __attribute__((long_call)) grab_overworld_a081_index(u16 species, u32 form, u32 isFemale);
+//struct OVERWORLD_TAG * __attribute__((long_call)) grab_overworld_ptr(u16 tag);
+//u16 __attribute__((long_call)) get_a081_index_from_tag(u16 tag);
+//u32 __attribute__((long_call)) grab_overworld_a081_index(u16 species, u32 form, u32 isFemale);
 u32 __attribute__((long_call)) GetGenesectType(u16 item);
 u32 __attribute__((long_call)) GetGenesectForme(u16 item);
 void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *bp);

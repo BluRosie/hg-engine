@@ -8,16 +8,6 @@
 .halfword NUM_OF_MON_OVERWORLDS + 0x1E4 // update the limiter
 // 0x1E4 is the start of the follower mon tags
 
-
-.org 0x021F92FC
-
-.word gOWTagToFileNum
-
-
-.org 0x021FA280
-
-.word gOWTagToFileNum
-
 .close
 
 
@@ -70,7 +60,7 @@ does_species_have_dimorphism:
     sub r0, r0, #1
 
 @@_getDimorphism:
-    ldr r1, =gDimorphismTable
+    ldr r1, =0x020FECAE
     ldrb r0, [r1, r0]
     pop {r3, pc}
 

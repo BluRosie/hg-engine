@@ -284,6 +284,12 @@ move_narc: $(NARC_FILES)
 	@echo "wild encounters:"
 	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
 
+	@echo "pokemon overworlds:"
+	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
+	
+	@echo "pokemon overworld data:"
+	cp $(OVERWORLD_DATA_NARC) $(OVERWORLD_DATA_TARGET)
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
@@ -293,9 +299,3 @@ move_narc: $(NARC_FILES)
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s
-
-	@echo "pokemon overworlds:"
-	mkdir -p build/a141
-	$(ARMIPS) armips/data/monoverworlds.s
-	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/1/4/1 build/a141 -nf
-	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)

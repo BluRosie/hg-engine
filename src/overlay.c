@@ -1,4 +1,5 @@
 #include "../include/types.h"
+#include "../include/debug.h"
 #include "../include/save.h"
 
 
@@ -10,8 +11,10 @@ struct LinkedOverlayList {
 
 struct LinkedOverlayList gLinkedOverlayList[2] =
 {
-    {12, 130},
-    {1, 131},
+    {12, 130}, // battle - battle extension
+    { 1, 131}, // field - field extension
+    {63, 131}, // hall of fame - field extension
+    {96, 131}, // pokeathlon - field extension
 };
 
 
