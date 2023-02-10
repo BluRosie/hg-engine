@@ -8,6 +8,7 @@
 
 .open "base/arm9.bin", 0x02000000
 
+// initialize box mon learnset - InitBoxMonMoveset
 .org 0x020712E0
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
@@ -33,6 +34,7 @@
 .pool
 
 
+// learn move on level up - MonTryLearnMoveOnLevelUp
 .org 0x0207153E
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
@@ -41,10 +43,13 @@
     ldr r2, [r4, r0] // load full word instead of halfword
 
 .org 0x02071596
-    mov r0, #0xFF
-    lsl r0, #8
-    add r0, #0xFF
+    //mov r0, #0xFF
+    //lsl r0, #8
+    //add r0, #0xFF
+    ldr r0, =0xFFFF
     lsl r0, #16 // r0 = 0xFFFF0000
+    mov r3, r2
+    and r3, r0
     lsl r6, r6, #16
     cmp r6, r3
 
@@ -52,11 +57,11 @@
     lsl r2, #2
     ldr r2, [r4, r2]
     
+.org 0x020715F8 // update move mask with 0xFFFF
+.pool
 
-.org 0x020715F8
-.word 0xFFFF // update move mask
 
-
+// load learnset table - Species_LoadLearnsetTable
 .org 0x02071908
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
@@ -68,6 +73,7 @@
     add r0, r0, #4 // move entries are now 4 bytes long and not 2
 
 
+// handle blackthorn tutors properly - GetEligibleLevelUpMoves
 .org 0x020917C4
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
