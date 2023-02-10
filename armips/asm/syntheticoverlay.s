@@ -24,11 +24,12 @@ load_arm9_expansion: // load the narc subfile with arm9 expansion data
     mov r1, #2
     bl HandleLoadOverlay129 // HandleLoadOverlay(129, 2) // noinit load
 
-// load synthetic narc to the same destination to complete the arm9 expansion and keep compatibility
-    ldr r0, =0x023C8000 // destination ram offset
-    mov r1, #028 // a028
-    mov r2, #0 // 0th file of a028
-    bl 0x2007508 // load_from_narc(&(0x02FC8000), 28, 0);
+// get entirely rid of synthetic overlay
+//// load synthetic narc to the same destination to complete the arm9 expansion and keep compatibility
+//    ldr r0, =0x023C8000 // destination ram offset
+//    mov r1, #028 // a028
+//    mov r2, #0 // 0th file of a028
+//    bl 0x2007508 // load_from_narc(&(0x02FC8000), 28, 0);
     
     mov r0, #0
     mov r0, #0

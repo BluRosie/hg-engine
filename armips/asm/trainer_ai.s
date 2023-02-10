@@ -96,9 +96,13 @@
 .close
 
 //need a free space, figure out what to do with this part.
-.open "build/a028/8_0", 0x023C8000
+.if (fileexists("base/overlay/overlay_0129.bin"))
+    .open "base/overlay/overlay_0129.bin", 0x023C8000
+.else
+    .create "base/overlay/overlay_0129.bin", 0x023C8000
+.endif
 
-.orga (START_ADDRESS + NUM_OF_TOTAL_MONS_PLUS_FORMS)
+.orga (START_ADDRESS + NUM_OF_TOTAL_MONS_PLUS_FORMS+1)
 
 .align 16
 .ascii "AI CHANGES HERE" // interesting.

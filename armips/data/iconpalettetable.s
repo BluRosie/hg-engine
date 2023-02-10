@@ -6,10 +6,10 @@
 .include "armips/include/monnums.s"
 .include "armips/asm/icons.s"
 
-.if (fileexists("build/a028/8_0"))
-    .open "build/a028/8_0", 0x023C8000
+.if (fileexists("base/overlay/overlay_0129.bin"))
+    .open "base/overlay/overlay_0129.bin", 0x023C8000
 .else
-    .create "build/a028/8_0", 0x023C8000
+    .create "base/overlay/overlay_0129.bin", 0x023C8000
 .endif
 
 .orga START_ADDRESS
