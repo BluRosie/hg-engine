@@ -12,7 +12,7 @@
     .create "build/a028/8_0", 0x023C8000
 .endif
 
-.orga START_ADDRESS + ((NUM_OF_MON_OVERWORLDS + 450) * 6)
+.orga START_ADDRESS
 
 // the icon palette table maps each icon to which of the 3 icon palettes
 

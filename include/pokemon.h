@@ -561,6 +561,33 @@ typedef struct EncounterInfo
 #define EGG_MOVES_PER_MON 16 // need to go through later and make this editable
 #define NUM_EGG_MOVES_TOTAL 8000
 
+
+/**Trainer Data File Bitfield**/
+#define TRAINER_DATA_TYPE_NOTHING 0x00
+#define TRAINER_DATA_TYPE_MOVES 0x01
+#define TRAINER_DATA_TYPE_ITEMS 0x02
+#define TRAINER_DATA_TYPE_ABILITY 0x04
+#define TRAINER_DATA_TYPE_BALL 0x08
+#define TRAINER_DATA_TYPE_IV_EV_SET 0x10
+#define TRAINER_DATA_TYPE_NATURE_SET 0x20
+#define TRAINER_DATA_TYPE_SHINY_LOCK 0x40
+#define TRAINER_DATA_TYPE_ADDITIONAL_FLAGS 0x80 //whether or not to read extra flags in trpoke entry
+
+
+/**Trainer Pokemon File Extra Bitfield**/
+#define TRAINER_DATA_EXTRA_TYPE_NOTHING 0x00
+#define TRAINER_DATA_EXTRA_TYPE_STATUS 0x01
+#define TRAINER_DATA_EXTRA_TYPE_HP 0x02
+#define TRAINER_DATA_EXTRA_TYPE_ATK 0x04
+#define TRAINER_DATA_EXTRA_TYPE_DEF 0x08
+#define TRAINER_DATA_EXTRA_TYPE_SPEED 0x10
+#define TRAINER_DATA_EXTRA_TYPE_SP_ATK 0x20
+#define TRAINER_DATA_EXTRA_TYPE_SP_DEF 0x40
+#define TRAINER_DATA_EXTRA_TYPE_TYPES 0x80
+#define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x100
+#define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x200
+
+
 void* __attribute__((long_call)) PokemonParam_AllocWork(u32 heapid);
 void __attribute__((long_call)) PokeParaInit(void* pokemon);
 void __attribute__((long_call))PokeParaSetChr(struct PartyPokemon *pp, u16 pokeno, u8 level, u8 pow, u8 chr);
@@ -610,6 +637,16 @@ void __attribute__((long_call)) WildMonSetRandomHeldItem(struct PartyPokemon *po
 BOOL __attribute__((long_call)) GrabAndRegisterUnownForm(struct PartyPokemon *pokemon);
 BOOL __attribute__((long_call)) MonIsShiny(struct PartyPokemon *pokemon);
 BOOL __attribute__((long_call)) BoxMonIsShiny(struct BoxPokemon *pokemon);
+void __attribute__((long_call)) PokeParty_Init(struct POKEPARTY *party, int max);
+void __attribute__((long_call)) TT_TrainerPokeDataGet(int tr_id, void *tpd);
+u8 __attribute__((long_call)) TT_TrainerTypeSexGet(int trtype);
+u32 __attribute__((long_call)) TrainerCBSet(int index, struct PartyPokemon* pp, int heap);
+void __attribute__((long_call)) try_force_gender_maybe(int species, int formnum, u8 a2, u32 *genderratio);
+void __attribute__((long_call)) TrainerMonHandleFrustration(struct PartyPokemon *pp);
+void __attribute__((long_call)) SetPartyPokemonMoveAtPos(struct PartyPokemon *pp, u16 movenum, u8 pos);
+void __attribute__((long_call)) gf_srand(u32 seed);
+u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct PartyPokemon *poke);
+u8 __attribute__((long_call)) GetArceusType(u16 held_effect);
 
 
 // defined in src/pokemon.c

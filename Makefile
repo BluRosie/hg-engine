@@ -105,10 +105,10 @@ $(LINK):$(OBJS)
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
-$(FIELD_LINK):$(FIELD_OBJS)
+$(FIELD_LINK):$(FIELD_OBJS) generate_output
 	$(LD) $(LDFLAGS_FIELD) -o $@ $(FIELD_OBJS)
 
-$(FIELD_OUTPUT):$(FIELD_LINK)
+$(FIELD_OUTPUT):$(FIELD_LINK) generate_output
 	$(OBJCOPY) -O binary $< $@
 
 $(BATTLE_LINK):$(BATTLE_OBJS)
@@ -120,7 +120,7 @@ $(BATTLE_OUTPUT):$(BATTLE_LINK)
 generate_output:$(OUTPUT)
 	$(PYTHON) scripts/generate_ld.py
 
-all: | generate_output $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
+all: $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)

@@ -32,7 +32,6 @@
 
 /*
 CURRENT SYNTHETIC NARC ARMIPS USAGE - starting at START_ADDRESS (armips/include/config.s), sequentially
-armips/data/monoverworlds.s - ((NUM_OF_MON_OVERWORLDS + 450) * 6)
 armips/data/iconpalettetable.s - (NUM_OF_TOTAL_MONS_PLUS_FORMS)
 armips/asm/trainer_ai.s - ~0x60 bytes of extra code
 
