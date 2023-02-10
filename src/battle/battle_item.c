@@ -25,9 +25,6 @@ u32 MoveHitHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
     int atk_side;
     
     ret = FALSE;
-    
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1) // sheer force skips all of these effects apparently
-        return ret;
 
     atk_hold_eff = HeldItemHoldEffectGet(sp, sp->attack_client);
     atk_item_param = HeldItemAtkGet(sp,sp->attack_client, ATK_CHECK_NORMAL);
@@ -42,7 +39,8 @@ u32 MoveHitHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
      && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
      && (sp->attack_client != sp->defence_client)
      && (sp->battlemon[sp->attack_client].hp < sp->battlemon[sp->attack_client].maxhp)
-     && (sp->battlemon[sp->attack_client].hp))
+     && (sp->battlemon[sp->attack_client].hp)
+     && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // sheer force prevents shell bell from activating
     {
         sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, atk_item_param);
         sp->client_work = sp->attack_client;
@@ -54,7 +52,8 @@ u32 MoveHitHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
      && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
      && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
      && (sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS)
-     && (sp->battlemon[sp->attack_client].hp))
+     && (sp->battlemon[sp->attack_client].hp)
+     && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // sheer force prevents life orb from activating
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
         sp->client_work = sp->attack_client;
