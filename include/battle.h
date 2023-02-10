@@ -130,9 +130,6 @@
                                          WAZA_STATUS_FLAG_IMAHITOTSU)
 
 
-
-
-
 // stat definitions
 #define STAT_HP             (0x00)
 #define STAT_ATTACK         (0x01)
@@ -255,6 +252,9 @@
 #define BATTLER_ALLY(client) (client ^ 2)
 #define BATTLER_OPPONENT(client) (client ^ 1)
 #define BATTLER_ACROSS(client) (client ^ 3)
+
+#define BATTLERS_ON_SAME_SIDE(battler1, battler2) ((battler1 & 1) == (battler2 & 1))
+#define BATTLERS_ON_DIFFERENT_SIDE(battler1, battler2) !BATTLERS_ON_SAME_SIDE(battler1, battler2)
 
 #define TAG_NONE                        (0)     //nothing
 
