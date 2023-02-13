@@ -82,7 +82,9 @@ BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS) build/thumb_help.d
 
 FIELD_C_SRCS := $(wildcard $(C_SUBDIR)/field/*.c)
 FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
-FIELD_OBJS   := $(FIELD_C_OBJS) build/thumb_help.d
+FIELD_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/field/*.s)
+FIELD_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(FIELD_ASM_SRCS))
+FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
 # just build something so it doesn't crash
 
 ## includes
