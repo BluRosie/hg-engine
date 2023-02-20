@@ -14,7 +14,14 @@ a001_091:
     moldbreakerabilitycheck 0x0, BATTLER_DEFENDER, ABILITY_SUCTION_CUPS, _suctionCupsMessage
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_MOVE_STATE, 0x400, _ingrainMessage
     if IF_EQUAL, VAR_BATTLE_TYPE, 0x4A, _failed
-    trywhirlwind _updatedWhirlwind
+    if IF_LESSTHAN, VAR_FAINTED_BATTLER, 0x4, _failed       // If any Pokemon were fainted by the move, ignore effect (this is needed for Dragon Tail)
+    if IF_EQUAL, VAR_BATTLE_TYPE, 0x0, _WildWhirlwind
+_TrainerWhirlwind:
+    tryswitchinmon BATTLER_DEFENDER, 0x1, _failed           // If only one Pokemon in party, the effect fails (taken from U-turn)
+    trywhirlwind _TrainerWhirlwind                          // Keep trying Whirlwind formula over and over until success
+    goto _updatedWhirlwind
+_WildWhirlwind:
+    goto _isWildBattle
 _updatedWhirlwind:
     if IF_EQUAL, VAR_BATTLE_TYPE, 0x0, _isWildBattle
     gotosubscript 76
