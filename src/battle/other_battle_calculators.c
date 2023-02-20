@@ -754,7 +754,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->battlemon[sp->defence_client].moveeffect.substitute_hp += sp->damage;
                 sp->hit_damage = sp->damage;
             }
-            sp->oneSelfFlag[sp->defence_client].status_flag |= STATUS_FLAG_MIGAWARI_HIT;
+            sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->client_work = sp->defence_client;
             LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SUBSTITUTE_HIT);
             sp->server_seq_no = 22;

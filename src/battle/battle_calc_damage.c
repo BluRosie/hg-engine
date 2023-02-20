@@ -10,6 +10,25 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
+
+struct __attribute__((packed)) sDamageCalc
+{
+    u16 species;
+    s16 hp;
+    u16 maxhp;
+    u16 dummy;
+    int item_held_effect;
+    int item_power;
+
+    u32 condition;
+
+    u16 ability;
+    u8 sex;
+    u8 type1;
+    u8 type2;
+};
+
+
 static const u8 HeldItemPowerUpTable[][2]={
     {HOLD_EFFECT_BOOST_BUG, TYPE_BUG},
     {HOLD_EFFECT_BOOST_STEEL, TYPE_STEEL},

@@ -160,9 +160,11 @@
 // move effect flags/waza_kouka
 #define MOVE_EFFECT_LOCK_ON          (0x00000018)
 #define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
+#define MOVE_EFFECT_FLAG_INGRAIN     (0x00000400)
 #define MOVE_EFFECT_NO_CRITICAL_HITS (0x00008000)
 #define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
 #define MOVE_EFFECT_FLAG_WATER_SPORT (0x00020000)
+#define MOVE_EFFECT_GASTRO_ACID      (0x00200000)
 #define MOVE_EFFECT_FLAG_MIRACLE_EYE (0x00400000)
 
 // status condition flags
@@ -192,7 +194,7 @@
 
 // status2/condition2 flags
 #define STATUS2_FLAG_CONFUSED (0x00000007)
-#define STATUS2_FLAG_INFATURATION (0x000f0000)
+#define STATUS2_FLAG_INFATUATION (0x000f0000) // ? doesn't seem like it?
 #define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
 #define STATUS2_FLAG_TRANSFORMED (0x00200000)
 #define STATUS2_FLAG_RAGE (0x00800000)
@@ -206,10 +208,10 @@
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 // One Self Turn Flags
-#define STATUS_FLAG_EQPITEM_POWDOWN (0x00000001)    //装備効果によって技の威力を弱めたフラグ
-#define STATUS_FLAG_TSUIBAMU            (0x00000002)    //ついばむ発動
-#define STATUS_FLAG_MEROMERO            (0x00000004)    //メロメロになった
-#define STATUS_FLAG_MIGAWARI_HIT        (0x00000008)    //みがわりで防いだ
+#define SELF_STATUS_FLAG_HELD_ITEM_POWER_DOWN (0x00000001)
+#define SELF_STATUS_FLAG_PICKUP (0x00000002)
+#define SELF_STATUS_FLAG_ATTRACT (0x00000004) // this is checked for
+#define SELF_STATUS_FLAG_SUBSTITUTE_HIT (0x00000008)
 
 // physical/special split values
 #define SPLIT_PHYSICAL 0
@@ -349,9 +351,9 @@
 
 //ai condition flags 2
 #define CONDITION2_TRANSFORM        (0x00200000)
-#define CONDITION2_TRANSFORM_OFF       (0x00200000 ^ 0xffffffff)
+#define CONDITION2_TRANSFORM_OFF    (0x00200000 ^ 0xffffffff)
 #define CONDITION2_SUBSTITUTE       (0x01000000)
-#define CONDITION2_SUBSTITUTE_OFF       (0x01000000^0xffffffff)
+#define CONDITION2_SUBSTITUTE_OFF   (0x01000000^0xffffffff)
 
 #define SWOAM_NORMAL    (0)
 #define SWOAM_LOOP      (1)
@@ -379,24 +381,6 @@ enum
     FILE_BATTLE_SUB_SCRIPTS,
 };
 
-
-struct __attribute__((packed)) sDamageCalc
-{
-    u16 species;
-    s16 hp;
-    u16 maxhp;
-    u16 dummy;
-    int item_held_effect;
-    int item_power;
-
-    u32 condition;
-
-    u8 ability;
-    u8 sex;
-    u8 type1;
-    u8 type2;
-};
-
 struct __attribute__((packed)) BattleMove
 {
     u16 effect; //0x0
@@ -418,15 +402,15 @@ struct __attribute__((packed)) BattleMove
 
 struct __attribute__((packed)) OneTurnEffect
 {
-    u32 struggle_flag : 1; //わるあがきフラグ
-    u32 pp_dec_flag : 1;    //PPを減らしたフラグ
-    u32 mamoru_flag : 1;    //まもるフラグ
-    u32 helping_hand_flag : 1;  //てだすけフラグ
+    u32 struggle_flag : 1;
+    u32 pp_dec_flag : 1;
+    u32 mamoru_flag : 1;
+    u32 helping_hand_flag : 1;
     u32 magic_cort_flag : 1;
     u32 yokodori_flag : 1;
     u32 haneyasume_flag : 1;
-    u32 escape_flag : 2;  //にげたフラグ（特性or装備道具効果）
-    u32 prevent_one_hit_ko_ability : 1; ///<こらえるフラグ
+    u32 escape_flag : 2;
+    u32 prevent_one_hit_ko_ability : 1;
     u32 : 22;
 
     int physical_damage[4];
@@ -443,180 +427,178 @@ struct __attribute__((packed)) OneTurnEffect
 struct __attribute__((packed)) OneSelfTurnEffect
 {
     //0x0
-    u32 no_pressure_flag : 1;  ///<特性プレッシャーの効果を受けない
-    u32 hiraisin_flag : 1;     ///<特性ひらいしんの効果が発動
-    u32 yobimizu_flag : 1;     ///<特性よびみずのの効果が発動
-    u32 mold_breaker_flag : 1;   ///<特性かたやぶりの効果が発動
-    u32 trickroom_flag : 1;    ///<トリックルーム発動
-    u32 prevent_one_hit_ko_item : 1; ///<こらえるフラグ（装備道具効果）
-    u32 korogaru_count : 3;    ///<ころがるカウント（メトロノーム判定で使用）
+    u32 no_pressure_flag : 1;
+    u32 hiraisin_flag : 1;
+    u32 yobimizu_flag : 1;
+    u32 mold_breaker_flag : 1;
+    u32 trickroom_flag : 1;
+    u32 prevent_one_hit_ko_item : 1;
+    u32 korogaru_count : 3;
     u32 defiant_flag : 1; // set (hypothetically) when defiant needs to activate
-    u32 : 22;                  ///<ステータス上昇下降エフェクトを発動
+    u32 : 22;
 
-    int physical_damage;   ///0x4 存在物理伤害量
-    int physical_damager;   ///0x8 <物理攻撃したクライアント
-    int special_damage;   ///0xC 存在特殊伤害量
-    int special_damager;   ///0x10 <特殊攻撃したクライアント
-    int status_flag;           ///0x14 <ステータスフラグ（battle_server.hにdefine定義）
-    int shell_bell_damage;        ///0x18 <かいがらのすず用ダメージ量
+    int physical_damage;
+    int physical_damager;
+    int special_damage;
+    int special_damager;
+    int status_flag;
+    int shell_bell_damage;
 
     //length 0x1C
 };
 
 struct __attribute__((packed)) MoveOutCheck
 {
-    u32 mahi_flag :1;       //まひで技がだせない
-    u32 koukanai_flag :1;       //効果がない技だった
-    u32 huuin_flag :1;      //ふういんされて技がだせない
-    u32 meromero_flag :1;       //メロメロで技がだせない
-    u32 kanashibari_flag :1;        //かなしばりで技がだせない
-    u32 chouhatsu_flag :1;      //ちょうはつされて技がだせない
-    u32 hirumu_flag  :1;        //ひるんで技がだせない
-    u32 konran_flag  :1;        //こんらんして自分を攻撃
-    u32 juuryoku_flag :1;       //じゅうりょくで技がだせない
-    u32 healblock_flag :1;      //ヒールブロックで技がだせない
+    u32 mahi_flag :1;
+    u32 koukanai_flag :1;
+    u32 huuin_flag :1;
+    u32 meromero_flag :1;
+    u32 kanashibari_flag :1;
+    u32 chouhatsu_flag :1;
+    u32 hirumu_flag  :1;
+    u32 konran_flag  :1;
+    u32 juuryoku_flag :1;
+    u32 healblock_flag :1;
     u32 dummy :22;
 };
 
 struct __attribute__((packed)) battle_moveflag
 {
-    u32 kanashibari_count : 3;      ///<かなしばりカウンタ
-    u32 encore_count : 3;           ///<アンコールカウンタ
-    u32 juuden_count : 2;           ///<じゅうでんカウンタ
-    u32 chouhatsu_count : 3;        ///<ちょうはつカウンタ
-    u32 success_count : 2;          ///<まもる、こらえるが成功したカウンタ
-    u32 horobinouta_count : 2;      ///<ほろびのうたカウンタ
-    u32 korogaru_count : 3;         ///<ころがるカウンタ
-    u32 renzokugiri_count : 3;      ///<れんぞくぎりカウンタ
-    u32 takuwaeru_count : 3;        ///<たくわえるカウンタ
-    u32 takuwaeru_def_count : 3;    ///<たくわえるカウンタ（防御アップ）
-    u32 takuwaeru_spedef_count : 3; ///<たくわえるカウンタ（特防アップ）
-    u32 namake_bit : 1;             ///<なまけビット
-    u32 moraibi_flag : 1;           ///<もらいびフラグ
+    /* 0x00 */ u32 kanashibari_count : 3;
+               u32 encore_count : 3;
+               u32 juuden_count : 2;
+               u32 chouhatsu_count : 3;
+               u32 success_count : 2;
+               u32 horobinouta_count : 2;
+               u32 korogaru_count : 3;
+               u32 renzokugiri_count : 3;
+               u32 takuwaeru_count : 3;
+               u32 takuwaeru_def_count : 3;
+               u32 takuwaeru_spedef_count : 3;
+               u32 namake_bit : 1;
+               u32 moraibi_flag : 1;
 
-    u32 lockon_client_no : 2;    ///<ロックオンされたClientNo
-    u32 monomane_bit : 4;        ///<ものまねビット
-    u32 shime_client_no : 2;     ///<しめつけたClientNo
-    u32 manazashi_client_no : 2; ///<くろいまなざしをしたClientNo
-    u32 totteoki_count : 3;      ///<とっておき用技を出したフラグ
-    u32 denzihuyuu_count : 3;    ///<でんじふゆうカウンタ
-    u32 healblock_count : 3;     ///<ヒールブロックカウンタ
-    u32 embargo_count : 3;       ///<シャットアウトカウンタ
-    u32 unburden_flag : 1;       ///<かるわざフラグ
-    u32 metronome_work : 4;      ///<メトロノームワーク
-    u32 boost_accuracy_once : 1;         ///<装備効果で一度だけ命中UPフラグ
-    u32 raise_speed_once : 1;         ///<装備効果で一度だけ先制攻撃フラグ
-    u32 quick_claw_flag : 1;
-    u32 sakidori_flag : 1;
-    u32 : 1;
+    /* 0x04 */ u32 lockon_client_no : 2;
+               u32 monomane_bit : 4;
+               u32 shime_client_no : 2;
+               u32 manazashi_client_no : 2;
+               u32 totteoki_count : 3;
+               u32 denzihuyuu_count : 3;
+               u32 healblock_count : 3;
+               u32 embargo_count : 3;
+               u32 unburden_flag : 1;
+               u32 metronome_work : 4;
+               u32 boost_accuracy_once : 1;
+               u32 raise_speed_once : 1;
+               u32 quick_claw_flag : 1;
+               u32 sakidori_flag : 1;
+               u32 : 1;
 
-    int handou_count;
-    int fake_out_count;
-    int slow_start_count;
-    int sakidori_count;
-    int substitute_hp;
-    u32 henshin_rnd;
+    /* 0x08 */ int handou_count;
+    /* 0x0c */ int fake_out_count;
+    /* 0x10 */ int slow_start_count;
+    /* 0x14 */ int sakidori_count;
+    /* 0x18 */ int substitute_hp;
+    /* 0x1c */ u32 henshin_rnd;
+    /* 0x20 */ u16 kanashibari_wazano;
+    /* 0x22 */ u16 shime_wazano;
+    /* 0x24 */ u16 encore_wazano;
+    /* 0x26 */ u16 encore_wazapos;
+    /* 0x28 */ u16 totteoki_wazano[4];
+    /* 0x2a */ u16 kodawari_wazano;
+    /* 0x2c */ u16 henshin_sex;
+// padding at 2e
+    /* 0x30 */ int item_hp_recover;
+}; // size = 0x34
 
-    u16 kanashibari_wazano;
-    u16 shime_wazano;
-    u16 encore_wazano;
-    u16 encore_wazapos;
-    u16 totteoki_wazano[4];
-    u16 kodawari_wazano;
-    u16 henshin_sex;
-
-    int item_hp_recover;
-};
 struct __attribute__((packed)) BattlePokemon
 {
-    u16 species;
-    u16 attack;
-    u16 defense;
-    u16 speed;
-    u16 spatk;
-    u16 spdef;
-    u16 move[4];
-    u32 hp_iv : 5;
-    u32 atk_iv : 5;
-    u32 def_iv : 5;
-    u32 spe_iv : 5;
-    u32 spatk_iv : 5;
-    u32 spdef_iv : 5;
-    u32 is_egg : 1;
-    u32 have_nickname : 1;
-    s8 states[8];
-    int weight;
-    u8 type1; //25
-    u8 type2;
-    u8 form_no : 5;
-    u8 rare : 1;
-    u8 ability;
-
-    u32 appear_check_flag : 1;   //2ch  登場時天候系特性チェックをしたかどうか
-    u32 intimidate_flag : 1;          //2ch  登場時いかくチェックしたかどうか
-    u32 trace_flag : 1;          //2ch  登場時トレースチェックしたかどうか
-    u32 download_flag : 1;       //2ch  登場時ダウンロードチェック
-    u32 anticipation_flag : 1;     //2ch  登場時きけんよちチェック
-    u32 forewarn_flag : 1;        //2ch  登場時よちむチェック
-    u32 slow_start_flag : 1;     //2ch  登場時スロースタートチェック
-    u32 slow_start_end_flag : 1; //2ch  スロースタート終了チェック
-    u32 frisk_flag : 1;      //2ch  登場時おみとおしチェック
-    u32 mold_breaker_flag : 1;     //2ch  登場時かたやぶりチェック
-    u32 pressure_flag : 1;       //2ch  登場時プレッシャーチェック
-    u32 canMega : 1;
-    u32 unnerve_flag : 1;
-    u32 dark_aura_flag : 1;
-    u32 fairy_aura_flag : 1;
-    u32 aura_break_flag : 1;
-    u32 sheer_force_flag : 1;
-    u32 imposter_flag : 1;
-    u32 : 14;                    //2ch
-
-    u8 pp[4];
-    u8 pp_count[4];
-    u8 level;
-    u8 friend;
-    u16 nickname[11];
-    s32 hp;
-    u32 maxhp;
-    u16 oyaname[8];
-    u32 exp; //68
-    u32 personal_rnd;
-    u32 condition;
-    u32 condition2;
-    u32 id_no;
-    u16 item;
-    u16 dummy;
-    u8 hit_count;
-    u8 message_flag;
-    u8 sex : 4;
-    u8 oyasex : 4;
-    u8 get_ball;
-    u32 effect_of_moves; // think like charge, lock on
-    u32 effect_of_moves_temp;
-
-    struct __attribute__((packed)) battle_moveflag moveeffect;
-};
+    /* 0x00 */ u16 species;
+    /* 0x02 */ u16 attack;
+    /* 0x04 */ u16 defense;
+    /* 0x06 */ u16 speed;
+    /* 0x08 */ u16 spatk;
+    /* 0x0a */ u16 spdef;
+    /* 0x0c */ u16 move[4];
+    /* 0x14 */ u32 hp_iv : 5;
+               u32 atk_iv : 5;
+               u32 def_iv : 5;
+               u32 spe_iv : 5;
+               u32 spatk_iv : 5;
+               u32 spdef_iv : 5;
+               u32 is_egg : 1;
+               u32 have_nickname : 1;
+    /* 0x18 */ s8 states[8];
+    /* 0x20 */ int weight;
+    /* 0x24 */ u8 type1; //25
+    /* 0x25 */ u8 type2;
+    /* 0x26 */ u8 form_no : 5;
+               u8 rare : 1;
+               u8 ability; // todo: make abilities have more bits to support values > 256
+    /* 0x28 */ u32 appear_check_flag : 1;
+               u32 intimidate_flag : 1;
+               u32 trace_flag : 1;
+               u32 download_flag : 1;
+               u32 anticipation_flag : 1;
+               u32 forewarn_flag : 1;
+               u32 slow_start_flag : 1;
+               u32 slow_start_end_flag : 1;
+               u32 frisk_flag : 1;
+               u32 mold_breaker_flag : 1;
+               u32 pressure_flag : 1;
+               u32 canMega : 1;
+               u32 unnerve_flag : 1;
+               u32 dark_aura_flag : 1;
+               u32 fairy_aura_flag : 1;
+               u32 aura_break_flag : 1;
+               u32 sheer_force_flag : 1;
+               u32 imposter_flag : 1;
+               u32 : 14;
+    /* 0x2c */ u8 pp[4];
+    /* 0x30 */ u8 pp_count[4];
+    /* 0x34 */ u8 level;
+    /* 0x35 */ u8 friend;
+    /* 0x36 */ u16 nickname[11];
+    /* 0x4c */ s32 hp;
+    /* 0x50 */ u32 maxhp;
+    /* 0x54 */ u16 oyaname[8];
+    // is this where the padding is?
+    /* 0x68 */ u32 exp; //68
+    /* 0x6c */ u32 personal_rnd;
+    /* 0x70 */ u32 condition;
+    /* 0x74 */ u32 condition2;
+    /* 0x78 */ u32 id_no;
+    /* 0x7c */ u16 item;
+    /* 0x7e */ u16 dummy;
+    /* 0x80 */ u8 hit_count;
+    /* 0x81 */ u8 message_flag;
+    /* 0x82 */ u8 sex : 4;
+               u8 oyasex : 4;
+    /* 0x83 */ u8 get_ball;
+    /* 0x84 */ u32 effect_of_moves; // think like charge, lock on
+    /* 0x88 */ u32 effect_of_moves_temp;
+    /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;
+}; // size = 0xc0
 
 typedef struct {
     u32 alloc_size;
     u32 alloc_ofs;
-    u16 type;       // Vram確保した表示面
-    u16 conttype;   // 管理方法
+    u16 type;
+    u16 conttype;
 } __attribute__((packed)) CHAR_MANAGER_ALLOCDATA;
 
 struct __attribute__((packed)) field_condition_count
 {
-    u32     weather_count;                      ///<天候変化用カウンタ
+    u32     weather_count;
 
-    u8      miraiyochi_count[CLIENT_MAX];       ///<みらいよちカウンタ
-    u8      negaigoto_count[CLIENT_MAX];        ///<ねがいごとカウンタ
+    u8      miraiyochi_count[CLIENT_MAX];
+    u8      negaigoto_count[CLIENT_MAX];
 
-    u16     miraiyochi_wazano[CLIENT_MAX];      ///<みらいよち技ナンバーワーク
-    int     miraiyochi_client_no[CLIENT_MAX];   ///<みらいよちしたClientNo
-    s32     miraiyochi_damage[CLIENT_MAX];      ///<みらいよちダメージ
+    u16     miraiyochi_wazano[CLIENT_MAX];
+    int     miraiyochi_client_no[CLIENT_MAX];
+    s32     miraiyochi_damage[CLIENT_MAX];
 
-    u8      negaigoto_sel_mons[CLIENT_MAX];     ///<ねがいごとをしたポケモンの手持ちの位置
+    u8      negaigoto_sel_mons[CLIENT_MAX];
 };
 
 struct __attribute__((packed)) tcb_skill_intp_work
@@ -624,14 +606,14 @@ struct __attribute__((packed)) tcb_skill_intp_work
     void *bw;
     struct BattleStruct *sp;
     void *bms;
-    void *cap[2]; ///<控えポケモンレベルアップ用アイコン表示
-    void *fop;    ///<控えポケモンレベルアップ用アイコン表示
+    void *cap[2];
+    void *fop;
     CHAR_MANAGER_ALLOCDATA cma;
     int flag;
     int seq_no;
-    int ballID; ///<ポケモンゲット時の投げるボールID
+    int ballID;
     int work[8];
-    void *work_p[2]; ///<汎用ワークポインタ
+    void *work_p[2];
 };
 
 typedef struct
@@ -646,22 +628,22 @@ typedef struct
 
 struct __attribute__((packed)) side_condition_work
 {
-    u32     butsuri_guard_client    : 2;        ///<物理ガード効果を発生させたClientNoを格納
-    u32     butsuri_guard_count     : 3;        ///<物理ガード効果カウンタ
-    u32     tokusyu_guard_client    : 2;        ///<特殊ガード効果を発生させたClientNoを格納
-    u32     tokusyu_guard_count     : 3;        ///<特殊ガード効果カウンタ
-    u32     shiroikiri_client       : 2;        ///<しろいきり効果を発生させたClientNoを格納
-    u32     mist_count        : 3;        ///<しろいきり効果カウンタ
-    u32     shinpi_client           : 2;        ///<しんぴのまもり効果を発生させたClientNoを格納
-    u32     shinpi_count            : 3;        ///<しんぴのまもり効果カウンタ
+    u32     butsuri_guard_client    : 2;
+    u32     butsuri_guard_count     : 3;
+    u32     tokusyu_guard_client    : 2;
+    u32     tokusyu_guard_count     : 3;
+    u32     shiroikiri_client       : 2;
+    u32     mist_count              : 3;
+    u32     shinpi_client           : 2;
+    u32     shinpi_count            : 3;
 
-    u32     konoyubitomare_flag     : 1;        ///<このゆびとまれフラグ
-    u32     konoyubitomare_client   : 2;        ///<このゆびとまれを発動したClientNo
-    u32     hatakiotosu_item        : 6;        ///<はたきおとすされているSelMonsNoをbitで格納
-    u32     oikaze_count            : 3;        ///<おいかぜカウンタ
+    u32     konoyubitomare_flag     : 1;
+    u32     konoyubitomare_client   : 2;
+    u32     hatakiotosu_item        : 6;
+    u32     oikaze_count            : 3;
 
-    u32     makibisi_count          : 2;        ///<まきびしカウンタ
-    u32     dokubisi_count          : 2;        ///<どくびしカウンタ
+    u32     makibisi_count          : 2;
+    u32     dokubisi_count          : 2;
     u32                             :28;
 };
 
@@ -867,9 +849,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x    */ u16 waza_no_texture2_type[CLIENT_MAX];
     /*0x    */ u16 waza_no_metronome[CLIENT_MAX];
 
-    /*0x    */ int store_damage[CLIENT_MAX];                    ///<がまん用のダメージストックワーク
+    /*0x    */ int store_damage[CLIENT_MAX];
 
-    /*0x    */ int client_no_hit[CLIENT_MAX];                   ///<技を最後に当てたClientNoを格納
+    /*0x    */ int client_no_hit[CLIENT_MAX];
 
     /*0x    */ int client_no_agi;
 
@@ -898,8 +880,8 @@ struct __attribute__((packed)) BattleStruct
                u32 : 31;
     /*0x3158*/ u8 padding_3158[0x26]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
-    /*0xUhhh*/ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
-    /*0xUhhh*/ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
+    /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
+    /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*...*/
 };
 
@@ -1233,6 +1215,7 @@ void __attribute__((long_call)) SCIO_WazaEffect2Set(void *bw, struct BattleStruc
 void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int file, int subfile);
 int __attribute__((long_call)) ServerKizetsuCheck(struct BattleStruct *sp, int next_seq, int no_set_seq, int flag);
 void *__attribute__((long_call)) BattleWorkGF_BGL_INIGet(void *bw);
+u32 GetBattleItemData(struct BattleStruct, u16 item, u32 field);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

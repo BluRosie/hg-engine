@@ -1481,7 +1481,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         case ABILITY_CUTE_CHARM:
             if ((sp->battlemon[sp->attack_client].hp)
-                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_FLAG_INFATURATION) == 0)
+                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_FLAG_INFATUATION) == 0)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
@@ -1807,7 +1807,7 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
         sp->state_client = sp->attack_client;
         ret=TRUE;
     }
-    else if((GetBattlerAbility(sp,sp->attack_client)==ABILITY_SYNCHRONIZE) && //attacker side check
+    else if((GetBattlerAbility(sp,sp->attack_client) == ABILITY_SYNCHRONIZE) && //attacker side check
        (sp->attack_client == sp->state_client) &&
        (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
     {
@@ -1848,17 +1848,17 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 
     //check to see if both synchronise and a destiny knot effect are occurring at this stage
     if((sp->defence_client != 0xFF) &&
-       (HeldItemHoldEffectGet(sp,sp->defence_client) == 108) && //item effect 108, defense side check
+       (HeldItemHoldEffectGet(sp,sp->defence_client) == HOLD_EFFECT_RECIPROCATE_INFAT) &&
        (sp->defence_client == sp->state_client) &&
-       (sp->oneSelfFlag[sp->defence_client].status_flag & STATUS_FLAG_MEROMERO))
+       (sp->oneSelfFlag[sp->defence_client].status_flag & SELF_STATUS_FLAG_ATTRACT))
     {
         sp->client_work = sp->defence_client;
         sp->state_client = sp->attack_client;
         ret = TRUE;
     }
-    else if((HeldItemHoldEffectGet(sp,sp->attack_client) == 108) &&  //item effect 108, attacking side check
+    else if((HeldItemHoldEffectGet(sp,sp->attack_client) == HOLD_EFFECT_RECIPROCATE_INFAT) &&
             (sp->attack_client == sp->state_client) &&
-            (sp->oneSelfFlag[sp->attack_client].status_flag & STATUS_FLAG_MEROMERO))
+            (sp->oneSelfFlag[sp->attack_client].status_flag & SELF_STATUS_FLAG_ATTRACT))
     {
         sp->client_work = sp->attack_client;
         sp->state_client = sp->defence_client;
