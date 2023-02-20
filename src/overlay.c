@@ -1,12 +1,7 @@
 #include "../include/types.h"
 #include "../include/debug.h"
+#include "../include/overlay.h"
 #include "../include/save.h"
-
-
-struct LinkedOverlayList {
-    u8 first_id;
-    u8 ext_id;
-};
 
 
 struct LinkedOverlayList gLinkedOverlayList[2] =
@@ -18,27 +13,7 @@ struct LinkedOverlayList gLinkedOverlayList[2] =
 };
 
 
-#define FS_DMA_NOT_USE ((u32)~0)
-
-
-typedef struct PMiLoadedOverlay {
-    u32 id;
-    BOOL active;
-} PMiLoadedOverlay;
-
-
-// overlay util funcs
-u32 __attribute__((long_call)) GetOverlayLoadDestination(u32 overlayID);
-PMiLoadedOverlay  *__attribute__((long_call)) GetLoadedOverlaysInRegion(u32 loadDest);
-void __attribute__((long_call)) FreeOverlayAllocation(PMiLoadedOverlay *loadedOverlay);
-u32 __attribute__((long_call)) CanOverlayBeLoaded(u32 overlayID);
-u32 __attribute__((long_call)) FS_SetDefaultDMA(u32 mode);
-u32 __attribute__((long_call)) LoadOverlayNormal(u32 mode, u32 overlayID);
-u32 __attribute__((long_call)) LoadOverlayNoInit(u32 mode, u32 overlayID);
-u32 __attribute__((long_call)) LoadOverlayNoInitAsync(u32 mode, u32 overlayID);
-
-
-void UnloadOverlayByID(u32 ovyId) {
+void __attribute__((long_call)) UnloadOverlayByID(u32 ovyId) {
     int i;
     u8 buf[64];
 
@@ -67,7 +42,7 @@ unloadSecond:
 }
 
 
-u32 HandleLoadOverlay(u32 ovyId, u32 loadType) {
+u32 __attribute__((long_call)) HandleLoadOverlay(u32 ovyId, u32 loadType) {
     u32 result;
     u32 dmaBak = FS_DMA_NOT_USE;
     u32 overlayRegion;
