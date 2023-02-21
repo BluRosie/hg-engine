@@ -52,6 +52,8 @@ arm9 GetPokemonOwNum 0206A304 1
 0002 get_form_out_of_encounter_species 02247A18 4
 #02247B42
 0002 modify_species_encounter_data 02247B42 3
+# starter hidden ability stuff
+arm9 set_starter_hidden_ability_hook 02096158 5
 
 #battle hooks
 #02256FF8+4

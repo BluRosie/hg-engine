@@ -238,3 +238,18 @@ mov pc, r1
 
 CreateBoxMonData_return_address:
 .word 0
+
+
+.global set_starter_hidden_ability_hook
+set_starter_hidden_ability_hook:
+mov r5, r2
+add r4, #8
+mul r5, r1
+add r1, r4, r5
+push {r0-r7}
+bl set_starter_hidden_ability
+pop {r0-r7}
+ldr r2, =0x02096160 | 1
+bx r2
+
+.pool

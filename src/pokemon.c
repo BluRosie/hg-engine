@@ -4256,3 +4256,13 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
     gf_srand(seed_tmp);
 }
+
+
+void set_starter_hidden_ability(struct PokeParty *party, struct PartyPokemon *pp)
+{
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(pp)
+        SetBoxMonAbility((void *)&pp->box);
+    }
+}
