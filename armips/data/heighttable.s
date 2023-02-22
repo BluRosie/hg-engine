@@ -777,7 +777,7 @@ heightentry SPECIES_BERGMITE, 0, 0, 0, 0
 heightentry SPECIES_AVALUGG, 0, 0, 0, 0
 heightentry SPECIES_NOIBAT, 2, 2, 0, 0
 heightentry SPECIES_NOIVERN, 0, 0, 0, 0
-heightentry SPECIES_XERNEAS, 0, 0, 0, 0
+heightentry SPECIES_XERNEAS, 3, 3, 0, 0
 heightentry SPECIES_YVELTAL, 12, 12, 0, 0
 heightentry SPECIES_ZYGARDE, 8, 8, 0, 0
 heightentry SPECIES_DIANCIE, 0, 0, 0, 0
@@ -1150,7 +1150,7 @@ heightentry SPECIES_PUMPKABOO_SUPER, 0, 0, 0, 0
 heightentry SPECIES_GOURGEIST_SMALL, 0, 0, 0, 0
 heightentry SPECIES_GOURGEIST_LARGE, 0, 0, 0, 0
 heightentry SPECIES_GOURGEIST_SUPER, 0, 0, 0, 0
-heightentry SPECIES_XERNEAS_ACTIVE, 0, 0, 0, 0
+heightentry SPECIES_XERNEAS_ACTIVE, 3, 3, 0, 0
 heightentry SPECIES_ZYGARDE_10, 9, 9, 0, 0
 heightentry SPECIES_ZYGARDE_10_POWER_CONSTRUCT, 9, 9, 0, 0
 heightentry SPECIES_ZYGARDE_50_POWER_CONSTRUCT, 8, 8, 0, 0
