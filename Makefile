@@ -16,9 +16,13 @@ SYSTEM = $(shell grep -i -q 'microsoft' /proc/version; echo $$?)
 ifeq ($(SYSTEM), 0)
 EXE := .exe
 SEP := \\
+
+WAV2SWAV := mono tools/wav2swav.exe
 else
 EXE := 
 SEP := /
+
+WAV2SWAV := tools/wav2swav.exe
 endif
 
 default: all
@@ -26,14 +30,16 @@ default: all
 ROMNAME = rom.nds
 BUILDROM = test.nds
 ####################### Tools #########################
+PYTHON = python3
 O2NARC = tools/o2narc
 MSGENC = tools/msgenc
 NDSTOOL = tools/ndstool
 BLZ = tools/blz
 ARMIPS = tools/armips
-NARCHIVE = tools/narcpy.py
+NARCHIVE = $(PYTHON) tools/narcpy.py
 GFX = tools/nitrogfx
-BTX = tools/pngtobtx0$(EXE)
+BTX = tools/pngtobtx0.exe
+SWAV2SWAR = tools/swav2swar.exe
 ###################### Setting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
@@ -48,7 +54,6 @@ LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
 ASFLAGS = -mthumb -I ./data
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Os -fira-loop-pressure -fipa-pta
 
-PYTHON = python3
 LINK = build/linked.o
 OUTPUT = build/output.bin
 BATTLE_LINK = build/battle_linked.o
@@ -85,7 +90,6 @@ FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
 FIELD_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/field/*.s)
 FIELD_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(FIELD_ASM_SRCS))
 FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
-# just build something so it doesn't crash
 
 ## includes
 include data/graphics/pokegra.mk
@@ -132,11 +136,11 @@ all: $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "$(ROMNAME) Decompression successful!!"
-	$(PYTHON) $(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
-	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
