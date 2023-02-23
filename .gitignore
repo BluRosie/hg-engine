@@ -76,3 +76,4 @@ rom_gen.ld
 sdat/*
 *.swav
 *.swar
+tools/swav2swar.exe

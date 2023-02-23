@@ -146,7 +146,9 @@ build_tools:
 	cd tools/source/msgenc ; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source$(SEP)BTX\ Editor$(SEP)Program-P.cs source$(SEP)BTX\ Editor$(SEP)pngtobtx0.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
+	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source$(SEP)BTX Editor$(SEP)Program-P.cs" "source$(SEP)BTX Editor$(SEP)pngtobtx0.cs" "source$(SEP)BTX Editor$(SEP)BTX0.cs"
+
+	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source$(SEP)swav2swar$(SEP)Principal.cs"
 
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
@@ -185,6 +187,7 @@ clean:
 clean_tools:
 	rm -f tools/msgenc
 	rm -f tools/pngtobtx0.exe
+	rm -f tools/swav2swar.exe
 	rm -f tools/ndstool
 	rm -f tools/armips
 	rm -f tools/nitrogfx
