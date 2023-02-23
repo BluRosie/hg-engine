@@ -17,12 +17,12 @@ ifeq ($(SYSTEM), 0)
 EXE := .exe
 SEP := \\
 
-WAV2SWAV := mono tools/wav2swav.exe
+WAV2SWAV := tools/wav2swav.exe
 else
 EXE := 
 SEP := /
 
-WAV2SWAV := tools/wav2swav.exe
+WAV2SWAV := mono tools/wav2swav.exe
 endif
 
 default: all
@@ -40,6 +40,7 @@ NARCHIVE = $(PYTHON) tools/narcpy.py
 GFX = tools/nitrogfx
 BTX = tools/pngtobtx0.exe
 SWAV2SWAR = tools/swav2swar.exe
+SDATTOOL = $(PYTHON) tools/SDATTool.py
 ###################### Setting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
@@ -303,8 +304,14 @@ move_narc: $(NARC_FILES)
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
 
-	@echo "move an updated gs_sound_data.sdat:"
-	cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
+	#@echo "move an updated gs_sound_data.sdat:"
+	#cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s
+
+# needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
+.SECONDARY:
+
+# debug makefile print
+print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
