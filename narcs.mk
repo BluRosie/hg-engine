@@ -463,6 +463,7 @@ NARC_FILES += $(OVERWORLD_DATA_NARC)
 
 SDAT_DIR := $(BUILD)/sdat
 SDAT_OBJ_DIR := $(SDAT_DIR)/build
+SDAT_FILES_DIR := $(SDAT_DIR)/Files
 SDAT_BUILD := $(BUILD)/gs_sound_data.sdat
 SDAT_TARGET := $(FILESYS)/data/sound/gs_sound_data.sdat
 SDAT_DEPENDENCIES_DIR := sound/cries
@@ -483,6 +484,9 @@ $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.
 	$(SWAV2SWAR) $< $@
 
 # we need to unpack the sdat
+# move the swav/swar/sbnk over
+# reorder cries 387+ to be numerical order in the FileBlock.json and InfoBlock.json
 $(SDAT_BUILD):$(SDAT_SWAR_OBJS)
 	$(SDATTOOL) -u $(SDAT_TARGET) $(SDAT_DIR)
-	
+	cp -r $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
+	$(SDATTOOL) -b $@ $(SDAT_DIR)
