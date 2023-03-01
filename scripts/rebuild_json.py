@@ -15,7 +15,7 @@ infoblock = json.load(open("build/sdat/InfoBlock.json", "rb+"))
 ####### FILEBLOCK #######
 #########################
 
-
+totalcries = len(os.listdir("sound/cries")) + 50
 
 species0 = 1
 species1 = 1
@@ -77,7 +77,7 @@ for entry in fileblock["file"]:
 
 # append new sbnk to the end of the sbnks
 if (species0 <= 494):
-    for n in range(544, 700):
+    for n in range(544, totalcries):
         json_data = {}
 
         json_data["name"] = "BANK_PV{:03d}.sbnk".format(n)
@@ -97,7 +97,7 @@ if (species0 <= 494):
 #        },
 
 if (species1 <= 494):
-    for n in range(544, 700):
+    for n in range(544, totalcries):
         json_data = {}
 
         json_data["name"] = "WAVE_ARC_PV{:03d}.swar".format(n)
@@ -149,7 +149,7 @@ for entry in infoblock["bankInfo"]:
         species0 = species0 + 1
 
 if (species0 <= 494): # hasn't already been expanded
-    for n in range(544, 700):
+    for n in range(544, totalcries):
         json_data = {}
 
         json_data["name"] = "BANK_PV{:03d}".format(n)
@@ -169,7 +169,7 @@ for entry in infoblock["wavarcInfo"]:
         species1 = species1 + 1
 
 if (species1 <= 494): # hasn't already been expanded
-    for n in range(544, 700):
+    for n in range(544, totalcries):
         json_data = {}
 
         json_data["name"] = "WAVE_ARC_PV{:03d}".format(n)
