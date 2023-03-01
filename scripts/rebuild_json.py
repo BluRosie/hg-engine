@@ -147,8 +147,6 @@ for entry in infoblock["bankInfo"]:
         entry["unkA"] = 0
         entry["wa"] = [ "WAVE_ARC_PV{:03d}".format(species0), "", "", "" ]
         species0 = species0 + 1
-        if (species0 == 494):
-            species0 = 544
 
 if (species0 <= 494): # hasn't already been expanded
     for n in range(544, 700):
@@ -169,8 +167,6 @@ for entry in infoblock["wavarcInfo"]:
         entry["fileName"] = "WAVE_ARC_PV{:03d}.swar".format(species1)
         entry["unkA"] = 0
         species1 = species1 + 1
-        if (species1 == 494):
-            species1 = 544
 
 if (species1 <= 494): # hasn't already been expanded
     for n in range(544, 700):
@@ -181,7 +177,6 @@ if (species1 <= 494): # hasn't already been expanded
         json_data["unkA"] = 0
         
         infoblock["wavarcInfo"].insert(len(infoblock["wavarcInfo"]), json_data)
-        
 
 
 with open("build/sdat/InfoBlock.json", "w") as savefile:
