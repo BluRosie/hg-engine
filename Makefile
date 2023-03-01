@@ -300,12 +300,12 @@ move_narc: $(NARC_FILES)
 	@echo "pokemon overworld data:"
 	cp $(OVERWORLD_DATA_NARC) $(OVERWORLD_DATA_TARGET)
 
+	@echo "move an updated gs_sound_data.sdat:"
+	cp $(SDAT_BUILD) $(SDAT_TARGET)
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
-
-	#@echo "move an updated gs_sound_data.sdat:"
-	#cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
 
 	@echo "tutor data:"
 	$(ARMIPS) armips/data/tutordata.s

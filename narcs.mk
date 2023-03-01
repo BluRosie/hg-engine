@@ -464,7 +464,7 @@ NARC_FILES += $(OVERWORLD_DATA_NARC)
 SDAT_DIR := $(BUILD)/sdat
 SDAT_OBJ_DIR := $(SDAT_DIR)/build
 SDAT_FILES_DIR := $(SDAT_DIR)/Files
-SDAT_BUILD := $(BUILD)/gs_sound_data.sdat
+SDAT_BUILD := $(BUILD_NARC)/gs_sound_data.sdat
 SDAT_TARGET := $(FILESYS)/data/sound/gs_sound_data.sdat
 SDAT_DEPENDENCIES_DIR := sound/cries
 SDAT_DEPENDENCIES := $(SDAT_DEPENDENCIES_DIR)/*
@@ -489,4 +489,7 @@ $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.
 $(SDAT_BUILD):$(SDAT_SWAR_OBJS)
 	$(SDATTOOL) -u $(SDAT_TARGET) $(SDAT_DIR)
 	cp -r $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
+	$(PYTHON) scripts/rebuild_json.py
 	$(SDATTOOL) -b $@ $(SDAT_DIR)
+
+NARC_FILES += $(SDAT_BUILD)
