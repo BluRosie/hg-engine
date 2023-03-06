@@ -62,10 +62,16 @@ for entry in fileblock["file"]:
         entry["name"] = "BANK_PV{:03d}.sbnk".format(species0)
         species0 = species0 + 1
 
+        if (species0 == 494):
+            species0 += 50
+
 
     if ("WAVE_ARC_PV" in entry["name"] and "SKY" not in entry["name"]):
         entry["name"] = "WAVE_ARC_PV{:03d}.swar".format(species1)
         species1 = species1 + 1
+
+        if (species1 == 494):
+            species1 += 50
 
     entrynum = entrynum + 1
 
@@ -76,7 +82,7 @@ for entry in fileblock["file"]:
 #        },
 
 # append new sbnk to the end of the sbnks
-if (species0 <= 494):
+if (species0 <= 544):
     for n in range(544, totalcries):
         json_data = {}
 
@@ -96,7 +102,7 @@ if (species0 <= 494):
 #            ]
 #        },
 
-if (species1 <= 494):
+if (species1 <= 544):
     for n in range(544, totalcries):
         json_data = {}
 
@@ -148,7 +154,10 @@ for entry in infoblock["bankInfo"]:
         entry["wa"] = [ "WAVE_ARC_PV{:03d}".format(species0), "", "", "" ]
         species0 = species0 + 1
 
-if (species0 <= 494): # hasn't already been expanded
+        if (species0 == 494):
+            species0 += 50
+
+if (species0 <= 544): # hasn't already been expanded
     for n in range(544, totalcries):
         json_data = {}
 
@@ -168,7 +177,10 @@ for entry in infoblock["wavarcInfo"]:
         entry["unkA"] = 0
         species1 = species1 + 1
 
-if (species1 <= 494): # hasn't already been expanded
+        if (species1 == 494):
+            species1 += 50
+
+if (species1 <= 544): # hasn't already been expanded
     for n in range(544, totalcries):
         json_data = {}
 
