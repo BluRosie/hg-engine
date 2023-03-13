@@ -214,3 +214,5 @@ arm9 GetMoveDataTable 02073300 1
 arm9 HandleLoadOverlay 02006FF8 2
 arm9 UnloadOverlayByID 02006F7C 1
 
+arm9 GF_Snd_LoadSeq 02004764 1
+arm9 GF_Snd_LoadSeqEx 02004784 2

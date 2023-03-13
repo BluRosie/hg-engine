@@ -155,6 +155,11 @@ bx lr
 
 .global sprintf
 sprintf:
-push {lr}
-blx 0x020e7f30
-pop {pc}
+push {r4, lr}
+//blx 0x020e7f30
+ldr r4, =0x020e7f30
+bl bx_r4
+pop {r4, pc}
+
+bx_r4:
+bx r4

@@ -359,3 +359,8 @@ FS_SetDefaultDMA = 0x020D86D8;
 LoadOverlayNormal = 0x02007180 | 1;
 LoadOverlayNoInit = 0x02007188 | 1;
 LoadOverlayNoInitAsync = 0x020071C0 | 1;
+
+GetSoundDataPointer = 0x020043F8 | 1;
+NNS_SndArcLoadSeq = 0x020C9DC4;
+GF_SndHeapGetFreeSize = 0x0200472C | 1;
+NNS_SndArcLoadSeqEx = 0x020C9E48;
