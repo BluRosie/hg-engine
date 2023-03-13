@@ -267,7 +267,7 @@
 /* SPECIES_MARSHTOMP                   */ .halfword ABILITY_DAMP
 /* SPECIES_SWAMPERT                    */ .halfword ABILITY_DAMP
 /* SPECIES_POOCHYENA                   */ .halfword ABILITY_RATTLED
-/* SPECIES_MIGHTYENA                   */ .halfword ABILITY_RATTLED
+/* SPECIES_MIGHTYENA                   */ .halfword ABILITY_MOXIE
 /* SPECIES_ZIGZAGOON                   */ .halfword ABILITY_QUICK_FEET
 /* SPECIES_LINOONE                     */ .halfword ABILITY_QUICK_FEET
 /* SPECIES_WURMPLE                     */ .halfword ABILITY_RUN_AWAY
