@@ -87,13 +87,13 @@ BOOL GF_Snd_LoadSeq(int seqNo) {
     if (!ret)
     {
         u8 buf[100];
-        sprintf(buf, "Failed to load song %d.  There are 0x%x bytes left in the sound heap.\n", seqNo, SoundHeapFreeSize);
+        sprintf(buf, "[GF_Snd_LoadSeq] Failed to load song %d.  There are 0x%x bytes left in the sound heap.\n", seqNo, SoundHeapFreeSize);
         debugsyscall(buf);
     }
     else
     {
         u8 buf[100];
-        sprintf(buf, "Loaded song %d.  There are 0x%x bytes left in the sound heap.\n", seqNo, SoundHeapFreeSize);
+        sprintf(buf, "[GF_Snd_LoadSeq] Loaded song %d.  There are 0x%x bytes left in the sound heap.\n", seqNo, SoundHeapFreeSize);
         debugsyscall(buf);
     }
 #endif // DEBUG_SOUND_SSEQ_LOADS
@@ -114,16 +114,209 @@ BOOL GF_Snd_LoadSeqEx(int seqNo, u32 loadFlag) {
     if (!ret)
     {
         u8 buf[100];
-        sprintf(buf, "Failed to load song %d.  There are 0x%x bytes left in the sound heap (EX).\n", seqNo, SoundHeapFreeSize);
+        sprintf(buf, "[GF_Snd_LoadSeqEx] Failed to load song %d.  There are 0x%x bytes left in the sound heap.\n", seqNo, SoundHeapFreeSize);
         debugsyscall(buf);
     }
     else
     {
         u8 buf[100];
-        sprintf(buf, "Loaded song %d.  There are 0x%x bytes left in the sound heap (EX).\n", seqNo, SoundHeapFreeSize);
+        sprintf(buf, "[GF_Snd_LoadSeqEx] Loaded song %d.  There are 0x%x bytes left in the sound heap (EX).\n", seqNo, SoundHeapFreeSize);
         debugsyscall(buf);
     }
 #endif // DEBUG_SOUND_SSEQ_LOADS
 
     return ret;
+}
+
+
+
+// we got the sdk involved
+
+enum
+{
+    NNS_SND_ARC_LOAD_SUCESS = 0,
+    NNS_SND_ARC_LOAD_ERROR_INVALID_GROUP_NO,
+    NNS_SND_ARC_LOAD_ERROR_INVALID_SEQ_NO,
+    NNS_SND_ARC_LOAD_ERROR_INVALID_SEQARC_NO,
+    NNS_SND_ARC_LOAD_ERROR_INVALID_BANK_NO,
+    NNS_SND_ARC_LOAD_ERROR_INVALID_WAVEARC_NO,
+    NNS_SND_ARC_LOAD_ERROR_FAILED_LOAD_SEQ,
+    NNS_SND_ARC_LOAD_ERROR_FAILED_LOAD_SEQARC,
+    NNS_SND_ARC_LOAD_ERROR_FAILED_LOAD_BANK,
+    NNS_SND_ARC_LOAD_ERROR_FAILED_LOAD_WAVE
+};
+
+
+#define NNS_SND_ARC_LOAD_SEQ    ( 1 << 0 )
+#define NNS_SND_ARC_LOAD_BANK   ( 1 << 1 )
+#define NNS_SND_ARC_LOAD_WAVE   ( 1 << 2 )
+#define NNS_SND_ARC_LOAD_SEQARC ( 1 << 3 )
+#define NNS_SND_ARC_LOAD_ALL   0xff
+
+
+#define SND_BANK_TO_WAVEARC_MAX 4
+#define NNS_SND_ARC_BANK_TO_WAVEARC_NUM 4
+
+#define NNS_SND_ARC_INVALID_WAVEARC_NO 0xffff
+
+#define NNS_SND_ARC_WAVEARC_SINGLE_LOAD ( 1 << 0 )
+
+
+
+typedef struct SNDBinaryFileHeader
+{
+    /* 0x0 */ char    signature[4];
+    /* 0x4 */ u16     byteOrder;
+    /* 0x6 */ u16     version;
+    /* 0x8 */ u32     fileSize;
+    /* 0xC */ u16     headerSize;
+    /* 0xE */ u16     dataBlocks;
+} // size = 0x10
+SNDBinaryFileHeader;
+
+
+typedef struct SNDBinaryBlockHeader
+{
+    /* 0x0 */ u32     kind;
+    /* 0x4 */ u32     size;
+} // size = 0x8
+SNDBinaryBlockHeader;
+
+struct SNDWaveArcLink;
+
+
+typedef struct SNDWaveArc
+{
+    /* 0x00 */ struct SNDBinaryFileHeader fileHeader;
+    /* 0x10 */ struct SNDBinaryBlockHeader blockHeader;
+
+    /* 0x18 */ struct SNDWaveArcLink *topLink;
+    /* 0x1C */ u32     reserved[7];
+    /* 0x38 */ u32     waveCount;
+    /* 0x3C */ u32     waveOffset[0];
+} // size = 0x40
+SNDWaveArc;
+
+
+// me when i recursive define but it's a pointer so it's okay
+typedef struct SNDWaveArcLink
+{
+    /* 0x0 */ struct SNDWaveArc *waveArc;
+    /* 0x4 */ struct SNDWaveArcLink *next;
+} // size = 0x8
+SNDWaveArcLink;
+
+
+typedef struct SNDBankData
+{
+    /* 0x00 */ struct SNDBinaryFileHeader fileHeader;
+    /* 0x10 */ struct SNDBinaryBlockHeader blockHeader;
+
+    /* 0x18 */ struct SNDWaveArcLink waveArcLink[SND_BANK_TO_WAVEARC_MAX];
+    /* 0x38 */ u32     instCount;
+    /* 0x3C */ u32     instOffset[0];
+} // size = 0x40
+SNDBankData;
+
+
+typedef struct NNSSndArcBankInfo
+{
+    /* 0x0 */ u32 fileId;
+    /* 0x4 */ u16 waveArcNo[ NNS_SND_ARC_BANK_TO_WAVEARC_NUM ];
+} // size = 0xC
+NNSSndArcBankInfo;
+
+
+typedef struct NNSSndArcWaveArcInfo
+{
+    u32 fileId : 24;
+    u32 flags  :  8;
+} NNSSndArcWaveArcInfo;
+
+
+const NNSSndArcBankInfo * __attribute__((long_call)) NNS_SndArcGetBankInfo(int bankNo);
+SNDBankData * __attribute__((long_call)) LoadBank(int fileId, void *heap, BOOL bSetAddr);
+void * __attribute__((long_call)) NNS_SndArcGetFileAddress(int fileId);
+const NNSSndArcWaveArcInfo * __attribute__((long_call)) NNS_SndArcGetWaveArcInfo();
+int __attribute__((long_call)) NNSi_SndArcLoadWaveArc(u16 waveArcNo, u32 loadFlag, void *heap, BOOL bSetAddr, SNDWaveArc *waveArc);
+BOOL __attribute__((long_call)) LoadSingleWaves(SNDWaveArc *waveArc, SNDBankData *bank, int index, u32 fileId, void *heap);
+void __attribute__((long_call)) SND_AssignWaveArc(SNDBankData *bank, int index, SNDWaveArc *waveArc);
+
+int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, struct SNDBankData** pData)
+{
+    const NNSSndArcBankInfo* bankInfo;
+    const NNSSndArcWaveArcInfo* waveArcInfo;
+    SNDBankData* bank = NULL;
+    SNDWaveArc* waveArc;
+    int result;
+    int i;
+
+    // Get bank information
+    bankInfo = NNS_SndArcGetBankInfo( bankNo );
+
+#ifdef DEBUG_SOUND_SBNK_LOADS
+    if (bankInfo == NULL)
+    {
+        u8 buf[100];
+        sprintf(buf, "[NNSi_SndArcLoadBank] Failed to load bank %d.  There are 0x%x bytes left in the sound heap.\n", bankNo, SoundHeapFreeSize);
+        debugsyscall(buf);
+    }
+#endif // DEBUG_SOUND_SBNK_LOADS
+    
+    if ( bankInfo == NULL ) return NNS_SND_ARC_LOAD_ERROR_INVALID_BANK_NO;
+    
+    // If necessary to load
+    if ( loadFlag & NNS_SND_ARC_LOAD_BANK )
+    {
+        bank = LoadBank( bankInfo->fileId, heap, bSetAddr );
+        if ( bank == NULL ) {
+            return NNS_SND_ARC_LOAD_ERROR_FAILED_LOAD_BANK;
+        }
+    }
+    else
+    {
+        bank = (SNDBankData*)NNS_SndArcGetFileAddress( bankInfo->fileId );
+    }
+    
+    // Load waveform data
+    for( i = 0; i < NNS_SND_ARC_BANK_TO_WAVEARC_NUM ; i++ )
+    {
+        if ( bankInfo->waveArcNo[i] == NNS_SND_ARC_INVALID_WAVEARC_NO ) continue;
+            
+        // Get waveform archive information
+        waveArcInfo = NNS_SndArcGetWaveArcInfo( bankInfo->waveArcNo[i] );
+        if ( waveArcInfo == NULL ) return NNS_SND_ARC_LOAD_ERROR_INVALID_WAVEARC_NO;
+        
+        // Loading waveform archives
+        result = NNSi_SndArcLoadWaveArc( bankInfo->waveArcNo[i], loadFlag, heap, bSetAddr, &waveArc );
+        if ( result != NNS_SND_ARC_LOAD_SUCESS ) return result;
+                
+        if ( waveArcInfo->flags & NNS_SND_ARC_WAVEARC_SINGLE_LOAD )
+        {
+            // Individual waveform loading
+            if ( loadFlag & NNS_SND_ARC_LOAD_WAVE )
+            {
+                if ( ! LoadSingleWaves( waveArc, bank, i, waveArcInfo->fileId, heap ) ) {
+                    return NNS_SND_ARC_LOAD_ERROR_FAILED_LOAD_WAVE;
+                }
+            }
+        }
+            
+        // Associate waveforms with banks
+        if ( bank != NULL && waveArc != NULL ) {
+            SND_AssignWaveArc( bank, i, waveArc );
+        }
+    }
+    
+    if ( pData != NULL ) *pData = bank;
+
+#ifdef DEBUG_SOUND_SBNK_LOADS    
+    {
+        u8 buf[100];
+        sprintf(buf, "[NNSi_SndArcLoadBank] Loaded bank %d.  There are 0x%x bytes left in the sound heap.\n", bankNo, SoundHeapFreeSize);
+        debugsyscall(buf);
+    }
+#endif // DEBUG_SOUND_SBNK_LOADS
+    
+    return NNS_SND_ARC_LOAD_SUCESS;
 }

@@ -1,0 +1,6 @@
+#include "include/config.h"
+
+#0012 LoadMegaOam 0226715C 1
+
+# arm hook at func+4
+arm9 NNSi_SndArcLoadBank_hook 020CA058 5

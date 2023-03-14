@@ -44,6 +44,7 @@ OUTPUT_FIELD = 'build/output_field.bin'
 OUTPUT_BATTLE = 'build/output_battle.bin'
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
+ARM_HOOKS = 'armhooks'
 REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
@@ -121,6 +122,24 @@ def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
 
     #space += OFFSET_START + 1
     space += 1
+    data += (space.to_bytes(4, 'little'))
+    rom.write(bytes(data))
+
+
+def HookARM(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
+    # Align 4
+    if hookAt & 3:
+        hookAt -= hookAt % 4
+
+    rom.seek(hookAt)
+
+    if (register > 12):
+        print("Register used to hook at " + str(space) + " is > 12 (r" + str(register) + " used).  Results may be unstable.")
+
+    data = bytes([0x00, 0x00 | register << 4, 0x9F, 0xE5, 0x10 | register, 0xFF, 0x2F, 0xE1])
+
+    #space += OFFSET_START + 1
+    #space += 1 # no thumb bit here
     data += (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
 
@@ -281,6 +300,37 @@ def hook():
                 Hook(rom2, code, offset, int(register))
                 rom2.close()
 
+
+    if os.path.isfile(ARM_HOOKS):
+        table = GetSymbols()
+        with open(ARM_HOOKS, 'r') as hookList:
+            definesDict = {}
+            conditionals = []
+            for line in hookList:
+                if TryProcessFileInclusion(line, definesDict):
+                    continue
+                if TryProcessConditionalCompilation(line, definesDict, conditionals):
+                    continue
+                if line.strip().startswith('#') or line.strip() == '':
+                    continue
+
+                files, symbol, address, register = line.split()
+                #offset = int(address, 16) - 0x08000000
+                try:
+                    code = table[symbol]
+                except KeyError:
+                    print('Symbol missing:', symbol)
+                    continue
+                if files == "arm9":
+                    rom2 = open("base/arm9.bin", 'rb+')
+                    offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
+                else:
+                    rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
+                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                        y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
+                        offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
+                HookARM(rom2, code, offset, int(register))
+                rom2.close()
 
 def writeall():
     OFFECTSFILES = "base/overlay/overlay_0129.bin"
