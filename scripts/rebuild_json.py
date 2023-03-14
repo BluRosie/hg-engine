@@ -81,16 +81,16 @@ for entry in fileblock["file"]:
 #            "MD5": "0b957e3b8d070b82138ba5e79ac59bca"
 #        },
 
-# append new sbnk to the end of the sbnks
-if (species0 <= 544):
-    for n in range(544, totalcries):
-        json_data = {}
-
-        json_data["name"] = "BANK_PV{:03d}.sbnk".format(n)
-        json_data["type"] = "BANK"
-        json_data["MD5"] = "0b957e3b8d070b82138ba5e79ac59bca"
-        fileblock["file"].insert(WAVARC_startindex, json_data)
-        WAVARC_startindex = WAVARC_startindex + 1
+## append new sbnk to the end of the sbnks
+#if (species0 <= 544):
+#    for n in range(544, totalcries):
+#        json_data = {}
+#
+#        json_data["name"] = "BANK_PV{:03d}.sbnk".format(n)
+#        json_data["type"] = "BANK"
+#        json_data["MD5"] = "0b957e3b8d070b82138ba5e79ac59bca"
+#        fileblock["file"].insert(WAVARC_startindex, json_data)
+#        WAVARC_startindex = WAVARC_startindex + 1
 
 
 #        {
@@ -157,16 +157,16 @@ for entry in infoblock["bankInfo"]:
         if (species0 == 494):
             species0 += 50
 
-if (species0 <= 544): # hasn't already been expanded
-    for n in range(544, totalcries):
-        json_data = {}
-
-        json_data["name"] = "BANK_PV{:03d}".format(n)
-        json_data["fileName"] = "BANK_PV{:03d}.sbnk".format(n)
-        json_data["unkA"] = 0
-        json_data["wa"] = [ "WAVE_ARC_PV{:03d}".format(n), "", "", "" ]
-        
-        infoblock["bankInfo"].insert(len(infoblock["bankInfo"]), json_data)
+#if (species0 <= 544): # hasn't already been expanded
+#    for n in range(544, totalcries):
+#        json_data = {}
+#
+#        json_data["name"] = "BANK_PV{:03d}".format(n)
+#        json_data["fileName"] = "BANK_PV{:03d}.sbnk".format(n)
+#        json_data["unkA"] = 0
+#        json_data["wa"] = [ "WAVE_ARC_PV{:03d}".format(n), "", "", "" ]
+#        
+#        infoblock["bankInfo"].insert(len(infoblock["bankInfo"]), json_data)
 
 entrynum = 0
 
