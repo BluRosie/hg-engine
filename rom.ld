@@ -372,3 +372,5 @@ NNS_SndArcGetWaveArcInfo = 0x020C9788;
 NNSi_SndArcLoadWaveArc = 0x020CA194;
 LoadSingleWaves = 0x020CA788;
 SND_AssignWaveArc = 0x020D6154;
+
+PlayCry = 0x02006218 | 1;
