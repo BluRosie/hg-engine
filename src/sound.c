@@ -266,7 +266,7 @@ int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, str
     SNDWaveArc* waveArc;
     int result;
     int i;
-    BOOL loadingNewCry = 0;
+    BOOL loadingNewCry = 0, hasLoadedCry = 0;
 
     // Get bank information
     if (bankNo >= CRY_PSEUDOBANK_START || (bankNo < 495 && bankNo > 1)) // assume all cry banks are loading cries
@@ -293,9 +293,9 @@ int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, str
         debugsyscall(buf);
     }
 #endif // DEBUG_SOUND_SBNK_LOADS
-    
+
     if ( bankInfo == NULL ) return NNS_SND_ARC_LOAD_ERROR_INVALID_BANK_NO;
-    
+
     // If necessary to load
     if ( loadFlag & NNS_SND_ARC_LOAD_BANK )
     {
@@ -308,16 +308,19 @@ int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, str
     {
         bank = (SNDBankData*)NNS_SndArcGetFileAddress( bankInfo->fileId );
     }
-    
+
     // Load waveform data
     for( i = 0; i < NNS_SND_ARC_BANK_TO_WAVEARC_NUM ; i++ )
     {
         u32 waveArcIndex = bankInfo->waveArcNo[i];
-        if (loadingNewCry)
+        if (loadingNewCry && !hasLoadedCry)
+        {
             waveArcIndex = bankNo;
-            
+            hasLoadedCry = 1;
+        }
+
         if ( waveArcIndex == NNS_SND_ARC_INVALID_WAVEARC_NO ) continue;
-            
+
         // Get waveform archive information
         waveArcInfo = NNS_SndArcGetWaveArcInfo( waveArcIndex );
 
@@ -332,7 +335,7 @@ int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, str
 #endif // DEBUG_SOUND_SBNK_LOADS
 
         if ( waveArcInfo == NULL ) return NNS_SND_ARC_LOAD_ERROR_INVALID_WAVEARC_NO;
-        
+
         // Loading waveform archives
         result = NNSi_SndArcLoadWaveArc( waveArcIndex, loadFlag, heap, bSetAddr, &waveArc );
 
@@ -381,16 +384,16 @@ int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, str
                 }
             }
         }
-            
+
         // Associate waveforms with banks
         if ( bank != NULL && waveArc != NULL ) {
             SND_AssignWaveArc( bank, i, waveArc );
         }
     }
-    
+
     if ( pData != NULL ) *pData = bank;
 
-#ifdef DEBUG_SOUND_SBNK_LOADS    
+#ifdef DEBUG_SOUND_SBNK_LOADS
     {
         u8 buf[200];
         GF_SndHeapGetFreeSize();
@@ -398,6 +401,6 @@ int NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, str
         debugsyscall(buf);
     }
 #endif // DEBUG_SOUND_SBNK_LOADS
-    
+
     return NNS_SND_ARC_LOAD_SUCCESS;
 }
