@@ -275,3 +275,5 @@ ldrb r2, [r6, #0x18]
 bl GrabSexFromSpeciesAndForm
 ldr r1, =0x0206EA24|1
 bx r1
+
+.pool

@@ -57,15 +57,20 @@ for entry in fileblock["file"]:
         WAVARC_startindex = entrynum
         WAVARC_init = 1
 
+## code to unify the banks
+#    if ("BANK_PV" in entry["name"] and "SKY" not in entry["name"]):
+#        entry["name"] = "BANK_PV{:03d}.sbnk".format(species0)
+#        species0 = species0 + 1
+#
+#        if (species0 == 494):
+#            species0 += 50
 
-    if ("BANK_PV" in entry["name"] and "SKY" not in entry["name"]):
-        entry["name"] = "BANK_PV{:03d}.sbnk".format(species0)
-        species0 = species0 + 1
-
-        if (species0 == 494):
-            species0 += 50
+# delete entry if not BANK_PV001 or BANK_PV002
+    if ("BANK_PV001" not in entry["name"] and "BANK_PV002" not in entry["name"] and "BANK_PV" in entry["name"]):
+        fileblock["file"].remove(entry)
 
 
+# need to add in wave_arc's tho
     if ("WAVE_ARC_PV" in entry["name"] and "SKY" not in entry["name"]):
         entry["name"] = "WAVE_ARC_PV{:03d}.swar".format(species1)
         species1 = species1 + 1
@@ -81,7 +86,7 @@ for entry in fileblock["file"]:
 #            "MD5": "0b957e3b8d070b82138ba5e79ac59bca"
 #        },
 
-## append new sbnk to the end of the sbnks
+## append new sbnk to the end of the sbnks.  remove code to not fight sbnk
 #if (species0 <= 544):
 #    for n in range(544, totalcries):
 #        json_data = {}
@@ -102,6 +107,7 @@ for entry in fileblock["file"]:
 #            ]
 #        },
 
+# append new wave arc
 if (species1 <= 544):
     for n in range(544, totalcries):
         json_data = {}
@@ -147,16 +153,24 @@ entrynum = 0
 #        }
 
 for entry in infoblock["bankInfo"]:
-    if ("BANK_PV" in entry["name"] and "SKY" not in entry["name"]):
-        entry["name"] = "BANK_PV{:03d}".format(species0)
-        entry["fileName"] = "BANK_PV{:03d}.sbnk".format(species0)
-        entry["unkA"] = 0
-        entry["wa"] = [ "WAVE_ARC_PV{:03d}".format(species0), "", "", "" ]
-        species0 = species0 + 1
+# code to delete the entries
+    if ("BANK_PV001" not in entry["name"] and "BANK_PV002" not in entry["name"] and "BANK_PV" in entry["name"]):
+        entry["name"] = ""
+        entry["fileName"] = ""
+        entry["unkA"] = ""
+        entry["wa"] = ""
 
-        if (species0 == 494):
-            species0 += 50
-
+## code to add the entries
+#    if ("BANK_PV" in entry["name"] and "SKY" not in entry["name"]):
+#        entry["name"] = "BANK_PV{:03d}".format(species0)
+#        entry["fileName"] = "BANK_PV{:03d}.sbnk".format(species0)
+#        entry["unkA"] = 0
+#        entry["wa"] = [ "WAVE_ARC_PV{:03d}".format(species0), "", "", "" ]
+#        species0 = species0 + 1
+#
+#        if (species0 == 494):
+#            species0 += 50
+#
 #if (species0 <= 544): # hasn't already been expanded
 #    for n in range(544, totalcries):
 #        json_data = {}

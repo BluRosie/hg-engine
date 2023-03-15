@@ -13,6 +13,9 @@ FAIRY_TYPE_IMPLEMENTED equ 1
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.
 .definelabel ALLOW_SAVE_CHANGES, 0
 
+// CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
+CRY_PSEUDOBANK_START equ 778
+
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
 DEBUG_NEEDS_TESTING equ 0
 

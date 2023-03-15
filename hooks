@@ -42,6 +42,7 @@ arm9 GetItemArcData 08077CE8 3
 
 #mon expansion
 arm9 GetPokemonOwNum 0206A304 1
+arm9 GetMonIconPalette 02074364 3
 
 # wild mon hidden ability/form stuff
 #02247910

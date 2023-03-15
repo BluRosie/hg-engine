@@ -461,8 +461,7 @@ SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVA
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
 	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK
-	$(WAV2SWAV) $<
-	mv $(SDAT_DEPENDENCIES_DIR)/$$(basename "$<" .wav).swav $@
+	$(WAV2SWAV) $< -o $@
 	cp rawdata/sbank_sdat/BANK_PVNNN.sbnk $(SDAT_OBJ_DIR)/BANK/BANK_PV$$(basename "$<" .wav).sbnk
 	cp rawdata/sbank_sdat/BANK_PVNNN.txt $(SDAT_OBJ_DIR)/BANK/BANK_PV$$(basename "$<" .wav).txt
 

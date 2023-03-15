@@ -649,6 +649,9 @@ u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct Par
 u8 __attribute__((long_call)) GetArceusType(u16 held_effect);
 
 
+
+#define gIconPalTable ((u8 *)(0x023C8000 + START_ADDRESS))
+
 // defined in src/pokemon.c
 u8 __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no);
 int __attribute__((long_call)) PokeOtherFormMonsNoGet(int mons_no, int form_no);
@@ -656,6 +659,7 @@ u16 __attribute__((long_call)) GetSpeciesBasedOnForm(int mons_no, int form_no);
 u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no);
 u16 __attribute__((long_call)) PokeIconCgxPatternGet(const void *ppp);
 u32 __attribute__((long_call)) PokeIconPalNumGet(u32 mons, u32 form, u32 isegg);
+u32 __attribute__((long_call)) GetMonIconPalette(u32 mons, u32 form, u32 isegg);
 u16 __attribute__((long_call)) GetPokemonOwNum(u16 species);
 u16 __attribute__((long_call)) GetMonHiddenAbility(u16 species, u32 form);
 void __attribute__((long_call)) SetBoxMonAbility(void *boxmon);

@@ -2795,6 +2795,12 @@ u32 __attribute__((long_call)) PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
     return mons;
 }
 
+u32 __attribute__((long_call)) GetMonIconPalette(u32 mons, u32 form, u32 isegg)
+{
+    u32 r0 = PokeIconPalNumGet(mons, form, isegg);
+    return gIconPalTable[r0];
+}
+
 u16 __attribute__((long_call)) GetPokemonOwNum(u16 species)
 {
     return sSpeciesToOWGfx[species];

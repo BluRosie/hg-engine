@@ -515,23 +515,6 @@ def decompress_file(path):
         print("")
 
 
-def changeoffset():
-    txt = open('offsets.ini', 'r', encoding="utf-8")
-    p = txt.readlines()
-    txt.close()
-
-    word = ""
-    for i in p:
-        if "PokeIconPalNumGet:" in i:
-            word = i.replace(" ", '').split('/')[0].split(":")[1]
-            break
-
-    p = "PokeIconPalNumGet equ 0x" + word + "\n"
-    txt = open("armips/asm/offset.s", 'w', encoding="utf-8")
-    txt.writelines(p)
-    txt.close()
-
-
 if __name__ == '__main__':
     decompress()
     writeall()
@@ -539,5 +522,4 @@ if __name__ == '__main__':
     hook()
     repoint()
     offset()
-    changeoffset()
 
