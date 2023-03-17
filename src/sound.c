@@ -155,8 +155,6 @@ int __attribute__((long_call)) NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, voi
             return NNS_SND_ARC_LOAD_ERROR_INVALID_WAVEARC_NO;
         }
 
-        if ( waveArcInfo == NULL ) 
-
         // Loading waveform archives
         result = NNSi_SndArcLoadWaveArc( waveArcIndex, loadFlag, heap, bSetAddr, &waveArc );
 

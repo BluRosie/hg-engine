@@ -1,5 +1,5 @@
-#ifndef SAVE_H
-#define SAVE_H
+#ifndef SOUND_H
+#define SOUND_H
 
 #include "config.h"
 
@@ -194,4 +194,4 @@ BOOL __attribute__((long_call)) GF_Snd_LoadSeq(int seqNo);
 int __attribute__((long_call)) NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, struct SNDBankData** pData);
 
 
-#endif // SAVE_H
+#endif // SOUND_H
