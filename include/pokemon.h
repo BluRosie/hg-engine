@@ -8,9 +8,9 @@
 #define POKEMON_GENDER_FEMALE 1
 #define POKEMON_GENDER_UNKNOWN 2
 
-#define	MONS_MALE		(0)
-#define	MONS_FEMALE		(254)
-#define	MONS_UNKNOWN	(255)
+#define MONS_MALE       (0)
+#define MONS_FEMALE     (254)
+#define MONS_UNKNOWN    (255)
 
 // ID_PARA_dummy_p2_1 fields
 #define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
@@ -25,7 +25,7 @@
     BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
 }
 
-#define	POW_RND	(32)
+#define POW_RND (32)
 
 
 // personal narc fields
@@ -66,16 +66,16 @@ enum
     PERSONAL_TM_ARRAY_4,
 };
 
-#define	MAX_IVS (31)
+#define MAX_IVS (31)
 
-#define	RND_NO_SET  (0)
-#define	RND_SET (1)
+#define RND_NO_SET  (0)
+#define RND_SET (1)
 
-#define	ID_NO_SET   (0)
-#define	ID_SET  (1)
-#define	ID_NO_SHINY (2)
-#define	NO_MOVES_SET    (0xffff)
-#define	SAME_MOVES_SET  (0xfffe)
+#define ID_NO_SET   (0)
+#define ID_SET  (1)
+#define ID_NO_SHINY (2)
+#define NO_MOVES_SET    (0xffff)
+#define SAME_MOVES_SET  (0xfffe)
 
 typedef struct SEAL {
     u8 kind;           // ID of the seal
@@ -351,8 +351,8 @@ enum
     ID_PARA_form_no,               //形状ナンバー（アンノーン、デオキシス、ミノメスなど用）
     ID_PARA_dummy_p2_1,            //あまり
     ID_PARA_dummy_p2_2,            //あまり
-    ID_PARA_new_get_place,         //1eh	捕まえた場所（なぞの場所対応用）
-    ID_PARA_new_birth_place,       //20h	生まれた場所（なぞの場所対応用）
+    ID_PARA_new_get_place,         //1eh    捕まえた場所（なぞの場所対応用）
+    ID_PARA_new_birth_place,       //20h    生まれた場所（なぞの場所対応用）
 
     ID_PARA_nickname,                    //ニックネーム
     ID_PARA_nickname_code_flag,          //ニックネーム（STRCODE使用,nickname_flagもオンにする）
@@ -476,7 +476,7 @@ struct PLIST_WORK
 };
 
 
-// defines from pokeheartgold
+// defines from pokeheartgold + new ones
 typedef enum EvoMethod
 {
     EVO_NONE = 0,
@@ -506,6 +506,19 @@ typedef enum EvoMethod
     EVO_CORONET,
     EVO_ETERNA,
     EVO_ROUTE217,
+    EVO_LEVEL_DAY,
+    EVO_LEVEL_NIGHT,
+    EVO_LEVEL_DUSK,
+    EVO_LEVEL_RAIN,
+    EVO_HAS_MOVE_TYPE,
+    EVO_LEVEL_DARK_TYPE_MON_IN_PARTY,
+    EVO_TRADE_SPECIFIC_MON,
+    EVO_LEVEL_NATURE_AMPED,
+    EVO_LEVEL_NATURE_LOW_KEY,
+    EVO_AMOUNT_OF_CRITICAL_HITS,
+    EVO_HURT_IN_BATTLE_AMOUNT, // will have to be repurposed eventually i suppose
+    //EVO_DARK_SCROLL,  // implemented through a forme-change-esque cut scene
+    //EVO_WATER_SCROLL, // implemented through a forme-change-esque cut scene
 } EvoMethod;
 
 typedef enum {
@@ -604,7 +617,7 @@ void __attribute__((long_call)) SetMonData(void*,int,void*);
 u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
 u32 __attribute__((long_call)) GetBoxMonData(void *ppp, int id, void *buf);
 struct PartyPokemon * __attribute__((long_call)) PokeParty_GetMemberPointer(void * party, int pos);
-u32	__attribute__((long_call)) PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
+u32 __attribute__((long_call)) PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
 u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
 u8 __attribute__((long_call)) PokeSexGetMonsNo(u16 monsno,u32 rnd);
 void __attribute__((long_call)) BoxMonSetFastModeOff(void*,BOOL);
