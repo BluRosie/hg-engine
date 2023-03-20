@@ -217,3 +217,5 @@ arm9 UnloadOverlayByID 02006F7C 1
 
 arm9 GF_Snd_LoadSeq 02004764 1
 arm9 GF_Snd_LoadSeqEx 02004784 2
+
+arm9 StoreFieldSysPtr 0203E028 1

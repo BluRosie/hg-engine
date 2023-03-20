@@ -9063,7 +9063,7 @@ evodata SPECIES_CARBINK
 terminateevodata
 
 evodata SPECIES_GOOMY
-    evolution EVO_LEVEL_RAIN, 40, SPECIES_SLIGGOO
+    evolution EVO_LEVEL_UP, 40, SPECIES_SLIGGOO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9075,7 +9075,7 @@ evodata SPECIES_GOOMY
 terminateevodata
 
 evodata SPECIES_SLIGGOO
-    evolution EVO_KNOWS_MOVE, MOVE_RAIN_DANCE, SPECIES_GOODRA
+    evolution EVO_LEVEL_RAIN, 1, SPECIES_GOODRA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

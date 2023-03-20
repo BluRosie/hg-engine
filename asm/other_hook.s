@@ -277,3 +277,23 @@ ldr r1, =0x0206EA24|1
 bx r1
 
 .pool
+
+
+.global StoreFieldSysPtr
+StoreFieldSysPtr:
+ldr r1, =gFieldSysPtr
+str r4, [r1]
+
+mov r1, #0
+str r1, [r0]
+ldr r0, [r4]
+mov r6, #0x7C
+
+ldr r2, =0x0203E030 | 1
+bx r2
+
+.pool
+
+.global gFieldSysPtr
+gFieldSysPtr:
+.word 0

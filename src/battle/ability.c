@@ -245,7 +245,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             break;
                         case WEATHER_SYS_SNOW:
                         case WEATHER_SYS_SNOWSTORM:
-                        case WEATHER_SYS_BLIZZARD:
+                        //case WEATHER_SYS_BLIZZARD:
                             scriptnum = SUB_SEQ_OVERWORLD_HAIL;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;

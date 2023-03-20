@@ -5,6 +5,7 @@
 #include "../include/pokemon.h"
 #include "../include/rtc.h"
 #include "../include/save.h"
+#include "../include/script.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
@@ -12,6 +13,7 @@
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
+#include "../include/constants/weather_numbers.h"
 
 static const u16 sSpeciesToOWGfx[] =
 {
@@ -3309,6 +3311,11 @@ u32 __attribute__((long_call)) CheckIfMonsAreEqual(struct PartyPokemon *pokemon1
             SetMonData(ppFromParty, ID_PARA_form_no, &form); \
         } \
     } \
+    else { \
+        target = evoTable[i].target & 0x7FF; \
+        form = evoTable[i].target >> 11; \
+        SetMonData(pokemon, ID_PARA_form_no, &form); \
+    } \
 }
 
 u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
@@ -3494,6 +3501,56 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                     *method_ret = EVO_ROUTE217;
                 }
                 break;
+
+            case EVO_LEVEL_DAY:
+                if (IsNighttime() == 0 && evoTable[i].param <= level) {
+                    GET_TARGET_AND_SET_FORM;
+                    *method_ret = EVO_LEVEL_DAY;
+                }
+                break;
+            case EVO_LEVEL_NIGHT:
+                if (IsNighttime() == 1 && evoTable[i].param <= level) {
+                    GET_TARGET_AND_SET_FORM;
+                    *method_ret = EVO_LEVEL_NIGHT;
+                }
+                break;
+            case EVO_LEVEL_DUSK:
+                {
+                    struct RTCTime time;
+                    GF_RTC_CopyTime(&time);
+
+                    if (time.hour == 17 && evoTable[i].param <= level) {
+                        GET_TARGET_AND_SET_FORM;
+                        *method_ret = EVO_LEVEL_DUSK;
+                    }
+                }
+                break;
+            case EVO_LEVEL_RAIN:
+                {
+                    u32 weather = Fsys_GetWeather_HandleDiamondDust(gFieldSysPtr, gFieldSysPtr->location->mapId);
+                    
+                    switch (weather)
+                    {
+                    case WEATHER_SYS_RAIN:
+                    case WEATHER_SYS_HEAVY_RAIN:
+                    case WEATHER_SYS_THUNDER:
+                        if (evoTable[i].param <= level) {
+                            GET_TARGET_AND_SET_FORM;
+                            *method_ret = EVO_LEVEL_RAIN;
+                        }
+                    break;
+                    }
+                }
+                break;
+
+//    EVO_HAS_MOVE_TYPE,
+//    EVO_LEVEL_DARK_TYPE_MON_IN_PARTY,
+//    EVO_TRADE_SPECIFIC_MON,
+//    EVO_LEVEL_NATURE_AMPED,
+//    EVO_LEVEL_NATURE_LOW_KEY,
+//    EVO_AMOUNT_OF_CRITICAL_HITS,
+//    EVO_HURT_IN_BATTLE_AMOUNT,
+
             }
             if (target != SPECIES_NONE) {
                 break;

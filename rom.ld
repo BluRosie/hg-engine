@@ -373,4 +373,5 @@ NNSi_SndArcLoadWaveArc = 0x020CA194;
 LoadSingleWaves = 0x020CA788;
 SND_AssignWaveArc = 0x020D6154;
 
+Fsys_GetWeather_HandleDiamondDust = 0x0203BBB4 | 1;
 PlayCry = 0x02006218 | 1;
