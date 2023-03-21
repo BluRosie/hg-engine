@@ -734,6 +734,8 @@ PTR_s_kCam_023d9c34: //honestly not sure what's going on here
 
 .ascii "RHDtaArc"
 
+.pool
+
 .global FUN_RHDtaArc
 FUN_RHDtaArc:
 	push { r3, r4, r5, lr }

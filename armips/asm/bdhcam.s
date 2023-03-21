@@ -6,7 +6,7 @@
 .open "base/arm9.bin", 0x02000000
 
 .org 0x02023174
-    .byte 0xB6, 0xF3, 0x2E, 0xFA
+    bl FUN_GDMI
 
 .close
 
