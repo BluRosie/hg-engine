@@ -3332,6 +3332,7 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
     struct Evolution *evoTable;
     int method_local;
     u32 form = GetMonData(pokemon, ID_PARA_form_no, NULL);
+    u32 lowkey = 0;
     
     struct PartyPokemon *ppFromParty = NULL;
 
@@ -3526,31 +3527,105 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                 }
                 break;
             case EVO_LEVEL_RAIN:
+                if (evoTable[i].param <= level)
                 {
                     u32 weather = Fsys_GetWeather_HandleDiamondDust(gFieldSysPtr, gFieldSysPtr->location->mapId);
-                    
+
                     switch (weather)
                     {
                     case WEATHER_SYS_RAIN:
                     case WEATHER_SYS_HEAVY_RAIN:
                     case WEATHER_SYS_THUNDER:
-                        if (evoTable[i].param <= level) {
-                            GET_TARGET_AND_SET_FORM;
-                            *method_ret = EVO_LEVEL_RAIN;
-                        }
-                    break;
+                        GET_TARGET_AND_SET_FORM;
+                        *method_ret = EVO_LEVEL_RAIN;
                     }
                 }
                 break;
-
-//    EVO_HAS_MOVE_TYPE,
-//    EVO_LEVEL_DARK_TYPE_MON_IN_PARTY,
-//    EVO_TRADE_SPECIFIC_MON,
-//    EVO_LEVEL_NATURE_AMPED,
-//    EVO_LEVEL_NATURE_LOW_KEY,
-//    EVO_AMOUNT_OF_CRITICAL_HITS,
-//    EVO_HURT_IN_BATTLE_AMOUNT,
-
+            case EVO_HAS_MOVE_TYPE:
+                {
+                    int k;
+                    
+                    for (k = 0; k < 4; k++)
+                    {
+                        if (GetMoveData(GetMonData(pokemon, ID_PARA_waza1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param)
+                        {
+                            GET_TARGET_AND_SET_FORM;
+                            *method_ret = EVO_HAS_MOVE_TYPE;
+                            break;
+                        }
+                    }
+                }
+                break;
+            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
+                if (evoTable[i].param <= level && party != NULL)
+                {
+                    for (int k = 0; k < 6; k++)
+                    {
+                        if (!CheckIfMonsAreEqual(pokemon, PokeParty_GetMemberPointer(party, k)) // make sure that pancham doesn't satisfy its own requirement
+                         && (GetMonData(PokeParty_GetMemberPointer(party, k), ID_PARA_type1, NULL) == TYPE_DARK || GetMonData(PokeParty_GetMemberPointer(party, k), ID_PARA_type2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
+                        {
+                            GET_TARGET_AND_SET_FORM;
+                            *method_ret = EVO_LEVEL_DARK_TYPE_MON_IN_PARTY;
+                            break;
+                        }
+                    }
+                }
+                break;
+            case EVO_LEVEL_NATURE_LOW_KEY:
+                lowkey = 1;
+            case EVO_LEVEL_NATURE_AMPED:
+                if (evoTable[i].param <= level)
+                {
+                    u32 nature = GetMonData(pokemon, ID_PARA_personal_rnd, NULL) % 25;
+                    switch (nature)
+                    {
+                    case NATURE_ADAMANT:
+                    case NATURE_BRAVE:
+                    case NATURE_DOCILE:
+                    case NATURE_HARDY:
+                    case NATURE_HASTY:
+                    case NATURE_IMPISH:
+                    case NATURE_JOLLY:
+                    case NATURE_LAX:
+                    case NATURE_NAIVE:
+                    case NATURE_NAUGHTY:
+                    case NATURE_QUIRKY:
+                    case NATURE_RASH:
+                    case NATURE_SASSY:
+                        if (lowkey == 0) // for the amped evo method
+                        {
+                            GET_TARGET_AND_SET_FORM;
+                            *method_ret = EVO_LEVEL_NATURE_AMPED;
+                        }
+                        break;
+                    default:
+                        if (lowkey == 1) // for the lowkey evo method
+                        {
+                            GET_TARGET_AND_SET_FORM;
+                            *method_ret = EVO_LEVEL_NATURE_LOW_KEY;
+                        }
+                        break;
+                    }
+                }
+                break;
+            case EVO_AMOUNT_OF_CRITICAL_HITS: // needs to hit an amount of critical hits in a battle in one go.  need to log critical hits somewhere else
+                if (GetMonData(pokemon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS)
+                {
+                    GET_TARGET_AND_SET_FORM;
+                    *method_ret = EVO_AMOUNT_OF_CRITICAL_HITS;
+                }
+                break;
+            case EVO_HURT_IN_BATTLE_AMOUNT:
+                {
+                    u32 hp = GetMonData(pokemon, ID_PARA_hp, NULL), maxhp = GetMonData(pokemon, ID_PARA_hpmax, NULL);
+                    
+                    if (hp && (maxhp - hp) >= evoTable[i].param) // if the mon has evoTable[i].param hp less than its max
+                    {
+                        GET_TARGET_AND_SET_FORM;
+                        *method_ret = EVO_HURT_IN_BATTLE_AMOUNT;
+                    }
+                }
+                break;
             }
             if (target != SPECIES_NONE) {
                 break;
@@ -3570,6 +3645,12 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                     *method_ret = EVO_TRADE_ITEM;
                 }
                 break;
+            //case EVO_TRADE_SPECIFIC_MON: // need to figure out how to deduce tradedSpecies
+            //    if (tradedSpecies == evoTable[i].param) {
+            //        GET_TARGET_AND_SET_FORM;
+            //        *method_ret = EVO_TRADE_SPECIFIC_MON;
+            //    }
+            //    break; 
             }
             if (target != SPECIES_NONE) {
                 break;

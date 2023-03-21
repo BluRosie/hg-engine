@@ -14,6 +14,9 @@
 
 // ID_PARA_dummy_p2_1 fields
 #define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
+#define DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS (0x02)
+
+
 #define SET_MON_HIDDEN_ABILITY_BIT(mon) { \
     u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_1, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
@@ -24,6 +27,19 @@
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
 }
+
+
+#define SET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon) { \
+    u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_1, 0); \
+    tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
+    SetMonData(mon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
+}
+#define SET_BOX_MON_CRITICAL_HIT_EVOLUTION_BIT(boxmon) { \
+    u16 tempvarassumeunused = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, 0); \
+    tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
+    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
+}
+
 
 #define POW_RND (32)
 
@@ -567,6 +583,52 @@ typedef struct EncounterInfo
     u8 unk11;
 } EncounterInfo; // size = 0x12
 
+
+// BattleMove fields for GetMoveData below
+enum
+{
+    MOVE_DATA_EFFECT,
+    MOVE_DATA_PSS_SPLIT,
+    MOVE_DATA_BASE_POWER,
+    MOVE_DATA_TYPE,
+    MOVE_DATA_ACCURACY,
+    MOVE_DATA_BASE_PP,
+    MOVE_DATA_SECONDARY_EFFECT_CHANCE,
+    MOVE_DATA_TARGET,
+    MOVE_DATA_PRIORITY,
+    MOVE_DATA_FLAGS,
+    MOVE_DATA_UNK,
+};
+
+
+// natures
+#define NATURE_HARDY    (0)
+#define NATURE_LONELY   (1)
+#define NATURE_BRAVE    (2)
+#define NATURE_ADAMANT  (3)
+#define NATURE_NAUGHTY  (4)
+#define NATURE_BOLD     (5)
+#define NATURE_DOCILE   (6)
+#define NATURE_RELAXED  (7)
+#define NATURE_IMPISH   (8)
+#define NATURE_LAX      (9)
+#define NATURE_TIMID   (10)
+#define NATURE_HASTY   (11)
+#define NATURE_SERIOUS (12)
+#define NATURE_JOLLY   (13)
+#define NATURE_NAIVE   (14)
+#define NATURE_MODEST  (15)
+#define NATURE_MILD    (16)
+#define NATURE_QUIET   (17)
+#define NATURE_BASHFUL (18)
+#define NATURE_RASH    (19)
+#define NATURE_CALM    (20)
+#define NATURE_GENTLE  (21)
+#define NATURE_SASSY   (22)
+#define NATURE_CAREFUL (23)
+#define NATURE_QUIRKY  (24)
+
+
 #define MAX_EVOS_PER_POKE (9)
 
 
@@ -704,7 +766,11 @@ u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemal
 BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType);
 //BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
 void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id);
-bool8 __attribute__((long_call)) __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);;
+bool8 __attribute__((long_call)) __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);
+
+
+// defined in src/moves.c--can't just define in battles, sadly.  does need BattleMove structure from battle.h, though
+u32 __attribute__((long_call)) GetMoveData(u16 id, u32 field);
 
 
 #endif
