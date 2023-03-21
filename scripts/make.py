@@ -515,6 +515,25 @@ def decompress_file(path):
         print("")
 
 
+def getoffset(p, func):
+    offset = ""
+    for i in p:
+        if (func + ":") in i:
+            offset = i.replace(" ", '').split('/')[0].split(":")[1]
+            break
+    return "%s equ 0x%s\n" % (func, offset)
+
+def changeoffset():
+    txt = open('offsets.ini', 'r', encoding="utf-8")
+    p = txt.readlines()
+    txt.close()
+    txt = open("armips/asm/offset.s", 'w', encoding="utf-8")
+    functions = ["FUN_GDMI", "FUN_RHDtaArc", "FUN_ReadEntryDataArc"]
+    for func in functions:
+        txt.writelines(getoffset(p, func))
+    txt.close()
+
+
 if __name__ == '__main__':
     decompress()
     writeall()
@@ -522,4 +541,5 @@ if __name__ == '__main__':
     hook()
     repoint()
     offset()
+    changeoffset()
 
