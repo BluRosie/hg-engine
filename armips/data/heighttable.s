@@ -760,7 +760,7 @@ heightentry SPECIES_HELIOLISK, 4, 4, 0, 0
 heightentry SPECIES_TYRUNT, 22, 22, 12, 12
 heightentry SPECIES_TYRANTRUM, 5, 5, 0, 0
 heightentry SPECIES_AMAURA, 8, 8, 0, 0
-heightentry SPECIES_AURORUS, 0, 0, 0, 0
+heightentry SPECIES_AURORUS, 3, 3, 0, 0
 heightentry SPECIES_SYLVEON, 0, 0, 0, 0
 heightentry SPECIES_HAWLUCHA, 3, 3, 6, 6
 heightentry SPECIES_DEDENNE, 3, 3, 16, 16
