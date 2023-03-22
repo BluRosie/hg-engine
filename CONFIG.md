@@ -31,8 +31,10 @@
 
  ``PRIMAL_REVERSION`` (``include/config.h`` only) is a toggle for the compilation of the primal reversion system.  Commenting the line out will disable Groudon and Kyogre from primally reverting under any circumstances.
 
+ ``IMPLEMENT_BDHCAM_ROUTINE`` (``include/config.h`` only) is a toggle for the assembly of [Mikelan's BDHCAM system](pokehacking.com/r/20110901) into overlay 131.  This is because hg-engine does not use the synthetic overlay system, so it needs to dynamically link it itself.
+
 ### ``armips\include\itemnums.s``
- scroll down to the bottom, change ``ITEM_MEGA_STONES_START`` to what you want it to start at.  it is currently positioned so that all the mega stones are completely new items.  this is intentional.  the code forces all expanded items to use shoal salt's item data, which can be improved upon if necessary.
+ scroll down to the bottom, change ``ITEM_MEGA_STONES_START`` to what you want it to start at.  it is currently positioned so that all the mega stones are completely new items.  this is intentional.
 
 ### ``include\constants\item.h``
  same deal here as above, change ``ITEM_MEGA_STONES_START`` to what it needs to be.

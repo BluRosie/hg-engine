@@ -172,5 +172,52 @@ u32 move_effect_to_subscripts[] =
 
 void GetMoveDataTable(void *dest)
 {
-    ArchiveDataLoadOfs(dest, ARC_MOVE_DATA, 0, 0, 16*(NUM_OF_MOVES+1));
+    ArchiveDataLoadOfs(dest, ARC_MOVE_DATA, 0, 0, sizeof(struct BattleMove)*(NUM_OF_MOVES+1));
+}
+
+
+// this also needs to fork from the function that is in the rom already
+u32 __attribute__((long_call)) GetMoveData(u16 id, u32 field)
+{
+    struct BattleMove *bm = sys_AllocMemory(0, sizeof(struct BattleMove));
+    ArchiveDataLoad(bm, ARC_MOVE_DATA, id);
+    u32 ret = 0;
+
+    switch (field)
+    {
+    case MOVE_DATA_EFFECT:
+        ret = bm->effect;
+        break;
+    case MOVE_DATA_PSS_SPLIT:
+        ret = bm->effect;
+        break;
+    case MOVE_DATA_BASE_POWER:
+        ret = bm->power;
+        break;
+    case MOVE_DATA_TYPE:
+        ret = bm->type;
+        break;
+    case MOVE_DATA_ACCURACY:
+        ret = bm->accuracy;
+        break;
+    case MOVE_DATA_BASE_PP:
+        ret = bm->pp;
+        break;
+    case MOVE_DATA_SECONDARY_EFFECT_CHANCE:
+        ret = bm->secondaryEffectChance;
+        break;
+    case MOVE_DATA_TARGET:
+        ret = bm->target;
+        break;
+    case MOVE_DATA_PRIORITY:
+        ret = bm->priority;
+        break;
+    case MOVE_DATA_FLAGS:
+        ret = bm->flag;
+        break;
+    }
+    
+    sys_FreeMemoryEz(bm);
+    
+    return ret;
 }

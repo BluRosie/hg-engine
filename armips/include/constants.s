@@ -64,33 +64,46 @@ EGG_GROUP_UNDISCOVERED  equ 15
 
 // evo method constants
 
-EVO_NONE                      equ 0
-EVO_HAPPINESS                 equ 1
-EVO_HAPPINESS_DAY             equ 2
-EVO_HAPPINESS_NIGHT           equ 3
-EVO_LEVEL_UP                  equ 4
-EVO_TRADE                     equ 5
-EVO_TRADE_ITEM                equ 6
-EVO_USE_ITEM                  equ 7
-EVO_LEVEL_MORE_ATTACK         equ 8
-EVO_LEVEL_ATK_DEF_EQUAL       equ 9
-EVO_LEVEL_MORE_DEFENSE        equ 10
-EVO_LEVEL_PID_LOW             equ 11
-EVO_LEVEL_PID_HIGH            equ 12
-EVO_LEVEL_GEN_NEW_MON_1       equ 13
-EVO_LEVEL_GEN_NEW_MON_2       equ 14
-EVO_MAX_BEAUTY                equ 15
-EVO_USE_ITEM_MALE             equ 16
-EVO_USE_ITEM_FEMALE           equ 17
-EVO_USE_ITEM_DAY              equ 18
-EVO_USE_ITEM_NIGHT            equ 19
-EVO_KNOWS_MOVE                equ 20
-EVO_MON_IN_PARTY              equ 21
-EVO_LEVEL_MALE                equ 22
-EVO_LEVEL_FEMALE              equ 23
-EVO_LEVEL_ELECTRIC_FIELD      equ 24
-EVO_LEVEL_MOSSY_STONE         equ 25
-EVO_LEVEL_ICY_STONE           equ 26
+EVO_NONE                         equ 0
+EVO_HAPPINESS                    equ 1
+EVO_HAPPINESS_DAY                equ 2
+EVO_HAPPINESS_NIGHT              equ 3
+EVO_LEVEL_UP                     equ 4
+EVO_TRADE                        equ 5
+EVO_TRADE_ITEM                   equ 6
+EVO_USE_ITEM                     equ 7
+EVO_LEVEL_MORE_ATTACK            equ 8
+EVO_LEVEL_ATK_DEF_EQUAL          equ 9
+EVO_LEVEL_MORE_DEFENSE           equ 10
+EVO_LEVEL_PID_LOW                equ 11
+EVO_LEVEL_PID_HIGH               equ 12
+EVO_LEVEL_GEN_NEW_MON_1          equ 13
+EVO_LEVEL_GEN_NEW_MON_2          equ 14
+EVO_MAX_BEAUTY                   equ 15
+EVO_USE_ITEM_MALE                equ 16
+EVO_USE_ITEM_FEMALE              equ 17
+EVO_USE_ITEM_DAY                 equ 18
+EVO_USE_ITEM_NIGHT               equ 19
+EVO_KNOWS_MOVE                   equ 20
+EVO_MON_IN_PARTY                 equ 21
+EVO_LEVEL_MALE                   equ 22
+EVO_LEVEL_FEMALE                 equ 23
+EVO_LEVEL_ELECTRIC_FIELD         equ 24
+EVO_LEVEL_MOSSY_STONE            equ 25
+EVO_LEVEL_ICY_STONE              equ 26
+EVO_LEVEL_DAY                    equ 27
+EVO_LEVEL_NIGHT                  equ 28
+EVO_LEVEL_DUSK                   equ 29
+EVO_LEVEL_RAIN                   equ 30
+EVO_HAS_MOVE_TYPE                equ 31
+EVO_LEVEL_DARK_TYPE_MON_IN_PARTY equ 32
+EVO_TRADE_SPECIFIC_MON           equ 33
+EVO_LEVEL_NATURE_AMPED           equ 34
+EVO_LEVEL_NATURE_LOW_KEY         equ 35
+EVO_AMOUNT_OF_CRITICAL_HITS      equ 36
+EVO_HURT_IN_BATTLE_AMOUNT        equ 37 // will have to be repurposed eventually i suppose
+//EVO_DARK_SCROLL  // implemented through an item use forme-change-esque cut scene
+//EVO_WATER_SCROLL // implemented through an item use forme-change-esque cut scene
 
 // shadow size constants
 

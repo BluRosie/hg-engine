@@ -19,7 +19,7 @@ Kingcom - [armips](https://github.com/Kingcom/armips)
 
 MaMe and maple - a lot of mega sprites touched up
 
-Mikelan98 - initial graphics compilation
+Mikelan98 - initial graphics compilation, BDHCAM routine
 
 ProfessorDoktorGamer - wav2swav (it's very possible this is just waveconv)
 

@@ -77,3 +77,5 @@ sdat/*
 *.swav
 *.swar
 tools/swav2swar.exe
+
+*:Zone.Identifier

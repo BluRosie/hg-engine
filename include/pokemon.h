@@ -8,12 +8,15 @@
 #define POKEMON_GENDER_FEMALE 1
 #define POKEMON_GENDER_UNKNOWN 2
 
-#define	MONS_MALE		(0)
-#define	MONS_FEMALE		(254)
-#define	MONS_UNKNOWN	(255)
+#define MONS_MALE       (0)
+#define MONS_FEMALE     (254)
+#define MONS_UNKNOWN    (255)
 
 // ID_PARA_dummy_p2_1 fields
 #define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
+#define DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS (0x02)
+
+
 #define SET_MON_HIDDEN_ABILITY_BIT(mon) { \
     u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_1, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
@@ -25,7 +28,20 @@
     BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
 }
 
-#define	POW_RND	(32)
+
+#define SET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon) { \
+    u16 tempvarassumeunused = GetMonData(mon, ID_PARA_dummy_p2_1, 0); \
+    tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
+    SetMonData(mon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
+}
+#define SET_BOX_MON_CRITICAL_HIT_EVOLUTION_BIT(boxmon) { \
+    u16 tempvarassumeunused = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, 0); \
+    tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
+    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&tempvarassumeunused); \
+}
+
+
+#define POW_RND (32)
 
 
 // personal narc fields
@@ -66,16 +82,16 @@ enum
     PERSONAL_TM_ARRAY_4,
 };
 
-#define	MAX_IVS (31)
+#define MAX_IVS (31)
 
-#define	RND_NO_SET  (0)
-#define	RND_SET (1)
+#define RND_NO_SET  (0)
+#define RND_SET (1)
 
-#define	ID_NO_SET   (0)
-#define	ID_SET  (1)
-#define	ID_NO_SHINY (2)
-#define	NO_MOVES_SET    (0xffff)
-#define	SAME_MOVES_SET  (0xfffe)
+#define ID_NO_SET   (0)
+#define ID_SET  (1)
+#define ID_NO_SHINY (2)
+#define NO_MOVES_SET    (0xffff)
+#define SAME_MOVES_SET  (0xfffe)
 
 typedef struct SEAL {
     u8 kind;           // ID of the seal
@@ -351,8 +367,8 @@ enum
     ID_PARA_form_no,               //形状ナンバー（アンノーン、デオキシス、ミノメスなど用）
     ID_PARA_dummy_p2_1,            //あまり
     ID_PARA_dummy_p2_2,            //あまり
-    ID_PARA_new_get_place,         //1eh	捕まえた場所（なぞの場所対応用）
-    ID_PARA_new_birth_place,       //20h	生まれた場所（なぞの場所対応用）
+    ID_PARA_new_get_place,         //1eh    捕まえた場所（なぞの場所対応用）
+    ID_PARA_new_birth_place,       //20h    生まれた場所（なぞの場所対応用）
 
     ID_PARA_nickname,                    //ニックネーム
     ID_PARA_nickname_code_flag,          //ニックネーム（STRCODE使用,nickname_flagもオンにする）
@@ -476,7 +492,7 @@ struct PLIST_WORK
 };
 
 
-// defines from pokeheartgold
+// defines from pokeheartgold + new ones
 typedef enum EvoMethod
 {
     EVO_NONE = 0,
@@ -506,6 +522,19 @@ typedef enum EvoMethod
     EVO_CORONET,
     EVO_ETERNA,
     EVO_ROUTE217,
+    EVO_LEVEL_DAY,
+    EVO_LEVEL_NIGHT,
+    EVO_LEVEL_DUSK,
+    EVO_LEVEL_RAIN,
+    EVO_HAS_MOVE_TYPE,
+    EVO_LEVEL_DARK_TYPE_MON_IN_PARTY,
+    EVO_TRADE_SPECIFIC_MON,
+    EVO_LEVEL_NATURE_AMPED,
+    EVO_LEVEL_NATURE_LOW_KEY,
+    EVO_AMOUNT_OF_CRITICAL_HITS,
+    EVO_HURT_IN_BATTLE_AMOUNT, // will have to be repurposed eventually i suppose
+    //EVO_DARK_SCROLL,  // implemented through a forme-change-esque cut scene
+    //EVO_WATER_SCROLL, // implemented through a forme-change-esque cut scene
 } EvoMethod;
 
 typedef enum {
@@ -553,6 +582,52 @@ typedef struct EncounterInfo
     u8 unkE[2];
     u8 unk11;
 } EncounterInfo; // size = 0x12
+
+
+// BattleMove fields for GetMoveData below
+enum
+{
+    MOVE_DATA_EFFECT,
+    MOVE_DATA_PSS_SPLIT,
+    MOVE_DATA_BASE_POWER,
+    MOVE_DATA_TYPE,
+    MOVE_DATA_ACCURACY,
+    MOVE_DATA_BASE_PP,
+    MOVE_DATA_SECONDARY_EFFECT_CHANCE,
+    MOVE_DATA_TARGET,
+    MOVE_DATA_PRIORITY,
+    MOVE_DATA_FLAGS,
+    MOVE_DATA_UNK,
+};
+
+
+// natures
+#define NATURE_HARDY    (0)
+#define NATURE_LONELY   (1)
+#define NATURE_BRAVE    (2)
+#define NATURE_ADAMANT  (3)
+#define NATURE_NAUGHTY  (4)
+#define NATURE_BOLD     (5)
+#define NATURE_DOCILE   (6)
+#define NATURE_RELAXED  (7)
+#define NATURE_IMPISH   (8)
+#define NATURE_LAX      (9)
+#define NATURE_TIMID   (10)
+#define NATURE_HASTY   (11)
+#define NATURE_SERIOUS (12)
+#define NATURE_JOLLY   (13)
+#define NATURE_NAIVE   (14)
+#define NATURE_MODEST  (15)
+#define NATURE_MILD    (16)
+#define NATURE_QUIET   (17)
+#define NATURE_BASHFUL (18)
+#define NATURE_RASH    (19)
+#define NATURE_CALM    (20)
+#define NATURE_GENTLE  (21)
+#define NATURE_SASSY   (22)
+#define NATURE_CAREFUL (23)
+#define NATURE_QUIRKY  (24)
+
 
 #define MAX_EVOS_PER_POKE (9)
 
@@ -604,7 +679,7 @@ void __attribute__((long_call)) SetMonData(void*,int,void*);
 u8 __attribute__((long_call)) PokeFuseiFormNoCheck(u16 mons_no, u8 form_no);
 u32 __attribute__((long_call)) GetBoxMonData(void *ppp, int id, void *buf);
 struct PartyPokemon * __attribute__((long_call)) PokeParty_GetMemberPointer(void * party, int pos);
-u32	__attribute__((long_call)) PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
+u32 __attribute__((long_call)) PokeFormNoPersonalParaGet(int mons_no,int form_no,int para);
 u8 __attribute__((long_call)) GetBoxMonGender(void *ppp);
 u8 __attribute__((long_call)) PokeSexGetMonsNo(u16 monsno,u32 rnd);
 void __attribute__((long_call)) BoxMonSetFastModeOff(void*,BOOL);
@@ -691,7 +766,11 @@ u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemal
 BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType);
 //BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
 void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id);
-bool8 __attribute__((long_call)) __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);;
+bool8 __attribute__((long_call)) __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);
+
+
+// defined in src/moves.c--can't just define in battles, sadly.  does need BattleMove structure from battle.h, though
+u32 __attribute__((long_call)) GetMoveData(u16 id, u32 field);
 
 
 #endif

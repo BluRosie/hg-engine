@@ -218,7 +218,24 @@ arm9 UnloadOverlayByID 02006F7C 1
 arm9 GF_Snd_LoadSeq 02004764 1
 arm9 GF_Snd_LoadSeqEx 02004784 2
 
+arm9 StoreFieldSysPtr 0203E028 1
+
+
+#ifdef IMPLEMENT_BDHCAM_ROUTINE
+
+# bdhcam
+arm9 FUN_GDMI 02023174 3
+0001 FUN_RHDtaArc 021FB04C 3
+0001 FUN_ReadEntryDataArc 021FB164 3
+
+#endif
+
+
+#ifdef IMPLEMENT_TRANSPARENT_TEXTBOXES
+
 #transparent textbox
 arm9 Tr_TextBox 0205B564 2
 arm9 FieldMsgPrintInit 0205B4EC 2
 arm9 WindowClose 02041190 0
+
+#endif

@@ -381,6 +381,7 @@ enum
     FILE_BATTLE_SUB_SCRIPTS,
 };
 
+
 struct __attribute__((packed)) BattleMove
 {
     u16 effect; //0x0
