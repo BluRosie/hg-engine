@@ -24,12 +24,6 @@
 
 .endif
 
-.if BDHCAM_IMPLEMENTED == 1
-
-.include "armips/asm/bdhcam.s" // writes bytes needed for BDHCAM routine insertion
-
-.endif
-
 
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list, 7

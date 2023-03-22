@@ -16,9 +16,6 @@ FAIRY_TYPE_IMPLEMENTED equ 1
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 CRY_PSEUDOBANK_START equ 778
 
-// BDHCAM_IMPLEMENTED will make the BDHCAM routine be inserted into the ROM
-BDHCAM_IMPLEMENTED equ 1
-
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
 DEBUG_NEEDS_TESTING equ 0
 

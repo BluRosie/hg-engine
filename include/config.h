@@ -45,4 +45,8 @@
 // commenting this line out will prevent the item pockets from being expanded for the new items
 #define ITEM_POCKET_EXPANSION
 
+// IMPLEMENT_BDHCAM_ROUTINE defines whether or not the BDHCam routine (by Mikelan) will be built into the ROM.  this is necessary to get it shiftable because DSPRE writes it to a fixed location
+// uncommenting this line will include it in your ROM
+//#define IMPLEMENT_BDHCAM_ROUTINE
+
 #endif

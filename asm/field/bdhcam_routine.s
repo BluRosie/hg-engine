@@ -1,37 +1,34 @@
-//Mikelan98, Trifindo: Dynamic Cameras (pokehacking.com/r/20110901)
-
-.include "include/config.h"
-
-.text
-.align 2
+//.nds
 .thumb
 
-.include "offset_def.s"
+//.create "bdhcam.bin", 0x23D95B0
 
 .ascii "GetCamBox       "
 
 .global FUN_GetCamBox
 FUN_GetCamBox:
-	ldr r0, =LAB_023d95c8
+	ldr r0,LAB_023d95c8
 	ldr r0,[r0,#0x0]
 	bx lr
-	mov r8,r8
+
+.align 2
 
 LAB_023d95c8:
 	.word 0x021d2204
 
-.word 0xffffffff
+.align 2
+
 .ascii "GDMI"
 
 .global FUN_GDMI
 FUN_GDMI:
 	push { lr }
 	push { r0, r1, r2, r3, r4, r5, r6, r7 }
-	ldr r0, =PTR_DAT_023d960c
+	ldr r0,PTR_DAT_023d960c
 	ldr r0,[r0,#0x0]
 	cmp r0,#0x1
 	bne LAB_023d95fe
-	ldr r0, =PTR_DAT_023d9608
+	ldr r0,PTR_DAT_023d9608
 	ldr r0,[r0,#0x0]
 	ldr r0,[r0,#0x1c]
 	ldr r0,[r0,#0x2c]
@@ -46,9 +43,33 @@ FUN_GDMI:
 
 LAB_023d95fe:
 	pop { r0, r1, r2, r3, r4, r5, r6, r7 }
-	bl 0x02022f84
+	//bl 0x02022f84
+
+// reconstruct 0x02022f84
+    ldr r2, [r0, #0x58]
+    cmp r2, #0
+    bne _2022F8E
+    mov r2, #0
+    str r2, [r1]
+
+_2022F8E:
+    ldr r2, [r0, #0x5C]
+    cmp r2, #0
+    bne _2022F98
+    mov r2, #0
+    str r2, [r1, #4]
+
+_2022F98:
+    ldr r0, [r0, #0x60]
+    cmp r0, #0
+    bne _ret_2022FA2
+    mov r0, #0
+    str r0, [r1, #8]
+
+_ret_2022FA2:
 	pop { pc }
-	mov r8,r8
+
+.align 2
 
 PTR_DAT_023d9608:
 	.word 0x0211186c
@@ -62,7 +83,7 @@ FUN_023d9610:
 	add r0,r0,r1
 	add r0,#0x90
 	ldr r1,[r0,#0x0]
-	ldr r0, =DAT_023d9634
+	ldr r0,DAT_023d9634
 	add r0,r0,r1
 	ldr r1,[r0,#0x0]
 	add r3,r1,#0x0
@@ -77,7 +98,8 @@ FUN_023d9610:
 
 LAB_023d9630:
 	bx lr
-	mov r8,r8
+
+.align 2
 
 DAT_023d9634:
 	.word 0x00000858
@@ -97,7 +119,7 @@ LAB_023d964c:
 	ldrb r4,[r3,#0x0]
 	ldrb r5,[r3,#0x2]
 	sub r5,#0x1
-	ldr r6, =PTR_DAT_023d9984
+	ldr r6,PTR_DAT_023d9984
 	ldr r6,[r6,#0x0]
 	ldr r6,[r6,#0x1c]
 	ldr r6,[r6,#0x2c]
@@ -113,7 +135,7 @@ LAB_023d964c:
 	ldrb r4,[r3,#0x1]
 	ldrb r5,[r3,#0x3]
 	sub r5,#0x1
-	ldr r6, =PTR_DAT_023d9984
+	ldr r6,PTR_DAT_023d9984
 	ldr r6,[r6,#0x0]
 	ldr r6,[r6,#0x1c]
 	ldr r6,[r6,#0x2c]
@@ -129,7 +151,7 @@ LAB_023d964c:
 	ldrb r4,[r3,#0x4]
 	cmp r4,#0x80
 	beq LAB_023d96a4
-	ldr r6, =PTR_DAT_023d9984
+	ldr r6,PTR_DAT_023d9984
 	ldr r6,[r6,#0x0]
 	ldr r6,[r6,#0x1c]
 	ldr r6,[r6,#0x2c]
@@ -212,7 +234,7 @@ LAB_023d9710:
 	cmp r7,#0x0
 	bne LAB_023d9734
 	mov r5,#0x50
-	ldr r4, =PTR_DAT_023d973c
+	ldr r4,PTR_DAT_023d973c
 
 LAB_023d9728:
 	str r7,[r4,#0x0]
@@ -222,10 +244,12 @@ LAB_023d9728:
 	ble LAB_023d9728
 
 LAB_023d9734:
-	ldr r7, =PTR_DAT_023d9988
+	ldr r7,PTR_DAT_023d9988
 	mov r6,#0x0
 	strb r6,[r7,#0x1]
 	pop { pc }
+
+.align 2
 
 PTR_DAT_023d973c:
 	.word region_023d9a80 // 0x023d9a80
@@ -236,11 +260,11 @@ FUN_023d9740:
 	ldr r0,[r4,#0x0]
 	ldr r1,[r4,#0x4]
 	ldr r2,[r4,#0x8]
-	ldr r3, =PTR_DAT_023d9988
+	ldr r3,PTR_DAT_023d9988
 	ldrb r4,[r3,#0x0]
 	cmp r4,#0x1
 	beq LAB_023d9772
-	ldr r7, =PTR_empty_region_023d998c
+	ldr r7,PTR_empty_region_023d998c
 	mov r6,#0x0
 	mov r5,#0x0
 
@@ -249,7 +273,7 @@ LAB_023d9756:
 	add r6,#0x4
 	cmp r6,#0x50
 	ble LAB_023d9756
-	ldr r7, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r7,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	mov r6,#0x0
 	mov r5,#0x0
 
@@ -266,24 +290,24 @@ LAB_023d9772:
 	add r3,r0,#0x0
 	bl FUN_GetCamBox
 	ldr r0,[r0,r3]
-	ldr r4, =PTR_empty_region_023d998c
+	ldr r4,PTR_empty_region_023d998c
 	ldr r4,[r4,r3]
 	sub r0,r0,r4
-	ldr r4, =PTR_empty_region_023d9aa0.field_0xa8_023d9994
+	ldr r4,PTR_empty_region_023d9aa0.field_0xa8_023d9994
 	str r0,[r4,r3]
 	add r0,r3,#0x0
-	ldr r3, =PTR_empty_region_023d9aa0.field_0xfc_023d9998
+	ldr r3,PTR_empty_region_023d9aa0.field_0xfc_023d9998
 	ldr r5,[r3,r0]
 	cmp r5,r2
 	beq LAB_023d9792
-	ldr r4, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r4,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	str r5,[r4,r0]
 
 LAB_023d9792:
 	str r2,[r3,r0]
-	ldr r3, =PTR_DAT_023d9988
+	ldr r3,PTR_DAT_023d9988
 	ldrb r3,[r3,#0x1]
-	ldr r4, =PTR_empty_region_023d998c
+	ldr r4,PTR_empty_region_023d998c
 	cmp r3,#0x1
 	bne LAB_023d97a0
 	str r2,[r4,r0]
@@ -296,7 +320,7 @@ LAB_023d97a0:
 	bgt LAB_023d97aa
 
 LAB_023d97aa:
-	ldr r7, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r7,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	ldr r7,[r7,r0]
 	sub r7,r2,r7
 	push { r0, r1, r2, r3, r4 }
@@ -313,7 +337,7 @@ LAB_023d97aa:
 	b LAB_023d97ea
 
 LAB_023d97ca:
-	ldr r7, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r7,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	ldr r7,[r7,r0]
 	sub r7,r2,r7
 	push { r0, r1, r2, r3, r4 }
@@ -332,14 +356,15 @@ LAB_023d97ca:
 LAB_023d97ea:
 	add r3,r0,#0x0
 	bl FUN_GetCamBox
-	ldr r4, =PTR_empty_region_023d9aa0.field_0xa8_023d9994
+	ldr r4,PTR_empty_region_023d9aa0.field_0xa8_023d9994
 	ldr r4,[r4,r3]
-	ldr r5, =PTR_empty_region_023d998c
+	ldr r5,PTR_empty_region_023d998c
 	ldr r5,[r5,r3]
 	add r4,r4,r5
 	str r4,[r0,r3]
 	pop { r0, r1, r2, r3, r4, r5, r6, r7, pc }
-	mov r8,r8
+
+.align 2
 
 .global FUN_023d9800
 FUN_023d9800:
@@ -348,13 +373,13 @@ FUN_023d9800:
 	ldr r0,[r4,#0x0]
 	ldr r1,[r4,#0x4]
 	ldr r2,[r4,#0x8]
-	ldr r3, =PTR_DAT_023d9988
+	ldr r3,PTR_DAT_023d9988
 	ldrb r4,[r3,#0x0]
 	cmp r4,#0x1
 	beq LAB_023d9832
 	mov r4,#0x1
 	strb r4,[r3,#0x0]
-	ldr r4, =PTR_empty_region_023d998c
+	ldr r4,PTR_empty_region_023d998c
 	mov r3,#0x0
 	mov r5,#0x0
 
@@ -363,7 +388,7 @@ LAB_023d981c:
 	add r3,#0x4
 	cmp r3,#0x50
 	ble LAB_023d981c
-	ldr r4, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r4,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	mov r3,#0x0
 	mov r5,#0x0
 
@@ -377,10 +402,10 @@ LAB_023d9832:
 	add r3,r0,#0x0
 	bl FUN_GetCamBox
 	ldr r0,[r0,r3]
-	ldr r4, =PTR_empty_region_023d998c
+	ldr r4,PTR_empty_region_023d998c
 	ldr r4,[r4,r3]
 	sub r0,r0,r4
-	ldr r4, =PTR_empty_region_023d9aa0.field_0xa8_023d9994
+	ldr r4,PTR_empty_region_023d9aa0.field_0xa8_023d9994
 	str r0,[r4,r3]
 	add r0,r3,#0x0
 	sub r2,r2,r1
@@ -392,7 +417,7 @@ LAB_023d9832:
 	blx 0x020f2998
 	mov r1,#0x0
 	mov r3,#0x0
-	ldr r7, =PTR_DAT_023d9984
+	ldr r7,PTR_DAT_023d9984
 	ldr r7,[r7,#0x0]
 	ldr r7,[r7,#0x1c]
 	ldr r7,[r7,#0x2c]
@@ -410,7 +435,7 @@ LAB_023d9832:
 	lsl r1,r1,#0x10
 	add r0,r0,r1
 	add r0,r0,r5
-	ldr r1, =PTR_empty_region_023d998c
+	ldr r1,PTR_empty_region_023d998c
 	str r0,[r1,r4]
 	add r0,r4,#0x0
 	b LAB_023d989c
@@ -422,32 +447,30 @@ LAB_023d9888:
 	lsl r1,r1,#0x10
 	add r0,r0,r1
 	sub r0,r5,r0
-	ldr r1, =PTR_empty_region_023d998c
+	ldr r1,PTR_empty_region_023d998c
 	str r0,[r1,r4]
 	add r0,r4,#0x0
 
 LAB_023d989c:
-	ldr r3, =PTR_empty_region_023d9aa0.field_0xfc_023d9998
+	ldr r3,PTR_empty_region_023d9aa0.field_0xfc_023d9998
 	ldr r5,[r3,r0]
 	ldr r2,[r1,r0]
 	cmp r5,r2
 	beq LAB_023d98aa
-	ldr r4, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r4,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	str r5,[r4,r0]
 
 LAB_023d98aa:
 	str r2,[r3,r0]
 	add r3,r0,#0x0
 	bl FUN_GetCamBox
-	ldr r4, =PTR_empty_region_023d9aa0.field_0xa8_023d9994
+	ldr r4,PTR_empty_region_023d9aa0.field_0xa8_023d9994
 	ldr r4,[r4,r3]
-	ldr r5, =PTR_empty_region_023d998c
+	ldr r5,PTR_empty_region_023d998c
 	ldr r5,[r5,r3]
 	add r4,r4,r5
 	str r4,[r0,r3]
 	pop { r0, r1, r2, r3, r4, r5, r6, r7, pc }
-
-.pool
 
 .global FUN_023d98c0
 FUN_023d98c0:
@@ -456,13 +479,13 @@ FUN_023d98c0:
 	ldr r0,[r4,#0x0]
 	ldr r1,[r4,#0x4]
 	ldr r2,[r4,#0x8]
-	ldr r3, =PTR_DAT_023d9988
+	ldr r3,PTR_DAT_023d9988
 	ldrb r4,[r3,#0x0]
 	cmp r4,#0x1
 	beq LAB_023d98f2
 	mov r4,#0x1
 	strb r4,[r3,#0x0]
-	ldr r4, =PTR_empty_region_023d998c
+	ldr r4,PTR_empty_region_023d998c
 	mov r3,#0x0
 	mov r5,#0x0
 
@@ -471,7 +494,7 @@ LAB_023d98dc:
 	add r3,#0x4
 	cmp r3,#0x50
 	ble LAB_023d98dc
-	ldr r4, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r4,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	mov r3,#0x0
 	mov r5,#0x0
 
@@ -485,10 +508,10 @@ LAB_023d98f2:
 	add r3,r0,#0x0
 	bl FUN_GetCamBox
 	ldr r0,[r0,r3]
-	ldr r4, =PTR_empty_region_023d998c
+	ldr r4,PTR_empty_region_023d998c
 	ldr r4,[r4,r3]
 	sub r0,r0,r4
-	ldr r4, =PTR_empty_region_023d9aa0.field_0xa8_023d9994
+	ldr r4,PTR_empty_region_023d9aa0.field_0xa8_023d9994
 	str r0,[r4,r3]
 	add r0,r3,#0x0
 	sub r2,r2,r1
@@ -500,7 +523,7 @@ LAB_023d98f2:
 	blx 0x020f2998
 	mov r1,#0x0
 	mov r3,#0x0
-	ldr r7, =PTR_DAT_023d9984
+	ldr r7,PTR_DAT_023d9984
 	ldr r7,[r7,#0x0]
 	ldr r7,[r7,#0x1c]
 	ldr r7,[r7,#0x2c]
@@ -518,7 +541,7 @@ LAB_023d98f2:
 	lsl r1,r1,#0x10
 	add r0,r0,r1
 	add r0,r0,r5
-	ldr r1, =PTR_empty_region_023d998c
+	ldr r1,PTR_empty_region_023d998c
 	str r0,[r1,r4]
 	add r0,r4,#0x0
 	b LAB_023d995c
@@ -530,32 +553,34 @@ LAB_023d9948:
 	lsl r1,r1,#0x10
 	add r0,r0,r1
 	sub r0,r5,r0
-	ldr r1, =PTR_empty_region_023d998c
+	ldr r1,PTR_empty_region_023d998c
 	str r0,[r1,r4]
 	add r0,r4,#0x0
 
 LAB_023d995c:
-	ldr r3, =PTR_empty_region_023d9aa0.field_0xfc_023d9998
+	ldr r3,PTR_empty_region_023d9aa0.field_0xfc_023d9998
 	ldr r5,[r3,r0]
 	ldr r2,[r1,r0]
 	cmp r5,r2
 	beq LAB_023d996a
-	ldr r4, =PTR_empty_region_023d9aa0.field_0x54_023d9990
+	ldr r4,PTR_empty_region_023d9aa0.field_0x54_023d9990
 	str r5,[r4,r0]
 
 LAB_023d996a:
 	str r2,[r3,r0]
 	add r3,r0,#0x0
 	bl FUN_GetCamBox
-	ldr r4, =PTR_empty_region_023d9aa0.field_0xa8_023d9994
+	ldr r4,PTR_empty_region_023d9aa0.field_0xa8_023d9994
 	ldr r4,[r4,r3]
-	ldr r5, =PTR_empty_region_023d998c
+	ldr r5,PTR_empty_region_023d998c
 	ldr r5,[r5,r3]
 	add r4,r4,r5
 	str r4,[r0,r3]
 	pop { r0, r1, r2, r3, r4, r5, r6, r7, pc }
-	.byte 0x14, 0xA7 // adr r7,[0x023d99d4]
+	.short 0xA714 // adr r7,[0x023d99d4] // should not be runnable
 	lsl r5,r3,#0x8
+
+.align 2
 
 PTR_DAT_023d9984:
     .word 0x0211186c
@@ -593,7 +618,7 @@ FUN_023d99a0:
 	ldr r1,[r0,#0xc]
 	lsl r1,r1,#0x3
 	add r2,r2,r1
-	ldr r0, =DAT_023d99f8
+	ldr r0,DAT_023d99f8
 	ldr r0,[r0,#0x0]
 	ldr r0,[r0,#0x1c]
 	ldr r0,[r0,#0x2c]
@@ -686,7 +711,8 @@ LAB_023d9a6e:
 .ascii "ZeroCamData     "
 
 region_023d9a80:
-    .word 0, 1, 0
+    .word 0
+    .short 1, 0, 0, 0
 
 region_padding_23D9A8C:
     .word 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff
@@ -701,15 +727,15 @@ FUN_ReadEntryDataArc:
 	push { r4, r5, r6, r7 }
 	add r3,r1,#0x0
 	ldr r1,[r2,#0x14]
-	ldr r2, =PTR_s_kCam_023d9c34
+	ldr r2,PTR_s_kCam_023d9c34
 	ldrh r4,[r2,#0x0]
 	ldrh r6,[r2,#0x2]
 	ldr r2,[r3,#0xc]
 	ldr r5,[r3,#0x10]
 	sub r5,#0x20
-	ldr r3, =PTR_DAT_023d9c2c
+	ldr r3,PTR_DAT_023d9c2c
 	lsl r1,r1,#0x1
-	ldr r7, =DAT_023d9c30
+	ldr r7,DAT_023d9c30
 	cmp r4,r7
 	bcs LAB_023d9c24
 	add r1,r1,r4
@@ -734,8 +760,6 @@ PTR_s_kCam_023d9c34: //honestly not sure what's going on here
 
 .ascii "RHDtaArc"
 
-.pool
-
 .global FUN_RHDtaArc
 FUN_RHDtaArc:
 	push { r3, r4, r5, lr }
@@ -747,7 +771,7 @@ FUN_RHDtaArc:
 	blx 0x020d47ec
 	add r0,r5,#0x0
 	mov r1,#0x4
-	ldr r2, =PTR_s_kCam_023d9ca4
+	ldr r2,PTR_s_kCam_023d9ca4
 	bl 0x020078d8
 	add r0,r5,#0x0
 	mov r1,#0x2
@@ -788,7 +812,7 @@ PTR_s_kCam_023d9ca4: //honestly not sure what's going on here
 
 .global FUN_CheckCam
 FUN_CheckCam:
-	ldr r0, =PTR_DAT_023d9cc4
+	ldr r0,PTR_DAT_023d9cc4
 	ldr r0,[r0,#0x0]
 	ldr r0,[r0,#0x1c]
 	ldr r0,[r0,#0x2c]
@@ -803,5 +827,3 @@ LAB_023d9cc2:
 
 PTR_DAT_023d9cc4:
 	.word 0x0211186c
-
-.pool
