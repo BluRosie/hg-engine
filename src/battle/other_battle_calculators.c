@@ -710,6 +710,15 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     {
         multiplier = 3;
     }
+    
+    if (multiplier > 1) // log critical hits for current pokemon
+    {
+        sp->battlemon[attacker].critical_hits++;
+        if (sp->battlemon[attacker].critical_hits == 3)
+        {
+            SET_MON_CRITICAL_HIT_EVOLUTION_BIT(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, attacker), sp->sel_mons_no[attacker]));
+        }
+    }
 
     return multiplier;
 }
