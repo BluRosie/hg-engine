@@ -303,6 +303,12 @@ move_narc: $(NARC_FILES)
 	@echo "move an updated gs_sound_data.sdat:"
 	cp $(SDAT_BUILD) $(SDAT_TARGET)
 
+	@echo "font"
+	cp $(FONT_NARC) $(FONT_TARGET)
+
+	@echo "textbox"
+	cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET)
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
