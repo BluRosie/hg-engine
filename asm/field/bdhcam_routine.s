@@ -55,10 +55,6 @@ _ret_2022FA2:
 .pool
 
 
-_debugmessage:
-.ascii "My GDMI func is being run.\n\0"
-
-
 .global FUN_023d9610
 FUN_023d9610:
     lsl r1, r1, #0x2
