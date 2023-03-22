@@ -229,3 +229,13 @@ arm9 FUN_GDMI 02023174 3
 0001 FUN_ReadEntryDataArc 021FB164 3
 
 #endif
+
+
+#ifdef IMPLEMENT_TRANSPARENT_TEXTBOXES
+
+#transparent textbox
+arm9 Tr_TextBox 0205B564 2
+arm9 FieldMsgPrintInit 0205B4EC 2
+arm9 WindowClose 02041190 0
+
+#endif

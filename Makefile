@@ -304,6 +304,12 @@ move_narc: $(NARC_FILES)
 	@echo "move an updated gs_sound_data.sdat:"
 	cp $(SDAT_BUILD) $(SDAT_TARGET)
 
+	@echo "font:"
+	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
+
+	@echo "textbox:"
+	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
