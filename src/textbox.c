@@ -1,7 +1,7 @@
 #include "../include/window.h"
 #include "../include/config.h"
 
-#if TRANSPARENT_TEXTBOXES_IMPLEMENTED
+#ifdef IMPLEMENT_TRANSPARENT_TEXTBOXES
 
 void Tr_TextBox(GF_BGL_BMPWIN *win)
 {
