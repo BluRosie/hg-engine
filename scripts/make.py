@@ -432,6 +432,10 @@ def offset():
                 files, symbol, address = line.split()
                 #offset = int(address, 16) - 0x08000000
                 try:
+                    addOffset = 0
+                    if '+' in symbol:
+                        symbol, addOffsetStr = symbol.split('+')
+                        addOffset = int(addOffsetStr, 16)
                     code = table[symbol]
                 except KeyError:
                     print('Symbol missing:', symbol)
@@ -444,7 +448,7 @@ def offset():
                     with open("base/overarm9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
-                Repoint(rom, code, offset)
+                Repoint(rom, code, offset, addOffset)
                 rom.close()
 
 
