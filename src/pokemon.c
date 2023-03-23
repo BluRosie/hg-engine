@@ -3805,7 +3805,7 @@ extern u32 space_for_setmondata;
 BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam)
 {
     int range = 0;
-    u8 change_form;
+    u8 change_form = 0;
     u8 form_no;
     u16 species;
 
@@ -3825,11 +3825,10 @@ BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo 
     
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
 
-    change_form = 0;
     if (species == SPECIES_UNOWN)
     {
         change_form = 1;
-        form_no = GrabAndRegisterUnownForm(encounterPartyPokemon);
+        form_no = GrabAndRegisterUnownForm(encounterInfo);
     }
     else if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
     {
