@@ -554,7 +554,7 @@ struct __attribute__((packed)) BattlePokemon
                u32 aura_break_flag : 1;
                u32 sheer_force_flag : 1;
                u32 imposter_flag : 1;
-			   u32 critical_hits : 2; // tracks the amount of critical hits the pokemon has landed while in battle so far
+               u32 critical_hits : 2; // tracks the amount of critical hits the pokemon has landed while in battle so far
                u32 : 12;
     /* 0x2c */ u8 pp[4];
     /* 0x30 */ u8 pp_count[4];

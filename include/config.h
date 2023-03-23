@@ -5,14 +5,6 @@
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1
 
-// BDHCAM_IMPLEMENTED should be used if you want to implement the BDHCAM routine in this project
-// uncommenting this line will enable the BDHCAM implementation
-//#define BDHCAM_IMPLEMENTED
-
-// IMPLEMENT_TRANSPARENT_TEXTBOXES should be used if you want to implement transparent textboxes
-// uncommenting this line out will enable transparent textboxes
-//#define IMPLEMENT_TRANSPARENT_TEXTBOXES
-
 // START_ADDRESS should be the same as armips/include/config.h's START_ADDRESS so that hall of fame/pokéathlon overworlds work properly.
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
@@ -52,5 +44,9 @@
 // IMPLEMENT_BDHCAM_ROUTINE defines whether or not the BDHCam routine (by Mikelan) will be built into the ROM.  this is necessary to get it shiftable because DSPRE writes it to a fixed location
 // uncommenting this line will include it in your ROM
 //#define IMPLEMENT_BDHCAM_ROUTINE
+
+// IMPLEMENT_TRANSPARENT_TEXTBOXES should be used if you want to implement transparent textboxes
+// uncommenting this line out will enable transparent textboxes
+//#define IMPLEMENT_TRANSPARENT_TEXTBOXES
 
 #endif
