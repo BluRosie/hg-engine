@@ -3484,22 +3484,37 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                     *method_ret = EVO_LEVEL_FEMALE;
                 }
                 break;
-            case EVO_CORONET:
-                if (usedItem == evoTable[i].method) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_CORONET;
+            case EVO_CORONET: // magnetic field at route 43+kanto power plant
+                {
+                    u32 location = gFieldSysPtr->location->mapId;
+
+                    if (location == 45 || location == 18)
+                    {
+                        GET_TARGET_AND_SET_FORM;
+                        *method_ret = EVO_CORONET;
+                    }
                 }
                 break;
-            case EVO_ETERNA:
-                if (usedItem == evoTable[i].method) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_ETERNA;
+            case EVO_ETERNA: // mossy rock at ilex+viridian forests
+                {
+                    u32 location = gFieldSysPtr->location->mapId;
+
+                    if (location == 117 || location == 147)
+                    {
+                        GET_TARGET_AND_SET_FORM;
+                        *method_ret = EVO_ETERNA;
+                    }
                 }
                 break;
-            case EVO_ROUTE217:
-                if (usedItem == evoTable[i].method) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_ROUTE217;
+            case EVO_ROUTE217: // icy rock at ice path+seafoam islands
+                {
+                    u32 location = gFieldSysPtr->location->mapId;
+
+                    if (location == 239 || location == 456)
+                    {
+                        GET_TARGET_AND_SET_FORM;
+                        *method_ret = EVO_ROUTE217;
+                    }
                 }
                 break;
 
