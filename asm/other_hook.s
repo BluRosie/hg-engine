@@ -178,11 +178,14 @@ add r4, #0xFF
 and r0, r4 // make r0 solely the species
 
 // reset the function up
-push {r3-r7, lr}
-sub sp, #0x20
+//push {r3-r7, lr}
+//sub sp, #0x20
 
 str r0, [sp, #0xC]
 ldr r0, [sp, #0x3C]
+str r1, [sp, #0x10]
+str r0, [sp, #0x3C]
+
 ldr r4, =0x02247A20 | 1
 bx r4
 

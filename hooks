@@ -49,8 +49,8 @@ arm9 GetMonIconPalette 02074364 3
 0002 get_form_out_of_encounter_species_rare 02247910 4
 #02247A00
 0002 modify_species_encounter_data_rare 02247A00 1
-#02247A18
-0002 get_form_out_of_encounter_species 02247A18 4
+#02247A1C
+0002 get_form_out_of_encounter_species 02247A1C 4
 #02247B42
 0002 modify_species_encounter_data 02247B42 3
 # starter hidden ability stuff
