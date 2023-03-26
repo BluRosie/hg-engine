@@ -50,6 +50,7 @@ UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
 ArchiveDataLoadMalloc = 0x02007524 | 1;
 ArchiveDataLoad = 0x02007509;
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
+NARC_ctor = 0x02007688 | 1;
 ArchiveDataLoadOfs = 0x02007560 | 1;
 sqrt = 0x0200048A | 1;
 
@@ -116,6 +117,7 @@ EventSet_Script = 0x0203FE74 |1;
 
 sys_AllocMemory = 0x0201AA8C | 1;
 sys_FreeMemoryEz = 0x0201AB0C | 1;
+sys_AllocMemoryLo = 0x0201AACC | 1;
 
 /*TextBox*/
 TalkWinGraphicSet = 0x0200E644 |1;
@@ -308,6 +310,7 @@ GF_RTC_GetTimeOfDay = 0x0201481C | 1;
 GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
 
+
 /* map object funcs */
 GetMapObjectByID = 0x0205EE60 | 1;
 MapObject_GetMovement = 0x0205F264 | 1;
@@ -354,7 +357,6 @@ BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
 Sav2_Bag_get = 0x0207879C | 1;
 
-
 FreeOverlayAllocation = 0x02006F58 | 1;
 GetOverlayLoadDestination = 0x02006FAC | 1;
 CanOverlayBeLoaded = 0x020070AC | 1;
@@ -378,4 +380,6 @@ LoadSingleWaves = 0x020CA788;
 SND_AssignWaveArc = 0x020D6154;
 
 Fsys_GetWeather_HandleDiamondDust = 0x0203BBB4 | 1;
+sub_0206D038 = 0x0206D038 | 1;
+GetSpeciesNameIntoArray = 0x0200BC28 | 1;
 PlayCry = 0x02006218 | 1;

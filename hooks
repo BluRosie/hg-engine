@@ -144,6 +144,7 @@ arm9 GiveMon_hook 080541E0 5
 
 arm9 ScrCmd_GiveEgg 0204D248 1
 0001 ScrCmd_GiveTogepiEgg 022020CC 1
+arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3

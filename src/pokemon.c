@@ -2853,7 +2853,7 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
     }
     else
     {
-        has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
+        has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_1 & hidden ability mask
     }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
@@ -4426,6 +4426,16 @@ void set_starter_hidden_ability(struct PokeParty *party, struct PartyPokemon *pp
 }
 
 
+void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon)
+{
+    int null = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        SetMonData(pokemon, ID_PARA_waza1+i, &null);
+    }
+}
+
+
 BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
 {
     FieldSystem *fsys = ctx->fsys;
@@ -4445,18 +4455,20 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
         struct PartyPokemon *pokemon = PokemonParam_AllocWork(11);
         PokeParaInit(pokemon);
         int val = sub_02017FE4(1, offset);
+
         SetEggStats(pokemon, species, 1, profile, 3, val);
+
+        SetMonData(pokemon, ID_PARA_form_no, &form); // add form capability
+
+        ClearMonMoves(pokemon);
+        InitBoxMonMoveset(&pokemon->box);
 
         if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
         {
             SET_MON_HIDDEN_ABILITY_BIT(pokemon)
-            u32 hiddenAbility = GetMonHiddenAbility(species, form);
-            if (hiddenAbility)
-                SetMonData(pokemon, ID_PARA_speabino, &hiddenAbility);
+            PokeParaSpeabiSet(pokemon);
             ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
         }
-
-        SetMonData(pokemon, ID_PARA_form_no, &form); // add form capability
 
         PokeParty_Add(party, pokemon);
         sys_FreeMemoryEz(pokemon);
@@ -4488,6 +4500,11 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 11));
 
+    //SetMonData(togepi, ID_PARA_form_no, &form); // add form capability
+
+    //ClearMonMoves(pokemon);
+    //InitBoxMonMoveset(&pokemon->box);
+
     for (i = 0; i < 4; i++) {
         if (!GetMonData(togepi, ID_PARA_waza1 + i, 0)) {
             break;
@@ -4504,17 +4521,12 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
     pp = GetMonData(togepi, ID_PARA_pp_max1 + i, 0);
     SetMonData(togepi, ID_PARA_pp_count1 + i, &pp);
 
-
     if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
     {
         SET_MON_HIDDEN_ABILITY_BIT(togepi)
-        u32 hiddenAbility = GetMonHiddenAbility(SPECIES_TOGEPI, 0);
-        if (hiddenAbility)
-            SetMonData(togepi, ID_PARA_speabino, &hiddenAbility);
+        PokeParaSpeabiSet(togepi);
         ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
     }
-
-    //SetMonData(togepi, ID_PARA_form_no, &form); // add form capability
 
 
     PokeParty_Add(party, togepi);
@@ -4524,4 +4536,29 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
     SaveMisc_SetTogepiPersonalityGender(Sav2_Misc_get(fsys->savedata), GetMonData(togepi, ID_PARA_personal_rnd, 0), GetMonData(togepi, ID_PARA_sex, 0));
 
     return FALSE;
+}
+
+
+// i think this is hatchPokemon
+void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
+{
+    u16 nickname[11 + 1];
+    u8 isEgg = 70;
+    u8 hasNickname = FALSE;
+    u8 pokeball = 4; // poke ball
+    u8 metLevel = 0;
+    
+    u16 dummy_p2_1 = GetBoxMonData(pokemon, ID_PARA_dummy_p2_1, NULL); // hidden ability field
+    
+    sub_0206D038(pokemon, heapId); // carries over egg values to a clean mon
+    SetMonData(pokemon, ID_PARA_tamago_flag, &isEgg);
+    GetSpeciesNameIntoArray(GetMonData(pokemon, ID_PARA_monsno, NULL), 0, nickname);
+    SetMonData(pokemon, ID_PARA_nickname, nickname);
+    SetMonData(pokemon, ID_PARA_nickname_flag, &hasNickname);
+    SetMonData(pokemon, ID_PARA_get_ball, &pokeball);
+    SetMonData(pokemon, ID_PARA_get_level, &metLevel);
+    SetMonData(pokemon, ID_PARA_dummy_p2_1, &dummy_p2_1);
+    PokeParaCalc(pokemon);
+
+    PokeParaSpeabiSet(pokemon);
 }
