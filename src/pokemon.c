@@ -4424,3 +4424,104 @@ void set_starter_hidden_ability(struct PokeParty *party, struct PartyPokemon *pp
         SetBoxMonAbility((void *)&pp->box);
     }
 }
+
+
+BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
+{
+    FieldSystem *fsys = ctx->fsys;
+    void *profile = Sav2_PlayerData_GetProfileAddr(fsys->savedata);
+
+    u16 species = ScriptGetVar(ctx);
+    
+    u32 form = (species & 0xF800) >> 11; // extract form from egg
+    species = species & 0x7FF;
+    
+    u16 offset = ScriptGetVar(ctx);
+
+    struct Party *party = SaveData_GetPlayerPartyPtr(fsys->savedata);
+    u8 partyCount = party->count;
+    if (partyCount < 6)
+    {
+        struct PartyPokemon *pokemon = PokemonParam_AllocWork(11);
+        PokeParaInit(pokemon);
+        int val = sub_02017FE4(1, offset);
+        SetEggStats(pokemon, species, 1, profile, 3, val);
+
+        if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
+        {
+            SET_MON_HIDDEN_ABILITY_BIT(pokemon)
+            u32 hiddenAbility = GetMonHiddenAbility(species, form);
+            if (hiddenAbility)
+                SetMonData(pokemon, ID_PARA_speabino, &hiddenAbility);
+            ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+        }
+
+        SetMonData(pokemon, ID_PARA_form_no, &form); // add form capability
+
+        PokeParty_Add(party, pokemon);
+        sys_FreeMemoryEz(pokemon);
+    }
+
+    return FALSE;
+}
+
+
+BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
+    s32 i;
+    u8 pp;
+    u32 personality;
+    u16 moveData;
+    struct PartyPokemon *togepi;
+    void *profile;
+    struct Party *party;
+    FieldSystem *fsys = ctx->fsys;
+
+    profile = Sav2_PlayerData_GetProfileAddr(fsys->savedata);
+    party = SaveData_GetPlayerPartyPtr(fsys->savedata);
+
+    if (party->count >= 6) {
+        return FALSE;
+    }
+
+    togepi = PokemonParam_AllocWork(11);
+    PokeParaInit(togepi);
+
+    SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 11));
+
+    for (i = 0; i < 4; i++) {
+        if (!GetMonData(togepi, ID_PARA_waza1 + i, 0)) {
+            break;
+        }
+    }
+
+    if (i == 4) {
+        i = 3;
+    }
+
+    moveData = MOVE_EXTRASENSORY; // add extrasensory to the togepi
+    SetMonData(togepi, ID_PARA_waza1 + i, &moveData);
+
+    pp = GetMonData(togepi, ID_PARA_pp_max1 + i, 0);
+    SetMonData(togepi, ID_PARA_pp_count1 + i, &pp);
+
+
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(togepi)
+        u32 hiddenAbility = GetMonHiddenAbility(SPECIES_TOGEPI, 0);
+        if (hiddenAbility)
+            SetMonData(togepi, ID_PARA_speabino, &hiddenAbility);
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    }
+
+    //SetMonData(togepi, ID_PARA_form_no, &form); // add form capability
+
+
+    PokeParty_Add(party, togepi);
+
+    sys_FreeMemoryEz(togepi);
+
+    SaveMisc_SetTogepiPersonalityGender(Sav2_Misc_get(fsys->savedata), GetMonData(togepi, ID_PARA_personal_rnd, 0), GetMonData(togepi, ID_PARA_sex, 0));
+
+    return FALSE;
+}

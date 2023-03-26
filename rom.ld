@@ -92,6 +92,10 @@ GrabAndRegisterUnownForm = 0x02248444 | 1;
 WildMonSetRandomHeldItem = 0x020721A4 | 1;
 MonIsShiny = 0x0207003C | 1;
 BoxMonIsShiny = 0x02070044 | 1;
+sub_02017FE4 = 0x02017FE4 | 1;
+SetEggStats = 0x0206C8B8 | 1;
+SaveMisc_SetTogepiPersonalityGender = 0x0202ABB0 | 1;
+SaveMisc_GetTogepiPersonalityGender = 0x0202ABBC | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;

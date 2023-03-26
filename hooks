@@ -142,6 +142,9 @@ arm9 GiveMon_hook 080541E0 5
 #need to use this to UpdateFormIfDeerling, reinitialize the moveset, set the hidden ability, recalc stats
 0002 AddWildPartyPokemon_hook 080029E0 5
 
+arm9 ScrCmd_GiveEgg 0204D248 1
+0001 ScrCmd_GiveTogepiEgg 022020CC 1
+
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3
 0096 grab_overworld_a081_index 080038B8 3
