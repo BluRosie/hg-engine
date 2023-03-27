@@ -186,7 +186,7 @@ ldr r0, [sp, #0x3C]
 str r1, [sp, #0x10]
 str r0, [sp, #0x3C]
 
-ldr r4, =0x02247A20 | 1
+ldr r4, =0x02247A24 | 1
 bx r4
 
 
