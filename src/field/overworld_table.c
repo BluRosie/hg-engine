@@ -350,7 +350,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
 
 
 
-// pokémon follower specific overworlds start here
+// pokémon follower specific overworlds start here... left off on entry 1292 - galarian corsola
 
     { .tag =  428, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BULBASAUR
     { .tag =  429, .gfx =  298, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IVYSAUR
@@ -372,9 +372,9 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag =  445, .gfx =  314, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PIDGEOTTO
     { .tag =  446, .gfx =  315, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PIDGEOT
     { .tag =  447, .gfx =  316, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RATTATA
-    { .tag =  448, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // alola
+    { .tag =  448, .gfx = 1293, .callback_params = OVERWORLD_SIZE_SMALL}, // alola
     { .tag =  449, .gfx =  317, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RATICATE
-    { .tag =  450, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // alola
+    { .tag =  450, .gfx = 1294, .callback_params = OVERWORLD_SIZE_SMALL}, // alola
     { .tag =  451, .gfx =  318, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPEAROW
     { .tag =  452, .gfx =  319, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FEAROW
     { .tag =  453, .gfx =  320, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_EKANS
