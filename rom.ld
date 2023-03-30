@@ -330,6 +330,7 @@ MapObject_SetXRange = 0x0205F318 | 1;
 MapObject_SetYRange = 0x0205F320 | 1;
 FieldSysGetAttrAddr = 0x020402F0 | 1;
 MapObject_GfxDraw = 0x0205f484 | 1;
+ChangeMapObjSprite = 0x021FA930 | 1;
 
 /* 0x16C54 in overlay1 */
 PlayerAlternate_MapObject_GfxDraw = 0x021FC554 | 1;

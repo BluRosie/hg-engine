@@ -227,8 +227,9 @@ void __attribute__((long_call)) MapObject_SetCurrentX(LocalMapObject* object, u3
 void __attribute__((long_call)) MapObject_SetFlag29(LocalMapObject* object, BOOL set);
 void __attribute__((long_call)) sub_02069DC8(LocalMapObject *mapObject, BOOL enable_bit);
 void __attribute__((long_call)) ov01_021F9048(LocalMapObject* map_object);
-void MapObjectMan_PauseAllMovement(MapObjectMan* manager);
-void MapObjectMan_UnpauseAllMovement(MapObjectMan* manager);
+void __attribute__((long_call)) MapObjectMan_PauseAllMovement(MapObjectMan* manager);
+void __attribute__((long_call)) MapObjectMan_UnpauseAllMovement(MapObjectMan* manager);
+void __attribute__((long_call)) ChangeMapObjSprite(LocalMapObject *mapObject, u32 overworldTag);
 
 //#define FollowPokeObj_GetSpecies(mapObject) MapObject_GetParam(mapObject, 0)
 
