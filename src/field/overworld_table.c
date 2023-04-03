@@ -1287,7 +1287,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1416, .gfx = 1405, .callback_params = OVERWORLD_SIZE_SMALL}, // 50 complete?
     { .tag = 1417, .gfx = 1103, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DIANCIE
     { .tag = 1418, .gfx = 1104, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_HOOPA
-    { .tag = 1419, .gfx = 1406, .callback_params = OVERWORLD_SIZE_SMALL}, // unbound
+    { .tag = 1419, .gfx = 1406, .callback_params = OVERWORLD_SIZE_LARGE}, // unbound
     { .tag = 1420, .gfx = 1105, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_VOLCANION
     { .tag = 1421, .gfx = 1106, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ROWLET
     { .tag = 1422, .gfx = 1107, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DARTRIX
@@ -1521,7 +1521,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1650, .gfx = 1287, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SNEASLER
     { .tag = 1651, .gfx = 1288, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OVERQWIL
     { .tag = 1652, .gfx = 1289, .callback_params = OVERWORLD_SIZE_LARGE}, // SPECIES_ENAMORUS
-    { .tag = 1653, .gfx = 1446, .callback_params = OVERWORLD_SIZE_SMALL}, // therian
+    { .tag = 1653, .gfx = 1446, .callback_params = OVERWORLD_SIZE_LARGE}, // therian
 
     { 0xFFFF, 0, 0},
 };
