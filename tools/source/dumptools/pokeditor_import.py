@@ -1,7 +1,10 @@
+import argparse
 import csv
 import re
 
-# for sauceyaTTa: Personal, trainer data / trainer poke, levelup learnsets, move data, and evolutions
+# requested by sauceyaTTa: Personal, trainer data / trainer poke, levelup learnsets, move data, and evolutions
+# done: personal, levelup learnsets, evolutions
+# needed: trainers, moves
 
 BODY_COLORS = ['RED', 'BLUE', 'YELLOW', 'GREEN', 'BLACK', 'BROWN', 'PURPLE', 'GRAY', 'WHITE', 'PINK', 'EGG']
 
@@ -224,6 +227,7 @@ def import_evolutions(evolutions_sheet_fname: str):
 
 """
 
+    # This template only supports 7 evo methods, according to vanilla limitations
     dump_template = """
 evodata SPECIES_{species}
     evolution EVO_{method_1}, {req_1}, SPECIES_{result_1}
@@ -311,3 +315,22 @@ levelup SPECIES_{species}
                 
                 levelupdata_dump.write(dump_learnset_line.format(move=move, level=level))
             levelupdata_dump.write(dump_learnset_eom)
+
+
+if __name__ == '__main__':
+    argparser = argparse.ArgumentParser(
+        prog='PokEditor Imports',
+        description='Generates HGEngine compatible assembly files from PokEditor CSVs'
+    )
+    argparser.add_argument('-f', '--fairy', action='store_true')
+    argparser.add_argument('-p', '--personal')
+    argparser.add_argument('-e', '--evolutions')
+    argparser.add_argument('-l', '--learnsets')
+
+    args = argparser.parse_args()
+    if args.personal:
+        import_personal(args.personal, args.fairy)
+    if args.evolutions:
+        import_evolutions(args.evolutions)
+    if args.learnsets:
+        import_leveluplearnsets(args.learnsets)
