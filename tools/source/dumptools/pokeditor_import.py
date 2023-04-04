@@ -1,50 +1,19 @@
-from csv import DictReader
-from re import sub
+import csv
+import re
 
 # for saucy: Personal, trainer data / trainer poke, levelup learnsets, move data, and evolutions
-
-PERSONAL_HEADER = [
-    "ID Number",
-    "Name",
-    "HP",
-    "Attack",
-    "Defense",
-    "Speed",
-    "Sp. Atk",
-    "Sp. Def",
-    "Type 1",
-    "Type 2",
-    "Catch Rate",
-    "Exp Drop",
-    "HP EV Yield",
-    "Spe EV Yield",
-    "Attack EV Yield",
-    "Defense EV Yield",
-    "Sp. Atk EV Yield",
-    "Sp. Def EV Yield",
-    "Uncommon Held Item",
-    "Rare Held Item",
-    "Gender Ratio",
-    "Hatch Multiplier",
-    "Base Happiness",
-    "Growth Rate",
-    "Egg Group 1",
-    "Egg Group 2",
-    "Ability 1",
-    "Ability 2",
-    "Run Chance (Safari Zone only)",
-    "DO NOT TOUCH",
-]
 
 BODY_COLORS = ['RED', 'BLUE', 'YELLOW', 'GREEN', 'BLACK', 'BROWN', 'PURPLE', 'GRAY', 'WHITE', 'PINK', 'EGG']
 
 MONDATA_DUMP_TARGET = "armips/data/mondata_generated.s"
+EVODATA_DUMP_TARGET = "armips/data/evodata_generated.s"
 
 IRREGULAR_NAMES = {
     '-----': 'NONE',
     'NIDORAN♀': 'NIDORAN_F',
     'NIDORAN♂': 'NIDORAN_M',
     'FARFETCH’D': 'FARFETCHD',
+    'FARFETCH’_D': 'FARFETCHD',
     'MR. MIME': 'MR_MIME',
     'MR._MIME': 'MR_MIME',
     'HO-OH': 'HO_OH',
@@ -55,7 +24,7 @@ IRREGULAR_NAMES = {
     'DEOXYS_(_D)': 'DEOXYS_DEFENSE',
     'DEOXYS_(_S)': 'DEOXYS_SPEED',
     'WORMADAM_(_S)': 'WORMADAM_SANDY',
-    'WORMADAM_(_T)': 'WORMADAM_TRASH',
+    'WORMADAM_(_T)': 'WORMADAM_TRASHY',
     'GIRATINA_(_O)': 'GIRATINA_ORIGIN',
     'SHAYMIN_(_S)': 'SHAYMIN_SKY',
     'ROTOM_(_HEAT)': 'ROTOM_HEAT',
@@ -92,13 +61,37 @@ IRREGULAR_EGG_GROUPS = {
     '~': 'NONE'
 }
 
+IRREGULAR_METHODS = {
+    'TRADE_(_ITEM)': 'TRADE_ITEM',
+    'LEVEL_(_MT._CORONET)': 'LEVEL_ELECTRIC_FIELD',
+    'LEVEL_(_ETERNA_FOREST)': 'LEVEL_MOSSY_STONE',
+    'LEVEL_(_ROUTE_217)': 'LEVEL_ICY_STONE',
+    'HAPPINESS_(_DAY)': 'HAPPINESS_DAY',
+    'HAPPINESS_(_NIGHT)': 'HAPPINESS_NIGHT',
+    'ATTACK_KNOWN': 'KNOWS_MOVE',
+    'USE_ITEM_(_DAY)': 'USE_ITEM_DAY',
+    'USE_ITEM_(_NIGHT)': 'USE_ITEM_NIGHT',
+    'LEVEL_(_ATTACK_<_DEFENSE)': 'LEVEL_MORE_DEFENSE',
+    'LEVEL_(_ATTACK_>_DEFENSE)': 'LEVEL_MORE_ATTACK',
+    'LEVEL_(_ATTACK_=_DEFENSE)': 'LEVEL_ATK_DEF_EQUAL',
+    'LEVEL_(_PID_>_5)': 'LEVEL_PID_LOW',        # These are incorrect in Pokeditor
+    'LEVEL_(_PID_<_5)': 'LEVEL_PID_HIGH',
+    'USE_ITEM_(_MALE)': 'USE_ITEM_MALE',
+    'USE_ITEM_(_FEMALE)': 'USE_ITEM_FEMALE',
+    'LEVEL_(1_OF_2)': 'LEVEL_GEN_NEW_MON_1',
+    'LEVEL_(2_OF_2)': 'LEVEL_GEN_NEW_MON_2',
+    'LEVEL_(_MALE)': 'LEVEL_MALE',
+    'LEVEL_(_FEMALE)': 'LEVEL_FEMALE',
+    'POKEMON_IN_PARTY': 'MON_IN_PARTY',
+}
+
 
 def upper_snake_case(s: str) -> str:
     return '_'.join(
-        sub(
+        re.sub(
             '([A-Z][a-z]+)',
             r' \1',
-            sub(
+            re.sub(
                 '([A-Z]+)',
                 r' \1',
                 s.replace('-', ' ')
@@ -153,11 +146,11 @@ mondata SPECIES_{species}
     runchance {run_chance}
     colorflip BODY_COLOR_{body_color}, {flip:d}
     tmdata SPECIES_{species}_TM_DATA_0, SPECIES_{species}_TM_DATA_1, SPECIES_{species}_TM_DATA_2, SPECIES_{species}_TM_DATA_3
-    """
+"""
 
     with open(personal_sheet_fname, encoding='utf-8') as personal_csv, open(MONDATA_DUMP_TARGET, 'w', encoding='utf-8') as mondata_dump:
         mondata_dump.write(dump_header)
-        reader = DictReader(personal_csv)
+        reader = csv.DictReader(personal_csv)
         for row in reader:
             dump_data = dump_template.format(
                 species=sanitize(row["Name"].upper(), IRREGULAR_NAMES),
@@ -193,3 +186,86 @@ mondata SPECIES_{species}
             )
 
             mondata_dump.write(dump_data)
+
+
+def import_evolutions(evolutions_sheet_fname: str):
+    dump_header = """.nds
+.thumb
+
+.include "armips/include/macros.s"
+.include "armips/include/constants.s"
+.include "armips/include/monnums.s"
+.include "armips/include/itemnums.s"
+.include "armips/include/movenums.s"
+
+// the evolution data of each mon
+
+"""
+
+    dump_template = """
+evodata SPECIES_{species}
+    evolution EVO_{method_1}, {req_1}, SPECIES_{result_1}
+    evolution EVO_{method_2}, {req_2}, SPECIES_{result_2}
+    evolution EVO_{method_3}, {req_3}, SPECIES_{result_3}
+    evolution EVO_{method_4}, {req_4}, SPECIES_{result_4}
+    evolution EVO_{method_5}, {req_5}, SPECIES_{result_5}
+    evolution EVO_{method_6}, {req_6}, SPECIES_{result_6}
+    evolution EVO_{method_7}, {req_7}, SPECIES_{result_7}
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    terminateevodata
+"""
+    
+    with open(evolutions_sheet_fname, encoding='utf-8') as evolutions_csv, open(EVODATA_DUMP_TARGET, 'w', encoding='utf-8') as evodata_dump:
+        evodata_dump.write(dump_header)
+        reader = csv.reader(evolutions_csv)
+        next(reader) # skip the header
+        for row in reader:
+            dump_data = dump_template.format(
+                species=sanitize(row[1], IRREGULAR_NAMES),
+
+                method_1=sanitize(row[2], IRREGULAR_METHODS),
+                req_1=sanitize_evoreq(row[3], row[2]),
+                result_1=sanitize(row[4], IRREGULAR_NAMES),
+
+                method_2=sanitize(row[5], IRREGULAR_METHODS),
+                req_2=sanitize_evoreq(row[6], row[5]),
+                result_2=sanitize(row[7], IRREGULAR_NAMES),
+
+                method_3=sanitize(row[8], IRREGULAR_METHODS),
+                req_3=sanitize_evoreq(row[9], row[8]),
+                result_3=sanitize(row[10], IRREGULAR_NAMES),
+
+                method_4=sanitize(row[11], IRREGULAR_METHODS),
+                req_4=sanitize_evoreq(row[12], row[11]),
+                result_4=sanitize(row[13], IRREGULAR_NAMES),
+
+                method_5=sanitize(row[14], IRREGULAR_METHODS),
+                req_5=sanitize_evoreq(row[15], row[14]),
+                result_5=sanitize(row[16], IRREGULAR_NAMES),
+
+                method_6=sanitize(row[17], IRREGULAR_METHODS),
+                req_6=sanitize_evoreq(row[18], row[17]),
+                result_6=sanitize(row[19], IRREGULAR_NAMES),
+
+                method_7=sanitize(row[20], IRREGULAR_METHODS),
+                req_7=sanitize_evoreq(row[21], row[20]),
+                result_7=sanitize(row[22], IRREGULAR_NAMES),
+            )
+
+            evodata_dump.write(dump_data)
+
+
+def sanitize_evoreq(raw_req: str, raw_method: str) -> str:
+    if raw_method == 'None':                                # Just return 0 for consistency
+        return '0'
+    elif raw_method == 'Level Up':                          # Requirement is a number, which should just be the raw value
+        return raw_req
+    elif 'Item' in raw_method:                              # Requirement is an item, so sanitize it
+        return 'ITEM_' + sanitize(raw_req, IRREGULAR_ITEMS)
+    elif raw_method == 'Attack Known':                      # Requirement is a move, so sanitize it
+        return 'MOVE_' + sanitize(raw_req, {})
+    elif raw_method == 'Pokemon in Party':                  # Requirement is a Pokemon, so sanitize it
+        return 'SPECIES_' + sanitize(raw_req, IRREGULAR_NAMES)
+    
+    return raw_req
