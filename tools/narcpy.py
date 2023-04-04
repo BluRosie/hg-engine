@@ -1,5 +1,6 @@
 import sys
 import os
+import struct
 import ndspy.narc
 
 
@@ -35,4 +36,21 @@ elif args[0] == 'create':
     narc.endiannessOfBeginning = '>'
     narc.saveToFile(args[1])
 
-
+    narcfile = open(args[1], 'rb+')
+    narcbytes = bytearray(narcfile.read())
+    narcfile.close()
+    
+    FNTB_offset = narcbytes.find("BTNF".encode())
+    
+    #narcbytes[8] = narcbytes[8] - 4
+    dataoffset = struct.unpack_from("<I", narcbytes[8:12])[0] - 4
+    data = (dataoffset.to_bytes(4, 'little'))
+    narcbytes[8:12] = data
+    
+    narcbytes[FNTB_offset+4] = 0x10;
+    narcbytes[FNTB_offset+8] = 0x4;
+    del narcbytes[FNTB_offset+0x10:FNTB_offset+0x14]
+    
+    narcfile = open(args[1], 'wb')
+    narcfile.write(narcbytes)
+    narcfile.close()
