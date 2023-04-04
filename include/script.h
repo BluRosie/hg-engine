@@ -174,5 +174,6 @@ u32 __attribute__((long_call)) Fsys_GetWeather_HandleDiamondDust(FieldSystem *fs
 #define ScriptReadWord(ctx) (ScriptReadHalfword(ctx) | (ScriptReadHalfword(ctx) << 16))
 
 #define ScriptGetVarPointer(ctx) GetVarAdrs(ctx->fsys, ScriptReadHalfword(ctx))
+#define ScriptGetVar(ctx) VarGet(ctx->fsys, ScriptReadHalfword(ctx))
 
 #endif

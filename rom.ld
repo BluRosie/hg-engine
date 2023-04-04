@@ -50,6 +50,7 @@ UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
 ArchiveDataLoadMalloc = 0x02007524 | 1;
 ArchiveDataLoad = 0x02007509;
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
+NARC_ctor = 0x02007688 | 1;
 ArchiveDataLoadOfs = 0x02007560 | 1;
 sqrt = 0x0200048A | 1;
 
@@ -92,6 +93,10 @@ GrabAndRegisterUnownForm = 0x02248444 | 1;
 WildMonSetRandomHeldItem = 0x020721A4 | 1;
 MonIsShiny = 0x0207003C | 1;
 BoxMonIsShiny = 0x02070044 | 1;
+sub_02017FE4 = 0x02017FE4 | 1;
+SetEggStats = 0x0206C8B8 | 1;
+SaveMisc_SetTogepiPersonalityGender = 0x0202ABB0 | 1;
+SaveMisc_GetTogepiPersonalityGender = 0x0202ABBC | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;
@@ -112,6 +117,7 @@ EventSet_Script = 0x0203FE74 |1;
 
 sys_AllocMemory = 0x0201AA8C | 1;
 sys_FreeMemoryEz = 0x0201AB0C | 1;
+sys_AllocMemoryLo = 0x0201AACC | 1;
 
 /*TextBox*/
 TalkWinGraphicSet = 0x0200E644 |1;
@@ -304,6 +310,7 @@ GF_RTC_GetTimeOfDay = 0x0201481C | 1;
 GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
 
+
 /* map object funcs */
 GetMapObjectByID = 0x0205EE60 | 1;
 MapObject_GetMovement = 0x0205F264 | 1;
@@ -323,6 +330,7 @@ MapObject_SetXRange = 0x0205F318 | 1;
 MapObject_SetYRange = 0x0205F320 | 1;
 FieldSysGetAttrAddr = 0x020402F0 | 1;
 MapObject_GfxDraw = 0x0205f484 | 1;
+ChangeMapObjSprite = 0x021FA930 | 1;
 
 /* 0x16C54 in overlay1 */
 PlayerAlternate_MapObject_GfxDraw = 0x021FC554 | 1;
@@ -350,7 +358,6 @@ BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
 Sav2_Bag_get = 0x0207879C | 1;
 
-
 FreeOverlayAllocation = 0x02006F58 | 1;
 GetOverlayLoadDestination = 0x02006FAC | 1;
 CanOverlayBeLoaded = 0x020070AC | 1;
@@ -374,4 +381,6 @@ LoadSingleWaves = 0x020CA788;
 SND_AssignWaveArc = 0x020D6154;
 
 Fsys_GetWeather_HandleDiamondDust = 0x0203BBB4 | 1;
+sub_0206D038 = 0x0206D038 | 1;
+GetSpeciesNameIntoArray = 0x0200BC28 | 1;
 PlayCry = 0x02006218 | 1;

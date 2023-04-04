@@ -686,293 +686,293 @@ static const u16 sSpeciesToOWGfx[] =
     [SPECIES_SHELMET            ] =  764,
     [SPECIES_ACCELGOR           ] =  765,
     [SPECIES_STUNFISK           ] =  766,
-    [SPECIES_MIENFOO            ] =  767,
-    [SPECIES_MIENSHAO           ] =  768,
-    [SPECIES_DRUDDIGON          ] =  769,
-    [SPECIES_GOLETT             ] =  770,
-    [SPECIES_GOLURK             ] =  771,
-    [SPECIES_PAWNIARD           ] =  772,
-    [SPECIES_BISHARP            ] =  773,
-    [SPECIES_BOUFFALANT         ] =  774,
-    [SPECIES_RUFFLET            ] =  775,
-    [SPECIES_BRAVIARY           ] =  776,
-    [SPECIES_VULLABY            ] =  778,
-    [SPECIES_MANDIBUZZ          ] =  779,
-    [SPECIES_HEATMOR            ] =  780,
-    [SPECIES_DURANT             ] =  781,
-    [SPECIES_DEINO              ] =  782,
-    [SPECIES_ZWEILOUS           ] =  783,
-    [SPECIES_HYDREIGON          ] =  784,
-    [SPECIES_LARVESTA           ] =  785,
-    [SPECIES_VOLCARONA          ] =  786,
-    [SPECIES_COBALION           ] =  787,
-    [SPECIES_TERRAKION          ] =  788,
-    [SPECIES_VIRIZION           ] =  789,
-    [SPECIES_TORNADUS           ] =  790,
-    [SPECIES_THUNDURUS          ] =  792,
-    [SPECIES_RESHIRAM           ] =  794,
-    [SPECIES_ZEKROM             ] =  795,
-    [SPECIES_LANDORUS           ] =  796,
-    [SPECIES_KYUREM             ] =  798,
-    [SPECIES_KELDEO             ] =  801,
-    [SPECIES_MELOETTA           ] =  803,
-    [SPECIES_GENESECT           ] =  805,
-    [SPECIES_CHESPIN            ] =  806,
-    [SPECIES_QUILLADIN          ] =  807,
-    [SPECIES_CHESNAUGHT         ] =  808,
-    [SPECIES_FENNEKIN           ] =  809,
-    [SPECIES_BRAIXEN            ] =  810,
-    [SPECIES_DELPHOX            ] =  811,
-    [SPECIES_FROAKIE            ] =  812,
-    [SPECIES_FROGADIER          ] =  813,
-    [SPECIES_GRENINJA           ] =  814,
-    [SPECIES_BUNNELBY           ] =  815,
-    [SPECIES_DIGGERSBY          ] =  816,
-    [SPECIES_FLETCHLING         ] =  817,
-    [SPECIES_FLETCHINDER        ] =  818,
-    [SPECIES_TALONFLAME         ] =  819,
-    [SPECIES_SCATTERBUG         ] =  820,
-    [SPECIES_SPEWPA             ] =  821,
-    [SPECIES_VIVILLON           ] =  822,
-    [SPECIES_LITLEO             ] =  842,
-    [SPECIES_PYROAR             ] =  843,
-    [SPECIES_FLABEBE            ] =  845,
-    [SPECIES_FLOETTE            ] =  850,
-    [SPECIES_FLORGES            ] =  856,
-    [SPECIES_SKIDDO             ] =  861,
-    [SPECIES_GOGOAT             ] =  862,
-    [SPECIES_PANCHAM            ] =  863,
-    [SPECIES_PANGORO            ] =  864,
-    [SPECIES_FURFROU            ] =  865,
-    [SPECIES_ESPURR             ] =  875,
-    [SPECIES_MEOWSTIC           ] =  876,
-    [SPECIES_HONEDGE            ] =  878,
-    [SPECIES_DOUBLADE           ] =  879,
-    [SPECIES_AEGISLASH          ] =  880,
-    [SPECIES_SPRITZEE           ] =  881,
-    [SPECIES_AROMATISSE         ] =  882,
-    [SPECIES_SWIRLIX            ] =  883,
-    [SPECIES_SLURPUFF           ] =  884,
-    [SPECIES_INKAY              ] =  885,
-    [SPECIES_MALAMAR            ] =  886,
-    [SPECIES_BINACLE            ] =  887,
-    [SPECIES_BARBARACLE         ] =  888,
-    [SPECIES_SKRELP             ] =  889,
-    [SPECIES_DRAGALGE           ] =  890,
-    [SPECIES_CLAUNCHER          ] =  891,
-    [SPECIES_CLAWITZER          ] =  892,
-    [SPECIES_HELIOPTILE         ] =  893,
-    [SPECIES_HELIOLISK          ] =  894,
-    [SPECIES_TYRUNT             ] =  895,
-    [SPECIES_TYRANTRUM          ] =  896,
-    [SPECIES_AMAURA             ] =  897,
-    [SPECIES_AURORUS            ] =  898,
-    [SPECIES_SYLVEON            ] =  899,
-    [SPECIES_HAWLUCHA           ] =  900,
-    [SPECIES_DEDENNE            ] =  901,
-    [SPECIES_CARBINK            ] =  902,
-    [SPECIES_GOOMY              ] =  903,
-    [SPECIES_SLIGGOO            ] =  904,
-    [SPECIES_GOODRA             ] =  906,
-    [SPECIES_KLEFKI             ] =  908,
-    [SPECIES_PHANTUMP           ] =  909,
-    [SPECIES_TREVENANT          ] =  910,
-    [SPECIES_PUMPKABOO          ] =  911,
-    [SPECIES_GOURGEIST          ] =  915,
-    [SPECIES_BERGMITE           ] =  919,
-    [SPECIES_AVALUGG            ] =  920,
-    [SPECIES_NOIBAT             ] =  922,
-    [SPECIES_NOIVERN            ] =  923,
-    [SPECIES_XERNEAS            ] =  924,
-    [SPECIES_YVELTAL            ] =  925,
-    [SPECIES_ZYGARDE            ] =  926,
-    [SPECIES_DIANCIE            ] =  932,
-    [SPECIES_HOOPA              ] =  933,
-    [SPECIES_VOLCANION          ] =  935,
-    [SPECIES_ROWLET             ] =  936,
-    [SPECIES_DARTRIX            ] =  937,
-    [SPECIES_DECIDUEYE          ] =  938,
-    [SPECIES_LITTEN             ] =  940,
-    [SPECIES_TORRACAT           ] =  941,
-    [SPECIES_INCINEROAR         ] =  942,
-    [SPECIES_POPPLIO            ] =  943,
-    [SPECIES_BRIONNE            ] =  944,
-    [SPECIES_PRIMARINA          ] =  945,
-    [SPECIES_PIKIPEK            ] =  946,
-    [SPECIES_TRUMBEAK           ] =  947,
-    [SPECIES_TOUCANNON          ] =  948,
-    [SPECIES_YUNGOOS            ] =  949,
-    [SPECIES_GUMSHOOS           ] =  950,
-    [SPECIES_GRUBBIN            ] =  951,
-    [SPECIES_CHARJABUG          ] =  952,
-    [SPECIES_VIKAVOLT           ] =  953,
-    [SPECIES_CRABRAWLER         ] =  954,
-    [SPECIES_CRABOMINABLE       ] =  955,
-    [SPECIES_ORICORIO           ] =  956,
-    [SPECIES_CUTIEFLY           ] =  960,
-    [SPECIES_RIBOMBEE           ] =  961,
-    [SPECIES_ROCKRUFF           ] =  962,
-    [SPECIES_LYCANROC           ] =  964,
-    [SPECIES_WISHIWASHI         ] =  967,
-    [SPECIES_MAREANIE           ] =  968,
-    [SPECIES_TOXAPEX            ] =  969,
-    [SPECIES_MUDBRAY            ] =  970,
-    [SPECIES_MUDSDALE           ] =  971,
-    [SPECIES_DEWPIDER           ] =  972,
-    [SPECIES_ARAQUANID          ] =  973,
-    [SPECIES_FOMANTIS           ] =  974,
-    [SPECIES_LURANTIS           ] =  975,
-    [SPECIES_MORELULL           ] =  976,
-    [SPECIES_SHIINOTIC          ] =  977,
-    [SPECIES_SALANDIT           ] =  978,
-    [SPECIES_SALAZZLE           ] =  979,
-    [SPECIES_STUFFUL            ] =  980,
-    [SPECIES_BEWEAR             ] =  981,
-    [SPECIES_BOUNSWEET          ] =  982,
-    [SPECIES_STEENEE            ] =  983,
-    [SPECIES_TSAREENA           ] =  984,
-    [SPECIES_COMFEY             ] =  985,
-    [SPECIES_ORANGURU           ] =  986,
-    [SPECIES_PASSIMIAN          ] =  987,
-    [SPECIES_WIMPOD             ] =  988,
-    [SPECIES_GOLISOPOD          ] =  989,
-    [SPECIES_SANDYGAST          ] =  990,
-    [SPECIES_PALOSSAND          ] =  991,
-    [SPECIES_PYUKUMUKU          ] =  992,
-    [SPECIES_TYPE_NULL          ] =  993,
-    [SPECIES_SILVALLY           ] =  994,
-    [SPECIES_MINIOR             ] = 1012,
-    [SPECIES_KOMALA             ] = 1019,
-    [SPECIES_TURTONATOR         ] = 1020,
-    [SPECIES_TOGEDEMARU         ] = 1021,
-    [SPECIES_MIMIKYU            ] = 1022,
-    [SPECIES_BRUXISH            ] = 1023,
-    [SPECIES_DRAMPA             ] = 1024,
-    [SPECIES_DHELMISE           ] = 1025,
-    [SPECIES_JANGMO_O           ] = 1026,
-    [SPECIES_HAKAMO_O           ] = 1027,
-    [SPECIES_KOMMO_O            ] = 1028,
-    [SPECIES_TAPU_KOKO          ] = 1029,
-    [SPECIES_TAPU_LELE          ] = 1030,
-    [SPECIES_TAPU_BULU          ] = 1031,
-    [SPECIES_TAPU_FINI          ] = 1032,
-    [SPECIES_COSMOG             ] = 1033,
-    [SPECIES_COSMOEM            ] = 1034,
-    [SPECIES_SOLGALEO           ] = 1035,
-    [SPECIES_LUNALA             ] = 1036,
-    [SPECIES_NIHILEGO           ] = 1037,
-    [SPECIES_BUZZWOLE           ] = 1038,
-    [SPECIES_PHEROMOSA          ] = 1039,
-    [SPECIES_XURKITREE          ] = 1040,
-    [SPECIES_CELESTEELA         ] = 1041,
-    [SPECIES_KARTANA            ] = 1042,
-    [SPECIES_GUZZLORD           ] = 1043,
-    [SPECIES_NECROZMA           ] = 1044,
-    [SPECIES_MAGEARNA           ] = 1047,
-    [SPECIES_MARSHADOW          ] = 1049,
-    [SPECIES_POIPOLE            ] = 1050,
-    [SPECIES_NAGANADEL          ] = 1051,
-    [SPECIES_STAKATAKA          ] = 1052,
-    [SPECIES_BLACEPHALON        ] = 1053,
-    [SPECIES_ZERAORA            ] = 1054,
-    [SPECIES_MELTAN             ] = 1055,
-    [SPECIES_MELMETAL           ] = 1056,
-    [SPECIES_GROOKEY            ] = 1057,
-    [SPECIES_THWACKEY           ] = 1058,
-    [SPECIES_RILLABOOM          ] = 1059,
-    [SPECIES_SCORBUNNY          ] = 1060,
-    [SPECIES_RABOOT             ] = 1061,
-    [SPECIES_CINDERACE          ] = 1062,
-    [SPECIES_SOBBLE             ] = 1063,
-    [SPECIES_DRIZZILE           ] = 1064,
-    [SPECIES_INTELEON           ] = 1065,
-    [SPECIES_SKWOVET            ] = 1066,
-    [SPECIES_GREEDENT           ] = 1067,
-    [SPECIES_ROOKIDEE           ] = 1068,
-    [SPECIES_CORVISQUIRE        ] = 1069,
-    [SPECIES_CORVIKNIGHT        ] = 1070,
-    [SPECIES_BLIPBUG            ] = 1071,
-    [SPECIES_DOTTLER            ] = 1072,
-    [SPECIES_ORBEETLE           ] = 1073,
-    [SPECIES_NICKIT             ] = 1074,
-    [SPECIES_THIEVUL            ] = 1075,
-    [SPECIES_GOSSIFLEUR         ] = 1076,
-    [SPECIES_ELDEGOSS           ] = 1077,
-    [SPECIES_WOOLOO             ] = 1078,
-    [SPECIES_DUBWOOL            ] = 1079,
-    [SPECIES_CHEWTLE            ] = 1080,
-    [SPECIES_DREDNAW            ] = 1081,
-    [SPECIES_YAMPER             ] = 1082,
-    [SPECIES_BOLTUND            ] = 1083,
-    [SPECIES_ROLYCOLY           ] = 1084,
-    [SPECIES_CARKOL             ] = 1085,
-    [SPECIES_COALOSSAL          ] = 1086,
-    [SPECIES_APPLIN             ] = 1087,
-    [SPECIES_FLAPPLE            ] = 1088,
-    [SPECIES_APPLETUN           ] = 1089,
-    [SPECIES_SILICOBRA          ] = 1090,
-    [SPECIES_SANDACONDA         ] = 1091,
-    [SPECIES_CRAMORANT          ] = 1092,
-    [SPECIES_ARROKUDA           ] = 1093,
-    [SPECIES_BARRASKEWDA        ] = 1094,
-    [SPECIES_TOXEL              ] = 1095,
-    [SPECIES_TOXTRICITY         ] = 1096,
-    [SPECIES_SIZZLIPEDE         ] = 1098,
-    [SPECIES_CENTISKORCH        ] = 1099,
-    [SPECIES_CLOBBOPUS          ] = 1100,
-    [SPECIES_GRAPPLOCT          ] = 1101,
-    [SPECIES_SINISTEA           ] = 1102,
-    [SPECIES_POLTEAGEIST        ] = 1104,
-    [SPECIES_HATENNA            ] = 1106,
-    [SPECIES_HATTREM            ] = 1107,
-    [SPECIES_HATTERENE          ] = 1108,
-    [SPECIES_IMPIDIMP           ] = 1109,
-    [SPECIES_MORGREM            ] = 1110,
-    [SPECIES_GRIMMSNARL         ] = 1111,
-    [SPECIES_OBSTAGOON          ] = 1112,
-    [SPECIES_PERRSERKER         ] = 1113,
-    [SPECIES_CURSOLA            ] = 1114,
-    [SPECIES_SIRFETCHD          ] = 1115,
-    [SPECIES_MR_RIME            ] = 1116,
-    [SPECIES_RUNERIGUS          ] = 1117,
-    [SPECIES_MILCERY            ] = 1118,
-    [SPECIES_ALCREMIE           ] = 1119,
-    [SPECIES_FALINKS            ] = 1126,
-    [SPECIES_PINCURCHIN         ] = 1127,
-    [SPECIES_SNOM               ] = 1128,
-    [SPECIES_FROSMOTH           ] = 1129,
-    [SPECIES_STONJOURNER        ] = 1130,
-    [SPECIES_EISCUE             ] = 1131,
-    [SPECIES_INDEEDEE           ] = 1132,
-    [SPECIES_MORPEKO            ] = 1134,
-    [SPECIES_CUFANT             ] = 1135,
-    [SPECIES_COPPERAJAH         ] = 1136,
-    [SPECIES_DRACOZOLT          ] = 1137,
-    [SPECIES_ARCTOZOLT          ] = 1138,
-    [SPECIES_DRACOVISH          ] = 1139,
-    [SPECIES_ARCTOVISH          ] = 1140,
-    [SPECIES_DURALUDON          ] = 1141,
-    [SPECIES_DREEPY             ] = 1142,
-    [SPECIES_DRAKLOAK           ] = 1143,
-    [SPECIES_DRAGAPULT          ] = 1144,
-    [SPECIES_ZACIAN             ] = 1145,
-    [SPECIES_ZAMAZENTA          ] = 1146,
-    [SPECIES_ETERNATUS          ] = 1147,
-    [SPECIES_KUBFU              ] = 1148,
-    [SPECIES_URSHIFU            ] = 1149,
-    [SPECIES_ZARUDE             ] = 1151,
-    [SPECIES_REGIELEKI          ] = 1153,
-    [SPECIES_REGIDRAGO          ] = 1154,
-    [SPECIES_GLASTRIER          ] = 1155,
-    [SPECIES_SPECTRIER          ] = 1156,
-    [SPECIES_CALYREX            ] = 1157,
-    [SPECIES_WYRDEER            ] = 1160,
-    [SPECIES_KLEAVOR            ] = 1161,
-    [SPECIES_URSALUNA           ] = 1162,
-    [SPECIES_BASCULEGION        ] = 1163,
-    [SPECIES_SNEASLER           ] = 1165,
-    [SPECIES_OVERQWIL           ] = 1166,
-    [SPECIES_ENAMORUS           ] = 1167,
+    [SPECIES_MIENFOO            ] =  768,
+    [SPECIES_MIENSHAO           ] =  769,
+    [SPECIES_DRUDDIGON          ] =  770,
+    [SPECIES_GOLETT             ] =  771,
+    [SPECIES_GOLURK             ] =  772,
+    [SPECIES_PAWNIARD           ] =  773,
+    [SPECIES_BISHARP            ] =  774,
+    [SPECIES_BOUFFALANT         ] =  775,
+    [SPECIES_RUFFLET            ] =  776,
+    [SPECIES_BRAVIARY           ] =  777,
+    [SPECIES_VULLABY            ] =  779,
+    [SPECIES_MANDIBUZZ          ] =  780,
+    [SPECIES_HEATMOR            ] =  781,
+    [SPECIES_DURANT             ] =  782,
+    [SPECIES_DEINO              ] =  783,
+    [SPECIES_ZWEILOUS           ] =  784,
+    [SPECIES_HYDREIGON          ] =  785,
+    [SPECIES_LARVESTA           ] =  786,
+    [SPECIES_VOLCARONA          ] =  787,
+    [SPECIES_COBALION           ] =  788,
+    [SPECIES_TERRAKION          ] =  789,
+    [SPECIES_VIRIZION           ] =  790,
+    [SPECIES_TORNADUS           ] =  791,
+    [SPECIES_THUNDURUS          ] =  793,
+    [SPECIES_RESHIRAM           ] =  795,
+    [SPECIES_ZEKROM             ] =  796,
+    [SPECIES_LANDORUS           ] =  797,
+    [SPECIES_KYUREM             ] =  799,
+    [SPECIES_KELDEO             ] =  802,
+    [SPECIES_MELOETTA           ] =  804,
+    [SPECIES_GENESECT           ] =  806,
+    [SPECIES_CHESPIN            ] =  807,
+    [SPECIES_QUILLADIN          ] =  808,
+    [SPECIES_CHESNAUGHT         ] =  809,
+    [SPECIES_FENNEKIN           ] =  810,
+    [SPECIES_BRAIXEN            ] =  811,
+    [SPECIES_DELPHOX            ] =  812,
+    [SPECIES_FROAKIE            ] =  813,
+    [SPECIES_FROGADIER          ] =  814,
+    [SPECIES_GRENINJA           ] =  815,
+    [SPECIES_BUNNELBY           ] =  816,
+    [SPECIES_DIGGERSBY          ] =  817,
+    [SPECIES_FLETCHLING         ] =  818,
+    [SPECIES_FLETCHINDER        ] =  819,
+    [SPECIES_TALONFLAME         ] =  820,
+    [SPECIES_SCATTERBUG         ] =  821,
+    [SPECIES_SPEWPA             ] =  822,
+    [SPECIES_VIVILLON           ] =  823,
+    [SPECIES_LITLEO             ] =  843,
+    [SPECIES_PYROAR             ] =  844,
+    [SPECIES_FLABEBE            ] =  846,
+    [SPECIES_FLOETTE            ] =  851,
+    [SPECIES_FLORGES            ] =  857,
+    [SPECIES_SKIDDO             ] =  862,
+    [SPECIES_GOGOAT             ] =  863,
+    [SPECIES_PANCHAM            ] =  864,
+    [SPECIES_PANGORO            ] =  865,
+    [SPECIES_FURFROU            ] =  866,
+    [SPECIES_ESPURR             ] =  876,
+    [SPECIES_MEOWSTIC           ] =  877,
+    [SPECIES_HONEDGE            ] =  879,
+    [SPECIES_DOUBLADE           ] =  880,
+    [SPECIES_AEGISLASH          ] =  881,
+    [SPECIES_SPRITZEE           ] =  882,
+    [SPECIES_AROMATISSE         ] =  883,
+    [SPECIES_SWIRLIX            ] =  884,
+    [SPECIES_SLURPUFF           ] =  885,
+    [SPECIES_INKAY              ] =  886,
+    [SPECIES_MALAMAR            ] =  887,
+    [SPECIES_BINACLE            ] =  888,
+    [SPECIES_BARBARACLE         ] =  889,
+    [SPECIES_SKRELP             ] =  890,
+    [SPECIES_DRAGALGE           ] =  891,
+    [SPECIES_CLAUNCHER          ] =  892,
+    [SPECIES_CLAWITZER          ] =  893,
+    [SPECIES_HELIOPTILE         ] =  894,
+    [SPECIES_HELIOLISK          ] =  895,
+    [SPECIES_TYRUNT             ] =  896,
+    [SPECIES_TYRANTRUM          ] =  897,
+    [SPECIES_AMAURA             ] =  898,
+    [SPECIES_AURORUS            ] =  899,
+    [SPECIES_SYLVEON            ] =  900,
+    [SPECIES_HAWLUCHA           ] =  901,
+    [SPECIES_DEDENNE            ] =  902,
+    [SPECIES_CARBINK            ] =  903,
+    [SPECIES_GOOMY              ] =  904,
+    [SPECIES_SLIGGOO            ] =  905,
+    [SPECIES_GOODRA             ] =  907,
+    [SPECIES_KLEFKI             ] =  909,
+    [SPECIES_PHANTUMP           ] =  910,
+    [SPECIES_TREVENANT          ] =  911,
+    [SPECIES_PUMPKABOO          ] =  912,
+    [SPECIES_GOURGEIST          ] =  916,
+    [SPECIES_BERGMITE           ] =  920,
+    [SPECIES_AVALUGG            ] =  921,
+    [SPECIES_NOIBAT             ] =  923,
+    [SPECIES_NOIVERN            ] =  924,
+    [SPECIES_XERNEAS            ] =  925,
+    [SPECIES_YVELTAL            ] =  926,
+    [SPECIES_ZYGARDE            ] =  927,
+    [SPECIES_DIANCIE            ] =  933,
+    [SPECIES_HOOPA              ] =  934,
+    [SPECIES_VOLCANION          ] =  936,
+    [SPECIES_ROWLET             ] =  937,
+    [SPECIES_DARTRIX            ] =  938,
+    [SPECIES_DECIDUEYE          ] =  939,
+    [SPECIES_LITTEN             ] =  941,
+    [SPECIES_TORRACAT           ] =  942,
+    [SPECIES_INCINEROAR         ] =  943,
+    [SPECIES_POPPLIO            ] =  944,
+    [SPECIES_BRIONNE            ] =  945,
+    [SPECIES_PRIMARINA          ] =  946,
+    [SPECIES_PIKIPEK            ] =  947,
+    [SPECIES_TRUMBEAK           ] =  948,
+    [SPECIES_TOUCANNON          ] =  949,
+    [SPECIES_YUNGOOS            ] =  950,
+    [SPECIES_GUMSHOOS           ] =  951,
+    [SPECIES_GRUBBIN            ] =  952,
+    [SPECIES_CHARJABUG          ] =  953,
+    [SPECIES_VIKAVOLT           ] =  954,
+    [SPECIES_CRABRAWLER         ] =  955,
+    [SPECIES_CRABOMINABLE       ] =  956,
+    [SPECIES_ORICORIO           ] =  957,
+    [SPECIES_CUTIEFLY           ] =  961,
+    [SPECIES_RIBOMBEE           ] =  962,
+    [SPECIES_ROCKRUFF           ] =  963,
+    [SPECIES_LYCANROC           ] =  965,
+    [SPECIES_WISHIWASHI         ] =  968,
+    [SPECIES_MAREANIE           ] =  969,
+    [SPECIES_TOXAPEX            ] =  970,
+    [SPECIES_MUDBRAY            ] =  971,
+    [SPECIES_MUDSDALE           ] =  972,
+    [SPECIES_DEWPIDER           ] =  973,
+    [SPECIES_ARAQUANID          ] =  974,
+    [SPECIES_FOMANTIS           ] =  975,
+    [SPECIES_LURANTIS           ] =  976,
+    [SPECIES_MORELULL           ] =  977,
+    [SPECIES_SHIINOTIC          ] =  978,
+    [SPECIES_SALANDIT           ] =  979,
+    [SPECIES_SALAZZLE           ] =  980,
+    [SPECIES_STUFFUL            ] =  981,
+    [SPECIES_BEWEAR             ] =  982,
+    [SPECIES_BOUNSWEET          ] =  983,
+    [SPECIES_STEENEE            ] =  984,
+    [SPECIES_TSAREENA           ] =  985,
+    [SPECIES_COMFEY             ] =  986,
+    [SPECIES_ORANGURU           ] =  987,
+    [SPECIES_PASSIMIAN          ] =  988,
+    [SPECIES_WIMPOD             ] =  989,
+    [SPECIES_GOLISOPOD          ] =  990,
+    [SPECIES_SANDYGAST          ] =  991,
+    [SPECIES_PALOSSAND          ] =  992,
+    [SPECIES_PYUKUMUKU          ] =  993,
+    [SPECIES_TYPE_NULL          ] =  994,
+    [SPECIES_SILVALLY           ] =  995,
+    [SPECIES_MINIOR             ] = 1013,
+    [SPECIES_KOMALA             ] = 1020,
+    [SPECIES_TURTONATOR         ] = 1021,
+    [SPECIES_TOGEDEMARU         ] = 1022,
+    [SPECIES_MIMIKYU            ] = 1023,
+    [SPECIES_BRUXISH            ] = 1024,
+    [SPECIES_DRAMPA             ] = 1025,
+    [SPECIES_DHELMISE           ] = 1026,
+    [SPECIES_JANGMO_O           ] = 1027,
+    [SPECIES_HAKAMO_O           ] = 1028,
+    [SPECIES_KOMMO_O            ] = 1029,
+    [SPECIES_TAPU_KOKO          ] = 1030,
+    [SPECIES_TAPU_LELE          ] = 1031,
+    [SPECIES_TAPU_BULU          ] = 1032,
+    [SPECIES_TAPU_FINI          ] = 1033,
+    [SPECIES_COSMOG             ] = 1034,
+    [SPECIES_COSMOEM            ] = 1035,
+    [SPECIES_SOLGALEO           ] = 1036,
+    [SPECIES_LUNALA             ] = 1037,
+    [SPECIES_NIHILEGO           ] = 1038,
+    [SPECIES_BUZZWOLE           ] = 1039,
+    [SPECIES_PHEROMOSA          ] = 1040,
+    [SPECIES_XURKITREE          ] = 1041,
+    [SPECIES_CELESTEELA         ] = 1042,
+    [SPECIES_KARTANA            ] = 1043,
+    [SPECIES_GUZZLORD           ] = 1044,
+    [SPECIES_NECROZMA           ] = 1045,
+    [SPECIES_MAGEARNA           ] = 1048,
+    [SPECIES_MARSHADOW          ] = 1050,
+    [SPECIES_POIPOLE            ] = 1051,
+    [SPECIES_NAGANADEL          ] = 1052,
+    [SPECIES_STAKATAKA          ] = 1053,
+    [SPECIES_BLACEPHALON        ] = 1054,
+    [SPECIES_ZERAORA            ] = 1055,
+    [SPECIES_MELTAN             ] = 1056,
+    [SPECIES_MELMETAL           ] = 1057,
+    [SPECIES_GROOKEY            ] = 1058,
+    [SPECIES_THWACKEY           ] = 1059,
+    [SPECIES_RILLABOOM          ] = 1060,
+    [SPECIES_SCORBUNNY          ] = 1061,
+    [SPECIES_RABOOT             ] = 1062,
+    [SPECIES_CINDERACE          ] = 1063,
+    [SPECIES_SOBBLE             ] = 1064,
+    [SPECIES_DRIZZILE           ] = 1065,
+    [SPECIES_INTELEON           ] = 1066,
+    [SPECIES_SKWOVET            ] = 1067,
+    [SPECIES_GREEDENT           ] = 1068,
+    [SPECIES_ROOKIDEE           ] = 1069,
+    [SPECIES_CORVISQUIRE        ] = 1070,
+    [SPECIES_CORVIKNIGHT        ] = 1071,
+    [SPECIES_BLIPBUG            ] = 1072,
+    [SPECIES_DOTTLER            ] = 1073,
+    [SPECIES_ORBEETLE           ] = 1074,
+    [SPECIES_NICKIT             ] = 1075,
+    [SPECIES_THIEVUL            ] = 1076,
+    [SPECIES_GOSSIFLEUR         ] = 1077,
+    [SPECIES_ELDEGOSS           ] = 1078,
+    [SPECIES_WOOLOO             ] = 1079,
+    [SPECIES_DUBWOOL            ] = 1080,
+    [SPECIES_CHEWTLE            ] = 1081,
+    [SPECIES_DREDNAW            ] = 1082,
+    [SPECIES_YAMPER             ] = 1083,
+    [SPECIES_BOLTUND            ] = 1084,
+    [SPECIES_ROLYCOLY           ] = 1085,
+    [SPECIES_CARKOL             ] = 1086,
+    [SPECIES_COALOSSAL          ] = 1087,
+    [SPECIES_APPLIN             ] = 1088,
+    [SPECIES_FLAPPLE            ] = 1089,
+    [SPECIES_APPLETUN           ] = 1090,
+    [SPECIES_SILICOBRA          ] = 1091,
+    [SPECIES_SANDACONDA         ] = 1092,
+    [SPECIES_CRAMORANT          ] = 1093,
+    [SPECIES_ARROKUDA           ] = 1094,
+    [SPECIES_BARRASKEWDA        ] = 1095,
+    [SPECIES_TOXEL              ] = 1096,
+    [SPECIES_TOXTRICITY         ] = 1097,
+    [SPECIES_SIZZLIPEDE         ] = 1099,
+    [SPECIES_CENTISKORCH        ] = 1100,
+    [SPECIES_CLOBBOPUS          ] = 1101,
+    [SPECIES_GRAPPLOCT          ] = 1102,
+    [SPECIES_SINISTEA           ] = 1103,
+    [SPECIES_POLTEAGEIST        ] = 1105,
+    [SPECIES_HATENNA            ] = 1107,
+    [SPECIES_HATTREM            ] = 1108,
+    [SPECIES_HATTERENE          ] = 1109,
+    [SPECIES_IMPIDIMP           ] = 1110,
+    [SPECIES_MORGREM            ] = 1111,
+    [SPECIES_GRIMMSNARL         ] = 1112,
+    [SPECIES_OBSTAGOON          ] = 1113,
+    [SPECIES_PERRSERKER         ] = 1114,
+    [SPECIES_CURSOLA            ] = 1115,
+    [SPECIES_SIRFETCHD          ] = 1116,
+    [SPECIES_MR_RIME            ] = 1117,
+    [SPECIES_RUNERIGUS          ] = 1118,
+    [SPECIES_MILCERY            ] = 1119,
+    [SPECIES_ALCREMIE           ] = 1120,
+    [SPECIES_FALINKS            ] = 1127,
+    [SPECIES_PINCURCHIN         ] = 1128,
+    [SPECIES_SNOM               ] = 1129,
+    [SPECIES_FROSMOTH           ] = 1130,
+    [SPECIES_STONJOURNER        ] = 1131,
+    [SPECIES_EISCUE             ] = 1132,
+    [SPECIES_INDEEDEE           ] = 1133,
+    [SPECIES_MORPEKO            ] = 1135,
+    [SPECIES_CUFANT             ] = 1136,
+    [SPECIES_COPPERAJAH         ] = 1137,
+    [SPECIES_DRACOZOLT          ] = 1138,
+    [SPECIES_ARCTOZOLT          ] = 1139,
+    [SPECIES_DRACOVISH          ] = 1140,
+    [SPECIES_ARCTOVISH          ] = 1141,
+    [SPECIES_DURALUDON          ] = 1142,
+    [SPECIES_DREEPY             ] = 1143,
+    [SPECIES_DRAKLOAK           ] = 1144,
+    [SPECIES_DRAGAPULT          ] = 1145,
+    [SPECIES_ZACIAN             ] = 1146,
+    [SPECIES_ZAMAZENTA          ] = 1147,
+    [SPECIES_ETERNATUS          ] = 1148,
+    [SPECIES_KUBFU              ] = 1149,
+    [SPECIES_URSHIFU            ] = 1150,
+    [SPECIES_ZARUDE             ] = 1152,
+    [SPECIES_REGIELEKI          ] = 1154,
+    [SPECIES_REGIDRAGO          ] = 1155,
+    [SPECIES_GLASTRIER          ] = 1156,
+    [SPECIES_SPECTRIER          ] = 1157,
+    [SPECIES_CALYREX            ] = 1158,
+    [SPECIES_WYRDEER            ] = 1161,
+    [SPECIES_KLEAVOR            ] = 1162,
+    [SPECIES_URSALUNA           ] = 1163,
+    [SPECIES_BASCULEGION        ] = 1164,
+    [SPECIES_SNEASLER           ] = 1166,
+    [SPECIES_OVERQWIL           ] = 1167,
+    [SPECIES_ENAMORUS           ] = 1168,
 };
 
 
@@ -2853,7 +2853,7 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
     }
     else
     {
-        has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
+        has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_1 & hidden ability mask
     }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
@@ -4423,4 +4423,142 @@ void set_starter_hidden_ability(struct PokeParty *party, struct PartyPokemon *pp
         SET_MON_HIDDEN_ABILITY_BIT(pp)
         SetBoxMonAbility((void *)&pp->box);
     }
+}
+
+
+void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon)
+{
+    int null = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        SetMonData(pokemon, ID_PARA_waza1+i, &null);
+    }
+}
+
+
+BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
+{
+    FieldSystem *fsys = ctx->fsys;
+    void *profile = Sav2_PlayerData_GetProfileAddr(fsys->savedata);
+
+    u16 species = ScriptGetVar(ctx);
+    
+    u32 form = (species & 0xF800) >> 11; // extract form from egg
+    species = species & 0x7FF;
+    
+    u16 offset = ScriptGetVar(ctx);
+
+    struct Party *party = SaveData_GetPlayerPartyPtr(fsys->savedata);
+    u8 partyCount = party->count;
+    if (partyCount < 6)
+    {
+        struct PartyPokemon *pokemon = PokemonParam_AllocWork(11);
+        PokeParaInit(pokemon);
+        int val = sub_02017FE4(1, offset);
+
+        SetEggStats(pokemon, species, 1, profile, 3, val);
+
+        SetMonData(pokemon, ID_PARA_form_no, &form); // add form capability
+
+        ClearMonMoves(pokemon);
+        InitBoxMonMoveset(&pokemon->box);
+
+        if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
+        {
+            SET_MON_HIDDEN_ABILITY_BIT(pokemon)
+            PokeParaSpeabiSet(pokemon);
+            ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+        }
+
+        PokeParty_Add(party, pokemon);
+        sys_FreeMemoryEz(pokemon);
+    }
+
+    return FALSE;
+}
+
+
+BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
+    s32 i;
+    u8 pp;
+    u32 personality;
+    u16 moveData;
+    struct PartyPokemon *togepi;
+    void *profile;
+    struct Party *party;
+    FieldSystem *fsys = ctx->fsys;
+
+    profile = Sav2_PlayerData_GetProfileAddr(fsys->savedata);
+    party = SaveData_GetPlayerPartyPtr(fsys->savedata);
+
+    if (party->count >= 6) {
+        return FALSE;
+    }
+
+    togepi = PokemonParam_AllocWork(11);
+    PokeParaInit(togepi);
+
+    SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 11));
+
+    //SetMonData(togepi, ID_PARA_form_no, &form); // add form capability
+
+    //ClearMonMoves(pokemon);
+    //InitBoxMonMoveset(&pokemon->box);
+
+    for (i = 0; i < 4; i++) {
+        if (!GetMonData(togepi, ID_PARA_waza1 + i, 0)) {
+            break;
+        }
+    }
+
+    if (i == 4) {
+        i = 3;
+    }
+
+    moveData = MOVE_EXTRASENSORY; // add extrasensory to the togepi
+    SetMonData(togepi, ID_PARA_waza1 + i, &moveData);
+
+    pp = GetMonData(togepi, ID_PARA_pp_max1 + i, 0);
+    SetMonData(togepi, ID_PARA_pp_count1 + i, &pp);
+
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(togepi)
+        PokeParaSpeabiSet(togepi);
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    }
+
+
+    PokeParty_Add(party, togepi);
+
+    sys_FreeMemoryEz(togepi);
+
+    SaveMisc_SetTogepiPersonalityGender(Sav2_Misc_get(fsys->savedata), GetMonData(togepi, ID_PARA_personal_rnd, 0), GetMonData(togepi, ID_PARA_sex, 0));
+
+    return FALSE;
+}
+
+
+// i think this is hatchPokemon
+void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
+{
+    u16 nickname[11 + 1];
+    u8 isEgg = 70;
+    u8 hasNickname = FALSE;
+    u8 pokeball = 4; // poke ball
+    u8 metLevel = 0;
+    
+    u16 dummy_p2_1 = GetBoxMonData(pokemon, ID_PARA_dummy_p2_1, NULL); // hidden ability field
+    
+    sub_0206D038(pokemon, heapId); // carries over egg values to a clean mon
+    SetMonData(pokemon, ID_PARA_tamago_flag, &isEgg);
+    GetSpeciesNameIntoArray(GetMonData(pokemon, ID_PARA_monsno, NULL), 0, nickname);
+    SetMonData(pokemon, ID_PARA_nickname, nickname);
+    SetMonData(pokemon, ID_PARA_nickname_flag, &hasNickname);
+    SetMonData(pokemon, ID_PARA_get_ball, &pokeball);
+    SetMonData(pokemon, ID_PARA_get_level, &metLevel);
+    SetMonData(pokemon, ID_PARA_dummy_p2_1, &dummy_p2_1);
+    PokeParaCalc(pokemon);
+
+    PokeParaSpeabiSet(pokemon);
 }

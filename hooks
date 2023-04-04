@@ -32,6 +32,7 @@ arm9 LoadEggMoves 0806C488 2
 arm9 GetMonEvolution_hook 08070E38 5
 0007 hook_7_spriteOffsetSpecies 08018A48 3
 0012 hook_12_spriteOffsetSpecies 08022154 2
+0012 hook_12_spriteOffsetSpecies_escapeFromBall 02259DBC 2
 0012 Battle_End 08000B90 1
 0012 TryRevertFormChange_hook 080069AC 2
 0012 CheckCanTakeItem 08009A74 0
@@ -49,8 +50,8 @@ arm9 GetMonIconPalette 02074364 3
 0002 get_form_out_of_encounter_species_rare 02247910 4
 #02247A00
 0002 modify_species_encounter_data_rare 02247A00 1
-#02247A18
-0002 get_form_out_of_encounter_species 02247A18 4
+#02247A1C
+0002 get_form_out_of_encounter_species 02247A1C 4
 #02247B42
 0002 modify_species_encounter_data 02247B42 3
 # starter hidden ability stuff
@@ -141,6 +142,10 @@ arm9 GiveMon_hook 080541E0 5
 #0224855C
 #need to use this to UpdateFormIfDeerling, reinitialize the moveset, set the hidden ability, recalc stats
 0002 AddWildPartyPokemon_hook 080029E0 5
+
+arm9 ScrCmd_GiveEgg 0204D248 1
+0001 ScrCmd_GiveTogepiEgg 022020CC 1
+arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon fix
 0063 grab_overworld_a081_index 080025E4 3

@@ -2,6 +2,7 @@
 #define POKEMON_H
 
 #include "config.h"
+//#include "save.h"
 #include "types.h"
 
 #define POKEMON_GENDER_MALE 0
@@ -492,6 +493,9 @@ struct PLIST_WORK
 };
 
 
+struct SAVE_MISC_DATA;
+
+
 // defines from pokeheartgold + new ones
 typedef enum EvoMethod
 {
@@ -722,6 +726,12 @@ void __attribute__((long_call)) SetPartyPokemonMoveAtPos(struct PartyPokemon *pp
 void __attribute__((long_call)) gf_srand(u32 seed);
 u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct PartyPokemon *poke);
 u8 __attribute__((long_call)) GetArceusType(u16 held_effect);
+int __attribute__((long_call)) sub_02017FE4(u32 mapsectype, u32);
+void __attribute__((long_call)) SetEggStats(struct PartyPokemon *pokemon, int species, u8 metLocation, void *profile, int a4, int a5);
+void __attribute__((long_call)) SaveMisc_SetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveMiscData, int personality, u8 gender);
+void __attribute__((long_call)) SaveMisc_GetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveMiscData, int *a1, u8 *a2);
+void __attribute__((long_call)) sub_0206D038(struct PartyPokemon *pokemon, u32 heapId);
+void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 *dest);
 
 
 
@@ -766,8 +776,8 @@ u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemal
 BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType);
 //BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
 void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id);
-bool8 __attribute__((long_call)) __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);
-
+bool8 __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);
+void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon);
 
 // defined in src/moves.c--can't just define in battles, sadly.  does need BattleMove structure from battle.h, though
 u32 __attribute__((long_call)) GetMoveData(u16 id, u32 field);

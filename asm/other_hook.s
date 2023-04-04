@@ -123,10 +123,12 @@ ldr r1, [r1]
 bl GetSpeciesBasedOnForm // (species, form)
 mov r6, r0
 pop {r0-r5, r7}
+
 str r0, [sp]
 lsl r0, r6, #0x10
 lsl r1, r1, #0x18
 lsr r0, #0x10
+
 ldr r3, =0x02234870 | 1
 bx r3
 
@@ -143,12 +145,36 @@ ldrh r0, [r5, #2]
 bl GetSpeciesBasedOnForm // (species, form)
 strh r0, [r5, #2]
 pop {r0-r7}
+
 ldr r0, [r5, #4]
 str r0, [sp]
 ldrb r3, [r5, #1]
 ldrh r0, [r5, #2]
+
 ldr r2, =0x02259A1C | 1
 bx r2
+
+
+//02259DBC
+.global hook_12_spriteOffsetSpecies_escapeFromBall
+hook_12_spriteOffsetSpecies_escapeFromBall:
+push {r0-r7}
+ldr r1, =word_to_store_form_at
+ldr r1, [r1]
+ldrh r0, [r4, #2]
+bl GetSpeciesBasedOnForm // (species, form)
+strh r0, [r4, #2]
+pop {r0-r7}
+
+mov r2, r5
+str r0, [sp]
+ldrb r3, [r4, #1]
+add r2, #0x84
+
+ldr r0, =0x02259DC4 | 1
+bx r0
+
+.pool
 
 .align 2
 .global word_to_store_form_at
@@ -178,12 +204,15 @@ add r4, #0xFF
 and r0, r4 // make r0 solely the species
 
 // reset the function up
-push {r3-r7, lr}
-sub sp, #0x20
+//push {r3-r7, lr}
+//sub sp, #0x20
 
 str r0, [sp, #0xC]
 ldr r0, [sp, #0x3C]
-ldr r4, =0x02247A20 | 1
+str r1, [sp, #0x10]
+str r0, [sp, #0x3C]
+
+ldr r4, =0x02247A24 | 1
 bx r4
 
 
