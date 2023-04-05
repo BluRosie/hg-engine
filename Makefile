@@ -19,12 +19,14 @@ SEP := \\
 
 WAV2SWAV := tools/wav2swav.exe
 SWAV2SWAR := tools/swav2swar.exe
+BTX := tools/pngtobtx0.exe
 else
 EXE := 
 SEP := /
 
 WAV2SWAV := wine tools/wav2swav.exe
 SWAV2SWAR := mono tools/swav2swar.exe
+BTX := mono tools/pngtobtx0.exe
 endif
 
 default: all
@@ -40,7 +42,6 @@ BLZ = tools/blz
 ARMIPS = tools/armips
 NARCHIVE = $(PYTHON) tools/narcpy.py
 GFX = tools/nitrogfx
-BTX = mono tools/pngtobtx0.exe
 SDATTOOL = $(PYTHON) tools/SDATTool.py
 ADPCMXQ = adpcm-xq
 NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
