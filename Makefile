@@ -17,14 +17,12 @@ ifeq ($(SYSTEM), 0)
 EXE := .exe
 SEP := \\
 
-WAV2SWAV := tools/wav2swav.exe
 SWAV2SWAR := tools/swav2swar.exe
 BTX := tools/pngtobtx0.exe
 else
 EXE := 
 SEP := /
 
-WAV2SWAV := wine tools/wav2swav.exe
 SWAV2SWAR := mono tools/swav2swar.exe
 BTX := mono tools/pngtobtx0.exe
 endif
