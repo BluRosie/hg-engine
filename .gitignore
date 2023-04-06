@@ -65,6 +65,8 @@ dumpitem.py
 /tools/ndstool.exe
 /tools/csv2bin
 /tools/o2narc
+/tools/adpcm-xq
+/tools/ntrWavTool.py
 
 *.o
 *.d
