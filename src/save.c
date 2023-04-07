@@ -38,7 +38,7 @@ u32 __attribute__((long_call)) SetScriptVar(u16 var_id, u16 value)
 
 u16 __attribute__((long_call)) GetScriptVar(u16 var_id)
 {
-    return GetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id, value);
+    return GetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id);
 }
 
 void __attribute__((long_call)) SetScriptFlag(u16 flag_id)
