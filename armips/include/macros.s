@@ -517,8 +517,8 @@
 	.byte num1, num2, num3, num4
 .endmacro
 
-.macro nickname,nick
-	.stringn nick
+.macro nickname,let0,let1,let2,let3,let4,let5,let6,let7,let8,let9,let10
+	.halfword let0, let1, let2, let3, let4, let5, let6, let7, let8, let9, let10
 .endmacro
 
 .macro endparty

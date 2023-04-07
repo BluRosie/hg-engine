@@ -1000,7 +1000,7 @@ struct __attribute__((packed)) BATTLE_PARAM
 };
 
 
-struct __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE
+struct __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE // structure isn't actually used as the structure is iterated through conditionally
 {
     /* 0x0 */ u8 ivs;
     /* 0x1 */ u8 abilityslot;
@@ -1016,19 +1016,18 @@ struct __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE
     /* 0x21 */ u8 shinylock;
     /* 0x22 */ u8 padding[2]; // ?
     /* 0x24 */ u32 additionalflags;
-    /* 0x28 */ u8 status;
-    /* 0x29 */ u8 padding2[1]; // fuck my life
-    /* 0x2A */ u16 hp;
-    /* 0x2C */ u16 atk;
-    /* 0x2E */ u16 def;
-    /* 0x30 */ u16 speed;
-    /* 0x32 */ u16 spatk;
-    /* 0x34 */ u16 spdef;
-    /* 0x36 */ u8 types[2];
-    /* 0x38 */ u8 ppcounts[4];
-    /* 0x3C */ u16 nickname;
-    /* 0x3E */ u16 custom;
-};
+    /* 0x28 */ u32 status;
+    /* 0x2C */ u16 hp;
+    /* 0x2E */ u16 atk;
+    /* 0x30 */ u16 def;
+    /* 0x32 */ u16 speed;
+    /* 0x34 */ u16 spatk;
+    /* 0x36 */ u16 spdef;
+    /* 0x38 */ u8 types[2];
+    /* 0x3A */ u8 ppcounts[4];
+    /* 0x3E */ u16 nickname[11];
+    /* 0x54 */ u16 custom;
+}; // size - 0x56
 
 struct __attribute__((packed)) CLIENT_PARAM
 {
