@@ -4021,14 +4021,12 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     int i, j;
     u32 rnd_tmp, rnd, seed_tmp;
     u8 pow;
-    struct PartyPokemon *pp;
 
     seed_tmp = gf_get_seed();
 
     PokeParty_Init(bp->poke_party[num], 6);
 
     buf = (u8 *)sys_AllocMemory(heapID, sizeof(struct FULL_TRAINER_MON_DATA_STRUCTURE) * 6);
-    pp = AllocMonZeroed(heapID);
 
     TT_TrainerPokeDataGet(bp->trainer_id[num], buf);
 
@@ -4054,7 +4052,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u8 evnums[6];
     u8 types[2];
     u8 ppcounts[4];
-    u16 nickname[11];
+    u16 *nickname = sys_AllocMemory(heapID, 11*sizeof(16));
     u8 form_no, abilityslot, nature, ballseal, shinylock, status, ab1, ab2;
     u32 additionalflags;
 
@@ -4256,7 +4254,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             }
 
             // nickname field
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
                 for(j = 0; j < 11; j++)
                 {
@@ -4363,69 +4361,70 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
         RecalcPartyPokemonStats(mons[i]); // recalculate stats here
 
-        if(bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ADDITIONAL_FLAGS)
+        if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ADDITIONAL_FLAGS)
         {
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)
             {
                 SetMonData(mons[i],ID_PARA_condition, &status);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_HP)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_HP)
             {
                 SetMonData(mons[i],ID_PARA_hpmax, &hp);
                 SetMonData(mons[i],ID_PARA_hp, &hp);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_ATK)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_ATK)
             {
                 SetMonData(mons[i],ID_PARA_pow, &atk);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_DEF)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_DEF)
             {
                 SetMonData(mons[i],ID_PARA_def, &def);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SPEED)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SPEED)
             {
                 SetMonData(mons[i],ID_PARA_agi, &speed);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_ATK)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_ATK)
             {
                 SetMonData(mons[i],ID_PARA_spepow, &spatk);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_DEF)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_DEF)
             {
                 SetMonData(mons[i],ID_PARA_spedef, &spdef);
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
             {
                 for(j = 0; j < 2; j++)
                 {
                     SetMonData(mons[i],ID_PARA_type1+j, &types[j]);
                 }
             }
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
             {
                 for(j = 0; j < 4; j++)
                 {
                     SetMonData(mons[i],ID_PARA_pp_count1+j, &ppcounts[j]);
                 }
             }
-            if (bp->trainer_data[num].data_type & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
+            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
                 u32 one = 1;
-                SetMonData(pp,ID_PARA_nickname_flag, &one);
-                SetMonData(pp,ID_PARA_nickname, &nickname[0]);
+                
+                SetMonData(mons[i],ID_PARA_nickname_flag, &one);
+                SetMonData(mons[i],ID_PARA_nickname, nickname);
             }
         }
         TrainerMonHandleFrustration(mons[i]);
     }
 
-    for(i = 0; i < pokecount; i++)
+    for (i = 0; i < pokecount; i++)
     {
         PokeParty_Add(bp->poke_party[num], mons[partyOrder[i]]);
         sys_FreeMemoryEz(mons[i]);
     }
 
     sys_FreeMemoryEz(buf);
-    sys_FreeMemoryEz(pp);
+    sys_FreeMemoryEz(nickname);
 
     gf_srand(seed_tmp);
 }

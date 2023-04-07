@@ -574,7 +574,7 @@ F_CATCHING_DEMO equ (1 << 13)
 // battle types
 
 SINGLE_BATTLE equ 0
-DOUBLE_BATTLE equ 1
+DOUBLE_BATTLE equ 2
 
 // trainer text types
 
@@ -688,3 +688,4 @@ _w_ equ 0x015B
 _x_ equ 0x015C
 _y_ equ 0x015D
 _z_ equ 0x015E
+_end equ 0xFFFF
