@@ -3168,15 +3168,30 @@ u32 __attribute__((long_call)) GrabCurrentSeason(void)
     return ((u8)(date.month-1)) % 4;
 }
 
-void __attribute__((long_call)) UpdateFormIfDeerling(struct PartyPokemon *pp)
+void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    u32 form = 0;
     
-    if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
+    switch (species)
     {
-        u32 form = GrabCurrentSeason();
-        SetMonData(pp, ID_PARA_form_no, &form);
+        case SPECIES_DEERLING:
+        case SPECIES_SAWSBUCK:
+            form = GrabCurrentSeason(); // update to the current season
+            break;
+        case SPECIES_FRILLISH:
+        case SPECIES_JELLICENT:
+        case SPECIES_MEOWSTIC:
+        case SPECIES_INDEEDEE:
+        case SPECIES_BASCULEGION:
+            form = gf_rand() & 1; // 1/2 male
+            break;
+        case SPECIES_PYROAR:
+            form = (gf_rand() % 8 != 0); // 1/8 male
+            break;
     }
+
+    SetMonData(pp, ID_PARA_form_no, &form);
 }
 
 BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *party)
@@ -3847,7 +3862,7 @@ BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo 
     }
     else if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
     {
-        UpdateFormIfDeerling(encounterPartyPokemon);
+        UpdatePassiveForms(encounterPartyPokemon);
     }
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)

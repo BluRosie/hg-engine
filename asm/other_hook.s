@@ -89,7 +89,7 @@ ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
 ldr r0, [sp, #(0x1c+0x10)] // pp
-bl UpdateFormIfDeerling
+bl UpdatePassiveForms
 
 // hopefully with form set, this grabs everything correctly (it should please please please)
 ldr r0, [sp, #(0x1c+0x10)] // pp
@@ -228,7 +228,7 @@ ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
 mov r0, r4
-bl UpdateFormIfDeerling
+bl UpdatePassiveForms
 
 // hopefully with form set, this grabs everything correctly
 mov r0, r4

@@ -140,7 +140,7 @@ arm9 MakeTrainerPokemonParty 08073604 3
 arm9 SetBoxMonAbility 080722DC 1
 arm9 GiveMon_hook 080541E0 5
 #0224855C
-#need to use this to UpdateFormIfDeerling, reinitialize the moveset, set the hidden ability, recalc stats
+#need to use this to UpdatePassiveForms, reinitialize the moveset, set the hidden ability, recalc stats
 0002 AddWildPartyPokemon_hook 080029E0 5
 
 arm9 ScrCmd_GiveEgg 0204D248 1

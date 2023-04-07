@@ -764,7 +764,7 @@ void __attribute__((long_call)) ChangePartyPokemonToForm(struct PartyPokemon *pp
 void __attribute__((long_call)) SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove);
 void __attribute__((long_call)) ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove);
 u32 __attribute__((long_call)) GrabCurrentSeason(void);
-void __attribute__((long_call)) UpdateFormIfDeerling(struct PartyPokemon *pp);
+void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp);
 BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *party);
 //BOOL __attribute__((long_call)) Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time);
 u8 __attribute__((long_call)) LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest);
