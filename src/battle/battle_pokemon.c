@@ -20,7 +20,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
     for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
     {
         sp->client_work = sp->turn_order[i];
-        
+
         //handle castform
         if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)
          && (sp->battlemon[sp->client_work].hp)
@@ -140,7 +140,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 }
             }
         }
-        
+
         // handle arceus
         if ((sp->battlemon[sp->client_work].species == SPECIES_ARCEUS)
          && (sp->battlemon[sp->client_work].hp)
@@ -170,7 +170,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 break;
             }
         }
-        
+
         // handle giratina
         if ((sp->battlemon[sp->client_work].species == SPECIES_GIRATINA)
          && (sp->battlemon[sp->client_work].hp)
@@ -186,7 +186,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     int defence;
                     int work;
 
-                    pp = PokemonParam_AllocWork(5);
+                    pp = AllocMonZeroed(5);
                     if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
                     {
                         defence = sp->client_act_work[sp->client_work][1];
@@ -223,7 +223,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 }
             }
         }
-        
+
         // handle darmanitan zen mode
         if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (GetBattlerAbility(sp, sp->client_work) == ABILITY_ZEN_MODE)
@@ -239,7 +239,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         } else if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (sp->battlemon[sp->client_work].hp)
          && (sp->battlemon[sp->client_work].hp > (sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
-         && (sp->battlemon[sp->client_work].form_no >= 2)) // forms 2 and 3 
+         && (sp->battlemon[sp->client_work].form_no >= 2)) // forms 2 and 3
         {
             sp->battlemon[sp->client_work].form_no -= 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
@@ -247,14 +247,14 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         }
-        
+
         // fuck illusion
         if ((sp->battlemon[sp->client_work].species == SPECIES_ZORUA || sp->battlemon[sp->client_work].species == SPECIES_ZOROARK)
          && gIllusionStruct.isSideInIllusion[sp->client_work & 1] == 1
          && (sp->oneSelfFlag[sp->client_work].physical_damage || sp->oneSelfFlag[sp->client_work].special_damage))
         {
             SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, sp->client_work), gIllusionStruct.illusionPos[sp->client_work & 1]), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[sp->client_work & 1]);
-            
+
             gIllusionStruct.isSideInIllusion[sp->client_work & 1] = 0;
             gIllusionStruct.illusionPos[sp->client_work & 1] = 0;
             for (int k = 0; k < 11; k++)
@@ -267,7 +267,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         }
-        
+
         // handle meloetta - change form to pirouette when using relic song.  changes back when switching/battle ends too
         if ((sp->battlemon[sp->client_work].species == SPECIES_MELOETTA)
          && (sp->battlemon[sp->client_work].hp)
@@ -281,7 +281,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         }
-        
+
         // handle genesect
         if ((sp->battlemon[sp->client_work].species == SPECIES_GENESECT)
          && (sp->battlemon[sp->client_work].hp))
@@ -345,32 +345,32 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     u8 side, newform;
     u16 newmon;
     u32 i;
-    
+
     side = ((cp->client_type & 1) != 0);
-    
+
     if (pep->monsno == SPECIES_ZORUA || pep->monsno == SPECIES_ZOROARK)
     {
         struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
         u8 count = party->PokeCount;
         u16 strbuf[11];
-        
+
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
         newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
-        
+
         if (newmon != pep->monsno || newform != pep->form_no)
         {
             u8 strlen = 0;
-            
+
             pep->monsno = newmon;
             pep->form_no = newform;
-            
+
             if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
             {
                 gIllusionStruct.isSideInIllusion[side] = 1;
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
                 gIllusionStruct.illusionPos[side] = 0;
-                
+
                 SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), ID_PARA_nickname, strbuf);
             }
         }
@@ -386,32 +386,32 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     u8 side, newform;
     u16 newmon;
     u32 i;
-    
+
     side = ((cp->client_type & 1) != 0);
-    
+
     if (pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
     {
         struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
         u8 count = party->PokeCount;
         u16 strbuf[11];
-        
+
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
         newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
-        
+
         if (newmon != pap->monsno || newform != pap->form_no)
         {
             u8 strlen = 0;
-            
+
             pap->monsno = newmon;
             pap->form_no = newform;
-            
+
             if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
             {
                 gIllusionStruct.isSideInIllusion[side] = 1;
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
                 gIllusionStruct.illusionPos[side] = pap->sel_mons_no;
-                
+
                 SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, strbuf);
             }
         }
@@ -427,37 +427,37 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     u8 side, newform;
     u16 newmon;
     u32 i;
-    
+
     side = ((cp->client_type & 1) != 0);
-    
+
     if (pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
     {
         struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
         u8 count = party->PokeCount;
         u16 strbuf[11];
-        
+
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
         newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
-        
+
         if (newmon != pap->monsno || newform != pap->form_no)
         {
             u8 strlen = 0;
-            
+
             pap->monsno = newmon;
             pap->form_no = newform;
-        
+
             if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again.  we definitely abuse this, don't worry
             {
                 gIllusionStruct.isSideInIllusion[side] = 1;
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_nickname, strbuf);
                 GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, gIllusionStruct.illusionNameBuf[side]);
                 gIllusionStruct.illusionPos[side] = pap->sel_mons_no;
-                
+
                 SetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), ID_PARA_nickname, strbuf);
             }
         }
     }
-    
+
     CT_PokemonAppearSet(bw, cp, pap);
     ClientCommandReset(cp);
 }
@@ -470,22 +470,22 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     int ret;
     int client;
     u32 side;
-    
+
     client = SideClientNoGet(bw, sp, para);
     side = (client & 1) != 0;
-    
+
     ret = client;
-    
+
     if ((sp->battlemon[client].species == SPECIES_ZORUA || sp->battlemon[client].species == SPECIES_ZOROARK)
      //&& gIllusionStruct.isSideInIllusion[client & 1]
        )
     {
         struct POKEPARTY *party;
         u32 count;
-    
+
         party = BattleWorkPokePartyGet(bw, side);
         count = party->PokeCount - 1;
-        
+
         ret |= count << 8;
     }
     else if (para == 0x16) // switch after the attack?
@@ -496,7 +496,7 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     {
         ret |= sp->sel_mons_no[client] << 8;
     }
-    
+
     return ret;
 }
 
@@ -507,15 +507,15 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         struct POKEPARTY *party;
         u32 count = 0;
         u32 species = 0;
-        
+
         party = BattleWorkPokePartyGet(bw, 1);
-        
+
         species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), ID_PARA_monsno, NULL);
         if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
         {
             smp->sel_mons_no = party->PokeCount - 1;
         }
-        
+
         if ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0)
         {
             mp->msg_id = BATTLE_MSG_SWITCH_IN_ENEMY_MSG;
@@ -537,15 +537,15 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         struct POKEPARTY *party;
         u32 count = 0;
         u32 species = 0;
-        
+
         party = BattleWorkPokePartyGet(bw, 0);
-        
+
         species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), ID_PARA_monsno, NULL);
         if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
         {
             smp->sel_mons_no = party->PokeCount - 1;
         }
-        
+
         if (((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) == 0)
          && ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0))
         {
@@ -600,14 +600,14 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             client1 = cp->client_no;
             client2 = client1;
         }
-        
+
         { // fuck fuck fuck fuck
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
-            
+
             party = BattleWorkPokePartyGet(bw, client1);
-            
+
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), ID_PARA_monsno, NULL); // WHY HAS GOD ABANDONED US
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK) // this check is fuckin failing.  i don't know what to do
             {
@@ -620,17 +620,17 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
-            
+
             party = BattleWorkPokePartyGet(bw, client2);
-            
+
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), ID_PARA_monsno, NULL);
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
                 esomp->sel_mons_no[client2] = party->PokeCount - 1;
             }
         }
-        
-    
+
+
         if (fight_type & BATTLE_TYPE_WIRELESS)
         {
             if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
@@ -750,14 +750,14 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             client1 = cp->client_no;
             client2 = client1;
         }
-        
+
         { // FUCK FUCK FUCK FUCK
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
-            
+
             party = BattleWorkPokePartyGet(bw, client1);
-            
+
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), ID_PARA_monsno, NULL);
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
@@ -770,16 +770,16 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
-            
+
             party = BattleWorkPokePartyGet(bw, client2);
-            
+
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), ID_PARA_monsno, NULL);
             if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
                 esomp->sel_mons_no[client2] = party->PokeCount - 1;
             }
         }
-    
+
         if (fight_type & BATTLE_TYPE_WIRELESS)
         {
             if (fight_type & BATTLE_TYPE_MULTI)
@@ -839,20 +839,20 @@ void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp
     pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
     SetMonData(pp2, ID_PARA_form_no, &form_no);
 
-    PokeParaCalc(pp2);
+    RecalcPartyPokemonStats(pp2);
     if (SwitchAbility)
     {
-        PokeParaSpeabiSet(pp2);
+        ResetPartyPokemonAbility(pp2);
         sp->battlemon[client].ability = GetMonData(pp2, ID_PARA_speabino, NULL);
     }
-    
+
 
     sp->battlemon[client].attack = GetMonData(pp2, ID_PARA_pow, NULL);
     sp->battlemon[client].defense = GetMonData(pp2, ID_PARA_def, NULL);
     sp->battlemon[client].speed = GetMonData(pp2, ID_PARA_agi, NULL);
     sp->battlemon[client].spatk = GetMonData(pp2, ID_PARA_spepow, NULL);
     sp->battlemon[client].spdef = GetMonData(pp2, ID_PARA_spedef, NULL);
-    
+
     sp->battlemon[client].type1 = GetMonData(pp2, ID_PARA_type1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, ID_PARA_type2, NULL);
 
@@ -868,8 +868,8 @@ void TryRevertFormChange(struct BattleStruct *sp, void* bw, int client_no)
 
     if (RevertFormChange(pp,species,form_no))
     {
-        PokeParaCalc(pp);
-        PokeParaSpeabiSet(pp);
+        RecalcPartyPokemonStats(pp);
+        ResetPartyPokemonAbility(pp);
     }
 }
 
@@ -888,7 +888,7 @@ void BattleEndRevertFormChange(void *bw)
     newBS.CanMega = 0;
     newBS.ChangeBgFlag = 0;
     newBS.MegaIconLight = 0;
-    
+
     for (i = 0; i < 2; i++)
     {
         // revert illusion
@@ -897,7 +897,7 @@ void BattleEndRevertFormChange(void *bw)
             pp = BattleWorkPokemonParamGet(bw, 0, gIllusionStruct.illusionPos[i]);
             SetMonData(pp, ID_PARA_nickname, gIllusionStruct.illusionNameBuf[i]);
         }
-        
+
         // clear the illusion structure
         gIllusionStruct.isSideInIllusion[i] = 0;
         gIllusionStruct.illusionPos[i] = 0;
@@ -913,8 +913,8 @@ void BattleEndRevertFormChange(void *bw)
 
         if (RevertFormChange(pp,monsno,form))
         {
-            PokeParaCalc(pp);
-            PokeParaSpeabiSet(pp);
+            RecalcPartyPokemonStats(pp);
+            ResetPartyPokemonAbility(pp);
         }
     }
 }

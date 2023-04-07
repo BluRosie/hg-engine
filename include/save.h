@@ -62,12 +62,12 @@ void* __attribute__((long_call)) SaveData_GetDexPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetPlayerPartyPtr(void *saveData);
 
 // grab var data from the save -> pass in SavArray_Flags_get for both flags/vars
-u32 __attribute__((long_call)) SetScriptVar(SCRIPT_STATE* state, u16 var_id, u16 value);
-u16 __attribute__((long_call)) GetScriptVar(SCRIPT_STATE* state, u16 var_id);
+u32 __attribute__((long_call)) SetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id, u16 value);
+u16 __attribute__((long_call)) GetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id);
 // grab flag data from the save
-void __attribute__((long_call)) SetScriptFlag(SCRIPT_STATE* state, u16 flag_id);
-void __attribute__((long_call)) ClearScriptFlag(SCRIPT_STATE* state, u16 flag_id);
-BOOL __attribute__((long_call)) CheckScriptFlag(SCRIPT_STATE* state, u16 flag_id);
+void __attribute__((long_call)) SetScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
+void __attribute__((long_call)) ClearScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
+BOOL __attribute__((long_call)) CheckScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
 
 
 
@@ -84,6 +84,13 @@ void *__attribute__((long_call)) PROC_GetWork(void *proc);
 u32 __attribute__((long_call)) Sav2_Misc_sizeof(void);
 void __attribute__((long_call)) InitStoredMons(struct SAVE_MISC_DATA *saveMiscData);
 void __attribute__((long_call)) Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData);
+
+// convenience variable/flag access functions
+u32 __attribute__((long_call)) SetScriptVar(u16 var_id, u16 value);
+u16 __attribute__((long_call)) GetScriptVar(u16 var_id);
+void __attribute__((long_call)) SetScriptFlag(u16 flag_id);
+void __attribute__((long_call)) ClearScriptFlag(u16 flag_id);
+BOOL __attribute__((long_call)) CheckScriptFlag(u16 flag_id);
 
 
 #endif // SAVE_H

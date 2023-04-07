@@ -55,8 +55,8 @@ ArchiveDataLoadOfs = 0x02007560 | 1;
 sqrt = 0x0200048A | 1;
 
 /*Pokemon*/
-PokemonParam_AllocWork = 0x0206DD2C | 1;
-PokeParaInit = 0x0206DCE4 |1;
+AllocMonZeroed = 0x0206DD2C | 1;
+ZeroMonData = 0x0206DCE4 |1;
 PokeParaSet = 0x0206DE38 |1;
 PokeParaSetChr = 0x0206E108 |1;
 PokeParaSetSexChr = 0x0206E14C |1;
@@ -65,8 +65,8 @@ GetMonData = 0x0206E540 |1;
 GetBoxMonData = 0x0206E640 |1;
 SetMonData = 0x0206EC40 |1;
 PokeStatusPokeParamGet = 0x0208A520 | 1;
-PokeParaCalc = 0x0206E250 | 1;
-PokeParaSpeabiSet = 0x020722D4 |1;
+RecalcPartyPokemonStats = 0x0206E250 | 1;
+ResetPartyPokemonAbility = 0x020722D4 |1;
 PokeFuseiFormNoCheck = 0x02070438 |1;
 PokePasoParaUnknownFormGet = 0x02070DA0 |1;
 PokeFormNoPersonalParaGet = 0x0206FBC4 |1;
@@ -293,11 +293,11 @@ WIPE_SYS_EndCheck = 0x0200FB5C | 1;
 PokeListProc_End = 0x020795E0 | 1;
 PROC_GetWork = 0x02007290 | 1;
 ScriptJump = 0x0203FE0C | 1;
-SetScriptVar = 0x02066A7C | 1;
-GetScriptVar = 0x02066AAC | 1;
-SetScriptFlag = 0x0206659C | 1;
-ClearScriptFlag = 0x020665A4 | 1;
-CheckScriptFlag = 0x020665AC | 1;
+SetScriptVarPassSave = 0x02066A7C | 1;
+GetScriptVarPassSave = 0x02066AAC | 1;
+SetScriptFlagPassSave = 0x0206659C | 1;
+ClearScriptFlagPassSave = 0x020665A4 | 1;
+CheckScriptFlagPassSave = 0x020665AC | 1;
 Sav2_PlayerData_GetProfileAddr = 0x02028E9C | 1;
 
 /* rtc functions */

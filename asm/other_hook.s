@@ -93,10 +93,10 @@ bl UpdateFormIfDeerling
 
 // hopefully with form set, this grabs everything correctly (it should please please please)
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+ldr r3, =0x0206E250 | 1 //RecalcPartyPokemonStats(pp);
 bl call_via_r3
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+ldr r3, =0x020722D4 | 1 //ResetPartyPokemonAbility(pp);
 bl call_via_r3
 ldr r0, [sp, #(0x1c+0x10)] // pp
 ldr r3, =0x020712D8 | 1 //InitBoxMonMoveset(ppp);
@@ -232,10 +232,10 @@ bl UpdateFormIfDeerling
 
 // hopefully with form set, this grabs everything correctly
 mov r0, r4
-ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+ldr r3, =0x0206E250 | 1 //RecalcPartyPokemonStats(pp);
 bl call_via_r3
 mov r0, r4
-ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+ldr r3, =0x020722D4 | 1 //ResetPartyPokemonAbility(pp);
 bl call_via_r3
 mov r0, r4 // me when the boxmon is at offset 0 of the PartyPokemon structure so i should be able to just pass it like this and have it work :)
 ldr r3, =0x020712D8 | 1 //InitBoxMonMoveset(ppp);
