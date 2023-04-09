@@ -688,4 +688,4 @@ _w_ equ 0x015B
 _x_ equ 0x015C
 _y_ equ 0x015D
 _z_ equ 0x015E
-_end equ 0xFFFF
+_endstr equ 0xFFFF
