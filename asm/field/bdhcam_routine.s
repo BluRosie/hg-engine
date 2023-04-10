@@ -37,7 +37,8 @@ FUN_GDMI:
     bne LAB_023d95fe
     
     mov r0, #15
-    bl IsOverlayLoaded
+    ldr r1, =IsOverlayLoaded
+	bl bx_r1
     cmp r0, #1
     beq LAB_023d95fe
 
@@ -66,6 +67,9 @@ _ret_2022FA2:
     
     ldr r2, =0x0202317D
     bx r2
+
+bx_r1:
+	bx r1
 
 .align 2
 
