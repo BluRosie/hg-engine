@@ -124,3 +124,17 @@ loadExtension:
 
     return TRUE;
 }
+
+
+u32 __attribute__((long_call)) IsOverlayLoaded(u32 ovyId)
+{
+    PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
+
+    for (int i = 0; i < 8; i++) {
+        if (table[i].active == TRUE && table[i].id == ovyId) {
+            return 1;
+        }
+    }
+    
+    return 0;
+}

@@ -27,6 +27,7 @@ u32 __attribute__((long_call)) LoadOverlayNoInitAsync(u32 mode, u32 overlayID);
 // in src/overlay.c
 void __attribute__((long_call)) UnloadOverlayByID(u32 ovyId);
 u32 __attribute__((long_call)) HandleLoadOverlay(u32 ovyId, u32 loadType);
+u32 __attribute__((long_call)) IsOverlayLoaded(u32 ovyId);
 
 
 #endif // OVERLAY_H
