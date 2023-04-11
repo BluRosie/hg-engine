@@ -722,7 +722,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
      && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
      && statchange < 0
      && sp->state_client != sp->attack_client // can't raise own stats
-     && sp->state_client != BattleWorkPartnerClientNoGet(sp, sp->attack_client) // can't raise partner's stats
+     && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
      && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
      && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
      && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0))
@@ -828,7 +828,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
                       || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
-                      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FULL_METAL_BODY) == TRUE)
+                      || (sp->battlemon[sp->state_client].ability == ABILITY_FULL_METAL_BODY)   // Full Metal Body cannot be ignored
                       || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE) &&
                             (sp->battlemon[sp->attack_client].type1 == TYPE_GRASS || sp->battlemon[sp->attack_client].type2 == TYPE_GRASS)))
                     {
