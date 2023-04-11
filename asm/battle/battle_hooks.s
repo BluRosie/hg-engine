@@ -294,3 +294,15 @@ ldr r0, =0x0223FBBE | 1
 bx r0
 
 .pool
+
+
+// sp+4 is client no in BattleStruct, r7 is BattleStruct
+.global ClearBattleMonFlags_hook
+ClearBattleMonFlags_hook:
+push {r0-r7}
+mov r0, r7
+ldr r1, [sp,#(4+8*4)] // pushed 8 registers, sp+4 originally
+bl ClearBattleMonFlags
+pop {r0-r7}
+ldr r3, =0x0224E714 | 1
+bx r3
