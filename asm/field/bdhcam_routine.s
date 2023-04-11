@@ -31,22 +31,11 @@ FUN_GDMI:
     //push { lr }
     push { r0-r7 }
     
-    ldr r0, =0x021d0df4 // fucking overlay list
-    ldr r0, [r0]
-    cmp r0, #0x1
+    mov r0, #1 // field
+    ldr r1, =IsOverlayLoaded
+	bl bx_r1
+    cmp r0, #1
     bne LAB_023d95fe
-    
-    mov r0, #15 // bag
-    ldr r1, =IsOverlayLoaded
-	bl bx_r1
-    cmp r0, #1
-    beq LAB_023d95fe
-    
-    mov r0, #61 // starter selection
-    ldr r1, =IsOverlayLoaded
-	bl bx_r1
-    cmp r0, #1
-    beq LAB_023d95fe
 
     ldr r0, =0x0211186c
     ldr r0, [r0]
