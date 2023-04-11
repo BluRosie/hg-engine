@@ -36,7 +36,13 @@ FUN_GDMI:
     cmp r0, #0x1
     bne LAB_023d95fe
     
-    mov r0, #15
+    mov r0, #15 // bag
+    ldr r1, =IsOverlayLoaded
+	bl bx_r1
+    cmp r0, #1
+    beq LAB_023d95fe
+    
+    mov r0, #61 // starter selection
     ldr r1, =IsOverlayLoaded
 	bl bx_r1
     cmp r0, #1
