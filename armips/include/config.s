@@ -36,3 +36,6 @@ BATTLES_UNCAPPED_FRAME_RATE equ 1
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
+
+// BATTLE_METAGAME_FLIPPED will make all pokemon have their base stats flipped. (HP/Atk/Def/SpA/SpD/Spe --> Spe/SpD/SpA/Def/Atk/HP)
+BATTLE_METAGAME_FLIPPED equ 0

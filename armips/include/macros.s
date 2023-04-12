@@ -44,7 +44,11 @@
 .endmacro
 
 .macro basestats,hp,atk,def,spd,spatk,spdef
-	.byte hp, atk, def, spd, spatk, spdef
+    .if BATTLE_METAGAME_FLIPPED == 0 //default behavior
+	    .byte hp, atk, def, spd, spatk, spdef
+	.else
+	    .byte spd, spdef, spatk, hp, def, atk
+	.endif
 .endmacro
 
 .macro types,type1,type2
