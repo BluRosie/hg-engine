@@ -91,8 +91,17 @@
 .endmacro
 
 .macro abilities,abi1,abi2
+.if abi1 > 255
+	.byte ABILITY_NONE
+.else
 	.byte abi1
+.endif
+
+.if abi2 > 255
+	.byte ABILITY_NONE
+.else
 	.byte abi2
+.endif
 .endmacro
 
 .macro runchance,num
