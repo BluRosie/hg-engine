@@ -65,7 +65,11 @@
 .endmacro
 
 .macro evyields,hp,atk,def,spd,spatk,spdef
-	.halfword (hp | atk << 2 | def << 4 | spd << 6 | spatk << 8 | spdef << 10)
+    .if BATTLE_METAGAME_FLIPPED == 0 //default behavior
+	    .halfword (hp | atk << 2 | def << 4 | spd << 6 | spatk << 8 | spdef << 10)
+	.else
+	    .halfword (spd | spdef << 2 | spatk << 4 | hp << 6 | def << 8 | atk << 10)
+	.endif
 .endmacro
 
 .macro items,item1,item2
