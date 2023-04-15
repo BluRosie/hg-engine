@@ -133,7 +133,7 @@ all: $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
-	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011 
+	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
 	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
@@ -226,9 +226,6 @@ move_narc: $(NARC_FILES)
 	@echo "move particles:"
 	cp $(MOVEPARTICLES_NARC) $(MOVEPARTICLES_TARGET)
 
-	@echo "text data:"
-	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
-
 	@echo "item data files:"
 	cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
 
@@ -270,6 +267,7 @@ move_narc: $(NARC_FILES)
 	@echo "trainer data:"
 	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
 	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
+	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 
 	@echo "footprints:"
 	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
@@ -316,6 +314,9 @@ move_narc: $(NARC_FILES)
 
 	@echo "move an updated gs_sound_data.sdat:"
 	cp $(SDAT_BUILD) $(SDAT_TARGET)
+
+	@echo "text data:"
+	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
 	@echo "font:"
 	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi

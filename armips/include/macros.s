@@ -377,7 +377,8 @@
 
 // trainer data macros
 
-.macro trainerdata,num
+.macro trainerdata,num,name
+    trainername num, name
 	.if num < 10
 		.create "build/a055/5_00" + tostring(num),0
 	.elseif num < 100
@@ -584,3 +585,24 @@
 .macro encounter,species,minlevel,maxlevel
 	encounterwithform species, 0, minlevel, maxlevel
 .endmacro
+
+.macro msgbankappend,file,msg
+    .create file, 0
+    .ascii msg
+    .close
+.endmacro
+
+.macro trainername,id,name
+	.if id < 10
+	    msgbankappend "build/rawtext/729/000" + tostring(id) + ".txt", name
+	.elseif id < 100
+		msgbankappend "build/rawtext/729/00" + tostring(id) + ".txt", name
+	.elseif id < 1000
+    	msgbankappend "build/rawtext/729/0" + tostring(id) + ".txt", name
+	.else
+		msgbankappend "build/rawtext/729/" + tostring(id) + ".txt", name
+	.endif
+.endmacro
+
+
+//note to self: 237.txt would be species names
