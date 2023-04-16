@@ -1,3 +1,5 @@
+.loadtable "armips/include/utf-8.txt"
+
 // level up learnset macros
 
 .macro levelup,species
@@ -29,8 +31,8 @@
 
 // mon data macros
 
-.macro mondata,species
-
+.macro mondata,species,name
+    speciesname species, name
 	.if species < 10
 		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
@@ -588,20 +590,28 @@
 
 .macro msgbankappend,file,msg
     .create file, 0
-    .ascii msg
+    .stringn msg
     .close
 .endmacro
 
-.macro trainername,id,name
+.macro writestring,subfile,id,str
 	.if id < 10
-	    msgbankappend "build/rawtext/729/000" + tostring(id) + ".txt", name
+	    msgbankappend "build/rawtext/" + subfile + "/000" + tostring(id) + ".txt", str
 	.elseif id < 100
-		msgbankappend "build/rawtext/729/00" + tostring(id) + ".txt", name
+		msgbankappend "build/rawtext/" + subfile + "/00" + tostring(id) + ".txt", str
 	.elseif id < 1000
-    	msgbankappend "build/rawtext/729/0" + tostring(id) + ".txt", name
+    	msgbankappend "build/rawtext/" + subfile + "/0" + tostring(id) + ".txt", str
 	.else
-		msgbankappend "build/rawtext/729/" + tostring(id) + ".txt", name
+		msgbankappend "build/rawtext/" + subfile + "/" + tostring(id) + ".txt", str
 	.endif
+.endmacro
+
+.macro trainername,id,name
+    writestring "729", id, name
+.endmacro
+
+.macro speciesname,id,name
+    writestring "237", id, name
 .endmacro
 
 

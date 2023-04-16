@@ -267,7 +267,6 @@ move_narc: $(NARC_FILES)
 	@echo "trainer data:"
 	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
 	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
-	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 
 	@echo "footprints:"
 	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
@@ -316,6 +315,7 @@ move_narc: $(NARC_FILES)
 	cp $(SDAT_BUILD) $(SDAT_TARGET)
 
 	@echo "text data:"
+	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
 	@echo "font:"

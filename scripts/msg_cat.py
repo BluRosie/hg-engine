@@ -20,9 +20,9 @@ def process_text(folder):
         return
     onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
     onlyfiles.sort(key=sorter)
-    with open(folder + '.txt', 'w') as out:
+    with open(folder + '.txt', 'w', encoding='utf-8') as out:
         for file in onlyfiles:
-            with open(os.path.join(folder, file), 'r') as infile:
+            with open(os.path.join(folder, file), 'r', encoding='utf-8') as infile:
                 out.write(infile.read() + '\n')
 
 
