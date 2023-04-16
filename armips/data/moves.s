@@ -7,7 +7,7 @@
 .include "armips/include/movemacros.s"
 .include "armips/include/movenums.s"
 
-movedata MOVE_NONE
+movedata MOVE_NONE, "-"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 0
@@ -22,7 +22,7 @@ movedata MOVE_NONE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POUND
+movedata MOVE_POUND, "Pound"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 40
@@ -37,7 +37,7 @@ movedata MOVE_POUND
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_KARATE_CHOP
+movedata MOVE_KARATE_CHOP, "Karate Chop"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 50
@@ -52,7 +52,7 @@ movedata MOVE_KARATE_CHOP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DOUBLE_SLAP
+movedata MOVE_DOUBLE_SLAP, "DoubleSlap"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 15
@@ -67,7 +67,7 @@ movedata MOVE_DOUBLE_SLAP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_COMET_PUNCH
+movedata MOVE_COMET_PUNCH, "Comet Punch"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 18
@@ -82,7 +82,7 @@ movedata MOVE_COMET_PUNCH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MEGA_PUNCH
+movedata MOVE_MEGA_PUNCH, "Mega Punch"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -97,7 +97,7 @@ movedata MOVE_MEGA_PUNCH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_PAY_DAY
+movedata MOVE_PAY_DAY, "Pay Day"
     battleeffect 34
     pss SPLIT_PHYSICAL
     basepower 40
@@ -112,7 +112,7 @@ movedata MOVE_PAY_DAY
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FIRE_PUNCH
+movedata MOVE_FIRE_PUNCH, "Fire Punch"
     battleeffect 4
     pss SPLIT_PHYSICAL
     basepower 75
@@ -127,7 +127,7 @@ movedata MOVE_FIRE_PUNCH
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ICE_PUNCH
+movedata MOVE_ICE_PUNCH, "Ice Punch"
     battleeffect 5
     pss SPLIT_PHYSICAL
     basepower 75
@@ -142,7 +142,7 @@ movedata MOVE_ICE_PUNCH
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_THUNDER_PUNCH
+movedata MOVE_THUNDER_PUNCH, "ThunderPunch"
     battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 75
@@ -157,7 +157,7 @@ movedata MOVE_THUNDER_PUNCH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SCRATCH
+movedata MOVE_SCRATCH, "Scratch"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 40
@@ -172,7 +172,7 @@ movedata MOVE_SCRATCH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_VICE_GRIP
+movedata MOVE_VICE_GRIP, "ViceGrip"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 55
@@ -187,7 +187,7 @@ movedata MOVE_VICE_GRIP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_GUILLOTINE
+movedata MOVE_GUILLOTINE, "Guillotine"
     battleeffect 38
     pss SPLIT_PHYSICAL
     basepower 1
@@ -202,7 +202,7 @@ movedata MOVE_GUILLOTINE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RAZOR_WIND
+movedata MOVE_RAZOR_WIND, "Razor Wind"
     battleeffect 39
     pss SPLIT_SPECIAL
     basepower 80
@@ -217,7 +217,7 @@ movedata MOVE_RAZOR_WIND
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SWORDS_DANCE
+movedata MOVE_SWORDS_DANCE, "Swords Dance"
     battleeffect 50
     pss SPLIT_STATUS
     basepower 0
@@ -232,7 +232,7 @@ movedata MOVE_SWORDS_DANCE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_CUT
+movedata MOVE_CUT, "Cut"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 50
@@ -247,7 +247,7 @@ movedata MOVE_CUT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GUST
+movedata MOVE_GUST, "Gust"
     battleeffect 149
     pss SPLIT_SPECIAL
     basepower 40
@@ -262,7 +262,7 @@ movedata MOVE_GUST
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_WING_ATTACK
+movedata MOVE_WING_ATTACK, "Wing Attack"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 60
@@ -277,7 +277,7 @@ movedata MOVE_WING_ATTACK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WHIRLWIND
+movedata MOVE_WHIRLWIND, "Whirlwind"
     battleeffect 28
     pss SPLIT_STATUS
     basepower 0
@@ -292,7 +292,7 @@ movedata MOVE_WHIRLWIND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FLY
+movedata MOVE_FLY, "Fly"
     battleeffect 155
     pss SPLIT_PHYSICAL
     basepower 90
@@ -307,7 +307,7 @@ movedata MOVE_FLY
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_BIND
+movedata MOVE_BIND, "Bind"
     battleeffect 42
     pss SPLIT_PHYSICAL
     basepower 15
@@ -322,7 +322,7 @@ movedata MOVE_BIND
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SLAM
+movedata MOVE_SLAM, "Slam"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -337,7 +337,7 @@ movedata MOVE_SLAM
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_VINE_WHIP
+movedata MOVE_VINE_WHIP, "Vine Whip"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 45
@@ -352,7 +352,7 @@ movedata MOVE_VINE_WHIP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STOMP
+movedata MOVE_STOMP, "Stomp"
     battleeffect 150
     pss SPLIT_PHYSICAL
     basepower 65
@@ -367,7 +367,7 @@ movedata MOVE_STOMP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DOUBLE_KICK
+movedata MOVE_DOUBLE_KICK, "Double Kick"
     battleeffect 44
     pss SPLIT_PHYSICAL
     basepower 30
@@ -382,7 +382,7 @@ movedata MOVE_DOUBLE_KICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_MEGA_KICK
+movedata MOVE_MEGA_KICK, "Mega Kick"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
@@ -397,7 +397,7 @@ movedata MOVE_MEGA_KICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_JUMP_KICK
+movedata MOVE_JUMP_KICK, "Jump Kick"
     battleeffect 45
     pss SPLIT_PHYSICAL
     basepower 100
@@ -412,7 +412,7 @@ movedata MOVE_JUMP_KICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ROLLING_KICK
+movedata MOVE_ROLLING_KICK, "Rolling Kick"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 60
@@ -427,7 +427,7 @@ movedata MOVE_ROLLING_KICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SAND_ATTACK
+movedata MOVE_SAND_ATTACK, "Sand-Attack"
     battleeffect 23
     pss SPLIT_STATUS
     basepower 0
@@ -442,7 +442,7 @@ movedata MOVE_SAND_ATTACK
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_HEADBUTT
+movedata MOVE_HEADBUTT, "Headbutt"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 70
@@ -457,7 +457,7 @@ movedata MOVE_HEADBUTT
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_HORN_ATTACK
+movedata MOVE_HORN_ATTACK, "Horn Attack"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 65
@@ -472,7 +472,7 @@ movedata MOVE_HORN_ATTACK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FURY_ATTACK
+movedata MOVE_FURY_ATTACK, "Fury Attack"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 15
@@ -487,7 +487,7 @@ movedata MOVE_FURY_ATTACK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HORN_DRILL
+movedata MOVE_HORN_DRILL, "Horn Drill"
     battleeffect 38
     pss SPLIT_PHYSICAL
     basepower 1
@@ -502,7 +502,7 @@ movedata MOVE_HORN_DRILL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TACKLE
+movedata MOVE_TACKLE, "Tackle"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 40
@@ -517,7 +517,7 @@ movedata MOVE_TACKLE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_BODY_SLAM
+movedata MOVE_BODY_SLAM, "Body Slam"
     battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 85
@@ -532,7 +532,7 @@ movedata MOVE_BODY_SLAM
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_WRAP
+movedata MOVE_WRAP, "Wrap"
     battleeffect 42
     pss SPLIT_PHYSICAL
     basepower 15
@@ -547,7 +547,7 @@ movedata MOVE_WRAP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_TAKE_DOWN
+movedata MOVE_TAKE_DOWN, "Take Down"
     battleeffect 48
     pss SPLIT_PHYSICAL
     basepower 90
@@ -562,7 +562,7 @@ movedata MOVE_TAKE_DOWN
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_THRASH
+movedata MOVE_THRASH, "Thrash"
     battleeffect 27
     pss SPLIT_PHYSICAL
     basepower 120
@@ -577,7 +577,7 @@ movedata MOVE_THRASH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DOUBLE_EDGE
+movedata MOVE_DOUBLE_EDGE, "Double-Edge"
     battleeffect 198
     pss SPLIT_PHYSICAL
     basepower 120
@@ -592,7 +592,7 @@ movedata MOVE_DOUBLE_EDGE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_TAIL_WHIP
+movedata MOVE_TAIL_WHIP, "Tail Whip"
     battleeffect 19
     pss SPLIT_STATUS
     basepower 0
@@ -607,7 +607,7 @@ movedata MOVE_TAIL_WHIP
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_POISON_STING
+movedata MOVE_POISON_STING, "Poison Sting"
     battleeffect 2
     pss SPLIT_PHYSICAL
     basepower 15
@@ -622,7 +622,7 @@ movedata MOVE_POISON_STING
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TWINEEDLE
+movedata MOVE_TWINEEDLE, "Twineedle"
     battleeffect 77
     pss SPLIT_PHYSICAL
     basepower 25
@@ -637,7 +637,7 @@ movedata MOVE_TWINEEDLE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PIN_MISSILE
+movedata MOVE_PIN_MISSILE, "Pin Missile"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 25
@@ -652,7 +652,7 @@ movedata MOVE_PIN_MISSILE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_LEER
+movedata MOVE_LEER, "Leer"
     battleeffect 19
     pss SPLIT_STATUS
     basepower 0
@@ -667,7 +667,7 @@ movedata MOVE_LEER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BITE
+movedata MOVE_BITE, "Bite"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 60
@@ -682,7 +682,7 @@ movedata MOVE_BITE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_GROWL
+movedata MOVE_GROWL, "Growl"
     battleeffect 18
     pss SPLIT_STATUS
     basepower 0
@@ -697,7 +697,7 @@ movedata MOVE_GROWL
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ROAR
+movedata MOVE_ROAR, "Roar"
     battleeffect 28
     pss SPLIT_STATUS
     basepower 0
@@ -712,7 +712,7 @@ movedata MOVE_ROAR
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SING
+movedata MOVE_SING, "Sing"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -727,7 +727,7 @@ movedata MOVE_SING
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SUPERSONIC
+movedata MOVE_SUPERSONIC, "Supersonic"
     battleeffect 49
     pss SPLIT_STATUS
     basepower 0
@@ -742,7 +742,7 @@ movedata MOVE_SUPERSONIC
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SONIC_BOOM
+movedata MOVE_SONIC_BOOM, "SonicBoom"
     battleeffect 130
     pss SPLIT_SPECIAL
     basepower 1
@@ -757,7 +757,7 @@ movedata MOVE_SONIC_BOOM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DISABLE
+movedata MOVE_DISABLE, "Disable"
     battleeffect 86
     pss SPLIT_STATUS
     basepower 0
@@ -772,7 +772,7 @@ movedata MOVE_DISABLE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ACID
+movedata MOVE_ACID, "Acid"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 40
@@ -787,7 +787,7 @@ movedata MOVE_ACID
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_EMBER
+movedata MOVE_EMBER, "Ember"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 40
@@ -802,7 +802,7 @@ movedata MOVE_EMBER
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_FLAMETHROWER
+movedata MOVE_FLAMETHROWER, "Flamethrower"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 90
@@ -817,7 +817,7 @@ movedata MOVE_FLAMETHROWER
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MIST
+movedata MOVE_MIST, "Mist"
     battleeffect 46
     pss SPLIT_STATUS
     basepower 0
@@ -832,7 +832,7 @@ movedata MOVE_MIST
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_WATER_GUN
+movedata MOVE_WATER_GUN, "Water Gun"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 40
@@ -847,7 +847,7 @@ movedata MOVE_WATER_GUN
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_HYDRO_PUMP
+movedata MOVE_HYDRO_PUMP, "Hydro Pump"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 110
@@ -862,7 +862,7 @@ movedata MOVE_HYDRO_PUMP
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SURF
+movedata MOVE_SURF, "Surf"
     battleeffect 257
     pss SPLIT_SPECIAL
     basepower 90
@@ -877,7 +877,7 @@ movedata MOVE_SURF
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ICE_BEAM
+movedata MOVE_ICE_BEAM, "Ice Beam"
     battleeffect 5
     pss SPLIT_SPECIAL
     basepower 90
@@ -892,7 +892,7 @@ movedata MOVE_ICE_BEAM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_BLIZZARD
+movedata MOVE_BLIZZARD, "Blizzard"
     battleeffect 260
     pss SPLIT_SPECIAL
     basepower 110
@@ -907,7 +907,7 @@ movedata MOVE_BLIZZARD
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_PSYBEAM
+movedata MOVE_PSYBEAM, "Psybeam"
     battleeffect 76
     pss SPLIT_SPECIAL
     basepower 65
@@ -922,7 +922,7 @@ movedata MOVE_PSYBEAM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_BUBBLE_BEAM
+movedata MOVE_BUBBLE_BEAM, "BubbleBeam"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 65
@@ -937,7 +937,7 @@ movedata MOVE_BUBBLE_BEAM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_AURORA_BEAM
+movedata MOVE_AURORA_BEAM, "Aurora Beam"
     battleeffect 68
     pss SPLIT_SPECIAL
     basepower 65
@@ -952,7 +952,7 @@ movedata MOVE_AURORA_BEAM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HYPER_BEAM
+movedata MOVE_HYPER_BEAM, "Hyper Beam"
     battleeffect 80
     pss SPLIT_SPECIAL
     basepower 150
@@ -967,7 +967,7 @@ movedata MOVE_HYPER_BEAM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PECK
+movedata MOVE_PECK, "Peck"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 35
@@ -982,7 +982,7 @@ movedata MOVE_PECK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DRILL_PECK
+movedata MOVE_DRILL_PECK, "Drill Peck"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -997,7 +997,7 @@ movedata MOVE_DRILL_PECK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SUBMISSION
+movedata MOVE_SUBMISSION, "Submission"
     battleeffect 48
     pss SPLIT_PHYSICAL
     basepower 80
@@ -1012,7 +1012,7 @@ movedata MOVE_SUBMISSION
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_LOW_KICK
+movedata MOVE_LOW_KICK, "Low Kick"
     battleeffect 196
     pss SPLIT_PHYSICAL
     basepower 1
@@ -1027,7 +1027,7 @@ movedata MOVE_LOW_KICK
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_COUNTER
+movedata MOVE_COUNTER, "Counter"
     battleeffect 89
     pss SPLIT_PHYSICAL
     basepower 1
@@ -1042,7 +1042,7 @@ movedata MOVE_COUNTER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SEISMIC_TOSS
+movedata MOVE_SEISMIC_TOSS, "Seismic Toss"
     battleeffect 87
     pss SPLIT_PHYSICAL
     basepower 1
@@ -1057,7 +1057,7 @@ movedata MOVE_SEISMIC_TOSS
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_STRENGTH
+movedata MOVE_STRENGTH, "Strength"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -1072,7 +1072,7 @@ movedata MOVE_STRENGTH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_ABSORB
+movedata MOVE_ABSORB, "Absorb"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 20
@@ -1087,7 +1087,7 @@ movedata MOVE_ABSORB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MEGA_DRAIN
+movedata MOVE_MEGA_DRAIN, "Mega Drain"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 40
@@ -1102,7 +1102,7 @@ movedata MOVE_MEGA_DRAIN
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_LEECH_SEED
+movedata MOVE_LEECH_SEED, "Leech Seed"
     battleeffect 84
     pss SPLIT_STATUS
     basepower 0
@@ -1117,7 +1117,7 @@ movedata MOVE_LEECH_SEED
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_GROWTH
+movedata MOVE_GROWTH, "Growth"
     battleeffect 13
     pss SPLIT_STATUS
     basepower 0
@@ -1132,7 +1132,7 @@ movedata MOVE_GROWTH
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_RAZOR_LEAF
+movedata MOVE_RAZOR_LEAF, "Razor Leaf"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 55
@@ -1147,7 +1147,7 @@ movedata MOVE_RAZOR_LEAF
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SOLAR_BEAM
+movedata MOVE_SOLAR_BEAM, "SolarBeam"
     battleeffect 151
     pss SPLIT_SPECIAL
     basepower 120
@@ -1162,7 +1162,7 @@ movedata MOVE_SOLAR_BEAM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POISON_POWDER
+movedata MOVE_POISON_POWDER, "PoisonPowder"
     battleeffect 66
     pss SPLIT_STATUS
     basepower 0
@@ -1177,7 +1177,7 @@ movedata MOVE_POISON_POWDER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_STUN_SPORE
+movedata MOVE_STUN_SPORE, "Stun Spore"
     battleeffect 67
     pss SPLIT_STATUS
     basepower 0
@@ -1192,7 +1192,7 @@ movedata MOVE_STUN_SPORE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SLEEP_POWDER
+movedata MOVE_SLEEP_POWDER, "Sleep Powder"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -1207,7 +1207,7 @@ movedata MOVE_SLEEP_POWDER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_PETAL_DANCE
+movedata MOVE_PETAL_DANCE, "Petal Dance"
     battleeffect 27
     pss SPLIT_SPECIAL
     basepower 120
@@ -1222,7 +1222,7 @@ movedata MOVE_PETAL_DANCE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_STRING_SHOT
+movedata MOVE_STRING_SHOT, "String Shot"
     battleeffect 20
     pss SPLIT_STATUS
     basepower 0
@@ -1237,7 +1237,7 @@ movedata MOVE_STRING_SHOT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DRAGON_RAGE
+movedata MOVE_DRAGON_RAGE, "Dragon Rage"
     battleeffect 41
     pss SPLIT_SPECIAL
     basepower 1
@@ -1252,7 +1252,7 @@ movedata MOVE_DRAGON_RAGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FIRE_SPIN
+movedata MOVE_FIRE_SPIN, "Fire Spin"
     battleeffect 42
     pss SPLIT_SPECIAL
     basepower 35
@@ -1267,7 +1267,7 @@ movedata MOVE_FIRE_SPIN
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_THUNDER_SHOCK
+movedata MOVE_THUNDER_SHOCK, "ThunderShock"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 40
@@ -1282,7 +1282,7 @@ movedata MOVE_THUNDER_SHOCK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_THUNDERBOLT
+movedata MOVE_THUNDERBOLT, "Thunderbolt"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 90
@@ -1297,7 +1297,7 @@ movedata MOVE_THUNDERBOLT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_THUNDER_WAVE
+movedata MOVE_THUNDER_WAVE, "Thunder Wave"
     battleeffect 67
     pss SPLIT_STATUS
     basepower 0
@@ -1312,7 +1312,7 @@ movedata MOVE_THUNDER_WAVE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_THUNDER
+movedata MOVE_THUNDER, "Thunder"
     battleeffect 152
     pss SPLIT_SPECIAL
     basepower 110
@@ -1327,7 +1327,7 @@ movedata MOVE_THUNDER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ROCK_THROW
+movedata MOVE_ROCK_THROW, "Rock Throw"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 50
@@ -1342,7 +1342,7 @@ movedata MOVE_ROCK_THROW
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_EARTHQUAKE
+movedata MOVE_EARTHQUAKE, "Earthquake"
     battleeffect 147
     pss SPLIT_PHYSICAL
     basepower 100
@@ -1357,7 +1357,7 @@ movedata MOVE_EARTHQUAKE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FISSURE
+movedata MOVE_FISSURE, "Fissure"
     battleeffect 38
     pss SPLIT_PHYSICAL
     basepower 1
@@ -1372,7 +1372,7 @@ movedata MOVE_FISSURE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DIG
+movedata MOVE_DIG, "Dig"
     battleeffect 256
     pss SPLIT_PHYSICAL
     basepower 80
@@ -1387,7 +1387,7 @@ movedata MOVE_DIG
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TOXIC
+movedata MOVE_TOXIC, "Toxic"
     battleeffect 33
     pss SPLIT_STATUS
     basepower 0
@@ -1402,7 +1402,7 @@ movedata MOVE_TOXIC
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_CONFUSION
+movedata MOVE_CONFUSION, "Confusion"
     battleeffect 76
     pss SPLIT_SPECIAL
     basepower 50
@@ -1417,7 +1417,7 @@ movedata MOVE_CONFUSION
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_PSYCHIC
+movedata MOVE_PSYCHIC, "Psychic"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 90
@@ -1432,7 +1432,7 @@ movedata MOVE_PSYCHIC
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HYPNOSIS
+movedata MOVE_HYPNOSIS, "Hypnosis"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -1447,7 +1447,7 @@ movedata MOVE_HYPNOSIS
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MEDITATE
+movedata MOVE_MEDITATE, "Meditate"
     battleeffect 10
     pss SPLIT_STATUS
     basepower 0
@@ -1462,7 +1462,7 @@ movedata MOVE_MEDITATE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_AGILITY
+movedata MOVE_AGILITY, "Agility"
     battleeffect 52
     pss SPLIT_STATUS
     basepower 0
@@ -1477,7 +1477,7 @@ movedata MOVE_AGILITY
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_QUICK_ATTACK
+movedata MOVE_QUICK_ATTACK, "Quick Attack"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 40
@@ -1492,7 +1492,7 @@ movedata MOVE_QUICK_ATTACK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RAGE
+movedata MOVE_RAGE, "Rage"
     battleeffect 81
     pss SPLIT_PHYSICAL
     basepower 20
@@ -1507,7 +1507,7 @@ movedata MOVE_RAGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TELEPORT
+movedata MOVE_TELEPORT, "Teleport"
     battleeffect 153
     pss SPLIT_STATUS
     basepower 0
@@ -1522,7 +1522,7 @@ movedata MOVE_TELEPORT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_NIGHT_SHADE
+movedata MOVE_NIGHT_SHADE, "Night Shade"
     battleeffect 87
     pss SPLIT_SPECIAL
     basepower 1
@@ -1537,7 +1537,7 @@ movedata MOVE_NIGHT_SHADE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MIMIC
+movedata MOVE_MIMIC, "Mimic"
     battleeffect 82
     pss SPLIT_STATUS
     basepower 0
@@ -1552,7 +1552,7 @@ movedata MOVE_MIMIC
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SCREECH
+movedata MOVE_SCREECH, "Screech"
     battleeffect 59
     pss SPLIT_STATUS
     basepower 0
@@ -1567,7 +1567,7 @@ movedata MOVE_SCREECH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DOUBLE_TEAM
+movedata MOVE_DOUBLE_TEAM, "Double Team"
     battleeffect 16
     pss SPLIT_STATUS
     basepower 0
@@ -1582,7 +1582,7 @@ movedata MOVE_DOUBLE_TEAM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RECOVER
+movedata MOVE_RECOVER, "Recover"
     battleeffect 32
     pss SPLIT_STATUS
     basepower 0
@@ -1597,7 +1597,7 @@ movedata MOVE_RECOVER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HARDEN
+movedata MOVE_HARDEN, "Harden"
     battleeffect 11
     pss SPLIT_STATUS
     basepower 0
@@ -1612,7 +1612,7 @@ movedata MOVE_HARDEN
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MINIMIZE
+movedata MOVE_MINIMIZE, "Minimize"
     battleeffect 108
     pss SPLIT_STATUS
     basepower 0
@@ -1627,7 +1627,7 @@ movedata MOVE_MINIMIZE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SMOKESCREEN
+movedata MOVE_SMOKESCREEN, "SmokeScreen"
     battleeffect 23
     pss SPLIT_STATUS
     basepower 0
@@ -1642,7 +1642,7 @@ movedata MOVE_SMOKESCREEN
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_CONFUSE_RAY
+movedata MOVE_CONFUSE_RAY, "Confuse Ray"
     battleeffect 49
     pss SPLIT_STATUS
     basepower 0
@@ -1657,7 +1657,7 @@ movedata MOVE_CONFUSE_RAY
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_WITHDRAW
+movedata MOVE_WITHDRAW, "Withdraw"
     battleeffect 11
     pss SPLIT_STATUS
     basepower 0
@@ -1672,7 +1672,7 @@ movedata MOVE_WITHDRAW
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_DEFENSE_CURL
+movedata MOVE_DEFENSE_CURL, "Defense Curl"
     battleeffect 156
     pss SPLIT_STATUS
     basepower 0
@@ -1687,7 +1687,7 @@ movedata MOVE_DEFENSE_CURL
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_BARRIER
+movedata MOVE_BARRIER, "Barrier"
     battleeffect 51
     pss SPLIT_STATUS
     basepower 0
@@ -1702,7 +1702,7 @@ movedata MOVE_BARRIER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_LIGHT_SCREEN
+movedata MOVE_LIGHT_SCREEN, "Light Screen"
     battleeffect 35
     pss SPLIT_STATUS
     basepower 0
@@ -1717,7 +1717,7 @@ movedata MOVE_LIGHT_SCREEN
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HAZE
+movedata MOVE_HAZE, "Haze"
     battleeffect 25
     pss SPLIT_STATUS
     basepower 0
@@ -1732,7 +1732,7 @@ movedata MOVE_HAZE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_REFLECT
+movedata MOVE_REFLECT, "Reflect"
     battleeffect 65
     pss SPLIT_STATUS
     basepower 0
@@ -1747,7 +1747,7 @@ movedata MOVE_REFLECT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FOCUS_ENERGY
+movedata MOVE_FOCUS_ENERGY, "Focus Energy"
     battleeffect 47
     pss SPLIT_STATUS
     basepower 0
@@ -1762,7 +1762,7 @@ movedata MOVE_FOCUS_ENERGY
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BIDE
+movedata MOVE_BIDE, "Bide"
     battleeffect 26
     pss SPLIT_PHYSICAL
     basepower 1
@@ -1777,7 +1777,7 @@ movedata MOVE_BIDE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_METRONOME
+movedata MOVE_METRONOME, "Metronome"
     battleeffect 83
     pss SPLIT_STATUS
     basepower 0
@@ -1792,7 +1792,7 @@ movedata MOVE_METRONOME
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_MIRROR_MOVE
+movedata MOVE_MIRROR_MOVE, "Mirror Move"
     battleeffect 9
     pss SPLIT_STATUS
     basepower 0
@@ -1807,7 +1807,7 @@ movedata MOVE_MIRROR_MOVE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SELF_DESTRUCT
+movedata MOVE_SELF_DESTRUCT, "Selfdestruct"
     battleeffect 7
     pss SPLIT_PHYSICAL
     basepower 200
@@ -1822,7 +1822,7 @@ movedata MOVE_SELF_DESTRUCT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_EGG_BOMB
+movedata MOVE_EGG_BOMB, "Egg Bomb"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 100
@@ -1837,7 +1837,7 @@ movedata MOVE_EGG_BOMB
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_LICK
+movedata MOVE_LICK, "Lick"
     battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 30
@@ -1852,7 +1852,7 @@ movedata MOVE_LICK
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SMOG
+movedata MOVE_SMOG, "Smog"
     battleeffect 2
     pss SPLIT_SPECIAL
     basepower 30
@@ -1867,7 +1867,7 @@ movedata MOVE_SMOG
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SLUDGE
+movedata MOVE_SLUDGE, "Sludge"
     battleeffect 2
     pss SPLIT_SPECIAL
     basepower 65
@@ -1882,7 +1882,7 @@ movedata MOVE_SLUDGE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_BONE_CLUB
+movedata MOVE_BONE_CLUB, "Bone Club"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 65
@@ -1897,7 +1897,7 @@ movedata MOVE_BONE_CLUB
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FIRE_BLAST
+movedata MOVE_FIRE_BLAST, "Fire Blast"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 110
@@ -1912,7 +1912,7 @@ movedata MOVE_FIRE_BLAST
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_WATERFALL
+movedata MOVE_WATERFALL, "Waterfall"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 80
@@ -1927,7 +1927,7 @@ movedata MOVE_WATERFALL
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CLAMP
+movedata MOVE_CLAMP, "Clamp"
     battleeffect 42
     pss SPLIT_PHYSICAL
     basepower 35
@@ -1942,7 +1942,7 @@ movedata MOVE_CLAMP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SWIFT
+movedata MOVE_SWIFT, "Swift"
     battleeffect 17
     pss SPLIT_SPECIAL
     basepower 60
@@ -1957,7 +1957,7 @@ movedata MOVE_SWIFT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SKULL_BASH
+movedata MOVE_SKULL_BASH, "Skull Bash"
     battleeffect 145
     pss SPLIT_PHYSICAL
     basepower 130
@@ -1972,7 +1972,7 @@ movedata MOVE_SKULL_BASH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SPIKE_CANNON
+movedata MOVE_SPIKE_CANNON, "Spike Cannon"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 20
@@ -1987,7 +1987,7 @@ movedata MOVE_SPIKE_CANNON
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_CONSTRICT
+movedata MOVE_CONSTRICT, "Constrict"
     battleeffect 70
     pss SPLIT_PHYSICAL
     basepower 10
@@ -2002,7 +2002,7 @@ movedata MOVE_CONSTRICT
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_AMNESIA
+movedata MOVE_AMNESIA, "Amnesia"
     battleeffect 54
     pss SPLIT_STATUS
     basepower 0
@@ -2017,7 +2017,7 @@ movedata MOVE_AMNESIA
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_KINESIS
+movedata MOVE_KINESIS, "Kinesis"
     battleeffect 23
     pss SPLIT_STATUS
     basepower 0
@@ -2032,7 +2032,7 @@ movedata MOVE_KINESIS
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SOFT_BOILED
+movedata MOVE_SOFT_BOILED, "Softboiled"
     battleeffect 32
     pss SPLIT_STATUS
     basepower 0
@@ -2047,7 +2047,7 @@ movedata MOVE_SOFT_BOILED
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HI_JUMP_KICK
+movedata MOVE_HI_JUMP_KICK, "Hi Jump Kick"
     battleeffect 45
     pss SPLIT_PHYSICAL
     basepower 130
@@ -2062,7 +2062,7 @@ movedata MOVE_HI_JUMP_KICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GLARE
+movedata MOVE_GLARE, "Glare"
     battleeffect 67
     pss SPLIT_STATUS
     basepower 0
@@ -2077,7 +2077,7 @@ movedata MOVE_GLARE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DREAM_EATER
+movedata MOVE_DREAM_EATER, "Dream Eater"
     battleeffect 8
     pss SPLIT_SPECIAL
     basepower 100
@@ -2092,7 +2092,7 @@ movedata MOVE_DREAM_EATER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_POISON_GAS
+movedata MOVE_POISON_GAS, "Poison Gas"
     battleeffect 66
     pss SPLIT_STATUS
     basepower 0
@@ -2107,7 +2107,7 @@ movedata MOVE_POISON_GAS
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_BARRAGE
+movedata MOVE_BARRAGE, "Barrage"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 15
@@ -2122,7 +2122,7 @@ movedata MOVE_BARRAGE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_LEECH_LIFE
+movedata MOVE_LEECH_LIFE, "Leech Life"
     battleeffect 3
     pss SPLIT_PHYSICAL
     basepower 80
@@ -2137,7 +2137,7 @@ movedata MOVE_LEECH_LIFE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_LOVELY_KISS
+movedata MOVE_LOVELY_KISS, "Lovely Kiss"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -2152,7 +2152,7 @@ movedata MOVE_LOVELY_KISS
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SKY_ATTACK
+movedata MOVE_SKY_ATTACK, "Sky Attack"
     battleeffect 75
     pss SPLIT_PHYSICAL
     basepower 140
@@ -2167,7 +2167,7 @@ movedata MOVE_SKY_ATTACK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TRANSFORM
+movedata MOVE_TRANSFORM, "Transform"
     battleeffect 57
     pss SPLIT_STATUS
     basepower 0
@@ -2182,7 +2182,7 @@ movedata MOVE_TRANSFORM
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_BUBBLE
+movedata MOVE_BUBBLE, "Bubble"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 20
@@ -2197,7 +2197,7 @@ movedata MOVE_BUBBLE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_DIZZY_PUNCH
+movedata MOVE_DIZZY_PUNCH, "Dizzy Punch"
     battleeffect 76
     pss SPLIT_PHYSICAL
     basepower 70
@@ -2212,7 +2212,7 @@ movedata MOVE_DIZZY_PUNCH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SPORE
+movedata MOVE_SPORE, "Spore"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -2227,7 +2227,7 @@ movedata MOVE_SPORE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_FLASH
+movedata MOVE_FLASH, "Flash"
     battleeffect 23
     pss SPLIT_STATUS
     basepower 0
@@ -2242,7 +2242,7 @@ movedata MOVE_FLASH
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_PSYWAVE
+movedata MOVE_PSYWAVE, "Psywave"
     battleeffect 88
     pss SPLIT_SPECIAL
     basepower 1
@@ -2257,7 +2257,7 @@ movedata MOVE_PSYWAVE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SPLASH
+movedata MOVE_SPLASH, "Splash"
     battleeffect 85
     pss SPLIT_STATUS
     basepower 0
@@ -2272,7 +2272,7 @@ movedata MOVE_SPLASH
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ACID_ARMOR
+movedata MOVE_ACID_ARMOR, "Acid Armor"
     battleeffect 51
     pss SPLIT_STATUS
     basepower 0
@@ -2287,7 +2287,7 @@ movedata MOVE_ACID_ARMOR
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CRABHAMMER
+movedata MOVE_CRABHAMMER, "Crabhammer"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 100
@@ -2302,7 +2302,7 @@ movedata MOVE_CRABHAMMER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_EXPLOSION
+movedata MOVE_EXPLOSION, "Explosion"
     battleeffect 7
     pss SPLIT_PHYSICAL
     basepower 250
@@ -2317,7 +2317,7 @@ movedata MOVE_EXPLOSION
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_FURY_SWIPES
+movedata MOVE_FURY_SWIPES, "Fury Swipes"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 18
@@ -2332,7 +2332,7 @@ movedata MOVE_FURY_SWIPES
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_BONEMERANG
+movedata MOVE_BONEMERANG, "Bonemerang"
     battleeffect 44
     pss SPLIT_PHYSICAL
     basepower 50
@@ -2347,7 +2347,7 @@ movedata MOVE_BONEMERANG
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_REST
+movedata MOVE_REST, "Rest"
     battleeffect 37
     pss SPLIT_STATUS
     basepower 0
@@ -2362,7 +2362,7 @@ movedata MOVE_REST
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ROCK_SLIDE
+movedata MOVE_ROCK_SLIDE, "Rock Slide"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 75
@@ -2377,7 +2377,7 @@ movedata MOVE_ROCK_SLIDE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_HYPER_FANG
+movedata MOVE_HYPER_FANG, "Hyper Fang"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 80
@@ -2392,7 +2392,7 @@ movedata MOVE_HYPER_FANG
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SHARPEN
+movedata MOVE_SHARPEN, "Sharpen"
     battleeffect 10
     pss SPLIT_STATUS
     basepower 0
@@ -2407,7 +2407,7 @@ movedata MOVE_SHARPEN
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_CONVERSION
+movedata MOVE_CONVERSION, "Conversion"
     battleeffect 30
     pss SPLIT_STATUS
     basepower 0
@@ -2422,7 +2422,7 @@ movedata MOVE_CONVERSION
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_TRI_ATTACK
+movedata MOVE_TRI_ATTACK, "Tri Attack"
     battleeffect 36
     pss SPLIT_SPECIAL
     basepower 80
@@ -2437,7 +2437,7 @@ movedata MOVE_TRI_ATTACK
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SUPER_FANG
+movedata MOVE_SUPER_FANG, "Super Fang"
     battleeffect 40
     pss SPLIT_PHYSICAL
     basepower 1
@@ -2452,7 +2452,7 @@ movedata MOVE_SUPER_FANG
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SLASH
+movedata MOVE_SLASH, "Slash"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 70
@@ -2467,7 +2467,7 @@ movedata MOVE_SLASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SUBSTITUTE
+movedata MOVE_SUBSTITUTE, "Substitute"
     battleeffect 79
     pss SPLIT_STATUS
     basepower 0
@@ -2482,7 +2482,7 @@ movedata MOVE_SUBSTITUTE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_STRUGGLE
+movedata MOVE_STRUGGLE, "Struggle"
     battleeffect 254
     pss SPLIT_PHYSICAL
     basepower 50
@@ -2497,7 +2497,7 @@ movedata MOVE_STRUGGLE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SKETCH
+movedata MOVE_SKETCH, "Sketch"
     battleeffect 95
     pss SPLIT_STATUS
     basepower 0
@@ -2512,7 +2512,7 @@ movedata MOVE_SKETCH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TRIPLE_KICK
+movedata MOVE_TRIPLE_KICK, "Triple Kick"
     battleeffect 104
     pss SPLIT_PHYSICAL
     basepower 10
@@ -2527,7 +2527,7 @@ movedata MOVE_TRIPLE_KICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_THIEF
+movedata MOVE_THIEF, "Thief"
     battleeffect 105
     pss SPLIT_PHYSICAL
     basepower 60
@@ -2542,7 +2542,7 @@ movedata MOVE_THIEF
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SPIDER_WEB
+movedata MOVE_SPIDER_WEB, "Spider Web"
     battleeffect 106
     pss SPLIT_STATUS
     basepower 0
@@ -2557,7 +2557,7 @@ movedata MOVE_SPIDER_WEB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MIND_READER
+movedata MOVE_MIND_READER, "Mind Reader"
     battleeffect 94
     pss SPLIT_STATUS
     basepower 0
@@ -2572,7 +2572,7 @@ movedata MOVE_MIND_READER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_NIGHTMARE
+movedata MOVE_NIGHTMARE, "Nightmare"
     battleeffect 107
     pss SPLIT_STATUS
     basepower 0
@@ -2587,7 +2587,7 @@ movedata MOVE_NIGHTMARE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FLAME_WHEEL
+movedata MOVE_FLAME_WHEEL, "Flame Wheel"
     battleeffect 125
     pss SPLIT_PHYSICAL
     basepower 60
@@ -2602,7 +2602,7 @@ movedata MOVE_FLAME_WHEEL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SNORE
+movedata MOVE_SNORE, "Snore"
     battleeffect 92
     pss SPLIT_SPECIAL
     basepower 50
@@ -2617,7 +2617,7 @@ movedata MOVE_SNORE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_CURSE
+movedata MOVE_CURSE, "Curse"
     battleeffect 109
     pss SPLIT_STATUS
     basepower 0
@@ -2632,7 +2632,7 @@ movedata MOVE_CURSE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FLAIL
+movedata MOVE_FLAIL, "Flail"
     battleeffect 99
     pss SPLIT_PHYSICAL
     basepower 1
@@ -2647,7 +2647,7 @@ movedata MOVE_FLAIL
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_CONVERSION_2
+movedata MOVE_CONVERSION_2, "Conversion 2"
     battleeffect 93
     pss SPLIT_STATUS
     basepower 0
@@ -2662,7 +2662,7 @@ movedata MOVE_CONVERSION_2
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_AEROBLAST
+movedata MOVE_AEROBLAST, "Aeroblast"
     battleeffect 43
     pss SPLIT_SPECIAL
     basepower 100
@@ -2677,7 +2677,7 @@ movedata MOVE_AEROBLAST
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_COTTON_SPORE
+movedata MOVE_COTTON_SPORE, "Cotton Spore"
     battleeffect 60
     pss SPLIT_STATUS
     basepower 0
@@ -2692,7 +2692,7 @@ movedata MOVE_COTTON_SPORE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_REVERSAL
+movedata MOVE_REVERSAL, "Reversal"
     battleeffect 99
     pss SPLIT_PHYSICAL
     basepower 1
@@ -2707,7 +2707,7 @@ movedata MOVE_REVERSAL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SPITE
+movedata MOVE_SPITE, "Spite"
     battleeffect 100
     pss SPLIT_STATUS
     basepower 0
@@ -2722,7 +2722,7 @@ movedata MOVE_SPITE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_POWDER_SNOW
+movedata MOVE_POWDER_SNOW, "Powder Snow"
     battleeffect 5
     pss SPLIT_SPECIAL
     basepower 40
@@ -2737,7 +2737,7 @@ movedata MOVE_POWDER_SNOW
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_PROTECT
+movedata MOVE_PROTECT, "Protect"
     battleeffect 111
     pss SPLIT_STATUS
     basepower 0
@@ -2752,7 +2752,7 @@ movedata MOVE_PROTECT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_MACH_PUNCH
+movedata MOVE_MACH_PUNCH, "Mach Punch"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 40
@@ -2767,7 +2767,7 @@ movedata MOVE_MACH_PUNCH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SCARY_FACE
+movedata MOVE_SCARY_FACE, "Scary Face"
     battleeffect 60
     pss SPLIT_STATUS
     basepower 0
@@ -2782,7 +2782,7 @@ movedata MOVE_SCARY_FACE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FAINT_ATTACK
+movedata MOVE_FAINT_ATTACK, "Faint Attack"
     battleeffect 17
     pss SPLIT_PHYSICAL
     basepower 60
@@ -2797,7 +2797,7 @@ movedata MOVE_FAINT_ATTACK
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SWEET_KISS
+movedata MOVE_SWEET_KISS, "Sweet Kiss"
     battleeffect 49
     pss SPLIT_STATUS
     basepower 0
@@ -2812,7 +2812,7 @@ movedata MOVE_SWEET_KISS
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_BELLY_DRUM
+movedata MOVE_BELLY_DRUM, "Belly Drum"
     battleeffect 142
     pss SPLIT_STATUS
     basepower 0
@@ -2827,7 +2827,7 @@ movedata MOVE_BELLY_DRUM
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SLUDGE_BOMB
+movedata MOVE_SLUDGE_BOMB, "Sludge Bomb"
     battleeffect 2
     pss SPLIT_SPECIAL
     basepower 90
@@ -2842,7 +2842,7 @@ movedata MOVE_SLUDGE_BOMB
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MUD_SLAP
+movedata MOVE_MUD_SLAP, "Mud-Slap"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 20
@@ -2857,7 +2857,7 @@ movedata MOVE_MUD_SLAP
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_OCTAZOOKA
+movedata MOVE_OCTAZOOKA, "Octazooka"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 65
@@ -2872,7 +2872,7 @@ movedata MOVE_OCTAZOOKA
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SPIKES
+movedata MOVE_SPIKES, "Spikes"
     battleeffect 112
     pss SPLIT_STATUS
     basepower 0
@@ -2887,7 +2887,7 @@ movedata MOVE_SPIKES
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ZAP_CANNON
+movedata MOVE_ZAP_CANNON, "Zap Cannon"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 120
@@ -2902,7 +2902,7 @@ movedata MOVE_ZAP_CANNON
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FORESIGHT
+movedata MOVE_FORESIGHT, "Foresight"
     battleeffect 113
     pss SPLIT_STATUS
     basepower 0
@@ -2917,7 +2917,7 @@ movedata MOVE_FORESIGHT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DESTINY_BOND
+movedata MOVE_DESTINY_BOND, "Destiny Bond"
     battleeffect 98
     pss SPLIT_STATUS
     basepower 0
@@ -2932,7 +2932,7 @@ movedata MOVE_DESTINY_BOND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_PERISH_SONG
+movedata MOVE_PERISH_SONG, "Perish Song"
     battleeffect 114
     pss SPLIT_STATUS
     basepower 0
@@ -2947,7 +2947,7 @@ movedata MOVE_PERISH_SONG
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ICY_WIND
+movedata MOVE_ICY_WIND, "Icy Wind"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 55
@@ -2962,7 +2962,7 @@ movedata MOVE_ICY_WIND
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_DETECT
+movedata MOVE_DETECT, "Detect"
     battleeffect 111
     pss SPLIT_STATUS
     basepower 0
@@ -2977,7 +2977,7 @@ movedata MOVE_DETECT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BONE_RUSH
+movedata MOVE_BONE_RUSH, "Bone Rush"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 25
@@ -2992,7 +2992,7 @@ movedata MOVE_BONE_RUSH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_LOCK_ON
+movedata MOVE_LOCK_ON, "Lock-On"
     battleeffect 94
     pss SPLIT_STATUS
     basepower 0
@@ -3007,7 +3007,7 @@ movedata MOVE_LOCK_ON
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_OUTRAGE
+movedata MOVE_OUTRAGE, "Outrage"
     battleeffect 27
     pss SPLIT_PHYSICAL
     basepower 120
@@ -3022,7 +3022,7 @@ movedata MOVE_OUTRAGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SANDSTORM
+movedata MOVE_SANDSTORM, "Sandstorm"
     battleeffect 115
     pss SPLIT_STATUS
     basepower 0
@@ -3037,7 +3037,7 @@ movedata MOVE_SANDSTORM
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_GIGA_DRAIN
+movedata MOVE_GIGA_DRAIN, "Giga Drain"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 75
@@ -3052,7 +3052,7 @@ movedata MOVE_GIGA_DRAIN
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ENDURE
+movedata MOVE_ENDURE, "Endure"
     battleeffect 116
     pss SPLIT_STATUS
     basepower 0
@@ -3067,7 +3067,7 @@ movedata MOVE_ENDURE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CHARM
+movedata MOVE_CHARM, "Charm"
     battleeffect 58
     pss SPLIT_STATUS
     basepower 0
@@ -3082,7 +3082,7 @@ movedata MOVE_CHARM
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ROLLOUT
+movedata MOVE_ROLLOUT, "Rollout"
     battleeffect 117
     pss SPLIT_PHYSICAL
     basepower 30
@@ -3097,7 +3097,7 @@ movedata MOVE_ROLLOUT
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FALSE_SWIPE
+movedata MOVE_FALSE_SWIPE, "False Swipe"
     battleeffect 101
     pss SPLIT_PHYSICAL
     basepower 40
@@ -3112,7 +3112,7 @@ movedata MOVE_FALSE_SWIPE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SWAGGER
+movedata MOVE_SWAGGER, "Swagger"
     battleeffect 118
     pss SPLIT_STATUS
     basepower 0
@@ -3127,7 +3127,7 @@ movedata MOVE_SWAGGER
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_MILK_DRINK
+movedata MOVE_MILK_DRINK, "Milk Drink"
     battleeffect 32
     pss SPLIT_STATUS
     basepower 0
@@ -3142,7 +3142,7 @@ movedata MOVE_MILK_DRINK
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SPARK
+movedata MOVE_SPARK, "Spark"
     battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 65
@@ -3157,7 +3157,7 @@ movedata MOVE_SPARK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FURY_CUTTER
+movedata MOVE_FURY_CUTTER, "Fury Cutter"
     battleeffect 119
     pss SPLIT_PHYSICAL
     basepower 40
@@ -3172,7 +3172,7 @@ movedata MOVE_FURY_CUTTER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STEEL_WING
+movedata MOVE_STEEL_WING, "Steel Wing"
     battleeffect 138
     pss SPLIT_PHYSICAL
     basepower 70
@@ -3187,7 +3187,7 @@ movedata MOVE_STEEL_WING
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_MEAN_LOOK
+movedata MOVE_MEAN_LOOK, "Mean Look"
     battleeffect 106
     pss SPLIT_STATUS
     basepower 0
@@ -3202,7 +3202,7 @@ movedata MOVE_MEAN_LOOK
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ATTRACT
+movedata MOVE_ATTRACT, "Attract"
     battleeffect 120
     pss SPLIT_STATUS
     basepower 0
@@ -3217,7 +3217,7 @@ movedata MOVE_ATTRACT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SLEEP_TALK
+movedata MOVE_SLEEP_TALK, "Sleep Talk"
     battleeffect 97
     pss SPLIT_STATUS
     basepower 0
@@ -3232,7 +3232,7 @@ movedata MOVE_SLEEP_TALK
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_HEAL_BELL
+movedata MOVE_HEAL_BELL, "Heal Bell"
     battleeffect 102
     pss SPLIT_STATUS
     basepower 0
@@ -3247,7 +3247,7 @@ movedata MOVE_HEAL_BELL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_RETURN
+movedata MOVE_RETURN, "Return"
     battleeffect 121
     pss SPLIT_PHYSICAL
     basepower 1
@@ -3262,7 +3262,7 @@ movedata MOVE_RETURN
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_PRESENT
+movedata MOVE_PRESENT, "Present"
     battleeffect 122
     pss SPLIT_PHYSICAL
     basepower 1
@@ -3277,7 +3277,7 @@ movedata MOVE_PRESENT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_FRUSTRATION
+movedata MOVE_FRUSTRATION, "Frustration"
     battleeffect 123
     pss SPLIT_PHYSICAL
     basepower 1
@@ -3292,7 +3292,7 @@ movedata MOVE_FRUSTRATION
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SAFEGUARD
+movedata MOVE_SAFEGUARD, "Safeguard"
     battleeffect 124
     pss SPLIT_STATUS
     basepower 0
@@ -3307,7 +3307,7 @@ movedata MOVE_SAFEGUARD
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_PAIN_SPLIT
+movedata MOVE_PAIN_SPLIT, "Pain Split"
     battleeffect 91
     pss SPLIT_STATUS
     basepower 0
@@ -3322,7 +3322,7 @@ movedata MOVE_PAIN_SPLIT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SACRED_FIRE
+movedata MOVE_SACRED_FIRE, "Sacred Fire"
     battleeffect 125
     pss SPLIT_PHYSICAL
     basepower 100
@@ -3337,7 +3337,7 @@ movedata MOVE_SACRED_FIRE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MAGNITUDE
+movedata MOVE_MAGNITUDE, "Magnitude"
     battleeffect 126
     pss SPLIT_PHYSICAL
     basepower 1
@@ -3352,7 +3352,7 @@ movedata MOVE_MAGNITUDE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DYNAMIC_PUNCH
+movedata MOVE_DYNAMIC_PUNCH, "DynamicPunch"
     battleeffect 76
     pss SPLIT_PHYSICAL
     basepower 100
@@ -3367,7 +3367,7 @@ movedata MOVE_DYNAMIC_PUNCH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_MEGAHORN
+movedata MOVE_MEGAHORN, "Megahorn"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
@@ -3382,7 +3382,7 @@ movedata MOVE_MEGAHORN
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DRAGON_BREATH
+movedata MOVE_DRAGON_BREATH, "DragonBreath"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 60
@@ -3397,7 +3397,7 @@ movedata MOVE_DRAGON_BREATH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BATON_PASS
+movedata MOVE_BATON_PASS, "Baton Pass"
     battleeffect 127
     pss SPLIT_STATUS
     basepower 0
@@ -3412,7 +3412,7 @@ movedata MOVE_BATON_PASS
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ENCORE
+movedata MOVE_ENCORE, "Encore"
     battleeffect 90
     pss SPLIT_STATUS
     basepower 0
@@ -3427,7 +3427,7 @@ movedata MOVE_ENCORE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_PURSUIT
+movedata MOVE_PURSUIT, "Pursuit"
     battleeffect 128
     pss SPLIT_PHYSICAL
     basepower 40
@@ -3442,7 +3442,7 @@ movedata MOVE_PURSUIT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_RAPID_SPIN
+movedata MOVE_RAPID_SPIN, "Rapid Spin"
     battleeffect 129
     pss SPLIT_PHYSICAL
     basepower 50
@@ -3457,7 +3457,7 @@ movedata MOVE_RAPID_SPIN
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SWEET_SCENT
+movedata MOVE_SWEET_SCENT, "Sweet Scent"
     battleeffect 24
     pss SPLIT_STATUS
     basepower 0
@@ -3472,7 +3472,7 @@ movedata MOVE_SWEET_SCENT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_IRON_TAIL
+movedata MOVE_IRON_TAIL, "Iron Tail"
     battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 100
@@ -3487,7 +3487,7 @@ movedata MOVE_IRON_TAIL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_METAL_CLAW
+movedata MOVE_METAL_CLAW, "Metal Claw"
     battleeffect 139
     pss SPLIT_PHYSICAL
     basepower 50
@@ -3502,7 +3502,7 @@ movedata MOVE_METAL_CLAW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_VITAL_THROW
+movedata MOVE_VITAL_THROW, "Vital Throw"
     battleeffect 78
     pss SPLIT_PHYSICAL
     basepower 70
@@ -3517,7 +3517,7 @@ movedata MOVE_VITAL_THROW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_MORNING_SUN
+movedata MOVE_MORNING_SUN, "Morning Sun"
     battleeffect 132
     pss SPLIT_STATUS
     basepower 0
@@ -3532,7 +3532,7 @@ movedata MOVE_MORNING_SUN
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SYNTHESIS
+movedata MOVE_SYNTHESIS, "Synthesis"
     battleeffect 132
     pss SPLIT_STATUS
     basepower 0
@@ -3547,7 +3547,7 @@ movedata MOVE_SYNTHESIS
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MOONLIGHT
+movedata MOVE_MOONLIGHT, "Moonlight"
     battleeffect 132
     pss SPLIT_STATUS
     basepower 0
@@ -3562,7 +3562,7 @@ movedata MOVE_MOONLIGHT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HIDDEN_POWER
+movedata MOVE_HIDDEN_POWER, "Hidden Power"
     battleeffect 135
     pss SPLIT_SPECIAL
     basepower DEBUG_NEEDS_TESTING ? 60 : 1 // come back and look at this eventually
@@ -3577,7 +3577,7 @@ movedata MOVE_HIDDEN_POWER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_CROSS_CHOP
+movedata MOVE_CROSS_CHOP, "Cross Chop"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 100
@@ -3592,7 +3592,7 @@ movedata MOVE_CROSS_CHOP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TWISTER
+movedata MOVE_TWISTER, "Twister"
     battleeffect 146
     pss SPLIT_SPECIAL
     basepower 40
@@ -3607,7 +3607,7 @@ movedata MOVE_TWISTER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RAIN_DANCE
+movedata MOVE_RAIN_DANCE, "Rain Dance"
     battleeffect 136
     pss SPLIT_STATUS
     basepower 0
@@ -3622,7 +3622,7 @@ movedata MOVE_RAIN_DANCE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SUNNY_DAY
+movedata MOVE_SUNNY_DAY, "Sunny Day"
     battleeffect 137
     pss SPLIT_STATUS
     basepower 0
@@ -3637,7 +3637,7 @@ movedata MOVE_SUNNY_DAY
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_CRUNCH
+movedata MOVE_CRUNCH, "Crunch"
     battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 80
@@ -3652,7 +3652,7 @@ movedata MOVE_CRUNCH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MIRROR_COAT
+movedata MOVE_MIRROR_COAT, "Mirror Coat"
     battleeffect 144
     pss SPLIT_SPECIAL
     basepower 1
@@ -3667,7 +3667,7 @@ movedata MOVE_MIRROR_COAT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_PSYCH_UP
+movedata MOVE_PSYCH_UP, "Psych Up"
     battleeffect 143
     pss SPLIT_STATUS
     basepower 0
@@ -3682,7 +3682,7 @@ movedata MOVE_PSYCH_UP
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_EXTREME_SPEED
+movedata MOVE_EXTREME_SPEED, "ExtremeSpeed"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 80
@@ -3697,7 +3697,7 @@ movedata MOVE_EXTREME_SPEED
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ANCIENT_POWER
+movedata MOVE_ANCIENT_POWER, "AncientPower"
     battleeffect 140
     pss SPLIT_SPECIAL
     basepower 60
@@ -3712,7 +3712,7 @@ movedata MOVE_ANCIENT_POWER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SHADOW_BALL
+movedata MOVE_SHADOW_BALL, "Shadow Ball"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 80
@@ -3727,7 +3727,7 @@ movedata MOVE_SHADOW_BALL
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FUTURE_SIGHT
+movedata MOVE_FUTURE_SIGHT, "Future Sight"
     battleeffect 148
     pss SPLIT_SPECIAL
     basepower 120
@@ -3742,7 +3742,7 @@ movedata MOVE_FUTURE_SIGHT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ROCK_SMASH
+movedata MOVE_ROCK_SMASH, "Rock Smash"
     battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 40
@@ -3757,7 +3757,7 @@ movedata MOVE_ROCK_SMASH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_WHIRLPOOL
+movedata MOVE_WHIRLPOOL, "Whirlpool"
     battleeffect 261
     pss SPLIT_SPECIAL
     basepower 35
@@ -3772,7 +3772,7 @@ movedata MOVE_WHIRLPOOL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_BEAT_UP
+movedata MOVE_BEAT_UP, "Beat Up"
     battleeffect 154
     pss SPLIT_PHYSICAL
     basepower DEBUG_NEEDS_TESTING ? 0 : 10 // will beat up still work with base power 0?
@@ -3787,7 +3787,7 @@ movedata MOVE_BEAT_UP
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FAKE_OUT
+movedata MOVE_FAKE_OUT, "Fake Out"
     battleeffect 158
     pss SPLIT_PHYSICAL
     basepower 40
@@ -3802,7 +3802,7 @@ movedata MOVE_FAKE_OUT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_UPROAR
+movedata MOVE_UPROAR, "Uproar"
     battleeffect 159
     pss SPLIT_SPECIAL
     basepower 90
@@ -3817,7 +3817,7 @@ movedata MOVE_UPROAR
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_STOCKPILE
+movedata MOVE_STOCKPILE, "Stockpile"
     battleeffect 160
     pss SPLIT_STATUS
     basepower 0
@@ -3832,7 +3832,7 @@ movedata MOVE_STOCKPILE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SPIT_UP
+movedata MOVE_SPIT_UP, "Spit Up"
     battleeffect 161
     pss SPLIT_SPECIAL
     basepower 1
@@ -3847,7 +3847,7 @@ movedata MOVE_SPIT_UP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SWALLOW
+movedata MOVE_SWALLOW, "Swallow"
     battleeffect 162
     pss SPLIT_STATUS
     basepower 0
@@ -3862,7 +3862,7 @@ movedata MOVE_SWALLOW
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_HEAT_WAVE
+movedata MOVE_HEAT_WAVE, "Heat Wave"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 95
@@ -3877,7 +3877,7 @@ movedata MOVE_HEAT_WAVE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HAIL
+movedata MOVE_HAIL, "Hail"
     battleeffect 164
     pss SPLIT_STATUS
     basepower 0
@@ -3892,7 +3892,7 @@ movedata MOVE_HAIL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_TORMENT
+movedata MOVE_TORMENT, "Torment"
     battleeffect 165
     pss SPLIT_STATUS
     basepower 0
@@ -3907,7 +3907,7 @@ movedata MOVE_TORMENT
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FLATTER
+movedata MOVE_FLATTER, "Flatter"
     battleeffect 166
     pss SPLIT_STATUS
     basepower 0
@@ -3922,7 +3922,7 @@ movedata MOVE_FLATTER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_WILL_O_WISP
+movedata MOVE_WILL_O_WISP, "Will-O-Wisp"
     battleeffect 167
     pss SPLIT_STATUS
     basepower 0
@@ -3937,7 +3937,7 @@ movedata MOVE_WILL_O_WISP
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MEMENTO
+movedata MOVE_MEMENTO, "Memento"
     battleeffect 168
     pss SPLIT_STATUS
     basepower 0
@@ -3952,7 +3952,7 @@ movedata MOVE_MEMENTO
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_FACADE
+movedata MOVE_FACADE, "Facade"
     battleeffect 169
     pss SPLIT_PHYSICAL
     basepower 70
@@ -3967,7 +3967,7 @@ movedata MOVE_FACADE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_FOCUS_PUNCH
+movedata MOVE_FOCUS_PUNCH, "Focus Punch"
     battleeffect 170
     pss SPLIT_PHYSICAL
     basepower 150
@@ -3982,7 +3982,7 @@ movedata MOVE_FOCUS_PUNCH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SMELLING_SALT
+movedata MOVE_SMELLING_SALT, "SmellingSalt"
     battleeffect 171
     pss SPLIT_PHYSICAL
     basepower 70
@@ -3997,7 +3997,7 @@ movedata MOVE_SMELLING_SALT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FOLLOW_ME
+movedata MOVE_FOLLOW_ME, "Follow Me"
     battleeffect 172
     pss SPLIT_STATUS
     basepower 0
@@ -4012,7 +4012,7 @@ movedata MOVE_FOLLOW_ME
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_NATURE_POWER
+movedata MOVE_NATURE_POWER, "Nature Power"
     battleeffect 173
     pss SPLIT_STATUS
     basepower 0
@@ -4027,7 +4027,7 @@ movedata MOVE_NATURE_POWER
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_CHARGE
+movedata MOVE_CHARGE, "Charge"
     battleeffect 174
     pss SPLIT_STATUS
     basepower 0
@@ -4042,7 +4042,7 @@ movedata MOVE_CHARGE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TAUNT
+movedata MOVE_TAUNT, "Taunt"
     battleeffect 175
     pss SPLIT_STATUS
     basepower 0
@@ -4057,7 +4057,7 @@ movedata MOVE_TAUNT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HELPING_HAND
+movedata MOVE_HELPING_HAND, "Helping Hand"
     battleeffect 176
     pss SPLIT_STATUS
     basepower 0
@@ -4072,7 +4072,7 @@ movedata MOVE_HELPING_HAND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TRICK
+movedata MOVE_TRICK, "Trick"
     battleeffect 177
     pss SPLIT_STATUS
     basepower 0
@@ -4087,7 +4087,7 @@ movedata MOVE_TRICK
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ROLE_PLAY
+movedata MOVE_ROLE_PLAY, "Role Play"
     battleeffect 178
     pss SPLIT_STATUS
     basepower 0
@@ -4102,7 +4102,7 @@ movedata MOVE_ROLE_PLAY
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_WISH
+movedata MOVE_WISH, "Wish"
     battleeffect 179
     pss SPLIT_STATUS
     basepower 0
@@ -4117,7 +4117,7 @@ movedata MOVE_WISH
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ASSIST
+movedata MOVE_ASSIST, "Assist"
     battleeffect 180
     pss SPLIT_STATUS
     basepower 0
@@ -4132,7 +4132,7 @@ movedata MOVE_ASSIST
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_INGRAIN
+movedata MOVE_INGRAIN, "Ingrain"
     battleeffect 181
     pss SPLIT_STATUS
     basepower 0
@@ -4147,7 +4147,7 @@ movedata MOVE_INGRAIN
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SUPERPOWER
+movedata MOVE_SUPERPOWER, "Superpower"
     battleeffect 182
     pss SPLIT_PHYSICAL
     basepower 120
@@ -4162,7 +4162,7 @@ movedata MOVE_SUPERPOWER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MAGIC_COAT
+movedata MOVE_MAGIC_COAT, "Magic Coat"
     battleeffect 183
     pss SPLIT_STATUS
     basepower 0
@@ -4177,7 +4177,7 @@ movedata MOVE_MAGIC_COAT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_RECYCLE
+movedata MOVE_RECYCLE, "Recycle"
     battleeffect 184
     pss SPLIT_STATUS
     basepower 0
@@ -4192,7 +4192,7 @@ movedata MOVE_RECYCLE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_REVENGE
+movedata MOVE_REVENGE, "Revenge"
     battleeffect 185
     pss SPLIT_PHYSICAL
     basepower 60
@@ -4207,7 +4207,7 @@ movedata MOVE_REVENGE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_BRICK_BREAK
+movedata MOVE_BRICK_BREAK, "Brick Break"
     battleeffect 186
     pss SPLIT_PHYSICAL
     basepower 75
@@ -4222,7 +4222,7 @@ movedata MOVE_BRICK_BREAK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_YAWN
+movedata MOVE_YAWN, "Yawn"
     battleeffect 187
     pss SPLIT_STATUS
     basepower 0
@@ -4237,7 +4237,7 @@ movedata MOVE_YAWN
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_KNOCK_OFF
+movedata MOVE_KNOCK_OFF, "Knock Off"
     battleeffect 188
     pss SPLIT_PHYSICAL
     basepower 65
@@ -4252,7 +4252,7 @@ movedata MOVE_KNOCK_OFF
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ENDEAVOR
+movedata MOVE_ENDEAVOR, "Endeavor"
     battleeffect 189
     pss SPLIT_PHYSICAL
     basepower 1
@@ -4267,7 +4267,7 @@ movedata MOVE_ENDEAVOR
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_ERUPTION
+movedata MOVE_ERUPTION, "Eruption"
     battleeffect 190
     pss SPLIT_SPECIAL
     basepower 150
@@ -4282,7 +4282,7 @@ movedata MOVE_ERUPTION
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SKILL_SWAP
+movedata MOVE_SKILL_SWAP, "Skill Swap"
     battleeffect 191
     pss SPLIT_STATUS
     basepower 0
@@ -4297,7 +4297,7 @@ movedata MOVE_SKILL_SWAP
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_IMPRISON
+movedata MOVE_IMPRISON, "Imprison"
     battleeffect 192
     pss SPLIT_STATUS
     basepower 0
@@ -4312,7 +4312,7 @@ movedata MOVE_IMPRISON
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_REFRESH
+movedata MOVE_REFRESH, "Refresh"
     battleeffect 193
     pss SPLIT_STATUS
     basepower 0
@@ -4327,7 +4327,7 @@ movedata MOVE_REFRESH
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_GRUDGE
+movedata MOVE_GRUDGE, "Grudge"
     battleeffect 194
     pss SPLIT_STATUS
     basepower 0
@@ -4342,7 +4342,7 @@ movedata MOVE_GRUDGE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SNATCH
+movedata MOVE_SNATCH, "Snatch"
     battleeffect 195
     pss SPLIT_STATUS
     basepower 0
@@ -4357,7 +4357,7 @@ movedata MOVE_SNATCH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SECRET_POWER
+movedata MOVE_SECRET_POWER, "Secret Power"
     battleeffect 197
     pss SPLIT_PHYSICAL
     basepower 70
@@ -4372,7 +4372,7 @@ movedata MOVE_SECRET_POWER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DIVE
+movedata MOVE_DIVE, "Dive"
     battleeffect 255
     pss SPLIT_PHYSICAL
     basepower 80
@@ -4387,7 +4387,7 @@ movedata MOVE_DIVE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ARM_THRUST
+movedata MOVE_ARM_THRUST, "Arm Thrust"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 15
@@ -4402,7 +4402,7 @@ movedata MOVE_ARM_THRUST
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CAMOUFLAGE
+movedata MOVE_CAMOUFLAGE, "Camouflage"
     battleeffect 213
     pss SPLIT_STATUS
     basepower 0
@@ -4417,7 +4417,7 @@ movedata MOVE_CAMOUFLAGE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TAIL_GLOW
+movedata MOVE_TAIL_GLOW, "Tail Glow"
     battleeffect 53
     pss SPLIT_STATUS
     basepower 0
@@ -4432,7 +4432,7 @@ movedata MOVE_TAIL_GLOW
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_LUSTER_PURGE
+movedata MOVE_LUSTER_PURGE, "Luster Purge"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 70
@@ -4447,7 +4447,7 @@ movedata MOVE_LUSTER_PURGE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MIST_BALL
+movedata MOVE_MIST_BALL, "Mist Ball"
     battleeffect 71
     pss SPLIT_SPECIAL
     basepower 70
@@ -4462,7 +4462,7 @@ movedata MOVE_MIST_BALL
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FEATHER_DANCE
+movedata MOVE_FEATHER_DANCE, "FeatherDance"
     battleeffect 58
     pss SPLIT_STATUS
     basepower 0
@@ -4477,7 +4477,7 @@ movedata MOVE_FEATHER_DANCE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_TEETER_DANCE
+movedata MOVE_TEETER_DANCE, "Teeter Dance"
     battleeffect 199
     pss SPLIT_STATUS
     basepower 0
@@ -4492,7 +4492,7 @@ movedata MOVE_TEETER_DANCE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_BLAZE_KICK
+movedata MOVE_BLAZE_KICK, "Blaze Kick"
     battleeffect 200
     pss SPLIT_PHYSICAL
     basepower 85
@@ -4507,7 +4507,7 @@ movedata MOVE_BLAZE_KICK
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MUD_SPORT
+movedata MOVE_MUD_SPORT, "Mud Sport"
     battleeffect 201
     pss SPLIT_STATUS
     basepower 0
@@ -4522,7 +4522,7 @@ movedata MOVE_MUD_SPORT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ICE_BALL
+movedata MOVE_ICE_BALL, "Ice Ball"
     battleeffect 117
     pss SPLIT_PHYSICAL
     basepower 30
@@ -4537,7 +4537,7 @@ movedata MOVE_ICE_BALL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_NEEDLE_ARM
+movedata MOVE_NEEDLE_ARM, "Needle Arm"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 60
@@ -4552,7 +4552,7 @@ movedata MOVE_NEEDLE_ARM
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SLACK_OFF
+movedata MOVE_SLACK_OFF, "Slack Off"
     battleeffect 32
     pss SPLIT_STATUS
     basepower 0
@@ -4567,7 +4567,7 @@ movedata MOVE_SLACK_OFF
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_HYPER_VOICE
+movedata MOVE_HYPER_VOICE, "Hyper Voice"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 90
@@ -4582,7 +4582,7 @@ movedata MOVE_HYPER_VOICE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POISON_FANG
+movedata MOVE_POISON_FANG, "Poison Fang"
     battleeffect 202
     pss SPLIT_PHYSICAL
     basepower 50
@@ -4597,7 +4597,7 @@ movedata MOVE_POISON_FANG
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_CRUSH_CLAW
+movedata MOVE_CRUSH_CLAW, "Crush Claw"
     battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 75
@@ -4612,7 +4612,7 @@ movedata MOVE_CRUSH_CLAW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BLAST_BURN
+movedata MOVE_BLAST_BURN, "Blast Burn"
     battleeffect 80
     pss SPLIT_SPECIAL
     basepower 150
@@ -4627,7 +4627,7 @@ movedata MOVE_BLAST_BURN
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HYDRO_CANNON
+movedata MOVE_HYDRO_CANNON, "Hydro Cannon"
     battleeffect 80
     pss SPLIT_SPECIAL
     basepower 150
@@ -4642,7 +4642,7 @@ movedata MOVE_HYDRO_CANNON
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_METEOR_MASH
+movedata MOVE_METEOR_MASH, "Meteor Mash"
     battleeffect 139
     pss SPLIT_PHYSICAL
     basepower 90
@@ -4657,7 +4657,7 @@ movedata MOVE_METEOR_MASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ASTONISH
+movedata MOVE_ASTONISH, "Astonish"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 30
@@ -4672,7 +4672,7 @@ movedata MOVE_ASTONISH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_WEATHER_BALL
+movedata MOVE_WEATHER_BALL, "Weather Ball"
     battleeffect 203
     pss SPLIT_SPECIAL
     basepower 50
@@ -4687,7 +4687,7 @@ movedata MOVE_WEATHER_BALL
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_AROMATHERAPY
+movedata MOVE_AROMATHERAPY, "Aromatherapy"
     battleeffect 102
     pss SPLIT_STATUS
     basepower 0
@@ -4702,7 +4702,7 @@ movedata MOVE_AROMATHERAPY
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FAKE_TEARS
+movedata MOVE_FAKE_TEARS, "Fake Tears"
     battleeffect 62
     pss SPLIT_STATUS
     basepower 0
@@ -4717,7 +4717,7 @@ movedata MOVE_FAKE_TEARS
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_AIR_CUTTER
+movedata MOVE_AIR_CUTTER, "Air Cutter"
     battleeffect 43
     pss SPLIT_SPECIAL
     basepower 60
@@ -4732,7 +4732,7 @@ movedata MOVE_AIR_CUTTER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_OVERHEAT
+movedata MOVE_OVERHEAT, "Overheat"
     battleeffect 204
     pss SPLIT_SPECIAL
     basepower 130
@@ -4747,7 +4747,7 @@ movedata MOVE_OVERHEAT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ODOR_SLEUTH
+movedata MOVE_ODOR_SLEUTH, "Odor Sleuth"
     battleeffect 113
     pss SPLIT_STATUS
     basepower 0
@@ -4762,7 +4762,7 @@ movedata MOVE_ODOR_SLEUTH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ROCK_TOMB
+movedata MOVE_ROCK_TOMB, "Rock Tomb"
     battleeffect 70
     pss SPLIT_PHYSICAL
     basepower 60
@@ -4777,7 +4777,7 @@ movedata MOVE_ROCK_TOMB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SILVER_WIND
+movedata MOVE_SILVER_WIND, "Silver Wind"
     battleeffect 140
     pss SPLIT_SPECIAL
     basepower 60
@@ -4792,7 +4792,7 @@ movedata MOVE_SILVER_WIND
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_METAL_SOUND
+movedata MOVE_METAL_SOUND, "Metal Sound"
     battleeffect 62
     pss SPLIT_STATUS
     basepower 0
@@ -4807,7 +4807,7 @@ movedata MOVE_METAL_SOUND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_GRASS_WHISTLE
+movedata MOVE_GRASS_WHISTLE, "GrassWhistle"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -4822,7 +4822,7 @@ movedata MOVE_GRASS_WHISTLE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TICKLE
+movedata MOVE_TICKLE, "Tickle"
     battleeffect 205
     pss SPLIT_STATUS
     basepower 0
@@ -4837,7 +4837,7 @@ movedata MOVE_TICKLE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_COSMIC_POWER
+movedata MOVE_COSMIC_POWER, "Cosmic Power"
     battleeffect 206
     pss SPLIT_STATUS
     basepower 0
@@ -4852,7 +4852,7 @@ movedata MOVE_COSMIC_POWER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WATER_SPOUT
+movedata MOVE_WATER_SPOUT, "Water Spout"
     battleeffect 190
     pss SPLIT_SPECIAL
     basepower 150
@@ -4867,7 +4867,7 @@ movedata MOVE_WATER_SPOUT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SIGNAL_BEAM
+movedata MOVE_SIGNAL_BEAM, "Signal Beam"
     battleeffect 76
     pss SPLIT_SPECIAL
     basepower 75
@@ -4882,7 +4882,7 @@ movedata MOVE_SIGNAL_BEAM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SHADOW_PUNCH
+movedata MOVE_SHADOW_PUNCH, "Shadow Punch"
     battleeffect 17
     pss SPLIT_PHYSICAL
     basepower 60
@@ -4897,7 +4897,7 @@ movedata MOVE_SHADOW_PUNCH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_EXTRASENSORY
+movedata MOVE_EXTRASENSORY, "Extrasensory"
     battleeffect 31
     pss SPLIT_SPECIAL
     basepower 80
@@ -4912,7 +4912,7 @@ movedata MOVE_EXTRASENSORY
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SKY_UPPERCUT
+movedata MOVE_SKY_UPPERCUT, "Sky Uppercut"
     battleeffect 207
     pss SPLIT_PHYSICAL
     basepower 85
@@ -4927,7 +4927,7 @@ movedata MOVE_SKY_UPPERCUT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SAND_TOMB
+movedata MOVE_SAND_TOMB, "Sand Tomb"
     battleeffect 42
     pss SPLIT_PHYSICAL
     basepower 35
@@ -4942,7 +4942,7 @@ movedata MOVE_SAND_TOMB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SHEER_COLD
+movedata MOVE_SHEER_COLD, "Sheer Cold"
     battleeffect 38
     pss SPLIT_SPECIAL
     basepower 1
@@ -4957,7 +4957,7 @@ movedata MOVE_SHEER_COLD
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MUDDY_WATER
+movedata MOVE_MUDDY_WATER, "Muddy Water"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 90
@@ -4972,7 +4972,7 @@ movedata MOVE_MUDDY_WATER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_BULLET_SEED
+movedata MOVE_BULLET_SEED, "Bullet Seed"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 25
@@ -4987,7 +4987,7 @@ movedata MOVE_BULLET_SEED
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_AERIAL_ACE
+movedata MOVE_AERIAL_ACE, "Aerial Ace"
     battleeffect 17
     pss SPLIT_PHYSICAL
     basepower 60
@@ -5002,7 +5002,7 @@ movedata MOVE_AERIAL_ACE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ICICLE_SPEAR
+movedata MOVE_ICICLE_SPEAR, "Icicle Spear"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 25
@@ -5017,7 +5017,7 @@ movedata MOVE_ICICLE_SPEAR
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_IRON_DEFENSE
+movedata MOVE_IRON_DEFENSE, "Iron Defense"
     battleeffect 51
     pss SPLIT_STATUS
     basepower 0
@@ -5032,7 +5032,7 @@ movedata MOVE_IRON_DEFENSE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_BLOCK
+movedata MOVE_BLOCK, "Block"
     battleeffect 106
     pss SPLIT_STATUS
     basepower 0
@@ -5047,7 +5047,7 @@ movedata MOVE_BLOCK
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_HOWL
+movedata MOVE_HOWL, "Howl"
     battleeffect 10
     pss SPLIT_STATUS
     basepower 0
@@ -5062,7 +5062,7 @@ movedata MOVE_HOWL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DRAGON_CLAW
+movedata MOVE_DRAGON_CLAW, "Dragon Claw"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -5077,7 +5077,7 @@ movedata MOVE_DRAGON_CLAW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FRENZY_PLANT
+movedata MOVE_FRENZY_PLANT, "Frenzy Plant"
     battleeffect 80
     pss SPLIT_SPECIAL
     basepower 150
@@ -5092,7 +5092,7 @@ movedata MOVE_FRENZY_PLANT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BULK_UP
+movedata MOVE_BULK_UP, "Bulk Up"
     battleeffect 208
     pss SPLIT_STATUS
     basepower 0
@@ -5107,7 +5107,7 @@ movedata MOVE_BULK_UP
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_BOUNCE
+movedata MOVE_BOUNCE, "Bounce"
     battleeffect 263
     pss SPLIT_PHYSICAL
     basepower 85
@@ -5122,7 +5122,7 @@ movedata MOVE_BOUNCE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_MUD_SHOT
+movedata MOVE_MUD_SHOT, "Mud Shot"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 55
@@ -5137,7 +5137,7 @@ movedata MOVE_MUD_SHOT
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_POISON_TAIL
+movedata MOVE_POISON_TAIL, "Poison Tail"
     battleeffect 209
     pss SPLIT_PHYSICAL
     basepower 50
@@ -5152,7 +5152,7 @@ movedata MOVE_POISON_TAIL
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_COVET
+movedata MOVE_COVET, "Covet"
     battleeffect 105
     pss SPLIT_PHYSICAL
     basepower 60
@@ -5167,7 +5167,7 @@ movedata MOVE_COVET
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_VOLT_TACKLE
+movedata MOVE_VOLT_TACKLE, "Volt Tackle"
     battleeffect 262
     pss SPLIT_PHYSICAL
     basepower 120
@@ -5182,7 +5182,7 @@ movedata MOVE_VOLT_TACKLE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_MAGICAL_LEAF
+movedata MOVE_MAGICAL_LEAF, "Magical Leaf"
     battleeffect 17
     pss SPLIT_SPECIAL
     basepower 60
@@ -5197,7 +5197,7 @@ movedata MOVE_MAGICAL_LEAF
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_WATER_SPORT
+movedata MOVE_WATER_SPORT, "Water Sport"
     battleeffect 210
     pss SPLIT_STATUS
     basepower 0
@@ -5212,7 +5212,7 @@ movedata MOVE_WATER_SPORT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_CALM_MIND
+movedata MOVE_CALM_MIND, "Calm Mind"
     battleeffect 211
     pss SPLIT_STATUS
     basepower 0
@@ -5227,7 +5227,7 @@ movedata MOVE_CALM_MIND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_LEAF_BLADE
+movedata MOVE_LEAF_BLADE, "Leaf Blade"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 90
@@ -5242,7 +5242,7 @@ movedata MOVE_LEAF_BLADE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DRAGON_DANCE
+movedata MOVE_DRAGON_DANCE, "Dragon Dance"
     battleeffect 212
     pss SPLIT_STATUS
     basepower 0
@@ -5257,7 +5257,7 @@ movedata MOVE_DRAGON_DANCE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ROCK_BLAST
+movedata MOVE_ROCK_BLAST, "Rock Blast"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 25
@@ -5272,7 +5272,7 @@ movedata MOVE_ROCK_BLAST
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_SHOCK_WAVE
+movedata MOVE_SHOCK_WAVE, "Shock Wave"
     battleeffect 17
     pss SPLIT_SPECIAL
     basepower 60
@@ -5287,7 +5287,7 @@ movedata MOVE_SHOCK_WAVE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WATER_PULSE
+movedata MOVE_WATER_PULSE, "Water Pulse"
     battleeffect 76
     pss SPLIT_SPECIAL
     basepower 60
@@ -5302,7 +5302,7 @@ movedata MOVE_WATER_PULSE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_DOOM_DESIRE
+movedata MOVE_DOOM_DESIRE, "Doom Desire"
     battleeffect 148
     pss SPLIT_SPECIAL
     basepower 140
@@ -5317,7 +5317,7 @@ movedata MOVE_DOOM_DESIRE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PSYCHO_BOOST
+movedata MOVE_PSYCHO_BOOST, "Psycho Boost"
     battleeffect 204
     pss SPLIT_SPECIAL
     basepower 140
@@ -5332,7 +5332,7 @@ movedata MOVE_PSYCHO_BOOST
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ROOST
+movedata MOVE_ROOST, "Roost"
     battleeffect 214
     pss SPLIT_STATUS
     basepower 0
@@ -5347,7 +5347,7 @@ movedata MOVE_ROOST
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GRAVITY
+movedata MOVE_GRAVITY, "Gravity"
     battleeffect 215
     pss SPLIT_STATUS
     basepower 0
@@ -5362,7 +5362,7 @@ movedata MOVE_GRAVITY
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MIRACLE_EYE
+movedata MOVE_MIRACLE_EYE, "Miracle Eye"
     battleeffect 216
     pss SPLIT_STATUS
     basepower 0
@@ -5377,7 +5377,7 @@ movedata MOVE_MIRACLE_EYE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_WAKE_UP_SLAP
+movedata MOVE_WAKE_UP_SLAP, "Wake-Up Slap"
     battleeffect 217
     pss SPLIT_PHYSICAL
     basepower 70
@@ -5392,7 +5392,7 @@ movedata MOVE_WAKE_UP_SLAP
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HAMMER_ARM
+movedata MOVE_HAMMER_ARM, "Hammer Arm"
     battleeffect 218
     pss SPLIT_PHYSICAL
     basepower 100
@@ -5407,7 +5407,7 @@ movedata MOVE_HAMMER_ARM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GYRO_BALL
+movedata MOVE_GYRO_BALL, "Gyro Ball"
     battleeffect 219
     pss SPLIT_PHYSICAL
     basepower 1
@@ -5422,7 +5422,7 @@ movedata MOVE_GYRO_BALL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_HEALING_WISH
+movedata MOVE_HEALING_WISH, "Healing Wish"
     battleeffect 220
     pss SPLIT_STATUS
     basepower 0
@@ -5437,7 +5437,7 @@ movedata MOVE_HEALING_WISH
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_BRINE
+movedata MOVE_BRINE, "Brine"
     battleeffect 221
     pss SPLIT_SPECIAL
     basepower 65
@@ -5452,7 +5452,7 @@ movedata MOVE_BRINE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_NATURAL_GIFT
+movedata MOVE_NATURAL_GIFT, "Natural Gift"
     battleeffect 222
     pss SPLIT_PHYSICAL
     basepower 1
@@ -5467,7 +5467,7 @@ movedata MOVE_NATURAL_GIFT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FEINT
+movedata MOVE_FEINT, "Feint"
     battleeffect 223
     pss SPLIT_PHYSICAL
     basepower 30
@@ -5482,7 +5482,7 @@ movedata MOVE_FEINT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_PLUCK
+movedata MOVE_PLUCK, "Pluck"
     battleeffect 224
     pss SPLIT_PHYSICAL
     basepower 60
@@ -5497,7 +5497,7 @@ movedata MOVE_PLUCK
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_TAILWIND
+movedata MOVE_TAILWIND, "Tailwind"
     battleeffect 225
     pss SPLIT_STATUS
     basepower 0
@@ -5512,7 +5512,7 @@ movedata MOVE_TAILWIND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ACUPRESSURE
+movedata MOVE_ACUPRESSURE, "Acupressure"
     battleeffect 226
     pss SPLIT_STATUS
     basepower 0
@@ -5527,7 +5527,7 @@ movedata MOVE_ACUPRESSURE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_METAL_BURST
+movedata MOVE_METAL_BURST, "Metal Burst"
     battleeffect 227
     pss SPLIT_PHYSICAL
     basepower 1
@@ -5542,7 +5542,7 @@ movedata MOVE_METAL_BURST
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_U_TURN
+movedata MOVE_U_TURN, "U-turn"
     battleeffect 228
     pss SPLIT_PHYSICAL
     basepower 70
@@ -5557,7 +5557,7 @@ movedata MOVE_U_TURN
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_CLOSE_COMBAT
+movedata MOVE_CLOSE_COMBAT, "Close Combat"
     battleeffect 229
     pss SPLIT_PHYSICAL
     basepower 120
@@ -5572,7 +5572,7 @@ movedata MOVE_CLOSE_COMBAT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_PAYBACK
+movedata MOVE_PAYBACK, "Payback"
     battleeffect 230
     pss SPLIT_PHYSICAL
     basepower 50
@@ -5587,7 +5587,7 @@ movedata MOVE_PAYBACK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ASSURANCE
+movedata MOVE_ASSURANCE, "Assurance"
     battleeffect 231
     pss SPLIT_PHYSICAL
     basepower 60
@@ -5602,7 +5602,7 @@ movedata MOVE_ASSURANCE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_EMBARGO
+movedata MOVE_EMBARGO, "Embargo"
     battleeffect 232
     pss SPLIT_STATUS
     basepower 0
@@ -5617,7 +5617,7 @@ movedata MOVE_EMBARGO
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_FLING
+movedata MOVE_FLING, "Fling"
     battleeffect 233
     pss SPLIT_PHYSICAL
     basepower 1
@@ -5632,7 +5632,7 @@ movedata MOVE_FLING
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_PSYCHO_SHIFT
+movedata MOVE_PSYCHO_SHIFT, "Psycho Shift"
     battleeffect 234
     pss SPLIT_STATUS
     basepower 0
@@ -5647,7 +5647,7 @@ movedata MOVE_PSYCHO_SHIFT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TRUMP_CARD
+movedata MOVE_TRUMP_CARD, "Trump Card"
     battleeffect 235
     pss SPLIT_SPECIAL
     basepower 1
@@ -5662,7 +5662,7 @@ movedata MOVE_TRUMP_CARD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEAL_BLOCK
+movedata MOVE_HEAL_BLOCK, "Heal Block"
     battleeffect 236
     pss SPLIT_STATUS
     basepower 0
@@ -5677,7 +5677,7 @@ movedata MOVE_HEAL_BLOCK
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_WRING_OUT
+movedata MOVE_WRING_OUT, "Wring Out"
     battleeffect 237
     pss SPLIT_SPECIAL
     basepower 1
@@ -5692,7 +5692,7 @@ movedata MOVE_WRING_OUT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_POWER_TRICK
+movedata MOVE_POWER_TRICK, "Power Trick"
     battleeffect 238
     pss SPLIT_STATUS
     basepower 0
@@ -5707,7 +5707,7 @@ movedata MOVE_POWER_TRICK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GASTRO_ACID
+movedata MOVE_GASTRO_ACID, "Gastro Acid"
     battleeffect 239
     pss SPLIT_STATUS
     basepower 0
@@ -5722,7 +5722,7 @@ movedata MOVE_GASTRO_ACID
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_LUCKY_CHANT
+movedata MOVE_LUCKY_CHANT, "Lucky Chant"
     battleeffect 240
     pss SPLIT_STATUS
     basepower 0
@@ -5737,7 +5737,7 @@ movedata MOVE_LUCKY_CHANT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_ME_FIRST
+movedata MOVE_ME_FIRST, "Me First"
     battleeffect 241
     pss SPLIT_STATUS
     basepower 0
@@ -5752,7 +5752,7 @@ movedata MOVE_ME_FIRST
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_COPYCAT
+movedata MOVE_COPYCAT, "Copycat"
     battleeffect 242
     pss SPLIT_STATUS
     basepower 0
@@ -5767,7 +5767,7 @@ movedata MOVE_COPYCAT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POWER_SWAP
+movedata MOVE_POWER_SWAP, "Power Swap"
     battleeffect 243
     pss SPLIT_STATUS
     basepower 0
@@ -5782,7 +5782,7 @@ movedata MOVE_POWER_SWAP
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_GUARD_SWAP
+movedata MOVE_GUARD_SWAP, "Guard Swap"
     battleeffect 244
     pss SPLIT_STATUS
     basepower 0
@@ -5797,7 +5797,7 @@ movedata MOVE_GUARD_SWAP
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_PUNISHMENT
+movedata MOVE_PUNISHMENT, "Punishment"
     battleeffect 245
     pss SPLIT_PHYSICAL
     basepower 1
@@ -5812,7 +5812,7 @@ movedata MOVE_PUNISHMENT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_LAST_RESORT
+movedata MOVE_LAST_RESORT, "Last Resort"
     battleeffect 246
     pss SPLIT_PHYSICAL
     basepower 140
@@ -5827,7 +5827,7 @@ movedata MOVE_LAST_RESORT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_WORRY_SEED
+movedata MOVE_WORRY_SEED, "Worry Seed"
     battleeffect 247
     pss SPLIT_STATUS
     basepower 0
@@ -5842,7 +5842,7 @@ movedata MOVE_WORRY_SEED
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SUCKER_PUNCH
+movedata MOVE_SUCKER_PUNCH, "Sucker Punch"
     battleeffect 248
     pss SPLIT_PHYSICAL
     basepower 70
@@ -5857,7 +5857,7 @@ movedata MOVE_SUCKER_PUNCH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_TOXIC_SPIKES
+movedata MOVE_TOXIC_SPIKES, "Toxic Spikes"
     battleeffect 249
     pss SPLIT_STATUS
     basepower 0
@@ -5872,7 +5872,7 @@ movedata MOVE_TOXIC_SPIKES
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HEART_SWAP
+movedata MOVE_HEART_SWAP, "Heart Swap"
     battleeffect 250
     pss SPLIT_STATUS
     basepower 0
@@ -5887,7 +5887,7 @@ movedata MOVE_HEART_SWAP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_AQUA_RING
+movedata MOVE_AQUA_RING, "Aqua Ring"
     battleeffect 251
     pss SPLIT_STATUS
     basepower 0
@@ -5902,7 +5902,7 @@ movedata MOVE_AQUA_RING
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MAGNET_RISE
+movedata MOVE_MAGNET_RISE, "Magnet Rise"
     battleeffect 252
     pss SPLIT_STATUS
     basepower 0
@@ -5917,7 +5917,7 @@ movedata MOVE_MAGNET_RISE
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_FLARE_BLITZ
+movedata MOVE_FLARE_BLITZ, "Flare Blitz"
     battleeffect 253
     pss SPLIT_PHYSICAL
     basepower 120
@@ -5932,7 +5932,7 @@ movedata MOVE_FLARE_BLITZ
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FORCE_PALM
+movedata MOVE_FORCE_PALM, "Force Palm"
     battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 60
@@ -5947,7 +5947,7 @@ movedata MOVE_FORCE_PALM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_AURA_SPHERE
+movedata MOVE_AURA_SPHERE, "Aura Sphere"
     battleeffect 17
     pss SPLIT_SPECIAL
     basepower 80
@@ -5962,7 +5962,7 @@ movedata MOVE_AURA_SPHERE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ROCK_POLISH
+movedata MOVE_ROCK_POLISH, "Rock Polish"
     battleeffect 52
     pss SPLIT_STATUS
     basepower 0
@@ -5977,7 +5977,7 @@ movedata MOVE_ROCK_POLISH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_POISON_JAB
+movedata MOVE_POISON_JAB, "Poison Jab"
     battleeffect 2
     pss SPLIT_PHYSICAL
     basepower 80
@@ -5992,7 +5992,7 @@ movedata MOVE_POISON_JAB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DARK_PULSE
+movedata MOVE_DARK_PULSE, "Dark Pulse"
     battleeffect 31
     pss SPLIT_SPECIAL
     basepower 80
@@ -6007,7 +6007,7 @@ movedata MOVE_DARK_PULSE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_NIGHT_SLASH
+movedata MOVE_NIGHT_SLASH, "Night Slash"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 70
@@ -6022,7 +6022,7 @@ movedata MOVE_NIGHT_SLASH
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_AQUA_TAIL
+movedata MOVE_AQUA_TAIL, "Aqua Tail"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 90
@@ -6037,7 +6037,7 @@ movedata MOVE_AQUA_TAIL
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SEED_BOMB
+movedata MOVE_SEED_BOMB, "Seed Bomb"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -6052,7 +6052,7 @@ movedata MOVE_SEED_BOMB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_AIR_SLASH
+movedata MOVE_AIR_SLASH, "Air Slash"
     battleeffect 31
     pss SPLIT_SPECIAL
     basepower 75
@@ -6067,7 +6067,7 @@ movedata MOVE_AIR_SLASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_X_SCISSOR
+movedata MOVE_X_SCISSOR, "X-Scissor"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 80
@@ -6082,7 +6082,7 @@ movedata MOVE_X_SCISSOR
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_BUG_BUZZ
+movedata MOVE_BUG_BUZZ, "Bug Buzz"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 90
@@ -6097,7 +6097,7 @@ movedata MOVE_BUG_BUZZ
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_DRAGON_PULSE
+movedata MOVE_DRAGON_PULSE, "Dragon Pulse"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 85
@@ -6112,7 +6112,7 @@ movedata MOVE_DRAGON_PULSE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DRAGON_RUSH
+movedata MOVE_DRAGON_RUSH, "Dragon Rush"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 100
@@ -6127,7 +6127,7 @@ movedata MOVE_DRAGON_RUSH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POWER_GEM
+movedata MOVE_POWER_GEM, "Power Gem"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 80
@@ -6142,7 +6142,7 @@ movedata MOVE_POWER_GEM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_DRAIN_PUNCH
+movedata MOVE_DRAIN_PUNCH, "Drain Punch"
     battleeffect 3
     pss SPLIT_PHYSICAL
     basepower 75
@@ -6157,7 +6157,7 @@ movedata MOVE_DRAIN_PUNCH
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_VACUUM_WAVE
+movedata MOVE_VACUUM_WAVE, "Vacuum Wave"
     battleeffect 103
     pss SPLIT_SPECIAL
     basepower 40
@@ -6172,7 +6172,7 @@ movedata MOVE_VACUUM_WAVE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_FOCUS_BLAST
+movedata MOVE_FOCUS_BLAST, "Focus Blast"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 120
@@ -6187,7 +6187,7 @@ movedata MOVE_FOCUS_BLAST
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ENERGY_BALL
+movedata MOVE_ENERGY_BALL, "Energy Ball"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 90
@@ -6202,7 +6202,7 @@ movedata MOVE_ENERGY_BALL
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_BRAVE_BIRD
+movedata MOVE_BRAVE_BIRD, "Brave Bird"
     battleeffect 198
     pss SPLIT_PHYSICAL
     basepower 120
@@ -6217,7 +6217,7 @@ movedata MOVE_BRAVE_BIRD
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_EARTH_POWER
+movedata MOVE_EARTH_POWER, "Earth Power"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 90
@@ -6232,7 +6232,7 @@ movedata MOVE_EARTH_POWER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SWITCHEROO
+movedata MOVE_SWITCHEROO, "Switcheroo"
     battleeffect 177
     pss SPLIT_STATUS
     basepower 0
@@ -6247,7 +6247,7 @@ movedata MOVE_SWITCHEROO
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GIGA_IMPACT
+movedata MOVE_GIGA_IMPACT, "Giga Impact"
     battleeffect 80
     pss SPLIT_PHYSICAL
     basepower 150
@@ -6262,7 +6262,7 @@ movedata MOVE_GIGA_IMPACT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_NASTY_PLOT
+movedata MOVE_NASTY_PLOT, "Nasty Plot"
     battleeffect 53
     pss SPLIT_STATUS
     basepower 0
@@ -6277,7 +6277,7 @@ movedata MOVE_NASTY_PLOT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_BULLET_PUNCH
+movedata MOVE_BULLET_PUNCH, "Bullet Punch"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 40
@@ -6292,7 +6292,7 @@ movedata MOVE_BULLET_PUNCH
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_AVALANCHE
+movedata MOVE_AVALANCHE, "Avalanche"
     battleeffect 185
     pss SPLIT_PHYSICAL
     basepower 60
@@ -6307,7 +6307,7 @@ movedata MOVE_AVALANCHE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ICE_SHARD
+movedata MOVE_ICE_SHARD, "Ice Shard"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 40
@@ -6322,7 +6322,7 @@ movedata MOVE_ICE_SHARD
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SHADOW_CLAW
+movedata MOVE_SHADOW_CLAW, "Shadow Claw"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 70
@@ -6337,7 +6337,7 @@ movedata MOVE_SHADOW_CLAW
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_THUNDER_FANG
+movedata MOVE_THUNDER_FANG, "Thunder Fang"
     battleeffect 275
     pss SPLIT_PHYSICAL
     basepower 65
@@ -6352,7 +6352,7 @@ movedata MOVE_THUNDER_FANG
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ICE_FANG
+movedata MOVE_ICE_FANG, "Ice Fang"
     battleeffect 274
     pss SPLIT_PHYSICAL
     basepower 65
@@ -6367,7 +6367,7 @@ movedata MOVE_ICE_FANG
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FIRE_FANG
+movedata MOVE_FIRE_FANG, "Fire Fang"
     battleeffect 273
     pss SPLIT_PHYSICAL
     basepower 65
@@ -6382,7 +6382,7 @@ movedata MOVE_FIRE_FANG
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SHADOW_SNEAK
+movedata MOVE_SHADOW_SNEAK, "Shadow Sneak"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 40
@@ -6397,7 +6397,7 @@ movedata MOVE_SHADOW_SNEAK
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_MUD_BOMB
+movedata MOVE_MUD_BOMB, "Mud Bomb"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 65
@@ -6412,7 +6412,7 @@ movedata MOVE_MUD_BOMB
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_PSYCHO_CUT
+movedata MOVE_PSYCHO_CUT, "Psycho Cut"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 70
@@ -6427,7 +6427,7 @@ movedata MOVE_PSYCHO_CUT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ZEN_HEADBUTT
+movedata MOVE_ZEN_HEADBUTT, "Zen Headbutt"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 80
@@ -6442,7 +6442,7 @@ movedata MOVE_ZEN_HEADBUTT
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_MIRROR_SHOT
+movedata MOVE_MIRROR_SHOT, "Mirror Shot"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 65
@@ -6457,7 +6457,7 @@ movedata MOVE_MIRROR_SHOT
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_FLASH_CANNON
+movedata MOVE_FLASH_CANNON, "Flash Cannon"
     battleeffect 72
     pss SPLIT_SPECIAL
     basepower 80
@@ -6472,7 +6472,7 @@ movedata MOVE_FLASH_CANNON
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ROCK_CLIMB
+movedata MOVE_ROCK_CLIMB, "Rock Climb"
     battleeffect 76
     pss SPLIT_PHYSICAL
     basepower 90
@@ -6487,7 +6487,7 @@ movedata MOVE_ROCK_CLIMB
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DEFOG
+movedata MOVE_DEFOG, "Defog"
     battleeffect 258
     pss SPLIT_STATUS
     basepower 0
@@ -6502,7 +6502,7 @@ movedata MOVE_DEFOG
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_TRICK_ROOM
+movedata MOVE_TRICK_ROOM, "Trick Room"
     battleeffect 259
     pss SPLIT_STATUS
     basepower 0
@@ -6517,7 +6517,7 @@ movedata MOVE_TRICK_ROOM
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_DRACO_METEOR
+movedata MOVE_DRACO_METEOR, "Draco Meteor"
     battleeffect 204
     pss SPLIT_SPECIAL
     basepower 130
@@ -6532,7 +6532,7 @@ movedata MOVE_DRACO_METEOR
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DISCHARGE
+movedata MOVE_DISCHARGE, "Discharge"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 80
@@ -6547,7 +6547,7 @@ movedata MOVE_DISCHARGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_LAVA_PLUME
+movedata MOVE_LAVA_PLUME, "Lava Plume"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 80
@@ -6562,7 +6562,7 @@ movedata MOVE_LAVA_PLUME
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_LEAF_STORM
+movedata MOVE_LEAF_STORM, "Leaf Storm"
     battleeffect 204
     pss SPLIT_SPECIAL
     basepower 130
@@ -6577,7 +6577,7 @@ movedata MOVE_LEAF_STORM
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_POWER_WHIP
+movedata MOVE_POWER_WHIP, "Power Whip"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
@@ -6592,7 +6592,7 @@ movedata MOVE_POWER_WHIP
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ROCK_WRECKER
+movedata MOVE_ROCK_WRECKER, "Rock Wrecker"
     battleeffect 80
     pss SPLIT_PHYSICAL
     basepower 150
@@ -6607,7 +6607,7 @@ movedata MOVE_ROCK_WRECKER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CROSS_POISON
+movedata MOVE_CROSS_POISON, "Cross Poison"
     battleeffect 209
     pss SPLIT_PHYSICAL
     basepower 70
@@ -6622,7 +6622,7 @@ movedata MOVE_CROSS_POISON
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GUNK_SHOT
+movedata MOVE_GUNK_SHOT, "Gunk Shot"
     battleeffect 2
     pss SPLIT_PHYSICAL
     basepower 120
@@ -6637,7 +6637,7 @@ movedata MOVE_GUNK_SHOT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_IRON_HEAD
+movedata MOVE_IRON_HEAD, "Iron Head"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 80
@@ -6652,7 +6652,7 @@ movedata MOVE_IRON_HEAD
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MAGNET_BOMB
+movedata MOVE_MAGNET_BOMB, "Magnet Bomb"
     battleeffect 17
     pss SPLIT_PHYSICAL
     basepower 60
@@ -6667,7 +6667,7 @@ movedata MOVE_MAGNET_BOMB
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STONE_EDGE
+movedata MOVE_STONE_EDGE, "Stone Edge"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 100
@@ -6682,7 +6682,7 @@ movedata MOVE_STONE_EDGE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CAPTIVATE
+movedata MOVE_CAPTIVATE, "Captivate"
     battleeffect 265
     pss SPLIT_STATUS
     basepower 0
@@ -6697,7 +6697,7 @@ movedata MOVE_CAPTIVATE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_STEALTH_ROCK
+movedata MOVE_STEALTH_ROCK, "Stealth Rock"
     battleeffect 266
     pss SPLIT_STATUS
     basepower 0
@@ -6712,7 +6712,7 @@ movedata MOVE_STEALTH_ROCK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GRASS_KNOT
+movedata MOVE_GRASS_KNOT, "Grass Knot"
     battleeffect 196
     pss SPLIT_SPECIAL
     basepower 1
@@ -6727,7 +6727,7 @@ movedata MOVE_GRASS_KNOT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_CHATTER
+movedata MOVE_CHATTER, "Chatter"
     battleeffect DEBUG_NEEDS_TESTING ? 76 : 267 // always confuse
     pss SPLIT_SPECIAL
     basepower 65
@@ -6742,7 +6742,7 @@ movedata MOVE_CHATTER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_JUDGMENT
+movedata MOVE_JUDGMENT, "Judgment"
     battleeffect 268
     pss SPLIT_SPECIAL
     basepower 100
@@ -6757,7 +6757,7 @@ movedata MOVE_JUDGMENT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_BUG_BITE
+movedata MOVE_BUG_BITE, "Bug Bite"
     battleeffect 224
     pss SPLIT_PHYSICAL
     basepower 60
@@ -6772,7 +6772,7 @@ movedata MOVE_BUG_BITE
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_CHARGE_BEAM
+movedata MOVE_CHARGE_BEAM, "Charge Beam"
     battleeffect 276
     pss SPLIT_SPECIAL
     basepower 50
@@ -6787,7 +6787,7 @@ movedata MOVE_CHARGE_BEAM
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_WOOD_HAMMER
+movedata MOVE_WOOD_HAMMER, "Wood Hammer"
     battleeffect 198
     pss SPLIT_PHYSICAL
     basepower 120
@@ -6802,7 +6802,7 @@ movedata MOVE_WOOD_HAMMER
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_AQUA_JET
+movedata MOVE_AQUA_JET, "Aqua Jet"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 40
@@ -6817,7 +6817,7 @@ movedata MOVE_AQUA_JET
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_ATTACK_ORDER
+movedata MOVE_ATTACK_ORDER, "Attack Order"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 90
@@ -6832,7 +6832,7 @@ movedata MOVE_ATTACK_ORDER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_DEFEND_ORDER
+movedata MOVE_DEFEND_ORDER, "Defend Order"
     battleeffect 206
     pss SPLIT_STATUS
     basepower 0
@@ -6847,7 +6847,7 @@ movedata MOVE_DEFEND_ORDER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HEAL_ORDER
+movedata MOVE_HEAL_ORDER, "Heal Order"
     battleeffect 32
     pss SPLIT_STATUS
     basepower 0
@@ -6862,7 +6862,7 @@ movedata MOVE_HEAL_ORDER
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HEAD_SMASH
+movedata MOVE_HEAD_SMASH, "Head Smash"
     battleeffect 269
     pss SPLIT_PHYSICAL
     basepower 150
@@ -6877,7 +6877,7 @@ movedata MOVE_HEAD_SMASH
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DOUBLE_HIT
+movedata MOVE_DOUBLE_HIT, "Double Hit"
     battleeffect 44
     pss SPLIT_PHYSICAL
     basepower 35
@@ -6892,7 +6892,7 @@ movedata MOVE_DOUBLE_HIT
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_ROAR_OF_TIME
+movedata MOVE_ROAR_OF_TIME, "Roar of Time"
     battleeffect 80
     pss SPLIT_SPECIAL
     basepower 150
@@ -6907,7 +6907,7 @@ movedata MOVE_ROAR_OF_TIME
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SPACIAL_REND
+movedata MOVE_SPACIAL_REND, "Spacial Rend"
     battleeffect 43
     pss SPLIT_SPECIAL
     basepower 100
@@ -6922,7 +6922,7 @@ movedata MOVE_SPACIAL_REND
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_LUNAR_DANCE
+movedata MOVE_LUNAR_DANCE, "Lunar Dance"
     battleeffect 270
     pss SPLIT_STATUS
     basepower 0
@@ -6937,7 +6937,7 @@ movedata MOVE_LUNAR_DANCE
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_CRUSH_GRIP
+movedata MOVE_CRUSH_GRIP, "Crush Grip"
     battleeffect 237
     pss SPLIT_PHYSICAL
     basepower 1
@@ -6952,7 +6952,7 @@ movedata MOVE_CRUSH_GRIP
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_MAGMA_STORM
+movedata MOVE_MAGMA_STORM, "Magma Storm"
     battleeffect 42
     pss SPLIT_SPECIAL
     basepower 100
@@ -6967,7 +6967,7 @@ movedata MOVE_MAGMA_STORM
     contesttype CONTEST_TOUGH
     terminatedata
 
-movedata MOVE_DARK_VOID
+movedata MOVE_DARK_VOID, "Dark Void"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -6982,7 +6982,7 @@ movedata MOVE_DARK_VOID
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SEED_FLARE
+movedata MOVE_SEED_FLARE, "Seed Flare"
     battleeffect 271
     pss SPLIT_SPECIAL
     basepower 120
@@ -6997,7 +6997,7 @@ movedata MOVE_SEED_FLARE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_OMINOUS_WIND
+movedata MOVE_OMINOUS_WIND, "Ominous Wind"
     battleeffect 140
     pss SPLIT_SPECIAL
     basepower 60
@@ -7012,7 +7012,7 @@ movedata MOVE_OMINOUS_WIND
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SHADOW_FORCE
+movedata MOVE_SHADOW_FORCE, "Shadow Force"
     battleeffect 272
     pss SPLIT_PHYSICAL
     basepower 120
@@ -7027,7 +7027,7 @@ movedata MOVE_SHADOW_FORCE
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SHADOW_FORCE+1
+movedata MOVE_SHADOW_FORCE+1, "--"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -7042,7 +7042,7 @@ movedata MOVE_SHADOW_FORCE+1
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SHADOW_FORCE+2
+movedata MOVE_SHADOW_FORCE+2, "--"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -7057,7 +7057,7 @@ movedata MOVE_SHADOW_FORCE+2
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SHADOW_FORCE+3
+movedata MOVE_SHADOW_FORCE+3, "--"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -7072,7 +7072,7 @@ movedata MOVE_SHADOW_FORCE+3
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_HONE_CLAWS
+movedata MOVE_HONE_CLAWS, "Hone Claws"
     battleeffect 277
     pss SPLIT_STATUS
     basepower 0
@@ -7087,7 +7087,7 @@ movedata MOVE_HONE_CLAWS
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_WIDE_GUARD
+movedata MOVE_WIDE_GUARD, "Wide Guard"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7102,7 +7102,7 @@ movedata MOVE_WIDE_GUARD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GUARD_SPLIT
+movedata MOVE_GUARD_SPLIT, "Guard Split"
     battleeffect 278
     pss SPLIT_STATUS
     basepower 0
@@ -7117,7 +7117,7 @@ movedata MOVE_GUARD_SPLIT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POWER_SPLIT
+movedata MOVE_POWER_SPLIT, "Power Split"
     battleeffect 279
     pss SPLIT_STATUS
     basepower 0
@@ -7132,7 +7132,7 @@ movedata MOVE_POWER_SPLIT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WONDER_ROOM
+movedata MOVE_WONDER_ROOM, "Wonder Room"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7147,7 +7147,7 @@ movedata MOVE_WONDER_ROOM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PSYSHOCK
+movedata MOVE_PSYSHOCK, "Psyshock"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 80
@@ -7162,7 +7162,7 @@ movedata MOVE_PSYSHOCK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_VENOSHOCK
+movedata MOVE_VENOSHOCK, "Venoshock"
     battleeffect 280
     pss SPLIT_SPECIAL
     basepower 65
@@ -7177,7 +7177,7 @@ movedata MOVE_VENOSHOCK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_AUTOTOMIZE
+movedata MOVE_AUTOTOMIZE, "Autotomize"
     battleeffect 281
     pss SPLIT_STATUS
     basepower 0
@@ -7192,7 +7192,7 @@ movedata MOVE_AUTOTOMIZE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RAGE_POWDER
+movedata MOVE_RAGE_POWDER, "Rage Powder"
     battleeffect 172
     pss SPLIT_STATUS
     basepower 0
@@ -7207,7 +7207,7 @@ movedata MOVE_RAGE_POWDER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TELEKINESIS
+movedata MOVE_TELEKINESIS, "Telekinesis"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7222,7 +7222,7 @@ movedata MOVE_TELEKINESIS
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_MAGIC_ROOM
+movedata MOVE_MAGIC_ROOM, "Magic Room"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7237,7 +7237,7 @@ movedata MOVE_MAGIC_ROOM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SMACK_DOWN
+movedata MOVE_SMACK_DOWN, "Smack Down"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 50
@@ -7252,7 +7252,7 @@ movedata MOVE_SMACK_DOWN
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STORM_THROW
+movedata MOVE_STORM_THROW, "Storm Throw"
     battleeffect 282
     pss SPLIT_PHYSICAL
     basepower 60
@@ -7267,7 +7267,7 @@ movedata MOVE_STORM_THROW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FLAME_BURST
+movedata MOVE_FLAME_BURST, "Flame Burst"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 70
@@ -7282,7 +7282,7 @@ movedata MOVE_FLAME_BURST
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SLUDGE_WAVE
+movedata MOVE_SLUDGE_WAVE, "Sludge Wave"
     battleeffect 2
     pss SPLIT_PHYSICAL
     basepower 95
@@ -7297,7 +7297,7 @@ movedata MOVE_SLUDGE_WAVE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_QUIVER_DANCE
+movedata MOVE_QUIVER_DANCE, "Quiver Dance"
     battleeffect 283
     pss SPLIT_STATUS
     basepower 0
@@ -7312,7 +7312,7 @@ movedata MOVE_QUIVER_DANCE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEAVY_SLAM
+movedata MOVE_HEAVY_SLAM, "Heavy Slam"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 1
@@ -7327,7 +7327,7 @@ movedata MOVE_HEAVY_SLAM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SYNCHRONOISE
+movedata MOVE_SYNCHRONOISE, "Synchronoise"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 120
@@ -7342,7 +7342,7 @@ movedata MOVE_SYNCHRONOISE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ELECTRO_BALL
+movedata MOVE_ELECTRO_BALL, "Electro Ball"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 1
@@ -7357,7 +7357,7 @@ movedata MOVE_ELECTRO_BALL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SOAK
+movedata MOVE_SOAK, "Soak"
     battleeffect 284
     pss SPLIT_STATUS
     basepower 0
@@ -7372,7 +7372,7 @@ movedata MOVE_SOAK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FLAME_CHARGE
+movedata MOVE_FLAME_CHARGE, "Flame Charge"
     battleeffect 285
     pss SPLIT_PHYSICAL
     basepower 50
@@ -7387,7 +7387,7 @@ movedata MOVE_FLAME_CHARGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_COIL
+movedata MOVE_COIL, "Coil"
     battleeffect 286
     pss SPLIT_STATUS
     basepower 0
@@ -7402,7 +7402,7 @@ movedata MOVE_COIL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_LOW_SWEEP
+movedata MOVE_LOW_SWEEP, "Low Sweep"
     battleeffect 70
     pss SPLIT_PHYSICAL
     basepower 65
@@ -7417,7 +7417,7 @@ movedata MOVE_LOW_SWEEP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ACID_SPRAY
+movedata MOVE_ACID_SPRAY, "Acid Spray"
     battleeffect 271
     pss SPLIT_SPECIAL
     basepower 40
@@ -7432,7 +7432,7 @@ movedata MOVE_ACID_SPRAY
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FOUL_PLAY
+movedata MOVE_FOUL_PLAY, "Foul Play"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 95
@@ -7447,7 +7447,7 @@ movedata MOVE_FOUL_PLAY
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SIMPLE_BEAM
+movedata MOVE_SIMPLE_BEAM, "Simple Beam"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 0
@@ -7462,7 +7462,7 @@ movedata MOVE_SIMPLE_BEAM
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ENTRAINMENT
+movedata MOVE_ENTRAINMENT, "Entrainment"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7477,7 +7477,7 @@ movedata MOVE_ENTRAINMENT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_AFTER_YOU
+movedata MOVE_AFTER_YOU, "After You"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7492,7 +7492,7 @@ movedata MOVE_AFTER_YOU
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ROUND
+movedata MOVE_ROUND, "Round"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 60
@@ -7507,7 +7507,7 @@ movedata MOVE_ROUND
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ECHOED_VOICE
+movedata MOVE_ECHOED_VOICE, "Echoed Voice"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 40
@@ -7522,7 +7522,7 @@ movedata MOVE_ECHOED_VOICE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_CHIP_AWAY
+movedata MOVE_CHIP_AWAY, "Chip Away"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 70
@@ -7537,7 +7537,7 @@ movedata MOVE_CHIP_AWAY
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_CLEAR_SMOG
+movedata MOVE_CLEAR_SMOG, "Clear Smog"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 50
@@ -7552,7 +7552,7 @@ movedata MOVE_CLEAR_SMOG
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STORED_POWER
+movedata MOVE_STORED_POWER, "Stored Power"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 20
@@ -7567,7 +7567,7 @@ movedata MOVE_STORED_POWER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_QUICK_GUARD
+movedata MOVE_QUICK_GUARD, "Quick Guard"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7582,7 +7582,7 @@ movedata MOVE_QUICK_GUARD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ALLY_SWITCH
+movedata MOVE_ALLY_SWITCH, "Ally Switch"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7597,7 +7597,7 @@ movedata MOVE_ALLY_SWITCH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SCALD
+movedata MOVE_SCALD, "Scald"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 80
@@ -7612,7 +7612,7 @@ movedata MOVE_SCALD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SHELL_SMASH
+movedata MOVE_SHELL_SMASH, "Shell Smash"
     battleeffect 290
     pss SPLIT_STATUS
     basepower 0
@@ -7627,7 +7627,7 @@ movedata MOVE_SHELL_SMASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEAL_PULSE
+movedata MOVE_HEAL_PULSE, "Heal Pulse"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7642,7 +7642,7 @@ movedata MOVE_HEAL_PULSE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEX
+movedata MOVE_HEX, "Hex"
     battleeffect 287
     pss SPLIT_SPECIAL
     basepower 65
@@ -7657,7 +7657,7 @@ movedata MOVE_HEX
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SKY_DROP
+movedata MOVE_SKY_DROP, "Sky Drop"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 60
@@ -7672,7 +7672,7 @@ movedata MOVE_SKY_DROP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SHIFT_GEAR
+movedata MOVE_SHIFT_GEAR, "Shift Gear"
     battleeffect 288
     pss SPLIT_STATUS
     basepower 0
@@ -7687,7 +7687,7 @@ movedata MOVE_SHIFT_GEAR
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_CIRCLE_THROW
+movedata MOVE_CIRCLE_THROW, "Circle Throw"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 60
@@ -7702,7 +7702,7 @@ movedata MOVE_CIRCLE_THROW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_INCINERATE
+movedata MOVE_INCINERATE, "Incinerate"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 60
@@ -7717,7 +7717,7 @@ movedata MOVE_INCINERATE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_QUASH
+movedata MOVE_QUASH, "Quash"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7732,7 +7732,7 @@ movedata MOVE_QUASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ACROBATICS
+movedata MOVE_ACROBATICS, "Acrobatics"
     battleeffect 289
     pss SPLIT_PHYSICAL
     basepower 55
@@ -7747,7 +7747,7 @@ movedata MOVE_ACROBATICS
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_REFLECT_TYPE
+movedata MOVE_REFLECT_TYPE, "Reflect Type"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7762,7 +7762,7 @@ movedata MOVE_REFLECT_TYPE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RETALIATE
+movedata MOVE_RETALIATE, "Retaliate"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 70
@@ -7777,7 +7777,7 @@ movedata MOVE_RETALIATE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FINAL_GAMBIT
+movedata MOVE_FINAL_GAMBIT, "Final Gambit"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 1
@@ -7792,7 +7792,7 @@ movedata MOVE_FINAL_GAMBIT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BESTOW
+movedata MOVE_BESTOW, "Bestow"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7807,7 +7807,7 @@ movedata MOVE_BESTOW
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_INFERNO
+movedata MOVE_INFERNO, "Inferno"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 100
@@ -7822,7 +7822,7 @@ movedata MOVE_INFERNO
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WATER_PLEDGE
+movedata MOVE_WATER_PLEDGE, "Water Pledge"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 80
@@ -7837,7 +7837,7 @@ movedata MOVE_WATER_PLEDGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FIRE_PLEDGE
+movedata MOVE_FIRE_PLEDGE, "Fire Pledge"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 80
@@ -7852,7 +7852,7 @@ movedata MOVE_FIRE_PLEDGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GRASS_PLEDGE
+movedata MOVE_GRASS_PLEDGE, "Grass Pledge"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 80
@@ -7867,7 +7867,7 @@ movedata MOVE_GRASS_PLEDGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_VOLT_SWITCH
+movedata MOVE_VOLT_SWITCH, "Volt Switch"
     battleeffect 228
     pss SPLIT_SPECIAL
     basepower 70
@@ -7882,7 +7882,7 @@ movedata MOVE_VOLT_SWITCH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STRUGGLE_BUG
+movedata MOVE_STRUGGLE_BUG, "Struggle Bug"
     battleeffect 71
     pss SPLIT_SPECIAL
     basepower 50
@@ -7897,7 +7897,7 @@ movedata MOVE_STRUGGLE_BUG
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BULLDOZE
+movedata MOVE_BULLDOZE, "Bulldoze"
     battleeffect 70
     pss SPLIT_PHYSICAL
     basepower 60
@@ -7912,7 +7912,7 @@ movedata MOVE_BULLDOZE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FROST_BREATH
+movedata MOVE_FROST_BREATH, "Frost Breath"
     battleeffect 282
     pss SPLIT_SPECIAL
     basepower 60
@@ -7927,7 +7927,7 @@ movedata MOVE_FROST_BREATH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DRAGON_TAIL
+movedata MOVE_DRAGON_TAIL, "Dragon Tail"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 60
@@ -7942,7 +7942,7 @@ movedata MOVE_DRAGON_TAIL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WORK_UP
+movedata MOVE_WORK_UP, "Work Up"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -7957,7 +7957,7 @@ movedata MOVE_WORK_UP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ELECTROWEB
+movedata MOVE_ELECTROWEB, "Electroweb"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 55
@@ -7972,7 +7972,7 @@ movedata MOVE_ELECTROWEB
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_WILD_CHARGE
+movedata MOVE_WILD_CHARGE, "Wild Charge"
     battleeffect 198
     pss SPLIT_PHYSICAL
     basepower 90
@@ -7987,7 +7987,7 @@ movedata MOVE_WILD_CHARGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DRILL_RUN
+movedata MOVE_DRILL_RUN, "Drill Run"
     battleeffect 43
     pss SPLIT_PHYSICAL
     basepower 80
@@ -8002,7 +8002,7 @@ movedata MOVE_DRILL_RUN
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DUAL_CHOP
+movedata MOVE_DUAL_CHOP, "Dual Chop"
     battleeffect 44
     pss SPLIT_PHYSICAL
     basepower 40
@@ -8017,7 +8017,7 @@ movedata MOVE_DUAL_CHOP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEART_STAMP
+movedata MOVE_HEART_STAMP, "Heart Stamp"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 60
@@ -8032,7 +8032,7 @@ movedata MOVE_HEART_STAMP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HORN_LEECH
+movedata MOVE_HORN_LEECH, "Horn Leech"
     battleeffect 3
     pss SPLIT_PHYSICAL
     basepower 75
@@ -8047,7 +8047,7 @@ movedata MOVE_HORN_LEECH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SACRED_SWORD
+movedata MOVE_SACRED_SWORD, "Sacred Sword"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 90
@@ -8062,7 +8062,7 @@ movedata MOVE_SACRED_SWORD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RAZOR_SHELL
+movedata MOVE_RAZOR_SHELL, "Razor Shell"
     battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 75
@@ -8077,7 +8077,7 @@ movedata MOVE_RAZOR_SHELL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEAT_CRASH
+movedata MOVE_HEAT_CRASH, "Heat Crash"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 1
@@ -8092,7 +8092,7 @@ movedata MOVE_HEAT_CRASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_LEAF_TORNADO
+movedata MOVE_LEAF_TORNADO, "Leaf Tornado"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 65
@@ -8107,7 +8107,7 @@ movedata MOVE_LEAF_TORNADO
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_STEAMROLLER
+movedata MOVE_STEAMROLLER, "Steamroller"
     battleeffect 150
     pss SPLIT_PHYSICAL
     basepower 65
@@ -8122,7 +8122,7 @@ movedata MOVE_STEAMROLLER
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_COTTON_GUARD
+movedata MOVE_COTTON_GUARD, "Cotton Guard"
     battleeffect 0
     pss SPLIT_STATUS
     basepower 0
@@ -8137,7 +8137,7 @@ movedata MOVE_COTTON_GUARD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_NIGHT_DAZE
+movedata MOVE_NIGHT_DAZE, "Night Daze"
     battleeffect 73
     pss SPLIT_SPECIAL
     basepower 85
@@ -8152,7 +8152,7 @@ movedata MOVE_NIGHT_DAZE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PSYSTRIKE
+movedata MOVE_PSYSTRIKE, "Psystrike"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -8167,7 +8167,7 @@ movedata MOVE_PSYSTRIKE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TAIL_SLAP
+movedata MOVE_TAIL_SLAP, "Tail Slap"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 25
@@ -8182,7 +8182,7 @@ movedata MOVE_TAIL_SLAP
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HURRICANE
+movedata MOVE_HURRICANE, "Hurricane"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 110
@@ -8197,7 +8197,7 @@ movedata MOVE_HURRICANE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_HEAD_CHARGE
+movedata MOVE_HEAD_CHARGE, "Head Charge"
     battleeffect 198
     pss SPLIT_PHYSICAL
     basepower 120
@@ -8212,7 +8212,7 @@ movedata MOVE_HEAD_CHARGE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GEAR_GRIND
+movedata MOVE_GEAR_GRIND, "Gear Grind"
     battleeffect 44
     pss SPLIT_PHYSICAL
     basepower 50
@@ -8227,7 +8227,7 @@ movedata MOVE_GEAR_GRIND
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SEARING_SHOT
+movedata MOVE_SEARING_SHOT, "Searing Shot"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 100
@@ -8242,7 +8242,7 @@ movedata MOVE_SEARING_SHOT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_TECHNO_BLAST
+movedata MOVE_TECHNO_BLAST, "Techno Blast"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 120
@@ -8257,7 +8257,7 @@ movedata MOVE_TECHNO_BLAST
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_RELIC_SONG
+movedata MOVE_RELIC_SONG, "Relic Song"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 75
@@ -8272,7 +8272,7 @@ movedata MOVE_RELIC_SONG
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SECRET_SWORD
+movedata MOVE_SECRET_SWORD, "Secret Sword"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 85
@@ -8287,7 +8287,7 @@ movedata MOVE_SECRET_SWORD
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_GLACIATE
+movedata MOVE_GLACIATE, "Glaciate"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 65
@@ -8302,7 +8302,7 @@ movedata MOVE_GLACIATE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BOLT_STRIKE
+movedata MOVE_BOLT_STRIKE, "Bolt Strike"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 130
@@ -8317,7 +8317,7 @@ movedata MOVE_BOLT_STRIKE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_BLUE_FLARE
+movedata MOVE_BLUE_FLARE, "Blue Flare"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 130
@@ -8332,7 +8332,7 @@ movedata MOVE_BLUE_FLARE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FIERY_DANCE
+movedata MOVE_FIERY_DANCE, "Fiery Dance"
     battleeffect 276
     pss SPLIT_SPECIAL
     basepower 80
@@ -8347,7 +8347,7 @@ movedata MOVE_FIERY_DANCE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FREEZE_SHOCK
+movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
     battleeffect 75
     pss SPLIT_SPECIAL
     basepower 140
@@ -8362,7 +8362,7 @@ movedata MOVE_FREEZE_SHOCK
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ICE_BURN
+movedata MOVE_ICE_BURN, "Ice Burn"
     battleeffect 75
     pss SPLIT_SPECIAL
     basepower 140
@@ -8377,7 +8377,7 @@ movedata MOVE_ICE_BURN
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_SNARL
+movedata MOVE_SNARL, "Snarl"
     battleeffect 71
     pss SPLIT_SPECIAL
     basepower 55
@@ -8392,7 +8392,7 @@ movedata MOVE_SNARL
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ICICLE_CRASH
+movedata MOVE_ICICLE_CRASH, "Icicle Crash"
     battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 85
@@ -8407,7 +8407,7 @@ movedata MOVE_ICICLE_CRASH
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_V_CREATE
+movedata MOVE_V_CREATE, "V-create"
     battleeffect 291
     pss SPLIT_PHYSICAL
     basepower 180
@@ -8422,7 +8422,7 @@ movedata MOVE_V_CREATE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FUSION_FLARE
+movedata MOVE_FUSION_FLARE, "Fusion Flare"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -8437,7 +8437,7 @@ movedata MOVE_FUSION_FLARE
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FUSION_BOLT
+movedata MOVE_FUSION_BOLT, "Fusion Bolt"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -8452,7 +8452,7 @@ movedata MOVE_FUSION_BOLT
     contesttype CONTEST_COOL
     terminatedata
 
-movedata NUM_OF_MOVES+1
+movedatanoname NUM_OF_MOVES+1
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
