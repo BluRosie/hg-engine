@@ -56,11 +56,20 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
-    if ((attacker & 1) == (defender & 1) // attacker and defender are on the same side
-     && GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
+    if (GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
+     && (attacker & 1) == (defender & 1) // attacker and defender are on the same side
      && sp->moveTbl[move_no].power != 0) // move actually damages
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        return FALSE;
+    }
+    
+    if (GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER // prankster ability
+     && (sp->battlemon[defender].type1 == TYPE_DARK || sp->battlemon[defender].type2 == TYPE_DARK) // used on a dark type
+     && sp->moveTbl[move_no].split == SPLIT_STATUS // move is actually status
+     && (attacker & 1) != (defender & 1)) // used on an enemy
+    {
+        sp->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
         return FALSE;
     }
 
