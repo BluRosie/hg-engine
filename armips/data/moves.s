@@ -7313,7 +7313,7 @@ movedata MOVE_QUIVER_DANCE, "Quiver Dance"
     terminatedata
 
 movedata MOVE_HEAVY_SLAM, "Heavy Slam"
-    battleeffect 0
+    battleeffect 292
     pss SPLIT_PHYSICAL
     basepower 1
     type TYPE_STEEL
@@ -8444,6 +8444,5152 @@ movedata MOVE_FUSION_BOLT, "Fusion Bolt"
     type TYPE_ELECTRIC
     accuracy 100
     pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+
+movedata MOVE_FLYING_PRESS, "Flying Press"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_FIGHTING
+    accuracy 95
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAT_BLOCK, "Mat Block"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BELCH, "Belch"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 120
+    type TYPE_POISON
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ROTOTILLER, "Rototiller"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GROUND
+    accuracy 0
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_USER | MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STICKY_WEB, "Sticky Web"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_BUG
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_OPPONENTS_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FELL_STINGER, "Fell Stinger"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 50
+    type TYPE_BUG
+    accuracy 100
+    pp 25
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PHANTOM_FORCE, "Phantom Force"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GHOST
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NOBLE_ROAR, "Noble Roar"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 100
+    pp 30
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ION_DELUGE, "Ion Deluge"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 25
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 1
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PARABOLIC_CHARGE, "Parabolic Charge"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 65
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GRASS
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_GRASS
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FREEZE_DRY, "Freeze-Dry"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 70
+    type TYPE_ICE
+    accuracy 100
+    pp 20
+    effectchance 10
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DISARMING_VOICE, "Disarming Voice"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 40
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PARTING_SHOT, "Parting Shot"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_DARK
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_DARK
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DRAINING_KISS, "Draining Kiss"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 50
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 3
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FLOWER_SHIELD, "Flower Shield"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_USER | MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GRASS
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ELECTRIFY, "Electrify"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PLAY_ROUGH, "Play Rough"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 90
+    pp 10
+    effectchance 10
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FAIRY_WIND, "Fairy Wind"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 40
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 30
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MOONBLAST, "Moonblast"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 95
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 15
+    effectchance 30
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BOOMBURST, "Boomburst"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 140
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FAIRY_LOCK, "Fairy Lock"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_KINGS_SHIELD, "King’s Shield"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_STEEL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 4
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PLAY_NICE, "Play Nice"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CONFIDE, "Confide"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DIAMOND_STORM, "Diamond Storm"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_ROCK
+    accuracy 95
+    pp 5
+    effectchance 50
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 110
+    type TYPE_WATER
+    accuracy 95
+    pp 5
+    effectchance 30
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 15
+    type TYPE_WATER
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 1
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 75
+    type TYPE_FIRE
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GRASS
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 4
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_VENOM_DRENCH, "Venom Drench"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_POISON
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POWDER, "Powder"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_BUG
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 1
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GEOMANCY, "Geomancy"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HAPPY_HOUR, "Happy Hour"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 30
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ELECTRIC_TERRAIN, "Electric Terrain"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CELEBRATE, "Celebrate"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 40
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HOLD_HANDS, "Hold Hands"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 40
+    effectchance 0
+    target MOVE_TARGET_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BABY_DOLL_EYES, "Baby-Doll Eyes"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 30
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 1
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NUZZLE, "Nuzzle"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 20
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HOLD_BACK, "Hold Back"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_NORMAL
+    accuracy 100
+    pp 40
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_INFESTATION, "Infestation"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 20
+    type TYPE_BUG
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_OBLIVION_WING, "Oblivion Wing"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_FLYING
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_GROUND
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_GROUND
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LANDS_WRATH, "Land’s Wrath"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_GROUND
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 140
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 90
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 110
+    type TYPE_WATER
+    accuracy 85
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PRECIPICE_BLADES, "Precipice Blades"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_GROUND
+    accuracy 85
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_FLYING
+    accuracy 100
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_DARK
+    accuracy 0
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BREAKNECK_BLITZ_SPECIAL, "Breakneck Blitz"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ALL_OUT_PUMMELING_PHYSICAL, "All-Out Pummeling"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ALL_OUT_PUMMELING_SPECIAL, "All-Out Pummeling"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SUPERSONIC_SKYSTRIKE_PHYSICAL, "Supersonic Skystrike"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_FLYING
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SUPERSONIC_SKYSTRIKE_SPECIAL, "Supersonic Skystrike"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_FLYING
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ACID_DOWNPOUR_PHYSICAL, "Acid Downpour"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_POISON
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ACID_DOWNPOUR_SPECIAL, "Acid Downpour"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_POISON
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TECTONIC_RAGE_PHYSICAL, "Tectonic Rage"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_GROUND
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TECTONIC_RAGE_SPECIAL, "Tectonic Rage"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_GROUND
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CONTINENTAL_CRUSH_PHYSICAL, "Continental Crush"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_ROCK
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CONTINENTAL_CRUSH_SPECIAL, "Continental Crush"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_ROCK
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SAVAGE_SPIN_OUT_PHYSICAL, "Savage Spin-Out"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_BUG
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SAVAGE_SPIN_OUT_SPECIAL, "Savage Spin-Out"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_BUG
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NEVER_ENDING_NIGHTMARE_PHYSICAL, "Never-Ending Nightmare"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_GHOST
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NEVER_ENDING_NIGHTMARE_SPECIAL, "Never-Ending Nightmare"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_GHOST
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CORKSCREW_CRASH_PHYSICAL, "Corkscrew Crash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_STEEL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CORKSCREW_CRASH_SPECIAL, "Corkscrew Crash"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_STEEL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_INFERNO_OVERDRIVE_PHYSICAL, "Inferno Overdrive"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_FIRE
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_INFERNO_OVERDRIVE_SPECIAL, "Inferno Overdrive"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_FIRE
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HYDRO_VORTEX_PHYSICAL, "Hydro Vortex"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_WATER
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HYDRO_VORTEX_SPECIAL, "Hydro Vortex"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_WATER
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BLOOM_DOOM_PHYSICAL, "Bloom Doom"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_GRASS
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BLOOM_DOOM_SPECIAL, "Bloom Doom"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_GRASS
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GIGAVOLT_HAVOC_PHYSICAL, "Gigavolt Havoc"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GIGAVOLT_HAVOC_SPECIAL, "Gigavolt Havoc"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHATTERED_PSYCHE_PHYSICAL, "Shattered Psyche"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHATTERED_PSYCHE_SPECIAL, "Shattered Psyche"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SUBZERO_SLAMMER_PHYSICAL, "Subzero Slammer"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_ICE
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SUBZERO_SLAMMER_SPECIAL, "Subzero Slammer"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_ICE
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DEVASTATING_DRAKE_PHYSICAL, "Devastating Drake"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_DRAGON
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DEVASTATING_DRAKE_SPECIAL, "Devastating Drake"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_DRAGON
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BLACK_HOLE_ECLIPSE_PHYSICAL, "Black Hole Eclipse"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_DARK
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BLACK_HOLE_ECLIPSE_SPECIAL, "Black Hole Eclipse"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_DARK
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TWINKLE_TACKLE_PHYSICAL, "Twinkle Tackle"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TWINKLE_TACKLE_SPECIAL, "Twinkle Tackle"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CATASTROPIKA, "Catastropika"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 210
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHORE_UP, "Shore Up"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GROUND
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FIRST_IMPRESSION, "First Impression"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_BUG
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 2
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_POISON
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 4
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPIRIT_SHACKLE, "Spirit Shackle"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DARKEST_LARIAT, "Darkest Lariat"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPARKLING_ARIA, "Sparkling Aria"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_WATER
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ICE_HAMMER, "Ice Hammer"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_ICE
+    accuracy 90
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FLORAL_HEALING, "Floral Healing"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HIGH_HORSEPOWER, "High Horsepower"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 95
+    type TYPE_GROUND
+    accuracy 95
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STRENGTH_SAP, "Strength Sap"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GRASS
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SOLAR_BLADE, "Solar Blade"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 125
+    type TYPE_GRASS
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LEAFAGE, "Leafage"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_GRASS
+    accuracy 100
+    pp 40
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPOTLIGHT, "Spotlight"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 3
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TOXIC_THREAD, "Toxic Thread"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_POISON
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LASER_FOCUS, "Laser Focus"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 30
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GEAR_UP, "Gear Up"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_STEEL
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_THROAT_CHOP, "Throat Chop"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_DARK
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POLLEN_PUFF, "Pollen Puff"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_BUG
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ANCHOR_SHOT, "Anchor Shot"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_STEEL
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PSYCHIC_TERRAIN, "Psychic Terrain"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LUNGE, "Lunge"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_BUG
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FIRE_LASH, "Fire Lash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_FIRE
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POWER_TRIP, "Power Trip"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 20
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BURN_UP, "Burn Up"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 130
+    type TYPE_FIRE
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPEED_SWAP, "Speed Swap"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SMART_STRIKE, "Smart Strike"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_STEEL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PURIFY, "Purify"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_POISON
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_REVELATION_DANCE, "Revelation Dance"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_NORMAL
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CORE_ENFORCER, "Core Enforcer"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_DRAGON
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TROP_KICK, "Trop Kick"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_GRASS
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_INSTRUCT, "Instruct"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BEAK_BLAST, "Beak Blast"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_FLYING
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority -3
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CLANGING_SCALES, "Clanging Scales"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 110
+    type TYPE_DRAGON
+    accuracy 100
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DRAGON_HAMMER, "Dragon Hammer"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_DRAGON
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BRUTAL_SWING, "Brutal Swing"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_DARK
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_AURORA_VEIL, "Aurora Veil"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ICE
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SINISTER_ARROW_RAID, "Sinister Arrow Raid"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 180
+    type TYPE_GHOST
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MALICIOUS_MOONSAULT, "Malicious Moonsault"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 180
+    type TYPE_DARK
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_OCEANIC_OPERETTA, "Oceanic Operetta"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 195
+    type TYPE_WATER
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GUARDIAN_OF_ALOLA, "Guardian of Alola"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SOUL_STEALING_7_STAR_STRIKE, "Soul-Stealing 7-Star Strike"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 195
+    type TYPE_GHOST
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STOKED_SPARKSURFER, "Stoked Sparksurfer"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 175
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 1
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PULVERIZING_PANCAKE, "Pulverizing Pancake"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 210
+    type TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_EXTREME_EVOBOOST, "Extreme Evoboost"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 100
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GENESIS_SUPERNOVA, "Genesis Supernova"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 185
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHELL_TRAP, "Shell Trap"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 150
+    type TYPE_FIRE
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority -3
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FLEUR_CANNON, "Fleur Cannon"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 130
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 90
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STOMPING_TANTRUM, "Stomping Tantrum"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 75
+    type TYPE_GROUND
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHADOW_BONE, "Shadow Bone"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 20
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ACCELEROCK, "Accelerock"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_ROCK
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 1
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LIQUIDATION, "Liquidation"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_WATER
+    accuracy 100
+    pp 10
+    effectchance 20
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 160
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPECTRAL_THIEF, "Spectral Thief"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SUNSTEEL_STRIKE, "Sunsteel Strike"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MOONGEIST_BEAM, "Moongeist Beam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_GHOST
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TEARFUL_LOOK, "Tearful Look"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ZING_ZAP, "Zing Zap"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 10
+    effectchance 30
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NATURES_MADNESS, "Nature’s Madness"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MULTI_ATTACK, "Multi-Attack"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_10_000_000_VOLT_THUNDERBOLT, "10,000,000 Volt Thunderbolt"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 195
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MIND_BLOWN, "Mind Blown"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 150
+    type TYPE_FIRE
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PLASMA_FISTS, "Plasma Fists"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PHOTON_GEYSER, "Photon Geyser"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LIGHT_THAT_BURNS_THE_SKY, "Light That Burns the Sky"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 200
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SEARING_SUNRAZE_SMASH, "Searing Sunraze Smash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 200
+    type TYPE_STEEL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MENACING_MOONRAZE_MAELSTROM, "Menacing Moonraze Maelstrom"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 200
+    type TYPE_GHOST
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LETS_SNUGGLE_FOREVER, "Let’s Snuggle Forever"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 190
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPLINTERED_STORMSHARDS, "Splintered Stormshards"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 190
+    type TYPE_ROCK
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CLANGOROUS_SOULBLAZE, "Clangorous Soulblaze"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 185
+    type TYPE_DRAGON
+    accuracy 0
+    pp 1
+    effectchance 100
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ZIPPY_ZAP, "Zippy Zap"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 2
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPLISHY_SPLASH, "Splishy Splash"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_WATER
+    accuracy 100
+    pp 15
+    effectchance 30
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FLOATY_FALL, "Floaty Fall"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_FLYING
+    accuracy 95
+    pp 15
+    effectchance 30
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PIKA_PAPOW, "Pika Papow"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 0
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BOUNCY_BUBBLE, "Bouncy Bubble"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 60
+    type TYPE_WATER
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BUZZY_BUZZ, "Buzzy Buzz"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 60
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SIZZLY_SLIDE, "Sizzly Slide"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_FIRE
+    accuracy 100
+    pp 20
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GLITZY_GLOW, "Glitzy Glow"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 95
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BADDY_BAD, "Baddy Bad"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_DARK
+    accuracy 95
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SAPPY_SEED, "Sappy Seed"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_GRASS
+    accuracy 90
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FREEZY_FROST, "Freezy Frost"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_ICE
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPARKLY_SWIRL, "Sparkly Swirl"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 120
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 85
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DOUBLE_IRON_BASH, "Double Iron Bash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 30
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_GUARD, "Max Guard"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 4
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DYNAMAX_CANNON, "Dynamax Cannon"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_DRAGON
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SNIPE_SHOT, "Snipe Shot"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_WATER
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_JAW_LOCK, "Jaw Lock"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STUFF_CHEEKS, "Stuff Cheeks"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NO_RETREAT, "No Retreat"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TAR_SHOT, "Tar Shot"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ROCK
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAGIC_POWDER, "Magic Powder"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DRAGON_DARTS, "Dragon Darts"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 50
+    type TYPE_DRAGON
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TEATIME, "Teatime"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER | MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_OCTOLOCK, "Octolock"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BOLT_BEAK, "Bolt Beak"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FISHIOUS_REND, "Fishious Rend"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_WATER
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_COURT_CHANGE, "Court Change"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_FLARE, "Max Flare"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_FIRE
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_FLUTTERBY, "Max Flutterby"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_BUG
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_LIGHTNING, "Max Lightning"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_ELECTRIC
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_STRIKE, "Max Strike"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_KNUCKLE, "Max Knuckle"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_PHANTASM, "Max Phantasm"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_GHOST
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_HAILSTORM, "Max Hailstorm"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_ICE
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_OOZE, "Max Ooze"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_POISON
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_GEYSER, "Max Geyser"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_WATER
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_AIRSTREAM, "Max Airstream"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_FLYING
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_STARFALL, "Max Starfall"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_WYRMWIND, "Max Wyrmwind"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_DRAGON
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_MINDSTORM, "Max Mindstorm"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_ROCKFALL, "Max Rockfall"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_ROCK
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_QUAKE, "Max Quake"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_GROUND
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_DARKNESS, "Max Darkness"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_DARK
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_OVERGROWTH, "Max Overgrowth"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_GRASS
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAX_STEELSPIKE, "Max Steelspike"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 10
+    type TYPE_STEEL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_DRAGON
+    accuracy 100
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BODY_PRESS, "Body Press"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DECORATE, "Decorate"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 0
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DRUM_BEATING, "Drum Beating"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_GRASS
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SNAP_TRAP, "Snap Trap"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 35
+    type TYPE_GRASS
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PYRO_BALL, "Pyro Ball"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_FIRE
+    accuracy 90
+    pp 5
+    effectchance 10
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BEHEMOTH_BLADE, "Behemoth Blade"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BEHEMOTH_BASH, "Behemoth Bash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_AURA_WHEEL, "Aura Wheel"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 110
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BREAKING_SWIPE, "Breaking Swipe"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_DRAGON
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BRANCH_POKE, "Branch Poke"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_GRASS
+    accuracy 100
+    pp 40
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_OVERDRIVE, "Overdrive"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_APPLE_ACID, "Apple Acid"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_GRASS
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GRAV_APPLE, "Grav Apple"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_GRASS
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPIRIT_BREAK, "Spirit Break"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 75
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STRANGE_STEAM, "Strange Steam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 95
+    pp 10
+    effectchance 20
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LIFE_DEW, "Life Dew"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_WATER
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_OBSTRUCT, "Obstruct"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 4
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FALSE_SURRENDER, "False Surrender"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_DARK
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_METEOR_ASSAULT, "Meteor Assault"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 150
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ETERNABEAM, "Eternabeam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 160
+    type TYPE_DRAGON
+    accuracy 90
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STEEL_BEAM, "Steel Beam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 140
+    type TYPE_STEEL
+    accuracy 95
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_EXPANDING_FORCE, "Expanding Force"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STEEL_ROLLER, "Steel Roller"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 130
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SCALE_SHOT, "Scale Shot"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 25
+    type TYPE_DRAGON
+    accuracy 90
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_METEOR_BEAM, "Meteor Beam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 120
+    type TYPE_ROCK
+    accuracy 90
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHELL_SIDE_ARM, "Shell Side Arm"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_POISON
+    accuracy 100
+    pp 10
+    effectchance 20
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MISTY_EXPLOSION, "Misty Explosion"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GRASSY_GLIDE, "Grassy Glide"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_GRASS
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_RISING_VOLTAGE, "Rising Voltage"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 70
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TERRAIN_PULSE, "Terrain Pulse"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 50
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SKITTER_SMACK, "Skitter Smack"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_BUG
+    accuracy 90
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BURNING_JEALOUSY, "Burning Jealousy"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 70
+    type TYPE_FIRE
+    accuracy 100
+    pp 5
+    effectchance 100
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LASH_OUT, "Lash Out"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 75
+    type TYPE_DARK
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POLTERGEIST, "Poltergeist"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 110
+    type TYPE_GHOST
+    accuracy 90
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CORROSIVE_GAS, "Corrosive Gas"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_POISON
+    accuracy 100
+    pp 40
+    effectchance 0
+    target MOVE_TARGET_FOES_AND_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_COACHING, "Coaching"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FLIP_TURN, "Flip Turn"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_WATER
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TRIPLE_AXEL, "Triple Axel"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 20
+    type TYPE_ICE
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_FLYING
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 70
+    type TYPE_GROUND
+    accuracy 100
+    pp 10
+    effectchance 30
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GRASS
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER_SIDE
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_WICKED_BLOW, "Wicked Blow"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_DARK
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SURGING_STRIKES, "Surging Strikes"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 25
+    type TYPE_WATER
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_THUNDER_CAGE, "Thunder Cage"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_ELECTRIC
+    accuracy 90
+    pp 15
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 150
+    type TYPE_DRAGON
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FREEZING_GLARE, "Freezing Glare"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 10
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FIERY_WRATH, "Fiery Wrath"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 90
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 20
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_THUNDEROUS_KICK, "Thunderous Kick"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 10
+    effectchance 100
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GLACIAL_LANCE, "Glacial Lance"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 130
+    type TYPE_ICE
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ASTRAL_BARRAGE, "Astral Barrage"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 120
+    type TYPE_GHOST
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_EERIE_SPELL, "Eerie Spell"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DIRE_CLAW, "Dire Claw"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_POISON
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_PSYCHIC
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POWER_SHIFT, "Power Shift"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_STONE_AXE, "Stone Axe"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 65
+    type TYPE_ROCK
+    accuracy 90
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPRINGTIDE_STORM, "Springtide Storm"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 80
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MYSTICAL_POWER, "Mystical Power"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 70
+    type TYPE_PSYCHIC
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_RAGING_FURY, "Raging Fury"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_FIRE
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_RANDOM
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_WAVE_CRASH, "Wave Crash"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_WATER
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CHLOROBLAST, "Chloroblast"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 150
+    type TYPE_GRASS
+    accuracy 95
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MOUNTAIN_GALE, "Mountain Gale"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_ICE
+    accuracy 85
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_VICTORY_DANCE, "Victory Dance"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_FIGHTING
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_GROUND
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BARB_BARRAGE, "Barb Barrage"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_POISON
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ESPER_WING, "Esper Wing"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BITTER_MALICE, "Bitter Malice"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 75
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHELTER, "Shelter"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_STEEL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TRIPLE_ARROWS, "Triple Arrows"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_INFERNAL_PARADE, "Infernal Parade"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 60
+    type TYPE_GHOST
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 65
+    type TYPE_DARK
+    accuracy 90
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_FLYING
+    accuracy 80
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_ELECTRIC
+    accuracy 80
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SANDSEAR_STORM, "Sandsear Storm"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_GROUND
+    accuracy 80
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LUNAR_BLESSING, "Lunar Blessing"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TAKE_HEART, "Take Heart"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_PSYCHIC
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ALLY
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TERA_BLAST, "Tera Blast"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SILK_TRAP, "Silk Trap"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_BUG
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 4
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_AXE_KICK, "Axe Kick"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_FIGHTING
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LAST_RESPECTS, "Last Respects"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 50
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_LUMINA_CRASH, "Lumina Crash"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ORDER_UP, "Order Up"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_DRAGON
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_JET_PUNCH, "Jet Punch"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 60
+    type TYPE_WATER
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 1
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPICY_EXTRACT, "Spicy Extract"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_GRASS
+    accuracy 0
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SPIN_OUT, "Spin Out"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POPULATION_BOMB, "Population Bomb"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 20
+    type TYPE_NORMAL
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ICE_SPINNER, "Ice Spinner"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_ICE
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_DRAGON
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_REVIVAL_BLESSING, "Revival Blessing"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 1
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SALT_CURE, "Salt Cure"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_ROCK
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TRIPLE_DIVE, "Triple Dive"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 30
+    type TYPE_WATER
+    accuracy 95
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MORTAL_SPIN, "Mortal Spin"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 30
+    type TYPE_POISON
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DOODLE, "Doodle"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FILLET_AWAY, "Fillet Away"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_KOWTOW_CLEAVE, "Kowtow Cleave"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 85
+    type TYPE_DARK
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_FLOWER_TRICK, "Flower Trick"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_GRASS
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TORCH_SONG, "Torch Song"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_FIRE
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_AQUA_STEP, "Aqua Step"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_WATER
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_RAGING_BULL, "Raging Bull"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAKE_IT_RAIN, "Make It Rain"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 120
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_BOTH
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POUND, "Pound"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_NORMAL
+    accuracy 100
+    pp 35
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POUND, "Pound"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 40
+    type TYPE_NORMAL
+    accuracy 100
+    pp 35
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_RUINATION, "Ruination"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 1
+    type TYPE_DARK
+    accuracy 90
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_COLLISION_COURSE, "Collision Course"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 100
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SHED_TAIL, "Shed Tail"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CHILLY_RECEPTION, "Chilly Reception"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ICE
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TIDY_UP, "Tidy Up"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_NORMAL
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_USER
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_SNOWSCAPE, "Snowscape"
+    battleeffect 0
+    pss SPLIT_STATUS
+    basepower 0
+    type TYPE_ICE
+    accuracy 0
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_ACTIVE_FIELD
+    priority 0
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_POUNCE, "Pounce"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 50
+    type TYPE_BUG
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TRAILBLAZE, "Trailblaze"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 50
+    type TYPE_GRASS
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_CHILLING_WATER, "Chilling Water"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 50
+    type TYPE_WATER
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HYPER_DRILL, "Hyper Drill"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_NORMAL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_TWIN_BEAM, "Twin Beam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 40
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_RAGE_FIST, "Rage Fist"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 50
+    type TYPE_GHOST
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_ARMOR_CANNON, "Armor Cannon"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 120
+    type TYPE_FIRE
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BITTER_BLADE, "Bitter Blade"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 90
+    type TYPE_FIRE
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_DOUBLE_SHOCK, "Double Shock"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 120
+    type TYPE_ELECTRIC
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_GIGATON_HAMMER, "Gigaton Hammer"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 160
+    type TYPE_STEEL
+    accuracy 100
+    pp 5
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_COMEUPPANCE, "Comeuppance"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 1
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_DEPENDS
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 70
+    type TYPE_WATER
+    accuracy 100
+    pp 20
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_FIRE
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_WICKED_TORQUE, "Wicked Torque"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_POISON
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_COMBAT_TORQUE, "Combat Torque"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type TYPE_FIGHTING
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 100
+    type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_HYDRO_STEAM, "Hydro Steam"
+    battleeffect 0
+    pss SPLIT_SPECIAL
+    basepower 80
+    type TYPE_WATER
+    accuracy 100
+    pp 15
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    appeal 0x00
+    contesttype CONTEST_COOL
+    terminatedata
+
+movedata MOVE_PSYBLADE, "Psyblade"
+    battleeffect 0
+    pss SPLIT_PHYSICAL
+    basepower 80
+    type TYPE_PSYCHIC
+    accuracy 100
+    pp 15
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0

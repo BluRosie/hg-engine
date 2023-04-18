@@ -1250,7 +1250,7 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
 
     // grab the ratio of defense weight/attack weight as a % to 2 decimal places
-    ratio = (GetPokemonWeight(bw, sp, sp->defence_client) * 1000) / GetPokemonWeight(bw, sp, sp->attack_client);
+    ratio = (GetPokemonWeight(bw, sp, sp->defence_client) * 10000) / GetPokemonWeight(bw, sp, sp->attack_client);
 
     if (ratio <= 2000)      // < 20.00%
         sp->damage_power = 120;

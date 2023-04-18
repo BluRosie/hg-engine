@@ -13,7 +13,7 @@
 	
 .endmacro
 
-.macro movedatanoname
+.macro movedatanoname,movenum
 
 	.if movenum < 10
 		.create "build/a011/move_00" + tostring(movenum),0
