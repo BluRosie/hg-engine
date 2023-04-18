@@ -7313,7 +7313,7 @@ movedata MOVE_QUIVER_DANCE
     terminatedata
 
 movedata MOVE_HEAVY_SLAM
-    battleeffect 0
+    battleeffect 292
     pss SPLIT_PHYSICAL
     basepower 1
     type TYPE_STEEL
