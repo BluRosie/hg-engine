@@ -13,7 +13,7 @@ MSGDATA_COMPILETIME_DEPENDENCIES_DIR := $(BUILD)/rawtext
 CHARMAP := charmap.txt
 
 
-$(BUILD)/rawtext/%.txt: $(BUILD_NARC)/a011.narc $(BUILD_NARC)/a055.narc $(BUILD_NARC)/mondata.narc
+$(BUILD)/rawtext/%.txt: $(BUILD_NARC)/a011.narc $(BUILD_NARC)/a055.narc $(BUILD_NARC)/mondata.narc scripts/msg_cat.py
 	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 
 # actual msgdata rule at bottom to allow MSGDATA_COMPILETIME_DEPENDENCIES to be fully defined
@@ -83,9 +83,12 @@ MONDATA_TARGET := $(FILESYS)/a/0/0/2
 MONDATA_DEPENDENCIES := armips/data/mondata.s
 MONDATA_NAMES_DIR := $(BUILD)/rawtext/237
 MONDATA_DESCRIPTIONS_DIR := $(BUILD)/rawtext/803
+MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816
+MONDATA_HEIGHTS_DIR := $(BUILD)/rawtext/814 $(BUILD)/rawtext/815
+MONDATA_WEIGHTS_DIR := $(BUILD)/rawtext/812 $(BUILD)/rawtext/813
 
 $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
-	mkdir -p $(MONDATA_DIR) $(MONDATA_NAMES_DIR) $(MONDATA_DESCRIPTIONS_DIR)
+	mkdir -p $(MONDATA_DIR) $(MONDATA_NAMES_DIR) $(MONDATA_DESCRIPTIONS_DIR) $(MONDATA_CLASSIFICATIONS_DIR) $(MONDATA_HEIGHTS_DIR) $(MONDATA_WEIGHTS_DIR)
 	$(ARMIPS) $^
 	$(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 

@@ -618,5 +618,19 @@
     writestring "803", id, description
 .endmacro
 
+.macro mondexclassification,id,classification
+    writestring "816", id, classification
+.endmacro
+
+.macro mondexheight,id,height
+    writestring "814", id, height
+    writestring "815", id, height
+.endmacro
+
+.macro mondexweight,id,weight
+    writestring "812", id, weight
+    writestring "813", id, weight
+.endmacro
+
 
 //note to self: 237.txt would be species names
