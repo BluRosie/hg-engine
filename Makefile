@@ -315,7 +315,6 @@ move_narc: $(NARC_FILES)
 	cp $(SDAT_BUILD) $(SDAT_TARGET)
 
 	@echo "text data:"
-	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
 	@echo "font:"

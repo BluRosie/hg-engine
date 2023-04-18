@@ -7027,7 +7027,7 @@ movedata MOVE_SHADOW_FORCE, "Shadow Force"
     contesttype CONTEST_SMART
     terminatedata
 
-movedata MOVE_SHADOW_FORCE+1, "--"
+movedata MOVE_468, "MOVE_468"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -7042,7 +7042,7 @@ movedata MOVE_SHADOW_FORCE+1, "--"
     contesttype CONTEST_BEAUTY
     terminatedata
 
-movedata MOVE_SHADOW_FORCE+2, "--"
+movedata MOVE_469, "MOVE_469"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
@@ -7057,7 +7057,7 @@ movedata MOVE_SHADOW_FORCE+2, "--"
     contesttype CONTEST_CUTE
     terminatedata
 
-movedata MOVE_SHADOW_FORCE+3, "--"
+movedata MOVE_470, "MOVE_470"
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 100
