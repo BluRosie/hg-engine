@@ -42,7 +42,7 @@ def process_text(folder):
     with open(folder + '.txt', 'w', encoding='utf-8') as out:
         for file in onlyfiles:
             with open(os.path.join(folder, file), 'r', encoding='utf-8') as infile:
-                s = infile.read()
+                s = infile.read().replace('"','”').replace('\'','’').replace('`','’')
                 if caps:
                     s = s.upper()
                 if s != '':
