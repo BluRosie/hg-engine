@@ -32,7 +32,7 @@
 // mon data macros
 
 .macro mondata,species,name
-    speciesname species, name
+    monname species, name
 	.if species < 10
 		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
@@ -610,8 +610,12 @@
     writestring "729", id, name
 .endmacro
 
-.macro speciesname,id,name
+.macro monname,id,name
     writestring "237", id, name
+.endmacro
+
+.macro mondexentry,id,description
+    writestring "803", id, description
 .endmacro
 
 

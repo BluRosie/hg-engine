@@ -29,6 +29,7 @@ mondata SPECIES_NONE, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_NONE, ""
 
 
 mondata SPECIES_BULBASAUR, "Bulbasaur"
@@ -47,6 +48,7 @@ mondata SPECIES_BULBASAUR, "Bulbasaur"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BULBASAUR_TM_DATA_0, SPECIES_BULBASAUR_TM_DATA_1, SPECIES_BULBASAUR_TM_DATA_2, SPECIES_BULBASAUR_TM_DATA_3
+	mondexentry SPECIES_BULBASAUR, "The seed on its back is filled\nwith nutrients. The seed grows\nsteadily larger as its body grows."
 
 
 mondata SPECIES_IVYSAUR, "Ivysaur"
@@ -65,6 +67,7 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_IVYSAUR_TM_DATA_0, SPECIES_IVYSAUR_TM_DATA_1, SPECIES_IVYSAUR_TM_DATA_2, SPECIES_IVYSAUR_TM_DATA_3
+	mondexentry SPECIES_IVYSAUR, "Exposure to sunlight adds to its\nstrength. Sunlight also makes the\nbud on its back grow larger."
 
 
 mondata SPECIES_VENUSAUR, "Venusaur"
@@ -83,6 +86,7 @@ mondata SPECIES_VENUSAUR, "Venusaur"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_VENUSAUR_TM_DATA_0, SPECIES_VENUSAUR_TM_DATA_1, SPECIES_VENUSAUR_TM_DATA_2, SPECIES_VENUSAUR_TM_DATA_3
+	mondexentry SPECIES_VENUSAUR, "By spreading the broad petals of\nits flower and catching the sun’s\nrays, it fills its body with power."
 
 
 mondata SPECIES_CHARMANDER, "Charmander"
@@ -101,6 +105,7 @@ mondata SPECIES_CHARMANDER, "Charmander"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CHARMANDER_TM_DATA_0, SPECIES_CHARMANDER_TM_DATA_1, SPECIES_CHARMANDER_TM_DATA_2, SPECIES_CHARMANDER_TM_DATA_3
+	mondexentry SPECIES_CHARMANDER, "The flame on its tail shows the\nstrength of its life force. If it is weak,\nthe flame also burns weakly."
 
 
 mondata SPECIES_CHARMELEON, "Charmeleon"
@@ -119,6 +124,7 @@ mondata SPECIES_CHARMELEON, "Charmeleon"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CHARMELEON_TM_DATA_0, SPECIES_CHARMELEON_TM_DATA_1, SPECIES_CHARMELEON_TM_DATA_2, SPECIES_CHARMELEON_TM_DATA_3
+	mondexentry SPECIES_CHARMELEON, "It is very hotheaded by nature,\nso it constantly seeks opponents.\nIt calms down only when it wins."
 
 
 mondata SPECIES_CHARIZARD, "Charizard"
@@ -137,6 +143,7 @@ mondata SPECIES_CHARIZARD, "Charizard"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CHARIZARD_TM_DATA_0, SPECIES_CHARIZARD_TM_DATA_1, SPECIES_CHARIZARD_TM_DATA_2, SPECIES_CHARIZARD_TM_DATA_3
+	mondexentry SPECIES_CHARIZARD, "If CHARIZARD becomes furious,\nthe flame at the tip of its tail flares\nup in a light blue shade."
 
 
 mondata SPECIES_SQUIRTLE, "Squirtle"
@@ -155,6 +162,7 @@ mondata SPECIES_SQUIRTLE, "Squirtle"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SQUIRTLE_TM_DATA_0, SPECIES_SQUIRTLE_TM_DATA_1, SPECIES_SQUIRTLE_TM_DATA_2, SPECIES_SQUIRTLE_TM_DATA_3
+	mondexentry SPECIES_SQUIRTLE, "The shell is soft when it is born.\nIt soon becomes so resilient,\nprodding fingers will bounce off it."
 
 
 mondata SPECIES_WARTORTLE, "Wartortle"
@@ -173,6 +181,7 @@ mondata SPECIES_WARTORTLE, "Wartortle"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WARTORTLE_TM_DATA_0, SPECIES_WARTORTLE_TM_DATA_1, SPECIES_WARTORTLE_TM_DATA_2, SPECIES_WARTORTLE_TM_DATA_3
+	mondexentry SPECIES_WARTORTLE, "It is a well-established symbol of\nlongevity. If its shell has algae on it,\nthat WARTORTLE is very old."
 
 
 mondata SPECIES_BLASTOISE, "Blastoise"
@@ -191,6 +200,7 @@ mondata SPECIES_BLASTOISE, "Blastoise"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BLASTOISE_TM_DATA_0, SPECIES_BLASTOISE_TM_DATA_1, SPECIES_BLASTOISE_TM_DATA_2, SPECIES_BLASTOISE_TM_DATA_3
+	mondexentry SPECIES_BLASTOISE, "It deliberately makes itself heavy\nso it can withstand the recoil\nof the water jets it fires."
 
 
 mondata SPECIES_CATERPIE, "Caterpie"
@@ -209,6 +219,7 @@ mondata SPECIES_CATERPIE, "Caterpie"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CATERPIE_TM_DATA_0, SPECIES_CATERPIE_TM_DATA_1, SPECIES_CATERPIE_TM_DATA_2, SPECIES_CATERPIE_TM_DATA_3
+	mondexentry SPECIES_CATERPIE, "For protection, it releases a horrible\nstench from the antennae on its\nhead to drive away enemies."
 
 
 mondata SPECIES_METAPOD, "Metapod"
@@ -227,6 +238,7 @@ mondata SPECIES_METAPOD, "Metapod"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_METAPOD_TM_DATA_0, SPECIES_METAPOD_TM_DATA_1, SPECIES_METAPOD_TM_DATA_2, SPECIES_METAPOD_TM_DATA_3
+	mondexentry SPECIES_METAPOD, "Inside the shell, it is soft and\nweak as it prepares to evolve.\nIt stays motionless in the shell."
 
 
 mondata SPECIES_BUTTERFREE, "Butterfree"
@@ -245,6 +257,7 @@ mondata SPECIES_BUTTERFREE, "Butterfree"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_BUTTERFREE_TM_DATA_0, SPECIES_BUTTERFREE_TM_DATA_1, SPECIES_BUTTERFREE_TM_DATA_2, SPECIES_BUTTERFREE_TM_DATA_3
+	mondexentry SPECIES_BUTTERFREE, "It collects honey every day. It rubs\nhoney onto the hairs on its legs\nto carry it back to its nest."
 
 
 mondata SPECIES_WEEDLE, "Weedle"
@@ -263,6 +276,7 @@ mondata SPECIES_WEEDLE, "Weedle"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_WEEDLE_TM_DATA_0, SPECIES_WEEDLE_TM_DATA_1, SPECIES_WEEDLE_TM_DATA_2, SPECIES_WEEDLE_TM_DATA_3
+	mondexentry SPECIES_WEEDLE, "Its poison stinger is very powerful.\nIts bright-colored body is intended\nto warn off its enemies."
 
 
 mondata SPECIES_KAKUNA, "Kakuna"
@@ -281,6 +295,7 @@ mondata SPECIES_KAKUNA, "Kakuna"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_KAKUNA_TM_DATA_0, SPECIES_KAKUNA_TM_DATA_1, SPECIES_KAKUNA_TM_DATA_2, SPECIES_KAKUNA_TM_DATA_3
+	mondexentry SPECIES_KAKUNA, "Although it is a cocoon, it can\nmove a little. It can extend its\npoison barb if it is attacked."
 
 
 mondata SPECIES_BEEDRILL, "Beedrill"
@@ -299,6 +314,7 @@ mondata SPECIES_BEEDRILL, "Beedrill"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_BEEDRILL_TM_DATA_0, SPECIES_BEEDRILL_TM_DATA_1, SPECIES_BEEDRILL_TM_DATA_2, SPECIES_BEEDRILL_TM_DATA_3
+	mondexentry SPECIES_BEEDRILL, "It can take down any opponent with\nits powerful poison stingers.\nIt sometimes attacks in swarms."
 
 
 mondata SPECIES_PIDGEY, "Pidgey"
@@ -317,6 +333,7 @@ mondata SPECIES_PIDGEY, "Pidgey"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PIDGEY_TM_DATA_0, SPECIES_PIDGEY_TM_DATA_1, SPECIES_PIDGEY_TM_DATA_2, SPECIES_PIDGEY_TM_DATA_3
+	mondexentry SPECIES_PIDGEY, "It usually hides in tall grass.\nBecause it dislikes fighting,\nit protects itself by kicking up sand."
 
 
 mondata SPECIES_PIDGEOTTO, "Pidgeotto"
@@ -335,6 +352,7 @@ mondata SPECIES_PIDGEOTTO, "Pidgeotto"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PIDGEOTTO_TM_DATA_0, SPECIES_PIDGEOTTO_TM_DATA_1, SPECIES_PIDGEOTTO_TM_DATA_2, SPECIES_PIDGEOTTO_TM_DATA_3
+	mondexentry SPECIES_PIDGEOTTO, "It has outstanding vision. However\nhigh it flies, it is able to distinguish\nthe movements of its prey."
 
 
 mondata SPECIES_PIDGEOT, "Pidgeot"
@@ -353,6 +371,7 @@ mondata SPECIES_PIDGEOT, "Pidgeot"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PIDGEOT_TM_DATA_0, SPECIES_PIDGEOT_TM_DATA_1, SPECIES_PIDGEOT_TM_DATA_2, SPECIES_PIDGEOT_TM_DATA_3
+	mondexentry SPECIES_PIDGEOT, "Its well-developed chest muscles make\nit strong enough to whip up a gusty\nwindstorm with just a few flaps."
 
 
 mondata SPECIES_RATTATA, "Rattata"
@@ -371,6 +390,7 @@ mondata SPECIES_RATTATA, "Rattata"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_RATTATA_TM_DATA_0, SPECIES_RATTATA_TM_DATA_1, SPECIES_RATTATA_TM_DATA_2, SPECIES_RATTATA_TM_DATA_3
+	mondexentry SPECIES_RATTATA, "It eats anything. Wherever food is\navailable, it will settle down and\nproduce offspring continuously."
 
 
 mondata SPECIES_RATICATE, "Raticate"
@@ -389,6 +409,7 @@ mondata SPECIES_RATICATE, "Raticate"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_RATICATE_TM_DATA_0, SPECIES_RATICATE_TM_DATA_1, SPECIES_RATICATE_TM_DATA_2, SPECIES_RATICATE_TM_DATA_3
+	mondexentry SPECIES_RATICATE, "Gnaws on anything with its tough\nfangs. It can even topple concrete\nbuildings by gnawing on them."
 
 
 mondata SPECIES_SPEAROW, "Spearow"
@@ -407,6 +428,7 @@ mondata SPECIES_SPEAROW, "Spearow"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SPEAROW_TM_DATA_0, SPECIES_SPEAROW_TM_DATA_1, SPECIES_SPEAROW_TM_DATA_2, SPECIES_SPEAROW_TM_DATA_3
+	mondexentry SPECIES_SPEAROW, "It flaps its short wings to flush out\ninsects from tall grass. It then\nplucks them with its stubby beak."
 
 
 mondata SPECIES_FEAROW, "Fearow"
@@ -425,6 +447,7 @@ mondata SPECIES_FEAROW, "Fearow"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_FEAROW_TM_DATA_0, SPECIES_FEAROW_TM_DATA_1, SPECIES_FEAROW_TM_DATA_2, SPECIES_FEAROW_TM_DATA_3
+	mondexentry SPECIES_FEAROW, "It shoots itself suddenly high into\nthe sky, then plummets down in\none fell swoop to strike its prey."
 
 
 mondata SPECIES_EKANS, "Ekans"
@@ -443,6 +466,7 @@ mondata SPECIES_EKANS, "Ekans"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_EKANS_TM_DATA_0, SPECIES_EKANS_TM_DATA_1, SPECIES_EKANS_TM_DATA_2, SPECIES_EKANS_TM_DATA_3
+	mondexentry SPECIES_EKANS, "It can freely detach its jaw to\nswallow large prey whole. It can\nbecome too heavy to move, however."
 
 
 mondata SPECIES_ARBOK, "Arbok"
@@ -461,6 +485,7 @@ mondata SPECIES_ARBOK, "Arbok"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_ARBOK_TM_DATA_0, SPECIES_ARBOK_TM_DATA_1, SPECIES_ARBOK_TM_DATA_2, SPECIES_ARBOK_TM_DATA_3
+	mondexentry SPECIES_ARBOK, "Transfixing prey with the face-like\npattern on its belly, it binds\nand poisons the frightened victim."
 
 
 mondata SPECIES_PIKACHU, "Pikachu"
@@ -479,6 +504,7 @@ mondata SPECIES_PIKACHU, "Pikachu"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PIKACHU_TM_DATA_0, SPECIES_PIKACHU_TM_DATA_1, SPECIES_PIKACHU_TM_DATA_2, SPECIES_PIKACHU_TM_DATA_3
+	mondexentry SPECIES_PIKACHU, "This intelligent Pokémon roasts\nhard berries with electricity to\nmake them tender enough to eat."
 
 
 mondata SPECIES_RAICHU, "Raichu"
@@ -497,6 +523,7 @@ mondata SPECIES_RAICHU, "Raichu"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_RAICHU_TM_DATA_0, SPECIES_RAICHU_TM_DATA_1, SPECIES_RAICHU_TM_DATA_2, SPECIES_RAICHU_TM_DATA_3
+	mondexentry SPECIES_RAICHU, "When its electricity builds, its\nmuscles are stimulated, and it becomes\nmore aggressive than usual."
 
 
 mondata SPECIES_SANDSHREW, "Sandshrew"
@@ -515,6 +542,7 @@ mondata SPECIES_SANDSHREW, "Sandshrew"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SANDSHREW_TM_DATA_0, SPECIES_SANDSHREW_TM_DATA_1, SPECIES_SANDSHREW_TM_DATA_2, SPECIES_SANDSHREW_TM_DATA_3
+	mondexentry SPECIES_SANDSHREW, "If it fell from a great height, this\nPokémon could save itself by rolling\ninto a ball and bouncing."
 
 
 mondata SPECIES_SANDSLASH, "Sandslash"
@@ -533,6 +561,7 @@ mondata SPECIES_SANDSLASH, "Sandslash"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SANDSLASH_TM_DATA_0, SPECIES_SANDSLASH_TM_DATA_1, SPECIES_SANDSLASH_TM_DATA_2, SPECIES_SANDSLASH_TM_DATA_3
+	mondexentry SPECIES_SANDSLASH, "In an attempt to hide itself,\nit will run around at top speed to\nkick up a blinding dust storm."
 
 
 mondata SPECIES_NIDORAN_F, "Nidoran♀"
@@ -551,6 +580,7 @@ mondata SPECIES_NIDORAN_F, "Nidoran♀"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_NIDORAN_F_TM_DATA_0, SPECIES_NIDORAN_F_TM_DATA_1, SPECIES_NIDORAN_F_TM_DATA_2, SPECIES_NIDORAN_F_TM_DATA_3
+	mondexentry SPECIES_NIDORAN_F, "The poison hidden in its small horn\nis extremely potent. Even a tiny\nscratch can have fatal results."
 
 
 mondata SPECIES_NIDORINA, "Nidorina"
@@ -569,6 +599,7 @@ mondata SPECIES_NIDORINA, "Nidorina"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_NIDORINA_TM_DATA_0, SPECIES_NIDORINA_TM_DATA_1, SPECIES_NIDORINA_TM_DATA_2, SPECIES_NIDORINA_TM_DATA_3
+	mondexentry SPECIES_NIDORINA, "When feeding its young, it first\nchews the food into a paste, then\nspits it out for the offspring."
 
 
 mondata SPECIES_NIDOQUEEN, "Nidoqueen"
@@ -587,6 +618,7 @@ mondata SPECIES_NIDOQUEEN, "Nidoqueen"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_NIDOQUEEN_TM_DATA_0, SPECIES_NIDOQUEEN_TM_DATA_1, SPECIES_NIDOQUEEN_TM_DATA_2, SPECIES_NIDOQUEEN_TM_DATA_3
+	mondexentry SPECIES_NIDOQUEEN, "Its body is covered with needle-like\nscales. It never shows signs\nof shrinking from any attack."
 
 
 mondata SPECIES_NIDORAN_M, "Nidoran♂"
@@ -605,6 +637,7 @@ mondata SPECIES_NIDORAN_M, "Nidoran♂"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_NIDORAN_M_TM_DATA_0, SPECIES_NIDORAN_M_TM_DATA_1, SPECIES_NIDORAN_M_TM_DATA_2, SPECIES_NIDORAN_M_TM_DATA_3
+	mondexentry SPECIES_NIDORAN_M, "It is small, but its horn is filled\nwith poison. It charges then stabs\nwith the horn to inject poison."
 
 
 mondata SPECIES_NIDORINO, "Nidorino"
@@ -623,6 +656,7 @@ mondata SPECIES_NIDORINO, "Nidorino"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_NIDORINO_TM_DATA_0, SPECIES_NIDORINO_TM_DATA_1, SPECIES_NIDORINO_TM_DATA_2, SPECIES_NIDORINO_TM_DATA_3
+	mondexentry SPECIES_NIDORINO, "It raises its big ears to check its\nsurroundings. If it senses anything,\nit attacks immediately."
 
 
 mondata SPECIES_NIDOKING, "Nidoking"
@@ -641,6 +675,7 @@ mondata SPECIES_NIDOKING, "Nidoking"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_NIDOKING_TM_DATA_0, SPECIES_NIDOKING_TM_DATA_1, SPECIES_NIDOKING_TM_DATA_2, SPECIES_NIDOKING_TM_DATA_3
+	mondexentry SPECIES_NIDOKING, "It swings its big tail around during\nbattle. If its foe flinches, it will\ncharge with its sturdy body."
 
 
 mondata SPECIES_CLEFAIRY, "Clefairy"
@@ -659,6 +694,7 @@ mondata SPECIES_CLEFAIRY, "Clefairy"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_CLEFAIRY_TM_DATA_0, SPECIES_CLEFAIRY_TM_DATA_1, SPECIES_CLEFAIRY_TM_DATA_2, SPECIES_CLEFAIRY_TM_DATA_3
+	mondexentry SPECIES_CLEFAIRY, "The moonlight that it stores in the\nwings on its back apparently gives\nit the ability to float in midair."
 
 
 mondata SPECIES_CLEFABLE, "Clefable"
@@ -677,6 +713,7 @@ mondata SPECIES_CLEFABLE, "Clefable"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_CLEFABLE_TM_DATA_0, SPECIES_CLEFABLE_TM_DATA_1, SPECIES_CLEFABLE_TM_DATA_2, SPECIES_CLEFABLE_TM_DATA_3
+	mondexentry SPECIES_CLEFABLE, "With its acute hearing, it can\npick up sounds from far away.\nIt usually hides in quiet places."
 
 
 mondata SPECIES_VULPIX, "Vulpix"
@@ -695,6 +732,7 @@ mondata SPECIES_VULPIX, "Vulpix"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_VULPIX_TM_DATA_0, SPECIES_VULPIX_TM_DATA_1, SPECIES_VULPIX_TM_DATA_2, SPECIES_VULPIX_TM_DATA_3
+	mondexentry SPECIES_VULPIX, "As it develops, its single white\ntail gains color and splits into six.\nIt is quite warm and cuddly."
 
 
 mondata SPECIES_NINETALES, "Ninetales"
@@ -713,6 +751,7 @@ mondata SPECIES_NINETALES, "Ninetales"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_NINETALES_TM_DATA_0, SPECIES_NINETALES_TM_DATA_1, SPECIES_NINETALES_TM_DATA_2, SPECIES_NINETALES_TM_DATA_3
+	mondexentry SPECIES_NINETALES, "Some legends claim that each of its\nnine tails has its own unique type\nof special mystical power."
 
 
 mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
@@ -731,6 +770,7 @@ mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_JIGGLYPUFF_TM_DATA_0, SPECIES_JIGGLYPUFF_TM_DATA_1, SPECIES_JIGGLYPUFF_TM_DATA_2, SPECIES_JIGGLYPUFF_TM_DATA_3
+	mondexentry SPECIES_JIGGLYPUFF, "If it inflates to sing a lullaby,\nit can perform longer and cause\nsure drowsiness in its audience."
 
 
 mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
@@ -749,6 +789,7 @@ mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_WIGGLYTUFF_TM_DATA_0, SPECIES_WIGGLYTUFF_TM_DATA_1, SPECIES_WIGGLYTUFF_TM_DATA_2, SPECIES_WIGGLYTUFF_TM_DATA_3
+	mondexentry SPECIES_WIGGLYTUFF, "Their fur feels so good that if two\nof them snuggle together,\nthey won’t want to be separated."
 
 
 mondata SPECIES_ZUBAT, "Zubat"
@@ -767,6 +808,7 @@ mondata SPECIES_ZUBAT, "Zubat"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_ZUBAT_TM_DATA_0, SPECIES_ZUBAT_TM_DATA_1, SPECIES_ZUBAT_TM_DATA_2, SPECIES_ZUBAT_TM_DATA_3
+	mondexentry SPECIES_ZUBAT, "While flying, it constantly emits\nultrasonic waves from its mouth to\ncheck its surroundings."
 
 
 mondata SPECIES_GOLBAT, "Golbat"
@@ -785,6 +827,7 @@ mondata SPECIES_GOLBAT, "Golbat"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GOLBAT_TM_DATA_0, SPECIES_GOLBAT_TM_DATA_1, SPECIES_GOLBAT_TM_DATA_2, SPECIES_GOLBAT_TM_DATA_3
+	mondexentry SPECIES_GOLBAT, "However hard its victim’s hide may be,\nit punctures with sharp fangs\nand gorges itself with blood."
 
 
 mondata SPECIES_ODDISH, "Oddish"
@@ -803,6 +846,7 @@ mondata SPECIES_ODDISH, "Oddish"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ODDISH_TM_DATA_0, SPECIES_ODDISH_TM_DATA_1, SPECIES_ODDISH_TM_DATA_2, SPECIES_ODDISH_TM_DATA_3
+	mondexentry SPECIES_ODDISH, "Awakened by moonlight, it roams\nactively at night. In the day, it stays\nquietly underground."
 
 
 mondata SPECIES_GLOOM, "Gloom"
@@ -821,6 +865,7 @@ mondata SPECIES_GLOOM, "Gloom"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GLOOM_TM_DATA_0, SPECIES_GLOOM_TM_DATA_1, SPECIES_GLOOM_TM_DATA_2, SPECIES_GLOOM_TM_DATA_3
+	mondexentry SPECIES_GLOOM, "What appears to be drool is actually\nsweet honey. It is very sticky and\nclings stubbornly if touched."
 
 
 mondata SPECIES_VILEPLUME, "Vileplume"
@@ -839,6 +884,7 @@ mondata SPECIES_VILEPLUME, "Vileplume"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_VILEPLUME_TM_DATA_0, SPECIES_VILEPLUME_TM_DATA_1, SPECIES_VILEPLUME_TM_DATA_2, SPECIES_VILEPLUME_TM_DATA_3
+	mondexentry SPECIES_VILEPLUME, "It has the world’s largest petals.\nWith every step, the petals shake\nout heavy clouds of toxic pollen."
 
 
 mondata SPECIES_PARAS, "Paras"
@@ -857,6 +903,7 @@ mondata SPECIES_PARAS, "Paras"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PARAS_TM_DATA_0, SPECIES_PARAS_TM_DATA_1, SPECIES_PARAS_TM_DATA_2, SPECIES_PARAS_TM_DATA_3
+	mondexentry SPECIES_PARAS, "It is doused with mushroom spores\nwhen it is born. As its body grows,\nmushrooms sprout from its back."
 
 
 mondata SPECIES_PARASECT, "Parasect"
@@ -875,6 +922,7 @@ mondata SPECIES_PARASECT, "Parasect"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PARASECT_TM_DATA_0, SPECIES_PARASECT_TM_DATA_1, SPECIES_PARASECT_TM_DATA_2, SPECIES_PARASECT_TM_DATA_3
+	mondexentry SPECIES_PARASECT, "It stays mostly in dark, damp places,\nthe preference not of the bug, but\nof the big mushroom on its back."
 
 
 mondata SPECIES_VENONAT, "Venonat"
@@ -893,6 +941,7 @@ mondata SPECIES_VENONAT, "Venonat"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_VENONAT_TM_DATA_0, SPECIES_VENONAT_TM_DATA_1, SPECIES_VENONAT_TM_DATA_2, SPECIES_VENONAT_TM_DATA_3
+	mondexentry SPECIES_VENONAT, "Its eyes also function as radar\nunits. It catches and eats small\nbugs that hide in darkness."
 
 
 mondata SPECIES_VENOMOTH, "Venomoth"
@@ -911,6 +960,7 @@ mondata SPECIES_VENOMOTH, "Venomoth"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_VENOMOTH_TM_DATA_0, SPECIES_VENOMOTH_TM_DATA_1, SPECIES_VENOMOTH_TM_DATA_2, SPECIES_VENOMOTH_TM_DATA_3
+	mondexentry SPECIES_VENOMOTH, "When it attacks, it flaps its large\nwings violently to scatter its\npoisonous powder all around."
 
 
 mondata SPECIES_DIGLETT, "Diglett"
@@ -929,6 +979,7 @@ mondata SPECIES_DIGLETT, "Diglett"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DIGLETT_TM_DATA_0, SPECIES_DIGLETT_TM_DATA_1, SPECIES_DIGLETT_TM_DATA_2, SPECIES_DIGLETT_TM_DATA_3
+	mondexentry SPECIES_DIGLETT, "Its skin is very thin. If it is exposed\nto light, its blood heats up,\ncausing it to grow weak."
 
 
 mondata SPECIES_DUGTRIO, "Dugtrio"
@@ -947,6 +998,7 @@ mondata SPECIES_DUGTRIO, "Dugtrio"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DUGTRIO_TM_DATA_0, SPECIES_DUGTRIO_TM_DATA_1, SPECIES_DUGTRIO_TM_DATA_2, SPECIES_DUGTRIO_TM_DATA_3
+	mondexentry SPECIES_DUGTRIO, "Its three heads bob separately up\nand down to loosen the soil nearby,\nmaking it easier for it to burrow."
 
 
 mondata SPECIES_MEOWTH, "Meowth"
@@ -965,6 +1017,7 @@ mondata SPECIES_MEOWTH, "Meowth"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MEOWTH_TM_DATA_0, SPECIES_MEOWTH_TM_DATA_1, SPECIES_MEOWTH_TM_DATA_2, SPECIES_MEOWTH_TM_DATA_3
+	mondexentry SPECIES_MEOWTH, "It is fascinated by round objects.\nIt can’t stop playing with them\nuntil it tires and falls asleep."
 
 
 mondata SPECIES_PERSIAN, "Persian"
@@ -983,6 +1036,7 @@ mondata SPECIES_PERSIAN, "Persian"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PERSIAN_TM_DATA_0, SPECIES_PERSIAN_TM_DATA_1, SPECIES_PERSIAN_TM_DATA_2, SPECIES_PERSIAN_TM_DATA_3
+	mondexentry SPECIES_PERSIAN, "Many adore it for its sophisticated air.\nHowever, it will lash out and\nscratch for little reason."
 
 
 mondata SPECIES_PSYDUCK, "Psyduck"
@@ -1001,6 +1055,7 @@ mondata SPECIES_PSYDUCK, "Psyduck"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PSYDUCK_TM_DATA_0, SPECIES_PSYDUCK_TM_DATA_1, SPECIES_PSYDUCK_TM_DATA_2, SPECIES_PSYDUCK_TM_DATA_3
+	mondexentry SPECIES_PSYDUCK, "It has mystical powers but doesn’t\nrecall that it has used them.\nThat is why it always looks puzzled."
 
 
 mondata SPECIES_GOLDUCK, "Golduck"
@@ -1019,6 +1074,7 @@ mondata SPECIES_GOLDUCK, "Golduck"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GOLDUCK_TM_DATA_0, SPECIES_GOLDUCK_TM_DATA_1, SPECIES_GOLDUCK_TM_DATA_2, SPECIES_GOLDUCK_TM_DATA_3
+	mondexentry SPECIES_GOLDUCK, "When it swims at full speed using\nits long, webbed limbs, its forehead\nsomehow begins to glow."
 
 
 mondata SPECIES_MANKEY, "Mankey"
@@ -1037,6 +1093,7 @@ mondata SPECIES_MANKEY, "Mankey"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MANKEY_TM_DATA_0, SPECIES_MANKEY_TM_DATA_1, SPECIES_MANKEY_TM_DATA_2, SPECIES_MANKEY_TM_DATA_3
+	mondexentry SPECIES_MANKEY, "It is extremely ill-tempered.\nGroups of them will attack any\nhandy target for no reason."
 
 
 mondata SPECIES_PRIMEAPE, "Primeape"
@@ -1055,6 +1112,7 @@ mondata SPECIES_PRIMEAPE, "Primeape"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PRIMEAPE_TM_DATA_0, SPECIES_PRIMEAPE_TM_DATA_1, SPECIES_PRIMEAPE_TM_DATA_2, SPECIES_PRIMEAPE_TM_DATA_3
+	mondexentry SPECIES_PRIMEAPE, "If approached while asleep,\nit may awaken and angrily give chase\nin a groggy state of semi-sleep."
 
 
 mondata SPECIES_GROWLITHE, "Growlithe"
@@ -1073,6 +1131,7 @@ mondata SPECIES_GROWLITHE, "Growlithe"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GROWLITHE_TM_DATA_0, SPECIES_GROWLITHE_TM_DATA_1, SPECIES_GROWLITHE_TM_DATA_2, SPECIES_GROWLITHE_TM_DATA_3
+	mondexentry SPECIES_GROWLITHE, "It has a brave and trustworthy\nnature. It fearlessly stands up\nto bigger and stronger foes."
 
 
 mondata SPECIES_ARCANINE, "Arcanine"
@@ -1091,6 +1150,7 @@ mondata SPECIES_ARCANINE, "Arcanine"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ARCANINE_TM_DATA_0, SPECIES_ARCANINE_TM_DATA_1, SPECIES_ARCANINE_TM_DATA_2, SPECIES_ARCANINE_TM_DATA_3
+	mondexentry SPECIES_ARCANINE, "This legendary Chinese Pokémon is\nconsidered magnificent. Many people\nare enchanted by its grand mane."
 
 
 mondata SPECIES_POLIWAG, "Poliwag"
@@ -1109,6 +1169,7 @@ mondata SPECIES_POLIWAG, "Poliwag"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_POLIWAG_TM_DATA_0, SPECIES_POLIWAG_TM_DATA_1, SPECIES_POLIWAG_TM_DATA_2, SPECIES_POLIWAG_TM_DATA_3
+	mondexentry SPECIES_POLIWAG, "Because it is inept at walking on\nits newly grown legs, it always \nswims around in water."
 
 
 mondata SPECIES_POLIWHIRL, "Poliwhirl"
@@ -1127,6 +1188,7 @@ mondata SPECIES_POLIWHIRL, "Poliwhirl"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_POLIWHIRL_TM_DATA_0, SPECIES_POLIWHIRL_TM_DATA_1, SPECIES_POLIWHIRL_TM_DATA_2, SPECIES_POLIWHIRL_TM_DATA_3
+	mondexentry SPECIES_POLIWHIRL, "The swirl on its belly subtly undulates.\nStaring at it may gradually\ncause drowsiness."
 
 
 mondata SPECIES_POLIWRATH, "Poliwrath"
@@ -1145,6 +1207,7 @@ mondata SPECIES_POLIWRATH, "Poliwrath"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_POLIWRATH_TM_DATA_0, SPECIES_POLIWRATH_TM_DATA_1, SPECIES_POLIWRATH_TM_DATA_2, SPECIES_POLIWRATH_TM_DATA_3
+	mondexentry SPECIES_POLIWRATH, "This strong and skilled swimmer is\neven capable of crossing the\nPacific Ocean just by kicking."
 
 
 mondata SPECIES_ABRA, "Abra"
@@ -1163,6 +1226,7 @@ mondata SPECIES_ABRA, "Abra"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ABRA_TM_DATA_0, SPECIES_ABRA_TM_DATA_1, SPECIES_ABRA_TM_DATA_2, SPECIES_ABRA_TM_DATA_3
+	mondexentry SPECIES_ABRA, "It senses impending attacks and\nteleports away to safety before the\nactual attacks can strike."
 
 
 mondata SPECIES_KADABRA, "Kadabra"
@@ -1181,6 +1245,7 @@ mondata SPECIES_KADABRA, "Kadabra"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_KADABRA_TM_DATA_0, SPECIES_KADABRA_TM_DATA_1, SPECIES_KADABRA_TM_DATA_2, SPECIES_KADABRA_TM_DATA_3
+	mondexentry SPECIES_KADABRA, "It possesses strong spiritual power.\nThe more danger it faces,\nthe stronger its psychic power."
 
 
 mondata SPECIES_ALAKAZAM, "Alakazam"
@@ -1199,6 +1264,7 @@ mondata SPECIES_ALAKAZAM, "Alakazam"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ALAKAZAM_TM_DATA_0, SPECIES_ALAKAZAM_TM_DATA_1, SPECIES_ALAKAZAM_TM_DATA_2, SPECIES_ALAKAZAM_TM_DATA_3
+	mondexentry SPECIES_ALAKAZAM, "Closing both its eyes heightens all\nits other senses. This enables it to\nuse its abilities to their extremes."
 
 
 mondata SPECIES_MACHOP, "Machop"
@@ -1217,6 +1283,7 @@ mondata SPECIES_MACHOP, "Machop"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MACHOP_TM_DATA_0, SPECIES_MACHOP_TM_DATA_1, SPECIES_MACHOP_TM_DATA_2, SPECIES_MACHOP_TM_DATA_3
+	mondexentry SPECIES_MACHOP, "Always brimming with power,\nit passes time by lifting boulders.\nDoing so makes it even stronger."
 
 
 mondata SPECIES_MACHOKE, "Machoke"
@@ -1235,6 +1302,7 @@ mondata SPECIES_MACHOKE, "Machoke"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MACHOKE_TM_DATA_0, SPECIES_MACHOKE_TM_DATA_1, SPECIES_MACHOKE_TM_DATA_2, SPECIES_MACHOKE_TM_DATA_3
+	mondexentry SPECIES_MACHOKE, "It always goes at its full power,\nbut this very tough and durable\nPokémon never gets tired."
 
 
 mondata SPECIES_MACHAMP, "Machamp"
@@ -1253,6 +1321,7 @@ mondata SPECIES_MACHAMP, "Machamp"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MACHAMP_TM_DATA_0, SPECIES_MACHAMP_TM_DATA_1, SPECIES_MACHAMP_TM_DATA_2, SPECIES_MACHAMP_TM_DATA_3
+	mondexentry SPECIES_MACHAMP, "It quickly swings its four arms to\nrock its opponents with ceaseless\npunches and chops from all angles."
 
 
 mondata SPECIES_BELLSPROUT, "Bellsprout"
@@ -1271,6 +1340,7 @@ mondata SPECIES_BELLSPROUT, "Bellsprout"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BELLSPROUT_TM_DATA_0, SPECIES_BELLSPROUT_TM_DATA_1, SPECIES_BELLSPROUT_TM_DATA_2, SPECIES_BELLSPROUT_TM_DATA_3
+	mondexentry SPECIES_BELLSPROUT, "Even though its body is extremely\nskinny, it is blindingly fast\nwhen catching its prey."
 
 
 mondata SPECIES_WEEPINBELL, "Weepinbell"
@@ -1289,6 +1359,7 @@ mondata SPECIES_WEEPINBELL, "Weepinbell"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_WEEPINBELL_TM_DATA_0, SPECIES_WEEPINBELL_TM_DATA_1, SPECIES_WEEPINBELL_TM_DATA_2, SPECIES_WEEPINBELL_TM_DATA_3
+	mondexentry SPECIES_WEEPINBELL, "Even though it is filled with acid,\nit does not melt because it also\noozes a protective fluid."
 
 
 mondata SPECIES_VICTREEBEL, "Victreebel"
@@ -1307,6 +1378,7 @@ mondata SPECIES_VICTREEBEL, "Victreebel"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_VICTREEBEL_TM_DATA_0, SPECIES_VICTREEBEL_TM_DATA_1, SPECIES_VICTREEBEL_TM_DATA_2, SPECIES_VICTREEBEL_TM_DATA_3
+	mondexentry SPECIES_VICTREEBEL, "Acid that has dissolved many prey\nbecomes sweeter, making it even\nmore effective at attracting prey."
 
 
 mondata SPECIES_TENTACOOL, "Tentacool"
@@ -1325,6 +1397,7 @@ mondata SPECIES_TENTACOOL, "Tentacool"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TENTACOOL_TM_DATA_0, SPECIES_TENTACOOL_TM_DATA_1, SPECIES_TENTACOOL_TM_DATA_2, SPECIES_TENTACOOL_TM_DATA_3
+	mondexentry SPECIES_TENTACOOL, "When the tide goes out, dehydrated\nTENTACOOL remains can be found\nwashed up on the shore."
 
 
 mondata SPECIES_TENTACRUEL, "Tentacruel"
@@ -1343,6 +1416,7 @@ mondata SPECIES_TENTACRUEL, "Tentacruel"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TENTACRUEL_TM_DATA_0, SPECIES_TENTACRUEL_TM_DATA_1, SPECIES_TENTACRUEL_TM_DATA_2, SPECIES_TENTACRUEL_TM_DATA_3
+	mondexentry SPECIES_TENTACRUEL, "Its 80 tentacles absorb water and\nstretch almost endlessly to\nconstrict its prey and enemies."
 
 
 mondata SPECIES_GEODUDE, "Geodude"
@@ -1361,6 +1435,7 @@ mondata SPECIES_GEODUDE, "Geodude"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GEODUDE_TM_DATA_0, SPECIES_GEODUDE_TM_DATA_1, SPECIES_GEODUDE_TM_DATA_2, SPECIES_GEODUDE_TM_DATA_3
+	mondexentry SPECIES_GEODUDE, "Most people may not notice,\nbut a closer look should reveal that\nthere are many GEODUDE around."
 
 
 mondata SPECIES_GRAVELER, "Graveler"
@@ -1379,6 +1454,7 @@ mondata SPECIES_GRAVELER, "Graveler"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GRAVELER_TM_DATA_0, SPECIES_GRAVELER_TM_DATA_1, SPECIES_GRAVELER_TM_DATA_2, SPECIES_GRAVELER_TM_DATA_3
+	mondexentry SPECIES_GRAVELER, "With a free and uncaring nature,\nit doesn’t mind if pieces break off\nwhile it rolls down mountains."
 
 
 mondata SPECIES_GOLEM, "Golem"
@@ -1397,6 +1473,7 @@ mondata SPECIES_GOLEM, "Golem"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GOLEM_TM_DATA_0, SPECIES_GOLEM_TM_DATA_1, SPECIES_GOLEM_TM_DATA_2, SPECIES_GOLEM_TM_DATA_3
+	mondexentry SPECIES_GOLEM, "It sheds its skin once a year.\nThe discarded shell immediately\nhardens and crumbles away."
 
 
 mondata SPECIES_PONYTA, "Ponyta"
@@ -1415,6 +1492,7 @@ mondata SPECIES_PONYTA, "Ponyta"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PONYTA_TM_DATA_0, SPECIES_PONYTA_TM_DATA_1, SPECIES_PONYTA_TM_DATA_2, SPECIES_PONYTA_TM_DATA_3
+	mondexentry SPECIES_PONYTA, "It is a weak runner immediately\nafter birth. It gradually becomes\nfaster by chasing after its parents."
 
 
 mondata SPECIES_RAPIDASH, "Rapidash"
@@ -1433,6 +1511,7 @@ mondata SPECIES_RAPIDASH, "Rapidash"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_RAPIDASH_TM_DATA_0, SPECIES_RAPIDASH_TM_DATA_1, SPECIES_RAPIDASH_TM_DATA_2, SPECIES_RAPIDASH_TM_DATA_3
+	mondexentry SPECIES_RAPIDASH, "At full gallop, its four hooves\nbarely touch the ground because\nit moves so incredibly fast."
 
 
 mondata SPECIES_SLOWPOKE, "Slowpoke"
@@ -1451,6 +1530,7 @@ mondata SPECIES_SLOWPOKE, "Slowpoke"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SLOWPOKE_TM_DATA_0, SPECIES_SLOWPOKE_TM_DATA_1, SPECIES_SLOWPOKE_TM_DATA_2, SPECIES_SLOWPOKE_TM_DATA_3
+	mondexentry SPECIES_SLOWPOKE, "It lazes vacantly near water.\nIf something bites its tail, it won’t\neven notice for a whole day."
 
 
 mondata SPECIES_SLOWBRO, "Slowbro"
@@ -1469,6 +1549,7 @@ mondata SPECIES_SLOWBRO, "Slowbro"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SLOWBRO_TM_DATA_0, SPECIES_SLOWBRO_TM_DATA_1, SPECIES_SLOWBRO_TM_DATA_2, SPECIES_SLOWBRO_TM_DATA_3
+	mondexentry SPECIES_SLOWBRO, "If the tail-biting SHELLDER is thrown\noff in a harsh battle, it reverts to\nbeing an ordinary SLOWPOKE."
 
 
 mondata SPECIES_MAGNEMITE, "Magnemite"
@@ -1487,6 +1568,7 @@ mondata SPECIES_MAGNEMITE, "Magnemite"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MAGNEMITE_TM_DATA_0, SPECIES_MAGNEMITE_TM_DATA_1, SPECIES_MAGNEMITE_TM_DATA_2, SPECIES_MAGNEMITE_TM_DATA_3
+	mondexentry SPECIES_MAGNEMITE, "It is attracted by electromagnetic\nwaves. It may approach Trainers\nif they are using their Pokégear."
 
 
 mondata SPECIES_MAGNETON, "Magneton"
@@ -1505,6 +1587,7 @@ mondata SPECIES_MAGNETON, "Magneton"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MAGNETON_TM_DATA_0, SPECIES_MAGNETON_TM_DATA_1, SPECIES_MAGNETON_TM_DATA_2, SPECIES_MAGNETON_TM_DATA_3
+	mondexentry SPECIES_MAGNETON, "Three MAGNEMITE are linked by a\nstrong magnetic force. Earaches\nwill occur if you get too close."
 
 
 mondata SPECIES_FARFETCHD, "Farfetch’d"
@@ -1523,6 +1606,7 @@ mondata SPECIES_FARFETCHD, "Farfetch’d"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_FARFETCHD_TM_DATA_0, SPECIES_FARFETCHD_TM_DATA_1, SPECIES_FARFETCHD_TM_DATA_2, SPECIES_FARFETCHD_TM_DATA_3
+	mondexentry SPECIES_FARFETCHD, "If anyone tries to disturb where the\nessential plant stalks grow, it uses its\nown stalk to thwart them."
 
 
 mondata SPECIES_DODUO, "Doduo"
@@ -1541,6 +1625,7 @@ mondata SPECIES_DODUO, "Doduo"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DODUO_TM_DATA_0, SPECIES_DODUO_TM_DATA_1, SPECIES_DODUO_TM_DATA_2, SPECIES_DODUO_TM_DATA_3
+	mondexentry SPECIES_DODUO, "By alternately raising and lowering\nits two heads, it balances itself\nto be more stable while running."
 
 
 mondata SPECIES_DODRIO, "Dodrio"
@@ -1559,6 +1644,7 @@ mondata SPECIES_DODRIO, "Dodrio"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DODRIO_TM_DATA_0, SPECIES_DODRIO_TM_DATA_1, SPECIES_DODRIO_TM_DATA_2, SPECIES_DODRIO_TM_DATA_3
+	mondexentry SPECIES_DODRIO, "It collects data and plans three times\nas wisely, but it may think too much\nand fall into a state of immobility."
 
 
 mondata SPECIES_SEEL, "Seel"
@@ -1577,6 +1663,7 @@ mondata SPECIES_SEEL, "Seel"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SEEL_TM_DATA_0, SPECIES_SEEL_TM_DATA_1, SPECIES_SEEL_TM_DATA_2, SPECIES_SEEL_TM_DATA_3
+	mondexentry SPECIES_SEEL, "Although it can’t walk well on land,\nit is a graceful swimmer. It especially\nloves being in frigid seas."
 
 
 mondata SPECIES_DEWGONG, "Dewgong"
@@ -1595,6 +1682,7 @@ mondata SPECIES_DEWGONG, "Dewgong"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_DEWGONG_TM_DATA_0, SPECIES_DEWGONG_TM_DATA_1, SPECIES_DEWGONG_TM_DATA_2, SPECIES_DEWGONG_TM_DATA_3
+	mondexentry SPECIES_DEWGONG, "Its streamlined body has little\ndrag in water. The colder the\ntemperature, the friskier it gets."
 
 
 mondata SPECIES_GRIMER, "Grimer"
@@ -1613,6 +1701,7 @@ mondata SPECIES_GRIMER, "Grimer"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GRIMER_TM_DATA_0, SPECIES_GRIMER_TM_DATA_1, SPECIES_GRIMER_TM_DATA_2, SPECIES_GRIMER_TM_DATA_3
+	mondexentry SPECIES_GRIMER, "As it moves, it loses bits of its body,\nfrom which new GRIMER emerge.\nThis worsens the stench around it."
 
 
 mondata SPECIES_MUK, "Muk"
@@ -1631,6 +1720,7 @@ mondata SPECIES_MUK, "Muk"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MUK_TM_DATA_0, SPECIES_MUK_TM_DATA_1, SPECIES_MUK_TM_DATA_2, SPECIES_MUK_TM_DATA_3
+	mondexentry SPECIES_MUK, "They love to gather in smelly areas\nwhere sludge accumulates, making\nthe stench around them worse."
 
 
 mondata SPECIES_SHELLDER, "Shellder"
@@ -1649,6 +1739,7 @@ mondata SPECIES_SHELLDER, "Shellder"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SHELLDER_TM_DATA_0, SPECIES_SHELLDER_TM_DATA_1, SPECIES_SHELLDER_TM_DATA_2, SPECIES_SHELLDER_TM_DATA_3
+	mondexentry SPECIES_SHELLDER, "It swims facing backward by opening\nand closing its two-piece shell.\nIt is surprisingly fast."
 
 
 mondata SPECIES_CLOYSTER, "Cloyster"
@@ -1667,6 +1758,7 @@ mondata SPECIES_CLOYSTER, "Cloyster"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_CLOYSTER_TM_DATA_0, SPECIES_CLOYSTER_TM_DATA_1, SPECIES_CLOYSTER_TM_DATA_2, SPECIES_CLOYSTER_TM_DATA_3
+	mondexentry SPECIES_CLOYSTER, "Once it slams its shell shut,\nit is impossible to open, even by\nthose with superior strength."
 
 
 mondata SPECIES_GASTLY, "Gastly"
@@ -1685,6 +1777,7 @@ mondata SPECIES_GASTLY, "Gastly"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GASTLY_TM_DATA_0, SPECIES_GASTLY_TM_DATA_1, SPECIES_GASTLY_TM_DATA_2, SPECIES_GASTLY_TM_DATA_3
+	mondexentry SPECIES_GASTLY, "With its gas-like body, it can sneak\ninto any place it desires. However,\nit can be blown away by wind."
 
 
 mondata SPECIES_HAUNTER, "Haunter"
@@ -1703,6 +1796,7 @@ mondata SPECIES_HAUNTER, "Haunter"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_HAUNTER_TM_DATA_0, SPECIES_HAUNTER_TM_DATA_1, SPECIES_HAUNTER_TM_DATA_2, SPECIES_HAUNTER_TM_DATA_3
+	mondexentry SPECIES_HAUNTER, "In total darkness, where nothing is\nvisible, HAUNTER lurks, silently\nstalking its next victim."
 
 
 mondata SPECIES_GENGAR, "Gengar"
@@ -1721,6 +1815,7 @@ mondata SPECIES_GENGAR, "Gengar"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GENGAR_TM_DATA_0, SPECIES_GENGAR_TM_DATA_1, SPECIES_GENGAR_TM_DATA_2, SPECIES_GENGAR_TM_DATA_3
+	mondexentry SPECIES_GENGAR, "It steals heat from its surroundings.\nIf you feel a sudden chill,\nit is certain that a GENGAR appeared."
 
 
 mondata SPECIES_ONIX, "Onix"
@@ -1739,6 +1834,7 @@ mondata SPECIES_ONIX, "Onix"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ONIX_TM_DATA_0, SPECIES_ONIX_TM_DATA_1, SPECIES_ONIX_TM_DATA_2, SPECIES_ONIX_TM_DATA_3
+	mondexentry SPECIES_ONIX, "It twists and squirms through\nthe ground. The thunderous roar of\nits tunneling echoes a long way."
 
 
 mondata SPECIES_DROWZEE, "Drowzee"
@@ -1757,6 +1853,7 @@ mondata SPECIES_DROWZEE, "Drowzee"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_DROWZEE_TM_DATA_0, SPECIES_DROWZEE_TM_DATA_1, SPECIES_DROWZEE_TM_DATA_2, SPECIES_DROWZEE_TM_DATA_3
+	mondexentry SPECIES_DROWZEE, "If you think that you had a good dream\nbut you can’t remember it,\na DROWZEE has probably eaten it."
 
 
 mondata SPECIES_HYPNO, "Hypno"
@@ -1775,6 +1872,7 @@ mondata SPECIES_HYPNO, "Hypno"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_HYPNO_TM_DATA_0, SPECIES_HYPNO_TM_DATA_1, SPECIES_HYPNO_TM_DATA_2, SPECIES_HYPNO_TM_DATA_3
+	mondexentry SPECIES_HYPNO, "When it is very hungry, it puts\nhumans it meets to sleep,\nthen it feasts on their dreams."
 
 
 mondata SPECIES_KRABBY, "Krabby"
@@ -1793,6 +1891,7 @@ mondata SPECIES_KRABBY, "Krabby"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_KRABBY_TM_DATA_0, SPECIES_KRABBY_TM_DATA_1, SPECIES_KRABBY_TM_DATA_2, SPECIES_KRABBY_TM_DATA_3
+	mondexentry SPECIES_KRABBY, "If it senses danger approaching,\nit cloaks itself with bubbles from\nits mouth so it will look bigger."
 
 
 mondata SPECIES_KINGLER, "Kingler"
@@ -1811,6 +1910,7 @@ mondata SPECIES_KINGLER, "Kingler"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_KINGLER_TM_DATA_0, SPECIES_KINGLER_TM_DATA_1, SPECIES_KINGLER_TM_DATA_2, SPECIES_KINGLER_TM_DATA_3
+	mondexentry SPECIES_KINGLER, "It can hardly lift its massive,\novergrown pincer. The pincer’s size\nmakes it difficult to aim properly."
 
 
 mondata SPECIES_VOLTORB, "Voltorb"
@@ -1829,6 +1929,7 @@ mondata SPECIES_VOLTORB, "Voltorb"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_VOLTORB_TM_DATA_0, SPECIES_VOLTORB_TM_DATA_1, SPECIES_VOLTORB_TM_DATA_2, SPECIES_VOLTORB_TM_DATA_3
+	mondexentry SPECIES_VOLTORB, "It rolls to move. If the ground is\nuneven, a sudden jolt from hitting\na bump can cause it to explode."
 
 
 mondata SPECIES_ELECTRODE, "Electrode"
@@ -1847,6 +1948,7 @@ mondata SPECIES_ELECTRODE, "Electrode"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ELECTRODE_TM_DATA_0, SPECIES_ELECTRODE_TM_DATA_1, SPECIES_ELECTRODE_TM_DATA_2, SPECIES_ELECTRODE_TM_DATA_3
+	mondexentry SPECIES_ELECTRODE, "It is dangerous. If it has too much\nelectricity and has nothing to do,\nit amuses itself by exploding."
 
 
 mondata SPECIES_EXEGGCUTE, "Exeggcute"
@@ -1865,6 +1967,7 @@ mondata SPECIES_EXEGGCUTE, "Exeggcute"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_EXEGGCUTE_TM_DATA_0, SPECIES_EXEGGCUTE_TM_DATA_1, SPECIES_EXEGGCUTE_TM_DATA_2, SPECIES_EXEGGCUTE_TM_DATA_3
+	mondexentry SPECIES_EXEGGCUTE, "Their shells are very durable. Even if\nthey crack, they can survive without\nspilling their contents."
 
 
 mondata SPECIES_EXEGGUTOR, "Exeggutor"
@@ -1883,6 +1986,7 @@ mondata SPECIES_EXEGGUTOR, "Exeggutor"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_EXEGGUTOR_TM_DATA_0, SPECIES_EXEGGUTOR_TM_DATA_1, SPECIES_EXEGGUTOR_TM_DATA_2, SPECIES_EXEGGUTOR_TM_DATA_3
+	mondexentry SPECIES_EXEGGUTOR, "Its three heads think independently.\nHowever, they are friendly and\nnever appear to squabble."
 
 
 mondata SPECIES_CUBONE, "Cubone"
@@ -1901,6 +2005,7 @@ mondata SPECIES_CUBONE, "Cubone"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_CUBONE_TM_DATA_0, SPECIES_CUBONE_TM_DATA_1, SPECIES_CUBONE_TM_DATA_2, SPECIES_CUBONE_TM_DATA_3
+	mondexentry SPECIES_CUBONE, "If it is sad or lonely, the skull\nit wears shakes and emits a plaintive\nand mournful sound."
 
 
 mondata SPECIES_MAROWAK, "Marowak"
@@ -1919,6 +2024,7 @@ mondata SPECIES_MAROWAK, "Marowak"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MAROWAK_TM_DATA_0, SPECIES_MAROWAK_TM_DATA_1, SPECIES_MAROWAK_TM_DATA_2, SPECIES_MAROWAK_TM_DATA_3
+	mondexentry SPECIES_MAROWAK, "It has been seen pounding boulders\nwith the bone it carries in order\nto tap out messages to others."
 
 
 mondata SPECIES_HITMONLEE, "Hitmonlee"
@@ -1937,6 +2043,7 @@ mondata SPECIES_HITMONLEE, "Hitmonlee"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HITMONLEE_TM_DATA_0, SPECIES_HITMONLEE_TM_DATA_1, SPECIES_HITMONLEE_TM_DATA_2, SPECIES_HITMONLEE_TM_DATA_3
+	mondexentry SPECIES_HITMONLEE, "This amazing Pokémon has an awesome\nsense of balance. It can kick in\nsuccession from any position."
 
 
 mondata SPECIES_HITMONCHAN, "Hitmonchan"
@@ -1955,6 +2062,7 @@ mondata SPECIES_HITMONCHAN, "Hitmonchan"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HITMONCHAN_TM_DATA_0, SPECIES_HITMONCHAN_TM_DATA_1, SPECIES_HITMONCHAN_TM_DATA_2, SPECIES_HITMONCHAN_TM_DATA_3
+	mondexentry SPECIES_HITMONCHAN, "Its punches slice the air. However,\nit seems to need a short break after\nfighting for three minutes."
 
 
 mondata SPECIES_LICKITUNG, "Lickitung"
@@ -1973,6 +2081,7 @@ mondata SPECIES_LICKITUNG, "Lickitung"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_LICKITUNG_TM_DATA_0, SPECIES_LICKITUNG_TM_DATA_1, SPECIES_LICKITUNG_TM_DATA_2, SPECIES_LICKITUNG_TM_DATA_3
+	mondexentry SPECIES_LICKITUNG, "Its tongue has well-developed\nnerves that run to the very tip,\nso it can be deftly manipulated."
 
 
 mondata SPECIES_KOFFING, "Koffing"
@@ -1991,6 +2100,7 @@ mondata SPECIES_KOFFING, "Koffing"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_KOFFING_TM_DATA_0, SPECIES_KOFFING_TM_DATA_1, SPECIES_KOFFING_TM_DATA_2, SPECIES_KOFFING_TM_DATA_3
+	mondexentry SPECIES_KOFFING, "Its thin, filmy body is filled\nwith gases that cause constant\nsniffles, coughs and teary eyes."
 
 
 mondata SPECIES_WEEZING, "Weezing"
@@ -2009,6 +2119,7 @@ mondata SPECIES_WEEZING, "Weezing"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_WEEZING_TM_DATA_0, SPECIES_WEEZING_TM_DATA_1, SPECIES_WEEZING_TM_DATA_2, SPECIES_WEEZING_TM_DATA_3
+	mondexentry SPECIES_WEEZING, "If one of the twin KOFFING inflates,\nthe other one deflates. It constantly\nmixes its poisonous gases."
 
 
 mondata SPECIES_RHYHORN, "Rhyhorn"
@@ -2027,6 +2138,7 @@ mondata SPECIES_RHYHORN, "Rhyhorn"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_RHYHORN_TM_DATA_0, SPECIES_RHYHORN_TM_DATA_1, SPECIES_RHYHORN_TM_DATA_2, SPECIES_RHYHORN_TM_DATA_3
+	mondexentry SPECIES_RHYHORN, "It is inept at turning because of\nits four short legs. It can only\ncharge and run in one direction."
 
 
 mondata SPECIES_RHYDON, "Rhydon"
@@ -2045,6 +2157,7 @@ mondata SPECIES_RHYDON, "Rhydon"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_RHYDON_TM_DATA_0, SPECIES_RHYDON_TM_DATA_1, SPECIES_RHYDON_TM_DATA_2, SPECIES_RHYDON_TM_DATA_3
+	mondexentry SPECIES_RHYDON, "Its rugged hide protects it from\neven the heat of lava. However,\nthe hide also makes it insensitive."
 
 
 mondata SPECIES_CHANSEY, "Chansey"
@@ -2063,6 +2176,7 @@ mondata SPECIES_CHANSEY, "Chansey"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_CHANSEY_TM_DATA_0, SPECIES_CHANSEY_TM_DATA_1, SPECIES_CHANSEY_TM_DATA_2, SPECIES_CHANSEY_TM_DATA_3
+	mondexentry SPECIES_CHANSEY, "It walks carefully to prevent its\negg from breaking. However,\nit is extremely fast at running away."
 
 
 mondata SPECIES_TANGELA, "Tangela"
@@ -2081,6 +2195,7 @@ mondata SPECIES_TANGELA, "Tangela"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TANGELA_TM_DATA_0, SPECIES_TANGELA_TM_DATA_1, SPECIES_TANGELA_TM_DATA_2, SPECIES_TANGELA_TM_DATA_3
+	mondexentry SPECIES_TANGELA, "The vines that cloak its entire\nbody are always jiggling.\nThey effectively unnerve its foes."
 
 
 mondata SPECIES_KANGASKHAN, "Kangaskhan"
@@ -2099,6 +2214,7 @@ mondata SPECIES_KANGASKHAN, "Kangaskhan"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_KANGASKHAN_TM_DATA_0, SPECIES_KANGASKHAN_TM_DATA_1, SPECIES_KANGASKHAN_TM_DATA_2, SPECIES_KANGASKHAN_TM_DATA_3
+	mondexentry SPECIES_KANGASKHAN, "If it is safe, the young gets out of\nthe belly pouch to play. The adult\nkeeps a close eye on the youngster."
 
 
 mondata SPECIES_HORSEA, "Horsea"
@@ -2117,6 +2233,7 @@ mondata SPECIES_HORSEA, "Horsea"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_HORSEA_TM_DATA_0, SPECIES_HORSEA_TM_DATA_1, SPECIES_HORSEA_TM_DATA_2, SPECIES_HORSEA_TM_DATA_3
+	mondexentry SPECIES_HORSEA, "If attacked by a larger enemy,\nit quickly swims to safety by adeptly\ncontrolling its well-developed dorsal fin."
 
 
 mondata SPECIES_SEADRA, "Seadra"
@@ -2135,6 +2252,7 @@ mondata SPECIES_SEADRA, "Seadra"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SEADRA_TM_DATA_0, SPECIES_SEADRA_TM_DATA_1, SPECIES_SEADRA_TM_DATA_2, SPECIES_SEADRA_TM_DATA_3
+	mondexentry SPECIES_SEADRA, "An examination of its cells revealed\nthe presence of a gene not found in\nHORSEA. It became a hot topic."
 
 
 mondata SPECIES_GOLDEEN, "Goldeen"
@@ -2153,6 +2271,7 @@ mondata SPECIES_GOLDEEN, "Goldeen"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_GOLDEEN_TM_DATA_0, SPECIES_GOLDEEN_TM_DATA_1, SPECIES_GOLDEEN_TM_DATA_2, SPECIES_GOLDEEN_TM_DATA_3
+	mondexentry SPECIES_GOLDEEN, "Its dorsal, pectoral and tail fins\nwave elegantly in water. That is why\nit is known as the water dancer."
 
 
 mondata SPECIES_SEAKING, "Seaking"
@@ -2171,6 +2290,7 @@ mondata SPECIES_SEAKING, "Seaking"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SEAKING_TM_DATA_0, SPECIES_SEAKING_TM_DATA_1, SPECIES_SEAKING_TM_DATA_2, SPECIES_SEAKING_TM_DATA_3
+	mondexentry SPECIES_SEAKING, "During spawning season, SEAKING\ngather from all over, causing rivers to\nappear a brilliant red."
 
 
 mondata SPECIES_STARYU, "Staryu"
@@ -2189,6 +2309,7 @@ mondata SPECIES_STARYU, "Staryu"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_STARYU_TM_DATA_0, SPECIES_STARYU_TM_DATA_1, SPECIES_STARYU_TM_DATA_2, SPECIES_STARYU_TM_DATA_3
+	mondexentry SPECIES_STARYU, "At night, the middle of its body\nslowly flickers with the same\nrhythm as a human heartbeat."
 
 
 mondata SPECIES_STARMIE, "Starmie"
@@ -2207,6 +2328,7 @@ mondata SPECIES_STARMIE, "Starmie"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_STARMIE_TM_DATA_0, SPECIES_STARMIE_TM_DATA_1, SPECIES_STARMIE_TM_DATA_2, SPECIES_STARMIE_TM_DATA_3
+	mondexentry SPECIES_STARMIE, "The middle section of its body is\ncalled the core. It glows in a\ndifferent color each time it is seen."
 
 
 mondata SPECIES_MR_MIME, "Mr. Mime"
@@ -2225,6 +2347,7 @@ mondata SPECIES_MR_MIME, "Mr. Mime"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MR_MIME_TM_DATA_0, SPECIES_MR_MIME_TM_DATA_1, SPECIES_MR_MIME_TM_DATA_2, SPECIES_MR_MIME_TM_DATA_3
+	mondexentry SPECIES_MR_MIME, "A skilled mime from birth,\nit gains the ability to create\ninvisible objects as it matures."
 
 
 mondata SPECIES_SCYTHER, "Scyther"
@@ -2243,6 +2366,7 @@ mondata SPECIES_SCYTHER, "Scyther"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SCYTHER_TM_DATA_0, SPECIES_SCYTHER_TM_DATA_1, SPECIES_SCYTHER_TM_DATA_2, SPECIES_SCYTHER_TM_DATA_3
+	mondexentry SPECIES_SCYTHER, "It slashes through grass with its\nsharp scythes, moving too fast\nfor the human eye to track."
 
 
 mondata SPECIES_JYNX, "Jynx"
@@ -2261,6 +2385,7 @@ mondata SPECIES_JYNX, "Jynx"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_JYNX_TM_DATA_0, SPECIES_JYNX_TM_DATA_1, SPECIES_JYNX_TM_DATA_2, SPECIES_JYNX_TM_DATA_3
+	mondexentry SPECIES_JYNX, "It rocks its body rhythmically.\nIt appears to alter the rhythm\ndepending on how it is feeling."
 
 
 mondata SPECIES_ELECTABUZZ, "Electabuzz"
@@ -2279,6 +2404,7 @@ mondata SPECIES_ELECTABUZZ, "Electabuzz"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ELECTABUZZ_TM_DATA_0, SPECIES_ELECTABUZZ_TM_DATA_1, SPECIES_ELECTABUZZ_TM_DATA_2, SPECIES_ELECTABUZZ_TM_DATA_3
+	mondexentry SPECIES_ELECTABUZZ, "Electricity runs across the surface\nof its body. In darkness, its entire\nbody glows a whitish-blue."
 
 
 mondata SPECIES_MAGMAR, "Magmar"
@@ -2297,6 +2423,7 @@ mondata SPECIES_MAGMAR, "Magmar"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_MAGMAR_TM_DATA_0, SPECIES_MAGMAR_TM_DATA_1, SPECIES_MAGMAR_TM_DATA_2, SPECIES_MAGMAR_TM_DATA_3
+	mondexentry SPECIES_MAGMAR, "It dislikes cold places, so it blows\nscorching flames to make the\nenvironment suitable for itself."
 
 
 mondata SPECIES_PINSIR, "Pinsir"
@@ -2315,6 +2442,7 @@ mondata SPECIES_PINSIR, "Pinsir"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PINSIR_TM_DATA_0, SPECIES_PINSIR_TM_DATA_1, SPECIES_PINSIR_TM_DATA_2, SPECIES_PINSIR_TM_DATA_3
+	mondexentry SPECIES_PINSIR, "With its pincer horns, it digs burrows\nto sleep in at night. In the morning,\ndamp soil clings to its body."
 
 
 mondata SPECIES_TAUROS, "Tauros"
@@ -2333,6 +2461,7 @@ mondata SPECIES_TAUROS, "Tauros"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_TAUROS_TM_DATA_0, SPECIES_TAUROS_TM_DATA_1, SPECIES_TAUROS_TM_DATA_2, SPECIES_TAUROS_TM_DATA_3
+	mondexentry SPECIES_TAUROS, "They fight each other by locking\nhorns. The herd’s protector takes\npride in its battle-scarred horns."
 
 
 mondata SPECIES_MAGIKARP, "Magikarp"
@@ -2351,6 +2480,7 @@ mondata SPECIES_MAGIKARP, "Magikarp"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_MAGIKARP_TM_DATA_0, SPECIES_MAGIKARP_TM_DATA_1, SPECIES_MAGIKARP_TM_DATA_2, SPECIES_MAGIKARP_TM_DATA_3
+	mondexentry SPECIES_MAGIKARP, "An underpowered, pathetic Pokémon.\nIt may jump high on rare occasions,\nbut usually not more than seven feet."
 
 
 mondata SPECIES_GYARADOS, "Gyarados"
@@ -2369,6 +2499,7 @@ mondata SPECIES_GYARADOS, "Gyarados"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GYARADOS_TM_DATA_0, SPECIES_GYARADOS_TM_DATA_1, SPECIES_GYARADOS_TM_DATA_2, SPECIES_GYARADOS_TM_DATA_3
+	mondexentry SPECIES_GYARADOS, "They say that during past strife,\nGYARADOS would appear and leave\nblazing ruins in its wake."
 
 
 mondata SPECIES_LAPRAS, "Lapras"
@@ -2387,6 +2518,7 @@ mondata SPECIES_LAPRAS, "Lapras"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LAPRAS_TM_DATA_0, SPECIES_LAPRAS_TM_DATA_1, SPECIES_LAPRAS_TM_DATA_2, SPECIES_LAPRAS_TM_DATA_3
+	mondexentry SPECIES_LAPRAS, "They have gentle hearts. Because\nthey rarely fight, many have been\ncaught. Their number has dwindled."
 
 
 mondata SPECIES_DITTO, "Ditto"
@@ -2405,6 +2537,7 @@ mondata SPECIES_DITTO, "Ditto"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_DITTO_TM_DATA_0, SPECIES_DITTO_TM_DATA_1, SPECIES_DITTO_TM_DATA_2, SPECIES_DITTO_TM_DATA_3
+	mondexentry SPECIES_DITTO, "It can transform into anything.\nWhen it sleeps, it changes into a\nstone to avoid being attacked."
 
 
 mondata SPECIES_EEVEE, "Eevee"
@@ -2423,6 +2556,7 @@ mondata SPECIES_EEVEE, "Eevee"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_EEVEE_TM_DATA_0, SPECIES_EEVEE_TM_DATA_1, SPECIES_EEVEE_TM_DATA_2, SPECIES_EEVEE_TM_DATA_3
+	mondexentry SPECIES_EEVEE, "It has the ability to alter the\ncomposition of its body to suit its\nsurrounding environment."
 
 
 mondata SPECIES_VAPOREON, "Vaporeon"
@@ -2441,6 +2575,7 @@ mondata SPECIES_VAPOREON, "Vaporeon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_VAPOREON_TM_DATA_0, SPECIES_VAPOREON_TM_DATA_1, SPECIES_VAPOREON_TM_DATA_2, SPECIES_VAPOREON_TM_DATA_3
+	mondexentry SPECIES_VAPOREON, "When VAPOREON’s fins begin to\nvibrate, it is a sign that rain\nwill come within a few hours."
 
 
 mondata SPECIES_JOLTEON, "Jolteon"
@@ -2459,6 +2594,7 @@ mondata SPECIES_JOLTEON, "Jolteon"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_JOLTEON_TM_DATA_0, SPECIES_JOLTEON_TM_DATA_1, SPECIES_JOLTEON_TM_DATA_2, SPECIES_JOLTEON_TM_DATA_3
+	mondexentry SPECIES_JOLTEON, "It concentrates the weak electric\ncharges emitted by its cells and\nlaunches wicked lightning bolts."
 
 
 mondata SPECIES_FLAREON, "Flareon"
@@ -2477,6 +2613,7 @@ mondata SPECIES_FLAREON, "Flareon"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_FLAREON_TM_DATA_0, SPECIES_FLAREON_TM_DATA_1, SPECIES_FLAREON_TM_DATA_2, SPECIES_FLAREON_TM_DATA_3
+	mondexentry SPECIES_FLAREON, "It stores some of the air it inhales in\nits internal flame pouch, which heats it\nto over 3,000 degrees Fahrenheit."
 
 
 mondata SPECIES_PORYGON, "Porygon"
@@ -2495,6 +2632,7 @@ mondata SPECIES_PORYGON, "Porygon"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_PORYGON_TM_DATA_0, SPECIES_PORYGON_TM_DATA_1, SPECIES_PORYGON_TM_DATA_2, SPECIES_PORYGON_TM_DATA_3
+	mondexentry SPECIES_PORYGON, "It is a manmade Pokémon. Since it\ndoesn’t breathe, people are eager\nto try it in any environment."
 
 
 mondata SPECIES_OMANYTE, "Omanyte"
@@ -2513,6 +2651,7 @@ mondata SPECIES_OMANYTE, "Omanyte"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_OMANYTE_TM_DATA_0, SPECIES_OMANYTE_TM_DATA_1, SPECIES_OMANYTE_TM_DATA_2, SPECIES_OMANYTE_TM_DATA_3
+	mondexentry SPECIES_OMANYTE, "Revived from an ancient fossil,\nthis Pokémon uses air stored in its\nshell to sink and rise in water."
 
 
 mondata SPECIES_OMASTAR, "Omastar"
@@ -2531,6 +2670,7 @@ mondata SPECIES_OMASTAR, "Omastar"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_OMASTAR_TM_DATA_0, SPECIES_OMASTAR_TM_DATA_1, SPECIES_OMASTAR_TM_DATA_2, SPECIES_OMASTAR_TM_DATA_3
+	mondexentry SPECIES_OMASTAR, "Apparently, it cracked SHELLDER’s\nshell with its sharp fangs and\nsucked out the insides."
 
 
 mondata SPECIES_KABUTO, "Kabuto"
@@ -2549,6 +2689,7 @@ mondata SPECIES_KABUTO, "Kabuto"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_KABUTO_TM_DATA_0, SPECIES_KABUTO_TM_DATA_1, SPECIES_KABUTO_TM_DATA_2, SPECIES_KABUTO_TM_DATA_3
+	mondexentry SPECIES_KABUTO, "On rare occasions, some have been\nfound as fossils which they became\nwhile hiding on the ocean floor."
 
 
 mondata SPECIES_KABUTOPS, "Kabutops"
@@ -2567,6 +2708,7 @@ mondata SPECIES_KABUTOPS, "Kabutops"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_KABUTOPS_TM_DATA_0, SPECIES_KABUTOPS_TM_DATA_1, SPECIES_KABUTOPS_TM_DATA_2, SPECIES_KABUTOPS_TM_DATA_3
+	mondexentry SPECIES_KABUTOPS, "In the water, it tucks in its limbs\nto become more compact, then it\nwiggles its shell to swim fast."
 
 
 mondata SPECIES_AERODACTYL, "Aerodactyl"
@@ -2585,6 +2727,7 @@ mondata SPECIES_AERODACTYL, "Aerodactyl"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_AERODACTYL_TM_DATA_0, SPECIES_AERODACTYL_TM_DATA_1, SPECIES_AERODACTYL_TM_DATA_2, SPECIES_AERODACTYL_TM_DATA_3
+	mondexentry SPECIES_AERODACTYL, "A vicious Pokémon from the distant\npast, it appears to have flown by\nspreading its wings and gliding."
 
 
 mondata SPECIES_SNORLAX, "Snorlax"
@@ -2603,6 +2746,7 @@ mondata SPECIES_SNORLAX, "Snorlax"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SNORLAX_TM_DATA_0, SPECIES_SNORLAX_TM_DATA_1, SPECIES_SNORLAX_TM_DATA_2, SPECIES_SNORLAX_TM_DATA_3
+	mondexentry SPECIES_SNORLAX, "What sounds like its cry may\nactually be its snores or the\nrumblings of its hungry belly."
 
 
 mondata SPECIES_ARTICUNO, "Articuno"
@@ -2621,6 +2765,7 @@ mondata SPECIES_ARTICUNO, "Articuno"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ARTICUNO_TM_DATA_0, SPECIES_ARTICUNO_TM_DATA_1, SPECIES_ARTICUNO_TM_DATA_2, SPECIES_ARTICUNO_TM_DATA_3
+	mondexentry SPECIES_ARTICUNO, "The magnificent, seemingly translucent\nwings of this legendary bird Pokémon\nare said to be made of ice."
 
 
 mondata SPECIES_ZAPDOS, "Zapdos"
@@ -2639,6 +2784,7 @@ mondata SPECIES_ZAPDOS, "Zapdos"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ZAPDOS_TM_DATA_0, SPECIES_ZAPDOS_TM_DATA_1, SPECIES_ZAPDOS_TM_DATA_2, SPECIES_ZAPDOS_TM_DATA_3
+	mondexentry SPECIES_ZAPDOS, "This legendary bird Pokémon\ncauses savage thunderstorms by\nflapping its glittering wings."
 
 
 mondata SPECIES_MOLTRES, "Moltres"
@@ -2657,6 +2803,7 @@ mondata SPECIES_MOLTRES, "Moltres"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MOLTRES_TM_DATA_0, SPECIES_MOLTRES_TM_DATA_1, SPECIES_MOLTRES_TM_DATA_2, SPECIES_MOLTRES_TM_DATA_3
+	mondexentry SPECIES_MOLTRES, "This legendary Pokémon scatters\nembers with every flap of its wings.\nIt is a thrilling sight to behold."
 
 
 mondata SPECIES_DRATINI, "Dratini"
@@ -2675,6 +2822,7 @@ mondata SPECIES_DRATINI, "Dratini"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_DRATINI_TM_DATA_0, SPECIES_DRATINI_TM_DATA_1, SPECIES_DRATINI_TM_DATA_2, SPECIES_DRATINI_TM_DATA_3
+	mondexentry SPECIES_DRATINI, "It is born large to start with.\nIt repeatedly sheds its skin as it\nsteadily grows longer."
 
 
 mondata SPECIES_DRAGONAIR, "Dragonair"
@@ -2693,6 +2841,7 @@ mondata SPECIES_DRAGONAIR, "Dragonair"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_DRAGONAIR_TM_DATA_0, SPECIES_DRAGONAIR_TM_DATA_1, SPECIES_DRAGONAIR_TM_DATA_2, SPECIES_DRAGONAIR_TM_DATA_3
+	mondexentry SPECIES_DRAGONAIR, "They say that if it emits an aura\nfrom its whole body, the weather\nwill begin to change instantly."
 
 
 mondata SPECIES_DRAGONITE, "Dragonite"
@@ -2711,6 +2860,7 @@ mondata SPECIES_DRAGONITE, "Dragonite"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DRAGONITE_TM_DATA_0, SPECIES_DRAGONITE_TM_DATA_1, SPECIES_DRAGONITE_TM_DATA_2, SPECIES_DRAGONITE_TM_DATA_3
+	mondexentry SPECIES_DRAGONITE, "It is said that this Pokémon constantly\nflies over the immense seas\nand rescues drowning people."
 
 
 mondata SPECIES_MEWTWO, "Mewtwo"
@@ -2729,6 +2879,7 @@ mondata SPECIES_MEWTWO, "Mewtwo"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MEWTWO_TM_DATA_0, SPECIES_MEWTWO_TM_DATA_1, SPECIES_MEWTWO_TM_DATA_2, SPECIES_MEWTWO_TM_DATA_3
+	mondexentry SPECIES_MEWTWO, "Because its battle abilities were\nraised to the ultimate level,\nit thinks only of defeating its foes."
 
 
 mondata SPECIES_MEW, "Mew"
@@ -2747,6 +2898,7 @@ mondata SPECIES_MEW, "Mew"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MEW_TM_DATA_0, SPECIES_MEW_TM_DATA_1, SPECIES_MEW_TM_DATA_2, SPECIES_MEW_TM_DATA_3
+	mondexentry SPECIES_MEW, "Apparently, it appears only to\nthose people who are pure of heart\nand have a strong desire to see it."
 
 
 mondata SPECIES_CHIKORITA, "Chikorita"
@@ -2765,6 +2917,7 @@ mondata SPECIES_CHIKORITA, "Chikorita"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CHIKORITA_TM_DATA_0, SPECIES_CHIKORITA_TM_DATA_1, SPECIES_CHIKORITA_TM_DATA_2, SPECIES_CHIKORITA_TM_DATA_3
+	mondexentry SPECIES_CHIKORITA, "A sweet aroma gently wafts from\nthe leaf on its head. It is docile\nand loves to soak up sunrays."
 
 
 mondata SPECIES_BAYLEEF, "Bayleef"
@@ -2783,6 +2936,7 @@ mondata SPECIES_BAYLEEF, "Bayleef"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BAYLEEF_TM_DATA_0, SPECIES_BAYLEEF_TM_DATA_1, SPECIES_BAYLEEF_TM_DATA_2, SPECIES_BAYLEEF_TM_DATA_3
+	mondexentry SPECIES_BAYLEEF, "The scent of spices comes from\naround its neck. Somehow,\nsniffing it makes you want to fight."
 
 
 mondata SPECIES_MEGANIUM, "Meganium"
@@ -2801,6 +2955,7 @@ mondata SPECIES_MEGANIUM, "Meganium"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_MEGANIUM_TM_DATA_0, SPECIES_MEGANIUM_TM_DATA_1, SPECIES_MEGANIUM_TM_DATA_2, SPECIES_MEGANIUM_TM_DATA_3
+	mondexentry SPECIES_MEGANIUM, "The aroma that rises from its\npetals contains a substance that\ncalms aggressive feelings."
 
 
 mondata SPECIES_CYNDAQUIL, "Cyndaquil"
@@ -2819,6 +2974,7 @@ mondata SPECIES_CYNDAQUIL, "Cyndaquil"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_CYNDAQUIL_TM_DATA_0, SPECIES_CYNDAQUIL_TM_DATA_1, SPECIES_CYNDAQUIL_TM_DATA_2, SPECIES_CYNDAQUIL_TM_DATA_3
+	mondexentry SPECIES_CYNDAQUIL, "It is timid, and always curls itself\nup in a ball. If attacked, it\nflares up its back for protection."
 
 
 mondata SPECIES_QUILAVA, "Quilava"
@@ -2837,6 +2993,7 @@ mondata SPECIES_QUILAVA, "Quilava"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_QUILAVA_TM_DATA_0, SPECIES_QUILAVA_TM_DATA_1, SPECIES_QUILAVA_TM_DATA_2, SPECIES_QUILAVA_TM_DATA_3
+	mondexentry SPECIES_QUILAVA, "Be careful if it turns its back\nduring battle. It means that it will\nattack with the fire on its back."
 
 
 mondata SPECIES_TYPHLOSION, "Typhlosion"
@@ -2855,6 +3012,7 @@ mondata SPECIES_TYPHLOSION, "Typhlosion"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_TYPHLOSION_TM_DATA_0, SPECIES_TYPHLOSION_TM_DATA_1, SPECIES_TYPHLOSION_TM_DATA_2, SPECIES_TYPHLOSION_TM_DATA_3
+	mondexentry SPECIES_TYPHLOSION, "If its rage peaks, it becomes so\nhot that anything that touches it\nwill instantly go up in flames."
 
 
 mondata SPECIES_TOTODILE, "Totodile"
@@ -2873,6 +3031,7 @@ mondata SPECIES_TOTODILE, "Totodile"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TOTODILE_TM_DATA_0, SPECIES_TOTODILE_TM_DATA_1, SPECIES_TOTODILE_TM_DATA_2, SPECIES_TOTODILE_TM_DATA_3
+	mondexentry SPECIES_TOTODILE, "Its powerful, well-developed jaws\nare capable of crushing anything.\nEven its Trainer must be careful."
 
 
 mondata SPECIES_CROCONAW, "Croconaw"
@@ -2891,6 +3050,7 @@ mondata SPECIES_CROCONAW, "Croconaw"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CROCONAW_TM_DATA_0, SPECIES_CROCONAW_TM_DATA_1, SPECIES_CROCONAW_TM_DATA_2, SPECIES_CROCONAW_TM_DATA_3
+	mondexentry SPECIES_CROCONAW, "If it loses a fang, a new one\ngrows back in its place. There are\nalways 48 fangs lining its mouth."
 
 
 mondata SPECIES_FERALIGATR, "Feraligatr"
@@ -2909,6 +3069,7 @@ mondata SPECIES_FERALIGATR, "Feraligatr"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_FERALIGATR_TM_DATA_0, SPECIES_FERALIGATR_TM_DATA_1, SPECIES_FERALIGATR_TM_DATA_2, SPECIES_FERALIGATR_TM_DATA_3
+	mondexentry SPECIES_FERALIGATR, "When it bites with its massive and\npowerful jaws, it shakes its head\nand savagely tears its victim up."
 
 
 mondata SPECIES_SENTRET, "Sentret"
@@ -2927,6 +3088,7 @@ mondata SPECIES_SENTRET, "Sentret"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SENTRET_TM_DATA_0, SPECIES_SENTRET_TM_DATA_1, SPECIES_SENTRET_TM_DATA_2, SPECIES_SENTRET_TM_DATA_3
+	mondexentry SPECIES_SENTRET, "A very cautious Pokémon, it raises\nitself up using its tail to get a\nbetter view of its surroundings."
 
 
 mondata SPECIES_FURRET, "Furret"
@@ -2945,6 +3107,7 @@ mondata SPECIES_FURRET, "Furret"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_FURRET_TM_DATA_0, SPECIES_FURRET_TM_DATA_1, SPECIES_FURRET_TM_DATA_2, SPECIES_FURRET_TM_DATA_3
+	mondexentry SPECIES_FURRET, "It makes a nest to suit its long and\nskinny body. The nest is impossible\nfor other Pokémon to enter."
 
 
 mondata SPECIES_HOOTHOOT, "Hoothoot"
@@ -2963,6 +3126,7 @@ mondata SPECIES_HOOTHOOT, "Hoothoot"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HOOTHOOT_TM_DATA_0, SPECIES_HOOTHOOT_TM_DATA_1, SPECIES_HOOTHOOT_TM_DATA_2, SPECIES_HOOTHOOT_TM_DATA_3
+	mondexentry SPECIES_HOOTHOOT, "It always stands on one foot.\nIt changes feet so fast,\nthe movement can rarely be seen."
 
 
 mondata SPECIES_NOCTOWL, "Noctowl"
@@ -2981,6 +3145,7 @@ mondata SPECIES_NOCTOWL, "Noctowl"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_NOCTOWL_TM_DATA_0, SPECIES_NOCTOWL_TM_DATA_1, SPECIES_NOCTOWL_TM_DATA_2, SPECIES_NOCTOWL_TM_DATA_3
+	mondexentry SPECIES_NOCTOWL, "Its eyes are specially adapted.\nThey concentrate even faint light\nand enable it to see in the dark."
 
 
 mondata SPECIES_LEDYBA, "Ledyba"
@@ -2999,6 +3164,7 @@ mondata SPECIES_LEDYBA, "Ledyba"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_LEDYBA_TM_DATA_0, SPECIES_LEDYBA_TM_DATA_1, SPECIES_LEDYBA_TM_DATA_2, SPECIES_LEDYBA_TM_DATA_3
+	mondexentry SPECIES_LEDYBA, "It is very timid. It will be afraid\nto move if it is alone. But it will\nbe active if it is in a group."
 
 
 mondata SPECIES_LEDIAN, "Ledian"
@@ -3017,6 +3183,7 @@ mondata SPECIES_LEDIAN, "Ledian"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_LEDIAN_TM_DATA_0, SPECIES_LEDIAN_TM_DATA_1, SPECIES_LEDIAN_TM_DATA_2, SPECIES_LEDIAN_TM_DATA_3
+	mondexentry SPECIES_LEDIAN, "When the stars flicker in the\nnight sky, it flutters about,\nscattering a glowing powder."
 
 
 mondata SPECIES_SPINARAK, "Spinarak"
@@ -3035,6 +3202,7 @@ mondata SPECIES_SPINARAK, "Spinarak"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SPINARAK_TM_DATA_0, SPECIES_SPINARAK_TM_DATA_1, SPECIES_SPINARAK_TM_DATA_2, SPECIES_SPINARAK_TM_DATA_3
+	mondexentry SPECIES_SPINARAK, "It lies still in the same pose for\ndays in its web, waiting for its\nunsuspecting prey to wander close."
 
 
 mondata SPECIES_ARIADOS, "Ariados"
@@ -3053,6 +3221,7 @@ mondata SPECIES_ARIADOS, "Ariados"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ARIADOS_TM_DATA_0, SPECIES_ARIADOS_TM_DATA_1, SPECIES_ARIADOS_TM_DATA_2, SPECIES_ARIADOS_TM_DATA_3
+	mondexentry SPECIES_ARIADOS, "It spins string not only from its\nrear but also from its mouth. It’s\nhard to tell which end is which."
 
 
 mondata SPECIES_CROBAT, "Crobat"
@@ -3071,6 +3240,7 @@ mondata SPECIES_CROBAT, "Crobat"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_CROBAT_TM_DATA_0, SPECIES_CROBAT_TM_DATA_1, SPECIES_CROBAT_TM_DATA_2, SPECIES_CROBAT_TM_DATA_3
+	mondexentry SPECIES_CROBAT, "It flies so silently through the\ndark on its four wings that it may\nnot be noticed even when nearby."
 
 
 mondata SPECIES_CHINCHOU, "Chinchou"
@@ -3089,6 +3259,7 @@ mondata SPECIES_CHINCHOU, "Chinchou"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CHINCHOU_TM_DATA_0, SPECIES_CHINCHOU_TM_DATA_1, SPECIES_CHINCHOU_TM_DATA_2, SPECIES_CHINCHOU_TM_DATA_3
+	mondexentry SPECIES_CHINCHOU, "It shoots positive and negative\nelectricity between the tips of its\ntwo antennae and zaps its enemies."
 
 
 mondata SPECIES_LANTURN, "Lanturn"
@@ -3107,6 +3278,7 @@ mondata SPECIES_LANTURN, "Lanturn"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LANTURN_TM_DATA_0, SPECIES_LANTURN_TM_DATA_1, SPECIES_LANTURN_TM_DATA_2, SPECIES_LANTURN_TM_DATA_3
+	mondexentry SPECIES_LANTURN, "The light it emits is so bright that\nit can illuminate the sea’s surface\nfrom a depth of over three miles."
 
 
 mondata SPECIES_PICHU, "Pichu"
@@ -3125,6 +3297,7 @@ mondata SPECIES_PICHU, "Pichu"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PICHU_TM_DATA_0, SPECIES_PICHU_TM_DATA_1, SPECIES_PICHU_TM_DATA_2, SPECIES_PICHU_TM_DATA_3
+	mondexentry SPECIES_PICHU, "It is not yet skilled at storing\nelectricity. It may send out a\njolt if amused or startled."
 
 
 mondata SPECIES_CLEFFA, "Cleffa"
@@ -3143,6 +3316,7 @@ mondata SPECIES_CLEFFA, "Cleffa"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_CLEFFA_TM_DATA_0, SPECIES_CLEFFA_TM_DATA_1, SPECIES_CLEFFA_TM_DATA_2, SPECIES_CLEFFA_TM_DATA_3
+	mondexentry SPECIES_CLEFFA, "Because of its unusual, starlike\nsilhouette, people believe that\nit came here on a meteor."
 
 
 mondata SPECIES_IGGLYBUFF, "Igglybuff"
@@ -3161,6 +3335,7 @@ mondata SPECIES_IGGLYBUFF, "Igglybuff"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_IGGLYBUFF_TM_DATA_0, SPECIES_IGGLYBUFF_TM_DATA_1, SPECIES_IGGLYBUFF_TM_DATA_2, SPECIES_IGGLYBUFF_TM_DATA_3
+	mondexentry SPECIES_IGGLYBUFF, "It has a very soft body. If it\nstarts to roll, it will bounce all\nover and be impossible to stop."
 
 
 mondata SPECIES_TOGEPI, "Togepi"
@@ -3179,6 +3354,7 @@ mondata SPECIES_TOGEPI, "Togepi"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_TOGEPI_TM_DATA_0, SPECIES_TOGEPI_TM_DATA_1, SPECIES_TOGEPI_TM_DATA_2, SPECIES_TOGEPI_TM_DATA_3
+	mondexentry SPECIES_TOGEPI, "The shell seems to be filled with\njoy. It is said that it will share\ngood luck when treated kindly."
 
 
 mondata SPECIES_TOGETIC, "Togetic"
@@ -3197,6 +3373,7 @@ mondata SPECIES_TOGETIC, "Togetic"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_TOGETIC_TM_DATA_0, SPECIES_TOGETIC_TM_DATA_1, SPECIES_TOGETIC_TM_DATA_2, SPECIES_TOGETIC_TM_DATA_3
+	mondexentry SPECIES_TOGETIC, "They say that it will appear before\nkindhearted, caring people and\nshower them with happiness."
 
 
 mondata SPECIES_NATU, "Natu"
@@ -3215,6 +3392,7 @@ mondata SPECIES_NATU, "Natu"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_NATU_TM_DATA_0, SPECIES_NATU_TM_DATA_1, SPECIES_NATU_TM_DATA_2, SPECIES_NATU_TM_DATA_3
+	mondexentry SPECIES_NATU, "Because its wings aren’t yet fully\ngrown, it has to hop to get around.\nIt is always staring at something."
 
 
 mondata SPECIES_XATU, "Xatu"
@@ -3233,6 +3411,7 @@ mondata SPECIES_XATU, "Xatu"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_XATU_TM_DATA_0, SPECIES_XATU_TM_DATA_1, SPECIES_XATU_TM_DATA_2, SPECIES_XATU_TM_DATA_3
+	mondexentry SPECIES_XATU, "They say that it stays still and\nquiet because it is seeing both the\npast and future at the same time."
 
 
 mondata SPECIES_MAREEP, "Mareep"
@@ -3251,6 +3430,7 @@ mondata SPECIES_MAREEP, "Mareep"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_MAREEP_TM_DATA_0, SPECIES_MAREEP_TM_DATA_1, SPECIES_MAREEP_TM_DATA_2, SPECIES_MAREEP_TM_DATA_3
+	mondexentry SPECIES_MAREEP, "If static electricity builds in its\nbody, its fleece doubles in volume.\nTouching it will shock you."
 
 
 mondata SPECIES_FLAAFFY, "Flaaffy"
@@ -3269,6 +3449,7 @@ mondata SPECIES_FLAAFFY, "Flaaffy"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_FLAAFFY_TM_DATA_0, SPECIES_FLAAFFY_TM_DATA_1, SPECIES_FLAAFFY_TM_DATA_2, SPECIES_FLAAFFY_TM_DATA_3
+	mondexentry SPECIES_FLAAFFY, "As a result of storing too much\nelectricity, it developed patches\nwhere even downy wool won’t grow."
 
 
 mondata SPECIES_AMPHAROS, "Ampharos"
@@ -3287,6 +3468,7 @@ mondata SPECIES_AMPHAROS, "Ampharos"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_AMPHAROS_TM_DATA_0, SPECIES_AMPHAROS_TM_DATA_1, SPECIES_AMPHAROS_TM_DATA_2, SPECIES_AMPHAROS_TM_DATA_3
+	mondexentry SPECIES_AMPHAROS, "The tail’s tip shines brightly and\ncan be seen from far away. It acts\nas a beacon for lost people."
 
 
 mondata SPECIES_BELLOSSOM, "Bellossom"
@@ -3305,6 +3487,7 @@ mondata SPECIES_BELLOSSOM, "Bellossom"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BELLOSSOM_TM_DATA_0, SPECIES_BELLOSSOM_TM_DATA_1, SPECIES_BELLOSSOM_TM_DATA_2, SPECIES_BELLOSSOM_TM_DATA_3
+	mondexentry SPECIES_BELLOSSOM, "BELLOSSOM gather at times and seem\nto dance. They say that the dance\nis a ritual to summon the sun."
 
 
 mondata SPECIES_MARILL, "Marill"
@@ -3323,6 +3506,7 @@ mondata SPECIES_MARILL, "Marill"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MARILL_TM_DATA_0, SPECIES_MARILL_TM_DATA_1, SPECIES_MARILL_TM_DATA_2, SPECIES_MARILL_TM_DATA_3
+	mondexentry SPECIES_MARILL, "The tip of its tail, which contains\noil that is lighter than water,\nlets it swim without drowning."
 
 
 mondata SPECIES_AZUMARILL, "Azumarill"
@@ -3341,6 +3525,7 @@ mondata SPECIES_AZUMARILL, "Azumarill"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AZUMARILL_TM_DATA_0, SPECIES_AZUMARILL_TM_DATA_1, SPECIES_AZUMARILL_TM_DATA_2, SPECIES_AZUMARILL_TM_DATA_3
+	mondexentry SPECIES_AZUMARILL, "By keeping still and listening\nintently, it can tell what is in even\nwild, fast-moving rivers."
 
 
 mondata SPECIES_SUDOWOODO, "Sudowoodo"
@@ -3359,6 +3544,7 @@ mondata SPECIES_SUDOWOODO, "Sudowoodo"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SUDOWOODO_TM_DATA_0, SPECIES_SUDOWOODO_TM_DATA_1, SPECIES_SUDOWOODO_TM_DATA_2, SPECIES_SUDOWOODO_TM_DATA_3
+	mondexentry SPECIES_SUDOWOODO, "Although it always pretends to be a\ntree, its composition appears more\nsimilar to rock than to vegetation."
 
 
 mondata SPECIES_POLITOED, "Politoed"
@@ -3377,6 +3563,7 @@ mondata SPECIES_POLITOED, "Politoed"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_POLITOED_TM_DATA_0, SPECIES_POLITOED_TM_DATA_1, SPECIES_POLITOED_TM_DATA_2, SPECIES_POLITOED_TM_DATA_3
+	mondexentry SPECIES_POLITOED, "If POLIWAG and POLIWHIRL hear its\nechoing cry, they respond by\ngathering from far and wide."
 
 
 mondata SPECIES_HOPPIP, "Hoppip"
@@ -3395,6 +3582,7 @@ mondata SPECIES_HOPPIP, "Hoppip"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_HOPPIP_TM_DATA_0, SPECIES_HOPPIP_TM_DATA_1, SPECIES_HOPPIP_TM_DATA_2, SPECIES_HOPPIP_TM_DATA_3
+	mondexentry SPECIES_HOPPIP, "To keep from being blown away by\nthe wind, they gather in clusters.\nBut they do enjoy gentle breezes."
 
 
 mondata SPECIES_SKIPLOOM, "Skiploom"
@@ -3413,6 +3601,7 @@ mondata SPECIES_SKIPLOOM, "Skiploom"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SKIPLOOM_TM_DATA_0, SPECIES_SKIPLOOM_TM_DATA_1, SPECIES_SKIPLOOM_TM_DATA_2, SPECIES_SKIPLOOM_TM_DATA_3
+	mondexentry SPECIES_SKIPLOOM, "The bloom on top of its head opens\nand closes as the temperature\nfluctuates up and down."
 
 
 mondata SPECIES_JUMPLUFF, "Jumpluff"
@@ -3431,6 +3620,7 @@ mondata SPECIES_JUMPLUFF, "Jumpluff"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_JUMPLUFF_TM_DATA_0, SPECIES_JUMPLUFF_TM_DATA_1, SPECIES_JUMPLUFF_TM_DATA_2, SPECIES_JUMPLUFF_TM_DATA_3
+	mondexentry SPECIES_JUMPLUFF, "Once it catches the wind, it deftly\ncontrols its cotton-puff spores--\nit can even float around the world."
 
 
 mondata SPECIES_AIPOM, "Aipom"
@@ -3449,6 +3639,7 @@ mondata SPECIES_AIPOM, "Aipom"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_AIPOM_TM_DATA_0, SPECIES_AIPOM_TM_DATA_1, SPECIES_AIPOM_TM_DATA_2, SPECIES_AIPOM_TM_DATA_3
+	mondexentry SPECIES_AIPOM, "Its tail is so powerful that it can\nuse it to grab a tree branch and\nhold itself up in the air."
 
 
 mondata SPECIES_SUNKERN, "Sunkern"
@@ -3467,6 +3658,7 @@ mondata SPECIES_SUNKERN, "Sunkern"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SUNKERN_TM_DATA_0, SPECIES_SUNKERN_TM_DATA_1, SPECIES_SUNKERN_TM_DATA_2, SPECIES_SUNKERN_TM_DATA_3
+	mondexentry SPECIES_SUNKERN, "It may plummet from the sky.\nIf attacked by a SPEAROW,\nit will violently shake its leaves."
 
 
 mondata SPECIES_SUNFLORA, "Sunflora"
@@ -3485,6 +3677,7 @@ mondata SPECIES_SUNFLORA, "Sunflora"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SUNFLORA_TM_DATA_0, SPECIES_SUNFLORA_TM_DATA_1, SPECIES_SUNFLORA_TM_DATA_2, SPECIES_SUNFLORA_TM_DATA_3
+	mondexentry SPECIES_SUNFLORA, "It converts sunlight into energy.\nIn the darkness after sunset, it\ncloses its petals and becomes still."
 
 
 mondata SPECIES_YANMA, "Yanma"
@@ -3503,6 +3696,7 @@ mondata SPECIES_YANMA, "Yanma"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_YANMA_TM_DATA_0, SPECIES_YANMA_TM_DATA_1, SPECIES_YANMA_TM_DATA_2, SPECIES_YANMA_TM_DATA_3
+	mondexentry SPECIES_YANMA, "If it flaps its wings really fast,\nit can generate shock waves that\nwill shatter windows in the area."
 
 
 mondata SPECIES_WOOPER, "Wooper"
@@ -3521,6 +3715,7 @@ mondata SPECIES_WOOPER, "Wooper"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WOOPER_TM_DATA_0, SPECIES_WOOPER_TM_DATA_1, SPECIES_WOOPER_TM_DATA_2, SPECIES_WOOPER_TM_DATA_3
+	mondexentry SPECIES_WOOPER, "This Pokémon lives in cold water.\nIt will leave the water to search\nfor food when it gets cold outside."
 
 
 mondata SPECIES_QUAGSIRE, "Quagsire"
@@ -3539,6 +3734,7 @@ mondata SPECIES_QUAGSIRE, "Quagsire"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_QUAGSIRE_TM_DATA_0, SPECIES_QUAGSIRE_TM_DATA_1, SPECIES_QUAGSIRE_TM_DATA_2, SPECIES_QUAGSIRE_TM_DATA_3
+	mondexentry SPECIES_QUAGSIRE, "This carefree Pokémon has an\neasy-going nature. While swimming,\nit always bumps into boat hulls."
 
 
 mondata SPECIES_ESPEON, "Espeon"
@@ -3557,6 +3753,7 @@ mondata SPECIES_ESPEON, "Espeon"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_ESPEON_TM_DATA_0, SPECIES_ESPEON_TM_DATA_1, SPECIES_ESPEON_TM_DATA_2, SPECIES_ESPEON_TM_DATA_3
+	mondexentry SPECIES_ESPEON, "It uses the fine hair that covers\nits body to sense air currents and\npredict its enemy’s actions."
 
 
 mondata SPECIES_UMBREON, "Umbreon"
@@ -3575,6 +3772,7 @@ mondata SPECIES_UMBREON, "Umbreon"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_UMBREON_TM_DATA_0, SPECIES_UMBREON_TM_DATA_1, SPECIES_UMBREON_TM_DATA_2, SPECIES_UMBREON_TM_DATA_3
+	mondexentry SPECIES_UMBREON, "When agitated, this Pokémon\nprotects itself by spraying\npoisonous sweat from its pores."
 
 
 mondata SPECIES_MURKROW, "Murkrow"
@@ -3593,6 +3791,7 @@ mondata SPECIES_MURKROW, "Murkrow"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_MURKROW_TM_DATA_0, SPECIES_MURKROW_TM_DATA_1, SPECIES_MURKROW_TM_DATA_2, SPECIES_MURKROW_TM_DATA_3
+	mondexentry SPECIES_MURKROW, "Feared and loathed by many,\nit is believed to bring misfortune to\nall those who see it at night."
 
 
 mondata SPECIES_SLOWKING, "Slowking"
@@ -3611,6 +3810,7 @@ mondata SPECIES_SLOWKING, "Slowking"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SLOWKING_TM_DATA_0, SPECIES_SLOWKING_TM_DATA_1, SPECIES_SLOWKING_TM_DATA_2, SPECIES_SLOWKING_TM_DATA_3
+	mondexentry SPECIES_SLOWKING, "It has incredible intellect and\nintuition. Whatever the situation,\nit remains calm and collected."
 
 
 mondata SPECIES_MISDREAVUS, "Misdreavus"
@@ -3629,6 +3829,7 @@ mondata SPECIES_MISDREAVUS, "Misdreavus"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MISDREAVUS_TM_DATA_0, SPECIES_MISDREAVUS_TM_DATA_1, SPECIES_MISDREAVUS_TM_DATA_2, SPECIES_MISDREAVUS_TM_DATA_3
+	mondexentry SPECIES_MISDREAVUS, "It likes playing mischievous tricks,\nsuch as screaming and wailing to\nstartle people at night."
 
 
 mondata SPECIES_UNOWN, "Unown"
@@ -3647,6 +3848,7 @@ mondata SPECIES_UNOWN, "Unown"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_UNOWN_TM_DATA_0, SPECIES_UNOWN_TM_DATA_1, SPECIES_UNOWN_TM_DATA_2, SPECIES_UNOWN_TM_DATA_3
+	mondexentry SPECIES_UNOWN, "Their shapes look like hieroglyphs\non ancient tablets. It is said\nthat the two are somehow related."
 
 
 mondata SPECIES_WOBBUFFET, "Wobbuffet"
@@ -3665,6 +3867,7 @@ mondata SPECIES_WOBBUFFET, "Wobbuffet"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WOBBUFFET_TM_DATA_0, SPECIES_WOBBUFFET_TM_DATA_1, SPECIES_WOBBUFFET_TM_DATA_2, SPECIES_WOBBUFFET_TM_DATA_3
+	mondexentry SPECIES_WOBBUFFET, "It hates light and shock. If\nattacked, it inflates its body to\nbuild up its counterstrike."
 
 
 mondata SPECIES_GIRAFARIG, "Girafarig"
@@ -3683,6 +3886,7 @@ mondata SPECIES_GIRAFARIG, "Girafarig"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_GIRAFARIG_TM_DATA_0, SPECIES_GIRAFARIG_TM_DATA_1, SPECIES_GIRAFARIG_TM_DATA_2, SPECIES_GIRAFARIG_TM_DATA_3
+	mondexentry SPECIES_GIRAFARIG, "Its tail has a small brain of its\nown. Beware! If you get close, it\nmay react to your scent by biting."
 
 
 mondata SPECIES_PINECO, "Pineco"
@@ -3701,6 +3905,7 @@ mondata SPECIES_PINECO, "Pineco"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_PINECO_TM_DATA_0, SPECIES_PINECO_TM_DATA_1, SPECIES_PINECO_TM_DATA_2, SPECIES_PINECO_TM_DATA_3
+	mondexentry SPECIES_PINECO, "It likes to make its shell thicker\nby adding layers of tree bark. The\nadditional weight doesn’t bother it."
 
 
 mondata SPECIES_FORRETRESS, "Forretress"
@@ -3719,6 +3924,7 @@ mondata SPECIES_FORRETRESS, "Forretress"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_FORRETRESS_TM_DATA_0, SPECIES_FORRETRESS_TM_DATA_1, SPECIES_FORRETRESS_TM_DATA_2, SPECIES_FORRETRESS_TM_DATA_3
+	mondexentry SPECIES_FORRETRESS, "Its entire body is shielded by a\nsteel-hard shell. What lurks inside\nthis shell is a total mystery."
 
 
 mondata SPECIES_DUNSPARCE, "Dunsparce"
@@ -3737,6 +3943,7 @@ mondata SPECIES_DUNSPARCE, "Dunsparce"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_DUNSPARCE_TM_DATA_0, SPECIES_DUNSPARCE_TM_DATA_1, SPECIES_DUNSPARCE_TM_DATA_2, SPECIES_DUNSPARCE_TM_DATA_3
+	mondexentry SPECIES_DUNSPARCE, "When spotted, this Pokémon escapes\nbackward by furiously boring into\nthe ground with its tail."
 
 
 mondata SPECIES_GLIGAR, "Gligar"
@@ -3755,6 +3962,7 @@ mondata SPECIES_GLIGAR, "Gligar"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GLIGAR_TM_DATA_0, SPECIES_GLIGAR_TM_DATA_1, SPECIES_GLIGAR_TM_DATA_2, SPECIES_GLIGAR_TM_DATA_3
+	mondexentry SPECIES_GLIGAR, "It flies straight at its target’s\nface, then clamps down on the\nstartled victim to inject poison."
 
 
 mondata SPECIES_STEELIX, "Steelix"
@@ -3773,6 +3981,7 @@ mondata SPECIES_STEELIX, "Steelix"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_STEELIX_TM_DATA_0, SPECIES_STEELIX_TM_DATA_1, SPECIES_STEELIX_TM_DATA_2, SPECIES_STEELIX_TM_DATA_3
+	mondexentry SPECIES_STEELIX, "Its body has been compressed deep\nunder the ground. As a result,\nit is even harder than a diamond."
 
 
 mondata SPECIES_SNUBBULL, "Snubbull"
@@ -3791,6 +4000,7 @@ mondata SPECIES_SNUBBULL, "Snubbull"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SNUBBULL_TM_DATA_0, SPECIES_SNUBBULL_TM_DATA_1, SPECIES_SNUBBULL_TM_DATA_2, SPECIES_SNUBBULL_TM_DATA_3
+	mondexentry SPECIES_SNUBBULL, "Although it looks frightening, it\nis actually kind and affectionate.\nIt is very popular among women."
 
 
 mondata SPECIES_GRANBULL, "Granbull"
@@ -3809,6 +4019,7 @@ mondata SPECIES_GRANBULL, "Granbull"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GRANBULL_TM_DATA_0, SPECIES_GRANBULL_TM_DATA_1, SPECIES_GRANBULL_TM_DATA_2, SPECIES_GRANBULL_TM_DATA_3
+	mondexentry SPECIES_GRANBULL, "It is actually timid and easily\nspooked. If attacked, it flails\nabout to fend off its attacker."
 
 
 mondata SPECIES_QWILFISH, "Qwilfish"
@@ -3827,6 +4038,7 @@ mondata SPECIES_QWILFISH, "Qwilfish"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_QWILFISH_TM_DATA_0, SPECIES_QWILFISH_TM_DATA_1, SPECIES_QWILFISH_TM_DATA_2, SPECIES_QWILFISH_TM_DATA_3
+	mondexentry SPECIES_QWILFISH, "To fire its poison spikes, it must\ninflate its body by drinking over\n2.6 gallons of water all at once."
 
 
 mondata SPECIES_SCIZOR, "Scizor"
@@ -3845,6 +4057,7 @@ mondata SPECIES_SCIZOR, "Scizor"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SCIZOR_TM_DATA_0, SPECIES_SCIZOR_TM_DATA_1, SPECIES_SCIZOR_TM_DATA_2, SPECIES_SCIZOR_TM_DATA_3
+	mondexentry SPECIES_SCIZOR, "It swings its eye-patterned pincers\nup to scare its foes. This makes\nit look like it has three heads."
 
 
 mondata SPECIES_SHUCKLE, "Shuckle"
@@ -3863,6 +4076,7 @@ mondata SPECIES_SHUCKLE, "Shuckle"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SHUCKLE_TM_DATA_0, SPECIES_SHUCKLE_TM_DATA_1, SPECIES_SHUCKLE_TM_DATA_2, SPECIES_SHUCKLE_TM_DATA_3
+	mondexentry SPECIES_SHUCKLE, "The berries it stores in its\nvase-like shell decompose and\nbecome a gooey liquid."
 
 
 mondata SPECIES_HERACROSS, "Heracross"
@@ -3881,6 +4095,7 @@ mondata SPECIES_HERACROSS, "Heracross"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_HERACROSS_TM_DATA_0, SPECIES_HERACROSS_TM_DATA_1, SPECIES_HERACROSS_TM_DATA_2, SPECIES_HERACROSS_TM_DATA_3
+	mondexentry SPECIES_HERACROSS, "This powerful Pokémon thrusts\nits prized horn under its enemies’\nbellies, then lifts and throws them."
 
 
 mondata SPECIES_SNEASEL, "Sneasel"
@@ -3899,6 +4114,7 @@ mondata SPECIES_SNEASEL, "Sneasel"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SNEASEL_TM_DATA_0, SPECIES_SNEASEL_TM_DATA_1, SPECIES_SNEASEL_TM_DATA_2, SPECIES_SNEASEL_TM_DATA_3
+	mondexentry SPECIES_SNEASEL, "Its paws conceal sharp claws. If\nattacked, it suddenly extends the\nclaws and startles its enemy."
 
 
 mondata SPECIES_TEDDIURSA, "Teddiursa"
@@ -3917,6 +4133,7 @@ mondata SPECIES_TEDDIURSA, "Teddiursa"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_TEDDIURSA_TM_DATA_0, SPECIES_TEDDIURSA_TM_DATA_1, SPECIES_TEDDIURSA_TM_DATA_2, SPECIES_TEDDIURSA_TM_DATA_3
+	mondexentry SPECIES_TEDDIURSA, "If it finds honey, its crescent mark\nglows. It always licks its paws\nbecause they’re soaked with honey."
 
 
 mondata SPECIES_URSARING, "Ursaring"
@@ -3935,6 +4152,7 @@ mondata SPECIES_URSARING, "Ursaring"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_URSARING_TM_DATA_0, SPECIES_URSARING_TM_DATA_1, SPECIES_URSARING_TM_DATA_2, SPECIES_URSARING_TM_DATA_3
+	mondexentry SPECIES_URSARING, "Although it is a good climber,\nit prefers to snap trees with its\nforelegs and eat fallen berries."
 
 
 mondata SPECIES_SLUGMA, "Slugma"
@@ -3953,6 +4171,7 @@ mondata SPECIES_SLUGMA, "Slugma"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SLUGMA_TM_DATA_0, SPECIES_SLUGMA_TM_DATA_1, SPECIES_SLUGMA_TM_DATA_2, SPECIES_SLUGMA_TM_DATA_3
+	mondexentry SPECIES_SLUGMA, "It never sleeps. It has to keep\nmoving because if it stopped, its\nmagma body would cool and harden."
 
 
 mondata SPECIES_MAGCARGO, "Magcargo"
@@ -3971,6 +4190,7 @@ mondata SPECIES_MAGCARGO, "Magcargo"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_MAGCARGO_TM_DATA_0, SPECIES_MAGCARGO_TM_DATA_1, SPECIES_MAGCARGO_TM_DATA_2, SPECIES_MAGCARGO_TM_DATA_3
+	mondexentry SPECIES_MAGCARGO, "The shell on its back is just skin\nthat has cooled and hardened. It\nbreaks easily with a slight touch."
 
 
 mondata SPECIES_SWINUB, "Swinub"
@@ -3989,6 +4209,7 @@ mondata SPECIES_SWINUB, "Swinub"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SWINUB_TM_DATA_0, SPECIES_SWINUB_TM_DATA_1, SPECIES_SWINUB_TM_DATA_2, SPECIES_SWINUB_TM_DATA_3
+	mondexentry SPECIES_SWINUB, "It rubs its snout on the ground to\nfind and dig up food. It sometimes\ndiscovers hot springs."
 
 
 mondata SPECIES_PILOSWINE, "Piloswine"
@@ -4007,6 +4228,7 @@ mondata SPECIES_PILOSWINE, "Piloswine"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PILOSWINE_TM_DATA_0, SPECIES_PILOSWINE_TM_DATA_1, SPECIES_PILOSWINE_TM_DATA_2, SPECIES_PILOSWINE_TM_DATA_3
+	mondexentry SPECIES_PILOSWINE, "Because the long hair all over its\nbody obscures its sight, it just\nkeeps charging repeatedly."
 
 
 mondata SPECIES_CORSOLA, "Corsola"
@@ -4025,6 +4247,7 @@ mondata SPECIES_CORSOLA, "Corsola"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_CORSOLA_TM_DATA_0, SPECIES_CORSOLA_TM_DATA_1, SPECIES_CORSOLA_TM_DATA_2, SPECIES_CORSOLA_TM_DATA_3
+	mondexentry SPECIES_CORSOLA, "It continuously sheds and grows.\nThe tip of its head is prized as\na treasure because of its beauty."
 
 
 mondata SPECIES_REMORAID, "Remoraid"
@@ -4043,6 +4266,7 @@ mondata SPECIES_REMORAID, "Remoraid"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_REMORAID_TM_DATA_0, SPECIES_REMORAID_TM_DATA_1, SPECIES_REMORAID_TM_DATA_2, SPECIES_REMORAID_TM_DATA_3
+	mondexentry SPECIES_REMORAID, "It has superb accuracy. The water\nit shoots out can strike moving\nprey from more than 300 feet away."
 
 
 mondata SPECIES_OCTILLERY, "Octillery"
@@ -4061,6 +4285,7 @@ mondata SPECIES_OCTILLERY, "Octillery"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_OCTILLERY_TM_DATA_0, SPECIES_OCTILLERY_TM_DATA_1, SPECIES_OCTILLERY_TM_DATA_2, SPECIES_OCTILLERY_TM_DATA_3
+	mondexentry SPECIES_OCTILLERY, "It traps foes with the suction cups\non its tentacles, then smashes\nthem with its rock-hard head."
 
 
 mondata SPECIES_DELIBIRD, "Delibird"
@@ -4079,6 +4304,7 @@ mondata SPECIES_DELIBIRD, "Delibird"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DELIBIRD_TM_DATA_0, SPECIES_DELIBIRD_TM_DATA_1, SPECIES_DELIBIRD_TM_DATA_2, SPECIES_DELIBIRD_TM_DATA_3
+	mondexentry SPECIES_DELIBIRD, "It carries food all day long.\nThere are tales about lost people\nwho were saved by its stored food."
 
 
 mondata SPECIES_MANTINE, "Mantine"
@@ -4097,6 +4323,7 @@ mondata SPECIES_MANTINE, "Mantine"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MANTINE_TM_DATA_0, SPECIES_MANTINE_TM_DATA_1, SPECIES_MANTINE_TM_DATA_2, SPECIES_MANTINE_TM_DATA_3
+	mondexentry SPECIES_MANTINE, "As it majestically swims, it doesn’t\ncare if REMORAID attach to it for\nscavenging its leftovers."
 
 
 mondata SPECIES_SKARMORY, "Skarmory"
@@ -4115,6 +4342,7 @@ mondata SPECIES_SKARMORY, "Skarmory"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_SKARMORY_TM_DATA_0, SPECIES_SKARMORY_TM_DATA_1, SPECIES_SKARMORY_TM_DATA_2, SPECIES_SKARMORY_TM_DATA_3
+	mondexentry SPECIES_SKARMORY, "Its sturdy wings look heavy, but\nthey are actually hollow and light,\nallowing it to fly freely in the sky."
 
 
 mondata SPECIES_HOUNDOUR, "Houndour"
@@ -4133,6 +4361,7 @@ mondata SPECIES_HOUNDOUR, "Houndour"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_HOUNDOUR_TM_DATA_0, SPECIES_HOUNDOUR_TM_DATA_1, SPECIES_HOUNDOUR_TM_DATA_2, SPECIES_HOUNDOUR_TM_DATA_3
+	mondexentry SPECIES_HOUNDOUR, "It uses different kinds of cries for\ncommunicating with others of its\nkind and for pursuing its prey."
 
 
 mondata SPECIES_HOUNDOOM, "Houndoom"
@@ -4151,6 +4380,7 @@ mondata SPECIES_HOUNDOOM, "Houndoom"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_HOUNDOOM_TM_DATA_0, SPECIES_HOUNDOOM_TM_DATA_1, SPECIES_HOUNDOOM_TM_DATA_2, SPECIES_HOUNDOOM_TM_DATA_3
+	mondexentry SPECIES_HOUNDOOM, "If you are burned by the flames\nit shoots from its mouth,\nthe pain will never go away."
 
 
 mondata SPECIES_KINGDRA, "Kingdra"
@@ -4169,6 +4399,7 @@ mondata SPECIES_KINGDRA, "Kingdra"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_KINGDRA_TM_DATA_0, SPECIES_KINGDRA_TM_DATA_1, SPECIES_KINGDRA_TM_DATA_2, SPECIES_KINGDRA_TM_DATA_3
+	mondexentry SPECIES_KINGDRA, "It is said that it usually hides in\nunderwater caves. It can create\nwhirlpools by yawning."
 
 
 mondata SPECIES_PHANPY, "Phanpy"
@@ -4187,6 +4418,7 @@ mondata SPECIES_PHANPY, "Phanpy"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PHANPY_TM_DATA_0, SPECIES_PHANPY_TM_DATA_1, SPECIES_PHANPY_TM_DATA_2, SPECIES_PHANPY_TM_DATA_3
+	mondexentry SPECIES_PHANPY, "It swings its long snout around\nplayfully, but because it is so\nstrong, that can be dangerous."
 
 
 mondata SPECIES_DONPHAN, "Donphan"
@@ -4205,6 +4437,7 @@ mondata SPECIES_DONPHAN, "Donphan"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_DONPHAN_TM_DATA_0, SPECIES_DONPHAN_TM_DATA_1, SPECIES_DONPHAN_TM_DATA_2, SPECIES_DONPHAN_TM_DATA_3
+	mondexentry SPECIES_DONPHAN, "It has sharp, hard tusks and a\nrugged hide. Its tackle is strong\nenough to knock down a house."
 
 
 mondata SPECIES_PORYGON2, "Porygon2"
@@ -4223,6 +4456,7 @@ mondata SPECIES_PORYGON2, "Porygon2"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PORYGON2_TM_DATA_0, SPECIES_PORYGON2_TM_DATA_1, SPECIES_PORYGON2_TM_DATA_2, SPECIES_PORYGON2_TM_DATA_3
+	mondexentry SPECIES_PORYGON2, "This upgraded version of PORYGON\nis designed for space exploration.\nIt can’t fly, however."
 
 
 mondata SPECIES_STANTLER, "Stantler"
@@ -4241,6 +4475,7 @@ mondata SPECIES_STANTLER, "Stantler"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_STANTLER_TM_DATA_0, SPECIES_STANTLER_TM_DATA_1, SPECIES_STANTLER_TM_DATA_2, SPECIES_STANTLER_TM_DATA_3
+	mondexentry SPECIES_STANTLER, "The curved antlers subtly change\nthe flow of air to create a strange\nspace where reality is distorted."
 
 
 mondata SPECIES_SMEARGLE, "Smeargle"
@@ -4259,6 +4494,7 @@ mondata SPECIES_SMEARGLE, "Smeargle"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SMEARGLE_TM_DATA_0, SPECIES_SMEARGLE_TM_DATA_1, SPECIES_SMEARGLE_TM_DATA_2, SPECIES_SMEARGLE_TM_DATA_3
+	mondexentry SPECIES_SMEARGLE, "A special fluid oozes from the tip\nof its tail. It paints the fluid\neverywhere to mark its territory."
 
 
 mondata SPECIES_TYROGUE, "Tyrogue"
@@ -4277,6 +4513,7 @@ mondata SPECIES_TYROGUE, "Tyrogue"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_TYROGUE_TM_DATA_0, SPECIES_TYROGUE_TM_DATA_1, SPECIES_TYROGUE_TM_DATA_2, SPECIES_TYROGUE_TM_DATA_3
+	mondexentry SPECIES_TYROGUE, "It is always bursting with energy.\nTo make itself stronger, it\nkeeps on fighting even if it loses."
 
 
 mondata SPECIES_HITMONTOP, "Hitmontop"
@@ -4295,6 +4532,7 @@ mondata SPECIES_HITMONTOP, "Hitmontop"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HITMONTOP_TM_DATA_0, SPECIES_HITMONTOP_TM_DATA_1, SPECIES_HITMONTOP_TM_DATA_2, SPECIES_HITMONTOP_TM_DATA_3
+	mondexentry SPECIES_HITMONTOP, "If you are enchanted by its smooth,\ndance-like kicks, you may get a closer\nexperience with one than you’d like."
 
 
 mondata SPECIES_SMOOCHUM, "Smoochum"
@@ -4313,6 +4551,7 @@ mondata SPECIES_SMOOCHUM, "Smoochum"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SMOOCHUM_TM_DATA_0, SPECIES_SMOOCHUM_TM_DATA_1, SPECIES_SMOOCHUM_TM_DATA_2, SPECIES_SMOOCHUM_TM_DATA_3
+	mondexentry SPECIES_SMOOCHUM, "Its lips are the most sensitive\npart of its body. It always uses\nits lips first to examine things."
 
 
 mondata SPECIES_ELEKID, "Elekid"
@@ -4331,6 +4570,7 @@ mondata SPECIES_ELEKID, "Elekid"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ELEKID_TM_DATA_0, SPECIES_ELEKID_TM_DATA_1, SPECIES_ELEKID_TM_DATA_2, SPECIES_ELEKID_TM_DATA_3
+	mondexentry SPECIES_ELEKID, "It rotates its arms to generate\nelectricity, but it tires easily,\nso it only charges up a little bit."
 
 
 mondata SPECIES_MAGBY, "Magby"
@@ -4349,6 +4589,7 @@ mondata SPECIES_MAGBY, "Magby"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_MAGBY_TM_DATA_0, SPECIES_MAGBY_TM_DATA_1, SPECIES_MAGBY_TM_DATA_2, SPECIES_MAGBY_TM_DATA_3
+	mondexentry SPECIES_MAGBY, "Each and every time it inhales\nand exhales, hot embers dribble\nfrom its mouth and nostrils."
 
 
 mondata SPECIES_MILTANK, "Miltank"
@@ -4367,6 +4608,7 @@ mondata SPECIES_MILTANK, "Miltank"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MILTANK_TM_DATA_0, SPECIES_MILTANK_TM_DATA_1, SPECIES_MILTANK_TM_DATA_2, SPECIES_MILTANK_TM_DATA_3
+	mondexentry SPECIES_MILTANK, "Its milk is packed with nutrition,\nmaking it the ultimate beverage\nfor the sick or weary."
 
 
 mondata SPECIES_BLISSEY, "Blissey"
@@ -4385,6 +4627,7 @@ mondata SPECIES_BLISSEY, "Blissey"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_BLISSEY_TM_DATA_0, SPECIES_BLISSEY_TM_DATA_1, SPECIES_BLISSEY_TM_DATA_2, SPECIES_BLISSEY_TM_DATA_3
+	mondexentry SPECIES_BLISSEY, "Anyone who takes even one taste of\nBLISSEY’s egg becomes unfailingly\ncaring and pleasant to everyone."
 
 
 mondata SPECIES_RAIKOU, "Raikou"
@@ -4403,6 +4646,7 @@ mondata SPECIES_RAIKOU, "Raikou"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_RAIKOU_TM_DATA_0, SPECIES_RAIKOU_TM_DATA_1, SPECIES_RAIKOU_TM_DATA_2, SPECIES_RAIKOU_TM_DATA_3
+	mondexentry SPECIES_RAIKOU, "The rain clouds it carries let it\nfire thunderbolts at will. They say\nthat it descended with lightning."
 
 
 mondata SPECIES_ENTEI, "Entei"
@@ -4421,6 +4665,7 @@ mondata SPECIES_ENTEI, "Entei"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ENTEI_TM_DATA_0, SPECIES_ENTEI_TM_DATA_1, SPECIES_ENTEI_TM_DATA_2, SPECIES_ENTEI_TM_DATA_3
+	mondexentry SPECIES_ENTEI, "Volcanoes erupt when it barks.\nUnable to contain its sheer power,\nit races headlong around the land."
 
 
 mondata SPECIES_SUICUNE, "Suicune"
@@ -4439,6 +4684,7 @@ mondata SPECIES_SUICUNE, "Suicune"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SUICUNE_TM_DATA_0, SPECIES_SUICUNE_TM_DATA_1, SPECIES_SUICUNE_TM_DATA_2, SPECIES_SUICUNE_TM_DATA_3
+	mondexentry SPECIES_SUICUNE, "Said to be the embodiment of\nnorth winds, it can instantly\npurify filthy, murky water."
 
 
 mondata SPECIES_LARVITAR, "Larvitar"
@@ -4457,6 +4703,7 @@ mondata SPECIES_LARVITAR, "Larvitar"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_LARVITAR_TM_DATA_0, SPECIES_LARVITAR_TM_DATA_1, SPECIES_LARVITAR_TM_DATA_2, SPECIES_LARVITAR_TM_DATA_3
+	mondexentry SPECIES_LARVITAR, "It feeds on soil. After it has eaten\na large mountain, it falls asleep\nso it can grow."
 
 
 mondata SPECIES_PUPITAR, "Pupitar"
@@ -4475,6 +4722,7 @@ mondata SPECIES_PUPITAR, "Pupitar"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_PUPITAR_TM_DATA_0, SPECIES_PUPITAR_TM_DATA_1, SPECIES_PUPITAR_TM_DATA_2, SPECIES_PUPITAR_TM_DATA_3
+	mondexentry SPECIES_PUPITAR, "Its shell is as hard as sheet rock,\nand it is also very strong. Its\nthrashing can topple a mountain."
 
 
 mondata SPECIES_TYRANITAR, "Tyranitar"
@@ -4493,6 +4741,7 @@ mondata SPECIES_TYRANITAR, "Tyranitar"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TYRANITAR_TM_DATA_0, SPECIES_TYRANITAR_TM_DATA_1, SPECIES_TYRANITAR_TM_DATA_2, SPECIES_TYRANITAR_TM_DATA_3
+	mondexentry SPECIES_TYRANITAR, "Its body can’t be harmed by any\nsort of attack, so it is very eager\nto make challenges against enemies."
 
 
 mondata SPECIES_LUGIA, "Lugia"
@@ -4511,6 +4760,7 @@ mondata SPECIES_LUGIA, "Lugia"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_LUGIA_TM_DATA_0, SPECIES_LUGIA_TM_DATA_1, SPECIES_LUGIA_TM_DATA_2, SPECIES_LUGIA_TM_DATA_3
+	mondexentry SPECIES_LUGIA, "It is said that it quietly spends its\ntime deep at the bottom of the sea\nbecause its powers are too strong."
 
 
 mondata SPECIES_HO_OH, "Ho-oh"
@@ -4529,6 +4779,7 @@ mondata SPECIES_HO_OH, "Ho-oh"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_HO_OH_TM_DATA_0, SPECIES_HO_OH_TM_DATA_1, SPECIES_HO_OH_TM_DATA_2, SPECIES_HO_OH_TM_DATA_3
+	mondexentry SPECIES_HO_OH, "Legends claim this Pokémon flies the\nworld’s skies continuously on its\nmagnificent, seven-colored wings."
 
 
 mondata SPECIES_CELEBI, "Celebi"
@@ -4547,6 +4798,7 @@ mondata SPECIES_CELEBI, "Celebi"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CELEBI_TM_DATA_0, SPECIES_CELEBI_TM_DATA_1, SPECIES_CELEBI_TM_DATA_2, SPECIES_CELEBI_TM_DATA_3
+	mondexentry SPECIES_CELEBI, "This Pokémon wanders across time.\nGrass and trees flourish in the\nforests in which it has appeared."
 
 
 mondata SPECIES_TREECKO, "Treecko"
@@ -4565,6 +4817,7 @@ mondata SPECIES_TREECKO, "Treecko"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TREECKO_TM_DATA_0, SPECIES_TREECKO_TM_DATA_1, SPECIES_TREECKO_TM_DATA_2, SPECIES_TREECKO_TM_DATA_3
+	mondexentry SPECIES_TREECKO, "Small hooks on the bottom of its\nfeet catch on walls and ceilings.\nThat is how it can hang from above."
 
 
 mondata SPECIES_GROVYLE, "Grovyle"
@@ -4583,6 +4836,7 @@ mondata SPECIES_GROVYLE, "Grovyle"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GROVYLE_TM_DATA_0, SPECIES_GROVYLE_TM_DATA_1, SPECIES_GROVYLE_TM_DATA_2, SPECIES_GROVYLE_TM_DATA_3
+	mondexentry SPECIES_GROVYLE, "It leaps from tree branch to tree\nbranch quite swiftly. It shows\nastounding agility."
 
 
 mondata SPECIES_SCEPTILE, "Sceptile"
@@ -4601,6 +4855,7 @@ mondata SPECIES_SCEPTILE, "Sceptile"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SCEPTILE_TM_DATA_0, SPECIES_SCEPTILE_TM_DATA_1, SPECIES_SCEPTILE_TM_DATA_2, SPECIES_SCEPTILE_TM_DATA_3
+	mondexentry SPECIES_SCEPTILE, "It agilely leaps about the jungle\nand uses the sharp leaves on its\narms to strike its prey."
 
 
 mondata SPECIES_TORCHIC, "Torchic"
@@ -4619,6 +4874,7 @@ mondata SPECIES_TORCHIC, "Torchic"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TORCHIC_TM_DATA_0, SPECIES_TORCHIC_TM_DATA_1, SPECIES_TORCHIC_TM_DATA_2, SPECIES_TORCHIC_TM_DATA_3
+	mondexentry SPECIES_TORCHIC, "Inside its body is a place where it\nkeeps a small flame. Hug it! It will\nbe as warm as a hot-water bottle."
 
 
 mondata SPECIES_COMBUSKEN, "Combusken"
@@ -4637,6 +4893,7 @@ mondata SPECIES_COMBUSKEN, "Combusken"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_COMBUSKEN_TM_DATA_0, SPECIES_COMBUSKEN_TM_DATA_1, SPECIES_COMBUSKEN_TM_DATA_2, SPECIES_COMBUSKEN_TM_DATA_3
+	mondexentry SPECIES_COMBUSKEN, "During a battle, the hot flame in\nits body increases. Its kicks have\noutstanding destructive power."
 
 
 mondata SPECIES_BLAZIKEN, "Blaziken"
@@ -4655,6 +4912,7 @@ mondata SPECIES_BLAZIKEN, "Blaziken"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_BLAZIKEN_TM_DATA_0, SPECIES_BLAZIKEN_TM_DATA_1, SPECIES_BLAZIKEN_TM_DATA_2, SPECIES_BLAZIKEN_TM_DATA_3
+	mondexentry SPECIES_BLAZIKEN, "It can clear a 30-story building\nin a leap. Its fiery punches scorch\nits foes."
 
 
 mondata SPECIES_MUDKIP, "Mudkip"
@@ -4673,6 +4931,7 @@ mondata SPECIES_MUDKIP, "Mudkip"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MUDKIP_TM_DATA_0, SPECIES_MUDKIP_TM_DATA_1, SPECIES_MUDKIP_TM_DATA_2, SPECIES_MUDKIP_TM_DATA_3
+	mondexentry SPECIES_MUDKIP, "Its power can crush boulders.\nIt rests by covering itself with mud\nat the bottom of a river."
 
 
 mondata SPECIES_MARSHTOMP, "Marshtomp"
@@ -4691,6 +4950,7 @@ mondata SPECIES_MARSHTOMP, "Marshtomp"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MARSHTOMP_TM_DATA_0, SPECIES_MARSHTOMP_TM_DATA_1, SPECIES_MARSHTOMP_TM_DATA_2, SPECIES_MARSHTOMP_TM_DATA_3
+	mondexentry SPECIES_MARSHTOMP, "Living on muddy ground that\nprovides poor footing has made\nits legs sturdy."
 
 
 mondata SPECIES_SWAMPERT, "Swampert"
@@ -4709,6 +4969,7 @@ mondata SPECIES_SWAMPERT, "Swampert"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SWAMPERT_TM_DATA_0, SPECIES_SWAMPERT_TM_DATA_1, SPECIES_SWAMPERT_TM_DATA_2, SPECIES_SWAMPERT_TM_DATA_3
+	mondexentry SPECIES_SWAMPERT, "Its arms are hard as rock.\nWith one swing, it can\nbreak a boulder into pieces."
 
 
 mondata SPECIES_POOCHYENA, "Poochyena"
@@ -4727,6 +4988,7 @@ mondata SPECIES_POOCHYENA, "Poochyena"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_POOCHYENA_TM_DATA_0, SPECIES_POOCHYENA_TM_DATA_1, SPECIES_POOCHYENA_TM_DATA_2, SPECIES_POOCHYENA_TM_DATA_3
+	mondexentry SPECIES_POOCHYENA, "It chases its prey until the victim\nbecomes exhausted. However, it\nturns tail if the prey strikes back."
 
 
 mondata SPECIES_MIGHTYENA, "Mightyena"
@@ -4745,6 +5007,7 @@ mondata SPECIES_MIGHTYENA, "Mightyena"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MIGHTYENA_TM_DATA_0, SPECIES_MIGHTYENA_TM_DATA_1, SPECIES_MIGHTYENA_TM_DATA_2, SPECIES_MIGHTYENA_TM_DATA_3
+	mondexentry SPECIES_MIGHTYENA, "It chases down prey in a pack of\naround ten. They defeat foes with\nperfectly coordinated teamwork."
 
 
 mondata SPECIES_ZIGZAGOON, "Zigzagoon"
@@ -4763,6 +5026,7 @@ mondata SPECIES_ZIGZAGOON, "Zigzagoon"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ZIGZAGOON_TM_DATA_0, SPECIES_ZIGZAGOON_TM_DATA_1, SPECIES_ZIGZAGOON_TM_DATA_2, SPECIES_ZIGZAGOON_TM_DATA_3
+	mondexentry SPECIES_ZIGZAGOON, "It gets interested in everything,\nwhich is why it zigs and zags.\nIt is good at finding items."
 
 
 mondata SPECIES_LINOONE, "Linoone"
@@ -4781,6 +5045,7 @@ mondata SPECIES_LINOONE, "Linoone"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_LINOONE_TM_DATA_0, SPECIES_LINOONE_TM_DATA_1, SPECIES_LINOONE_TM_DATA_2, SPECIES_LINOONE_TM_DATA_3
+	mondexentry SPECIES_LINOONE, "When running in a straight line, it\ncan easily top 60 miles an hour. It\nhas a tough time with curved roads."
 
 
 mondata SPECIES_WURMPLE, "Wurmple"
@@ -4799,6 +5064,7 @@ mondata SPECIES_WURMPLE, "Wurmple"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_WURMPLE_TM_DATA_0, SPECIES_WURMPLE_TM_DATA_1, SPECIES_WURMPLE_TM_DATA_2, SPECIES_WURMPLE_TM_DATA_3
+	mondexentry SPECIES_WURMPLE, "It lives among the tall grass and in\nforests. It repels attacks by \nraising up the spikes on its rear."
 
 
 mondata SPECIES_SILCOON, "Silcoon"
@@ -4817,6 +5083,7 @@ mondata SPECIES_SILCOON, "Silcoon"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SILCOON_TM_DATA_0, SPECIES_SILCOON_TM_DATA_1, SPECIES_SILCOON_TM_DATA_2, SPECIES_SILCOON_TM_DATA_3
+	mondexentry SPECIES_SILCOON, "Having wrapped silk around the\nbranches of a tree, it quiescently\nawaits evolution."
 
 
 mondata SPECIES_BEAUTIFLY, "Beautifly"
@@ -4835,6 +5102,7 @@ mondata SPECIES_BEAUTIFLY, "Beautifly"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_BEAUTIFLY_TM_DATA_0, SPECIES_BEAUTIFLY_TM_DATA_1, SPECIES_BEAUTIFLY_TM_DATA_2, SPECIES_BEAUTIFLY_TM_DATA_3
+	mondexentry SPECIES_BEAUTIFLY, "Vibrantly patterned wings are its\nprominent feature. It sucks sweet\nflower nectar with its long mouth."
 
 
 mondata SPECIES_CASCOON, "Cascoon"
@@ -4853,6 +5121,7 @@ mondata SPECIES_CASCOON, "Cascoon"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_CASCOON_TM_DATA_0, SPECIES_CASCOON_TM_DATA_1, SPECIES_CASCOON_TM_DATA_2, SPECIES_CASCOON_TM_DATA_3
+	mondexentry SPECIES_CASCOON, "It endures attacks with patience,\nbecause the more pain before\nevolution, the sturdier it becomes."
 
 
 mondata SPECIES_DUSTOX, "Dustox"
@@ -4871,6 +5140,7 @@ mondata SPECIES_DUSTOX, "Dustox"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DUSTOX_TM_DATA_0, SPECIES_DUSTOX_TM_DATA_1, SPECIES_DUSTOX_TM_DATA_2, SPECIES_DUSTOX_TM_DATA_3
+	mondexentry SPECIES_DUSTOX, "It scatters its fine dust all over\nwhen it is attacked. It is a\nnocturnal Pokémon."
 
 
 mondata SPECIES_LOTAD, "Lotad"
@@ -4889,6 +5159,7 @@ mondata SPECIES_LOTAD, "Lotad"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_LOTAD_TM_DATA_0, SPECIES_LOTAD_TM_DATA_1, SPECIES_LOTAD_TM_DATA_2, SPECIES_LOTAD_TM_DATA_3
+	mondexentry SPECIES_LOTAD, "Its leaf grew too large for it to\nlive on land. That is how it began\nto live floating in the water."
 
 
 mondata SPECIES_LOMBRE, "Lombre"
@@ -4907,6 +5178,7 @@ mondata SPECIES_LOMBRE, "Lombre"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_LOMBRE_TM_DATA_0, SPECIES_LOMBRE_TM_DATA_1, SPECIES_LOMBRE_TM_DATA_2, SPECIES_LOMBRE_TM_DATA_3
+	mondexentry SPECIES_LOMBRE, "It is nocturnal and becomes active\nat nightfall. It feeds on aquatic\nmosses that grow in the riverbed."
 
 
 mondata SPECIES_LUDICOLO, "Ludicolo"
@@ -4925,6 +5197,7 @@ mondata SPECIES_LUDICOLO, "Ludicolo"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_LUDICOLO_TM_DATA_0, SPECIES_LUDICOLO_TM_DATA_1, SPECIES_LUDICOLO_TM_DATA_2, SPECIES_LUDICOLO_TM_DATA_3
+	mondexentry SPECIES_LUDICOLO, "If it hears festive music, it begins\nmoving in rhythm in order to\namplify its power."
 
 
 mondata SPECIES_SEEDOT, "Seedot"
@@ -4943,6 +5216,7 @@ mondata SPECIES_SEEDOT, "Seedot"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SEEDOT_TM_DATA_0, SPECIES_SEEDOT_TM_DATA_1, SPECIES_SEEDOT_TM_DATA_2, SPECIES_SEEDOT_TM_DATA_3
+	mondexentry SPECIES_SEEDOT, "It attaches itself to a tree branch\nusing the top of its head. Strong\nwinds can sometimes make it fall."
 
 
 mondata SPECIES_NUZLEAF, "Nuzleaf"
@@ -4961,6 +5235,7 @@ mondata SPECIES_NUZLEAF, "Nuzleaf"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_NUZLEAF_TM_DATA_0, SPECIES_NUZLEAF_TM_DATA_1, SPECIES_NUZLEAF_TM_DATA_2, SPECIES_NUZLEAF_TM_DATA_3
+	mondexentry SPECIES_NUZLEAF, "It lives deep in forests. With the\nleaf on its head, it makes a flute\nwhose song makes listeners uneasy."
 
 
 mondata SPECIES_SHIFTRY, "Shiftry"
@@ -4979,6 +5254,7 @@ mondata SPECIES_SHIFTRY, "Shiftry"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SHIFTRY_TM_DATA_0, SPECIES_SHIFTRY_TM_DATA_1, SPECIES_SHIFTRY_TM_DATA_2, SPECIES_SHIFTRY_TM_DATA_3
+	mondexentry SPECIES_SHIFTRY, "It lives quietly in the deep forest.\nIt is said to create chilly winter\nwinds with the fans it holds."
 
 
 mondata SPECIES_TAILLOW, "Taillow"
@@ -4997,6 +5273,7 @@ mondata SPECIES_TAILLOW, "Taillow"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TAILLOW_TM_DATA_0, SPECIES_TAILLOW_TM_DATA_1, SPECIES_TAILLOW_TM_DATA_2, SPECIES_TAILLOW_TM_DATA_3
+	mondexentry SPECIES_TAILLOW, "When it gets cold, they migrate,\nflying over 180 miles a day.\nIt hunts for tasty prey."
 
 
 mondata SPECIES_SWELLOW, "Swellow"
@@ -5015,6 +5292,7 @@ mondata SPECIES_SWELLOW, "Swellow"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SWELLOW_TM_DATA_0, SPECIES_SWELLOW_TM_DATA_1, SPECIES_SWELLOW_TM_DATA_2, SPECIES_SWELLOW_TM_DATA_3
+	mondexentry SPECIES_SWELLOW, "It dives at a steep angle as soon\nas it spots its prey. It catches\nits prey with sharp claws."
 
 
 mondata SPECIES_WINGULL, "Wingull"
@@ -5033,6 +5311,7 @@ mondata SPECIES_WINGULL, "Wingull"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_WINGULL_TM_DATA_0, SPECIES_WINGULL_TM_DATA_1, SPECIES_WINGULL_TM_DATA_2, SPECIES_WINGULL_TM_DATA_3
+	mondexentry SPECIES_WINGULL, "It soars on updrafts without\nflapping its wings. It makes a nest\non sheer cliffs at the sea’s edge."
 
 
 mondata SPECIES_PELIPPER, "Pelipper"
@@ -5051,6 +5330,7 @@ mondata SPECIES_PELIPPER, "Pelipper"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PELIPPER_TM_DATA_0, SPECIES_PELIPPER_TM_DATA_1, SPECIES_PELIPPER_TM_DATA_2, SPECIES_PELIPPER_TM_DATA_3
+	mondexentry SPECIES_PELIPPER, "It protects its young in its beak.\nIt bobs on waves, resting on them\non days when the waters are calm."
 
 
 mondata SPECIES_RALTS, "Ralts"
@@ -5069,6 +5349,7 @@ mondata SPECIES_RALTS, "Ralts"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_RALTS_TM_DATA_0, SPECIES_RALTS_TM_DATA_1, SPECIES_RALTS_TM_DATA_2, SPECIES_RALTS_TM_DATA_3
+	mondexentry SPECIES_RALTS, "The horns on its head provide a\nstrong power that enables\nit to sense people’s emotions."
 
 
 mondata SPECIES_KIRLIA, "Kirlia"
@@ -5087,6 +5368,7 @@ mondata SPECIES_KIRLIA, "Kirlia"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_KIRLIA_TM_DATA_0, SPECIES_KIRLIA_TM_DATA_1, SPECIES_KIRLIA_TM_DATA_2, SPECIES_KIRLIA_TM_DATA_3
+	mondexentry SPECIES_KIRLIA, "It has a psychic power that\nenables it to distort the space\naround it and see into the future."
 
 
 mondata SPECIES_GARDEVOIR, "Gardevoir"
@@ -5105,6 +5387,7 @@ mondata SPECIES_GARDEVOIR, "Gardevoir"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_GARDEVOIR_TM_DATA_0, SPECIES_GARDEVOIR_TM_DATA_1, SPECIES_GARDEVOIR_TM_DATA_2, SPECIES_GARDEVOIR_TM_DATA_3
+	mondexentry SPECIES_GARDEVOIR, "It unleashes psychokinetic energy\nat full power when protecting a\nTrainer it has bonded closely with."
 
 
 mondata SPECIES_SURSKIT, "Surskit"
@@ -5123,6 +5406,7 @@ mondata SPECIES_SURSKIT, "Surskit"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SURSKIT_TM_DATA_0, SPECIES_SURSKIT_TM_DATA_1, SPECIES_SURSKIT_TM_DATA_2, SPECIES_SURSKIT_TM_DATA_3
+	mondexentry SPECIES_SURSKIT, "It secretes a thick, sweet-scented\nsyrup from the tip of its head.\nIt lives on weed-choked ponds."
 
 
 mondata SPECIES_MASQUERAIN, "Masquerain"
@@ -5141,6 +5425,7 @@ mondata SPECIES_MASQUERAIN, "Masquerain"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MASQUERAIN_TM_DATA_0, SPECIES_MASQUERAIN_TM_DATA_1, SPECIES_MASQUERAIN_TM_DATA_2, SPECIES_MASQUERAIN_TM_DATA_3
+	mondexentry SPECIES_MASQUERAIN, "It flaps its four wings to hover and\nfly freely in any direction--\nto and fro and sideways."
 
 
 mondata SPECIES_SHROOMISH, "Shroomish"
@@ -5159,6 +5444,7 @@ mondata SPECIES_SHROOMISH, "Shroomish"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SHROOMISH_TM_DATA_0, SPECIES_SHROOMISH_TM_DATA_1, SPECIES_SHROOMISH_TM_DATA_2, SPECIES_SHROOMISH_TM_DATA_3
+	mondexentry SPECIES_SHROOMISH, "If it senses danger, it scatters\nspores from the top of its head to\nprotect itself."
 
 
 mondata SPECIES_BRELOOM, "Breloom"
@@ -5177,6 +5463,7 @@ mondata SPECIES_BRELOOM, "Breloom"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BRELOOM_TM_DATA_0, SPECIES_BRELOOM_TM_DATA_1, SPECIES_BRELOOM_TM_DATA_2, SPECIES_BRELOOM_TM_DATA_3
+	mondexentry SPECIES_BRELOOM, "It scatters poisonous spores and\nthrows powerful punches while its\nfoe is hampered by inhaled spores."
 
 
 mondata SPECIES_SLAKOTH, "Slakoth"
@@ -5195,6 +5482,7 @@ mondata SPECIES_SLAKOTH, "Slakoth"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SLAKOTH_TM_DATA_0, SPECIES_SLAKOTH_TM_DATA_1, SPECIES_SLAKOTH_TM_DATA_2, SPECIES_SLAKOTH_TM_DATA_3
+	mondexentry SPECIES_SLAKOTH, "The way SLAKOTH lolls around makes\nanyone who watches it feel like\ndoing the same."
 
 
 mondata SPECIES_VIGOROTH, "Vigoroth"
@@ -5213,6 +5501,7 @@ mondata SPECIES_VIGOROTH, "Vigoroth"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_VIGOROTH_TM_DATA_0, SPECIES_VIGOROTH_TM_DATA_1, SPECIES_VIGOROTH_TM_DATA_2, SPECIES_VIGOROTH_TM_DATA_3
+	mondexentry SPECIES_VIGOROTH, "Its stress level rises if it\ncannot keep moving constantly.\nToo much stress makes it feel sick."
 
 
 mondata SPECIES_SLAKING, "Slaking"
@@ -5231,6 +5520,7 @@ mondata SPECIES_SLAKING, "Slaking"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SLAKING_TM_DATA_0, SPECIES_SLAKING_TM_DATA_1, SPECIES_SLAKING_TM_DATA_2, SPECIES_SLAKING_TM_DATA_3
+	mondexentry SPECIES_SLAKING, "The world’s laziest Pokémon.\nIt moves to another spot when there’s\nno food left within its reach."
 
 
 mondata SPECIES_NINCADA, "Nincada"
@@ -5249,6 +5539,7 @@ mondata SPECIES_NINCADA, "Nincada"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_NINCADA_TM_DATA_0, SPECIES_NINCADA_TM_DATA_1, SPECIES_NINCADA_TM_DATA_2, SPECIES_NINCADA_TM_DATA_3
+	mondexentry SPECIES_NINCADA, "It can sometimes live underground for\nmore than 10 years. It absorbs\nnutrients from the roots of trees."
 
 
 mondata SPECIES_NINJASK, "Ninjask"
@@ -5267,6 +5558,7 @@ mondata SPECIES_NINJASK, "Ninjask"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_NINJASK_TM_DATA_0, SPECIES_NINJASK_TM_DATA_1, SPECIES_NINJASK_TM_DATA_2, SPECIES_NINJASK_TM_DATA_3
+	mondexentry SPECIES_NINJASK, "Its cry leaves a lasting headache\nif heard for too long. It moves so\nquickly that it is almost invisible."
 
 
 mondata SPECIES_SHEDINJA, "Shedinja"
@@ -5285,6 +5577,7 @@ mondata SPECIES_SHEDINJA, "Shedinja"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SHEDINJA_TM_DATA_0, SPECIES_SHEDINJA_TM_DATA_1, SPECIES_SHEDINJA_TM_DATA_2, SPECIES_SHEDINJA_TM_DATA_3
+	mondexentry SPECIES_SHEDINJA, "A strange Pokémon--it flies without\nmoving its wings, has a hollow shell\nfor a body, and does not breathe."
 
 
 mondata SPECIES_WHISMUR, "Whismur"
@@ -5303,6 +5596,7 @@ mondata SPECIES_WHISMUR, "Whismur"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_WHISMUR_TM_DATA_0, SPECIES_WHISMUR_TM_DATA_1, SPECIES_WHISMUR_TM_DATA_2, SPECIES_WHISMUR_TM_DATA_3
+	mondexentry SPECIES_WHISMUR, "If it senses danger, it scares\nthe foe by crying out with the\nvolume of a jet-plane engine."
 
 
 mondata SPECIES_LOUDRED, "Loudred"
@@ -5321,6 +5615,7 @@ mondata SPECIES_LOUDRED, "Loudred"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LOUDRED_TM_DATA_0, SPECIES_LOUDRED_TM_DATA_1, SPECIES_LOUDRED_TM_DATA_2, SPECIES_LOUDRED_TM_DATA_3
+	mondexentry SPECIES_LOUDRED, "It shouts loudly by inhaling air, and\nthen uses its well-developed\nstomach muscles to exhale."
 
 
 mondata SPECIES_EXPLOUD, "Exploud"
@@ -5339,6 +5634,7 @@ mondata SPECIES_EXPLOUD, "Exploud"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_EXPLOUD_TM_DATA_0, SPECIES_EXPLOUD_TM_DATA_1, SPECIES_EXPLOUD_TM_DATA_2, SPECIES_EXPLOUD_TM_DATA_3
+	mondexentry SPECIES_EXPLOUD, "Its roar in battle shakes the\nground like a tremor--or like\nan earthquake has struck."
 
 
 mondata SPECIES_MAKUHITA, "Makuhita"
@@ -5357,6 +5653,7 @@ mondata SPECIES_MAKUHITA, "Makuhita"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MAKUHITA_TM_DATA_0, SPECIES_MAKUHITA_TM_DATA_1, SPECIES_MAKUHITA_TM_DATA_2, SPECIES_MAKUHITA_TM_DATA_3
+	mondexentry SPECIES_MAKUHITA, "It toughens up by slamming into\nthick trees over and over. It gains\na sturdy body and dauntless spirit."
 
 
 mondata SPECIES_HARIYAMA, "Hariyama"
@@ -5375,6 +5672,7 @@ mondata SPECIES_HARIYAMA, "Hariyama"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HARIYAMA_TM_DATA_0, SPECIES_HARIYAMA_TM_DATA_1, SPECIES_HARIYAMA_TM_DATA_2, SPECIES_HARIYAMA_TM_DATA_3
+	mondexentry SPECIES_HARIYAMA, "It loves challenging others to\ntests of strength. It has the\npower to stop a train with a slap."
 
 
 mondata SPECIES_AZURILL, "Azurill"
@@ -5393,6 +5691,7 @@ mondata SPECIES_AZURILL, "Azurill"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AZURILL_TM_DATA_0, SPECIES_AZURILL_TM_DATA_1, SPECIES_AZURILL_TM_DATA_2, SPECIES_AZURILL_TM_DATA_3
+	mondexentry SPECIES_AZURILL, "Its tail is packed full of the\nnutrients it needs to grow."
 
 
 mondata SPECIES_NOSEPASS, "Nosepass"
@@ -5411,6 +5710,7 @@ mondata SPECIES_NOSEPASS, "Nosepass"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_NOSEPASS_TM_DATA_0, SPECIES_NOSEPASS_TM_DATA_1, SPECIES_NOSEPASS_TM_DATA_2, SPECIES_NOSEPASS_TM_DATA_3
+	mondexentry SPECIES_NOSEPASS, "If two of these meet, they cannot\nget too close because their noses\nrepel each other."
 
 
 mondata SPECIES_SKITTY, "Skitty"
@@ -5429,6 +5729,7 @@ mondata SPECIES_SKITTY, "Skitty"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SKITTY_TM_DATA_0, SPECIES_SKITTY_TM_DATA_1, SPECIES_SKITTY_TM_DATA_2, SPECIES_SKITTY_TM_DATA_3
+	mondexentry SPECIES_SKITTY, "It’s adorable when it chases its own\ntail. It’s difficult to earn its trust."
 
 
 mondata SPECIES_DELCATTY, "Delcatty"
@@ -5447,6 +5748,7 @@ mondata SPECIES_DELCATTY, "Delcatty"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_DELCATTY_TM_DATA_0, SPECIES_DELCATTY_TM_DATA_1, SPECIES_DELCATTY_TM_DATA_2, SPECIES_DELCATTY_TM_DATA_3
+	mondexentry SPECIES_DELCATTY, "It dislikes dirty places. It often\nsearches for a comfortable place\nin which to groom itself."
 
 
 mondata SPECIES_SABLEYE, "Sableye"
@@ -5465,6 +5767,7 @@ mondata SPECIES_SABLEYE, "Sableye"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SABLEYE_TM_DATA_0, SPECIES_SABLEYE_TM_DATA_1, SPECIES_SABLEYE_TM_DATA_2, SPECIES_SABLEYE_TM_DATA_3
+	mondexentry SPECIES_SABLEYE, "It dwells in the darkness of caves.\nIt uses its sharp claws to dig up\ngems to nourish itself."
 
 
 mondata SPECIES_MAWILE, "Mawile"
@@ -5483,6 +5786,7 @@ mondata SPECIES_MAWILE, "Mawile"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_MAWILE_TM_DATA_0, SPECIES_MAWILE_TM_DATA_1, SPECIES_MAWILE_TM_DATA_2, SPECIES_MAWILE_TM_DATA_3
+	mondexentry SPECIES_MAWILE, "It chomps with its gaping mouth.\nIts huge jaws are actually steel\nhorns that have been transformed."
 
 
 mondata SPECIES_ARON, "Aron"
@@ -5501,6 +5805,7 @@ mondata SPECIES_ARON, "Aron"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ARON_TM_DATA_0, SPECIES_ARON_TM_DATA_1, SPECIES_ARON_TM_DATA_2, SPECIES_ARON_TM_DATA_3
+	mondexentry SPECIES_ARON, "When it evolves, it sheds the steel\ncarapace that covered its whole body\nand develops a new one."
 
 
 mondata SPECIES_LAIRON, "Lairon"
@@ -5519,6 +5824,7 @@ mondata SPECIES_LAIRON, "Lairon"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_LAIRON_TM_DATA_0, SPECIES_LAIRON_TM_DATA_1, SPECIES_LAIRON_TM_DATA_2, SPECIES_LAIRON_TM_DATA_3
+	mondexentry SPECIES_LAIRON, "It loves iron ore. Groups of them\nfight for territory by bashing one\nanother with their steel bodies."
 
 
 mondata SPECIES_AGGRON, "Aggron"
@@ -5537,6 +5843,7 @@ mondata SPECIES_AGGRON, "Aggron"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_AGGRON_TM_DATA_0, SPECIES_AGGRON_TM_DATA_1, SPECIES_AGGRON_TM_DATA_2, SPECIES_AGGRON_TM_DATA_3
+	mondexentry SPECIES_AGGRON, "You can tell its age by the length\nof its iron horns. It claims an\nentire mountain as its territory."
 
 
 mondata SPECIES_MEDITITE, "Meditite"
@@ -5555,6 +5862,7 @@ mondata SPECIES_MEDITITE, "Meditite"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MEDITITE_TM_DATA_0, SPECIES_MEDITITE_TM_DATA_1, SPECIES_MEDITITE_TM_DATA_2, SPECIES_MEDITITE_TM_DATA_3
+	mondexentry SPECIES_MEDITITE, "It meditates to heighten its inner\nenergy and to float in the air.\nIt eats one berry a day."
 
 
 mondata SPECIES_MEDICHAM, "Medicham"
@@ -5573,6 +5881,7 @@ mondata SPECIES_MEDICHAM, "Medicham"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_MEDICHAM_TM_DATA_0, SPECIES_MEDICHAM_TM_DATA_1, SPECIES_MEDICHAM_TM_DATA_2, SPECIES_MEDICHAM_TM_DATA_3
+	mondexentry SPECIES_MEDICHAM, "Through yoga training, it gained\nthe psychic power to predict\nits foe’s next move."
 
 
 mondata SPECIES_ELECTRIKE, "Electrike"
@@ -5591,6 +5900,7 @@ mondata SPECIES_ELECTRIKE, "Electrike"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_ELECTRIKE_TM_DATA_0, SPECIES_ELECTRIKE_TM_DATA_1, SPECIES_ELECTRIKE_TM_DATA_2, SPECIES_ELECTRIKE_TM_DATA_3
+	mondexentry SPECIES_ELECTRIKE, "It stores electricity in its fur. It\ngives off sparks from all over its\nbody in seasons when the air is dry."
 
 
 mondata SPECIES_MANECTRIC, "Manectric"
@@ -5609,6 +5919,7 @@ mondata SPECIES_MANECTRIC, "Manectric"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MANECTRIC_TM_DATA_0, SPECIES_MANECTRIC_TM_DATA_1, SPECIES_MANECTRIC_TM_DATA_2, SPECIES_MANECTRIC_TM_DATA_3
+	mondexentry SPECIES_MANECTRIC, "Its nest can be found where a\nthunderbolt hits. It is discharging\nelectricity from its mane."
 
 
 mondata SPECIES_PLUSLE, "Plusle"
@@ -5627,6 +5938,7 @@ mondata SPECIES_PLUSLE, "Plusle"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_PLUSLE_TM_DATA_0, SPECIES_PLUSLE_TM_DATA_1, SPECIES_PLUSLE_TM_DATA_2, SPECIES_PLUSLE_TM_DATA_3
+	mondexentry SPECIES_PLUSLE, "It absorbs electricity from\ntelephone poles. It shorts out its\nbody to create crackling noises."
 
 
 mondata SPECIES_MINUN, "Minun"
@@ -5645,6 +5957,7 @@ mondata SPECIES_MINUN, "Minun"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MINUN_TM_DATA_0, SPECIES_MINUN_TM_DATA_1, SPECIES_MINUN_TM_DATA_2, SPECIES_MINUN_TM_DATA_3
+	mondexentry SPECIES_MINUN, "Exposure to electricity from MINUN\nand PLUSLE promotes blood\ncirculation and relaxes muscles."
 
 
 mondata SPECIES_VOLBEAT, "Volbeat"
@@ -5663,6 +5976,7 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_VOLBEAT_TM_DATA_0, SPECIES_VOLBEAT_TM_DATA_1, SPECIES_VOLBEAT_TM_DATA_2, SPECIES_VOLBEAT_TM_DATA_3
+	mondexentry SPECIES_VOLBEAT, "It emits light from its tail to\ncommunicate. It loves the\nsweet aroma given off by ILLUMISE."
 
 
 mondata SPECIES_ILLUMISE, "Illumise"
@@ -5681,6 +5995,7 @@ mondata SPECIES_ILLUMISE, "Illumise"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_ILLUMISE_TM_DATA_0, SPECIES_ILLUMISE_TM_DATA_1, SPECIES_ILLUMISE_TM_DATA_2, SPECIES_ILLUMISE_TM_DATA_3
+	mondexentry SPECIES_ILLUMISE, "Its fragrance attracts a swarm of\nVOLBEAT, so they draw over 200\npatterns in the night sky."
 
 
 mondata SPECIES_ROSELIA, "Roselia"
@@ -5699,6 +6014,7 @@ mondata SPECIES_ROSELIA, "Roselia"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_ROSELIA_TM_DATA_0, SPECIES_ROSELIA_TM_DATA_1, SPECIES_ROSELIA_TM_DATA_2, SPECIES_ROSELIA_TM_DATA_3
+	mondexentry SPECIES_ROSELIA, "ROSELIA that drink nutritionally\nrich springwater are said to reveal\nrare coloration when they bloom."
 
 
 mondata SPECIES_GULPIN, "Gulpin"
@@ -5717,6 +6033,7 @@ mondata SPECIES_GULPIN, "Gulpin"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GULPIN_TM_DATA_0, SPECIES_GULPIN_TM_DATA_1, SPECIES_GULPIN_TM_DATA_2, SPECIES_GULPIN_TM_DATA_3
+	mondexentry SPECIES_GULPIN, "It has a small heart and brain. Its\nstomach comprises most of its body,\nwith enzymes to dissolve anything."
 
 
 mondata SPECIES_SWALOT, "Swalot"
@@ -5735,6 +6052,7 @@ mondata SPECIES_SWALOT, "Swalot"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SWALOT_TM_DATA_0, SPECIES_SWALOT_TM_DATA_1, SPECIES_SWALOT_TM_DATA_2, SPECIES_SWALOT_TM_DATA_3
+	mondexentry SPECIES_SWALOT, "It gulps anything that fits in its\nmouth. Its special enzymes can\ndissolve anything."
 
 
 mondata SPECIES_CARVANHA, "Carvanha"
@@ -5753,6 +6071,7 @@ mondata SPECIES_CARVANHA, "Carvanha"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CARVANHA_TM_DATA_0, SPECIES_CARVANHA_TM_DATA_1, SPECIES_CARVANHA_TM_DATA_2, SPECIES_CARVANHA_TM_DATA_3
+	mondexentry SPECIES_CARVANHA, "They form packs to attack boats\nand rip out their hulls to sink them.\nThey live in rivers in the jungle."
 
 
 mondata SPECIES_SHARPEDO, "Sharpedo"
@@ -5771,6 +6090,7 @@ mondata SPECIES_SHARPEDO, "Sharpedo"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SHARPEDO_TM_DATA_0, SPECIES_SHARPEDO_TM_DATA_1, SPECIES_SHARPEDO_TM_DATA_2, SPECIES_SHARPEDO_TM_DATA_3
+	mondexentry SPECIES_SHARPEDO, "It can swim at speeds of 75 mph by\njetting seawater through its body.\nIt is the bandit of the sea."
 
 
 mondata SPECIES_WAILMER, "Wailmer"
@@ -5789,6 +6109,7 @@ mondata SPECIES_WAILMER, "Wailmer"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WAILMER_TM_DATA_0, SPECIES_WAILMER_TM_DATA_1, SPECIES_WAILMER_TM_DATA_2, SPECIES_WAILMER_TM_DATA_3
+	mondexentry SPECIES_WAILMER, "It bounces playfully like a ball.\nThe more seawater it swallows,\nthe higher it bounces."
 
 
 mondata SPECIES_WAILORD, "Wailord"
@@ -5807,6 +6128,7 @@ mondata SPECIES_WAILORD, "Wailord"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WAILORD_TM_DATA_0, SPECIES_WAILORD_TM_DATA_1, SPECIES_WAILORD_TM_DATA_2, SPECIES_WAILORD_TM_DATA_3
+	mondexentry SPECIES_WAILORD, "It is the largest of all identified\nPokémon. They jump as a pack\nto herd their prey."
 
 
 mondata SPECIES_NUMEL, "Numel"
@@ -5825,6 +6147,7 @@ mondata SPECIES_NUMEL, "Numel"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_NUMEL_TM_DATA_0, SPECIES_NUMEL_TM_DATA_1, SPECIES_NUMEL_TM_DATA_2, SPECIES_NUMEL_TM_DATA_3
+	mondexentry SPECIES_NUMEL, "The flaming magma it stores in the\nhump on its back is the source of\nits tremendous power."
 
 
 mondata SPECIES_CAMERUPT, "Camerupt"
@@ -5843,6 +6166,7 @@ mondata SPECIES_CAMERUPT, "Camerupt"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CAMERUPT_TM_DATA_0, SPECIES_CAMERUPT_TM_DATA_1, SPECIES_CAMERUPT_TM_DATA_2, SPECIES_CAMERUPT_TM_DATA_3
+	mondexentry SPECIES_CAMERUPT, "It lives in the crater of a volcano.\nIt is well known that the humps on\nits back erupt every 10 years."
 
 
 mondata SPECIES_TORKOAL, "Torkoal"
@@ -5861,6 +6185,7 @@ mondata SPECIES_TORKOAL, "Torkoal"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_TORKOAL_TM_DATA_0, SPECIES_TORKOAL_TM_DATA_1, SPECIES_TORKOAL_TM_DATA_2, SPECIES_TORKOAL_TM_DATA_3
+	mondexentry SPECIES_TORKOAL, "You find abandoned coal mines full\nof them. They dig tirelessly in\nsearch of coal."
 
 
 mondata SPECIES_SPOINK, "Spoink"
@@ -5879,6 +6204,7 @@ mondata SPECIES_SPOINK, "Spoink"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SPOINK_TM_DATA_0, SPECIES_SPOINK_TM_DATA_1, SPECIES_SPOINK_TM_DATA_2, SPECIES_SPOINK_TM_DATA_3
+	mondexentry SPECIES_SPOINK, "It bounces around on its tail to\nkeep its heart pumping. It carries\na pearl from CLAMPERL on its head."
 
 
 mondata SPECIES_GRUMPIG, "Grumpig"
@@ -5897,6 +6223,7 @@ mondata SPECIES_GRUMPIG, "Grumpig"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GRUMPIG_TM_DATA_0, SPECIES_GRUMPIG_TM_DATA_1, SPECIES_GRUMPIG_TM_DATA_2, SPECIES_GRUMPIG_TM_DATA_3
+	mondexentry SPECIES_GRUMPIG, "It can perform odd dance steps to\ninfluence foes. Its style of dancing\nbecame hugely popular overseas."
 
 
 mondata SPECIES_SPINDA, "Spinda"
@@ -5915,6 +6242,7 @@ mondata SPECIES_SPINDA, "Spinda"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SPINDA_TM_DATA_0, SPECIES_SPINDA_TM_DATA_1, SPECIES_SPINDA_TM_DATA_2, SPECIES_SPINDA_TM_DATA_3
+	mondexentry SPECIES_SPINDA, "The chances of two SPINDA having\nidentical spot patterns is less\nthan one in four billion."
 
 
 mondata SPECIES_TRAPINCH, "Trapinch"
@@ -5933,6 +6261,7 @@ mondata SPECIES_TRAPINCH, "Trapinch"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_TRAPINCH_TM_DATA_0, SPECIES_TRAPINCH_TM_DATA_1, SPECIES_TRAPINCH_TM_DATA_2, SPECIES_TRAPINCH_TM_DATA_3
+	mondexentry SPECIES_TRAPINCH, "Its nest is a sloped, bowl-like pit\nin the desert. Once something has\nfallen in, there is no escape."
 
 
 mondata SPECIES_VIBRAVA, "Vibrava"
@@ -5951,6 +6280,7 @@ mondata SPECIES_VIBRAVA, "Vibrava"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_VIBRAVA_TM_DATA_0, SPECIES_VIBRAVA_TM_DATA_1, SPECIES_VIBRAVA_TM_DATA_2, SPECIES_VIBRAVA_TM_DATA_3
+	mondexentry SPECIES_VIBRAVA, "It vibrates its wings vigorously,\ncreating ultrasonic waves that\ncause serious headaches."
 
 
 mondata SPECIES_FLYGON, "Flygon"
@@ -5969,6 +6299,7 @@ mondata SPECIES_FLYGON, "Flygon"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_FLYGON_TM_DATA_0, SPECIES_FLYGON_TM_DATA_1, SPECIES_FLYGON_TM_DATA_2, SPECIES_FLYGON_TM_DATA_3
+	mondexentry SPECIES_FLYGON, "It is nicknamed “The Desert\nSpirit” because the flapping of its\nwings sounds like a woman singing."
 
 
 mondata SPECIES_CACNEA, "Cacnea"
@@ -5987,6 +6318,7 @@ mondata SPECIES_CACNEA, "Cacnea"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CACNEA_TM_DATA_0, SPECIES_CACNEA_TM_DATA_1, SPECIES_CACNEA_TM_DATA_2, SPECIES_CACNEA_TM_DATA_3
+	mondexentry SPECIES_CACNEA, "It lives in arid locations. Its\nyellow flowers bloom once a year."
 
 
 mondata SPECIES_CACTURNE, "Cacturne"
@@ -6005,6 +6337,7 @@ mondata SPECIES_CACTURNE, "Cacturne"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CACTURNE_TM_DATA_0, SPECIES_CACTURNE_TM_DATA_1, SPECIES_CACTURNE_TM_DATA_2, SPECIES_CACTURNE_TM_DATA_3
+	mondexentry SPECIES_CACTURNE, "Packs of them follow travelers\nthrough the desert until\nthe travelers can no longer move."
 
 
 mondata SPECIES_SWABLU, "Swablu"
@@ -6023,6 +6356,7 @@ mondata SPECIES_SWABLU, "Swablu"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SWABLU_TM_DATA_0, SPECIES_SWABLU_TM_DATA_1, SPECIES_SWABLU_TM_DATA_2, SPECIES_SWABLU_TM_DATA_3
+	mondexentry SPECIES_SWABLU, "Its wings bring cottony clouds to\nmind. It grooms with springwater\nand loves to sit on heads."
 
 
 mondata SPECIES_ALTARIA, "Altaria"
@@ -6041,6 +6375,7 @@ mondata SPECIES_ALTARIA, "Altaria"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ALTARIA_TM_DATA_0, SPECIES_ALTARIA_TM_DATA_1, SPECIES_ALTARIA_TM_DATA_2, SPECIES_ALTARIA_TM_DATA_3
+	mondexentry SPECIES_ALTARIA, "It flies gracefully through the\nsky. Its melodic humming makes\nyou feel like you’re in a dream."
 
 
 mondata SPECIES_ZANGOOSE, "Zangoose"
@@ -6059,6 +6394,7 @@ mondata SPECIES_ZANGOOSE, "Zangoose"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_ZANGOOSE_TM_DATA_0, SPECIES_ZANGOOSE_TM_DATA_1, SPECIES_ZANGOOSE_TM_DATA_2, SPECIES_ZANGOOSE_TM_DATA_3
+	mondexentry SPECIES_ZANGOOSE, "Its fur would all stand on end if\nit smelled a SEVIPER nearby.\nIts sharp claws tear up its foes."
 
 
 mondata SPECIES_SEVIPER, "Seviper"
@@ -6077,6 +6413,7 @@ mondata SPECIES_SEVIPER, "Seviper"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SEVIPER_TM_DATA_0, SPECIES_SEVIPER_TM_DATA_1, SPECIES_SEVIPER_TM_DATA_2, SPECIES_SEVIPER_TM_DATA_3
+	mondexentry SPECIES_SEVIPER, "In battle, it uses its bladed tail to\ncounter any ZANGOOSE. It secretes\na deadly venom in its tail."
 
 
 mondata SPECIES_LUNATONE, "Lunatone"
@@ -6095,6 +6432,7 @@ mondata SPECIES_LUNATONE, "Lunatone"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_LUNATONE_TM_DATA_0, SPECIES_LUNATONE_TM_DATA_1, SPECIES_LUNATONE_TM_DATA_2, SPECIES_LUNATONE_TM_DATA_3
+	mondexentry SPECIES_LUNATONE, "It was discovered at the site of a\nmeteor strike 40 years ago. Its\nstare can lull its foes to sleep."
 
 
 mondata SPECIES_SOLROCK, "Solrock"
@@ -6113,6 +6451,7 @@ mondata SPECIES_SOLROCK, "Solrock"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SOLROCK_TM_DATA_0, SPECIES_SOLROCK_TM_DATA_1, SPECIES_SOLROCK_TM_DATA_2, SPECIES_SOLROCK_TM_DATA_3
+	mondexentry SPECIES_SOLROCK, "When it rotates itself, it gives off\nlight similar to the sun, thus\nblinding its foes."
 
 
 mondata SPECIES_BARBOACH, "Barboach"
@@ -6131,6 +6470,7 @@ mondata SPECIES_BARBOACH, "Barboach"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_BARBOACH_TM_DATA_0, SPECIES_BARBOACH_TM_DATA_1, SPECIES_BARBOACH_TM_DATA_2, SPECIES_BARBOACH_TM_DATA_3
+	mondexentry SPECIES_BARBOACH, "BARBOACH uses its whiskers to\ntaste things just as a person uses\nhis or her tongue to taste things."
 
 
 mondata SPECIES_WHISCASH, "Whiscash"
@@ -6149,6 +6489,7 @@ mondata SPECIES_WHISCASH, "Whiscash"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WHISCASH_TM_DATA_0, SPECIES_WHISCASH_TM_DATA_1, SPECIES_WHISCASH_TM_DATA_2, SPECIES_WHISCASH_TM_DATA_3
+	mondexentry SPECIES_WHISCASH, "It claims a large swamp to itself.\nIf a foe comes near it, it sets off\ntremors by thrashing around."
 
 
 mondata SPECIES_CORPHISH, "Corphish"
@@ -6167,6 +6508,7 @@ mondata SPECIES_CORPHISH, "Corphish"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CORPHISH_TM_DATA_0, SPECIES_CORPHISH_TM_DATA_1, SPECIES_CORPHISH_TM_DATA_2, SPECIES_CORPHISH_TM_DATA_3
+	mondexentry SPECIES_CORPHISH, "It was originally a Pokémon from\nafar that escaped to the wild. It\ncan adapt to the dirtiest river."
 
 
 mondata SPECIES_CRAWDAUNT, "Crawdaunt"
@@ -6185,6 +6527,7 @@ mondata SPECIES_CRAWDAUNT, "Crawdaunt"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CRAWDAUNT_TM_DATA_0, SPECIES_CRAWDAUNT_TM_DATA_1, SPECIES_CRAWDAUNT_TM_DATA_2, SPECIES_CRAWDAUNT_TM_DATA_3
+	mondexentry SPECIES_CRAWDAUNT, "A brutish Pokémon that loves to\nbattle. It will crash itself into any\nfoe that approaches its nest."
 
 
 mondata SPECIES_BALTOY, "Baltoy"
@@ -6203,6 +6546,7 @@ mondata SPECIES_BALTOY, "Baltoy"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BALTOY_TM_DATA_0, SPECIES_BALTOY_TM_DATA_1, SPECIES_BALTOY_TM_DATA_2, SPECIES_BALTOY_TM_DATA_3
+	mondexentry SPECIES_BALTOY, "It moves while spinning around on\nits single foot. Some BALTOY have\nbeen seen spinning on their heads."
 
 
 mondata SPECIES_CLAYDOL, "Claydol"
@@ -6221,6 +6565,7 @@ mondata SPECIES_CLAYDOL, "Claydol"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_CLAYDOL_TM_DATA_0, SPECIES_CLAYDOL_TM_DATA_1, SPECIES_CLAYDOL_TM_DATA_2, SPECIES_CLAYDOL_TM_DATA_3
+	mondexentry SPECIES_CLAYDOL, "It is said that it originates from clay\ndolls made by an ancient civilization."
 
 
 mondata SPECIES_LILEEP, "Lileep"
@@ -6239,6 +6584,7 @@ mondata SPECIES_LILEEP, "Lileep"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_LILEEP_TM_DATA_0, SPECIES_LILEEP_TM_DATA_1, SPECIES_LILEEP_TM_DATA_2, SPECIES_LILEEP_TM_DATA_3
+	mondexentry SPECIES_LILEEP, "It disguises its tentacles as\nflowers to attract and catch prey.\nIt became extinct in ancient times."
 
 
 mondata SPECIES_CRADILY, "Cradily"
@@ -6257,6 +6603,7 @@ mondata SPECIES_CRADILY, "Cradily"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CRADILY_TM_DATA_0, SPECIES_CRADILY_TM_DATA_1, SPECIES_CRADILY_TM_DATA_2, SPECIES_CRADILY_TM_DATA_3
+	mondexentry SPECIES_CRADILY, "It lives in warm seas. Its heavy\nbody weighs it down so it won’t\nget washed away in rough weather."
 
 
 mondata SPECIES_ANORITH, "Anorith"
@@ -6275,6 +6622,7 @@ mondata SPECIES_ANORITH, "Anorith"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ANORITH_TM_DATA_0, SPECIES_ANORITH_TM_DATA_1, SPECIES_ANORITH_TM_DATA_2, SPECIES_ANORITH_TM_DATA_3
+	mondexentry SPECIES_ANORITH, "An ancestral Pokémon that lived in\nthe ocean. Over time, its eight feet\ntransformed into wings."
 
 
 mondata SPECIES_ARMALDO, "Armaldo"
@@ -6293,6 +6641,7 @@ mondata SPECIES_ARMALDO, "Armaldo"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ARMALDO_TM_DATA_0, SPECIES_ARMALDO_TM_DATA_1, SPECIES_ARMALDO_TM_DATA_2, SPECIES_ARMALDO_TM_DATA_3
+	mondexentry SPECIES_ARMALDO, "Its enormous, retractable claws\ncan cut through most anything. Its\nentire body is clad in sturdy plates."
 
 
 mondata SPECIES_FEEBAS, "Feebas"
@@ -6311,6 +6660,7 @@ mondata SPECIES_FEEBAS, "Feebas"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_FEEBAS_TM_DATA_0, SPECIES_FEEBAS_TM_DATA_1, SPECIES_FEEBAS_TM_DATA_2, SPECIES_FEEBAS_TM_DATA_3
+	mondexentry SPECIES_FEEBAS, "It is the shabbiest Pokémon of all.\nIt forms in schools and lives at the\nbottom of rivers."
 
 
 mondata SPECIES_MILOTIC, "Milotic"
@@ -6329,6 +6679,7 @@ mondata SPECIES_MILOTIC, "Milotic"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MILOTIC_TM_DATA_0, SPECIES_MILOTIC_TM_DATA_1, SPECIES_MILOTIC_TM_DATA_2, SPECIES_MILOTIC_TM_DATA_3
+	mondexentry SPECIES_MILOTIC, "It’s said that a glimpse of a\nMILOTIC and its beauty will calm any\nhostile emotions you’re feeling."
 
 
 mondata SPECIES_CASTFORM, "Castform"
@@ -6347,6 +6698,7 @@ mondata SPECIES_CASTFORM, "Castform"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_CASTFORM_TM_DATA_0, SPECIES_CASTFORM_TM_DATA_1, SPECIES_CASTFORM_TM_DATA_2, SPECIES_CASTFORM_TM_DATA_3
+	mondexentry SPECIES_CASTFORM, "This Pokémon can change its cells,\ntaking different forms based on\nthe temperature and humidity."
 
 
 mondata SPECIES_KECLEON, "Kecleon"
@@ -6365,6 +6717,7 @@ mondata SPECIES_KECLEON, "Kecleon"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_KECLEON_TM_DATA_0, SPECIES_KECLEON_TM_DATA_1, SPECIES_KECLEON_TM_DATA_2, SPECIES_KECLEON_TM_DATA_3
+	mondexentry SPECIES_KECLEON, "It changes its shading to match its\nsurroundings so it can sneak up on prey.\nOnly its belly patterns stay fixed."
 
 
 mondata SPECIES_SHUPPET, "Shuppet"
@@ -6383,6 +6736,7 @@ mondata SPECIES_SHUPPET, "Shuppet"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SHUPPET_TM_DATA_0, SPECIES_SHUPPET_TM_DATA_1, SPECIES_SHUPPET_TM_DATA_2, SPECIES_SHUPPET_TM_DATA_3
+	mondexentry SPECIES_SHUPPET, "It uses its horn to feed on envy\nand malice, or so it’s said.\nIt’s very active at night."
 
 
 mondata SPECIES_BANETTE, "Banette"
@@ -6401,6 +6755,7 @@ mondata SPECIES_BANETTE, "Banette"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_BANETTE_TM_DATA_0, SPECIES_BANETTE_TM_DATA_1, SPECIES_BANETTE_TM_DATA_2, SPECIES_BANETTE_TM_DATA_3
+	mondexentry SPECIES_BANETTE, "This Pokémon developed from an\nabandoned doll that amassed a\ngrudge. It is seen in dark alleys."
 
 
 mondata SPECIES_DUSKULL, "Duskull"
@@ -6419,6 +6774,7 @@ mondata SPECIES_DUSKULL, "Duskull"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_DUSKULL_TM_DATA_0, SPECIES_DUSKULL_TM_DATA_1, SPECIES_DUSKULL_TM_DATA_2, SPECIES_DUSKULL_TM_DATA_3
+	mondexentry SPECIES_DUSKULL, "If it finds bad children who won’t\nlisten to their parents, it will\nspirit them away--or so it’s said."
 
 
 mondata SPECIES_DUSCLOPS, "Dusclops"
@@ -6437,6 +6793,7 @@ mondata SPECIES_DUSCLOPS, "Dusclops"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_DUSCLOPS_TM_DATA_0, SPECIES_DUSCLOPS_TM_DATA_1, SPECIES_DUSCLOPS_TM_DATA_2, SPECIES_DUSCLOPS_TM_DATA_3
+	mondexentry SPECIES_DUSCLOPS, "Anyone who dares peer into its body\nto see its spectral ball of fire\nwill have their spirit stolen away."
 
 
 mondata SPECIES_TROPIUS, "Tropius"
@@ -6455,6 +6812,7 @@ mondata SPECIES_TROPIUS, "Tropius"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TROPIUS_TM_DATA_0, SPECIES_TROPIUS_TM_DATA_1, SPECIES_TROPIUS_TM_DATA_2, SPECIES_TROPIUS_TM_DATA_3
+	mondexentry SPECIES_TROPIUS, "The bunch of fruit around its neck\nripens twice a year and is delicious.\nIt’s a highly favored tropical snack."
 
 
 mondata SPECIES_CHIMECHO, "Chimecho"
@@ -6473,6 +6831,7 @@ mondata SPECIES_CHIMECHO, "Chimecho"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CHIMECHO_TM_DATA_0, SPECIES_CHIMECHO_TM_DATA_1, SPECIES_CHIMECHO_TM_DATA_2, SPECIES_CHIMECHO_TM_DATA_3
+	mondexentry SPECIES_CHIMECHO, "It uses the sucker on its head to\nhang from a tree or from eaves. It\ncan produce seven different tones."
 
 
 mondata SPECIES_ABSOL, "Absol"
@@ -6491,6 +6850,7 @@ mondata SPECIES_ABSOL, "Absol"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_ABSOL_TM_DATA_0, SPECIES_ABSOL_TM_DATA_1, SPECIES_ABSOL_TM_DATA_2, SPECIES_ABSOL_TM_DATA_3
+	mondexentry SPECIES_ABSOL, "It has the ability to foretell\nnatural disasters. Its life span is\nover a hundred years."
 
 
 mondata SPECIES_WYNAUT, "Wynaut"
@@ -6509,6 +6869,7 @@ mondata SPECIES_WYNAUT, "Wynaut"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WYNAUT_TM_DATA_0, SPECIES_WYNAUT_TM_DATA_1, SPECIES_WYNAUT_TM_DATA_2, SPECIES_WYNAUT_TM_DATA_3
+	mondexentry SPECIES_WYNAUT, "It tends to move in a pack.\nIndividuals squash against one\nanother to toughen their spirits."
 
 
 mondata SPECIES_SNORUNT, "Snorunt"
@@ -6527,6 +6888,7 @@ mondata SPECIES_SNORUNT, "Snorunt"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_SNORUNT_TM_DATA_0, SPECIES_SNORUNT_TM_DATA_1, SPECIES_SNORUNT_TM_DATA_2, SPECIES_SNORUNT_TM_DATA_3
+	mondexentry SPECIES_SNORUNT, "It’s said that if they are seen at\nmidnight, they’ll cause heavy snow.\nThey eat snow and ice to survive."
 
 
 mondata SPECIES_GLALIE, "Glalie"
@@ -6545,6 +6907,7 @@ mondata SPECIES_GLALIE, "Glalie"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_GLALIE_TM_DATA_0, SPECIES_GLALIE_TM_DATA_1, SPECIES_GLALIE_TM_DATA_2, SPECIES_GLALIE_TM_DATA_3
+	mondexentry SPECIES_GLALIE, "It can instantly freeze moisture in\nthe atmosphere. It uses this power\nto freeze its foes."
 
 
 mondata SPECIES_SPHEAL, "Spheal"
@@ -6563,6 +6926,7 @@ mondata SPECIES_SPHEAL, "Spheal"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SPHEAL_TM_DATA_0, SPECIES_SPHEAL_TM_DATA_1, SPECIES_SPHEAL_TM_DATA_2, SPECIES_SPHEAL_TM_DATA_3
+	mondexentry SPECIES_SPHEAL, "It crosses the oceans by rolling itself\non drifting ice. Fluffy fur keeps it warm\nwhen the temperature is below freezing."
 
 
 mondata SPECIES_SEALEO, "Sealeo"
@@ -6581,6 +6945,7 @@ mondata SPECIES_SEALEO, "Sealeo"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SEALEO_TM_DATA_0, SPECIES_SEALEO_TM_DATA_1, SPECIES_SEALEO_TM_DATA_2, SPECIES_SEALEO_TM_DATA_3
+	mondexentry SPECIES_SEALEO, "It has a very sensitive nose.\nIt touches new things with its nose\nto examine them."
 
 
 mondata SPECIES_WALREIN, "Walrein"
@@ -6599,6 +6964,7 @@ mondata SPECIES_WALREIN, "Walrein"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WALREIN_TM_DATA_0, SPECIES_WALREIN_TM_DATA_1, SPECIES_WALREIN_TM_DATA_2, SPECIES_WALREIN_TM_DATA_3
+	mondexentry SPECIES_WALREIN, "It shatters drift ice with its\nstrong tusks. Its thick layer of\nblubber repels enemy attacks."
 
 
 mondata SPECIES_CLAMPERL, "Clamperl"
@@ -6617,6 +6983,7 @@ mondata SPECIES_CLAMPERL, "Clamperl"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CLAMPERL_TM_DATA_0, SPECIES_CLAMPERL_TM_DATA_1, SPECIES_CLAMPERL_TM_DATA_2, SPECIES_CLAMPERL_TM_DATA_3
+	mondexentry SPECIES_CLAMPERL, "When it evolves, it makes a\nmysterious pearl that amplifies\npsychic powers when it’s held."
 
 
 mondata SPECIES_HUNTAIL, "Huntail"
@@ -6635,6 +7002,7 @@ mondata SPECIES_HUNTAIL, "Huntail"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_HUNTAIL_TM_DATA_0, SPECIES_HUNTAIL_TM_DATA_1, SPECIES_HUNTAIL_TM_DATA_2, SPECIES_HUNTAIL_TM_DATA_3
+	mondexentry SPECIES_HUNTAIL, "It lives deep in the pitch-dark sea.\nIt attracts prey by moving its tail\nin mimicry of a small animal."
 
 
 mondata SPECIES_GOREBYSS, "Gorebyss"
@@ -6653,6 +7021,7 @@ mondata SPECIES_GOREBYSS, "Gorebyss"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_GOREBYSS_TM_DATA_0, SPECIES_GOREBYSS_TM_DATA_1, SPECIES_GOREBYSS_TM_DATA_2, SPECIES_GOREBYSS_TM_DATA_3
+	mondexentry SPECIES_GOREBYSS, "Its pink body becomes more vivid\nwith the rise of water\ntemperatures in the springtime."
 
 
 mondata SPECIES_RELICANTH, "Relicanth"
@@ -6671,6 +7040,7 @@ mondata SPECIES_RELICANTH, "Relicanth"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_RELICANTH_TM_DATA_0, SPECIES_RELICANTH_TM_DATA_1, SPECIES_RELICANTH_TM_DATA_2, SPECIES_RELICANTH_TM_DATA_3
+	mondexentry SPECIES_RELICANTH, "Discovered by chance during\ndeep-sea explorations, it has not\nchanged since ancient times."
 
 
 mondata SPECIES_LUVDISC, "Luvdisc"
@@ -6689,6 +7059,7 @@ mondata SPECIES_LUVDISC, "Luvdisc"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_LUVDISC_TM_DATA_0, SPECIES_LUVDISC_TM_DATA_1, SPECIES_LUVDISC_TM_DATA_2, SPECIES_LUVDISC_TM_DATA_3
+	mondexentry SPECIES_LUVDISC, "Its heart-shaped body makes it\npopular. In some places, you would\ngive a LUVDISC to someone you love."
 
 
 mondata SPECIES_BAGON, "Bagon"
@@ -6707,6 +7078,7 @@ mondata SPECIES_BAGON, "Bagon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BAGON_TM_DATA_0, SPECIES_BAGON_TM_DATA_1, SPECIES_BAGON_TM_DATA_2, SPECIES_BAGON_TM_DATA_3
+	mondexentry SPECIES_BAGON, "Its well-developed neck muscles\nand ironlike head can smash\nboulders into pieces."
 
 
 mondata SPECIES_SHELGON, "Shelgon"
@@ -6725,6 +7097,7 @@ mondata SPECIES_SHELGON, "Shelgon"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SHELGON_TM_DATA_0, SPECIES_SHELGON_TM_DATA_1, SPECIES_SHELGON_TM_DATA_2, SPECIES_SHELGON_TM_DATA_3
+	mondexentry SPECIES_SHELGON, "It surrounds its body in an\niron-hard shell to accumulate\nenough power to evolve."
 
 
 mondata SPECIES_SALAMENCE, "Salamence"
@@ -6743,6 +7116,7 @@ mondata SPECIES_SALAMENCE, "Salamence"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SALAMENCE_TM_DATA_0, SPECIES_SALAMENCE_TM_DATA_1, SPECIES_SALAMENCE_TM_DATA_2, SPECIES_SALAMENCE_TM_DATA_3
+	mondexentry SPECIES_SALAMENCE, "It’s uncontrollable if enraged.\nIt flies around spouting flames and\nscorching fields and mountains."
 
 
 mondata SPECIES_BELDUM, "Beldum"
@@ -6761,6 +7135,7 @@ mondata SPECIES_BELDUM, "Beldum"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BELDUM_TM_DATA_0, SPECIES_BELDUM_TM_DATA_1, SPECIES_BELDUM_TM_DATA_2, SPECIES_BELDUM_TM_DATA_3
+	mondexentry SPECIES_BELDUM, "The magnetic force generated by\nits body repels the ground’s\nnatural magnetism, letting it float."
 
 
 mondata SPECIES_METANG, "Metang"
@@ -6779,6 +7154,7 @@ mondata SPECIES_METANG, "Metang"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_METANG_TM_DATA_0, SPECIES_METANG_TM_DATA_1, SPECIES_METANG_TM_DATA_2, SPECIES_METANG_TM_DATA_3
+	mondexentry SPECIES_METANG, "When two BELDUM fuse together, a\nmagnetic nervous system places\ntheir brains in union."
 
 
 mondata SPECIES_METAGROSS, "Metagross"
@@ -6797,6 +7173,7 @@ mondata SPECIES_METAGROSS, "Metagross"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_METAGROSS_TM_DATA_0, SPECIES_METAGROSS_TM_DATA_1, SPECIES_METAGROSS_TM_DATA_2, SPECIES_METAGROSS_TM_DATA_3
+	mondexentry SPECIES_METAGROSS, "It folds its four legs when flying.\nIts four brains are said to be\nsuperior to a supercomputer."
 
 
 mondata SPECIES_REGIROCK, "Regirock"
@@ -6815,6 +7192,7 @@ mondata SPECIES_REGIROCK, "Regirock"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_REGIROCK_TM_DATA_0, SPECIES_REGIROCK_TM_DATA_1, SPECIES_REGIROCK_TM_DATA_2, SPECIES_REGIROCK_TM_DATA_3
+	mondexentry SPECIES_REGIROCK, "The same rocks that form its body\nhave been found in ground layers\naround the world."
 
 
 mondata SPECIES_REGICE, "Regice"
@@ -6833,6 +7211,7 @@ mondata SPECIES_REGICE, "Regice"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_REGICE_TM_DATA_0, SPECIES_REGICE_TM_DATA_1, SPECIES_REGICE_TM_DATA_2, SPECIES_REGICE_TM_DATA_3
+	mondexentry SPECIES_REGICE, "It is said to have slept in a glacier\nfor thousands of years. Its body\ncan’t be melted, even by magma."
 
 
 mondata SPECIES_REGISTEEL, "Registeel"
@@ -6851,6 +7230,7 @@ mondata SPECIES_REGISTEEL, "Registeel"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_REGISTEEL_TM_DATA_0, SPECIES_REGISTEEL_TM_DATA_1, SPECIES_REGISTEEL_TM_DATA_2, SPECIES_REGISTEEL_TM_DATA_3
+	mondexentry SPECIES_REGISTEEL, "Its body is said to be harder than\nany kind of metal. A study has\nrevealed that its body is hollow."
 
 
 mondata SPECIES_LATIAS, "Latias"
@@ -6869,6 +7249,7 @@ mondata SPECIES_LATIAS, "Latias"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_LATIAS_TM_DATA_0, SPECIES_LATIAS_TM_DATA_1, SPECIES_LATIAS_TM_DATA_2, SPECIES_LATIAS_TM_DATA_3
+	mondexentry SPECIES_LATIAS, "It communicates using telepathy.\nIts body is covered in down that\nrefracts light to make it invisible."
 
 
 mondata SPECIES_LATIOS, "Latios"
@@ -6887,6 +7268,7 @@ mondata SPECIES_LATIOS, "Latios"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LATIOS_TM_DATA_0, SPECIES_LATIOS_TM_DATA_1, SPECIES_LATIOS_TM_DATA_2, SPECIES_LATIOS_TM_DATA_3
+	mondexentry SPECIES_LATIOS, "It understands human speech and is\nhighly intelligent. It is a tender\nPokémon that dislikes fighting."
 
 
 mondata SPECIES_KYOGRE, "Kyogre"
@@ -6905,6 +7287,7 @@ mondata SPECIES_KYOGRE, "Kyogre"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_KYOGRE_TM_DATA_0, SPECIES_KYOGRE_TM_DATA_1, SPECIES_KYOGRE_TM_DATA_2, SPECIES_KYOGRE_TM_DATA_3
+	mondexentry SPECIES_KYOGRE, "A mythical Pokémon said to have\nswelled the seas with rain and tidal\nwaves. It battled with GROUDON."
 
 
 mondata SPECIES_GROUDON, "Groudon"
@@ -6923,6 +7306,7 @@ mondata SPECIES_GROUDON, "Groudon"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_GROUDON_TM_DATA_0, SPECIES_GROUDON_TM_DATA_1, SPECIES_GROUDON_TM_DATA_2, SPECIES_GROUDON_TM_DATA_3
+	mondexentry SPECIES_GROUDON, "Said to have expanded the lands by\nevaporating water with raging heat.\nIt battled titanically with KYOGRE."
 
 
 mondata SPECIES_RAYQUAZA, "Rayquaza"
@@ -6941,6 +7325,7 @@ mondata SPECIES_RAYQUAZA, "Rayquaza"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_RAYQUAZA_TM_DATA_0, SPECIES_RAYQUAZA_TM_DATA_1, SPECIES_RAYQUAZA_TM_DATA_2, SPECIES_RAYQUAZA_TM_DATA_3
+	mondexentry SPECIES_RAYQUAZA, "It flies in the ozone layer, way up\nhigh in the sky. Until recently,\nno one had ever seen it."
 
 
 mondata SPECIES_JIRACHI, "Jirachi"
@@ -6959,6 +7344,7 @@ mondata SPECIES_JIRACHI, "Jirachi"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_JIRACHI_TM_DATA_0, SPECIES_JIRACHI_TM_DATA_1, SPECIES_JIRACHI_TM_DATA_2, SPECIES_JIRACHI_TM_DATA_3
+	mondexentry SPECIES_JIRACHI, "Generations have believed that any\nwish written on a note on its head\nwill come true when it awakens."
 
 
 mondata SPECIES_DEOXYS, "Deoxys"
@@ -6977,6 +7363,7 @@ mondata SPECIES_DEOXYS, "Deoxys"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DEOXYS_TM_DATA_0, SPECIES_DEOXYS_TM_DATA_1, SPECIES_DEOXYS_TM_DATA_2, SPECIES_DEOXYS_TM_DATA_3
+	mondexentry SPECIES_DEOXYS, "DNA from a space virus mutated and\nbecame a Pokémon. It appears\nwhere auroras are seen."
 
 
 mondata SPECIES_TURTWIG, "Turtwig"
@@ -6995,6 +7382,7 @@ mondata SPECIES_TURTWIG, "Turtwig"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TURTWIG_TM_DATA_0, SPECIES_TURTWIG_TM_DATA_1, SPECIES_TURTWIG_TM_DATA_2, SPECIES_TURTWIG_TM_DATA_3
+	mondexentry SPECIES_TURTWIG, "Photosynthesis occurs across its\nbody under the sun. The shell on\nits back is actually hardened soil."
 
 
 mondata SPECIES_GROTLE, "Grotle"
@@ -7013,6 +7401,7 @@ mondata SPECIES_GROTLE, "Grotle"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GROTLE_TM_DATA_0, SPECIES_GROTLE_TM_DATA_1, SPECIES_GROTLE_TM_DATA_2, SPECIES_GROTLE_TM_DATA_3
+	mondexentry SPECIES_GROTLE, "A GROTLE that lives in the forest\nis said to have its own secret\nspringwater."
 
 
 mondata SPECIES_TORTERRA, "Torterra"
@@ -7031,6 +7420,7 @@ mondata SPECIES_TORTERRA, "Torterra"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TORTERRA_TM_DATA_0, SPECIES_TORTERRA_TM_DATA_1, SPECIES_TORTERRA_TM_DATA_2, SPECIES_TORTERRA_TM_DATA_3
+	mondexentry SPECIES_TORTERRA, "Ancient people imagined that\nbeneath the ground, a gigantic\nTORTERRA dwelled."
 
 
 mondata SPECIES_CHIMCHAR, "Chimchar"
@@ -7049,6 +7439,7 @@ mondata SPECIES_CHIMCHAR, "Chimchar"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_CHIMCHAR_TM_DATA_0, SPECIES_CHIMCHAR_TM_DATA_1, SPECIES_CHIMCHAR_TM_DATA_2, SPECIES_CHIMCHAR_TM_DATA_3
+	mondexentry SPECIES_CHIMCHAR, "The gas made in its belly burns from\nits rear end. The fire burns weakly\nwhen it feels sick."
 
 
 mondata SPECIES_MONFERNO, "Monferno"
@@ -7067,6 +7458,7 @@ mondata SPECIES_MONFERNO, "Monferno"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MONFERNO_TM_DATA_0, SPECIES_MONFERNO_TM_DATA_1, SPECIES_MONFERNO_TM_DATA_2, SPECIES_MONFERNO_TM_DATA_3
+	mondexentry SPECIES_MONFERNO, "A bigger fire on its tail and a\nbrighter blue pattern on its face\nmeans its rank in its pack is higher."
 
 
 mondata SPECIES_INFERNAPE, "Infernape"
@@ -7085,6 +7477,7 @@ mondata SPECIES_INFERNAPE, "Infernape"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_INFERNAPE_TM_DATA_0, SPECIES_INFERNAPE_TM_DATA_1, SPECIES_INFERNAPE_TM_DATA_2, SPECIES_INFERNAPE_TM_DATA_3
+	mondexentry SPECIES_INFERNAPE, "It tosses its enemies around with\nagility. It uses all its limbs to\nfight in its own unique style."
 
 
 mondata SPECIES_PIPLUP, "Piplup"
@@ -7103,6 +7496,7 @@ mondata SPECIES_PIPLUP, "Piplup"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PIPLUP_TM_DATA_0, SPECIES_PIPLUP_TM_DATA_1, SPECIES_PIPLUP_TM_DATA_2, SPECIES_PIPLUP_TM_DATA_3
+	mondexentry SPECIES_PIPLUP, "It doesn’t like to be taken care\nof. It’s difficult to bond with since\nit won’t listen to its Trainer."
 
 
 mondata SPECIES_PRINPLUP, "Prinplup"
@@ -7121,6 +7515,7 @@ mondata SPECIES_PRINPLUP, "Prinplup"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PRINPLUP_TM_DATA_0, SPECIES_PRINPLUP_TM_DATA_1, SPECIES_PRINPLUP_TM_DATA_2, SPECIES_PRINPLUP_TM_DATA_3
+	mondexentry SPECIES_PRINPLUP, "It lives a solitary life. Its wings\ndeliver wicked blows that can\nsnap even the thickest of trees."
 
 
 mondata SPECIES_EMPOLEON, "Empoleon"
@@ -7139,6 +7534,7 @@ mondata SPECIES_EMPOLEON, "Empoleon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_EMPOLEON_TM_DATA_0, SPECIES_EMPOLEON_TM_DATA_1, SPECIES_EMPOLEON_TM_DATA_2, SPECIES_EMPOLEON_TM_DATA_3
+	mondexentry SPECIES_EMPOLEON, "It avoids unnecessary disputes,\nbut it will decimate anything that\nthreatens its pride."
 
 
 mondata SPECIES_STARLY, "Starly"
@@ -7157,6 +7553,7 @@ mondata SPECIES_STARLY, "Starly"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_STARLY_TM_DATA_0, SPECIES_STARLY_TM_DATA_1, SPECIES_STARLY_TM_DATA_2, SPECIES_STARLY_TM_DATA_3
+	mondexentry SPECIES_STARLY, "They flock around mountains and\nfields, chasing after bug Pokémon.\nTheir singing is noisy and annoying."
 
 
 mondata SPECIES_STARAVIA, "Staravia"
@@ -7175,6 +7572,7 @@ mondata SPECIES_STARAVIA, "Staravia"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_STARAVIA_TM_DATA_0, SPECIES_STARAVIA_TM_DATA_1, SPECIES_STARAVIA_TM_DATA_2, SPECIES_STARAVIA_TM_DATA_3
+	mondexentry SPECIES_STARAVIA, "They maintain huge flocks, although\nfierce scuffles break out between\nvarious flocks."
 
 
 mondata SPECIES_STARAPTOR, "Staraptor"
@@ -7193,6 +7591,7 @@ mondata SPECIES_STARAPTOR, "Staraptor"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_STARAPTOR_TM_DATA_0, SPECIES_STARAPTOR_TM_DATA_1, SPECIES_STARAPTOR_TM_DATA_2, SPECIES_STARAPTOR_TM_DATA_3
+	mondexentry SPECIES_STARAPTOR, "When STARAVIA evolve into\nSTARAPTOR, they leave the flock to\nlive alone. They have sturdy wings."
 
 
 mondata SPECIES_BIDOOF, "Bidoof"
@@ -7211,6 +7610,7 @@ mondata SPECIES_BIDOOF, "Bidoof"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BIDOOF_TM_DATA_0, SPECIES_BIDOOF_TM_DATA_1, SPECIES_BIDOOF_TM_DATA_2, SPECIES_BIDOOF_TM_DATA_3
+	mondexentry SPECIES_BIDOOF, "It lives in groups by the water. \nIt chews up boulders and trees\naround its nest with its incisors."
 
 
 mondata SPECIES_BIBAREL, "Bibarel"
@@ -7229,6 +7629,7 @@ mondata SPECIES_BIBAREL, "Bibarel"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BIBAREL_TM_DATA_0, SPECIES_BIBAREL_TM_DATA_1, SPECIES_BIBAREL_TM_DATA_2, SPECIES_BIBAREL_TM_DATA_3
+	mondexentry SPECIES_BIBAREL, "It busily makes its nest with\nstacks of branches and roots it\nhas cut up with its sharp incisors."
 
 
 mondata SPECIES_KRICKETOT, "Kricketot"
@@ -7247,6 +7648,7 @@ mondata SPECIES_KRICKETOT, "Kricketot"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_KRICKETOT_TM_DATA_0, SPECIES_KRICKETOT_TM_DATA_1, SPECIES_KRICKETOT_TM_DATA_2, SPECIES_KRICKETOT_TM_DATA_3
+	mondexentry SPECIES_KRICKETOT, "When its antennae hit each other,\nit sounds like the music of\na xylophone."
 
 
 mondata SPECIES_KRICKETUNE, "Kricketune"
@@ -7265,6 +7667,7 @@ mondata SPECIES_KRICKETUNE, "Kricketune"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_KRICKETUNE_TM_DATA_0, SPECIES_KRICKETUNE_TM_DATA_1, SPECIES_KRICKETUNE_TM_DATA_2, SPECIES_KRICKETUNE_TM_DATA_3
+	mondexentry SPECIES_KRICKETUNE, "By allowing its cry to resonate in\nthe hollow of its belly, it produces\na captivating sound."
 
 
 mondata SPECIES_SHINX, "Shinx"
@@ -7283,6 +7686,7 @@ mondata SPECIES_SHINX, "Shinx"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SHINX_TM_DATA_0, SPECIES_SHINX_TM_DATA_1, SPECIES_SHINX_TM_DATA_2, SPECIES_SHINX_TM_DATA_3
+	mondexentry SPECIES_SHINX, "The extension and contraction of\nits muscles generates electricity.\nIts fur glows when it’s in trouble."
 
 
 mondata SPECIES_LUXIO, "Luxio"
@@ -7301,6 +7705,7 @@ mondata SPECIES_LUXIO, "Luxio"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LUXIO_TM_DATA_0, SPECIES_LUXIO_TM_DATA_1, SPECIES_LUXIO_TM_DATA_2, SPECIES_LUXIO_TM_DATA_3
+	mondexentry SPECIES_LUXIO, "By gathering their tails together,\nthey collectively generate powerful\nelectricity from their claws."
 
 
 mondata SPECIES_LUXRAY, "Luxray"
@@ -7319,6 +7724,7 @@ mondata SPECIES_LUXRAY, "Luxray"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LUXRAY_TM_DATA_0, SPECIES_LUXRAY_TM_DATA_1, SPECIES_LUXRAY_TM_DATA_2, SPECIES_LUXRAY_TM_DATA_3
+	mondexentry SPECIES_LUXRAY, "LUXRAY’s ability to see through\nobjects comes in handy when it’s\nscouting for danger."
 
 
 mondata SPECIES_BUDEW, "Budew"
@@ -7337,6 +7743,7 @@ mondata SPECIES_BUDEW, "Budew"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BUDEW_TM_DATA_0, SPECIES_BUDEW_TM_DATA_1, SPECIES_BUDEW_TM_DATA_2, SPECIES_BUDEW_TM_DATA_3
+	mondexentry SPECIES_BUDEW, "When it feels the sun’s warm touch,\nit opens its bud to release pollen.\nIt lives alongside clear pools."
 
 
 mondata SPECIES_ROSERADE, "Roserade"
@@ -7355,6 +7762,7 @@ mondata SPECIES_ROSERADE, "Roserade"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_ROSERADE_TM_DATA_0, SPECIES_ROSERADE_TM_DATA_1, SPECIES_ROSERADE_TM_DATA_2, SPECIES_ROSERADE_TM_DATA_3
+	mondexentry SPECIES_ROSERADE, "Its sweet aroma attracts prey.\nThen it spews poison. The more\ntoxic it is, the sweeter its aroma."
 
 
 mondata SPECIES_CRANIDOS, "Cranidos"
@@ -7373,6 +7781,7 @@ mondata SPECIES_CRANIDOS, "Cranidos"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CRANIDOS_TM_DATA_0, SPECIES_CRANIDOS_TM_DATA_1, SPECIES_CRANIDOS_TM_DATA_2, SPECIES_CRANIDOS_TM_DATA_3
+	mondexentry SPECIES_CRANIDOS, "CRANIDOS toughen up their already\nrock-hard heads by headbutting\none another."
 
 
 mondata SPECIES_RAMPARDOS, "Rampardos"
@@ -7391,6 +7800,7 @@ mondata SPECIES_RAMPARDOS, "Rampardos"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_RAMPARDOS_TM_DATA_0, SPECIES_RAMPARDOS_TM_DATA_1, SPECIES_RAMPARDOS_TM_DATA_2, SPECIES_RAMPARDOS_TM_DATA_3
+	mondexentry SPECIES_RAMPARDOS, "Its skull withstands impacts of any\nmagnitude. As a result, its brain\nnever gets the chance to grow."
 
 
 mondata SPECIES_SHIELDON, "Shieldon"
@@ -7409,6 +7819,7 @@ mondata SPECIES_SHIELDON, "Shieldon"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_SHIELDON_TM_DATA_0, SPECIES_SHIELDON_TM_DATA_1, SPECIES_SHIELDON_TM_DATA_2, SPECIES_SHIELDON_TM_DATA_3
+	mondexentry SPECIES_SHIELDON, "It was generated from a fossil dug out\nof a layer of clay that was older than\nanyone knows. It has a sturdy face."
 
 
 mondata SPECIES_BASTIODON, "Bastiodon"
@@ -7427,6 +7838,7 @@ mondata SPECIES_BASTIODON, "Bastiodon"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_BASTIODON_TM_DATA_0, SPECIES_BASTIODON_TM_DATA_1, SPECIES_BASTIODON_TM_DATA_2, SPECIES_BASTIODON_TM_DATA_3
+	mondexentry SPECIES_BASTIODON, "When attacked, they form a wall.\nTheir rock-hard faces serve to\nprotect them from the attacks."
 
 
 mondata SPECIES_BURMY, "Burmy"
@@ -7445,6 +7857,7 @@ mondata SPECIES_BURMY, "Burmy"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BURMY_TM_DATA_0, SPECIES_BURMY_TM_DATA_1, SPECIES_BURMY_TM_DATA_2, SPECIES_BURMY_TM_DATA_3
+	mondexentry SPECIES_BURMY, "It covers itself with a cloak to\nshelter from the cold. When it’s\nhot, its cloak is thinner."
 
 
 mondata SPECIES_WORMADAM, "Wormadam"
@@ -7463,6 +7876,7 @@ mondata SPECIES_WORMADAM, "Wormadam"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_WORMADAM_TM_DATA_0, SPECIES_WORMADAM_TM_DATA_1, SPECIES_WORMADAM_TM_DATA_2, SPECIES_WORMADAM_TM_DATA_3
+	mondexentry SPECIES_WORMADAM, "It is said that a WORMADAM that\nevolves on a cold day will have a\nthicker cloak."
 
 
 mondata SPECIES_MOTHIM, "Mothim"
@@ -7481,6 +7895,7 @@ mondata SPECIES_MOTHIM, "Mothim"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MOTHIM_TM_DATA_0, SPECIES_MOTHIM_TM_DATA_1, SPECIES_MOTHIM_TM_DATA_2, SPECIES_MOTHIM_TM_DATA_3
+	mondexentry SPECIES_MOTHIM, "It flutters around at night and\nsteals honey from the COMBEE hive."
 
 
 mondata SPECIES_COMBEE, "Combee"
@@ -7499,6 +7914,7 @@ mondata SPECIES_COMBEE, "Combee"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_COMBEE_TM_DATA_0, SPECIES_COMBEE_TM_DATA_1, SPECIES_COMBEE_TM_DATA_2, SPECIES_COMBEE_TM_DATA_3
+	mondexentry SPECIES_COMBEE, "At night, COMBEE sleep in a group of\nabout a thousand, packed closely\ntogether in a lump."
 
 
 mondata SPECIES_VESPIQUEN, "Vespiquen"
@@ -7517,6 +7933,7 @@ mondata SPECIES_VESPIQUEN, "Vespiquen"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_VESPIQUEN_TM_DATA_0, SPECIES_VESPIQUEN_TM_DATA_1, SPECIES_VESPIQUEN_TM_DATA_2, SPECIES_VESPIQUEN_TM_DATA_3
+	mondexentry SPECIES_VESPIQUEN, "It raises grubs in the holes in its\nbody. It secretes pheromones to\ncontrol COMBEE."
 
 
 mondata SPECIES_PACHIRISU, "Pachirisu"
@@ -7535,6 +7952,7 @@ mondata SPECIES_PACHIRISU, "Pachirisu"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_PACHIRISU_TM_DATA_0, SPECIES_PACHIRISU_TM_DATA_1, SPECIES_PACHIRISU_TM_DATA_2, SPECIES_PACHIRISU_TM_DATA_3
+	mondexentry SPECIES_PACHIRISU, "It’s one of the kinds of Pokémon \nwith electric cheek pouches.\nIt shoots charges from its tail."
 
 
 mondata SPECIES_BUIZEL, "Buizel"
@@ -7553,6 +7971,7 @@ mondata SPECIES_BUIZEL, "Buizel"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BUIZEL_TM_DATA_0, SPECIES_BUIZEL_TM_DATA_1, SPECIES_BUIZEL_TM_DATA_2, SPECIES_BUIZEL_TM_DATA_3
+	mondexentry SPECIES_BUIZEL, "It inflates its flotation sac,\nkeeping its face above water in\norder to watch for prey movement."
 
 
 mondata SPECIES_FLOATZEL, "Floatzel"
@@ -7571,6 +7990,7 @@ mondata SPECIES_FLOATZEL, "Floatzel"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_FLOATZEL_TM_DATA_0, SPECIES_FLOATZEL_TM_DATA_1, SPECIES_FLOATZEL_TM_DATA_2, SPECIES_FLOATZEL_TM_DATA_3
+	mondexentry SPECIES_FLOATZEL, "With its flotation sac inflated, it\ncan carry people on its back. It\ndeflates the sac before it dives."
 
 
 mondata SPECIES_CHERUBI, "Cherubi"
@@ -7589,6 +8009,7 @@ mondata SPECIES_CHERUBI, "Cherubi"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_CHERUBI_TM_DATA_0, SPECIES_CHERUBI_TM_DATA_1, SPECIES_CHERUBI_TM_DATA_2, SPECIES_CHERUBI_TM_DATA_3
+	mondexentry SPECIES_CHERUBI, "It evolves by sucking the energy\nout of the small ball where it had\nbeen storing nutrients."
 
 
 mondata SPECIES_CHERRIM, "Cherrim"
@@ -7607,6 +8028,7 @@ mondata SPECIES_CHERRIM, "Cherrim"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_CHERRIM_TM_DATA_0, SPECIES_CHERRIM_TM_DATA_1, SPECIES_CHERRIM_TM_DATA_2, SPECIES_CHERRIM_TM_DATA_3
+	mondexentry SPECIES_CHERRIM, "During times of strong sunlight,\nits bud blooms, its petals open\nfully, and it becomes very active."
 
 
 mondata SPECIES_SHELLOS, "Shellos"
@@ -7625,6 +8047,7 @@ mondata SPECIES_SHELLOS, "Shellos"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SHELLOS_TM_DATA_0, SPECIES_SHELLOS_TM_DATA_1, SPECIES_SHELLOS_TM_DATA_2, SPECIES_SHELLOS_TM_DATA_3
+	mondexentry SPECIES_SHELLOS, "Its shape and coloration vary,\ndepending on its habitat."
 
 
 mondata SPECIES_GASTRODON, "Gastrodon"
@@ -7643,6 +8066,7 @@ mondata SPECIES_GASTRODON, "Gastrodon"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GASTRODON_TM_DATA_0, SPECIES_GASTRODON_TM_DATA_1, SPECIES_GASTRODON_TM_DATA_2, SPECIES_GASTRODON_TM_DATA_3
+	mondexentry SPECIES_GASTRODON, "When its natural enemy attacks,\nit oozes purple fluid and escapes."
 
 
 mondata SPECIES_AMBIPOM, "Ambipom"
@@ -7661,6 +8085,7 @@ mondata SPECIES_AMBIPOM, "Ambipom"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_AMBIPOM_TM_DATA_0, SPECIES_AMBIPOM_TM_DATA_1, SPECIES_AMBIPOM_TM_DATA_2, SPECIES_AMBIPOM_TM_DATA_3
+	mondexentry SPECIES_AMBIPOM, "They live on large trees. They are\nsaid to communicate by connecting\ntheir tails to those of others."
 
 
 mondata SPECIES_DRIFLOON, "Drifloon"
@@ -7679,6 +8104,7 @@ mondata SPECIES_DRIFLOON, "Drifloon"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_DRIFLOON_TM_DATA_0, SPECIES_DRIFLOON_TM_DATA_1, SPECIES_DRIFLOON_TM_DATA_2, SPECIES_DRIFLOON_TM_DATA_3
+	mondexentry SPECIES_DRIFLOON, "It is whispered that any child who\nmistakes DRIFLOON for a balloon and\nholds on to it could wind up missing."
 
 
 mondata SPECIES_DRIFBLIM, "Drifblim"
@@ -7697,6 +8123,7 @@ mondata SPECIES_DRIFBLIM, "Drifblim"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_DRIFBLIM_TM_DATA_0, SPECIES_DRIFBLIM_TM_DATA_1, SPECIES_DRIFBLIM_TM_DATA_2, SPECIES_DRIFBLIM_TM_DATA_3
+	mondexentry SPECIES_DRIFBLIM, "It can generate and release gas\nwithin its body. That’s how it can\ncontrol the altitude of its drift."
 
 
 mondata SPECIES_BUNEARY, "Buneary"
@@ -7715,6 +8142,7 @@ mondata SPECIES_BUNEARY, "Buneary"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BUNEARY_TM_DATA_0, SPECIES_BUNEARY_TM_DATA_1, SPECIES_BUNEARY_TM_DATA_2, SPECIES_BUNEARY_TM_DATA_3
+	mondexentry SPECIES_BUNEARY, "You can tell how it feels by the way\nit rolls its ears. When it’s scared,\nboth ears are rolled up."
 
 
 mondata SPECIES_LOPUNNY, "Lopunny"
@@ -7733,6 +8161,7 @@ mondata SPECIES_LOPUNNY, "Lopunny"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_LOPUNNY_TM_DATA_0, SPECIES_LOPUNNY_TM_DATA_1, SPECIES_LOPUNNY_TM_DATA_2, SPECIES_LOPUNNY_TM_DATA_3
+	mondexentry SPECIES_LOPUNNY, "It sheds its fur twice a year.\nIts winter fur is soft and fluffy."
 
 
 mondata SPECIES_MISMAGIUS, "Mismagius"
@@ -7751,6 +8180,7 @@ mondata SPECIES_MISMAGIUS, "Mismagius"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MISMAGIUS_TM_DATA_0, SPECIES_MISMAGIUS_TM_DATA_1, SPECIES_MISMAGIUS_TM_DATA_2, SPECIES_MISMAGIUS_TM_DATA_3
+	mondexentry SPECIES_MISMAGIUS, "Its cries sound like incantations\nto torment the foe. It appears\nwhere you least expect it."
 
 
 mondata SPECIES_HONCHKROW, "Honchkrow"
@@ -7769,6 +8199,7 @@ mondata SPECIES_HONCHKROW, "Honchkrow"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_HONCHKROW_TM_DATA_0, SPECIES_HONCHKROW_TM_DATA_1, SPECIES_HONCHKROW_TM_DATA_2, SPECIES_HONCHKROW_TM_DATA_3
+	mondexentry SPECIES_HONCHKROW, "It is merciless by nature. It is said\nthat it never forgives the mistakes\nof its MURKROW followers."
 
 
 mondata SPECIES_GLAMEOW, "Glameow"
@@ -7787,6 +8218,7 @@ mondata SPECIES_GLAMEOW, "Glameow"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_GLAMEOW_TM_DATA_0, SPECIES_GLAMEOW_TM_DATA_1, SPECIES_GLAMEOW_TM_DATA_2, SPECIES_GLAMEOW_TM_DATA_3
+	mondexentry SPECIES_GLAMEOW, "When it’s happy, GLAMEOW\ndemonstrates beautiful movements\nof its tail, like a dancing ribbon."
 
 
 mondata SPECIES_PURUGLY, "Purugly"
@@ -7805,6 +8237,7 @@ mondata SPECIES_PURUGLY, "Purugly"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_PURUGLY_TM_DATA_0, SPECIES_PURUGLY_TM_DATA_1, SPECIES_PURUGLY_TM_DATA_2, SPECIES_PURUGLY_TM_DATA_3
+	mondexentry SPECIES_PURUGLY, "It would claim another Pokémon’s\nnest as its own if it finds a nest\nsufficiently comfortable."
 
 
 mondata SPECIES_CHINGLING, "Chingling"
@@ -7823,6 +8256,7 @@ mondata SPECIES_CHINGLING, "Chingling"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_CHINGLING_TM_DATA_0, SPECIES_CHINGLING_TM_DATA_1, SPECIES_CHINGLING_TM_DATA_2, SPECIES_CHINGLING_TM_DATA_3
+	mondexentry SPECIES_CHINGLING, "It emits high-frequency cries that \npeople can’t hear. Once it starts,\nit can cry for an awfully long time."
 
 
 mondata SPECIES_STUNKY, "Stunky"
@@ -7841,6 +8275,7 @@ mondata SPECIES_STUNKY, "Stunky"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_STUNKY_TM_DATA_0, SPECIES_STUNKY_TM_DATA_1, SPECIES_STUNKY_TM_DATA_2, SPECIES_STUNKY_TM_DATA_3
+	mondexentry SPECIES_STUNKY, "The foul fluid from its rear is so\nrevolting that it can make people feel\nqueasy up to a mile and a quarter away."
 
 
 mondata SPECIES_SKUNTANK, "Skuntank"
@@ -7859,6 +8294,7 @@ mondata SPECIES_SKUNTANK, "Skuntank"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SKUNTANK_TM_DATA_0, SPECIES_SKUNTANK_TM_DATA_1, SPECIES_SKUNTANK_TM_DATA_2, SPECIES_SKUNTANK_TM_DATA_3
+	mondexentry SPECIES_SKUNTANK, "It attacks by spraying a repugnant\nfluid from its tail, but the stench\ndulls after a few squirts."
 
 
 mondata SPECIES_BRONZOR, "Bronzor"
@@ -7877,6 +8313,7 @@ mondata SPECIES_BRONZOR, "Bronzor"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BRONZOR_TM_DATA_0, SPECIES_BRONZOR_TM_DATA_1, SPECIES_BRONZOR_TM_DATA_2, SPECIES_BRONZOR_TM_DATA_3
+	mondexentry SPECIES_BRONZOR, "Ancient people believed that the\npattern on BRONZOR’s back\ncontained a mysterious power."
 
 
 mondata SPECIES_BRONZONG, "Bronzong"
@@ -7895,6 +8332,7 @@ mondata SPECIES_BRONZONG, "Bronzong"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BRONZONG_TM_DATA_0, SPECIES_BRONZONG_TM_DATA_1, SPECIES_BRONZONG_TM_DATA_2, SPECIES_BRONZONG_TM_DATA_3
+	mondexentry SPECIES_BRONZONG, "Ancient people believed that\npetitioning BRONZONG for rain\nwas the way to make crops grow."
 
 
 mondata SPECIES_BONSLY, "Bonsly"
@@ -7913,6 +8351,7 @@ mondata SPECIES_BONSLY, "Bonsly"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BONSLY_TM_DATA_0, SPECIES_BONSLY_TM_DATA_1, SPECIES_BONSLY_TM_DATA_2, SPECIES_BONSLY_TM_DATA_3
+	mondexentry SPECIES_BONSLY, "In order to adjust the level of fluids in\nits body, it exudes water from its eyes.\nThis makes it appear to be crying."
 
 
 mondata SPECIES_MIMEJR, "Mime Jr."
@@ -7931,6 +8370,7 @@ mondata SPECIES_MIMEJR, "Mime Jr."
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MIMEJR_TM_DATA_0, SPECIES_MIMEJR_TM_DATA_1, SPECIES_MIMEJR_TM_DATA_2, SPECIES_MIMEJR_TM_DATA_3
+	mondexentry SPECIES_MIMEJR, "In an attempt to confuse its enemy,\nit mimics the enemy’s movements. Then\nit wastes no time in making itself scarce!"
 
 
 mondata SPECIES_HAPPINY, "Happiny"
@@ -7949,6 +8389,7 @@ mondata SPECIES_HAPPINY, "Happiny"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_HAPPINY_TM_DATA_0, SPECIES_HAPPINY_TM_DATA_1, SPECIES_HAPPINY_TM_DATA_2, SPECIES_HAPPINY_TM_DATA_3
+	mondexentry SPECIES_HAPPINY, "It carefully carries a round, white rock\nthat it thinks is an egg. It’s bothered\nby how curly its hair looks."
 
 
 mondata SPECIES_CHATOT, "Chatot"
@@ -7967,6 +8408,7 @@ mondata SPECIES_CHATOT, "Chatot"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_CHATOT_TM_DATA_0, SPECIES_CHATOT_TM_DATA_1, SPECIES_CHATOT_TM_DATA_2, SPECIES_CHATOT_TM_DATA_3
+	mondexentry SPECIES_CHATOT, "It mimics the cries of other Pokémon to\ntrick them into thinking it’s one of them.\nThis way they won’t attack it."
 
 
 mondata SPECIES_SPIRITOMB, "Spiritomb"
@@ -7985,6 +8427,7 @@ mondata SPECIES_SPIRITOMB, "Spiritomb"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SPIRITOMB_TM_DATA_0, SPECIES_SPIRITOMB_TM_DATA_1, SPECIES_SPIRITOMB_TM_DATA_2, SPECIES_SPIRITOMB_TM_DATA_3
+	mondexentry SPECIES_SPIRITOMB, "It was formed by uniting 108 spirits.\nIt has been bound to the Odd Keystone\nto keep it from doing any mischief."
 
 
 mondata SPECIES_GIBLE, "Gible"
@@ -8003,6 +8446,7 @@ mondata SPECIES_GIBLE, "Gible"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GIBLE_TM_DATA_0, SPECIES_GIBLE_TM_DATA_1, SPECIES_GIBLE_TM_DATA_2, SPECIES_GIBLE_TM_DATA_3
+	mondexentry SPECIES_GIBLE, "It nests in horizontal holes warmed by\ngeothermal heat. Foes who get too close\ncan expect to be pounced on and bitten."
 
 
 mondata SPECIES_GABITE, "Gabite"
@@ -8021,6 +8465,7 @@ mondata SPECIES_GABITE, "Gabite"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GABITE_TM_DATA_0, SPECIES_GABITE_TM_DATA_1, SPECIES_GABITE_TM_DATA_2, SPECIES_GABITE_TM_DATA_3
+	mondexentry SPECIES_GABITE, "As it digs to expand its nest, it\nhabitually digs up gems that it\nthen hoards in its nest."
 
 
 mondata SPECIES_GARCHOMP, "Garchomp"
@@ -8039,6 +8484,7 @@ mondata SPECIES_GARCHOMP, "Garchomp"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GARCHOMP_TM_DATA_0, SPECIES_GARCHOMP_TM_DATA_1, SPECIES_GARCHOMP_TM_DATA_2, SPECIES_GARCHOMP_TM_DATA_3
+	mondexentry SPECIES_GARCHOMP, "Its body is covered in fine scales that\nreduce drag, enabling it to fly at\nhigh speeds."
 
 
 mondata SPECIES_MUNCHLAX, "Munchlax"
@@ -8057,6 +8503,7 @@ mondata SPECIES_MUNCHLAX, "Munchlax"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_MUNCHLAX_TM_DATA_0, SPECIES_MUNCHLAX_TM_DATA_1, SPECIES_MUNCHLAX_TM_DATA_2, SPECIES_MUNCHLAX_TM_DATA_3
+	mondexentry SPECIES_MUNCHLAX, "It conceals food under the long fur on\nits body. It carts around this food\nstash and swallows it without chewing."
 
 
 mondata SPECIES_RIOLU, "Riolu"
@@ -8075,6 +8522,7 @@ mondata SPECIES_RIOLU, "Riolu"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_RIOLU_TM_DATA_0, SPECIES_RIOLU_TM_DATA_1, SPECIES_RIOLU_TM_DATA_2, SPECIES_RIOLU_TM_DATA_3
+	mondexentry SPECIES_RIOLU, "They communicate with one another\nusing their auras. They are able to run\nall through the night."
 
 
 mondata SPECIES_LUCARIO, "Lucario"
@@ -8093,6 +8541,7 @@ mondata SPECIES_LUCARIO, "Lucario"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LUCARIO_TM_DATA_0, SPECIES_LUCARIO_TM_DATA_1, SPECIES_LUCARIO_TM_DATA_2, SPECIES_LUCARIO_TM_DATA_3
+	mondexentry SPECIES_LUCARIO, "It’s said that no foe can remain invisible\nto LUCARIO, since it can detect auras.\nEven foes it could not otherwise see."
 
 
 mondata SPECIES_HIPPOPOTAS, "Hippopotas"
@@ -8111,6 +8560,7 @@ mondata SPECIES_HIPPOPOTAS, "Hippopotas"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HIPPOPOTAS_TM_DATA_0, SPECIES_HIPPOPOTAS_TM_DATA_1, SPECIES_HIPPOPOTAS_TM_DATA_2, SPECIES_HIPPOPOTAS_TM_DATA_3
+	mondexentry SPECIES_HIPPOPOTAS, "It shrouds itself in sand to ward off\ngerms. It travels easily through the\nsands of the desert."
 
 
 mondata SPECIES_HIPPOWDON, "Hippowdon"
@@ -8129,6 +8579,7 @@ mondata SPECIES_HIPPOWDON, "Hippowdon"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HIPPOWDON_TM_DATA_0, SPECIES_HIPPOWDON_TM_DATA_1, SPECIES_HIPPOWDON_TM_DATA_2, SPECIES_HIPPOWDON_TM_DATA_3
+	mondexentry SPECIES_HIPPOWDON, "It brandishes its gaping mouth in a\ndisplay of fearsome strength. It raises\nvast quantities of sand while attacking."
 
 
 mondata SPECIES_SKORUPI, "Skorupi"
@@ -8147,6 +8598,7 @@ mondata SPECIES_SKORUPI, "Skorupi"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SKORUPI_TM_DATA_0, SPECIES_SKORUPI_TM_DATA_1, SPECIES_SKORUPI_TM_DATA_2, SPECIES_SKORUPI_TM_DATA_3
+	mondexentry SPECIES_SKORUPI, "It burrows under the sand to lie in\nwait for prey. Its tail claws can inject\nits prey with a savage poison."
 
 
 mondata SPECIES_DRAPION, "Drapion"
@@ -8165,6 +8617,7 @@ mondata SPECIES_DRAPION, "Drapion"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_DRAPION_TM_DATA_0, SPECIES_DRAPION_TM_DATA_1, SPECIES_DRAPION_TM_DATA_2, SPECIES_DRAPION_TM_DATA_3
+	mondexentry SPECIES_DRAPION, "It attacks people and Pokémon that\ncross the desert. This has only\nfurthered its bad reputation."
 
 
 mondata SPECIES_CROAGUNK, "Croagunk"
@@ -8183,6 +8636,7 @@ mondata SPECIES_CROAGUNK, "Croagunk"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CROAGUNK_TM_DATA_0, SPECIES_CROAGUNK_TM_DATA_1, SPECIES_CROAGUNK_TM_DATA_2, SPECIES_CROAGUNK_TM_DATA_3
+	mondexentry SPECIES_CROAGUNK, "Fluid squeezed from its finger, albeit\npoisonous, is a significant ingredient in\nremedies for lower-back pain."
 
 
 mondata SPECIES_TOXICROAK, "Toxicroak"
@@ -8201,6 +8655,7 @@ mondata SPECIES_TOXICROAK, "Toxicroak"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TOXICROAK_TM_DATA_0, SPECIES_TOXICROAK_TM_DATA_1, SPECIES_TOXICROAK_TM_DATA_2, SPECIES_TOXICROAK_TM_DATA_3
+	mondexentry SPECIES_TOXICROAK, "Swaying and dodging the attacks of its\nfoes, it weaves its flexible body in close,\nthen lunges out with its poisonous claws."
 
 
 mondata SPECIES_CARNIVINE, "Carnivine"
@@ -8219,6 +8674,7 @@ mondata SPECIES_CARNIVINE, "Carnivine"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CARNIVINE_TM_DATA_0, SPECIES_CARNIVINE_TM_DATA_1, SPECIES_CARNIVINE_TM_DATA_2, SPECIES_CARNIVINE_TM_DATA_3
+	mondexentry SPECIES_CARNIVINE, "It walks around on its tentacles in\nsearch of a tree branch where it\ncan dangle down and ambush prey."
 
 
 mondata SPECIES_FINNEON, "Finneon"
@@ -8237,6 +8693,7 @@ mondata SPECIES_FINNEON, "Finneon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_FINNEON_TM_DATA_0, SPECIES_FINNEON_TM_DATA_1, SPECIES_FINNEON_TM_DATA_2, SPECIES_FINNEON_TM_DATA_3
+	mondexentry SPECIES_FINNEON, "Swimming and fluttering its two tail fins,\nit looks like a BEAUTIFLY. At night, the\npatterns on its tail fins softly shine."
 
 
 mondata SPECIES_LUMINEON, "Lumineon"
@@ -8255,6 +8712,7 @@ mondata SPECIES_LUMINEON, "Lumineon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_LUMINEON_TM_DATA_0, SPECIES_LUMINEON_TM_DATA_1, SPECIES_LUMINEON_TM_DATA_2, SPECIES_LUMINEON_TM_DATA_3
+	mondexentry SPECIES_LUMINEON, "LUMINEON swimming in the darkness\nof the deep sea look like stars shining\nin the night sky."
 
 
 mondata SPECIES_MANTYKE, "Mantyke"
@@ -8273,6 +8731,7 @@ mondata SPECIES_MANTYKE, "Mantyke"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MANTYKE_TM_DATA_0, SPECIES_MANTYKE_TM_DATA_1, SPECIES_MANTYKE_TM_DATA_2, SPECIES_MANTYKE_TM_DATA_3
+	mondexentry SPECIES_MANTYKE, "When it swims close to the surface of the\nocean, people aboard ships are able to\nobserve the pattern on its back."
 
 
 mondata SPECIES_SNOVER, "Snover"
@@ -8291,6 +8750,7 @@ mondata SPECIES_SNOVER, "Snover"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SNOVER_TM_DATA_0, SPECIES_SNOVER_TM_DATA_1, SPECIES_SNOVER_TM_DATA_2, SPECIES_SNOVER_TM_DATA_3
+	mondexentry SPECIES_SNOVER, "During cold seasons, it migrates to the\nmountain’s lower reaches. It returns to\nthe snow-covered summit in the spring."
 
 
 mondata SPECIES_ABOMASNOW, "Abomasnow"
@@ -8309,6 +8769,7 @@ mondata SPECIES_ABOMASNOW, "Abomasnow"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_ABOMASNOW_TM_DATA_0, SPECIES_ABOMASNOW_TM_DATA_1, SPECIES_ABOMASNOW_TM_DATA_2, SPECIES_ABOMASNOW_TM_DATA_3
+	mondexentry SPECIES_ABOMASNOW, "It lives a quiet life on mountains that\nare perpetually covered in snow.\nIt hides itself by whipping up blizzards."
 
 
 mondata SPECIES_WEAVILE, "Weavile"
@@ -8327,6 +8788,7 @@ mondata SPECIES_WEAVILE, "Weavile"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_WEAVILE_TM_DATA_0, SPECIES_WEAVILE_TM_DATA_1, SPECIES_WEAVILE_TM_DATA_2, SPECIES_WEAVILE_TM_DATA_3
+	mondexentry SPECIES_WEAVILE, "It lives in snowy regions. It carves\npatterns in trees with its claws as\na signal to others."
 
 
 mondata SPECIES_MAGNEZONE, "Magnezone"
@@ -8345,6 +8807,7 @@ mondata SPECIES_MAGNEZONE, "Magnezone"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MAGNEZONE_TM_DATA_0, SPECIES_MAGNEZONE_TM_DATA_1, SPECIES_MAGNEZONE_TM_DATA_2, SPECIES_MAGNEZONE_TM_DATA_3
+	mondexentry SPECIES_MAGNEZONE, "Exposure to a special magnetic field\nchanged MAGNETON’s molecular\nstructure, turning it into MAGNEZONE."
 
 
 mondata SPECIES_LICKILICKY, "Lickilicky"
@@ -8363,6 +8826,7 @@ mondata SPECIES_LICKILICKY, "Lickilicky"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_LICKILICKY_TM_DATA_0, SPECIES_LICKILICKY_TM_DATA_1, SPECIES_LICKILICKY_TM_DATA_2, SPECIES_LICKILICKY_TM_DATA_3
+	mondexentry SPECIES_LICKILICKY, "Its saliva can decompose anything.\nIt wraps its long tongue around things\nto coat them with its sticky saliva."
 
 
 mondata SPECIES_RHYPERIOR, "Rhyperior"
@@ -8381,6 +8845,7 @@ mondata SPECIES_RHYPERIOR, "Rhyperior"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_RHYPERIOR_TM_DATA_0, SPECIES_RHYPERIOR_TM_DATA_1, SPECIES_RHYPERIOR_TM_DATA_2, SPECIES_RHYPERIOR_TM_DATA_3
+	mondexentry SPECIES_RHYPERIOR, "From holes in its palms, it fires out\nGEODUDE. Its carapace \ncan withstand volcanic eruptions."
 
 
 mondata SPECIES_TANGROWTH, "Tangrowth"
@@ -8399,6 +8864,7 @@ mondata SPECIES_TANGROWTH, "Tangrowth"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TANGROWTH_TM_DATA_0, SPECIES_TANGROWTH_TM_DATA_1, SPECIES_TANGROWTH_TM_DATA_2, SPECIES_TANGROWTH_TM_DATA_3
+	mondexentry SPECIES_TANGROWTH, "When it remains still, it appears to be a\nlarge shrub. Unsuspecting prey that\nwander near get ensnared by its vines."
 
 
 mondata SPECIES_ELECTIVIRE, "Electivire"
@@ -8417,6 +8883,7 @@ mondata SPECIES_ELECTIVIRE, "Electivire"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ELECTIVIRE_TM_DATA_0, SPECIES_ELECTIVIRE_TM_DATA_1, SPECIES_ELECTIVIRE_TM_DATA_2, SPECIES_ELECTIVIRE_TM_DATA_3
+	mondexentry SPECIES_ELECTIVIRE, "As its electric charge amplifies,\nblue sparks begin to crackle between\nits horns."
 
 
 mondata SPECIES_MAGMORTAR, "Magmortar"
@@ -8435,6 +8902,7 @@ mondata SPECIES_MAGMORTAR, "Magmortar"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_MAGMORTAR_TM_DATA_0, SPECIES_MAGMORTAR_TM_DATA_1, SPECIES_MAGMORTAR_TM_DATA_2, SPECIES_MAGMORTAR_TM_DATA_3
+	mondexentry SPECIES_MAGMORTAR, "It blasts fireballs of over\n3,600 degrees Fahrenheit out of its\narms. Its breath also sears and sizzles."
 
 
 mondata SPECIES_TOGEKISS, "Togekiss"
@@ -8453,6 +8921,7 @@ mondata SPECIES_TOGEKISS, "Togekiss"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_TOGEKISS_TM_DATA_0, SPECIES_TOGEKISS_TM_DATA_1, SPECIES_TOGEKISS_TM_DATA_2, SPECIES_TOGEKISS_TM_DATA_3
+	mondexentry SPECIES_TOGEKISS, "As everyone knows, it visits peaceful\nregions, bringing them gifts of kindness\nand sweet blessings."
 
 
 mondata SPECIES_YANMEGA, "Yanmega"
@@ -8471,6 +8940,7 @@ mondata SPECIES_YANMEGA, "Yanmega"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_YANMEGA_TM_DATA_0, SPECIES_YANMEGA_TM_DATA_1, SPECIES_YANMEGA_TM_DATA_2, SPECIES_YANMEGA_TM_DATA_3
+	mondexentry SPECIES_YANMEGA, "This six-legged Pokémon is easily capable\nof transporting an adult in flight. The\nwings on its tail help it stay balanced."
 
 
 mondata SPECIES_LEAFEON, "Leafeon"
@@ -8489,6 +8959,7 @@ mondata SPECIES_LEAFEON, "Leafeon"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_LEAFEON_TM_DATA_0, SPECIES_LEAFEON_TM_DATA_1, SPECIES_LEAFEON_TM_DATA_2, SPECIES_LEAFEON_TM_DATA_3
+	mondexentry SPECIES_LEAFEON, "When you see LEAFEON asleep in a patch\nof sunshine, you’ll know it is using\nphotosynthesis to produce clean air."
 
 
 mondata SPECIES_GLACEON, "Glaceon"
@@ -8507,6 +8978,7 @@ mondata SPECIES_GLACEON, "Glaceon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GLACEON_TM_DATA_0, SPECIES_GLACEON_TM_DATA_1, SPECIES_GLACEON_TM_DATA_2, SPECIES_GLACEON_TM_DATA_3
+	mondexentry SPECIES_GLACEON, "It causes small ice crystals to form by\nlowering the temperature of the\nsurrounding atmosphere."
 
 
 mondata SPECIES_GLISCOR, "Gliscor"
@@ -8525,6 +8997,7 @@ mondata SPECIES_GLISCOR, "Gliscor"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GLISCOR_TM_DATA_0, SPECIES_GLISCOR_TM_DATA_1, SPECIES_GLISCOR_TM_DATA_2, SPECIES_GLISCOR_TM_DATA_3
+	mondexentry SPECIES_GLISCOR, "Its flight is soundless. It uses its\nlengthy tail to carry off its prey...\nThen its elongated fangs do the rest."
 
 
 mondata SPECIES_MAMOSWINE, "Mamoswine"
@@ -8543,6 +9016,7 @@ mondata SPECIES_MAMOSWINE, "Mamoswine"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MAMOSWINE_TM_DATA_0, SPECIES_MAMOSWINE_TM_DATA_1, SPECIES_MAMOSWINE_TM_DATA_2, SPECIES_MAMOSWINE_TM_DATA_3
+	mondexentry SPECIES_MAMOSWINE, "A frozen MAMOSWINE was dug from ice\ndating back 10,000 years. This Pokémon\nhas been around a long, long, long time."
 
 
 mondata SPECIES_PORYGON_Z, "Porygon-Z"
@@ -8561,6 +9035,7 @@ mondata SPECIES_PORYGON_Z, "Porygon-Z"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PORYGON_Z_TM_DATA_0, SPECIES_PORYGON_Z_TM_DATA_1, SPECIES_PORYGON_Z_TM_DATA_2, SPECIES_PORYGON_Z_TM_DATA_3
+	mondexentry SPECIES_PORYGON_Z, "Its programming was modified to enable\nit to travel through alien dimensions.\nSeems there might have been an error..."
 
 
 mondata SPECIES_GALLADE, "Gallade"
@@ -8579,6 +9054,7 @@ mondata SPECIES_GALLADE, "Gallade"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_GALLADE_TM_DATA_0, SPECIES_GALLADE_TM_DATA_1, SPECIES_GALLADE_TM_DATA_2, SPECIES_GALLADE_TM_DATA_3
+	mondexentry SPECIES_GALLADE, "Because it can sense what its foe\nis thinking, its attacks burst out\nfirst, fast, and fierce."
 
 
 mondata SPECIES_PROBOPASS, "Probopass"
@@ -8597,6 +9073,7 @@ mondata SPECIES_PROBOPASS, "Probopass"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_PROBOPASS_TM_DATA_0, SPECIES_PROBOPASS_TM_DATA_1, SPECIES_PROBOPASS_TM_DATA_2, SPECIES_PROBOPASS_TM_DATA_3
+	mondexentry SPECIES_PROBOPASS, "It controls three units called Mini-Noses\nusing magnetic force. With them, it can\nattack the foe from three directions."
 
 
 mondata SPECIES_DUSKNOIR, "Dusknoir"
@@ -8615,6 +9092,7 @@ mondata SPECIES_DUSKNOIR, "Dusknoir"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_DUSKNOIR_TM_DATA_0, SPECIES_DUSKNOIR_TM_DATA_1, SPECIES_DUSKNOIR_TM_DATA_2, SPECIES_DUSKNOIR_TM_DATA_3
+	mondexentry SPECIES_DUSKNOIR, "This feared Pokémon is said to travel to\nworlds unknown. Some even believe that\nit takes lost spirits along with it."
 
 
 mondata SPECIES_FROSLASS, "Froslass"
@@ -8633,6 +9111,7 @@ mondata SPECIES_FROSLASS, "Froslass"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FROSLASS_TM_DATA_0, SPECIES_FROSLASS_TM_DATA_1, SPECIES_FROSLASS_TM_DATA_2, SPECIES_FROSLASS_TM_DATA_3
+	mondexentry SPECIES_FROSLASS, "Legends in snowy regions say that\na woman who was lost on an icy\nmountain was reborn as FROSLASS."
 
 
 mondata SPECIES_ROTOM, "Rotom"
@@ -8651,6 +9130,7 @@ mondata SPECIES_ROTOM, "Rotom"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ROTOM_TM_DATA_0, SPECIES_ROTOM_TM_DATA_1, SPECIES_ROTOM_TM_DATA_2, SPECIES_ROTOM_TM_DATA_3
+	mondexentry SPECIES_ROTOM, "Research continues on this Pokémon,\nwhich could be the power source of a\nunique motor."
 
 
 mondata SPECIES_UXIE, "Uxie"
@@ -8669,6 +9149,7 @@ mondata SPECIES_UXIE, "Uxie"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_UXIE_TM_DATA_0, SPECIES_UXIE_TM_DATA_1, SPECIES_UXIE_TM_DATA_2, SPECIES_UXIE_TM_DATA_3
+	mondexentry SPECIES_UXIE, "According to some sources, this Pokémon\nprovided people with the intelligence\nnecessary to solve various problems."
 
 
 mondata SPECIES_MESPRIT, "Mesprit"
@@ -8687,6 +9168,7 @@ mondata SPECIES_MESPRIT, "Mesprit"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MESPRIT_TM_DATA_0, SPECIES_MESPRIT_TM_DATA_1, SPECIES_MESPRIT_TM_DATA_2, SPECIES_MESPRIT_TM_DATA_3
+	mondexentry SPECIES_MESPRIT, "This Pokémon is said to have endowed\nthe human heart with emotions, such as\nsorrow and joy."
 
 
 mondata SPECIES_AZELF, "Azelf"
@@ -8705,6 +9187,7 @@ mondata SPECIES_AZELF, "Azelf"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AZELF_TM_DATA_0, SPECIES_AZELF_TM_DATA_1, SPECIES_AZELF_TM_DATA_2, SPECIES_AZELF_TM_DATA_3
+	mondexentry SPECIES_AZELF, "This Pokémon is said to have endowed\nhumans with the determination needed\nto face any of life’s difficulties."
 
 
 mondata SPECIES_DIALGA, "Dialga"
@@ -8723,6 +9206,7 @@ mondata SPECIES_DIALGA, "Dialga"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_DIALGA_TM_DATA_0, SPECIES_DIALGA_TM_DATA_1, SPECIES_DIALGA_TM_DATA_2, SPECIES_DIALGA_TM_DATA_3
+	mondexentry SPECIES_DIALGA, "This Pokémon completely controls the\nflow of time. It uses its power to travel\nat will through the past and future."
 
 
 mondata SPECIES_PALKIA, "Palkia"
@@ -8741,6 +9225,7 @@ mondata SPECIES_PALKIA, "Palkia"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_PALKIA_TM_DATA_0, SPECIES_PALKIA_TM_DATA_1, SPECIES_PALKIA_TM_DATA_2, SPECIES_PALKIA_TM_DATA_3
+	mondexentry SPECIES_PALKIA, "Its total control over the boundaries\nof space enable it to transport itself to\nfaraway places or even other dimensions."
 
 
 mondata SPECIES_HEATRAN, "Heatran"
@@ -8759,6 +9244,7 @@ mondata SPECIES_HEATRAN, "Heatran"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HEATRAN_TM_DATA_0, SPECIES_HEATRAN_TM_DATA_1, SPECIES_HEATRAN_TM_DATA_2, SPECIES_HEATRAN_TM_DATA_3
+	mondexentry SPECIES_HEATRAN, "Boiling blood, like magma, circulates\nthrough its body. It makes its dwelling\nplace in volcanic caves."
 
 
 mondata SPECIES_REGIGIGAS, "Regigigas"
@@ -8777,6 +9263,7 @@ mondata SPECIES_REGIGIGAS, "Regigigas"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_REGIGIGAS_TM_DATA_0, SPECIES_REGIGIGAS_TM_DATA_1, SPECIES_REGIGIGAS_TM_DATA_2, SPECIES_REGIGIGAS_TM_DATA_3
+	mondexentry SPECIES_REGIGIGAS, "It is believed to have shaped\nREGIROCK, REGICE, and REGISTEEL\nout of clay, ice, and magma."
 
 
 mondata SPECIES_GIRATINA, "Giratina"
@@ -8795,6 +9282,7 @@ mondata SPECIES_GIRATINA, "Giratina"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_GIRATINA_TM_DATA_0, SPECIES_GIRATINA_TM_DATA_1, SPECIES_GIRATINA_TM_DATA_2, SPECIES_GIRATINA_TM_DATA_3
+	mondexentry SPECIES_GIRATINA, "This Pokémon is said to live in a world on\nthe reverse side of ours, where common\nknowledge is distorted and strange."
 
 
 mondata SPECIES_CRESSELIA, "Cresselia"
@@ -8813,6 +9301,7 @@ mondata SPECIES_CRESSELIA, "Cresselia"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_CRESSELIA_TM_DATA_0, SPECIES_CRESSELIA_TM_DATA_1, SPECIES_CRESSELIA_TM_DATA_2, SPECIES_CRESSELIA_TM_DATA_3
+	mondexentry SPECIES_CRESSELIA, "Those who sleep holding CRESSELIA’s\nfeather are assured of joyful dreams. It\nis said to represent the crescent moon."
 
 
 mondata SPECIES_PHIONE, "Phione"
@@ -8831,6 +9320,7 @@ mondata SPECIES_PHIONE, "Phione"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PHIONE_TM_DATA_0, SPECIES_PHIONE_TM_DATA_1, SPECIES_PHIONE_TM_DATA_2, SPECIES_PHIONE_TM_DATA_3
+	mondexentry SPECIES_PHIONE, "When the water warms, they inflate the\nflotation sac on their heads and drift\nlanguidly on the sea in packs."
 
 
 mondata SPECIES_MANAPHY, "Manaphy"
@@ -8849,6 +9339,7 @@ mondata SPECIES_MANAPHY, "Manaphy"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MANAPHY_TM_DATA_0, SPECIES_MANAPHY_TM_DATA_1, SPECIES_MANAPHY_TM_DATA_2, SPECIES_MANAPHY_TM_DATA_3
+	mondexentry SPECIES_MANAPHY, "It starts its life with a wondrous power\nthat permits it to bond with any kind\nof Pokémon."
 
 
 mondata SPECIES_DARKRAI, "Darkrai"
@@ -8867,6 +9358,7 @@ mondata SPECIES_DARKRAI, "Darkrai"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_DARKRAI_TM_DATA_0, SPECIES_DARKRAI_TM_DATA_1, SPECIES_DARKRAI_TM_DATA_2, SPECIES_DARKRAI_TM_DATA_3
+	mondexentry SPECIES_DARKRAI, "It chases people and Pokémon from its\nterritory by causing them to experience\ndeep, nightmarish slumbers."
 
 
 mondata SPECIES_SHAYMIN, "Shaymin"
@@ -8885,6 +9377,7 @@ mondata SPECIES_SHAYMIN, "Shaymin"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SHAYMIN_TM_DATA_0, SPECIES_SHAYMIN_TM_DATA_1, SPECIES_SHAYMIN_TM_DATA_2, SPECIES_SHAYMIN_TM_DATA_3
+	mondexentry SPECIES_SHAYMIN, "The blooming of Gracidea flowers confers\nthe power of flight upon it. Feelings \nof gratitude are the message it delivers."
 
 
 mondata SPECIES_ARCEUS, "Arceus"
@@ -8903,6 +9396,7 @@ mondata SPECIES_ARCEUS, "Arceus"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ARCEUS_TM_DATA_0, SPECIES_ARCEUS_TM_DATA_1, SPECIES_ARCEUS_TM_DATA_2, SPECIES_ARCEUS_TM_DATA_3
+	mondexentry SPECIES_ARCEUS, "According to the legends of Sinnoh, this\nPokémon emerged from an egg and\nshaped all there is in this world."
 
 
 mondata SPECIES_EGG, "Egg"
@@ -8921,6 +9415,7 @@ mondata SPECIES_EGG, "Egg"
     runchance 0
     colorflip BODY_COLOR_EGG, 0
     tmdata SPECIES_EGG_TM_DATA_0, SPECIES_EGG_TM_DATA_1, SPECIES_EGG_TM_DATA_2, SPECIES_EGG_TM_DATA_3
+	mondexentry SPECIES_EGG, "-----"
 
 
 mondata SPECIES_BAD_EGG, "Bad Egg"
@@ -8939,6 +9434,7 @@ mondata SPECIES_BAD_EGG, "Bad Egg"
     runchance 0
     colorflip BODY_COLOR_EGG, 0
     tmdata SPECIES_BAD_EGG_TM_DATA_0, SPECIES_BAD_EGG_TM_DATA_1, SPECIES_BAD_EGG_TM_DATA_2, SPECIES_BAD_EGG_TM_DATA_3
+	mondexentry SPECIES_BAD_EGG, "-----"
 
 
 mondata SPECIES_DEOXYS_ATTACK, "-----"
@@ -8957,6 +9453,7 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DEOXYS_ATTACK_TM_DATA_0, SPECIES_DEOXYS_ATTACK_TM_DATA_1, SPECIES_DEOXYS_ATTACK_TM_DATA_2, SPECIES_DEOXYS_ATTACK_TM_DATA_3
+	mondexentry SPECIES_DEOXYS_ATTACK, "-----"
 
 
 mondata SPECIES_DEOXYS_DEFENSE, "-----"
@@ -8975,6 +9472,7 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DEOXYS_DEFENSE_TM_DATA_0, SPECIES_DEOXYS_DEFENSE_TM_DATA_1, SPECIES_DEOXYS_DEFENSE_TM_DATA_2, SPECIES_DEOXYS_DEFENSE_TM_DATA_3
+	mondexentry SPECIES_DEOXYS_DEFENSE, "-----"
 
 
 mondata SPECIES_DEOXYS_SPEED, "-----"
@@ -8993,6 +9491,7 @@ mondata SPECIES_DEOXYS_SPEED, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DEOXYS_SPEED_TM_DATA_0, SPECIES_DEOXYS_SPEED_TM_DATA_1, SPECIES_DEOXYS_SPEED_TM_DATA_2, SPECIES_DEOXYS_SPEED_TM_DATA_3
+	mondexentry SPECIES_DEOXYS_SPEED, "-----"
 
 
 mondata SPECIES_WORMADAM_SANDY, "-----"
@@ -9011,6 +9510,7 @@ mondata SPECIES_WORMADAM_SANDY, "-----"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_WORMADAM_SANDY_TM_DATA_0, SPECIES_WORMADAM_SANDY_TM_DATA_1, SPECIES_WORMADAM_SANDY_TM_DATA_2, SPECIES_WORMADAM_SANDY_TM_DATA_3
+	mondexentry SPECIES_WORMADAM_SANDY, "-----"
 
 
 mondata SPECIES_WORMADAM_TRASHY, "-----"
@@ -9029,6 +9529,7 @@ mondata SPECIES_WORMADAM_TRASHY, "-----"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_WORMADAM_TRASHY_TM_DATA_0, SPECIES_WORMADAM_TRASHY_TM_DATA_1, SPECIES_WORMADAM_TRASHY_TM_DATA_2, SPECIES_WORMADAM_TRASHY_TM_DATA_3
+	mondexentry SPECIES_WORMADAM_TRASHY, "-----"
 
 
 mondata SPECIES_GIRATINA_ORIGIN, "-----"
@@ -9047,6 +9548,7 @@ mondata SPECIES_GIRATINA_ORIGIN, "-----"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_GIRATINA_ORIGIN_TM_DATA_0, SPECIES_GIRATINA_ORIGIN_TM_DATA_1, SPECIES_GIRATINA_ORIGIN_TM_DATA_2, SPECIES_GIRATINA_ORIGIN_TM_DATA_3
+	mondexentry SPECIES_GIRATINA_ORIGIN, "-----"
 
 
 mondata SPECIES_SHAYMIN_SKY, "-----"
@@ -9065,6 +9567,7 @@ mondata SPECIES_SHAYMIN_SKY, "-----"
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
     tmdata SPECIES_SHAYMIN_SKY_TM_DATA_0, SPECIES_SHAYMIN_SKY_TM_DATA_1, SPECIES_SHAYMIN_SKY_TM_DATA_2, SPECIES_SHAYMIN_SKY_TM_DATA_3
+	mondexentry SPECIES_SHAYMIN_SKY, "-----"
 
 
 mondata SPECIES_ROTOM_HEAT, "-----"
@@ -9083,6 +9586,7 @@ mondata SPECIES_ROTOM_HEAT, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ROTOM_HEAT_TM_DATA_0, SPECIES_ROTOM_HEAT_TM_DATA_1, SPECIES_ROTOM_HEAT_TM_DATA_2, SPECIES_ROTOM_HEAT_TM_DATA_3
+	mondexentry SPECIES_ROTOM_HEAT, "-----"
 
 
 mondata SPECIES_ROTOM_WASH, "-----"
@@ -9101,6 +9605,7 @@ mondata SPECIES_ROTOM_WASH, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ROTOM_WASH_TM_DATA_0, SPECIES_ROTOM_WASH_TM_DATA_1, SPECIES_ROTOM_WASH_TM_DATA_2, SPECIES_ROTOM_WASH_TM_DATA_3
+	mondexentry SPECIES_ROTOM_WASH, "-----"
 
 
 mondata SPECIES_ROTOM_FROST, "-----"
@@ -9119,6 +9624,7 @@ mondata SPECIES_ROTOM_FROST, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ROTOM_FROST_TM_DATA_0, SPECIES_ROTOM_FROST_TM_DATA_1, SPECIES_ROTOM_FROST_TM_DATA_2, SPECIES_ROTOM_FROST_TM_DATA_3
+	mondexentry SPECIES_ROTOM_FROST, "-----"
 
 
 mondata SPECIES_ROTOM_FAN, "-----"
@@ -9137,6 +9643,7 @@ mondata SPECIES_ROTOM_FAN, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ROTOM_FAN_TM_DATA_0, SPECIES_ROTOM_FAN_TM_DATA_1, SPECIES_ROTOM_FAN_TM_DATA_2, SPECIES_ROTOM_FAN_TM_DATA_3
+	mondexentry SPECIES_ROTOM_FAN, "-----"
 
 
 mondata SPECIES_ROTOM_MOW, "-----"
@@ -9155,6 +9662,7 @@ mondata SPECIES_ROTOM_MOW, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ROTOM_MOW_TM_DATA_0, SPECIES_ROTOM_MOW_TM_DATA_1, SPECIES_ROTOM_MOW_TM_DATA_2, SPECIES_ROTOM_MOW_TM_DATA_3
+	mondexentry SPECIES_ROTOM_MOW, "-----"
 
 
 mondata SPECIES_508, "-----"
@@ -9173,6 +9681,7 @@ mondata SPECIES_508, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_508, "-----"
 
 
 mondata SPECIES_509, "-----"
@@ -9191,6 +9700,7 @@ mondata SPECIES_509, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_509, "-----"
 
 
 mondata SPECIES_510, "-----"
@@ -9209,6 +9719,7 @@ mondata SPECIES_510, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_510, "-----"
 
 
 mondata SPECIES_511, "-----"
@@ -9227,6 +9738,7 @@ mondata SPECIES_511, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_511, "-----"
 
 
 mondata SPECIES_512, "-----"
@@ -9245,6 +9757,7 @@ mondata SPECIES_512, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_512, "-----"
 
 
 mondata SPECIES_513, "-----"
@@ -9263,6 +9776,7 @@ mondata SPECIES_513, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_513, "-----"
 
 
 mondata SPECIES_514, "-----"
@@ -9281,6 +9795,7 @@ mondata SPECIES_514, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_514, "-----"
 
 
 mondata SPECIES_515, "-----"
@@ -9299,6 +9814,7 @@ mondata SPECIES_515, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_515, "-----"
 
 
 mondata SPECIES_516, "-----"
@@ -9317,6 +9833,7 @@ mondata SPECIES_516, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_516, "-----"
 
 
 mondata SPECIES_517, "-----"
@@ -9335,6 +9852,7 @@ mondata SPECIES_517, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_517, "-----"
 
 
 mondata SPECIES_518, "-----"
@@ -9353,6 +9871,7 @@ mondata SPECIES_518, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_518, "-----"
 
 
 mondata SPECIES_519, "-----"
@@ -9371,6 +9890,7 @@ mondata SPECIES_519, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_519, "-----"
 
 
 mondata SPECIES_520, "-----"
@@ -9389,6 +9909,7 @@ mondata SPECIES_520, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_520, "-----"
 
 
 mondata SPECIES_521, "-----"
@@ -9407,6 +9928,7 @@ mondata SPECIES_521, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_521, "-----"
 
 
 mondata SPECIES_522, "-----"
@@ -9425,6 +9947,7 @@ mondata SPECIES_522, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_522, "-----"
 
 
 mondata SPECIES_523, "-----"
@@ -9443,6 +9966,7 @@ mondata SPECIES_523, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_523, "-----"
 
 
 mondata SPECIES_524, "-----"
@@ -9461,6 +9985,7 @@ mondata SPECIES_524, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_524, "-----"
 
 
 mondata SPECIES_525, "-----"
@@ -9479,6 +10004,7 @@ mondata SPECIES_525, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_525, "-----"
 
 
 mondata SPECIES_526, "-----"
@@ -9497,6 +10023,7 @@ mondata SPECIES_526, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_526, "-----"
 
 
 mondata SPECIES_527, "-----"
@@ -9515,6 +10042,7 @@ mondata SPECIES_527, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_527, "-----"
 
 
 mondata SPECIES_528, "-----"
@@ -9533,6 +10061,7 @@ mondata SPECIES_528, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_528, "-----"
 
 
 mondata SPECIES_529, "-----"
@@ -9551,6 +10080,7 @@ mondata SPECIES_529, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_529, "-----"
 
 
 mondata SPECIES_530, "-----"
@@ -9569,6 +10099,7 @@ mondata SPECIES_530, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_530, "-----"
 
 
 mondata SPECIES_531, "-----"
@@ -9587,6 +10118,7 @@ mondata SPECIES_531, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_531, "-----"
 
 
 mondata SPECIES_532, "-----"
@@ -9605,6 +10137,7 @@ mondata SPECIES_532, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_532, "-----"
 
 
 mondata SPECIES_533, "-----"
@@ -9623,6 +10156,7 @@ mondata SPECIES_533, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_533, "-----"
 
 
 mondata SPECIES_534, "-----"
@@ -9641,6 +10175,7 @@ mondata SPECIES_534, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_534, "-----"
 
 
 mondata SPECIES_535, "-----"
@@ -9659,6 +10194,7 @@ mondata SPECIES_535, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_535, "-----"
 
 
 mondata SPECIES_536, "-----"
@@ -9677,6 +10213,7 @@ mondata SPECIES_536, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_536, "-----"
 
 
 mondata SPECIES_537, "-----"
@@ -9695,6 +10232,7 @@ mondata SPECIES_537, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_537, "-----"
 
 
 mondata SPECIES_538, "-----"
@@ -9713,6 +10251,7 @@ mondata SPECIES_538, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_538, "-----"
 
 
 mondata SPECIES_539, "-----"
@@ -9731,6 +10270,7 @@ mondata SPECIES_539, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_539, "-----"
 
 
 mondata SPECIES_540, "-----"
@@ -9749,6 +10289,7 @@ mondata SPECIES_540, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_540, "-----"
 
 
 mondata SPECIES_541, "-----"
@@ -9767,6 +10308,7 @@ mondata SPECIES_541, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_541, "-----"
 
 
 mondata SPECIES_542, "-----"
@@ -9785,6 +10327,7 @@ mondata SPECIES_542, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_542, "-----"
 
 
 mondata SPECIES_543, "-----"
@@ -9803,6 +10346,7 @@ mondata SPECIES_543, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
+	mondexentry SPECIES_543, "-----"
 
 
 mondata SPECIES_VICTINI, "Victini"
@@ -9821,6 +10365,7 @@ mondata SPECIES_VICTINI, "Victini"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_VICTINI_TM_DATA_0, SPECIES_VICTINI_TM_DATA_1, SPECIES_VICTINI_TM_DATA_2, SPECIES_VICTINI_TM_DATA_3
+	mondexentry SPECIES_VICTINI, "When it shares the infinite energy it\ncreates, that being’s entire body\nwill be overflowing with power."
 
 
 mondata SPECIES_SNIVY, "Snivy"
@@ -9839,6 +10384,7 @@ mondata SPECIES_SNIVY, "Snivy"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SNIVY_TM_DATA_0, SPECIES_SNIVY_TM_DATA_1, SPECIES_SNIVY_TM_DATA_2, SPECIES_SNIVY_TM_DATA_3
+	mondexentry SPECIES_SNIVY, "It is very intelligent and calm.\nBeing exposed to lots of sunlight\nmakes its movements swifter."
 
 
 mondata SPECIES_SERVINE, "Servine"
@@ -9857,6 +10403,7 @@ mondata SPECIES_SERVINE, "Servine"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SERVINE_TM_DATA_0, SPECIES_SERVINE_TM_DATA_1, SPECIES_SERVINE_TM_DATA_2, SPECIES_SERVINE_TM_DATA_3
+	mondexentry SPECIES_SERVINE, "It moves along the ground as if sliding.\nIts swift movements befuddle its foes,\nand it then attacks with a vine whip."
 
 
 mondata SPECIES_SERPERIOR, "Serperior"
@@ -9875,6 +10422,7 @@ mondata SPECIES_SERPERIOR, "Serperior"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SERPERIOR_TM_DATA_0, SPECIES_SERPERIOR_TM_DATA_1, SPECIES_SERPERIOR_TM_DATA_2, SPECIES_SERPERIOR_TM_DATA_3
+	mondexentry SPECIES_SERPERIOR, "It can stop its opponents’\nmovements with just a glare. It takes\nin solar energy and boosts it internally."
 
 
 mondata SPECIES_TEPIG, "Tepig"
@@ -9893,6 +10441,7 @@ mondata SPECIES_TEPIG, "Tepig"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TEPIG_TM_DATA_0, SPECIES_TEPIG_TM_DATA_1, SPECIES_TEPIG_TM_DATA_2, SPECIES_TEPIG_TM_DATA_3
+	mondexentry SPECIES_TEPIG, "It can deftly dodge its foe’s attacks\nwhile shooting fireballs from its nose.\nIt roasts berries before it eats them."
 
 
 mondata SPECIES_PIGNITE, "Pignite"
@@ -9911,6 +10460,7 @@ mondata SPECIES_PIGNITE, "Pignite"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PIGNITE_TM_DATA_0, SPECIES_PIGNITE_TM_DATA_1, SPECIES_PIGNITE_TM_DATA_2, SPECIES_PIGNITE_TM_DATA_3
+	mondexentry SPECIES_PIGNITE, "When its internal fire flares up, its\nmovements grow sharper and faster.\nWhen in trouble, it emits smoke."
 
 
 mondata SPECIES_EMBOAR, "Emboar"
@@ -9929,6 +10479,7 @@ mondata SPECIES_EMBOAR, "Emboar"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_EMBOAR_TM_DATA_0, SPECIES_EMBOAR_TM_DATA_1, SPECIES_EMBOAR_TM_DATA_2, SPECIES_EMBOAR_TM_DATA_3
+	mondexentry SPECIES_EMBOAR, "It can throw a fire punch by setting its\nfists on fire with its fiery chin. It cares\ndeeply about its friends."
 
 
 mondata SPECIES_OSHAWOTT, "Oshawott"
@@ -9947,6 +10498,7 @@ mondata SPECIES_OSHAWOTT, "Oshawott"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_OSHAWOTT_TM_DATA_0, SPECIES_OSHAWOTT_TM_DATA_1, SPECIES_OSHAWOTT_TM_DATA_2, SPECIES_OSHAWOTT_TM_DATA_3
+	mondexentry SPECIES_OSHAWOTT, "It fights using the scalchop on its\nstomach. In response to an attack,\nit retaliates immediately by slashing."
 
 
 mondata SPECIES_DEWOTT, "Dewott"
@@ -9965,6 +10517,7 @@ mondata SPECIES_DEWOTT, "Dewott"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_DEWOTT_TM_DATA_0, SPECIES_DEWOTT_TM_DATA_1, SPECIES_DEWOTT_TM_DATA_2, SPECIES_DEWOTT_TM_DATA_3
+	mondexentry SPECIES_DEWOTT, "Strict training is how it learns its\nflowing double-scalchop technique."
 
 
 mondata SPECIES_SAMUROTT, "Samurott"
@@ -9983,6 +10536,7 @@ mondata SPECIES_SAMUROTT, "Samurott"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SAMUROTT_TM_DATA_0, SPECIES_SAMUROTT_TM_DATA_1, SPECIES_SAMUROTT_TM_DATA_2, SPECIES_SAMUROTT_TM_DATA_3
+	mondexentry SPECIES_SAMUROTT, "One swing of the sword incorporated in\nits armor can fell an opponent. A simple\nglare from one of them quiets everybody."
 
 
 mondata SPECIES_PATRAT, "Patrat"
@@ -10001,6 +10555,7 @@ mondata SPECIES_PATRAT, "Patrat"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PATRAT_TM_DATA_0, SPECIES_PATRAT_TM_DATA_1, SPECIES_PATRAT_TM_DATA_2, SPECIES_PATRAT_TM_DATA_3
+	mondexentry SPECIES_PATRAT, "Using food stored in cheek pouches,\nthey can keep watch for days. They use\ntheir tails to communicate with others."
 
 
 mondata SPECIES_WATCHOG, "Watchog"
@@ -10019,6 +10574,7 @@ mondata SPECIES_WATCHOG, "Watchog"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_WATCHOG_TM_DATA_0, SPECIES_WATCHOG_TM_DATA_1, SPECIES_WATCHOG_TM_DATA_2, SPECIES_WATCHOG_TM_DATA_3
+	mondexentry SPECIES_WATCHOG, "When they see an enemy, their tails\nstand high, and they spit the seeds of\nberries stored in their cheek pouches."
 
 
 mondata SPECIES_LILLIPUP, "Lillipup"
@@ -10037,6 +10593,7 @@ mondata SPECIES_LILLIPUP, "Lillipup"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_LILLIPUP_TM_DATA_0, SPECIES_LILLIPUP_TM_DATA_1, SPECIES_LILLIPUP_TM_DATA_2, SPECIES_LILLIPUP_TM_DATA_3
+	mondexentry SPECIES_LILLIPUP, "It faces strong opponents with great\ncourage. But, when at a disadvantage in\na fight, this intelligent Pokémon flees."
 
 
 mondata SPECIES_HERDIER, "Herdier"
@@ -10055,6 +10612,7 @@ mondata SPECIES_HERDIER, "Herdier"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_HERDIER_TM_DATA_0, SPECIES_HERDIER_TM_DATA_1, SPECIES_HERDIER_TM_DATA_2, SPECIES_HERDIER_TM_DATA_3
+	mondexentry SPECIES_HERDIER, "It has black, cape-like fur that is\nvery hard and decreases the amount\nof damage it receives."
 
 
 mondata SPECIES_STOUTLAND, "Stoutland"
@@ -10073,6 +10631,7 @@ mondata SPECIES_STOUTLAND, "Stoutland"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_STOUTLAND_TM_DATA_0, SPECIES_STOUTLAND_TM_DATA_1, SPECIES_STOUTLAND_TM_DATA_2, SPECIES_STOUTLAND_TM_DATA_3
+	mondexentry SPECIES_STOUTLAND, "It rescues people stranded by\nblizzards in the mountains. Its\nshaggy fur shields it from the cold."
 
 
 mondata SPECIES_PURRLOIN, "Purrloin"
@@ -10091,6 +10650,7 @@ mondata SPECIES_PURRLOIN, "Purrloin"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_PURRLOIN_TM_DATA_0, SPECIES_PURRLOIN_TM_DATA_1, SPECIES_PURRLOIN_TM_DATA_2, SPECIES_PURRLOIN_TM_DATA_3
+	mondexentry SPECIES_PURRLOIN, "They steal from people for fun, but their\nvictims can’t help but forgive them.\nTheir deceptively cute act is perfect."
 
 
 mondata SPECIES_LIEPARD, "Liepard"
@@ -10109,6 +10669,7 @@ mondata SPECIES_LIEPARD, "Liepard"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_LIEPARD_TM_DATA_0, SPECIES_LIEPARD_TM_DATA_1, SPECIES_LIEPARD_TM_DATA_2, SPECIES_LIEPARD_TM_DATA_3
+	mondexentry SPECIES_LIEPARD, "These Pokémon vanish and appear\nunexpectedly. Many Trainers are drawn\nto their beautiful form and fur."
 
 
 mondata SPECIES_PANSAGE, "Pansage"
@@ -10127,6 +10688,7 @@ mondata SPECIES_PANSAGE, "Pansage"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_PANSAGE_TM_DATA_0, SPECIES_PANSAGE_TM_DATA_1, SPECIES_PANSAGE_TM_DATA_2, SPECIES_PANSAGE_TM_DATA_3
+	mondexentry SPECIES_PANSAGE, "This Pokémon dwells deep in the forest.\nEating a leaf from its head whisks\nweariness away as if by magic."
 
 
 mondata SPECIES_SIMISAGE, "Simisage"
@@ -10145,6 +10707,7 @@ mondata SPECIES_SIMISAGE, "Simisage"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SIMISAGE_TM_DATA_0, SPECIES_SIMISAGE_TM_DATA_1, SPECIES_SIMISAGE_TM_DATA_2, SPECIES_SIMISAGE_TM_DATA_3
+	mondexentry SPECIES_SIMISAGE, "Ill tempered, it fights by swinging its\nbarbed tail around wildly. The leaf\ngrowing on its head is very bitter."
 
 
 mondata SPECIES_PANSEAR, "Pansear"
@@ -10163,6 +10726,7 @@ mondata SPECIES_PANSEAR, "Pansear"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PANSEAR_TM_DATA_0, SPECIES_PANSEAR_TM_DATA_1, SPECIES_PANSEAR_TM_DATA_2, SPECIES_PANSEAR_TM_DATA_3
+	mondexentry SPECIES_PANSEAR, "When it is angered, the temperature\nof its head tuft reaches 600° F.\nIt uses its tuft to roast berries."
 
 
 mondata SPECIES_SIMISEAR, "Simisear"
@@ -10181,6 +10745,7 @@ mondata SPECIES_SIMISEAR, "Simisear"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SIMISEAR_TM_DATA_0, SPECIES_SIMISEAR_TM_DATA_1, SPECIES_SIMISEAR_TM_DATA_2, SPECIES_SIMISEAR_TM_DATA_3
+	mondexentry SPECIES_SIMISEAR, "It loves sweets because they become\nenergy for the fire burning inside\nits body."
 
 
 mondata SPECIES_PANPOUR, "Panpour"
@@ -10199,6 +10764,7 @@ mondata SPECIES_PANPOUR, "Panpour"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PANPOUR_TM_DATA_0, SPECIES_PANPOUR_TM_DATA_1, SPECIES_PANPOUR_TM_DATA_2, SPECIES_PANPOUR_TM_DATA_3
+	mondexentry SPECIES_PANPOUR, "The water stored inside the tuft on\nits head is full of nutrients. Plants\nthat receive its water grow large."
 
 
 mondata SPECIES_SIMIPOUR, "Simipour"
@@ -10217,6 +10783,7 @@ mondata SPECIES_SIMIPOUR, "Simipour"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SIMIPOUR_TM_DATA_0, SPECIES_SIMIPOUR_TM_DATA_1, SPECIES_SIMIPOUR_TM_DATA_2, SPECIES_SIMIPOUR_TM_DATA_3
+	mondexentry SPECIES_SIMIPOUR, "The tuft on its head holds water. When\nthe level runs low, it replenishes the\ntuft by siphoning up water with its tail."
 
 
 mondata SPECIES_MUNNA, "Munna"
@@ -10235,6 +10802,7 @@ mondata SPECIES_MUNNA, "Munna"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MUNNA_TM_DATA_0, SPECIES_MUNNA_TM_DATA_1, SPECIES_MUNNA_TM_DATA_2, SPECIES_MUNNA_TM_DATA_3
+	mondexentry SPECIES_MUNNA, "Munna always float in the air. People\nwhose dreams are eaten by them\nforget what the dreams had been about."
 
 
 mondata SPECIES_MUSHARNA, "Musharna"
@@ -10253,6 +10821,7 @@ mondata SPECIES_MUSHARNA, "Musharna"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MUSHARNA_TM_DATA_0, SPECIES_MUSHARNA_TM_DATA_1, SPECIES_MUSHARNA_TM_DATA_2, SPECIES_MUSHARNA_TM_DATA_3
+	mondexentry SPECIES_MUSHARNA, "The mist emanating from their foreheads\nis packed with the dreams of people\nand Pokémon."
 
 
 mondata SPECIES_PIDOVE, "Pidove"
@@ -10271,6 +10840,7 @@ mondata SPECIES_PIDOVE, "Pidove"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_PIDOVE_TM_DATA_0, SPECIES_PIDOVE_TM_DATA_1, SPECIES_PIDOVE_TM_DATA_2, SPECIES_PIDOVE_TM_DATA_3
+	mondexentry SPECIES_PIDOVE, "Each follows its Trainer’s orders as\nbest it can, but they sometimes fail to\nunderstand complicated commands."
 
 
 mondata SPECIES_TRANQUILL, "Tranquill"
@@ -10289,6 +10859,7 @@ mondata SPECIES_TRANQUILL, "Tranquill"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_TRANQUILL_TM_DATA_0, SPECIES_TRANQUILL_TM_DATA_1, SPECIES_TRANQUILL_TM_DATA_2, SPECIES_TRANQUILL_TM_DATA_3
+	mondexentry SPECIES_TRANQUILL, "It can return to its Trainer’s location\nregardless of the distance\nseparating them."
 
 
 mondata SPECIES_UNFEZANT, "Unfezant"
@@ -10307,6 +10878,7 @@ mondata SPECIES_UNFEZANT, "Unfezant"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_UNFEZANT_TM_DATA_0, SPECIES_UNFEZANT_TM_DATA_1, SPECIES_UNFEZANT_TM_DATA_2, SPECIES_UNFEZANT_TM_DATA_3
+	mondexentry SPECIES_UNFEZANT, "Males swing their head plumage to\nthreaten opponents. The female’s flying\nabilities surpass those of the males."
 
 
 mondata SPECIES_BLITZLE, "Blitzle"
@@ -10325,6 +10897,7 @@ mondata SPECIES_BLITZLE, "Blitzle"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_BLITZLE_TM_DATA_0, SPECIES_BLITZLE_TM_DATA_1, SPECIES_BLITZLE_TM_DATA_2, SPECIES_BLITZLE_TM_DATA_3
+	mondexentry SPECIES_BLITZLE, "Its mane shines when it discharges\nelectricity. They use their flashing\nmanes to communicate with one another."
 
 
 mondata SPECIES_ZEBSTRIKA, "Zebstrika"
@@ -10343,6 +10916,7 @@ mondata SPECIES_ZEBSTRIKA, "Zebstrika"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_ZEBSTRIKA_TM_DATA_0, SPECIES_ZEBSTRIKA_TM_DATA_1, SPECIES_ZEBSTRIKA_TM_DATA_2, SPECIES_ZEBSTRIKA_TM_DATA_3
+	mondexentry SPECIES_ZEBSTRIKA, "They have lightning-like movements.\nWhen Zebstrika run at full speed,\nthe sound of thunder reverberates."
 
 
 mondata SPECIES_ROGGENROLA, "Roggenrola"
@@ -10361,6 +10935,7 @@ mondata SPECIES_ROGGENROLA, "Roggenrola"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ROGGENROLA_TM_DATA_0, SPECIES_ROGGENROLA_TM_DATA_1, SPECIES_ROGGENROLA_TM_DATA_2, SPECIES_ROGGENROLA_TM_DATA_3
+	mondexentry SPECIES_ROGGENROLA, "Its ear is hexagonal in shape.\nCompressed underground,\nits body is as hard as steel."
 
 
 mondata SPECIES_BOLDORE, "Boldore"
@@ -10379,6 +10954,7 @@ mondata SPECIES_BOLDORE, "Boldore"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BOLDORE_TM_DATA_0, SPECIES_BOLDORE_TM_DATA_1, SPECIES_BOLDORE_TM_DATA_2, SPECIES_BOLDORE_TM_DATA_3
+	mondexentry SPECIES_BOLDORE, "When it overflows with power,\nthe orange crystal on its body glows.\nIt looks for underground water in caves."
 
 
 mondata SPECIES_GIGALITH, "Gigalith"
@@ -10397,6 +10973,7 @@ mondata SPECIES_GIGALITH, "Gigalith"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GIGALITH_TM_DATA_0, SPECIES_GIGALITH_TM_DATA_1, SPECIES_GIGALITH_TM_DATA_2, SPECIES_GIGALITH_TM_DATA_3
+	mondexentry SPECIES_GIGALITH, "Compressing the energy from its\ninternal core lets it fire off an attack\ncapable of blowing away a mountain."
 
 
 mondata SPECIES_WOOBAT, "Woobat"
@@ -10415,6 +10992,7 @@ mondata SPECIES_WOOBAT, "Woobat"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WOOBAT_TM_DATA_0, SPECIES_WOOBAT_TM_DATA_1, SPECIES_WOOBAT_TM_DATA_2, SPECIES_WOOBAT_TM_DATA_3
+	mondexentry SPECIES_WOOBAT, "Its habitat is dark forests and caves.\nIt emits ultrasonic waves from its\nnose to learn about its surroundings."
 
 
 mondata SPECIES_SWOOBAT, "Swoobat"
@@ -10433,6 +11011,7 @@ mondata SPECIES_SWOOBAT, "Swoobat"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SWOOBAT_TM_DATA_0, SPECIES_SWOOBAT_TM_DATA_1, SPECIES_SWOOBAT_TM_DATA_2, SPECIES_SWOOBAT_TM_DATA_3
+	mondexentry SPECIES_SWOOBAT, "It emits sound waves of various\nfrequencies from its nose, including\nsome powerful enough to destroy rocks."
 
 
 mondata SPECIES_DRILBUR, "Drilbur"
@@ -10451,6 +11030,7 @@ mondata SPECIES_DRILBUR, "Drilbur"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_DRILBUR_TM_DATA_0, SPECIES_DRILBUR_TM_DATA_1, SPECIES_DRILBUR_TM_DATA_2, SPECIES_DRILBUR_TM_DATA_3
+	mondexentry SPECIES_DRILBUR, "It can dig through the ground\nat a speed of 30 mph. It could give\na car running aboveground a good race."
 
 
 mondata SPECIES_EXCADRILL, "Excadrill"
@@ -10469,6 +11049,7 @@ mondata SPECIES_EXCADRILL, "Excadrill"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_EXCADRILL_TM_DATA_0, SPECIES_EXCADRILL_TM_DATA_1, SPECIES_EXCADRILL_TM_DATA_2, SPECIES_EXCADRILL_TM_DATA_3
+	mondexentry SPECIES_EXCADRILL, "It can help in tunnel construction.\nIts drill has evolved into steel strong\nenough to bore through iron plates."
 
 
 mondata SPECIES_AUDINO, "Audino"
@@ -10487,6 +11068,7 @@ mondata SPECIES_AUDINO, "Audino"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_AUDINO_TM_DATA_0, SPECIES_AUDINO_TM_DATA_1, SPECIES_AUDINO_TM_DATA_2, SPECIES_AUDINO_TM_DATA_3
+	mondexentry SPECIES_AUDINO, "It touches others with the feelers on\nits ears, using the sound of their\nheartbeats to tell how they are feeling."
 
 
 mondata SPECIES_TIMBURR, "Timburr"
@@ -10505,6 +11087,7 @@ mondata SPECIES_TIMBURR, "Timburr"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_TIMBURR_TM_DATA_0, SPECIES_TIMBURR_TM_DATA_1, SPECIES_TIMBURR_TM_DATA_2, SPECIES_TIMBURR_TM_DATA_3
+	mondexentry SPECIES_TIMBURR, "It fights by swinging a piece of lumber\naround. It is close to evolving when it\ncan handle the lumber without difficulty."
 
 
 mondata SPECIES_GURDURR, "Gurdurr"
@@ -10523,6 +11106,7 @@ mondata SPECIES_GURDURR, "Gurdurr"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_GURDURR_TM_DATA_0, SPECIES_GURDURR_TM_DATA_1, SPECIES_GURDURR_TM_DATA_2, SPECIES_GURDURR_TM_DATA_3
+	mondexentry SPECIES_GURDURR, "This Pokémon is so muscular and strongly\nbuilt that even a group of wrestlers\ncould not make it budge an inch."
 
 
 mondata SPECIES_CONKELDURR, "Conkeldurr"
@@ -10541,6 +11125,7 @@ mondata SPECIES_CONKELDURR, "Conkeldurr"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_CONKELDURR_TM_DATA_0, SPECIES_CONKELDURR_TM_DATA_1, SPECIES_CONKELDURR_TM_DATA_2, SPECIES_CONKELDURR_TM_DATA_3
+	mondexentry SPECIES_CONKELDURR, "It is thought that Conkeldurr taught\nhumans how to make concrete more\nthan 2,000 years ago."
 
 
 mondata SPECIES_TYMPOLE, "Tympole"
@@ -10559,6 +11144,7 @@ mondata SPECIES_TYMPOLE, "Tympole"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TYMPOLE_TM_DATA_0, SPECIES_TYMPOLE_TM_DATA_1, SPECIES_TYMPOLE_TM_DATA_2, SPECIES_TYMPOLE_TM_DATA_3
+	mondexentry SPECIES_TYMPOLE, "They warn others of danger by\nvibrating their cheeks to create\na high-pitched sound."
 
 
 mondata SPECIES_PALPITOAD, "Palpitoad"
@@ -10577,6 +11163,7 @@ mondata SPECIES_PALPITOAD, "Palpitoad"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PALPITOAD_TM_DATA_0, SPECIES_PALPITOAD_TM_DATA_1, SPECIES_PALPITOAD_TM_DATA_2, SPECIES_PALPITOAD_TM_DATA_3
+	mondexentry SPECIES_PALPITOAD, "When they vibrate the bumps on their\nheads, they can make waves in water\nor earthquake-like vibrations on land."
 
 
 mondata SPECIES_SEISMITOAD, "Seismitoad"
@@ -10595,6 +11182,7 @@ mondata SPECIES_SEISMITOAD, "Seismitoad"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SEISMITOAD_TM_DATA_0, SPECIES_SEISMITOAD_TM_DATA_1, SPECIES_SEISMITOAD_TM_DATA_2, SPECIES_SEISMITOAD_TM_DATA_3
+	mondexentry SPECIES_SEISMITOAD, "They shoot paralyzing liquid from their\nhead bumps. They use vibration to hurt\ntheir opponents."
 
 
 mondata SPECIES_THROH, "Throh"
@@ -10613,6 +11201,7 @@ mondata SPECIES_THROH, "Throh"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_THROH_TM_DATA_0, SPECIES_THROH_TM_DATA_1, SPECIES_THROH_TM_DATA_2, SPECIES_THROH_TM_DATA_3
+	mondexentry SPECIES_THROH, "When it tightens its belt, it becomes\nstronger. Wild Throh use vines to weave\ntheir own belts."
 
 
 mondata SPECIES_SAWK, "Sawk"
@@ -10631,6 +11220,7 @@ mondata SPECIES_SAWK, "Sawk"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SAWK_TM_DATA_0, SPECIES_SAWK_TM_DATA_1, SPECIES_SAWK_TM_DATA_2, SPECIES_SAWK_TM_DATA_3
+	mondexentry SPECIES_SAWK, "The sound of Sawk punching boulders\nand trees can be heard all the way from\nthe mountains where they train."
 
 
 mondata SPECIES_SEWADDLE, "Sewaddle"
@@ -10649,6 +11239,7 @@ mondata SPECIES_SEWADDLE, "Sewaddle"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SEWADDLE_TM_DATA_0, SPECIES_SEWADDLE_TM_DATA_1, SPECIES_SEWADDLE_TM_DATA_2, SPECIES_SEWADDLE_TM_DATA_3
+	mondexentry SPECIES_SEWADDLE, "Leavanny dress it in clothes they made\nfor it when it hatched. It hides its head\nin its hood while it is sleeping."
 
 
 mondata SPECIES_SWADLOON, "Swadloon"
@@ -10667,6 +11258,7 @@ mondata SPECIES_SWADLOON, "Swadloon"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SWADLOON_TM_DATA_0, SPECIES_SWADLOON_TM_DATA_1, SPECIES_SWADLOON_TM_DATA_2, SPECIES_SWADLOON_TM_DATA_3
+	mondexentry SPECIES_SWADLOON, "Forests where Swadloon live have superb\nfoliage because the nutrients they make\nfrom fallen leaves nourish the plant life."
 
 
 mondata SPECIES_LEAVANNY, "Leavanny"
@@ -10685,6 +11277,7 @@ mondata SPECIES_LEAVANNY, "Leavanny"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_LEAVANNY_TM_DATA_0, SPECIES_LEAVANNY_TM_DATA_1, SPECIES_LEAVANNY_TM_DATA_2, SPECIES_LEAVANNY_TM_DATA_3
+	mondexentry SPECIES_LEAVANNY, "Upon finding a small Pokémon, it weaves\nclothing for it from leaves, using the\ncutters on its arms and sticky silk."
 
 
 mondata SPECIES_VENIPEDE, "Venipede"
@@ -10703,6 +11296,7 @@ mondata SPECIES_VENIPEDE, "Venipede"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_VENIPEDE_TM_DATA_0, SPECIES_VENIPEDE_TM_DATA_1, SPECIES_VENIPEDE_TM_DATA_2, SPECIES_VENIPEDE_TM_DATA_3
+	mondexentry SPECIES_VENIPEDE, "Its bite injects a potent poison, enough\nto paralyze large bird Pokémon that try\nto prey on it."
 
 
 mondata SPECIES_WHIRLIPEDE, "Whirlipede"
@@ -10721,6 +11315,7 @@ mondata SPECIES_WHIRLIPEDE, "Whirlipede"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_WHIRLIPEDE_TM_DATA_0, SPECIES_WHIRLIPEDE_TM_DATA_1, SPECIES_WHIRLIPEDE_TM_DATA_2, SPECIES_WHIRLIPEDE_TM_DATA_3
+	mondexentry SPECIES_WHIRLIPEDE, "Protected by a hard shell, it spins\nits body like a wheel and crashes\nfuriously into its enemies."
 
 
 mondata SPECIES_SCOLIPEDE, "Scolipede"
@@ -10739,6 +11334,7 @@ mondata SPECIES_SCOLIPEDE, "Scolipede"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SCOLIPEDE_TM_DATA_0, SPECIES_SCOLIPEDE_TM_DATA_1, SPECIES_SCOLIPEDE_TM_DATA_2, SPECIES_SCOLIPEDE_TM_DATA_3
+	mondexentry SPECIES_SCOLIPEDE, "With quick movements, it chases down\nits foes, attacking relentlessly with\nits horns until it prevails."
 
 
 mondata SPECIES_COTTONEE, "Cottonee"
@@ -10757,6 +11353,7 @@ mondata SPECIES_COTTONEE, "Cottonee"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_COTTONEE_TM_DATA_0, SPECIES_COTTONEE_TM_DATA_1, SPECIES_COTTONEE_TM_DATA_2, SPECIES_COTTONEE_TM_DATA_3
+	mondexentry SPECIES_COTTONEE, "When attacked, it escapes by shooting\ncotton from its body. The cotton serves\nas a decoy to distract the attacker."
 
 
 mondata SPECIES_WHIMSICOTT, "Whimsicott"
@@ -10775,6 +11372,7 @@ mondata SPECIES_WHIMSICOTT, "Whimsicott"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_WHIMSICOTT_TM_DATA_0, SPECIES_WHIMSICOTT_TM_DATA_1, SPECIES_WHIMSICOTT_TM_DATA_2, SPECIES_WHIMSICOTT_TM_DATA_3
+	mondexentry SPECIES_WHIMSICOTT, "Like the wind, it can slip through any\ngap, no matter how small. It leaves\nballs of white fluff behind."
 
 
 mondata SPECIES_PETILIL, "Petilil"
@@ -10793,6 +11391,7 @@ mondata SPECIES_PETILIL, "Petilil"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_PETILIL_TM_DATA_0, SPECIES_PETILIL_TM_DATA_1, SPECIES_PETILIL_TM_DATA_2, SPECIES_PETILIL_TM_DATA_3
+	mondexentry SPECIES_PETILIL, "The leaves on its head are very bitter.\nEating one of these leaves is known\nto refresh a tired body."
 
 
 mondata SPECIES_LILLIGANT, "Lilligant"
@@ -10811,6 +11410,7 @@ mondata SPECIES_LILLIGANT, "Lilligant"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_LILLIGANT_TM_DATA_0, SPECIES_LILLIGANT_TM_DATA_1, SPECIES_LILLIGANT_TM_DATA_2, SPECIES_LILLIGANT_TM_DATA_3
+	mondexentry SPECIES_LILLIGANT, "Even veteran Trainers face a challenge\nin getting its beautiful flower to bloom.\nThis Pokémon is popular with celebrities."
 
 
 mondata SPECIES_BASCULIN, "Basculin"
@@ -10829,6 +11429,7 @@ mondata SPECIES_BASCULIN, "Basculin"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BASCULIN_TM_DATA_0, SPECIES_BASCULIN_TM_DATA_1, SPECIES_BASCULIN_TM_DATA_2, SPECIES_BASCULIN_TM_DATA_3
+	mondexentry SPECIES_BASCULIN, "Red and blue Basculin get along so\npoorly, they’ll start fighting instantly.\nThese Pokémon are very hostile."
 
 
 mondata SPECIES_SANDILE, "Sandile"
@@ -10847,6 +11448,7 @@ mondata SPECIES_SANDILE, "Sandile"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SANDILE_TM_DATA_0, SPECIES_SANDILE_TM_DATA_1, SPECIES_SANDILE_TM_DATA_2, SPECIES_SANDILE_TM_DATA_3
+	mondexentry SPECIES_SANDILE, "They live buried in the sands of the\ndesert. The sun-warmed sands prevent\ntheir body temperature from dropping."
 
 
 mondata SPECIES_KROKOROK, "Krokorok"
@@ -10865,6 +11467,7 @@ mondata SPECIES_KROKOROK, "Krokorok"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_KROKOROK_TM_DATA_0, SPECIES_KROKOROK_TM_DATA_1, SPECIES_KROKOROK_TM_DATA_2, SPECIES_KROKOROK_TM_DATA_3
+	mondexentry SPECIES_KROKOROK, "They live in groups of a few individuals.\nProtective membranes shield their eyes\nfrom sandstorms."
 
 
 mondata SPECIES_KROOKODILE, "Krookodile"
@@ -10883,6 +11486,7 @@ mondata SPECIES_KROOKODILE, "Krookodile"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_KROOKODILE_TM_DATA_0, SPECIES_KROOKODILE_TM_DATA_1, SPECIES_KROOKODILE_TM_DATA_2, SPECIES_KROOKODILE_TM_DATA_3
+	mondexentry SPECIES_KROOKODILE, "They never allow prey to escape.\nTheir jaws are so powerful, they can\ncrush the body of an automobile."
 
 
 mondata SPECIES_DARUMAKA, "Darumaka"
@@ -10901,6 +11505,7 @@ mondata SPECIES_DARUMAKA, "Darumaka"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DARUMAKA_TM_DATA_0, SPECIES_DARUMAKA_TM_DATA_1, SPECIES_DARUMAKA_TM_DATA_2, SPECIES_DARUMAKA_TM_DATA_3
+	mondexentry SPECIES_DARUMAKA, "When its internal fire is burning, it\ncannot calm down and it runs around.\nWhen the fire diminishes, it falls asleep."
 
 
 mondata SPECIES_DARMANITAN, "Darmanitan"
@@ -10919,6 +11524,7 @@ mondata SPECIES_DARMANITAN, "Darmanitan"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DARMANITAN_TM_DATA_0, SPECIES_DARMANITAN_TM_DATA_1, SPECIES_DARMANITAN_TM_DATA_2, SPECIES_DARMANITAN_TM_DATA_3
+	mondexentry SPECIES_DARMANITAN, "Its internal fire burns at 2,500° F,\nmaking enough power that it can\ndestroy a dump truck with one punch."
 
 
 mondata SPECIES_MARACTUS, "Maractus"
@@ -10937,6 +11543,7 @@ mondata SPECIES_MARACTUS, "Maractus"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_MARACTUS_TM_DATA_0, SPECIES_MARACTUS_TM_DATA_1, SPECIES_MARACTUS_TM_DATA_2, SPECIES_MARACTUS_TM_DATA_3
+	mondexentry SPECIES_MARACTUS, "It uses an up-tempo song and dance\nto drive away the bird Pokémon that\nprey on its flower seeds."
 
 
 mondata SPECIES_DWEBBLE, "Dwebble"
@@ -10955,6 +11562,7 @@ mondata SPECIES_DWEBBLE, "Dwebble"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DWEBBLE_TM_DATA_0, SPECIES_DWEBBLE_TM_DATA_1, SPECIES_DWEBBLE_TM_DATA_2, SPECIES_DWEBBLE_TM_DATA_3
+	mondexentry SPECIES_DWEBBLE, "This Pokémon can easily melt holes in\nhard rocks with a liquid secreted from\nits mouth."
 
 
 mondata SPECIES_CRUSTLE, "Crustle"
@@ -10973,6 +11581,7 @@ mondata SPECIES_CRUSTLE, "Crustle"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CRUSTLE_TM_DATA_0, SPECIES_CRUSTLE_TM_DATA_1, SPECIES_CRUSTLE_TM_DATA_2, SPECIES_CRUSTLE_TM_DATA_3
+	mondexentry SPECIES_CRUSTLE, "Competing for territory, Crustle\nfight viciously. The one whose boulder\nis broken is the loser of the battle."
 
 
 mondata SPECIES_SCRAGGY, "Scraggy"
@@ -10991,6 +11600,7 @@ mondata SPECIES_SCRAGGY, "Scraggy"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_SCRAGGY_TM_DATA_0, SPECIES_SCRAGGY_TM_DATA_1, SPECIES_SCRAGGY_TM_DATA_2, SPECIES_SCRAGGY_TM_DATA_3
+	mondexentry SPECIES_SCRAGGY, "Its skin has a rubbery elasticity, so\nit can reduce damage by defensively\npulling its skin up to its neck."
 
 
 mondata SPECIES_SCRAFTY, "Scrafty"
@@ -11009,6 +11619,7 @@ mondata SPECIES_SCRAFTY, "Scrafty"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SCRAFTY_TM_DATA_0, SPECIES_SCRAFTY_TM_DATA_1, SPECIES_SCRAFTY_TM_DATA_2, SPECIES_SCRAFTY_TM_DATA_3
+	mondexentry SPECIES_SCRAFTY, "Groups of them beat up anything\nthat enters their territory. Each can\nspit acidic liquid from its mouth."
 
 
 mondata SPECIES_SIGILYPH, "Sigilyph"
@@ -11027,6 +11638,7 @@ mondata SPECIES_SIGILYPH, "Sigilyph"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SIGILYPH_TM_DATA_0, SPECIES_SIGILYPH_TM_DATA_1, SPECIES_SIGILYPH_TM_DATA_2, SPECIES_SIGILYPH_TM_DATA_3
+	mondexentry SPECIES_SIGILYPH, "They never vary the route they fly,\nbecause their memories of guarding\nan ancient city remain steadfast."
 
 
 mondata SPECIES_YAMASK, "Yamask"
@@ -11045,6 +11657,7 @@ mondata SPECIES_YAMASK, "Yamask"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_YAMASK_TM_DATA_0, SPECIES_YAMASK_TM_DATA_1, SPECIES_YAMASK_TM_DATA_2, SPECIES_YAMASK_TM_DATA_3
+	mondexentry SPECIES_YAMASK, "Each of them carries a mask that used\nto be its face when it was human.\nSometimes they look at it and cry."
 
 
 mondata SPECIES_COFAGRIGUS, "Cofagrigus"
@@ -11063,6 +11676,7 @@ mondata SPECIES_COFAGRIGUS, "Cofagrigus"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_COFAGRIGUS_TM_DATA_0, SPECIES_COFAGRIGUS_TM_DATA_1, SPECIES_COFAGRIGUS_TM_DATA_2, SPECIES_COFAGRIGUS_TM_DATA_3
+	mondexentry SPECIES_COFAGRIGUS, "It has been said that they swallow those\nwho get too close and turn them into\nmummies. They like to eat gold nuggets."
 
 
 mondata SPECIES_TIRTOUGA, "Tirtouga"
@@ -11081,6 +11695,7 @@ mondata SPECIES_TIRTOUGA, "Tirtouga"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TIRTOUGA_TM_DATA_0, SPECIES_TIRTOUGA_TM_DATA_1, SPECIES_TIRTOUGA_TM_DATA_2, SPECIES_TIRTOUGA_TM_DATA_3
+	mondexentry SPECIES_TIRTOUGA, "Restored from a fossil, this Pokémon\ncan dive to depths beyond half a mile."
 
 
 mondata SPECIES_CARRACOSTA, "Carracosta"
@@ -11099,6 +11714,7 @@ mondata SPECIES_CARRACOSTA, "Carracosta"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CARRACOSTA_TM_DATA_0, SPECIES_CARRACOSTA_TM_DATA_1, SPECIES_CARRACOSTA_TM_DATA_2, SPECIES_CARRACOSTA_TM_DATA_3
+	mondexentry SPECIES_CARRACOSTA, "They can live both in the ocean and on\nland. A slap from one of them is enough\nto open a hole in the bottom of a tanker."
 
 
 mondata SPECIES_ARCHEN, "Archen"
@@ -11117,6 +11733,7 @@ mondata SPECIES_ARCHEN, "Archen"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ARCHEN_TM_DATA_0, SPECIES_ARCHEN_TM_DATA_1, SPECIES_ARCHEN_TM_DATA_2, SPECIES_ARCHEN_TM_DATA_3
+	mondexentry SPECIES_ARCHEN, "Said to be an ancestor of bird Pokémon,\nthey were unable to fly and moved about\nby hopping from one branch to another."
 
 
 mondata SPECIES_ARCHEOPS, "Archeops"
@@ -11135,6 +11752,7 @@ mondata SPECIES_ARCHEOPS, "Archeops"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ARCHEOPS_TM_DATA_0, SPECIES_ARCHEOPS_TM_DATA_1, SPECIES_ARCHEOPS_TM_DATA_2, SPECIES_ARCHEOPS_TM_DATA_3
+	mondexentry SPECIES_ARCHEOPS, "They are intelligent and will cooperate\nto catch prey. From the ground, they\nuse a running start to take flight."
 
 
 mondata SPECIES_TRUBBISH, "Trubbish"
@@ -11153,6 +11771,7 @@ mondata SPECIES_TRUBBISH, "Trubbish"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TRUBBISH_TM_DATA_0, SPECIES_TRUBBISH_TM_DATA_1, SPECIES_TRUBBISH_TM_DATA_2, SPECIES_TRUBBISH_TM_DATA_3
+	mondexentry SPECIES_TRUBBISH, "Inhaling the gas they belch will make\nyou sleep for a week. They prefer\nunsanitary places."
 
 
 mondata SPECIES_GARBODOR, "Garbodor"
@@ -11171,6 +11790,7 @@ mondata SPECIES_GARBODOR, "Garbodor"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GARBODOR_TM_DATA_0, SPECIES_GARBODOR_TM_DATA_1, SPECIES_GARBODOR_TM_DATA_2, SPECIES_GARBODOR_TM_DATA_3
+	mondexentry SPECIES_GARBODOR, "It clenches opponents with its left arm\nand finishes them off with foul-smelling\npoison gas belched from its mouth."
 
 
 mondata SPECIES_ZORUA, "Zorua"
@@ -11189,6 +11809,7 @@ mondata SPECIES_ZORUA, "Zorua"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ZORUA_TM_DATA_0, SPECIES_ZORUA_TM_DATA_1, SPECIES_ZORUA_TM_DATA_2, SPECIES_ZORUA_TM_DATA_3
+	mondexentry SPECIES_ZORUA, "It changes into the forms of others\nto surprise them. Apparently, it\noften transforms into a silent child."
 
 
 mondata SPECIES_ZOROARK, "Zoroark"
@@ -11207,6 +11828,7 @@ mondata SPECIES_ZOROARK, "Zoroark"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ZOROARK_TM_DATA_0, SPECIES_ZOROARK_TM_DATA_1, SPECIES_ZOROARK_TM_DATA_2, SPECIES_ZOROARK_TM_DATA_3
+	mondexentry SPECIES_ZOROARK, "Bonds between these Pokémon are very\nstrong. It protects the safety of its\npack by tricking its opponents."
 
 
 mondata SPECIES_MINCCINO, "Minccino"
@@ -11225,6 +11847,7 @@ mondata SPECIES_MINCCINO, "Minccino"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MINCCINO_TM_DATA_0, SPECIES_MINCCINO_TM_DATA_1, SPECIES_MINCCINO_TM_DATA_2, SPECIES_MINCCINO_TM_DATA_3
+	mondexentry SPECIES_MINCCINO, "They greet one another by rubbing each\nother with their tails, which are always\nkept well groomed and clean."
 
 
 mondata SPECIES_CINCCINO, "Cinccino"
@@ -11243,6 +11866,7 @@ mondata SPECIES_CINCCINO, "Cinccino"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_CINCCINO_TM_DATA_0, SPECIES_CINCCINO_TM_DATA_1, SPECIES_CINCCINO_TM_DATA_2, SPECIES_CINCCINO_TM_DATA_3
+	mondexentry SPECIES_CINCCINO, "Their white fur is coated in a special oil\nthat makes it easy for them to\ndeflect attacks."
 
 
 mondata SPECIES_GOTHITA, "Gothita"
@@ -11261,6 +11885,7 @@ mondata SPECIES_GOTHITA, "Gothita"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GOTHITA_TM_DATA_0, SPECIES_GOTHITA_TM_DATA_1, SPECIES_GOTHITA_TM_DATA_2, SPECIES_GOTHITA_TM_DATA_3
+	mondexentry SPECIES_GOTHITA, "Their ribbonlike feelers increase their\npsychic power. They are always staring\nat something."
 
 
 mondata SPECIES_GOTHORITA, "Gothorita"
@@ -11279,6 +11904,7 @@ mondata SPECIES_GOTHORITA, "Gothorita"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GOTHORITA_TM_DATA_0, SPECIES_GOTHORITA_TM_DATA_1, SPECIES_GOTHORITA_TM_DATA_2, SPECIES_GOTHORITA_TM_DATA_3
+	mondexentry SPECIES_GOTHORITA, "They use hypnosis to control people and\nPokémon. Tales of Gothorita leading\npeople astray are told in every corner."
 
 
 mondata SPECIES_GOTHITELLE, "Gothitelle"
@@ -11297,6 +11923,7 @@ mondata SPECIES_GOTHITELLE, "Gothitelle"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GOTHITELLE_TM_DATA_0, SPECIES_GOTHITELLE_TM_DATA_1, SPECIES_GOTHITELLE_TM_DATA_2, SPECIES_GOTHITELLE_TM_DATA_3
+	mondexentry SPECIES_GOTHITELLE, "Starry skies thousands of light-years\naway are visible in the space distorted\nby their intense psychic power."
 
 
 mondata SPECIES_SOLOSIS, "Solosis"
@@ -11315,6 +11942,7 @@ mondata SPECIES_SOLOSIS, "Solosis"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SOLOSIS_TM_DATA_0, SPECIES_SOLOSIS_TM_DATA_1, SPECIES_SOLOSIS_TM_DATA_2, SPECIES_SOLOSIS_TM_DATA_3
+	mondexentry SPECIES_SOLOSIS, "They drive away attackers by unleashing\npsychic power. They can use telepathy\nto talk with others."
 
 
 mondata SPECIES_DUOSION, "Duosion"
@@ -11333,6 +11961,7 @@ mondata SPECIES_DUOSION, "Duosion"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DUOSION_TM_DATA_0, SPECIES_DUOSION_TM_DATA_1, SPECIES_DUOSION_TM_DATA_2, SPECIES_DUOSION_TM_DATA_3
+	mondexentry SPECIES_DUOSION, "Since they have two divided brains,\nat times they suddenly try to take two\ndifferent actions at once."
 
 
 mondata SPECIES_REUNICLUS, "Reuniclus"
@@ -11351,6 +11980,7 @@ mondata SPECIES_REUNICLUS, "Reuniclus"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_REUNICLUS_TM_DATA_0, SPECIES_REUNICLUS_TM_DATA_1, SPECIES_REUNICLUS_TM_DATA_2, SPECIES_REUNICLUS_TM_DATA_3
+	mondexentry SPECIES_REUNICLUS, "When Reuniclus shake hands, a network\nforms between their brains, increasing\ntheir psychic power."
 
 
 mondata SPECIES_DUCKLETT, "Ducklett"
@@ -11369,6 +11999,7 @@ mondata SPECIES_DUCKLETT, "Ducklett"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_DUCKLETT_TM_DATA_0, SPECIES_DUCKLETT_TM_DATA_1, SPECIES_DUCKLETT_TM_DATA_2, SPECIES_DUCKLETT_TM_DATA_3
+	mondexentry SPECIES_DUCKLETT, "These bird Pokémon are excellent divers.\nThey swim around in the water eating\ntheir favorite food--peat moss."
 
 
 mondata SPECIES_SWANNA, "Swanna"
@@ -11387,6 +12018,7 @@ mondata SPECIES_SWANNA, "Swanna"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SWANNA_TM_DATA_0, SPECIES_SWANNA_TM_DATA_1, SPECIES_SWANNA_TM_DATA_2, SPECIES_SWANNA_TM_DATA_3
+	mondexentry SPECIES_SWANNA, "Swanna start to dance at dusk.\nThe one dancing in the middle is\nthe leader of the flock."
 
 
 mondata SPECIES_VANILLITE, "Vanillite"
@@ -11405,6 +12037,7 @@ mondata SPECIES_VANILLITE, "Vanillite"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_VANILLITE_TM_DATA_0, SPECIES_VANILLITE_TM_DATA_1, SPECIES_VANILLITE_TM_DATA_2, SPECIES_VANILLITE_TM_DATA_3
+	mondexentry SPECIES_VANILLITE, "The temperature of their breath\nis -58° F. They create snow crystals and\nmake snow fall in the areas around them."
 
 
 mondata SPECIES_VANILLISH, "Vanillish"
@@ -11423,6 +12056,7 @@ mondata SPECIES_VANILLISH, "Vanillish"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_VANILLISH_TM_DATA_0, SPECIES_VANILLISH_TM_DATA_1, SPECIES_VANILLISH_TM_DATA_2, SPECIES_VANILLISH_TM_DATA_3
+	mondexentry SPECIES_VANILLISH, "Snowy mountains are this Pokémon’s\nhabitat. During an ancient ice age, they\nmoved to southern areas."
 
 
 mondata SPECIES_VANILLUXE, "Vanilluxe"
@@ -11441,6 +12075,7 @@ mondata SPECIES_VANILLUXE, "Vanilluxe"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_VANILLUXE_TM_DATA_0, SPECIES_VANILLUXE_TM_DATA_1, SPECIES_VANILLUXE_TM_DATA_2, SPECIES_VANILLUXE_TM_DATA_3
+	mondexentry SPECIES_VANILLUXE, "Swallowing large amounts of water, they\nmake snow clouds inside their bodies and\nattack their foes with violent blizzards."
 
 
 mondata SPECIES_DEERLING, "Deerling"
@@ -11459,6 +12094,7 @@ mondata SPECIES_DEERLING, "Deerling"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_DEERLING_TM_DATA_0, SPECIES_DEERLING_TM_DATA_1, SPECIES_DEERLING_TM_DATA_2, SPECIES_DEERLING_TM_DATA_3
+	mondexentry SPECIES_DEERLING, "The color and scent of their fur changes\nto match the mountain grass. When they\nsense hostility, they hide in the grass."
 
 
 mondata SPECIES_SAWSBUCK, "Sawsbuck"
@@ -11477,6 +12113,7 @@ mondata SPECIES_SAWSBUCK, "Sawsbuck"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SAWSBUCK_TM_DATA_0, SPECIES_SAWSBUCK_TM_DATA_1, SPECIES_SAWSBUCK_TM_DATA_2, SPECIES_SAWSBUCK_TM_DATA_3
+	mondexentry SPECIES_SAWSBUCK, "They migrate according to the seasons.\nPeople can tell the season by looking at\nSawsbuck’s horns."
 
 
 mondata SPECIES_EMOLGA, "Emolga"
@@ -11495,6 +12132,7 @@ mondata SPECIES_EMOLGA, "Emolga"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_EMOLGA_TM_DATA_0, SPECIES_EMOLGA_TM_DATA_1, SPECIES_EMOLGA_TM_DATA_2, SPECIES_EMOLGA_TM_DATA_3
+	mondexentry SPECIES_EMOLGA, "The energy made in its cheek’s electric\npouches is stored inside its membrane\nand released while it is gliding."
 
 
 mondata SPECIES_KARRABLAST, "Karrablast"
@@ -11513,6 +12151,7 @@ mondata SPECIES_KARRABLAST, "Karrablast"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_KARRABLAST_TM_DATA_0, SPECIES_KARRABLAST_TM_DATA_1, SPECIES_KARRABLAST_TM_DATA_2, SPECIES_KARRABLAST_TM_DATA_3
+	mondexentry SPECIES_KARRABLAST, "These mysterious Pokémon evolve when\nthey receive electrical stimulation while\nthey are in the same place as Shelmet."
 
 
 mondata SPECIES_ESCAVALIER, "Escavalier"
@@ -11531,6 +12170,7 @@ mondata SPECIES_ESCAVALIER, "Escavalier"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ESCAVALIER_TM_DATA_0, SPECIES_ESCAVALIER_TM_DATA_1, SPECIES_ESCAVALIER_TM_DATA_2, SPECIES_ESCAVALIER_TM_DATA_3
+	mondexentry SPECIES_ESCAVALIER, "They fly around at high speed, striking\nwith their pointed spears. Even when in\ntrouble, they face opponents bravely."
 
 
 mondata SPECIES_FOONGUS, "Foongus"
@@ -11549,6 +12189,7 @@ mondata SPECIES_FOONGUS, "Foongus"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FOONGUS_TM_DATA_0, SPECIES_FOONGUS_TM_DATA_1, SPECIES_FOONGUS_TM_DATA_2, SPECIES_FOONGUS_TM_DATA_3
+	mondexentry SPECIES_FOONGUS, "It lures people in with its Poké Ball\npattern, then releases poison spores.\nWhy it resembles a Poké Ball is unknown."
 
 
 mondata SPECIES_AMOONGUSS, "Amoonguss"
@@ -11567,6 +12208,7 @@ mondata SPECIES_AMOONGUSS, "Amoonguss"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_AMOONGUSS_TM_DATA_0, SPECIES_AMOONGUSS_TM_DATA_1, SPECIES_AMOONGUSS_TM_DATA_2, SPECIES_AMOONGUSS_TM_DATA_3
+	mondexentry SPECIES_AMOONGUSS, "It lures prey close by dancing and\nwaving its arm caps, which resemble\nPoké Balls, in a swaying motion."
 
 
 mondata SPECIES_FRILLISH, "Frillish"
@@ -11585,6 +12227,7 @@ mondata SPECIES_FRILLISH, "Frillish"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FRILLISH_TM_DATA_0, SPECIES_FRILLISH_TM_DATA_1, SPECIES_FRILLISH_TM_DATA_2, SPECIES_FRILLISH_TM_DATA_3
+	mondexentry SPECIES_FRILLISH, "With its thin, veil-like arms wrapped\naround the body of its opponent,\nit sinks to the ocean floor."
 
 
 mondata SPECIES_JELLICENT, "Jellicent"
@@ -11603,6 +12246,7 @@ mondata SPECIES_JELLICENT, "Jellicent"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_JELLICENT_TM_DATA_0, SPECIES_JELLICENT_TM_DATA_1, SPECIES_JELLICENT_TM_DATA_2, SPECIES_JELLICENT_TM_DATA_3
+	mondexentry SPECIES_JELLICENT, "The fate of the ships and crew that\nwander into Jellicent’s habitat:\nall sunken, all lost, all vanished."
 
 
 mondata SPECIES_ALOMOMOLA, "Alomomola"
@@ -11621,6 +12265,7 @@ mondata SPECIES_ALOMOMOLA, "Alomomola"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_ALOMOMOLA_TM_DATA_0, SPECIES_ALOMOMOLA_TM_DATA_1, SPECIES_ALOMOMOLA_TM_DATA_2, SPECIES_ALOMOMOLA_TM_DATA_3
+	mondexentry SPECIES_ALOMOMOLA, "The special membrane enveloping\nAlomomola has the ability to heal wounds."
 
 
 mondata SPECIES_JOLTIK, "Joltik"
@@ -11639,6 +12284,7 @@ mondata SPECIES_JOLTIK, "Joltik"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_JOLTIK_TM_DATA_0, SPECIES_JOLTIK_TM_DATA_1, SPECIES_JOLTIK_TM_DATA_2, SPECIES_JOLTIK_TM_DATA_3
+	mondexentry SPECIES_JOLTIK, "Joltik that live in cities have learned\na technique for sucking electricity\nfrom the outlets in houses."
 
 
 mondata SPECIES_GALVANTULA, "Galvantula"
@@ -11657,6 +12303,7 @@ mondata SPECIES_GALVANTULA, "Galvantula"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_GALVANTULA_TM_DATA_0, SPECIES_GALVANTULA_TM_DATA_1, SPECIES_GALVANTULA_TM_DATA_2, SPECIES_GALVANTULA_TM_DATA_3
+	mondexentry SPECIES_GALVANTULA, "When attacked, they create an\nelectric barrier by spitting out\nmany electrically charged threads."
 
 
 mondata SPECIES_FERROSEED, "Ferroseed"
@@ -11675,6 +12322,7 @@ mondata SPECIES_FERROSEED, "Ferroseed"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_FERROSEED_TM_DATA_0, SPECIES_FERROSEED_TM_DATA_1, SPECIES_FERROSEED_TM_DATA_2, SPECIES_FERROSEED_TM_DATA_3
+	mondexentry SPECIES_FERROSEED, "When threatened, it attacks by\nshooting a barrage of spikes, which gives\nit a chance to escape by rolling away."
 
 
 mondata SPECIES_FERROTHORN, "Ferrothorn"
@@ -11693,6 +12341,7 @@ mondata SPECIES_FERROTHORN, "Ferrothorn"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_FERROTHORN_TM_DATA_0, SPECIES_FERROTHORN_TM_DATA_1, SPECIES_FERROTHORN_TM_DATA_2, SPECIES_FERROTHORN_TM_DATA_3
+	mondexentry SPECIES_FERROTHORN, "It fights by swinging around its three\nspiky feelers. A hit from these steel\nspikes can reduce a boulder to rubble."
 
 
 mondata SPECIES_KLINK, "Klink"
@@ -11711,6 +12360,7 @@ mondata SPECIES_KLINK, "Klink"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_KLINK_TM_DATA_0, SPECIES_KLINK_TM_DATA_1, SPECIES_KLINK_TM_DATA_2, SPECIES_KLINK_TM_DATA_3
+	mondexentry SPECIES_KLINK, "The two minigears that mesh together\nare predetermined. Each will rebound\nfrom other minigears without meshing."
 
 
 mondata SPECIES_KLANG, "Klang"
@@ -11729,6 +12379,7 @@ mondata SPECIES_KLANG, "Klang"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_KLANG_TM_DATA_0, SPECIES_KLANG_TM_DATA_1, SPECIES_KLANG_TM_DATA_2, SPECIES_KLANG_TM_DATA_3
+	mondexentry SPECIES_KLANG, "By changing the direction in which it\nrotates, it communicates its feelings to\nothers. When angry, it rotates faster."
 
 
 mondata SPECIES_KLINKLANG, "Klinklang"
@@ -11747,6 +12398,7 @@ mondata SPECIES_KLINKLANG, "Klinklang"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_KLINKLANG_TM_DATA_0, SPECIES_KLINKLANG_TM_DATA_1, SPECIES_KLINKLANG_TM_DATA_2, SPECIES_KLINKLANG_TM_DATA_3
+	mondexentry SPECIES_KLINKLANG, "Its red core functions as an energy\ntank. It fires the charged energy\nthrough its spikes into an area."
 
 
 mondata SPECIES_TYNAMO, "Tynamo"
@@ -11765,6 +12417,7 @@ mondata SPECIES_TYNAMO, "Tynamo"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_TYNAMO_TM_DATA_0, SPECIES_TYNAMO_TM_DATA_1, SPECIES_TYNAMO_TM_DATA_2, SPECIES_TYNAMO_TM_DATA_3
+	mondexentry SPECIES_TYNAMO, "While one alone doesn’t have much power,\na chain of many Tynamo can be as\npowerful as lightning."
 
 
 mondata SPECIES_EELEKTRIK, "Eelektrik"
@@ -11783,6 +12436,7 @@ mondata SPECIES_EELEKTRIK, "Eelektrik"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_EELEKTRIK_TM_DATA_0, SPECIES_EELEKTRIK_TM_DATA_1, SPECIES_EELEKTRIK_TM_DATA_2, SPECIES_EELEKTRIK_TM_DATA_3
+	mondexentry SPECIES_EELEKTRIK, "They coil around foes and shock them\nwith electricity-generating organs that\nseem simply to be circular patterns."
 
 
 mondata SPECIES_EELEKTROSS, "Eelektross"
@@ -11801,6 +12455,7 @@ mondata SPECIES_EELEKTROSS, "Eelektross"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_EELEKTROSS_TM_DATA_0, SPECIES_EELEKTROSS_TM_DATA_1, SPECIES_EELEKTROSS_TM_DATA_2, SPECIES_EELEKTROSS_TM_DATA_3
+	mondexentry SPECIES_EELEKTROSS, "They crawl out of the ocean using their\narms. They will attack prey on shore and\nimmediately drag it into the ocean."
 
 
 mondata SPECIES_ELGYEM, "Elgyem"
@@ -11819,6 +12474,7 @@ mondata SPECIES_ELGYEM, "Elgyem"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ELGYEM_TM_DATA_0, SPECIES_ELGYEM_TM_DATA_1, SPECIES_ELGYEM_TM_DATA_2, SPECIES_ELGYEM_TM_DATA_3
+	mondexentry SPECIES_ELGYEM, "It uses its strong psychic power\nto squeeze its opponent’s brain,\ncausing unendurable headaches."
 
 
 mondata SPECIES_BEHEEYEM, "Beheeyem"
@@ -11837,6 +12493,7 @@ mondata SPECIES_BEHEEYEM, "Beheeyem"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BEHEEYEM_TM_DATA_0, SPECIES_BEHEEYEM_TM_DATA_1, SPECIES_BEHEEYEM_TM_DATA_2, SPECIES_BEHEEYEM_TM_DATA_3
+	mondexentry SPECIES_BEHEEYEM, "It can manipulate an opponent’s memory.\nApparently, it communicates by flashing\nits three different-colored fingers."
 
 
 mondata SPECIES_LITWICK, "Litwick"
@@ -11855,6 +12512,7 @@ mondata SPECIES_LITWICK, "Litwick"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_LITWICK_TM_DATA_0, SPECIES_LITWICK_TM_DATA_1, SPECIES_LITWICK_TM_DATA_2, SPECIES_LITWICK_TM_DATA_3
+	mondexentry SPECIES_LITWICK, "Litwick shines a light that absorbs the\nlife energy of people and Pokémon,\nwhich becomes the fuel that it burns."
 
 
 mondata SPECIES_LAMPENT, "Lampent"
@@ -11873,6 +12531,7 @@ mondata SPECIES_LAMPENT, "Lampent"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_LAMPENT_TM_DATA_0, SPECIES_LAMPENT_TM_DATA_1, SPECIES_LAMPENT_TM_DATA_2, SPECIES_LAMPENT_TM_DATA_3
+	mondexentry SPECIES_LAMPENT, "This ominous Pokémon is feared.\nThrough cities it wanders, searching\nfor the spirits of the fallen."
 
 
 mondata SPECIES_CHANDELURE, "Chandelure"
@@ -11891,6 +12550,7 @@ mondata SPECIES_CHANDELURE, "Chandelure"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_CHANDELURE_TM_DATA_0, SPECIES_CHANDELURE_TM_DATA_1, SPECIES_CHANDELURE_TM_DATA_2, SPECIES_CHANDELURE_TM_DATA_3
+	mondexentry SPECIES_CHANDELURE, "It absorbs a spirit, which it then burns.\nBy waving the flames on its arms,\nit puts its foes into a hypnotic trance."
 
 
 mondata SPECIES_AXEW, "Axew"
@@ -11909,6 +12569,7 @@ mondata SPECIES_AXEW, "Axew"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_AXEW_TM_DATA_0, SPECIES_AXEW_TM_DATA_1, SPECIES_AXEW_TM_DATA_2, SPECIES_AXEW_TM_DATA_3
+	mondexentry SPECIES_AXEW, "They use their tusks to crush the\nberries they eat. Repeated regrowth\nmakes their tusks strong and sharp."
 
 
 mondata SPECIES_FRAXURE, "Fraxure"
@@ -11927,6 +12588,7 @@ mondata SPECIES_FRAXURE, "Fraxure"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_FRAXURE_TM_DATA_0, SPECIES_FRAXURE_TM_DATA_1, SPECIES_FRAXURE_TM_DATA_2, SPECIES_FRAXURE_TM_DATA_3
+	mondexentry SPECIES_FRAXURE, "Since a broken tusk will not grow back,\nthey diligently sharpen their tusks on\nriver rocks after they’ve been fighting."
 
 
 mondata SPECIES_HAXORUS, "Haxorus"
@@ -11945,6 +12607,7 @@ mondata SPECIES_HAXORUS, "Haxorus"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_HAXORUS_TM_DATA_0, SPECIES_HAXORUS_TM_DATA_1, SPECIES_HAXORUS_TM_DATA_2, SPECIES_HAXORUS_TM_DATA_3
+	mondexentry SPECIES_HAXORUS, "They are kind but can be relentless\nwhen defending territory. They challenge\nfoes with tusks that can cut steel."
 
 
 mondata SPECIES_CUBCHOO, "Cubchoo"
@@ -11963,6 +12626,7 @@ mondata SPECIES_CUBCHOO, "Cubchoo"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_CUBCHOO_TM_DATA_0, SPECIES_CUBCHOO_TM_DATA_1, SPECIES_CUBCHOO_TM_DATA_2, SPECIES_CUBCHOO_TM_DATA_3
+	mondexentry SPECIES_CUBCHOO, "When it is not feeling well, its mucus\ngets watery and the power of its\nIce-type moves decreases."
 
 
 mondata SPECIES_BEARTIC, "Beartic"
@@ -11981,6 +12645,7 @@ mondata SPECIES_BEARTIC, "Beartic"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_BEARTIC_TM_DATA_0, SPECIES_BEARTIC_TM_DATA_1, SPECIES_BEARTIC_TM_DATA_2, SPECIES_BEARTIC_TM_DATA_3
+	mondexentry SPECIES_BEARTIC, "It can make its breath freeze at will.\nVery able in the water, it swims around\nin northern seas and catches prey."
 
 
 mondata SPECIES_CRYOGONAL, "Cryogonal"
@@ -11999,6 +12664,7 @@ mondata SPECIES_CRYOGONAL, "Cryogonal"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CRYOGONAL_TM_DATA_0, SPECIES_CRYOGONAL_TM_DATA_1, SPECIES_CRYOGONAL_TM_DATA_2, SPECIES_CRYOGONAL_TM_DATA_3
+	mondexentry SPECIES_CRYOGONAL, "When its body temperature goes up, it\nturns into steam and vanishes. When its\ntemperature lowers, it returns to ice."
 
 
 mondata SPECIES_SHELMET, "Shelmet"
@@ -12017,6 +12683,7 @@ mondata SPECIES_SHELMET, "Shelmet"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SHELMET_TM_DATA_0, SPECIES_SHELMET_TM_DATA_1, SPECIES_SHELMET_TM_DATA_2, SPECIES_SHELMET_TM_DATA_3
+	mondexentry SPECIES_SHELMET, "When attacked, it defends itself by\nclosing the lid of its shell. It can spit\na sticky, poisonous liquid."
 
 
 mondata SPECIES_ACCELGOR, "Accelgor"
@@ -12035,6 +12702,7 @@ mondata SPECIES_ACCELGOR, "Accelgor"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ACCELGOR_TM_DATA_0, SPECIES_ACCELGOR_TM_DATA_1, SPECIES_ACCELGOR_TM_DATA_2, SPECIES_ACCELGOR_TM_DATA_3
+	mondexentry SPECIES_ACCELGOR, "When its body dries out, it weakens.\nSo, to prevent dehydration, it wraps\nitself in many layers of thin membrane."
 
 
 mondata SPECIES_STUNFISK, "Stunfisk"
@@ -12053,6 +12721,7 @@ mondata SPECIES_STUNFISK, "Stunfisk"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_STUNFISK_TM_DATA_0, SPECIES_STUNFISK_TM_DATA_1, SPECIES_STUNFISK_TM_DATA_2, SPECIES_STUNFISK_TM_DATA_3
+	mondexentry SPECIES_STUNFISK, "Its skin is very hard, so it is unhurt\neven if stepped on by sumo wrestlers.\nIt smiles when transmitting electricity."
 
 
 mondata SPECIES_MIENFOO, "Mienfoo"
@@ -12071,6 +12740,7 @@ mondata SPECIES_MIENFOO, "Mienfoo"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MIENFOO_TM_DATA_0, SPECIES_MIENFOO_TM_DATA_1, SPECIES_MIENFOO_TM_DATA_2, SPECIES_MIENFOO_TM_DATA_3
+	mondexentry SPECIES_MIENFOO, "In fights, they dominate with onslaughts\nof flowing, continuous attacks. With\ntheir sharp claws, they cut enemies."
 
 
 mondata SPECIES_MIENSHAO, "Mienshao"
@@ -12089,6 +12759,7 @@ mondata SPECIES_MIENSHAO, "Mienshao"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MIENSHAO_TM_DATA_0, SPECIES_MIENSHAO_TM_DATA_1, SPECIES_MIENSHAO_TM_DATA_2, SPECIES_MIENSHAO_TM_DATA_3
+	mondexentry SPECIES_MIENSHAO, "It wields the fur on its arms like a whip.\nIts arm attacks come with such rapidity\nthat they cannot even be seen."
 
 
 mondata SPECIES_DRUDDIGON, "Druddigon"
@@ -12107,6 +12778,7 @@ mondata SPECIES_DRUDDIGON, "Druddigon"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DRUDDIGON_TM_DATA_0, SPECIES_DRUDDIGON_TM_DATA_1, SPECIES_DRUDDIGON_TM_DATA_2, SPECIES_DRUDDIGON_TM_DATA_3
+	mondexentry SPECIES_DRUDDIGON, "It warms its body by absorbing sunlight\nwith its wings. When its body temperature\nfalls, it can no longer move."
 
 
 mondata SPECIES_GOLETT, "Golett"
@@ -12125,6 +12797,7 @@ mondata SPECIES_GOLETT, "Golett"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GOLETT_TM_DATA_0, SPECIES_GOLETT_TM_DATA_1, SPECIES_GOLETT_TM_DATA_2, SPECIES_GOLETT_TM_DATA_3
+	mondexentry SPECIES_GOLETT, "The energy that burns inside it\nenables it to move, but no one has yet\nbeen able to identify this energy."
 
 
 mondata SPECIES_GOLURK, "Golurk"
@@ -12143,6 +12816,7 @@ mondata SPECIES_GOLURK, "Golurk"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GOLURK_TM_DATA_0, SPECIES_GOLURK_TM_DATA_1, SPECIES_GOLURK_TM_DATA_2, SPECIES_GOLURK_TM_DATA_3
+	mondexentry SPECIES_GOLURK, "It flies across the sky at Mach speeds.\nRemoving the seal on its chest makes\nits internal energy go out of control."
 
 
 mondata SPECIES_PAWNIARD, "Pawniard"
@@ -12161,6 +12835,7 @@ mondata SPECIES_PAWNIARD, "Pawniard"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_PAWNIARD_TM_DATA_0, SPECIES_PAWNIARD_TM_DATA_1, SPECIES_PAWNIARD_TM_DATA_2, SPECIES_PAWNIARD_TM_DATA_3
+	mondexentry SPECIES_PAWNIARD, "Blades comprise this Pokémon’s entire\nbody. If battling dulls the blades, it\nsharpens them on stones by the river."
 
 
 mondata SPECIES_BISHARP, "Bisharp"
@@ -12179,6 +12854,7 @@ mondata SPECIES_BISHARP, "Bisharp"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_BISHARP_TM_DATA_0, SPECIES_BISHARP_TM_DATA_1, SPECIES_BISHARP_TM_DATA_2, SPECIES_BISHARP_TM_DATA_3
+	mondexentry SPECIES_BISHARP, "It leads a group of Pawniard.\nIt battles to become the boss, but will\nbe driven from the group if it loses."
 
 
 mondata SPECIES_BOUFFALANT, "Bouffalant"
@@ -12197,6 +12873,7 @@ mondata SPECIES_BOUFFALANT, "Bouffalant"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BOUFFALANT_TM_DATA_0, SPECIES_BOUFFALANT_TM_DATA_1, SPECIES_BOUFFALANT_TM_DATA_2, SPECIES_BOUFFALANT_TM_DATA_3
+	mondexentry SPECIES_BOUFFALANT, "Their fluffy fur absorbs damage,\neven if they strike foes with a\nfierce headbutt."
 
 
 mondata SPECIES_RUFFLET, "Rufflet"
@@ -12215,6 +12892,7 @@ mondata SPECIES_RUFFLET, "Rufflet"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_RUFFLET_TM_DATA_0, SPECIES_RUFFLET_TM_DATA_1, SPECIES_RUFFLET_TM_DATA_2, SPECIES_RUFFLET_TM_DATA_3
+	mondexentry SPECIES_RUFFLET, "They crush berries with their talons.\nThey bravely stand up to any opponent,\nno matter how strong it is."
 
 
 mondata SPECIES_BRAVIARY, "Braviary"
@@ -12233,6 +12911,7 @@ mondata SPECIES_BRAVIARY, "Braviary"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_BRAVIARY_TM_DATA_0, SPECIES_BRAVIARY_TM_DATA_1, SPECIES_BRAVIARY_TM_DATA_2, SPECIES_BRAVIARY_TM_DATA_3
+	mondexentry SPECIES_BRAVIARY, "They fight for their friends without any\nthought about danger to themselves.\nOne can carry a car while flying."
 
 
 mondata SPECIES_VULLABY, "Vullaby"
@@ -12251,6 +12930,7 @@ mondata SPECIES_VULLABY, "Vullaby"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_VULLABY_TM_DATA_0, SPECIES_VULLABY_TM_DATA_1, SPECIES_VULLABY_TM_DATA_2, SPECIES_VULLABY_TM_DATA_3
+	mondexentry SPECIES_VULLABY, "Its wings are too tiny to allow it to fly.\nAs the time approaches for it to evolve,\nit discards the bones it was wearing."
 
 
 mondata SPECIES_MANDIBUZZ, "Mandibuzz"
@@ -12269,6 +12949,7 @@ mondata SPECIES_MANDIBUZZ, "Mandibuzz"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MANDIBUZZ_TM_DATA_0, SPECIES_MANDIBUZZ_TM_DATA_1, SPECIES_MANDIBUZZ_TM_DATA_2, SPECIES_MANDIBUZZ_TM_DATA_3
+	mondexentry SPECIES_MANDIBUZZ, "It makes a nest out of bones it finds.\nIt grabs weakened prey in its talons\nand hauls it to its nest of bones."
 
 
 mondata SPECIES_HEATMOR, "Heatmor"
@@ -12287,6 +12968,7 @@ mondata SPECIES_HEATMOR, "Heatmor"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_HEATMOR_TM_DATA_0, SPECIES_HEATMOR_TM_DATA_1, SPECIES_HEATMOR_TM_DATA_2, SPECIES_HEATMOR_TM_DATA_3
+	mondexentry SPECIES_HEATMOR, "It breathes through a hole in its tail\nwhile it burns with an internal fire.\nDurant is its prey."
 
 
 mondata SPECIES_DURANT, "Durant"
@@ -12305,6 +12987,7 @@ mondata SPECIES_DURANT, "Durant"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_DURANT_TM_DATA_0, SPECIES_DURANT_TM_DATA_1, SPECIES_DURANT_TM_DATA_2, SPECIES_DURANT_TM_DATA_3
+	mondexentry SPECIES_DURANT, "They attack in groups, covering\nthemselves in steel armor to\nprotect themselves from Heatmor."
 
 
 mondata SPECIES_DEINO, "Deino"
@@ -12323,6 +13006,7 @@ mondata SPECIES_DEINO, "Deino"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_DEINO_TM_DATA_0, SPECIES_DEINO_TM_DATA_1, SPECIES_DEINO_TM_DATA_2, SPECIES_DEINO_TM_DATA_3
+	mondexentry SPECIES_DEINO, "It tends to bite everything, and it\nis not a picky eater. Approaching it\ncarelessly is dangerous."
 
 
 mondata SPECIES_ZWEILOUS, "Zweilous"
@@ -12341,6 +13025,7 @@ mondata SPECIES_ZWEILOUS, "Zweilous"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ZWEILOUS_TM_DATA_0, SPECIES_ZWEILOUS_TM_DATA_1, SPECIES_ZWEILOUS_TM_DATA_2, SPECIES_ZWEILOUS_TM_DATA_3
+	mondexentry SPECIES_ZWEILOUS, "After it has eaten up all the food in\nits territory, it moves to another\narea. Its two heads do not get along."
 
 
 mondata SPECIES_HYDREIGON, "Hydreigon"
@@ -12359,6 +13044,7 @@ mondata SPECIES_HYDREIGON, "Hydreigon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_HYDREIGON_TM_DATA_0, SPECIES_HYDREIGON_TM_DATA_1, SPECIES_HYDREIGON_TM_DATA_2, SPECIES_HYDREIGON_TM_DATA_3
+	mondexentry SPECIES_HYDREIGON, "This brutal Pokémon travels the skies on\nits six wings. Anything that moves seems\nlike a foe to it, triggering its attack."
 
 
 mondata SPECIES_LARVESTA, "Larvesta"
@@ -12377,6 +13063,7 @@ mondata SPECIES_LARVESTA, "Larvesta"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_LARVESTA_TM_DATA_0, SPECIES_LARVESTA_TM_DATA_1, SPECIES_LARVESTA_TM_DATA_2, SPECIES_LARVESTA_TM_DATA_3
+	mondexentry SPECIES_LARVESTA, "This Pokémon was believed to have\nbeen born from the sun. When it evolves,\nits entire body is engulfed in flames."
 
 
 mondata SPECIES_VOLCARONA, "Volcarona"
@@ -12395,6 +13082,7 @@ mondata SPECIES_VOLCARONA, "Volcarona"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_VOLCARONA_TM_DATA_0, SPECIES_VOLCARONA_TM_DATA_1, SPECIES_VOLCARONA_TM_DATA_2, SPECIES_VOLCARONA_TM_DATA_3
+	mondexentry SPECIES_VOLCARONA, "When volcanic ash darkened the\natmosphere, it is said that Volcarona’s\nfire provided a replacement for the sun."
 
 
 mondata SPECIES_COBALION, "Cobalion"
@@ -12413,6 +13101,7 @@ mondata SPECIES_COBALION, "Cobalion"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_COBALION_TM_DATA_0, SPECIES_COBALION_TM_DATA_1, SPECIES_COBALION_TM_DATA_2, SPECIES_COBALION_TM_DATA_3
+	mondexentry SPECIES_COBALION, "This legendary Pokémon battled against\nhumans to protect Pokémon.\nIts personality is calm and composed."
 
 
 mondata SPECIES_TERRAKION, "Terrakion"
@@ -12431,6 +13120,7 @@ mondata SPECIES_TERRAKION, "Terrakion"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_TERRAKION_TM_DATA_0, SPECIES_TERRAKION_TM_DATA_1, SPECIES_TERRAKION_TM_DATA_2, SPECIES_TERRAKION_TM_DATA_3
+	mondexentry SPECIES_TERRAKION, "This Pokémon came to the defense of\nPokémon that had lost their homes in\na war among humans."
 
 
 mondata SPECIES_VIRIZION, "Virizion"
@@ -12449,6 +13139,7 @@ mondata SPECIES_VIRIZION, "Virizion"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_VIRIZION_TM_DATA_0, SPECIES_VIRIZION_TM_DATA_1, SPECIES_VIRIZION_TM_DATA_2, SPECIES_VIRIZION_TM_DATA_3
+	mondexentry SPECIES_VIRIZION, "This Pokémon fought humans in order\nto protect its friends. Legends about it\ncontinue to be passed down."
 
 
 mondata SPECIES_TORNADUS, "Tornadus"
@@ -12467,6 +13158,7 @@ mondata SPECIES_TORNADUS, "Tornadus"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_TORNADUS_TM_DATA_0, SPECIES_TORNADUS_TM_DATA_1, SPECIES_TORNADUS_TM_DATA_2, SPECIES_TORNADUS_TM_DATA_3
+	mondexentry SPECIES_TORNADUS, "The lower half of its body is wrapped in\na cloud of energy. It zooms through\nthe sky at 200 mph."
 
 
 mondata SPECIES_THUNDURUS, "Thundurus"
@@ -12485,6 +13177,7 @@ mondata SPECIES_THUNDURUS, "Thundurus"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_THUNDURUS_TM_DATA_0, SPECIES_THUNDURUS_TM_DATA_1, SPECIES_THUNDURUS_TM_DATA_2, SPECIES_THUNDURUS_TM_DATA_3
+	mondexentry SPECIES_THUNDURUS, "Countless charred remains mar the\nlandscape of places through which\nThundurus has passed."
 
 
 mondata SPECIES_RESHIRAM, "Reshiram"
@@ -12503,6 +13196,7 @@ mondata SPECIES_RESHIRAM, "Reshiram"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_RESHIRAM_TM_DATA_0, SPECIES_RESHIRAM_TM_DATA_1, SPECIES_RESHIRAM_TM_DATA_2, SPECIES_RESHIRAM_TM_DATA_3
+	mondexentry SPECIES_RESHIRAM, "This Pokémon appears in legends.\nIt sends flames into the air from its\ntail, burning up everything around it."
 
 
 mondata SPECIES_ZEKROM, "Zekrom"
@@ -12521,6 +13215,7 @@ mondata SPECIES_ZEKROM, "Zekrom"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_ZEKROM_TM_DATA_0, SPECIES_ZEKROM_TM_DATA_1, SPECIES_ZEKROM_TM_DATA_2, SPECIES_ZEKROM_TM_DATA_3
+	mondexentry SPECIES_ZEKROM, "Concealing itself in lightning clouds,\nit flies throughout the Unova region.\nIt creates electricity in its tail."
 
 
 mondata SPECIES_LANDORUS, "Landorus"
@@ -12539,6 +13234,7 @@ mondata SPECIES_LANDORUS, "Landorus"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_LANDORUS_TM_DATA_0, SPECIES_LANDORUS_TM_DATA_1, SPECIES_LANDORUS_TM_DATA_2, SPECIES_LANDORUS_TM_DATA_3
+	mondexentry SPECIES_LANDORUS, "Lands visited by Landorus grant such\nbountiful crops that it has been hailed\nas “The Guardian of the Fields.“"
 
 
 mondata SPECIES_KYUREM, "Kyurem"
@@ -12557,6 +13253,7 @@ mondata SPECIES_KYUREM, "Kyurem"
     runchance 0
     colorflip BODY_COLOR_EGG, 0
     tmdata SPECIES_KYUREM_TM_DATA_0, SPECIES_KYUREM_TM_DATA_1, SPECIES_KYUREM_TM_DATA_2, SPECIES_KYUREM_TM_DATA_3
+	mondexentry SPECIES_KYUREM, "It generates a powerful, freezing\nenergy inside itself, but its body became\nfrozen when the energy leaked out."
 
 
 mondata SPECIES_KELDEO, "Keldeo"
@@ -12575,6 +13272,7 @@ mondata SPECIES_KELDEO, "Keldeo"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_KELDEO_TM_DATA_0, SPECIES_KELDEO_TM_DATA_1, SPECIES_KELDEO_TM_DATA_2, SPECIES_KELDEO_TM_DATA_3
+	mondexentry SPECIES_KELDEO, "By blasting water from its hooves, it can\nglide across water. It excels at using\nleg moves while battling."
 
 
 mondata SPECIES_MELOETTA, "Meloetta"
@@ -12593,6 +13291,7 @@ mondata SPECIES_MELOETTA, "Meloetta"
     runchance 0
     colorflip BODY_COLOR_EGG, 0
     tmdata SPECIES_MELOETTA_TM_DATA_0, SPECIES_MELOETTA_TM_DATA_1, SPECIES_MELOETTA_TM_DATA_2, SPECIES_MELOETTA_TM_DATA_3
+	mondexentry SPECIES_MELOETTA, "Its melodies are sung with a special\nvocalization method that can control\nthe feelings of those who hear it."
 
 
 mondata SPECIES_GENESECT, "Genesect"
@@ -12611,6 +13310,7 @@ mondata SPECIES_GENESECT, "Genesect"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GENESECT_TM_DATA_0, SPECIES_GENESECT_TM_DATA_1, SPECIES_GENESECT_TM_DATA_2, SPECIES_GENESECT_TM_DATA_3
+	mondexentry SPECIES_GENESECT, "Over 300 million years ago, it was feared\nas the strongest of hunters.\nIt has been modified by Team Plasma."
 
 
 mondata SPECIES_CHESPIN, "Chespin"
@@ -12629,6 +13329,7 @@ mondata SPECIES_CHESPIN, "Chespin"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CHESPIN_TM_DATA_0, SPECIES_CHESPIN_TM_DATA_1, SPECIES_CHESPIN_TM_DATA_2, SPECIES_CHESPIN_TM_DATA_3
+	mondexentry SPECIES_CHESPIN, "Such a thick shell of wood covers its head and back\nthat even a direct hit from a truck wouldn’t faze it."
 
 
 mondata SPECIES_QUILLADIN, "Quilladin"
@@ -12647,6 +13348,7 @@ mondata SPECIES_QUILLADIN, "Quilladin"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_QUILLADIN_TM_DATA_0, SPECIES_QUILLADIN_TM_DATA_1, SPECIES_QUILLADIN_TM_DATA_2, SPECIES_QUILLADIN_TM_DATA_3
+	mondexentry SPECIES_QUILLADIN, "They strengthen their lower bodies by\nrunning into one another. They are very\nkind and won’t start fights."
 
 
 mondata SPECIES_CHESNAUGHT, "Chesnaught"
@@ -12665,6 +13367,7 @@ mondata SPECIES_CHESNAUGHT, "Chesnaught"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CHESNAUGHT_TM_DATA_0, SPECIES_CHESNAUGHT_TM_DATA_1, SPECIES_CHESNAUGHT_TM_DATA_2, SPECIES_CHESNAUGHT_TM_DATA_3
+	mondexentry SPECIES_CHESNAUGHT, "When it takes a defensive posture with its fists\nguarding its face, it could withstand a bomb blast."
 
 
 mondata SPECIES_FENNEKIN, "Fennekin"
@@ -12683,6 +13386,7 @@ mondata SPECIES_FENNEKIN, "Fennekin"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_FENNEKIN_TM_DATA_0, SPECIES_FENNEKIN_TM_DATA_1, SPECIES_FENNEKIN_TM_DATA_2, SPECIES_FENNEKIN_TM_DATA_3
+	mondexentry SPECIES_FENNEKIN, "As it walks, it munches on a twig in place\nof a snack. It intimidates opponents\nby puffing hot air out of its ears."
 
 
 mondata SPECIES_BRAIXEN, "Braixen"
@@ -12701,6 +13405,7 @@ mondata SPECIES_BRAIXEN, "Braixen"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_BRAIXEN_TM_DATA_0, SPECIES_BRAIXEN_TM_DATA_1, SPECIES_BRAIXEN_TM_DATA_2, SPECIES_BRAIXEN_TM_DATA_3
+	mondexentry SPECIES_BRAIXEN, "It has a twig stuck in its tail. With\nfriction from its tail fur, it sets the\ntwig on fire and launches into battle."
 
 
 mondata SPECIES_DELPHOX, "Delphox"
@@ -12719,6 +13424,7 @@ mondata SPECIES_DELPHOX, "Delphox"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_DELPHOX_TM_DATA_0, SPECIES_DELPHOX_TM_DATA_1, SPECIES_DELPHOX_TM_DATA_2, SPECIES_DELPHOX_TM_DATA_3
+	mondexentry SPECIES_DELPHOX, "Using psychic power, it generates a\nfiery vortex of 5,400 degrees Fahrenheit,\nincinerating foes swept into this whirl of flame."
 
 
 mondata SPECIES_FROAKIE, "Froakie"
@@ -12737,6 +13443,7 @@ mondata SPECIES_FROAKIE, "Froakie"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_FROAKIE_TM_DATA_0, SPECIES_FROAKIE_TM_DATA_1, SPECIES_FROAKIE_TM_DATA_2, SPECIES_FROAKIE_TM_DATA_3
+	mondexentry SPECIES_FROAKIE, "It secretes flexible bubbles from its chest and back.\nThe bubbles reduce the damage it would otherwise\ntake when attacked."
 
 
 mondata SPECIES_FROGADIER, "Frogadier"
@@ -12755,6 +13462,7 @@ mondata SPECIES_FROGADIER, "Frogadier"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_FROGADIER_TM_DATA_0, SPECIES_FROGADIER_TM_DATA_1, SPECIES_FROGADIER_TM_DATA_2, SPECIES_FROGADIER_TM_DATA_3
+	mondexentry SPECIES_FROGADIER, "It can throw bubble-covered pebbles with precise\ncontrol, hitting empty cans up to a hundred feet away."
 
 
 mondata SPECIES_GRENINJA, "Greninja"
@@ -12773,6 +13481,7 @@ mondata SPECIES_GRENINJA, "Greninja"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GRENINJA_TM_DATA_0, SPECIES_GRENINJA_TM_DATA_1, SPECIES_GRENINJA_TM_DATA_2, SPECIES_GRENINJA_TM_DATA_3
+	mondexentry SPECIES_GRENINJA, "It appears and vanishes with a ninja’s grace.\nIt toys with its enemies using swift movements, while\nslicing them with throwing stars of sharpest water."
 
 
 mondata SPECIES_BUNNELBY, "Bunnelby"
@@ -12791,6 +13500,7 @@ mondata SPECIES_BUNNELBY, "Bunnelby"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BUNNELBY_TM_DATA_0, SPECIES_BUNNELBY_TM_DATA_1, SPECIES_BUNNELBY_TM_DATA_2, SPECIES_BUNNELBY_TM_DATA_3
+	mondexentry SPECIES_BUNNELBY, "They use their large ears to dig burrows.\nThey will dig the whole night through."
 
 
 mondata SPECIES_DIGGERSBY, "Diggersby"
@@ -12809,6 +13519,7 @@ mondata SPECIES_DIGGERSBY, "Diggersby"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DIGGERSBY_TM_DATA_0, SPECIES_DIGGERSBY_TM_DATA_1, SPECIES_DIGGERSBY_TM_DATA_2, SPECIES_DIGGERSBY_TM_DATA_3
+	mondexentry SPECIES_DIGGERSBY, "With their powerful ears, they can heft\nboulders of a ton or more with ease.\nThey can be a big help at construction sites."
 
 
 mondata SPECIES_FLETCHLING, "Fletchling"
@@ -12827,6 +13538,7 @@ mondata SPECIES_FLETCHLING, "Fletchling"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_FLETCHLING_TM_DATA_0, SPECIES_FLETCHLING_TM_DATA_1, SPECIES_FLETCHLING_TM_DATA_2, SPECIES_FLETCHLING_TM_DATA_3
+	mondexentry SPECIES_FLETCHLING, "While it’s an amiable Pokémon, if you touch it\nunexpectedly, it will heat up its body in an\ninstant, and you’ll be burned."
 
 
 mondata SPECIES_FLETCHINDER, "Fletchinder"
@@ -12845,6 +13557,7 @@ mondata SPECIES_FLETCHINDER, "Fletchinder"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_FLETCHINDER_TM_DATA_0, SPECIES_FLETCHINDER_TM_DATA_1, SPECIES_FLETCHINDER_TM_DATA_2, SPECIES_FLETCHINDER_TM_DATA_3
+	mondexentry SPECIES_FLETCHINDER, "The hotter the flame sac on its belly,\nthe faster it can fly, but it takes some\ntime to get the fire going."
 
 
 mondata SPECIES_TALONFLAME, "Talonflame"
@@ -12863,6 +13576,7 @@ mondata SPECIES_TALONFLAME, "Talonflame"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TALONFLAME_TM_DATA_0, SPECIES_TALONFLAME_TM_DATA_1, SPECIES_TALONFLAME_TM_DATA_2, SPECIES_TALONFLAME_TM_DATA_3
+	mondexentry SPECIES_TALONFLAME, "When attacking prey, it can reach speeds\nof up to 310 mph. It finishes its prey off\nwith a colossal kick."
 
 
 mondata SPECIES_SCATTERBUG, "Scatterbug"
@@ -12881,6 +13595,7 @@ mondata SPECIES_SCATTERBUG, "Scatterbug"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SCATTERBUG_TM_DATA_0, SPECIES_SCATTERBUG_TM_DATA_1, SPECIES_SCATTERBUG_TM_DATA_2, SPECIES_SCATTERBUG_TM_DATA_3
+	mondexentry SPECIES_SCATTERBUG, "The powder that covers its body\nregulates its temperature, so it\ncan live in any region or climate."
 
 
 mondata SPECIES_SPEWPA, "Spewpa"
@@ -12899,6 +13614,7 @@ mondata SPECIES_SPEWPA, "Spewpa"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SPEWPA_TM_DATA_0, SPECIES_SPEWPA_TM_DATA_1, SPECIES_SPEWPA_TM_DATA_2, SPECIES_SPEWPA_TM_DATA_3
+	mondexentry SPECIES_SPEWPA, "The beaks of bird Pokémon can’t begin\nto scratch its stalwart body.\nTo defend itself, it spews powder."
 
 
 mondata SPECIES_VIVILLON, "Vivillon"
@@ -12917,6 +13633,7 @@ mondata SPECIES_VIVILLON, "Vivillon"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_VIVILLON_TM_DATA_0, SPECIES_VIVILLON_TM_DATA_1, SPECIES_VIVILLON_TM_DATA_2, SPECIES_VIVILLON_TM_DATA_3
+	mondexentry SPECIES_VIVILLON, "The patterns on this Pokémon’s wings\ndepend on the climate and topography\nof its habitat. It scatters colorful scales."
 
 
 mondata SPECIES_LITLEO, "Litleo"
@@ -12935,6 +13652,7 @@ mondata SPECIES_LITLEO, "Litleo"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_LITLEO_TM_DATA_0, SPECIES_LITLEO_TM_DATA_1, SPECIES_LITLEO_TM_DATA_2, SPECIES_LITLEO_TM_DATA_3
+	mondexentry SPECIES_LITLEO, "The stronger the opponent it faces,\nthe more heat surges from its mane\nand the more power flows through its body."
 
 
 mondata SPECIES_PYROAR, "Pyroar"
@@ -12953,6 +13671,7 @@ mondata SPECIES_PYROAR, "Pyroar"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PYROAR_TM_DATA_0, SPECIES_PYROAR_TM_DATA_1, SPECIES_PYROAR_TM_DATA_2, SPECIES_PYROAR_TM_DATA_3
+	mondexentry SPECIES_PYROAR, "The temperature of its breath is over 10,000\ndegrees Fahrenheit, but Pyroar doesn’t use it on\nits prey. This Pokémon prefers to eat raw meat."
 
 
 mondata SPECIES_FLABEBE, "Flabébé"
@@ -12971,6 +13690,7 @@ mondata SPECIES_FLABEBE, "Flabébé"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FLABEBE_TM_DATA_0, SPECIES_FLABEBE_TM_DATA_1, SPECIES_FLABEBE_TM_DATA_2, SPECIES_FLABEBE_TM_DATA_3
+	mondexentry SPECIES_FLABEBE, "When it finds a flower it likes, it dwells on\nthat flower its whole life long. It floats in the\nwind’s embrace with an untroubled heart."
 
 
 mondata SPECIES_FLOETTE, "Floette"
@@ -12989,6 +13709,7 @@ mondata SPECIES_FLOETTE, "Floette"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FLOETTE_TM_DATA_0, SPECIES_FLOETTE_TM_DATA_1, SPECIES_FLOETTE_TM_DATA_2, SPECIES_FLOETTE_TM_DATA_3
+	mondexentry SPECIES_FLOETTE, "It raises flowers and uses them as weapons.\nThe more gorgeous the blossom, the more\npower it contains."
 
 
 mondata SPECIES_FLORGES, "Florges"
@@ -13007,6 +13728,7 @@ mondata SPECIES_FLORGES, "Florges"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FLORGES_TM_DATA_0, SPECIES_FLORGES_TM_DATA_1, SPECIES_FLORGES_TM_DATA_2, SPECIES_FLORGES_TM_DATA_3
+	mondexentry SPECIES_FLORGES, "It claims exquisite flower gardens as its territory,\nand it obtains power from basking in the energy\nemitted by flowering plants."
 
 
 mondata SPECIES_SKIDDO, "Skiddo"
@@ -13025,6 +13747,7 @@ mondata SPECIES_SKIDDO, "Skiddo"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SKIDDO_TM_DATA_0, SPECIES_SKIDDO_TM_DATA_1, SPECIES_SKIDDO_TM_DATA_2, SPECIES_SKIDDO_TM_DATA_3
+	mondexentry SPECIES_SKIDDO, "Thought to be one of the first Pokémon to live in\nharmony with humans, it has a placid disposition."
 
 
 mondata SPECIES_GOGOAT, "Gogoat"
@@ -13043,6 +13766,7 @@ mondata SPECIES_GOGOAT, "Gogoat"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GOGOAT_TM_DATA_0, SPECIES_GOGOAT_TM_DATA_1, SPECIES_GOGOAT_TM_DATA_2, SPECIES_GOGOAT_TM_DATA_3
+	mondexentry SPECIES_GOGOAT, "It can tell how its Trainer is feeling by\nsubtle shifts in the grip on its horns.\nThis empathic sense lets them run as if one being."
 
 
 mondata SPECIES_PANCHAM, "Pancham"
@@ -13061,6 +13785,7 @@ mondata SPECIES_PANCHAM, "Pancham"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_PANCHAM_TM_DATA_0, SPECIES_PANCHAM_TM_DATA_1, SPECIES_PANCHAM_TM_DATA_2, SPECIES_PANCHAM_TM_DATA_3
+	mondexentry SPECIES_PANCHAM, "It does its best to be taken seriously by its enemies,\nbut its glare is not sufficiently intimidating.\nChewing on a leaf is its trademark."
 
 
 mondata SPECIES_PANGORO, "Pangoro"
@@ -13079,6 +13804,7 @@ mondata SPECIES_PANGORO, "Pangoro"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_PANGORO_TM_DATA_0, SPECIES_PANGORO_TM_DATA_1, SPECIES_PANGORO_TM_DATA_2, SPECIES_PANGORO_TM_DATA_3
+	mondexentry SPECIES_PANGORO, "Although it possesses a violent temperament,\nit won’t put up with bullying. It uses the leaf in\nits mouth to sense the movements of its enemies."
 
 
 mondata SPECIES_FURFROU, "Furfrou"
@@ -13097,6 +13823,7 @@ mondata SPECIES_FURFROU, "Furfrou"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FURFROU_TM_DATA_0, SPECIES_FURFROU_TM_DATA_1, SPECIES_FURFROU_TM_DATA_2, SPECIES_FURFROU_TM_DATA_3
+	mondexentry SPECIES_FURFROU, "Left alone, its fur will grow longer and longer,\nbut it will only allow someone it trusts to cut it."
 
 
 mondata SPECIES_ESPURR, "Espurr"
@@ -13115,6 +13842,7 @@ mondata SPECIES_ESPURR, "Espurr"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_ESPURR_TM_DATA_0, SPECIES_ESPURR_TM_DATA_1, SPECIES_ESPURR_TM_DATA_2, SPECIES_ESPURR_TM_DATA_3
+	mondexentry SPECIES_ESPURR, "There’s enough psychic power in Espurr to send a\nwrestler flying, but because this power can’t be\ncontrolled, Espurr finds it troublesome."
 
 
 mondata SPECIES_MEOWSTIC, "Meowstic"
@@ -13133,6 +13861,7 @@ mondata SPECIES_MEOWSTIC, "Meowstic"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MEOWSTIC_TM_DATA_0, SPECIES_MEOWSTIC_TM_DATA_1, SPECIES_MEOWSTIC_TM_DATA_2, SPECIES_MEOWSTIC_TM_DATA_3
+	mondexentry SPECIES_MEOWSTIC, "The eyeball patterns on the interior of its ears\nemit psychic energy. It keeps the patterns tightly\ncovered because that power is too immense."
 
 
 mondata SPECIES_HONEDGE, "Honedge"
@@ -13151,6 +13880,7 @@ mondata SPECIES_HONEDGE, "Honedge"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_HONEDGE_TM_DATA_0, SPECIES_HONEDGE_TM_DATA_1, SPECIES_HONEDGE_TM_DATA_2, SPECIES_HONEDGE_TM_DATA_3
+	mondexentry SPECIES_HONEDGE, "Honedge’s soul once belonged to a person who\nwas killed a long time ago by the sword that\nmakes up Honedge’s body."
 
 
 mondata SPECIES_DOUBLADE, "Doublade"
@@ -13169,6 +13899,7 @@ mondata SPECIES_DOUBLADE, "Doublade"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DOUBLADE_TM_DATA_0, SPECIES_DOUBLADE_TM_DATA_1, SPECIES_DOUBLADE_TM_DATA_2, SPECIES_DOUBLADE_TM_DATA_3
+	mondexentry SPECIES_DOUBLADE, "The complex attack patterns of its two swords\nare unstoppable, even for an opponent\ngreatly accomplished at swordplay."
 
 
 mondata SPECIES_AEGISLASH, "Aegislash"
@@ -13187,6 +13918,7 @@ mondata SPECIES_AEGISLASH, "Aegislash"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_AEGISLASH_TM_DATA_0, SPECIES_AEGISLASH_TM_DATA_1, SPECIES_AEGISLASH_TM_DATA_2, SPECIES_AEGISLASH_TM_DATA_3
+	mondexentry SPECIES_AEGISLASH, "In this defensive stance, Aegislash uses its steel\nbody and a force field of spectral power to\nreduce the damage of any attack."
 
 
 mondata SPECIES_SPRITZEE, "Spritzee"
@@ -13205,6 +13937,7 @@ mondata SPECIES_SPRITZEE, "Spritzee"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SPRITZEE_TM_DATA_0, SPECIES_SPRITZEE_TM_DATA_1, SPECIES_SPRITZEE_TM_DATA_2, SPECIES_SPRITZEE_TM_DATA_3
+	mondexentry SPECIES_SPRITZEE, "The scent its body gives off enraptures those\nwho smell it. Noble ladies had no shortage of\nlove for Spritzee."
 
 
 mondata SPECIES_AROMATISSE, "Aromatisse"
@@ -13223,6 +13956,7 @@ mondata SPECIES_AROMATISSE, "Aromatisse"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_AROMATISSE_TM_DATA_0, SPECIES_AROMATISSE_TM_DATA_1, SPECIES_AROMATISSE_TM_DATA_2, SPECIES_AROMATISSE_TM_DATA_3
+	mondexentry SPECIES_AROMATISSE, "It devises various scents, pleasant and unpleasant,\nand emits scents that its enemies dislike in order\nto gain an edge in battle."
 
 
 mondata SPECIES_SWIRLIX, "Swirlix"
@@ -13241,6 +13975,7 @@ mondata SPECIES_SWIRLIX, "Swirlix"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SWIRLIX_TM_DATA_0, SPECIES_SWIRLIX_TM_DATA_1, SPECIES_SWIRLIX_TM_DATA_2, SPECIES_SWIRLIX_TM_DATA_3
+	mondexentry SPECIES_SWIRLIX, "The sweet smell of cotton candy perfumes\nSwirlix’s fluffy fur. This Pokémon spits out\nsticky string to tangle up its enemies."
 
 
 mondata SPECIES_SLURPUFF, "Slurpuff"
@@ -13259,6 +13994,7 @@ mondata SPECIES_SLURPUFF, "Slurpuff"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SLURPUFF_TM_DATA_0, SPECIES_SLURPUFF_TM_DATA_1, SPECIES_SLURPUFF_TM_DATA_2, SPECIES_SLURPUFF_TM_DATA_3
+	mondexentry SPECIES_SLURPUFF, "Its sense of smell is 100 million times better than\na human’s, so even the faintest scent tells it about\neverything in the area. It’s like it can see with its nose!"
 
 
 mondata SPECIES_INKAY, "Inkay"
@@ -13277,6 +14013,7 @@ mondata SPECIES_INKAY, "Inkay"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_INKAY_TM_DATA_0, SPECIES_INKAY_TM_DATA_1, SPECIES_INKAY_TM_DATA_2, SPECIES_INKAY_TM_DATA_3
+	mondexentry SPECIES_INKAY, "It draws prey near with its blinking lights and\nthen wraps them up in its long tentacles and\nholds them in place."
 
 
 mondata SPECIES_MALAMAR, "Malamar"
@@ -13295,6 +14032,7 @@ mondata SPECIES_MALAMAR, "Malamar"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MALAMAR_TM_DATA_0, SPECIES_MALAMAR_TM_DATA_1, SPECIES_MALAMAR_TM_DATA_2, SPECIES_MALAMAR_TM_DATA_3
+	mondexentry SPECIES_MALAMAR, "It flashes the pattern on its torso to control its\nprey and draw them in. The edges of its fins are\nsupremely sharp."
 
 
 mondata SPECIES_BINACLE, "Binacle"
@@ -13313,6 +14051,7 @@ mondata SPECIES_BINACLE, "Binacle"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BINACLE_TM_DATA_0, SPECIES_BINACLE_TM_DATA_1, SPECIES_BINACLE_TM_DATA_2, SPECIES_BINACLE_TM_DATA_3
+	mondexentry SPECIES_BINACLE, "If the two don’t work well together, both their\noffense and defense fall apart. Without good\nteamwork, they won’t survive."
 
 
 mondata SPECIES_BARBARACLE, "Barbaracle"
@@ -13331,6 +14070,7 @@ mondata SPECIES_BARBARACLE, "Barbaracle"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BARBARACLE_TM_DATA_0, SPECIES_BARBARACLE_TM_DATA_1, SPECIES_BARBARACLE_TM_DATA_2, SPECIES_BARBARACLE_TM_DATA_3
+	mondexentry SPECIES_BARBARACLE, "Having an eye on each palm allows it to keep\nwatch in all directions. In a pinch, its limbs start\nto act on their own to ensure the enemy’s defeat."
 
 
 mondata SPECIES_SKRELP, "Skrelp"
@@ -13349,6 +14089,7 @@ mondata SPECIES_SKRELP, "Skrelp"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SKRELP_TM_DATA_0, SPECIES_SKRELP_TM_DATA_1, SPECIES_SKRELP_TM_DATA_2, SPECIES_SKRELP_TM_DATA_3
+	mondexentry SPECIES_SKRELP, "Camouflaged as rotten kelp, they spray\nliquid poison on prey that approaches\nunawares and then finish it off."
 
 
 mondata SPECIES_DRAGALGE, "Dragalge"
@@ -13367,6 +14108,7 @@ mondata SPECIES_DRAGALGE, "Dragalge"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DRAGALGE_TM_DATA_0, SPECIES_DRAGALGE_TM_DATA_1, SPECIES_DRAGALGE_TM_DATA_2, SPECIES_DRAGALGE_TM_DATA_3
+	mondexentry SPECIES_DRAGALGE, "Dragalge generates dragon energy by sticking\nthe plume on its head out above the ocean’s\nsurface and bathing it in sunlight."
 
 
 mondata SPECIES_CLAUNCHER, "Clauncher"
@@ -13385,6 +14127,7 @@ mondata SPECIES_CLAUNCHER, "Clauncher"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CLAUNCHER_TM_DATA_0, SPECIES_CLAUNCHER_TM_DATA_1, SPECIES_CLAUNCHER_TM_DATA_2, SPECIES_CLAUNCHER_TM_DATA_3
+	mondexentry SPECIES_CLAUNCHER, "By detonating gas that accumulates in its right\nclaw, this Pokémon launches water like a bullet.\nThis is how Clauncher defeats its enemies."
 
 
 mondata SPECIES_CLAWITZER, "Clawitzer"
@@ -13403,6 +14146,7 @@ mondata SPECIES_CLAWITZER, "Clawitzer"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CLAWITZER_TM_DATA_0, SPECIES_CLAWITZER_TM_DATA_1, SPECIES_CLAWITZER_TM_DATA_2, SPECIES_CLAWITZER_TM_DATA_3
+	mondexentry SPECIES_CLAWITZER, "By expelling water from the nozzle in the back\nof its claw, it can move at a speed of 60 knots."
 
 
 mondata SPECIES_HELIOPTILE, "Helioptile"
@@ -13421,6 +14165,7 @@ mondata SPECIES_HELIOPTILE, "Helioptile"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_HELIOPTILE_TM_DATA_0, SPECIES_HELIOPTILE_TM_DATA_1, SPECIES_HELIOPTILE_TM_DATA_2, SPECIES_HELIOPTILE_TM_DATA_3
+	mondexentry SPECIES_HELIOPTILE, "When spread, the frills on its head act like solar\npanels, generating the power behind this\nPokémon’s electric moves."
 
 
 mondata SPECIES_HELIOLISK, "Heliolisk"
@@ -13439,6 +14184,7 @@ mondata SPECIES_HELIOLISK, "Heliolisk"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_HELIOLISK_TM_DATA_0, SPECIES_HELIOLISK_TM_DATA_1, SPECIES_HELIOLISK_TM_DATA_2, SPECIES_HELIOLISK_TM_DATA_3
+	mondexentry SPECIES_HELIOLISK, "A now-vanished desert culture treasured these\nPokémon. Appropriately, when Heliolisk came to\nthe Galar region, treasure came with them."
 
 
 mondata SPECIES_TYRUNT, "Tyrunt"
@@ -13457,6 +14203,7 @@ mondata SPECIES_TYRUNT, "Tyrunt"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_TYRUNT_TM_DATA_0, SPECIES_TYRUNT_TM_DATA_1, SPECIES_TYRUNT_TM_DATA_2, SPECIES_TYRUNT_TM_DATA_3
+	mondexentry SPECIES_TYRUNT, "Its immense jaws have enough destructive\nforce that it can chew up an automobile.\nIt lived 100 million years ago."
 
 
 mondata SPECIES_TYRANTRUM, "Tyrantrum"
@@ -13475,6 +14222,7 @@ mondata SPECIES_TYRANTRUM, "Tyrantrum"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TYRANTRUM_TM_DATA_0, SPECIES_TYRANTRUM_TM_DATA_1, SPECIES_TYRANTRUM_TM_DATA_2, SPECIES_TYRANTRUM_TM_DATA_3
+	mondexentry SPECIES_TYRANTRUM, "Complete restoration is impossible, allowing\nroom for theories that its entire body was\nonce covered in a feather-like coat."
 
 
 mondata SPECIES_AMAURA, "Amaura"
@@ -13493,6 +14241,7 @@ mondata SPECIES_AMAURA, "Amaura"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AMAURA_TM_DATA_0, SPECIES_AMAURA_TM_DATA_1, SPECIES_AMAURA_TM_DATA_2, SPECIES_AMAURA_TM_DATA_3
+	mondexentry SPECIES_AMAURA, "This Pokémon was successfully restored from a\nfossil. In the past, it lived with others of its kind\nin cold lands where there were fewer predators."
 
 
 mondata SPECIES_AURORUS, "Aurorus"
@@ -13511,6 +14260,7 @@ mondata SPECIES_AURORUS, "Aurorus"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AURORUS_TM_DATA_0, SPECIES_AURORUS_TM_DATA_1, SPECIES_AURORUS_TM_DATA_2, SPECIES_AURORUS_TM_DATA_3
+	mondexentry SPECIES_AURORUS, "The diamond-shaped crystals on its body\nexpel air as cold as -240 degrees Fahrenheit,\nsurrounding its enemies and encasing them in ice."
 
 
 mondata SPECIES_SYLVEON, "Sylveon"
@@ -13529,6 +14279,7 @@ mondata SPECIES_SYLVEON, "Sylveon"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_SYLVEON_TM_DATA_0, SPECIES_SYLVEON_TM_DATA_1, SPECIES_SYLVEON_TM_DATA_2, SPECIES_SYLVEON_TM_DATA_3
+	mondexentry SPECIES_SYLVEON, "When this Pokémon sights its prey, it swirls its\nribbonlike feelers as a distraction. A moment\nlater, it pounces."
 
 
 mondata SPECIES_HAWLUCHA, "Hawlucha"
@@ -13547,6 +14298,7 @@ mondata SPECIES_HAWLUCHA, "Hawlucha"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_HAWLUCHA_TM_DATA_0, SPECIES_HAWLUCHA_TM_DATA_1, SPECIES_HAWLUCHA_TM_DATA_2, SPECIES_HAWLUCHA_TM_DATA_3
+	mondexentry SPECIES_HAWLUCHA, "It drives its opponents to exhaustion with its agile\nmaneuvers, then ends the fight with a flashy\nfinishing move."
 
 
 mondata SPECIES_DEDENNE, "Dedenne"
@@ -13565,6 +14317,7 @@ mondata SPECIES_DEDENNE, "Dedenne"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_DEDENNE_TM_DATA_0, SPECIES_DEDENNE_TM_DATA_1, SPECIES_DEDENNE_TM_DATA_2, SPECIES_DEDENNE_TM_DATA_3
+	mondexentry SPECIES_DEDENNE, "Since Dedenne can’t generate much electricity on\nits own, it steals electricity from outlets or other\nelectric Pokémon."
 
 
 mondata SPECIES_CARBINK, "Carbink"
@@ -13583,6 +14336,7 @@ mondata SPECIES_CARBINK, "Carbink"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_CARBINK_TM_DATA_0, SPECIES_CARBINK_TM_DATA_1, SPECIES_CARBINK_TM_DATA_2, SPECIES_CARBINK_TM_DATA_3
+	mondexentry SPECIES_CARBINK, "Born from the temperatures and pressures\ndeep underground, it fires beams from the\nstone in its head."
 
 
 mondata SPECIES_GOOMY, "Goomy"
@@ -13601,6 +14355,7 @@ mondata SPECIES_GOOMY, "Goomy"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GOOMY_TM_DATA_0, SPECIES_GOOMY_TM_DATA_1, SPECIES_GOOMY_TM_DATA_2, SPECIES_GOOMY_TM_DATA_3
+	mondexentry SPECIES_GOOMY, "It uses its horns to check out its surroundings.\nThey’re very sensitive, so if you grab them, it\nwill feel a strong shock and be unable to move."
 
 
 mondata SPECIES_SLIGGOO, "Sliggoo"
@@ -13619,6 +14374,7 @@ mondata SPECIES_SLIGGOO, "Sliggoo"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SLIGGOO_TM_DATA_0, SPECIES_SLIGGOO_TM_DATA_1, SPECIES_SLIGGOO_TM_DATA_2, SPECIES_SLIGGOO_TM_DATA_3
+	mondexentry SPECIES_SLIGGOO, "It crawls along sluggishly. The swirly protrusion\non its back is filled with its brain and\nother organs."
 
 
 mondata SPECIES_GOODRA, "Goodra"
@@ -13637,6 +14393,7 @@ mondata SPECIES_GOODRA, "Goodra"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GOODRA_TM_DATA_0, SPECIES_GOODRA_TM_DATA_1, SPECIES_GOODRA_TM_DATA_2, SPECIES_GOODRA_TM_DATA_3
+	mondexentry SPECIES_GOODRA, "It’s very friendly toward people. If you grow\nclose to it, Goodra will hug you with its sticky,\nslime-covered body. Don’t get mad."
 
 
 mondata SPECIES_KLEFKI, "Klefki"
@@ -13655,6 +14412,7 @@ mondata SPECIES_KLEFKI, "Klefki"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_KLEFKI_TM_DATA_0, SPECIES_KLEFKI_TM_DATA_1, SPECIES_KLEFKI_TM_DATA_2, SPECIES_KLEFKI_TM_DATA_3
+	mondexentry SPECIES_KLEFKI, "Long ago it lived in mines, but once the minerals\nthat make up its diet became scarcer, Klefki\nbegan appearing in human settlements."
 
 
 mondata SPECIES_PHANTUMP, "Phantump"
@@ -13673,6 +14431,7 @@ mondata SPECIES_PHANTUMP, "Phantump"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PHANTUMP_TM_DATA_0, SPECIES_PHANTUMP_TM_DATA_1, SPECIES_PHANTUMP_TM_DATA_2, SPECIES_PHANTUMP_TM_DATA_3
+	mondexentry SPECIES_PHANTUMP, "These Pokémon are stumps possessed by the\nspirits of children who died in the forest.\nTheir cries sound like eerie screams."
 
 
 mondata SPECIES_TREVENANT, "Trevenant"
@@ -13691,6 +14450,7 @@ mondata SPECIES_TREVENANT, "Trevenant"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_TREVENANT_TM_DATA_0, SPECIES_TREVENANT_TM_DATA_1, SPECIES_TREVENANT_TM_DATA_2, SPECIES_TREVENANT_TM_DATA_3
+	mondexentry SPECIES_TREVENANT, "Using its roots as a nervous system,\nit controls the trees in the forest.\nIt’s kind to the Pokémon that reside in its body."
 
 
 mondata SPECIES_PUMPKABOO, "Pumpkaboo"
@@ -13709,6 +14469,7 @@ mondata SPECIES_PUMPKABOO, "Pumpkaboo"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PUMPKABOO_TM_DATA_0, SPECIES_PUMPKABOO_TM_DATA_1, SPECIES_PUMPKABOO_TM_DATA_2, SPECIES_PUMPKABOO_TM_DATA_3
+	mondexentry SPECIES_PUMPKABOO, "The light that streams out from the holes in the\npumpkin can hypnotize and control the people\nand Pokémon that see it."
 
 
 mondata SPECIES_GOURGEIST, "Gourgeist"
@@ -13727,6 +14488,7 @@ mondata SPECIES_GOURGEIST, "Gourgeist"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GOURGEIST_TM_DATA_0, SPECIES_GOURGEIST_TM_DATA_1, SPECIES_GOURGEIST_TM_DATA_2, SPECIES_GOURGEIST_TM_DATA_3
+	mondexentry SPECIES_GOURGEIST, "In the darkness of a new-moon night, Gourgeist\nwill come knocking. Whoever answers the door\nwill be swept off to the afterlife."
 
 
 mondata SPECIES_BERGMITE, "Bergmite"
@@ -13745,6 +14507,7 @@ mondata SPECIES_BERGMITE, "Bergmite"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BERGMITE_TM_DATA_0, SPECIES_BERGMITE_TM_DATA_1, SPECIES_BERGMITE_TM_DATA_2, SPECIES_BERGMITE_TM_DATA_3
+	mondexentry SPECIES_BERGMITE, "They chill the air around them to −150 degrees\nFahrenheit, freezing the water in the air into ice\nthat they use as armor."
 
 
 mondata SPECIES_AVALUGG, "Avalugg"
@@ -13763,6 +14526,7 @@ mondata SPECIES_AVALUGG, "Avalugg"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AVALUGG_TM_DATA_0, SPECIES_AVALUGG_TM_DATA_1, SPECIES_AVALUGG_TM_DATA_2, SPECIES_AVALUGG_TM_DATA_3
+	mondexentry SPECIES_AVALUGG, "At high latitudes, this Pokémon can be found\nwith clusters of Bergmite on its back as it swims\namong the icebergs."
 
 
 mondata SPECIES_NOIBAT, "Noibat"
@@ -13781,6 +14545,7 @@ mondata SPECIES_NOIBAT, "Noibat"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_NOIBAT_TM_DATA_0, SPECIES_NOIBAT_TM_DATA_1, SPECIES_NOIBAT_TM_DATA_2, SPECIES_NOIBAT_TM_DATA_3
+	mondexentry SPECIES_NOIBAT, "After nightfall, they emerge from the caves they\nnest in during the day. Using their ultrasonic\nwaves, they go on the hunt for ripened fruit."
 
 
 mondata SPECIES_NOIVERN, "Noivern"
@@ -13799,6 +14564,7 @@ mondata SPECIES_NOIVERN, "Noivern"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_NOIVERN_TM_DATA_0, SPECIES_NOIVERN_TM_DATA_1, SPECIES_NOIVERN_TM_DATA_2, SPECIES_NOIVERN_TM_DATA_3
+	mondexentry SPECIES_NOIVERN, "This hot-blooded Pokémon attacks anything it\nsees with ultrasonic waves that can\ncrush boulders."
 
 
 mondata SPECIES_XERNEAS, "Xerneas"
@@ -13817,6 +14583,7 @@ mondata SPECIES_XERNEAS, "Xerneas"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_XERNEAS_TM_DATA_0, SPECIES_XERNEAS_TM_DATA_1, SPECIES_XERNEAS_TM_DATA_2, SPECIES_XERNEAS_TM_DATA_3
+	mondexentry SPECIES_XERNEAS, "Legends say it can share eternal life.\nIt slept for a thousand years in the form\nof a tree before its revival."
 
 
 mondata SPECIES_YVELTAL, "Yveltal"
@@ -13835,6 +14602,7 @@ mondata SPECIES_YVELTAL, "Yveltal"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_YVELTAL_TM_DATA_0, SPECIES_YVELTAL_TM_DATA_1, SPECIES_YVELTAL_TM_DATA_2, SPECIES_YVELTAL_TM_DATA_3
+	mondexentry SPECIES_YVELTAL, "When this legendary Pokémon’s wings and\ntail feathers spread wide and glow red,\nit absorbs the life force of living creatures."
 
 
 mondata SPECIES_ZYGARDE, "Zygarde"
@@ -13853,6 +14621,7 @@ mondata SPECIES_ZYGARDE, "Zygarde"
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
     tmdata SPECIES_ZYGARDE_TM_DATA_0, SPECIES_ZYGARDE_TM_DATA_1, SPECIES_ZYGARDE_TM_DATA_2, SPECIES_ZYGARDE_TM_DATA_3
+	mondexentry SPECIES_ZYGARDE, "Some say it can change to an even more\npowerful form when battling those who threaten\nthe ecosystem."
 
 
 mondata SPECIES_DIANCIE, "Diancie"
@@ -13871,6 +14640,7 @@ mondata SPECIES_DIANCIE, "Diancie"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_DIANCIE_TM_DATA_0, SPECIES_DIANCIE_TM_DATA_1, SPECIES_DIANCIE_TM_DATA_2, SPECIES_DIANCIE_TM_DATA_3
+	mondexentry SPECIES_DIANCIE, "It can instantly create many diamonds\nby compressing the carbon in the air\nbetween its hands."
 
 
 mondata SPECIES_HOOPA, "Hoopa"
@@ -13889,6 +14659,7 @@ mondata SPECIES_HOOPA, "Hoopa"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_HOOPA_TM_DATA_0, SPECIES_HOOPA_TM_DATA_1, SPECIES_HOOPA_TM_DATA_2, SPECIES_HOOPA_TM_DATA_3
+	mondexentry SPECIES_HOOPA, "It gathers things it likes and passes them through\nits loop to teleport them to a secret place."
 
 
 mondata SPECIES_VOLCANION, "Volcanion"
@@ -13907,6 +14678,7 @@ mondata SPECIES_VOLCANION, "Volcanion"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_VOLCANION_TM_DATA_0, SPECIES_VOLCANION_TM_DATA_1, SPECIES_VOLCANION_TM_DATA_2, SPECIES_VOLCANION_TM_DATA_3
+	mondexentry SPECIES_VOLCANION, "It expels its internal steam from the\narms on its back. It has enough\npower to blow away a mountain."
 
 
 mondata SPECIES_ROWLET, "Rowlett"
@@ -13925,6 +14697,7 @@ mondata SPECIES_ROWLET, "Rowlett"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ROWLET_TM_DATA_0, SPECIES_ROWLET_TM_DATA_1, SPECIES_ROWLET_TM_DATA_2, SPECIES_ROWLET_TM_DATA_3
+	mondexentry SPECIES_ROWLET, "At a distance, it launches its sharp feathers while\nflying about. If the enemy gets too close, Rowlet\nswitches tactics and delivers vicious kicks."
 
 
 mondata SPECIES_DARTRIX, "Dartrix"
@@ -13943,6 +14716,7 @@ mondata SPECIES_DARTRIX, "Dartrix"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DARTRIX_TM_DATA_0, SPECIES_DARTRIX_TM_DATA_1, SPECIES_DARTRIX_TM_DATA_2, SPECIES_DARTRIX_TM_DATA_3
+	mondexentry SPECIES_DARTRIX, "This narcissistic Pokémon is a clean freak.\nIf you don’t groom it diligently, it will stop\nlistening to you."
 
 
 mondata SPECIES_DECIDUEYE, "Decidueye"
@@ -13961,6 +14735,7 @@ mondata SPECIES_DECIDUEYE, "Decidueye"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DECIDUEYE_TM_DATA_0, SPECIES_DECIDUEYE_TM_DATA_1, SPECIES_DECIDUEYE_TM_DATA_2, SPECIES_DECIDUEYE_TM_DATA_3
+	mondexentry SPECIES_DECIDUEYE, "It fires arrow quills from its wings with such\nprecision, they can pierce a pebble at distances\nover a hundred yards."
 
 
 mondata SPECIES_LITTEN, "Litten"
@@ -13979,6 +14754,7 @@ mondata SPECIES_LITTEN, "Litten"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_LITTEN_TM_DATA_0, SPECIES_LITTEN_TM_DATA_1, SPECIES_LITTEN_TM_DATA_2, SPECIES_LITTEN_TM_DATA_3
+	mondexentry SPECIES_LITTEN, "Trying to pet Litten before it trusts you will\nresult in a nasty scratch from its sharp claws.\nBe careful."
 
 
 mondata SPECIES_TORRACAT, "Torracat"
@@ -13997,6 +14773,7 @@ mondata SPECIES_TORRACAT, "Torracat"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TORRACAT_TM_DATA_0, SPECIES_TORRACAT_TM_DATA_1, SPECIES_TORRACAT_TM_DATA_2, SPECIES_TORRACAT_TM_DATA_3
+	mondexentry SPECIES_TORRACAT, "When its mane is standing on end, you can tell\nit’s feeling good. When it isn’t feeling well, its fur\nwill lie down flat."
 
 
 mondata SPECIES_INCINEROAR, "Incineroar"
@@ -14015,6 +14792,7 @@ mondata SPECIES_INCINEROAR, "Incineroar"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_INCINEROAR_TM_DATA_0, SPECIES_INCINEROAR_TM_DATA_1, SPECIES_INCINEROAR_TM_DATA_2, SPECIES_INCINEROAR_TM_DATA_3
+	mondexentry SPECIES_INCINEROAR, "It excels at violent, no-holds-barred battles.\nThe temperature of the flames that issue from its\nnavel exceeds 3,600 degrees Fahrenheit."
 
 
 mondata SPECIES_POPPLIO, "Popplio"
@@ -14033,6 +14811,7 @@ mondata SPECIES_POPPLIO, "Popplio"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_POPPLIO_TM_DATA_0, SPECIES_POPPLIO_TM_DATA_1, SPECIES_POPPLIO_TM_DATA_2, SPECIES_POPPLIO_TM_DATA_3
+	mondexentry SPECIES_POPPLIO, "The balloons it inflates with its nose grow\nlarger and larger as it practices day by day."
 
 
 mondata SPECIES_BRIONNE, "Brionne"
@@ -14051,6 +14830,7 @@ mondata SPECIES_BRIONNE, "Brionne"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BRIONNE_TM_DATA_0, SPECIES_BRIONNE_TM_DATA_1, SPECIES_BRIONNE_TM_DATA_2, SPECIES_BRIONNE_TM_DATA_3
+	mondexentry SPECIES_BRIONNE, "It cares deeply for its companions. When its\nTrainer is feeling down, it performs a cheery\ndance to try and help."
 
 
 mondata SPECIES_PRIMARINA, "Primarina"
@@ -14069,6 +14849,7 @@ mondata SPECIES_PRIMARINA, "Primarina"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_PRIMARINA_TM_DATA_0, SPECIES_PRIMARINA_TM_DATA_1, SPECIES_PRIMARINA_TM_DATA_2, SPECIES_PRIMARINA_TM_DATA_3
+	mondexentry SPECIES_PRIMARINA, "Also known as a songstress, it has a fantastical\nlook on moonlit nights when it leads its colony\nin song."
 
 
 mondata SPECIES_PIKIPEK, "Pikipek"
@@ -14087,6 +14868,7 @@ mondata SPECIES_PIKIPEK, "Pikipek"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_PIKIPEK_TM_DATA_0, SPECIES_PIKIPEK_TM_DATA_1, SPECIES_PIKIPEK_TM_DATA_2, SPECIES_PIKIPEK_TM_DATA_3
+	mondexentry SPECIES_PIKIPEK, "This Pokémon feeds on berries, whose leftover\nseeds become the ammunition for the attacks it\nfires off from its mouth."
 
 
 mondata SPECIES_TRUMBEAK, "Trumbeak"
@@ -14105,6 +14887,7 @@ mondata SPECIES_TRUMBEAK, "Trumbeak"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_TRUMBEAK_TM_DATA_0, SPECIES_TRUMBEAK_TM_DATA_1, SPECIES_TRUMBEAK_TM_DATA_2, SPECIES_TRUMBEAK_TM_DATA_3
+	mondexentry SPECIES_TRUMBEAK, "From its mouth, it fires the seeds of berries\nit has eaten. The scattered seeds give rise\nto new plants."
 
 
 mondata SPECIES_TOUCANNON, "Toucannon"
@@ -14123,6 +14906,7 @@ mondata SPECIES_TOUCANNON, "Toucannon"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_TOUCANNON_TM_DATA_0, SPECIES_TOUCANNON_TM_DATA_1, SPECIES_TOUCANNON_TM_DATA_2, SPECIES_TOUCANNON_TM_DATA_3
+	mondexentry SPECIES_TOUCANNON, "Within its beak, its internal gas ignites,\nexplosively launching seeds with enough power\nto pulverize boulders."
 
 
 mondata SPECIES_YUNGOOS, "Yungoos"
@@ -14141,6 +14925,7 @@ mondata SPECIES_YUNGOOS, "Yungoos"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_YUNGOOS_TM_DATA_0, SPECIES_YUNGOOS_TM_DATA_1, SPECIES_YUNGOOS_TM_DATA_2, SPECIES_YUNGOOS_TM_DATA_3
+	mondexentry SPECIES_YUNGOOS, "With its sharp fangs, it will bite anything.\nIt did not originally live in Alola but was\nimported from another region."
 
 
 mondata SPECIES_GUMSHOOS, "Gumshoos"
@@ -14159,6 +14944,7 @@ mondata SPECIES_GUMSHOOS, "Gumshoos"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GUMSHOOS_TM_DATA_0, SPECIES_GUMSHOOS_TM_DATA_1, SPECIES_GUMSHOOS_TM_DATA_2, SPECIES_GUMSHOOS_TM_DATA_3
+	mondexentry SPECIES_GUMSHOOS, "Patient by nature, this Pokémon loses control of\nitself and pounces when it spots its favorite\nmeal—Rattata!"
 
 
 mondata SPECIES_GRUBBIN, "Grubbin"
@@ -14177,6 +14963,7 @@ mondata SPECIES_GRUBBIN, "Grubbin"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_GRUBBIN_TM_DATA_0, SPECIES_GRUBBIN_TM_DATA_1, SPECIES_GRUBBIN_TM_DATA_2, SPECIES_GRUBBIN_TM_DATA_3
+	mondexentry SPECIES_GRUBBIN, "Its strong jaw enables it to scrape trees and\nslurp out the sap. It normally lives underground."
 
 
 mondata SPECIES_CHARJABUG, "Charjabug"
@@ -14195,6 +14982,7 @@ mondata SPECIES_CHARJABUG, "Charjabug"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CHARJABUG_TM_DATA_0, SPECIES_CHARJABUG_TM_DATA_1, SPECIES_CHARJABUG_TM_DATA_2, SPECIES_CHARJABUG_TM_DATA_3
+	mondexentry SPECIES_CHARJABUG, "Its body is capable of storing electricity. On\ncamping trips, people are grateful to have\none around."
 
 
 mondata SPECIES_VIKAVOLT, "Vikavolt"
@@ -14213,6 +15001,7 @@ mondata SPECIES_VIKAVOLT, "Vikavolt"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_VIKAVOLT_TM_DATA_0, SPECIES_VIKAVOLT_TM_DATA_1, SPECIES_VIKAVOLT_TM_DATA_2, SPECIES_VIKAVOLT_TM_DATA_3
+	mondexentry SPECIES_VIKAVOLT, "It zips around, on sharp lookout for an opening.\nIt concentrates electrical energy within its large\njaws and uses it to zap its enemies."
 
 
 mondata SPECIES_CRABRAWLER, "Crabrawler"
@@ -14231,6 +15020,7 @@ mondata SPECIES_CRABRAWLER, "Crabrawler"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_CRABRAWLER_TM_DATA_0, SPECIES_CRABRAWLER_TM_DATA_1, SPECIES_CRABRAWLER_TM_DATA_2, SPECIES_CRABRAWLER_TM_DATA_3
+	mondexentry SPECIES_CRABRAWLER, "While guarding its weak points with its pincers,\nit looks for an opening and unleashes punches.\nWhen it loses, it foams at the mouth and faints."
 
 
 mondata SPECIES_CRABOMINABLE, "Crabominable"
@@ -14249,6 +15039,7 @@ mondata SPECIES_CRABOMINABLE, "Crabominable"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_CRABOMINABLE_TM_DATA_0, SPECIES_CRABOMINABLE_TM_DATA_1, SPECIES_CRABOMINABLE_TM_DATA_2, SPECIES_CRABOMINABLE_TM_DATA_3
+	mondexentry SPECIES_CRABOMINABLE, "It just throws punches indiscriminately. In times\nof desperation, it can lop off its own pincers\nand fire them like rockets."
 
 
 mondata SPECIES_ORICORIO, "Oricorio"
@@ -14267,6 +15058,7 @@ mondata SPECIES_ORICORIO, "Oricorio"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ORICORIO_TM_DATA_0, SPECIES_ORICORIO_TM_DATA_1, SPECIES_ORICORIO_TM_DATA_2, SPECIES_ORICORIO_TM_DATA_3
+	mondexentry SPECIES_ORICORIO, "It wins the hearts of its enemies with its\npassionate dancing and then uses the opening\nit creates to burn them up with blazing flames."
 
 
 mondata SPECIES_CUTIEFLY, "Cutiefly"
@@ -14285,6 +15077,7 @@ mondata SPECIES_CUTIEFLY, "Cutiefly"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_CUTIEFLY_TM_DATA_0, SPECIES_CUTIEFLY_TM_DATA_1, SPECIES_CUTIEFLY_TM_DATA_2, SPECIES_CUTIEFLY_TM_DATA_3
+	mondexentry SPECIES_CUTIEFLY, "An opponent’s aura can tell Cutiefly what that\nopponent’s next move will be. Then Cutiefly can\nglide around the attack and strike back."
 
 
 mondata SPECIES_RIBOMBEE, "Ribombee"
@@ -14303,6 +15096,7 @@ mondata SPECIES_RIBOMBEE, "Ribombee"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_RIBOMBEE_TM_DATA_0, SPECIES_RIBOMBEE_TM_DATA_1, SPECIES_RIBOMBEE_TM_DATA_2, SPECIES_RIBOMBEE_TM_DATA_3
+	mondexentry SPECIES_RIBOMBEE, "Rain makes pollen damp, so Ribombee hates\nrain. When it sees ominous clouds, it finds a\nhollow in a tree, where it waits stock-still."
 
 
 mondata SPECIES_ROCKRUFF, "Rockruff"
@@ -14321,6 +15115,7 @@ mondata SPECIES_ROCKRUFF, "Rockruff"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ROCKRUFF_TM_DATA_0, SPECIES_ROCKRUFF_TM_DATA_1, SPECIES_ROCKRUFF_TM_DATA_2, SPECIES_ROCKRUFF_TM_DATA_3
+	mondexentry SPECIES_ROCKRUFF, "When it rubs the rocks on its neck against you,\nthat’s proof of its love for you. However, the\nrocks are sharp, so the gesture is quite painful!"
 
 
 mondata SPECIES_LYCANROC, "Lycanroc"
@@ -14339,6 +15134,7 @@ mondata SPECIES_LYCANROC, "Lycanroc"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_LYCANROC_TM_DATA_0, SPECIES_LYCANROC_TM_DATA_1, SPECIES_LYCANROC_TM_DATA_2, SPECIES_LYCANROC_TM_DATA_3
+	mondexentry SPECIES_LYCANROC, "When properly raised from a young age, it will\nbecome a trustworthy partner that will\nabsolutely never betray its Trainer."
 
 
 mondata SPECIES_WISHIWASHI, "Wishiwashi"
@@ -14357,6 +15153,7 @@ mondata SPECIES_WISHIWASHI, "Wishiwashi"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_WISHIWASHI_TM_DATA_0, SPECIES_WISHIWASHI_TM_DATA_1, SPECIES_WISHIWASHI_TM_DATA_2, SPECIES_WISHIWASHI_TM_DATA_3
+	mondexentry SPECIES_WISHIWASHI, "When it’s in trouble, its eyes moisten and begin\nto shine. The shining light attracts its comrades,\nand they stand together against their enemies."
 
 
 mondata SPECIES_MAREANIE, "Mareanie"
@@ -14375,6 +15172,7 @@ mondata SPECIES_MAREANIE, "Mareanie"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_MAREANIE_TM_DATA_0, SPECIES_MAREANIE_TM_DATA_1, SPECIES_MAREANIE_TM_DATA_2, SPECIES_MAREANIE_TM_DATA_3
+	mondexentry SPECIES_MAREANIE, "They eat Corsola branches, so Mareanie are\nhated by craftsmen who work with Corsola\nbranches that have naturally fallen off."
 
 
 mondata SPECIES_TOXAPEX, "Toxapex"
@@ -14393,6 +15191,7 @@ mondata SPECIES_TOXAPEX, "Toxapex"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_TOXAPEX_TM_DATA_0, SPECIES_TOXAPEX_TM_DATA_1, SPECIES_TOXAPEX_TM_DATA_2, SPECIES_TOXAPEX_TM_DATA_3
+	mondexentry SPECIES_TOXAPEX, "To survive in the cold waters of Galar, this\nPokémon forms a dome with its legs, enclosing\nits body so it can capture its own body heat."
 
 
 mondata SPECIES_MUDBRAY, "Mudbray"
@@ -14411,6 +15210,7 @@ mondata SPECIES_MUDBRAY, "Mudbray"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MUDBRAY_TM_DATA_0, SPECIES_MUDBRAY_TM_DATA_1, SPECIES_MUDBRAY_TM_DATA_2, SPECIES_MUDBRAY_TM_DATA_3
+	mondexentry SPECIES_MUDBRAY, "It eats dirt to create mud and smears this mud all\nover its feet, giving them the grip needed to walk\non rough terrain without slipping."
 
 
 mondata SPECIES_MUDSDALE, "Mudsdale"
@@ -14429,6 +15229,7 @@ mondata SPECIES_MUDSDALE, "Mudsdale"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_MUDSDALE_TM_DATA_0, SPECIES_MUDSDALE_TM_DATA_1, SPECIES_MUDSDALE_TM_DATA_2, SPECIES_MUDSDALE_TM_DATA_3
+	mondexentry SPECIES_MUDSDALE, "Mudsdale has so much stamina that it could carry\nover 10 tons across the Galar region without rest\nor sleep."
 
 
 mondata SPECIES_DEWPIDER, "Dewpider"
@@ -14447,6 +15248,7 @@ mondata SPECIES_DEWPIDER, "Dewpider"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DEWPIDER_TM_DATA_0, SPECIES_DEWPIDER_TM_DATA_1, SPECIES_DEWPIDER_TM_DATA_2, SPECIES_DEWPIDER_TM_DATA_3
+	mondexentry SPECIES_DEWPIDER, "When it comes across enemies or potential prey,\nthis Pokémon smashes its\nwater-bubble-covered head into them."
 
 
 mondata SPECIES_ARAQUANID, "Araquanid"
@@ -14465,6 +15267,7 @@ mondata SPECIES_ARAQUANID, "Araquanid"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_ARAQUANID_TM_DATA_0, SPECIES_ARAQUANID_TM_DATA_1, SPECIES_ARAQUANID_TM_DATA_2, SPECIES_ARAQUANID_TM_DATA_3
+	mondexentry SPECIES_ARAQUANID, "It delivers headbutts with the water bubble\non its head. Small Pokémon get sucked into\nthe bubble, where they drown."
 
 
 mondata SPECIES_FOMANTIS, "Fomantis"
@@ -14483,6 +15286,7 @@ mondata SPECIES_FOMANTIS, "Fomantis"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_FOMANTIS_TM_DATA_0, SPECIES_FOMANTIS_TM_DATA_1, SPECIES_FOMANTIS_TM_DATA_2, SPECIES_FOMANTIS_TM_DATA_3
+	mondexentry SPECIES_FOMANTIS, "During the day, Fomantis basks in sunlight and\nsleeps peacefully. It wakes and moves around\nat night."
 
 
 mondata SPECIES_LURANTIS, "Lurantis"
@@ -14501,6 +15305,7 @@ mondata SPECIES_LURANTIS, "Lurantis"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_LURANTIS_TM_DATA_0, SPECIES_LURANTIS_TM_DATA_1, SPECIES_LURANTIS_TM_DATA_2, SPECIES_LURANTIS_TM_DATA_3
+	mondexentry SPECIES_LURANTIS, "The petals on this Pokémon’s arms are thin and\nsuper sharp, and they can fire laser beams if\nLurantis gathers light first."
 
 
 mondata SPECIES_MORELULL, "Morelull"
@@ -14519,6 +15324,7 @@ mondata SPECIES_MORELULL, "Morelull"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MORELULL_TM_DATA_0, SPECIES_MORELULL_TM_DATA_1, SPECIES_MORELULL_TM_DATA_2, SPECIES_MORELULL_TM_DATA_3
+	mondexentry SPECIES_MORELULL, "It scatters its shining spores around itself.\nEven though they’re dangerous, nighttime tours\nof forests where Morelull live are popular."
 
 
 mondata SPECIES_SHIINOTIC, "Shiinotic"
@@ -14537,6 +15343,7 @@ mondata SPECIES_SHIINOTIC, "Shiinotic"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SHIINOTIC_TM_DATA_0, SPECIES_SHIINOTIC_TM_DATA_1, SPECIES_SHIINOTIC_TM_DATA_2, SPECIES_SHIINOTIC_TM_DATA_3
+	mondexentry SPECIES_SHIINOTIC, "It puts its prey to sleep and siphons off their\nvitality through the tip of its arms. If one of its\nkind is weakened, it helps by sending it vitality."
 
 
 mondata SPECIES_SALANDIT, "Salandit"
@@ -14555,6 +15362,7 @@ mondata SPECIES_SALANDIT, "Salandit"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SALANDIT_TM_DATA_0, SPECIES_SALANDIT_TM_DATA_1, SPECIES_SALANDIT_TM_DATA_2, SPECIES_SALANDIT_TM_DATA_3
+	mondexentry SPECIES_SALANDIT, "This sneaky Pokémon will slink behind its prey\nand immobilize it with poisonous gas before the\nprey even realizes Salandit is there."
 
 
 mondata SPECIES_SALAZZLE, "Salazzle"
@@ -14573,6 +15381,7 @@ mondata SPECIES_SALAZZLE, "Salazzle"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SALAZZLE_TM_DATA_0, SPECIES_SALAZZLE_TM_DATA_1, SPECIES_SALAZZLE_TM_DATA_2, SPECIES_SALAZZLE_TM_DATA_3
+	mondexentry SPECIES_SALAZZLE, "Salazzle lives deep in caves and forces the\nSalandit it has attracted with its pheromones\nto serve it."
 
 
 mondata SPECIES_STUFFUL, "Stufful"
@@ -14591,6 +15400,7 @@ mondata SPECIES_STUFFUL, "Stufful"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_STUFFUL_TM_DATA_0, SPECIES_STUFFUL_TM_DATA_1, SPECIES_STUFFUL_TM_DATA_2, SPECIES_STUFFUL_TM_DATA_3
+	mondexentry SPECIES_STUFFUL, "Its fluffy fur is a delight to pet, but carelessly\nreaching out to touch this Pokémon could result\nin painful retaliation."
 
 
 mondata SPECIES_BEWEAR, "Bewear"
@@ -14609,6 +15419,7 @@ mondata SPECIES_BEWEAR, "Bewear"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_BEWEAR_TM_DATA_0, SPECIES_BEWEAR_TM_DATA_1, SPECIES_BEWEAR_TM_DATA_2, SPECIES_BEWEAR_TM_DATA_3
+	mondexentry SPECIES_BEWEAR, "This Pokémon has the habit of hugging its\ncompanions. Many Trainers have left this world\nafter their spines were squashed by its hug."
 
 
 mondata SPECIES_BOUNSWEET, "Bounsweet"
@@ -14627,6 +15438,7 @@ mondata SPECIES_BOUNSWEET, "Bounsweet"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_BOUNSWEET_TM_DATA_0, SPECIES_BOUNSWEET_TM_DATA_1, SPECIES_BOUNSWEET_TM_DATA_2, SPECIES_BOUNSWEET_TM_DATA_3
+	mondexentry SPECIES_BOUNSWEET, "It tries to resist being swallowed by a bird\nPokémon by spinning the sepals on its head.\nIt’s usually a fruitless attempt."
 
 
 mondata SPECIES_STEENEE, "Steenee"
@@ -14645,6 +15457,7 @@ mondata SPECIES_STEENEE, "Steenee"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_STEENEE_TM_DATA_0, SPECIES_STEENEE_TM_DATA_1, SPECIES_STEENEE_TM_DATA_2, SPECIES_STEENEE_TM_DATA_3
+	mondexentry SPECIES_STEENEE, "This Pokémon is always bouncing around\nenergetically. Other Pokémon are attracted by\nits lively appearance and pleasant aroma."
 
 
 mondata SPECIES_TSAREENA, "Tsareena"
@@ -14663,6 +15476,7 @@ mondata SPECIES_TSAREENA, "Tsareena"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_TSAREENA_TM_DATA_0, SPECIES_TSAREENA_TM_DATA_1, SPECIES_TSAREENA_TM_DATA_2, SPECIES_TSAREENA_TM_DATA_3
+	mondexentry SPECIES_TSAREENA, "A Pokémon with an aggressive personality and\na mastery of kicking, it cackles every time it\nkicks an opponent."
 
 
 mondata SPECIES_COMFEY, "Comfey"
@@ -14681,6 +15495,7 @@ mondata SPECIES_COMFEY, "Comfey"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_COMFEY_TM_DATA_0, SPECIES_COMFEY_TM_DATA_1, SPECIES_COMFEY_TM_DATA_2, SPECIES_COMFEY_TM_DATA_3
+	mondexentry SPECIES_COMFEY, "Comfey picks flowers with its vine and decorates\nitself with them. For some reason, flowers won’t\nwither once they’re attached to a Comfey."
 
 
 mondata SPECIES_ORANGURU, "Oranguru"
@@ -14699,6 +15514,7 @@ mondata SPECIES_ORANGURU, "Oranguru"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_ORANGURU_TM_DATA_0, SPECIES_ORANGURU_TM_DATA_1, SPECIES_ORANGURU_TM_DATA_2, SPECIES_ORANGURU_TM_DATA_3
+	mondexentry SPECIES_ORANGURU, "Known for its extreme intelligence, this Pokémon\nwill look down on inexperienced Trainers, so it’s\nbest suited to veteran Trainers."
 
 
 mondata SPECIES_PASSIMIAN, "Passimian"
@@ -14717,6 +15533,7 @@ mondata SPECIES_PASSIMIAN, "Passimian"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_PASSIMIAN_TM_DATA_0, SPECIES_PASSIMIAN_TM_DATA_1, SPECIES_PASSIMIAN_TM_DATA_2, SPECIES_PASSIMIAN_TM_DATA_3
+	mondexentry SPECIES_PASSIMIAN, "They use their saliva to stick leaves to their\nshoulders. You can tell what troop they belong\nto from the position of the leaves."
 
 
 mondata SPECIES_WIMPOD, "Wimpod"
@@ -14735,6 +15552,7 @@ mondata SPECIES_WIMPOD, "Wimpod"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_WIMPOD_TM_DATA_0, SPECIES_WIMPOD_TM_DATA_1, SPECIES_WIMPOD_TM_DATA_2, SPECIES_WIMPOD_TM_DATA_3
+	mondexentry SPECIES_WIMPOD, "It will pick up anything it finds on the ground.\nSometimes it finds coins, so Murkrow and\nMeowth will go after it."
 
 
 mondata SPECIES_GOLISOPOD, "Golisopod"
@@ -14753,6 +15571,7 @@ mondata SPECIES_GOLISOPOD, "Golisopod"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_GOLISOPOD_TM_DATA_0, SPECIES_GOLISOPOD_TM_DATA_1, SPECIES_GOLISOPOD_TM_DATA_2, SPECIES_GOLISOPOD_TM_DATA_3
+	mondexentry SPECIES_GOLISOPOD, "It will do anything to win, taking advantage of\nevery opening and finishing opponents off with\nthe small claws on its front legs."
 
 
 mondata SPECIES_SANDYGAST, "Sandygast"
@@ -14771,6 +15590,7 @@ mondata SPECIES_SANDYGAST, "Sandygast"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SANDYGAST_TM_DATA_0, SPECIES_SANDYGAST_TM_DATA_1, SPECIES_SANDYGAST_TM_DATA_2, SPECIES_SANDYGAST_TM_DATA_3
+	mondexentry SPECIES_SANDYGAST, "It takes control of anyone who puts a hand in its\nmouth. And so it adds to the accumulation of\nits sand-mound body."
 
 
 mondata SPECIES_PALOSSAND, "Palossand"
@@ -14789,6 +15609,7 @@ mondata SPECIES_PALOSSAND, "Palossand"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PALOSSAND_TM_DATA_0, SPECIES_PALOSSAND_TM_DATA_1, SPECIES_PALOSSAND_TM_DATA_2, SPECIES_PALOSSAND_TM_DATA_3
+	mondexentry SPECIES_PALOSSAND, "Palossand is known as the Beach Nightmare. It\npulls its prey down into the sand by controlling\nthe sand itself, and then it sucks out their souls."
 
 
 mondata SPECIES_PYUKUMUKU, "Pyukumuku"
@@ -14807,6 +15628,7 @@ mondata SPECIES_PYUKUMUKU, "Pyukumuku"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_PYUKUMUKU_TM_DATA_0, SPECIES_PYUKUMUKU_TM_DATA_1, SPECIES_PYUKUMUKU_TM_DATA_2, SPECIES_PYUKUMUKU_TM_DATA_3
+	mondexentry SPECIES_PYUKUMUKU, "It lives in warm, shallow waters. If it encounters a\nfoe, it will spit out its internal organs as a means\nto punch them."
 
 
 mondata SPECIES_TYPE_NULL, "Type: Null"
@@ -14825,6 +15647,7 @@ mondata SPECIES_TYPE_NULL, "Type: Null"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_TYPE_NULL_TM_DATA_0, SPECIES_TYPE_NULL_TM_DATA_1, SPECIES_TYPE_NULL_TM_DATA_2, SPECIES_TYPE_NULL_TM_DATA_3
+	mondexentry SPECIES_TYPE_NULL, "A Pokémon weapon developed for a specific\nmission, it went berserk during an experiment,\nso it was cryogenically frozen."
 
 
 mondata SPECIES_SILVALLY, "Silvally"
@@ -14843,6 +15666,7 @@ mondata SPECIES_SILVALLY, "Silvally"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_SILVALLY_TM_DATA_0, SPECIES_SILVALLY_TM_DATA_1, SPECIES_SILVALLY_TM_DATA_2, SPECIES_SILVALLY_TM_DATA_3
+	mondexentry SPECIES_SILVALLY, "Through the bond it formed with its Trainer, its\nwill was strengthened, and it was able to\ndestroy its control mask."
 
 mondata SPECIES_MINIOR, "Minior"
     basestats 60, 60, 100, 60, 60, 100
@@ -14860,6 +15684,7 @@ mondata SPECIES_MINIOR, "Minior"
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
     tmdata SPECIES_MINIOR_TM_DATA_0, SPECIES_MINIOR_TM_DATA_1, SPECIES_MINIOR_TM_DATA_2, SPECIES_MINIOR_TM_DATA_3
+	mondexentry SPECIES_MINIOR, "It lives in the ozone layer, where it becomes\nfood for stronger Pokémon. When it tries to run\naway, it falls to the ground."
 
 
 mondata SPECIES_KOMALA, "Komala"
@@ -14878,6 +15703,7 @@ mondata SPECIES_KOMALA, "Komala"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_KOMALA_TM_DATA_0, SPECIES_KOMALA_TM_DATA_1, SPECIES_KOMALA_TM_DATA_2, SPECIES_KOMALA_TM_DATA_3
+	mondexentry SPECIES_KOMALA, "It is born asleep, and it dies asleep. All its\nmovements are apparently no more than the\nresults of it tossing and turning in its dreams."
 
 
 mondata SPECIES_TURTONATOR, "Turtonator"
@@ -14896,6 +15722,7 @@ mondata SPECIES_TURTONATOR, "Turtonator"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TURTONATOR_TM_DATA_0, SPECIES_TURTONATOR_TM_DATA_1, SPECIES_TURTONATOR_TM_DATA_2, SPECIES_TURTONATOR_TM_DATA_3
+	mondexentry SPECIES_TURTONATOR, "Explosive substances coat the shell on its back.\nEnemies that dare attack it will be blown away\nby an immense detonation."
 
 
 mondata SPECIES_TOGEDEMARU, "Togedemaru"
@@ -14914,6 +15741,7 @@ mondata SPECIES_TOGEDEMARU, "Togedemaru"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_TOGEDEMARU_TM_DATA_0, SPECIES_TOGEDEMARU_TM_DATA_1, SPECIES_TOGEDEMARU_TM_DATA_2, SPECIES_TOGEDEMARU_TM_DATA_3
+	mondexentry SPECIES_TOGEDEMARU, "With the long hairs on its back, this Pokémon\ntakes in electricity from other electric Pokémon.\nIt stores what it absorbs in an electric sac."
 
 
 mondata SPECIES_MIMIKYU, "Mimikyu"
@@ -14932,6 +15760,7 @@ mondata SPECIES_MIMIKYU, "Mimikyu"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MIMIKYU_TM_DATA_0, SPECIES_MIMIKYU_TM_DATA_1, SPECIES_MIMIKYU_TM_DATA_2, SPECIES_MIMIKYU_TM_DATA_3
+	mondexentry SPECIES_MIMIKYU, "Its actual appearance is unknown. A scholar\nwho saw what was under its rag was\noverwhelmed by terror and died from the shock."
 
 
 mondata SPECIES_BRUXISH, "Bruxish"
@@ -14950,6 +15779,7 @@ mondata SPECIES_BRUXISH, "Bruxish"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_BRUXISH_TM_DATA_0, SPECIES_BRUXISH_TM_DATA_1, SPECIES_BRUXISH_TM_DATA_2, SPECIES_BRUXISH_TM_DATA_3
+	mondexentry SPECIES_BRUXISH, "Its skin is thick enough to fend off Mareanie’s\nspikes. With its robust teeth, Bruxish crunches\nup the spikes and eats them."
 
 
 mondata SPECIES_DRAMPA, "Drampa"
@@ -14968,6 +15798,7 @@ mondata SPECIES_DRAMPA, "Drampa"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_DRAMPA_TM_DATA_0, SPECIES_DRAMPA_TM_DATA_1, SPECIES_DRAMPA_TM_DATA_2, SPECIES_DRAMPA_TM_DATA_3
+	mondexentry SPECIES_DRAMPA, "It appears in towns and plays with the children.\nDrampa will protect kids when they’re in danger,\nso their moms don’t have to worry."
 
 
 mondata SPECIES_DHELMISE, "Dhelmise"
@@ -14986,6 +15817,7 @@ mondata SPECIES_DHELMISE, "Dhelmise"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DHELMISE_TM_DATA_0, SPECIES_DHELMISE_TM_DATA_1, SPECIES_DHELMISE_TM_DATA_2, SPECIES_DHELMISE_TM_DATA_3
+	mondexentry SPECIES_DHELMISE, "After lowering its anchor, it waits for its prey. It\ncatches large Wailord and drains their life-force."
 
 
 mondata SPECIES_JANGMO_O, "Jangmo-o"
@@ -15004,6 +15836,7 @@ mondata SPECIES_JANGMO_O, "Jangmo-o"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_JANGMO_O_TM_DATA_0, SPECIES_JANGMO_O_TM_DATA_1, SPECIES_JANGMO_O_TM_DATA_2, SPECIES_JANGMO_O_TM_DATA_3
+	mondexentry SPECIES_JANGMO_O, "It smacks the scales on its head against rocks\nor against the ground to frighten its opponents.\nIt can also contact its friends with these noises."
 
 
 mondata SPECIES_HAKAMO_O, "Hakamo-o"
@@ -15022,6 +15855,7 @@ mondata SPECIES_HAKAMO_O, "Hakamo-o"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_HAKAMO_O_TM_DATA_0, SPECIES_HAKAMO_O_TM_DATA_1, SPECIES_HAKAMO_O_TM_DATA_2, SPECIES_HAKAMO_O_TM_DATA_3
+	mondexentry SPECIES_HAKAMO_O, "It makes noise by clanging its scales together.\nWhen the rhythm has reached its peak,\nHakamo-o attacks."
 
 
 mondata SPECIES_KOMMO_O, "Kommo-o"
@@ -15040,6 +15874,7 @@ mondata SPECIES_KOMMO_O, "Kommo-o"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_KOMMO_O_TM_DATA_0, SPECIES_KOMMO_O_TM_DATA_1, SPECIES_KOMMO_O_TM_DATA_2, SPECIES_KOMMO_O_TM_DATA_3
+	mondexentry SPECIES_KOMMO_O, "It clatters its tail scales to unnerve opponents.\nThis Pokémon will battle only those who stand\nsteadfast in the face of this display."
 
 
 mondata SPECIES_TAPU_KOKO, "Tapu Koko"
@@ -15058,6 +15893,7 @@ mondata SPECIES_TAPU_KOKO, "Tapu Koko"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_TAPU_KOKO_TM_DATA_0, SPECIES_TAPU_KOKO_TM_DATA_1, SPECIES_TAPU_KOKO_TM_DATA_2, SPECIES_TAPU_KOKO_TM_DATA_3
+	mondexentry SPECIES_TAPU_KOKO, "Although it’s called a guardian deity, if a person\nor Pokémon puts it in a bad mood, it will become\na malevolent deity and attack."
 
 
 mondata SPECIES_TAPU_LELE, "Tapu Lele"
@@ -15076,6 +15912,7 @@ mondata SPECIES_TAPU_LELE, "Tapu Lele"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_TAPU_LELE_TM_DATA_0, SPECIES_TAPU_LELE_TM_DATA_1, SPECIES_TAPU_LELE_TM_DATA_2, SPECIES_TAPU_LELE_TM_DATA_3
+	mondexentry SPECIES_TAPU_LELE, "Although called a guardian deity, Tapu Lele is\ndevoid of guilt about its cruel disposition and\ncan be described as nature incarnate."
 
 
 mondata SPECIES_TAPU_BULU, "Tapu Bulu"
@@ -15094,6 +15931,7 @@ mondata SPECIES_TAPU_BULU, "Tapu Bulu"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TAPU_BULU_TM_DATA_0, SPECIES_TAPU_BULU_TM_DATA_1, SPECIES_TAPU_BULU_TM_DATA_2, SPECIES_TAPU_BULU_TM_DATA_3
+	mondexentry SPECIES_TAPU_BULU, "It makes ringing sounds with its tail to let others\nknow where it is, avoiding unneeded conflicts.\nThis guardian deity of Ula’ula controls plants."
 
 
 mondata SPECIES_TAPU_FINI, "Tapu Fini"
@@ -15112,6 +15950,7 @@ mondata SPECIES_TAPU_FINI, "Tapu Fini"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_TAPU_FINI_TM_DATA_0, SPECIES_TAPU_FINI_TM_DATA_1, SPECIES_TAPU_FINI_TM_DATA_2, SPECIES_TAPU_FINI_TM_DATA_3
+	mondexentry SPECIES_TAPU_FINI, "The dense fog it creates brings the downfall\nand destruction of its confused enemies.\nOcean currents are the source of its energy."
 
 
 mondata SPECIES_COSMOG, "Cosmog"
@@ -15130,6 +15969,7 @@ mondata SPECIES_COSMOG, "Cosmog"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_COSMOG_TM_DATA_0, SPECIES_COSMOG_TM_DATA_1, SPECIES_COSMOG_TM_DATA_2, SPECIES_COSMOG_TM_DATA_3
+	mondexentry SPECIES_COSMOG, "Even though its helpless, gaseous body can be\nblown away by the slightest breeze, it doesn’t\nseem to care."
 
 
 mondata SPECIES_COSMOEM, "Cosmoem"
@@ -15148,6 +15988,7 @@ mondata SPECIES_COSMOEM, "Cosmoem"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_COSMOEM_TM_DATA_0, SPECIES_COSMOEM_TM_DATA_1, SPECIES_COSMOEM_TM_DATA_2, SPECIES_COSMOEM_TM_DATA_3
+	mondexentry SPECIES_COSMOEM, "There’s something accumulating around the\nblack core within its hard shell. People think\nthis Pokémon may come from another world."
 
 
 mondata SPECIES_SOLGALEO, "Solgaleo"
@@ -15166,6 +16007,7 @@ mondata SPECIES_SOLGALEO, "Solgaleo"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SOLGALEO_TM_DATA_0, SPECIES_SOLGALEO_TM_DATA_1, SPECIES_SOLGALEO_TM_DATA_2, SPECIES_SOLGALEO_TM_DATA_3
+	mondexentry SPECIES_SOLGALEO, "It is said to live in another world. The intense\nlight it radiates from the surface of its body can\nmake the darkest of nights light up like midday."
 
 
 mondata SPECIES_LUNALA, "Lunala"
@@ -15184,6 +16026,7 @@ mondata SPECIES_LUNALA, "Lunala"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_LUNALA_TM_DATA_0, SPECIES_LUNALA_TM_DATA_1, SPECIES_LUNALA_TM_DATA_2, SPECIES_LUNALA_TM_DATA_3
+	mondexentry SPECIES_LUNALA, "Said to live in another world, this Pokémon\ndevours light, drawing the moonless dark veil of\nnight over the brightness of day."
 
 
 mondata SPECIES_NIHILEGO, "Nihilego"
@@ -15202,6 +16045,7 @@ mondata SPECIES_NIHILEGO, "Nihilego"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_NIHILEGO_TM_DATA_0, SPECIES_NIHILEGO_TM_DATA_1, SPECIES_NIHILEGO_TM_DATA_2, SPECIES_NIHILEGO_TM_DATA_3
+	mondexentry SPECIES_NIHILEGO, "One of the Ultra Beasts. It’s unclear whether or\nnot this Pokémon is sentient, but sometimes it\ncan be observed behaving like a young girl."
 
 
 mondata SPECIES_BUZZWOLE, "Buzzwole"
@@ -15220,6 +16064,7 @@ mondata SPECIES_BUZZWOLE, "Buzzwole"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_BUZZWOLE_TM_DATA_0, SPECIES_BUZZWOLE_TM_DATA_1, SPECIES_BUZZWOLE_TM_DATA_2, SPECIES_BUZZWOLE_TM_DATA_3
+	mondexentry SPECIES_BUZZWOLE, "This Ultra Beast appeared from another world.\nIt shows off its body, but whether that display\nis a boast or a threat remains unclear."
 
 
 mondata SPECIES_PHEROMOSA, "Phermosa"
@@ -15238,6 +16083,7 @@ mondata SPECIES_PHEROMOSA, "Phermosa"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_PHEROMOSA_TM_DATA_0, SPECIES_PHEROMOSA_TM_DATA_1, SPECIES_PHEROMOSA_TM_DATA_2, SPECIES_PHEROMOSA_TM_DATA_3
+	mondexentry SPECIES_PHEROMOSA, "One of the dangerous Ultra Beasts, it has been\nspotted running across the land at\nterrific speeds."
 
 
 mondata SPECIES_XURKITREE, "Xurkitree"
@@ -15256,6 +16102,7 @@ mondata SPECIES_XURKITREE, "Xurkitree"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_XURKITREE_TM_DATA_0, SPECIES_XURKITREE_TM_DATA_1, SPECIES_XURKITREE_TM_DATA_2, SPECIES_XURKITREE_TM_DATA_3
+	mondexentry SPECIES_XURKITREE, "It appeared from the Ultra Wormhole. It raided a\npower plant, so people think it energizes itself\nwith electricity."
 
 
 mondata SPECIES_CELESTEELA, "Celesteela"
@@ -15274,6 +16121,7 @@ mondata SPECIES_CELESTEELA, "Celesteela"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CELESTEELA_TM_DATA_0, SPECIES_CELESTEELA_TM_DATA_1, SPECIES_CELESTEELA_TM_DATA_2, SPECIES_CELESTEELA_TM_DATA_3
+	mondexentry SPECIES_CELESTEELA, "Although it’s alien to this world and a danger\nhere, it’s apparently a common organism in the\nworld where it normally lives."
 
 
 mondata SPECIES_KARTANA, "Kartana"
@@ -15292,6 +16140,7 @@ mondata SPECIES_KARTANA, "Kartana"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_KARTANA_TM_DATA_0, SPECIES_KARTANA_TM_DATA_1, SPECIES_KARTANA_TM_DATA_2, SPECIES_KARTANA_TM_DATA_3
+	mondexentry SPECIES_KARTANA, "One of the Ultra Beast life-forms, it was\nobserved cutting down a gigantic steel tower\nwith one stroke of its blade."
 
 
 mondata SPECIES_GUZZLORD, "Guzzlord"
@@ -15310,6 +16159,7 @@ mondata SPECIES_GUZZLORD, "Guzzlord"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_GUZZLORD_TM_DATA_0, SPECIES_GUZZLORD_TM_DATA_1, SPECIES_GUZZLORD_TM_DATA_2, SPECIES_GUZZLORD_TM_DATA_3
+	mondexentry SPECIES_GUZZLORD, "Although it’s alien to this world and a danger\nhere, it’s apparently a common organism in the\nworld where it normally lives."
 
 
 mondata SPECIES_NECROZMA, "Necrozma"
@@ -15328,6 +16178,7 @@ mondata SPECIES_NECROZMA, "Necrozma"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_NECROZMA_TM_DATA_0, SPECIES_NECROZMA_TM_DATA_1, SPECIES_NECROZMA_TM_DATA_2, SPECIES_NECROZMA_TM_DATA_3
+	mondexentry SPECIES_NECROZMA, "It looks somehow pained as it rages around in\nsearch of light, which serves as its energy.\nIt’s apparently from another world."
 
 
 mondata SPECIES_MAGEARNA, "Magearna"
@@ -15346,6 +16197,7 @@ mondata SPECIES_MAGEARNA, "Magearna"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MAGEARNA_TM_DATA_0, SPECIES_MAGEARNA_TM_DATA_1, SPECIES_MAGEARNA_TM_DATA_2, SPECIES_MAGEARNA_TM_DATA_3
+	mondexentry SPECIES_MAGEARNA, "This artificial Pokémon, constructed more than\n500 years ago, can understand human speech\nbut cannot itself speak."
 
 
 mondata SPECIES_MARSHADOW, "Marshadow"
@@ -15364,6 +16216,7 @@ mondata SPECIES_MARSHADOW, "Marshadow"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MARSHADOW_TM_DATA_0, SPECIES_MARSHADOW_TM_DATA_1, SPECIES_MARSHADOW_TM_DATA_2, SPECIES_MARSHADOW_TM_DATA_3
+	mondexentry SPECIES_MARSHADOW, "This Pokémon can conceal itself in any shadow,\nso it went undiscovered for a long time."
 
 
 mondata SPECIES_POIPOLE, "Poipole"
@@ -15382,6 +16235,7 @@ mondata SPECIES_POIPOLE, "Poipole"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_POIPOLE_TM_DATA_0, SPECIES_POIPOLE_TM_DATA_1, SPECIES_POIPOLE_TM_DATA_2, SPECIES_POIPOLE_TM_DATA_3
+	mondexentry SPECIES_POIPOLE, "An Ultra Beast that lives in a different world, it\ncackles wildly as it sprays its opponents with\npoison from the needles on its head."
 
 
 mondata SPECIES_NAGANADEL, "Naganadel"
@@ -15400,6 +16254,7 @@ mondata SPECIES_NAGANADEL, "Naganadel"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_NAGANADEL_TM_DATA_0, SPECIES_NAGANADEL_TM_DATA_1, SPECIES_NAGANADEL_TM_DATA_2, SPECIES_NAGANADEL_TM_DATA_3
+	mondexentry SPECIES_NAGANADEL, "It stores hundreds of liters of poisonous liquid\ninside its body. It is one of the organisms known\nas UBs."
 
 
 mondata SPECIES_STAKATAKA, "Stakataka"
@@ -15418,6 +16273,7 @@ mondata SPECIES_STAKATAKA, "Stakataka"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_STAKATAKA_TM_DATA_0, SPECIES_STAKATAKA_TM_DATA_1, SPECIES_STAKATAKA_TM_DATA_2, SPECIES_STAKATAKA_TM_DATA_3
+	mondexentry SPECIES_STAKATAKA, "It appeared from an Ultra Wormhole. Each one\nappears to be made up of many life-forms\nstacked one on top of each other."
 
 
 mondata SPECIES_BLACEPHALON, "Blacephalon"
@@ -15436,6 +16292,7 @@ mondata SPECIES_BLACEPHALON, "Blacephalon"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_BLACEPHALON_TM_DATA_0, SPECIES_BLACEPHALON_TM_DATA_1, SPECIES_BLACEPHALON_TM_DATA_2, SPECIES_BLACEPHALON_TM_DATA_3
+	mondexentry SPECIES_BLACEPHALON, "A UB that appeared from an Ultra Wormhole, it\ncauses explosions, then takes advantage of\nopponents’ surprise to rob them of their vitality."
 
 
 mondata SPECIES_ZERAORA, "Zeraora"
@@ -15454,6 +16311,7 @@ mondata SPECIES_ZERAORA, "Zeraora"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_ZERAORA_TM_DATA_0, SPECIES_ZERAORA_TM_DATA_1, SPECIES_ZERAORA_TM_DATA_2, SPECIES_ZERAORA_TM_DATA_3
+	mondexentry SPECIES_ZERAORA, "It runs as fast as lightning strikes, shredding its\nopponents with its high-voltage claws."
 
 
 mondata SPECIES_MELTAN, "Meltan"
@@ -15472,6 +16330,7 @@ mondata SPECIES_MELTAN, "Meltan"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MELTAN_TM_DATA_0, SPECIES_MELTAN_TM_DATA_1, SPECIES_MELTAN_TM_DATA_2, SPECIES_MELTAN_TM_DATA_3
+	mondexentry SPECIES_MELTAN, "It dissolves and eats metal. Circulating liquid\nmetal within its body is how it generates energy."
 
 
 mondata SPECIES_MELMETAL, "Melmetal"
@@ -15490,6 +16349,7 @@ mondata SPECIES_MELMETAL, "Melmetal"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_MELMETAL_TM_DATA_0, SPECIES_MELMETAL_TM_DATA_1, SPECIES_MELMETAL_TM_DATA_2, SPECIES_MELMETAL_TM_DATA_3
+	mondexentry SPECIES_MELMETAL, "Revered long ago for its capacity to create iron\nfrom nothing, for some reason it has come back\nto life after 3,000 years."
 
 mondata SPECIES_GROOKEY, "Grookey"
     basestats 50, 65, 50, 65, 40, 40
@@ -15507,6 +16367,7 @@ mondata SPECIES_GROOKEY, "Grookey"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GROOKEY_TM_DATA_0, SPECIES_GROOKEY_TM_DATA_1, SPECIES_GROOKEY_TM_DATA_2, SPECIES_GROOKEY_TM_DATA_3
+	mondexentry SPECIES_GROOKEY, "It attacks with rapid beats of its stick.\nAs it strikes with amazing speed, it gets\nmore and more pumped."
 
 
 mondata SPECIES_THWACKEY, "Thwackey"
@@ -15525,6 +16386,7 @@ mondata SPECIES_THWACKEY, "Thwackey"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_THWACKEY_TM_DATA_0, SPECIES_THWACKEY_TM_DATA_1, SPECIES_THWACKEY_TM_DATA_2, SPECIES_THWACKEY_TM_DATA_3
+	mondexentry SPECIES_THWACKEY, "When it’s drumming out rapid beats in battle, it\ngets so caught up in the rhythm that it won’t even\nnotice that it’s already knocked out its opponent."
 
 
 mondata SPECIES_RILLABOOM, "Rillaboom"
@@ -15543,6 +16405,7 @@ mondata SPECIES_RILLABOOM, "Rillaboom"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_RILLABOOM_TM_DATA_0, SPECIES_RILLABOOM_TM_DATA_1, SPECIES_RILLABOOM_TM_DATA_2, SPECIES_RILLABOOM_TM_DATA_3
+	mondexentry SPECIES_RILLABOOM, "The one with the best drumming techniques\nbecomes the boss of the troop. It has a gentle\ndisposition and values harmony among its group."
 
 
 mondata SPECIES_SCORBUNNY, "Scorbunny"
@@ -15561,6 +16424,7 @@ mondata SPECIES_SCORBUNNY, "Scorbunny"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SCORBUNNY_TM_DATA_0, SPECIES_SCORBUNNY_TM_DATA_1, SPECIES_SCORBUNNY_TM_DATA_2, SPECIES_SCORBUNNY_TM_DATA_3
+	mondexentry SPECIES_SCORBUNNY, "A warm-up of running around gets fire energy\ncoursing through this Pokémon’s body. Once that\nhappens, it’s ready to fight at full power."
 
 
 mondata SPECIES_RABOOT, "Raboot"
@@ -15579,6 +16443,7 @@ mondata SPECIES_RABOOT, "Raboot"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_RABOOT_TM_DATA_0, SPECIES_RABOOT_TM_DATA_1, SPECIES_RABOOT_TM_DATA_2, SPECIES_RABOOT_TM_DATA_3
+	mondexentry SPECIES_RABOOT, "It kicks berries right off the branches of trees\nand then juggles them with its feet, practicing\nits footwork."
 
 
 mondata SPECIES_CINDERACE, "Cinderace"
@@ -15597,6 +16462,7 @@ mondata SPECIES_CINDERACE, "Cinderace"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_CINDERACE_TM_DATA_0, SPECIES_CINDERACE_TM_DATA_1, SPECIES_CINDERACE_TM_DATA_2, SPECIES_CINDERACE_TM_DATA_3
+	mondexentry SPECIES_CINDERACE, "It’s skilled at both offense and defense, and it\ngets pumped up when cheered on. But if it starts\nshowboating, it could put itself in a tough spot."
 
 
 mondata SPECIES_SOBBLE, "Sobble"
@@ -15615,6 +16481,7 @@ mondata SPECIES_SOBBLE, "Sobble"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_SOBBLE_TM_DATA_0, SPECIES_SOBBLE_TM_DATA_1, SPECIES_SOBBLE_TM_DATA_2, SPECIES_SOBBLE_TM_DATA_3
+	mondexentry SPECIES_SOBBLE, "When it gets wet, its skin changes color,\nand this Pokémon becomes invisible as if\nit were camouflaged."
 
 
 mondata SPECIES_DRIZZILE, "Drizzile"
@@ -15633,6 +16500,7 @@ mondata SPECIES_DRIZZILE, "Drizzile"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_DRIZZILE_TM_DATA_0, SPECIES_DRIZZILE_TM_DATA_1, SPECIES_DRIZZILE_TM_DATA_2, SPECIES_DRIZZILE_TM_DATA_3
+	mondexentry SPECIES_DRIZZILE, "A clever combatant, this Pokémon battles using\nwater balloons created with moisture secreted\nfrom its palms."
 
 
 mondata SPECIES_INTELEON, "Inteleon"
@@ -15651,6 +16519,7 @@ mondata SPECIES_INTELEON, "Inteleon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_INTELEON_TM_DATA_0, SPECIES_INTELEON_TM_DATA_1, SPECIES_INTELEON_TM_DATA_2, SPECIES_INTELEON_TM_DATA_3
+	mondexentry SPECIES_INTELEON, "Its nictitating membranes let it pick out foes’\nweak points so it can precisely blast them with\nwater that shoots from its fingertips at Mach 3."
 
 
 mondata SPECIES_SKWOVET, "Skwovet"
@@ -15669,6 +16538,7 @@ mondata SPECIES_SKWOVET, "Skwovet"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SKWOVET_TM_DATA_0, SPECIES_SKWOVET_TM_DATA_1, SPECIES_SKWOVET_TM_DATA_2, SPECIES_SKWOVET_TM_DATA_3
+	mondexentry SPECIES_SKWOVET, "It eats berries nonstop—a habit that has made\nit more resilient than it looks. It’ll show up on\nfarms, searching for yet more berries."
 
 
 mondata SPECIES_GREEDENT, "Greedent"
@@ -15687,6 +16557,7 @@ mondata SPECIES_GREEDENT, "Greedent"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GREEDENT_TM_DATA_0, SPECIES_GREEDENT_TM_DATA_1, SPECIES_GREEDENT_TM_DATA_2, SPECIES_GREEDENT_TM_DATA_3
+	mondexentry SPECIES_GREEDENT, "Common throughout the Galar region, this\nPokémon has strong teeth and can chew\nthrough the toughest of berry shells."
 
 
 mondata SPECIES_ROOKIDEE, "Rookidee"
@@ -15705,6 +16576,7 @@ mondata SPECIES_ROOKIDEE, "Rookidee"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ROOKIDEE_TM_DATA_0, SPECIES_ROOKIDEE_TM_DATA_1, SPECIES_ROOKIDEE_TM_DATA_2, SPECIES_ROOKIDEE_TM_DATA_3
+	mondexentry SPECIES_ROOKIDEE, "It will bravely challenge any opponent, no matter\nhow powerful. This Pokémon benefits from every\nbattle—even a defeat increases its strength a bit."
 
 
 mondata SPECIES_CORVISQUIRE, "Corvisquire"
@@ -15723,6 +16595,7 @@ mondata SPECIES_CORVISQUIRE, "Corvisquire"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CORVISQUIRE_TM_DATA_0, SPECIES_CORVISQUIRE_TM_DATA_1, SPECIES_CORVISQUIRE_TM_DATA_2, SPECIES_CORVISQUIRE_TM_DATA_3
+	mondexentry SPECIES_CORVISQUIRE, "The lessons of many harsh battles have taught it\nhow to accurately judge an opponent’s strength."
 
 
 mondata SPECIES_CORVIKNIGHT, "Corviknight"
@@ -15741,6 +16614,7 @@ mondata SPECIES_CORVIKNIGHT, "Corviknight"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_CORVIKNIGHT_TM_DATA_0, SPECIES_CORVIKNIGHT_TM_DATA_1, SPECIES_CORVIKNIGHT_TM_DATA_2, SPECIES_CORVIKNIGHT_TM_DATA_3
+	mondexentry SPECIES_CORVIKNIGHT, "This Pokémon reigns supreme in the skies of the\nGalar region. The black luster of its steel body\ncould drive terror into the heart of any foe."
 
 
 mondata SPECIES_BLIPBUG, "Blipbug"
@@ -15759,6 +16633,7 @@ mondata SPECIES_BLIPBUG, "Blipbug"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BLIPBUG_TM_DATA_0, SPECIES_BLIPBUG_TM_DATA_1, SPECIES_BLIPBUG_TM_DATA_2, SPECIES_BLIPBUG_TM_DATA_3
+	mondexentry SPECIES_BLIPBUG, "Often found in gardens, this Pokémon has hairs\non its body that it uses to assess its surroundings."
 
 
 mondata SPECIES_DOTTLER, "Dottler"
@@ -15778,6 +16653,7 @@ mondata SPECIES_DOTTLER, "Dottler"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_DOTTLER_TM_DATA_0, SPECIES_DOTTLER_TM_DATA_1, SPECIES_DOTTLER_TM_DATA_2, SPECIES_DOTTLER_TM_DATA_3
+	mondexentry SPECIES_DOTTLER, "As it grows inside its shell, it uses its psychic\nabilities to monitor the outside world and\nprepare for evolution."
 
 
 mondata SPECIES_ORBEETLE, "Orbeetle"
@@ -15797,6 +16673,7 @@ mondata SPECIES_ORBEETLE, "Orbeetle"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ORBEETLE_TM_DATA_0, SPECIES_ORBEETLE_TM_DATA_1, SPECIES_ORBEETLE_TM_DATA_2, SPECIES_ORBEETLE_TM_DATA_3
+	mondexentry SPECIES_ORBEETLE, "It emits psychic energy to observe and study\nwhat’s around it—and what’s around it can\ninclude things over six miles away."
 
 
 mondata SPECIES_NICKIT, "Nickit"
@@ -15815,6 +16692,7 @@ mondata SPECIES_NICKIT, "Nickit"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_NICKIT_TM_DATA_0, SPECIES_NICKIT_TM_DATA_1, SPECIES_NICKIT_TM_DATA_2, SPECIES_NICKIT_TM_DATA_3
+	mondexentry SPECIES_NICKIT, "Aided by the soft pads on its feet, it silently raids\nthe food stores of other Pokémon. It survives off\nits ill-gotten gains."
 
 
 mondata SPECIES_THIEVUL, "Thievul"
@@ -15833,6 +16711,7 @@ mondata SPECIES_THIEVUL, "Thievul"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_THIEVUL_TM_DATA_0, SPECIES_THIEVUL_TM_DATA_1, SPECIES_THIEVUL_TM_DATA_2, SPECIES_THIEVUL_TM_DATA_3
+	mondexentry SPECIES_THIEVUL, "It secretly marks potential targets with a scent.\nBy following the scent, it stalks its targets\nand steals from them when they least expect it."
 
 
 mondata SPECIES_GOSSIFLEUR, "Gossifleur"
@@ -15851,6 +16730,7 @@ mondata SPECIES_GOSSIFLEUR, "Gossifleur"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_GOSSIFLEUR_TM_DATA_0, SPECIES_GOSSIFLEUR_TM_DATA_1, SPECIES_GOSSIFLEUR_TM_DATA_2, SPECIES_GOSSIFLEUR_TM_DATA_3
+	mondexentry SPECIES_GOSSIFLEUR, "It whirls around in the wind while singing a joyous\nsong. This delightful display has charmed many\ninto raising this Pokémon."
 
 
 mondata SPECIES_ELDEGOSS, "Eldegoss"
@@ -15869,6 +16749,7 @@ mondata SPECIES_ELDEGOSS, "Eldegoss"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_ELDEGOSS_TM_DATA_0, SPECIES_ELDEGOSS_TM_DATA_1, SPECIES_ELDEGOSS_TM_DATA_2, SPECIES_ELDEGOSS_TM_DATA_3
+	mondexentry SPECIES_ELDEGOSS, "The seeds attached to its cotton fluff are full of\nnutrients. It spreads them on the wind so that\nplants and other Pokémon can benefit from them."
 
 
 mondata SPECIES_WOOLOO, "Wooloo"
@@ -15887,6 +16768,7 @@ mondata SPECIES_WOOLOO, "Wooloo"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_WOOLOO_TM_DATA_0, SPECIES_WOOLOO_TM_DATA_1, SPECIES_WOOLOO_TM_DATA_2, SPECIES_WOOLOO_TM_DATA_3
+	mondexentry SPECIES_WOOLOO, "Its curly fleece is such an effective cushion that\nthis Pokémon could fall off a cliff and stand right\nback up at the bottom, unharmed."
 
 
 mondata SPECIES_DUBWOOL, "Dubwool"
@@ -15905,6 +16787,7 @@ mondata SPECIES_DUBWOOL, "Dubwool"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_DUBWOOL_TM_DATA_0, SPECIES_DUBWOOL_TM_DATA_1, SPECIES_DUBWOOL_TM_DATA_2, SPECIES_DUBWOOL_TM_DATA_3
+	mondexentry SPECIES_DUBWOOL, "Weave a carpet from its springy wool, and you end\nup with something closer to a trampoline. You’ll\nstart to bounce the moment you set foot on it."
 
 
 mondata SPECIES_CHEWTLE, "Chewtle"
@@ -15923,6 +16806,7 @@ mondata SPECIES_CHEWTLE, "Chewtle"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CHEWTLE_TM_DATA_0, SPECIES_CHEWTLE_TM_DATA_1, SPECIES_CHEWTLE_TM_DATA_2, SPECIES_CHEWTLE_TM_DATA_3
+	mondexentry SPECIES_CHEWTLE, "Apparently the itch of its teething impels it to\nsnap its jaws at anything in front of it."
 
 
 mondata SPECIES_DREDNAW, "Drednaw"
@@ -15941,6 +16825,7 @@ mondata SPECIES_DREDNAW, "Drednaw"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DREDNAW_TM_DATA_0, SPECIES_DREDNAW_TM_DATA_1, SPECIES_DREDNAW_TM_DATA_2, SPECIES_DREDNAW_TM_DATA_3
+	mondexentry SPECIES_DREDNAW, "With jaws that can shear through steel rods,\nthis highly aggressive Pokémon chomps down\non its unfortunate prey."
 
 
 mondata SPECIES_YAMPER, "Yamper"
@@ -15959,6 +16844,7 @@ mondata SPECIES_YAMPER, "Yamper"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_YAMPER_TM_DATA_0, SPECIES_YAMPER_TM_DATA_1, SPECIES_YAMPER_TM_DATA_2, SPECIES_YAMPER_TM_DATA_3
+	mondexentry SPECIES_YAMPER, "This Pokémon is very popular as a herding dog\nin the Galar region. As it runs, it generates\nelectricity from the base of its tail."
 
 
 mondata SPECIES_BOLTUND, "Boltund"
@@ -15977,6 +16863,7 @@ mondata SPECIES_BOLTUND, "Boltund"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_BOLTUND_TM_DATA_0, SPECIES_BOLTUND_TM_DATA_1, SPECIES_BOLTUND_TM_DATA_2, SPECIES_BOLTUND_TM_DATA_3
+	mondexentry SPECIES_BOLTUND, "It sends electricity through its legs to boost their\nstrength. Running at top speed, it easily breaks\n50 mph."
 
 
 mondata SPECIES_ROLYCOLY, "Rolycoly"
@@ -15995,6 +16882,7 @@ mondata SPECIES_ROLYCOLY, "Rolycoly"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_ROLYCOLY_TM_DATA_0, SPECIES_ROLYCOLY_TM_DATA_1, SPECIES_ROLYCOLY_TM_DATA_2, SPECIES_ROLYCOLY_TM_DATA_3
+	mondexentry SPECIES_ROLYCOLY, "Most of its body has the same composition as\ncoal. Fittingly, this Pokémon was first discovered\nin coal mines about 400 years ago."
 
 
 mondata SPECIES_CARKOL, "Carkol"
@@ -16013,6 +16901,7 @@ mondata SPECIES_CARKOL, "Carkol"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_CARKOL_TM_DATA_0, SPECIES_CARKOL_TM_DATA_1, SPECIES_CARKOL_TM_DATA_2, SPECIES_CARKOL_TM_DATA_3
+	mondexentry SPECIES_CARKOL, "It forms coal inside its body. Coal dropped by\nthis Pokémon once helped fuel the lives of\npeople in the Galar region."
 
 
 mondata SPECIES_COALOSSAL, "Coalossal"
@@ -16031,6 +16920,7 @@ mondata SPECIES_COALOSSAL, "Coalossal"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_COALOSSAL_TM_DATA_0, SPECIES_COALOSSAL_TM_DATA_1, SPECIES_COALOSSAL_TM_DATA_2, SPECIES_COALOSSAL_TM_DATA_3
+	mondexentry SPECIES_COALOSSAL, "While it’s engaged in battle, its mountain of coal\nwill burn bright red, sending off sparks that\nscorch the surrounding area."
 
 
 mondata SPECIES_APPLIN, "Applin"
@@ -16049,6 +16939,7 @@ mondata SPECIES_APPLIN, "Applin"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_APPLIN_TM_DATA_0, SPECIES_APPLIN_TM_DATA_1, SPECIES_APPLIN_TM_DATA_2, SPECIES_APPLIN_TM_DATA_3
+	mondexentry SPECIES_APPLIN, "It spends its entire life inside an apple. It hides\nfrom its natural enemies, bird Pokémon, by\npretending it’s just an apple and nothing more."
 
 
 mondata SPECIES_FLAPPLE, "Flapple"
@@ -16067,6 +16958,7 @@ mondata SPECIES_FLAPPLE, "Flapple"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_FLAPPLE_TM_DATA_0, SPECIES_FLAPPLE_TM_DATA_1, SPECIES_FLAPPLE_TM_DATA_2, SPECIES_FLAPPLE_TM_DATA_3
+	mondexentry SPECIES_FLAPPLE, "It flies on wings of apple skin and spits a\npowerful acid. It can also change its shape\ninto that of an apple."
 
 
 mondata SPECIES_APPLETUN, "Appletun"
@@ -16085,6 +16977,7 @@ mondata SPECIES_APPLETUN, "Appletun"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_APPLETUN_TM_DATA_0, SPECIES_APPLETUN_TM_DATA_1, SPECIES_APPLETUN_TM_DATA_2, SPECIES_APPLETUN_TM_DATA_3
+	mondexentry SPECIES_APPLETUN, "Its body is covered in sweet nectar, and the\nskin on its back is especially yummy. Children\nused to have it as a snack."
 
 
 mondata SPECIES_SILICOBRA, "Silicobra"
@@ -16103,6 +16996,7 @@ mondata SPECIES_SILICOBRA, "Silicobra"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SILICOBRA_TM_DATA_0, SPECIES_SILICOBRA_TM_DATA_1, SPECIES_SILICOBRA_TM_DATA_2, SPECIES_SILICOBRA_TM_DATA_3
+	mondexentry SPECIES_SILICOBRA, "As it digs, it swallows sand and stores it in its\nneck pouch. The pouch can hold more than\n17 pounds of sand."
 
 
 mondata SPECIES_SANDACONDA, "Sandaconda"
@@ -16121,6 +17015,7 @@ mondata SPECIES_SANDACONDA, "Sandaconda"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_SANDACONDA_TM_DATA_0, SPECIES_SANDACONDA_TM_DATA_1, SPECIES_SANDACONDA_TM_DATA_2, SPECIES_SANDACONDA_TM_DATA_3
+	mondexentry SPECIES_SANDACONDA, "Its unique style of coiling allows it to blast sand\nout of its sand sac more efficiently."
 
 
 mondata SPECIES_CRAMORANT, "Cramorant"
@@ -16139,6 +17034,7 @@ mondata SPECIES_CRAMORANT, "Cramorant"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_CRAMORANT_TM_DATA_0, SPECIES_CRAMORANT_TM_DATA_1, SPECIES_CRAMORANT_TM_DATA_2, SPECIES_CRAMORANT_TM_DATA_3
+	mondexentry SPECIES_CRAMORANT, "It’s so strong that it can knock out some\nopponents in a single hit, but it also may\nforget what it’s battling midfight."
 
 
 mondata SPECIES_ARROKUDA, "Arrokuda"
@@ -16157,6 +17053,7 @@ mondata SPECIES_ARROKUDA, "Arrokuda"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ARROKUDA_TM_DATA_0, SPECIES_ARROKUDA_TM_DATA_1, SPECIES_ARROKUDA_TM_DATA_2, SPECIES_ARROKUDA_TM_DATA_3
+	mondexentry SPECIES_ARROKUDA, "After it’s eaten its fill, its movements become\nextremely sluggish. That’s when Cramorant\nswallows it up."
 
 
 mondata SPECIES_BARRASKEWDA, "Barraskewda"
@@ -16175,6 +17072,7 @@ mondata SPECIES_BARRASKEWDA, "Barraskewda"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BARRASKEWDA_TM_DATA_0, SPECIES_BARRASKEWDA_TM_DATA_1, SPECIES_BARRASKEWDA_TM_DATA_2, SPECIES_BARRASKEWDA_TM_DATA_3
+	mondexentry SPECIES_BARRASKEWDA, "This Pokémon has a jaw that’s as sharp as a spear\nand as strong as steel. Apparently Barraskewda’s\nflesh is surprisingly tasty, too."
 
 
 mondata SPECIES_TOXEL, "Toxel"
@@ -16193,6 +17091,7 @@ mondata SPECIES_TOXEL, "Toxel"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_TOXEL_TM_DATA_0, SPECIES_TOXEL_TM_DATA_1, SPECIES_TOXEL_TM_DATA_2, SPECIES_TOXEL_TM_DATA_3
+	mondexentry SPECIES_TOXEL, "It stores poison in an internal poison sac and\nsecretes that poison through its skin. If you touch\nthis Pokémon, a tingling sensation follows."
 
 
 mondata SPECIES_TOXTRICITY, "Toxtricity"
@@ -16211,6 +17110,7 @@ mondata SPECIES_TOXTRICITY, "Toxtricity"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_TOXTRICITY_TM_DATA_0, SPECIES_TOXTRICITY_TM_DATA_1, SPECIES_TOXTRICITY_TM_DATA_2, SPECIES_TOXTRICITY_TM_DATA_3
+	mondexentry SPECIES_TOXTRICITY, "When this Pokémon sounds as if it’s strumming a\nguitar, it’s actually clawing at the protrusions on\nits chest to generate electricity."
 
 
 mondata SPECIES_SIZZLIPEDE, "Sizzlipede"
@@ -16229,6 +17129,7 @@ mondata SPECIES_SIZZLIPEDE, "Sizzlipede"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_SIZZLIPEDE_TM_DATA_0, SPECIES_SIZZLIPEDE_TM_DATA_1, SPECIES_SIZZLIPEDE_TM_DATA_2, SPECIES_SIZZLIPEDE_TM_DATA_3
+	mondexentry SPECIES_SIZZLIPEDE, "It stores flammable gas in its body and uses it to\ngenerate heat. The yellow sections on its belly\nget particularly hot."
 
 
 mondata SPECIES_CENTISKORCH, "Centiskorch"
@@ -16247,6 +17148,7 @@ mondata SPECIES_CENTISKORCH, "Centiskorch"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_CENTISKORCH_TM_DATA_0, SPECIES_CENTISKORCH_TM_DATA_1, SPECIES_CENTISKORCH_TM_DATA_2, SPECIES_CENTISKORCH_TM_DATA_3
+	mondexentry SPECIES_CENTISKORCH, "While its burning body is already dangerous on\nits own, this excessively hostile Pokémon also has\nlarge and very sharp fangs."
 
 
 mondata SPECIES_CLOBBOPUS, "Clobbopus"
@@ -16265,6 +17167,7 @@ mondata SPECIES_CLOBBOPUS, "Clobbopus"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_CLOBBOPUS_TM_DATA_0, SPECIES_CLOBBOPUS_TM_DATA_1, SPECIES_CLOBBOPUS_TM_DATA_2, SPECIES_CLOBBOPUS_TM_DATA_3
+	mondexentry SPECIES_CLOBBOPUS, "Its tentacles tear off easily, but it isn’t alarmed\nwhen that happens—it knows they’ll grow back.\nIt’s about as smart as a three-year-old."
 
 
 mondata SPECIES_GRAPPLOCT, "Grapploct"
@@ -16283,6 +17186,7 @@ mondata SPECIES_GRAPPLOCT, "Grapploct"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_GRAPPLOCT_TM_DATA_0, SPECIES_GRAPPLOCT_TM_DATA_1, SPECIES_GRAPPLOCT_TM_DATA_2, SPECIES_GRAPPLOCT_TM_DATA_3
+	mondexentry SPECIES_GRAPPLOCT, "Searching for an opponent to test its skills\nagainst, it emerges onto land. Once the battle\nis over, it returns to the sea."
 
 
 mondata SPECIES_SINISTEA, "Sinistea"
@@ -16301,6 +17205,7 @@ mondata SPECIES_SINISTEA, "Sinistea"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_SINISTEA_TM_DATA_0, SPECIES_SINISTEA_TM_DATA_1, SPECIES_SINISTEA_TM_DATA_2, SPECIES_SINISTEA_TM_DATA_3
+	mondexentry SPECIES_SINISTEA, "This Pokémon is said to have been born when\na lonely spirit possessed a cold, leftover cup\nof tea."
 
 
 mondata SPECIES_POLTEAGEIST, "Polteageist"
@@ -16319,6 +17224,7 @@ mondata SPECIES_POLTEAGEIST, "Polteageist"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_POLTEAGEIST_TM_DATA_0, SPECIES_POLTEAGEIST_TM_DATA_1, SPECIES_POLTEAGEIST_TM_DATA_2, SPECIES_POLTEAGEIST_TM_DATA_3
+	mondexentry SPECIES_POLTEAGEIST, "Leaving leftover black tea unattended is asking\nfor this Pokémon to come along and pour itself\ninto it, turning the tea into a new Polteageist."
 
 
 mondata SPECIES_HATENNA, "Hatenna"
@@ -16337,6 +17243,7 @@ mondata SPECIES_HATENNA, "Hatenna"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_HATENNA_TM_DATA_0, SPECIES_HATENNA_TM_DATA_1, SPECIES_HATENNA_TM_DATA_2, SPECIES_HATENNA_TM_DATA_3
+	mondexentry SPECIES_HATENNA, "Via the protrusion on its head, it senses other\ncreatures’ emotions. If you don’t have a calm\ndisposition, it will never warm up to you."
 
 
 mondata SPECIES_HATTREM, "Hattrem"
@@ -16355,6 +17262,7 @@ mondata SPECIES_HATTREM, "Hattrem"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_HATTREM_TM_DATA_0, SPECIES_HATTREM_TM_DATA_1, SPECIES_HATTREM_TM_DATA_2, SPECIES_HATTREM_TM_DATA_3
+	mondexentry SPECIES_HATTREM, "Using the braids on its head, it pummels foes to\nget them to quiet down. One blow from those\nbraids would knock out a professional boxer."
 
 
 mondata SPECIES_HATTERENE, "Hatterene"
@@ -16373,6 +17281,7 @@ mondata SPECIES_HATTERENE, "Hatterene"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_HATTERENE_TM_DATA_0, SPECIES_HATTERENE_TM_DATA_1, SPECIES_HATTERENE_TM_DATA_2, SPECIES_HATTERENE_TM_DATA_3
+	mondexentry SPECIES_HATTERENE, "It emits psychic power strong enough to cause\nheadaches as a deterrent to the approach\nof others."
 
 
 mondata SPECIES_IMPIDIMP, "Impidimp"
@@ -16391,6 +17300,7 @@ mondata SPECIES_IMPIDIMP, "Impidimp"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_IMPIDIMP_TM_DATA_0, SPECIES_IMPIDIMP_TM_DATA_1, SPECIES_IMPIDIMP_TM_DATA_2, SPECIES_IMPIDIMP_TM_DATA_3
+	mondexentry SPECIES_IMPIDIMP, "Through its nose, it sucks in the emanations\nproduced by people and Pokémon when they\nfeel annoyed. It thrives off this negative energy."
 
 
 mondata SPECIES_MORGREM, "Morgrem"
@@ -16409,6 +17319,7 @@ mondata SPECIES_MORGREM, "Morgrem"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_MORGREM_TM_DATA_0, SPECIES_MORGREM_TM_DATA_1, SPECIES_MORGREM_TM_DATA_2, SPECIES_MORGREM_TM_DATA_3
+	mondexentry SPECIES_MORGREM, "With sly cunning, it tries to lure people into the\nwoods. Some believe it to have the power to\nmake crops grow."
 
 
 mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
@@ -16427,6 +17338,7 @@ mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_GRIMMSNARL_TM_DATA_0, SPECIES_GRIMMSNARL_TM_DATA_1, SPECIES_GRIMMSNARL_TM_DATA_2, SPECIES_GRIMMSNARL_TM_DATA_3
+	mondexentry SPECIES_GRIMMSNARL, "With the hair wrapped around its body helping to\nenhance its muscles, this Pokémon can overwhelm\neven Machamp."
 
 
 mondata SPECIES_OBSTAGOON, "Obstagoon"
@@ -16445,6 +17357,7 @@ mondata SPECIES_OBSTAGOON, "Obstagoon"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_OBSTAGOON_TM_DATA_0, SPECIES_OBSTAGOON_TM_DATA_1, SPECIES_OBSTAGOON_TM_DATA_2, SPECIES_OBSTAGOON_TM_DATA_3
+	mondexentry SPECIES_OBSTAGOON, "It evolved after experiencing numerous fights.\nWhile crossing its arms, it lets out a shout that\nwould make any opponent flinch."
 
 
 mondata SPECIES_PERRSERKER, "Perrserker"
@@ -16463,6 +17376,7 @@ mondata SPECIES_PERRSERKER, "Perrserker"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_PERRSERKER_TM_DATA_0, SPECIES_PERRSERKER_TM_DATA_1, SPECIES_PERRSERKER_TM_DATA_2, SPECIES_PERRSERKER_TM_DATA_3
+	mondexentry SPECIES_PERRSERKER, "What appears to be an iron helmet is actually\nhardened hair. This Pokémon lives for the thrill\nof battle."
 
 
 mondata SPECIES_CURSOLA, "Cursola"
@@ -16481,6 +17395,7 @@ mondata SPECIES_CURSOLA, "Cursola"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_CURSOLA_TM_DATA_0, SPECIES_CURSOLA_TM_DATA_1, SPECIES_CURSOLA_TM_DATA_2, SPECIES_CURSOLA_TM_DATA_3
+	mondexentry SPECIES_CURSOLA, "Be cautious of the ectoplasmic body\nsurrounding its soul. You’ll become\nstiff as stone if you touch it."
 
 
 mondata SPECIES_SIRFETCHD, "Sirfetch’d"
@@ -16500,6 +17415,7 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SIRFETCHD_TM_DATA_0, SPECIES_SIRFETCHD_TM_DATA_1, SPECIES_SIRFETCHD_TM_DATA_2, SPECIES_SIRFETCHD_TM_DATA_3
+	mondexentry SPECIES_SIRFETCHD, "Only Farfetch’d that have survived many battles\ncan attain this evolution. When this Pokémon’s\nleek withers, it will retire from combat."
 
 
 mondata SPECIES_MR_RIME, "Mr. Rime"
@@ -16518,6 +17434,7 @@ mondata SPECIES_MR_RIME, "Mr. Rime"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_MR_RIME_TM_DATA_0, SPECIES_MR_RIME_TM_DATA_1, SPECIES_MR_RIME_TM_DATA_2, SPECIES_MR_RIME_TM_DATA_3
+	mondexentry SPECIES_MR_RIME, "It’s highly skilled at tap-dancing. It waves its cane\nof ice in time with its graceful movements."
 
 
 mondata SPECIES_RUNERIGUS, "Runerigus"
@@ -16536,6 +17453,7 @@ mondata SPECIES_RUNERIGUS, "Runerigus"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_RUNERIGUS_TM_DATA_0, SPECIES_RUNERIGUS_TM_DATA_1, SPECIES_RUNERIGUS_TM_DATA_2, SPECIES_RUNERIGUS_TM_DATA_3
+	mondexentry SPECIES_RUNERIGUS, "A powerful curse was woven into an ancient\npainting. After absorbing the spirit of a Yamask,\nthe painting began to move."
 
 
 mondata SPECIES_MILCERY, "Milcery"
@@ -16554,6 +17472,7 @@ mondata SPECIES_MILCERY, "Milcery"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_MILCERY_TM_DATA_0, SPECIES_MILCERY_TM_DATA_1, SPECIES_MILCERY_TM_DATA_2, SPECIES_MILCERY_TM_DATA_3
+	mondexentry SPECIES_MILCERY, "They say that any patisserie visited by Milcery\nis guaranteed success and good fortune."
 
 
 mondata SPECIES_ALCREMIE, "Alcremie"
@@ -16572,6 +17491,7 @@ mondata SPECIES_ALCREMIE, "Alcremie"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_ALCREMIE_TM_DATA_0, SPECIES_ALCREMIE_TM_DATA_1, SPECIES_ALCREMIE_TM_DATA_2, SPECIES_ALCREMIE_TM_DATA_3
+	mondexentry SPECIES_ALCREMIE, "When Alcremie is content, the cream it\nsecretes from its hands becomes sweeter\nand richer."
 
 
 mondata SPECIES_FALINKS, "Falinks"
@@ -16590,6 +17510,7 @@ mondata SPECIES_FALINKS, "Falinks"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_FALINKS_TM_DATA_0, SPECIES_FALINKS_TM_DATA_1, SPECIES_FALINKS_TM_DATA_2, SPECIES_FALINKS_TM_DATA_3
+	mondexentry SPECIES_FALINKS, "The six of them work together as one Pokémon.\nTeamwork is also their battle strategy, and they\nconstantly change their formation as they fight."
 
 
 mondata SPECIES_PINCURCHIN, "Pincurchin"
@@ -16608,6 +17529,7 @@ mondata SPECIES_PINCURCHIN, "Pincurchin"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_PINCURCHIN_TM_DATA_0, SPECIES_PINCURCHIN_TM_DATA_1, SPECIES_PINCURCHIN_TM_DATA_2, SPECIES_PINCURCHIN_TM_DATA_3
+	mondexentry SPECIES_PINCURCHIN, "It stores electricity in each spine. Even if one gets\nbroken off, it still continues to emit electricity for\nat least three hours."
 
 
 mondata SPECIES_SNOM, "Snom"
@@ -16627,6 +17549,7 @@ mondata SPECIES_SNOM, "Snom"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_SNOM_TM_DATA_0, SPECIES_SNOM_TM_DATA_1, SPECIES_SNOM_TM_DATA_2, SPECIES_SNOM_TM_DATA_3
+	mondexentry SPECIES_SNOM, "It spits out thread imbued with a frigid sort of\nenergy and uses it to tie its body to branches,\ndisguising itself as an icicle while it sleeps."
 
 
 mondata SPECIES_FROSMOTH, "Frosmoth"
@@ -16645,6 +17568,7 @@ mondata SPECIES_FROSMOTH, "Frosmoth"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_FROSMOTH_TM_DATA_0, SPECIES_FROSMOTH_TM_DATA_1, SPECIES_FROSMOTH_TM_DATA_2, SPECIES_FROSMOTH_TM_DATA_3
+	mondexentry SPECIES_FROSMOTH, "It shows no mercy to any who desecrate fields\nand mountains. It will fly around on its icy wings,\ncausing a blizzard to chase offenders away."
 
 
 mondata SPECIES_STONJOURNER, "Stonjourner"
@@ -16663,6 +17587,7 @@ mondata SPECIES_STONJOURNER, "Stonjourner"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_STONJOURNER_TM_DATA_0, SPECIES_STONJOURNER_TM_DATA_1, SPECIES_STONJOURNER_TM_DATA_2, SPECIES_STONJOURNER_TM_DATA_3
+	mondexentry SPECIES_STONJOURNER, "Once a year, on a specific date and at a specific\ntime, they gather out of nowhere and form up in\na circle."
 
 
 mondata SPECIES_EISCUE, "Eiscue"
@@ -16681,6 +17606,7 @@ mondata SPECIES_EISCUE, "Eiscue"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_EISCUE_TM_DATA_0, SPECIES_EISCUE_TM_DATA_1, SPECIES_EISCUE_TM_DATA_2, SPECIES_EISCUE_TM_DATA_3
+	mondexentry SPECIES_EISCUE, "This Pokémon keeps its heat-sensitive head cool\nwith ice. It fishes for its food, dangling its single\nhair into the sea to lure in prey."
 
 
 mondata SPECIES_INDEEDEE, "Indeedee"
@@ -16699,6 +17625,7 @@ mondata SPECIES_INDEEDEE, "Indeedee"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_INDEEDEE_TM_DATA_0, SPECIES_INDEEDEE_TM_DATA_1, SPECIES_INDEEDEE_TM_DATA_2, SPECIES_INDEEDEE_TM_DATA_3
+	mondexentry SPECIES_INDEEDEE, "Through its horns, it can pick up on the emotions\nof creatures around it. Positive emotions are the\nsource of its strength."
 
 
 mondata SPECIES_MORPEKO, "Morpeko"
@@ -16717,6 +17644,7 @@ mondata SPECIES_MORPEKO, "Morpeko"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_MORPEKO_TM_DATA_0, SPECIES_MORPEKO_TM_DATA_1, SPECIES_MORPEKO_TM_DATA_2, SPECIES_MORPEKO_TM_DATA_3
+	mondexentry SPECIES_MORPEKO, "As it eats the seeds stored up in its pocket-like\npouches, this Pokémon is not just satisfying its\nconstant hunger. It’s also generating electricity."
 
 
 mondata SPECIES_CUFANT, "Cufant"
@@ -16735,6 +17663,7 @@ mondata SPECIES_CUFANT, "Cufant"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_CUFANT_TM_DATA_0, SPECIES_CUFANT_TM_DATA_1, SPECIES_CUFANT_TM_DATA_2, SPECIES_CUFANT_TM_DATA_3
+	mondexentry SPECIES_CUFANT, "It digs up the ground with its trunk. It’s also very\nstrong, being able to carry loads of over\nfive tons without any problem at all."
 
 
 mondata SPECIES_COPPERAJAH, "Copperajah"
@@ -16753,6 +17682,7 @@ mondata SPECIES_COPPERAJAH, "Copperajah"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_COPPERAJAH_TM_DATA_0, SPECIES_COPPERAJAH_TM_DATA_1, SPECIES_COPPERAJAH_TM_DATA_2, SPECIES_COPPERAJAH_TM_DATA_3
+	mondexentry SPECIES_COPPERAJAH, "These Pokémon live in herds. Their trunks have\nincredible grip strength, strong enough to crush\ngiant rocks into powder."
 
 
 mondata SPECIES_DRACOZOLT, "Dracozolt"
@@ -16771,6 +17701,7 @@ mondata SPECIES_DRACOZOLT, "Dracozolt"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DRACOZOLT_TM_DATA_0, SPECIES_DRACOZOLT_TM_DATA_1, SPECIES_DRACOZOLT_TM_DATA_2, SPECIES_DRACOZOLT_TM_DATA_3
+	mondexentry SPECIES_DRACOZOLT, "The powerful muscles in its tail generate its\nelectricity. Compared to its lower body,\nits upper half is entirely too small."
 
 
 mondata SPECIES_ARCTOZOLT, "Arctozolt"
@@ -16789,6 +17720,7 @@ mondata SPECIES_ARCTOZOLT, "Arctozolt"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ARCTOZOLT_TM_DATA_0, SPECIES_ARCTOZOLT_TM_DATA_1, SPECIES_ARCTOZOLT_TM_DATA_2, SPECIES_ARCTOZOLT_TM_DATA_3
+	mondexentry SPECIES_ARCTOZOLT, "This Pokémon lived on prehistoric seashores and\nwas able to preserve food with the ice on its\nbody. It went extinct because it moved so slowly."
 
 
 mondata SPECIES_DRACOVISH, "Dracovish"
@@ -16807,6 +17739,7 @@ mondata SPECIES_DRACOVISH, "Dracovish"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DRACOVISH_TM_DATA_0, SPECIES_DRACOVISH_TM_DATA_1, SPECIES_DRACOVISH_TM_DATA_2, SPECIES_DRACOVISH_TM_DATA_3
+	mondexentry SPECIES_DRACOVISH, "Its mighty legs are capable of running at\nspeeds exceeding 40 mph, but this Pokémon\ncan’t breathe unless it’s underwater."
 
 
 mondata SPECIES_ARCTOVISH, "Arctovish"
@@ -16825,6 +17758,7 @@ mondata SPECIES_ARCTOVISH, "Arctovish"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ARCTOVISH_TM_DATA_0, SPECIES_ARCTOVISH_TM_DATA_1, SPECIES_ARCTOVISH_TM_DATA_2, SPECIES_ARCTOVISH_TM_DATA_3
+	mondexentry SPECIES_ARCTOVISH, "Though it’s able to capture prey by freezing its\nsurroundings, it has trouble eating the prey\nafterward because its mouth is on top of its head."
 
 
 mondata SPECIES_DURALUDON, "Duraludon"
@@ -16843,6 +17777,7 @@ mondata SPECIES_DURALUDON, "Duraludon"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_DURALUDON_TM_DATA_0, SPECIES_DURALUDON_TM_DATA_1, SPECIES_DURALUDON_TM_DATA_2, SPECIES_DURALUDON_TM_DATA_3
+	mondexentry SPECIES_DURALUDON, "The special metal that composes its body is very\nlight, so this Pokémon has considerable agility.\nIt lives in caves because it dislikes the rain."
 
 
 mondata SPECIES_DREEPY, "Dreepy"
@@ -16861,6 +17796,7 @@ mondata SPECIES_DREEPY, "Dreepy"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DREEPY_TM_DATA_0, SPECIES_DREEPY_TM_DATA_1, SPECIES_DREEPY_TM_DATA_2, SPECIES_DREEPY_TM_DATA_3
+	mondexentry SPECIES_DREEPY, "After being reborn as a ghost Pokémon,\nDreepy wanders the areas it used to inhabit\nback when it was alive in prehistoric seas."
 
 
 mondata SPECIES_DRAKLOAK, "Drakloak"
@@ -16879,6 +17815,7 @@ mondata SPECIES_DRAKLOAK, "Drakloak"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DRAKLOAK_TM_DATA_0, SPECIES_DRAKLOAK_TM_DATA_1, SPECIES_DRAKLOAK_TM_DATA_2, SPECIES_DRAKLOAK_TM_DATA_3
+	mondexentry SPECIES_DRAKLOAK, "Without a Dreepy to place on its head and\ncare for, it gets so uneasy it’ll try to substitute\nany Pokémon it finds for the missing Dreepy."
 
 
 mondata SPECIES_DRAGAPULT, "Dragapult"
@@ -16897,6 +17834,7 @@ mondata SPECIES_DRAGAPULT, "Dragapult"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DRAGAPULT_TM_DATA_0, SPECIES_DRAGAPULT_TM_DATA_1, SPECIES_DRAGAPULT_TM_DATA_2, SPECIES_DRAGAPULT_TM_DATA_3
+	mondexentry SPECIES_DRAGAPULT, "When it isn’t battling, it keeps Dreepy in the\nholes on its horns. Once a fight starts, it launches\nthe Dreepy like supersonic missiles."
 
 
 mondata SPECIES_ZACIAN, "Zacian"
@@ -16915,6 +17853,7 @@ mondata SPECIES_ZACIAN, "Zacian"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ZACIAN_TM_DATA_0, SPECIES_ZACIAN_TM_DATA_1, SPECIES_ZACIAN_TM_DATA_2, SPECIES_ZACIAN_TM_DATA_3
+	mondexentry SPECIES_ZACIAN, "This Pokémon has slumbered for many years.\nSome say it’s Zamazenta’s elder sister—others\nsay the two Pokémon are rivals."
 
 
 mondata SPECIES_ZAMAZENTA, "Zamazenta"
@@ -16933,6 +17872,7 @@ mondata SPECIES_ZAMAZENTA, "Zamazenta"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ZAMAZENTA_TM_DATA_0, SPECIES_ZAMAZENTA_TM_DATA_1, SPECIES_ZAMAZENTA_TM_DATA_2, SPECIES_ZAMAZENTA_TM_DATA_3
+	mondexentry SPECIES_ZAMAZENTA, "In times past, it worked together with a king of\nthe people to save the Galar region. It absorbs\nmetal that it then uses in battle."
 
 
 mondata SPECIES_ETERNATUS, "Eternatus"
@@ -16951,6 +17891,7 @@ mondata SPECIES_ETERNATUS, "Eternatus"
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     tmdata SPECIES_ETERNATUS_TM_DATA_0, SPECIES_ETERNATUS_TM_DATA_1, SPECIES_ETERNATUS_TM_DATA_2, SPECIES_ETERNATUS_TM_DATA_3
+	mondexentry SPECIES_ETERNATUS, "It was inside a meteorite that fell 20,000 years\nago. There seems to be a connection between\nthis Pokémon and the Dynamax phenomenon."
 
 
 mondata SPECIES_KUBFU, "Kubfu"
@@ -16969,6 +17910,7 @@ mondata SPECIES_KUBFU, "Kubfu"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_KUBFU_TM_DATA_0, SPECIES_KUBFU_TM_DATA_1, SPECIES_KUBFU_TM_DATA_2, SPECIES_KUBFU_TM_DATA_3
+	mondexentry SPECIES_KUBFU, "If Kubfu pulls the long white hair on its head,\nits fighting spirit heightens and power wells up\nfrom the depths of its belly."
 
 
 mondata SPECIES_URSHIFU, "Urshifu"
@@ -16987,6 +17929,7 @@ mondata SPECIES_URSHIFU, "Urshifu"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_URSHIFU_TM_DATA_0, SPECIES_URSHIFU_TM_DATA_1, SPECIES_URSHIFU_TM_DATA_2, SPECIES_URSHIFU_TM_DATA_3
+	mondexentry SPECIES_URSHIFU, "Inhabiting the mountains of a distant region, this\nPokémon races across sheer cliffs, training its legs\nand refining its moves."
 
 
 mondata SPECIES_ZARUDE, "Zarude"
@@ -17005,6 +17948,7 @@ mondata SPECIES_ZARUDE, "Zarude"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_ZARUDE_TM_DATA_0, SPECIES_ZARUDE_TM_DATA_1, SPECIES_ZARUDE_TM_DATA_2, SPECIES_ZARUDE_TM_DATA_3
+	mondexentry SPECIES_ZARUDE, "Within dense forests, this Pokémon lives in a pack\nwith others of its kind. It’s incredibly aggressive,\nand the other Pokémon of the forest fear it."
 
 
 mondata SPECIES_REGIELEKI, "Regieleki"
@@ -17023,6 +17967,7 @@ mondata SPECIES_REGIELEKI, "Regieleki"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     tmdata SPECIES_REGIELEKI_TM_DATA_0, SPECIES_REGIELEKI_TM_DATA_1, SPECIES_REGIELEKI_TM_DATA_2, SPECIES_REGIELEKI_TM_DATA_3
+	mondexentry SPECIES_REGIELEKI, "Its entire body is made up of a single organ that\ngenerates electrical energy. Regieleki is capable\nof creating all Galar’s electricity."
 
 
 mondata SPECIES_REGIDRAGO, "Regidrago"
@@ -17041,6 +17986,7 @@ mondata SPECIES_REGIDRAGO, "Regidrago"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_REGIDRAGO_TM_DATA_0, SPECIES_REGIDRAGO_TM_DATA_1, SPECIES_REGIDRAGO_TM_DATA_2, SPECIES_REGIDRAGO_TM_DATA_3
+	mondexentry SPECIES_REGIDRAGO, "An academic theory proposes that Regidrago’s\narms were once the head of an ancient dragon\nPokémon. The theory remains unproven."
 
 
 mondata SPECIES_GLASTRIER, "Glastrier"
@@ -17059,6 +18005,7 @@ mondata SPECIES_GLASTRIER, "Glastrier"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_GLASTRIER_TM_DATA_0, SPECIES_GLASTRIER_TM_DATA_1, SPECIES_GLASTRIER_TM_DATA_2, SPECIES_GLASTRIER_TM_DATA_3
+	mondexentry SPECIES_GLASTRIER, "Glastrier emits intense cold from its hooves.\nIt’s also a belligerent Pokémon—anything it\nwants, it takes by force."
 
 
 mondata SPECIES_SPECTRIER, "Spectrier"
@@ -17077,6 +18024,7 @@ mondata SPECIES_SPECTRIER, "Spectrier"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SPECTRIER_TM_DATA_0, SPECIES_SPECTRIER_TM_DATA_1, SPECIES_SPECTRIER_TM_DATA_2, SPECIES_SPECTRIER_TM_DATA_3
+	mondexentry SPECIES_SPECTRIER, "It probes its surroundings with all its senses save\none—it doesn’t use its sense of sight. Spectrier’s\nkicks are said to separate soul from body."
 
 
 mondata SPECIES_CALYREX, "Calyrex"
@@ -17095,6 +18043,7 @@ mondata SPECIES_CALYREX, "Calyrex"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_CALYREX_TM_DATA_0, SPECIES_CALYREX_TM_DATA_1, SPECIES_CALYREX_TM_DATA_2, SPECIES_CALYREX_TM_DATA_3
+	mondexentry SPECIES_CALYREX, "Calyrex is a merciful Pokémon, capable of\nproviding healing and blessings. It reigned over\nthe Galar region in times of yore."
 
 
 mondata SPECIES_WYRDEER, "Wyrdeer"
@@ -17113,6 +18062,7 @@ mondata SPECIES_WYRDEER, "Wyrdeer"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_WYRDEER_TM_DATA_0, SPECIES_WYRDEER_TM_DATA_1, SPECIES_WYRDEER_TM_DATA_2, SPECIES_WYRDEER_TM_DATA_3
+	mondexentry SPECIES_WYRDEER, "The black orbs shine with an uncanny light\nwhen the Pokémon is erecting invisible barriers. The\nfur shed from its beard retains heat well."
 
 
 mondata SPECIES_KLEAVOR, "Kleavor"
@@ -17131,6 +18081,7 @@ mondata SPECIES_KLEAVOR, "Kleavor"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_KLEAVOR_TM_DATA_0, SPECIES_KLEAVOR_TM_DATA_1, SPECIES_KLEAVOR_TM_DATA_2, SPECIES_KLEAVOR_TM_DATA_3
+	mondexentry SPECIES_KLEAVOR, "A violent creature that fells towering trees\nwith its crude axes and shields itself with\nhard stone."
 
 
 mondata SPECIES_URSALUNA, "Ursaluna"
@@ -17149,6 +18100,7 @@ mondata SPECIES_URSALUNA, "Ursaluna"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_URSALUNA_TM_DATA_0, SPECIES_URSALUNA_TM_DATA_1, SPECIES_URSALUNA_TM_DATA_2, SPECIES_URSALUNA_TM_DATA_3
+	mondexentry SPECIES_URSALUNA, "Hisui’s swampy terrain gave Ursaluna its burly\nphysique and newfound capacity to manipulate\npeat at will."
 
 
 mondata SPECIES_BASCULEGION, "Basculegion"
@@ -17167,6 +18119,7 @@ mondata SPECIES_BASCULEGION, "Basculegion"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_BASCULEGION_TM_DATA_0, SPECIES_BASCULEGION_TM_DATA_1, SPECIES_BASCULEGION_TM_DATA_2, SPECIES_BASCULEGION_TM_DATA_3
+	mondexentry SPECIES_BASCULEGION, "Clads itself in the souls of comrades that perished\nbefore fulfilling their goals of journeying\nupstream."
 
 
 mondata SPECIES_SNEASLER, "Sneasler"
@@ -17185,6 +18138,7 @@ mondata SPECIES_SNEASLER, "Sneasler"
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     tmdata SPECIES_SNEASLER_TM_DATA_0, SPECIES_SNEASLER_TM_DATA_1, SPECIES_SNEASLER_TM_DATA_2, SPECIES_SNEASLER_TM_DATA_3
+	mondexentry SPECIES_SNEASLER, "Because of Sneasler's virulent poison and daunting\nphysical prowess, no other species could hope\nto best it on the frozen highlands."
 
 
 mondata SPECIES_OVERQWIL, "Overqwil"
@@ -17203,6 +18157,7 @@ mondata SPECIES_OVERQWIL, "Overqwil"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_OVERQWIL_TM_DATA_0, SPECIES_OVERQWIL_TM_DATA_1, SPECIES_OVERQWIL_TM_DATA_2, SPECIES_OVERQWIL_TM_DATA_3
+	mondexentry SPECIES_OVERQWIL, "Its lancelike spikes and savage temperament have\nearned it the nickname \"sea fiend.\" It\nslurps up poison to nourish itself."
 
 
 mondata SPECIES_ENAMORUS, "Enamorus"
@@ -17221,6 +18176,7 @@ mondata SPECIES_ENAMORUS, "Enamorus"
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     tmdata SPECIES_ENAMORUS_TM_DATA_0, SPECIES_ENAMORUS_TM_DATA_1, SPECIES_ENAMORUS_TM_DATA_2, SPECIES_ENAMORUS_TM_DATA_3
+	mondexentry SPECIES_ENAMORUS, "When it flies to this land from across the sea,\nthe bitter winter comes to an end. This Pokémon's\nlove gives rise to the budding of fresh life."
 
 
 mondata SPECIES_MEGA_VENUSAUR, "-----"

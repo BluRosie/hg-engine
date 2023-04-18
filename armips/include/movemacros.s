@@ -16,7 +16,7 @@
 	
 .endmacro
 
-.macro movedatanoname,movenum
+.macro movedatanoname, movenum
 
 	.if movenum < 10
 		.create "build/a011/move_00" + tostring(movenum),0
@@ -92,6 +92,10 @@
 
 .macro userusedmovename,id,name
     writestring "003", id, name
+.endmacro
+
+.macro movedescription,id,description
+    writestring "749", id, description
 .endmacro
 
 // physical/special split
