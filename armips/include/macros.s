@@ -612,6 +612,8 @@
 
 .macro monname,id,name
     writestring "237", id, name
+    writestring "238", id, name
+    writestring "817", id, name
 .endmacro
 
 .macro mondexentry,id,description

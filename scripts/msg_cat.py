@@ -3,7 +3,9 @@ from os import listdir
 from os.path import isfile, join, isdir
 import sys
 
-caps_list = ['751']
+caps_list = ['751', '817']
+
+article_list = ['238']
 
 force_lengths = {
     '812': 11,
@@ -28,10 +30,15 @@ def process_text(folder):
     if isfile(folder):
         return
     caps = False
+    articles = False
     force_length = ''
     for s in caps_list:
         if folder.endswith(s):
             caps = True
+            break
+    for s in article_list:
+        if folder.endswith(s):
+            articles = True
             break
     for s in force_lengths.keys():
         if folder.endswith(s):
@@ -45,6 +52,8 @@ def process_text(folder):
                 s = infile.read().replace('"','”').replace('\'','’').replace('`','’')
                 if caps:
                     s = s.upper()
+                if articles:
+                    s = ('an ' if s.upper().startswith('A') or s.upper().startswith('E') or s.upper().startswith('I') or s.upper().startswith('O') or s.upper().startswith('U') else 'a ') + s
                 if s != '':
                     if force_length != '':
                         while len(s) < force_lengths[force_length]:
