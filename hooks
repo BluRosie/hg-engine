@@ -136,8 +136,8 @@ arm9 MakeTrainerPokemonParty 08073604 3
 #0223CF68 - edits to the battle script command handler
 0012 BattleScriptCommandHandler 080056A8 2
 
-#reset battlemon switch in flags
-0012 ClearBattleMonFlags_hook 0224E70C 3
+#reset battlemon switch in flags (now really really do it)
+0012 ClearBattleMonFlags_hook 0224E998 3
 
 #hidden ability
 arm9 SetBoxMonAbility 080722DC 1

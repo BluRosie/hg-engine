@@ -305,10 +305,10 @@ ldr r1, [sp,#(4+8*4)] // pushed 8 registers, sp+4 originally
 bl ClearBattleMonFlags
 pop {r0-r7}
 
-str r1, [r0, r5]
-mov r0, r4
-mov r1, #0xB1
-mov r2, #0
+add r1, r7, r6
+strb r2, [r1, r0]
+add r0, #1
+strb r2, [r1, r0]
 
-ldr r3, =0x0224E714 | 1
+ldr r3, =0x0224E9A0 | 1
 bx r3
