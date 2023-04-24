@@ -706,255 +706,255 @@
 /* SPECIES_KELDEO          */ .word 485
 /* SPECIES_MELOETTA        */ .word 65
 /* SPECIES_GENESECT        */ .word 825
-/* SPECIES_CHESPIN         */ .word 0 // come back and do this right
-/* SPECIES_QUILLADIN       */ .word 0 // come back and do this right
-/* SPECIES_CHESNAUGHT      */ .word 0 // come back and do this right
-/* SPECIES_FENNEKIN        */ .word 0 // come back and do this right
-/* SPECIES_BRAIXEN         */ .word 0 // come back and do this right
-/* SPECIES_DELPHOX         */ .word 0 // come back and do this right
-/* SPECIES_FROAKIE         */ .word 0 // come back and do this right
-/* SPECIES_FROGADIER       */ .word 0 // come back and do this right
-/* SPECIES_GRENINJA        */ .word 0 // come back and do this right
-/* SPECIES_BUNNELBY        */ .word 0 // come back and do this right
-/* SPECIES_DIGGERSBY       */ .word 0 // come back and do this right
-/* SPECIES_FLETCHLING      */ .word 0 // come back and do this right
-/* SPECIES_FLETCHINDER     */ .word 0 // come back and do this right
-/* SPECIES_TALONFLAME      */ .word 0 // come back and do this right
-/* SPECIES_SCATTERBUG      */ .word 0 // come back and do this right
-/* SPECIES_SPEWPA          */ .word 0 // come back and do this right
-/* SPECIES_VIVILLON        */ .word 0 // come back and do this right
-/* SPECIES_LITLEO          */ .word 0 // come back and do this right
-/* SPECIES_PYROAR          */ .word 0 // come back and do this right
-/* SPECIES_FLABEBE         */ .word 0 // come back and do this right
-/* SPECIES_FLOETTE         */ .word 0 // come back and do this right
-/* SPECIES_FLORGES         */ .word 0 // come back and do this right
-/* SPECIES_SKIDDO          */ .word 0 // come back and do this right
-/* SPECIES_GOGOAT          */ .word 0 // come back and do this right
-/* SPECIES_PANCHAM         */ .word 0 // come back and do this right
-/* SPECIES_PANGORO         */ .word 0 // come back and do this right
-/* SPECIES_FURFROU         */ .word 0 // come back and do this right
-/* SPECIES_ESPURR          */ .word 0 // come back and do this right
-/* SPECIES_MEOWSTIC        */ .word 0 // come back and do this right
-/* SPECIES_HONEDGE         */ .word 0 // come back and do this right
-/* SPECIES_DOUBLADE        */ .word 0 // come back and do this right
-/* SPECIES_AEGISLASH       */ .word 0 // come back and do this right
-/* SPECIES_SPRITZEE        */ .word 0 // come back and do this right
-/* SPECIES_AROMATISSE      */ .word 0 // come back and do this right
-/* SPECIES_SWIRLIX         */ .word 0 // come back and do this right
-/* SPECIES_SLURPUFF        */ .word 0 // come back and do this right
-/* SPECIES_INKAY           */ .word 0 // come back and do this right
-/* SPECIES_MALAMAR         */ .word 0 // come back and do this right
-/* SPECIES_BINACLE         */ .word 0 // come back and do this right
-/* SPECIES_BARBARACLE      */ .word 0 // come back and do this right
-/* SPECIES_SKRELP          */ .word 0 // come back and do this right
-/* SPECIES_DRAGALGE        */ .word 0 // come back and do this right
-/* SPECIES_CLAUNCHER       */ .word 0 // come back and do this right
-/* SPECIES_CLAWITZER       */ .word 0 // come back and do this right
-/* SPECIES_HELIOPTILE      */ .word 0 // come back and do this right
-/* SPECIES_HELIOLISK       */ .word 0 // come back and do this right
-/* SPECIES_TYRUNT          */ .word 0 // come back and do this right
-/* SPECIES_TYRANTRUM       */ .word 0 // come back and do this right
-/* SPECIES_AMAURA          */ .word 0 // come back and do this right
-/* SPECIES_AURORUS         */ .word 0 // come back and do this right
-/* SPECIES_SYLVEON         */ .word 0 // come back and do this right
-/* SPECIES_HAWLUCHA        */ .word 0 // come back and do this right
-/* SPECIES_DEDENNE         */ .word 0 // come back and do this right
-/* SPECIES_CARBINK         */ .word 0 // come back and do this right
-/* SPECIES_GOOMY           */ .word 0 // come back and do this right
-/* SPECIES_SLIGGOO         */ .word 0 // come back and do this right
-/* SPECIES_GOODRA          */ .word 0 // come back and do this right
-/* SPECIES_KLEFKI          */ .word 0 // come back and do this right
-/* SPECIES_PHANTUMP        */ .word 0 // come back and do this right
-/* SPECIES_TREVENANT       */ .word 0 // come back and do this right
-/* SPECIES_PUMPKABOO       */ .word 0 // come back and do this right
-/* SPECIES_GOURGEIST       */ .word 0 // come back and do this right
-/* SPECIES_BERGMITE        */ .word 0 // come back and do this right
-/* SPECIES_AVALUGG         */ .word 0 // come back and do this right
-/* SPECIES_NOIBAT          */ .word 0 // come back and do this right
-/* SPECIES_NOIVERN         */ .word 0 // come back and do this right
-/* SPECIES_XERNEAS         */ .word 0 // come back and do this right
-/* SPECIES_YVELTAL         */ .word 0 // come back and do this right
-/* SPECIES_ZYGARDE         */ .word 0 // come back and do this right
-/* SPECIES_DIANCIE         */ .word 0 // come back and do this right
-/* SPECIES_HOOPA           */ .word 0 // come back and do this right
-/* SPECIES_VOLCANION       */ .word 0 // come back and do this right
-/* SPECIES_ROWLET          */ .word 0 // come back and do this right
-/* SPECIES_DARTRIX         */ .word 0 // come back and do this right
-/* SPECIES_DECIDUEYE       */ .word 0 // come back and do this right
-/* SPECIES_LITTEN          */ .word 0 // come back and do this right
-/* SPECIES_TORRACAT        */ .word 0 // come back and do this right
-/* SPECIES_INCINEROAR      */ .word 0 // come back and do this right
-/* SPECIES_POPPLIO         */ .word 0 // come back and do this right
-/* SPECIES_BRIONNE         */ .word 0 // come back and do this right
-/* SPECIES_PRIMARINA       */ .word 0 // come back and do this right
-/* SPECIES_PIKIPEK         */ .word 0 // come back and do this right
-/* SPECIES_TRUMBEAK        */ .word 0 // come back and do this right
-/* SPECIES_TOUCANNON       */ .word 0 // come back and do this right
-/* SPECIES_YUNGOOS         */ .word 0 // come back and do this right
-/* SPECIES_GUMSHOOS        */ .word 0 // come back and do this right
-/* SPECIES_GRUBBIN         */ .word 0 // come back and do this right
-/* SPECIES_CHARJABUG       */ .word 0 // come back and do this right
-/* SPECIES_VIKAVOLT        */ .word 0 // come back and do this right
-/* SPECIES_CRABRAWLER      */ .word 0 // come back and do this right
-/* SPECIES_CRABOMINABLE    */ .word 0 // come back and do this right
-/* SPECIES_ORICORIO        */ .word 0 // come back and do this right
-/* SPECIES_CUTIEFLY        */ .word 0 // come back and do this right
-/* SPECIES_RIBOMBEE        */ .word 0 // come back and do this right
-/* SPECIES_ROCKRUFF        */ .word 0 // come back and do this right
-/* SPECIES_LYCANROC        */ .word 0 // come back and do this right
-/* SPECIES_WISHIWASHI      */ .word 0 // come back and do this right
-/* SPECIES_MAREANIE        */ .word 0 // come back and do this right
-/* SPECIES_TOXAPEX         */ .word 0 // come back and do this right
-/* SPECIES_MUDBRAY         */ .word 0 // come back and do this right
-/* SPECIES_MUDSDALE        */ .word 0 // come back and do this right
-/* SPECIES_DEWPIDER        */ .word 0 // come back and do this right
-/* SPECIES_ARAQUANID       */ .word 0 // come back and do this right
-/* SPECIES_FOMANTIS        */ .word 0 // come back and do this right
-/* SPECIES_LURANTIS        */ .word 0 // come back and do this right
-/* SPECIES_MORELULL        */ .word 0 // come back and do this right
-/* SPECIES_SHIINOTIC       */ .word 0 // come back and do this right
-/* SPECIES_SALANDIT        */ .word 0 // come back and do this right
-/* SPECIES_SALAZZLE        */ .word 0 // come back and do this right
-/* SPECIES_STUFFUL         */ .word 0 // come back and do this right
-/* SPECIES_BEWEAR          */ .word 0 // come back and do this right
-/* SPECIES_BOUNSWEET       */ .word 0 // come back and do this right
-/* SPECIES_STEENEE         */ .word 0 // come back and do this right
-/* SPECIES_TSAREENA        */ .word 0 // come back and do this right
-/* SPECIES_COMFEY          */ .word 0 // come back and do this right
-/* SPECIES_ORANGURU        */ .word 0 // come back and do this right
-/* SPECIES_PASSIMIAN       */ .word 0 // come back and do this right
-/* SPECIES_WIMPOD          */ .word 0 // come back and do this right
-/* SPECIES_GOLISOPOD       */ .word 0 // come back and do this right
-/* SPECIES_SANDYGAST       */ .word 0 // come back and do this right
-/* SPECIES_PALOSSAND       */ .word 0 // come back and do this right
-/* SPECIES_PYUKUMUKU       */ .word 0 // come back and do this right
-/* SPECIES_TYPE_NULL       */ .word 0 // come back and do this right
-/* SPECIES_SILVALLY        */ .word 0 // come back and do this right
-/* SPECIES_MINIOR          */ .word 0 // come back and do this right
-/* SPECIES_KOMALA          */ .word 0 // come back and do this right
-/* SPECIES_TURTONATOR      */ .word 0 // come back and do this right
-/* SPECIES_TOGEDEMARU      */ .word 0 // come back and do this right
-/* SPECIES_MIMIKYU         */ .word 0 // come back and do this right
-/* SPECIES_BRUXISH         */ .word 0 // come back and do this right
-/* SPECIES_DRAMPA          */ .word 0 // come back and do this right
-/* SPECIES_DHELMISE        */ .word 0 // come back and do this right
-/* SPECIES_JANGMO_O        */ .word 0 // come back and do this right
-/* SPECIES_HAKAMO_O        */ .word 0 // come back and do this right
-/* SPECIES_KOMMO_O         */ .word 0 // come back and do this right
-/* SPECIES_TAPU_KOKO       */ .word 0 // come back and do this right
-/* SPECIES_TAPU_LELE       */ .word 0 // come back and do this right
-/* SPECIES_TAPU_BULU       */ .word 0 // come back and do this right
-/* SPECIES_TAPU_FINI       */ .word 0 // come back and do this right
-/* SPECIES_COSMOG          */ .word 0 // come back and do this right
-/* SPECIES_COSMOEM         */ .word 0 // come back and do this right
-/* SPECIES_SOLGALEO        */ .word 0 // come back and do this right
-/* SPECIES_LUNALA          */ .word 0 // come back and do this right
-/* SPECIES_NIHILEGO        */ .word 0 // come back and do this right
-/* SPECIES_BUZZWOLE        */ .word 0 // come back and do this right
-/* SPECIES_PHEROMOSA       */ .word 0 // come back and do this right
-/* SPECIES_XURKITREE       */ .word 0 // come back and do this right
-/* SPECIES_CELESTEELA      */ .word 0 // come back and do this right
-/* SPECIES_KARTANA         */ .word 0 // come back and do this right
-/* SPECIES_GUZZLORD        */ .word 0 // come back and do this right
-/* SPECIES_NECROZMA        */ .word 0 // come back and do this right
-/* SPECIES_MAGEARNA        */ .word 0 // come back and do this right
-/* SPECIES_MARSHADOW       */ .word 0 // come back and do this right
-/* SPECIES_POIPOLE         */ .word 0 // come back and do this right
-/* SPECIES_NAGANADEL       */ .word 0 // come back and do this right
-/* SPECIES_STAKATAKA       */ .word 0 // come back and do this right
-/* SPECIES_BLACEPHALON     */ .word 0 // come back and do this right
-/* SPECIES_ZERAORA         */ .word 0 // come back and do this right
-/* SPECIES_MELTAN          */ .word 0 // come back and do this right
-/* SPECIES_MELMETAL        */ .word 0 // come back and do this right
-/* SPECIES_GROOKEY         */ .word 0 // come back and do this right
-/* SPECIES_THWACKEY        */ .word 0 // come back and do this right
-/* SPECIES_RILLABOOM       */ .word 0 // come back and do this right
-/* SPECIES_SCORBUNNY       */ .word 0 // come back and do this right
-/* SPECIES_RABOOT          */ .word 0 // come back and do this right
-/* SPECIES_CINDERACE       */ .word 0 // come back and do this right
-/* SPECIES_SOBBLE          */ .word 0 // come back and do this right
-/* SPECIES_DRIZZILE        */ .word 0 // come back and do this right
-/* SPECIES_INTELEON        */ .word 0 // come back and do this right
-/* SPECIES_SKWOVET         */ .word 0 // come back and do this right
-/* SPECIES_GREEDENT        */ .word 0 // come back and do this right
-/* SPECIES_ROOKIDEE        */ .word 0 // come back and do this right
-/* SPECIES_CORVISQUIRE     */ .word 0 // come back and do this right
-/* SPECIES_CORVIKNIGHT     */ .word 0 // come back and do this right
-/* SPECIES_BLIPBUG         */ .word 0 // come back and do this right
-/* SPECIES_DOTTLER         */ .word 0 // come back and do this right
-/* SPECIES_ORBEETLE        */ .word 0 // come back and do this right
-/* SPECIES_NICKIT          */ .word 0 // come back and do this right
-/* SPECIES_THIEVUL         */ .word 0 // come back and do this right
-/* SPECIES_GOSSIFLEUR      */ .word 0 // come back and do this right
-/* SPECIES_ELDEGOSS        */ .word 0 // come back and do this right
-/* SPECIES_WOOLOO          */ .word 0 // come back and do this right
-/* SPECIES_DUBWOOL         */ .word 0 // come back and do this right
-/* SPECIES_CHEWTLE         */ .word 0 // come back and do this right
-/* SPECIES_DREDNAW         */ .word 0 // come back and do this right
-/* SPECIES_YAMPER          */ .word 0 // come back and do this right
-/* SPECIES_BOLTUND         */ .word 0 // come back and do this right
-/* SPECIES_ROLYCOLY        */ .word 0 // come back and do this right
-/* SPECIES_CARKOL          */ .word 0 // come back and do this right
-/* SPECIES_COALOSSAL       */ .word 0 // come back and do this right
-/* SPECIES_APPLIN          */ .word 0 // come back and do this right
-/* SPECIES_FLAPPLE         */ .word 0 // come back and do this right
-/* SPECIES_APPLETUN        */ .word 0 // come back and do this right
-/* SPECIES_SILICOBRA       */ .word 0 // come back and do this right
-/* SPECIES_SANDACONDA      */ .word 0 // come back and do this right
-/* SPECIES_CRAMORANT       */ .word 0 // come back and do this right
-/* SPECIES_ARROKUDA        */ .word 0 // come back and do this right
-/* SPECIES_BARRASKEWDA     */ .word 0 // come back and do this right
-/* SPECIES_TOXEL           */ .word 0 // come back and do this right
-/* SPECIES_TOXTRICITY      */ .word 0 // come back and do this right
-/* SPECIES_SIZZLIPEDE      */ .word 0 // come back and do this right
-/* SPECIES_CENTISKORCH     */ .word 0 // come back and do this right
-/* SPECIES_CLOBBOPUS       */ .word 0 // come back and do this right
-/* SPECIES_GRAPPLOCT       */ .word 0 // come back and do this right
-/* SPECIES_SINISTEA        */ .word 0 // come back and do this right
-/* SPECIES_POLTEAGEIST     */ .word 0 // come back and do this right
-/* SPECIES_HATENNA         */ .word 0 // come back and do this right
-/* SPECIES_HATTREM         */ .word 0 // come back and do this right
-/* SPECIES_HATTERENE       */ .word 0 // come back and do this right
-/* SPECIES_IMPIDIMP        */ .word 0 // come back and do this right
-/* SPECIES_MORGREM         */ .word 0 // come back and do this right
-/* SPECIES_GRIMMSNARL      */ .word 0 // come back and do this right
-/* SPECIES_OBSTAGOON       */ .word 0 // come back and do this right
-/* SPECIES_PERRSERKER      */ .word 0 // come back and do this right
-/* SPECIES_CURSOLA         */ .word 0 // come back and do this right
-/* SPECIES_SIRFETCHD       */ .word 0 // come back and do this right
-/* SPECIES_MR_RIME         */ .word 0 // come back and do this right
-/* SPECIES_RUNERIGUS       */ .word 0 // come back and do this right
-/* SPECIES_MILCERY         */ .word 0 // come back and do this right
-/* SPECIES_ALCREMIE        */ .word 0 // come back and do this right
-/* SPECIES_FALINKS         */ .word 0 // come back and do this right
-/* SPECIES_PINCURCHIN      */ .word 0 // come back and do this right
-/* SPECIES_SNOM            */ .word 0 // come back and do this right
-/* SPECIES_FROSMOTH        */ .word 0 // come back and do this right
-/* SPECIES_STONJOURNER     */ .word 0 // come back and do this right
-/* SPECIES_EISCUE          */ .word 0 // come back and do this right
-/* SPECIES_INDEEDEE        */ .word 0 // come back and do this right
-/* SPECIES_MORPEKO         */ .word 0 // come back and do this right
-/* SPECIES_CUFANT          */ .word 0 // come back and do this right
-/* SPECIES_COPPERAJAH      */ .word 0 // come back and do this right
-/* SPECIES_DRACOZOLT       */ .word 0 // come back and do this right
-/* SPECIES_ARCTOZOLT       */ .word 0 // come back and do this right
-/* SPECIES_DRACOVISH       */ .word 0 // come back and do this right
-/* SPECIES_ARCTOVISH       */ .word 0 // come back and do this right
-/* SPECIES_DURALUDON       */ .word 0 // come back and do this right
-/* SPECIES_DREEPY          */ .word 0 // come back and do this right
-/* SPECIES_DRAKLOAK        */ .word 0 // come back and do this right
-/* SPECIES_DRAGAPULT       */ .word 0 // come back and do this right
-/* SPECIES_ZACIAN          */ .word 0 // come back and do this right
-/* SPECIES_ZAMAZENTA       */ .word 0 // come back and do this right
-/* SPECIES_ETERNATUS       */ .word 0 // come back and do this right
-/* SPECIES_KUBFU           */ .word 0 // come back and do this right
-/* SPECIES_URSHIFU         */ .word 0 // come back and do this right
-/* SPECIES_ZARUDE          */ .word 0 // come back and do this right
-/* SPECIES_REGIELEKI       */ .word 0 // come back and do this right
-/* SPECIES_REGIDRAGO       */ .word 0 // come back and do this right
-/* SPECIES_GLASTRIER       */ .word 0 // come back and do this right
-/* SPECIES_SPECTRIER       */ .word 0 // come back and do this right
-/* SPECIES_CALYREX         */ .word 0 // come back and do this right
+/* SPECIES_CHESPIN         */ .word 90
+/* SPECIES_QUILLADIN       */ .word 290
+/* SPECIES_CHESNAUGHT      */ .word 900
+/* SPECIES_FENNEKIN        */ .word 94
+/* SPECIES_BRAIXEN         */ .word 145
+/* SPECIES_DELPHOX         */ .word 390
+/* SPECIES_FROAKIE         */ .word 70
+/* SPECIES_FROGADIER       */ .word 109
+/* SPECIES_GRENINJA        */ .word 400
+/* SPECIES_BUNNELBY        */ .word 50
+/* SPECIES_DIGGERSBY       */ .word 424
+/* SPECIES_FLETCHLING      */ .word 17
+/* SPECIES_FLETCHINDER     */ .word 160
+/* SPECIES_TALONFLAME      */ .word 245
+/* SPECIES_SCATTERBUG      */ .word 25
+/* SPECIES_SPEWPA          */ .word 84
+/* SPECIES_VIVILLON        */ .word 170
+/* SPECIES_LITLEO          */ .word 135
+/* SPECIES_PYROAR          */ .word 815
+/* SPECIES_FLABEBE         */ .word 1
+/* SPECIES_FLOETTE         */ .word 9
+/* SPECIES_FLORGES         */ .word 100
+/* SPECIES_SKIDDO          */ .word 310
+/* SPECIES_GOGOAT          */ .word 910
+/* SPECIES_PANCHAM         */ .word 80
+/* SPECIES_PANGORO         */ .word 1360
+/* SPECIES_FURFROU         */ .word 280
+/* SPECIES_ESPURR          */ .word 35
+/* SPECIES_MEOWSTIC        */ .word 85
+/* SPECIES_HONEDGE         */ .word 20
+/* SPECIES_DOUBLADE        */ .word 45
+/* SPECIES_AEGISLASH       */ .word 530
+/* SPECIES_SPRITZEE        */ .word 5
+/* SPECIES_AROMATISSE      */ .word 155
+/* SPECIES_SWIRLIX         */ .word 35
+/* SPECIES_SLURPUFF        */ .word 50
+/* SPECIES_INKAY           */ .word 35
+/* SPECIES_MALAMAR         */ .word 470
+/* SPECIES_BINACLE         */ .word 310
+/* SPECIES_BARBARACLE      */ .word 960
+/* SPECIES_SKRELP          */ .word 73
+/* SPECIES_DRAGALGE        */ .word 815
+/* SPECIES_CLAUNCHER       */ .word 83
+/* SPECIES_CLAWITZER       */ .word 353
+/* SPECIES_HELIOPTILE      */ .word 60
+/* SPECIES_HELIOLISK       */ .word 210
+/* SPECIES_TYRUNT          */ .word 260
+/* SPECIES_TYRANTRUM       */ .word 2700
+/* SPECIES_AMAURA          */ .word 252
+/* SPECIES_AURORUS         */ .word 2250
+/* SPECIES_SYLVEON         */ .word 235
+/* SPECIES_HAWLUCHA        */ .word 215
+/* SPECIES_DEDENNE         */ .word 22
+/* SPECIES_CARBINK         */ .word 57
+/* SPECIES_GOOMY           */ .word 28
+/* SPECIES_SLIGGOO         */ .word 175
+/* SPECIES_GOODRA          */ .word 1505
+/* SPECIES_KLEFKI          */ .word 30
+/* SPECIES_PHANTUMP        */ .word 70
+/* SPECIES_TREVENANT       */ .word 710
+/* SPECIES_PUMPKABOO       */ .word 50
+/* SPECIES_GOURGEIST       */ .word 125
+/* SPECIES_BERGMITE        */ .word 995
+/* SPECIES_AVALUGG         */ .word 5050
+/* SPECIES_NOIBAT          */ .word 80
+/* SPECIES_NOIVERN         */ .word 850
+/* SPECIES_XERNEAS         */ .word 2150
+/* SPECIES_YVELTAL         */ .word 2030
+/* SPECIES_ZYGARDE         */ .word 3050
+/* SPECIES_DIANCIE         */ .word 88
+/* SPECIES_HOOPA           */ .word 90
+/* SPECIES_VOLCANION       */ .word 1950
+/* SPECIES_ROWLET          */ .word 15
+/* SPECIES_DARTRIX         */ .word 160
+/* SPECIES_DECIDUEYE       */ .word 366
+/* SPECIES_LITTEN          */ .word 43
+/* SPECIES_TORRACAT        */ .word 250
+/* SPECIES_INCINEROAR      */ .word 830
+/* SPECIES_POPPLIO         */ .word 75
+/* SPECIES_BRIONNE         */ .word 175
+/* SPECIES_PRIMARINA       */ .word 440
+/* SPECIES_PIKIPEK         */ .word 12
+/* SPECIES_TRUMBEAK        */ .word 148
+/* SPECIES_TOUCANNON       */ .word 260
+/* SPECIES_YUNGOOS         */ .word 60
+/* SPECIES_GUMSHOOS        */ .word 142
+/* SPECIES_GRUBBIN         */ .word 44
+/* SPECIES_CHARJABUG       */ .word 105
+/* SPECIES_VIKAVOLT        */ .word 450
+/* SPECIES_CRABRAWLER      */ .word 70
+/* SPECIES_CRABOMINABLE    */ .word 1800
+/* SPECIES_ORICORIO        */ .word 34
+/* SPECIES_CUTIEFLY        */ .word 2
+/* SPECIES_RIBOMBEE        */ .word 5
+/* SPECIES_ROCKRUFF        */ .word 92
+/* SPECIES_LYCANROC        */ .word 250
+/* SPECIES_WISHIWASHI      */ .word 3
+/* SPECIES_MAREANIE        */ .word 80
+/* SPECIES_TOXAPEX         */ .word 145
+/* SPECIES_MUDBRAY         */ .word 1100
+/* SPECIES_MUDSDALE        */ .word 9200
+/* SPECIES_DEWPIDER        */ .word 40
+/* SPECIES_ARAQUANID       */ .word 820
+/* SPECIES_FOMANTIS        */ .word 15
+/* SPECIES_LURANTIS        */ .word 185
+/* SPECIES_MORELULL        */ .word 15
+/* SPECIES_SHIINOTIC       */ .word 115
+/* SPECIES_SALANDIT        */ .word 48
+/* SPECIES_SALAZZLE        */ .word 222
+/* SPECIES_STUFFUL         */ .word 68
+/* SPECIES_BEWEAR          */ .word 1350
+/* SPECIES_BOUNSWEET       */ .word 32
+/* SPECIES_STEENEE         */ .word 82
+/* SPECIES_TSAREENA        */ .word 214
+/* SPECIES_COMFEY          */ .word 3
+/* SPECIES_ORANGURU        */ .word 760
+/* SPECIES_PASSIMIAN       */ .word 828
+/* SPECIES_WIMPOD          */ .word 120
+/* SPECIES_GOLISOPOD       */ .word 1080
+/* SPECIES_SANDYGAST       */ .word 700
+/* SPECIES_PALOSSAND       */ .word 2500
+/* SPECIES_PYUKUMUKU       */ .word 12
+/* SPECIES_TYPE_NULL       */ .word 1205
+/* SPECIES_SILVALLY        */ .word 1005
+/* SPECIES_MINIOR          */ .word 400
+/* SPECIES_KOMALA          */ .word 199
+/* SPECIES_TURTONATOR      */ .word 2120
+/* SPECIES_TOGEDEMARU      */ .word 33
+/* SPECIES_MIMIKYU         */ .word 7
+/* SPECIES_BRUXISH         */ .word 190
+/* SPECIES_DRAMPA          */ .word 1850
+/* SPECIES_DHELMISE        */ .word 2100
+/* SPECIES_JANGMO_O        */ .word 297
+/* SPECIES_HAKAMO_O        */ .word 470
+/* SPECIES_KOMMO_O         */ .word 782
+/* SPECIES_TAPU_KOKO       */ .word 205
+/* SPECIES_TAPU_LELE       */ .word 186
+/* SPECIES_TAPU_BULU       */ .word 455
+/* SPECIES_TAPU_FINI       */ .word 212
+/* SPECIES_COSMOG          */ .word 1
+/* SPECIES_COSMOEM         */ .word 9999
+/* SPECIES_SOLGALEO        */ .word 2300
+/* SPECIES_LUNALA          */ .word 1200
+/* SPECIES_NIHILEGO        */ .word 555
+/* SPECIES_BUZZWOLE        */ .word 3336
+/* SPECIES_PHEROMOSA       */ .word 250
+/* SPECIES_XURKITREE       */ .word 1000
+/* SPECIES_CELESTEELA      */ .word 9999
+/* SPECIES_KARTANA         */ .word 1
+/* SPECIES_GUZZLORD        */ .word 8880
+/* SPECIES_NECROZMA        */ .word 2300
+/* SPECIES_MAGEARNA        */ .word 805
+/* SPECIES_MARSHADOW       */ .word 222
+/* SPECIES_POIPOLE         */ .word 18
+/* SPECIES_NAGANADEL       */ .word 1500
+/* SPECIES_STAKATAKA       */ .word 8200
+/* SPECIES_BLACEPHALON     */ .word 130
+/* SPECIES_ZERAORA         */ .word 445
+/* SPECIES_MELTAN          */ .word 80
+/* SPECIES_MELMETAL        */ .word 8000
+/* SPECIES_GROOKEY         */ .word 50
+/* SPECIES_THWACKEY        */ .word 140
+/* SPECIES_RILLABOOM       */ .word 900
+/* SPECIES_SCORBUNNY       */ .word 45
+/* SPECIES_RABOOT          */ .word 90
+/* SPECIES_CINDERACE       */ .word 330
+/* SPECIES_SOBBLE          */ .word 40
+/* SPECIES_DRIZZILE        */ .word 115
+/* SPECIES_INTELEON        */ .word 452
+/* SPECIES_SKWOVET         */ .word 25
+/* SPECIES_GREEDENT        */ .word 60
+/* SPECIES_ROOKIDEE        */ .word 18
+/* SPECIES_CORVISQUIRE     */ .word 160
+/* SPECIES_CORVIKNIGHT     */ .word 750
+/* SPECIES_BLIPBUG         */ .word 80
+/* SPECIES_DOTTLER         */ .word 195
+/* SPECIES_ORBEETLE        */ .word 408
+/* SPECIES_NICKIT          */ .word 89
+/* SPECIES_THIEVUL         */ .word 199
+/* SPECIES_GOSSIFLEUR      */ .word 22
+/* SPECIES_ELDEGOSS        */ .word 25
+/* SPECIES_WOOLOO          */ .word 60
+/* SPECIES_DUBWOOL         */ .word 430
+/* SPECIES_CHEWTLE         */ .word 85
+/* SPECIES_DREDNAW         */ .word 1155
+/* SPECIES_YAMPER          */ .word 135
+/* SPECIES_BOLTUND         */ .word 340
+/* SPECIES_ROLYCOLY        */ .word 120
+/* SPECIES_CARKOL          */ .word 780
+/* SPECIES_COALOSSAL       */ .word 3105
+/* SPECIES_APPLIN          */ .word 5
+/* SPECIES_FLAPPLE         */ .word 10
+/* SPECIES_APPLETUN        */ .word 130
+/* SPECIES_SILICOBRA       */ .word 76
+/* SPECIES_SANDACONDA      */ .word 655
+/* SPECIES_CRAMORANT       */ .word 180
+/* SPECIES_ARROKUDA        */ .word 10
+/* SPECIES_BARRASKEWDA     */ .word 300
+/* SPECIES_TOXEL           */ .word 110
+/* SPECIES_TOXTRICITY      */ .word 400
+/* SPECIES_SIZZLIPEDE      */ .word 10
+/* SPECIES_CENTISKORCH     */ .word 1200
+/* SPECIES_CLOBBOPUS       */ .word 40
+/* SPECIES_GRAPPLOCT       */ .word 390
+/* SPECIES_SINISTEA        */ .word 2
+/* SPECIES_POLTEAGEIST     */ .word 4
+/* SPECIES_HATENNA         */ .word 34
+/* SPECIES_HATTREM         */ .word 48
+/* SPECIES_HATTERENE       */ .word 51
+/* SPECIES_IMPIDIMP        */ .word 55
+/* SPECIES_MORGREM         */ .word 125
+/* SPECIES_GRIMMSNARL      */ .word 610
+/* SPECIES_OBSTAGOON       */ .word 460
+/* SPECIES_PERRSERKER      */ .word 280
+/* SPECIES_CURSOLA         */ .word 4
+/* SPECIES_SIRFETCHD       */ .word 1170
+/* SPECIES_MR_RIME         */ .word 582
+/* SPECIES_RUNERIGUS       */ .word 666
+/* SPECIES_MILCERY         */ .word 3
+/* SPECIES_ALCREMIE        */ .word 5
+/* SPECIES_FALINKS         */ .word 620
+/* SPECIES_PINCURCHIN      */ .word 10
+/* SPECIES_SNOM            */ .word 38
+/* SPECIES_FROSMOTH        */ .word 420
+/* SPECIES_STONJOURNER     */ .word 5200
+/* SPECIES_EISCUE          */ .word 890
+/* SPECIES_INDEEDEE        */ .word 280
+/* SPECIES_MORPEKO         */ .word 30
+/* SPECIES_CUFANT          */ .word 1000
+/* SPECIES_COPPERAJAH      */ .word 6500
+/* SPECIES_DRACOZOLT       */ .word 1900
+/* SPECIES_ARCTOZOLT       */ .word 1500
+/* SPECIES_DRACOVISH       */ .word 2150
+/* SPECIES_ARCTOVISH       */ .word 1750
+/* SPECIES_DURALUDON       */ .word 400
+/* SPECIES_DREEPY          */ .word 20
+/* SPECIES_DRAKLOAK        */ .word 110
+/* SPECIES_DRAGAPULT       */ .word 500
+/* SPECIES_ZACIAN          */ .word 1100
+/* SPECIES_ZAMAZENTA       */ .word 2100
+/* SPECIES_ETERNATUS       */ .word 9500
+/* SPECIES_KUBFU           */ .word 120
+/* SPECIES_URSHIFU         */ .word 1050
+/* SPECIES_ZARUDE          */ .word 700
+/* SPECIES_REGIELEKI       */ .word 1450
+/* SPECIES_REGIDRAGO       */ .word 2000
+/* SPECIES_GLASTRIER       */ .word 8000
+/* SPECIES_SPECTRIER       */ .word 445
+/* SPECIES_CALYREX         */ .word 77
 /* SPECIES_WYRDEER         */ .word 951
 /* SPECIES_KLEAVOR         */ .word 890
 /* SPECIES_URSALUNA        */ .word 2900

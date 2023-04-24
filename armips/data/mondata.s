@@ -19267,8 +19267,7 @@ mondata SPECIES_DOTTLER, "Dottler"
     catchrate 120
     baseexp 117
     evyields 0, 0, 0, 0, 0, 2
-//    items ITEM_NONE, ITEM_PSYCHIC_SEED
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_PSYCHIC_SEED
     genderratio 127
     eggcycles 15
     basefriendship 70
@@ -19290,8 +19289,7 @@ mondata SPECIES_ORBEETLE, "Orbeetle"
     catchrate 45
     baseexp 253
     evyields 0, 0, 0, 0, 0, 3
-//    items ITEM_NONE, ITEM_PSYCHIC_SEED
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_PSYCHIC_SEED
     genderratio 127
     eggcycles 15
     basefriendship 70
@@ -20149,8 +20147,7 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     catchrate 45
     baseexp 177
     evyields 0, 2, 0, 0, 0, 0
-//    items ITEM_NONE, ITEM_LEEK
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_LEEK
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -20304,8 +20301,7 @@ mondata SPECIES_SNOM, "Snom"
     catchrate 190
     baseexp 37
     evyields 0, 0, 0, 0, 1, 0
-//    items ITEM_NONE, ITEM_SNOWBALL
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_SNOWBALL
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -21993,8 +21989,7 @@ mondata SPECIES_VULPIX_ALOLAN, "-----"
     catchrate 190
     baseexp 60
     evyields 0, 0, 0, 1, 0, 0
-//    items ITEM_NONE, ITEM_SNOWBALL
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_SNOWBALL
     genderratio 191
     eggcycles 20
     basefriendship 70
@@ -22102,8 +22097,7 @@ mondata SPECIES_GEODUDE_ALOLAN, "-----"
     catchrate 255
     baseexp 60
     evyields 0, 0, 1, 0, 0, 0
-//    items ITEM_NONE, ITEM_CELL_BATTERY
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 15
     basefriendship 70
@@ -22121,8 +22115,7 @@ mondata SPECIES_GRAVELER_ALOLAN, "-----"
     catchrate 120
     baseexp 137
     evyields 0, 0, 2, 0, 0, 0
-//    items ITEM_NONE, ITEM_CELL_BATTERY
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 15
     basefriendship 70
@@ -22320,8 +22313,7 @@ mondata SPECIES_FARFETCHD_GALARIAN, "-----"
     catchrate 45
     baseexp 132
     evyields 0, 1, 0, 0, 0, 0
-//    items ITEM_NONE, ITEM_LEEK
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_LEEK
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -22339,8 +22331,7 @@ mondata SPECIES_WEEZING_GALARIAN, "-----"
     catchrate 60
     baseexp 172
     evyields 0, 0, 2, 0, 0, 0
-//    items ITEM_NONE, ITEM_MISTY_SEED
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_MISTY_SEED
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -22970,8 +22961,7 @@ mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     catchrate 25
     baseexp 161
     evyields 0, 0, 0, 2, 0, 0
-//    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
     eggcycles 40
     basefriendship 70
@@ -22989,8 +22979,7 @@ mondata SPECIES_BASCULIN_WHITE_STRIPED, "-----"
     catchrate 25
     baseexp 161
     evyields 0, 0, 0, 2, 0, 0
-//    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
     eggcycles 40
     basefriendship 70
