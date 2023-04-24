@@ -3172,6 +3172,7 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
     u32 form = 0;
+    BOOL shouldUpdate = TRUE;
     
     switch (species)
     {
@@ -3189,9 +3190,13 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
+        default:
+            shouldUpdate = FALSE;
     }
 
-    SetMonData(pp, ID_PARA_form_no, &form);
+    if (shouldUpdate) {
+        SetMonData(pp, ID_PARA_form_no, &form);
+    }
 }
 
 BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *party)
@@ -3908,6 +3913,14 @@ void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int 
     }
     else if(idflag!=ID_SET){
         id=0;
+    }
+
+    // this function or AddWildPartyPokemon could both get here first
+    // and since both functions will initialize the moveset,
+    // we need the form to be set correctly in either case
+    if (space_for_setmondata != 0)
+    {
+        BoxMonDataSet(boxmon, ID_PARA_form_no, (u8 *)&space_for_setmondata);
     }
 
     BoxMonDataSet(boxmon,ID_PARA_id_no,(u8 *)&id);
