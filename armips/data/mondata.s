@@ -20147,7 +20147,7 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     catchrate 45
     baseexp 177
     evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LEEK
+    items ITEM_NONE, ITEM_STICK
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -22313,7 +22313,7 @@ mondata SPECIES_FARFETCHD_GALARIAN, "-----"
     catchrate 45
     baseexp 132
     evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LEEK
+    items ITEM_NONE, ITEM_STICK
     genderratio 127
     eggcycles 20
     basefriendship 70
@@ -22961,7 +22961,7 @@ mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     catchrate 25
     baseexp 161
     evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
+    items ITEM_NONE, ITEM_DEEPSEASCALE
     genderratio 127
     eggcycles 40
     basefriendship 70
@@ -22979,7 +22979,7 @@ mondata SPECIES_BASCULIN_WHITE_STRIPED, "-----"
     catchrate 25
     baseexp 161
     evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
+    items ITEM_NONE, ITEM_DEEPSEASCALE
     genderratio 127
     eggcycles 40
     basefriendship 70
