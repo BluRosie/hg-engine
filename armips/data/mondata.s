@@ -16793,7 +16793,7 @@ mondata SPECIES_BERGMITE, "Bergmite"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_BERGMITE_TM_DATA_0, SPECIES_BERGMITE_TM_DATA_1, SPECIES_BERGMITE_TM_DATA_2, SPECIES_BERGMITE_TM_DATA_3
-    mondexentry SPECIES_BERGMITE, "They chill the air around them to −150 degrees\nFahrenheit, freezing the water in the air into ice\nthat they use as armor."
+    mondexentry SPECIES_BERGMITE, "They chill the air around them to -150 degrees\nFahrenheit, freezing the water in the air into ice\nthat they use as armor."
     mondexclassification SPECIES_BERGMITE, "Ice Chunk Pokémon"
     mondexheight SPECIES_BERGMITE, "3’03”"
     mondexweight SPECIES_BERGMITE, "219.4 lbs."
@@ -17299,7 +17299,7 @@ mondata SPECIES_GUMSHOOS, "Gumshoos"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_GUMSHOOS_TM_DATA_0, SPECIES_GUMSHOOS_TM_DATA_1, SPECIES_GUMSHOOS_TM_DATA_2, SPECIES_GUMSHOOS_TM_DATA_3
-    mondexentry SPECIES_GUMSHOOS, "Patient by nature, this Pokémon loses control of\nitself and pounces when it spots its favorite\nmeal—Rattata!"
+    mondexentry SPECIES_GUMSHOOS, "Patient by nature, this Pokémon loses control of\nitself and pounces when it spots its favorite\nmeal-Rattata!"
     mondexclassification SPECIES_GUMSHOOS, "Stakeout Pokémon"
     mondexheight SPECIES_GUMSHOOS, "2’04”"
     mondexweight SPECIES_GUMSHOOS, "31.3 lbs."
@@ -19145,7 +19145,7 @@ mondata SPECIES_SKWOVET, "Skwovet"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_SKWOVET_TM_DATA_0, SPECIES_SKWOVET_TM_DATA_1, SPECIES_SKWOVET_TM_DATA_2, SPECIES_SKWOVET_TM_DATA_3
-    mondexentry SPECIES_SKWOVET, "It eats berries nonstop—a habit that has made\nit more resilient than it looks. It’ll show up on\nfarms, searching for yet more berries."
+    mondexentry SPECIES_SKWOVET, "It eats berries nonstop-a habit that has made\nit more resilient than it looks. It’ll show up on\nfarms, searching for yet more berries."
     mondexclassification SPECIES_SKWOVET, "Cheeky Pokémon"
     mondexheight SPECIES_SKWOVET, "0’12”"
     mondexweight SPECIES_SKWOVET, "5.5 lbs."
@@ -19189,7 +19189,7 @@ mondata SPECIES_ROOKIDEE, "Rookidee"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ROOKIDEE_TM_DATA_0, SPECIES_ROOKIDEE_TM_DATA_1, SPECIES_ROOKIDEE_TM_DATA_2, SPECIES_ROOKIDEE_TM_DATA_3
-    mondexentry SPECIES_ROOKIDEE, "It will bravely challenge any opponent, no matter\nhow powerful. This Pokémon benefits from every\nbattle—even a defeat increases its strength a bit."
+    mondexentry SPECIES_ROOKIDEE, "It will bravely challenge any opponent, no matter\nhow powerful. This Pokémon benefits from every\nbattle-even a defeat increases its strength a bit."
     mondexclassification SPECIES_ROOKIDEE, "Tiny Bird Pokémon"
     mondexheight SPECIES_ROOKIDEE, "0’08”"
     mondexweight SPECIES_ROOKIDEE, "4.0 lbs."
@@ -19299,7 +19299,7 @@ mondata SPECIES_ORBEETLE, "Orbeetle"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_ORBEETLE_TM_DATA_0, SPECIES_ORBEETLE_TM_DATA_1, SPECIES_ORBEETLE_TM_DATA_2, SPECIES_ORBEETLE_TM_DATA_3
-    mondexentry SPECIES_ORBEETLE, "It emits psychic energy to observe and study\nwhat’s around it—and what’s around it can\ninclude things over six miles away."
+    mondexentry SPECIES_ORBEETLE, "It emits psychic energy to observe and study\nwhat’s around it-and what’s around it can\ninclude things over six miles away."
     mondexclassification SPECIES_ORBEETLE, "Seven Spot Pokémon"
     mondexheight SPECIES_ORBEETLE, "1’04”"
     mondexweight SPECIES_ORBEETLE, "89.9 lbs."
@@ -19871,7 +19871,7 @@ mondata SPECIES_CLOBBOPUS, "Clobbopus"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_CLOBBOPUS_TM_DATA_0, SPECIES_CLOBBOPUS_TM_DATA_1, SPECIES_CLOBBOPUS_TM_DATA_2, SPECIES_CLOBBOPUS_TM_DATA_3
-    mondexentry SPECIES_CLOBBOPUS, "Its tentacles tear off easily, but it isn’t alarmed\nwhen that happens—it knows they’ll grow back.\nIt’s about as smart as a three-year-old."
+    mondexentry SPECIES_CLOBBOPUS, "Its tentacles tear off easily, but it isn’t alarmed\nwhen that happens-it knows they’ll grow back.\nIt’s about as smart as a three-year-old."
     mondexclassification SPECIES_CLOBBOPUS, "Tantrum Pokémon"
     mondexheight SPECIES_CLOBBOPUS, "1’12”"
     mondexweight SPECIES_CLOBBOPUS, "8.8 lbs."
@@ -20663,7 +20663,7 @@ mondata SPECIES_ZACIAN, "Zacian"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ZACIAN_TM_DATA_0, SPECIES_ZACIAN_TM_DATA_1, SPECIES_ZACIAN_TM_DATA_2, SPECIES_ZACIAN_TM_DATA_3
-    mondexentry SPECIES_ZACIAN, "This Pokémon has slumbered for many years.\nSome say it’s Zamazenta’s elder sister—others\nsay the two Pokémon are rivals."
+    mondexentry SPECIES_ZACIAN, "This Pokémon has slumbered for many years.\nSome say it’s Zamazenta’s elder sister-others\nsay the two Pokémon are rivals."
     mondexclassification SPECIES_ZACIAN, "Warrior Pokémon"
     mondexheight SPECIES_ZACIAN, "9’02”"
     mondexweight SPECIES_ZACIAN, "242.5 lbs."
@@ -20839,7 +20839,7 @@ mondata SPECIES_GLASTRIER, "Glastrier"
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     tmdata SPECIES_GLASTRIER_TM_DATA_0, SPECIES_GLASTRIER_TM_DATA_1, SPECIES_GLASTRIER_TM_DATA_2, SPECIES_GLASTRIER_TM_DATA_3
-    mondexentry SPECIES_GLASTRIER, "Glastrier emits intense cold from its hooves.\nIt’s also a belligerent Pokémon—anything it\nwants, it takes by force."
+    mondexentry SPECIES_GLASTRIER, "Glastrier emits intense cold from its hooves.\nIt’s also a belligerent Pokémon-anything it\nwants, it takes by force."
     mondexclassification SPECIES_GLASTRIER, "Wild Horse Pokémon"
     mondexheight SPECIES_GLASTRIER, "7’03”"
     mondexweight SPECIES_GLASTRIER, "1763.7 lbs."
@@ -20861,7 +20861,7 @@ mondata SPECIES_SPECTRIER, "Spectrier"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SPECTRIER_TM_DATA_0, SPECIES_SPECTRIER_TM_DATA_1, SPECIES_SPECTRIER_TM_DATA_2, SPECIES_SPECTRIER_TM_DATA_3
-    mondexentry SPECIES_SPECTRIER, "It probes its surroundings with all its senses save\none—it doesn’t use its sense of sight. Spectrier’s\nkicks are said to separate soul from body."
+    mondexentry SPECIES_SPECTRIER, "It probes its surroundings with all its senses save\none-it doesn’t use its sense of sight. Spectrier’s\nkicks are said to separate soul from body."
     mondexclassification SPECIES_SPECTRIER, "Swift Horse Pokémon"
     mondexheight SPECIES_SPECTRIER, "6’07”"
     mondexweight SPECIES_SPECTRIER, "98.1 lbs."

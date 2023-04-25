@@ -92,7 +92,7 @@ $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 	$(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 
 NARC_FILES += $(MONDATA_NARC)
-MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/237.txt $(BUILD)/rawtext/238.txt $(BUILD)/rawtext/812.txt $(BUILD)/rawtext/813.txt $(BUILD)/rawtext/814.txt $(BUILD)/rawtext/815.txt $(BUILD)/rawtext/817.txt
+MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/237.txt $(BUILD)/rawtext/238.txt $(BUILD)/rawtext/803.txt $(BUILD)/rawtext/812.txt $(BUILD)/rawtext/813.txt $(BUILD)/rawtext/814.txt $(BUILD)/rawtext/815.txt $(BUILD)/rawtext/817.txt
 
 
 SPRITEOFFSETS_DIR := $(BUILD)/a180
