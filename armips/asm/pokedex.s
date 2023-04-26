@@ -1376,7 +1376,7 @@ GetSeenFlag: // 0x0202A044
 .area 0x0202A108-., 0xFF
 
 sub_0202A0B4: // 0x0202A0B4
-    push {r4-r6, lr}
+    push {r4-r7, lr}
     add r5, r0, #0
     add r4, r1, #0
     ldr r1, [r5]
@@ -1392,7 +1392,7 @@ sub_0202A0B4: // 0x0202A0B4
     beq @@_0202A0D8
     mov r0, #0
     mvn r0, r0
-    pop {r4-r6, pc}
+    pop {r4-r7, pc}
 @@_0202A0D8:
 //    sub r0, r4, #1
 //    lsl r0, r0, #0x10
@@ -1403,9 +1403,9 @@ sub_0202A0B4: // 0x0202A0B4
     add r2, r5, r2
     mov r0, #7
 //    add r2, #0x44 // here
-    mov r3, #SEEN_FLAGS_OFFSET >> 4
-    lsl r3, #4
-    add r2, r3 // net +4
+    mov r7, #SEEN_FLAGS_OFFSET >> 4
+    lsl r7, #4
+    add r2, r7 // net +4
     mov r1, #1
     and r3, r0
     ldrb r2, [r2]
@@ -1416,10 +1416,10 @@ sub_0202A0B4: // 0x0202A0B4
     add r1, r4, #0
     add r2, r6, #0
     bl 0x02029C04
-    pop {r4-r6, pc}
+    pop {r4-r7, pc}
 @@_0202A100:
     sub r0, #8
-    pop {r4-r6, pc}
+    pop {r4-r7, pc}
 
 .pool
 
