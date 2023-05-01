@@ -6,11 +6,6 @@ import shutil
 import struct
 import sys
 
-OFFSET_TO_PUT = 0
-SOURCE_ROM = "rom.nds"
-ROM_NAME = "test.nds"
-OFFSET_START = 0x023C8000 + 0x4000 # 0x4000 is the offset in the synthetic overlay.  change to where you need it to be.
-
 if sys.platform.startswith('win'):
     PathVar = os.environ.get('Path')
     Paths = PathVar.split(';')
@@ -86,7 +81,7 @@ def writeall():
     print("Generating linker script...")
     table = GetSymbols()
     
-    shutil.copy("rom.ld", "rom_gen.ld")
+    #shutil.copy("rom.ld", "rom_gen.ld")
 
     if os.path.isfile('rom_gen.ld'):
         offsetIni = open('rom_gen.ld', 'a')

@@ -100,6 +100,10 @@ include data/itemdata/itemdata.mk
 include narcs.mk
 
 ####################### Build #########################
+rom_gen.ld:$(LINK) $(OUTPUT)
+	cp rom.ld rom_gen.ld
+	$(PYTHON) scripts/generate_ld.py
+
 $(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
@@ -114,22 +118,19 @@ $(LINK):$(OBJS)
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
-$(FIELD_LINK):$(FIELD_OBJS) generate_output
+$(FIELD_LINK):$(FIELD_OBJS) rom_gen.ld
 	$(LD) $(LDFLAGS_FIELD) -o $@ $(FIELD_OBJS)
 
-$(FIELD_OUTPUT):$(FIELD_LINK) generate_output
+$(FIELD_OUTPUT):$(FIELD_LINK)
 	$(OBJCOPY) -O binary $< $@
 
-$(BATTLE_LINK):$(BATTLE_OBJS)
+$(BATTLE_LINK):$(BATTLE_OBJS) rom_gen.ld
 	$(LD) $(LDFLAGS_BATTLE) -o $@ $(BATTLE_OBJS)
 
 $(BATTLE_OUTPUT):$(BATTLE_LINK)
 	$(OBJCOPY) -O binary $< $@
 
-generate_output:$(OUTPUT)
-	$(PYTHON) scripts/generate_ld.py
-
-all: $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
+all: $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
