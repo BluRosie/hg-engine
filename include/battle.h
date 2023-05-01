@@ -641,7 +641,7 @@ struct __attribute__((packed)) side_condition_work
 
     u32     konoyubitomare_flag     : 1;
     u32     konoyubitomare_client   : 2;
-    u32     hatakiotosu_item        : 6;
+    u32     knockoff_item           : 6;
     u32     oikaze_count            : 3;
 
     u32     makibisi_count          : 2;
@@ -1233,6 +1233,13 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 // defined in battle_pokemon.c;
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+
+
+
+// defined in battle_item.c
+u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
+BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 

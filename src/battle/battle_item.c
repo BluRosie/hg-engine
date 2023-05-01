@@ -14,7 +14,10 @@
 #include "../../include/constants/file.h"
 
 
-u32 MoveHitHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+//this function is for held item effects for when U-Turn is used
+//if you want to edit a defender's held item effect triggering after being hit, go to CheckDefenderItemEffectOnHit
+//if you want to edit an attacker's held item effect triggering after using a move, go to ServerWazaHitAfterCheckAct
+u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ret;
     int client_no;
@@ -71,13 +74,13 @@ u32 MoveHitHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         ret = TRUE;
     }
 
-    if ((def_hold_eff == HOLD_EFFECT_DMG_USER_CONTACT_XFR) // sticky barb
+    if ((def_hold_eff == HOLD_EFFECT_DAMAGE_HOLDER_TRANSFER_ON_CONTACT) // sticky barb
      && (sp->battlemon[sp->attack_client].hp)
-     && (sp->battlemon[sp->attack_client].item == 0)
-     && ((sp->scw[atk_side].hatakiotosu_item & (1 << sp->sel_mons_no[sp->attack_client])) == 0)
-     && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+        && (sp->battlemon[sp->attack_client].item == 0)
+        && ((sp->scw[atk_side].knockoff_item & (1 << sp->sel_mons_no[sp->attack_client])) == 0)
+        && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
       || (sp->oneSelfFlag[sp->defence_client].special_damage))
-     && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+        && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
     {
         seq_no[0] = SUB_SEQ_TRANSFER_STICKY_BARB;
         ret = TRUE;
@@ -95,6 +98,8 @@ enum
 	SWHAC_END
 };
 
+//go to CheckDefenderItemEffectOnHit if you want to program an effect to happen after being hit for a defender's held item
+//this function is for an attacker's held item effect triggering after using a move
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
     int ret;
@@ -178,4 +183,304 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
     while (ret == 0);
 
     return (ret == 1);
+}
+
+
+//thanks to Lhea for this function - TODO ask for their SUB_SEQ scripts for the gen5+ item effects since rn those can't be used
+//this function is for a defender's held item effect triggering after being hit
+//go to ServerWazaHitAfterCheckAct for implementing an attacker's held item effect triggering after using a move
+BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
+{
+    BOOL ret = FALSE;
+
+    if (sp->defence_client == 0xFF) {
+        return ret;
+    }
+
+    if (CheckSubstitute(sp, sp->defence_client) == TRUE) {
+        return ret;
+    }
+
+    // Check for defender's items
+    int itemHoldEffect = HeldItemHoldEffectGet(sp, sp->defence_client);
+    int itemPower      = HeldItemAtkGet(sp, sp->defence_client, 0);
+    int side           = IsClientEnemy(bw, sp->attack_client);
+    switch (itemHoldEffect) {
+        // vanilla gen4 effects
+        case HOLD_EFFECT_DAMAGE_HOLDER_TRANSFER_ON_CONTACT:     // Sticky Barb
+            // Attacker is alive after the attack
+            if ((sp->battlemon[sp->attack_client].hp)
+                // Attacker has no item
+                && (sp->battlemon[sp->attack_client].item == ITEM_NONE)
+                // This side did not just get its item knocked off by the attacker
+                && ((sp->scw[side].knockoff_item & No2Bit(sp->sel_mons_no[sp->attack_client])) == 0)
+                // The move that triggered this was not Knock Off
+                && (sp->current_move_index != MOVE_KNOCK_OFF)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Attacker is not U-turning
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                // Attacker used a move that makes contact
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
+                seq_no[0] = SUB_SEQ_TRANSFER_STICKY_BARB;
+                ret       = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_RECOIL_PHYSICAL:                       // Jaboca Berry
+            // Attacker is alive after the attack
+            if ((sp->battlemon[sp->attack_client].hp)
+                // Attacker does not have Magic Guard
+                && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
+                // Attacker is not U-turning
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                // Attacker dealt physical damage
+                && (sp->oneSelfFlag[sp->defence_client].physical_damage)) {
+                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
+                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                ret                      = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_RECOIL_SPECIAL:                        // Rowap Berry
+            // Attacker is alive after the attack
+            if ((sp->battlemon[sp->attack_client].hp)
+                // Attacker does not have Magic Guard
+                && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
+                // Attacker is not U-turning
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                // Attacker dealt special damage
+                && (sp->oneSelfFlag[sp->defence_client].special_damage)) {
+                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
+                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                ret                      = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_RESTORE_HP_ON_SE:                      // Enigma Berry
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Defender was hit by a Super Effective attack
+                && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
+                sp->client_work = sp->defence_client;
+                sp->item_work   = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                = SUB_SEQ_HANDLE_ITEM_RESTORE_HP;
+                ret                      = TRUE;
+            }
+            break;
+
+            //these effects are not usable at all yet
+#ifdef LATER_GEN_ITEM_EFFECTS
+            // gen5 effects
+        case HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT:                // Absorb Bulb
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Defender was hit by a Water-type attack
+                && (sp->moveTbl[sp->current_move_index].type == TYPE_WATER)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Defender has less than +6 stages to Special Attack
+                && ((sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Special Attack
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))) {
+                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                sp->addeffect_param  = ADD_STATE_SP_ATK_UP;
+                sp->state_client = sp->defence_client;
+                sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                           = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT:             // Air Balloon
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                seq_no[0] = SUB_SEQ_HANDLE_AIR_BALLOON_POP;
+                ret       = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT:             // Cell Battery
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Defender was hit by an Electric-type attack
+                && (sp->moveTbl[sp->current_move_index].type == TYPE_ELECTRIC)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Defender has less than +6 stages to Attack
+                && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Attack
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
+                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                sp->addeffect_param  = ADD_STATE_ATTACK_UP;
+                sp->state_client = sp->defence_client;
+                sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                           = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT:                   // Eject Button
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                seq_no[0] = SUB_SEQ_HANDLE_EJECT_BUTTON;
+                ret       = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE:                // Red Card
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                seq_no[0] = SUB_SEQ_HANDLE_RED_CARD;
+                ret       = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_DAMAGE_ON_CONTACT:                     // Rocky Helmet
+            // Attacker is alive after the attack
+            if ((sp->battlemon[sp->attack_client].hp)
+                // Attacker does not have Magic Guard
+                && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
+                // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
+                && (GetHeldItemHoldEffect(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Attacker used a move that makes contact
+                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
+                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
+                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                ret                      = TRUE;
+            }
+            break;
+
+            // gen6 effects
+        case HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT:             // Kee Berry
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->attack_client].hp)
+                // Attacker dealt physical damage
+                && (sp->oneSelfFlag[sp->defence_client].physical_damage)
+                // Defender has less than +6 stages to Defense
+                && ((sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Defense
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] > 0)))) {
+                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                sp->addeffect_param  = ADD_STATE_DEFENSE_UP;
+                sp->state_client = sp->defence_client;
+                sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                           = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_BOOST_SPD_ON_WATER_HIT:                // Luminous Moss
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Defender was hit by a Water-type attack
+                && (sp->moveTbl[sp->current_move_index].type == TYPE_WATER)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Defender has less than +6 stages to Special Defense
+                && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Special Defense
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
+                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                sp->addeffect_param  = ADD_STATE_SP_DEF_UP;
+                sp->state_client = sp->defence_client;
+                sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                           = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_BOOST_SPD_ON_SPECIAL_HIT:              // Maranga Berry
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->attack_client].hp)
+                // Attacker dealt special damage
+                && (sp->oneSelfFlag[sp->defence_client].special_damage)
+                // Defender has less than +6 stages to Special Defense
+                && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Special Defense
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
+                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                sp->addeffect_param  = ADD_STATE_SP_DEF_UP;
+                sp->state_client = sp->defence_client;
+                sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                           = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_BOOST_ATK_ON_ICE_HIT:                  // Snowball
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Defender was hit by an Ice-type attack
+                && (sp->moveTbl[sp->current_move_index].type == TYPE_ICE)
+                // Damage was dealt
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Defender has less than +6 stages to Attack
+                && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Attack
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
+                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                sp->addeffect_param  = ADD_STATE_ATTACK_UP;
+                sp->state_client = sp->defence_client;
+                sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                           = TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE:             // Weakness Policy
+            // Defender is alive after the attack
+            if ((sp->battlemon[sp->defence_client].hp)
+                // Defender was hit by a Super Effective attack
+                && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
+                // Defender has less than +6 stages to either of Attack or Special Attack
+                && (((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
+                     || (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12))
+                    // Or the defender has Contrary and more than -6 stages to either of Attack or Special Attack
+                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                        && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)
+                            || (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0))))) {
+                seq_no[0] = SUB_SEQ_HANDLE_WEAKNESS_POLICY;
+                ret       = TRUE;
+            }
+            break;
+
+            // gen7 has no distinct standalone effects that go here
+            // Protective Pads is dispersed among the relevant cases
+            // (here, only Rocky Helmet)
+
+            // gen8 has no effects which belong in this particular
+            // switch tree, since everything here cares about being
+            // *dealt* damage, rather than *dealing* damage
+
+#endif
+        default:
+            break;
+    }
+
+
+    return ret;
 }
