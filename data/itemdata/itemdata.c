@@ -12104,7 +12104,7 @@ const ITEMDATA __data[] =
 [ITEM_ENIGMA_BERRY - NUM_UNKNOWN_SLOTS] =
 {
     .price = 20,
-    .holdEffect = HOLD_EFFECT_HP_RESTORE_SE,
+    .holdEffect = HOLD_EFFECT_RESTORE_HP_ON_SE,
     .holdEffectParam = 4,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -17304,7 +17304,7 @@ const ITEMDATA __data[] =
 [ITEM_STICKY_BARB - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = HOLD_EFFECT_DMG_USER_CONTACT_XFR,
+    .holdEffect = HOLD_EFFECT_DAMAGE_HOLDER_TRANSFER_ON_CONTACT,
     .holdEffectParam = 8,
     .pluckEffect = 0,
     .flingEffect = 0,
