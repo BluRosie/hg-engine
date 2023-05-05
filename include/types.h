@@ -25,6 +25,39 @@ typedef int  BOOL;
 typedef u16 bool16;
 typedef u32 bool32;
 
+
+typedef s32 fx32;
+#define FX32_SHIFT          12
+#define FX32_INT_SIZE       19
+#define FX32_DEC_SIZE       12
+
+#define FX32_INT_MASK       0x7ffff000
+#define FX32_DEC_MASK       0x00000fff
+#define FX32_SIGN_MASK      0x80000000
+
+
+typedef struct
+{
+    fx32 x;
+    fx32 y;
+    fx32 z;
+}
+VecFx32;
+
+
+
+#define GX_RGB_R_SHIFT            (0)
+#define GX_RGB_R_MASK             (0x001f)
+#define GX_RGB_G_SHIFT            (5)
+#define GX_RGB_G_MASK             (0x03e0)
+#define GX_RGB_B_SHIFT            (10)
+#define GX_RGB_B_MASK             (0x7c00)
+#define GX_RGB(r, g, b)           ((u16)(((r) << GX_RGB_R_SHIFT) | \
+                                         ((g) << GX_RGB_G_SHIFT) | \
+                                         ((b) << GX_RGB_B_SHIFT)))
+
+
+
 #define	ALIGN4 __attribute__((aligned(4)))
 #define MOVE_TABLES_TERMIN 0xFEFE
 
@@ -46,5 +79,7 @@ void *__attribute__((long_call)) ArchiveDataLoadMalloc(int arcID, int datID, int
 void __attribute__((long_call)) ArchiveDataLoad(void *data, int arcID, int datID);
 void *__attribute__((long_call)) ArchiveDataLoadMallocOfs(int arcID, int datID, int heapID, int ofs, int size);
 void __attribute__((long_call)) ArchiveDataLoadOfs(void *data, int arcID, int datID, int ofs, int size);
+void *__attribute__((long_call)) sys_AllocMemoryLo(u32 heap_id, u32 size);
+void *__attribute__((long_call)) NARC_ctor(u32 narc_id, u32 heap_id);
 
 #endif

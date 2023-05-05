@@ -100,7 +100,7 @@ include data/itemdata/itemdata.mk
 include narcs.mk
 
 ####################### Build #########################
-rom_gen.ld:$(LINK) $(OUTPUT)
+rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
 	cp rom.ld rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py
 
