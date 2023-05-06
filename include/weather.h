@@ -124,10 +124,10 @@ typedef struct{
 
 
 void __attribute__((long_call)) weatherSysObjFadeInit( WEATHER_SYS_OBJ_FADE* data, WEATHER_SYS_WORK* pWork, s32 objAddTmgMax, s32 objAddNum, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM_TMG, s32 OBJ_ADD_NUM_SUM, void (*add)(WEATHER_SYS_WORK* pWork, int num) );
-void __attribute__((long_call)) weatherSysFogFadeInInitPack( WEATHER_SYS_CHG_FOG_DATA* fogParam, WEATHER_SYS_FOG_FADE* fogData, void *Fog, int fog_slope, /*int fog_offs,*/ u16 color, u16 color2, int timing, u32 fog_use_flg );
+void __attribute__((long_call)) weatherSysFogFadeInInitPack( WEATHER_SYS_CHG_FOG_DATA* fogParam, WEATHER_SYS_FOG_FADE* fogData, void *Fog, int fog_slope, int fog_offs, u16 color, int timing, u32 fog_use_flg );
 int __attribute__((long_call)) weatherSysObjFade(WEATHER_SYS_OBJ_FADE* data);
 int __attribute__((long_call)) weatherSysFogFadeInMainPack( WEATHER_SYS_CHG_FOG_DATA* fogParam, WEATHER_SYS_OBJ_FADE* fogData, u32 fog_use_flg );
-void __attribute__((long_call)) weatherSysFogParamSet( void *Fog, int fog_slope, /*int fog_offs,*/ u16 color1, u16 color );
+void __attribute__((long_call)) weatherSysFogParamSet( void *Fog, int fog_slope, int fog_offs, u16 color );
 void __attribute__((long_call)) weatherSysFogSet( WEATHER_SYS_FOG_FADE *fog_fade );
 void __attribute__((long_call)) weatherDustObj( WEATHER_SYS_WORK* pWork, void (*add_func)(WEATHER_SYS_WORK* pWork, int num), int num, int dust_div_num, int dust_div_move, void (*objFunc)(WAETHER_OBJ_DATA *) );
 void __attribute__((long_call)) weatherSysObjFadeOutSet( WEATHER_SYS_OBJ_FADE* data, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM );
