@@ -406,3 +406,7 @@ destObj = 0x021EC29C | 1;
 scrollObj = 0x021EC470 | 1;
 addWeatherSnow = 0x021ECF4C | 1;
 objWeatherSnow = 0x021ED070|1;
+GX_EngineAToggleLayers = 0x02022C60 | 1;
+WeatherBGAlphaDef = 0x021EB818 | 1;
+WeatherMoveReq = 0x021EB830 | 1;
+WeatherMoveMain = 0x021EB840 | 1;

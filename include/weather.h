@@ -7,10 +7,10 @@
 
 
 typedef struct _WEATHER_SYS_CONTROL{
-    /* 0x00 */ void* pWSD;
-    /* 0x04 */ void* pWSBG;
+    /* 0x00 */ void *pWSD;
+    /* 0x04 */ void *pWSBG;
     /* 0x08 */ //WEATHER_SYS_DRAWSYS     Draw;
-	           u8 filler_x8[0xFC];
+               u8 filler_x8[0xFC];
     /* 0x104 */ FieldSystem *fsys;
     /* 0x108 */ void *ArcHandle;
 } WEATHER_SYS_CONTROL; // size = 0x10C
@@ -51,21 +51,21 @@ typedef struct
     /* 0x004 */ void *pWSD;
     /* 0x008 */ const void *pCell;
     /* 0x00C */ WAETHER_OBJ_DATA Dummy;
-	/* 0x048 */ u8 start_x48[0xF58 - 0x48];
-	/* 0xF58 */ void *work;
+    /* 0x048 */ u8 start_x48[0xF58 - 0x48];
+    /* 0xF58 */ void *work;
     /* 0xF5C */ BOOL snd_play;
     /* 0xF60 */ u16 snd_no;
     /* 0xF62 */ u16 Sequence;
     /* 0xF64 */ u16 fog_use;
     /* 0xF66 */ u16 ContFlag;
-	
+    
 } WEATHER_SYS_WORK; // size = 0xF68
 
 
 
 typedef struct
 {
-    /* 0x00 */ WEATHER_SYS_WORK* pWork;
+    /* 0x00 */ WEATHER_SYS_WORK *pWork;
     /* 0x04 */ s16 objAddNum;
     /* 0x06 */ s16 objAddTmg;
     /* 0x08 */ s16 objAddTmgMax;
@@ -75,7 +75,7 @@ typedef struct
     /* 0x10 */ s16 OBJ_ADD_TMG_SUM;
     /* 0x12 */ s16 OBJ_ADD_NUM_SUM_TMG;
     /* 0x14 */ s32 OBJ_ADD_NUM_SUM;
-    /* 0x18 */ void (*add)(WEATHER_SYS_WORK* pWork, int num);
+    /* 0x18 */ void (*add)(WEATHER_SYS_WORK *pWork, int num);
 } WEATHER_SYS_OBJ_FADE; // size = 0x1C
 
 
@@ -123,30 +123,44 @@ typedef struct{
 
 
 
-void __attribute__((long_call)) weatherSysObjFadeInit( WEATHER_SYS_OBJ_FADE* data, WEATHER_SYS_WORK* pWork, s32 objAddTmgMax, s32 objAddNum, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM_TMG, s32 OBJ_ADD_NUM_SUM, void (*add)(WEATHER_SYS_WORK* pWork, int num) );
-void __attribute__((long_call)) weatherSysFogFadeInInitPack( WEATHER_SYS_CHG_FOG_DATA* fogParam, WEATHER_SYS_FOG_FADE* fogData, void *Fog, int fog_slope, int fog_offs, u16 color, int timing, u32 fog_use_flg );
-int __attribute__((long_call)) weatherSysObjFade(WEATHER_SYS_OBJ_FADE* data);
-int __attribute__((long_call)) weatherSysFogFadeInMainPack( WEATHER_SYS_CHG_FOG_DATA* fogParam, WEATHER_SYS_OBJ_FADE* fogData, u32 fog_use_flg );
+// Alpha - used for like fog
+typedef struct{
+    /* 0x00 */ WEATHER_SYS_MOVE_WORK alpha;
+    /* 0x14 */ WEATHER_SYS_FOG_FADE fogFade;
+    /* 0x44 */ WEATHER_SYS_CHG_FOG_DATA fogWithFade;
+} WEATHER_SYSW_ALPHA; // size = 0xAC
+
+
+
+void __attribute__((long_call)) weatherSysObjFadeInit( WEATHER_SYS_OBJ_FADE *data, WEATHER_SYS_WORK *pWork, s32 objAddTmgMax, s32 objAddNum, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM_TMG, s32 OBJ_ADD_NUM_SUM, void (*add)(WEATHER_SYS_WORK *pWork, int num) );
+void __attribute__((long_call)) weatherSysFogFadeInInitPack( WEATHER_SYS_CHG_FOG_DATA *fogParam, WEATHER_SYS_FOG_FADE *fogData, void *Fog, int fog_slope, int fog_offs, u16 color, int timing, u32 fog_use_flg );
+int __attribute__((long_call)) weatherSysObjFade(WEATHER_SYS_OBJ_FADE *data);
+int __attribute__((long_call)) weatherSysFogFadeInMainPack( WEATHER_SYS_CHG_FOG_DATA *fogParam, WEATHER_SYS_OBJ_FADE *fogData, u32 fog_use_flg );
 void __attribute__((long_call)) weatherSysFogParamSet( void *Fog, int fog_slope, int fog_offs, u16 color );
 void __attribute__((long_call)) weatherSysFogSet( WEATHER_SYS_FOG_FADE *fog_fade );
-void __attribute__((long_call)) weatherDustObj( WEATHER_SYS_WORK* pWork, void (*add_func)(WEATHER_SYS_WORK* pWork, int num), int num, int dust_div_num, int dust_div_move, void (*objFunc)(WAETHER_OBJ_DATA *) );
-void __attribute__((long_call)) weatherSysObjFadeOutSet( WEATHER_SYS_OBJ_FADE* data, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM );
-void __attribute__((long_call)) weatherSysFogFadeInit( WEATHER_SYS_FOG_FADE* data, int timing, BOOL fade_inout );
-int __attribute__((long_call)) weatherSysFogFade(WEATHER_SYS_FOG_FADE* data);
+void __attribute__((long_call)) weatherDustObj( WEATHER_SYS_WORK *pWork, void (*add_func)(WEATHER_SYS_WORK *pWork, int num), int num, int dust_div_num, int dust_div_move, void (*objFunc)(WAETHER_OBJ_DATA *) );
+void __attribute__((long_call)) weatherSysObjFadeOutSet( WEATHER_SYS_OBJ_FADE *data, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM );
+void __attribute__((long_call)) weatherSysFogFadeInit( WEATHER_SYS_FOG_FADE *data, int timing, BOOL fade_inout );
+int __attribute__((long_call)) weatherSysFogFade(WEATHER_SYS_FOG_FADE *data);
 void __attribute__((long_call)) SetFogData(void *FogData, int cont, BOOL flag, int fogMode, int fogSlope, int offset);
 void __attribute__((long_call)) stopWeatherWork_local( void *wsd );
-void __attribute__((long_call)) moveFuncObj(WAETHER_OBJ_DATA* pDummy, void (*objFunc)(WAETHER_OBJ_DATA *));
-//void __attribute__((long_call)) drawObj(WEATHER_SYS_WORK* pData);
+void __attribute__((long_call)) moveFuncObj(WAETHER_OBJ_DATA *pDummy, void (*objFunc)(WAETHER_OBJ_DATA *));
+//void __attribute__((long_call)) drawObj(WEATHER_SYS_WORK *pData);
 
 void __attribute__((long_call)) CLACT_AnmFrameSet(void *clact, int frame);
-VecFx32 __attribute__((long_call)) getObjMat( WAETHER_OBJ_DATA * p_obj);
+VecFx32 __attribute__((long_call)) getObjMat( WAETHER_OBJ_DATA *p_obj);
 void __attribute__((long_call)) setClactMatrix(void *clact, void *matrix);
 void __attribute__((long_call)) destObj(WAETHER_OBJ_DATA *p_obj);
-WAETHER_OBJ_DATA* __attribute__((long_call)) addObj(WEATHER_SYS_WORK* pWork, int w_byte);
-void __attribute__((long_call)) scrollObj(WEATHER_SYS_WORK* pWork, int* x, int* y);
+WAETHER_OBJ_DATA *__attribute__((long_call)) addObj(WEATHER_SYS_WORK *pWork, int w_byte);
+void __attribute__((long_call)) scrollObj(WEATHER_SYS_WORK *pWork, int *x, int *y);
 
-void __attribute__((long_call)) addWeatherSnow(WEATHER_SYS_WORK* pWork, int num);
-void __attribute__((long_call)) objWeatherSnow(WAETHER_OBJ_DATA* work);
+void __attribute__((long_call)) WeatherMoveReq( WEATHER_SYS_MOVE_WORK *p_work, int s_x, int e_x, int count_max );
+void __attribute__((long_call)) WeatherBGAlphaDef( int alpha1, int alpha2 );
+void __attribute__((long_call)) GX_EngineAToggleLayers(int planes, int status);
+BOOL __attribute__((long_call)) WeatherMoveMain( WEATHER_SYS_MOVE_WORK *p_work );
+
+void __attribute__((long_call)) addWeatherSnow(WEATHER_SYS_WORK *pWork, int num);
+void __attribute__((long_call)) objWeatherSnow(WAETHER_OBJ_DATA *work);
 
 
 #endif // WEATHER_H
