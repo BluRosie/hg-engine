@@ -2682,11 +2682,11 @@ u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u
         }
         else if (mons == SPECIES_CASTFORM)
         {
-            return (540 + pat - 1);
+            return (547 + pat - 1);
         }
         else if (mons == SPECIES_CHERRIM)
         {
-            return (543 + pat - 1);
+            return (550 + pat - 1);
         }
     }
 
