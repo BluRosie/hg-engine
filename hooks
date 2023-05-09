@@ -35,7 +35,7 @@ arm9 GetMonEvolution_hook 08070E38 5
 0012 hook_12_spriteOffsetSpecies_escapeFromBall 02259DBC 2
 0012 Battle_End 08000B90 1
 0012 TryRevertFormChange_hook 080069AC 2
-0012 CheckCanTakeItem 08009A74 0
+0012 CheckCanTakeItem 02241334 0
 
 #expand items
 arm9 GetItemIndex 08077C18 2

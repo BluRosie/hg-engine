@@ -212,18 +212,18 @@ pop {r3-r7,pc}
 .global CheckCanTakeItem
 CheckCanTakeItem:
 add r0, r5, r1
-ldrh r0, [r0,r3]
-push {r1-r5}
+ldrh r0, [r0,r3] // load item into slot
+push {r1-r3}
 bl CheckItemByThief
-pop {r1-r5}
+pop {r1-r3}
 cmp r0, #0x0
 beq backToThief_1
-ldr r0, =0x9A7C + Overlay_12_Start
+ldr r0, =0x0224133C|1
 bx r0
 
 backToThief_1:
-ldr r0, =0x9A86 + Overlay_12_Start
-bx r0
+ldr r2, =0x02241346|1
+bx r2
 
 .pool
 

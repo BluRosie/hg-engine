@@ -484,3 +484,10 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
 
     return ret;
 }
+
+bool8 CheckItemByThief(u16 item)
+{
+    if (item == ITEM_GRISEOUS_ORB || IS_ITEM_MEGA_STONE(item))
+        return TRUE;
+    return FALSE;
+}

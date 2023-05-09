@@ -105,10 +105,3 @@ void *ItemDataTableLoad(int heapID)
 
     return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, 36 * max);//800757Ch
 }
-
-bool8 CheckItemByThief(u16 item)
-{
-    if (item == ITEM_GRISEOUS_ORB || IS_ITEM_MEGA_STONE(item))
-        return TRUE;
-    return FALSE;
-}
