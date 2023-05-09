@@ -735,7 +735,7 @@ void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id
 
 
 
-#define gIconPalTable ((u8 *)(0x023C8000 + START_ADDRESS))
+#define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))
 
 // defined in src/pokemon.c
 u8 __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no);

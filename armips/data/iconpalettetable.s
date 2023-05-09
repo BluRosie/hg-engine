@@ -7,9 +7,9 @@
 .include "armips/asm/icons.s"
 
 .if (fileexists("base/overlay/overlay_0129.bin"))
-    .open "base/overlay/overlay_0129.bin", 0x023C8000
+    .open "base/overlay/overlay_0129.bin", 0x023D8000
 .else
-    .create "base/overlay/overlay_0129.bin", 0x023C8000
+    .create "base/overlay/overlay_0129.bin", 0x023D8000
 .endif
 
 .orga START_ADDRESS
