@@ -139,7 +139,7 @@ UNCOMPRESSED equ 0x00000000
 
 // arm9 expansion overlay
 .word 129, 0x023D8000, filesize("base/overlay/overlay_0129.bin"), 0x00000000, 0x023D8000, 0x023D8000, 129, UNCOMPRESSED // arm9 expansion
-.word 130, 0x023C0000, filesize("base/overlay/overlay_0130.bin"), 0x00000000, 0x023C0000, 0x023C0000, 130, UNCOMPRESSED // battle overlay
+.word 130, 0x023C0200, filesize("base/overlay/overlay_0130.bin"), 0x00000000, 0x023C0200, 0x023C0200, 130, UNCOMPRESSED // battle overlay
 .word 131, 0x023C8000, filesize("base/overlay/overlay_0131.bin"), 0x00000000, 0x023C8000, 0x023C8000, 131, UNCOMPRESSED // field overlay
 
 .close
