@@ -233,6 +233,29 @@ void __attribute__((long_call)) ChangeMapObjSprite(LocalMapObject *mapObject, u3
 
 //#define FollowPokeObj_GetSpecies(mapObject) MapObject_GetParam(mapObject, 0)
 
+// Player avatar state
+#define PLAYER_STATE_WALKING         0
+#define PLAYER_STATE_CYCLING         1
+#define PLAYER_STATE_SURFING         2
+#define PLAYER_STATE_ROCKET          3
+#define PLAYER_STATE_UNK_SP          4
+#define PLAYER_STATE_UNK_WATER       5
+#define PLAYER_STATE_POKEATHLON      6
+#define PLAYER_STATE_FISHING         7
+#define PLAYER_STATE_UNK_POKE        8
+#define PLAYER_STATE_SAVING          9
+#define PLAYER_STATE_HEAL           10
+#define PLAYER_STATE_LADDER         11
+#define PLAYER_STATE_ROCKET_HEAL    12
+#define PLAYER_STATE_APRICORN_SHAKE 13
+#define PLAYER_STATE_ROCKET_SAVING  14
+
+typedef struct FlypointsPlayerSub {
+    u16 hasRunningShoes;
+    u16 unk2;
+    u32 state;
+} FIELD_PLAYER_AVATAR_SUB;
+
 typedef struct FIELD_PLAYER_AVATAR {
     u32 unk0;
     u32 transFlag;
@@ -248,7 +271,7 @@ typedef struct FIELD_PLAYER_AVATAR {
     int unk2c;
     LocalMapObject* mapObject;
     u32 unk34;
-    void */*FIELD_PLAYER_AVATAR_SUB**/ unk38;
+    FIELD_PLAYER_AVATAR_SUB *avatar_sub;
     u32 unk3c;
 } FIELD_PLAYER_AVATAR; //size: 0x40
 

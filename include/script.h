@@ -107,8 +107,8 @@ typedef struct FieldSystem {
     /* 0x3C */ void */*MapObjectMan**/ mapObjectMan;
     /* 0x40 */ FIELD_PLAYER_AVATAR *playerAvatar;
     /* 0x44 */ u8 unk44[0x8];
-	/* 0x4C */ void * fog_data;
-	/* 0x50 */ u8 unk50[0x5C];
+    /* 0x4C */ void * fog_data;
+    /* 0x50 */ u8 unk50[0x5C];
     /* 0xAC */ u32 unkAC;
     /* 0xB0 */ u8 unkB0[0x4];
     /* 0xB4 */ s64 unkB4;

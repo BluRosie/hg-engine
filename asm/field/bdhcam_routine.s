@@ -37,6 +37,11 @@ FUN_GDMI:
     cmp r0, #1
     bne LAB_023d95fe
 
+// if the player is on the ladder
+	bl IsPlayerOnLadder
+    cmp r0, #0
+    bne LAB_023d95fe
+
     ldr r0, =0x0211186c
     ldr r0, [r0]
     ldr r0, [r0,#0x1c]
