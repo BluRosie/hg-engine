@@ -9,8 +9,6 @@ from datetime import datetime
 import _io
 import ndspy.codeCompression
 
-#OFFSET_START = 0x023C8000 + 0x4000 # 0x4000 is the offset in the synthetic overlay.  change to where you need it to be.
-
 if sys.platform.startswith('win'):
     PathVar = os.environ.get('Path')
     Paths = PathVar.split(';')
@@ -49,8 +47,7 @@ REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
 LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o']
-OFFSET_START_IN_129 = 0x023C8000 + 0x1000
-OFFSET_START = [0x023C8000, 0x023D0000, 0x023D0000]
+OFFSET_START_IN_129 = 0x1000
 
 def ExtractPointer(byteList: [bytes]):
     pointer = 0
@@ -120,7 +117,6 @@ def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
     else:
         data = bytes([0x00, 0x48 | register, 0x00 | (register << 3), 0x47])
 
-    #space += OFFSET_START + 1
     space += 1
     data += (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
@@ -138,8 +134,6 @@ def HookARM(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
 
     data = bytes([0x00, 0x00 | register << 4, 0x9F, 0xE5, 0x10 | register, 0xFF, 0x2F, 0xE1])
 
-    #space += OFFSET_START + 1
-    #space += 1 # no thumb bit here
     data += (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
 
@@ -147,7 +141,6 @@ def HookARM(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
 def Repoint(rom: _io.BufferedReader, space: int, repointAt: int, slideFactor=0):
     rom.seek(repointAt)
 
-    #space += (OFFSET_START + slideFactor)
     space += (slideFactor)
     data = (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
@@ -338,13 +331,10 @@ def writeall():
         print("Inserting code.")
         table = GetSymbols()
         with open(OUTPUT, 'rb') as binary:
-            rom.seek(OFFSET_START_IN_129 - OFFSET_START[0])
+            rom.seek(OFFSET_START_IN_129)
             rom.write(binary.read())
             binary.close()
         rom.close()
-
-        #for entry in table:
-        #    table[entry] += OFFSET_START
 
     OFFECTSFILES = "base/overlay/overlay_0130.bin"
     with open(OFFECTSFILES, 'wb+') as rom:
@@ -354,9 +344,6 @@ def writeall():
             binary.close()
         rom.close()
 
-        #for entry in table:
-        #    table[entry] += OFFSET_START
-
     OFFECTSFILES = "base/overlay/overlay_0131.bin"
     with open(OFFECTSFILES, 'wb+') as rom:
         with open(OUTPUT_FIELD, 'rb') as binary:
@@ -364,9 +351,6 @@ def writeall():
             rom.write(binary.read())
             binary.close()
         rom.close()
-
-        #for entry in table:
-        #    table[entry] += OFFSET_START
 
     width = max(map(len, table.keys())) + 1
     if os.path.isfile('offsets.ini'):
@@ -377,7 +361,6 @@ def writeall():
     offsetIni.truncate()
     for key in sorted(table.keys()):
         fstr = ('{:' + str(width) + '} {:08X}')
-        #offsetIni.write(fstr.format(key + ':', table[key]) + " /" + fstr.format(key + ':', table[key] - OFFSET_START) + '\n')
         offsetIni.write(fstr.format(key + ':', table[key]) + '\n')
     offsetIni.close()
 
