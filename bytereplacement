@@ -88,3 +88,6 @@ arm9 080541DC 60 B4 C0 46
 # NNSi_SndArcLoadBank_hook setup - it's an arm function
 # push {r5-r6}
 arm9 020CA054 60 00 2D E9
+
+# expand move tutor heap
+arm9 0203DFF4 8A 02
