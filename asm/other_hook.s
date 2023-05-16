@@ -174,6 +174,28 @@ add r2, #0x84
 ldr r0, =0x02259DC4 | 1
 bx r0
 
+
+//02259C0C
+// need to store species to r5+2
+.global fix_double_spriteOffsetSpecies
+fix_double_spriteOffsetSpecies:
+push {r0-r7}
+ldr r1, =word_to_store_form_at
+ldr r1, [r1]
+ldrh r0, [r5, #2]
+bl GetSpeciesBasedOnForm // (species, form)
+strh r0, [r5, #2]
+pop {r0-r7}
+
+ldr r0, [r5, #4]
+mov r2, r4
+str r0, [sp]
+ldrb r3, [r5, #1]
+
+ldr r0, =0x02259C14 | 1
+bx r0
+
+
 .pool
 
 .align 2
