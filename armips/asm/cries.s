@@ -13,13 +13,16 @@
 
 .area 0x1E, 0 // nop the rest out w mov r0, r0
 
+    mov r0, r5 // species
+    bl 0x02006A0C // (species, form), return r0 = cry number "species" - come after the end of the old cries
+    mov r5, r0
     ldr r2, =SPECIES_SHAYMIN
-    cmp r5, r2
-    bne _check_normal
-    cmp r1, #1
-    bne 0x02006258 // normal shaymin; leave r5 be
-    add r5, #2 // adjust the sound file to the sky shaymin one
-    b 0x02006258
+//    cmp r5, r2
+//    bne _check_normal
+//    cmp r1, #1
+//    bne 0x02006258 // normal shaymin; leave r5 be
+//    add r5, #2 // adjust the sound file to the sky shaymin one
+//    b 0x02006258
 
 _check_normal:
     add r2, #2 // r2 = 0x1EE  

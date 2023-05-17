@@ -251,3 +251,5 @@ arm9 FieldMsgPrintInit 0205B4EC 2
 arm9 WindowClose 02041190 0
 
 #endif
+
+arm9 GrabCryNumSpeciesForm 02006A0C 2

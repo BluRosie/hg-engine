@@ -741,6 +741,7 @@ void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id
 u8 __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no);
 int __attribute__((long_call)) PokeOtherFormMonsNoGet(int mons_no, int form_no);
 u16 __attribute__((long_call)) GetSpeciesBasedOnForm(int mons_no, int form_no);
+u16 __attribute__((long_call)) GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no);
 u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no);
 u16 __attribute__((long_call)) PokeIconCgxPatternGet(const void *ppp);
 u32 __attribute__((long_call)) PokeIconPalNumGet(u32 mons, u32 form, u32 isegg);

@@ -2607,7 +2607,10 @@ int __attribute__((long_call)) PokeOtherFormMonsNoGet(int mons_no, int form_no)
     for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
     {
         if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+        {
             mons_no = PokeFormDataTbl[i].file;
+            break;
+        }
     }
     return mons_no;
 }
@@ -2617,7 +2620,26 @@ u16 __attribute__((long_call)) GetSpeciesBasedOnForm(int mons_no, int form_no)
     for (u32 i = 0; i < NELEMS(PokeFormDataTbl); i++)
     {
         if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+        {
             mons_no = PokeFormDataTbl[i].file;
+            break;
+        }
+    }
+    return mons_no;
+}
+
+u16 __attribute__((long_call)) GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
+{
+    if (mons_no <= MAX_MON_NUM)
+        return mons_no;
+
+    for (u32 i = 0; i < NELEMS(PokeFormDataTbl); i++)
+    {
+        if (mons_no == PokeFormDataTbl[i].file)
+        {
+            mons_no = PokeFormDataTbl[i].species;
+            break;
+        }
     }
     return mons_no;
 }
@@ -4588,4 +4610,95 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     RecalcPartyPokemonStats(pokemon);
 
     ResetPartyPokemonAbility(pokemon);
+}
+
+
+#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM+1)
+
+
+#define CRY_SPECIES_SHAYMIN 0x1EE
+#define CRY_SPECIES_BASE_TORNADUS CRY_SPECIES_FORMS_BASE
+#define CRY_SPECIES_BASE_THUNDURUS CRY_SPECIES_FORMS_BASE+1
+#define CRY_SPECIES_BASE_LANDORUS CRY_SPECIES_FORMS_BASE+2
+#define CRY_SPECIES_BASE_KYUREM CRY_SPECIES_FORMS_BASE+3
+#define CRY_SPECIES_BASE_PUMPKABOO CRY_SPECIES_FORMS_BASE+5
+#define CRY_SPECIES_BASE_GOURGEIST CRY_SPECIES_FORMS_BASE+6
+#define CRY_SPECIES_BASE_HOOPA CRY_SPECIES_FORMS_BASE+7
+#define CRY_SPECIES_BASE_ORICORIO CRY_SPECIES_FORMS_BASE+8
+#define CRY_SPECIES_BASE_LYCANROC CRY_SPECIES_FORMS_BASE+11
+#define CRY_SPECIES_BASE_WISHIWASHI CRY_SPECIES_FORMS_BASE+13
+#define CRY_SPECIES_BASE_NECROZMA CRY_SPECIES_FORMS_BASE+14
+#define CRY_SPECIES_BASE_ZACIAN CRY_SPECIES_FORMS_BASE+18
+#define CRY_SPECIES_BASE_ZAMAZENTA CRY_SPECIES_FORMS_BASE+19
+#define CRY_SPECIES_BASE_URSHIFU CRY_SPECIES_FORMS_BASE+20
+#define CRY_SPECIES_BASE_CALYREX CRY_SPECIES_FORMS_BASE+21
+#define CRY_SPECIES_BASE_ENAMORUS CRY_SPECIES_FORMS_BASE+23
+#define CRY_SPECIES_BASE_MAUSHOLD CRY_SPECIES_FORMS_BASE+24
+
+
+u32 storeShayminForm = 0;
+
+
+u32 GrabCryNumSpeciesForm(u32 species, u32 form)
+{
+    if (species > MAX_MON_NUM) // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species
+    {
+        species = GetOriginalSpeciesBasedOnAdjustedForm(species);
+    }
+    else if (species == SPECIES_SHAYMIN) // shaymin has to have some hacks to get this to work proper because of the same battle stuff above
+    {
+        register u32 retAddr asm("lr");
+        if (retAddr == 0x020069BF)
+            storeShayminForm = form;
+        if (retAddr == 0x020063E5 || retAddr == 0x02006241)
+            if (!storeShayminForm)
+                return species;
+    }
+    else if (form == 0)
+    {
+        return species;
+    }
+
+    switch (species)
+    {
+    case SPECIES_SHAYMIN:
+        return CRY_SPECIES_SHAYMIN; // form is already nonzero
+    case SPECIES_TORNADUS:
+        return CRY_SPECIES_BASE_TORNADUS;
+    case SPECIES_THUNDURUS:
+        return CRY_SPECIES_BASE_THUNDURUS;
+    case SPECIES_LANDORUS:
+        return CRY_SPECIES_BASE_LANDORUS;
+    case SPECIES_ENAMORUS:
+        return CRY_SPECIES_BASE_ENAMORUS;
+    case SPECIES_KYUREM:
+        return CRY_SPECIES_BASE_KYUREM + form-1;
+    case SPECIES_PUMPKABOO:
+        if (form == 3) return CRY_SPECIES_BASE_PUMPKABOO;
+        break;
+    case SPECIES_GOURGEIST:
+        if (form == 3) return CRY_SPECIES_BASE_GOURGEIST;
+        break;
+    case SPECIES_HOOPA:
+        return CRY_SPECIES_BASE_HOOPA;
+    case SPECIES_ORICORIO:
+        return CRY_SPECIES_BASE_ORICORIO + form-1;
+    case SPECIES_LYCANROC:
+        return CRY_SPECIES_BASE_LYCANROC + form-1;
+    case SPECIES_WISHIWASHI:
+        return CRY_SPECIES_BASE_WISHIWASHI;
+    case SPECIES_NECROZMA:
+        return CRY_SPECIES_BASE_NECROZMA + form-1;
+    case SPECIES_ZACIAN:
+        return CRY_SPECIES_BASE_ZACIAN;
+    case SPECIES_ZAMAZENTA:
+        return CRY_SPECIES_BASE_ZAMAZENTA;
+    case SPECIES_URSHIFU:
+        return CRY_SPECIES_BASE_URSHIFU;
+    case SPECIES_CALYREX:
+        return CRY_SPECIES_BASE_CALYREX + form-1;
+    //case SPECIES_MAUSHOLD:
+    //    return CRY_SPECIES_BASE_MAUSHOLD;
+    }
+    return species;
 }
