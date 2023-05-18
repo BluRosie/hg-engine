@@ -9,6 +9,8 @@
 
 .create "build/move/move_anim/0_496", 0
 
+// simple beam animation script
+
 a010_496:
     loadparticlefromspa 0, 509
     waitparticle
