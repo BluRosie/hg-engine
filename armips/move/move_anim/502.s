@@ -9,22 +9,35 @@
 
 .create "build/move/move_anim/0_502", 0
 
+// clear smog animation
+
 a010_502:
-    loadparticlefromspa 0, 486
+    loadparticlefromspa 0, 514
     waitparticle
 
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
+    jumpifside 0, playerSide, enemySide
+    end
 
+playerSide:
     addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
+    wait 30
 
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
+    addparticle 0, 0, 4
+    addparticle 0, 2, 4
+    addparticle 0, 3, 4
+    waitparticle
+
+    unloadparticle 0
+    waitstate
+    end
+
+enemySide:
+    addparticle 0, 4, 3
+    wait 30
+
+    addparticle 0, 0, 4
+    addparticle 0, 2, 4
+    addparticle 0, 3, 4
     waitparticle
 
     unloadparticle 0

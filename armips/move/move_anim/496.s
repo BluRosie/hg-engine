@@ -33,7 +33,7 @@ a010_496:
     wait 5
     
     callfunction 33, 5, 0, 1, 12, 0, 31 | 31 << 5 | 31 << 10, "NaN", "NaN", "NaN", "NaN", "NaN" // flash screen rgb
-    callfunction 36, 5, 3, 0, 1, 7, 264, "NaN", "NaN", "NaN", "NaN", "NaN" // shake target mon
+    callfunction 36, 5, 3, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN" // shake target mon
 
     addparticle 0, 0, 4
     wait 5
