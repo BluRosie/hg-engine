@@ -81,3 +81,6 @@ sdat/*
 tools/swav2swar.exe
 
 *:Zone.Identifier
+armips/data/encounters.s
+armips/data/encounters.s
+armips/data/trainers/trainers.s
