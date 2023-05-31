@@ -9,8 +9,10 @@
 
 .create "build/move/move_anim/0_476", 0
 
+// psyshock move animation
+
 a010_476:
-    loadparticlefromspa 0, 490
+    loadparticlefromspa 0, 518
     waitparticle
 
     addparticle 0, 0, 4
