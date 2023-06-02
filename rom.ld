@@ -410,3 +410,5 @@ GX_EngineAToggleLayers = 0x02022C60 | 1;
 WeatherBGAlphaDef = 0x021EB818 | 1;
 WeatherMoveReq = 0x021EB830 | 1;
 WeatherMoveMain = 0x021EB840 | 1;
+
+SetEncountData = 0x02247B64 | 1;

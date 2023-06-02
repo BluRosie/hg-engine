@@ -360,3 +360,38 @@ ldrb r1, [r0, #0x0]
 mov r0, #0x40
 ldr r2, =0x02041198 + 1
 bx r2
+
+.pool
+
+
+.global gTriggerDouble
+gTriggerDouble:
+.word 0
+
+
+.global TryTriggerWildDoubleBattle
+TryTriggerWildDoubleBattle:
+ldr r2, =0x0201FD44 | 1
+bl bx_r2
+mov r1, #100
+bl __aeabi_uidiv // returns div in r0
+cmp r1, #10
+blt doubleWildBattle
+mov r1, #0
+b skipDoubleWildBattle
+
+doubleWildBattle:
+mov r1, #2
+
+skipDoubleWildBattle:
+ldr r0, =gTriggerDouble
+str r1, [r0]
+mov r0, #11
+ldr r2, =0x020518D8 | 1
+bl bx_r2
+ldr r2, =0x0224828C | 1
+// fallthrough to bx r2
+
+bx_r2:
+bx r2
+
