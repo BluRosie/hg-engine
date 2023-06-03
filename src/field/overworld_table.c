@@ -1565,27 +1565,3 @@ u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
 
     return ret;
 }
-
-u32 isPlayerOnLadder = 0;
-
-u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
-{
-    if (collision == 0x3C || collision == 0x3D)
-        isPlayerOnLadder = TRUE;
-    else
-        isPlayerOnLadder = FALSE;
-
-    if (collision == 32)
-        return TRUE;
-
-    return FALSE;
-}
-
-BOOL IsPlayerOnLadder(void)
-{
-    if (isPlayerOnLadder == TRUE)
-    {
-        return 1;
-    }
-    return 0;
-}

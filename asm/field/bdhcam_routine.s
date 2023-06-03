@@ -38,7 +38,9 @@ FUN_GDMI:
     bne LAB_023d95fe
 
 // if the player is on the ladder
-	bl IsPlayerOnLadder
+	//bl IsPlayerOnLadder
+	ldr r1, =IsPlayerOnLadder
+	bl bx_r1
     cmp r0, #0
     bne LAB_023d95fe
 
