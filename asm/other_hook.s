@@ -395,3 +395,27 @@ ldr r2, =0x0224828C | 1
 bx_r2:
 bx r2
 
+.pool
+
+
+// r0 is fight_type, need to check gTriggerDouble above and see if the player palette should be overwritten as the multi battle param would stipulate
+.global KeepPlayerPaletteIntact
+KeepPlayerPaletteIntact:
+ldr r1, =gTriggerDouble
+ldr r1, [r1]
+cmp r1, #0
+bne return_to_022607C4
+
+return_to_022607DA:
+cmp r0, #0x4A
+beq return_to_022607C4
+ldr r2, =0x022607DA|1
+bx r2
+
+return_to_022607C4:
+mov r0, r7
+mov r1, #2
+ldr r2, =0x022607C4|1
+bx r2
+
+.pool

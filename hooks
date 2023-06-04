@@ -259,5 +259,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 # r0 isn't used, can be burned
 0002 WildEncSingle 02247424 0
 0002 TryTriggerWildDoubleBattle 02248284 0
+0012 KeepPlayerPaletteIntact 022607BC 1
 
 #endif

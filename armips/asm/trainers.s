@@ -23,4 +23,16 @@ lsl r5, r2, #1
 bl 0x201AA8C // sys_AllocMemory
 ldr r4, [sp]
 
+
+// optimize trailer palette loading to allow for double battles as well to load trainer pal
+
+.org 0x0225A1AC
+ldr r1, =0x1722
+and r0, r1
+cmp r0, #0
+bne 0x0225A1E8
+b 0x0225A23A
+
+.pool
+
 .close
