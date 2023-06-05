@@ -373,10 +373,22 @@ gTriggerDouble:
 TryTriggerWildDoubleBattle:
 ldr r2, =0x0201FD44 | 1
 bl bx_r2
+
+ldr r2, =0x020272B0 | 1 //SaveBlock2_get
+bl bx_r2
+ldr r2, =0x02074904 | 1 //SavArray_PlayerParty_get
+bl bx_r2
+ldr r2, =0x0205442C | 1 //HasEnoughAlivePokemonForDoubleBattle(SavArray_PlayerParty_get(SaveBlock2_get()))
+bl bx_r2
+cmp r0, #0
+beq singleBattle
+
 mov r1, #100
 bl __aeabi_uidiv // returns div in r0
 cmp r1, #10
 blt doubleWildBattle
+
+singleBattle:
 mov r1, #0
 b skipDoubleWildBattle
 
