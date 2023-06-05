@@ -9,6 +9,8 @@
 
 .create "build/move/move_anim/0_475", 0
 
+// wonder room
+
 a010_475:
     cmd0C 7, 1
     changebg 59, 0x20001//0x800000

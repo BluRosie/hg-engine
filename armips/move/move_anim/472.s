@@ -9,8 +9,10 @@
 
 .create "build/move/move_anim/0_472", 0
 
+// wide guard
+
 a010_472:
-    loadparticlefromspa 0, 487
+    loadparticlefromspa 0, 515
     waitparticle
 
     addparticle 0, 2, 3

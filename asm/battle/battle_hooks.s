@@ -312,3 +312,5 @@ strb r2, [r1, r0]
 
 ldr r3, =0x0224E9A0 | 1
 bx r3
+
+.pool

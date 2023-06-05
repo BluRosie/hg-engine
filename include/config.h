@@ -49,4 +49,8 @@
 // uncommenting this line out will enable transparent textboxes
 //#define IMPLEMENT_TRANSPARENT_TEXTBOXES
 
+// IMPLEMENT_WILD_DOUBLE_BATTLES defines whether or not grass tiles will have a 10% chance of starting a wild double battle
+// commenting this line out disables wild double battles entirely
+#define IMPLEMENT_WILD_DOUBLE_BATTLES
+
 #endif
