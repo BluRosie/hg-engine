@@ -579,7 +579,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
     }
 }
 
-// seriously FUCK illusion
+
 void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp)
 {
     u32 fight_type;
@@ -601,22 +601,22 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             client2 = client1;
         }
 
-        { // fuck fuck fuck fuck
+        {
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
 
             party = BattleWorkPokePartyGet(bw, client1);
 
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), ID_PARA_monsno, NULL); // WHY HAS GOD ABANDONED US
-            if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK) // this check is fuckin failing.  i don't know what to do
+            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), ID_PARA_monsno, NULL);
+            if (species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
             {
                 esomp->sel_mons_no[client1] = party->PokeCount - 1;
             }
         }
 
         if (client1 != client2)
-        { // why has god abandoned us
+        {
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
@@ -704,7 +704,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
     }
     else
     {
-        if (fight_type & BATTLE_TYPE_WIRELESS) // fuck wireless battles
+        if (fight_type & BATTLE_TYPE_WIRELESS)
         {
             u8 sio_id = BattleWorkCommIDGet(bw);
 
@@ -751,7 +751,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             client2 = client1;
         }
 
-        { // FUCK FUCK FUCK FUCK
+        {
             struct POKEPARTY *party;
             u32 count = 0;
             u32 species = 0;
