@@ -10,8 +10,7 @@
 .create "build/move/battle_eff_seq/0_280", 0
 
 a030_280:
-    ifmonstat2 IF_MASK, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0x8, poison
-    ifmonstat2 IF_MASK, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0x80, poison
+    ifmonstat IF_MASK, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0x88, poison
     changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xA
     goto _end
 

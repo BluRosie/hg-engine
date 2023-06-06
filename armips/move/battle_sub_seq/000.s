@@ -39,13 +39,19 @@ _0128:
     printmessage2 0x4F4, 0x2, 0x4, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0154
 _0140:
-    printmessage2 0x3C7, 0x9, 0xA, 0xC, "NaN", "NaN", "NaN", "NaN"
+    printmessage2 967, TAG_NICK_NICK, BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT, "NaN", "NaN", "NaN", "NaN"
 _0154:
     waitmessage
     wait 0x1E
     if IF_MASK, VAR_BATTLE_TYPE, 0x8, _018C
-    printmessage 0x3D3, 0x2, 0x3, "NaN", "NaN", "NaN", "NaN", "NaN"
+    if IF_EQUAL, VAR_BATTLE_TYPE, 0x2, printDoublesMessage // wild double battles have a type of just 0x2
+    printmessage 979, TAG_NICK, 0x3, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0194
+
+printDoublesMessage:
+    printmessage 978, TAG_NICK_NICK, BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT, "NaN", "NaN", "NaN", "NaN"
+    goto _0194
+
 _018C:
     encountermessage2 BATTLER_PLAYER
 _0194:

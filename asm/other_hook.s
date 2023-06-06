@@ -360,3 +360,74 @@ ldrb r1, [r0, #0x0]
 mov r0, #0x40
 ldr r2, =0x02041198 + 1
 bx r2
+
+.pool
+
+
+.global gTriggerDouble
+gTriggerDouble:
+.word 0
+
+
+.global TryTriggerWildDoubleBattle
+TryTriggerWildDoubleBattle:
+ldr r2, =0x020272B0 | 1 //SaveBlock2_get
+bl bx_r2
+ldr r2, =0x02074904 | 1 //SavArray_PlayerParty_get
+bl bx_r2
+ldr r2, =0x0205442C | 1 //HasEnoughAlivePokemonForDoubleBattle(SavArray_PlayerParty_get(SaveBlock2_get()))
+bl bx_r2
+cmp r0, #0
+beq singleBattle
+
+ldr r2, =0x0201FD44 | 1
+bl bx_r2
+
+mov r1, #100
+bl __aeabi_uidiv // returns div in r0
+cmp r1, #10
+blt doubleWildBattle
+
+singleBattle:
+mov r1, #0
+b skipDoubleWildBattle
+
+doubleWildBattle:
+mov r1, #2
+
+skipDoubleWildBattle:
+ldr r0, =gTriggerDouble
+str r1, [r0]
+mov r0, #11
+ldr r2, =0x020518D8 | 1
+bl bx_r2
+ldr r2, =0x0224828C | 1
+// fallthrough to bx r2
+
+bx_r2:
+bx r2
+
+.pool
+
+
+// r0 is fight_type, need to check gTriggerDouble above and see if the player palette should be overwritten as the multi battle param would stipulate
+.global KeepPlayerPaletteIntact
+KeepPlayerPaletteIntact:
+ldr r1, =gTriggerDouble
+ldr r1, [r1]
+cmp r1, #0
+bne return_to_022607C4
+
+return_to_022607DA:
+cmp r0, #0x4A
+beq return_to_022607C4
+ldr r2, =0x022607DA|1
+bx r2
+
+return_to_022607C4:
+mov r0, r7
+mov r1, #2
+ldr r2, =0x022607C4|1
+bx r2
+
+.pool

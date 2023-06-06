@@ -9,8 +9,10 @@
 
 .create "build/move/move_anim/0_474", 0
 
+// power split
+
 a010_474:
-    loadparticlefromspa 0, 489
+    loadparticlefromspa 0, 517
     waitparticle
 
     addparticle 0, 0, 3

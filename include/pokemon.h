@@ -732,6 +732,7 @@ void __attribute__((long_call)) SaveMisc_SetTogepiPersonalityGender(struct SAVE_
 void __attribute__((long_call)) SaveMisc_GetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveMiscData, int *a1, u8 *a2);
 void __attribute__((long_call)) sub_0206D038(struct PartyPokemon *pokemon, u32 heapId);
 void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 *dest);
+u32 __attribute__((long_call)) SetEncountData(struct PartyPokemon *pp, u32 rodType, void *encInfo, void *encArea, u32 encounterType, u32 battler, void *bw);
 
 
 

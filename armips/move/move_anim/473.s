@@ -9,8 +9,10 @@
 
 .create "build/move/move_anim/0_473", 0
 
+// guard split
+
 a010_473:
-    loadparticlefromspa 0, 488
+    loadparticlefromspa 0, 516
     waitparticle
 
     addparticle 0, 0, 3

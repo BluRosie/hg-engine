@@ -3,6 +3,7 @@
 #include "../include/bag.h"
 #include "../include/item.h"
 #include "../include/save.h"
+#include "../include/script.h"
 
 
 // file is directly from pokeheartgold but without the bag_cursor stuff + sPocketCounts right here
@@ -420,4 +421,32 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n) {
         return 0;
     }
     return &slots[n];
+}
+
+
+
+// move these here so gFieldSysPtr works
+
+u32 isPlayerOnLadder = 0;
+
+u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
+{
+    if (collision == 0x3C || collision == 0x3D || collision == 0x3E || gFieldSysPtr->location->mapId == 114)
+        isPlayerOnLadder = TRUE;
+    else
+        isPlayerOnLadder = FALSE;
+
+    if (collision == 32)
+        return TRUE;
+
+    return FALSE;
+}
+
+BOOL IsPlayerOnLadder(void)
+{
+    if (isPlayerOnLadder == TRUE) // disable the slowpoke well entrance from activating bdhcam
+    {
+        return 1;
+    }
+    return 0;
 }

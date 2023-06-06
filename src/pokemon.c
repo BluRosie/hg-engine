@@ -4702,3 +4702,21 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     }
     return species;
 }
+
+
+// double battles triggerable
+
+extern u32 gTriggerDouble;
+
+void WildEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *encData, void *encArea, void *encInfo)
+{
+    SetEncountData(pp, 255, encInfo, encArea, 0, 1, bw);
+    
+#ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
+
+    if (gTriggerDouble)
+        SetEncountData(pp, 255, encInfo, encArea, 0, 1, bw); // add another mon to the enemy party
+
+#endif
+
+}
