@@ -314,3 +314,77 @@ ldr r3, =0x0224E9A0 | 1
 bx r3
 
 .pool
+
+
+// get_client_no is r7.  we have to figure out how to run the exp task that pushes forward
+.global Task_DistributeExp_capture_experience_hook
+Task_DistributeExp_capture_experience_hook:
+// set up the arguments
+ldr r0, [sp, #0x10] // arg0 w/e tf it is
+mov r1, r4 // expcalc structure
+mov r2, r7 // get_client_no
+
+push {r1-r7}
+
+bl Task_DistributeExp_capture_experience
+
+pop {r1-r7}
+
+cmp r0, #1
+bne fully_return
+
+// if r0 is TRUE, set up case and return
+ldr r0, [r4, #8]
+mov r1, #7
+ldr r2, =0x02232F60|1 // BM_SceneStateGet
+bl bx_r2
+cmp r0, #0
+bne return_to_224689E
+ldr r2, =0x02246896|1
+bx r2
+
+return_to_224689E:
+ldr r2, =0x224689E|1
+bx r2
+
+fully_return: // hope this works to fully return
+ldr r2, =0x02247216|1
+//bx r2
+// fallthrough to bx_r2
+
+bx_r2:
+bx r2
+
+.pool
+
+
+.global gKeepStructureCallbackIntact
+gKeepStructureCallbackIntact:
+.word 0
+
+
+.global DontFreeMemoryIfCatchExp
+DontFreeMemoryIfCatchExp:
+ldr r0, =gKeepStructureCallbackIntact
+ldr r0, [r0]
+cmp r0, #0
+bne dontFreeAnything
+mov r0, #0x5E
+ldr r1, [r4, #4]
+mov r2, #0
+lsl r0, #2
+str r2, [r1, r0] // store null at pointer
+mov r0, r4
+ldr r2, =0x201AB0C|1 // free memory
+bl bx_r2
+ldr r0, [sp, #0x14]
+ldr r2, =0x200E390|1 // delete task
+bl bx_r2
+dontFreeAnything:
+ldr r0, =gKeepStructureCallbackIntact
+mov r1, #0
+str r1, [r0]
+ldr r0, =0x022463B6|1
+bx r0
+
+.pool

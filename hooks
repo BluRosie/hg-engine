@@ -262,3 +262,10 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0012 KeepPlayerPaletteIntact 022607BC 1
 
 #endif
+
+#ifdef IMPLEMENT_CAPTURE_EXPERIENCE
+
+0012 Task_DistributeExp_capture_experience_hook 0224688A 0
+0012 DontFreeMemoryIfCatchExp 022463A0 0
+
+#endif

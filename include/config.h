@@ -53,4 +53,8 @@
 // commenting this line out disables wild double battles entirely
 #define IMPLEMENT_WILD_DOUBLE_BATTLES
 
+// IMPLEMENT_CAPTURE_EXPERIENCE defines whether or not capturing wild pokemon will net experience
+// commenting this line out disables capture experience
+#define IMPLEMENT_CAPTURE_EXPERIENCE
+
 #endif
