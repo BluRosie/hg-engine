@@ -1650,15 +1650,20 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 }
 
 
+sSuccessfulCriticalCapture = 0;
+
+
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
 {
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
+    sSuccessfulCriticalCapture = 0;
     if (shakes & 0x80) // critical capture
     {
         expcalc->work[3] = shakes&0x7F;
         if ((shakes&0x7F) == 1)
         {
             expcalc->work[2] = 4; // successful capture
+            sSuccessfulCriticalCapture = TRUE;
         }
         else
         {
@@ -1681,4 +1686,41 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
     expcalc->seq_no = 3; // have the ball fall
     return 3;
 #endif
+}
+
+
+extern u32 BallToSpaIDs[][3];
+u32 __attribute__((long_call)) GetBallID_ov7(u32 itemId);
+
+
+u32 LoadCaptureSuccessSPA(u32 id)
+{
+    id = GetBallID_ov7(id);
+
+    if (sSuccessfulCriticalCapture)
+        return 133;
+    else
+        return BallToSpaIDs[id][0];
+}
+
+
+u32 LoadCaptureSuccessSPAStarEmitter(u32 id)
+{
+    id = GetBallID_ov7(id);
+
+    if (sSuccessfulCriticalCapture)
+        return 0;
+    else
+        return BallToSpaIDs[id][1];
+}
+
+
+u32 LoadCaptureSuccessSPANumEmitters(u32 id)
+{
+    id = GetBallID_ov7(id);
+
+    if (sSuccessfulCriticalCapture)
+        return 5;
+    else
+        return BallToSpaIDs[id][2];
 }

@@ -274,4 +274,7 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0012 CalculateBallShakes 02247228 2
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
 0012 DealWithCriticalCaptureShakes_hook 02246758 1
+0007 LoadCaptureSuccessSPA 0223261C 1
+0007 LoadCaptureSuccessSPAStarEmitter 02232644 1
+0007 LoadCaptureSuccessSPANumEmitters 02232630 1
 #endif

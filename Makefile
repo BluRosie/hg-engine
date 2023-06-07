@@ -318,6 +318,9 @@ move_narc: $(NARC_FILES)
 	@echo "text data:"
 	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
+	@echo "ball spa files:"
+	cp $(BALL_SPA_NARC) $(BALL_SPA_TARGET)
+
 	@echo "font:"
 	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
 
