@@ -388,3 +388,17 @@ ldr r0, =0x022463B6|1
 bx r0
 
 .pool
+
+
+.global DealWithCriticalCaptureShakes_hook
+DealWithCriticalCaptureShakes_hook:
+ldr r1, [r4, #4]
+bl CalculateBallShakes
+mov r1, r0 // shakes
+mov r0, r4 // expcalc
+bl DealWithCriticalCaptureShakes
+ldr r1, =0x0224676C|1
+bx r1
+
+.pool
+

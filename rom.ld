@@ -412,3 +412,10 @@ WeatherMoveReq = 0x021EB830 | 1;
 WeatherMoveMain = 0x021EB840 | 1;
 
 SetEncountData = 0x02247B64 | 1;
+
+gSafariBallRateTable = 0x0226C3CE;
+BattleWorkGroundIDGet = 0x0223AB40 | 1;
+Battle_CheckIfHasCaughtMon = 0x0223C330 | 1;
+Battle_GetTimeOfDay = 0x0223B520 | 1;
+Battle_IsFishingEncounter = 0x0223AAB8 | 1;
+GetCaughtMonCount = 0x02029E84 | 1;
