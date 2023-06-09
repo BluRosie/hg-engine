@@ -2413,7 +2413,7 @@ levelup SPECIES_HITMONLEE
     learnset MOVE_WIDE_GUARD, 30
     learnset MOVE_MIND_READER, 30
     learnset MOVE_BLAZE_KICK, 33
-    learnset MOVE_HI_JUMP_KICK, 37
+    learnset MOVE_HIGH_JUMP_KICK, 37
     learnset MOVE_FORESIGHT, 37
     learnset MOVE_MEGA_KICK, 41
     learnset MOVE_CLOSE_COMBAT, 45
@@ -5971,7 +5971,7 @@ levelup SPECIES_BLAZIKEN
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_BLAZE_KICK, 1
     learnset MOVE_FLARE_BLITZ, 1
-    learnset MOVE_HI_JUMP_KICK, 1
+    learnset MOVE_HIGH_JUMP_KICK, 1
     learnset MOVE_SAND_ATTACK, 1
     learnset MOVE_EMBER, 5
     learnset MOVE_DETECT, 12
@@ -7088,7 +7088,7 @@ levelup SPECIES_MEDITITE
     learnset MOVE_HIDDEN_POWER, 20
     learnset MOVE_CALM_MIND, 23
     learnset MOVE_MIND_READER, 25
-    learnset MOVE_HI_JUMP_KICK, 28
+    learnset MOVE_HIGH_JUMP_KICK, 28
     learnset MOVE_PSYCH_UP, 31
     learnset MOVE_ACUPRESSURE, 33
     learnset MOVE_POWER_TRICK, 36
@@ -7116,7 +7116,7 @@ levelup SPECIES_MEDICHAM
     learnset MOVE_HIDDEN_POWER, 20
     learnset MOVE_CALM_MIND, 23
     learnset MOVE_MIND_READER, 25
-    learnset MOVE_HI_JUMP_KICK, 28
+    learnset MOVE_HIGH_JUMP_KICK, 28
     learnset MOVE_PSYCH_UP, 31
     learnset MOVE_ACUPRESSURE, 33
     learnset MOVE_POWER_TRICK, 36
@@ -9758,7 +9758,7 @@ levelup SPECIES_LOPUNNY
     learnset MOVE_ENTRAINMENT, 46
     learnset MOVE_BOUNCE, 51
     learnset MOVE_HEALING_WISH, 57
-    learnset MOVE_HI_JUMP_KICK, 60
+    learnset MOVE_HIGH_JUMP_KICK, 60
     terminatelearnset
 
 
@@ -13169,7 +13169,7 @@ levelup SPECIES_SCRAGGY
     learnset MOVE_CHIP_AWAY, 27
     learnset MOVE_FACADE, 28
     learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_HI_JUMP_KICK, 37
+    learnset MOVE_HIGH_JUMP_KICK, 37
     learnset MOVE_CRUNCH, 39
     learnset MOVE_ROCK_CLIMB, 45
     learnset MOVE_FOCUS_PUNCH, 48
@@ -13196,7 +13196,7 @@ levelup SPECIES_SCRAFTY
     learnset MOVE_FACADE, 29
     learnset MOVE_SCARY_FACE, 30
     learnset MOVE_CRUNCH, 40
-    learnset MOVE_HI_JUMP_KICK, 40
+    learnset MOVE_HIGH_JUMP_KICK, 40
     learnset MOVE_ROCK_CLIMB, 51
     learnset MOVE_FOCUS_PUNCH, 55
     learnset MOVE_HEAD_SMASH, 62
@@ -14622,7 +14622,7 @@ levelup SPECIES_MIENFOO
     learnset MOVE_CALM_MIND, 41
     learnset MOVE_BOUNCE, 50
     learnset MOVE_AURA_SPHERE, 52
-    learnset MOVE_HI_JUMP_KICK, 55
+    learnset MOVE_HIGH_JUMP_KICK, 55
     terminatelearnset
 
 
@@ -14649,7 +14649,7 @@ levelup SPECIES_MIENSHAO
     learnset MOVE_CALM_MIND, 43
     learnset MOVE_BOUNCE, 51
     learnset MOVE_AURA_SPHERE, 56
-    learnset MOVE_HI_JUMP_KICK, 61
+    learnset MOVE_HIGH_JUMP_KICK, 61
     learnset MOVE_REVERSAL, 63
     terminatelearnset
 
@@ -16555,7 +16555,7 @@ levelup SPECIES_HAWLUCHA
     learnset MOVE_TAUNT, 32
     learnset MOVE_FLYING_PRESS, 36
     learnset MOVE_ENDEAVOR, 44
-    learnset MOVE_HI_JUMP_KICK, 46
+    learnset MOVE_HIGH_JUMP_KICK, 46
     learnset MOVE_SWORDS_DANCE, 49
     learnset MOVE_SKY_ATTACK, 52
     learnset MOVE_SKY_DROP, 55
@@ -18000,7 +18000,7 @@ levelup SPECIES_TSAREENA
     learnset MOVE_CAPTIVATE, 37
     learnset MOVE_AROMATHERAPY, 43
     learnset MOVE_LEAF_STORM, 48
-    learnset MOVE_HI_JUMP_KICK, 53
+    learnset MOVE_HIGH_JUMP_KICK, 53
     learnset MOVE_POWER_WHIP, 53
     terminatelearnset
 
@@ -18714,7 +18714,7 @@ levelup SPECIES_PHEROMOSA
     learnset MOVE_ME_FIRST, 59
     learnset MOVE_SPEED_SWAP, 63
     learnset MOVE_QUIVER_DANCE, 65
-    learnset MOVE_HI_JUMP_KICK, 68
+    learnset MOVE_HIGH_JUMP_KICK, 68
     terminatelearnset
 
 
@@ -21321,7 +21321,7 @@ levelup SPECIES_MEGA_MEDICHAM
     learnset MOVE_FEINT, 22 
     learnset MOVE_CALM_MIND, 25 
     learnset MOVE_FORCE_PALM, 29 
-    learnset MOVE_HI_JUMP_KICK, 32 
+    learnset MOVE_HIGH_JUMP_KICK, 32 
     learnset MOVE_PSYCH_UP, 36 
     learnset MOVE_POWER_TRICK, 42 
     learnset MOVE_REVERSAL, 49 

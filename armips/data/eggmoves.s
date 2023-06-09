@@ -1307,7 +1307,7 @@ eggmoveentry SPECIES_STANTLER
 
 eggmoveentry SPECIES_TYROGUE
     eggmove MOVE_RAPID_SPIN
-    eggmove MOVE_HI_JUMP_KICK
+    eggmove MOVE_HIGH_JUMP_KICK
     eggmove MOVE_MACH_PUNCH
     eggmove MOVE_MIND_READER
     eggmove MOVE_HELPING_HAND
@@ -2355,7 +2355,7 @@ eggmoveentry SPECIES_RIOLU
     eggmove MOVE_BITE
     eggmove MOVE_MIND_READER
     eggmove MOVE_SKY_UPPERCUT
-    eggmove MOVE_HI_JUMP_KICK
+    eggmove MOVE_HIGH_JUMP_KICK
     eggmove MOVE_AGILITY
     eggmove MOVE_VACUUM_WAVE
     eggmove MOVE_CRUNCH
@@ -3570,7 +3570,7 @@ eggmoveentry SPECIES_GROOKEY
 	eggmove MOVE_LEECH_SEED
 
 eggmoveentry SPECIES_SCORBUNNY
-	eggmove MOVE_HI_JUMP_KICK
+	eggmove MOVE_HIGH_JUMP_KICK
 	eggmove MOVE_SAND_ATTACK
 	eggmove MOVE_SUCKER_PUNCH
 	eggmove MOVE_SUPER_FANG

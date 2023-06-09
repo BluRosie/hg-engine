@@ -2183,7 +2183,7 @@ movedata MOVE_SOFT_BOILED, "Softboiled"
     terminatedata
     movedescription MOVE_SOFT_BOILED, "The user restores its\nown HP by up to half\nof its maximum HP.\nIt may also be used\nto heal an ally’s HP."
 
-movedata MOVE_HI_JUMP_KICK, "Hi Jump Kick"
+movedata MOVE_HIGH_JUMP_KICK, "High Jump Kick"
     battleeffect 45
     pss SPLIT_PHYSICAL
     basepower 130
@@ -2197,7 +2197,7 @@ movedata MOVE_HI_JUMP_KICK, "Hi Jump Kick"
     appeal 0x05
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HI_JUMP_KICK, "The foe is attacked\nwith a knee kick from\na jump. If it misses,\nthe user is hurt\ninstead."
+    movedescription MOVE_HIGH_JUMP_KICK, "The foe is attacked\nwith a knee kick from\na jump. If it misses,\nthe user is hurt\ninstead."
 
 movedata MOVE_GLARE, "Glare"
     battleeffect 67
@@ -13412,16 +13412,16 @@ movedata MOVE_SILK_TRAP, "Silk Trap"
     terminatedata
 
 movedata MOVE_AXE_KICK, "Axe Kick"
-    battleeffect 0
+    battleeffect 293
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING
     accuracy 90
     pp 10
-    effectchance 0
+    effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
