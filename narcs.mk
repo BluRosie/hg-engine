@@ -521,3 +521,17 @@ $(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES)
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
 	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
+
+
+BALL_SPA_DIR := $(BUILD)/ball_spa
+BALL_SPA_NARC := $(BUILD_NARC)/ball_spa.narc
+BALL_SPA_TARGET := $(FILESYS)/a/0/9/5
+BALL_SPA_DEPENDENCIES_DIR := rawdata/ball_spa
+BALL_SPA_DEPENDENCIES := $(wildcard $(BALL_SPA_DEPENDENCIES_DIR)/*)
+
+$(BALL_SPA_NARC): $(BALL_SPA_DEPENDENCIES)
+	$(NARCHIVE) extract $(BALL_SPA_TARGET) -o $(BALL_SPA_DIR) -nf
+	cp -r $(BALL_SPA_DEPENDENCIES_DIR)/. $(BALL_SPA_DIR)
+	$(NARCHIVE) create $@ $(BALL_SPA_DIR) -nf
+
+NARC_FILES += $(BALL_SPA_NARC)

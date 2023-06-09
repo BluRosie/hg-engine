@@ -7,7 +7,7 @@
  
  ``ALLOW_SAVE_CHANGES`` is by default defined in these files to allow for save expansion for expanded dex Pokémon and Kyurem's forme change method that stores Reshiram/Zekrom in the save.  If you want to maintain PKHeX compatibility, all you have to do is comment out the line ``ALLOW_SAVE_CHANGES`` in both of these files.  Commenting this line out disables Kyurem's forme change and the registering of new Pokémon in the dex (although the new mons are still implemented).
  
- ``CRY_PSEUDOBANK_START`` is where the pseudobanks start in the sdat for new cries.  to save on RAM space, new banks are just detected and forced to load cries instead of having the massive structure that comes with it.  by default 778, which is the first empty index of sbnk's in the vanilla sdat.
+ ``CRY_PSEUDOBANK_START`` is where the pseudobanks start in the sdat for new cries.  To save on sound heap RAM space, new banks are just detected and forced to load cries instead of having the massive structure that comes with it.  by default 778, which is the first empty index of sbnk's in the vanilla sdat.
 
  ``DEBUG_NEEDS_TESTING`` (``armips/include/config.s`` only) at the moment just shouldn't be touched.  Keep it at 0.
  
@@ -34,14 +34,22 @@
  ``IMPLEMENT_BDHCAM_ROUTINE`` (``include/config.h`` only) is a toggle for the assembly of [Mikelan's BDHCAM system](pokehacking.com/r/20110901) into overlay 131.  This is because hg-engine does not use the synthetic overlay system, so it needs to dynamically link it itself.
  
  ``IMPLEMENT_TRANSPARENT_TEXTBOXES`` (``include/config.h`` only) is a toggle for the compilation and inclusion of transparent textboxes in your hack.
+ 
+ ``IMPLEMENT_WILD_DOUBLE_BATTLES`` (``include/config.h`` only) is a toggle for the compilation of wild double battles to occur 10% of the time in the grass.
+ 
+ ``IMPLEMENT_CAPTURE_EXPERIENCE`` (``include/config.h`` only) is a toggle that will give Pokémon that participated in battle experience when a Pokémon is caught.
+ 
+ ``IMPLEMENT_CRITICAL_CAPTURE`` (``include/config.h`` only) is a toggle that will enable critical captures as they appear in Gen 5 and above--the more Pokémon you have caught, the more likely that a critical capture will occur.
 
 ### ``armips\include\itemnums.s``
- scroll down to the bottom, change ``ITEM_MEGA_STONES_START`` to what you want it to start at.  it is currently positioned so that all the mega stones are completely new items.  this is intentional.
+ Scroll down to the bottom, change ``ITEM_MEGA_STONES_START`` to what you want it to start at.  It is currently positioned so that all the mega stones are completely new items.  This is intentional.
 
 ### ``include\constants\item.h``
- same deal here as above, change ``ITEM_MEGA_STONES_START`` to what it needs to be.
+ Same deal here as above, change ``ITEM_MEGA_STONES_START`` to what it needs to be.
 
 ### ``scripts\make.py`` and ``linker.ld``
- on line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in the synthetic overlay with enough free space.  this is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.
+ On line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in overlay 129 with enough free space.  This is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.
  
- change the numbers at the beginning of ``linker.ld`` to be the same thing
+ Change the numbers at the beginning of ``linker.ld`` to be the same thing.
+ 
+ NOTE:  It is strongly suggested that code edits and repoints be done through hg-engine since its move to get rid of the synthetic overlay.
