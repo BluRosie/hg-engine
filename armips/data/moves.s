@@ -1223,7 +1223,7 @@ movedata MOVE_RAZOR_LEAF, "Razor Leaf"
     terminatedata
     movedescription MOVE_RAZOR_LEAF, "Sharp-edged leaves\nare launched to slash\nat the foe. It has a\nhigh critical-hit\nratio."
 
-movedata MOVE_SOLAR_BEAM, "SolarBeam"
+movedata MOVE_SOLAR_BEAM, "Solar Beam"
     battleeffect 151
     pss SPLIT_SPECIAL
     basepower 120
@@ -3927,7 +3927,7 @@ movedata MOVE_PSYCH_UP, "Psych Up"
     terminatedata
     movedescription MOVE_PSYCH_UP, "The user hypnotizes\nitself into copying\nany stat change\nmade by the foe.\n"
 
-movedata MOVE_EXTREME_SPEED, "ExtremeSpeed"
+movedata MOVE_EXTREME_SPEED, "Extreme Speed"
     battleeffect 103
     pss SPLIT_PHYSICAL
     basepower 80
@@ -3943,7 +3943,7 @@ movedata MOVE_EXTREME_SPEED, "ExtremeSpeed"
     terminatedata
     movedescription MOVE_EXTREME_SPEED, "The user charges the\nfoe at blinding speed.\nThis attack always\ngoes before any\nother move."
 
-movedata MOVE_ANCIENT_POWER, "AncientPower"
+movedata MOVE_ANCIENT_POWER, "Ancient Power"
     battleeffect 140
     pss SPLIT_SPECIAL
     basepower 60
@@ -9107,7 +9107,7 @@ movedata MOVE_FELL_STINGER, "Fell Stinger"
     terminatedata
 
 movedata MOVE_PHANTOM_FORCE, "Phantom Force"
-    battleeffect 0
+    battleeffect 272
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_GHOST
@@ -9167,7 +9167,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     terminatedata
 
 movedata MOVE_PARABOLIC_CHARGE, "Parabolic Charge"
-    battleeffect 0
+    battleeffect 3
     pss SPLIT_SPECIAL
     basepower 65
     type TYPE_ELECTRIC
@@ -9272,7 +9272,7 @@ movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
     terminatedata
 
 movedata MOVE_DRAINING_KISS, "Draining Kiss"
-    battleeffect 0
+    battleeffect 3
     pss SPLIT_SPECIAL
     basepower 50
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9362,7 +9362,7 @@ movedata MOVE_ELECTRIFY, "Electrify"
     terminatedata
 
 movedata MOVE_PLAY_ROUGH, "Play Rough"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_PHYSICAL
     basepower 90
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9392,7 +9392,7 @@ movedata MOVE_FAIRY_WIND, "Fairy Wind"
     terminatedata
 
 movedata MOVE_MOONBLAST, "Moonblast"
-    battleeffect 0
+    battleeffect 71
     pss SPLIT_SPECIAL
     basepower 95
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9452,7 +9452,7 @@ movedata MOVE_KINGS_SHIELD, "King’s Shield"
     terminatedata
 
 movedata MOVE_PLAY_NICE, "Play Nice"
-    battleeffect 0
+    battleeffect 18
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -9497,7 +9497,7 @@ movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     terminatedata
 
 movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
-    battleeffect 0
+    battleeffect 4
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_WATER
@@ -9512,7 +9512,7 @@ movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     terminatedata
 
 movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
-    battleeffect 0
+    battleeffect 223
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_PSYCHIC
@@ -9527,7 +9527,7 @@ movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
     terminatedata
 
 movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
-    battleeffect 0
+    battleeffect 29
     pss SPLIT_SPECIAL
     basepower 15
     type TYPE_WATER
@@ -9542,7 +9542,7 @@ movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
     terminatedata
 
 movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
-    battleeffect 0
+    battleeffect 71
     pss SPLIT_SPECIAL
     basepower 75
     type TYPE_FIRE
@@ -9662,7 +9662,7 @@ movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
     terminatedata
 
 movedata MOVE_HAPPY_HOUR, "Happy Hour"
-    battleeffect 0
+    battleeffect 85
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -9707,7 +9707,7 @@ movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     terminatedata
 
 movedata MOVE_CELEBRATE, "Celebrate"
-    battleeffect 0
+    battleeffect 85
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -9722,7 +9722,7 @@ movedata MOVE_CELEBRATE, "Celebrate"
     terminatedata
 
 movedata MOVE_HOLD_HANDS, "Hold Hands"
-    battleeffect 0
+    battleeffect 85
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -9737,7 +9737,7 @@ movedata MOVE_HOLD_HANDS, "Hold Hands"
     terminatedata
 
 movedata MOVE_BABY_DOLL_EYES, "Baby-Doll Eyes"
-    battleeffect 0
+    battleeffect 18
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9752,7 +9752,7 @@ movedata MOVE_BABY_DOLL_EYES, "Baby-Doll Eyes"
     terminatedata
 
 movedata MOVE_NUZZLE, "Nuzzle"
-    battleeffect 0
+    battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 20
     type TYPE_ELECTRIC
@@ -9767,7 +9767,7 @@ movedata MOVE_NUZZLE, "Nuzzle"
     terminatedata
 
 movedata MOVE_HOLD_BACK, "Hold Back"
-    battleeffect 0
+    battleeffect 101
     pss SPLIT_PHYSICAL
     basepower 40
     type TYPE_NORMAL
@@ -9797,7 +9797,7 @@ movedata MOVE_INFESTATION, "Infestation"
     terminatedata
 
 movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
-    battleeffect 0
+    battleeffect 139
     pss SPLIT_PHYSICAL
     basepower 40
     type TYPE_FIGHTING
@@ -9812,7 +9812,7 @@ movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     terminatedata
 
 movedata MOVE_OBLIVION_WING, "Oblivion Wing"
-    battleeffect 0
+    battleeffect 3
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_FLYING
@@ -9872,7 +9872,7 @@ movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     terminatedata
 
 movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
-    battleeffect 0
+    battleeffect 269
     pss SPLIT_SPECIAL
     basepower 140
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9917,7 +9917,7 @@ movedata MOVE_PRECIPICE_BLADES, "Precipice Blades"
     terminatedata
 
 movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
-    battleeffect 0
+    battleeffect 229
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FLYING
@@ -10517,7 +10517,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     terminatedata
 
 movedata MOVE_FIRST_IMPRESSION, "First Impression"
-    battleeffect 0
+    battleeffect 158
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_BUG
@@ -10532,7 +10532,7 @@ movedata MOVE_FIRST_IMPRESSION, "First Impression"
     terminatedata
 
 movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
-    battleeffect 0
+    battleeffect 111
     pss SPLIT_STATUS
     basepower 0
     type TYPE_POISON
@@ -10592,7 +10592,7 @@ movedata MOVE_SPARKLING_ARIA, "Sparkling Aria"
     terminatedata
 
 movedata MOVE_ICE_HAMMER, "Ice Hammer"
-    battleeffect 0
+    battleeffect 218
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ICE
@@ -10652,7 +10652,7 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap"
     terminatedata
 
 movedata MOVE_SOLAR_BLADE, "Solar Blade"
-    battleeffect 0
+    battleeffect 151
     pss SPLIT_PHYSICAL
     basepower 125
     type TYPE_GRASS
@@ -10682,7 +10682,7 @@ movedata MOVE_LEAFAGE, "Leafage"
     terminatedata
 
 movedata MOVE_SPOTLIGHT, "Spotlight"
-    battleeffect 0
+    battleeffect 172
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -10802,7 +10802,7 @@ movedata MOVE_PSYCHIC_TERRAIN, "Psychic Terrain"
     terminatedata
 
 movedata MOVE_LUNGE, "Lunge"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_BUG
@@ -10817,7 +10817,7 @@ movedata MOVE_LUNGE, "Lunge"
     terminatedata
 
 movedata MOVE_FIRE_LASH, "Fire Lash"
-    battleeffect 0
+    battleeffect 72
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIRE
@@ -10937,7 +10937,7 @@ movedata MOVE_CORE_ENFORCER, "Core Enforcer"
     terminatedata
 
 movedata MOVE_TROP_KICK, "Trop Kick"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_PHYSICAL
     basepower 70
     type TYPE_GRASS
@@ -11087,7 +11087,7 @@ movedata MOVE_OCEANIC_OPERETTA, "Oceanic Operetta"
     terminatedata
 
 movedata MOVE_GUARDIAN_OF_ALOLA, "Guardian of Alola"
-    battleeffect 0
+    battleeffect 40
     pss SPLIT_SPECIAL
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11117,7 +11117,7 @@ movedata MOVE_SOUL_STEALING_7_STAR_STRIKE, "Soul-Stealing 7-Star Strike"
     terminatedata
 
 movedata MOVE_STOKED_SPARKSURFER, "Stoked Sparksurfer"
-    battleeffect 0
+    battleeffect 6
     pss SPLIT_SPECIAL
     basepower 175
     type TYPE_ELECTRIC
@@ -11192,7 +11192,7 @@ movedata MOVE_SHELL_TRAP, "Shell Trap"
     terminatedata
 
 movedata MOVE_FLEUR_CANNON, "Fleur Cannon"
-    battleeffect 0
+    battleeffect 204
     pss SPLIT_SPECIAL
     basepower 130
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11207,7 +11207,7 @@ movedata MOVE_FLEUR_CANNON, "Fleur Cannon"
     terminatedata
 
 movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
-    battleeffect 0
+    battleeffect 186
     pss SPLIT_PHYSICAL
     basepower 85
     type TYPE_PSYCHIC
@@ -11237,7 +11237,7 @@ movedata MOVE_STOMPING_TANTRUM, "Stomping Tantrum"
     terminatedata
 
 movedata MOVE_SHADOW_BONE, "Shadow Bone"
-    battleeffect 0
+    battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 85
     type TYPE_GHOST
@@ -11267,7 +11267,7 @@ movedata MOVE_ACCELEROCK, "Accelerock"
     terminatedata
 
 movedata MOVE_LIQUIDATION, "Liquidation"
-    battleeffect 0
+    battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 85
     type TYPE_WATER
@@ -11282,7 +11282,7 @@ movedata MOVE_LIQUIDATION, "Liquidation"
     terminatedata
 
 movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
-    battleeffect 0
+    battleeffect 80
     pss SPLIT_SPECIAL
     basepower 160
     type TYPE_PSYCHIC
@@ -11357,7 +11357,7 @@ movedata MOVE_TEARFUL_LOOK, "Tearful Look"
     terminatedata
 
 movedata MOVE_ZING_ZAP, "Zing Zap"
-    battleeffect 0
+    battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_ELECTRIC
@@ -11372,7 +11372,7 @@ movedata MOVE_ZING_ZAP, "Zing Zap"
     terminatedata
 
 movedata MOVE_NATURES_MADNESS, "Nature’s Madness"
-    battleeffect 0
+    battleeffect 40
     pss SPLIT_SPECIAL
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11537,7 +11537,7 @@ movedata MOVE_SPLINTERED_STORMSHARDS, "Splintered Stormshards"
     terminatedata
 
 movedata MOVE_CLANGOROUS_SOULBLAZE, "Clangorous Soulblaze"
-    battleeffect 0
+    battleeffect 140
     pss SPLIT_SPECIAL
     basepower 185
     type TYPE_DRAGON
@@ -11552,7 +11552,7 @@ movedata MOVE_CLANGOROUS_SOULBLAZE, "Clangorous Soulblaze"
     terminatedata
 
 movedata MOVE_ZIPPY_ZAP, "Zippy Zap"
-    battleeffect 0
+	battleeffect 282
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_ELECTRIC
@@ -11561,13 +11561,13 @@ movedata MOVE_ZIPPY_ZAP, "Zippy Zap"
     effectchance 100
     target MOVE_TARGET_SELECTED
     priority 2
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
 
 movedata MOVE_SPLISHY_SPLASH, "Splishy Splash"
-    battleeffect 0
+    battleeffect 6
     pss SPLIT_SPECIAL
     basepower 90
     type TYPE_WATER
@@ -11582,7 +11582,7 @@ movedata MOVE_SPLISHY_SPLASH, "Splishy Splash"
     terminatedata
 
 movedata MOVE_FLOATY_FALL, "Floaty Fall"
-    battleeffect 0
+    battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_FLYING
@@ -11597,7 +11597,7 @@ movedata MOVE_FLOATY_FALL, "Floaty Fall"
     terminatedata
 
 movedata MOVE_PIKA_PAPOW, "Pika Papow"
-    battleeffect 0
+    battleeffect 121
     pss SPLIT_SPECIAL
     basepower 0
     type TYPE_ELECTRIC
@@ -11612,7 +11612,7 @@ movedata MOVE_PIKA_PAPOW, "Pika Papow"
     terminatedata
 
 movedata MOVE_BOUNCY_BUBBLE, "Bouncy Bubble"
-    battleeffect 0
+    battleeffect 3
     pss SPLIT_SPECIAL
     basepower 60
     type TYPE_WATER
@@ -11627,7 +11627,7 @@ movedata MOVE_BOUNCY_BUBBLE, "Bouncy Bubble"
     terminatedata
 
 movedata MOVE_BUZZY_BUZZ, "Buzzy Buzz"
-    battleeffect 0
+    battleeffect 6
     pss SPLIT_SPECIAL
     basepower 60
     type TYPE_ELECTRIC
@@ -11732,7 +11732,7 @@ movedata MOVE_SPARKLY_SWIRL, "Sparkly Swirl"
     terminatedata
 
 movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
-    battleeffect 0
+    battleeffect 121
     pss SPLIT_PHYSICAL
     basepower 0
     type TYPE_NORMAL
@@ -11747,7 +11747,7 @@ movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
     terminatedata
 
 movedata MOVE_DOUBLE_IRON_BASH, "Double Iron Bash"
-    battleeffect 0
+    battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_STEEL
@@ -12287,7 +12287,7 @@ movedata MOVE_DECORATE, "Decorate"
     terminatedata
 
 movedata MOVE_DRUM_BEATING, "Drum Beating"
-    battleeffect 0
+    battleeffect 70
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_GRASS
@@ -12317,7 +12317,7 @@ movedata MOVE_SNAP_TRAP, "Snap Trap"
     terminatedata
 
 movedata MOVE_PYRO_BALL, "Pyro Ball"
-    battleeffect 0
+    battleeffect 4
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIRE
@@ -12377,7 +12377,7 @@ movedata MOVE_AURA_WHEEL, "Aura Wheel"
     terminatedata
 
 movedata MOVE_BREAKING_SWIPE, "Breaking Swipe"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_DRAGON
@@ -12422,7 +12422,7 @@ movedata MOVE_OVERDRIVE, "Overdrive"
     terminatedata
 
 movedata MOVE_APPLE_ACID, "Apple Acid"
-    battleeffect 0
+    battleeffect 72
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_GRASS
@@ -12452,7 +12452,7 @@ movedata MOVE_GRAV_APPLE, "Grav Apple"
     terminatedata
 
 movedata MOVE_SPIRIT_BREAK, "Spirit Break"
-    battleeffect 0
+    battleeffect 71
     pss SPLIT_PHYSICAL
     basepower 75
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -12467,7 +12467,7 @@ movedata MOVE_SPIRIT_BREAK, "Spirit Break"
     terminatedata
 
 movedata MOVE_STRANGE_STEAM, "Strange Steam"
-    battleeffect 0
+    battleeffect 76
     pss SPLIT_SPECIAL
     basepower 90
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -12527,7 +12527,7 @@ movedata MOVE_FALSE_SURRENDER, "False Surrender"
     terminatedata
 
 movedata MOVE_METEOR_ASSAULT, "Meteor Assault"
-    battleeffect 0
+    battleeffect 80
     pss SPLIT_PHYSICAL
     basepower 150
     type TYPE_FIGHTING
@@ -12542,7 +12542,7 @@ movedata MOVE_METEOR_ASSAULT, "Meteor Assault"
     terminatedata
 
 movedata MOVE_ETERNABEAM, "Eternabeam"
-    battleeffect 0
+    battleeffect 80
     pss SPLIT_SPECIAL
     basepower 160
     type TYPE_DRAGON
@@ -12647,7 +12647,7 @@ movedata MOVE_SHELL_SIDE_ARM, "Shell Side Arm"
     terminatedata
 
 movedata MOVE_MISTY_EXPLOSION, "Misty Explosion"
-    battleeffect 0
+    battleeffect 7
     pss SPLIT_SPECIAL
     basepower 100
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -12707,7 +12707,7 @@ movedata MOVE_TERRAIN_PULSE, "Terrain Pulse"
     terminatedata
 
 movedata MOVE_SKITTER_SMACK, "Skitter Smack"
-    battleeffect 0
+    battleeffect 71
     pss SPLIT_PHYSICAL
     basepower 70
     type TYPE_BUG
@@ -12722,7 +12722,7 @@ movedata MOVE_SKITTER_SMACK, "Skitter Smack"
     terminatedata
 
 movedata MOVE_BURNING_JEALOUSY, "Burning Jealousy"
-    battleeffect 0
+    battleeffect 4
     pss SPLIT_SPECIAL
     basepower 70
     type TYPE_FIRE
@@ -12797,7 +12797,7 @@ movedata MOVE_COACHING, "Coaching"
     terminatedata
 
 movedata MOVE_FLIP_TURN, "Flip Turn"
-    battleeffect 0
+    battleeffect 228
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_WATER
@@ -12812,7 +12812,7 @@ movedata MOVE_FLIP_TURN, "Flip Turn"
     terminatedata
 
 movedata MOVE_TRIPLE_AXEL, "Triple Axel"
-    battleeffect 0
+    battleeffect 104
     pss SPLIT_PHYSICAL
     basepower 20
     type TYPE_ICE
@@ -12827,7 +12827,7 @@ movedata MOVE_TRIPLE_AXEL, "Triple Axel"
     terminatedata
 
 movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
-    battleeffect 0
+    battleeffect 44
     pss SPLIT_PHYSICAL
     basepower 40
     type TYPE_FLYING
@@ -12842,7 +12842,7 @@ movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     terminatedata
 
 movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
-    battleeffect 0
+    battleeffect 4
     pss SPLIT_SPECIAL
     basepower 70
     type TYPE_GROUND
@@ -12872,7 +12872,7 @@ movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
     terminatedata
 
 movedata MOVE_WICKED_BLOW, "Wicked Blow"
-    battleeffect 0
+    battleeffect 282
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DARK
@@ -12887,7 +12887,7 @@ movedata MOVE_WICKED_BLOW, "Wicked Blow"
     terminatedata
 
 movedata MOVE_SURGING_STRIKES, "Surging Strikes"
-    battleeffect 0
+    battleeffect 282
     pss SPLIT_PHYSICAL
     basepower 25
     type TYPE_WATER
@@ -12917,7 +12917,7 @@ movedata MOVE_THUNDER_CAGE, "Thunder Cage"
     terminatedata
 
 movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
-    battleeffect 0
+    battleeffect 190
     pss SPLIT_SPECIAL
     basepower 150
     type TYPE_DRAGON
@@ -12932,7 +12932,7 @@ movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
     terminatedata
 
 movedata MOVE_FREEZING_GLARE, "Freezing Glare"
-    battleeffect 0
+    battleeffect 5
     pss SPLIT_SPECIAL
     basepower 90
     type TYPE_PSYCHIC
@@ -12947,7 +12947,7 @@ movedata MOVE_FREEZING_GLARE, "Freezing Glare"
     terminatedata
 
 movedata MOVE_FIERY_WRATH, "Fiery Wrath"
-    battleeffect 0
+    battleeffect 31
     pss SPLIT_SPECIAL
     basepower 90
     type TYPE_DARK
@@ -12962,7 +12962,7 @@ movedata MOVE_FIERY_WRATH, "Fiery Wrath"
     terminatedata
 
 movedata MOVE_THUNDEROUS_KICK, "Thunderous Kick"
-    battleeffect 0
+    battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_FIGHTING
@@ -13037,7 +13037,7 @@ movedata MOVE_DIRE_CLAW, "Dire Claw"
     terminatedata
 
 movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
-    battleeffect 0
+    battleeffect 138
     pss SPLIT_PHYSICAL
     basepower 70
     type TYPE_PSYCHIC
@@ -13052,7 +13052,7 @@ movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
     terminatedata
 
 movedata MOVE_POWER_SHIFT, "Power Shift"
-    battleeffect 0
+    battleeffect 238
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -13082,7 +13082,7 @@ movedata MOVE_STONE_AXE, "Stone Axe"
     terminatedata
 
 movedata MOVE_SPRINGTIDE_STORM, "Springtide Storm"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_SPECIAL
     basepower 100
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -13097,7 +13097,7 @@ movedata MOVE_SPRINGTIDE_STORM, "Springtide Storm"
     terminatedata
 
 movedata MOVE_MYSTICAL_POWER, "Mystical Power"
-    battleeffect 0
+    battleeffect 276
     pss SPLIT_SPECIAL
     basepower 70
     type TYPE_PSYCHIC
@@ -13112,7 +13112,7 @@ movedata MOVE_MYSTICAL_POWER, "Mystical Power"
     terminatedata
 
 movedata MOVE_RAGING_FURY, "Raging Fury"
-    battleeffect 0
+    battleeffect 27
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIRE
@@ -13127,7 +13127,7 @@ movedata MOVE_RAGING_FURY, "Raging Fury"
     terminatedata
 
 movedata MOVE_WAVE_CRASH, "Wave Crash"
-    battleeffect 0
+    battleeffect 198
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_WATER
@@ -13142,7 +13142,7 @@ movedata MOVE_WAVE_CRASH, "Wave Crash"
     terminatedata
 
 movedata MOVE_CHLOROBLAST, "Chloroblast"
-    battleeffect 0
+    battleeffect 269
     pss SPLIT_SPECIAL
     basepower 150
     type TYPE_GRASS
@@ -13157,7 +13157,7 @@ movedata MOVE_CHLOROBLAST, "Chloroblast"
     terminatedata
 
 movedata MOVE_MOUNTAIN_GALE, "Mountain Gale"
-    battleeffect 0
+    battleeffect 31
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ICE
@@ -13187,7 +13187,7 @@ movedata MOVE_VICTORY_DANCE, "Victory Dance"
     terminatedata
 
 movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
-    battleeffect 0
+    battleeffect 229
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_GROUND
@@ -13217,7 +13217,7 @@ movedata MOVE_BARB_BARRAGE, "Barb Barrage"
     terminatedata
 
 movedata MOVE_ESPER_WING, "Esper Wing"
-    battleeffect 0
+    battleeffect 285
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_PSYCHIC
@@ -13232,7 +13232,7 @@ movedata MOVE_ESPER_WING, "Esper Wing"
     terminatedata
 
 movedata MOVE_BITTER_MALICE, "Bitter Malice"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_SPECIAL
     basepower 75
     type TYPE_GHOST
@@ -13247,7 +13247,7 @@ movedata MOVE_BITTER_MALICE, "Bitter Malice"
     terminatedata
 
 movedata MOVE_SHELTER, "Shelter"
-    battleeffect 0
+    battleeffect 51
     pss SPLIT_STATUS
     basepower 0
     type TYPE_STEEL
@@ -13307,7 +13307,7 @@ movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
     terminatedata
 
 movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
-    battleeffect 0
+    battleeffect 70
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_FLYING
@@ -13322,7 +13322,7 @@ movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
     terminatedata
 
 movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
-    battleeffect 0
+    battleeffect 6
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_ELECTRIC
@@ -13337,7 +13337,7 @@ movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
     terminatedata
 
 movedata MOVE_SANDSEAR_STORM, "Sandsear Storm"
-    battleeffect 0
+    battleeffect 4
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_GROUND
@@ -13442,7 +13442,7 @@ movedata MOVE_LAST_RESPECTS, "Last Respects"
     terminatedata
 
 movedata MOVE_LUMINA_CRASH, "Lumina Crash"
-    battleeffect 0
+    battleeffect 271
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_PSYCHIC
@@ -13592,7 +13592,7 @@ movedata MOVE_SALT_CURE, "Salt Cure"
     terminatedata
 
 movedata MOVE_TRIPLE_DIVE, "Triple Dive"
-    battleeffect 0
+    battleeffect 104
     pss SPLIT_PHYSICAL
     basepower 30
     type TYPE_WATER
@@ -13667,7 +13667,7 @@ movedata MOVE_KOWTOW_CLEAVE, "Kowtow Cleave"
     terminatedata
 
 movedata MOVE_FLOWER_TRICK, "Flower Trick"
-    battleeffect 0
+    battleeffect 282
     pss SPLIT_PHYSICAL
     basepower 70
     type TYPE_GRASS
@@ -13682,7 +13682,7 @@ movedata MOVE_FLOWER_TRICK, "Flower Trick"
     terminatedata
 
 movedata MOVE_TORCH_SONG, "Torch Song"
-    battleeffect 0
+    battleeffect 276
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_FIRE
@@ -13697,7 +13697,7 @@ movedata MOVE_TORCH_SONG, "Torch Song"
     terminatedata
 
 movedata MOVE_AQUA_STEP, "Aqua Step"
-    battleeffect 0
+    battleeffect 285
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_WATER
@@ -13741,7 +13741,7 @@ movedata MOVE_MAKE_IT_RAIN, "Make It Rain"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POUND, "Pound"
+movedata MOVE_POUND_878, "Pound"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 40
@@ -13756,7 +13756,7 @@ movedata MOVE_POUND, "Pound"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_POUND, "Pound"
+movedata MOVE_POUND_879, "Pound"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 40
@@ -13772,7 +13772,7 @@ movedata MOVE_POUND, "Pound"
     terminatedata
 
 movedata MOVE_RUINATION, "Ruination"
-    battleeffect 0
+    battleeffect 40
     pss SPLIT_SPECIAL
     basepower 1
     type TYPE_DARK
@@ -13877,7 +13877,7 @@ movedata MOVE_SNOWSCAPE, "Snowscape"
     terminatedata
 
 movedata MOVE_POUNCE, "Pounce"
-    battleeffect 0
+    battleeffect 70
     pss SPLIT_PHYSICAL
     basepower 50
     type TYPE_BUG
@@ -13892,7 +13892,7 @@ movedata MOVE_POUNCE, "Pounce"
     terminatedata
 
 movedata MOVE_TRAILBLAZE, "Trailblaze"
-    battleeffect 0
+    battleeffect 285
     pss SPLIT_PHYSICAL
     basepower 50
     type TYPE_GRASS
@@ -13907,7 +13907,7 @@ movedata MOVE_TRAILBLAZE, "Trailblaze"
     terminatedata
 
 movedata MOVE_CHILLING_WATER, "Chilling Water"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_SPECIAL
     basepower 50
     type TYPE_WATER
@@ -13937,7 +13937,7 @@ movedata MOVE_HYPER_DRILL, "Hyper Drill"
     terminatedata
 
 movedata MOVE_TWIN_BEAM, "Twin Beam"
-    battleeffect 0
+    battleeffect 44
     pss SPLIT_SPECIAL
     basepower 40
     type TYPE_PSYCHIC
@@ -13967,7 +13967,7 @@ movedata MOVE_RAGE_FIST, "Rage Fist"
     terminatedata
 
 movedata MOVE_ARMOR_CANNON, "Armor Cannon"
-    battleeffect 0
+    battleeffect 229
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_FIRE
@@ -13982,7 +13982,7 @@ movedata MOVE_ARMOR_CANNON, "Armor Cannon"
     terminatedata
 
 movedata MOVE_BITTER_BLADE, "Bitter Blade"
-    battleeffect 0
+    battleeffect 3
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_FIRE
@@ -14027,7 +14027,7 @@ movedata MOVE_GIGATON_HAMMER, "Gigaton Hammer"
     terminatedata
 
 movedata MOVE_COMEUPPANCE, "Comeuppance"
-    battleeffect 0
+    battleeffect 227
     pss SPLIT_PHYSICAL
     basepower 1
     type TYPE_DARK
@@ -14057,7 +14057,7 @@ movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
     terminatedata
 
 movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
-    battleeffect 0
+    battleeffect 4
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIRE
@@ -14087,7 +14087,7 @@ movedata MOVE_WICKED_TORQUE, "Wicked Torque"
     terminatedata
 
 movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
-    battleeffect 0
+    battleeffect 2
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_POISON
@@ -14102,7 +14102,7 @@ movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
     terminatedata
 
 movedata MOVE_COMBAT_TORQUE, "Combat Torque"
-    battleeffect 0
+    battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_FIGHTING
@@ -14117,7 +14117,7 @@ movedata MOVE_COMBAT_TORQUE, "Combat Torque"
     terminatedata
 
 movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
-    battleeffect 0
+    battleeffect 76
     pss SPLIT_PHYSICAL
     basepower 100
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
