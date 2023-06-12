@@ -1216,7 +1216,11 @@ void __attribute__((long_call)) SCIO_WazaEffect2Set(void *bw, struct BattleStruc
 void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int file, int subfile);
 int __attribute__((long_call)) ServerKizetsuCheck(struct BattleStruct *sp, int next_seq, int no_set_seq, int flag);
 void *__attribute__((long_call)) BattleWorkGF_BGL_INIGet(void *bw);
-u32 GetBattleItemData(struct BattleStruct, u16 item, u32 field);
+u32 __attribute__((long_call)) GetBattleItemData(struct BattleStruct, u16 item, u32 field);
+u32 __attribute__((long_call)) BattleWorkGroundIDGet(void *bw);
+BOOL __attribute__((long_call)) Battle_CheckIfHasCaughtMon(void *bw, u32 species);
+u32 __attribute__((long_call)) Battle_GetTimeOfDay(void *bw);
+BOOL __attribute__((long_call)) Battle_IsFishingEncounter(void *bw);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

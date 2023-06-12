@@ -388,3 +388,40 @@ ldr r0, =0x022463B6|1
 bx r0
 
 .pool
+
+
+.global DealWithCriticalCaptureShakes_hook
+DealWithCriticalCaptureShakes_hook:
+ldr r1, [r4, #4]
+bl CalculateBallShakes
+mov r1, r0 // shakes
+mov r0, r4 // expcalc
+bl DealWithCriticalCaptureShakes
+ldr r1, =0x0224676C|1
+bx r1
+
+.pool
+
+
+.global MakeSureDoublesBitIsSet
+MakeSureDoublesBitIsSet:
+ldr r0, [sp, #4]
+ldr r2, =0x0223A7E0 | 1 // BattleTypeGet or whatever it is
+bl bx_r2
+cmp r0, #2
+bne _set_double_to_0
+mov r0, #1
+b _skip_set_double
+
+_set_double_to_0:
+mov r0, #0
+
+_skip_set_double:
+add r1, sp, #0x10
+strb r0, [r1, #1]
+mov r0, #0
+strb r0, [r1, #2]
+strb r0, [r1, #3]
+
+ldr r2, =0x02263298 | 1
+bx r2

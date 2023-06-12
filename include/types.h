@@ -69,7 +69,7 @@ VecFx32;
 
 void __attribute__((long_call)) GF_ASSERT(u32 cond);
 u16 __attribute__((long_call)) gf_rand(void);
-u16 __attribute__((long_call)) sqrt(u32 arg0);
+u32 __attribute__((long_call)) sqrt(u32 arg0);
 
 void __attribute__((long_call)) sys_FreeMemoryEz(void*);
 void* __attribute__((long_call)) sys_AllocMemory(u32,u32);

@@ -431,7 +431,8 @@ u32 isPlayerOnLadder = 0;
 
 u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
 {
-    if (collision == 0x3C || collision == 0x3D || collision == 0x3E || gFieldSysPtr->location->mapId == 114)
+    // slowpoke well entrance and azalea gym maps can not have BDHCAM plates
+    if (collision == 0x3C || collision == 0x3D || collision == 0x3E || gFieldSysPtr->location->mapId == 114 || gFieldSysPtr->location->mapId == 180)
         isPlayerOnLadder = TRUE;
     else
         isPlayerOnLadder = FALSE;
@@ -444,7 +445,7 @@ u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
 
 BOOL IsPlayerOnLadder(void)
 {
-    if (isPlayerOnLadder == TRUE) // disable the slowpoke well entrance from activating bdhcam
+    if (isPlayerOnLadder == TRUE)
     {
         return 1;
     }
