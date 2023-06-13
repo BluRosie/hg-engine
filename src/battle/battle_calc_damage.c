@@ -83,7 +83,16 @@ static const u16 IronFistMovesTable[] = {
     MOVE_SHADOW_PUNCH,
     MOVE_DRAIN_PUNCH,
     MOVE_BULLET_PUNCH,
-    MOVE_SKY_UPPERCUT,
+    MOVE_SKY_UPPERCUT,	
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_ICE_HAMMER,
+    MOVE_POWER_UP_PUNCH,
+    MOVE_PLASMA_FISTS,
+    MOVE_RAGE_FIST,
+    MOVE_SURGING_STRIKES,
+    MOVE_WICKED_BLOW,	
+    MOVE_HEADLONG_RUSH,		
+    MOVE_JET_PUNCH,	
 };
 
 static const u16 StrongJawMovesTable[] = {
@@ -94,6 +103,9 @@ static const u16 StrongJawMovesTable[] = {
         MOVE_ICE_FANG,
         MOVE_POISON_FANG,
         MOVE_THUNDER_FANG,
+        MOVE_PSYCHIC_FANGS,
+        MOVE_FISHIOUS_REND,
+        MOVE_JAW_LOCK,
 };
 
 static const u16 MegaLauncherMovesTable[] = {
@@ -101,8 +113,35 @@ static const u16 MegaLauncherMovesTable[] = {
         MOVE_DARK_PULSE,
         MOVE_DRAGON_PULSE,
         MOVE_WATER_PULSE,
+        MOVE_HEAL_PULSE,		
 //        MOVE_ORIGIN_PULSE,
 //        MOVE_TERRAIN_PULSE,
+};
+
+static const u16 SharpnessMovesTable[] = {
+        MOVE_AERIAL_ACE,
+        MOVE_AIR_CUTTER,
+        MOVE_AIR_SLASH,
+        MOVE_AQUA_CUTTER,
+        MOVE_CEASELESS_EDGE,
+        MOVE_FURY_CUTTER,
+        MOVE_LEAF_BLADE,
+        MOVE_NIGHT_SLASH,
+        MOVE_PSYCHO_CUT,
+        MOVE_RAZOR_SHELL,
+        MOVE_SACRED_SWORD,
+        MOVE_SECRET_SWORD,		
+        MOVE_SLASH,
+        MOVE_STONE_AXE,
+        MOVE_X_SCISSOR,
+        MOVE_BEHEMOTH_BLADE,
+        MOVE_BITTER_BLADE,
+        MOVE_CROSS_POISON,
+        MOVE_CUT,
+        MOVE_KOWTOW_CLEAVE,
+        MOVE_PSYBLADE,		
+        MOVE_RAZOR_LEAF,
+        MOVE_SOLAR_BLADE,
 };
 
 //int NormalTypeChangeAbilityHelper(int ability)
@@ -647,6 +686,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     for (i = 0; i < NELEMS(MegaLauncherMovesTable); i++)
     {
         if ((MegaLauncherMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_MEGA_LAUNCHER))
+        {
+            movepower = movepower * 15 / 10;
+            break;
+        }
+    }
+	
+	// handle sharpness
+    for (i = 0; i < NELEMS(SharpnessMovesTable); i++)
+    {
+        if ((SharpnessMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_SHARPNESS))
         {
             movepower = movepower * 15 / 10;
             break;
