@@ -279,3 +279,5 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0007 LoadCaptureSuccessSPAStarEmitter 02232644 1
 0007 LoadCaptureSuccessSPANumEmitters 02232630 1
 #endif
+
+0001 SpeciesAndFormeToWazaOshieIndex 02202C7C 2
