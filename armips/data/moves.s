@@ -8065,7 +8065,7 @@ movedata MOVE_STORED_POWER, "Stored Power"
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -8081,7 +8081,7 @@ movedata MOVE_QUICK_GUARD, "Quick Guard"
     effectchance 0
     target MOVE_TARGET_USER
     priority 3
-    flags FLAG_KEEP_HP_BAR | FLAG_SNATCH
+    flags FLAG_SNATCH
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

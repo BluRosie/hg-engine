@@ -4720,3 +4720,40 @@ void WildEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *e
 #endif
 
 }
+
+
+// grab tutor entry based on species and forme
+u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
+{
+    u32 ret = species;
+    switch (species)
+    {
+    case SPECIES_DEOXYS:
+        if (form)
+            ret = 494 + form - 1;
+        break;
+    case SPECIES_WORMADAM:
+        if (form)
+            ret = 497 + form - 1;
+        break;
+    case SPECIES_GIRATINA:
+        if (form)
+            ret = 499 + form - 1;
+        break;
+    case SPECIES_SHAYMIN:
+        if (form)
+            ret = 500 + form - 1;
+        break;
+    case SPECIES_ROTOM:
+        if (form)
+            ret = 591 + form - 1;
+        break;
+    default:
+        if (form)
+            ret = PokeOtherFormMonsNoGet(species, form);
+        break;
+    }
+
+    ret--;
+    return ret;
+}
