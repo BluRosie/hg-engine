@@ -733,7 +733,7 @@ void __attribute__((long_call)) SaveMisc_GetTogepiPersonalityGender(struct SAVE_
 void __attribute__((long_call)) sub_0206D038(struct PartyPokemon *pokemon, u32 heapId);
 void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 *dest);
 u32 __attribute__((long_call)) SetEncountData(struct PartyPokemon *pp, u32 rodType, void *encInfo, void *encArea, u32 encounterType, u32 battler, void *bw);
-
+u32 __attribute__((long_call)) SetEncountDataSwarm_maybe(void *fsys, struct PartyPokemon *pp, u32 rodType, void *encInfo, u32 encounterType, u32 battler, void *bw);
 
 
 #define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))

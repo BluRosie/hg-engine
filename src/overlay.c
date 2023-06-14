@@ -6,10 +6,11 @@
 
 struct LinkedOverlayList gLinkedOverlayList[2] =
 {
-    {12, 130}, // battle - battle extension
-    { 1, 131}, // field - field extension
-    {63, 131}, // hall of fame - field extension
-    {96, 131}, // pokeathlon - field extension
+    { 12, 130}, // battle - battle extension
+    {  1, 131}, // field - field extension
+    { 63, 131}, // hall of fame - field extension
+    { 96, 131}, // pokeathlon - field extension
+    {112, 131}, // pokewalker - field extension
 };
 
 
@@ -118,6 +119,10 @@ loadExtension:
         {
             ovyId = gLinkedOverlayList[i].ext_id;
             loadType = 2;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+            sprintf(buf, "Trying to load linked overlay_%04d.bin.\n", ovyId);
+            debugsyscall(buf);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
             goto loadExtension;
         }
     }

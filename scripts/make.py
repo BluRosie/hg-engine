@@ -435,6 +435,9 @@ def offset():
                 rom.close()
 
 
+OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 63, 96, 112]
+
+
 def decompress():
     if os.path.exists("build/arm9.bin"):
         os.remove("build/arm9.bin")
@@ -455,41 +458,14 @@ def decompress():
         rom.close()
         arm9.close()
     with open("base/overarm9.bin", 'rb+') as rom:
-        rom.seek((1*0x20)+0x1C) #write 00 00 00 00 to (num*0x20)+0x1C to make game consider overlay num decompressed (and call decompress below)
-        bunh = bytes([0x0, 0x0, 0x0, 0x0])
-        rom.write(bytes(bunh))
-        rom.seek((2*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((6*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((7*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((10*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((12*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((14*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((15*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((18*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((63*0x20)+0x1C)
-        rom.write(bytes(bunh))
-        rom.seek((96*0x20)+0x1C)
-        rom.write(bytes(bunh))
+        for n in OVERLAYS_TO_DECOMPRESS:
+            rom.seek((n*0x20)+0x1C) #write 00 00 00 00 to (num*0x20)+0x1C to make game consider overlay num decompressed (and call decompress below)
+            bunh = bytes([0x0, 0x0, 0x0, 0x0])
+            rom.write(bytes(bunh))
         rom.close()
-    decompress_file("base/overlay/overlay_0001.bin")
-    decompress_file("base/overlay/overlay_0002.bin")
-    decompress_file("base/overlay/overlay_0006.bin")
-    decompress_file("base/overlay/overlay_0007.bin")
-    decompress_file("base/overlay/overlay_0010.bin")
-    decompress_file("base/overlay/overlay_0012.bin")
-    decompress_file("base/overlay/overlay_0014.bin")
-    decompress_file("base/overlay/overlay_0015.bin")
-    decompress_file("base/overlay/overlay_0018.bin")
-    decompress_file("base/overlay/overlay_0063.bin")
-    decompress_file("base/overlay/overlay_0096.bin")
+    for n in OVERLAYS_TO_DECOMPRESS:
+        decompress_file("base/overlay/overlay_" + str(n).zfill(4) + ".bin")
+
 
 
 def decompress_file(path):

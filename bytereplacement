@@ -91,3 +91,13 @@ arm9 020CA054 60 00 2D E9
 
 # expand move tutor heap
 arm9 0203DFF4 8A 02
+
+# pokewalker species limiters
+0112 021ED63C FF 7F 00 00
+0112 021ED668 FF 7F 00 00
+0112 021EFB10 FF 7F 00 00
+0112 021F126C FF 7F 00 00
+0112 021F323C FF 7F 00 00
+
+# WildEnc water or something idk
+0002 022474E0 60 B4 C0 46

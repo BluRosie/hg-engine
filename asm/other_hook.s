@@ -410,6 +410,33 @@ bx r2
 .pool
 
 
+.global ReleaseDoubleBattleWhenOnlyOneMon
+ReleaseDoubleBattleWhenOnlyOneMon:
+// check enc_double bit
+//mov r0, r4
+add r0, #0x22
+ldrb r0, [r0]
+cmp r0, #1
+bne return_to_throw_ball
+
+// check enemy party to see if both are healthy
+ldr r0, [r4] // wk
+ldr r0, [r0, #0x30] // sp
+bl CheckCanUseBallOnDoublesFromBag
+cmp r0, #1
+beq return_to_throw_ball // can throw the ball
+
+ldr r0, =0x02222CC4 | 1
+bx r0
+
+return_to_throw_ball:
+ldr r0, =0x02222CDE | 1
+bx r0
+
+.pool
+
+
+
 // r0 is fight_type, need to check gTriggerDouble above and see if the player palette should be overwritten as the multi battle param would stipulate
 .global KeepPlayerPaletteIntact
 KeepPlayerPaletteIntact:
