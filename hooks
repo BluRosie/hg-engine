@@ -262,6 +262,7 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0002 TryTriggerWildDoubleBattle 02248284 0
 0012 KeepPlayerPaletteIntact 022607BC 1
 0012 MakeSureDoublesBitIsSet 0226328E 0
+0008 ReleaseDoubleBattleWhenOnlyOneMon 02222CBC 1
 
 #endif
 
