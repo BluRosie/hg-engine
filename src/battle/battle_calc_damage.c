@@ -142,6 +142,7 @@ static const u16 SharpnessMovesTable[] = {
         MOVE_PSYBLADE,		
         MOVE_RAZOR_LEAF,
         MOVE_SOLAR_BLADE,
+        MOVE_POPULATION_BOMB,		
 };
 
 //int NormalTypeChangeAbilityHelper(int ability)
@@ -494,8 +495,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         defense *= 2;
     }
 
-
-
     // handle mud/water sport
     if ((movetype == TYPE_ELECTRIC) && (CheckFieldMoveEffect(bw, sp, MOVE_EFFECT_FLAG_MUD_SPORT)))
     {
@@ -751,6 +750,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         {
             sp_defense = sp_defense * 15 / 10;
         }
+        if ((field_cond & WEATHER_HAIL_ANY) &&
+            ((DefendingMon.type1 == TYPE_ICE) || (DefendingMon.type2 == TYPE_ICE)))
+        {
+            defense = defense * 15 / 10;
+        }		
         if ((field_cond & WEATHER_SUNNY_ANY) &&
             (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_FLOWER_GIFT)))
         {
