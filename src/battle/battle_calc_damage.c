@@ -534,6 +534,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower *= 2;
     }
 
+    //handle steelworker
+    if(GetBattlerAbility(sp, attacker) == ABILITY_STEELWORKER && (movetype == TYPE_STEEL))
+    {
+        movepower = movepower * 150 / 100;
+    }
+
     //handle dragon's maw
     if(GetBattlerAbility(sp, attacker) == ABILITY_DRAGONS_MAW && (movetype == TYPE_DRAGON))
     {
@@ -542,6 +548,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     //handle transistor
     if(GetBattlerAbility(sp, attacker) == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
+    {
+        movepower = movepower * 150 / 100;
+    }
+
+    //handle rocky payload
+    if(GetBattlerAbility(sp, attacker) == ABILITY_ROCKY_PAYLOAD && (movetype == TYPE_ROCK))
     {
         movepower = movepower * 150 / 100;
     }
@@ -567,6 +579,24 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
       && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AURA_BREAK) != 0)) 
         movepower = movepower * 100 / 133;
 #endif
+
+    //handle steely spirit
+    if ((movetype == TYPE_STEEL) && (CheckSideAbility(bw, sp, CHECK_PLAYER_SIDE_ALIVE, attacker, ABILITY_STEELY_SPIRIT)))
+    {
+        movepower = movepower * 15 / 10;
+    }
+
+    //handle battery
+    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_FRIEND_GUARD) == TRUE)
+    {
+        sp_attack = sp_attack * 130 / 100;
+    }
+
+    //handle power spot
+    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_FRIEND_GUARD) == TRUE)
+    {
+        movepower = movepower * 130 / 100;
+    }
 
     //handle friend guard
     if ((GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD) == TRUE)
