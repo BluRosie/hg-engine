@@ -966,7 +966,7 @@ heightentry SPECIES_KLEAVOR, 0, 0, 0, 0
 heightentry SPECIES_URSALUNA, 0, 0, 0, 0
 heightentry SPECIES_BASCULEGION, 8, 8, 0, 0
 heightentry SPECIES_SNEASLER, 0, 0, 0, 0
-heightentry SPECIES_OVERQWIL, 3, 3, 0, 0
+heightentry SPECIES_OVERQWIL, 0, 0, 0, 0
 heightentry SPECIES_ENAMORUS, 0, 0, 0, 0
 
 heightentry SPECIES_MEGA_VENUSAUR, 3, 3, 0, 0
@@ -1206,7 +1206,7 @@ heightentry SPECIES_ZARUDE_DADA, 0, 0, 0, 0
 heightentry SPECIES_CALYREX_ICE_RIDER, 0, 0, 0, 0
 heightentry SPECIES_CALYREX_SHADOW_RIDER, 0, 0, 0, 0
 heightentry SPECIES_ENAMORUS_THERIAN, 0, 0, 0, 0
-heightentry SPECIES_GROWLITHE_HISUIAN, 0, 0, 0, 0
+heightentry SPECIES_GROWLITHE_HISUIAN, 10, 10, 15, 15
 heightentry SPECIES_ARCANINE_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_VOLTORB_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_ELECTRODE_HISUIAN, 0, 0, 0, 0
@@ -1215,7 +1215,7 @@ heightentry SPECIES_QWILFISH_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_SNEASEL_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_SAMUROTT_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_LILLIGANT_HISUIAN, 0, 0, 0, 0
-heightentry SPECIES_ZORUA_HISUIAN, 3, 3, 0, 0
+heightentry SPECIES_ZORUA_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_ZOROARK_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_BRAVIARY_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_GOODRA_HISUIAN, 0, 0, 0, 0
