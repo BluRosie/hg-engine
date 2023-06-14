@@ -3,11 +3,14 @@
 
 .include "armips/include/battlescriptcmd.s"
 .include "armips/include/abilities.s"
+.include "armips/include/constants.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
 .create "build/move/battle_sub_seq/1_031", 0
+
+// Handle paralysis infliction
 
 a001_031:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LIMBER, _02AC
@@ -26,6 +29,11 @@ _0088:
     checksubstitute BATTLER_ADDL_EFFECT, _01F0
 _00A8:
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x40, _0230
+    
+    /* Add Electric-type immunity to paralysis */
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_ELECTRIC, _noeffect
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_ELECTRIC, _noeffect
+    
     ifmonstat IF_NOTEQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x0, _01F0
     if IF_EQUAL, VAR_05, 0x3, _0134
     if IF_MASK, VAR_10, 0x10001, _01F0
@@ -88,5 +96,11 @@ _0350:
     changevar VAR_OP_SETMASK, VAR_10, 0x80000000
 _036C:
     endscript
+_noeffect:
+    if IF_EQUAL, VAR_05, 0x2, _036C
+    if IF_EQUAL, VAR_05, 0x3, _036C
+    wait 0x1E
+    printmessage 0x1B, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"
+    goto _0350
 
 .close
