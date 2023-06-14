@@ -118,6 +118,10 @@ loadExtension:
         {
             ovyId = gLinkedOverlayList[i].ext_id;
             loadType = 2;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+            sprintf(buf, "Trying to load linked overlay_%04d.bin.\n", ovyId);
+            debugsyscall(buf);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
             goto loadExtension;
         }
     }

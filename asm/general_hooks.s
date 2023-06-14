@@ -253,3 +253,20 @@ ldr r2, =0x02096160 | 1
 bx r2
 
 .pool
+
+
+.global WildWaterEncSingle_hook
+WildWaterEncSingle_hook:
+ldr r5, =WildWaterEncSingle_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl WildWaterEncSingle
+ldr r1, =WildWaterEncSingle_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+WildWaterEncSingle_return_address:
+.word 0
