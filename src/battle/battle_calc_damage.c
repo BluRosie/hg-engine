@@ -587,13 +587,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     //handle battery
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_FRIEND_GUARD) == TRUE)
+    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_BATTERY) == TRUE)
     {
         sp_attack = sp_attack * 130 / 100;
     }
 
     //handle power spot
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_FRIEND_GUARD) == TRUE)
+    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_POWER_SPOT) == TRUE)
     {
         movepower = movepower * 130 / 100;
     }
