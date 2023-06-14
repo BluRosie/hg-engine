@@ -4763,11 +4763,6 @@ u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, voi
 
 u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
 {
-    u8 buf[64];
-    
-    sprintf(buf, "Enemy HP's: %d and %d.  sp at 0x%X.\n", sp->battlemon[1].hp, sp->battlemon[3].hp, (int)sp);
-    debugsyscall(buf);
-    
     if (sp->battlemon[1].hp && sp->battlemon[3].hp)
     {
         return FALSE;

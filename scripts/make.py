@@ -464,7 +464,6 @@ def decompress():
             rom.write(bytes(bunh))
         rom.close()
     for n in OVERLAYS_TO_DECOMPRESS:
-        print("decompressing overlay ", n)
         decompress_file("base/overlay/overlay_" + str(n).zfill(4) + ".bin")
 
 
