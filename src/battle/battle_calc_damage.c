@@ -142,6 +142,7 @@ static const u16 SharpnessMovesTable[] = {
         MOVE_PSYBLADE,		
         MOVE_RAZOR_LEAF,
         MOVE_SOLAR_BLADE,
+        MOVE_POPULATION_BOMB,		
 };
 
 //int NormalTypeChangeAbilityHelper(int ability)
