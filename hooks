@@ -216,8 +216,10 @@ arm9 grab_sex_for_GetBoxMonData 0806EA1A 1
 
 #item time baby - 02257FA0
 0012 MoveHitUTurnHeldItemEffectCheck 080206E0 3
-#0224E1BC
+#0224E1BC - after move hit effects
 0012 ServerWazaHitAfterCheckAct 080168FC 2
+# post-move effects, not necessarily on hit
+0012 ServerDoPostMoveEffects 0224CC88 2
 #02255634
 0012 CheckDefenderItemEffectOnHit 02255634 3
 

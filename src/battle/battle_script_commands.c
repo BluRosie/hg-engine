@@ -417,7 +417,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
             case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE: // removes the double damage flying too
             case MOVE_EFFECT_LOWER_SP_DEF_2_HIT:
             case MOVE_EFFECT_LOWER_ATTACK_HIT:
-            //case MOVE_EFFECT_THAW_AND_BURN_HIT: // would not thaw otherwise
+            case MOVE_EFFECT_THAW_AND_BURN_HIT: // it does thaw otherwise
             case MOVE_EFFECT_CHATTER: // confuse chance based on volume of cry
             case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
             case MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT:
@@ -1126,7 +1126,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
         sp->waza_status_flag |= MOVE_STATUS_FLAG_NO_OHKO;
     }
     else{
-        if(((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON) == 0)
+        if(((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) == 0)
             && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_NO_GUARD)
             && (GetBattlerAbility(sp,sp->defence_client) != ABILITY_NO_GUARD))
         {
@@ -1143,7 +1143,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
         }
         else
         {
-            if ((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_LOCK_ON))
+            if ((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON))
                     || (GetBattlerAbility(sp,sp->attack_client) == ABILITY_NO_GUARD)
                     || (GetBattlerAbility(sp,sp->defence_client) == ABILITY_NO_GUARD))
                 && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))

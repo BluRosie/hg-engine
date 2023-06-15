@@ -16,7 +16,7 @@
 
 //this function is for held item effects for when U-Turn is used
 //if you want to edit a defender's held item effect triggering after being hit, go to CheckDefenderItemEffectOnHit
-//if you want to edit an attacker's held item effect triggering after using a move, go to ServerWazaHitAfterCheckAct
+//if you want to edit an attacker's held item effect triggering after hitting using a move, go to ServerWazaHitAfterCheckAct
 u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ret;
@@ -99,7 +99,7 @@ enum
 };
 
 //go to CheckDefenderItemEffectOnHit if you want to program an effect to happen after being hit for a defender's held item
-//this function is for an attacker's held item effect triggering after using a move
+//this function is for an attacker's held item effect triggering after hitting with a move
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
     int ret;

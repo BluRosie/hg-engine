@@ -9,11 +9,13 @@
 
 .create "build/move/battle_sub_seq/1_029", 0
 
+// work battler was thawed
+
 a001_029:
-    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_xFF, 0x34, 0x20
-    printmessage 0x72, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_WORK, MON_DATA_STATUS_1, 0x20
+    printmessage 114, TAG_NICK, BATTLER_WORK, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
-    setstatusicon BATTLER_xFF, 0x0
+    setstatusicon BATTLER_WORK, 0x0
     wait 0x1E
     endscript
 

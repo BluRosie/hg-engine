@@ -96,7 +96,7 @@
 #define WAZA_STATUS_FLAG_JIMEN_NOHIT            (0x00000800)
 #define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT         (0x00001000)
 #define WAZA_STATUS_FLAG_NANIMOOKORAN           (0x00002000)
-#define WAZA_STATUS_FLAG_RENZOKU_NOHIT          (0x00004000)
+#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS       (0x00004000)
 #define WAZA_STATUS_FLAG_MAMORU_NOHIT           (0x00008000)
 #define WAZA_STATUS_FLAG_KIE_NOHIT              (0x00010000)
 #define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT       (0x00020000)
@@ -114,7 +114,7 @@
                                          MOVE_STATUS_FLAG_FAILED|\
                                          WAZA_STATUS_FLAG_JIMEN_NOHIT|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
-                                         WAZA_STATUS_FLAG_RENZOKU_NOHIT|\
+                                         MOVE_STATUS_FLAG_FURY_CUTTER_MISS|\
                                          WAZA_STATUS_FLAG_MAMORU_NOHIT|\
                                          WAZA_STATUS_FLAG_KIE_NOHIT|\
                                          WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
@@ -158,14 +158,34 @@
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
 
 // move effect flags/waza_kouka
-#define MOVE_EFFECT_LOCK_ON          (0x00000018)
-#define MOVE_EFFECT_FLAG_CHARGE      (0x00000200)
-#define MOVE_EFFECT_FLAG_INGRAIN     (0x00000400)
-#define MOVE_EFFECT_NO_CRITICAL_HITS (0x00008000)
-#define MOVE_EFFECT_FLAG_MUD_SPORT   (0x00010000)
-#define MOVE_EFFECT_FLAG_WATER_SPORT (0x00020000)
-#define MOVE_EFFECT_GASTRO_ACID      (0x00200000)
-#define MOVE_EFFECT_FLAG_MIRACLE_EYE (0x00400000)
+#define MOVE_EFFECT_LEECH_SEED_BATTLER      (0x00000003) // leech seed battler
+#define MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE  (0x00000004) // if leech seed is active
+#define MOVE_EFFECT_FLAG_LOCK_ON            (0x00000018) // potentially client locked on to
+#define MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE (0x00000020)
+#define MOVE_EFFECT_FLAG_FLYING_IN_AIR      (0x00000040) // is currently flying
+#define MOVE_EFFECT_FLAG_DIGGING            (0x00000080) // is currently digging
+#define MOVE_EFFECT_FLAG_MINIMIZED          (0x00000100) // minimized for stomp effectiveness
+#define MOVE_EFFECT_FLAG_CHARGE             (0x00000200)
+#define MOVE_EFFECT_FLAG_INGRAIN            (0x00000400)
+#define MOVE_EFFECT_YAWN_COUNTER            (0x00001800)
+#define MOVE_EFFECT_FLAG_IMPRISONED         (0x00002000)
+#define MOVE_EFFECT_FLAG_GRUDGE             (0x00004000)
+#define MOVE_EFFECT_NO_CRITICAL_HITS        (0x00008000)
+#define MOVE_EFFECT_FLAG_MUD_SPORT          (0x00010000)
+#define MOVE_EFFECT_FLAG_WATER_SPORT        (0x00020000)
+#define MOVE_EFFECT_FLAG_IS_DIVING          (0x00040000)
+#define MOVE_EFFECT_FLAG_INTIMIDATED        (0x00080000)
+#define MOVE_EFFECT_FLAG_TRACED             (0x00100000)
+#define MOVE_EFFECT_GASTRO_ACID             (0x00200000)
+#define MOVE_EFFECT_FLAG_MIRACLE_EYE        (0x00400000)
+#define MOVE_EFFECT_FLAG_POWER_TRICK        (0x00800000)
+#define MOVE_EFFECT_FLAG_AQUA_RING          (0x01000000)
+#define MOVE_EFFECT_FLAG_HEAL_BLOCK         (0x02000000)
+#define MOVE_EFFECT_FLAG_EMBARGO            (0x04000000)
+#define MOVE_EFFECT_FLAG_MAGNET_RISE        (0x08000000)
+#define MOVE_EFFECT_FLAG_CAMOUFLAGE         (0x10000000) // for trainer ai
+#define MOVE_EFFECT_FLAG_SHADOW_FORCE       (0x20000000)
+#define MOVE_EFFECT_FLAG_TRIED_IMPRISON     (0x40000000) // for trainer ai
 
 // status condition flags
 #define STATUS_FLAG_ASLEEP (0x07)
@@ -463,6 +483,7 @@ struct __attribute__((packed)) MoveOutCheck
     u32 dummy :22;
 };
 
+// so much of this structure sems to be matched in effect_of_moves
 struct __attribute__((packed)) battle_moveflag
 {
     /* 0x00 */ u32 kanashibari_count : 3;
@@ -1221,6 +1242,8 @@ u32 __attribute__((long_call)) BattleWorkGroundIDGet(void *bw);
 BOOL __attribute__((long_call)) Battle_CheckIfHasCaughtMon(void *bw, u32 species);
 u32 __attribute__((long_call)) Battle_GetTimeOfDay(void *bw);
 BOOL __attribute__((long_call)) Battle_IsFishingEncounter(void *bw);
+BOOL __attribute__((long_call)) HeldItemEffectCheck(void *bw, struct BattleStruct *sp, int client_no);
+BOOL __attribute__((long_call)) HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
