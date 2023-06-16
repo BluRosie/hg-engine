@@ -286,3 +286,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 #endif
 
 0001 SpeciesAndFormeToWazaOshieIndex 02202C7C 2
+
+# need another hook for this one yeah yeah
+0012 ServerDoTypeCalcMod_hook 02251D2C 5

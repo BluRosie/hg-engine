@@ -82,27 +82,27 @@
 // defines that i believe are straight from source
 #define SERVER_STATUS_FLAG2_U_TURN          (0x00000010)        //u-turn flag
 
-#define MOVE_STATUS_FLAG_MISS                   (0x00000001)
-#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE        (0x00000002)
-#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE     (0x00000004)
-#define MOVE_STATUS_FLAG_NOT_EFFECTIVE          (0x00000008)
-#define WAZA_STATUS_FLAG_CRITICAL               (0x00000010)
-#define MOVE_STATUS_FLAG_OHKO_HIT               (0x00000020)
-#define MOVE_STATUS_FLAG_FAILED                 (0x00000040)
-#define MOVE_STATUS_FLAG_HELD_ON_ABILITY        (0x00000080)
-#define MOVE_STATUS_FLAG_HELD_ON_ITEM           (0x00000100)
-#define WAZA_STATUS_FLAG_PP_NONE                (0x00000200)
-#define MOVE_STATUS_FLAG_LOCK_ON                (0x00000400)
-#define WAZA_STATUS_FLAG_JIMEN_NOHIT            (0x00000800)
-#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT         (0x00001000)
-#define WAZA_STATUS_FLAG_NANIMOOKORAN           (0x00002000)
-#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS       (0x00004000)
-#define WAZA_STATUS_FLAG_MAMORU_NOHIT           (0x00008000)
-#define WAZA_STATUS_FLAG_KIE_NOHIT              (0x00010000)
-#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT       (0x00020000)
-#define WAZA_STATUS_FLAG_BATSUGUN_NOHIT         (0x00040000)
-#define MOVE_STATUS_FLAG_NO_OHKO                (0x00080000)
-#define WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT       (0x00100000)
+#define MOVE_STATUS_FLAG_MISS                    (0x00000001)
+#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE         (0x00000002)
+#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE      (0x00000004)
+#define MOVE_STATUS_FLAG_NOT_EFFECTIVE           (0x00000008)
+#define WAZA_STATUS_FLAG_CRITICAL                (0x00000010)
+#define MOVE_STATUS_FLAG_OHKO_HIT                (0x00000020)
+#define MOVE_STATUS_FLAG_FAILED                  (0x00000040)
+#define MOVE_STATUS_FLAG_HELD_ON_ABILITY         (0x00000080)
+#define MOVE_STATUS_FLAG_HELD_ON_ITEM            (0x00000100)
+#define WAZA_STATUS_FLAG_PP_NONE                 (0x00000200)
+#define MOVE_STATUS_FLAG_LOCK_ON                 (0x00000400)
+#define MOVE_STATUS_FLAG_LEVITATE_MISS           (0x00000800)
+#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT          (0x00001000)
+#define WAZA_STATUS_FLAG_NANIMOOKORAN            (0x00002000)
+#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS        (0x00004000)
+#define WAZA_STATUS_FLAG_MAMORU_NOHIT            (0x00008000)
+#define WAZA_STATUS_FLAG_KIE_NOHIT               (0x00010000)
+#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT        (0x00020000)
+#define MOVE_STATUS_FLAG_MISS_WONDER_GUARD       (0x00040000)
+#define MOVE_STATUS_FLAG_NO_OHKO                 (0x00080000)
+#define MOVE_STATUS_FLAG_MAGNET_RISE_MISS        (0x00100000)
 
 #define WAZA_STATUS_FLAG_SIPPAI                 (0x80000000)
 
@@ -112,15 +112,15 @@
 
 #define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          MOVE_STATUS_FLAG_FAILED|\
-                                         WAZA_STATUS_FLAG_JIMEN_NOHIT|\
+                                         MOVE_STATUS_FLAG_LEVITATE_MISS|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
                                          MOVE_STATUS_FLAG_FURY_CUTTER_MISS|\
                                          WAZA_STATUS_FLAG_MAMORU_NOHIT|\
                                          WAZA_STATUS_FLAG_KIE_NOHIT|\
                                          WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
-                                         WAZA_STATUS_FLAG_BATSUGUN_NOHIT|\
+                                         MOVE_STATUS_FLAG_MISS_WONDER_GUARD|\
                                          MOVE_STATUS_FLAG_NO_OHKO|\
-                                         WAZA_STATUS_FLAG_DENZIHUYUU_NOHIT)
+                                         MOVE_STATUS_FLAG_MAGNET_RISE_MISS)
 
 #define WAZA_STATUS_FLAG_NO_OUT         (WAZA_STATUS_FLAG_HAZURE|\
                                          WAZA_STATUS_FLAG_PP_NONE|\
@@ -203,6 +203,8 @@
 #define SERVER_STATUS_FLAG_x20 (0x00000020)
 #define SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
+#define SERVER_STATUS_FLAG_TYPE_FLAT (0x00000800)
+#define SERVER_STATUS_FLAG_TYPE_NONE (0x00008000)
 #define SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
 #define SERVER_STATUS_FLAG_NO_ANIMATIONS (0x00004000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
@@ -505,7 +507,7 @@ struct __attribute__((packed)) battle_moveflag
                u32 shime_client_no : 2;
                u32 manazashi_client_no : 2;
                u32 totteoki_count : 3;
-               u32 denzihuyuu_count : 3;
+               u32 magnet_rise_count : 3;
                u32 healblock_count : 3;
                u32 embargo_count : 3;
                u32 unburden_flag : 1;
@@ -1119,6 +1121,8 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 sel_mons_no[CLIENT_MAX];
 };
 
+extern u8 TypeEffectivenessTable[][3];
+
 
 
 
@@ -1244,6 +1248,9 @@ u32 __attribute__((long_call)) Battle_GetTimeOfDay(void *bw);
 BOOL __attribute__((long_call)) Battle_IsFishingEncounter(void *bw);
 BOOL __attribute__((long_call)) HeldItemEffectCheck(void *bw, struct BattleStruct *sp, int client_no);
 BOOL __attribute__((long_call)) HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
+int __attribute__((long_call)) TypeCheckCalc(struct BattleStruct *sp, u32 attack_client, u32 typeModifier, int damage, int base_power, int flag);
+BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32 move_no);
+BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 
 /*Battle Script Function Declarations*/
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);

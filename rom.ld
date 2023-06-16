@@ -424,3 +424,9 @@ Battle_IsFishingEncounter = 0x0223AAB8 | 1;
 GetCaughtMonCount = 0x02029E84 | 1;
 BallToSpaIDs = 0x0223746C;
 GetBallID_ov7 = 0x0223251C | 1;
+
+TypeEffectivenessTable = 0x0226CC3C;
+TypeCheckCalc = 0x022583B4 | 1;
+ShouldDelayTurnEffectivenessChecking = 0x02258440 | 1;
+ShouldUseNormalTypeEffCalc = 0x02251C74 | 1;
+

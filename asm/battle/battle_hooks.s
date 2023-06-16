@@ -425,3 +425,20 @@ strb r0, [r1, #3]
 
 ldr r2, =0x02263298 | 1
 bx r2
+
+
+.global ServerDoTypeCalcMod_hook
+ServerDoTypeCalcMod_hook:
+ldr r5, =ServerDoTypeCalcMod_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl ServerDoTypeCalcMod
+ldr r1, =ServerDoTypeCalcMod_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+ServerDoTypeCalcMod_return_address:
+.word 0
