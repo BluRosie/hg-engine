@@ -104,5 +104,7 @@ arm9 0203DFF4 8A 02
 
 # ServerDoTypeCalcMod hook setup
 0012 02251D28 60 B4 C0 46
+# AITypeCalc hook setup
+0012 02252054 60 B4 C0 46
 # fix fire fang glitch - change 273 to 272 to properly check shadow force's effect
 0012 0225848C 10

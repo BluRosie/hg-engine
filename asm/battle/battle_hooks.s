@@ -442,3 +442,35 @@ mov pc, r1
 
 ServerDoTypeCalcMod_return_address:
 .word 0
+
+
+.global AITypeCalc_hook
+AITypeCalc_hook:
+ldr r5, =AITypeCalc_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl AITypeCalc
+ldr r1, =AITypeCalc_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+AITypeCalc_return_address:
+.word 0
+
+
+// r0 is sp, r1, is client already
+.global GrabMoveTypeForConversion2
+GrabMoveTypeForConversion2:
+mov r2, #0xC1
+lsl r2, #6 // 0x3040
+add r2, #4 // fucking 0x3044
+ldr r2, [r5, r2] // sp->current_move_index
+bl GetAdjustedMoveType
+mov r4, r0
+ldr r0, =0x0224DD9C | 1
+bx r0
+
+.pool

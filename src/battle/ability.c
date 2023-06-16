@@ -92,18 +92,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     int scriptnum = 0;
     int movetype;
 
-    if (GetBattlerAbility(sp, attacker) == ABILITY_NORMALIZE)
-    {
-        movetype = TYPE_NORMAL;
-    }
-    else if (sp->move_type) // 02252EE0
-    {
-        movetype = sp->move_type;
-    }
-    else
-    {
-        movetype = sp->moveTbl[sp->current_move_index].type;
-    }
+    movetype = GetAdjustedMoveType(sp, attacker, sp->current_move_index); // new normalize checks
 
     // 02252EF4
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_VOLT_ABSORB) == TRUE)
@@ -1410,13 +1399,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 u8 movetype;
 
-                if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
-                    movetype = TYPE_NORMAL;
-                } else if (sp->move_type) {
-                    movetype = sp->move_type;
-                } else {
-                    movetype = sp->moveTbl[sp->current_move_index].type;
-                }
+                movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
 
                 if ((sp->battlemon[sp->defence_client].hp)
                     && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -1568,13 +1551,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 u8 movetype;
 
-                if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
-                    movetype = TYPE_NORMAL;
-                } else if (sp->move_type) {
-                    movetype = sp->move_type;
-                } else {
-                    movetype = sp->moveTbl[sp->current_move_index].type;
-                }
+                movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
 
                 if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG))
                 {
@@ -1649,13 +1626,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 u8 movetype;
 
-                if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
-                    movetype = TYPE_NORMAL;
-                } else if (sp->move_type) {
-                    movetype = sp->move_type;
-                } else {
-                    movetype = sp->moveTbl[sp->current_move_index].type;
-                }
+                movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
 
                 if(movetype == TYPE_WATER)
                 {
@@ -1691,13 +1662,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 u8 movetype;
 
-                if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
-                    movetype = TYPE_NORMAL;
-                } else if (sp->move_type) {
-                    movetype = sp->move_type;
-                } else {
-                    movetype = sp->moveTbl[sp->current_move_index].type;
-                }
+                movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
 
                 if (movetype == TYPE_DARK)
                 {
@@ -2283,13 +2248,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
         {
             int movetype;
 
-            if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NORMALIZE) {
-                movetype = TYPE_NORMAL;
-            } else if (sp->move_type) {
-                movetype = sp->move_type;
-            } else {
-                movetype = sp->moveTbl[sp->current_move_index].type;
-            }
+            movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
 
             sp->swoak_seq_no++;
 

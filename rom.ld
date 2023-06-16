@@ -429,4 +429,5 @@ TypeEffectivenessTable = 0x0226CC3C;
 TypeCheckCalc = 0x022583B4 | 1;
 ShouldDelayTurnEffectivenessChecking = 0x02258440 | 1;
 ShouldUseNormalTypeEffCalc = 0x02251C74 | 1;
-
+AI_TypeCheckCalc = 0x022521C8 | 1;
+AI_ShouldUseNormalTypeEffCalc = 0x02252178 | 1;

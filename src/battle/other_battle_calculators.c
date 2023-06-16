@@ -99,18 +99,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         }
     }
 
-    if (GetBattlerAbility(sp, attacker) == ABILITY_NORMALIZE)
-    {
-        move_type = TYPE_NORMAL;
-    }
-    else if (sp->move_type)
-    {
-        move_type = sp->move_type;
-    }
-    else
-    {
-        move_type = sp->moveTbl[move_no].type;
-    }
+    move_type = GetAdjustedMoveType(sp, attacker, move_no);
     move_split = sp->moveTbl[move_no].split;
 
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
@@ -265,15 +254,10 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 10 / 6;
     }
 
-#ifdef DEBUG_ADJUSTED_ACCURACY
-    *((u32 *)(0x23DF000 + 0xC*2 + 0x8*(attacker&1))) = sp->moveTbl[move_no].accuracy;
-    *((u32 *)(0x23DF004 + 0xC*2 + 0x8*(attacker&1))) = accuracy;
-#endif
-
     //Toxic when used by a poison type
     if (move_no == MOVE_TOXIC
-    && (BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
-    || BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON))
+     && (BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
+      || BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON))
     {
         return FALSE;
     }
@@ -285,6 +269,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     return FALSE;
 }
+
 
 const u8 DecreaseSpeedHoldEffects[] =
 {
@@ -959,19 +944,7 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
     eqp_d = HeldItemHoldEffectGet(sp, defence_client);
     atk_d = HeldItemAtkGet(sp, defence_client, ATK_CHECK_NORMAL);
 
-    if (GetBattlerAbility(sp,attack_client) == ABILITY_NORMALIZE)
-    {
-        move_type = TYPE_NORMAL;
-    }
-    else if (move_type)
-    {
-        move_type = move_type;
-    }
-    else
-    {
-        move_type = sp->moveTbl[move_no].type;
-    }
-
+    move_type = GetAdjustedMoveType(sp, attack_client, move_no); // new normalize checks
     base_power = sp->moveTbl[move_no].power;
 
     if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0)
@@ -1050,7 +1023,7 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
 
     if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_WONDER_GUARD) == TRUE)
      && (ShouldDelayTurnEffectivenessChecking(sp, move_no)) // check supereffectiveness later, 2-turn move
-     && (((flag[0] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE))) // why is the second one even checked bro
+     && (((flag[0] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)))
      && (base_power))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;

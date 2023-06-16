@@ -930,3 +930,49 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
 }
+
+
+// needed for the AI.  doesn't have client access, just move ability type
+u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type)
+{
+    u32 typeLocal;
+
+    if (ability == ABILITY_NORMALIZE)
+    {
+        typeLocal = TYPE_NORMAL;
+    }
+    else if (sp->moveTbl[move].type == TYPE_NORMAL)
+    {
+        if (ability == ABILITY_PIXILATE)
+        {
+            typeLocal = TYPE_FAIRY;
+        }
+        else if (ability == ABILITY_REFRIGERATE)
+        {
+            typeLocal = TYPE_ICE;
+        }
+        else if (ability == ABILITY_AERILATE)
+        {
+            typeLocal = TYPE_FLYING;
+        }
+        else if (ability == ABILITY_GALVANIZE)
+        {
+            typeLocal = TYPE_ELECTRIC;
+        }
+    }
+    else if (type)
+    {
+        typeLocal = type;
+    }
+    else
+    {
+        typeLocal = sp->moveTbl[move].type;
+    }
+
+    return typeLocal;
+}
+
+u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
+{
+    return GetAdjustedMoveTypeBasics(sp, move, GetBattlerAbility(sp, client), sp->move_type);
+}
