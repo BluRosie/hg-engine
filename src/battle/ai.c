@@ -17,14 +17,14 @@
 void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag)
 {
     int i;
-    u8  typeLocal;
+    u8 typeLocal;
 
     if (move == MOVE_STRUGGLE)
     {
         return;
     }
 
-    type = GetAdjustedMoveTypeBasics(sp, move, atkAbility, type); // not just normalize, now others
+    typeLocal = GetAdjustedMoveTypeBasics(sp, move, atkAbility, type); // not just normalize, now others
 
     if ((atkAbility != ABILITY_MOLD_BREAKER)
      && (defAbility == ABILITY_LEVITATE)
@@ -60,7 +60,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
                         AI_TypeCheckCalc(TypeEffectivenessTable[i][2], flag);
                     }
                 }
-                if ((TypeEffectivenessTable[i][1] == type2) && (type1 != type2)) // haven't already run the first type yet
+                if ((TypeEffectivenessTable[i][1] == type2) && (type1 != type2)) // haven't already run the type yet
                 {
                     if (AI_ShouldUseNormalTypeEffCalc(sp, held_effect, i) == TRUE)
                     {
