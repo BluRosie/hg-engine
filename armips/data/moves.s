@@ -2967,7 +2967,7 @@ movedata MOVE_SCARY_FACE, "Scary Face"
     terminatedata
     movedescription MOVE_SCARY_FACE, "The user frightens\nthe foe with a scary\nface to sharply\nreduce its Speed\nstat."
 
-movedata MOVE_FAINT_ATTACK, "Faint Attack"
+movedata MOVE_FEINT_ATTACK, "Feint Attack"
     battleeffect 17
     pss SPLIT_PHYSICAL
     basepower 60
@@ -2981,7 +2981,7 @@ movedata MOVE_FAINT_ATTACK, "Faint Attack"
     appeal 0x12
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_FAINT_ATTACK, "The user draws up to\nthe foe disarmingly,\nthen throws a sucker\npunch.\nIt hits without fail."
+    movedescription MOVE_FEINT_ATTACK, "The user draws up to\nthe foe disarmingly,\nthen throws a sucker\npunch.\nIt hits without fail."
 
 movedata MOVE_SWEET_KISS, "Sweet Kiss"
     battleeffect 49
