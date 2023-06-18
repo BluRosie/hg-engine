@@ -49,6 +49,40 @@ const u16 PowderMovesList[] = {
     MOVE_MAGIC_POWDER,
 };
 
+// Moves that Triage boosts the priority of.
+// Move effects might be a tidier way to do it, but we don't have those defined for some of these moves yet.
+const u16 TriageMovesList[] = {
+    MOVE_ABSORB,
+    MOVE_DRAIN_PUNCH,
+    MOVE_DRAINING_KISS,
+    MOVE_DREAM_EATER,
+    MOVE_FLORAL_HEALING,
+    MOVE_GIGA_DRAIN,
+    MOVE_HEAL_ORDER,
+    MOVE_HEAL_PULSE,
+    MOVE_HEALING_WISH,
+    MOVE_HORN_LEECH,
+    MOVE_LEECH_LIFE,
+    MOVE_LUNAR_DANCE,
+    MOVE_MEGA_DRAIN,
+    MOVE_MILK_DRINK,
+    MOVE_MOONLIGHT,
+    MOVE_MORNING_SUN,
+    MOVE_OBLIVION_WING,
+    MOVE_PARABOLIC_CHARGE,
+    MOVE_PURIFY,
+    MOVE_RECOVER,
+    MOVE_REST,
+    MOVE_ROOST,
+    MOVE_SHORE_UP,
+    MOVE_SLACK_OFF,
+    MOVE_SOFT_BOILED,
+    MOVE_STRENGTH_SAP,
+    MOVE_SWALLOW,
+    MOVE_SYNTHESIS,
+    MOVE_WISH,
+};
+
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
@@ -602,6 +636,27 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
             && sp->battlemon[client2].hp == sp->battlemon[client2].maxhp
         ) {
             priority2++;
+        }
+
+        // Handle Triage
+        if (GetBattlerAbility(sp, client1) == ABILITY_TRIAGE) {
+            for (i = 0; i < NELEMS(TriageMovesList); i++)
+            {
+                if (TriageMovesList[i] == move1) {
+                    priority1 = priority1 + 3;
+                    break;
+                }
+            }
+        }
+
+        if (GetBattlerAbility(sp, client2) == ABILITY_TRIAGE) {
+            for (i = 0; i < NELEMS(TriageMovesList); i++)
+            {
+                if (TriageMovesList[i] == move2) {
+                    priority2 = priority2 + 3;
+                    break;
+                }
+            }
         }
     }
 
