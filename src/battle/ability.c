@@ -1585,6 +1585,42 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 }
             }
         break;
+        // Handle Berserk
+        case ABILITY_BERSERK:
+            if
+            (
+                (sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                // Berserk doesn't activate if the Pokémon gets attacked by a Sheer Force boosted move
+                && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1)) 
+            )
+            {
+                if
+                (
+                    (sp->battlemon[sp->defence_client].hp <= (sp->battlemon[sp->defence_client].maxhp / 2))
+                    &&
+                    (
+                        // Checks if the Pokémon has gone below half HP from the current damage instance
+                        // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
+                        // This doesn't quite work correctly with multi-hit moves (it's supposed to activate after the final hit, not in the middle)
+                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > sp->battlemon[sp->defence_client].maxhp / 2) ||
+                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > sp->battlemon[sp->defence_client].maxhp / 2)
+                    )
+                )
+                {
+                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->defence_client;
+                    sp->client_work = sp->defence_client;
+                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                    ret = TRUE;
+                }
+            }
+        break;
         case ABILITY_STAMINA:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
