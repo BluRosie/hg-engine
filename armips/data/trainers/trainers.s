@@ -7704,7 +7704,7 @@ trainerdata 242, "Fritz"
         move MOVE_LAVA_PLUME
         move MOVE_FIRE_PUNCH
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 2
@@ -7925,7 +7925,7 @@ trainerdata 246, "Karen"
         item ITEM_NONE
         move MOVE_DOUBLE_TEAM
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_PAYBACK
         ballseal 0
 
@@ -7962,7 +7962,7 @@ trainerdata 246, "Karen"
         move MOVE_PLUCK
         move MOVE_WHIRLWIND
         move MOVE_SUCKER_PUNCH
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -8970,7 +8970,7 @@ trainerdata 264, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_FURY_SWIPES
         ballseal 0
 
@@ -9168,7 +9168,7 @@ trainerdata 268, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_FURY_SWIPES
         ballseal 0
 
@@ -9378,7 +9378,7 @@ trainerdata 271, "Silver"
         move MOVE_ICY_WIND
         move MOVE_QUICK_ATTACK
         move MOVE_FURY_SWIPES
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -9414,7 +9414,7 @@ trainerdata 272, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_FURY_SWIPES
         ballseal 0
 
@@ -9904,7 +9904,7 @@ trainerdata 285, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SHADOW_CLAW
         ballseal 0
 
@@ -9985,7 +9985,7 @@ trainerdata 286, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SHADOW_CLAW
         ballseal 0
 
@@ -10066,7 +10066,7 @@ trainerdata 287, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SHADOW_CLAW
         ballseal 0
 
@@ -10181,7 +10181,7 @@ trainerdata 288, "Silver"
         move MOVE_ICY_WIND
         move MOVE_QUICK_ATTACK
         move MOVE_FURY_SWIPES
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -10251,7 +10251,7 @@ trainerdata 289, "Silver"
         move MOVE_ICY_WIND
         move MOVE_QUICK_ATTACK
         move MOVE_FURY_SWIPES
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -12789,7 +12789,7 @@ trainerdata 368, "Rebecca"
         abilityslot 32
         level 45
         pokemon SPECIES_BRONZOR
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SKILL_SWAP
         move MOVE_SAFEGUARD
         move MOVE_GYRO_BALL
@@ -16653,7 +16653,7 @@ trainerdata 485, "Archer"
         move MOVE_FIRE_FANG
         move MOVE_ROAR
         move MOVE_BITE
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 1
@@ -16675,7 +16675,7 @@ trainerdata 485, "Archer"
         move MOVE_FIRE_FANG
         move MOVE_SMOG
         move MOVE_BITE
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
     endparty
 
@@ -16846,7 +16846,7 @@ trainerdata 489, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_ICY_WIND
         move MOVE_SHADOW_CLAW
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_METAL_CLAW
         ballseal 0
 
@@ -16927,7 +16927,7 @@ trainerdata 490, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_ICY_WIND
         move MOVE_SHADOW_CLAW
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_METAL_CLAW
         ballseal 0
 
@@ -17009,7 +17009,7 @@ trainerdata 491, "Silver"
         item ITEM_NONE
         move MOVE_ICY_WIND
         move MOVE_SHADOW_CLAW
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_METAL_CLAW
         ballseal 0
 
@@ -23971,7 +23971,7 @@ trainerdata 693, "Linden"
         move MOVE_OVERHEAT
         move MOVE_FIRE_PUNCH
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
     endparty
 
@@ -26280,7 +26280,7 @@ trainerdata 730, "Thom & Kae"
         pokemon SPECIES_MAGMAR
         move MOVE_FLAMETHROWER
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_PROTECT
         ballseal 0
     endparty
