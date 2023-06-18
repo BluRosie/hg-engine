@@ -839,7 +839,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     }
 
     // try and handle defiant lol
-    if (GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT
+    if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT || GetBattlerAbility(sp, sp->state_client) == ABILITY_COMPETITIVE)
      && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
      && statchange < 0
      && sp->state_client != sp->attack_client // can't raise own stats
