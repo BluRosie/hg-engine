@@ -712,6 +712,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     u16 item;
     int hold_effect;
     u16 species;
+    u32 defender_condition;
     u32 condition2;
     u32 move_effect;
     int multiplier = 1;
@@ -721,6 +722,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     hold_effect = BattleItemDataGet(sp, item, 1);
 
     species = sp->battlemon[attacker].species;
+    defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
     move_effect = sp->battlemon[defender].effect_of_moves;
     ability = sp->battlemon[attacker].ability;
@@ -734,7 +736,11 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         temp = 4;
     }
 
-    if (BattleRand(bw) % CriticalRateTable[temp] == 0)
+    if
+    (
+        BattleRand(bw) % CriticalRateTable[temp] == 0
+        || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
+    )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
          && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
