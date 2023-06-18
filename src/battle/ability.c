@@ -59,6 +59,7 @@ const u16 BulletproofMoveList[] =
     MOVE_BARRAGE,
     MOVE_BULLET_SEED,
     MOVE_EGG_BOMB,
+    MOVE_ELECTRO_BALL,
     MOVE_ENERGY_BALL,
     MOVE_FOCUS_BLAST,
     MOVE_GYRO_BALL,
@@ -67,8 +68,11 @@ const u16 BulletproofMoveList[] =
     MOVE_MIST_BALL,
     MOVE_MUD_BOMB,
     MOVE_OCTAZOOKA,
+    MOVE_POLLEN_PUFF,
+    MOVE_PYRO_BALL,
     MOVE_ROCK_BLAST,
     MOVE_ROCK_WRECKER,
+    MOVE_SEARING_SHOT,
     MOVE_SEED_BOMB,
     MOVE_SHADOW_BALL,
     MOVE_SLUDGE_BOMB,
@@ -135,6 +139,23 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
             for (i = 0; i < NELEMS(SoundproofMoveList); i++){
                 if (SoundproofMoveList[i] == sp->current_move_index)
                 {
+                    scriptnum = SUB_SEQ_HANDLE_SOUNDPROOF;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Handle Bulletproof
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
+    {
+        {
+            u32 i;
+
+            for (i = 0; i < NELEMS(BulletproofMoveList); i++){
+                if (BulletproofMoveList[i] == sp->current_move_index)
+                {
+                    // This works fine for Bulletproof too
                     scriptnum = SUB_SEQ_HANDLE_SOUNDPROOF;
                     break;
                 }
