@@ -1102,9 +1102,9 @@ struct __attribute__((packed)) POKEMON_APPEAR_PARAM
 
 struct __attribute__((packed)) ILLUSION_STRUCT
 {
+    u16 illusionNameBuf[2][12]; // at least get this hword aligned
     u8 isSideInIllusion[2];
     u8 illusionPos[2];
-    u16 illusionNameBuf[2][12];
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM

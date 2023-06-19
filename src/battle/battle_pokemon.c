@@ -10,7 +10,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
-struct ILLUSION_STRUCT gIllusionStruct;
+__attribute__((aligned(4))) struct ILLUSION_STRUCT gIllusionStruct;
 
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
