@@ -12,18 +12,18 @@
 // v-create move effect
 
 a001_305:
-    changevar VAR_OP_SETMASK, VAR_60, 0x80
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
     //spe down
-    changevar VAR_OP_SET, VAR_34, SPEED_DOWN
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, SPEED_DOWN
     gotosubscript 12
     //def down
-    changevar VAR_OP_SET, VAR_34, DEFENSE_DOWN
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, DEFENSE_DOWN
     gotosubscript 12
     //sp def down
-    changevar VAR_OP_SET, VAR_34, SPDEF_DOWN
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, SPDEF_DOWN
     gotosubscript 12
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x2
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
     endscript
 
 .close

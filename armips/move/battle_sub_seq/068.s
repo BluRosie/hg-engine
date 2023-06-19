@@ -16,7 +16,7 @@ a001_068:
     printattackmessage
     waitmessage
     ifmonstat IF_MASK, BATTLER_DEFENDER, MON_DATA_MOVE_STATE, 0x4, _00BC
-    if IF_MASK, VAR_10, 0x10001, _00BC
+    if IF_MASK, VAR_MOVE_STATUS, 0x10001, _00BC
     playanimation BATTLER_ATTACKER
     waitmessage
     changemondatabyvar VAR_OP_SETMASK, BATTLER_DEFENDER, 0x3B, VAR_ATTACKER
@@ -24,7 +24,7 @@ a001_068:
     printmessage 0x122, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _00E4
 _00BC:
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     wait 0x1E
     printmessage 0x125, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
 _00E4:
@@ -32,10 +32,10 @@ _00E4:
     wait 0x1E
     endscript
 _00F4:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 _0108:
-    changevar VAR_OP_SETMASK, VAR_10, 0x8
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x8
     endscript
 
 .close

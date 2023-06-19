@@ -16,7 +16,7 @@ a001_131:
     waitmessage
     wait 0x1E
     changevar2 VAR_OP_SET, VAR_ACTIVE_BATTLER, VAR_ATTACKER
-    changevar VAR_OP_SET, VAR_34, 0x13
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x13
     gotosubscript 12
     endscript
 

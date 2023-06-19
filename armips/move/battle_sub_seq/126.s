@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_126", 0
 
 a001_126:
-    if IF_NOTEQUAL, VAR_05, 0x1, _0028
+    if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x1, _0028
     printattackmessage
     waitmessage
     playanimation BATTLER_ATTACKER

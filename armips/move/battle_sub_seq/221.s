@@ -14,9 +14,9 @@ a001_221:
     waitmessage
     setstatusicon BATTLER_xFF, 0x0
     wait 0x1E
-    if IF_EQUAL, VAR_22, 0x0, _0088
-    if IF_EQUAL, VAR_22, 0x5, _00B8
-    if IF_EQUAL, VAR_22, 0x6, _00D4
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x0, _0088
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x5, _00B8
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x6, _00D4
     changemondatabyvalue VAR_OP_SET, BATTLER_xFF, 0x34, 0x0
     goto _00E8
 _0088:

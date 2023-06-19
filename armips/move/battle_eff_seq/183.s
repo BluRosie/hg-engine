@@ -15,7 +15,7 @@ a030_183:
     changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000005A
     endscript
 _002C:
-    changevar VAR_OP_SET, VAR_10, 0x40
+    changevar VAR_OP_SET, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

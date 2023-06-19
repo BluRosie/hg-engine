@@ -39,7 +39,7 @@ mega:
     // restore doubles flag
     changemondatabyvalue VAR_OP_SETMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     ifmonstat IF_NOTMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000, _00EC
     setstatus2effect BATTLER_xFF, 0xF
     waitmessage
@@ -59,7 +59,7 @@ _0044:
     waitmessage
     wait 0x1E
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
 _00EC:
     endscript
 

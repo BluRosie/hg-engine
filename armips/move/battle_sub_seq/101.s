@@ -17,7 +17,7 @@ a001_101:
     wait 0x1E
     changevar VAR_OP_SET, VAR_MOVE_TEMP2, 0xC3
     changevar VAR_OP_SET, VAR_ABILITY_TEMP2, 0x2B
-    changevar VAR_OP_SET, VAR_39, 0x0
+    changevar VAR_OP_SET, VAR_CLIENT_NO_AGI, 0x0
 _0058:
     orderbattlersbyspeed 0x14
     moldbreakerabilitycheck 0x1, BATTLER_xFF, ABILITY_SOUNDPROOF, _0098
@@ -25,11 +25,11 @@ _0058:
     waitmessage
     wait 0x1E
 _0098:
-    changevar VAR_OP_ADD, VAR_39, 0x1
+    changevar VAR_OP_ADD, VAR_CLIENT_NO_AGI, 0x1
     jumpifvarisvalidbattler 0x27, _0058
     endscript
 _00B8:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

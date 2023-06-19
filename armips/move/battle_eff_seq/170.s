@@ -17,7 +17,7 @@ a030_170:
     damagecalc
     endscript
 _0044:
-    changevar VAR_OP_SETMASK, VAR_10, 0x20000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x20000
     preparemessage 0x258, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
     endscript
 

@@ -19,7 +19,7 @@ a001_308:
     setstatus2effect BATTLER_DEFENDER, 0xC
     waitmessage
     changemondatabyvalue VAR_OP_ADD, BATTLER_DEFENDER, MON_DATA_STAT_STAGE_ATTACK, 0x1
-    changevar VAR_OP_SET, VAR_22, STAT_ATTACK
+    changevar VAR_OP_SET, VAR_MESSAGE_WORK, STAT_ATTACK
     printmessage 0x26E, 0x27, 0x2, 0x2, 0xFF, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

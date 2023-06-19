@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_090", 0
 
 a001_090:
-    if IF_MASK, VAR_06, 0x40, _0028
+    if IF_MASK, VAR_SERVER_STATUS1, 0x40, _0028
     playmovesoundeffect BATTLER_xFF
     monflicker 0xFF
     waitmessage

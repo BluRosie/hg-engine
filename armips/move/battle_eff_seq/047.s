@@ -14,7 +14,7 @@ a030_047:
     changevar VAR_OP_SETMASK, VAR_ADD_STATUS1, 0x40000046
     endscript
 _002C:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

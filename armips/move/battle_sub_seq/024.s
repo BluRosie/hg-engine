@@ -10,18 +10,18 @@
 .create "build/move/battle_sub_seq/1_024", 0
 
 a001_024:
-    changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_54
+    changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_HIT_DAMAGE
     if IF_EQUAL, VAR_HP_TEMP, 0x0, _0030
     damagediv 32, 2
 _0030:
     checkitemeffect 0x1, BATTLER_ATTACKER, 0x7C, _0080
     getitempower BATTLER_ATTACKER, 0x9
-    changevar VAR_OP_ADD, VAR_09, 0x64
-    changevar2 VAR_OP_MUL, VAR_HP_TEMP, VAR_09
+    changevar VAR_OP_ADD, VAR_CALCULATION_WORK, 0x64
+    changevar2 VAR_OP_MUL, VAR_HP_TEMP, VAR_CALCULATION_WORK
     changevar VAR_OP_DIV, VAR_HP_TEMP, 0x64
 _0080:
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     abilitycheck 0x0, BATTLER_DEFENDER, ABILITY_LIQUID_OOZE, _0138
     ifmonstat IF_NOTEQUAL, BATTLER_ATTACKER, MON_DATA_HEAL_BLOCK_COUNTER, 0x0, _0104
     changevar VAR_OP_MUL, VAR_HP_TEMP, 0xFFFFFFFF

@@ -26,7 +26,7 @@ _0074:
     printmessage 0x4D3, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 
 .close

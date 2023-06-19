@@ -18,7 +18,7 @@ a001_080:
     wait 0x1E
     endscript
 _0040:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

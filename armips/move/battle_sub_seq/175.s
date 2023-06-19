@@ -26,7 +26,7 @@ _003C:
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x2F, VAR_HP_TEMP
     changevar VAR_OP_MUL, VAR_HP_TEMP, 0xFFFFFFFF
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     dofaintanimation
     waitmessage
@@ -56,7 +56,7 @@ _01A0:
     trynaturalcure BATTLER_ATTACKER, _0238
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x34, 0x0
 _0238:
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x1
     playanimation BATTLER_ATTACKER
     waitmessage
@@ -64,9 +64,9 @@ _0238:
     waitmessage
     preparehpgaugeslide BATTLER_ATTACKER
     waitmessage
-    changevar VAR_OP_SETMASK, VAR_60, 0x10
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x80
-    changevar VAR_OP_SET, VAR_47, 0x0
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x10
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x80
+    changevar VAR_OP_SET, VAR_ATTACKER_STATUS, 0x0
     jumptosubseq 10
 _02B4:
     endscript

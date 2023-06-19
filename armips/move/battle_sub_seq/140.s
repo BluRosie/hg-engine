@@ -18,7 +18,7 @@ a001_140:
     wait 0x1E
     goto _005C
 _0040:
-    if IF_MASK, VAR_10, 0x1FD849, _005C
+    if IF_MASK, VAR_MOVE_STATUS, 0x1FD849, _005C
     gotosubscript 76
 _005C:
     endscript

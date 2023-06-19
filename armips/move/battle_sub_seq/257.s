@@ -15,7 +15,7 @@ a001_257:
     waitmessage
     wait 0x1E
     changevar2 VAR_OP_SET, VAR_ACTIVE_BATTLER, VAR_ATTACKER
-    changevar VAR_OP_SET, VAR_05, 0x7
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_TYPE, 0x7
     gotosubscript 18
     endscript
 

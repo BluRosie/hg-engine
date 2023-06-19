@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_113", 0
 
 a001_113:
-    if IF_MASK, VAR_06, 0x4000, _0040
+    if IF_MASK, VAR_SERVER_STATUS1, 0x4000, _0040
     printattackmessage
     waitmessage
     wait 0x1E
@@ -18,7 +18,7 @@ a001_113:
     waitmessage
     wait 0x1E
 _0040:
-    if IF_MASK, VAR_10, 0x1FD849, _0060
+    if IF_MASK, VAR_MOVE_STATUS, 0x1FD849, _0060
     playanimation BATTLER_ATTACKER
     waitmessage
 _0060:

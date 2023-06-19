@@ -11,8 +11,8 @@
 
 a001_044:
     random 1, 2
-    changevar VAR_OP_LSH, VAR_09, 0xA
-    changemondatabyvar VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, VAR_09
+    changevar VAR_OP_LSH, VAR_CALCULATION_WORK, 0xA
+    changemondatabyvar VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, VAR_CALCULATION_WORK
     changevar2 VAR_OP_SET, VAR_MOVE_BACKUP, VAR_CURRENT_MOVE
     endscript
 

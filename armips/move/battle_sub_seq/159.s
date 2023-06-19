@@ -15,9 +15,9 @@ a001_159:
     healthbarupdate BATTLER_ATTACKER
     gotosubscript 76
     tryfaintmon BATTLER_ATTACKER
-    changevar VAR_OP_CLEARMASK, VAR_06, 0xF000000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0xF000000
     gotosubscript 6
-    changevar VAR_OP_CLEARMASK, VAR_60, 0xF0000000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0xF0000000
     gotosubscript 276
 _006C:
     tryswitchinmon BATTLER_ATTACKER, 0x1, _0160
@@ -31,9 +31,9 @@ _006C:
     hpgaugeslidein BATTLER_REPLACE
     waitmessage
     gotosubscript 99
-    if IF_NOTMASK, VAR_06, 0xF000000, _0108
+    if IF_NOTMASK, VAR_SERVER_STATUS1, 0xF000000, _0108
     gotosubscript 6
-    changevar VAR_OP_CLEARMASK, VAR_60, 0xF0000000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0xF0000000
     gotosubscript 276
     tryswitchinmon BATTLER_ATTACKER, 0x1, _0160
     goto _006C

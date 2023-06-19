@@ -15,10 +15,10 @@ a001_067:
     printmessage 0x344, 0xA, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 _0044:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

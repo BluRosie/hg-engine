@@ -17,7 +17,7 @@ a001_089:
     setstatus2effect BATTLER_ATTACKER, 0x19
     waitmessage
     changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x35, 0x1000000
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     gotosubscript 2
     printmessage 0x15C, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -34,7 +34,7 @@ _00B0:
 _00C8:
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 
 .close

@@ -1162,7 +1162,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 {
                     sp->calc_work = 8; // skip the raising if this is the case
                 }
-                sp->calc_work = temp; // VAR_09
+                sp->calc_work = temp;
 
 
                 temp = BattleRand(bw) % 7;

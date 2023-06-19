@@ -16,7 +16,7 @@ a001_154:
     printattackmessage
     waitmessage
     gotosubscript 111
-    if IF_MASK, VAR_10, 0x80000000, _0064
+    if IF_MASK, VAR_MOVE_STATUS, 0x80000000, _0064
     setoneturnflag BATTLER_ATTACKER, 0x6, 0x1
 _0064:
     endscript

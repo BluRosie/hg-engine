@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_207", 0
 
 a030_207:
-    changevar VAR_OP_SETMASK, VAR_06, 0x4
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4
     critcalc
     damagecalc
     endscript

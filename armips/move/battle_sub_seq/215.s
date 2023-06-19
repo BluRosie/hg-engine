@@ -12,7 +12,7 @@
 a001_215:
     setstatus2effect BATTLER_xFF, 0xA
     waitmessage
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     printmessage 0x46C, 0xF, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
     waitmessage

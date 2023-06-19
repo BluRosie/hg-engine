@@ -32,7 +32,7 @@ _0044:
     playse BATTLER_xFF, 0x7C0
     mosaic BATTLER_xFF, 0x0, 0x1
     waitmessage
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     waitmessage
     printmessage ZygardeTransformedMessage, TAG_NICK, BATTLER_WORK, "NaN", "NaN", "NaN", "NaN", "NaN"

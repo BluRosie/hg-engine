@@ -16,15 +16,15 @@ a001_005:
     waitmessage
     wait 0x1E
     cmd_DE 0xA, 0x14
-    if IF_NOTEQUAL, VAR_22, 0x0, _01A8
+    if IF_NOTEQUAL, VAR_MESSAGE_WORK, 0x0, _01A8
     if IF_NOTMASK, VAR_BATTLE_TYPE, 0x8, _0098
     cmd_DE 0xC, 0x14
-    if IF_NOTEQUAL, VAR_22, 0x0, _01A8
+    if IF_NOTEQUAL, VAR_MESSAGE_WORK, 0x0, _01A8
 _0098:
     if IF_MASK, VAR_BATTLE_TYPE, 0x800, _019C
     if IF_MASK, VAR_BATTLE_TYPE, 0x80, _0134
     calcmoney
-    if IF_EQUAL, VAR_22, 0x0, _0134
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x0, _0134
     if IF_MASK, VAR_BATTLE_TYPE, 0x1, _0114
     printmessage 0x22, 0x1D, 0x3, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
@@ -65,7 +65,7 @@ _01FC:
     preparehpgaugeslide BATTLER_OPPONENT
     waitmessage
     cmd_DE 0xA, 0x14
-    if IF_EQUAL, VAR_22, 0x0, _0254
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x0, _0254
     trainerslidein BATTLER_ENEMY_LEFT, 0x1
     waitmessage
     trainermessage BATTLER_ENEMY_LEFT, 0x14
@@ -74,9 +74,9 @@ _01FC:
 _0254:
     if IF_NOTMASK, VAR_BATTLE_TYPE, 0x8, _0098
     cmd_DE 0xC, 0x14
-    if IF_EQUAL, VAR_22, 0x0, _0098
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x0, _0098
     cmd_DE 0xA, 0x14
-    if IF_NOTEQUAL, VAR_22, 0x0, _02DC
+    if IF_NOTEQUAL, VAR_MESSAGE_WORK, 0x0, _02DC
 _02A8:
     trainerslidein BATTLER_ENEMY_RIGHT, 0x1
     waitmessage

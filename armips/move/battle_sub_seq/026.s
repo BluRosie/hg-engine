@@ -24,7 +24,7 @@ _0054:
     wait 0x1E
     setstatus2effect BATTLER_WORK, 0x3
     waitmessage
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     jumptosubseq 2                                                         // deal damage + update hp bar sub seq
 _00A8:
     endscript

@@ -41,7 +41,7 @@ _0110:
     printmessage 0x106, 0xA, 0xFF, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     jumptosubseq 2
 _014C:
     endscript

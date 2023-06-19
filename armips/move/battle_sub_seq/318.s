@@ -25,26 +25,26 @@ a001_304:
 
 StatusEffect:
     gotosubscript 76
-    changevar VAR_OP_SETMASK, VAR_06, 0x200000
-    changevar VAR_OP_SETMASK, VAR_06, 0x4001
-    changevar VAR_OP_SETMASK, VAR_60, 0x80
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x200000
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4001
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
     //atk up
-    changevar VAR_OP_SET, VAR_34, 0x27
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x27
     gotosubscript 12
     //spa atk up
-    changevar VAR_OP_SET, VAR_34, 0x2A
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x2A
     gotosubscript 12
     //spe up
-    changevar VAR_OP_SET, VAR_34, 0x29
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x29
     gotosubscript 12
     //def down
-    changevar VAR_OP_SET, VAR_34, DEFENSE_DOWN
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, DEFENSE_DOWN
     gotosubscript 12
     //sp def down
-    changevar VAR_OP_SET, VAR_34, SPDEF_DOWN
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, SPDEF_DOWN
     gotosubscript 12
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x2
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
     endscript
 NoStatusEffect:
     printattackmessage
@@ -53,7 +53,7 @@ NoStatusEffect:
     printmessage 0x300, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 
 .close

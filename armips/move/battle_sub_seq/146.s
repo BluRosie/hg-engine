@@ -24,7 +24,7 @@ a001_146:
     waitmessage
     wait 0x1E
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     if IF_EQUAL, VAR_CURRENT_MOVE, 0x16F, _00D4
     changevar2 VAR_OP_SET, VAR_DEFENDER, VAR_ATTACKER_TEMP
     endscript

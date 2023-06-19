@@ -16,11 +16,11 @@ a030_033:
     endscript
 
 _isDigging:
-    changevar VAR_OP_SETMASK, VAR_06, 0x8
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x8
     changevar VAR_OP_SET, VAR_ADD_STATUS1, 0x80000006
     endscript
 _isFlying:
-    changevar VAR_OP_SETMASK, VAR_06, 0x4
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4
     changevar VAR_OP_SET, VAR_ADD_STATUS1, 0x80000006
     endscript
 

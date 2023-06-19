@@ -19,7 +19,7 @@ a001_098:
     printmessage 0x1A8, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     jumptosubseq 2
 _0088:
     endscript

@@ -17,8 +17,8 @@ a001_085:
     printmessage 0x191, 0x21, 0x1, 0x2, 0x2, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x37, VAR_43
-    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x37, VAR_43
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x37, VAR_TEMP_WORK
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x37, VAR_TEMP_WORK
     changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x37, 0x0
     goto _00C4
 _00A0:

@@ -16,7 +16,7 @@ a030_097:
     gotosubscript 76
     jumptoeffectscript 0
 _0038:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

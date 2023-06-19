@@ -11,23 +11,23 @@
 
 growthSubEffectScript: // a001_331
     if IF_MASK, VAR_FIELD_EFFECT, 0x30, SunIsUp // checks for sun weather
-    changevar VAR_OP_SETMASK, VAR_60, 0x80
-    changevar VAR_OP_SET, VAR_34, ATTACK_UP
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, ATTACK_UP
     gotosubscript 12
-    changevar VAR_OP_SET, VAR_34, SPATK_UP
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, SPATK_UP
     gotosubscript 12
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x2
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
     endscript
 
 SunIsUp:
-    changevar VAR_OP_SETMASK, VAR_60, 0x80
-    changevar VAR_OP_SET, VAR_34, ATTACK_UP_2
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, ATTACK_UP_2
     gotosubscript 12
-    changevar VAR_OP_SET, VAR_34, SPATK_UP_2
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, SPATK_UP_2
     gotosubscript 12
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x2
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
     endscript
 
 .close

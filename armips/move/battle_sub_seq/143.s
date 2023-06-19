@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_143", 0
 
 a001_143:
-    if IF_MASK, VAR_10, 0x10001, _0274
+    if IF_MASK, VAR_MOVE_STATUS, 0x10001, _0274
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_ABILITY, 0x19, _0274
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_ABILITY, 0x19, _0274
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_ABILITY, 0x79, _0274
@@ -21,25 +21,25 @@ a001_143:
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_ABILITY, 0x0, _0274
 _00D4:
     gotosubscript 76
-    changevar2 VAR_OP_SET, VAR_43, VAR_TURNS
-    changevar VAR_OP_AND, VAR_43, 0x1
-    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x48, VAR_43
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x48, VAR_43
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x1A, VAR_09
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x1A, VAR_43
-    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x1A, VAR_43
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1A, VAR_09
-    if IF_NOTEQUAL, VAR_43, 0x70, _01E4
-    changevar2 VAR_OP_SET, VAR_43, VAR_TURNS
-    changevar VAR_OP_ADD, VAR_43, 0x1
-    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x59, VAR_43
+    changevar2 VAR_OP_SET, VAR_TEMP_WORK, VAR_TURNS
+    changevar VAR_OP_AND, VAR_TEMP_WORK, 0x1
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x48, VAR_TEMP_WORK
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x48, VAR_TEMP_WORK
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x1A, VAR_CALCULATION_WORK
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x1A, VAR_TEMP_WORK
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x1A, VAR_TEMP_WORK
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1A, VAR_CALCULATION_WORK
+    if IF_NOTEQUAL, VAR_TEMP_WORK, 0x70, _01E4
+    changevar2 VAR_OP_SET, VAR_TEMP_WORK, VAR_TURNS
+    changevar VAR_OP_ADD, VAR_TEMP_WORK, 0x1
+    changemondatabyvar VAR_OP_SET, BATTLER_ATTACKER, 0x59, VAR_TEMP_WORK
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x60, 0x0
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x61, 0x0
 _01E4:
-    if IF_NOTEQUAL, VAR_09, 0x70, _0254
-    changevar2 VAR_OP_SET, VAR_43, VAR_TURNS
-    changevar VAR_OP_ADD, VAR_43, 0x1
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x59, VAR_43
+    if IF_NOTEQUAL, VAR_CALCULATION_WORK, 0x70, _0254
+    changevar2 VAR_OP_SET, VAR_TEMP_WORK, VAR_TURNS
+    changevar VAR_OP_ADD, VAR_TEMP_WORK, 0x1
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x59, VAR_TEMP_WORK
     changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x60, 0x0
     changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x61, 0x0
 _0254:
@@ -48,7 +48,7 @@ _0254:
     wait 0x1E
     endscript
 _0274:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

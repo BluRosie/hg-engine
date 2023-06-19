@@ -26,7 +26,7 @@ script_end:
     waitmessage
     wait 0x1E
     magiccoat
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     endscript
 
 .close

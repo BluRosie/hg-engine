@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_214", 0
 
 a001_214:
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     endscript
 

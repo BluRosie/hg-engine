@@ -16,12 +16,12 @@ a001_268:
     waitmessage
     wait 0x1E
     recoverstatus BATTLER_ATTACKER
-    if IF_EQUAL, VAR_22, 0x0, _00D4
-    if IF_EQUAL, VAR_22, 0x1, _0104
-    if IF_EQUAL, VAR_22, 0x2, _0120
-    if IF_EQUAL, VAR_22, 0x3, _013C
-    if IF_EQUAL, VAR_22, 0x4, _0158
-    if IF_EQUAL, VAR_22, 0x5, _0174
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x0, _00D4
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x1, _0104
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x2, _0120
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x3, _013C
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x4, _0158
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x5, _0174
     printmessage 0x380, 0xF, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     goto _0190
 _00D4:

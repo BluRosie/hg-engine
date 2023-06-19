@@ -62,7 +62,7 @@ _0160:
 _01E8:
     if IF_MASK, VAR_BATTLE_TYPE, 0x80, _028C
     calcmoney
-    if IF_EQUAL, VAR_43, 0x1, _0230
+    if IF_EQUAL, VAR_TEMP_WORK, 0x1, _0230
     printmessage 0x21, 0x1D, 0x3, 0xFF, "NaN", "NaN", "NaN", "NaN"
     goto _0244
 _0230:
@@ -73,7 +73,7 @@ _0244:
 _0250:
     pickup
     dopayday
-    if IF_EQUAL, VAR_22, 0x0, _028C
+    if IF_EQUAL, VAR_MESSAGE_WORK, 0x0, _028C
     printmessage 0x155, 0x1D, 0x3, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x3C

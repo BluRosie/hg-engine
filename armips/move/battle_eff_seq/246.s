@@ -15,7 +15,7 @@ a030_246:
     damagecalc
     endscript
 _0014:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

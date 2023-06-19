@@ -14,7 +14,7 @@ a001_266:
     setstatus2effect BATTLER_DEFENDER, 0xA
     waitmessage
 _0028:
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     gotosubscript 2
     printmessage 0x488, 0x21, 0x1, 0x2, 0x2, "NaN", "NaN", "NaN"

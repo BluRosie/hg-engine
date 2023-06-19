@@ -12,7 +12,7 @@
 a030_148:
     tryfuturesight _002C
     changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000005A
-    changevar VAR_OP_SETMASK, VAR_06, 0x8841C
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x8841C
     endscript
 _002C:
     printattackmessage
