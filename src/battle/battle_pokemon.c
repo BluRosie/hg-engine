@@ -10,7 +10,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
-struct ILLUSION_STRUCT gIllusionStruct = {0};
+struct ILLUSION_STRUCT gIllusionStruct;
 
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
@@ -344,7 +344,7 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_ENCOUNT_PARAM *pep = (struct POKEMON_ENCOUNT_PARAM *)&cp->client_buffer[0];
     u8 side, newform;
-    u16 newmon;
+    u16 newmon, newshiny;
     u32 i;
 
     side = ((cp->client_type & 1) != 0);
@@ -358,6 +358,7 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
         newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
+        newshiny = MonIsShiny(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1));
 
         if (newmon != pep->monsno || newform != pep->form_no)
         {
@@ -365,6 +366,7 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 
             pep->monsno = newmon;
             pep->form_no = newform;
+            pep->rare = newshiny;
 
             if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
             {
@@ -386,7 +388,7 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
     u8 side, newform;
-    u16 newmon;
+    u16 newmon, newshiny;
     u32 i;
 
     side = ((cp->client_type & 1) != 0);
@@ -400,6 +402,7 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
         newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
+        newshiny = MonIsShiny(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1));
 
         if (newmon != pap->monsno || newform != pap->form_no)
         {
@@ -407,6 +410,7 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 
             pap->monsno = newmon;
             pap->form_no = newform;
+            pap->rare = newshiny;
 
             if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again
             {
@@ -428,7 +432,7 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
     u8 side, newform;
-    u16 newmon;
+    u16 newmon, newshiny;
     u32 i;
 
     side = ((cp->client_type & 1) != 0);
@@ -442,6 +446,7 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_monsno, NULL);
         newform = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), ID_PARA_form_no, NULL);
+        newshiny = MonIsShiny(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1));
 
         if (newmon != pap->monsno || newform != pap->form_no)
         {
@@ -449,6 +454,7 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 
             pap->monsno = newmon;
             pap->form_no = newform;
+            pap->rare = newshiny;
 
             if (!gIllusionStruct.isSideInIllusion[side]) // if the illusion hasn't been broken before, then don't store the nickname again.  we definitely abuse this, don't worry
             {
