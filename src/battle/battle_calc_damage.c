@@ -463,6 +463,17 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         movepower = movepower * 130 / 100;
     }    
+
+    // Handle Fluffy
+    if (DefendingMon.ability == ABILITY_FLUFFY) {
+        if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+            movepower = movepower * 50 / 100;
+        }
+
+        if (movetype == TYPE_FIRE) {
+            movepower = movepower * 200 / 100;
+        }
+    }
     
     // handle marvel scale
     if ((CheckDefenceAbility(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
