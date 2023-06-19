@@ -17,13 +17,17 @@
 .include "armips/asm/overworlds.s" // code for overworlds, specifically repointing gOWTagToFileNum and making dimorphism a byte instead of a halfword.
 .include "armips/asm/y9.s" // add new overlay entries to the y9 table
 
+.if REUSABLE_TMS == 1
+.include "armips/asm/tm.s" // make tms infinite
+.include "armips/asm/forget_hm.s" // allows hm to be forgotten
+
+.endif
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
 .include "armips/asm/fairy.s" // repoints all the move table defines within the structure
 
 .endif
-
 
 // code addon list
 .include "armips/data/hiddenabilities.s" // the hidden ability list, 7
