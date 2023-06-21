@@ -1251,8 +1251,8 @@ BOOL __attribute__((long_call)) HeldItemHealStatusCheck(void *bw, struct BattleS
 int __attribute__((long_call)) TypeCheckCalc(struct BattleStruct *sp, u32 attack_client, u32 typeModifier, int damage, int base_power, int *flag);
 BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32 move_no);
 BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
-int __attribute__((long_call)) GetPartySize(void *bw, int client_no);
-int __attribute__((long_call)) GetPartyMon(void *bw, int client_no, int mon_index);
+int __attribute__((long_call)) Battle_GetClientPartySize(void *bw, int client_no);
+void *__attribute__((long_call)) Battle_GetClientPartyMon(void *bw, int client_no, int mon_index);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);

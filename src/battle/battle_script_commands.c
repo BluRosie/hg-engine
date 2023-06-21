@@ -1188,70 +1188,71 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 {
-    int species, form;
+    int species, form, number_of_hits;
     s32 newBaseDamage;
     struct BattlePokemon *mon;
     
     IncrementBattleScriptPtr(sp, 1);
 
-    int partyCount = GetPartySize(bw, sp->attack_client);
+    int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
 
     if (sp->multi_hit_count_temp == 0) {
 
         sp->multi_hit_count_temp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        mon = GetPartyMon(bw, sp->attack_client, sp->beat_up_count); 
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
 
-        while(!(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] ||
-                (GetMonData(mon, ID_PARA_hp, 0) && 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) && 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) != 494 && 
-                GetMonData(mon, ID_PARA_condition, 0) == 0)))
+        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
+                (GetMonData(mon, ID_PARA_hp, 0) == 0 || 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 0|| 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 494 || 
+                GetMonData(mon, ID_PARA_condition, 0) != 0))
                 {
 
             sp->beat_up_count++;
-            mon = GetPartyMon(bw, sp->attack_client, sp->beat_up_count); 
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
         
         }
     }   
 
-    mon = GetPartyMon(bw, sp->attack_client, sp->beat_up_count);
+    mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
     species = GetMonData(mon, ID_PARA_monsno, 0);
     form = GetMonData(mon, ID_PARA_form_no, 0);
 
     newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
     newBaseDamage /= 10;
-    sp->damage_power = sp->aiWorkTable.old_moveTbl[sp->current_move_index].power;
+    sp->damage_power = sp->moveTbl[sp->current_move_index].power;
     sp->damage_power += newBaseDamage;
 
     sp->beat_up_count++;
     sp->multi_hit_count = 2;
+    number_of_hits = sp->beat_up_count;
 
     if (sp->beat_up_count < partyCount) {
         
-        mon = GetPartyMon(bw, sp->attack_client, sp->beat_up_count);
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
-        while(!(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] ||
-                (GetMonData(mon, ID_PARA_hp, 0) && 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) && 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) != 494 && 
-                GetMonData(mon, ID_PARA_condition, 0) == 0)))
+        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
+                (GetMonData(mon, ID_PARA_hp, 0) == 0 || 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 0 || 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 494 || 
+                GetMonData(mon, ID_PARA_condition, 0) != 0))
                 {
 
             sp->beat_up_count++;
-            mon = GetPartyMon(bw, sp->attack_client, sp->beat_up_count);
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
             if (sp->beat_up_count >= partyCount) {
                 sp->multi_hit_count = 1;
-                sp->multi_hit_count_temp = sp->beat_up_count;
+                sp->multi_hit_count_temp = number_of_hits;
                 break;
             }
 
         } 
     } else {
         sp->multi_hit_count = 1;
-        sp->multi_hit_count_temp = sp->beat_up_count;
+        sp->multi_hit_count_temp = number_of_hits;
     }
 
     return FALSE;
@@ -1706,6 +1707,9 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         if (criticalCapture) // succeeded the one chance it had
             i = i | 0x80; // change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
 
+        if(sp->item_work = ITEM_FRIEND_BALL) // To catch a 1 shake capture
+            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0),ID_PARA_friend,200);
+            
 #else
 
         for (i = 0; i < 4; i++)
@@ -1716,9 +1720,10 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 
 #endif
     }
-    if(sp->item_work = ITEM_FRIEND_BALL && i > 4){
-        SetMonData(GetPartyMon(bw,sp->defence_client,0),9,200);
-    }
+
+    if(sp->item_work = ITEM_FRIEND_BALL && i >= 4) 
+        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0),ID_PARA_friend,200);
+
     return i;
 }
 
