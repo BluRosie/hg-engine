@@ -16,21 +16,21 @@ a001_293:
     ifmonstat IF_MASK, BATTLER_DEFENDER, MON_DATA_STATUS_2, 0x1000000, _0188
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0x20, _0188
     changemondatabyvalue VAR_OP_SET, BATTLER_DEFENDER, 0x62, 0x0
-    changevar VAR_OP_SET, VAR_43, 0x0
+    changevar VAR_OP_SET, VAR_TEMP_WORK, 0x0
     ifmonstat IF_MASK, BATTLER_DEFENDER, MON_DATA_PID, 0x1, _00C8
-    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_43, 0x18
+    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_TEMP_WORK, 0x18
     goto _00FC
 _00C8:
-    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_43, 0x19
-    if IF_NOTEQUAL, VAR_43, 0x0, _00FC
-    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_43, 0x18
+    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_TEMP_WORK, 0x19
+    if IF_NOTEQUAL, VAR_TEMP_WORK, 0x0, _00FC
+    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_TEMP_WORK, 0x18
 _00FC:
-    changevar VAR_OP_SETMASK, VAR_60, 0x8000000
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1A, VAR_09
-    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_43, 0x6
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1B, VAR_09
-    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_43, 0x7
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1C, VAR_09
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x8000000
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1A, VAR_CALCULATION_WORK
+    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_TEMP_WORK, 0x6
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1B, VAR_CALCULATION_WORK
+    getdatafrompersonalnarc SPECIES_SHAYMIN, VAR_TEMP_WORK, 0x7
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x1C, VAR_CALCULATION_WORK
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_DEFENDER
     gotosubscript 262
     refreshmondata BATTLER_DEFENDER

@@ -28,7 +28,7 @@ _006C:
     loadballgfx
     initballgauge BATTLER_REPLACE
     waitmessage
-    if IF_EQUAL, VAR_43, 0x1, _00A8
+    if IF_EQUAL, VAR_TEMP_WORK, 0x1, _00A8
     sentoutmessage BATTLER_REPLACE
     goto _00B8
 _00A8:
@@ -44,9 +44,9 @@ _00B8:
     waitmessage
     gotosubscript 99
     if IF_GREATER, VAR_FAINTED_BATTLER, 0x3, _0140
-    changevar2 VAR_OP_TO_BIT, VAR_43, VAR_FAINTED_BATTLER
-    changevar VAR_OP_LSH, VAR_43, 0x18
-    if2 IF_NOTMASK, VAR_06, 0x2B, _0140
+    changevar2 VAR_OP_TO_BIT, VAR_TEMP_WORK, VAR_FAINTED_BATTLER
+    changevar VAR_OP_LSH, VAR_TEMP_WORK, 0x18
+    if2 IF_NOTMASK, VAR_SERVER_STATUS1, 0x2B, _0140
     gotosubscript 6
 _0140:
     endscript

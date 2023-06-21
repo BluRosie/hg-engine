@@ -14,9 +14,9 @@ a001_011:
     waitmessage
     initcapture 0x0
     capturemon
-    changevar2 VAR_OP_GET_RESULT, VAR_BATTLE_RESULT, VAR_43
-    changevar VAR_OP_AND, VAR_43, 0xFF
-    if IF_NOTEQUAL, VAR_43, 0x4, _0078
+    changevar2 VAR_OP_GET_RESULT, VAR_BATTLE_RESULT, VAR_TEMP_WORK
+    changevar VAR_OP_AND, VAR_TEMP_WORK, 0xFF
+    if IF_NOTEQUAL, VAR_TEMP_WORK, 0x4, _0078
     trynaturalcure BATTLER_PLAYER, _0078
     changemondatabyvalue VAR_OP_SET, BATTLER_PLAYER, 0x34, 0x0
 _0078:

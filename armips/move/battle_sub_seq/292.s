@@ -19,8 +19,8 @@ _0030:
     waitmessage
     wait 0x1E
     changevar2 VAR_OP_SET, VAR_ACTIVE_BATTLER, VAR_ATTACKER
-    changevar VAR_OP_SET, VAR_34, 0x10
-    changevar VAR_OP_SET, VAR_05, 0x2
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x10
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_TYPE, 0x2
     gotosubscript 12
     setstatus2effect BATTLER_ATTACKER, 0xA
     waitmessage
@@ -28,7 +28,7 @@ _0030:
     waitmessage
     wait 0x1E
     removeitem BATTLER_ATTACKER
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     endscript
 
 .close

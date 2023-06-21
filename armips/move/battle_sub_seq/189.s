@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_189", 0
 
 a001_189:
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     printmessage 0x2A0, 0x24, 0x2, 0x2, 0x1, "NaN", "NaN", "NaN"
     waitmessage

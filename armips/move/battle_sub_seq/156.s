@@ -14,7 +14,7 @@ a001_156:
     waitmessage
     wait 0x1E
     changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, 0x5000
-    changevar VAR_OP_SET, VAR_39, 0x0
+    changevar VAR_OP_SET, VAR_CLIENT_NO_AGI, 0x0
 _0038:
     orderbattlersbyspeed 0x14
     ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_HP, 0x0, _0158
@@ -38,7 +38,7 @@ _013C:
     waitmessage
     wait 0x1E
 _0158:
-    changevar VAR_OP_ADD, VAR_39, 0x1
+    changevar VAR_OP_ADD, VAR_CLIENT_NO_AGI, 0x1
     jumpifvarisvalidbattler 0x27, _0038
     endscript
 

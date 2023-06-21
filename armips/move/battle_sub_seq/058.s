@@ -17,10 +17,10 @@ a001_058:
     wait 0x1E
     random 1, 5
     checkitemeffect 0x1, BATTLER_ATTACKER, 0x72, _0064
-    changevar VAR_OP_SET, VAR_09, 0x6
+    changevar VAR_OP_SET, VAR_CALCULATION_WORK, 0x6
 _0064:
-    changevar VAR_OP_LSH, VAR_09, 0xD
-    changemondatabyvar VAR_OP_SETMASK, BATTLER_DEFENDER, 0x35, VAR_09
+    changevar VAR_OP_LSH, VAR_CALCULATION_WORK, 0xD
+    changemondatabyvar VAR_OP_SETMASK, BATTLER_DEFENDER, 0x35, VAR_CALCULATION_WORK
     changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x4C, VAR_ATTACKER
     changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x5E, VAR_CURRENT_MOVE
 _00B0:

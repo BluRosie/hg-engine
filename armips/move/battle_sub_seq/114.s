@@ -20,10 +20,10 @@ _0038:
     preparehpgaugeslide BATTLER_ATTACKER
     waitmessage
     changevar2 VAR_OP_SET, VAR_SWITCHED_BATTLER, VAR_ATTACKER
-    changevar VAR_OP_SETMASK, VAR_06, 0x100
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x100
     jumptosubseq 10
 _0078:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

@@ -17,7 +17,7 @@ a001_228:
     waitmessage
     setstatus2effect BATTLER_OPPONENT, 0x1D
     waitmessage
-    if IF_EQUAL, VAR_43, 0x0, _006C
+    if IF_EQUAL, VAR_TEMP_WORK, 0x0, _006C
     printmessage2 0x357, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _007C
 _006C:

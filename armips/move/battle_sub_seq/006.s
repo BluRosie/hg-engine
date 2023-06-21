@@ -18,7 +18,7 @@ a001_006:
     printmessage 0x1E, 0x2, 0x5, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    if IF_MASK, VAR_60, 0x1, _0060
+    if IF_MASK, VAR_SERVER_STATUS2, 0x1, _0060
 _0060:
     endscript
 

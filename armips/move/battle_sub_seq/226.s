@@ -11,7 +11,7 @@
 
 a001_226:
     gotosubscript 147
-    if IF_NOTMASK, VAR_06, 0x400000, _0024
+    if IF_NOTMASK, VAR_SERVER_STATUS1, 0x400000, _0024
     gotosubscript 31
 _0024:
     endscript

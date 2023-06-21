@@ -16,7 +16,7 @@ a001_219:
     wait 0x1E
     removeitem BATTLER_DEFENDER
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
-    if IF_EQUAL, VAR_43, 0x0, _0060
+    if IF_EQUAL, VAR_TEMP_WORK, 0x0, _0060
     gotosubscript2 43
 _0060:
     endscript

@@ -24,7 +24,7 @@ _0058:
 _0094:
     ifmonstat IF_NOTEQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x0, _0138
     if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _0150
-    if IF_MASK, VAR_10, 0x10001, _0138
+    if IF_MASK, VAR_MOVE_STATUS, 0x10001, _0138
     tryyawn _0138
     playanimation BATTLER_ATTACKER
     waitmessage
@@ -48,7 +48,7 @@ _0150:
 _0168:
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
 _0184:
     endscript
 

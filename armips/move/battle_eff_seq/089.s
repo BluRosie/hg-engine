@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_089", 0
 
 a030_089:
-    changevar VAR_OP_SETMASK, VAR_06, 0x800
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x800
     counter
     endscript
 

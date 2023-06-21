@@ -13,9 +13,9 @@ a001_023:
     abilitycheck 0x0, BATTLER_xFF, ABILITY_MAGIC_GUARD, _00E0
     abilitycheck 0x1, BATTLER_xFF, ABILITY_POISON_HEAL, _009C
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
-    ifmonstat2 IF_EQUAL, BATTLER_xFF, VAR_47, 0x20, _00E0
+    ifmonstat2 IF_EQUAL, BATTLER_xFF, VAR_ATTACKER_STATUS, 0x20, _00E0
     damagediv 32, 8
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     printmessage 0x27B, 0xB, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
     waitmessage
@@ -27,7 +27,7 @@ _009C:
     wait 0x1E
     setstatus2effect BATTLER_xFF, 0x2
     waitmessage
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     jumptosubseq 2
 _00E0:
     endscript

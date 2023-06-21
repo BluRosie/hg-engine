@@ -19,7 +19,7 @@ a001_055:
     if IF_MASK, VAR_FIELD_EFFECT, 0xF00, _01D0
 _0070:
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
-    ifmonstat2 IF_EQUAL, BATTLER_ATTACKER, VAR_47, 0x20, _0228
+    ifmonstat2 IF_EQUAL, BATTLER_ATTACKER, VAR_ATTACKER_STATUS, 0x20, _0228
     playanimation BATTLER_ATTACKER
     waitmessage
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_1, 0xFFFFFFF8, _00D8
@@ -35,7 +35,7 @@ _0108:
     changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x34, 0x3
     setstatusicon BATTLER_ATTACKER, 0x1
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_1, 0xFFFFFFF8, _00D8
     printmessage 0xB8, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -61,7 +61,7 @@ _0228:
     wait 0x1E
     printmessage 0xBB, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"
 _0240:
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
 _0250:
     waitmessage
     wait 0x1E

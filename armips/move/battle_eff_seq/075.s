@@ -13,7 +13,7 @@ a030_075:
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_2, 0x1000, _006C
     checkitemeffect 0x0, BATTLER_ATTACKER, 0x63, _0050
     changevar VAR_OP_SET, VAR_ADD_STATUS1, 0x4000000C
-    changevar VAR_OP_SETMASK, VAR_06, 0x23
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x23
     endscript
 _0050:
     gotosubscript 217

@@ -24,7 +24,7 @@ _0030:
     waitmessage
     wait 0x1E
     removeitem BATTLER_ATTACKER
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     endscript
 
 .close

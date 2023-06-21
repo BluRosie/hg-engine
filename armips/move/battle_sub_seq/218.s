@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_218", 0
 
 a001_218:
-    if IF_MASK, VAR_10, 0x10001, _00E8
+    if IF_MASK, VAR_MOVE_STATUS, 0x10001, _00E8
     checksubstitute BATTLER_DEFENDER, _00E8
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_ABILITY, 0x79, _00E8
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_81, 0x0, _00E8
@@ -25,7 +25,7 @@ a001_218:
     wait 0x1E
     endscript
 _00E8:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

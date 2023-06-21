@@ -24,22 +24,22 @@ _0038:
     waitmessage
     wait 0x1E
     if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_AROMATHERAPY, _00C8
-    if IF_NOTMASK, VAR_09, 0x1, _0090
+    if IF_NOTMASK, VAR_CALCULATION_WORK, 0x1, _0090
     // "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nblocks {STRVAR_1 6, 2, 0}!"
     printmessage 689, TAG_NICK_ABILITY_MOVE, BATTLER_ATTACKER, BATTLER_ATTACKER, BATTLER_xFF, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
 _0090:
-    if IF_NOTMASK, VAR_09, 0x2, _00C8
+    if IF_NOTMASK, VAR_CALCULATION_WORK, 0x2, _00C8
     // "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nblocks {STRVAR_1 6, 2, 0}!"
     printmessage 689, TAG_NICK_ABILITY_MOVE, BATTLER_ATTACKER_PARTNER, BATTLER_ATTACKER_PARTNER, BATTLER_xFF, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
 _00C8:
-    if IF_MASK, VAR_09, 0x4, _00E8
+    if IF_MASK, VAR_CALCULATION_WORK, 0x4, _00E8
     setstatusicon BATTLER_ATTACKER, 0x0
 _00E8:
-    if IF_MASK, VAR_09, 0x8, _0108
+    if IF_MASK, VAR_CALCULATION_WORK, 0x8, _0108
     setstatusicon BATTLER_ATTACKER_PARTNER, 0x0
 _0108:
     endscript

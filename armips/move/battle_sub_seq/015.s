@@ -15,8 +15,8 @@ a001_015:
     wait 0x1E
     clearsomeflag BATTLER_ATTACKER
     abilitycheck 0x1, BATTLER_ATTACKER, ABILITY_STEADFAST, _0070
-    changevar VAR_OP_SET, VAR_05, 0x3
-    changevar VAR_OP_SET, VAR_34, 0x11
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_TYPE, 0x3
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x11
     changevar2 VAR_OP_SET, VAR_ACTIVE_BATTLER, VAR_ATTACKER
     gotosubscript 12
 _0070:

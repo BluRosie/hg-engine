@@ -12,14 +12,14 @@
 a001_278:
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_85, 0x1, _005C
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_86, 0x0, _0100
-    if IF_EQUAL, VAR_69, 0x1, _00A0
+    if IF_EQUAL, VAR_CLIENT_WORKING_COUNT, 0x1, _00A0
     setstatus2effect BATTLER_ATTACKER, 0xA
     waitmessage
     goto _00A0
 _005C:
     setstatus2effect BATTLER_ATTACKER, 0xA
     waitmessage
-    if IF_EQUAL, VAR_69, 0x1, _00A0
+    if IF_EQUAL, VAR_CLIENT_WORKING_COUNT, 0x1, _00A0
     printmessage 0x4E6, 0xF, 0x1, 0x1, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

@@ -14,15 +14,15 @@ a001_150:
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STAT_STAGE_DEFENSE, 0xC, _00BC
 _0030:
     gotosubscript 76
-    changevar VAR_OP_SETMASK, VAR_06, 0x200000
-    changevar VAR_OP_SETMASK, VAR_06, 0x4001
-    changevar VAR_OP_SETMASK, VAR_60, 0x80
-    changevar VAR_OP_SET, VAR_34, 0xF
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x200000
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4001
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0xF
     gotosubscript 12
-    changevar VAR_OP_SET, VAR_34, 0x10
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x10
     gotosubscript 12
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x2
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
     endscript
 _00BC:
     printattackmessage
@@ -31,7 +31,7 @@ _00BC:
     printmessage 0x300, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 
 .close

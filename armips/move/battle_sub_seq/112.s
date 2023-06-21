@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_112", 0
 
 a001_112:
-    if IF_MASK, VAR_10, 0x1FD849, _003C
+    if IF_MASK, VAR_MOVE_STATUS, 0x1FD849, _003C
     printattackmessage
     waitmessage
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_HEAL_BLOCK_COUNTER, 0x0, _0040

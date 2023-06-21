@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_051", 0
 
 a001_051:
-    changevar VAR_OP_SET, VAR_05, 0x4
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_TYPE, 0x4
     gotosubscript 37
     ifmonstat IF_NOTMASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_2, 0x7, _004C
     printmessage 0x152, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"

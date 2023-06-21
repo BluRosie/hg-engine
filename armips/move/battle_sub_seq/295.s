@@ -14,7 +14,7 @@ a001_295:
     playanimation BATTLER_xFF
     waitmessage
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
-    changevar VAR_OP_CLEARMASK, VAR_06, 0x4000
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     printmessage 0x4F3, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

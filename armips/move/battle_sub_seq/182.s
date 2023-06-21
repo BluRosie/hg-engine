@@ -17,7 +17,7 @@ a001_182:
     setstatus2effect BATTLER_DEFENDER, 0xC
     waitmessage
     changemondatabyvalue VAR_OP_ADD, BATTLER_DEFENDER, 0x15, 0x1
-    changevar VAR_OP_SET, VAR_22, 0x3
+    changevar VAR_OP_SET, VAR_MESSAGE_WORK, 0x3
     printmessage 0x26E, 0x27, 0x2, 0x2, 0xFF, "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E

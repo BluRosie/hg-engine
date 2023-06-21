@@ -22,7 +22,7 @@ a001_171:
 _00A8:
     gotosubscript 76
 _00B0:
-    changevar VAR_OP_SET, VAR_34, 0x1C
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x1C
     gotosubscript 12
     checksidecondition BATTLER_DEFENDER, 0x0, 0x0, _0108
     checksidecondition BATTLER_DEFENDER, 0x2, 0x0, _0108

@@ -15,7 +15,7 @@ a001_128:
     ifmonstat IF_NOTMASK, BATTLER_DEFENDER, MON_DATA_STATUS_2, 0x7, _0074
     goto _0080
 _0044:
-    changevar VAR_OP_SET, VAR_34, 0x12
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x12
     gotosubscript 12
     ifmonstat IF_MASK, BATTLER_DEFENDER, MON_DATA_STATUS_2, 0x7, _007C
 _0074:
@@ -23,7 +23,7 @@ _0074:
 _007C:
     endscript
 _0080:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

@@ -16,12 +16,12 @@ a001_036:
     wait 0x1E
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x1
     changemondatabyvalue VAR_OP_CLEARMASK, BATTLER_ATTACKER, 0x35, 0x1000
-    changevar VAR_OP_SETMASK, VAR_06, 0x200
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x200
     if IF_EQUAL, VAR_DAMAGE, 0x0, _0080
     endscript
 _0080:
     gotosubscript 75
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 _009C:
     printmessage 0x14C, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN"

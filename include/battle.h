@@ -614,16 +614,15 @@ typedef struct {
 
 struct __attribute__((packed)) field_condition_count
 {
-    u32     weather_count;
 
-    u8      miraiyochi_count[CLIENT_MAX];
-    u8      negaigoto_count[CLIENT_MAX];
+/*0x00*/    u32     weather_count;
+/*0x04*/    u8      future_prediction_count[CLIENT_MAX];
+/*0x08*/    u8      wish_count[CLIENT_MAX];
+/*0x0C*/    u16     future_prediction_wazano[CLIENT_MAX];
+/*0x14*/    int     future_prediction_client_no[CLIENT_MAX];
+/*0x24*/    s32     future_prediction_damage[CLIENT_MAX];
+/*0x34*/    u8      wish_sel_mons[CLIENT_MAX];
 
-    u16     miraiyochi_wazano[CLIENT_MAX];
-    int     miraiyochi_client_no[CLIENT_MAX];
-    s32     miraiyochi_damage[CLIENT_MAX];
-
-    u8      negaigoto_sel_mons[CLIENT_MAX];
 };
 
 struct __attribute__((packed)) tcb_skill_intp_work

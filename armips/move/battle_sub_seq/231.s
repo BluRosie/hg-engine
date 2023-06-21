@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_231", 0
 
 a001_231:
-    if IF_EQUAL, VAR_43, 0x1, _009C
+    if IF_EQUAL, VAR_TEMP_WORK, 0x1, _009C
     if IF_MASK, VAR_BATTLE_TYPE, 0x1, _005C
     changevar VAR_OP_SET, VAR_ATTACKER, 0x0
     printmessage 0xB, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -59,7 +59,7 @@ _0114:
     hpgaugeslidein BATTLER_REPLACE
     waitmessage
     gotosubscript 99
-    if IF_NOTMASK, VAR_06, 0xF000000, _0180
+    if IF_NOTMASK, VAR_SERVER_STATUS1, 0xF000000, _0180
     gotosubscript 6
 _0180:
     jumpifcantswitch _00A4

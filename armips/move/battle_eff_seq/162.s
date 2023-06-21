@@ -14,15 +14,15 @@ a030_162:
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x45, VAR_HP_TEMP
     changevar VAR_OP_SUB, VAR_HP_TEMP, 0x3
     changevar VAR_OP_MUL, VAR_HP_TEMP, 0xFFFFFFFF
-    changevar VAR_OP_SET, VAR_09, 0x1
-    changevar2 VAR_OP_LSH, VAR_09, VAR_HP_TEMP
+    changevar VAR_OP_SET, VAR_CALCULATION_WORK, 0x1
+    changevar2 VAR_OP_LSH, VAR_CALCULATION_WORK, VAR_HP_TEMP
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
     damagediv2 32, 9
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x45, 0x0
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x46, VAR_09
-    changemondatabyvar VAR_OP_SUB_TO_ZERO, BATTLER_ATTACKER, 0x14, VAR_09
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x47, VAR_09
-    changemondatabyvar VAR_OP_SUB_TO_ZERO, BATTLER_ATTACKER, 0x17, VAR_09
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x46, VAR_CALCULATION_WORK
+    changemondatabyvar VAR_OP_SUB_TO_ZERO, BATTLER_ATTACKER, 0x14, VAR_CALCULATION_WORK
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x47, VAR_CALCULATION_WORK
+    changemondatabyvar VAR_OP_SUB_TO_ZERO, BATTLER_ATTACKER, 0x17, VAR_CALCULATION_WORK
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x46, 0x0
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x47, 0x0
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
@@ -35,7 +35,7 @@ _013C:
     printmessage 0x32F, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 
 .close

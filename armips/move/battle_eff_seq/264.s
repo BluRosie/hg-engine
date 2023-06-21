@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_264", 0
 
 a030_264:
-    changevar VAR_OP_SETMASK, VAR_10, 0x2000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x2000
     endscript
 
 .close

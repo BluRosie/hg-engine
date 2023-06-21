@@ -11,16 +11,16 @@
 
 a001_132:
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_TAUNT_COUNTER, 0x0, _0074
-    if IF_MASK, VAR_10, 0x10001, _0074
+    if IF_MASK, VAR_MOVE_STATUS, 0x10001, _0074
     gotosubscript 76
     random 2, 3
-    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x40, VAR_09
+    changemondatabyvar VAR_OP_SET, BATTLER_DEFENDER, 0x40, VAR_CALCULATION_WORK
     printmessage 0x1F4, 0x2, 0x2, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
     endscript
 _0074:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

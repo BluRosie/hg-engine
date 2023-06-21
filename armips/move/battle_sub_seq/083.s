@@ -18,7 +18,7 @@ a001_083:
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x2F, VAR_HP_TEMP
     changevar VAR_OP_MUL, VAR_HP_TEMP, 0xFFFFFFFF
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
     dofaintanimation
     waitmessage
@@ -35,9 +35,9 @@ _010C:
     waitmessage
     wait 0x1E
 _0134:
-    changevar VAR_OP_SETMASK, VAR_60, 0x1
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x1
     gotosubscript 6
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x1
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x1
     endscript
 
 .close

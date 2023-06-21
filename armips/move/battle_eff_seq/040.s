@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_040", 0
 
 a030_040:
-    changevar VAR_OP_SETMASK, VAR_06, 0x800
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x800
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_DEFENDER, 0x2F, VAR_DAMAGE
     changevar VAR_OP_MUL, VAR_DAMAGE, 0xFFFFFFFF
     damagediv 14, 2

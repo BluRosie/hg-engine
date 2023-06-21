@@ -14,9 +14,9 @@ a001_136:
     waitmessage
     wait 0x1E
     ifmonstat IF_NOTEQUAL, BATTLER_xFF, MON_DATA_HEAL_BLOCK_COUNTER, 0x0, _00C4
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_09
-    ifmonstat2 IF_EQUAL, BATTLER_xFF, VAR_47, 0x9, _009C
-    changevar VAR_OP_SETMASK, VAR_06, 0x40
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_CALCULATION_WORK
+    ifmonstat2 IF_EQUAL, BATTLER_xFF, VAR_ATTACKER_STATUS, 0x9, _009C
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     setstatus2effect BATTLER_xFF, 0xE
     waitmessage
     gotosubscript 2

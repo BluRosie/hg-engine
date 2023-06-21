@@ -25,7 +25,7 @@ a030_233:
     removeitem BATTLER_ATTACKER
     endscript
 _008C:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

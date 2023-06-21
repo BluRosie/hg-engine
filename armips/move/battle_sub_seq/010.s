@@ -27,7 +27,7 @@ _0008:
     hpgaugeslidein BATTLER_REPLACE
     waitmessage
     gotosubscript 99
-    if IF_NOTMASK, VAR_06, 0xF000000, _007C
+    if IF_NOTMASK, VAR_SERVER_STATUS1, 0xF000000, _007C
     gotosubscript 6
 _007C:
     jumpifcantswitch _0008

@@ -15,32 +15,32 @@ a001_124:
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_STOCKPILE_COUNT, 0x3, _0138
     playanimation BATTLER_ATTACKER
     waitmessage
-    changevar VAR_OP_SETMASK, VAR_06, 0x4000
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4000
     changemondatabyvalue VAR_OP_ADD, BATTLER_ATTACKER, 0x45, 0x1
-    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x45, VAR_22
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x45, VAR_MESSAGE_WORK
     printmessage 0x13D, 0x11, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_60, 0x80
-    changevar VAR_OP_SET, VAR_34, 0x10
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x10
     gotosubscript 12
-    if IF_MASK, VAR_06, 0x20000, _00D4
+    if IF_MASK, VAR_SERVER_STATUS1, 0x20000, _00D4
     changemondatabyvalue VAR_OP_ADD, BATTLER_ATTACKER, 0x46, 0x1
 _00D4:
-    changevar VAR_OP_SET, VAR_34, 0x13
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 0x13
     gotosubscript 12
-    if IF_MASK, VAR_06, 0x20000, _0114
+    if IF_MASK, VAR_SERVER_STATUS1, 0x20000, _0114
     changemondatabyvalue VAR_OP_ADD, BATTLER_ATTACKER, 0x47, 0x1
 _0114:
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x2
-    changevar VAR_OP_CLEARMASK, VAR_60, 0x80
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
     endscript
 _0138:
     wait 0x1E
     printmessage 0x140, 0x11, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_10, 0x80000000
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
     endscript
 
 .close

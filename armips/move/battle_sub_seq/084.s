@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_084", 0
 
 a001_084:
-    if IF_MASK, VAR_10, 0x10001, _004C
+    if IF_MASK, VAR_MOVE_STATUS, 0x10001, _004C
     tryspite _004C
     gotosubscript 76
     printmessage 0x18E, 0x23, 0x2, 0xFF, 0xFF, "NaN", "NaN", "NaN"
@@ -18,7 +18,7 @@ a001_084:
     wait 0x1E
     endscript
 _004C:
-    changevar VAR_OP_SETMASK, VAR_10, 0x40
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close
