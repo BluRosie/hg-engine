@@ -41,5 +41,4 @@ FAST_TEXT_PRINTING equ 0
 REUSABLE_TMS equ 1
 
 //DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-DELETABLE_HMS equ 1
-
+DELETABLE_HMS equ 0

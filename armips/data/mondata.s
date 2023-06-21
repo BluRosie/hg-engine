@@ -16265,7 +16265,7 @@ mondata SPECIES_BINACLE, "Binacle"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BINACLE_TM_DATA_0, SPECIES_BINACLE_TM_DATA_1, SPECIES_BINACLE_TM_DATA_2, SPECIES_BINACLE_TM_DATA_3
-    mondexentry SPECIES_BINACLE, "If the two don’t work well together, both their\noffense and defense fall apart. Without good\nteamwork, they won’t survive."
+    mondexentry SPECIES_BINACLE, "ITwo Binacle live together on one rock.\nWhen they fight, one of them will move\nto a different rock."
     mondexclassification SPECIES_BINACLE, "Two-Handed Pokémon"
     mondexheight SPECIES_BINACLE, "1’08”"
     mondexweight SPECIES_BINACLE, "68.3 lbs."
@@ -16287,7 +16287,7 @@ mondata SPECIES_BARBARACLE, "Barbaracle"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_BARBARACLE_TM_DATA_0, SPECIES_BARBARACLE_TM_DATA_1, SPECIES_BARBARACLE_TM_DATA_2, SPECIES_BARBARACLE_TM_DATA_3
-    mondexentry SPECIES_BARBARACLE, "It wields the most compelling hypnotic\npowers of any Pokémon, and it forces\nothers to do anything."
+    mondexentry SPECIES_BARBARACLE, "When they evolve, two Binacle multiply\ninto seven. They fight with the power\nof seven Binacle."
     mondexclassification SPECIES_BARBARACLE, "Collective Pokémon"
     mondexheight SPECIES_BARBARACLE, "4’03”"
     mondexweight SPECIES_BARBARACLE, "211.6 lbs."
@@ -16331,7 +16331,7 @@ mondata SPECIES_DRAGALGE, "Dragalge"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_DRAGALGE_TM_DATA_0, SPECIES_DRAGALGE_TM_DATA_1, SPECIES_DRAGALGE_TM_DATA_2, SPECIES_DRAGALGE_TM_DATA_3
-    mondexentry SPECIES_DRAGALGE, "Dragalge generates dragon energy by sticking\nthe plume on its head out above the ocean’s\nsurface and bathing it in sunlight."
+    mondexentry SPECIES_DRAGALGE, "Tales are told of ships that wander\ninto seas where Dragalge live, never to\nreturn."
     mondexclassification SPECIES_DRAGALGE, "Mock Kelp Pokémon"
     mondexheight SPECIES_DRAGALGE, "5’11”"
     mondexweight SPECIES_DRAGALGE, "179.7 lbs."
@@ -16463,7 +16463,7 @@ mondata SPECIES_TYRANTRUM, "Tyrantrum"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     tmdata SPECIES_TYRANTRUM_TM_DATA_0, SPECIES_TYRANTRUM_TM_DATA_1, SPECIES_TYRANTRUM_TM_DATA_2, SPECIES_TYRANTRUM_TM_DATA_3
-    mondexentry SPECIES_TYRANTRUM, "Complete restoration is impossible, allowing\nroom for theories that its entire body was\nonce covered in a feather-like coat."
+    mondexentry SPECIES_TYRANTRUM, "Nothing could stop this Pokémon 100\nmillion years ago, so it behaved like a\nking."
     mondexclassification SPECIES_TYRANTRUM, "Despot Pokémon"
     mondexheight SPECIES_TYRANTRUM, "8’02”"
     mondexweight SPECIES_TYRANTRUM, "595.2 lbs."
@@ -16485,7 +16485,7 @@ mondata SPECIES_AMAURA, "Amaura"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_AMAURA_TM_DATA_0, SPECIES_AMAURA_TM_DATA_1, SPECIES_AMAURA_TM_DATA_2, SPECIES_AMAURA_TM_DATA_3
-    mondexentry SPECIES_AMAURA, "Its immense jaws have enough destructive\nforce to chew up an automobile. It lived\n100 million years ago."
+    mondexentry SPECIES_AMAURA, "This calm Pokémon lived in a cold land\nwhere there were no violent predators\nlike Tyrantrum."
     mondexclassification SPECIES_AMAURA, "Tundra Pokémon"
     mondexheight SPECIES_AMAURA, "4’03”"
     mondexweight SPECIES_AMAURA, "55.6 lbs."
@@ -17783,7 +17783,7 @@ mondata SPECIES_SALANDIT, "Salandit"
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     tmdata SPECIES_SALANDIT_TM_DATA_0, SPECIES_SALANDIT_TM_DATA_1, SPECIES_SALANDIT_TM_DATA_2, SPECIES_SALANDIT_TM_DATA_3
-    mondexentry SPECIES_SALANDIT, "This sneaky Pokémon will slink behind its prey\nand immobilize it with poisonous gas before the\nprey even realizes Salandit is there."
+    mondexentry SPECIES_SALANDIT, "It burns its bodily fluids to create a\npoisonous gas. It weakens enemies and\nsends them reeling with it."
     mondexclassification SPECIES_SALANDIT, "Toxic Lizard Pokémon"
     mondexheight SPECIES_SALANDIT, "1’12”"
     mondexweight SPECIES_SALANDIT, "10.6 lbs."
@@ -19741,7 +19741,7 @@ mondata SPECIES_ARROKUDA, "Arrokuda"
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     tmdata SPECIES_ARROKUDA_TM_DATA_0, SPECIES_ARROKUDA_TM_DATA_1, SPECIES_ARROKUDA_TM_DATA_2, SPECIES_ARROKUDA_TM_DATA_3
-    mondexentry SPECIES_ARROKUDA, "nswallows it up."
+    mondexentry SPECIES_ARROKUDA, "It becomes extremely sluggish after\neating its fill. That’s when Cramorant\nswallows it up."
     mondexclassification SPECIES_ARROKUDA, "Rush Pokémon"
     mondexheight SPECIES_ARROKUDA, "1’08”"
     mondexweight SPECIES_ARROKUDA, "2.2 lbs."
@@ -20599,7 +20599,7 @@ mondata SPECIES_DREEPY, "Dreepy"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DREEPY_TM_DATA_0, SPECIES_DREEPY_TM_DATA_1, SPECIES_DREEPY_TM_DATA_2, SPECIES_DREEPY_TM_DATA_3
-    mondexentry SPECIES_DREEPY, "After being reborn as a ghost Pokémon,\nDreepy wanders the areas it used to inhabit\nback when it was alive in prehistoric seas."
+    mondexentry SPECIES_DREEPY, "After being reborn as a ghost, Dreepy\nwanders the areas it used to inhabit back\nwhen it was alive in prehistoric seas."
     mondexclassification SPECIES_DREEPY, "Lingering Pokémon"
     mondexheight SPECIES_DREEPY, "1’08”"
     mondexweight SPECIES_DREEPY, "4.4 lbs."
@@ -20621,7 +20621,7 @@ mondata SPECIES_DRAKLOAK, "Drakloak"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DRAKLOAK_TM_DATA_0, SPECIES_DRAKLOAK_TM_DATA_1, SPECIES_DRAKLOAK_TM_DATA_2, SPECIES_DRAKLOAK_TM_DATA_3
-    mondexentry SPECIES_DRAKLOAK, "Without a Dreepy to place on its head and\ncare for, it gets so uneasy it’ll try to substitute\nany Pokémon it finds for the missing Dreepy."
+    mondexentry SPECIES_DRAKLOAK, "It’s capable of flying faster than 120\nmph. It battles alongside Dreepy and\ndotes on them until they evolve."
     mondexclassification SPECIES_DRAKLOAK, "Caretaker Pokémon"
     mondexheight SPECIES_DRAKLOAK, "4’07”"
     mondexweight SPECIES_DRAKLOAK, "24.3 lbs."
@@ -20643,7 +20643,7 @@ mondata SPECIES_DRAGAPULT, "Dragapult"
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     tmdata SPECIES_DRAGAPULT_TM_DATA_0, SPECIES_DRAGAPULT_TM_DATA_1, SPECIES_DRAGAPULT_TM_DATA_2, SPECIES_DRAGAPULT_TM_DATA_3
-    mondexentry SPECIES_DRAGAPULT, "inside its horns\neagerly look forward to being launched\nout at Mach speeds."
+    mondexentry SPECIES_DRAGAPULT, "Apparently the Dreepy inside its horns\neagerly look forward to being launched\nout at Mach speeds."
     mondexclassification SPECIES_DRAGAPULT, "Stealth Pokémon"
     mondexheight SPECIES_DRAGAPULT, "9’10”"
     mondexweight SPECIES_DRAGAPULT, "110.2 lbs."
@@ -20665,7 +20665,7 @@ mondata SPECIES_ZACIAN, "Zacian"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     tmdata SPECIES_ZACIAN_TM_DATA_0, SPECIES_ZACIAN_TM_DATA_1, SPECIES_ZACIAN_TM_DATA_2, SPECIES_ZACIAN_TM_DATA_3
-    mondexentry SPECIES_ZACIAN, "It  has slumbered for many years. Some\nsay it is Zamazenta’s elder sister,\nothers say the two are rivals."
+    mondexentry SPECIES_ZACIAN, "It has slumbered for many years. Some\nsay it is Zamazenta’s elder sister,\nothers say the two are rivals."
     mondexclassification SPECIES_ZACIAN, "Warrior Pokémon"
     mondexheight SPECIES_ZACIAN, "9’02”"
     mondexweight SPECIES_ZACIAN, "242.5 lbs."
