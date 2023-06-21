@@ -205,6 +205,7 @@
 #define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
 #define SERVER_STATUS_FLAG_TYPE_FLAT (0x00000800)
 #define SERVER_STATUS_FLAG_TYPE_NONE (0x00008000)
+#define SERVER_STATUS_FLAG_BEAT_UP_USED (0x00010000)
 #define SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
 #define SERVER_STATUS_FLAG_NO_ANIMATIONS (0x00004000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
@@ -828,10 +829,10 @@ struct __attribute__((packed)) BattleStruct
     /*0x2170*/ u32 add_status_flag_direct;
     /*0x2174*/ u32 add_status_flag_indirect;
     /*0x2178*/ u32 add_status_flag_tokusei;
-    /*0x217C*/ u8 renzoku_count;
-    /*0x217D*/ u8 renzoku_count_temp;
+    /*0x217C*/ u8 multi_hit_count;
+    /*0x217D*/ u8 multi_hit_count_temp;
     /*0x217E*/ u8 client_loop;
-    /*0x217F*/ u8 hukurodataki_count;
+    /*0x217F*/ u8 beat_up_count;
 
     /*0x2180*/ u32 loop_flag;
     /*0x2184*/ u32 waza_out_check_on_off;
@@ -1250,7 +1251,8 @@ BOOL __attribute__((long_call)) HeldItemHealStatusCheck(void *bw, struct BattleS
 int __attribute__((long_call)) TypeCheckCalc(struct BattleStruct *sp, u32 attack_client, u32 typeModifier, int damage, int base_power, int *flag);
 BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32 move_no);
 BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
-
+int __attribute__((long_call)) GetPartySize(void *bw, int client_no);
+int __attribute__((long_call)) GetPartyMon(void *bw, int client_no, int mon_index);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);
