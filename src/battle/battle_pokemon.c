@@ -970,6 +970,10 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
     {
         typeLocal = TYPE_NORMAL;
     }
+    else if ((ability == ABILITY_LIQUID_VOICE) && (SoundproofMoveList[i] == sp->current_move_index)))
+    {
+        typeLocal = TYPE_WATER;
+    }
     else if (sp->moveTbl[move].type == TYPE_NORMAL)
     {
         if (ability == ABILITY_PIXILATE)
