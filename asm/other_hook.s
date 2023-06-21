@@ -369,8 +369,12 @@ gTriggerDouble:
 .word 0
 
 
+// new method:  from the parent func
 .global TryTriggerWildDoubleBattle
 TryTriggerWildDoubleBattle:
+
+mov r8, r1
+
 ldr r2, =0x020272B0 | 1 //SaveBlock2_get
 bl bx_r2
 ldr r2, =0x02074904 | 1 //SavArray_PlayerParty_get
@@ -390,22 +394,34 @@ blt doubleWildBattle
 
 singleBattle:
 mov r1, #0
-b skipDoubleWildBattle
+ldr r0, =gTriggerDouble
+str r1, [r0]
+
+mov r1, r8
+
+mov r0, r5 // fsys
+add r2, sp, #0x20 // *battleWork
+ldr r3, =0x02248244 | 1
+bl bx_r3
+ldr r2, =0x02246E22 | 1
+bx r2
 
 doubleWildBattle:
 mov r1, #2
-
-skipDoubleWildBattle:
 ldr r0, =gTriggerDouble
 str r1, [r0]
 mov r0, #11
-ldr r2, =0x020518D8 | 1
+ldr r2, =0x020518D8 | 1 // BattleSetup_New
 bl bx_r2
-ldr r2, =0x0224828C | 1
+str r0, [sp, #0x20]
+ldr r2, =0x02246E22 | 1
 // fallthrough to bx r2
 
 bx_r2:
 bx r2
+
+bx_r3:
+bx r3
 
 .pool
 
