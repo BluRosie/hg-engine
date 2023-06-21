@@ -1222,7 +1222,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 
     newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
     newBaseDamage /= 10;
-    sp->damage_power = sp->moveTbl[sp->current_move_index].power;
+    sp->damage_power = 5;
     sp->damage_power += newBaseDamage;
 
     sp->beat_up_count++;
