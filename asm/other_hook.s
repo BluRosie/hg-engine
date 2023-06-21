@@ -385,7 +385,7 @@ bl bx_r2
 
 mov r1, #100
 bl __aeabi_uidiv // returns div in r0
-cmp r1, #100
+cmp r1, #10
 blt doubleWildBattle
 
 singleBattle:
