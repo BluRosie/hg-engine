@@ -544,57 +544,281 @@
 #define ITEM_BLUE_ORB        535
 #define ITEM_ENIGMA_STONE    536
 
-#define ITEM_MEGA_STONES_START 537
+//Mega Stones
+#define ITEM_VENUSAURITE        equ 537 
+#define ITEM_CHARIZARDITE_X     equ 538 
+#define ITEM_CHARIZARDITE_Y     equ 539 
+#define ITEM_BLASTOISINITE      equ 540 
+#define ITEM_BEEDRILLITE        equ 541 
+#define ITEM_PIDGEOTITE         equ 542 
+#define ITEM_ALAKAZITE          equ 543 
+#define ITEM_SLOWBRONITE        equ 544 
+#define ITEM_GENGARITE          equ 545 
+#define ITEM_KANGASKHANITE      equ 546 
+#define ITEM_PINSIRITE          equ 547 
+#define ITEM_GYARADOSITE        equ 548 
+#define ITEM_AERODACTYLITE      equ 549 
+#define ITEM_MEWTWONITE_X       equ 550
+#define ITEM_MEWTWONITE_Y       equ 551
+#define ITEM_AMPHAROSITE        equ 552
+#define ITEM_STEELIXITE         equ 553
+#define ITEM_SCIZORITE          equ 554
+#define ITEM_HERACRONITE        equ 555
+#define ITEM_HOUNDOOMINITE      equ 556
+#define ITEM_TYRANITARITE       equ 557 
+#define ITEM_SCEPTILITE         equ 558 
+#define ITEM_BLAZIKENITE        equ 559 
+#define ITEM_SWAMPERTITE        equ 560 
+#define ITEM_GARDEVOIRITE       equ 561 
+#define ITEM_SABLENITE          equ 562 
+#define ITEM_MAWILITE           equ 563 
+#define ITEM_AGGRONITE          equ 564 
+#define ITEM_MEDICHAMITE        equ 565
+#define ITEM_MANECTITE          equ 566 
+#define ITEM_SHARPEDONITE       equ 567 
+#define ITEM_CAMERUPTITE        equ 568
+#define ITEM_ALTARIANITE        equ 569 
+#define ITEM_BANETTITE          equ 570 
+#define ITEM_ABSOLITE           equ 571 
+#define ITEM_GLALITITE          equ 572 
+#define ITEM_SALAMENCITE        equ 573 
+#define ITEM_METAGROSSITE       equ 574 
+#define ITEM_LATIASITE          equ 575
+#define ITEM_LATIOSITE          equ 576
+#define ITEM_LOPUNNITE          equ 577
+#define ITEM_GARCHOMPITE        equ 578
+#define ITEM_LUCARIONITE        equ 579 
+#define ITEM_ABOMASITE          equ 580
+#define ITEM_GALLADITE          equ 581
+#define ITEM_AUDINITE           equ 582
+#define ITEM_DIANCITE           equ 583
 
-#define IS_ITEM_MEGA_STONE(item) (item >= ITEM_MEGA_STONES_START && item <= ITEM_DIANCITE)
+#define ITEM_PIXIE_PLATE        equ 584
 
-#define ITEM_VENUSAURITE (ITEM_MEGA_STONES_START)
-#define ITEM_CHARIZARDITE_X (ITEM_MEGA_STONES_START + 1)
-#define ITEM_CHARIZARDITE_Y (ITEM_MEGA_STONES_START + 2)
-#define ITEM_BLASTOISINITE  (ITEM_MEGA_STONES_START + 3)
-#define ITEM_BEEDRILLITE (ITEM_MEGA_STONES_START + 4)
-#define ITEM_PIDGEOTITE (ITEM_MEGA_STONES_START + 5)
-#define ITEM_ALAKAZITE (ITEM_MEGA_STONES_START + 6)
-#define ITEM_SLOWBRONITE (ITEM_MEGA_STONES_START + 7)
-#define ITEM_GENGARITE (ITEM_MEGA_STONES_START + 8)
-#define ITEM_KANGASKHANITE (ITEM_MEGA_STONES_START + 9)
-#define ITEM_PINSIRITE (ITEM_MEGA_STONES_START + 10)
-#define ITEM_GYARADOSITE (ITEM_MEGA_STONES_START + 11)
-#define ITEM_AERODACTYLITE (ITEM_MEGA_STONES_START + 12)
-#define ITEM_MEWTWONITE_X (ITEM_MEGA_STONES_START + 13)
-#define ITEM_MEWTWONITE_Y (ITEM_MEGA_STONES_START + 14)
-#define ITEM_AMPHAROSITE (ITEM_MEGA_STONES_START + 15)
-#define ITEM_STEELIXITE (ITEM_MEGA_STONES_START + 16)
-#define ITEM_SCIZORITE (ITEM_MEGA_STONES_START + 17)
-#define ITEM_HERACRONITE (ITEM_MEGA_STONES_START + 18)
-#define ITEM_HOUNDOOMINITE (ITEM_MEGA_STONES_START + 19)
-#define ITEM_TYRANITARITE (ITEM_MEGA_STONES_START + 20)
-#define ITEM_SCEPTILITE (ITEM_MEGA_STONES_START + 21)
-#define ITEM_BLAZIKENITE (ITEM_MEGA_STONES_START + 22)
-#define ITEM_SWAMPERTITE (ITEM_MEGA_STONES_START + 23)
-#define ITEM_GARDEVOIRITE (ITEM_MEGA_STONES_START + 24)
-#define ITEM_SABLENITE (ITEM_MEGA_STONES_START + 25)
-#define ITEM_MAWILITE (ITEM_MEGA_STONES_START + 26)
-#define ITEM_AGGRONITE (ITEM_MEGA_STONES_START + 27)
-#define ITEM_MEDICHAMITE (ITEM_MEGA_STONES_START + 28)
-#define ITEM_MANECTITE (ITEM_MEGA_STONES_START + 29)
-#define ITEM_SHARPEDONITE (ITEM_MEGA_STONES_START + 30)
-#define ITEM_CAMERUPTITE (ITEM_MEGA_STONES_START + 31)
-#define ITEM_ALTARIANITE (ITEM_MEGA_STONES_START + 32)
-#define ITEM_BANETTITE (ITEM_MEGA_STONES_START + 33)
-#define ITEM_ABSOLITE (ITEM_MEGA_STONES_START + 34)
-#define ITEM_GLALITITE (ITEM_MEGA_STONES_START + 35)
-#define ITEM_SALAMENCITE (ITEM_MEGA_STONES_START + 36)
-#define ITEM_METAGROSSITE (ITEM_MEGA_STONES_START + 37)
-#define ITEM_LATIASITE (ITEM_MEGA_STONES_START + 38)
-#define ITEM_LATIOSITE (ITEM_MEGA_STONES_START + 39)
-#define ITEM_LOPUNNITE (ITEM_MEGA_STONES_START + 40)
-#define ITEM_GARCHOMPITE (ITEM_MEGA_STONES_START + 41)
-#define ITEM_LUCARIONITE (ITEM_MEGA_STONES_START + 42)
-#define ITEM_ABOMASITE (ITEM_MEGA_STONES_START + 43)
-#define ITEM_GALLADITE (ITEM_MEGA_STONES_START + 44)
-#define ITEM_AUDINITE (ITEM_MEGA_STONES_START + 45)
-#define ITEM_DIANCITE (ITEM_MEGA_STONES_START + 46)
+//Random Normal Items
+
+//Generation V
+#define ITEM_ABSORB_BULB        equ 585
+#define ITEM_AIR_BALLOON        equ 586
+#define ITEM_BALM_MUSHROOM      equ 587
+#define ITEM_BIG_NUGGET         equ 588
+#define ITEM_BINDING_BAND       equ 589
+#define ITEM_CASTELIACONE       equ 590
+#define ITEM_CELL_BATTERY       equ 591
+#define ITEM_COMET_SHARD        equ 592
+#define ITEM_DREAM_BALL         equ 593
+#define ITEM_EJECT_BUTTON       equ 594
+#define ITEM_EVIOLITE           equ 595
+#define ITEM_FLOAT_STONE        equ 596
+#define ITEM_PEARL_STRING       equ 597
+#define ITEM_PRISM_SCALE        equ 598
+#define ITEM_RED_CARD           equ 599
+#define ITEM_RING_TARGET        equ 600
+#define ITEM_ROCKY_HELMET       equ 601
+#define ITEM_SWEET_HEART        equ 602
+
+//Generation VI
+#define ITEM_ABILITY_CAPSULE    equ 603
+#define ITEM_ASSAULT_VEST       equ 604
+#define ITEM_LUMINOUS_MOSS      equ 605
+#define ITEM_LUMIOSE_GALETTE    equ 606
+#define ITEM_SACHET             equ 607
+#define ITEM_SAFETY_GOGGLES     equ 608
+#define ITEM_SHALOUR_SABLE      equ 609
+#define ITEM_SNOWBALL	        equ 610
+#define ITEM_WEAKNESS_POLICY    equ 611
+#define ITEM_WHIPPED_DREAM      equ 612
+
+//Generation VII
+#define ITEM_ADRENALINE_ORB     equ 613
+#define ITEM_BEAST_BALL         equ 614
+#define ITEM_BIG_MALASADA       equ 615
+#define ITEM_BOTTLE_CAP         equ 616
+#define ITEM_GOLD_BOTTLE_CAP    equ 617
+#define ITEM_ELECTRIC_SEED      equ 618
+#define ITEM_GRASSY_SEED        equ 619
+#define ITEM_MISTY_SEED         equ 620
+#define ITEM_PSYCHIC_SEED       equ 621
+#define ITEM_ICE_STONE          equ 622
+#define ITEM_PROTECTIVE_PADS    equ 623
+#define ITEM_TERRAIN_EXTENDER   equ 624
+
+//Generation VIII
+#define ITEM_ABILTIY_PATCH      equ 625
+#define ITEM_BLACK_AUGURITE     equ 626
+#define ITEM_BERRY_SWEET        equ 627
+#define ITEM_CLOVER_SWEET       equ 628
+#define ITEM_FLOWER_SWEET       equ 629
+#define ITEM_LOVE_SWEET         equ 630
+#define ITEM_RIBBON_SWEET       equ 631
+#define ITEM_STAR_SWEET         equ 632
+#define ITEM_STRAWBERRY_SWEET   equ 633
+#define ITEM_BLUNDER_POLICY     equ 634
+#define ITEM_CHIPPED_POT        equ 635
+#define ITEM_CRACKED_POT        equ 636
+#define ITEM_EJECT_PACK         equ 637
+#define ITEM_EXP_CANDY_S        equ 638
+#define ITEM_EXP_CANDY_M        equ 639
+#define ITEM_EXP_CANDY_L        equ 640
+#define ITEM_EXP_CANDY_XS       equ 641
+#define ITEM_EXP_CANDY_XL       equ 642
+#define ITEM_GALARICA_CUFF      equ 643
+#define ITEM_GALARICA_TWIG      equ 644
+#define ITEM_GALARICA_WREATH    equ 645
+#define ITEM_HEAVY_DUTY_BOOTS   equ 646
+#define ITEM_LINKING_CORD       equ 647
+#define ITEM_MOOMOO_CHEESE      equ 648
+#define ITEM_PEAT_BLOCK         equ 649
+#define ITEM_ROOM_SERVICE       equ 650
+#define ITEM_RUSTED_SHIELD      equ 651
+#define ITEM_RUSTED_SWORD       equ 652
+#define ITEM_SWEET_APPLE        equ 653
+#define ITEM_TART_APPLE         equ 654
+#define ITEM_THROAT_SPRAY       equ 655 
+#define ITEM_UTILITY_UMBRELLA   equ 656
+
+//Generation IX
+#define ITEM_ABILITY_SHIELD     equ 657
+#define ITEM_AUSPICIOUS_ARMOR   equ 658
+#define ITEM_BOOSTER_ENERGY     equ 659
+#define ITEM_CLEAR_AMULET       equ 660
+#define ITEM_COVERT_CLOAK       equ 661
+#define ITEM_GIMMIGHOUL_COIN    equ 662
+#define ITEM_LEADERS_CREST      equ 663
+#define ITEM_LOADED_DICE        equ 664
+#define ITEM_MALICIOUS_ARMOR    equ 665
+#define ITEM_MIRROR_HERB        equ 666
+#define ITEM_PUNCHING_GLOVE     equ 667
+
+//Berries
+#define ITEM_ROSELI_BERRY       equ 668
+#define ITEM_KEE_BERRY          equ 669
+#define ITEM_MARANGA_BERRY      equ 670
+
+//Drives
+#define ITEM_BURN_DRIVE         equ 671
+#define ITEM_CHILL_DRIVE        equ 672
+#define ITEM_DOUSE_DRIVE        equ 673
+#define ITEM_SHOCK_DRIVE        equ 674
+
+//Fossils
+#define ITEM_COVER_FOSSIL       equ 675
+#define ITEM_PLUME_FOSSIL       equ 676
+#define ITEM_JAW_FOSSIL         equ 677
+#define ITEM_SAIL_FOSSIL        equ 678
+#define ITEM_FOSSILIZED_BIRD    equ 679
+#define ITEM_FOSSILIZED_DINO    equ 680
+#define ITEM_FOSSILIZED_DRAKE   equ 681
+#define ITEM_FOSSILIZED_FISH    equ 682
+
+//Gems
+#define ITEM_NORMAL_GEM         equ 683
+#define ITEM_FIGHTING_GEM       equ 684
+#define ITEM_FLYING_GEM         equ 685
+#define ITEM_POISON_GEM         equ 686
+#define ITEM_GROUND_GEM         equ 687
+#define ITEM_ROCK_GEM           equ 688
+#define ITEM_BUG_GEM            equ 689
+#define ITEM_GHOST_GEM          equ 690
+#define ITEM_STEEL_GEM          equ 691
+#define ITEM_FIRE_GEM           equ 692
+#define ITEM_WATER_GEM          equ 693
+#define ITEM_GRASS_GEM          equ 694
+#define ITEM_ELECTRIC_GEM       equ 695 
+#define ITEM_PSYCHIC_GEM        equ 696
+#define ITEM_ICE_GEM            equ 697
+#define ITEM_DRAGON_GEM         equ 698 
+#define ITEM_DARK_GEM           equ 699
+#define ITEM_FAIRY_GEM          equ 700
+
+//Memories
+#define ITEM_FIGHTING_MEMORY    equ 701
+#define ITEM_FLYING_MEMORY      equ 702
+#define ITEM_POISON_MEMORY      equ 703
+#define ITEM_GROUND_MEMORY      equ 704
+#define ITEM_ROCK_MEMORY        equ 705
+#define ITEM_BUG_MEMORY         equ 706
+#define ITEM_GHOST_MEMORY       equ 707
+#define ITEM_STEEL_MEMORY       equ 708
+#define ITEM_FIRE_MEMORY        equ 709
+#define ITEM_WATER_MEMORY       equ 710
+#define ITEM_GRASS_MEMORY       equ 711
+#define ITEM_ELECTRIC_MEMORY    equ 712
+#define ITEM_PSYCHIC_MEMORY     equ 713
+#define ITEM_ICE_MEMORY         equ 714
+#define ITEM_DRAGON_MEMORY      equ 715
+#define ITEM_DARK_MEMORY        equ 716
+#define ITEM_FAIRY_MEMORY       equ 717
+
+//Nectars
+#define ITEM_RED_NECTAR         equ 718
+#define ITEM_YELLOW_NECTAR      equ 719 
+#define ITEM_PINK_NECTAR        equ 720
+#define ITEM_PURPLE_NECTAR      equ 721
+
+//Plates 
+#define ITEM_BLANK_PLATE        equ 722
+#define ITEM_LEGEND_PLATE       equ 723
+
+//Relic Items
+#define ITEM_RELIC_COPPER       equ 724
+#define ITEM_RELIC_SILVER       equ 725
+#define ITEM_RELIC_GOLD         equ 726
+#define ITEM_RELIC_VASE         equ 727
+#define ITEM_RELIC_BAND         equ 728
+#define ITEM_RELIC_STATUE       equ 729
+#define ITEM_RELIC_CROWN        equ 730
+
+//Wings
+#define ITEM_HEALTH_FEATHER     equ 731
+#define ITEM_MUSCLE_FEATHER     equ 732
+#define ITEM_RESIST_FEATHER     equ 733
+#define ITEM_GENIUS_FEATHER     equ 734
+#define ITEM_CLEVER_FEATHER     equ 735
+#define ITEM_SWIFT_FEATHER      equ 736
+#define ITEM_PRETTY_FEATHER     equ 737
+
+//Key Items
+#define ITEM_GRACIDEA           equ 738
+#define ITEM_DNA_SPLICERS       equ 739
+#define ITEM_REVEAL_GLASS       equ 740
+#define ITEM_PRISON_BOTTLE      equ 741
+#define ITEM_CATCHING_CHARM     equ 742
+#define ITEM_EXP_CHARM          equ 743
+#define ITEM_OVAL_CHARM         equ 744
+#define ITEM_SHINY_CHARM        equ 745
+#define ITEM_RAINBOW_WING       equ 746
+#define ITEM_SILVER_WING        equ 747
+#define ITEM_MAGMA_STONE        equ 748
+#define ITEM_N_SOLARIZER        equ 749
+#define ITEM_N_LUNARIZER        equ 750 
+#define ITEM_POKEMON_BOX_LINK   equ 751
+#define ITEM_ZYGARDE_CUBE       equ 752
+#define ITEM_SUN_FLUTE          equ 753
+#define ITEM_MOON_FLUTE         equ 754
+#define ITEM_LIGHT_STONE        equ 755
+#define ITEM_DARK_STONE         equ 756
+#define ITEM_ICEROOT_CARROT     equ 757
+#define ITEM_SHADEROOT_CARROT   equ 758
+#define ITEM_REINS_OF_UNITY     equ 759
+#define ITEM_WOODEN_CROWN       equ 760
+#define ITEM_ROTOM_CATALOG      equ 761
+#define ITEM_ADAMANT_CRYSTAL    equ 762
+#define ITEM_LUSTROUS_GLOBE     equ 763 
+#define ITEM_GRISEOUS_CORE      equ 764
+#define ITEM_SCROLL_OF_DARKNESS equ 765
+#define ITEM_SCROLL_OF_WATERS   equ 766 
+#define ITEM_MEGA_RING          equ 767
+
+//Lets Go Pikachu
+#define ITEM_AUTOGRAPH          equ 768
+#define ITEM_GOLD_TEETH         equ 769
+#define ITEM_KEY_STONE          equ 770
+#define ITEM_LIFT_KEY           equ 771
+#define ITEM_PEWTER_CRUNCHIES   equ 772
+#define ITEM_SYLPH_SCOPE        equ 773
+#define ITEM_TEA                equ 774 
+
 #define ITEM_PIXIE_PLATE (ITEM_MEGA_STONES_START + 47)
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
