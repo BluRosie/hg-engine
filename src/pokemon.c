@@ -3054,7 +3054,7 @@ u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, vo
         return 1;
     }
     
-    if (wk->dat->item == ITEM_REVEAL_MIRROR
+    if (wk->dat->item == ITEM_REVEAL_GLASS
      && CanUseRevealMirror(pp) == 1)
     {
         if (GetMonData(pp, ID_PARA_form_no, NULL) == 1)
