@@ -33421,7 +33421,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_VENUSAUR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_VENUSAURITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33486,7 +33486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_CHARIZARD_X - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CHARIZARDITE_X - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33551,7 +33551,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_CHARIZARD_Y - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CHARIZARDITE_Y - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33616,7 +33616,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_BLASTOISE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLASTOISINITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33681,7 +33681,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_BEEDRILL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BEEDRILLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33746,7 +33746,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_PIDGEOT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PIDGEOTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33811,7 +33811,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_ALAKAZAM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ALAKAZITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33876,7 +33876,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SLOWBRO - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SLOWBRONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33941,7 +33941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_GENGAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GENGARITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34006,7 +34006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_KANGASKHAN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_KANGASKHANITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34071,7 +34071,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_PINSIR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PINSIRITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34136,7 +34136,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_GYARADOS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GYARADOSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34201,7 +34201,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_AERODACTYL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AERODACTYLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34266,7 +34266,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_MEWTWO_X - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEWTWONITE_X - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34331,7 +34331,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_MEWTWO_Y - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEWTWONITE_Y - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34396,7 +34396,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_AMPHAROS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AMPHAROSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34461,7 +34461,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_STEELIX - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STEELIXITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34526,7 +34526,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SCIZOR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SCIZORITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34591,7 +34591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_HERACROSS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HERACRONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34656,7 +34656,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_HOUNDOOM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HOUNDOOMINITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34721,7 +34721,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_TYRANITAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TYRANITARITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34786,7 +34786,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SCEPTILE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SCEPTILITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34851,7 +34851,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_BLAZIKEN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLAZIKENITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34916,7 +34916,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SWAMPERT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SWAMPERTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34981,7 +34981,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_GARDEVOIR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GARDEVOIRITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35046,7 +35046,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SABLEYE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SABLENITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35111,7 +35111,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_MAWILE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MAWILITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35176,7 +35176,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_AGGRON - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AGGRONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35241,7 +35241,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_MEDICHAM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEDICHAMITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35306,7 +35306,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_MANECTRIC - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MANECTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35371,7 +35371,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SHARPEDO - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SHARPEDONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35436,7 +35436,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_CAMERUPT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CAMERUPTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35501,7 +35501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_ALTARIA - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ALTARIANITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35566,7 +35566,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_BANETTE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BANETTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35631,7 +35631,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_ABSOL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABSOLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35696,7 +35696,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_GLALIE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GLALITITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35761,7 +35761,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_SALAMENCE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SALAMENCITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35826,7 +35826,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_METAGROSS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_METAGROSSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35891,7 +35891,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_LATIAS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LATIASITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35956,7 +35956,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_LATIOS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LATIOSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36021,7 +36021,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_LOPUNNY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOPUNNITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36086,7 +36086,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_GARCHOMP - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GARCHOMPITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36151,7 +36151,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_LUCARIO - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LUCARIONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36216,7 +36216,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_ABOMASNOW - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABOMASITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36281,7 +36281,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_GALLADE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GALLADITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36346,7 +36346,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_AUDINO - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AUDINITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36411,7 +36411,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_STONE_DIANCIE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DIANCITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,

@@ -1239,7 +1239,7 @@ BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
     switch(GetBattleMonItem(sp, client_no))
     {
         case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
-        case ITEM_MEGA_STONE_VENUSAUR ... ITEM_MEGA_STONE_DIANCIE:
+        case ITEM_VENUSAURITE ... ITEM_DIANCITE:
         case ITEM_BLUE_ORB:
         case ITEM_RED_ORB:
         case ITEM_GRISEOUS_ORB:
