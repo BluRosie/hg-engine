@@ -1704,11 +1704,16 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
             }
         }
 
+        if(sp->item_work == ITEM_FRIEND_BALL && i == caughtMons)
+        {
+            u32 friendship = 200;
+            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
+        }
+
         if (criticalCapture) // succeeded the one chance it had
             i = i | 0x80; // change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
 
-        if(sp->item_work = ITEM_FRIEND_BALL) // To catch a 1 shake capture
-            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0),ID_PARA_friend,200);
+        
             
 #else
 
@@ -1721,8 +1726,11 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 #endif
     }
 
-    if(sp->item_work = ITEM_FRIEND_BALL && i >= 4) 
-        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0),ID_PARA_friend,200);
+    if(sp->item_work == ITEM_FRIEND_BALL && i >= 4) 
+    {
+        u32 friendship = 200;
+        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
+    }
 
     return i;
 }
