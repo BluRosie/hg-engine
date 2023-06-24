@@ -36541,12 +36541,10 @@ const ITEMDATA __data[] =
     },
 },
 
-};
-
 [ITEM_ABSORB_BULB - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -36611,7 +36609,7 @@ const ITEMDATA __data[] =
 [ITEM_AIR_BALLOON - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -36936,7 +36934,7 @@ const ITEMDATA __data[] =
 [ITEM_CELL_BATTERY - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -37131,7 +37129,7 @@ const ITEMDATA __data[] =
 [ITEM_EJECT_BUTTON - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_SWITCH_OUT_WHEN_HIT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -37455,9 +37453,9 @@ const ITEMDATA __data[] =
 
 [ITEM_PEARL_STRING - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
+    .price = 20000,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37469,7 +37467,7 @@ const ITEMDATA __data[] =
     .battlePocket = BATTLE_POCKET_NONE,
     .fieldUseFunc = 0,
     .battleUseFunc = 0,
-    .partyUse = 0,
+    .partyUse = 1,
     .partyUseParam = {
         .slp_heal = FALSE,
         .psn_heal = FALSE,
@@ -37520,9 +37518,9 @@ const ITEMDATA __data[] =
 
 [ITEM_PRISM_SCALE - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
+    .price = 2000,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37586,7 +37584,7 @@ const ITEMDATA __data[] =
 [ITEM_RED_CARD - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -37715,8 +37713,8 @@ const ITEMDATA __data[] =
 
 [ITEM_ROCKY_HELMET - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 4000,
+    .holdEffect = HOLD_EFFECT_DAMAGE_ON_CONTACT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -37976,7 +37974,7 @@ const ITEMDATA __data[] =
 [ITEM_LUMINOUS_MOSS - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_SPD_ON_WATER_HIT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -38105,9 +38103,9 @@ const ITEMDATA __data[] =
 
 [ITEM_SACHET - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
-    .holdEffect = 0,
-    .holdEffectParam = 30,
+    .price = 2100,
+    .holdEffect = HOLD_EFFECT_EVOLVE_SPRITZEE,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38366,7 +38364,7 @@ const ITEMDATA __data[] =
 [ITEM_WEAKNESS_POLICY - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -38430,12 +38428,12 @@ const ITEMDATA __data[] =
 
 [ITEM_WHIPPED_DREAM - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 2100,
+    .holdEffect = HOLD_EFFECT_EVOLVE_SWIRLIX,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 80,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -42136,7 +42134,7 @@ const ITEMDATA __data[] =
 [ITEM_KEE_BERRY - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -45581,7 +45579,7 @@ const ITEMDATA __data[] =
 [ITEM_BLANK_PLATE - NUM_UNKNOWN_SLOTS] =
 {
     .price = 1000,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_PLATE_BOOST_NORMAL,
     .holdEffectParam = 20,
     .pluckEffect = 0,
     .flingEffect = 0,
