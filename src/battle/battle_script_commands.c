@@ -1704,7 +1704,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
             }
         }
 
-        if(sp->item_work == ITEM_FRIEND_BALL && i == caughtMons)
+        if(sp->item_work == ITEM_FRIEND_BALL && i == caughtMons) // if amount of succeeded captures is the same as necessary for the type of capture
         {
             u32 friendship = 200;
             SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
@@ -1713,8 +1713,6 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         if (criticalCapture) // succeeded the one chance it had
             i = i | 0x80; // change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
 
-        
-            
 #else
 
         for (i = 0; i < 4; i++)
@@ -1726,7 +1724,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 #endif
     }
 
-    if(sp->item_work == ITEM_FRIEND_BALL && i >= 4) 
+    if(sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
     {
         u32 friendship = 200;
         SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
