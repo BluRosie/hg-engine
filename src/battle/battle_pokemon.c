@@ -988,17 +988,10 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
         {
             typeLocal = TYPE_ELECTRIC;
         }
-    }
-    else if (ability == ABILITY_LIQUID_VOICE)
-    {
-        int i;
-        for (i = 0; i < NELEMS(SoundProofMovesTable); i++)
+        else // needs to be for sure initialized
         {
-            if (SoundProofMoveList[i] == sp->current_move_index)
-              break;
+            typeLocal = TYPE_NORMAL;
         }
-        if (i != NELEMS(SoundProofMovesList))
-          typeLocal = TYPE_WATER;
     }
     else if (type)
     {
@@ -1007,6 +1000,19 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
     else
     {
         typeLocal = sp->moveTbl[move].type;
+    }
+    
+    // so all of that happens, but we still need to handle liquid voice in a way that still lets the type != 0 happen and that the type from the move table is grabbed.  moved down here
+    if (ability == ABILITY_LIQUID_VOICE)
+    {
+        int i;
+        for (i = 0; i < NELEMS(SoundProofMovesTable); i++)
+        {
+            if (SoundProofMoveList[i] == sp->current_move_index)
+                break;
+        }
+        if (i != NELEMS(SoundProofMovesList))
+            typeLocal = TYPE_WATER;
     }
 
     return typeLocal;
