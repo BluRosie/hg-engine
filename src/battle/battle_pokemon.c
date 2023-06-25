@@ -989,6 +989,17 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
             typeLocal = TYPE_ELECTRIC;
         }
     }
+    else if (ability == ABILITY_LIQUID_VOICE)
+    {
+        int i;
+        for (i = 0; i < NELEMS(SoundProofMovesTable); i++)
+        {
+            if (SoundProofMoveList[i] == sp->current_move_index)
+              break;
+        }
+        if (i != NELEMS(SoundProofMovesList))
+          typeLocal = TYPE_WATER;
+    }
     else if (type)
     {
         typeLocal = type;
