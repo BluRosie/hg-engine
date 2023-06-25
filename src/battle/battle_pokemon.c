@@ -961,6 +961,41 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
 }
 
 
+u16 SoundProofMovesList[] = {
+    MOVE_BOOMBURST,
+    MOVE_BUG_BUZZ,
+    MOVE_CHATTER,
+    MOVE_CLANGING_SCALES,
+    MOVE_CLANGOROUS_SOUL,
+    MOVE_CLANGOROUS_SOULBLAZE,
+    MOVE_CONFIDE,
+    MOVE_DISARMING_VOICE,
+    MOVE_ECHOED_VOICE,
+    MOVE_EERIE_SPELL,
+    MOVE_GRASS_WHISTLE,
+    MOVE_GROWL,
+    MOVE_HEAL_BELL,
+    MOVE_HOWL,
+    MOVE_HYPER_VOICE,
+    MOVE_METAL_SOUND,
+    MOVE_NOBLE_ROAR,
+    MOVE_OVERDRIVE,
+    MOVE_PARTING_SHOT,
+    MOVE_PERISH_SONG,
+    MOVE_RELIC_SONG,
+    MOVE_ROAR,
+    MOVE_ROUND,
+    MOVE_SCREECH,
+    //MOVE_SHADOW_PANIC,
+    MOVE_SING,
+    MOVE_SNARL,
+    MOVE_SNORE,
+    MOVE_SPARKLING_ARIA,
+    MOVE_SUPERSONIC,
+    MOVE_TORCH_SONG,
+    MOVE_UPROAR
+};
+
 // needed for the AI.  doesn't have client access, just move ability type
 u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type)
 {
@@ -1006,9 +1041,9 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
     if (ability == ABILITY_LIQUID_VOICE)
     {
         int i;
-        for (i = 0; i < NELEMS(SoundProofMovesTable); i++)
+        for (i = 0; i < NELEMS(SoundProofMovesList); i++)
         {
-            if (SoundProofMoveList[i] == sp->current_move_index)
+            if (SoundProofMovesList[i] == sp->current_move_index)
                 break;
         }
         if (i != NELEMS(SoundProofMovesList))
