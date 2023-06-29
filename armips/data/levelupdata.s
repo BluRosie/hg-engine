@@ -4980,7 +4980,7 @@ levelup SPECIES_SNEASEL
     learnset MOVE_FURY_SWIPES, 23
     learnset MOVE_HONE_CLAWS, 30
     learnset MOVE_AGILITY, 34
-    learnset MOVE_BEAT_UP, 35
+    learnset MOVE_BEAT_UP, 38
     learnset MOVE_SNATCH, 40
     learnset MOVE_SCREECH, 43
     learnset MOVE_PUNISHMENT, 44

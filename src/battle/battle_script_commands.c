@@ -1186,6 +1186,77 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
+{
+    int species, form, number_of_hits;
+    s32 newBaseDamage;
+    struct BattlePokemon *mon;
+    
+    IncrementBattleScriptPtr(sp, 1);
+
+    int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
+
+    if (sp->multi_hit_count_temp == 0) {
+
+        sp->multi_hit_count_temp = 2;
+        sp->loop_hit_check = 0xFD;
+        sp->beat_up_count = 0;
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
+
+        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
+                (GetMonData(mon, ID_PARA_hp, 0) == 0 || 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 0|| 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 494 || 
+                GetMonData(mon, ID_PARA_condition, 0) != 0))
+                {
+
+            sp->beat_up_count++;
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
+        
+        }
+    }   
+
+    mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+    species = GetMonData(mon, ID_PARA_monsno, 0);
+    form = GetMonData(mon, ID_PARA_form_no, 0);
+
+    newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
+    newBaseDamage /= 10;
+    sp->damage_power = 5;
+    sp->damage_power += newBaseDamage;
+
+    sp->beat_up_count++;
+    sp->multi_hit_count = 2;
+    number_of_hits = sp->beat_up_count;
+
+    if (sp->beat_up_count < partyCount) {
+        
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+
+        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
+                (GetMonData(mon, ID_PARA_hp, 0) == 0 || 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 0 || 
+                GetMonData(mon, ID_PARA_monsno_egg, 0) == 494 || 
+                GetMonData(mon, ID_PARA_condition, 0) != 0))
+                {
+
+            sp->beat_up_count++;
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+
+            if (sp->beat_up_count >= partyCount) {
+                sp->multi_hit_count = 1;
+                sp->multi_hit_count_temp = number_of_hits;
+                break;
+            }
+
+        } 
+    } else {
+        sp->multi_hit_count = 1;
+        sp->multi_hit_count_temp = number_of_hits;
+    }
+
+    return FALSE;
+}
 
 const u16 sLowKickWeightToPower[][2] =
 {
@@ -1558,7 +1629,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         }
         break;
     //case ITEM_FRIEND_BALL: // assume that this and the heal ball are handled elsewhere
-    //
+    //                       // Friend ball is handled at the end of the function, no clue for heal ball
     //    break;
     case ITEM_MOON_BALL:
         for (i = 0; i < NELEMS(MoonBallSpecies); i++) // yes, this is how game freak coded it in heart gold/soul silver
@@ -1633,6 +1704,12 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
             }
         }
 
+        if(sp->item_work == ITEM_FRIEND_BALL && i == caughtMons) // if amount of succeeded captures is the same as necessary for the type of capture
+        {
+            u32 friendship = 200;
+            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
+        }
+
         if (criticalCapture) // succeeded the one chance it had
             i = i | 0x80; // change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
 
@@ -1646,6 +1723,13 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 
 #endif
     }
+
+    if(sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
+    {
+        u32 friendship = 200;
+        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
+    }
+
     return i;
 }
 

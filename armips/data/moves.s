@@ -4026,7 +4026,7 @@ movedata MOVE_WHIRLPOOL, "Whirlpool"
 movedata MOVE_BEAT_UP, "Beat Up"
     battleeffect 154
     pss SPLIT_PHYSICAL
-    basepower DEBUG_NEEDS_TESTING ? 0 : 10 // will beat up still work with base power 0?
+    basepower 0
     type TYPE_DARK
     accuracy 100
     pp 10
