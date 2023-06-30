@@ -43,6 +43,7 @@ GFX = tools/nitrogfx
 SDATTOOL = $(PYTHON) tools/SDATTool.py
 ADPCMXQ = adpcm-xq
 NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
+ENCODEPWIMG = tools/ENCODE_IMG
 ###################### Setting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
@@ -135,7 +136,7 @@ all: $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
 	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
-	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim
+	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim $(BUILD)/pw_pokegra $(BUILD)/pw_pokeicon $(BUILD)/pw_pokegra_int $(BUILD)/pw_pokeicon_int
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -192,6 +193,8 @@ build_nitrogfx:
 	mv tools/source/nitrogfx/nitrogfx tools/nitrogfx
 	cd tools/source/o2narc ; $(MAKE)
 	mv tools/source/o2narc/o2narc tools/o2narc
+	cd tools/source/DECODEIMG ; $(MAKE)
+	mv tools/source/DECODEIMG/ENCODE_IMG tools/ENCODE_IMG
 
 
 
@@ -320,6 +323,12 @@ move_narc: $(NARC_FILES)
 
 	@echo "ball spa files:"
 	cp $(BALL_SPA_NARC) $(BALL_SPA_TARGET)
+
+	@echo "pokewalker sprites:"
+	cp $(PW_POKEGRA_NARC) $(PW_POKEGRA_TARGET)
+
+	@echo "pokewalker icons:"
+	cp $(PW_POKEICON_NARC) $(PW_POKEICON_TARGET)
 
 	@echo "font:"
 	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi

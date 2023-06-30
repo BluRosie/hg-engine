@@ -295,3 +295,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0012 ServerDoTypeCalcMod_hook 02251D2C 5
 0012 AITypeCalc_hook 02252058 5
 0012 GrabMoveTypeForConversion2 0224DD7C 2
+
+# pokewalker grab sprite
+0112 GrabPokewalkerMonSpriteIndex 021E9480 3
