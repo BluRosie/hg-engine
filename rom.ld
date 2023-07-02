@@ -136,7 +136,7 @@ ArcUtil_PalSet = 0x02007938 |1;
 FillWindowPixelBuffer = 0x0201D978 |1;
 ConvertNumToString = 0x0208C87C |1;
 StringPut = 0x0208C778 |1;
-PutWindows = 0x0201D578 |1;
+CopyWindowToVram = 0x0201D578 |1;
 
 /*ItemUse*/
 SetUpItemScript = 0x02064A8C |1;
@@ -433,3 +433,12 @@ ShouldDelayTurnEffectivenessChecking = 0x02258440 | 1;
 ShouldUseNormalTypeEffCalc = 0x02251C74 | 1;
 AI_TypeCheckCalc = 0x022521C8 | 1;
 AI_ShouldUseNormalTypeEffCalc = 0x02252178 | 1;
+
+Summary_GetPokemonData = 0x0208A520 | 1;
+Summary_PickStatusIcon = 0x0208AD64 | 1;
+Summary_PrintString = 0x0208C778 | 1;
+Summary_NumberToString = 0x0208C87C | 1;
+Summary_PrintCurrentOverMax = 0x0208C8C8 | 1;
+Summary_PrintStatStringAccountForStat = 0x0208C7F8 | 1;
+Summary_PrintStringGeneric = 0x0208C850 | 1;
+CopyBoxPokemonToPokemon = 0x02071780 | 1;
