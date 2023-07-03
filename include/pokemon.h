@@ -735,6 +735,7 @@ void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id
 u32 __attribute__((long_call)) SetEncountData(struct PartyPokemon *pp, u32 rodType, void *encInfo, void *encArea, u32 encounterType, u32 battler, void *bw);
 u32 __attribute__((long_call)) SetEncountDataSwarm_maybe(void *fsys, struct PartyPokemon *pp, u32 rodType, void *encInfo, u32 encounterType, u32 battler, void *bw);
 void __attribute__((long_call)) CopyBoxPokemonToPokemon(const struct BoxPokemon *src, struct PartyPokemon *dest);
+int __attribute__((long_call)) GetExpByGrowthRateAndLevel(int growthrate, u32 level);
 
 
 #define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))

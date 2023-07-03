@@ -270,3 +270,24 @@ mov pc, r1
 
 WildWaterEncSingle_return_address:
 .word 0
+
+
+.global ImplementLevelCap_hook
+ImplementLevelCap_hook:
+ldr r3, =0x206E540 | 1
+bl bx_r3
+// r0 is level
+bl IsLevelAtLevelCap
+cmp r0, #1
+beq return_to_2245B3E // below level cap
+ldr r3, =0x02245A32 | 1
+bx r3
+
+return_to_2245B3E:
+ldr r3, =0x2245B3E|1
+// fall through
+
+bx_r3:
+bx r3
+
+.pool

@@ -441,3 +441,5 @@ Summary_PrintCurrentOverMax = 0x0208C8C8 | 1;
 Summary_PrintStatStringAccountForStat = 0x0208C7F8 | 1;
 Summary_PrintStringGeneric = 0x0208C850 | 1;
 CopyBoxPokemonToPokemon = 0x02071780 | 1;
+
+GetExpByGrowthRateAndLevel = 0x0206FD30 | 1;
