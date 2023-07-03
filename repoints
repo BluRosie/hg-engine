@@ -22,3 +22,15 @@ arm9 sPocketCounts 08077C14
 
 0001 gOWTagToFileNum 021F92FC
 0001 gOWTagToFileNum 021FA280
+
+# repoint the type effectiveness table
+0012 TypeEffectivenessTable+1 02251D20
+0012 TypeEffectivenessTable+2 02251D24
+0012 TypeEffectivenessTable 0225204C
+0012 TypeEffectivenessTable 02252174
+0012 TypeEffectivenessTable+1 022521C0
+0012 TypeEffectivenessTable+2 022521C4
+0012 TypeEffectivenessTable 02252640
+0012 TypeEffectivenessTable+1 02252644
+0012 TypeEffectivenessTable+2 02252648
+0012 TypeEffectivenessTable 02252694
