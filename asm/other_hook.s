@@ -516,6 +516,11 @@ cmp     r1, #1
 bne     Summary_Check_RButton
 mov     r1, #1
 bl      Summary_ChangeStatScreenState
+mov     r0, #0x5E
+lsl     r0, #4
+add     r0, #1
+ldr     r2, =0x0200604C | 1
+bl      bx_r2
 mov     r0, #2
 pop     {r4-r6,pc}
 
@@ -530,6 +535,11 @@ cmp     r1, #1
 bne     Summary_Check_SELButton
 mov     r1, #2
 bl      Summary_ChangeStatScreenState
+mov     r0, #0x5E
+lsl     r0, #4
+add     r0, #1
+ldr     r2, =0x0200604C | 1
+bl      bx_r2
 mov     r0, #2
 pop     {r4-r6,pc}
 
@@ -543,6 +553,11 @@ cmp     r1, #1
 bne     Summary_StatsPage_Return
 mov     r1, #0
 bl      Summary_ChangeStatScreenState
+mov     r0, #0x5E
+lsl     r0, #4
+add     r0, #1
+ldr     r2, =0x0200604C | 1
+bl      bx_r2
 mov     r0, #2
 pop     {r4-r6,pc}
 
@@ -553,3 +568,5 @@ bx      r1
 Summary_ChangePage:
 ldr     r2, =0x02089E30 + 1
 bx      r2
+
+.pool
