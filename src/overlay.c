@@ -4,7 +4,7 @@
 #include "../include/save.h"
 
 
-struct LinkedOverlayList gLinkedOverlayList[2] =
+struct LinkedOverlayList gLinkedOverlayList[] =
 {
     { 12, 130}, // battle - battle extension
     {  1, 131}, // field - field extension
@@ -48,7 +48,7 @@ u32 __attribute__((long_call)) HandleLoadOverlay(u32 ovyId, u32 loadType) {
     u32 dmaBak = FS_DMA_NOT_USE;
     u32 overlayRegion;
     PMiLoadedOverlay *loadedOverlays;
-    u8 buf[64];
+    u8 buf[128];
     int i;
 
 loadExtension:

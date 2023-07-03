@@ -4806,3 +4806,38 @@ u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
     ret--;
     return ret;
 }
+
+
+u32 GetLevelCap(void)
+{
+    return GetScriptVar(LEVEL_CAP_VARIABLE);
+}
+
+u32 IsLevelAtLevelCap(u32 level)
+{
+    return (level >= GetLevelCap());
+}
+
+
+#ifdef IMPLEMENT_LEVEL_CAP
+
+BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
+    u16 species = (u16)GetMonData(mon, ID_PARA_monsno, NULL);
+    u8 level = (u8)(GetMonData(mon, ID_PARA_level, NULL) + 1);
+    u32 exp = GetMonData(mon, ID_PARA_exp, NULL);
+    u32 growthrate = (u32)PokePersonalParaGet(species, PERSONAL_EXP_GROUP);
+    u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, GetLevelCap());
+    if (exp > maxexp) {
+        exp = maxexp;
+        SetMonData(mon, ID_PARA_exp, &exp);
+    }
+    if (level > GetLevelCap())
+        return FALSE;
+    if (exp >= GetExpByGrowthRateAndLevel((int)growthrate, level)) {
+        SetMonData(mon, ID_PARA_level, &level);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+#endif

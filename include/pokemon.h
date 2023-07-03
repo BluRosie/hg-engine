@@ -716,7 +716,7 @@ void __attribute__((long_call)) WildMonSetRandomHeldItem(struct PartyPokemon *po
 BOOL __attribute__((long_call)) GrabAndRegisterUnownForm(struct PartyPokemon *pokemon);
 BOOL __attribute__((long_call)) MonIsShiny(struct PartyPokemon *pokemon);
 BOOL __attribute__((long_call)) BoxMonIsShiny(struct BoxPokemon *pokemon);
-void __attribute__((long_call)) PokeParty_Init(struct POKEPARTY *party, int max);
+void __attribute__((long_call)) PokeParty_Init(struct Party *party, int max);
 void __attribute__((long_call)) TT_TrainerPokeDataGet(int tr_id, void *tpd);
 u8 __attribute__((long_call)) TT_TrainerTypeSexGet(int trtype);
 u32 __attribute__((long_call)) TrainerCBSet(int index, struct PartyPokemon* pp, int heap);
@@ -724,7 +724,7 @@ void __attribute__((long_call)) try_force_gender_maybe(int species, int formnum,
 void __attribute__((long_call)) TrainerMonHandleFrustration(struct PartyPokemon *pp);
 void __attribute__((long_call)) SetPartyPokemonMoveAtPos(struct PartyPokemon *pp, u16 movenum, u8 pos);
 void __attribute__((long_call)) gf_srand(u32 seed);
-u32 __attribute__((long_call)) PokeParty_Add(struct POKEPARTY *party, struct PartyPokemon *poke);
+u32 __attribute__((long_call)) PokeParty_Add(struct Party *party, struct PartyPokemon *poke);
 u8 __attribute__((long_call)) GetArceusType(u16 held_effect);
 int __attribute__((long_call)) sub_02017FE4(u32 mapsectype, u32);
 void __attribute__((long_call)) SetEggStats(struct PartyPokemon *pokemon, int species, u8 metLocation, void *profile, int a4, int a5);
@@ -734,6 +734,8 @@ void __attribute__((long_call)) sub_0206D038(struct PartyPokemon *pokemon, u32 h
 void __attribute__((long_call)) GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 *dest);
 u32 __attribute__((long_call)) SetEncountData(struct PartyPokemon *pp, u32 rodType, void *encInfo, void *encArea, u32 encounterType, u32 battler, void *bw);
 u32 __attribute__((long_call)) SetEncountDataSwarm_maybe(void *fsys, struct PartyPokemon *pp, u32 rodType, void *encInfo, u32 encounterType, u32 battler, void *bw);
+void __attribute__((long_call)) CopyBoxPokemonToPokemon(const struct BoxPokemon *src, struct PartyPokemon *dest);
+int __attribute__((long_call)) GetExpByGrowthRateAndLevel(int growthrate, u32 level);
 
 
 #define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))

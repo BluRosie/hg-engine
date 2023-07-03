@@ -67,6 +67,7 @@ dumpitem.py
 /tools/o2narc
 /tools/adpcm-xq
 /tools/ntrWavTool.py
+/tools/ENCODE_IMG
 
 *.o
 *.d

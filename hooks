@@ -295,3 +295,24 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0012 ServerDoTypeCalcMod_hook 02251D2C 5
 0012 AITypeCalc_hook 02252058 5
 0012 GrabMoveTypeForConversion2 0224DD7C 2
+
+# pokewalker grab sprite
+0112 GrabPokewalkerMonSpriteIndex 021E9480 3
+
+
+#ifdef IMPLEMENT_NEW_EV_IV_VIEWER
+
+# code from LheaRachel on github based on code from Bubble791 now on heartgold
+arm9 Summary_IVEV 02088B60 1
+arm9 Summary_Entry_Hook 0208D2C4 1
+
+#endif
+
+
+#ifdef IMPLEMENT_LEVEL_CAP
+
+0012 ImplementLevelCap_hook 02245A28 3
+arm9 Pokemon_TryLevelUp 02070DB4 1
+arm9 CapRareCandies 0208FEEA 1
+
+#endif

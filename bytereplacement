@@ -130,3 +130,24 @@ arm9 0203DFF4 8A 02
 0012 02252054 60 B4 C0 46
 # fix fire fang glitch - change 273 to 272 to properly check shadow force's effect
 0012 0225848C 10
+
+# make stat colors clearer
+arm9 0208C848 00 03 04 00 00 05 06 00
+
+#ifndef IMPLEMENT_NEW_EV_IV_VIEWER
+
+# revert hooks done by above
+arm9 02088B60 20 21 DC 6C 26 1C 0E 42
+arm9 0208D2C4 78 21 03 23 FF F7 D8 FA
+
+#endif
+
+
+#ifndef IMPLEMENT_LEVEL_CAP
+
+# revert IMPLEMENT_LEVEL_CAP hooks
+0012 02245A28 28 F6 8A FD 64 28 00 D1
+arm9 02070DB4 38 B5 82 B0 05 21 00 22
+arm9 0208FEEA 64 28 05 D2 20 1C 8A F7 0C FE
+
+#endif
