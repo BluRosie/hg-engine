@@ -313,5 +313,6 @@ arm9 Summary_Entry_Hook 0208D2C4 1
 
 0012 ImplementLevelCap_hook 02245A28 3
 arm9 Pokemon_TryLevelUp 02070DB4 1
+arm9 CapRareCandies 0208FEEA 1
 
 #endif
