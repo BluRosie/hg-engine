@@ -67,8 +67,8 @@
 
 // IMPLEMENT_LEVEL_CAP defines whether or not a configurable hard level cap system is built into the rom based on the value in LEVEL_CAP_VARIABLE
 // if the level is greater than or equal to LEVEL_CAP_VARIABLE, the pokémon will no longer gain experience
-// commenting out IMPLEMENT_LEVEL_CAP disables the level cap system regardless of whether or not LEVEL_CAP_VARIABLE is still defined
-#define IMPLEMENT_LEVEL_CAP
+// uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  undefining LEVEL_CAP_VARIABLE will just cause compilation errors
+//#define IMPLEMENT_LEVEL_CAP
 #define LEVEL_CAP_VARIABLE 0x416F
 
 #endif
