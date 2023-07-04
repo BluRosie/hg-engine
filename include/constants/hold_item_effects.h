@@ -169,5 +169,6 @@
 #define HOLD_EFFECT_PLATE_BOOST_NORMAL 160            // Blank Plate
 #define HOLD_EFFECT_EVOLVE_SPRITZEE 161               // Sachet
 #define HOLD_EFFECT_EVOLVE_SWIRLIX  162               // Whipped Dream
+#define HOLD_EFFECT_EVIOLITE        163               // Eviolite
 
 #endif

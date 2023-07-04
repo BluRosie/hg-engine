@@ -2998,7 +2998,7 @@ u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* b
     return 0;
 }
 
-u32 __attribute__((long_call)) CanUseRevealMirror(struct PartyPokemon *pp)
+u32 __attribute__((long_call)) CanUseRevealGlass(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
     
@@ -3055,7 +3055,7 @@ u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, vo
     }
     
     if (wk->dat->item == ITEM_REVEAL_GLASS
-     && CanUseRevealMirror(pp) == 1)
+     && CanUseRevealGlass(pp) == 1)
     {
         if (GetMonData(pp, ID_PARA_form_no, NULL) == 1)
             wk->dat->after_mons = 0; // change to incarnate forme
