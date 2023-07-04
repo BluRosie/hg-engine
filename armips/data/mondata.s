@@ -6135,7 +6135,7 @@ mondata SPECIES_WINGULL, "Wingull"
     catchrate 190
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 1, 0, 0
-    items ITEM_PRETTY_WING, ITEM_NONE
+    items ITEM_PRETTY_FEATHER, ITEM_NONE
     genderratio 127
     eggcycles 20
     basefriendship 50
@@ -6157,7 +6157,7 @@ mondata SPECIES_PELIPPER, "Pelipper"
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 2, 0, 0, 0
-    items ITEM_LUCKY_EGG, ITEM_PRETTY_WING
+    items ITEM_LUCKY_EGG, ITEM_PRETTY_FEATHER
     genderratio 127
     eggcycles 20
     basefriendship 50
