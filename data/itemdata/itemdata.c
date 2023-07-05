@@ -37712,7 +37712,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ABILITY_CAPSULE - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
+    .price = 10000,
     .holdEffect = 0,
     .holdEffectParam = 30,
     .pluckEffect = 0,
@@ -39140,23 +39140,23 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ABILTIY_PATCH - NUM_UNKNOWN_SLOTS] =
+[ITEM_ABILITY_PATCH - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 200,
+    .price = 250000,
     .holdEffect = 0,
     .holdEffectParam = 30,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 0,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
     .selectable = FALSE,
-    .fieldPocket = POCKET_ITEMS,
+    .fieldPocket = POCKET_MEDICINE,
     .battlePocket = BATTLE_POCKET_NONE,
-    .fieldUseFunc = 0,
+    .fieldUseFunc = 1,
     .battleUseFunc = 0,
-    .partyUse = 0,
+    .partyUse = 1,
     .partyUseParam = {
         .slp_heal = FALSE,
         .psn_heal = FALSE,
