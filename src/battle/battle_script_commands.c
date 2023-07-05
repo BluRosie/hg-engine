@@ -1646,6 +1646,13 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     //case ITEM_PARK_BALL:
     //
     //    break;
+	case ITEM_DREAM_BALL:
+        if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP))
+        captureRate *= 4;
+        break;
+	//case ITEM_BEAST_BALL:
+    //
+    //    break;
     }
 
     // = captureRate * ballRate / 10 * (3maxHP - 2curHP) / (3maxHP)
