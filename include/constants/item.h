@@ -544,6 +544,8 @@
 #define ITEM_BLUE_ORB        535
 #define ITEM_ENIGMA_STONE    536
 
+#define ITEM_MEGA_STONES_START 537
+
 #define IS_ITEM_MEGA_STONE(item) (item >= ITEM_MEGA_STONES_START && item <= ITEM_DIANCITE)
 
 //Mega Stones
