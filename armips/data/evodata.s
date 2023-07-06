@@ -1488,7 +1488,7 @@ evodata SPECIES_MR_MIME
 
 evodata SPECIES_SCYTHER
     evolution EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_USE_ITEM, ITEM_BLACK_AUGURITE, SPECIES_KLEAVOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2615,7 +2615,7 @@ evodata SPECIES_TEDDIURSA
     terminateevodata
 
 evodata SPECIES_URSARING
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_USE_ITEM_NIGHT, ITEM_PEAT_BLOCK, SPECIES_URSALUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12091,7 +12091,7 @@ evodata SPECIES_GROUDON_PRIMAL
 terminateevodata
 
 evodata SPECIES_RATTATA_ALOLAN
-    evolution EVO_LEVEL_UP, 20, SPECIES_RATICATE
+    evolutionwithform EVO_LEVEL_NIGHT, 20, SPECIES_RATICATE, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12127,7 +12127,7 @@ evodata SPECIES_RAICHU_ALOLAN
 terminateevodata
 
 evodata SPECIES_SANDSHREW_ALOLAN
-    evolution EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_SANDSLASH
+    evolutionwithform EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_SANDSLASH, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12151,7 +12151,7 @@ evodata SPECIES_SANDSLASH_ALOLAN
 terminateevodata
 
 evodata SPECIES_VULPIX_ALOLAN
-    evolution EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_NINETALES
+    evolutionwithform EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_NINETALES, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12175,7 +12175,7 @@ evodata SPECIES_NINETALES_ALOLAN
 terminateevodata
 
 evodata SPECIES_DIGLETT_ALOLAN
-    evolution EVO_LEVEL_UP, 26, SPECIES_DUGTRIO
+    evolutionwithform EVO_LEVEL_UP, 26, SPECIES_DUGTRIO, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12199,7 +12199,7 @@ evodata SPECIES_DUGTRIO_ALOLAN
 terminateevodata
 
 evodata SPECIES_MEOWTH_ALOLAN
-    evolution EVO_HAPPINESS, 28, SPECIES_PERSIAN
+    evolutionwithform EVO_HAPPINESS, 28, SPECIES_PERSIAN, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12223,7 +12223,7 @@ evodata SPECIES_PERSIAN_ALOLAN
 terminateevodata
 
 evodata SPECIES_GEODUDE_ALOLAN
-    evolution EVO_LEVEL_UP, 25, SPECIES_GRAVELER
+    evolutionwithform EVO_LEVEL_UP, 25, SPECIES_GRAVELER, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12235,8 +12235,8 @@ evodata SPECIES_GEODUDE_ALOLAN
 terminateevodata
 
 evodata SPECIES_GRAVELER_ALOLAN
-    evolution EVO_TRADE, 0, SPECIES_GOLEM
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolutionwithform EVO_TRADE, 0, SPECIES_GOLEM, 1
+    evolutionwithform EVO_USE_ITEM, ITEM_LINKING_CORD, SPECIES_GOLEM, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12259,7 +12259,7 @@ evodata SPECIES_GOLEM_ALOLAN
 terminateevodata
 
 evodata SPECIES_GRIMER_ALOLAN
-    evolution EVO_LEVEL_UP, 38, SPECIES_MUK
+    evolutionwithform EVO_LEVEL_UP, 38, SPECIES_MUK, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12319,7 +12319,7 @@ evodata SPECIES_MEOWTH_GALARIAN
 terminateevodata
 
 evodata SPECIES_PONYTA_GALARIAN
-    evolution EVO_LEVEL_UP, 40, SPECIES_RAPIDASH
+    evolutionwithform EVO_LEVEL_UP, 40, SPECIES_RAPIDASH, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12343,8 +12343,8 @@ evodata SPECIES_RAPIDASH_GALARIAN
 terminateevodata
 
 evodata SPECIES_SLOWPOKE_GALARIAN
-    evolution EVO_USE_ITEM, ITEM_GALARICA_CUFF, SPECIES_SLOWBRO
-    evolution EVO_USE_ITEM, ITEM_GALARICA_WREATH, SPECIES_SLOWKING
+    evolutionwithform EVO_USE_ITEM, ITEM_GALARICA_CUFF, SPECIES_SLOWBRO, 1
+    evolutionwithform EVO_USE_ITEM, ITEM_GALARICA_WREATH, SPECIES_SLOWKING, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12463,7 +12463,7 @@ evodata SPECIES_CORSOLA_GALARIAN
 terminateevodata
 
 evodata SPECIES_ZIGZAGOON_GALARIAN
-    evolution EVO_LEVEL_UP, 20, SPECIES_LINOONE
+    evolutionwithform EVO_LEVEL_UP, 20, SPECIES_LINOONE, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12487,7 +12487,7 @@ evodata SPECIES_LINOONE_GALARIAN
 terminateevodata
 
 evodata SPECIES_DARUMAKA_GALARIAN
-    evolution EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_DARMANITAN
+    evolutionwithform EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_DARMANITAN, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14323,7 +14323,7 @@ evodata SPECIES_ENAMORUS_THERIAN
 terminateevodata
 
 evodata SPECIES_GROWLITHE_HISUIAN
-    evolution EVO_USE_ITEM, ITEM_FIRE_STONE, SPECIES_ARCANINE
+    evolutionwithform EVO_USE_ITEM, ITEM_FIRE_STONE, SPECIES_ARCANINE, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14347,7 +14347,7 @@ evodata SPECIES_ARCANINE_HISUIAN
 terminateevodata
 
 evodata SPECIES_VOLTORB_HISUIAN
-    evolution EVO_LEVEL_UP, 30, SPECIES_ELECTRODE
+    evolutionwithform EVO_USE_ITEM, ITEM_LEAF_STONE, SPECIES_ELECTRODE, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14431,7 +14431,7 @@ evodata SPECIES_LILLIGANT_HISUIAN
 terminateevodata
 
 evodata SPECIES_ZORUA_HISUIAN
-    evolution EVO_LEVEL_UP, 30, SPECIES_ZOROARK
+    evolutionwithform EVO_LEVEL_UP, 30, SPECIES_ZOROARK, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14467,7 +14467,7 @@ evodata SPECIES_BRAVIARY_HISUIAN
 terminateevodata
 
 evodata SPECIES_SLIGGOO_HISUIAN
-    evolution EVO_KNOWS_MOVE, MOVE_RAIN_DANCE, SPECIES_GOODRA
+    evolutionwithform EVO_LEVEL_RAIN, 50, SPECIES_GOODRA, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
