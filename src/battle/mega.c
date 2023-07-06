@@ -26,191 +26,191 @@ const struct MegaStruct sMegaTable[] =
 {
     {
         .monindex = SPECIES_VENUSAUR, 
-        .itemindex = ITEM_VENUSAURITE,
+        .itemindex = ITEM_MEGA_STONE_VENUSAUR,
     },
     {
         .monindex = SPECIES_CHARIZARD, 
-        .itemindex = ITEM_CHARIZARDITE_X,
+        .itemindex = ITEM_MEGA_STONE_CHARIZARD_X,
     }, // x
     {
         .monindex = SPECIES_CHARIZARD, 
-        .itemindex = ITEM_CHARIZARDITE_Y,
+        .itemindex = ITEM_MEGA_STONE_CHARIZARD_Y,
     }, // y
     {
         .monindex = SPECIES_BLASTOISE, 
-        .itemindex = ITEM_BLASTOISINITE,
+        .itemindex = ITEM_MEGA_STONE_BLASTOISE,
     },
     {
         .monindex = SPECIES_BEEDRILL, 
-        .itemindex = ITEM_BEEDRILLITE,
+        .itemindex = ITEM_MEGA_STONE_BEEDRILL,
     },
     {
         .monindex = SPECIES_PIDGEOT, 
-        .itemindex = ITEM_PIDGEOTITE,
+        .itemindex = ITEM_MEGA_STONE_PIDGEOT,
     },
     {
         .monindex = SPECIES_ALAKAZAM, 
-        .itemindex = ITEM_ALAKAZITE,
+        .itemindex = ITEM_MEGA_STONE_ALAKAZAM,
     },
     {
         .monindex = SPECIES_SLOWBRO, 
-        .itemindex = ITEM_SLOWBRONITE,
+        .itemindex = ITEM_MEGA_STONE_SLOWBRO,
     },
     {
         .monindex = SPECIES_GENGAR, 
-        .itemindex = ITEM_GENGARITE,
+        .itemindex = ITEM_MEGA_STONE_GENGAR,
     },
     {
         .monindex = SPECIES_KANGASKHAN, 
-        .itemindex = ITEM_KANGASKHANITE,
+        .itemindex = ITEM_MEGA_STONE_KANGASKHAN,
     },
     {
         .monindex = SPECIES_PINSIR, 
-        .itemindex = ITEM_PINSIRITE,
+        .itemindex = ITEM_MEGA_STONE_PINSIR,
     },
     {
         .monindex = SPECIES_GYARADOS, 
-        .itemindex = ITEM_GYARADOSITE,
+        .itemindex = ITEM_MEGA_STONE_GYARADOS,
     },
     {
         .monindex = SPECIES_AERODACTYL, 
-        .itemindex = ITEM_AERODACTYLITE,
+        .itemindex = ITEM_MEGA_STONE_AERODACTYL,
     },
     {
         .monindex = SPECIES_MEWTWO, 
-        .itemindex = ITEM_MEWTWONITE_X,
+        .itemindex = ITEM_MEGA_STONE_MEWTWO_X,
     }, // x
     {
         .monindex = SPECIES_MEWTWO, 
-        .itemindex = ITEM_MEWTWONITE_Y,
+        .itemindex = ITEM_MEGA_STONE_MEWTWO_Y,
     }, // y
     {
         .monindex = SPECIES_AMPHAROS, 
-        .itemindex = ITEM_AMPHAROSITE,
+        .itemindex = ITEM_MEGA_STONE_AMPHAROS,
     },
     {
         .monindex = SPECIES_STEELIX, 
-        .itemindex = ITEM_STEELIXITE,
+        .itemindex = ITEM_MEGA_STONE_STEELIX,
     },
     {
         .monindex = SPECIES_SCIZOR, 
-        .itemindex = ITEM_SCIZORITE,
+        .itemindex = ITEM_MEGA_STONE_SCIZOR,
     },
     {
         .monindex = SPECIES_HERACROSS, 
-        .itemindex = ITEM_HERACRONITE,
+        .itemindex = ITEM_MEGA_STONE_HERACROSS,
     },
     {
         .monindex = SPECIES_HOUNDOOM, 
-        .itemindex = ITEM_HOUNDOOMINITE,
+        .itemindex = ITEM_MEGA_STONE_HOUNDOOM,
     },
     {
         .monindex = SPECIES_TYRANITAR, 
-        .itemindex = ITEM_TYRANITARITE,
+        .itemindex = ITEM_MEGA_STONE_TYRANITAR,
     },
     {
         .monindex = SPECIES_SCEPTILE, 
-        .itemindex = ITEM_SCEPTILITE,
+        .itemindex = ITEM_MEGA_STONE_SCEPTILE,
     },
     {
         .monindex = SPECIES_BLAZIKEN, 
-        .itemindex = ITEM_BLAZIKENITE,
+        .itemindex = ITEM_MEGA_STONE_BLAZIKEN,
     },
     {
         .monindex = SPECIES_SWAMPERT, 
-        .itemindex = ITEM_SWAMPERTITE,
+        .itemindex = ITEM_MEGA_STONE_SWAMPERT,
     },
     {
         .monindex = SPECIES_GARDEVOIR, 
-        .itemindex = ITEM_GARDEVOIRITE,
+        .itemindex = ITEM_MEGA_STONE_GARDEVOIR,
     },
     {
         .monindex = SPECIES_SABLEYE, 
-        .itemindex = ITEM_SABLENITE,
+        .itemindex = ITEM_MEGA_STONE_SABLEYE,
     },
     {
         .monindex = SPECIES_MAWILE, 
-        .itemindex = ITEM_MAWILITE,
+        .itemindex = ITEM_MEGA_STONE_MAWILE,
     },
     {
         .monindex = SPECIES_AGGRON, 
-        .itemindex = ITEM_AGGRONITE,
+        .itemindex = ITEM_MEGA_STONE_AGGRON,
     },
     {
         .monindex = SPECIES_MEDICHAM, 
-        .itemindex = ITEM_MEDICHAMITE,
+        .itemindex = ITEM_MEGA_STONE_MEDICHAM,
     },
     {
         .monindex = SPECIES_MANECTRIC, 
-        .itemindex = ITEM_MANECTITE,
+        .itemindex = ITEM_MEGA_STONE_MANECTRIC,
     },
     {
         .monindex = SPECIES_SHARPEDO, 
-        .itemindex = ITEM_SHARPEDONITE,
+        .itemindex = ITEM_MEGA_STONE_SHARPEDO,
     },
     {
         .monindex = SPECIES_CAMERUPT, 
-        .itemindex = ITEM_CAMERUPTITE,
+        .itemindex = ITEM_MEGA_STONE_CAMERUPT,
     },
     {
         .monindex = SPECIES_ALTARIA, 
-        .itemindex = ITEM_ALTARIANITE,
+        .itemindex = ITEM_MEGA_STONE_ALTARIA,
     },
     {
         .monindex = SPECIES_BANETTE, 
-        .itemindex = ITEM_BANETTITE,
+        .itemindex = ITEM_MEGA_STONE_BANETTE,
     },
     {
         .monindex = SPECIES_ABSOL, 
-        .itemindex = ITEM_ABSOLITE,
+        .itemindex = ITEM_MEGA_STONE_ABSOL,
     },
     {
         .monindex = SPECIES_GLALIE, 
-        .itemindex = ITEM_GLALITITE,
+        .itemindex = ITEM_MEGA_STONE_GLALIE,
     },
     {
         .monindex = SPECIES_SALAMENCE, 
-        .itemindex = ITEM_SALAMENCITE,
+        .itemindex = ITEM_MEGA_STONE_SALAMENCE,
     },
     {
         .monindex = SPECIES_METAGROSS, 
-        .itemindex = ITEM_METAGROSSITE,
+        .itemindex = ITEM_MEGA_STONE_METAGROSS,
     },
     {
         .monindex = SPECIES_LATIAS, 
-        .itemindex = ITEM_LATIASITE,
+        .itemindex = ITEM_MEGA_STONE_LATIAS,
     },
     {
         .monindex = SPECIES_LATIOS, 
-        .itemindex = ITEM_LATIOSITE,
+        .itemindex = ITEM_MEGA_STONE_LATIOS,
     },
     {
         .monindex = SPECIES_LOPUNNY, 
-        .itemindex = ITEM_LOPUNNITE,
+        .itemindex = ITEM_MEGA_STONE_LOPUNNY,
     },
     {
         .monindex = SPECIES_GARCHOMP, 
-        .itemindex = ITEM_GARCHOMPITE,
+        .itemindex = ITEM_MEGA_STONE_GARCHOMP,
     },
     {
         .monindex = SPECIES_LUCARIO, 
-        .itemindex = ITEM_LUCARIONITE,
+        .itemindex = ITEM_MEGA_STONE_LUCARIO,
     },
     {
         .monindex = SPECIES_ABOMASNOW, 
-        .itemindex = ITEM_ABOMASITE,
+        .itemindex = ITEM_MEGA_STONE_ABOMASNOW,
     },
     {
         .monindex = SPECIES_GALLADE, 
-        .itemindex = ITEM_GALLADITE,
+        .itemindex = ITEM_MEGA_STONE_GALLADE,
     },
     {
         .monindex = SPECIES_AUDINO, 
-        .itemindex = ITEM_AUDINITE,
+        .itemindex = ITEM_MEGA_STONE_AUDINO,
     },
     {
         .monindex = SPECIES_DIANCIE, 
-        .itemindex = ITEM_DIANCITE,
+        .itemindex = ITEM_MEGA_STONE_DIANCIE,
     },
 };
 

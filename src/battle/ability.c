@@ -18,9 +18,19 @@ extern const u8 StatBoostModifiers[][2];
 
 const u16 SoundproofMoveList[] =
 {
-    MOVE_BOOMBURST,
+    MOVE_GROWL,
+    MOVE_ROAR,
+    MOVE_SING,
+    MOVE_SUPERSONIC,
+    MOVE_SCREECH,
+    MOVE_SNORE,
+    MOVE_UPROAR,
+    MOVE_METAL_SOUND,
+    MOVE_GRASS_WHISTLE,
+    MOVE_HYPER_VOICE,
     MOVE_BUG_BUZZ,
-    MOVE_CHATTER,	
+    MOVE_CHATTER,
+    MOVE_BOOMBURST,
     MOVE_CLANGING_SCALES,
     MOVE_CLANGOROUS_SOUL,
     //MOVE_CLANGOROUS_SOULBLAZE,
@@ -28,27 +38,18 @@ const u16 SoundproofMoveList[] =
     MOVE_DISARMING_VOICE,
     MOVE_ECHOED_VOICE,
     MOVE_EERIE_SPELL,
-    MOVE_GRASS_WHISTLE,
-    MOVE_GROWL,
     //MOVE_HEAL_BELL,
     //MOVE_HOWL,
     MOVE_HYPER_VOICE,
-    MOVE_METAL_SOUND,	
     MOVE_NOBLE_ROAR,
     MOVE_OVERDRIVE,
     MOVE_PARTING_SHOT,
     MOVE_PERISH_SONG,
     MOVE_RELIC_SONG,
-    MOVE_ROAR,
     MOVE_ROUND,
-    MOVE_SCREECH,
     //MOVE_SHADOW_PANIC,
-    MOVE_SING,
     MOVE_SNARL,
-    MOVE_SNORE,
     MOVE_SPARKLING_ARIA,
-    MOVE_SUPERSONIC,
-    MOVE_UPROAR,
 };
 
 const u16 BulletproofMoveList[] =
@@ -81,13 +82,13 @@ const u16 BulletproofMoveList[] =
 
 const u16 PowderMoveList[] = {
     MOVE_COTTON_SPORE,
-    MOVE_MAGIC_POWDER,
     MOVE_POISON_POWDER,
+    MOVE_SLEEP_POWDER,
+    MOVE_STUN_SPORE,	
+    MOVE_SPORE,
     MOVE_POWDER,
     MOVE_RAGE_POWDER,
-    MOVE_SLEEP_POWDER,
-    MOVE_STUN_SPORE,
-    MOVE_SPORE,
+    MOVE_MAGIC_POWDER,
 };
 
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender)
@@ -1238,7 +1239,7 @@ BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
     switch(GetBattleMonItem(sp, client_no))
     {
         case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
-        case ITEM_VENUSAURITE ... ITEM_DIANCITE:
+        case ITEM_MEGA_STONE_VENUSAUR ... ITEM_MEGA_STONE_DIANCIE:
         case ITEM_BLUE_ORB:
         case ITEM_RED_ORB:
         case ITEM_GRISEOUS_ORB:

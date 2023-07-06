@@ -760,7 +760,7 @@ u32 __attribute__((long_call)) GetGenesectType(u16 item);
 u32 __attribute__((long_call)) GetGenesectForme(u16 item);
 void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *bp);
 u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* bp);
-u32 __attribute__((long_call)) CanUseRevealGlass(struct PartyPokemon *pp);
+u32 __attribute__((long_call)) CanUseRevealMirror(struct PartyPokemon *pp);
 u32 __attribute__((long_call)) CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
 u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat);
 u32 __attribute__((long_call)) PokeListProc_End_Extend(void *proc, int *seq);
