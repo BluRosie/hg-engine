@@ -583,3 +583,93 @@ Galladite
 Audinite
 Diancite
 Pixie Plate
+Absorb Bulb
+Air Balloon
+BalmMushroom
+Big Nugget
+Binding Band
+Casteliacone
+Cell Battery
+Comet Shard
+Dream Ball
+Eject Button
+Eviolite
+Float Stone
+Pearl String
+Prism Scale
+Red Card
+Ring Target
+Rocky Helmet
+Sweet Heart
+Ability Pill
+Assault Vest
+LuminousMoss
+Lumiose Galette
+Sachet
+Safe Goggles
+Shalour Sable
+Snowball
+Weak Policy
+WhippedDream
+Adrenal Orb
+Beast Ball
+Big Malasada
+Bottle Cap
+Bottle Cap
+ElectricSeed
+Grassy Seed
+Misty Seed
+Psychic Seed
+Ice Stone
+Protect Pads
+GroundExtend
+AbilityPatch
+Blk.Augurite
+Berry Sweet
+Clover Sweet
+Flower Sweet
+Love Sweet
+Ribbon Sweet
+Star Sweet
+Strawberry Sweet
+Blunder Policy
+Chipped Pot
+Cracked Pot
+Eject Pack
+Exp. Candy S
+Exp. Candy M
+Exp. Candy L
+Exp. Candy XS
+Exp. Candy XL
+Galarica Cuff
+Galarica Twig
+Galarica Wreath
+Heavy Duty Boots
+Linking Cord
+Moomoo Cheese
+Peat Block
+Room Service
+Rusted Shield
+Rusted Sword
+Sweet Apple
+Tart Apple
+Throat Spray
+Utility Umbrella
+Ability Shield
+Auspicious Armor
+Booster Energy
+Clear Amulet
+Covert Cloak
+Gimmighoul Coin
+Leader Crest
+Loaded Dice
+Malicious Armor
+Mirror Herb
+Punching Glove
+Roseli Berry
+Kee Berry
+Maranga Berry
+Burn Drive
+Chill Drive
+Douse Drive
+Shock Drive

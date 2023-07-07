@@ -1362,3 +1362,6 @@ You sense the presence of many!
 {STRVAR_1 1, 0, 0} transformed into its Complete\nForme!
 The wild {STRVAR_1 1, 0, 0} transformed into its\nComplete Forme!
 The foe’s {STRVAR_1 1, 0, 0} transformed into its\nComplete Forme!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Sp. Attack!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Sp. Attack!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Sp. Attack!
