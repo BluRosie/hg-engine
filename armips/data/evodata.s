@@ -2819,7 +2819,7 @@ evodata SPECIES_PORYGON2
     terminateevodata
 
 evodata SPECIES_STANTLER
-    evolution EVO_KNOWS_MOVE, MOVE_PSYSHIELD_BASH, SPECIES_WYRDEER \\placeholder
+    evolution EVO_KNOWS_MOVE, MOVE_PSYSHIELD_BASH, SPECIES_WYRDEER //placeholder
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
