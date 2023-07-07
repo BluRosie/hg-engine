@@ -2819,7 +2819,7 @@ evodata SPECIES_PORYGON2
     terminateevodata
 
 evodata SPECIES_STANTLER
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_KNOWS_MOVE, MOVE_PSYSHIELD_BASH, SPECIES_WYRDEER \\placeholder
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12199,7 +12199,7 @@ evodata SPECIES_DUGTRIO_ALOLAN
 terminateevodata
 
 evodata SPECIES_MEOWTH_ALOLAN
-    evolutionwithform EVO_HAPPINESS, 28, SPECIES_PERSIAN, 1
+    evolutionwithform EVO_HAPPINESS, 0, SPECIES_PERSIAN, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
