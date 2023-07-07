@@ -27,6 +27,7 @@ _return:
     if IF_NOTMASK, VAR_SERVER_STATUS2, 0x80, _0094
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x2
 _0094:
+    if IF_MASK, VAR_SERVER_STATUS1, 0x200000, _00F0
     printpreparedmessage
     waitmessage
     wait 0x1E

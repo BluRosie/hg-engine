@@ -238,8 +238,8 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker dealt physical damage
                 && (sp->oneSelfFlag[sp->defence_client].physical_damage)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
-                ret                      = TRUE;
+                seq_no[0]        = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                ret              = TRUE;
             }
             break;
 
@@ -253,8 +253,8 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker dealt special damage
                 && (sp->oneSelfFlag[sp->defence_client].special_damage)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
-                ret                      = TRUE;
+                seq_no[0]        = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                ret              = TRUE;
             }
             break;
 
@@ -265,13 +265,11 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
                 sp->client_work = sp->defence_client;
                 sp->item_work   = sp->battlemon[sp->defence_client].item;
-                seq_no[0]                = SUB_SEQ_HANDLE_ITEM_RESTORE_HP;
-                ret                      = TRUE;
+                seq_no[0]       = SUB_SEQ_HANDLE_ITEM_RESTORE_HP;
+                ret             = TRUE;
             }
             break;
 
-            //these effects are not usable at all yet
-#ifdef LATER_GEN_ITEM_EFFECTS
             // gen5 effects
         case HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT:                // Absorb Bulb
             // Defender is alive after the attack
@@ -286,14 +284,17 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     // Or the defender has Contrary and more than -6 stages to Special Attack
                     || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
                         && (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))) {
-                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
-                sp->addeffect_param  = ADD_STATE_SP_ATK_UP;
-                sp->state_client = sp->defence_client;
-                sp->item_work        = sp->battlemon[sp->defence_client].item;
-                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
-                ret                           = TRUE;
+                //sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
+                //sp->addeffect_param  = ADD_STATE_SP_ATK_UP;
+                sp->state_client     = sp->defence_client;
+                //sp->item_work        = sp->battlemon[sp->defence_client].item;
+                seq_no[0]            = SUB_SEQ_HANDLE_ABSORB_BULB;
+                ret                  = TRUE;
             }
             break;
+
+
+#ifdef LATER_GEN_ITEM_EFFECTS
 
         case HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT:             // Air Balloon
             // Defender is alive after the attack
@@ -321,10 +322,10 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                         && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
                 sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
                 sp->addeffect_param  = ADD_STATE_ATTACK_UP;
-                sp->state_client = sp->defence_client;
+                sp->state_client     = sp->defence_client;
                 sp->item_work        = sp->battlemon[sp->defence_client].item;
-                seq_no[0]                     = SUB_SEQ_STAT_STAGE_CHANGE;
-                ret                           = TRUE;
+                seq_no[0]            = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret                  = TRUE;
             }
             break;
 
