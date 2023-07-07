@@ -36543,9 +36543,9 @@ const ITEMDATA __data[] =
 
 [ITEM_ABSORB_BULB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 4000,
     .holdEffect = HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -36610,7 +36610,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -36805,7 +36805,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -36935,7 +36935,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37000,7 +37000,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37130,7 +37130,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_SWITCH_OUT_WHEN_HIT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37195,7 +37195,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37260,7 +37260,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37455,7 +37455,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37520,7 +37520,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37585,7 +37585,7 @@ const ITEMDATA __data[] =
 {
     .price = 4000,
     .holdEffect = HOLD_EFFECT_DAMAGE_ON_CONTACT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37715,7 +37715,7 @@ const ITEMDATA __data[] =
 {
     .price = 10000,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 0,
@@ -37780,7 +37780,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -37845,7 +37845,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_SPD_ON_WATER_HIT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38040,7 +38040,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38170,7 +38170,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38235,7 +38235,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38300,7 +38300,7 @@ const ITEMDATA __data[] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_SWIRLIX,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 80,
@@ -38365,7 +38365,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38690,7 +38690,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38755,7 +38755,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38820,7 +38820,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -38885,7 +38885,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39015,7 +39015,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39080,7 +39080,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39145,7 +39145,7 @@ const ITEMDATA __data[] =
 {
     .price = 250000,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 0,
@@ -39275,7 +39275,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39340,7 +39340,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39405,7 +39405,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39470,7 +39470,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39535,7 +39535,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39600,7 +39600,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39665,7 +39665,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39730,7 +39730,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39795,7 +39795,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39860,7 +39860,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39925,7 +39925,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39990,7 +39990,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40055,7 +40055,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40120,7 +40120,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40185,7 +40185,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40250,7 +40250,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40510,7 +40510,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40770,7 +40770,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40835,7 +40835,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40900,7 +40900,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -40965,7 +40965,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41030,7 +41030,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41095,7 +41095,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41160,7 +41160,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41225,7 +41225,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41290,7 +41290,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41355,7 +41355,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41420,7 +41420,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41485,7 +41485,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41550,7 +41550,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41680,7 +41680,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41745,7 +41745,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41810,7 +41810,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -41875,7 +41875,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42005,7 +42005,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42070,7 +42070,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42135,7 +42135,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42200,7 +42200,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42265,7 +42265,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42330,7 +42330,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42915,7 +42915,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -42980,7 +42980,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43045,7 +43045,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43110,7 +43110,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43175,7 +43175,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43240,7 +43240,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43305,7 +43305,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43370,7 +43370,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43435,7 +43435,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43500,7 +43500,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43565,7 +43565,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43630,7 +43630,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43695,7 +43695,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43760,7 +43760,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43825,7 +43825,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43890,7 +43890,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -43955,7 +43955,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44020,7 +44020,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44085,7 +44085,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44150,7 +44150,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44215,7 +44215,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44280,7 +44280,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44345,7 +44345,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44410,7 +44410,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44475,7 +44475,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44540,7 +44540,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44605,7 +44605,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44670,7 +44670,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44735,7 +44735,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44800,7 +44800,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44865,7 +44865,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44930,7 +44930,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -44995,7 +44995,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45060,7 +45060,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45125,7 +45125,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45190,7 +45190,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45255,7 +45255,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45320,7 +45320,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45385,7 +45385,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45515,7 +45515,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45580,7 +45580,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45645,7 +45645,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45710,7 +45710,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45775,7 +45775,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45840,7 +45840,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45905,7 +45905,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -45970,7 +45970,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46035,7 +46035,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46100,7 +46100,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46165,7 +46165,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46230,7 +46230,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46295,7 +46295,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46360,7 +46360,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46425,7 +46425,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46490,7 +46490,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -46945,7 +46945,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47010,7 +47010,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47075,7 +47075,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47140,7 +47140,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47205,7 +47205,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47270,7 +47270,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47335,7 +47335,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47400,7 +47400,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47465,7 +47465,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47530,7 +47530,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47595,7 +47595,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47660,7 +47660,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47725,7 +47725,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47790,7 +47790,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47855,7 +47855,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -47920,7 +47920,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48115,7 +48115,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48180,7 +48180,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48245,7 +48245,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48310,7 +48310,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48375,7 +48375,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48505,7 +48505,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -48570,7 +48570,7 @@ const ITEMDATA __data[] =
 {
     .price = 200,
     .holdEffect = 0,
-    .holdEffectParam = 30,
+    .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
