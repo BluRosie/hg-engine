@@ -1113,6 +1113,7 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].sheer_force_flag = 0;
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
+    sp->battlemon[client].air_ballon_flag = 0;
 }
 
 

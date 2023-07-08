@@ -293,9 +293,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-
-#ifdef LATER_GEN_ITEM_EFFECTS
-
         case HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT:             // Air Balloon
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
@@ -306,6 +303,9 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 ret       = TRUE;
             }
             break;
+
+
+#ifdef LATER_GEN_ITEM_EFFECTS
 
         case HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT:             // Cell Battery
             // Defender is alive after the attack

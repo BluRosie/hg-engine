@@ -34,6 +34,12 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     {
         flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE; // not "not very effective", ineffective
     }
+    else if ((typeLocal == TYPE_GROUND)
+          && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+          && (held_effect == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT))
+    {
+        flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE; // not "not very effective", ineffective
+    }
     else
     {
         i = 0;

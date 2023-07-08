@@ -238,6 +238,10 @@ enum
     SWITCH_IN_CHECK_FAIRY_AURA,
     SWITCH_IN_CHECK_AURA_BREAK,
     SWITCH_IN_CHECK_IMPOSTER,
+
+// items that display messages.
+    SWITCH_IN_CHECK_AIR_BALLOON,
+
     SWITCH_IN_CHECK_END,
 };
 
@@ -261,6 +265,11 @@ BOOL IntimidateCheckHelper(u16 ability) //TODO adjust Intimidate switch-in check
             return FALSE;
     }
 }
+
+
+// this function is actually sorta just run whenever it can, but it's best to think of it as on switch in
+// other item functions happen when they can and aren't ever really on switch in, so those meant to be covered on switch in are done so here
+
 
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {   int i;
@@ -965,7 +974,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
 
                 sp->attack_client = client_no; // attack transforms into defence
-                sp->current_move_index = MOVE_TRANSFORM;
+                sp->current_move_index = MOVE_TRANSFORM; // force move anim to play
                 if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
                 {
                     sp->defence_client = (client_no & 1) + ((BattleRand(bw) & 1) * 2); // get random defender
@@ -1010,6 +1019,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->battlemon[sp->attack_client].moveeffect.slow_start_count = sp->total_turn + 1;
                 sp->battlemon[sp->attack_client].slow_start_flag = 0;
                 sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
+                ClearBattleMonFlags(sp, sp->attack_client); // clear extra flags here too
                 
                 for(i = 0; i < 4; i++)
                 {
@@ -1024,6 +1034,28 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
                 break;
+
+
+            case SWITCH_IN_CHECK_AIR_BALLOON:
+                for(i = 0; i < client_set_max; i++)
+                {
+                    client_no = sp->turn_order[i];
+                    if ((sp->battlemon[client_no].air_ballon_flag == 0)
+                     && (sp->battlemon[client_no].hp)
+                     && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT))
+                    {
+                        sp->battlemon[client_no].air_ballon_flag = 1;
+                        sp->client_work = client_no;
+                        scriptnum = SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+                if(i == client_set_max){
+                    sp->switch_in_check_seq_no++;
+                }
+
+
                 // 02253D78
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;

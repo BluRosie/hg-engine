@@ -1046,13 +1046,21 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
     {
         flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
     }
-
     else if ((sp->battlemon[defence_client].moveeffect.magnet_rise_count)
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
+          && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
           && (move_type == TYPE_GROUND)
           && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
+    }
+    else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
+          && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
+          && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+          && (move_type == TYPE_GROUND)
+          && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
+    {
+        flag[0] |= MOVE_STATUS_FLAG_MISS; // air balloon just misses for the moment
     }
     else
     {

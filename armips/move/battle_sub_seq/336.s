@@ -12,7 +12,7 @@
 
 .create "build/move/battle_sub_seq/1_336", 0x0
 
-a001_335:
+a001_336:
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_HP, 0x0, _0028
     setstatus2effect BATTLER_DEFENDER, 0xA // play the mon ate animation
     waitmessage
