@@ -1070,8 +1070,8 @@
 /* SPECIES_GASTRODON_EAST_SEA          */ .halfword 166
 /* SPECIES_DIALGA_ORIGIN               */ .halfword 340
 /* SPECIES_PALKIA_ORIGIN               */ .halfword 340
+/* SPECIES_BASCULIN_RED_STRIPED        */ .halfword 161
 /* SPECIES_BASCULIN_BLUE_STRIPED       */ .halfword 161
-/* SPECIES_BASCULIN_WHITE_STRIPED      */ .halfword 161
 /* SPECIES_DARMANITAN_ZEN_MODE         */ .halfword 189
 /* SPECIES_DARMANITAN_ZEN_MODE_GALARIAN*/ .halfword 189
 /* SPECIES_DEERLING_SUMMER             */ .halfword 67

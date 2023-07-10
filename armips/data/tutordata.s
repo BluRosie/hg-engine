@@ -11688,7 +11688,7 @@ tutordata SPECIES_PALKIA_ORIGIN, \
                   0
 
 
-tutordata SPECIES_BASCULIN_BLUE_STRIPED, \
+tutordata SPECIES_BASCULIN_RED_STRIPED, \
                   \
                   \
                   \
@@ -11699,7 +11699,7 @@ tutordata SPECIES_BASCULIN_BLUE_STRIPED, \
                   0
 
 
-tutordata SPECIES_BASCULIN_WHITE_STRIPED, \
+tutordata SPECIES_BASCULIN_BLUE_STRIPED, \
                   \
                   \
                   \
