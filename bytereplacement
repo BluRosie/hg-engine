@@ -151,3 +151,6 @@ arm9 02070DB4 38 B5 82 B0 05 21 00 22
 arm9 0208FEEA 64 28 05 D2 20 1C 8A F7 0C FE
 
 #endif
+
+# expand move relearner dedicated heap
+0068 08000002 12

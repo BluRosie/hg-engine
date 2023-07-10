@@ -699,8 +699,8 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #ifdef IMPLEMENT_CAPTURE_EXPERIENCE
 
 extern u32 gKeepStructureCallbackIntact;
-u32 store_current_exp_step = 0;
-u32 store_work_params[7] = {0, 0, 0, 0, 0, 0, 0};
+u32 ALIGN4 store_current_exp_step = 0;
+u32 ALIGN4 store_work_params[7] = {0, 0, 0, 0, 0, 0, 0};
 
 #endif // IMPLEMENT_CAPTURE_EXPERIENCE
 

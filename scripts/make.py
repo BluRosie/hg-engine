@@ -435,7 +435,7 @@ def offset():
                 rom.close()
 
 
-OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 63, 96, 112]
+OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 63, 68, 96, 112]
 
 
 def decompress():

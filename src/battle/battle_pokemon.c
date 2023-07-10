@@ -10,7 +10,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
-__attribute__((aligned(4))) struct ILLUSION_STRUCT gIllusionStruct;
+ALIGN4 struct ILLUSION_STRUCT gIllusionStruct;
 
 u8 TypeEffectivenessTable[][3] =
 {
