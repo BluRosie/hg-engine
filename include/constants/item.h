@@ -25,7 +25,7 @@
 #define ITEM_BURN_HEAL       19
 #define ITEM_ICE_HEAL        20
 #define ITEM_AWAKENING       21
-#define ITEM_PARLYZ_HEAL     22
+#define ITEM_PARLYZE_HEAL     22
 #define ITEM_FULL_RESTORE    23
 #define ITEM_MAX_POTION      24
 #define ITEM_HYPER_POTION    25
@@ -37,7 +37,7 @@
 #define ITEM_SODA_POP        31
 #define ITEM_LEMONADE        32
 #define ITEM_MOOMOO_MILK     33
-#define ITEM_ENERGYPOWDER    34
+#define ITEM_ENERGY_POWDER    34
 #define ITEM_ENERGY_ROOT     35
 #define ITEM_HEAL_POWDER     36
 #define ITEM_REVIVAL_HERB    37
@@ -86,10 +86,10 @@
 #define ITEM_SUN_STONE       80
 #define ITEM_MOON_STONE      81
 #define ITEM_FIRE_STONE      82
-#define ITEM_THUNDERSTONE    83
+#define ITEM_THUNDER_STONE    83
 #define ITEM_WATER_STONE     84
 #define ITEM_LEAF_STONE      85
-#define ITEM_TINYMUSHROOM    86
+#define ITEM_TINY_MUSHROOM    86
 #define ITEM_BIG_MUSHROOM    87
 #define ITEM_PEARL           88
 #define ITEM_BIG_PEARL       89
@@ -219,7 +219,7 @@
 
 #define IS_ITEM_BERRY(item) (item >= ITEM_CHERI_BERRY && item <= ITEM_ROWAP_BERRY)
 
-#define ITEM_BRIGHTPOWDER    213
+#define ITEM_BRIGHT_POWDER    213
 #define ITEM_WHITE_HERB      214
 #define ITEM_MACHO_BRACE     215
 #define ITEM_EXP_SHARE       216
@@ -228,12 +228,12 @@
 #define ITEM_MENTAL_HERB     219
 #define ITEM_CHOICE_BAND     220
 #define ITEM_KINGS_ROCK      221
-#define ITEM_SILVERPOWDER    222
+#define ITEM_SILVER_POWDER    222
 #define ITEM_AMULET_COIN     223
 #define ITEM_CLEANSE_TAG     224
 #define ITEM_SOUL_DEW        225
-#define ITEM_DEEPSEATOOTH    226
-#define ITEM_DEEPSEASCALE    227
+#define ITEM_DEEP_SEA_TOOTH    226
+#define ITEM_DEEP_SEA_SCALE    227
 #define ITEM_SMOKE_BALL      228
 #define ITEM_EVERSTONE       229
 #define ITEM_FOCUS_BAND      230
@@ -246,15 +246,15 @@
 #define ITEM_SOFT_SAND       237
 #define ITEM_HARD_STONE      238
 #define ITEM_MIRACLE_SEED    239
-#define ITEM_BLACKGLASSES    240
+#define ITEM_BLACK_GLASSES    240
 #define ITEM_BLACK_BELT      241
 #define ITEM_MAGNET          242
 #define ITEM_MYSTIC_WATER    243
 #define ITEM_SHARP_BEAK      244
 #define ITEM_POISON_BARB     245
-#define ITEM_NEVERMELTICE    246
+#define ITEM_NEVER_MELT_ICE    246
 #define ITEM_SPELL_TAG       247
-#define ITEM_TWISTEDSPOON    248
+#define ITEM_TWISTED_SPOON    248
 #define ITEM_CHARCOAL        249
 #define ITEM_DRAGON_FANG     250
 #define ITEM_SILK_SCARF      251
@@ -265,7 +265,7 @@
 #define ITEM_LUCKY_PUNCH     256
 #define ITEM_METAL_POWDER    257
 #define ITEM_THICK_CLUB      258
-#define ITEM_STICK           259
+#define ITEM_LEEK           259
 #define ITEM_RED_SCARF       260
 #define ITEM_BLUE_SCARF      261
 #define ITEM_PINK_SCARF      262
@@ -470,7 +470,7 @@
 #define ITEM_COUPON_2        461
 #define ITEM_COUPON_3        462
 #define ITEM_STORAGE_KEY     463
-#define ITEM_SECRETPOTION    464
+#define ITEM_SECRET_MEDICINE    464
 #define ITEM_VS_RECORDER     465
 #define ITEM_GRACIDEA        466
 #define ITEM_SECRET_KEY      467
@@ -479,11 +479,11 @@
 #define ITEM_BERRY_POTS      470
 #define ITEM_DOWSING_MCHN    471
 #define ITEM_BLUE_CARD       472
-#define ITEM_SLOWPOKETAIL    473
+#define ITEM_SLOWPOKE_TAIL    473
 #define ITEM_CLEAR_BELL      474
 #define ITEM_CARD_KEY        475
 #define ITEM_BASEMENT_KEY    476
-#define ITEM_SQUIRTBOTTLE    477
+#define ITEM_SQUIRT_BOTTLE    477
 #define ITEM_RED_SCALE       478
 #define ITEM_LOST_ITEM       479
 #define ITEM_PASS            480
@@ -492,12 +492,12 @@
 #define ITEM_RAINBOW_WING    483
 #define ITEM_MYSTERY_EGG     484
 #define ITEM_RED_APRICORN    485
-#define ITEM_YLW_APRICORN    486
-#define ITEM_BLU_APRICORN    487
-#define ITEM_GRN_APRICORN    488
-#define ITEM_PNK_APRICORN    489
-#define ITEM_WHT_APRICORN    490
-#define ITEM_BLK_APRICORN    491
+#define ITEM_YELLOW_APRICORN    486
+#define ITEM_BLUE_APRICORN    487
+#define ITEM_GREEN_APRICORN    488
+#define ITEM_PINK_APRICORN    489
+#define ITEM_WHITE_APRICORN    490
+#define ITEM_BLACK_APRICORN    491
 #define ITEM_FAST_BALL       492
 #define ITEM_LEVEL_BALL      493
 #define ITEM_LURE_BALL       494
@@ -510,7 +510,7 @@
 #define ITEM_PHOTO_ALBUM     501
 #define ITEM_GB_SOUNDS       502
 #define ITEM_TIDAL_BELL      503
-#define ITEM_RAGECANDYBAR    504
+#define ITEM_RAGE_CANDY_BAR    504
 #define ITEM_DATA_CARD_01    505
 #define ITEM_DATA_CARD_02    506
 #define ITEM_DATA_CARD_03    507
