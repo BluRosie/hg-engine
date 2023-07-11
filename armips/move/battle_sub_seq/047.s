@@ -8,6 +8,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// badly poison subscript
+
 .create "build/move/battle_sub_seq/1_047", 0
 
 a001_047:
@@ -26,10 +28,15 @@ _0060:
 _00B8:
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x8, _03E4
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x80, _03E4
+
+    abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_CORROSION, _skipTypeChecks // add corrosion being able to poison any type
+
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_POISON, _03E4
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_POISON, _03E4
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_STEEL, _03E4
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_STEEL, _03E4
+
+_skipTypeChecks:
     ifmonstat IF_NOTEQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x0, _03E4
     if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _03E4
     goto _0300
@@ -49,10 +56,15 @@ _0204:
     checksubstitute BATTLER_ADDL_EFFECT, _0450
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x8, _04A4
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x80, _04A4
+
+    abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_CORROSION, _skipTypeChecks2 // add corrosion being able to poison any type
+
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_POISON, _04EC
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_POISON, _04EC
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_STEEL, _04EC
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_STEEL, _04EC
+
+_skipTypeChecks2:
     ifmonstat IF_NOTEQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x0, _0450
     if IF_MASK, VAR_MOVE_STATUS, 0x10001, _0450
     if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _safeguard
