@@ -20,7 +20,7 @@ Antidote
 Burn Heal
 Ice Heal
 Awakening
-Parlyze Heal
+Paralyze Heal
 Full Restore
 Max Potion
 Hyper Potion

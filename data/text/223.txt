@@ -20,7 +20,7 @@ an {COLOR 255}Antidote{COLOR 0}
 a {COLOR 255}Burn Heal{COLOR 0}
 an {COLOR 255}Ice Heal{COLOR 0}
 an {COLOR 255}Awakening{COLOR 0}
-a {COLOR 255}Parlyze Heal{COLOR 0}
+a {COLOR 255}Paralyze Heal{COLOR 0}
 a {COLOR 255}Full Restore{COLOR 0}
 a {COLOR 255}Max Potion{COLOR 0}
 a {COLOR 255}Hyper Potion{COLOR 0}
