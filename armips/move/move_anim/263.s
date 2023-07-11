@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// fix facade: original makes user go up 1 pixel
+
 .create "build/move/move_anim/0_263", 0
 
 a010_263:

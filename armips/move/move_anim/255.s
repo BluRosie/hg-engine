@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// fix spit up: original makes user go right 2 pixels
+
 .create "build/move/move_anim/0_255", 0
 
 a010_255:

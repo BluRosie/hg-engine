@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// fix helping hand: original makes target go left 1 pixel
+
 .create "build/move/move_anim/0_270", 0
 
 a010_270:

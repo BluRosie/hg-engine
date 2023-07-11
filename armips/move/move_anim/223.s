@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// fix dynamic punch: original makes target go left 1 pixel
+
 .create "build/move/move_anim/0_223", 0
 
 a010_223:

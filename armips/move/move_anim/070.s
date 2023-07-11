@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// fix strength: originally makes user go right 2 pixels
+
 .create "build/move/move_anim/0_070", 0
 
 a010_070:
