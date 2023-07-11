@@ -20,7 +20,7 @@ Antidote
 Burn Heal
 Ice Heal
 Awakening
-Parlyz Heal
+Paralyze Heal
 Full Restore
 Max Potion
 Hyper Potion
@@ -32,7 +32,7 @@ Fresh Water
 Soda Pop
 Lemonade
 Moomoo Milk
-EnergyPowder
+Energy Powder
 Energy Root
 Heal Powder
 Revival Herb
@@ -81,10 +81,10 @@ Repel
 Sun Stone
 Moon Stone
 Fire Stone
-Thunderstone
+Thunder Stone
 Water Stone
 Leaf Stone
-TinyMushroom
+Tiny Mushroom
 Big Mushroom
 Pearl
 Big Pearl
@@ -211,7 +211,7 @@ Micle Berry
 Custap Berry
 Jaboca Berry
 Rowap Berry
-BrightPowder
+Bright Powder
 White Herb
 Macho Brace
 Exp. Share
@@ -220,12 +220,12 @@ Soothe Bell
 Mental Herb
 Choice Band
 King’s Rock
-SilverPowder
+Silver Powder
 Amulet Coin
 Cleanse Tag
 Soul Dew
-DeepSeaTooth
-DeepSeaScale
+Deep Sea Tooth
+Deep Sea Scale
 Smoke Ball
 Everstone
 Focus Band
@@ -238,15 +238,15 @@ Light Ball
 Soft Sand
 Hard Stone
 Miracle Seed
-BlackGlasses
+Black Glasses
 Black Belt
 Magnet
 Mystic Water
 Sharp Beak
 Poison Barb
-NeverMeltIce
+Never-Melt Ice
 Spell Tag
-TwistedSpoon
+Twisted Spoon
 Charcoal
 Dragon Fang
 Silk Scarf
@@ -462,20 +462,20 @@ Coupon 1
 Coupon 2
 Coupon 3
 Storage Key
-SecretPotion
+Secret Potion
 Vs. Recorder
 Gracidea
 Secret Key
 Apricorn Box
-UNOWN Report
+Unown Report
 Berry Pots
-Dowsing MCHN
+Dowsing Machine
 Blue Card
-SlowpokeTail
+Slowpoke Tail
 Clear Bell
 Card Key
 Basement Key
-SquirtBottle
+Squirt Bottle
 Red Scale
 Lost Item
 Pass
@@ -484,12 +484,12 @@ Silver Wing
 Rainbow Wing
 Mystery Egg
 Red Apricorn
-Ylw Apricorn
-Blu Apricorn
-Grn Apricorn
-Pnk Apricorn
-Wht Apricorn
-Blk Apricorn
+Yellow Apricorn
+Blue Apricorn
+Green Apricorn
+Pink Apricorn
+White Apricorn
+Black Apricorn
 Fast Ball
 Level Ball
 Lure Ball
@@ -502,7 +502,7 @@ Park Ball
 Photo Album
 GB Sounds
 Tidal Bell
-RageCandyBar
+Rage Candy Bar
 Data Card 01
 Data Card 02
 Data Card 03
@@ -536,8 +536,8 @@ Red Orb
 Blue Orb
 Enigma Stone
 Venusaurite
-Charizite X
-Charizite Y
+Charizardite X
+Charizardite Y
 Blastoisite
 Beedrillite
 Pidgeotite
@@ -622,7 +622,7 @@ Misty Seed
 Psychic Seed
 Ice Stone
 Protective Pads
-Terrain Extendo
+Terrain Ext.
 Ability Patch
 Black Augurite
 Berry Sweet
