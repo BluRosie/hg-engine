@@ -1441,7 +1441,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PARLYZ_HEAL] =
+[ITEM_PARALYZE_HEAL] =
 {
     .price = 200,
     .holdEffect = 0,
