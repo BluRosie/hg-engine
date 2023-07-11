@@ -585,7 +585,7 @@ Diancite
 Pixie Plate
 Absorb Bulb
 Air Balloon
-BalmMushroom
+Balm Mushroom
 Big Nugget
 Binding Band
 Casteliacone
@@ -601,74 +601,74 @@ Red Card
 Ring Target
 Rocky Helmet
 Sweet Heart
-Ability Pill
+Ability Capsule
 Assault Vest
-LuminousMoss
-Lumiose Cake
+Luminous Moss
+Lumiose Galette
 Sachet
-Safe Goggles
-Shalour Cake
+Safety Goggles
+Shalour Sable
 Snowball
-Weak Policy
-WhippedDream
-Adrenal Orb
+Weakness Policy
+Whipped Dream
+Adrenaline Orb
 Beast Ball
 Big Malasada
 Bottle Cap
-Bottle Cap
-ElectricSeed
+Gold Bottle Cap
+Electric Seed
 Grassy Seed
 Misty Seed
 Psychic Seed
 Ice Stone
-Protect Pads
-GroundExtend
-AbilityPatch
-Blk Augurite
+Protective Pads
+Terrain Extendo
+Ability Patch
+Black Augurite
 Berry Sweet
 Clover Sweet
 Flower Sweet
 Love Sweet
 Ribbon Sweet
 Star Sweet
-Berry Sweet
-Miss Policy
+StrawberrySweet
+Blunder Policy
 Chipped Pot
 Cracked Pot
 Eject Pack
-Exp Candy S
-Exp Candy M
-Exp Candy L
-Exp Candy XS
-Exp Candy XL
-Galar Cuff
-Galar Twig
-Galar Wreath
-Heavy Boots
+Exp. Candy S
+Exp. Candy M
+Exp. Candy L
+Exp. Candy XS
+Exp. Candy XL
+Galarica Cuff
+Galarica Twig
+Galarica Wreath
+HeavyDutyBoots
 Linking Cord
-MoomooCheese
+Moomoo Cheese
 Peat Block
 Room Service
-Rusty Shield
-Rusty Sword
+Rusted Shield
+Rusted Sword
 Sweet Apple
 Tart Apple
 Throat Spray
-UtilUmbrella
-Ability Lock
-Holy Armor
-Boost Energy
+Utility Umbrella
+Ability Shield
+Auspicious Armor
+Booster Energy
 Clear Amulet
 Covert Cloak
-Gimmighoul $
-Leader Crest
+Gimmighoul Coin
+Leader’s Crest
 Loaded Dice
-Cursed Armor
+Malicious Armor
 Mirror Herb
-Boxing Glove
+Punching Glove
 Roseli Berry
 Kee Berry
-MarangaBerry
+Maranga Berry
 Burn Drive
 Chill Drive
 Douse Drive
@@ -677,10 +677,10 @@ Cover Fossil
 Plume Fossil
 Jaw Fossil
 Sail Fossil
-Bird Fossil
-Dino Fossil
-Drake Fossil
-Fish Fossil
+Fossilized Bird
+Fossilized Dino
+Fossilized Drake
+Fossilized Fish
 Normal Gem
 Fighting Gem
 Flying Gem
@@ -699,10 +699,10 @@ Ice Gem
 Dragon Gem
 Dark Gem
 Fairy Gem
-Fight Memory
-FlyingMemory
-PoisonMemory
-GroundMemory
+Fighting Memory
+Flying Memory
+Poison Memory
+Ground Memory
 Rock Memory
 Bug Memory
 Ghost Memory
@@ -710,16 +710,16 @@ Steel Memory
 Fire Memory
 Water Memory
 Grass Memory
-ElectrcMemory
-PsychicMemory
+Electric Memory
+Psychic Memory
 Ice Memory
-DragonMemory
+Dragon Memory
 Dark Memory
 Fairy Memory
 Red Nectar
-YellowNectar
+Yellow Nectar
 Pink Nectar
-PurpleNectar
+Purple Nectar
 Blank Plate
 Legend Plate
 Relic Copper
@@ -729,17 +729,17 @@ Relic Vase
 Relic Band
 Relic Statue
 Relic Crown
-Health Wing
-Muscle Wing
-Resist Wing
-Genius Wing
-Clever Wing
-Swift Wing
-Pretty Wing
+Health Feather
+Muscle Feather
+Resist Feather
+Genius Feather
+Clever Feather
+Swift Feather
+Pretty Feather
 DNA Splicers
 Reveal Glass
-Jail Bottle
-Catch Charm
+Prison Bottle
+Catching Charm
 Exp. Charm
 Oval Charm
 Shiny Charm
@@ -751,21 +751,21 @@ Sun Flute
 Moon Flute
 Light Stone
 Dark Stone
-Icy Carrot
+Iceroot Carrot
 Shady Carrot
-Unity Reins
+Reins of Unity
 Wooden Crown
-Rotom Book
-Adamant Gem
-Lustrous Gem
-Griseous Gem
-Dark Scroll
-Water Scroll
+Rotom Catalog
+Adamant Crystal
+Lustrous Globe
+Griseous Core
+Darkness Scroll
+Waters Scroll
 Mega Ring
 Autograph
 Gold Teeth
 Key Stone
 Lift Key
-Pewter Snack
+Pewter Snacks
 Silph Scope
 Tea

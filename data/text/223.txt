@@ -585,7 +585,7 @@ a {COLOR 255}Diancite{COLOR 0}
 a {COLOR 255}Pixie Plate{COLOR 0}
 an {COLOR 255}Absorb Bulb{COLOR 0}
 an {COLOR 255}Air Balloon{COLOR 0}
-a {COLOR 255}BalmMushroom{COLOR 0}
+a {COLOR 255}Balm Mushroom{COLOR 0}
 a {COLOR 255}Big Nugget{COLOR 0}
 a {COLOR 255}Binding Band{COLOR 0}
 a {COLOR 255}Casteliacone{COLOR 0}
@@ -601,74 +601,74 @@ a {COLOR 255}Red Card{COLOR 0}
 a {COLOR 255}Ring Target{COLOR 0}
 a {COLOR 255}Rocky Helmet{COLOR 0}
 a {COLOR 255}Sweet Heart{COLOR 0}
-an {COLOR 255}Ability Pill{COLOR 0}
+an {COLOR 255}Ability Capsule{COLOR 0}
 an {COLOR 255}Assault Vest{COLOR 0}
-a {COLOR 255}LuminousMoss{COLOR 0}
-a {COLOR 255}Lumiose Cake{COLOR 0}
+a {COLOR 255}Luminous Moss{COLOR 0}
+a {COLOR 255}Lumiose Galette{COLOR 0}
 a {COLOR 255}Sachet{COLOR 0}
-a {COLOR 255}Safe Goggles{COLOR 0}
-a {COLOR 255}Shalour Cake{COLOR 0}
+a {COLOR 255}Safety Goggles{COLOR 0}
+a {COLOR 255}Shalour Sable{COLOR 0}
 a {COLOR 255}Snowball{COLOR 0}
-a {COLOR 255}Weak Policy{COLOR 0}
-a {COLOR 255}WhippedDream{COLOR 0}
-an {COLOR 255}Adrenal Orb{COLOR 0}
+a {COLOR 255}Weakness Policy{COLOR 0}
+a {COLOR 255}Whipped Dream{COLOR 0}
+an {COLOR 255}Adrenaline Orb{COLOR 0}
 a {COLOR 255}Beast Ball{COLOR 0}
 a {COLOR 255}Big Malasada{COLOR 0}
 a {COLOR 255}Bottle Cap{COLOR 0}
-a {COLOR 255}Bottle Cap{COLOR 0}
-an {COLOR 255}ElectricSeed{COLOR 0}
+a {COLOR 255}Gold Bottle Cap{COLOR 0}
+an {COLOR 255}Electric Seed{COLOR 0}
 a {COLOR 255}Grassy Seed{COLOR 0}
 a {COLOR 255}Misty Seed{COLOR 0}
 a {COLOR 255}Psychic Seed{COLOR 0}
 an {COLOR 255}Ice Stone{COLOR 0}
-a {COLOR 255}Protect Pads{COLOR 0}
-a {COLOR 255}GroundExtend{COLOR 0}
-a {COLOR 255}AbilityPatch{COLOR 0}
-a {COLOR 255}Blk Augurite{COLOR 0}
+a {COLOR 255}Protective Pads{COLOR 0}
+a {COLOR 255}Terrain Extendo{COLOR 0}
+an {COLOR 255}Ability Patch{COLOR 0}
+a {COLOR 255}Black Augurite{COLOR 0}
 a {COLOR 255}Berry Sweet{COLOR 0}
 a {COLOR 255}Clover Sweet{COLOR 0}
 a {COLOR 255}Flower Sweet{COLOR 0}
 a {COLOR 255}Love Sweet{COLOR 0}
 a {COLOR 255}Ribbon Sweet{COLOR 0}
 a {COLOR 255}Star Sweet{COLOR 0}
-a {COLOR 255}Berry Sweet{COLOR 0}
-a {COLOR 255}Miss Policy{COLOR 0}
+a {COLOR 255}StrawberrySweet{COLOR 0}
+a {COLOR 255}Blunder Policy{COLOR 0}
 a {COLOR 255}Chipped Pot{COLOR 0}
 a {COLOR 255}Cracked Pot{COLOR 0}
 an {COLOR 255}Eject Pack{COLOR 0}
-an {COLOR 255}Exp Candy S{COLOR 0}
-an {COLOR 255}Exp Candy M{COLOR 0}
-an {COLOR 255}Exp Candy L{COLOR 0}
-an {COLOR 255}Exp Candy XS{COLOR 0}
-an {COLOR 255}Exp Candy XL{COLOR 0}
-a {COLOR 255}Galar Cuff{COLOR 0}
-a {COLOR 255}Galar Twig{COLOR 0}
-a {COLOR 255}Galar Wreath{COLOR 0}
-a {COLOR 255}Heavy Boots{COLOR 0}
+an {COLOR 255}Exp. Candy S{COLOR 0}
+an {COLOR 255}Exp. Candy M{COLOR 0}
+an {COLOR 255}Exp. Candy L{COLOR 0}
+an {COLOR 255}Exp. Candy XS{COLOR 0}
+an {COLOR 255}Exp. Candy XL{COLOR 0}
+a {COLOR 255}Galarica Cuff{COLOR 0}
+a {COLOR 255}Galarica Twig{COLOR 0}
+a {COLOR 255}Galarica Wreath{COLOR 0}
+a {COLOR 255}HeavyDutyBoots{COLOR 0}
 a {COLOR 255}Linking Cord{COLOR 0}
-a {COLOR 255}MoomooCheese{COLOR 0}
+a {COLOR 255}Moomoo Cheese{COLOR 0}
 a {COLOR 255}Peat Block{COLOR 0}
 a {COLOR 255}Room Service{COLOR 0}
-a {COLOR 255}Rusty Shield{COLOR 0}
-a {COLOR 255}Rusty Sword{COLOR 0}
+a {COLOR 255}Rusted Shield{COLOR 0}
+a {COLOR 255}Rusted Sword{COLOR 0}
 a {COLOR 255}Sweet Apple{COLOR 0}
 a {COLOR 255}Tart Apple{COLOR 0}
 a {COLOR 255}Throat Spray{COLOR 0}
-an {COLOR 255}UtilUmbrella{COLOR 0}
-an {COLOR 255}Ability Lock{COLOR 0}
-a {COLOR 255}Holy Armor{COLOR 0}
-a {COLOR 255}Boost Energy{COLOR 0}
+a {COLOR 255}Utility Umbrella{COLOR 0}
+na {COLOR 255}Ability Shield{COLOR 0}
+na {COLOR 255}Auspicious Armor{COLOR 0}
+a {COLOR 255}Booster Energy{COLOR 0}
 a {COLOR 255}Clear Amulet{COLOR 0}
 a {COLOR 255}Covert Cloak{COLOR 0}
-a {COLOR 255}Gimmighoul ${COLOR 0}
-a {COLOR 255}Leader Crest{COLOR 0}
+a {COLOR 255}Gimmighoul Coin{COLOR 0}
+a {COLOR 255}Leader’s Crest{COLOR 0}
 a {COLOR 255}Loaded Dice{COLOR 0}
-a {COLOR 255}Cursed Armor{COLOR 0}
+a {COLOR 255}Malicious Armor{COLOR 0}
 a {COLOR 255}Mirror Herb{COLOR 0}
-a {COLOR 255}Boxing Glove{COLOR 0}
+a {COLOR 255}Punching Glove{COLOR 0}
 a {COLOR 255}Roseli Berry{COLOR 0}
 a {COLOR 255}Kee Berry{COLOR 0}
-a {COLOR 255}MarangaBerry{COLOR 0}
+a {COLOR 255}Maranga Berry{COLOR 0}
 a {COLOR 255}Burn Drive{COLOR 0}
 a {COLOR 255}Chill Drive{COLOR 0}
 a {COLOR 255}Douse Drive{COLOR 0}
@@ -677,10 +677,10 @@ a {COLOR 255}Cover Fossil{COLOR 0}
 a {COLOR 255}Plume Fossil{COLOR 0}
 a {COLOR 255}Jaw Fossil{COLOR 0}
 a {COLOR 255}Sail Fossil{COLOR 0}
-a {COLOR 255}Bird Fossil{COLOR 0}
-a {COLOR 255}Dino Fossil{COLOR 0}
-a {COLOR 255}Drake Fossil{COLOR 0}
-a {COLOR 255}Fish Fossil{COLOR 0}
+a {COLOR 255}Fossilized Bird{COLOR 0}
+a {COLOR 255}Fossilized Dino{COLOR 0}
+a {COLOR 255}Fossilized Drake{COLOR 0}
+a {COLOR 255}Fossilized Fish{COLOR 0}
 a {COLOR 255}Normal Gem{COLOR 0}
 a {COLOR 255}Fighting Gem{COLOR 0}
 a {COLOR 255}Flying Gem{COLOR 0}
@@ -693,16 +693,16 @@ a {COLOR 255}Steel Gem{COLOR 0}
 a {COLOR 255}Fire Gem{COLOR 0}
 a {COLOR 255}Water Gem{COLOR 0}
 a {COLOR 255}Grass Gem{COLOR 0}
-a {COLOR 255}Electric Gem{COLOR 0}
+na {COLOR 255}Electric Gem{COLOR 0}
 a {COLOR 255}Psychic Gem{COLOR 0}
 an {COLOR 255}Ice Gem{COLOR 0}
 a {COLOR 255}Dragon Gem{COLOR 0}
 a {COLOR 255}Dark Gem{COLOR 0}
 a {COLOR 255}Fairy Gem{COLOR 0}
-a {COLOR 255}Fight Memory{COLOR 0}
-a {COLOR 255}FlyingMemory{COLOR 0}
-a {COLOR 255}PoisonMemory{COLOR 0}
-a {COLOR 255}GroundMemory{COLOR 0}
+a {COLOR 255}Fighting Memory{COLOR 0}
+a {COLOR 255}Flying Memory{COLOR 0}
+a {COLOR 255}Poison Memory{COLOR 0}
+a {COLOR 255}Ground Memory{COLOR 0}
 a {COLOR 255}Rock Memory{COLOR 0}
 a {COLOR 255}Bug Memory{COLOR 0}
 a {COLOR 255}Ghost Memory{COLOR 0}
@@ -710,16 +710,16 @@ a {COLOR 255}Steel Memory{COLOR 0}
 a {COLOR 255}Fire Memory{COLOR 0}
 a {COLOR 255}Water Memory{COLOR 0}
 a {COLOR 255}Grass Memory{COLOR 0}
-an {COLOR 255}ElectrcMemory{COLOR 0}
-a {COLOR 255}PsychicMemory{COLOR 0}
+an {COLOR 255}Electric Memory{COLOR 0}
+a {COLOR 255}Psychic Memory{COLOR 0}
 an {COLOR 255}Ice Memory{COLOR 0}
-a {COLOR 255}DragonMemory{COLOR 0}
+a {COLOR 255}Dragon Memory{COLOR 0}
 a {COLOR 255}Dark Memory{COLOR 0}
 a {COLOR 255}Fairy Memory{COLOR 0}
 a {COLOR 255}Red Nectar{COLOR 0}
-a {COLOR 255}YellowNectar{COLOR 0}
+a {COLOR 255}Yellow Nectar{COLOR 0}
 a {COLOR 255}Pink Nectar{COLOR 0}
-a {COLOR 255}PurpleNectar{COLOR 0}
+a {COLOR 255}Purple Nectar{COLOR 0}
 a {COLOR 255}Blank Plate{COLOR 0}
 a {COLOR 255}Legend Plate{COLOR 0}
 a {COLOR 255}Relic Copper{COLOR 0}
@@ -729,19 +729,19 @@ a {COLOR 255}Relic Vase{COLOR 0}
 a {COLOR 255}Relic Band{COLOR 0}
 a {COLOR 255}Relic Statue{COLOR 0}
 a {COLOR 255}Relic Crown{COLOR 0}
-a {COLOR 255}Health Wing{COLOR 0}
-a {COLOR 255}Muscle Wing{COLOR 0}
-a {COLOR 255}Resist Wing{COLOR 0}
-a {COLOR 255}Genius Wing{COLOR 0}
-a {COLOR 255}Clever Wing{COLOR 0}
-a {COLOR 255}Swift Wing{COLOR 0}
-a {COLOR 255}Pretty Wing{COLOR 0}
+a {COLOR 255}Health Feather{COLOR 0}
+a {COLOR 255}Muscle Feather{COLOR 0}
+a {COLOR 255}Resist Feather{COLOR 0}
+a {COLOR 255}Genius Feather{COLOR 0}
+a {COLOR 255}Clever Feather{COLOR 0}
+a {COLOR 255}Swift Feather{COLOR 0}
+a {COLOR 255}Pretty Feather{COLOR 0}
 a {COLOR 255}DNA Splicers{COLOR 0}
 a {COLOR 255}Reveal Glass{COLOR 0}
-a {COLOR 255}Jail Bottle{COLOR 0}
-a {COLOR 255}Catch Charm{COLOR 0}
+a {COLOR 255}Prison Bottle{COLOR 0}
+a {COLOR 255}Catching Charm{COLOR 0}
 an {COLOR 255}Exp. Charm{COLOR 0}
-a {COLOR 255}Oval Charm{COLOR 0}
+an {COLOR 255}Oval Charm{COLOR 0}
 a {COLOR 255}Shiny Charm{COLOR 0}
 an {COLOR 255}N Solarizer{COLOR 0}
 an {COLOR 255}N Lunarizer{COLOR 0}
@@ -751,21 +751,21 @@ a {COLOR 255}Sun Flute{COLOR 0}
 a {COLOR 255}Moon Flute{COLOR 0}
 a {COLOR 255}Light Stone{COLOR 0}
 a {COLOR 255}Dark Stone{COLOR 0}
-an {COLOR 255}Icy Carrot{COLOR 0}
+an {COLOR 255}Iceroot Carrot{COLOR 0}
 a {COLOR 255}Shady Carrot{COLOR 0}
-the {COLOR 255}Unity Reins{COLOR 0}
+a {COLOR 255}Reins of Unity{COLOR 0}
 a {COLOR 255}Wooden Crown{COLOR 0}
-a {COLOR 255}Rotom Book{COLOR 0}
-an {COLOR 255}Adamant Gem{COLOR 0}
-a {COLOR 255}Lustrous Gem{COLOR 0}
-a {COLOR 255}Griseous Gem{COLOR 0}
-a {COLOR 255}Dark Scroll{COLOR 0}
-a {COLOR 255}Water Scroll{COLOR 0}
+a {COLOR 255}Rotom Catalog{COLOR 0}
+an {COLOR 255}Adamant Crystal{COLOR 0}
+a {COLOR 255}Lustrous Globe{COLOR 0}
+a {COLOR 255}Griseous Core{COLOR 0}
+a {COLOR 255}Darkness Scroll{COLOR 0}
+a {COLOR 255}Waters Scroll{COLOR 0}
 a {COLOR 255}Mega Ring{COLOR 0}
-an {COLOR 255}Autograph{COLOR 0}
+a {COLOR 255}Autograph{COLOR 0}
 a {COLOR 255}Gold Teeth{COLOR 0}
 a {COLOR 255}Key Stone{COLOR 0}
 a {COLOR 255}Lift Key{COLOR 0}
-a {COLOR 255}Pewter Snack{COLOR 0}
+a {COLOR 255}Pewter Snacks{COLOR 0}
 a {COLOR 255}Silph Scope{COLOR 0}
-a {COLOR 255}Tea{COLOR 0}{COLOR 0}
+a {COLOR 255}Tea{COLOR 0}
