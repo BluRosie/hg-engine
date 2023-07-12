@@ -463,7 +463,6 @@ a {COLOR 255}Coupon 2{COLOR 0}
 a {COLOR 255}Coupon 3{COLOR 0}
 a {COLOR 255}Storage Key{COLOR 0}
 a {COLOR 255}Secret Medicine{COLOR 0}
-a {COLOR 255}Secret Potion{COLOR 0}
 a {COLOR 255}Vs. Recorder{COLOR 0}
 a {COLOR 255}Gracidea{COLOR 0}
 a {COLOR 255}Secret Key{COLOR 0}
