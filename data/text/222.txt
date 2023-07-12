@@ -257,7 +257,7 @@ Lax Incense
 Lucky Punch
 Metal Powder
 Thick Club
-Stick
+Leek
 Red Scarf
 Blue Scarf
 Pink Scarf
@@ -462,7 +462,7 @@ Coupon 1
 Coupon 2
 Coupon 3
 Storage Key
-Secret Potion
+Secret Medicine
 Vs. Recorder
 Gracidea
 Secret Key

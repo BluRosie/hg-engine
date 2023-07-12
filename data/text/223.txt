@@ -257,7 +257,7 @@ a {COLOR 255}Lax Incense{COLOR 0}
 a {COLOR 255}Lucky Punch{COLOR 0}
 a {COLOR 255}Metal Powder{COLOR 0}
 a {COLOR 255}Thick Club{COLOR 0}
-a {COLOR 255}Stick{COLOR 0}
+a {COLOR 255}Leek{COLOR 0}
 a {COLOR 255}Red Scarf{COLOR 0}
 a {COLOR 255}Blue Scarf{COLOR 0}
 a {COLOR 255}Pink Scarf{COLOR 0}
@@ -462,6 +462,7 @@ a {COLOR 255}Coupon 1{COLOR 0}
 a {COLOR 255}Coupon 2{COLOR 0}
 a {COLOR 255}Coupon 3{COLOR 0}
 a {COLOR 255}Storage Key{COLOR 0}
+a {COLOR 255}Secret Medicine{COLOR 0}
 a {COLOR 255}Secret Potion{COLOR 0}
 a {COLOR 255}Vs. Recorder{COLOR 0}
 a {COLOR 255}Gracidea{COLOR 0}
