@@ -467,9 +467,9 @@ Vs. Recorder
 Gracidea
 Secret Key
 Apricorn Box
-UNOWN Report
+Unown Report
 Berry Pots
-Dowsing MCHN
+Dowsing Machine
 Blue Card
 Slowpoke Tail
 Clear Bell
@@ -536,8 +536,8 @@ Red Orb
 Blue Orb
 Enigma Stone
 Venusaurite
-Charizite X
-Charizite Y
+Charizardite X
+Charizardite Y
 Blastoisite
 Beedrillite
 Pidgeotite
@@ -622,7 +622,7 @@ Misty Seed
 Psychic Seed
 Ice Stone
 Protective Pads
-Terrain Extendo
+Terrain Ext.
 Ability Patch
 Black Augurite
 Berry Sweet
