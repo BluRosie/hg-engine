@@ -337,7 +337,6 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
         case SEQ_DEFENCE_CHANGE_CHECK:
             ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
             sp->wb_seq_no++;
-            break;
         case SEQ_PROTEAN_CHECK:
             if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
                 && (sp->battlemon[sp->attack_client].type1 != sp->moveTbl[sp->current_move_index].type  // if either type is not the move's type
@@ -353,26 +352,30 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             }
             else
             {
-                sp->wb_seq_no = 0;
+                sp->wb_seq_no++;
             }
-            break;
-        case SEQ_STANCE_CHANGE_CHECK: //TODO test this - no clue if this actually will work
+        case SEQ_STANCE_CHANGE_CHECK:
             if (sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
             {
+                sp->client_work = sp->attack_client;
                 if (sp->current_move_index == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1)
                 {
-                    //CODE HAS NOT BEEN TESTED
                     sp->battlemon[sp->client_work].form_no = 0;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
                     LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
+                    runMyScriptInstead = 1;
                 }
-                else if(sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
+                else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
                 {
-                    //CODE HAS NOT BEEN TESTED
                     sp->battlemon[sp->client_work].form_no = 1;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
                     LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_FORM_CHANGE);
+                    runMyScriptInstead = 1;
                 }
+            }
+            else
+            {
+                sp->wb_seq_no = 0;
             }
             break;
     }
