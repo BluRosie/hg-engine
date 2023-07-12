@@ -583,3 +583,7 @@ One of a variety of Mega Stones.\nIt will Mega Evolve Gallade when held.
 One of a variety of Mega Stones.\nIt will Mega Evolve Audino when held.
 One of a variety of Mega Stones.\nIt will Mega Evolve Diancie when held.
 An item to be held by a Pokémon.\nIt is a stone tablet that boosts the\npower of Fairy-type moves.
+An item to be held by a Pokémon.\nThis single-use bulb boosts Sp. Atk\nif hit with a Water-type attack.
+An item to be held by a Pokémon.\nThe holder will float in the air until hit.\nOnce hit, this item will burst.
+A rare mushroom that gives off\na nice fragrance. It can be sold at\na high price to shops.
+A big nugget of pure gold that gives\noff a lustrous gleam. It can be sold at\na high price to shops.

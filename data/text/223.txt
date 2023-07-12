@@ -20,7 +20,7 @@ an {COLOR 255}Antidote{COLOR 0}
 a {COLOR 255}Burn Heal{COLOR 0}
 an {COLOR 255}Ice Heal{COLOR 0}
 an {COLOR 255}Awakening{COLOR 0}
-a {COLOR 255}Parlyz Heal{COLOR 0}
+a {COLOR 255}Paralyze Heal{COLOR 0}
 a {COLOR 255}Full Restore{COLOR 0}
 a {COLOR 255}Max Potion{COLOR 0}
 a {COLOR 255}Hyper Potion{COLOR 0}
@@ -32,7 +32,7 @@ a {COLOR 255}Fresh Water{COLOR 0}
 a {COLOR 255}Soda Pop{COLOR 0}
 a {COLOR 255}Lemonade{COLOR 0}
 a {COLOR 255}Moomoo Milk{COLOR 0}
-an {COLOR 255}EnergyPowder{COLOR 0}
+an {COLOR 255}Energy Powder{COLOR 0}
 an {COLOR 255}Energy Root{COLOR 0}
 a {COLOR 255}Heal Powder{COLOR 0}
 a {COLOR 255}Revival Herb{COLOR 0}
@@ -81,10 +81,10 @@ a {COLOR 255}Repel{COLOR 0}
 a {COLOR 255}Sun Stone{COLOR 0}
 a {COLOR 255}Moon Stone{COLOR 0}
 a {COLOR 255}Fire Stone{COLOR 0}
-a {COLOR 255}Thunderstone{COLOR 0}
+a {COLOR 255}Thunder Stone{COLOR 0}
 a {COLOR 255}Water Stone{COLOR 0}
 a {COLOR 255}Leaf Stone{COLOR 0}
-a {COLOR 255}TinyMushroom{COLOR 0}
+a {COLOR 255}Tiny Mushroom{COLOR 0}
 a {COLOR 255}Big Mushroom{COLOR 0}
 a {COLOR 255}Pearl{COLOR 0}
 a {COLOR 255}Big Pearl{COLOR 0}
@@ -211,7 +211,7 @@ a {COLOR 255}Micle Berry{COLOR 0}
 a {COLOR 255}Custap Berry{COLOR 0}
 a {COLOR 255}Jaboca Berry{COLOR 0}
 a {COLOR 255}Rowap Berry{COLOR 0}
-a {COLOR 255}BrightPowder{COLOR 0}
+a {COLOR 255}Bright Powder{COLOR 0}
 a {COLOR 255}White Herb{COLOR 0}
 a {COLOR 255}Macho Brace{COLOR 0}
 an {COLOR 255}Exp. Share{COLOR 0}
@@ -220,12 +220,12 @@ a {COLOR 255}Soothe Bell{COLOR 0}
 a {COLOR 255}Mental Herb{COLOR 0}
 a {COLOR 255}Choice Band{COLOR 0}
 a {COLOR 255}King’s Rock{COLOR 0}
-a {COLOR 255}SilverPowder{COLOR 0}
+a {COLOR 255}Silver Powder{COLOR 0}
 an {COLOR 255}Amulet Coin{COLOR 0}
 a {COLOR 255}Cleanse Tag{COLOR 0}
 a {COLOR 255}Soul Dew{COLOR 0}
-a {COLOR 255}DeepSeaTooth{COLOR 0}
-a {COLOR 255}DeepSeaScale{COLOR 0}
+a {COLOR 255}Deep Sea Tooth{COLOR 0}
+a {COLOR 255}Deep Sea Scale{COLOR 0}
 a {COLOR 255}Smoke Ball{COLOR 0}
 an {COLOR 255}Everstone{COLOR 0}
 a {COLOR 255}Focus Band{COLOR 0}
@@ -238,15 +238,15 @@ a {COLOR 255}Light Ball{COLOR 0}
 a {COLOR 255}Soft Sand{COLOR 0}
 a {COLOR 255}Hard Stone{COLOR 0}
 a {COLOR 255}Miracle Seed{COLOR 0}
-the {COLOR 255}BlackGlasses{COLOR 0}
+the {COLOR 255}Black Glasses{COLOR 0}
 a {COLOR 255}Black Belt{COLOR 0}
 a {COLOR 255}Magnet{COLOR 0}
 a {COLOR 255}Mystic Water{COLOR 0}
 a {COLOR 255}Sharp Beak{COLOR 0}
 a {COLOR 255}Poison Barb{COLOR 0}
-a {COLOR 255}NeverMeltIce{COLOR 0}
+a {COLOR 255}Never-Melt Ice{COLOR 0}
 a {COLOR 255}Spell Tag{COLOR 0}
-a {COLOR 255}TwistedSpoon{COLOR 0}
+a {COLOR 255}Twisted Spoon{COLOR 0}
 a {COLOR 255}Charcoal{COLOR 0}
 a {COLOR 255}Dragon Fang{COLOR 0}
 a {COLOR 255}Silk Scarf{COLOR 0}
@@ -257,7 +257,7 @@ a {COLOR 255}Lax Incense{COLOR 0}
 a {COLOR 255}Lucky Punch{COLOR 0}
 a {COLOR 255}Metal Powder{COLOR 0}
 a {COLOR 255}Thick Club{COLOR 0}
-a {COLOR 255}Stick{COLOR 0}
+a {COLOR 255}Leek{COLOR 0}
 a {COLOR 255}Red Scarf{COLOR 0}
 a {COLOR 255}Blue Scarf{COLOR 0}
 a {COLOR 255}Pink Scarf{COLOR 0}
@@ -462,20 +462,20 @@ a {COLOR 255}Coupon 1{COLOR 0}
 a {COLOR 255}Coupon 2{COLOR 0}
 a {COLOR 255}Coupon 3{COLOR 0}
 a {COLOR 255}Storage Key{COLOR 0}
-a {COLOR 255}SecretPotion{COLOR 0}
+a {COLOR 255}Secret Medicine{COLOR 0}
 a {COLOR 255}Vs. Recorder{COLOR 0}
 a {COLOR 255}Gracidea{COLOR 0}
 a {COLOR 255}Secret Key{COLOR 0}
 an {COLOR 255}Apricorn Box{COLOR 0}
 an {COLOR 255}UNOWN Report{COLOR 0}
 the {COLOR 255}Berry Pots{COLOR 0}
-a {COLOR 255}Dowsing MCHN{COLOR 0}
+a {COLOR 255}Dowsing Machine{COLOR 0}
 a {COLOR 255}Blue Card{COLOR 0}
-a {COLOR 255}SlowpokeTail{COLOR 0}
+a {COLOR 255}Slowpoke Tail{COLOR 0}
 a {COLOR 255}Clear Bell{COLOR 0}
 a {COLOR 255}Card Key{COLOR 0}
 a {COLOR 255}Basement Key{COLOR 0}
-a {COLOR 255}SquirtBottle{COLOR 0}
+a {COLOR 255}Squirt Bottle{COLOR 0}
 a {COLOR 255}Red Scale{COLOR 0}
 a {COLOR 255}Lost Item{COLOR 0}
 a {COLOR 255}Pass{COLOR 0}
@@ -484,12 +484,12 @@ a {COLOR 255}Silver Wing{COLOR 0}
 a {COLOR 255}Rainbow Wing{COLOR 0}
 a {COLOR 255}Mystery Egg{COLOR 0}
 a {COLOR 255}Red Apricorn{COLOR 0}
-a {COLOR 255}Ylw Apricorn{COLOR 0}
-a {COLOR 255}Blu Apricorn{COLOR 0}
-a {COLOR 255}Grn Apricorn{COLOR 0}
-a {COLOR 255}Pnk Apricorn{COLOR 0}
-a {COLOR 255}Wht Apricorn{COLOR 0}
-a {COLOR 255}Blk Apricorn{COLOR 0}
+a {COLOR 255}Yellow Apricorn{COLOR 0}
+a {COLOR 255}Blue Apricorn{COLOR 0}
+a {COLOR 255}Green Apricorn{COLOR 0}
+a {COLOR 255}Pink Apricorn{COLOR 0}
+a {COLOR 255}White Apricorn{COLOR 0}
+a {COLOR 255}Black Apricorn{COLOR 0}
 a {COLOR 255}Fast Ball{COLOR 0}
 a {COLOR 255}Level Ball{COLOR 0}
 a {COLOR 255}Lure Ball{COLOR 0}
@@ -502,7 +502,7 @@ a {COLOR 255}Park Ball{COLOR 0}
 a {COLOR 255}Photo Album{COLOR 0}
 the {COLOR 255}GB Sounds{COLOR 0}
 a {COLOR 255}Tidal Bell{COLOR 0}
-a {COLOR 255}RageCandyBar{COLOR 0}
+a {COLOR 255}Rage Candy Bar{COLOR 0}
 a {COLOR 255}Data Card 01{COLOR 0}
 a {COLOR 255}Data Card 02{COLOR 0}
 a {COLOR 255}Data Card 03{COLOR 0}
@@ -536,8 +536,8 @@ a {COLOR 255}Red Orb{COLOR 0}
 a {COLOR 255}Blue Orb{COLOR 0}
 an {COLOR 255}Enigma Stone{COLOR 0}
 a {COLOR 255}Venusaurite{COLOR 0}
-a {COLOR 255}Charizite X{COLOR 0}
-a {COLOR 255}Charizite Y{COLOR 0}
+a {COLOR 255}Charizardite X{COLOR 0}
+a {COLOR 255}Charizardite Y{COLOR 0}
 a {COLOR 255}Blastoisite{COLOR 0}
 a {COLOR 255}Beedrillite{COLOR 0}
 a {COLOR 255}Pidgeotite{COLOR 0}
@@ -622,7 +622,7 @@ a {COLOR 255}Misty Seed{COLOR 0}
 a {COLOR 255}Psychic Seed{COLOR 0}
 an {COLOR 255}Ice Stone{COLOR 0}
 a {COLOR 255}Protective Pads{COLOR 0}
-a {COLOR 255}Terrain Extendo{COLOR 0}
+a {COLOR 255}Terrain Ext.{COLOR 0}
 an {COLOR 255}Ability Patch{COLOR 0}
 a {COLOR 255}Black Augurite{COLOR 0}
 a {COLOR 255}Berry Sweet{COLOR 0}
@@ -655,8 +655,8 @@ a {COLOR 255}Sweet Apple{COLOR 0}
 a {COLOR 255}Tart Apple{COLOR 0}
 a {COLOR 255}Throat Spray{COLOR 0}
 a {COLOR 255}Utility Umbrella{COLOR 0}
-na {COLOR 255}Ability Shield{COLOR 0}
-na {COLOR 255}Auspicious Armor{COLOR 0}
+an {COLOR 255}Ability Shield{COLOR 0}
+an {COLOR 255}Auspicious Armor{COLOR 0}
 a {COLOR 255}Booster Energy{COLOR 0}
 a {COLOR 255}Clear Amulet{COLOR 0}
 a {COLOR 255}Covert Cloak{COLOR 0}
@@ -693,7 +693,7 @@ a {COLOR 255}Steel Gem{COLOR 0}
 a {COLOR 255}Fire Gem{COLOR 0}
 a {COLOR 255}Water Gem{COLOR 0}
 a {COLOR 255}Grass Gem{COLOR 0}
-na {COLOR 255}Electric Gem{COLOR 0}
+an {COLOR 255}Electric Gem{COLOR 0}
 a {COLOR 255}Psychic Gem{COLOR 0}
 an {COLOR 255}Ice Gem{COLOR 0}
 a {COLOR 255}Dragon Gem{COLOR 0}
@@ -762,7 +762,7 @@ a {COLOR 255}Griseous Core{COLOR 0}
 a {COLOR 255}Darkness Scroll{COLOR 0}
 a {COLOR 255}Waters Scroll{COLOR 0}
 a {COLOR 255}Mega Ring{COLOR 0}
-a {COLOR 255}Autograph{COLOR 0}
+an {COLOR 255}Autograph{COLOR 0}
 a {COLOR 255}Gold Teeth{COLOR 0}
 a {COLOR 255}Key Stone{COLOR 0}
 a {COLOR 255}Lift Key{COLOR 0}

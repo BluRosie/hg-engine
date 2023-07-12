@@ -1441,7 +1441,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PARLYZ_HEAL] =
+[ITEM_PARALYZE_HEAL] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -2221,7 +2221,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ENERGYPOWDER] =
+[ITEM_ENERGY_POWDER] =
 {
     .price = 500,
     .holdEffect = 0,
@@ -5406,7 +5406,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_THUNDERSTONE] =
+[ITEM_THUNDER_STONE] =
 {
     .price = 2100,
     .holdEffect = 0,
@@ -5601,7 +5601,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TINYMUSHROOM] =
+[ITEM_TINY_MUSHROOM] =
 {
     .price = 500,
     .holdEffect = 0,
@@ -12426,7 +12426,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BRIGHTPOWDER - NUM_UNKNOWN_SLOTS] =
+[ITEM_BRIGHT_POWDER - NUM_UNKNOWN_SLOTS] =
 {
     .price = 10,
     .holdEffect = HOLD_EFFECT_DECREASE_ACCURACY,
@@ -13011,7 +13011,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SILVERPOWDER - NUM_UNKNOWN_SLOTS] =
+[ITEM_SILVER_POWDER - NUM_UNKNOWN_SLOTS] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_BOOST_BUG,
@@ -13271,7 +13271,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DEEPSEATOOTH - NUM_UNKNOWN_SLOTS] =
+[ITEM_DEEP_SEA_TOOTH - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_DEEP_SEA_TOOTH,
@@ -13336,7 +13336,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DEEPSEASCALE - NUM_UNKNOWN_SLOTS] =
+[ITEM_DEEP_SEA_SCALE - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_DEEP_SEA_SCALE,
@@ -14181,7 +14181,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLACKGLASSES - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLACK_GLASSES - NUM_UNKNOWN_SLOTS] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_BOOST_DARK,
@@ -14571,7 +14571,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NEVERMELTICE - NUM_UNKNOWN_SLOTS] =
+[ITEM_NEVER_MELT_ICE - NUM_UNKNOWN_SLOTS] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_BOOST_ICE,
@@ -14701,7 +14701,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TWISTEDSPOON - NUM_UNKNOWN_SLOTS] =
+[ITEM_TWISTED_SPOON - NUM_UNKNOWN_SLOTS] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_BOOST_PSYCHIC,
@@ -15416,7 +15416,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STICK - NUM_UNKNOWN_SLOTS] =
+[ITEM_LEEK - NUM_UNKNOWN_SLOTS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_FARFETCHD_CRITICAL,
@@ -28676,7 +28676,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SECRETPOTION - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SECRET_MEDICINE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29261,7 +29261,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SLOWPOKETAIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SLOWPOKE_TAIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29521,7 +29521,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SQUIRTBOTTLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SQUIRT_BOTTLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -30106,7 +30106,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_YLW_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_YELLOW_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30171,7 +30171,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLU_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLUE_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30236,7 +30236,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRN_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GREEN_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30301,7 +30301,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PNK_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PINK_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30366,7 +30366,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WHT_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WHITE_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30431,7 +30431,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLK_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLACK_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -31276,7 +31276,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAGECANDYBAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RAGE_CANDY_BAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 0,
     .holdEffect = 0,
