@@ -19,13 +19,13 @@ a001_336:
 _0028:
 
 	// raise spatk, skip message
-    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x204001 // use 0x200000 to skip stat raise message from subscript 12
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x00084001 // use 0x00080000 to skip stat raise message from subscript 12.  it technically is used for hitting shadow force but we repurpose it here
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
     changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 18 // ADD_STATE_SPATK_UP
     gotosubscript 12
     changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
     changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
-    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x200000 // use this to skip stat raise message from subscript 12
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x00080000 // use this to skip stat raise message from subscript 12
 
     printmessage 1364, TAG_NICK_ITEM, BATTLER_DEFENDER, BATTLER_DEFENDER, "NaN", "NaN", "NaN", "NaN" // print the real message
     waitmessage

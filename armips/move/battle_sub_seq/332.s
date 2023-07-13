@@ -28,7 +28,7 @@ _0044:
     playse BATTLER_xFF, 0x7C0
     mosaic BATTLER_xFF, 0x0, 0x1
     waitmessage
-    ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_SPECIES, SPECIES_EISCUE, printEiscue
+    ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_ABILITY, ABILITY_ICE_FACE, printEiscue
 printMimikyu:
     printmessage DisguiseMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
     goto afterPrint

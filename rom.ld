@@ -1,5 +1,4 @@
 CheckSideAbility = 0x1AA64 + 0x022378C1;
-CheckDefenceAbility = 0x1AF74 + 0x022378C1;
 BattlePokemonParamGet = 0x17520 + 0x022378C1;
 BattleWorkMonDataGet = 0x20914 + 0x022378C1;
 BattleItemDataGet = 0x205B4 + 0x022378C1;

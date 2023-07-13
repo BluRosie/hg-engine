@@ -103,5 +103,5 @@ void *ItemDataTableLoad(int heapID)
 
     max = GetItemIndex(NEW_ITEM_MAX, ITEM_GET_DATA);
 
-    return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, 36 * max);//800757Ch
+    return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max);//800757Ch
 }

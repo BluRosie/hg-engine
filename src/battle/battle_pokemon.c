@@ -1114,6 +1114,8 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
     sp->battlemon[client].air_ballon_flag = 0;
+
+    sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
 }
 
 

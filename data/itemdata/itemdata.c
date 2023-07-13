@@ -36671,7 +36671,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BALM_MUSHROOM] =
+[ITEM_BALM_MUSHROOM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -36736,7 +36736,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BIG_NUGGET] =
+[ITEM_BIG_NUGGET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 10000,
     .holdEffect = 0,
