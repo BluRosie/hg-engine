@@ -1371,3 +1371,6 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npopped!
 {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
 The foe’s {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Attack!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Attack!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Attack!

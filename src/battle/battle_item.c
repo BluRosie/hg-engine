@@ -284,10 +284,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     // Or the defender has Contrary and more than -6 stages to Special Attack
                     || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
                         && (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))) {
-                //sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
-                //sp->addeffect_param  = ADD_STATE_SP_ATK_UP;
                 sp->state_client     = sp->defence_client;
-                //sp->item_work        = sp->battlemon[sp->defence_client].item;
                 seq_no[0]            = SUB_SEQ_HANDLE_ABSORB_BULB;
                 ret                  = TRUE;
             }
@@ -304,9 +301,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-
-#ifdef LATER_GEN_ITEM_EFFECTS
-
         case HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT:             // Cell Battery
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
@@ -320,14 +314,14 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     // Or the defender has Contrary and more than -6 stages to Attack
                     || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
                         && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
-                sp->addeffect_type   = ADD_EFFECT_HELD_ITEM;
-                sp->addeffect_param  = ADD_STATE_ATTACK_UP;
                 sp->state_client     = sp->defence_client;
-                sp->item_work        = sp->battlemon[sp->defence_client].item;
-                seq_no[0]            = SUB_SEQ_STAT_STAGE_CHANGE;
+                seq_no[0]            = SUB_SEQ_HANDLE_CELL_BATTERY;
                 ret                  = TRUE;
             }
             break;
+
+
+#ifdef LATER_GEN_ITEM_EFFECTS
 
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT:                   // Eject Button
             // Defender is alive after the attack
