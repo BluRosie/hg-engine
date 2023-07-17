@@ -7,11 +7,16 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// u-turn script
+
 .create "build/move/battle_sub_seq/1_175", 0
 
 a001_175:
     checkwipeout BATTLER_DEFENDER, _02B4
     tryswitchinmon BATTLER_ATTACKER, 0x1, _02B4
+
+    if IF_MASK, VAR_SERVER_STATUS1, 0x00080000, _003C // use 0x00080000 to skip ability checks and such for u-turn subscript.  it technically is used for hitting shadow force but we repurpose it here
+
     abilityeffectcheckonhit _002C
     gotosubscript2 43
 _002C:
@@ -31,7 +36,7 @@ _003C:
     dofaintanimation
     waitmessage
     preparehpgaugeslide BATTLER_FAINTED
-    printmessage 0x1E, 0x2, 0x5, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage 0x1E, 0x2, 0x5, "NaN", "NaN", "NaN", "NaN", "NaN" // fainted message
     waitmessage
     wait 0x1E
     incrementgamestat BATTLER_FAINTED, 0x1, 0x2A
@@ -41,14 +46,14 @@ _0140:
     changevar2 VAR_OP_SET, VAR_FAINTED_BATTLER, VAR_DEFENDER
     ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_HP, 0x0, _01A0
     trygrudge _01A0
-    printmessage 0x238, 0xA, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
+    printmessage 0x238, 0xA, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0} lost\nall its PP due to the grudge!
     waitmessage
     wait 0x1E
 _01A0:
     changevar2 VAR_OP_SET, VAR_FAINTED_BATTLER, VAR_ITEM_TEMP
     ifmonstat IF_EQUAL, BATTLER_ATTACKER, MON_DATA_HP, 0x0, _02B4
     changevar2 VAR_OP_SET, VAR_SWITCHED_BATTLER, VAR_ATTACKER
-    printmessage 0x42B, 0x12, 0x6, 0x6, "NaN", "NaN", "NaN", "NaN"
+    printmessage 0x42B, 0x12, 0x6, 0x6, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
     waitmessage
     wait 0x1E
     gotosubscript 153

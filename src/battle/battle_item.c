@@ -320,30 +320,37 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-
-#ifdef LATER_GEN_ITEM_EFFECTS
-
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT:                   // Eject Button
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
-                seq_no[0] = SUB_SEQ_HANDLE_EJECT_BUTTON;
+                u32 temp = sp->attack_client;            // swap attacker and defender so subseq handles it correctly
+                sp->client_work = sp->defence_client;
+                sp->attack_client = sp->defence_client;
+                sp->defence_client = temp;
+                sp->current_move_index = MOVE_U_TURN;
+                seq_no[0] = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
                 ret       = TRUE;
             }
             break;
 
-        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE:                // Red Card
+        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE:                // Red Card - just works as is
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
-                seq_no[0] = SUB_SEQ_HANDLE_RED_CARD;
+                sp->current_move_index = MOVE_U_TURN;
+                sp->client_work = sp->defence_client;
+                seq_no[0] = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
                 ret       = TRUE;
             }
             break;
+
+
+#ifdef LATER_GEN_ITEM_EFFECTS
 
         case HOLD_EFFECT_DAMAGE_ON_CONTACT:                     // Rocky Helmet
             // Attacker is alive after the attack
