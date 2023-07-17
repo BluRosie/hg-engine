@@ -16,9 +16,8 @@ a001_339:
     ifmonstat IF_EQUAL, BATTLER_DEFENDER, MON_DATA_HP, 0x0, _0028
     setstatus2effect BATTLER_DEFENDER, 0xA // play the mon ate animation
     waitmessage
-_0028:
 
-	// raise spatk, skip message
+	// raise attack, skip message
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x00084001 // use 0x00080000 to skip stat raise message from subscript 12.  it technically is used for hitting shadow force but we repurpose it here
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
     changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, 15 // ADD_STATE_ATK_UP
@@ -31,8 +30,9 @@ _0028:
     waitmessage
     wait 0x1E
 
-	removeitem BATTLER_DEFENDER // remove absorb bulb
+	removeitem BATTLER_DEFENDER // remove cell battery
 
+_0028:
     endscript
 
 .close

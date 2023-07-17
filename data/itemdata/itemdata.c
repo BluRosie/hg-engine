@@ -37585,7 +37585,7 @@ const ITEMDATA __data[] =
 {
     .price = 4000,
     .holdEffect = HOLD_EFFECT_DAMAGE_ON_CONTACT,
-    .holdEffectParam = 0,
+    .holdEffectParam = 6, // attacker takes 1/6th health damage
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
@@ -39014,7 +39014,7 @@ const ITEMDATA __data[] =
 [ITEM_PROTECTIVE_PADS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_PREVENT_CONTACT_EFFECTS,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,

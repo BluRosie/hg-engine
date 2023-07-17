@@ -170,5 +170,6 @@
 #define HOLD_EFFECT_EVOLVE_SPRITZEE 161               // Sachet
 #define HOLD_EFFECT_EVOLVE_SWIRLIX  162               // Whipped Dream
 #define HOLD_EFFECT_EVIOLITE        163               // Eviolite
+#define HOLD_EFFECT_PREVENT_CONTACT_EFFECTS 164       // Protective Pads
 
 #endif
