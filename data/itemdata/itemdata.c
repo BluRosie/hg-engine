@@ -36544,7 +36544,7 @@ const ITEMDATA __data[] =
 [ITEM_ABSORB_BULB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 4000,
-    .holdEffect = HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT,
+    .holdEffect = HOLD_EFFECT_BOOST_SPECIAL_ATTACK_ON_WATER_HIT,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -37844,7 +37844,7 @@ const ITEMDATA __data[] =
 [ITEM_LUMINOUS_MOSS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 200,
-    .holdEffect = HOLD_EFFECT_BOOST_SPD_ON_WATER_HIT,
+    .holdEffect = HOLD_EFFECT_BOOST_SPECIAL_DEFENSE_ON_WATER_HIT,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -38169,7 +38169,7 @@ const ITEMDATA __data[] =
 [ITEM_SNOWBALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_ATK_ON_ICE_HIT,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -42069,7 +42069,7 @@ const ITEMDATA __data[] =
 [ITEM_MARANGA_BERRY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 200,
-    .holdEffect = 0,
+    .holdEffect = HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,

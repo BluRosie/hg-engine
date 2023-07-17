@@ -271,7 +271,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             break;
 
             // gen5 effects
-        case HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT:                // Absorb Bulb
+        case HOLD_EFFECT_BOOST_SPECIAL_ATTACK_ON_WATER_HIT:     // Absorb Bulb
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Water-type attack
@@ -386,7 +386,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-        case HOLD_EFFECT_BOOST_SPD_ON_WATER_HIT:                // Luminous Moss
+        case HOLD_EFFECT_BOOST_SPECIAL_DEFENSE_ON_WATER_HIT:    // Luminous Moss
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Water-type attack
@@ -405,7 +405,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-        case HOLD_EFFECT_BOOST_SPD_ON_SPECIAL_HIT:              // Maranga Berry
+        case HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT:            // Maranga Berry
             // Defender is alive after the attack
             if ((sp->battlemon[sp->attack_client].hp)
                 // Attacker dealt special damage
@@ -416,7 +416,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
                         && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
                 sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPEED_ON_HIT;
+                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
                 ret                  = TRUE;
             }
             break;
