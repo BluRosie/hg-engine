@@ -16,11 +16,18 @@ a001_340:
     setstatus2effect BATTLER_WORK, 0xA // play the mon ate animation
     waitmessage
 
+    ifmonstat IF_EQUAL, BATTLER_WORK, MON_DATA_ITEM, ITEM_RED_CARD, _redCard
+
     removeitem BATTLER_WORK // remove eject button/red card
 
+_ejectButton: // eject button you choose who replaces the pokémon
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x00080000 // use 0x00080000 to skip ability checks and such for u-turn subscript.  it technically is used for hitting shadow force but we repurpose it here
     gotosubscript 175
     changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x00080000
+    goto _0028
+
+_redCard:
+    gotosubscript 91 // roar subscript randomly switches an ally in
 
 _0028:
     endscript

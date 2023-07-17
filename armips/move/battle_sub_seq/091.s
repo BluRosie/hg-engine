@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// whirlwind/roar subscript handling
+
 .create "build/move/battle_sub_seq/1_091", 0
 
 a001_091:

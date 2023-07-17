@@ -336,14 +336,16 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE:                // Red Card - just works as is
+        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE:                // Red Card
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
-                sp->current_move_index = MOVE_U_TURN;
+                u32 temp = sp->attack_client;            // swap attacker and defender so subseq handles it correctly
                 sp->client_work = sp->defence_client;
+                sp->attack_client = sp->defence_client;
+                sp->defence_client = temp;
                 seq_no[0] = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
                 ret       = TRUE;
             }
