@@ -27,7 +27,7 @@ _return:
     if IF_NOTMASK, VAR_SERVER_STATUS2, 0x80, _0094
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x2
 _0094:
-    if IF_MASK, VAR_SERVER_STATUS1, 0x200000, _00F0
+    if IF_MASK, VAR_SERVER_STATUS1, 0x00080000, _00F0 // use 0x00080000 to skip stat raise message from subscript 12.  it technically is used for hitting shadow force but we repurpose it here
     printpreparedmessage
     waitmessage
     wait 0x1E

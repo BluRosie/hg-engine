@@ -28,23 +28,22 @@ _0044:
     playse BATTLER_xFF, 0x7C0
     mosaic BATTLER_xFF, 0x0, 0x1
     waitmessage
-    ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_SPECIES, SPECIES_EISCUE, printEiscue
+    ifmonstat IF_EQUAL, BATTLER_xFF, MON_DATA_ABILITY, ABILITY_ICE_FACE, printEiscue
 printMimikyu:
     printmessage DisguiseMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitmessage
+    wait 0x1E
+    changemondatabyvar VAR_OP_GET_RESULT, BATTLER_xFF, 0x30, VAR_HP_TEMP
+    damagediv VAR_HP_TEMP, 8
+    changevar VAR_OP_MUL, VAR_HP_TEMP, -1
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
+    jumptosubseq 2
     goto afterPrint
 printEiscue:
     printmessage IceFaceShatterMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
-afterPrint:
     waitmessage
     wait 0x1E
-    ifmonstat IF_NOTMASK, BATTLER_xFF, MON_DATA_STATUS_2, 0x1000000, _00EC
-    setstatus2effect BATTLER_xFF, 0xF
-    waitmessage
-    swaptosubstitutesprite BATTLER_xFF
-    waitmessage
-    setstatus2effect BATTLER_xFF, 0x10
-    waitmessage
-_00EC:
+afterPrint:
     endscript
 
 .close

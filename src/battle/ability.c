@@ -238,6 +238,7 @@ enum
     SWITCH_IN_CHECK_FAIRY_AURA,
     SWITCH_IN_CHECK_AURA_BREAK,
     SWITCH_IN_CHECK_IMPOSTER,
+    SWITCH_IN_CHECK_ICE_FACE,
 
 // items that display messages.
     SWITCH_IN_CHECK_AIR_BALLOON,
@@ -1034,6 +1035,40 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
                 break;
+            case SWITCH_IN_CHECK_ICE_FACE: // rebuild ice face
+                for (i = 0; i < client_set_max; i++)
+                {
+                    client_no = sp->turn_order[i];
+                    if ((sp->battlemon[client_no].species == SPECIES_EISCUE)
+                     && (sp->battlemon[client_no].hp)
+                     && (sp->battlemon[client_no].form_no == 1)
+                     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
+                     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+                     && (sp->field_condition & WEATHER_HAIL_ANY)               // there is hail this turn
+                     && ((sp->log_hail_for_ice_face & (1 << client_no)) == 0)  // and hail wasn't here last turn/the mon just switched in
+                     && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)
+                    )
+                    {
+                        sp->client_work = client_no;
+                        BattleFormChange(client_no, 0, bw, sp, TRUE);
+                        sp->battlemon[client_no].form_no = 0;
+                        scriptnum = SUB_SEQ_HANDLE_RESTORE_ICE_FACE;
+                        ret = TRUE;
+                    }
+
+                    if (sp->field_condition & WEATHER_HAIL_ANY) // update log_hail_for_ice_face
+                        sp->log_hail_for_ice_face |= (1 << client_no);
+                    else
+                        sp->log_hail_for_ice_face &= ~(1 << client_no);
+
+                    if (ret)
+                        break;
+                }
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+                break;
+
 
 
             case SWITCH_IN_CHECK_AIR_BALLOON:
@@ -1051,7 +1086,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         break;
                     }
                 }
-                if(i == client_set_max){
+                if (i == client_set_max) {
                     sp->switch_in_check_seq_no++;
                 }
 
@@ -1217,19 +1252,6 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 seq_no = SUB_SEQ_HANDLE_MOODY;
                 ret = TRUE;
             }
-        case ABILITY_ICE_FACE: //TODO test this
-            if ((sp->battlemon[client_no].species == SPECIES_EISCUE)
-             && (sp->battlemon[client_no].hp)
-             && (sp->battlemon[client_no].form_no == 1)
-             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
-             && (sp->field_condition & WEATHER_HAIL_ANY))
-            {
-                sp->battlemon[client_no].form_no = 0;
-                seq_no = SUB_SEQ_HANDLE_RESTORE_ICE_FACE;
-                ret = TRUE;
-            }
-            break;
         default:
             break;
     }
@@ -1842,15 +1864,32 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 ret = TRUE;
             } 
             break;
-        case ABILITY_DISGUISE: //TODO test this
-        case ABILITY_ICE_FACE:
-            if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU || (sp->battlemon[sp->defence_client].species == SPECIES_EISCUE && sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL))
+        case ABILITY_DISGUISE:
+            if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
              && (sp->battlemon[sp->defence_client].hp)
              && (sp->battlemon[sp->defence_client].form_no == 0)
-             && (sp->battlemon[sp->defence_client].condition2 & CONDITION2_SUBSTITUTE)
+             && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
+             && (sp->moveTbl[sp->current_move_index].power) // if move has power
             )
             {
-                sp->battlemon[sp->defence_client].condition2 &= CONDITION2_SUBSTITUTE_OFF;
+                BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
+                sp->client_work = sp->defence_client;
+                sp->battlemon[sp->defence_client].form_no = 1;
+                seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
+                ret = TRUE;
+            }
+            break;
+        case ABILITY_ICE_FACE:
+            if ((sp->battlemon[sp->defence_client].species == SPECIES_EISCUE)
+             && (sp->battlemon[sp->defence_client].hp)
+             && (sp->battlemon[sp->defence_client].form_no == 0)
+             && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
+             && (sp->moveTbl[sp->current_move_index].power != 0)
+             && (sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
+            )
+            {
+                BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
+                sp->client_work = sp->defence_client;
                 sp->battlemon[sp->defence_client].form_no = 1;
                 seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
                 ret = TRUE;
