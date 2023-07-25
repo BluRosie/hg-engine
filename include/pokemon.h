@@ -780,7 +780,7 @@ u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemal
 BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType);
 //BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
 void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id);
-bool8 __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no);
+bool8 __attribute__((long_call)) RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_no);
 void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon);
 
 // defined in src/moves.c--can't just define in battles, sadly.  does need BattleMove structure from battle.h, though

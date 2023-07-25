@@ -1371,3 +1371,15 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npopped!
 {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
 The foe’s {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Attack!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Attack!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Attack!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Defense!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Defense!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Defense!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Special Defense!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Special Defense!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Special Defense!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Speed!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Speed!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Speed!

@@ -71,4 +71,8 @@
 //#define IMPLEMENT_LEVEL_CAP
 #define LEVEL_CAP_VARIABLE 0x416F
 
+// UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
+// comment the line out below to retain overworld poison
+#define UPDATE_OVERWORLD_POISON
+
 #endif

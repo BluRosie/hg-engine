@@ -153,22 +153,23 @@
 
 
 // EXPANSION
-#define HOLD_EFFECT_PLATE_BOOST_FAIRY 147             // Pixie Plate
-#define HOLD_EFFECT_WEAKEN_SE_FAIRY 148               // Roseli Berry
-#define HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT 149     // Kee Berry
-#define HOLD_EFFECT_BOOST_SPD_ON_SPECIAL_HIT 150      // Maranga Berry
-#define HOLD_EFFECT_DAMAGE_ON_CONTACT 151             // Rocky Helmet
-#define HOLD_EFFECT_BOOST_SPA_ON_WATER_HIT 152        // Absorb Bulb
-#define HOLD_EFFECT_BOOST_SPD_ON_WATER_HIT 153        // Luminous Moss
-#define HOLD_EFFECT_BOOST_ATK_ON_ICE_HIT   154        // Snowball
-#define HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT 155     // Cell Battery   
-#define HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE 156     // Weakness Policy 
-#define HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE    157     // Red Card
-#define HOLD_EFFECT_SWITCH_OUT_WHEN_HIT       158     // Eject Button
-#define HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT 159     // Air Balloon
-#define HOLD_EFFECT_PLATE_BOOST_NORMAL 160            // Blank Plate
-#define HOLD_EFFECT_EVOLVE_SPRITZEE 161               // Sachet
-#define HOLD_EFFECT_EVOLVE_SWIRLIX  162               // Whipped Dream
-#define HOLD_EFFECT_EVIOLITE        163               // Eviolite
+#define HOLD_EFFECT_PLATE_BOOST_FAIRY 147                         // Pixie Plate
+#define HOLD_EFFECT_WEAKEN_SE_FAIRY 148                           // Roseli Berry
+#define HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT 149                 // Kee Berry
+#define HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT 150                // Maranga Berry
+#define HOLD_EFFECT_DAMAGE_ON_CONTACT 151                         // Rocky Helmet
+#define HOLD_EFFECT_BOOST_SPECIAL_ATTACK_ON_WATER_HIT 152         // Absorb Bulb
+#define HOLD_EFFECT_BOOST_SPECIAL_DEFENSE_ON_WATER_HIT 153        // Luminous Moss
+#define HOLD_EFFECT_BOOST_ATK_ON_ICE_HIT   154                    // Snowball
+#define HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT 155                 // Cell Battery
+#define HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE 156                 // Weakness Policy
+#define HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE    157                 // Red Card
+#define HOLD_EFFECT_SWITCH_OUT_WHEN_HIT       158                 // Eject Button
+#define HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT 159                 // Air Balloon
+#define HOLD_EFFECT_PLATE_BOOST_NORMAL 160                        // Blank Plate
+#define HOLD_EFFECT_EVOLVE_SPRITZEE 161                           // Sachet
+#define HOLD_EFFECT_EVOLVE_SWIRLIX  162                           // Whipped Dream
+#define HOLD_EFFECT_EVIOLITE        163                           // Eviolite
+#define HOLD_EFFECT_PREVENT_CONTACT_EFFECTS 164                   // Protective Pads
 
 #endif
