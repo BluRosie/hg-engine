@@ -154,3 +154,10 @@ arm9 0208FEEA 64 28 05 D2 20 1C 8A F7 0C FE
 
 # expand move relearner dedicated heap
 0068 08000002 12
+
+# make the poison check always fail to disable poison in the overworld
+#ifdef UPDATE_OVERWORLD_POISON
+arm9 02054474 00
+#else
+arm9 02054474 88
+#endif

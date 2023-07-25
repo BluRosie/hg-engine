@@ -4006,10 +4006,19 @@ void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int 
     BoxMonSetFastModeOff(boxmon,flag);
 }
 
-bool8 __attribute__((long_call)) RevertFormChange(void *pp, u16 species, u8 form_no)
+bool8 __attribute__((long_call)) RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_no)
 {
     u32 i;
     int work = 0;
+
+    // use this chance to make bad poisoning normal poison at the end of battle
+    work = GetMonData(pp, ID_PARA_condition, NULL);
+    if (work & STATUS_FLAG_BADLY_POISONED)
+    {
+        work &= ~(STATUS_FLAG_BADLY_POISONED);
+        work |= STATUS_FLAG_POISONED;
+        SetMonData(pp, ID_PARA_condition, &work);
+    }
 
     for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
     {
