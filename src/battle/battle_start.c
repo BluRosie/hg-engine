@@ -67,7 +67,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                  || (ST_ServerSelectWazaGet(sp, client_no) != MOVE_FURY_CUTTER)
                  || (ST_CheckIfInTruant(sp, client_no) != FALSE) 
                  || (sp->oneTurnFlag[client_no].struggle_flag != 0))
-                sp->furyCutterTurns[client_no] = 0;
+                sp->battlemon[client_no].moveeffect.furyCutterCount = 0;
             }
             sp->sba_seq_no++;
             break;
