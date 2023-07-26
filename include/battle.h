@@ -489,51 +489,51 @@ struct __attribute__((packed)) MoveOutCheck
 // so much of this structure sems to be matched in effect_of_moves
 struct __attribute__((packed)) battle_moveflag
 {
-    /* 0x00 */ u32 kanashibari_count : 3;
-               u32 encore_count : 3;
-               u32 juuden_count : 2;
-               u32 chouhatsu_count : 3;
-               u32 success_count : 2;
-               u32 horobinouta_count : 2;
-               u32 korogaru_count : 3;
-               u32 renzokugiri_count : 3;
-               u32 takuwaeru_count : 3;
-               u32 takuwaeru_def_count : 3;
-               u32 takuwaeru_spedef_count : 3;
-               u32 namake_bit : 1;
-               u32 moraibi_flag : 1;
+    /* 0x00 */ u32 disabledTurns : 3;
+               u32 encoredTurns : 3;
+               u32 isCharged : 2;
+               u32 tauntTurns : 3;
+               u32 protectSuccessTurns : 2;
+               u32 perishSongTurns : 2;
+               u32 rolloutCount : 3;
+               u32 furyCutterCount : 3;
+               u32 stockpileCount : 3;
+               u32 stockpileDefCount : 3;
+               u32 stockpileSpDefCount : 3;
+               u32 truantFlag : 1;
+               u32 flashFire : 1;
 
-    /* 0x04 */ u32 lockon_client_no : 2;
-               u32 monomane_bit : 4;
-               u32 shime_client_no : 2;
-               u32 manazashi_client_no : 2;
-               u32 totteoki_count : 3;
-               u32 magnet_rise_count : 3;
-               u32 healblock_count : 3;
-               u32 embargo_count : 3;
-               u32 unburden_flag : 1;
-               u32 metronome_work : 4;
-               u32 boost_accuracy_once : 1;
-               u32 raise_speed_once : 1;
-               u32 quick_claw_flag : 1;
-               u32 sakidori_flag : 1;
+    /* 0x04 */ u32 battlerIdLockOn : 2;
+               u32 mimickedMoveIndex : 4;
+               u32 battlerIdBinding : 2;
+               u32 battlerIdMeanLook : 2;
+               u32 lastResortCount : 3;
+               u32 magnetRiseTurns : 3;
+               u32 healBlockTurns : 3;
+               u32 embargoFlag : 3;
+               u32 knockOffFlag : 1; // used for unburden
+               u32 metronomeTurns : 4;
+               u32 boostedAccuracy : 1;
+               u32 custapBerryFlag : 1;
+               u32 quickClawFlag : 1;
+               u32 meFirstFlag : 1;
                u32 : 1;
 
-    /* 0x08 */ int handou_count;
-    /* 0x0c */ int fake_out_count;
-    /* 0x10 */ int slow_start_count;
-    /* 0x14 */ int sakidori_count;
-    /* 0x18 */ int substitute_hp;
-    /* 0x1c */ u32 henshin_rnd;
-    /* 0x20 */ u16 kanashibari_wazano;
-    /* 0x22 */ u16 shime_wazano;
-    /* 0x24 */ u16 encore_wazano;
-    /* 0x26 */ u16 encore_wazapos;
-    /* 0x28 */ u16 totteoki_wazano[4];
-    /* 0x2a */ u16 kodawari_wazano;
-    /* 0x2c */ u16 henshin_sex;
+    /* 0x08 */ int rechargeCount;
+    /* 0x0c */ int fakeOutCount;
+    /* 0x10 */ int slowStartTurns;
+    /* 0x14 */ int meFirstCount;
+    /* 0x18 */ int substituteHp;
+    /* 0x1c */ u32 transformPid;
+    /* 0x20 */ u16 disabledMove;
+    /* 0x22 */ u16 bindingMove;
+    /* 0x24 */ u16 encoredMove;
+    /* 0x26 */ u16 encoredMoveIndex;
+    /* 0x28 */ u16 lastResortMoves[4];
+    /* 0x2a */ u16 moveNoChoice;
+    /* 0x2c */ u16 transformGender;
 // padding at 2e
-    /* 0x30 */ int item_hp_recover;
+    /* 0x30 */ int itemHpRecover;
 }; // size = 0x34
 
 struct __attribute__((packed)) BattlePokemon

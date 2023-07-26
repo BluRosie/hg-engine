@@ -277,9 +277,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * (100 + hold_effect_atk) / 100;
     }
 
-    if (sp->battlemon[attacker].moveeffect.boost_accuracy_once)
+    if (sp->battlemon[attacker].moveeffect.boostedAccuracy)
     {
-        sp->battlemon[attacker].moveeffect.boost_accuracy_once = 0;
+        sp->battlemon[attacker].moveeffect.boostedAccuracy = 0;
         accuracy = accuracy * 120 / 100;
     }
 
@@ -441,13 +441,13 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
     }
 
     if ((ability1 == ABILITY_SLOW_START)
-     && ((sp->total_turn - sp->battlemon[client1].moveeffect.slow_start_count) < 5))
+     && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 5))
     {
         speed1 /= 2;
     }
 
     if ((ability1 == ABILITY_UNBURDEN)
-     && (sp->battlemon[client1].moveeffect.unburden_flag)
+     && (sp->battlemon[client1].moveeffect.knockOffFlag)
      && (sp->battlemon[client1].item == 0))
     {
         speed1 *= 2;
@@ -465,7 +465,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
             quick_claw1 = 1;
             if (flag == 0)
             {
-                sp->battlemon[client1].moveeffect.quick_claw_flag = 1;
+                sp->battlemon[client1].moveeffect.quickClawFlag = 1;
             }
         }
     }
@@ -481,7 +481,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
             quick_claw1 = 1;
             if (flag == 0)
             {
-                sp->battlemon[client1].moveeffect.raise_speed_once = 1;
+                sp->battlemon[client1].moveeffect.custapBerryFlag = 1;
             }
         }
     }
@@ -523,13 +523,13 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
     }
 
     if ((ability2 == ABILITY_SLOW_START)
-     && ((sp->total_turn - sp->battlemon[client2].moveeffect.slow_start_count) < 5))
+     && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 5))
     {
         speed2 /= 2;
     }
 
     if ((ability2 == ABILITY_UNBURDEN)
-     && (sp->battlemon[client2].moveeffect.unburden_flag)
+     && (sp->battlemon[client2].moveeffect.knockOffFlag)
      && (sp->battlemon[client2].item == 0))
     {
         speed2 *= 2;
@@ -547,7 +547,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
             quick_claw2=1;
             if (flag == 0)
             {
-                sp->battlemon[client2].moveeffect.quick_claw_flag = 1;
+                sp->battlemon[client2].moveeffect.quickClawFlag = 1;
             }
         }
     }
@@ -563,7 +563,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
             quick_claw2 = 1;
             if(flag == 0)
             {
-                sp->battlemon[client2].moveeffect.raise_speed_once = 1;
+                sp->battlemon[client2].moveeffect.custapBerryFlag = 1;
             }
         }
     }
@@ -850,17 +850,17 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
          && (sp->damage < 0)
          && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR))
         {
-            if ((sp->battlemon[sp->defence_client].moveeffect.substitute_hp + sp->damage) <= 0)
+            if ((sp->battlemon[sp->defence_client].moveeffect.substituteHp + sp->damage) <= 0)
             {
-                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].moveeffect.substitute_hp * -1);
+                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].moveeffect.substituteHp * -1);
                 sp->battlemon[sp->defence_client].condition2 &= CONDITION2_SUBSTITUTE_OFF;
-                sp->hit_damage = sp->battlemon[sp->defence_client].moveeffect.substitute_hp * -1;
-                sp->battlemon[sp->defence_client].moveeffect.substitute_hp = 0;
+                sp->hit_damage = sp->battlemon[sp->defence_client].moveeffect.substituteHp * -1;
+                sp->battlemon[sp->defence_client].moveeffect.substituteHp = 0;
             }
             else
             {
                 sp->oneSelfFlag[sp->attack_client].shell_bell_damage += sp->damage;
-                sp->battlemon[sp->defence_client].moveeffect.substitute_hp += sp->damage;
+                sp->battlemon[sp->defence_client].moveeffect.substituteHp += sp->damage;
                 sp->hit_damage = sp->damage;
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
@@ -1023,7 +1023,7 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
     {
         flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
     }
-    else if ((sp->battlemon[defence_client].moveeffect.magnet_rise_count)
+    else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
           && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
           && (move_type == TYPE_GROUND)

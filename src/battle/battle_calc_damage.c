@@ -1048,7 +1048,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no)
     {
         return 0;
     }
-    if (sp->battlemon[client_no].moveeffect.embargo_count)
+    if (sp->battlemon[client_no].moveeffect.embargoFlag)
     {
         return 0;
     }

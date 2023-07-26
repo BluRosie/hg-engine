@@ -1143,7 +1143,7 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
         }
         else
         {
-            if ((((sp->battlemon[sp->defence_client].moveeffect.lockon_client_no == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON))
+            if ((((sp->battlemon[sp->defence_client].moveeffect.battlerIdLockOn == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON))
                     || (GetBattlerAbility(sp,sp->attack_client) == ABILITY_NO_GUARD)
                     || (GetBattlerAbility(sp,sp->defence_client) == ABILITY_NO_GUARD))
                 && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level))
