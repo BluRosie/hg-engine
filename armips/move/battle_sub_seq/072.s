@@ -10,7 +10,7 @@
 .create "build/move/battle_sub_seq/1_072", 0
 
 a001_072:
-    printmessage 0x171, 0x2, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage 369, BATTLER_DEFENDER, BATTLER_WORK, "NaN", "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0} is no\nlonger disabled!
     waitmessage
     wait 0x1E
     endscript
