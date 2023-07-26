@@ -18,11 +18,12 @@
 enum
 {
     SBA_RESET_DEFIANT = 0,
-	SBA_FOCUS_PUNCH,
-	SBA_RAGE,
-	SBA_RANDOM_SPEED_ROLL,
+    SBA_RESET_FURY_CUTTER,
+    SBA_FOCUS_PUNCH,
+    SBA_RAGE,
+    SBA_RANDOM_SPEED_ROLL,
     SBA_MEGA,
-	SBA_END
+    SBA_END
 };
 
 u32	No2Bit(int no)
@@ -54,9 +55,20 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
         case SBA_RESET_DEFIANT:
             for (client_no = 0; client_no < client_set_max; client_no++)
             {
-                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+                sp->oneSelfFlag[client_no].defiant_flag = 0;
             }
             sp->sba_work = 0;
+            sp->sba_seq_no++;
+            break;
+        case SBA_RESET_FURY_CUTTER:
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                if (((sp->battlemon[client_no].condition & 7) != 0)
+                 || (ST_ServerSelectWazaGet(sp, client_no) != MOVE_FURY_CUTTER)
+                 || (ST_CheckIfInTruant(sp, client_no) != FALSE) 
+                 || (sp->oneTurnFlag[client_no].struggle_flag != 0))
+                sp->furyCutterTurns[client_no] = 0;
+            }
             sp->sba_seq_no++;
             break;
         case SBA_FOCUS_PUNCH:
@@ -71,7 +83,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                 sp->sba_work++;
                 if (((sp->battlemon[client_no].condition & 7) == 0) &&
                     (ST_ServerSelectWazaGet(sp, client_no) == MOVE_FOCUS_PUNCH) &&
-                    (ST_ServerNamakeCheck(sp, client_no) == FALSE) &&
+                    (ST_CheckIfInTruant(sp, client_no) == FALSE) &&
                     (sp->oneTurnFlag[client_no].struggle_flag == 0))
                 {
                     SCIO_BlankMessage(bw);
