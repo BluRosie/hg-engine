@@ -316,3 +316,6 @@ arm9 Pokemon_TryLevelUp 02070DB4 1
 arm9 CapRareCandies 0208FEEA 1
 
 #endif
+
+# rewrite tailwind counter decrement to use our new counter
+0012 ServerFieldConditionCheck 022494DC 2

@@ -227,6 +227,8 @@
 // side status flags
 #define SIDE_STATUS_REFLECT (0x1)
 #define SIDE_STATUS_LIGHT_SCREEN (0x2)
+#define SIDE_STATUS_SAFEGUARD (0x8)
+#define SIDE_STATUS_MIST (0x40)
 #define SIDE_STATUS_TAILWIND (0x300)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
@@ -654,14 +656,14 @@ typedef struct
 
 struct __attribute__((packed)) side_condition_work
 {
-    u32     butsuri_guard_client    : 2;
-    u32     butsuri_guard_count     : 3;
-    u32     tokusyu_guard_client    : 2;
-    u32     tokusyu_guard_count     : 3;
-    u32     shiroikiri_client       : 2;
-    u32     mist_count              : 3;
-    u32     shinpi_client           : 2;
-    u32     shinpi_count            : 3;
+    u32     reflectBattler          : 2;
+    u32     reflectCount            : 3;
+    u32     lightScreenBattler      : 2;
+    u32     lightScreenCount        : 3;
+    u32     mistBattler             : 2;
+    u32     mistCount               : 3;
+    u32     safeguardBattler        : 2;
+    u32     safeguardCount          : 3;
 
     u32     konoyubitomare_flag     : 1;
     u32     konoyubitomare_client   : 2;
@@ -905,7 +907,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
     /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
-    /*0x3159*/ u8 padding_3159[0x25]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x3159*/ u8 tailwindCount[2]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315B*/ u8 padding_315B[0x23]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1254,6 +1257,9 @@ BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct Batt
 BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 int __attribute__((long_call)) Battle_GetClientPartySize(void *bw, int client_no);
 void *__attribute__((long_call)) Battle_GetClientPartyMon(void *bw, int client_no, int mon_index);
+BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 seq, u32 seq2);
+BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruct *sp);
+u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleStruct *sp, u32 side);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);

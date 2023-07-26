@@ -453,7 +453,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         speed1 *= 2;
     }
 
-    if (sp->side_condition[IsClientEnemy(bw, client1)] & SIDE_STATUS_TAILWIND)
+    if (sp->tailwindCount[IsClientEnemy(bw, client1)]) // new tailwind handling
     {
         speed1 *= 2;
     }
@@ -535,7 +535,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         speed2 *= 2;
     }
 
-    if (sp->side_condition[IsClientEnemy(bw, client2)] & SIDE_STATUS_TAILWIND)
+    if (sp->tailwindCount[IsClientEnemy(bw, client2)]) // new tailwind handling
     {
         speed2 *= 2;
     }
@@ -544,7 +544,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
     {
         if ((sp->agi_rand[client2] % (100 / hold_atk2)) == 0)
         {
-            quick_claw2=1;
+            quick_claw2 = 1;
             if (flag == 0)
             {
                 sp->battlemon[client2].moveeffect.quickClawFlag = 1;
@@ -556,12 +556,12 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
     {
         if (GetBattlerAbility(sp, client2) == ABILITY_GLUTTONY)
         {
-            hold_atk2/=2;
+            hold_atk2 /= 2;
         }
         if (sp->battlemon[client2].hp <= (s32)(sp->battlemon[client2].maxhp / hold_atk2))
         {
             quick_claw2 = 1;
-            if(flag == 0)
+            if (flag == 0)
             {
                 sp->battlemon[client2].moveeffect.custapBerryFlag = 1;
             }

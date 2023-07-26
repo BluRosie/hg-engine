@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// handle wish
+
 .create "build/move/battle_sub_seq/1_136", 0
 
 a001_136:

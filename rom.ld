@@ -442,3 +442,7 @@ Summary_PrintStringGeneric = 0x0208C850 | 1;
 CopyBoxPokemonToPokemon = 0x02071780 | 1;
 
 GetExpByGrowthRateAndLevel = 0x0206FD30 | 1;
+
+ServerGetExpCheck = 0x0224DD18 | 1;
+ServerZenmetsuCheck = 0x0224D7EC | 1;
+ST_ServerDir2ClientNoGet = 0x02257E98 | 1;
