@@ -276,7 +276,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {   int i;
     int scriptnum = 0;
     int ret = SWITCH_IN_CHECK_LOOP;
-    int client_no;
+    int client_no = 0; // initialize
     int client_set_max;
 
     client_set_max = BattleWorkClientSetMaxGet(bw);

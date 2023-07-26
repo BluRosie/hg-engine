@@ -92,7 +92,7 @@ static s8 sNatureStatEffects[25][6] = {
     {  0,  0,  0,  0,  0,  0  },    // Quirky
 };
 
-static PrintStatNumberWithColor(struct SummaryState *summary, u8 windowIdx, u32 justify)
+static void PrintStatNumberWithColor(struct SummaryState *summary, u8 windowIdx, u32 justify)
 {
     u32 color = BLACK;
     if (sNatureStatEffects[summary->pokemonData.nature][windowIdx] > 0) {

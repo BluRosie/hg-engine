@@ -216,6 +216,10 @@ clean_tools:
 	rm -f tools/adpcm-xq
 
 
+clean_code:
+	rm -f $(OBJS) $(FIELD_OBJS) $(BATTLE_OBJS) $(LINK) $(OUTPUT)
+
+
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 
