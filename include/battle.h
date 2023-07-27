@@ -800,7 +800,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x150*/ int total_turn;
     /*0x154*/ int total_hinshi[CLIENT_MAX];
     /*0x164*/ int total_damage[CLIENT_MAX];
-    /*0x174*/ int sakidori_total_turn;
+    /*0x174*/ int me_first_total_turns;
     /*0x178*/ struct tcb_skill_intp_work *tciw;
     /*0x17C*/ void *work;
     /*0x180*/ u32 field_condition;

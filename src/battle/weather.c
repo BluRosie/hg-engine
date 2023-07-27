@@ -38,7 +38,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
     int side;
     int client_set_max;
 
-    client_set_max=BattleWorkClientSetMaxGet(bw);
+    client_set_max = BattleWorkClientSetMaxGet(bw);
 
     do
     {

@@ -61,6 +61,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 #battle hooks
 #02256FF8+4
 0012 calc_base_damage_hook 02256FFC 5
+0012 CalcDamageOverall 0223DCE0 2
+0012 AdjustDamageForRoll 02257C30 3
 #02252EC8
 0012 MoveCheckDamageNegatingAbilities 0801B608 3
 #02253194
