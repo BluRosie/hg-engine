@@ -2,8 +2,9 @@
 #define BATTLE_H
 
 #include "types.h"
-#include "sprite.h"
 #include "item.h"
+#include "sprite.h"
+#include "task.h"
 
 #define MAX_MOVE_NUM 742 //old 467
 #define CLIENT_MAX 4
@@ -261,6 +262,8 @@
 #define FIELD_STATUS_GRAVITY            (0x00007000)
 #define FIELD_STATUS_FOG                (0x00008000)
 #define FIELD_STATUS_TRICK_ROOM         (0x00070000)
+
+#define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)
 
 // opponent positions
 #define BATTLER_POSITION_SIDE_RIGHT (0)
@@ -981,6 +984,9 @@ struct __attribute__((packed)) newBattleStruct
 
     CATS_ACT_PTR MegaOAM;
     CATS_ACT_PTR MegaButton;
+    CATS_ACT_PTR WeatherOAM;
+    SysTask *weatherUpdateTask;
+    u32 weather;
     u8 MegaIconLight;
     u8 ChangeBgFlag:4;
     u8 CanMega:4;

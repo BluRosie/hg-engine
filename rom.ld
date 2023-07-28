@@ -150,6 +150,7 @@ OAM_LoadResourcePlttWorkArc = 0x0200D644 |1;
 OAM_LoadResourceCellArc = 0x0200D6D4 | 1;
 OAM_LoadResourceCellAnmArc = 0x0200D704 |1;
 OAM_LoadResourceCharArc = 0x0200D4A4 |1;
+OAM_ObjectAnimeSeqSetCap = 0x0200DC4C | 1;
 
 OAM_ObjectAdd_S = 0x0200D734 |1;
 OAM_ObjectUpdate = 0x0200DC0C |1;
@@ -446,3 +447,7 @@ GetExpByGrowthRateAndLevel = 0x0206FD30 | 1;
 ServerGetExpCheck = 0x0224DD18 | 1;
 ServerZenmetsuCheck = 0x0224D7EC | 1;
 ST_ServerDir2ClientNoGet = 0x02257E98 | 1;
+
+/* tasks */
+CreateSysTask = 0x0200E320 | 1;
+DestroySysTask = 0x0200E390 | 1;

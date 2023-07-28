@@ -422,6 +422,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
     if (ret == 2)
     {
+        newBS.weather = sp->field_condition; // update the icon shown on the fight button
         sp->fcc_seq_no = 0;
         sp->server_seq_no = 10;
     }
