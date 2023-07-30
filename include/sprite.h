@@ -132,5 +132,6 @@ u8 __attribute__((long_call)) OAM_LoadResourcePlttWorkArc(void *pfd, int req, vo
 void *__attribute__((long_call)) ArcUtil_ScrnDataGet(u32 fileIdx, u32 dataIdx, BOOL compressedFlag, NNSG2dScreenData** scrnData, u32 heapID);
 void __attribute__((long_call)) BG_LoadScreenTilemapData(void *bgl, u32 bg_id, u16 *scrn_buf, int size);
 void __attribute__((long_call)) ScheduleBgTilemapBufferTransfer(void *bgl, int bg_id);
+void __attribute__((long_call)) OAM_ObjectAnimeSeqSetCap(void *, int anim_no);
 
 #endif

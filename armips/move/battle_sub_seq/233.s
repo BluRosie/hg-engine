@@ -7,10 +7,12 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// tailwind peters out
+
 .create "build/move/battle_sub_seq/1_233", 0
 
 a001_233:
-    printmessage 0x4D0, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage 1232, TAG_NONE_DIR, BATTLER_WORK, "NaN", "NaN", "NaN", "NaN", "NaN" // Your team’s tailwind petered out!
     waitmessage
     wait 0x1E
     endscript

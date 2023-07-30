@@ -1,0 +1,429 @@
+#include "../../include/types.h"
+#include "../../include/battle.h"
+#include "../../include/config.h"
+#include "../../include/debug.h"
+#include "../../include/pokemon.h"
+#include "../../include/save.h"
+#include "../../include/constants/ability.h"
+#include "../../include/constants/battle_script_constants.h"
+#include "../../include/constants/battle_message_constants.h"
+#include "../../include/constants/file.h"
+#include "../../include/constants/hold_item_effects.h"
+#include "../../include/constants/item.h"
+#include "../../include/constants/move_effects.h"
+#include "../../include/constants/moves.h"
+#include "../../include/constants/species.h"
+#include "../../include/constants/weather_numbers.h"
+
+enum{
+    FCC_REFLECT = 0,
+    FCC_LIGHT_SCREEN,
+    FCC_MIST,
+    FCC_SAFEGUARD,
+    FCC_TAILWIND,
+    FCC_LUCKY_CHANT,
+    FCC_WISH,
+    FCC_RAIN,
+    FCC_SANDSTORM,
+    FCC_SUNNY,
+    FCC_HAIL,
+    FCC_FOG,
+    FCC_GRAVITY,
+    FCC_END
+};
+
+void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
+{
+    int ret = 0;
+    int side;
+    int client_set_max;
+
+    client_set_max = BattleWorkClientSetMaxGet(bw);
+
+    do
+    {
+        if (ServerKizetsuCheck(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
+        {
+            return;
+        }
+
+        if (ServerGetExpCheck(sp, sp->server_seq_no, sp->server_seq_no) == TRUE)
+        {
+            return;
+        }
+
+        if (ServerZenmetsuCheck(bw, sp) == TRUE)
+        {
+            return;
+        }
+
+
+        switch(sp->fcc_seq_no)
+        {
+        case FCC_REFLECT:
+            while (sp->fcc_work < 2)
+            {
+                side = sp->fcc_work;
+                if (sp->side_condition[side] & SIDE_STATUS_REFLECT)
+                {
+                    if (--sp->scw[side].reflectCount == 0)
+                    {
+                        sp->side_condition[side] &= ~(SIDE_STATUS_REFLECT);
+                        sp->waza_work = MOVE_REFLECT;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_MOVE_EFFECT_FADED);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if (ret == 0)
+            {
+                sp->fcc_seq_no++;
+                sp->fcc_work = 0;
+            }
+            break;
+        case FCC_LIGHT_SCREEN:
+            while (sp->fcc_work < 2)
+            {
+                side = sp->fcc_work;
+                if (sp->side_condition[side] & SIDE_STATUS_LIGHT_SCREEN)
+                {
+                    if (--sp->scw[side].lightScreenCount == 0)
+                    {
+                        sp->side_condition[side] &= ~(SIDE_STATUS_LIGHT_SCREEN);
+                        sp->waza_work = MOVE_LIGHT_SCREEN;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_MOVE_EFFECT_FADED);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if (ret == 0)
+            {
+                sp->fcc_seq_no++;
+                sp->fcc_work = 0;
+            }
+            break;
+        case FCC_MIST:
+            while (sp->fcc_work < 2)
+            {
+                side = sp->fcc_work;
+                if (sp->side_condition[side] & SIDE_STATUS_MIST)
+                {
+                    if (--sp->scw[side].mistCount == 0)
+                    {
+                        sp->side_condition[side] &= ~(SIDE_STATUS_MIST);
+                        sp->waza_work = MOVE_MIST;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_MOVE_EFFECT_FADED);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if(ret==0){
+                sp->fcc_seq_no++;
+                sp->fcc_work=0;
+            }
+            break;
+        case FCC_SAFEGUARD:
+            while (sp->fcc_work < 2)
+            {
+                side = sp->fcc_work;
+                if (sp->side_condition[side] & SIDE_STATUS_SAFEGUARD)
+                {
+                    if (--sp->scw[side].safeguardCount == 0)
+                    {
+                        sp->side_condition[side] &= ~(SIDE_STATUS_SAFEGUARD);
+                        sp->client_work = sp->scw[side].safeguardBattler;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SAFEGUARD_FADED);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if (ret == 0)
+            {
+                sp->fcc_seq_no++;
+                sp->fcc_work = 0;
+            }
+            break;
+        case FCC_TAILWIND:
+            while (sp->fcc_work < 2)
+            {
+                side = sp->fcc_work;
+                if (sp->tailwindCount[side]) // update tailwind to use a separate counter so it can be larger
+                {
+                    if (--sp->tailwindCount[side] == 0)
+                    {
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_TAILWIND_PETERS_OUT);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if (ret == 0)
+            {
+                sp->fcc_seq_no++;
+                sp->fcc_work = 0;
+            }
+            break;
+        case FCC_LUCKY_CHANT:
+            while (sp->fcc_work < 2)
+            {
+                side = sp->fcc_work;
+                if (sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT)
+                {
+                    sp->side_condition[side] -= (1 << 12);
+                    if ((sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) == 0)
+                    {
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_LUCKY_CHANT_END);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->client_work = ST_ServerDir2ClientNoGet(bw,sp,side);
+                        ret = 1;
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if (ret == 0)
+            {
+                sp->fcc_seq_no++;
+                sp->fcc_work = 0;
+            }
+            break;
+        case FCC_WISH:
+            while (sp->fcc_work < client_set_max)
+            {
+                side = sp->turn_order[sp->fcc_work];
+                if (sp->fcc.wish_count[side])
+                {
+                    if (--sp->fcc.wish_count[side] == 0)
+                    {
+                        if (sp->battlemon[side].hp)
+                        {
+                            sp->client_work = side;
+                            sp->mp.msg_tag = TAG_NICK;
+                            sp->mp.msg_id = BATTLE_MSG_WISH_CAME_TRUE; // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
+                            sp->mp.msg_para[0] = side | (sp->fcc.wish_sel_mons[side] << 8);
+                            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[side].maxhp, 2);
+                            LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_HANDLE_WISH_CAME_TRUE);
+                            sp->next_server_seq_no = sp->server_seq_no;
+                            sp->server_seq_no = 22;
+                            ret = 1;
+                        }
+                    }
+                }
+                sp->fcc_work++;
+                if (ret)
+                    break;
+            }
+            if (ret == 0)
+            {
+                sp->fcc_seq_no++;
+                sp->fcc_work = 0;
+            }
+            break;
+        case FCC_RAIN:
+            if (sp->field_condition & WEATHER_RAIN_ANY)
+            {
+                if (sp->field_condition & WEATHER_RAIN_PERMANENT)
+                {
+                    sp->mp.msg_id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL; // Rain continues to fall.
+                    sp->mp.msg_tag = TAG_NONE;
+                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                }
+                else
+                {
+                    if (--sp->fcc.weather_count == 0)
+                    {
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_RAIN_ENDS);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                    else
+                    {
+                        sp->mp.msg_id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL;
+                        sp->mp.msg_tag = TAG_NONE;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                }
+                sp->temp_work = 19;
+                ret = 1;
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_SANDSTORM:
+            if (sp->field_condition & WEATHER_SANDSTORM_ANY)
+            {
+                if (sp->field_condition & WEATHER_SANDSTORM_PERMANENT)
+                {
+                    sp->mp.msg_id = BATTLE_MSG_SANDSTORM_RAGES; // The sandstorm rages.
+                    sp->mp.msg_tag = TAG_NONE;
+                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                }
+                else
+                {
+                    if(--sp->fcc.weather_count == 0)
+                    {
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SANDSTORM_ENDS);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                    else
+                    {
+                        sp->mp.msg_id = BATTLE_MSG_SANDSTORM_RAGES;
+                        sp->mp.msg_tag = TAG_NONE;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                }
+                sp->temp_work = 21;
+                ret = 1;
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_SUNNY:
+            if (sp->field_condition & WEATHER_SUNNY_ANY)
+            {
+                if (sp->field_condition & WEATHER_SUNNY_PERMANENT)
+                {
+                    sp->mp.msg_id = BATTLE_MSG_SUNLIGHT_IS_STRONG;
+                    sp->mp.msg_tag = TAG_NONE;
+                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                }
+                else
+                {
+                    if (--sp->fcc.weather_count == 0)
+                    {
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SUNLIGHT_FADES);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                    else
+                    {
+                        sp->mp.msg_id = BATTLE_MSG_SUNLIGHT_IS_STRONG;
+                        sp->mp.msg_tag = TAG_NONE;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                }
+                sp->temp_work = 22;
+                ret = 1;
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_HAIL:
+            if (sp->field_condition & WEATHER_HAIL_ANY)
+            {
+                if (sp->field_condition & WEATHER_HAIL_PERMANENT)
+                {
+                    sp->mp.msg_id = BATTLE_MSG_HAIL_CONTINUES_TO_FALL; // Hail continues to fall.
+                    sp->mp.msg_tag = TAG_NONE;
+                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                }
+                else
+                {
+                    if (--sp->fcc.weather_count == 0)
+                    {
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_HAIL_STOPPED);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                    else
+                    {
+                        sp->mp.msg_id = BATTLE_MSG_HAIL_CONTINUES_TO_FALL;
+                        sp->mp.msg_tag = TAG_NONE;
+                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                }
+                sp->temp_work = 20;
+                ret = 1;
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_FOG:
+            if (sp->field_condition & FIELD_STATUS_FOG)
+            {
+                sp->mp.msg_id = BATTLE_MSG_FOG_IS_DEEP; // The fog is deep...
+                sp->mp.msg_tag = TAG_NONE;
+                LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                sp->temp_work = 18; // signifies fog i guess
+                ret = 1;
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_GRAVITY:
+            if (sp->field_condition & FIELD_STATUS_GRAVITY)
+            {
+                sp->field_condition -= (1 << 12);
+                if ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+                {
+                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_GRAVITY_NORMAL);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_END:
+            ret = 2;
+            break;
+        }
+    } while (ret == 0);
+
+    if (ret == 1)
+    {
+        SCIO_BlankMessage(bw);
+    }
+
+    if (ret == 2)
+    {
+        newBS.weather = sp->field_condition; // update the icon shown on the fight button
+        sp->fcc_seq_no = 0;
+        sp->server_seq_no = 10;
+    }
+}

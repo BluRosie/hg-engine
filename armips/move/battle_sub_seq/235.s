@@ -7,11 +7,13 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// sandstorm end script
+
 .create "build/move/battle_sub_seq/1_235", 0
 
 a001_235:
     changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x4
-    printmessage 0x326, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage 806, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The sandstorm subsided.
     waitmessage
     wait 0x1E
     endscript

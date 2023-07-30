@@ -2,8 +2,9 @@
 #define BATTLE_H
 
 #include "types.h"
-#include "sprite.h"
 #include "item.h"
+#include "sprite.h"
+#include "task.h"
 
 #define MAX_MOVE_NUM 742 //old 467
 #define CLIENT_MAX 4
@@ -227,6 +228,8 @@
 // side status flags
 #define SIDE_STATUS_REFLECT (0x1)
 #define SIDE_STATUS_LIGHT_SCREEN (0x2)
+#define SIDE_STATUS_SAFEGUARD (0x8)
+#define SIDE_STATUS_MIST (0x40)
 #define SIDE_STATUS_TAILWIND (0x300)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
@@ -259,6 +262,8 @@
 #define FIELD_STATUS_GRAVITY            (0x00007000)
 #define FIELD_STATUS_FOG                (0x00008000)
 #define FIELD_STATUS_TRICK_ROOM         (0x00070000)
+
+#define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)
 
 // opponent positions
 #define BATTLER_POSITION_SIDE_RIGHT (0)
@@ -654,14 +659,14 @@ typedef struct
 
 struct __attribute__((packed)) side_condition_work
 {
-    u32     butsuri_guard_client    : 2;
-    u32     butsuri_guard_count     : 3;
-    u32     tokusyu_guard_client    : 2;
-    u32     tokusyu_guard_count     : 3;
-    u32     shiroikiri_client       : 2;
-    u32     mist_count              : 3;
-    u32     shinpi_client           : 2;
-    u32     shinpi_count            : 3;
+    u32     reflectBattler          : 2;
+    u32     reflectCount            : 3;
+    u32     lightScreenBattler      : 2;
+    u32     lightScreenCount        : 3;
+    u32     mistBattler             : 2;
+    u32     mistCount               : 3;
+    u32     safeguardBattler        : 2;
+    u32     safeguardCount          : 3;
 
     u32     konoyubitomare_flag     : 1;
     u32     konoyubitomare_client   : 2;
@@ -798,7 +803,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x150*/ int total_turn;
     /*0x154*/ int total_hinshi[CLIENT_MAX];
     /*0x164*/ int total_damage[CLIENT_MAX];
-    /*0x174*/ int sakidori_total_turn;
+    /*0x174*/ int me_first_total_turns;
     /*0x178*/ struct tcb_skill_intp_work *tciw;
     /*0x17C*/ void *work;
     /*0x180*/ u32 field_condition;
@@ -905,7 +910,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
     /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
-    /*0x3159*/ u8 padding_3159[0x25]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x3159*/ u8 tailwindCount[2]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315B*/ u8 padding_315B[0x23]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -978,6 +984,9 @@ struct __attribute__((packed)) newBattleStruct
 
     CATS_ACT_PTR MegaOAM;
     CATS_ACT_PTR MegaButton;
+    CATS_ACT_PTR WeatherOAM;
+    SysTask *weatherUpdateTask;
+    u32 weather;
     u8 MegaIconLight;
     u8 ChangeBgFlag:4;
     u8 CanMega:4;
@@ -1254,6 +1263,9 @@ BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct Batt
 BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 int __attribute__((long_call)) Battle_GetClientPartySize(void *bw, int client_no);
 void *__attribute__((long_call)) Battle_GetClientPartyMon(void *bw, int client_no, int mon_index);
+BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 seq, u32 seq2);
+BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruct *sp);
+u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleStruct *sp, u32 side);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);

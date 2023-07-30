@@ -7,10 +7,12 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// gravity wearing off
+
 .create "build/move/battle_sub_seq/1_238", 0
 
 a001_238:
-    printmessage 0x3EC, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage 1004, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Gravity returned to normal!
     waitmessage
     wait 0x1E
     endscript

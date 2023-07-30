@@ -18,6 +18,8 @@
 BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp);
 
 typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
 #define START_OF_NEW_BTL_SCR_CMDS 0xE1
@@ -255,6 +257,8 @@ const u8 *BattleScrCmdNames[] =
     "reduceweight",
     "heavyslamdamagecalc",
     "isuserlowerlevel",
+    "settailwind",
+    "iftailwindactive",
 };
 
 u32 cmdAddress = 0;
@@ -266,6 +270,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xE1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E1_reduceweight,
     [0xE2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E2_heavyslamdamagecalc,
     [0xE3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E3_isuserlowerlevel,
+    [0xE4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E4_settailwind,
+    [0xE5 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E5_iftailwindactive,
 };
 
 
@@ -274,7 +280,9 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 {
     BOOL ret;
     u32 command;
+#ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
     u8 buf[64];
+#endif //DEBUG_BATTLE_SCRIPT_COMMANDS
 
     do {
         command = sp->SkillSeqWork[sp->skill_seq_no];
@@ -940,7 +948,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         {
             if (sp->attack_client != sp->state_client)
             {
-                if (sp->scw[IsClientEnemy(bw,sp->state_client)].mist_count)
+                if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount)
                 {
                     sp->mp.msg_id = BATTLE_MSG_PROTECTED_BY_MIST;
                     sp->mp.msg_tag = TAG_NICK;
@@ -1465,6 +1473,32 @@ BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp)
 
     if (sp->battlemon[sp->attack_client].level < sp->battlemon[sp->defence_client].level)
         IncrementBattleScriptPtr(sp, address);
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+    u32 client_no = read_battle_script_param(sp);
+
+    client_no = SideClientNoGet(bw, sp, client_no);
+
+    sp->tailwindCount[IsClientEnemy(bw, client_no)] = 4;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+    u32 client_no = read_battle_script_param(sp);
+    u32 address = read_battle_script_param(sp);
+
+    client_no = SideClientNoGet(bw, sp, client_no);
+
+    if (sp->tailwindCount[IsClientEnemy(bw, client_no)])
+        IncrementBattleScriptPtr(sp, address);
+
     return FALSE;
 }
 

@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// continue weather sub script
+
 .create "build/move/battle_sub_seq/1_104", 0
 
 a001_104:

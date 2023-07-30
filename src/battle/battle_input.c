@@ -15,8 +15,6 @@ struct newBattleStruct newBS = {0};
 #define FADE_MAIN_OBJ 2
 #define FADE_SUB_OBJ 3
 #define CLACT_U_HEADER_DATA_NONE (0xffffffff)
-#define ARC_POKEICON 0x14
-#define ARC_ITEMICON 18
 #define RECT_HIT_END 0xFF
 
 #define MEGA_ICON_SPRITE_TAG 20050
@@ -27,7 +25,11 @@ struct newBattleStruct newBS = {0};
 #define MEGA_BUTTON_SPRITE_TAG 20054
 #define MEGA_BUTTON_PAL_TAG 20055
 
-// shift these by 1 if the fairy type has been implemented in the hgss-filesys-example branch.
+#define WEATHER_ICON_SPRITE_TAG 20056
+#define WEATHER_ICON_PAL_TAG 20057
+#define WEATHER_ICON_CELL_TAG 20058
+#define WEATHER_ICON_CELL_ANIM_TAG 20059
+
 #define MEGA_ICON_FIGHT_GFX (797)
 #define PRIMAL_REVERSION_OMEGA_GFX (799)
 #define PRIMAL_REVERSION_ALPHA_GFX (801)
@@ -134,11 +136,32 @@ static const OAMSpriteTemplate MegaButtonTemplate = {
     0,
 };
 
+static const OAMSpriteTemplate WeatherIconObjParam = {
+    197,
+    198,
+    0, //x, y, z
+    2,
+    100,
+    0,
+    NNS_G2D_VRAM_TYPE_2DSUB,
+    {
+        WEATHER_ICON_SPRITE_TAG,
+        WEATHER_ICON_PAL_TAG,
+        WEATHER_ICON_CELL_TAG,
+        WEATHER_ICON_CELL_ANIM_TAG,
+        CLACT_U_HEADER_DATA_NONE,
+        CLACT_U_HEADER_DATA_NONE,
+    },
+    1,
+    0,
+};
+
 static void EFFECT_MegaTouch(void *tcb, void *work);
 
 // reads the sprite icon
 void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 {
+    u32 nclr;
     void *csp;
     void *crp;
     void *pfd;
@@ -155,20 +178,51 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 
     if (CheckIsPrimalGroudon(bip))
     {
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
     }
     else if (CheckIsPrimalKyogre(bip))
     {
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
     }
     else
     {
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
     }
 
-    OAM_LoadResourceCellArc(csp, crp, ARC_ITEMICON, 1, 0, MEGA_ICON_CELL_TAG);
+    OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
 
-    OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEMICON, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+    OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEM_GFX_DATA, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+
+
+    // weather
+    if (newBS.weather & WEATHER_ANY_ICONS)
+    {
+        if (newBS.weather & WEATHER_SUNNY_ANY)
+        {
+            nclr = BATTLE_GFX_SUN_NCLR;
+        }
+        else if (newBS.weather & WEATHER_RAIN_ANY)
+        {
+            nclr = BATTLE_GFX_RAIN_NCLR;
+        }
+        else if (newBS.weather & WEATHER_SANDSTORM_ANY)
+        {
+            nclr = BATTLE_GFX_SANDSTORM_NCLR;
+        }
+        else if (newBS.weather & WEATHER_HAIL_ANY)
+        {
+            nclr = BATTLE_GFX_HAIL_NCLR;
+        }
+        else // fog
+        {
+            nclr = BATTLE_GFX_FOG_NCLR;
+        }
+        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, nclr, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, WEATHER_ICON_PAL_TAG);
+
+        OAM_LoadResourceCellArc(csp, crp, ARC_BATTLE_GFX, BATTLE_GFX_NCER, 0, WEATHER_ICON_CELL_TAG); //NCER
+
+        OAM_LoadResourceCellAnmArc(csp, crp, ARC_POKEICON, 3, 0, WEATHER_ICON_CELL_ANIM_TAG); //NANR
+    }
 }
 
 void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
@@ -208,6 +262,23 @@ void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
             newBS.playerWantMega = 0;
         newBS.MegaIconLight = 0;
     }
+
+
+    if (newBS.weather & WEATHER_ANY_ICONS)
+    {
+        if (newBS.WeatherOAM)
+        {
+            OAM_FreeResourceChar(crp, WEATHER_ICON_SPRITE_TAG);
+            OAM_FreeResourceCell(crp, WEATHER_ICON_CELL_TAG);
+            OAM_FreeResourceCellAnm(crp, WEATHER_ICON_CELL_ANIM_TAG);
+            OAM_FreeResourcePltt(crp, WEATHER_ICON_PAL_TAG);
+
+            CATS_ActorPointerDelete_S(newBS.WeatherOAM);
+            newBS.WeatherOAM = NULL;
+            DestroySysTask(newBS.weatherUpdateTask);
+            newBS.weatherUpdateTask = NULL;
+        }
+    }
 }
 
 void LoadMegaIcon(struct BI_PARAM *bip)
@@ -221,7 +292,7 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
         newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
@@ -230,7 +301,7 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
         newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
@@ -239,9 +310,43 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
         newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
+    }
+
+    if (newBS.weather & WEATHER_ANY_ICONS)
+    {
+        u32 ncgr;
+        csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
+        crp = BattleWorkCATS_RES_PTRGet(bip->bw);
+
+        if (newBS.weather & WEATHER_SUNNY_ANY)
+        {
+            ncgr = BATTLE_GFX_SUN_NCGR;
+        }
+        else if (newBS.weather & WEATHER_RAIN_ANY)
+        {
+            ncgr = BATTLE_GFX_RAIN_NCGR;
+        }
+        else if (newBS.weather & WEATHER_SANDSTORM_ANY)
+        {
+            ncgr = BATTLE_GFX_SANDSTORM_NCGR;
+        }
+        else if (newBS.weather & WEATHER_HAIL_ANY)
+        {
+            ncgr = BATTLE_GFX_HAIL_NCGR;
+        }
+        else // fog
+        {
+            ncgr = BATTLE_GFX_FOG_NCGR;
+        }
+
+        OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, ncgr, 0, NNS_G2D_VRAM_TYPE_2DSUB, WEATHER_ICON_SPRITE_TAG);
+        newBS.WeatherOAM = OAM_ObjectAdd_S(csp, crp, &WeatherIconObjParam);
+        OAM_ObjectAnimeSeqSetCap(newBS.WeatherOAM, 4); // set it to pokemon anim id 4, should be slowest
+        OAM_ObjectUpdate(newBS.WeatherOAM->act);
+        newBS.weatherUpdateTask = CreateSysTask((SysTaskFunc)0x022684ED, newBS.WeatherOAM, 1300); // 0x022684ED is the pokemon icon animation function
     }
 }
 
@@ -264,11 +369,11 @@ void LoadMegaButton(struct BI_PARAM *bip)
             iconindex = MEGA_ICON_SELECTED_GFX;
             palindex = MEGA_ICON_SELECTED_GFX+1;
         }
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
+        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
 
-        OAM_LoadResourceCellArc(csp, crp, ARC_ITEMICON, 1, 0, MEGA_ICON_CELL_TAG);
-        OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEMICON, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+        OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
+        OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEM_GFX_DATA, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
         newBS.MegaButton = OAM_ObjectAdd_S(csp, crp, &MegaButtonTemplate);
         OAM_ObjectUpdate(newBS.MegaButton->act);
     }
@@ -326,8 +431,8 @@ u8 CheckMegaButton(struct BI_PARAM *bip, int tp_ret)
     }
     else
         newBS.MegaIconLight = 1;
-    OAM_LoadResourceCharArc(csp, crp, ARC_ITEMICON, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
-    OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEMICON, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
+    OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
+    OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
     OAM_ObjectUpdate(newBS.MegaButton->act);
     Snd_SePlay(1501);
     EffectTCB_Add(EFFECT_MegaTouch, bip); //315c4
