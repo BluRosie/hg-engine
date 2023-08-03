@@ -1419,6 +1419,12 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 0,
         .file = SPECIES_SLOWPOKE_GALARIAN,
     },
+    { // slowpoke is really fun because slowbro has two forms so we have this duplicate entry here to map it properly during the evolution sequence
+        .species = SPECIES_SLOWPOKE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_SLOWPOKE_GALARIAN,
+    },
     {
         .species = SPECIES_SLOWBRO,
         .form_no = 2,
@@ -2146,13 +2152,13 @@ const struct FormData PokeFormDataTbl[]=
     {
         .species = SPECIES_SHELLOS,
         .form_no = 1,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_SHELLOS_EAST_SEA,
     },
     {
         .species = SPECIES_GASTRODON,
         .form_no = 1,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_GASTRODON_EAST_SEA,
     },
     {
