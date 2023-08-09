@@ -836,7 +836,7 @@ heightentry SPECIES_PYUKUMUKU, 0, 0, 0, 0
 heightentry SPECIES_TYPE_NULL, 0, 0, 0, 0
 heightentry SPECIES_SILVALLY, 0, 0, 0, 0
 heightentry SPECIES_MINIOR, 0, 0, 0, 0
-heightentry SPECIES_KOMALA, 0, 0, 0, 0
+heightentry SPECIES_KOMALA, 0, 0, 15, 15
 heightentry SPECIES_TURTONATOR, 0, 0, 0, 0
 heightentry SPECIES_TOGEDEMARU, 0, 0, 0, 0
 heightentry SPECIES_MIMIKYU, 0, 0, 14, 14
