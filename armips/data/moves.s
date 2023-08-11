@@ -1693,7 +1693,7 @@ movedata MOVE_RECOVER, "Recover"
     basepower 0
     type TYPE_NORMAL
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -2173,7 +2173,7 @@ movedata MOVE_SOFT_BOILED, "Softboiled"
     basepower 0
     type TYPE_NORMAL
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -2509,7 +2509,7 @@ movedata MOVE_REST, "Rest"
     basepower 0
     type TYPE_PSYCHIC
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -3341,7 +3341,7 @@ movedata MOVE_MILK_DRINK, "Milk Drink"
     basepower 0
     type TYPE_NORMAL
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -4861,7 +4861,7 @@ movedata MOVE_SLACK_OFF, "Slack Off"
     basepower 0
     type TYPE_NORMAL
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -5693,7 +5693,7 @@ movedata MOVE_ROOST, "Roost"
     basepower 0
     type TYPE_FLYING
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -10507,7 +10507,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     basepower 0
     type TYPE_GROUND
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
