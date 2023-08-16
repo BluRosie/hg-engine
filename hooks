@@ -321,3 +321,6 @@ arm9 CapRareCandies 0208FEEA 1
 
 # rewrite tailwind counter decrement to use our new counter
 0012 ServerFieldConditionCheck 022494DC 2
+
+# dex digits
+0018 FormatDexNumberAnimationDigits 021E6A98 3

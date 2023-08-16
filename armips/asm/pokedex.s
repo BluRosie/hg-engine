@@ -1596,7 +1596,7 @@ SetMonCaught: // 0x0202A434
     add r3, r5, r0
 //    add r3, #0x44 // here
     push {r0}
-    mov r0, #SEEN_FLAGS_OFFSET >> 4 ///////////////////////////////////
+    mov r0, #SEEN_FLAGS_OFFSET >> 4
     lsl r0, #4
     add r3, r0 // net +4
     pop {r0}
