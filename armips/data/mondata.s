@@ -10899,8 +10899,8 @@ mondata SPECIES_EGG, "Egg"
     tmdata SPECIES_EGG_TM_DATA_0, SPECIES_EGG_TM_DATA_1, SPECIES_EGG_TM_DATA_2, SPECIES_EGG_TM_DATA_3
     mondexentry SPECIES_EGG, "-----"
     mondexclassification SPECIES_EGG, "-----"
-    mondexheight SPECIES_EGG, ""
-    mondexweight SPECIES_EGG, ""
+    mondexheight SPECIES_EGG, "???'??”"
+    mondexweight SPECIES_EGG, "????.? lbs."
 
 
 mondata SPECIES_BAD_EGG, "Bad Egg"
@@ -10921,8 +10921,8 @@ mondata SPECIES_BAD_EGG, "Bad Egg"
     tmdata SPECIES_BAD_EGG_TM_DATA_0, SPECIES_BAD_EGG_TM_DATA_1, SPECIES_BAD_EGG_TM_DATA_2, SPECIES_BAD_EGG_TM_DATA_3
     mondexentry SPECIES_BAD_EGG, "-----"
     mondexclassification SPECIES_BAD_EGG, "-----"
-    mondexheight SPECIES_BAD_EGG, ""
-    mondexweight SPECIES_BAD_EGG, ""
+    mondexheight SPECIES_BAD_EGG, "???'??”"
+    mondexweight SPECIES_BAD_EGG, "????.? lbs."
 
 
 mondata SPECIES_DEOXYS_ATTACK, "-----"
@@ -10943,8 +10943,8 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     tmdata SPECIES_DEOXYS_ATTACK_TM_DATA_0, SPECIES_DEOXYS_ATTACK_TM_DATA_1, SPECIES_DEOXYS_ATTACK_TM_DATA_2, SPECIES_DEOXYS_ATTACK_TM_DATA_3
     mondexentry SPECIES_DEOXYS_ATTACK, "-----"
     mondexclassification SPECIES_DEOXYS_ATTACK, "-----"
-    mondexheight SPECIES_DEOXYS_ATTACK, ""
-    mondexweight SPECIES_DEOXYS_ATTACK, ""
+    mondexheight SPECIES_DEOXYS_ATTACK, "???'??”"
+    mondexweight SPECIES_DEOXYS_ATTACK, "????.? lbs."
 
 
 mondata SPECIES_DEOXYS_DEFENSE, "-----"
@@ -10965,8 +10965,8 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     tmdata SPECIES_DEOXYS_DEFENSE_TM_DATA_0, SPECIES_DEOXYS_DEFENSE_TM_DATA_1, SPECIES_DEOXYS_DEFENSE_TM_DATA_2, SPECIES_DEOXYS_DEFENSE_TM_DATA_3
     mondexentry SPECIES_DEOXYS_DEFENSE, "-----"
     mondexclassification SPECIES_DEOXYS_DEFENSE, "-----"
-    mondexheight SPECIES_DEOXYS_DEFENSE, ""
-    mondexweight SPECIES_DEOXYS_DEFENSE, ""
+    mondexheight SPECIES_DEOXYS_DEFENSE, "???'??”"
+    mondexweight SPECIES_DEOXYS_DEFENSE, "????.? lbs."
 
 
 mondata SPECIES_DEOXYS_SPEED, "-----"
@@ -10987,8 +10987,8 @@ mondata SPECIES_DEOXYS_SPEED, "-----"
     tmdata SPECIES_DEOXYS_SPEED_TM_DATA_0, SPECIES_DEOXYS_SPEED_TM_DATA_1, SPECIES_DEOXYS_SPEED_TM_DATA_2, SPECIES_DEOXYS_SPEED_TM_DATA_3
     mondexentry SPECIES_DEOXYS_SPEED, "-----"
     mondexclassification SPECIES_DEOXYS_SPEED, "-----"
-    mondexheight SPECIES_DEOXYS_SPEED, ""
-    mondexweight SPECIES_DEOXYS_SPEED, ""
+    mondexheight SPECIES_DEOXYS_SPEED, "???'??”"
+    mondexweight SPECIES_DEOXYS_SPEED, "????.? lbs."
 
 
 mondata SPECIES_WORMADAM_SANDY, "-----"
@@ -11009,8 +11009,8 @@ mondata SPECIES_WORMADAM_SANDY, "-----"
     tmdata SPECIES_WORMADAM_SANDY_TM_DATA_0, SPECIES_WORMADAM_SANDY_TM_DATA_1, SPECIES_WORMADAM_SANDY_TM_DATA_2, SPECIES_WORMADAM_SANDY_TM_DATA_3
     mondexentry SPECIES_WORMADAM_SANDY, "-----"
     mondexclassification SPECIES_WORMADAM_SANDY, "-----"
-    mondexheight SPECIES_WORMADAM_SANDY, ""
-    mondexweight SPECIES_WORMADAM_SANDY, ""
+    mondexheight SPECIES_WORMADAM_SANDY, "???'??”"
+    mondexweight SPECIES_WORMADAM_SANDY, "????.? lbs."
 
 
 mondata SPECIES_WORMADAM_TRASHY, "-----"
@@ -11031,8 +11031,8 @@ mondata SPECIES_WORMADAM_TRASHY, "-----"
     tmdata SPECIES_WORMADAM_TRASHY_TM_DATA_0, SPECIES_WORMADAM_TRASHY_TM_DATA_1, SPECIES_WORMADAM_TRASHY_TM_DATA_2, SPECIES_WORMADAM_TRASHY_TM_DATA_3
     mondexentry SPECIES_WORMADAM_TRASHY, "-----"
     mondexclassification SPECIES_WORMADAM_TRASHY, "-----"
-    mondexheight SPECIES_WORMADAM_TRASHY, ""
-    mondexweight SPECIES_WORMADAM_TRASHY, ""
+    mondexheight SPECIES_WORMADAM_TRASHY, "???'??”"
+    mondexweight SPECIES_WORMADAM_TRASHY, "????.? lbs."
 
 
 mondata SPECIES_GIRATINA_ORIGIN, "-----"
@@ -11053,8 +11053,8 @@ mondata SPECIES_GIRATINA_ORIGIN, "-----"
     tmdata SPECIES_GIRATINA_ORIGIN_TM_DATA_0, SPECIES_GIRATINA_ORIGIN_TM_DATA_1, SPECIES_GIRATINA_ORIGIN_TM_DATA_2, SPECIES_GIRATINA_ORIGIN_TM_DATA_3
     mondexentry SPECIES_GIRATINA_ORIGIN, "-----"
     mondexclassification SPECIES_GIRATINA_ORIGIN, "-----"
-    mondexheight SPECIES_GIRATINA_ORIGIN, ""
-    mondexweight SPECIES_GIRATINA_ORIGIN, ""
+    mondexheight SPECIES_GIRATINA_ORIGIN, "???'??”"
+    mondexweight SPECIES_GIRATINA_ORIGIN, "????.? lbs."
 
 
 mondata SPECIES_SHAYMIN_SKY, "-----"
@@ -11075,8 +11075,8 @@ mondata SPECIES_SHAYMIN_SKY, "-----"
     tmdata SPECIES_SHAYMIN_SKY_TM_DATA_0, SPECIES_SHAYMIN_SKY_TM_DATA_1, SPECIES_SHAYMIN_SKY_TM_DATA_2, SPECIES_SHAYMIN_SKY_TM_DATA_3
     mondexentry SPECIES_SHAYMIN_SKY, "-----"
     mondexclassification SPECIES_SHAYMIN_SKY, "-----"
-    mondexheight SPECIES_SHAYMIN_SKY, ""
-    mondexweight SPECIES_SHAYMIN_SKY, ""
+    mondexheight SPECIES_SHAYMIN_SKY, "???'??”"
+    mondexweight SPECIES_SHAYMIN_SKY, "????.? lbs."
 
 
 mondata SPECIES_ROTOM_HEAT, "-----"
@@ -11097,8 +11097,8 @@ mondata SPECIES_ROTOM_HEAT, "-----"
     tmdata SPECIES_ROTOM_HEAT_TM_DATA_0, SPECIES_ROTOM_HEAT_TM_DATA_1, SPECIES_ROTOM_HEAT_TM_DATA_2, SPECIES_ROTOM_HEAT_TM_DATA_3
     mondexentry SPECIES_ROTOM_HEAT, "-----"
     mondexclassification SPECIES_ROTOM_HEAT, "-----"
-    mondexheight SPECIES_ROTOM_HEAT, ""
-    mondexweight SPECIES_ROTOM_HEAT, ""
+    mondexheight SPECIES_ROTOM_HEAT, "???'??”"
+    mondexweight SPECIES_ROTOM_HEAT, "????.? lbs."
 
 
 mondata SPECIES_ROTOM_WASH, "-----"
@@ -11119,8 +11119,8 @@ mondata SPECIES_ROTOM_WASH, "-----"
     tmdata SPECIES_ROTOM_WASH_TM_DATA_0, SPECIES_ROTOM_WASH_TM_DATA_1, SPECIES_ROTOM_WASH_TM_DATA_2, SPECIES_ROTOM_WASH_TM_DATA_3
     mondexentry SPECIES_ROTOM_WASH, "-----"
     mondexclassification SPECIES_ROTOM_WASH, "-----"
-    mondexheight SPECIES_ROTOM_WASH, ""
-    mondexweight SPECIES_ROTOM_WASH, ""
+    mondexheight SPECIES_ROTOM_WASH, "???'??”"
+    mondexweight SPECIES_ROTOM_WASH, "????.? lbs."
 
 
 mondata SPECIES_ROTOM_FROST, "-----"
@@ -11141,8 +11141,8 @@ mondata SPECIES_ROTOM_FROST, "-----"
     tmdata SPECIES_ROTOM_FROST_TM_DATA_0, SPECIES_ROTOM_FROST_TM_DATA_1, SPECIES_ROTOM_FROST_TM_DATA_2, SPECIES_ROTOM_FROST_TM_DATA_3
     mondexentry SPECIES_ROTOM_FROST, "-----"
     mondexclassification SPECIES_ROTOM_FROST, "-----"
-    mondexheight SPECIES_ROTOM_FROST, ""
-    mondexweight SPECIES_ROTOM_FROST, ""
+    mondexheight SPECIES_ROTOM_FROST, "???'??”"
+    mondexweight SPECIES_ROTOM_FROST, "????.? lbs."
 
 
 mondata SPECIES_ROTOM_FAN, "-----"
@@ -11163,8 +11163,8 @@ mondata SPECIES_ROTOM_FAN, "-----"
     tmdata SPECIES_ROTOM_FAN_TM_DATA_0, SPECIES_ROTOM_FAN_TM_DATA_1, SPECIES_ROTOM_FAN_TM_DATA_2, SPECIES_ROTOM_FAN_TM_DATA_3
     mondexentry SPECIES_ROTOM_FAN, "-----"
     mondexclassification SPECIES_ROTOM_FAN, "-----"
-    mondexheight SPECIES_ROTOM_FAN, ""
-    mondexweight SPECIES_ROTOM_FAN, ""
+    mondexheight SPECIES_ROTOM_FAN, "???'??”"
+    mondexweight SPECIES_ROTOM_FAN, "????.? lbs."
 
 
 mondata SPECIES_ROTOM_MOW, "-----"
@@ -11185,8 +11185,8 @@ mondata SPECIES_ROTOM_MOW, "-----"
     tmdata SPECIES_ROTOM_MOW_TM_DATA_0, SPECIES_ROTOM_MOW_TM_DATA_1, SPECIES_ROTOM_MOW_TM_DATA_2, SPECIES_ROTOM_MOW_TM_DATA_3
     mondexentry SPECIES_ROTOM_MOW, "-----"
     mondexclassification SPECIES_ROTOM_MOW, "-----"
-    mondexheight SPECIES_ROTOM_MOW, ""
-    mondexweight SPECIES_ROTOM_MOW, ""
+    mondexheight SPECIES_ROTOM_MOW, "???'??”"
+    mondexweight SPECIES_ROTOM_MOW, "????.? lbs."
 
 
 mondata SPECIES_508, "-----"
@@ -11207,8 +11207,8 @@ mondata SPECIES_508, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_508, "-----"
     mondexclassification SPECIES_508, "-----"
-    mondexheight SPECIES_508, ""
-    mondexweight SPECIES_508, ""
+    mondexheight SPECIES_508, "???'??”"
+    mondexweight SPECIES_508, "????.? lbs."
 
 
 mondata SPECIES_509, "-----"
@@ -11229,8 +11229,8 @@ mondata SPECIES_509, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_509, "-----"
     mondexclassification SPECIES_509, "-----"
-    mondexheight SPECIES_509, ""
-    mondexweight SPECIES_509, ""
+    mondexheight SPECIES_509, "???'??”"
+    mondexweight SPECIES_509, "????.? lbs."
 
 
 mondata SPECIES_510, "-----"
@@ -11251,8 +11251,8 @@ mondata SPECIES_510, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_510, "-----"
     mondexclassification SPECIES_510, "-----"
-    mondexheight SPECIES_510, ""
-    mondexweight SPECIES_510, ""
+    mondexheight SPECIES_510, "???'??”"
+    mondexweight SPECIES_510, "????.? lbs."
 
 
 mondata SPECIES_511, "-----"
@@ -11273,8 +11273,8 @@ mondata SPECIES_511, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_511, "-----"
     mondexclassification SPECIES_511, "-----"
-    mondexheight SPECIES_511, ""
-    mondexweight SPECIES_511, ""
+    mondexheight SPECIES_511, "???'??”"
+    mondexweight SPECIES_511, "????.? lbs."
 
 
 mondata SPECIES_512, "-----"
@@ -11295,8 +11295,8 @@ mondata SPECIES_512, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_512, "-----"
     mondexclassification SPECIES_512, "-----"
-    mondexheight SPECIES_512, ""
-    mondexweight SPECIES_512, ""
+    mondexheight SPECIES_512, "???'??”"
+    mondexweight SPECIES_512, "????.? lbs."
 
 
 mondata SPECIES_513, "-----"
@@ -11317,8 +11317,8 @@ mondata SPECIES_513, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_513, "-----"
     mondexclassification SPECIES_513, "-----"
-    mondexheight SPECIES_513, ""
-    mondexweight SPECIES_513, ""
+    mondexheight SPECIES_513, "???'??”"
+    mondexweight SPECIES_513, "????.? lbs."
 
 
 mondata SPECIES_514, "-----"
@@ -11339,8 +11339,8 @@ mondata SPECIES_514, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_514, "-----"
     mondexclassification SPECIES_514, "-----"
-    mondexheight SPECIES_514, ""
-    mondexweight SPECIES_514, ""
+    mondexheight SPECIES_514, "???'??”"
+    mondexweight SPECIES_514, "????.? lbs."
 
 
 mondata SPECIES_515, "-----"
@@ -11361,8 +11361,8 @@ mondata SPECIES_515, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_515, "-----"
     mondexclassification SPECIES_515, "-----"
-    mondexheight SPECIES_515, ""
-    mondexweight SPECIES_515, ""
+    mondexheight SPECIES_515, "???'??”"
+    mondexweight SPECIES_515, "????.? lbs."
 
 
 mondata SPECIES_516, "-----"
@@ -11383,8 +11383,8 @@ mondata SPECIES_516, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_516, "-----"
     mondexclassification SPECIES_516, "-----"
-    mondexheight SPECIES_516, ""
-    mondexweight SPECIES_516, ""
+    mondexheight SPECIES_516, "???'??”"
+    mondexweight SPECIES_516, "????.? lbs."
 
 
 mondata SPECIES_517, "-----"
@@ -11405,8 +11405,8 @@ mondata SPECIES_517, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_517, "-----"
     mondexclassification SPECIES_517, "-----"
-    mondexheight SPECIES_517, ""
-    mondexweight SPECIES_517, ""
+    mondexheight SPECIES_517, "???'??”"
+    mondexweight SPECIES_517, "????.? lbs."
 
 
 mondata SPECIES_518, "-----"
@@ -11427,8 +11427,8 @@ mondata SPECIES_518, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_518, "-----"
     mondexclassification SPECIES_518, "-----"
-    mondexheight SPECIES_518, ""
-    mondexweight SPECIES_518, ""
+    mondexheight SPECIES_518, "???'??”"
+    mondexweight SPECIES_518, "????.? lbs."
 
 
 mondata SPECIES_519, "-----"
@@ -11449,8 +11449,8 @@ mondata SPECIES_519, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_519, "-----"
     mondexclassification SPECIES_519, "-----"
-    mondexheight SPECIES_519, ""
-    mondexweight SPECIES_519, ""
+    mondexheight SPECIES_519, "???'??”"
+    mondexweight SPECIES_519, "????.? lbs."
 
 
 mondata SPECIES_520, "-----"
@@ -11471,8 +11471,8 @@ mondata SPECIES_520, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_520, "-----"
     mondexclassification SPECIES_520, "-----"
-    mondexheight SPECIES_520, ""
-    mondexweight SPECIES_520, ""
+    mondexheight SPECIES_520, "???'??”"
+    mondexweight SPECIES_520, "????.? lbs."
 
 
 mondata SPECIES_521, "-----"
@@ -11493,8 +11493,8 @@ mondata SPECIES_521, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_521, "-----"
     mondexclassification SPECIES_521, "-----"
-    mondexheight SPECIES_521, ""
-    mondexweight SPECIES_521, ""
+    mondexheight SPECIES_521, "???'??”"
+    mondexweight SPECIES_521, "????.? lbs."
 
 
 mondata SPECIES_522, "-----"
@@ -11515,8 +11515,8 @@ mondata SPECIES_522, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_522, "-----"
     mondexclassification SPECIES_522, "-----"
-    mondexheight SPECIES_522, ""
-    mondexweight SPECIES_522, ""
+    mondexheight SPECIES_522, "???'??”"
+    mondexweight SPECIES_522, "????.? lbs."
 
 
 mondata SPECIES_523, "-----"
@@ -11537,8 +11537,8 @@ mondata SPECIES_523, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_523, "-----"
     mondexclassification SPECIES_523, "-----"
-    mondexheight SPECIES_523, ""
-    mondexweight SPECIES_523, ""
+    mondexheight SPECIES_523, "???'??”"
+    mondexweight SPECIES_523, "????.? lbs."
 
 
 mondata SPECIES_524, "-----"
@@ -11559,8 +11559,8 @@ mondata SPECIES_524, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_524, "-----"
     mondexclassification SPECIES_524, "-----"
-    mondexheight SPECIES_524, ""
-    mondexweight SPECIES_524, ""
+    mondexheight SPECIES_524, "???'??”"
+    mondexweight SPECIES_524, "????.? lbs."
 
 
 mondata SPECIES_525, "-----"
@@ -11581,8 +11581,8 @@ mondata SPECIES_525, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_525, "-----"
     mondexclassification SPECIES_525, "-----"
-    mondexheight SPECIES_525, ""
-    mondexweight SPECIES_525, ""
+    mondexheight SPECIES_525, "???'??”"
+    mondexweight SPECIES_525, "????.? lbs."
 
 
 mondata SPECIES_526, "-----"
@@ -11603,8 +11603,8 @@ mondata SPECIES_526, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_526, "-----"
     mondexclassification SPECIES_526, "-----"
-    mondexheight SPECIES_526, ""
-    mondexweight SPECIES_526, ""
+    mondexheight SPECIES_526, "???'??”"
+    mondexweight SPECIES_526, "????.? lbs."
 
 
 mondata SPECIES_527, "-----"
@@ -11625,8 +11625,8 @@ mondata SPECIES_527, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_527, "-----"
     mondexclassification SPECIES_527, "-----"
-    mondexheight SPECIES_527, ""
-    mondexweight SPECIES_527, ""
+    mondexheight SPECIES_527, "???'??”"
+    mondexweight SPECIES_527, "????.? lbs."
 
 
 mondata SPECIES_528, "-----"
@@ -11647,8 +11647,8 @@ mondata SPECIES_528, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_528, "-----"
     mondexclassification SPECIES_528, "-----"
-    mondexheight SPECIES_528, ""
-    mondexweight SPECIES_528, ""
+    mondexheight SPECIES_528, "???'??”"
+    mondexweight SPECIES_528, "????.? lbs."
 
 
 mondata SPECIES_529, "-----"
@@ -11669,8 +11669,8 @@ mondata SPECIES_529, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_529, "-----"
     mondexclassification SPECIES_529, "-----"
-    mondexheight SPECIES_529, ""
-    mondexweight SPECIES_529, ""
+    mondexheight SPECIES_529, "???'??”"
+    mondexweight SPECIES_529, "????.? lbs."
 
 
 mondata SPECIES_530, "-----"
@@ -11691,8 +11691,8 @@ mondata SPECIES_530, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_530, "-----"
     mondexclassification SPECIES_530, "-----"
-    mondexheight SPECIES_530, ""
-    mondexweight SPECIES_530, ""
+    mondexheight SPECIES_530, "???'??”"
+    mondexweight SPECIES_530, "????.? lbs."
 
 
 mondata SPECIES_531, "-----"
@@ -11713,8 +11713,8 @@ mondata SPECIES_531, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_531, "-----"
     mondexclassification SPECIES_531, "-----"
-    mondexheight SPECIES_531, ""
-    mondexweight SPECIES_531, ""
+    mondexheight SPECIES_531, "???'??”"
+    mondexweight SPECIES_531, "????.? lbs."
 
 
 mondata SPECIES_532, "-----"
@@ -11735,8 +11735,8 @@ mondata SPECIES_532, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_532, "-----"
     mondexclassification SPECIES_532, "-----"
-    mondexheight SPECIES_532, ""
-    mondexweight SPECIES_532, ""
+    mondexheight SPECIES_532, "???'??”"
+    mondexweight SPECIES_532, "????.? lbs."
 
 
 mondata SPECIES_533, "-----"
@@ -11757,8 +11757,8 @@ mondata SPECIES_533, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_533, "-----"
     mondexclassification SPECIES_533, "-----"
-    mondexheight SPECIES_533, ""
-    mondexweight SPECIES_533, ""
+    mondexheight SPECIES_533, "???'??”"
+    mondexweight SPECIES_533, "????.? lbs."
 
 
 mondata SPECIES_534, "-----"
@@ -11779,8 +11779,8 @@ mondata SPECIES_534, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_534, "-----"
     mondexclassification SPECIES_534, "-----"
-    mondexheight SPECIES_534, ""
-    mondexweight SPECIES_534, ""
+    mondexheight SPECIES_534, "???'??”"
+    mondexweight SPECIES_534, "????.? lbs."
 
 
 mondata SPECIES_535, "-----"
@@ -11801,8 +11801,8 @@ mondata SPECIES_535, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_535, "-----"
     mondexclassification SPECIES_535, "-----"
-    mondexheight SPECIES_535, ""
-    mondexweight SPECIES_535, ""
+    mondexheight SPECIES_535, "???'??”"
+    mondexweight SPECIES_535, "????.? lbs."
 
 
 mondata SPECIES_536, "-----"
@@ -11823,8 +11823,8 @@ mondata SPECIES_536, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_536, "-----"
     mondexclassification SPECIES_536, "-----"
-    mondexheight SPECIES_536, ""
-    mondexweight SPECIES_536, ""
+    mondexheight SPECIES_536, "???'??”"
+    mondexweight SPECIES_536, "????.? lbs."
 
 
 mondata SPECIES_537, "-----"
@@ -11845,8 +11845,8 @@ mondata SPECIES_537, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_537, "-----"
     mondexclassification SPECIES_537, "-----"
-    mondexheight SPECIES_537, ""
-    mondexweight SPECIES_537, ""
+    mondexheight SPECIES_537, "???'??”"
+    mondexweight SPECIES_537, "????.? lbs."
 
 
 mondata SPECIES_538, "-----"
@@ -11867,8 +11867,8 @@ mondata SPECIES_538, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_538, "-----"
     mondexclassification SPECIES_538, "-----"
-    mondexheight SPECIES_538, ""
-    mondexweight SPECIES_538, ""
+    mondexheight SPECIES_538, "???'??”"
+    mondexweight SPECIES_538, "????.? lbs."
 
 
 mondata SPECIES_539, "-----"
@@ -11889,8 +11889,8 @@ mondata SPECIES_539, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_539, "-----"
     mondexclassification SPECIES_539, "-----"
-    mondexheight SPECIES_539, ""
-    mondexweight SPECIES_539, ""
+    mondexheight SPECIES_539, "???'??”"
+    mondexweight SPECIES_539, "????.? lbs."
 
 
 mondata SPECIES_540, "-----"
@@ -11911,8 +11911,8 @@ mondata SPECIES_540, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_540, "-----"
     mondexclassification SPECIES_540, "-----"
-    mondexheight SPECIES_540, ""
-    mondexweight SPECIES_540, ""
+    mondexheight SPECIES_540, "???'??”"
+    mondexweight SPECIES_540, "????.? lbs."
 
 
 mondata SPECIES_541, "-----"
@@ -11933,8 +11933,8 @@ mondata SPECIES_541, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_541, "-----"
     mondexclassification SPECIES_541, "-----"
-    mondexheight SPECIES_541, ""
-    mondexweight SPECIES_541, ""
+    mondexheight SPECIES_541, "???'??”"
+    mondexweight SPECIES_541, "????.? lbs."
 
 
 mondata SPECIES_542, "-----"
@@ -11955,8 +11955,8 @@ mondata SPECIES_542, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_542, "-----"
     mondexclassification SPECIES_542, "-----"
-    mondexheight SPECIES_542, ""
-    mondexweight SPECIES_542, ""
+    mondexheight SPECIES_542, "???'??”"
+    mondexweight SPECIES_542, "????.? lbs."
 
 
 mondata SPECIES_543, "-----"
@@ -11977,8 +11977,8 @@ mondata SPECIES_543, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_543, "-----"
     mondexclassification SPECIES_543, "-----"
-    mondexheight SPECIES_543, ""
-    mondexweight SPECIES_543, ""
+    mondexheight SPECIES_543, "???'??”"
+    mondexweight SPECIES_543, "????.? lbs."
 
 
 mondata SPECIES_VICTINI, "Victini"

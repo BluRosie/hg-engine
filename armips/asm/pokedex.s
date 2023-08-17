@@ -20,7 +20,7 @@
 
 
 .org 0x021E5AA2 // expand the ram usable by the dex (give about 12 more kb just in case)
-    mov r2, #0x64 // old:  mov r2, #0x61
+    mov r2, #0x67 // old:  mov r2, #0x61
     // later lsld by 0xC to get space to pass to 0x201A910
 
 

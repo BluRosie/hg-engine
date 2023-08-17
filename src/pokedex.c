@@ -34,6 +34,8 @@ void FormatDexNumberAnimationDigits(u16 *array, u16 dexNum, u32 r2) {
     
     if (r2 == 0x3) // caught
     {
-        array[95] = 0x1002; // each row is 32, we want to print the dex icon 3 rows beneath the thousands digit
+        //array[95] = 0x1002; // each row is 32, we want to print the dex icon 3 rows beneath the thousands digit
+        array[94] = 0x1018;
+        array[95] = 0x1019;
     }
 }
