@@ -12,6 +12,7 @@ TOOLCHAIN := $(DEVKITARM)
 .PHONY: clean all
 
 SYSTEM = $(shell grep -i -q 'microsoft' /proc/version; echo $$?)
+UBUNTU = $(shell grep -i -q 'ubuntu' /proc/version; echo $$?)
 
 ifeq ($(SYSTEM), 0)
 EXE := .exe
@@ -19,12 +20,18 @@ SEP := \\
 
 SWAV2SWAR := tools/swav2swar.exe
 BTX := tools/pngtobtx0.exe
+CSC = csc$(EXE)
 else
 EXE := 
 SEP := /
 
 SWAV2SWAR := mono tools/swav2swar.exe
 BTX := mono tools/pngtobtx0.exe
+ifeq ($(UBUNTU), 0)
+CSC = mcs$(EXE) -pkg:dotnet
+else
+CSC = csc$(EXE)
+endif
 endif
 
 default: all
@@ -50,7 +57,6 @@ AS = $(DEVKITARM)/$(PREFIX)as
 CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
-CSC = csc$(EXE)
 
 LDFLAGS = rom.ld -T linker.ld
 LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld

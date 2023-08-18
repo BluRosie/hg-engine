@@ -28,12 +28,13 @@
 
 *A more comprehensive list of features + a roadmap can be found by visiting the [hg-engine wiki](https://github.com/BluRosie/hg-engine/wiki).  Please read this README and the Wiki thoroughly before asking questions.*
 
-## Setup Instructions (Debian Linux)
+## Setup Instructions (Linux)
 1. Download and install Devkitpro using the downloads and instructions [**here**][DEVKITPRO].
 2. In a Terminal window, run the following commands:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git automake```
     * ```pip3 install ndspy```
-3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+3. On distros where `mono` is not preinstalled (Ubuntu-based ones come to mind), install it with `sudo apt-get install mono-devel`
+4. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 ## Setup Instructions (macOS)
 1. Download and install Devkitpro using the Mac download (.pkg) and instructions [**here**][DEVKITPRO].
