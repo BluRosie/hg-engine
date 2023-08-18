@@ -492,3 +492,47 @@ PAN_CENTER equ 0
     resetsprite 2
     resetsprite 3
 .endmacro
+
+.macro shadeattackingmon,red,green,blue
+    callfunction 34, 6, 2, 0, 1, red | green << 5 | blue << 10, 10, 10, "NaN", "NaN", "NaN", "NaN" // shades attacking mon rgb555 color
+.endmacro
+
+.macro shadetargetmon,red,green,blue
+    callfunction 34, 5, 8, 1, 1, red | green << 5 | blue << 10, 12, "NaN", "NaN", "NaN", "NaN", "NaN" // shades target mon rgb555 color
+.endmacro
+
+.macro flashscreencolor,red,green,blue
+    callfunction 33, 5, 0, 1, 12, 0, red | green << 5 | blue << 10, "NaN", "NaN", "NaN", "NaN", "NaN" // flash screen rgb555 color
+.endmacro
+
+.macro shaketargetmon,times,magnitude
+    callfunction 36, 5, times, 0, 1, magnitude, 264, "NaN", "NaN", "NaN", "NaN", "NaN" // shake target mon magnitude pixels times times
+.endmacro
+
+.macro slideattackingmon,x,y
+    callfunction 57, 4, 4, x, y, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // slide attacking mon x, y
+.endmacro
+
+.macro shakescreen
+    callfunction 68, 5, 8, 8, 0, 10, 0, "NaN", "NaN", "NaN", "NaN", "NaN" // shake screen some number of times
+.endmacro
+
+// as used in rolling kick/agility
+.macro rotateattackerincircle
+    initspriteresource
+    loadspriteresource 0
+    loadspriteresource 1
+    loadspritemaybe 0, 0, 0, 0
+    loadspritemaybe 0, 0, 1, 1
+    loadspriteresource 4
+    loadspritemaybe 2, 0, 4, 4
+    cmd52 2, 0, 4
+    wait 1
+    callfunction 8, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitstate
+    resetsprite 0
+    resetsprite 1
+    unloadspriteresource
+    cmd53 0
+    resetsprite 4
+.endmacro
