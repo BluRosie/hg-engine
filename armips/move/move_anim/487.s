@@ -31,7 +31,6 @@ a010_487:
     callfunction 36, 5, 4, 0, 1, 7, 264, "NaN", "NaN", "NaN", "NaN", "NaN" // shake mon
     callfunction 57, 4, 4, -16, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // return mon to original pos
     waitstate
-    end
 
     unloadparticle 0
     waitstate
