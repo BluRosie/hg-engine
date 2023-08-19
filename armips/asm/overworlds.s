@@ -42,13 +42,14 @@
 
 // rewrite this to use a byte per mon instead of a whole hword
 // might rewrite to use a nybble eventually
+// pokemon above brute bonnet can not have gender differences atm
 
 // r0 is species
 does_species_have_dimorphism:
     push {r3, lr}
     cmp r0, #0
     ble @@_invalidMon
-    ldr r1, =(NUM_OF_MONS)
+    ldr r1, =(SPECIES_ARCEUS * 2)
     cmp r0, r1
     ble @@_validMon
 

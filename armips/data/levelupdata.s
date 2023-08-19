@@ -20739,6 +20739,462 @@ levelup SPECIES_ENAMORUS
     terminatelearnset
 
 
+levelup SPECIES_SPRIGATITO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FLORAGATO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_MEOWSCARADA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FUECOCO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CROCALOR
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SKELEDIRGE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_QUAXLY
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_QUAXWELL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_QUAQUAVAL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_LECHONK
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_OINKOLOGNE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TAROUNTULA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SPIDOPS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_NYMBLE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_LOKIX
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_PAWMI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_PAWMO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_PAWMOT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TANDEMAUS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_MAUSHOLD
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FIDOUGH
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_DACHSBUN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SMOLIV
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_DOLLIV
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ARBOLIVA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SQUAWKABILLY
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_NACLI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_NACLSTACK
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GARGANACL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CHARCADET
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ARMAROUGE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CERULEDGE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TADBULB
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_BELLIBOLT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_WATTREL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_KILOWATTREL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_MASCHIFF
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_MABOSSTIFF
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SHROODLE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GRAFAIAI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_BRAMBLIN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_BRAMBLEGHAST
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TOEDSCOOL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TOEDSCRUEL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_KLAWF
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CAPSAKID
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SCOVILLAIN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_RELLOR
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_RABSCA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FLITTLE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ESPATHRA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TINKATINK
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TINKATUFF
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TINKATON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_WIGLETT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_WUGTRIO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_BOMBIRDIER
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FINIZEN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_PALAFIN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_VAROOM
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_REVAVROOM
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CYCLIZAR
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ORTHWORM
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GLIMMET
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GLIMMORA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GREAVARD
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_HOUNDSTONE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FLAMIGO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CETODDLE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CETITAN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_VELUZA
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_DONDOZO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TATSUGIRI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ANNIHILAPE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CLODSIRE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FARIGIRAF
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_DUDUNSPARCE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_KINGAMBIT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GREAT_TUSK
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SCREAM_TAIL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_BRUTE_BONNET
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FLUTTER_MANE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SLITHER_WING
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_SANDY_SHOCKS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_TREADS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_BUNDLE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_HANDS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_JUGULIS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_MOTH
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_THORNS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FRIGIBAX
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ARCTIBAX
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_BAXCALIBUR
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GIMMIGHOUL
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GHOLDENGO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_WO_CHIEN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CHIEN_PAO
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TING_LU
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_CHI_YU
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ROARING_MOON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_VALIANT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_KORAIDON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_MIRAIDON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_WALKING_WAKE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_LEAVES
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_DIPPLIN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_ARCHALUDON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_RAGING_BOLT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_CROWN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_OGERPON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_OKIDOGI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_MUNKIDORI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_FEZANDIPITI
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_TERAPAGOS
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
 levelup SPECIES_MEGA_VENUSAUR
     learnset MOVE_TACKLE, 1 
     learnset MOVE_GROWL, 1 
@@ -26086,3 +26542,84 @@ levelup SPECIES_BASCULEGION_FEMALE
     learnset MOVE_DOUBLE_EDGE, 52
     learnset MOVE_HEAD_SMASH, 56
     terminatelearnset
+
+levelup SPECIES_MAUSHOLD_FAMILY_OF_THREE
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_SQUAWKABILLY_BLUE_PLUMAGE
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_SQUAWKABILLY_WHITE_PLUMAGE
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_PALAFIN_HERO
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_TATSUGIRI_DROOPY
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_TATSUGIRI_STRETCHY
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_DUDUNSPARCE_THREE_SEGMENT
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_GIMMIGHOUL_ROAMING
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_TERAPAGOS_TERASTAL
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_WOOPER_PALDEAN
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_TAUROS_COMBAT
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_TAUROS_BLAZE
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_TAUROS_AQUA
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_OINKOLOGNE_FEMALE
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_REVAVROOM_SEGIN
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_REVAVROOM_SCHEDAR
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_REVAVROOM_NAVI
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_REVAVROOM_RUCHBAH
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
+levelup SPECIES_REVAVROOM_CAPH
+    learnset MOVE_TACKLE, 1
+    terminatelearnset
+
