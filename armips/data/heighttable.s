@@ -969,7 +969,7 @@ heightentry SPECIES_SNEASLER, 0, 0, 0, 0
 heightentry SPECIES_OVERQWIL, 0, 0, 0, 0
 heightentry SPECIES_ENAMORUS, 0, 0, 0, 0
 
-heightentry SPECIES_SPRIGATITO, 0, 0, 0, 0
+heightentry SPECIES_SPRIGATITO, 3, 3, 0, 0
 heightentry SPECIES_FLORAGATO, 0, 0, 0, 0
 heightentry SPECIES_MEOWSCARADA, 0, 0, 0, 0
 heightentry SPECIES_FUECOCO, 0, 0, 0, 0

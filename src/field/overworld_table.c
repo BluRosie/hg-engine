@@ -1526,7 +1526,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1655, .gfx = 1288, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OVERQWIL
     { .tag = 1656, .gfx = 1289, .callback_params = OVERWORLD_SIZE_LARGE}, // SPECIES_ENAMORUS
     { .tag = 1657, .gfx = 1446, .callback_params = OVERWORLD_SIZE_LARGE}, // therian
-    { .tag = 1658, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPRIGATITO
+    { .tag = 1658, .gfx = 1452, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPRIGATITO
     { .tag = 1659, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLORAGATO
     { .tag = 1660, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MEOWSCARADA
     { .tag = 1661, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FUECOCO
