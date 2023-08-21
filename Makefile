@@ -52,7 +52,7 @@ ADPCMXQ = adpcm-xq
 NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
 ENCODEPWIMG = tools/ENCODE_IMG
 ###################### Setting ########################
-PREFIX = bin/arm-none-eabi-
+PREFIX = /opt/devkitpro/devkitARM/bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
 CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
