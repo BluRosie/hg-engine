@@ -1266,6 +1266,7 @@ void *__attribute__((long_call)) Battle_GetClientPartyMon(void *bw, int client_n
 BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 seq, u32 seq2);
 BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruct *sp);
 u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleStruct *sp, u32 side);
+u32 __attribute__((long_call)) ST_CheckIfInTruant(struct BattleStruct *sp, u32 client);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);
