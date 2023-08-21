@@ -3326,8 +3326,10 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_JELLICENT:
         case SPECIES_MEOWSTIC:
         case SPECIES_INDEEDEE:
-        case SPECIES_BASCULEGION:
             form = gf_rand() & 1; // 1/2 male
+            break;
+        case SPECIES_BASCULEGION:
+            form = (gf_rand() & 1) ? 3 : 0; // 1/2 male
             break;
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
