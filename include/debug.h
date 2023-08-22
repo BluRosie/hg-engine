@@ -35,4 +35,7 @@
 // GUARANTEE_CAPTURES guarantees captures
 //#define GUARANTEE_CAPTURES
 
+// DEBUG_SQRT prints debug information for the gpio sqrt function
+//#define DEBUG_SQRT
+
 #endif // DEBUG_H

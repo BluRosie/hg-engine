@@ -86,6 +86,7 @@ void *__attribute__((long_call)) PROC_GetWork(void *proc);
 u32 __attribute__((long_call)) Sav2_Misc_sizeof(void);
 void __attribute__((long_call)) InitStoredMons(struct SAVE_MISC_DATA *saveMiscData);
 void __attribute__((long_call)) Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData);
+u32 __attribute__((long_call)) sqrt(u32 num);
 
 // convenience variable/flag access functions
 u32 __attribute__((long_call)) SetScriptVar(u16 var_id, u16 value);
