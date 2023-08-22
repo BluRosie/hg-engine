@@ -766,6 +766,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     u16 temp;
     u16 item;
     int hold_effect;
+    u16 speed;
     u16 species;
     u32 defender_condition;
     u32 condition2;
@@ -776,6 +777,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     item = GetBattleMonItem(sp, attacker);
     hold_effect = BattleItemDataGet(sp, item, 1);
 
+    // speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL);
     species = sp->battlemon[attacker].species;
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
@@ -791,9 +793,15 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         temp = 4;
     }
 
+    if ((speed * temp) > 510)
+    {
+        speed = (510 / temp);
+    }
+
     if
     (
-        BattleRand(bw) % CriticalRateTable[temp] == 0
+        // BattleRand(bw) % CriticalRateTable[temp] == 0
+        BattleRand(bw) % (512 / (temp * speed)) == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
     )
     {
