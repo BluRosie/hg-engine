@@ -810,7 +810,7 @@ heightentry SPECIES_LYCANROC, 8, 8, 0, 0
 heightentry SPECIES_WISHIWASHI, 0, 0, 0, 0
 heightentry SPECIES_MAREANIE, 8, 8, 0, 0
 heightentry SPECIES_TOXAPEX, 0, 0, 0, 0
-heightentry SPECIES_MUDBRAY, 0, 0, 0, 0
+heightentry SPECIES_MUDBRAY, 3, 3, 0, 0
 heightentry SPECIES_MUDSDALE, 0, 0, 0, 0
 heightentry SPECIES_DEWPIDER, 0, 0, 0, 0
 heightentry SPECIES_ARAQUANID, 0, 0, 0, 0

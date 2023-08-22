@@ -612,7 +612,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
     // actually calculate the experience
     u32 Lp = GetMonData(pp, ID_PARA_level, NULL); // this should contain the level of the person getting experience
-    u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level + 1; // need to calculate exp individually for each mon it seems
+    u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
     totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
     totalexp = (totalexp * level) / 5;
@@ -655,6 +655,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         struct PartyPokemon *pp;
         struct BattleStruct *sp = expcalc->sp;
         void *bw = expcalc->bw;
+        int exp_client_no = 0;
 
         // count how many pokémon are getting experience - only count for the first pokemon, don't update until the next time we gain after
         if (expcalc->work[6] == 0)
