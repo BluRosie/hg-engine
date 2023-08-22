@@ -910,8 +910,10 @@ struct __attribute__((packed)) BattleStruct
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
     /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
-    /*0x3159*/ u8 tailwindCount[2]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
-    /*0x315B*/ u8 padding_315B[0x23]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x3159*/ u8 tailwindCount[2]; // new tailwind counter
+    /*0x315B*/ u8 mons_getting_exp;
+    /*0x315C*/ u8 mons_getting_exp_from_item;
+    /*0x315D*/ u8 padding_315D[0x21]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1266,6 +1268,7 @@ void *__attribute__((long_call)) Battle_GetClientPartyMon(void *bw, int client_n
 BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 seq, u32 seq2);
 BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruct *sp);
 u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleStruct *sp, u32 side);
+u32 __attribute__((long_call)) ST_CheckIfInTruant(struct BattleStruct *sp, u32 client);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);

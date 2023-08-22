@@ -1,5 +1,6 @@
 #include "../include/types.h"
 #include "../include/config.h"
+#include "../include/debug.h"
 #include "../include/pokemon.h"
 #include "../include/save.h"
 
@@ -54,4 +55,31 @@ void __attribute__((long_call)) ClearScriptFlag(u16 flag_id)
 BOOL __attribute__((long_call)) CheckScriptFlag(u16 flag_id)
 {
     return CheckScriptFlagPassSave(SavArray_Flags_get(SaveBlock2_get()), flag_id);
+}
+
+// hardware sqrt implementation using the gpio registers + debug options
+u32 __attribute__((long_call)) sqrt(u32 num)
+{
+    reg_CP_SQRT_PARAM_L = num;
+    reg_CP_SQRTCNT = 0; // start sqrt calculation
+
+#ifdef DEBUG_SQRT
+    u8 buf[64];
+    sprintf(buf, "[SQRT]   PARAM = %08X\n", reg_CP_SQRT_PARAM_L);
+    debugsyscall(buf);
+#endif
+
+    while ((reg_CP_SQRTCNT & (1 << 15)) != 0) {
+#ifdef DEBUG_SQRT
+        sprintf(buf, "[SQRT] SQRTCNT = %08X\n", reg_CP_SQRTCNT);
+        debugsyscall(buf);
+#endif
+    }
+
+#ifdef DEBUG_SQRT
+    sprintf(buf, "[SQRT]  RESULT = %08X\n", reg_CP_SQRT_RESULT);
+    debugsyscall(buf);
+#endif
+
+    return reg_CP_SQRT_RESULT;
 }

@@ -32,4 +32,10 @@
 // DEBUG_SOUND_SBNK_LOADS prints out sseq loads from the SDAT and the free space left after the load.
 //#define DEBUG_SOUND_SBNK_LOADS
 
+// GUARANTEE_CAPTURES guarantees captures
+//#define GUARANTEE_CAPTURES
+
+// DEBUG_SQRT prints debug information for the gpio sqrt function
+//#define DEBUG_SQRT
+
 #endif // DEBUG_H

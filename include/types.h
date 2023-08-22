@@ -2,6 +2,7 @@
 #define TYPES_H
 
 #include <stdint.h>
+#include "io_reg.h"
 
 typedef uint8_t   u8;
 typedef uint16_t u16;
@@ -69,7 +70,6 @@ VecFx32;
 
 void __attribute__((long_call)) GF_ASSERT(u32 cond);
 u16 __attribute__((long_call)) gf_rand(void);
-u32 __attribute__((long_call)) sqrt(u32 arg0);
 
 void __attribute__((long_call)) sys_FreeMemoryEz(void*);
 void* __attribute__((long_call)) sys_AllocMemory(u32,u32);
