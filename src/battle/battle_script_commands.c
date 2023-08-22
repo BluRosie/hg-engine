@@ -1765,13 +1765,18 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 #endif
     }
 
-    if(sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
+    if (sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
     {
         u32 friendship = 200;
         SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
     }
 
+
+#ifdef GUARANTEE_CAPTURES
+    return 4;
+#else
     return i;
+#endif
 }
 
 

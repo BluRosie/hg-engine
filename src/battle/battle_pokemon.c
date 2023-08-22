@@ -452,6 +452,21 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             }
         }
 
+        // handle xerneas - force into active mode
+        if ((sp->battlemon[sp->client_work].species == SPECIES_XERNEAS)
+         && (sp->battlemon[sp->client_work].hp))
+        {
+            form_no = 1;
+            if(sp->battlemon[sp->client_work].form_no != form_no)
+            {
+                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
+                sp->battlemon[sp->client_work].form_no = form_no;
+                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                SetMonData(pp2, ID_PARA_form_no, &form_no);
+                ret = TRUE;
+                break;
+            }
+        }
 
 
         // handle Zygarde TODO test
@@ -464,7 +479,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             sp->battlemon[sp->client_work].form_no += 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
             sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp - sp->battlemon[sp->attack_client].hp;
-            void *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
+            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
             sp->battlemon[sp->client_work].maxhp = GetMonData(pp2, ID_PARA_hpmax, NULL);
             *seq_no = SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE;
             ret = TRUE;
