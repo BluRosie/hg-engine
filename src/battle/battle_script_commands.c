@@ -655,6 +655,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         struct PartyPokemon *pp;
         struct BattleStruct *sp = expcalc->sp;
         void *bw = expcalc->bw;
+        int exp_client_no = 0;
 
         // count how many pokémon are getting experience - only count for the first pokemon, don't update until the next time we gain after
         if (expcalc->work[6] == 0)
