@@ -612,7 +612,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
     // actually calculate the experience
     u32 Lp = GetMonData(pp, ID_PARA_level, NULL); // this should contain the level of the person getting experience
-    u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level + 1; // need to calculate exp individually for each mon it seems
+    u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
     totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
     totalexp = (totalexp * level) / 5;
