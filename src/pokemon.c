@@ -4772,6 +4772,11 @@ u32 storeShayminForm = 0;
 
 u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 {
+    if (species > SPECIES_ARCEUS && species < SPECIES_VICTINI)
+    {
+        species = SPECIES_BULBASAUR;
+    }
+
     if (species > MAX_MON_NUM) // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species
     {
         species = GetOriginalSpeciesBasedOnAdjustedForm(species);
