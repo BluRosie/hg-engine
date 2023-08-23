@@ -777,33 +777,38 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     item = GetBattleMonItem(sp, attacker);
     hold_effect = BattleItemDataGet(sp, item, 1);
 
-    speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL);
+    // speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL); // I think this is the current speed, not base speed?
+    speed =  PokePersonalParaGet(sp->battlemon[attacker].species, PERSONAL_BASE_SPEED); // I think this is base speed
     species = sp->battlemon[attacker].species;
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
     move_effect = sp->battlemon[defender].effect_of_moves;
     ability = sp->battlemon[attacker].ability;
 
-    temp = (((condition2 & STATUS2_FLAG_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_BOOST_CRITICAL_RATE) + critical_count + (ability == ABILITY_SUPER_LUCK)
+    temp = 1
+         + critical_count
+         + (((condition2 & STATUS2_FLAG_FOCUS_ENERGY) != 0) * 2) 
+         + (hold_effect == HOLD_EFFECT_BOOST_CRITICAL_RATE)
+         + (ability == ABILITY_SUPER_LUCK)
          + (2 * ((hold_effect == HOLD_EFFECT_BOOST_CHANSEY_CRITICAL) && (species == SPECIES_CHANSEY)))
          + (2 * ((hold_effect == HOLD_EFFECT_BOOST_FARFETCHD_CRITICAL) && (species == SPECIES_FARFETCHD)));
 
-    if (temp > 4)
-    {
-        temp = 4;
-    }
+    if (temp > 5)
+        {
+        temp = 5;
+        }
 
-    if (speed * temp > 510)
-    {
+    if ((speed * temp) > 510)
+        {
         speed = (510 / temp);
-    }
+        }
 
-    if
-    (
+    if (
         // BattleRand(bw) % CriticalRateTable[temp] == 0
         BattleRand(bw) % (512 / (temp * speed)) == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
-    )
+        )
+        
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
          && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
