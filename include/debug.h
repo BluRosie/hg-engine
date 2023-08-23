@@ -38,4 +38,7 @@
 // DEBUG_SQRT prints debug information for the gpio sqrt function
 //#define DEBUG_SQRT
 
+// DEBUG_PRINT_EXPERIENCE_VALUES prints debug information for experience outputs
+//#define DEBUG_PRINT_EXPERIENCE_VALUES
+
 #endif // DEBUG_H

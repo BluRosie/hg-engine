@@ -63,8 +63,8 @@ u32 __attribute__((long_call)) sqrt(u32 num)
     reg_CP_SQRT_PARAM_L = num;
     reg_CP_SQRTCNT = 0; // start sqrt calculation
 
-#ifdef DEBUG_SQRT
     u8 buf[64];
+#ifdef DEBUG_SQRT
     sprintf(buf, "[SQRT]   PARAM = %08X\n", reg_CP_SQRT_PARAM_L);
     debugsyscall(buf);
 #endif
@@ -76,8 +76,8 @@ u32 __attribute__((long_call)) sqrt(u32 num)
 #endif
     }
 
+    sprintf(buf, "[SQRT]  RESULT = %08X\n", reg_CP_SQRT_RESULT); // need to have something here so that it won't return 0
 #ifdef DEBUG_SQRT
-    sprintf(buf, "[SQRT]  RESULT = %08X\n", reg_CP_SQRT_RESULT);
     debugsyscall(buf);
 #endif
 
