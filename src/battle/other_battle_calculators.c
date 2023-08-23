@@ -1165,6 +1165,11 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         temp = 4;
     }
 
+    if ((speed * temp) > 510)
+    {
+        speed = (510 / temp);
+    }
+
     if
     (
         BattleRand(bw) % CriticalRateTable[temp] == 0
