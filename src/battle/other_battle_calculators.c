@@ -1160,15 +1160,15 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
          + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
          + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
 
-    if (temp > 4)
-    {
-        temp = 4;
-    }
+    if (temp > 5)
+        {
+        temp = 5;
+        }
 
     if ((speed * temp) > 510)
     {
         speed = (510 / temp);
-    }
+        }
 
     if
     (
