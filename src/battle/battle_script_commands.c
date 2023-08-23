@@ -646,6 +646,17 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         }
         expcalc->sp->exp_share_obtained_exp = 0;
     }
+
+#ifdef DEBUG_PRINT_EXPERIENCE_VALUES
+    u8 buf[128];
+    sprintf(buf, "[Task_DistributeExp_Extend] Scaled Rate - experience = %d, Lp = %d", expcalc->sp->obtained_exp, Lp);
+    debugsyscall(buf);
+    sprintf(buf, ", level = %d, totalexp = %d, ", level, totalexp);
+    debugsyscall(buf);
+    sprintf(buf, "top = %d, bottom = %d\n", top, bottom);
+    debugsyscall(buf);
+#endif
+    
 #else // EXPERIENCE_FORMULA_GEN < 5 || EXPERIENCE_FORMULA_GEN == 6 // flat exp rate needs to be calculated
     {
         int i;
@@ -709,6 +720,12 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             sp->exp_share_obtained_exp = 0;
         }
     }
+
+#ifdef DEBUG_PRINT_EXPERIENCE_VALUES
+    u8 buf[128];
+    sprintf(buf, "[Task_DistributeExp_Extend] Flat Rate - experience = %d", expcalc->sp->obtained_exp);
+#endif
+
 #endif
 
     Task_DistributeExp(arg0, work);

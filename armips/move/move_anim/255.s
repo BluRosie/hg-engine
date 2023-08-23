@@ -30,7 +30,7 @@ a010_255:
     resetsprite 2
     resetsprite 3
     playsepan 1927, -117
-    callfunction 53, 5, 70, 120, 10, 5, 15, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 53, 5, 70, 120, 8, 5, 15, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 25
     repeatse 2049, -117, 5, 2
     addparticle 0, 0, 3
