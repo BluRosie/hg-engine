@@ -777,7 +777,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     item = GetBattleMonItem(sp, attacker);
     hold_effect = BattleItemDataGet(sp, item, 1);
 
-    // speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL);
+    speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL);
     species = sp->battlemon[attacker].species;
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
@@ -793,7 +793,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         temp = 4;
     }
 
-    if ((speed * temp) > 510)
+    if (speed * temp > 510)
     {
         speed = (510 / temp);
     }
