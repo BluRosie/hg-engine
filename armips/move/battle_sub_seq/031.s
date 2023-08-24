@@ -8,15 +8,24 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
-.create "build/move/battle_sub_seq/1_031", 0
-
 // Handle paralysis infliction
+
+.create "build/move/battle_sub_seq/1_031", 0
 
 a001_031:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LIMBER, _02AC
-    checkcloudnine _0044
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _0044
+    checkcloudnine _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _02AC
+
+_checkFlowerVeil:
+    moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    goto _0044
+_checkGrassTypeForFlowerVeil:
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+
 _0044:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _006C
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_SHIELD_DUST, _01F0
@@ -82,7 +91,7 @@ _02AC:
     printattackmessage
     waitmessage
     wait 0x1E
-    printmessage 0x284, 0xB, 0x7, 0x7, "NaN", "NaN", "NaN", "NaN"
+    printmessage 644, TAG_NICK_ABILITY, BATTLER_ADDL_EFFECT, BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN"
     goto _0350
     printmessage 0x2D7, 0x35, 0x7, 0x7, 0xFF, 0x15, "NaN", "NaN"
     goto _0350
@@ -101,6 +110,16 @@ _noeffect:
     if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x3, _036C
     wait 0x1E
     printmessage 0x1B, 0x2, 0x7, "NaN", "NaN", "NaN", "NaN", "NaN"
+    goto _0350
+
+
+_printAttackIntoNoEffectFlowerVeil:
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _036C
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x3, _036C
+    printattackmessage
+    waitmessage
+    wait 0x1E
+    printmessage 644, TAG_NICK_ABILITY, BATTLER_ALLY | BATTLER_ADDL_EFFECT, BATTLER_ALLY | BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents paralysis!
     goto _0350
 
 .close

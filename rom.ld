@@ -201,7 +201,7 @@ ChooseRandomTarget = 0x02253DA0 | 1;
 CountBattlerMoves = 0x02252EA8 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
 HeldItemHealCheck = 0x02254E7C | 1;
-LoadBattleSubSeqScript = 0x172DC + 0x022378C1;
+/*LoadBattleSubSeqScript = 0x172DC + 0x022378C1;*/
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
@@ -238,7 +238,7 @@ Battle_GetClientPartyMon = 0x0223a880 | 1;
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
-read_battle_script_param = 0x022454E8 | 1;
+/*read_battle_script_param = 0x022454E8 | 1;*/
 TagNickParaMake = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
@@ -451,3 +451,5 @@ ST_ServerDir2ClientNoGet = 0x02257E98 | 1;
 /* tasks */
 CreateSysTask = 0x0200E320 | 1;
 DestroySysTask = 0x0200E390 | 1;
+
+BattleWorkClientParamGet = 0x0223A7E8 | 1;

@@ -324,3 +324,9 @@ arm9 CapRareCandies 0208FEEA 1
 
 # dex digits
 0018 FormatDexNumberAnimationDigits 021E6A98 3
+
+# allow for grabbing ally and such in battle script parameters
+0012 GrabClientFromBattleScriptParam 0224768C 3
+0012 read_battle_script_param 022454E8 1
+0012 LoadBattleSubSeqScript 0224EB9C 3
+0012 PushAndLoadBattleScript 0224EBDC 3

@@ -317,6 +317,307 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 }
 
 
+int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
+{
+    int data;
+
+    data = sp->SkillSeqWork[sp->skill_seq_no];
+    sp->skill_seq_no++;
+
+    return data;
+}
+
+
+// doesn't just handle subseq, but i will get around to changing this eventually
+void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index)
+{
+    sp->skill_arc_kind = kind;
+    sp->skill_arc_index = index;
+    sp->skill_seq_no = 0;
+    ArchiveDataLoad(&sp->SkillSeqWork, kind, index);
+}
+
+
+void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index)
+{
+    sp->push_skill_arc_kind[sp->push_count] = sp->skill_arc_kind;
+    sp->push_skill_arc_index[sp->push_count] = sp->skill_arc_index;
+    sp->push_skill_seq_no[sp->push_count] = sp->skill_seq_no;
+    sp->push_count++;
+    sp->skill_arc_kind = kind;
+    sp->skill_arc_index = index;
+    sp->skill_seq_no = 0;
+    ArchiveDataLoad(&sp->SkillSeqWork, kind, index);
+}
+
+
+
+enum
+{
+    BTL_PARAM_BATTLER_ALL              = 0x00,
+    BTL_PARAM_BATTLER_ATTACKER         = 0x01,
+    BTL_PARAM_BATTLER_DEFENDER         = 0x02,
+    BTL_PARAM_BATTLER_PLAYER           = 0x03,
+    BTL_PARAM_BATTLER_OPPONENT         = 0x04,
+    BTL_PARAM_BATTLER_FAINTED          = 0x05,
+    BTL_PARAM_BATTLER_REPLACE          = 0x06,
+    BTL_PARAM_BATTLER_ADDL_EFFECT      = 0x07,
+    BTL_PARAM_BATTLER_CHAR_CHECKED     = 0x08,
+    BTL_PARAM_BATTLER_PLAYER_LEFT      = 0x09,
+    BTL_PARAM_BATTLER_ENEMY_LEFT       = 0x0a,
+    BTL_PARAM_BATTLER_PLAYER_RIGHT     = 0x0b,
+    BTL_PARAM_BATTLER_ENEMY_RIGHT      = 0x0c,
+    BTL_PARAM_BATTLER_x0D              = 0x0d,
+    BTL_PARAM_BATTLER_ATTACKER2        = 0x0e,
+    BTL_PARAM_BATTLER_DEFENDER2        = 0x0f,
+    BTL_PARAM_BATTLER_ATTACKER_PARTNER = 0x10,
+    BTL_PARAM_BATTLER_DEFENDER_PARTNER = 0x11,
+    BTL_PARAM_BATTLER_WHIRLWINDED      = 0x12,
+    BTL_PARAM_BATTLER_x13              = 0x13,
+    BTL_PARAM_BATTLER_x14              = 0x14,
+    BTL_PARAM_BATTLER_x15              = 0x15,
+    BTL_PARAM_BATTLER_ALL_REPLACED     = 0x16,
+    BTL_PARAM_BATTLER_xFF              = 0xFF,
+    BTL_PARAM_BATTLER_WORK             = 0xFF,
+
+    BTL_PARAM_BATTLER_ALLY             = 0x8000,
+    BTL_PARAM_BATTLER_ENEMY            = 0x4000,
+    BTL_PARAM_BATTLER_ACROSS           = 0x2000,
+};
+
+int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side)
+{
+    int client_no;
+    u32 ally_bits = side & 0xE000;
+    side = side & 0x1FFF;
+
+    switch (side)
+    {
+    default:
+    case BTL_PARAM_BATTLER_ATTACKER:
+        client_no = sp->attack_client;
+        break;
+    case BTL_PARAM_BATTLER_DEFENDER:
+        client_no = sp->defence_client;
+        break;
+    case BTL_PARAM_BATTLER_FAINTED:
+        client_no = sp->fainting_client;
+        break;
+    case BTL_PARAM_BATTLER_REPLACE:
+    case BTL_PARAM_BATTLER_ALL_REPLACED:
+        client_no = sp->reshuffle_client;
+        break;
+    case BTL_PARAM_BATTLER_ADDL_EFFECT:
+        client_no = sp->state_client;
+        break;
+    case BTL_PARAM_BATTLER_CHAR_CHECKED:
+        client_no = sp->ability_client;
+        break;
+    case BTL_PARAM_BATTLER_OPPONENT:
+        {
+            struct CLIENT_PARAM *cp;
+            int client_set_max;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max ; client_no++)
+            {
+                cp = BattleWorkClientParamGet(bw, client_no);
+                if (cp->client_type & 1)
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_ENEMY_LEFT:
+        {
+            struct CLIENT_PARAM *cp;
+            int client_set_max;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                cp = BattleWorkClientParamGet(bw, client_no);
+                if ((cp->client_type == 3) || (cp->client_type == 1))
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_ENEMY_RIGHT:
+        {
+            struct CLIENT_PARAM *cp;
+            int client_set_max;
+            int type;
+
+            if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI)
+                type = 5;
+            else
+                type = 1;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                cp = BattleWorkClientParamGet(bw, client_no);
+                if (cp->client_type == type)
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_PLAYER:
+        {
+            struct CLIENT_PARAM *cp;
+            int client_set_max;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                cp = BattleWorkClientParamGet(bw, client_no);
+                if ((cp->client_type & 1) == 0)
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_PLAYER_LEFT:
+        {
+            struct CLIENT_PARAM *cp;
+            int client_set_max;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                cp = BattleWorkClientParamGet(bw, client_no);
+                if ((cp->client_type == 2) || (cp->client_type == 0))
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_PLAYER_RIGHT:
+        {
+            struct CLIENT_PARAM *cp;
+            int client_set_max;
+            int type;
+
+            if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI)
+            {
+                type = 4;
+            }
+            else
+            {
+                type = 0;
+            }
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                cp = BattleWorkClientParamGet(bw, client_no);
+                if (cp->client_type == type)
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_ATTACKER2:
+        client_no = sp->attack_client_work;
+        break;
+    case BTL_PARAM_BATTLER_DEFENDER2:
+        client_no = sp->defence_client_work;
+        break;
+    case BTL_PARAM_BATTLER_ATTACKER_PARTNER:
+        {
+            int client_set_max;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                if ((client_no != sp->attack_client)
+                 && (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client)))
+                {
+                    break;
+                }
+            }
+            if (client_no == client_set_max)
+            {
+                client_no = 0;
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_DEFENDER_PARTNER:
+        {
+            int client_set_max;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                if ((client_no != sp->defence_client)
+                 && (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->defence_client)))
+                {
+                    break;
+                }
+            }
+            if (client_no == client_set_max)
+            {
+                client_no = 0;
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_x13:
+        {
+            int client_set_max;
+            int dir;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            dir = IsClientEnemy(bw, sp->attack_client);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                if (dir != IsClientEnemy(bw, client_no))
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_x14:
+        {
+            int client_set_max;
+            int dir;
+
+            client_set_max = BattleWorkClientSetMaxGet(bw);
+            dir = IsClientEnemy(bw, sp->defence_client);
+            for (client_no = 0; client_no < client_set_max; client_no++)
+            {
+                if (dir != IsClientEnemy(bw, client_no))
+                {
+                    break;
+                }
+            }
+        }
+        break;
+    case BTL_PARAM_BATTLER_WORK:
+    case BTL_PARAM_BATTLER_x15:
+        client_no = sp->client_work;
+        break;
+    }
+
+    if (ally_bits & BTL_PARAM_BATTLER_ALLY)
+        return BATTLER_ALLY(client_no);
+    else if (ally_bits & BTL_PARAM_BATTLER_ACROSS)
+        return BATTLER_ACROSS(client_no);
+    else if (ally_bits & BTL_PARAM_BATTLER_ENEMY)
+        return BATTLER_OPPONENT(client_no);
+    else
+        return client_no;
+}
+
+
 
 BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
 {
@@ -369,8 +670,8 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
         move = sp->current_move_index;
     }
 
-    cli_a = SideClientNoGet(bw, sp, attack);
-    cli_d = SideClientNoGet(bw, sp, defence);
+    cli_a = GrabClientFromBattleScriptParam(bw, sp, attack);
+    cli_d = GrabClientFromBattleScriptParam(bw, sp, defence);
 
     if ((((sp->server_status_flag & SERVER_STATUS_FLAG_NO_ANIMATIONS)==0)
       && (BattleWorkConfigWazaEffectOnOffCheck(bw) == TRUE))
@@ -983,12 +1284,37 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     sp->mp.msg_para[0] = TagNickParaMake(sp,sp->state_client);
                     flag = 1;
                 }
+                else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
+                       || MoldBreakerAbilityCheck(sp, sp->attack_client, BATTLER_ALLY(sp->state_client), ABILITY_FLOWER_VEIL) == TRUE) // any enemy has flower veil (accounting for mold breaker, otherwise would just CheckSideAbility)
+                      && (sp->battlemon[sp->state_client].type1 == TYPE_GRASS || sp->battlemon[sp->state_client].type2 == TYPE_GRASS)) // and target has grass type
+                {
+                    // specifically for flower veil, we know that one of the Pokémon have flower veil.  we need to change the client that it prints the ability of to the flower veil client
+                    u32 flower_veil_client;
+                    
+                    flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
+                    
+                    if (sp->addeffect_type == ADD_EFFECT_ABILITY)
+                    {
+                        sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
+                        sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_ABILITY;
+                        sp->mp.msg_para[0] = TagNickParaMake(sp, flower_veil_client);
+                        sp->mp.msg_para[1] = sp->battlemon[flower_veil_client].ability;
+                        sp->mp.msg_para[2] = TagNickParaMake(sp, sp->attack_client);
+                        sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
+                    }
+                    else
+                    {
+                        sp->mp.msg_id = BATTLE_MSG_PREVENTS_STAT_LOSS;
+                        sp->mp.msg_tag = TAG_NICK_ABILITY;
+                        sp->mp.msg_para[0] = TagNickParaMake(sp, flower_veil_client);
+                        sp->mp.msg_para[1] = sp->battlemon[flower_veil_client].ability;
+                    }
+                    flag = 1;
+                }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
                       || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
-                      || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)   // Full Metal Body cannot be ignored
-                      || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE) &&
-                            (sp->battlemon[sp->attack_client].type1 == TYPE_GRASS || sp->battlemon[sp->attack_client].type2 == TYPE_GRASS)))
-                    {
+                      || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY))   // Full Metal Body cannot be ignored
+                {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
@@ -1365,7 +1691,7 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
     side = read_battle_script_param(sp);
 
-    client_no = SideClientNoGet(bw, sp, side);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, side);
     holdeffect = HeldItemHoldEffectGet(sp,client_no);
     atk = HeldItemAtkGet(sp, client_no, ATK_CHECK_NORMAL);
 
@@ -1406,7 +1732,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
     side = read_battle_script_param(sp);
     address = read_battle_script_param(sp);
 
-    client_no = SideClientNoGet(bw, sp, side);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, side);
     if ((sp->battlemon[client_no].hp) && (sp->sel_mons_no[client_no] != 6))
     {
         pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
@@ -1509,7 +1835,7 @@ BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
     u32 client_no = read_battle_script_param(sp);
 
-    client_no = SideClientNoGet(bw, sp, client_no);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, client_no);
 
     sp->tailwindCount[IsClientEnemy(bw, client_no)] = 4;
 
@@ -1522,7 +1848,7 @@ BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp)
     u32 client_no = read_battle_script_param(sp);
     u32 address = read_battle_script_param(sp);
 
-    client_no = SideClientNoGet(bw, sp, client_no);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, client_no);
 
     if (sp->tailwindCount[IsClientEnemy(bw, client_no)])
         IncrementBattleScriptPtr(sp, address);
@@ -1708,11 +2034,11 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     //case ITEM_PARK_BALL:
     //
     //    break;
-	case ITEM_DREAM_BALL:
+    case ITEM_DREAM_BALL:
         if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP))
         captureRate *= 4;
         break;
-	//case ITEM_BEAST_BALL:
+    //case ITEM_BEAST_BALL:
     //
     //    break;
     }

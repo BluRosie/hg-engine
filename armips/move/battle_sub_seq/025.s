@@ -3,9 +3,12 @@
 
 .include "armips/include/battlescriptcmd.s"
 .include "armips/include/abilities.s"
+.include "armips/include/constants.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+
+// general burn subscript
 
 .create "build/move/battle_sub_seq/1_025", 0
 
@@ -24,9 +27,18 @@ _0058:
     goto _0238
 _00D4:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_WATER_VEIL, _0424
-    checkcloudnine _0118
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _0118
+    checkcloudnine _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _0424
+
+_checkFlowerVeil:
+    moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    goto _0118
+_checkGrassTypeForFlowerVeil:
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+
 _0118:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _0140
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_SHIELD_DUST, _0354
@@ -115,5 +127,16 @@ _04C8:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
 _04E4:
     endscript
+
+
+_printAttackIntoNoEffectFlowerVeil:
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _04E4
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x3, _04E4
+    printattackmessage
+    waitmessage
+    wait 0x1E
+    printmessage 686, TAG_NICK_ABILITY, BATTLER_ALLY | BATTLER_ADDL_EFFECT, BATTLER_ALLY | BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents burns!
+    goto _04C8
+
 
 .close

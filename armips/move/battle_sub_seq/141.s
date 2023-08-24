@@ -3,18 +3,30 @@
 
 .include "armips/include/battlescriptcmd.s"
 .include "armips/include/abilities.s"
+.include "armips/include/constants.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+
+// yawn battle script
 
 .create "build/move/battle_sub_seq/1_141", 0
 
 a001_141:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_INSOMNIA, _010C
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_VITAL_SPIRIT, _010C
-    checkcloudnine _0058
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _0058
+    checkcloudnine _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _010C
+
+_checkFlowerVeil:
+    moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    goto _0058
+_checkGrassTypeForFlowerVeil:
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+
 _0058:
     printattackmessage
     waitmessage
@@ -36,7 +48,7 @@ _010C:
     printattackmessage
     waitmessage
     wait 0x1E
-    printmessage 0x2DE, 0xB, 0x7, 0x7, "NaN", "NaN", "NaN", "NaN"
+    printmessage 734, TAG_NICK_ABILITY, BATTLER_ADDL_EFFECT, BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it ineffective!
     goto _0168
 _0138:
     wait 0x1E
@@ -51,5 +63,13 @@ _0168:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
 _0184:
     endscript
+
+
+_printAttackIntoNoEffectFlowerVeil:
+    printattackmessage
+    waitmessage
+    wait 0x1E
+    printmessage 734, TAG_NICK_ABILITY, BATTLER_ALLY | BATTLER_ADDL_EFFECT, BATTLER_ALLY | BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it ineffective!
+    goto _0168
 
 .close
