@@ -256,7 +256,18 @@ def install():
                     except ValueError:
                         newNumber = int(newNumber, 16)
 
-                    newNumber = str(hex(newNumber)).split('0x')[1]
+                    if (newNumber >= 16777216): # 32 bits
+                        #newNumber = str(hex(newNumber)).split('0x')[1]
+                        newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 16 & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 24 & 0xFF)).split('0x')[1])
+                    elif (newNumber >= 65536): # 24 bits
+                        #newNumber = str(hex(newNumber)).split('0x')[1]
+                        newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 16 & 0xFF)).split('0x')[1])
+                    elif (newNumber >= 256): # 16 bits
+                        #newNumber = str(hex(newNumber)).split('0x')[1]
+                        newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1])
+                    else:
+                        newNumber = str(hex(newNumber)).split('0x')[1]
+                    print(newNumber)
                     ReplaceBytes(rom2, offset, newNumber)
                 rom2.close()
 
