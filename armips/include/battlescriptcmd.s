@@ -168,8 +168,12 @@ MON_DATA_FORM equ 98
 MON_DATA_VARIABLE equ 100
 
 
-// battler values
+// battler bitfields--grab battler in relation to specific battler
+BATTLER_ALLY             equ 0x8000
+BATTLER_ENEMY            equ 0x4000
+BATTLER_ACROSS           equ 0x2000
 
+// battler values
 BATTLER_ALL              equ 0x00
 BATTLER_ATTACKER         equ 0x01
 BATTLER_DEFENDER         equ 0x02

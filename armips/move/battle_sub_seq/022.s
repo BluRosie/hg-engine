@@ -21,9 +21,18 @@ a001_022:
     goto _00CC
 _0060:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_IMMUNITY, _printAttackIntoNoEffect
-    checkcloudnine _00A4
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _00A4
+    checkcloudnine _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _printAttackIntoNoEffect
+
+_checkFlowerVeil:
+    moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
+    goto _00A4
+_checkGrassTypeForFlowerVeil:
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+    ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+
 _00A4:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _00CC
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_SHIELD_DUST, _0368
@@ -137,5 +146,18 @@ _cleanUpAndEnd:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
 _end_script:
     endscript
+
+
+_printAttackIntoNoEffectFlowerVeil:
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _end_script
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x3, _end_script
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x4, _skipAttackMessageFlowerVeil
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, 0x6, _skipAttackMessageFlowerVeil
+    printattackmessage
+    waitmessage
+    wait 0x1E
+_skipAttackMessageFlowerVeil:
+    printmessage 1388, TAG_NICK_ABILITY, BATTLER_ALLY | BATTLER_ADDL_EFFECT, BATTLER_ALLY | BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents poisoning!
+    goto _cleanUpAndEnd
 
 .close

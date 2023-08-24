@@ -651,7 +651,7 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     int client;
     u32 side;
 
-    client = SideClientNoGet(bw, sp, para);
+    client = GrabClientFromBattleScriptParam(bw, sp, para);
     side = (client & 1) != 0;
 
     ret = client;
