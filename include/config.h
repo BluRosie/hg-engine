@@ -75,4 +75,8 @@
 // comment the line out below to retain overworld poison
 #define UPDATE_OVERWORLD_POISON
 
+// DISABLE_END_OF_TURN_WEATHER_MESSAGE removes the weather messages at the end of the turn.  instead the bottom screen icon can be used
+// uncomment the line out to get this functionality
+//#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
+
 #endif

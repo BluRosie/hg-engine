@@ -253,6 +253,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
         case FCC_RAIN:
             if (sp->field_condition & WEATHER_RAIN_ANY)
             {
+#ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
                 if (sp->field_condition & WEATHER_RAIN_PERMANENT)
                 {
                     sp->mp.msg_id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL; // Rain continues to fall.
@@ -262,6 +263,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->server_seq_no = 22;
                 }
                 else
+#endif // DISABLE_END_OF_TURN_WEATHER_MESSAGE
                 {
                     if (--sp->fcc.weather_count == 0)
                     {
@@ -269,6 +271,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
+#ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL;
@@ -277,6 +280,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
+#endif
                 }
                 sp->temp_work = 19;
                 ret = 1;
@@ -319,6 +323,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
         case FCC_SUNNY:
             if (sp->field_condition & WEATHER_SUNNY_ANY)
             {
+#ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
                 if (sp->field_condition & WEATHER_SUNNY_PERMANENT)
                 {
                     sp->mp.msg_id = BATTLE_MSG_SUNLIGHT_IS_STRONG;
@@ -328,6 +333,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->server_seq_no = 22;
                 }
                 else
+#endif // DISABLE_END_OF_TURN_WEATHER_MESSAGE
                 {
                     if (--sp->fcc.weather_count == 0)
                     {
@@ -335,6 +341,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
+#ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_SUNLIGHT_IS_STRONG;
@@ -343,6 +350,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
+#endif // DISABLE_END_OF_TURN_WEATHER_MESSAGE
                 }
                 sp->temp_work = 22;
                 ret = 1;
@@ -383,6 +391,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             sp->fcc_seq_no++;
             break;
         case FCC_FOG:
+#ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
             if (sp->field_condition & FIELD_STATUS_FOG)
             {
                 sp->mp.msg_id = BATTLE_MSG_FOG_IS_DEEP; // The fog is deep...
@@ -393,6 +402,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->temp_work = 18; // signifies fog i guess
                 ret = 1;
             }
+#endif // DISABLE_END_OF_TURN_WEATHER_MESSAGE
             sp->fcc_seq_no++;
             break;
         case FCC_GRAVITY:

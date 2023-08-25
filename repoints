@@ -34,3 +34,7 @@ arm9 sPocketCounts 08077C14
 0012 TypeEffectivenessTable+1 02252644
 0012 TypeEffectivenessTable+2 02252648
 0012 TypeEffectivenessTable 02252694
+
+# metronome and mimic banlist
+0012 sMetronomeMimicMoveBanList 02257D9C
+0012 sMetronomeMimicMoveBanList 02257DF4

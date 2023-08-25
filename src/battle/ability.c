@@ -1483,7 +1483,9 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                     && (sp->moveTbl[sp->current_move_index].power)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
-                    && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)) {
+                    && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)
+                    && (sp->multi_hit_count <= 1)) // don't activate until the last hit of a multi-hit move
+                {
                     seq_no[0] = SUB_SEQ_HANDLE_COLOR_CHANGE;
                     sp->msg_work = movetype;
                     ret = TRUE;
@@ -1649,29 +1651,24 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // Berserk doesn't activate if the Pokémon gets attacked by a Sheer Force boosted move
-                && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1)) 
+                && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
+                // berserk doesn't activate until the last hit of a multi-hit move
+                && (sp->multi_hit_count <= 1)
+                && (sp->battlemon[sp->defence_client].hp <= (sp->battlemon[sp->defence_client].maxhp / 2))
+                && (
+                    // Checks if the Pokémon has gone below half HP from the current damage instance
+                    // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
+                    ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > sp->battlemon[sp->defence_client].maxhp / 2) ||
+                    ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > sp->battlemon[sp->defence_client].maxhp / 2)
+                   )
             )
             {
-                if
-                (
-                    (sp->battlemon[sp->defence_client].hp <= (sp->battlemon[sp->defence_client].maxhp / 2))
-                    &&
-                    (
-                        // Checks if the Pokémon has gone below half HP from the current damage instance
-                        // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
-                        // This doesn't quite work correctly with multi-hit moves (it's supposed to activate after the final hit, not in the middle)
-                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > sp->battlemon[sp->defence_client].maxhp / 2) ||
-                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > sp->battlemon[sp->defence_client].maxhp / 2)
-                    )
-                )
-                {
-                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->defence_client;
-                    sp->client_work = sp->defence_client;
-                    seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
-                    ret = TRUE;
-                }
+                sp->addeffect_param = ADD_STATE_SP_ATK_UP;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->defence_client;
+                sp->client_work = sp->defence_client;
+                seq_no[0] = SUB_SEQ_STAT_STAGE_CHANGE;
+                ret = TRUE;
             }
         break;
         case ABILITY_STAMINA:
