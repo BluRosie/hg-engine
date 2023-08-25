@@ -267,8 +267,8 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    mon = GetMonData(pp, ID_PARA_monsno, 0);
-    form_no = GetMonData(pp, ID_PARA_form_no, 0);
+    mon = GetMonData(pp, MON_DATA_SPECIES, 0);
+    form_no = GetMonData(pp, MON_DATA_FORM, 0);
     if (!form_no)
         return FALSE;
 
@@ -283,8 +283,8 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    mon = GetMonData(pp, ID_PARA_monsno, 0);
-    form_no = GetMonData(pp, ID_PARA_form_no, 0);
+    mon = GetMonData(pp, MON_DATA_SPECIES, 0);
+    form_no = GetMonData(pp, MON_DATA_FORM, 0);
     if (!form_no)
         return FALSE;
 
@@ -302,8 +302,8 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    mon = GetMonData(pp, ID_PARA_monsno, 0);
-    form_no = GetMonData(pp, ID_PARA_form_no, 0);
+    mon = GetMonData(pp, MON_DATA_SPECIES, 0);
+    form_no = GetMonData(pp, MON_DATA_FORM, 0);
     if (!form_no)
         return FALSE;
 
@@ -335,8 +335,8 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 mon;
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    item = GetMonData(pp, ID_PARA_item, 0);
-    mon = GetMonData(pp, ID_PARA_monsno, 0);
+    item = GetMonData(pp, MON_DATA_HELD_ITEM, 0);
+    mon = GetMonData(pp, MON_DATA_SPECIES, 0);
 
     return CheckMegaData(mon, item);
 }
