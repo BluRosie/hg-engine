@@ -987,14 +987,14 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 //        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++)
 //        {
 //            pp = BattleWorkPokemonParamGet(bw, 0, i);
-//            if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
+//            if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
 //            {
 //                if (sp->obtained_exp_right_flag[(sp->fainting_client >> 1) & 1] & No2Bit(i))
 //                {
 //                    sp->mons_getting_exp++;
 //                }
 //
-//                item = GetMonData(pp, ID_PARA_item, NULL);
+//                item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
 //                eqp = BattleItemDataGet(sp, item, 1);
 //
 //                if (eqp == HOLD_EFFECT_EXP_SHARE)
@@ -1075,14 +1075,14 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->PokeCount; i++)
         {
             pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
-            if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
+            if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
             {
                 if (expcalc->sp->obtained_exp_right_flag[(expcalc->sp->fainting_client >> 1) & 1] & No2Bit(i))
                 {
                     expcalc->sp->mons_getting_exp++;
                 }
 
-                item = GetMonData(pp, ID_PARA_item, NULL);
+                item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
                 eqp = BattleItemDataGet(expcalc->sp, item, 1);
 
                 if (eqp == HOLD_EFFECT_EXP_SHARE)
@@ -1097,7 +1097,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
     {
         pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
-        item = GetMonData(pp, ID_PARA_item, NULL);
+        item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
         eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
         if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
         {
@@ -1106,7 +1106,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     }
 
     // actually calculate the experience
-    u32 Lp = GetMonData(pp, ID_PARA_level, NULL); // this should contain the level of the person getting experience
+    u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
     u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
     totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
@@ -1171,14 +1171,14 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->PokeCount; i++)
             {
                 pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
-                if ((GetMonData(pp, ID_PARA_monsno, NULL)) && (GetMonData(pp, ID_PARA_hp, NULL)))
+                if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
                 {
                     if (expcalc->sp->obtained_exp_right_flag[(expcalc->sp->fainting_client >> 1) & 1] & No2Bit(i))
                     {
                         expcalc->sp->mons_getting_exp++;
                     }
 
-                    item = GetMonData(pp, ID_PARA_item, NULL);
+                    item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
                     eqp = BattleItemDataGet(expcalc->sp, item, 1);
 
                     if (eqp == HOLD_EFFECT_EXP_SHARE)
@@ -1760,10 +1760,10 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
         mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
 
         while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, ID_PARA_hp, 0) == 0 || 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) == 0|| 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) == 494 || 
-                GetMonData(mon, ID_PARA_condition, 0) != 0))
+                (GetMonData(mon, MON_DATA_HP, 0) == 0 || 
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0|| 
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 || 
+                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
                 {
 
             sp->beat_up_count++;
@@ -1773,8 +1773,8 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     }   
 
     mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-    species = GetMonData(mon, ID_PARA_monsno, 0);
-    form = GetMonData(mon, ID_PARA_form_no, 0);
+    species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    form = GetMonData(mon, MON_DATA_FORM, 0);
 
     newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
     newBaseDamage /= 10;
@@ -1790,10 +1790,10 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
         mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
         while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, ID_PARA_hp, 0) == 0 || 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) == 0 || 
-                GetMonData(mon, ID_PARA_monsno_egg, 0) == 494 || 
-                GetMonData(mon, ID_PARA_condition, 0) != 0))
+                (GetMonData(mon, MON_DATA_HP, 0) == 0 || 
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 || 
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 || 
+                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
                 {
 
             sp->beat_up_count++;
@@ -1930,8 +1930,8 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
     if ((sp->battlemon[client_no].hp) && (sp->sel_mons_no[client_no] != 6))
     {
         pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
-        ability = GetMonData(pp, ID_PARA_speabino, NULL);
-        condition = GetMonData(pp, ID_PARA_condition, NULL);
+        ability = GetMonData(pp, MON_DATA_ABILITY, NULL);
+        condition = GetMonData(pp, MON_DATA_STATUS, NULL);
 
         // handle meloetta pirouette form changing back to normal when switched out
         if ((sp->battlemon[client_no].species == SPECIES_MELOETTA)
@@ -1940,7 +1940,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
             u32 form_no = 0;
             sp->battlemon[client_no].form_no = form_no;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            SetMonData(pp, ID_PARA_form_no, (u8 *)&form_no);
+            SetMonData(pp, MON_DATA_FORM, (u8 *)&form_no);
         }
 
         // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
@@ -1953,7 +1953,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
         // handle regenerator--mon restores 1/3 hp on switch
         if (ability == ABILITY_REGENERATOR) // switching mon ability is regenerator--not affected by gastro acid or etc
         {
-            int hp = GetMonData(pp, ID_PARA_hp, NULL), hpmax = GetMonData(pp, ID_PARA_hpmax, NULL);
+            int hp = GetMonData(pp, MON_DATA_HP, NULL), hpmax = GetMonData(pp, MON_DATA_MAXHP, NULL);
 
             int hpdelta = hpmax / 3;
 
@@ -1962,7 +1962,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
             else
                 hp += hpdelta;
 
-            SetMonData(pp, ID_PARA_hp, (u8 *)&hp);
+            SetMonData(pp, MON_DATA_HP, (u8 *)&hp);
         }
     }
     else
@@ -2296,7 +2296,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         if(sp->item_work == ITEM_FRIEND_BALL && i == caughtMons) // if amount of succeeded captures is the same as necessary for the type of capture
         {
             u32 friendship = 200;
-            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
+            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
         }
 
         if (criticalCapture) // succeeded the one chance it had
@@ -2316,7 +2316,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     if (sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
     {
         u32 friendship = 200;
-        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), ID_PARA_friend, &friendship);
+        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
     }
 
 

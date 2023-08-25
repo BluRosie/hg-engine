@@ -84,7 +84,7 @@ modify_species_encounter_data_rare:
 push {r0-r3}
 
 ldr r0, [sp, #(0x1c+0x10)] // pp
-mov r1, #112 // ID_PARA_form_no
+mov r1, #112 // MON_DATA_FORM
 ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
@@ -245,7 +245,7 @@ bx r4
 modify_species_encounter_data:
 bl call_setmondata // set the id number
 mov r0, r4 // pp
-mov r1, #112 // ID_PARA_form_no
+mov r1, #112 // MON_DATA_FORM
 ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 

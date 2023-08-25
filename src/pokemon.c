@@ -2979,12 +2979,12 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
 
 #ifdef DEBUG_HIDDEN_ABILITIES
     has_hidden_ability = *(u8 *)(0x023E0000);
-    BoxMonDataSet(boxmon, ID_PARA_dummy_p2_1, (u8 *)&has_hidden_ability);
+    BoxMonDataSet(boxmon, MON_DATA_RESERVED_113, (u8 *)&has_hidden_ability);
 #endif // DEBUG_HIDDEN_ABILITIES
 
-    mons_no = GetBoxMonData(boxmon, ID_PARA_monsno, NULL);
-    pid = GetBoxMonData(boxmon, ID_PARA_personal_rnd, NULL);
-    form = GetBoxMonData(boxmon, ID_PARA_form_no, NULL);
+    mons_no = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    form = GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)
     {
@@ -2995,7 +2995,7 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
     }
     else
     {
-        has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_1 & hidden ability mask
+        has_hidden_ability = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_1 & hidden ability mask
     }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
@@ -3006,22 +3006,22 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
 
     if (has_hidden_ability && hiddenability != 0)
     {
-        BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&hiddenability);
+        BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&hiddenability);
     }
     else if (ability2 != 0)
     {
         if (pid & 1)
         {
-            BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&ability2);
+            BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&ability2);
         }
         else
         {
-            BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&ability1);
+            BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
         }
     }
     else
     {
-        BoxMonDataSet(boxmon, ID_PARA_speabino, (u8 *)&ability1);
+        BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
     }
 
     BoxMonSetFastModeOff(boxmon, fastMode);
@@ -3071,9 +3071,9 @@ u32 __attribute__((long_call)) GetGenesectForme(u16 item)
 // add genesect handling to this function that changes form in the party silently.  i think it's only supposed to handle arceus, but it works for the party
 void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
 {
-    u32 species = GetMonData(bp, ID_PARA_monsno, NULL);
-    u32 ability = GetMonData(bp, ID_PARA_speabino, NULL);
-    u32 item = GetMonData(bp, ID_PARA_item, NULL);
+    u32 species = GetMonData(bp, MON_DATA_SPECIES, NULL);
+    u32 ability = GetMonData(bp, MON_DATA_ABILITY, NULL);
+    u32 item = GetMonData(bp, MON_DATA_HELD_ITEM, NULL);
     u32 form = 0;
     
     if (species == SPECIES_ARCEUS
@@ -3081,37 +3081,37 @@ void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *b
     {
         u32 held_effect = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 0); // heap id 0 gang
         form = GetArceusType(held_effect);
-        SetMonData(bp, ID_PARA_form_no, &form);
+        SetMonData(bp, MON_DATA_FORM, &form);
     }
 
     if (species == SPECIES_GENESECT)
     {
         form = GetGenesectForme(item);
-        SetMonData(bp, ID_PARA_form_no, &form);
+        SetMonData(bp, MON_DATA_FORM, &form);
     }
 }
 
 // overlay 14 is responsible for pc
 u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
 {
-    u32 species = GetBoxMonData(bp, ID_PARA_monsno, NULL);
+    u32 species = GetBoxMonData(bp, MON_DATA_SPECIES, NULL);
     
     if (species == SPECIES_ARCEUS || species == SPECIES_GENESECT)
     {
-        u32 form_no = GetBoxMonData(bp, ID_PARA_form_no, NULL);
+        u32 form_no = GetBoxMonData(bp, MON_DATA_FORM, NULL);
         
         ArceusBoxPokemonFormeChange(bp);
         
-        if (GetBoxMonData(bp, ID_PARA_form_no, NULL) != form_no)
+        if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
             return 1;
     }
     else if (species == SPECIES_GIRATINA)
     {
-        u32 form_no = GetBoxMonData(bp, ID_PARA_form_no, NULL);
+        u32 form_no = GetBoxMonData(bp, MON_DATA_FORM, NULL);
         
         GiratinaBoxPokemonFormChange(bp);
         
-        if (GetBoxMonData(bp, ID_PARA_form_no, NULL) != form_no)
+        if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
             return 1;
     }
     
@@ -3120,7 +3120,7 @@ u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* b
 
 u32 __attribute__((long_call)) CanUseRevealGlass(struct PartyPokemon *pp)
 {
-    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     
     if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS)
     {
@@ -3135,8 +3135,8 @@ u32 __attribute__((long_call)) CanUseRevealGlass(struct PartyPokemon *pp)
 
 u32 __attribute__((long_call)) CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party)
 {
-    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
-    u32 form_no = GetMonData(pp, ID_PARA_form_no, NULL);
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 form_no = GetMonData(pp, MON_DATA_FORM, NULL);
     
     if (species != SPECIES_KYUREM) // return invalid party slot if species isn't kyurem
     {
@@ -3146,7 +3146,7 @@ u32 __attribute__((long_call)) CanUseDNASplicersGrabSplicerPos(struct PartyPokem
     for (u32 i = 0; i < ((form_no != 0) ? 6 : party->count); i++) // check all 6 party slots if looking to revert
     {
         struct PartyPokemon *currentmon = PokeParty_GetMemberPointer(party, i);
-        u32 species2 = GetMonData(currentmon, ID_PARA_monsno, NULL);
+        u32 species2 = GetMonData(currentmon, MON_DATA_SPECIES, NULL);
         
         if (species2 == 0 && form_no != 0) // looking for empty slot to dump reshiram to from save
         {
@@ -3177,7 +3177,7 @@ u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, vo
     if (wk->dat->item == ITEM_REVEAL_GLASS
      && CanUseRevealGlass(pp) == 1)
     {
-        if (GetMonData(pp, ID_PARA_form_no, NULL) == 1)
+        if (GetMonData(pp, MON_DATA_FORM, NULL) == 1)
             wk->dat->after_mons = 0; // change to incarnate forme
         else
             wk->dat->after_mons = 1; // change to therian forme
@@ -3198,9 +3198,9 @@ u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, vo
         void *saveData = SaveBlock2_get();
         struct SAVE_MISC_DATA *saveMiscData = Sav2_Misc_get(saveData);
         
-        if (GetMonData(pp, ID_PARA_form_no, NULL) != 0 && saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS]) // revert forme and put reshiram back in party
+        if (GetMonData(pp, MON_DATA_FORM, NULL) != 0 && saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS]) // revert forme and put reshiram back in party
         {
-            u32 currForm = GetMonData(pp, ID_PARA_form_no, NULL);
+            u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
 
             // grab reshiram from save
             // add reshiram to party--can't just use PokeParty_Add because icons freak out when you tell them to animate something that isn't there
@@ -3268,9 +3268,9 @@ u32 __attribute__((long_call)) PokeListProc_End_Extend(void *proc, int *seq) // 
 
 void __attribute__((long_call)) ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
 {
-    if (form != GetMonData(pp, ID_PARA_form_no, NULL))
+    if (form != GetMonData(pp, MON_DATA_FORM, NULL))
     {
-        SetMonData(pp, ID_PARA_form_no, &form);
+        SetMonData(pp, MON_DATA_FORM, &form);
         RecalcPartyPokemonStats(pp);
         ResetPartyPokemonAbility(pp);
     }
@@ -3280,13 +3280,13 @@ void __attribute__((long_call)) SwapPartyPokemonMove(struct PartyPokemon *pp, u3
 {
     for (u32 i = 0; i < 4; i++)
     {
-        if (GetMonData(pp, ID_PARA_waza1+i, NULL) == oldMove)
+        if (GetMonData(pp, MON_DATA_MOVE1+i, NULL) == oldMove)
         {
-            SetMonData(pp, ID_PARA_waza1+i, &newMove);
-            u32 maxPP = GetMonData(pp, ID_PARA_pp_max1+i, NULL);
-            if (GetMonData(pp, ID_PARA_pp1+i, NULL) > maxPP)
+            SetMonData(pp, MON_DATA_MOVE1+i, &newMove);
+            u32 maxPP = GetMonData(pp, MON_DATA_MOVE1MAXPP+i, NULL);
+            if (GetMonData(pp, MON_DATA_MOVE1PP+i, NULL) > maxPP)
             {
-                SetMonData(pp, ID_PARA_pp1+i, &maxPP);
+                SetMonData(pp, MON_DATA_MOVE1PP+i, &maxPP);
             }
             break;
         }
@@ -3295,7 +3295,7 @@ void __attribute__((long_call)) SwapPartyPokemonMove(struct PartyPokemon *pp, u3
 
 void __attribute__((long_call)) ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove)
 {
-    if (form != GetMonData(pp, ID_PARA_form_no, NULL))
+    if (form != GetMonData(pp, MON_DATA_FORM, NULL))
     {
         ChangePartyPokemonToForm(pp, form);
         SwapPartyPokemonMove(pp, oldMove, newMove);
@@ -3312,7 +3312,7 @@ u32 __attribute__((long_call)) GrabCurrentSeason(void)
 
 void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
 {
-    u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u32 form = 0;
     BOOL shouldUpdate = TRUE;
     
@@ -3339,7 +3339,7 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
     }
 
     if (shouldUpdate) {
-        SetMonData(pp, ID_PARA_form_no, &form);
+        SetMonData(pp, MON_DATA_FORM, &form);
     }
 }
 
@@ -3350,11 +3350,11 @@ BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *par
     for (int i = 0; i < party->count; i++)
     {
         struct PartyPokemon *pp = PokeParty_GetMemberPointer(party, i);
-        u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
+        u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
         u32 newForm = GrabCurrentSeason();
-        if (newForm != GetMonData(pp, ID_PARA_form_no, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK))
+        if (newForm != GetMonData(pp, MON_DATA_FORM, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK))
         {
-            SetMonData(pp, ID_PARA_form_no, &newForm);
+            SetMonData(pp, MON_DATA_FORM, &newForm);
             ret = TRUE;
         }
     }
@@ -3412,7 +3412,7 @@ u8 __attribute__((long_call)) LoadEggMoves(struct PartyPokemon *pokemon, u16 *de
     n = 0;
     offset = 0;
 
-    species = PokeOtherFormMonsNoGet(GetMonData(pokemon, ID_PARA_monsno, NULL), GetMonData(pokemon, ID_PARA_form_no, NULL));
+    species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
     for (i = 0; i < NUM_EGG_MOVES_TOTAL; i++) {
         if (species + 20000 == kowaza_list[i]) {
             offset = i + 1;
@@ -3436,16 +3436,16 @@ u32 __attribute__((long_call)) CheckIfMonsAreEqual(struct PartyPokemon *pokemon1
     if ((int *)pokemon1 == (int *)pokemon2)
         return TRUE;
 
-    if (GetMonData(pokemon1, ID_PARA_monsno, NULL) == GetMonData(pokemon2, ID_PARA_monsno, NULL)
-     && GetMonData(pokemon1, ID_PARA_personal_rnd, NULL) == GetMonData(pokemon2, ID_PARA_personal_rnd, NULL)
-     && GetMonData(pokemon1, ID_PARA_id_no, NULL) == GetMonData(pokemon2, ID_PARA_id_no, NULL))
+    if (GetMonData(pokemon1, MON_DATA_SPECIES, NULL) == GetMonData(pokemon2, MON_DATA_SPECIES, NULL)
+     && GetMonData(pokemon1, MON_DATA_PERSONALITY, NULL) == GetMonData(pokemon2, MON_DATA_PERSONALITY, NULL)
+     && GetMonData(pokemon1, MON_DATA_OTID, NULL) == GetMonData(pokemon2, MON_DATA_OTID, NULL))
     {
-        for (int i = ID_PARA_condition; i <= ID_PARA_spedef; i++) // all the raw stats
+        for (int i = MON_DATA_STATUS; i <= MON_DATA_SPECIAL_DEFENSE; i++) // all the raw stats
         {
             if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL))
                 return FALSE;
         }
-        for (int i = ID_PARA_waza1; i <= ID_PARA_spedef_rnd; i++) // moves, pp, iv's
+        for (int i = MON_DATA_MOVE1; i <= MON_DATA_SPDEF_IV; i++) // moves, pp, iv's
         {
             if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL))
                 return FALSE;
@@ -3472,13 +3472,13 @@ u32 __attribute__((long_call)) CheckIfMonsAreEqual(struct PartyPokemon *pokemon1
         target = evoTable[i].target & 0x7FF; \
         form = evoTable[i].target >> 11; \
         if (form != 0) { \
-            SetMonData(ppFromParty, ID_PARA_form_no, &form); \
+            SetMonData(ppFromParty, MON_DATA_FORM, &form); \
         } \
     } \
     else { \
         target = evoTable[i].target & 0x7FF; \
         form = evoTable[i].target >> 11; \
-        SetMonData(pokemon, ID_PARA_form_no, &form); \
+        SetMonData(pokemon, MON_DATA_FORM, &form); \
     } \
 }
 
@@ -3495,15 +3495,15 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
     u16 pid_hi = 0;
     struct Evolution *evoTable;
     int method_local;
-    u32 form = GetMonData(pokemon, ID_PARA_form_no, NULL);
+    u32 form = GetMonData(pokemon, MON_DATA_FORM, NULL);
     u32 lowkey = 0;
     
     struct PartyPokemon *ppFromParty = NULL;
 
-    species = GetMonData(pokemon, ID_PARA_monsno, NULL);
-    heldItem = GetMonData(pokemon, ID_PARA_item, NULL);
-    pid = GetMonData(pokemon, ID_PARA_personal_rnd, NULL);
-    beauty = GetMonData(pokemon, ID_PARA_beautiful, NULL);
+    species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    heldItem = GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL);
+    pid = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
+    beauty = GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
     pid_hi = (u16)((pid & 0xFFFF0000) >> 16);
     holdEffect = GetItemData(heldItem, ITEM_PARAM_HOLD_EFFECT, 0);
 
@@ -3527,8 +3527,8 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
 
     switch (context) {
     case EVOCTX_LEVELUP:
-        level = (u8)GetMonData(pokemon, ID_PARA_level, NULL);
-        friendship = (u16)GetMonData(pokemon, ID_PARA_friend, NULL);
+        level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+        friendship = (u16)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
         for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
             switch (evoTable[i].method) {
             case EVO_NONE:
@@ -3564,19 +3564,19 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
             case EVO_STONE:
                 break;
             case EVO_LEVEL_ATK_GT_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, ID_PARA_pow, NULL) > GetMonData(pokemon, ID_PARA_def, NULL)) {
+                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) > GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_LEVEL_ATK_GT_DEF;
                 }
                 break;
             case EVO_LEVEL_ATK_EQ_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, ID_PARA_pow, NULL) == GetMonData(pokemon, ID_PARA_def, NULL)) {
+                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) == GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_LEVEL_ATK_EQ_DEF;
                 }
                 break;
             case EVO_LEVEL_ATK_LT_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, ID_PARA_pow, NULL) < GetMonData(pokemon, ID_PARA_def, NULL)) {
+                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) < GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_LEVEL_ATK_LT_DEF;
                 }
@@ -3637,13 +3637,13 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                 }
                 break;
             case EVO_LEVEL_MALE:
-                if (GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_MALE && evoTable[i].param <= level) {
+                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_MALE && evoTable[i].param <= level) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_LEVEL_MALE;
                 }
                 break;
             case EVO_LEVEL_FEMALE:
-                if (GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_FEMALE && evoTable[i].param <= level) {
+                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_FEMALE && evoTable[i].param <= level) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_LEVEL_FEMALE;
                 }
@@ -3726,7 +3726,7 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                     
                     for (k = 0; k < 4; k++)
                     {
-                        if (GetMoveData(GetMonData(pokemon, ID_PARA_waza1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param)
+                        if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param)
                         {
                             GET_TARGET_AND_SET_FORM;
                             *method_ret = EVO_HAS_MOVE_TYPE;
@@ -3741,7 +3741,7 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                     for (int k = 0; k < 6; k++)
                     {
                         if (!CheckIfMonsAreEqual(pokemon, PokeParty_GetMemberPointer(party, k)) // make sure that pancham doesn't satisfy its own requirement
-                         && (GetMonData(PokeParty_GetMemberPointer(party, k), ID_PARA_type1, NULL) == TYPE_DARK || GetMonData(PokeParty_GetMemberPointer(party, k), ID_PARA_type2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
+                         && (GetMonData(PokeParty_GetMemberPointer(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(PokeParty_GetMemberPointer(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
                         {
                             GET_TARGET_AND_SET_FORM;
                             *method_ret = EVO_LEVEL_DARK_TYPE_MON_IN_PARTY;
@@ -3755,7 +3755,7 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
             case EVO_LEVEL_NATURE_AMPED:
                 if (evoTable[i].param <= level)
                 {
-                    u32 nature = GetMonData(pokemon, ID_PARA_personal_rnd, NULL) % 25;
+                    u32 nature = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL) % 25;
                     switch (nature)
                     {
                     case NATURE_ADAMANT:
@@ -3788,7 +3788,7 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                 }
                 break;
             case EVO_AMOUNT_OF_CRITICAL_HITS: // needs to hit an amount of critical hits in a battle in one go.  need to log critical hits somewhere else
-                if (GetMonData(pokemon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS)
+                if (GetMonData(pokemon, MON_DATA_RESERVED_113, NULL) & DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS)
                 {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_AMOUNT_OF_CRITICAL_HITS;
@@ -3796,7 +3796,7 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                 break;
             case EVO_HURT_IN_BATTLE_AMOUNT:
                 {
-                    u32 hp = GetMonData(pokemon, ID_PARA_hp, NULL), maxhp = GetMonData(pokemon, ID_PARA_hpmax, NULL);
+                    u32 hp = GetMonData(pokemon, MON_DATA_HP, NULL), maxhp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
                     
                     if (hp && (maxhp - hp) >= evoTable[i].param) // if the mon has evoTable[i].param hp less than its max
                     {
@@ -3844,12 +3844,12 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
                 *method_ret = 0;
                 break;
             }
-            if (evoTable[i].method == EVO_STONE_MALE && GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_MALE && usedItem == evoTable[i].param) {
+            if (evoTable[i].method == EVO_STONE_MALE && GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_MALE && usedItem == evoTable[i].param) {
                 GET_TARGET_AND_SET_FORM;
                 *method_ret = 0;
                 break;
             }
-            if (evoTable[i].method == EVO_STONE_FEMALE && GetMonData(pokemon, ID_PARA_sex, NULL) == POKEMON_GENDER_FEMALE && usedItem == evoTable[i].param) {
+            if (evoTable[i].method == EVO_STONE_FEMALE && GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_FEMALE && usedItem == evoTable[i].param) {
                 GET_TARGET_AND_SET_FORM;
                 *method_ret = 0;
                 break;
@@ -3888,9 +3888,9 @@ u32 __attribute__((long_call)) GetBoxMonSex(struct BoxPokemon *bp)
     u32 species, pid, flag, form;
     
     flag = BoxMonSetFastModeOn(bp);
-    species = GetBoxMonData(bp, ID_PARA_monsno, NULL);
-    pid = GetBoxMonData(bp, ID_PARA_personal_rnd, NULL);
-    form = GetBoxMonData(bp, ID_PARA_form_no, NULL);
+    species = GetBoxMonData(bp, MON_DATA_SPECIES, NULL);
+    pid = GetBoxMonData(bp, MON_DATA_PERSONALITY, NULL);
+    form = GetBoxMonData(bp, MON_DATA_FORM, NULL);
     BoxMonSetFastModeOff(bp, flag);
     
     return GrabSexFromSpeciesAndForm(species, pid, form);
@@ -3947,8 +3947,8 @@ BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species,
     PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
     sub_020720FC(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
     sp1C = heldItem;
-    SetMonData(pokemon, ID_PARA_item, &sp1C);
-    SetMonData(pokemon, ID_PARA_form_no, &forme);
+    SetMonData(pokemon, MON_DATA_HELD_ITEM, &sp1C);
+    SetMonData(pokemon, MON_DATA_FORM, &forme);
 
     if (forme != 0) // reinitialize moves for different learnsets
     {
@@ -3965,7 +3965,7 @@ BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species,
     }
 
     if (ability != 0) {
-        SetMonData(pokemon, ID_PARA_speabino, &ability);
+        SetMonData(pokemon, MON_DATA_ABILITY, &ability);
     } else {
         ResetPartyPokemonAbility(pokemon); // with the flag set, the hidden ability should be set
     }
@@ -3993,7 +3993,7 @@ BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo 
         range = 1;
     }
     
-    species = GetMonData(encounterPartyPokemon, ID_PARA_monsno, NULL);
+    species = GetMonData(encounterPartyPokemon, MON_DATA_SPECIES, NULL);
     
     if (space_for_setmondata != 0)
     {
@@ -4023,7 +4023,7 @@ BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo 
 
     if (change_form)
     {
-        SetMonData(encounterPartyPokemon, ID_PARA_form_no, (u8 *)&form_no);
+        SetMonData(encounterPartyPokemon, MON_DATA_FORM, (u8 *)&form_no);
         RecalcPartyPokemonStats(encounterPartyPokemon);
         ResetPartyPokemonAbility(encounterPartyPokemon);
         InitBoxMonMoveset(&encounterPartyPokemon->box);
@@ -4048,7 +4048,7 @@ void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int 
     if(!rndflag){
         rnd = (gf_rand() | (gf_rand() << 16));
     }
-    BoxMonDataSet(boxmon,ID_PARA_personal_rnd,(u8 *)&rnd);
+    BoxMonDataSet(boxmon,MON_DATA_PERSONALITY,(u8 *)&rnd);
 
     if(idflag==ID_NO_SHINY){
         do{
@@ -4064,66 +4064,66 @@ void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int 
     // we need the form to be set correctly in either case
     if (space_for_setmondata != 0)
     {
-        BoxMonDataSet(boxmon, ID_PARA_form_no, (u8 *)&space_for_setmondata);
+        BoxMonDataSet(boxmon, MON_DATA_FORM, (u8 *)&space_for_setmondata);
     }
 
-    BoxMonDataSet(boxmon,ID_PARA_id_no,(u8 *)&id);
-    BoxMonDataSet(boxmon,ID_PARA_country_code,(u8 *)&language);
-    BoxMonDataSet(boxmon,ID_PARA_monsno,(u8 *)&species);
-    BoxMonDataSet(boxmon,ID_PARA_default_name,NULL);
+    BoxMonDataSet(boxmon,MON_DATA_OTID,(u8 *)&id);
+    BoxMonDataSet(boxmon,MON_DATA_GAME_LANGUAGE,(u8 *)&language);
+    BoxMonDataSet(boxmon,MON_DATA_SPECIES,(u8 *)&species);
+    BoxMonDataSet(boxmon,MON_DATA_SPECIES_NAME,NULL);
 
     i=PokeLevelExpGet(species,level);
-    BoxMonDataSet(boxmon,ID_PARA_exp,(u8 *)&i);
+    BoxMonDataSet(boxmon,MON_DATA_EXPERIENCE,(u8 *)&i);
 
     i=PokePersonalParaGet(species,PERSONAL_BASE_FRIENDSHIP);
-    BoxMonDataSet(boxmon,ID_PARA_friend,(u8 *)&i);
+    BoxMonDataSet(boxmon,MON_DATA_FRIENDSHIP,(u8 *)&i);
 
-    BoxMonDataSet(boxmon,ID_PARA_get_level,(u8 *)&level);
-    BoxMonDataSet(boxmon,ID_PARA_get_cassette,(u8 *)&title);
+    BoxMonDataSet(boxmon,MON_DATA_MET_LEVEL,(u8 *)&level);
+    BoxMonDataSet(boxmon,MON_DATA_GAME_VERSION,(u8 *)&title);
     i=ITEM_POKE_BALL;
-    BoxMonDataSet(boxmon,ID_PARA_get_ball,(u8 *)&i);
+    BoxMonDataSet(boxmon,MON_DATA_POKEBALL,(u8 *)&i);
 
     if(pow <= MAX_IVS){
-        BoxMonDataSet(boxmon,ID_PARA_hp_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_pow_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_def_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_agi_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_spepow_rnd,(u8 *)&pow);
-        BoxMonDataSet(boxmon,ID_PARA_spedef_rnd,(u8 *)&pow);
+        BoxMonDataSet(boxmon,MON_DATA_HP_IV,(u8 *)&pow);
+        BoxMonDataSet(boxmon,MON_DATA_ATK_IV,(u8 *)&pow);
+        BoxMonDataSet(boxmon,MON_DATA_DEF_IV,(u8 *)&pow);
+        BoxMonDataSet(boxmon,MON_DATA_SPEED_IV,(u8 *)&pow);
+        BoxMonDataSet(boxmon,MON_DATA_SPATK_IV,(u8 *)&pow);
+        BoxMonDataSet(boxmon,MON_DATA_SPDEF_IV,(u8 *)&pow);
     }
     else{ // why the fuck is it done like this
         i=gf_rand();
         j=(i&(0x001f<< 0))>> 0;
-        BoxMonDataSet(boxmon,ID_PARA_hp_rnd,(u8 *)&j);
+        BoxMonDataSet(boxmon,MON_DATA_HP_IV,(u8 *)&j);
         j=(i&(0x001f<< 5))>> 5;
-        BoxMonDataSet(boxmon,ID_PARA_pow_rnd,(u8 *)&j);
+        BoxMonDataSet(boxmon,MON_DATA_ATK_IV,(u8 *)&j);
         j=(i&(0x001f<<10))>>10;
-        BoxMonDataSet(boxmon,ID_PARA_def_rnd,(u8 *)&j);
+        BoxMonDataSet(boxmon,MON_DATA_DEF_IV,(u8 *)&j);
         i=gf_rand();
         j=(i&(0x001f<< 0))>> 0;
-        BoxMonDataSet(boxmon,ID_PARA_agi_rnd,(u8 *)&j);
+        BoxMonDataSet(boxmon,MON_DATA_SPEED_IV,(u8 *)&j);
         j=(i&(0x001f<< 5))>> 5;
-        BoxMonDataSet(boxmon,ID_PARA_spepow_rnd,(u8 *)&j);
+        BoxMonDataSet(boxmon,MON_DATA_SPATK_IV,(u8 *)&j);
         j=(i&(0x001f<<10))>>10;
-        BoxMonDataSet(boxmon,ID_PARA_spedef_rnd,(u8 *)&j);
+        BoxMonDataSet(boxmon,MON_DATA_SPDEF_IV,(u8 *)&j);
     }
 
     i = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
     j = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
     if(j!=0){
         if(rnd&1){
-            BoxMonDataSet(boxmon,ID_PARA_speabino,(u8 *)&j);
+            BoxMonDataSet(boxmon,MON_DATA_ABILITY,(u8 *)&j);
         }
         else{
-            BoxMonDataSet(boxmon,ID_PARA_speabino,(u8 *)&i);
+            BoxMonDataSet(boxmon,MON_DATA_ABILITY,(u8 *)&i);
         }
     }
     else{
-        BoxMonDataSet(boxmon,ID_PARA_speabino,(u8 *)&i);
+        BoxMonDataSet(boxmon,MON_DATA_ABILITY,(u8 *)&i);
     }
 
     i=GetBoxMonGender(boxmon);
-    BoxMonDataSet(boxmon,ID_PARA_sex,(u8 *)&i);
+    BoxMonDataSet(boxmon,MON_DATA_GENDER,(u8 *)&i);
     FillInBoxMonLearnset(boxmon);
     BoxMonSetFastModeOff(boxmon,flag);
 }
@@ -4134,12 +4134,12 @@ bool8 __attribute__((long_call)) RevertFormChange(struct PartyPokemon *pp, u16 s
     int work = 0;
 
     // use this chance to make bad poisoning normal poison at the end of battle
-    work = GetMonData(pp, ID_PARA_condition, NULL);
+    work = GetMonData(pp, MON_DATA_STATUS, NULL);
     if (work & STATUS_FLAG_BADLY_POISONED)
     {
         work &= ~(STATUS_FLAG_BADLY_POISONED);
         work |= STATUS_FLAG_POISONED;
-        SetMonData(pp, ID_PARA_condition, &work);
+        SetMonData(pp, MON_DATA_STATUS, &work);
     }
 
     for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
@@ -4157,7 +4157,7 @@ bool8 __attribute__((long_call)) RevertFormChange(struct PartyPokemon *pp, u16 s
             else if (species == SPECIES_ZYGARDE)
                 work = form_no-2;
 
-            SetMonData(pp, ID_PARA_form_no, &work);
+            SetMonData(pp, MON_DATA_FORM, &work);
             return TRUE;
         }
     }
@@ -4445,7 +4445,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         rnd = (rnd << 8) + rnd_tmp;
         pow = pow * 31 / 255;
         PokeParaSet(mons[i], species, level, pow, 1, rnd, 2, 0);
-        SetMonData(mons[i], ID_PARA_form_no, &form_no);
+        SetMonData(mons[i], MON_DATA_FORM, &form_no);
 
         //set default abilities
         species = PokeOtherFormMonsNoGet(species, form_no);
@@ -4455,15 +4455,15 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             if (abilityslot & 1)
             {
-                SetMonData(mons[i], ID_PARA_speabino, (u8 *)&ab1);
+                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
             }
             else{
-                SetMonData(mons[i], ID_PARA_speabino, (u8 *)&ab2);
+                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab2);
             }
         }
         else
         {
-            SetMonData(mons[i], ID_PARA_speabino, (u8 *)&ab1);
+            SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
         }
         
         // if abilityslot is 2 force hidden ability with the bit set.  this specifically to cover darmanitan with zen mode switching between forms and such.
@@ -4471,12 +4471,12 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             u16 hiddenability = GetMonHiddenAbility(species, form_no);
             SET_MON_HIDDEN_ABILITY_BIT(mons[i])
-            SetMonData(mons[i], ID_PARA_speabino, (u8 *)&hiddenability);
+            SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&hiddenability);
         }
 
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
         {
-            SetMonData(mons[i], ID_PARA_item, &item);
+            SetMonData(mons[i], MON_DATA_HELD_ITEM, &item);
         }
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES)
         {
@@ -4488,40 +4488,40 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         TrainerCBSet(ballseal, mons[i], heapID);
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ABILITY)
         {
-            SetMonData(mons[i], ID_PARA_speabino, &ability);
+            SetMonData(mons[i], MON_DATA_ABILITY, &ability);
         }
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_BALL)
         {
-            SetMonData(mons[i], ID_PARA_get_ball, &ball);
+            SetMonData(mons[i], MON_DATA_POKEBALL, &ball);
         }
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_IV_EV_SET)
         {
             for(j = 0; j < 6; j++)
             {
-                SetMonData(mons[i],ID_PARA_hp_rnd + j, &ivnums[j]);
+                SetMonData(mons[i],MON_DATA_HP_IV + j, &ivnums[j]);
             }
 
             for(j = 0; j < 6; j++)
             {
-                SetMonData(mons[i],ID_PARA_hp_exp + j, &evnums[j]);
+                SetMonData(mons[i],MON_DATA_HP_EV + j, &evnums[j]);
             }
         }
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_NATURE_SET)
         {
-            u32 pid = GetMonData(mons[i], ID_PARA_personal_rnd, NULL);
+            u32 pid = GetMonData(mons[i], MON_DATA_PERSONALITY, NULL);
             u8 currentNature = pid % 25;
             pid = pid + nature - currentNature;
-            SetMonData(mons[i], ID_PARA_personal_rnd, &pid);
+            SetMonData(mons[i], MON_DATA_PERSONALITY, &pid);
         }
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_SHINY_LOCK)
         {
-            u32 pid = GetMonData(mons[i], ID_PARA_personal_rnd, NULL);
+            u32 pid = GetMonData(mons[i], MON_DATA_PERSONALITY, NULL);
             if (shinylock != 0)
             {
                 do{
                     id = (gf_rand() | (gf_rand() << 16));
                 } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((pid & 0xffff0000) >> 16) ^ (pid & 0xffff)) >= 8);
-                SetMonData(mons[i], ID_PARA_id_no, &id);
+                SetMonData(mons[i], MON_DATA_OTID, &id);
             }
         }
 
@@ -4531,53 +4531,53 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_STATUS)
             {
-                SetMonData(mons[i],ID_PARA_condition, &status);
+                SetMonData(mons[i],MON_DATA_STATUS, &status);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_HP)
             {
-                SetMonData(mons[i],ID_PARA_hpmax, &hp);
-                SetMonData(mons[i],ID_PARA_hp, &hp);
+                SetMonData(mons[i],MON_DATA_MAXHP, &hp);
+                SetMonData(mons[i],MON_DATA_HP, &hp);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_ATK)
             {
-                SetMonData(mons[i],ID_PARA_pow, &atk);
+                SetMonData(mons[i],MON_DATA_ATTACK, &atk);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_DEF)
             {
-                SetMonData(mons[i],ID_PARA_def, &def);
+                SetMonData(mons[i],MON_DATA_DEFENSE, &def);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SPEED)
             {
-                SetMonData(mons[i],ID_PARA_agi, &speed);
+                SetMonData(mons[i],MON_DATA_SPEED, &speed);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_ATK)
             {
-                SetMonData(mons[i],ID_PARA_spepow, &spatk);
+                SetMonData(mons[i],MON_DATA_SPECIAL_ATTACK, &spatk);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_DEF)
             {
-                SetMonData(mons[i],ID_PARA_spedef, &spdef);
+                SetMonData(mons[i],MON_DATA_SPECIAL_DEFENSE, &spdef);
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
             {
                 for(j = 0; j < 2; j++)
                 {
-                    SetMonData(mons[i],ID_PARA_type1+j, &types[j]);
+                    SetMonData(mons[i],MON_DATA_TYPE_1+j, &types[j]);
                 }
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
             {
                 for(j = 0; j < 4; j++)
                 {
-                    SetMonData(mons[i],ID_PARA_pp_count1+j, &ppcounts[j]);
+                    SetMonData(mons[i],MON_DATA_MOVE1PPUP+j, &ppcounts[j]);
                 }
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
                 u32 one = 1;
                 
-                SetMonData(mons[i],ID_PARA_nickname_flag, &one);
-                SetMonData(mons[i],ID_PARA_nickname, nickname);
+                SetMonData(mons[i],MON_DATA_HAS_NICKNAME, &one);
+                SetMonData(mons[i],MON_DATA_NICKNAME, nickname);
             }
         }
         TrainerMonHandleFrustration(mons[i]);
@@ -4611,7 +4611,7 @@ void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon)
     int null = 0;
     for (int i = 0; i < 4; i++)
     {
-        SetMonData(pokemon, ID_PARA_waza1+i, &null);
+        SetMonData(pokemon, MON_DATA_MOVE1+i, &null);
     }
 }
 
@@ -4638,7 +4638,7 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
 
         SetEggStats(pokemon, species, 1, profile, 3, val);
 
-        SetMonData(pokemon, ID_PARA_form_no, &form); // add form capability
+        SetMonData(pokemon, MON_DATA_FORM, &form); // add form capability
 
         ClearMonMoves(pokemon);
         InitBoxMonMoveset(&pokemon->box);
@@ -4680,13 +4680,13 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 13));
 
-    //SetMonData(togepi, ID_PARA_form_no, &form); // add form capability
+    //SetMonData(togepi, MON_DATA_FORM, &form); // add form capability
 
     //ClearMonMoves(pokemon);
     //InitBoxMonMoveset(&pokemon->box);
 
     for (i = 0; i < 4; i++) {
-        if (!GetMonData(togepi, ID_PARA_waza1 + i, 0)) {
+        if (!GetMonData(togepi, MON_DATA_MOVE1 + i, 0)) {
             break;
         }
     }
@@ -4696,10 +4696,10 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
     }
 
     moveData = MOVE_EXTRASENSORY; // add extrasensory to the togepi
-    SetMonData(togepi, ID_PARA_waza1 + i, &moveData);
+    SetMonData(togepi, MON_DATA_MOVE1 + i, &moveData);
 
-    pp = GetMonData(togepi, ID_PARA_pp_max1 + i, 0);
-    SetMonData(togepi, ID_PARA_pp1 + i, &pp);
+    pp = GetMonData(togepi, MON_DATA_MOVE1MAXPP + i, 0);
+    SetMonData(togepi, MON_DATA_MOVE1PP + i, &pp);
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
     {
@@ -4713,7 +4713,7 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     sys_FreeMemoryEz(togepi);
 
-    SaveMisc_SetTogepiPersonalityGender(Sav2_Misc_get(fsys->savedata), GetMonData(togepi, ID_PARA_personal_rnd, 0), GetMonData(togepi, ID_PARA_sex, 0));
+    SaveMisc_SetTogepiPersonalityGender(Sav2_Misc_get(fsys->savedata), GetMonData(togepi, MON_DATA_PERSONALITY, 0), GetMonData(togepi, MON_DATA_GENDER, 0));
 
     return FALSE;
 }
@@ -4728,16 +4728,16 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     u8 pokeball = 4; // poke ball
     u8 metLevel = 0;
     
-    u16 dummy_p2_1 = GetBoxMonData(pokemon, ID_PARA_dummy_p2_1, NULL); // hidden ability field
+    u16 dummy_p2_1 = GetBoxMonData(pokemon, MON_DATA_RESERVED_113, NULL); // hidden ability field
     
     sub_0206D038(pokemon, heapId); // carries over egg values to a clean mon
-    SetMonData(pokemon, ID_PARA_tamago_flag, &isEgg);
-    GetSpeciesNameIntoArray(GetMonData(pokemon, ID_PARA_monsno, NULL), 0, nickname);
-    SetMonData(pokemon, ID_PARA_nickname, nickname);
-    SetMonData(pokemon, ID_PARA_nickname_flag, &hasNickname);
-    SetMonData(pokemon, ID_PARA_get_ball, &pokeball);
-    SetMonData(pokemon, ID_PARA_get_level, &metLevel);
-    SetMonData(pokemon, ID_PARA_dummy_p2_1, &dummy_p2_1);
+    SetMonData(pokemon, MON_DATA_IS_EGG, &isEgg);
+    GetSpeciesNameIntoArray(GetMonData(pokemon, MON_DATA_SPECIES, NULL), 0, nickname);
+    SetMonData(pokemon, MON_DATA_NICKNAME, nickname);
+    SetMonData(pokemon, MON_DATA_HAS_NICKNAME, &hasNickname);
+    SetMonData(pokemon, MON_DATA_POKEBALL, &pokeball);
+    SetMonData(pokemon, MON_DATA_MET_LEVEL, &metLevel);
+    SetMonData(pokemon, MON_DATA_RESERVED_113, &dummy_p2_1);
     RecalcPartyPokemonStats(pokemon);
 
     ResetPartyPokemonAbility(pokemon);
@@ -4958,19 +4958,19 @@ u32 IsLevelAtLevelCap(u32 level)
 #ifdef IMPLEMENT_LEVEL_CAP
 
 BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
-    u16 species = (u16)GetMonData(mon, ID_PARA_monsno, NULL);
-    u8 level = (u8)(GetMonData(mon, ID_PARA_level, NULL) + 1);
-    u32 exp = GetMonData(mon, ID_PARA_exp, NULL);
+    u16 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
+    u32 exp = GetMonData(mon, MON_DATA_EXPERIENCE, NULL);
     u32 growthrate = (u32)PokePersonalParaGet(species, PERSONAL_EXP_GROUP);
     u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, GetLevelCap());
     if (exp > maxexp) {
         exp = maxexp;
-        SetMonData(mon, ID_PARA_exp, &exp);
+        SetMonData(mon, MON_DATA_EXPERIENCE, &exp);
     }
     if (level > GetLevelCap())
         return FALSE;
     if (exp >= GetExpByGrowthRateAndLevel((int)growthrate, level)) {
-        SetMonData(mon, ID_PARA_level, &level);
+        SetMonData(mon, MON_DATA_LEVEL, &level);
         return TRUE;
     }
     return FALSE;
