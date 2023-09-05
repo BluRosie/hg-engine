@@ -97,7 +97,7 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
     return NULL;
 }
 
-void *ItemDataTableLoad(int heapID)
+void *__attribute__((long_call)) ItemDataTableLoad(int heapID)
 {
     int max;
 

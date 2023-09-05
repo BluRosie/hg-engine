@@ -330,3 +330,5 @@ arm9 CapRareCandies 0208FEEA 1
 0012 read_battle_script_param 022454E8 1
 0012 LoadBattleSubSeqScript 0224EB9C 3
 0012 PushAndLoadBattleScript 0224EBDC 3
+
+0012 ServerInit 02248660 1

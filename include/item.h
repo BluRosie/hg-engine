@@ -187,4 +187,7 @@ extern struct ITEMDATA_INDEX ItemDataIndex[];
 void __attribute__((long_call)) SetUpItemScript(void *iuwk, const void *icwk, u32 scr_id);
 u32 __attribute__((long_call)) GetItemData(u16 item, u32 param, u32 heap_id);
 
+// defined in item.c
+void *__attribute__((long_call)) ItemDataTableLoad(int heapID);
+
 #endif //POKEDIAMOND_ITEM_H

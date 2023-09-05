@@ -150,9 +150,10 @@ _reset_loop:
 .org 0x022453CC
     .word 0x3182
 
-.org 0x022486A4
-    .word 0x317E + ((NUM_OF_MOVES+1) * 16) // size of new battle structure now
-    .word 0x317E
+//.org 0x022486A4
+//    .word 0x6A2E
+//    //.word 0x317E + ((NUM_OF_MOVES+1) * 16)
+//    .word 0x317E
 
 .org 0x0224B388
     .word 0x3186

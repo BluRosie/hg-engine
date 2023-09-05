@@ -5,8 +5,8 @@
 #include "item.h"
 #include "sprite.h"
 #include "task.h"
+#include "constants/moves.h"
 
-#define MAX_MOVE_NUM 742 //old 467
 #define CLIENT_MAX 4
 
 #define TYPE_NORMAL   0x00
@@ -914,7 +914,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x315B*/ u8 mons_getting_exp;
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 padding_315D[0x21]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
-    /*0x317E*/ struct BattleMove moveTbl[MAX_MOVE_NUM + 1];
+    /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ int SkillSeqWork[600];
@@ -1269,6 +1269,10 @@ BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 s
 BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruct *sp);
 u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleStruct *sp, u32 side);
 u32 __attribute__((long_call)) ST_CheckIfInTruant(struct BattleStruct *sp, u32 client);
+void __attribute__((long_call)) BattleStructureInit(struct BattleStruct *sp);
+void __attribute__((long_call)) BattleStructureCounterInit(void *bw, struct BattleStruct *sp);
+void __attribute__((long_call)) ServerMoveAIInit(void *bw, struct BattleStruct *sp);
+void __attribute__((long_call)) DumpMoveTableData(void *dest);
 
 // AI specific functions
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);

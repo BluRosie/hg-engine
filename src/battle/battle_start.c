@@ -1,5 +1,6 @@
 #include "../../include/types.h"
 #include "../../include/battle.h"
+#include "../../include/item.h"
 #include "../../include/mega.h"
 #include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
@@ -15,6 +16,25 @@
 /********************************************************************************************************************/
 /********************************************************************************************************************/
 
+
+
+struct BattleStruct *ServerInit(void *bw)
+{
+    struct BattleStruct *sp;
+
+    sp = sys_AllocMemory(5, sizeof(struct BattleStruct));
+    memset(sp, 0, sizeof(struct BattleStruct));
+    BattleStructureInit(sp);
+    BattleStructureCounterInit(bw, sp);
+    ServerMoveAIInit(bw, sp);
+    DumpMoveTableData(&sp->moveTbl[0]);
+    sp->aiWorkTable.item = ItemDataTableLoad(5);
+
+    return sp;
+}
+
+
+
 enum
 {
     SBA_RESET_DEFIANT = 0,
@@ -26,15 +46,15 @@ enum
     SBA_END
 };
 
-u32	No2Bit(int no)
+u32 No2Bit(int no)
 {
-	int	i;
-	u32	ret=1;
+    int i;
+    u32 ret=1;
 
-	for(i=0;i<no;i++){
-		ret<<=1;
-	}
-	return ret;
+    for(i=0;i<no;i++){
+        ret<<=1;
+    }
+    return ret;
 }
 
 
@@ -236,9 +256,9 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             else
             {
                 LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_HANDLE_MEGA_EVOLUTION); // load sequence 297 and execute
-	        }
+            }
             sp->next_server_seq_no = sp->server_seq_no;
-	        sp->server_seq_no = 22;
+            sp->server_seq_no = 22;
             return TRUE;
         }
         if(newBS.needMega[client_no] == MEGA_CHECK_APPER && sp->battlemon[sp->attack_client].hp)
@@ -248,8 +268,8 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             if(seq)
             {
                 LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, seq);
-	            sp->next_server_seq_no = sp->server_seq_no;
-	            sp->server_seq_no = 22;
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
                 return TRUE;
             }
 

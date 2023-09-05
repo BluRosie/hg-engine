@@ -453,3 +453,8 @@ CreateSysTask = 0x0200E320 | 1;
 DestroySysTask = 0x0200E390 | 1;
 
 BattleWorkClientParamGet = 0x0223A7E8 | 1;
+
+BattleStructureInit = 0x02250F44 | 1;
+BattleStructureCounterInit = 0x02251038 | 1;
+ServerMoveAIInit = 0x0224E384 | 1;
+DumpMoveTableData = 0x02073300 | 1;
