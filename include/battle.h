@@ -49,7 +49,7 @@
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
 
 /**
- *  @brief  indices used for move_effect_to_subscripts in src/moves.c
+ *  @brief indices used for move_effect_to_subscripts in src/moves.c
  *  used specifically by battle effect scripts to queue up subscripts
  *  sadly these are in armips at the moment and do not use these constants verbatim
  */
@@ -84,7 +84,7 @@
 #define ADD_STATE_EVASION_DOWN_2 0x34
 
 /**
- *  @brief  move status flag defines for the BattleStruct's waza_status_flag field.
+ *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
  *  name is left as source define if not sure what it defines
  */
 #define MOVE_STATUS_FLAG_MISS                    (0x00000001)
@@ -136,7 +136,7 @@
 
 
 /**
- *  @brief  stat definitions as they appear in battles.
+ *  @brief stat definitions as they appear in battles.
  *  index BattleStruct's battlemon[battler].states for the stat stages
  *  of the battlemon referenced by battler
  */
@@ -151,7 +151,7 @@
 #define STAT_MAX            (0x08)
 
 /**
- *  @brief  battle type flags
+ *  @brief battle type flags
  *  access with BattleTypeGet(bw) & BATTLE_TYPE_* to test properly
  */
 #define BATTLE_TYPE_SINGLE 0x00
@@ -170,7 +170,7 @@
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
 
 /**
- *  @brief  flags for effect_of_moves
+ *  @brief flags for effect_of_moves
  *  defines for BattleStruct's effect_of_moves field
  *  fields that cover multiple fields are often counters, i.e. MOVE_EFFECT_FLAG_LOCK_ON
  *  
@@ -210,7 +210,7 @@
 #define MOVE_EFFECT_FLAG_TRIED_IMPRISON     (0x40000000) // for trainer ai
 
 /**
- *  @brief  non-volatile status condition flags
+ *  @brief non-volatile status condition flags
  *  not just valid for battles, also valid outside of battles
  *  in BattleStruct's battlemon[battler].condition field
  *     or GetMonData(mon, MON_DATA_STATUS, NULL);
@@ -227,7 +227,7 @@
 #define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED)
 
 /**
- *  @brief  server status flags (for BattleStruct's server_status_flag)
+ *  @brief server status flags (for BattleStruct's server_status_flag)
  *  flags that signal to the battle server to divert its attention for a moment
  *    or that something else is happening and to not run certain code at any given moment
  */
@@ -243,14 +243,14 @@
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
 
 /**
- *  @brief  server status 2 flags (for BattleStruct's server_status_flag2)
+ *  @brief server status 2 flags (for BattleStruct's server_status_flag2)
  *  a continuation of BattleStruct's server_status_flag that do the same type of things
  */
 #define SERVER_STATUS_FLAG2_U_TURN (0x00000010)
 #define SERVER_STATUS_FLAG2_FORM_CHANGE (0x04000000)
 
 /**
- *  @brief  volatile status condition flags
+ *  @brief volatile status condition flags
  *  accessible in BattleStruct's battlemon[battler].condition2
  */
 #define STATUS2_FLAG_CONFUSED (0x00000007)
@@ -262,7 +262,7 @@
 #define STATUS2_FLAG_FORESIGHT (0x20000000)
 
 /**
- *  @brief  side status flags that apply to one side
+ *  @brief side status flags that apply to one side
  *  accessible in BattleStruct's side_condition[side]
  *  seems to be duplicated in the side_condition_work structure bitfield
  */
@@ -274,7 +274,7 @@
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 /**
- *  @brief  self status flags that apply to BattleStruct's oneSelfFlag[battler].status_flag
+ *  @brief self status flags that apply to BattleStruct's oneSelfFlag[battler].status_flag
  *  aka OneSelfTurnEffect's status_flag
  *
  *  largely handles effects that are supposed to happen for the turn and nothing more
@@ -285,14 +285,14 @@
 #define SELF_STATUS_FLAG_SUBSTITUTE_HIT (0x00000008)
 
 /**
- *  @brief  move category constants
+ *  @brief move category constants
  */
 #define SPLIT_PHYSICAL 0
 #define SPLIT_SPECIAL 1
 #define SPLIT_STATUS 2
 
 /**
- *  @brief  field status constants that apply to BattleStruct's field_condition field
+ *  @brief field status constants that apply to BattleStruct's field_condition field
  *
  *  largely for weathers, but also covers uproar, gravity, fog, etc.
  */
@@ -317,7 +317,7 @@
 #define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)
 
 /**
- *  @brief  absolute battler position constants
+ *  @brief absolute battler position constants
  *
  *  these are specifically used for BattleWorkEnemyClientGet to grab the enemy client on the position of the field opposite
  *  due to the way that battlers are loaded into position, these constants are not necessary, and one can use BATTLER_OPPONENT and BATTLER_ACROSS macros for the same purpose
@@ -326,7 +326,7 @@
 #define BATTLER_POSITION_SIDE_LEFT  (2)
 
 /**
- *  @brief  move flags for BattleStruct's moveTbl[move_number].flag field
+ *  @brief move flags for BattleStruct's moveTbl[move_number].flag field
  *  aka BattleMove's flag field
  *
  *  used to stipulate various move properties without needing to make lists for each property desired to check
@@ -341,7 +341,7 @@
 #define FLAG_HIDE_SHADOW (0x80)
 
 /**
- *  @brief  macros to grab certain battlers relative to the one passed in
+ *  @brief macros to grab certain battlers relative to the one passed in
  *
  *  due to the way that battlers are always loaded in, BATTLER_* macros are convenient to use to grab different battlers
  */
@@ -357,7 +357,7 @@
 #define BATTLERS_ON_DIFFERENT_SIDE(battler1, battler2) !BATTLERS_ON_SAME_SIDE(battler1, battler2)
 
 /**
- *  @brief  message tags to tell the string buffer expander how to expand each string buffer
+ *  @brief message tags to tell the string buffer expander how to expand each string buffer
  *  buffered as the msg_tag of a MESSAGE_PARAM
  *
  *  i.e. TAG_NICK_ABILITY will tell the string buffer preparing function to turn
@@ -442,14 +442,14 @@
 
 
 /**
- *  @brief  animation constants for statbuffchange
+ *  @brief animation constants for statbuffchange
  */
 #define STATUS_EFF_UP (12)
 #define STATUS_EFF_DOWN (13)
 
 
 /**
- *  @brief  constants used to change the mode for HeldItemAtkGet
+ *  @brief constants used to change the mode for HeldItemAtkGet
  */
 #define ATK_CHECK_NORMAL    (0)
 #define ATK_CHECK_NONE      (1)
@@ -466,14 +466,14 @@
 #define SWOAM_LOOP      (1)
 
 /**
- *  @brief  eventually implement difficulty modes
+ *  @brief eventually implement difficulty modes
  */
 #define NORMAL_MODE (0)
 #define CHALLENGE_MODE (1)
 #define EASY_MODE (2)
 
 /**
- *  @brief  msg work specifically for statuses
+ *  @brief msg work specifically for statuses
  */
 enum
 {
@@ -486,7 +486,7 @@ enum
 
 
 /**
- *  @brief  structure for move data dumped to BattleStruct's moveTbl
+ *  @brief structure for move data dumped to BattleStruct's moveTbl
  */
 struct __attribute__((packed)) BattleMove
 {
@@ -506,7 +506,7 @@ struct __attribute__((packed)) BattleMove
 }; // size = 0x10
 
 /**
- *  @brief  effects to track across one turn
+ *  @brief effects to track across one turn
  */
 struct __attribute__((packed)) OneTurnEffect
 {
@@ -533,7 +533,7 @@ struct __attribute__((packed)) OneTurnEffect
 }; // size = 0x40
 
 /**
- *  @brief  effects to track across one turn that seems to actually be better used
+ *  @brief effects to track across one turn that seems to actually be better used
  */
 struct __attribute__((packed)) OneSelfTurnEffect
 {
@@ -556,7 +556,7 @@ struct __attribute__((packed)) OneSelfTurnEffect
 }; // size = 0x1C
 
 /**
- *  @brief  a structure that tracks various reasons that a pokémon did not move after the main bits tracking them have been cleared
+ *  @brief a structure that tracks various reasons that a pokémon did not move after the main bits tracking them have been cleared
  */
 struct __attribute__((packed)) MoveOutCheck
 {
@@ -574,7 +574,7 @@ struct __attribute__((packed)) MoveOutCheck
 }; // size = 0x4
 
 /**
- *  @brief  a structure that tracks various things regarding moves for each pokémon.  largely a bitfield copy of effect_of_moves, but what is actually checked for to *enforce* each effect
+ *  @brief a structure that tracks various things regarding moves for each pokémon.  largely a bitfield copy of effect_of_moves, but what is actually checked for to *enforce* each effect
  *
  *  stored as moveeffect in each BattlePokemon structure
  */
@@ -629,7 +629,7 @@ struct __attribute__((packed)) battle_moveflag
 
 
 /**
- *  @brief  in-battle representation of a PartyPokemon
+ *  @brief in-battle representation of a PartyPokemon
  *
  *  not encrypted or anything, has a number of fields pertaining to each mon on the field
  */
@@ -714,7 +714,7 @@ typedef struct {
 
 
 /**
- *  @brief  weather/other field condition tracker
+ *  @brief weather/other field condition tracker
  */
 struct __attribute__((packed)) field_condition_count
 {
@@ -828,7 +828,7 @@ struct __attribute__((packed)) BattleAIWorkTable
 
 
 /**
- *  @brief  the entire battle structure that we are interested in (for the most part)
+ *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
@@ -1304,7 +1304,7 @@ u32 No2Bit(int no);
 
 /* new battle engine declarations*/
 /**
- *  @brief  grab battler ability.  don't consider mold breaker in this
+ *  @brief grab battler ability.  don't consider mold breaker in this
  *
  *  @param sp global battle structure
  *  @param client battler to check
@@ -1313,7 +1313,7 @@ u32 No2Bit(int no);
 int __attribute__((long_call)) GetBattlerAbility(struct BattleStruct *sp, int client);
 
 /**
- *  @brief  perform damage division, setting the variables that need to be set for damage in general
+ *  @brief perform damage division, setting the variables that need to be set for damage in general
  *
  *  @param data numerator, typically damage multiplied by something else
  *  @param divisor divisor to perform on data
@@ -1322,7 +1322,7 @@ int __attribute__((long_call)) GetBattlerAbility(struct BattleStruct *sp, int cl
 int __attribute__((long_call)) BattleDamageDivide(int data, int divisor);
 
 /**
- *  @brief  grab the weather from the overworld
+ *  @brief grab the weather from the overworld
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return overworld weather id
@@ -1330,7 +1330,7 @@ int __attribute__((long_call)) BattleDamageDivide(int data, int divisor);
 int __attribute__((long_call)) BattleWorkWeatherGet(void *bw);
 
 /**
- *  @brief  grab enemy client requested by side param
+ *  @brief grab enemy client requested by side param
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client is the enemy to check
@@ -1340,7 +1340,7 @@ int __attribute__((long_call)) BattleWorkWeatherGet(void *bw);
 int __attribute__((long_call)) BattleWorkEnemyClientGet(void *bw, int client, int side);
 
 /**
- *  @brief  choose which enemy should be traced
+ *  @brief choose which enemy should be traced
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1351,7 +1351,7 @@ int __attribute__((long_call)) BattleWorkEnemyClientGet(void *bw, int client, in
 int __attribute__((long_call)) TraceClientGet(void *bw, struct BattleStruct *sp, int def1, int def2);
 
 /**
- *  @brief  check if client is on enemy side or not.  equivalent to BATTLER_IS_ENEMY(client)
+ *  @brief check if client is on enemy side or not.  equivalent to BATTLER_IS_ENEMY(client)
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client
@@ -1360,7 +1360,7 @@ int __attribute__((long_call)) TraceClientGet(void *bw, struct BattleStruct *sp,
 u8 __attribute__((long_call)) IsClientEnemy(void *bw, int client);
 
 /**
- *  @brief  modify type effectiveness move flags to print the right message, adjust damage, etc.  also used for AI and anticipation
+ *  @brief modify type effectiveness move flags to print the right message, adjust damage, etc.  also used for AI and anticipation
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1375,7 +1375,7 @@ u8 __attribute__((long_call)) IsClientEnemy(void *bw, int client);
 int __attribute__((long_call)) TypeCalc(void *bw, struct BattleStruct *sp, int movenum, int movetype, int attacker, int defender, int damage, u32 *flag);
 
 /**
- *  @brief  sees if anticipation will automatially log a certain move (i.e. OHKO moves)
+ *  @brief sees if anticipation will automatially log a certain move (i.e. OHKO moves)
  *
  *  @param sp global battle structure
  *  @param movenum move to check
@@ -1384,7 +1384,7 @@ int __attribute__((long_call)) TypeCalc(void *bw, struct BattleStruct *sp, int m
 u32 __attribute__((long_call)) AnticipateMoveEffectListCheck(struct BattleStruct *sp, int movenum);
 
 /**
- *  @brief  return PRNG value from the one reserved for battles
+ *  @brief return PRNG value from the one reserved for battles
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return PRNG number specifically for battles to somewhat prevent save scumming
@@ -1392,7 +1392,7 @@ u32 __attribute__((long_call)) AnticipateMoveEffectListCheck(struct BattleStruct
 u16 __attribute__((long_call)) BattleRand(void *bw);
 
 /**
- *  @brief  choose a random enemy battler to target
+ *  @brief choose a random enemy battler to target
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1402,7 +1402,7 @@ u16 __attribute__((long_call)) BattleRand(void *bw);
 int __attribute__((long_call)) ChooseRandomTarget(void *bw, struct BattleStruct *sp, int client);
 
 /**
- *  @brief  count how many moves a battler has and return it.  used for last resort
+ *  @brief count how many moves a battler has and return it.  used for last resort
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1412,7 +1412,7 @@ int __attribute__((long_call)) ChooseRandomTarget(void *bw, struct BattleStruct 
 int __attribute__((long_call)) CountBattlerMoves(void *bw, struct BattleStruct *sp, int client_no);
 
 /**
- *  @brief  check if battler's ability will heal its status
+ *  @brief check if battler's ability will heal its status
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1423,7 +1423,7 @@ int __attribute__((long_call)) CountBattlerMoves(void *bw, struct BattleStruct *
 u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, struct BattleStruct *sp, int client_no, int act_flag);
 
 /**
- *  @brief  check if the held item will heal the battler of its status
+ *  @brief check if the held item will heal the battler of its status
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1434,7 +1434,7 @@ u32 __attribute__((long_call)) AbilityStatusRecoverCheck(void *bw, struct Battle
 u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
- *  @brief  grab the held item effect of the client
+ *  @brief grab the held item effect of the client
  *
  *  @param sp global battle structure
  *  @param client_no battler to grab from
@@ -1443,7 +1443,7 @@ u32 __attribute__((long_call)) HeldItemHealCheck(void *bw, struct BattleStruct *
 int __attribute__((long_call)) HeldItemHoldEffectGet(struct BattleStruct *sp, int client_no);
 
 /**
- *  @brief  grab the held item effect parameter of the client
+ *  @brief grab the held item effect parameter of the client
  *
  *  @param sp global battle structure
  *  @param client_no battler to grab from
@@ -1453,7 +1453,7 @@ int __attribute__((long_call)) HeldItemHoldEffectGet(struct BattleStruct *sp, in
 int __attribute__((long_call)) HeldItemAtkGet(struct BattleStruct *sp, int client_no, int flag);
 
 /**
- *  @brief  check to see if client_no has already moved this turn
+ *  @brief check to see if client_no has already moved this turn
  *
  *  @param sp global battle structure
  *  @param client_no battler to check
@@ -1462,7 +1462,7 @@ int __attribute__((long_call)) HeldItemAtkGet(struct BattleStruct *sp, int clien
 u32 __attribute__((long_call)) IsMovingAfterClient(struct BattleStruct *sp, int client_no);
 
 /**
- *  @brief  check if client_no has a substitute up
+ *  @brief check if client_no has a substitute up
  *
  *  @param sp global battle structure
  *  @param client_no battler to check
@@ -1471,14 +1471,14 @@ u32 __attribute__((long_call)) IsMovingAfterClient(struct BattleStruct *sp, int 
 u32 __attribute__((long_call)) CheckSubstitute(struct BattleStruct *sp, int client_no);
 
 /**
- *  @brief  grab seed value for general PRNG
+ *  @brief grab seed value for general PRNG
  *
  *  @return general PRNG seed
  */
 u32 __attribute__((long_call)) gf_get_seed(void);
 
 /**
- *  @brief  get battle status flag from battle work structure.  used to check if in distortion world only at the moment
+ *  @brief get battle status flag from battle work structure.  used to check if in distortion world only at the moment
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return battle status flag
@@ -1486,7 +1486,7 @@ u32 __attribute__((long_call)) gf_get_seed(void);
 u32 __attribute__((long_call)) BattleWorkBattleStatusFlagGet(void *bw);
 
 /**
- *  @brief  copy PartyPokemon to other PartyPokemon
+ *  @brief copy PartyPokemon to other PartyPokemon
  *
  *  @param pp_src source PartyPokemon
  *  @param pp_dest target PartyPokemon
@@ -1494,7 +1494,7 @@ u32 __attribute__((long_call)) BattleWorkBattleStatusFlagGet(void *bw);
 void __attribute__((long_call)) PokeCopyPPtoPP(struct PartyPokemon *pp_src, struct PartyPokemon *pp_dest);
 
 /**
- *  @brief  copy relevant BattlePokemon fields to PartyPokemon
+ *  @brief copy relevant BattlePokemon fields to PartyPokemon
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1504,7 +1504,7 @@ void __attribute__((long_call)) PokeCopyPPtoPP(struct PartyPokemon *pp_src, stru
 void __attribute__((long_call)) SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *sp, int send_client);
 
 /**
- *  @brief  change giratina's form if necessary
+ *  @brief change giratina's form if necessary
  *
  *  @param pp PartyPokemon to check form change
  *  @return TRUE if form was changed; FALSE otherwise
@@ -1512,7 +1512,7 @@ void __attribute__((long_call)) SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *
 int __attribute__((long_call)) PokeParaGiratinaFormChange(struct PartyPokemon *pp);
 
 /**
- *  @brief  load sprites and such for one case, not sure
+ *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param cp 
@@ -1521,7 +1521,7 @@ int __attribute__((long_call)) PokeParaGiratinaFormChange(struct PartyPokemon *p
 void __attribute__((long_call)) CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_ENCOUNT_PARAM *pep);
 
 /**
- *  @brief  load sprites and such for one case, not sure
+ *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param cp 
@@ -1530,7 +1530,7 @@ void __attribute__((long_call)) CT_PokemonEncountSet(void *bw, struct CLIENT_PAR
 void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 
 /**
- *  @brief  load sprites and such for one case, not sure
+ *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param cp 
@@ -1539,14 +1539,14 @@ void __attribute__((long_call)) CT_PokemonEncountAppearSet(void *bw, struct CLIE
 void __attribute__((long_call)) CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 
 /**
- *  @brief  reset client param for battle continuation
+ *  @brief reset client param for battle continuation
  *
  *  @param cp cp to reset
  */
 void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
 
 /**
- *  @brief  grab client param from battle work structure for client
+ *  @brief grab client param from battle work structure for client
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client to grab client param for
@@ -1555,7 +1555,7 @@ void __attribute__((long_call)) ClientCommandReset(struct CLIENT_PARAM *cp);
 struct CLIENT_PARAM *__attribute__((long_call)) BattleWorkClientParamGet(void *bw, u32 client);
 
 /**
- *  @brief  grab client_no's actual Party structure
+ *  @brief grab client_no's actual Party structure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client_no battler whose party to grab
@@ -1564,7 +1564,7 @@ struct CLIENT_PARAM *__attribute__((long_call)) BattleWorkClientParamGet(void *b
 struct Party *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int client_no);
 
 /**
- *  @brief  grab maximum possible members in party (it's not always 6 depending on context)
+ *  @brief grab maximum possible members in party (it's not always 6 depending on context)
  *
  *  @param party party to count total possible of
  *  @return maximum members allowed
@@ -1572,7 +1572,7 @@ struct Party *__attribute__((long_call)) BattleWorkPokePartyGet(void *bw, int cl
 int __attribute__((long_call)) PokeParty_GetPokeCountMax(const struct Party *party); // this function is cursed to be arm for no fucking reason whatsoever
 
 /**
- *  @brief  grab the partner for a battler.  equivalent to BATTLER_ALLY(client_no)
+ *  @brief grab the partner for a battler.  equivalent to BATTLER_ALLY(client_no)
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client_no battler whose ally to grab
@@ -1581,7 +1581,7 @@ int __attribute__((long_call)) PokeParty_GetPokeCountMax(const struct Party *par
 int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client_no);
 
 /**
- *  @brief  grab communication id for interconsole communications
+ *  @brief grab communication id for interconsole communications
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return communication id for interconsole communications
@@ -1589,7 +1589,7 @@ int __attribute__((long_call)) BattleWorkPartnerClientNoGet(void *bw, int client
 u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
 
 /**
- *  @brief  grab player's position in wireless multi battles
+ *  @brief grab player's position in wireless multi battles
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param id the communication id--can be grabbed using BattleWorkCommIDGet
@@ -1598,7 +1598,7 @@ u16 __attribute__((long_call)) BattleWorkCommIDGet(void *bw);
 int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
 
 /**
- *  @brief  increment a record in the save
+ *  @brief increment a record in the save
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param attack_client the battler whose record to increment
@@ -1608,7 +1608,7 @@ int __attribute__((long_call)) BattleWorkCommStandNoGet(void *bw, u16 id);
 void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int param1, int param2);
 
 /**
- *  @brief  check if a status condition should be recovered on switch by an ability.  think natural cure
+ *  @brief check if a status condition should be recovered on switch by an ability.  think natural cure
  *
  *  @param sp global battle structure
  *  @param ability 
@@ -1618,7 +1618,7 @@ void __attribute__((long_call)) SCIO_IncRecord(void *bw, int attack_client, int 
 BOOL __attribute__((long_call)) CheckStatusRecoverFromAbilityOnSwitch(struct BattleStruct *sp, int ability, int condition);
 
 /**
- *  @brief  check if pressure should further decrement power points
+ *  @brief check if pressure should further decrement power points
  *
  *  @param sp global battle structure
  *  @param attack battler that is attacking
@@ -1627,7 +1627,7 @@ BOOL __attribute__((long_call)) CheckStatusRecoverFromAbilityOnSwitch(struct Bat
 void __attribute__((long_call)) CheckPressureForPPDecrease(struct BattleStruct *sp, int attack, int defence);
 
 /**
- *  @brief  grab move position in a BattlePokemon's moves array based on the move index
+ *  @brief grab move position in a BattlePokemon's moves array based on the move index
  *
  *  @param battlemon BattlePokemon whose moves to check
  *  @param move move to look for
@@ -1636,7 +1636,7 @@ void __attribute__((long_call)) CheckPressureForPPDecrease(struct BattleStruct *
 int __attribute__((long_call)) GetBattlePokemonMovePosFromMove(struct BattlePokemon *battlemon, u16 move);
 
 /**
- *  @brief  check if the battle scene option permits move animations to play
+ *  @brief check if the battle scene option permits move animations to play
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return TRUE if animations can play; FALSE otherwise
@@ -1644,7 +1644,7 @@ int __attribute__((long_call)) GetBattlePokemonMovePosFromMove(struct BattlePoke
 BOOL __attribute__((long_call)) CheckBattleAnimationsOption(void *bw);
 
 /**
- *  @brief  queue move animation as part of the playanimation script command
+ *  @brief queue move animation as part of the playanimation script command
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1653,7 +1653,7 @@ BOOL __attribute__((long_call)) CheckBattleAnimationsOption(void *bw);
 void __attribute__((long_call)) SCIO_QueueMoveAnimation(void *bw, struct BattleStruct *sp, u16 move);
 
 /**
- *  @brief  queue move animation as part of the playanimation2 script command.  playanimation2 passes attacker and defender, so this function takes attacker and defender
+ *  @brief queue move animation as part of the playanimation2 script command.  playanimation2 passes attacker and defender, so this function takes attacker and defender
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1664,7 +1664,7 @@ void __attribute__((long_call)) SCIO_QueueMoveAnimation(void *bw, struct BattleS
 void __attribute__((long_call)) SCIO_QueueMoveAnimationConsiderAttackerDefender(void *bw, struct BattleStruct *sp, u16 move, int attack, int defence);
 
 /**
- *  @brief  load subscript to the SkillSeqWork field of the BattleStruct and reset the pc for the battle script VM, effectively jumping to the subseq
+ *  @brief load subscript to the SkillSeqWork field of the BattleStruct and reset the pc for the battle script VM, effectively jumping to the subseq
  *  only works from the context of a battle script command
  *
  *  @param sp global battle structure
@@ -1674,7 +1674,7 @@ void __attribute__((long_call)) SCIO_QueueMoveAnimationConsiderAttackerDefender(
 void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int file, int subfile);
 
 /**
- *  @brief  checks if anyone should faint, queuing up the steps to do so if so
+ *  @brief checks if anyone should faint, queuing up the steps to do so if so
  *
  *  @param sp global battle structure
  *  @param next_seq server step to queue up
@@ -1685,7 +1685,7 @@ void __attribute__((long_call)) SkillSequenceGosub(struct BattleStruct *sp, int 
 int __attribute__((long_call)) CheckIfAnyoneShouldFaint(struct BattleStruct *sp, int next_seq, int no_set_seq, int flag);
 
 /**
- *  @brief  grabs some structure from the battle work structure (source name)
+ *  @brief grabs some structure from the battle work structure (source name)
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return bgl
@@ -1693,7 +1693,7 @@ int __attribute__((long_call)) CheckIfAnyoneShouldFaint(struct BattleStruct *sp,
 void *__attribute__((long_call)) BattleWorkGF_BGL_INIGet(void *bw);
 
 /**
- *  @brief  get a specific item's item data from the item field in the BattleStruct
+ *  @brief get a specific item's item data from the item field in the BattleStruct
  *
  *  @param sp global battle structure
  *  @param item the item index
@@ -1703,7 +1703,7 @@ void *__attribute__((long_call)) BattleWorkGF_BGL_INIGet(void *bw);
 u32 __attribute__((long_call)) GetBattleItemData(struct BattleStruct *sp, u16 item, u32 field);
 
 /**
- *  @brief  get the field id that the battle is occurring on
+ *  @brief get the field id that the battle is occurring on
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return battle background type.  used for burmy and such
@@ -1711,7 +1711,7 @@ u32 __attribute__((long_call)) GetBattleItemData(struct BattleStruct *sp, u16 it
 u32 __attribute__((long_call)) BattleWorkGroundIDGet(void *bw);
 
 /**
- *  @brief  check if the species has been registered as caught in the pokédex
+ *  @brief check if the species has been registered as caught in the pokédex
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param species species to check if caught
@@ -1720,7 +1720,7 @@ u32 __attribute__((long_call)) BattleWorkGroundIDGet(void *bw);
 BOOL __attribute__((long_call)) Battle_CheckIfHasCaughtMon(void *bw, u32 species);
 
 /**
- *  @brief  grab time of day from battle work structure
+ *  @brief grab time of day from battle work structure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return time of day; 0 is morning, 1 is day, 2 is evening, 3 is night, 4 is morning before 4 am
@@ -1728,7 +1728,7 @@ BOOL __attribute__((long_call)) Battle_CheckIfHasCaughtMon(void *bw, u32 species
 u32 __attribute__((long_call)) Battle_GetTimeOfDay(void *bw);
 
 /**
- *  @brief  check if the current encounter is a fishing encounter
+ *  @brief check if the current encounter is a fishing encounter
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @return TRUE if a fishing encounter is under way
@@ -1736,7 +1736,7 @@ u32 __attribute__((long_call)) Battle_GetTimeOfDay(void *bw);
 BOOL __attribute__((long_call)) Battle_IsFishingEncounter(void *bw);
 
 /**
- *  @brief  check if held item effect needs to activate, specifically directly after moves. for things like healing items
+ *  @brief check if held item effect needs to activate, specifically directly after moves. for things like healing items
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1746,7 +1746,7 @@ BOOL __attribute__((long_call)) Battle_IsFishingEncounter(void *bw);
 BOOL __attribute__((long_call)) HeldItemEffectCheck(void *bw, struct BattleStruct *sp, int client_no);
 
 /**
- *  @brief  check if held item effect needs to activate, specifically directly after moves.  for things like status items
+ *  @brief check if held item effect needs to activate, specifically directly after moves.  for things like status items
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1757,7 +1757,7 @@ BOOL __attribute__((long_call)) HeldItemEffectCheck(void *bw, struct BattleStruc
 BOOL __attribute__((long_call)) HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
- *  @brief  
+ *  @brief 
  *
  *  @param sp global battle structure
  *  @param attack_client battler that is the attacker
@@ -1770,7 +1770,7 @@ BOOL __attribute__((long_call)) HeldItemHealStatusCheck(void *bw, struct BattleS
 int __attribute__((long_call)) TypeCheckCalc(struct BattleStruct *sp, u32 attack_client, u32 typeModifier, int damage, int base_power, int *flag);
 
 /**
- *  @brief  checks if a 2-turn move is being used so that it can't be canceled by type effectiveness modifiers
+ *  @brief checks if a 2-turn move is being used so that it can't be canceled by type effectiveness modifiers
  *  this function is the source of the fire fang bug!
  *
  *  @param sp global battle structure
@@ -1780,7 +1780,7 @@ int __attribute__((long_call)) TypeCheckCalc(struct BattleStruct *sp, u32 attack
 BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32 move_no);
 
 /**
- *  @brief  checks if the normal type effectiveness calculator should be used for damage modulation.
+ *  @brief checks if the normal type effectiveness calculator should be used for damage modulation.
  *  there are, however, no alternate type effectiveness methods; it just won't apply one
  *
  *  @param sp global battle structure
@@ -1792,7 +1792,7 @@ BOOL __attribute__((long_call)) ShouldDelayTurnEffectivenessChecking(struct Batt
 BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 
 /**
- *  @brief  get party size of certain client
+ *  @brief get party size of certain client
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client_no battler to grab the party size from
@@ -1801,7 +1801,7 @@ BOOL __attribute__((long_call)) ShouldUseNormalTypeEffCalc(struct BattleStruct *
 int __attribute__((long_call)) Battle_GetClientPartySize(void *bw, int client_no);
 
 /**
- *  @brief  get a specific PartyPokemon from a battler's team
+ *  @brief get a specific PartyPokemon from a battler's team
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param client_no battler whose party to retrieve from
@@ -1811,7 +1811,7 @@ int __attribute__((long_call)) Battle_GetClientPartySize(void *bw, int client_no
 struct PartyPokemon *__attribute__((long_call)) Battle_GetClientPartyMon(void *bw, int client_no, int mon_index);
 
 /**
- *  @brief  check if experience is being distributed
+ *  @brief check if experience is being distributed
  *
  *  @param sp global battle structure
  *  @param seq sp->server_seq_no ?
@@ -1821,7 +1821,7 @@ struct PartyPokemon *__attribute__((long_call)) Battle_GetClientPartyMon(void *b
 BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 seq, u32 seq2);
 
 /**
- *  @brief  not sure what this does
+ *  @brief not sure what this does
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1830,7 +1830,7 @@ BOOL __attribute__((long_call)) ServerGetExpCheck(struct BattleStruct *sp, u32 s
 BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruct *sp);
 
 /**
- *  @brief  grab battler given side.  most of the time this is the same number
+ *  @brief grab battler given side.  most of the time this is the same number
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1840,7 +1840,7 @@ BOOL __attribute__((long_call)) ServerZenmetsuCheck(void *bw, struct BattleStruc
 u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleStruct *sp, u32 side);
 
 /**
- *  @brief  check if the battler is in truant
+ *  @brief check if the battler is in truant
  *
  *  @param sp global battle structure
  *  @param client battler to check if in truant's lazy turn
@@ -1849,14 +1849,14 @@ u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleS
 u32 __attribute__((long_call)) ST_CheckIfInTruant(struct BattleStruct *sp, u32 client);
 
 /**
- *  @brief  initialize the global battle structure (?)
+ *  @brief initialize the global battle structure (?)
  *
  *  @param sp global battle structure
  */
 void __attribute__((long_call)) BattleStructureInit(struct BattleStruct *sp);
 
 /**
- *  @brief  initialize counters in the global battle structure (?)
+ *  @brief initialize counters in the global battle structure (?)
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1864,7 +1864,7 @@ void __attribute__((long_call)) BattleStructureInit(struct BattleStruct *sp);
 void __attribute__((long_call)) BattleStructureCounterInit(void *bw, struct BattleStruct *sp);
 
 /**
- *  @brief  initialize the AI from the specified trainer flags (?)
+ *  @brief initialize the AI from the specified trainer flags (?)
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1872,7 +1872,7 @@ void __attribute__((long_call)) BattleStructureCounterInit(void *bw, struct Batt
 void __attribute__((long_call)) ServerMoveAIInit(void *bw, struct BattleStruct *sp);
 
 /**
- *  @brief  dump the move table data to the destination pointer.  used for convenience and speed over using the normal accessor functions that open the narc each time they are called
+ *  @brief dump the move table data to the destination pointer.  used for convenience and speed over using the normal accessor functions that open the narc each time they are called
  *
  *  @param dest pointer to dump move data to
  */
@@ -1880,7 +1880,7 @@ void __attribute__((long_call)) DumpMoveTableData(void *dest);
 
 // AI specific functions
 /**
- *  @brief  like TypeCheckCalc, but for the opposing AI to help make decisions
+ *  @brief like TypeCheckCalc, but for the opposing AI to help make decisions
  *
  *  @see TypeCheckCalc
  *  @param sp global battle structure
@@ -1890,7 +1890,7 @@ void __attribute__((long_call)) DumpMoveTableData(void *dest);
 int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);
 
 /**
- *  @brief  like ShouldUseNormalTypeEffCalc, but for the opposing AI to help make decisions
+ *  @brief like ShouldUseNormalTypeEffCalc, but for the opposing AI to help make decisions
  *
  *  @see ShouldUseNormalTypeEffCalc
  *  @param sp global battle structure
@@ -1904,7 +1904,7 @@ BOOL __attribute__((long_call)) AI_ShouldUseNormalTypeEffCalc(struct BattleStruc
 
 /*Battle Script Function Declarations*/
 /**
- *  @brief  increment battle script VM "program counter" by a certain amount
+ *  @brief increment battle script VM "program counter" by a certain amount
  *
  *  @param sp global battle structure
  *  @param count amount to increment by in words/positions 
@@ -1912,7 +1912,7 @@ BOOL __attribute__((long_call)) AI_ShouldUseNormalTypeEffCalc(struct BattleStruc
 void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
 
 /**
- *  @brief  read battle script parameters + increment "program counter" by 1 when doing so
+ *  @brief read battle script parameters + increment "program counter" by 1 when doing so
  *
  *  @param sp global battle structure
  *  @return battle script parameter read from VM's "program counter"
@@ -1920,7 +1920,7 @@ void __attribute__((long_call)) IncrementBattleScriptPtr(struct BattleStruct *sp
 int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp);
 
 /**
- *  @brief  load specified move effect script and jump to it with potential return?
+ *  @brief load specified move effect script and jump to it with potential return?
  *
  *  @param sp global battle structure
  *  @param archive ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
@@ -1933,7 +1933,7 @@ void __attribute__((long_call)) JumpToMoveEffectScript(struct BattleStruct *sp, 
 
 // defined in battle_calc_damage.c
 /**
- *  @brief  grab a battler's item.  returns 0 if the battler is in embargo or can't hold an item for any other reason
+ *  @brief grab a battler's item.  returns 0 if the battler is in embargo or can't hold an item for any other reason
  *
  *  @param sp global battle structure
  *  @param client_no battler to grab the item of
@@ -1945,7 +1945,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 // defined in battle_pokemon.c
 /**
- *  @brief  check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
+ *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
  *
  *  @see BattleFormChange
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
@@ -1956,7 +1956,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
- *  @brief  get the adjusted move type accounting for normalize.
+ *  @brief get the adjusted move type accounting for normalize.
  *
  *  @see GetAdjustedMoveTypeBasics
  *  @param sp global battle structure
@@ -1966,7 +1966,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // account for normalize and such
 
 /**
- *  @brief  get the adjusted move type accounting for normalize without relying on a client
+ *  @brief get the adjusted move type accounting for normalize without relying on a client
  *
  *  @param sp global battle structure
  *  @param move index of the move to grab type for
@@ -1976,7 +1976,7 @@ u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // accou
 u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type); // AI-specific, client-agnostic
 
 /**
- *  @brief  changes the form of the battler passed in.  updates all of the stats and possibly updates the ability if necessary
+ *  @brief changes the form of the battler passed in.  updates all of the stats and possibly updates the ability if necessary
  *
  *  @param client battler to change form
  *  @param form_no target form id
@@ -1990,7 +1990,7 @@ void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp
 
 // defined in battle_item.c
 /**
- *  @brief  queue up or perform item effects on u-turn hit
+ *  @brief queue up or perform item effects on u-turn hit
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -2000,7 +2000,7 @@ void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp
 u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
- *  @brief  handle shell bell hp restore, rage is building message, and life orb after getting a hit
+ *  @brief handle shell bell hp restore, rage is building message, and life orb after getting a hit
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -2008,7 +2008,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
 
 /**
- *  @brief  handle defender item effects on hit
+ *  @brief handle defender item effects on hit
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -2021,7 +2021,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
 
 // defined in battle_script_commands.c
 /**
- *  @brief  resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
+ *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -2031,7 +2031,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
 int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side);
 
 /**
- *  @brief  load battle script to BattleStruct's SkillSeqWork
+ *  @brief load battle script to BattleStruct's SkillSeqWork
  *
  *  @param sp global battle structure
  *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
@@ -2040,7 +2040,7 @@ int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct 
 void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 
 /**
- *  @brief  load battle script and queue up the current one to go after this one
+ *  @brief load battle script and queue up the current one to go after this one
  *
  *  @param sp global battle structure
  *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
@@ -2052,7 +2052,7 @@ void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp,
 
 // defined in ability.c
 /**
- *  @brief  check if an ability is present and account for mold breaker
+ *  @brief check if an ability is present and account for mold breaker
  *
  *  @param sp global battle structure
  *  @param attacker battler that potentially has mold breaker
@@ -2063,7 +2063,7 @@ void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp,
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
 
 /**
- *  @brief  check if a move should activate the defender's ability and run a subscript
+ *  @brief check if a move should activate the defender's ability and run a subscript
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -2073,7 +2073,7 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
 BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
- *  @brief  handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
+ *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -2085,7 +2085,7 @@ u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
 // defined in other_battle_calculators.c
 /**
- *  @brief  compare battlers to determine who goes first
+ *  @brief compare battlers to determine who goes first
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
