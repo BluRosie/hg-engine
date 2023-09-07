@@ -47,7 +47,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
     {
         sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, atk_item_param);
         sp->client_work = sp->attack_client;
-        seq_no[0] = SUB_SEQ_SHELL_BELL_HEAL;
+        seq_no[0] = SUB_SEQ_ITEM_HP_GRADUAL;
         ret = TRUE;
     }
 
@@ -60,7 +60,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
         sp->client_work = sp->attack_client;
-        seq_no[0] = SUB_SEQ_LIFE_ORB;
+        seq_no[0] = SUB_SEQ_ITEM_HP_LOSS;
         ret = TRUE;
     }
 
@@ -70,7 +70,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
      && (sp->oneSelfFlag[sp->defence_client].physical_damage))
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, def_item_param);
-        seq_no[0] = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+        seq_no[0] = SUB_SEQ_ITEM_DAMAGE_BACK;
         ret = TRUE;
     }
 
@@ -82,7 +82,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
       || (sp->oneSelfFlag[sp->defence_client].special_damage))
         && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
     {
-        seq_no[0] = SUB_SEQ_TRANSFER_STICKY_BARB;
+        seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
         ret = TRUE;
     }
 
@@ -148,7 +148,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                 {
                     sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
                     sp->client_work=sp->attack_client;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHELL_BELL_HEAL);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_GRADUAL);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;
@@ -166,7 +166,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
             {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
                 sp->client_work = sp->attack_client;
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LIFE_ORB);
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_LOSS);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = 22;
                 ret = 1;
@@ -223,7 +223,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 // Attacker used a move that makes contact
                 && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
-                seq_no[0] = SUB_SEQ_TRANSFER_STICKY_BARB;
+                seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
                 ret       = TRUE;
             }
             break;
@@ -238,7 +238,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker dealt physical damage
                 && (sp->oneSelfFlag[sp->defence_client].physical_damage)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]        = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                seq_no[0]        = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret              = TRUE;
             }
             break;
@@ -253,7 +253,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker dealt special damage
                 && (sp->oneSelfFlag[sp->defence_client].special_damage)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]        = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                seq_no[0]        = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret              = TRUE;
             }
             break;
@@ -265,7 +265,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
                 sp->client_work = sp->defence_client;
                 sp->item_work   = sp->battlemon[sp->defence_client].item;
-                seq_no[0]       = SUB_SEQ_HANDLE_ITEM_RESTORE_HP;
+                seq_no[0]       = SUB_SEQ_ITEM_HP_RESTORE;
                 ret             = TRUE;
             }
             break;
@@ -366,7 +366,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker used a move that makes contact
                 && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
                 sp->hp_calc_work         = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                seq_no[0]                = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret                      = TRUE;
             }
             break;

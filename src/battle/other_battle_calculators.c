@@ -865,7 +865,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->client_work = sp->defence_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUBSTITUTE_HIT);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
             sp->server_seq_no = 22;
             sp->next_server_seq_no = 29;
         }
@@ -950,7 +950,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             sp->client_work = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CALC);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
             sp->server_seq_no = 22;
             sp->next_server_seq_no = 29;
 

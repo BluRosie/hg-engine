@@ -191,7 +191,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
                     sp->battlemon[sp->client_work].form_no = 0;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -202,7 +202,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_FIRE;
                     sp->battlemon[sp->client_work].form_no = 1;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -213,7 +213,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_WATER;
                     sp->battlemon[sp->client_work].form_no = 2;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -224,7 +224,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_ICE;
                     sp->battlemon[sp->client_work].form_no = 3;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -237,7 +237,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
                     sp->battlemon[sp->client_work].form_no = 0;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -255,7 +255,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                  && (sp->battlemon[sp->client_work].form_no == 1))
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -263,7 +263,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                       && (sp->battlemon[sp->client_work].form_no == 0))
                 {
                     sp->battlemon[sp->client_work].form_no = 1;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -271,7 +271,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                       && (sp->battlemon[sp->client_work].form_no == 1))
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -279,7 +279,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                       && (sp->battlemon[sp->client_work].form_no == 1))
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -289,7 +289,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 if (sp->battlemon[sp->client_work].form_no == 1)
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -305,7 +305,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[sp->client_work].form_no != form_no)
             {
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -320,7 +320,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[sp->client_work].form_no != form_no)
             {
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -366,13 +366,13 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     sp->server_status_flag2 |= SERVER_STATUS_FLAG2_FORM_CHANGE;
                     SCIO_PSPtoPPCopy(bw, sp, sp->client_work);
                     sys_FreeMemoryEz(pp);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
                 else
                 {
-                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHECK;
                     ret = TRUE;
                     break;
                 }
@@ -388,7 +388,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no += 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
             break;
         } else if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
@@ -398,7 +398,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no -= 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -433,7 +433,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no = 1;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -446,7 +446,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[sp->client_work].form_no != form_no)
             {
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -461,7 +461,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 SetMonData(pp2, MON_DATA_FORM, &form_no);
                 ret = TRUE;
                 break;
@@ -493,7 +493,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no = 1;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
         } else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
          && (sp->battlemon[sp->client_work].hp)
@@ -502,7 +502,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no = 0;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
         }
     }
