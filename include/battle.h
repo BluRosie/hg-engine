@@ -1847,10 +1847,6 @@ u32 __attribute__((long_call)) ST_ServerDir2ClientNoGet(void *bw, struct BattleS
  *  @return TRUE if battler is in truant lazy turn; FALSE otherwise
  */
 u32 __attribute__((long_call)) ST_CheckIfInTruant(struct BattleStruct *sp, u32 client);
-void __attribute__((long_call)) BattleStructureInit(struct BattleStruct *sp);
-void __attribute__((long_call)) BattleStructureCounterInit(void *bw, struct BattleStruct *sp);
-void __attribute__((long_call)) ServerMoveAIInit(void *bw, struct BattleStruct *sp);
-void __attribute__((long_call)) DumpMoveTableData(void *dest);
 
 /**
  *  @brief  initialize the global battle structure (?)
