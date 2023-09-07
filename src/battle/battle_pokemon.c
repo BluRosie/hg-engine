@@ -363,7 +363,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     sp->battlemon[sp->client_work].spdef =   GetMonData(pp, MON_DATA_SPECIAL_DEFENSE, 0);
                     sp->battlemon[sp->client_work].ability = GetMonData(pp, MON_DATA_ABILITY,         0);
                     sp->battlemon[sp->client_work].form_no = 0;
-                    sp->server_status_flag2 |= SERVER_STATUS2_FLAG_FORM_CHANGE;
+                    sp->server_status_flag2 |= SERVER_STATUS_FLAG2_FORM_CHANGE;
                     SCIO_PSPtoPPCopy(bw, sp, sp->client_work);
                     sys_FreeMemoryEz(pp);
                     *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
@@ -522,8 +522,8 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     if (/*(pep->monsno == SPECIES_ZORUA || pep->monsno == SPECIES_ZOROARK)
      && */GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
-        u8 count = party->PokeCount;
+        struct Party *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->count;
         u16 strbuf[11];
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), MON_DATA_SPECIES, NULL);
@@ -566,8 +566,8 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     if (/*(pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
      && */GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
-        u8 count = party->PokeCount;
+        struct Party *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->count;
         u16 strbuf[11];
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), MON_DATA_SPECIES, NULL);
@@ -610,8 +610,8 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     if (/*(pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
      && */GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
-        u8 count = party->PokeCount;
+        struct Party *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->count;
         u16 strbuf[11];
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), MON_DATA_SPECIES, NULL);
@@ -661,11 +661,11 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
      //&& gIllusionStruct.isSideInIllusion[client & 1]
        )
     {
-        struct POKEPARTY *party;
+        struct Party *party;
         u32 count;
 
         party = BattleWorkPokePartyGet(bw, side);
-        count = party->PokeCount - 1;
+        count = party->count - 1;
 
         ret |= count << 8;
     }
@@ -685,7 +685,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
 {
     if (cp->client_type & 1)
     {
-        struct POKEPARTY *party;
+        struct Party *party;
         u32 count = 0;
         u32 species = 0;
         u32 ability = 0;
@@ -697,7 +697,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
          && */ability == ABILITY_ILLUSION)
         {
-            smp->sel_mons_no = party->PokeCount - 1;
+            smp->sel_mons_no = party->count - 1;
         }
 
         if ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0)
@@ -718,7 +718,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
     }
     else
     {
-        struct POKEPARTY *party;
+        struct Party *party;
         u32 count = 0;
         u32 species = 0;
         u32 ability = 0;
@@ -730,7 +730,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
          && */ability == ABILITY_ILLUSION)
         {
-            smp->sel_mons_no = party->PokeCount - 1;
+            smp->sel_mons_no = party->count - 1;
         }
 
         if (((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) == 0)
@@ -789,7 +789,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         }
 
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -801,13 +801,13 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
              && */ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client1] = party->PokeCount - 1;
+                esomp->sel_mons_no[client1] = party->count - 1;
             }
         }
 
         if (client1 != client2)
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -819,7 +819,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
              && */ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client2] = party->PokeCount - 1;
+                esomp->sel_mons_no[client2] = party->count - 1;
             }
         }
 
@@ -945,7 +945,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         }
 
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -957,13 +957,13 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
              && */ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client1] = party->PokeCount - 1;
+                esomp->sel_mons_no[client1] = party->count - 1;
             }
         }
 
         if (client1 != client2)
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -975,7 +975,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
              && */ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client2] = party->PokeCount - 1;
+                esomp->sel_mons_no[client2] = party->count - 1;
             }
         }
 

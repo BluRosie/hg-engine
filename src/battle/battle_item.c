@@ -115,7 +115,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
     hold_effect = HeldItemHoldEffectGet(sp, sp->attack_client);
     hold_effect_param = HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL);
 
-    if (ServerKizetsuCheck(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
+    if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
     {
         return TRUE;
     }
@@ -139,7 +139,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
             if(sp->defence_client != 0xFF)
             {
                 if ((hold_effect == HOLD_EFFECT_HP_RESTORE_ON_DMG)
-                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                  && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
                  && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
                  && (sp->attack_client != sp->defence_client)
@@ -148,7 +148,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                 {
                     sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
                     sp->client_work=sp->attack_client;
-                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_SHELL_BELL_HEAL);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHELL_BELL_HEAL);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;
@@ -159,14 +159,14 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
         case SWHAC_HELD_ITEM_LIFE_ORB:
             if ((hold_effect == HOLD_EFFECT_HP_DRAIN_ON_ATK)
              && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_MAGIC_GUARD)
-             && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
              && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
              && (sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS)
              && (sp->battlemon[sp->attack_client].hp))
             {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
                 sp->client_work = sp->attack_client;
-                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_LIFE_ORB);
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LIFE_ORB);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = 22;
                 ret = 1;

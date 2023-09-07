@@ -2,7 +2,8 @@
 #define CONSTANTS_FILE_H
 
 //NARC files
-#define ARC_SUB_SEQ 1
+#define ARC_BATTLE_MOVE_SEQ 0
+#define ARC_BATTLE_SUB_SEQ 1
 #define ARC_PERSONAL 2
 #define ARC_MON_PIC 4
 #define ARC_BATTLE_GFX 8
@@ -12,6 +13,7 @@
 #define ARC_POKEICON 20
 #define ARC_CODE_ADDONS 28
 #define ARC_BATTLE_PARTICLES 29
+#define ARC_BATTLE_EFF_SEQ 30
 #define ARC_EVOLUTIONS 34
 #define ARC_OTHER_MON_PIC 114
 #define ARC_EGG_MOVES 231 // 229 because of the two random ones

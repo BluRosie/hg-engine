@@ -830,14 +830,14 @@ BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
         move = sp->current_move_index;
     }
 
-    if ((((sp->server_status_flag & SERVER_STATUS_FLAG_NO_ANIMATIONS) == 0)
-      && (BattleWorkConfigWazaEffectOnOffCheck(bw) == TRUE))
+    if ((((sp->server_status_flag & SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING) == 0)
+      && (CheckBattleAnimationsOption(bw) == TRUE))
      || (move == MOVE_TRANSFORM || move == MOVE_470)) // mega evolution is animation 470--force it to play regardless of whether or not animations are on
     {
-        sp->server_status_flag |= SERVER_STATUS_FLAG_NO_ANIMATIONS;
-        SCIO_WazaEffectSet(bw, sp, move);
+        sp->server_status_flag |= SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING;
+        SCIO_QueueMoveAnimation(bw, sp, move);
     }
-    if (BattleWorkConfigWazaEffectOnOffCheck(bw) == FALSE)
+    if (CheckBattleAnimationsOption(bw) == FALSE)
     {
         SkillSequenceGosub(sp, 1, SUB_SEQ_WAIT_FOR_UNPLAYED_ANIMATION);
     }
@@ -867,14 +867,14 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
     cli_a = GrabClientFromBattleScriptParam(bw, sp, attack);
     cli_d = GrabClientFromBattleScriptParam(bw, sp, defence);
 
-    if ((((sp->server_status_flag & SERVER_STATUS_FLAG_NO_ANIMATIONS)==0)
-      && (BattleWorkConfigWazaEffectOnOffCheck(bw) == TRUE))
+    if ((((sp->server_status_flag & SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING) == 0)
+      && (CheckBattleAnimationsOption(bw) == TRUE))
      || (move == MOVE_TRANSFORM || move == MOVE_470))
     {
-        sp->server_status_flag |= SERVER_STATUS_FLAG_NO_ANIMATIONS;
-        SCIO_WazaEffect2Set(bw, sp, move, cli_a, cli_d);
+        sp->server_status_flag |= SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING;
+        SCIO_QueueMoveAnimationConsiderAttackerDefender(bw, sp, move, cli_a, cli_d);
     }
-    if (BattleWorkConfigWazaEffectOnOffCheck(bw) == FALSE)
+    if (CheckBattleAnimationsOption(bw) == FALSE)
     {
         SkillSequenceGosub(sp, 1, SUB_SEQ_WAIT_FOR_UNPLAYED_ANIMATION);
     }
@@ -1072,7 +1072,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     {
         expcalc->sp->mons_getting_exp = 0;
         expcalc->sp->mons_getting_exp_from_item = 0;
-        for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->PokeCount; i++)
+        for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->count; i++)
         {
             pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
             if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
@@ -1377,7 +1377,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
      && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
      && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
      && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-     && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0))
+     && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
     {
         sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
     }
@@ -1945,7 +1945,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
 
         // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
         if ((sp->battlemon[client_no].ability != ABILITY_NATURAL_CURE)
-         && (ST_ServerTokuseiStatusRecoverReshuffleCheck(sp, ability, condition) == FALSE)) // SwitchAbilityStatusRecoverCheck
+         && (CheckStatusRecoverFromAbilityOnSwitch(sp, ability, condition) == FALSE))
         {
             IncrementBattleScriptPtr(sp, address);
         }
