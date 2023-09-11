@@ -14,6 +14,27 @@
 #include "../../include/constants/file.h"
 
 
+
+// function declarations from this file
+int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
+BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
+int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
+BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value);
+u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
+BOOL MummyAbilityCheck(struct BattleStruct *sp);
+BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
+u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
+BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+//BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+//u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
+BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
+void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
+//u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
+void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
+
+
+
 extern const u8 StatBoostModifiers[][2];
 
 const u16 SoundproofMoveList[] =
@@ -90,6 +111,15 @@ const u16 PowderMoveList[] = {
     MOVE_SPORE,
 };
 
+
+/**
+ *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
+ *
+ *  @param sp global battle structure
+ *  @param attacker battler whose move to check
+ *  @param defender battler whose ability to check
+ *  @return subscript to run if the ability negates the move; else 0
+ */
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender)
 {
     int scriptnum = 0;
@@ -253,25 +283,50 @@ enum
     SWITCH_IN_CHECK_CHECK_END,
 };
 
-BOOL IntimidateCheckHelper(u16 ability) //TODO adjust Intimidate switch-in check to call this
+/**
+ *  @brief see if the ability intimidate should activate depending on the abilities/stat stages it is up against
+ *         assumption is that the client has already been checked for intimidate's presence; we don't need to here
+ *
+ *  @param sp global battle structure
+ *  @param client battler to check if either opponent has an ability that doesn't negate intimidate
+ *  @return TRUE if intimidate can get through either of the opponent's abilities; FALSE otherwise
+ */
+BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
 {
-    switch (ability) {
-        case ABILITY_INNER_FOCUS:
-        case ABILITY_SCRAPPY:
-        case ABILITY_OBLIVIOUS:
-        case ABILITY_OWN_TEMPO:
-        case ABILITY_FULL_METAL_BODY:
-            return TRUE;
-        default:
-            return FALSE;
+    u32 clientCheck;
+    for (int i = 0; i < 2; i++)
+    {
+        clientCheck = i ? BATTLER_ACROSS(client) : BATTLER_OPPONENT(client);
+        if (sp->battlemon[clientCheck].hp
+         && sp->battlemon[clientCheck].states[STAT_ATTACK] > 0)
+        {
+            u32 ability = GetBattlerAbility(sp, clientCheck);
+            switch (ability)
+            {
+            case ABILITY_INNER_FOCUS:
+            case ABILITY_SCRAPPY:
+            case ABILITY_OBLIVIOUS:
+            case ABILITY_OWN_TEMPO:
+            case ABILITY_FULL_METAL_BODY:
+                break;
+            default: // intimidate can affect at least one opposing battler
+                return TRUE;
+            }
+        }
     }
+    return FALSE; // neither opposing battler has an ability that intimidate can activate on
 }
 
 
-// this function is actually sorta just run whenever it can, but it's best to think of it as on switch in
-// other item functions happen when they can and aren't ever really on switch in, so those meant to be covered on switch in are done so here
 
-
+/**
+ *  @brief this function is basically run whenever it can (i.e. if a battler suddenly gains Mold Breaker), but it's easiest to think of it as on switch in.
+ *         various items were introduced that should also happen ASAP, particularly the air balloon message.
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @return script subseq to run if there's one that should be run; 0 if nothing should be run
+ */
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {   int i;
     int scriptnum = 0;
@@ -458,7 +513,8 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     client_no = sp->turn_order[i];
                     if ((sp->battlemon[client_no].intimidate_flag == 0)
                         && (sp->battlemon[client_no].hp)
-                        && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE))
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE)
+                        && (IntimidateCheckHelper(sp, client_no)))
                     {
                         sp->battlemon[client_no].intimidate_flag = 1;
                         sp->client_work = client_no;
@@ -1102,6 +1158,14 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     return scriptnum;
 }
 
+/**
+ *  @brief check if any specific stat stage is not at the passed value
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose stat stages to check
+ *  @param value to check for.  made flexible for every circumstance, i.e. Moody needs to check if any stat can be raised/lowered
+ *  @return TRUE if there is a stat stage not at the passed value; FALSE otherwise (yes accuracy and evasion count too)
+ */
 BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value)
 {
     for (int i = 0; i < 7; i++)
@@ -1115,6 +1179,14 @@ BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value)
     return FALSE;
 }
 
+/**
+ *  @brief check if client_no's ability should activate, specifically at the end of the turn.  loads subseq and returns TRUE if it should
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param client_no is the battler whose ability to check for
+ *  @return TRUE if subseq was loaded; FALSE otherwise
+ */
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
 {
     u32 ret = FALSE;
@@ -1266,6 +1338,12 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     return ret;
 }
 
+/**
+ *  @brief check if mummy can overwrite the attacker's ability
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if the ability can be overwritten; FALSE otherwise
+ */
 BOOL MummyAbilityCheck(struct BattleStruct *sp)
 {
     switch(GetBattlerAbility(sp, sp->attack_client))
@@ -1287,6 +1365,13 @@ BOOL MummyAbilityCheck(struct BattleStruct *sp)
     }
 }
 
+/**
+ *  @brief check if the client_no's item can be stolen by pickpocket
+ *
+ *  @param sp global battle structure
+ *  @param client_no battler whose item to check
+ *  @return TRUE if the item can be stolen; FALSE otherwise
+ */
 BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
 {
     switch(GetBattleMonItem(sp, client_no))
@@ -1303,6 +1388,13 @@ BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
     }
 }
 
+/**
+ *  @brief grab which of the client's raw stats (excluding HP) are the highest for the ability beast boost
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose stats to compare among themselves for beast boost
+ *  @return the highest raw stat the the client has (excluding HP)
+ */
 u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
@@ -1324,6 +1416,14 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 }
 
 
+/**
+ *  @brief check if the attacker's ability should queue up a subscript or not.
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no the subscript number to load and run
+ *  @return TRUE if a script should be run and is in *seq_no; FALSE otherwise
+ */
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
@@ -1435,7 +1535,16 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 }
 
 
-BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no) {
+/**
+ *  @brief check if a move should activate the defender's ability and run a subscript
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no battle subscript to run
+ *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
+ */
+BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+{
     BOOL ret = FALSE;
     u32 move_pos;
 
@@ -1900,6 +2009,15 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 }
 
 
+/**
+ *  @brief check if an ability is present and account for mold breaker
+ *
+ *  @param sp global battle structure
+ *  @param attacker battler that potentially has mold breaker
+ *  @param defender battler whose ability to check
+ *  @param ability ability to check for
+ *  @return TRUE if the defender has the ability and it isn't canceled by mold breaker; FALSE otherwise
+ */
 u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability)
 {
     BOOL ret;
@@ -1927,6 +2045,14 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
     return ret;
 }
 
+/**
+ *  @brief check if synchronize should activate
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param server_seq_no current server step, to be queued as sp->next_server_seq_no if a synchronize check passes
+ *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
+ */
 BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
 {
     BOOL ret;
@@ -2017,6 +2143,13 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 }
 
 
+/**
+ *  @brief check if the sp->defence_client should flinch and load the subscript if so
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE if the subseq was loaded and a flinch is successful; FALSE otherwise
+ */
 BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
 {
     BOOL ret = FALSE;
@@ -2075,7 +2208,12 @@ enum
     SEQ_LOOP_FLINCH_CHECK,
 };
 
-// fuck moxie
+/**
+ *  @brief run the end-of-turn checks for everything.  critical hit message, move effectiveness message, call MoveHitAttackerAbilityCheck and MoveHitDefenderAbilityCheck as well
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 {
     switch(sp->swoam_type)
@@ -2240,6 +2378,13 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 }
 
 
+/**
+ *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE to signal that the battle subscript was loaded and to run it; FALSE otherwise
+ */
 u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 {
     int i;
@@ -2309,7 +2454,13 @@ enum
 };
 
 
-// this is primarily added to add scald's melting of the opponent
+/**
+ *  @brief do post move effects--synchronize, held item effects, ice thawing from move usage, etc.
+ *         no other abilities here though.  primarily here to add scald melting frozen battlers
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 {
     switch(sp->swoak_seq_no)
