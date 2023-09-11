@@ -15,12 +15,13 @@ SYSTEM = $(shell grep -i -q 'microsoft' /proc/version; echo $$?)
 UBUNTU = $(shell grep -i -q 'ubuntu' /proc/version; echo $$?)
 
 ifeq ($(SYSTEM), 0)
+# fuck it windows on ubuntu just use mono
 EXE := .exe
-SEP := \\
+SEP := /
 
 SWAV2SWAR := tools/swav2swar.exe
 BTX := tools/pngtobtx0.exe
-CSC = csc$(EXE)
+CSC = mcs -pkg:dotnet
 else
 EXE := 
 SEP := /
