@@ -14,16 +14,51 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+struct EXP_CALCULATOR
+{
+    /* 0x00 */ void *bw;
+    /* 0x04 */ struct BattleStruct *sp;
+    /* 0x08 */ u8 unk8[0x28-0x8];
+    /* 0x28 */ u32 seq_no;
+    /* 0x2C */ u32 ballID;
+    /* 0x30 */ u32 work[8];
+}; // size = 0x50
 
+typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
+#define START_OF_NEW_BTL_SCR_CMDS 0xE1
+extern const btl_scr_cmd_func BattleScriptCmdTable[];
+
+// function declarations
+BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp);
+//int read_battle_script_param(struct BattleStruct *sp);
+//void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
+//void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
+//int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side);
+//BOOL Link_QueueIsEmpty(struct BattleStruct *sp);
+BOOL btl_scr_cmd_0E_waitmessage(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp);
+void Task_DistributeExp_Extend(void *arg0, void *work);
+BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
+BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
+s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client);
+BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp);
-
-typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
-#define START_OF_NEW_BTL_SCR_CMDS 0xE1
-extern const btl_scr_cmd_func BattleScriptCmdTable[];
+u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
+u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
+u32 LoadCaptureSuccessSPA(u32 id);
+u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
+u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
@@ -469,7 +504,13 @@ u16 sMetronomeMimicMoveBanList[] =
 };
 
 
-
+/**
+ *  @brief handles all of battle script command execution
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return not sure.  mostly FALSE except if ending the battle script?
+ */
 BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 {
     BOOL ret;
@@ -497,14 +538,14 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
                 sp->SkillSeqWork[0] = 0;
             }
         }
-            if (command == 0xE) // wait message soft lock?
+        if (command == 0xE) // wait message soft lock?
+        {
+            if (sp->SkillSeqWork[0]++ > 300)
             {
-                if (sp->SkillSeqWork[0]++ > 300)
-                {
-                    sp->skill_seq_no++;
-                    sp->SkillSeqWork[0] = 0;
-                }
+                sp->skill_seq_no++;
+                sp->SkillSeqWork[0] = 0;
             }
+        }
 #endif //DEBUG_BATTLE_SCRIPT_COMMANDS
 
         if (command < START_OF_NEW_BTL_SCR_CMDS)
@@ -522,8 +563,13 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
     return ret;
 }
 
-
-int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
+/**
+ *  @brief read battle script parameters + increment "program counter" by 1 when doing so
+ *
+ *  @param sp global battle structure
+ *  @return battle script parameter read from VM's "program counter"
+ */
+int read_battle_script_param(struct BattleStruct *sp)
 {
     int data;
 
@@ -533,9 +579,14 @@ int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
     return data;
 }
 
-
-// doesn't just handle subseq, but i will get around to changing this eventually
-void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index)
+/**
+ *  @brief load battle script to BattleStruct's SkillSeqWork
+ *
+ *  @param sp global battle structure
+ *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
+ *  @param index number to load
+ */
+void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index)
 {
     sp->skill_arc_kind = kind;
     sp->skill_arc_index = index;
@@ -543,8 +594,14 @@ void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, 
     ArchiveDataLoad(&sp->SkillSeqWork, kind, index);
 }
 
-
-void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index)
+/**
+ *  @brief load battle script and queue up the current one to go after this one
+ *
+ *  @param sp global battle structure
+ *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
+ *  @param index number to load
+ */
+void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index)
 {
     sp->push_skill_arc_kind[sp->push_count] = sp->skill_arc_kind;
     sp->push_skill_arc_index[sp->push_count] = sp->skill_arc_index;
@@ -556,8 +613,15 @@ void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp,
     ArchiveDataLoad(&sp->SkillSeqWork, kind, index);
 }
 
-
-int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side)
+/**
+ *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param side BTL_PARAM_* const to resolve to BattleStruct field
+ *  @return resolved battler
+ */
+int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side)
 {
     int client_no;
     u32 ally_bits = side & 0xE000;
@@ -789,7 +853,12 @@ int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct 
         return client_no;
 }
 
-
+/**
+ *  @brief check if waitmessage battle script command should end
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if link queue is empty; FALSE otherwise
+ */
 BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
     int i;
     int battlerId;
@@ -820,7 +889,14 @@ BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
     return (cnt == 0);
 }
 
-
+/**
+ *  @brief battle script command for waitmessage
+ *         checks to see if the server queue is empty before incrementing the VM PC
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_0E_waitmessage(void *bw, struct BattleStruct *sp) {
     if (Link_QueueIsEmpty(sp)) {
         IncrementBattleScriptPtr(sp, 1);
@@ -833,7 +909,13 @@ BOOL btl_scr_cmd_0E_waitmessage(void *bw, struct BattleStruct *sp) {
     return FALSE;
 }
 
-
+/**
+ *  @brief script command to play the animation of sp->current_move_index
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
 {
     int side;
@@ -866,7 +948,14 @@ BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
-
+/**
+ *  @brief script command to play the animation of sp->current_move_index
+ *         respects attacker, defender
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
 {
     int side, attack, defence, cli_a, cli_d;
@@ -903,7 +992,14 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
-
+/**
+ *  @brief script command to jump to the current move's effect script
+ *         modified to apply sheer force's effect
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
 {
     int effect;
@@ -977,7 +1073,13 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
     return FALSE;
 };
 
-
+/**
+ *  @brief script command to start the experience loop
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 {
     int adrs;
@@ -1060,19 +1162,12 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
-
-struct EXP_CALCULATOR
-{
-    /* 0x00 */ void *bw;
-    /* 0x04 */ struct BattleStruct *sp;
-    /* 0x08 */ u8 unk8[0x28-0x8];
-    /* 0x28 */ u32 seq_no;
-    /* 0x2C */ u32 ballID;
-    /* 0x30 */ u32 work[8];
-}; // size = 0x50
-
-
-// forgot i could do this so fucking nice
+/**
+ *  @brief task to distribute experience
+ *
+ *  @param arg0 task structure
+ *  @param work exp calculator structure
+ */
 void Task_DistributeExp_Extend(void *arg0, void *work)
 {
     struct EXP_CALCULATOR *expcalc = work;
@@ -1256,7 +1351,14 @@ u32 ALIGN4 store_work_params[7] = {0, 0, 0, 0, 0, 0, 0};
 
 #endif // IMPLEMENT_CAPTURE_EXPERIENCE
 
-
+/**
+ *  @brief task to distribute capture experience
+ *
+ *  @param arg0 task structure
+ *  @param work
+ *  @param get_client_no battler about to faint
+ *  @return FALSE if no experience is distributed; else TRUE
+ */
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no)
 {
 #ifdef IMPLEMENT_CAPTURE_EXPERIENCE
@@ -1319,12 +1421,13 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
 #endif // IMPLEMENT_CAPTURE_EXPERIENCE
 }
 
-
-
-
-
-
-
+/**
+ *  @brief script command to set up the stat boost animation/message
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     int address1;
@@ -1690,7 +1793,13 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     return 0;
 }
 
-
+/**
+ *  @brief script command to handle one-hit ko moves
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 {
     u16 hit;
@@ -1763,11 +1872,18 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to calculate the damage done by beat up
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 {
     int species, form, number_of_hits;
     s32 newBaseDamage;
-    struct BattlePokemon *mon;
+    struct PartyPokemon *mon;
     
     IncrementBattleScriptPtr(sp, 1);
 
@@ -1845,6 +1961,14 @@ const u16 sLowKickWeightToPower[][2] =
     {0xFFFF, 0xFFFF},
 };
 
+/**
+ *  @brief grab a battler's weight
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param client battler whose weight to grab
+ *  @return battler's weight
+ */
 s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client)
 {
     s32 weight;
@@ -1863,7 +1987,13 @@ s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client)
     return weight;
 }
 
-// also handles grass knot
+/**
+ *  @brief script command to calculate the damage done by low kick/grass knot
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp)
 {
     int i;
@@ -1896,7 +2026,13 @@ BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
-
+/**
+ *  @brief script command to check if the attack should leave the target with 1 hp
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
 {
     int side, client_no, holdeffect;
@@ -1937,7 +2073,13 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
-// treating this additionally as a switching hook.  we'll handle meloetta etc. here
+/**
+ *  @brief script command to handle natural cure.  expanded for meloetta/regenerator
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
 {
     int side, client_no, address, ability, condition;
@@ -1997,6 +2139,13 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
 
 // NEW BATTLE SCRIPT COMMANDS
 
+/**
+ *  @brief script command to reduce a battler's weight
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp)
 {
     s32 delta;
@@ -2012,6 +2161,13 @@ BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to calculate the damage for heavy slam
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
 {
     u32 ratio;
@@ -2035,6 +2191,13 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to jump somewhere if the user is a lower level than the target
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
@@ -2045,6 +2208,13 @@ BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to set the new tailwind counter field
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
@@ -2057,6 +2227,13 @@ BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to jump somewhere if tailwind is active on a battler's side
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
@@ -2093,7 +2270,13 @@ u16 MoonBallSpecies[] =
     SPECIES_MUSHARNA,
 };
 
-// calculate the amount of shakes that the ball will take.  4 is a success.  5 will do for critical capture
+/**
+ *  @brief calculate the amount of times a ball shakes
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return the amount of shakes a ball undergoes.  or'd with 0x80 for critical captures
+ */
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 {
     u32 i, captureRate, ballRate, type1, type2;
@@ -2298,7 +2481,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 
         criticalCaptureWork = captureRate * criticalCaptureWork / 10;
 
-        if (BattleRand(bw) & 0xFF < criticalCaptureWork) // return critical capture number
+        if ((BattleRand(bw) & 0xFF) < criticalCaptureWork) // return critical capture number
             criticalCapture = TRUE;
 
         if (criticalCapture)
@@ -2365,10 +2548,15 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 #endif
 }
 
+u32 sSuccessfulCriticalCapture = 0;
 
-sSuccessfulCriticalCapture = 0;
-
-
+/**
+ *  @brief reroute the capture shake task if a critical capture activates
+ *
+ *  @param expcalc exp calculator structure
+ *  @param shakes number of shakes or'd with 0x80 for critical captures
+ *  @return amouont of actual shakes
+ */
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
 {
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
@@ -2408,7 +2596,12 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
 extern u32 BallToSpaIDs[][3];
 u32 __attribute__((long_call)) GetBallID_ov7(u32 itemId);
 
-
+/**
+ *  @brief load the particle effect on capture success
+ *
+ *  @param id ball id to load spa for
+ *  @return index in narc for ball id spa
+ */
 u32 LoadCaptureSuccessSPA(u32 id)
 {
     id = GetBallID_ov7(id);
@@ -2419,7 +2612,12 @@ u32 LoadCaptureSuccessSPA(u32 id)
         return BallToSpaIDs[id][0];
 }
 
-
+/**
+ *  @brief load the emitter id on capture success for the stars
+ *
+ *  @param id ball id to load spa for
+ *  @return emitter in ball success spa for the stars
+ */
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id)
 {
     id = GetBallID_ov7(id);
@@ -2430,7 +2628,12 @@ u32 LoadCaptureSuccessSPAStarEmitter(u32 id)
         return BallToSpaIDs[id][1];
 }
 
-
+/**
+ *  @brief load the number of emitters in the ball spa
+ *
+ *  @param id ball id to load spa for
+ *  @return number of emitters total
+ */
 u32 LoadCaptureSuccessSPANumEmitters(u32 id)
 {
     id = GetBallID_ov7(id);

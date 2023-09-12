@@ -2073,7 +2073,7 @@ enum
  *  @param side BTL_PARAM_* const to resolve to BattleStruct field
  *  @return resolved battler
  */
-int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side);
+int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side);
 
 /**
  *  @brief load battle script to BattleStruct's SkillSeqWork
@@ -2082,7 +2082,7 @@ int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct 
  *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
  *  @param index number to load
  */
-void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
+void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 
 /**
  *  @brief load battle script and queue up the current one to go after this one
@@ -2091,7 +2091,7 @@ void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, 
  *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
  *  @param index number to load
  */
-void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
+void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
 
 /**
  *  @brief check if waitmessage battle script command should end
