@@ -1961,7 +1961,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
- *  @brief get the adjusted move type accounting for normalize.
+ *  @brief get the adjusted move type accounting for normalize and friends
  *
  *  @see GetAdjustedMoveTypeBasics
  *  @param sp global battle structure
@@ -2032,6 +2032,39 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
 
 
 // defined in battle_script_commands.c
+enum
+{
+    BTL_PARAM_BATTLER_ALL              = 0x00,
+    BTL_PARAM_BATTLER_ATTACKER         = 0x01,
+    BTL_PARAM_BATTLER_DEFENDER         = 0x02,
+    BTL_PARAM_BATTLER_PLAYER           = 0x03,
+    BTL_PARAM_BATTLER_OPPONENT         = 0x04,
+    BTL_PARAM_BATTLER_FAINTED          = 0x05,
+    BTL_PARAM_BATTLER_REPLACE          = 0x06,
+    BTL_PARAM_BATTLER_ADDL_EFFECT      = 0x07,
+    BTL_PARAM_BATTLER_CHAR_CHECKED     = 0x08,
+    BTL_PARAM_BATTLER_PLAYER_LEFT      = 0x09,
+    BTL_PARAM_BATTLER_ENEMY_LEFT       = 0x0a,
+    BTL_PARAM_BATTLER_PLAYER_RIGHT     = 0x0b,
+    BTL_PARAM_BATTLER_ENEMY_RIGHT      = 0x0c,
+    BTL_PARAM_BATTLER_x0D              = 0x0d,
+    BTL_PARAM_BATTLER_ATTACKER2        = 0x0e,
+    BTL_PARAM_BATTLER_DEFENDER2        = 0x0f,
+    BTL_PARAM_BATTLER_ATTACKER_PARTNER = 0x10,
+    BTL_PARAM_BATTLER_DEFENDER_PARTNER = 0x11,
+    BTL_PARAM_BATTLER_WHIRLWINDED      = 0x12,
+    BTL_PARAM_BATTLER_x13              = 0x13,
+    BTL_PARAM_BATTLER_x14              = 0x14,
+    BTL_PARAM_BATTLER_x15              = 0x15,
+    BTL_PARAM_BATTLER_ALL_REPLACED     = 0x16,
+    BTL_PARAM_BATTLER_xFF              = 0xFF,
+    BTL_PARAM_BATTLER_WORK             = 0xFF,
+
+    BTL_PARAM_BATTLER_ALLY             = 0x8000,
+    BTL_PARAM_BATTLER_ENEMY            = 0x4000,
+    BTL_PARAM_BATTLER_ACROSS           = 0x2000,
+};
+
 /**
  *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
  *
