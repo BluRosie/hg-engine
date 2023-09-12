@@ -158,8 +158,6 @@ static const OAMSpriteTemplate WeatherIconObjParam = {
     0,
 };
 
-static void EFFECT_MegaTouch(void *tcb, void *work);
-
 /**
  *  @brief load resources for the icons to be displayed on the bottom screen of the fight menu in battles
  *
