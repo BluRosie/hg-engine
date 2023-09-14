@@ -13,10 +13,22 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/constants/file.h"
 
+// this file's function declarations
+u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
+BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
+BOOL CheckItemByThief(u16 item);
 
-//this function is for held item effects for when U-Turn is used
-//if you want to edit a defender's held item effect triggering after being hit, go to CheckDefenderItemEffectOnHit
-//if you want to edit an attacker's held item effect triggering after hitting using a move, go to ServerWazaHitAfterCheckAct
+/**
+ *  @brief run an item effects that happen when u-turn is being used
+ *         if you want to edit a defender's held item effect triggering after being hit, go to CheckDefenderItemEffectOnHit
+ *         if you want to edit an attacker's held item effect triggering after hitting using a move, go to ServerWazaHitAfterCheckAct
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no subscript to load if TRUE is returned
+ *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
+ */
 u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ret;
@@ -98,8 +110,14 @@ enum
 	SWHAC_END
 };
 
-//go to CheckDefenderItemEffectOnHit if you want to program an effect to happen after being hit for a defender's held item
-//this function is for an attacker's held item effect triggering after hitting with a move
+/**
+ *  @brief handle item effects for an attacker's items on move hit.  loads the subscript and returns to parent
+ *         this function is for an attacker's held item effect triggering after hitting with a move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE if a battle subscript has been loaded and should be run; FALSE otherwise
+ */
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
     int ret;
@@ -186,9 +204,17 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 }
 
 
-//thanks to Lhea for this function - TODO ask for their SUB_SEQ scripts for the gen5+ item effects since rn those can't be used
-//this function is for a defender's held item effect triggering after being hit
-//go to ServerWazaHitAfterCheckAct for implementing an attacker's held item effect triggering after using a move
+// thanks to Lhea for this function
+
+/**
+ *  @brief handle item effects for a defender's items on move hit.  loads into *seq_no
+ *         this function is for the defender's held item effect triggering after hitting with a move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no subscript to load if TRUE is returned
+ *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
+ */
 BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
@@ -481,7 +507,13 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     return ret;
 }
 
-bool8 CheckItemByThief(u16 item)
+/**
+ *  @brief check if the item can be stolen by thief or not
+ *
+ *  @param item item index
+ *  @return TRUE if the item can not be stolen; FALSE otherwise
+ */
+BOOL CheckItemByThief(u16 item)
 {
     if (item == ITEM_GRISEOUS_ORB || IS_ITEM_MEGA_STONE(item))
         return TRUE;
