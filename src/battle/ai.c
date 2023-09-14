@@ -13,7 +13,24 @@
 #include "../../include/constants/file.h"
 
 
-// updates move status flags for the AI
+
+// function declarations
+void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag);
+
+
+
+/**
+ *  @brief set up type calc flags for AI to respect and make decisions based on
+ *
+ *  @param sp global battle structure
+ *  @param move index of the move being used
+ *  @param atkAbility ability of the attacker
+ *  @param defAbility ability of the defender
+ *  @param held_effect held item effect of the attacker
+ *  @param type1 primary type of defender
+ *  @param type2 secondary type of defender
+ *  @param flag flags to modify so that the AI knows what decision to make
+ */
 void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag)
 {
     int i;

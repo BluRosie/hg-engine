@@ -8,35 +8,37 @@
 #include "../../include/constants/item.h"
 #include "../../include/constants/file.h"
 
+
+
+// function declarations for this file
+void Sub_PokeIconResourceLoad(struct BI_PARAM *bip);
+void Sub_PokeIconResourceFree(struct BI_PARAM *bip);
+void LoadMegaIcon(struct BI_PARAM *bip);
+void LoadMegaButton(struct BI_PARAM *bip);
+u8 CheckMegaButton(struct BI_PARAM *bip, int tp_ret);
+void EFFECT_MegaTouch(void *tcb, void *work);
+void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put);
+u32 GrabCancelXValue(void);
+void SwapOutBottomScreen(struct BI_PARAM *bip);
+
+
+
+// new battle structure with a few overlay 12 global things that can be accessed.  
 struct newBattleStruct newBS = {0};
 
-#define NNS_G2D_VRAM_TYPE_2DMAIN 1
-#define NNS_G2D_VRAM_TYPE_2DSUB 2
-#define FADE_MAIN_OBJ 2
-#define FADE_SUB_OBJ 3
-#define CLACT_U_HEADER_DATA_NONE (0xffffffff)
-#define RECT_HIT_END 0xFF
-
+// icon sprite tags to keep track of things
 #define MEGA_ICON_SPRITE_TAG 20050
 #define MEGA_ICON_PAL_TAG 20051
 #define MEGA_ICON_CELL_TAG 20052
 #define MEGA_ICON_CELL_ANIM_TAG 20053
-
 #define MEGA_BUTTON_SPRITE_TAG 20054
 #define MEGA_BUTTON_PAL_TAG 20055
-
 #define WEATHER_ICON_SPRITE_TAG 20056
 #define WEATHER_ICON_PAL_TAG 20057
 #define WEATHER_ICON_CELL_TAG 20058
 #define WEATHER_ICON_CELL_ANIM_TAG 20059
 
-#define MEGA_ICON_FIGHT_GFX (797)
-#define PRIMAL_REVERSION_OMEGA_GFX (799)
-#define PRIMAL_REVERSION_ALPHA_GFX (801)
-#define MEGA_ICON_SELECTED_GFX (803)
-#define MEGA_ICON_BLANK_GFX (805)
-
-
+// values to return when rectangle is touched
 #define TOUCH_DATA_CANCEL 0
 #define TOUCH_DATA_MOVE_1 1
 #define TOUCH_DATA_MOVE_2 2
@@ -158,7 +160,11 @@ static const OAMSpriteTemplate WeatherIconObjParam = {
 
 static void EFFECT_MegaTouch(void *tcb, void *work);
 
-// reads the sprite icon
+/**
+ *  @brief load resources for the icons to be displayed on the bottom screen of the fight menu in battles
+ *
+ *  @param bip battle input param
+ */
 void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 {
     u32 nclr;
@@ -445,7 +451,7 @@ u8 CheckMegaButton(struct BI_PARAM *bip, int tp_ret)
     return 1;
 }
 
-static void EFFECT_MegaTouch(void *tcb, void *work)
+void EFFECT_MegaTouch(void *tcb, void *work)
 {
     struct BI_PARAM *bip = work;
 

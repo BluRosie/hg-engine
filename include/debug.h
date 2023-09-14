@@ -41,4 +41,10 @@
 // DEBUG_PRINT_EXPERIENCE_VALUES prints debug information for experience outputs
 //#define DEBUG_PRINT_EXPERIENCE_VALUES
 
+// DEBUG_CAPTURE_RATE_PERCENTAGES prints debug information for capture rate
+//#define DEBUG_CAPTURE_RATE_PERCENTAGES
+
+// DEBUG_SERVER_QUEUE prints debug information about the status of the server queue when the waitmessage script command
+//#define DEBUG_SERVER_QUEUE
+
 #endif // DEBUG_H

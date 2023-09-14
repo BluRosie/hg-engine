@@ -492,7 +492,19 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
                 debugsyscall("\n");
                 cmdAddress = 0;
             }
+            if (command == 0xE) // wait message soft lock?
+            {
+                sp->SkillSeqWork[0] = 0;
+            }
         }
+            if (command == 0xE) // wait message soft lock?
+            {
+                if (sp->SkillSeqWork[0]++ > 300)
+                {
+                    sp->skill_seq_no++;
+                    sp->SkillSeqWork[0] = 0;
+                }
+            }
 #endif //DEBUG_BATTLE_SCRIPT_COMMANDS
 
         if (command < START_OF_NEW_BTL_SCR_CMDS)
@@ -811,6 +823,49 @@ int __attribute__((long_call)) GrabClientFromBattleScriptParam(void *bw, struct 
         return client_no;
 }
 
+
+BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
+    int i;
+    int battlerId;
+    int j;
+    int cnt = 0;
+
+#ifdef DEBUG_SERVER_QUEUE
+    u8 buf[64];
+#endif
+    for (i = 0; i < 4; i++) {
+        for (battlerId = 0; battlerId < 4; battlerId++) {
+            for (j = 0; j < 16; j++) {
+                cnt += sp->ServerQue[i][battlerId][j];
+#ifdef DEBUG_SERVER_QUEUE
+                if (sp->ServerQue[i][battlerId][j])
+                {
+                    sprintf(buf, "battlerId = %d, serverQueue = %d\n", battlerId, sp->ServerQue[i][battlerId][j]);
+                    debugsyscall(buf);
+                }
+#endif
+            }
+        }
+    }
+    
+    if (cnt == 0) {
+        sp->server_queue_time_out = 0;
+    }
+    return (cnt == 0);
+}
+
+
+BOOL btl_scr_cmd_0E_waitmessage(void *bw, struct BattleStruct *sp) {
+    if (Link_QueueIsEmpty(sp)) {
+        IncrementBattleScriptPtr(sp, 1);
+    } else {
+        Link_CheckTimeout(sp);
+    }
+
+    sp->battle_progress_flag = 1;
+
+    return FALSE;
+}
 
 
 BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
@@ -2285,10 +2340,27 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         else
             caughtMons = 4;
 
+#ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
+        u8 buf[64];
+        sprintf(buf, "Shake probability = %d (%2d", captureRate, (captureRate * 100) / 65536);
+        debugsyscall(buf);
+        sprintf(buf, ".%02d%% per shake)\n", ((captureRate * 10000) / 65536) % 100);
+        debugsyscall(buf);
+#endif
+
         for (i = 0; i < caughtMons; i++) // there are 4 shake checks apparently
         {
-            if (BattleRand(bw) >= captureRate)
+            u32 rand = BattleRand(bw);
+#ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
+            sprintf(buf, "Shake #%d: rand = %d\n", i, rand);
+            debugsyscall(buf);
+#endif
+            if (rand >= captureRate)
             {
+#ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
+                sprintf(buf, "Check for shake #%d unsuccessful.\n", i);
+                debugsyscall(buf);
+#endif
                 break;
             }
         }

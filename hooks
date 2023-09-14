@@ -113,6 +113,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_18_playanimation2 080067C0 3
 #0223E6A0
 0012 btl_scr_cmd_27_shouldgetexp 08006DE0 3
+0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
+0012 Link_QueueIsEmpty 0224ED48 1
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

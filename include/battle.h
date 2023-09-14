@@ -683,7 +683,7 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
-    /* 0x35 */ u8 friend;                    /**< friendship */
+    /* 0x35 */ u8 friendship;                /**< friendship */
     /* 0x36 */ u16 nickname[11];             /**< nickname characters.  see charmap.txt for more information */
     /* 0x4c */ s32 hp;                       /**< current hp */
     /* 0x50 */ u32 maxhp;                    /**< max hp */
@@ -1883,11 +1883,11 @@ void __attribute__((long_call)) DumpMoveTableData(void *dest);
  *  @brief like TypeCheckCalc, but for the opposing AI to help make decisions
  *
  *  @see TypeCheckCalc
- *  @param sp global battle structure
+ *  @param effectivness current TypeEffectivenessTable entry
  *  @param flag move effect flags already set
  *  @return adjusted predicted damage
  */
-int __attribute__((long_call)) AI_TypeCheckCalc(struct BattleStruct *sp, int *flag);
+int __attribute__((long_call)) AI_TypeCheckCalc(int effectiveness, u32 *flag);
 
 /**
  *  @brief like ShouldUseNormalTypeEffCalc, but for the opposing AI to help make decisions
@@ -1928,7 +1928,12 @@ int __attribute__((long_call)) read_battle_script_param(struct BattleStruct *sp)
  */
 void __attribute__((long_call)) JumpToMoveEffectScript(struct BattleStruct *sp, int archive, int effect);
 
-
+/**
+ *  @brief check if the connection has taken too long and should disconnect
+ *
+ *  @param sp global battle structure
+ */
+void __attribute__((long_call)) Link_CheckTimeout(struct BattleStruct *sp);
 
 
 // defined in battle_calc_damage.c
@@ -1986,6 +1991,13 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
  */
 void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility);
 
+/**
+ *  @brief clear the newly introduced battle mon flags in various scenarios, i.e. switching
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose flags to clear
+ */
+void ClearBattleMonFlags(struct BattleStruct *sp, int client);
 
 
 // defined in battle_item.c
@@ -2047,6 +2059,14 @@ void __attribute__((long_call)) LoadBattleSubSeqScript(struct BattleStruct *sp, 
  *  @param index number to load
  */
 void __attribute__((long_call)) PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
+
+/**
+ *  @brief check if waitmessage battle script command should end
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if link queue is empty; FALSE otherwise
+ */
+BOOL Link_QueueIsEmpty(struct BattleStruct *sp);
 
 
 
