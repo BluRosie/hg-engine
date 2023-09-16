@@ -1297,8 +1297,6 @@ int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, struct BattleS
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
 int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
 
-u32 No2Bit(int no);
-
 
 
 

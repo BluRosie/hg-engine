@@ -68,7 +68,7 @@ VecFx32;
 // Extracts the lower 16 bits of a 32-bit number
 #define LOHALF(n) ((n) & 0xFFFF)
 
-#define No2Bit(n) (1 << n)
+#define No2Bit(n) ((1) << (n))
 
 void __attribute__((long_call)) GF_ASSERT(u32 cond);
 u16 __attribute__((long_call)) gf_rand(void);
