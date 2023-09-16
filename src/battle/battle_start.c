@@ -15,9 +15,14 @@
 //                                                战斗前准备
 /********************************************************************************************************************/
 /********************************************************************************************************************/
+// bubble lives on in the repository o7
+// would not be here without him
 
-
-
+/**
+ *  @brief initialize the global battle structure and return it
+ *
+ *  @param bw battle work structure
+ */
 struct BattleStruct *ServerInit(void *bw)
 {
     struct BattleStruct *sp;
@@ -34,7 +39,6 @@ struct BattleStruct *ServerInit(void *bw)
 }
 
 
-
 enum
 {
     SBA_RESET_DEFIANT = 0,
@@ -46,18 +50,13 @@ enum
     SBA_END
 };
 
-u32 No2Bit(int no)
-{
-    int i;
-    u32 ret=1;
-
-    for(i=0;i<no;i++){
-        ret<<=1;
-    }
-    return ret;
-}
-
-
+/**
+ *  @brief actions that take precedence over all moves
+ *         loads in battle sub script and queues it up by setting server_seq_no to 22
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
 void ServerBeforeAct(void *bw, struct BattleStruct *sp)
 {
     int ret;
@@ -166,7 +165,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
 
                 }
 
-                if(flag)
+                if (flag)
                 {
                     newBS.needMega[client_no] = MEGA_NEED;
                     if ((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_CHARIZARDITE_Y)
@@ -217,6 +216,12 @@ enum
     SEQ_STANCE_CHANGE_CHECK
 };
 
+/**
+ *  @brief handle mega evolutions if queued up
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
 static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
 {
     int client_no,i;
@@ -224,19 +229,19 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
     int seq;
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
-    for (i = 0; i < client_set_max;i++)
+    for (i = 0; i < client_set_max; i++)
     {
         client_no = sp->turn_order[i];
-        if(newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
+        if (newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
         {
-            if(client_no == 0 || client_no == 2)
+            if (client_no == 0 || client_no == 2)
             {
                 newBS.PlayerMegaed = TRUE;
             }
 
             // handle charizard/mewtwo branch mega evos
-            if((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_CHARIZARDITE_Y) || 
-               (sp->battlemon[client_no].species == SPECIES_MEWTWO && sp->battlemon[client_no].item == ITEM_MEWTWONITE_Y))
+            if ((sp->battlemon[client_no].species == SPECIES_CHARIZARD && sp->battlemon[client_no].item == ITEM_CHARIZARDITE_Y) || 
+                (sp->battlemon[client_no].species == SPECIES_MEWTWO && sp->battlemon[client_no].item == ITEM_MEWTWONITE_Y))
             {
                 BattleFormChange(client_no, 2, bw, sp, TRUE);
                 sp->battlemon[client_no].form_no = 2;
@@ -261,11 +266,11 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             sp->server_seq_no = 22;
             return TRUE;
         }
-        if(newBS.needMega[client_no] == MEGA_CHECK_APPER && sp->battlemon[sp->attack_client].hp)
+        if (newBS.needMega[client_no] == MEGA_CHECK_APPER && sp->battlemon[sp->attack_client].hp)
         {
             newBS.needMega[client_no] = MEGA_NO_NEED;
             seq = ST_ServerPokeAppearCheck(bw,sp);
-            if(seq)
+            if (seq)
             {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq);
                 sp->next_server_seq_no = sp->server_seq_no;
@@ -281,19 +286,25 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
 }
 
 //08014ACC
+
+/**
+ *  @brief run through everything before any of the moves are used
+ *         modified for protean and stance change and megas
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
 void ServerWazaBefore(void *bw, struct BattleStruct *sp)
 {
     u32 runMyScriptInstead = 0;
     switch (sp->wb_seq_no)
     {
         case SEQ_MEGA_CHECK:
-            if(MegaEvolution(bw,sp))
+            if (MegaEvolution(bw,sp))
             {
                 return;
-                break;
             }
-            else
-                sp->wb_seq_no++;
+            sp->wb_seq_no++;
         case SEQ_SENSEI_CHECK:
             ServerSenseiCheck(bw, sp); ///先制之爪效果 80143E4h
             sp->wb_seq_no++;
@@ -337,7 +348,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 }
             }
         }
-            sp->wb_seq_no++;
+        sp->wb_seq_no++;
         case SEQ_PP_CHECK:
             if ((sp->waza_out_check_on_off & 0x8) == 0)
             {

@@ -2575,7 +2575,7 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
             expcalc->work[3] = 1; // a failed critical capture still shakes once
         }
     }
-    else// if (shakes < 4)
+    else
     {
         if (shakes == 4)
         {
