@@ -718,7 +718,6 @@ mondata SPECIES_NIDOQUEEN, "Nidoqueen"
 
 
 mondata SPECIES_NIDORAN_M, "Nidoran♂"
-<<<<<<< Updated upstream
     basestats 46, 57, 40, 50, 40, 40
     types TYPE_POISON, TYPE_POISON
     catchrate 235
@@ -782,71 +781,6 @@ mondata SPECIES_NIDOKING, "Nidoking"
     mondexclassification SPECIES_NIDOKING, "Drill Pokémon"
     mondexheight SPECIES_NIDOKING, "4’07”"
     mondexweight SPECIES_NIDOKING, "136.7 lbs."
-=======
-	basestats 46, 57, 40, 50, 40, 40
-	types TYPE_POISON, TYPE_POISON
-	catchrate 195
-	baseexp 60// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 20
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
-	abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
-	runchance 90
-	colorflip BODY_COLOR_PURPLE, 0
-	tmdata SPECIES_NIDORAN_M_TM_DATA_0, SPECIES_NIDORAN_M_TM_DATA_1, SPECIES_NIDORAN_M_TM_DATA_2, SPECIES_NIDORAN_M_TM_DATA_3
-	mondexentry SPECIES_NIDORAN_M, ""
-	mondexclassification SPECIES_NIDORAN_M, ""
-	mondexheight SPECIES_NIDORAN_M, ""
-	mondexweight SPECIES_NIDORAN_M, ""
-
-
-mondata SPECIES_NIDORINO, "Nidorino"
-	basestats 61, 72, 57, 65, 55, 55
-	types TYPE_POISON, TYPE_POISON
-	catchrate 195
-	baseexp 118// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 20
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
-	abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
-	runchance 60
-	colorflip BODY_COLOR_PURPLE, 0
-	tmdata SPECIES_NIDORINO_TM_DATA_0, SPECIES_NIDORINO_TM_DATA_1, SPECIES_NIDORINO_TM_DATA_2, SPECIES_NIDORINO_TM_DATA_3
-	mondexentry SPECIES_NIDORINO, ""
-	mondexclassification SPECIES_NIDORINO, ""
-	mondexheight SPECIES_NIDORINO, ""
-	mondexweight SPECIES_NIDORINO, ""
-
-
-mondata SPECIES_NIDOKING, "Nidoking"
-	basestats 81, 92, 77, 85, 85, 75
-	types TYPE_POISON, TYPE_GROUND
-	catchrate 195
-	baseexp 195// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 20
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_SLOW
-	egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
-	abilities ABILITY_GUTS, ABILITY_RIVALRY
-	runchance 0
-	colorflip BODY_COLOR_PURPLE, 0
-	tmdata SPECIES_NIDOKING_TM_DATA_0, SPECIES_NIDOKING_TM_DATA_1, SPECIES_NIDOKING_TM_DATA_2, SPECIES_NIDOKING_TM_DATA_3
-	mondexentry SPECIES_NIDOKING, ""
-	mondexclassification SPECIES_NIDOKING, ""
-	mondexheight SPECIES_NIDOKING, ""
-	mondexweight SPECIES_NIDOKING, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_CLEFAIRY, "Clefairy"
@@ -2412,7 +2346,6 @@ mondata SPECIES_MAROWAK, "Marowak"
 
 
 mondata SPECIES_HITMONLEE, "Hitmonlee"
-<<<<<<< Updated upstream
     basestats 50, 120, 53, 87, 35, 110
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
@@ -2454,49 +2387,6 @@ mondata SPECIES_HITMONCHAN, "Hitmonchan"
     mondexclassification SPECIES_HITMONCHAN, "Punching Pokémon"
     mondexheight SPECIES_HITMONCHAN, "4’07”"
     mondexweight SPECIES_HITMONCHAN, "110.7 lbs."
-=======
-	basestats 50, 120, 53, 87, 35, 110
-	types TYPE_FIGHTING, TYPE_FIGHTING
-	catchrate 195
-	baseexp 139// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 25
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_LIMBER, ABILITY_RECKLESS
-	runchance 0
-	colorflip BODY_COLOR_BROWN, 0
-	tmdata SPECIES_HITMONLEE_TM_DATA_0, SPECIES_HITMONLEE_TM_DATA_1, SPECIES_HITMONLEE_TM_DATA_2, SPECIES_HITMONLEE_TM_DATA_3
-	mondexentry SPECIES_HITMONLEE, ""
-	mondexclassification SPECIES_HITMONLEE, ""
-	mondexheight SPECIES_HITMONLEE, ""
-	mondexweight SPECIES_HITMONLEE, ""
-
-
-mondata SPECIES_HITMONCHAN, "Hitmonchan"
-	basestats 50, 105, 79, 76, 35, 110
-	types TYPE_FIGHTING, TYPE_FIGHTING
-	catchrate 195
-	baseexp 140// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 25
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_KEEN_EYE, ABILITY_IRON_FIST
-	runchance 0
-	colorflip BODY_COLOR_BROWN, 0
-	tmdata SPECIES_HITMONCHAN_TM_DATA_0, SPECIES_HITMONCHAN_TM_DATA_1, SPECIES_HITMONCHAN_TM_DATA_2, SPECIES_HITMONCHAN_TM_DATA_3
-	mondexentry SPECIES_HITMONCHAN, ""
-	mondexclassification SPECIES_HITMONCHAN, ""
-	mondexheight SPECIES_HITMONCHAN, ""
-	mondexweight SPECIES_HITMONCHAN, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_LICKITUNG, "Lickitung"
@@ -2940,7 +2830,6 @@ mondata SPECIES_PINSIR, "Pinsir"
 
 
 mondata SPECIES_TAUROS, "Tauros"
-<<<<<<< Updated upstream
     basestats 75, 100, 95, 110, 40, 70
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
@@ -2960,27 +2849,6 @@ mondata SPECIES_TAUROS, "Tauros"
     mondexclassification SPECIES_TAUROS, "Wild Bull Pokémon"
     mondexheight SPECIES_TAUROS, "4’07”"
     mondexweight SPECIES_TAUROS, "194.9 lbs."
-=======
-	basestats 75, 100, 95, 110, 40, 70
-	types TYPE_NORMAL, TYPE_NORMAL
-	catchrate 195
-	baseexp 211// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 20
-	basefriendship 70
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-	abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
-	runchance 90
-	colorflip BODY_COLOR_BROWN, 0
-	tmdata SPECIES_TAUROS_TM_DATA_0, SPECIES_TAUROS_TM_DATA_1, SPECIES_TAUROS_TM_DATA_2, SPECIES_TAUROS_TM_DATA_3
-	mondexentry SPECIES_TAUROS, ""
-	mondexclassification SPECIES_TAUROS, ""
-	mondexheight SPECIES_TAUROS, ""
-	mondexweight SPECIES_TAUROS, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_MAGIKARP, "Magikarp"
@@ -5338,7 +5206,6 @@ mondata SPECIES_SMEARGLE, "Smeargle"
 
 
 mondata SPECIES_TYROGUE, "Tyrogue"
-<<<<<<< Updated upstream
     basestats 35, 35, 35, 35, 35, 35
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 75
@@ -5380,49 +5247,6 @@ mondata SPECIES_HITMONTOP, "Hitmontop"
     mondexclassification SPECIES_HITMONTOP, "Handstand Pokémon"
     mondexheight SPECIES_HITMONTOP, "4’07”"
     mondexweight SPECIES_HITMONTOP, "105.8 lbs."
-=======
-	basestats 35, 35, 35, 35, 35, 35
-	types TYPE_FIGHTING, TYPE_FIGHTING
-	catchrate 195
-	baseexp 91// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 25
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_GUTS, ABILITY_STEADFAST
-	runchance 0
-	colorflip BODY_COLOR_PURPLE, 0
-	tmdata SPECIES_TYROGUE_TM_DATA_0, SPECIES_TYROGUE_TM_DATA_1, SPECIES_TYROGUE_TM_DATA_2, SPECIES_TYROGUE_TM_DATA_3
-	mondexentry SPECIES_TYROGUE, ""
-	mondexclassification SPECIES_TYROGUE, ""
-	mondexheight SPECIES_TYROGUE, ""
-	mondexweight SPECIES_TYROGUE, ""
-
-
-mondata SPECIES_HITMONTOP, "Hitmontop"
-	basestats 50, 95, 95, 70, 35, 110
-	types TYPE_FIGHTING, TYPE_FIGHTING
-	catchrate 195
-	baseexp 138// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 25
-	basefriendship 70
-	growthrate GROWTH_MEDIUM_FAST
-	egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_INTIMIDATE, ABILITY_TECHNICIAN
-	runchance 0
-	colorflip BODY_COLOR_BROWN, 0
-	tmdata SPECIES_HITMONTOP_TM_DATA_0, SPECIES_HITMONTOP_TM_DATA_1, SPECIES_HITMONTOP_TM_DATA_2, SPECIES_HITMONTOP_TM_DATA_3
-	mondexentry SPECIES_HITMONTOP, ""
-	mondexclassification SPECIES_HITMONTOP, ""
-	mondexheight SPECIES_HITMONTOP, ""
-	mondexweight SPECIES_HITMONTOP, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_SMOOCHUM, "Smoochum"
@@ -7076,7 +6900,6 @@ mondata SPECIES_MINUN, "Minun"
 
 
 mondata SPECIES_VOLBEAT, "Volbeat"
-<<<<<<< Updated upstream
     basestats 65, 73, 75, 85, 47, 85
     types TYPE_BUG, TYPE_BUG
     catchrate 150
@@ -7096,27 +6919,6 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     mondexclassification SPECIES_VOLBEAT, "Firefly Pokémon"
     mondexheight SPECIES_VOLBEAT, "2’04”"
     mondexweight SPECIES_VOLBEAT, "39.0 lbs."
-=======
-	basestats 65, 73, 55, 85, 47, 75
-	types TYPE_BUG, TYPE_ELECTRIC
-	catchrate 195
-	baseexp 146// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 15
-	basefriendship 70
-	growthrate GROWTH_ERRATIC
-	egggroups EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE
-	abilities ABILITY_ILLUMINATE, ABILITY_SWARM
-	runchance 90
-	colorflip BODY_COLOR_GRAY, 0
-	tmdata SPECIES_VOLBEAT_TM_DATA_0, SPECIES_VOLBEAT_TM_DATA_1, SPECIES_VOLBEAT_TM_DATA_2, SPECIES_VOLBEAT_TM_DATA_3
-	mondexentry SPECIES_VOLBEAT, ""
-	mondexclassification SPECIES_VOLBEAT, ""
-	mondexheight SPECIES_VOLBEAT, ""
-	mondexweight SPECIES_VOLBEAT, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_ILLUMISE, "Illumise"
@@ -8594,7 +8396,6 @@ mondata SPECIES_LATIAS, "Latias"
 
 
 mondata SPECIES_LATIOS, "Latios"
-<<<<<<< Updated upstream
     basestats 80, 90, 80, 110, 130, 110
     types TYPE_DRAGON, TYPE_PSYCHIC
     catchrate 3
@@ -8614,27 +8415,6 @@ mondata SPECIES_LATIOS, "Latios"
     mondexclassification SPECIES_LATIOS, "Eon Pokémon"
     mondexheight SPECIES_LATIOS, "6’07”"
     mondexweight SPECIES_LATIOS, "132.3 lbs."
-=======
-	basestats 80, 90, 80, 110, 130, 110
-	types TYPE_DRAGON, TYPE_PSYCHIC
-	catchrate 195
-	baseexp 211// defined in baseexp.s
-	evyields 0, 0, 0, 0, 0, 0
-	items ITEM_NONE, ITEM_NONE
-	genderratio 0
-	eggcycles 120
-	basefriendship 90
-	growthrate GROWTH_SLOW
-	egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-	abilities ABILITY_LEVITATE, ABILITY_NONE
-	runchance 0
-	colorflip BODY_COLOR_BLUE, 0
-	tmdata SPECIES_LATIOS_TM_DATA_0, SPECIES_LATIOS_TM_DATA_1, SPECIES_LATIOS_TM_DATA_2, SPECIES_LATIOS_TM_DATA_3
-	mondexentry SPECIES_LATIOS, ""
-	mondexclassification SPECIES_LATIOS, ""
-	mondexheight SPECIES_LATIOS, ""
-	mondexweight SPECIES_LATIOS, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_KYOGRE, "Kyogre"
@@ -9342,27 +9122,6 @@ mondata SPECIES_WORMADAM, "Wormadam"
 
 
 mondata SPECIES_MOTHIM, "Mothim"
-<<<<<<< Updated upstream
-    basestats 70, 94, 50, 66, 94, 50
-    types TYPE_BUG, TYPE_FLYING
-    catchrate 45
-    baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_SILVER_POWDER
-    genderratio 0
-    eggcycles 15
-    basefriendship 70
-    growthrate GROWTH_MEDIUM_FAST
-    egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-    abilities ABILITY_SWARM, ABILITY_NONE
-    runchance 0
-    colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MOTHIM_TM_DATA_0, SPECIES_MOTHIM_TM_DATA_1, SPECIES_MOTHIM_TM_DATA_2, SPECIES_MOTHIM_TM_DATA_3
-    mondexentry SPECIES_MOTHIM, "It flutters around at night and\nsteals honey from the COMBEE hive."
-    mondexclassification SPECIES_MOTHIM, "Moth Pokémon"
-    mondexheight SPECIES_MOTHIM, "2’11”"
-    mondexweight SPECIES_MOTHIM, "51.4 lbs."
-=======
 	basestats 70, 94, 50, 66, 94, 50
 	types TYPE_BUG, TYPE_FLYING
 	catchrate 195
@@ -9382,7 +9141,6 @@ mondata SPECIES_MOTHIM, "Mothim"
 	mondexclassification SPECIES_MOTHIM, ""
 	mondexheight SPECIES_MOTHIM, ""
 	mondexweight SPECIES_MOTHIM, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_COMBEE, "Combee"
@@ -10706,27 +10464,6 @@ mondata SPECIES_PORYGON_Z, "Porygon_Z"
 
 
 mondata SPECIES_GALLADE, "Gallade"
-<<<<<<< Updated upstream
-    basestats 68, 125, 65, 80, 65, 115
-    types TYPE_PSYCHIC, TYPE_FIGHTING
-    catchrate 45
-    baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NONE
-    genderratio 0
-    eggcycles 20
-    basefriendship 35
-    growthrate GROWTH_SLOW
-    egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_STEADFAST, ABILITY_SHARPNESS
-    runchance 0
-    colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_GALLADE_TM_DATA_0, SPECIES_GALLADE_TM_DATA_1, SPECIES_GALLADE_TM_DATA_2, SPECIES_GALLADE_TM_DATA_3
-    mondexentry SPECIES_GALLADE, "Because it can sense what its foe\nis thinking, its attacks burst out\nfirst, fast, and fierce."
-    mondexclassification SPECIES_GALLADE, "Blade Pokémon"
-    mondexheight SPECIES_GALLADE, "5’03”"
-    mondexweight SPECIES_GALLADE, "114.6 lbs."
-=======
 	basestats 68, 125, 65, 80, 65, 115
 	types TYPE_PSYCHIC, TYPE_FIGHTING
 	catchrate 195
@@ -10746,7 +10483,6 @@ mondata SPECIES_GALLADE, "Gallade"
 	mondexclassification SPECIES_GALLADE, ""
 	mondexheight SPECIES_GALLADE, ""
 	mondexweight SPECIES_GALLADE, ""
->>>>>>> Stashed changes
 
 
 mondata SPECIES_PROBOPASS, "Probopass"
@@ -13219,13 +12955,8 @@ mondata SPECIES_THROH, "Throh"
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 2, 0, 0, 0, 0, 0
-<<<<<<< Updated upstream
     items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
     genderratio 0
-=======
-    items ITEM_BLACK_BELT, ITEM_EXPERT_BELT
-    genderratio 255
->>>>>>> Stashed changes
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -13246,13 +12977,8 @@ mondata SPECIES_SAWK, "Sawk"
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
-<<<<<<< Updated upstream
     items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
     genderratio 0
-=======
-    items ITEM_BLACK_BELT, ITEM_EXPERT_BELT
-    genderratio 255
->>>>>>> Stashed changes
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -21231,11 +20957,7 @@ mondata SPECIES_URSALUNA, "Ursaluna"
     mondexweight SPECIES_URSALUNA, "639.3 lbs."
 
 
-<<<<<<< Updated upstream
 mondata SPECIES_BASCULEGION, "Basclegion"
-=======
-mondata SPECIES_BASCULEGION, "Basulegon"
->>>>>>> Stashed changes
     basestats 120, 112, 65, 78, 80, 75
     types TYPE_WATER, TYPE_GHOST
     catchrate 195
