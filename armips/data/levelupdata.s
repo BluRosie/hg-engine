@@ -14446,7 +14446,7 @@ levelup SPECIES_ZERAORA
 	learnset MOVE_OUTRAGE, 53
 	learnset MOVE_NATURAL_GIFT, 54
 	learnset MOVE_CLOSE_COMBAT, 58
-	learnset MOVE_BRAVE_BIRD, 62
+	learnset MOVE_VOLT_TACKLE, 62
     terminatelearnset
 
 
