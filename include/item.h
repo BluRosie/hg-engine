@@ -118,7 +118,7 @@ enum
     ITEM_PARAM_ATTRACT_RECOVERY,
     ITEM_PARAM_ABILITY_GUARD,
     ITEM_PARAM_DEATH_RECOVERY,
-    ITEM_PARAM_ALL_DEATH_RECOVERY, // sacred sash
+    ITEM_PARAM_ALL_DEATH_RECOVERY, // sacred ash
     ITEM_PARAM_LEVEL_UP,
     ITEM_PARAM_EVOLUTION,
     ITEM_PARAM_ATTACK_UP,
@@ -165,7 +165,7 @@ struct ITEMDATA_INDEX
 
 extern struct ITEMDATA_INDEX ItemDataIndex[];
 
-#define ITEM_DUMMY_ID (0) // ダミーID
+#define ITEM_DUMMY_ID (0)
 #define ITEM_RETURN_ID (0xffff)
 
 #define ITEMPOCKET_ITEMS 0
@@ -185,9 +185,24 @@ extern struct ITEMDATA_INDEX ItemDataIndex[];
 #define ITEM_WORK_TYPE_CAN_USED_IN_PARTY 1
 
 void __attribute__((long_call)) SetUpItemScript(void *iuwk, const void *icwk, u32 scr_id);
+
+/**
+ *  @brief grab item data field from the narc subfiles
+ *
+ *  @param item item index to grab data for
+ *  @param param ITEM_PARAM_* constant to query for from the item data
+ *  @param heap_id heap id used to allocate the item data file before clearing it
+ *  @return queried data corresponding to param
+ */
 u32 __attribute__((long_call)) GetItemData(u16 item, u32 param, u32 heap_id);
 
 // defined in item.c
+/**
+ *  @brief allocate memory on the heap and dump the item data narc to it, making an item data table
+ *
+ *  @param heapID heap id used to allocate the item data table to
+ *  @return item data table allocated on the heap
+ */
 void *__attribute__((long_call)) ItemDataTableLoad(int heapID);
 
 #endif //POKEDIAMOND_ITEM_H

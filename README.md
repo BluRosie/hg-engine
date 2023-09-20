@@ -50,36 +50,31 @@
 
 
 ## Setup Instructions (Windows)
-1. Download and install [Microsoft .NET Framework](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48). Choose the **Developer pack** option.
-    * If you already have a different version of .NET Framework installed, you may use the newest one you have instead of downloading the version linked above.
-2. In the search bar in the Start Menu, search for "environment variables", and click on "Edit the system environment variables". Wait for a new window to pop up.
-    * Proceed by clicking on "Environment Variables..." in the bottom right of the window, then find "Path" in the bottom section of the new window that pops up. Press the "Edit" button on the bottom section of the window, then see below for further instructions.
-    * In the new window, press "New", then "Browse". Navigate to "This PC", then "Local Disk", and then from there, go to "Windows/Microsoft .NET/Framework". Here, you will see all of the versions of .NET Framework that you have installed. Select the newest one by clicking on its name, then press the "OK" button. Now you just need to press "OK" on every Window you had open to get to this point to save your changes.
-3. Open the Windows Command Prompt as Administrator (look up "Command Prompt" on your Start Menu, Right Click -> Run as Administrator). Once you have done that, execute the following command: ```dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all```
+1. Open the Windows Command Prompt as Administrator (look up "Command Prompt" on your Start Menu, Right Click -> Run as Administrator). Once you have done that, execute the following command: ```dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all```
     * Once this process finishes, you will have to restart your PC by entering "Y"
     * If Windows is not cooperating and has issues logging in when your PC reboots, do not worry! You likely just need to enable virtualization in your BIOS. For instructions on that, look [**here**](https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html).
-4. Go to the Microsoft Store and search "Ubuntu". Go to any one of the version's pages in the store and click the blue "Get" button.  It shouldn't matter which you choose.
+2. Go to the Microsoft Store and search "Ubuntu". Go to any one of the version's pages in the store and click the blue "Get" button.  It shouldn't matter which you choose.
     * Once Ubuntu finishes installing, launch it from its page in the Microsoft Store so it can finish setting itself up.
     * Once Ubuntu finishes setting itself up, it will ask you to enter a username (in lowercase letters only) and password. After doing so, you can close Ubuntu.
-5. Open the "Run" window by pressing the `Windows key` and `R` at the same time, then type in "wsl" and press Enter. This is how you should open WSL from now on.
-6. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take a **QUITE** a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
+3. Open the "Run" window by pressing the `Windows key` and `R` at the same time, then type in "wsl" and press Enter. This is how you should open WSL from now on.
+4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take a **QUITE** a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
    * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
-7. In WSL, run the following commands:
-    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake automake```
+5. In WSL, run the following commands:
+    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake automake mono-devel```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
     * ```pip3 install ndspy```
-8. In WSL, run the following to install `dkp-pacman`, the installer for the devkitPro toolchain (input your password when asked):
+6. In WSL, run the following to install `dkp-pacman`, the installer for the devkitPro toolchain (input your password when asked):
     * ```wget https://apt.devkitpro.org/install-devkitpro-pacman```
     * ```chmod +x ./install-devkitpro-pacman```
     * ```sudo ./install-devkitpro-pacman```
     - If that doesn't work, we have archived the direct deb file from a version that worked.  Download that [here](https://cdn.discordapp.com/attachments/720028281566658581/1046631490710151258/devkitpro-pacman.amd64.deb), and run the following to install it in WSL (input your password when asked):
         * ```cd Downloads```
         * ```sudo gdebi devkitpro-pacman.amd64.deb```
-9. Once the last process has finished and `dkp-pacman` is installed, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+7. Once the last process has finished and `dkp-pacman` is installed, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Further Setup Instructions (All Platforms) (Continued from Individual Sections)
-1. In Terminal/WSL, run ```dkp-pacman -S gba-dev```, then press Enter/Return when prompted to choose what to download from the `gba-dev` library.
+1. In Terminal/WSL, run ```dkp-pacman -S nds-dev```, then press Enter/Return when prompted to choose what to download from the `nds-dev` library.
 2. Close and reopen Terminal/WSL so the changes made by `dkp-pacman` will be loaded. Then, run the following commands in this exact order:
     * ```export DEVKITPRO=/opt/devkitpro```
     * ```echo "export DEVKITPRO=$DEVKITPRO" >> ~/.bashrc```

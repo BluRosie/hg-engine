@@ -10,8 +10,29 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
-ALIGN4 struct ILLUSION_STRUCT gIllusionStruct;
+// function declarations
+//BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp);
+void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp);
+void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp);
+int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para);
+void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITCH_MESSAGE_PARAM *smp, MESSAGE_PARAM *mp);
+void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp);
+//void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility);
+void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no);
+void BattleEndRevertFormChange(void *bw);
+//void ClearBattleMonFlags(struct BattleStruct *sp, int client);
+//u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type);
+//u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move);
 
+ALIGN4 struct ILLUSION_STRUCT gIllusionStruct = {0};
+
+/**
+ *  @brief type effectiveness table
+ *         format is move type, defending type, and effectiveness
+ *         0 is ineffective, 5 is not very effective, 20 is super effective
+ *         every entry after the 0xFE entry is ignored by foresight
+ */
 u8 TypeEffectivenessTable[][3] =
 {
     { TYPE_NORMAL, TYPE_ROCK, 0x05 },
@@ -140,6 +161,15 @@ u8 TypeEffectivenessTable[][3] =
     { 0xFF, 0xFF, 0xFF },
 };
 
+/**
+ *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
+ *
+ *  @see BattleFormChange
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no battle subscript to run
+ *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
+ */
 BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     int i, form_no;
@@ -164,7 +194,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
                     sp->battlemon[sp->client_work].form_no = 0;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -175,7 +205,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_FIRE;
                     sp->battlemon[sp->client_work].form_no = 1;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -186,7 +216,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_WATER;
                     sp->battlemon[sp->client_work].form_no = 2;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -197,7 +227,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_ICE;
                     sp->battlemon[sp->client_work].form_no = 3;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -210,7 +240,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 //                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
                     sp->battlemon[sp->client_work].form_no = 0;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -228,7 +258,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                  && (sp->battlemon[sp->client_work].form_no == 1))
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -236,7 +266,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                       && (sp->battlemon[sp->client_work].form_no == 0))
                 {
                     sp->battlemon[sp->client_work].form_no = 1;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -244,7 +274,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                       && (sp->battlemon[sp->client_work].form_no == 1))
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -252,7 +282,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                       && (sp->battlemon[sp->client_work].form_no == 1))
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -262,7 +292,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 if (sp->battlemon[sp->client_work].form_no == 1)
                 {
                     sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -278,7 +308,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[sp->client_work].form_no != form_no)
             {
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -293,7 +323,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[sp->client_work].form_no != form_no)
             {
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -336,16 +366,16 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     sp->battlemon[sp->client_work].spdef =   GetMonData(pp, MON_DATA_SPECIAL_DEFENSE, 0);
                     sp->battlemon[sp->client_work].ability = GetMonData(pp, MON_DATA_ABILITY,         0);
                     sp->battlemon[sp->client_work].form_no = 0;
-                    sp->server_status_flag2 |= SERVER_STATUS2_FLAG_FORM_CHANGE;
+                    sp->server_status_flag2 |= SERVER_STATUS_FLAG2_FORM_CHANGE;
                     SCIO_PSPtoPPCopy(bw, sp, sp->client_work);
                     sys_FreeMemoryEz(pp);
-                    *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
                 else
                 {
-                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHANGE;
+                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHECK;
                     ret = TRUE;
                     break;
                 }
@@ -361,7 +391,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no += 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
             break;
         } else if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
@@ -371,14 +401,13 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no -= 2;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
             break;
         }
 
         // fuck illusion
-        if (/*(sp->battlemon[sp->client_work].species == SPECIES_ZORUA || sp->battlemon[sp->client_work].species == SPECIES_ZOROARK)
-         && */GetBattlerAbility(sp, sp->client_work) == ABILITY_ILLUSION
+        if (GetBattlerAbility(sp, sp->client_work) == ABILITY_ILLUSION
          && gIllusionStruct.isSideInIllusion[sp->client_work & 1] == 1
          && (sp->oneSelfFlag[sp->client_work].physical_damage || sp->oneSelfFlag[sp->client_work].special_damage))
         {
@@ -406,7 +435,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no = 1;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -419,7 +448,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[sp->client_work].form_no != form_no)
             {
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -434,7 +463,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
                 sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
                 SetMonData(pp2, MON_DATA_FORM, &form_no);
                 ret = TRUE;
                 break;
@@ -466,7 +495,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no = 1;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
         } else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
          && (sp->battlemon[sp->client_work].hp)
@@ -475,7 +504,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[sp->client_work].form_no = 0;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_FORM_CHANGE;
+            *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
         }
     }
@@ -483,6 +512,13 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
     return ret;
 }
 
+/**
+ *  @brief one of a number of functions that control how a battler appears
+ *         this one is for wild encounters
+ *
+ *  @param bw battle work structure
+ *  @param cp client param structure
+ */
 void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_ENCOUNT_PARAM *pep = (struct POKEMON_ENCOUNT_PARAM *)&cp->client_buffer[0];
@@ -492,11 +528,10 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 
     side = ((cp->client_type & 1) != 0);
 
-    if (/*(pep->monsno == SPECIES_ZORUA || pep->monsno == SPECIES_ZOROARK)
-     && */GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
+    if (GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), 0), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
-        u8 count = party->PokeCount;
+        struct Party *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->count;
         u16 strbuf[11];
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), MON_DATA_SPECIES, NULL);
@@ -527,6 +562,13 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     ClientCommandReset(cp);
 }
 
+/**
+ *  @brief one of a number of functions that control how a battler appears
+ *         this one is for wild encounters when the battler is sent out of its ball
+ *
+ *  @param bw battle work structure
+ *  @param cp client param structure
+ */
 void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
@@ -536,11 +578,10 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 
     side = ((cp->client_type & 1) != 0);
 
-    if (/*(pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
-     && */GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
+    if (GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
-        u8 count = party->PokeCount;
+        struct Party *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->count;
         u16 strbuf[11];
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), MON_DATA_SPECIES, NULL);
@@ -571,6 +612,13 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     ClientCommandReset(cp);
 }
 
+/**
+ *  @brief one of a number of functions that control how a battler appears
+ *         this one is for trainer battles
+ *
+ *  @param bw battle work structure
+ *  @param cp client param structure
+ */
 void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
@@ -580,11 +628,10 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 
     side = ((cp->client_type & 1) != 0);
 
-    if (/*(pap->monsno == SPECIES_ZORUA || pap->monsno == SPECIES_ZOROARK)
-     && */GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
+    if (GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party = BattleWorkPokePartyGet(bw, side);
-        u8 count = party->PokeCount;
+        struct Party *party = BattleWorkPokePartyGet(bw, side);
+        u8 count = party->count;
         u16 strbuf[11];
 
         newmon = GetMonData(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, side), count - 1), MON_DATA_SPECIES, NULL);
@@ -615,9 +662,14 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     ClientCommandReset(cp);
 }
 
-// need to highjack the message creator somewhere in order to buffer the last mon's name in the circumstance that we shouldn't be showing the current mon's nickname
-
-// might not need to setmondata if this one works out
+/**
+ *  @brief buffer the nickname for the passed battler
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param para battle script param to resolve to a battler
+ *  @return client passed in or'd by switch in party slot << 8
+ */
 int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
 {
     int ret;
@@ -625,20 +677,17 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     u32 side;
 
     client = GrabClientFromBattleScriptParam(bw, sp, para);
-    side = (client & 1) != 0;
+    side = (client & 1);
 
     ret = client;
 
-    if (/*(sp->battlemon[client].species == SPECIES_ZORUA || sp->battlemon[client].species == SPECIES_ZOROARK)
-     && */GetBattlerAbility(sp, client) == ABILITY_ILLUSION
-     //&& gIllusionStruct.isSideInIllusion[client & 1]
-       )
+    if (GetBattlerAbility(sp, client) == ABILITY_ILLUSION)
     {
-        struct POKEPARTY *party;
+        struct Party *party;
         u32 count;
 
         party = BattleWorkPokePartyGet(bw, side);
-        count = party->PokeCount - 1;
+        count = party->count - 1;
 
         ret |= count << 8;
     }
@@ -654,11 +703,19 @@ int MessageParam_GetNickname(void *bw, struct BattleStruct *sp, int para)
     return ret;
 }
 
+/**
+ *  @brief create the switch in message
+ *
+ *  @param bw battle work structure
+ *  @param cp client param structure
+ *  @param smp switchin message param
+ *  @param mp message param to construct
+ */
 void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITCH_MESSAGE_PARAM *smp, MESSAGE_PARAM *mp)
 {
     if (cp->client_type & 1)
     {
-        struct POKEPARTY *party;
+        struct Party *party;
         u32 count = 0;
         u32 species = 0;
         u32 ability = 0;
@@ -667,10 +724,9 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
 
         species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_SPECIES, NULL);
         ability = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_ABILITY, NULL);
-        if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
-         && */ability == ABILITY_ILLUSION)
+        if (ability == ABILITY_ILLUSION)
         {
-            smp->sel_mons_no = party->PokeCount - 1;
+            smp->sel_mons_no = party->count - 1;
         }
 
         if ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0)
@@ -691,7 +747,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
     }
     else
     {
-        struct POKEPARTY *party;
+        struct Party *party;
         u32 count = 0;
         u32 species = 0;
         u32 ability = 0;
@@ -700,10 +756,9 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
 
         species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_SPECIES, NULL);
         ability = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_ABILITY, NULL);
-        if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
-         && */ability == ABILITY_ILLUSION)
+        if (ability == ABILITY_ILLUSION)
         {
-            smp->sel_mons_no = party->PokeCount - 1;
+            smp->sel_mons_no = party->count - 1;
         }
 
         if (((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) == 0)
@@ -739,7 +794,14 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
     }
 }
 
-
+/**
+ *  @brief create the send out message
+ *
+ *  @param bw battle work structure
+ *  @param cp client param structure
+ *  @param esomp encounter send out message param
+ *  @param mp message param to construct
+ */
 void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp)
 {
     u32 fight_type;
@@ -762,7 +824,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         }
 
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -771,16 +833,15 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_ABILITY, NULL);
-            if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
-             && */ability == ABILITY_ILLUSION)
+            if (ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client1] = party->PokeCount - 1;
+                esomp->sel_mons_no[client1] = party->count - 1;
             }
         }
 
         if (client1 != client2)
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -792,7 +853,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
              && */ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client2] = party->PokeCount - 1;
+                esomp->sel_mons_no[client2] = party->count - 1;
             }
         }
 
@@ -918,7 +979,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         }
 
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -927,16 +988,15 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_ABILITY, NULL);
-            if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
-             && */ability == ABILITY_ILLUSION)
+            if (ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client1] = party->PokeCount - 1;
+                esomp->sel_mons_no[client1] = party->count - 1;
             }
         }
 
         if (client1 != client2)
         {
-            struct POKEPARTY *party;
+            struct Party *party;
             u32 count = 0;
             u32 species = 0;
             u32 ability = 0;
@@ -945,10 +1005,9 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
             species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), MON_DATA_ABILITY, NULL);
-            if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
-             && */ability == ABILITY_ILLUSION)
+            if (ability == ABILITY_ILLUSION)
             {
-                esomp->sel_mons_no[client2] = party->PokeCount - 1;
+                esomp->sel_mons_no[client2] = party->count - 1;
             }
         }
 
@@ -1004,6 +1063,15 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
     }
 }
 
+/**
+ *  @brief changes the form of the battler passed in.  updates all of the stats and possibly updates the ability if necessary
+ *
+ *  @param client battler to change form
+ *  @param form_no target form id
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param SwitchAbility whether the ability should be updated from the base stats in personal
+ */
 void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility)
 {
     void *pp2;
@@ -1027,24 +1095,34 @@ void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp
 
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
-
-    //sp->battlemon[client].species = PokeOtherFormMonsNoGet(sp->battlemon[client].species, form_no);
 }
 
-void TryRevertFormChange(struct BattleStruct *sp, void* bw, int client_no)
+/**
+ *  @brief try to revert a battler to its base form
+ *
+ *  @param sp global battle structure
+ *  @param bw battle work structure
+ *  @param client_no battler to revert to base form
+ */
+void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
 {
     u16 species = sp->battlemon[client_no].species;
     u8 form_no = sp->battlemon[client_no].form_no;
 
     void *pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
 
-    if (RevertFormChange(pp,species,form_no))
+    if (RevertFormChange(pp, species, form_no))
     {
         RecalcPartyPokemonStats(pp);
         ResetPartyPokemonAbility(pp);
     }
 }
 
+/**
+ *  @brief clean up illusion and revert battle-specific forms (megas) to their base forms
+ *
+ *  @param bw battle work structure
+ */
 void BattleEndRevertFormChange(void *bw)
 {
     int i, j;
@@ -1091,7 +1169,12 @@ void BattleEndRevertFormChange(void *bw)
     }
 }
 
-
+/**
+ *  @brief clear the newly introduced battle mon flags in various scenarios, i.e. switching
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose flags to clear
+ */
 void ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     sp->battlemon[client].unnerve_flag = 0;
@@ -1106,7 +1189,9 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
 }
 
-
+/**
+ *  @brief moves that soundproof blocks
+ */
 u16 SoundProofMovesList[] = {
     MOVE_BOOMBURST,
     MOVE_BUG_BUZZ,
@@ -1142,7 +1227,14 @@ u16 SoundProofMovesList[] = {
     MOVE_UPROAR
 };
 
-// needed for the AI.  doesn't have client access, just move ability type
+/**
+ *  @brief get the adjusted move type accounting for normalize without relying on a client
+ *
+ *  @param sp global battle structure
+ *  @param move index of the move to grab type for
+ *  @param ability index of the ability to account for
+ *  @param type if relevant, the type that is already set to overwrite the base move type
+ */
 u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type)
 {
     u32 typeLocal;
@@ -1199,6 +1291,14 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
     return typeLocal;
 }
 
+/**
+ *  @brief get the adjusted move type accounting for normalize and friends
+ *
+ *  @see GetAdjustedMoveTypeBasics
+ *  @param sp global battle structure
+ *  @param client battler to read data from
+ *  @param move index of the move to grab type for
+ */
 u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
 {
     return GetAdjustedMoveTypeBasics(sp, move, GetBattlerAbility(sp, client), sp->move_type);

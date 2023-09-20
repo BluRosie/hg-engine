@@ -42,7 +42,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
     do
     {
-        if (ServerKizetsuCheck(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
+        if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
         {
             return;
         }
@@ -70,7 +70,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->side_condition[side] &= ~(SIDE_STATUS_REFLECT);
                         sp->waza_work = MOVE_REFLECT;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_MOVE_EFFECT_FADED);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -97,7 +97,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->side_condition[side] &= ~(SIDE_STATUS_LIGHT_SCREEN);
                         sp->waza_work = MOVE_LIGHT_SCREEN;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_MOVE_EFFECT_FADED);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -124,7 +124,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->side_condition[side] &= ~(SIDE_STATUS_MIST);
                         sp->waza_work = MOVE_MIST;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_MOVE_EFFECT_FADED);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -150,7 +150,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->side_condition[side] &= ~(SIDE_STATUS_SAFEGUARD);
                         sp->client_work = sp->scw[side].safeguardBattler;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SAFEGUARD_FADED);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_END_SAFEGUARD);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -175,7 +175,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     if (--sp->tailwindCount[side] == 0)
                     {
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_TAILWIND_PETERS_OUT);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAILWIND_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->client_work = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -201,7 +201,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->side_condition[side] -= (1 << 12);
                     if ((sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) == 0)
                     {
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_LUCKY_CHANT_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LUCKY_CHANT_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->client_work = ST_ServerDir2ClientNoGet(bw,sp,side);
@@ -233,7 +233,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                             sp->mp.msg_id = BATTLE_MSG_WISH_CAME_TRUE; // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
                             sp->mp.msg_para[0] = side | (sp->fcc.wish_sel_mons[side] << 8);
                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[side].maxhp, 2);
-                            LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_HANDLE_WISH_CAME_TRUE);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WISH_HEAL);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -258,7 +258,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     sp->mp.msg_id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL; // Rain continues to fall.
                     sp->mp.msg_tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                 }
@@ -267,7 +267,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     if (--sp->fcc.weather_count == 0)
                     {
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_RAIN_ENDS);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAIN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -276,7 +276,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL;
                         sp->mp.msg_tag = TAG_NONE;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -294,7 +294,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     sp->mp.msg_id = BATTLE_MSG_SANDSTORM_RAGES; // The sandstorm rages.
                     sp->mp.msg_tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                 }
@@ -302,7 +302,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     if(--sp->fcc.weather_count == 0)
                     {
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SANDSTORM_ENDS);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SANDSTORM_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -310,7 +310,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_SANDSTORM_RAGES;
                         sp->mp.msg_tag = TAG_NONE;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -328,7 +328,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     sp->mp.msg_id = BATTLE_MSG_SUNLIGHT_IS_STRONG;
                     sp->mp.msg_tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                 }
@@ -337,7 +337,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     if (--sp->fcc.weather_count == 0)
                     {
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SUNLIGHT_FADES);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -346,7 +346,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_SUNLIGHT_IS_STRONG;
                         sp->mp.msg_tag = TAG_NONE;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -364,7 +364,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     sp->mp.msg_id = BATTLE_MSG_HAIL_CONTINUES_TO_FALL; // Hail continues to fall.
                     sp->mp.msg_tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                 }
@@ -372,7 +372,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 {
                     if (--sp->fcc.weather_count == 0)
                     {
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_HAIL_STOPPED);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HAIL_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -380,7 +380,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_HAIL_CONTINUES_TO_FALL;
                         sp->mp.msg_tag = TAG_NONE;
-                        LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                     }
@@ -396,7 +396,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             {
                 sp->mp.msg_id = BATTLE_MSG_FOG_IS_DEEP; // The fog is deep...
                 sp->mp.msg_tag = TAG_NONE;
-                LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_CONTINUE_WEATHER);
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = 22;
                 sp->temp_work = 18; // signifies fog i guess
@@ -411,7 +411,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->field_condition -= (1 << 12);
                 if ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
                 {
-                    LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_GRAVITY_NORMAL);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_GRAVITY_END);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;

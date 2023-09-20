@@ -11,6 +11,16 @@
 #include "../../include/constants/species.h"
 
 
+
+// function declarations
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+                   u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
+//u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+void CalcDamageOverall(void *bw, struct BattleStruct *sp);
+int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
+
+
+
 struct __attribute__((packed)) sDamageCalc
 {
     u16 species;
@@ -767,9 +777,9 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
     }
 
-    // halve the defense if using selfdestruct/explosion
-    if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
-        defense = defense / 2;
+    //// halve the defense if using selfdestruct/explosion
+    //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
+    //    defense = defense / 2;
 
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
@@ -995,7 +1005,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     return damage + 2;
 }
 
-// GetBattleMonItem needs to be rewritten AND hooked from.  interesting
+/**
+ *  @brief grab a battler's item.  returns 0 if the battler is in embargo or can't hold an item for any other reason
+ *
+ *  @param sp global battle structure
+ *  @param client_no battler to grab the item of
+ *  @return item that the client_no is holding accounting for embargo and such
+ */
 u16 GetBattleMonItem(struct BattleStruct *sp, int client_no)
 {
     if ((GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ))
@@ -1017,6 +1033,13 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no)
     return sp->battlemon[client_no].item;
 }
 
+
+/**
+ *  @brief calculate overall damage, accounting for critical hits and me first boosts.  passed into damage roller below
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
 
 void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 {
@@ -1070,6 +1093,15 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     }
 }
 
+
+/**
+ *  @brief do the final 85-100% damage roll to the damage.  output of this is the exact damage done to the opponent
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param damage unrolled damage
+ *  @return adjusted damage
+ */
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage)
 {
 	if (damage)

@@ -246,7 +246,7 @@ struct Party
 {
     s32 maxPossibleCount;
     s32 count;
-    // all the other mons here
+    struct PartyPokemon members[6];
 };
 
 enum

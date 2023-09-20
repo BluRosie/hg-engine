@@ -51,10 +51,48 @@ typedef struct ScriptState {
     u8 flags[2912 / 8];
 } SCRIPT_STATE;
 
+struct PlayerProfile {
+    u16 name[7 + 1];
+    u32 id;
+    u32 money;
+    u8 gender;
+    u8 language;
+    u8 johtoBadges;
+    u8 avatar;
+    u8 version;
+    u8 gameClear:1;
+    u8 natDex:1;
+    u8 dummy;
+    u8 kantoBadges;
+};
+
+struct OPTIONS {
+    u16 textSpeed:4;
+    u16 soundMethod:2;
+    u16 battleStyle:1;
+    u16 battleScene:1;
+    u16 buttonMode:2;
+    u16 frame:5;
+    u16 dummy:1;
+};
+
+struct IGT {
+    u16 hours;
+    u8 minutes;
+    u8 seconds;
+};
+
+struct PLAYERDATA {
+    struct OPTIONS options;
+    struct PlayerProfile profile;
+    u16 coins;
+    struct IGT igt;
+};
+
 void *__attribute__((long_call)) SaveBlock2_get(void);
 struct SAVE_MISC_DATA *__attribute__((long_call)) Sav2_Misc_get(void *saveData);
-struct SCRIPT_STATE *__attribute__((long_call)) SavArray_Flags_get(void *saveData);
-void *__attribute__((long_call)) Sav2_PlayerData_GetProfileAddr(void *saveData);
+struct ScriptState *__attribute__((long_call)) SavArray_Flags_get(void *saveData);
+struct PLAYERDATA *__attribute__((long_call)) Sav2_PlayerData_GetProfileAddr(void *saveData);
 void* __attribute__((long_call)) GetBagSaveData(void *saveData);
 u8* __attribute__((long_call)) SaveData_GetRepelPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetEventPtr(void *saveData);

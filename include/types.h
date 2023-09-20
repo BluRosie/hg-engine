@@ -74,6 +74,8 @@ u16 __attribute__((long_call)) gf_rand(void);
 void __attribute__((long_call)) sys_FreeMemoryEz(void*);
 void* __attribute__((long_call)) sys_AllocMemory(u32,u32);
 
+u32 __attribute__((long_call)) GF_ExpHeap_FndGetTotalFreeSize(u32 heapId);
+
 void __attribute__((long_call)) ArcUtil_PalSet(u32 fileIdx, u32 dataIdx, u8 palType, u32 offs, u32 transSize, u32 heapID);
 void *__attribute__((long_call)) ArchiveDataLoadMalloc(int arcID, int datID, int heapID);
 void __attribute__((long_call)) ArchiveDataLoad(void *data, int arcID, int datID);
@@ -81,5 +83,9 @@ void *__attribute__((long_call)) ArchiveDataLoadMallocOfs(int arcID, int datID, 
 void __attribute__((long_call)) ArchiveDataLoadOfs(void *data, int arcID, int datID, int ofs, int size);
 void *__attribute__((long_call)) sys_AllocMemoryLo(u32 heap_id, u32 size);
 void *__attribute__((long_call)) NARC_ctor(u32 narc_id, u32 heap_id);
+
+void *memcpy(u8 *dest, u8 *src, u32 size);
+void sprintf(u8 *buf, const u8 *str, ...);
+void debugsyscall(u8 *buf);
 
 #endif

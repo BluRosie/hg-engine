@@ -13,10 +13,22 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/constants/file.h"
 
+// this file's function declarations
+u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
+BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
+BOOL CheckItemByThief(u16 item);
 
-//this function is for held item effects for when U-Turn is used
-//if you want to edit a defender's held item effect triggering after being hit, go to CheckDefenderItemEffectOnHit
-//if you want to edit an attacker's held item effect triggering after hitting using a move, go to ServerWazaHitAfterCheckAct
+/**
+ *  @brief run an item effects that happen when u-turn is being used
+ *         if you want to edit a defender's held item effect triggering after being hit, go to CheckDefenderItemEffectOnHit
+ *         if you want to edit an attacker's held item effect triggering after hitting using a move, go to ServerWazaHitAfterCheckAct
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no subscript to load if TRUE is returned
+ *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
+ */
 u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ret;
@@ -47,7 +59,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
     {
         sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, atk_item_param);
         sp->client_work = sp->attack_client;
-        seq_no[0] = SUB_SEQ_SHELL_BELL_HEAL;
+        seq_no[0] = SUB_SEQ_ITEM_HP_GRADUAL;
         ret = TRUE;
     }
 
@@ -60,7 +72,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
         sp->client_work = sp->attack_client;
-        seq_no[0] = SUB_SEQ_LIFE_ORB;
+        seq_no[0] = SUB_SEQ_ITEM_HP_LOSS;
         ret = TRUE;
     }
 
@@ -70,7 +82,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
      && (sp->oneSelfFlag[sp->defence_client].physical_damage))
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, def_item_param);
-        seq_no[0] = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+        seq_no[0] = SUB_SEQ_ITEM_DAMAGE_BACK;
         ret = TRUE;
     }
 
@@ -82,7 +94,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
       || (sp->oneSelfFlag[sp->defence_client].special_damage))
         && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
     {
-        seq_no[0] = SUB_SEQ_TRANSFER_STICKY_BARB;
+        seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
         ret = TRUE;
     }
 
@@ -98,8 +110,14 @@ enum
 	SWHAC_END
 };
 
-//go to CheckDefenderItemEffectOnHit if you want to program an effect to happen after being hit for a defender's held item
-//this function is for an attacker's held item effect triggering after hitting with a move
+/**
+ *  @brief handle item effects for an attacker's items on move hit.  loads the subscript and returns to parent
+ *         this function is for an attacker's held item effect triggering after hitting with a move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE if a battle subscript has been loaded and should be run; FALSE otherwise
+ */
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
     int ret;
@@ -115,7 +133,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
     hold_effect = HeldItemHoldEffectGet(sp, sp->attack_client);
     hold_effect_param = HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL);
 
-    if (ServerKizetsuCheck(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
+    if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
     {
         return TRUE;
     }
@@ -139,7 +157,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
             if(sp->defence_client != 0xFF)
             {
                 if ((hold_effect == HOLD_EFFECT_HP_RESTORE_ON_DMG)
-                 && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                  && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
                  && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
                  && (sp->attack_client != sp->defence_client)
@@ -148,7 +166,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                 {
                     sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
                     sp->client_work=sp->attack_client;
-                    LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_SHELL_BELL_HEAL);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_GRADUAL);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;
@@ -159,14 +177,14 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
         case SWHAC_HELD_ITEM_LIFE_ORB:
             if ((hold_effect == HOLD_EFFECT_HP_DRAIN_ON_ATK)
              && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_MAGIC_GUARD)
-             && ((sp->server_status_flag2 & SERVER_STATUS2_FLAG_x10) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
              && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
              && (sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS)
              && (sp->battlemon[sp->attack_client].hp))
             {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
                 sp->client_work = sp->attack_client;
-                LoadBattleSubSeqScript(sp, FILE_BATTLE_SUB_SCRIPTS, SUB_SEQ_LIFE_ORB);
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_LOSS);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = 22;
                 ret = 1;
@@ -186,9 +204,17 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 }
 
 
-//thanks to Lhea for this function - TODO ask for their SUB_SEQ scripts for the gen5+ item effects since rn those can't be used
-//this function is for a defender's held item effect triggering after being hit
-//go to ServerWazaHitAfterCheckAct for implementing an attacker's held item effect triggering after using a move
+// thanks to Lhea for this function
+
+/**
+ *  @brief handle item effects for a defender's items on move hit.  loads into *seq_no
+ *         this function is for the defender's held item effect triggering after hitting with a move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no subscript to load if TRUE is returned
+ *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
+ */
 BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
@@ -223,7 +249,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 // Attacker used a move that makes contact
                 && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
-                seq_no[0] = SUB_SEQ_TRANSFER_STICKY_BARB;
+                seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
                 ret       = TRUE;
             }
             break;
@@ -238,7 +264,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker dealt physical damage
                 && (sp->oneSelfFlag[sp->defence_client].physical_damage)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]        = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                seq_no[0]        = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret              = TRUE;
             }
             break;
@@ -253,7 +279,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker dealt special damage
                 && (sp->oneSelfFlag[sp->defence_client].special_damage)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]        = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                seq_no[0]        = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret              = TRUE;
             }
             break;
@@ -265,7 +291,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
                 sp->client_work = sp->defence_client;
                 sp->item_work   = sp->battlemon[sp->defence_client].item;
-                seq_no[0]       = SUB_SEQ_HANDLE_ITEM_RESTORE_HP;
+                seq_no[0]       = SUB_SEQ_ITEM_HP_RESTORE;
                 ret             = TRUE;
             }
             break;
@@ -366,7 +392,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker used a move that makes contact
                 && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
                 sp->hp_calc_work         = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]                = SUB_SEQ_PHYSICAL_DMG_RECOIL;
+                seq_no[0]                = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret                      = TRUE;
             }
             break;
@@ -481,7 +507,13 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     return ret;
 }
 
-bool8 CheckItemByThief(u16 item)
+/**
+ *  @brief check if the item can be stolen by thief or not
+ *
+ *  @param item item index
+ *  @return TRUE if the item can not be stolen; FALSE otherwise
+ */
+BOOL CheckItemByThief(u16 item)
 {
     if (item == ITEM_GRISEOUS_ORB || IS_ITEM_MEGA_STONE(item))
         return TRUE;

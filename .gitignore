@@ -1,6 +1,7 @@
 # generated
 *.nds
 *.ini
+*.mch
 build/*
 base/*
 narc/*

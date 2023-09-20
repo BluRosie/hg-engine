@@ -2,7 +2,8 @@
 #define CONSTANTS_FILE_H
 
 //NARC files
-#define ARC_SUB_SEQ 1
+#define ARC_BATTLE_MOVE_SEQ 0
+#define ARC_BATTLE_SUB_SEQ 1
 #define ARC_PERSONAL 2
 #define ARC_MON_PIC 4
 #define ARC_BATTLE_GFX 8
@@ -12,9 +13,10 @@
 #define ARC_POKEICON 20
 #define ARC_CODE_ADDONS 28
 #define ARC_BATTLE_PARTICLES 29
+#define ARC_BATTLE_EFF_SEQ 30
 #define ARC_EVOLUTIONS 34
 #define ARC_OTHER_MON_PIC 114
-#define ARC_EGG_MOVES 231 // 229 because of the two random ones
+#define ARC_EGG_MOVES 231 // a229 because of the two random ones
 
 
 //a008 file indexes
@@ -35,6 +37,14 @@
 #define CODE_ADDON_HIDDEN_ABILITY_LIST 7
 #define CODE_ADDON_BASE_EXPERIENCE_LIST 8
 #define CODE_ADDON_NUM_OF_OW_FORMS_PER_MON 9
+
+//a018 file indices for mega stuff
+#define MEGA_ICON_FIGHT_GFX (797)
+#define PRIMAL_REVERSION_OMEGA_GFX (799)
+#define PRIMAL_REVERSION_ALPHA_GFX (801)
+#define MEGA_ICON_SELECTED_GFX (803)
+#define MEGA_ICON_BLANK_GFX (805)
+
 
 //heap IDs
 #define HEAPID_WORLD 11

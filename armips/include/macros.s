@@ -395,7 +395,7 @@
 .endmacro
 
 .macro trainerclass,num
-	.byte num
+	.halfword num
 .endmacro
 
 .macro battletype,num
@@ -410,10 +410,6 @@
 
 .macro aiflags,num
 	.word num
-.endmacro
-
-.macro battletype2,num
-	.byte num
 .endmacro
 
 .macro endentry
