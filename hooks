@@ -337,3 +337,7 @@ arm9 CapRareCandies 0208FEEA 1
 
 # pc anywhere
 0001 ClearOverworldRequestFlags 021E6880 1
+# hook from where y button is checked
+0001 SetOverworldRequestFlags_hook 021E6982 0
+# hook from near beginning of function
+0001 CheckOverworldRequestFlags_hook 021E6AF6 3

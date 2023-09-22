@@ -1,6 +1,7 @@
 #include "../../include/types.h"
 #include "../../include/pokemon.h"
 #include "../../include/map_events_internal.h"
+#include "../../include/constants/buttons.h"
 #include "../../include/constants/file.h"
 #include "../../include/constants/species.h"
 
@@ -31,4 +32,29 @@ void ClearOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req)
     req->PushSite = 0xFF;
 }
 
-// SetRequest has been significantly changed from Platinum by necessity because of the touch screen changing things
+/**
+ *  @brief set new overworld request flags depending on buttons pressed
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to set flags in
+ *  @param trg buttons that are pressed on this frame
+ */
+void SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, u16 trg)
+{
+    if (trg & PAD_BUTTON_R) {
+        req->OpenPCCheck = TRUE;
+    }
+}
+
+/**
+ *  @brief handle overworld request flags
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to set flags in
+ */
+void CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, FieldSystem *fsys)
+{
+    if (req->OpenPCCheck) {
+        SetScriptFlag(0x18F); // some random flag that should be set by script 2010 (file 3 script 10)
+        EventSet_Script(fsys, 2010, NULL); // set up script 2010
+    }
+}
+
