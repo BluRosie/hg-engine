@@ -652,18 +652,14 @@ scr_seq_0003_033_give_item_verbose:
     end
 
 _085F:
-.ifndef DEBUG_GIVE_ALL_ITEMS
     call _04F2
-.endif
     giveitem VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     getitempocket VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
-.ifndef DEBUG_GIVE_ALL_ITEMS
     compare VAR_SPECIAL_RESULT, 7
     call_if_eq _0892
     compare VAR_SPECIAL_RESULT, 7
     call_if_ne _08A3
     npc_msg 89
-.endif
     return
 
 _0892:
@@ -771,11 +767,9 @@ scr_seq_0003_010:
     goto _0A2E
 
 _0A18:
-    goto_if_set 0x18F, _skipPCOnOff
     scrcmd_500 90
     scrcmd_501 90
     scrcmd_308 90
-_skipPCOnOff:
     return
 
 _0A23:
@@ -1009,10 +1003,7 @@ _0DE7:
 _0DF0:
     closemsg
     play_se SEQ_SE_DP_PC_LOGOFF
-    goto_if_set 0x18F, _skipPCOff
     call _0A23
-_skipPCOff:
-    clearflag 0x18F
     touchscreen_menu_show
     releaseall
     end
@@ -1026,9 +1017,7 @@ _0E02:
 _0E16:
     fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
-    goto_if_set 0x18F, _skipPCTransition
     scrcmd_309 90
-_skipPCTransition:
     return
 
 scr_seq_0003_014:
