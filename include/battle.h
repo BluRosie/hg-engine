@@ -4,6 +4,7 @@
 #include "types.h"
 #include "item.h"
 #include "sprite.h"
+#include "pokemon.h"
 #include "task.h"
 #include "constants/moves.h"
 
@@ -1094,8 +1095,6 @@ struct __attribute__((packed)) newBattleStruct
     u8 ChangeBgFlag:4;
     u8 CanMega:4;
 };
-
-#include "pokemon.h"
 
 typedef struct {
     u16 sentence_type;
