@@ -3,6 +3,7 @@
 
 //#include "wild_encounter.h"
 #include "types.h"
+#include "script.h"
 
 typedef struct BG_EVENT {
     u16 scr;
@@ -74,7 +75,6 @@ typedef struct MAP_EVENTS {
 
 
 
-#include "script.h"
 
 typedef struct LocalMapObject LocalMapObject;
 

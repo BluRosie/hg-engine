@@ -61,6 +61,8 @@ VecFx32;
 
 #define	ALIGN4 __attribute__((aligned(4)))
 #define MOVE_TABLES_TERMIN 0xFEFE
+#define THUMB_FUNC __attribute__((target("thumb")))
+#define LONG_CALL __attribute__((long_call))
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
