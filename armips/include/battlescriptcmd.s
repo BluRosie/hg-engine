@@ -270,7 +270,7 @@ BATTLER_WORK             equ 0xFF
 
 TAG_NONE                        equ (0)     //nothing
 
-TAG_NONE_DIR                    equ (1)     //nothing (but judgment type?)
+TAG_NONE_DIR                    equ (1)     //nothing (but switch depending on team)
 TAG_NICK                        equ (2)     //nickname
 TAG_MOVE                        equ (3)     //move
 TAG_STAT                        equ (4)     //stat
@@ -290,7 +290,7 @@ TAG_NICK_UNK                    equ (16)    //nickname      ?
 TAG_NICK_NUM                    equ (17)    //nickname      number
 TAG_NICK_TRNAME                 equ (18)    //nickname      trainername
 TAG_NICK_BOX                    equ (19)    //nickname      boxname
-TAG_MOVE_DIR                    equ (20)    //move          (but judgment type?)
+TAG_MOVE_DIR                    equ (20)    //move (but switch depending on team)
 TAG_MOVE_NICK                   equ (21)    //move          nickname
 TAG_MOVE_MOVE                   equ (22)    //move          move
 TAG_ABILITY_NICK                equ (23)    //ability       nickname

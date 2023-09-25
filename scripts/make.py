@@ -267,7 +267,6 @@ def install():
                         newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1])
                     else:
                         newNumber = str(hex(newNumber)).split('0x')[1]
-                    print(newNumber)
                     ReplaceBytes(rom2, offset, newNumber)
                 rom2.close()
 

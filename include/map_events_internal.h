@@ -3,6 +3,7 @@
 
 //#include "wild_encounter.h"
 #include "types.h"
+#include "script.h"
 
 typedef struct BG_EVENT {
     u16 scr;
@@ -74,7 +75,6 @@ typedef struct MAP_EVENTS {
 
 
 
-#include "script.h"
 
 typedef struct LocalMapObject LocalMapObject;
 
@@ -192,6 +192,31 @@ struct LocalMapObject {
 #define BIT_MOVE_END (1<<3)
 #define BIT_VANISH (1<<9)
 #define BIT_JUMP_START (1<<16)
+
+
+typedef struct OVERWORLD_REQUEST_FLAGS {
+    /* 0x0 */ u16 TalkCheck:1;    // 0x0001
+              u16 StepCheck:1;    // 0x0002
+              u16 MenuOpen:1;     // 0x0004
+              u16 unk0_0018:2;    // 0x0018 - assume this is inserted field
+              u16 CnvButton:1;    // 0x0020
+              u16 MatCheck:1;     // 0x0040
+              u16 PushCheck:1;    // 0x0080
+              u16 MoveCheck:1;    // 0x0100
+              u16 FloatCheck:1;   // 0x0200
+              u16 DebugMenu:1;    // 0x0400
+              u16 DebugBattle:1;  // 0x0800
+              u16 DebugHook:1;    // 0x1000
+              u16 DebugKeyPush:1; // 0x2000
+              u16 OpenPCCheck:1;
+              u16 Unused:1;
+    /* 0x2 */ u16 unk2; // if you told me that they just inserted unk0_0018 without decreasing Unused size, i would believe you
+    /* 0x4 */ u8 Site;
+    /* 0x5 */ s8 PushSite;
+    /* 0x6 */ u16 trg;
+    /* 0x8 */ u16 cont;
+} __attribute__((packed)) OVERWORLD_REQUEST_FLAGS; // size = 0xa
+
 
 LocalMapObject * __attribute__((long_call)) GetMapObjectByID(void *arr, int id);
 int __attribute__((long_call)) MapObject_GetMovement(LocalMapObject *mapObject);

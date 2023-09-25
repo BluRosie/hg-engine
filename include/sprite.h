@@ -99,6 +99,13 @@ typedef struct NNSG2dScreenData
 #define GF_BGL_FRAME2_S	(6)
 #define GF_BGL_FRAME3_S	(7)
 
+#define NNS_G2D_VRAM_TYPE_2DMAIN 1
+#define NNS_G2D_VRAM_TYPE_2DSUB 2
+#define FADE_MAIN_OBJ 2
+#define FADE_SUB_OBJ 3
+#define CLACT_U_HEADER_DATA_NONE (0xffffffff)
+#define RECT_HIT_END 0xFF
+
 void *__attribute__((long_call)) Sub_GaugeObjHeadGet(u8);
 BOOL __attribute__((long_call)) OAM_LoadResourceCharArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int trans_mode, int id);
 u8 __attribute__((long_call)) OAM_LoadResourcePlttWorkArcH(void *pfd, int req, void *csp, void *crp, void *arcHandle, int data_id, int comp, int num, int trans_mode, int id);

@@ -724,7 +724,7 @@ mondata SPECIES_NIDORAN_M, "Nidoran♂"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
@@ -746,7 +746,7 @@ mondata SPECIES_NIDORINO, "Nidorino"
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
@@ -768,7 +768,7 @@ mondata SPECIES_NIDOKING, "Nidoking"
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
@@ -2352,7 +2352,7 @@ mondata SPECIES_HITMONLEE, "Hitmonlee"
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -2374,7 +2374,7 @@ mondata SPECIES_HITMONCHAN, "Hitmonchan"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -2836,7 +2836,7 @@ mondata SPECIES_TAUROS, "Tauros"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 1, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_SLOW
@@ -5212,7 +5212,7 @@ mondata SPECIES_TYROGUE, "Tyrogue"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -5234,7 +5234,7 @@ mondata SPECIES_HITMONTOP, "Hitmontop"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -6906,7 +6906,7 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 1, 0, 0
     items ITEM_NONE, ITEM_BRIGHT_POWDER
-    genderratio 255
+    genderratio 0
     eggcycles 15
     basefriendship 70
     growthrate GROWTH_ERRATIC
@@ -8402,7 +8402,7 @@ mondata SPECIES_LATIOS, "Latios"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 3, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 120
     basefriendship 90
     growthrate GROWTH_SLOW
@@ -9128,7 +9128,7 @@ mondata SPECIES_MOTHIM, "Mothim"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 1, 0
     items ITEM_NONE, ITEM_SILVER_POWDER
-    genderratio 255
+    genderratio 0
     eggcycles 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -10470,7 +10470,7 @@ mondata SPECIES_GALLADE, "Gallade"
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 35
     growthrate GROWTH_SLOW
@@ -12956,7 +12956,7 @@ mondata SPECIES_THROH, "Throh"
     baseexp 0 // defined in baseexp.s
     evyields 2, 0, 0, 0, 0, 0
     items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -12978,7 +12978,7 @@ mondata SPECIES_SAWK, "Sawk"
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
     items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -14914,7 +14914,7 @@ mondata SPECIES_RUFFLET, "Rufflet"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_SLOW
@@ -14936,7 +14936,7 @@ mondata SPECIES_BRAVIARY, "Braviary"
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_SLOW
@@ -20018,7 +20018,7 @@ mondata SPECIES_IMPIDIMP, "Impidimp"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 1, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -20040,7 +20040,7 @@ mondata SPECIES_MORGREM, "Morgrem"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -20062,7 +20062,7 @@ mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -20957,7 +20957,7 @@ mondata SPECIES_URSALUNA, "Ursaluna"
     mondexweight SPECIES_URSALUNA, "639.3 lbs."
 
 
-mondata SPECIES_BASCULEGION, "Basculegion"
+mondata SPECIES_BASCULEGION, "Basclegion"
     basestats 120, 112, 65, 78, 80, 75
     types TYPE_WATER, TYPE_GHOST
     catchrate 135
@@ -21272,7 +21272,7 @@ mondata SPECIES_OINKOLOGNE, "Oinkologne"
     baseexp 0 // defined in baseexp.s
     evyields 2, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -28370,7 +28370,7 @@ mondata SPECIES_TAUROS_COMBAT, "-----"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 1, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_SLOW
@@ -28388,7 +28388,7 @@ mondata SPECIES_TAUROS_BLAZE, "-----"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 1, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_SLOW
@@ -28406,7 +28406,7 @@ mondata SPECIES_TAUROS_AQUA, "-----"
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 1, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_SLOW
@@ -28424,7 +28424,7 @@ mondata SPECIES_OINKOLOGNE_FEMALE, "-----"
     baseexp 0 // defined in baseexp.s
     evyields 2, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 254
     eggcycles 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
