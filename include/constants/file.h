@@ -15,6 +15,8 @@
 #define ARC_BATTLE_PARTICLES 29
 #define ARC_BATTLE_EFF_SEQ 30
 #define ARC_EVOLUTIONS 34
+#define ARC_TRAINER_DATA 55
+#define ARC_TRAINER_PARTY_DATA 56
 #define ARC_OTHER_MON_PIC 114
 #define ARC_EGG_MOVES 231 // a229 because of the two random ones
 

@@ -61,12 +61,16 @@ VecFx32;
 
 #define	ALIGN4 __attribute__((aligned(4)))
 #define MOVE_TABLES_TERMIN 0xFEFE
+#define THUMB_FUNC __attribute__((target("thumb")))
+#define LONG_CALL __attribute__((long_call))
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
 
 // Extracts the lower 16 bits of a 32-bit number
 #define LOHALF(n) ((n) & 0xFFFF)
+
+#define No2Bit(n) ((1) << (n))
 
 void __attribute__((long_call)) GF_ASSERT(u32 cond);
 u16 __attribute__((long_call)) gf_rand(void);
@@ -85,6 +89,7 @@ void *__attribute__((long_call)) sys_AllocMemoryLo(u32 heap_id, u32 size);
 void *__attribute__((long_call)) NARC_ctor(u32 narc_id, u32 heap_id);
 
 void *memcpy(u8 *dest, u8 *src, u32 size);
+void memset(u8 *dest, u8 fill, u32 size);
 void sprintf(u8 *buf, const u8 *str, ...);
 void debugsyscall(u8 *buf);
 

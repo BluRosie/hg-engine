@@ -38,3 +38,8 @@ arm9 sPocketCounts 08077C14
 # metronome and mimic banlist
 0012 sMetronomeMimicMoveBanList 02257D9C
 0012 sMetronomeMimicMoveBanList 02257DF4
+
+# item use func table
+arm9 sItemFieldUseFuncs 020649AC
+arm9 sItemFieldUseFuncs+4 020649B0
+arm9 sItemFieldUseFuncs+8 020649B4
