@@ -526,7 +526,7 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
         if (cmdAddress != (u32)&sp->SkillSeqWork[sp->skill_seq_no])
         {
             cmdAddress = (u32)&sp->SkillSeqWork[sp->skill_seq_no];
-            sprintf(buf, "%s - 0x%02X\n", BattleScrCmdNames[command], command);
+            sprintf(buf, "[BattleScriptCommandHandler] %s - 0x%02X\n", BattleScrCmdNames[command], command);
             debugsyscall(buf);
             if (command == 0xE0 || command == 0x24)
             {
@@ -540,10 +540,11 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
         }
         if (command == 0xE) // wait message soft lock?
         {
-            if (sp->SkillSeqWork[0]++ > 300)
+            if (sp->SkillSeqWork[0]++ > 300) // timeout clear queue
             {
-                sp->skill_seq_no++;
-                sp->SkillSeqWork[0] = 0;
+        //        debugsyscall("[BattleScriptCommandHandler] TIMEOUT: Force Command Increment\n");
+        //        sp->skill_seq_no++;
+        //        sp->SkillSeqWork[0] = 0;
             }
         }
 #endif //DEBUG_BATTLE_SCRIPT_COMMANDS
@@ -853,6 +854,9 @@ int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side)
         return client_no;
 }
 
+#ifdef DEBUG_SERVER_QUEUE
+u32 cmdAddress2 = 0;
+#endif
 /**
  *  @brief check if waitmessage battle script command should end
  *
@@ -873,10 +877,18 @@ BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
             for (j = 0; j < 16; j++) {
                 cnt += sp->ServerQue[i][battlerId][j];
 #ifdef DEBUG_SERVER_QUEUE
-                if (sp->ServerQue[i][battlerId][j])
+                if (sp->ServerQue[i][battlerId][j] && cmdAddress2 != (u32)&sp->SkillSeqWork[sp->skill_seq_no])
                 {
-                    sprintf(buf, "battlerId = %d, serverQueue = %d\n", battlerId, sp->ServerQue[i][battlerId][j]);
+                    sprintf(buf, "[Link_QueueIsEmpty] battlerId = %d, serverQueue = %d\n", battlerId, sp->ServerQue[i][battlerId][j]);
                     debugsyscall(buf);
+                    cmdAddress2 = (u32)&sp->SkillSeqWork[sp->skill_seq_no];
+                }
+                if (sp->SkillSeqWork[0] > 290 && sp->ServerQue[i][battlerId][j])
+                {
+                    sprintf(buf, "[Link_QueueIsEmpty] TIMEOUT on serverQueue %d. Reset to 0.\n", sp->ServerQue[i][battlerId][j]);
+                    debugsyscall(buf);
+                    sp->ServerQue[i][battlerId][j] = 0;
+                    cnt = 0;
                 }
 #endif
             }
