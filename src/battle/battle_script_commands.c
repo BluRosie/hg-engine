@@ -1107,7 +1107,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 //        sp->mons_getting_exp = 0;
 //        sp->mons_getting_exp_from_item = 0;
 //
-//        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->PokeCount; i++)
+//        for (i = 0; i < BattleWorkPokePartyGet(bw, 0)->count; i++)
 //        {
 //            pp = BattleWorkPokemonParamGet(bw, 0, i);
 //            if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
@@ -1284,7 +1284,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         {
             expcalc->sp->mons_getting_exp = 0;
             expcalc->sp->mons_getting_exp_from_item = 0;
-            for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->PokeCount; i++)
+            for (int i = 0; i < BattleWorkPokePartyGet(expcalc->bw, 0)->count; i++)
             {
                 pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
                 if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
