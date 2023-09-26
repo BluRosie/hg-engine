@@ -45,6 +45,6 @@
 //#define DEBUG_CAPTURE_RATE_PERCENTAGES
 
 // DEBUG_SERVER_QUEUE prints debug information about the status of the server queue when the waitmessage script command
-//#define DEBUG_SERVER_QUEUE
+#define DEBUG_SERVER_QUEUE
 
 #endif // DEBUG_H

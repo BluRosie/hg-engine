@@ -273,7 +273,7 @@ trainerdata 8, "Joey"
 		pokemon SPECIES_PATRAT
 		item ITEM_FOCUS_BAND
 		move MOVE_COVET
-		move MOVE_PURSUIT
+		move MOVE_ASSURANCE
 		move MOVE_NONE
 		move MOVE_NONE
 		ability ABILITY_KEEN_EYE
@@ -302,13 +302,13 @@ trainerdata 8, "Joey"
 		ivs 247
 		abilityslot 0
 		level 3
-		pokemon SPECIES_MEDITITE
+		pokemon SPECIES_SNOM
 		item ITEM_NONE
-		move MOVE_POUND
-		move MOVE_VACUUM_WAVE
-		move MOVE_CONFUSION
+		move MOVE_POWDER_SNOW
+		move MOVE_BUG_BITE
+		move MOVE_STRING_SHOT
 		move MOVE_NONE
-		ability ABILITY_PURE_POWER
+		ability ABILITY_FILTER
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
 		setevs 100, 100, 0, 0, 0, 0
 		nature NATURE_BRAVE
