@@ -2,6 +2,8 @@
 #define POKEDIAMOND_ITEM_H
 
 #include "types.h"
+#include "task.h"
+#include "script.h"
 
 /*
  * Bit array describing the effects of using the item on a
@@ -83,6 +85,57 @@ typedef struct ItemData
     };
     u8 padding_22[2];
 } ITEMDATA;
+
+typedef void *(*FieldApplicationWorkCtor)(FieldSystem *fieldSystem);
+
+struct ItemCheckUseData {
+    u32 mapId;
+    int playerState;
+    u16 haveFollower:1;
+    u16 haveRocketCostume:1;
+    u16 facingTile;
+    u16 standingTile;
+    FIELD_PLAYER_AVATAR *playerAvatar;
+    FieldSystem *fieldSystem;
+};
+
+struct ItemFieldUseData {
+    FieldSystem *fieldSystem;      // 00
+    struct ItemCheckUseData dat;   // 04
+    FieldApplicationWorkCtor ctor; // 1C
+    void *work;                    // 20
+    u16 itemId;                    // 24
+    u8 state;                      // 26
+    u8 no_app;                     // 27
+};
+
+struct ItemMenuUseData {
+    TaskManager *taskManager;
+    u16 itemId;
+    u8 unk6;
+};
+
+struct BagViewAppWork {
+    int unk_0000;
+    u8 filler_0004[0x22];
+    u16 state; // 26
+    u8 filler_0028[0x32C];
+    TaskFunc atexit_TaskFunc; // 354
+    u8 filler_0358[0x18];
+    u32 unk_0370[4];
+    void *atexit_TaskEnv; // 380
+    void *unk_0384;
+};
+
+typedef void (*ItemMenuUseFunc)(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+typedef BOOL (*ItemFieldUseFunc)(struct ItemFieldUseData *data);
+typedef u32 (*ItemCheckUseFunc)(const struct ItemCheckUseData *data);
+
+struct ItemUseFuncDat {
+    ItemMenuUseFunc menu;
+    ItemFieldUseFunc field;
+    ItemCheckUseFunc check;
+};
 
 enum
 {
@@ -184,7 +237,7 @@ extern struct ITEMDATA_INDEX ItemDataIndex[];
 
 #define ITEM_WORK_TYPE_CAN_USED_IN_PARTY 1
 
-void __attribute__((long_call)) SetUpItemScript(void *iuwk, const void *icwk, u32 scr_id);
+void LONG_CALL SetUpItemScript(void *iuwk, const void *icwk, u32 scr_id);
 
 /**
  *  @brief grab item data field from the narc subfiles
@@ -194,7 +247,49 @@ void __attribute__((long_call)) SetUpItemScript(void *iuwk, const void *icwk, u3
  *  @param heap_id heap id used to allocate the item data file before clearing it
  *  @return queried data corresponding to param
  */
-u32 __attribute__((long_call)) GetItemData(u16 item, u32 param, u32 heap_id);
+u32 LONG_CALL GetItemData(u16 item, u32 param, u32 heap_id);
+
+/* item use funcs */
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_Generic(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_HealingItem(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+u32 LONG_CALL THUMB_FUNC ItemCheckUseFunc_Dummy(const struct ItemCheckUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_Bicycle(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_Bicycle(struct ItemFieldUseData *data);
+u32 LONG_CALL THUMB_FUNC ItemCheckUseFunc_Bicycle(const struct ItemCheckUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_TMHM(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_Mail(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_Berry(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+u32 LONG_CALL THUMB_FUNC ItemCheckUseFunc_Berry(const struct ItemCheckUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_PalPad(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_PalPad(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_Honey(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_OldRod(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_OldRod(struct ItemFieldUseData *data);
+u32 LONG_CALL THUMB_FUNC ItemCheckUseFunc_FishingRod(const struct ItemCheckUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_GoodRod(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_GoodRod(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_SuperRod(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_SuperRod(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_EvoStone(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_EscapeRope(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+u32 LONG_CALL THUMB_FUNC ItemCheckUseFunc_EscapeRope(const struct ItemCheckUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_ApricornBox(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_ApricornBox(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_BerryPots(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_BerryPots(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_UnownReport(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_UnownReport(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_DowsingMchn(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_DowsingMchn(struct ItemFieldUseData *data);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_GbSounds(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_Gracidea(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_Gracidea(struct ItemFieldUseData *data);
+void LONG_CALL THUMB_FUNC ItemMenuUseFunc_VSRecorder(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_VSRecorder(struct ItemFieldUseData *data);
+void *LONG_CALL sub_0203FAE8(FieldSystem *fsys, u32 heapId, u32 itemId);
+void LONG_CALL sub_0203C8F0(struct BagViewAppWork *env, u32 task); // task is a func ptr
+void LONG_CALL RegisteredItem_CreateGoToAppTask(struct ItemFieldUseData *data, FieldApplicationWorkCtor ctorTask, BOOL something);
+
 
 // defined in item.c
 /**
@@ -203,6 +298,6 @@ u32 __attribute__((long_call)) GetItemData(u16 item, u32 param, u32 heap_id);
  *  @param heapID heap id used to allocate the item data table to
  *  @return item data table allocated on the heap
  */
-void *__attribute__((long_call)) ItemDataTableLoad(int heapID);
+void *LONG_CALL ItemDataTableLoad(int heapID);
 
 #endif //POKEDIAMOND_ITEM_H

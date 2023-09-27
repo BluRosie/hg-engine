@@ -98,8 +98,15 @@ u8* __attribute__((long_call)) SaveData_GetRepelPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetEventPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetDexPtr(void *saveData);
 void* __attribute__((long_call)) SaveData_GetPlayerPartyPtr(void *saveData);
-
 u32 __attribute__((long_call)) GetCaughtMonCount(void *dexSaveData);
+
+/**
+ *  @brief get daycare save data from save block
+ *
+ *  @param saveData saveData from SaveBlock2_get()
+ */
+Daycare *Save_Daycare_Get(void *saveData);
+
 
 // grab var data from the save -> pass in SavArray_Flags_get for both flags/vars
 u32 __attribute__((long_call)) SetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id, u16 value);

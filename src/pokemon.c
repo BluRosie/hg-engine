@@ -2662,7 +2662,18 @@ const struct FormData PokeFormDataTbl[]=
 
 extern u32 word_to_store_form_at;
 
-u8 __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no)
+/**
+ *  @brief set up the indices for the new form system pictures.  if necessary, loop through the form table, searching for the new form index to load sprites from
+ *         this function does not account for existing forms already covered by otherpoke.narc
+ *
+ *  @param picdata MON_PIC structure to store values in
+ *  @param mons_no species of pokémon
+ *  @param dir direction of the pokémon
+ *  @param col shininess of the pokémon
+ *  @param form_no form number of the pokémon
+ *  @return FALSE if there is no need to look through the form table or a matching entry is not found; TRUE otherwise
+ */
+BOOL __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no)
 {
     word_to_store_form_at = form_no;
 
@@ -2683,6 +2694,13 @@ u8 __attribute__((long_call)) GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 
     return FALSE;
 }
 
+/**
+ *  @brief pass species and form to get new species for personal narc, parsing through form table if necessary
+ *
+ *  @param mons_no base species
+ *  @param form_no form number
+ *  @return adjusted species for personal narc
+ */
 int __attribute__((long_call)) PokeOtherFormMonsNoGet(int mons_no, int form_no)
 {
     u32 i;
@@ -2735,6 +2753,13 @@ int __attribute__((long_call)) PokeOtherFormMonsNoGet(int mons_no, int form_no)
     return mons_no;
 }
 
+/**
+ *  @brief pass species and form to get new species
+ *
+ *  @param mons_no species
+ *  @param form_no form number
+ *  @return adjusted species given base species and form number
+ */
 u16 __attribute__((long_call)) GetSpeciesBasedOnForm(int mons_no, int form_no)
 {
     for (u32 i = 0; i < NELEMS(PokeFormDataTbl); i++)
@@ -2748,6 +2773,12 @@ u16 __attribute__((long_call)) GetSpeciesBasedOnForm(int mons_no, int form_no)
     return mons_no;
 }
 
+/**
+ *  @brief pass adjusted species and return base species
+ *
+ *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
+ *  @return base species
+ */
 u16 __attribute__((long_call)) GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 {
     if (mons_no <= MAX_MON_NUM)
@@ -2764,7 +2795,14 @@ u16 __attribute__((long_call)) GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no
     return mons_no;
 }
 
-// icons handled here--no need to worry about fixing shellos, gastrodon, cherrim, castform
+/**
+ *  @brief grab index in ARC_POKEICON from original species, egg status, and form number
+ *
+ *  @param mons base species index
+ *  @param egg TRUE if pokémon is an egg; FALSE otherwise
+ *  @param form_no form number
+ *  @return icon index in ARC_POKEICON
+ */
 u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 {
     u32 i;
@@ -2782,7 +2820,7 @@ u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u
         }
     }
 
-    pat = PokeFuseiFormNoCheck(mons, pat);//70438
+    pat = SanitizeFormNumber(mons, pat);//70438
 
     if (pat != 0)
     {
@@ -2840,12 +2878,18 @@ u32 __attribute__((long_call)) PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u
     return (7 + mons);
 }
 
-u16 __attribute__((long_call)) PokeIconCgxPatternGet(const void *ppp)
+/**
+ *  @brief grab form if necessary for icons from BoxPokemon structure
+ *
+ *  @param ppp BoxPokemon structure to grab form for icon
+ *  @return form if applicable; 0 otherwise
+ */
+u16 __attribute__((long_call)) PokeIconCgxPatternGet(struct BoxPokemon *ppp)
 {
     u32 monsno;
     u32 i;
 
-    monsno = GetBoxMonData((void *)ppp, 0xae, NULL);
+    monsno = GetBoxMonData(ppp, MON_DATA_SPECIES_OR_EGG, NULL);
 
     switch (monsno)
     {
@@ -2858,19 +2902,27 @@ u16 __attribute__((long_call)) PokeIconCgxPatternGet(const void *ppp)
     case SPECIES_GIRATINA:
     case SPECIES_SHAYMIN:
     case SPECIES_ROTOM:
-        return GetBoxMonData((void *)ppp, 0x70, NULL);
+        return GetBoxMonData(ppp, MON_DATA_FORM, NULL);
 
     default:
         for (i = 0; i < NELEMS(PokeFormDataTbl); i++)
         {
             if (monsno == PokeFormDataTbl[i].species)
-                return GetBoxMonData((void *)ppp, 0x70, NULL);
+                return GetBoxMonData(ppp, MON_DATA_FORM, NULL);
         }
         return 0;
     }
     return 0;
 }
 
+/**
+ *  @brief grab index for pal number for the icon that is loaded
+ *
+ *  @param mons species index
+ *  @param form form number
+ *  @param isegg TRUE if is egg
+ *  @return index for palette number for the icon to load
+ */
 u32 __attribute__((long_call)) PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
 {
     u32 i;
@@ -2939,17 +2991,38 @@ u32 __attribute__((long_call)) PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
     return mons;
 }
 
+/**
+ *  @brief grab mon icon palette number, 0-2
+ *
+ *  @param mons species index
+ *  @param form form number
+ *  @param isegg TRUE if pokémon is in an egg
+ *  @return palette number 0-2
+ */
 u32 __attribute__((long_call)) GetMonIconPalette(u32 mons, u32 form, u32 isegg)
 {
     u32 r0 = PokeIconPalNumGet(mons, form, isegg);
     return gIconPalTable[r0];
 }
 
+/**
+ *  @brief grab pokémon overworld number
+ *
+ *  @param species base species
+ *  @return pokémon overworld number
+ */
 u16 __attribute__((long_call)) GetPokemonOwNum(u16 species)
 {
     return sSpeciesToOWGfx[species];
 }
 
+/**
+ *  @brief grab the hidden ability for a species and form
+ *
+ *  @param species pokémon species
+ *  @param form form number
+ *  @return hidden ability of specific pokémon
+ */
 u16 __attribute__((long_call)) GetMonHiddenAbility(u16 species, u32 form)
 {
 #ifdef HIDDEN_ABILITIES
@@ -2967,7 +3040,12 @@ u16 __attribute__((long_call)) GetMonHiddenAbility(u16 species, u32 form)
 #endif // HIDDEN_ABILITIES
 }
 
-void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter, but that doesn't need to be properly defined yet
+/**
+ *  @brief set a box mon's ability--modified to account for hidden ability flag--should only be used in scripted wild encounters/givepokemon contexts
+ *
+ *  @param boxmon struct BoxPokemon whose ability to set when being generated
+ */
+void __attribute__((long_call)) SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes boxmon struct as parameter, but that doesn't need to be properly defined yet
 {
     BOOL fastMode;
     int mons_no, form;
@@ -2979,7 +3057,7 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
 
 #ifdef DEBUG_HIDDEN_ABILITIES
     has_hidden_ability = *(u8 *)(0x023E0000);
-    BoxMonDataSet(boxmon, MON_DATA_RESERVED_113, (u8 *)&has_hidden_ability);
+    SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&has_hidden_ability);
 #endif // DEBUG_HIDDEN_ABILITIES
 
     mons_no = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
@@ -3006,28 +3084,34 @@ void __attribute__((long_call)) SetBoxMonAbility(void *boxmon) // actually takes
 
     if (has_hidden_ability && hiddenability != 0)
     {
-        BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&hiddenability);
+        SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&hiddenability);
     }
     else if (ability2 != 0)
     {
         if (pid & 1)
         {
-            BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&ability2);
+            SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability2);
         }
         else
         {
-            BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
+            SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
         }
     }
     else
     {
-        BoxMonDataSet(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
+        SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
     }
 
     BoxMonSetFastModeOff(boxmon, fastMode);
 }
 
-
+/**
+ *  @brief get species base experience, modified for form.  base experience is no longer in personal
+ *
+ *  @param species species index
+ *  @param form form number
+ *  @return base experience
+ */
 u32 __attribute__((long_call)) GetSpeciesBaseExp(u32 species, u32 form)
 {
     u16 *baseExpTable = sys_AllocMemory(0, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
@@ -3042,7 +3126,12 @@ u32 __attribute__((long_call)) GetSpeciesBaseExp(u32 species, u32 form)
     return baseExp;
 }
 
-
+/**
+ *  @brief get genesect type from held item
+ *
+ *  @param item held item
+ *  @return type from held item
+ */
 u32 __attribute__((long_call)) GetGenesectType(u16 item) // this may just go unused
 {
     switch (item)
@@ -3055,6 +3144,12 @@ u32 __attribute__((long_call)) GetGenesectType(u16 item) // this may just go unu
     return TYPE_NORMAL;
 }
 
+/**
+ *  @brief get genesect form from held item
+ *
+ *  @param item held item
+ *  @return form from held item
+ */
 u32 __attribute__((long_call)) GetGenesectForme(u16 item)
 {
     switch (item)
@@ -3067,8 +3162,11 @@ u32 __attribute__((long_call)) GetGenesectForme(u16 item)
     return 0;
 }
 
-
-// add genesect handling to this function that changes form in the party silently.  i think it's only supposed to handle arceus, but it works for the party
+/**
+ *  @brief handle form change for arceus and genesect in the box when changing held item
+ *
+ *  @param bp struct BoxPokemon whose form to update
+ */
 void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
 {
     u32 species = GetMonData(bp, MON_DATA_SPECIES, NULL);
@@ -3091,8 +3189,14 @@ void __attribute__((long_call)) ArceusBoxPokemonFormeChange(struct BoxPokemon *b
     }
 }
 
-// overlay 14 is responsible for pc
-u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
+/**
+ *  @brief extension of ArceusBoxPokemonFormeChange to account for giratina as well
+ *
+ *  @see ArceusBoxPokemonFormeChange
+ *  @param bp struct BoxPokemon whose form to update
+ *  @return TRUE if form needs updating; FALSE otherwise
+ */
+BOOL __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
 {
     u32 species = GetBoxMonData(bp, MON_DATA_SPECIES, NULL);
     
@@ -3103,7 +3207,7 @@ u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* b
         ArceusBoxPokemonFormeChange(bp);
         
         if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
-            return 1;
+            return TRUE;
     }
     else if (species == SPECIES_GIRATINA)
     {
@@ -3112,27 +3216,39 @@ u32 __attribute__((long_call)) HandleBoxPokemonFormeChanges(struct BoxPokemon* b
         GiratinaBoxPokemonFormChange(bp);
         
         if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
-            return 1;
+            return TRUE;
     }
     
-    return 0;
+    return FALSE;
 }
 
-u32 __attribute__((long_call)) CanUseRevealGlass(struct PartyPokemon *pp)
+/**
+ *  @brief check if a reveal glass can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check reveal glass against
+ *  @return TRUE if reveal glass can be used; FALSE otherwise
+ */
+BOOL __attribute__((long_call)) CanUseRevealGlass(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     
     if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS)
     {
-        return 1;
+        return TRUE;
     }
-    return 0;
+    return FALSE;
 }
-
 
 #define RESHIRAM_MASK (0x80)
 #define JUST_SPLICER_POS_MASK (0x7F)
 
+/**
+ *  @brief check if DNA splicers can be used, return position in party if so
+ *
+ *  @param pp PartyPokemon to check for
+ *  @param party Party to search through for matching DNA splicers pokémon
+ *  @return party position of pokémon that can be stored by the DNA splicers or'd with RESHIRAM_MASK if reshiram is the first pokémon found
+ */
 u32 __attribute__((long_call)) CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
@@ -3162,20 +3278,26 @@ u32 __attribute__((long_call)) CanUseDNASplicersGrabSplicerPos(struct PartyPokem
 
 u32 queueAddPokeCount = 0;
 
+/**
+ *  @brief see if an item changes form or not
+ *
+ *  @param wk work structure
+ *  @param dat data structure
+ */
 u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
 {
     struct PartyPokemon *pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
     if (wk->dat->item == ITEM_GRACIDEA
-     && GrashideaFeasibleCheck(pp) == 1)
+     && GrashideaFeasibleCheck(pp) == TRUE)
     {
         wk->dat->after_mons = 1; // change to sky forme
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
-        return 1;
+        return TRUE;
     }
     
     if (wk->dat->item == ITEM_REVEAL_GLASS
-     && CanUseRevealGlass(pp) == 1)
+     && CanUseRevealGlass(pp) == TRUE)
     {
         if (GetMonData(pp, MON_DATA_FORM, NULL) == 1)
             wk->dat->after_mons = 0; // change to incarnate forme
@@ -3210,7 +3332,7 @@ u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, vo
             queueAddPokeCount = 1;
 
             // delete reshiram from save--may just be able to leave the old data without having to deal with memset as long as we flag it as no mon there
-            memset(&saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS], 0, sizeof(struct PartyPokemon));
+            memset((u8 *)&saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS], 0, sizeof(struct PartyPokemon));
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 0;
             
             wk->dat->after_mons = 0;
@@ -3243,16 +3365,22 @@ u32 __attribute__((long_call)) UseItemFormeChangeCheck(struct PLIST_WORK *wk, vo
             SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
             SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->dat->after_mons == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
         }
-        else { return 0; } // get out because no changes should be made
+        else { return FALSE; } // get out because no changes should be made
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
-        return 1;
+        return TRUE;
     }
 #endif
     
     return 0;
 }
 
+/**
+ *  @brief modify PokeListProc_End to increase party size so that when Reshiram/Zekrom are added back from DNA Splicers there are no crashes
+ *
+ *  @param proc work structure
+ *  @param seq step in PokeListProc_End sequence
+ */
 u32 __attribute__((long_call)) PokeListProc_End_Extend(void *proc, int *seq) // finally add to pokecount so that icons are fine
 {
     struct PLIST_WORK *wk = PROC_GetWork(proc);
@@ -3266,6 +3394,12 @@ u32 __attribute__((long_call)) PokeListProc_End_Extend(void *proc, int *seq) // 
     return PokeListProc_End(proc, seq);
 }
 
+/**
+ *  @brief change a PartyPokemon to form, recalculating stats and ability
+ *
+ *  @param pp PartyPokemon whose form to change
+ *  @param form form number
+ */
 void __attribute__((long_call)) ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
 {
     if (form != GetMonData(pp, MON_DATA_FORM, NULL))
@@ -3276,6 +3410,13 @@ void __attribute__((long_call)) ChangePartyPokemonToForm(struct PartyPokemon *pp
     }
 }
 
+/**
+ *  @brief swap out oldMove with newMove in a PartyPokemon's learnset (if it exists)
+ *
+ *  @param pp PartyPokemon whose move to swap
+ *  @param oldMove move to be replaced
+ *  @param newMove move that will be written
+ */
 void __attribute__((long_call)) SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove)
 {
     for (u32 i = 0; i < 4; i++)
@@ -3293,6 +3434,12 @@ void __attribute__((long_call)) SwapPartyPokemonMove(struct PartyPokemon *pp, u3
     }
 }
 
+/**
+ *  @brief combine ChangePartyPokemonToForm and SwapPartyPokemonMove
+ *
+ *  @see ChangePartyPokemonToForm
+ *  @see SwapPartyPokemonMove
+ */
 void __attribute__((long_call)) ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove)
 {
     if (form != GetMonData(pp, MON_DATA_FORM, NULL))
@@ -3302,6 +3449,11 @@ void __attribute__((long_call)) ChangePartyPokemonToFormSwapMove(struct PartyPok
     }
 }
 
+/**
+ *  @brief grab current season from the RTC settings
+ *
+ *  @return current season
+ */
 u32 __attribute__((long_call)) GrabCurrentSeason(void)
 {
     struct RTCDate date;
@@ -3310,6 +3462,11 @@ u32 __attribute__((long_call)) GrabCurrentSeason(void)
     return ((u8)(date.month-1)) % 4;
 }
 
+/**
+ *  @brief update passive forms (gender and deerling seasons)
+ *
+ *  @param pp PartyPokemon whose form to update (if applicable)
+ */
 void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
@@ -3340,9 +3497,16 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
 
     if (shouldUpdate) {
         SetMonData(pp, MON_DATA_FORM, &form);
+        RecalcPartyPokemonStats(pp);
+        ResetPartyPokemonAbility(pp);
     }
 }
 
+/**
+ *  @brief run through a party and update all of the deerling forms if present
+ *
+ *  @param party Party to run through to check for deerling
+ */
 BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *party)
 {
     u32 ret = FALSE;
@@ -3362,7 +3526,15 @@ BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *par
     return ret;
 }
 
-// expand this to change deerling's form
+/**
+ *  @brief function that attempts to reset shaymin from sky form when the RTC passes min_max
+ *         expanded to allow for deerling forms to update when season changes
+ *
+ *  @param party party to run through and reset shaymin in/update deerling form
+ *  @param min_max
+ *  @param time
+ *  @return TRUE if form change for shaymin is happening; FALSE otherwise
+ */
 BOOL __attribute__((long_call)) Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time) 
 {
     u32 ret = FALSE;
@@ -3397,7 +3569,13 @@ BOOL __attribute__((long_call)) Party_TryResetShaymin(struct Party *party, int m
     return ret;
 }
 
-// form egg moves + egg move expansion
+/**
+ *  @brief load egg moves to dest and return amount of egg moves
+ *
+ *  @param pokemon PartyPokemon to grab egg moves for
+ *  @param dest destination for the array of egg moves
+ *  @return number of egg moves in dest
+ */
 u8 __attribute__((long_call)) LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
 {
     u16 n;
@@ -3430,7 +3608,14 @@ u8 __attribute__((long_call)) LoadEggMoves(struct PartyPokemon *pokemon, u16 *de
     return n;
 }
 
-
+/**
+ *  @brief check if 2 PartyPokemon are essentially the same PartyPokemon beyond duplication/RNG manipulation
+ *         checks species, pid, ot id, raw stats, and iv's
+ *
+ *  @param pokemon1 first PartyPokemon to compare
+ *  @param pokemon2 second PartyPokemon to compare
+ *  @return TRUE if the PartyPokemon are identical
+ */
 u32 __attribute__((long_call)) CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2)
 {
     if ((int *)pokemon1 == (int *)pokemon2)
@@ -3482,6 +3667,17 @@ u32 __attribute__((long_call)) CheckIfMonsAreEqual(struct PartyPokemon *pokemon1
     } \
 }
 
+/**
+ *  @brief get the evolution species for a pokemon.  generalized depending on context
+ *         also set form depending on the evolution structure read from armips/data/evodata.s
+ *
+ *  @param party Party to check through for remoraid and such
+ *  @param pokemon PartyPokemon to potentially evolve
+ *  @param context EVOCTX_* constant deciding which evolution methods to check
+ *  @param usedItem item used on the PartyPokemon, if applicable
+ *  @param method_ret pointer to an integer to store the evolution method that was used to evolve
+ *  @return the target species to evolev into
+ */
 u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
     u16 species;
     u16 heldItem;
@@ -3861,7 +4057,14 @@ u16 __attribute__((long_call)) GetMonEvolution(struct Party *party, struct Party
     return target;
 }
 
-
+/**
+ *  @brief grab the sex given species, pid, and form
+ *
+ *  @param species species id
+ *  @param pid personality id
+ *  @param form form number
+ *  @return POKEMON_GENDER_* constant describing which gender the pokémon is
+ */
 u32 __attribute__((long_call)) GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form)
 {
     u32 realSpecies = PokeOtherFormMonsNoGet(species, form);
@@ -3882,7 +4085,12 @@ u32 __attribute__((long_call)) GrabSexFromSpeciesAndForm(u32 species, u32 pid, u
     return POKEMON_GENDER_MALE;
 }
 
-
+/**
+ *  @brief get the sex of a BoxPokemon
+ *
+ *  @param bp BoxPokemon whose sex to get
+ *  @return sex of passed BoxPokemon as POKEMON_GENDER_* constant
+ */
 u32 __attribute__((long_call)) GetBoxMonSex(struct BoxPokemon *bp)
 {
     u32 species, pid, flag, form;
@@ -3896,7 +4104,14 @@ u32 __attribute__((long_call)) GetBoxMonSex(struct BoxPokemon *bp)
     return GrabSexFromSpeciesAndForm(species, pid, form);
 }
 
-
+/**
+ *  @brief get the pokémon overworld tag from species, form, and gender
+ *
+ *  @param species species index
+ *  @param form form number
+ *  @param isFemale TRUE if female; FALSE otherwise
+ *  @return .tag entry in gOWTagToFileNum
+ */
 u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
     u32 adjustment = 0, ret = 0;
@@ -3931,7 +4146,20 @@ u16 __attribute__((long_call)) get_mon_ow_tag(u16 species, u32 form, u32 isFemal
     return ret;
 }
 
-
+/**
+ *  @brief give a PartyPokemon to the player given species, level, form, ability, etc.
+ *
+ *  @param heapId heap to use for memory here
+ *  @param saveData saveData as gotten from SaveBlock2_get()
+ *  @param species species index
+ *  @param level level of the given PartyPokemon
+ *  @param forme form number
+ *  @param ability ability index
+ *  @param heldItem held item index
+ *  @param ball ball id
+ *  @param encounterType encounter type
+ *  @return TRUE if successful; FALSE otherwise
+ */
 BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType) {
     struct Party *party;
     struct PartyPokemon *pokemon;
@@ -3978,9 +4206,17 @@ BOOL __attribute__((long_call)) GiveMon(int heapId, void *saveData, int species,
     return result;
 }
 
-
 extern u32 space_for_setmondata;
 
+/**
+ *  @brief add a PartyPokemon to the "wild battler"'s party
+ *
+ *  @param inTarget battler whose party to add to
+ *  @param encounterInfo various encounter information structure
+ *  @param encounterPartyPokemon PartyPokemon to modify and add
+ *  @param encounterBattleParam battle param
+ *  @return TRUE if PokeParty_Add was successful
+ */
 BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam)
 {
     int range = 0;
@@ -4031,6 +4267,18 @@ BOOL __attribute__((long_call)) AddWildPartyPokemon(int inTarget, EncounterInfo 
     return PokeParty_Add(encounterBattleParam->poke_party[inTarget], encounterPartyPokemon);
 }
 
+/**
+ *  @brief create BoxPokemon given the parameters
+ *
+ *  @param boxmon BoxPokemon to fill out
+ *  @param species species index
+ *  @param level level the BoxPokemon should be set at
+ *  @param pow iv to set flat across the board; else set randomly
+ *  @param rndflag if TRUE, use rnd for the personality id
+ *  @param rnd if rndflag is TRUE, personality id
+ *  @param idflag if TRUE, use id for original trainer id
+ *  @param id if idflag is TRUE, original trainer id
+ */
 void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id)
 {
     u16 sum;
@@ -4048,7 +4296,7 @@ void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int 
     if(!rndflag){
         rnd = (gf_rand() | (gf_rand() << 16));
     }
-    BoxMonDataSet(boxmon,MON_DATA_PERSONALITY,(u8 *)&rnd);
+    SetBoxMonData(boxmon,MON_DATA_PERSONALITY,(u8 *)&rnd);
 
     if(idflag==ID_NO_SHINY){
         do{
@@ -4064,70 +4312,78 @@ void __attribute__((long_call)) CreateBoxMonData(struct BoxPokemon *boxmon, int 
     // we need the form to be set correctly in either case
     if (space_for_setmondata != 0)
     {
-        BoxMonDataSet(boxmon, MON_DATA_FORM, (u8 *)&space_for_setmondata);
+        SetBoxMonData(boxmon, MON_DATA_FORM, (u8 *)&space_for_setmondata);
     }
 
-    BoxMonDataSet(boxmon,MON_DATA_OTID,(u8 *)&id);
-    BoxMonDataSet(boxmon,MON_DATA_GAME_LANGUAGE,(u8 *)&language);
-    BoxMonDataSet(boxmon,MON_DATA_SPECIES,(u8 *)&species);
-    BoxMonDataSet(boxmon,MON_DATA_SPECIES_NAME,NULL);
+    SetBoxMonData(boxmon,MON_DATA_OTID,(u8 *)&id);
+    SetBoxMonData(boxmon,MON_DATA_GAME_LANGUAGE,(u8 *)&language);
+    SetBoxMonData(boxmon,MON_DATA_SPECIES,(u8 *)&species);
+    SetBoxMonData(boxmon,MON_DATA_SPECIES_NAME,NULL);
 
     i=PokeLevelExpGet(species,level);
-    BoxMonDataSet(boxmon,MON_DATA_EXPERIENCE,(u8 *)&i);
+    SetBoxMonData(boxmon,MON_DATA_EXPERIENCE,(u8 *)&i);
 
     i=PokePersonalParaGet(species,PERSONAL_BASE_FRIENDSHIP);
-    BoxMonDataSet(boxmon,MON_DATA_FRIENDSHIP,(u8 *)&i);
+    SetBoxMonData(boxmon,MON_DATA_FRIENDSHIP,(u8 *)&i);
 
-    BoxMonDataSet(boxmon,MON_DATA_MET_LEVEL,(u8 *)&level);
-    BoxMonDataSet(boxmon,MON_DATA_GAME_VERSION,(u8 *)&title);
+    SetBoxMonData(boxmon,MON_DATA_MET_LEVEL,(u8 *)&level);
+    SetBoxMonData(boxmon,MON_DATA_GAME_VERSION,(u8 *)&title);
     i=ITEM_POKE_BALL;
-    BoxMonDataSet(boxmon,MON_DATA_POKEBALL,(u8 *)&i);
+    SetBoxMonData(boxmon,MON_DATA_POKEBALL,(u8 *)&i);
 
     if(pow <= MAX_IVS){
-        BoxMonDataSet(boxmon,MON_DATA_HP_IV,(u8 *)&pow);
-        BoxMonDataSet(boxmon,MON_DATA_ATK_IV,(u8 *)&pow);
-        BoxMonDataSet(boxmon,MON_DATA_DEF_IV,(u8 *)&pow);
-        BoxMonDataSet(boxmon,MON_DATA_SPEED_IV,(u8 *)&pow);
-        BoxMonDataSet(boxmon,MON_DATA_SPATK_IV,(u8 *)&pow);
-        BoxMonDataSet(boxmon,MON_DATA_SPDEF_IV,(u8 *)&pow);
+        SetBoxMonData(boxmon,MON_DATA_HP_IV,(u8 *)&pow);
+        SetBoxMonData(boxmon,MON_DATA_ATK_IV,(u8 *)&pow);
+        SetBoxMonData(boxmon,MON_DATA_DEF_IV,(u8 *)&pow);
+        SetBoxMonData(boxmon,MON_DATA_SPEED_IV,(u8 *)&pow);
+        SetBoxMonData(boxmon,MON_DATA_SPATK_IV,(u8 *)&pow);
+        SetBoxMonData(boxmon,MON_DATA_SPDEF_IV,(u8 *)&pow);
     }
     else{ // why the fuck is it done like this
         i=gf_rand();
         j=(i&(0x001f<< 0))>> 0;
-        BoxMonDataSet(boxmon,MON_DATA_HP_IV,(u8 *)&j);
+        SetBoxMonData(boxmon,MON_DATA_HP_IV,(u8 *)&j);
         j=(i&(0x001f<< 5))>> 5;
-        BoxMonDataSet(boxmon,MON_DATA_ATK_IV,(u8 *)&j);
+        SetBoxMonData(boxmon,MON_DATA_ATK_IV,(u8 *)&j);
         j=(i&(0x001f<<10))>>10;
-        BoxMonDataSet(boxmon,MON_DATA_DEF_IV,(u8 *)&j);
+        SetBoxMonData(boxmon,MON_DATA_DEF_IV,(u8 *)&j);
         i=gf_rand();
         j=(i&(0x001f<< 0))>> 0;
-        BoxMonDataSet(boxmon,MON_DATA_SPEED_IV,(u8 *)&j);
+        SetBoxMonData(boxmon,MON_DATA_SPEED_IV,(u8 *)&j);
         j=(i&(0x001f<< 5))>> 5;
-        BoxMonDataSet(boxmon,MON_DATA_SPATK_IV,(u8 *)&j);
+        SetBoxMonData(boxmon,MON_DATA_SPATK_IV,(u8 *)&j);
         j=(i&(0x001f<<10))>>10;
-        BoxMonDataSet(boxmon,MON_DATA_SPDEF_IV,(u8 *)&j);
+        SetBoxMonData(boxmon,MON_DATA_SPDEF_IV,(u8 *)&j);
     }
 
     i = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
     j = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
     if(j!=0){
         if(rnd&1){
-            BoxMonDataSet(boxmon,MON_DATA_ABILITY,(u8 *)&j);
+            SetBoxMonData(boxmon,MON_DATA_ABILITY,(u8 *)&j);
         }
         else{
-            BoxMonDataSet(boxmon,MON_DATA_ABILITY,(u8 *)&i);
+            SetBoxMonData(boxmon,MON_DATA_ABILITY,(u8 *)&i);
         }
     }
     else{
-        BoxMonDataSet(boxmon,MON_DATA_ABILITY,(u8 *)&i);
+        SetBoxMonData(boxmon,MON_DATA_ABILITY,(u8 *)&i);
     }
 
     i=GetBoxMonGender(boxmon);
-    BoxMonDataSet(boxmon,MON_DATA_GENDER,(u8 *)&i);
+    SetBoxMonData(boxmon,MON_DATA_GENDER,(u8 *)&i);
     FillInBoxMonLearnset(boxmon);
     BoxMonSetFastModeOff(boxmon,flag);
 }
 
+/**
+ *  @brief revert a form change at the end of a battle
+ *
+ *  @param pp PartyPokemon whose form to potentially revert
+ *  @param species species index
+ *  @param form_no form number
+ *  @return TRUE if form was reverted; FALSE otherwise
+ */
 bool8 __attribute__((long_call)) RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_no)
 {
     u32 i;
@@ -4164,16 +4420,27 @@ bool8 __attribute__((long_call)) RevertFormChange(struct PartyPokemon *pp, u16 s
     return FALSE;
 }
 
-
+/**
+ *  @brief swap two integer values with each other given pointers
+ *
+ *  @param a first to swap
+ *  @param b second to swap
+ */
 void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
+/**
+ *  @brief randomize the order of an array size n
+ *
+ *  @param arr array to randomize
+ *  @param n size of array
+ */
 void randomize(int arr[], int n) {
     int i;
-    for(i = n-1; i > 0; i--) {
+    for (i = n-1; i > 0; i--) {
         int j = gf_rand() % (i+1);
         swap(&arr[i], &arr[j]);
     }
@@ -4181,6 +4448,13 @@ void randomize(int arr[], int n) {
 
 u32 gLastPokemonLevelForMoneyCalc;
 
+/**
+ *  @brief create the trainer Party from the trainer data file and trainer party file
+ *
+ *  @param bp battle param
+ *  @param num trainer index to read from both ARC_TRAINER_DATA and ARC_TRAINER_PARTY_DATA
+ *  @param heapID heap to use for memory usage
+ */
 void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 {
     u8 *buf;
@@ -4595,7 +4869,12 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     gf_srand(seed_tmp);
 }
 
-
+/**
+ *  @brief set the hidden ability specifically for the starter
+ *
+ *  @param party unused
+ *  @param pp PartyPokemon whose hidden ability to set
+ */
 void set_starter_hidden_ability(struct PokeParty *party, struct PartyPokemon *pp)
 {
     if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
@@ -4605,7 +4884,11 @@ void set_starter_hidden_ability(struct PokeParty *party, struct PartyPokemon *pp
     }
 }
 
-
+/**
+ *  @brief clear a PartyPokemon's moves by setting them to zero
+ *
+ *  @param pokemon PartyPokemon whose moves to clear
+ */
 void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon)
 {
     int null = 0;
@@ -4615,7 +4898,12 @@ void __attribute__((long_call)) ClearMonMoves(struct PartyPokemon *pokemon)
     }
 }
 
-
+/**
+ *  @brief script command to give an egg adapted to set the hidden ability
+ *
+ *  @param ctx script context structure
+ *  @return FALSE
+ */
 BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
 {
     FieldSystem *fsys = ctx->fsys;
@@ -4657,7 +4945,12 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
     return FALSE;
 }
 
-
+/**
+ *  @brief script command to give the togepi egg
+ *
+ *  @param ctx script context structure
+ *  @return FALSE
+ */
 BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
     s32 i;
     u8 pp;
@@ -4718,8 +5011,12 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
     return FALSE;
 }
 
-
-// i think this is hatchPokemon
+/**
+ *  @brief hatch a PartyPokemon--creates a new PartyPokemon and initializes a few characteristics
+ *
+ *  @param pokemon PartyPokemon that is hatching
+ *  @param heapId heap whose memory to use
+ */
 void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 {
     u16 nickname[11 + 1];
@@ -4766,10 +5063,15 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 #define CRY_SPECIES_BASE_ENAMORUS CRY_SPECIES_FORMS_BASE+23
 #define CRY_SPECIES_BASE_MAUSHOLD CRY_SPECIES_FORMS_BASE+24
 
-
 u32 storeShayminForm = 0;
 
-
+/**
+ *  @brief grab the cry index given species and form
+ *
+ *  @param species species index
+ *  @param form form number
+ *  @return cry index in sdat
+ */
 u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 {
     if (species > SPECIES_ARCEUS && species < SPECIES_VICTINI)
@@ -4844,6 +5146,17 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 
 extern u32 gTriggerDouble;
 
+/**
+ *  @brief add the PartyPokemon to the wild "Party"
+ *
+ *  @param fsys field system structure
+ *  @param pp PartyPokemon array to manipulate (is fully overwritten)
+ *  @param bw battle work structure
+ *  @param encData 
+ *  @param encArea 
+ *  @param encInfo 
+ *  @return TRUE if both were successful; FALSE otherwise
+ */
 u32 WildEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *encData, void *encArea, void *encInfo)
 {
     u32 ret;
@@ -4861,8 +5174,17 @@ u32 WildEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *en
     return ret;
 }
 
-
-// variable names are fucked but that's just gotta be okay
+/**
+ *  @brief add PartyPokemon to the wild "Party" in surfing contexts
+ *
+ *  @param fsys field system structure
+ *  @param pp PartyPokemon array to manipulate (is fully overwritten)
+ *  @param bw battle work structure
+ *  @param encArea 
+ *  @param encInfo 
+ *  @param smth 
+ *  @return TRUE if both were successful; FALSE otherwise
+ */
 u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *encArea, void *encInfo, BOOL smth)
 {
     u32 ret;
@@ -4896,7 +5218,13 @@ u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, voi
     return ret;
 }
 
-
+/**
+ *  @brief check if a poké ball can be used from the bag in wild double battles
+ *         checks if both wild mons are still alive
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if can use the poké ball; FALSE otherwise
+ */
 u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
 {
     if (sp->battlemon[1].hp && sp->battlemon[3].hp)
@@ -4906,8 +5234,13 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
     return TRUE;
 }
 
-
-// grab tutor entry based on species and forme
+/**
+ *  @brief grab tutor move index from species and form
+ *
+ *  @param species species index
+ *  @param form form number
+ *  @return index in fielddata/wazaoshie/waza_oshie.bin
+ */
 u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
 {
     u32 ret = species;
@@ -4931,7 +5264,7 @@ u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
         break;
     case SPECIES_ROTOM:
         if (form)
-            ret = 591 + form - 1;
+            ret = 501 + form - 1;
         break;
     default:
         if (form)
@@ -4943,12 +5276,22 @@ u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
     return ret;
 }
 
-
+/**
+ *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
+ *
+ *  @return level cap from LEVEL_CAP_VARIABLE script variable
+ */
 u32 GetLevelCap(void)
 {
     return GetScriptVar(LEVEL_CAP_VARIABLE);
 }
 
+/**
+ *  @brief check if the level is at or above the level cap defined in LEVEL_CAP_VARIABLE
+ *
+ *  @param level level to check
+ *  @return TRUE if level >= level cap; FALSE otherwise
+ */
 u32 IsLevelAtLevelCap(u32 level)
 {
     return (level >= GetLevelCap());
@@ -4957,6 +5300,12 @@ u32 IsLevelAtLevelCap(u32 level)
 
 #ifdef IMPLEMENT_LEVEL_CAP
 
+/**
+ *  @brief try leveling up a PartyPokemon
+ *
+ *  @param mon PartyPokemon to level up
+ *  @return TRUE if PartyPokemon should level up and level has been augmented
+ */
 BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
     u16 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);

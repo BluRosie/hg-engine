@@ -10817,7 +10817,7 @@ movedata MOVE_LUNGE, "Lunge"
     terminatedata
 
 movedata MOVE_FIRE_LASH, "Fire Lash"
-    battleeffect 72
+    battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIRE

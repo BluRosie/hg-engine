@@ -4,6 +4,7 @@
 #include "types.h"
 #include "item.h"
 #include "sprite.h"
+#include "pokemon.h"
 #include "task.h"
 #include "constants/moves.h"
 
@@ -1095,8 +1096,6 @@ struct __attribute__((packed)) newBattleStruct
     u8 CanMega:4;
 };
 
-#include "pokemon.h"
-
 typedef struct {
     u16 sentence_type;
     u16 sentence_id;
@@ -1296,8 +1295,6 @@ void __attribute__((long_call)) ST_ServerMetronomeBeforeCheck(void *bw,struct Ba
 int __attribute__((long_call)) ST_ServerPokeAppearCheck(void *bw, struct BattleStruct *sp);
 int __attribute__((long_call)) TagNickParaMake(struct BattleStruct *sp, int client_no);
 int __attribute__((long_call)) BattleWorkClientNoGet(void *bw, int client_type);
-
-u32 No2Bit(int no);
 
 
 
