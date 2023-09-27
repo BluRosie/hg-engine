@@ -742,7 +742,7 @@ int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side)
             int client_set_max;
             int type;
 
-            if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI)
+            if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
             {
                 type = 4;
             }
