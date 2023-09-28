@@ -58,12 +58,9 @@ NUM_OF_HMS = 8
 
 def tmdatabuilder(inputPath: str):
     speciesDict = {}
-    movesDict = {}
     tm_data = {}
     GrabSpeciesDict(speciesDict)
-    GrabMovesDict(movesDict)
     # idea is to iterate through file and switch up tm id when needed and such
-    arm9 = open("base/arm9.bin", "ab")
     with open(inputPath, 'r', encoding="UTF-8") as file:
         for line in file:
             if line.startswith('TM'): # new tm entry
@@ -71,9 +68,6 @@ def tmdatabuilder(inputPath: str):
                 if tmId >= NUM_OF_TMS:
                     print('tmId too high: TM{:03d}\nQuitting execution...'.format(tmId+1))
                     return
-                moveId = movesDict[line[7:len(line)-1]]
-                arm9.seek(0x1000CC + tmId*2)
-                arm9.write(struct.pack("<H", moveId))
             elif line.startswith('HM'): # new hm entry
                 tmId = int(line[2:5]) - 1 + NUM_OF_TMS
                 if tmId >= (NUM_OF_TMS + NUM_OF_HMS):
@@ -86,14 +80,13 @@ def tmdatabuilder(inputPath: str):
                     tm_data[speciesDict[line.strip()]] = (1 << tmId)
     for elem in tm_data:
         data_to_write = [0, 0, 0, 0]
-        mondata = open("build/a002/mondata_{:04d}".format(elem), "ab")
+        mondata = open("build/a002/mondata_{:04d}".format(elem), "rb+")
         mondata.seek(0x1A)
         mondata.write(bytes([0, 0]))
         for i in range(0, 4):
             data_to_write = struct.pack("<I", (tm_data[elem] >> (32 * i)) & 0xFFFFFFFF)
             mondata.write(data_to_write)
         mondata.close()
-    arm9.close()
 
 def tmdatadumper(outputPath: str):
     speciesDict = {}
@@ -117,7 +110,7 @@ The TM move specified will automatically be written over the ARM9 entry as well.
 The item icon and palette will still have to be modified, else the original type will be displayed.
 
 """)
-    arm9 = open("base/arm9.bin", "rb")
+    arm9 = open("base/arm9.bin", "rb+")
     for i in range(0, NUM_OF_TMS + NUM_OF_HMS):
         arm9.seek(0x1000CC + i*2)
         tmMove = struct.unpack("<H", arm9.read(2))[0]
@@ -132,10 +125,36 @@ The item icon and palette will still have to be modified, else the original type
     arm9.close()
     output.close()
 
+def writemovestaughtbytms(inputPath: str):
+    movesDict = {}
+    GrabMovesDict(movesDict)
+    arm9 = open("base/arm9.bin", "rb+")
+    with open(inputPath, 'r', encoding="UTF-8") as file:
+        for line in file:
+            if line.startswith('TM'): # new tm entry
+                tmId = int(line[2:5]) - 1 # tm index
+                if tmId >= NUM_OF_TMS:
+                    print('tmId too high: TM{}\nQuitting execution...'.format(int(line[2:5])))
+                    return
+                moveId = movesDict[line[7:len(line)-1]]
+                arm9.seek(0x1000CC + tmId*2)
+                arm9.write(struct.pack("<H", moveId))
+            elif line.startswith('HM'): # new hm entry
+                tmId = int(line[2:5]) - 1 + NUM_OF_TMS
+                if tmId >= (NUM_OF_TMS + NUM_OF_HMS):
+                    print('tmId for HM too high: HM{}\nQuitting execution...'.format(int(line[2:5])))
+                    return
+                moveId = movesDict[line[7:len(line)-1]]
+                arm9.seek(0x1000CC + tmId*2)
+                arm9.write(struct.pack("<H", moveId))
+    arm9.close()
+
 if __name__ == '__main__':
     args = sys.argv[1:]
     if (len(args) == 2 and args[0] == '--dump'):
         dump = True
         tmdatadumper(args[1])
+    elif (len(args) == 2 and args[0] == '--writetmlist'):
+        writemovestaughtbytms(args[1])
     elif (len(args) == 1):
         tmdatabuilder(args[0])
