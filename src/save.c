@@ -3,6 +3,7 @@
 #include "../include/debug.h"
 #include "../include/pokemon.h"
 #include "../include/save.h"
+#include "../include/script.h"
 
 
 // these functions are configured to not hook from hooks directly under ALLOW_SAVE_CHANGES
@@ -34,12 +35,29 @@ void __attribute__((long_call)) Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA 
 // convenience flag/var access functions
 u32 __attribute__((long_call)) SetScriptVar(u16 var_id, u16 value)
 {
-    return SetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id, value);
+    if (var_id < 0x8000)
+    {
+        return SetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id, value);
+    }
+    else // handle vars above 0x8000
+    {
+        u16 *var = GetVarPointer(gFieldSysPtr, var_id);
+        *var = value;
+        return TRUE;
+    }
 }
 
 u16 __attribute__((long_call)) GetScriptVar(u16 var_id)
 {
-    return GetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id);
+    if (var_id < 0x8000)
+    {
+        return GetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id);
+    }
+    else // handle vars above 0x8000
+    {
+        u16 *var = GetVarPointer(gFieldSysPtr, var_id);
+        return *var;
+    }
 }
 
 void __attribute__((long_call)) SetScriptFlag(u16 flag_id)
