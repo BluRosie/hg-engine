@@ -112,9 +112,10 @@
 
 .macro colorflip,color,flip
 	.byte (color | flip << 7)
+    .close
 .endmacro
 
-.macro tmdata,num1,num2,num3,num4 // defined specifically in separate files though
+.macro tmdata,num1,num2,num3,num4 // handled by a python script and armips/data/tmlearnset.txt
 	.halfword 0 // padding
 	
 	.word num1
