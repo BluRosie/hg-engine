@@ -1150,13 +1150,12 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 {
     struct EXP_CALCULATOR *expcalc = work;
 #if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
-    int sel_mons_no;
+    u32 sel_mons_no;
     struct PartyPokemon *pp;
     int client_no;
     struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
-    int exp_client_no = 0;
-    int item;
-    int eqp;
+    int item = 0;
+    int eqp = 0;
     //u32 mons_getting_exp_from_item = 0;
     //u32 mons_getting_exp = 0;
     u32 totalexp = 0;
@@ -1186,11 +1185,14 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     }*/
 
     // grab the pokémon that is actually gaining the experience
-    for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+    for (sel_mons_no = expcalc->work[6]; sel_mons_no < party->count; sel_mons_no++)
     {
-        pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
-        item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-        eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+        pp = BattleWorkPokemonParamGet(expcalc->bw, 0, sel_mons_no);
+        if (pp != NULL)
+        {
+            item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 1);
+        }
         if ((eqp == HOLD_EFFECT_EXP_SHARE) || (sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
         {
             break;
@@ -1198,7 +1200,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     }
 
     // actually calculate the experience
-    u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
+    u32 Lp = 10;
+    if (pp != NULL)
+        Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
     u32 level = sp->battlemon[sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
     totalexp = GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no); // base experience
@@ -1320,7 +1324,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
 extern u32 gKeepStructureCallbackIntact;
 u32 ALIGN4 store_current_exp_step = 0;
-u32 ALIGN4 store_work_params[7] = {0, 0, 0, 0, 0, 0, 0};
+u32 ALIGN4 store_work_params[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 #endif // IMPLEMENT_CAPTURE_EXPERIENCE
 
@@ -1337,10 +1341,10 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
 #ifdef IMPLEMENT_CAPTURE_EXPERIENCE
 
     BOOL ret = FALSE;
-    u32 original_work_params[7];
+    u32 original_work_params[NELEMS(store_work_params)];
     struct EXP_CALCULATOR *expcalc = work;
 
-    if (BattleTypeGet(expcalc->bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_POKE_PARK | BATTLE_TYPE_CATCHING_DEMO)) // these types of battles should not yield experience when catching a pokémon
+    if (BattleTypeGet(expcalc->bw) & BATTLE_TYPE_NO_EXPERIENCE)
         return TRUE;
 
     gKeepStructureCallbackIntact = 1; // signal to experience callback that it shouldn't delete the overall pokemon-getting callback since we're technically a parasite here
@@ -1348,14 +1352,14 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
     // first step:  store the required variables
     u32 store_fainting_client = expcalc->sp->fainting_client;
     expcalc->seq_no = store_current_exp_step;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < NELEMS(store_work_params); i++)
     {
         original_work_params[i] = expcalc->work[i];
     }
 
     // second step:  overwrite required vars for exp calculation.  part is also done in for loop above, oh well
     expcalc->sp->fainting_client = get_client_no;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < NELEMS(store_work_params); i++)
     {
         expcalc->work[i] = store_work_params[i];
     }
@@ -1370,7 +1374,7 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
         ret = TRUE;
 
         store_current_exp_step = 0;
-        for (int i = 0; i < 7; i++) // reset and pass back to main func
+        for (int i = 0; i < NELEMS(store_work_params); i++) // reset and pass back to main func
         {
             store_work_params[i] = 0;
             expcalc->work[i] = original_work_params[i];
@@ -1379,7 +1383,7 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
     else // otherwise store the exp step to the variable, restore work params, pass back to main func
     {
         store_current_exp_step = expcalc->seq_no;
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < NELEMS(store_work_params); i++)
         {
             store_work_params[i] = expcalc->work[i];
             expcalc->work[i] = original_work_params[i];
