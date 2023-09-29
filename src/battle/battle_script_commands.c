@@ -1154,7 +1154,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     struct PartyPokemon *pp;
     int client_no;
     struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
-    int exp_client_no = 0;
     int item;
     int eqp;
     //u32 mons_getting_exp_from_item = 0;
@@ -1186,11 +1185,12 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     }*/
 
     // grab the pokémon that is actually gaining the experience
-    for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+    for (sel_mons_no = expcalc->work[6]; sel_mons_no < party->count; sel_mons_no++)
     {
-        pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+        pp = BattleWorkPokemonParamGet(expcalc->bw, 0, sel_mons_no);
+        if (!pp) return; // automatically return if retrieved PartyPokemon is NULL
         item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-        eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+        eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 1);
         if ((eqp == HOLD_EFFECT_EXP_SHARE) || (sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
         {
             break;
