@@ -1236,55 +1236,59 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         shouldCountMons = FALSE;
     }
 
-    // grab the pokémon that is actually gaining the experience
-    for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+    if (expcalc->seq_no != 38) // either this or switch to below.  this prevents NULL access though
     {
-        pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
-        item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-        eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
-        if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
+        // grab the pokémon that is actually gaining the experience
+        for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
         {
-            break;
+            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+            item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
+            {
+                break;
+            }
+        }
+
+    //if (sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no))
+    //{
+        // actually calculate the experience
+        u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
+        u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
+
+        totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
+        totalexp = (totalexp * level) / 5;
+
+        u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
+        u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
+
+        totalexp *= top;
+        totalexp /= bottom;
+        totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
+
+        if (monCountFromItem)
+        {
+            expcalc->sp->obtained_exp = (totalexp / 2) / monCount;
+            if (expcalc->sp->obtained_exp == 0)
+            {
+                expcalc->sp->obtained_exp = 1;
+            }
+            expcalc->sp->exp_share_obtained_exp = (totalexp / 2) / monCountFromItem;
+            if (expcalc->sp->exp_share_obtained_exp == 0)
+            {
+                expcalc->sp->exp_share_obtained_exp = 1;
+            }
+        }
+        else
+        {
+            expcalc->sp->obtained_exp = totalexp / monCount;
+            if (expcalc->sp->obtained_exp == 0)
+            {
+                expcalc->sp->obtained_exp = 1;
+            }
+            expcalc->sp->exp_share_obtained_exp = 0;
         }
     }
-
-    // actually calculate the experience
-    u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
-    u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
-
-    totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-    totalexp = (totalexp * level) / 5;
-
-    u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
-    u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
-
-    totalexp *= top;
-    totalexp /= bottom;
-    totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
-
-    if (monCountFromItem)
-    {
-        expcalc->sp->obtained_exp = (totalexp / 2) / monCount;
-        if (expcalc->sp->obtained_exp == 0)
-        {
-            expcalc->sp->obtained_exp = 1;
-        }
-        expcalc->sp->exp_share_obtained_exp = (totalexp / 2) / monCountFromItem;
-        if (expcalc->sp->exp_share_obtained_exp == 0)
-        {
-            expcalc->sp->exp_share_obtained_exp = 1;
-        }
-    }
-    else
-    {
-        expcalc->sp->obtained_exp = totalexp / monCount;
-        if (expcalc->sp->obtained_exp == 0)
-        {
-            expcalc->sp->obtained_exp = 1;
-        }
-        expcalc->sp->exp_share_obtained_exp = 0;
-    }
-
 #ifdef DEBUG_PRINT_EXPERIENCE_VALUES
     u8 buf[128];
     sprintf(buf, "[Task_DistributeExp_Extend] Scaled Rate - experience = %d, Lp = %d", expcalc->sp->obtained_exp, Lp);
@@ -1296,6 +1300,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #endif
 
 #else // EXPERIENCE_FORMULA_GEN < 5 || EXPERIENCE_FORMULA_GEN == 6 // flat exp rate needs to be calculated
+    if (expcalc->seq_no != 38)
     {
         int i;
         int total_exp;
