@@ -12,13 +12,6 @@
 a001_011:
     printmessage 0x359, 0x1C, 0x1, 0xFF, "NaN", "NaN", "NaN", "NaN"
     waitmessage
-    // make sure few things are calculated
-    shouldgetexp _0018
-_0008:
-    initexpget
-    getexp
-    getexploop _0008
-_0018:
     initcapture 0x0
     capturemon
     changevar2 VAR_OP_GET_RESULT, VAR_BATTLE_RESULT, VAR_TEMP_WORK
