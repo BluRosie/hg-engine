@@ -1174,11 +1174,10 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 }
 
 // global variables to track experience
-u8 scratchpad[4] = {0, TRUE, 0, 0};
+u8 scratchpad[4] = {0, 0, 0, 0};
 
-#define shouldCountMons scratchpad[0]
-#define monCount scratchpad[1]
-#define monCountFromItem scratchpad[2]
+#define monCount scratchpad[0]
+#define monCountFromItem scratchpad[1]
 
 /**
  *  @brief task to distribute experience
@@ -1210,7 +1209,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     client_no = (expcalc->sp->fainting_client >> 1) & 1;
 
     // count how many pokémon are getting experience
-    if (shouldCountMons)
+    if (!expcalc->work[6])
     {
         monCount = 0;
         monCountFromItem = 0;
@@ -1233,15 +1232,16 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 }
             }
         }
-        shouldCountMons = FALSE;
     }
 
-    if (expcalc->seq_no != 38) // either this or switch to below.  this prevents NULL access though
+    if (expcalc->seq_no < 37) // either this or switch to below.  this prevents NULL access though (ideally)
     {
         // grab the pokémon that is actually gaining the experience
         for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
         {
             pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+            if (pp == NULL)
+                goto _skipAllThis;
             item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
             eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
             if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
@@ -1250,45 +1250,47 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             }
         }
 
-    //if (sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no))
-    //{
-        // actually calculate the experience
-        u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
-        u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
-
-        totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-        totalexp = (totalexp * level) / 5;
-
-        u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
-        u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
-
-        totalexp *= top;
-        totalexp /= bottom;
-        totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
-
-        if (monCountFromItem)
+        if (sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no))
         {
-            expcalc->sp->obtained_exp = (totalexp / 2) / monCount;
-            if (expcalc->sp->obtained_exp == 0)
+            // actually calculate the experience
+            u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
+            u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
+
+            totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
+            totalexp = (totalexp * level) / 5;
+
+            u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
+            u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
+
+            totalexp *= top;
+            totalexp /= bottom;
+            totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
+
+            if (monCountFromItem)
             {
-                expcalc->sp->obtained_exp = 1;
+                expcalc->sp->obtained_exp = (totalexp / 2) / monCount;
+                if (expcalc->sp->obtained_exp == 0)
+                {
+                    expcalc->sp->obtained_exp = 1;
+                }
+                expcalc->sp->exp_share_obtained_exp = (totalexp / 2) / monCountFromItem;
+                if (expcalc->sp->exp_share_obtained_exp == 0)
+                {
+                    expcalc->sp->exp_share_obtained_exp = 1;
+                }
             }
-            expcalc->sp->exp_share_obtained_exp = (totalexp / 2) / monCountFromItem;
-            if (expcalc->sp->exp_share_obtained_exp == 0)
+            else
             {
-                expcalc->sp->exp_share_obtained_exp = 1;
+                expcalc->sp->obtained_exp = totalexp / monCount;
+                if (expcalc->sp->obtained_exp == 0)
+                {
+                    expcalc->sp->obtained_exp = 1;
+                }
+                expcalc->sp->exp_share_obtained_exp = 0;
             }
-        }
-        else
-        {
-            expcalc->sp->obtained_exp = totalexp / monCount;
-            if (expcalc->sp->obtained_exp == 0)
-            {
-                expcalc->sp->obtained_exp = 1;
-            }
-            expcalc->sp->exp_share_obtained_exp = 0;
         }
     }
+
 #ifdef DEBUG_PRINT_EXPERIENCE_VALUES
     u8 buf[128];
     sprintf(buf, "[Task_DistributeExp_Extend] Scaled Rate - experience = %d, Lp = %d", expcalc->sp->obtained_exp, Lp);
@@ -1316,7 +1318,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         int exp_client_no = 0;
 
         // count how many pokémon are getting experience
-        if (shouldCountMons)
+        if (!expcalc->work[6])
         {
             monCount = 0;
             monCountFromItem = 0;
@@ -1341,7 +1343,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                     }
                 }
             }
-            shouldCountMons = FALSE;
         }
         // multiply by 255/390 (map audino to 255) to not get massively inflated experience rates
         totalexp = 255 * GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no) / 390;//PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
@@ -1377,12 +1378,8 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
 #endif
 
+_skipAllThis:
     Task_DistributeExp(arg0, work);
-
-    if (expcalc->seq_no == 38) // if expcalc should wrap up, then reinit the shouldCountMons variable to TRUE so it recalculates when next gaining experience
-    {
-        shouldCountMons = TRUE;
-    }
 }
 
 
