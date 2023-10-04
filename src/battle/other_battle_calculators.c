@@ -878,21 +878,33 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
                 }
             }
-            if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == 0)
+            if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == FALSE)
             {
-                if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+                if ((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleRand(bw) % 100) < atk))
                 {
-                    sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = 1;
-                }
-                else if ((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleRand(bw) % 100) < atk))
-                {
-                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = 1;
+                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
                 }
                 else if ((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
                 {
-                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = 1;
+                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
+                }
+                else
+                {
+                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
                 }
             }
+
+            // handle sturdy--prevent one-hit ko's if hp == maxhp
+            if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+            {
+                sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = TRUE;
+            }
+            // make sure to cancel sturdy if hp != maxhp.  necessary for multi-hit moves
+            else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE && (sp->battlemon[sp->defence_client].hp != sp->battlemon[sp->defence_client].maxhp))
+            {
+                sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = FALSE;
+            }
+
             if ((sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability) || (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item))
             {
                 if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
@@ -980,7 +992,19 @@ u16 gf_p_rand(const u16 denominator)
 }
 
 
-// return modified damage
+/**
+ *  @brief set move status effects for super effective and calculate modified damage
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param move_no move index
+ *  @param move_type move type
+ *  @param attack_client attacker
+ *  @param defence_client defender
+ *  @param damage current damage
+ *  @param flag move status flags to mess around with
+ *  @return modified damage
+ */
 int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
 {
     int i;

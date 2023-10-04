@@ -2146,6 +2146,21 @@ u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
  */
 u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
 
+/**
+ *  @brief set move status effects for super effective and calculate modified damage
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param move_no move index
+ *  @param move_type move type
+ *  @param attack_client attacker
+ *  @param defence_client defender
+ *  @param damage current damage
+ *  @param flag move status flags to mess around with
+ *  @return modified damage
+ */
+int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
+
 
 
 
