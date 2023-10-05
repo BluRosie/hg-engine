@@ -4026,7 +4026,7 @@ movedata MOVE_WHIRLPOOL, "Whirlpool"
 movedata MOVE_BEAT_UP, "Beat Up"
     battleeffect 154
     pss SPLIT_PHYSICAL
-    basepower 0
+    basepower 1
     type TYPE_DARK
     accuracy 100
     pp 10

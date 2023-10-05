@@ -485,6 +485,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             sp->battlemon[sp->client_work].maxhp = GetMonData(pp2, MON_DATA_MAXHP, NULL);
             *seq_no = SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE;
             ret = TRUE;
+            break;
         }
 
         // handle Wishiwashi TODO test (also at some point add custom transform text)
@@ -497,7 +498,9 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
             *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
-        } else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
+            break;
+        }
+        else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
          && (sp->battlemon[sp->client_work].hp)
          && (sp->battlemon[sp->client_work].form_no == 1)
          && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 4)))
@@ -506,6 +509,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
             *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;
+            break;
         }
     }
 

@@ -1890,7 +1890,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                 }
             }
-        break;
+            break;
         case ABILITY_WEAK_ARMOR:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_SPEED] < 12)
@@ -1905,7 +1905,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 seq_no[0] = SUB_SEQ_HANDLE_WEAK_ARMOR;
                 ret = TRUE;
             }
-        break;
+            break;
         case ABILITY_DEFIANT:
             if ((sp->battlemon[sp->defence_client].hp != 0)
              && (sp->oneSelfFlag[sp->state_client].defiant_flag)
