@@ -63,7 +63,7 @@ LDFLAGS = rom.ld -T linker.ld
 LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
 LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
 ASFLAGS = -mthumb -I ./data
-CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Os -fira-loop-pressure -fipa-pta
+CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 
 LINK = build/linked.o
 OUTPUT = build/output.bin

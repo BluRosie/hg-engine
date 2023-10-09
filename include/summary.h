@@ -113,7 +113,7 @@ struct SummaryState {
  * @param[in] pokemon
  * @return                  ID of the status icon to display.
  */
-u32  __attribute__((long_call)) Summary_PickStatusIcon(struct PartyPokemon *pokemon);
+u32  LONG_CALL Summary_PickStatusIcon(struct PartyPokemon *pokemon);
 
 /**
  * @brief Assigns data about the input Pokemon to the struct used for display
@@ -125,7 +125,7 @@ u32  __attribute__((long_call)) Summary_PickStatusIcon(struct PartyPokemon *poke
  * @param[in]     pokemon
  * @param[in,out] data
  */
-void __attribute__((long_call)) Summary_SetPokemonData(void *summary, struct PartyPokemon *pokemon, struct SummaryPokemonData *data);
+void LONG_CALL Summary_SetPokemonData(void *summary, struct PartyPokemon *pokemon, struct SummaryPokemonData *data);
 
 /**
  * @brief Returns the underlying Pokemon struct attached to this summary.
@@ -139,7 +139,7 @@ void __attribute__((long_call)) Summary_SetPokemonData(void *summary, struct Par
  * @param[in] summary
  * @return              The Pokemon struct attached to the summary.
  */
-void* __attribute__((long_call)) Summary_GetPokemonData(struct SummaryState *summary);
+void* LONG_CALL Summary_GetPokemonData(struct SummaryState *summary);
 
 /**
  * @brief Converts a number input to a displayable string and stores it in
@@ -153,7 +153,7 @@ void* __attribute__((long_call)) Summary_GetPokemonData(struct SummaryState *sum
  * @param[in]     digits        The maximum number of digits permitted.
  * @param[in]     displayType   0 == left-justified; 1 == left-padded by spaces; 2 == left-padded by zeroes.
  */
-void  __attribute__((long_call)) Summary_NumberToString(struct SummaryState *summary, u32 arcMessageID, u32 num, u8 digits, u8 displayType);
+void  LONG_CALL Summary_NumberToString(struct SummaryState *summary, u32 arcMessageID, u32 num, u8 digits, u8 displayType);
 
 /**
  * @brief Prints the string in the summary's holding buffer to the given window.
@@ -165,7 +165,7 @@ void  __attribute__((long_call)) Summary_NumberToString(struct SummaryState *sum
  * @param[in]     color     The color to print the font in.
  * @param[in]     justify   Justification mode; see enum SummaryStringJustify.
  */
-void  __attribute__((long_call)) Summary_PrintString(struct SummaryState *summary, GF_BGL_BMPWIN *window, u32 color, u32 justify);
+void  LONG_CALL Summary_PrintString(struct SummaryState *summary, GF_BGL_BMPWIN *window, u32 color, u32 justify);
 
 /**
  * @brief Print a string for a `current / max` visualization.
@@ -183,7 +183,7 @@ void  __attribute__((long_call)) Summary_PrintString(struct SummaryState *summar
  * @param[in]     x
  * @param[in]     y
  */
-void  __attribute__((long_call)) Summary_PrintCurrentOverMax(struct SummaryState *summary, u32 windowIdx, u32 idSep, u32 idCur, u32 idMax, u16 cur, u16 max, u8 digits, u8 x, u8 y);
+void  LONG_CALL Summary_PrintCurrentOverMax(struct SummaryState *summary, u32 windowIdx, u32 idSep, u32 idCur, u32 idMax, u16 cur, u16 max, u8 digits, u8 x, u8 y);
 
 // ========================================================================= //
 //                      NOVEL FUNCTIONS START HERE                           //
@@ -195,7 +195,7 @@ void  __attribute__((long_call)) Summary_PrintCurrentOverMax(struct SummaryState
  * 
  * @param[in,out] summary
  */
-void __attribute__((long_call)) Summary_ColorizeStatScreen_Wrap(struct SummaryState *summary);
+void LONG_CALL Summary_ColorizeStatScreen_Wrap(struct SummaryState *summary);
 
 /**
  * @brief Updates the state necessary for the stats page of the summary.
@@ -210,10 +210,10 @@ void __attribute__((long_call)) Summary_ColorizeStatScreen_Wrap(struct SummarySt
  * @param[in,out] summary
  * @param[in]     mode      Determines which page of the stat screen to show.
  */
-void  __attribute__((long_call)) Summary_ChangeStatScreenState(struct SummaryState *summary, u8 mode);
+void  LONG_CALL Summary_ChangeStatScreenState(struct SummaryState *summary, u8 mode);
 
-void  __attribute__((long_call)) Summary_PrintStatStringAccountForStat(struct SummaryState *summary, u32 windowId, u32 msgId, u32 stat, u32 justify);
-void  __attribute__((long_call)) Summary_PrintStringGeneric(struct SummaryState *summary, u32 windowId, u32 msgId, u32 color, u32 justify);
-void __attribute__((long_call)) Summary_ColorizeStatScreen(struct SummaryState *summary, u32 mode);
+void  LONG_CALL Summary_PrintStatStringAccountForStat(struct SummaryState *summary, u32 windowId, u32 msgId, u32 stat, u32 justify);
+void  LONG_CALL Summary_PrintStringGeneric(struct SummaryState *summary, u32 windowId, u32 msgId, u32 color, u32 justify);
+void LONG_CALL Summary_ColorizeStatScreen(struct SummaryState *summary, u32 mode);
 
 #endif // __UI_SUMMARY_H

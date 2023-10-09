@@ -91,7 +91,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     s8 stat_stage_acc, stat_stage_evasion;
     int hold_effect;
     int hold_effect_atk;
-    u8 move_type;
+    u8 move_type UNUSED; // unused but will be needed
     u8 move_split;
 
     if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
@@ -119,7 +119,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     int i;
 
-    for (i = 0; i < NELEMS(PowderMovesList); i++) {
+    for (i = 0; i < (s32)NELEMS(PowderMovesList); i++) {
         if (sp->current_move_index == PowderMovesList[i]) {
             if
             (
@@ -624,7 +624,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         (
             GetBattlerAbility(sp, client1) == ABILITY_GALE_WINGS
             && sp->moveTbl[move1].type == TYPE_FLYING
-            && sp->battlemon[client1].hp == sp->battlemon[client1].maxhp
+            && sp->battlemon[client1].hp == (s32)sp->battlemon[client1].maxhp
         ) {
             priority1++;
         }
@@ -633,7 +633,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         (
             GetBattlerAbility(sp, client2) == ABILITY_GALE_WINGS
             && sp->moveTbl[move2].type == TYPE_FLYING
-            && sp->battlemon[client2].hp == sp->battlemon[client2].maxhp
+            && sp->battlemon[client2].hp == (s32)sp->battlemon[client2].maxhp
         ) {
             priority2++;
         }
@@ -884,7 +884,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
                 }
-                else if ((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+                else if ((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == (s32)sp->battlemon[sp->defence_client].maxhp))
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
                 }
@@ -895,12 +895,12 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             }
 
             // handle sturdy--prevent one-hit ko's if hp == maxhp
-            if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == sp->battlemon[sp->defence_client].maxhp))
+            if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == (s32)sp->battlemon[sp->defence_client].maxhp))
             {
                 sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = TRUE;
             }
             // make sure to cancel sturdy if hp != maxhp.  necessary for multi-hit moves
-            else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE && (sp->battlemon[sp->defence_client].hp != sp->battlemon[sp->defence_client].maxhp))
+            else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE && (sp->battlemon[sp->defence_client].hp != (s32)sp->battlemon[sp->defence_client].maxhp))
             {
                 sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = FALSE;
             }
@@ -1005,7 +1005,7 @@ u16 gf_p_rand(const u16 denominator)
  *  @param flag move status flags to mess around with
  *  @return modified damage
  */
-int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
+int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
 {
     int i;
     int modifier;
@@ -1013,7 +1013,7 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
     u8  eqp_a;
     u8  eqp_d;
     u8  atk_a;
-    u8  atk_d;
+    u8  atk_d UNUSED; // not currently used but will be
 
     modifier = 1;
 

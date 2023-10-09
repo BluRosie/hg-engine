@@ -14,9 +14,11 @@ struct LinkedOverlayList gLinkedOverlayList[] =
 };
 
 
-void __attribute__((long_call)) UnloadOverlayByID(u32 ovyId) {
-    int i;
+void LONG_CALL UnloadOverlayByID(u32 ovyId) {
+    u32 i;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
     u8 buf[64];
+#endif // DEBUG_PRINT_OVERLAY_LOADS
 
 unloadSecond:
     PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
@@ -43,13 +45,15 @@ unloadSecond:
 }
 
 
-u32 __attribute__((long_call)) HandleLoadOverlay(u32 ovyId, u32 loadType) {
+u32 LONG_CALL HandleLoadOverlay(u32 ovyId, u32 loadType) {
     u32 result;
     u32 dmaBak = FS_DMA_NOT_USE;
     u32 overlayRegion;
     PMiLoadedOverlay *loadedOverlays;
+    u32 i;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
     u8 buf[128];
-    int i;
+#endif // DEBUG_PRINT_OVERLAY_LOADS
 
 loadExtension:
     if (!CanOverlayBeLoaded(ovyId)) {
@@ -131,7 +135,7 @@ loadExtension:
 }
 
 
-u32 __attribute__((long_call)) IsOverlayLoaded(u32 ovyId)
+u32 LONG_CALL IsOverlayLoaded(u32 ovyId)
 {
     PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
 

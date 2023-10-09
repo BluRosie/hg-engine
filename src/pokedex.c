@@ -26,7 +26,7 @@ void FormatDexNumberAnimationDigits(u16 *array, u16 dexNum, u32 r2) {
 
     //digits = digitPlaces;
 
-    for (s32 i = 0; i < NELEMS(digitPlaces); i++)
+    for (u32 i = 0; i < NELEMS(digitPlaces); i++)
     {
         array[i-1] = 0x1000 | (dexNum / digitPlaces[i] + r2);
         dexNum = dexNum % digitPlaces[i];

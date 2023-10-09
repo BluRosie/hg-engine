@@ -333,7 +333,7 @@ static BOOL CheckMegaMoveData(u16 mon, u16 *moves)
 {
 #ifdef MEGA_EVOLUTIONS
     int i, j;
-    for (i = 0; i < NELEMS(sMegaMoveTable);i++)
+    for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++)
     {
         if (sMegaMoveTable[i].monindex == mon)
         {
@@ -372,7 +372,7 @@ BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
     species = sp->battlemon[client].species;
     //move = ST_ServerSelectWazaGet(sp, client);
     
-    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++)
     {
         if (species == sMegaMoveTable[i].monindex)
         {
@@ -393,7 +393,7 @@ BOOL IsMegaSpeciesByMove(u16 species)
 #ifdef MEGA_EVOLUTIONS
     int i;
     
-    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++)
     {
         if (species == sMegaMoveTable[i].monindex)
         {
