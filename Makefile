@@ -147,16 +147,16 @@ all: $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "$(ROMNAME) Decompression successful!!"
+	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
-	@echo -e "Making ROM.."
+	@echo "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "Done."
+	@echo "Done."
 
 
 build_tools:
@@ -283,6 +283,10 @@ move_narc: $(NARC_FILES)
 	@echo "trainer data:"
 	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
 	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
+
+	@echo "trainer text:"
+	cp $(TRAINERTEXT_NARC) $(TRAINERTEXT_TARGET)
+	cp $(TRAINERTEXT_NARC_2) $(TRAINERTEXT_TARGET_2)
 
 	@echo "footprints:"
 	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
