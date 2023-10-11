@@ -534,13 +534,13 @@
 	.close
 .endmacro
 
-// trainer text entry macro
+// trainer text entry macro - string is parsed by python script
 
-.macro trainertextentry,entrynum,num,type,string
-	.close
-	writestring "728", entrynum, string
-	.open "build/trainer_text_map/7_0", 0
-	.org entrynum*4
+.macro trainertextentry,num,type,string
+	//.close
+	//writestring "728", entrynum, string
+	//.open "build/trainer_text_map/7_0", 0
+	//.org entrynum*4
 	.halfword num, type
 .endmacro
 

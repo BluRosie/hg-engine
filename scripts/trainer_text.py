@@ -17,9 +17,9 @@ definesDict = {
     10: "TEXT_DOUBLE_ONLY_1_POKEMON_2",
     15: "TEXT_LAST_MON_CRITICAL",
     16: "TEXT_LAST_MON_SENT_OUT",
-    17: "TEXT_17",
-    18: "TEXT_18",
-    19: "TEXT_19",
+    17: "TEXT_REMATCH_IN_OVERWORLD",
+    18: "TEXT_REMATCH_IN_OVERWORLD_DOUBLE_1",
+    19: "TEXT_REMATCH_IN_OVERWORLD_DOUBLE_2",
     20: "TEXT_PLAYER_LOSES",
 }
 
@@ -50,7 +50,6 @@ def DumpTrainerText():
             trainerAddressesToNum[currentEntry] = currentTrainer
             trainerNumToAddresses[currentTrainer] = currentEntry
             currentTrainer = currentTrainer + 1
-    currentTrainer = 0
     with open("a057/7_0", "rb") as f:
         while f.tell() < os.stat("a057/7_0").st_size:
             for entry in trainerNumToAddresses:
@@ -62,13 +61,27 @@ def DumpTrainerText():
             currentEntry = struct.unpack("<H", f.read(2))[0]
             textFunc = definesDict[struct.unpack("<H", f.read(2))[0]]
             #if f.tell() in trainerAddressesToNum:
-            output.write('    trainertextentry {:4d}, {:3d}, {}, "{}"\n'.format(currentTrainer, currentEntry, textFunc, trainerTextLines[(f.tell() >> 2) - 1].strip()))
-            currentTrainer = currentTrainer + 1
+            output.write('    trainertextentry {:3d}, {}, "{}"\n'.format(currentEntry, textFunc, trainerTextLines[(f.tell() >> 2) - 1].strip()))
     output.write('\n.close\n\n\n\n.create "build/trainer_text_offsets/1_0", 0\n\n')
     for entry in trainerNumToAddresses:
         output.write("/* Trainer {:3d} */ .halfword _{:04X}\n".format(entry, trainerNumToAddresses[entry]))
     output.write('\n.close')
     output.close()
 
+def BuildTrainerLines():
+    # i could just write here, but this doesn't work too well.  will have to open each individual file and pass off to msg_cat
+    currentEntry = 0
+    with open("armips/data/trainers/trainertext.s", "r") as f:
+        for line in f:
+            if '"' in line and "trainer_text_map" not in line and "trainer_text_offsets" not in line and "armips" not in line:
+                output = open("build/rawtext/728/{:04d}.txt".format(currentEntry), "w")
+                output.write(line.split('"')[1])
+                output.close()
+                currentEntry = currentEntry + 1
+
 if __name__ == '__main__':
-    DumpTrainerText()
+    args = sys.argv[1:]
+    if (len(args) == 1 and args[0] == '--dump'):
+        DumpTrainerText()
+    else:
+        BuildTrainerLines()
