@@ -1,7 +1,7 @@
 #include "../include/window.h"
 #include "../include/config.h"
 
-//#ifdef IMPLEMENT_TRANSPARENT_TEXTBOXES
+#ifdef IMPLEMENT_TRANSPARENT_TEXTBOXES
 
 void Tr_TextBox(GF_BGL_BMPWIN *win)
 {
@@ -32,4 +32,4 @@ void FieldMsgPrintInit(u32 type, u32 init)
     ArcUtil_PalSet(16, 10, type, 0x180, 0x20, 4);
 }
 
-//#endif
+#endif

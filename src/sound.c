@@ -156,7 +156,7 @@ int LONG_CALL NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSe
         }
 
         // Loading waveform archives
-        result = NNSi_SndArcLoadWaveArc( waveArcIndex, loadFlag, heap, bSetAddr, waveArc );
+        result = NNSi_SndArcLoadWaveArc( waveArcIndex, loadFlag, heap, bSetAddr, &waveArc );
 
 #ifdef DEBUG_SOUND_SBNK_LOADS
 

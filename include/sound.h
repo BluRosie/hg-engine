@@ -182,7 +182,7 @@ const NNSSndArcBankInfo * LONG_CALL NNS_SndArcGetBankInfo(int bankNo);
 SNDBankData * LONG_CALL LoadBank(int fileId, void *heap, BOOL bSetAddr);
 void * LONG_CALL NNS_SndArcGetFileAddress(int fileId);
 const NNSSndArcWaveArcInfo * LONG_CALL NNS_SndArcGetWaveArcInfo();
-int LONG_CALL NNSi_SndArcLoadWaveArc(u16 waveArcNo, u32 loadFlag, void *heap, BOOL bSetAddr, SNDWaveArc *waveArc);
+int LONG_CALL NNSi_SndArcLoadWaveArc(u16 waveArcNo, u32 loadFlag, void *heap, BOOL bSetAddr, SNDWaveArc **waveArc);
 BOOL LONG_CALL LoadSingleWaves(SNDWaveArc *waveArc, SNDBankData *bank, int index, u32 fileId, void *heap);
 void LONG_CALL SND_AssignWaveArc(SNDBankData *bank, int index, SNDWaveArc *waveArc);
 
