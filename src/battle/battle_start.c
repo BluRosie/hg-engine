@@ -144,8 +144,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     //player requests mega
                     if (!(client_no & 1))
                     {
-                        if ((CheckCanMega(sp, client_no) && newBS.playerWantMega)
-                         || CheckCanMoveMegaEvolve(sp, client_no))
+                        if (CheckCanMega(sp, client_no) && newBS.playerWantMega)
                         {
                             sp->battlemon[client_no].canMega = 1;
                             newBS.SideMega[0] = TRUE;
@@ -155,7 +154,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     //ai requests mega
                     else
                     { 
-                        if (CheckCanMega(sp, client_no) || CheckCanMoveMegaEvolve(sp, client_no))
+                        if (CheckCanMega(sp, client_no))
                         {
                             sp->battlemon[client_no].canMega = 1;
                             newBS.SideMega[1] = TRUE;
@@ -305,11 +304,11 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 return;
             }
             sp->wb_seq_no++;
+            FALLTHROUGH;
         case SEQ_SENSEI_CHECK:
             ServerSenseiCheck(bw, sp); ///先制之爪效果 80143E4h
             sp->wb_seq_no++;
             return;
-            break;
         case SEQ_STATUS_CHECK:
             if ((sp->waza_out_check_on_off & 0x4) == 0)
             {
@@ -320,35 +319,37 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 }
             }
             sp->wb_seq_no++;
+            FALLTHROUGH;
         case SEQ_BADGE_CHECK:
-        {
-            int ret;
-            int seq_no;
-
-            if ((sp->waza_out_check_on_off & 0x1) == 0)
             {
-                ret = ServerBadgeCheck(bw, sp, &seq_no);//8013610h
-                if (ret)
+                int ret;
+                int seq_no;
+
+                if ((sp->waza_out_check_on_off & 0x1) == 0)
                 {
-                    switch (ret)
+                    ret = ServerBadgeCheck(bw, sp, &seq_no);//8013610h
+                    if (ret)
                     {
-                        case 1:
-                            sp->next_server_seq_no = 39;
-                            break;
-                        case 2:
-                            sp->next_server_seq_no = sp->server_seq_no;
-                            break;
-                        case 3:
-                            sp->next_server_seq_no = 34;
-                            break;
+                        switch (ret)
+                        {
+                            case 1:
+                                sp->next_server_seq_no = 39;
+                                break;
+                            case 2:
+                                sp->next_server_seq_no = sp->server_seq_no;
+                                break;
+                            case 3:
+                                sp->next_server_seq_no = 34;
+                                break;
+                        }
+                        sp->server_seq_no = 22;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
+                        return;
                     }
-                    sp->server_seq_no = 22;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    return;
                 }
             }
-        }
-        sp->wb_seq_no++;
+            sp->wb_seq_no++;
+            FALLTHROUGH;
         case SEQ_PP_CHECK:
             if ((sp->waza_out_check_on_off & 0x8) == 0)
             {
@@ -359,6 +360,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 }
             }
             sp->wb_seq_no++;
+            FALLTHROUGH;
             //攻击对象检查，包括了蓄力技能
         case SEQ_DEFENCE_CHECK:
             if (ServerDefenceCheck(bw, sp) == TRUE)//8013AD8h
@@ -366,6 +368,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 return;
             }
             sp->wb_seq_no++;
+            FALLTHROUGH;
             //防御效果检查，魔法守护等
         case SEQ_WAZAKOYUU_CHECK:
             if ((sp->waza_out_check_on_off & 0x80) == 0)
@@ -376,10 +379,12 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 }
             }
             sp->wb_seq_no++;
+            FALLTHROUGH;
             //引水等特性检查
         case SEQ_DEFENCE_CHANGE_CHECK:
             ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);//8019158h
             sp->wb_seq_no++;
+            FALLTHROUGH;
         case SEQ_PROTEAN_CHECK:
             if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
                 && (sp->battlemon[sp->attack_client].type1 != sp->moveTbl[sp->current_move_index].type  // if either type is not the move's type
@@ -397,6 +402,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             {
                 sp->wb_seq_no++;
             }
+            FALLTHROUGH;
         case SEQ_STANCE_CHANGE_CHECK:
             if (sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH)
             {

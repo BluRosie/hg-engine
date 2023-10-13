@@ -145,7 +145,7 @@ u32 GrabPokewalkerMonSpriteIndex(u32 species, u32 isFemale, u32 form)
 {
     int i;
     
-    for (i = 0; i < NELEMS(sMapOldSpeciesToBaseFormIndex); i++)
+    for (i = 0; i < (s32)NELEMS(sMapOldSpeciesToBaseFormIndex); i++)
     {
         if (species == sMapOldSpeciesToBaseFormIndex[i][0])
         {
@@ -159,7 +159,7 @@ u32 GrabPokewalkerMonSpriteIndex(u32 species, u32 isFemale, u32 form)
     {
         if (isFemale) // handle female for old mons
         {
-            for (i = 0; i < NELEMS(sSpeciesWithGenderDifferences); i++)
+            for (i = 0; i < (s32)NELEMS(sSpeciesWithGenderDifferences); i++)
             {
                 if (species == sSpeciesWithGenderDifferences[i])
                     break;

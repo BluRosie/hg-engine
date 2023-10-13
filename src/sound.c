@@ -4,7 +4,7 @@
 #include "../include/sound.h"
 
 
-BOOL __attribute__((long_call)) GF_Snd_LoadSeq(int seqNo) {
+BOOL LONG_CALL GF_Snd_LoadSeq(int seqNo) {
     BOOL ret;
     struct SND_WORK *work;
 
@@ -77,12 +77,12 @@ const u8 *NNS_SND_ARC_LOAD_ERROR_STRINGS[] =
 #endif // DEBUG_SOUND_SBNK_LOADS
 
 
-int __attribute__((long_call)) NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, struct SNDBankData** pData)
+int LONG_CALL NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, struct SNDBankData** pData)
 {
     const NNSSndArcBankInfo* bankInfo;
     const NNSSndArcWaveArcInfo* waveArcInfo;
     SNDBankData* bank = NULL;
-    SNDWaveArc* waveArc;
+    SNDWaveArc* waveArc = NULL;
     int result;
     int i;
     BOOL loadingNewCry = 0, hasLoadedCry = 0;

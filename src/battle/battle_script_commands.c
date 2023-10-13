@@ -909,7 +909,7 @@ BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_0E_waitmessage(void *bw, struct BattleStruct *sp) {
+BOOL btl_scr_cmd_0E_waitmessage(void *bw UNUSED, struct BattleStruct *sp) {
     if (Link_QueueIsEmpty(sp)) {
         IncrementBattleScriptPtr(sp, 1);
     } else {
@@ -1012,7 +1012,7 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStruct *sp)
 {
     int effect;
 
@@ -1196,7 +1196,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     struct EXP_CALCULATOR *expcalc = work;
 #if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
     int sel_mons_no;
-    struct PartyPokemon *pp;
+    struct PartyPokemon *pp = NULL;
     int client_no;
     struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
     int exp_client_no = 0;
@@ -1416,14 +1416,14 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
     // first step:  store the required variables
     u32 store_fainting_client = expcalc->sp->fainting_client;
     expcalc->seq_no = store_current_exp_step;
-    for (int i = 0; i < NELEMS(store_work_params); i++)
+    for (int i = 0; i < (s32)NELEMS(store_work_params); i++)
     {
         original_work_params[i] = expcalc->work[i];
     }
 
     // second step:  overwrite required vars for exp calculation.  part is also done in for loop above, oh well
     expcalc->sp->fainting_client = get_client_no;
-    for (int i = 0; i < NELEMS(store_work_params); i++)
+    for (int i = 0; i < (s32)NELEMS(store_work_params); i++)
     {
         expcalc->work[i] = store_work_params[i];
     }
@@ -1438,7 +1438,7 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
         ret = TRUE;
 
         store_current_exp_step = 0;
-        for (int i = 0; i < NELEMS(store_work_params); i++) // reset and pass back to main func
+        for (int i = 0; i < (s32)NELEMS(store_work_params); i++) // reset and pass back to main func
         {
             store_work_params[i] = 0;
             expcalc->work[i] = original_work_params[i];
@@ -1447,7 +1447,7 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
     else // otherwise store the exp step to the variable, restore work params, pass back to main func
     {
         store_current_exp_step = expcalc->seq_no;
-        for (int i = 0; i < NELEMS(store_work_params); i++)
+        for (int i = 0; i < (s32)NELEMS(store_work_params); i++)
         {
             store_work_params[i] = expcalc->work[i];
             expcalc->work[i] = original_work_params[i];
@@ -2010,7 +2010,7 @@ const u16 sLowKickWeightToPower[][2] =
  *  @param client battler whose weight to grab
  *  @return battler's weight
  */
-s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client)
+s32 GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client)
 {
     s32 weight;
 
@@ -2095,7 +2095,7 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     {
         flag = 1;
     }
-    else if ((holdeffect == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == sp->battlemon[client_no].maxhp))
+    else if ((holdeffect == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == (s32)sp->battlemon[client_no].maxhp))
     {
         flag = 1;
     }
@@ -2187,7 +2187,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_E1_reduceweight(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_E1_reduceweight(void *bw UNUSED, struct BattleStruct *sp)
 {
     s32 delta;
 
@@ -2239,7 +2239,7 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw UNUSED, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);

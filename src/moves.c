@@ -184,7 +184,7 @@ void GetMoveDataTable(void *dest)
  *  @param field MOVE_DATA_* constant requesting data
  *  @return requested data
  */
-u32 __attribute__((long_call)) GetMoveData(u16 id, u32 field)
+u32 LONG_CALL GetMoveData(u16 id, u32 field)
 {
     struct BattleMove *bm = sys_AllocMemory(0, sizeof(struct BattleMove));
     ArchiveDataLoad(bm, ARC_MOVE_DATA, id);

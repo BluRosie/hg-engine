@@ -534,6 +534,16 @@
 	.close
 .endmacro
 
+// trainer text entry macro - string is parsed by python script
+
+.macro trainertextentry,num,type,string
+	//.close
+	//writestring "728", entrynum, string
+	//.open "build/trainer_text_map/7_0", 0
+	//.org entrynum*4
+	.halfword num, type
+.endmacro
+
 // encounter data macros
 
 .macro encounterdata,num
@@ -604,7 +614,7 @@
 .endmacro
 
 .macro trainername,id,name
-    writestring "729", id, name
+    writestring "729", id, "{TRNAME}"+name
 .endmacro
 
 .macro monname,id,name

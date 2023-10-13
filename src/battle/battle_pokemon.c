@@ -386,7 +386,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (GetBattlerAbility(sp, sp->client_work) == ABILITY_ZEN_MODE)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 2))
+         && (sp->battlemon[sp->client_work].hp <= (s32)(sp->battlemon[sp->client_work].maxhp / 2))
          && (sp->battlemon[sp->client_work].form_no < 2)) // forms 0 and 1
         {
             sp->battlemon[sp->client_work].form_no += 2;
@@ -396,7 +396,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         } else if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp > (sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
+         && (sp->battlemon[sp->client_work].hp > (s32)(sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
          && (sp->battlemon[sp->client_work].form_no >= 2)) // forms 2 and 3
         {
             sp->battlemon[sp->client_work].form_no -= 2;
@@ -474,7 +474,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         // handle Zygarde TODO test
         if ((sp->battlemon[sp->client_work].species == SPECIES_ZYGARDE)
          && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 2))
+         && (sp->battlemon[sp->client_work].hp <= (s32)(sp->battlemon[sp->client_work].maxhp / 2))
          && (sp->battlemon[sp->client_work].form_no == 2 || sp->battlemon[sp->client_work].form_no == 3))
         {
             //TODO this has not yet been tested
@@ -492,7 +492,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
             && (sp->battlemon[sp->client_work].hp)
             && (sp->battlemon[sp->client_work].form_no == 0)
-            && (sp->battlemon[sp->client_work].hp > (sp->battlemon[sp->client_work].maxhp / 4)))
+            && (sp->battlemon[sp->client_work].hp > (s32)(sp->battlemon[sp->client_work].maxhp / 4)))
         {
             sp->battlemon[sp->client_work].form_no = 1;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
@@ -503,7 +503,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
          && (sp->battlemon[sp->client_work].hp)
          && (sp->battlemon[sp->client_work].form_no == 1)
-         && (sp->battlemon[sp->client_work].hp <= (sp->battlemon[sp->client_work].maxhp / 4)))
+         && (sp->battlemon[sp->client_work].hp <= (s32)(sp->battlemon[sp->client_work].maxhp / 4)))
         {
             sp->battlemon[sp->client_work].form_no = 0;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
@@ -528,7 +528,6 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     struct POKEMON_ENCOUNT_PARAM *pep = (struct POKEMON_ENCOUNT_PARAM *)&cp->client_buffer[0];
     u8 side, newform;
     u16 newmon, newshiny;
-    u32 i;
 
     side = ((cp->client_type & 1) != 0);
 
@@ -544,8 +543,6 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 
         if (newmon != pep->monsno || newform != pep->form_no)
         {
-            u8 strlen = 0;
-
             pep->monsno = newmon;
             pep->form_no = newform;
             pep->rare = newshiny;
@@ -578,7 +575,6 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
     u8 side, newform;
     u16 newmon, newshiny;
-    u32 i;
 
     side = ((cp->client_type & 1) != 0);
 
@@ -594,8 +590,6 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 
         if (newmon != pap->monsno || newform != pap->form_no)
         {
-            u8 strlen = 0;
-
             pap->monsno = newmon;
             pap->form_no = newform;
             pap->rare = newshiny;
@@ -628,7 +622,6 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
     u8 side, newform;
     u16 newmon, newshiny;
-    u32 i;
 
     side = ((cp->client_type & 1) != 0);
 
@@ -644,8 +637,6 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 
         if (newmon != pap->monsno || newform != pap->form_no)
         {
-            u8 strlen = 0;
-
             pap->monsno = newmon;
             pap->form_no = newform;
             pap->rare = newshiny;
@@ -720,13 +711,10 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
     if (cp->client_type & 1)
     {
         struct Party *party;
-        u32 count = 0;
-        u32 species = 0;
         u32 ability = 0;
 
         party = BattleWorkPokePartyGet(bw, 1);
 
-        species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_SPECIES, NULL);
         ability = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_ABILITY, NULL);
         if (ability == ABILITY_ILLUSION)
         {
@@ -752,13 +740,10 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
     else
     {
         struct Party *party;
-        u32 count = 0;
-        u32 species = 0;
         u32 ability = 0;
 
         party = BattleWorkPokePartyGet(bw, 0);
 
-        species = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_SPECIES, NULL);
         ability = GetMonData(PokeParty_GetMemberPointer(party, smp->sel_mons_no), MON_DATA_ABILITY, NULL);
         if (ability == ABILITY_ILLUSION)
         {
@@ -809,8 +794,8 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
 void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp)
 {
     u32 fight_type;
-    int client1;
-    int client2;
+    int client1 = 0;
+    int client2 = 0;
 
     fight_type = BattleTypeGet(bw);
 
@@ -829,13 +814,10 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
         {
             struct Party *party;
-            u32 count = 0;
-            u32 species = 0;
             u32 ability = 0;
 
             party = BattleWorkPokePartyGet(bw, client1);
 
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION)
             {
@@ -846,13 +828,10 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         if (client1 != client2)
         {
             struct Party *party;
-            u32 count = 0;
-            u32 species = 0;
             u32 ability = 0;
 
             party = BattleWorkPokePartyGet(bw, client2);
 
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), MON_DATA_ABILITY, NULL);
             if (/*(species == SPECIES_ZORUA || species == SPECIES_ZOROARK)
              && */ability == ABILITY_ILLUSION)
@@ -984,13 +963,10 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
         {
             struct Party *party;
-            u32 count = 0;
-            u32 species = 0;
             u32 ability = 0;
 
             party = BattleWorkPokePartyGet(bw, client1);
 
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client1]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION)
             {
@@ -1001,13 +977,10 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         if (client1 != client2)
         {
             struct Party *party;
-            u32 count = 0;
-            u32 species = 0;
             u32 ability = 0;
 
             party = BattleWorkPokePartyGet(bw, client2);
 
-            species = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), MON_DATA_SPECIES, NULL);
             ability = GetMonData(PokeParty_GetMemberPointer(party, esomp->sel_mons_no[client2]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION)
             {
@@ -1283,7 +1256,7 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
     if (ability == ABILITY_LIQUID_VOICE)
     {
         int i;
-        for (i = 0; i < NELEMS(SoundProofMovesList); i++)
+        for (i = 0; i < (s32)NELEMS(SoundProofMovesList); i++)
         {
             if (SoundProofMovesList[i] == sp->current_move_index)
                 break;

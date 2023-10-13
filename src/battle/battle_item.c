@@ -32,7 +32,6 @@ BOOL CheckItemByThief(u16 item);
 u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ret;
-    int client_no;
     int atk_hold_eff;
     int atk_item_param;
     int def_hold_eff;
@@ -53,7 +52,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
      && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
      && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
      && (sp->attack_client != sp->defence_client)
-     && (sp->battlemon[sp->attack_client].hp < sp->battlemon[sp->attack_client].maxhp)
+     && (sp->battlemon[sp->attack_client].hp < (s32)sp->battlemon[sp->attack_client].maxhp)
      && (sp->battlemon[sp->attack_client].hp)
      && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // sheer force prevents shell bell from activating
     {
@@ -121,8 +120,7 @@ enum
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
     int ret;
-    int client_no;
-    int client_set_max;
+    int client_set_max UNUSED;
     int hold_effect;
     int hold_effect_param;
     
@@ -161,7 +159,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                  && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
                  && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
                  && (sp->attack_client != sp->defence_client)
-                 && (sp->battlemon[sp->attack_client].hp < sp->battlemon[sp->attack_client].maxhp)
+                 && (sp->battlemon[sp->attack_client].hp < (s32)sp->battlemon[sp->attack_client].maxhp)
                  && (sp->battlemon[sp->attack_client].hp))
                 {
                     sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);

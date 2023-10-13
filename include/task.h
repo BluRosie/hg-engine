@@ -26,7 +26,7 @@ struct TaskManager { //declared in field_system.h
     TaskManagerUnkSub1C *unk1C; // size=4
 };
 
-SysTask *__attribute__((long_call)) CreateSysTask(SysTaskFunc func, void *data, int priority);
-void __attribute__((long_call)) DestroySysTask(SysTask *task);
+SysTask *LONG_CALL CreateSysTask(SysTaskFunc func, void *data, int priority);
+void LONG_CALL DestroySysTask(SysTask *task);
 
 #endif

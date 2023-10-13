@@ -218,43 +218,43 @@ typedef struct OVERWORLD_REQUEST_FLAGS {
 } __attribute__((packed)) OVERWORLD_REQUEST_FLAGS; // size = 0xa
 
 
-LocalMapObject * __attribute__((long_call)) GetMapObjectByID(void *arr, int id);
-int __attribute__((long_call)) MapObject_GetMovement(LocalMapObject *mapObject);
-u32 __attribute__((long_call)) MapObject_GetGfxID(LocalMapObject *mapObject);
-void __attribute__((long_call)) MapObject_SetGfxID(LocalMapObject *mapObject, u32 spriteId);
-void __attribute__((long_call)) sub_0205F6AC(LocalMapObject *mapObject, int a1);
-void __attribute__((long_call)) MapObject_SetBits(LocalMapObject *mapObject, u32 bits);
-void __attribute__((long_call)) MapObject_ClearBits(LocalMapObject *mapObject, u32 bits);
-void __attribute__((long_call)) MapObject_SetID(LocalMapObject *mapObject, u32 id);
-void __attribute__((long_call)) MapObject_SetType(LocalMapObject *mapObject, u32 type);
-u32 __attribute__((long_call)) MapObject_GetType(LocalMapObject *mapObject, u32 type);
-void __attribute__((long_call)) MapObject_SetFlagID(LocalMapObject *mapObject, u32 flagId);
-void __attribute__((long_call)) MapObject_SetScript(LocalMapObject *mapObject, u32 script);
-void __attribute__((long_call)) MapObject_SetParam(LocalMapObject *mapObject, int value, int which);
-int __attribute__((long_call)) MapObject_GetParam(LocalMapObject *mapObject, int which);
-void __attribute__((long_call)) MapObject_SetXRange(LocalMapObject *mapObject, u32 xRange);
-void __attribute__((long_call)) MapObject_SetYRange(LocalMapObject *mapObject, u32 yRange);
+LocalMapObject * LONG_CALL GetMapObjectByID(void *arr, int id);
+int LONG_CALL MapObject_GetMovement(LocalMapObject *mapObject);
+u32 LONG_CALL MapObject_GetGfxID(LocalMapObject *mapObject);
+void LONG_CALL MapObject_SetGfxID(LocalMapObject *mapObject, u32 spriteId);
+void LONG_CALL sub_0205F6AC(LocalMapObject *mapObject, int a1);
+void LONG_CALL MapObject_SetBits(LocalMapObject *mapObject, u32 bits);
+void LONG_CALL MapObject_ClearBits(LocalMapObject *mapObject, u32 bits);
+void LONG_CALL MapObject_SetID(LocalMapObject *mapObject, u32 id);
+void LONG_CALL MapObject_SetType(LocalMapObject *mapObject, u32 type);
+u32 LONG_CALL MapObject_GetType(LocalMapObject *mapObject, u32 type);
+void LONG_CALL MapObject_SetFlagID(LocalMapObject *mapObject, u32 flagId);
+void LONG_CALL MapObject_SetScript(LocalMapObject *mapObject, u32 script);
+void LONG_CALL MapObject_SetParam(LocalMapObject *mapObject, int value, int which);
+int LONG_CALL MapObject_GetParam(LocalMapObject *mapObject, int which);
+void LONG_CALL MapObject_SetXRange(LocalMapObject *mapObject, u32 xRange);
+void LONG_CALL MapObject_SetYRange(LocalMapObject *mapObject, u32 yRange);
 
-void __attribute__((long_call)) MapObject_GfxDraw(LocalMapObject *mapObject);
-void __attribute__((long_call)) PlayerAlternate_MapObject_GfxDraw(LocalMapObject *mapObject, int sprite_id, void *, void*);
+void LONG_CALL MapObject_GfxDraw(LocalMapObject *mapObject);
+void LONG_CALL PlayerAlternate_MapObject_GfxDraw(LocalMapObject *mapObject, int sprite_id, void *, void*);
 
-LocalMapObject * __attribute__((long_call)) CreateFollowingSpriteFieldObject(void *mapObjectMan, int species, u16 forme, int gender, int direction, int x, int y, int shiny);
-u32 __attribute__((long_call)) FollowingPokemon_GetSpriteID(int species, u16 forme, u32 gender);
-void __attribute__((long_call)) FollowPokeFsysParamSet(FieldSystem *fsys, int species, u8 forme, BOOL shiny, u8 gender);
-void __attribute__((long_call)) FollowPokeMapObjectSetParams(LocalMapObject *mapObject, int species, u8 forme, BOOL shiny);
-void __attribute__((long_call)) FsysFollowMonClear(FollowMon *followMon);
-LocalMapObject * __attribute__((long_call)) CreateSpecialFieldObject(void *objectMan, u32 x, u32 z, u32 direction, u32 sprite, u32 movement, u32 mapNo);
-void __attribute__((long_call)) DeleteMapObject(LocalMapObject *mapObject);
-u32 __attribute__((long_call)) MapObject_GetCurrentX(LocalMapObject *object);
-u32 __attribute__((long_call)) MapObject_GetCurrentY(LocalMapObject *object);
-void __attribute__((long_call)) MapObject_SetCurrentY(LocalMapObject* object, u32 y);
-void __attribute__((long_call)) MapObject_SetCurrentX(LocalMapObject* object, u32 x);
-void __attribute__((long_call)) MapObject_SetFlag29(LocalMapObject* object, BOOL set);
-void __attribute__((long_call)) sub_02069DC8(LocalMapObject *mapObject, BOOL enable_bit);
-void __attribute__((long_call)) ov01_021F9048(LocalMapObject* map_object);
-void __attribute__((long_call)) MapObjectMan_PauseAllMovement(MapObjectMan* manager);
-void __attribute__((long_call)) MapObjectMan_UnpauseAllMovement(MapObjectMan* manager);
-void __attribute__((long_call)) ChangeMapObjSprite(LocalMapObject *mapObject, u32 overworldTag);
+LocalMapObject * LONG_CALL CreateFollowingSpriteFieldObject(void *mapObjectMan, int species, u16 forme, int gender, int direction, int x, int y, int shiny);
+u32 LONG_CALL FollowingPokemon_GetSpriteID(int species, u16 forme, u32 gender);
+void LONG_CALL FollowPokeFsysParamSet(FieldSystem *fsys, int species, u8 forme, BOOL shiny, u8 gender);
+void LONG_CALL FollowPokeMapObjectSetParams(LocalMapObject *mapObject, int species, u8 forme, BOOL shiny);
+void LONG_CALL FsysFollowMonClear(FollowMon *followMon);
+LocalMapObject * LONG_CALL CreateSpecialFieldObject(void *objectMan, u32 x, u32 z, u32 direction, u32 sprite, u32 movement, u32 mapNo);
+void LONG_CALL DeleteMapObject(LocalMapObject *mapObject);
+u32 LONG_CALL MapObject_GetCurrentX(LocalMapObject *object);
+u32 LONG_CALL MapObject_GetCurrentY(LocalMapObject *object);
+void LONG_CALL MapObject_SetCurrentY(LocalMapObject* object, u32 y);
+void LONG_CALL MapObject_SetCurrentX(LocalMapObject* object, u32 x);
+void LONG_CALL MapObject_SetFlag29(LocalMapObject* object, BOOL set);
+void LONG_CALL sub_02069DC8(LocalMapObject *mapObject, BOOL enable_bit);
+void LONG_CALL ov01_021F9048(LocalMapObject* map_object);
+void LONG_CALL MapObjectMan_PauseAllMovement(MapObjectMan* manager);
+void LONG_CALL MapObjectMan_UnpauseAllMovement(MapObjectMan* manager);
+void LONG_CALL ChangeMapObjSprite(LocalMapObject *mapObject, u32 overworldTag);
 
 //#define FollowPokeObj_GetSpecies(mapObject) MapObject_GetParam(mapObject, 0)
 
