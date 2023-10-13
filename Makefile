@@ -116,9 +116,9 @@ $(MSGENC): tools/source/msgenc/*
 
 TOOLS += $(MSGENC)
 
-BTX_SOURCES := $(wildcard "tools/source/BTX Editor/*.cs")
+BTX_SOURCES := $(wildcard tools/source/BTXEditor/*.cs)
 $(BTX_EXE): $(BTX_SOURCES)
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source/BTX Editor/Program-P.cs" "source/BTX Editor/pngtobtx0.cs" "source/BTX Editor/BTX0.cs"
+	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source/BTXEditor/Program-P.cs" "source/BTXEditor/pngtobtx0.cs" "source/BTXEditor/BTX0.cs"
 
 TOOLS += $(BTX_EXE)
 

@@ -404,6 +404,7 @@ overworld_extract:
 	$(NARCHIVE) extract $(OVERWORLDS_TARGET) -o $(OVERWORLDS_DIR) -nf
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_0%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
+	@rm -f $(OVERWORLDS_NARC)
 
 $(OVERWORLDS_NARC): | overworld_extract $(OVERWORLDS_OBJS)
 	$(NARCHIVE) create $@ $(OVERWORLDS_DIR) -nf
