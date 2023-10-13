@@ -183,12 +183,12 @@ _0273:
     update_avatar_state
 
     wait 15, VAR_SPECIAL_x800A
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     closemsg
     scrcmd_436
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
 // reorder this
     get_party_lead_alive VAR_SPECIAL_x8009
@@ -224,12 +224,12 @@ _02F3:
 _02F7:
     update_avatar_state
     wait 15, VAR_SPECIAL_x800A
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     closemsg
     scrcmd_436
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
 
 // reorder this
@@ -270,12 +270,12 @@ _0391:
 _0395:
     update_avatar_state
     wait 15, VAR_SPECIAL_x800A
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     closemsg
     scrcmd_436
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
 
 // reorder this
@@ -344,14 +344,14 @@ _0468:
     step 104, 1
     step_end
 scr_seq_0003_069:
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     scrcmd_436
     play_fanfare SEQ_ME_ASA
     wait_fanfare
     heal_party
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     endstd
     end
@@ -436,10 +436,10 @@ _05AD:
     end
 
 scr_seq_0003_004:
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     wait_button
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     end
 
@@ -449,7 +449,7 @@ _05F5:
     wait_button
     closemsg
     fade_out_bgm 0, 10
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     scrcmd_436
     overworld_white_out
@@ -882,7 +882,7 @@ _0C01:
     non_npc_msg 34
     call _0B17
     call _0A18
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     goto _0B53
 
 _0C23:
@@ -945,7 +945,7 @@ _0D18:
     non_npc_msg 34
     call _0CA7
     call _0A18
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     goto _0C39
 
 _0D3A:
@@ -966,7 +966,7 @@ _0D64:
     non_npc_msg 34
     call _0CA7
     call _0A18
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     goto _0C39
 
 _0D86:
@@ -981,7 +981,7 @@ _0D98:
     non_npc_msg 34
     call _0CA7
     call _0A18
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     goto _0C39
 
 _0DBA:
@@ -1010,21 +1010,21 @@ _0DF0:
 
 _0E02:
     call _0A18
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     return
 
 _0E16:
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     scrcmd_309 90
     return
 
 scr_seq_0003_014:
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     scrcmd_156
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     end
 
@@ -1039,17 +1039,17 @@ scr_seq_0003_012:
     apply_movement obj_player, _1054
     apply_movement 0, _105C
     wait_movement
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     buffer_players_name 0
     npc_msg 41
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     closemsg
     play_fanfare SEQ_ME_ASA
     wait_fanfare
     heal_party
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     npc_msg 42
     wait_button_or_walk_away
@@ -1061,7 +1061,7 @@ scr_seq_0003_012:
 scr_seq_0003_013:
     scrcmd_609
     lockall
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     get_player_state VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, PLAYER_STATE_ROCKET
@@ -1203,11 +1203,11 @@ _107C:
 scr_seq_0003_015:
     play_se SEQ_SE_DP_SELECT
     lockall
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     scrcmd_450
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     releaseall
     end
@@ -1276,11 +1276,11 @@ scr_seq_0003_021:
     lockall
     npc_msg 62
     wait_button
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     closemsg
     egg_hatch_anim
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     releaseall
     end
@@ -1313,14 +1313,14 @@ _11AE:
     setvar VAR_SPECIAL_x8004, 104
     addvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
     non_npc_msg_var VAR_SPECIAL_x8004
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     closemsg
     setvar VAR_SPECIAL_x8000, 2
     addvar VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT
     scrcmd_492 VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT, VAR_SPECIAL_x8001
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _1277
@@ -1456,11 +1456,11 @@ _136C:
     wait_se SEQ_SE_GS_PHONE0
     play_se SEQ_SE_GS_PHONE0
     wait_se SEQ_SE_GS_PHONE0
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     run_phone_call
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     return
 
@@ -1493,7 +1493,7 @@ scr_seq_0003_041:
     end
 
 scr_seq_0003_046:
-    fade_screen 6, 1, 0, RGB(0, 0, 0)
+    fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
     scrcmd_166 VAR_SPECIAL_RESULT
     copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
@@ -1501,14 +1501,14 @@ scr_seq_0003_046:
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _1444
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     endstd
     end
 
 _1444:
     scrcmd_150
-    fade_screen 6, 1, 1, RGB(0, 0, 0)
+    fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
     endstd
     end

@@ -1282,7 +1282,8 @@ NUM_PHONE_CONTACTS                equ   75
 .halfword arg1
 .endmacro
 
-.expfunc RGB(r, g, b), (((b&31) << 10) | ((g&31) << 5) | (r&31))
+RGB_BLACK equ 0
+RGB_WHITE equ 0x7FFF
 
 .macro fade_screen,arg0,speed,direction,color
 .halfword 174

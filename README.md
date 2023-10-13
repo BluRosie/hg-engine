@@ -14,6 +14,7 @@
 - [Setup Instructions (Linux)](#setup-instructions-linux)
 - [Setup Instructions (MacOS)](#setup-instructions-macos)
 - [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-wsl)
+- [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-msys2)
 - [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 - [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
 - [Credits](#credits)
@@ -58,12 +59,29 @@
 3. Open the "Run" window by pressing the `Windows key` and `R` at the same time, then type in `wsl` and press Enter. This is how you should open WSL from now on.
     *  Note that you can also delete the folder path at the top of the File Explorer and just type in `wsl` to open WSL at the file explorer.
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take a **QUITE** a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
-   * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
+    * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
     * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake automake mono-devel gcc-arm-none-eabi```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
     * ```pip3 install ndspy```
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+
+
+## Setup Instructions (Windows on MSYS2)
+1. Install MSYS2 from [the website](https://www.msys2.org/#installation).
+2. Open up the base MSYS2 with the light purple background.
+3. Execute the commands:
+    * ```pacman -Syu```
+    * ```pacman -S gcc base-devel cmake python git automake mingw-w64-x86_64-mono mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel```
+    * ```export PATH=$PATH:/mingw64/bin```
+    * ```echo export PATH='$'PATH:/mingw64/bin >> ~/.bashrc```
+    * ```python3 -m ensurepip --upgrade```
+    * ```python3 -m pip install ndspy```
+4. Download [libpng](https://sourceforge.net/projects/libpng/files/latest/download) and install it.  Decompress it to a folder, and then open MSYS2 in that source folder and run:
+    * ```./configure --prefix=/usr```
+    * ```make check```
+    * ```make install```
+5. Once that process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Further Setup Instructions (All Platforms) (Continued from Individual Sections)

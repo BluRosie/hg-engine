@@ -2,12 +2,20 @@
 
 # environment setting
 # get rid of devkitpro:  if devkitpro is installed, can still use it.  otherwise, default to arm-none-eabi tools
-ifeq ($(strip $DEVKITARM),)
+ifeq ($(shell echo $$DEVKITARM),)
+ifeq ($(MSYS2), 0)
+PREFIX = mingw64/bin/arm-none-eabi-
+AS = $(PREFIX)as
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
+else
 PREFIX = arm-none-eabi-
 AS = $(PREFIX)as
 CC = $(PREFIX)gcc
 LD = $(PREFIX)ld
 OBJCOPY = $(PREFIX)objcopy
+endif
 else
 # support legacy devkitpro instructions
 PREFIX = bin/arm-none-eabi-
@@ -20,8 +28,13 @@ PYTHON = python3
 
 .PHONY: clean all
 
-SEP := /
-CSC = mcs -pkg:dotnet
+MSYS2 = $(shell grep -i -q 'msys' /proc/version; echo $$?)
+
+ifeq ($(MSYS2), 0)
+CSC := csc
+else
+CSC := mcs -pkg:dotnet
+endif
 
 default: all
 
@@ -116,6 +129,9 @@ TOOLS += $(SWAV2SWAR_EXE)
 
 $(NDSTOOL):
 ifeq (,$(wildcard $(NDSTOOL)))
+ifeq ($(MSYS2), 0)
+	wget -O $(NDSTOOL) https://github.com/AdAstra-LD/DS-Pokemon-Rom-Editor/raw/main/DS_Map/Tools/ndstool.exe
+else
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
@@ -125,11 +141,16 @@ ifeq (,$(wildcard $(NDSTOOL)))
 	mv tools/source/ndstool/ndstool tools/ndstool
 	rm -r -f tools/source/ndstool
 endif
+endif
 
 TOOLS += $(NDSTOOL)
 
 $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
+ifeq ($(MSYS2), 0)
+	wget -O $(ARMIPS).7z https://github.com/Kingcom/armips/releases/download/v0.11.0/armips-v0.11.0-windows-x86.7z
+	cd tools; p7zip -d armips.7z; rm -f Readme.md
+else
 	rm -r -f tools/source/armips
 	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
 	cd tools/source/armips ; mkdir build
@@ -137,6 +158,7 @@ ifeq (,$(wildcard $(ARMIPS)))
 	cd tools/source/armips/build ; cmake --build .
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
+endif
 endif
 
 TOOLS += $(ARMIPS)
