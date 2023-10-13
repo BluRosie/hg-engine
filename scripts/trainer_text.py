@@ -81,7 +81,7 @@ def BuildTrainerLines():
 
 if __name__ == '__main__':
     args = sys.argv[1:]
-    if (len(args) == 1 and args[0] == '--dump'):
+    if (len(args) == 1 and args[0].strip() == '--dump'):
         DumpTrainerText()
     else:
         BuildTrainerLines()

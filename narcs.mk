@@ -496,8 +496,8 @@ SDAT_MED_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVAR
 SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar,$(SDAT_SRCS))
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
-	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK
-	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq tools/adpcm-xq --temp-file-dir build/sdat/temp
+	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK build/sdat/temp
+	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq $(ADPCMXQ) --temp-file-dir build/sdat/temp
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav
 	$(SWAV2SWAR) $< $@
