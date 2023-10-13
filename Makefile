@@ -246,7 +246,6 @@ all: $(TOOLS) $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
-	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
@@ -396,8 +395,10 @@ move_narc: $(NARC_FILES)
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
 
-	@echo "tutor data:"
-	$(ARMIPS) armips/data/tutordata.s
+	@echo "tutor moves and tm moves:"
+	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
+	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
+	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:
