@@ -854,7 +854,7 @@ heightentry SPECIES_COSMOG, 0, 0, 0, 0
 heightentry SPECIES_COSMOEM, 0, 0, 0, 0
 heightentry SPECIES_SOLGALEO, 0, 0, 0, 0
 heightentry SPECIES_LUNALA, 0, 0, 0, 0
-heightentry SPECIES_NIHILEGO, 0, 0, 0, 0
+heightentry SPECIES_NIHILEGO, 3, 3, 0, 0
 heightentry SPECIES_BUZZWOLE, 0, 0, 0, 0
 heightentry SPECIES_PHEROMOSA, 0, 0, 0, 0
 heightentry SPECIES_XURKITREE, 0, 0, 0, 0
@@ -864,9 +864,9 @@ heightentry SPECIES_GUZZLORD, 0, 0, 0, 0
 heightentry SPECIES_NECROZMA, 0, 0, 0, 0
 heightentry SPECIES_MAGEARNA, 0, 0, 0, 0
 heightentry SPECIES_MARSHADOW, 0, 0, 0, 0
-heightentry SPECIES_POIPOLE, 0, 0, 0, 0
-heightentry SPECIES_NAGANADEL, 0, 0, 0, 0
-heightentry SPECIES_STAKATAKA, 0, 0, 0, 0
+heightentry SPECIES_POIPOLE, 3, 3, 0, 0
+heightentry SPECIES_NAGANADEL, 3, 3, 0, 0
+heightentry SPECIES_STAKATAKA, 3, 3, 0, 0
 heightentry SPECIES_BLACEPHALON, 0, 0, 0, 0
 heightentry SPECIES_ZERAORA, 5, 5, 0, 0
 heightentry SPECIES_MELTAN, 0, 0, 0, 0
@@ -901,9 +901,9 @@ heightentry SPECIES_BOLTUND, 0, 0, 0, 0
 heightentry SPECIES_ROLYCOLY, 0, 0, 0, 0
 heightentry SPECIES_CARKOL, 0, 0, 0, 0
 heightentry SPECIES_COALOSSAL, 0, 0, 0, 0
-heightentry SPECIES_APPLIN, 0, 0, 0, 0
-heightentry SPECIES_FLAPPLE, 0, 0, 0, 0
-heightentry SPECIES_APPLETUN, 0, 0, 0, 0
+heightentry SPECIES_APPLIN, 3, 3, 0, 0
+heightentry SPECIES_FLAPPLE, 3, 3, 0, 0
+heightentry SPECIES_APPLETUN, 3, 3, 0, 0
 heightentry SPECIES_SILICOBRA, 0, 0, 0, 0
 heightentry SPECIES_SANDACONDA, 0, 0, 0, 0
 heightentry SPECIES_CRAMORANT, 0, 0, 0, 0
