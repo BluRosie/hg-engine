@@ -475,6 +475,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_DRIZZLE;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_RAIN_PERMANENT;
                                 }
                                 break;
                             case ABILITY_SAND_STREAM:
@@ -483,6 +484,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_SAND_STREAM;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_SANDSTORM_PERMANENT;
                                 }
                                 break;
                             case ABILITY_DROUGHT:
@@ -491,6 +493,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_DROUGHT;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_SUNNY_PERMANENT;
                                 }
                                 break;
                             case ABILITY_SNOW_WARNING:
@@ -499,6 +502,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_SNOW_WARNING;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_HAIL_PERMANENT;
                                 }
                                 break;
                         }
