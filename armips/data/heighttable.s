@@ -926,7 +926,7 @@ heightentry SPECIES_GRIMMSNARL, 0, 0, 0, 0
 heightentry SPECIES_OBSTAGOON, 0, 0, 0, 0
 heightentry SPECIES_PERRSERKER, 0, 0, 0, 0
 heightentry SPECIES_CURSOLA, 0, 0, 0, 0
-heightentry SPECIES_SIRFETCHD, 0, 0, 0, 0
+heightentry SPECIES_SIRFETCHD, 3, 3, 0, 0
 heightentry SPECIES_MR_RIME, 0, 0, 0, 0
 heightentry SPECIES_RUNERIGUS, 0, 0, 0, 0
 heightentry SPECIES_MILCERY, 0, 0, 0, 0
@@ -1043,7 +1043,7 @@ heightentry SPECIES_VELUZA, 0, 0, 0, 0
 heightentry SPECIES_DONDOZO, 0, 0, 0, 0
 heightentry SPECIES_TATSUGIRI, 0, 0, 0, 0
 heightentry SPECIES_ANNIHILAPE, 3, 3, 0, 0
-heightentry SPECIES_CLODSIRE, 0, 0, 0, 0
+heightentry SPECIES_CLODSIRE, 3, 3, 0, 0
 heightentry SPECIES_FARIGIRAF, 0, 0, 0, 0
 heightentry SPECIES_DUDUNSPARCE, 3, 3, 0, 0
 heightentry SPECIES_KINGAMBIT, 3, 3, 0, 0
@@ -1355,7 +1355,7 @@ heightentry SPECIES_TATSUGIRI_STRETCHY, 0, 0, 0, 0
 heightentry SPECIES_DUDUNSPARCE_THREE_SEGMENT, 3, 3, 0, 0
 heightentry SPECIES_GIMMIGHOUL_ROAMING, 0, 0, 0, 0
 heightentry SPECIES_TERAPAGOS_TERASTAL, 0, 0, 0, 0
-heightentry SPECIES_WOOPER_PALDEAN, 0, 0, 0, 0
+heightentry SPECIES_WOOPER_PALDEAN, 16, 16, 0, 0
 heightentry SPECIES_TAUROS_COMBAT, 0, 0, 0, 0
 heightentry SPECIES_TAUROS_BLAZE, 0, 0, 0, 0
 heightentry SPECIES_TAUROS_AQUA, 0, 0, 0, 0
