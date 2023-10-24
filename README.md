@@ -111,7 +111,6 @@
         * ```make tools/ENCODE_IMG --jobs```
     * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
 3. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
->>>>>>> c3fecc9d5a2e3b1187241808ed63f20489b7a370
    * It is important to note that this alone will not add new pokemon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.
    * You can edit various game data such as trainers, dex entries, pokemon stats, and more in the files in `armips/data`
 
