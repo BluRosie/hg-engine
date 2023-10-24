@@ -707,6 +707,11 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speed1 *= 2;
     }
 
+    if ((hold_effect1 == HOLD_EFFECT_NO_EVOLVE) && (sp->battlemon[client1].species == SPECIES_EEVEE))
+    {
+        speed1 *= 2;
+    }
+
     if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT))
     {
         speed1 = speed1 * 15 / 10;
