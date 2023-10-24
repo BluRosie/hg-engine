@@ -1,41 +1,29 @@
 CC = gcc
-LD = gcc
+
+HAVE_LIBPNG := $(shell pkg-config libpng; echo $?)
+
+ifeq ($(HAVE_LIBPNG),1)
+$(error No package 'libpng' found)
+endif
 
 CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng)
 
-LIBS = $(shell pkg-config --libs libpng)
+LIBS = $(shell pkg-config --libs libpng zlib)
 
-SRCS = DECODEIMG.c ENCODEIMG.c
-OBJS = $(SRCS:%.c=%.o)
+SRCS_DECODE = DECODEIMG.c
+SRCS_ENCODE = ENCODEIMG.c
+OBJS = $(SRCS_DECODE:%.c=%.o) $(SRCS_ENCODE:%.c=%.o)
 
 .PHONY: all clean
 
-DEPDIR := .deps
-DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
-
-ifneq ($(DEBUG),)
-CFLAGS += -DDEBUG
-endif
-
-all: DECODE_IMG ENCODE_IMG
+all: ENCODE_IMG
 	@:
 
 DECODE_IMG: DECODEIMG.o
-	$(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(CC) $(CFLAGS) $(SRCS_DECODE) -o $@ $(LDFLAGS) $(LIBS)
 
 ENCODE_IMG: ENCODEIMG.o
-	$(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
-
-%.o: %.c
-%.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
-	$(CC) $(CFLAGS) $(DEPFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(SRCS_ENCODE) -o $@ $(LDFLAGS) $(LIBS)
 
 clean:
 	$(RM) DECODE_IMG $(OBJS) $(DEPDIR)
-
-$(DEPDIR): ; @mkdir -p $@
-
-DEPFILES := $(SRCS:%.c=$(DEPDIR)/%.d)
-$(DEPFILES):
-
-include $(wildcard $(DEPFILES))

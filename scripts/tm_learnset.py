@@ -151,10 +151,10 @@ def writemovestaughtbytms(inputPath: str):
 
 if __name__ == '__main__':
     args = sys.argv[1:]
-    if (len(args) == 2 and args[0] == '--dump'):
+    if (len(args) == 2 and args[0].strip() == '--dump'):
         dump = True
-        tmdatadumper(args[1])
-    elif (len(args) == 2 and args[0] == '--writetmlist'):
-        writemovestaughtbytms(args[1])
+        tmdatadumper(args[1].strip())
+    elif (len(args) == 2 and args[0].strip() == '--writetmlist'):
+        writemovestaughtbytms(args[1].strip())
     elif (len(args) == 1):
-        tmdatabuilder(args[0])
+        tmdatabuilder(args[0].strip())

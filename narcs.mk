@@ -404,6 +404,7 @@ overworld_extract:
 	$(NARCHIVE) extract $(OVERWORLDS_TARGET) -o $(OVERWORLDS_DIR) -nf
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_0%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
+	@rm -f $(OVERWORLDS_NARC)
 
 $(OVERWORLDS_NARC): | overworld_extract $(OVERWORLDS_OBJS)
 	$(NARCHIVE) create $@ $(OVERWORLDS_DIR) -nf
@@ -496,8 +497,8 @@ SDAT_MED_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVAR
 SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar,$(SDAT_SRCS))
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
-	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK
-	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq tools/adpcm-xq --temp-file-dir build/sdat/temp
+	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK build/sdat/temp
+	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq $(ADPCMXQ) --temp-file-dir build/sdat/temp
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav
 	$(SWAV2SWAR) $< $@

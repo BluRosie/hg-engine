@@ -16,12 +16,13 @@ struct LinkedOverlayList gLinkedOverlayList[] =
 
 void LONG_CALL UnloadOverlayByID(u32 ovyId) {
     u32 i;
+    PMiLoadedOverlay *table;
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     u8 buf[64];
 #endif // DEBUG_PRINT_OVERLAY_LOADS
 
 unloadSecond:
-    PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
+    table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
     for (i = 0; i < 8; i++) {
         if (table[i].active == TRUE && table[i].id == ovyId) {
             FreeOverlayAllocation(&table[i]);
