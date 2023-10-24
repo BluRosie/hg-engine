@@ -428,6 +428,11 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         speed1 *= 2;
     }
 
+    if ((hold_effect1 == HOLD_EFFECT_NO_EVOLVE) && (sp->battlemon[client1].species == SPECIES_EEVEE))
+    {
+        speed1 *= 2;
+    }
+
     if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT))
     {
         speed1 = speed1 * 15 / 10;
@@ -791,7 +796,10 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
          + (hold_effect == HOLD_EFFECT_BOOST_CRITICAL_RATE)
          + (ability == ABILITY_SUPER_LUCK)
          + (2 * ((hold_effect == HOLD_EFFECT_BOOST_CHANSEY_CRITICAL) && (species == SPECIES_CHANSEY)))
-         + (2 * ((hold_effect == HOLD_EFFECT_BOOST_FARFETCHD_CRITICAL) && (species == SPECIES_FARFETCHD)));
+         + (2 * ((hold_effect == HOLD_EFFECT_BOOST_FARFETCHD_CRITICAL) && (species == SPECIES_FARFETCHD)))
+         + (2 * ((hold_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) && (species == SPECIES_MEOWTH)))
+         + (2 * ((hold_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) && (species == SPECIES_MEOWTH_ALOLAN)))
+         + (2 * ((hold_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) && (species == SPECIES_MEOWTH_GALARIAN)));
 
     if (temp > 5)
         {

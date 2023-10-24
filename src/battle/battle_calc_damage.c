@@ -353,8 +353,28 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         sp_defense *= 2;
 
     // handle light ball
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_LIGHT_BALL) && (AttackingMon.species == SPECIES_PIKACHU))
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_LIGHT_BALL) 
+        && ((AttackingMon.species == SPECIES_PIKACHU) 
+            || (AttackingMon.species == SPECIES_PICHU)))
         movepower *= 2;
+
+    // handle everstone
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_NO_EVOLVE) 
+        && (AttackingMon.species == SPECIES_EEVEE))
+        attack *= 2;
+
+    // handle amulet coin
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) 
+        && (AttackingMon.species == SPECIES_MEOWTH))
+        attack *= 2;
+
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) 
+            && (AttackingMon.species == SPECIES_MEOWTH_ALOLAN))
+            attack *= 2;
+
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) 
+            && (AttackingMon.species == SPECIES_MEOWTH_GALARIAN))
+            attack *= 2;
 
     // handle metal powder
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_METAL_POWDER) && (DefendingMon.species == SPECIES_DITTO))
