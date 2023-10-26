@@ -807,7 +807,7 @@ heightentry SPECIES_CUTIEFLY, 0, 0, 0, 0
 heightentry SPECIES_RIBOMBEE, 0, 0, 0, 0
 heightentry SPECIES_ROCKRUFF, 0, 0, 0, 0
 heightentry SPECIES_LYCANROC, 8, 8, 0, 0
-heightentry SPECIES_WISHIWASHI, 0, 0, 0, 0
+heightentry SPECIES_WISHIWASHI, 8, 8, 0, 0
 heightentry SPECIES_MAREANIE, 8, 8, 0, 0
 heightentry SPECIES_TOXAPEX, 0, 0, 0, 0
 heightentry SPECIES_MUDBRAY, 3, 3, 0, 0
@@ -910,7 +910,7 @@ heightentry SPECIES_CRAMORANT, 0, 0, 0, 0
 heightentry SPECIES_ARROKUDA, 0, 0, 0, 0
 heightentry SPECIES_BARRASKEWDA, 0, 0, 0, 0
 heightentry SPECIES_TOXEL, 0, 0, 0, 0
-heightentry SPECIES_TOXTRICITY, 0, 0, 0, 0
+heightentry SPECIES_TOXTRICITY, 3, 3, 0, 0
 heightentry SPECIES_SIZZLIPEDE, 0, 0, 0, 0
 heightentry SPECIES_CENTISKORCH, 0, 0, 0, 0
 heightentry SPECIES_CLOBBOPUS, 0, 0, 0, 0
@@ -1070,8 +1070,8 @@ heightentry SPECIES_TING_LU, 0, 0, 0, 0
 heightentry SPECIES_CHI_YU, 0, 0, 0, 0
 heightentry SPECIES_ROARING_MOON, 0, 0, 0, 0
 heightentry SPECIES_IRON_VALIANT, 0, 0, 0, 0
-heightentry SPECIES_KORAIDON, 0, 0, 0, 0
-heightentry SPECIES_MIRAIDON, 0, 0, 0, 0
+heightentry SPECIES_KORAIDON, 3, 3, 0, 0
+heightentry SPECIES_MIRAIDON, 3, 3, 0, 0
 heightentry SPECIES_WALKING_WAKE, 0, 0, 0, 0
 heightentry SPECIES_IRON_LEAVES, 0, 0, 0, 0
 heightentry SPECIES_DIPPLIN, 0, 0, 0, 0
@@ -1157,7 +1157,7 @@ heightentry SPECIES_MEOWTH_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_PONYTA_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_RAPIDASH_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_SLOWPOKE_GALARIAN, 0, 0, 0, 0
-heightentry SPECIES_SLOWBRO_GALARIAN, 0, 0, 0, 0
+heightentry SPECIES_SLOWBRO_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_FARFETCHD_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_WEEZING_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_MR_MIME_GALARIAN, 0, 0, 0, 0
@@ -1300,7 +1300,7 @@ heightentry SPECIES_NECROZMA_ULTRA_DAWN_WINGS, 0, 0, 0, 0
 heightentry SPECIES_MAGEARNA_ORIGINAL, 0, 0, 0, 0
 heightentry SPECIES_CRAMORANT_GULPING, 0, 0, 0, 0
 heightentry SPECIES_CRAMORANT_GORGING, 0, 0, 0, 0
-heightentry SPECIES_TOXTRICITY_LOW_KEY, 0, 0, 0, 0
+heightentry SPECIES_TOXTRICITY_LOW_KEY, 3, 3, 0, 0
 heightentry SPECIES_SINISTEA_ANTIQUE, 0, 0, 0, 0
 heightentry SPECIES_POLTEAGEIST_ANTIQUE, 0, 0, 0, 0
 heightentry SPECIES_ALCREMIE_BERRY_SWEET, 0, 0, 0, 0
