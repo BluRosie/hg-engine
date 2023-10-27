@@ -6,9 +6,17 @@ ifeq ($(HAVE_LIBPNG),1)
 $(error No package 'libpng' found)
 endif
 
-CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng zlib)
+MAC = $(shell uname -s | grep -i -q 'darwin'; echo $$?)
 
+ifeq ($(MAC), 0)
+LIBS = -L$(shell brew --prefix libpng)/lib -lpng16
+LIBFLAGS = -I$(shell brew --prefix libpng)/include
+else
 LIBS = $(shell pkg-config --libs libpng zlib)
+LIBFLAGS = $(shell pkg-config --cflags libpng zlib)
+endif
+
+CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -std=c11 -O2 -DPNG_SKIP_SETJMP_CHECK $(LIBFLAGS)
 
 SRCS = main.c convert_png.c gfx.c jasc_pal.c lz.c rl.c util.c font.c huff.c json.c cJSON.c
 OBJS = $(SRCS:%.c=%.o)
