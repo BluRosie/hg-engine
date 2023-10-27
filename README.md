@@ -45,11 +45,7 @@
     * ```python3 -m pip install ndspy```
     * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
 3. Download and install Mono using the download and instructions [**here**](https://www.mono-project.com/docs/getting-started/install/mac/).
-4. `[Optional if there are no errors]` Download [libpng](https://sourceforge.net/projects/libpng/files/latest/download) and install it.  Decompress it to a folder, and then open Terminal in that source folder and run:
-    * ```./configure --prefix=/System/Volumes/Data/usr```
-    * ```make check```
-    * ```sudo make install```
-5. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+4. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Windows on WSL)
