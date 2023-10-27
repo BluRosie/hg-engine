@@ -92,9 +92,9 @@
 
 ## Setup Instructions (Docker)
 If you are using Docker, there is no need for complicated setup or anything.  You just have to clone the git repository:
-    * ```cd Documents```
-    * ```git clone https://github.com/BluRosie/hg-engine.git```
-    * ```cd hg-engine```
+* ```cd Documents```
+* ```git clone https://github.com/BluRosie/hg-engine.git```
+* ```cd hg-engine```
 
 Docker handles all of the setup for you with relative replicability across platforms.  This abstracts a bit of it away from the user and is slightly slower, but such is the price of simplicity.
 
