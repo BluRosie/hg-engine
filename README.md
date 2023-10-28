@@ -11,11 +11,12 @@
 
 ## Table of Contents
 - [Features](#features)
-- [Setup Instructions (Linux)](#setup-instructions-linux)
-- [Setup Instructions (MacOS)](#setup-instructions-macos)
+- [Setup Instructions (Linux with apt)](#setup-instructions-linux-with-apt)
+- [Setup Instructions (macOS)](#setup-instructions-macos)
 - [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-wsl)
-- [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-msys2)
+- [Setup Instructions (Windows on MSYS2)](#setup-instructions-windows-on-msys2)
 - [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+- [Setup Instructions (Docker)](#setup-instructions-docker)
 - [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
 - [Credits](#credits)
 
@@ -29,7 +30,7 @@
 
 *A more comprehensive list of features + a roadmap can be found by visiting the [hg-engine wiki](https://github.com/BluRosie/hg-engine/wiki).  Please read this README and the Wiki thoroughly before asking questions.*
 
-## Setup Instructions (Linux)
+## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git automake gcc-arm-none-eabi```
     * ```pip3 install ndspy```
@@ -37,16 +38,15 @@
 3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 ## Setup Instructions (macOS)
-1. Download and install Devkitpro using the Mac download (.pkg) and instructions [**here**][DEVKITPRO].
-2. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
-3. In a Terminal window, run the following commands:
+1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+2. In a Terminal window, run the following commands:
     * ```xcode-select --install```
-    * ```brew install python3```
-    * ```brew install libpng```
-    * ```brew install automake```
-    * ```pip3 install ndspy```
-4. Download and install Mono using the download and instructions [**here**](https://www.mono-project.com/docs/getting-started/install/mac/).
-5. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+    * ```brew install python3 libpng automake cmake zlib```
+    * ```brew install --cask gcc-arm-embedded```
+    * ```python3 -m pip install ndspy```
+    * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
+3. Download and install Mono using the download and instructions [**here**](https://www.mono-project.com/docs/getting-started/install/mac/).
+4. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Windows on WSL)
@@ -89,6 +89,24 @@
     * ```cd Documents```
     * ```git clone https://github.com/BluRosie/hg-engine.git```
 2. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
+
+## Setup Instructions (Docker)
+If you are using Docker, there is no need for complicated setup or anything.  You just have to clone the git repository:
+* ```cd Documents```
+* ```git clone https://github.com/BluRosie/hg-engine.git```
+* ```cd hg-engine```
+
+Docker handles all of the setup for you with relative replicability across platforms.  This abstracts a bit of it away from the user and is slightly slower, but such is the price of simplicity.
+
+To set up for the first time, all that needs to be run is:
+```docker build . -t hg-engine```
+
+To build, you can then run a simple shell script to build the `test.nds`:
+```./docker-makerom.sh```
+
+There is no need to continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions) for anything.  Docker handles it all for you.
+
+You will still have to `make clean` and `make clean_code` manually when changing code or other things that won't build for some reason.  But this makes setup really convenient.
 
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 

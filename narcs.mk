@@ -612,4 +612,7 @@ $(SCR_SEQ_NARC): $(SCR_SEQ_DEPENDENCIES)
 	for file in $^; do $(ARMIPS) $$file; done
 	$(NARCHIVE) create $@ $(SCR_SEQ_DIR) -nf
 
+# for convenience, rebuild SCR_SEQ_NARC every build so that DSPRE changes are not overwritten
+.PHONY: $(SCR_SEQ_NARC)
+
 NARC_FILES += $(SCR_SEQ_NARC)

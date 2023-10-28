@@ -1,10 +1,19 @@
 # Makefile
 
+MAC = $(shell uname -s | grep -i -q 'darwin'; echo $$?)
+
+ifneq ($(MAC), 0)
+# see if on msys2, but only if not on mac because /proc/version doesn't exist there
+MSYS2 = $(shell grep -i -q 'msys' /proc/version; echo $$?)
+else
+MSYS2 = 1
+endif
+
 # environment setting
 # get rid of devkitpro:  if devkitpro is installed, can still use it.  otherwise, default to arm-none-eabi tools
 ifeq ($(shell echo $$DEVKITARM),)
 ifeq ($(MSYS2), 0)
-PREFIX = mingw64/bin/arm-none-eabi-
+PREFIX = /mingw64/bin/arm-none-eabi-
 AS = $(PREFIX)as
 CC = $(PREFIX)gcc
 LD = $(PREFIX)ld
@@ -27,8 +36,6 @@ endif
 PYTHON = python3
 
 .PHONY: clean all
-
-MSYS2 = $(shell grep -i -q 'msys' /proc/version; echo $$?)
 
 ifeq ($(MSYS2), 0)
 CSC := csc
