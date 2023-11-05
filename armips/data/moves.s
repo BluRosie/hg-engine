@@ -9166,7 +9166,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PARABOLIC_CHARGE, "Parabolic Charge"
+movedata MOVE_PARABOLIC_CHARGE, "Para Charge"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 65
