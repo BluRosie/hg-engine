@@ -20,7 +20,7 @@ def sorter(e):
 
 
 def main():
-    rawtext = sys.argv[1]
+    rawtext = sys.argv[1].strip()
     onlydirs = [f for f in listdir(rawtext) if isdir(join(rawtext, f))]
     for dir in onlydirs:
         process_text(os.path.join(rawtext, dir))

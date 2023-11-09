@@ -27,15 +27,13 @@ namespace BTX_Editor
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e.Message);
-
-				return;
+				throw new InvalidOperationException(e.Message);
 			}
 
 			this.bm = BTX0.Read(this.BTXFile);
 			if (this.bm == null)
 			{
-				Console.WriteLine("target file specified is not a btx0 file");
+				throw new InvalidOperationException("target file specified is not a btx0 file");
 			}
 
 			if (Program.PaletteSize == 64U && Program.PaletteCount == 2U) // handle shiny palette if one exists first
@@ -62,9 +60,7 @@ namespace BTX_Editor
 					}
 					catch (Exception e)
 					{
-						Console.WriteLine(e.Message);
-
-						return;
+						throw new InvalidOperationException(e.Message);
 					}
 
 					this.bm = BTX0.Read(this.BTXFile);
@@ -80,14 +76,13 @@ namespace BTX_Editor
 					}
 					else
 					{
-						Console.WriteLine("shiny palette has too many colors");
-						return;
+						throw new InvalidOperationException("shiny palette has too many colors");
 					}
 				}
 				else
 				{
-					Console.WriteLine("shiny png isn't the right width or height");
-					return;
+					File.Delete(args[1]);
+					throw new InvalidOperationException("shiny png isn't the right width or height");
 				}
 			}
 
@@ -114,9 +109,7 @@ namespace BTX_Editor
 				}
 				catch (Exception e)
 				{
-					Console.WriteLine(e.Message);
-
-					return;
+					throw new InvalidOperationException(e.Message);
 				}
 
 				this.bm = BTX0.Read(this.BTXFile);
@@ -132,14 +125,14 @@ namespace BTX_Editor
 				}
 				else
 				{
-					Console.WriteLine("normal palette has too many colors");
-					return;
+					File.Delete(args[1]);
+					throw new InvalidOperationException("normal palette has too many colors");
 				}
 			}
 			else
 			{
-				Console.WriteLine("png file doesn't have the right width or height");
-				return;
+				File.Delete(args[1]);
+				throw new InvalidOperationException("png file doesn't have the right width or height");
 			}
 		}
 

@@ -224,25 +224,26 @@ const struct MegaStructMove sMegaMoveTable[] =
 #endif // MEGA_EVOLUTIONS
 
 static BOOL CheckMegaData(u16 mon, u16 item);
+static BOOL CheckMegaMoveData(u16 mon, u16 *moves);
 
 BOOL CheckCanMega(struct BattleStruct *battle, int client)
 {
     u16 mon = battle->battlemon[client].species;
     u16 item = battle->battlemon[client].item;
 
-    if(battle->battlemon[client].canMega)
+    if (battle->battlemon[client].canMega)
         return FALSE;
 
-    if(newBS.SideMega[client&1])
+    if (newBS.SideMega[client&1])
         return FALSE;
 
-    if(battle->battlemon[client].form_no)
+    if (battle->battlemon[client].form_no)
         return FALSE;
 
-    if(battle->client_act_work[client][3] != SELECT_FIGHT_COMMAND)
+    if (battle->client_act_work[client][3] != SELECT_FIGHT_COMMAND)
         return FALSE;
 
-    return CheckMegaData(mon,item);
+    return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, battle->battlemon[client].move));
 }
 
 BOOL IsMegaSpecies(u16 mon)
@@ -328,56 +329,58 @@ static BOOL CheckMegaData(u16 mon, u16 item)
     return FALSE;
 }
 
+static BOOL CheckMegaMoveData(u16 mon, u16 *moves)
+{
+#ifdef MEGA_EVOLUTIONS
+    int i, j;
+    for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++)
+    {
+        if (sMegaMoveTable[i].monindex == mon)
+        {
+            for (j = 0; j < 4; j++)
+            {
+                if (sMegaMoveTable[i].moveindex == moves[j])
+                    return TRUE;
+            }
+        }
+    }
+#endif // MEGA_EVOLUTIONS
+    return FALSE;
+}
+
 BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
 {
     void *pp;
     u16 item;
     u16 mon;
+    u16 moves[4];
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
-    item = GetMonData(pp, MON_DATA_HELD_ITEM, 0);
-    mon = GetMonData(pp, MON_DATA_SPECIES, 0);
+    item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+    mon = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    for (int i = 0; i < 4; i++)
+        moves[i] = GetMonData(pp, MON_DATA_MOVE1+i, NULL);
 
-    return CheckMegaData(mon, item);
-}
-
-BOOL CheckCanMoveMegaEvolve(struct BattleStruct *sp, u32 client)
-{
-#ifdef MEGA_EVOLUTIONS
-    int i = 0, form = 0;
-    u16 species, move;
-
-    species = sp->battlemon[client].species;
-    form = sp->battlemon[client].form_no;
-    move = ST_ServerSelectWazaGet(sp, client);
-
-    if (form != 0 || newBS.PlayerMegaed) return FALSE;
-
-    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
-    {
-        if (species == sMegaMoveTable[i].monindex && move == sMegaMoveTable[i].moveindex)
-        {
-            return TRUE;
-        }
-    }
-#endif // MEGA_EVOLUTIONS
-    
-    return FALSE;
+    return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves));
 }
 
 BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
 {
 #ifdef MEGA_EVOLUTIONS
-    int i, species, move;
+    int i, j, species;
     
     species = sp->battlemon[client].species;
-    move = ST_ServerSelectWazaGet(sp, client);
+    //move = ST_ServerSelectWazaGet(sp, client);
     
-    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++)
     {
-        if (species == sMegaMoveTable[i].monindex && move == sMegaMoveTable[i].moveindex)
+        if (species == sMegaMoveTable[i].monindex)
         {
-            return TRUE;
+            for (j = 0; j < 4; j++)
+            {
+                if (sp->battlemon[client].move[j] == sMegaMoveTable[i].moveindex)
+                    return TRUE;
+            }
         }
     }
 #endif // MEGA_EVOLUTIONS
@@ -390,7 +393,7 @@ BOOL IsMegaSpeciesByMove(u16 species)
 #ifdef MEGA_EVOLUTIONS
     int i;
     
-    for (i = 0; i < NELEMS(sMegaMoveTable); i++)
+    for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++)
     {
         if (species == sMegaMoveTable[i].monindex)
         {

@@ -112,9 +112,10 @@
 
 .macro colorflip,color,flip
 	.byte (color | flip << 7)
+    .close
 .endmacro
 
-.macro tmdata,num1,num2,num3,num4 // defined specifically in separate files though
+.macro tmdata,num1,num2,num3,num4 // handled by a python script and armips/data/tmlearnset.txt
 	.halfword 0 // padding
 	
 	.word num1
@@ -533,6 +534,16 @@
 	.close
 .endmacro
 
+// trainer text entry macro - string is parsed by python script
+
+.macro trainertextentry,num,type,string
+	//.close
+	//writestring "728", entrynum, string
+	//.open "build/trainer_text_map/7_0", 0
+	//.org entrynum*4
+	.halfword num, type
+.endmacro
+
 // encounter data macros
 
 .macro encounterdata,num
@@ -603,7 +614,7 @@
 .endmacro
 
 .macro trainername,id,name
-    writestring "729", id, name
+    writestring "729", id, "{TRNAME}"+name
 .endmacro
 
 .macro monname,id,name

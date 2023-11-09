@@ -479,7 +479,7 @@ BOOL CheckMegaButton(struct BI_PARAM *bip, int tp_ret)
  *  @param tcb task structure
  *  @param work task work structure
  */
-void EFFECT_MegaTouch(void *tcb, void *work)
+void EFFECT_MegaTouch(void *tcb UNUSED, void *work)
 {
     struct BI_PARAM *bip = work;
 

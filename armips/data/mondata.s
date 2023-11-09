@@ -7,7 +7,6 @@
 .include "armips/include/constants.s"
 .include "armips/include/abilities.s"
 .include "armips/include/config.s"
-.include "armips/data/tmlearnset.s"
 
 // all the mon personal data.  tm learnsets are specifically in tmlearnset.s
 // basestats and evyields fields are formatted as such:  hp atk def speed spatk spdef
@@ -28,7 +27,6 @@ mondata SPECIES_NONE, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_NONE, ""
     mondexclassification SPECIES_NONE, "????? Pokémon"
     mondexheight SPECIES_NONE, "???’??”"
@@ -50,7 +48,6 @@ mondata SPECIES_BULBASAUR, "Bulbasaur"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BULBASAUR_TM_DATA_0, SPECIES_BULBASAUR_TM_DATA_1, SPECIES_BULBASAUR_TM_DATA_2, SPECIES_BULBASAUR_TM_DATA_3
     mondexentry SPECIES_BULBASAUR, "The seed on its back is filled\nwith nutrients. The seed grows\nsteadily larger as its body grows."
     mondexclassification SPECIES_BULBASAUR, "Seed Pokémon"
     mondexheight SPECIES_BULBASAUR, "2’04”"
@@ -72,7 +69,6 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_IVYSAUR_TM_DATA_0, SPECIES_IVYSAUR_TM_DATA_1, SPECIES_IVYSAUR_TM_DATA_2, SPECIES_IVYSAUR_TM_DATA_3
     mondexentry SPECIES_IVYSAUR, "Exposure to sunlight adds to its\nstrength. Sunlight also makes the\nbud on its back grow larger."
     mondexclassification SPECIES_IVYSAUR, "Seed Pokémon"
     mondexheight SPECIES_IVYSAUR, "3’03”"
@@ -94,7 +90,6 @@ mondata SPECIES_VENUSAUR, "Venusaur"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_VENUSAUR_TM_DATA_0, SPECIES_VENUSAUR_TM_DATA_1, SPECIES_VENUSAUR_TM_DATA_2, SPECIES_VENUSAUR_TM_DATA_3
     mondexentry SPECIES_VENUSAUR, "By spreading the broad petals of\nits flower and catching the sun’s\nrays, it fills its body with power."
     mondexclassification SPECIES_VENUSAUR, "Seed Pokémon"
     mondexheight SPECIES_VENUSAUR, "6’07”"
@@ -116,7 +111,6 @@ mondata SPECIES_CHARMANDER, "Charmander"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CHARMANDER_TM_DATA_0, SPECIES_CHARMANDER_TM_DATA_1, SPECIES_CHARMANDER_TM_DATA_2, SPECIES_CHARMANDER_TM_DATA_3
     mondexentry SPECIES_CHARMANDER, "The flame on its tail shows the\nstrength of its life force. If it is weak,\nthe flame also burns weakly."
     mondexclassification SPECIES_CHARMANDER, "Lizard Pokémon"
     mondexheight SPECIES_CHARMANDER, "2’00”"
@@ -138,7 +132,6 @@ mondata SPECIES_CHARMELEON, "Charmeleon"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CHARMELEON_TM_DATA_0, SPECIES_CHARMELEON_TM_DATA_1, SPECIES_CHARMELEON_TM_DATA_2, SPECIES_CHARMELEON_TM_DATA_3
     mondexentry SPECIES_CHARMELEON, "It is very hotheaded by nature,\nso it constantly seeks opponents.\nIt calms down only when it wins."
     mondexclassification SPECIES_CHARMELEON, "Flame Pokémon"
     mondexheight SPECIES_CHARMELEON, "3’07”"
@@ -160,7 +153,6 @@ mondata SPECIES_CHARIZARD, "Charizard"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CHARIZARD_TM_DATA_0, SPECIES_CHARIZARD_TM_DATA_1, SPECIES_CHARIZARD_TM_DATA_2, SPECIES_CHARIZARD_TM_DATA_3
     mondexentry SPECIES_CHARIZARD, "If CHARIZARD becomes furious,\nthe flame at the tip of its tail flares\nup in a light blue shade."
     mondexclassification SPECIES_CHARIZARD, "Flame Pokémon"
     mondexheight SPECIES_CHARIZARD, "5’07”"
@@ -182,7 +174,6 @@ mondata SPECIES_SQUIRTLE, "Squirtle"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SQUIRTLE_TM_DATA_0, SPECIES_SQUIRTLE_TM_DATA_1, SPECIES_SQUIRTLE_TM_DATA_2, SPECIES_SQUIRTLE_TM_DATA_3
     mondexentry SPECIES_SQUIRTLE, "The shell is soft when it is born.\nIt soon becomes so resilient,\nprodding fingers will bounce off it."
     mondexclassification SPECIES_SQUIRTLE, "Tiny Turtle Pokémon"
     mondexheight SPECIES_SQUIRTLE, "1’08”"
@@ -204,7 +195,6 @@ mondata SPECIES_WARTORTLE, "Wartortle"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WARTORTLE_TM_DATA_0, SPECIES_WARTORTLE_TM_DATA_1, SPECIES_WARTORTLE_TM_DATA_2, SPECIES_WARTORTLE_TM_DATA_3
     mondexentry SPECIES_WARTORTLE, "It is a well-established symbol of\nlongevity. If its shell has algae on it,\nthat WARTORTLE is very old."
     mondexclassification SPECIES_WARTORTLE, "Turtle Pokémon"
     mondexheight SPECIES_WARTORTLE, "3’03”"
@@ -226,7 +216,6 @@ mondata SPECIES_BLASTOISE, "Blastoise"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BLASTOISE_TM_DATA_0, SPECIES_BLASTOISE_TM_DATA_1, SPECIES_BLASTOISE_TM_DATA_2, SPECIES_BLASTOISE_TM_DATA_3
     mondexentry SPECIES_BLASTOISE, "It deliberately makes itself heavy\nso it can withstand the recoil\nof the water jets it fires."
     mondexclassification SPECIES_BLASTOISE, "Shellfish Pokémon"
     mondexheight SPECIES_BLASTOISE, "5’03”"
@@ -248,7 +237,6 @@ mondata SPECIES_CATERPIE, "Caterpie"
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CATERPIE_TM_DATA_0, SPECIES_CATERPIE_TM_DATA_1, SPECIES_CATERPIE_TM_DATA_2, SPECIES_CATERPIE_TM_DATA_3
     mondexentry SPECIES_CATERPIE, "For protection, it releases a horrible\nstench from the antennae on its\nhead to drive away enemies."
     mondexclassification SPECIES_CATERPIE, "Worm Pokémon"
     mondexheight SPECIES_CATERPIE, "1’00”"
@@ -270,7 +258,6 @@ mondata SPECIES_METAPOD, "Metapod"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_METAPOD_TM_DATA_0, SPECIES_METAPOD_TM_DATA_1, SPECIES_METAPOD_TM_DATA_2, SPECIES_METAPOD_TM_DATA_3
     mondexentry SPECIES_METAPOD, "Inside the shell, it is soft and\nweak as it prepares to evolve.\nIt stays motionless in the shell."
     mondexclassification SPECIES_METAPOD, "Cocoon Pokémon"
     mondexheight SPECIES_METAPOD, "2’04”"
@@ -292,7 +279,6 @@ mondata SPECIES_BUTTERFREE, "Butterfree"
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_BUTTERFREE_TM_DATA_0, SPECIES_BUTTERFREE_TM_DATA_1, SPECIES_BUTTERFREE_TM_DATA_2, SPECIES_BUTTERFREE_TM_DATA_3
     mondexentry SPECIES_BUTTERFREE, "It collects honey every day. It rubs\nhoney onto the hairs on its legs\nto carry it back to its nest."
     mondexclassification SPECIES_BUTTERFREE, "Butterfly Pokémon"
     mondexheight SPECIES_BUTTERFREE, "3’07”"
@@ -314,7 +300,6 @@ mondata SPECIES_WEEDLE, "Weedle"
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_WEEDLE_TM_DATA_0, SPECIES_WEEDLE_TM_DATA_1, SPECIES_WEEDLE_TM_DATA_2, SPECIES_WEEDLE_TM_DATA_3
     mondexentry SPECIES_WEEDLE, "Its poison stinger is very powerful.\nIts bright-colored body is intended\nto warn off its enemies."
     mondexclassification SPECIES_WEEDLE, "Hairy Bug Pokémon"
     mondexheight SPECIES_WEEDLE, "1’00”"
@@ -336,7 +321,6 @@ mondata SPECIES_KAKUNA, "Kakuna"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_KAKUNA_TM_DATA_0, SPECIES_KAKUNA_TM_DATA_1, SPECIES_KAKUNA_TM_DATA_2, SPECIES_KAKUNA_TM_DATA_3
     mondexentry SPECIES_KAKUNA, "Although it is a cocoon, it can\nmove a little. It can extend its\npoison barb if it is attacked."
     mondexclassification SPECIES_KAKUNA, "Cocoon Pokémon"
     mondexheight SPECIES_KAKUNA, "2’00”"
@@ -358,7 +342,6 @@ mondata SPECIES_BEEDRILL, "Beedrill"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_BEEDRILL_TM_DATA_0, SPECIES_BEEDRILL_TM_DATA_1, SPECIES_BEEDRILL_TM_DATA_2, SPECIES_BEEDRILL_TM_DATA_3
     mondexentry SPECIES_BEEDRILL, "It can take down any opponent with\nits powerful poison stingers.\nIt sometimes attacks in swarms."
     mondexclassification SPECIES_BEEDRILL, "Poison Bee Pokémon"
     mondexheight SPECIES_BEEDRILL, "3’03”"
@@ -380,7 +363,6 @@ mondata SPECIES_PIDGEY, "Pidgey"
     abilities ABILITY_KEEN_EYE, ABILITY_TANGLED_FEET
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PIDGEY_TM_DATA_0, SPECIES_PIDGEY_TM_DATA_1, SPECIES_PIDGEY_TM_DATA_2, SPECIES_PIDGEY_TM_DATA_3
     mondexentry SPECIES_PIDGEY, "It usually hides in tall grass.\nBecause it dislikes fighting,\nit protects itself by kicking up sand."
     mondexclassification SPECIES_PIDGEY, "Tiny Bird Pokémon"
     mondexheight SPECIES_PIDGEY, "1’00”"
@@ -402,7 +384,6 @@ mondata SPECIES_PIDGEOTTO, "Pidgeotto"
     abilities ABILITY_KEEN_EYE, ABILITY_TANGLED_FEET
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PIDGEOTTO_TM_DATA_0, SPECIES_PIDGEOTTO_TM_DATA_1, SPECIES_PIDGEOTTO_TM_DATA_2, SPECIES_PIDGEOTTO_TM_DATA_3
     mondexentry SPECIES_PIDGEOTTO, "It has outstanding vision. However\nhigh it flies, it is able to distinguish\nthe movements of its prey."
     mondexclassification SPECIES_PIDGEOTTO, "Bird Pokémon"
     mondexheight SPECIES_PIDGEOTTO, "3’07”"
@@ -424,7 +405,6 @@ mondata SPECIES_PIDGEOT, "Pidgeot"
     abilities ABILITY_KEEN_EYE, ABILITY_TANGLED_FEET
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PIDGEOT_TM_DATA_0, SPECIES_PIDGEOT_TM_DATA_1, SPECIES_PIDGEOT_TM_DATA_2, SPECIES_PIDGEOT_TM_DATA_3
     mondexentry SPECIES_PIDGEOT, "Its well-developed chest muscles make\nit strong enough to whip up a gusty\nwindstorm with just a few flaps."
     mondexclassification SPECIES_PIDGEOT, "Bird Pokémon"
     mondexheight SPECIES_PIDGEOT, "4’11”"
@@ -446,7 +426,6 @@ mondata SPECIES_RATTATA, "Rattata"
     abilities ABILITY_RUN_AWAY, ABILITY_GUTS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_RATTATA_TM_DATA_0, SPECIES_RATTATA_TM_DATA_1, SPECIES_RATTATA_TM_DATA_2, SPECIES_RATTATA_TM_DATA_3
     mondexentry SPECIES_RATTATA, "It eats anything. Wherever food is\navailable, it will settle down and\nproduce offspring continuously."
     mondexclassification SPECIES_RATTATA, "Mouse Pokémon"
     mondexheight SPECIES_RATTATA, "1’00”"
@@ -468,7 +447,6 @@ mondata SPECIES_RATICATE, "Raticate"
     abilities ABILITY_RUN_AWAY, ABILITY_GUTS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_RATICATE_TM_DATA_0, SPECIES_RATICATE_TM_DATA_1, SPECIES_RATICATE_TM_DATA_2, SPECIES_RATICATE_TM_DATA_3
     mondexentry SPECIES_RATICATE, "Gnaws on anything with its tough\nfangs. It can even topple concrete\nbuildings by gnawing on them."
     mondexclassification SPECIES_RATICATE, "Mouse Pokémon"
     mondexheight SPECIES_RATICATE, "2’04”"
@@ -490,7 +468,6 @@ mondata SPECIES_SPEAROW, "Spearow"
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SPEAROW_TM_DATA_0, SPECIES_SPEAROW_TM_DATA_1, SPECIES_SPEAROW_TM_DATA_2, SPECIES_SPEAROW_TM_DATA_3
     mondexentry SPECIES_SPEAROW, "It flaps its short wings to flush out\ninsects from tall grass. It then\nplucks them with its stubby beak."
     mondexclassification SPECIES_SPEAROW, "Tiny Bird Pokémon"
     mondexheight SPECIES_SPEAROW, "1’00”"
@@ -512,7 +489,6 @@ mondata SPECIES_FEAROW, "Fearow"
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_FEAROW_TM_DATA_0, SPECIES_FEAROW_TM_DATA_1, SPECIES_FEAROW_TM_DATA_2, SPECIES_FEAROW_TM_DATA_3
     mondexentry SPECIES_FEAROW, "It shoots itself suddenly high into\nthe sky, then plummets down in\none fell swoop to strike its prey."
     mondexclassification SPECIES_FEAROW, "Beak Pokémon"
     mondexheight SPECIES_FEAROW, "3’11”"
@@ -534,7 +510,6 @@ mondata SPECIES_EKANS, "Ekans"
     abilities ABILITY_INTIMIDATE, ABILITY_SHED_SKIN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_EKANS_TM_DATA_0, SPECIES_EKANS_TM_DATA_1, SPECIES_EKANS_TM_DATA_2, SPECIES_EKANS_TM_DATA_3
     mondexentry SPECIES_EKANS, "It can freely detach its jaw to\nswallow large prey whole. It can\nbecome too heavy to move, however."
     mondexclassification SPECIES_EKANS, "Snake Pokémon"
     mondexheight SPECIES_EKANS, "6’07”"
@@ -556,7 +531,6 @@ mondata SPECIES_ARBOK, "Arbok"
     abilities ABILITY_INTIMIDATE, ABILITY_SHED_SKIN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_ARBOK_TM_DATA_0, SPECIES_ARBOK_TM_DATA_1, SPECIES_ARBOK_TM_DATA_2, SPECIES_ARBOK_TM_DATA_3
     mondexentry SPECIES_ARBOK, "Transfixing prey with the face-like\npattern on its belly, it binds\nand poisons the frightened victim."
     mondexclassification SPECIES_ARBOK, "Cobra Pokémon"
     mondexheight SPECIES_ARBOK, "11’06”"
@@ -578,7 +552,6 @@ mondata SPECIES_PIKACHU, "Pikachu"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PIKACHU_TM_DATA_0, SPECIES_PIKACHU_TM_DATA_1, SPECIES_PIKACHU_TM_DATA_2, SPECIES_PIKACHU_TM_DATA_3
     mondexentry SPECIES_PIKACHU, "This intelligent Pokémon roasts\nhard berries with electricity to\nmake them tender enough to eat."
     mondexclassification SPECIES_PIKACHU, "Mouse Pokémon"
     mondexheight SPECIES_PIKACHU, "1’04”"
@@ -600,7 +573,6 @@ mondata SPECIES_RAICHU, "Raichu"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_RAICHU_TM_DATA_0, SPECIES_RAICHU_TM_DATA_1, SPECIES_RAICHU_TM_DATA_2, SPECIES_RAICHU_TM_DATA_3
     mondexentry SPECIES_RAICHU, "When its electricity builds, its\nmuscles are stimulated, and it becomes\nmore aggressive than usual."
     mondexclassification SPECIES_RAICHU, "Mouse Pokémon"
     mondexheight SPECIES_RAICHU, "2’07”"
@@ -622,7 +594,6 @@ mondata SPECIES_SANDSHREW, "Sandshrew"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SANDSHREW_TM_DATA_0, SPECIES_SANDSHREW_TM_DATA_1, SPECIES_SANDSHREW_TM_DATA_2, SPECIES_SANDSHREW_TM_DATA_3
     mondexentry SPECIES_SANDSHREW, "If it fell from a great height, this\nPokémon could save itself by rolling\ninto a ball and bouncing."
     mondexclassification SPECIES_SANDSHREW, "Mouse Pokémon"
     mondexheight SPECIES_SANDSHREW, "2’00”"
@@ -644,7 +615,6 @@ mondata SPECIES_SANDSLASH, "Sandslash"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SANDSLASH_TM_DATA_0, SPECIES_SANDSLASH_TM_DATA_1, SPECIES_SANDSLASH_TM_DATA_2, SPECIES_SANDSLASH_TM_DATA_3
     mondexentry SPECIES_SANDSLASH, "In an attempt to hide itself,\nit will run around at top speed to\nkick up a blinding dust storm."
     mondexclassification SPECIES_SANDSLASH, "Mouse Pokémon"
     mondexheight SPECIES_SANDSLASH, "3’03”"
@@ -666,7 +636,6 @@ mondata SPECIES_NIDORAN_F, "Nidoran♀"
     abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NIDORAN_F_TM_DATA_0, SPECIES_NIDORAN_F_TM_DATA_1, SPECIES_NIDORAN_F_TM_DATA_2, SPECIES_NIDORAN_F_TM_DATA_3
     mondexentry SPECIES_NIDORAN_F, "The poison hidden in its small horn\nis extremely potent. Even a tiny\nscratch can have fatal results."
     mondexclassification SPECIES_NIDORAN_F, "Poison Pin Pokémon"
     mondexheight SPECIES_NIDORAN_F, "1’04”"
@@ -688,7 +657,6 @@ mondata SPECIES_NIDORINA, "Nidorina"
     abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NIDORINA_TM_DATA_0, SPECIES_NIDORINA_TM_DATA_1, SPECIES_NIDORINA_TM_DATA_2, SPECIES_NIDORINA_TM_DATA_3
     mondexentry SPECIES_NIDORINA, "When feeding its young, it first\nchews the food into a paste, then\nspits it out for the offspring."
     mondexclassification SPECIES_NIDORINA, "Poison Pin Pokémon"
     mondexheight SPECIES_NIDORINA, "2’07”"
@@ -710,7 +678,6 @@ mondata SPECIES_NIDOQUEEN, "Nidoqueen"
     abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NIDOQUEEN_TM_DATA_0, SPECIES_NIDOQUEEN_TM_DATA_1, SPECIES_NIDOQUEEN_TM_DATA_2, SPECIES_NIDOQUEEN_TM_DATA_3
     mondexentry SPECIES_NIDOQUEEN, "Its body is covered with needle-like\nscales. It never shows signs\nof shrinking from any attack."
     mondexclassification SPECIES_NIDOQUEEN, "Drill Pokémon"
     mondexheight SPECIES_NIDOQUEEN, "4’03”"
@@ -732,7 +699,6 @@ mondata SPECIES_NIDORAN_M, "Nidoran♂"
     abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NIDORAN_M_TM_DATA_0, SPECIES_NIDORAN_M_TM_DATA_1, SPECIES_NIDORAN_M_TM_DATA_2, SPECIES_NIDORAN_M_TM_DATA_3
     mondexentry SPECIES_NIDORAN_M, "It is small, but its horn is filled\nwith poison. It charges then stabs\nwith the horn to inject poison."
     mondexclassification SPECIES_NIDORAN_M, "Poison Pin Pokémon"
     mondexheight SPECIES_NIDORAN_M, "1’08”"
@@ -754,7 +720,6 @@ mondata SPECIES_NIDORINO, "Nidorino"
     abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NIDORINO_TM_DATA_0, SPECIES_NIDORINO_TM_DATA_1, SPECIES_NIDORINO_TM_DATA_2, SPECIES_NIDORINO_TM_DATA_3
     mondexentry SPECIES_NIDORINO, "It raises its big ears to check its\nsurroundings. If it senses anything,\nit attacks immediately."
     mondexclassification SPECIES_NIDORINO, "Poison Pin Pokémon"
     mondexheight SPECIES_NIDORINO, "2’11”"
@@ -776,7 +741,6 @@ mondata SPECIES_NIDOKING, "Nidoking"
     abilities ABILITY_POISON_POINT, ABILITY_RIVALRY
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NIDOKING_TM_DATA_0, SPECIES_NIDOKING_TM_DATA_1, SPECIES_NIDOKING_TM_DATA_2, SPECIES_NIDOKING_TM_DATA_3
     mondexentry SPECIES_NIDOKING, "It swings its big tail around during\nbattle. If its foe flinches, it will\ncharge with its sturdy body."
     mondexclassification SPECIES_NIDOKING, "Drill Pokémon"
     mondexheight SPECIES_NIDOKING, "4’07”"
@@ -798,7 +762,6 @@ mondata SPECIES_CLEFAIRY, "Clefairy"
     abilities ABILITY_CUTE_CHARM, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_CLEFAIRY_TM_DATA_0, SPECIES_CLEFAIRY_TM_DATA_1, SPECIES_CLEFAIRY_TM_DATA_2, SPECIES_CLEFAIRY_TM_DATA_3
     mondexentry SPECIES_CLEFAIRY, "The moonlight that it stores in the\nwings on its back apparently gives\nit the ability to float in midair."
     mondexclassification SPECIES_CLEFAIRY, "Fairy Pokémon"
     mondexheight SPECIES_CLEFAIRY, "2’00”"
@@ -820,7 +783,6 @@ mondata SPECIES_CLEFABLE, "Clefable"
     abilities ABILITY_CUTE_CHARM, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_CLEFABLE_TM_DATA_0, SPECIES_CLEFABLE_TM_DATA_1, SPECIES_CLEFABLE_TM_DATA_2, SPECIES_CLEFABLE_TM_DATA_3
     mondexentry SPECIES_CLEFABLE, "With its acute hearing, it can\npick up sounds from far away.\nIt usually hides in quiet places."
     mondexclassification SPECIES_CLEFABLE, "Fairy Pokémon"
     mondexheight SPECIES_CLEFABLE, "4’03”"
@@ -842,7 +804,6 @@ mondata SPECIES_VULPIX, "Vulpix"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_VULPIX_TM_DATA_0, SPECIES_VULPIX_TM_DATA_1, SPECIES_VULPIX_TM_DATA_2, SPECIES_VULPIX_TM_DATA_3
     mondexentry SPECIES_VULPIX, "As it develops, its single white\ntail gains color and splits into six.\nIt is quite warm and cuddly."
     mondexclassification SPECIES_VULPIX, "Fox Pokémon"
     mondexheight SPECIES_VULPIX, "2’00”"
@@ -864,7 +825,6 @@ mondata SPECIES_NINETALES, "Ninetales"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NINETALES_TM_DATA_0, SPECIES_NINETALES_TM_DATA_1, SPECIES_NINETALES_TM_DATA_2, SPECIES_NINETALES_TM_DATA_3
     mondexentry SPECIES_NINETALES, "Some legends claim that each of its\nnine tails has its own unique type\nof special mystical power."
     mondexclassification SPECIES_NINETALES, "Fox Pokémon"
     mondexheight SPECIES_NINETALES, "3’07”"
@@ -886,7 +846,6 @@ mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
     abilities ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_JIGGLYPUFF_TM_DATA_0, SPECIES_JIGGLYPUFF_TM_DATA_1, SPECIES_JIGGLYPUFF_TM_DATA_2, SPECIES_JIGGLYPUFF_TM_DATA_3
     mondexentry SPECIES_JIGGLYPUFF, "If it inflates to sing a lullaby,\nit can perform longer and cause\nsure drowsiness in its audience."
     mondexclassification SPECIES_JIGGLYPUFF, "Balloon Pokémon"
     mondexheight SPECIES_JIGGLYPUFF, "1’08”"
@@ -908,7 +867,6 @@ mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
     abilities ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_WIGGLYTUFF_TM_DATA_0, SPECIES_WIGGLYTUFF_TM_DATA_1, SPECIES_WIGGLYTUFF_TM_DATA_2, SPECIES_WIGGLYTUFF_TM_DATA_3
     mondexentry SPECIES_WIGGLYTUFF, "Their fur feels so good that if two\nof them snuggle together,\nthey won’t want to be separated."
     mondexclassification SPECIES_WIGGLYTUFF, "Balloon Pokémon"
     mondexheight SPECIES_WIGGLYTUFF, "3’03”"
@@ -930,7 +888,6 @@ mondata SPECIES_ZUBAT, "Zubat"
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_ZUBAT_TM_DATA_0, SPECIES_ZUBAT_TM_DATA_1, SPECIES_ZUBAT_TM_DATA_2, SPECIES_ZUBAT_TM_DATA_3
     mondexentry SPECIES_ZUBAT, "While flying, it constantly emits\nultrasonic waves from its mouth to\ncheck its surroundings."
     mondexclassification SPECIES_ZUBAT, "Bat Pokémon"
     mondexheight SPECIES_ZUBAT, "2’07”"
@@ -952,7 +909,6 @@ mondata SPECIES_GOLBAT, "Golbat"
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GOLBAT_TM_DATA_0, SPECIES_GOLBAT_TM_DATA_1, SPECIES_GOLBAT_TM_DATA_2, SPECIES_GOLBAT_TM_DATA_3
     mondexentry SPECIES_GOLBAT, "However hard its victim’s hide may be,\nit punctures with sharp fangs\nand gorges itself with blood."
     mondexclassification SPECIES_GOLBAT, "Bat Pokémon"
     mondexheight SPECIES_GOLBAT, "5’03”"
@@ -974,7 +930,6 @@ mondata SPECIES_ODDISH, "Oddish"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ODDISH_TM_DATA_0, SPECIES_ODDISH_TM_DATA_1, SPECIES_ODDISH_TM_DATA_2, SPECIES_ODDISH_TM_DATA_3
     mondexentry SPECIES_ODDISH, "Awakened by moonlight, it roams\nactively at night. In the day, it stays\nquietly underground."
     mondexclassification SPECIES_ODDISH, "Weed Pokémon"
     mondexheight SPECIES_ODDISH, "1’08”"
@@ -996,7 +951,6 @@ mondata SPECIES_GLOOM, "Gloom"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GLOOM_TM_DATA_0, SPECIES_GLOOM_TM_DATA_1, SPECIES_GLOOM_TM_DATA_2, SPECIES_GLOOM_TM_DATA_3
     mondexentry SPECIES_GLOOM, "What appears to be drool is actually\nsweet honey. It is very sticky and\nclings stubbornly if touched."
     mondexclassification SPECIES_GLOOM, "Weed Pokémon"
     mondexheight SPECIES_GLOOM, "2’07”"
@@ -1018,7 +972,6 @@ mondata SPECIES_VILEPLUME, "Vileplume"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_VILEPLUME_TM_DATA_0, SPECIES_VILEPLUME_TM_DATA_1, SPECIES_VILEPLUME_TM_DATA_2, SPECIES_VILEPLUME_TM_DATA_3
     mondexentry SPECIES_VILEPLUME, "It has the world’s largest petals.\nWith every step, the petals shake\nout heavy clouds of toxic pollen."
     mondexclassification SPECIES_VILEPLUME, "Flower Pokémon"
     mondexheight SPECIES_VILEPLUME, "3’11”"
@@ -1040,7 +993,6 @@ mondata SPECIES_PARAS, "Paras"
     abilities ABILITY_EFFECT_SPORE, ABILITY_DRY_SKIN
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PARAS_TM_DATA_0, SPECIES_PARAS_TM_DATA_1, SPECIES_PARAS_TM_DATA_2, SPECIES_PARAS_TM_DATA_3
     mondexentry SPECIES_PARAS, "It is doused with mushroom spores\nwhen it is born. As its body grows,\nmushrooms sprout from its back."
     mondexclassification SPECIES_PARAS, "Mushroom Pokémon"
     mondexheight SPECIES_PARAS, "1’00”"
@@ -1062,7 +1014,6 @@ mondata SPECIES_PARASECT, "Parasect"
     abilities ABILITY_EFFECT_SPORE, ABILITY_DRY_SKIN
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PARASECT_TM_DATA_0, SPECIES_PARASECT_TM_DATA_1, SPECIES_PARASECT_TM_DATA_2, SPECIES_PARASECT_TM_DATA_3
     mondexentry SPECIES_PARASECT, "It stays mostly in dark, damp places,\nthe preference not of the bug, but\nof the big mushroom on its back."
     mondexclassification SPECIES_PARASECT, "Mushroom Pokémon"
     mondexheight SPECIES_PARASECT, "3’03”"
@@ -1084,7 +1035,6 @@ mondata SPECIES_VENONAT, "Venonat"
     abilities ABILITY_COMPOUND_EYES, ABILITY_TINTED_LENS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_VENONAT_TM_DATA_0, SPECIES_VENONAT_TM_DATA_1, SPECIES_VENONAT_TM_DATA_2, SPECIES_VENONAT_TM_DATA_3
     mondexentry SPECIES_VENONAT, "Its eyes also function as radar\nunits. It catches and eats small\nbugs that hide in darkness."
     mondexclassification SPECIES_VENONAT, "Insect Pokémon"
     mondexheight SPECIES_VENONAT, "3’03”"
@@ -1106,7 +1056,6 @@ mondata SPECIES_VENOMOTH, "Venomoth"
     abilities ABILITY_SHIELD_DUST, ABILITY_TINTED_LENS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_VENOMOTH_TM_DATA_0, SPECIES_VENOMOTH_TM_DATA_1, SPECIES_VENOMOTH_TM_DATA_2, SPECIES_VENOMOTH_TM_DATA_3
     mondexentry SPECIES_VENOMOTH, "When it attacks, it flaps its large\nwings violently to scatter its\npoisonous powder all around."
     mondexclassification SPECIES_VENOMOTH, "Poison Moth Pokémon"
     mondexheight SPECIES_VENOMOTH, "4’11”"
@@ -1128,7 +1077,6 @@ mondata SPECIES_DIGLETT, "Diglett"
     abilities ABILITY_SAND_VEIL, ABILITY_ARENA_TRAP
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DIGLETT_TM_DATA_0, SPECIES_DIGLETT_TM_DATA_1, SPECIES_DIGLETT_TM_DATA_2, SPECIES_DIGLETT_TM_DATA_3
     mondexentry SPECIES_DIGLETT, "Its skin is very thin. If it is exposed\nto light, its blood heats up,\ncausing it to grow weak."
     mondexclassification SPECIES_DIGLETT, "Mole Pokémon"
     mondexheight SPECIES_DIGLETT, "0’08”"
@@ -1150,7 +1098,6 @@ mondata SPECIES_DUGTRIO, "Dugtrio"
     abilities ABILITY_SAND_VEIL, ABILITY_ARENA_TRAP
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DUGTRIO_TM_DATA_0, SPECIES_DUGTRIO_TM_DATA_1, SPECIES_DUGTRIO_TM_DATA_2, SPECIES_DUGTRIO_TM_DATA_3
     mondexentry SPECIES_DUGTRIO, "Its three heads bob separately up\nand down to loosen the soil nearby,\nmaking it easier for it to burrow."
     mondexclassification SPECIES_DUGTRIO, "Mole Pokémon"
     mondexheight SPECIES_DUGTRIO, "2’04”"
@@ -1172,7 +1119,6 @@ mondata SPECIES_MEOWTH, "Meowth"
     abilities ABILITY_PICKUP, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MEOWTH_TM_DATA_0, SPECIES_MEOWTH_TM_DATA_1, SPECIES_MEOWTH_TM_DATA_2, SPECIES_MEOWTH_TM_DATA_3
     mondexentry SPECIES_MEOWTH, "It is fascinated by round objects.\nIt can’t stop playing with them\nuntil it tires and falls asleep."
     mondexclassification SPECIES_MEOWTH, "Scratch Cat Pokémon"
     mondexheight SPECIES_MEOWTH, "1’04”"
@@ -1194,7 +1140,6 @@ mondata SPECIES_PERSIAN, "Persian"
     abilities ABILITY_LIMBER, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PERSIAN_TM_DATA_0, SPECIES_PERSIAN_TM_DATA_1, SPECIES_PERSIAN_TM_DATA_2, SPECIES_PERSIAN_TM_DATA_3
     mondexentry SPECIES_PERSIAN, "Many adore it for its sophisticated air.\nHowever, it will lash out and\nscratch for little reason."
     mondexclassification SPECIES_PERSIAN, "Classy Cat Pokémon"
     mondexheight SPECIES_PERSIAN, "3’03”"
@@ -1216,7 +1161,6 @@ mondata SPECIES_PSYDUCK, "Psyduck"
     abilities ABILITY_DAMP, ABILITY_CLOUD_NINE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PSYDUCK_TM_DATA_0, SPECIES_PSYDUCK_TM_DATA_1, SPECIES_PSYDUCK_TM_DATA_2, SPECIES_PSYDUCK_TM_DATA_3
     mondexentry SPECIES_PSYDUCK, "It has mystical powers but doesn’t\nrecall that it has used them.\nThat is why it always looks puzzled."
     mondexclassification SPECIES_PSYDUCK, "Duck Pokémon"
     mondexheight SPECIES_PSYDUCK, "2’07”"
@@ -1238,7 +1182,6 @@ mondata SPECIES_GOLDUCK, "Golduck"
     abilities ABILITY_DAMP, ABILITY_CLOUD_NINE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GOLDUCK_TM_DATA_0, SPECIES_GOLDUCK_TM_DATA_1, SPECIES_GOLDUCK_TM_DATA_2, SPECIES_GOLDUCK_TM_DATA_3
     mondexentry SPECIES_GOLDUCK, "When it swims at full speed using\nits long, webbed limbs, its forehead\nsomehow begins to glow."
     mondexclassification SPECIES_GOLDUCK, "Duck Pokémon"
     mondexheight SPECIES_GOLDUCK, "5’07”"
@@ -1260,7 +1203,6 @@ mondata SPECIES_MANKEY, "Mankey"
     abilities ABILITY_VITAL_SPIRIT, ABILITY_ANGER_POINT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MANKEY_TM_DATA_0, SPECIES_MANKEY_TM_DATA_1, SPECIES_MANKEY_TM_DATA_2, SPECIES_MANKEY_TM_DATA_3
     mondexentry SPECIES_MANKEY, "It is extremely ill-tempered.\nGroups of them will attack any\nhandy target for no reason."
     mondexclassification SPECIES_MANKEY, "Pig Monkey Pokémon"
     mondexheight SPECIES_MANKEY, "1’08”"
@@ -1282,7 +1224,6 @@ mondata SPECIES_PRIMEAPE, "Primeape"
     abilities ABILITY_VITAL_SPIRIT, ABILITY_ANGER_POINT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PRIMEAPE_TM_DATA_0, SPECIES_PRIMEAPE_TM_DATA_1, SPECIES_PRIMEAPE_TM_DATA_2, SPECIES_PRIMEAPE_TM_DATA_3
     mondexentry SPECIES_PRIMEAPE, "If approached while asleep,\nit may awaken and angrily give chase\nin a groggy state of semi-sleep."
     mondexclassification SPECIES_PRIMEAPE, "Pig Monkey Pokémon"
     mondexheight SPECIES_PRIMEAPE, "3’03”"
@@ -1304,7 +1245,6 @@ mondata SPECIES_GROWLITHE, "Growlithe"
     abilities ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GROWLITHE_TM_DATA_0, SPECIES_GROWLITHE_TM_DATA_1, SPECIES_GROWLITHE_TM_DATA_2, SPECIES_GROWLITHE_TM_DATA_3
     mondexentry SPECIES_GROWLITHE, "It has a brave and trustworthy\nnature. It fearlessly stands up\nto bigger and stronger foes."
     mondexclassification SPECIES_GROWLITHE, "Puppy Pokémon"
     mondexheight SPECIES_GROWLITHE, "2’04”"
@@ -1326,7 +1266,6 @@ mondata SPECIES_ARCANINE, "Arcanine"
     abilities ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ARCANINE_TM_DATA_0, SPECIES_ARCANINE_TM_DATA_1, SPECIES_ARCANINE_TM_DATA_2, SPECIES_ARCANINE_TM_DATA_3
     mondexentry SPECIES_ARCANINE, "This legendary Chinese Pokémon is\nconsidered magnificent. Many people\nare enchanted by its grand mane."
     mondexclassification SPECIES_ARCANINE, "Legendary Pokémon"
     mondexheight SPECIES_ARCANINE, "6’03”"
@@ -1348,7 +1287,6 @@ mondata SPECIES_POLIWAG, "Poliwag"
     abilities ABILITY_WATER_ABSORB, ABILITY_DAMP
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_POLIWAG_TM_DATA_0, SPECIES_POLIWAG_TM_DATA_1, SPECIES_POLIWAG_TM_DATA_2, SPECIES_POLIWAG_TM_DATA_3
     mondexentry SPECIES_POLIWAG, "Because it is inept at walking on\nits newly grown legs, it always \nswims around in water."
     mondexclassification SPECIES_POLIWAG, "Tadpole Pokémon"
     mondexheight SPECIES_POLIWAG, "2’00”"
@@ -1370,7 +1308,6 @@ mondata SPECIES_POLIWHIRL, "Poliwhirl"
     abilities ABILITY_WATER_ABSORB, ABILITY_DAMP
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_POLIWHIRL_TM_DATA_0, SPECIES_POLIWHIRL_TM_DATA_1, SPECIES_POLIWHIRL_TM_DATA_2, SPECIES_POLIWHIRL_TM_DATA_3
     mondexentry SPECIES_POLIWHIRL, "The swirl on its belly subtly undulates.\nStaring at it may gradually\ncause drowsiness."
     mondexclassification SPECIES_POLIWHIRL, "Tadpole Pokémon"
     mondexheight SPECIES_POLIWHIRL, "3’03”"
@@ -1392,7 +1329,6 @@ mondata SPECIES_POLIWRATH, "Poliwrath"
     abilities ABILITY_WATER_ABSORB, ABILITY_DAMP
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_POLIWRATH_TM_DATA_0, SPECIES_POLIWRATH_TM_DATA_1, SPECIES_POLIWRATH_TM_DATA_2, SPECIES_POLIWRATH_TM_DATA_3
     mondexentry SPECIES_POLIWRATH, "This strong and skilled swimmer is\neven capable of crossing the\nPacific Ocean just by kicking."
     mondexclassification SPECIES_POLIWRATH, "Tadpole Pokémon"
     mondexheight SPECIES_POLIWRATH, "4’03”"
@@ -1414,7 +1350,6 @@ mondata SPECIES_ABRA, "Abra"
     abilities ABILITY_SYNCHRONIZE, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ABRA_TM_DATA_0, SPECIES_ABRA_TM_DATA_1, SPECIES_ABRA_TM_DATA_2, SPECIES_ABRA_TM_DATA_3
     mondexentry SPECIES_ABRA, "It senses impending attacks and\nteleports away to safety before the\nactual attacks can strike."
     mondexclassification SPECIES_ABRA, "Psi Pokémon"
     mondexheight SPECIES_ABRA, "2’11”"
@@ -1436,7 +1371,6 @@ mondata SPECIES_KADABRA, "Kadabra"
     abilities ABILITY_SYNCHRONIZE, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_KADABRA_TM_DATA_0, SPECIES_KADABRA_TM_DATA_1, SPECIES_KADABRA_TM_DATA_2, SPECIES_KADABRA_TM_DATA_3
     mondexentry SPECIES_KADABRA, "It possesses strong spiritual power.\nThe more danger it faces,\nthe stronger its psychic power."
     mondexclassification SPECIES_KADABRA, "Psi Pokémon"
     mondexheight SPECIES_KADABRA, "4’03”"
@@ -1458,7 +1392,6 @@ mondata SPECIES_ALAKAZAM, "Alakazam"
     abilities ABILITY_SYNCHRONIZE, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ALAKAZAM_TM_DATA_0, SPECIES_ALAKAZAM_TM_DATA_1, SPECIES_ALAKAZAM_TM_DATA_2, SPECIES_ALAKAZAM_TM_DATA_3
     mondexentry SPECIES_ALAKAZAM, "Closing both its eyes heightens all\nits other senses. This enables it to\nuse its abilities to their extremes."
     mondexclassification SPECIES_ALAKAZAM, "Psi Pokémon"
     mondexheight SPECIES_ALAKAZAM, "4’11”"
@@ -1480,7 +1413,6 @@ mondata SPECIES_MACHOP, "Machop"
     abilities ABILITY_GUTS, ABILITY_NO_GUARD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MACHOP_TM_DATA_0, SPECIES_MACHOP_TM_DATA_1, SPECIES_MACHOP_TM_DATA_2, SPECIES_MACHOP_TM_DATA_3
     mondexentry SPECIES_MACHOP, "Always brimming with power,\nit passes time by lifting boulders.\nDoing so makes it even stronger."
     mondexclassification SPECIES_MACHOP, "Superpower Pokémon"
     mondexheight SPECIES_MACHOP, "2’07”"
@@ -1502,7 +1434,6 @@ mondata SPECIES_MACHOKE, "Machoke"
     abilities ABILITY_GUTS, ABILITY_NO_GUARD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MACHOKE_TM_DATA_0, SPECIES_MACHOKE_TM_DATA_1, SPECIES_MACHOKE_TM_DATA_2, SPECIES_MACHOKE_TM_DATA_3
     mondexentry SPECIES_MACHOKE, "It always goes at its full power,\nbut this very tough and durable\nPokémon never gets tired."
     mondexclassification SPECIES_MACHOKE, "Superpower Pokémon"
     mondexheight SPECIES_MACHOKE, "4’11”"
@@ -1524,7 +1455,6 @@ mondata SPECIES_MACHAMP, "Machamp"
     abilities ABILITY_GUTS, ABILITY_NO_GUARD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MACHAMP_TM_DATA_0, SPECIES_MACHAMP_TM_DATA_1, SPECIES_MACHAMP_TM_DATA_2, SPECIES_MACHAMP_TM_DATA_3
     mondexentry SPECIES_MACHAMP, "It quickly swings its four arms to\nrock its opponents with ceaseless\npunches and chops from all angles."
     mondexclassification SPECIES_MACHAMP, "Superpower Pokémon"
     mondexheight SPECIES_MACHAMP, "5’03”"
@@ -1546,7 +1476,6 @@ mondata SPECIES_BELLSPROUT, "Bellsprout"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BELLSPROUT_TM_DATA_0, SPECIES_BELLSPROUT_TM_DATA_1, SPECIES_BELLSPROUT_TM_DATA_2, SPECIES_BELLSPROUT_TM_DATA_3
     mondexentry SPECIES_BELLSPROUT, "Even though its body is extremely\nskinny, it is blindingly fast\nwhen catching its prey."
     mondexclassification SPECIES_BELLSPROUT, "Flower Pokémon"
     mondexheight SPECIES_BELLSPROUT, "2’04”"
@@ -1568,7 +1497,6 @@ mondata SPECIES_WEEPINBELL, "Weepinbell"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_WEEPINBELL_TM_DATA_0, SPECIES_WEEPINBELL_TM_DATA_1, SPECIES_WEEPINBELL_TM_DATA_2, SPECIES_WEEPINBELL_TM_DATA_3
     mondexentry SPECIES_WEEPINBELL, "Even though it is filled with acid,\nit does not melt because it also\noozes a protective fluid."
     mondexclassification SPECIES_WEEPINBELL, "Flycatcher Pokémon"
     mondexheight SPECIES_WEEPINBELL, "3’03”"
@@ -1590,7 +1518,6 @@ mondata SPECIES_VICTREEBEL, "Victreebel"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_VICTREEBEL_TM_DATA_0, SPECIES_VICTREEBEL_TM_DATA_1, SPECIES_VICTREEBEL_TM_DATA_2, SPECIES_VICTREEBEL_TM_DATA_3
     mondexentry SPECIES_VICTREEBEL, "Acid that has dissolved many prey\nbecomes sweeter, making it even\nmore effective at attracting prey."
     mondexclassification SPECIES_VICTREEBEL, "Flycatcher Pokémon"
     mondexheight SPECIES_VICTREEBEL, "5’07”"
@@ -1612,7 +1539,6 @@ mondata SPECIES_TENTACOOL, "Tentacool"
     abilities ABILITY_CLEAR_BODY, ABILITY_LIQUID_OOZE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TENTACOOL_TM_DATA_0, SPECIES_TENTACOOL_TM_DATA_1, SPECIES_TENTACOOL_TM_DATA_2, SPECIES_TENTACOOL_TM_DATA_3
     mondexentry SPECIES_TENTACOOL, "When the tide goes out, dehydrated\nTENTACOOL remains can be found\nwashed up on the shore."
     mondexclassification SPECIES_TENTACOOL, "Jellyfish Pokémon"
     mondexheight SPECIES_TENTACOOL, "2’11”"
@@ -1634,7 +1560,6 @@ mondata SPECIES_TENTACRUEL, "Tentacruel"
     abilities ABILITY_CLEAR_BODY, ABILITY_LIQUID_OOZE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TENTACRUEL_TM_DATA_0, SPECIES_TENTACRUEL_TM_DATA_1, SPECIES_TENTACRUEL_TM_DATA_2, SPECIES_TENTACRUEL_TM_DATA_3
     mondexentry SPECIES_TENTACRUEL, "Its 80 tentacles absorb water and\nstretch almost endlessly to\nconstrict its prey and enemies."
     mondexclassification SPECIES_TENTACRUEL, "Jellyfish Pokémon"
     mondexheight SPECIES_TENTACRUEL, "5’03”"
@@ -1656,7 +1581,6 @@ mondata SPECIES_GEODUDE, "Geodude"
     abilities ABILITY_ROCK_HEAD, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GEODUDE_TM_DATA_0, SPECIES_GEODUDE_TM_DATA_1, SPECIES_GEODUDE_TM_DATA_2, SPECIES_GEODUDE_TM_DATA_3
     mondexentry SPECIES_GEODUDE, "Most people may not notice,\nbut a closer look should reveal that\nthere are many GEODUDE around."
     mondexclassification SPECIES_GEODUDE, "Rock Pokémon"
     mondexheight SPECIES_GEODUDE, "1’04”"
@@ -1678,7 +1602,6 @@ mondata SPECIES_GRAVELER, "Graveler"
     abilities ABILITY_ROCK_HEAD, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GRAVELER_TM_DATA_0, SPECIES_GRAVELER_TM_DATA_1, SPECIES_GRAVELER_TM_DATA_2, SPECIES_GRAVELER_TM_DATA_3
     mondexentry SPECIES_GRAVELER, "With a free and uncaring nature,\nit doesn’t mind if pieces break off\nwhile it rolls down mountains."
     mondexclassification SPECIES_GRAVELER, "Rock Pokémon"
     mondexheight SPECIES_GRAVELER, "3’03”"
@@ -1700,7 +1623,6 @@ mondata SPECIES_GOLEM, "Golem"
     abilities ABILITY_ROCK_HEAD, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GOLEM_TM_DATA_0, SPECIES_GOLEM_TM_DATA_1, SPECIES_GOLEM_TM_DATA_2, SPECIES_GOLEM_TM_DATA_3
     mondexentry SPECIES_GOLEM, "It sheds its skin once a year.\nThe discarded shell immediately\nhardens and crumbles away."
     mondexclassification SPECIES_GOLEM, "Megaton Pokémon"
     mondexheight SPECIES_GOLEM, "4’07”"
@@ -1722,7 +1644,6 @@ mondata SPECIES_PONYTA, "Ponyta"
     abilities ABILITY_RUN_AWAY, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PONYTA_TM_DATA_0, SPECIES_PONYTA_TM_DATA_1, SPECIES_PONYTA_TM_DATA_2, SPECIES_PONYTA_TM_DATA_3
     mondexentry SPECIES_PONYTA, "It is a weak runner immediately\nafter birth. It gradually becomes\nfaster by chasing after its parents."
     mondexclassification SPECIES_PONYTA, "Fire Horse Pokémon"
     mondexheight SPECIES_PONYTA, "3’03”"
@@ -1744,7 +1665,6 @@ mondata SPECIES_RAPIDASH, "Rapidash"
     abilities ABILITY_RUN_AWAY, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_RAPIDASH_TM_DATA_0, SPECIES_RAPIDASH_TM_DATA_1, SPECIES_RAPIDASH_TM_DATA_2, SPECIES_RAPIDASH_TM_DATA_3
     mondexentry SPECIES_RAPIDASH, "At full gallop, its four hooves\nbarely touch the ground because\nit moves so incredibly fast."
     mondexclassification SPECIES_RAPIDASH, "Fire Horse Pokémon"
     mondexheight SPECIES_RAPIDASH, "5’07”"
@@ -1766,7 +1686,6 @@ mondata SPECIES_SLOWPOKE, "Slowpoke"
     abilities ABILITY_OBLIVIOUS, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SLOWPOKE_TM_DATA_0, SPECIES_SLOWPOKE_TM_DATA_1, SPECIES_SLOWPOKE_TM_DATA_2, SPECIES_SLOWPOKE_TM_DATA_3
     mondexentry SPECIES_SLOWPOKE, "It lazes vacantly near water.\nIf something bites its tail, it won’t\neven notice for a whole day."
     mondexclassification SPECIES_SLOWPOKE, "Dopey Pokémon"
     mondexheight SPECIES_SLOWPOKE, "3’11”"
@@ -1788,7 +1707,6 @@ mondata SPECIES_SLOWBRO, "Slowbro"
     abilities ABILITY_OBLIVIOUS, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SLOWBRO_TM_DATA_0, SPECIES_SLOWBRO_TM_DATA_1, SPECIES_SLOWBRO_TM_DATA_2, SPECIES_SLOWBRO_TM_DATA_3
     mondexentry SPECIES_SLOWBRO, "If the tail-biting SHELLDER is thrown\noff in a harsh battle, it reverts to\nbeing an ordinary SLOWPOKE."
     mondexclassification SPECIES_SLOWBRO, "Hermit Crab Pokémon"
     mondexheight SPECIES_SLOWBRO, "5’03”"
@@ -1810,7 +1728,6 @@ mondata SPECIES_MAGNEMITE, "Magnemite"
     abilities ABILITY_MAGNET_PULL, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MAGNEMITE_TM_DATA_0, SPECIES_MAGNEMITE_TM_DATA_1, SPECIES_MAGNEMITE_TM_DATA_2, SPECIES_MAGNEMITE_TM_DATA_3
     mondexentry SPECIES_MAGNEMITE, "It is attracted by electromagnetic\nwaves. It may approach Trainers\nif they are using their Pokégear."
     mondexclassification SPECIES_MAGNEMITE, "Magnet Pokémon"
     mondexheight SPECIES_MAGNEMITE, "1’00”"
@@ -1832,7 +1749,6 @@ mondata SPECIES_MAGNETON, "Magneton"
     abilities ABILITY_MAGNET_PULL, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MAGNETON_TM_DATA_0, SPECIES_MAGNETON_TM_DATA_1, SPECIES_MAGNETON_TM_DATA_2, SPECIES_MAGNETON_TM_DATA_3
     mondexentry SPECIES_MAGNETON, "Three MAGNEMITE are linked by a\nstrong magnetic force. Earaches\nwill occur if you get too close."
     mondexclassification SPECIES_MAGNETON, "Magnet Pokémon"
     mondexheight SPECIES_MAGNETON, "3’03”"
@@ -1854,7 +1770,6 @@ mondata SPECIES_FARFETCHD, "Farfetch’d"
     abilities ABILITY_KEEN_EYE, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_FARFETCHD_TM_DATA_0, SPECIES_FARFETCHD_TM_DATA_1, SPECIES_FARFETCHD_TM_DATA_2, SPECIES_FARFETCHD_TM_DATA_3
     mondexentry SPECIES_FARFETCHD, "If anyone tries to disturb where the\nessential plant stalks grow, it uses its\nown stalk to thwart them."
     mondexclassification SPECIES_FARFETCHD, "Wild Duck Pokémon"
     mondexheight SPECIES_FARFETCHD, "2’07”"
@@ -1876,7 +1791,6 @@ mondata SPECIES_DODUO, "Doduo"
     abilities ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DODUO_TM_DATA_0, SPECIES_DODUO_TM_DATA_1, SPECIES_DODUO_TM_DATA_2, SPECIES_DODUO_TM_DATA_3
     mondexentry SPECIES_DODUO, "By alternately raising and lowering\nits two heads, it balances itself\nto be more stable while running."
     mondexclassification SPECIES_DODUO, "Twin Bird Pokémon"
     mondexheight SPECIES_DODUO, "4’07”"
@@ -1898,7 +1812,6 @@ mondata SPECIES_DODRIO, "Dodrio"
     abilities ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DODRIO_TM_DATA_0, SPECIES_DODRIO_TM_DATA_1, SPECIES_DODRIO_TM_DATA_2, SPECIES_DODRIO_TM_DATA_3
     mondexentry SPECIES_DODRIO, "It collects data and plans three times\nas wisely, but it may think too much\nand fall into a state of immobility."
     mondexclassification SPECIES_DODRIO, "Triple Bird Pokémon"
     mondexheight SPECIES_DODRIO, "5’11”"
@@ -1920,7 +1833,6 @@ mondata SPECIES_SEEL, "Seel"
     abilities ABILITY_THICK_FAT, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SEEL_TM_DATA_0, SPECIES_SEEL_TM_DATA_1, SPECIES_SEEL_TM_DATA_2, SPECIES_SEEL_TM_DATA_3
     mondexentry SPECIES_SEEL, "Although it can’t walk well on land,\nit is a graceful swimmer. It especially\nloves being in frigid seas."
     mondexclassification SPECIES_SEEL, "Sea Lion Pokémon"
     mondexheight SPECIES_SEEL, "3’07”"
@@ -1942,7 +1854,6 @@ mondata SPECIES_DEWGONG, "Dewgong"
     abilities ABILITY_THICK_FAT, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_DEWGONG_TM_DATA_0, SPECIES_DEWGONG_TM_DATA_1, SPECIES_DEWGONG_TM_DATA_2, SPECIES_DEWGONG_TM_DATA_3
     mondexentry SPECIES_DEWGONG, "Its streamlined body has little\ndrag in water. The colder the\ntemperature, the friskier it gets."
     mondexclassification SPECIES_DEWGONG, "Sea Lion Pokémon"
     mondexheight SPECIES_DEWGONG, "5’07”"
@@ -1964,7 +1875,6 @@ mondata SPECIES_GRIMER, "Grimer"
     abilities ABILITY_STENCH, ABILITY_STICKY_HOLD
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GRIMER_TM_DATA_0, SPECIES_GRIMER_TM_DATA_1, SPECIES_GRIMER_TM_DATA_2, SPECIES_GRIMER_TM_DATA_3
     mondexentry SPECIES_GRIMER, "As it moves, it loses bits of its body,\nfrom which new GRIMER emerge.\nThis worsens the stench around it."
     mondexclassification SPECIES_GRIMER, "Sludge Pokémon"
     mondexheight SPECIES_GRIMER, "2’11”"
@@ -1986,7 +1896,6 @@ mondata SPECIES_MUK, "Muk"
     abilities ABILITY_STENCH, ABILITY_STICKY_HOLD
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MUK_TM_DATA_0, SPECIES_MUK_TM_DATA_1, SPECIES_MUK_TM_DATA_2, SPECIES_MUK_TM_DATA_3
     mondexentry SPECIES_MUK, "They love to gather in smelly areas\nwhere sludge accumulates, making\nthe stench around them worse."
     mondexclassification SPECIES_MUK, "Sludge Pokémon"
     mondexheight SPECIES_MUK, "3’11”"
@@ -2008,7 +1917,6 @@ mondata SPECIES_SHELLDER, "Shellder"
     abilities ABILITY_SHELL_ARMOR, ABILITY_SKILL_LINK
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SHELLDER_TM_DATA_0, SPECIES_SHELLDER_TM_DATA_1, SPECIES_SHELLDER_TM_DATA_2, SPECIES_SHELLDER_TM_DATA_3
     mondexentry SPECIES_SHELLDER, "It swims facing backward by opening\nand closing its two-piece shell.\nIt is surprisingly fast."
     mondexclassification SPECIES_SHELLDER, "Bivalve Pokémon"
     mondexheight SPECIES_SHELLDER, "1’00”"
@@ -2030,7 +1938,6 @@ mondata SPECIES_CLOYSTER, "Cloyster"
     abilities ABILITY_SHELL_ARMOR, ABILITY_SKILL_LINK
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_CLOYSTER_TM_DATA_0, SPECIES_CLOYSTER_TM_DATA_1, SPECIES_CLOYSTER_TM_DATA_2, SPECIES_CLOYSTER_TM_DATA_3
     mondexentry SPECIES_CLOYSTER, "Once it slams its shell shut,\nit is impossible to open, even by\nthose with superior strength."
     mondexclassification SPECIES_CLOYSTER, "Bivalve Pokémon"
     mondexheight SPECIES_CLOYSTER, "4’11”"
@@ -2052,7 +1959,6 @@ mondata SPECIES_GASTLY, "Gastly"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GASTLY_TM_DATA_0, SPECIES_GASTLY_TM_DATA_1, SPECIES_GASTLY_TM_DATA_2, SPECIES_GASTLY_TM_DATA_3
     mondexentry SPECIES_GASTLY, "With its gas-like body, it can sneak\ninto any place it desires. However,\nit can be blown away by wind."
     mondexclassification SPECIES_GASTLY, "Gas Pokémon"
     mondexheight SPECIES_GASTLY, "4’03”"
@@ -2074,7 +1980,6 @@ mondata SPECIES_HAUNTER, "Haunter"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_HAUNTER_TM_DATA_0, SPECIES_HAUNTER_TM_DATA_1, SPECIES_HAUNTER_TM_DATA_2, SPECIES_HAUNTER_TM_DATA_3
     mondexentry SPECIES_HAUNTER, "In total darkness, where nothing is\nvisible, HAUNTER lurks, silently\nstalking its next victim."
     mondexclassification SPECIES_HAUNTER, "Gas Pokémon"
     mondexheight SPECIES_HAUNTER, "5’03”"
@@ -2096,7 +2001,6 @@ mondata SPECIES_GENGAR, "Gengar"
     abilities ABILITY_CURSED_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GENGAR_TM_DATA_0, SPECIES_GENGAR_TM_DATA_1, SPECIES_GENGAR_TM_DATA_2, SPECIES_GENGAR_TM_DATA_3
     mondexentry SPECIES_GENGAR, "It steals heat from its surroundings.\nIf you feel a sudden chill,\nit is certain that a GENGAR appeared."
     mondexclassification SPECIES_GENGAR, "Shadow Pokémon"
     mondexheight SPECIES_GENGAR, "4’11”"
@@ -2118,7 +2022,6 @@ mondata SPECIES_ONIX, "Onix"
     abilities ABILITY_ROCK_HEAD, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ONIX_TM_DATA_0, SPECIES_ONIX_TM_DATA_1, SPECIES_ONIX_TM_DATA_2, SPECIES_ONIX_TM_DATA_3
     mondexentry SPECIES_ONIX, "It twists and squirms through\nthe ground. The thunderous roar of\nits tunneling echoes a long way."
     mondexclassification SPECIES_ONIX, "Rock Snake Pokémon"
     mondexheight SPECIES_ONIX, "28’10”"
@@ -2140,7 +2043,6 @@ mondata SPECIES_DROWZEE, "Drowzee"
     abilities ABILITY_INSOMNIA, ABILITY_FOREWARN
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_DROWZEE_TM_DATA_0, SPECIES_DROWZEE_TM_DATA_1, SPECIES_DROWZEE_TM_DATA_2, SPECIES_DROWZEE_TM_DATA_3
     mondexentry SPECIES_DROWZEE, "If you think that you had a good dream\nbut you can’t remember it,\na DROWZEE has probably eaten it."
     mondexclassification SPECIES_DROWZEE, "Hypnosis Pokémon"
     mondexheight SPECIES_DROWZEE, "3’03”"
@@ -2162,7 +2064,6 @@ mondata SPECIES_HYPNO, "Hypno"
     abilities ABILITY_INSOMNIA, ABILITY_FOREWARN
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_HYPNO_TM_DATA_0, SPECIES_HYPNO_TM_DATA_1, SPECIES_HYPNO_TM_DATA_2, SPECIES_HYPNO_TM_DATA_3
     mondexentry SPECIES_HYPNO, "When it is very hungry, it puts\nhumans it meets to sleep,\nthen it feasts on their dreams."
     mondexclassification SPECIES_HYPNO, "Hypnosis Pokémon"
     mondexheight SPECIES_HYPNO, "5’03”"
@@ -2184,7 +2085,6 @@ mondata SPECIES_KRABBY, "Krabby"
     abilities ABILITY_HYPER_CUTTER, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KRABBY_TM_DATA_0, SPECIES_KRABBY_TM_DATA_1, SPECIES_KRABBY_TM_DATA_2, SPECIES_KRABBY_TM_DATA_3
     mondexentry SPECIES_KRABBY, "If it senses danger approaching,\nit cloaks itself with bubbles from\nits mouth so it will look bigger."
     mondexclassification SPECIES_KRABBY, "River Crab Pokémon"
     mondexheight SPECIES_KRABBY, "1’04”"
@@ -2206,7 +2106,6 @@ mondata SPECIES_KINGLER, "Kingler"
     abilities ABILITY_HYPER_CUTTER, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KINGLER_TM_DATA_0, SPECIES_KINGLER_TM_DATA_1, SPECIES_KINGLER_TM_DATA_2, SPECIES_KINGLER_TM_DATA_3
     mondexentry SPECIES_KINGLER, "It can hardly lift its massive,\novergrown pincer. The pincer’s size\nmakes it difficult to aim properly."
     mondexclassification SPECIES_KINGLER, "Pincer Pokémon"
     mondexheight SPECIES_KINGLER, "4’03”"
@@ -2228,7 +2127,6 @@ mondata SPECIES_VOLTORB, "Voltorb"
     abilities ABILITY_SOUNDPROOF, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_VOLTORB_TM_DATA_0, SPECIES_VOLTORB_TM_DATA_1, SPECIES_VOLTORB_TM_DATA_2, SPECIES_VOLTORB_TM_DATA_3
     mondexentry SPECIES_VOLTORB, "It rolls to move. If the ground is\nuneven, a sudden jolt from hitting\na bump can cause it to explode."
     mondexclassification SPECIES_VOLTORB, "Ball Pokémon"
     mondexheight SPECIES_VOLTORB, "1’08”"
@@ -2250,7 +2148,6 @@ mondata SPECIES_ELECTRODE, "Electrode"
     abilities ABILITY_SOUNDPROOF, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ELECTRODE_TM_DATA_0, SPECIES_ELECTRODE_TM_DATA_1, SPECIES_ELECTRODE_TM_DATA_2, SPECIES_ELECTRODE_TM_DATA_3
     mondexentry SPECIES_ELECTRODE, "It is dangerous. If it has too much\nelectricity and has nothing to do,\nit amuses itself by exploding."
     mondexclassification SPECIES_ELECTRODE, "Ball Pokémon"
     mondexheight SPECIES_ELECTRODE, "3’11”"
@@ -2272,7 +2169,6 @@ mondata SPECIES_EXEGGCUTE, "Exeggcute"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_EXEGGCUTE_TM_DATA_0, SPECIES_EXEGGCUTE_TM_DATA_1, SPECIES_EXEGGCUTE_TM_DATA_2, SPECIES_EXEGGCUTE_TM_DATA_3
     mondexentry SPECIES_EXEGGCUTE, "Their shells are very durable. Even if\nthey crack, they can survive without\nspilling their contents."
     mondexclassification SPECIES_EXEGGCUTE, "Egg Pokémon"
     mondexheight SPECIES_EXEGGCUTE, "1’04”"
@@ -2294,7 +2190,6 @@ mondata SPECIES_EXEGGUTOR, "Exeggutor"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_EXEGGUTOR_TM_DATA_0, SPECIES_EXEGGUTOR_TM_DATA_1, SPECIES_EXEGGUTOR_TM_DATA_2, SPECIES_EXEGGUTOR_TM_DATA_3
     mondexentry SPECIES_EXEGGUTOR, "Its three heads think independently.\nHowever, they are friendly and\nnever appear to squabble."
     mondexclassification SPECIES_EXEGGUTOR, "Coconut Pokémon"
     mondexheight SPECIES_EXEGGUTOR, "6’07”"
@@ -2316,7 +2211,6 @@ mondata SPECIES_CUBONE, "Cubone"
     abilities ABILITY_ROCK_HEAD, ABILITY_LIGHTNING_ROD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_CUBONE_TM_DATA_0, SPECIES_CUBONE_TM_DATA_1, SPECIES_CUBONE_TM_DATA_2, SPECIES_CUBONE_TM_DATA_3
     mondexentry SPECIES_CUBONE, "If it is sad or lonely, the skull\nit wears shakes and emits a plaintive\nand mournful sound."
     mondexclassification SPECIES_CUBONE, "Lonely Pokémon"
     mondexheight SPECIES_CUBONE, "1’04”"
@@ -2338,7 +2232,6 @@ mondata SPECIES_MAROWAK, "Marowak"
     abilities ABILITY_ROCK_HEAD, ABILITY_LIGHTNING_ROD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MAROWAK_TM_DATA_0, SPECIES_MAROWAK_TM_DATA_1, SPECIES_MAROWAK_TM_DATA_2, SPECIES_MAROWAK_TM_DATA_3
     mondexentry SPECIES_MAROWAK, "It has been seen pounding boulders\nwith the bone it carries in order\nto tap out messages to others."
     mondexclassification SPECIES_MAROWAK, "Bone Keeper Pokémon"
     mondexheight SPECIES_MAROWAK, "3’03”"
@@ -2360,7 +2253,6 @@ mondata SPECIES_HITMONLEE, "Hitmonlee"
     abilities ABILITY_LIMBER, ABILITY_RECKLESS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HITMONLEE_TM_DATA_0, SPECIES_HITMONLEE_TM_DATA_1, SPECIES_HITMONLEE_TM_DATA_2, SPECIES_HITMONLEE_TM_DATA_3
     mondexentry SPECIES_HITMONLEE, "This amazing Pokémon has an awesome\nsense of balance. It can kick in\nsuccession from any position."
     mondexclassification SPECIES_HITMONLEE, "Kicking Pokémon"
     mondexheight SPECIES_HITMONLEE, "4’11”"
@@ -2382,7 +2274,6 @@ mondata SPECIES_HITMONCHAN, "Hitmonchan"
     abilities ABILITY_KEEN_EYE, ABILITY_IRON_FIST
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HITMONCHAN_TM_DATA_0, SPECIES_HITMONCHAN_TM_DATA_1, SPECIES_HITMONCHAN_TM_DATA_2, SPECIES_HITMONCHAN_TM_DATA_3
     mondexentry SPECIES_HITMONCHAN, "Its punches slice the air. However,\nit seems to need a short break after\nfighting for three minutes."
     mondexclassification SPECIES_HITMONCHAN, "Punching Pokémon"
     mondexheight SPECIES_HITMONCHAN, "4’07”"
@@ -2404,7 +2295,6 @@ mondata SPECIES_LICKITUNG, "Lickitung"
     abilities ABILITY_OWN_TEMPO, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_LICKITUNG_TM_DATA_0, SPECIES_LICKITUNG_TM_DATA_1, SPECIES_LICKITUNG_TM_DATA_2, SPECIES_LICKITUNG_TM_DATA_3
     mondexentry SPECIES_LICKITUNG, "Its tongue has well-developed\nnerves that run to the very tip,\nso it can be deftly manipulated."
     mondexclassification SPECIES_LICKITUNG, "Licking Pokémon"
     mondexheight SPECIES_LICKITUNG, "3’11”"
@@ -2426,7 +2316,6 @@ mondata SPECIES_KOFFING, "Koffing"
     abilities ABILITY_LEVITATE, ABILITY_NEUTRALIZING_GAS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_KOFFING_TM_DATA_0, SPECIES_KOFFING_TM_DATA_1, SPECIES_KOFFING_TM_DATA_2, SPECIES_KOFFING_TM_DATA_3
     mondexentry SPECIES_KOFFING, "Its thin, filmy body is filled\nwith gases that cause constant\nsniffles, coughs and teary eyes."
     mondexclassification SPECIES_KOFFING, "Poison Gas Pokémon"
     mondexheight SPECIES_KOFFING, "2’00”"
@@ -2448,7 +2337,6 @@ mondata SPECIES_WEEZING, "Weezing"
     abilities ABILITY_LEVITATE, ABILITY_NEUTRALIZING_GAS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_WEEZING_TM_DATA_0, SPECIES_WEEZING_TM_DATA_1, SPECIES_WEEZING_TM_DATA_2, SPECIES_WEEZING_TM_DATA_3
     mondexentry SPECIES_WEEZING, "If one of the twin KOFFING inflates,\nthe other one deflates. It constantly\nmixes its poisonous gases."
     mondexclassification SPECIES_WEEZING, "Poison Gas Pokémon"
     mondexheight SPECIES_WEEZING, "3’11”"
@@ -2470,7 +2358,6 @@ mondata SPECIES_RHYHORN, "Rhyhorn"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_RHYHORN_TM_DATA_0, SPECIES_RHYHORN_TM_DATA_1, SPECIES_RHYHORN_TM_DATA_2, SPECIES_RHYHORN_TM_DATA_3
     mondexentry SPECIES_RHYHORN, "It is inept at turning because of\nits four short legs. It can only\ncharge and run in one direction."
     mondexclassification SPECIES_RHYHORN, "Spikes Pokémon"
     mondexheight SPECIES_RHYHORN, "3’03”"
@@ -2492,7 +2379,6 @@ mondata SPECIES_RHYDON, "Rhydon"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_RHYDON_TM_DATA_0, SPECIES_RHYDON_TM_DATA_1, SPECIES_RHYDON_TM_DATA_2, SPECIES_RHYDON_TM_DATA_3
     mondexentry SPECIES_RHYDON, "Its rugged hide protects it from\neven the heat of lava. However,\nthe hide also makes it insensitive."
     mondexclassification SPECIES_RHYDON, "Drill Pokémon"
     mondexheight SPECIES_RHYDON, "6’03”"
@@ -2514,7 +2400,6 @@ mondata SPECIES_CHANSEY, "Chansey"
     abilities ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_CHANSEY_TM_DATA_0, SPECIES_CHANSEY_TM_DATA_1, SPECIES_CHANSEY_TM_DATA_2, SPECIES_CHANSEY_TM_DATA_3
     mondexentry SPECIES_CHANSEY, "It walks carefully to prevent its\negg from breaking. However,\nit is extremely fast at running away."
     mondexclassification SPECIES_CHANSEY, "Egg Pokémon"
     mondexheight SPECIES_CHANSEY, "3’07”"
@@ -2536,7 +2421,6 @@ mondata SPECIES_TANGELA, "Tangela"
     abilities ABILITY_CHLOROPHYLL, ABILITY_LEAF_GUARD
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TANGELA_TM_DATA_0, SPECIES_TANGELA_TM_DATA_1, SPECIES_TANGELA_TM_DATA_2, SPECIES_TANGELA_TM_DATA_3
     mondexentry SPECIES_TANGELA, "The vines that cloak its entire\nbody are always jiggling.\nThey effectively unnerve its foes."
     mondexclassification SPECIES_TANGELA, "Vine Pokémon"
     mondexheight SPECIES_TANGELA, "3’03”"
@@ -2558,7 +2442,6 @@ mondata SPECIES_KANGASKHAN, "Kangaskhan"
     abilities ABILITY_EARLY_BIRD, ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_KANGASKHAN_TM_DATA_0, SPECIES_KANGASKHAN_TM_DATA_1, SPECIES_KANGASKHAN_TM_DATA_2, SPECIES_KANGASKHAN_TM_DATA_3
     mondexentry SPECIES_KANGASKHAN, "If it is safe, the young gets out of\nthe belly pouch to play. The adult\nkeeps a close eye on the youngster."
     mondexclassification SPECIES_KANGASKHAN, "Parent Pokémon"
     mondexheight SPECIES_KANGASKHAN, "7’03”"
@@ -2580,7 +2463,6 @@ mondata SPECIES_HORSEA, "Horsea"
     abilities ABILITY_SWIFT_SWIM, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_HORSEA_TM_DATA_0, SPECIES_HORSEA_TM_DATA_1, SPECIES_HORSEA_TM_DATA_2, SPECIES_HORSEA_TM_DATA_3
     mondexentry SPECIES_HORSEA, "If attacked by a larger enemy,\nit quickly swims to safety by adeptly\ncontrolling its well-developed dorsal fin."
     mondexclassification SPECIES_HORSEA, "Dragon Pokémon"
     mondexheight SPECIES_HORSEA, "1’04”"
@@ -2602,7 +2484,6 @@ mondata SPECIES_SEADRA, "Seadra"
     abilities ABILITY_POISON_POINT, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SEADRA_TM_DATA_0, SPECIES_SEADRA_TM_DATA_1, SPECIES_SEADRA_TM_DATA_2, SPECIES_SEADRA_TM_DATA_3
     mondexentry SPECIES_SEADRA, "An examination of its cells revealed\nthe presence of a gene not found in\nHORSEA. It became a hot topic."
     mondexclassification SPECIES_SEADRA, "Dragon Pokémon"
     mondexheight SPECIES_SEADRA, "3’11”"
@@ -2624,7 +2505,6 @@ mondata SPECIES_GOLDEEN, "Goldeen"
     abilities ABILITY_SWIFT_SWIM, ABILITY_WATER_VEIL
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_GOLDEEN_TM_DATA_0, SPECIES_GOLDEEN_TM_DATA_1, SPECIES_GOLDEEN_TM_DATA_2, SPECIES_GOLDEEN_TM_DATA_3
     mondexentry SPECIES_GOLDEEN, "Its dorsal, pectoral and tail fins\nwave elegantly in water. That is why\nit is known as the water dancer."
     mondexclassification SPECIES_GOLDEEN, "Goldfish Pokémon"
     mondexheight SPECIES_GOLDEEN, "2’00”"
@@ -2646,7 +2526,6 @@ mondata SPECIES_SEAKING, "Seaking"
     abilities ABILITY_SWIFT_SWIM, ABILITY_WATER_VEIL
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SEAKING_TM_DATA_0, SPECIES_SEAKING_TM_DATA_1, SPECIES_SEAKING_TM_DATA_2, SPECIES_SEAKING_TM_DATA_3
     mondexentry SPECIES_SEAKING, "During spawning season, SEAKING\ngather from all over, causing rivers to\nappear a brilliant red."
     mondexclassification SPECIES_SEAKING, "Goldfish Pokémon"
     mondexheight SPECIES_SEAKING, "4’03”"
@@ -2668,7 +2547,6 @@ mondata SPECIES_STARYU, "Staryu"
     abilities ABILITY_ILLUMINATE, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_STARYU_TM_DATA_0, SPECIES_STARYU_TM_DATA_1, SPECIES_STARYU_TM_DATA_2, SPECIES_STARYU_TM_DATA_3
     mondexentry SPECIES_STARYU, "At night, the middle of its body\nslowly flickers with the same\nrhythm as a human heartbeat."
     mondexclassification SPECIES_STARYU, "Star Shape Pokémon"
     mondexheight SPECIES_STARYU, "2’07”"
@@ -2690,7 +2568,6 @@ mondata SPECIES_STARMIE, "Starmie"
     abilities ABILITY_ILLUMINATE, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_STARMIE_TM_DATA_0, SPECIES_STARMIE_TM_DATA_1, SPECIES_STARMIE_TM_DATA_2, SPECIES_STARMIE_TM_DATA_3
     mondexentry SPECIES_STARMIE, "The middle section of its body is\ncalled the core. It glows in a\ndifferent color each time it is seen."
     mondexclassification SPECIES_STARMIE, "Mysterious Pokémon"
     mondexheight SPECIES_STARMIE, "3’07”"
@@ -2712,7 +2589,6 @@ mondata SPECIES_MR_MIME, "Mr. Mime"
     abilities ABILITY_SOUNDPROOF, ABILITY_FILTER
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MR_MIME_TM_DATA_0, SPECIES_MR_MIME_TM_DATA_1, SPECIES_MR_MIME_TM_DATA_2, SPECIES_MR_MIME_TM_DATA_3
     mondexentry SPECIES_MR_MIME, "A skilled mime from birth,\nit gains the ability to create\ninvisible objects as it matures."
     mondexclassification SPECIES_MR_MIME, "Barrier Pokémon"
     mondexheight SPECIES_MR_MIME, "4’03”"
@@ -2734,7 +2610,6 @@ mondata SPECIES_SCYTHER, "Scyther"
     abilities ABILITY_SWARM, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SCYTHER_TM_DATA_0, SPECIES_SCYTHER_TM_DATA_1, SPECIES_SCYTHER_TM_DATA_2, SPECIES_SCYTHER_TM_DATA_3
     mondexentry SPECIES_SCYTHER, "It slashes through grass with its\nsharp scythes, moving too fast\nfor the human eye to track."
     mondexclassification SPECIES_SCYTHER, "Mantis Pokémon"
     mondexheight SPECIES_SCYTHER, "4’11”"
@@ -2756,7 +2631,6 @@ mondata SPECIES_JYNX, "Jynx"
     abilities ABILITY_OBLIVIOUS, ABILITY_FOREWARN
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_JYNX_TM_DATA_0, SPECIES_JYNX_TM_DATA_1, SPECIES_JYNX_TM_DATA_2, SPECIES_JYNX_TM_DATA_3
     mondexentry SPECIES_JYNX, "It rocks its body rhythmically.\nIt appears to alter the rhythm\ndepending on how it is feeling."
     mondexclassification SPECIES_JYNX, "Human Shape Pokémon"
     mondexheight SPECIES_JYNX, "4’07”"
@@ -2778,7 +2652,6 @@ mondata SPECIES_ELECTABUZZ, "Electabuzz"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ELECTABUZZ_TM_DATA_0, SPECIES_ELECTABUZZ_TM_DATA_1, SPECIES_ELECTABUZZ_TM_DATA_2, SPECIES_ELECTABUZZ_TM_DATA_3
     mondexentry SPECIES_ELECTABUZZ, "Electricity runs across the surface\nof its body. In darkness, its entire\nbody glows a whitish-blue."
     mondexclassification SPECIES_ELECTABUZZ, "Electric Pokémon"
     mondexheight SPECIES_ELECTABUZZ, "3’07”"
@@ -2800,7 +2673,6 @@ mondata SPECIES_MAGMAR, "Magmar"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MAGMAR_TM_DATA_0, SPECIES_MAGMAR_TM_DATA_1, SPECIES_MAGMAR_TM_DATA_2, SPECIES_MAGMAR_TM_DATA_3
     mondexentry SPECIES_MAGMAR, "It dislikes cold places, so it blows\nscorching flames to make the\nenvironment suitable for itself."
     mondexclassification SPECIES_MAGMAR, "Spitfire Pokémon"
     mondexheight SPECIES_MAGMAR, "4’03”"
@@ -2822,7 +2694,6 @@ mondata SPECIES_PINSIR, "Pinsir"
     abilities ABILITY_HYPER_CUTTER, ABILITY_MOLD_BREAKER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PINSIR_TM_DATA_0, SPECIES_PINSIR_TM_DATA_1, SPECIES_PINSIR_TM_DATA_2, SPECIES_PINSIR_TM_DATA_3
     mondexentry SPECIES_PINSIR, "With its pincer horns, it digs burrows\nto sleep in at night. In the morning,\ndamp soil clings to its body."
     mondexclassification SPECIES_PINSIR, "Stag Beetle Pokémon"
     mondexheight SPECIES_PINSIR, "4’11”"
@@ -2844,7 +2715,6 @@ mondata SPECIES_TAUROS, "Tauros"
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TAUROS_TM_DATA_0, SPECIES_TAUROS_TM_DATA_1, SPECIES_TAUROS_TM_DATA_2, SPECIES_TAUROS_TM_DATA_3
     mondexentry SPECIES_TAUROS, "They fight each other by locking\nhorns. The herd’s protector takes\npride in its battle-scarred horns."
     mondexclassification SPECIES_TAUROS, "Wild Bull Pokémon"
     mondexheight SPECIES_TAUROS, "4’07”"
@@ -2866,7 +2736,6 @@ mondata SPECIES_MAGIKARP, "Magikarp"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MAGIKARP_TM_DATA_0, SPECIES_MAGIKARP_TM_DATA_1, SPECIES_MAGIKARP_TM_DATA_2, SPECIES_MAGIKARP_TM_DATA_3
     mondexentry SPECIES_MAGIKARP, "An underpowered, pathetic Pokémon.\nIt may jump high on rare occasions,\nbut usually not more than seven feet."
     mondexclassification SPECIES_MAGIKARP, "Fish Pokémon"
     mondexheight SPECIES_MAGIKARP, "2’11”"
@@ -2888,7 +2757,6 @@ mondata SPECIES_GYARADOS, "Gyarados"
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GYARADOS_TM_DATA_0, SPECIES_GYARADOS_TM_DATA_1, SPECIES_GYARADOS_TM_DATA_2, SPECIES_GYARADOS_TM_DATA_3
     mondexentry SPECIES_GYARADOS, "They say that during past strife,\nGYARADOS would appear and leave\nblazing ruins in its wake."
     mondexclassification SPECIES_GYARADOS, "Atrocious Pokémon"
     mondexheight SPECIES_GYARADOS, "21’04”"
@@ -2910,7 +2778,6 @@ mondata SPECIES_LAPRAS, "Lapras"
     abilities ABILITY_WATER_ABSORB, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LAPRAS_TM_DATA_0, SPECIES_LAPRAS_TM_DATA_1, SPECIES_LAPRAS_TM_DATA_2, SPECIES_LAPRAS_TM_DATA_3
     mondexentry SPECIES_LAPRAS, "They have gentle hearts. Because\nthey rarely fight, many have been\ncaught. Their number has dwindled."
     mondexclassification SPECIES_LAPRAS, "Transport Pokémon"
     mondexheight SPECIES_LAPRAS, "8’02”"
@@ -2932,7 +2799,6 @@ mondata SPECIES_DITTO, "Ditto"
     abilities ABILITY_LIMBER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_DITTO_TM_DATA_0, SPECIES_DITTO_TM_DATA_1, SPECIES_DITTO_TM_DATA_2, SPECIES_DITTO_TM_DATA_3
     mondexentry SPECIES_DITTO, "It can transform into anything.\nWhen it sleeps, it changes into a\nstone to avoid being attacked."
     mondexclassification SPECIES_DITTO, "Transform Pokémon"
     mondexheight SPECIES_DITTO, "1’00”"
@@ -2954,7 +2820,6 @@ mondata SPECIES_EEVEE, "Eevee"
     abilities ABILITY_RUN_AWAY, ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_EEVEE_TM_DATA_0, SPECIES_EEVEE_TM_DATA_1, SPECIES_EEVEE_TM_DATA_2, SPECIES_EEVEE_TM_DATA_3
     mondexentry SPECIES_EEVEE, "It has the ability to alter the\ncomposition of its body to suit its\nsurrounding environment."
     mondexclassification SPECIES_EEVEE, "Evolution Pokémon"
     mondexheight SPECIES_EEVEE, "1’00”"
@@ -2976,7 +2841,6 @@ mondata SPECIES_VAPOREON, "Vaporeon"
     abilities ABILITY_WATER_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_VAPOREON_TM_DATA_0, SPECIES_VAPOREON_TM_DATA_1, SPECIES_VAPOREON_TM_DATA_2, SPECIES_VAPOREON_TM_DATA_3
     mondexentry SPECIES_VAPOREON, "When VAPOREON’s fins begin to\nvibrate, it is a sign that rain\nwill come within a few hours."
     mondexclassification SPECIES_VAPOREON, "Bubble Jet Pokémon"
     mondexheight SPECIES_VAPOREON, "3’03”"
@@ -2998,7 +2862,6 @@ mondata SPECIES_JOLTEON, "Jolteon"
     abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_JOLTEON_TM_DATA_0, SPECIES_JOLTEON_TM_DATA_1, SPECIES_JOLTEON_TM_DATA_2, SPECIES_JOLTEON_TM_DATA_3
     mondexentry SPECIES_JOLTEON, "It concentrates the weak electric\ncharges emitted by its cells and\nlaunches wicked lightning bolts."
     mondexclassification SPECIES_JOLTEON, "Lightning Pokémon"
     mondexheight SPECIES_JOLTEON, "2’07”"
@@ -3020,7 +2883,6 @@ mondata SPECIES_FLAREON, "Flareon"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_FLAREON_TM_DATA_0, SPECIES_FLAREON_TM_DATA_1, SPECIES_FLAREON_TM_DATA_2, SPECIES_FLAREON_TM_DATA_3
     mondexentry SPECIES_FLAREON, "It stores some of the air it inhales in\nits internal flame pouch, which heats it\nto over 3,000 degrees Fahrenheit."
     mondexclassification SPECIES_FLAREON, "Flame Pokémon"
     mondexheight SPECIES_FLAREON, "2’11”"
@@ -3042,7 +2904,6 @@ mondata SPECIES_PORYGON, "Porygon"
     abilities ABILITY_TRACE, ABILITY_DOWNLOAD
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_PORYGON_TM_DATA_0, SPECIES_PORYGON_TM_DATA_1, SPECIES_PORYGON_TM_DATA_2, SPECIES_PORYGON_TM_DATA_3
     mondexentry SPECIES_PORYGON, "It is a manmade Pokémon. Since it\ndoesn’t breathe, people are eager\nto try it in any environment."
     mondexclassification SPECIES_PORYGON, "Virtual Pokémon"
     mondexheight SPECIES_PORYGON, "2’07”"
@@ -3064,7 +2925,6 @@ mondata SPECIES_OMANYTE, "Omanyte"
     abilities ABILITY_SWIFT_SWIM, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_OMANYTE_TM_DATA_0, SPECIES_OMANYTE_TM_DATA_1, SPECIES_OMANYTE_TM_DATA_2, SPECIES_OMANYTE_TM_DATA_3
     mondexentry SPECIES_OMANYTE, "Revived from an ancient fossil,\nthis Pokémon uses air stored in its\nshell to sink and rise in water."
     mondexclassification SPECIES_OMANYTE, "Spiral Pokémon"
     mondexheight SPECIES_OMANYTE, "1’04”"
@@ -3086,7 +2946,6 @@ mondata SPECIES_OMASTAR, "Omastar"
     abilities ABILITY_SWIFT_SWIM, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_OMASTAR_TM_DATA_0, SPECIES_OMASTAR_TM_DATA_1, SPECIES_OMASTAR_TM_DATA_2, SPECIES_OMASTAR_TM_DATA_3
     mondexentry SPECIES_OMASTAR, "Apparently, it cracked SHELLDER’s\nshell with its sharp fangs and\nsucked out the insides."
     mondexclassification SPECIES_OMASTAR, "Spiral Pokémon"
     mondexheight SPECIES_OMASTAR, "3’03”"
@@ -3108,7 +2967,6 @@ mondata SPECIES_KABUTO, "Kabuto"
     abilities ABILITY_SWIFT_SWIM, ABILITY_BATTLE_ARMOR
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_KABUTO_TM_DATA_0, SPECIES_KABUTO_TM_DATA_1, SPECIES_KABUTO_TM_DATA_2, SPECIES_KABUTO_TM_DATA_3
     mondexentry SPECIES_KABUTO, "On rare occasions, some have been\nfound as fossils which they became\nwhile hiding on the ocean floor."
     mondexclassification SPECIES_KABUTO, "Shellfish Pokémon"
     mondexheight SPECIES_KABUTO, "1’08”"
@@ -3130,7 +2988,6 @@ mondata SPECIES_KABUTOPS, "Kabutops"
     abilities ABILITY_SWIFT_SWIM, ABILITY_BATTLE_ARMOR
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_KABUTOPS_TM_DATA_0, SPECIES_KABUTOPS_TM_DATA_1, SPECIES_KABUTOPS_TM_DATA_2, SPECIES_KABUTOPS_TM_DATA_3
     mondexentry SPECIES_KABUTOPS, "In the water, it tucks in its limbs\nto become more compact, then it\nwiggles its shell to swim fast."
     mondexclassification SPECIES_KABUTOPS, "Shellfish Pokémon"
     mondexheight SPECIES_KABUTOPS, "4’03”"
@@ -3152,7 +3009,6 @@ mondata SPECIES_AERODACTYL, "Aerodactyl"
     abilities ABILITY_ROCK_HEAD, ABILITY_PRESSURE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_AERODACTYL_TM_DATA_0, SPECIES_AERODACTYL_TM_DATA_1, SPECIES_AERODACTYL_TM_DATA_2, SPECIES_AERODACTYL_TM_DATA_3
     mondexentry SPECIES_AERODACTYL, "A vicious Pokémon from the distant\npast, it appears to have flown by\nspreading its wings and gliding."
     mondexclassification SPECIES_AERODACTYL, "Fossil Pokémon"
     mondexheight SPECIES_AERODACTYL, "5’11”"
@@ -3174,7 +3030,6 @@ mondata SPECIES_SNORLAX, "Snorlax"
     abilities ABILITY_IMMUNITY, ABILITY_THICK_FAT
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SNORLAX_TM_DATA_0, SPECIES_SNORLAX_TM_DATA_1, SPECIES_SNORLAX_TM_DATA_2, SPECIES_SNORLAX_TM_DATA_3
     mondexentry SPECIES_SNORLAX, "What sounds like its cry may\nactually be its snores or the\nrumblings of its hungry belly."
     mondexclassification SPECIES_SNORLAX, "Sleeping Pokémon"
     mondexheight SPECIES_SNORLAX, "6’11”"
@@ -3196,7 +3051,6 @@ mondata SPECIES_ARTICUNO, "Articuno"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ARTICUNO_TM_DATA_0, SPECIES_ARTICUNO_TM_DATA_1, SPECIES_ARTICUNO_TM_DATA_2, SPECIES_ARTICUNO_TM_DATA_3
     mondexentry SPECIES_ARTICUNO, "The magnificent, seemingly translucent\nwings of this legendary bird Pokémon\nare said to be made of ice."
     mondexclassification SPECIES_ARTICUNO, "Freeze Pokémon"
     mondexheight SPECIES_ARTICUNO, "5’07”"
@@ -3218,7 +3072,6 @@ mondata SPECIES_ZAPDOS, "Zapdos"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ZAPDOS_TM_DATA_0, SPECIES_ZAPDOS_TM_DATA_1, SPECIES_ZAPDOS_TM_DATA_2, SPECIES_ZAPDOS_TM_DATA_3
     mondexentry SPECIES_ZAPDOS, "This legendary bird Pokémon\ncauses savage thunderstorms by\nflapping its glittering wings."
     mondexclassification SPECIES_ZAPDOS, "Electric Pokémon"
     mondexheight SPECIES_ZAPDOS, "5’03”"
@@ -3240,7 +3093,6 @@ mondata SPECIES_MOLTRES, "Moltres"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MOLTRES_TM_DATA_0, SPECIES_MOLTRES_TM_DATA_1, SPECIES_MOLTRES_TM_DATA_2, SPECIES_MOLTRES_TM_DATA_3
     mondexentry SPECIES_MOLTRES, "This legendary Pokémon scatters\nembers with every flap of its wings.\nIt is a thrilling sight to behold."
     mondexclassification SPECIES_MOLTRES, "Flame Pokémon"
     mondexheight SPECIES_MOLTRES, "6’07”"
@@ -3262,7 +3114,6 @@ mondata SPECIES_DRATINI, "Dratini"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DRATINI_TM_DATA_0, SPECIES_DRATINI_TM_DATA_1, SPECIES_DRATINI_TM_DATA_2, SPECIES_DRATINI_TM_DATA_3
     mondexentry SPECIES_DRATINI, "It is born large to start with.\nIt repeatedly sheds its skin as it\nsteadily grows longer."
     mondexclassification SPECIES_DRATINI, "Dragon Pokémon"
     mondexheight SPECIES_DRATINI, "5’11”"
@@ -3284,7 +3135,6 @@ mondata SPECIES_DRAGONAIR, "Dragonair"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DRAGONAIR_TM_DATA_0, SPECIES_DRAGONAIR_TM_DATA_1, SPECIES_DRAGONAIR_TM_DATA_2, SPECIES_DRAGONAIR_TM_DATA_3
     mondexentry SPECIES_DRAGONAIR, "They say that if it emits an aura\nfrom its whole body, the weather\nwill begin to change instantly."
     mondexclassification SPECIES_DRAGONAIR, "Dragon Pokémon"
     mondexheight SPECIES_DRAGONAIR, "13’01”"
@@ -3306,7 +3156,6 @@ mondata SPECIES_DRAGONITE, "Dragonite"
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DRAGONITE_TM_DATA_0, SPECIES_DRAGONITE_TM_DATA_1, SPECIES_DRAGONITE_TM_DATA_2, SPECIES_DRAGONITE_TM_DATA_3
     mondexentry SPECIES_DRAGONITE, "It is said that this Pokémon constantly\nflies over the immense seas\nand rescues drowning people."
     mondexclassification SPECIES_DRAGONITE, "Dragon Pokémon"
     mondexheight SPECIES_DRAGONITE, "7’03”"
@@ -3328,7 +3177,6 @@ mondata SPECIES_MEWTWO, "Mewtwo"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MEWTWO_TM_DATA_0, SPECIES_MEWTWO_TM_DATA_1, SPECIES_MEWTWO_TM_DATA_2, SPECIES_MEWTWO_TM_DATA_3
     mondexentry SPECIES_MEWTWO, "Because its battle abilities were\nraised to the ultimate level,\nit thinks only of defeating its foes."
     mondexclassification SPECIES_MEWTWO, "Genetic Pokémon"
     mondexheight SPECIES_MEWTWO, "6’07”"
@@ -3350,7 +3198,6 @@ mondata SPECIES_MEW, "Mew"
     abilities ABILITY_SYNCHRONIZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MEW_TM_DATA_0, SPECIES_MEW_TM_DATA_1, SPECIES_MEW_TM_DATA_2, SPECIES_MEW_TM_DATA_3
     mondexentry SPECIES_MEW, "Apparently, it appears only to\nthose people who are pure of heart\nand have a strong desire to see it."
     mondexclassification SPECIES_MEW, "New Species Pokémon"
     mondexheight SPECIES_MEW, "1’04”"
@@ -3372,7 +3219,6 @@ mondata SPECIES_CHIKORITA, "Chikorita"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CHIKORITA_TM_DATA_0, SPECIES_CHIKORITA_TM_DATA_1, SPECIES_CHIKORITA_TM_DATA_2, SPECIES_CHIKORITA_TM_DATA_3
     mondexentry SPECIES_CHIKORITA, "A sweet aroma gently wafts from\nthe leaf on its head. It is docile\nand loves to soak up sunrays."
     mondexclassification SPECIES_CHIKORITA, "Leaf Pokémon"
     mondexheight SPECIES_CHIKORITA, "2’11”"
@@ -3394,7 +3240,6 @@ mondata SPECIES_BAYLEEF, "Bayleef"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BAYLEEF_TM_DATA_0, SPECIES_BAYLEEF_TM_DATA_1, SPECIES_BAYLEEF_TM_DATA_2, SPECIES_BAYLEEF_TM_DATA_3
     mondexentry SPECIES_BAYLEEF, "The scent of spices comes from\naround its neck. Somehow,\nsniffing it makes you want to fight."
     mondexclassification SPECIES_BAYLEEF, "Leaf Pokémon"
     mondexheight SPECIES_BAYLEEF, "3’11”"
@@ -3416,7 +3261,6 @@ mondata SPECIES_MEGANIUM, "Meganium"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_MEGANIUM_TM_DATA_0, SPECIES_MEGANIUM_TM_DATA_1, SPECIES_MEGANIUM_TM_DATA_2, SPECIES_MEGANIUM_TM_DATA_3
     mondexentry SPECIES_MEGANIUM, "The aroma that rises from its\npetals contains a substance that\ncalms aggressive feelings."
     mondexclassification SPECIES_MEGANIUM, "Herb Pokémon"
     mondexheight SPECIES_MEGANIUM, "5’11”"
@@ -3438,7 +3282,6 @@ mondata SPECIES_CYNDAQUIL, "Cyndaquil"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_CYNDAQUIL_TM_DATA_0, SPECIES_CYNDAQUIL_TM_DATA_1, SPECIES_CYNDAQUIL_TM_DATA_2, SPECIES_CYNDAQUIL_TM_DATA_3
     mondexentry SPECIES_CYNDAQUIL, "It is timid, and always curls itself\nup in a ball. If attacked, it\nflares up its back for protection."
     mondexclassification SPECIES_CYNDAQUIL, "Fire Mouse Pokémon"
     mondexheight SPECIES_CYNDAQUIL, "1’08”"
@@ -3460,7 +3303,6 @@ mondata SPECIES_QUILAVA, "Quilava"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_QUILAVA_TM_DATA_0, SPECIES_QUILAVA_TM_DATA_1, SPECIES_QUILAVA_TM_DATA_2, SPECIES_QUILAVA_TM_DATA_3
     mondexentry SPECIES_QUILAVA, "Be careful if it turns its back\nduring battle. It means that it will\nattack with the fire on its back."
     mondexclassification SPECIES_QUILAVA, "Volcano Pokémon"
     mondexheight SPECIES_QUILAVA, "2’11”"
@@ -3482,7 +3324,6 @@ mondata SPECIES_TYPHLOSION, "Typhlosion"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_TYPHLOSION_TM_DATA_0, SPECIES_TYPHLOSION_TM_DATA_1, SPECIES_TYPHLOSION_TM_DATA_2, SPECIES_TYPHLOSION_TM_DATA_3
     mondexentry SPECIES_TYPHLOSION, "If its rage peaks, it becomes so\nhot that anything that touches it\nwill instantly go up in flames."
     mondexclassification SPECIES_TYPHLOSION, "Volcano Pokémon"
     mondexheight SPECIES_TYPHLOSION, "5’07”"
@@ -3504,7 +3345,6 @@ mondata SPECIES_TOTODILE, "Totodile"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TOTODILE_TM_DATA_0, SPECIES_TOTODILE_TM_DATA_1, SPECIES_TOTODILE_TM_DATA_2, SPECIES_TOTODILE_TM_DATA_3
     mondexentry SPECIES_TOTODILE, "Its powerful, well-developed jaws\nare capable of crushing anything.\nEven its Trainer must be careful."
     mondexclassification SPECIES_TOTODILE, "Big Jaw Pokémon"
     mondexheight SPECIES_TOTODILE, "2’00”"
@@ -3526,7 +3366,6 @@ mondata SPECIES_CROCONAW, "Croconaw"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CROCONAW_TM_DATA_0, SPECIES_CROCONAW_TM_DATA_1, SPECIES_CROCONAW_TM_DATA_2, SPECIES_CROCONAW_TM_DATA_3
     mondexentry SPECIES_CROCONAW, "If it loses a fang, a new one\ngrows back in its place. There are\nalways 48 fangs lining its mouth."
     mondexclassification SPECIES_CROCONAW, "Big Jaw Pokémon"
     mondexheight SPECIES_CROCONAW, "3’07”"
@@ -3548,7 +3387,6 @@ mondata SPECIES_FERALIGATR, "Feraligatr"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_FERALIGATR_TM_DATA_0, SPECIES_FERALIGATR_TM_DATA_1, SPECIES_FERALIGATR_TM_DATA_2, SPECIES_FERALIGATR_TM_DATA_3
     mondexentry SPECIES_FERALIGATR, "When it bites with its massive and\npowerful jaws, it shakes its head\nand savagely tears its victim up."
     mondexclassification SPECIES_FERALIGATR, "Big Jaw Pokémon"
     mondexheight SPECIES_FERALIGATR, "7’07”"
@@ -3570,7 +3408,6 @@ mondata SPECIES_SENTRET, "Sentret"
     abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SENTRET_TM_DATA_0, SPECIES_SENTRET_TM_DATA_1, SPECIES_SENTRET_TM_DATA_2, SPECIES_SENTRET_TM_DATA_3
     mondexentry SPECIES_SENTRET, "A very cautious Pokémon, it raises\nitself up using its tail to get a\nbetter view of its surroundings."
     mondexclassification SPECIES_SENTRET, "Scout Pokémon"
     mondexheight SPECIES_SENTRET, "2’07”"
@@ -3592,7 +3429,6 @@ mondata SPECIES_FURRET, "Furret"
     abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_FURRET_TM_DATA_0, SPECIES_FURRET_TM_DATA_1, SPECIES_FURRET_TM_DATA_2, SPECIES_FURRET_TM_DATA_3
     mondexentry SPECIES_FURRET, "It makes a nest to suit its long and\nskinny body. The nest is impossible\nfor other Pokémon to enter."
     mondexclassification SPECIES_FURRET, "Long Body Pokémon"
     mondexheight SPECIES_FURRET, "5’11”"
@@ -3614,7 +3450,6 @@ mondata SPECIES_HOOTHOOT, "Hoothoot"
     abilities ABILITY_INSOMNIA, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HOOTHOOT_TM_DATA_0, SPECIES_HOOTHOOT_TM_DATA_1, SPECIES_HOOTHOOT_TM_DATA_2, SPECIES_HOOTHOOT_TM_DATA_3
     mondexentry SPECIES_HOOTHOOT, "It always stands on one foot.\nIt changes feet so fast,\nthe movement can rarely be seen."
     mondexclassification SPECIES_HOOTHOOT, "Owl Pokémon"
     mondexheight SPECIES_HOOTHOOT, "2’04”"
@@ -3636,7 +3471,6 @@ mondata SPECIES_NOCTOWL, "Noctowl"
     abilities ABILITY_INSOMNIA, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NOCTOWL_TM_DATA_0, SPECIES_NOCTOWL_TM_DATA_1, SPECIES_NOCTOWL_TM_DATA_2, SPECIES_NOCTOWL_TM_DATA_3
     mondexentry SPECIES_NOCTOWL, "Its eyes are specially adapted.\nThey concentrate even faint light\nand enable it to see in the dark."
     mondexclassification SPECIES_NOCTOWL, "Owl Pokémon"
     mondexheight SPECIES_NOCTOWL, "5’03”"
@@ -3658,7 +3492,6 @@ mondata SPECIES_LEDYBA, "Ledyba"
     abilities ABILITY_SWARM, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_LEDYBA_TM_DATA_0, SPECIES_LEDYBA_TM_DATA_1, SPECIES_LEDYBA_TM_DATA_2, SPECIES_LEDYBA_TM_DATA_3
     mondexentry SPECIES_LEDYBA, "It is very timid. It will be afraid\nto move if it is alone. But it will\nbe active if it is in a group."
     mondexclassification SPECIES_LEDYBA, "Five Star Pokémon"
     mondexheight SPECIES_LEDYBA, "3’03”"
@@ -3680,7 +3513,6 @@ mondata SPECIES_LEDIAN, "Ledian"
     abilities ABILITY_SWARM, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_LEDIAN_TM_DATA_0, SPECIES_LEDIAN_TM_DATA_1, SPECIES_LEDIAN_TM_DATA_2, SPECIES_LEDIAN_TM_DATA_3
     mondexentry SPECIES_LEDIAN, "When the stars flicker in the\nnight sky, it flutters about,\nscattering a glowing powder."
     mondexclassification SPECIES_LEDIAN, "Five Star Pokémon"
     mondexheight SPECIES_LEDIAN, "4’07”"
@@ -3702,7 +3534,6 @@ mondata SPECIES_SPINARAK, "Spinarak"
     abilities ABILITY_SWARM, ABILITY_INSOMNIA
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SPINARAK_TM_DATA_0, SPECIES_SPINARAK_TM_DATA_1, SPECIES_SPINARAK_TM_DATA_2, SPECIES_SPINARAK_TM_DATA_3
     mondexentry SPECIES_SPINARAK, "It lies still in the same pose for\ndays in its web, waiting for its\nunsuspecting prey to wander close."
     mondexclassification SPECIES_SPINARAK, "String Spit Pokémon"
     mondexheight SPECIES_SPINARAK, "1’08”"
@@ -3724,7 +3555,6 @@ mondata SPECIES_ARIADOS, "Ariados"
     abilities ABILITY_SWARM, ABILITY_INSOMNIA
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ARIADOS_TM_DATA_0, SPECIES_ARIADOS_TM_DATA_1, SPECIES_ARIADOS_TM_DATA_2, SPECIES_ARIADOS_TM_DATA_3
     mondexentry SPECIES_ARIADOS, "It spins string not only from its\nrear but also from its mouth. It’s\nhard to tell which end is which."
     mondexclassification SPECIES_ARIADOS, "Long Leg Pokémon"
     mondexheight SPECIES_ARIADOS, "3’07”"
@@ -3746,7 +3576,6 @@ mondata SPECIES_CROBAT, "Crobat"
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_CROBAT_TM_DATA_0, SPECIES_CROBAT_TM_DATA_1, SPECIES_CROBAT_TM_DATA_2, SPECIES_CROBAT_TM_DATA_3
     mondexentry SPECIES_CROBAT, "It flies so silently through the\ndark on its four wings that it may\nnot be noticed even when nearby."
     mondexclassification SPECIES_CROBAT, "Bat Pokémon"
     mondexheight SPECIES_CROBAT, "5’11”"
@@ -3768,7 +3597,6 @@ mondata SPECIES_CHINCHOU, "Chinchou"
     abilities ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CHINCHOU_TM_DATA_0, SPECIES_CHINCHOU_TM_DATA_1, SPECIES_CHINCHOU_TM_DATA_2, SPECIES_CHINCHOU_TM_DATA_3
     mondexentry SPECIES_CHINCHOU, "It shoots positive and negative\nelectricity between the tips of its\ntwo antennae and zaps its enemies."
     mondexclassification SPECIES_CHINCHOU, "Angler Pokémon"
     mondexheight SPECIES_CHINCHOU, "1’08”"
@@ -3790,7 +3618,6 @@ mondata SPECIES_LANTURN, "Lanturn"
     abilities ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LANTURN_TM_DATA_0, SPECIES_LANTURN_TM_DATA_1, SPECIES_LANTURN_TM_DATA_2, SPECIES_LANTURN_TM_DATA_3
     mondexentry SPECIES_LANTURN, "The light it emits is so bright that\nit can illuminate the sea’s surface\nfrom a depth of over three miles."
     mondexclassification SPECIES_LANTURN, "Light Pokémon"
     mondexheight SPECIES_LANTURN, "3’11”"
@@ -3812,7 +3639,6 @@ mondata SPECIES_PICHU, "Pichu"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PICHU_TM_DATA_0, SPECIES_PICHU_TM_DATA_1, SPECIES_PICHU_TM_DATA_2, SPECIES_PICHU_TM_DATA_3
     mondexentry SPECIES_PICHU, "It is not yet skilled at storing\nelectricity. It may send out a\njolt if amused or startled."
     mondexclassification SPECIES_PICHU, "Tiny Mouse Pokémon"
     mondexheight SPECIES_PICHU, "1’00”"
@@ -3834,7 +3660,6 @@ mondata SPECIES_CLEFFA, "Cleffa"
     abilities ABILITY_CUTE_CHARM, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_CLEFFA_TM_DATA_0, SPECIES_CLEFFA_TM_DATA_1, SPECIES_CLEFFA_TM_DATA_2, SPECIES_CLEFFA_TM_DATA_3
     mondexentry SPECIES_CLEFFA, "Because of its unusual, starlike\nsilhouette, people believe that\nit came here on a meteor."
     mondexclassification SPECIES_CLEFFA, "Star Shape Pokémon"
     mondexheight SPECIES_CLEFFA, "1’00”"
@@ -3856,7 +3681,6 @@ mondata SPECIES_IGGLYBUFF, "Igglybuff"
     abilities ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_IGGLYBUFF_TM_DATA_0, SPECIES_IGGLYBUFF_TM_DATA_1, SPECIES_IGGLYBUFF_TM_DATA_2, SPECIES_IGGLYBUFF_TM_DATA_3
     mondexentry SPECIES_IGGLYBUFF, "It has a very soft body. If it\nstarts to roll, it will bounce all\nover and be impossible to stop."
     mondexclassification SPECIES_IGGLYBUFF, "Balloon Pokémon"
     mondexheight SPECIES_IGGLYBUFF, "1’00”"
@@ -3878,7 +3702,6 @@ mondata SPECIES_TOGEPI, "Togepi"
     abilities ABILITY_HUSTLE, ABILITY_SERENE_GRACE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_TOGEPI_TM_DATA_0, SPECIES_TOGEPI_TM_DATA_1, SPECIES_TOGEPI_TM_DATA_2, SPECIES_TOGEPI_TM_DATA_3
     mondexentry SPECIES_TOGEPI, "The shell seems to be filled with\njoy. It is said that it will share\ngood luck when treated kindly."
     mondexclassification SPECIES_TOGEPI, "Spike Ball Pokémon"
     mondexheight SPECIES_TOGEPI, "1’00”"
@@ -3900,7 +3723,6 @@ mondata SPECIES_TOGETIC, "Togetic"
     abilities ABILITY_HUSTLE, ABILITY_SERENE_GRACE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_TOGETIC_TM_DATA_0, SPECIES_TOGETIC_TM_DATA_1, SPECIES_TOGETIC_TM_DATA_2, SPECIES_TOGETIC_TM_DATA_3
     mondexentry SPECIES_TOGETIC, "They say that it will appear before\nkindhearted, caring people and\nshower them with happiness."
     mondexclassification SPECIES_TOGETIC, "Happiness Pokémon"
     mondexheight SPECIES_TOGETIC, "2’00”"
@@ -3922,7 +3744,6 @@ mondata SPECIES_NATU, "Natu"
     abilities ABILITY_SYNCHRONIZE, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NATU_TM_DATA_0, SPECIES_NATU_TM_DATA_1, SPECIES_NATU_TM_DATA_2, SPECIES_NATU_TM_DATA_3
     mondexentry SPECIES_NATU, "Because its wings aren’t yet fully\ngrown, it has to hop to get around.\nIt is always staring at something."
     mondexclassification SPECIES_NATU, "Tiny Bird Pokémon"
     mondexheight SPECIES_NATU, "0’08”"
@@ -3944,7 +3765,6 @@ mondata SPECIES_XATU, "Xatu"
     abilities ABILITY_SYNCHRONIZE, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_XATU_TM_DATA_0, SPECIES_XATU_TM_DATA_1, SPECIES_XATU_TM_DATA_2, SPECIES_XATU_TM_DATA_3
     mondexentry SPECIES_XATU, "They say that it stays still and\nquiet because it is seeing both the\npast and future at the same time."
     mondexclassification SPECIES_XATU, "Mystic Pokémon"
     mondexheight SPECIES_XATU, "4’11”"
@@ -3966,7 +3786,6 @@ mondata SPECIES_MAREEP, "Mareep"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_MAREEP_TM_DATA_0, SPECIES_MAREEP_TM_DATA_1, SPECIES_MAREEP_TM_DATA_2, SPECIES_MAREEP_TM_DATA_3
     mondexentry SPECIES_MAREEP, "If static electricity builds in its\nbody, its fleece doubles in volume.\nTouching it will shock you."
     mondexclassification SPECIES_MAREEP, "Wool Pokémon"
     mondexheight SPECIES_MAREEP, "2’00”"
@@ -3988,7 +3807,6 @@ mondata SPECIES_FLAAFFY, "Flaaffy"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_FLAAFFY_TM_DATA_0, SPECIES_FLAAFFY_TM_DATA_1, SPECIES_FLAAFFY_TM_DATA_2, SPECIES_FLAAFFY_TM_DATA_3
     mondexentry SPECIES_FLAAFFY, "As a result of storing too much\nelectricity, it developed patches\nwhere even downy wool won’t grow."
     mondexclassification SPECIES_FLAAFFY, "Wool Pokémon"
     mondexheight SPECIES_FLAAFFY, "2’07”"
@@ -4010,7 +3828,6 @@ mondata SPECIES_AMPHAROS, "Ampharos"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_AMPHAROS_TM_DATA_0, SPECIES_AMPHAROS_TM_DATA_1, SPECIES_AMPHAROS_TM_DATA_2, SPECIES_AMPHAROS_TM_DATA_3
     mondexentry SPECIES_AMPHAROS, "The tail’s tip shines brightly and\ncan be seen from far away. It acts\nas a beacon for lost people."
     mondexclassification SPECIES_AMPHAROS, "Light Pokémon"
     mondexheight SPECIES_AMPHAROS, "4’07”"
@@ -4032,7 +3849,6 @@ mondata SPECIES_BELLOSSOM, "Bellossom"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BELLOSSOM_TM_DATA_0, SPECIES_BELLOSSOM_TM_DATA_1, SPECIES_BELLOSSOM_TM_DATA_2, SPECIES_BELLOSSOM_TM_DATA_3
     mondexentry SPECIES_BELLOSSOM, "BELLOSSOM gather at times and seem\nto dance. They say that the dance\nis a ritual to summon the sun."
     mondexclassification SPECIES_BELLOSSOM, "Flower Pokémon"
     mondexheight SPECIES_BELLOSSOM, "1’04”"
@@ -4054,7 +3870,6 @@ mondata SPECIES_MARILL, "Marill"
     abilities ABILITY_THICK_FAT, ABILITY_HUGE_POWER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MARILL_TM_DATA_0, SPECIES_MARILL_TM_DATA_1, SPECIES_MARILL_TM_DATA_2, SPECIES_MARILL_TM_DATA_3
     mondexentry SPECIES_MARILL, "The tip of its tail, which contains\noil that is lighter than water,\nlets it swim without drowning."
     mondexclassification SPECIES_MARILL, "Aqua Mouse Pokémon"
     mondexheight SPECIES_MARILL, "1’04”"
@@ -4076,7 +3891,6 @@ mondata SPECIES_AZUMARILL, "Azumarill"
     abilities ABILITY_THICK_FAT, ABILITY_HUGE_POWER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_AZUMARILL_TM_DATA_0, SPECIES_AZUMARILL_TM_DATA_1, SPECIES_AZUMARILL_TM_DATA_2, SPECIES_AZUMARILL_TM_DATA_3
     mondexentry SPECIES_AZUMARILL, "By keeping still and listening\nintently, it can tell what is in even\nwild, fast-moving rivers."
     mondexclassification SPECIES_AZUMARILL, "Aqua Rabbit Pokémon"
     mondexheight SPECIES_AZUMARILL, "2’07”"
@@ -4098,7 +3912,6 @@ mondata SPECIES_SUDOWOODO, "Sudowoodo"
     abilities ABILITY_STURDY, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SUDOWOODO_TM_DATA_0, SPECIES_SUDOWOODO_TM_DATA_1, SPECIES_SUDOWOODO_TM_DATA_2, SPECIES_SUDOWOODO_TM_DATA_3
     mondexentry SPECIES_SUDOWOODO, "Although it always pretends to be a\ntree, its composition appears more\nsimilar to rock than to vegetation."
     mondexclassification SPECIES_SUDOWOODO, "Imitation Pokémon"
     mondexheight SPECIES_SUDOWOODO, "3’11”"
@@ -4120,7 +3933,6 @@ mondata SPECIES_POLITOED, "Politoed"
     abilities ABILITY_WATER_ABSORB, ABILITY_DAMP
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_POLITOED_TM_DATA_0, SPECIES_POLITOED_TM_DATA_1, SPECIES_POLITOED_TM_DATA_2, SPECIES_POLITOED_TM_DATA_3
     mondexentry SPECIES_POLITOED, "If POLIWAG and POLIWHIRL hear its\nechoing cry, they respond by\ngathering from far and wide."
     mondexclassification SPECIES_POLITOED, "Frog Pokémon"
     mondexheight SPECIES_POLITOED, "3’07”"
@@ -4142,7 +3954,6 @@ mondata SPECIES_HOPPIP, "Hoppip"
     abilities ABILITY_CHLOROPHYLL, ABILITY_LEAF_GUARD
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_HOPPIP_TM_DATA_0, SPECIES_HOPPIP_TM_DATA_1, SPECIES_HOPPIP_TM_DATA_2, SPECIES_HOPPIP_TM_DATA_3
     mondexentry SPECIES_HOPPIP, "To keep from being blown away by\nthe wind, they gather in clusters.\nBut they do enjoy gentle breezes."
     mondexclassification SPECIES_HOPPIP, "Cottonweed Pokémon"
     mondexheight SPECIES_HOPPIP, "1’04”"
@@ -4164,7 +3975,6 @@ mondata SPECIES_SKIPLOOM, "Skiploom"
     abilities ABILITY_CHLOROPHYLL, ABILITY_LEAF_GUARD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SKIPLOOM_TM_DATA_0, SPECIES_SKIPLOOM_TM_DATA_1, SPECIES_SKIPLOOM_TM_DATA_2, SPECIES_SKIPLOOM_TM_DATA_3
     mondexentry SPECIES_SKIPLOOM, "The bloom on top of its head opens\nand closes as the temperature\nfluctuates up and down."
     mondexclassification SPECIES_SKIPLOOM, "Cottonweed Pokémon"
     mondexheight SPECIES_SKIPLOOM, "2’00”"
@@ -4186,7 +3996,6 @@ mondata SPECIES_JUMPLUFF, "Jumpluff"
     abilities ABILITY_CHLOROPHYLL, ABILITY_LEAF_GUARD
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_JUMPLUFF_TM_DATA_0, SPECIES_JUMPLUFF_TM_DATA_1, SPECIES_JUMPLUFF_TM_DATA_2, SPECIES_JUMPLUFF_TM_DATA_3
     mondexentry SPECIES_JUMPLUFF, "Once it catches the wind, it deftly\ncontrols its cotton-puff spores--\nit can even float around the world."
     mondexclassification SPECIES_JUMPLUFF, "Cottonweed Pokémon"
     mondexheight SPECIES_JUMPLUFF, "2’07”"
@@ -4208,7 +4017,6 @@ mondata SPECIES_AIPOM, "Aipom"
     abilities ABILITY_RUN_AWAY, ABILITY_PICKUP
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_AIPOM_TM_DATA_0, SPECIES_AIPOM_TM_DATA_1, SPECIES_AIPOM_TM_DATA_2, SPECIES_AIPOM_TM_DATA_3
     mondexentry SPECIES_AIPOM, "Its tail is so powerful that it can\nuse it to grab a tree branch and\nhold itself up in the air."
     mondexclassification SPECIES_AIPOM, "Long Tail Pokémon"
     mondexheight SPECIES_AIPOM, "2’07”"
@@ -4230,7 +4038,6 @@ mondata SPECIES_SUNKERN, "Sunkern"
     abilities ABILITY_CHLOROPHYLL, ABILITY_SOLAR_POWER
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SUNKERN_TM_DATA_0, SPECIES_SUNKERN_TM_DATA_1, SPECIES_SUNKERN_TM_DATA_2, SPECIES_SUNKERN_TM_DATA_3
     mondexentry SPECIES_SUNKERN, "It may plummet from the sky.\nIf attacked by a SPEAROW,\nit will violently shake its leaves."
     mondexclassification SPECIES_SUNKERN, "Seed Pokémon"
     mondexheight SPECIES_SUNKERN, "1’00”"
@@ -4252,7 +4059,6 @@ mondata SPECIES_SUNFLORA, "Sunflora"
     abilities ABILITY_CHLOROPHYLL, ABILITY_SOLAR_POWER
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SUNFLORA_TM_DATA_0, SPECIES_SUNFLORA_TM_DATA_1, SPECIES_SUNFLORA_TM_DATA_2, SPECIES_SUNFLORA_TM_DATA_3
     mondexentry SPECIES_SUNFLORA, "It converts sunlight into energy.\nIn the darkness after sunset, it\ncloses its petals and becomes still."
     mondexclassification SPECIES_SUNFLORA, "Sun Pokémon"
     mondexheight SPECIES_SUNFLORA, "2’07”"
@@ -4274,7 +4080,6 @@ mondata SPECIES_YANMA, "Yanma"
     abilities ABILITY_SPEED_BOOST, ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_YANMA_TM_DATA_0, SPECIES_YANMA_TM_DATA_1, SPECIES_YANMA_TM_DATA_2, SPECIES_YANMA_TM_DATA_3
     mondexentry SPECIES_YANMA, "If it flaps its wings really fast,\nit can generate shock waves that\nwill shatter windows in the area."
     mondexclassification SPECIES_YANMA, "Clear Wing Pokémon"
     mondexheight SPECIES_YANMA, "3’11”"
@@ -4296,7 +4101,6 @@ mondata SPECIES_WOOPER, "Wooper"
     abilities ABILITY_DAMP, ABILITY_WATER_ABSORB
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WOOPER_TM_DATA_0, SPECIES_WOOPER_TM_DATA_1, SPECIES_WOOPER_TM_DATA_2, SPECIES_WOOPER_TM_DATA_3
     mondexentry SPECIES_WOOPER, "This Pokémon lives in cold water.\nIt will leave the water to search\nfor food when it gets cold outside."
     mondexclassification SPECIES_WOOPER, "Water Fish Pokémon"
     mondexheight SPECIES_WOOPER, "1’04”"
@@ -4318,7 +4122,6 @@ mondata SPECIES_QUAGSIRE, "Quagsire"
     abilities ABILITY_DAMP, ABILITY_WATER_ABSORB
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_QUAGSIRE_TM_DATA_0, SPECIES_QUAGSIRE_TM_DATA_1, SPECIES_QUAGSIRE_TM_DATA_2, SPECIES_QUAGSIRE_TM_DATA_3
     mondexentry SPECIES_QUAGSIRE, "This carefree Pokémon has an\neasy-going nature. While swimming,\nit always bumps into boat hulls."
     mondexclassification SPECIES_QUAGSIRE, "Water Fish Pokémon"
     mondexheight SPECIES_QUAGSIRE, "4’07”"
@@ -4340,7 +4143,6 @@ mondata SPECIES_ESPEON, "Espeon"
     abilities ABILITY_SYNCHRONIZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_ESPEON_TM_DATA_0, SPECIES_ESPEON_TM_DATA_1, SPECIES_ESPEON_TM_DATA_2, SPECIES_ESPEON_TM_DATA_3
     mondexentry SPECIES_ESPEON, "It uses the fine hair that covers\nits body to sense air currents and\npredict its enemy’s actions."
     mondexclassification SPECIES_ESPEON, "Sun Pokémon"
     mondexheight SPECIES_ESPEON, "2’11”"
@@ -4362,7 +4164,6 @@ mondata SPECIES_UMBREON, "Umbreon"
     abilities ABILITY_SYNCHRONIZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_UMBREON_TM_DATA_0, SPECIES_UMBREON_TM_DATA_1, SPECIES_UMBREON_TM_DATA_2, SPECIES_UMBREON_TM_DATA_3
     mondexentry SPECIES_UMBREON, "When agitated, this Pokémon\nprotects itself by spraying\npoisonous sweat from its pores."
     mondexclassification SPECIES_UMBREON, "Moonlight Pokémon"
     mondexheight SPECIES_UMBREON, "3’03”"
@@ -4384,7 +4185,6 @@ mondata SPECIES_MURKROW, "Murkrow"
     abilities ABILITY_INSOMNIA, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_MURKROW_TM_DATA_0, SPECIES_MURKROW_TM_DATA_1, SPECIES_MURKROW_TM_DATA_2, SPECIES_MURKROW_TM_DATA_3
     mondexentry SPECIES_MURKROW, "Feared and loathed by many,\nit is believed to bring misfortune to\nall those who see it at night."
     mondexclassification SPECIES_MURKROW, "Darkness Pokémon"
     mondexheight SPECIES_MURKROW, "1’08”"
@@ -4406,7 +4206,6 @@ mondata SPECIES_SLOWKING, "Slowking"
     abilities ABILITY_OBLIVIOUS, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SLOWKING_TM_DATA_0, SPECIES_SLOWKING_TM_DATA_1, SPECIES_SLOWKING_TM_DATA_2, SPECIES_SLOWKING_TM_DATA_3
     mondexentry SPECIES_SLOWKING, "It has incredible intellect and\nintuition. Whatever the situation,\nit remains calm and collected."
     mondexclassification SPECIES_SLOWKING, "Royal Pokémon"
     mondexheight SPECIES_SLOWKING, "6’07”"
@@ -4428,7 +4227,6 @@ mondata SPECIES_MISDREAVUS, "Misdreavus"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MISDREAVUS_TM_DATA_0, SPECIES_MISDREAVUS_TM_DATA_1, SPECIES_MISDREAVUS_TM_DATA_2, SPECIES_MISDREAVUS_TM_DATA_3
     mondexentry SPECIES_MISDREAVUS, "It likes playing mischievous tricks,\nsuch as screaming and wailing to\nstartle people at night."
     mondexclassification SPECIES_MISDREAVUS, "Screech Pokémon"
     mondexheight SPECIES_MISDREAVUS, "2’04”"
@@ -4450,7 +4248,6 @@ mondata SPECIES_UNOWN, "Unown"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_UNOWN_TM_DATA_0, SPECIES_UNOWN_TM_DATA_1, SPECIES_UNOWN_TM_DATA_2, SPECIES_UNOWN_TM_DATA_3
     mondexentry SPECIES_UNOWN, "Their shapes look like hieroglyphs\non ancient tablets. It is said\nthat the two are somehow related."
     mondexclassification SPECIES_UNOWN, "Symbol Pokémon"
     mondexheight SPECIES_UNOWN, "1’08”"
@@ -4472,7 +4269,6 @@ mondata SPECIES_WOBBUFFET, "Wobbuffet"
     abilities ABILITY_SHADOW_TAG, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WOBBUFFET_TM_DATA_0, SPECIES_WOBBUFFET_TM_DATA_1, SPECIES_WOBBUFFET_TM_DATA_2, SPECIES_WOBBUFFET_TM_DATA_3
     mondexentry SPECIES_WOBBUFFET, "It hates light and shock. If\nattacked, it inflates its body to\nbuild up its counterstrike."
     mondexclassification SPECIES_WOBBUFFET, "Patient Pokémon"
     mondexheight SPECIES_WOBBUFFET, "4’03”"
@@ -4494,7 +4290,6 @@ mondata SPECIES_GIRAFARIG, "Girafarig"
     abilities ABILITY_INNER_FOCUS, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_GIRAFARIG_TM_DATA_0, SPECIES_GIRAFARIG_TM_DATA_1, SPECIES_GIRAFARIG_TM_DATA_2, SPECIES_GIRAFARIG_TM_DATA_3
     mondexentry SPECIES_GIRAFARIG, "Its tail has a small brain of its\nown. Beware! If you get close, it\nmay react to your scent by biting."
     mondexclassification SPECIES_GIRAFARIG, "Long Neck Pokémon"
     mondexheight SPECIES_GIRAFARIG, "4’11”"
@@ -4516,7 +4311,6 @@ mondata SPECIES_PINECO, "Pineco"
     abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_PINECO_TM_DATA_0, SPECIES_PINECO_TM_DATA_1, SPECIES_PINECO_TM_DATA_2, SPECIES_PINECO_TM_DATA_3
     mondexentry SPECIES_PINECO, "It likes to make its shell thicker\nby adding layers of tree bark. The\nadditional weight doesn’t bother it."
     mondexclassification SPECIES_PINECO, "Bagworm Pokémon"
     mondexheight SPECIES_PINECO, "2’00”"
@@ -4538,7 +4332,6 @@ mondata SPECIES_FORRETRESS, "Forretress"
     abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_FORRETRESS_TM_DATA_0, SPECIES_FORRETRESS_TM_DATA_1, SPECIES_FORRETRESS_TM_DATA_2, SPECIES_FORRETRESS_TM_DATA_3
     mondexentry SPECIES_FORRETRESS, "Its entire body is shielded by a\nsteel-hard shell. What lurks inside\nthis shell is a total mystery."
     mondexclassification SPECIES_FORRETRESS, "Bagworm Pokémon"
     mondexheight SPECIES_FORRETRESS, "3’11”"
@@ -4560,7 +4353,6 @@ mondata SPECIES_DUNSPARCE, "Dunsparce"
     abilities ABILITY_SERENE_GRACE, ABILITY_RUN_AWAY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_DUNSPARCE_TM_DATA_0, SPECIES_DUNSPARCE_TM_DATA_1, SPECIES_DUNSPARCE_TM_DATA_2, SPECIES_DUNSPARCE_TM_DATA_3
     mondexentry SPECIES_DUNSPARCE, "When spotted, this Pokémon escapes\nbackward by furiously boring into\nthe ground with its tail."
     mondexclassification SPECIES_DUNSPARCE, "Land Snake Pokémon"
     mondexheight SPECIES_DUNSPARCE, "4’11”"
@@ -4582,7 +4374,6 @@ mondata SPECIES_GLIGAR, "Gligar"
     abilities ABILITY_HYPER_CUTTER, ABILITY_SAND_VEIL
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GLIGAR_TM_DATA_0, SPECIES_GLIGAR_TM_DATA_1, SPECIES_GLIGAR_TM_DATA_2, SPECIES_GLIGAR_TM_DATA_3
     mondexentry SPECIES_GLIGAR, "It flies straight at its target’s\nface, then clamps down on the\nstartled victim to inject poison."
     mondexclassification SPECIES_GLIGAR, "Fly Scorpion Pokémon"
     mondexheight SPECIES_GLIGAR, "3’07”"
@@ -4604,7 +4395,6 @@ mondata SPECIES_STEELIX, "Steelix"
     abilities ABILITY_ROCK_HEAD, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_STEELIX_TM_DATA_0, SPECIES_STEELIX_TM_DATA_1, SPECIES_STEELIX_TM_DATA_2, SPECIES_STEELIX_TM_DATA_3
     mondexentry SPECIES_STEELIX, "Its body has been compressed deep\nunder the ground. As a result,\nit is even harder than a diamond."
     mondexclassification SPECIES_STEELIX, "Iron Snake Pokémon"
     mondexheight SPECIES_STEELIX, "30’02”"
@@ -4626,7 +4416,6 @@ mondata SPECIES_SNUBBULL, "Snubbull"
     abilities ABILITY_INTIMIDATE, ABILITY_RUN_AWAY
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SNUBBULL_TM_DATA_0, SPECIES_SNUBBULL_TM_DATA_1, SPECIES_SNUBBULL_TM_DATA_2, SPECIES_SNUBBULL_TM_DATA_3
     mondexentry SPECIES_SNUBBULL, "Although it looks frightening, it\nis actually kind and affectionate.\nIt is very popular among women."
     mondexclassification SPECIES_SNUBBULL, "Fairy Pokémon"
     mondexheight SPECIES_SNUBBULL, "2’00”"
@@ -4648,7 +4437,6 @@ mondata SPECIES_GRANBULL, "Granbull"
     abilities ABILITY_INTIMIDATE, ABILITY_QUICK_FEET
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GRANBULL_TM_DATA_0, SPECIES_GRANBULL_TM_DATA_1, SPECIES_GRANBULL_TM_DATA_2, SPECIES_GRANBULL_TM_DATA_3
     mondexentry SPECIES_GRANBULL, "It is actually timid and easily\nspooked. If attacked, it flails\nabout to fend off its attacker."
     mondexclassification SPECIES_GRANBULL, "Fairy Pokémon"
     mondexheight SPECIES_GRANBULL, "4’07”"
@@ -4670,7 +4458,6 @@ mondata SPECIES_QWILFISH, "Qwilfish"
     abilities ABILITY_POISON_POINT, ABILITY_SWIFT_SWIM
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_QWILFISH_TM_DATA_0, SPECIES_QWILFISH_TM_DATA_1, SPECIES_QWILFISH_TM_DATA_2, SPECIES_QWILFISH_TM_DATA_3
     mondexentry SPECIES_QWILFISH, "To fire its poison spikes, it must\ninflate its body by drinking over\n2.6 gallons of water all at once."
     mondexclassification SPECIES_QWILFISH, "Balloon Pokémon"
     mondexheight SPECIES_QWILFISH, "1’08”"
@@ -4692,7 +4479,6 @@ mondata SPECIES_SCIZOR, "Scizor"
     abilities ABILITY_SWARM, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SCIZOR_TM_DATA_0, SPECIES_SCIZOR_TM_DATA_1, SPECIES_SCIZOR_TM_DATA_2, SPECIES_SCIZOR_TM_DATA_3
     mondexentry SPECIES_SCIZOR, "It swings its eye-patterned pincers\nup to scare its foes. This makes\nit look like it has three heads."
     mondexclassification SPECIES_SCIZOR, "Pincer Pokémon"
     mondexheight SPECIES_SCIZOR, "5’11”"
@@ -4714,7 +4500,6 @@ mondata SPECIES_SHUCKLE, "Shuckle"
     abilities ABILITY_STURDY, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SHUCKLE_TM_DATA_0, SPECIES_SHUCKLE_TM_DATA_1, SPECIES_SHUCKLE_TM_DATA_2, SPECIES_SHUCKLE_TM_DATA_3
     mondexentry SPECIES_SHUCKLE, "The berries it stores in its\nvase-like shell decompose and\nbecome a gooey liquid."
     mondexclassification SPECIES_SHUCKLE, "Mold Pokémon"
     mondexheight SPECIES_SHUCKLE, "2’00”"
@@ -4736,7 +4521,6 @@ mondata SPECIES_HERACROSS, "Heracross"
     abilities ABILITY_SWARM, ABILITY_GUTS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_HERACROSS_TM_DATA_0, SPECIES_HERACROSS_TM_DATA_1, SPECIES_HERACROSS_TM_DATA_2, SPECIES_HERACROSS_TM_DATA_3
     mondexentry SPECIES_HERACROSS, "This powerful Pokémon thrusts\nits prized horn under its enemies’\nbellies, then lifts and throws them."
     mondexclassification SPECIES_HERACROSS, "Single Horn Pokémon"
     mondexheight SPECIES_HERACROSS, "4’11”"
@@ -4758,7 +4542,6 @@ mondata SPECIES_SNEASEL, "Sneasel"
     abilities ABILITY_INNER_FOCUS, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SNEASEL_TM_DATA_0, SPECIES_SNEASEL_TM_DATA_1, SPECIES_SNEASEL_TM_DATA_2, SPECIES_SNEASEL_TM_DATA_3
     mondexentry SPECIES_SNEASEL, "Its paws conceal sharp claws. If\nattacked, it suddenly extends the\nclaws and startles its enemy."
     mondexclassification SPECIES_SNEASEL, "Sharp Claw Pokémon"
     mondexheight SPECIES_SNEASEL, "2’11”"
@@ -4780,7 +4563,6 @@ mondata SPECIES_TEDDIURSA, "Teddiursa"
     abilities ABILITY_PICKUP, ABILITY_QUICK_FEET
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TEDDIURSA_TM_DATA_0, SPECIES_TEDDIURSA_TM_DATA_1, SPECIES_TEDDIURSA_TM_DATA_2, SPECIES_TEDDIURSA_TM_DATA_3
     mondexentry SPECIES_TEDDIURSA, "If it finds honey, its crescent mark\nglows. It always licks its paws\nbecause they’re soaked with honey."
     mondexclassification SPECIES_TEDDIURSA, "Little Bear Pokémon"
     mondexheight SPECIES_TEDDIURSA, "2’00”"
@@ -4802,7 +4584,6 @@ mondata SPECIES_URSARING, "Ursaring"
     abilities ABILITY_GUTS, ABILITY_QUICK_FEET
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_URSARING_TM_DATA_0, SPECIES_URSARING_TM_DATA_1, SPECIES_URSARING_TM_DATA_2, SPECIES_URSARING_TM_DATA_3
     mondexentry SPECIES_URSARING, "Although it is a good climber,\nit prefers to snap trees with its\nforelegs and eat fallen berries."
     mondexclassification SPECIES_URSARING, "Hibernator Pokémon"
     mondexheight SPECIES_URSARING, "5’11”"
@@ -4824,7 +4605,6 @@ mondata SPECIES_SLUGMA, "Slugma"
     abilities ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SLUGMA_TM_DATA_0, SPECIES_SLUGMA_TM_DATA_1, SPECIES_SLUGMA_TM_DATA_2, SPECIES_SLUGMA_TM_DATA_3
     mondexentry SPECIES_SLUGMA, "It never sleeps. It has to keep\nmoving because if it stopped, its\nmagma body would cool and harden."
     mondexclassification SPECIES_SLUGMA, "Lava Pokémon"
     mondexheight SPECIES_SLUGMA, "2’04”"
@@ -4846,7 +4626,6 @@ mondata SPECIES_MAGCARGO, "Magcargo"
     abilities ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MAGCARGO_TM_DATA_0, SPECIES_MAGCARGO_TM_DATA_1, SPECIES_MAGCARGO_TM_DATA_2, SPECIES_MAGCARGO_TM_DATA_3
     mondexentry SPECIES_MAGCARGO, "The shell on its back is just skin\nthat has cooled and hardened. It\nbreaks easily with a slight touch."
     mondexclassification SPECIES_MAGCARGO, "Lava Pokémon"
     mondexheight SPECIES_MAGCARGO, "2’07”"
@@ -4868,7 +4647,6 @@ mondata SPECIES_SWINUB, "Swinub"
     abilities ABILITY_OBLIVIOUS, ABILITY_SNOW_CLOAK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SWINUB_TM_DATA_0, SPECIES_SWINUB_TM_DATA_1, SPECIES_SWINUB_TM_DATA_2, SPECIES_SWINUB_TM_DATA_3
     mondexentry SPECIES_SWINUB, "It rubs its snout on the ground to\nfind and dig up food. It sometimes\ndiscovers hot springs."
     mondexclassification SPECIES_SWINUB, "Pig Pokémon"
     mondexheight SPECIES_SWINUB, "1’04”"
@@ -4890,7 +4668,6 @@ mondata SPECIES_PILOSWINE, "Piloswine"
     abilities ABILITY_OBLIVIOUS, ABILITY_SNOW_CLOAK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PILOSWINE_TM_DATA_0, SPECIES_PILOSWINE_TM_DATA_1, SPECIES_PILOSWINE_TM_DATA_2, SPECIES_PILOSWINE_TM_DATA_3
     mondexentry SPECIES_PILOSWINE, "Because the long hair all over its\nbody obscures its sight, it just\nkeeps charging repeatedly."
     mondexclassification SPECIES_PILOSWINE, "Swine Pokémon"
     mondexheight SPECIES_PILOSWINE, "3’07”"
@@ -4912,7 +4689,6 @@ mondata SPECIES_CORSOLA, "Corsola"
     abilities ABILITY_HUSTLE, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_CORSOLA_TM_DATA_0, SPECIES_CORSOLA_TM_DATA_1, SPECIES_CORSOLA_TM_DATA_2, SPECIES_CORSOLA_TM_DATA_3
     mondexentry SPECIES_CORSOLA, "It continuously sheds and grows.\nThe tip of its head is prized as\na treasure because of its beauty."
     mondexclassification SPECIES_CORSOLA, "Coral Pokémon"
     mondexheight SPECIES_CORSOLA, "2’00”"
@@ -4934,7 +4710,6 @@ mondata SPECIES_REMORAID, "Remoraid"
     abilities ABILITY_HUSTLE, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REMORAID_TM_DATA_0, SPECIES_REMORAID_TM_DATA_1, SPECIES_REMORAID_TM_DATA_2, SPECIES_REMORAID_TM_DATA_3
     mondexentry SPECIES_REMORAID, "It has superb accuracy. The water\nit shoots out can strike moving\nprey from more than 300 feet away."
     mondexclassification SPECIES_REMORAID, "Jet Pokémon"
     mondexheight SPECIES_REMORAID, "2’00”"
@@ -4956,7 +4731,6 @@ mondata SPECIES_OCTILLERY, "Octillery"
     abilities ABILITY_SUCTION_CUPS, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_OCTILLERY_TM_DATA_0, SPECIES_OCTILLERY_TM_DATA_1, SPECIES_OCTILLERY_TM_DATA_2, SPECIES_OCTILLERY_TM_DATA_3
     mondexentry SPECIES_OCTILLERY, "It traps foes with the suction cups\non its tentacles, then smashes\nthem with its rock-hard head."
     mondexclassification SPECIES_OCTILLERY, "Jet Pokémon"
     mondexheight SPECIES_OCTILLERY, "2’11”"
@@ -4978,7 +4752,6 @@ mondata SPECIES_DELIBIRD, "Delibird"
     abilities ABILITY_VITAL_SPIRIT, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DELIBIRD_TM_DATA_0, SPECIES_DELIBIRD_TM_DATA_1, SPECIES_DELIBIRD_TM_DATA_2, SPECIES_DELIBIRD_TM_DATA_3
     mondexentry SPECIES_DELIBIRD, "It carries food all day long.\nThere are tales about lost people\nwho were saved by its stored food."
     mondexclassification SPECIES_DELIBIRD, "Delivery Pokémon"
     mondexheight SPECIES_DELIBIRD, "2’11”"
@@ -5000,7 +4773,6 @@ mondata SPECIES_MANTINE, "Mantine"
     abilities ABILITY_SWIFT_SWIM, ABILITY_WATER_ABSORB
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MANTINE_TM_DATA_0, SPECIES_MANTINE_TM_DATA_1, SPECIES_MANTINE_TM_DATA_2, SPECIES_MANTINE_TM_DATA_3
     mondexentry SPECIES_MANTINE, "As it majestically swims, it doesn’t\ncare if REMORAID attach to it for\nscavenging its leftovers."
     mondexclassification SPECIES_MANTINE, "Kite Pokémon"
     mondexheight SPECIES_MANTINE, "6’11”"
@@ -5022,7 +4794,6 @@ mondata SPECIES_SKARMORY, "Skarmory"
     abilities ABILITY_KEEN_EYE, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SKARMORY_TM_DATA_0, SPECIES_SKARMORY_TM_DATA_1, SPECIES_SKARMORY_TM_DATA_2, SPECIES_SKARMORY_TM_DATA_3
     mondexentry SPECIES_SKARMORY, "Its sturdy wings look heavy, but\nthey are actually hollow and light,\nallowing it to fly freely in the sky."
     mondexclassification SPECIES_SKARMORY, "Armor Bird Pokémon"
     mondexheight SPECIES_SKARMORY, "5’07”"
@@ -5044,7 +4815,6 @@ mondata SPECIES_HOUNDOUR, "Houndour"
     abilities ABILITY_EARLY_BIRD, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_HOUNDOUR_TM_DATA_0, SPECIES_HOUNDOUR_TM_DATA_1, SPECIES_HOUNDOUR_TM_DATA_2, SPECIES_HOUNDOUR_TM_DATA_3
     mondexentry SPECIES_HOUNDOUR, "It uses different kinds of cries for\ncommunicating with others of its\nkind and for pursuing its prey."
     mondexclassification SPECIES_HOUNDOUR, "Dark Pokémon"
     mondexheight SPECIES_HOUNDOUR, "2’00”"
@@ -5066,7 +4836,6 @@ mondata SPECIES_HOUNDOOM, "Houndoom"
     abilities ABILITY_EARLY_BIRD, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_HOUNDOOM_TM_DATA_0, SPECIES_HOUNDOOM_TM_DATA_1, SPECIES_HOUNDOOM_TM_DATA_2, SPECIES_HOUNDOOM_TM_DATA_3
     mondexentry SPECIES_HOUNDOOM, "If you are burned by the flames\nit shoots from its mouth,\nthe pain will never go away."
     mondexclassification SPECIES_HOUNDOOM, "Dark Pokémon"
     mondexheight SPECIES_HOUNDOOM, "4’07”"
@@ -5088,7 +4857,6 @@ mondata SPECIES_KINGDRA, "Kingdra"
     abilities ABILITY_SWIFT_SWIM, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_KINGDRA_TM_DATA_0, SPECIES_KINGDRA_TM_DATA_1, SPECIES_KINGDRA_TM_DATA_2, SPECIES_KINGDRA_TM_DATA_3
     mondexentry SPECIES_KINGDRA, "It is said that it usually hides in\nunderwater caves. It can create\nwhirlpools by yawning."
     mondexclassification SPECIES_KINGDRA, "Dragon Pokémon"
     mondexheight SPECIES_KINGDRA, "5’11”"
@@ -5110,7 +4878,6 @@ mondata SPECIES_PHANPY, "Phanpy"
     abilities ABILITY_PICKUP, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PHANPY_TM_DATA_0, SPECIES_PHANPY_TM_DATA_1, SPECIES_PHANPY_TM_DATA_2, SPECIES_PHANPY_TM_DATA_3
     mondexentry SPECIES_PHANPY, "It swings its long snout around\nplayfully, but because it is so\nstrong, that can be dangerous."
     mondexclassification SPECIES_PHANPY, "Long Nose Pokémon"
     mondexheight SPECIES_PHANPY, "1’08”"
@@ -5132,7 +4899,6 @@ mondata SPECIES_DONPHAN, "Donphan"
     abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_DONPHAN_TM_DATA_0, SPECIES_DONPHAN_TM_DATA_1, SPECIES_DONPHAN_TM_DATA_2, SPECIES_DONPHAN_TM_DATA_3
     mondexentry SPECIES_DONPHAN, "It has sharp, hard tusks and a\nrugged hide. Its tackle is strong\nenough to knock down a house."
     mondexclassification SPECIES_DONPHAN, "Armor Pokémon"
     mondexheight SPECIES_DONPHAN, "3’07”"
@@ -5154,7 +4920,6 @@ mondata SPECIES_PORYGON2, "Porygon2"
     abilities ABILITY_TRACE, ABILITY_DOWNLOAD
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PORYGON2_TM_DATA_0, SPECIES_PORYGON2_TM_DATA_1, SPECIES_PORYGON2_TM_DATA_2, SPECIES_PORYGON2_TM_DATA_3
     mondexentry SPECIES_PORYGON2, "This upgraded version of PORYGON\nis designed for space exploration.\nIt can’t fly, however."
     mondexclassification SPECIES_PORYGON2, "Virtual Pokémon"
     mondexheight SPECIES_PORYGON2, "2’00”"
@@ -5176,7 +4941,6 @@ mondata SPECIES_STANTLER, "Stantler"
     abilities ABILITY_INTIMIDATE, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_STANTLER_TM_DATA_0, SPECIES_STANTLER_TM_DATA_1, SPECIES_STANTLER_TM_DATA_2, SPECIES_STANTLER_TM_DATA_3
     mondexentry SPECIES_STANTLER, "The curved antlers subtly change\nthe flow of air to create a strange\nspace where reality is distorted."
     mondexclassification SPECIES_STANTLER, "Big Horn Pokémon"
     mondexheight SPECIES_STANTLER, "4’07”"
@@ -5198,7 +4962,6 @@ mondata SPECIES_SMEARGLE, "Smeargle"
     abilities ABILITY_OWN_TEMPO, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SMEARGLE_TM_DATA_0, SPECIES_SMEARGLE_TM_DATA_1, SPECIES_SMEARGLE_TM_DATA_2, SPECIES_SMEARGLE_TM_DATA_3
     mondexentry SPECIES_SMEARGLE, "A special fluid oozes from the tip\nof its tail. It paints the fluid\neverywhere to mark its territory."
     mondexclassification SPECIES_SMEARGLE, "Painter Pokémon"
     mondexheight SPECIES_SMEARGLE, "3’11”"
@@ -5220,7 +4983,6 @@ mondata SPECIES_TYROGUE, "Tyrogue"
     abilities ABILITY_GUTS, ABILITY_STEADFAST
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_TYROGUE_TM_DATA_0, SPECIES_TYROGUE_TM_DATA_1, SPECIES_TYROGUE_TM_DATA_2, SPECIES_TYROGUE_TM_DATA_3
     mondexentry SPECIES_TYROGUE, "It is always bursting with energy.\nTo make itself stronger, it\nkeeps on fighting even if it loses."
     mondexclassification SPECIES_TYROGUE, "Scuffle Pokémon"
     mondexheight SPECIES_TYROGUE, "2’04”"
@@ -5242,7 +5004,6 @@ mondata SPECIES_HITMONTOP, "Hitmontop"
     abilities ABILITY_INTIMIDATE, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HITMONTOP_TM_DATA_0, SPECIES_HITMONTOP_TM_DATA_1, SPECIES_HITMONTOP_TM_DATA_2, SPECIES_HITMONTOP_TM_DATA_3
     mondexentry SPECIES_HITMONTOP, "If you are enchanted by its smooth,\ndance-like kicks, you may get a closer\nexperience with one than you’d like."
     mondexclassification SPECIES_HITMONTOP, "Handstand Pokémon"
     mondexheight SPECIES_HITMONTOP, "4’07”"
@@ -5264,7 +5025,6 @@ mondata SPECIES_SMOOCHUM, "Smoochum"
     abilities ABILITY_OBLIVIOUS, ABILITY_FOREWARN
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SMOOCHUM_TM_DATA_0, SPECIES_SMOOCHUM_TM_DATA_1, SPECIES_SMOOCHUM_TM_DATA_2, SPECIES_SMOOCHUM_TM_DATA_3
     mondexentry SPECIES_SMOOCHUM, "Its lips are the most sensitive\npart of its body. It always uses\nits lips first to examine things."
     mondexclassification SPECIES_SMOOCHUM, "Kiss Pokémon"
     mondexheight SPECIES_SMOOCHUM, "1’04”"
@@ -5286,7 +5046,6 @@ mondata SPECIES_ELEKID, "Elekid"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ELEKID_TM_DATA_0, SPECIES_ELEKID_TM_DATA_1, SPECIES_ELEKID_TM_DATA_2, SPECIES_ELEKID_TM_DATA_3
     mondexentry SPECIES_ELEKID, "It rotates its arms to generate\nelectricity, but it tires easily,\nso it only charges up a little bit."
     mondexclassification SPECIES_ELEKID, "Electric Pokémon"
     mondexheight SPECIES_ELEKID, "2’00”"
@@ -5308,7 +5067,6 @@ mondata SPECIES_MAGBY, "Magby"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MAGBY_TM_DATA_0, SPECIES_MAGBY_TM_DATA_1, SPECIES_MAGBY_TM_DATA_2, SPECIES_MAGBY_TM_DATA_3
     mondexentry SPECIES_MAGBY, "Each and every time it inhales\nand exhales, hot embers dribble\nfrom its mouth and nostrils."
     mondexclassification SPECIES_MAGBY, "Live Coal Pokémon"
     mondexheight SPECIES_MAGBY, "2’04”"
@@ -5330,7 +5088,6 @@ mondata SPECIES_MILTANK, "Miltank"
     abilities ABILITY_THICK_FAT, ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MILTANK_TM_DATA_0, SPECIES_MILTANK_TM_DATA_1, SPECIES_MILTANK_TM_DATA_2, SPECIES_MILTANK_TM_DATA_3
     mondexentry SPECIES_MILTANK, "Its milk is packed with nutrition,\nmaking it the ultimate beverage\nfor the sick or weary."
     mondexclassification SPECIES_MILTANK, "Milk Cow Pokémon"
     mondexheight SPECIES_MILTANK, "3’11”"
@@ -5352,7 +5109,6 @@ mondata SPECIES_BLISSEY, "Blissey"
     abilities ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_BLISSEY_TM_DATA_0, SPECIES_BLISSEY_TM_DATA_1, SPECIES_BLISSEY_TM_DATA_2, SPECIES_BLISSEY_TM_DATA_3
     mondexentry SPECIES_BLISSEY, "Anyone who takes even one taste of\nBLISSEY’s egg becomes unfailingly\ncaring and pleasant to everyone."
     mondexclassification SPECIES_BLISSEY, "Happiness Pokémon"
     mondexheight SPECIES_BLISSEY, "4’11”"
@@ -5374,7 +5130,6 @@ mondata SPECIES_RAIKOU, "Raikou"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_RAIKOU_TM_DATA_0, SPECIES_RAIKOU_TM_DATA_1, SPECIES_RAIKOU_TM_DATA_2, SPECIES_RAIKOU_TM_DATA_3
     mondexentry SPECIES_RAIKOU, "The rain clouds it carries let it\nfire thunderbolts at will. They say\nthat it descended with lightning."
     mondexclassification SPECIES_RAIKOU, "Thunder Pokémon"
     mondexheight SPECIES_RAIKOU, "6’03”"
@@ -5396,7 +5151,6 @@ mondata SPECIES_ENTEI, "Entei"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ENTEI_TM_DATA_0, SPECIES_ENTEI_TM_DATA_1, SPECIES_ENTEI_TM_DATA_2, SPECIES_ENTEI_TM_DATA_3
     mondexentry SPECIES_ENTEI, "Volcanoes erupt when it barks.\nUnable to contain its sheer power,\nit races headlong around the land."
     mondexclassification SPECIES_ENTEI, "Volcano Pokémon"
     mondexheight SPECIES_ENTEI, "6’11”"
@@ -5418,7 +5172,6 @@ mondata SPECIES_SUICUNE, "Suicune"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SUICUNE_TM_DATA_0, SPECIES_SUICUNE_TM_DATA_1, SPECIES_SUICUNE_TM_DATA_2, SPECIES_SUICUNE_TM_DATA_3
     mondexentry SPECIES_SUICUNE, "Said to be the embodiment of\nnorth winds, it can instantly\npurify filthy, murky water."
     mondexclassification SPECIES_SUICUNE, "Aurora Pokémon"
     mondexheight SPECIES_SUICUNE, "6’07”"
@@ -5440,7 +5193,6 @@ mondata SPECIES_LARVITAR, "Larvitar"
     abilities ABILITY_GUTS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_LARVITAR_TM_DATA_0, SPECIES_LARVITAR_TM_DATA_1, SPECIES_LARVITAR_TM_DATA_2, SPECIES_LARVITAR_TM_DATA_3
     mondexentry SPECIES_LARVITAR, "It feeds on soil. After it has eaten\na large mountain, it falls asleep\nso it can grow."
     mondexclassification SPECIES_LARVITAR, "Rock Skin Pokémon"
     mondexheight SPECIES_LARVITAR, "2’00”"
@@ -5462,7 +5214,6 @@ mondata SPECIES_PUPITAR, "Pupitar"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_PUPITAR_TM_DATA_0, SPECIES_PUPITAR_TM_DATA_1, SPECIES_PUPITAR_TM_DATA_2, SPECIES_PUPITAR_TM_DATA_3
     mondexentry SPECIES_PUPITAR, "Its shell is as hard as sheet rock,\nand it is also very strong. Its\nthrashing can topple a mountain."
     mondexclassification SPECIES_PUPITAR, "Hard Shell Pokémon"
     mondexheight SPECIES_PUPITAR, "3’11”"
@@ -5484,7 +5235,6 @@ mondata SPECIES_TYRANITAR, "Tyranitar"
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TYRANITAR_TM_DATA_0, SPECIES_TYRANITAR_TM_DATA_1, SPECIES_TYRANITAR_TM_DATA_2, SPECIES_TYRANITAR_TM_DATA_3
     mondexentry SPECIES_TYRANITAR, "Its body can’t be harmed by any\nsort of attack, so it is very eager\nto make challenges against enemies."
     mondexclassification SPECIES_TYRANITAR, "Armor Pokémon"
     mondexheight SPECIES_TYRANITAR, "6’07”"
@@ -5506,7 +5256,6 @@ mondata SPECIES_LUGIA, "Lugia"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_LUGIA_TM_DATA_0, SPECIES_LUGIA_TM_DATA_1, SPECIES_LUGIA_TM_DATA_2, SPECIES_LUGIA_TM_DATA_3
     mondexentry SPECIES_LUGIA, "It is said that it quietly spends its\ntime deep at the bottom of the sea\nbecause its powers are too strong."
     mondexclassification SPECIES_LUGIA, "Diving Pokémon"
     mondexheight SPECIES_LUGIA, "17’01”"
@@ -5528,7 +5277,6 @@ mondata SPECIES_HO_OH, "Ho-oh"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_HO_OH_TM_DATA_0, SPECIES_HO_OH_TM_DATA_1, SPECIES_HO_OH_TM_DATA_2, SPECIES_HO_OH_TM_DATA_3
     mondexentry SPECIES_HO_OH, "Legends claim this Pokémon flies the\nworld’s skies continuously on its\nmagnificent, seven-colored wings."
     mondexclassification SPECIES_HO_OH, "Rainbow Pokémon"
     mondexheight SPECIES_HO_OH, "12’06”"
@@ -5550,7 +5298,6 @@ mondata SPECIES_CELEBI, "Celebi"
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CELEBI_TM_DATA_0, SPECIES_CELEBI_TM_DATA_1, SPECIES_CELEBI_TM_DATA_2, SPECIES_CELEBI_TM_DATA_3
     mondexentry SPECIES_CELEBI, "This Pokémon wanders across time.\nGrass and trees flourish in the\nforests in which it has appeared."
     mondexclassification SPECIES_CELEBI, "Time Travel Pokémon"
     mondexheight SPECIES_CELEBI, "2’00”"
@@ -5572,7 +5319,6 @@ mondata SPECIES_TREECKO, "Treecko"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TREECKO_TM_DATA_0, SPECIES_TREECKO_TM_DATA_1, SPECIES_TREECKO_TM_DATA_2, SPECIES_TREECKO_TM_DATA_3
     mondexentry SPECIES_TREECKO, "Small hooks on the bottom of its\nfeet catch on walls and ceilings.\nThat is how it can hang from above."
     mondexclassification SPECIES_TREECKO, "Wood Gecko Pokémon"
     mondexheight SPECIES_TREECKO, "1’08”"
@@ -5594,7 +5340,6 @@ mondata SPECIES_GROVYLE, "Grovyle"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GROVYLE_TM_DATA_0, SPECIES_GROVYLE_TM_DATA_1, SPECIES_GROVYLE_TM_DATA_2, SPECIES_GROVYLE_TM_DATA_3
     mondexentry SPECIES_GROVYLE, "It leaps from tree branch to tree\nbranch quite swiftly. It shows\nastounding agility."
     mondexclassification SPECIES_GROVYLE, "Wood Gecko Pokémon"
     mondexheight SPECIES_GROVYLE, "2’11”"
@@ -5616,7 +5361,6 @@ mondata SPECIES_SCEPTILE, "Sceptile"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SCEPTILE_TM_DATA_0, SPECIES_SCEPTILE_TM_DATA_1, SPECIES_SCEPTILE_TM_DATA_2, SPECIES_SCEPTILE_TM_DATA_3
     mondexentry SPECIES_SCEPTILE, "It agilely leaps about the jungle\nand uses the sharp leaves on its\narms to strike its prey."
     mondexclassification SPECIES_SCEPTILE, "Forest Pokémon"
     mondexheight SPECIES_SCEPTILE, "5’07”"
@@ -5638,7 +5382,6 @@ mondata SPECIES_TORCHIC, "Torchic"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TORCHIC_TM_DATA_0, SPECIES_TORCHIC_TM_DATA_1, SPECIES_TORCHIC_TM_DATA_2, SPECIES_TORCHIC_TM_DATA_3
     mondexentry SPECIES_TORCHIC, "Inside its body is a place where it\nkeeps a small flame. Hug it! It will\nbe as warm as a hot-water bottle."
     mondexclassification SPECIES_TORCHIC, "Chick Pokémon"
     mondexheight SPECIES_TORCHIC, "1’04”"
@@ -5660,7 +5403,6 @@ mondata SPECIES_COMBUSKEN, "Combusken"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_COMBUSKEN_TM_DATA_0, SPECIES_COMBUSKEN_TM_DATA_1, SPECIES_COMBUSKEN_TM_DATA_2, SPECIES_COMBUSKEN_TM_DATA_3
     mondexentry SPECIES_COMBUSKEN, "During a battle, the hot flame in\nits body increases. Its kicks have\noutstanding destructive power."
     mondexclassification SPECIES_COMBUSKEN, "Young Fowl Pokémon"
     mondexheight SPECIES_COMBUSKEN, "2’11”"
@@ -5682,7 +5424,6 @@ mondata SPECIES_BLAZIKEN, "Blaziken"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_BLAZIKEN_TM_DATA_0, SPECIES_BLAZIKEN_TM_DATA_1, SPECIES_BLAZIKEN_TM_DATA_2, SPECIES_BLAZIKEN_TM_DATA_3
     mondexentry SPECIES_BLAZIKEN, "It can clear a 30-story building\nin a leap. Its fiery punches scorch\nits foes."
     mondexclassification SPECIES_BLAZIKEN, "Blaze Pokémon"
     mondexheight SPECIES_BLAZIKEN, "6’03”"
@@ -5704,7 +5445,6 @@ mondata SPECIES_MUDKIP, "Mudkip"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MUDKIP_TM_DATA_0, SPECIES_MUDKIP_TM_DATA_1, SPECIES_MUDKIP_TM_DATA_2, SPECIES_MUDKIP_TM_DATA_3
     mondexentry SPECIES_MUDKIP, "Its power can crush boulders.\nIt rests by covering itself with mud\nat the bottom of a river."
     mondexclassification SPECIES_MUDKIP, "Mud Fish Pokémon"
     mondexheight SPECIES_MUDKIP, "1’04”"
@@ -5726,7 +5466,6 @@ mondata SPECIES_MARSHTOMP, "Marshtomp"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MARSHTOMP_TM_DATA_0, SPECIES_MARSHTOMP_TM_DATA_1, SPECIES_MARSHTOMP_TM_DATA_2, SPECIES_MARSHTOMP_TM_DATA_3
     mondexentry SPECIES_MARSHTOMP, "Living on muddy ground that\nprovides poor footing has made\nits legs sturdy."
     mondexclassification SPECIES_MARSHTOMP, "Mud Fish Pokémon"
     mondexheight SPECIES_MARSHTOMP, "2’04”"
@@ -5748,7 +5487,6 @@ mondata SPECIES_SWAMPERT, "Swampert"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SWAMPERT_TM_DATA_0, SPECIES_SWAMPERT_TM_DATA_1, SPECIES_SWAMPERT_TM_DATA_2, SPECIES_SWAMPERT_TM_DATA_3
     mondexentry SPECIES_SWAMPERT, "Its arms are hard as rock.\nWith one swing, it can\nbreak a boulder into pieces."
     mondexclassification SPECIES_SWAMPERT, "Mud Fish Pokémon"
     mondexheight SPECIES_SWAMPERT, "4’11”"
@@ -5770,7 +5508,6 @@ mondata SPECIES_POOCHYENA, "Poochyena"
     abilities ABILITY_RUN_AWAY, ABILITY_QUICK_FEET
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_POOCHYENA_TM_DATA_0, SPECIES_POOCHYENA_TM_DATA_1, SPECIES_POOCHYENA_TM_DATA_2, SPECIES_POOCHYENA_TM_DATA_3
     mondexentry SPECIES_POOCHYENA, "It chases its prey until the victim\nbecomes exhausted. However, it\nturns tail if the prey strikes back."
     mondexclassification SPECIES_POOCHYENA, "Bite Pokémon"
     mondexheight SPECIES_POOCHYENA, "1’08”"
@@ -5792,7 +5529,6 @@ mondata SPECIES_MIGHTYENA, "Mightyena"
     abilities ABILITY_INTIMIDATE, ABILITY_QUICK_FEET
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MIGHTYENA_TM_DATA_0, SPECIES_MIGHTYENA_TM_DATA_1, SPECIES_MIGHTYENA_TM_DATA_2, SPECIES_MIGHTYENA_TM_DATA_3
     mondexentry SPECIES_MIGHTYENA, "It chases down prey in a pack of\naround ten. They defeat foes with\nperfectly coordinated teamwork."
     mondexclassification SPECIES_MIGHTYENA, "Bite Pokémon"
     mondexheight SPECIES_MIGHTYENA, "3’03”"
@@ -5814,7 +5550,6 @@ mondata SPECIES_ZIGZAGOON, "Zigzagoon"
     abilities ABILITY_PICKUP, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ZIGZAGOON_TM_DATA_0, SPECIES_ZIGZAGOON_TM_DATA_1, SPECIES_ZIGZAGOON_TM_DATA_2, SPECIES_ZIGZAGOON_TM_DATA_3
     mondexentry SPECIES_ZIGZAGOON, "It gets interested in everything,\nwhich is why it zigs and zags.\nIt is good at finding items."
     mondexclassification SPECIES_ZIGZAGOON, "Tiny Raccoon Pokémon"
     mondexheight SPECIES_ZIGZAGOON, "1’04”"
@@ -5836,7 +5571,6 @@ mondata SPECIES_LINOONE, "Linoone"
     abilities ABILITY_PICKUP, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_LINOONE_TM_DATA_0, SPECIES_LINOONE_TM_DATA_1, SPECIES_LINOONE_TM_DATA_2, SPECIES_LINOONE_TM_DATA_3
     mondexentry SPECIES_LINOONE, "When running in a straight line, it\ncan easily top 60 miles an hour. It\nhas a tough time with curved roads."
     mondexclassification SPECIES_LINOONE, "Rushing Pokémon"
     mondexheight SPECIES_LINOONE, "1’08”"
@@ -5858,7 +5592,6 @@ mondata SPECIES_WURMPLE, "Wurmple"
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_WURMPLE_TM_DATA_0, SPECIES_WURMPLE_TM_DATA_1, SPECIES_WURMPLE_TM_DATA_2, SPECIES_WURMPLE_TM_DATA_3
     mondexentry SPECIES_WURMPLE, "It lives among the tall grass and in\nforests. It repels attacks by \nraising up the spikes on its rear."
     mondexclassification SPECIES_WURMPLE, "Worm Pokémon"
     mondexheight SPECIES_WURMPLE, "1’00”"
@@ -5880,7 +5613,6 @@ mondata SPECIES_SILCOON, "Silcoon"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SILCOON_TM_DATA_0, SPECIES_SILCOON_TM_DATA_1, SPECIES_SILCOON_TM_DATA_2, SPECIES_SILCOON_TM_DATA_3
     mondexentry SPECIES_SILCOON, "Having wrapped silk around the\nbranches of a tree, it quiescently\nawaits evolution."
     mondexclassification SPECIES_SILCOON, "Cocoon Pokémon"
     mondexheight SPECIES_SILCOON, "2’00”"
@@ -5902,7 +5634,6 @@ mondata SPECIES_BEAUTIFLY, "Beautifly"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_BEAUTIFLY_TM_DATA_0, SPECIES_BEAUTIFLY_TM_DATA_1, SPECIES_BEAUTIFLY_TM_DATA_2, SPECIES_BEAUTIFLY_TM_DATA_3
     mondexentry SPECIES_BEAUTIFLY, "Vibrantly patterned wings are its\nprominent feature. It sucks sweet\nflower nectar with its long mouth."
     mondexclassification SPECIES_BEAUTIFLY, "Butterfly Pokémon"
     mondexheight SPECIES_BEAUTIFLY, "3’03”"
@@ -5924,7 +5655,6 @@ mondata SPECIES_CASCOON, "Cascoon"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_CASCOON_TM_DATA_0, SPECIES_CASCOON_TM_DATA_1, SPECIES_CASCOON_TM_DATA_2, SPECIES_CASCOON_TM_DATA_3
     mondexentry SPECIES_CASCOON, "It endures attacks with patience,\nbecause the more pain before\nevolution, the sturdier it becomes."
     mondexclassification SPECIES_CASCOON, "Cocoon Pokémon"
     mondexheight SPECIES_CASCOON, "2’04”"
@@ -5946,7 +5676,6 @@ mondata SPECIES_DUSTOX, "Dustox"
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DUSTOX_TM_DATA_0, SPECIES_DUSTOX_TM_DATA_1, SPECIES_DUSTOX_TM_DATA_2, SPECIES_DUSTOX_TM_DATA_3
     mondexentry SPECIES_DUSTOX, "It scatters its fine dust all over\nwhen it is attacked. It is a\nnocturnal Pokémon."
     mondexclassification SPECIES_DUSTOX, "Poison Moth Pokémon"
     mondexheight SPECIES_DUSTOX, "3’11”"
@@ -5968,7 +5697,6 @@ mondata SPECIES_LOTAD, "Lotad"
     abilities ABILITY_SWIFT_SWIM, ABILITY_RAIN_DISH
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_LOTAD_TM_DATA_0, SPECIES_LOTAD_TM_DATA_1, SPECIES_LOTAD_TM_DATA_2, SPECIES_LOTAD_TM_DATA_3
     mondexentry SPECIES_LOTAD, "Its leaf grew too large for it to\nlive on land. That is how it began\nto live floating in the water."
     mondexclassification SPECIES_LOTAD, "Water Weed Pokémon"
     mondexheight SPECIES_LOTAD, "1’08”"
@@ -5990,7 +5718,6 @@ mondata SPECIES_LOMBRE, "Lombre"
     abilities ABILITY_SWIFT_SWIM, ABILITY_RAIN_DISH
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_LOMBRE_TM_DATA_0, SPECIES_LOMBRE_TM_DATA_1, SPECIES_LOMBRE_TM_DATA_2, SPECIES_LOMBRE_TM_DATA_3
     mondexentry SPECIES_LOMBRE, "It is nocturnal and becomes active\nat nightfall. It feeds on aquatic\nmosses that grow in the riverbed."
     mondexclassification SPECIES_LOMBRE, "Jolly Pokémon"
     mondexheight SPECIES_LOMBRE, "3’11”"
@@ -6012,7 +5739,6 @@ mondata SPECIES_LUDICOLO, "Ludicolo"
     abilities ABILITY_SWIFT_SWIM, ABILITY_RAIN_DISH
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_LUDICOLO_TM_DATA_0, SPECIES_LUDICOLO_TM_DATA_1, SPECIES_LUDICOLO_TM_DATA_2, SPECIES_LUDICOLO_TM_DATA_3
     mondexentry SPECIES_LUDICOLO, "If it hears festive music, it begins\nmoving in rhythm in order to\namplify its power."
     mondexclassification SPECIES_LUDICOLO, "Carefree Pokémon"
     mondexheight SPECIES_LUDICOLO, "4’11”"
@@ -6034,7 +5760,6 @@ mondata SPECIES_SEEDOT, "Seedot"
     abilities ABILITY_CHLOROPHYLL, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SEEDOT_TM_DATA_0, SPECIES_SEEDOT_TM_DATA_1, SPECIES_SEEDOT_TM_DATA_2, SPECIES_SEEDOT_TM_DATA_3
     mondexentry SPECIES_SEEDOT, "It attaches itself to a tree branch\nusing the top of its head. Strong\nwinds can sometimes make it fall."
     mondexclassification SPECIES_SEEDOT, "Acorn Pokémon"
     mondexheight SPECIES_SEEDOT, "1’08”"
@@ -6056,7 +5781,6 @@ mondata SPECIES_NUZLEAF, "Nuzleaf"
     abilities ABILITY_CHLOROPHYLL, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NUZLEAF_TM_DATA_0, SPECIES_NUZLEAF_TM_DATA_1, SPECIES_NUZLEAF_TM_DATA_2, SPECIES_NUZLEAF_TM_DATA_3
     mondexentry SPECIES_NUZLEAF, "It lives deep in forests. With the\nleaf on its head, it makes a flute\nwhose song makes listeners uneasy."
     mondexclassification SPECIES_NUZLEAF, "Wily Pokémon"
     mondexheight SPECIES_NUZLEAF, "3’03”"
@@ -6078,7 +5802,6 @@ mondata SPECIES_SHIFTRY, "Shiftry"
     abilities ABILITY_CHLOROPHYLL, ABILITY_EARLY_BIRD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SHIFTRY_TM_DATA_0, SPECIES_SHIFTRY_TM_DATA_1, SPECIES_SHIFTRY_TM_DATA_2, SPECIES_SHIFTRY_TM_DATA_3
     mondexentry SPECIES_SHIFTRY, "It lives quietly in the deep forest.\nIt is said to create chilly winter\nwinds with the fans it holds."
     mondexclassification SPECIES_SHIFTRY, "Wicked Pokémon"
     mondexheight SPECIES_SHIFTRY, "4’03”"
@@ -6100,7 +5823,6 @@ mondata SPECIES_TAILLOW, "Taillow"
     abilities ABILITY_GUTS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TAILLOW_TM_DATA_0, SPECIES_TAILLOW_TM_DATA_1, SPECIES_TAILLOW_TM_DATA_2, SPECIES_TAILLOW_TM_DATA_3
     mondexentry SPECIES_TAILLOW, "When it gets cold, they migrate,\nflying over 180 miles a day.\nIt hunts for tasty prey."
     mondexclassification SPECIES_TAILLOW, "Tiny Swallow Pokémon"
     mondexheight SPECIES_TAILLOW, "1’00”"
@@ -6122,7 +5844,6 @@ mondata SPECIES_SWELLOW, "Swellow"
     abilities ABILITY_GUTS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SWELLOW_TM_DATA_0, SPECIES_SWELLOW_TM_DATA_1, SPECIES_SWELLOW_TM_DATA_2, SPECIES_SWELLOW_TM_DATA_3
     mondexentry SPECIES_SWELLOW, "It dives at a steep angle as soon\nas it spots its prey. It catches\nits prey with sharp claws."
     mondexclassification SPECIES_SWELLOW, "Swallow Pokémon"
     mondexheight SPECIES_SWELLOW, "2’04”"
@@ -6144,7 +5865,6 @@ mondata SPECIES_WINGULL, "Wingull"
     abilities ABILITY_KEEN_EYE, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_WINGULL_TM_DATA_0, SPECIES_WINGULL_TM_DATA_1, SPECIES_WINGULL_TM_DATA_2, SPECIES_WINGULL_TM_DATA_3
     mondexentry SPECIES_WINGULL, "It soars on updrafts without\nflapping its wings. It makes a nest\non sheer cliffs at the sea’s edge."
     mondexclassification SPECIES_WINGULL, "Seagull Pokémon"
     mondexheight SPECIES_WINGULL, "2’00”"
@@ -6166,7 +5886,6 @@ mondata SPECIES_PELIPPER, "Pelipper"
     abilities ABILITY_KEEN_EYE, ABILITY_DRIZZLE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PELIPPER_TM_DATA_0, SPECIES_PELIPPER_TM_DATA_1, SPECIES_PELIPPER_TM_DATA_2, SPECIES_PELIPPER_TM_DATA_3
     mondexentry SPECIES_PELIPPER, "It protects its young in its beak.\nIt bobs on waves, resting on them\non days when the waters are calm."
     mondexclassification SPECIES_PELIPPER, "Water Bird Pokémon"
     mondexheight SPECIES_PELIPPER, "3’11”"
@@ -6188,7 +5907,6 @@ mondata SPECIES_RALTS, "Ralts"
     abilities ABILITY_SYNCHRONIZE, ABILITY_TRACE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_RALTS_TM_DATA_0, SPECIES_RALTS_TM_DATA_1, SPECIES_RALTS_TM_DATA_2, SPECIES_RALTS_TM_DATA_3
     mondexentry SPECIES_RALTS, "The horns on its head provide a\nstrong power that enables\nit to sense people’s emotions."
     mondexclassification SPECIES_RALTS, "Feeling Pokémon"
     mondexheight SPECIES_RALTS, "1’04”"
@@ -6210,7 +5928,6 @@ mondata SPECIES_KIRLIA, "Kirlia"
     abilities ABILITY_SYNCHRONIZE, ABILITY_TRACE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_KIRLIA_TM_DATA_0, SPECIES_KIRLIA_TM_DATA_1, SPECIES_KIRLIA_TM_DATA_2, SPECIES_KIRLIA_TM_DATA_3
     mondexentry SPECIES_KIRLIA, "It has a psychic power that\nenables it to distort the space\naround it and see into the future."
     mondexclassification SPECIES_KIRLIA, "Emotion Pokémon"
     mondexheight SPECIES_KIRLIA, "2’07”"
@@ -6232,7 +5949,6 @@ mondata SPECIES_GARDEVOIR, "Gardevoir"
     abilities ABILITY_SYNCHRONIZE, ABILITY_TRACE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_GARDEVOIR_TM_DATA_0, SPECIES_GARDEVOIR_TM_DATA_1, SPECIES_GARDEVOIR_TM_DATA_2, SPECIES_GARDEVOIR_TM_DATA_3
     mondexentry SPECIES_GARDEVOIR, "It unleashes psychokinetic energy\nat full power when protecting a\nTrainer it has bonded closely with."
     mondexclassification SPECIES_GARDEVOIR, "Embrace Pokémon"
     mondexheight SPECIES_GARDEVOIR, "5’03”"
@@ -6254,7 +5970,6 @@ mondata SPECIES_SURSKIT, "Surskit"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SURSKIT_TM_DATA_0, SPECIES_SURSKIT_TM_DATA_1, SPECIES_SURSKIT_TM_DATA_2, SPECIES_SURSKIT_TM_DATA_3
     mondexentry SPECIES_SURSKIT, "It secretes a thick, sweet-scented\nsyrup from the tip of its head.\nIt lives on weed-choked ponds."
     mondexclassification SPECIES_SURSKIT, "Pond Skater Pokémon"
     mondexheight SPECIES_SURSKIT, "1’08”"
@@ -6276,7 +5991,6 @@ mondata SPECIES_MASQUERAIN, "Masquerain"
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MASQUERAIN_TM_DATA_0, SPECIES_MASQUERAIN_TM_DATA_1, SPECIES_MASQUERAIN_TM_DATA_2, SPECIES_MASQUERAIN_TM_DATA_3
     mondexentry SPECIES_MASQUERAIN, "It flaps its four wings to hover and\nfly freely in any direction--\nto and fro and sideways."
     mondexclassification SPECIES_MASQUERAIN, "Eyeball Pokémon"
     mondexheight SPECIES_MASQUERAIN, "2’07”"
@@ -6298,7 +6012,6 @@ mondata SPECIES_SHROOMISH, "Shroomish"
     abilities ABILITY_EFFECT_SPORE, ABILITY_POISON_HEAL
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SHROOMISH_TM_DATA_0, SPECIES_SHROOMISH_TM_DATA_1, SPECIES_SHROOMISH_TM_DATA_2, SPECIES_SHROOMISH_TM_DATA_3
     mondexentry SPECIES_SHROOMISH, "If it senses danger, it scatters\nspores from the top of its head to\nprotect itself."
     mondexclassification SPECIES_SHROOMISH, "Mushroom Pokémon"
     mondexheight SPECIES_SHROOMISH, "1’04”"
@@ -6320,7 +6033,6 @@ mondata SPECIES_BRELOOM, "Breloom"
     abilities ABILITY_EFFECT_SPORE, ABILITY_POISON_HEAL
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BRELOOM_TM_DATA_0, SPECIES_BRELOOM_TM_DATA_1, SPECIES_BRELOOM_TM_DATA_2, SPECIES_BRELOOM_TM_DATA_3
     mondexentry SPECIES_BRELOOM, "It scatters poisonous spores and\nthrows powerful punches while its\nfoe is hampered by inhaled spores."
     mondexclassification SPECIES_BRELOOM, "Mushroom Pokémon"
     mondexheight SPECIES_BRELOOM, "3’11”"
@@ -6342,7 +6054,6 @@ mondata SPECIES_SLAKOTH, "Slakoth"
     abilities ABILITY_TRUANT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SLAKOTH_TM_DATA_0, SPECIES_SLAKOTH_TM_DATA_1, SPECIES_SLAKOTH_TM_DATA_2, SPECIES_SLAKOTH_TM_DATA_3
     mondexentry SPECIES_SLAKOTH, "The way SLAKOTH lolls around makes\nanyone who watches it feel like\ndoing the same."
     mondexclassification SPECIES_SLAKOTH, "Slacker Pokémon"
     mondexheight SPECIES_SLAKOTH, "2’07”"
@@ -6364,7 +6075,6 @@ mondata SPECIES_VIGOROTH, "Vigoroth"
     abilities ABILITY_VITAL_SPIRIT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_VIGOROTH_TM_DATA_0, SPECIES_VIGOROTH_TM_DATA_1, SPECIES_VIGOROTH_TM_DATA_2, SPECIES_VIGOROTH_TM_DATA_3
     mondexentry SPECIES_VIGOROTH, "Its stress level rises if it\ncannot keep moving constantly.\nToo much stress makes it feel sick."
     mondexclassification SPECIES_VIGOROTH, "Wild Monkey Pokémon"
     mondexheight SPECIES_VIGOROTH, "4’07”"
@@ -6386,7 +6096,6 @@ mondata SPECIES_SLAKING, "Slaking"
     abilities ABILITY_TRUANT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SLAKING_TM_DATA_0, SPECIES_SLAKING_TM_DATA_1, SPECIES_SLAKING_TM_DATA_2, SPECIES_SLAKING_TM_DATA_3
     mondexentry SPECIES_SLAKING, "The world’s laziest Pokémon.\nIt moves to another spot when there’s\nno food left within its reach."
     mondexclassification SPECIES_SLAKING, "Lazy Pokémon"
     mondexheight SPECIES_SLAKING, "6’07”"
@@ -6408,7 +6117,6 @@ mondata SPECIES_NINCADA, "Nincada"
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NINCADA_TM_DATA_0, SPECIES_NINCADA_TM_DATA_1, SPECIES_NINCADA_TM_DATA_2, SPECIES_NINCADA_TM_DATA_3
     mondexentry SPECIES_NINCADA, "It can sometimes live underground for\nmore than 10 years. It absorbs\nnutrients from the roots of trees."
     mondexclassification SPECIES_NINCADA, "Trainee Pokémon"
     mondexheight SPECIES_NINCADA, "1’08”"
@@ -6430,7 +6138,6 @@ mondata SPECIES_NINJASK, "Ninjask"
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NINJASK_TM_DATA_0, SPECIES_NINJASK_TM_DATA_1, SPECIES_NINJASK_TM_DATA_2, SPECIES_NINJASK_TM_DATA_3
     mondexentry SPECIES_NINJASK, "Its cry leaves a lasting headache\nif heard for too long. It moves so\nquickly that it is almost invisible."
     mondexclassification SPECIES_NINJASK, "Ninja Pokémon"
     mondexheight SPECIES_NINJASK, "2’07”"
@@ -6452,7 +6159,6 @@ mondata SPECIES_SHEDINJA, "Shedinja"
     abilities ABILITY_WONDER_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SHEDINJA_TM_DATA_0, SPECIES_SHEDINJA_TM_DATA_1, SPECIES_SHEDINJA_TM_DATA_2, SPECIES_SHEDINJA_TM_DATA_3
     mondexentry SPECIES_SHEDINJA, "A strange Pokémon--it flies without\nmoving its wings, has a hollow shell\nfor a body, and does not breathe."
     mondexclassification SPECIES_SHEDINJA, "Shed Pokémon"
     mondexheight SPECIES_SHEDINJA, "2’07”"
@@ -6474,7 +6180,6 @@ mondata SPECIES_WHISMUR, "Whismur"
     abilities ABILITY_SOUNDPROOF, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_WHISMUR_TM_DATA_0, SPECIES_WHISMUR_TM_DATA_1, SPECIES_WHISMUR_TM_DATA_2, SPECIES_WHISMUR_TM_DATA_3
     mondexentry SPECIES_WHISMUR, "If it senses danger, it scares\nthe foe by crying out with the\nvolume of a jet-plane engine."
     mondexclassification SPECIES_WHISMUR, "Whisper Pokémon"
     mondexheight SPECIES_WHISMUR, "2’00”"
@@ -6496,7 +6201,6 @@ mondata SPECIES_LOUDRED, "Loudred"
     abilities ABILITY_SOUNDPROOF, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LOUDRED_TM_DATA_0, SPECIES_LOUDRED_TM_DATA_1, SPECIES_LOUDRED_TM_DATA_2, SPECIES_LOUDRED_TM_DATA_3
     mondexentry SPECIES_LOUDRED, "It shouts loudly by inhaling air, and\nthen uses its well-developed\nstomach muscles to exhale."
     mondexclassification SPECIES_LOUDRED, "Big Voice Pokémon"
     mondexheight SPECIES_LOUDRED, "3’03”"
@@ -6518,7 +6222,6 @@ mondata SPECIES_EXPLOUD, "Exploud"
     abilities ABILITY_SOUNDPROOF, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_EXPLOUD_TM_DATA_0, SPECIES_EXPLOUD_TM_DATA_1, SPECIES_EXPLOUD_TM_DATA_2, SPECIES_EXPLOUD_TM_DATA_3
     mondexentry SPECIES_EXPLOUD, "Its roar in battle shakes the\nground like a tremor--or like\nan earthquake has struck."
     mondexclassification SPECIES_EXPLOUD, "Loud Noise Pokémon"
     mondexheight SPECIES_EXPLOUD, "4’11”"
@@ -6540,7 +6243,6 @@ mondata SPECIES_MAKUHITA, "Makuhita"
     abilities ABILITY_THICK_FAT, ABILITY_GUTS
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MAKUHITA_TM_DATA_0, SPECIES_MAKUHITA_TM_DATA_1, SPECIES_MAKUHITA_TM_DATA_2, SPECIES_MAKUHITA_TM_DATA_3
     mondexentry SPECIES_MAKUHITA, "It toughens up by slamming into\nthick trees over and over. It gains\na sturdy body and dauntless spirit."
     mondexclassification SPECIES_MAKUHITA, "Guts Pokémon"
     mondexheight SPECIES_MAKUHITA, "3’03”"
@@ -6562,7 +6264,6 @@ mondata SPECIES_HARIYAMA, "Hariyama"
     abilities ABILITY_THICK_FAT, ABILITY_GUTS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HARIYAMA_TM_DATA_0, SPECIES_HARIYAMA_TM_DATA_1, SPECIES_HARIYAMA_TM_DATA_2, SPECIES_HARIYAMA_TM_DATA_3
     mondexentry SPECIES_HARIYAMA, "It loves challenging others to\ntests of strength. It has the\npower to stop a train with a slap."
     mondexclassification SPECIES_HARIYAMA, "Arm Thrust Pokémon"
     mondexheight SPECIES_HARIYAMA, "7’07”"
@@ -6584,7 +6285,6 @@ mondata SPECIES_AZURILL, "Azurill"
     abilities ABILITY_THICK_FAT, ABILITY_HUGE_POWER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_AZURILL_TM_DATA_0, SPECIES_AZURILL_TM_DATA_1, SPECIES_AZURILL_TM_DATA_2, SPECIES_AZURILL_TM_DATA_3
     mondexentry SPECIES_AZURILL, "Its tail is packed full of the\nnutrients it needs to grow."
     mondexclassification SPECIES_AZURILL, "Polka Dot Pokémon"
     mondexheight SPECIES_AZURILL, "0’08”"
@@ -6606,7 +6306,6 @@ mondata SPECIES_NOSEPASS, "Nosepass"
     abilities ABILITY_STURDY, ABILITY_MAGNET_PULL
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NOSEPASS_TM_DATA_0, SPECIES_NOSEPASS_TM_DATA_1, SPECIES_NOSEPASS_TM_DATA_2, SPECIES_NOSEPASS_TM_DATA_3
     mondexentry SPECIES_NOSEPASS, "If two of these meet, they cannot\nget too close because their noses\nrepel each other."
     mondexclassification SPECIES_NOSEPASS, "Compass Pokémon"
     mondexheight SPECIES_NOSEPASS, "3’03”"
@@ -6628,7 +6327,6 @@ mondata SPECIES_SKITTY, "Skitty"
     abilities ABILITY_CUTE_CHARM, ABILITY_NORMALIZE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SKITTY_TM_DATA_0, SPECIES_SKITTY_TM_DATA_1, SPECIES_SKITTY_TM_DATA_2, SPECIES_SKITTY_TM_DATA_3
     mondexentry SPECIES_SKITTY, "It’s adorable when it chases its own\ntail. It’s difficult to earn its trust."
     mondexclassification SPECIES_SKITTY, "Kitten Pokémon"
     mondexheight SPECIES_SKITTY, "2’00”"
@@ -6650,7 +6348,6 @@ mondata SPECIES_DELCATTY, "Delcatty"
     abilities ABILITY_CUTE_CHARM, ABILITY_NORMALIZE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_DELCATTY_TM_DATA_0, SPECIES_DELCATTY_TM_DATA_1, SPECIES_DELCATTY_TM_DATA_2, SPECIES_DELCATTY_TM_DATA_3
     mondexentry SPECIES_DELCATTY, "It dislikes dirty places. It often\nsearches for a comfortable place\nin which to groom itself."
     mondexclassification SPECIES_DELCATTY, "Prim Pokémon"
     mondexheight SPECIES_DELCATTY, "3’07”"
@@ -6672,7 +6369,6 @@ mondata SPECIES_SABLEYE, "Sableye"
     abilities ABILITY_KEEN_EYE, ABILITY_STALL
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SABLEYE_TM_DATA_0, SPECIES_SABLEYE_TM_DATA_1, SPECIES_SABLEYE_TM_DATA_2, SPECIES_SABLEYE_TM_DATA_3
     mondexentry SPECIES_SABLEYE, "It dwells in the darkness of caves.\nIt uses its sharp claws to dig up\ngems to nourish itself."
     mondexclassification SPECIES_SABLEYE, "Darkness Pokémon"
     mondexheight SPECIES_SABLEYE, "1’08”"
@@ -6694,7 +6390,6 @@ mondata SPECIES_MAWILE, "Mawile"
     abilities ABILITY_HYPER_CUTTER, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_MAWILE_TM_DATA_0, SPECIES_MAWILE_TM_DATA_1, SPECIES_MAWILE_TM_DATA_2, SPECIES_MAWILE_TM_DATA_3
     mondexentry SPECIES_MAWILE, "It chomps with its gaping mouth.\nIts huge jaws are actually steel\nhorns that have been transformed."
     mondexclassification SPECIES_MAWILE, "Deceiver Pokémon"
     mondexheight SPECIES_MAWILE, "2’00”"
@@ -6716,7 +6411,6 @@ mondata SPECIES_ARON, "Aron"
     abilities ABILITY_STURDY, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ARON_TM_DATA_0, SPECIES_ARON_TM_DATA_1, SPECIES_ARON_TM_DATA_2, SPECIES_ARON_TM_DATA_3
     mondexentry SPECIES_ARON, "When it evolves, it sheds the steel\ncarapace that covered its whole body\nand develops a new one."
     mondexclassification SPECIES_ARON, "Iron Armor Pokémon"
     mondexheight SPECIES_ARON, "1’04”"
@@ -6738,7 +6432,6 @@ mondata SPECIES_LAIRON, "Lairon"
     abilities ABILITY_STURDY, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_LAIRON_TM_DATA_0, SPECIES_LAIRON_TM_DATA_1, SPECIES_LAIRON_TM_DATA_2, SPECIES_LAIRON_TM_DATA_3
     mondexentry SPECIES_LAIRON, "It loves iron ore. Groups of them\nfight for territory by bashing one\nanother with their steel bodies."
     mondexclassification SPECIES_LAIRON, "Iron Armor Pokémon"
     mondexheight SPECIES_LAIRON, "2’11”"
@@ -6760,7 +6453,6 @@ mondata SPECIES_AGGRON, "Aggron"
     abilities ABILITY_STURDY, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_AGGRON_TM_DATA_0, SPECIES_AGGRON_TM_DATA_1, SPECIES_AGGRON_TM_DATA_2, SPECIES_AGGRON_TM_DATA_3
     mondexentry SPECIES_AGGRON, "You can tell its age by the length\nof its iron horns. It claims an\nentire mountain as its territory."
     mondexclassification SPECIES_AGGRON, "Iron Armor Pokémon"
     mondexheight SPECIES_AGGRON, "6’11”"
@@ -6782,7 +6474,6 @@ mondata SPECIES_MEDITITE, "Meditite"
     abilities ABILITY_PURE_POWER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MEDITITE_TM_DATA_0, SPECIES_MEDITITE_TM_DATA_1, SPECIES_MEDITITE_TM_DATA_2, SPECIES_MEDITITE_TM_DATA_3
     mondexentry SPECIES_MEDITITE, "It meditates to heighten its inner\nenergy and to float in the air.\nIt eats one berry a day."
     mondexclassification SPECIES_MEDITITE, "Meditate Pokémon"
     mondexheight SPECIES_MEDITITE, "2’00”"
@@ -6804,7 +6495,6 @@ mondata SPECIES_MEDICHAM, "Medicham"
     abilities ABILITY_PURE_POWER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MEDICHAM_TM_DATA_0, SPECIES_MEDICHAM_TM_DATA_1, SPECIES_MEDICHAM_TM_DATA_2, SPECIES_MEDICHAM_TM_DATA_3
     mondexentry SPECIES_MEDICHAM, "Through yoga training, it gained\nthe psychic power to predict\nits foe’s next move."
     mondexclassification SPECIES_MEDICHAM, "Meditate Pokémon"
     mondexheight SPECIES_MEDICHAM, "4’03”"
@@ -6826,7 +6516,6 @@ mondata SPECIES_ELECTRIKE, "Electrike"
     abilities ABILITY_STATIC, ABILITY_LIGHTNING_ROD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ELECTRIKE_TM_DATA_0, SPECIES_ELECTRIKE_TM_DATA_1, SPECIES_ELECTRIKE_TM_DATA_2, SPECIES_ELECTRIKE_TM_DATA_3
     mondexentry SPECIES_ELECTRIKE, "It stores electricity in its fur. It\ngives off sparks from all over its\nbody in seasons when the air is dry."
     mondexclassification SPECIES_ELECTRIKE, "Lightning Pokémon"
     mondexheight SPECIES_ELECTRIKE, "2’00”"
@@ -6848,7 +6537,6 @@ mondata SPECIES_MANECTRIC, "Manectric"
     abilities ABILITY_STATIC, ABILITY_LIGHTNING_ROD
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MANECTRIC_TM_DATA_0, SPECIES_MANECTRIC_TM_DATA_1, SPECIES_MANECTRIC_TM_DATA_2, SPECIES_MANECTRIC_TM_DATA_3
     mondexentry SPECIES_MANECTRIC, "Its nest can be found where a\nthunderbolt hits. It is discharging\nelectricity from its mane."
     mondexclassification SPECIES_MANECTRIC, "Discharge Pokémon"
     mondexheight SPECIES_MANECTRIC, "4’11”"
@@ -6870,7 +6558,6 @@ mondata SPECIES_PLUSLE, "Plusle"
     abilities ABILITY_PLUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PLUSLE_TM_DATA_0, SPECIES_PLUSLE_TM_DATA_1, SPECIES_PLUSLE_TM_DATA_2, SPECIES_PLUSLE_TM_DATA_3
     mondexentry SPECIES_PLUSLE, "It absorbs electricity from\ntelephone poles. It shorts out its\nbody to create crackling noises."
     mondexclassification SPECIES_PLUSLE, "Cheering Pokémon"
     mondexheight SPECIES_PLUSLE, "1’04”"
@@ -6892,7 +6579,6 @@ mondata SPECIES_MINUN, "Minun"
     abilities ABILITY_MINUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MINUN_TM_DATA_0, SPECIES_MINUN_TM_DATA_1, SPECIES_MINUN_TM_DATA_2, SPECIES_MINUN_TM_DATA_3
     mondexentry SPECIES_MINUN, "Exposure to electricity from MINUN\nand PLUSLE promotes blood\ncirculation and relaxes muscles."
     mondexclassification SPECIES_MINUN, "Cheering Pokémon"
     mondexheight SPECIES_MINUN, "1’04”"
@@ -6914,7 +6600,6 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     abilities ABILITY_ILLUMINATE, ABILITY_SWARM
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_VOLBEAT_TM_DATA_0, SPECIES_VOLBEAT_TM_DATA_1, SPECIES_VOLBEAT_TM_DATA_2, SPECIES_VOLBEAT_TM_DATA_3
     mondexentry SPECIES_VOLBEAT, "It emits light from its tail to\ncommunicate. It loves the\nsweet aroma given off by ILLUMISE."
     mondexclassification SPECIES_VOLBEAT, "Firefly Pokémon"
     mondexheight SPECIES_VOLBEAT, "2’04”"
@@ -6936,7 +6621,6 @@ mondata SPECIES_ILLUMISE, "Illumise"
     abilities ABILITY_OBLIVIOUS, ABILITY_TINTED_LENS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_ILLUMISE_TM_DATA_0, SPECIES_ILLUMISE_TM_DATA_1, SPECIES_ILLUMISE_TM_DATA_2, SPECIES_ILLUMISE_TM_DATA_3
     mondexentry SPECIES_ILLUMISE, "Its fragrance attracts a swarm of\nVOLBEAT, so they draw over 200\npatterns in the night sky."
     mondexclassification SPECIES_ILLUMISE, "Firefly Pokémon"
     mondexheight SPECIES_ILLUMISE, "2’00”"
@@ -6958,7 +6642,6 @@ mondata SPECIES_ROSELIA, "Roselia"
     abilities ABILITY_NATURAL_CURE, ABILITY_POISON_POINT
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ROSELIA_TM_DATA_0, SPECIES_ROSELIA_TM_DATA_1, SPECIES_ROSELIA_TM_DATA_2, SPECIES_ROSELIA_TM_DATA_3
     mondexentry SPECIES_ROSELIA, "ROSELIA that drink nutritionally\nrich springwater are said to reveal\nrare coloration when they bloom."
     mondexclassification SPECIES_ROSELIA, "Thorn Pokémon"
     mondexheight SPECIES_ROSELIA, "1’00”"
@@ -6980,7 +6663,6 @@ mondata SPECIES_GULPIN, "Gulpin"
     abilities ABILITY_LIQUID_OOZE, ABILITY_STICKY_HOLD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GULPIN_TM_DATA_0, SPECIES_GULPIN_TM_DATA_1, SPECIES_GULPIN_TM_DATA_2, SPECIES_GULPIN_TM_DATA_3
     mondexentry SPECIES_GULPIN, "It has a small heart and brain. Its\nstomach comprises most of its body,\nwith enzymes to dissolve anything."
     mondexclassification SPECIES_GULPIN, "Stomach Pokémon"
     mondexheight SPECIES_GULPIN, "1’04”"
@@ -7002,7 +6684,6 @@ mondata SPECIES_SWALOT, "Swalot"
     abilities ABILITY_LIQUID_OOZE, ABILITY_STICKY_HOLD
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SWALOT_TM_DATA_0, SPECIES_SWALOT_TM_DATA_1, SPECIES_SWALOT_TM_DATA_2, SPECIES_SWALOT_TM_DATA_3
     mondexentry SPECIES_SWALOT, "It gulps anything that fits in its\nmouth. Its special enzymes can\ndissolve anything."
     mondexclassification SPECIES_SWALOT, "Poison Bag Pokémon"
     mondexheight SPECIES_SWALOT, "5’07”"
@@ -7024,7 +6705,6 @@ mondata SPECIES_CARVANHA, "Carvanha"
     abilities ABILITY_ROUGH_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CARVANHA_TM_DATA_0, SPECIES_CARVANHA_TM_DATA_1, SPECIES_CARVANHA_TM_DATA_2, SPECIES_CARVANHA_TM_DATA_3
     mondexentry SPECIES_CARVANHA, "They form packs to attack boats\nand rip out their hulls to sink them.\nThey live in rivers in the jungle."
     mondexclassification SPECIES_CARVANHA, "Savage Pokémon"
     mondexheight SPECIES_CARVANHA, "2’07”"
@@ -7046,7 +6726,6 @@ mondata SPECIES_SHARPEDO, "Sharpedo"
     abilities ABILITY_ROUGH_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SHARPEDO_TM_DATA_0, SPECIES_SHARPEDO_TM_DATA_1, SPECIES_SHARPEDO_TM_DATA_2, SPECIES_SHARPEDO_TM_DATA_3
     mondexentry SPECIES_SHARPEDO, "It can swim at speeds of 75 mph by\njetting seawater through its body.\nIt is the bandit of the sea."
     mondexclassification SPECIES_SHARPEDO, "Brutal Pokémon"
     mondexheight SPECIES_SHARPEDO, "5’11”"
@@ -7068,7 +6747,6 @@ mondata SPECIES_WAILMER, "Wailmer"
     abilities ABILITY_WATER_VEIL, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WAILMER_TM_DATA_0, SPECIES_WAILMER_TM_DATA_1, SPECIES_WAILMER_TM_DATA_2, SPECIES_WAILMER_TM_DATA_3
     mondexentry SPECIES_WAILMER, "It bounces playfully like a ball.\nThe more seawater it swallows,\nthe higher it bounces."
     mondexclassification SPECIES_WAILMER, "Ball Whale Pokémon"
     mondexheight SPECIES_WAILMER, "6’07”"
@@ -7090,7 +6768,6 @@ mondata SPECIES_WAILORD, "Wailord"
     abilities ABILITY_WATER_VEIL, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WAILORD_TM_DATA_0, SPECIES_WAILORD_TM_DATA_1, SPECIES_WAILORD_TM_DATA_2, SPECIES_WAILORD_TM_DATA_3
     mondexentry SPECIES_WAILORD, "It is the largest of all identified\nPokémon. They jump as a pack\nto herd their prey."
     mondexclassification SPECIES_WAILORD, "Float Whale Pokémon"
     mondexheight SPECIES_WAILORD, "47’07”"
@@ -7112,7 +6789,6 @@ mondata SPECIES_NUMEL, "Numel"
     abilities ABILITY_OBLIVIOUS, ABILITY_SIMPLE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NUMEL_TM_DATA_0, SPECIES_NUMEL_TM_DATA_1, SPECIES_NUMEL_TM_DATA_2, SPECIES_NUMEL_TM_DATA_3
     mondexentry SPECIES_NUMEL, "The flaming magma it stores in the\nhump on its back is the source of\nits tremendous power."
     mondexclassification SPECIES_NUMEL, "Numb Pokémon"
     mondexheight SPECIES_NUMEL, "2’04”"
@@ -7134,7 +6810,6 @@ mondata SPECIES_CAMERUPT, "Camerupt"
     abilities ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CAMERUPT_TM_DATA_0, SPECIES_CAMERUPT_TM_DATA_1, SPECIES_CAMERUPT_TM_DATA_2, SPECIES_CAMERUPT_TM_DATA_3
     mondexentry SPECIES_CAMERUPT, "It lives in the crater of a volcano.\nIt is well known that the humps on\nits back erupt every 10 years."
     mondexclassification SPECIES_CAMERUPT, "Eruption Pokémon"
     mondexheight SPECIES_CAMERUPT, "6’03”"
@@ -7156,7 +6831,6 @@ mondata SPECIES_TORKOAL, "Torkoal"
     abilities ABILITY_WHITE_SMOKE, ABILITY_DROUGHT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TORKOAL_TM_DATA_0, SPECIES_TORKOAL_TM_DATA_1, SPECIES_TORKOAL_TM_DATA_2, SPECIES_TORKOAL_TM_DATA_3
     mondexentry SPECIES_TORKOAL, "You find abandoned coal mines full\nof them. They dig tirelessly in\nsearch of coal."
     mondexclassification SPECIES_TORKOAL, "Coal Pokémon"
     mondexheight SPECIES_TORKOAL, "1’08”"
@@ -7178,7 +6852,6 @@ mondata SPECIES_SPOINK, "Spoink"
     abilities ABILITY_THICK_FAT, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SPOINK_TM_DATA_0, SPECIES_SPOINK_TM_DATA_1, SPECIES_SPOINK_TM_DATA_2, SPECIES_SPOINK_TM_DATA_3
     mondexentry SPECIES_SPOINK, "It bounces around on its tail to\nkeep its heart pumping. It carries\na pearl from CLAMPERL on its head."
     mondexclassification SPECIES_SPOINK, "Bounce Pokémon"
     mondexheight SPECIES_SPOINK, "2’04”"
@@ -7200,7 +6873,6 @@ mondata SPECIES_GRUMPIG, "Grumpig"
     abilities ABILITY_THICK_FAT, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GRUMPIG_TM_DATA_0, SPECIES_GRUMPIG_TM_DATA_1, SPECIES_GRUMPIG_TM_DATA_2, SPECIES_GRUMPIG_TM_DATA_3
     mondexentry SPECIES_GRUMPIG, "It can perform odd dance steps to\ninfluence foes. Its style of dancing\nbecame hugely popular overseas."
     mondexclassification SPECIES_GRUMPIG, "Manipulate Pokémon"
     mondexheight SPECIES_GRUMPIG, "2’11”"
@@ -7222,7 +6894,6 @@ mondata SPECIES_SPINDA, "Spinda"
     abilities ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SPINDA_TM_DATA_0, SPECIES_SPINDA_TM_DATA_1, SPECIES_SPINDA_TM_DATA_2, SPECIES_SPINDA_TM_DATA_3
     mondexentry SPECIES_SPINDA, "The chances of two SPINDA having\nidentical spot patterns is less\nthan one in four billion."
     mondexclassification SPECIES_SPINDA, "Spot Panda Pokémon"
     mondexheight SPECIES_SPINDA, "3’07”"
@@ -7244,7 +6915,6 @@ mondata SPECIES_TRAPINCH, "Trapinch"
     abilities ABILITY_HYPER_CUTTER, ABILITY_ARENA_TRAP
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TRAPINCH_TM_DATA_0, SPECIES_TRAPINCH_TM_DATA_1, SPECIES_TRAPINCH_TM_DATA_2, SPECIES_TRAPINCH_TM_DATA_3
     mondexentry SPECIES_TRAPINCH, "Its nest is a sloped, bowl-like pit\nin the desert. Once something has\nfallen in, there is no escape."
     mondexclassification SPECIES_TRAPINCH, "Ant Pit Pokémon"
     mondexheight SPECIES_TRAPINCH, "2’04”"
@@ -7266,7 +6936,6 @@ mondata SPECIES_VIBRAVA, "Vibrava"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_VIBRAVA_TM_DATA_0, SPECIES_VIBRAVA_TM_DATA_1, SPECIES_VIBRAVA_TM_DATA_2, SPECIES_VIBRAVA_TM_DATA_3
     mondexentry SPECIES_VIBRAVA, "It vibrates its wings vigorously,\ncreating ultrasonic waves that\ncause serious headaches."
     mondexclassification SPECIES_VIBRAVA, "Vibration Pokémon"
     mondexheight SPECIES_VIBRAVA, "3’07”"
@@ -7288,7 +6957,6 @@ mondata SPECIES_FLYGON, "Flygon"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_FLYGON_TM_DATA_0, SPECIES_FLYGON_TM_DATA_1, SPECIES_FLYGON_TM_DATA_2, SPECIES_FLYGON_TM_DATA_3
     mondexentry SPECIES_FLYGON, "It is nicknamed “The Desert\nSpirit” because the flapping of its\nwings sounds like a woman singing."
     mondexclassification SPECIES_FLYGON, "Mystic Pokémon"
     mondexheight SPECIES_FLYGON, "6’07”"
@@ -7310,7 +6978,6 @@ mondata SPECIES_CACNEA, "Cacnea"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CACNEA_TM_DATA_0, SPECIES_CACNEA_TM_DATA_1, SPECIES_CACNEA_TM_DATA_2, SPECIES_CACNEA_TM_DATA_3
     mondexentry SPECIES_CACNEA, "It lives in arid locations. Its\nyellow flowers bloom once a year."
     mondexclassification SPECIES_CACNEA, "Cactus Pokémon"
     mondexheight SPECIES_CACNEA, "1’04”"
@@ -7332,7 +6999,6 @@ mondata SPECIES_CACTURNE, "Cacturne"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CACTURNE_TM_DATA_0, SPECIES_CACTURNE_TM_DATA_1, SPECIES_CACTURNE_TM_DATA_2, SPECIES_CACTURNE_TM_DATA_3
     mondexentry SPECIES_CACTURNE, "Packs of them follow travelers\nthrough the desert until\nthe travelers can no longer move."
     mondexclassification SPECIES_CACTURNE, "Scarecrow Pokémon"
     mondexheight SPECIES_CACTURNE, "4’03”"
@@ -7354,7 +7020,6 @@ mondata SPECIES_SWABLU, "Swablu"
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SWABLU_TM_DATA_0, SPECIES_SWABLU_TM_DATA_1, SPECIES_SWABLU_TM_DATA_2, SPECIES_SWABLU_TM_DATA_3
     mondexentry SPECIES_SWABLU, "Its wings bring cottony clouds to\nmind. It grooms with springwater\nand loves to sit on heads."
     mondexclassification SPECIES_SWABLU, "Cotton Bird Pokémon"
     mondexheight SPECIES_SWABLU, "1’04”"
@@ -7376,7 +7041,6 @@ mondata SPECIES_ALTARIA, "Altaria"
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ALTARIA_TM_DATA_0, SPECIES_ALTARIA_TM_DATA_1, SPECIES_ALTARIA_TM_DATA_2, SPECIES_ALTARIA_TM_DATA_3
     mondexentry SPECIES_ALTARIA, "It flies gracefully through the\nsky. Its melodic humming makes\nyou feel like you’re in a dream."
     mondexclassification SPECIES_ALTARIA, "Humming Pokémon"
     mondexheight SPECIES_ALTARIA, "3’07”"
@@ -7398,7 +7062,6 @@ mondata SPECIES_ZANGOOSE, "Zangoose"
     abilities ABILITY_IMMUNITY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_ZANGOOSE_TM_DATA_0, SPECIES_ZANGOOSE_TM_DATA_1, SPECIES_ZANGOOSE_TM_DATA_2, SPECIES_ZANGOOSE_TM_DATA_3
     mondexentry SPECIES_ZANGOOSE, "Its fur would all stand on end if\nit smelled a SEVIPER nearby.\nIts sharp claws tear up its foes."
     mondexclassification SPECIES_ZANGOOSE, "Cat Ferret Pokémon"
     mondexheight SPECIES_ZANGOOSE, "4’03”"
@@ -7420,7 +7083,6 @@ mondata SPECIES_SEVIPER, "Seviper"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SEVIPER_TM_DATA_0, SPECIES_SEVIPER_TM_DATA_1, SPECIES_SEVIPER_TM_DATA_2, SPECIES_SEVIPER_TM_DATA_3
     mondexentry SPECIES_SEVIPER, "In battle, it uses its bladed tail to\ncounter any ZANGOOSE. It secretes\na deadly venom in its tail."
     mondexclassification SPECIES_SEVIPER, "Fang Snake Pokémon"
     mondexheight SPECIES_SEVIPER, "8’10”"
@@ -7442,7 +7104,6 @@ mondata SPECIES_LUNATONE, "Lunatone"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_LUNATONE_TM_DATA_0, SPECIES_LUNATONE_TM_DATA_1, SPECIES_LUNATONE_TM_DATA_2, SPECIES_LUNATONE_TM_DATA_3
     mondexentry SPECIES_LUNATONE, "It was discovered at the site of a\nmeteor strike 40 years ago. Its\nstare can lull its foes to sleep."
     mondexclassification SPECIES_LUNATONE, "Meteorite Pokémon"
     mondexheight SPECIES_LUNATONE, "3’03”"
@@ -7464,7 +7125,6 @@ mondata SPECIES_SOLROCK, "Solrock"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SOLROCK_TM_DATA_0, SPECIES_SOLROCK_TM_DATA_1, SPECIES_SOLROCK_TM_DATA_2, SPECIES_SOLROCK_TM_DATA_3
     mondexentry SPECIES_SOLROCK, "When it rotates itself, it gives off\nlight similar to the sun, thus\nblinding its foes."
     mondexclassification SPECIES_SOLROCK, "Meteorite Pokémon"
     mondexheight SPECIES_SOLROCK, "3’11”"
@@ -7486,7 +7146,6 @@ mondata SPECIES_BARBOACH, "Barboach"
     abilities ABILITY_OBLIVIOUS, ABILITY_ANTICIPATION
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_BARBOACH_TM_DATA_0, SPECIES_BARBOACH_TM_DATA_1, SPECIES_BARBOACH_TM_DATA_2, SPECIES_BARBOACH_TM_DATA_3
     mondexentry SPECIES_BARBOACH, "BARBOACH uses its whiskers to\ntaste things just as a person uses\nhis or her tongue to taste things."
     mondexclassification SPECIES_BARBOACH, "Whiskers Pokémon"
     mondexheight SPECIES_BARBOACH, "1’04”"
@@ -7508,7 +7167,6 @@ mondata SPECIES_WHISCASH, "Whiscash"
     abilities ABILITY_OBLIVIOUS, ABILITY_ANTICIPATION
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WHISCASH_TM_DATA_0, SPECIES_WHISCASH_TM_DATA_1, SPECIES_WHISCASH_TM_DATA_2, SPECIES_WHISCASH_TM_DATA_3
     mondexentry SPECIES_WHISCASH, "It claims a large swamp to itself.\nIf a foe comes near it, it sets off\ntremors by thrashing around."
     mondexclassification SPECIES_WHISCASH, "Whiskers Pokémon"
     mondexheight SPECIES_WHISCASH, "2’11”"
@@ -7530,7 +7188,6 @@ mondata SPECIES_CORPHISH, "Corphish"
     abilities ABILITY_HYPER_CUTTER, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CORPHISH_TM_DATA_0, SPECIES_CORPHISH_TM_DATA_1, SPECIES_CORPHISH_TM_DATA_2, SPECIES_CORPHISH_TM_DATA_3
     mondexentry SPECIES_CORPHISH, "It was originally a Pokémon from\nafar that escaped to the wild. It\ncan adapt to the dirtiest river."
     mondexclassification SPECIES_CORPHISH, "Ruffian Pokémon"
     mondexheight SPECIES_CORPHISH, "2’00”"
@@ -7552,7 +7209,6 @@ mondata SPECIES_CRAWDAUNT, "Crawdaunt"
     abilities ABILITY_HYPER_CUTTER, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CRAWDAUNT_TM_DATA_0, SPECIES_CRAWDAUNT_TM_DATA_1, SPECIES_CRAWDAUNT_TM_DATA_2, SPECIES_CRAWDAUNT_TM_DATA_3
     mondexentry SPECIES_CRAWDAUNT, "A brutish Pokémon that loves to\nbattle. It will crash itself into any\nfoe that approaches its nest."
     mondexclassification SPECIES_CRAWDAUNT, "Rogue Pokémon"
     mondexheight SPECIES_CRAWDAUNT, "3’07”"
@@ -7574,7 +7230,6 @@ mondata SPECIES_BALTOY, "Baltoy"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BALTOY_TM_DATA_0, SPECIES_BALTOY_TM_DATA_1, SPECIES_BALTOY_TM_DATA_2, SPECIES_BALTOY_TM_DATA_3
     mondexentry SPECIES_BALTOY, "It moves while spinning around on\nits single foot. Some BALTOY have\nbeen seen spinning on their heads."
     mondexclassification SPECIES_BALTOY, "Clay Doll Pokémon"
     mondexheight SPECIES_BALTOY, "1’08”"
@@ -7596,7 +7251,6 @@ mondata SPECIES_CLAYDOL, "Claydol"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_CLAYDOL_TM_DATA_0, SPECIES_CLAYDOL_TM_DATA_1, SPECIES_CLAYDOL_TM_DATA_2, SPECIES_CLAYDOL_TM_DATA_3
     mondexentry SPECIES_CLAYDOL, "It is said that it originates from clay\ndolls made by an ancient civilization."
     mondexclassification SPECIES_CLAYDOL, "Clay Doll Pokémon"
     mondexheight SPECIES_CLAYDOL, "4’11”"
@@ -7618,7 +7272,6 @@ mondata SPECIES_LILEEP, "Lileep"
     abilities ABILITY_SUCTION_CUPS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_LILEEP_TM_DATA_0, SPECIES_LILEEP_TM_DATA_1, SPECIES_LILEEP_TM_DATA_2, SPECIES_LILEEP_TM_DATA_3
     mondexentry SPECIES_LILEEP, "It disguises its tentacles as\nflowers to attract and catch prey.\nIt became extinct in ancient times."
     mondexclassification SPECIES_LILEEP, "Sea Lily Pokémon"
     mondexheight SPECIES_LILEEP, "3’03”"
@@ -7640,7 +7293,6 @@ mondata SPECIES_CRADILY, "Cradily"
     abilities ABILITY_SUCTION_CUPS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CRADILY_TM_DATA_0, SPECIES_CRADILY_TM_DATA_1, SPECIES_CRADILY_TM_DATA_2, SPECIES_CRADILY_TM_DATA_3
     mondexentry SPECIES_CRADILY, "It lives in warm seas. Its heavy\nbody weighs it down so it won’t\nget washed away in rough weather."
     mondexclassification SPECIES_CRADILY, "Barnacle Pokémon"
     mondexheight SPECIES_CRADILY, "4’11”"
@@ -7662,7 +7314,6 @@ mondata SPECIES_ANORITH, "Anorith"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ANORITH_TM_DATA_0, SPECIES_ANORITH_TM_DATA_1, SPECIES_ANORITH_TM_DATA_2, SPECIES_ANORITH_TM_DATA_3
     mondexentry SPECIES_ANORITH, "An ancestral Pokémon that lived in\nthe ocean. Over time, its eight feet\ntransformed into wings."
     mondexclassification SPECIES_ANORITH, "Old Shrimp Pokémon"
     mondexheight SPECIES_ANORITH, "2’04”"
@@ -7684,7 +7335,6 @@ mondata SPECIES_ARMALDO, "Armaldo"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ARMALDO_TM_DATA_0, SPECIES_ARMALDO_TM_DATA_1, SPECIES_ARMALDO_TM_DATA_2, SPECIES_ARMALDO_TM_DATA_3
     mondexentry SPECIES_ARMALDO, "Its enormous, retractable claws\ncan cut through most anything. Its\nentire body is clad in sturdy plates."
     mondexclassification SPECIES_ARMALDO, "Plate Pokémon"
     mondexheight SPECIES_ARMALDO, "4’11”"
@@ -7706,7 +7356,6 @@ mondata SPECIES_FEEBAS, "Feebas"
     abilities ABILITY_SWIFT_SWIM, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_FEEBAS_TM_DATA_0, SPECIES_FEEBAS_TM_DATA_1, SPECIES_FEEBAS_TM_DATA_2, SPECIES_FEEBAS_TM_DATA_3
     mondexentry SPECIES_FEEBAS, "It is the shabbiest Pokémon of all.\nIt forms in schools and lives at the\nbottom of rivers."
     mondexclassification SPECIES_FEEBAS, "Fish Pokémon"
     mondexheight SPECIES_FEEBAS, "2’00”"
@@ -7728,7 +7377,6 @@ mondata SPECIES_MILOTIC, "Milotic"
     abilities ABILITY_MARVEL_SCALE, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MILOTIC_TM_DATA_0, SPECIES_MILOTIC_TM_DATA_1, SPECIES_MILOTIC_TM_DATA_2, SPECIES_MILOTIC_TM_DATA_3
     mondexentry SPECIES_MILOTIC, "It’s said that a glimpse of a\nMILOTIC and its beauty will calm any\nhostile emotions you’re feeling."
     mondexclassification SPECIES_MILOTIC, "Tender Pokémon"
     mondexheight SPECIES_MILOTIC, "20’04”"
@@ -7750,7 +7398,6 @@ mondata SPECIES_CASTFORM, "Castform"
     abilities ABILITY_FORECAST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_CASTFORM_TM_DATA_0, SPECIES_CASTFORM_TM_DATA_1, SPECIES_CASTFORM_TM_DATA_2, SPECIES_CASTFORM_TM_DATA_3
     mondexentry SPECIES_CASTFORM, "This Pokémon can change its cells,\ntaking different forms based on\nthe temperature and humidity."
     mondexclassification SPECIES_CASTFORM, "Weather Pokémon"
     mondexheight SPECIES_CASTFORM, "1’00”"
@@ -7772,7 +7419,6 @@ mondata SPECIES_KECLEON, "Kecleon"
     abilities ABILITY_COLOR_CHANGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_KECLEON_TM_DATA_0, SPECIES_KECLEON_TM_DATA_1, SPECIES_KECLEON_TM_DATA_2, SPECIES_KECLEON_TM_DATA_3
     mondexentry SPECIES_KECLEON, "It changes its shading to match its\nsurroundings so it can sneak up on prey.\nOnly its belly patterns stay fixed."
     mondexclassification SPECIES_KECLEON, "Color Swap Pokémon"
     mondexheight SPECIES_KECLEON, "3’03”"
@@ -7794,7 +7440,6 @@ mondata SPECIES_SHUPPET, "Shuppet"
     abilities ABILITY_INSOMNIA, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SHUPPET_TM_DATA_0, SPECIES_SHUPPET_TM_DATA_1, SPECIES_SHUPPET_TM_DATA_2, SPECIES_SHUPPET_TM_DATA_3
     mondexentry SPECIES_SHUPPET, "It uses its horn to feed on envy\nand malice, or so it’s said.\nIt’s very active at night."
     mondexclassification SPECIES_SHUPPET, "Puppet Pokémon"
     mondexheight SPECIES_SHUPPET, "2’00”"
@@ -7816,7 +7461,6 @@ mondata SPECIES_BANETTE, "Banette"
     abilities ABILITY_INSOMNIA, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_BANETTE_TM_DATA_0, SPECIES_BANETTE_TM_DATA_1, SPECIES_BANETTE_TM_DATA_2, SPECIES_BANETTE_TM_DATA_3
     mondexentry SPECIES_BANETTE, "This Pokémon developed from an\nabandoned doll that amassed a\ngrudge. It is seen in dark alleys."
     mondexclassification SPECIES_BANETTE, "Marionette Pokémon"
     mondexheight SPECIES_BANETTE, "3’07”"
@@ -7838,7 +7482,6 @@ mondata SPECIES_DUSKULL, "Duskull"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_DUSKULL_TM_DATA_0, SPECIES_DUSKULL_TM_DATA_1, SPECIES_DUSKULL_TM_DATA_2, SPECIES_DUSKULL_TM_DATA_3
     mondexentry SPECIES_DUSKULL, "If it finds bad children who won’t\nlisten to their parents, it will\nspirit them away--or so it’s said."
     mondexclassification SPECIES_DUSKULL, "Requiem Pokémon"
     mondexheight SPECIES_DUSKULL, "2’07”"
@@ -7860,7 +7503,6 @@ mondata SPECIES_DUSCLOPS, "Dusclops"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_DUSCLOPS_TM_DATA_0, SPECIES_DUSCLOPS_TM_DATA_1, SPECIES_DUSCLOPS_TM_DATA_2, SPECIES_DUSCLOPS_TM_DATA_3
     mondexentry SPECIES_DUSCLOPS, "Anyone who dares peer into its body\nto see its spectral ball of fire\nwill have their spirit stolen away."
     mondexclassification SPECIES_DUSCLOPS, "Beckon Pokémon"
     mondexheight SPECIES_DUSCLOPS, "5’03”"
@@ -7882,7 +7524,6 @@ mondata SPECIES_TROPIUS, "Tropius"
     abilities ABILITY_CHLOROPHYLL, ABILITY_SOLAR_POWER
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TROPIUS_TM_DATA_0, SPECIES_TROPIUS_TM_DATA_1, SPECIES_TROPIUS_TM_DATA_2, SPECIES_TROPIUS_TM_DATA_3
     mondexentry SPECIES_TROPIUS, "The bunch of fruit around its neck\nripens twice a year and is delicious.\nIt’s a highly favored tropical snack."
     mondexclassification SPECIES_TROPIUS, "Fruit Pokémon"
     mondexheight SPECIES_TROPIUS, "6’07”"
@@ -7904,7 +7545,6 @@ mondata SPECIES_CHIMECHO, "Chimecho"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CHIMECHO_TM_DATA_0, SPECIES_CHIMECHO_TM_DATA_1, SPECIES_CHIMECHO_TM_DATA_2, SPECIES_CHIMECHO_TM_DATA_3
     mondexentry SPECIES_CHIMECHO, "It uses the sucker on its head to\nhang from a tree or from eaves. It\ncan produce seven different tones."
     mondexclassification SPECIES_CHIMECHO, "Wind Chime Pokémon"
     mondexheight SPECIES_CHIMECHO, "2’00”"
@@ -7926,7 +7566,6 @@ mondata SPECIES_ABSOL, "Absol"
     abilities ABILITY_PRESSURE, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_ABSOL_TM_DATA_0, SPECIES_ABSOL_TM_DATA_1, SPECIES_ABSOL_TM_DATA_2, SPECIES_ABSOL_TM_DATA_3
     mondexentry SPECIES_ABSOL, "It has the ability to foretell\nnatural disasters. Its life span is\nover a hundred years."
     mondexclassification SPECIES_ABSOL, "Disaster Pokémon"
     mondexheight SPECIES_ABSOL, "3’11”"
@@ -7948,7 +7587,6 @@ mondata SPECIES_WYNAUT, "Wynaut"
     abilities ABILITY_SHADOW_TAG, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WYNAUT_TM_DATA_0, SPECIES_WYNAUT_TM_DATA_1, SPECIES_WYNAUT_TM_DATA_2, SPECIES_WYNAUT_TM_DATA_3
     mondexentry SPECIES_WYNAUT, "It tends to move in a pack.\nIndividuals squash against one\nanother to toughen their spirits."
     mondexclassification SPECIES_WYNAUT, "Bright Pokémon"
     mondexheight SPECIES_WYNAUT, "2’00”"
@@ -7970,7 +7608,6 @@ mondata SPECIES_SNORUNT, "Snorunt"
     abilities ABILITY_INNER_FOCUS, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SNORUNT_TM_DATA_0, SPECIES_SNORUNT_TM_DATA_1, SPECIES_SNORUNT_TM_DATA_2, SPECIES_SNORUNT_TM_DATA_3
     mondexentry SPECIES_SNORUNT, "It’s said that if they are seen at\nmidnight, they’ll cause heavy snow.\nThey eat snow and ice to survive."
     mondexclassification SPECIES_SNORUNT, "Snow Hat Pokémon"
     mondexheight SPECIES_SNORUNT, "2’04”"
@@ -7992,7 +7629,6 @@ mondata SPECIES_GLALIE, "Glalie"
     abilities ABILITY_INNER_FOCUS, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_GLALIE_TM_DATA_0, SPECIES_GLALIE_TM_DATA_1, SPECIES_GLALIE_TM_DATA_2, SPECIES_GLALIE_TM_DATA_3
     mondexentry SPECIES_GLALIE, "It can instantly freeze moisture in\nthe atmosphere. It uses this power\nto freeze its foes."
     mondexclassification SPECIES_GLALIE, "Face Pokémon"
     mondexheight SPECIES_GLALIE, "4’11”"
@@ -8014,7 +7650,6 @@ mondata SPECIES_SPHEAL, "Spheal"
     abilities ABILITY_THICK_FAT, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SPHEAL_TM_DATA_0, SPECIES_SPHEAL_TM_DATA_1, SPECIES_SPHEAL_TM_DATA_2, SPECIES_SPHEAL_TM_DATA_3
     mondexentry SPECIES_SPHEAL, "It crosses the oceans by rolling itself\non drifting ice. Fluffy fur keeps it warm\nwhen the temperature is below freezing."
     mondexclassification SPECIES_SPHEAL, "Clap Pokémon"
     mondexheight SPECIES_SPHEAL, "2’07”"
@@ -8036,7 +7671,6 @@ mondata SPECIES_SEALEO, "Sealeo"
     abilities ABILITY_THICK_FAT, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SEALEO_TM_DATA_0, SPECIES_SEALEO_TM_DATA_1, SPECIES_SEALEO_TM_DATA_2, SPECIES_SEALEO_TM_DATA_3
     mondexentry SPECIES_SEALEO, "It has a very sensitive nose.\nIt touches new things with its nose\nto examine them."
     mondexclassification SPECIES_SEALEO, "Ball Roll Pokémon"
     mondexheight SPECIES_SEALEO, "3’07”"
@@ -8058,7 +7692,6 @@ mondata SPECIES_WALREIN, "Walrein"
     abilities ABILITY_THICK_FAT, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WALREIN_TM_DATA_0, SPECIES_WALREIN_TM_DATA_1, SPECIES_WALREIN_TM_DATA_2, SPECIES_WALREIN_TM_DATA_3
     mondexentry SPECIES_WALREIN, "It shatters drift ice with its\nstrong tusks. Its thick layer of\nblubber repels enemy attacks."
     mondexclassification SPECIES_WALREIN, "Ice Break Pokémon"
     mondexheight SPECIES_WALREIN, "4’07”"
@@ -8080,7 +7713,6 @@ mondata SPECIES_CLAMPERL, "Clamperl"
     abilities ABILITY_SHELL_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CLAMPERL_TM_DATA_0, SPECIES_CLAMPERL_TM_DATA_1, SPECIES_CLAMPERL_TM_DATA_2, SPECIES_CLAMPERL_TM_DATA_3
     mondexentry SPECIES_CLAMPERL, "When it evolves, it makes a\nmysterious pearl that amplifies\npsychic powers when it’s held."
     mondexclassification SPECIES_CLAMPERL, "Bivalve Pokémon"
     mondexheight SPECIES_CLAMPERL, "1’04”"
@@ -8102,7 +7734,6 @@ mondata SPECIES_HUNTAIL, "Huntail"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_HUNTAIL_TM_DATA_0, SPECIES_HUNTAIL_TM_DATA_1, SPECIES_HUNTAIL_TM_DATA_2, SPECIES_HUNTAIL_TM_DATA_3
     mondexentry SPECIES_HUNTAIL, "It lives deep in the pitch-dark sea.\nIt attracts prey by moving its tail\nin mimicry of a small animal."
     mondexclassification SPECIES_HUNTAIL, "Deep Sea Pokémon"
     mondexheight SPECIES_HUNTAIL, "5’07”"
@@ -8124,7 +7755,6 @@ mondata SPECIES_GOREBYSS, "Gorebyss"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_GOREBYSS_TM_DATA_0, SPECIES_GOREBYSS_TM_DATA_1, SPECIES_GOREBYSS_TM_DATA_2, SPECIES_GOREBYSS_TM_DATA_3
     mondexentry SPECIES_GOREBYSS, "Its pink body becomes more vivid\nwith the rise of water\ntemperatures in the springtime."
     mondexclassification SPECIES_GOREBYSS, "South Sea Pokémon"
     mondexheight SPECIES_GOREBYSS, "5’11”"
@@ -8146,7 +7776,6 @@ mondata SPECIES_RELICANTH, "Relicanth"
     abilities ABILITY_SWIFT_SWIM, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_RELICANTH_TM_DATA_0, SPECIES_RELICANTH_TM_DATA_1, SPECIES_RELICANTH_TM_DATA_2, SPECIES_RELICANTH_TM_DATA_3
     mondexentry SPECIES_RELICANTH, "Discovered by chance during\ndeep-sea explorations, it has not\nchanged since ancient times."
     mondexclassification SPECIES_RELICANTH, "Longevity Pokémon"
     mondexheight SPECIES_RELICANTH, "3’03”"
@@ -8168,7 +7797,6 @@ mondata SPECIES_LUVDISC, "Luvdisc"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_LUVDISC_TM_DATA_0, SPECIES_LUVDISC_TM_DATA_1, SPECIES_LUVDISC_TM_DATA_2, SPECIES_LUVDISC_TM_DATA_3
     mondexentry SPECIES_LUVDISC, "Its heart-shaped body makes it\npopular. In some places, you would\ngive a LUVDISC to someone you love."
     mondexclassification SPECIES_LUVDISC, "Rendezvous Pokémon"
     mondexheight SPECIES_LUVDISC, "2’00”"
@@ -8190,7 +7818,6 @@ mondata SPECIES_BAGON, "Bagon"
     abilities ABILITY_ROCK_HEAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BAGON_TM_DATA_0, SPECIES_BAGON_TM_DATA_1, SPECIES_BAGON_TM_DATA_2, SPECIES_BAGON_TM_DATA_3
     mondexentry SPECIES_BAGON, "Its well-developed neck muscles\nand ironlike head can smash\nboulders into pieces."
     mondexclassification SPECIES_BAGON, "Rock Head Pokémon"
     mondexheight SPECIES_BAGON, "2’00”"
@@ -8212,7 +7839,6 @@ mondata SPECIES_SHELGON, "Shelgon"
     abilities ABILITY_ROCK_HEAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SHELGON_TM_DATA_0, SPECIES_SHELGON_TM_DATA_1, SPECIES_SHELGON_TM_DATA_2, SPECIES_SHELGON_TM_DATA_3
     mondexentry SPECIES_SHELGON, "It surrounds its body in an\niron-hard shell to accumulate\nenough power to evolve."
     mondexclassification SPECIES_SHELGON, "Endurance Pokémon"
     mondexheight SPECIES_SHELGON, "3’07”"
@@ -8234,7 +7860,6 @@ mondata SPECIES_SALAMENCE, "Salamence"
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SALAMENCE_TM_DATA_0, SPECIES_SALAMENCE_TM_DATA_1, SPECIES_SALAMENCE_TM_DATA_2, SPECIES_SALAMENCE_TM_DATA_3
     mondexentry SPECIES_SALAMENCE, "It’s uncontrollable if enraged.\nIt flies around spouting flames and\nscorching fields and mountains."
     mondexclassification SPECIES_SALAMENCE, "Dragon Pokémon"
     mondexheight SPECIES_SALAMENCE, "4’11”"
@@ -8256,7 +7881,6 @@ mondata SPECIES_BELDUM, "Beldum"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BELDUM_TM_DATA_0, SPECIES_BELDUM_TM_DATA_1, SPECIES_BELDUM_TM_DATA_2, SPECIES_BELDUM_TM_DATA_3
     mondexentry SPECIES_BELDUM, "The magnetic force generated by\nits body repels the ground’s\nnatural magnetism, letting it float."
     mondexclassification SPECIES_BELDUM, "Iron Ball Pokémon"
     mondexheight SPECIES_BELDUM, "2’00”"
@@ -8278,7 +7902,6 @@ mondata SPECIES_METANG, "Metang"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_METANG_TM_DATA_0, SPECIES_METANG_TM_DATA_1, SPECIES_METANG_TM_DATA_2, SPECIES_METANG_TM_DATA_3
     mondexentry SPECIES_METANG, "When two BELDUM fuse together, a\nmagnetic nervous system places\ntheir brains in union."
     mondexclassification SPECIES_METANG, "Iron Claw Pokémon"
     mondexheight SPECIES_METANG, "3’11”"
@@ -8300,7 +7923,6 @@ mondata SPECIES_METAGROSS, "Metagross"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_METAGROSS_TM_DATA_0, SPECIES_METAGROSS_TM_DATA_1, SPECIES_METAGROSS_TM_DATA_2, SPECIES_METAGROSS_TM_DATA_3
     mondexentry SPECIES_METAGROSS, "It folds its four legs when flying.\nIts four brains are said to be\nsuperior to a supercomputer."
     mondexclassification SPECIES_METAGROSS, "Iron Leg Pokémon"
     mondexheight SPECIES_METAGROSS, "5’03”"
@@ -8322,7 +7944,6 @@ mondata SPECIES_REGIROCK, "Regirock"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_REGIROCK_TM_DATA_0, SPECIES_REGIROCK_TM_DATA_1, SPECIES_REGIROCK_TM_DATA_2, SPECIES_REGIROCK_TM_DATA_3
     mondexentry SPECIES_REGIROCK, "The same rocks that form its body\nhave been found in ground layers\naround the world."
     mondexclassification SPECIES_REGIROCK, "Rock Peak Pokémon"
     mondexheight SPECIES_REGIROCK, "5’07”"
@@ -8344,7 +7965,6 @@ mondata SPECIES_REGICE, "Regice"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_REGICE_TM_DATA_0, SPECIES_REGICE_TM_DATA_1, SPECIES_REGICE_TM_DATA_2, SPECIES_REGICE_TM_DATA_3
     mondexentry SPECIES_REGICE, "It is said to have slept in a glacier\nfor thousands of years. Its body\ncan’t be melted, even by magma."
     mondexclassification SPECIES_REGICE, "Iceberg Pokémon"
     mondexheight SPECIES_REGICE, "5’11”"
@@ -8366,7 +7986,6 @@ mondata SPECIES_REGISTEEL, "Registeel"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REGISTEEL_TM_DATA_0, SPECIES_REGISTEEL_TM_DATA_1, SPECIES_REGISTEEL_TM_DATA_2, SPECIES_REGISTEEL_TM_DATA_3
     mondexentry SPECIES_REGISTEEL, "Its body is said to be harder than\nany kind of metal. A study has\nrevealed that its body is hollow."
     mondexclassification SPECIES_REGISTEEL, "Iron Pokémon"
     mondexheight SPECIES_REGISTEEL, "6’03”"
@@ -8388,7 +8007,6 @@ mondata SPECIES_LATIAS, "Latias"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_LATIAS_TM_DATA_0, SPECIES_LATIAS_TM_DATA_1, SPECIES_LATIAS_TM_DATA_2, SPECIES_LATIAS_TM_DATA_3
     mondexentry SPECIES_LATIAS, "It communicates using telepathy.\nIts body is covered in down that\nrefracts light to make it invisible."
     mondexclassification SPECIES_LATIAS, "Eon Pokémon"
     mondexheight SPECIES_LATIAS, "4’07”"
@@ -8410,7 +8028,6 @@ mondata SPECIES_LATIOS, "Latios"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LATIOS_TM_DATA_0, SPECIES_LATIOS_TM_DATA_1, SPECIES_LATIOS_TM_DATA_2, SPECIES_LATIOS_TM_DATA_3
     mondexentry SPECIES_LATIOS, "It understands human speech and is\nhighly intelligent. It is a tender\nPokémon that dislikes fighting."
     mondexclassification SPECIES_LATIOS, "Eon Pokémon"
     mondexheight SPECIES_LATIOS, "6’07”"
@@ -8432,7 +8049,6 @@ mondata SPECIES_KYOGRE, "Kyogre"
     abilities ABILITY_DRIZZLE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_KYOGRE_TM_DATA_0, SPECIES_KYOGRE_TM_DATA_1, SPECIES_KYOGRE_TM_DATA_2, SPECIES_KYOGRE_TM_DATA_3
     mondexentry SPECIES_KYOGRE, "A mythical Pokémon said to have\nswelled the seas with rain and tidal\nwaves. It battled with GROUDON."
     mondexclassification SPECIES_KYOGRE, "Sea Basin Pokémon"
     mondexheight SPECIES_KYOGRE, "14’09”"
@@ -8454,7 +8070,6 @@ mondata SPECIES_GROUDON, "Groudon"
     abilities ABILITY_DROUGHT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_GROUDON_TM_DATA_0, SPECIES_GROUDON_TM_DATA_1, SPECIES_GROUDON_TM_DATA_2, SPECIES_GROUDON_TM_DATA_3
     mondexentry SPECIES_GROUDON, "Said to have expanded the lands by\nevaporating water with raging heat.\nIt battled titanically with KYOGRE."
     mondexclassification SPECIES_GROUDON, "Continent Pokémon"
     mondexheight SPECIES_GROUDON, "11’06”"
@@ -8476,7 +8091,6 @@ mondata SPECIES_RAYQUAZA, "Rayquaza"
     abilities ABILITY_AIR_LOCK, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_RAYQUAZA_TM_DATA_0, SPECIES_RAYQUAZA_TM_DATA_1, SPECIES_RAYQUAZA_TM_DATA_2, SPECIES_RAYQUAZA_TM_DATA_3
     mondexentry SPECIES_RAYQUAZA, "It flies in the ozone layer, way up\nhigh in the sky. Until recently,\nno one had ever seen it."
     mondexclassification SPECIES_RAYQUAZA, "Sky High Pokémon"
     mondexheight SPECIES_RAYQUAZA, "23’00”"
@@ -8498,7 +8112,6 @@ mondata SPECIES_JIRACHI, "Jirachi"
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_JIRACHI_TM_DATA_0, SPECIES_JIRACHI_TM_DATA_1, SPECIES_JIRACHI_TM_DATA_2, SPECIES_JIRACHI_TM_DATA_3
     mondexentry SPECIES_JIRACHI, "Generations have believed that any\nwish written on a note on its head\nwill come true when it awakens."
     mondexclassification SPECIES_JIRACHI, "Wish Pokémon"
     mondexheight SPECIES_JIRACHI, "1’00”"
@@ -8520,7 +8133,6 @@ mondata SPECIES_DEOXYS, "Deoxys"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DEOXYS_TM_DATA_0, SPECIES_DEOXYS_TM_DATA_1, SPECIES_DEOXYS_TM_DATA_2, SPECIES_DEOXYS_TM_DATA_3
     mondexentry SPECIES_DEOXYS, "DNA from a space virus mutated and\nbecame a Pokémon. It appears\nwhere auroras are seen."
     mondexclassification SPECIES_DEOXYS, "DNA Pokémon"
     mondexheight SPECIES_DEOXYS, "5’07”"
@@ -8542,7 +8154,6 @@ mondata SPECIES_TURTWIG, "Turtwig"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TURTWIG_TM_DATA_0, SPECIES_TURTWIG_TM_DATA_1, SPECIES_TURTWIG_TM_DATA_2, SPECIES_TURTWIG_TM_DATA_3
     mondexentry SPECIES_TURTWIG, "Photosynthesis occurs across its\nbody under the sun. The shell on\nits back is actually hardened soil."
     mondexclassification SPECIES_TURTWIG, "Tiny Leaf Pokémon"
     mondexheight SPECIES_TURTWIG, "1’04”"
@@ -8564,7 +8175,6 @@ mondata SPECIES_GROTLE, "Grotle"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GROTLE_TM_DATA_0, SPECIES_GROTLE_TM_DATA_1, SPECIES_GROTLE_TM_DATA_2, SPECIES_GROTLE_TM_DATA_3
     mondexentry SPECIES_GROTLE, "A GROTLE that lives in the forest\nis said to have its own secret\nspringwater."
     mondexclassification SPECIES_GROTLE, "Grove Pokémon"
     mondexheight SPECIES_GROTLE, "3’07”"
@@ -8586,7 +8196,6 @@ mondata SPECIES_TORTERRA, "Torterra"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TORTERRA_TM_DATA_0, SPECIES_TORTERRA_TM_DATA_1, SPECIES_TORTERRA_TM_DATA_2, SPECIES_TORTERRA_TM_DATA_3
     mondexentry SPECIES_TORTERRA, "Ancient people imagined that\nbeneath the ground, a gigantic\nTORTERRA dwelled."
     mondexclassification SPECIES_TORTERRA, "Continent Pokémon"
     mondexheight SPECIES_TORTERRA, "7’03”"
@@ -8608,7 +8217,6 @@ mondata SPECIES_CHIMCHAR, "Chimchar"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_CHIMCHAR_TM_DATA_0, SPECIES_CHIMCHAR_TM_DATA_1, SPECIES_CHIMCHAR_TM_DATA_2, SPECIES_CHIMCHAR_TM_DATA_3
     mondexentry SPECIES_CHIMCHAR, "The gas made in its belly burns from\nits rear end. The fire burns weakly\nwhen it feels sick."
     mondexclassification SPECIES_CHIMCHAR, "Chimp Pokémon"
     mondexheight SPECIES_CHIMCHAR, "1’08”"
@@ -8630,7 +8238,6 @@ mondata SPECIES_MONFERNO, "Monferno"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MONFERNO_TM_DATA_0, SPECIES_MONFERNO_TM_DATA_1, SPECIES_MONFERNO_TM_DATA_2, SPECIES_MONFERNO_TM_DATA_3
     mondexentry SPECIES_MONFERNO, "A bigger fire on its tail and a\nbrighter blue pattern on its face\nmeans its rank in its pack is higher."
     mondexclassification SPECIES_MONFERNO, "Playful Pokémon"
     mondexheight SPECIES_MONFERNO, "2’11”"
@@ -8652,7 +8259,6 @@ mondata SPECIES_INFERNAPE, "Infernape"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_INFERNAPE_TM_DATA_0, SPECIES_INFERNAPE_TM_DATA_1, SPECIES_INFERNAPE_TM_DATA_2, SPECIES_INFERNAPE_TM_DATA_3
     mondexentry SPECIES_INFERNAPE, "It tosses its enemies around with\nagility. It uses all its limbs to\nfight in its own unique style."
     mondexclassification SPECIES_INFERNAPE, "Flame Pokémon"
     mondexheight SPECIES_INFERNAPE, "3’11”"
@@ -8674,7 +8280,6 @@ mondata SPECIES_PIPLUP, "Piplup"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PIPLUP_TM_DATA_0, SPECIES_PIPLUP_TM_DATA_1, SPECIES_PIPLUP_TM_DATA_2, SPECIES_PIPLUP_TM_DATA_3
     mondexentry SPECIES_PIPLUP, "It doesn’t like to be taken care\nof. It’s difficult to bond with since\nit won’t listen to its Trainer."
     mondexclassification SPECIES_PIPLUP, "Penguin Pokémon"
     mondexheight SPECIES_PIPLUP, "1’04”"
@@ -8696,7 +8301,6 @@ mondata SPECIES_PRINPLUP, "Prinplup"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PRINPLUP_TM_DATA_0, SPECIES_PRINPLUP_TM_DATA_1, SPECIES_PRINPLUP_TM_DATA_2, SPECIES_PRINPLUP_TM_DATA_3
     mondexentry SPECIES_PRINPLUP, "It lives a solitary life. Its wings\ndeliver wicked blows that can\nsnap even the thickest of trees."
     mondexclassification SPECIES_PRINPLUP, "Penguin Pokémon"
     mondexheight SPECIES_PRINPLUP, "2’07”"
@@ -8718,7 +8322,6 @@ mondata SPECIES_EMPOLEON, "Empoleon"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_EMPOLEON_TM_DATA_0, SPECIES_EMPOLEON_TM_DATA_1, SPECIES_EMPOLEON_TM_DATA_2, SPECIES_EMPOLEON_TM_DATA_3
     mondexentry SPECIES_EMPOLEON, "It avoids unnecessary disputes,\nbut it will decimate anything that\nthreatens its pride."
     mondexclassification SPECIES_EMPOLEON, "Emperor Pokémon"
     mondexheight SPECIES_EMPOLEON, "5’07”"
@@ -8740,7 +8343,6 @@ mondata SPECIES_STARLY, "Starly"
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_STARLY_TM_DATA_0, SPECIES_STARLY_TM_DATA_1, SPECIES_STARLY_TM_DATA_2, SPECIES_STARLY_TM_DATA_3
     mondexentry SPECIES_STARLY, "They flock around mountains and\nfields, chasing after bug Pokémon.\nTheir singing is noisy and annoying."
     mondexclassification SPECIES_STARLY, "Starling Pokémon"
     mondexheight SPECIES_STARLY, "1’00”"
@@ -8762,7 +8364,6 @@ mondata SPECIES_STARAVIA, "Staravia"
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_STARAVIA_TM_DATA_0, SPECIES_STARAVIA_TM_DATA_1, SPECIES_STARAVIA_TM_DATA_2, SPECIES_STARAVIA_TM_DATA_3
     mondexentry SPECIES_STARAVIA, "They maintain huge flocks, although\nfierce scuffles break out between\nvarious flocks."
     mondexclassification SPECIES_STARAVIA, "Starling Pokémon"
     mondexheight SPECIES_STARAVIA, "2’00”"
@@ -8784,7 +8385,6 @@ mondata SPECIES_STARAPTOR, "Staraptor"
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_STARAPTOR_TM_DATA_0, SPECIES_STARAPTOR_TM_DATA_1, SPECIES_STARAPTOR_TM_DATA_2, SPECIES_STARAPTOR_TM_DATA_3
     mondexentry SPECIES_STARAPTOR, "When STARAVIA evolve into\nSTARAPTOR, they leave the flock to\nlive alone. They have sturdy wings."
     mondexclassification SPECIES_STARAPTOR, "Predator Pokémon"
     mondexheight SPECIES_STARAPTOR, "3’11”"
@@ -8806,7 +8406,6 @@ mondata SPECIES_BIDOOF, "Bidoof"
     abilities ABILITY_SIMPLE, ABILITY_UNAWARE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BIDOOF_TM_DATA_0, SPECIES_BIDOOF_TM_DATA_1, SPECIES_BIDOOF_TM_DATA_2, SPECIES_BIDOOF_TM_DATA_3
     mondexentry SPECIES_BIDOOF, "It lives in groups by the water. \nIt chews up boulders and trees\naround its nest with its incisors."
     mondexclassification SPECIES_BIDOOF, "Plump Mouse Pokémon"
     mondexheight SPECIES_BIDOOF, "1’08”"
@@ -8828,7 +8427,6 @@ mondata SPECIES_BIBAREL, "Bibarel"
     abilities ABILITY_SIMPLE, ABILITY_UNAWARE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BIBAREL_TM_DATA_0, SPECIES_BIBAREL_TM_DATA_1, SPECIES_BIBAREL_TM_DATA_2, SPECIES_BIBAREL_TM_DATA_3
     mondexentry SPECIES_BIBAREL, "It busily makes its nest with\nstacks of branches and roots it\nhas cut up with its sharp incisors."
     mondexclassification SPECIES_BIBAREL, "Beaver Pokémon"
     mondexheight SPECIES_BIBAREL, "3’03”"
@@ -8850,7 +8448,6 @@ mondata SPECIES_KRICKETOT, "Kricketot"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KRICKETOT_TM_DATA_0, SPECIES_KRICKETOT_TM_DATA_1, SPECIES_KRICKETOT_TM_DATA_2, SPECIES_KRICKETOT_TM_DATA_3
     mondexentry SPECIES_KRICKETOT, "When its antennae hit each other,\nit sounds like the music of\na xylophone."
     mondexclassification SPECIES_KRICKETOT, "Cricket Pokémon"
     mondexheight SPECIES_KRICKETOT, "1’00”"
@@ -8872,7 +8469,6 @@ mondata SPECIES_KRICKETUNE, "Kricketune"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KRICKETUNE_TM_DATA_0, SPECIES_KRICKETUNE_TM_DATA_1, SPECIES_KRICKETUNE_TM_DATA_2, SPECIES_KRICKETUNE_TM_DATA_3
     mondexentry SPECIES_KRICKETUNE, "By allowing its cry to resonate in\nthe hollow of its belly, it produces\na captivating sound."
     mondexclassification SPECIES_KRICKETUNE, "Cricket Pokémon"
     mondexheight SPECIES_KRICKETUNE, "3’03”"
@@ -8894,7 +8490,6 @@ mondata SPECIES_SHINX, "Shinx"
     abilities ABILITY_RIVALRY, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SHINX_TM_DATA_0, SPECIES_SHINX_TM_DATA_1, SPECIES_SHINX_TM_DATA_2, SPECIES_SHINX_TM_DATA_3
     mondexentry SPECIES_SHINX, "The extension and contraction of\nits muscles generates electricity.\nIts fur glows when it’s in trouble."
     mondexclassification SPECIES_SHINX, "Flash Pokémon"
     mondexheight SPECIES_SHINX, "1’08”"
@@ -8916,7 +8511,6 @@ mondata SPECIES_LUXIO, "Luxio"
     abilities ABILITY_RIVALRY, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LUXIO_TM_DATA_0, SPECIES_LUXIO_TM_DATA_1, SPECIES_LUXIO_TM_DATA_2, SPECIES_LUXIO_TM_DATA_3
     mondexentry SPECIES_LUXIO, "By gathering their tails together,\nthey collectively generate powerful\nelectricity from their claws."
     mondexclassification SPECIES_LUXIO, "Spark Pokémon"
     mondexheight SPECIES_LUXIO, "2’11”"
@@ -8938,7 +8532,6 @@ mondata SPECIES_LUXRAY, "Luxray"
     abilities ABILITY_RIVALRY, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LUXRAY_TM_DATA_0, SPECIES_LUXRAY_TM_DATA_1, SPECIES_LUXRAY_TM_DATA_2, SPECIES_LUXRAY_TM_DATA_3
     mondexentry SPECIES_LUXRAY, "LUXRAY’s ability to see through\nobjects comes in handy when it’s\nscouting for danger."
     mondexclassification SPECIES_LUXRAY, "Gleam Eyes Pokémon"
     mondexheight SPECIES_LUXRAY, "4’07”"
@@ -8960,7 +8553,6 @@ mondata SPECIES_BUDEW, "Budew"
     abilities ABILITY_NATURAL_CURE, ABILITY_POISON_POINT
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BUDEW_TM_DATA_0, SPECIES_BUDEW_TM_DATA_1, SPECIES_BUDEW_TM_DATA_2, SPECIES_BUDEW_TM_DATA_3
     mondexentry SPECIES_BUDEW, "When it feels the sun’s warm touch,\nit opens its bud to release pollen.\nIt lives alongside clear pools."
     mondexclassification SPECIES_BUDEW, "Bud Pokémon"
     mondexheight SPECIES_BUDEW, "0’08”"
@@ -8982,7 +8574,6 @@ mondata SPECIES_ROSERADE, "Roserade"
     abilities ABILITY_NATURAL_CURE, ABILITY_POISON_POINT
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ROSERADE_TM_DATA_0, SPECIES_ROSERADE_TM_DATA_1, SPECIES_ROSERADE_TM_DATA_2, SPECIES_ROSERADE_TM_DATA_3
     mondexentry SPECIES_ROSERADE, "Its sweet aroma attracts prey.\nThen it spews poison. The more\ntoxic it is, the sweeter its aroma."
     mondexclassification SPECIES_ROSERADE, "Bouquet Pokémon"
     mondexheight SPECIES_ROSERADE, "2’11”"
@@ -9004,7 +8595,6 @@ mondata SPECIES_CRANIDOS, "Cranidos"
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CRANIDOS_TM_DATA_0, SPECIES_CRANIDOS_TM_DATA_1, SPECIES_CRANIDOS_TM_DATA_2, SPECIES_CRANIDOS_TM_DATA_3
     mondexentry SPECIES_CRANIDOS, "CRANIDOS toughen up their already\nrock-hard heads by headbutting\none another."
     mondexclassification SPECIES_CRANIDOS, "Head Butt Pokémon"
     mondexheight SPECIES_CRANIDOS, "2’11”"
@@ -9026,7 +8616,6 @@ mondata SPECIES_RAMPARDOS, "Rampardos"
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_RAMPARDOS_TM_DATA_0, SPECIES_RAMPARDOS_TM_DATA_1, SPECIES_RAMPARDOS_TM_DATA_2, SPECIES_RAMPARDOS_TM_DATA_3
     mondexentry SPECIES_RAMPARDOS, "Its skull withstands impacts of any\nmagnitude. As a result, its brain\nnever gets the chance to grow."
     mondexclassification SPECIES_RAMPARDOS, "Head Butt Pokémon"
     mondexheight SPECIES_RAMPARDOS, "5’03”"
@@ -9048,7 +8637,6 @@ mondata SPECIES_SHIELDON, "Shieldon"
     abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SHIELDON_TM_DATA_0, SPECIES_SHIELDON_TM_DATA_1, SPECIES_SHIELDON_TM_DATA_2, SPECIES_SHIELDON_TM_DATA_3
     mondexentry SPECIES_SHIELDON, "It was generated from a fossil dug out\nof a layer of clay that was older than\nanyone knows. It has a sturdy face."
     mondexclassification SPECIES_SHIELDON, "Shield Pokémon"
     mondexheight SPECIES_SHIELDON, "1’08”"
@@ -9070,7 +8658,6 @@ mondata SPECIES_BASTIODON, "Bastiodon"
     abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_BASTIODON_TM_DATA_0, SPECIES_BASTIODON_TM_DATA_1, SPECIES_BASTIODON_TM_DATA_2, SPECIES_BASTIODON_TM_DATA_3
     mondexentry SPECIES_BASTIODON, "When attacked, they form a wall.\nTheir rock-hard faces serve to\nprotect them from the attacks."
     mondexclassification SPECIES_BASTIODON, "Shield Pokémon"
     mondexheight SPECIES_BASTIODON, "4’03”"
@@ -9092,7 +8679,6 @@ mondata SPECIES_BURMY, "Burmy"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BURMY_TM_DATA_0, SPECIES_BURMY_TM_DATA_1, SPECIES_BURMY_TM_DATA_2, SPECIES_BURMY_TM_DATA_3
     mondexentry SPECIES_BURMY, "It covers itself with a cloak to\nshelter from the cold. When it’s\nhot, its cloak is thinner."
     mondexclassification SPECIES_BURMY, "Bagworm Pokémon"
     mondexheight SPECIES_BURMY, "0’08”"
@@ -9114,7 +8700,6 @@ mondata SPECIES_WORMADAM, "Wormadam"
     abilities ABILITY_ANTICIPATION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_WORMADAM_TM_DATA_0, SPECIES_WORMADAM_TM_DATA_1, SPECIES_WORMADAM_TM_DATA_2, SPECIES_WORMADAM_TM_DATA_3
     mondexentry SPECIES_WORMADAM, "It is said that a WORMADAM that\nevolves on a cold day will have a\nthicker cloak."
     mondexclassification SPECIES_WORMADAM, "Bagworm Pokémon"
     mondexheight SPECIES_WORMADAM, "1’08”"
@@ -9136,7 +8721,6 @@ mondata SPECIES_MOTHIM, "Mothim"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MOTHIM_TM_DATA_0, SPECIES_MOTHIM_TM_DATA_1, SPECIES_MOTHIM_TM_DATA_2, SPECIES_MOTHIM_TM_DATA_3
     mondexentry SPECIES_MOTHIM, "It flutters around at night and\nsteals honey from the COMBEE hive."
     mondexclassification SPECIES_MOTHIM, "Moth Pokémon"
     mondexheight SPECIES_MOTHIM, "2’11”"
@@ -9158,7 +8742,6 @@ mondata SPECIES_COMBEE, "Combee"
     abilities ABILITY_HONEY_GATHER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_COMBEE_TM_DATA_0, SPECIES_COMBEE_TM_DATA_1, SPECIES_COMBEE_TM_DATA_2, SPECIES_COMBEE_TM_DATA_3
     mondexentry SPECIES_COMBEE, "At night, COMBEE sleep in a group of\nabout a thousand, packed closely\ntogether in a lump."
     mondexclassification SPECIES_COMBEE, "Tiny Bee Pokémon"
     mondexheight SPECIES_COMBEE, "1’00”"
@@ -9180,7 +8763,6 @@ mondata SPECIES_VESPIQUEN, "Vespiquen"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_VESPIQUEN_TM_DATA_0, SPECIES_VESPIQUEN_TM_DATA_1, SPECIES_VESPIQUEN_TM_DATA_2, SPECIES_VESPIQUEN_TM_DATA_3
     mondexentry SPECIES_VESPIQUEN, "It raises grubs in the holes in its\nbody. It secretes pheromones to\ncontrol COMBEE."
     mondexclassification SPECIES_VESPIQUEN, "Beehive Pokémon"
     mondexheight SPECIES_VESPIQUEN, "3’11”"
@@ -9202,7 +8784,6 @@ mondata SPECIES_PACHIRISU, "Pachirisu"
     abilities ABILITY_RUN_AWAY, ABILITY_PICKUP
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_PACHIRISU_TM_DATA_0, SPECIES_PACHIRISU_TM_DATA_1, SPECIES_PACHIRISU_TM_DATA_2, SPECIES_PACHIRISU_TM_DATA_3
     mondexentry SPECIES_PACHIRISU, "It’s one of the kinds of Pokémon \nwith electric cheek pouches.\nIt shoots charges from its tail."
     mondexclassification SPECIES_PACHIRISU, "EleSquirrel Pokémon"
     mondexheight SPECIES_PACHIRISU, "1’04”"
@@ -9224,7 +8805,6 @@ mondata SPECIES_BUIZEL, "Buizel"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BUIZEL_TM_DATA_0, SPECIES_BUIZEL_TM_DATA_1, SPECIES_BUIZEL_TM_DATA_2, SPECIES_BUIZEL_TM_DATA_3
     mondexentry SPECIES_BUIZEL, "It inflates its flotation sac,\nkeeping its face above water in\norder to watch for prey movement."
     mondexclassification SPECIES_BUIZEL, "Sea Weasel Pokémon"
     mondexheight SPECIES_BUIZEL, "2’04”"
@@ -9246,7 +8826,6 @@ mondata SPECIES_FLOATZEL, "Floatzel"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_FLOATZEL_TM_DATA_0, SPECIES_FLOATZEL_TM_DATA_1, SPECIES_FLOATZEL_TM_DATA_2, SPECIES_FLOATZEL_TM_DATA_3
     mondexentry SPECIES_FLOATZEL, "With its flotation sac inflated, it\ncan carry people on its back. It\ndeflates the sac before it dives."
     mondexclassification SPECIES_FLOATZEL, "Sea Weasel Pokémon"
     mondexheight SPECIES_FLOATZEL, "3’07”"
@@ -9268,7 +8847,6 @@ mondata SPECIES_CHERUBI, "Cherubi"
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_CHERUBI_TM_DATA_0, SPECIES_CHERUBI_TM_DATA_1, SPECIES_CHERUBI_TM_DATA_2, SPECIES_CHERUBI_TM_DATA_3
     mondexentry SPECIES_CHERUBI, "It evolves by sucking the energy\nout of the small ball where it had\nbeen storing nutrients."
     mondexclassification SPECIES_CHERUBI, "Cherry Pokémon"
     mondexheight SPECIES_CHERUBI, "1’04”"
@@ -9290,7 +8868,6 @@ mondata SPECIES_CHERRIM, "Cherrim"
     abilities ABILITY_FLOWER_GIFT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_CHERRIM_TM_DATA_0, SPECIES_CHERRIM_TM_DATA_1, SPECIES_CHERRIM_TM_DATA_2, SPECIES_CHERRIM_TM_DATA_3
     mondexentry SPECIES_CHERRIM, "During times of strong sunlight,\nits bud blooms, its petals open\nfully, and it becomes very active."
     mondexclassification SPECIES_CHERRIM, "Blossom Pokémon"
     mondexheight SPECIES_CHERRIM, "1’08”"
@@ -9312,7 +8889,6 @@ mondata SPECIES_SHELLOS, "Shellos"
     abilities ABILITY_STICKY_HOLD, ABILITY_STORM_DRAIN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SHELLOS_TM_DATA_0, SPECIES_SHELLOS_TM_DATA_1, SPECIES_SHELLOS_TM_DATA_2, SPECIES_SHELLOS_TM_DATA_3
     mondexentry SPECIES_SHELLOS, "Its shape and coloration vary,\ndepending on its habitat."
     mondexclassification SPECIES_SHELLOS, "Sea Slug Pokémon"
     mondexheight SPECIES_SHELLOS, "1’00”"
@@ -9334,7 +8910,6 @@ mondata SPECIES_GASTRODON, "Gastrodon"
     abilities ABILITY_STICKY_HOLD, ABILITY_STORM_DRAIN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GASTRODON_TM_DATA_0, SPECIES_GASTRODON_TM_DATA_1, SPECIES_GASTRODON_TM_DATA_2, SPECIES_GASTRODON_TM_DATA_3
     mondexentry SPECIES_GASTRODON, "When its natural enemy attacks,\nit oozes purple fluid and escapes."
     mondexclassification SPECIES_GASTRODON, "Sea Slug Pokémon"
     mondexheight SPECIES_GASTRODON, "2’11”"
@@ -9356,7 +8931,6 @@ mondata SPECIES_AMBIPOM, "Ambipom"
     abilities ABILITY_TECHNICIAN, ABILITY_PICKUP
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_AMBIPOM_TM_DATA_0, SPECIES_AMBIPOM_TM_DATA_1, SPECIES_AMBIPOM_TM_DATA_2, SPECIES_AMBIPOM_TM_DATA_3
     mondexentry SPECIES_AMBIPOM, "They live on large trees. They are\nsaid to communicate by connecting\ntheir tails to those of others."
     mondexclassification SPECIES_AMBIPOM, "Long Tail Pokémon"
     mondexheight SPECIES_AMBIPOM, "3’11”"
@@ -9378,7 +8952,6 @@ mondata SPECIES_DRIFLOON, "Drifloon"
     abilities ABILITY_AFTERMATH, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_DRIFLOON_TM_DATA_0, SPECIES_DRIFLOON_TM_DATA_1, SPECIES_DRIFLOON_TM_DATA_2, SPECIES_DRIFLOON_TM_DATA_3
     mondexentry SPECIES_DRIFLOON, "It is whispered that any child who\nmistakes DRIFLOON for a balloon and\nholds on to it could wind up missing."
     mondexclassification SPECIES_DRIFLOON, "Balloon Pokémon"
     mondexheight SPECIES_DRIFLOON, "1’04”"
@@ -9400,7 +8973,6 @@ mondata SPECIES_DRIFBLIM, "Drifblim"
     abilities ABILITY_AFTERMATH, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_DRIFBLIM_TM_DATA_0, SPECIES_DRIFBLIM_TM_DATA_1, SPECIES_DRIFBLIM_TM_DATA_2, SPECIES_DRIFBLIM_TM_DATA_3
     mondexentry SPECIES_DRIFBLIM, "It can generate and release gas\nwithin its body. That’s how it can\ncontrol the altitude of its drift."
     mondexclassification SPECIES_DRIFBLIM, "Blimp Pokémon"
     mondexheight SPECIES_DRIFBLIM, "3’11”"
@@ -9422,7 +8994,6 @@ mondata SPECIES_BUNEARY, "Buneary"
     abilities ABILITY_RUN_AWAY, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BUNEARY_TM_DATA_0, SPECIES_BUNEARY_TM_DATA_1, SPECIES_BUNEARY_TM_DATA_2, SPECIES_BUNEARY_TM_DATA_3
     mondexentry SPECIES_BUNEARY, "You can tell how it feels by the way\nit rolls its ears. When it’s scared,\nboth ears are rolled up."
     mondexclassification SPECIES_BUNEARY, "Rabbit Pokémon"
     mondexheight SPECIES_BUNEARY, "1’04”"
@@ -9444,7 +9015,6 @@ mondata SPECIES_LOPUNNY, "Lopunny"
     abilities ABILITY_CUTE_CHARM, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_LOPUNNY_TM_DATA_0, SPECIES_LOPUNNY_TM_DATA_1, SPECIES_LOPUNNY_TM_DATA_2, SPECIES_LOPUNNY_TM_DATA_3
     mondexentry SPECIES_LOPUNNY, "It sheds its fur twice a year.\nIts winter fur is soft and fluffy."
     mondexclassification SPECIES_LOPUNNY, "Rabbit Pokémon"
     mondexheight SPECIES_LOPUNNY, "3’11”"
@@ -9466,7 +9036,6 @@ mondata SPECIES_MISMAGIUS, "Mismagius"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MISMAGIUS_TM_DATA_0, SPECIES_MISMAGIUS_TM_DATA_1, SPECIES_MISMAGIUS_TM_DATA_2, SPECIES_MISMAGIUS_TM_DATA_3
     mondexentry SPECIES_MISMAGIUS, "Its cries sound like incantations\nto torment the foe. It appears\nwhere you least expect it."
     mondexclassification SPECIES_MISMAGIUS, "Magical Pokémon"
     mondexheight SPECIES_MISMAGIUS, "2’11”"
@@ -9488,7 +9057,6 @@ mondata SPECIES_HONCHKROW, "Honchkrow"
     abilities ABILITY_INSOMNIA, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_HONCHKROW_TM_DATA_0, SPECIES_HONCHKROW_TM_DATA_1, SPECIES_HONCHKROW_TM_DATA_2, SPECIES_HONCHKROW_TM_DATA_3
     mondexentry SPECIES_HONCHKROW, "It is merciless by nature. It is said\nthat it never forgives the mistakes\nof its MURKROW followers."
     mondexclassification SPECIES_HONCHKROW, "Big Boss Pokémon"
     mondexheight SPECIES_HONCHKROW, "2’11”"
@@ -9510,7 +9078,6 @@ mondata SPECIES_GLAMEOW, "Glameow"
     abilities ABILITY_LIMBER, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_GLAMEOW_TM_DATA_0, SPECIES_GLAMEOW_TM_DATA_1, SPECIES_GLAMEOW_TM_DATA_2, SPECIES_GLAMEOW_TM_DATA_3
     mondexentry SPECIES_GLAMEOW, "When it’s happy, GLAMEOW\ndemonstrates beautiful movements\nof its tail, like a dancing ribbon."
     mondexclassification SPECIES_GLAMEOW, "Catty Pokémon"
     mondexheight SPECIES_GLAMEOW, "1’08”"
@@ -9532,7 +9099,6 @@ mondata SPECIES_PURUGLY, "Purugly"
     abilities ABILITY_THICK_FAT, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_PURUGLY_TM_DATA_0, SPECIES_PURUGLY_TM_DATA_1, SPECIES_PURUGLY_TM_DATA_2, SPECIES_PURUGLY_TM_DATA_3
     mondexentry SPECIES_PURUGLY, "It would claim another Pokémon’s\nnest as its own if it finds a nest\nsufficiently comfortable."
     mondexclassification SPECIES_PURUGLY, "Tiger Cat Pokémon"
     mondexheight SPECIES_PURUGLY, "3’03”"
@@ -9554,7 +9120,6 @@ mondata SPECIES_CHINGLING, "Chingling"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_CHINGLING_TM_DATA_0, SPECIES_CHINGLING_TM_DATA_1, SPECIES_CHINGLING_TM_DATA_2, SPECIES_CHINGLING_TM_DATA_3
     mondexentry SPECIES_CHINGLING, "It emits high-frequency cries that \npeople can’t hear. Once it starts,\nit can cry for an awfully long time."
     mondexclassification SPECIES_CHINGLING, "Bell Pokémon"
     mondexheight SPECIES_CHINGLING, "0’08”"
@@ -9576,7 +9141,6 @@ mondata SPECIES_STUNKY, "Stunky"
     abilities ABILITY_STENCH, ABILITY_AFTERMATH
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_STUNKY_TM_DATA_0, SPECIES_STUNKY_TM_DATA_1, SPECIES_STUNKY_TM_DATA_2, SPECIES_STUNKY_TM_DATA_3
     mondexentry SPECIES_STUNKY, "The foul fluid from its rear is so\nrevolting that it can make people feel\nqueasy up to a mile and a quarter away."
     mondexclassification SPECIES_STUNKY, "Skunk Pokémon"
     mondexheight SPECIES_STUNKY, "1’04”"
@@ -9598,7 +9162,6 @@ mondata SPECIES_SKUNTANK, "Skuntank"
     abilities ABILITY_STENCH, ABILITY_AFTERMATH
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SKUNTANK_TM_DATA_0, SPECIES_SKUNTANK_TM_DATA_1, SPECIES_SKUNTANK_TM_DATA_2, SPECIES_SKUNTANK_TM_DATA_3
     mondexentry SPECIES_SKUNTANK, "It attacks by spraying a repugnant\nfluid from its tail, but the stench\ndulls after a few squirts."
     mondexclassification SPECIES_SKUNTANK, "Skunk Pokémon"
     mondexheight SPECIES_SKUNTANK, "3’03”"
@@ -9620,7 +9183,6 @@ mondata SPECIES_BRONZOR, "Bronzor"
     abilities ABILITY_LEVITATE, ABILITY_HEATPROOF
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BRONZOR_TM_DATA_0, SPECIES_BRONZOR_TM_DATA_1, SPECIES_BRONZOR_TM_DATA_2, SPECIES_BRONZOR_TM_DATA_3
     mondexentry SPECIES_BRONZOR, "Ancient people believed that the\npattern on BRONZOR’s back\ncontained a mysterious power."
     mondexclassification SPECIES_BRONZOR, "Bronze Pokémon"
     mondexheight SPECIES_BRONZOR, "1’08”"
@@ -9642,7 +9204,6 @@ mondata SPECIES_BRONZONG, "Bronzong"
     abilities ABILITY_LEVITATE, ABILITY_HEATPROOF
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BRONZONG_TM_DATA_0, SPECIES_BRONZONG_TM_DATA_1, SPECIES_BRONZONG_TM_DATA_2, SPECIES_BRONZONG_TM_DATA_3
     mondexentry SPECIES_BRONZONG, "Ancient people believed that\npetitioning BRONZONG for rain\nwas the way to make crops grow."
     mondexclassification SPECIES_BRONZONG, "Bronze Bell Pokémon"
     mondexheight SPECIES_BRONZONG, "4’03”"
@@ -9664,7 +9225,6 @@ mondata SPECIES_BONSLY, "Bonsly"
     abilities ABILITY_STURDY, ABILITY_ROCK_HEAD
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BONSLY_TM_DATA_0, SPECIES_BONSLY_TM_DATA_1, SPECIES_BONSLY_TM_DATA_2, SPECIES_BONSLY_TM_DATA_3
     mondexentry SPECIES_BONSLY, "In order to adjust the level of fluids in\nits body, it exudes water from its eyes.\nThis makes it appear to be crying."
     mondexclassification SPECIES_BONSLY, "Bonsai Pokémon"
     mondexheight SPECIES_BONSLY, "1’08”"
@@ -9686,7 +9246,6 @@ mondata SPECIES_MIMEJR, "Mime Jr."
     abilities ABILITY_SOUNDPROOF, ABILITY_FILTER
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MIMEJR_TM_DATA_0, SPECIES_MIMEJR_TM_DATA_1, SPECIES_MIMEJR_TM_DATA_2, SPECIES_MIMEJR_TM_DATA_3
     mondexentry SPECIES_MIMEJR, "In an attempt to confuse its enemy,\nit mimics the enemy’s movements. Then\nit wastes no time in making itself scarce!"
     mondexclassification SPECIES_MIMEJR, "Mime Pokémon"
     mondexheight SPECIES_MIMEJR, "2’00”"
@@ -9708,7 +9267,6 @@ mondata SPECIES_HAPPINY, "Happiny"
     abilities ABILITY_NATURAL_CURE, ABILITY_SERENE_GRACE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_HAPPINY_TM_DATA_0, SPECIES_HAPPINY_TM_DATA_1, SPECIES_HAPPINY_TM_DATA_2, SPECIES_HAPPINY_TM_DATA_3
     mondexentry SPECIES_HAPPINY, "It carefully carries a round, white rock\nthat it thinks is an egg. It’s bothered\nby how curly its hair looks."
     mondexclassification SPECIES_HAPPINY, "Playhouse Pokémon"
     mondexheight SPECIES_HAPPINY, "2’00”"
@@ -9730,7 +9288,6 @@ mondata SPECIES_CHATOT, "Chatot"
     abilities ABILITY_KEEN_EYE, ABILITY_TANGLED_FEET
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_CHATOT_TM_DATA_0, SPECIES_CHATOT_TM_DATA_1, SPECIES_CHATOT_TM_DATA_2, SPECIES_CHATOT_TM_DATA_3
     mondexentry SPECIES_CHATOT, "It mimics the cries of other Pokémon to\ntrick them into thinking it’s one of them.\nThis way they won’t attack it."
     mondexclassification SPECIES_CHATOT, "Music Note Pokémon"
     mondexheight SPECIES_CHATOT, "1’08”"
@@ -9752,7 +9309,6 @@ mondata SPECIES_SPIRITOMB, "Spiritomb"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SPIRITOMB_TM_DATA_0, SPECIES_SPIRITOMB_TM_DATA_1, SPECIES_SPIRITOMB_TM_DATA_2, SPECIES_SPIRITOMB_TM_DATA_3
     mondexentry SPECIES_SPIRITOMB, "It was formed by uniting 108 spirits.\nIt has been bound to the Odd Keystone\nto keep it from doing any mischief."
     mondexclassification SPECIES_SPIRITOMB, "Forbidden Pokémon"
     mondexheight SPECIES_SPIRITOMB, "3’03”"
@@ -9774,7 +9330,6 @@ mondata SPECIES_GIBLE, "Gible"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GIBLE_TM_DATA_0, SPECIES_GIBLE_TM_DATA_1, SPECIES_GIBLE_TM_DATA_2, SPECIES_GIBLE_TM_DATA_3
     mondexentry SPECIES_GIBLE, "It nests in horizontal holes warmed by\ngeothermal heat. Foes who get too close\ncan expect to be pounced on and bitten."
     mondexclassification SPECIES_GIBLE, "Land Shark Pokémon"
     mondexheight SPECIES_GIBLE, "2’04”"
@@ -9796,7 +9351,6 @@ mondata SPECIES_GABITE, "Gabite"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GABITE_TM_DATA_0, SPECIES_GABITE_TM_DATA_1, SPECIES_GABITE_TM_DATA_2, SPECIES_GABITE_TM_DATA_3
     mondexentry SPECIES_GABITE, "As it digs to expand its nest, it\nhabitually digs up gems that it\nthen hoards in its nest."
     mondexclassification SPECIES_GABITE, "Cave Pokémon"
     mondexheight SPECIES_GABITE, "4’07”"
@@ -9818,7 +9372,6 @@ mondata SPECIES_GARCHOMP, "Garchomp"
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GARCHOMP_TM_DATA_0, SPECIES_GARCHOMP_TM_DATA_1, SPECIES_GARCHOMP_TM_DATA_2, SPECIES_GARCHOMP_TM_DATA_3
     mondexentry SPECIES_GARCHOMP, "Its body is covered in fine scales that\nreduce drag, enabling it to fly at\nhigh speeds."
     mondexclassification SPECIES_GARCHOMP, "Mach Pokémon"
     mondexheight SPECIES_GARCHOMP, "6’03”"
@@ -9840,7 +9393,6 @@ mondata SPECIES_MUNCHLAX, "Munchlax"
     abilities ABILITY_PICKUP, ABILITY_THICK_FAT
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_MUNCHLAX_TM_DATA_0, SPECIES_MUNCHLAX_TM_DATA_1, SPECIES_MUNCHLAX_TM_DATA_2, SPECIES_MUNCHLAX_TM_DATA_3
     mondexentry SPECIES_MUNCHLAX, "It conceals food under the long fur on\nits body. It carts around this food\nstash and swallows it without chewing."
     mondexclassification SPECIES_MUNCHLAX, "Big Eater Pokémon"
     mondexheight SPECIES_MUNCHLAX, "2’00”"
@@ -9862,7 +9414,6 @@ mondata SPECIES_RIOLU, "Riolu"
     abilities ABILITY_STEADFAST, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_RIOLU_TM_DATA_0, SPECIES_RIOLU_TM_DATA_1, SPECIES_RIOLU_TM_DATA_2, SPECIES_RIOLU_TM_DATA_3
     mondexentry SPECIES_RIOLU, "They communicate with one another\nusing their auras. They are able to run\nall through the night."
     mondexclassification SPECIES_RIOLU, "Emanation Pokémon"
     mondexheight SPECIES_RIOLU, "2’04”"
@@ -9884,7 +9435,6 @@ mondata SPECIES_LUCARIO, "Lucario"
     abilities ABILITY_STEADFAST, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LUCARIO_TM_DATA_0, SPECIES_LUCARIO_TM_DATA_1, SPECIES_LUCARIO_TM_DATA_2, SPECIES_LUCARIO_TM_DATA_3
     mondexentry SPECIES_LUCARIO, "It’s said that no foe can remain invisible\nto LUCARIO, since it can detect auras.\nEven foes it could not otherwise see."
     mondexclassification SPECIES_LUCARIO, "Aura Pokémon"
     mondexheight SPECIES_LUCARIO, "3’11”"
@@ -9906,7 +9456,6 @@ mondata SPECIES_HIPPOPOTAS, "Hippopotas"
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HIPPOPOTAS_TM_DATA_0, SPECIES_HIPPOPOTAS_TM_DATA_1, SPECIES_HIPPOPOTAS_TM_DATA_2, SPECIES_HIPPOPOTAS_TM_DATA_3
     mondexentry SPECIES_HIPPOPOTAS, "It shrouds itself in sand to ward off\ngerms. It travels easily through the\nsands of the desert."
     mondexclassification SPECIES_HIPPOPOTAS, "Hippo Pokémon"
     mondexheight SPECIES_HIPPOPOTAS, "2’07”"
@@ -9928,7 +9477,6 @@ mondata SPECIES_HIPPOWDON, "Hippowdon"
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HIPPOWDON_TM_DATA_0, SPECIES_HIPPOWDON_TM_DATA_1, SPECIES_HIPPOWDON_TM_DATA_2, SPECIES_HIPPOWDON_TM_DATA_3
     mondexentry SPECIES_HIPPOWDON, "It brandishes its gaping mouth in a\ndisplay of fearsome strength. It raises\nvast quantities of sand while attacking."
     mondexclassification SPECIES_HIPPOWDON, "Heavyweight Pokémon"
     mondexheight SPECIES_HIPPOWDON, "6’07”"
@@ -9950,7 +9498,6 @@ mondata SPECIES_SKORUPI, "Skorupi"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SKORUPI_TM_DATA_0, SPECIES_SKORUPI_TM_DATA_1, SPECIES_SKORUPI_TM_DATA_2, SPECIES_SKORUPI_TM_DATA_3
     mondexentry SPECIES_SKORUPI, "It burrows under the sand to lie in\nwait for prey. Its tail claws can inject\nits prey with a savage poison."
     mondexclassification SPECIES_SKORUPI, "Scorpion Pokémon"
     mondexheight SPECIES_SKORUPI, "2’07”"
@@ -9972,7 +9519,6 @@ mondata SPECIES_DRAPION, "Drapion"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_DRAPION_TM_DATA_0, SPECIES_DRAPION_TM_DATA_1, SPECIES_DRAPION_TM_DATA_2, SPECIES_DRAPION_TM_DATA_3
     mondexentry SPECIES_DRAPION, "It attacks people and Pokémon that\ncross the desert. This has only\nfurthered its bad reputation."
     mondexclassification SPECIES_DRAPION, "Ogre Scorpion Pokémon"
     mondexheight SPECIES_DRAPION, "4’03”"
@@ -9994,7 +9540,6 @@ mondata SPECIES_CROAGUNK, "Croagunk"
     abilities ABILITY_ANTICIPATION, ABILITY_DRY_SKIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CROAGUNK_TM_DATA_0, SPECIES_CROAGUNK_TM_DATA_1, SPECIES_CROAGUNK_TM_DATA_2, SPECIES_CROAGUNK_TM_DATA_3
     mondexentry SPECIES_CROAGUNK, "Fluid squeezed from its finger, albeit\npoisonous, is a significant ingredient in\nremedies for lower-back pain."
     mondexclassification SPECIES_CROAGUNK, "Toxic Mouth Pokémon"
     mondexheight SPECIES_CROAGUNK, "2’04”"
@@ -10016,7 +9561,6 @@ mondata SPECIES_TOXICROAK, "Toxicroak"
     abilities ABILITY_ANTICIPATION, ABILITY_DRY_SKIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TOXICROAK_TM_DATA_0, SPECIES_TOXICROAK_TM_DATA_1, SPECIES_TOXICROAK_TM_DATA_2, SPECIES_TOXICROAK_TM_DATA_3
     mondexentry SPECIES_TOXICROAK, "Swaying and dodging the attacks of its\nfoes, it weaves its flexible body in close,\nthen lunges out with its poisonous claws."
     mondexclassification SPECIES_TOXICROAK, "Toxic Mouth Pokémon"
     mondexheight SPECIES_TOXICROAK, "4’03”"
@@ -10038,7 +9582,6 @@ mondata SPECIES_CARNIVINE, "Carnivine"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CARNIVINE_TM_DATA_0, SPECIES_CARNIVINE_TM_DATA_1, SPECIES_CARNIVINE_TM_DATA_2, SPECIES_CARNIVINE_TM_DATA_3
     mondexentry SPECIES_CARNIVINE, "It walks around on its tentacles in\nsearch of a tree branch where it\ncan dangle down and ambush prey."
     mondexclassification SPECIES_CARNIVINE, "Bug Catcher Pokémon"
     mondexheight SPECIES_CARNIVINE, "4’07”"
@@ -10060,7 +9603,6 @@ mondata SPECIES_FINNEON, "Finneon"
     abilities ABILITY_SWIFT_SWIM, ABILITY_STORM_DRAIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_FINNEON_TM_DATA_0, SPECIES_FINNEON_TM_DATA_1, SPECIES_FINNEON_TM_DATA_2, SPECIES_FINNEON_TM_DATA_3
     mondexentry SPECIES_FINNEON, "Swimming and fluttering its two tail fins,\nit looks like a BEAUTIFLY. At night, the\npatterns on its tail fins softly shine."
     mondexclassification SPECIES_FINNEON, "Wing Fish Pokémon"
     mondexheight SPECIES_FINNEON, "1’04”"
@@ -10082,7 +9624,6 @@ mondata SPECIES_LUMINEON, "Lumineon"
     abilities ABILITY_SWIFT_SWIM, ABILITY_STORM_DRAIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_LUMINEON_TM_DATA_0, SPECIES_LUMINEON_TM_DATA_1, SPECIES_LUMINEON_TM_DATA_2, SPECIES_LUMINEON_TM_DATA_3
     mondexentry SPECIES_LUMINEON, "LUMINEON swimming in the darkness\nof the deep sea look like stars shining\nin the night sky."
     mondexclassification SPECIES_LUMINEON, "Neon Pokémon"
     mondexheight SPECIES_LUMINEON, "3’11”"
@@ -10104,7 +9645,6 @@ mondata SPECIES_MANTYKE, "Mantyke"
     abilities ABILITY_SWIFT_SWIM, ABILITY_WATER_ABSORB
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MANTYKE_TM_DATA_0, SPECIES_MANTYKE_TM_DATA_1, SPECIES_MANTYKE_TM_DATA_2, SPECIES_MANTYKE_TM_DATA_3
     mondexentry SPECIES_MANTYKE, "When it swims close to the surface of the\nocean, people aboard ships are able to\nobserve the pattern on its back."
     mondexclassification SPECIES_MANTYKE, "Kite Pokémon"
     mondexheight SPECIES_MANTYKE, "3’03”"
@@ -10126,7 +9666,6 @@ mondata SPECIES_SNOVER, "Snover"
     abilities ABILITY_SNOW_WARNING, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SNOVER_TM_DATA_0, SPECIES_SNOVER_TM_DATA_1, SPECIES_SNOVER_TM_DATA_2, SPECIES_SNOVER_TM_DATA_3
     mondexentry SPECIES_SNOVER, "During cold seasons, it migrates to the\nmountain’s lower reaches. It returns to\nthe snow-covered summit in the spring."
     mondexclassification SPECIES_SNOVER, "Frost Tree Pokémon"
     mondexheight SPECIES_SNOVER, "3’03”"
@@ -10148,7 +9687,6 @@ mondata SPECIES_ABOMASNOW, "Abomasnow"
     abilities ABILITY_SNOW_WARNING, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_ABOMASNOW_TM_DATA_0, SPECIES_ABOMASNOW_TM_DATA_1, SPECIES_ABOMASNOW_TM_DATA_2, SPECIES_ABOMASNOW_TM_DATA_3
     mondexentry SPECIES_ABOMASNOW, "It lives a quiet life on mountains that\nare perpetually covered in snow.\nIt hides itself by whipping up blizzards."
     mondexclassification SPECIES_ABOMASNOW, "Frost Tree Pokémon"
     mondexheight SPECIES_ABOMASNOW, "7’03”"
@@ -10170,7 +9708,6 @@ mondata SPECIES_WEAVILE, "Weavile"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_WEAVILE_TM_DATA_0, SPECIES_WEAVILE_TM_DATA_1, SPECIES_WEAVILE_TM_DATA_2, SPECIES_WEAVILE_TM_DATA_3
     mondexentry SPECIES_WEAVILE, "It lives in snowy regions. It carves\npatterns in trees with its claws as\na signal to others."
     mondexclassification SPECIES_WEAVILE, "Sharp Claw Pokémon"
     mondexheight SPECIES_WEAVILE, "3’07”"
@@ -10192,7 +9729,6 @@ mondata SPECIES_MAGNEZONE, "Magnezone"
     abilities ABILITY_MAGNET_PULL, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MAGNEZONE_TM_DATA_0, SPECIES_MAGNEZONE_TM_DATA_1, SPECIES_MAGNEZONE_TM_DATA_2, SPECIES_MAGNEZONE_TM_DATA_3
     mondexentry SPECIES_MAGNEZONE, "Exposure to a special magnetic field\nchanged MAGNETON’s molecular\nstructure, turning it into MAGNEZONE."
     mondexclassification SPECIES_MAGNEZONE, "Magnet Area Pokémon"
     mondexheight SPECIES_MAGNEZONE, "3’11”"
@@ -10214,7 +9750,6 @@ mondata SPECIES_LICKILICKY, "Lickilicky"
     abilities ABILITY_OWN_TEMPO, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_LICKILICKY_TM_DATA_0, SPECIES_LICKILICKY_TM_DATA_1, SPECIES_LICKILICKY_TM_DATA_2, SPECIES_LICKILICKY_TM_DATA_3
     mondexentry SPECIES_LICKILICKY, "Its saliva can decompose anything.\nIt wraps its long tongue around things\nto coat them with its sticky saliva."
     mondexclassification SPECIES_LICKILICKY, "Licking Pokémon"
     mondexheight SPECIES_LICKILICKY, "5’07”"
@@ -10236,7 +9771,6 @@ mondata SPECIES_RHYPERIOR, "Rhyperior"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_SOLID_ROCK
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_RHYPERIOR_TM_DATA_0, SPECIES_RHYPERIOR_TM_DATA_1, SPECIES_RHYPERIOR_TM_DATA_2, SPECIES_RHYPERIOR_TM_DATA_3
     mondexentry SPECIES_RHYPERIOR, "From holes in its palms, it fires out\nGEODUDE. Its carapace \ncan withstand volcanic eruptions."
     mondexclassification SPECIES_RHYPERIOR, "Drill Pokémon"
     mondexheight SPECIES_RHYPERIOR, "7’10”"
@@ -10258,7 +9792,6 @@ mondata SPECIES_TANGROWTH, "Tangrowth"
     abilities ABILITY_CHLOROPHYLL, ABILITY_LEAF_GUARD
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TANGROWTH_TM_DATA_0, SPECIES_TANGROWTH_TM_DATA_1, SPECIES_TANGROWTH_TM_DATA_2, SPECIES_TANGROWTH_TM_DATA_3
     mondexentry SPECIES_TANGROWTH, "When it remains still, it appears to be a\nlarge shrub. Unsuspecting prey that\nwander near get ensnared by its vines."
     mondexclassification SPECIES_TANGROWTH, "Vine Pokémon"
     mondexheight SPECIES_TANGROWTH, "6’07”"
@@ -10280,7 +9813,6 @@ mondata SPECIES_ELECTIVIRE, "Electivire"
     abilities ABILITY_MOTOR_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ELECTIVIRE_TM_DATA_0, SPECIES_ELECTIVIRE_TM_DATA_1, SPECIES_ELECTIVIRE_TM_DATA_2, SPECIES_ELECTIVIRE_TM_DATA_3
     mondexentry SPECIES_ELECTIVIRE, "As its electric charge amplifies,\nblue sparks begin to crackle between\nits horns."
     mondexclassification SPECIES_ELECTIVIRE, "Thunderbolt Pokémon"
     mondexheight SPECIES_ELECTIVIRE, "5’11”"
@@ -10302,7 +9834,6 @@ mondata SPECIES_MAGMORTAR, "Magmortar"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MAGMORTAR_TM_DATA_0, SPECIES_MAGMORTAR_TM_DATA_1, SPECIES_MAGMORTAR_TM_DATA_2, SPECIES_MAGMORTAR_TM_DATA_3
     mondexentry SPECIES_MAGMORTAR, "It blasts fireballs of over\n3,600 degrees Fahrenheit out of its\narms. Its breath also sears and sizzles."
     mondexclassification SPECIES_MAGMORTAR, "Blast Pokémon"
     mondexheight SPECIES_MAGMORTAR, "5’03”"
@@ -10324,7 +9855,6 @@ mondata SPECIES_TOGEKISS, "Togekiss"
     abilities ABILITY_HUSTLE, ABILITY_SERENE_GRACE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_TOGEKISS_TM_DATA_0, SPECIES_TOGEKISS_TM_DATA_1, SPECIES_TOGEKISS_TM_DATA_2, SPECIES_TOGEKISS_TM_DATA_3
     mondexentry SPECIES_TOGEKISS, "As everyone knows, it visits peaceful\nregions, bringing them gifts of kindness\nand sweet blessings."
     mondexclassification SPECIES_TOGEKISS, "Jubilee Pokémon"
     mondexheight SPECIES_TOGEKISS, "4’11”"
@@ -10346,7 +9876,6 @@ mondata SPECIES_YANMEGA, "Yanmega"
     abilities ABILITY_SPEED_BOOST, ABILITY_TINTED_LENS
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_YANMEGA_TM_DATA_0, SPECIES_YANMEGA_TM_DATA_1, SPECIES_YANMEGA_TM_DATA_2, SPECIES_YANMEGA_TM_DATA_3
     mondexentry SPECIES_YANMEGA, "This six-legged Pokémon is easily capable\nof transporting an adult in flight. The\nwings on its tail help it stay balanced."
     mondexclassification SPECIES_YANMEGA, "Ogre Darner Pokémon"
     mondexheight SPECIES_YANMEGA, "6’03”"
@@ -10368,7 +9897,6 @@ mondata SPECIES_LEAFEON, "Leafeon"
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_LEAFEON_TM_DATA_0, SPECIES_LEAFEON_TM_DATA_1, SPECIES_LEAFEON_TM_DATA_2, SPECIES_LEAFEON_TM_DATA_3
     mondexentry SPECIES_LEAFEON, "When you see LEAFEON asleep in a patch\nof sunshine, you’ll know it is using\nphotosynthesis to produce clean air."
     mondexclassification SPECIES_LEAFEON, "Verdant Pokémon"
     mondexheight SPECIES_LEAFEON, "3’03”"
@@ -10390,7 +9918,6 @@ mondata SPECIES_GLACEON, "Glaceon"
     abilities ABILITY_SNOW_CLOAK, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GLACEON_TM_DATA_0, SPECIES_GLACEON_TM_DATA_1, SPECIES_GLACEON_TM_DATA_2, SPECIES_GLACEON_TM_DATA_3
     mondexentry SPECIES_GLACEON, "It causes small ice crystals to form by\nlowering the temperature of the\nsurrounding atmosphere."
     mondexclassification SPECIES_GLACEON, "Fresh Snow Pokémon"
     mondexheight SPECIES_GLACEON, "2’07”"
@@ -10412,7 +9939,6 @@ mondata SPECIES_GLISCOR, "Gliscor"
     abilities ABILITY_HYPER_CUTTER, ABILITY_SAND_VEIL
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GLISCOR_TM_DATA_0, SPECIES_GLISCOR_TM_DATA_1, SPECIES_GLISCOR_TM_DATA_2, SPECIES_GLISCOR_TM_DATA_3
     mondexentry SPECIES_GLISCOR, "Its flight is soundless. It uses its\nlengthy tail to carry off its prey...\nThen its elongated fangs do the rest."
     mondexclassification SPECIES_GLISCOR, "Fang Scorpion Pokémon"
     mondexheight SPECIES_GLISCOR, "6’07”"
@@ -10434,7 +9960,6 @@ mondata SPECIES_MAMOSWINE, "Mamoswine"
     abilities ABILITY_OBLIVIOUS, ABILITY_SNOW_CLOAK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MAMOSWINE_TM_DATA_0, SPECIES_MAMOSWINE_TM_DATA_1, SPECIES_MAMOSWINE_TM_DATA_2, SPECIES_MAMOSWINE_TM_DATA_3
     mondexentry SPECIES_MAMOSWINE, "A frozen MAMOSWINE was dug from ice\ndating back 10,000 years. This Pokémon\nhas been around a long, long, long time."
     mondexclassification SPECIES_MAMOSWINE, "Twin Tusk Pokémon"
     mondexheight SPECIES_MAMOSWINE, "8’02”"
@@ -10456,7 +9981,6 @@ mondata SPECIES_PORYGON_Z, "Porygon-Z"
     abilities ABILITY_ADAPTABILITY, ABILITY_DOWNLOAD
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PORYGON_Z_TM_DATA_0, SPECIES_PORYGON_Z_TM_DATA_1, SPECIES_PORYGON_Z_TM_DATA_2, SPECIES_PORYGON_Z_TM_DATA_3
     mondexentry SPECIES_PORYGON_Z, "Its programming was modified to enable\nit to travel through alien dimensions.\nSeems there might have been an error..."
     mondexclassification SPECIES_PORYGON_Z, "Virtual Pokémon"
     mondexheight SPECIES_PORYGON_Z, "2’11”"
@@ -10478,7 +10002,6 @@ mondata SPECIES_GALLADE, "Gallade"
     abilities ABILITY_STEADFAST, ABILITY_SHARPNESS
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_GALLADE_TM_DATA_0, SPECIES_GALLADE_TM_DATA_1, SPECIES_GALLADE_TM_DATA_2, SPECIES_GALLADE_TM_DATA_3
     mondexentry SPECIES_GALLADE, "Because it can sense what its foe\nis thinking, its attacks burst out\nfirst, fast, and fierce."
     mondexclassification SPECIES_GALLADE, "Blade Pokémon"
     mondexheight SPECIES_GALLADE, "5’03”"
@@ -10500,7 +10023,6 @@ mondata SPECIES_PROBOPASS, "Probopass"
     abilities ABILITY_STURDY, ABILITY_MAGNET_PULL
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_PROBOPASS_TM_DATA_0, SPECIES_PROBOPASS_TM_DATA_1, SPECIES_PROBOPASS_TM_DATA_2, SPECIES_PROBOPASS_TM_DATA_3
     mondexentry SPECIES_PROBOPASS, "It controls three units called Mini-Noses\nusing magnetic force. With them, it can\nattack the foe from three directions."
     mondexclassification SPECIES_PROBOPASS, "Compass Pokémon"
     mondexheight SPECIES_PROBOPASS, "4’07”"
@@ -10522,7 +10044,6 @@ mondata SPECIES_DUSKNOIR, "Dusknoir"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_DUSKNOIR_TM_DATA_0, SPECIES_DUSKNOIR_TM_DATA_1, SPECIES_DUSKNOIR_TM_DATA_2, SPECIES_DUSKNOIR_TM_DATA_3
     mondexentry SPECIES_DUSKNOIR, "This feared Pokémon is said to travel to\nworlds unknown. Some even believe that\nit takes lost spirits along with it."
     mondexclassification SPECIES_DUSKNOIR, "Gripper Pokémon"
     mondexheight SPECIES_DUSKNOIR, "7’03”"
@@ -10544,7 +10065,6 @@ mondata SPECIES_FROSLASS, "Froslass"
     abilities ABILITY_SNOW_CLOAK, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FROSLASS_TM_DATA_0, SPECIES_FROSLASS_TM_DATA_1, SPECIES_FROSLASS_TM_DATA_2, SPECIES_FROSLASS_TM_DATA_3
     mondexentry SPECIES_FROSLASS, "Legends in snowy regions say that\na woman who was lost on an icy\nmountain was reborn as FROSLASS."
     mondexclassification SPECIES_FROSLASS, "Snow Land Pokémon"
     mondexheight SPECIES_FROSLASS, "4’03”"
@@ -10566,7 +10086,6 @@ mondata SPECIES_ROTOM, "Rotom"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ROTOM_TM_DATA_0, SPECIES_ROTOM_TM_DATA_1, SPECIES_ROTOM_TM_DATA_2, SPECIES_ROTOM_TM_DATA_3
     mondexentry SPECIES_ROTOM, "Research continues on this Pokémon,\nwhich could be the power source of a\nunique motor."
     mondexclassification SPECIES_ROTOM, "Plasma Pokémon"
     mondexheight SPECIES_ROTOM, "1’00”"
@@ -10588,7 +10107,6 @@ mondata SPECIES_UXIE, "Uxie"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_UXIE_TM_DATA_0, SPECIES_UXIE_TM_DATA_1, SPECIES_UXIE_TM_DATA_2, SPECIES_UXIE_TM_DATA_3
     mondexentry SPECIES_UXIE, "According to some sources, this Pokémon\nprovided people with the intelligence\nnecessary to solve various problems."
     mondexclassification SPECIES_UXIE, "Knowledge Pokémon"
     mondexheight SPECIES_UXIE, "1’00”"
@@ -10610,7 +10128,6 @@ mondata SPECIES_MESPRIT, "Mesprit"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MESPRIT_TM_DATA_0, SPECIES_MESPRIT_TM_DATA_1, SPECIES_MESPRIT_TM_DATA_2, SPECIES_MESPRIT_TM_DATA_3
     mondexentry SPECIES_MESPRIT, "This Pokémon is said to have endowed\nthe human heart with emotions, such as\nsorrow and joy."
     mondexclassification SPECIES_MESPRIT, "Emotion Pokémon"
     mondexheight SPECIES_MESPRIT, "1’00”"
@@ -10632,7 +10149,6 @@ mondata SPECIES_AZELF, "Azelf"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_AZELF_TM_DATA_0, SPECIES_AZELF_TM_DATA_1, SPECIES_AZELF_TM_DATA_2, SPECIES_AZELF_TM_DATA_3
     mondexentry SPECIES_AZELF, "This Pokémon is said to have endowed\nhumans with the determination needed\nto face any of life’s difficulties."
     mondexclassification SPECIES_AZELF, "Willpower Pokémon"
     mondexheight SPECIES_AZELF, "1’00”"
@@ -10654,7 +10170,6 @@ mondata SPECIES_DIALGA, "Dialga"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_DIALGA_TM_DATA_0, SPECIES_DIALGA_TM_DATA_1, SPECIES_DIALGA_TM_DATA_2, SPECIES_DIALGA_TM_DATA_3
     mondexentry SPECIES_DIALGA, "This Pokémon completely controls the\nflow of time. It uses its power to travel\nat will through the past and future."
     mondexclassification SPECIES_DIALGA, "Temporal Pokémon"
     mondexheight SPECIES_DIALGA, "17’09”"
@@ -10676,7 +10191,6 @@ mondata SPECIES_PALKIA, "Palkia"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_PALKIA_TM_DATA_0, SPECIES_PALKIA_TM_DATA_1, SPECIES_PALKIA_TM_DATA_2, SPECIES_PALKIA_TM_DATA_3
     mondexentry SPECIES_PALKIA, "Its total control over the boundaries\nof space enable it to transport itself to\nfaraway places or even other dimensions."
     mondexclassification SPECIES_PALKIA, "Spatial Pokémon"
     mondexheight SPECIES_PALKIA, "13’09”"
@@ -10698,7 +10212,6 @@ mondata SPECIES_HEATRAN, "Heatran"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HEATRAN_TM_DATA_0, SPECIES_HEATRAN_TM_DATA_1, SPECIES_HEATRAN_TM_DATA_2, SPECIES_HEATRAN_TM_DATA_3
     mondexentry SPECIES_HEATRAN, "Boiling blood, like magma, circulates\nthrough its body. It makes its dwelling\nplace in volcanic caves."
     mondexclassification SPECIES_HEATRAN, "Lava Dome Pokémon"
     mondexheight SPECIES_HEATRAN, "5’07”"
@@ -10720,7 +10233,6 @@ mondata SPECIES_REGIGIGAS, "Regigigas"
     abilities ABILITY_SLOW_START, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_REGIGIGAS_TM_DATA_0, SPECIES_REGIGIGAS_TM_DATA_1, SPECIES_REGIGIGAS_TM_DATA_2, SPECIES_REGIGIGAS_TM_DATA_3
     mondexentry SPECIES_REGIGIGAS, "It is believed to have shaped\nREGIROCK, REGICE, and REGISTEEL\nout of clay, ice, and magma."
     mondexclassification SPECIES_REGIGIGAS, "Colossal Pokémon"
     mondexheight SPECIES_REGIGIGAS, "12’02”"
@@ -10742,7 +10254,6 @@ mondata SPECIES_GIRATINA, "Giratina"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_GIRATINA_TM_DATA_0, SPECIES_GIRATINA_TM_DATA_1, SPECIES_GIRATINA_TM_DATA_2, SPECIES_GIRATINA_TM_DATA_3
     mondexentry SPECIES_GIRATINA, "This Pokémon is said to live in a world on\nthe reverse side of ours, where common\nknowledge is distorted and strange."
     mondexclassification SPECIES_GIRATINA, "Renegade Pokémon"
     mondexheight SPECIES_GIRATINA, "14’09”"
@@ -10764,7 +10275,6 @@ mondata SPECIES_CRESSELIA, "Cresselia"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_CRESSELIA_TM_DATA_0, SPECIES_CRESSELIA_TM_DATA_1, SPECIES_CRESSELIA_TM_DATA_2, SPECIES_CRESSELIA_TM_DATA_3
     mondexentry SPECIES_CRESSELIA, "Those who sleep holding CRESSELIA’s\nfeather are assured of joyful dreams. It\nis said to represent the crescent moon."
     mondexclassification SPECIES_CRESSELIA, "Lunar Pokémon"
     mondexheight SPECIES_CRESSELIA, "4’11”"
@@ -10786,7 +10296,6 @@ mondata SPECIES_PHIONE, "Phione"
     abilities ABILITY_HYDRATION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PHIONE_TM_DATA_0, SPECIES_PHIONE_TM_DATA_1, SPECIES_PHIONE_TM_DATA_2, SPECIES_PHIONE_TM_DATA_3
     mondexentry SPECIES_PHIONE, "When the water warms, they inflate the\nflotation sac on their heads and drift\nlanguidly on the sea in packs."
     mondexclassification SPECIES_PHIONE, "Sea Drifter Pokémon"
     mondexheight SPECIES_PHIONE, "1’04”"
@@ -10808,7 +10317,6 @@ mondata SPECIES_MANAPHY, "Manaphy"
     abilities ABILITY_HYDRATION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MANAPHY_TM_DATA_0, SPECIES_MANAPHY_TM_DATA_1, SPECIES_MANAPHY_TM_DATA_2, SPECIES_MANAPHY_TM_DATA_3
     mondexentry SPECIES_MANAPHY, "It starts its life with a wondrous power\nthat permits it to bond with any kind\nof Pokémon."
     mondexclassification SPECIES_MANAPHY, "Seafaring Pokémon"
     mondexheight SPECIES_MANAPHY, "1’00”"
@@ -10830,7 +10338,6 @@ mondata SPECIES_DARKRAI, "Darkrai"
     abilities ABILITY_BAD_DREAMS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_DARKRAI_TM_DATA_0, SPECIES_DARKRAI_TM_DATA_1, SPECIES_DARKRAI_TM_DATA_2, SPECIES_DARKRAI_TM_DATA_3
     mondexentry SPECIES_DARKRAI, "It chases people and Pokémon from its\nterritory by causing them to experience\ndeep, nightmarish slumbers."
     mondexclassification SPECIES_DARKRAI, "Pitch-Black Pokémon"
     mondexheight SPECIES_DARKRAI, "4’11”"
@@ -10852,7 +10359,6 @@ mondata SPECIES_SHAYMIN, "Shaymin"
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SHAYMIN_TM_DATA_0, SPECIES_SHAYMIN_TM_DATA_1, SPECIES_SHAYMIN_TM_DATA_2, SPECIES_SHAYMIN_TM_DATA_3
     mondexentry SPECIES_SHAYMIN, "The blooming of Gracidea flowers confers\nthe power of flight upon it. Feelings \nof gratitude are the message it delivers."
     mondexclassification SPECIES_SHAYMIN, "Gratitude Pokémon"
     mondexheight SPECIES_SHAYMIN, "0’08”"
@@ -10874,7 +10380,6 @@ mondata SPECIES_ARCEUS, "Arceus"
     abilities ABILITY_MULTITYPE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_ARCEUS_TM_DATA_0, SPECIES_ARCEUS_TM_DATA_1, SPECIES_ARCEUS_TM_DATA_2, SPECIES_ARCEUS_TM_DATA_3
     mondexentry SPECIES_ARCEUS, "It is the heavenly fount from which pours the light that shines\nacross Hisui. Its luminance guides and protects all Pokémon.\nHisuian mythology states that Arceus is the creator of all things."
     mondexclassification SPECIES_ARCEUS, "Alpha Pokémon"
     mondexheight SPECIES_ARCEUS, "10’06”"
@@ -10896,7 +10401,6 @@ mondata SPECIES_EGG, "Egg"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_EGG, 0
-    tmdata SPECIES_EGG_TM_DATA_0, SPECIES_EGG_TM_DATA_1, SPECIES_EGG_TM_DATA_2, SPECIES_EGG_TM_DATA_3
     mondexentry SPECIES_EGG, "-----"
     mondexclassification SPECIES_EGG, "-----"
     mondexheight SPECIES_EGG, "???'??”"
@@ -10918,7 +10422,6 @@ mondata SPECIES_BAD_EGG, "Bad Egg"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_EGG, 0
-    tmdata SPECIES_BAD_EGG_TM_DATA_0, SPECIES_BAD_EGG_TM_DATA_1, SPECIES_BAD_EGG_TM_DATA_2, SPECIES_BAD_EGG_TM_DATA_3
     mondexentry SPECIES_BAD_EGG, "-----"
     mondexclassification SPECIES_BAD_EGG, "-----"
     mondexheight SPECIES_BAD_EGG, "???'??”"
@@ -10940,7 +10443,6 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DEOXYS_ATTACK_TM_DATA_0, SPECIES_DEOXYS_ATTACK_TM_DATA_1, SPECIES_DEOXYS_ATTACK_TM_DATA_2, SPECIES_DEOXYS_ATTACK_TM_DATA_3
     mondexentry SPECIES_DEOXYS_ATTACK, "-----"
     mondexclassification SPECIES_DEOXYS_ATTACK, "-----"
     mondexheight SPECIES_DEOXYS_ATTACK, "???'??”"
@@ -10962,7 +10464,6 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DEOXYS_DEFENSE_TM_DATA_0, SPECIES_DEOXYS_DEFENSE_TM_DATA_1, SPECIES_DEOXYS_DEFENSE_TM_DATA_2, SPECIES_DEOXYS_DEFENSE_TM_DATA_3
     mondexentry SPECIES_DEOXYS_DEFENSE, "-----"
     mondexclassification SPECIES_DEOXYS_DEFENSE, "-----"
     mondexheight SPECIES_DEOXYS_DEFENSE, "???'??”"
@@ -10984,7 +10485,6 @@ mondata SPECIES_DEOXYS_SPEED, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DEOXYS_SPEED_TM_DATA_0, SPECIES_DEOXYS_SPEED_TM_DATA_1, SPECIES_DEOXYS_SPEED_TM_DATA_2, SPECIES_DEOXYS_SPEED_TM_DATA_3
     mondexentry SPECIES_DEOXYS_SPEED, "-----"
     mondexclassification SPECIES_DEOXYS_SPEED, "-----"
     mondexheight SPECIES_DEOXYS_SPEED, "???'??”"
@@ -11006,7 +10506,6 @@ mondata SPECIES_WORMADAM_SANDY, "-----"
     abilities ABILITY_ANTICIPATION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_WORMADAM_SANDY_TM_DATA_0, SPECIES_WORMADAM_SANDY_TM_DATA_1, SPECIES_WORMADAM_SANDY_TM_DATA_2, SPECIES_WORMADAM_SANDY_TM_DATA_3
     mondexentry SPECIES_WORMADAM_SANDY, "-----"
     mondexclassification SPECIES_WORMADAM_SANDY, "-----"
     mondexheight SPECIES_WORMADAM_SANDY, "???'??”"
@@ -11028,7 +10527,6 @@ mondata SPECIES_WORMADAM_TRASHY, "-----"
     abilities ABILITY_ANTICIPATION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_WORMADAM_TRASHY_TM_DATA_0, SPECIES_WORMADAM_TRASHY_TM_DATA_1, SPECIES_WORMADAM_TRASHY_TM_DATA_2, SPECIES_WORMADAM_TRASHY_TM_DATA_3
     mondexentry SPECIES_WORMADAM_TRASHY, "-----"
     mondexclassification SPECIES_WORMADAM_TRASHY, "-----"
     mondexheight SPECIES_WORMADAM_TRASHY, "???'??”"
@@ -11050,7 +10548,6 @@ mondata SPECIES_GIRATINA_ORIGIN, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_GIRATINA_ORIGIN_TM_DATA_0, SPECIES_GIRATINA_ORIGIN_TM_DATA_1, SPECIES_GIRATINA_ORIGIN_TM_DATA_2, SPECIES_GIRATINA_ORIGIN_TM_DATA_3
     mondexentry SPECIES_GIRATINA_ORIGIN, "-----"
     mondexclassification SPECIES_GIRATINA_ORIGIN, "-----"
     mondexheight SPECIES_GIRATINA_ORIGIN, "???'??”"
@@ -11072,7 +10569,6 @@ mondata SPECIES_SHAYMIN_SKY, "-----"
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
-    tmdata SPECIES_SHAYMIN_SKY_TM_DATA_0, SPECIES_SHAYMIN_SKY_TM_DATA_1, SPECIES_SHAYMIN_SKY_TM_DATA_2, SPECIES_SHAYMIN_SKY_TM_DATA_3
     mondexentry SPECIES_SHAYMIN_SKY, "-----"
     mondexclassification SPECIES_SHAYMIN_SKY, "-----"
     mondexheight SPECIES_SHAYMIN_SKY, "???'??”"
@@ -11094,7 +10590,6 @@ mondata SPECIES_ROTOM_HEAT, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ROTOM_HEAT_TM_DATA_0, SPECIES_ROTOM_HEAT_TM_DATA_1, SPECIES_ROTOM_HEAT_TM_DATA_2, SPECIES_ROTOM_HEAT_TM_DATA_3
     mondexentry SPECIES_ROTOM_HEAT, "-----"
     mondexclassification SPECIES_ROTOM_HEAT, "-----"
     mondexheight SPECIES_ROTOM_HEAT, "???'??”"
@@ -11116,7 +10611,6 @@ mondata SPECIES_ROTOM_WASH, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ROTOM_WASH_TM_DATA_0, SPECIES_ROTOM_WASH_TM_DATA_1, SPECIES_ROTOM_WASH_TM_DATA_2, SPECIES_ROTOM_WASH_TM_DATA_3
     mondexentry SPECIES_ROTOM_WASH, "-----"
     mondexclassification SPECIES_ROTOM_WASH, "-----"
     mondexheight SPECIES_ROTOM_WASH, "???'??”"
@@ -11138,7 +10632,6 @@ mondata SPECIES_ROTOM_FROST, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ROTOM_FROST_TM_DATA_0, SPECIES_ROTOM_FROST_TM_DATA_1, SPECIES_ROTOM_FROST_TM_DATA_2, SPECIES_ROTOM_FROST_TM_DATA_3
     mondexentry SPECIES_ROTOM_FROST, "-----"
     mondexclassification SPECIES_ROTOM_FROST, "-----"
     mondexheight SPECIES_ROTOM_FROST, "???'??”"
@@ -11160,7 +10653,6 @@ mondata SPECIES_ROTOM_FAN, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ROTOM_FAN_TM_DATA_0, SPECIES_ROTOM_FAN_TM_DATA_1, SPECIES_ROTOM_FAN_TM_DATA_2, SPECIES_ROTOM_FAN_TM_DATA_3
     mondexentry SPECIES_ROTOM_FAN, "-----"
     mondexclassification SPECIES_ROTOM_FAN, "-----"
     mondexheight SPECIES_ROTOM_FAN, "???'??”"
@@ -11182,7 +10674,6 @@ mondata SPECIES_ROTOM_MOW, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ROTOM_MOW_TM_DATA_0, SPECIES_ROTOM_MOW_TM_DATA_1, SPECIES_ROTOM_MOW_TM_DATA_2, SPECIES_ROTOM_MOW_TM_DATA_3
     mondexentry SPECIES_ROTOM_MOW, "-----"
     mondexclassification SPECIES_ROTOM_MOW, "-----"
     mondexheight SPECIES_ROTOM_MOW, "???'??”"
@@ -11204,7 +10695,6 @@ mondata SPECIES_508, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_508, "-----"
     mondexclassification SPECIES_508, "-----"
     mondexheight SPECIES_508, "???'??”"
@@ -11226,7 +10716,6 @@ mondata SPECIES_509, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_509, "-----"
     mondexclassification SPECIES_509, "-----"
     mondexheight SPECIES_509, "???'??”"
@@ -11248,7 +10737,6 @@ mondata SPECIES_510, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_510, "-----"
     mondexclassification SPECIES_510, "-----"
     mondexheight SPECIES_510, "???'??”"
@@ -11270,7 +10758,6 @@ mondata SPECIES_511, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_511, "-----"
     mondexclassification SPECIES_511, "-----"
     mondexheight SPECIES_511, "???'??”"
@@ -11292,7 +10779,6 @@ mondata SPECIES_512, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_512, "-----"
     mondexclassification SPECIES_512, "-----"
     mondexheight SPECIES_512, "???'??”"
@@ -11314,7 +10800,6 @@ mondata SPECIES_513, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_513, "-----"
     mondexclassification SPECIES_513, "-----"
     mondexheight SPECIES_513, "???'??”"
@@ -11336,7 +10821,6 @@ mondata SPECIES_514, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_514, "-----"
     mondexclassification SPECIES_514, "-----"
     mondexheight SPECIES_514, "???'??”"
@@ -11358,7 +10842,6 @@ mondata SPECIES_515, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_515, "-----"
     mondexclassification SPECIES_515, "-----"
     mondexheight SPECIES_515, "???'??”"
@@ -11380,7 +10863,6 @@ mondata SPECIES_516, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_516, "-----"
     mondexclassification SPECIES_516, "-----"
     mondexheight SPECIES_516, "???'??”"
@@ -11402,7 +10884,6 @@ mondata SPECIES_517, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_517, "-----"
     mondexclassification SPECIES_517, "-----"
     mondexheight SPECIES_517, "???'??”"
@@ -11424,7 +10905,6 @@ mondata SPECIES_518, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_518, "-----"
     mondexclassification SPECIES_518, "-----"
     mondexheight SPECIES_518, "???'??”"
@@ -11446,7 +10926,6 @@ mondata SPECIES_519, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_519, "-----"
     mondexclassification SPECIES_519, "-----"
     mondexheight SPECIES_519, "???'??”"
@@ -11468,7 +10947,6 @@ mondata SPECIES_520, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_520, "-----"
     mondexclassification SPECIES_520, "-----"
     mondexheight SPECIES_520, "???'??”"
@@ -11490,7 +10968,6 @@ mondata SPECIES_521, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_521, "-----"
     mondexclassification SPECIES_521, "-----"
     mondexheight SPECIES_521, "???'??”"
@@ -11512,7 +10989,6 @@ mondata SPECIES_522, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_522, "-----"
     mondexclassification SPECIES_522, "-----"
     mondexheight SPECIES_522, "???'??”"
@@ -11534,7 +11010,6 @@ mondata SPECIES_523, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_523, "-----"
     mondexclassification SPECIES_523, "-----"
     mondexheight SPECIES_523, "???'??”"
@@ -11556,7 +11031,6 @@ mondata SPECIES_524, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_524, "-----"
     mondexclassification SPECIES_524, "-----"
     mondexheight SPECIES_524, "???'??”"
@@ -11578,7 +11052,6 @@ mondata SPECIES_525, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_525, "-----"
     mondexclassification SPECIES_525, "-----"
     mondexheight SPECIES_525, "???'??”"
@@ -11600,7 +11073,6 @@ mondata SPECIES_526, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_526, "-----"
     mondexclassification SPECIES_526, "-----"
     mondexheight SPECIES_526, "???'??”"
@@ -11622,7 +11094,6 @@ mondata SPECIES_527, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_527, "-----"
     mondexclassification SPECIES_527, "-----"
     mondexheight SPECIES_527, "???'??”"
@@ -11644,7 +11115,6 @@ mondata SPECIES_528, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_528, "-----"
     mondexclassification SPECIES_528, "-----"
     mondexheight SPECIES_528, "???'??”"
@@ -11666,7 +11136,6 @@ mondata SPECIES_529, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_529, "-----"
     mondexclassification SPECIES_529, "-----"
     mondexheight SPECIES_529, "???'??”"
@@ -11688,7 +11157,6 @@ mondata SPECIES_530, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_530, "-----"
     mondexclassification SPECIES_530, "-----"
     mondexheight SPECIES_530, "???'??”"
@@ -11710,7 +11178,6 @@ mondata SPECIES_531, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_531, "-----"
     mondexclassification SPECIES_531, "-----"
     mondexheight SPECIES_531, "???'??”"
@@ -11732,7 +11199,6 @@ mondata SPECIES_532, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_532, "-----"
     mondexclassification SPECIES_532, "-----"
     mondexheight SPECIES_532, "???'??”"
@@ -11754,7 +11220,6 @@ mondata SPECIES_533, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_533, "-----"
     mondexclassification SPECIES_533, "-----"
     mondexheight SPECIES_533, "???'??”"
@@ -11776,7 +11241,6 @@ mondata SPECIES_534, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_534, "-----"
     mondexclassification SPECIES_534, "-----"
     mondexheight SPECIES_534, "???'??”"
@@ -11798,7 +11262,6 @@ mondata SPECIES_535, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_535, "-----"
     mondexclassification SPECIES_535, "-----"
     mondexheight SPECIES_535, "???'??”"
@@ -11820,7 +11283,6 @@ mondata SPECIES_536, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_536, "-----"
     mondexclassification SPECIES_536, "-----"
     mondexheight SPECIES_536, "???'??”"
@@ -11842,7 +11304,6 @@ mondata SPECIES_537, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_537, "-----"
     mondexclassification SPECIES_537, "-----"
     mondexheight SPECIES_537, "???'??”"
@@ -11864,7 +11325,6 @@ mondata SPECIES_538, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_538, "-----"
     mondexclassification SPECIES_538, "-----"
     mondexheight SPECIES_538, "???'??”"
@@ -11886,7 +11346,6 @@ mondata SPECIES_539, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_539, "-----"
     mondexclassification SPECIES_539, "-----"
     mondexheight SPECIES_539, "???'??”"
@@ -11908,7 +11367,6 @@ mondata SPECIES_540, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_540, "-----"
     mondexclassification SPECIES_540, "-----"
     mondexheight SPECIES_540, "???'??”"
@@ -11930,7 +11388,6 @@ mondata SPECIES_541, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_541, "-----"
     mondexclassification SPECIES_541, "-----"
     mondexheight SPECIES_541, "???'??”"
@@ -11952,7 +11409,6 @@ mondata SPECIES_542, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_542, "-----"
     mondexclassification SPECIES_542, "-----"
     mondexheight SPECIES_542, "???'??”"
@@ -11974,7 +11430,6 @@ mondata SPECIES_543, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
     mondexentry SPECIES_543, "-----"
     mondexclassification SPECIES_543, "-----"
     mondexheight SPECIES_543, "???'??”"
@@ -11996,7 +11451,6 @@ mondata SPECIES_VICTINI, "Victini"
     abilities ABILITY_VICTORY_STAR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_VICTINI_TM_DATA_0, SPECIES_VICTINI_TM_DATA_1, SPECIES_VICTINI_TM_DATA_2, SPECIES_VICTINI_TM_DATA_3
     mondexentry SPECIES_VICTINI, "When it shares the infinite energy it creates,\nthat being’s entire body will be overflowing\nwith power."
     mondexclassification SPECIES_VICTINI, "Victory Pokémon"
     mondexheight SPECIES_VICTINI, "1’04”"
@@ -12018,7 +11472,6 @@ mondata SPECIES_SNIVY, "Snivy"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SNIVY_TM_DATA_0, SPECIES_SNIVY_TM_DATA_1, SPECIES_SNIVY_TM_DATA_2, SPECIES_SNIVY_TM_DATA_3
     mondexentry SPECIES_SNIVY, "They photosynthesize by bathing their tails in\nsunlight. When they are not feeling well, their\ntails droop."
     mondexclassification SPECIES_SNIVY, "Grass Snake Pokémon"
     mondexheight SPECIES_SNIVY, "2’00”"
@@ -12040,7 +11493,6 @@ mondata SPECIES_SERVINE, "Servine"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SERVINE_TM_DATA_0, SPECIES_SERVINE_TM_DATA_1, SPECIES_SERVINE_TM_DATA_2, SPECIES_SERVINE_TM_DATA_3
     mondexentry SPECIES_SERVINE, "When it gets dirty, its leaves can’t be used in\nphotosynthesis, so it always keeps itself clean."
     mondexclassification SPECIES_SERVINE, "Grass Snake Pokémon"
     mondexheight SPECIES_SERVINE, "2’07”"
@@ -12062,7 +11514,6 @@ mondata SPECIES_SERPERIOR, "Serperior"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SERPERIOR_TM_DATA_0, SPECIES_SERPERIOR_TM_DATA_1, SPECIES_SERPERIOR_TM_DATA_2, SPECIES_SERPERIOR_TM_DATA_3
     mondexentry SPECIES_SERPERIOR, "It can stop its opponents’ movements with just a\nglare. It takes in solar energy and boosts\nit internally."
     mondexclassification SPECIES_SERPERIOR, "Regal Pokémon"
     mondexheight SPECIES_SERPERIOR, "10’10”"
@@ -12084,7 +11535,6 @@ mondata SPECIES_TEPIG, "Tepig"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TEPIG_TM_DATA_0, SPECIES_TEPIG_TM_DATA_1, SPECIES_TEPIG_TM_DATA_2, SPECIES_TEPIG_TM_DATA_3
     mondexentry SPECIES_TEPIG, "It loves to eat roasted berries, but sometimes it\ngets too excited and burns them to a crisp."
     mondexclassification SPECIES_TEPIG, "Fire Pig Pokémon"
     mondexheight SPECIES_TEPIG, "1’08”"
@@ -12106,7 +11556,6 @@ mondata SPECIES_PIGNITE, "Pignite"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PIGNITE_TM_DATA_0, SPECIES_PIGNITE_TM_DATA_1, SPECIES_PIGNITE_TM_DATA_2, SPECIES_PIGNITE_TM_DATA_3
     mondexentry SPECIES_PIGNITE, "When its internal fire flares up, its movements grow\nsharper and faster. When in trouble, it emits smoke."
     mondexclassification SPECIES_PIGNITE, "Fire Pig Pokémon"
     mondexheight SPECIES_PIGNITE, "3’03”"
@@ -12128,7 +11577,6 @@ mondata SPECIES_EMBOAR, "Emboar"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_EMBOAR_TM_DATA_0, SPECIES_EMBOAR_TM_DATA_1, SPECIES_EMBOAR_TM_DATA_2, SPECIES_EMBOAR_TM_DATA_3
     mondexentry SPECIES_EMBOAR, "It has mastered fast and powerful fighting moves.\nIt grows a beard of fire."
     mondexclassification SPECIES_EMBOAR, "Mega Fire Pig Pokémon"
     mondexheight SPECIES_EMBOAR, "5’03”"
@@ -12150,7 +11598,6 @@ mondata SPECIES_OSHAWOTT, "Oshawott"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_OSHAWOTT_TM_DATA_0, SPECIES_OSHAWOTT_TM_DATA_1, SPECIES_OSHAWOTT_TM_DATA_2, SPECIES_OSHAWOTT_TM_DATA_3
     mondexentry SPECIES_OSHAWOTT, "This Pokémon from the Unova region uses the shell on its belly\nas a weapon to cut down its foes. Thus, I've conferred upon this\nshell the name ”scalchop”."
     mondexclassification SPECIES_OSHAWOTT, "Sea Otter Pokémon"
     mondexheight SPECIES_OSHAWOTT, "1’08”"
@@ -12172,7 +11619,6 @@ mondata SPECIES_DEWOTT, "Dewott"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DEWOTT_TM_DATA_0, SPECIES_DEWOTT_TM_DATA_1, SPECIES_DEWOTT_TM_DATA_2, SPECIES_DEWOTT_TM_DATA_3
     mondexentry SPECIES_DEWOTT, "Its exquisite double-scalchop technique is likely the result of\ndaily training, and it can send even masters of the blade fleeing\nin defeat."
     mondexclassification SPECIES_DEWOTT, "Discipline Pokémon"
     mondexheight SPECIES_DEWOTT, "2’07”"
@@ -12194,7 +11640,6 @@ mondata SPECIES_SAMUROTT, "Samurott"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SAMUROTT_TM_DATA_0, SPECIES_SAMUROTT_TM_DATA_1, SPECIES_SAMUROTT_TM_DATA_2, SPECIES_SAMUROTT_TM_DATA_3
     mondexentry SPECIES_SAMUROTT, "Hard of heart and deft of blade, this rare form of Samurott is\na product of the Pokémon's evolution in the region of Hisui. Its\nturbulent blows crash into foes like ceaseless pounding waves."
     mondexclassification SPECIES_SAMUROTT, "Formidable Pokémon"
     mondexheight SPECIES_SAMUROTT, "4’11”"
@@ -12216,7 +11661,6 @@ mondata SPECIES_PATRAT, "Patrat"
     abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PATRAT_TM_DATA_0, SPECIES_PATRAT_TM_DATA_1, SPECIES_PATRAT_TM_DATA_2, SPECIES_PATRAT_TM_DATA_3
     mondexentry SPECIES_PATRAT, "Extremely cautious, one of them will always be on\nthe lookout, but it won’t notice a foe coming\nfrom behind."
     mondexclassification SPECIES_PATRAT, "Scout Pokémon"
     mondexheight SPECIES_PATRAT, "1’08”"
@@ -12238,7 +11682,6 @@ mondata SPECIES_WATCHOG, "Watchog"
     abilities ABILITY_ILLUMINATE, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_WATCHOG_TM_DATA_0, SPECIES_WATCHOG_TM_DATA_1, SPECIES_WATCHOG_TM_DATA_2, SPECIES_WATCHOG_TM_DATA_3
     mondexentry SPECIES_WATCHOG, "When they see an enemy, their tails stand high,\nand they spit the seeds of berries stored in their\ncheek pouches."
     mondexclassification SPECIES_WATCHOG, "Lookout Pokémon"
     mondexheight SPECIES_WATCHOG, "3’07”"
@@ -12260,7 +11703,6 @@ mondata SPECIES_LILLIPUP, "Lillipup"
     abilities ABILITY_VITAL_SPIRIT, ABILITY_PICKUP
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_LILLIPUP_TM_DATA_0, SPECIES_LILLIPUP_TM_DATA_1, SPECIES_LILLIPUP_TM_DATA_2, SPECIES_LILLIPUP_TM_DATA_3
     mondexentry SPECIES_LILLIPUP, "This Pokémon is far brighter than the average\nchild, and Lillipup won’t forget the love it\nreceives or any abuse it suffers."
     mondexclassification SPECIES_LILLIPUP, "Puppy Pokémon"
     mondexheight SPECIES_LILLIPUP, "1’04”"
@@ -12282,7 +11724,6 @@ mondata SPECIES_HERDIER, "Herdier"
     abilities ABILITY_INTIMIDATE, ABILITY_SAND_RUSH
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_HERDIER_TM_DATA_0, SPECIES_HERDIER_TM_DATA_1, SPECIES_HERDIER_TM_DATA_2, SPECIES_HERDIER_TM_DATA_3
     mondexentry SPECIES_HERDIER, "The black fur that covers this Pokémon’s body\nis dense and springy. Even sharp fangs bounce\nright off."
     mondexclassification SPECIES_HERDIER, "Loyal Dog Pokémon"
     mondexheight SPECIES_HERDIER, "2’11”"
@@ -12304,7 +11745,6 @@ mondata SPECIES_STOUTLAND, "Stoutland"
     abilities ABILITY_INTIMIDATE, ABILITY_SAND_RUSH
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_STOUTLAND_TM_DATA_0, SPECIES_STOUTLAND_TM_DATA_1, SPECIES_STOUTLAND_TM_DATA_2, SPECIES_STOUTLAND_TM_DATA_3
     mondexentry SPECIES_STOUTLAND, "Stoutland is immensely proud of its impressive\nmoustache. It’s said that moustache length is what\ndetermines social standing among this species."
     mondexclassification SPECIES_STOUTLAND, "Big-Hearted Pokémon"
     mondexheight SPECIES_STOUTLAND, "3’11”"
@@ -12326,7 +11766,6 @@ mondata SPECIES_PURRLOIN, "Purrloin"
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_PURRLOIN_TM_DATA_0, SPECIES_PURRLOIN_TM_DATA_1, SPECIES_PURRLOIN_TM_DATA_2, SPECIES_PURRLOIN_TM_DATA_3
     mondexentry SPECIES_PURRLOIN, "Opponents that get drawn in by its adorable\nbehavior come away with stinging scratches from\nits claws and stinging pride from its laughter."
     mondexclassification SPECIES_PURRLOIN, "Devious Pokémon"
     mondexheight SPECIES_PURRLOIN, "1’04”"
@@ -12348,7 +11787,6 @@ mondata SPECIES_LIEPARD, "Liepard"
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_LIEPARD_TM_DATA_0, SPECIES_LIEPARD_TM_DATA_1, SPECIES_LIEPARD_TM_DATA_2, SPECIES_LIEPARD_TM_DATA_3
     mondexentry SPECIES_LIEPARD, "This stealthy Pokémon sneaks up behind prey\nwithout making any sound at all. It competes with\nThievul for territory."
     mondexclassification SPECIES_LIEPARD, "Cruel Pokémon"
     mondexheight SPECIES_LIEPARD, "3’07”"
@@ -12370,7 +11808,6 @@ mondata SPECIES_PANSAGE, "Pansage"
     abilities ABILITY_GLUTTONY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_PANSAGE_TM_DATA_0, SPECIES_PANSAGE_TM_DATA_1, SPECIES_PANSAGE_TM_DATA_2, SPECIES_PANSAGE_TM_DATA_3
     mondexentry SPECIES_PANSAGE, "It’s good at finding berries and gathers them from\nall over. It’s kind enough to share them\nwith friends."
     mondexclassification SPECIES_PANSAGE, "Grass Monkey Pokémon"
     mondexheight SPECIES_PANSAGE, "2’00”"
@@ -12392,7 +11829,6 @@ mondata SPECIES_SIMISAGE, "Simisage"
     abilities ABILITY_GLUTTONY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SIMISAGE_TM_DATA_0, SPECIES_SIMISAGE_TM_DATA_1, SPECIES_SIMISAGE_TM_DATA_2, SPECIES_SIMISAGE_TM_DATA_3
     mondexentry SPECIES_SIMISAGE, "Ill tempered, it fights by swinging its barbed tail\naround wildly. The leaf growing on its head is\nvery bitter."
     mondexclassification SPECIES_SIMISAGE, "Thorn Monkey Pokémon"
     mondexheight SPECIES_SIMISAGE, "3’07”"
@@ -12414,7 +11850,6 @@ mondata SPECIES_PANSEAR, "Pansear"
     abilities ABILITY_GLUTTONY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PANSEAR_TM_DATA_0, SPECIES_PANSEAR_TM_DATA_1, SPECIES_PANSEAR_TM_DATA_2, SPECIES_PANSEAR_TM_DATA_3
     mondexentry SPECIES_PANSEAR, "This Pokémon lives in caves in volcanoes.\nThe fire within the tuft on its head can reach\n600 degrees Fahrenheit."
     mondexclassification SPECIES_PANSEAR, "High Temp Pokémon"
     mondexheight SPECIES_PANSEAR, "2’00”"
@@ -12436,7 +11871,6 @@ mondata SPECIES_SIMISEAR, "Simisear"
     abilities ABILITY_GLUTTONY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SIMISEAR_TM_DATA_0, SPECIES_SIMISEAR_TM_DATA_1, SPECIES_SIMISEAR_TM_DATA_2, SPECIES_SIMISEAR_TM_DATA_3
     mondexentry SPECIES_SIMISEAR, "When it gets excited, embers rise from its head\nand tail and it gets hot. For some reason, it\nloves sweets."
     mondexclassification SPECIES_SIMISEAR, "Ember Pokémon"
     mondexheight SPECIES_SIMISEAR, "3’03”"
@@ -12458,7 +11892,6 @@ mondata SPECIES_PANPOUR, "Panpour"
     abilities ABILITY_GLUTTONY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PANPOUR_TM_DATA_0, SPECIES_PANPOUR_TM_DATA_1, SPECIES_PANPOUR_TM_DATA_2, SPECIES_PANPOUR_TM_DATA_3
     mondexentry SPECIES_PANPOUR, "The water stored inside the tuft on its head is full of\nnutrients. Plants that receive its water grow large."
     mondexclassification SPECIES_PANPOUR, "Spray Pokémon"
     mondexheight SPECIES_PANPOUR, "2’00”"
@@ -12480,7 +11913,6 @@ mondata SPECIES_SIMIPOUR, "Simipour"
     abilities ABILITY_GLUTTONY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SIMIPOUR_TM_DATA_0, SPECIES_SIMIPOUR_TM_DATA_1, SPECIES_SIMIPOUR_TM_DATA_2, SPECIES_SIMIPOUR_TM_DATA_3
     mondexentry SPECIES_SIMIPOUR, "It prefers places with clean water. When its tuft runs\nlow, it replenishes it by siphoning up water with\nits tail."
     mondexclassification SPECIES_SIMIPOUR, "Geyser Pokémon"
     mondexheight SPECIES_SIMIPOUR, "3’03”"
@@ -12502,7 +11934,6 @@ mondata SPECIES_MUNNA, "Munna"
     abilities ABILITY_FOREWARN, ABILITY_SYNCHRONIZE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MUNNA_TM_DATA_0, SPECIES_MUNNA_TM_DATA_1, SPECIES_MUNNA_TM_DATA_2, SPECIES_MUNNA_TM_DATA_3
     mondexentry SPECIES_MUNNA, "It eats dreams and releases mist. The mist is pink\nwhen it’s eating a good dream, and black when\nit’s eating a nightmare."
     mondexclassification SPECIES_MUNNA, "Dream Eater Pokémon"
     mondexheight SPECIES_MUNNA, "2’00”"
@@ -12524,7 +11955,6 @@ mondata SPECIES_MUSHARNA, "Musharna"
     abilities ABILITY_FOREWARN, ABILITY_SYNCHRONIZE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MUSHARNA_TM_DATA_0, SPECIES_MUSHARNA_TM_DATA_1, SPECIES_MUSHARNA_TM_DATA_2, SPECIES_MUSHARNA_TM_DATA_3
     mondexentry SPECIES_MUSHARNA, "It drowses and dreams all the time. It’s best to\nleave it be if it’s just woken up, as it’s a terrible\ngrump when freshly roused from sleep."
     mondexclassification SPECIES_MUSHARNA, "Drowsing Pokémon"
     mondexheight SPECIES_MUSHARNA, "3’07”"
@@ -12546,7 +11976,6 @@ mondata SPECIES_PIDOVE, "Pidove"
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_PIDOVE_TM_DATA_0, SPECIES_PIDOVE_TM_DATA_1, SPECIES_PIDOVE_TM_DATA_2, SPECIES_PIDOVE_TM_DATA_3
     mondexentry SPECIES_PIDOVE, "It’s forgetful and not very bright, but many\nTrainers love it anyway for its friendliness\nand sincerity."
     mondexclassification SPECIES_PIDOVE, "Tiny Pigeon Pokémon"
     mondexheight SPECIES_PIDOVE, "1’00”"
@@ -12568,7 +11997,6 @@ mondata SPECIES_TRANQUILL, "Tranquill"
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_TRANQUILL_TM_DATA_0, SPECIES_TRANQUILL_TM_DATA_1, SPECIES_TRANQUILL_TM_DATA_2, SPECIES_TRANQUILL_TM_DATA_3
     mondexentry SPECIES_TRANQUILL, "These bright Pokémon have acute memories.\nApparently delivery workers often choose them\nas their partners."
     mondexclassification SPECIES_TRANQUILL, "Wild Pigeon Pokémon"
     mondexheight SPECIES_TRANQUILL, "2’00”"
@@ -12590,7 +12018,6 @@ mondata SPECIES_UNFEZANT, "Unfezant"
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_UNFEZANT_TM_DATA_0, SPECIES_UNFEZANT_TM_DATA_1, SPECIES_UNFEZANT_TM_DATA_2, SPECIES_UNFEZANT_TM_DATA_3
     mondexentry SPECIES_UNFEZANT, "This Pokémon is intelligent and intensely proud.\nPeople will sit up and take notice if you become\nthe Trainer of one."
     mondexclassification SPECIES_UNFEZANT, "Proud Pokémon"
     mondexheight SPECIES_UNFEZANT, "3’11”"
@@ -12612,7 +12039,6 @@ mondata SPECIES_BLITZLE, "Blitzle"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_MOTOR_DRIVE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_BLITZLE_TM_DATA_0, SPECIES_BLITZLE_TM_DATA_1, SPECIES_BLITZLE_TM_DATA_2, SPECIES_BLITZLE_TM_DATA_3
     mondexentry SPECIES_BLITZLE, "Its mane shines when it discharges electricity.\nThey use the frequency and rhythm of these flashes\nto communicate."
     mondexclassification SPECIES_BLITZLE, "Electrified Pokémon"
     mondexheight SPECIES_BLITZLE, "2’07”"
@@ -12634,7 +12060,6 @@ mondata SPECIES_ZEBSTRIKA, "Zebstrika"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_MOTOR_DRIVE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_ZEBSTRIKA_TM_DATA_0, SPECIES_ZEBSTRIKA_TM_DATA_1, SPECIES_ZEBSTRIKA_TM_DATA_2, SPECIES_ZEBSTRIKA_TM_DATA_3
     mondexentry SPECIES_ZEBSTRIKA, "They have lightning-like movements.\nWhen Zebstrika run at full speed, the sound of\nthunder reverberates."
     mondexclassification SPECIES_ZEBSTRIKA, "Thunderbolt Pokémon"
     mondexheight SPECIES_ZEBSTRIKA, "5’03”"
@@ -12656,7 +12081,6 @@ mondata SPECIES_ROGGENROLA, "Roggenrola"
     abilities ABILITY_STURDY, ABILITY_WEAK_ARMOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ROGGENROLA_TM_DATA_0, SPECIES_ROGGENROLA_TM_DATA_1, SPECIES_ROGGENROLA_TM_DATA_2, SPECIES_ROGGENROLA_TM_DATA_3
     mondexentry SPECIES_ROGGENROLA, "When it detects a noise, it starts to move.\nThe energy core inside it makes this Pokémon\nslightly warm to the touch."
     mondexclassification SPECIES_ROGGENROLA, "Mantle Pokémon"
     mondexheight SPECIES_ROGGENROLA, "1’04”"
@@ -12678,7 +12102,6 @@ mondata SPECIES_BOLDORE, "Boldore"
     abilities ABILITY_STURDY, ABILITY_WEAK_ARMOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BOLDORE_TM_DATA_0, SPECIES_BOLDORE_TM_DATA_1, SPECIES_BOLDORE_TM_DATA_2, SPECIES_BOLDORE_TM_DATA_3
     mondexentry SPECIES_BOLDORE, "It relies on sound in order to monitor what’s in its\nvicinity. When angered, it will attack without ever\nchanging the direction it’s facing."
     mondexclassification SPECIES_BOLDORE, "Ore Pokémon"
     mondexheight SPECIES_BOLDORE, "2’11”"
@@ -12700,7 +12123,6 @@ mondata SPECIES_GIGALITH, "Gigalith"
     abilities ABILITY_STURDY, ABILITY_SAND_STREAM
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GIGALITH_TM_DATA_0, SPECIES_GIGALITH_TM_DATA_1, SPECIES_GIGALITH_TM_DATA_2, SPECIES_GIGALITH_TM_DATA_3
     mondexentry SPECIES_GIGALITH, "Although its energy blasts can blow away\na dump truck, they have a limitation:\nthey can only be fired when the sun is out."
     mondexclassification SPECIES_GIGALITH, "Compressed Pokémon"
     mondexheight SPECIES_GIGALITH, "5’07”"
@@ -12722,7 +12144,6 @@ mondata SPECIES_WOOBAT, "Woobat"
     abilities ABILITY_UNAWARE, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WOOBAT_TM_DATA_0, SPECIES_WOOBAT_TM_DATA_1, SPECIES_WOOBAT_TM_DATA_2, SPECIES_WOOBAT_TM_DATA_3
     mondexentry SPECIES_WOOBAT, "It emits ultrasonic waves as it flutters about,\nsearching for its prey: bug Pokémon."
     mondexclassification SPECIES_WOOBAT, "Bat Pokémon"
     mondexheight SPECIES_WOOBAT, "1’04”"
@@ -12744,7 +12165,6 @@ mondata SPECIES_SWOOBAT, "Swoobat"
     abilities ABILITY_UNAWARE, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SWOOBAT_TM_DATA_0, SPECIES_SWOOBAT_TM_DATA_1, SPECIES_SWOOBAT_TM_DATA_2, SPECIES_SWOOBAT_TM_DATA_3
     mondexentry SPECIES_SWOOBAT, "The auspicious shape of this Pokémon’s nose\napparently led some regions to consider\nSwoobat a symbol of good luck."
     mondexclassification SPECIES_SWOOBAT, "Courting Pokémon"
     mondexheight SPECIES_SWOOBAT, "2’11”"
@@ -12766,7 +12186,6 @@ mondata SPECIES_DRILBUR, "Drilbur"
     abilities ABILITY_SAND_RUSH, ABILITY_SAND_FORCE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_DRILBUR_TM_DATA_0, SPECIES_DRILBUR_TM_DATA_1, SPECIES_DRILBUR_TM_DATA_2, SPECIES_DRILBUR_TM_DATA_3
     mondexentry SPECIES_DRILBUR, "It’s a digger, using its claws to burrow through the\nground. It causes damage to vegetable crops, so\nmany farmers have little love for it."
     mondexclassification SPECIES_DRILBUR, "Mole Pokémon"
     mondexheight SPECIES_DRILBUR, "1’00”"
@@ -12788,7 +12207,6 @@ mondata SPECIES_EXCADRILL, "Excadrill"
     abilities ABILITY_SAND_RUSH, ABILITY_SAND_FORCE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_EXCADRILL_TM_DATA_0, SPECIES_EXCADRILL_TM_DATA_1, SPECIES_EXCADRILL_TM_DATA_2, SPECIES_EXCADRILL_TM_DATA_3
     mondexentry SPECIES_EXCADRILL, "Known as the Drill King, this Pokémon can\ntunnel through the terrain at speeds of over\n90 mph."
     mondexclassification SPECIES_EXCADRILL, "Subterrene Pokémon"
     mondexheight SPECIES_EXCADRILL, "2’04”"
@@ -12810,7 +12228,6 @@ mondata SPECIES_AUDINO, "Audino"
     abilities ABILITY_HEALER, ABILITY_REGENERATOR
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_AUDINO_TM_DATA_0, SPECIES_AUDINO_TM_DATA_1, SPECIES_AUDINO_TM_DATA_2, SPECIES_AUDINO_TM_DATA_3
     mondexentry SPECIES_AUDINO, "This Pokémon has a kind heart. By touching with\nits feelers, Audino can gauge other creatures’\nfeelings and physical conditions."
     mondexclassification SPECIES_AUDINO, "Hearing Pokémon"
     mondexheight SPECIES_AUDINO, "3’07”"
@@ -12832,7 +12249,6 @@ mondata SPECIES_TIMBURR, "Timburr"
     abilities ABILITY_GUTS, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_TIMBURR_TM_DATA_0, SPECIES_TIMBURR_TM_DATA_1, SPECIES_TIMBURR_TM_DATA_2, SPECIES_TIMBURR_TM_DATA_3
     mondexentry SPECIES_TIMBURR, "Timburr that have started carrying logs that are\nabout three times their size are nearly ready\nto evolve."
     mondexclassification SPECIES_TIMBURR, "Muscular Pokémon"
     mondexheight SPECIES_TIMBURR, "2’00”"
@@ -12854,7 +12270,6 @@ mondata SPECIES_GURDURR, "Gurdurr"
     abilities ABILITY_GUTS, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_GURDURR_TM_DATA_0, SPECIES_GURDURR_TM_DATA_1, SPECIES_GURDURR_TM_DATA_2, SPECIES_GURDURR_TM_DATA_3
     mondexentry SPECIES_GURDURR, "Gurdurr excels at demolition: construction is not\nits forte. In any case, there’s skill in the way this\nPokémon wields its metal beam."
     mondexclassification SPECIES_GURDURR, "Muscular Pokémon"
     mondexheight SPECIES_GURDURR, "3’11”"
@@ -12876,7 +12291,6 @@ mondata SPECIES_CONKELDURR, "Conkeldurr"
     abilities ABILITY_GUTS, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_CONKELDURR_TM_DATA_0, SPECIES_CONKELDURR_TM_DATA_1, SPECIES_CONKELDURR_TM_DATA_2, SPECIES_CONKELDURR_TM_DATA_3
     mondexentry SPECIES_CONKELDURR, "When going all out, this Pokémon throws aside\nits concrete pillars and leaps at opponents to\npummel them with its fists."
     mondexclassification SPECIES_CONKELDURR, "Muscular Pokémon"
     mondexheight SPECIES_CONKELDURR, "4’07”"
@@ -12898,7 +12312,6 @@ mondata SPECIES_TYMPOLE, "Tympole"
     abilities ABILITY_SWIFT_SWIM, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TYMPOLE_TM_DATA_0, SPECIES_TYMPOLE_TM_DATA_1, SPECIES_TYMPOLE_TM_DATA_2, SPECIES_TYMPOLE_TM_DATA_3
     mondexentry SPECIES_TYMPOLE, "It uses sound waves to communicate with\nothers of its kind. People and other Pokémon\nspecies can’t hear its cries of warning."
     mondexclassification SPECIES_TYMPOLE, "Tadpole Pokémon"
     mondexheight SPECIES_TYMPOLE, "1’08”"
@@ -12920,7 +12333,6 @@ mondata SPECIES_PALPITOAD, "Palpitoad"
     abilities ABILITY_SWIFT_SWIM, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PALPITOAD_TM_DATA_0, SPECIES_PALPITOAD_TM_DATA_1, SPECIES_PALPITOAD_TM_DATA_2, SPECIES_PALPITOAD_TM_DATA_3
     mondexentry SPECIES_PALPITOAD, "On occasion, their cries are sublimely pleasing to\nthe ear. Palpitoad with larger lumps on their\nbodies can sing with a wider range of sounds."
     mondexclassification SPECIES_PALPITOAD, "Vibration Pokémon"
     mondexheight SPECIES_PALPITOAD, "2’07”"
@@ -12942,7 +12354,6 @@ mondata SPECIES_SEISMITOAD, "Seismitoad"
     abilities ABILITY_SWIFT_SWIM, ABILITY_POISON_TOUCH
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SEISMITOAD_TM_DATA_0, SPECIES_SEISMITOAD_TM_DATA_1, SPECIES_SEISMITOAD_TM_DATA_2, SPECIES_SEISMITOAD_TM_DATA_3
     mondexentry SPECIES_SEISMITOAD, "This Pokémon is popular among the elderly,\nwho say the vibrations of its lumps are great\nfor massages."
     mondexclassification SPECIES_SEISMITOAD, "Vibration Pokémon"
     mondexheight SPECIES_SEISMITOAD, "4’11”"
@@ -12964,7 +12375,6 @@ mondata SPECIES_THROH, "Throh"
     abilities ABILITY_GUTS, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_THROH_TM_DATA_0, SPECIES_THROH_TM_DATA_1, SPECIES_THROH_TM_DATA_2, SPECIES_THROH_TM_DATA_3
     mondexentry SPECIES_THROH, "They train in groups of five. Any member that\ncan’t keep up will discard its belt and leave\nthe group."
     mondexclassification SPECIES_THROH, "Judo Pokémon"
     mondexheight SPECIES_THROH, "4’03”"
@@ -12986,7 +12396,6 @@ mondata SPECIES_SAWK, "Sawk"
     abilities ABILITY_STURDY, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SAWK_TM_DATA_0, SPECIES_SAWK_TM_DATA_1, SPECIES_SAWK_TM_DATA_2, SPECIES_SAWK_TM_DATA_3
     mondexentry SPECIES_SAWK, "The karate chops of a Sawk that’s trained itself\nto the limit can cleave the ocean itself."
     mondexclassification SPECIES_SAWK, "Karate Pokémon"
     mondexheight SPECIES_SAWK, "4’07”"
@@ -13008,7 +12417,6 @@ mondata SPECIES_SEWADDLE, "Sewaddle"
     abilities ABILITY_SWARM, ABILITY_CHLOROPHYLL
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SEWADDLE_TM_DATA_0, SPECIES_SEWADDLE_TM_DATA_1, SPECIES_SEWADDLE_TM_DATA_2, SPECIES_SEWADDLE_TM_DATA_3
     mondexentry SPECIES_SEWADDLE, "Since this Pokémon makes its own clothes out of\nleaves, it is a popular mascot for fashion designers."
     mondexclassification SPECIES_SEWADDLE, "Sewing Pokémon"
     mondexheight SPECIES_SEWADDLE, "1’00”"
@@ -13030,7 +12438,6 @@ mondata SPECIES_SWADLOON, "Swadloon"
     abilities ABILITY_LEAF_GUARD, ABILITY_CHLOROPHYLL
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SWADLOON_TM_DATA_0, SPECIES_SWADLOON_TM_DATA_1, SPECIES_SWADLOON_TM_DATA_2, SPECIES_SWADLOON_TM_DATA_3
     mondexentry SPECIES_SWADLOON, "It protects itself from the cold by wrapping up in\nleaves. It stays on the move, eating leaves\nin forests."
     mondexclassification SPECIES_SWADLOON, "Leaf-Wrapped Pokémon"
     mondexheight SPECIES_SWADLOON, "1’08”"
@@ -13052,7 +12459,6 @@ mondata SPECIES_LEAVANNY, "Leavanny"
     abilities ABILITY_SWARM, ABILITY_CHLOROPHYLL
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_LEAVANNY_TM_DATA_0, SPECIES_LEAVANNY_TM_DATA_1, SPECIES_LEAVANNY_TM_DATA_2, SPECIES_LEAVANNY_TM_DATA_3
     mondexentry SPECIES_LEAVANNY, "It keeps its eggs warm with heat from fermenting\nleaves. It also uses leaves to make warm wrappings\nfor Sewaddle."
     mondexclassification SPECIES_LEAVANNY, "Nurturing Pokémon"
     mondexheight SPECIES_LEAVANNY, "3’11”"
@@ -13074,7 +12480,6 @@ mondata SPECIES_VENIPEDE, "Venipede"
     abilities ABILITY_POISON_POINT, ABILITY_SWARM
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_VENIPEDE_TM_DATA_0, SPECIES_VENIPEDE_TM_DATA_1, SPECIES_VENIPEDE_TM_DATA_2, SPECIES_VENIPEDE_TM_DATA_3
     mondexentry SPECIES_VENIPEDE, "Its fangs are highly venomous. If this Pokémon\nfinds prey it thinks it can eat, it leaps for them\nwithout any thought of how things might turn out."
     mondexclassification SPECIES_VENIPEDE, "Centipede Pokémon"
     mondexheight SPECIES_VENIPEDE, "1’04”"
@@ -13096,7 +12501,6 @@ mondata SPECIES_WHIRLIPEDE, "Whirlipede"
     abilities ABILITY_POISON_POINT, ABILITY_SWARM
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_WHIRLIPEDE_TM_DATA_0, SPECIES_WHIRLIPEDE_TM_DATA_1, SPECIES_WHIRLIPEDE_TM_DATA_2, SPECIES_WHIRLIPEDE_TM_DATA_3
     mondexentry SPECIES_WHIRLIPEDE, "Whirlipede protects itself with a sturdy shell and\npoisonous spikes while it stores up the energy it’ll\nneed for evolution."
     mondexclassification SPECIES_WHIRLIPEDE, "Curlipede Pokémon"
     mondexheight SPECIES_WHIRLIPEDE, "3’11”"
@@ -13118,7 +12522,6 @@ mondata SPECIES_SCOLIPEDE, "Scolipede"
     abilities ABILITY_POISON_POINT, ABILITY_SWARM
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SCOLIPEDE_TM_DATA_0, SPECIES_SCOLIPEDE_TM_DATA_1, SPECIES_SCOLIPEDE_TM_DATA_2, SPECIES_SCOLIPEDE_TM_DATA_3
     mondexentry SPECIES_SCOLIPEDE, "Scolipede engage in fierce territorial battles with\nCentiskorch. At the end of one of these battles,\nthe victor makes a meal of the loser."
     mondexclassification SPECIES_SCOLIPEDE, "Megapede Pokémon"
     mondexheight SPECIES_SCOLIPEDE, "8’02”"
@@ -13140,7 +12543,6 @@ mondata SPECIES_COTTONEE, "Cottonee"
     abilities ABILITY_PRANKSTER, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_COTTONEE_TM_DATA_0, SPECIES_COTTONEE_TM_DATA_1, SPECIES_COTTONEE_TM_DATA_2, SPECIES_COTTONEE_TM_DATA_3
     mondexentry SPECIES_COTTONEE, "Weaving together the cotton of both Cottonee\nand Eldegoss produces exquisite cloth that’s\nhighly prized by many luxury brands."
     mondexclassification SPECIES_COTTONEE, "Cotton Puff Pokémon"
     mondexheight SPECIES_COTTONEE, "1’00”"
@@ -13162,7 +12564,6 @@ mondata SPECIES_WHIMSICOTT, "Whimsicott"
     abilities ABILITY_PRANKSTER, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_WHIMSICOTT_TM_DATA_0, SPECIES_WHIMSICOTT_TM_DATA_1, SPECIES_WHIMSICOTT_TM_DATA_2, SPECIES_WHIMSICOTT_TM_DATA_3
     mondexentry SPECIES_WHIMSICOTT, "As long as this Pokémon bathes in sunlight, its\ncotton keeps growing. If too much cotton fluff\nbuilds up, Whimsicott tears it off and scatters it."
     mondexclassification SPECIES_WHIMSICOTT, "Windveiled Pokémon"
     mondexheight SPECIES_WHIMSICOTT, "2’04”"
@@ -13184,7 +12585,6 @@ mondata SPECIES_PETILIL, "Petilil"
     abilities ABILITY_CHLOROPHYLL, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_PETILIL_TM_DATA_0, SPECIES_PETILIL_TM_DATA_1, SPECIES_PETILIL_TM_DATA_2, SPECIES_PETILIL_TM_DATA_3
     mondexentry SPECIES_PETILIL, "The leaves on its head are highly valued for medicinal purposes.\nDry the leaves in the sun, boil them, and then drink the bitter\ndecoction for remarkably effective relief from fatigue."
     mondexclassification SPECIES_PETILIL, "Bulb Pokémon"
     mondexheight SPECIES_PETILIL, "1’08”"
@@ -13206,7 +12606,6 @@ mondata SPECIES_LILLIGANT, "Lilligant"
     abilities ABILITY_CHLOROPHYLL, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_LILLIGANT_TM_DATA_0, SPECIES_LILLIGANT_TM_DATA_1, SPECIES_LILLIGANT_TM_DATA_2, SPECIES_LILLIGANT_TM_DATA_3
     mondexentry SPECIES_LILLIGANT, "I suspect that its well-developed legs are the result of a life\nspent on mountains covered in deep snow. The scent it exudes\nfrom its flower crown heartens those in proximity."
     mondexclassification SPECIES_LILLIGANT, "Flowering Pokémon"
     mondexheight SPECIES_LILLIGANT, "3’07”"
@@ -13228,7 +12627,6 @@ mondata SPECIES_BASCULIN, "Basculin"
     abilities ABILITY_RECKLESS, ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BASCULIN_TM_DATA_0, SPECIES_BASCULIN_TM_DATA_1, SPECIES_BASCULIN_TM_DATA_2, SPECIES_BASCULIN_TM_DATA_3
     mondexentry SPECIES_BASCULIN, "Though it differs from other Basculin in several respects,\nincluding demeanor: this one is gentle: I have categorized\nit as a regional form given the vast array of shared qualities."
     mondexclassification SPECIES_BASCULIN, "Hostile Pokémon"
     mondexheight SPECIES_BASCULIN, "3’03”"
@@ -13250,7 +12648,6 @@ mondata SPECIES_SANDILE, "Sandile"
     abilities ABILITY_INTIMIDATE, ABILITY_MOXIE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SANDILE_TM_DATA_0, SPECIES_SANDILE_TM_DATA_1, SPECIES_SANDILE_TM_DATA_2, SPECIES_SANDILE_TM_DATA_3
     mondexentry SPECIES_SANDILE, "Sandile is small, but its legs and lower body are\npowerful. Pushing sand aside as it goes, Sandile\nmoves through the desert as if it’s swimming."
     mondexclassification SPECIES_SANDILE, "Desert Croc Pokémon"
     mondexheight SPECIES_SANDILE, "2’04”"
@@ -13272,7 +12669,6 @@ mondata SPECIES_KROKOROK, "Krokorok"
     abilities ABILITY_INTIMIDATE, ABILITY_MOXIE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_KROKOROK_TM_DATA_0, SPECIES_KROKOROK_TM_DATA_1, SPECIES_KROKOROK_TM_DATA_2, SPECIES_KROKOROK_TM_DATA_3
     mondexentry SPECIES_KROKOROK, "Although this Pokémon has specialized eyes that\nallow it to see in the dark, Krokorok won’t move\nmuch at night: the desert gets cold after sunset."
     mondexclassification SPECIES_KROKOROK, "Desert Croc Pokémon"
     mondexheight SPECIES_KROKOROK, "3’03”"
@@ -13294,7 +12690,6 @@ mondata SPECIES_KROOKODILE, "Krookodile"
     abilities ABILITY_INTIMIDATE, ABILITY_MOXIE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KROOKODILE_TM_DATA_0, SPECIES_KROOKODILE_TM_DATA_1, SPECIES_KROOKODILE_TM_DATA_2, SPECIES_KROOKODILE_TM_DATA_3
     mondexentry SPECIES_KROOKODILE, "While terribly aggressive, Krookodile also has\nthe patience to stay hidden under sand for days,\nlying in wait for prey."
     mondexclassification SPECIES_KROOKODILE, "Intimidation Pokémon"
     mondexheight SPECIES_KROOKODILE, "4’11”"
@@ -13316,7 +12711,6 @@ mondata SPECIES_DARUMAKA, "Darumaka"
     abilities ABILITY_HUSTLE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DARUMAKA_TM_DATA_0, SPECIES_DARUMAKA_TM_DATA_1, SPECIES_DARUMAKA_TM_DATA_2, SPECIES_DARUMAKA_TM_DATA_3
     mondexentry SPECIES_DARUMAKA, "This popular symbol of good fortune will never\nfall over in its sleep, no matter how it’s pushed\nor pulled."
     mondexclassification SPECIES_DARUMAKA, "Zen Charm Pokémon"
     mondexheight SPECIES_DARUMAKA, "2’00”"
@@ -13338,7 +12732,6 @@ mondata SPECIES_DARMANITAN, "Darmanitan"
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DARMANITAN_TM_DATA_0, SPECIES_DARMANITAN_TM_DATA_1, SPECIES_DARMANITAN_TM_DATA_2, SPECIES_DARMANITAN_TM_DATA_3
     mondexentry SPECIES_DARMANITAN, "This Pokémon’s power level rises along with the\ntemperature of its fire, which can reach 2,500\ndegrees Fahrenheit."
     mondexclassification SPECIES_DARMANITAN, "Blazing Pokémon"
     mondexheight SPECIES_DARMANITAN, "4’03”"
@@ -13360,7 +12753,6 @@ mondata SPECIES_MARACTUS, "Maractus"
     abilities ABILITY_WATER_ABSORB, ABILITY_CHLOROPHYLL
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_MARACTUS_TM_DATA_0, SPECIES_MARACTUS_TM_DATA_1, SPECIES_MARACTUS_TM_DATA_2, SPECIES_MARACTUS_TM_DATA_3
     mondexentry SPECIES_MARACTUS, "Once each year, this Pokémon scatters its seeds.\nThey’re jam-packed with nutrients, making them\na precious food source out in the desert."
     mondexclassification SPECIES_MARACTUS, "Cactus Pokémon"
     mondexheight SPECIES_MARACTUS, "3’03”"
@@ -13382,7 +12774,6 @@ mondata SPECIES_DWEBBLE, "Dwebble"
     abilities ABILITY_STURDY, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DWEBBLE_TM_DATA_0, SPECIES_DWEBBLE_TM_DATA_1, SPECIES_DWEBBLE_TM_DATA_2, SPECIES_DWEBBLE_TM_DATA_3
     mondexentry SPECIES_DWEBBLE, "It first tries to find a rock to live in, but if there\nare no suitable rocks to be found, Dwebble may\nmove in to the ports of a Hippowdon."
     mondexclassification SPECIES_DWEBBLE, "Rock Inn Pokémon"
     mondexheight SPECIES_DWEBBLE, "1’00”"
@@ -13404,7 +12795,6 @@ mondata SPECIES_CRUSTLE, "Crustle"
     abilities ABILITY_STURDY, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CRUSTLE_TM_DATA_0, SPECIES_CRUSTLE_TM_DATA_1, SPECIES_CRUSTLE_TM_DATA_2, SPECIES_CRUSTLE_TM_DATA_3
     mondexentry SPECIES_CRUSTLE, "Its thick claws are its greatest weapons.\nThey’re mighty enough to crack\nRhyperior’s carapace."
     mondexclassification SPECIES_CRUSTLE, "Stone Home Pokémon"
     mondexheight SPECIES_CRUSTLE, "4’07”"
@@ -13426,7 +12816,6 @@ mondata SPECIES_SCRAGGY, "Scraggy"
     abilities ABILITY_SHED_SKIN, ABILITY_MOXIE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_SCRAGGY_TM_DATA_0, SPECIES_SCRAGGY_TM_DATA_1, SPECIES_SCRAGGY_TM_DATA_2, SPECIES_SCRAGGY_TM_DATA_3
     mondexentry SPECIES_SCRAGGY, "It protects itself with its durable skin. It’s thought\nthat this Pokémon will evolve once its skin has\ncompletely stretched out."
     mondexclassification SPECIES_SCRAGGY, "Shedding Pokémon"
     mondexheight SPECIES_SCRAGGY, "2’00”"
@@ -13448,7 +12837,6 @@ mondata SPECIES_SCRAFTY, "Scrafty"
     abilities ABILITY_SHED_SKIN, ABILITY_MOXIE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SCRAFTY_TM_DATA_0, SPECIES_SCRAFTY_TM_DATA_1, SPECIES_SCRAFTY_TM_DATA_2, SPECIES_SCRAFTY_TM_DATA_3
     mondexentry SPECIES_SCRAFTY, "While mostly known for having the temperament\nof an aggressive ruffian, this Pokémon takes very\ngood care of its family, friends, and territory."
     mondexclassification SPECIES_SCRAFTY, "Hoodlum Pokémon"
     mondexheight SPECIES_SCRAFTY, "3’07”"
@@ -13470,7 +12858,6 @@ mondata SPECIES_SIGILYPH, "Sigilyph"
     abilities ABILITY_WONDER_SKIN, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SIGILYPH_TM_DATA_0, SPECIES_SIGILYPH_TM_DATA_1, SPECIES_SIGILYPH_TM_DATA_2, SPECIES_SIGILYPH_TM_DATA_3
     mondexentry SPECIES_SIGILYPH, "A discovery was made in the desert where\nSigilyph fly. The ruins of what may have been\nan ancient city were found beneath the sands."
     mondexclassification SPECIES_SIGILYPH, "Avianoid Pokémon"
     mondexheight SPECIES_SIGILYPH, "4’07”"
@@ -13492,7 +12879,6 @@ mondata SPECIES_YAMASK, "Yamask"
     abilities ABILITY_MUMMY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_YAMASK_TM_DATA_0, SPECIES_YAMASK_TM_DATA_1, SPECIES_YAMASK_TM_DATA_2, SPECIES_YAMASK_TM_DATA_3
     mondexentry SPECIES_YAMASK, "The spirit of a person from a bygone age became\nthis Pokémon. It rambles through ruins, searching\nfor someone who knows its face."
     mondexclassification SPECIES_YAMASK, "Spirit Pokémon"
     mondexheight SPECIES_YAMASK, "1’08”"
@@ -13514,7 +12900,6 @@ mondata SPECIES_COFAGRIGUS, "Cofagrigus"
     abilities ABILITY_MUMMY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_COFAGRIGUS_TM_DATA_0, SPECIES_COFAGRIGUS_TM_DATA_1, SPECIES_COFAGRIGUS_TM_DATA_2, SPECIES_COFAGRIGUS_TM_DATA_3
     mondexentry SPECIES_COFAGRIGUS, "There are many depictions of Cofagrigus\ndecorating ancient tombs. They’re symbols\nof the wealth that kings of bygone eras had."
     mondexclassification SPECIES_COFAGRIGUS, "Coffin Pokémon"
     mondexheight SPECIES_COFAGRIGUS, "5’07”"
@@ -13536,7 +12921,6 @@ mondata SPECIES_TIRTOUGA, "Tirtouga"
     abilities ABILITY_SOLID_ROCK, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TIRTOUGA_TM_DATA_0, SPECIES_TIRTOUGA_TM_DATA_1, SPECIES_TIRTOUGA_TM_DATA_2, SPECIES_TIRTOUGA_TM_DATA_3
     mondexentry SPECIES_TIRTOUGA, "Tirtouga is considered to be the ancestor of\nmany turtle Pokémon. It was restored to life\nfrom a fossil."
     mondexclassification SPECIES_TIRTOUGA, "Prototurtle Pokémon"
     mondexheight SPECIES_TIRTOUGA, "2’04”"
@@ -13558,7 +12942,6 @@ mondata SPECIES_CARRACOSTA, "Carracosta"
     abilities ABILITY_SOLID_ROCK, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CARRACOSTA_TM_DATA_0, SPECIES_CARRACOSTA_TM_DATA_1, SPECIES_CARRACOSTA_TM_DATA_2, SPECIES_CARRACOSTA_TM_DATA_3
     mondexentry SPECIES_CARRACOSTA, "This Pokémon emerges from the water in search\nof prey despite the fact that it moves more\nslowly on land."
     mondexclassification SPECIES_CARRACOSTA, "Prototurtle Pokémon"
     mondexheight SPECIES_CARRACOSTA, "3’11”"
@@ -13580,7 +12963,6 @@ mondata SPECIES_ARCHEN, "Archen"
     abilities ABILITY_DEFEATIST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ARCHEN_TM_DATA_0, SPECIES_ARCHEN_TM_DATA_1, SPECIES_ARCHEN_TM_DATA_2, SPECIES_ARCHEN_TM_DATA_3
     mondexentry SPECIES_ARCHEN, "Archen is said to be the ancestor of bird\nPokémon. It lived in treetops, eating berries\nand bug Pokémon."
     mondexclassification SPECIES_ARCHEN, "First Bird Pokémon"
     mondexheight SPECIES_ARCHEN, "1’08”"
@@ -13602,7 +12984,6 @@ mondata SPECIES_ARCHEOPS, "Archeops"
     abilities ABILITY_DEFEATIST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ARCHEOPS_TM_DATA_0, SPECIES_ARCHEOPS_TM_DATA_1, SPECIES_ARCHEOPS_TM_DATA_2, SPECIES_ARCHEOPS_TM_DATA_3
     mondexentry SPECIES_ARCHEOPS, "Though capable of flight, Archeops was\napparently better at hunting on the ground."
     mondexclassification SPECIES_ARCHEOPS, "First Bird Pokémon"
     mondexheight SPECIES_ARCHEOPS, "4’07”"
@@ -13624,7 +13005,6 @@ mondata SPECIES_TRUBBISH, "Trubbish"
     abilities ABILITY_STENCH, ABILITY_STICKY_HOLD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TRUBBISH_TM_DATA_0, SPECIES_TRUBBISH_TM_DATA_1, SPECIES_TRUBBISH_TM_DATA_2, SPECIES_TRUBBISH_TM_DATA_3
     mondexentry SPECIES_TRUBBISH, "This Pokémon was born from a bag stuffed with\ntrash. Galarian Weezing relish the fumes belched\nby Trubbish."
     mondexclassification SPECIES_TRUBBISH, "Trash Bag Pokémon"
     mondexheight SPECIES_TRUBBISH, "2’00”"
@@ -13646,7 +13026,6 @@ mondata SPECIES_GARBODOR, "Garbodor"
     abilities ABILITY_STENCH, ABILITY_WEAK_ARMOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GARBODOR_TM_DATA_0, SPECIES_GARBODOR_TM_DATA_1, SPECIES_GARBODOR_TM_DATA_2, SPECIES_GARBODOR_TM_DATA_3
     mondexentry SPECIES_GARBODOR, "The toxic liquid it launches from its right arm\nis so virulent that it can kill a weakened\ncreature instantly."
     mondexclassification SPECIES_GARBODOR, "Trash Heap Pokémon"
     mondexheight SPECIES_GARBODOR, "6’03”"
@@ -13668,7 +13047,6 @@ mondata SPECIES_ZORUA, "Zorua"
     abilities ABILITY_ILLUSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ZORUA_TM_DATA_0, SPECIES_ZORUA_TM_DATA_1, SPECIES_ZORUA_TM_DATA_2, SPECIES_ZORUA_TM_DATA_3
     mondexentry SPECIES_ZORUA, "A once-departed soul, returned to life in Hisui. Derives power\nfrom resentment, which rises as energy atop its head and takes\non the forms of foes. In this way, Zorua vents lingering malice."
     mondexclassification SPECIES_ZORUA, "Tricky Fox Pokémon"
     mondexheight SPECIES_ZORUA, "2’04”"
@@ -13690,7 +13068,6 @@ mondata SPECIES_ZOROARK, "Zoroark"
     abilities ABILITY_ILLUSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ZOROARK_TM_DATA_0, SPECIES_ZOROARK_TM_DATA_1, SPECIES_ZOROARK_TM_DATA_2, SPECIES_ZOROARK_TM_DATA_3
     mondexentry SPECIES_ZOROARK, "With its disheveled white fur, it looks like an embodiment of\ndeath. Heedless of its own safety, Zoroark attacks its nemeses\nwith a bitter energy so intense, it lacerates Zoroark's own body."
     mondexclassification SPECIES_ZOROARK, "Illusion Fox Pokémon"
     mondexheight SPECIES_ZOROARK, "5’03”"
@@ -13712,7 +13089,6 @@ mondata SPECIES_MINCCINO, "Minccino"
     abilities ABILITY_CUTE_CHARM, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MINCCINO_TM_DATA_0, SPECIES_MINCCINO_TM_DATA_1, SPECIES_MINCCINO_TM_DATA_2, SPECIES_MINCCINO_TM_DATA_3
     mondexentry SPECIES_MINCCINO, "They pet each other with their tails as a form of\ngreeting. Of the two, the one whose tail is fluffier\nis a bit more boastful."
     mondexclassification SPECIES_MINCCINO, "Chinchilla Pokémon"
     mondexheight SPECIES_MINCCINO, "1’04”"
@@ -13734,7 +13110,6 @@ mondata SPECIES_CINCCINO, "Cinccino"
     abilities ABILITY_CUTE_CHARM, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_CINCCINO_TM_DATA_0, SPECIES_CINCCINO_TM_DATA_1, SPECIES_CINCCINO_TM_DATA_2, SPECIES_CINCCINO_TM_DATA_3
     mondexentry SPECIES_CINCCINO, "A special oil that seeps through their fur helps\nthem avoid attacks. The oil fetches a high price\nat market."
     mondexclassification SPECIES_CINCCINO, "Scarf Pokémon"
     mondexheight SPECIES_CINCCINO, "1’08”"
@@ -13756,7 +13131,6 @@ mondata SPECIES_GOTHITA, "Gothita"
     abilities ABILITY_FRISK, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GOTHITA_TM_DATA_0, SPECIES_GOTHITA_TM_DATA_1, SPECIES_GOTHITA_TM_DATA_2, SPECIES_GOTHITA_TM_DATA_3
     mondexentry SPECIES_GOTHITA, "Even when nobody seems to be around, Gothita\ncan still be heard making a muted cry. Many believe\nit’s speaking to something only it can see."
     mondexclassification SPECIES_GOTHITA, "Fixation Pokémon"
     mondexheight SPECIES_GOTHITA, "1’04”"
@@ -13778,7 +13152,6 @@ mondata SPECIES_GOTHORITA, "Gothorita"
     abilities ABILITY_FRISK, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GOTHORITA_TM_DATA_0, SPECIES_GOTHORITA_TM_DATA_1, SPECIES_GOTHORITA_TM_DATA_2, SPECIES_GOTHORITA_TM_DATA_3
     mondexentry SPECIES_GOTHORITA, "On nights when the stars shine, this Pokémon’s\npsychic power is at its strongest. It’s unknown just\nwhat link Gothorita has to the greater universe."
     mondexclassification SPECIES_GOTHORITA, "Manipulate Pokémon"
     mondexheight SPECIES_GOTHORITA, "2’04”"
@@ -13800,7 +13173,6 @@ mondata SPECIES_GOTHITELLE, "Gothitelle"
     abilities ABILITY_FRISK, ABILITY_COMPETITIVE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GOTHITELLE_TM_DATA_0, SPECIES_GOTHITELLE_TM_DATA_1, SPECIES_GOTHITELLE_TM_DATA_2, SPECIES_GOTHITELLE_TM_DATA_3
     mondexentry SPECIES_GOTHITELLE, "A criminal who was shown his fate by a Gothitelle\nwent missing that same day and was never\nseen again."
     mondexclassification SPECIES_GOTHITELLE, "Astral Body Pokémon"
     mondexheight SPECIES_GOTHITELLE, "4’11”"
@@ -13822,7 +13194,6 @@ mondata SPECIES_SOLOSIS, "Solosis"
     abilities ABILITY_OVERCOAT, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SOLOSIS_TM_DATA_0, SPECIES_SOLOSIS_TM_DATA_1, SPECIES_SOLOSIS_TM_DATA_2, SPECIES_SOLOSIS_TM_DATA_3
     mondexentry SPECIES_SOLOSIS, "Many say that the special liquid covering this\nPokémon’s body would allow it to survive in\nthe vacuum of space."
     mondexclassification SPECIES_SOLOSIS, "Cell Pokémon"
     mondexheight SPECIES_SOLOSIS, "1’00”"
@@ -13844,7 +13215,6 @@ mondata SPECIES_DUOSION, "Duosion"
     abilities ABILITY_OVERCOAT, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DUOSION_TM_DATA_0, SPECIES_DUOSION_TM_DATA_1, SPECIES_DUOSION_TM_DATA_2, SPECIES_DUOSION_TM_DATA_3
     mondexentry SPECIES_DUOSION, "Its brain has split into two, and the two\nhalves rarely think alike. Its actions are\nutterly unpredictable."
     mondexclassification SPECIES_DUOSION, "Mitosis Pokémon"
     mondexheight SPECIES_DUOSION, "2’00”"
@@ -13866,7 +13236,6 @@ mondata SPECIES_REUNICLUS, "Reuniclus"
     abilities ABILITY_OVERCOAT, ABILITY_MAGIC_GUARD
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_REUNICLUS_TM_DATA_0, SPECIES_REUNICLUS_TM_DATA_1, SPECIES_REUNICLUS_TM_DATA_2, SPECIES_REUNICLUS_TM_DATA_3
     mondexentry SPECIES_REUNICLUS, "It’s said that drinking the liquid surrounding\nReuniclus grants wisdom. Problem is, the liquid is\nhighly toxic to anything besides Reuniclus itself."
     mondexclassification SPECIES_REUNICLUS, "Multiplying Pokémon"
     mondexheight SPECIES_REUNICLUS, "3’03”"
@@ -13888,7 +13257,6 @@ mondata SPECIES_DUCKLETT, "Ducklett"
     abilities ABILITY_KEEN_EYE, ABILITY_BIG_PECKS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DUCKLETT_TM_DATA_0, SPECIES_DUCKLETT_TM_DATA_1, SPECIES_DUCKLETT_TM_DATA_2, SPECIES_DUCKLETT_TM_DATA_3
     mondexentry SPECIES_DUCKLETT, "They are better at swimming than flying, and they\nhappily eat their favorite food, peat moss, as they\ndive underwater."
     mondexclassification SPECIES_DUCKLETT, "Water Bird Pokémon"
     mondexheight SPECIES_DUCKLETT, "1’08”"
@@ -13910,7 +13278,6 @@ mondata SPECIES_SWANNA, "Swanna"
     abilities ABILITY_KEEN_EYE, ABILITY_BIG_PECKS
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SWANNA_TM_DATA_0, SPECIES_SWANNA_TM_DATA_1, SPECIES_SWANNA_TM_DATA_2, SPECIES_SWANNA_TM_DATA_3
     mondexentry SPECIES_SWANNA, "Swanna start to dance at dusk. The one dancing in\nthe middle is the leader of the flock."
     mondexclassification SPECIES_SWANNA, "White Bird Pokémon"
     mondexheight SPECIES_SWANNA, "4’03”"
@@ -13932,7 +13299,6 @@ mondata SPECIES_VANILLITE, "Vanillite"
     abilities ABILITY_ICE_BODY, ABILITY_SNOW_CLOAK
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_VANILLITE_TM_DATA_0, SPECIES_VANILLITE_TM_DATA_1, SPECIES_VANILLITE_TM_DATA_2, SPECIES_VANILLITE_TM_DATA_3
     mondexentry SPECIES_VANILLITE, "Supposedly, this Pokémon was born from an\nicicle. It spews out freezing air at -58 degrees\nFahrenheit to make itself more comfortable."
     mondexclassification SPECIES_VANILLITE, "Fresh Snow Pokémon"
     mondexheight SPECIES_VANILLITE, "1’04”"
@@ -13954,7 +13320,6 @@ mondata SPECIES_VANILLISH, "Vanillish"
     abilities ABILITY_ICE_BODY, ABILITY_SNOW_CLOAK
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_VANILLISH_TM_DATA_0, SPECIES_VANILLISH_TM_DATA_1, SPECIES_VANILLISH_TM_DATA_2, SPECIES_VANILLISH_TM_DATA_3
     mondexentry SPECIES_VANILLISH, "It blasts enemies with cold air reaching -148\ndegrees Fahrenheit, freezing them solid. But it\nspares their lives afterward: it’s a kind Pokémon."
     mondexclassification SPECIES_VANILLISH, "Icy Snow Pokémon"
     mondexheight SPECIES_VANILLISH, "3’07”"
@@ -13976,7 +13341,6 @@ mondata SPECIES_VANILLUXE, "Vanilluxe"
     abilities ABILITY_ICE_BODY, ABILITY_SNOW_WARNING
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_VANILLUXE_TM_DATA_0, SPECIES_VANILLUXE_TM_DATA_1, SPECIES_VANILLUXE_TM_DATA_2, SPECIES_VANILLUXE_TM_DATA_3
     mondexentry SPECIES_VANILLUXE, "People believe this Pokémon formed when two\nVanillish stuck together. Its body temperature is\nroughly 21 degrees Fahrenheit."
     mondexclassification SPECIES_VANILLUXE, "Snowstorm Pokémon"
     mondexheight SPECIES_VANILLUXE, "4’03”"
@@ -13998,7 +13362,6 @@ mondata SPECIES_DEERLING, "Deerling"
     abilities ABILITY_CHLOROPHYLL, ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_DEERLING_TM_DATA_0, SPECIES_DEERLING_TM_DATA_1, SPECIES_DEERLING_TM_DATA_2, SPECIES_DEERLING_TM_DATA_3
     mondexentry SPECIES_DEERLING, "The turning of the seasons changes the color and\nscent of this Pokémon’s fur. People use it to mark\nthe seasons."
     mondexclassification SPECIES_DEERLING, "Season Pokémon"
     mondexheight SPECIES_DEERLING, "2’00”"
@@ -14020,7 +13383,6 @@ mondata SPECIES_SAWSBUCK, "Sawsbuck"
     abilities ABILITY_CHLOROPHYLL, ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SAWSBUCK_TM_DATA_0, SPECIES_SAWSBUCK_TM_DATA_1, SPECIES_SAWSBUCK_TM_DATA_2, SPECIES_SAWSBUCK_TM_DATA_3
     mondexentry SPECIES_SAWSBUCK, "They migrate according to the seasons, so some\npeople call Sawsbuck the harbingers of spring."
     mondexclassification SPECIES_SAWSBUCK, "Season Pokémon"
     mondexheight SPECIES_SAWSBUCK, "6’03”"
@@ -14042,7 +13404,6 @@ mondata SPECIES_EMOLGA, "Emolga"
     abilities ABILITY_STATIC, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_EMOLGA_TM_DATA_0, SPECIES_EMOLGA_TM_DATA_1, SPECIES_EMOLGA_TM_DATA_2, SPECIES_EMOLGA_TM_DATA_3
     mondexentry SPECIES_EMOLGA, "This Pokémon absolutely loves sweet berries.\nSometimes it stuffs its cheeks full of so much\nfood that it can’t fly properly."
     mondexclassification SPECIES_EMOLGA, "Sky Squirrel Pokémon"
     mondexheight SPECIES_EMOLGA, "1’04”"
@@ -14064,7 +13425,6 @@ mondata SPECIES_KARRABLAST, "Karrablast"
     abilities ABILITY_SWARM, ABILITY_SHED_SKIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_KARRABLAST_TM_DATA_0, SPECIES_KARRABLAST_TM_DATA_1, SPECIES_KARRABLAST_TM_DATA_2, SPECIES_KARRABLAST_TM_DATA_3
     mondexentry SPECIES_KARRABLAST, "It spits a liquid from its mouth to melt through\nShelmet’s shell. Karrablast doesn’t eat the shell: \nit eats only the contents."
     mondexclassification SPECIES_KARRABLAST, "Clamping Pokémon"
     mondexheight SPECIES_KARRABLAST, "1’08”"
@@ -14086,7 +13446,6 @@ mondata SPECIES_ESCAVALIER, "Escavalier"
     abilities ABILITY_SWARM, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ESCAVALIER_TM_DATA_0, SPECIES_ESCAVALIER_TM_DATA_1, SPECIES_ESCAVALIER_TM_DATA_2, SPECIES_ESCAVALIER_TM_DATA_3
     mondexentry SPECIES_ESCAVALIER, "It charges its enemies, lances at the ready.\nAn image of one of its duels is captured in a famous\npainting of Escavalier clashing with Sirfetch’d."
     mondexclassification SPECIES_ESCAVALIER, "Cavalry Pokémon"
     mondexheight SPECIES_ESCAVALIER, "3’03”"
@@ -14108,7 +13467,6 @@ mondata SPECIES_FOONGUS, "Foongus"
     abilities ABILITY_EFFECT_SPORE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FOONGUS_TM_DATA_0, SPECIES_FOONGUS_TM_DATA_1, SPECIES_FOONGUS_TM_DATA_2, SPECIES_FOONGUS_TM_DATA_3
     mondexentry SPECIES_FOONGUS, "The spores released from this Pokémon’s hands\nare highly poisonous, but when thoroughly dried,\nthe spores can be used as stomach medicine."
     mondexclassification SPECIES_FOONGUS, "Mushroom Pokémon"
     mondexheight SPECIES_FOONGUS, "0’08”"
@@ -14130,7 +13488,6 @@ mondata SPECIES_AMOONGUSS, "Amoonguss"
     abilities ABILITY_EFFECT_SPORE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_AMOONGUSS_TM_DATA_0, SPECIES_AMOONGUSS_TM_DATA_1, SPECIES_AMOONGUSS_TM_DATA_2, SPECIES_AMOONGUSS_TM_DATA_3
     mondexentry SPECIES_AMOONGUSS, "Amoonguss generally doesn’t move much. It\ntends to stand still near Poké Balls that have\nbeen dropped on the ground."
     mondexclassification SPECIES_AMOONGUSS, "Mushroom Pokémon"
     mondexheight SPECIES_AMOONGUSS, "2’00”"
@@ -14152,7 +13509,6 @@ mondata SPECIES_FRILLISH, "Frillish"
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FRILLISH_TM_DATA_0, SPECIES_FRILLISH_TM_DATA_1, SPECIES_FRILLISH_TM_DATA_2, SPECIES_FRILLISH_TM_DATA_3
     mondexentry SPECIES_FRILLISH, "Legend has it that the residents of a sunken\nancient city changed into these Pokémon."
     mondexclassification SPECIES_FRILLISH, "Floating Pokémon"
     mondexheight SPECIES_FRILLISH, "3’11”"
@@ -14174,7 +13530,6 @@ mondata SPECIES_JELLICENT, "Jellicent"
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_JELLICENT_TM_DATA_0, SPECIES_JELLICENT_TM_DATA_1, SPECIES_JELLICENT_TM_DATA_2, SPECIES_JELLICENT_TM_DATA_3
     mondexentry SPECIES_JELLICENT, "Whenever a full moon hangs in the night sky,\nschools of Jellicent gather near the surface of\nthe sea, waiting for their prey to appear."
     mondexclassification SPECIES_JELLICENT, "Floating Pokémon"
     mondexheight SPECIES_JELLICENT, "7’03”"
@@ -14196,7 +13551,6 @@ mondata SPECIES_ALOMOMOLA, "Alomomola"
     abilities ABILITY_HEALER, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_ALOMOMOLA_TM_DATA_0, SPECIES_ALOMOMOLA_TM_DATA_1, SPECIES_ALOMOMOLA_TM_DATA_2, SPECIES_ALOMOMOLA_TM_DATA_3
     mondexentry SPECIES_ALOMOMOLA, "The reason it helps Pokémon in a weakened\ncondition is that any Pokémon coming after\nthem may also attack Alomomola."
     mondexclassification SPECIES_ALOMOMOLA, "Caring Pokémon"
     mondexheight SPECIES_ALOMOMOLA, "3’11”"
@@ -14218,7 +13572,6 @@ mondata SPECIES_JOLTIK, "Joltik"
     abilities ABILITY_COMPOUND_EYES, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_JOLTIK_TM_DATA_0, SPECIES_JOLTIK_TM_DATA_1, SPECIES_JOLTIK_TM_DATA_2, SPECIES_JOLTIK_TM_DATA_3
     mondexentry SPECIES_JOLTIK, "Joltik latch on to other Pokémon and suck out\nstatic electricity. They’re often found sticking to\nYamper’s hindquarters."
     mondexclassification SPECIES_JOLTIK, "Attaching Pokémon"
     mondexheight SPECIES_JOLTIK, "0’04”"
@@ -14240,7 +13593,6 @@ mondata SPECIES_GALVANTULA, "Galvantula"
     abilities ABILITY_COMPOUND_EYES, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_GALVANTULA_TM_DATA_0, SPECIES_GALVANTULA_TM_DATA_1, SPECIES_GALVANTULA_TM_DATA_2, SPECIES_GALVANTULA_TM_DATA_3
     mondexentry SPECIES_GALVANTULA, "It lays traps of electrified threads near the nests\nof bird Pokémon, aiming to snare chicks that are\nnot yet good at flying."
     mondexclassification SPECIES_GALVANTULA, "EleSpider Pokémon"
     mondexheight SPECIES_GALVANTULA, "2’07”"
@@ -14262,7 +13614,6 @@ mondata SPECIES_FERROSEED, "Ferroseed"
     abilities ABILITY_IRON_BARBS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_FERROSEED_TM_DATA_0, SPECIES_FERROSEED_TM_DATA_1, SPECIES_FERROSEED_TM_DATA_2, SPECIES_FERROSEED_TM_DATA_3
     mondexentry SPECIES_FERROSEED, "Mossy caves are their preferred dwellings.\nEnzymes contained in mosses help Ferroseed’s\nspikes grow big and strong."
     mondexclassification SPECIES_FERROSEED, "Thorn Seed Pokémon"
     mondexheight SPECIES_FERROSEED, "2’00”"
@@ -14284,7 +13635,6 @@ mondata SPECIES_FERROTHORN, "Ferrothorn"
     abilities ABILITY_IRON_BARBS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_FERROTHORN_TM_DATA_0, SPECIES_FERROTHORN_TM_DATA_1, SPECIES_FERROTHORN_TM_DATA_2, SPECIES_FERROTHORN_TM_DATA_3
     mondexentry SPECIES_FERROTHORN, "Its spikes are harder than steel. This Pokémon\ncrawls across rock walls by stabbing the spikes\non its feelers into the stone."
     mondexclassification SPECIES_FERROTHORN, "Thorn Pod Pokémon"
     mondexheight SPECIES_FERROTHORN, "3’03”"
@@ -14306,7 +13656,6 @@ mondata SPECIES_KLINK, "Klink"
     abilities ABILITY_PLUS, ABILITY_MINUS
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KLINK_TM_DATA_0, SPECIES_KLINK_TM_DATA_1, SPECIES_KLINK_TM_DATA_2, SPECIES_KLINK_TM_DATA_3
     mondexentry SPECIES_KLINK, "It’s suspected that Klink were the inspiration\nbehind ancient people’s invention of the\nfirst gears."
     mondexclassification SPECIES_KLINK, "Gear Pokémon"
     mondexheight SPECIES_KLINK, "1’00”"
@@ -14328,7 +13677,6 @@ mondata SPECIES_KLANG, "Klang"
     abilities ABILITY_PLUS, ABILITY_MINUS
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KLANG_TM_DATA_0, SPECIES_KLANG_TM_DATA_1, SPECIES_KLANG_TM_DATA_2, SPECIES_KLANG_TM_DATA_3
     mondexentry SPECIES_KLANG, "Many companies in the Galar region choose\nKlang as their logo. This Pokémon is considered\nthe symbol of industrial technology."
     mondexclassification SPECIES_KLANG, "Gear Pokémon"
     mondexheight SPECIES_KLANG, "2’00”"
@@ -14350,7 +13698,6 @@ mondata SPECIES_KLINKLANG, "Klinklang"
     abilities ABILITY_PLUS, ABILITY_MINUS
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KLINKLANG_TM_DATA_0, SPECIES_KLINKLANG_TM_DATA_1, SPECIES_KLINKLANG_TM_DATA_2, SPECIES_KLINKLANG_TM_DATA_3
     mondexentry SPECIES_KLINKLANG, "The three gears that compose this Pokémon\nspin at high speed. Its new spiked gear isn’t\na living creature."
     mondexclassification SPECIES_KLINKLANG, "Gear Pokémon"
     mondexheight SPECIES_KLINKLANG, "2’00”"
@@ -14372,7 +13719,6 @@ mondata SPECIES_TYNAMO, "Tynamo"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_TYNAMO_TM_DATA_0, SPECIES_TYNAMO_TM_DATA_1, SPECIES_TYNAMO_TM_DATA_2, SPECIES_TYNAMO_TM_DATA_3
     mondexentry SPECIES_TYNAMO, "One alone can emit only a trickle of electricity,\nso a group of them gathers to unleash a powerful\nelectric shock."
     mondexclassification SPECIES_TYNAMO, "EleFish Pokémon"
     mondexheight SPECIES_TYNAMO, "0’08”"
@@ -14394,7 +13740,6 @@ mondata SPECIES_EELEKTRIK, "Eelektrik"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_EELEKTRIK_TM_DATA_0, SPECIES_EELEKTRIK_TM_DATA_1, SPECIES_EELEKTRIK_TM_DATA_2, SPECIES_EELEKTRIK_TM_DATA_3
     mondexentry SPECIES_EELEKTRIK, "These Pokémon have a big appetite. When they\nspot their prey, they attack it and paralyze it\nwith electricity."
     mondexclassification SPECIES_EELEKTRIK, "EleFish Pokémon"
     mondexheight SPECIES_EELEKTRIK, "3’11”"
@@ -14416,7 +13761,6 @@ mondata SPECIES_EELEKTROSS, "Eelektross"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_EELEKTROSS_TM_DATA_0, SPECIES_EELEKTROSS_TM_DATA_1, SPECIES_EELEKTROSS_TM_DATA_2, SPECIES_EELEKTROSS_TM_DATA_3
     mondexentry SPECIES_EELEKTROSS, "They crawl out of the ocean using their arms.\nThey will attack prey on shore and immediately drag\nit into the ocean."
     mondexclassification SPECIES_EELEKTROSS, "EleFish Pokémon"
     mondexheight SPECIES_EELEKTROSS, "6’11”"
@@ -14438,7 +13782,6 @@ mondata SPECIES_ELGYEM, "Elgyem"
     abilities ABILITY_TELEPATHY, ABILITY_SYNCHRONIZE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ELGYEM_TM_DATA_0, SPECIES_ELGYEM_TM_DATA_1, SPECIES_ELGYEM_TM_DATA_2, SPECIES_ELGYEM_TM_DATA_3
     mondexentry SPECIES_ELGYEM, "This Pokémon was discovered about 50 years\nago. Its highly developed brain enables it to\nexert its psychic powers."
     mondexclassification SPECIES_ELGYEM, "Cerebral Pokémon"
     mondexheight SPECIES_ELGYEM, "1’08”"
@@ -14460,7 +13803,6 @@ mondata SPECIES_BEHEEYEM, "Beheeyem"
     abilities ABILITY_TELEPATHY, ABILITY_SYNCHRONIZE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BEHEEYEM_TM_DATA_0, SPECIES_BEHEEYEM_TM_DATA_1, SPECIES_BEHEEYEM_TM_DATA_2, SPECIES_BEHEEYEM_TM_DATA_3
     mondexentry SPECIES_BEHEEYEM, "Sometimes found drifting above wheat fields,\nthis Pokémon can control the memories of\nits opponents."
     mondexclassification SPECIES_BEHEEYEM, "Cerebral Pokémon"
     mondexheight SPECIES_BEHEEYEM, "3’03”"
@@ -14482,7 +13824,6 @@ mondata SPECIES_LITWICK, "Litwick"
     abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_LITWICK_TM_DATA_0, SPECIES_LITWICK_TM_DATA_1, SPECIES_LITWICK_TM_DATA_2, SPECIES_LITWICK_TM_DATA_3
     mondexentry SPECIES_LITWICK, "The younger the life this Pokémon absorbs,\nthe brighter and eerier the flame on its\nhead burns."
     mondexclassification SPECIES_LITWICK, "Candle Pokémon"
     mondexheight SPECIES_LITWICK, "1’00”"
@@ -14504,7 +13845,6 @@ mondata SPECIES_LAMPENT, "Lampent"
     abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_LAMPENT_TM_DATA_0, SPECIES_LAMPENT_TM_DATA_1, SPECIES_LAMPENT_TM_DATA_2, SPECIES_LAMPENT_TM_DATA_3
     mondexentry SPECIES_LAMPENT, "It lurks in cities, pretending to be a lamp.\nOnce it finds someone whose death is near,\nit will trail quietly after them."
     mondexclassification SPECIES_LAMPENT, "Lamp Pokémon"
     mondexheight SPECIES_LAMPENT, "2’00”"
@@ -14526,7 +13866,6 @@ mondata SPECIES_CHANDELURE, "Chandelure"
     abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_CHANDELURE_TM_DATA_0, SPECIES_CHANDELURE_TM_DATA_1, SPECIES_CHANDELURE_TM_DATA_2, SPECIES_CHANDELURE_TM_DATA_3
     mondexentry SPECIES_CHANDELURE, "In homes illuminated by Chandelure instead of\nlights, funerals were a constant occurrence: \nor so it’s said."
     mondexclassification SPECIES_CHANDELURE, "Luring Pokémon"
     mondexheight SPECIES_CHANDELURE, "3’03”"
@@ -14548,7 +13887,6 @@ mondata SPECIES_AXEW, "Axew"
     abilities ABILITY_RIVALRY, ABILITY_MOLD_BREAKER
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_AXEW_TM_DATA_0, SPECIES_AXEW_TM_DATA_1, SPECIES_AXEW_TM_DATA_2, SPECIES_AXEW_TM_DATA_3
     mondexentry SPECIES_AXEW, "They play with each other by knocking their large\ntusks together. Their tusks break sometimes, but\nthey grow back so quickly that it isn’t a concern."
     mondexclassification SPECIES_AXEW, "Tusk Pokémon"
     mondexheight SPECIES_AXEW, "2’00”"
@@ -14570,7 +13908,6 @@ mondata SPECIES_FRAXURE, "Fraxure"
     abilities ABILITY_RIVALRY, ABILITY_MOLD_BREAKER
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_FRAXURE_TM_DATA_0, SPECIES_FRAXURE_TM_DATA_1, SPECIES_FRAXURE_TM_DATA_2, SPECIES_FRAXURE_TM_DATA_3
     mondexentry SPECIES_FRAXURE, "Its skin is as hard as a suit of armor. Fraxure’s\nfavorite strategy is to tackle its opponents,\nstabbing them with its tusks at the same time."
     mondexclassification SPECIES_FRAXURE, "Axe Jaw Pokémon"
     mondexheight SPECIES_FRAXURE, "3’03”"
@@ -14592,7 +13929,6 @@ mondata SPECIES_HAXORUS, "Haxorus"
     abilities ABILITY_RIVALRY, ABILITY_MOLD_BREAKER
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_HAXORUS_TM_DATA_0, SPECIES_HAXORUS_TM_DATA_1, SPECIES_HAXORUS_TM_DATA_2, SPECIES_HAXORUS_TM_DATA_3
     mondexentry SPECIES_HAXORUS, "While usually kindhearted, it can be terrifying if\nangered. Tusks that can slice through steel beams\nare how Haxorus deals with its adversaries."
     mondexclassification SPECIES_HAXORUS, "Axe Jaw Pokémon"
     mondexheight SPECIES_HAXORUS, "5’11”"
@@ -14614,7 +13950,6 @@ mondata SPECIES_CUBCHOO, "Cubchoo"
     abilities ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CUBCHOO_TM_DATA_0, SPECIES_CUBCHOO_TM_DATA_1, SPECIES_CUBCHOO_TM_DATA_2, SPECIES_CUBCHOO_TM_DATA_3
     mondexentry SPECIES_CUBCHOO, "It sniffles before performing a move, using its\nfrosty snot to provide an icy element to any\nmove that needs it."
     mondexclassification SPECIES_CUBCHOO, "Chill Pokémon"
     mondexheight SPECIES_CUBCHOO, "1’08”"
@@ -14636,7 +13971,6 @@ mondata SPECIES_BEARTIC, "Beartic"
     abilities ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_BEARTIC_TM_DATA_0, SPECIES_BEARTIC_TM_DATA_1, SPECIES_BEARTIC_TM_DATA_2, SPECIES_BEARTIC_TM_DATA_3
     mondexentry SPECIES_BEARTIC, "It swims energetically through frigid seas.\nWhen it gets tired, it freezes the seawater\nwith its breath so it can rest on the ice."
     mondexclassification SPECIES_BEARTIC, "Freezing Pokémon"
     mondexheight SPECIES_BEARTIC, "8’06”"
@@ -14658,7 +13992,6 @@ mondata SPECIES_CRYOGONAL, "Cryogonal"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CRYOGONAL_TM_DATA_0, SPECIES_CRYOGONAL_TM_DATA_1, SPECIES_CRYOGONAL_TM_DATA_2, SPECIES_CRYOGONAL_TM_DATA_3
     mondexentry SPECIES_CRYOGONAL, "When the weather gets hot, these Pokémon turn\ninto water vapor. Cryogonal are almost never\nseen during summer."
     mondexclassification SPECIES_CRYOGONAL, "Crystallizing Pokémon"
     mondexheight SPECIES_CRYOGONAL, "3’07”"
@@ -14680,7 +14013,6 @@ mondata SPECIES_SHELMET, "Shelmet"
     abilities ABILITY_HYDRATION, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SHELMET_TM_DATA_0, SPECIES_SHELMET_TM_DATA_1, SPECIES_SHELMET_TM_DATA_2, SPECIES_SHELMET_TM_DATA_3
     mondexentry SPECIES_SHELMET, "It has a strange physiology that responds to\nelectricity. When together with Karrablast,\nShelmet evolves for some reason."
     mondexclassification SPECIES_SHELMET, "Snail Pokémon"
     mondexheight SPECIES_SHELMET, "1’04”"
@@ -14702,7 +14034,6 @@ mondata SPECIES_ACCELGOR, "Accelgor"
     abilities ABILITY_HYDRATION, ABILITY_STICKY_HOLD
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ACCELGOR_TM_DATA_0, SPECIES_ACCELGOR_TM_DATA_1, SPECIES_ACCELGOR_TM_DATA_2, SPECIES_ACCELGOR_TM_DATA_3
     mondexentry SPECIES_ACCELGOR, "Discarding its shell made it nimble. To keep\nitself from dehydrating, it wraps its body in\nbands of membrane."
     mondexclassification SPECIES_ACCELGOR, "Shell Out Pokémon"
     mondexheight SPECIES_ACCELGOR, "2’07”"
@@ -14724,7 +14055,6 @@ mondata SPECIES_STUNFISK, "Stunfisk"
     abilities ABILITY_STATIC, ABILITY_LIMBER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_STUNFISK_TM_DATA_0, SPECIES_STUNFISK_TM_DATA_1, SPECIES_STUNFISK_TM_DATA_2, SPECIES_STUNFISK_TM_DATA_3
     mondexentry SPECIES_STUNFISK, "For some reason, this Pokémon smiles slightly\nwhen it emits a strong electric current from the\nyellow markings on its body."
     mondexclassification SPECIES_STUNFISK, "Trap Pokémon"
     mondexheight SPECIES_STUNFISK, "2’04”"
@@ -14746,7 +14076,6 @@ mondata SPECIES_MIENFOO, "Mienfoo"
     abilities ABILITY_INNER_FOCUS, ABILITY_REGENERATOR
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MIENFOO_TM_DATA_0, SPECIES_MIENFOO_TM_DATA_1, SPECIES_MIENFOO_TM_DATA_2, SPECIES_MIENFOO_TM_DATA_3
     mondexentry SPECIES_MIENFOO, "Though small, Mienfoo’s temperament is fierce.\nAny creature that approaches Mienfoo carelessly\nwill be greeted with a flurry of graceful attacks."
     mondexclassification SPECIES_MIENFOO, "Martial Arts Pokémon"
     mondexheight SPECIES_MIENFOO, "2’11”"
@@ -14768,7 +14097,6 @@ mondata SPECIES_MIENSHAO, "Mienshao"
     abilities ABILITY_INNER_FOCUS, ABILITY_REGENERATOR
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MIENSHAO_TM_DATA_0, SPECIES_MIENSHAO_TM_DATA_1, SPECIES_MIENSHAO_TM_DATA_2, SPECIES_MIENSHAO_TM_DATA_3
     mondexentry SPECIES_MIENSHAO, "Delivered at blinding speeds, kicks from this\nPokémon can shatter massive boulders into\ntiny pieces."
     mondexclassification SPECIES_MIENSHAO, "Martial Arts Pokémon"
     mondexheight SPECIES_MIENSHAO, "4’07”"
@@ -14790,7 +14118,6 @@ mondata SPECIES_DRUDDIGON, "Druddigon"
     abilities ABILITY_ROUGH_SKIN, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DRUDDIGON_TM_DATA_0, SPECIES_DRUDDIGON_TM_DATA_1, SPECIES_DRUDDIGON_TM_DATA_2, SPECIES_DRUDDIGON_TM_DATA_3
     mondexentry SPECIES_DRUDDIGON, "Druddigon are vicious and cunning. They take up\nresidence in nests dug out by other Pokémon,\ntreating the stolen nests as their own lairs."
     mondexclassification SPECIES_DRUDDIGON, "Cave Pokémon"
     mondexheight SPECIES_DRUDDIGON, "5’03”"
@@ -14812,7 +14139,6 @@ mondata SPECIES_GOLETT, "Golett"
     abilities ABILITY_IRON_FIST, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GOLETT_TM_DATA_0, SPECIES_GOLETT_TM_DATA_1, SPECIES_GOLETT_TM_DATA_2, SPECIES_GOLETT_TM_DATA_3
     mondexentry SPECIES_GOLETT, "This Pokémon was created from clay. It received\norders from its master many thousands of years\nago, and it still follows those orders to this day."
     mondexclassification SPECIES_GOLETT, "Automaton Pokémon"
     mondexheight SPECIES_GOLETT, "3’03”"
@@ -14834,7 +14160,6 @@ mondata SPECIES_GOLURK, "Golurk"
     abilities ABILITY_IRON_FIST, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GOLURK_TM_DATA_0, SPECIES_GOLURK_TM_DATA_1, SPECIES_GOLURK_TM_DATA_2, SPECIES_GOLURK_TM_DATA_3
     mondexentry SPECIES_GOLURK, "There’s a theory that inside Golurk is a perpetual\nmotion machine that produces limitless energy,\nbut this belief hasn’t been proven."
     mondexclassification SPECIES_GOLURK, "Automaton Pokémon"
     mondexheight SPECIES_GOLURK, "9’02”"
@@ -14856,7 +14181,6 @@ mondata SPECIES_PAWNIARD, "Pawniard"
     abilities ABILITY_DEFIANT, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_PAWNIARD_TM_DATA_0, SPECIES_PAWNIARD_TM_DATA_1, SPECIES_PAWNIARD_TM_DATA_2, SPECIES_PAWNIARD_TM_DATA_3
     mondexentry SPECIES_PAWNIARD, "A pack of these Pokémon forms to serve a\nBisharp boss. Each Pawniard trains diligently,\ndreaming of one day taking the lead."
     mondexclassification SPECIES_PAWNIARD, "Sharp Blade Pokémon"
     mondexheight SPECIES_PAWNIARD, "1’08”"
@@ -14878,7 +14202,6 @@ mondata SPECIES_BISHARP, "Bisharp"
     abilities ABILITY_DEFIANT, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_BISHARP_TM_DATA_0, SPECIES_BISHARP_TM_DATA_1, SPECIES_BISHARP_TM_DATA_2, SPECIES_BISHARP_TM_DATA_3
     mondexentry SPECIES_BISHARP, "Violent conflicts erupt between Bisharp and\nFraxure over places where sharpening stones\ncan be found."
     mondexclassification SPECIES_BISHARP, "Sword Blade Pokémon"
     mondexheight SPECIES_BISHARP, "5’03”"
@@ -14900,7 +14223,6 @@ mondata SPECIES_BOUFFALANT, "Bouffalant"
     abilities ABILITY_RECKLESS, ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BOUFFALANT_TM_DATA_0, SPECIES_BOUFFALANT_TM_DATA_1, SPECIES_BOUFFALANT_TM_DATA_2, SPECIES_BOUFFALANT_TM_DATA_3
     mondexentry SPECIES_BOUFFALANT, "These Pokémon live in herds of about 20\nindividuals. Bouffalant that betray the herd will\nlose the hair on their heads for some reason."
     mondexclassification SPECIES_BOUFFALANT, "Bash Buffalo Pokémon"
     mondexheight SPECIES_BOUFFALANT, "5’03”"
@@ -14922,7 +14244,6 @@ mondata SPECIES_RUFFLET, "Rufflet"
     abilities ABILITY_KEEN_EYE, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_RUFFLET_TM_DATA_0, SPECIES_RUFFLET_TM_DATA_1, SPECIES_RUFFLET_TM_DATA_2, SPECIES_RUFFLET_TM_DATA_3
     mondexentry SPECIES_RUFFLET, "Its chick-like looks belie its hotheadedness. It challenges its\nparents at every opportunity, desperate to prove its strength."
     mondexclassification SPECIES_RUFFLET, "Eaglet Pokémon"
     mondexheight SPECIES_RUFFLET, "1’08”"
@@ -14944,7 +14265,6 @@ mondata SPECIES_BRAVIARY, "Braviary"
     abilities ABILITY_KEEN_EYE, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_BRAVIARY_TM_DATA_0, SPECIES_BRAVIARY_TM_DATA_1, SPECIES_BRAVIARY_TM_DATA_2, SPECIES_BRAVIARY_TM_DATA_3
     mondexentry SPECIES_BRAVIARY, "Screaming a bloodcurdling battle cry, this huge and ferocious\nbird Pokémon goes out on the hunt. It blasts lakes with shock\nwaves, then scoops up any prey that float to the water's surface."
     mondexclassification SPECIES_BRAVIARY, "Valiant Pokémon"
     mondexheight SPECIES_BRAVIARY, "4’11”"
@@ -14966,7 +14286,6 @@ mondata SPECIES_VULLABY, "Vullaby"
     abilities ABILITY_BIG_PECKS, ABILITY_OVERCOAT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_VULLABY_TM_DATA_0, SPECIES_VULLABY_TM_DATA_1, SPECIES_VULLABY_TM_DATA_2, SPECIES_VULLABY_TM_DATA_3
     mondexentry SPECIES_VULLABY, "Vullaby grow quickly. Bones that have gotten too\nsmall for older Vullaby to wear often get passed\ndown to younger ones in the nest."
     mondexclassification SPECIES_VULLABY, "Diapered Pokémon"
     mondexheight SPECIES_VULLABY, "1’08”"
@@ -14988,7 +14307,6 @@ mondata SPECIES_MANDIBUZZ, "Mandibuzz"
     abilities ABILITY_BIG_PECKS, ABILITY_OVERCOAT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MANDIBUZZ_TM_DATA_0, SPECIES_MANDIBUZZ_TM_DATA_1, SPECIES_MANDIBUZZ_TM_DATA_2, SPECIES_MANDIBUZZ_TM_DATA_3
     mondexentry SPECIES_MANDIBUZZ, "They adorn themselves with bones. There seem\nto be fashion trends among them, as different\nbones come into and fall out of popularity."
     mondexclassification SPECIES_MANDIBUZZ, "Bone Vulture Pokémon"
     mondexheight SPECIES_MANDIBUZZ, "3’11”"
@@ -15010,7 +14328,6 @@ mondata SPECIES_HEATMOR, "Heatmor"
     abilities ABILITY_GLUTTONY, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_HEATMOR_TM_DATA_0, SPECIES_HEATMOR_TM_DATA_1, SPECIES_HEATMOR_TM_DATA_2, SPECIES_HEATMOR_TM_DATA_3
     mondexentry SPECIES_HEATMOR, "A flame serves as its tongue, melting through the\nhard shell of Durant so that Heatmor can devour\ntheir insides."
     mondexclassification SPECIES_HEATMOR, "Anteater Pokémon"
     mondexheight SPECIES_HEATMOR, "4’07”"
@@ -15032,7 +14349,6 @@ mondata SPECIES_DURANT, "Durant"
     abilities ABILITY_SWARM, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_DURANT_TM_DATA_0, SPECIES_DURANT_TM_DATA_1, SPECIES_DURANT_TM_DATA_2, SPECIES_DURANT_TM_DATA_3
     mondexentry SPECIES_DURANT, "With their large mandibles, these Pokémon can\ncrunch their way through rock. They work\ntogether to protect their eggs from Sandaconda."
     mondexclassification SPECIES_DURANT, "Iron Ant Pokémon"
     mondexheight SPECIES_DURANT, "1’00”"
@@ -15054,7 +14370,6 @@ mondata SPECIES_DEINO, "Deino"
     abilities ABILITY_HUSTLE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DEINO_TM_DATA_0, SPECIES_DEINO_TM_DATA_1, SPECIES_DEINO_TM_DATA_2, SPECIES_DEINO_TM_DATA_3
     mondexentry SPECIES_DEINO, "Because it can’t see, this Pokémon is constantly\nbiting at everything it touches, trying to keep\ntrack of its surroundings."
     mondexclassification SPECIES_DEINO, "Irate Pokémon"
     mondexheight SPECIES_DEINO, "2’07”"
@@ -15076,7 +14391,6 @@ mondata SPECIES_ZWEILOUS, "Zweilous"
     abilities ABILITY_HUSTLE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ZWEILOUS_TM_DATA_0, SPECIES_ZWEILOUS_TM_DATA_1, SPECIES_ZWEILOUS_TM_DATA_2, SPECIES_ZWEILOUS_TM_DATA_3
     mondexentry SPECIES_ZWEILOUS, "Their two heads will fight each other over a\nsingle piece of food. Zweilous are covered in\nscars even without battling others."
     mondexclassification SPECIES_ZWEILOUS, "Hostile Pokémon"
     mondexheight SPECIES_ZWEILOUS, "4’07”"
@@ -15098,7 +14412,6 @@ mondata SPECIES_HYDREIGON, "Hydreigon"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_HYDREIGON_TM_DATA_0, SPECIES_HYDREIGON_TM_DATA_1, SPECIES_HYDREIGON_TM_DATA_2, SPECIES_HYDREIGON_TM_DATA_3
     mondexentry SPECIES_HYDREIGON, "The three heads take turns sinking their teeth into\nthe opponent. Their attacks won’t slow until their\ntarget goes down."
     mondexclassification SPECIES_HYDREIGON, "Brutal Pokémon"
     mondexheight SPECIES_HYDREIGON, "5’11”"
@@ -15120,7 +14433,6 @@ mondata SPECIES_LARVESTA, "Larvesta"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_LARVESTA_TM_DATA_0, SPECIES_LARVESTA_TM_DATA_1, SPECIES_LARVESTA_TM_DATA_2, SPECIES_LARVESTA_TM_DATA_3
     mondexentry SPECIES_LARVESTA, "Larvesta’s body is warm all over. It spouts fire\nfrom the tips of its horns to intimidate predators\nand scare prey."
     mondexclassification SPECIES_LARVESTA, "Torch Pokémon"
     mondexheight SPECIES_LARVESTA, "3’07”"
@@ -15142,7 +14454,6 @@ mondata SPECIES_VOLCARONA, "Volcarona"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_VOLCARONA_TM_DATA_0, SPECIES_VOLCARONA_TM_DATA_1, SPECIES_VOLCARONA_TM_DATA_2, SPECIES_VOLCARONA_TM_DATA_3
     mondexentry SPECIES_VOLCARONA, "This Pokémon emerges from a cocoon formed of\nraging flames. Ancient murals depict Volcarona as\na deity of fire."
     mondexclassification SPECIES_VOLCARONA, "Sun Pokémon"
     mondexheight SPECIES_VOLCARONA, "5’03”"
@@ -15164,7 +14475,6 @@ mondata SPECIES_COBALION, "Cobalion"
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_COBALION_TM_DATA_0, SPECIES_COBALION_TM_DATA_1, SPECIES_COBALION_TM_DATA_2, SPECIES_COBALION_TM_DATA_3
     mondexentry SPECIES_COBALION, "From the moment it’s born, this Pokémon\nradiates the air of a leader. Its presence will\ncalm even vicious foes."
     mondexclassification SPECIES_COBALION, "Iron Will Pokémon"
     mondexheight SPECIES_COBALION, "6’11”"
@@ -15186,7 +14496,6 @@ mondata SPECIES_TERRAKION, "Terrakion"
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_TERRAKION_TM_DATA_0, SPECIES_TERRAKION_TM_DATA_1, SPECIES_TERRAKION_TM_DATA_2, SPECIES_TERRAKION_TM_DATA_3
     mondexentry SPECIES_TERRAKION, "In Unovan legend, Terrakion battled against\nhumans in an effort to protect other Pokémon."
     mondexclassification SPECIES_TERRAKION, "Cavern Pokémon"
     mondexheight SPECIES_TERRAKION, "6’03”"
@@ -15208,7 +14517,6 @@ mondata SPECIES_VIRIZION, "Virizion"
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_VIRIZION_TM_DATA_0, SPECIES_VIRIZION_TM_DATA_1, SPECIES_VIRIZION_TM_DATA_2, SPECIES_VIRIZION_TM_DATA_3
     mondexentry SPECIES_VIRIZION, "It darts around opponents with a flurry of quick\nmovements, slicing them up with its horns."
     mondexclassification SPECIES_VIRIZION, "Grassland Pokémon"
     mondexheight SPECIES_VIRIZION, "6’07”"
@@ -15230,7 +14538,6 @@ mondata SPECIES_TORNADUS, "Tornadus"
     abilities ABILITY_PRANKSTER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_TORNADUS_TM_DATA_0, SPECIES_TORNADUS_TM_DATA_1, SPECIES_TORNADUS_TM_DATA_2, SPECIES_TORNADUS_TM_DATA_3
     mondexentry SPECIES_TORNADUS, "This storm-stirring Pokémon is said to cause the seasons to\nturn by whipping up the air. I suspect its humanlike form to be\na false one."
     mondexclassification SPECIES_TORNADUS, "Cyclone Pokémon"
     mondexheight SPECIES_TORNADUS, "4’11”"
@@ -15252,7 +14559,6 @@ mondata SPECIES_THUNDURUS, "Thundurus"
     abilities ABILITY_PRANKSTER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_THUNDURUS_TM_DATA_0, SPECIES_THUNDURUS_TM_DATA_1, SPECIES_THUNDURUS_TM_DATA_2, SPECIES_THUNDURUS_TM_DATA_3
     mondexentry SPECIES_THUNDURUS, "They say this wielder of electricity has waged war with its\nnemesis, Tornadus, since time immemorial. The lightning bolts\nit hurls pierce the very earth and enrich the soil."
     mondexclassification SPECIES_THUNDURUS, "Bolt Strike Pokémon"
     mondexheight SPECIES_THUNDURUS, "4’11”"
@@ -15274,7 +14580,6 @@ mondata SPECIES_RESHIRAM, "Reshiram"
     abilities ABILITY_TURBOBLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_RESHIRAM_TM_DATA_0, SPECIES_RESHIRAM_TM_DATA_1, SPECIES_RESHIRAM_TM_DATA_2, SPECIES_RESHIRAM_TM_DATA_3
     mondexentry SPECIES_RESHIRAM, "According to myth, if people ignore truth and\nlet themselves become consumed by greed,\nReshiram will arrive to burn their kingdoms down."
     mondexclassification SPECIES_RESHIRAM, "Vast White Pokémon"
     mondexheight SPECIES_RESHIRAM, "10’06”"
@@ -15296,7 +14601,6 @@ mondata SPECIES_ZEKROM, "Zekrom"
     abilities ABILITY_TERAVOLT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_ZEKROM_TM_DATA_0, SPECIES_ZEKROM_TM_DATA_1, SPECIES_ZEKROM_TM_DATA_2, SPECIES_ZEKROM_TM_DATA_3
     mondexentry SPECIES_ZEKROM, "Mythology tells us that if people lose the\nrighteousness in their hearts, their kingdoms\nwill be razed by Zekrom’s lightning."
     mondexclassification SPECIES_ZEKROM, "Deep Black Pokémon"
     mondexheight SPECIES_ZEKROM, "9’06”"
@@ -15318,7 +14622,6 @@ mondata SPECIES_LANDORUS, "Landorus"
     abilities ABILITY_SAND_FORCE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_LANDORUS_TM_DATA_0, SPECIES_LANDORUS_TM_DATA_1, SPECIES_LANDORUS_TM_DATA_2, SPECIES_LANDORUS_TM_DATA_3
     mondexentry SPECIES_LANDORUS, "When the incarnations of wind and of lightning clash, Landorus\narrives to quell the conflict. After the tempests and thunderbolts\nabate, the land is sure to be blessed with bountiful harvests."
     mondexclassification SPECIES_LANDORUS, "Abundance Pokémon"
     mondexheight SPECIES_LANDORUS, "4’11”"
@@ -15340,7 +14643,6 @@ mondata SPECIES_KYUREM, "Kyurem"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KYUREM_TM_DATA_0, SPECIES_KYUREM_TM_DATA_1, SPECIES_KYUREM_TM_DATA_2, SPECIES_KYUREM_TM_DATA_3
     mondexentry SPECIES_KYUREM, "It appears that this Pokémon uses its powers over\nice to freeze its own body in order to stabilize its\ncellular structure."
     mondexclassification SPECIES_KYUREM, "Boundary Pokémon"
     mondexheight SPECIES_KYUREM, "9’10”"
@@ -15362,7 +14664,6 @@ mondata SPECIES_KELDEO, "Keldeo"
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_KELDEO_TM_DATA_0, SPECIES_KELDEO_TM_DATA_1, SPECIES_KELDEO_TM_DATA_2, SPECIES_KELDEO_TM_DATA_3
     mondexentry SPECIES_KELDEO, "They say that Keldeo must survive harsh battles\nand fully develop the horn on its forehead\nbefore this Pokémon’s true power will awaken."
     mondexclassification SPECIES_KELDEO, "Colt Pokémon"
     mondexheight SPECIES_KELDEO, "4’07”"
@@ -15384,7 +14685,6 @@ mondata SPECIES_MELOETTA, "Meloetta"
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_MELOETTA_TM_DATA_0, SPECIES_MELOETTA_TM_DATA_1, SPECIES_MELOETTA_TM_DATA_2, SPECIES_MELOETTA_TM_DATA_3
     mondexentry SPECIES_MELOETTA, "Its melodies are sung with a special vocalization\nmethod that can control the feelings of those who\nhear it."
     mondexclassification SPECIES_MELOETTA, "Melody Pokémon"
     mondexheight SPECIES_MELOETTA, "2’00”"
@@ -15406,7 +14706,6 @@ mondata SPECIES_GENESECT, "Genesect"
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GENESECT_TM_DATA_0, SPECIES_GENESECT_TM_DATA_1, SPECIES_GENESECT_TM_DATA_2, SPECIES_GENESECT_TM_DATA_3
     mondexentry SPECIES_GENESECT, "This Pokémon existed 300 million years ago. Team\nPlasma altered it and attached a cannon to its back."
     mondexclassification SPECIES_GENESECT, "Paleozoic Pokémon"
     mondexheight SPECIES_GENESECT, "4’11”"
@@ -15428,7 +14727,6 @@ mondata SPECIES_CHESPIN, "Chespin"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CHESPIN_TM_DATA_0, SPECIES_CHESPIN_TM_DATA_1, SPECIES_CHESPIN_TM_DATA_2, SPECIES_CHESPIN_TM_DATA_3
     mondexentry SPECIES_CHESPIN, "Such a thick shell of wood covers its head and back\nthat even a direct hit from a truck wouldn’t faze it."
     mondexclassification SPECIES_CHESPIN, "Spiny Nut Pokémon"
     mondexheight SPECIES_CHESPIN, "1’04”"
@@ -15450,7 +14748,6 @@ mondata SPECIES_QUILLADIN, "Quilladin"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_QUILLADIN_TM_DATA_0, SPECIES_QUILLADIN_TM_DATA_1, SPECIES_QUILLADIN_TM_DATA_2, SPECIES_QUILLADIN_TM_DATA_3
     mondexentry SPECIES_QUILLADIN, "They strengthen their lower bodies by\nrunning into one another. They are very\nkind and won’t start fights."
     mondexclassification SPECIES_QUILLADIN, "Spiny Armor Pokémon"
     mondexheight SPECIES_QUILLADIN, "2’04”"
@@ -15472,7 +14769,6 @@ mondata SPECIES_CHESNAUGHT, "Chesnaught"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CHESNAUGHT_TM_DATA_0, SPECIES_CHESNAUGHT_TM_DATA_1, SPECIES_CHESNAUGHT_TM_DATA_2, SPECIES_CHESNAUGHT_TM_DATA_3
     mondexentry SPECIES_CHESNAUGHT, "When it takes a defensive posture with its fists\nguarding its face, it could withstand a bomb blast."
     mondexclassification SPECIES_CHESNAUGHT, "Spiny Armor Pokémon"
     mondexheight SPECIES_CHESNAUGHT, "5’03”"
@@ -15494,7 +14790,6 @@ mondata SPECIES_FENNEKIN, "Fennekin"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_FENNEKIN_TM_DATA_0, SPECIES_FENNEKIN_TM_DATA_1, SPECIES_FENNEKIN_TM_DATA_2, SPECIES_FENNEKIN_TM_DATA_3
     mondexentry SPECIES_FENNEKIN, "As it walks, it munches on a twig in place\nof a snack. It intimidates opponents\nby puffing hot air out of its ears."
     mondexclassification SPECIES_FENNEKIN, "Fox Pokémon"
     mondexheight SPECIES_FENNEKIN, "1’04”"
@@ -15516,7 +14811,6 @@ mondata SPECIES_BRAIXEN, "Braixen"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_BRAIXEN_TM_DATA_0, SPECIES_BRAIXEN_TM_DATA_1, SPECIES_BRAIXEN_TM_DATA_2, SPECIES_BRAIXEN_TM_DATA_3
     mondexentry SPECIES_BRAIXEN, "When the twig is plucked from its tail,\nfriction sets the twig alight. The flame\nis used to send signals to its allies."
     mondexclassification SPECIES_BRAIXEN, "Fox Pokémon"
     mondexheight SPECIES_BRAIXEN, "3’03”"
@@ -15538,7 +14832,6 @@ mondata SPECIES_DELPHOX, "Delphox"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DELPHOX_TM_DATA_0, SPECIES_DELPHOX_TM_DATA_1, SPECIES_DELPHOX_TM_DATA_2, SPECIES_DELPHOX_TM_DATA_3
     mondexentry SPECIES_DELPHOX, "Using psychic power, it generates a\nfiery vortex of 5,400 degrees Fahrenheit,\nincinerating foes swept into this whirl of flame."
     mondexclassification SPECIES_DELPHOX, "Fox Pokémon"
     mondexheight SPECIES_DELPHOX, "4’11”"
@@ -15560,7 +14853,6 @@ mondata SPECIES_FROAKIE, "Froakie"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_FROAKIE_TM_DATA_0, SPECIES_FROAKIE_TM_DATA_1, SPECIES_FROAKIE_TM_DATA_2, SPECIES_FROAKIE_TM_DATA_3
     mondexentry SPECIES_FROAKIE, "It protects its skin by covering its body in\ndelicate bubbles. Beneath its happy-go-lucky air,\nit keeps a watchful eye on its surroundings."
     mondexclassification SPECIES_FROAKIE, "Bubble Frog Pokémon"
     mondexheight SPECIES_FROAKIE, "1’00”"
@@ -15582,7 +14874,6 @@ mondata SPECIES_FROGADIER, "Frogadier"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_FROGADIER_TM_DATA_0, SPECIES_FROGADIER_TM_DATA_1, SPECIES_FROGADIER_TM_DATA_2, SPECIES_FROGADIER_TM_DATA_3
     mondexentry SPECIES_FROGADIER, "Its swiftness is unparalleled.\nIt can scale a tower of more\nthan 2,000 feet in a minute’s time."
     mondexclassification SPECIES_FROGADIER, "Bubble Frog Pokémon"
     mondexheight SPECIES_FROGADIER, "2’00”"
@@ -15604,7 +14895,6 @@ mondata SPECIES_GRENINJA, "Greninja"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GRENINJA_TM_DATA_0, SPECIES_GRENINJA_TM_DATA_1, SPECIES_GRENINJA_TM_DATA_2, SPECIES_GRENINJA_TM_DATA_3
     mondexentry SPECIES_GRENINJA, "It appears and vanishes with a ninja’s grace.\nIt toys with its enemies using swift movements, while\nslicing them with throwing stars of sharpest water."
     mondexclassification SPECIES_GRENINJA, "Ninja Pokémon"
     mondexheight SPECIES_GRENINJA, "4’11”"
@@ -15626,7 +14916,6 @@ mondata SPECIES_BUNNELBY, "Bunnelby"
     abilities ABILITY_PICKUP, ABILITY_CHEEK_POUCH
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BUNNELBY_TM_DATA_0, SPECIES_BUNNELBY_TM_DATA_1, SPECIES_BUNNELBY_TM_DATA_2, SPECIES_BUNNELBY_TM_DATA_3
     mondexentry SPECIES_BUNNELBY, "It’s very sensitive to danger. The sound of\nCorviknight’s flapping will have Bunnelby\ndigging a hole to hide underground in moments."
     mondexclassification SPECIES_BUNNELBY, "Digging Pokémon"
     mondexheight SPECIES_BUNNELBY, "1’04”"
@@ -15648,7 +14937,6 @@ mondata SPECIES_DIGGERSBY, "Diggersby"
     abilities ABILITY_PICKUP, ABILITY_CHEEK_POUCH
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DIGGERSBY_TM_DATA_0, SPECIES_DIGGERSBY_TM_DATA_1, SPECIES_DIGGERSBY_TM_DATA_2, SPECIES_DIGGERSBY_TM_DATA_3
     mondexentry SPECIES_DIGGERSBY, "The fur on its belly retains heat exceptionally\nwell. People used to make heavy winter clothing\nfrom fur shed by this Pokémon."
     mondexclassification SPECIES_DIGGERSBY, "Digging Pokémon"
     mondexheight SPECIES_DIGGERSBY, "3’03”"
@@ -15670,7 +14958,6 @@ mondata SPECIES_FLETCHLING, "Fletchling"
     abilities ABILITY_BIG_PECKS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_FLETCHLING_TM_DATA_0, SPECIES_FLETCHLING_TM_DATA_1, SPECIES_FLETCHLING_TM_DATA_2, SPECIES_FLETCHLING_TM_DATA_3
     mondexentry SPECIES_FLETCHLING, "When this Pokémon gets excited, its body\ntemperature increases sharply. If you touch a\nFletchling with bare hands, you might get burned."
     mondexclassification SPECIES_FLETCHLING, "Tiny Robin Pokémon"
     mondexheight SPECIES_FLETCHLING, "1’00”"
@@ -15692,7 +14979,6 @@ mondata SPECIES_FLETCHINDER, "Flechinder"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_FLETCHINDER_TM_DATA_0, SPECIES_FLETCHINDER_TM_DATA_1, SPECIES_FLETCHINDER_TM_DATA_2, SPECIES_FLETCHINDER_TM_DATA_3
     mondexentry SPECIES_FLETCHINDER, "Fletchinder are exceedingly territorial and\naggressive. These Pokémon fight among\nthemselves over feeding grounds."
     mondexclassification SPECIES_FLETCHINDER, "Ember Pokémon"
     mondexheight SPECIES_FLETCHINDER, "2’04”"
@@ -15714,7 +15000,6 @@ mondata SPECIES_TALONFLAME, "Talonflame"
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TALONFLAME_TM_DATA_0, SPECIES_TALONFLAME_TM_DATA_1, SPECIES_TALONFLAME_TM_DATA_2, SPECIES_TALONFLAME_TM_DATA_3
     mondexentry SPECIES_TALONFLAME, "Talonflame dives toward prey at speeds of up to\n310 mph and assaults them with powerful kicks,\ngiving the prey no chance to escape."
     mondexclassification SPECIES_TALONFLAME, "Scorching Pokémon"
     mondexheight SPECIES_TALONFLAME, "3’11”"
@@ -15736,7 +15021,6 @@ mondata SPECIES_SCATTERBUG, "Scatterbug"
     abilities ABILITY_SHIELD_DUST, ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SCATTERBUG_TM_DATA_0, SPECIES_SCATTERBUG_TM_DATA_1, SPECIES_SCATTERBUG_TM_DATA_2, SPECIES_SCATTERBUG_TM_DATA_3
     mondexentry SPECIES_SCATTERBUG, "The powder that covers its body\nregulates its temperature, so it\ncan live in any region or climate."
     mondexclassification SPECIES_SCATTERBUG, "Scatterdust Pokémon"
     mondexheight SPECIES_SCATTERBUG, "1’00”"
@@ -15758,7 +15042,6 @@ mondata SPECIES_SPEWPA, "Spewpa"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SPEWPA_TM_DATA_0, SPECIES_SPEWPA_TM_DATA_1, SPECIES_SPEWPA_TM_DATA_2, SPECIES_SPEWPA_TM_DATA_3
     mondexentry SPECIES_SPEWPA, "The beaks of bird Pokémon can’t begin\nto scratch its stalwart body.\nTo defend itself, it spews powder."
     mondexclassification SPECIES_SPEWPA, "Scatterdust Pokémon"
     mondexheight SPECIES_SPEWPA, "1’00”"
@@ -15780,7 +15063,6 @@ mondata SPECIES_VIVILLON, "Vivillon"
     abilities ABILITY_SHIELD_DUST, ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_VIVILLON_TM_DATA_0, SPECIES_VIVILLON_TM_DATA_1, SPECIES_VIVILLON_TM_DATA_2, SPECIES_VIVILLON_TM_DATA_3
     mondexentry SPECIES_VIVILLON, "The patterns on this Pokémon’s wings\ndepend on the climate and topography\nof its habitat. It scatters colorful scales."
     mondexclassification SPECIES_VIVILLON, "Scale Pokémon"
     mondexheight SPECIES_VIVILLON, "3’11”"
@@ -15802,7 +15084,6 @@ mondata SPECIES_LITLEO, "Litleo"
     abilities ABILITY_RIVALRY, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_LITLEO_TM_DATA_0, SPECIES_LITLEO_TM_DATA_1, SPECIES_LITLEO_TM_DATA_2, SPECIES_LITLEO_TM_DATA_3
     mondexentry SPECIES_LITLEO, "This hot-blooded Pokémon is filled with\ncuriosity. When it gets angry or starts\nfighting, its short mane gets hot."
     mondexclassification SPECIES_LITLEO, "Lion Cub Pokémon"
     mondexheight SPECIES_LITLEO, "2’00”"
@@ -15824,7 +15105,6 @@ mondata SPECIES_PYROAR, "Pyroar"
     abilities ABILITY_RIVALRY, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PYROAR_TM_DATA_0, SPECIES_PYROAR_TM_DATA_1, SPECIES_PYROAR_TM_DATA_2, SPECIES_PYROAR_TM_DATA_3
     mondexentry SPECIES_PYROAR, "The temperature of its breath is over 10,000\ndegrees Fahrenheit, but Pyroar doesn’t use it on\nits prey. This Pokémon prefers to eat raw meat."
     mondexclassification SPECIES_PYROAR, "Royal Pokémon"
     mondexheight SPECIES_PYROAR, "4’11”"
@@ -15846,7 +15126,6 @@ mondata SPECIES_FLABEBE, "Flabébé"
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FLABEBE_TM_DATA_0, SPECIES_FLABEBE_TM_DATA_1, SPECIES_FLABEBE_TM_DATA_2, SPECIES_FLABEBE_TM_DATA_3
     mondexentry SPECIES_FLABEBE, "Flabébé wears a crown made from pollen it’s\ncollected from its flower. The crown has hidden\nhealing properties."
     mondexclassification SPECIES_FLABEBE, "Single Bloom Pokémon"
     mondexheight SPECIES_FLABEBE, "0’04”"
@@ -15868,7 +15147,6 @@ mondata SPECIES_FLOETTE, "Floette"
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FLOETTE_TM_DATA_0, SPECIES_FLOETTE_TM_DATA_1, SPECIES_FLOETTE_TM_DATA_2, SPECIES_FLOETTE_TM_DATA_3
     mondexentry SPECIES_FLOETTE, "It gives its own power to flowers, pouring its\nheart into caring for them. Floette never forgives\nanyone who messes up a flower bed."
     mondexclassification SPECIES_FLOETTE, "Single Bloom Pokémon"
     mondexheight SPECIES_FLOETTE, "0’08”"
@@ -15890,7 +15168,6 @@ mondata SPECIES_FLORGES, "Florges"
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FLORGES_TM_DATA_0, SPECIES_FLORGES_TM_DATA_1, SPECIES_FLORGES_TM_DATA_2, SPECIES_FLORGES_TM_DATA_3
     mondexentry SPECIES_FLORGES, "Its life can span several hundred years. It’s said\nto devote its entire life to protecting gardens."
     mondexclassification SPECIES_FLORGES, "Garden Pokémon"
     mondexheight SPECIES_FLORGES, "3’07”"
@@ -15912,7 +15189,6 @@ mondata SPECIES_SKIDDO, "Skiddo"
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SKIDDO_TM_DATA_0, SPECIES_SKIDDO_TM_DATA_1, SPECIES_SKIDDO_TM_DATA_2, SPECIES_SKIDDO_TM_DATA_3
     mondexentry SPECIES_SKIDDO, "If it has sunshine and water, it doesn’t\nneed to eat, because it can generate\nenergy from the leaves on its back."
     mondexclassification SPECIES_SKIDDO, "Mount Pokémon"
     mondexheight SPECIES_SKIDDO, "2’11”"
@@ -15934,7 +15210,6 @@ mondata SPECIES_GOGOAT, "Gogoat"
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GOGOAT_TM_DATA_0, SPECIES_GOGOAT_TM_DATA_1, SPECIES_GOGOAT_TM_DATA_2, SPECIES_GOGOAT_TM_DATA_3
     mondexentry SPECIES_GOGOAT, "They inhabit mountainous regions.\nThe leader of the herd is decided by\na battle of clashing horns."
     mondexclassification SPECIES_GOGOAT, "Mount Pokémon"
     mondexheight SPECIES_GOGOAT, "5’07”"
@@ -15956,7 +15231,6 @@ mondata SPECIES_PANCHAM, "Pancham"
     abilities ABILITY_IRON_FIST, ABILITY_MOLD_BREAKER
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_PANCHAM_TM_DATA_0, SPECIES_PANCHAM_TM_DATA_1, SPECIES_PANCHAM_TM_DATA_2, SPECIES_PANCHAM_TM_DATA_3
     mondexentry SPECIES_PANCHAM, "Wanting to make sure it’s taken seriously,\nPancham’s always giving others a glare.\nBut if it’s not focusing, it ends up smiling."
     mondexclassification SPECIES_PANCHAM, "Playful Pokémon"
     mondexheight SPECIES_PANCHAM, "2’00”"
@@ -15978,7 +15252,6 @@ mondata SPECIES_PANGORO, "Pangoro"
     abilities ABILITY_IRON_FIST, ABILITY_MOLD_BREAKER
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_PANGORO_TM_DATA_0, SPECIES_PANGORO_TM_DATA_1, SPECIES_PANGORO_TM_DATA_2, SPECIES_PANGORO_TM_DATA_3
     mondexentry SPECIES_PANGORO, "Using its leaf, Pangoro can predict the moves of\nits opponents. It strikes with punches that can\nturn a dump truck into scrap with just one hit."
     mondexclassification SPECIES_PANGORO, "Daunting Pokémon"
     mondexheight SPECIES_PANGORO, "6’11”"
@@ -16000,7 +15273,6 @@ mondata SPECIES_FURFROU, "Furfrou"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FURFROU_TM_DATA_0, SPECIES_FURFROU_TM_DATA_1, SPECIES_FURFROU_TM_DATA_2, SPECIES_FURFROU_TM_DATA_3
     mondexentry SPECIES_FURFROU, "Left alone, its fur will grow longer and longer,\nbut it will only allow someone it trusts to cut it."
     mondexclassification SPECIES_FURFROU, "Poodle Pokémon"
     mondexheight SPECIES_FURFROU, "3’11”"
@@ -16022,7 +15294,6 @@ mondata SPECIES_ESPURR, "Espurr"
     abilities ABILITY_KEEN_EYE, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ESPURR_TM_DATA_0, SPECIES_ESPURR_TM_DATA_1, SPECIES_ESPURR_TM_DATA_2, SPECIES_ESPURR_TM_DATA_3
     mondexentry SPECIES_ESPURR, "There’s enough psychic power in Espurr to send a\nwrestler flying, but because this power can’t be\ncontrolled, Espurr finds it troublesome."
     mondexclassification SPECIES_ESPURR, "Restraint Pokémon"
     mondexheight SPECIES_ESPURR, "1’00”"
@@ -16044,7 +15315,6 @@ mondata SPECIES_MEOWSTIC, "Meowstic"
     abilities ABILITY_KEEN_EYE, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MEOWSTIC_TM_DATA_0, SPECIES_MEOWSTIC_TM_DATA_1, SPECIES_MEOWSTIC_TM_DATA_2, SPECIES_MEOWSTIC_TM_DATA_3
     mondexentry SPECIES_MEOWSTIC, "The defensive instinct of the males is strong.\nIt’s when they’re protecting themselves or their\npartners that they unleash their full power."
     mondexclassification SPECIES_MEOWSTIC, "Constraint Pokémon"
     mondexheight SPECIES_MEOWSTIC, "2’00”"
@@ -16066,7 +15336,6 @@ mondata SPECIES_HONEDGE, "Honedge"
     abilities ABILITY_NO_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_HONEDGE_TM_DATA_0, SPECIES_HONEDGE_TM_DATA_1, SPECIES_HONEDGE_TM_DATA_2, SPECIES_HONEDGE_TM_DATA_3
     mondexentry SPECIES_HONEDGE, "The blue eye on the sword’s handguard is the\ntrue body of Honedge. With its old cloth, it\ndrains people’s lives away."
     mondexclassification SPECIES_HONEDGE, "Sword Pokémon"
     mondexheight SPECIES_HONEDGE, "2’07”"
@@ -16088,7 +15357,6 @@ mondata SPECIES_DOUBLADE, "Doublade"
     abilities ABILITY_NO_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DOUBLADE_TM_DATA_0, SPECIES_DOUBLADE_TM_DATA_1, SPECIES_DOUBLADE_TM_DATA_2, SPECIES_DOUBLADE_TM_DATA_3
     mondexentry SPECIES_DOUBLADE, "The two swords employ a strategy of rapidly\nalternating between offense and defense to\nbring down their prey."
     mondexclassification SPECIES_DOUBLADE, "Sword Pokémon"
     mondexheight SPECIES_DOUBLADE, "2’07”"
@@ -16110,7 +15378,6 @@ mondata SPECIES_AEGISLASH, "Aegislash"
     abilities ABILITY_STANCE_CHANGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_AEGISLASH_TM_DATA_0, SPECIES_AEGISLASH_TM_DATA_1, SPECIES_AEGISLASH_TM_DATA_2, SPECIES_AEGISLASH_TM_DATA_3
     mondexentry SPECIES_AEGISLASH, "Its potent spectral powers allow it to manipulate\nothers. It once used its powers to force people\nand Pokémon to build a kingdom to its liking."
     mondexclassification SPECIES_AEGISLASH, "Royal Sword Pokémon"
     mondexheight SPECIES_AEGISLASH, "5’07”"
@@ -16132,7 +15399,6 @@ mondata SPECIES_SPRITZEE, "Spritzee"
     abilities ABILITY_HEALER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SPRITZEE_TM_DATA_0, SPECIES_SPRITZEE_TM_DATA_1, SPECIES_SPRITZEE_TM_DATA_2, SPECIES_SPRITZEE_TM_DATA_3
     mondexentry SPECIES_SPRITZEE, "The scent its body gives off enraptures those\nwho smell it. Noble ladies had no shortage of\nlove for Spritzee."
     mondexclassification SPECIES_SPRITZEE, "Perfume Pokémon"
     mondexheight SPECIES_SPRITZEE, "0’08”"
@@ -16154,7 +15420,6 @@ mondata SPECIES_AROMATISSE, "Aromatisse"
     abilities ABILITY_HEALER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_AROMATISSE_TM_DATA_0, SPECIES_AROMATISSE_TM_DATA_1, SPECIES_AROMATISSE_TM_DATA_2, SPECIES_AROMATISSE_TM_DATA_3
     mondexentry SPECIES_AROMATISSE, "The scents Aromatisse can produce range from\nsweet smells that bolster allies to foul smells\nthat sap an opponent’s will to fight."
     mondexclassification SPECIES_AROMATISSE, "Fragrance Pokémon"
     mondexheight SPECIES_AROMATISSE, "2’07”"
@@ -16176,7 +15441,6 @@ mondata SPECIES_SWIRLIX, "Swirlix"
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SWIRLIX_TM_DATA_0, SPECIES_SWIRLIX_TM_DATA_1, SPECIES_SWIRLIX_TM_DATA_2, SPECIES_SWIRLIX_TM_DATA_3
     mondexentry SPECIES_SWIRLIX, "The sweet smell of cotton candy perfumes\nSwirlix’s fluffy fur. This Pokémon spits out\nsticky string to tangle up its enemies."
     mondexclassification SPECIES_SWIRLIX, "Cotton Candy Pokémon"
     mondexheight SPECIES_SWIRLIX, "1’04”"
@@ -16198,7 +15462,6 @@ mondata SPECIES_SLURPUFF, "Slurpuff"
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SLURPUFF_TM_DATA_0, SPECIES_SLURPUFF_TM_DATA_1, SPECIES_SLURPUFF_TM_DATA_2, SPECIES_SLURPUFF_TM_DATA_3
     mondexentry SPECIES_SLURPUFF, "Slurpuff’s fur contains a lot of air, making it soft\nto the touch and lighter than it looks."
     mondexclassification SPECIES_SLURPUFF, "Meringue Pokémon"
     mondexheight SPECIES_SLURPUFF, "2’07”"
@@ -16220,7 +15483,6 @@ mondata SPECIES_INKAY, "Inkay"
     abilities ABILITY_CONTRARY, ABILITY_SUCTION_CUPS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_INKAY_TM_DATA_0, SPECIES_INKAY_TM_DATA_1, SPECIES_INKAY_TM_DATA_2, SPECIES_INKAY_TM_DATA_3
     mondexentry SPECIES_INKAY, "By exposing foes to the blinking of its\nluminescent spots, Inkay demoralizes them,\nand then it seizes the chance to flee."
     mondexclassification SPECIES_INKAY, "Revolving Pokémon"
     mondexheight SPECIES_INKAY, "1’04”"
@@ -16242,7 +15504,6 @@ mondata SPECIES_MALAMAR, "Malamar"
     abilities ABILITY_CONTRARY, ABILITY_SUCTION_CUPS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MALAMAR_TM_DATA_0, SPECIES_MALAMAR_TM_DATA_1, SPECIES_MALAMAR_TM_DATA_2, SPECIES_MALAMAR_TM_DATA_3
     mondexentry SPECIES_MALAMAR, "It’s said that Malamar’s hypnotic powers played\na role in certain history-changing events."
     mondexclassification SPECIES_MALAMAR, "Overturning Pokémon"
     mondexheight SPECIES_MALAMAR, "4’11”"
@@ -16264,7 +15525,6 @@ mondata SPECIES_BINACLE, "Binacle"
     abilities ABILITY_TOUGH_CLAWS, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BINACLE_TM_DATA_0, SPECIES_BINACLE_TM_DATA_1, SPECIES_BINACLE_TM_DATA_2, SPECIES_BINACLE_TM_DATA_3
     mondexentry SPECIES_BINACLE, "If the two don’t work well together, both their\noffense and defense fall apart. Without good\nteamwork, they won’t survive."
     mondexclassification SPECIES_BINACLE, "Two-Handed Pokémon"
     mondexheight SPECIES_BINACLE, "1’08”"
@@ -16286,7 +15546,6 @@ mondata SPECIES_BARBARACLE, "Barbaracle"
     abilities ABILITY_TOUGH_CLAWS, ABILITY_SNIPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BARBARACLE_TM_DATA_0, SPECIES_BARBARACLE_TM_DATA_1, SPECIES_BARBARACLE_TM_DATA_2, SPECIES_BARBARACLE_TM_DATA_3
     mondexentry SPECIES_BARBARACLE, "Having an eye on each palm allows it to keep\nwatch in all directions. In a pinch, its limbs start\nto act on their own to ensure the enemy’s defeat."
     mondexclassification SPECIES_BARBARACLE, "Collective Pokémon"
     mondexheight SPECIES_BARBARACLE, "4’03”"
@@ -16308,7 +15567,6 @@ mondata SPECIES_SKRELP, "Skrelp"
     abilities ABILITY_POISON_POINT, ABILITY_POISON_TOUCH
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SKRELP_TM_DATA_0, SPECIES_SKRELP_TM_DATA_1, SPECIES_SKRELP_TM_DATA_2, SPECIES_SKRELP_TM_DATA_3
     mondexentry SPECIES_SKRELP, "Skrelp looks like a piece of rotten seaweed, so it\ncan blend in with seaweed drifting on the ocean\nand avoid being detected by enemies."
     mondexclassification SPECIES_SKRELP, "Mock Kelp Pokémon"
     mondexheight SPECIES_SKRELP, "1’08”"
@@ -16330,7 +15588,6 @@ mondata SPECIES_DRAGALGE, "Dragalge"
     abilities ABILITY_POISON_POINT, ABILITY_POISON_TOUCH
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DRAGALGE_TM_DATA_0, SPECIES_DRAGALGE_TM_DATA_1, SPECIES_DRAGALGE_TM_DATA_2, SPECIES_DRAGALGE_TM_DATA_3
     mondexentry SPECIES_DRAGALGE, "Dragalge generates dragon energy by sticking\nthe plume on its head out above the ocean’s\nsurface and bathing it in sunlight."
     mondexclassification SPECIES_DRAGALGE, "Mock Kelp Pokémon"
     mondexheight SPECIES_DRAGALGE, "5’11”"
@@ -16352,7 +15609,6 @@ mondata SPECIES_CLAUNCHER, "Clauncher"
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CLAUNCHER_TM_DATA_0, SPECIES_CLAUNCHER_TM_DATA_1, SPECIES_CLAUNCHER_TM_DATA_2, SPECIES_CLAUNCHER_TM_DATA_3
     mondexentry SPECIES_CLAUNCHER, "By detonating gas that accumulates in its right\nclaw, this Pokémon launches water like a bullet.\nThis is how Clauncher defeats its enemies."
     mondexclassification SPECIES_CLAUNCHER, "Water Gun Pokémon"
     mondexheight SPECIES_CLAUNCHER, "1’08”"
@@ -16374,7 +15630,6 @@ mondata SPECIES_CLAWITZER, "Clawitzer"
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CLAWITZER_TM_DATA_0, SPECIES_CLAWITZER_TM_DATA_1, SPECIES_CLAWITZER_TM_DATA_2, SPECIES_CLAWITZER_TM_DATA_3
     mondexentry SPECIES_CLAWITZER, "Clawitzer’s right arm is a cannon that launches\nprojectiles made of seawater. Shots from a\nClawitzer’s cannon arm can sink a tanker."
     mondexclassification SPECIES_CLAWITZER, "Howitzer Pokémon"
     mondexheight SPECIES_CLAWITZER, "4’03”"
@@ -16396,7 +15651,6 @@ mondata SPECIES_HELIOPTILE, "Helioptile"
     abilities ABILITY_DRY_SKIN, ABILITY_SAND_VEIL
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_HELIOPTILE_TM_DATA_0, SPECIES_HELIOPTILE_TM_DATA_1, SPECIES_HELIOPTILE_TM_DATA_2, SPECIES_HELIOPTILE_TM_DATA_3
     mondexentry SPECIES_HELIOPTILE, "The sun powers this Pokémon’s electricity\ngeneration. Interruption of that process\nstresses Helioptile to the point of weakness."
     mondexclassification SPECIES_HELIOPTILE, "Generator Pokémon"
     mondexheight SPECIES_HELIOPTILE, "1’08”"
@@ -16418,7 +15672,6 @@ mondata SPECIES_HELIOLISK, "Heliolisk"
     abilities ABILITY_DRY_SKIN, ABILITY_SAND_VEIL
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_HELIOLISK_TM_DATA_0, SPECIES_HELIOLISK_TM_DATA_1, SPECIES_HELIOLISK_TM_DATA_2, SPECIES_HELIOLISK_TM_DATA_3
     mondexentry SPECIES_HELIOLISK, "One Heliolisk basking in the sun with its frill\noutspread is all it would take to produce enough\nelectricity to power a city."
     mondexclassification SPECIES_HELIOLISK, "Generator Pokémon"
     mondexheight SPECIES_HELIOLISK, "3’03”"
@@ -16440,7 +15693,6 @@ mondata SPECIES_TYRUNT, "Tyrunt"
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TYRUNT_TM_DATA_0, SPECIES_TYRUNT_TM_DATA_1, SPECIES_TYRUNT_TM_DATA_2, SPECIES_TYRUNT_TM_DATA_3
     mondexentry SPECIES_TYRUNT, "This Pokémon is selfish and likes to be pampered.\nIt can also inflict grievous wounds on its Trainer\njust by playing around."
     mondexclassification SPECIES_TYRUNT, "Royal Heir Pokémon"
     mondexheight SPECIES_TYRUNT, "2’07”"
@@ -16462,7 +15714,6 @@ mondata SPECIES_TYRANTRUM, "Tyrantrum"
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TYRANTRUM_TM_DATA_0, SPECIES_TYRANTRUM_TM_DATA_1, SPECIES_TYRANTRUM_TM_DATA_2, SPECIES_TYRANTRUM_TM_DATA_3
     mondexentry SPECIES_TYRANTRUM, "A single bite of Tyrantrum’s massive jaws will\ndemolish a car. This Pokémon was the king of the\nancient world."
     mondexclassification SPECIES_TYRANTRUM, "Despot Pokémon"
     mondexheight SPECIES_TYRANTRUM, "8’02”"
@@ -16484,7 +15735,6 @@ mondata SPECIES_AMAURA, "Amaura"
     abilities ABILITY_REFRIGERATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_AMAURA_TM_DATA_0, SPECIES_AMAURA_TM_DATA_1, SPECIES_AMAURA_TM_DATA_2, SPECIES_AMAURA_TM_DATA_3
     mondexentry SPECIES_AMAURA, "Amaura is an ancient Pokémon that has gone\nextinct. Specimens of this species can sometimes\nbe found frozen in ice."
     mondexclassification SPECIES_AMAURA, "Tundra Pokémon"
     mondexheight SPECIES_AMAURA, "4’03”"
@@ -16506,7 +15756,6 @@ mondata SPECIES_AURORUS, "Aurorus"
     abilities ABILITY_REFRIGERATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_AURORUS_TM_DATA_0, SPECIES_AURORUS_TM_DATA_1, SPECIES_AURORUS_TM_DATA_2, SPECIES_AURORUS_TM_DATA_3
     mondexentry SPECIES_AURORUS, "When gripped by rage, Aurorus will emanate\nfreezing air, covering everything around it in ice."
     mondexclassification SPECIES_AURORUS, "Tundra Pokémon"
     mondexheight SPECIES_AURORUS, "8’10”"
@@ -16528,7 +15777,6 @@ mondata SPECIES_SYLVEON, "Sylveon"
     abilities ABILITY_CUTE_CHARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SYLVEON_TM_DATA_0, SPECIES_SYLVEON_TM_DATA_1, SPECIES_SYLVEON_TM_DATA_2, SPECIES_SYLVEON_TM_DATA_3
     mondexentry SPECIES_SYLVEON, "It emits a soothing aura from its ribbon-shaped organs. It wraps\nthese appendages around quarrelers to instantly restore calm to\nthe situation."
     mondexclassification SPECIES_SYLVEON, "Intertwining Pokémon"
     mondexheight SPECIES_SYLVEON, "3’03”"
@@ -16550,7 +15798,6 @@ mondata SPECIES_HAWLUCHA, "Hawlucha"
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_HAWLUCHA_TM_DATA_0, SPECIES_HAWLUCHA_TM_DATA_1, SPECIES_HAWLUCHA_TM_DATA_2, SPECIES_HAWLUCHA_TM_DATA_3
     mondexentry SPECIES_HAWLUCHA, "It always strikes a pose before going for its\nfinishing move. Sometimes opponents take\nadvantage of that time to counterattack."
     mondexclassification SPECIES_HAWLUCHA, "Wrestling Pokémon"
     mondexheight SPECIES_HAWLUCHA, "2’07”"
@@ -16572,7 +15819,6 @@ mondata SPECIES_DEDENNE, "Dedenne"
     abilities ABILITY_CHEEK_POUCH, ABILITY_PICKUP
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_DEDENNE_TM_DATA_0, SPECIES_DEDENNE_TM_DATA_1, SPECIES_DEDENNE_TM_DATA_2, SPECIES_DEDENNE_TM_DATA_3
     mondexentry SPECIES_DEDENNE, "Since Dedenne can’t generate much electricity on\nits own, it steals electricity from outlets or other\nelectric Pokémon."
     mondexclassification SPECIES_DEDENNE, "Antenna Pokémon"
     mondexheight SPECIES_DEDENNE, "0’08”"
@@ -16594,7 +15840,6 @@ mondata SPECIES_CARBINK, "Carbink"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_CARBINK_TM_DATA_0, SPECIES_CARBINK_TM_DATA_1, SPECIES_CARBINK_TM_DATA_2, SPECIES_CARBINK_TM_DATA_3
     mondexentry SPECIES_CARBINK, "It’s said that somewhere in the world, there’s\na mineral vein housing a large pack of slumbering\nCarbink. It’s also said that this pack has a queen."
     mondexclassification SPECIES_CARBINK, "Jewel Pokémon"
     mondexheight SPECIES_CARBINK, "1’00”"
@@ -16616,7 +15861,6 @@ mondata SPECIES_GOOMY, "Goomy"
     abilities ABILITY_SAP_SIPPER, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GOOMY_TM_DATA_0, SPECIES_GOOMY_TM_DATA_1, SPECIES_GOOMY_TM_DATA_2, SPECIES_GOOMY_TM_DATA_3
     mondexentry SPECIES_GOOMY, "Goomy hides away in the shade of trees, where it's nice and\nhumid. If the slime coating its body dries out, the Pokémon\ninstantly becomes lethargic."
     mondexclassification SPECIES_GOOMY, "Soft Tissue Pokémon"
     mondexheight SPECIES_GOOMY, "1’00”"
@@ -16638,7 +15882,6 @@ mondata SPECIES_SLIGGOO, "Sliggoo"
     abilities ABILITY_SAP_SIPPER, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SLIGGOO_TM_DATA_0, SPECIES_SLIGGOO_TM_DATA_1, SPECIES_SLIGGOO_TM_DATA_2, SPECIES_SLIGGOO_TM_DATA_3
     mondexentry SPECIES_SLIGGOO, "A creature given to melancholy. I suspect its metallic shell\ndeveloped as a result of the mucus on its skin reacting with\nthe iron in Hisui's water."
     mondexclassification SPECIES_SLIGGOO, "Soft Tissue Pokémon"
     mondexheight SPECIES_SLIGGOO, "2’07”"
@@ -16660,7 +15903,6 @@ mondata SPECIES_GOODRA, "Goodra"
     abilities ABILITY_SAP_SIPPER, ABILITY_HYDRATION
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GOODRA_TM_DATA_0, SPECIES_GOODRA_TM_DATA_1, SPECIES_GOODRA_TM_DATA_2, SPECIES_GOODRA_TM_DATA_3
     mondexentry SPECIES_GOODRA, "Able to freely control the hardness of its metallic shell.\nIt loathes solitude and is extremely clingy: it will fume and\nrun riot if those dearest to it ever leave its side."
     mondexclassification SPECIES_GOODRA, "Dragon Pokémon"
     mondexheight SPECIES_GOODRA, "6’07”"
@@ -16682,7 +15924,6 @@ mondata SPECIES_KLEFKI, "Klefki"
     abilities ABILITY_PRANKSTER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KLEFKI_TM_DATA_0, SPECIES_KLEFKI_TM_DATA_1, SPECIES_KLEFKI_TM_DATA_2, SPECIES_KLEFKI_TM_DATA_3
     mondexentry SPECIES_KLEFKI, "Klefki sucks in metal ions with the horn topping\nits head. It seems this Pokémon loves keys so\nmuch that its head needed to look like one, too."
     mondexclassification SPECIES_KLEFKI, "Key Ring Pokémon"
     mondexheight SPECIES_KLEFKI, "0’08”"
@@ -16704,7 +15945,6 @@ mondata SPECIES_PHANTUMP, "Phantump"
     abilities ABILITY_NATURAL_CURE, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PHANTUMP_TM_DATA_0, SPECIES_PHANTUMP_TM_DATA_1, SPECIES_PHANTUMP_TM_DATA_2, SPECIES_PHANTUMP_TM_DATA_3
     mondexentry SPECIES_PHANTUMP, "With a voice like a human child’s, it cries out to\nlure adults deep into the forest, getting them lost\namong the trees."
     mondexclassification SPECIES_PHANTUMP, "Stump Pokémon"
     mondexheight SPECIES_PHANTUMP, "1’04”"
@@ -16726,7 +15966,6 @@ mondata SPECIES_TREVENANT, "Trevenant"
     abilities ABILITY_NATURAL_CURE, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TREVENANT_TM_DATA_0, SPECIES_TREVENANT_TM_DATA_1, SPECIES_TREVENANT_TM_DATA_2, SPECIES_TREVENANT_TM_DATA_3
     mondexentry SPECIES_TREVENANT, "Small roots that extend from the tips of this\nPokémon’s feet can tie into the trees of the\nforest and give Trevenant control over them."
     mondexclassification SPECIES_TREVENANT, "Elder Tree Pokémon"
     mondexheight SPECIES_TREVENANT, "4’11”"
@@ -16748,7 +15987,6 @@ mondata SPECIES_PUMPKABOO, "Pumpkaboo"
     abilities ABILITY_PICKUP, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PUMPKABOO_TM_DATA_0, SPECIES_PUMPKABOO_TM_DATA_1, SPECIES_PUMPKABOO_TM_DATA_2, SPECIES_PUMPKABOO_TM_DATA_3
     mondexentry SPECIES_PUMPKABOO, "The light that streams out from the holes in the\npumpkin can hypnotize and control the people\nand Pokémon that see it."
     mondexclassification SPECIES_PUMPKABOO, "Pumpkin Pokémon"
     mondexheight SPECIES_PUMPKABOO, "1’04”"
@@ -16770,7 +16008,6 @@ mondata SPECIES_GOURGEIST, "Gourgeist"
     abilities ABILITY_PICKUP, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GOURGEIST_TM_DATA_0, SPECIES_GOURGEIST_TM_DATA_1, SPECIES_GOURGEIST_TM_DATA_2, SPECIES_GOURGEIST_TM_DATA_3
     mondexentry SPECIES_GOURGEIST, "In the darkness of a new-moon night, Gourgeist\nwill come knocking. Whoever answers the door\nwill be swept off to the afterlife."
     mondexclassification SPECIES_GOURGEIST, "Pumpkin Pokémon"
     mondexheight SPECIES_GOURGEIST, "2’11”"
@@ -16792,7 +16029,6 @@ mondata SPECIES_BERGMITE, "Bergmite"
     abilities ABILITY_OWN_TEMPO, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BERGMITE_TM_DATA_0, SPECIES_BERGMITE_TM_DATA_1, SPECIES_BERGMITE_TM_DATA_2, SPECIES_BERGMITE_TM_DATA_3
     mondexentry SPECIES_BERGMITE, "Lives on mountains blanketed in perennial snow. It freezes water\nvapor in the air to make the ice helmet that it dons for defense."
     mondexclassification SPECIES_BERGMITE, "Ice Chunk Pokémon"
     mondexheight SPECIES_BERGMITE, "3’03”"
@@ -16814,7 +16050,6 @@ mondata SPECIES_AVALUGG, "Avalugg"
     abilities ABILITY_OWN_TEMPO, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_AVALUGG_TM_DATA_0, SPECIES_AVALUGG_TM_DATA_1, SPECIES_AVALUGG_TM_DATA_2, SPECIES_AVALUGG_TM_DATA_3
     mondexentry SPECIES_AVALUGG, "The armor of ice covering its lower jaw puts steel to shame and\ncan shatter rocks with ease. This Pokémon barrels along steep\nmountain paths, cleaving through the deep snow."
     mondexclassification SPECIES_AVALUGG, "Iceberg Pokémon"
     mondexheight SPECIES_AVALUGG, "6’07”"
@@ -16836,7 +16071,6 @@ mondata SPECIES_NOIBAT, "Noibat"
     abilities ABILITY_FRISK, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NOIBAT_TM_DATA_0, SPECIES_NOIBAT_TM_DATA_1, SPECIES_NOIBAT_TM_DATA_2, SPECIES_NOIBAT_TM_DATA_3
     mondexentry SPECIES_NOIBAT, "No wavelength of sound is beyond Noibat’s\nability to produce. The ultrasonic waves it\ngenerates can overcome much larger Pokémon."
     mondexclassification SPECIES_NOIBAT, "Sound Wave Pokémon"
     mondexheight SPECIES_NOIBAT, "1’08”"
@@ -16858,7 +16092,6 @@ mondata SPECIES_NOIVERN, "Noivern"
     abilities ABILITY_FRISK, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NOIVERN_TM_DATA_0, SPECIES_NOIVERN_TM_DATA_1, SPECIES_NOIVERN_TM_DATA_2, SPECIES_NOIVERN_TM_DATA_3
     mondexentry SPECIES_NOIVERN, "Flying through the darkness, it weakens enemies\nwith ultrasonic waves that could crush stone.\nIts fangs finish the fight."
     mondexclassification SPECIES_NOIVERN, "Sound Wave Pokémon"
     mondexheight SPECIES_NOIVERN, "4’11”"
@@ -16880,7 +16113,6 @@ mondata SPECIES_XERNEAS, "Xerneas"
     abilities ABILITY_FAIRY_AURA, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_XERNEAS_TM_DATA_0, SPECIES_XERNEAS_TM_DATA_1, SPECIES_XERNEAS_TM_DATA_2, SPECIES_XERNEAS_TM_DATA_3
     mondexentry SPECIES_XERNEAS, "When the horns on its head shine\nin seven colors, it is said to be\nsharing everlasting life."
     mondexclassification SPECIES_XERNEAS, "Life Pokémon"
     mondexheight SPECIES_XERNEAS, "9’10”"
@@ -16902,7 +16134,6 @@ mondata SPECIES_YVELTAL, "Yveltal"
     abilities ABILITY_DARK_AURA, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_YVELTAL_TM_DATA_0, SPECIES_YVELTAL_TM_DATA_1, SPECIES_YVELTAL_TM_DATA_2, SPECIES_YVELTAL_TM_DATA_3
     mondexentry SPECIES_YVELTAL, "When its life comes to an end, it absorbs\nthe life energy of every living thing\nand turns into a cocoon once more."
     mondexclassification SPECIES_YVELTAL, "Destruction Pokémon"
     mondexheight SPECIES_YVELTAL, "19’00”"
@@ -16924,7 +16155,6 @@ mondata SPECIES_ZYGARDE, "Zygarde"
     abilities ABILITY_AURA_BREAK, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ZYGARDE_TM_DATA_0, SPECIES_ZYGARDE_TM_DATA_1, SPECIES_ZYGARDE_TM_DATA_2, SPECIES_ZYGARDE_TM_DATA_3
     mondexentry SPECIES_ZYGARDE, "Some say it can change to an even more\npowerful form when battling those who threaten\nthe ecosystem."
     mondexclassification SPECIES_ZYGARDE, "Order Pokémon"
     mondexheight SPECIES_ZYGARDE, "16’05”"
@@ -16946,7 +16176,6 @@ mondata SPECIES_DIANCIE, "Diancie"
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_DIANCIE_TM_DATA_0, SPECIES_DIANCIE_TM_DATA_1, SPECIES_DIANCIE_TM_DATA_2, SPECIES_DIANCIE_TM_DATA_3
     mondexentry SPECIES_DIANCIE, "It can instantly create many diamonds\nby compressing the carbon in the air\nbetween its hands."
     mondexclassification SPECIES_DIANCIE, "Jewel Pokémon"
     mondexheight SPECIES_DIANCIE, "2’04”"
@@ -16968,7 +16197,6 @@ mondata SPECIES_HOOPA, "Hoopa"
     abilities ABILITY_MAGICIAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_HOOPA_TM_DATA_0, SPECIES_HOOPA_TM_DATA_1, SPECIES_HOOPA_TM_DATA_2, SPECIES_HOOPA_TM_DATA_3
     mondexentry SPECIES_HOOPA, "It is said to be able to seize anything it desires\nwith its six rings and six huge arms. With its power\nsealed, it is transformed into a much smaller form."
     mondexclassification SPECIES_HOOPA, "Mischief Pokémon"
     mondexheight SPECIES_HOOPA, "1’08”"
@@ -16990,7 +16218,6 @@ mondata SPECIES_VOLCANION, "Volcanion"
     abilities ABILITY_WATER_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_VOLCANION_TM_DATA_0, SPECIES_VOLCANION_TM_DATA_1, SPECIES_VOLCANION_TM_DATA_2, SPECIES_VOLCANION_TM_DATA_3
     mondexentry SPECIES_VOLCANION, "It expels its internal steam from the\narms on its back. It has enough\npower to blow away a mountain."
     mondexclassification SPECIES_VOLCANION, "Steam Pokémon"
     mondexheight SPECIES_VOLCANION, "5’07”"
@@ -17012,7 +16239,6 @@ mondata SPECIES_ROWLET, "Rowlett"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ROWLET_TM_DATA_0, SPECIES_ROWLET_TM_DATA_1, SPECIES_ROWLET_TM_DATA_2, SPECIES_ROWLET_TM_DATA_3
     mondexentry SPECIES_ROWLET, "Flies noiselessly on delicate wings. It has mastered the art of\ndeftly launching dagger-sharp feathers from those same wings."
     mondexclassification SPECIES_ROWLET, "Grass Quill Pokémon"
     mondexheight SPECIES_ROWLET, "1’00”"
@@ -17034,7 +16260,6 @@ mondata SPECIES_DARTRIX, "Dartrix"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DARTRIX_TM_DATA_0, SPECIES_DARTRIX_TM_DATA_1, SPECIES_DARTRIX_TM_DATA_2, SPECIES_DARTRIX_TM_DATA_3
     mondexentry SPECIES_DARTRIX, "Regularly basks in sunlight to gather power: presumably due to\nthe frigid climate. Nonetheless, the edges of the blade quills set\ninto its wings are keen as ever."
     mondexclassification SPECIES_DARTRIX, "Blade Quill Pokémon"
     mondexheight SPECIES_DARTRIX, "2’04”"
@@ -17056,7 +16281,6 @@ mondata SPECIES_DECIDUEYE, "Decidueye"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DECIDUEYE_TM_DATA_0, SPECIES_DECIDUEYE_TM_DATA_1, SPECIES_DECIDUEYE_TM_DATA_2, SPECIES_DECIDUEYE_TM_DATA_3
     mondexentry SPECIES_DECIDUEYE, "The air stored inside the rachises of Decidueye's feathers\ninsulates the Pokémon against Hisui's extreme cold. This is\nfirm proof that evolution can be influenced by environment."
     mondexclassification SPECIES_DECIDUEYE, "Arrow Quill Pokémon"
     mondexheight SPECIES_DECIDUEYE, "5’03”"
@@ -17078,7 +16302,6 @@ mondata SPECIES_LITTEN, "Litten"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_LITTEN_TM_DATA_0, SPECIES_LITTEN_TM_DATA_1, SPECIES_LITTEN_TM_DATA_2, SPECIES_LITTEN_TM_DATA_3
     mondexentry SPECIES_LITTEN, "Trying to pet Litten before it trusts you will\nresult in a nasty scratch from its sharp claws.\nBe careful."
     mondexclassification SPECIES_LITTEN, "Fire Cat Pokémon"
     mondexheight SPECIES_LITTEN, "1’04”"
@@ -17100,7 +16323,6 @@ mondata SPECIES_TORRACAT, "Torracat"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TORRACAT_TM_DATA_0, SPECIES_TORRACAT_TM_DATA_1, SPECIES_TORRACAT_TM_DATA_2, SPECIES_TORRACAT_TM_DATA_3
     mondexentry SPECIES_TORRACAT, "When facing a powerful enemy, Torracat’s\nfighting spirit gets pumped up, and its fire bell\nblazes hotter."
     mondexclassification SPECIES_TORRACAT, "Fire Cat Pokémon"
     mondexheight SPECIES_TORRACAT, "2’04”"
@@ -17122,7 +16344,6 @@ mondata SPECIES_INCINEROAR, "Incineroar"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_INCINEROAR_TM_DATA_0, SPECIES_INCINEROAR_TM_DATA_1, SPECIES_INCINEROAR_TM_DATA_2, SPECIES_INCINEROAR_TM_DATA_3
     mondexentry SPECIES_INCINEROAR, "Incineroar’s rough and aggressive behavior is its\nmost notable trait, but the way it helps out small\nPokémon shows that it has a kind side as well."
     mondexclassification SPECIES_INCINEROAR, "Heel Pokémon"
     mondexheight SPECIES_INCINEROAR, "5’11”"
@@ -17144,7 +16365,6 @@ mondata SPECIES_POPPLIO, "Popplio"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_POPPLIO_TM_DATA_0, SPECIES_POPPLIO_TM_DATA_1, SPECIES_POPPLIO_TM_DATA_2, SPECIES_POPPLIO_TM_DATA_3
     mondexentry SPECIES_POPPLIO, "If Popplio want to create big, powerful balloons,\nthey must be persistent. It takes daily practice for\nthese Pokémon to develop their skills."
     mondexclassification SPECIES_POPPLIO, "Sea Lion Pokémon"
     mondexheight SPECIES_POPPLIO, "1’04”"
@@ -17166,7 +16386,6 @@ mondata SPECIES_BRIONNE, "Brionne"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BRIONNE_TM_DATA_0, SPECIES_BRIONNE_TM_DATA_1, SPECIES_BRIONNE_TM_DATA_2, SPECIES_BRIONNE_TM_DATA_3
     mondexentry SPECIES_BRIONNE, "On nights when the sea is calm, Brionne dance\nwith one another to the singing of the Primarina\nthat’s leading them."
     mondexclassification SPECIES_BRIONNE, "Pop Star Pokémon"
     mondexheight SPECIES_BRIONNE, "2’00”"
@@ -17188,7 +16407,6 @@ mondata SPECIES_PRIMARINA, "Primarina"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PRIMARINA_TM_DATA_0, SPECIES_PRIMARINA_TM_DATA_1, SPECIES_PRIMARINA_TM_DATA_2, SPECIES_PRIMARINA_TM_DATA_3
     mondexentry SPECIES_PRIMARINA, "For Primarina, every battle’s a stage. Its singing\nand the dancing of its balloons will mesmerize\nthe audience."
     mondexclassification SPECIES_PRIMARINA, "Soloist Pokémon"
     mondexheight SPECIES_PRIMARINA, "5’11”"
@@ -17210,7 +16428,6 @@ mondata SPECIES_PIKIPEK, "Pikipek"
     abilities ABILITY_KEEN_EYE, ABILITY_SKILL_LINK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_PIKIPEK_TM_DATA_0, SPECIES_PIKIPEK_TM_DATA_1, SPECIES_PIKIPEK_TM_DATA_2, SPECIES_PIKIPEK_TM_DATA_3
     mondexentry SPECIES_PIKIPEK, "It may look spindly, but its neck muscles are\nheavy-duty. It can peck at a tree 16 times\nper second!"
     mondexclassification SPECIES_PIKIPEK, "Woodpecker Pokémon"
     mondexheight SPECIES_PIKIPEK, "1’00”"
@@ -17232,7 +16449,6 @@ mondata SPECIES_TRUMBEAK, "Trumbeak"
     abilities ABILITY_KEEN_EYE, ABILITY_SKILL_LINK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_TRUMBEAK_TM_DATA_0, SPECIES_TRUMBEAK_TM_DATA_1, SPECIES_TRUMBEAK_TM_DATA_2, SPECIES_TRUMBEAK_TM_DATA_3
     mondexentry SPECIES_TRUMBEAK, "From its mouth, it fires the seeds of berries\nit has eaten. The scattered seeds give rise\nto new plants."
     mondexclassification SPECIES_TRUMBEAK, "Bugle Beak Pokémon"
     mondexheight SPECIES_TRUMBEAK, "2’00”"
@@ -17254,7 +16470,6 @@ mondata SPECIES_TOUCANNON, "Toucannon"
     abilities ABILITY_KEEN_EYE, ABILITY_SKILL_LINK
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_TOUCANNON_TM_DATA_0, SPECIES_TOUCANNON_TM_DATA_1, SPECIES_TOUCANNON_TM_DATA_2, SPECIES_TOUCANNON_TM_DATA_3
     mondexentry SPECIES_TOUCANNON, "Known for forming harmonious couples, this\nPokémon is brought to wedding ceremonies as a\ngood luck charm."
     mondexclassification SPECIES_TOUCANNON, "Cannon Pokémon"
     mondexheight SPECIES_TOUCANNON, "3’07”"
@@ -17276,7 +16491,6 @@ mondata SPECIES_YUNGOOS, "Yungoos"
     abilities ABILITY_STAKEOUT, ABILITY_STRONG_JAW
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_YUNGOOS_TM_DATA_0, SPECIES_YUNGOOS_TM_DATA_1, SPECIES_YUNGOOS_TM_DATA_2, SPECIES_YUNGOOS_TM_DATA_3
     mondexentry SPECIES_YUNGOOS, "Although it will eat anything, it prefers fresh\nliving things, so it marches down streets\nin search of prey."
     mondexclassification SPECIES_YUNGOOS, "Loitering Pokémon"
     mondexheight SPECIES_YUNGOOS, "1’04”"
@@ -17298,7 +16512,6 @@ mondata SPECIES_GUMSHOOS, "Gumshoos"
     abilities ABILITY_STAKEOUT, ABILITY_STRONG_JAW
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GUMSHOOS_TM_DATA_0, SPECIES_GUMSHOOS_TM_DATA_1, SPECIES_GUMSHOOS_TM_DATA_2, SPECIES_GUMSHOOS_TM_DATA_3
     mondexentry SPECIES_GUMSHOOS, "Patient by nature, this Pokémon loses control of\nitself and pounces when it spots its favorite\nmeal: Rattata!"
     mondexclassification SPECIES_GUMSHOOS, "Stakeout Pokémon"
     mondexheight SPECIES_GUMSHOOS, "2’04”"
@@ -17320,7 +16533,6 @@ mondata SPECIES_GRUBBIN, "Grubbin"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_GRUBBIN_TM_DATA_0, SPECIES_GRUBBIN_TM_DATA_1, SPECIES_GRUBBIN_TM_DATA_2, SPECIES_GRUBBIN_TM_DATA_3
     mondexentry SPECIES_GRUBBIN, "It uses its big jaws to dig nests into the forest\nfloor, and it loves to feed on sweet tree sap."
     mondexclassification SPECIES_GRUBBIN, "Larva Pokémon"
     mondexheight SPECIES_GRUBBIN, "1’04”"
@@ -17342,7 +16554,6 @@ mondata SPECIES_CHARJABUG, "Charjabug"
     abilities ABILITY_BATTERY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CHARJABUG_TM_DATA_0, SPECIES_CHARJABUG_TM_DATA_1, SPECIES_CHARJABUG_TM_DATA_2, SPECIES_CHARJABUG_TM_DATA_3
     mondexentry SPECIES_CHARJABUG, "Its digestive processes convert the leaves it eats\ninto electricity. An electric sac in its belly stores\nthe electricity for later use."
     mondexclassification SPECIES_CHARJABUG, "Battery Pokémon"
     mondexheight SPECIES_CHARJABUG, "1’08”"
@@ -17364,7 +16575,6 @@ mondata SPECIES_VIKAVOLT, "Vikavolt"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_VIKAVOLT_TM_DATA_0, SPECIES_VIKAVOLT_TM_DATA_1, SPECIES_VIKAVOLT_TM_DATA_2, SPECIES_VIKAVOLT_TM_DATA_3
     mondexentry SPECIES_VIKAVOLT, "If it carries a Charjabug to use as a spare battery,\na flying Vikavolt can rapidly fire high-powered\nbeams of electricity."
     mondexclassification SPECIES_VIKAVOLT, "Stag Beetle Pokémon"
     mondexheight SPECIES_VIKAVOLT, "4’11”"
@@ -17386,7 +16596,6 @@ mondata SPECIES_CRABRAWLER, "Crabrawler"
     abilities ABILITY_HYPER_CUTTER, ABILITY_IRON_FIST
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_CRABRAWLER_TM_DATA_0, SPECIES_CRABRAWLER_TM_DATA_1, SPECIES_CRABRAWLER_TM_DATA_2, SPECIES_CRABRAWLER_TM_DATA_3
     mondexentry SPECIES_CRABRAWLER, "Crabrawler has been known to mistake\nExeggutor for a coconut tree and climb it. The\nenraged Exeggutor shakes it off and stomps it."
     mondexclassification SPECIES_CRABRAWLER, "Boxing Pokémon"
     mondexheight SPECIES_CRABRAWLER, "2’00”"
@@ -17408,7 +16617,6 @@ mondata SPECIES_CRABOMINABLE, "Crabomnabl"
     abilities ABILITY_HYPER_CUTTER, ABILITY_IRON_FIST
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CRABOMINABLE_TM_DATA_0, SPECIES_CRABOMINABLE_TM_DATA_1, SPECIES_CRABOMINABLE_TM_DATA_2, SPECIES_CRABOMINABLE_TM_DATA_3
     mondexentry SPECIES_CRABOMINABLE, "Before it stops to think, it just starts pummeling.\nThere are records of its turning back\navalanches with a flurry of punches."
     mondexclassification SPECIES_CRABOMINABLE, "Woolly Crab Pokémon"
     mondexheight SPECIES_CRABOMINABLE, "5’07”"
@@ -17430,7 +16638,6 @@ mondata SPECIES_ORICORIO, "Oricorio"
     abilities ABILITY_DANCER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ORICORIO_TM_DATA_0, SPECIES_ORICORIO_TM_DATA_1, SPECIES_ORICORIO_TM_DATA_2, SPECIES_ORICORIO_TM_DATA_3
     mondexentry SPECIES_ORICORIO, "This Oricorio has drunk red nectar. If its Trainer\ngives the wrong order, this passionate Pokémon\nbecomes fiercely angry."
     mondexclassification SPECIES_ORICORIO, "Dancing Pokémon"
     mondexheight SPECIES_ORICORIO, "2’00”"
@@ -17452,7 +16659,6 @@ mondata SPECIES_CUTIEFLY, "Cutiefly"
     abilities ABILITY_HONEY_GATHER, ABILITY_SHIELD_DUST
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_CUTIEFLY_TM_DATA_0, SPECIES_CUTIEFLY_TM_DATA_1, SPECIES_CUTIEFLY_TM_DATA_2, SPECIES_CUTIEFLY_TM_DATA_3
     mondexentry SPECIES_CUTIEFLY, "An opponent’s aura can tell Cutiefly what that\nopponent’s next move will be. Then Cutiefly can\nglide around the attack and strike back."
     mondexclassification SPECIES_CUTIEFLY, "Bee Fly Pokémon"
     mondexheight SPECIES_CUTIEFLY, "0’04”"
@@ -17474,7 +16680,6 @@ mondata SPECIES_RIBOMBEE, "Ribombee"
     abilities ABILITY_HONEY_GATHER, ABILITY_SHIELD_DUST
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_RIBOMBEE_TM_DATA_0, SPECIES_RIBOMBEE_TM_DATA_1, SPECIES_RIBOMBEE_TM_DATA_2, SPECIES_RIBOMBEE_TM_DATA_3
     mondexentry SPECIES_RIBOMBEE, "Ribombee absolutely hate getting wet or\nrained on. In the cloudy Galar region,\nthey are very seldom seen."
     mondexclassification SPECIES_RIBOMBEE, "Bee Fly Pokémon"
     mondexheight SPECIES_RIBOMBEE, "0’08”"
@@ -17496,7 +16701,6 @@ mondata SPECIES_ROCKRUFF, "Rockruff"
     abilities ABILITY_KEEN_EYE, ABILITY_VITAL_SPIRIT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ROCKRUFF_TM_DATA_0, SPECIES_ROCKRUFF_TM_DATA_1, SPECIES_ROCKRUFF_TM_DATA_2, SPECIES_ROCKRUFF_TM_DATA_3
     mondexentry SPECIES_ROCKRUFF, "This Pokémon intimidates opponents by striking\nthe ground with the rocks on its neck. The\nmoment an opponent flinches, Rockruff attacks."
     mondexclassification SPECIES_ROCKRUFF, "Puppy Pokémon"
     mondexheight SPECIES_ROCKRUFF, "1’08”"
@@ -17518,7 +16722,6 @@ mondata SPECIES_LYCANROC, "Lycanroc"
     abilities ABILITY_KEEN_EYE, ABILITY_SAND_RUSH
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_LYCANROC_TM_DATA_0, SPECIES_LYCANROC_TM_DATA_1, SPECIES_LYCANROC_TM_DATA_2, SPECIES_LYCANROC_TM_DATA_3
     mondexentry SPECIES_LYCANROC, "With swift movements, this Pokémon gradually\nbacks its prey into a corner. Lycanroc’s fangs are\nalways aimed toward opponents’ weak spots."
     mondexclassification SPECIES_LYCANROC, "Wolf Pokémon"
     mondexheight SPECIES_LYCANROC, "2’07”"
@@ -17540,7 +16743,6 @@ mondata SPECIES_WISHIWASHI, "Wishiwashi"
     abilities ABILITY_SCHOOLING, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WISHIWASHI_TM_DATA_0, SPECIES_WISHIWASHI_TM_DATA_1, SPECIES_WISHIWASHI_TM_DATA_2, SPECIES_WISHIWASHI_TM_DATA_3
     mondexentry SPECIES_WISHIWASHI, "When it senses danger, its eyes tear up.\nThe sparkle of its tears signals other\nWishiwashi to gather."
     mondexclassification SPECIES_WISHIWASHI, "Small Fry Pokémon"
     mondexheight SPECIES_WISHIWASHI, "0’08”"
@@ -17562,7 +16764,6 @@ mondata SPECIES_MAREANIE, "Mareanie"
     abilities ABILITY_MERCILESS, ABILITY_LIMBER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MAREANIE_TM_DATA_0, SPECIES_MAREANIE_TM_DATA_1, SPECIES_MAREANIE_TM_DATA_2, SPECIES_MAREANIE_TM_DATA_3
     mondexentry SPECIES_MAREANIE, "Unlike their Alolan counterparts, the Mareanie\nof the Galar region have not yet figured out\nthat the branches of Corsola are delicious."
     mondexclassification SPECIES_MAREANIE, "Brutal Star Pokémon"
     mondexheight SPECIES_MAREANIE, "1’04”"
@@ -17584,7 +16785,6 @@ mondata SPECIES_TOXAPEX, "Toxapex"
     abilities ABILITY_MERCILESS, ABILITY_LIMBER
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_TOXAPEX_TM_DATA_0, SPECIES_TOXAPEX_TM_DATA_1, SPECIES_TOXAPEX_TM_DATA_2, SPECIES_TOXAPEX_TM_DATA_3
     mondexentry SPECIES_TOXAPEX, "Within the poison sac in its body is a poison so\ntoxic that Pokémon as large as Wailord will still\nbe suffering three days after it first takes effect."
     mondexclassification SPECIES_TOXAPEX, "Brutal Star Pokémon"
     mondexheight SPECIES_TOXAPEX, "2’04”"
@@ -17606,7 +16806,6 @@ mondata SPECIES_MUDBRAY, "Mudbray"
     abilities ABILITY_OWN_TEMPO, ABILITY_STAMINA
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MUDBRAY_TM_DATA_0, SPECIES_MUDBRAY_TM_DATA_1, SPECIES_MUDBRAY_TM_DATA_2, SPECIES_MUDBRAY_TM_DATA_3
     mondexentry SPECIES_MUDBRAY, "It eats dirt to create mud and smears this mud all\nover its feet, giving them the grip needed to walk\non rough terrain without slipping."
     mondexclassification SPECIES_MUDBRAY, "Donkey Pokémon"
     mondexheight SPECIES_MUDBRAY, "3’03”"
@@ -17628,7 +16827,6 @@ mondata SPECIES_MUDSDALE, "Mudsdale"
     abilities ABILITY_OWN_TEMPO, ABILITY_STAMINA
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MUDSDALE_TM_DATA_0, SPECIES_MUDSDALE_TM_DATA_1, SPECIES_MUDSDALE_TM_DATA_2, SPECIES_MUDSDALE_TM_DATA_3
     mondexentry SPECIES_MUDSDALE, "Mudsdale has so much stamina that it could carry\nover 10 tons across the Galar region without rest\nor sleep."
     mondexclassification SPECIES_MUDSDALE, "Draft Horse Pokémon"
     mondexheight SPECIES_MUDSDALE, "8’02”"
@@ -17650,7 +16848,6 @@ mondata SPECIES_DEWPIDER, "Dewpider"
     abilities ABILITY_WATER_BUBBLE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DEWPIDER_TM_DATA_0, SPECIES_DEWPIDER_TM_DATA_1, SPECIES_DEWPIDER_TM_DATA_2, SPECIES_DEWPIDER_TM_DATA_3
     mondexentry SPECIES_DEWPIDER, "Dewpider normally lives underwater. When it\ncomes onto land in search of food, it takes\nwater with it in the form of a bubble on its head."
     mondexclassification SPECIES_DEWPIDER, "Water Bubble Pokémon"
     mondexheight SPECIES_DEWPIDER, "1’00”"
@@ -17672,7 +16869,6 @@ mondata SPECIES_ARAQUANID, "Araquanid"
     abilities ABILITY_WATER_BUBBLE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ARAQUANID_TM_DATA_0, SPECIES_ARAQUANID_TM_DATA_1, SPECIES_ARAQUANID_TM_DATA_2, SPECIES_ARAQUANID_TM_DATA_3
     mondexentry SPECIES_ARAQUANID, "It acts as a caretaker for Dewpider, putting them\ninside its bubble and letting them eat any\nleftover food."
     mondexclassification SPECIES_ARAQUANID, "Water Bubble Pokémon"
     mondexheight SPECIES_ARAQUANID, "5’11”"
@@ -17694,7 +16890,6 @@ mondata SPECIES_FOMANTIS, "Fomantis"
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_FOMANTIS_TM_DATA_0, SPECIES_FOMANTIS_TM_DATA_1, SPECIES_FOMANTIS_TM_DATA_2, SPECIES_FOMANTIS_TM_DATA_3
     mondexentry SPECIES_FOMANTIS, "During the day, Fomantis basks in sunlight and\nsleeps peacefully. It wakes and moves around\nat night."
     mondexclassification SPECIES_FOMANTIS, "Sickle Grass Pokémon"
     mondexheight SPECIES_FOMANTIS, "1’00”"
@@ -17716,7 +16911,6 @@ mondata SPECIES_LURANTIS, "Lurantis"
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_LURANTIS_TM_DATA_0, SPECIES_LURANTIS_TM_DATA_1, SPECIES_LURANTIS_TM_DATA_2, SPECIES_LURANTIS_TM_DATA_3
     mondexentry SPECIES_LURANTIS, "The petals on this Pokémon’s arms are thin and\nsuper sharp, and they can fire laser beams if\nLurantis gathers light first."
     mondexclassification SPECIES_LURANTIS, "Bloom Sickle Pokémon"
     mondexheight SPECIES_LURANTIS, "2’11”"
@@ -17738,7 +16932,6 @@ mondata SPECIES_MORELULL, "Morelull"
     abilities ABILITY_ILLUMINATE, ABILITY_EFFECT_SPORE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MORELULL_TM_DATA_0, SPECIES_MORELULL_TM_DATA_1, SPECIES_MORELULL_TM_DATA_2, SPECIES_MORELULL_TM_DATA_3
     mondexentry SPECIES_MORELULL, "Morelull live in forests that stay dark even\nduring the day. They scatter flickering spores\nthat put enemies to sleep."
     mondexclassification SPECIES_MORELULL, "Illuminating Pokémon"
     mondexheight SPECIES_MORELULL, "0’08”"
@@ -17760,7 +16953,6 @@ mondata SPECIES_SHIINOTIC, "Shiinotic"
     abilities ABILITY_ILLUMINATE, ABILITY_EFFECT_SPORE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SHIINOTIC_TM_DATA_0, SPECIES_SHIINOTIC_TM_DATA_1, SPECIES_SHIINOTIC_TM_DATA_2, SPECIES_SHIINOTIC_TM_DATA_3
     mondexentry SPECIES_SHIINOTIC, "If you see a light deep in a forest at night,\ndon’t go near. Shiinotic will make you fall\nfast asleep."
     mondexclassification SPECIES_SHIINOTIC, "Illuminating Pokémon"
     mondexheight SPECIES_SHIINOTIC, "3’03”"
@@ -17782,7 +16974,6 @@ mondata SPECIES_SALANDIT, "Salandit"
     abilities ABILITY_CORROSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SALANDIT_TM_DATA_0, SPECIES_SALANDIT_TM_DATA_1, SPECIES_SALANDIT_TM_DATA_2, SPECIES_SALANDIT_TM_DATA_3
     mondexentry SPECIES_SALANDIT, "This sneaky Pokémon will slink behind its prey\nand immobilize it with poisonous gas before the\nprey even realizes Salandit is there."
     mondexclassification SPECIES_SALANDIT, "Toxic Lizard Pokémon"
     mondexheight SPECIES_SALANDIT, "2’00”"
@@ -17804,7 +16995,6 @@ mondata SPECIES_SALAZZLE, "Salazzle"
     abilities ABILITY_CORROSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SALAZZLE_TM_DATA_0, SPECIES_SALAZZLE_TM_DATA_1, SPECIES_SALAZZLE_TM_DATA_2, SPECIES_SALAZZLE_TM_DATA_3
     mondexentry SPECIES_SALAZZLE, "The winner of competitions between Salazzle\nis decided by which one has the most male\nSalandit with it."
     mondexclassification SPECIES_SALAZZLE, "Toxic Lizard Pokémon"
     mondexheight SPECIES_SALAZZLE, "3’11”"
@@ -17826,7 +17016,6 @@ mondata SPECIES_STUFFUL, "Stufful"
     abilities ABILITY_FLUFFY, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_STUFFUL_TM_DATA_0, SPECIES_STUFFUL_TM_DATA_1, SPECIES_STUFFUL_TM_DATA_2, SPECIES_STUFFUL_TM_DATA_3
     mondexentry SPECIES_STUFFUL, "The way it protects itself by flailing its arms may\nbe an adorable sight, but stay well away. This is\nflailing that can snap thick tree trunks."
     mondexclassification SPECIES_STUFFUL, "Flailing Pokémon"
     mondexheight SPECIES_STUFFUL, "1’08”"
@@ -17848,7 +17037,6 @@ mondata SPECIES_BEWEAR, "Bewear"
     abilities ABILITY_FLUFFY, ABILITY_KLUTZ
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_BEWEAR_TM_DATA_0, SPECIES_BEWEAR_TM_DATA_1, SPECIES_BEWEAR_TM_DATA_2, SPECIES_BEWEAR_TM_DATA_3
     mondexentry SPECIES_BEWEAR, "The moves it uses to take down its prey would\nmake a martial artist jealous. It tucks subdued\nprey under its arms to carry them to its nest."
     mondexclassification SPECIES_BEWEAR, "Strong Arm Pokémon"
     mondexheight SPECIES_BEWEAR, "6’11”"
@@ -17870,7 +17058,6 @@ mondata SPECIES_BOUNSWEET, "Bounsweet"
     abilities ABILITY_LEAF_GUARD, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_BOUNSWEET_TM_DATA_0, SPECIES_BOUNSWEET_TM_DATA_1, SPECIES_BOUNSWEET_TM_DATA_2, SPECIES_BOUNSWEET_TM_DATA_3
     mondexentry SPECIES_BOUNSWEET, "When under attack, it secretes a sweet\nand delicious sweat. The scent only calls\nmore enemies to it."
     mondexclassification SPECIES_BOUNSWEET, "Fruit Pokémon"
     mondexheight SPECIES_BOUNSWEET, "1’00”"
@@ -17892,7 +17079,6 @@ mondata SPECIES_STEENEE, "Steenee"
     abilities ABILITY_LEAF_GUARD, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_STEENEE_TM_DATA_0, SPECIES_STEENEE_TM_DATA_1, SPECIES_STEENEE_TM_DATA_2, SPECIES_STEENEE_TM_DATA_3
     mondexentry SPECIES_STEENEE, "Any Corvisquire that pecks at this\nPokémon will be greeted with a smack from\nits sepals followed by a sharp kick."
     mondexclassification SPECIES_STEENEE, "Fruit Pokémon"
     mondexheight SPECIES_STEENEE, "2’04”"
@@ -17914,7 +17100,6 @@ mondata SPECIES_TSAREENA, "Tsareena"
     abilities ABILITY_LEAF_GUARD, ABILITY_QUEENLY_MAJESTY
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_TSAREENA_TM_DATA_0, SPECIES_TSAREENA_TM_DATA_1, SPECIES_TSAREENA_TM_DATA_2, SPECIES_TSAREENA_TM_DATA_3
     mondexentry SPECIES_TSAREENA, "A kick from the hardened tips of this Pokémon’s\nlegs leaves a wound in the opponent’s body and\nsoul that will never heal."
     mondexclassification SPECIES_TSAREENA, "Fruit Pokémon"
     mondexheight SPECIES_TSAREENA, "3’11”"
@@ -17936,7 +17121,6 @@ mondata SPECIES_COMFEY, "Comfey"
     abilities ABILITY_FLOWER_VEIL, ABILITY_TRIAGE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_COMFEY_TM_DATA_0, SPECIES_COMFEY_TM_DATA_1, SPECIES_COMFEY_TM_DATA_2, SPECIES_COMFEY_TM_DATA_3
     mondexentry SPECIES_COMFEY, "These Pokémon smell very nice. All Comfey wear\ndifferent flowers, so each of these Pokémon has\nits own individual scent."
     mondexclassification SPECIES_COMFEY, "Posy Picker Pokémon"
     mondexheight SPECIES_COMFEY, "0’04”"
@@ -17958,7 +17142,6 @@ mondata SPECIES_ORANGURU, "Oranguru"
     abilities ABILITY_INNER_FOCUS, ABILITY_TELEPATHY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_ORANGURU_TM_DATA_0, SPECIES_ORANGURU_TM_DATA_1, SPECIES_ORANGURU_TM_DATA_2, SPECIES_ORANGURU_TM_DATA_3
     mondexentry SPECIES_ORANGURU, "It knows the forest inside and out. If it comes\nacross a wounded Pokémon, Oranguru will\ngather medicinal herbs to treat it."
     mondexclassification SPECIES_ORANGURU, "Sage Pokémon"
     mondexheight SPECIES_ORANGURU, "4’11”"
@@ -17980,7 +17163,6 @@ mondata SPECIES_PASSIMIAN, "Passimian"
     abilities ABILITY_RECEIVER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_PASSIMIAN_TM_DATA_0, SPECIES_PASSIMIAN_TM_DATA_1, SPECIES_PASSIMIAN_TM_DATA_2, SPECIES_PASSIMIAN_TM_DATA_3
     mondexentry SPECIES_PASSIMIAN, "Passimian live in groups of about 20, with\neach member performing an assigned role.\nThrough cooperation, the group survives."
     mondexclassification SPECIES_PASSIMIAN, "Teamwork Pokémon"
     mondexheight SPECIES_PASSIMIAN, "6’07”"
@@ -18002,7 +17184,6 @@ mondata SPECIES_WIMPOD, "Wimpod"
     abilities ABILITY_WIMP_OUT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_WIMPOD_TM_DATA_0, SPECIES_WIMPOD_TM_DATA_1, SPECIES_WIMPOD_TM_DATA_2, SPECIES_WIMPOD_TM_DATA_3
     mondexentry SPECIES_WIMPOD, "Wimpod gather in swarms, constantly on the\nlookout for danger. They scatter the moment\nthey detect an enemy’s presence."
     mondexclassification SPECIES_WIMPOD, "Turn Tail Pokémon"
     mondexheight SPECIES_WIMPOD, "1’08”"
@@ -18024,7 +17205,6 @@ mondata SPECIES_GOLISOPOD, "Golisopod"
     abilities ABILITY_EMERGENCY_EXIT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_GOLISOPOD_TM_DATA_0, SPECIES_GOLISOPOD_TM_DATA_1, SPECIES_GOLISOPOD_TM_DATA_2, SPECIES_GOLISOPOD_TM_DATA_3
     mondexentry SPECIES_GOLISOPOD, "They live in sunken ships or in holes in the\nseabed. When Golisopod and Grapploct\nbattle, the loser becomes the winner’s meal."
     mondexclassification SPECIES_GOLISOPOD, "Hard Scale Pokémon"
     mondexheight SPECIES_GOLISOPOD, "6’07”"
@@ -18046,7 +17226,6 @@ mondata SPECIES_SANDYGAST, "Sandygast"
     abilities ABILITY_WATER_COMPACTION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SANDYGAST_TM_DATA_0, SPECIES_SANDYGAST_TM_DATA_1, SPECIES_SANDYGAST_TM_DATA_2, SPECIES_SANDYGAST_TM_DATA_3
     mondexentry SPECIES_SANDYGAST, "Sandygast mainly inhabits beaches. It takes\ncontrol of anyone who puts their hand into its\nmouth, forcing them to make its body bigger."
     mondexclassification SPECIES_SANDYGAST, "Sand Heap Pokémon"
     mondexheight SPECIES_SANDYGAST, "1’08”"
@@ -18068,7 +17247,6 @@ mondata SPECIES_PALOSSAND, "Palossand"
     abilities ABILITY_WATER_COMPACTION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PALOSSAND_TM_DATA_0, SPECIES_PALOSSAND_TM_DATA_1, SPECIES_PALOSSAND_TM_DATA_2, SPECIES_PALOSSAND_TM_DATA_3
     mondexentry SPECIES_PALOSSAND, "This Pokémon lives on beaches, but it hates\nwater. Palossand can’t maintain its castle-like\nshape if it gets drenched by a heavy rain."
     mondexclassification SPECIES_PALOSSAND, "Sand Castle Pokémon"
     mondexheight SPECIES_PALOSSAND, "4’03”"
@@ -18090,7 +17268,6 @@ mondata SPECIES_PYUKUMUKU, "Pyukumuku"
     abilities ABILITY_INNARDS_OUT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_PYUKUMUKU_TM_DATA_0, SPECIES_PYUKUMUKU_TM_DATA_1, SPECIES_PYUKUMUKU_TM_DATA_2, SPECIES_PYUKUMUKU_TM_DATA_3
     mondexentry SPECIES_PYUKUMUKU, "It lives in warm, shallow waters. If it encounters a\nfoe, it will spit out its internal organs as a means\nto punch them."
     mondexclassification SPECIES_PYUKUMUKU, "Sea Cucumber Pokémon"
     mondexheight SPECIES_PYUKUMUKU, "1’00”"
@@ -18112,7 +17289,6 @@ mondata SPECIES_TYPE_NULL, "Type: Null"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_TYPE_NULL_TM_DATA_0, SPECIES_TYPE_NULL_TM_DATA_1, SPECIES_TYPE_NULL_TM_DATA_2, SPECIES_TYPE_NULL_TM_DATA_3
     mondexentry SPECIES_TYPE_NULL, "It was modeled after a mighty Pokémon of myth.\nThe mask placed upon it limits its power in order\nto keep it under control."
     mondexclassification SPECIES_TYPE_NULL, "Synthetic Pokémon"
     mondexheight SPECIES_TYPE_NULL, "6’03”"
@@ -18134,7 +17310,6 @@ mondata SPECIES_SILVALLY, "Silvally"
     abilities ABILITY_RKS_SYSTEM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SILVALLY_TM_DATA_0, SPECIES_SILVALLY_TM_DATA_1, SPECIES_SILVALLY_TM_DATA_2, SPECIES_SILVALLY_TM_DATA_3
     mondexentry SPECIES_SILVALLY, "The final factor needed to release this\nPokémon’s true power was a strong bond\nwith a Trainer it trusts."
     mondexclassification SPECIES_SILVALLY, "Synthetic Pokémon"
     mondexheight SPECIES_SILVALLY, "7’07”"
@@ -18156,7 +17331,6 @@ mondata SPECIES_MINIOR, "Minior"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MINIOR_TM_DATA_0, SPECIES_MINIOR_TM_DATA_1, SPECIES_MINIOR_TM_DATA_2, SPECIES_MINIOR_TM_DATA_3
     mondexentry SPECIES_MINIOR, "Although its outer shell is uncommonly durable,\nthe shock of falling to the ground smashes the\nshell to smithereens."
     mondexclassification SPECIES_MINIOR, "Meteor Pokémon"
     mondexheight SPECIES_MINIOR, "1’00”"
@@ -18178,7 +17352,6 @@ mondata SPECIES_KOMALA, "Komala"
     abilities ABILITY_COMATOSE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_KOMALA_TM_DATA_0, SPECIES_KOMALA_TM_DATA_1, SPECIES_KOMALA_TM_DATA_2, SPECIES_KOMALA_TM_DATA_3
     mondexentry SPECIES_KOMALA, "It remains asleep from birth to death as a result\nof the sedative properties of the leaves that\nform its diet."
     mondexclassification SPECIES_KOMALA, "Drowsing Pokémon"
     mondexheight SPECIES_KOMALA, "1’04”"
@@ -18200,7 +17373,6 @@ mondata SPECIES_TURTONATOR, "Turtonator"
     abilities ABILITY_SHELL_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TURTONATOR_TM_DATA_0, SPECIES_TURTONATOR_TM_DATA_1, SPECIES_TURTONATOR_TM_DATA_2, SPECIES_TURTONATOR_TM_DATA_3
     mondexentry SPECIES_TURTONATOR, "Eating sulfur in its volcanic habitat is what causes\nexplosive compounds to develop in its shell.\nIts droppings are also dangerously explosive."
     mondexclassification SPECIES_TURTONATOR, "Blast Turtle Pokémon"
     mondexheight SPECIES_TURTONATOR, "6’07”"
@@ -18222,7 +17394,6 @@ mondata SPECIES_TOGEDEMARU, "Togedemaru"
     abilities ABILITY_IRON_BARBS, ABILITY_LIGHTNING_ROD
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_TOGEDEMARU_TM_DATA_0, SPECIES_TOGEDEMARU_TM_DATA_1, SPECIES_TOGEDEMARU_TM_DATA_2, SPECIES_TOGEDEMARU_TM_DATA_3
     mondexentry SPECIES_TOGEDEMARU, "When it’s in trouble, it curls up into a ball, makes\nits fur spikes stand on end, and then discharges\nelectricity indiscriminately."
     mondexclassification SPECIES_TOGEDEMARU, "Roly-Poly Pokémon"
     mondexheight SPECIES_TOGEDEMARU, "1’00”"
@@ -18244,7 +17415,6 @@ mondata SPECIES_MIMIKYU, "Mimikyu"
     abilities ABILITY_DISGUISE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MIMIKYU_TM_DATA_0, SPECIES_MIMIKYU_TM_DATA_1, SPECIES_MIMIKYU_TM_DATA_2, SPECIES_MIMIKYU_TM_DATA_3
     mondexentry SPECIES_MIMIKYU, "There was a scientist who peeked under\nMimikyu’s old rag in the name of research.\nThe scientist died of a mysterious disease."
     mondexclassification SPECIES_MIMIKYU, "Disguise Pokémon"
     mondexheight SPECIES_MIMIKYU, "0’08”"
@@ -18266,7 +17436,6 @@ mondata SPECIES_BRUXISH, "Bruxish"
     abilities ABILITY_DAZZLING, ABILITY_STRONG_JAW
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_BRUXISH_TM_DATA_0, SPECIES_BRUXISH_TM_DATA_1, SPECIES_BRUXISH_TM_DATA_2, SPECIES_BRUXISH_TM_DATA_3
     mondexentry SPECIES_BRUXISH, "Its skin is thick enough to fend off Mareanie’s\nspikes. With its robust teeth, Bruxish crunches\nup the spikes and eats them."
     mondexclassification SPECIES_BRUXISH, "Gnash Teeth Pokémon"
     mondexheight SPECIES_BRUXISH, "2’11”"
@@ -18288,7 +17457,6 @@ mondata SPECIES_DRAMPA, "Drampa"
     abilities ABILITY_BERSERK, ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_DRAMPA_TM_DATA_0, SPECIES_DRAMPA_TM_DATA_1, SPECIES_DRAMPA_TM_DATA_2, SPECIES_DRAMPA_TM_DATA_3
     mondexentry SPECIES_DRAMPA, "Drampa is a kind and friendly Pokémon: up until\nit’s angered. When that happens, it stirs up a\ngale and flattens everything around."
     mondexclassification SPECIES_DRAMPA, "Placid Pokémon"
     mondexheight SPECIES_DRAMPA, "9’10”"
@@ -18310,7 +17478,6 @@ mondata SPECIES_DHELMISE, "Dhelmise"
     abilities ABILITY_STEELWORKER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DHELMISE_TM_DATA_0, SPECIES_DHELMISE_TM_DATA_1, SPECIES_DHELMISE_TM_DATA_2, SPECIES_DHELMISE_TM_DATA_3
     mondexentry SPECIES_DHELMISE, "After lowering its anchor, it waits for its prey. It\ncatches large Wailord and drains their life-force."
     mondexclassification SPECIES_DHELMISE, "Sea Creeper Pokémon"
     mondexheight SPECIES_DHELMISE, "12’10”"
@@ -18332,7 +17499,6 @@ mondata SPECIES_JANGMO_O, "Jangmo-o"
     abilities ABILITY_BULLETPROOF, ABILITY_SOUNDPROOF
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_JANGMO_O_TM_DATA_0, SPECIES_JANGMO_O_TM_DATA_1, SPECIES_JANGMO_O_TM_DATA_2, SPECIES_JANGMO_O_TM_DATA_3
     mondexentry SPECIES_JANGMO_O, "Jangmo-o strikes its scales to communicate with\nothers of its kind. Its scales are actually fur that’s\nbecome as hard as metal."
     mondexclassification SPECIES_JANGMO_O, "Scaly Pokémon"
     mondexheight SPECIES_JANGMO_O, "2’00”"
@@ -18354,7 +17520,6 @@ mondata SPECIES_HAKAMO_O, "Hakamo-o"
     abilities ABILITY_BULLETPROOF, ABILITY_SOUNDPROOF
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_HAKAMO_O_TM_DATA_0, SPECIES_HAKAMO_O_TM_DATA_1, SPECIES_HAKAMO_O_TM_DATA_2, SPECIES_HAKAMO_O_TM_DATA_3
     mondexentry SPECIES_HAKAMO_O, "Before attacking its enemies, it clashes its\nscales together and roars. Its sharp claws\nshred the opposition."
     mondexclassification SPECIES_HAKAMO_O, "Scaly Pokémon"
     mondexheight SPECIES_HAKAMO_O, "3’11”"
@@ -18376,7 +17541,6 @@ mondata SPECIES_KOMMO_O, "Kommo-o"
     abilities ABILITY_BULLETPROOF, ABILITY_SOUNDPROOF
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KOMMO_O_TM_DATA_0, SPECIES_KOMMO_O_TM_DATA_1, SPECIES_KOMMO_O_TM_DATA_2, SPECIES_KOMMO_O_TM_DATA_3
     mondexentry SPECIES_KOMMO_O, "Certain ruins have paintings of ancient warriors\nwearing armor made of Kommo-o scales."
     mondexclassification SPECIES_KOMMO_O, "Scaly Pokémon"
     mondexheight SPECIES_KOMMO_O, "5’03”"
@@ -18398,7 +17562,6 @@ mondata SPECIES_TAPU_KOKO, "Tapu Koko"
     abilities ABILITY_ELECTRIC_SURGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_TAPU_KOKO_TM_DATA_0, SPECIES_TAPU_KOKO_TM_DATA_1, SPECIES_TAPU_KOKO_TM_DATA_2, SPECIES_TAPU_KOKO_TM_DATA_3
     mondexentry SPECIES_TAPU_KOKO, "The lightning-wielding guardian deity of\nMelemele, Tapu Koko is brimming with curiosity\nand appears before people from time to time."
     mondexclassification SPECIES_TAPU_KOKO, "Land Spirit Pokémon"
     mondexheight SPECIES_TAPU_KOKO, "5’11”"
@@ -18420,7 +17583,6 @@ mondata SPECIES_TAPU_LELE, "Tapu Lele"
     abilities ABILITY_PSYCHIC_SURGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TAPU_LELE_TM_DATA_0, SPECIES_TAPU_LELE_TM_DATA_1, SPECIES_TAPU_LELE_TM_DATA_2, SPECIES_TAPU_LELE_TM_DATA_3
     mondexentry SPECIES_TAPU_LELE, "Although called a guardian deity, Tapu Lele is\ndevoid of guilt about its cruel disposition and\ncan be described as nature incarnate."
     mondexclassification SPECIES_TAPU_LELE, "Land Spirit Pokémon"
     mondexheight SPECIES_TAPU_LELE, "3’11”"
@@ -18442,7 +17604,6 @@ mondata SPECIES_TAPU_BULU, "Tapu Bulu"
     abilities ABILITY_GRASSY_SURGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TAPU_BULU_TM_DATA_0, SPECIES_TAPU_BULU_TM_DATA_1, SPECIES_TAPU_BULU_TM_DATA_2, SPECIES_TAPU_BULU_TM_DATA_3
     mondexentry SPECIES_TAPU_BULU, "It makes ringing sounds with its tail to let others\nknow where it is, avoiding unneeded conflicts.\nThis guardian deity of Ula’ula controls plants."
     mondexclassification SPECIES_TAPU_BULU, "Land Spirit Pokémon"
     mondexheight SPECIES_TAPU_BULU, "6’03”"
@@ -18464,7 +17625,6 @@ mondata SPECIES_TAPU_FINI, "Tapu Fini"
     abilities ABILITY_MISTY_SURGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_TAPU_FINI_TM_DATA_0, SPECIES_TAPU_FINI_TM_DATA_1, SPECIES_TAPU_FINI_TM_DATA_2, SPECIES_TAPU_FINI_TM_DATA_3
     mondexentry SPECIES_TAPU_FINI, "Although it’s called a guardian deity, terrible\ncalamities sometimes befall those who\nrecklessly approach Tapu Fini."
     mondexclassification SPECIES_TAPU_FINI, "Land Spirit Pokémon"
     mondexheight SPECIES_TAPU_FINI, "4’03”"
@@ -18486,7 +17646,6 @@ mondata SPECIES_COSMOG, "Cosmog"
     abilities ABILITY_UNAWARE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_COSMOG_TM_DATA_0, SPECIES_COSMOG_TM_DATA_1, SPECIES_COSMOG_TM_DATA_2, SPECIES_COSMOG_TM_DATA_3
     mondexentry SPECIES_COSMOG, "Cosmog is very curious but not very cautious,\noften placing itself in danger. If things start to\nlook dicey, it teleports away."
     mondexclassification SPECIES_COSMOG, "Nebula Pokémon"
     mondexheight SPECIES_COSMOG, "0’08”"
@@ -18508,7 +17667,6 @@ mondata SPECIES_COSMOEM, "Cosmoem"
     abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_COSMOEM_TM_DATA_0, SPECIES_COSMOEM_TM_DATA_1, SPECIES_COSMOEM_TM_DATA_2, SPECIES_COSMOEM_TM_DATA_3
     mondexentry SPECIES_COSMOEM, "It sucks in dust from the air at an astounding rate,\nfrantically building up energy within its core as\npreparation for evolution."
     mondexclassification SPECIES_COSMOEM, "Protostar Pokémon"
     mondexheight SPECIES_COSMOEM, "0’04”"
@@ -18530,7 +17688,6 @@ mondata SPECIES_SOLGALEO, "Solgaleo"
     abilities ABILITY_FULL_METAL_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SOLGALEO_TM_DATA_0, SPECIES_SOLGALEO_TM_DATA_1, SPECIES_SOLGALEO_TM_DATA_2, SPECIES_SOLGALEO_TM_DATA_3
     mondexentry SPECIES_SOLGALEO, "Solgaleo was once known as the Beast That\nDevours the Sun. Energy in the form of light\nradiates boundlessly from it."
     mondexclassification SPECIES_SOLGALEO, "Sunne Pokémon"
     mondexheight SPECIES_SOLGALEO, "11’02”"
@@ -18552,7 +17709,6 @@ mondata SPECIES_LUNALA, "Lunala"
     abilities ABILITY_SHADOW_SHIELD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_LUNALA_TM_DATA_0, SPECIES_LUNALA_TM_DATA_1, SPECIES_LUNALA_TM_DATA_2, SPECIES_LUNALA_TM_DATA_3
     mondexentry SPECIES_LUNALA, "It steals the light from its surroundings and then\nbecomes the full moon, showering its own light\nacross the night sky."
     mondexclassification SPECIES_LUNALA, "Moone Pokémon"
     mondexheight SPECIES_LUNALA, "13’01”"
@@ -18574,7 +17730,6 @@ mondata SPECIES_NIHILEGO, "Nihilego"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NIHILEGO_TM_DATA_0, SPECIES_NIHILEGO_TM_DATA_1, SPECIES_NIHILEGO_TM_DATA_2, SPECIES_NIHILEGO_TM_DATA_3
     mondexentry SPECIES_NIHILEGO, "It appeared in this world from an Ultra\nWormhole. Nihilego appears to be a parasite\nthat lives by feeding on people and Pokémon."
     mondexclassification SPECIES_NIHILEGO, "Parasite Pokémon"
     mondexheight SPECIES_NIHILEGO, "3’11”"
@@ -18596,7 +17751,6 @@ mondata SPECIES_BUZZWOLE, "Buzzwole"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_BUZZWOLE_TM_DATA_0, SPECIES_BUZZWOLE_TM_DATA_1, SPECIES_BUZZWOLE_TM_DATA_2, SPECIES_BUZZWOLE_TM_DATA_3
     mondexentry SPECIES_BUZZWOLE, "Buzzwole goes around showing off its\nabnormally swollen muscles. It is one kind\nof Ultra Beast."
     mondexclassification SPECIES_BUZZWOLE, "Swollen Pokémon"
     mondexheight SPECIES_BUZZWOLE, "7’10”"
@@ -18618,7 +17772,6 @@ mondata SPECIES_PHEROMOSA, "Pheromosa"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_PHEROMOSA_TM_DATA_0, SPECIES_PHEROMOSA_TM_DATA_1, SPECIES_PHEROMOSA_TM_DATA_2, SPECIES_PHEROMOSA_TM_DATA_3
     mondexentry SPECIES_PHEROMOSA, "Although it’s alien to this world and a danger\nhere, it’s apparently a common organism in the\nworld where it normally lives."
     mondexclassification SPECIES_PHEROMOSA, "Lissome Pokémon"
     mondexheight SPECIES_PHEROMOSA, "5’11”"
@@ -18640,7 +17793,6 @@ mondata SPECIES_XURKITREE, "Xurkitree"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_XURKITREE_TM_DATA_0, SPECIES_XURKITREE_TM_DATA_1, SPECIES_XURKITREE_TM_DATA_2, SPECIES_XURKITREE_TM_DATA_3
     mondexentry SPECIES_XURKITREE, "They’ve been dubbed Ultra Beasts. Some of\nthem stand unmoving, like trees, with their\narms and legs stuck into the ground."
     mondexclassification SPECIES_XURKITREE, "Glowing Pokémon"
     mondexheight SPECIES_XURKITREE, "12’06”"
@@ -18662,7 +17814,6 @@ mondata SPECIES_CELESTEELA, "Celesteela"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CELESTEELA_TM_DATA_0, SPECIES_CELESTEELA_TM_DATA_1, SPECIES_CELESTEELA_TM_DATA_2, SPECIES_CELESTEELA_TM_DATA_3
     mondexentry SPECIES_CELESTEELA, "Although it’s alien to this world and a danger\nhere, it’s apparently a common organism in the\nworld where it normally lives."
     mondexclassification SPECIES_CELESTEELA, "Launch Pokémon"
     mondexheight SPECIES_CELESTEELA, "30’02”"
@@ -18684,7 +17835,6 @@ mondata SPECIES_KARTANA, "Kartana"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_KARTANA_TM_DATA_0, SPECIES_KARTANA_TM_DATA_1, SPECIES_KARTANA_TM_DATA_2, SPECIES_KARTANA_TM_DATA_3
     mondexentry SPECIES_KARTANA, "Although it’s alien to this world and a danger\nhere, it’s apparently a common organism in the\nworld where it normally lives."
     mondexclassification SPECIES_KARTANA, "Drawn Sword Pokémon"
     mondexheight SPECIES_KARTANA, "1’00”"
@@ -18706,7 +17856,6 @@ mondata SPECIES_GUZZLORD, "Guzzlord"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_GUZZLORD_TM_DATA_0, SPECIES_GUZZLORD_TM_DATA_1, SPECIES_GUZZLORD_TM_DATA_2, SPECIES_GUZZLORD_TM_DATA_3
     mondexentry SPECIES_GUZZLORD, "An unknown life-form called a UB. It may be\nconstantly hungry: it is certainly always\ndevouring something."
     mondexclassification SPECIES_GUZZLORD, "Junkivore Pokémon"
     mondexheight SPECIES_GUZZLORD, "18’01”"
@@ -18728,7 +17877,6 @@ mondata SPECIES_NECROZMA, "Necrozma"
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_NECROZMA_TM_DATA_0, SPECIES_NECROZMA_TM_DATA_1, SPECIES_NECROZMA_TM_DATA_2, SPECIES_NECROZMA_TM_DATA_3
     mondexentry SPECIES_NECROZMA, "It needs light to survive, and it goes on a\nrampage seeking it out. Its laser beams will\ncut anything to pieces."
     mondexclassification SPECIES_NECROZMA, "Prism Pokémon"
     mondexheight SPECIES_NECROZMA, "7’10”"
@@ -18750,7 +17898,6 @@ mondata SPECIES_MAGEARNA, "Magearna"
     abilities ABILITY_SOUL_HEART, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MAGEARNA_TM_DATA_0, SPECIES_MAGEARNA_TM_DATA_1, SPECIES_MAGEARNA_TM_DATA_2, SPECIES_MAGEARNA_TM_DATA_3
     mondexentry SPECIES_MAGEARNA, "Built roughly 500 years ago by a scientist,\nthe part called the Soul-Heart is the\nactual life-form."
     mondexclassification SPECIES_MAGEARNA, "Artificial Pokémon"
     mondexheight SPECIES_MAGEARNA, "3’03”"
@@ -18772,7 +17919,6 @@ mondata SPECIES_MARSHADOW, "Marshadow"
     abilities ABILITY_TECHNICIAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MARSHADOW_TM_DATA_0, SPECIES_MARSHADOW_TM_DATA_1, SPECIES_MARSHADOW_TM_DATA_2, SPECIES_MARSHADOW_TM_DATA_3
     mondexentry SPECIES_MARSHADOW, "This Pokémon can conceal itself in any shadow,\nso it went undiscovered for a long time."
     mondexclassification SPECIES_MARSHADOW, "Gloomdweller Pokémon"
     mondexheight SPECIES_MARSHADOW, "2’04”"
@@ -18794,7 +17940,6 @@ mondata SPECIES_POIPOLE, "Poipole"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_POIPOLE_TM_DATA_0, SPECIES_POIPOLE_TM_DATA_1, SPECIES_POIPOLE_TM_DATA_2, SPECIES_POIPOLE_TM_DATA_3
     mondexentry SPECIES_POIPOLE, "An Ultra Beast that lives in a different world, it\ncackles wildly as it sprays its opponents with\npoison from the needles on its head."
     mondexclassification SPECIES_POIPOLE, "Poison Pin Pokémon"
     mondexheight SPECIES_POIPOLE, "2’00”"
@@ -18816,7 +17961,6 @@ mondata SPECIES_NAGANADEL, "Naganadel"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NAGANADEL_TM_DATA_0, SPECIES_NAGANADEL_TM_DATA_1, SPECIES_NAGANADEL_TM_DATA_2, SPECIES_NAGANADEL_TM_DATA_3
     mondexentry SPECIES_NAGANADEL, "One kind of Ultra Beast, it fires a glowing,\nvenomous liquid from its needles. This liquid\nis also immensely adhesive."
     mondexclassification SPECIES_NAGANADEL, "Poison Pin Pokémon"
     mondexheight SPECIES_NAGANADEL, "11’10”"
@@ -18838,7 +17982,6 @@ mondata SPECIES_STAKATAKA, "Stakataka"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_STAKATAKA_TM_DATA_0, SPECIES_STAKATAKA_TM_DATA_1, SPECIES_STAKATAKA_TM_DATA_2, SPECIES_STAKATAKA_TM_DATA_3
     mondexentry SPECIES_STAKATAKA, "When stone walls started moving and attacking,\nthe brute’s true identity was this mysterious\nlife-form, which brings to mind an Ultra Beast."
     mondexclassification SPECIES_STAKATAKA, "Rampart Pokémon"
     mondexheight SPECIES_STAKATAKA, "18’01”"
@@ -18860,7 +18003,6 @@ mondata SPECIES_BLACEPHALON, "Blacefalon"
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_BLACEPHALON_TM_DATA_0, SPECIES_BLACEPHALON_TM_DATA_1, SPECIES_BLACEPHALON_TM_DATA_2, SPECIES_BLACEPHALON_TM_DATA_3
     mondexentry SPECIES_BLACEPHALON, "A UB that appeared from an Ultra Wormhole, it\ncauses explosions, then takes advantage of\nopponents’ surprise to rob them of their vitality."
     mondexclassification SPECIES_BLACEPHALON, "Fireworks Pokémon"
     mondexheight SPECIES_BLACEPHALON, "5’11”"
@@ -18882,7 +18024,6 @@ mondata SPECIES_ZERAORA, "Zeraora"
     abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ZERAORA_TM_DATA_0, SPECIES_ZERAORA_TM_DATA_1, SPECIES_ZERAORA_TM_DATA_2, SPECIES_ZERAORA_TM_DATA_3
     mondexentry SPECIES_ZERAORA, "Electricity sparks from the pads on its limbs.\nWherever Zeraora runs, lightning flashes and\nthunder echoes."
     mondexclassification SPECIES_ZERAORA, "Thunderclap Pokémon"
     mondexheight SPECIES_ZERAORA, "4’11”"
@@ -18904,7 +18045,6 @@ mondata SPECIES_MELTAN, "Meltan"
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MELTAN_TM_DATA_0, SPECIES_MELTAN_TM_DATA_1, SPECIES_MELTAN_TM_DATA_2, SPECIES_MELTAN_TM_DATA_3
     mondexentry SPECIES_MELTAN, "They live as a group, but when the time comes,\none strong Meltan will absorb all the others\nand evolve."
     mondexclassification SPECIES_MELTAN, "Hex Nut Pokémon"
     mondexheight SPECIES_MELTAN, "0’08”"
@@ -18926,7 +18066,6 @@ mondata SPECIES_MELMETAL, "Melmetal"
     abilities ABILITY_IRON_FIST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MELMETAL_TM_DATA_0, SPECIES_MELMETAL_TM_DATA_1, SPECIES_MELMETAL_TM_DATA_2, SPECIES_MELMETAL_TM_DATA_3
     mondexentry SPECIES_MELMETAL, "Centrifugal force is behind the punches of\nMelmetal’s heavy hex-nut arms. Melmetal is said\nto deliver the strongest punches of all Pokémon."
     mondexclassification SPECIES_MELMETAL, "Hex Nut Pokémon"
     mondexheight SPECIES_MELMETAL, "8’02”"
@@ -18948,7 +18087,6 @@ mondata SPECIES_GROOKEY, "Grookey"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GROOKEY_TM_DATA_0, SPECIES_GROOKEY_TM_DATA_1, SPECIES_GROOKEY_TM_DATA_2, SPECIES_GROOKEY_TM_DATA_3
     mondexentry SPECIES_GROOKEY, "It attacks with rapid beats of its stick.\nAs it strikes with amazing speed, it gets\nmore and more pumped."
     mondexclassification SPECIES_GROOKEY, "Chimp Pokémon"
     mondexheight SPECIES_GROOKEY, "1’00”"
@@ -18970,7 +18108,6 @@ mondata SPECIES_THWACKEY, "Thwackey"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_THWACKEY_TM_DATA_0, SPECIES_THWACKEY_TM_DATA_1, SPECIES_THWACKEY_TM_DATA_2, SPECIES_THWACKEY_TM_DATA_3
     mondexentry SPECIES_THWACKEY, "When it’s drumming out rapid beats in battle, it\ngets so caught up in the rhythm that it won’t even\nnotice that it’s already knocked out its opponent."
     mondexclassification SPECIES_THWACKEY, "Beat Pokémon"
     mondexheight SPECIES_THWACKEY, "2’04”"
@@ -18992,7 +18129,6 @@ mondata SPECIES_RILLABOOM, "Rillaboom"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_RILLABOOM_TM_DATA_0, SPECIES_RILLABOOM_TM_DATA_1, SPECIES_RILLABOOM_TM_DATA_2, SPECIES_RILLABOOM_TM_DATA_3
     mondexentry SPECIES_RILLABOOM, "The one with the best drumming techniques\nbecomes the boss of the troop. It has a gentle\ndisposition and values harmony among its group."
     mondexclassification SPECIES_RILLABOOM, "Drummer Pokémon"
     mondexheight SPECIES_RILLABOOM, "6’11”"
@@ -19014,7 +18150,6 @@ mondata SPECIES_SCORBUNNY, "Scorbunny"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SCORBUNNY_TM_DATA_0, SPECIES_SCORBUNNY_TM_DATA_1, SPECIES_SCORBUNNY_TM_DATA_2, SPECIES_SCORBUNNY_TM_DATA_3
     mondexentry SPECIES_SCORBUNNY, "It has special pads on the backs of its feet, and\none on its nose. Once it’s raring to fight, these\npads radiate tremendous heat."
     mondexclassification SPECIES_SCORBUNNY, "Rabbit Pokémon"
     mondexheight SPECIES_SCORBUNNY, "1’00”"
@@ -19036,7 +18171,6 @@ mondata SPECIES_RABOOT, "Raboot"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_RABOOT_TM_DATA_0, SPECIES_RABOOT_TM_DATA_1, SPECIES_RABOOT_TM_DATA_2, SPECIES_RABOOT_TM_DATA_3
     mondexentry SPECIES_RABOOT, "It kicks berries right off the branches of trees\nand then juggles them with its feet, practicing\nits footwork."
     mondexclassification SPECIES_RABOOT, "Rabbit Pokémon"
     mondexheight SPECIES_RABOOT, "2’00”"
@@ -19058,7 +18192,6 @@ mondata SPECIES_CINDERACE, "Cinderace"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CINDERACE_TM_DATA_0, SPECIES_CINDERACE_TM_DATA_1, SPECIES_CINDERACE_TM_DATA_2, SPECIES_CINDERACE_TM_DATA_3
     mondexentry SPECIES_CINDERACE, "It’s skilled at both offense and defense, and it\ngets pumped up when cheered on. But if it starts\nshowboating, it could put itself in a tough spot."
     mondexclassification SPECIES_CINDERACE, "Striker Pokémon"
     mondexheight SPECIES_CINDERACE, "4’07”"
@@ -19080,7 +18213,6 @@ mondata SPECIES_SOBBLE, "Sobble"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_SOBBLE_TM_DATA_0, SPECIES_SOBBLE_TM_DATA_1, SPECIES_SOBBLE_TM_DATA_2, SPECIES_SOBBLE_TM_DATA_3
     mondexentry SPECIES_SOBBLE, "When it gets wet, its skin changes color,\nand this Pokémon becomes invisible as if\nit were camouflaged."
     mondexclassification SPECIES_SOBBLE, "Water Lizard Pokémon"
     mondexheight SPECIES_SOBBLE, "1’00”"
@@ -19102,7 +18234,6 @@ mondata SPECIES_DRIZZILE, "Drizzile"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DRIZZILE_TM_DATA_0, SPECIES_DRIZZILE_TM_DATA_1, SPECIES_DRIZZILE_TM_DATA_2, SPECIES_DRIZZILE_TM_DATA_3
     mondexentry SPECIES_DRIZZILE, "Highly intelligent but also very lazy,\nit keeps enemies out of its territory\nby laying traps everywhere."
     mondexclassification SPECIES_DRIZZILE, "Water Lizard Pokémon"
     mondexheight SPECIES_DRIZZILE, "2’04”"
@@ -19124,7 +18255,6 @@ mondata SPECIES_INTELEON, "Inteleon"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_INTELEON_TM_DATA_0, SPECIES_INTELEON_TM_DATA_1, SPECIES_INTELEON_TM_DATA_2, SPECIES_INTELEON_TM_DATA_3
     mondexentry SPECIES_INTELEON, "Its nictitating membranes let it pick out foes’\nweak points so it can precisely blast them with\nwater that shoots from its fingertips at Mach 3."
     mondexclassification SPECIES_INTELEON, "Secret Agent Pokémon"
     mondexheight SPECIES_INTELEON, "6’03”"
@@ -19146,7 +18276,6 @@ mondata SPECIES_SKWOVET, "Skwovet"
     abilities ABILITY_CHEEK_POUCH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_SKWOVET_TM_DATA_0, SPECIES_SKWOVET_TM_DATA_1, SPECIES_SKWOVET_TM_DATA_2, SPECIES_SKWOVET_TM_DATA_3
     mondexentry SPECIES_SKWOVET, "It eats berries nonstop: a habit that has made\nit more resilient than it looks. It’ll show up on\nfarms, searching for yet more berries."
     mondexclassification SPECIES_SKWOVET, "Cheeky Pokémon"
     mondexheight SPECIES_SKWOVET, "1’00”"
@@ -19168,7 +18297,6 @@ mondata SPECIES_GREEDENT, "Greedent"
     abilities ABILITY_CHEEK_POUCH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GREEDENT_TM_DATA_0, SPECIES_GREEDENT_TM_DATA_1, SPECIES_GREEDENT_TM_DATA_2, SPECIES_GREEDENT_TM_DATA_3
     mondexentry SPECIES_GREEDENT, "Common throughout the Galar region, this\nPokémon has strong teeth and can chew\nthrough the toughest of berry shells."
     mondexclassification SPECIES_GREEDENT, "Greedy Pokémon"
     mondexheight SPECIES_GREEDENT, "2’00”"
@@ -19190,7 +18318,6 @@ mondata SPECIES_ROOKIDEE, "Rookidee"
     abilities ABILITY_KEEN_EYE, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ROOKIDEE_TM_DATA_0, SPECIES_ROOKIDEE_TM_DATA_1, SPECIES_ROOKIDEE_TM_DATA_2, SPECIES_ROOKIDEE_TM_DATA_3
     mondexentry SPECIES_ROOKIDEE, "Jumping nimbly about, this small-bodied\nPokémon takes advantage of even the slightest\nopportunity to disorient larger opponents."
     mondexclassification SPECIES_ROOKIDEE, "Tiny Bird Pokémon"
     mondexheight SPECIES_ROOKIDEE, "0’08”"
@@ -19212,7 +18339,6 @@ mondata SPECIES_CORVISQUIRE, "Corvisquire"
     abilities ABILITY_KEEN_EYE, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CORVISQUIRE_TM_DATA_0, SPECIES_CORVISQUIRE_TM_DATA_1, SPECIES_CORVISQUIRE_TM_DATA_2, SPECIES_CORVISQUIRE_TM_DATA_3
     mondexentry SPECIES_CORVISQUIRE, "The lessons of many harsh battles have taught it\nhow to accurately judge an opponent’s strength."
     mondexclassification SPECIES_CORVISQUIRE, "Raven Pokémon"
     mondexheight SPECIES_CORVISQUIRE, "2’07”"
@@ -19234,7 +18360,6 @@ mondata SPECIES_CORVIKNIGHT, "Corviknite"
     abilities ABILITY_PRESSURE, ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_CORVIKNIGHT_TM_DATA_0, SPECIES_CORVIKNIGHT_TM_DATA_1, SPECIES_CORVIKNIGHT_TM_DATA_2, SPECIES_CORVIKNIGHT_TM_DATA_3
     mondexentry SPECIES_CORVIKNIGHT, "With their great intellect and flying skills, these\nPokémon very successfully act as the Galar\nregion’s airborne taxi service."
     mondexclassification SPECIES_CORVIKNIGHT, "Raven Pokémon"
     mondexheight SPECIES_CORVIKNIGHT, "7’03”"
@@ -19256,7 +18381,6 @@ mondata SPECIES_BLIPBUG, "Blipbug"
     abilities ABILITY_SWARM, ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_BLIPBUG_TM_DATA_0, SPECIES_BLIPBUG_TM_DATA_1, SPECIES_BLIPBUG_TM_DATA_2, SPECIES_BLIPBUG_TM_DATA_3
     mondexentry SPECIES_BLIPBUG, "Often found in gardens, this Pokémon has hairs\non its body that it uses to assess its surroundings."
     mondexclassification SPECIES_BLIPBUG, "Larva Pokémon"
     mondexheight SPECIES_BLIPBUG, "1’04”"
@@ -19278,7 +18402,6 @@ mondata SPECIES_DOTTLER, "Dottler"
     abilities ABILITY_SWARM, ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_DOTTLER_TM_DATA_0, SPECIES_DOTTLER_TM_DATA_1, SPECIES_DOTTLER_TM_DATA_2, SPECIES_DOTTLER_TM_DATA_3
     mondexentry SPECIES_DOTTLER, "As it grows inside its shell, it uses its psychic\nabilities to monitor the outside world and\nprepare for evolution."
     mondexclassification SPECIES_DOTTLER, "Radome Pokémon"
     mondexheight SPECIES_DOTTLER, "1’04”"
@@ -19300,7 +18423,6 @@ mondata SPECIES_ORBEETLE, "Orbeetle"
     abilities ABILITY_SWARM, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ORBEETLE_TM_DATA_0, SPECIES_ORBEETLE_TM_DATA_1, SPECIES_ORBEETLE_TM_DATA_2, SPECIES_ORBEETLE_TM_DATA_3
     mondexentry SPECIES_ORBEETLE, "It emits psychic energy to observe and study\nwhat’s around it: and what’s around it can\ninclude things over six miles away."
     mondexclassification SPECIES_ORBEETLE, "Seven Spot Pokémon"
     mondexheight SPECIES_ORBEETLE, "1’04”"
@@ -19322,7 +18444,6 @@ mondata SPECIES_NICKIT, "Nickit"
     abilities ABILITY_RUN_AWAY, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NICKIT_TM_DATA_0, SPECIES_NICKIT_TM_DATA_1, SPECIES_NICKIT_TM_DATA_2, SPECIES_NICKIT_TM_DATA_3
     mondexentry SPECIES_NICKIT, "Cunning and cautious, this Pokémon survives by\nstealing food from others. It erases its tracks with\nswipes of its tail as it makes off with its plunder."
     mondexclassification SPECIES_NICKIT, "Fox Pokémon"
     mondexheight SPECIES_NICKIT, "2’00”"
@@ -19344,7 +18465,6 @@ mondata SPECIES_THIEVUL, "Thievul"
     abilities ABILITY_RUN_AWAY, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_THIEVUL_TM_DATA_0, SPECIES_THIEVUL_TM_DATA_1, SPECIES_THIEVUL_TM_DATA_2, SPECIES_THIEVUL_TM_DATA_3
     mondexentry SPECIES_THIEVUL, "With a lithe body and sharp claws, it goes\naround stealing food and eggs. Boltund\nis its natural enemy."
     mondexclassification SPECIES_THIEVUL, "Fox Pokémon"
     mondexheight SPECIES_THIEVUL, "3’11”"
@@ -19366,7 +18486,6 @@ mondata SPECIES_GOSSIFLEUR, "Gossifleur"
     abilities ABILITY_COTTON_DOWN, ABILITY_REGENERATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_GOSSIFLEUR_TM_DATA_0, SPECIES_GOSSIFLEUR_TM_DATA_1, SPECIES_GOSSIFLEUR_TM_DATA_2, SPECIES_GOSSIFLEUR_TM_DATA_3
     mondexentry SPECIES_GOSSIFLEUR, "It whirls around in the wind while singing a joyous\nsong. This delightful display has charmed many\ninto raising this Pokémon."
     mondexclassification SPECIES_GOSSIFLEUR, "Flowering Pokémon"
     mondexheight SPECIES_GOSSIFLEUR, "1’04”"
@@ -19388,7 +18507,6 @@ mondata SPECIES_ELDEGOSS, "Eldegoss"
     abilities ABILITY_COTTON_DOWN, ABILITY_REGENERATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ELDEGOSS_TM_DATA_0, SPECIES_ELDEGOSS_TM_DATA_1, SPECIES_ELDEGOSS_TM_DATA_2, SPECIES_ELDEGOSS_TM_DATA_3
     mondexentry SPECIES_ELDEGOSS, "The cotton on the head of this Pokémon can be\nspun into a glossy, gorgeous yarn: a Galar\nregional specialty."
     mondexclassification SPECIES_ELDEGOSS, "Cotton Bloom Pokémon"
     mondexheight SPECIES_ELDEGOSS, "1’08”"
@@ -19410,7 +18528,6 @@ mondata SPECIES_WOOLOO, "Wooloo"
     abilities ABILITY_FLUFFY, ABILITY_RUN_AWAY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_WOOLOO_TM_DATA_0, SPECIES_WOOLOO_TM_DATA_1, SPECIES_WOOLOO_TM_DATA_2, SPECIES_WOOLOO_TM_DATA_3
     mondexentry SPECIES_WOOLOO, "If its fleece grows too long, Wooloo won’t be\nable to move. Cloth made with the wool of this\nPokémon is surprisingly strong."
     mondexclassification SPECIES_WOOLOO, "Sheep Pokémon"
     mondexheight SPECIES_WOOLOO, "2’00”"
@@ -19432,7 +18549,6 @@ mondata SPECIES_DUBWOOL, "Dubwool"
     abilities ABILITY_FLUFFY, ABILITY_STEADFAST
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_DUBWOOL_TM_DATA_0, SPECIES_DUBWOOL_TM_DATA_1, SPECIES_DUBWOOL_TM_DATA_2, SPECIES_DUBWOOL_TM_DATA_3
     mondexentry SPECIES_DUBWOOL, "Its majestic horns are meant only to impress the\nopposite gender. They never see use in battle."
     mondexclassification SPECIES_DUBWOOL, "Sheep Pokémon"
     mondexheight SPECIES_DUBWOOL, "4’03”"
@@ -19454,7 +18570,6 @@ mondata SPECIES_CHEWTLE, "Chewtle"
     abilities ABILITY_STRONG_JAW, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CHEWTLE_TM_DATA_0, SPECIES_CHEWTLE_TM_DATA_1, SPECIES_CHEWTLE_TM_DATA_2, SPECIES_CHEWTLE_TM_DATA_3
     mondexentry SPECIES_CHEWTLE, "It starts off battles by attacking with its rock-hard\nhorn, but as soon as the opponent flinches, this\nPokémon bites down and never lets go."
     mondexclassification SPECIES_CHEWTLE, "Snapping Pokémon"
     mondexheight SPECIES_CHEWTLE, "1’00”"
@@ -19476,7 +18591,6 @@ mondata SPECIES_DREDNAW, "Drednaw"
     abilities ABILITY_STRONG_JAW, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DREDNAW_TM_DATA_0, SPECIES_DREDNAW_TM_DATA_1, SPECIES_DREDNAW_TM_DATA_2, SPECIES_DREDNAW_TM_DATA_3
     mondexentry SPECIES_DREDNAW, "This Pokémon rapidly extends its retractable neck\nto sink its sharp fangs into distant enemies and\ntake them down."
     mondexclassification SPECIES_DREDNAW, "Bite Pokémon"
     mondexheight SPECIES_DREDNAW, "3’03”"
@@ -19498,7 +18612,6 @@ mondata SPECIES_YAMPER, "Yamper"
     abilities ABILITY_BALL_FETCH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_YAMPER_TM_DATA_0, SPECIES_YAMPER_TM_DATA_1, SPECIES_YAMPER_TM_DATA_2, SPECIES_YAMPER_TM_DATA_3
     mondexentry SPECIES_YAMPER, "This gluttonous Pokémon only assists people with\ntheir work because it wants treats. As it runs,\nit crackles with electricity."
     mondexclassification SPECIES_YAMPER, "Puppy Pokémon"
     mondexheight SPECIES_YAMPER, "1’00”"
@@ -19520,7 +18633,6 @@ mondata SPECIES_BOLTUND, "Boltund"
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_BOLTUND_TM_DATA_0, SPECIES_BOLTUND_TM_DATA_1, SPECIES_BOLTUND_TM_DATA_2, SPECIES_BOLTUND_TM_DATA_3
     mondexentry SPECIES_BOLTUND, "It sends electricity through its legs to boost their\nstrength. Running at top speed, it easily breaks\n50 mph."
     mondexclassification SPECIES_BOLTUND, "Dog Pokémon"
     mondexheight SPECIES_BOLTUND, "3’03”"
@@ -19542,7 +18654,6 @@ mondata SPECIES_ROLYCOLY, "Rolycoly"
     abilities ABILITY_STEAM_ENGINE, ABILITY_HEATPROOF
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_ROLYCOLY_TM_DATA_0, SPECIES_ROLYCOLY_TM_DATA_1, SPECIES_ROLYCOLY_TM_DATA_2, SPECIES_ROLYCOLY_TM_DATA_3
     mondexentry SPECIES_ROLYCOLY, "It can race around like a unicycle, even on rough,\nrocky terrain. Burning coal sustains it."
     mondexclassification SPECIES_ROLYCOLY, "Coal Pokémon"
     mondexheight SPECIES_ROLYCOLY, "1’00”"
@@ -19564,7 +18675,6 @@ mondata SPECIES_CARKOL, "Carkol"
     abilities ABILITY_STEAM_ENGINE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_CARKOL_TM_DATA_0, SPECIES_CARKOL_TM_DATA_1, SPECIES_CARKOL_TM_DATA_2, SPECIES_CARKOL_TM_DATA_3
     mondexentry SPECIES_CARKOL, "By rapidly rolling its legs, it can travel at over\n18 mph. The temperature of the flames it\nbreathes exceeds 1,800 degrees Fahrenheit."
     mondexclassification SPECIES_CARKOL, "Coal Pokémon"
     mondexheight SPECIES_CARKOL, "3’07”"
@@ -19586,7 +18696,6 @@ mondata SPECIES_COALOSSAL, "Coalossal"
     abilities ABILITY_STEAM_ENGINE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_COALOSSAL_TM_DATA_0, SPECIES_COALOSSAL_TM_DATA_1, SPECIES_COALOSSAL_TM_DATA_2, SPECIES_COALOSSAL_TM_DATA_3
     mondexentry SPECIES_COALOSSAL, "While it’s engaged in battle, its mountain of coal\nwill burn bright red, sending off sparks that\nscorch the surrounding area."
     mondexclassification SPECIES_COALOSSAL, "Coal Pokémon"
     mondexheight SPECIES_COALOSSAL, "9’02”"
@@ -19608,7 +18717,6 @@ mondata SPECIES_APPLIN, "Applin"
     abilities ABILITY_RIPEN, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_APPLIN_TM_DATA_0, SPECIES_APPLIN_TM_DATA_1, SPECIES_APPLIN_TM_DATA_2, SPECIES_APPLIN_TM_DATA_3
     mondexentry SPECIES_APPLIN, "As soon as it’s born, it burrows into an apple. Not\nonly does the apple serve as its food source, but\nthe flavor of the fruit determines its evolution."
     mondexclassification SPECIES_APPLIN, "Apple Core Pokémon"
     mondexheight SPECIES_APPLIN, "0’08”"
@@ -19630,7 +18738,6 @@ mondata SPECIES_FLAPPLE, "Flapple"
     abilities ABILITY_RIPEN, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_FLAPPLE_TM_DATA_0, SPECIES_FLAPPLE_TM_DATA_1, SPECIES_FLAPPLE_TM_DATA_2, SPECIES_FLAPPLE_TM_DATA_3
     mondexentry SPECIES_FLAPPLE, "It flies on wings of apple skin and spits a\npowerful acid. It can also change its shape\ninto that of an apple."
     mondexclassification SPECIES_FLAPPLE, "Apple Wing Pokémon"
     mondexheight SPECIES_FLAPPLE, "1’00”"
@@ -19652,7 +18759,6 @@ mondata SPECIES_APPLETUN, "Appletun"
     abilities ABILITY_RIPEN, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_APPLETUN_TM_DATA_0, SPECIES_APPLETUN_TM_DATA_1, SPECIES_APPLETUN_TM_DATA_2, SPECIES_APPLETUN_TM_DATA_3
     mondexentry SPECIES_APPLETUN, "Its body is covered in sweet nectar, and the\nskin on its back is especially yummy. Children\nused to have it as a snack."
     mondexclassification SPECIES_APPLETUN, "Apple Nectar Pokémon"
     mondexheight SPECIES_APPLETUN, "1’04”"
@@ -19674,7 +18780,6 @@ mondata SPECIES_SILICOBRA, "Silicobra"
     abilities ABILITY_SAND_SPIT, ABILITY_SHED_SKIN
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SILICOBRA_TM_DATA_0, SPECIES_SILICOBRA_TM_DATA_1, SPECIES_SILICOBRA_TM_DATA_2, SPECIES_SILICOBRA_TM_DATA_3
     mondexentry SPECIES_SILICOBRA, "It spews sand from its nostrils. While the enemy\nis blinded, it burrows into the ground to hide."
     mondexclassification SPECIES_SILICOBRA, "Sand Snake Pokémon"
     mondexheight SPECIES_SILICOBRA, "7’03”"
@@ -19696,7 +18801,6 @@ mondata SPECIES_SANDACONDA, "Sandaconda"
     abilities ABILITY_SAND_SPIT, ABILITY_SHED_SKIN
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SANDACONDA_TM_DATA_0, SPECIES_SANDACONDA_TM_DATA_1, SPECIES_SANDACONDA_TM_DATA_2, SPECIES_SANDACONDA_TM_DATA_3
     mondexentry SPECIES_SANDACONDA, "Its unique style of coiling allows it to blast sand\nout of its sand sac more efficiently."
     mondexclassification SPECIES_SANDACONDA, "Sand Snake Pokémon"
     mondexheight SPECIES_SANDACONDA, "12’06”"
@@ -19718,7 +18822,6 @@ mondata SPECIES_CRAMORANT, "Cramorant"
     abilities ABILITY_GULP_MISSILE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CRAMORANT_TM_DATA_0, SPECIES_CRAMORANT_TM_DATA_1, SPECIES_CRAMORANT_TM_DATA_2, SPECIES_CRAMORANT_TM_DATA_3
     mondexentry SPECIES_CRAMORANT, "This hungry Pokémon swallows Arrokuda whole.\nOccasionally, it makes a mistake and tries to\nswallow a Pokémon other than its preferred prey."
     mondexclassification SPECIES_CRAMORANT, "Gulp Pokémon"
     mondexheight SPECIES_CRAMORANT, "2’07”"
@@ -19740,7 +18843,6 @@ mondata SPECIES_ARROKUDA, "Arrokuda"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_ARROKUDA_TM_DATA_0, SPECIES_ARROKUDA_TM_DATA_1, SPECIES_ARROKUDA_TM_DATA_2, SPECIES_ARROKUDA_TM_DATA_3
     mondexentry SPECIES_ARROKUDA, "After it’s eaten its fill, its movements become\nextremely sluggish. That’s when Cramorant\nswallows it up."
     mondexclassification SPECIES_ARROKUDA, "Rush Pokémon"
     mondexheight SPECIES_ARROKUDA, "1’08”"
@@ -19762,7 +18864,6 @@ mondata SPECIES_BARRASKEWDA, "Baraskewda"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BARRASKEWDA_TM_DATA_0, SPECIES_BARRASKEWDA_TM_DATA_1, SPECIES_BARRASKEWDA_TM_DATA_2, SPECIES_BARRASKEWDA_TM_DATA_3
     mondexentry SPECIES_BARRASKEWDA, "It spins its tail fins to propel itself, surging\nforward at speeds of over 100 knots before\nramming prey and spearing into them."
     mondexclassification SPECIES_BARRASKEWDA, "Skewer Pokémon"
     mondexheight SPECIES_BARRASKEWDA, "4’03”"
@@ -19784,7 +18885,6 @@ mondata SPECIES_TOXEL, "Toxel"
     abilities ABILITY_RATTLED, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_TOXEL_TM_DATA_0, SPECIES_TOXEL_TM_DATA_1, SPECIES_TOXEL_TM_DATA_2, SPECIES_TOXEL_TM_DATA_3
     mondexentry SPECIES_TOXEL, "It manipulates the chemical makeup of its poison\nto produce electricity. The voltage is weak, but it\ncan cause a tingling paralysis."
     mondexclassification SPECIES_TOXEL, "Baby Pokémon"
     mondexheight SPECIES_TOXEL, "1’04”"
@@ -19806,7 +18906,6 @@ mondata SPECIES_TOXTRICITY, "Toxtricity"
     abilities ABILITY_PUNK_ROCK, ABILITY_PLUS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_TOXTRICITY_TM_DATA_0, SPECIES_TOXTRICITY_TM_DATA_1, SPECIES_TOXTRICITY_TM_DATA_2, SPECIES_TOXTRICITY_TM_DATA_3
     mondexentry SPECIES_TOXTRICITY, "This short-tempered and aggressive Pokémon\nchugs stagnant water to absorb any toxins it\nmight contain."
     mondexclassification SPECIES_TOXTRICITY, "Punk Pokémon"
     mondexheight SPECIES_TOXTRICITY, "5’03”"
@@ -19828,7 +18927,6 @@ mondata SPECIES_SIZZLIPEDE, "Sizzlipede"
     abilities ABILITY_FLASH_FIRE, ABILITY_WHITE_SMOKE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SIZZLIPEDE_TM_DATA_0, SPECIES_SIZZLIPEDE_TM_DATA_1, SPECIES_SIZZLIPEDE_TM_DATA_2, SPECIES_SIZZLIPEDE_TM_DATA_3
     mondexentry SPECIES_SIZZLIPEDE, "It wraps prey up with its heated body, cooking\nthem in its coils. Once they’re well-done, it will\nvoraciously nibble them down to the last morsel."
     mondexclassification SPECIES_SIZZLIPEDE, "Radiator Pokémon"
     mondexheight SPECIES_SIZZLIPEDE, "2’04”"
@@ -19850,7 +18948,6 @@ mondata SPECIES_CENTISKORCH, "Centskorch"
     abilities ABILITY_FLASH_FIRE, ABILITY_WHITE_SMOKE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CENTISKORCH_TM_DATA_0, SPECIES_CENTISKORCH_TM_DATA_1, SPECIES_CENTISKORCH_TM_DATA_2, SPECIES_CENTISKORCH_TM_DATA_3
     mondexentry SPECIES_CENTISKORCH, "While its burning body is already dangerous on\nits own, this excessively hostile Pokémon also has\nlarge and very sharp fangs."
     mondexclassification SPECIES_CENTISKORCH, "Radiator Pokémon"
     mondexheight SPECIES_CENTISKORCH, "9’10”"
@@ -19872,7 +18969,6 @@ mondata SPECIES_CLOBBOPUS, "Clobbopus"
     abilities ABILITY_LIMBER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_CLOBBOPUS_TM_DATA_0, SPECIES_CLOBBOPUS_TM_DATA_1, SPECIES_CLOBBOPUS_TM_DATA_2, SPECIES_CLOBBOPUS_TM_DATA_3
     mondexentry SPECIES_CLOBBOPUS, "Its tentacles tear off easily, but it isn’t alarmed\nwhen that happens: it knows they’ll grow back.\nIt’s about as smart as a three-year-old."
     mondexclassification SPECIES_CLOBBOPUS, "Tantrum Pokémon"
     mondexheight SPECIES_CLOBBOPUS, "2’00”"
@@ -19894,7 +18990,6 @@ mondata SPECIES_GRAPPLOCT, "Grapploct"
     abilities ABILITY_LIMBER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GRAPPLOCT_TM_DATA_0, SPECIES_GRAPPLOCT_TM_DATA_1, SPECIES_GRAPPLOCT_TM_DATA_2, SPECIES_GRAPPLOCT_TM_DATA_3
     mondexentry SPECIES_GRAPPLOCT, "Searching for an opponent to test its skills\nagainst, it emerges onto land. Once the battle\nis over, it returns to the sea."
     mondexclassification SPECIES_GRAPPLOCT, "Jujitsu Pokémon"
     mondexheight SPECIES_GRAPPLOCT, "5’03”"
@@ -19916,7 +19011,6 @@ mondata SPECIES_SINISTEA, "Sinistea"
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_SINISTEA_TM_DATA_0, SPECIES_SINISTEA_TM_DATA_1, SPECIES_SINISTEA_TM_DATA_2, SPECIES_SINISTEA_TM_DATA_3
     mondexentry SPECIES_SINISTEA, "The teacup in which this Pokémon makes its\nhome is a famous piece of antique tableware.\nMany forgeries are in circulation."
     mondexclassification SPECIES_SINISTEA, "Black Tea Pokémon"
     mondexheight SPECIES_SINISTEA, "0’04”"
@@ -19938,7 +19032,6 @@ mondata SPECIES_POLTEAGEIST, "Poltegeist"
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_POLTEAGEIST_TM_DATA_0, SPECIES_POLTEAGEIST_TM_DATA_1, SPECIES_POLTEAGEIST_TM_DATA_2, SPECIES_POLTEAGEIST_TM_DATA_3
     mondexentry SPECIES_POLTEAGEIST, "Leaving leftover black tea unattended is asking\nfor this Pokémon to come along and pour itself\ninto it, turning the tea into a new Polteageist."
     mondexclassification SPECIES_POLTEAGEIST, "Black Tea Pokémon"
     mondexheight SPECIES_POLTEAGEIST, "0’08”"
@@ -19960,7 +19053,6 @@ mondata SPECIES_HATENNA, "Hatenna"
     abilities ABILITY_HEALER, ABILITY_ANTICIPATION
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_HATENNA_TM_DATA_0, SPECIES_HATENNA_TM_DATA_1, SPECIES_HATENNA_TM_DATA_2, SPECIES_HATENNA_TM_DATA_3
     mondexentry SPECIES_HATENNA, "If this Pokémon senses a strong emotion, it\nwill run away as fast as it can. It prefers areas\nwithout people."
     mondexclassification SPECIES_HATENNA, "Calm Pokémon"
     mondexheight SPECIES_HATENNA, "1’04”"
@@ -19982,7 +19074,6 @@ mondata SPECIES_HATTREM, "Hattrem"
     abilities ABILITY_HEALER, ABILITY_ANTICIPATION
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_HATTREM_TM_DATA_0, SPECIES_HATTREM_TM_DATA_1, SPECIES_HATTREM_TM_DATA_2, SPECIES_HATTREM_TM_DATA_3
     mondexentry SPECIES_HATTREM, "Using the braids on its head, it pummels foes to\nget them to quiet down. One blow from those\nbraids would knock out a professional boxer."
     mondexclassification SPECIES_HATTREM, "Serene Pokémon"
     mondexheight SPECIES_HATTREM, "2’00”"
@@ -20004,7 +19095,6 @@ mondata SPECIES_HATTERENE, "Hatterene"
     abilities ABILITY_HEALER, ABILITY_ANTICIPATION
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_HATTERENE_TM_DATA_0, SPECIES_HATTERENE_TM_DATA_1, SPECIES_HATTERENE_TM_DATA_2, SPECIES_HATTERENE_TM_DATA_3
     mondexentry SPECIES_HATTERENE, "If you’re too loud around it, you risk being torn\napart by the claws on its tentacle. This Pokémon\nis also known as the Forest Witch."
     mondexclassification SPECIES_HATTERENE, "Silent Pokémon"
     mondexheight SPECIES_HATTERENE, "6’11”"
@@ -20026,7 +19116,6 @@ mondata SPECIES_IMPIDIMP, "Impidimp"
     abilities ABILITY_PRANKSTER, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_IMPIDIMP_TM_DATA_0, SPECIES_IMPIDIMP_TM_DATA_1, SPECIES_IMPIDIMP_TM_DATA_2, SPECIES_IMPIDIMP_TM_DATA_3
     mondexentry SPECIES_IMPIDIMP, "It sneaks into people’s homes, stealing things\nand feasting on the negative energy of the\nfrustrated occupants."
     mondexclassification SPECIES_IMPIDIMP, "Wily Pokémon"
     mondexheight SPECIES_IMPIDIMP, "1’04”"
@@ -20048,7 +19137,6 @@ mondata SPECIES_MORGREM, "Morgrem"
     abilities ABILITY_PRANKSTER, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_MORGREM_TM_DATA_0, SPECIES_MORGREM_TM_DATA_1, SPECIES_MORGREM_TM_DATA_2, SPECIES_MORGREM_TM_DATA_3
     mondexentry SPECIES_MORGREM, "With sly cunning, it tries to lure people into the\nwoods. Some believe it to have the power to\nmake crops grow."
     mondexclassification SPECIES_MORGREM, "Devious Pokémon"
     mondexheight SPECIES_MORGREM, "2’07”"
@@ -20070,7 +19158,6 @@ mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
     abilities ABILITY_PRANKSTER, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GRIMMSNARL_TM_DATA_0, SPECIES_GRIMMSNARL_TM_DATA_1, SPECIES_GRIMMSNARL_TM_DATA_2, SPECIES_GRIMMSNARL_TM_DATA_3
     mondexentry SPECIES_GRIMMSNARL, "Its hairs work like muscle fibers. When its hairs\nunfurl, they latch on to opponents, ensnaring\nthem as tentacles would."
     mondexclassification SPECIES_GRIMMSNARL, "Bulk Up Pokémon"
     mondexheight SPECIES_GRIMMSNARL, "4’11”"
@@ -20092,7 +19179,6 @@ mondata SPECIES_OBSTAGOON, "Obstagoon"
     abilities ABILITY_RECKLESS, ABILITY_GUTS
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_OBSTAGOON_TM_DATA_0, SPECIES_OBSTAGOON_TM_DATA_1, SPECIES_OBSTAGOON_TM_DATA_2, SPECIES_OBSTAGOON_TM_DATA_3
     mondexentry SPECIES_OBSTAGOON, "It evolved after experiencing numerous fights.\nWhile crossing its arms, it lets out a shout that\nwould make any opponent flinch."
     mondexclassification SPECIES_OBSTAGOON, "Blocking Pokémon"
     mondexheight SPECIES_OBSTAGOON, "5’03”"
@@ -20114,7 +19200,6 @@ mondata SPECIES_PERRSERKER, "Perrserker"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_TOUGH_CLAWS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PERRSERKER_TM_DATA_0, SPECIES_PERRSERKER_TM_DATA_1, SPECIES_PERRSERKER_TM_DATA_2, SPECIES_PERRSERKER_TM_DATA_3
     mondexentry SPECIES_PERRSERKER, "After many battles, it evolved dangerous\nclaws that come together to form daggers\nwhen extended."
     mondexclassification SPECIES_PERRSERKER, "Viking Pokémon"
     mondexheight SPECIES_PERRSERKER, "2’07”"
@@ -20136,7 +19221,6 @@ mondata SPECIES_CURSOLA, "Cursola"
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CURSOLA_TM_DATA_0, SPECIES_CURSOLA_TM_DATA_1, SPECIES_CURSOLA_TM_DATA_2, SPECIES_CURSOLA_TM_DATA_3
     mondexentry SPECIES_CURSOLA, "Be cautious of the ectoplasmic body\nsurrounding its soul. You’ll become\nstiff as stone if you touch it."
     mondexclassification SPECIES_CURSOLA, "Coral Pokémon"
     mondexheight SPECIES_CURSOLA, "3’03”"
@@ -20158,7 +19242,6 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     abilities ABILITY_STEADFAST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SIRFETCHD_TM_DATA_0, SPECIES_SIRFETCHD_TM_DATA_1, SPECIES_SIRFETCHD_TM_DATA_2, SPECIES_SIRFETCHD_TM_DATA_3
     mondexentry SPECIES_SIRFETCHD, "After deflecting attacks with its hard leaf shield,\nit strikes back with its sharp leek stalk. The leek\nstalk is both weapon and food."
     mondexclassification SPECIES_SIRFETCHD, "Wild Duck Pokémon"
     mondexheight SPECIES_SIRFETCHD, "2’07”"
@@ -20180,7 +19263,6 @@ mondata SPECIES_MR_RIME, "Mr. Rime"
     abilities ABILITY_TANGLED_FEET, ABILITY_SCREEN_CLEANER
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_MR_RIME_TM_DATA_0, SPECIES_MR_RIME_TM_DATA_1, SPECIES_MR_RIME_TM_DATA_2, SPECIES_MR_RIME_TM_DATA_3
     mondexentry SPECIES_MR_RIME, "Its amusing movements make it very popular.\nIt releases its psychic power from the pattern\non its belly."
     mondexclassification SPECIES_MR_RIME, "Comedian Pokémon"
     mondexheight SPECIES_MR_RIME, "4’11”"
@@ -20202,7 +19284,6 @@ mondata SPECIES_RUNERIGUS, "Runerigus"
     abilities ABILITY_WANDERING_SPIRIT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_RUNERIGUS_TM_DATA_0, SPECIES_RUNERIGUS_TM_DATA_1, SPECIES_RUNERIGUS_TM_DATA_2, SPECIES_RUNERIGUS_TM_DATA_3
     mondexentry SPECIES_RUNERIGUS, "Never touch its shadowlike body, or you’ll be\nshown the horrific memories behind the picture\ncarved into it."
     mondexclassification SPECIES_RUNERIGUS, "Grudge Pokémon"
     mondexheight SPECIES_RUNERIGUS, "5’03”"
@@ -20224,7 +19305,6 @@ mondata SPECIES_MILCERY, "Milcery"
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_MILCERY_TM_DATA_0, SPECIES_MILCERY_TM_DATA_1, SPECIES_MILCERY_TM_DATA_2, SPECIES_MILCERY_TM_DATA_3
     mondexentry SPECIES_MILCERY, "They say that any patisserie visited by Milcery\nis guaranteed success and good fortune."
     mondexclassification SPECIES_MILCERY, "Cream Pokémon"
     mondexheight SPECIES_MILCERY, "0’08”"
@@ -20246,7 +19326,6 @@ mondata SPECIES_ALCREMIE, "Alcremie"
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_ALCREMIE_TM_DATA_0, SPECIES_ALCREMIE_TM_DATA_1, SPECIES_ALCREMIE_TM_DATA_2, SPECIES_ALCREMIE_TM_DATA_3
     mondexentry SPECIES_ALCREMIE, "When Alcremie is content, the cream it\nsecretes from its hands becomes sweeter\nand richer."
     mondexclassification SPECIES_ALCREMIE, "Cream Pokémon"
     mondexheight SPECIES_ALCREMIE, "1’00”"
@@ -20268,7 +19347,6 @@ mondata SPECIES_FALINKS, "Falinks"
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_FALINKS_TM_DATA_0, SPECIES_FALINKS_TM_DATA_1, SPECIES_FALINKS_TM_DATA_2, SPECIES_FALINKS_TM_DATA_3
     mondexentry SPECIES_FALINKS, "The six of them work together as one Pokémon.\nTeamwork is also their battle strategy, and they\nconstantly change their formation as they fight."
     mondexclassification SPECIES_FALINKS, "Formation Pokémon"
     mondexheight SPECIES_FALINKS, "9’10”"
@@ -20290,7 +19368,6 @@ mondata SPECIES_PINCURCHIN, "Pincurchin"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_PINCURCHIN_TM_DATA_0, SPECIES_PINCURCHIN_TM_DATA_1, SPECIES_PINCURCHIN_TM_DATA_2, SPECIES_PINCURCHIN_TM_DATA_3
     mondexentry SPECIES_PINCURCHIN, "It stores electricity in each spine. Even if one gets\nbroken off, it still continues to emit electricity for\nat least three hours."
     mondexclassification SPECIES_PINCURCHIN, "Sea Urchin Pokémon"
     mondexheight SPECIES_PINCURCHIN, "1’00”"
@@ -20312,7 +19389,6 @@ mondata SPECIES_SNOM, "Snom"
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_SNOM_TM_DATA_0, SPECIES_SNOM_TM_DATA_1, SPECIES_SNOM_TM_DATA_2, SPECIES_SNOM_TM_DATA_3
     mondexentry SPECIES_SNOM, "It eats snow that piles up on the ground.\nThe more snow it eats, the bigger and more\nimpressive the spikes on its back grow."
     mondexclassification SPECIES_SNOM, "Worm Pokémon"
     mondexheight SPECIES_SNOM, "1’00”"
@@ -20334,7 +19410,6 @@ mondata SPECIES_FROSMOTH, "Frosmoth"
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FROSMOTH_TM_DATA_0, SPECIES_FROSMOTH_TM_DATA_1, SPECIES_FROSMOTH_TM_DATA_2, SPECIES_FROSMOTH_TM_DATA_3
     mondexentry SPECIES_FROSMOTH, "It shows no mercy to any who desecrate fields\nand mountains. It will fly around on its icy wings,\ncausing a blizzard to chase offenders away."
     mondexclassification SPECIES_FROSMOTH, "Frost Moth Pokémon"
     mondexheight SPECIES_FROSMOTH, "4’03”"
@@ -20356,7 +19431,6 @@ mondata SPECIES_STONJOURNER, "Stonjorner"
     abilities ABILITY_POWER_SPOT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_STONJOURNER_TM_DATA_0, SPECIES_STONJOURNER_TM_DATA_1, SPECIES_STONJOURNER_TM_DATA_2, SPECIES_STONJOURNER_TM_DATA_3
     mondexentry SPECIES_STONJOURNER, "Once a year, on a specific date and at a specific\ntime, they gather out of nowhere and form up in\na circle."
     mondexclassification SPECIES_STONJOURNER, "Big Rock Pokémon"
     mondexheight SPECIES_STONJOURNER, "8’02”"
@@ -20378,7 +19452,6 @@ mondata SPECIES_EISCUE, "Eiscue"
     abilities ABILITY_ICE_FACE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_EISCUE_TM_DATA_0, SPECIES_EISCUE_TM_DATA_1, SPECIES_EISCUE_TM_DATA_2, SPECIES_EISCUE_TM_DATA_3
     mondexentry SPECIES_EISCUE, "This Pokémon keeps its heat-sensitive head cool\nwith ice. It fishes for its food, dangling its single\nhair into the sea to lure in prey."
     mondexclassification SPECIES_EISCUE, "Penguin Pokémon"
     mondexheight SPECIES_EISCUE, "4’07”"
@@ -20400,7 +19473,6 @@ mondata SPECIES_INDEEDEE, "Indeedee"
     abilities ABILITY_INNER_FOCUS, ABILITY_SYNCHRONIZE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_INDEEDEE_TM_DATA_0, SPECIES_INDEEDEE_TM_DATA_1, SPECIES_INDEEDEE_TM_DATA_2, SPECIES_INDEEDEE_TM_DATA_3
     mondexentry SPECIES_INDEEDEE, "Through its horns, it can pick up on the emotions\nof creatures around it. Positive emotions are the\nsource of its strength."
     mondexclassification SPECIES_INDEEDEE, "Emotion Pokémon"
     mondexheight SPECIES_INDEEDEE, "2’11”"
@@ -20422,7 +19494,6 @@ mondata SPECIES_MORPEKO, "Morpeko"
     abilities ABILITY_HUNGER_SWITCH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_MORPEKO_TM_DATA_0, SPECIES_MORPEKO_TM_DATA_1, SPECIES_MORPEKO_TM_DATA_2, SPECIES_MORPEKO_TM_DATA_3
     mondexentry SPECIES_MORPEKO, "It carries electrically roasted seeds with it as if\nthey’re precious treasures. No matter how much\nit eats, it always gets hungry again in short order."
     mondexclassification SPECIES_MORPEKO, "Two-Sided Pokémon"
     mondexheight SPECIES_MORPEKO, "1’00”"
@@ -20444,7 +19515,6 @@ mondata SPECIES_CUFANT, "Cufant"
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_CUFANT_TM_DATA_0, SPECIES_CUFANT_TM_DATA_1, SPECIES_CUFANT_TM_DATA_2, SPECIES_CUFANT_TM_DATA_3
     mondexentry SPECIES_CUFANT, "If a job requires serious strength, this Pokémon\nwill excel at it. Its copper body tarnishes in the\nrain, turning a vibrant green color."
     mondexclassification SPECIES_CUFANT, "Copperderm Pokémon"
     mondexheight SPECIES_CUFANT, "3’11”"
@@ -20466,7 +19536,6 @@ mondata SPECIES_COPPERAJAH, "Copperajah"
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_COPPERAJAH_TM_DATA_0, SPECIES_COPPERAJAH_TM_DATA_1, SPECIES_COPPERAJAH_TM_DATA_2, SPECIES_COPPERAJAH_TM_DATA_3
     mondexentry SPECIES_COPPERAJAH, "These Pokémon live in herds. Their trunks have\nincredible grip strength, strong enough to crush\ngiant rocks into powder."
     mondexclassification SPECIES_COPPERAJAH, "Copperderm Pokémon"
     mondexheight SPECIES_COPPERAJAH, "9’10”"
@@ -20488,7 +19557,6 @@ mondata SPECIES_DRACOZOLT, "Dracozolt"
     abilities ABILITY_VOLT_ABSORB, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DRACOZOLT_TM_DATA_0, SPECIES_DRACOZOLT_TM_DATA_1, SPECIES_DRACOZOLT_TM_DATA_2, SPECIES_DRACOZOLT_TM_DATA_3
     mondexentry SPECIES_DRACOZOLT, "The powerful muscles in its tail generate its\nelectricity. Compared to its lower body,\nits upper half is entirely too small."
     mondexclassification SPECIES_DRACOZOLT, "Fossil Pokémon"
     mondexheight SPECIES_DRACOZOLT, "5’11”"
@@ -20510,7 +19578,6 @@ mondata SPECIES_ARCTOZOLT, "Arctozolt"
     abilities ABILITY_VOLT_ABSORB, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ARCTOZOLT_TM_DATA_0, SPECIES_ARCTOZOLT_TM_DATA_1, SPECIES_ARCTOZOLT_TM_DATA_2, SPECIES_ARCTOZOLT_TM_DATA_3
     mondexentry SPECIES_ARCTOZOLT, "This Pokémon lived on prehistoric seashores and\nwas able to preserve food with the ice on its\nbody. It went extinct because it moved so slowly."
     mondexclassification SPECIES_ARCTOZOLT, "Fossil Pokémon"
     mondexheight SPECIES_ARCTOZOLT, "7’07”"
@@ -20532,7 +19599,6 @@ mondata SPECIES_DRACOVISH, "Dracovish"
     abilities ABILITY_WATER_ABSORB, ABILITY_STRONG_JAW
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DRACOVISH_TM_DATA_0, SPECIES_DRACOVISH_TM_DATA_1, SPECIES_DRACOVISH_TM_DATA_2, SPECIES_DRACOVISH_TM_DATA_3
     mondexentry SPECIES_DRACOVISH, "Its mighty legs are capable of running at\nspeeds exceeding 40 mph, but this Pokémon\ncan’t breathe unless it’s underwater."
     mondexclassification SPECIES_DRACOVISH, "Fossil Pokémon"
     mondexheight SPECIES_DRACOVISH, "7’07”"
@@ -20554,7 +19620,6 @@ mondata SPECIES_ARCTOVISH, "Arctovish"
     abilities ABILITY_WATER_ABSORB, ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ARCTOVISH_TM_DATA_0, SPECIES_ARCTOVISH_TM_DATA_1, SPECIES_ARCTOVISH_TM_DATA_2, SPECIES_ARCTOVISH_TM_DATA_3
     mondexentry SPECIES_ARCTOVISH, "The skin on its face is impervious to attack, but\nbreathing difficulties made this Pokémon go\nextinct anyway."
     mondexclassification SPECIES_ARCTOVISH, "Fossil Pokémon"
     mondexheight SPECIES_ARCTOVISH, "6’07”"
@@ -20576,7 +19641,6 @@ mondata SPECIES_DURALUDON, "Duraludon"
     abilities ABILITY_LIGHT_METAL, ABILITY_HEAVY_METAL
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_DURALUDON_TM_DATA_0, SPECIES_DURALUDON_TM_DATA_1, SPECIES_DURALUDON_TM_DATA_2, SPECIES_DURALUDON_TM_DATA_3
     mondexentry SPECIES_DURALUDON, "The special metal that composes its body is very\nlight, so this Pokémon has considerable agility.\nIt lives in caves because it dislikes the rain."
     mondexclassification SPECIES_DURALUDON, "Alloy Pokémon"
     mondexheight SPECIES_DURALUDON, "5’11”"
@@ -20598,7 +19662,6 @@ mondata SPECIES_DREEPY, "Dreepy"
     abilities ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DREEPY_TM_DATA_0, SPECIES_DREEPY_TM_DATA_1, SPECIES_DREEPY_TM_DATA_2, SPECIES_DREEPY_TM_DATA_3
     mondexentry SPECIES_DREEPY, "If this weak Pokémon is by itself, a mere child\ncould defeat it. But if Dreepy has friends to help\nit train, it can evolve and become much stronger."
     mondexclassification SPECIES_DREEPY, "Lingering Pokémon"
     mondexheight SPECIES_DREEPY, "1’08”"
@@ -20620,7 +19683,6 @@ mondata SPECIES_DRAKLOAK, "Drakloak"
     abilities ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DRAKLOAK_TM_DATA_0, SPECIES_DRAKLOAK_TM_DATA_1, SPECIES_DRAKLOAK_TM_DATA_2, SPECIES_DRAKLOAK_TM_DATA_3
     mondexentry SPECIES_DRAKLOAK, "Without a Dreepy to place on its head and\ncare for, it gets so uneasy it’ll try to substitute\nany Pokémon it finds for the missing Dreepy."
     mondexclassification SPECIES_DRAKLOAK, "Caretaker Pokémon"
     mondexheight SPECIES_DRAKLOAK, "4’07”"
@@ -20642,7 +19704,6 @@ mondata SPECIES_DRAGAPULT, "Dragapult"
     abilities ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DRAGAPULT_TM_DATA_0, SPECIES_DRAGAPULT_TM_DATA_1, SPECIES_DRAGAPULT_TM_DATA_2, SPECIES_DRAGAPULT_TM_DATA_3
     mondexentry SPECIES_DRAGAPULT, "Apparently the Dreepy inside Dragapult’s\nhorns eagerly look forward to being launched out\nat Mach speeds."
     mondexclassification SPECIES_DRAGAPULT, "Stealth Pokémon"
     mondexheight SPECIES_DRAGAPULT, "9’10”"
@@ -20664,7 +19725,6 @@ mondata SPECIES_ZACIAN, "Zacian"
     abilities ABILITY_INTREPID_SWORD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_ZACIAN_TM_DATA_0, SPECIES_ZACIAN_TM_DATA_1, SPECIES_ZACIAN_TM_DATA_2, SPECIES_ZACIAN_TM_DATA_3
     mondexentry SPECIES_ZACIAN, "This Pokémon has slumbered for many years.\nSome say it’s Zamazenta’s elder sister: others\nsay the two Pokémon are rivals."
     mondexclassification SPECIES_ZACIAN, "Warrior Pokémon"
     mondexheight SPECIES_ZACIAN, "9’02”"
@@ -20686,7 +19746,6 @@ mondata SPECIES_ZAMAZENTA, "Zamazenta"
     abilities ABILITY_DAUNTLESS_SHIELD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ZAMAZENTA_TM_DATA_0, SPECIES_ZAMAZENTA_TM_DATA_1, SPECIES_ZAMAZENTA_TM_DATA_2, SPECIES_ZAMAZENTA_TM_DATA_3
     mondexentry SPECIES_ZAMAZENTA, "This Pokémon slept for aeons while in the form of\na statue. It was asleep for so long, people forgot\nthat it ever existed."
     mondexclassification SPECIES_ZAMAZENTA, "Warrior Pokémon"
     mondexheight SPECIES_ZAMAZENTA, "9’06”"
@@ -20708,7 +19767,6 @@ mondata SPECIES_ETERNATUS, "Eternatus"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_ETERNATUS_TM_DATA_0, SPECIES_ETERNATUS_TM_DATA_1, SPECIES_ETERNATUS_TM_DATA_2, SPECIES_ETERNATUS_TM_DATA_3
     mondexentry SPECIES_ETERNATUS, "It was inside a meteorite that fell 20,000 years\nago. There seems to be a connection between\nthis Pokémon and the Dynamax phenomenon."
     mondexclassification SPECIES_ETERNATUS, "Gigantic Pokémon"
     mondexheight SPECIES_ETERNATUS, "65’07”"
@@ -20730,7 +19788,6 @@ mondata SPECIES_KUBFU, "Kubfu"
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_KUBFU_TM_DATA_0, SPECIES_KUBFU_TM_DATA_1, SPECIES_KUBFU_TM_DATA_2, SPECIES_KUBFU_TM_DATA_3
     mondexentry SPECIES_KUBFU, "If Kubfu pulls the long white hair on its head,\nits fighting spirit heightens and power wells up\nfrom the depths of its belly."
     mondexclassification SPECIES_KUBFU, "Wushu Pokémon"
     mondexheight SPECIES_KUBFU, "2’00”"
@@ -20752,7 +19809,6 @@ mondata SPECIES_URSHIFU, "Urshifu"
     abilities ABILITY_UNSEEN_FIST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_URSHIFU_TM_DATA_0, SPECIES_URSHIFU_TM_DATA_1, SPECIES_URSHIFU_TM_DATA_2, SPECIES_URSHIFU_TM_DATA_3
     mondexentry SPECIES_URSHIFU, "Inhabiting the mountains of a distant region, this\nPokémon races across sheer cliffs, training its legs\nand refining its moves."
     mondexclassification SPECIES_URSHIFU, "Wushu Pokémon"
     mondexheight SPECIES_URSHIFU, "6’03”"
@@ -20774,7 +19830,6 @@ mondata SPECIES_ZARUDE, "Zarude"
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ZARUDE_TM_DATA_0, SPECIES_ZARUDE_TM_DATA_1, SPECIES_ZARUDE_TM_DATA_2, SPECIES_ZARUDE_TM_DATA_3
     mondexentry SPECIES_ZARUDE, "Once the vines on Zarude’s body tear off, they\nbecome nutrients in the soil. This helps the plants\nof the forest grow."
     mondexclassification SPECIES_ZARUDE, "Rogue Monkey Pokémon"
     mondexheight SPECIES_ZARUDE, "5’11”"
@@ -20796,7 +19851,6 @@ mondata SPECIES_REGIELEKI, "Regieleki"
     abilities ABILITY_TRANSISTOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_REGIELEKI_TM_DATA_0, SPECIES_REGIELEKI_TM_DATA_1, SPECIES_REGIELEKI_TM_DATA_2, SPECIES_REGIELEKI_TM_DATA_3
     mondexentry SPECIES_REGIELEKI, "Its entire body is made up of a single organ that\ngenerates electrical energy. Regieleki is capable\nof creating all Galar’s electricity."
     mondexclassification SPECIES_REGIELEKI, "Electron Pokémon"
     mondexheight SPECIES_REGIELEKI, "3’11”"
@@ -20818,7 +19872,6 @@ mondata SPECIES_REGIDRAGO, "Regidrago"
     abilities ABILITY_DRAGONS_MAW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_REGIDRAGO_TM_DATA_0, SPECIES_REGIDRAGO_TM_DATA_1, SPECIES_REGIDRAGO_TM_DATA_2, SPECIES_REGIDRAGO_TM_DATA_3
     mondexentry SPECIES_REGIDRAGO, "Its body is composed of crystallized dragon\nenergy. Regidrago is said to have the powers of\nevery dragon Pokémon."
     mondexclassification SPECIES_REGIDRAGO, "Dragon Orb Pokémon"
     mondexheight SPECIES_REGIDRAGO, "6’11”"
@@ -20840,7 +19893,6 @@ mondata SPECIES_GLASTRIER, "Glastrier"
     abilities ABILITY_CHILLING_NEIGH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_GLASTRIER_TM_DATA_0, SPECIES_GLASTRIER_TM_DATA_1, SPECIES_GLASTRIER_TM_DATA_2, SPECIES_GLASTRIER_TM_DATA_3
     mondexentry SPECIES_GLASTRIER, "Glastrier has tremendous physical strength, and\nthe mask of ice covering its face is 100 times\nharder than diamond."
     mondexclassification SPECIES_GLASTRIER, "Wild Horse Pokémon"
     mondexheight SPECIES_GLASTRIER, "7’03”"
@@ -20862,7 +19914,6 @@ mondata SPECIES_SPECTRIER, "Spectrier"
     abilities ABILITY_GRIM_NEIGH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_SPECTRIER_TM_DATA_0, SPECIES_SPECTRIER_TM_DATA_1, SPECIES_SPECTRIER_TM_DATA_2, SPECIES_SPECTRIER_TM_DATA_3
     mondexentry SPECIES_SPECTRIER, "As it dashes through the night, Spectrier absorbs\nthe life-force of sleeping creatures. It craves\nsilence and solitude."
     mondexclassification SPECIES_SPECTRIER, "Swift Horse Pokémon"
     mondexheight SPECIES_SPECTRIER, "6’07”"
@@ -20884,7 +19935,6 @@ mondata SPECIES_CALYREX, "Calyrex"
     abilities ABILITY_UNNERVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CALYREX_TM_DATA_0, SPECIES_CALYREX_TM_DATA_1, SPECIES_CALYREX_TM_DATA_2, SPECIES_CALYREX_TM_DATA_3
     mondexentry SPECIES_CALYREX, "Calyrex is known in legend as a king that ruled\nover Galar in ancient times. It has the power to\ncause hearts to mend and plants to spring forth."
     mondexclassification SPECIES_CALYREX, "King Pokémon"
     mondexheight SPECIES_CALYREX, "3’07”"
@@ -20906,7 +19956,6 @@ mondata SPECIES_WYRDEER, "Wyrdeer"
     abilities ABILITY_INTIMIDATE, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_WYRDEER_TM_DATA_0, SPECIES_WYRDEER_TM_DATA_1, SPECIES_WYRDEER_TM_DATA_2, SPECIES_WYRDEER_TM_DATA_3
     mondexentry SPECIES_WYRDEER, "The black orbs shine with an uncanny light when the Pokémon is\nerecting invisible barriers. The fur shed from its beard retains\nheat well and is a highly useful material for winter clothing."
     mondexclassification SPECIES_WYRDEER, "Big Horn Pokémon"
     mondexheight SPECIES_WYRDEER, "5’11”"
@@ -20928,7 +19977,6 @@ mondata SPECIES_KLEAVOR, "Kleavor"
     abilities ABILITY_SWARM, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_KLEAVOR_TM_DATA_0, SPECIES_KLEAVOR_TM_DATA_1, SPECIES_KLEAVOR_TM_DATA_2, SPECIES_KLEAVOR_TM_DATA_3
     mondexentry SPECIES_KLEAVOR, "A violent creature that fells towering trees with its crude axes\nand shields itself with hard stone. If one should chance upon\nthis Pokémon in the wilds, one's only recourse is to flee."
     mondexclassification SPECIES_KLEAVOR, "Axe Pokémon"
     mondexheight SPECIES_KLEAVOR, "5’11”"
@@ -20950,7 +19998,6 @@ mondata SPECIES_URSALUNA, "Ursaluna"
     abilities ABILITY_GUTS, ABILITY_BULLETPROOF
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_URSALUNA_TM_DATA_0, SPECIES_URSALUNA_TM_DATA_1, SPECIES_URSALUNA_TM_DATA_2, SPECIES_URSALUNA_TM_DATA_3
     mondexentry SPECIES_URSALUNA, "I believe it was Hisui's swampy terrain that gave Ursaluna its\nburly physique and newfound capacity to manipulate peat\nat will."
     mondexclassification SPECIES_URSALUNA, "Peat Pokémon"
     mondexheight SPECIES_URSALUNA, "7’10”"
@@ -20972,7 +20019,6 @@ mondata SPECIES_BASCULEGION, "Basclegion"
     abilities ABILITY_SWIFT_SWIM, ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BASCULEGION_TM_DATA_0, SPECIES_BASCULEGION_TM_DATA_1, SPECIES_BASCULEGION_TM_DATA_2, SPECIES_BASCULEGION_TM_DATA_3
     mondexentry SPECIES_BASCULEGION, "Clads itself in the souls of comrades that perished before\nfulfilling their goals of journeying upstream. No other species\nthroughout all Hisui's rivers is Basculegion's equal."
     mondexclassification SPECIES_BASCULEGION, "Big Fish Pokémon"
     mondexheight SPECIES_BASCULEGION, "9’10”"
@@ -20994,7 +20040,6 @@ mondata SPECIES_SNEASLER, "Sneasler"
     abilities ABILITY_PRESSURE, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SNEASLER_TM_DATA_0, SPECIES_SNEASLER_TM_DATA_1, SPECIES_SNEASLER_TM_DATA_2, SPECIES_SNEASLER_TM_DATA_3
     mondexentry SPECIES_SNEASLER, "Because of Sneasler's virulent poison and daunting physical\nprowess, no other species could hope to best it on the frozen\nhighlands. Preferring solitude, this species does not form packs."
     mondexclassification SPECIES_SNEASLER, "Free Climb Pokémon"
     mondexheight SPECIES_SNEASLER, "4’03”"
@@ -21016,7 +20061,6 @@ mondata SPECIES_OVERQWIL, "Overqwil"
     abilities ABILITY_POISON_POINT, ABILITY_SWIFT_SWIM
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_OVERQWIL_TM_DATA_0, SPECIES_OVERQWIL_TM_DATA_1, SPECIES_OVERQWIL_TM_DATA_2, SPECIES_OVERQWIL_TM_DATA_3
     mondexentry SPECIES_OVERQWIL, "Its lancelike spikes and savage temperament have earned it the\nnickname ”sea fiend.” It slurps up poison to nourish itself."
     mondexclassification SPECIES_OVERQWIL, "Pin Cluster Pokémon"
     mondexheight SPECIES_OVERQWIL, "8’02”"
@@ -21038,7 +20082,6 @@ mondata SPECIES_ENAMORUS, "Enamorus"
     abilities ABILITY_CUTE_CHARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_ENAMORUS_TM_DATA_0, SPECIES_ENAMORUS_TM_DATA_1, SPECIES_ENAMORUS_TM_DATA_2, SPECIES_ENAMORUS_TM_DATA_3
     mondexentry SPECIES_ENAMORUS, "When it flies to this land from across the sea, the bitter winter\ncomes to an end. According to legend, this Pokémon's love\ngives rise to the budding of fresh life across Hisui."
     mondexclassification SPECIES_ENAMORUS, "Love-Hate Pokémon"
     mondexheight SPECIES_ENAMORUS, "5’03”"
@@ -21060,7 +20103,6 @@ mondata SPECIES_SPRIGATITO, "Sprigatito"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SPRIGATITO_TM_DATA_0, SPECIES_SPRIGATITO_TM_DATA_1, SPECIES_SPRIGATITO_TM_DATA_2, SPECIES_SPRIGATITO_TM_DATA_3
     mondexentry SPECIES_SPRIGATITO, "The sweet scent its body gives off mesmerizes those around it. The scent grows stronger when this Pokémon is in the sun."
     mondexclassification SPECIES_SPRIGATITO, "Grass Cat Pokémon"
     mondexheight SPECIES_SPRIGATITO, "1’04”"
@@ -21082,7 +20124,6 @@ mondata SPECIES_FLORAGATO, "Floragato"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_FLORAGATO_TM_DATA_0, SPECIES_FLORAGATO_TM_DATA_1, SPECIES_FLORAGATO_TM_DATA_2, SPECIES_FLORAGATO_TM_DATA_3
     mondexentry SPECIES_FLORAGATO, "The hardness of Floragato’s fur depends on the Pokémon’s mood. When Floragato is prepared to battle, its fur becomes pointed and needle sharp."
     mondexclassification SPECIES_FLORAGATO, "Grass Cat Pokémon"
     mondexheight SPECIES_FLORAGATO, "2’11”"
@@ -21104,7 +20145,6 @@ mondata SPECIES_MEOWSCARADA, "Mewscarada"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_MEOWSCARADA_TM_DATA_0, SPECIES_MEOWSCARADA_TM_DATA_1, SPECIES_MEOWSCARADA_TM_DATA_2, SPECIES_MEOWSCARADA_TM_DATA_3
     mondexentry SPECIES_MEOWSCARADA, "With skillful misdirection, it rigs foes with pollen-packed flower bombs. Meowscarada sets off the bombs before its foes realize what’s going on."
     mondexclassification SPECIES_MEOWSCARADA, "Magician Pokémon"
     mondexheight SPECIES_MEOWSCARADA, "4’11”"
@@ -21126,7 +20166,6 @@ mondata SPECIES_FUECOCO, "Fuecoco"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_FUECOCO_TM_DATA_0, SPECIES_FUECOCO_TM_DATA_1, SPECIES_FUECOCO_TM_DATA_2, SPECIES_FUECOCO_TM_DATA_3
     mondexentry SPECIES_FUECOCO, "Its flame sac is small, so energy is always leaking out. This energy is released from the dent atop Fuecoco’s head and flickers to and fro."
     mondexclassification SPECIES_FUECOCO, "Fire Croc Pokémon"
     mondexheight SPECIES_FUECOCO, "1’04”"
@@ -21148,7 +20187,6 @@ mondata SPECIES_CROCALOR, "Crocalor"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CROCALOR_TM_DATA_0, SPECIES_CROCALOR_TM_DATA_1, SPECIES_CROCALOR_TM_DATA_2, SPECIES_CROCALOR_TM_DATA_3
     mondexentry SPECIES_CROCALOR, "The valve in Crocalor’s flame sac is closely connected to its vocal cords. This Pokémon utters a guttural cry as it spews flames every which way."
     mondexclassification SPECIES_CROCALOR, "Fire Croc Pokémon"
     mondexheight SPECIES_CROCALOR, "3’03”"
@@ -21170,7 +20208,6 @@ mondata SPECIES_SKELEDIRGE, "Skeledirge"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SKELEDIRGE_TM_DATA_0, SPECIES_SKELEDIRGE_TM_DATA_1, SPECIES_SKELEDIRGE_TM_DATA_2, SPECIES_SKELEDIRGE_TM_DATA_3
     mondexentry SPECIES_SKELEDIRGE, "Skeledirge’s gentle singing soothes the souls of all that hear it. It burns its enemies to a crisp with flames of over 5,400 degrees Fahrenheit."
     mondexclassification SPECIES_SKELEDIRGE, "Singer Pokémon"
     mondexheight SPECIES_SKELEDIRGE, "5’03”"
@@ -21192,7 +20229,6 @@ mondata SPECIES_QUAXLY, "Quaxly"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_QUAXLY_TM_DATA_0, SPECIES_QUAXLY_TM_DATA_1, SPECIES_QUAXLY_TM_DATA_2, SPECIES_QUAXLY_TM_DATA_3
     mondexentry SPECIES_QUAXLY, "Its strong legs let it easily swim around in even fast-flowing rivers. It likes to keep things tidy and is prone to overthinking things."
     mondexclassification SPECIES_QUAXLY, "Duckling Pokémon"
     mondexheight SPECIES_QUAXLY, "1’08”"
@@ -21214,7 +20250,6 @@ mondata SPECIES_QUAXWELL, "Quaxwell"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_QUAXWELL_TM_DATA_0, SPECIES_QUAXWELL_TM_DATA_1, SPECIES_QUAXWELL_TM_DATA_2, SPECIES_QUAXWELL_TM_DATA_3
     mondexentry SPECIES_QUAXWELL, "The hardworking Quaxwell observes people and Pokémon from various regions and incorporates their movements into its own dance routines."
     mondexclassification SPECIES_QUAXWELL, "Practicing Pokémon"
     mondexheight SPECIES_QUAXWELL, "3’11”"
@@ -21236,7 +20271,6 @@ mondata SPECIES_QUAQUAVAL, "Quaquaval"
     abilities ABILITY_TORRENT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_QUAQUAVAL_TM_DATA_0, SPECIES_QUAQUAVAL_TM_DATA_1, SPECIES_QUAQUAVAL_TM_DATA_2, SPECIES_QUAQUAVAL_TM_DATA_3
     mondexentry SPECIES_QUAQUAVAL, "Dancing in ways that evoke far-away places, this Pokémon mesmerizes all that see it. Flourishes of its decorative water feathers slice into its foes."
     mondexclassification SPECIES_QUAQUAVAL, "Dancer Pokémon"
     mondexheight SPECIES_QUAQUAVAL, "5’11”"
@@ -21258,7 +20292,6 @@ mondata SPECIES_LECHONK, "Lechonk"
     abilities ABILITY_AROMA_VEIL, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_LECHONK_TM_DATA_0, SPECIES_LECHONK_TM_DATA_1, SPECIES_LECHONK_TM_DATA_2, SPECIES_LECHONK_TM_DATA_3
     mondexentry SPECIES_LECHONK, "This Pokémon spurns all but the finest of foods. Its body gives off an herblike scent that bug Pokémon detest."
     mondexclassification SPECIES_LECHONK, "Hog Pokémon"
     mondexheight SPECIES_LECHONK, "1’08”"
@@ -21280,7 +20313,6 @@ mondata SPECIES_OINKOLOGNE, "Oinkologne"
     abilities ABILITY_LINGERING_AROMA, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_OINKOLOGNE_TM_DATA_0, SPECIES_OINKOLOGNE_TM_DATA_1, SPECIES_OINKOLOGNE_TM_DATA_2, SPECIES_OINKOLOGNE_TM_DATA_3
     mondexentry SPECIES_OINKOLOGNE, "It entrances female Pokémon with the sweet, alluring scent that wafts from all over its body."
     mondexclassification SPECIES_OINKOLOGNE, "Hog Pokémon"
     mondexheight SPECIES_OINKOLOGNE, "3’03”"
@@ -21302,7 +20334,6 @@ mondata SPECIES_TAROUNTULA, "Tarountula"
     abilities ABILITY_INSOMNIA, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_TAROUNTULA_TM_DATA_0, SPECIES_TAROUNTULA_TM_DATA_1, SPECIES_TAROUNTULA_TM_DATA_2, SPECIES_TAROUNTULA_TM_DATA_3
     mondexentry SPECIES_TAROUNTULA, "The thread it secretes from its rear is as strong as wire. The secret behind the thread’s strength is the topic of ongoing research."
     mondexclassification SPECIES_TAROUNTULA, "String Ball Pokémon"
     mondexheight SPECIES_TAROUNTULA, "1’00”"
@@ -21324,7 +20355,6 @@ mondata SPECIES_SPIDOPS, "Spidops"
     abilities ABILITY_INSOMNIA, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SPIDOPS_TM_DATA_0, SPECIES_SPIDOPS_TM_DATA_1, SPECIES_SPIDOPS_TM_DATA_2, SPECIES_SPIDOPS_TM_DATA_3
     mondexentry SPECIES_SPIDOPS, "Spidops covers its territory in tough, sticky threads to set up traps for intruders."
     mondexclassification SPECIES_SPIDOPS, "Trap Pokémon"
     mondexheight SPECIES_SPIDOPS, "3’03”"
@@ -21346,7 +20376,6 @@ mondata SPECIES_NYMBLE, "Nymble"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NYMBLE_TM_DATA_0, SPECIES_NYMBLE_TM_DATA_1, SPECIES_NYMBLE_TM_DATA_2, SPECIES_NYMBLE_TM_DATA_3
     mondexentry SPECIES_NYMBLE, "It’s highly skilled at a fighting style in which it uses its jumping capabilities to dodge incoming attacks while also dealing damage to opponents."
     mondexclassification SPECIES_NYMBLE, "Grasshopper Pokémon"
     mondexheight SPECIES_NYMBLE, "0’08”"
@@ -21368,7 +20397,6 @@ mondata SPECIES_LOKIX, "Lokix"
     abilities ABILITY_SWARM, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_LOKIX_TM_DATA_0, SPECIES_LOKIX_TM_DATA_1, SPECIES_LOKIX_TM_DATA_2, SPECIES_LOKIX_TM_DATA_3
     mondexentry SPECIES_LOKIX, "It uses its normally folded third set of legs when in Showdown Mode. This places a huge burden on its body, so it can’t stay in this mode for long."
     mondexclassification SPECIES_LOKIX, "Grasshopper Pokémon"
     mondexheight SPECIES_LOKIX, "3’03”"
@@ -21390,7 +20418,6 @@ mondata SPECIES_PAWMI, "Pawmi"
     abilities ABILITY_STATIC, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PAWMI_TM_DATA_0, SPECIES_PAWMI_TM_DATA_1, SPECIES_PAWMI_TM_DATA_2, SPECIES_PAWMI_TM_DATA_3
     mondexentry SPECIES_PAWMI, "The pads of its paws are electricity-discharging organs. Pawmi fires electricity from its forepaws while standing unsteadily on its hind legs."
     mondexclassification SPECIES_PAWMI, "Mouse Pokémon"
     mondexheight SPECIES_PAWMI, "1’00”"
@@ -21412,7 +20439,6 @@ mondata SPECIES_PAWMO, "Pawmo"
     abilities ABILITY_VOLT_ABSORB, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PAWMO_TM_DATA_0, SPECIES_PAWMO_TM_DATA_1, SPECIES_PAWMO_TM_DATA_2, SPECIES_PAWMO_TM_DATA_3
     mondexentry SPECIES_PAWMO, "Pawmo uses a unique fighting technique in which it uses its forepaws to strike foes and zap them with electricity from its paw pads simultaneously."
     mondexclassification SPECIES_PAWMO, "Mouse Pokémon"
     mondexheight SPECIES_PAWMO, "1’04”"
@@ -21434,7 +20460,6 @@ mondata SPECIES_PAWMOT, "Pawmot"
     abilities ABILITY_VOLT_ABSORB, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_PAWMOT_TM_DATA_0, SPECIES_PAWMOT_TM_DATA_1, SPECIES_PAWMOT_TM_DATA_2, SPECIES_PAWMOT_TM_DATA_3
     mondexentry SPECIES_PAWMOT, "Pawmot’s fluffy fur acts as a battery. It can store the same amount of electricity as an electric car."
     mondexclassification SPECIES_PAWMOT, "Hands-On Pokémon"
     mondexheight SPECIES_PAWMOT, "2’11”"
@@ -21456,7 +20481,6 @@ mondata SPECIES_TANDEMAUS, "Tandemaus"
     abilities ABILITY_RUN_AWAY, ABILITY_PICKUP
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_TANDEMAUS_TM_DATA_0, SPECIES_TANDEMAUS_TM_DATA_1, SPECIES_TANDEMAUS_TM_DATA_2, SPECIES_TANDEMAUS_TM_DATA_3
     mondexentry SPECIES_TANDEMAUS, "The pair sticks together no matter what. They split any food they find exactly in half and then eat it together."
     mondexclassification SPECIES_TANDEMAUS, "Couple Pokémon"
     mondexheight SPECIES_TANDEMAUS, "1’00”"
@@ -21478,7 +20502,6 @@ mondata SPECIES_MAUSHOLD, "Maushold"
     abilities ABILITY_FRIEND_GUARD, ABILITY_CHEEK_POUCH
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_MAUSHOLD_TM_DATA_0, SPECIES_MAUSHOLD_TM_DATA_1, SPECIES_MAUSHOLD_TM_DATA_2, SPECIES_MAUSHOLD_TM_DATA_3
     mondexentry SPECIES_MAUSHOLD, "The larger pair protects the little ones during battles. When facing strong opponents, the whole group will join the fight."
     mondexclassification SPECIES_MAUSHOLD, "Family Pokémon"
     mondexheight SPECIES_MAUSHOLD, "1’00”"
@@ -21500,7 +20523,6 @@ mondata SPECIES_FIDOUGH, "Fidough"
     abilities ABILITY_OWN_TEMPO, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_FIDOUGH_TM_DATA_0, SPECIES_FIDOUGH_TM_DATA_1, SPECIES_FIDOUGH_TM_DATA_2, SPECIES_FIDOUGH_TM_DATA_3
     mondexentry SPECIES_FIDOUGH, "The yeast in Fidough’s breath is useful for cooking, so this Pokémon has been protected by people since long ago."
     mondexclassification SPECIES_FIDOUGH, "Puppy Pokémon"
     mondexheight SPECIES_FIDOUGH, "1’00”"
@@ -21522,7 +20544,6 @@ mondata SPECIES_DACHSBUN, "Dachsbun"
     abilities ABILITY_WELL_BAKED_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_DACHSBUN_TM_DATA_0, SPECIES_DACHSBUN_TM_DATA_1, SPECIES_DACHSBUN_TM_DATA_2, SPECIES_DACHSBUN_TM_DATA_3
     mondexentry SPECIES_DACHSBUN, "The surface of this Pokémon’s skin hardens when exposed to intense heat, and its body has an appetizing aroma."
     mondexclassification SPECIES_DACHSBUN, "Dog Pokémon"
     mondexheight SPECIES_DACHSBUN, "1’08”"
@@ -21544,7 +20565,6 @@ mondata SPECIES_SMOLIV, "Smoliv"
     abilities ABILITY_EARLY_BIRD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SMOLIV_TM_DATA_0, SPECIES_SMOLIV_TM_DATA_1, SPECIES_SMOLIV_TM_DATA_2, SPECIES_SMOLIV_TM_DATA_3
     mondexentry SPECIES_SMOLIV, "This Pokémon converts nutrients into oil, which it stores in the fruit on its head. It can easily go a whole week without eating or drinking."
     mondexclassification SPECIES_SMOLIV, "Olive Pokémon"
     mondexheight SPECIES_SMOLIV, "1’00”"
@@ -21566,7 +20586,6 @@ mondata SPECIES_DOLLIV, "Dolliv"
     abilities ABILITY_EARLY_BIRD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_DOLLIV_TM_DATA_0, SPECIES_DOLLIV_TM_DATA_1, SPECIES_DOLLIV_TM_DATA_2, SPECIES_DOLLIV_TM_DATA_3
     mondexentry SPECIES_DOLLIV, "It basks in the sun to its heart’s content until the fruits on its head ripen. After that, Dolliv departs from human settlements and goes on a journey."
     mondexclassification SPECIES_DOLLIV, "Olive Pokémon"
     mondexheight SPECIES_DOLLIV, "2’00”"
@@ -21588,7 +20607,6 @@ mondata SPECIES_ARBOLIVA, "Arboliva"
     abilities ABILITY_SEED_SOWER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ARBOLIVA_TM_DATA_0, SPECIES_ARBOLIVA_TM_DATA_1, SPECIES_ARBOLIVA_TM_DATA_2, SPECIES_ARBOLIVA_TM_DATA_3
     mondexentry SPECIES_ARBOLIVA, "This Pokémon drives back enemies by launching its rich, aromatic oil at them with enough force to smash a boulder."
     mondexclassification SPECIES_ARBOLIVA, "Olive Pokémon"
     mondexheight SPECIES_ARBOLIVA, "4’07”"
@@ -21610,7 +20628,6 @@ mondata SPECIES_SQUAWKABILLY, "Squawkbily"
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SQUAWKABILLY_TM_DATA_0, SPECIES_SQUAWKABILLY_TM_DATA_1, SPECIES_SQUAWKABILLY_TM_DATA_2, SPECIES_SQUAWKABILLY_TM_DATA_3
     mondexentry SPECIES_SQUAWKABILLY, "Green-feathered flocks hold the most sway. When they’re out searching for food in the mornings and evenings, it gets very noisy."
     mondexclassification SPECIES_SQUAWKABILLY, "Parrot Pokémon"
     mondexheight SPECIES_SQUAWKABILLY, "2’00”"
@@ -21632,7 +20649,6 @@ mondata SPECIES_NACLI, "Nacli"
     abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NACLI_TM_DATA_0, SPECIES_NACLI_TM_DATA_1, SPECIES_NACLI_TM_DATA_2, SPECIES_NACLI_TM_DATA_3
     mondexentry SPECIES_NACLI, "The ground scrapes its body as it travels, causing it to leave salt behind. Salt is constantly being created and replenished inside Nacli’s body."
     mondexclassification SPECIES_NACLI, "Rock Salt Pokémon"
     mondexheight SPECIES_NACLI, "1’04”"
@@ -21654,7 +20670,6 @@ mondata SPECIES_NACLSTACK, "Naclstack"
     abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NACLSTACK_TM_DATA_0, SPECIES_NACLSTACK_TM_DATA_1, SPECIES_NACLSTACK_TM_DATA_2, SPECIES_NACLSTACK_TM_DATA_3
     mondexentry SPECIES_NACLSTACK, "It compresses rock salt inside its body and shoots out hardened salt pellets with enough force to perforate an iron sheet."
     mondexclassification SPECIES_NACLSTACK, "Rock Salt Pokémon"
     mondexheight SPECIES_NACLSTACK, "2’00”"
@@ -21676,7 +20691,6 @@ mondata SPECIES_GARGANACL, "Garganacl"
     abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GARGANACL_TM_DATA_0, SPECIES_GARGANACL_TM_DATA_1, SPECIES_GARGANACL_TM_DATA_2, SPECIES_GARGANACL_TM_DATA_3
     mondexentry SPECIES_GARGANACL, "Many Pokémon gather around Garganacl, hoping to lick at its mineral-rich salt."
     mondexclassification SPECIES_GARGANACL, "Rock Salt Pokémon"
     mondexheight SPECIES_GARGANACL, "7’07”"
@@ -21698,7 +20712,6 @@ mondata SPECIES_CHARCADET, "Charcadet"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CHARCADET_TM_DATA_0, SPECIES_CHARCADET_TM_DATA_1, SPECIES_CHARCADET_TM_DATA_2, SPECIES_CHARCADET_TM_DATA_3
     mondexentry SPECIES_CHARCADET, "Its firepower increases when it fights, reaching over 1,800 degrees Fahrenheit. It likes berries that are rich in fat."
     mondexclassification SPECIES_CHARCADET, "Fire Child Pokémon"
     mondexheight SPECIES_CHARCADET, "2’00”"
@@ -21720,7 +20733,6 @@ mondata SPECIES_ARMAROUGE, "Armarouge"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ARMAROUGE_TM_DATA_0, SPECIES_ARMAROUGE_TM_DATA_1, SPECIES_ARMAROUGE_TM_DATA_2, SPECIES_ARMAROUGE_TM_DATA_3
     mondexentry SPECIES_ARMAROUGE, "This Pokémon clads itself in armor that has been fortified by psychic and fire energy, and it shoots blazing fireballs."
     mondexclassification SPECIES_ARMAROUGE, "Fire Warrior Pokémon"
     mondexheight SPECIES_ARMAROUGE, "4’11”"
@@ -21742,7 +20754,6 @@ mondata SPECIES_CERULEDGE, "Ceruledge"
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_CERULEDGE_TM_DATA_0, SPECIES_CERULEDGE_TM_DATA_1, SPECIES_CERULEDGE_TM_DATA_2, SPECIES_CERULEDGE_TM_DATA_3
     mondexentry SPECIES_CERULEDGE, "An old set of armor steeped in grudges caused this Pokémon’s evolution. Ceruledge cuts its enemies to pieces without mercy."
     mondexclassification SPECIES_CERULEDGE, "Fire Blades Pokémon"
     mondexheight SPECIES_CERULEDGE, "5’03”"
@@ -21764,7 +20775,6 @@ mondata SPECIES_TADBULB, "Tadbulb"
     abilities ABILITY_OWN_TEMPO, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_TADBULB_TM_DATA_0, SPECIES_TADBULB_TM_DATA_1, SPECIES_TADBULB_TM_DATA_2, SPECIES_TADBULB_TM_DATA_3
     mondexentry SPECIES_TADBULB, "It floats using the electricity stored in its body. When thunderclouds are around, Tadbulb will float higher off the ground."
     mondexclassification SPECIES_TADBULB, "EleTadpole Pokémon"
     mondexheight SPECIES_TADBULB, "1’00”"
@@ -21786,7 +20796,6 @@ mondata SPECIES_BELLIBOLT, "Bellibolt"
     abilities ABILITY_ELECTROMORPHOSIS, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BELLIBOLT_TM_DATA_0, SPECIES_BELLIBOLT_TM_DATA_1, SPECIES_BELLIBOLT_TM_DATA_2, SPECIES_BELLIBOLT_TM_DATA_3
     mondexentry SPECIES_BELLIBOLT, "What appear to be eyeballs are actually organs for discharging the electricity generated by Bellibolt’s belly-button dynamo."
     mondexclassification SPECIES_BELLIBOLT, "EleFrog Pokémon"
     mondexheight SPECIES_BELLIBOLT, "3’11”"
@@ -21808,7 +20817,6 @@ mondata SPECIES_WATTREL, "Wattrel"
     abilities ABILITY_WIND_POWER, ABILITY_VOLT_ABSORB
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_WATTREL_TM_DATA_0, SPECIES_WATTREL_TM_DATA_1, SPECIES_WATTREL_TM_DATA_2, SPECIES_WATTREL_TM_DATA_3
     mondexentry SPECIES_WATTREL, "These Pokémon make their nests on coastal cliffs. The nests have a strange, crackling texture, and they’re a popular delicacy."
     mondexclassification SPECIES_WATTREL, "Storm Petrel Pokémon"
     mondexheight SPECIES_WATTREL, "1’04”"
@@ -21830,7 +20838,6 @@ mondata SPECIES_KILOWATTREL, "Kilowatrel"
     abilities ABILITY_WIND_POWER, ABILITY_VOLT_ABSORB
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_KILOWATTREL_TM_DATA_0, SPECIES_KILOWATTREL_TM_DATA_1, SPECIES_KILOWATTREL_TM_DATA_2, SPECIES_KILOWATTREL_TM_DATA_3
     mondexentry SPECIES_KILOWATTREL, "It uses its throat sac to store electricity generated by its wings. There’s hardly any oil in its feathers, so it is a poor swimmer."
     mondexclassification SPECIES_KILOWATTREL, "Frigatebird Pokémon"
     mondexheight SPECIES_KILOWATTREL, "4’07”"
@@ -21852,7 +20859,6 @@ mondata SPECIES_MASCHIFF, "Maschiff"
     abilities ABILITY_INTIMIDATE, ABILITY_RUN_AWAY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_MASCHIFF_TM_DATA_0, SPECIES_MASCHIFF_TM_DATA_1, SPECIES_MASCHIFF_TM_DATA_2, SPECIES_MASCHIFF_TM_DATA_3
     mondexentry SPECIES_MASCHIFF, "Its well-developed jaw and fangs are strong enough to crunch through boulders, and its thick fat makes for an excellent defense."
     mondexclassification SPECIES_MASCHIFF, "Rascal Pokémon"
     mondexheight SPECIES_MASCHIFF, "1’08”"
@@ -21874,7 +20880,6 @@ mondata SPECIES_MABOSSTIFF, "Mabosstiff"
     abilities ABILITY_INTIMIDATE, ABILITY_GUARD_DOG
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_MABOSSTIFF_TM_DATA_0, SPECIES_MABOSSTIFF_TM_DATA_1, SPECIES_MABOSSTIFF_TM_DATA_2, SPECIES_MABOSSTIFF_TM_DATA_3
     mondexentry SPECIES_MABOSSTIFF, "Mabosstiff loves playing with children. Though usually gentle, it takes on an intimidating look when protecting its family."
     mondexclassification SPECIES_MABOSSTIFF, "Boss Pokémon"
     mondexheight SPECIES_MABOSSTIFF, "3’07”"
@@ -21896,7 +20901,6 @@ mondata SPECIES_SHROODLE, "Shroodle"
     abilities ABILITY_UNBURDEN, ABILITY_PICKPOCKET
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SHROODLE_TM_DATA_0, SPECIES_SHROODLE_TM_DATA_1, SPECIES_SHROODLE_TM_DATA_2, SPECIES_SHROODLE_TM_DATA_3
     mondexentry SPECIES_SHROODLE, "To keep enemies away from its territory, it paints markings around its nest using a poisonous liquid that has an acrid odor."
     mondexclassification SPECIES_SHROODLE, "Toxic Mouse Pokémon"
     mondexheight SPECIES_SHROODLE, "0’08”"
@@ -21918,7 +20922,6 @@ mondata SPECIES_GRAFAIAI, "Grafaiai"
     abilities ABILITY_UNBURDEN, ABILITY_POISON_TOUCH
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_GRAFAIAI_TM_DATA_0, SPECIES_GRAFAIAI_TM_DATA_1, SPECIES_GRAFAIAI_TM_DATA_2, SPECIES_GRAFAIAI_TM_DATA_3
     mondexentry SPECIES_GRAFAIAI, "Each Grafaiai paints its own individual pattern, and it will paint that same pattern over and over again throughout its life."
     mondexclassification SPECIES_GRAFAIAI, "Toxic Monkey Pokémon"
     mondexheight SPECIES_GRAFAIAI, "2’04”"
@@ -21940,7 +20943,6 @@ mondata SPECIES_BRAMBLIN, "Bramblin"
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BRAMBLIN_TM_DATA_0, SPECIES_BRAMBLIN_TM_DATA_1, SPECIES_BRAMBLIN_TM_DATA_2, SPECIES_BRAMBLIN_TM_DATA_3
     mondexentry SPECIES_BRAMBLIN, "Not even Bramblin knows where it is headed as it tumbles across the wilderness, blown by the wind. It loathes getting wet."
     mondexclassification SPECIES_BRAMBLIN, "Tumbleweed Pokémon"
     mondexheight SPECIES_BRAMBLIN, "2’00”"
@@ -21962,7 +20964,6 @@ mondata SPECIES_BRAMBLEGHAST, "Bramblgast"
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_BRAMBLEGHAST_TM_DATA_0, SPECIES_BRAMBLEGHAST_TM_DATA_1, SPECIES_BRAMBLEGHAST_TM_DATA_2, SPECIES_BRAMBLEGHAST_TM_DATA_3
     mondexentry SPECIES_BRAMBLEGHAST, "Brambleghast wanders around arid regions. On rare occasions, mass outbreaks of these Pokémon will bury an entire town."
     mondexclassification SPECIES_BRAMBLEGHAST, "Tumbleweed Pokémon"
     mondexheight SPECIES_BRAMBLEGHAST, "3’11”"
@@ -21984,7 +20985,6 @@ mondata SPECIES_TOEDSCOOL, "Toedscool"
     abilities ABILITY_MYCELIUM_MIGHT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_TOEDSCOOL_TM_DATA_0, SPECIES_TOEDSCOOL_TM_DATA_1, SPECIES_TOEDSCOOL_TM_DATA_2, SPECIES_TOEDSCOOL_TM_DATA_3
     mondexentry SPECIES_TOEDSCOOL, "Though it looks like Tentacool, Toedscool is a completely different species. Its legs may be thin, but it can run at a speed of 30 mph."
     mondexclassification SPECIES_TOEDSCOOL, "Woodear Pokémon"
     mondexheight SPECIES_TOEDSCOOL, "2’11”"
@@ -22006,7 +21006,6 @@ mondata SPECIES_TOEDSCRUEL, "Toedscruel"
     abilities ABILITY_MYCELIUM_MIGHT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_TOEDSCRUEL_TM_DATA_0, SPECIES_TOEDSCRUEL_TM_DATA_1, SPECIES_TOEDSCRUEL_TM_DATA_2, SPECIES_TOEDSCRUEL_TM_DATA_3
     mondexentry SPECIES_TOEDSCRUEL, "It coils its 10 tentacles around prey and sucks out their nutrients, causing the prey pain. The folds along the rim of its head are a popular delicacy."
     mondexclassification SPECIES_TOEDSCRUEL, "Woodear Pokémon"
     mondexheight SPECIES_TOEDSCRUEL, "6’03”"
@@ -22028,7 +21027,6 @@ mondata SPECIES_KLAWF, "Klawf"
     abilities ABILITY_ANGER_SHELL, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KLAWF_TM_DATA_0, SPECIES_KLAWF_TM_DATA_1, SPECIES_KLAWF_TM_DATA_2, SPECIES_KLAWF_TM_DATA_3
     mondexentry SPECIES_KLAWF, "This Pokémon lives on sheer cliffs. It sidesteps opponents’ attacks, then lunges for their weak spots with its claws."
     mondexclassification SPECIES_KLAWF, "Ambush Pokémon"
     mondexheight SPECIES_KLAWF, "4’03”"
@@ -22050,7 +21048,6 @@ mondata SPECIES_CAPSAKID, "Capsakid"
     abilities ABILITY_CHLOROPHYLL, ABILITY_INSOMNIA
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CAPSAKID_TM_DATA_0, SPECIES_CAPSAKID_TM_DATA_1, SPECIES_CAPSAKID_TM_DATA_2, SPECIES_CAPSAKID_TM_DATA_3
     mondexentry SPECIES_CAPSAKID, "Traditional Paldean dishes can be extremely spicy because they include the shed front teeth of Capsakid among their ingredients."
     mondexclassification SPECIES_CAPSAKID, "Spicy Pepper Pokémon"
     mondexheight SPECIES_CAPSAKID, "1’00”"
@@ -22072,7 +21069,6 @@ mondata SPECIES_SCOVILLAIN, "Scovillain"
     abilities ABILITY_CHLOROPHYLL, ABILITY_INSOMNIA
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SCOVILLAIN_TM_DATA_0, SPECIES_SCOVILLAIN_TM_DATA_1, SPECIES_SCOVILLAIN_TM_DATA_2, SPECIES_SCOVILLAIN_TM_DATA_3
     mondexentry SPECIES_SCOVILLAIN, "The green head has turned vicious due to the spicy chemicals stimulating its brain. Once it goes on a rampage, there is no stopping it."
     mondexclassification SPECIES_SCOVILLAIN, "Spicy Pepper Pokémon"
     mondexheight SPECIES_SCOVILLAIN, "2’11”"
@@ -22094,7 +21090,6 @@ mondata SPECIES_RELLOR, "Rellor"
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_RELLOR_TM_DATA_0, SPECIES_RELLOR_TM_DATA_1, SPECIES_RELLOR_TM_DATA_2, SPECIES_RELLOR_TM_DATA_3
     mondexentry SPECIES_RELLOR, "It rolls its mud ball around while the energy it needs for evolution matures. Eventually the time comes for it to evolve."
     mondexclassification SPECIES_RELLOR, "Rolling Pokémon"
     mondexheight SPECIES_RELLOR, "0’08”"
@@ -22116,7 +21111,6 @@ mondata SPECIES_RABSCA, "Rabsca"
     abilities ABILITY_SYNCHRONIZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_RABSCA_TM_DATA_0, SPECIES_RABSCA_TM_DATA_1, SPECIES_RABSCA_TM_DATA_2, SPECIES_RABSCA_TM_DATA_3
     mondexentry SPECIES_RABSCA, "An infant sleeps inside the ball. Rabsca rolls the ball soothingly with its legs to ensure the infant sleeps comfortably."
     mondexclassification SPECIES_RABSCA, "Rolling Pokémon"
     mondexheight SPECIES_RABSCA, "1’00”"
@@ -22138,7 +21132,6 @@ mondata SPECIES_FLITTLE, "Flittle"
     abilities ABILITY_ANTICIPATION, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_FLITTLE_TM_DATA_0, SPECIES_FLITTLE_TM_DATA_1, SPECIES_FLITTLE_TM_DATA_2, SPECIES_FLITTLE_TM_DATA_3
     mondexentry SPECIES_FLITTLE, "It spends its time running around wastelands. If anyone steals its beloved berries, it will chase them down and exact its revenge."
     mondexclassification SPECIES_FLITTLE, "Frill Pokémon"
     mondexheight SPECIES_FLITTLE, "0’08”"
@@ -22160,7 +21153,6 @@ mondata SPECIES_ESPATHRA, "Espathra"
     abilities ABILITY_OPPORTUNIST, ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_ESPATHRA_TM_DATA_0, SPECIES_ESPATHRA_TM_DATA_1, SPECIES_ESPATHRA_TM_DATA_2, SPECIES_ESPATHRA_TM_DATA_3
     mondexentry SPECIES_ESPATHRA, "It emits psychic power from the gaps between its multicolored frills and sprints at speeds greater than 120 mph."
     mondexclassification SPECIES_ESPATHRA, "Ostrich Pokémon"
     mondexheight SPECIES_ESPATHRA, "6’03”"
@@ -22182,7 +21174,6 @@ mondata SPECIES_TINKATINK, "Tinkatink"
     abilities ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TINKATINK_TM_DATA_0, SPECIES_TINKATINK_TM_DATA_1, SPECIES_TINKATINK_TM_DATA_2, SPECIES_TINKATINK_TM_DATA_3
     mondexentry SPECIES_TINKATINK, "This Pokémon pounds iron scraps together to make a hammer. It will remake the hammer again and again until it’s satisfied with the result."
     mondexclassification SPECIES_TINKATINK, "Metalsmith Pokémon"
     mondexheight SPECIES_TINKATINK, "1’04”"
@@ -22204,7 +21195,6 @@ mondata SPECIES_TINKATUFF, "Tinkatuff"
     abilities ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TINKATUFF_TM_DATA_0, SPECIES_TINKATUFF_TM_DATA_1, SPECIES_TINKATUFF_TM_DATA_2, SPECIES_TINKATUFF_TM_DATA_3
     mondexentry SPECIES_TINKATUFF, "These Pokémon make their homes in piles of scrap metal. They test the strength of each other’s hammers by smashing them together."
     mondexclassification SPECIES_TINKATUFF, "Hammer Pokémon"
     mondexheight SPECIES_TINKATUFF, "2’04”"
@@ -22226,7 +21216,6 @@ mondata SPECIES_TINKATON, "Tinkaton"
     abilities ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TINKATON_TM_DATA_0, SPECIES_TINKATON_TM_DATA_1, SPECIES_TINKATON_TM_DATA_2, SPECIES_TINKATON_TM_DATA_3
     mondexentry SPECIES_TINKATON, "The hammer tops 220 pounds, yet it gets swung around easily by Tinkaton as it steals whatever it pleases and carries its plunder back home."
     mondexclassification SPECIES_TINKATON, "Hammer Pokémon"
     mondexheight SPECIES_TINKATON, "2’04”"
@@ -22248,7 +21237,6 @@ mondata SPECIES_WIGLETT, "Wiglett"
     abilities ABILITY_GOOEY, ABILITY_RATTLED
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_WIGLETT_TM_DATA_0, SPECIES_WIGLETT_TM_DATA_1, SPECIES_WIGLETT_TM_DATA_2, SPECIES_WIGLETT_TM_DATA_3
     mondexentry SPECIES_WIGLETT, "Though it looks like Diglett, Wiglett is an entirely different species. The resemblance seems to be a coincidental result of environmental adaptation."
     mondexclassification SPECIES_WIGLETT, "Garden Eel Pokémon"
     mondexheight SPECIES_WIGLETT, "3’11”"
@@ -22270,7 +21258,6 @@ mondata SPECIES_WUGTRIO, "Wugtrio"
     abilities ABILITY_GOOEY, ABILITY_RATTLED
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_WUGTRIO_TM_DATA_0, SPECIES_WUGTRIO_TM_DATA_1, SPECIES_WUGTRIO_TM_DATA_2, SPECIES_WUGTRIO_TM_DATA_3
     mondexentry SPECIES_WUGTRIO, "A variety of fish Pokémon, Wugtrio was once considered to be a regional form of Dugtrio."
     mondexclassification SPECIES_WUGTRIO, "Garden Eel Pokémon"
     mondexheight SPECIES_WUGTRIO, "3’11”"
@@ -22292,7 +21279,6 @@ mondata SPECIES_BOMBIRDIER, "Bombirdier"
     abilities ABILITY_BIG_PECKS, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_BOMBIRDIER_TM_DATA_0, SPECIES_BOMBIRDIER_TM_DATA_1, SPECIES_BOMBIRDIER_TM_DATA_2, SPECIES_BOMBIRDIER_TM_DATA_3
     mondexentry SPECIES_BOMBIRDIER, "Bombirdier uses the apron on its chest to bundle up food, which it carries back to its nest. It enjoys dropping things that make loud noises."
     mondexclassification SPECIES_BOMBIRDIER, "Item Drop Pokémon"
     mondexheight SPECIES_BOMBIRDIER, "4’11”"
@@ -22314,7 +21300,6 @@ mondata SPECIES_FINIZEN, "Finizen"
     abilities ABILITY_WATER_VEIL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_FINIZEN_TM_DATA_0, SPECIES_FINIZEN_TM_DATA_1, SPECIES_FINIZEN_TM_DATA_2, SPECIES_FINIZEN_TM_DATA_3
     mondexentry SPECIES_FINIZEN, "Its water ring is made from seawater mixed with a sticky fluid that Finizen secretes from its blowhole."
     mondexclassification SPECIES_FINIZEN, "Dolphin Pokémon"
     mondexheight SPECIES_FINIZEN, "4’03”"
@@ -22336,7 +21321,6 @@ mondata SPECIES_PALAFIN, "Palafin"
     abilities ABILITY_ZERO_TO_HERO, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PALAFIN_TM_DATA_0, SPECIES_PALAFIN_TM_DATA_1, SPECIES_PALAFIN_TM_DATA_2, SPECIES_PALAFIN_TM_DATA_3
     mondexentry SPECIES_PALAFIN, "Its physical capabilities are no different than a Finizen’s, but when its allies are in danger, it transforms and powers itself up."
     mondexclassification SPECIES_PALAFIN, "Dolphin Pokémon"
     mondexheight SPECIES_PALAFIN, "4’03”"
@@ -22358,7 +21342,6 @@ mondata SPECIES_VAROOM, "Varoom"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_VAROOM_TM_DATA_0, SPECIES_VAROOM_TM_DATA_1, SPECIES_VAROOM_TM_DATA_2, SPECIES_VAROOM_TM_DATA_3
     mondexentry SPECIES_VAROOM, "The steel section is Varoom’s actual body. This Pokémon clings to rocks and converts the minerals within into energy to fuel its activities."
     mondexclassification SPECIES_VAROOM, "Single-Cyl Pokémon"
     mondexheight SPECIES_VAROOM, "3’03”"
@@ -22380,7 +21363,6 @@ mondata SPECIES_REVAVROOM, "Revavroom"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REVAVROOM_TM_DATA_0, SPECIES_REVAVROOM_TM_DATA_1, SPECIES_REVAVROOM_TM_DATA_2, SPECIES_REVAVROOM_TM_DATA_3
     mondexentry SPECIES_REVAVROOM, "Revavroom viciously threatens others with the sound of its exhaust. It sticks its tongue out from its cylindrical mouth and sprays toxic fluids."
     mondexclassification SPECIES_REVAVROOM, "Multi-Cyl Pokémon"
     mondexheight SPECIES_REVAVROOM, "5’11”"
@@ -22402,7 +21384,6 @@ mondata SPECIES_CYCLIZAR, "Cyclizar"
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_CYCLIZAR_TM_DATA_0, SPECIES_CYCLIZAR_TM_DATA_1, SPECIES_CYCLIZAR_TM_DATA_2, SPECIES_CYCLIZAR_TM_DATA_3
     mondexentry SPECIES_CYCLIZAR, "It can sprint at over 70 mph while carrying a human. The rider’s body heat warms Cyclizar’s back and lifts the Pokémon’s spirit."
     mondexclassification SPECIES_CYCLIZAR, "Mount Pokémon"
     mondexheight SPECIES_CYCLIZAR, "5’03”"
@@ -22424,7 +21405,6 @@ mondata SPECIES_ORTHWORM, "Orthworm"
     abilities ABILITY_EARTH_EATER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_ORTHWORM_TM_DATA_0, SPECIES_ORTHWORM_TM_DATA_1, SPECIES_ORTHWORM_TM_DATA_2, SPECIES_ORTHWORM_TM_DATA_3
     mondexentry SPECIES_ORTHWORM, "This Pokémon lives in arid deserts. It maintains its metal body by consuming iron from the soil."
     mondexclassification SPECIES_ORTHWORM, "Earthworm Pokémon"
     mondexheight SPECIES_ORTHWORM, "8’02”"
@@ -22446,7 +21426,6 @@ mondata SPECIES_GLIMMET, "Glimmet"
     abilities ABILITY_TOXIC_DEBRIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GLIMMET_TM_DATA_0, SPECIES_GLIMMET_TM_DATA_1, SPECIES_GLIMMET_TM_DATA_2, SPECIES_GLIMMET_TM_DATA_3
     mondexentry SPECIES_GLIMMET, "Glimmet’s toxic mineral crystals look just like flower petals. This Pokémon scatters poisonous powder like pollen to protect itself."
     mondexclassification SPECIES_GLIMMET, "Ore Pokémon"
     mondexheight SPECIES_GLIMMET, "2’04”"
@@ -22468,7 +21447,6 @@ mondata SPECIES_GLIMMORA, "Glimmora"
     abilities ABILITY_TOXIC_DEBRIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_GLIMMORA_TM_DATA_0, SPECIES_GLIMMORA_TM_DATA_1, SPECIES_GLIMMORA_TM_DATA_2, SPECIES_GLIMMORA_TM_DATA_3
     mondexentry SPECIES_GLIMMORA, "Glimmora’s petals are made of crystallized poison energy. It has recently become evident that these petals resemble Tera Jewels."
     mondexclassification SPECIES_GLIMMORA, "Ore Pokémon"
     mondexheight SPECIES_GLIMMORA, "4’11”"
@@ -22490,7 +21468,6 @@ mondata SPECIES_GREAVARD, "Greavard"
     abilities ABILITY_PICKUP, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_GREAVARD_TM_DATA_0, SPECIES_GREAVARD_TM_DATA_1, SPECIES_GREAVARD_TM_DATA_2, SPECIES_GREAVARD_TM_DATA_3
     mondexentry SPECIES_GREAVARD, "This friendly Pokémon doesn’t like being alone. Pay it even the slightest bit of attention, and it will follow you forever."
     mondexclassification SPECIES_GREAVARD, "Ghost Dog Pokémon"
     mondexheight SPECIES_GREAVARD, "2’00”"
@@ -22512,7 +21489,6 @@ mondata SPECIES_HOUNDSTONE, "Houndstone"
     abilities ABILITY_SAND_RUSH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_HOUNDSTONE_TM_DATA_0, SPECIES_HOUNDSTONE_TM_DATA_1, SPECIES_HOUNDSTONE_TM_DATA_2, SPECIES_HOUNDSTONE_TM_DATA_3
     mondexentry SPECIES_HOUNDSTONE, "A lovingly mourned Pokémon was reborn as Houndstone. It doesn’t like anyone touching the protuberance atop its head."
     mondexclassification SPECIES_HOUNDSTONE, "Ghost Dog Pokémon"
     mondexheight SPECIES_HOUNDSTONE, "6’07”"
@@ -22534,7 +21510,6 @@ mondata SPECIES_FLAMIGO, "Flamigo"
     abilities ABILITY_SCRAPPY, ABILITY_TANGLED_FEET
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_FLAMIGO_TM_DATA_0, SPECIES_FLAMIGO_TM_DATA_1, SPECIES_FLAMIGO_TM_DATA_2, SPECIES_FLAMIGO_TM_DATA_3
     mondexentry SPECIES_FLAMIGO, "Thanks to a behavior of theirs known as “synchronizing,” an entire flock of these Pokémon can attack simultaneously in perfect harmony."
     mondexclassification SPECIES_FLAMIGO, "Synchronize Pokémon"
     mondexheight SPECIES_FLAMIGO, "5’03”"
@@ -22556,7 +21531,6 @@ mondata SPECIES_CETODDLE, "Cetoddle"
     abilities ABILITY_THICK_FAT, ABILITY_SNOW_CLOAK
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CETODDLE_TM_DATA_0, SPECIES_CETODDLE_TM_DATA_1, SPECIES_CETODDLE_TM_DATA_2, SPECIES_CETODDLE_TM_DATA_3
     mondexentry SPECIES_CETODDLE, "It lives in frigid regions in pods of five or so individuals. It loves the minerals found in snow and ice."
     mondexclassification SPECIES_CETODDLE, "Terra Whale Pokémon"
     mondexheight SPECIES_CETODDLE, "3’11”"
@@ -22578,7 +21552,6 @@ mondata SPECIES_CETITAN, "Cetitan"
     abilities ABILITY_THICK_FAT, ABILITY_SLUSH_RUSH
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CETITAN_TM_DATA_0, SPECIES_CETITAN_TM_DATA_1, SPECIES_CETITAN_TM_DATA_2, SPECIES_CETITAN_TM_DATA_3
     mondexentry SPECIES_CETITAN, "Ice energy builds up in the horn on its upper jaw, causing the horn to reach cryogenic temperatures that freeze its surroundings."
     mondexclassification SPECIES_CETITAN, "Terra Whale Pokémon"
     mondexheight SPECIES_CETITAN, "14’09”"
@@ -22600,7 +21573,6 @@ mondata SPECIES_VELUZA, "Veluza"
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_VELUZA_TM_DATA_0, SPECIES_VELUZA_TM_DATA_1, SPECIES_VELUZA_TM_DATA_2, SPECIES_VELUZA_TM_DATA_3
     mondexentry SPECIES_VELUZA, "Veluza has excellent regenerative capabilities. It sheds spare flesh from its body to boost its agility, then charges at its prey."
     mondexclassification SPECIES_VELUZA, "Jettison Pokémon"
     mondexheight SPECIES_VELUZA, "8’02”"
@@ -22622,7 +21594,6 @@ mondata SPECIES_DONDOZO, "Dondozo"
     abilities ABILITY_UNAWARE, ABILITY_OBLIVIOUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_DONDOZO_TM_DATA_0, SPECIES_DONDOZO_TM_DATA_1, SPECIES_DONDOZO_TM_DATA_2, SPECIES_DONDOZO_TM_DATA_3
     mondexentry SPECIES_DONDOZO, "It treats Tatsugiri like its boss and follows it loyally. Though powerful, Dondozo is apparently not very smart."
     mondexclassification SPECIES_DONDOZO, "Big Catfish Pokémon"
     mondexheight SPECIES_DONDOZO, "39’04”"
@@ -22644,7 +21615,6 @@ mondata SPECIES_TATSUGIRI, "Tatsugiri"
     abilities ABILITY_COMMANDER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TATSUGIRI_TM_DATA_0, SPECIES_TATSUGIRI_TM_DATA_1, SPECIES_TATSUGIRI_TM_DATA_2, SPECIES_TATSUGIRI_TM_DATA_3
     mondexentry SPECIES_TATSUGIRI, "Tatsugiri is an extremely cunning Pokémon. It feigns weakness to lure in prey, then orders its partner to attack."
     mondexclassification SPECIES_TATSUGIRI, "Mimicry Pokémon"
     mondexheight SPECIES_TATSUGIRI, "1’00”"
@@ -22666,7 +21636,6 @@ mondata SPECIES_ANNIHILAPE, "Annihilape"
     abilities ABILITY_VITAL_SPIRIT, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ANNIHILAPE_TM_DATA_0, SPECIES_ANNIHILAPE_TM_DATA_1, SPECIES_ANNIHILAPE_TM_DATA_2, SPECIES_ANNIHILAPE_TM_DATA_3
     mondexentry SPECIES_ANNIHILAPE, "It imbues its fists with the power of the rage that it kept hidden in its heart. Opponents struck by these imbued fists will be shattered to their core."
     mondexclassification SPECIES_ANNIHILAPE, "Rage Monkey Pokémon"
     mondexheight SPECIES_ANNIHILAPE, "3’11”"
@@ -22688,7 +21657,6 @@ mondata SPECIES_CLODSIRE, "Clodsire"
     abilities ABILITY_POISON_POINT, ABILITY_WATER_ABSORB
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_CLODSIRE_TM_DATA_0, SPECIES_CLODSIRE_TM_DATA_1, SPECIES_CLODSIRE_TM_DATA_2, SPECIES_CLODSIRE_TM_DATA_3
     mondexentry SPECIES_CLODSIRE, "It lives at the bottom of ponds and swamps. It will carry Wooper on its back and ferry them across water from one shore to the other."
     mondexclassification SPECIES_CLODSIRE, "Spiny Fish Pokémon"
     mondexheight SPECIES_CLODSIRE, "5’11”"
@@ -22710,7 +21678,6 @@ mondata SPECIES_FARIGIRAF, "Farigiraf"
     abilities ABILITY_CUD_CHEW, ABILITY_ARMOR_TAIL
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_FARIGIRAF_TM_DATA_0, SPECIES_FARIGIRAF_TM_DATA_1, SPECIES_FARIGIRAF_TM_DATA_2, SPECIES_FARIGIRAF_TM_DATA_3
     mondexentry SPECIES_FARIGIRAF, "The hardened head from the tail protects the head of the main body as Farigiraf whips its long neck around to headbutt enemies."
     mondexclassification SPECIES_FARIGIRAF, "Long Neck Pokémon"
     mondexheight SPECIES_FARIGIRAF, "10’06”"
@@ -22732,7 +21699,6 @@ mondata SPECIES_DUDUNSPARCE, "Dudunspars"
     abilities ABILITY_SERENE_GRACE, ABILITY_RUN_AWAY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_DUDUNSPARCE_TM_DATA_0, SPECIES_DUDUNSPARCE_TM_DATA_1, SPECIES_DUDUNSPARCE_TM_DATA_2, SPECIES_DUDUNSPARCE_TM_DATA_3
     mondexentry SPECIES_DUDUNSPARCE, "It drives enemies out of its nest by sucking in enough air to fill its long, narrow lungs, then releasing the air in an intense blast."
     mondexclassification SPECIES_DUDUNSPARCE, "Land Snake Pokémon"
     mondexheight SPECIES_DUDUNSPARCE, "11’10”"
@@ -22754,7 +21720,6 @@ mondata SPECIES_KINGAMBIT, "Kingambit"
     abilities ABILITY_DEFIANT, ABILITY_SUPREME_OVERLORD
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_KINGAMBIT_TM_DATA_0, SPECIES_KINGAMBIT_TM_DATA_1, SPECIES_KINGAMBIT_TM_DATA_2, SPECIES_KINGAMBIT_TM_DATA_3
     mondexentry SPECIES_KINGAMBIT, "Though it commands a massive army in battle, it’s not skilled at devising complex strategies. It just uses brute strength to keep pushing."
     mondexclassification SPECIES_KINGAMBIT, "Big Blade Pokémon"
     mondexheight SPECIES_KINGAMBIT, "6’07”"
@@ -22776,7 +21741,6 @@ mondata SPECIES_GREAT_TUSK, "Great Tusk"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_GREAT_TUSK_TM_DATA_0, SPECIES_GREAT_TUSK_TM_DATA_1, SPECIES_GREAT_TUSK_TM_DATA_2, SPECIES_GREAT_TUSK_TM_DATA_3
     mondexentry SPECIES_GREAT_TUSK, "This creature resembles a mysterious Pokémon that, according to a paranormal magazine, has lived since ancient times."
     mondexclassification SPECIES_GREAT_TUSK, "Paradox Pokémon"
     mondexheight SPECIES_GREAT_TUSK, "7’03”"
@@ -22798,7 +21762,6 @@ mondata SPECIES_SCREAM_TAIL, "ScreamTail"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_SCREAM_TAIL_TM_DATA_0, SPECIES_SCREAM_TAIL_TM_DATA_1, SPECIES_SCREAM_TAIL_TM_DATA_2, SPECIES_SCREAM_TAIL_TM_DATA_3
     mondexentry SPECIES_SCREAM_TAIL, "It resembles a mysterious Pokémon described in a paranormal magazine as a Jigglypuff from one billion years ago."
     mondexclassification SPECIES_SCREAM_TAIL, "Paradox Pokémon"
     mondexheight SPECIES_SCREAM_TAIL, "3’11”"
@@ -22820,7 +21783,6 @@ mondata SPECIES_BRUTE_BONNET, "BruteBonet"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_BRUTE_BONNET_TM_DATA_0, SPECIES_BRUTE_BONNET_TM_DATA_1, SPECIES_BRUTE_BONNET_TM_DATA_2, SPECIES_BRUTE_BONNET_TM_DATA_3
     mondexentry SPECIES_BRUTE_BONNET, "It bears a slight resemblance to a Pokémon described in a dubious magazine as a cross between a dinosaur and a mushroom."
     mondexclassification SPECIES_BRUTE_BONNET, "Paradox Pokémon"
     mondexheight SPECIES_BRUTE_BONNET, "3’11”"
@@ -22842,7 +21804,6 @@ mondata SPECIES_FLUTTER_MANE, "FluttrMane"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_FLUTTER_MANE_TM_DATA_0, SPECIES_FLUTTER_MANE_TM_DATA_1, SPECIES_FLUTTER_MANE_TM_DATA_2, SPECIES_FLUTTER_MANE_TM_DATA_3
     mondexentry SPECIES_FLUTTER_MANE, "It has similar features to a ghostly pterosaur that was covered in a paranormal magazine, but the two have little else in common."
     mondexclassification SPECIES_FLUTTER_MANE, "Paradox Pokémon"
     mondexheight SPECIES_FLUTTER_MANE, "4’07”"
@@ -22864,7 +21825,6 @@ mondata SPECIES_SLITHER_WING, "SlithrWing"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_SLITHER_WING_TM_DATA_0, SPECIES_SLITHER_WING_TM_DATA_1, SPECIES_SLITHER_WING_TM_DATA_2, SPECIES_SLITHER_WING_TM_DATA_3
     mondexentry SPECIES_SLITHER_WING, "This Pokémon somewhat resembles an ancient form of Volcarona that was introduced in a dubious magazine."
     mondexclassification SPECIES_SLITHER_WING, "Paradox Pokémon"
     mondexheight SPECIES_SLITHER_WING, "10’06”"
@@ -22886,7 +21846,6 @@ mondata SPECIES_SANDY_SHOCKS, "SandyShock"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_SANDY_SHOCKS_TM_DATA_0, SPECIES_SANDY_SHOCKS_TM_DATA_1, SPECIES_SANDY_SHOCKS_TM_DATA_2, SPECIES_SANDY_SHOCKS_TM_DATA_3
     mondexentry SPECIES_SANDY_SHOCKS, "It slightly resembles a Magneton that lived for 10,000 years and was featured in an article in a paranormal magazine."
     mondexclassification SPECIES_SANDY_SHOCKS, "Paradox Pokémon"
     mondexheight SPECIES_SANDY_SHOCKS, "7’07”"
@@ -22908,7 +21867,6 @@ mondata SPECIES_IRON_TREADS, "IronTreads"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_IRON_TREADS_TM_DATA_0, SPECIES_IRON_TREADS_TM_DATA_1, SPECIES_IRON_TREADS_TM_DATA_2, SPECIES_IRON_TREADS_TM_DATA_3
     mondexentry SPECIES_IRON_TREADS, "Sightings of this Pokémon have occurred in recent years. It resembles a mysterious object described in an old expedition journal."
     mondexclassification SPECIES_IRON_TREADS, "Paradox Pokémon"
     mondexheight SPECIES_IRON_TREADS, "2’11”"
@@ -22930,7 +21888,6 @@ mondata SPECIES_IRON_BUNDLE, "IronBundle"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_IRON_BUNDLE_TM_DATA_0, SPECIES_IRON_BUNDLE_TM_DATA_1, SPECIES_IRON_BUNDLE_TM_DATA_2, SPECIES_IRON_BUNDLE_TM_DATA_3
     mondexentry SPECIES_IRON_BUNDLE, "It resembles a mysterious object mentioned in an old book. There are only two reported sightings of this Pokémon."
     mondexclassification SPECIES_IRON_BUNDLE, "Paradox Pokémon"
     mondexheight SPECIES_IRON_BUNDLE, "2’00”"
@@ -22952,7 +21909,6 @@ mondata SPECIES_IRON_HANDS, "Iron Hands"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_IRON_HANDS_TM_DATA_0, SPECIES_IRON_HANDS_TM_DATA_1, SPECIES_IRON_HANDS_TM_DATA_2, SPECIES_IRON_HANDS_TM_DATA_3
     mondexentry SPECIES_IRON_HANDS, "This Pokémon shares many similarities with Iron Hands, an object mentioned in a certain expedition journal."
     mondexclassification SPECIES_IRON_HANDS, "Paradox Pokémon"
     mondexheight SPECIES_IRON_HANDS, "5’11”"
@@ -22974,7 +21930,6 @@ mondata SPECIES_IRON_JUGULIS, "Iron Neck"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_IRON_JUGULIS_TM_DATA_0, SPECIES_IRON_JUGULIS_TM_DATA_1, SPECIES_IRON_JUGULIS_TM_DATA_2, SPECIES_IRON_JUGULIS_TM_DATA_3
     mondexentry SPECIES_IRON_JUGULIS, "It’s possible that Iron Jugulis, an object described in an old book, may actually be this Pokémon."
     mondexclassification SPECIES_IRON_JUGULIS, "Paradox Pokémon"
     mondexheight SPECIES_IRON_JUGULIS, "4’03”"
@@ -22996,7 +21951,6 @@ mondata SPECIES_IRON_MOTH, "Iron Moth"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_IRON_MOTH_TM_DATA_0, SPECIES_IRON_MOTH_TM_DATA_1, SPECIES_IRON_MOTH_TM_DATA_2, SPECIES_IRON_MOTH_TM_DATA_3
     mondexentry SPECIES_IRON_MOTH, "No records exist of this species being caught. Data is lacking, but the Pokémon’s traits match up with an object described in an old book."
     mondexclassification SPECIES_IRON_MOTH, "Paradox Pokémon"
     mondexheight SPECIES_IRON_MOTH, "3’11”"
@@ -23018,7 +21972,6 @@ mondata SPECIES_IRON_THORNS, "Iron Thorn"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_IRON_THORNS_TM_DATA_0, SPECIES_IRON_THORNS_TM_DATA_1, SPECIES_IRON_THORNS_TM_DATA_2, SPECIES_IRON_THORNS_TM_DATA_3
     mondexentry SPECIES_IRON_THORNS, "Some of its notable features match those of an object named within a certain expedition journal as Iron Thorns."
     mondexclassification SPECIES_IRON_THORNS, "Paradox Pokémon"
     mondexheight SPECIES_IRON_THORNS, "5’03”"
@@ -23040,7 +21993,6 @@ mondata SPECIES_FRIGIBAX, "Frigibax"
     abilities ABILITY_THERMAL_EXCHANGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_FRIGIBAX_TM_DATA_0, SPECIES_FRIGIBAX_TM_DATA_1, SPECIES_FRIGIBAX_TM_DATA_2, SPECIES_FRIGIBAX_TM_DATA_3
     mondexentry SPECIES_FRIGIBAX, "This Pokémon lives in forests and craggy areas. Using the power of its dorsal fin, it cools the inside of its nest like a refrigerator."
     mondexclassification SPECIES_FRIGIBAX, "Ice Fin Pokémon"
     mondexheight SPECIES_FRIGIBAX, "1’08”"
@@ -23062,7 +22014,6 @@ mondata SPECIES_ARCTIBAX, "Arctibax"
     abilities ABILITY_THERMAL_EXCHANGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_ARCTIBAX_TM_DATA_0, SPECIES_ARCTIBAX_TM_DATA_1, SPECIES_ARCTIBAX_TM_DATA_2, SPECIES_ARCTIBAX_TM_DATA_3
     mondexentry SPECIES_ARCTIBAX, "It attacks with the blade of its frozen dorsal fin by doing a front flip in the air. Arctibax’s strong back and legs allow it to pull off this technique."
     mondexclassification SPECIES_ARCTIBAX, "Ice Fin Pokémon"
     mondexheight SPECIES_ARCTIBAX, "2’07”"
@@ -23084,7 +22035,6 @@ mondata SPECIES_BAXCALIBUR, "Baxcalibur"
     abilities ABILITY_THERMAL_EXCHANGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_BAXCALIBUR_TM_DATA_0, SPECIES_BAXCALIBUR_TM_DATA_1, SPECIES_BAXCALIBUR_TM_DATA_2, SPECIES_BAXCALIBUR_TM_DATA_3
     mondexentry SPECIES_BAXCALIBUR, "It launches itself into battle by flipping upside down and spewing frigid air from its mouth. It finishes opponents off with its dorsal blade."
     mondexclassification SPECIES_BAXCALIBUR, "Ice Dragon Pokémon"
     mondexheight SPECIES_BAXCALIBUR, "6’11”"
@@ -23106,7 +22056,6 @@ mondata SPECIES_GIMMIGHOUL, "Gimmighoul"
     abilities ABILITY_RATTLED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GIMMIGHOUL_TM_DATA_0, SPECIES_GIMMIGHOUL_TM_DATA_1, SPECIES_GIMMIGHOUL_TM_DATA_2, SPECIES_GIMMIGHOUL_TM_DATA_3
     mondexentry SPECIES_GIMMIGHOUL, "It lives inside an old treasure chest. Sometimes it gets left in shop corners since no one realizes it’s actually a Pokémon."
     mondexclassification SPECIES_GIMMIGHOUL, "Coin Chest Pokémon"
     mondexheight SPECIES_GIMMIGHOUL, "1’00”"
@@ -23128,7 +22077,6 @@ mondata SPECIES_GHOLDENGO, "Gholdengo"
     abilities ABILITY_GOOD_AS_GOLD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_GHOLDENGO_TM_DATA_0, SPECIES_GHOLDENGO_TM_DATA_1, SPECIES_GHOLDENGO_TM_DATA_2, SPECIES_GHOLDENGO_TM_DATA_3
     mondexentry SPECIES_GHOLDENGO, "It has a sturdy body made up of stacked coins. Gholdengo overwhelms its enemies by firing coin after coin at them in quick succession."
     mondexclassification SPECIES_GHOLDENGO, "Coin Entity Pokémon"
     mondexheight SPECIES_GHOLDENGO, "3’11”"
@@ -23150,7 +22098,6 @@ mondata SPECIES_WO_CHIEN, "Wo-Chien"
     abilities ABILITY_TABLETS_OF_RUIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_WO_CHIEN_TM_DATA_0, SPECIES_WO_CHIEN_TM_DATA_1, SPECIES_WO_CHIEN_TM_DATA_2, SPECIES_WO_CHIEN_TM_DATA_3
     mondexentry SPECIES_WO_CHIEN, "It drains the life-force from vegetation, causing nearby forests to instantly wither and fields to turn barren."
     mondexclassification SPECIES_WO_CHIEN, "Ruinous Pokémon"
     mondexheight SPECIES_WO_CHIEN, "4’11”"
@@ -23172,7 +22119,6 @@ mondata SPECIES_CHIEN_PAO, "Chien-Pao"
     abilities ABILITY_SWORD_OF_RUIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_CHIEN_PAO_TM_DATA_0, SPECIES_CHIEN_PAO_TM_DATA_1, SPECIES_CHIEN_PAO_TM_DATA_2, SPECIES_CHIEN_PAO_TM_DATA_3
     mondexentry SPECIES_CHIEN_PAO, "The hatred of those who perished by the sword long ago has clad itself in snow and become a Pokémon."
     mondexclassification SPECIES_CHIEN_PAO, "Ruinous Pokémon"
     mondexheight SPECIES_CHIEN_PAO, "6’03”"
@@ -23194,7 +22140,6 @@ mondata SPECIES_TING_LU, "Ting-Lu"
     abilities ABILITY_VESSEL_OF_RUIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TING_LU_TM_DATA_0, SPECIES_TING_LU_TM_DATA_1, SPECIES_TING_LU_TM_DATA_2, SPECIES_TING_LU_TM_DATA_3
     mondexentry SPECIES_TING_LU, "It slowly brings its exceedingly heavy head down upon the ground, splitting the earth open with huge fissures that run over 160 feet deep."
     mondexclassification SPECIES_TING_LU, "Ruinous Pokémon"
     mondexheight SPECIES_TING_LU, "8’10”"
@@ -23216,7 +22161,6 @@ mondata SPECIES_CHI_YU, "Chi-Yu"
     abilities ABILITY_BEADS_OF_RUIN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_CHI_YU_TM_DATA_0, SPECIES_CHI_YU_TM_DATA_1, SPECIES_CHI_YU_TM_DATA_2, SPECIES_CHI_YU_TM_DATA_3
     mondexentry SPECIES_CHI_YU, "The envy accumulated within curved beads that sparked multiple conflicts has clad itself in fire and become a Pokémon."
     mondexclassification SPECIES_CHI_YU, "Ruinous Pokémon"
     mondexheight SPECIES_CHI_YU, "1’04”"
@@ -23238,7 +22182,6 @@ mondata SPECIES_ROARING_MOON, "Roar Moon"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_ROARING_MOON_TM_DATA_0, SPECIES_ROARING_MOON_TM_DATA_1, SPECIES_ROARING_MOON_TM_DATA_2, SPECIES_ROARING_MOON_TM_DATA_3
     mondexentry SPECIES_ROARING_MOON, "According to an article in a dubious magazine, this Pokémon has some connection to a phenomenon that occurs in a certain region."
     mondexclassification SPECIES_ROARING_MOON, "Paradox Pokémon"
     mondexheight SPECIES_ROARING_MOON, "6’07”"
@@ -23260,7 +22203,6 @@ mondata SPECIES_IRON_VALIANT, "Iron Valor"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_IRON_VALIANT_TM_DATA_0, SPECIES_IRON_VALIANT_TM_DATA_1, SPECIES_IRON_VALIANT_TM_DATA_2, SPECIES_IRON_VALIANT_TM_DATA_3
     mondexentry SPECIES_IRON_VALIANT, "It’s possible that this is the object listed as Iron Valiant in a certain expedition journal."
     mondexclassification SPECIES_IRON_VALIANT, "Paradox Pokémon"
     mondexheight SPECIES_IRON_VALIANT, "4’07”"
@@ -23282,7 +22224,6 @@ mondata SPECIES_KORAIDON, "Koraidon"
     abilities ABILITY_ORICHALCUM_PULSE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_KORAIDON_TM_DATA_0, SPECIES_KORAIDON_TM_DATA_1, SPECIES_KORAIDON_TM_DATA_2, SPECIES_KORAIDON_TM_DATA_3
     mondexentry SPECIES_KORAIDON, "This Pokémon resembles Cyclizar, but it is far burlier and more ferocious. Nothing is known about its ecology or other features."
     mondexclassification SPECIES_KORAIDON, "Paradox Pokémon"
     mondexheight SPECIES_KORAIDON, "8’02”"
@@ -23304,7 +22245,6 @@ mondata SPECIES_MIRAIDON, "Miraidon"
     abilities ABILITY_HADRON_ENGINE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MIRAIDON_TM_DATA_0, SPECIES_MIRAIDON_TM_DATA_1, SPECIES_MIRAIDON_TM_DATA_2, SPECIES_MIRAIDON_TM_DATA_3
     mondexentry SPECIES_MIRAIDON, "This seems to be the Iron Serpent mentioned in an old book. The Iron Serpent is said to have turned the land to ash with its lightning."
     mondexclassification SPECIES_MIRAIDON, "Paradox Pokémon"
     mondexheight SPECIES_MIRAIDON, "11’06”"
@@ -23326,7 +22266,6 @@ mondata SPECIES_WALKING_WAKE, "Walk Wake"
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WALKING_WAKE_TM_DATA_0, SPECIES_WALKING_WAKE_TM_DATA_1, SPECIES_WALKING_WAKE_TM_DATA_2, SPECIES_WALKING_WAKE_TM_DATA_3
     mondexentry SPECIES_WALKING_WAKE, "This seems to be the Iron Serpent mentioned in an old book. The Iron Serpent is said to have turned the land to ash with its lightning."
     mondexclassification SPECIES_WALKING_WAKE, "Paradox Pokémon"
     mondexheight SPECIES_WALKING_WAKE, "11’06”"
@@ -23348,7 +22287,6 @@ mondata SPECIES_IRON_LEAVES, "Iron Leaf"
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_IRON_LEAVES_TM_DATA_0, SPECIES_IRON_LEAVES_TM_DATA_1, SPECIES_IRON_LEAVES_TM_DATA_2, SPECIES_IRON_LEAVES_TM_DATA_3
     mondexentry SPECIES_IRON_LEAVES, "This seems to be the Iron Serpent mentioned in an old book. The Iron Serpent is said to have turned the land to ash with its lightning."
     mondexclassification SPECIES_IRON_LEAVES, "Paradox Pokémon"
     mondexheight SPECIES_IRON_LEAVES, "4’11”"
@@ -23370,7 +22308,6 @@ mondata SPECIES_DIPPLIN, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_DIPPLIN_TM_DATA_0, SPECIES_DIPPLIN_TM_DATA_1, SPECIES_DIPPLIN_TM_DATA_2, SPECIES_DIPPLIN_TM_DATA_3
     mondexentry SPECIES_DIPPLIN, ""
     mondexclassification SPECIES_DIPPLIN, "????? Pokémon"
     mondexheight SPECIES_DIPPLIN, "???’??”"
@@ -23392,7 +22329,6 @@ mondata SPECIES_ARCHALUDON, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_ARCHALUDON_TM_DATA_0, SPECIES_ARCHALUDON_TM_DATA_1, SPECIES_ARCHALUDON_TM_DATA_2, SPECIES_ARCHALUDON_TM_DATA_3
     mondexentry SPECIES_ARCHALUDON, ""
     mondexclassification SPECIES_ARCHALUDON, "????? Pokémon"
     mondexheight SPECIES_ARCHALUDON, "???’??”"
@@ -23414,7 +22350,6 @@ mondata SPECIES_RAGING_BOLT, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_RAGING_BOLT_TM_DATA_0, SPECIES_RAGING_BOLT_TM_DATA_1, SPECIES_RAGING_BOLT_TM_DATA_2, SPECIES_RAGING_BOLT_TM_DATA_3
     mondexentry SPECIES_RAGING_BOLT, ""
     mondexclassification SPECIES_RAGING_BOLT, "????? Pokémon"
     mondexheight SPECIES_RAGING_BOLT, "???’??”"
@@ -23436,7 +22371,6 @@ mondata SPECIES_IRON_CROWN, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_IRON_CROWN_TM_DATA_0, SPECIES_IRON_CROWN_TM_DATA_1, SPECIES_IRON_CROWN_TM_DATA_2, SPECIES_IRON_CROWN_TM_DATA_3
     mondexentry SPECIES_IRON_CROWN, ""
     mondexclassification SPECIES_IRON_CROWN, "????? Pokémon"
     mondexheight SPECIES_IRON_CROWN, "???’??”"
@@ -23458,7 +22392,6 @@ mondata SPECIES_OGERPON, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_OGERPON_TM_DATA_0, SPECIES_OGERPON_TM_DATA_1, SPECIES_OGERPON_TM_DATA_2, SPECIES_OGERPON_TM_DATA_3
     mondexentry SPECIES_OGERPON, ""
     mondexclassification SPECIES_OGERPON, "????? Pokémon"
     mondexheight SPECIES_OGERPON, "???’??”"
@@ -23480,7 +22413,6 @@ mondata SPECIES_OKIDOGI, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_OKIDOGI_TM_DATA_0, SPECIES_OKIDOGI_TM_DATA_1, SPECIES_OKIDOGI_TM_DATA_2, SPECIES_OKIDOGI_TM_DATA_3
     mondexentry SPECIES_OKIDOGI, ""
     mondexclassification SPECIES_OKIDOGI, "????? Pokémon"
     mondexheight SPECIES_OKIDOGI, "???’??”"
@@ -23502,7 +22434,6 @@ mondata SPECIES_MUNKIDORI, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_MUNKIDORI_TM_DATA_0, SPECIES_MUNKIDORI_TM_DATA_1, SPECIES_MUNKIDORI_TM_DATA_2, SPECIES_MUNKIDORI_TM_DATA_3
     mondexentry SPECIES_MUNKIDORI, ""
     mondexclassification SPECIES_MUNKIDORI, "????? Pokémon"
     mondexheight SPECIES_MUNKIDORI, "???’??”"
@@ -23524,7 +22455,6 @@ mondata SPECIES_FEZANDIPITI, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_FEZANDIPITI_TM_DATA_0, SPECIES_FEZANDIPITI_TM_DATA_1, SPECIES_FEZANDIPITI_TM_DATA_2, SPECIES_FEZANDIPITI_TM_DATA_3
     mondexentry SPECIES_FEZANDIPITI, ""
     mondexclassification SPECIES_FEZANDIPITI, "????? Pokémon"
     mondexheight SPECIES_FEZANDIPITI, "???’??”"
@@ -23546,7 +22476,6 @@ mondata SPECIES_TERAPAGOS, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TERAPAGOS_TM_DATA_0, SPECIES_TERAPAGOS_TM_DATA_1, SPECIES_TERAPAGOS_TM_DATA_2, SPECIES_TERAPAGOS_TM_DATA_3
     mondexentry SPECIES_TERAPAGOS, ""
     mondexclassification SPECIES_TERAPAGOS, "????? Pokémon"
     mondexheight SPECIES_TERAPAGOS, "???’??”"
@@ -23568,7 +22497,6 @@ mondata SPECIES_MEGA_VENUSAUR, "-----"
     abilities ABILITY_THICK_FAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_CHARIZARD_X, "-----"
     basestats 78, 130, 111, 100, 130, 85
@@ -23585,7 +22513,6 @@ mondata SPECIES_MEGA_CHARIZARD_X, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_CHARIZARD_Y, "-----"
     basestats 78, 104, 78, 100, 159, 115
@@ -23602,7 +22529,6 @@ mondata SPECIES_MEGA_CHARIZARD_Y, "-----"
     abilities ABILITY_DROUGHT, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BLASTOISE, "-----"
     basestats 79, 103, 120, 78, 135, 115
@@ -23619,7 +22545,6 @@ mondata SPECIES_MEGA_BLASTOISE, "-----"
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BEEDRILL, "-----"
     basestats 65, 150, 40, 145, 15, 80
@@ -23636,7 +22561,6 @@ mondata SPECIES_MEGA_BEEDRILL, "-----"
     abilities ABILITY_ADAPTABILITY, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_PIDGEOT, "-----"
     basestats 83, 80, 80, 121, 135, 80
@@ -23653,7 +22577,6 @@ mondata SPECIES_MEGA_PIDGEOT, "-----"
     abilities ABILITY_NO_GUARD, ABILITY_NO_GUARD
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ALAKAZAM, "-----"
     basestats 55, 50, 65, 150, 175, 105
@@ -23670,7 +22593,6 @@ mondata SPECIES_MEGA_ALAKAZAM, "-----"
     abilities ABILITY_TRACE, ABILITY_TRACE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SLOWBRO, "-----"
     basestats 95, 75, 180, 30, 130, 80
@@ -23687,7 +22609,6 @@ mondata SPECIES_MEGA_SLOWBRO, "-----"
     abilities ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GENGAR, "-----"
     basestats 60, 65, 80, 130, 170, 95
@@ -23704,7 +22625,6 @@ mondata SPECIES_MEGA_GENGAR, "-----"
     abilities ABILITY_SHADOW_TAG, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_KANGASKHAN, "-----"
     basestats 105, 125, 100, 100, 60, 100
@@ -23721,7 +22641,6 @@ mondata SPECIES_MEGA_KANGASKHAN, "-----"
     abilities ABILITY_PURE_POWER, ABILITY_PURE_POWER //ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND
     runchance 125
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_PINSIR, "-----"
     basestats 65, 155, 120, 105, 65, 90
@@ -23738,7 +22657,6 @@ mondata SPECIES_MEGA_PINSIR, "-----"
     abilities ABILITY_AERILATE, ABILITY_AERILATE
     runchance 125
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GYARADOS, "-----"
     basestats 95, 155, 109, 81, 70, 130
@@ -23755,7 +22673,6 @@ mondata SPECIES_MEGA_GYARADOS, "-----"
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AERODACTYL, "-----"
     basestats 80, 135, 85, 150, 70, 95
@@ -23772,7 +22689,6 @@ mondata SPECIES_MEGA_AERODACTYL, "-----"
     abilities ABILITY_PRESSURE, ABILITY_PRESSURE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MEWTWO_X, "-----"
     basestats 106, 190, 100, 130, 154, 100
@@ -23789,7 +22705,6 @@ mondata SPECIES_MEGA_MEWTWO_X, "-----"
     abilities ABILITY_STEADFAST, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MEWTWO_Y, "-----"
     basestats 106, 150, 70, 140, 194, 120
@@ -23806,7 +22721,6 @@ mondata SPECIES_MEGA_MEWTWO_Y, "-----"
     abilities ABILITY_INSOMNIA, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AMPHAROS, "-----"
     basestats 90, 95, 105, 45, 165, 110
@@ -23823,7 +22737,6 @@ mondata SPECIES_MEGA_AMPHAROS, "-----"
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_STEELIX, "-----"
     basestats 75, 125, 230, 30, 55, 95
@@ -23840,7 +22753,6 @@ mondata SPECIES_MEGA_STEELIX, "-----"
     abilities ABILITY_PRESSURE, ABILITY_PRESSURE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SCIZOR, "-----"
     basestats 70, 150, 140, 75, 65, 100
@@ -23857,7 +22769,6 @@ mondata SPECIES_MEGA_SCIZOR, "-----"
     abilities ABILITY_TECHNICIAN, ABILITY_TECHNICIAN
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_HERACROSS, "-----"
     basestats 80, 185, 115, 75, 40, 105
@@ -23874,7 +22785,6 @@ mondata SPECIES_MEGA_HERACROSS, "-----"
     abilities ABILITY_SKILL_LINK, ABILITY_SKILL_LINK
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_HOUNDOOM, "-----"
     basestats 75, 90, 90, 115, 140, 90
@@ -23891,7 +22801,6 @@ mondata SPECIES_MEGA_HOUNDOOM, "-----"
     abilities ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_TYRANITAR, "-----"
     basestats 100, 164, 150, 71, 95, 120
@@ -23908,7 +22817,6 @@ mondata SPECIES_MEGA_TYRANITAR, "-----"
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SCEPTILE, "-----"
     basestats 70, 110, 75, 145, 145, 85
@@ -23925,7 +22833,6 @@ mondata SPECIES_MEGA_SCEPTILE, "-----"
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BLAZIKEN, "-----"
     basestats 80, 160, 80, 100, 130, 80
@@ -23942,7 +22849,6 @@ mondata SPECIES_MEGA_BLAZIKEN, "-----"
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SWAMPERT, "-----"
     basestats 100, 150, 110, 70, 95, 110
@@ -23959,7 +22865,6 @@ mondata SPECIES_MEGA_SWAMPERT, "-----"
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GARDEVOIR, "-----"
     basestats 68, 85, 65, 100, 165, 135
@@ -23976,7 +22881,6 @@ mondata SPECIES_MEGA_GARDEVOIR, "-----"
     abilities ABILITY_PIXILATE, ABILITY_PIXILATE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SABLEYE, "-----"
     basestats 50, 85, 125, 20, 85, 115
@@ -23993,7 +22897,6 @@ mondata SPECIES_MEGA_SABLEYE, "-----"
     abilities ABILITY_PRESSURE, ABILITY_FRISK //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MAWILE, "-----"
     basestats 50, 105, 125, 50, 55, 95
@@ -24010,7 +22913,6 @@ mondata SPECIES_MEGA_MAWILE, "-----"
     abilities ABILITY_HUGE_POWER, ABILITY_HUGE_POWER
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AGGRON, "-----"
     basestats 70, 140, 230, 50, 60, 80
@@ -24027,7 +22929,6 @@ mondata SPECIES_MEGA_AGGRON, "-----"
     abilities ABILITY_FILTER, ABILITY_FILTER
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MEDICHAM, "-----"
     basestats 60, 100, 85, 100, 80, 85
@@ -24044,7 +22945,6 @@ mondata SPECIES_MEGA_MEDICHAM, "-----"
     abilities ABILITY_PURE_POWER, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_MANECTRIC, "-----"
     basestats 70, 75, 80, 135, 135, 80
@@ -24061,7 +22961,6 @@ mondata SPECIES_MEGA_MANECTRIC, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_INTIMIDATE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SHARPEDO, "-----"
     basestats 70, 140, 70, 105, 110, 65
@@ -24078,7 +22977,6 @@ mondata SPECIES_MEGA_SHARPEDO, "-----"
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE //ABILITY_STRONG_JAW, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_CAMERUPT, "-----"
     basestats 70, 120, 100, 20, 145, 105
@@ -24095,7 +22993,6 @@ mondata SPECIES_MEGA_CAMERUPT, "-----"
     abilities ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK //ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ALTARIA, "-----"
     basestats 75, 110, 110, 80, 110, 105
@@ -24112,7 +23009,6 @@ mondata SPECIES_MEGA_ALTARIA, "-----"
     abilities ABILITY_PIXILATE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_BANETTE, "-----"
     basestats 64, 165, 75, 75, 93, 83
@@ -24129,7 +23025,6 @@ mondata SPECIES_MEGA_BANETTE, "-----"
     abilities ABILITY_FRISK, ABILITY_FRISK //ABILITY_PRANKSTER, ABILITY_PRANKSTER
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ABSOL, "-----"
     basestats 65, 150, 60, 115, 115, 60
@@ -24146,7 +23041,6 @@ mondata SPECIES_MEGA_ABSOL, "-----"
     abilities ABILITY_PRESSURE, ABILITY_PRESSURE //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GLALIE, "-----"
     basestats 80, 120, 80, 100, 120, 80
@@ -24163,7 +23057,6 @@ mondata SPECIES_MEGA_GLALIE, "-----"
     abilities ABILITY_REFRIGERATE, ABILITY_REFRIGERATE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_SALAMENCE, "-----"
     basestats 95, 145, 130, 120, 120, 90
@@ -24180,7 +23073,6 @@ mondata SPECIES_MEGA_SALAMENCE, "-----"
     abilities ABILITY_AERILATE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_METAGROSS, "-----"
     basestats 80, 145, 150, 110, 105, 110
@@ -24197,7 +23089,6 @@ mondata SPECIES_MEGA_METAGROSS, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LATIAS, "-----"
     basestats 80, 100, 120, 110, 140, 150
@@ -24214,7 +23105,6 @@ mondata SPECIES_MEGA_LATIAS, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LATIOS, "-----"
     basestats 80, 130, 100, 110, 160, 120
@@ -24231,7 +23121,6 @@ mondata SPECIES_MEGA_LATIOS, "-----"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_RAYQUAZA, "-----"
     basestats 105, 180, 100, 115, 180, 100
@@ -24248,7 +23137,6 @@ mondata SPECIES_MEGA_RAYQUAZA, "-----"
     abilities ABILITY_CLOUD_NINE /*ABILITY_DELTA_STREAM*/, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LOPUNNY, "-----"
     basestats 65, 136, 94, 135, 54, 96
@@ -24265,7 +23153,6 @@ mondata SPECIES_MEGA_LOPUNNY, "-----"
     abilities ABILITY_SCRAPPY, ABILITY_SCRAPPY
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GARCHOMP, "-----"
     basestats 108, 170, 115, 92, 120, 95
@@ -24282,7 +23169,6 @@ mondata SPECIES_MEGA_GARCHOMP, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_LUCARIO, "-----"
     basestats 70, 145, 88, 112, 140, 70
@@ -24299,7 +23185,6 @@ mondata SPECIES_MEGA_LUCARIO, "-----"
     abilities ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_ABOMASNOW, "-----"
     basestats 90, 132, 105, 30, 132, 105
@@ -24316,7 +23201,6 @@ mondata SPECIES_MEGA_ABOMASNOW, "-----"
     abilities ABILITY_SNOW_WARNING, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_GALLADE, "-----"
     basestats 68, 165, 95, 110, 65, 115
@@ -24333,7 +23217,6 @@ mondata SPECIES_MEGA_GALLADE, "-----"
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_AUDINO, "-----"
     basestats 103, 60, 126, 50, 80, 126
@@ -24350,7 +23233,6 @@ mondata SPECIES_MEGA_AUDINO, "-----"
     abilities ABILITY_HEALER, ABILITY_HEALER
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_MEGA_DIANCIE, "-----"
     basestats 50, 160, 110, 110, 160, 110
@@ -24367,7 +23249,6 @@ mondata SPECIES_MEGA_DIANCIE, "-----"
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_GROUDON_PRIMAL, "-----"
     basestats 100, 180, 160, 90, 150, 90
@@ -24384,7 +23265,6 @@ mondata SPECIES_GROUDON_PRIMAL, "-----"
     abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_KYOGRE_PRIMAL, "-----"
     basestats 100, 150, 90, 90, 180, 160
@@ -24401,7 +23281,6 @@ mondata SPECIES_KYOGRE_PRIMAL, "-----"
     abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
     runchance 0
     colorflip 0, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 mondata SPECIES_RATTATA_ALOLAN, "-----"
     basestats 30, 56, 35, 72, 25, 35
@@ -24418,7 +23297,6 @@ mondata SPECIES_RATTATA_ALOLAN, "-----"
     abilities ABILITY_GLUTTONY,  ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_RATICATE_ALOLAN, "-----"
@@ -24436,7 +23314,6 @@ mondata SPECIES_RATICATE_ALOLAN, "-----"
     abilities ABILITY_GLUTTONY,  ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_RAICHU_ALOLAN, "-----"
@@ -24454,7 +23331,6 @@ mondata SPECIES_RAICHU_ALOLAN, "-----"
     abilities ABILITY_SURGE_SURFER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SANDSHREW_ALOLAN, "-----"
@@ -24472,7 +23348,6 @@ mondata SPECIES_SANDSHREW_ALOLAN, "-----"
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SANDSLASH_ALOLAN, "-----"
@@ -24490,7 +23365,6 @@ mondata SPECIES_SANDSLASH_ALOLAN, "-----"
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VULPIX_ALOLAN, "-----"
@@ -24508,7 +23382,6 @@ mondata SPECIES_VULPIX_ALOLAN, "-----"
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_NINETALES_ALOLAN, "-----"
@@ -24526,7 +23399,6 @@ mondata SPECIES_NINETALES_ALOLAN, "-----"
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DIGLETT_ALOLAN, "-----"
@@ -24544,7 +23416,6 @@ mondata SPECIES_DIGLETT_ALOLAN, "-----"
     abilities ABILITY_SAND_VEIL,  ABILITY_TANGLING_HAIR
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DUGTRIO_ALOLAN, "-----"
@@ -24562,7 +23433,6 @@ mondata SPECIES_DUGTRIO_ALOLAN, "-----"
     abilities ABILITY_SAND_VEIL,  ABILITY_TANGLING_HAIR
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MEOWTH_ALOLAN, "-----"
@@ -24580,7 +23450,6 @@ mondata SPECIES_MEOWTH_ALOLAN, "-----"
     abilities ABILITY_PICKUP,  ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PERSIAN_ALOLAN, "-----"
@@ -24598,7 +23467,6 @@ mondata SPECIES_PERSIAN_ALOLAN, "-----"
     abilities ABILITY_FUR_COAT,  ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GEODUDE_ALOLAN, "-----"
@@ -24616,7 +23484,6 @@ mondata SPECIES_GEODUDE_ALOLAN, "-----"
     abilities ABILITY_MAGNET_PULL,  ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GRAVELER_ALOLAN, "-----"
@@ -24634,7 +23501,6 @@ mondata SPECIES_GRAVELER_ALOLAN, "-----"
     abilities ABILITY_MAGNET_PULL,  ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GOLEM_ALOLAN, "-----"
@@ -24652,7 +23518,6 @@ mondata SPECIES_GOLEM_ALOLAN, "-----"
     abilities ABILITY_MAGNET_PULL,  ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GRIMER_ALOLAN, "-----"
@@ -24670,7 +23535,6 @@ mondata SPECIES_GRIMER_ALOLAN, "-----"
     abilities ABILITY_POISON_TOUCH,  ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MUK_ALOLAN, "-----"
@@ -24688,7 +23552,6 @@ mondata SPECIES_MUK_ALOLAN, "-----"
     abilities ABILITY_POISON_TOUCH,  ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_EXEGGUTOR_ALOLAN, "-----"
@@ -24706,7 +23569,6 @@ mondata SPECIES_EXEGGUTOR_ALOLAN, "-----"
     abilities ABILITY_FRISK,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MAROWAK_ALOLAN, "-----"
@@ -24724,7 +23586,6 @@ mondata SPECIES_MAROWAK_ALOLAN, "-----"
     abilities ABILITY_CURSED_BODY,  ABILITY_LIGHTNING_ROD
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MEOWTH_GALARIAN, "-----"
@@ -24742,7 +23603,6 @@ mondata SPECIES_MEOWTH_GALARIAN, "-----"
     abilities ABILITY_PICKUP,  ABILITY_TOUGH_CLAWS
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PONYTA_GALARIAN, "-----"
@@ -24760,7 +23620,6 @@ mondata SPECIES_PONYTA_GALARIAN, "-----"
     abilities ABILITY_RUN_AWAY,  ABILITY_PASTEL_VEIL
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_RAPIDASH_GALARIAN, "-----"
@@ -24778,7 +23637,6 @@ mondata SPECIES_RAPIDASH_GALARIAN, "-----"
     abilities ABILITY_RUN_AWAY,  ABILITY_PASTEL_VEIL
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SLOWPOKE_GALARIAN, "-----"
@@ -24796,7 +23654,6 @@ mondata SPECIES_SLOWPOKE_GALARIAN, "-----"
     abilities ABILITY_GLUTTONY,  ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SLOWBRO_GALARIAN, "-----"
@@ -24814,7 +23671,6 @@ mondata SPECIES_SLOWBRO_GALARIAN, "-----"
     abilities ABILITY_QUICK_DRAW,  ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FARFETCHD_GALARIAN, "-----"
@@ -24832,7 +23688,6 @@ mondata SPECIES_FARFETCHD_GALARIAN, "-----"
     abilities ABILITY_STEADFAST,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_WEEZING_GALARIAN, "-----"
@@ -24850,7 +23705,6 @@ mondata SPECIES_WEEZING_GALARIAN, "-----"
     abilities ABILITY_LEVITATE,  ABILITY_NEUTRALIZING_GAS
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MR_MIME_GALARIAN, "-----"
@@ -24868,7 +23722,6 @@ mondata SPECIES_MR_MIME_GALARIAN, "-----"
     abilities ABILITY_VITAL_SPIRIT,  ABILITY_SCREEN_CLEANER
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ARTICUNO_GALARIAN, "-----"
@@ -24886,7 +23739,6 @@ mondata SPECIES_ARTICUNO_GALARIAN, "-----"
     abilities ABILITY_COMPETITIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZAPDOS_GALARIAN, "-----"
@@ -24904,7 +23756,6 @@ mondata SPECIES_ZAPDOS_GALARIAN, "-----"
     abilities ABILITY_DEFIANT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MOLTRES_GALARIAN, "-----"
@@ -24922,7 +23773,6 @@ mondata SPECIES_MOLTRES_GALARIAN, "-----"
     abilities ABILITY_BERSERK, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SLOWKING_GALARIAN, "-----"
@@ -24940,7 +23790,6 @@ mondata SPECIES_SLOWKING_GALARIAN, "-----"
     abilities ABILITY_CURIOUS_MEDICINE,  ABILITY_OWN_TEMPO
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CORSOLA_GALARIAN, "-----"
@@ -24958,7 +23807,6 @@ mondata SPECIES_CORSOLA_GALARIAN, "-----"
     abilities ABILITY_WEAK_ARMOR,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZIGZAGOON_GALARIAN, "-----"
@@ -24976,7 +23824,6 @@ mondata SPECIES_ZIGZAGOON_GALARIAN, "-----"
     abilities ABILITY_PICKUP,  ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_LINOONE_GALARIAN, "-----"
@@ -24994,7 +23841,6 @@ mondata SPECIES_LINOONE_GALARIAN, "-----"
     abilities ABILITY_PICKUP,  ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DARUMAKA_GALARIAN, "-----"
@@ -25012,7 +23858,6 @@ mondata SPECIES_DARUMAKA_GALARIAN, "-----"
     abilities ABILITY_HUSTLE,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DARMANITAN_GALARIAN, "-----"
@@ -25030,7 +23875,6 @@ mondata SPECIES_DARMANITAN_GALARIAN, "-----"
     abilities ABILITY_GORILLA_TACTICS,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_YAMASK_GALARIAN, "-----"
@@ -25048,7 +23892,6 @@ mondata SPECIES_YAMASK_GALARIAN, "-----"
     abilities ABILITY_WANDERING_SPIRIT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_STUNFISK_GALARIAN, "-----"
@@ -25066,7 +23909,6 @@ mondata SPECIES_STUNFISK_GALARIAN, "-----"
     abilities ABILITY_MIMICRY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_COSPLAY, "-----"
@@ -25084,7 +23926,6 @@ mondata SPECIES_PIKACHU_COSPLAY, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_ROCK_STAR, "-----"
@@ -25102,7 +23943,6 @@ mondata SPECIES_PIKACHU_ROCK_STAR, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_BELLE, "-----"
@@ -25120,7 +23960,6 @@ mondata SPECIES_PIKACHU_BELLE, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_POP_STAR, "-----"
@@ -25138,7 +23977,6 @@ mondata SPECIES_PIKACHU_POP_STAR, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_PH_D, "-----"
@@ -25156,7 +23994,6 @@ mondata SPECIES_PIKACHU_PH_D, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_LIBRE, "-----"
@@ -25174,7 +24011,6 @@ mondata SPECIES_PIKACHU_LIBRE, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_ORIGINAL_CAP, "-----"
@@ -25192,7 +24028,6 @@ mondata SPECIES_PIKACHU_ORIGINAL_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_HOENN_CAP, "-----"
@@ -25210,7 +24045,6 @@ mondata SPECIES_PIKACHU_HOENN_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_SINNOH_CAP, "-----"
@@ -25228,7 +24062,6 @@ mondata SPECIES_PIKACHU_SINNOH_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_UNOVA_CAP, "-----"
@@ -25246,7 +24079,6 @@ mondata SPECIES_PIKACHU_UNOVA_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_KALOS_CAP, "-----"
@@ -25264,7 +24096,6 @@ mondata SPECIES_PIKACHU_KALOS_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_ALOLA_CAP, "-----"
@@ -25282,7 +24113,6 @@ mondata SPECIES_PIKACHU_ALOLA_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_PARTNER_CAP, "-----"
@@ -25300,7 +24130,6 @@ mondata SPECIES_PIKACHU_PARTNER_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PIKACHU_WORLD_CAP, "-----"
@@ -25318,7 +24147,6 @@ mondata SPECIES_PIKACHU_WORLD_CAP, "-----"
     abilities ABILITY_STATIC,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CASTFORM_SUNNY, "-----"
@@ -25336,7 +24164,6 @@ mondata SPECIES_CASTFORM_SUNNY, "-----"
     abilities ABILITY_FORECAST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CASTFORM_RAINY, "-----"
@@ -25354,7 +24181,6 @@ mondata SPECIES_CASTFORM_RAINY, "-----"
     abilities ABILITY_FORECAST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CASTFORM_SNOWY, "-----"
@@ -25372,7 +24198,6 @@ mondata SPECIES_CASTFORM_SNOWY, "-----"
     abilities ABILITY_FORECAST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CHERRIM_SUNSHINE, "-----"
@@ -25390,7 +24215,6 @@ mondata SPECIES_CHERRIM_SUNSHINE, "-----"
     abilities ABILITY_FLOWER_GIFT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SHELLOS_EAST_SEA, "-----"
@@ -25408,7 +24232,6 @@ mondata SPECIES_SHELLOS_EAST_SEA, "-----"
     abilities ABILITY_STICKY_HOLD,  ABILITY_STORM_DRAIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GASTRODON_EAST_SEA, "-----"
@@ -25426,7 +24249,6 @@ mondata SPECIES_GASTRODON_EAST_SEA, "-----"
     abilities ABILITY_STICKY_HOLD,  ABILITY_STORM_DRAIN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DIALGA_ORIGIN, "-----"
@@ -25444,7 +24266,6 @@ mondata SPECIES_DIALGA_ORIGIN, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PALKIA_ORIGIN, "-----"
@@ -25462,7 +24283,6 @@ mondata SPECIES_PALKIA_ORIGIN, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_BASCULIN_RED_STRIPED, "-----"
@@ -25480,7 +24300,6 @@ mondata SPECIES_BASCULIN_RED_STRIPED, "-----"
     abilities ABILITY_RECKLESS,  ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
@@ -25498,7 +24317,6 @@ mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     abilities ABILITY_ROCK_HEAD,  ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DARMANITAN_ZEN_MODE, "-----"
@@ -25516,7 +24334,6 @@ mondata SPECIES_DARMANITAN_ZEN_MODE, "-----"
     abilities ABILITY_SHEER_FORCE,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN, "-----"
@@ -25534,7 +24351,6 @@ mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN, "-----"
     abilities ABILITY_GORILLA_TACTICS,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DEERLING_SUMMER, "-----"
@@ -25552,7 +24368,6 @@ mondata SPECIES_DEERLING_SUMMER, "-----"
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DEERLING_AUTUMN, "-----"
@@ -25570,7 +24385,6 @@ mondata SPECIES_DEERLING_AUTUMN, "-----"
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DEERLING_WINTER, "-----"
@@ -25588,7 +24402,6 @@ mondata SPECIES_DEERLING_WINTER, "-----"
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SAWSBUCK_SUMMER, "-----"
@@ -25606,7 +24419,6 @@ mondata SPECIES_SAWSBUCK_SUMMER, "-----"
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SAWSBUCK_AUTUMN, "-----"
@@ -25624,7 +24436,6 @@ mondata SPECIES_SAWSBUCK_AUTUMN, "-----"
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SAWSBUCK_WINTER, "-----"
@@ -25642,7 +24453,6 @@ mondata SPECIES_SAWSBUCK_WINTER, "-----"
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_TORNADUS_THERIAN, "-----"
@@ -25660,7 +24470,6 @@ mondata SPECIES_TORNADUS_THERIAN, "-----"
     abilities ABILITY_REGENERATOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_THUNDURUS_THERIAN, "-----"
@@ -25678,7 +24487,6 @@ mondata SPECIES_THUNDURUS_THERIAN, "-----"
     abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_LANDORUS_THERIAN, "-----"
@@ -25696,7 +24504,6 @@ mondata SPECIES_LANDORUS_THERIAN, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_KYUREM_WHITE, "-----"
@@ -25714,7 +24521,6 @@ mondata SPECIES_KYUREM_WHITE, "-----"
     abilities ABILITY_TURBOBLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_KYUREM_BLACK, "-----"
@@ -25732,7 +24538,6 @@ mondata SPECIES_KYUREM_BLACK, "-----"
     abilities ABILITY_TERAVOLT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_KELDEO_RESOLUTE, "-----"
@@ -25750,7 +24555,6 @@ mondata SPECIES_KELDEO_RESOLUTE, "-----"
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MELOETTA_PIROUETTE, "-----"
@@ -25768,7 +24572,6 @@ mondata SPECIES_MELOETTA_PIROUETTE, "-----"
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GENESECT_DOUSE_DRIVE, "-----"
@@ -25786,7 +24589,6 @@ mondata SPECIES_GENESECT_DOUSE_DRIVE, "-----"
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GENESECT_SHOCK_DRIVE, "-----"
@@ -25804,7 +24606,6 @@ mondata SPECIES_GENESECT_SHOCK_DRIVE, "-----"
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GENESECT_BURN_DRIVE, "-----"
@@ -25822,7 +24623,6 @@ mondata SPECIES_GENESECT_BURN_DRIVE, "-----"
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GENESECT_CHILL_DRIVE, "-----"
@@ -25840,7 +24640,6 @@ mondata SPECIES_GENESECT_CHILL_DRIVE, "-----"
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GRENINJA_BATTLE_BOND, "-----"
@@ -25858,7 +24657,6 @@ mondata SPECIES_GRENINJA_BATTLE_BOND, "-----"
     abilities ABILITY_BATTLE_BOND, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GRENINJA_ASH, "-----"
@@ -25876,7 +24674,6 @@ mondata SPECIES_GRENINJA_ASH, "-----"
     abilities ABILITY_BATTLE_BOND, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_POLAR, "-----"
@@ -25894,7 +24691,6 @@ mondata SPECIES_VIVILLON_POLAR, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_TUNDRA, "-----"
@@ -25912,7 +24708,6 @@ mondata SPECIES_VIVILLON_TUNDRA, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_CONTINENTAL, "-----"
@@ -25930,7 +24725,6 @@ mondata SPECIES_VIVILLON_CONTINENTAL, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_GARDEN, "-----"
@@ -25948,7 +24742,6 @@ mondata SPECIES_VIVILLON_GARDEN, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_ELEGANT, "-----"
@@ -25966,7 +24759,6 @@ mondata SPECIES_VIVILLON_ELEGANT, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_MEADOW, "-----"
@@ -25984,7 +24776,6 @@ mondata SPECIES_VIVILLON_MEADOW, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_MODERN, "-----"
@@ -26002,7 +24793,6 @@ mondata SPECIES_VIVILLON_MODERN, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_MARINE, "-----"
@@ -26020,7 +24810,6 @@ mondata SPECIES_VIVILLON_MARINE, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_ARCHIPELAGO, "-----"
@@ -26038,7 +24827,6 @@ mondata SPECIES_VIVILLON_ARCHIPELAGO, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_HIGH_PLAINS, "-----"
@@ -26056,7 +24844,6 @@ mondata SPECIES_VIVILLON_HIGH_PLAINS, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_SANDSTORM, "-----"
@@ -26074,7 +24861,6 @@ mondata SPECIES_VIVILLON_SANDSTORM, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_RIVER, "-----"
@@ -26092,7 +24878,6 @@ mondata SPECIES_VIVILLON_RIVER, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_MONSOON, "-----"
@@ -26110,7 +24895,6 @@ mondata SPECIES_VIVILLON_MONSOON, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_SAVANNA, "-----"
@@ -26128,7 +24912,6 @@ mondata SPECIES_VIVILLON_SAVANNA, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_SUN, "-----"
@@ -26146,7 +24929,6 @@ mondata SPECIES_VIVILLON_SUN, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_OCEAN, "-----"
@@ -26164,7 +24946,6 @@ mondata SPECIES_VIVILLON_OCEAN, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_JUNGLE, "-----"
@@ -26182,7 +24963,6 @@ mondata SPECIES_VIVILLON_JUNGLE, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_FANCY, "-----"
@@ -26200,7 +24980,6 @@ mondata SPECIES_VIVILLON_FANCY, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VIVILLON_POKE_BALL, "-----"
@@ -26218,7 +24997,6 @@ mondata SPECIES_VIVILLON_POKE_BALL, "-----"
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLABEBE_YELLOW_FLOWER, "-----"
@@ -26236,7 +25014,6 @@ mondata SPECIES_FLABEBE_YELLOW_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLABEBE_ORANGE_FLOWER, "-----"
@@ -26254,7 +25031,6 @@ mondata SPECIES_FLABEBE_ORANGE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLABEBE_BLUE_FLOWER, "-----"
@@ -26272,7 +25048,6 @@ mondata SPECIES_FLABEBE_BLUE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLABEBE_WHITE_FLOWER, "-----"
@@ -26290,7 +25065,6 @@ mondata SPECIES_FLABEBE_WHITE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLOETTE_YELLOW_FLOWER, "-----"
@@ -26308,7 +25082,6 @@ mondata SPECIES_FLOETTE_YELLOW_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLOETTE_ORANGE_FLOWER, "-----"
@@ -26326,7 +25099,6 @@ mondata SPECIES_FLOETTE_ORANGE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLOETTE_BLUE_FLOWER, "-----"
@@ -26344,7 +25116,6 @@ mondata SPECIES_FLOETTE_BLUE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLOETTE_WHITE_FLOWER, "-----"
@@ -26362,7 +25133,6 @@ mondata SPECIES_FLOETTE_WHITE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLOETTE_ETERNAL_FLOWER, "-----"
@@ -26380,7 +25150,6 @@ mondata SPECIES_FLOETTE_ETERNAL_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLORGES_YELLOW_FLOWER, "-----"
@@ -26398,7 +25167,6 @@ mondata SPECIES_FLORGES_YELLOW_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLORGES_ORANGE_FLOWER, "-----"
@@ -26416,7 +25184,6 @@ mondata SPECIES_FLORGES_ORANGE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLORGES_BLUE_FLOWER, "-----"
@@ -26434,7 +25201,6 @@ mondata SPECIES_FLORGES_BLUE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FLORGES_WHITE_FLOWER, "-----"
@@ -26452,7 +25218,6 @@ mondata SPECIES_FLORGES_WHITE_FLOWER, "-----"
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_HEART, "-----"
@@ -26470,7 +25235,6 @@ mondata SPECIES_FURFROU_HEART, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_STAR, "-----"
@@ -26488,7 +25252,6 @@ mondata SPECIES_FURFROU_STAR, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_DIAMOND, "-----"
@@ -26506,7 +25269,6 @@ mondata SPECIES_FURFROU_DIAMOND, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_DEBUTANTE, "-----"
@@ -26524,7 +25286,6 @@ mondata SPECIES_FURFROU_DEBUTANTE, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_MATRON, "-----"
@@ -26542,7 +25303,6 @@ mondata SPECIES_FURFROU_MATRON, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_DANDY, "-----"
@@ -26560,7 +25320,6 @@ mondata SPECIES_FURFROU_DANDY, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_LA_REINE, "-----"
@@ -26578,7 +25337,6 @@ mondata SPECIES_FURFROU_LA_REINE, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_KABUKI, "-----"
@@ -26596,7 +25354,6 @@ mondata SPECIES_FURFROU_KABUKI, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_FURFROU_PHARAOH, "-----"
@@ -26614,7 +25371,6 @@ mondata SPECIES_FURFROU_PHARAOH, "-----"
     abilities ABILITY_FUR_COAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_AEGISLASH_BLADE, "-----"
@@ -26632,7 +25388,6 @@ mondata SPECIES_AEGISLASH_BLADE, "-----"
     abilities ABILITY_STANCE_CHANGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PUMPKABOO_SMALL, "-----"
@@ -26650,7 +25405,6 @@ mondata SPECIES_PUMPKABOO_SMALL, "-----"
     abilities ABILITY_PICKUP,  ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PUMPKABOO_LARGE, "-----"
@@ -26668,7 +25422,6 @@ mondata SPECIES_PUMPKABOO_LARGE, "-----"
     abilities ABILITY_PICKUP,  ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_PUMPKABOO_SUPER, "-----"
@@ -26686,7 +25439,6 @@ mondata SPECIES_PUMPKABOO_SUPER, "-----"
     abilities ABILITY_PICKUP,  ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GOURGEIST_SMALL, "-----"
@@ -26704,7 +25456,6 @@ mondata SPECIES_GOURGEIST_SMALL, "-----"
     abilities ABILITY_PICKUP,  ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GOURGEIST_LARGE, "-----"
@@ -26722,7 +25473,6 @@ mondata SPECIES_GOURGEIST_LARGE, "-----"
     abilities ABILITY_PICKUP,  ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GOURGEIST_SUPER, "-----"
@@ -26740,7 +25490,6 @@ mondata SPECIES_GOURGEIST_SUPER, "-----"
     abilities ABILITY_PICKUP,  ABILITY_FRISK
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_XERNEAS_ACTIVE, "-----"
@@ -26758,7 +25507,6 @@ mondata SPECIES_XERNEAS_ACTIVE, "-----"
     abilities ABILITY_FAIRY_AURA, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZYGARDE_10, "-----"
@@ -26776,7 +25524,6 @@ mondata SPECIES_ZYGARDE_10, "-----"
     abilities ABILITY_AURA_BREAK, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT, "-----"
@@ -26794,7 +25541,6 @@ mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT, "-----"
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT, "-----"
@@ -26812,7 +25558,6 @@ mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT, "-----"
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZYGARDE_10_COMPLETE, "-----"
@@ -26830,7 +25575,6 @@ mondata SPECIES_ZYGARDE_10_COMPLETE, "-----"
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZYGARDE_50_COMPLETE, "-----"
@@ -26848,7 +25592,6 @@ mondata SPECIES_ZYGARDE_50_COMPLETE, "-----"
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_HOOPA_UNBOUND, "-----"
@@ -26866,7 +25609,6 @@ mondata SPECIES_HOOPA_UNBOUND, "-----"
     abilities ABILITY_MAGICIAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ORICORIO_POM_POM, "-----"
@@ -26884,7 +25626,6 @@ mondata SPECIES_ORICORIO_POM_POM, "-----"
     abilities ABILITY_DANCER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ORICORIO_PAU, "-----"
@@ -26902,7 +25643,6 @@ mondata SPECIES_ORICORIO_PAU, "-----"
     abilities ABILITY_DANCER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ORICORIO_SENSU, "-----"
@@ -26920,7 +25660,6 @@ mondata SPECIES_ORICORIO_SENSU, "-----"
     abilities ABILITY_DANCER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ROCKRUFF_OWN_TEMPO, "-----"
@@ -26938,7 +25677,6 @@ mondata SPECIES_ROCKRUFF_OWN_TEMPO, "-----"
     abilities ABILITY_OWN_TEMPO, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_LYCANROC_MIDNIGHT, "-----"
@@ -26956,7 +25694,6 @@ mondata SPECIES_LYCANROC_MIDNIGHT, "-----"
     abilities ABILITY_KEEN_EYE,  ABILITY_VITAL_SPIRIT
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_LYCANROC_DUSK, "-----"
@@ -26974,7 +25711,6 @@ mondata SPECIES_LYCANROC_DUSK, "-----"
     abilities ABILITY_TOUGH_CLAWS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_WISHIWASHI_SCHOOL, "-----"
@@ -26992,7 +25728,6 @@ mondata SPECIES_WISHIWASHI_SCHOOL, "-----"
     abilities ABILITY_SCHOOLING, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_METEOR_ORANGE, "-----"
@@ -27010,7 +25745,6 @@ mondata SPECIES_MINIOR_METEOR_ORANGE, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_METEOR_YELLOW, "-----"
@@ -27028,7 +25762,6 @@ mondata SPECIES_MINIOR_METEOR_YELLOW, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_METEOR_GREEN, "-----"
@@ -27046,7 +25779,6 @@ mondata SPECIES_MINIOR_METEOR_GREEN, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_METEOR_BLUE, "-----"
@@ -27064,7 +25796,6 @@ mondata SPECIES_MINIOR_METEOR_BLUE, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_METEOR_INDIGO, "-----"
@@ -27082,7 +25813,6 @@ mondata SPECIES_MINIOR_METEOR_INDIGO, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_METEOR_VIOLET, "-----"
@@ -27100,7 +25830,6 @@ mondata SPECIES_MINIOR_METEOR_VIOLET, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_RED, "-----"
@@ -27118,7 +25847,6 @@ mondata SPECIES_MINIOR_CORE_RED, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_ORANGE, "-----"
@@ -27136,7 +25864,6 @@ mondata SPECIES_MINIOR_CORE_ORANGE, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_YELLOW, "-----"
@@ -27154,7 +25881,6 @@ mondata SPECIES_MINIOR_CORE_YELLOW, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_GREEN, "-----"
@@ -27172,7 +25898,6 @@ mondata SPECIES_MINIOR_CORE_GREEN, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_BLUE, "-----"
@@ -27190,7 +25915,6 @@ mondata SPECIES_MINIOR_CORE_BLUE, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_INDIGO, "-----"
@@ -27208,7 +25932,6 @@ mondata SPECIES_MINIOR_CORE_INDIGO, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MINIOR_CORE_VIOLET, "-----"
@@ -27226,7 +25949,6 @@ mondata SPECIES_MINIOR_CORE_VIOLET, "-----"
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MIMIKYU_BUSTED, "-----"
@@ -27244,7 +25966,6 @@ mondata SPECIES_MIMIKYU_BUSTED, "-----"
     abilities ABILITY_DISGUISE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_NECROZMA_DUSK_MANE, "-----"
@@ -27262,7 +25983,6 @@ mondata SPECIES_NECROZMA_DUSK_MANE, "-----"
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_NECROZMA_DAWN_WINGS, "-----"
@@ -27280,7 +26000,6 @@ mondata SPECIES_NECROZMA_DAWN_WINGS, "-----"
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE, "-----"
@@ -27298,7 +26017,6 @@ mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE, "-----"
     abilities ABILITY_NEUROFORCE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS, "-----"
@@ -27316,7 +26034,6 @@ mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS, "-----"
     abilities ABILITY_NEUROFORCE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MAGEARNA_ORIGINAL, "-----"
@@ -27334,7 +26051,6 @@ mondata SPECIES_MAGEARNA_ORIGINAL, "-----"
     abilities ABILITY_SOUL_HEART, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CRAMORANT_GULPING, "-----"
@@ -27352,7 +26068,6 @@ mondata SPECIES_CRAMORANT_GULPING, "-----"
     abilities ABILITY_GULP_MISSILE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CRAMORANT_GORGING, "-----"
@@ -27370,7 +26085,6 @@ mondata SPECIES_CRAMORANT_GORGING, "-----"
     abilities ABILITY_GULP_MISSILE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_TOXTRICITY_LOW_KEY, "-----"
@@ -27388,7 +26102,6 @@ mondata SPECIES_TOXTRICITY_LOW_KEY, "-----"
     abilities ABILITY_PUNK_ROCK,  ABILITY_MINUS
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SINISTEA_ANTIQUE, "-----"
@@ -27406,7 +26119,6 @@ mondata SPECIES_SINISTEA_ANTIQUE, "-----"
     abilities ABILITY_WEAK_ARMOR,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_POLTEAGEIST_ANTIQUE, "-----"
@@ -27424,7 +26136,6 @@ mondata SPECIES_POLTEAGEIST_ANTIQUE, "-----"
     abilities ABILITY_WEAK_ARMOR,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_BERRY_SWEET, "-----"
@@ -27442,7 +26153,6 @@ mondata SPECIES_ALCREMIE_BERRY_SWEET, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_LOVE_SWEET, "-----"
@@ -27460,7 +26170,6 @@ mondata SPECIES_ALCREMIE_LOVE_SWEET, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_STAR_SWEET, "-----"
@@ -27478,7 +26187,6 @@ mondata SPECIES_ALCREMIE_STAR_SWEET, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_CLOVER_SWEET, "-----"
@@ -27496,7 +26204,6 @@ mondata SPECIES_ALCREMIE_CLOVER_SWEET, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_FLOWER_SWEET, "-----"
@@ -27514,7 +26221,6 @@ mondata SPECIES_ALCREMIE_FLOWER_SWEET, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_RIBBON_SWEET, "-----"
@@ -27532,7 +26238,6 @@ mondata SPECIES_ALCREMIE_RIBBON_SWEET, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_FILLER_1, "-----"
@@ -27550,7 +26255,6 @@ mondata SPECIES_ALCREMIE_FILLER_1, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ALCREMIE_FILLER_2, "-----"
@@ -27568,7 +26272,6 @@ mondata SPECIES_ALCREMIE_FILLER_2, "-----"
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_EISCUE_NOICE_FACE, "-----"
@@ -27586,7 +26289,6 @@ mondata SPECIES_EISCUE_NOICE_FACE, "-----"
     abilities ABILITY_ICE_FACE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_MORPEKO_HANGRY, "-----"
@@ -27604,7 +26306,6 @@ mondata SPECIES_MORPEKO_HANGRY, "-----"
     abilities ABILITY_HUNGER_SWITCH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZACIAN_CROWNED, "-----"
@@ -27622,7 +26323,6 @@ mondata SPECIES_ZACIAN_CROWNED, "-----"
     abilities ABILITY_INTREPID_SWORD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZAMAZENTA_CROWNED, "-----"
@@ -27640,7 +26340,6 @@ mondata SPECIES_ZAMAZENTA_CROWNED, "-----"
     abilities ABILITY_DAUNTLESS_SHIELD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ETERNATUS_ETERNAMAX, "-----"
@@ -27658,7 +26357,6 @@ mondata SPECIES_ETERNATUS_ETERNAMAX, "-----"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_URSHIFU_RAPID_STRIKE, "-----"
@@ -27676,7 +26374,6 @@ mondata SPECIES_URSHIFU_RAPID_STRIKE, "-----"
     abilities ABILITY_UNSEEN_FIST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZARUDE_DADA, "-----"
@@ -27694,7 +26391,6 @@ mondata SPECIES_ZARUDE_DADA, "-----"
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CALYREX_ICE_RIDER, "-----"
@@ -27712,7 +26408,6 @@ mondata SPECIES_CALYREX_ICE_RIDER, "-----"
     abilities ABILITY_AS_ONE_GLASTRIER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_CALYREX_SHADOW_RIDER, "-----"
@@ -27730,7 +26425,6 @@ mondata SPECIES_CALYREX_SHADOW_RIDER, "-----"
     abilities ABILITY_AS_ONE_SPECTRIER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ENAMORUS_THERIAN, "-----"
@@ -27748,7 +26442,6 @@ mondata SPECIES_ENAMORUS_THERIAN, "-----"
     abilities ABILITY_OVERCOAT, ABILITY_OVERCOAT
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GROWLITHE_HISUIAN, "-----"
@@ -27766,7 +26459,6 @@ mondata SPECIES_GROWLITHE_HISUIAN, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ARCANINE_HISUIAN, "-----"
@@ -27784,7 +26476,6 @@ mondata SPECIES_ARCANINE_HISUIAN, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_VOLTORB_HISUIAN, "-----"
@@ -27802,7 +26493,6 @@ mondata SPECIES_VOLTORB_HISUIAN, "-----"
     abilities ABILITY_SOUNDPROOF, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ELECTRODE_HISUIAN, "-----"
@@ -27820,7 +26510,6 @@ mondata SPECIES_ELECTRODE_HISUIAN, "-----"
     abilities ABILITY_SOUNDPROOF, ABILITY_STATIC
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
@@ -27838,7 +26527,6 @@ mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_QWILFISH_HISUIAN, "-----"
@@ -27856,7 +26544,6 @@ mondata SPECIES_QWILFISH_HISUIAN, "-----"
     abilities ABILITY_POISON_POINT, ABILITY_SWIFT_SWIM
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SNEASEL_HISUIAN, "-----"
@@ -27874,7 +26561,6 @@ mondata SPECIES_SNEASEL_HISUIAN, "-----"
     abilities ABILITY_INNER_FOCUS, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BLACK, 1
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SAMUROTT_HISUIAN, "-----"
@@ -27892,7 +26578,6 @@ mondata SPECIES_SAMUROTT_HISUIAN, "-----"
     abilities ABILITY_TORRENT, ABILITY_TORRENT
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_LILLIGANT_HISUIAN, "-----"
@@ -27910,7 +26595,6 @@ mondata SPECIES_LILLIGANT_HISUIAN, "-----"
     abilities ABILITY_CHLOROPHYLL, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_EGG, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZORUA_HISUIAN, "-----"
@@ -27928,7 +26612,6 @@ mondata SPECIES_ZORUA_HISUIAN, "-----"
     abilities ABILITY_ILLUSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_ZOROARK_HISUIAN, "-----"
@@ -27946,7 +26629,6 @@ mondata SPECIES_ZOROARK_HISUIAN, "-----"
     abilities ABILITY_ILLUSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_BRAVIARY_HISUIAN, "-----"
@@ -27964,7 +26646,6 @@ mondata SPECIES_BRAVIARY_HISUIAN, "-----"
     abilities ABILITY_KEEN_EYE, ABILITY_SHEER_FORCE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_SLIGGOO_HISUIAN, "-----"
@@ -27982,7 +26663,6 @@ mondata SPECIES_SLIGGOO_HISUIAN, "-----"
     abilities ABILITY_SAP_SIPPER,  ABILITY_OVERCOAT
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_GOODRA_HISUIAN, "-----"
@@ -28000,7 +26680,6 @@ mondata SPECIES_GOODRA_HISUIAN, "-----"
     abilities ABILITY_SAP_SIPPER,  ABILITY_OVERCOAT
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_AVALUGG_HISUIAN, "-----"
@@ -28018,7 +26697,6 @@ mondata SPECIES_AVALUGG_HISUIAN, "-----"
     abilities ABILITY_STRONG_JAW,  ABILITY_ICE_BODY
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
@@ -28036,7 +26714,6 @@ mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
     abilities ABILITY_OVERGROW,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
 mondata SPECIES_UNFEZANT_FEMALE, "-----"
@@ -28054,7 +26731,6 @@ mondata SPECIES_UNFEZANT_FEMALE, "-----"
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_UNFEZANT_TM_DATA_0, SPECIES_UNFEZANT_TM_DATA_1, SPECIES_UNFEZANT_TM_DATA_2, SPECIES_UNFEZANT_TM_DATA_3
 
 
 mondata SPECIES_FRILLISH_FEMALE, "-----"
@@ -28072,7 +26748,6 @@ mondata SPECIES_FRILLISH_FEMALE, "-----"
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_FRILLISH_TM_DATA_0, SPECIES_FRILLISH_TM_DATA_1, SPECIES_FRILLISH_TM_DATA_2, SPECIES_FRILLISH_TM_DATA_3
 
 
 mondata SPECIES_JELLICENT_FEMALE, "-----"
@@ -28090,7 +26765,6 @@ mondata SPECIES_JELLICENT_FEMALE, "-----"
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_JELLICENT_TM_DATA_0, SPECIES_JELLICENT_TM_DATA_1, SPECIES_JELLICENT_TM_DATA_2, SPECIES_JELLICENT_TM_DATA_3
 
 
 mondata SPECIES_PYROAR_FEMALE, "-----"
@@ -28108,7 +26782,6 @@ mondata SPECIES_PYROAR_FEMALE, "-----"
     abilities ABILITY_RIVALRY,  ABILITY_UNNERVE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_PYROAR_TM_DATA_0, SPECIES_PYROAR_TM_DATA_1, SPECIES_PYROAR_TM_DATA_2, SPECIES_PYROAR_TM_DATA_3
 
 
 mondata SPECIES_MEOWSTIC_FEMALE, "-----"
@@ -28126,7 +26799,6 @@ mondata SPECIES_MEOWSTIC_FEMALE, "-----"
     abilities ABILITY_KEEN_EYE,  ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_MEOWSTIC_TM_DATA_0, SPECIES_MEOWSTIC_TM_DATA_1, SPECIES_MEOWSTIC_TM_DATA_2, SPECIES_MEOWSTIC_TM_DATA_3
 
 
 mondata SPECIES_INDEEDEE_FEMALE, "-----"
@@ -28144,7 +26816,6 @@ mondata SPECIES_INDEEDEE_FEMALE, "-----"
     abilities ABILITY_INNER_FOCUS,  ABILITY_SYNCHRONIZE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    tmdata SPECIES_INDEEDEE_TM_DATA_0, SPECIES_INDEEDEE_TM_DATA_1, SPECIES_INDEEDEE_TM_DATA_2, SPECIES_INDEEDEE_TM_DATA_3
 
 
 mondata SPECIES_BASCULEGION_FEMALE, "-----"
@@ -28162,7 +26833,6 @@ mondata SPECIES_BASCULEGION_FEMALE, "-----"
     abilities ABILITY_RATTLED, ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_BASCULEGION_TM_DATA_0, SPECIES_BASCULEGION_TM_DATA_1, SPECIES_BASCULEGION_TM_DATA_2, SPECIES_BASCULEGION_TM_DATA_3
 
 
 mondata SPECIES_MAUSHOLD_FAMILY_OF_THREE, "-----"
@@ -28180,7 +26850,6 @@ mondata SPECIES_MAUSHOLD_FAMILY_OF_THREE, "-----"
     abilities ABILITY_FRIEND_GUARD, ABILITY_CHEEK_POUCH
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    tmdata SPECIES_MAUSHOLD_TM_DATA_0, SPECIES_MAUSHOLD_TM_DATA_1, SPECIES_MAUSHOLD_TM_DATA_2, SPECIES_MAUSHOLD_TM_DATA_3
 
 
 mondata SPECIES_SQUAWKABILLY_BLUE_PLUMAGE, "-----"
@@ -28198,7 +26867,6 @@ mondata SPECIES_SQUAWKABILLY_BLUE_PLUMAGE, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SQUAWKABILLY_TM_DATA_0, SPECIES_SQUAWKABILLY_TM_DATA_1, SPECIES_SQUAWKABILLY_TM_DATA_2, SPECIES_SQUAWKABILLY_TM_DATA_3
 
 
 mondata SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE, "-----"
@@ -28216,7 +26884,6 @@ mondata SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SQUAWKABILLY_TM_DATA_0, SPECIES_SQUAWKABILLY_TM_DATA_1, SPECIES_SQUAWKABILLY_TM_DATA_2, SPECIES_SQUAWKABILLY_TM_DATA_3
 
 
 mondata SPECIES_SQUAWKABILLY_WHITE_PLUMAGE, "-----"
@@ -28234,7 +26901,6 @@ mondata SPECIES_SQUAWKABILLY_WHITE_PLUMAGE, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    tmdata SPECIES_SQUAWKABILLY_TM_DATA_0, SPECIES_SQUAWKABILLY_TM_DATA_1, SPECIES_SQUAWKABILLY_TM_DATA_2, SPECIES_SQUAWKABILLY_TM_DATA_3
 
 
 mondata SPECIES_PALAFIN_HERO, "-----"
@@ -28252,7 +26918,6 @@ mondata SPECIES_PALAFIN_HERO, "-----"
     abilities ABILITY_ZERO_TO_HERO, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_PALAFIN_TM_DATA_0, SPECIES_PALAFIN_TM_DATA_1, SPECIES_PALAFIN_TM_DATA_2, SPECIES_PALAFIN_TM_DATA_3
 
 
 mondata SPECIES_TATSUGIRI_DROOPY, "-----"
@@ -28270,7 +26935,6 @@ mondata SPECIES_TATSUGIRI_DROOPY, "-----"
     abilities ABILITY_COMMANDER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TATSUGIRI_TM_DATA_0, SPECIES_TATSUGIRI_TM_DATA_1, SPECIES_TATSUGIRI_TM_DATA_2, SPECIES_TATSUGIRI_TM_DATA_3
 
 
 mondata SPECIES_TATSUGIRI_STRETCHY, "-----"
@@ -28288,7 +26952,6 @@ mondata SPECIES_TATSUGIRI_STRETCHY, "-----"
     abilities ABILITY_COMMANDER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    tmdata SPECIES_TATSUGIRI_TM_DATA_0, SPECIES_TATSUGIRI_TM_DATA_1, SPECIES_TATSUGIRI_TM_DATA_2, SPECIES_TATSUGIRI_TM_DATA_3
 
 
 mondata SPECIES_DUDUNSPARCE_THREE_SEGMENT, "-----"
@@ -28306,7 +26969,6 @@ mondata SPECIES_DUDUNSPARCE_THREE_SEGMENT, "-----"
     abilities ABILITY_SERENE_GRACE, ABILITY_RUN_AWAY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    tmdata SPECIES_DUDUNSPARCE_TM_DATA_0, SPECIES_DUDUNSPARCE_TM_DATA_1, SPECIES_DUDUNSPARCE_TM_DATA_2, SPECIES_DUDUNSPARCE_TM_DATA_3
 
 
 mondata SPECIES_GIMMIGHOUL_ROAMING, "-----"
@@ -28324,7 +26986,6 @@ mondata SPECIES_GIMMIGHOUL_ROAMING, "-----"
     abilities ABILITY_RATTLED, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_GIMMIGHOUL_TM_DATA_0, SPECIES_GIMMIGHOUL_TM_DATA_1, SPECIES_GIMMIGHOUL_TM_DATA_2, SPECIES_GIMMIGHOUL_TM_DATA_3
 
 
 mondata SPECIES_TERAPAGOS_TERASTAL, "-----"
@@ -28342,7 +27003,6 @@ mondata SPECIES_TERAPAGOS_TERASTAL, "-----"
     abilities ABILITY_NONE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    tmdata SPECIES_TERAPAGOS_TM_DATA_0, SPECIES_TERAPAGOS_TM_DATA_1, SPECIES_TERAPAGOS_TM_DATA_2, SPECIES_TERAPAGOS_TM_DATA_3
 
 
 mondata SPECIES_WOOPER_PALDEAN, "-----"
@@ -28360,7 +27020,6 @@ mondata SPECIES_WOOPER_PALDEAN, "-----"
     abilities ABILITY_DAMP, ABILITY_WATER_ABSORB
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    tmdata SPECIES_WOOPER_TM_DATA_0, SPECIES_WOOPER_TM_DATA_1, SPECIES_WOOPER_TM_DATA_2, SPECIES_WOOPER_TM_DATA_3
 
 
 mondata SPECIES_TAUROS_COMBAT, "-----"
@@ -28378,7 +27037,6 @@ mondata SPECIES_TAUROS_COMBAT, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TAUROS_TM_DATA_0, SPECIES_TAUROS_TM_DATA_1, SPECIES_TAUROS_TM_DATA_2, SPECIES_TAUROS_TM_DATA_3
 
 
 mondata SPECIES_TAUROS_BLAZE, "-----"
@@ -28396,7 +27054,6 @@ mondata SPECIES_TAUROS_BLAZE, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TAUROS_TM_DATA_0, SPECIES_TAUROS_TM_DATA_1, SPECIES_TAUROS_TM_DATA_2, SPECIES_TAUROS_TM_DATA_3
 
 
 mondata SPECIES_TAUROS_AQUA, "-----"
@@ -28414,7 +27071,6 @@ mondata SPECIES_TAUROS_AQUA, "-----"
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    tmdata SPECIES_TAUROS_TM_DATA_0, SPECIES_TAUROS_TM_DATA_1, SPECIES_TAUROS_TM_DATA_2, SPECIES_TAUROS_TM_DATA_3
 
 
 mondata SPECIES_OINKOLOGNE_FEMALE, "-----"
@@ -28432,7 +27088,6 @@ mondata SPECIES_OINKOLOGNE_FEMALE, "-----"
     abilities ABILITY_LINGERING_AROMA, ABILITY_GLUTTONY
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_OINKOLOGNE_TM_DATA_0, SPECIES_OINKOLOGNE_TM_DATA_1, SPECIES_OINKOLOGNE_TM_DATA_2, SPECIES_OINKOLOGNE_TM_DATA_3
 
 
 mondata SPECIES_REVAVROOM_SEGIN, "-----"
@@ -28450,7 +27105,6 @@ mondata SPECIES_REVAVROOM_SEGIN, "-----"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REVAVROOM_TM_DATA_0, SPECIES_REVAVROOM_TM_DATA_1, SPECIES_REVAVROOM_TM_DATA_2, SPECIES_REVAVROOM_TM_DATA_3
 
 
 mondata SPECIES_REVAVROOM_SCHEDAR, "-----"
@@ -28468,7 +27122,6 @@ mondata SPECIES_REVAVROOM_SCHEDAR, "-----"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REVAVROOM_TM_DATA_0, SPECIES_REVAVROOM_TM_DATA_1, SPECIES_REVAVROOM_TM_DATA_2, SPECIES_REVAVROOM_TM_DATA_3
 
 
 mondata SPECIES_REVAVROOM_NAVI, "-----"
@@ -28486,7 +27139,6 @@ mondata SPECIES_REVAVROOM_NAVI, "-----"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REVAVROOM_TM_DATA_0, SPECIES_REVAVROOM_TM_DATA_1, SPECIES_REVAVROOM_TM_DATA_2, SPECIES_REVAVROOM_TM_DATA_3
 
 
 mondata SPECIES_REVAVROOM_RUCHBAH, "-----"
@@ -28504,7 +27156,6 @@ mondata SPECIES_REVAVROOM_RUCHBAH, "-----"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REVAVROOM_TM_DATA_0, SPECIES_REVAVROOM_TM_DATA_1, SPECIES_REVAVROOM_TM_DATA_2, SPECIES_REVAVROOM_TM_DATA_3
 
 
 mondata SPECIES_REVAVROOM_CAPH , "-----"
@@ -28522,4 +27173,3 @@ mondata SPECIES_REVAVROOM_CAPH , "-----"
     abilities ABILITY_OVERCOAT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
-    tmdata SPECIES_REVAVROOM_TM_DATA_0, SPECIES_REVAVROOM_TM_DATA_1, SPECIES_REVAVROOM_TM_DATA_2, SPECIES_REVAVROOM_TM_DATA_3

@@ -86,7 +86,7 @@ void Sav2_Bag_init(BAG_DATA *bagData);
  * @param src:         Origin BAG_DATA
  * @param dst:         Destination BAG_DATA
  */
-void Sav2_Bag_copy(const BAG_DATA *src, BAG_DATA *dst);
+void Sav2_Bag_copy(BAG_DATA *src, BAG_DATA *dst);
 
 /*
  * u16 Bag_GetRegisteredItemSlot1(BAG_DATA *bag)
@@ -245,10 +245,10 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n);
  *
  * @returns: Pointer to BAG_DATA
  */
-BAG_DATA *__attribute__((long_call)) Sav2_Bag_get(void *saveData);
+BAG_DATA *LONG_CALL Sav2_Bag_get(void *saveData);
 
 // fuck BAG_VIEW
-void *__attribute__((long_call)) BagView_New(u8 heap_id);
-void __attribute__((long_call)) BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
+void *LONG_CALL BagView_New(u8 heap_id);
+void LONG_CALL BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
 
 #endif //POKEHEARTGOLD_BAG_H

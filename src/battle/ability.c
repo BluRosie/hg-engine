@@ -328,7 +328,8 @@ BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
  *  @return script subseq to run if there's one that should be run; 0 if nothing should be run
  */
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
-{   int i;
+{
+    int i;
     int scriptnum = 0;
     int ret = SWITCH_IN_CHECK_LOOP;
     int client_no = 0; // initialize
@@ -351,31 +352,38 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         case WEATHER_SYS_THUNDER:
                             scriptnum = SUB_SEQ_OVERWORLD_RAIN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            newBS.weather = WEATHER_RAIN_PERMANENT;
                             break;
                         case WEATHER_SYS_SNOW:
                         case WEATHER_SYS_SNOWSTORM:
                         //case WEATHER_SYS_BLIZZARD:
                             scriptnum = SUB_SEQ_OVERWORLD_HAIL;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            newBS.weather = WEATHER_HAIL_PERMANENT;
                             break;
                         case WEATHER_SYS_SANDSTORM:
                             scriptnum = SUB_SEQ_OVERWORLD_SANDSTORM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            newBS.weather = WEATHER_SANDSTORM_PERMANENT;
                             break;
                         case WEATHER_SYS_MIST1:
                         case WEATHER_SYS_MIST2:
                             scriptnum = SUB_SEQ_OVERWORLD_FOG;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            newBS.weather = FIELD_STATUS_FOG;
                             break;
                         case WEATHER_SYS_HIGH_SUN:
                             scriptnum = SUB_SEQ_OVERWORLD_SUN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            newBS.weather = WEATHER_SUNNY_PERMANENT;
                             break;
                         case WEATHER_SYS_TRICK_ROOM:
                             scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            newBS.weather = 0;
                             break;
                         default:
+                            newBS.weather = 0;
                             break;
                     }
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT)
@@ -467,6 +475,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_DRIZZLE;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_RAIN_PERMANENT;
                                 }
                                 break;
                             case ABILITY_SAND_STREAM:
@@ -475,6 +484,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_SAND_STREAM;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_SANDSTORM_PERMANENT;
                                 }
                                 break;
                             case ABILITY_DROUGHT:
@@ -483,6 +493,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_DROUGHT;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_SUNNY_PERMANENT;
                                 }
                                 break;
                             case ABILITY_SNOW_WARNING:
@@ -491,6 +502,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 {
                                     scriptnum = SUB_SEQ_SNOW_WARNING;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_HAIL_PERMANENT;
                                 }
                                 break;
                         }
@@ -1058,7 +1070,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 src = (u8 *)&sp->battlemon[sp->attack_client];
                 dest = (u8 *)&sp->battlemon[sp->defence_client];
 
-                for (i = 0; i < offsetof(struct BattlePokemon, ability) + 1; i++)
+                for (i = 0; i <= (int)offsetof(struct BattlePokemon, ability); i++)
                 {
                     src[i] = dest[i];
                 }
@@ -1142,11 +1154,10 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         break;
                     }
                 }
-                if (i == client_set_max) {
+                if (i == (s32)client_set_max) {
                     sp->switch_in_check_seq_no++;
                 }
-
-
+                FALLTHROUGH;
                 // 02253D78
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
@@ -1763,12 +1774,12 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
                 // berserk doesn't activate until the last hit of a multi-hit move
                 && (sp->multi_hit_count <= 1)
-                && (sp->battlemon[sp->defence_client].hp <= (sp->battlemon[sp->defence_client].maxhp / 2))
+                && (sp->battlemon[sp->defence_client].hp <= (s32)(sp->battlemon[sp->defence_client].maxhp / 2))
                 && (
                     // Checks if the Pokémon has gone below half HP from the current damage instance
                     // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
-                    ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > sp->battlemon[sp->defence_client].maxhp / 2) ||
-                    ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > sp->battlemon[sp->defence_client].maxhp / 2)
+                    ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > (s32)sp->battlemon[sp->defence_client].maxhp / 2) ||
+                    ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > (s32)sp->battlemon[sp->defence_client].maxhp / 2)
                    )
             )
             {
@@ -1890,7 +1901,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                 }
             }
-        break;
+            break;
         case ABILITY_WEAK_ARMOR:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_SPEED] < 12)
@@ -1905,7 +1916,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 seq_no[0] = SUB_SEQ_HANDLE_WEAK_ARMOR;
                 ret = TRUE;
             }
-        break;
+            break;
         case ABILITY_DEFIANT:
             if ((sp->battlemon[sp->defence_client].hp != 0)
              && (sp->oneSelfFlag[sp->state_client].defiant_flag)
@@ -2227,12 +2238,14 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
+            FALLTHROUGH;
         case SEQ_NORMAL_MOVE_STATUS_MSG:
             sp->swoam_seq_no++;
             if (ServerWazaStatusMessage(bw, sp) == TRUE)
             {
                 return;
             }
+            FALLTHROUGH;
         case SEQ_NORMAL_ADD_STATUS_MSG:
             {
                 int seq_no;
@@ -2246,6 +2259,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
         case SEQ_NORMAL_FORM_CHG_CHECK:
             sp->swoam_seq_no++;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
@@ -2258,6 +2272,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
+            FALLTHROUGH;
         case SEQ_NORMAL_ATTACKER_ABILITY_CHECK:
             {
                 int seq_no;
@@ -2271,6 +2286,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
         case SEQ_NORMAL_DEFENDER_ABILITY_CHECK:
             {
                 int seq_no;
@@ -2284,12 +2300,14 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
         case SEQ_NORMAL_FLINCH_CHECK:
             sp->swoam_seq_no++;
             if (ServerFlinchCheck(bw, sp) == TRUE)
             {
                 return;
             }
+            FALLTHROUGH;
         default:
             break;
         }
@@ -2304,6 +2322,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
+            FALLTHROUGH;
         case SEQ_LOOP_ADD_STATUS_MSG:
             {
                 int seq_no;
@@ -2317,6 +2336,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
         case SEQ_LOOP_FORM_CHG_CHECK:
             sp->swoam_seq_no++;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
@@ -2329,6 +2349,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
+            FALLTHROUGH;
         case SEQ_LOOP_ATTACKER_ABILITY_CHECK:
             {
                 int seq_no;
@@ -2342,6 +2363,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
         case SEQ_LOOP_DEFENDER_ABILITY_CHECK:
             {
                 int seq_no;
@@ -2355,18 +2377,21 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
         case SEQ_LOOP_MOVE_STATUS_MSG:
             sp->swoam_seq_no++;
             if (ServerWazaStatusMessage(bw, sp) == TRUE)
             {
                 return;
             }
+            FALLTHROUGH;
         case SEQ_LOOP_FLINCH_CHECK:
             sp->swoam_seq_no++;
             if (ServerFlinchCheck(bw, sp) == TRUE)
             {
                 return;
             }
+            FALLTHROUGH;
         default:
             break;
         }
@@ -2489,12 +2514,12 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
         }
         sp->swoak_seq_no++;
         sp->swoak_work=0;
-
+        FALLTHROUGH;
     case SWOAK_SEQ_SYNCHRONIZE_CHECK:
         sp->swoak_seq_no++;
         if (SynchroniseAbilityCheck(bw, sp, sp->server_seq_no) == TRUE)
             return;
-
+        FALLTHROUGH;
     case SWOAK_SEQ_POKE_APPEAR_CHECK:
         {
             int seq_no;
@@ -2510,12 +2535,12 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
             }
         }
         sp->swoak_seq_no++;
-
+        FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER:
         sp->swoak_seq_no++;
         if (HeldItemEffectCheck(bw, sp, sp->attack_client) == TRUE) // will eventually need HeldItemEffectCheck anyway.  generic berry function thing
             return;
-
+        FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER:
         sp->swoak_seq_no++;
         if (sp->defence_client != 0xFF)
@@ -2523,6 +2548,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
             if (HeldItemEffectCheck(bw, sp, sp->defence_client) == TRUE)
                 return;
         }
+        FALLTHROUGH;
     case SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT:
         {
             int seq_no;
@@ -2536,6 +2562,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                 return;
             }
         }
+        FALLTHROUGH;
     case SWOAK_SEQ_THAW_ICE:
         {
             int movetype;
@@ -2561,6 +2588,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                 }
             }
         }
+        FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HEALING_ITEMS:
         {
             int client_no;
