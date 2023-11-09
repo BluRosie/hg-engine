@@ -17991,7 +17991,7 @@ mondata SPECIES_STAKATAKA, "Stakataka"
 mondata SPECIES_BLACEPHALON, "Blacefalon"
     basestats 53, 127, 53, 107, 151, 79
     types TYPE_FIRE, TYPE_GHOST
-    catchrate 255
+    catchrate 30
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 3, 0
     items ITEM_NONE, ITEM_NONE
@@ -19146,7 +19146,7 @@ mondata SPECIES_MORGREM, "Morgrem"
 mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
     basestats 95, 120, 65, 60, 95, 75
     types TYPE_DARK, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_DARK
-    catchrate 255
+    catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
@@ -19629,7 +19629,7 @@ mondata SPECIES_ARCTOVISH, "Arctovish"
 mondata SPECIES_DURALUDON, "Duraludon"
     basestats 70, 95, 115, 85, 120, 50
     types TYPE_STEEL, TYPE_DRAGON
-    catchrate 255
+    catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
@@ -19797,7 +19797,7 @@ mondata SPECIES_KUBFU, "Kubfu"
 mondata SPECIES_URSHIFU, "Urshifu"
     basestats 100, 130, 100, 97, 63, 60
     types TYPE_FIGHTING, TYPE_DARK
-    catchrate 255
+    catchrate 3
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
@@ -26362,7 +26362,7 @@ mondata SPECIES_ETERNATUS_ETERNAMAX, "-----"
 mondata SPECIES_URSHIFU_RAPID_STRIKE, "-----"
     basestats 100, 130, 100, 97, 63, 60
     types TYPE_FIGHTING, TYPE_WATER
-    catchrate 255
+    catchrate 3
     baseexp 275
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE

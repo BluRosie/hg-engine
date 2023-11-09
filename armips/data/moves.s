@@ -8332,7 +8332,7 @@ movedata MOVE_INFERNO, "Inferno"
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_FIRE
-    accuracy 100
+    accuracy 50
     pp 5
     effectchance 100
     target MOVE_TARGET_SELECTED
