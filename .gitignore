@@ -65,10 +65,10 @@ dumpitem.py
 /tools/ndstool
 /tools/ndstool.exe
 /tools/csv2bin
-/tools/o2narc
-/tools/adpcm-xq
+/tools/o2narc*
+/tools/adpcm-xq*
 /tools/ntrWavTool.py
-/tools/ENCODE_IMG
+/tools/ENCODE_IMG*
 
 *.o
 *.d

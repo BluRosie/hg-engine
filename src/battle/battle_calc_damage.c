@@ -174,7 +174,7 @@ const u8 StatBoostModifiers[][2] = {
 };
 
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                   u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical)
+                   u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
     u32 i;
     s32 damage = 0;
@@ -193,7 +193,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     u16 movepower;
     u16 item;
     u32 battle_type;
-    u32 slowest_client = 4;
 
 
     struct sDamageCalc AttackingMon;
@@ -238,7 +237,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     battle_type = BattleTypeGet(bw);
 
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE || (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && sp->moveTbl[moveno].split == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0)
+    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE || MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && sp->moveTbl[moveno].split == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0)
         return 0;
 
     if (pow == 0)
@@ -1102,7 +1101,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
  *  @param damage unrolled damage
  *  @return adjusted damage
  */
-int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage)
+int AdjustDamageForRoll(void *bw, struct BattleStruct *sp UNUSED, int damage)
 {
 	if (damage)
     {
