@@ -26622,4 +26622,3 @@ levelup SPECIES_REVAVROOM_RUCHBAH
 levelup SPECIES_REVAVROOM_CAPH
     learnset MOVE_TACKLE, 1
     terminatelearnset
-
