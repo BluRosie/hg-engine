@@ -4138,7 +4138,11 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
             ret += form;
     }
     else if (species == SPECIES_SLOWBRO && form)
-        ret++;
+    {
+        u32 newform = form - 1;
+        if (newform < form_table[SPECIES_SLOWBRO])
+            ret += newform;
+    }
     else if (form <= form_table[species])
         ret += form;
     else if (isFemale && gDimorphismTable[species-1])
