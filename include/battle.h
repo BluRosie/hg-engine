@@ -2162,6 +2162,15 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
 int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
 
 
+// defined in mega.c
+/**
+ *  @brief grab mega form of a specific species with specific item
+ *
+ *  @param mon base species
+ *  @param item held item to check for mega stone
+ *  @return target form
+ */
+u32 GrabMegaTargetForm(u32 mon, u32 item);
 
 
 
