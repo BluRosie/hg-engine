@@ -102,7 +102,9 @@ To set up for the first time, all that needs to be run is:
 ```docker build . -t hg-engine```
 
 To build, you can then run a simple shell script to build the `test.nds`:
-```./docker-makerom.sh```
+```./docker-makerom.cmd```
+
+This script is written in such a way that it works on every platform (including from `cmd` on Windows).
 
 There is no need to continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions) for anything.  Docker handles it all for you.
 

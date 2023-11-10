@@ -14773,5 +14773,3 @@ pokemon SPECIES_POLIWAG
 pokemon SPECIES_MAGIKARP
 
 .close
-
-

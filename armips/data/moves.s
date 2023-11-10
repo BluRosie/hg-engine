@@ -9166,7 +9166,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PARABOLIC_CHARGE, "Parabolic Charge"
+movedata MOVE_PARABOLIC_CHARGE, "ParabolicCharge"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 65
@@ -9901,7 +9901,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PRECIPICE_BLADES, "Precipice Blades"
+movedata MOVE_PRECIPICE_BLADES, "Precipice Blade"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
