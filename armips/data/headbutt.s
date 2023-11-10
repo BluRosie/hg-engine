@@ -38,25 +38,25 @@ headbuttheader   8,   0,   0
 
 headbuttheader   9,  20,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_WURMPLE, 2, 3
-    encounter SPECIES_WURMPLE, 2, 3
-    encounter SPECIES_WURMPLE, 2, 3
-    encounter SPECIES_HOOTHOOT, 5, 6
-    encounter SPECIES_SPINARAK, 5, 6
-    encounter SPECIES_SPINARAK, 5, 6
-    encounter SPECIES_WURMPLE, 5, 6
-    encounter SPECIES_WURMPLE, 5, 6
-    encounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_WURMPLE, 2, 3
+    headbuttencounter SPECIES_WURMPLE, 2, 3
+    headbuttencounter SPECIES_WURMPLE, 2, 3
+    headbuttencounter SPECIES_HOOTHOOT, 5, 6
+    headbuttencounter SPECIES_SPINARAK, 5, 6
+    headbuttencounter SPECIES_SPINARAK, 5, 6
+    headbuttencounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_WURMPLE, 5, 6
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1033, 300, 1033, 301, 1034, 300, 1034, 301, -1, -1, -1, -1
     treecoords 1034, 307, 1034, 308, 1035, 308, -1, -1, -1, -1, -1, -1
@@ -82,25 +82,25 @@ headbuttheader   9,  20,   0
 
 headbuttheader  10,  15,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_HOOTHOOT, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1044, 197, 1045, 197, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1027, 194, 1027, 195, -1, -1, -1, -1, -1, -1, -1, -1
@@ -121,25 +121,25 @@ headbuttheader  10,  15,   0
 
 headbuttheader  11,   4,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 6, 7
-    encounter SPECIES_PINECO, 6, 7
-    encounter SPECIES_PINECO, 6, 7
-    encounter SPECIES_WURMPLE, 6, 7
-    encounter SPECIES_WURMPLE, 6, 7
-    encounter SPECIES_WURMPLE, 6, 7
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_WURMPLE, 9, 10
-    encounter SPECIES_WURMPLE, 9, 10
-    encounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 6, 7
+    headbuttencounter SPECIES_PINECO, 6, 7
+    headbuttencounter SPECIES_PINECO, 6, 7
+    headbuttencounter SPECIES_WURMPLE, 6, 7
+    headbuttencounter SPECIES_WURMPLE, 6, 7
+    headbuttencounter SPECIES_WURMPLE, 6, 7
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_WURMPLE, 9, 10
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1096, 98, 1096, 99, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1105, 104, 1105, 103, 1104, 104, 1104, 103, -1, -1, -1, -1
@@ -149,25 +149,25 @@ headbuttheader  11,   4,   0
 
 headbuttheader  12,   9,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 6, 7
-    encounter SPECIES_PINECO, 6, 7
-    encounter SPECIES_PINECO, 6, 7
-    encounter SPECIES_WURMPLE, 6, 7
-    encounter SPECIES_WURMPLE, 6, 7
-    encounter SPECIES_WURMPLE, 6, 7
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_WURMPLE, 9, 10
-    encounter SPECIES_WURMPLE, 9, 10
-    encounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 6, 7
+    headbuttencounter SPECIES_PINECO, 6, 7
+    headbuttencounter SPECIES_PINECO, 6, 7
+    headbuttencounter SPECIES_WURMPLE, 6, 7
+    headbuttencounter SPECIES_WURMPLE, 6, 7
+    headbuttencounter SPECIES_WURMPLE, 6, 7
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_WURMPLE, 9, 10
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1234, 115, 1234, 114, 1235, 115, 1235, 114, -1, -1, -1, -1
     treecoords 1244, 120, 1245, 120, 1245, 121, 1245, 122, 1244, 122, -1, -1
@@ -182,25 +182,25 @@ headbuttheader  12,   9,   0
 
 headbuttheader  13,   4,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 11, 13
-    encounter SPECIES_PINECO, 11, 13
-    encounter SPECIES_PINECO, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 11, 13
+    headbuttencounter SPECIES_PINECO, 11, 13
+    headbuttencounter SPECIES_PINECO, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1310, 185, 1310, 184, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1296, 164, 1296, 163, -1, -1, -1, -1, -1, -1, -1, -1
@@ -210,25 +210,25 @@ headbuttheader  13,   4,   0
 
 headbuttheader  14,   6,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 11, 13
-    encounter SPECIES_PINECO, 11, 13
-    encounter SPECIES_PINECO, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 11, 13
+    headbuttencounter SPECIES_PINECO, 11, 13
+    headbuttencounter SPECIES_PINECO, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1308, 285, 1308, 284, 1308, 283, 1309, 283, -1, -1, -1, -1
     treecoords 1288, 283, 1289, 283, 1289, 284, 1289, 285, -1, -1, -1, -1
@@ -240,25 +240,25 @@ headbuttheader  14,   6,   0
 
 headbuttheader  15,   8,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 15, 17
-    encounter SPECIES_HERACROSS, 15, 17
-    encounter SPECIES_HERACROSS, 15, 17
-    encounter SPECIES_COMBEE, 15, 17
-    encounter SPECIES_COMBEE, 15, 17
-    encounter SPECIES_COMBEE, 15, 17
-    encounter SPECIES_SPEAROW, 18, 20
-    encounter SPECIES_SPEAROW, 18, 20
-    encounter SPECIES_SPEAROW, 18, 20
-    encounter SPECIES_COMBEE, 18, 20
-    encounter SPECIES_COMBEE, 18, 20
-    encounter SPECIES_COMBEE, 18, 20
+    headbuttencounter SPECIES_SPEAROW, 15, 17
+    headbuttencounter SPECIES_HERACROSS, 15, 17
+    headbuttencounter SPECIES_HERACROSS, 15, 17
+    headbuttencounter SPECIES_COMBEE, 15, 17
+    headbuttencounter SPECIES_COMBEE, 15, 17
+    headbuttencounter SPECIES_COMBEE, 15, 17
+    headbuttencounter SPECIES_SPEAROW, 18, 20
+    headbuttencounter SPECIES_SPEAROW, 18, 20
+    headbuttencounter SPECIES_SPEAROW, 18, 20
+    headbuttencounter SPECIES_COMBEE, 18, 20
+    headbuttencounter SPECIES_COMBEE, 18, 20
+    headbuttencounter SPECIES_COMBEE, 18, 20
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1272, 237, 1273, 237, 1272, 236, -1, -1, -1, -1, -1, -1
     treecoords 1262, 228, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
@@ -272,25 +272,25 @@ headbuttheader  15,   8,   0
 
 headbuttheader  16,   5,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 16, 17
-    encounter SPECIES_PINECO, 16, 17
-    encounter SPECIES_PINECO, 16, 17
-    encounter SPECIES_COMBEE, 16, 17
-    encounter SPECIES_COMBEE, 16, 17
-    encounter SPECIES_COMBEE, 16, 17
-    encounter SPECIES_HOOTHOOT, 18, 19
-    encounter SPECIES_HOOTHOOT, 18, 19
-    encounter SPECIES_HOOTHOOT, 18, 19
-    encounter SPECIES_COMBEE, 18, 19
-    encounter SPECIES_COMBEE, 18, 19
-    encounter SPECIES_COMBEE, 18, 19
+    headbuttencounter SPECIES_HOOTHOOT, 16, 17
+    headbuttencounter SPECIES_PINECO, 16, 17
+    headbuttencounter SPECIES_PINECO, 16, 17
+    headbuttencounter SPECIES_COMBEE, 16, 17
+    headbuttencounter SPECIES_COMBEE, 16, 17
+    headbuttencounter SPECIES_COMBEE, 16, 17
+    headbuttencounter SPECIES_HOOTHOOT, 18, 19
+    headbuttencounter SPECIES_HOOTHOOT, 18, 19
+    headbuttencounter SPECIES_HOOTHOOT, 18, 19
+    headbuttencounter SPECIES_COMBEE, 18, 19
+    headbuttencounter SPECIES_COMBEE, 18, 19
+    headbuttencounter SPECIES_COMBEE, 18, 19
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1376, 231, 1376, 232, 1377, 232, -1, -1, -1, -1, -1, -1
     treecoords 1401, 234, 1401, 233, -1, -1, -1, -1, -1, -1, -1, -1
@@ -307,25 +307,25 @@ headbuttheader  18,   0,   0
 
 headbuttheader  19,  11,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 13, 14
-    encounter SPECIES_HERACROSS, 13, 14
-    encounter SPECIES_HERACROSS, 13, 14
-    encounter SPECIES_COMBEE, 13, 14
-    encounter SPECIES_COMBEE, 13, 14
-    encounter SPECIES_COMBEE, 13, 14
-    encounter SPECIES_SPEAROW, 15, 16
-    encounter SPECIES_SPEAROW, 15, 16
-    encounter SPECIES_SPEAROW, 15, 16
-    encounter SPECIES_COMBEE, 15, 16
-    encounter SPECIES_COMBEE, 15, 16
-    encounter SPECIES_COMBEE, 15, 16
+    headbuttencounter SPECIES_SPEAROW, 13, 14
+    headbuttencounter SPECIES_HERACROSS, 13, 14
+    headbuttencounter SPECIES_HERACROSS, 13, 14
+    headbuttencounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_SPEAROW, 15, 16
+    headbuttencounter SPECIES_SPEAROW, 15, 16
+    headbuttencounter SPECIES_SPEAROW, 15, 16
+    headbuttencounter SPECIES_COMBEE, 15, 16
+    headbuttencounter SPECIES_COMBEE, 15, 16
+    headbuttencounter SPECIES_COMBEE, 15, 16
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1392, 291, 1393, 291, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1378, 291, 1379, 291, -1, -1, -1, -1, -1, -1, -1, -1
@@ -342,25 +342,25 @@ headbuttheader  19,  11,   0
 
 headbuttheader  20,  10,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 22, 23
-    encounter SPECIES_SPINARAK, 22, 23
-    encounter SPECIES_SPINARAK, 22, 23
-    encounter SPECIES_WURMPLE, 22, 23
-    encounter SPECIES_WURMPLE, 22, 23
-    encounter SPECIES_WURMPLE, 22, 23
-    encounter SPECIES_HOOTHOOT, 24, 25
-    encounter SPECIES_TANGELA, 24, 25
-    encounter SPECIES_HOOTHOOT, 24, 25
-    encounter SPECIES_WURMPLE, 24, 25
-    encounter SPECIES_WURMPLE, 24, 25
-    encounter SPECIES_WURMPLE, 24, 25
+    headbuttencounter SPECIES_HOOTHOOT, 22, 23
+    headbuttencounter SPECIES_SPINARAK, 22, 23
+    headbuttencounter SPECIES_SPINARAK, 22, 23
+    headbuttencounter SPECIES_WURMPLE, 22, 23
+    headbuttencounter SPECIES_WURMPLE, 22, 23
+    headbuttencounter SPECIES_WURMPLE, 22, 23
+    headbuttencounter SPECIES_HOOTHOOT, 24, 25
+    headbuttencounter SPECIES_TANGELA, 24, 25
+    headbuttencounter SPECIES_HOOTHOOT, 24, 25
+    headbuttencounter SPECIES_WURMPLE, 24, 25
+    headbuttencounter SPECIES_WURMPLE, 24, 25
+    headbuttencounter SPECIES_WURMPLE, 24, 25
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1417, 281, 1417, 280, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1417, 299, 1417, 298, -1, -1, -1, -1, -1, -1, -1, -1
@@ -376,25 +376,25 @@ headbuttheader  20,  10,   0
 
 headbuttheader  21,  15,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 22, 23
-    encounter SPECIES_SPINARAK, 22, 23
-    encounter SPECIES_SPINARAK, 22, 23
-    encounter SPECIES_WURMPLE, 22, 23
-    encounter SPECIES_WURMPLE, 22, 23
-    encounter SPECIES_WURMPLE, 22, 23
-    encounter SPECIES_HOOTHOOT, 24, 25
-    encounter SPECIES_TANGELA, 24, 25
-    encounter SPECIES_HOOTHOOT, 24, 25
-    encounter SPECIES_WURMPLE, 24, 25
-    encounter SPECIES_WURMPLE, 24, 25
-    encounter SPECIES_WURMPLE, 24, 25
+    headbuttencounter SPECIES_HOOTHOOT, 22, 23
+    headbuttencounter SPECIES_SPINARAK, 22, 23
+    headbuttencounter SPECIES_SPINARAK, 22, 23
+    headbuttencounter SPECIES_WURMPLE, 22, 23
+    headbuttencounter SPECIES_WURMPLE, 22, 23
+    headbuttencounter SPECIES_WURMPLE, 22, 23
+    headbuttencounter SPECIES_HOOTHOOT, 24, 25
+    headbuttencounter SPECIES_TANGELA, 24, 25
+    headbuttencounter SPECIES_HOOTHOOT, 24, 25
+    headbuttencounter SPECIES_WURMPLE, 24, 25
+    headbuttencounter SPECIES_WURMPLE, 24, 25
+    headbuttencounter SPECIES_WURMPLE, 24, 25
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1346, 367, 1347, 367, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1384, 367, 1385, 367, -1, -1, -1, -1, -1, -1, -1, -1
@@ -415,25 +415,25 @@ headbuttheader  21,  15,   0
 
 headbuttheader  22,   3,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 26, 27
-    encounter SPECIES_SPINARAK, 26, 27
-    encounter SPECIES_SPINARAK, 26, 27
-    encounter SPECIES_WURMPLE, 26, 27
-    encounter SPECIES_WURMPLE, 26, 27
-    encounter SPECIES_WURMPLE, 26, 27
-    encounter SPECIES_HOOTHOOT, 29, 30
-    encounter SPECIES_TANGELA, 29, 30
-    encounter SPECIES_HOOTHOOT, 29, 30
-    encounter SPECIES_WURMPLE, 29, 30
-    encounter SPECIES_WURMPLE, 29, 30
-    encounter SPECIES_WURMPLE, 29, 30
+    headbuttencounter SPECIES_HOOTHOOT, 26, 27
+    headbuttencounter SPECIES_SPINARAK, 26, 27
+    headbuttencounter SPECIES_SPINARAK, 26, 27
+    headbuttencounter SPECIES_WURMPLE, 26, 27
+    headbuttencounter SPECIES_WURMPLE, 26, 27
+    headbuttencounter SPECIES_WURMPLE, 26, 27
+    headbuttencounter SPECIES_HOOTHOOT, 29, 30
+    headbuttencounter SPECIES_TANGELA, 29, 30
+    headbuttencounter SPECIES_HOOTHOOT, 29, 30
+    headbuttencounter SPECIES_WURMPLE, 29, 30
+    headbuttencounter SPECIES_WURMPLE, 29, 30
+    headbuttencounter SPECIES_WURMPLE, 29, 30
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1353, 424, 1353, 425, 1353, 426, 1352, 424, -1, -1, -1, -1
     treecoords 1352, 406, 1353, 406, 1353, 405, 1353, 404, 1352, 404, -1, -1
@@ -442,25 +442,25 @@ headbuttheader  22,   3,   0
 
 headbuttheader  23,  19,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 21, 23
-    encounter SPECIES_SPINARAK, 21, 23
-    encounter SPECIES_SPINARAK, 21, 23
-    encounter SPECIES_WURMPLE, 21, 23
-    encounter SPECIES_WURMPLE, 21, 23
-    encounter SPECIES_WURMPLE, 21, 23
-    encounter SPECIES_HOOTHOOT, 24, 26
-    encounter SPECIES_TANGELA, 24, 26
-    encounter SPECIES_HOOTHOOT, 24, 26
-    encounter SPECIES_WURMPLE, 24, 26
-    encounter SPECIES_WURMPLE, 24, 26
-    encounter SPECIES_WURMPLE, 24, 26
+    headbuttencounter SPECIES_HOOTHOOT, 21, 23
+    headbuttencounter SPECIES_SPINARAK, 21, 23
+    headbuttencounter SPECIES_SPINARAK, 21, 23
+    headbuttencounter SPECIES_WURMPLE, 21, 23
+    headbuttencounter SPECIES_WURMPLE, 21, 23
+    headbuttencounter SPECIES_WURMPLE, 21, 23
+    headbuttencounter SPECIES_HOOTHOOT, 24, 26
+    headbuttencounter SPECIES_TANGELA, 24, 26
+    headbuttencounter SPECIES_HOOTHOOT, 24, 26
+    headbuttencounter SPECIES_WURMPLE, 24, 26
+    headbuttencounter SPECIES_WURMPLE, 24, 26
+    headbuttencounter SPECIES_WURMPLE, 24, 26
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1248, 419, 1249, 419, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1262, 419, 1263, 419, -1, -1, -1, -1, -1, -1, -1, -1
@@ -485,25 +485,25 @@ headbuttheader  23,  19,   0
 
 headbuttheader  24,   2,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 26, 27
-    encounter SPECIES_HERACROSS, 26, 27
-    encounter SPECIES_HERACROSS, 26, 27
-    encounter SPECIES_COMBEE, 26, 27
-    encounter SPECIES_COMBEE, 26, 27
-    encounter SPECIES_COMBEE, 26, 27
-    encounter SPECIES_SPEAROW, 29, 30
-    encounter SPECIES_SPEAROW, 29, 30
-    encounter SPECIES_SPEAROW, 29, 30
-    encounter SPECIES_COMBEE, 29, 30
-    encounter SPECIES_COMBEE, 29, 30
-    encounter SPECIES_COMBEE, 29, 30
+    headbuttencounter SPECIES_SPEAROW, 26, 27
+    headbuttencounter SPECIES_HERACROSS, 26, 27
+    headbuttencounter SPECIES_HERACROSS, 26, 27
+    headbuttencounter SPECIES_COMBEE, 26, 27
+    headbuttencounter SPECIES_COMBEE, 26, 27
+    headbuttencounter SPECIES_COMBEE, 26, 27
+    headbuttencounter SPECIES_SPEAROW, 29, 30
+    headbuttencounter SPECIES_SPEAROW, 29, 30
+    headbuttencounter SPECIES_SPEAROW, 29, 30
+    headbuttencounter SPECIES_COMBEE, 29, 30
+    headbuttencounter SPECIES_COMBEE, 29, 30
+    headbuttencounter SPECIES_COMBEE, 29, 30
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1141, 283, 1142, 283, 1141, 284, 1141, 285, -1, -1, -1, -1
     treecoords 1149, 279, 1150, 279, -1, -1, -1, -1, -1, -1, -1, -1
@@ -514,25 +514,25 @@ headbuttheader  25,   0,   0
 
 headbuttheader  26,   3,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 26, 27
-    encounter SPECIES_SPINARAK, 26, 27
-    encounter SPECIES_SPINARAK, 26, 27
-    encounter SPECIES_WURMPLE, 26, 27
-    encounter SPECIES_WURMPLE, 26, 27
-    encounter SPECIES_WURMPLE, 26, 27
-    encounter SPECIES_HOOTHOOT, 29, 30
-    encounter SPECIES_TANGELA, 29, 30
-    encounter SPECIES_HOOTHOOT, 29, 30
-    encounter SPECIES_WURMPLE, 29, 30
-    encounter SPECIES_WURMPLE, 29, 30
-    encounter SPECIES_WURMPLE, 29, 30
+    headbuttencounter SPECIES_HOOTHOOT, 26, 27
+    headbuttencounter SPECIES_SPINARAK, 26, 27
+    headbuttencounter SPECIES_SPINARAK, 26, 27
+    headbuttencounter SPECIES_WURMPLE, 26, 27
+    headbuttencounter SPECIES_WURMPLE, 26, 27
+    headbuttencounter SPECIES_WURMPLE, 26, 27
+    headbuttencounter SPECIES_HOOTHOOT, 29, 30
+    headbuttencounter SPECIES_TANGELA, 29, 30
+    headbuttencounter SPECIES_HOOTHOOT, 29, 30
+    headbuttencounter SPECIES_WURMPLE, 29, 30
+    headbuttencounter SPECIES_WURMPLE, 29, 30
+    headbuttencounter SPECIES_WURMPLE, 29, 30
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1170, 435, 1170, 434, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1178, 429, 1179, 429, -1, -1, -1, -1, -1, -1, -1, -1
@@ -541,25 +541,25 @@ headbuttheader  26,   3,   0
 
 headbuttheader  27,   7,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_HOOTHOOT, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 986, 269, 986, 270, 985, 269, 985, 270, -1, -1, -1, -1
     treecoords 986, 278, 986, 277, 985, 278, 985, 277, -1, -1, -1, -1
@@ -575,25 +575,25 @@ headbuttheader  28,   0,   0
 
 headbuttheader  29,  11,   4
     // normal slots
-    encounter SPECIES_HOOTHOOT, 10, 11
-    encounter SPECIES_PINECO, 10, 11
-    encounter SPECIES_PINECO, 10, 11
-    encounter SPECIES_COMBEE, 10, 11
-    encounter SPECIES_COMBEE, 10, 11
-    encounter SPECIES_COMBEE, 10, 11
-    encounter SPECIES_HOOTHOOT, 13, 14
-    encounter SPECIES_HOOTHOOT, 13, 14
-    encounter SPECIES_HOOTHOOT, 13, 14
-    encounter SPECIES_COMBEE, 13, 14
-    encounter SPECIES_COMBEE, 13, 14
-    encounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_HOOTHOOT, 10, 11
+    headbuttencounter SPECIES_PINECO, 10, 11
+    headbuttencounter SPECIES_PINECO, 10, 11
+    headbuttencounter SPECIES_COMBEE, 10, 11
+    headbuttencounter SPECIES_COMBEE, 10, 11
+    headbuttencounter SPECIES_COMBEE, 10, 11
+    headbuttencounter SPECIES_HOOTHOOT, 13, 14
+    headbuttencounter SPECIES_HOOTHOOT, 13, 14
+    headbuttencounter SPECIES_HOOTHOOT, 13, 14
+    headbuttencounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_COMBEE, 13, 14
     // special slots
-    encounter SPECIES_COMBEE, 10, 14
-    encounter SPECIES_COMBEE, 10, 14
-    encounter SPECIES_SLAKOTH, 10, 14
-    encounter SPECIES_SLAKOTH, 10, 14
-    encounter SPECIES_SLAKOTH, 10, 14
-    encounter SPECIES_SLAKOTH, 15, 18
+    headbuttencounter SPECIES_COMBEE, 10, 14
+    headbuttencounter SPECIES_COMBEE, 10, 14
+    headbuttencounter SPECIES_SLAKOTH, 10, 14
+    headbuttencounter SPECIES_SLAKOTH, 10, 14
+    headbuttencounter SPECIES_SLAKOTH, 10, 14
+    headbuttencounter SPECIES_SLAKOTH, 15, 18
     // normal trees
     treecoords 1388, 47, 1388, 48, 1388, 49, 1387, 47, -1, -1, -1, -1
     treecoords 1385, 43, 1386, 43, 1385, 42, 1385, 41, 1386, 41, -1, -1
@@ -615,25 +615,25 @@ headbuttheader  29,  11,   4
 
 headbuttheader  30,  17,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 28, 29
-    encounter SPECIES_PINECO, 28, 29
-    encounter SPECIES_PINECO, 28, 29
-    encounter SPECIES_EXEGGCUTE, 28, 29
-    encounter SPECIES_EXEGGCUTE, 28, 29
-    encounter SPECIES_EXEGGCUTE, 28, 29
-    encounter SPECIES_HOOTHOOT, 31, 32
-    encounter SPECIES_SPINARAK, 31, 32
-    encounter SPECIES_SPINARAK, 31, 32
-    encounter SPECIES_EXEGGCUTE, 31, 32
-    encounter SPECIES_EXEGGCUTE, 31, 32
-    encounter SPECIES_EXEGGCUTE, 31, 32
+    headbuttencounter SPECIES_HOOTHOOT, 28, 29
+    headbuttencounter SPECIES_PINECO, 28, 29
+    headbuttencounter SPECIES_PINECO, 28, 29
+    headbuttencounter SPECIES_EXEGGCUTE, 28, 29
+    headbuttencounter SPECIES_EXEGGCUTE, 28, 29
+    headbuttencounter SPECIES_EXEGGCUTE, 28, 29
+    headbuttencounter SPECIES_HOOTHOOT, 31, 32
+    headbuttencounter SPECIES_SPINARAK, 31, 32
+    headbuttencounter SPECIES_SPINARAK, 31, 32
+    headbuttencounter SPECIES_EXEGGCUTE, 31, 32
+    headbuttencounter SPECIES_EXEGGCUTE, 31, 32
+    headbuttencounter SPECIES_EXEGGCUTE, 31, 32
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 926, 347, 926, 346, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 926, 357, 926, 356, -1, -1, -1, -1, -1, -1, -1, -1
@@ -656,25 +656,25 @@ headbuttheader  30,  17,   0
 
 headbuttheader  31,  17,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 28, 29
-    encounter SPECIES_PINECO, 28, 29
-    encounter SPECIES_PINECO, 28, 29
-    encounter SPECIES_EXEGGCUTE, 28, 29
-    encounter SPECIES_EXEGGCUTE, 28, 29
-    encounter SPECIES_EXEGGCUTE, 28, 29
-    encounter SPECIES_HOOTHOOT, 31, 32
-    encounter SPECIES_SPINARAK, 31, 32
-    encounter SPECIES_SPINARAK, 31, 32
-    encounter SPECIES_EXEGGCUTE, 31, 32
-    encounter SPECIES_EXEGGCUTE, 31, 32
-    encounter SPECIES_EXEGGCUTE, 31, 32
+    headbuttencounter SPECIES_HOOTHOOT, 28, 29
+    headbuttencounter SPECIES_PINECO, 28, 29
+    headbuttencounter SPECIES_PINECO, 28, 29
+    headbuttencounter SPECIES_EXEGGCUTE, 28, 29
+    headbuttencounter SPECIES_EXEGGCUTE, 28, 29
+    headbuttencounter SPECIES_EXEGGCUTE, 28, 29
+    headbuttencounter SPECIES_HOOTHOOT, 31, 32
+    headbuttencounter SPECIES_SPINARAK, 31, 32
+    headbuttencounter SPECIES_SPINARAK, 31, 32
+    headbuttencounter SPECIES_EXEGGCUTE, 31, 32
+    headbuttencounter SPECIES_EXEGGCUTE, 31, 32
+    headbuttencounter SPECIES_EXEGGCUTE, 31, 32
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 788, 394, 789, 394, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 782, 392, 782, 391, -1, -1, -1, -1, -1, -1, -1, -1
@@ -697,25 +697,25 @@ headbuttheader  31,  17,   0
 
 headbuttheader  32,  15,   0
     // normal slots
-    encounter SPECIES_HERACROSS, 39, 40
-    encounter SPECIES_AIPOM, 39, 40
-    encounter SPECIES_AIPOM, 39, 40
-    encounter SPECIES_NATU, 39, 40
-    encounter SPECIES_NATU, 39, 40
-    encounter SPECIES_NATU, 39, 40
-    encounter SPECIES_HERACROSS, 41, 43
-    encounter SPECIES_AIPOM, 41, 43
-    encounter SPECIES_AIPOM, 41, 43
-    encounter SPECIES_NATU, 41, 43
-    encounter SPECIES_NATU, 41, 43
-    encounter SPECIES_NATU, 41, 43
+    headbuttencounter SPECIES_HERACROSS, 39, 40
+    headbuttencounter SPECIES_AIPOM, 39, 40
+    headbuttencounter SPECIES_AIPOM, 39, 40
+    headbuttencounter SPECIES_NATU, 39, 40
+    headbuttencounter SPECIES_NATU, 39, 40
+    headbuttencounter SPECIES_NATU, 39, 40
+    headbuttencounter SPECIES_HERACROSS, 41, 43
+    headbuttencounter SPECIES_AIPOM, 41, 43
+    headbuttencounter SPECIES_AIPOM, 41, 43
+    headbuttencounter SPECIES_NATU, 41, 43
+    headbuttencounter SPECIES_NATU, 41, 43
+    headbuttencounter SPECIES_NATU, 41, 43
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 834, 264, 834, 265, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 839, 265, 839, 264, -1, -1, -1, -1, -1, -1, -1, -1
@@ -736,25 +736,25 @@ headbuttheader  32,  15,   0
 
 headbuttheader  33,  35,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 588, 396, 588, 397, 589, 397, -1, -1, -1, -1, -1, -1
     treecoords 612, 395, 612, 396, 613, 395, 613, 396, -1, -1, -1, -1
@@ -795,25 +795,25 @@ headbuttheader  33,  35,   0
 
 headbuttheader  34,  30,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 546, 297, 547, 297, 547, 296, -1, -1, -1, -1, -1, -1
     treecoords 571, 302, 572, 302, 571, 301, -1, -1, -1, -1, -1, -1
@@ -849,25 +849,25 @@ headbuttheader  34,  30,   0
 
 headbuttheader  35,  15,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_EXEGGCUTE, 3, 4
-    encounter SPECIES_EXEGGCUTE, 3, 4
-    encounter SPECIES_EXEGGCUTE, 3, 4
-    encounter SPECIES_HOOTHOOT, 5, 6
-    encounter SPECIES_SPINARAK, 5, 6
-    encounter SPECIES_SPINARAK, 5, 6
-    encounter SPECIES_EXEGGCUTE, 5, 6
-    encounter SPECIES_EXEGGCUTE, 5, 6
-    encounter SPECIES_EXEGGCUTE, 5, 6
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_EXEGGCUTE, 3, 4
+    headbuttencounter SPECIES_EXEGGCUTE, 3, 4
+    headbuttencounter SPECIES_EXEGGCUTE, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 5, 6
+    headbuttencounter SPECIES_SPINARAK, 5, 6
+    headbuttencounter SPECIES_SPINARAK, 5, 6
+    headbuttencounter SPECIES_EXEGGCUTE, 5, 6
+    headbuttencounter SPECIES_EXEGGCUTE, 5, 6
+    headbuttencounter SPECIES_EXEGGCUTE, 5, 6
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 566, 281, 567, 281, 566, 283, 566, 282, -1, -1, -1, -1
     treecoords 558, 267, 559, 267, -1, -1, -1, -1, -1, -1, -1, -1
@@ -888,25 +888,25 @@ headbuttheader  35,  15,   0
 
 headbuttheader  36,  35,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_PINECO, 4, 5
-    encounter SPECIES_PINECO, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_HOOTHOOT, 6, 7
-    encounter SPECIES_HOOTHOOT, 6, 7
-    encounter SPECIES_HOOTHOOT, 6, 7
-    encounter SPECIES_EXEGGCUTE, 6, 7
-    encounter SPECIES_EXEGGCUTE, 6, 7
-    encounter SPECIES_EXEGGCUTE, 6, 7
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_PINECO, 4, 5
+    headbuttencounter SPECIES_PINECO, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 6, 7
+    headbuttencounter SPECIES_HOOTHOOT, 6, 7
+    headbuttencounter SPECIES_HOOTHOOT, 6, 7
+    headbuttencounter SPECIES_EXEGGCUTE, 6, 7
+    headbuttencounter SPECIES_EXEGGCUTE, 6, 7
+    headbuttencounter SPECIES_EXEGGCUTE, 6, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 458, 289, 459, 289, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 478, 291, 478, 290, -1, -1, -1, -1, -1, -1, -1, -1
@@ -947,25 +947,25 @@ headbuttheader  36,  35,   0
 
 headbuttheader  37,   4,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 3, 5
-    encounter SPECIES_HERACROSS, 3, 5
-    encounter SPECIES_HERACROSS, 3, 5
-    encounter SPECIES_AIPOM, 3, 5
-    encounter SPECIES_AIPOM, 3, 5
-    encounter SPECIES_AIPOM, 3, 5
-    encounter SPECIES_SPEAROW, 6, 8
-    encounter SPECIES_SPEAROW, 6, 8
-    encounter SPECIES_SPEAROW, 6, 8
-    encounter SPECIES_AIPOM, 6, 8
-    encounter SPECIES_AIPOM, 6, 8
-    encounter SPECIES_AIPOM, 6, 8
+    headbuttencounter SPECIES_SPEAROW, 3, 5
+    headbuttencounter SPECIES_HERACROSS, 3, 5
+    headbuttencounter SPECIES_HERACROSS, 3, 5
+    headbuttencounter SPECIES_AIPOM, 3, 5
+    headbuttencounter SPECIES_AIPOM, 3, 5
+    headbuttencounter SPECIES_AIPOM, 3, 5
+    headbuttencounter SPECIES_SPEAROW, 6, 8
+    headbuttencounter SPECIES_SPEAROW, 6, 8
+    headbuttencounter SPECIES_SPEAROW, 6, 8
+    headbuttencounter SPECIES_AIPOM, 6, 8
+    headbuttencounter SPECIES_AIPOM, 6, 8
+    headbuttencounter SPECIES_AIPOM, 6, 8
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 450, 473, 451, 473, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 460, 477, 461, 477, -1, -1, -1, -1, -1, -1, -1, -1
@@ -975,25 +975,25 @@ headbuttheader  37,   4,   0
 
 headbuttheader  38,  15,   1
     // normal slots
-    encounter SPECIES_HOOTHOOT, 9, 10
-    encounter SPECIES_PINECO, 9, 10
-    encounter SPECIES_PINECO, 9, 10
-    encounter SPECIES_EXEGGCUTE, 9, 10
-    encounter SPECIES_EXEGGCUTE, 9, 10
-    encounter SPECIES_EXEGGCUTE, 9, 10
-    encounter SPECIES_HOOTHOOT, 11, 12
-    encounter SPECIES_SPINARAK, 11, 12
-    encounter SPECIES_SPINARAK, 11, 12
-    encounter SPECIES_EXEGGCUTE, 11, 12
-    encounter SPECIES_EXEGGCUTE, 11, 12
-    encounter SPECIES_EXEGGCUTE, 11, 12
+    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_PINECO, 9, 10
+    headbuttencounter SPECIES_PINECO, 9, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 9, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 9, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 9, 10
+    headbuttencounter SPECIES_HOOTHOOT, 11, 12
+    headbuttencounter SPECIES_SPINARAK, 11, 12
+    headbuttencounter SPECIES_SPINARAK, 11, 12
+    headbuttencounter SPECIES_EXEGGCUTE, 11, 12
+    headbuttencounter SPECIES_EXEGGCUTE, 11, 12
+    headbuttencounter SPECIES_EXEGGCUTE, 11, 12
     // special slots
-    encounter SPECIES_CELEBI, 2, 2
-    encounter SPECIES_CELEBI, 2, 2
-    encounter SPECIES_CELEBI, 2, 2
-    encounter SPECIES_CELEBI, 2, 2
-    encounter SPECIES_CELEBI, 2, 2
-    encounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_CELEBI, 2, 2
     // normal trees
     treecoords 355, 405, 355, 404, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 355, 403, 355, 402, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1016,25 +1016,25 @@ headbuttheader  38,  15,   1
 
 headbuttheader  39,  14,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 10, 11
-    encounter SPECIES_PINECO, 10, 11
-    encounter SPECIES_PINECO, 10, 11
-    encounter SPECIES_EXEGGCUTE, 10, 11
-    encounter SPECIES_EXEGGCUTE, 10, 11
-    encounter SPECIES_EXEGGCUTE, 10, 11
-    encounter SPECIES_HOOTHOOT, 13, 14
-    encounter SPECIES_SPINARAK, 13, 14
-    encounter SPECIES_SPINARAK, 13, 14
-    encounter SPECIES_EXEGGCUTE, 13, 14
-    encounter SPECIES_EXEGGCUTE, 13, 14
-    encounter SPECIES_EXEGGCUTE, 13, 14
+    headbuttencounter SPECIES_HOOTHOOT, 10, 11
+    headbuttencounter SPECIES_PINECO, 10, 11
+    headbuttencounter SPECIES_PINECO, 10, 11
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 11
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 11
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 11
+    headbuttencounter SPECIES_HOOTHOOT, 13, 14
+    headbuttencounter SPECIES_SPINARAK, 13, 14
+    headbuttencounter SPECIES_SPINARAK, 13, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 14
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 377, 258, 377, 259, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 378, 266, 379, 266, 379, 264, 379, 263, 379, 262, 378, 262
@@ -1054,25 +1054,25 @@ headbuttheader  39,  14,   0
 
 headbuttheader  40,  26,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_PINECO, 4, 5
-    encounter SPECIES_PINECO, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_HOOTHOOT, 6, 7
-    encounter SPECIES_SPINARAK, 6, 7
-    encounter SPECIES_SPINARAK, 6, 7
-    encounter SPECIES_EXEGGCUTE, 6, 7
-    encounter SPECIES_EXEGGCUTE, 6, 7
-    encounter SPECIES_EXEGGCUTE, 6, 7
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_PINECO, 4, 5
+    headbuttencounter SPECIES_PINECO, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 6, 7
+    headbuttencounter SPECIES_SPINARAK, 6, 7
+    headbuttencounter SPECIES_SPINARAK, 6, 7
+    headbuttencounter SPECIES_EXEGGCUTE, 6, 7
+    headbuttencounter SPECIES_EXEGGCUTE, 6, 7
+    headbuttencounter SPECIES_EXEGGCUTE, 6, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 380, 231, 381, 231, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 376, 241, 377, 241, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1104,25 +1104,25 @@ headbuttheader  40,  26,   0
 
 headbuttheader  41,  13,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 12, 14
-    encounter SPECIES_PINECO, 12, 14
-    encounter SPECIES_PINECO, 12, 14
-    encounter SPECIES_EXEGGCUTE, 12, 14
-    encounter SPECIES_EXEGGCUTE, 12, 14
-    encounter SPECIES_EXEGGCUTE, 12, 14
-    encounter SPECIES_HOOTHOOT, 15, 17
-    encounter SPECIES_SPINARAK, 15, 17
-    encounter SPECIES_SPINARAK, 15, 17
-    encounter SPECIES_EXEGGCUTE, 15, 17
-    encounter SPECIES_EXEGGCUTE, 15, 17
-    encounter SPECIES_EXEGGCUTE, 15, 17
+    headbuttencounter SPECIES_HOOTHOOT, 12, 14
+    headbuttencounter SPECIES_PINECO, 12, 14
+    headbuttencounter SPECIES_PINECO, 12, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 12, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 12, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 12, 14
+    headbuttencounter SPECIES_HOOTHOOT, 15, 17
+    headbuttencounter SPECIES_SPINARAK, 15, 17
+    headbuttencounter SPECIES_SPINARAK, 15, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 17
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 390, 210, 390, 209, 390, 208, 391, 208, 391, 209, 391, 210
     treecoords 396, 217, 397, 217, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1141,25 +1141,25 @@ headbuttheader  41,  13,   0
 
 headbuttheader  42,  13,   1
     // normal slots
-    encounter SPECIES_HOOTHOOT, 13, 14
-    encounter SPECIES_PINECO, 13, 14
-    encounter SPECIES_PINECO, 13, 14
-    encounter SPECIES_EXEGGCUTE, 13, 14
-    encounter SPECIES_EXEGGCUTE, 13, 14
-    encounter SPECIES_EXEGGCUTE, 13, 14
-    encounter SPECIES_HOOTHOOT, 15, 16
-    encounter SPECIES_SPINARAK, 15, 16
-    encounter SPECIES_SPINARAK, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_HOOTHOOT, 13, 14
+    headbuttencounter SPECIES_PINECO, 13, 14
+    headbuttencounter SPECIES_PINECO, 13, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 14
+    headbuttencounter SPECIES_HOOTHOOT, 15, 16
+    headbuttencounter SPECIES_SPINARAK, 15, 16
+    headbuttencounter SPECIES_SPINARAK, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
     // special slots
-    encounter SPECIES_EXEGGCUTE, 18, 25
-    encounter SPECIES_EXEGGCUTE, 18, 25
-    encounter SPECIES_BURMY, 18, 20
-    encounter SPECIES_BURMY, 18, 20
-    encounter SPECIES_BURMY, 18, 20
-    encounter SPECIES_BURMY, 21, 25
+    headbuttencounter SPECIES_EXEGGCUTE, 18, 25
+    headbuttencounter SPECIES_EXEGGCUTE, 18, 25
+    headbuttencounter SPECIES_BURMY, 18, 20
+    headbuttencounter SPECIES_BURMY, 18, 20
+    headbuttencounter SPECIES_BURMY, 18, 20
+    headbuttencounter SPECIES_BURMY, 21, 25
     // normal trees
     treecoords 348, 164, 349, 164, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 340, 165, 341, 165, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1180,25 +1180,25 @@ headbuttheader  42,  13,   1
 
 headbuttheader  43,   3,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 14, 15
-    encounter SPECIES_PINECO, 14, 15
-    encounter SPECIES_PINECO, 14, 15
-    encounter SPECIES_EXEGGCUTE, 14, 15
-    encounter SPECIES_EXEGGCUTE, 14, 15
-    encounter SPECIES_EXEGGCUTE, 14, 15
-    encounter SPECIES_HOOTHOOT, 16, 17
-    encounter SPECIES_SPINARAK, 16, 17
-    encounter SPECIES_SPINARAK, 16, 17
-    encounter SPECIES_EXEGGCUTE, 16, 17
-    encounter SPECIES_EXEGGCUTE, 16, 17
-    encounter SPECIES_EXEGGCUTE, 16, 17
+    headbuttencounter SPECIES_HOOTHOOT, 14, 15
+    headbuttencounter SPECIES_PINECO, 14, 15
+    headbuttencounter SPECIES_PINECO, 14, 15
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 15
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 15
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 15
+    headbuttencounter SPECIES_HOOTHOOT, 16, 17
+    headbuttencounter SPECIES_SPINARAK, 16, 17
+    headbuttencounter SPECIES_SPINARAK, 16, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 16, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 16, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 16, 17
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 269, 183, 270, 183, 270, 182, 270, 181, 269, 181, -1, -1
     treecoords 284, 193, 285, 193, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1207,25 +1207,25 @@ headbuttheader  43,   3,   0
 
 headbuttheader  44,  10,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 13, 14
-    encounter SPECIES_HERACROSS, 13, 14
-    encounter SPECIES_HERACROSS, 13, 14
-    encounter SPECIES_AIPOM, 13, 14
-    encounter SPECIES_AIPOM, 13, 14
-    encounter SPECIES_AIPOM, 13, 14
-    encounter SPECIES_SPEAROW, 15, 16
-    encounter SPECIES_SPEAROW, 15, 16
-    encounter SPECIES_SPEAROW, 15, 16
-    encounter SPECIES_AIPOM, 15, 16
-    encounter SPECIES_AIPOM, 15, 16
-    encounter SPECIES_AIPOM, 15, 16
+    headbuttencounter SPECIES_SPEAROW, 13, 14
+    headbuttencounter SPECIES_HERACROSS, 13, 14
+    headbuttencounter SPECIES_HERACROSS, 13, 14
+    headbuttencounter SPECIES_AIPOM, 13, 14
+    headbuttencounter SPECIES_AIPOM, 13, 14
+    headbuttencounter SPECIES_AIPOM, 13, 14
+    headbuttencounter SPECIES_SPEAROW, 15, 16
+    headbuttencounter SPECIES_SPEAROW, 15, 16
+    headbuttencounter SPECIES_SPEAROW, 15, 16
+    headbuttencounter SPECIES_AIPOM, 15, 16
+    headbuttencounter SPECIES_AIPOM, 15, 16
+    headbuttencounter SPECIES_AIPOM, 15, 16
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 424, 173, 425, 173, 425, 172, -1, -1, -1, -1, -1, -1
     treecoords 426, 187, 427, 187, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1241,25 +1241,25 @@ headbuttheader  44,  10,   0
 
 headbuttheader  45,  17,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 15, 16
-    encounter SPECIES_PINECO, 15, 16
-    encounter SPECIES_PINECO, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_HOOTHOOT, 17, 18
-    encounter SPECIES_VENONAT, 17, 18
-    encounter SPECIES_HOOTHOOT, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_HOOTHOOT, 15, 16
+    headbuttencounter SPECIES_PINECO, 15, 16
+    headbuttencounter SPECIES_PINECO, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_HOOTHOOT, 17, 18
+    headbuttencounter SPECIES_VENONAT, 17, 18
+    headbuttencounter SPECIES_HOOTHOOT, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 516, 99, 516, 98, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 522, 107, 523, 107, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1282,25 +1282,25 @@ headbuttheader  45,  17,   0
 
 headbuttheader  46,  14,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 21, 22
-    encounter SPECIES_HERACROSS, 21, 22
-    encounter SPECIES_HERACROSS, 21, 22
-    encounter SPECIES_AIPOM, 21, 22
-    encounter SPECIES_AIPOM, 21, 22
-    encounter SPECIES_AIPOM, 21, 22
-    encounter SPECIES_SPEAROW, 23, 24
-    encounter SPECIES_SPEAROW, 23, 24
-    encounter SPECIES_SPEAROW, 23, 24
-    encounter SPECIES_AIPOM, 23, 24
-    encounter SPECIES_AIPOM, 23, 24
-    encounter SPECIES_AIPOM, 23, 24
+    headbuttencounter SPECIES_SPEAROW, 21, 22
+    headbuttencounter SPECIES_HERACROSS, 21, 22
+    headbuttencounter SPECIES_HERACROSS, 21, 22
+    headbuttencounter SPECIES_AIPOM, 21, 22
+    headbuttencounter SPECIES_AIPOM, 21, 22
+    headbuttencounter SPECIES_AIPOM, 21, 22
+    headbuttencounter SPECIES_SPEAROW, 23, 24
+    headbuttencounter SPECIES_SPEAROW, 23, 24
+    headbuttencounter SPECIES_SPEAROW, 23, 24
+    headbuttencounter SPECIES_AIPOM, 23, 24
+    headbuttencounter SPECIES_AIPOM, 23, 24
+    headbuttencounter SPECIES_AIPOM, 23, 24
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 623, 171, 624, 171, 624, 172, 624, 173, 623, 173, -1, -1
     treecoords 614, 178, 615, 178, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1320,25 +1320,25 @@ headbuttheader  46,  14,   0
 
 headbuttheader  47,   3,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 23, 24
-    encounter SPECIES_HERACROSS, 23, 24
-    encounter SPECIES_HERACROSS, 23, 25
-    encounter SPECIES_AIPOM, 23, 24
-    encounter SPECIES_AIPOM, 23, 24
-    encounter SPECIES_AIPOM, 23, 24
-    encounter SPECIES_SPEAROW, 26, 27
-    encounter SPECIES_SPEAROW, 26, 27
-    encounter SPECIES_SPEAROW, 26, 27
-    encounter SPECIES_AIPOM, 26, 27
-    encounter SPECIES_AIPOM, 26, 27
-    encounter SPECIES_AIPOM, 26, 27
+    headbuttencounter SPECIES_SPEAROW, 23, 24
+    headbuttencounter SPECIES_HERACROSS, 23, 24
+    headbuttencounter SPECIES_HERACROSS, 23, 25
+    headbuttencounter SPECIES_AIPOM, 23, 24
+    headbuttencounter SPECIES_AIPOM, 23, 24
+    headbuttencounter SPECIES_AIPOM, 23, 24
+    headbuttencounter SPECIES_SPEAROW, 26, 27
+    headbuttencounter SPECIES_SPEAROW, 26, 27
+    headbuttencounter SPECIES_SPEAROW, 26, 27
+    headbuttencounter SPECIES_AIPOM, 26, 27
+    headbuttencounter SPECIES_AIPOM, 26, 27
+    headbuttencounter SPECIES_AIPOM, 26, 27
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 648, 341, 649, 341, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 662, 341, 662, 340, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1347,25 +1347,25 @@ headbuttheader  47,   3,   0
 
 headbuttheader  48,  10,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 2, 3
-    encounter SPECIES_HERACROSS, 2, 3
-    encounter SPECIES_HERACROSS, 2, 3
-    encounter SPECIES_AIPOM, 2, 3
-    encounter SPECIES_AIPOM, 2, 3
-    encounter SPECIES_AIPOM, 2, 3
-    encounter SPECIES_SPEAROW, 4, 5
-    encounter SPECIES_SPEAROW, 4, 5
-    encounter SPECIES_SPEAROW, 4, 5
-    encounter SPECIES_AIPOM, 4, 5
-    encounter SPECIES_AIPOM, 4, 5
-    encounter SPECIES_AIPOM, 4, 5
+    headbuttencounter SPECIES_SPEAROW, 2, 3
+    headbuttencounter SPECIES_HERACROSS, 2, 3
+    headbuttencounter SPECIES_HERACROSS, 2, 3
+    headbuttencounter SPECIES_AIPOM, 2, 3
+    headbuttencounter SPECIES_AIPOM, 2, 3
+    headbuttencounter SPECIES_AIPOM, 2, 3
+    headbuttencounter SPECIES_SPEAROW, 4, 5
+    headbuttencounter SPECIES_SPEAROW, 4, 5
+    headbuttencounter SPECIES_SPEAROW, 4, 5
+    headbuttencounter SPECIES_AIPOM, 4, 5
+    headbuttencounter SPECIES_AIPOM, 4, 5
+    headbuttencounter SPECIES_AIPOM, 4, 5
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 614, 331, 614, 330, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 628, 351, 628, 352, 629, 352, -1, -1, -1, -1, -1, -1
@@ -1381,25 +1381,25 @@ headbuttheader  48,  10,   0
 
 headbuttheader  49,  17,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_WURMPLE, 2, 3
-    encounter SPECIES_WURMPLE, 2, 3
-    encounter SPECIES_WURMPLE, 2, 3
-    encounter SPECIES_HOOTHOOT, 5, 6
-    encounter SPECIES_SPINARAK, 5, 6
-    encounter SPECIES_SPINARAK, 5, 6
-    encounter SPECIES_WURMPLE, 5, 6
-    encounter SPECIES_WURMPLE, 5, 6
-    encounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_WURMPLE, 2, 3
+    headbuttencounter SPECIES_WURMPLE, 2, 3
+    headbuttencounter SPECIES_WURMPLE, 2, 3
+    headbuttencounter SPECIES_HOOTHOOT, 5, 6
+    headbuttencounter SPECIES_SPINARAK, 5, 6
+    headbuttencounter SPECIES_SPINARAK, 5, 6
+    headbuttencounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_WURMPLE, 5, 6
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1028, 355, 1029, 355, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1030, 355, 1031, 355, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1422,25 +1422,25 @@ headbuttheader  49,  17,   0
 
 headbuttheader  50,  21,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_HOOTHOOT, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1032, 271, 1033, 271, 1033, 273, -1, -1, -1, -1, -1, -1
     treecoords 1033, 274, 1033, 275, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1467,25 +1467,25 @@ headbuttheader  50,  21,   0
 
 headbuttheader  51,  21,   2
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 5
-    encounter SPECIES_PINECO, 3, 5
-    encounter SPECIES_PINECO, 3, 5
-    encounter SPECIES_WURMPLE, 3, 5
-    encounter SPECIES_WURMPLE, 3, 5
-    encounter SPECIES_WURMPLE, 3, 5
-    encounter SPECIES_HOOTHOOT, 7, 9
-    encounter SPECIES_HOOTHOOT, 7, 9
-    encounter SPECIES_HOOTHOOT, 7, 9
-    encounter SPECIES_WURMPLE, 7, 9
-    encounter SPECIES_WURMPLE, 7, 9
-    encounter SPECIES_WURMPLE, 7, 9
+    headbuttencounter SPECIES_HOOTHOOT, 3, 5
+    headbuttencounter SPECIES_PINECO, 3, 5
+    headbuttencounter SPECIES_PINECO, 3, 5
+    headbuttencounter SPECIES_WURMPLE, 3, 5
+    headbuttencounter SPECIES_WURMPLE, 3, 5
+    headbuttencounter SPECIES_WURMPLE, 3, 5
+    headbuttencounter SPECIES_HOOTHOOT, 7, 9
+    headbuttencounter SPECIES_HOOTHOOT, 7, 9
+    headbuttencounter SPECIES_HOOTHOOT, 7, 9
+    headbuttencounter SPECIES_WURMPLE, 7, 9
+    headbuttencounter SPECIES_WURMPLE, 7, 9
+    headbuttencounter SPECIES_WURMPLE, 7, 9
     // special slots
-    encounter SPECIES_WURMPLE, 5, 9
-    encounter SPECIES_WURMPLE, 5, 9
-    encounter SPECIES_STARLY, 5, 9
-    encounter SPECIES_STARLY, 5, 9
-    encounter SPECIES_STARLY, 5, 9
-    encounter SPECIES_STARLY, 8, 12
+    headbuttencounter SPECIES_WURMPLE, 5, 9
+    headbuttencounter SPECIES_WURMPLE, 5, 9
+    headbuttencounter SPECIES_STARLY, 5, 9
+    headbuttencounter SPECIES_STARLY, 5, 9
+    headbuttencounter SPECIES_STARLY, 5, 9
+    headbuttencounter SPECIES_STARLY, 8, 12
     // normal trees
     treecoords 1052, 117, 1053, 117, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1060, 117, 1061, 117, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1515,25 +1515,25 @@ headbuttheader  51,  21,   2
 
 headbuttheader  52,  11,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 11, 13
-    encounter SPECIES_PINECO, 11, 13
-    encounter SPECIES_PINECO, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 11, 13
+    headbuttencounter SPECIES_PINECO, 11, 13
+    headbuttencounter SPECIES_PINECO, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1295, 158, 1295, 157, 1296, 158, 1296, 157, -1, -1, -1, -1
     treecoords 1303, 158, 1304, 158, 1303, 157, 1304, 157, -1, -1, -1, -1
@@ -1553,25 +1553,25 @@ headbuttheader  53,   0,   0
 
 headbuttheader  54,  10,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 11, 13
-    encounter SPECIES_HERACROSS, 11, 13
-    encounter SPECIES_HERACROSS, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_COMBEE, 11, 13
-    encounter SPECIES_SPEAROW, 14, 16
-    encounter SPECIES_SPEAROW, 14, 16
-    encounter SPECIES_SPEAROW, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
-    encounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_SPEAROW, 11, 13
+    headbuttencounter SPECIES_HERACROSS, 11, 13
+    headbuttencounter SPECIES_HERACROSS, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_COMBEE, 11, 13
+    headbuttencounter SPECIES_SPEAROW, 14, 16
+    headbuttencounter SPECIES_SPEAROW, 14, 16
+    headbuttencounter SPECIES_SPEAROW, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_COMBEE, 14, 16
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1341, 313, 1342, 313, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1340, 315, 1340, 314, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1587,25 +1587,25 @@ headbuttheader  54,  10,   0
 
 headbuttheader  55,  32,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 15, 17
-    encounter SPECIES_HERACROSS, 15, 17
-    encounter SPECIES_HERACROSS, 15, 17
-    encounter SPECIES_COMBEE, 15, 17
-    encounter SPECIES_COMBEE, 15, 17
-    encounter SPECIES_COMBEE, 15, 17
-    encounter SPECIES_SPEAROW, 18, 20
-    encounter SPECIES_SPEAROW, 18, 20
-    encounter SPECIES_SPEAROW, 18, 20
-    encounter SPECIES_COMBEE, 18, 20
-    encounter SPECIES_COMBEE, 18, 20
-    encounter SPECIES_COMBEE, 18, 20
+    headbuttencounter SPECIES_SPEAROW, 15, 17
+    headbuttencounter SPECIES_HERACROSS, 15, 17
+    headbuttencounter SPECIES_HERACROSS, 15, 17
+    headbuttencounter SPECIES_COMBEE, 15, 17
+    headbuttencounter SPECIES_COMBEE, 15, 17
+    headbuttencounter SPECIES_COMBEE, 15, 17
+    headbuttencounter SPECIES_SPEAROW, 18, 20
+    headbuttencounter SPECIES_SPEAROW, 18, 20
+    headbuttencounter SPECIES_SPEAROW, 18, 20
+    headbuttencounter SPECIES_COMBEE, 18, 20
+    headbuttencounter SPECIES_COMBEE, 18, 20
+    headbuttencounter SPECIES_COMBEE, 18, 20
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1198, 225, 1199, 225, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1200, 225, 1201, 225, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1643,25 +1643,25 @@ headbuttheader  55,  32,   0
 
 headbuttheader  56,  18,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 21, 23
-    encounter SPECIES_SPINARAK, 21, 23
-    encounter SPECIES_SPINARAK, 21, 23
-    encounter SPECIES_WURMPLE, 21, 23
-    encounter SPECIES_WURMPLE, 21, 23
-    encounter SPECIES_WURMPLE, 21, 23
-    encounter SPECIES_HOOTHOOT, 26, 34
-    encounter SPECIES_TANGELA, 26, 34
-    encounter SPECIES_HOOTHOOT, 26, 34
-    encounter SPECIES_WURMPLE, 26, 34
-    encounter SPECIES_WURMPLE, 26, 34
-    encounter SPECIES_WURMPLE, 26, 34
+    headbuttencounter SPECIES_HOOTHOOT, 21, 23
+    headbuttencounter SPECIES_SPINARAK, 21, 23
+    headbuttencounter SPECIES_SPINARAK, 21, 23
+    headbuttencounter SPECIES_WURMPLE, 21, 23
+    headbuttencounter SPECIES_WURMPLE, 21, 23
+    headbuttencounter SPECIES_WURMPLE, 21, 23
+    headbuttencounter SPECIES_HOOTHOOT, 26, 34
+    headbuttencounter SPECIES_TANGELA, 26, 34
+    headbuttencounter SPECIES_HOOTHOOT, 26, 34
+    headbuttencounter SPECIES_WURMPLE, 26, 34
+    headbuttencounter SPECIES_WURMPLE, 26, 34
+    headbuttencounter SPECIES_WURMPLE, 26, 34
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1193, 417, 1193, 416, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1193, 415, 1193, 414, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1694,25 +1694,25 @@ headbuttheader  59,   0,   0
 
 headbuttheader  60,  11,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 698, 403, 698, 404, 698, 405, 699, 403, -1, -1, -1, -1
     treecoords 698, 406, 698, 407, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1747,25 +1747,25 @@ headbuttheader  66,   0,   0
 
 headbuttheader  67,   7,   4
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_PINECO, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_EXEGGCUTE, 2, 3
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_SPINARAK, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
-    encounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_PINECO, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_EXEGGCUTE, 2, 3
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_SPINARAK, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
+    headbuttencounter SPECIES_EXEGGCUTE, 4, 5
     // special slots
-    encounter SPECIES_EXEGGCUTE, 18, 20
-    encounter SPECIES_EXEGGCUTE, 18, 20
-    encounter SPECIES_TAILLOW, 18, 20
-    encounter SPECIES_TAILLOW, 18, 20
-    encounter SPECIES_TAILLOW, 18, 20
-    encounter SPECIES_TAILLOW, 21, 25
+    headbuttencounter SPECIES_EXEGGCUTE, 18, 20
+    headbuttencounter SPECIES_EXEGGCUTE, 18, 20
+    headbuttencounter SPECIES_TAILLOW, 18, 20
+    headbuttencounter SPECIES_TAILLOW, 18, 20
+    headbuttencounter SPECIES_TAILLOW, 18, 20
+    headbuttencounter SPECIES_TAILLOW, 21, 25
     // normal trees
     treecoords 570, 408, 570, 409, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 564, 411, 565, 411, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1798,25 +1798,25 @@ headbuttheader  72,   0,   0
 
 headbuttheader  73,  27,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 2, 3
-    encounter SPECIES_PINECO, 10, 10
-    encounter SPECIES_PINECO, 10, 10
-    encounter SPECIES_EXEGGCUTE, 10, 10
-    encounter SPECIES_EXEGGCUTE, 10, 10
-    encounter SPECIES_EXEGGCUTE, 10, 10
-    encounter SPECIES_HOOTHOOT, 4, 5
-    encounter SPECIES_HOOTHOOT, 10, 10
-    encounter SPECIES_HOOTHOOT, 10, 10
-    encounter SPECIES_EXEGGCUTE, 10, 10
-    encounter SPECIES_EXEGGCUTE, 10, 10
-    encounter SPECIES_EXEGGCUTE, 10, 10
+    headbuttencounter SPECIES_HOOTHOOT, 2, 3
+    headbuttencounter SPECIES_PINECO, 10, 10
+    headbuttencounter SPECIES_PINECO, 10, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 10
+    headbuttencounter SPECIES_HOOTHOOT, 4, 5
+    headbuttencounter SPECIES_HOOTHOOT, 10, 10
+    headbuttencounter SPECIES_HOOTHOOT, 10, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 10
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 10
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 510, 276, 510, 277, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 506, 265, 507, 265, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1849,25 +1849,25 @@ headbuttheader  73,  27,   0
 
 headbuttheader  74,  15,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 3, 5
-    encounter SPECIES_HERACROSS, 3, 5
-    encounter SPECIES_HERACROSS, 3, 5
-    encounter SPECIES_AIPOM, 3, 5
-    encounter SPECIES_AIPOM, 3, 5
-    encounter SPECIES_AIPOM, 3, 5
-    encounter SPECIES_SPEAROW, 6, 8
-    encounter SPECIES_SPEAROW, 6, 8
-    encounter SPECIES_SPEAROW, 6, 8
-    encounter SPECIES_AIPOM, 6, 8
-    encounter SPECIES_AIPOM, 6, 8
-    encounter SPECIES_AIPOM, 6, 8
+    headbuttencounter SPECIES_SPEAROW, 3, 5
+    headbuttencounter SPECIES_HERACROSS, 3, 5
+    headbuttencounter SPECIES_HERACROSS, 3, 5
+    headbuttencounter SPECIES_AIPOM, 3, 5
+    headbuttencounter SPECIES_AIPOM, 3, 5
+    headbuttencounter SPECIES_AIPOM, 3, 5
+    headbuttencounter SPECIES_SPEAROW, 6, 8
+    headbuttencounter SPECIES_SPEAROW, 6, 8
+    headbuttencounter SPECIES_SPEAROW, 6, 8
+    headbuttencounter SPECIES_AIPOM, 6, 8
+    headbuttencounter SPECIES_AIPOM, 6, 8
+    headbuttencounter SPECIES_AIPOM, 6, 8
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 426, 465, 427, 465, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 424, 459, 425, 459, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1897,25 +1897,25 @@ headbuttheader  77,   0,   0
 
 headbuttheader  78,  18,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 12, 14
-    encounter SPECIES_PINECO, 12, 14
-    encounter SPECIES_PINECO, 12, 14
-    encounter SPECIES_EXEGGCUTE, 12, 14
-    encounter SPECIES_EXEGGCUTE, 12, 14
-    encounter SPECIES_EXEGGCUTE, 12, 14
-    encounter SPECIES_HOOTHOOT, 15, 17
-    encounter SPECIES_SPINARAK, 15, 17
-    encounter SPECIES_SPINARAK, 15, 17
-    encounter SPECIES_EXEGGCUTE, 15, 17
-    encounter SPECIES_EXEGGCUTE, 15, 17
-    encounter SPECIES_EXEGGCUTE, 15, 17
+    headbuttencounter SPECIES_HOOTHOOT, 12, 14
+    headbuttencounter SPECIES_PINECO, 12, 14
+    headbuttencounter SPECIES_PINECO, 12, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 12, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 12, 14
+    headbuttencounter SPECIES_EXEGGCUTE, 12, 14
+    headbuttencounter SPECIES_HOOTHOOT, 15, 17
+    headbuttencounter SPECIES_SPINARAK, 15, 17
+    headbuttencounter SPECIES_SPINARAK, 15, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 17
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 17
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 414, 166, 414, 167, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 414, 182, 414, 183, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1966,25 +1966,25 @@ headbuttheader  87,   0,   0
 
 headbuttheader  88,  22,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_PINECO, 14, 16
-    encounter SPECIES_PINECO, 14, 16
-    encounter SPECIES_EXEGGCUTE, 14, 16
-    encounter SPECIES_EXEGGCUTE, 14, 16
-    encounter SPECIES_EXEGGCUTE, 14, 16
-    encounter SPECIES_HOOTHOOT, 17, 19
-    encounter SPECIES_VENONAT, 17, 19
-    encounter SPECIES_HOOTHOOT, 17, 19
-    encounter SPECIES_EXEGGCUTE, 17, 19
-    encounter SPECIES_EXEGGCUTE, 17, 19
-    encounter SPECIES_EXEGGCUTE, 17, 19
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_PINECO, 14, 16
+    headbuttencounter SPECIES_PINECO, 14, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 17, 19
+    headbuttencounter SPECIES_VENONAT, 17, 19
+    headbuttencounter SPECIES_HOOTHOOT, 17, 19
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 19
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 19
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 19
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 552, 52, 552, 53, 553, 53, -1, -1, -1, -1, -1, -1
     treecoords 552, 62, 553, 62, 553, 61, -1, -1, -1, -1, -1, -1
@@ -2015,25 +2015,25 @@ headbuttheader  89,   0,   0
 
 headbuttheader  90,   5,   0
     // normal slots
-    encounter SPECIES_HERACROSS, 39, 40
-    encounter SPECIES_AIPOM, 39, 40
-    encounter SPECIES_AIPOM, 39, 40
-    encounter SPECIES_NATU, 39, 40
-    encounter SPECIES_NATU, 39, 40
-    encounter SPECIES_NATU, 39, 40
-    encounter SPECIES_HERACROSS, 41, 43
-    encounter SPECIES_AIPOM, 41, 43
-    encounter SPECIES_AIPOM, 41, 43
-    encounter SPECIES_NATU, 41, 43
-    encounter SPECIES_NATU, 41, 43
-    encounter SPECIES_NATU, 41, 43
+    headbuttencounter SPECIES_HERACROSS, 39, 40
+    headbuttencounter SPECIES_AIPOM, 39, 40
+    headbuttencounter SPECIES_AIPOM, 39, 40
+    headbuttencounter SPECIES_NATU, 39, 40
+    headbuttencounter SPECIES_NATU, 39, 40
+    headbuttencounter SPECIES_NATU, 39, 40
+    headbuttencounter SPECIES_HERACROSS, 41, 43
+    headbuttencounter SPECIES_AIPOM, 41, 43
+    headbuttencounter SPECIES_AIPOM, 41, 43
+    headbuttencounter SPECIES_NATU, 41, 43
+    headbuttencounter SPECIES_NATU, 41, 43
+    headbuttencounter SPECIES_NATU, 41, 43
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 803, 277, 804, 277, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 805, 277, 806, 277, 806, 276, -1, -1, -1, -1, -1, -1
@@ -2050,25 +2050,25 @@ headbuttheader  92,   0,   0
 
 headbuttheader  93,   3,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 24, 26
-    encounter SPECIES_SPINARAK, 24, 26
-    encounter SPECIES_SPINARAK, 24, 26
-    encounter SPECIES_WURMPLE, 24, 26
-    encounter SPECIES_WURMPLE, 24, 26
-    encounter SPECIES_WURMPLE, 24, 26
-    encounter SPECIES_HOOTHOOT, 27, 30
-    encounter SPECIES_TANGELA, 27, 30
-    encounter SPECIES_HOOTHOOT, 27, 30
-    encounter SPECIES_WURMPLE, 27, 30
-    encounter SPECIES_WURMPLE, 27, 30
-    encounter SPECIES_WURMPLE, 27, 30
+    headbuttencounter SPECIES_HOOTHOOT, 24, 26
+    headbuttencounter SPECIES_SPINARAK, 24, 26
+    headbuttencounter SPECIES_SPINARAK, 24, 26
+    headbuttencounter SPECIES_WURMPLE, 24, 26
+    headbuttencounter SPECIES_WURMPLE, 24, 26
+    headbuttencounter SPECIES_WURMPLE, 24, 26
+    headbuttencounter SPECIES_HOOTHOOT, 27, 30
+    headbuttencounter SPECIES_TANGELA, 27, 30
+    headbuttencounter SPECIES_HOOTHOOT, 27, 30
+    headbuttencounter SPECIES_WURMPLE, 27, 30
+    headbuttencounter SPECIES_WURMPLE, 27, 30
+    headbuttencounter SPECIES_WURMPLE, 27, 30
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1046, 393, 1046, 392, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1046, 391, 1046, 390, -1, -1, -1, -1, -1, -1, -1, -1
@@ -2083,25 +2083,25 @@ headbuttheader  95,   0,   0
 
 headbuttheader  96,  22,   5
     // normal slots
-    encounter SPECIES_HOOTHOOT, 10, 12
-    encounter SPECIES_PINECO, 10, 12
-    encounter SPECIES_PINECO, 10, 12
-    encounter SPECIES_EXEGGCUTE, 10, 12
-    encounter SPECIES_EXEGGCUTE, 10, 12
-    encounter SPECIES_EXEGGCUTE, 10, 12
-    encounter SPECIES_HOOTHOOT, 13, 15
-    encounter SPECIES_SPINARAK, 13, 15
-    encounter SPECIES_SPINARAK, 13, 15
-    encounter SPECIES_EXEGGCUTE, 13, 15
-    encounter SPECIES_EXEGGCUTE, 13, 15
-    encounter SPECIES_EXEGGCUTE, 13, 15
+    headbuttencounter SPECIES_HOOTHOOT, 10, 12
+    headbuttencounter SPECIES_PINECO, 10, 12
+    headbuttencounter SPECIES_PINECO, 10, 12
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 12
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 12
+    headbuttencounter SPECIES_EXEGGCUTE, 10, 12
+    headbuttencounter SPECIES_HOOTHOOT, 13, 15
+    headbuttencounter SPECIES_SPINARAK, 13, 15
+    headbuttencounter SPECIES_SPINARAK, 13, 15
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 15
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 15
+    headbuttencounter SPECIES_EXEGGCUTE, 13, 15
     // special slots
-    encounter SPECIES_EXEGGCUTE, 18, 20
-    encounter SPECIES_EXEGGCUTE, 18, 20
-    encounter SPECIES_CHERUBI, 18, 20
-    encounter SPECIES_CHERUBI, 18, 20
-    encounter SPECIES_CHERUBI, 18, 20
-    encounter SPECIES_CHERUBI, 21, 25
+    headbuttencounter SPECIES_EXEGGCUTE, 18, 20
+    headbuttencounter SPECIES_EXEGGCUTE, 18, 20
+    headbuttencounter SPECIES_CHERUBI, 18, 20
+    headbuttencounter SPECIES_CHERUBI, 18, 20
+    headbuttencounter SPECIES_CHERUBI, 18, 20
+    headbuttencounter SPECIES_CHERUBI, 21, 25
     // normal trees
     treecoords 34, 63, 35, 63, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 32, 61, 33, 61, 33, 62, -1, -1, -1, -1, -1, -1
@@ -2195,25 +2195,25 @@ headbuttheader 116,   0,   0
 
 headbuttheader 117,  56,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 5
-    encounter SPECIES_CATERPIE, 3, 5
-    encounter SPECIES_CATERPIE, 3, 5
-    encounter SPECIES_HOOTHOOT, 3, 5
-    encounter SPECIES_METAPOD, 3, 5
-    encounter SPECIES_METAPOD, 3, 5
-    encounter SPECIES_HOOTHOOT, 6, 8
-    encounter SPECIES_PINECO, 6, 8
-    encounter SPECIES_PINECO, 6, 8
-    encounter SPECIES_NOCTOWL, 6, 8
-    encounter SPECIES_BUTTERFREE, 6, 8
-    encounter SPECIES_BUTTERFREE, 6, 8
+    headbuttencounter SPECIES_HOOTHOOT, 3, 5
+    headbuttencounter SPECIES_CATERPIE, 3, 5
+    headbuttencounter SPECIES_CATERPIE, 3, 5
+    headbuttencounter SPECIES_HOOTHOOT, 3, 5
+    headbuttencounter SPECIES_METAPOD, 3, 5
+    headbuttencounter SPECIES_METAPOD, 3, 5
+    headbuttencounter SPECIES_HOOTHOOT, 6, 8
+    headbuttencounter SPECIES_PINECO, 6, 8
+    headbuttencounter SPECIES_PINECO, 6, 8
+    headbuttencounter SPECIES_NOCTOWL, 6, 8
+    headbuttencounter SPECIES_BUTTERFREE, 6, 8
+    headbuttencounter SPECIES_BUTTERFREE, 6, 8
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 9, 81, 9, 80, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 9, 79, 9, 78, -1, -1, -1, -1, -1, -1, -1, -1
@@ -2362,25 +2362,25 @@ headbuttheader 146,   0,   0
 
 headbuttheader 147,  24,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_SEEDOT, 3, 4
-    encounter SPECIES_SEEDOT, 3, 4
-    encounter SPECIES_SPINARAK, 3, 4
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_SHROOMISH, 3, 4
-    encounter SPECIES_HOOTHOOT, 5, 7
-    encounter SPECIES_SEEDOT, 5, 7
-    encounter SPECIES_SEEDOT, 5, 7
-    encounter SPECIES_ARIADOS, 5, 7
-    encounter SPECIES_NOCTOWL, 5, 7
-    encounter SPECIES_SHROOMISH, 5, 7
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_SEEDOT, 3, 4
+    headbuttencounter SPECIES_SEEDOT, 3, 4
+    headbuttencounter SPECIES_SPINARAK, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_SHROOMISH, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 5, 7
+    headbuttencounter SPECIES_SEEDOT, 5, 7
+    headbuttencounter SPECIES_SEEDOT, 5, 7
+    headbuttencounter SPECIES_ARIADOS, 5, 7
+    headbuttencounter SPECIES_NOCTOWL, 5, 7
+    headbuttencounter SPECIES_SHROOMISH, 5, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 51, 73, 52, 73, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 49, 67, 50, 67, 50, 66, -1, -1, -1, -1, -1, -1
@@ -2419,25 +2419,25 @@ headbuttheader 150,   0,   0
 
 headbuttheader 151,  10,   4
     // normal slots
-    encounter SPECIES_HOOTHOOT, 15, 16
-    encounter SPECIES_PINECO, 15, 16
-    encounter SPECIES_PINECO, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_HOOTHOOT, 17, 18
-    encounter SPECIES_SPINARAK, 17, 18
-    encounter SPECIES_SPINARAK, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_HOOTHOOT, 15, 16
+    headbuttencounter SPECIES_PINECO, 15, 16
+    headbuttencounter SPECIES_PINECO, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_HOOTHOOT, 17, 18
+    headbuttencounter SPECIES_SPINARAK, 17, 18
+    headbuttencounter SPECIES_SPINARAK, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
     // special slots
-    encounter SPECIES_METAPOD, 25, 28
-    encounter SPECIES_BUTTERFREE, 25, 28
-    encounter SPECIES_BUTTERFREE, 25, 28
-    encounter SPECIES_HERACROSS, 25, 28
-    encounter SPECIES_HERACROSS, 25, 28
-    encounter SPECIES_HERACROSS, 27, 30
+    headbuttencounter SPECIES_METAPOD, 25, 28
+    headbuttencounter SPECIES_BUTTERFREE, 25, 28
+    headbuttencounter SPECIES_BUTTERFREE, 25, 28
+    headbuttencounter SPECIES_HERACROSS, 25, 28
+    headbuttencounter SPECIES_HERACROSS, 25, 28
+    headbuttencounter SPECIES_HERACROSS, 27, 30
     // normal trees
     treecoords 108, 383, 109, 383, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 100, 361, 100, 360, -1, -1, -1, -1, -1, -1, -1, -1
@@ -2458,25 +2458,25 @@ headbuttheader 151,  10,   4
 
 headbuttheader 152,   6,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 15, 16
-    encounter SPECIES_PINECO, 15, 16
-    encounter SPECIES_PINECO, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_EXEGGCUTE, 15, 16
-    encounter SPECIES_HOOTHOOT, 17, 18
-    encounter SPECIES_SPINARAK, 17, 18
-    encounter SPECIES_SPINARAK, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
-    encounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_HOOTHOOT, 15, 16
+    headbuttencounter SPECIES_PINECO, 15, 16
+    headbuttencounter SPECIES_PINECO, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 15, 16
+    headbuttencounter SPECIES_HOOTHOOT, 17, 18
+    headbuttencounter SPECIES_SPINARAK, 17, 18
+    headbuttencounter SPECIES_SPINARAK, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 18
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 82, 325, 82, 324, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 75, 335, 76, 335, -1, -1, -1, -1, -1, -1, -1, -1
@@ -2551,25 +2551,25 @@ headbuttheader 173,   0,   0
 
 headbuttheader 174,  17,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 14, 16
-    encounter SPECIES_PINECO, 14, 16
-    encounter SPECIES_PINECO, 14, 16
-    encounter SPECIES_EXEGGCUTE, 14, 16
-    encounter SPECIES_EXEGGCUTE, 14, 16
-    encounter SPECIES_EXEGGCUTE, 14, 16
-    encounter SPECIES_HOOTHOOT, 17, 19
-    encounter SPECIES_SPINARAK, 17, 19
-    encounter SPECIES_SPINARAK, 17, 19
-    encounter SPECIES_EXEGGCUTE, 17, 19
-    encounter SPECIES_EXEGGCUTE, 17, 19
-    encounter SPECIES_EXEGGCUTE, 17, 19
+    headbuttencounter SPECIES_HOOTHOOT, 14, 16
+    headbuttencounter SPECIES_PINECO, 14, 16
+    headbuttencounter SPECIES_PINECO, 14, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 16
+    headbuttencounter SPECIES_EXEGGCUTE, 14, 16
+    headbuttencounter SPECIES_HOOTHOOT, 17, 19
+    headbuttencounter SPECIES_SPINARAK, 17, 19
+    headbuttencounter SPECIES_SPINARAK, 17, 19
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 19
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 19
+    headbuttencounter SPECIES_EXEGGCUTE, 17, 19
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 77, 317, 78, 317, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 76, 313, 76, 312, -1, -1, -1, -1, -1, -1, -1, -1
@@ -3309,25 +3309,25 @@ headbuttheader 413,   0,   0
 
 headbuttheader 414,  13,   0
     // normal slots
-    encounter SPECIES_HOOTHOOT, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_PINECO, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_WURMPLE, 3, 4
-    encounter SPECIES_HOOTHOOT, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_SPINARAK, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
-    encounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_HOOTHOOT, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_PINECO, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_WURMPLE, 3, 4
+    headbuttencounter SPECIES_HOOTHOOT, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_SPINARAK, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_WURMPLE, 5, 7
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1032, 138, 1032, 137, 1033, 137, 1033, 138, 1033, 139, -1, -1
     treecoords 1054, 162, 1054, 163, -1, -1, -1, -1, -1, -1, -1, -1
@@ -3367,25 +3367,25 @@ headbuttheader 421,   0,   0
 
 headbuttheader 422,   5,   0
     // normal slots
-    encounter SPECIES_SPEAROW, 26, 27
-    encounter SPECIES_HERACROSS, 26, 27
-    encounter SPECIES_HERACROSS, 26, 27
-    encounter SPECIES_COMBEE, 26, 27
-    encounter SPECIES_COMBEE, 26, 27
-    encounter SPECIES_COMBEE, 26, 27
-    encounter SPECIES_SPEAROW, 29, 30
-    encounter SPECIES_SPEAROW, 29, 30
-    encounter SPECIES_SPEAROW, 29, 30
-    encounter SPECIES_COMBEE, 29, 30
-    encounter SPECIES_COMBEE, 29, 30
-    encounter SPECIES_COMBEE, 29, 30
+    headbuttencounter SPECIES_SPEAROW, 26, 27
+    headbuttencounter SPECIES_HERACROSS, 26, 27
+    headbuttencounter SPECIES_HERACROSS, 26, 27
+    headbuttencounter SPECIES_COMBEE, 26, 27
+    headbuttencounter SPECIES_COMBEE, 26, 27
+    headbuttencounter SPECIES_COMBEE, 26, 27
+    headbuttencounter SPECIES_SPEAROW, 29, 30
+    headbuttencounter SPECIES_SPEAROW, 29, 30
+    headbuttencounter SPECIES_SPEAROW, 29, 30
+    headbuttencounter SPECIES_COMBEE, 29, 30
+    headbuttencounter SPECIES_COMBEE, 29, 30
+    headbuttencounter SPECIES_COMBEE, 29, 30
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 1162, 263, 1163, 263, 1162, 262, -1, -1, -1, -1, -1, -1
     treecoords 1167, 261, 1167, 260, -1, -1, -1, -1, -1, -1, -1, -1
@@ -3507,25 +3507,25 @@ headbuttheader 459,   0,   0
 
 headbuttheader 460,   3,   0
     // normal slots
-    encounter SPECIES_HERACROSS, 42, 44
-    encounter SPECIES_AIPOM, 42, 44
-    encounter SPECIES_AIPOM, 42, 44
-    encounter SPECIES_NATU, 42, 44
-    encounter SPECIES_NATU, 42, 44
-    encounter SPECIES_NATU, 42, 44
-    encounter SPECIES_HERACROSS, 45, 48
-    encounter SPECIES_AIPOM, 45, 48
-    encounter SPECIES_AIPOM, 45, 48
-    encounter SPECIES_NATU, 45, 48
-    encounter SPECIES_NATU, 45, 48
-    encounter SPECIES_NATU, 45, 48
+    headbuttencounter SPECIES_HERACROSS, 42, 44
+    headbuttencounter SPECIES_AIPOM, 42, 44
+    headbuttencounter SPECIES_AIPOM, 42, 44
+    headbuttencounter SPECIES_NATU, 42, 44
+    headbuttencounter SPECIES_NATU, 42, 44
+    headbuttencounter SPECIES_NATU, 42, 44
+    headbuttencounter SPECIES_HERACROSS, 45, 48
+    headbuttencounter SPECIES_AIPOM, 45, 48
+    headbuttencounter SPECIES_AIPOM, 45, 48
+    headbuttencounter SPECIES_NATU, 45, 48
+    headbuttencounter SPECIES_NATU, 45, 48
+    headbuttencounter SPECIES_NATU, 45, 48
     // special slots
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
-    encounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 23, 32, 24, 32, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 15, 47, 16, 47, -1, -1, -1, -1, -1, -1, -1, -1

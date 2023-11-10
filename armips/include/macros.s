@@ -670,3 +670,13 @@
 	.endif
     .halfword headbuttTreeQuantity, specialTreeQuantity
 .endmacro
+
+.macro headbuttencounter, species, minLevel, maxlevel
+	.halfword species
+	.byte minLevel, maxlevel
+.endmacro
+
+.macro headbuttencounterwithform, species, form, minLevel, maxlevel
+	.halfword species | (form << 11)
+	.byte minLevel, maxlevel
+.endmacro

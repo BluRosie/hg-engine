@@ -43,10 +43,10 @@ def headbuttdumper(narcPath: str, outputPath: str):
         if (normalTrees != 0 or specialTrees != 0):
             output.write("    // normal slots\n")
             for encounter in range(0, 12):
-                output.write("    encounter {}, {}, {}\n".format(speciesDict[struct.unpack("<H", headbuttFile.read(2))[0]], struct.unpack("<B", headbuttFile.read(1))[0], struct.unpack("<B", headbuttFile.read(1))[0]))
+                output.write("    headbuttencounter {}, {}, {}\n".format(speciesDict[struct.unpack("<H", headbuttFile.read(2))[0]], struct.unpack("<B", headbuttFile.read(1))[0], struct.unpack("<B", headbuttFile.read(1))[0]))
             output.write("    // special slots\n")
             for encounter in range(0, 6):
-                output.write("    encounter {}, {}, {}\n".format(speciesDict[struct.unpack("<H", headbuttFile.read(2))[0]], struct.unpack("<B", headbuttFile.read(1))[0], struct.unpack("<B", headbuttFile.read(1))[0]))
+                output.write("    headbuttencounter {}, {}, {}\n".format(speciesDict[struct.unpack("<H", headbuttFile.read(2))[0]], struct.unpack("<B", headbuttFile.read(1))[0], struct.unpack("<B", headbuttFile.read(1))[0]))
             # tree coordinates
             if (normalTrees != 0):
                 output.write("    // normal trees\n")
