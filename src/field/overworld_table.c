@@ -1690,7 +1690,7 @@ u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
     {
         // get the mon ow tag
         if (species == SPECIES_GENESECT)
-            form = 0; // fuck genesect forme overworlds
+            form = 0; // fuck genesect forme overworlds                
         tag = get_mon_ow_tag(species, form, isFemale);
         
         ret = get_a081_index_from_tag(tag);

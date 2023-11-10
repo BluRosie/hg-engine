@@ -270,7 +270,7 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (!form_no)
+    if ((mon == SPECIES_SLOWBRO && form_no != 1) || !form_no)
         return FALSE;
 
     return IsMegaSpecies(mon) || IsMegaSpeciesByMove(mon);
@@ -286,7 +286,7 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (!form_no)
+    if ((mon == SPECIES_SLOWBRO && form_no != 1) ||!form_no)
         return FALSE;
 
     return (mon == SPECIES_GROUDON);
@@ -305,7 +305,7 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (!form_no)
+    if ((mon == SPECIES_SLOWBRO && form_no != 1) ||!form_no)
         return FALSE;
 
     return (mon == SPECIES_KYOGRE);
@@ -353,6 +353,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     void *pp;
     u16 item;
     u16 mon;
+    u16 form_no;
     u16 moves[4];
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
@@ -360,6 +361,10 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     mon = GetMonData(pp, MON_DATA_SPECIES, NULL);
     for (int i = 0; i < 4; i++)
         moves[i] = GetMonData(pp, MON_DATA_MOVE1+i, NULL);
+
+    form_no = GetMonData(pp, MON_DATA_FORM, 0);
+    if ((mon == SPECIES_SLOWBRO && form_no != 1) || !form_no)
+        return FALSE;
 
     return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves));
 }
