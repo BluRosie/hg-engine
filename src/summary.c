@@ -62,6 +62,11 @@ static void UpdatePokemonData(struct SummaryState *summary, u8 mode)
 #define PINK           (COLOR(7,  8, 0))
 #define GREEN          (COLOR(9, 10, 0))
 #define WHITE          (COLOR(0xE, 0xF, 0))
+#define POSITIVE_COLOUR     RED
+#define POSITIVE_ARROW_COL  RED_INVERT 
+#define NEGATIVE_COLOUR     BLUE
+#define NEGATIVE_ARROW_COL  BLUE_INVERT
+#define USE_ARROWS          TRUE
 
 static s8 sNatureStatEffects[25][6] = {
     // atk, def, spatk, spdef, speed
@@ -96,9 +101,9 @@ static void PrintStatNumberWithColor(struct SummaryState *summary, u8 windowIdx,
 {
     u32 color = BLACK;
     if (sNatureStatEffects[summary->pokemonData.nature][windowIdx] > 0) {
-        color = RED;
+        color = POSITIVE_COLOUR;
     } else if (sNatureStatEffects[summary->pokemonData.nature][windowIdx] < 0) {
-        color = BLUE;
+        color = NEGATIVE_COLOUR;
     }
 
     Summary_PrintString(summary, &summary->addlWindows[windowIdx], color, justify);
@@ -125,10 +130,10 @@ void Summary_ColorizeStatScreen(struct SummaryState *summary, u32 mode)
             u32 color = WHITE;
             if (sNatureStatEffects[summary->pokemonData.nature][i] > 0) {
                 msgId = 196-1; // Stat+
-                color = RED_INVERT;
+                color = POSITIVE_ARROW_COL;
             } else if (sNatureStatEffects[summary->pokemonData.nature][i] < 0) {
                 msgId = 201-1; // Stat-
-                color = BLUE_INVERT;
+                color = NEGATIVE_ARROW_COL;
             }
 
             //Summary_PrintStatStringAccountForStat(summary, 0xF+i, msgId+i, i-1, JUSTIFY_LEFT);
