@@ -1,6 +1,7 @@
 #ifndef RTC_H
 #define RTC_H
 
+#include "pokemon.h"
 #include "types.h"
 
 /* defines all taken from pokeheartgold */

@@ -335,6 +335,8 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
+    if (!form_no)
+        return FALSE;
 
     return (mon == SPECIES_GROUDON);
 #else
@@ -352,6 +354,8 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
+    if (!form_no)
+        return FALSE;
 
     return (mon == SPECIES_KYOGRE);
 #else
@@ -362,7 +366,7 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
 static BOOL CheckMegaData(u32 mon, u32 item)
 {
 #ifdef MEGA_EVOLUTIONS
-    int i;
+    u32 i;
     for (i = 0; i < NELEMS(sMegaTable);i++)
     {
         if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item)
@@ -377,7 +381,7 @@ static BOOL CheckMegaData(u32 mon, u32 item)
 u32 GrabMegaTargetForm(u32 mon, u32 item)
 {
 #ifdef MEGA_EVOLUTIONS
-    int i;
+    u32 i;
     for (i = 0; i < NELEMS(sMegaTable);i++)
     {
         if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item)

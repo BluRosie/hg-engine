@@ -629,6 +629,7 @@
 
 .macro mondexclassification,id,classification
     writestring "816", id, classification
+    writestring "823", id, classification
 .endmacro
 
 .macro mondexheight,id,height
