@@ -1142,13 +1142,15 @@ const u8 CriticalRateTable[] =
 // calculates the critical hit multiplier
 int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
 {
-    u16 temp;
+    // u16 temp;
+    u16 critUp;
     u16 item;
     int hold_effect;
     u16 species;
     u32 defender_condition;
     u32 condition2;
     u32 move_effect;
+    u32 speed; // Gen I Critical Hit
     int multiplier = 1;
     int ability;
 
@@ -1159,16 +1161,18 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
     move_effect = sp->battlemon[defender].effect_of_moves;
+    speed = sp->battlemon[attacker].speed;
+        // speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL); // I think this is the current speed, not base speed?
+        // speed =  PokePersonalParaGet(sp->battlemon[attacker].species, PERSONAL_BASE_SPEED); // I think this is base speed
     ability = sp->battlemon[attacker].ability;
 
     temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
          + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
          + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
 
-    if (temp > 5)
-        {
-        temp = 5;
-        }
+    if (critUp > 4) {
+        critUp = 4;
+    }
 
     if ((speed * temp) > 510)
     {
