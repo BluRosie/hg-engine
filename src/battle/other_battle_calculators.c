@@ -756,42 +756,44 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
 }
 
 
-const u8 CriticalRateTable[] =
-{
-    16,
-    8,
-    4,
-    3,
-    2,
-};
+// const u8 CriticalRateTable[] =
+// {
+//    16,
+//    8,
+//    4,
+//    3,
+//    2,
+// };
 
 // calculates the critical hit multiplier
 int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
 {
-    u16 temp;
+    // u16 temp;
+    u16 critUp;
     u16 item;
     int hold_effect;
-    u16 speed;
+    // u16 speed;
     u16 species;
     u32 defender_condition;
     u32 condition2;
     u32 move_effect;
+    u32 speed; // Gen I Critical Hit
     int multiplier = 1;
     int ability;
 
     item = GetBattleMonItem(sp, attacker);
     hold_effect = BattleItemDataGet(sp, item, 1);
 
-    // speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL); // I think this is the current speed, not base speed?
-    speed =  PokePersonalParaGet(sp->battlemon[attacker].species, PERSONAL_BASE_SPEED); // I think this is base speed
     species = sp->battlemon[attacker].species;
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
     move_effect = sp->battlemon[defender].effect_of_moves;
+    speed = sp->battlemon[attacker].speed;
+        // speed = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPE, NULL); // I think this is the current speed, not base speed?
+        // speed =  PokePersonalParaGet(sp->battlemon[attacker].species, PERSONAL_BASE_SPEED); // I think this is base speed
     ability = sp->battlemon[attacker].ability;
 
-    temp = 1
-         + critical_count
+    critUp = critical_count
          + (((condition2 & STATUS2_FLAG_FOCUS_ENERGY) != 0) * 2) 
          + (hold_effect == HOLD_EFFECT_BOOST_CRITICAL_RATE)
          + (ability == ABILITY_SUPER_LUCK)
@@ -801,19 +803,25 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
          + (2 * ((hold_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) && (species == SPECIES_MEOWTH_ALOLAN)))
          + (2 * ((hold_effect == HOLD_EFFECT_DOUBLE_MONEY_GAIN) && (species == SPECIES_MEOWTH_GALARIAN)));
 
-    if (temp > 5)
-        {
-        temp = 5;
-        }
+    if (critUp > 4) {
+        critUp = 4;
+    }
 
-    if ((speed * temp) > 510)
-        {
-        speed = (510 / temp);
-        }
+    //    if ((speed * temp) > 510)
+    //        {
+    //        speed = (510 / temp);
+    //        }
+
+    CritChance = (512 / (critUp * speed));
+
+    if (CritChance < 512/510) {
+        CritChance = 512/510;
+    }
 
     if (
+        BattleRand(bw) % CritChance == 0
         // BattleRand(bw) % CriticalRateTable[temp] == 0
-        BattleRand(bw) % (512 / (temp * speed)) == 0
+        // BattleRand(bw) % (512 / (temp * speed)) == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
         )
         
