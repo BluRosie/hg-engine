@@ -2,7 +2,76 @@
 #define SAVE_H
 
 #include "config.h"
+#include "rtc.h"
 #include "pokemon.h"
+
+typedef enum GymmickType {
+    GYMMICK_NONE,
+    GYMMICK_ECRUTEAK,
+    GYMMICK_CIANWOOD,
+    GYMMICK_VERMILION,
+    GYMMICK_VIOLET,
+    GYMMICK_AZALEA,
+    GYMMICK_BLACKTHORN,
+    GYMMICK_FUCHSIA,
+    GYMMICK_VIRIDIAN,
+    GYMMICK_SINJOH,
+} GymmickType;
+
+typedef union GymmickUnion {
+    u8 raw[0x20];
+    struct {
+        u8 candles[4];
+    } ecruteak;
+    struct {
+        BOOL winch;
+    } cianwood;
+    struct {
+        u8 switches[2];
+        u8 gates[2];
+    } vermilion;
+    struct {
+        BOOL liftState;
+    } violet;
+    struct {
+        u8 spiders[4];
+        int switches;
+    } azalea;
+    struct {
+        u16 x[3];
+        u16 z[3];
+        u8 rot[3];
+    } blackthorn;
+    u8 fuchsia; // unused
+    u8 viridian; // unused
+    struct {
+        u32 choice;
+    } sinjoh;
+} GymmickUnion;
+
+typedef struct Gymmick {
+    GymmickType type;
+    GymmickUnion data;
+} Gymmick;
+
+
+typedef struct APRICORN_TREE {
+    u8 unk_0;
+    u8 unk_1;
+    u16 unk_2;
+} APRICORN_TREE;
+
+typedef struct BerryPot {
+    u8 berryId;
+    u8 growthStage;
+    u16 unk_2;
+    u16 unk_4;
+    u16 unk_6;
+    u8 unk_8;
+    u8 moisture;
+    u8 unk_A;
+    u8 mulch;
+} BerryPot; // size = 0xC
 
 // store a reshiram/zekrom, a lunala, a solgaleo, and a glastrier/spectrier
 #define STORED_MONS_DNA_SPLICERS 0
@@ -11,33 +80,37 @@
 #define STORED_MONS_REINS_OF_UNITY 3
 #define NUM_OF_STORED_MONS 4
 
+#define MAX_APRICORN_TREE 128
+#define NUM_APRICORN_TREE 31
+
+#define MAX_BERRY_POT      4
+
 struct SAVE_MISC_DATA
 {
-    //APRICORN_TREE apricorn_trees[MAX_APRICORN_TREE];
-    //BERRY_POT berry_pots[MAX_BERRY_POT];
-    //struct GF_RTC_DateTime berry_datetime;
-    //struct Gymmick gymmick;
-    //u16 rivalName[OT_NAME_LENGTH + 1];
-    //u8 unk_0280[8]; // 3 chunks of size (4, 2, 2)
-    //u8 filler_0288[0x10];
-    //u16 unk_0298;
-    //u8 unk_029A_0:7;
-    //u8 unk_029A_7:1;
-    //u8 extraChunksExist:1;
-    //u8 unk_029B_1:4;
-    //u8 filer_029C[4];
-    //MAIL_MESSAGE battleGreetingEC;
-    //u32 unk_02A8[2][5];
-    //u8 unk_02D0[5];
-    //u8 dummy_02D5[3];
-    //u32 unk_02D8;
-    //u8 unk_02DC;
-    //u8 dummy_02DD[3];
-    u8 original_struct[0x2E0];
+    /* 0x000 */ APRICORN_TREE apricorn_trees[MAX_APRICORN_TREE];
+    /* 0x004 */ BerryPot berry_pots[MAX_BERRY_POT];
+    /* 0x034 */ struct GF_RTC_DateTime berry_datetime;
+    /* 0x050 */ struct Gymmick gymmick;
+    /* 0x270 */ u16 rivalName[8]; // 7 + 1
+    /* 0x280 */ u8 unk_0280[8]; // 3 chunks of size (4, 2, 2)
+    /* 0x288 */ u8 filler_0288[0x10];
+    /* 0x298 */ u16 favoriteMonSpecies;
+    /* 0x29A */ u8 favoriteMonForm:7;
+                u8 favoriteMonIsEgg:1;
+    /* 0x29B */ u8 extraChunksExist:1;
+                u8 unk_029B_1:4;
+    /* 0x29C */ u8 filer_029C[4];
+    /* 0x2A0 */ MAIL_MESSAGE battleGreetingEC;
+    /* 0x2A8 */ u32 unk_02A8[2][5];
+    /* 0x2D0 */ u8 unk_02D0[5];
+    /* 0x2D5 */ u8 dummy_02D5[3];
+    /* 0x2D8 */ u32 togepiEggPersonality;
+    /* 0x2DC */ u8 togepiEggGender;
+    /* 0x2DD */ u8 dummy_02DD[3];
 
 #ifdef ALLOW_SAVE_CHANGES
 
-    // expanded fields
+    // expanded fields - offset 0x2E0 and up
     struct PartyPokemon storedMons[NUM_OF_STORED_MONS];
     u8 isMonStored[NUM_OF_STORED_MONS];
 

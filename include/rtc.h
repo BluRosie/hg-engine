@@ -1,6 +1,8 @@
 #ifndef RTC_H
 #define RTC_H
 
+#include "types.h"
+
 /* defines all taken from pokeheartgold */
 
 enum RTCWeek {
