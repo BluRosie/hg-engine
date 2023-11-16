@@ -1022,6 +1022,119 @@ struct __attribute__((packed)) BattleStruct
     /*...*/
 };
 
+
+struct BattleSystem {
+    // u32 *unk0;
+    // BgConfig *bgConfig;
+    // Window *window;
+    // u32 *unkC;
+    // u32 *unk10;
+    // u32 *unk14;
+    // String *msgBuffer;
+    // u32 unk1C;
+    // u32 unk20;
+    // u32 unk24;
+    // PaletteData *palette;
+    // u32 battleType;
+    // BattleContext *ctx;
+    /* 0x00 */ u8 padding_0[0x34];
+    /* 0x34 */ void *opponentData[4];
+    // int maxBattlers;
+    // PlayerProfile *playerProfile[4];
+    // Bag *bag;
+    // BagCursor *bagCursor;
+    // Pokedex *pokedex;
+    // PCStorage *storage;
+    // Party *trainerParty[4];
+    // SOUND_CHATOT *chatotVoice[4];
+    // u32 *unk88;
+    // u32 *unk8C;
+    // SpriteRenderer *unk90;
+    // SpriteGfxHandler *unk94;
+    // u32 *unk98;
+    // u32 *unk9C;
+    // u16 trainerId[4];
+    // u8 trainerGender[4];
+    // Trainer trainers[4];
+    // UnkBattleSystemSub17C unk17C[2]; //Battle Background..?
+    // u32 *unk19C;
+    // u32 *unk1A0[2];
+    // FontID *hpFont;
+    // FontID *levelFont;
+    // void *msgIcon;
+    // Options *options;
+    // u32 *unk1B8;
+    // void *unk1BC;
+    // u32 *unk1C0;
+    // u32 *unk1C4;
+    // void *unk1C8; //related to animations
+    // u32 *unk1CC;
+    // UnkBattleSystemSub1D0 unk1D0[4];
+    // UnkBattleSystemSub220 unk220;
+    // GAME_STATS *gameStats;
+    // u8 *unk230;
+    // u16 *unk234;
+    // u8 sendBuffer[0x1000];
+    // u8 recvBuffer[0x1000];
+    // u16 unk2238[0x70];
+    // u16 unk2318[0x70];
+    // u16 unk23E8; //labeling may be wrong before here
+    // u16 unk23EA;
+    // u16 unk23EC;
+    // u16 unk23EE;
+    // u16 unk23F0;
+    // u16 unk23F2;
+    // u8 *unk23F4;
+    // u8 *unk23F8;
+    // u8 unk23FC;
+    // u8 unk23FD;
+    // u8 unk23FE;
+    // u8 unk240F_0:1;
+    // u8 unk240F_1:1;
+    // u8 unk240E_F:1;
+    // u8 criticalHpMusic:2;
+    // u8 criticalHpMusicDelay:3;
+    // Terrain terrain;
+    // int unk2404;
+    // int location;
+    // u32 battleSpecial;
+    // int timezone; //might be timeOfDay? unclear
+    // int safariBallCnt;
+    // u8 unk2418[4];
+    // u32 unk241C;
+    // u8 battleOutcomeFlag;
+    // u8 unk2421;
+    // u16 unk2422;
+    // int unk2424;
+    // int unk2428;
+    // int weather;
+    // int unk2430;
+    // u32 unk2434;
+    // int unk2438;
+    // int unk243C;
+    // int unk2440;
+    // u8 unk2442;
+    // u8 unk2445;
+    // u16 unk2446;
+    // u32 rand;
+    // u32 randTemp;
+    // u16 unk244C[4];
+    // u16 unk2454[4];
+    // u16 unk245C[4];
+    // int unk2464[4];
+    // u32 unk2474_0:1,
+    //     unk2474_1:1,
+    //     unk2474_2:1,
+    //     unk2474_3:1,
+    //     unk2474_4:28;
+    // u32 unk2478;
+    // SysTask *unk247C;
+    // u8 chatotVoiceParam[4];
+    // u32 unk2488;
+    // u8 unk248C[4];
+};
+
+
 enum
 {
     CHECK_PLAYER_SIDE_ALL = 0,

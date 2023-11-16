@@ -1,6 +1,8 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
+#include "types.h"
+
 enum
 {
     CLACT_U_CHAR_RES,
@@ -53,7 +55,7 @@ typedef struct
 
 struct BI_PARAM
 {
-    /*0*/ void *bw;
+    /*0*/ struct BattleSystem *bw; // battle work structure that is only partially defined
     void *unk1;
     void *unk2;
     void *unk3;
