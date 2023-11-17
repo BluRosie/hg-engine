@@ -4134,16 +4134,16 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
     {
         if (isFemale || form) // both female pikachu and those with forms will need this adjustment
             ret++;
-        if (form < form_table[SPECIES_PIKACHU-1]) // invalid pikachu forms will show as female, but that's okay
+        if (form < form_table[SPECIES_PIKACHU]) // invalid pikachu forms will show as female, but that's okay
             ret += form;
     }
     else if (species == SPECIES_SLOWBRO && form)
     {
         u32 newform = form - 1;
-        if (newform <= form_table[SPECIES_SLOWBRO-1])
+        if (newform <= form_table[SPECIES_SLOWBRO])
             ret += newform;
     }
-    else if (form <= form_table[species-1])
+    else if (form <= form_table[species])
         ret += form;
     else if (isFemale && gDimorphismTable[species-1])
         ret += isFemale;
