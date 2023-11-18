@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-BOOL CheckCanMega(struct BattleStruct *battle, int client);
+BOOL CheckCanMega(struct BattleStruct *battle, int client, void* bw);
 BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip);
 BOOL CheckIsMega(struct BI_PARAM *bip);
 BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip);
