@@ -144,7 +144,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     //player requests mega
                     if (!(client_no & 1))
                     {
-                        if (CheckCanMega(sp, client_no) && newBS.playerWantMega)
+                        if (CheckCanMega(sp, client_no, bw) && newBS.playerWantMega)
                         {
                             sp->battlemon[client_no].canMega = 1;
                             newBS.SideMega[0] = TRUE;
@@ -154,7 +154,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     //ai requests mega
                     else
                     { 
-                        if (CheckCanMega(sp, client_no))
+                        if (CheckCanMega(sp, client_no, bw))
                         {
                             sp->battlemon[client_no].canMega = 1;
                             newBS.SideMega[1] = TRUE;
