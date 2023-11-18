@@ -276,7 +276,7 @@ const struct MegaStructMove sMegaMoveTable[] =
 static BOOL CheckMegaData(u32 mon, u32 item);
 static BOOL CheckMegaMoveData(u32 mon, u16 *moves);
 
-BOOL CheckCanMega(struct BattleStruct *battle, int client, void* bw)
+BOOL CheckCanMega(struct BattleStruct *battle, int client)
 {
     u16 mon = battle->battlemon[client].species;
     u16 item = battle->battlemon[client].item;
@@ -285,7 +285,7 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client, void* bw)
     if (battle->battlemon[client].canMega)
         return FALSE;
     
-    if (!(BattleTypeGet(bw) & BATTLE_TYPE_MULTI) && newBS.SideMega[client&1])
+    if (newBS.SideMega[client])
         return FALSE;
 
     if (form)
