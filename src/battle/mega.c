@@ -281,12 +281,11 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client, void* bw)
     u16 mon = battle->battlemon[client].species;
     u16 item = battle->battlemon[client].item;
     u32 form = battle->battlemon[client].form_no;
-    int client2 = BattleWorkPartnerClientNoGet(bw, client);
 
     if (battle->battlemon[client].canMega)
         return FALSE;
-
-    if (newBS.SideMega[client&1] && client == client2)
+    
+    if (!(BattleTypeGet(bw) & BATTLE_TYPE_MULTI) && newBS.SideMega[client&1])
         return FALSE;
 
     if (form)
