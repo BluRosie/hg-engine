@@ -1136,6 +1136,8 @@ void BattleEndRevertFormChange(void *bw)
 
     newBS.SideMega[0] = 0;
     newBS.SideMega[1] = 0;
+    newBS.SideMega[2] = 0;
+    newBS.SideMega[3] = 0;
     newBS.playerWantMega = 0;
     newBS.PlayerMegaed = 0;
 

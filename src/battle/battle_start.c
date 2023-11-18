@@ -141,27 +141,52 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                 if (sp->client_act_work[0][3] != SELECT_ESCAPE_COMMAND &&
                     sp->client_act_work[2][3] != SELECT_ESCAPE_COMMAND)
                 {
-                    //player requests mega
-                    if (!(client_no & 1))
-                    {
-                        if (CheckCanMega(sp, client_no, bw) && newBS.playerWantMega)
+                    if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
+                        //player requests mega
+                        if (!(client_no))
                         {
-                            sp->battlemon[client_no].canMega = 1;
-                            newBS.SideMega[0] = TRUE;
-                            flag = TRUE;
+                            if (CheckCanMega(sp, client_no) && newBS.playerWantMega)
+                            {
+                                sp->battlemon[client_no].canMega = 1;
+                                newBS.SideMega[0] = TRUE;
+                                flag = TRUE;
+                            }
+                        }
+                        //ai requests mega
+                        else
+                        { 
+                            if (CheckCanMega(sp, client_no))
+                            {
+                                sp->battlemon[client_no].canMega = 1;
+                                newBS.SideMega[client_no] = TRUE;
+                                flag = TRUE;
+                            }
                         }
                     }
-                    //ai requests mega
-                    else
-                    { 
-                        if (CheckCanMega(sp, client_no, bw))
+                    else {
+                        //player requests mega
+                        if (!(client_no & 1))
                         {
-                            sp->battlemon[client_no].canMega = 1;
-                            newBS.SideMega[1] = TRUE;
-                            flag = TRUE;
+                            if (CheckCanMega(sp, client_no) && newBS.playerWantMega)
+                            {
+                                sp->battlemon[client_no].canMega = 1;
+                                newBS.SideMega[0] = TRUE;
+                                newBS.SideMega[2] = TRUE;
+                                flag = TRUE;
+                            }
                         }
-                    }
-
+                        //ai requests mega
+                        else
+                        { 
+                            if (CheckCanMega(sp, client_no))
+                            {
+                                sp->battlemon[client_no].canMega = 1;
+                                newBS.SideMega[1] = TRUE;
+                                newBS.SideMega[3] = TRUE;
+                                flag = TRUE;
+                            }
+                        }
+                    }                  
                 }
 
                 if (flag)
