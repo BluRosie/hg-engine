@@ -400,14 +400,14 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     client_no = sp->turn_order[i];
                     if (((sp->battlemon[client_no].species == SPECIES_KYOGRE
                        #ifdef DEBUG_PRIMAL_REVERSION
-                       && GetBattleMonItem(sp, client_no) == ITEM_NONE
+                       && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
                        #else
                        && GetBattleMonItem(sp, client_no) == ITEM_BLUE_ORB
                        #endif
                        )
                       || (sp->battlemon[client_no].species == SPECIES_GROUDON
                        #ifdef DEBUG_PRIMAL_REVERSION
-                       && GetBattleMonItem(sp, client_no) == ITEM_NONE
+                       && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
                        #else
                        && GetBattleMonItem(sp, client_no) == ITEM_RED_ORB
                        #endif

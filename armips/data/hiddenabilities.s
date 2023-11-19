@@ -398,9 +398,9 @@
 /* SPECIES_CHIMCHAR                    */ .halfword ABILITY_IRON_FIST
 /* SPECIES_MONFERNO                    */ .halfword ABILITY_IRON_FIST
 /* SPECIES_INFERNAPE                   */ .halfword ABILITY_IRON_FIST
-/* SPECIES_PIPLUP                      */ .halfword ABILITY_DEFIANT
-/* SPECIES_PRINPLUP                    */ .halfword ABILITY_DEFIANT
-/* SPECIES_EMPOLEON                    */ .halfword ABILITY_DEFIANT
+/* SPECIES_PIPLUP                      */ .halfword ABILITY_COMPETITIVE
+/* SPECIES_PRINPLUP                    */ .halfword ABILITY_COMPETITIVE
+/* SPECIES_EMPOLEON                    */ .halfword ABILITY_COMPETITIVE
 /* SPECIES_STARLY                      */ .halfword ABILITY_RECKLESS
 /* SPECIES_STARAVIA                    */ .halfword ABILITY_RECKLESS
 /* SPECIES_STARAPTOR                   */ .halfword ABILITY_RECKLESS

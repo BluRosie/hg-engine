@@ -318,6 +318,12 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
+    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
+
+
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
@@ -331,6 +337,11 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     void *pp;
     u16 form_no;
     u16 mon;
+
+    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
@@ -350,6 +361,12 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     void *pp;
     u16 form_no;
     u16 mon;
+
+    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
+
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     mon = GetMonData(pp, MON_DATA_SPECIES, 0);
@@ -426,6 +443,12 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 mon;
     u16 form_no;
     u16 moves[4];
+
+    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
+
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
