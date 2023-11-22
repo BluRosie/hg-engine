@@ -18,46 +18,46 @@ superrodrate 0
 walklevels 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 //morning encounter slots
-pokemon SPECIES_DUCKLETT
-pokemon SPECIES_BINACLE
-pokemon SPECIES_TYMPOLE
-pokemon SPECIES_BARBOACH
-pokemon SPECIES_PANPOUR
-pokemon SPECIES_WINGULL
-pokemon SPECIES_SPHEAL
-pokemon SPECIES_FINNEON
-pokemon SPECIES_AZURILL
-pokemon SPECIES_GOLDEEN
-pokemon SPECIES_SURSKIT
-pokemon SPECIES_SURSKIT
+pokemon SPECIES_COBALION
+pokemon SPECIES_STAKATAKA
+pokemon SPECIES_HEATRAN
+pokemon SPECIES_HEATRAN
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
 
 //day encounter slots
-pokemon SPECIES_DUCKLETT
-pokemon SPECIES_BINACLE
-pokemon SPECIES_TYMPOLE
-pokemon SPECIES_BARBOACH
-pokemon SPECIES_PANPOUR
-pokemon SPECIES_WINGULL
-pokemon SPECIES_SPHEAL
-pokemon SPECIES_FINNEON
-pokemon SPECIES_AZURILL
-pokemon SPECIES_GOLDEEN
-pokemon SPECIES_SURSKIT
-pokemon SPECIES_SURSKIT
+pokemon SPECIES_COBALION
+pokemon SPECIES_STAKATAKA
+pokemon SPECIES_HEATRAN
+pokemon SPECIES_HEATRAN
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
 
 //night encounter slots
-pokemon SPECIES_DUCKLETT
-pokemon SPECIES_BINACLE
-pokemon SPECIES_TYMPOLE
-pokemon SPECIES_BARBOACH
-pokemon SPECIES_PANPOUR
-pokemon SPECIES_WINGULL
-pokemon SPECIES_SPHEAL
-pokemon SPECIES_FINNEON
-pokemon SPECIES_AZURILL
-pokemon SPECIES_GOLDEEN
-pokemon SPECIES_SURSKIT
-pokemon SPECIES_SURSKIT
+pokemon SPECIES_COBALION
+pokemon SPECIES_STAKATAKA
+pokemon SPECIES_HEATRAN
+pokemon SPECIES_HEATRAN
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -282,11 +282,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_MAGIKARP, 1, 2
-encounter SPECIES_MAGIKARP, 1, 2
-encounter SPECIES_KRABBY, 1, 2
-encounter SPECIES_KRABBY, 1, 2
-encounter SPECIES_KRABBY, 1, 2
+encounter SPECIES_MANAPHY, 1, 2
+encounterwithform SPECIES_GYARADOS, 1, 1, 2
+encounterwithform SPECIES_SWAMPERT, 1, 1, 2
+encounterwithform SPECIES_SWAMPERT, 1, 1, 2
+encounterwithform SPECIES_SWAMPERT, 1, 1, 2
 
 //good rod encounters
 encounter SPECIES_MAGIKARP, 1, 2
@@ -5312,7 +5312,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   52//ROUTE_42
+encounterdata   52//Eastern Tundra
 
 walkrate 25
 surfrate 15
@@ -5323,46 +5323,46 @@ superrodrate 0
 walklevels 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9
 
 //morning encounter slots
-pokemon SPECIES_VANILLITE
-pokemon SPECIES_SWABLU
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_CROAGUNK
-pokemon SPECIES_ABRA
-pokemon SPECIES_AXEW
-pokemon SPECIES_SMEARGLE
-pokemon SPECIES_MURKROW
-pokemon SPECIES_MAWILE
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PORYGON
-pokemon SPECIES_MAWILE
+pokemon SPECIES_ZEKROM
+pokemon SPECIES_RAIKOU
+pokemon SPECIES_ZAPDOS
+pokemon SPECIES_ZAPDOS
+monwithform SPECIES_MANECTRIC, 1
+monwithform SPECIES_MANECTRIC, 1
+pokemon SPECIES_THUNDURUS
+pokemon SPECIES_THUNDURUS
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
 
 //day encounter slots
-pokemon SPECIES_VANILLITE
-pokemon SPECIES_SWABLU
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_CROAGUNK
-pokemon SPECIES_ABRA
-pokemon SPECIES_AXEW
-pokemon SPECIES_SMEARGLE
-pokemon SPECIES_MURKROW
-pokemon SPECIES_MAWILE
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PORYGON
-pokemon SPECIES_MAWILE
+pokemon SPECIES_ZEKROM
+pokemon SPECIES_RAIKOU
+pokemon SPECIES_ZAPDOS
+pokemon SPECIES_ZAPDOS
+monwithform SPECIES_MANECTRIC, 1
+monwithform SPECIES_MANECTRIC, 1
+pokemon SPECIES_THUNDURUS
+pokemon SPECIES_THUNDURUS
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
 
 //night encounter slots
-pokemon SPECIES_VANILLITE
-pokemon SPECIES_SWABLU
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_CROAGUNK
-pokemon SPECIES_ABRA
-pokemon SPECIES_AXEW
-pokemon SPECIES_SMEARGLE
-pokemon SPECIES_MURKROW
-pokemon SPECIES_MAWILE
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PORYGON
-pokemon SPECIES_MAWILE
+pokemon SPECIES_ZEKROM
+pokemon SPECIES_RAIKOU
+pokemon SPECIES_ZAPDOS
+pokemon SPECIES_ZAPDOS
+monwithform SPECIES_MANECTRIC, 1
+monwithform SPECIES_MANECTRIC, 1
+pokemon SPECIES_THUNDURUS
+pokemon SPECIES_THUNDURUS
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
+monwithform SPECIES_THUNDURUS, 1
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -5414,7 +5414,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   53//MT._MORTAR
+encounterdata   53//Volo's Rift
 
 walkrate 25
 surfrate 15
@@ -5422,49 +5422,50 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24
+walklevels 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
 
 //morning encounter slots
-pokemon SPECIES_MAGBY
-pokemon SPECIES_ONIX
-pokemon SPECIES_LILEEP
-pokemon SPECIES_ANORITH
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
+monwithform SPECIES_HOOPA, 1
+pokemon SPECIES_LUNALA
+monwithform SPECIES_GIRATINA, 1
+monwithform SPECIES_GIRATINA, 0
+pokemon SPECIES_SPECTRIER
+pokemon SPECIES_SPECTRIER
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
 
 //day encounter slots
-pokemon SPECIES_MAGBY
-pokemon SPECIES_ONIX
-pokemon SPECIES_LILEEP
-pokemon SPECIES_ANORITH
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
+monwithform SPECIES_HOOPA, 1
+pokemon SPECIES_LUNALA
+monwithform SPECIES_GIRATINA, 1
+monwithform SPECIES_GIRATINA, 0
+pokemon SPECIES_SPECTRIER
+pokemon SPECIES_SPECTRIER
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
 
 //night encounter slots
-pokemon SPECIES_MAGBY
-pokemon SPECIES_ONIX
-pokemon SPECIES_LILEEP
-pokemon SPECIES_ANORITH
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
-pokemon SPECIES_SHUPPET
+monwithform SPECIES_HOOPA, 1
+pokemon SPECIES_LUNALA
+monwithform SPECIES_GIRATINA, 1
+monwithform SPECIES_GIRATINA, 0
+pokemon SPECIES_SPECTRIER
+pokemon SPECIES_SPECTRIER
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -5822,7 +5823,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   57//ROUTE_43
+encounterdata   57//Avalanche Pass
 
 walkrate 25
 surfrate 15
@@ -5833,46 +5834,46 @@ superrodrate 0
 walklevels 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
 
 //morning encounter slots
-pokemon SPECIES_MIMEJR
-pokemon SPECIES_SMOOCHUM
-pokemon SPECIES_MAGBY
-pokemon SPECIES_MUNNA
-pokemon SPECIES_ELEKID
-pokemon SPECIES_WOOBAT
-pokemon SPECIES_CLEFFA
-pokemon SPECIES_CLEFFA
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
-pokemon SPECIES_TRAPINCH
+pokemon SPECIES_GLASTRIER
+pokemon SPECIES_KYUREM
+monwithform SPECIES_ABOMASNOW, 1
+monwithform SPECIES_ABOMASNOW, 1
+monwithform SPECIES_KYUREM, 2
+monwithform SPECIES_KYUREM, 2
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
 
 //day encounter slots
-pokemon SPECIES_MIMEJR
-pokemon SPECIES_SMOOCHUM
-pokemon SPECIES_MAGBY
-pokemon SPECIES_MUNNA
-pokemon SPECIES_ELEKID
-pokemon SPECIES_WOOBAT
-pokemon SPECIES_CLEFFA
-pokemon SPECIES_CLEFFA
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
-pokemon SPECIES_TRAPINCH
+pokemon SPECIES_GLASTRIER
+pokemon SPECIES_KYUREM
+monwithform SPECIES_ABOMASNOW, 1
+monwithform SPECIES_ABOMASNOW, 1
+monwithform SPECIES_KYUREM, 2
+monwithform SPECIES_KYUREM, 2
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
 
 //night encounter slots
-pokemon SPECIES_MIMEJR
-pokemon SPECIES_SMOOCHUM
-pokemon SPECIES_MAGBY
-pokemon SPECIES_MUNNA
-pokemon SPECIES_ELEKID
-pokemon SPECIES_WOOBAT
-pokemon SPECIES_CLEFFA
-pokemon SPECIES_CLEFFA
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
-pokemon SPECIES_TRAPINCH
+pokemon SPECIES_GLASTRIER
+pokemon SPECIES_KYUREM
+monwithform SPECIES_ABOMASNOW, 1
+monwithform SPECIES_ABOMASNOW, 1
+monwithform SPECIES_KYUREM, 2
+monwithform SPECIES_KYUREM, 2
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
+monwithform SPECIES_KYUREM, 1
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -5924,7 +5925,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   58//LAKE_OF_RAGE
+encounterdata   58//Avalanche Lake
 
 walkrate 25
 surfrate 15
@@ -5935,46 +5936,46 @@ superrodrate 0
 walklevels 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
 
 //morning encounter slots
-monwithform SPECIES_PONYTA, 1
-pokemon SPECIES_TYRUNT
-pokemon SPECIES_ESPURR
-pokemon SPECIES_PANCHAM
-pokemon SPECIES_FERROSEED
-pokemon SPECIES_INKAY
-pokemon SPECIES_SANDILE
-pokemon SPECIES_SANDILE
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
+pokemon SPECIES_LUNALA
+pokemon SPECIES_MEWTWO
+monwithform SPECIES_MEDICHAM, 1
+monwithform SPECIES_GARDEVOIR, 1
+monwithform SPECIES_GALLADE, 1
+monwithform SPECIES_ALAKAZAM, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
 
 //day encounter slots
-monwithform SPECIES_PONYTA, 1
-pokemon SPECIES_TYRUNT
-pokemon SPECIES_ESPURR
-pokemon SPECIES_PANCHAM
-pokemon SPECIES_FERROSEED
-pokemon SPECIES_INKAY
-pokemon SPECIES_SANDILE
-pokemon SPECIES_SANDILE
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
+pokemon SPECIES_LUNALA
+pokemon SPECIES_MEWTWO
+monwithform SPECIES_MEDICHAM, 1
+monwithform SPECIES_GARDEVOIR, 1
+monwithform SPECIES_GALLADE, 1
+monwithform SPECIES_ALAKAZAM, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
 
 //night encounter slots
-monwithform SPECIES_PONYTA, 1
-pokemon SPECIES_TYRUNT
-pokemon SPECIES_ESPURR
-pokemon SPECIES_PANCHAM
-pokemon SPECIES_FERROSEED
-pokemon SPECIES_INKAY
-pokemon SPECIES_SANDILE
-pokemon SPECIES_SANDILE
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
-pokemon SPECIES_YAMASK
+pokemon SPECIES_LUNALA
+pokemon SPECIES_MEWTWO
+monwithform SPECIES_MEDICHAM, 1
+monwithform SPECIES_GARDEVOIR, 1
+monwithform SPECIES_GALLADE, 1
+monwithform SPECIES_ALAKAZAM, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
+monwithform SPECIES_SABLEYE, 1
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -5995,11 +5996,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_BARBOACH, 10, 11
-encounter SPECIES_HORSEA, 10, 11
-encounter SPECIES_GOLDEEN, 10, 11
-encounter SPECIES_GOLDEEN, 10, 11
-encounter SPECIES_GOLDEEN, 10, 11
+encounter SPECIES_MANAPHY, 10, 11
+encounterwithform SPECIES_KYOGRE, 1, 10, 11
+encounter SPECIES_SUICUNE, 10, 11
+encounter SPECIES_SUICUNE, 10, 11
+encounter SPECIES_SUICUNE, 10, 11
 
 //good rod encounters
 encounter SPECIES_BARBOACH, 20, 20
@@ -6026,7 +6027,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   59//ROUTE_44
+encounterdata   59//Winter's Edge
 
 walkrate 25
 surfrate 15
@@ -6034,49 +6035,49 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+walklevels 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8
 
 //morning encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_SKITTY
-pokemon SPECIES_MIENFOO
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_DEINO
-pokemon SPECIES_MANKEY
-pokemon SPECIES_MACHOP
-pokemon SPECIES_MACHOP
-pokemon SPECIES_MAKUHITA
-pokemon SPECIES_MAKUHITA
-pokemon SPECIES_CASTFORM
-pokemon SPECIES_CASTFORM
+monwithform SPECIES_ALAKAZAM, 1
+monwithform SPECIES_GENGAR, 1
+pokemon SPECIES_HOOPA
+pokemon SPECIES_HOOPA
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
 
 //day encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_SKITTY
-pokemon SPECIES_MIENFOO
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_DEINO
-pokemon SPECIES_MANKEY
-pokemon SPECIES_MACHOP
-pokemon SPECIES_MACHOP
-pokemon SPECIES_MAKUHITA
-pokemon SPECIES_MAKUHITA
-pokemon SPECIES_CASTFORM
-pokemon SPECIES_CASTFORM
+monwithform SPECIES_ALAKAZAM, 1
+monwithform SPECIES_GENGAR, 1
+pokemon SPECIES_HOOPA
+pokemon SPECIES_HOOPA
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
 
 //night encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_SKITTY
-pokemon SPECIES_MIENFOO
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_DEINO
-pokemon SPECIES_MANKEY
-pokemon SPECIES_MACHOP
-pokemon SPECIES_MACHOP
-pokemon SPECIES_MAKUHITA
-pokemon SPECIES_MAKUHITA
-pokemon SPECIES_CASTFORM
-pokemon SPECIES_CASTFORM
+monwithform SPECIES_ALAKAZAM, 1
+monwithform SPECIES_GENGAR, 1
+pokemon SPECIES_HOOPA
+pokemon SPECIES_HOOPA
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -6097,11 +6098,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_SHELLDER, 10, 11
-encounter SPECIES_POLIWAG, 10, 11
-encounter SPECIES_CORSOLA, 10, 11
-encounter SPECIES_CORSOLA, 10, 11
-encounter SPECIES_CORSOLA, 10, 11
+encounter SPECIES_KELDEO, 7, 8
+encounter SPECIES_SUICUNE, 7, 8
+encounter SPECIES_KYOGRE, 7, 8
+encounter SPECIES_KYOGRE, 7, 8
+encounter SPECIES_KYOGRE, 7, 8
 
 //good rod encounters
 encounter SPECIES_SHELLDER, 21, 21
@@ -6647,49 +6648,49 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+walklevels 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6
 
 //morning encounter slots
-pokemon SPECIES_AXEW
-pokemon SPECIES_DRATINI
-pokemon SPECIES_GIBLE
-pokemon SPECIES_BAGON
-pokemon SPECIES_DEINO
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_TYRUNT
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
+pokemon SPECIES_RAYQUAZA
+pokemon SPECIES_ZYGARDE
+pokemon SPECIES_LATIOS
+pokemon SPECIES_LATIAS
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_SALAMENCE, 1
+monwithform SPECIES_ALTARIA, 1
+monwithform SPECIES_ALTARIA, 1
+pokemon SPECIES_MIRAIDON
+pokemon SPECIES_KORAIDON
+pokemon SPECIES_MIRAIDON
+pokemon SPECIES_KORAIDON
 
 //day encounter slots
-pokemon SPECIES_AXEW
-pokemon SPECIES_DRATINI
-pokemon SPECIES_GIBLE
-pokemon SPECIES_BAGON
-pokemon SPECIES_DEINO
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_TYRUNT
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
+pokemon SPECIES_RAYQUAZA
+pokemon SPECIES_ZYGARDE
+pokemon SPECIES_LATIOS
+pokemon SPECIES_LATIAS
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_SALAMENCE, 1
+monwithform SPECIES_ALTARIA, 1
+monwithform SPECIES_ALTARIA, 1
+pokemon SPECIES_MIRAIDON
+pokemon SPECIES_KORAIDON
+pokemon SPECIES_MIRAIDON
+pokemon SPECIES_KORAIDON
 
 //night encounter slots
-pokemon SPECIES_AXEW
-pokemon SPECIES_DRATINI
-pokemon SPECIES_GIBLE
-pokemon SPECIES_BAGON
-pokemon SPECIES_DEINO
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_SABLEYE
-pokemon SPECIES_TYRUNT
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PORYGON
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
+pokemon SPECIES_RAYQUAZA
+pokemon SPECIES_ZYGARDE
+pokemon SPECIES_LATIOS
+pokemon SPECIES_LATIAS
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_SALAMENCE, 1
+monwithform SPECIES_ALTARIA, 1
+monwithform SPECIES_ALTARIA, 1
+pokemon SPECIES_MIRAIDON
+pokemon SPECIES_KORAIDON
+pokemon SPECIES_MIRAIDON
+pokemon SPECIES_KORAIDON
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -6962,12 +6963,12 @@ pokemon SPECIES_CELEBI
 pokemon SPECIES_CELEBI
 pokemon SPECIES_SHAYMIN
 pokemon SPECIES_SHAYMIN
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
 
 //day encounter slots
 monwithform SPECIES_LILLIGANT, 1
@@ -6976,12 +6977,12 @@ pokemon SPECIES_CELEBI
 pokemon SPECIES_CELEBI
 pokemon SPECIES_SHAYMIN
 pokemon SPECIES_SHAYMIN
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
 
 //night encounter slots
 monwithform SPECIES_LILLIGANT, 1
@@ -6990,12 +6991,13 @@ pokemon SPECIES_CELEBI
 pokemon SPECIES_CELEBI
 pokemon SPECIES_SHAYMIN
 pokemon SPECIES_SHAYMIN
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
-pokemon SPECIES_MEGA_VENUSAUR
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+monwithform SPECIES_VENUSAUR, 1
+
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -7368,42 +7370,42 @@ pokemon SPECIES_ENTEI
 pokemon SPECIES_MOLTRES
 pokemon SPECIES_BLACEPHALON
 pokemon SPECIES_BLACEPHALON
-pokemon SPECIES_MEGA_BLAZIKEN
-pokemon SPECIES_MEGA_BLAZIKEN
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
+monwithform SPECIES_BLAZIKEN, 1
+monwithform SPECIES_BLAZIKEN, 1
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
 
 //day encounter slots
 pokemon SPECIES_ENTEI
 pokemon SPECIES_MOLTRES
 pokemon SPECIES_BLACEPHALON
 pokemon SPECIES_BLACEPHALON
-pokemon SPECIES_MEGA_BLAZIKEN
-pokemon SPECIES_MEGA_BLAZIKEN
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
+monwithform SPECIES_BLAZIKEN, 1
+monwithform SPECIES_BLAZIKEN, 1
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
 
 //night encounter slots
 pokemon SPECIES_ENTEI
 pokemon SPECIES_MOLTRES
 pokemon SPECIES_BLACEPHALON
 pokemon SPECIES_BLACEPHALON
-pokemon SPECIES_MEGA_BLAZIKEN
-pokemon SPECIES_MEGA_BLAZIKEN
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
-pokemon SPECIES_MEGA_CHARIZARD_Y
+monwithform SPECIES_BLAZIKEN, 1
+monwithform SPECIES_BLAZIKEN, 1
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
+monwithform SPECIES_CHARIZARD, 2
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -14198,46 +14200,46 @@ superrodrate 0
 walklevels 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9
 
 //morning encounter slots
-pokemon SPECIES_MURKROW
-pokemon SPECIES_SOLOSIS
-pokemon SPECIES_MUNCHLAX
-pokemon SPECIES_DODUO
-pokemon SPECIES_SNUBBULL
-pokemon SPECIES_HIPPOPOTAS
-pokemon SPECIES_GIBLE
-pokemon SPECIES_SCRAGGY
-pokemon SPECIES_SCRAGGY
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
+monwithform SPECIES_ZAPDOS, 1
+monwithform SPECIES_LOPUNNY, 1
+monwithform SPECIES_URSHIFU, 0
+monwithform SPECIES_URSHIFU, 1
+monwithform SPECIES_GALLADE, 1
+monwithform SPECIES_GALLADE, 1
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
 
 //day encounter slots
-pokemon SPECIES_MURKROW
-pokemon SPECIES_SOLOSIS
-pokemon SPECIES_MUNCHLAX
-pokemon SPECIES_DODUO
-pokemon SPECIES_SNUBBULL
-pokemon SPECIES_HIPPOPOTAS
-pokemon SPECIES_GIBLE
-pokemon SPECIES_SCRAGGY
-pokemon SPECIES_SCRAGGY
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
+monwithform SPECIES_ZAPDOS, 1
+monwithform SPECIES_LOPUNNY, 1
+monwithform SPECIES_URSHIFU, 0
+monwithform SPECIES_URSHIFU, 1
+monwithform SPECIES_GALLADE, 1
+monwithform SPECIES_GALLADE, 1
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
 
 //night encounter slots
-pokemon SPECIES_MURKROW
-pokemon SPECIES_SOLOSIS
-pokemon SPECIES_MUNCHLAX
-pokemon SPECIES_DODUO
-pokemon SPECIES_SNUBBULL
-pokemon SPECIES_HIPPOPOTAS
-pokemon SPECIES_GIBLE
-pokemon SPECIES_SCRAGGY
-pokemon SPECIES_SCRAGGY
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
+monwithform SPECIES_ZAPDOS, 1
+monwithform SPECIES_LOPUNNY, 1
+monwithform SPECIES_URSHIFU, 0
+monwithform SPECIES_URSHIFU, 1
+monwithform SPECIES_GALLADE, 1
+monwithform SPECIES_GALLADE, 1
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
+pokemon SPECIES_VIRIZION
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -14301,46 +14303,46 @@ superrodrate 0
 walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 
 //morning encounter slots
-pokemon SPECIES_TYRANITAR
+monwithform SPECIES_HOUNDOOM, 1
 pokemon SPECIES_HYDREIGON
-pokemon SPECIES_MEGA_HOUNDOOM
-pokemon SPECIES_MEGA_HOUNDOOM
-pokemon SPECIES_MEGA_BANETTE
-pokemon SPECIES_MEGA_BANETTE
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
+monwithform SPECIES_TYRANITAR, 1
+pokemon SPECIES_TYRANITAR
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
 
 //day encounter slots
-pokemon SPECIES_TYRANITAR
+monwithform SPECIES_TYRANITAR, 1
 pokemon SPECIES_HYDREIGON
-pokemon SPECIES_MEGA_HOUNDOOM
-pokemon SPECIES_MEGA_HOUNDOOM
-pokemon SPECIES_MEGA_BANETTE
-pokemon SPECIES_MEGA_BANETTE
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
 
 //night encounter slots
-pokemon SPECIES_TYRANITAR
+monwithform SPECIES_TYRANITAR, 1
 pokemon SPECIES_HYDREIGON
-pokemon SPECIES_MEGA_HOUNDOOM
-pokemon SPECIES_MEGA_HOUNDOOM
-pokemon SPECIES_MEGA_BANETTE
-pokemon SPECIES_MEGA_BANETTE
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
-pokemon SPECIES_MEGA_ABSOL
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_BANETTE, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_ABSOL, 1
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE

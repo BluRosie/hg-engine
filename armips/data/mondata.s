@@ -15086,7 +15086,7 @@ mondata SPECIES_ZWEILOUS, "Zweilous"
 mondata SPECIES_HYDREIGON, "Hydreigon"
     basestats 92, 105, 90, 98, 125, 90
     types TYPE_DARK, TYPE_DRAGON
-    catchrate 45
+    catchrate 195
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 3, 0
     items ITEM_NONE, ITEM_NONE
@@ -15174,7 +15174,7 @@ mondata SPECIES_COBALION, "Cobalion"
 mondata SPECIES_TERRAKION, "Terrakion"
     basestats 91, 129, 90, 108, 72, 90
     types TYPE_ROCK, TYPE_FIGHTING
-    catchrate 3
+    catchrate 195
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
@@ -18845,7 +18845,7 @@ mondata SPECIES_STAKATAKA, "Stakataka"
     mondexweight SPECIES_STAKATAKA, "1807.8 lbs."
 
 
-mondata SPECIES_BLACEPHALON, "Blacephalon"
+mondata SPECIES_BLACEPHALON, "Blacephaln"
     basestats 53, 127, 53, 107, 151, 79
     types TYPE_FIRE, TYPE_GHOST
     catchrate 195
@@ -25748,10 +25748,10 @@ mondata SPECIES_LANDORUS_THERIAN, "-----"
     tmdata SPECIES_NONE_TM_DATA_0, SPECIES_NONE_TM_DATA_1, SPECIES_NONE_TM_DATA_2, SPECIES_NONE_TM_DATA_3
 
 
-mondata SPECIES_KYUREM_WHITE, "-----"
+mondata SPECIES_KYUREM_WHITE, "Guardian-K"
     basestats 125, 120, 90, 95, 170, 100
     types TYPE_DRAGON, TYPE_ICE
-    catchrate 3
+    catchrate 195
     baseexp 315
     evyields 0, 0, 0, 0, 3, 0
     items ITEM_NONE, ITEM_NONE

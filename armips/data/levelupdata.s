@@ -4643,24 +4643,24 @@ levelup SPECIES_PUPITAR
 	terminatelearnset
 
 levelup SPECIES_TYRANITAR
-	learnset MOVE_POUND, 1
-	learnset MOVE_PROTECT, 3
+	learnset MOVE_PURSUIT, 1
+	learnset MOVE_SPIKES, 3
 	learnset MOVE_MUD_SLAP, 5
 	learnset MOVE_ROCK_THROW, 7
-	learnset MOVE_PAYBACK, 9
+	learnset MOVE_HONE_CLAWS, 9
 	learnset MOVE_TAUNT, 13
 	learnset MOVE_MEGA_PUNCH, 17
 	learnset MOVE_MUD_SHOT, 20
 	learnset MOVE_ANCIENT_POWER, 25
-	learnset MOVE_THUNDER_FANG, 28
-	learnset MOVE_BULLDOZE, 33
+	learnset MOVE_FIRE_FANG, 28
+	learnset MOVE_MAGNITUDE, 33
 	learnset MOVE_NIGHT_SLASH, 37
 	learnset MOVE_ROCK_SLIDE, 40
 	learnset MOVE_STEALTH_ROCK, 44
 	learnset MOVE_ROCK_POLISH, 48
 	learnset MOVE_DARK_PULSE, 51
 	learnset MOVE_FISSURE, 56
-	learnset MOVE_IRON_HEAD, 61
+	learnset MOVE_DRAGON_DANCE, 61
 	learnset MOVE_ROCK_WRECKER, 65
 	terminatelearnset
 
@@ -17049,24 +17049,25 @@ levelup SPECIES_MEGA_HOUNDOOM
 
 
 levelup SPECIES_MEGA_TYRANITAR
-    learnset MOVE_THUNDER_FANG, 1 
-    learnset MOVE_ICE_FANG, 1 
-    learnset MOVE_FIRE_FANG, 1 
-    learnset MOVE_BITE, 1 
-    learnset MOVE_LEER, 1 
-    learnset MOVE_SANDSTORM, 1 
-    learnset MOVE_SCREECH, 1 
-    learnset MOVE_SANDSTORM, 5 
-    learnset MOVE_SCREECH, 10 
-    learnset MOVE_ROCK_SLIDE, 14 
-    learnset MOVE_SCARY_FACE, 19 
-    learnset MOVE_THRASH, 23 
-    learnset MOVE_DARK_PULSE, 28 
-    learnset MOVE_PAYBACK, 34 
-    learnset MOVE_CRUNCH, 41 
-    learnset MOVE_EARTHQUAKE, 47 
-    learnset MOVE_STONE_EDGE, 54 
-    learnset MOVE_HYPER_BEAM, 70 
+	learnset MOVE_POUND, 1
+	learnset MOVE_PROTECT, 3
+	learnset MOVE_MUD_SLAP, 5
+	learnset MOVE_ROCK_THROW, 7
+	learnset MOVE_PAYBACK, 9
+	learnset MOVE_TAUNT, 13
+	learnset MOVE_MEGA_PUNCH, 17
+	learnset MOVE_MUD_SHOT, 20
+	learnset MOVE_ANCIENT_POWER, 25
+	learnset MOVE_THUNDER_FANG, 28
+	learnset MOVE_BULLDOZE, 33
+	learnset MOVE_NIGHT_SLASH, 37
+	learnset MOVE_ROCK_SLIDE, 40
+	learnset MOVE_STEALTH_ROCK, 44
+	learnset MOVE_ROCK_POLISH, 48
+	learnset MOVE_DARK_PULSE, 51
+	learnset MOVE_FISSURE, 56
+	learnset MOVE_IRON_HEAD, 61
+	learnset MOVE_ROCK_WRECKER, 65
     terminatelearnset
 
 
@@ -19213,26 +19214,25 @@ levelup SPECIES_LANDORUS_THERIAN
 
 
 levelup SPECIES_KYUREM_WHITE
-    learnset MOVE_DRAGON_BREATH, 1
-    learnset MOVE_NOBLE_ROAR, 1
-    learnset MOVE_ANCIENT_POWER, 1
-    learnset MOVE_FREEZE_DRY, 1
-    learnset MOVE_ICY_WIND, 1
-    learnset MOVE_DRAGON_RAGE, 1
-    learnset MOVE_ANCIENT_POWER, 15
-    learnset MOVE_SLASH, 21
-    learnset MOVE_ICE_BEAM, 27
-    learnset MOVE_DRAGON_BREATH, 29
-    learnset MOVE_IMPRISON, 37
-    learnset MOVE_DRAGON_PULSE, 39
-    learnset MOVE_ENDEAVOR, 41
-    learnset MOVE_FUSION_FLARE, 45
-    learnset MOVE_HYPER_VOICE, 64
-    learnset MOVE_NOBLE_ROAR, 64
-    learnset MOVE_BLIZZARD, 66
-    learnset MOVE_ICE_BURN, 66
-    learnset MOVE_OUTRAGE, 78
-    learnset MOVE_SHEER_COLD, 88
+    learnset MOVE_TACKLE, 1
+	learnset MOVE_POWDER_SNOW, 3
+	learnset MOVE_EMBER, 5
+	learnset MOVE_TWISTER, 7
+	learnset MOVE_ICE_BALL, 9
+	learnset MOVE_SNARL, 13
+	learnset MOVE_HAIL, 17
+	learnset MOVE_FLAME_WHEEL, 20
+	learnset MOVE_DRAGON_BREATH, 23
+	learnset MOVE_AURORA_BEAM, 28
+	learnset MOVE_ANCIENT_POWER, 33
+	learnset MOVE_DRAGON_RAGE, 36
+	learnset MOVE_ENDEAVOR, 40
+	learnset MOVE_SHADOW_BALL, 44
+	learnset MOVE_CALM_MIND, 48
+	learnset MOVE_DRAGON_PULSE, 52
+	learnset MOVE_ICE_BEAM, 54
+	learnset MOVE_BLUE_FLARE, 58
+	learnset MOVE_DRACO_METEOR, 60
     terminatelearnset
 
 

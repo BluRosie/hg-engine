@@ -29,7 +29,7 @@ BATTLE_MODE_FORCE_SET equ 1
 ALWAYS_HAVE_NATIONAL_DEX equ 1
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
-ALWAYS_UNCAPPED_FRAME_RATE equ 1
+ALWAYS_UNCAPPED_FRAME_RATE equ 0
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
 BATTLES_UNCAPPED_FRAME_RATE equ 1
