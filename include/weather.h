@@ -132,35 +132,35 @@ typedef struct{
 
 
 
-void __attribute__((long_call)) weatherSysObjFadeInit( WEATHER_SYS_OBJ_FADE *data, WEATHER_SYS_WORK *pWork, s32 objAddTmgMax, s32 objAddNum, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM_TMG, s32 OBJ_ADD_NUM_SUM, void (*add)(WEATHER_SYS_WORK *pWork, int num) );
-void __attribute__((long_call)) weatherSysFogFadeInInitPack( WEATHER_SYS_CHG_FOG_DATA *fogParam, WEATHER_SYS_FOG_FADE *fogData, void *Fog, int fog_slope, int fog_offs, u16 color, int timing, u32 fog_use_flg );
-int __attribute__((long_call)) weatherSysObjFade(WEATHER_SYS_OBJ_FADE *data);
-int __attribute__((long_call)) weatherSysFogFadeInMainPack( WEATHER_SYS_CHG_FOG_DATA *fogParam, WEATHER_SYS_OBJ_FADE *fogData, u32 fog_use_flg );
-void __attribute__((long_call)) weatherSysFogParamSet( void *Fog, int fog_slope, int fog_offs, u16 color );
-void __attribute__((long_call)) weatherSysFogSet( WEATHER_SYS_FOG_FADE *fog_fade );
-void __attribute__((long_call)) weatherDustObj( WEATHER_SYS_WORK *pWork, void (*add_func)(WEATHER_SYS_WORK *pWork, int num), int num, int dust_div_num, int dust_div_move, void (*objFunc)(WAETHER_OBJ_DATA *) );
-void __attribute__((long_call)) weatherSysObjFadeOutSet( WEATHER_SYS_OBJ_FADE *data, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM );
-void __attribute__((long_call)) weatherSysFogFadeInit( WEATHER_SYS_FOG_FADE *data, int timing, BOOL fade_inout );
-int __attribute__((long_call)) weatherSysFogFade(WEATHER_SYS_FOG_FADE *data);
-void __attribute__((long_call)) SetFogData(void *FogData, int cont, BOOL flag, int fogMode, int fogSlope, int offset);
-void __attribute__((long_call)) stopWeatherWork_local( void *wsd );
-void __attribute__((long_call)) moveFuncObj(WAETHER_OBJ_DATA *pDummy, void (*objFunc)(WAETHER_OBJ_DATA *));
-//void __attribute__((long_call)) drawObj(WEATHER_SYS_WORK *pData);
+void LONG_CALL weatherSysObjFadeInit( WEATHER_SYS_OBJ_FADE *data, WEATHER_SYS_WORK *pWork, s32 objAddTmgMax, s32 objAddNum, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM_TMG, s32 OBJ_ADD_NUM_SUM, void (*add)(WEATHER_SYS_WORK *pWork, int num) );
+void LONG_CALL weatherSysFogFadeInInitPack( WEATHER_SYS_CHG_FOG_DATA *fogParam, WEATHER_SYS_FOG_FADE *fogData, void *Fog, int fog_slope, int fog_offs, u16 color, int timing, u32 fog_use_flg );
+int LONG_CALL weatherSysObjFade(WEATHER_SYS_OBJ_FADE *data);
+int LONG_CALL weatherSysFogFadeInMainPack( WEATHER_SYS_CHG_FOG_DATA *fogParam, WEATHER_SYS_OBJ_FADE *fogData, u32 fog_use_flg );
+void LONG_CALL weatherSysFogParamSet( void *Fog, int fog_slope, int fog_offs, u16 color );
+void LONG_CALL weatherSysFogSet( WEATHER_SYS_FOG_FADE *fog_fade );
+void LONG_CALL weatherDustObj( WEATHER_SYS_WORK *pWork, void (*add_func)(WEATHER_SYS_WORK *pWork, int num), int num, int dust_div_num, int dust_div_move, void (*objFunc)(WAETHER_OBJ_DATA *) );
+void LONG_CALL weatherSysObjFadeOutSet( WEATHER_SYS_OBJ_FADE *data, s32 OBJ_ADD_NUM_END, s32 OBJ_ADD_TMG_END, s32 OBJ_ADD_TMG_SUM, s32 OBJ_ADD_NUM_SUM );
+void LONG_CALL weatherSysFogFadeInit( WEATHER_SYS_FOG_FADE *data, int timing, BOOL fade_inout );
+int LONG_CALL weatherSysFogFade(WEATHER_SYS_FOG_FADE *data);
+void LONG_CALL SetFogData(void *FogData, int cont, BOOL flag, int fogMode, int fogSlope, int offset);
+void LONG_CALL stopWeatherWork_local( void *wsd );
+void LONG_CALL moveFuncObj(WAETHER_OBJ_DATA *pDummy, void (*objFunc)(WAETHER_OBJ_DATA *));
+//void LONG_CALL drawObj(WEATHER_SYS_WORK *pData);
 
-void __attribute__((long_call)) CLACT_AnmFrameSet(void *clact, int frame);
-VecFx32 __attribute__((long_call)) getObjMat( WAETHER_OBJ_DATA *p_obj);
-void __attribute__((long_call)) setClactMatrix(void *clact, void *matrix);
-void __attribute__((long_call)) destObj(WAETHER_OBJ_DATA *p_obj);
-WAETHER_OBJ_DATA *__attribute__((long_call)) addObj(WEATHER_SYS_WORK *pWork, int w_byte);
-void __attribute__((long_call)) scrollObj(WEATHER_SYS_WORK *pWork, int *x, int *y);
+void LONG_CALL CLACT_AnmFrameSet(void *clact, int frame);
+VecFx32 LONG_CALL getObjMat( WAETHER_OBJ_DATA *p_obj);
+void LONG_CALL setClactMatrix(void *clact, void *matrix);
+void LONG_CALL destObj(WAETHER_OBJ_DATA *p_obj);
+WAETHER_OBJ_DATA *LONG_CALL addObj(WEATHER_SYS_WORK *pWork, int w_byte);
+void LONG_CALL scrollObj(WEATHER_SYS_WORK *pWork, int *x, int *y);
 
-void __attribute__((long_call)) WeatherMoveReq( WEATHER_SYS_MOVE_WORK *p_work, int s_x, int e_x, int count_max );
-void __attribute__((long_call)) WeatherBGAlphaDef( int alpha1, int alpha2 );
-void __attribute__((long_call)) GX_EngineAToggleLayers(int planes, int status);
-BOOL __attribute__((long_call)) WeatherMoveMain( WEATHER_SYS_MOVE_WORK *p_work );
+void LONG_CALL WeatherMoveReq( WEATHER_SYS_MOVE_WORK *p_work, int s_x, int e_x, int count_max );
+void LONG_CALL WeatherBGAlphaDef( int alpha1, int alpha2 );
+void LONG_CALL GX_EngineAToggleLayers(int planes, int status);
+BOOL LONG_CALL WeatherMoveMain( WEATHER_SYS_MOVE_WORK *p_work );
 
-void __attribute__((long_call)) addWeatherSnow(WEATHER_SYS_WORK *pWork, int num);
-void __attribute__((long_call)) objWeatherSnow(WAETHER_OBJ_DATA *work);
+void LONG_CALL addWeatherSnow(WEATHER_SYS_WORK *pWork, int num);
+void LONG_CALL objWeatherSnow(WAETHER_OBJ_DATA *work);
 
 
 #endif // WEATHER_H

@@ -14495,5 +14495,3 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 .close
-
-

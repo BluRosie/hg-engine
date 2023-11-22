@@ -4024,20 +4024,20 @@ movedata MOVE_WHIRLPOOL, "Whirlpool"
 	movedescription MOVE_WHIRLPOOL, "Traps the foe inside a\nwhirlpool that lasts\nfor two to five turns.\nThe user can pass\nthrough whirlpools."
 
 movedata MOVE_BEAT_UP, "Beat Up"
-	battleeffect 154
-	pss SPLIT_PHYSICAL
-	basepower 12
-	type TYPE_DARK
-	accuracy 100
-	pp 10
-	effectchance 0
-	target MOVE_TARGET_SELECTED
-	priority 0
-	flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_KEEP_HP_BAR
-	appeal 0x16
-	contesttype CONTEST_SMART
-	terminatedata
-	movedescription MOVE_BEAT_UP, "The user gets all the\nparty Pokémon to\nattack the foe. The\nmore party Pokémon,\nthe more damage."
+    battleeffect 154
+    pss SPLIT_PHYSICAL
+    basepower 1
+    type TYPE_DARK
+    accuracy 100
+    pp 10
+    effectchance 0
+    target MOVE_TARGET_SELECTED
+    priority 0
+    flags FLAG_KEEP_HP_BAR | FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
+    appeal 0x07
+    contesttype CONTEST_SMART
+    terminatedata
+    movedescription MOVE_BEAT_UP, "The user gets all the\nparty Pokémon to\nattack the foe. The\nmore party Pokémon,\nthe more damage."
 
 movedata MOVE_FAKE_OUT, "Fake Out"
 	battleeffect 158
@@ -9166,8 +9166,8 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PARABOLIC_CHARGE, "Parabolic Charge"
-    battleeffect 0
+movedata MOVE_PARABOLIC_CHARGE, "ParabolicCharge"
+    battleeffect 3
     pss SPLIT_SPECIAL
     basepower 65
     type TYPE_ELECTRIC
@@ -9901,7 +9901,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_PRECIPICE_BLADES, "Precipice Blades"
+movedata MOVE_PRECIPICE_BLADES, "Precipice Blade"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
@@ -10817,7 +10817,7 @@ movedata MOVE_LUNGE, "Lunge"
     terminatedata
 
 movedata MOVE_FIRE_LASH, "Fire Lash"
-    battleeffect 0
+    battleeffect 69
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIRE

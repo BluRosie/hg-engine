@@ -158,17 +158,17 @@ struct SCRIPTCONTEXT {
 extern FieldSystem *gFieldSysPtr;
 
 
-void* __attribute__((long_call)) GetEvScriptWorkMemberAdrs( void* fsys, u32 id );
-u16* __attribute__((long_call)) GetVarAdrs(void *saveData, u16 var);
-void* __attribute__((long_call)) EncDataSave_GetSaveDataPtr(void* savedata);
-u16* __attribute__((long_call)) GetVarPointer(void *fsys, u16 var);
-u16 __attribute__((long_call)) VarGet(FieldSystem *fsys, u16 varIdx);
-u32 __attribute__((long_call)) VarSet(FieldSystem *fsys, u16 varIdx, u16 value);
-void __attribute__((long_call)) WORDSET_RegisterAbilityName( void* wordset, u32 bufID, u32 wazaID );
-void __attribute__((long_call)) EventSet_Script(void *fsys, u16 scr_id, void* obj);
-void __attribute__((long_call)) ScriptJump(SCRIPTCONTEXT* ctx, const u8* ptr); // this is important
-void *__attribute__((long_call)) FieldSysGetAttrAddr(FieldSystem *fsys, int field);
-u32 __attribute__((long_call)) Fsys_GetWeather_HandleDiamondDust(FieldSystem *fsys, u32 mapID);
+void* LONG_CALL GetEvScriptWorkMemberAdrs( FieldSystem *fsys, u32 id );
+u16* LONG_CALL GetVarAdrs(void *saveData, u16 var);
+void* LONG_CALL EncDataSave_GetSaveDataPtr(void *savedata);
+u16* LONG_CALL GetVarPointer(FieldSystem *fsys, u16 var);
+u16 LONG_CALL VarGet(FieldSystem *fsys, u16 varIdx);
+u32 LONG_CALL VarSet(FieldSystem *fsys, u16 varIdx, u16 value);
+void LONG_CALL WORDSET_RegisterAbilityName( void* wordset, u32 bufID, u32 wazaID );
+void LONG_CALL EventSet_Script(FieldSystem *fsys, u16 scr_id, void* obj);
+void LONG_CALL ScriptJump(SCRIPTCONTEXT* ctx, const u8* ptr); // this is important
+void *LONG_CALL FieldSysGetAttrAddr(FieldSystem *fsys, int field);
+u32 LONG_CALL Fsys_GetWeather_HandleDiamondDust(FieldSystem *fsys, u32 mapID);
 
 // there are actual functions for ScriptReadHalfword and ScriptReadWord, but it's whatever
 #define ScriptReadByte(ctx) *(u8*)(ctx->script_ptr++)

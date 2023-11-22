@@ -1,77 +1,78 @@
 # Makefile
-ifeq ($(strip $DEVKITPRO),)
-$(error "Please set DEVKITPRO in your environment. export DEVKITPRO=<path to>devkitPro)
+
+MAC = $(shell uname -s | grep -i -q 'darwin'; echo $$?)
+
+ifneq ($(MAC), 0)
+# see if on msys2, but only if not on mac because /proc/version doesn't exist there
+MSYS2 = $(shell grep -i -q 'msys' /proc/version; echo $$?)
+else
+MSYS2 = 1
 endif
 
-ifeq ($(strip $DEVKITARM),)
-$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
+# environment setting
+# get rid of devkitpro:  if devkitpro is installed, can still use it.  otherwise, default to arm-none-eabi tools
+ifeq ($(shell echo $$DEVKITARM),)
+ifeq ($(MSYS2), 0)
+PREFIX = /mingw64/bin/arm-none-eabi-
+AS = $(PREFIX)as
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
+else
+PREFIX = arm-none-eabi-
+AS = $(PREFIX)as
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
 endif
-
-TOOLCHAIN := $(DEVKITARM)
+else
+# support legacy devkitpro instructions
+PREFIX = bin/arm-none-eabi-
+AS = $(DEVKITARM)/$(PREFIX)as
+CC = $(DEVKITARM)/$(PREFIX)gcc
+LD = $(DEVKITARM)/$(PREFIX)ld
+OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
+endif
+PYTHON = python3
 
 .PHONY: clean all
 
-SYSTEM = $(shell grep -i -q 'microsoft' /proc/version; echo $$?)
-UBUNTU = $(shell grep -i -q 'ubuntu' /proc/version; echo $$?)
-
-ifeq ($(SYSTEM), 0)
-# fuck it windows on ubuntu just use mono
-EXE := .exe
-SEP := /
-
-SWAV2SWAR := tools/swav2swar.exe
-BTX := tools/pngtobtx0.exe
-CSC = mcs -pkg:dotnet
+ifeq ($(MSYS2), 0)
+CSC := csc
 else
-EXE := 
-SEP := /
-
-SWAV2SWAR := mono tools/swav2swar.exe
-BTX := mono tools/pngtobtx0.exe
-ifeq ($(UBUNTU), 0)
-CSC = mcs$(EXE) -pkg:dotnet
-else
-CSC = csc$(EXE)
-endif
+CSC := mcs -pkg:dotnet
 endif
 
 default: all
 
 ROMNAME = rom.nds
 BUILDROM = test.nds
-####################### Tools #########################
-PYTHON = python3
-O2NARC = tools/o2narc
-MSGENC = tools/msgenc
-NDSTOOL = tools/ndstool
-BLZ = tools/blz
-ARMIPS = tools/armips
-NARCHIVE = $(PYTHON) tools/narcpy.py
-GFX = tools/nitrogfx
-SDATTOOL = $(PYTHON) tools/SDATTool.py
-ADPCMXQ = adpcm-xq
-NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
-ENCODEPWIMG = tools/ENCODE_IMG
-###################### Setting ########################
-PREFIX = bin/arm-none-eabi-
-AS = $(DEVKITARM)/$(PREFIX)as
-CC = $(DEVKITARM)/$(PREFIX)gcc
-LD = $(DEVKITARM)/$(PREFIX)ld
-OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
 
+####################### Tools #######################
+ADPCMXQ := tools/adpcm-xq
+ARMIPS := tools/armips
+BLZ := tools/blz
+BTX_EXE := tools/pngtobtx0.exe
+BTX := mono $(BTX_EXE)
+ENCODEPWIMG := tools/ENCODE_IMG
+GFX := tools/nitrogfx
+MSGENC := tools/msgenc
+NARCHIVE := $(PYTHON) tools/narcpy.py
+NDSTOOL := tools/ndstool
+NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
+O2NARC := tools/o2narc
+SDATTOOL := $(PYTHON) tools/SDATTool.py
+SWAV2SWAR_EXE := tools/swav2swar.exe
+SWAV2SWAR := mono $(SWAV2SWAR_EXE)
+
+# Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T linker.ld
 LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
 LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
 ASFLAGS = -mthumb -I ./data
-CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Os -fira-loop-pressure -fipa-pta
+CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 
-LINK = build/linked.o
-OUTPUT = build/output.bin
-BATTLE_LINK = build/battle_linked.o
-BATTLE_OUTPUT = build/output_battle.bin
-FIELD_LINK = build/field_linked.o
-FIELD_OUTPUT = build/output_field.bin
-####################### output ########################
+####################### Output #######################
 C_SUBDIR = src
 ASM_SUBDIR = asm
 INCLUDE_SUBDIR = include
@@ -79,6 +80,13 @@ BUILD := build
 BUILD_NARC := $(BUILD)/narc
 BASE := base
 FILESYS := $(BASE)/root
+
+LINK = $(BUILD)/linked.o
+OUTPUT = $(BUILD)/output.bin
+BATTLE_LINK = $(BUILD)/battle_linked.o
+BATTLE_OUTPUT = $(BUILD)/output_battle.bin
+FIELD_LINK = $(BUILD)/field_linked.o
+FIELD_OUTPUT = $(BUILD)/output_field.bin
 
 
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
@@ -107,7 +115,102 @@ include data/graphics/pokegra.mk
 include data/itemdata/itemdata.mk
 include narcs.mk
 
-####################### Build #########################
+####################### Build Tools #######################
+MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
+$(MSGENC): tools/source/msgenc/*
+	cd tools/source/msgenc ; $(MAKE)
+	mv tools/source/msgenc/msgenc tools/msgenc
+
+TOOLS += $(MSGENC)
+
+BTX_SOURCES := $(wildcard tools/source/BTXEditor/*.cs)
+$(BTX_EXE): $(BTX_SOURCES)
+	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source/BTXEditor/Program-P.cs" "source/BTXEditor/pngtobtx0.cs" "source/BTXEditor/BTX0.cs"
+
+TOOLS += $(BTX_EXE)
+
+$(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
+	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
+
+TOOLS += $(SWAV2SWAR_EXE)
+
+$(NDSTOOL):
+ifeq (,$(wildcard $(NDSTOOL)))
+ifeq ($(MSYS2), 0)
+	wget -O $(NDSTOOL) https://github.com/AdAstra-LD/DS-Pokemon-Rom-Editor/raw/main/DS_Map/Tools/ndstool.exe
+else
+	rm -r -f tools/source/ndstool
+	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
+	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
+	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
+	cd tools/source/ndstool ; ./autogen.sh
+	cd tools/source/ndstool ; ./configure && $(MAKE)
+	mv tools/source/ndstool/ndstool tools/ndstool
+	rm -r -f tools/source/ndstool
+endif
+endif
+
+TOOLS += $(NDSTOOL)
+
+$(ARMIPS):
+ifeq (,$(wildcard $(ARMIPS)))
+ifeq ($(MSYS2), 0)
+	wget -O $(ARMIPS).7z https://github.com/Kingcom/armips/releases/download/v0.11.0/armips-v0.11.0-windows-x86.7z
+	cd tools; p7zip -d armips.7z; rm -f Readme.md
+else
+	rm -r -f tools/source/armips
+	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
+	cd tools/source/armips ; mkdir build
+	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
+	cd tools/source/armips/build ; cmake --build .
+	mv tools/source/armips/build/armips tools/armips
+	rm -r -f tools/source/armips
+endif
+endif
+
+TOOLS += $(ARMIPS)
+
+$(ADPCMXQ):
+ifeq (,$(wildcard $(ARMIPS)))
+	rm -r -f tools/source/adpcm-xq
+	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
+	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq
+	mv tools/source/adpcm-xq/adpcm-xq $(ADPCMXQ)
+	rm -r -f tools/source/adpcm-xq
+endif
+
+TOOLS += $(ADPCMXQ)
+
+tools/ntrWavTool.py:
+ifeq (,$(wildcard tools/ntrWavTool.py))
+	rm -r -f tools/source/ntrWavTool
+	cd tools/source ; git clone https://github.com/turtleisaac/ntrWavTool.git
+	mv tools/source/ntrWavTool/ntrWavTool.py tools/ntrWavTool.py
+	rm -r -f tools/source/ntrWavTool
+endif
+
+TOOLS += tools/ntrWavTool.py
+
+NITROGFX_SOURCES := $(wildcard tools/source/nitrogfx/*.c) $(wildcard tools/source/nitrogfx/*.h)
+$(GFX): $(NITROGFX_SOURCES)
+	cd tools/source/nitrogfx ; $(MAKE)
+	mv tools/source/nitrogfx/nitrogfx $(GFX)
+
+TOOLS += $(GFX)
+
+$(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
+	cd tools/source/o2narc ; $(MAKE)
+	mv tools/source/o2narc/o2narc $(O2NARC)
+
+TOOLS += $(O2NARC)
+
+$(ENCODEPWIMG):
+	cd tools/source/DECODEIMG ; $(MAKE)
+	mv tools/source/DECODEIMG/ENCODE_IMG $(ENCODEPWIMG)
+
+TOOLS += $(ENCODEPWIMG)
+
+####################### Build #######################
 rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
 	cp rom.ld rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py
@@ -138,7 +241,7 @@ $(BATTLE_LINK):$(BATTLE_OBJS) rom_gen.ld
 $(BATTLE_OUTPUT):$(BATTLE_LINK)
 	$(OBJCOPY) -O binary $< $@
 
-all: $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
+all: $(TOOLS) $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
@@ -147,90 +250,31 @@ all: $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "$(ROMNAME) Decompression successful!!"
+	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
-	@echo -e "Making ROM.."
+	@echo "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "Done."
+	@echo "Done."
 
-
-build_tools:
-	cd tools/source/msgenc ; $(MAKE)
-	mv tools/source/msgenc/msgenc tools/msgenc
-
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source$(SEP)BTX Editor$(SEP)Program-P.cs" "source$(SEP)BTX Editor$(SEP)pngtobtx0.cs" "source$(SEP)BTX Editor$(SEP)BTX0.cs"
-
-	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source$(SEP)swav2swar$(SEP)Principal.cs"
-
-	rm -r -f tools/source/ndstool
-	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
-	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
-	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
-	cd tools/source/ndstool ; ./autogen.sh
-	cd tools/source/ndstool ; ./configure && $(MAKE)
-	mv tools/source/ndstool/ndstool tools/ndstool
-	rm -r -f tools/source/ndstool
-
-	rm -r -f tools/source/armips
-	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
-	cd tools/source/armips ; mkdir build
-	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
-	cd tools/source/armips/build ; cmake --build .
-	mv tools/source/armips/build/armips tools/armips
-	rm -r -f tools/source/armips
-
-	rm -r -f tools/source/adpcm-xq
-	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
-	cd tools/source/adpcm-xq ; gcc -O2 *.c -o $(ADPCMXQ)
-	mv tools/source/adpcm-xq/$(ADPCMXQ) tools/$(ADPCMXQ)
-	rm -r -f tools/source/adpcm-xq
-
-	rm -r -f tools/source/ntrWavTool
-	cd tools/source ; git clone https://github.com/turtleisaac/ntrWavTool.git
-	mv tools/source/ntrWavTool/ntrWavTool.py tools/ntrWavTool.py
-	rm -r -f tools/source/ntrWavTool
-
-
-build_nitrogfx:
-	cd tools/source/nitrogfx ; $(MAKE)
-	mv tools/source/nitrogfx/nitrogfx tools/nitrogfx
-	cd tools/source/o2narc ; $(MAKE)
-	mv tools/source/o2narc/o2narc tools/o2narc
-	cd tools/source/DECODEIMG ; $(MAKE)
-	mv tools/source/DECODEIMG/ENCODE_IMG tools/ENCODE_IMG
-
-
-
+####################### Clean #######################
 clean:
 	rm -rf $(BUILD)
 	rm -rf $(BASE)
-	rm -rf tools/source/ndstool
-	rm -rf tools/source/armips
-
-
 
 clean_tools:
-	rm -f tools/msgenc
-	rm -f tools/pngtobtx0.exe
-	rm -f tools/swav2swar.exe
-	rm -f tools/ndstool
-	rm -f tools/armips
-	rm -f tools/nitrogfx
-	rm -f tools/adpcm-xq
-
+	rm -f $(TOOLS)
 
 clean_code:
 	rm -f $(OBJS) $(FIELD_OBJS) $(BATTLE_OBJS) $(LINK) $(OUTPUT)
 
-
+####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
-
-# ideally this is all just copying and no building.
+####################### Final ROM Build #######################
 move_narc: $(NARC_FILES)
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
@@ -282,6 +326,10 @@ move_narc: $(NARC_FILES)
 	@echo "trainer data:"
 	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
 	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
+
+	@echo "trainer text:"
+	cp $(TRAINERTEXT_NARC) $(TRAINERTEXT_TARGET)
+	cp $(TRAINERTEXT_NARC_2) $(TRAINERTEXT_TARGET_2)
 
 	@echo "footprints:"
 	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
@@ -350,12 +398,17 @@ move_narc: $(NARC_FILES)
 	@echo "scripts:"
 	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
 
+	@echo "headbutt trees:"
+	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
 
-	@echo "tutor data:"
-	$(ARMIPS) armips/data/tutordata.s
+	@echo "tutor moves and tm moves:"
+	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
+	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
+	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

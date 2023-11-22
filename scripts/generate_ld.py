@@ -31,7 +31,10 @@ else:  # Linux, OSX, etc.
     else:
         PREFIX = 'arm-none-eabi-'
     OBJDUMP = (PREFIX + 'objdump')
-    NM = (PREFIX + 'nm')
+    if sys.platform.startswith('darwin'):
+        NM = ('nm')
+    else:
+        NM = (PREFIX + 'nm')
     AS = (PREFIX + 'as')
 
 

@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_089", 0
-
+//earthquake animation
 a010_089:
     initspriteresource
     loadspriteresource 0

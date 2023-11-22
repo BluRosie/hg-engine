@@ -8,24 +8,23 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_526", 0
-
+//bulldoze animation
 a010_526:
-    loadparticlefromspa 0, 486
+    loadparticlefromspa 0, 120 //earthquake particles, emitter 0 only
     waitparticle
 
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
+    slideattackingmon 0, 16
+    waitstate
+    slideattackingmon 0, -16 //move user up and down
+    waitstate
 
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
-
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
+    playsepan 1973, 0
+    addparticle 0, 0, 4 //eq effect on opponent
+    flashscreencolor 11, 8, 8 //flash brown
+    wait 8
+    shakescreen //rumble the screen
     waitparticle
+
 
     unloadparticle 0
     waitstate

@@ -1,6 +1,8 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
+#include "types.h"
+
 enum
 {
     CLACT_U_CHAR_RES,
@@ -53,7 +55,7 @@ typedef struct
 
 struct BI_PARAM
 {
-    /*0*/ void *bw;
+    /*0*/ struct BattleSystem *bw; // battle work structure that is only partially defined
     void *unk1;
     void *unk2;
     void *unk3;
@@ -106,39 +108,39 @@ typedef struct NNSG2dScreenData
 #define CLACT_U_HEADER_DATA_NONE (0xffffffff)
 #define RECT_HIT_END 0xFF
 
-void *__attribute__((long_call)) Sub_GaugeObjHeadGet(u8);
-BOOL __attribute__((long_call)) OAM_LoadResourceCharArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int trans_mode, int id);
-u8 __attribute__((long_call)) OAM_LoadResourcePlttWorkArcH(void *pfd, int req, void *csp, void *crp, void *arcHandle, int data_id, int comp, int num, int trans_mode, int id);
-BOOL __attribute__((long_call)) OAM_LoadResourceCellArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int id);
-BOOL __attribute__((long_call)) OAM_LoadResourceCellAnmArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int id);
-void *__attribute__((long_call)) OAM_ObjectAdd_S(void *csp, void *crp, const OAMSpriteTemplate *coap_s);
-void __attribute__((long_call)) OAM_ObjectUpdate(void *csp);
-void *__attribute__((long_call)) BattleWorkCATS_SYS_PTRGet(void *);
-void *__attribute__((long_call)) BattleWorkCATS_RES_PTRGet(void *);
-void __attribute__((long_call)) BGCallback_FightOnly(void *, int, int);
-void __attribute__((long_call)) BGCallback_CommandSelect(void *, int, int);
-void __attribute__((long_call)) BG_SlideSetInit(void *, int);
-BOOL __attribute__((long_call)) OAM_FreeResourceChar(void *, int);
-BOOL __attribute__((long_call)) OAM_FreeResourceCell(void *, int);
-BOOL __attribute__((long_call)) OAM_FreeResourceCellAnm(void *, int);
-BOOL __attribute__((long_call)) OAM_FreeResourcePltt(void *, int);
-void __attribute__((long_call)) CATS_ActorPointerDelete_S(void *);
-void *__attribute__((long_call)) BattleWorkPfdGet(void *);
-u32 __attribute__((long_call)) PokeIconPalArcIndexGet(void);
-u32 __attribute__((long_call)) PokeIconAnmCellAnmArcIndexGet(void);
-u32 __attribute__((long_call)) PokeIconAnmCellArcIndexGet(void);
-void __attribute__((long_call)) Snd_SePlay(int);
-void __attribute__((long_call)) Sub_TouchEndDelete(void *bip, int obj, int bg);
-void __attribute__((long_call)) EffectTCB_Delete(void *bip);
-void __attribute__((long_call)) Sub_ScrnOffsetRewrite(void *bip, const s16 *scrn_offset, const ButtonTBL *range, int scrnbuf_no, int anm_no);
-void __attribute__((long_call)) EffectTCB_Add(const void *func, void *bip);
-BOOL __attribute__((long_call)) OAM_LoadResourceCharArc(void *csp, void *crp, int arc_id, int data_id, BOOL comp, int trans_mode, int id);
-BOOL __attribute__((long_call)) OAM_LoadResourceCellAnmArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
-BOOL __attribute__((long_call)) OAM_LoadResourceCellArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
-u8 __attribute__((long_call)) OAM_LoadResourcePlttWorkArc(void *pfd, int req, void *csp, void *crp, int arc_id, int data_id, int comp, int num, int trans_mode, int id);
-void *__attribute__((long_call)) ArcUtil_ScrnDataGet(u32 fileIdx, u32 dataIdx, BOOL compressedFlag, NNSG2dScreenData** scrnData, u32 heapID);
-void __attribute__((long_call)) BG_LoadScreenTilemapData(void *bgl, u32 bg_id, u16 *scrn_buf, int size);
-void __attribute__((long_call)) ScheduleBgTilemapBufferTransfer(void *bgl, int bg_id);
-void __attribute__((long_call)) OAM_ObjectAnimeSeqSetCap(void *, int anim_no);
+void *LONG_CALL Sub_GaugeObjHeadGet(u8);
+BOOL LONG_CALL OAM_LoadResourceCharArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int trans_mode, int id);
+u8 LONG_CALL OAM_LoadResourcePlttWorkArcH(void *pfd, int req, void *csp, void *crp, void *arcHandle, int data_id, int comp, int num, int trans_mode, int id);
+BOOL LONG_CALL OAM_LoadResourceCellArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int id);
+BOOL LONG_CALL OAM_LoadResourceCellAnmArcH(void *csp, void *crp, void *arcHandle, int data_id, int comp, int id);
+void *LONG_CALL OAM_ObjectAdd_S(void *csp, void *crp, const OAMSpriteTemplate *coap_s);
+void LONG_CALL OAM_ObjectUpdate(void *csp);
+void *LONG_CALL BattleWorkCATS_SYS_PTRGet(void *);
+void *LONG_CALL BattleWorkCATS_RES_PTRGet(void *);
+void LONG_CALL BGCallback_FightOnly(void *, int, int);
+void LONG_CALL BGCallback_CommandSelect(void *, int, int);
+void LONG_CALL BG_SlideSetInit(void *, int);
+BOOL LONG_CALL OAM_FreeResourceChar(void *, int);
+BOOL LONG_CALL OAM_FreeResourceCell(void *, int);
+BOOL LONG_CALL OAM_FreeResourceCellAnm(void *, int);
+BOOL LONG_CALL OAM_FreeResourcePltt(void *, int);
+void LONG_CALL CATS_ActorPointerDelete_S(void *);
+void *LONG_CALL BattleWorkPfdGet(void *);
+u32 LONG_CALL PokeIconPalArcIndexGet(void);
+u32 LONG_CALL PokeIconAnmCellAnmArcIndexGet(void);
+u32 LONG_CALL PokeIconAnmCellArcIndexGet(void);
+void LONG_CALL Snd_SePlay(int);
+void LONG_CALL Sub_TouchEndDelete(void *bip, int obj, int bg);
+void LONG_CALL EffectTCB_Delete(void *bip);
+void LONG_CALL Sub_ScrnOffsetRewrite(void *bip, const s16 *scrn_offset, const ButtonTBL *range, int scrnbuf_no, int anm_no);
+void LONG_CALL EffectTCB_Add(const void *func, void *bip);
+BOOL LONG_CALL OAM_LoadResourceCharArc(void *csp, void *crp, int arc_id, int data_id, BOOL comp, int trans_mode, int id);
+BOOL LONG_CALL OAM_LoadResourceCellAnmArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
+BOOL LONG_CALL OAM_LoadResourceCellArc(void *csp, void *crp, int arc_id, int data_id, int comp, int id);
+u8 LONG_CALL OAM_LoadResourcePlttWorkArc(void *pfd, int req, void *csp, void *crp, int arc_id, int data_id, int comp, int num, int trans_mode, int id);
+void *LONG_CALL ArcUtil_ScrnDataGet(u32 fileIdx, u32 dataIdx, BOOL compressedFlag, NNSG2dScreenData** scrnData, u32 heapID);
+void LONG_CALL BG_LoadScreenTilemapData(void *bgl, u32 bg_id, u16 *scrn_buf, int size);
+void LONG_CALL ScheduleBgTilemapBufferTransfer(void *bgl, int bg_id);
+void LONG_CALL OAM_ObjectAnimeSeqSetCap(void *, int anim_no);
 
 #endif

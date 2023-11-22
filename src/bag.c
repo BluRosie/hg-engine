@@ -50,7 +50,7 @@ void Sav2_Bag_init(BAG_DATA *bag) {
     memset(bag, 0, sizeof(BAG_DATA));
 }
 
-void Sav2_Bag_copy(const BAG_DATA *src, BAG_DATA *dst) {
+void Sav2_Bag_copy(BAG_DATA *src, BAG_DATA *dst) {
     //MI_CpuCopy8(src, dst, sizeof(BAG_DATA));
     memcpy(dst, src, sizeof(BAG_DATA));
 }
@@ -129,7 +129,7 @@ u32 Bag_GetItemPocket(BAG_DATA *bag, u16 itemId, ITEM_SLOT **ppSlots, u32 *pCoun
 }
 
 ITEM_SLOT *Pocket_GetItemSlotForAdd(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity, u16 maxQuantity) {
-    int i;
+    u32 i;
     int found = -1;
 
     for (i = 0; i < count; i++) {
@@ -155,7 +155,7 @@ ITEM_SLOT *Pocket_GetItemSlotForAdd(ITEM_SLOT *slots, u32 count, u16 itemId, u16
 ITEM_SLOT *Bag_GetItemSlotForAdd(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
     ITEM_SLOT *slots;
     u32 count;
-    u32 pocket_id;
+    u32 UNUSED pocket_id;
 
     pocket_id = Bag_GetItemPocket(bag, itemId, &slots, &count, heap_id);
     if (pocket_id == POCKET_TMHMS) {
@@ -189,7 +189,7 @@ BOOL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
 }
 
 ITEM_SLOT *Pocket_GetItemSlotForRemove(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity) {
-    int i;
+    u32 i;
 
     for (i = 0; i < count; i++) {
         if (slots[i].id == itemId) {
@@ -205,7 +205,7 @@ ITEM_SLOT *Pocket_GetItemSlotForRemove(ITEM_SLOT *slots, u32 count, u16 itemId, 
 ITEM_SLOT *Bag_GetItemSlotForRemove(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
     ITEM_SLOT *slots;
     u32 count;
-    u32 pocket_id;
+    u32 UNUSED pocket_id;
 
     pocket_id = Bag_GetItemPocket(bag, itemId, &slots, &count, heap_id);
     return Pocket_GetItemSlotForRemove(slots, count, itemId, quantity);
@@ -222,7 +222,7 @@ BOOL Bag_TakeItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
     }
     {
         u32 count;
-        u32 pocket_id;
+        u32 UNUSED pocket_id;
 
         pocket_id = Bag_GetItemPocket(bag, itemId, &slot, &count, heap_id);
         PocketCompaction(slot, count);
@@ -250,7 +250,7 @@ BOOL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
 BOOL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket) {
     ITEM_SLOT *slots;
     u32 count;
-    int i;
+    u32 i;
 
     switch (pocket) {
     case POCKET_KEY_ITEMS:
@@ -320,7 +320,7 @@ void SwapItemSlots(ITEM_SLOT *a, ITEM_SLOT *b) {
 }
 
 void PocketCompaction(ITEM_SLOT *slots, u32 count) {
-    int i, j;
+    u32 i, j;
     for (i = 0; i < count - 1; i++) {
         for (j = i + 1; j < count; j++) {
             if (slots[i].quantity == 0) {
@@ -331,7 +331,7 @@ void PocketCompaction(ITEM_SLOT *slots, u32 count) {
 }
 
 void SortPocket(ITEM_SLOT *slots, u32 count) {
-    int i, j;
+    u32 i, j;
     for (i = 0; i < count - 1; i++) {
         for (j = i + 1; j < count; j++) {
             if (slots[i].quantity == 0 || (slots[j].quantity != 0 && slots[i].id > slots[j].id)) {
@@ -378,7 +378,7 @@ void *CreateBagView(BAG_DATA *bag, const u8 *pockets, int heap_id) {
 
 ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n) {
     ITEM_SLOT *slots;
-    u32 count;
+    int count;
 
     switch (pocket) {
     case POCKET_KEY_ITEMS:

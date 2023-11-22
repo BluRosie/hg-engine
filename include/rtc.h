@@ -1,6 +1,9 @@
 #ifndef RTC_H
 #define RTC_H
 
+#include "pokemon.h"
+#include "types.h"
+
 /* defines all taken from pokeheartgold */
 
 enum RTCWeek {
@@ -46,15 +49,15 @@ struct GF_RTC_DateTime {
     struct RTCTime time;
 };
 
-void __attribute__((long_call)) Party_ResetAllShayminToLandForme(struct Party *party);
-void __attribute__((long_call)) GF_RTC_CopyDateTime(struct RTCDate *date, struct RTCTime *time);
-void __attribute__((long_call)) GF_RTC_CopyTime(struct RTCTime *time);
-void __attribute__((long_call)) GF_RTC_CopyDate(struct RTCDate *date);
-BOOL __attribute__((long_call)) IsNighttime(void);
-TIMEOFDAY __attribute__((long_call)) GF_RTC_GetTimeOfDay(void);
-TIMEOFDAY __attribute__((long_call)) GF_RTC_GetTimeOfDayByHour(s32 hour);
-TimeOfDayWildParam __attribute__((long_call)) GF_RTC_GetTimeOfDayWildParam(void);
-TimeOfDayWildParam __attribute__((long_call)) GF_RTC_GetTimeOfDayWildParamByHour(s32 hour);
+void LONG_CALL Party_ResetAllShayminToLandForme(struct Party *party);
+void LONG_CALL GF_RTC_CopyDateTime(struct RTCDate *date, struct RTCTime *time);
+void LONG_CALL GF_RTC_CopyTime(struct RTCTime *time);
+void LONG_CALL GF_RTC_CopyDate(struct RTCDate *date);
+BOOL LONG_CALL IsNighttime(void);
+TIMEOFDAY LONG_CALL GF_RTC_GetTimeOfDay(void);
+TIMEOFDAY LONG_CALL GF_RTC_GetTimeOfDayByHour(s32 hour);
+TimeOfDayWildParam LONG_CALL GF_RTC_GetTimeOfDayWildParam(void);
+TimeOfDayWildParam LONG_CALL GF_RTC_GetTimeOfDayWildParamByHour(s32 hour);
 // u32 GrabCurrentSeason(void) is in pokemon.h because it is defined there
 
 #endif // RTC_H

@@ -1282,7 +1282,8 @@ NUM_PHONE_CONTACTS                equ   75
 .halfword arg1
 .endmacro
 
-.expfunc RGB(r, g, b), (((b&31) << 10) | ((g&31) << 5) | (r&31))
+RGB_BLACK equ 0
+RGB_WHITE equ 0x7FFF
 
 .macro fade_screen,arg0,speed,direction,color
 .halfword 174
@@ -5417,4 +5418,4914 @@ TRIGGER_LOAD_GAME equ 4
 
 .macro var_level_script_end
 .halfword 0
+.endmacro
+
+
+
+// DSPRE Syntax macros
+
+
+
+// Dummy command
+.macro Nop
+.halfword 0
+.endmacro
+
+//// Dummy command
+//.macro Dummy
+//.halfword 1
+//.endmacro
+//
+//// Exits script execution and returns control to the player
+//.macro End
+//.halfword 2
+//.endmacro
+
+// Pauses for some frames,tracks the timer in a script variable
+.macro WaitTime,frames,var
+.halfword 3
+.halfword frames
+.halfword var
+.endmacro
+
+// Loads 8-bit value into the specified script register
+.macro RegValueSet,reg,val
+.halfword 4
+.byte reg
+.byte val
+.endmacro
+
+// Loads 32-bit value into the specified script register
+.macro RegDataSet,reg,val
+.halfword 5
+.byte reg
+.word val
+.endmacro
+
+// Reads byte at a specific memory address into a script register
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro RegAdrsSet,reg,addr
+.halfword 6
+.byte reg
+.word addr
+.endmacro
+
+// Writes byte to a specific memory address from a script register
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro AdrsValueSet,addr,reg
+.halfword 7
+.word addr
+.byte reg
+.endmacro
+
+// Writes byte literal to a specific memory address
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro AdrsRegSet,addr,val
+.halfword 8
+.word addr
+.byte val
+.endmacro
+
+// Copies a byte between script registers
+.macro RegRegSet,to,from
+.halfword 9
+.byte to
+.byte from
+.endmacro
+
+// Copies a byte between two memory addresses
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro AdrsAdrsSet,to,from
+.halfword 10
+.word to
+.word from
+.endmacro
+
+// Compares values between script reg and script reg
+.macro CompareRegs,a,b
+.halfword 11
+.byte a
+.byte b
+.endmacro
+
+// Compares script reg to byte literal
+.macro CompareRegValue,reg,val
+.halfword 12
+.byte reg
+.byte val
+.endmacro
+
+// Compares script reg to memory address
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro CompareRegAdrs,reg,addr
+.halfword 13
+.byte reg
+.word addr
+.endmacro
+
+// Compares memory address to script reg
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro CompareAdrsReg,addr,reg
+.halfword 14
+.word addr
+.byte reg
+.endmacro
+
+// Compares memory address to byte literal
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro CompareAdrsValue,addr,val
+.halfword 15
+.word addr
+.byte val
+.endmacro
+
+// Compares bytes at two memory addresses
+// Because scripts are compiled in a code-agnostic fashion,
+// this command can never be assembled.
+.macro CompareAdrsAdrs,a,b
+.halfword 16
+.word a
+.word b
+.endmacro
+
+// Compares variable to 16-bit literal
+.macro CompareVarValue,var,val
+.halfword 17
+.halfword var
+.halfword val
+.endmacro
+
+// Compares two variables
+.macro CompareVars,a,b
+.halfword 18
+.halfword a
+.halfword b
+.endmacro
+
+// Creates a new script context to run the indicated script asynchronously
+.macro ParallelCommonScript,id
+.halfword 19
+.halfword id
+.endmacro
+
+// Creates a new script context to run the indicated script and wait
+.macro CommonScript,id
+.halfword 20
+.halfword id
+.endmacro
+
+// Yield to parent context
+.macro LocalScript
+.halfword 21
+.endmacro
+
+// Absolute branch to offset in script
+.macro Jump,dest
+.halfword 22
+.word dest-.-4
+.endmacro
+
+// Branch to offset in script if interacting with a specific object
+.macro JumpIfObjID,object,dest
+.halfword 23
+.byte object
+.word dest-.-4
+.endmacro
+
+// Branch to offset in script if interacting with a specific bg event
+.macro JumpIfBgID,bg,dest
+.halfword 24
+.byte bg
+.word dest-.-4
+.endmacro
+
+// Branch to offset in script if facing a specific direction
+.macro JumpIfPlayerDir,dir,dest
+.halfword 25
+.byte dir
+.word dest-.-4
+.endmacro
+
+// Call script as a subroutine
+//.macro Call,sub
+//.halfword 26
+//.word sub-.-4
+//.endmacro
+//
+//// Return from subroutine
+//.macro Return
+//.halfword 27
+//.endmacro
+
+// Conditional branch to offset in script
+.macro JumpIf,condition,dest
+.halfword 28
+.byte condition
+.word dest-.-4
+.endmacro
+
+// Conditional call subroutine
+.macro CallIf,condition,sub
+.halfword 29
+.byte condition
+.word sub-.-4
+.endmacro
+
+//// Set event flag
+//.macro SetFlag,flag
+//.halfword 30
+//.halfword flag
+//.endmacro
+//
+//// Clear event flag
+//.macro ClearFlag,flag
+//.halfword 31
+//.halfword flag
+//.endmacro
+//
+//// Check event flag, store result on context
+//.macro CheckFlag,flag
+//.halfword 32
+//.halfword flag
+//.endmacro
+
+// Set event flag referenced in var
+.macro SetFlagFromVar,var
+.halfword 33
+.halfword var
+.endmacro
+
+// Clear event flag referenced in var
+.macro ClearFlagFromVar,var
+.halfword 34
+.halfword var
+.endmacro
+
+// Check event flag referenced in var, store result in other var
+.macro FlagStatusToVar,var_flag,var_dest
+.halfword 35
+.halfword var_flag
+.halfword var_dest
+.endmacro
+
+//// Set trainer defeated flag
+//.macro SetTrainerFlag,var_or_trno
+//.halfword 36
+//.halfword var_or_trno
+//.endmacro
+//
+//// Clear trainer defeated flag
+//.macro ClearTrainerFlag,var_or_trno
+//.halfword 37
+//.halfword var_or_trno
+//.endmacro
+//
+//// Check trainer defeated flag,store result on context
+//.macro CheckTrainerFlag,var_or_trno
+//.halfword 38
+//.halfword var_or_trno
+//.endmacro
+
+// Increment var value by value
+.macro IncrementVar,var,var_or_addend
+.halfword 39
+.halfword var
+.halfword var_or_addend
+.endmacro
+
+// Decrement var value by value
+.macro DecrementVar,var,var_or_addend
+.halfword 40
+.halfword var
+.halfword var_or_addend
+.endmacro
+
+//// Set var to short literal
+//.macro SetVar,var,val
+//.halfword 41
+//.halfword var
+//.halfword val
+//.endmacro
+
+// Set var from other var
+.macro SetVarFromVariable,dst,src
+.halfword 42
+.halfword dst
+.halfword src
+.endmacro
+
+// Set var from other var or short literal
+.macro SetVarFromFlexible,dst,src
+.halfword 43
+.halfword dst
+.halfword src
+.endmacro
+
+// Print non_npc_msg in field window from current map message bank
+.macro MessageAll,msg_id
+.halfword 44
+.byte msg_id
+.endmacro
+
+// NPC dialogue window
+.macro Message,msg_id
+.halfword 45
+.byte msg_id
+.endmacro
+
+// Not sure what to call this but it
+// is also a message printer
+.macro MessageFlex,msg_id
+.halfword 46
+.halfword msg_id
+.endmacro
+
+.macro MessageNoSkip,arg0
+.halfword 47
+.halfword arg0
+.endmacro
+
+.macro CMD_048,arg0
+.halfword 48
+.byte arg0
+.endmacro
+
+// Waits for A or B button
+.macro WaitAB
+.halfword 49
+.endmacro
+
+// Waits for A,B,or dpad. On pressing dpad,does a turn frame.
+.macro WaitButton
+.halfword 50
+.endmacro
+
+// Waits for A,B,or dpad. No turn frame.
+.macro WaitABPad
+.halfword 51
+.endmacro
+
+.macro OpenMessage
+.halfword 52
+.endmacro
+
+.macro CloseMessage
+.halfword 53
+.endmacro
+
+// Like closemsg but does not clear the graphics.
+.macro FreezeMessage
+.halfword 54
+.endmacro
+
+.macro SetIconBoard,message,arg1,arrow,arg3
+.halfword 55
+.byte message
+.byte arg1
+.halfword arrow
+.halfword arg3
+.endmacro
+
+.macro SetTextBoard,message,arg1
+.halfword 56
+.byte message
+.halfword arg1
+.endmacro
+
+.macro ShowBoard,arg0
+.halfword 57
+.byte arg0
+.endmacro
+
+.macro WaitBoard
+.halfword 58
+.endmacro
+
+.macro BoardMessage,arg0,arg1
+.halfword 59
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CloseBoard,arg0
+.halfword 60
+.halfword arg0
+.endmacro
+
+.macro Menu
+.halfword 61
+.endmacro
+
+.macro CMD_062,arg0,arg1,arg2,arg3,arg4,arg5
+.halfword 62
+.byte arg0
+.byte arg1
+.byte arg2
+.byte arg3
+.byte arg4
+.byte arg5
+.endmacro
+
+.macro YesNoBox,arg0
+.halfword 63
+.halfword arg0
+.endmacro
+
+.macro MultiStandardText,arg0,arg1,arg2,arg3,arg4
+.halfword 64
+.byte arg0
+.byte arg1
+.byte arg2
+.byte arg3
+.halfword arg4
+.endmacro
+
+.macro MultiLocalText,arg0,arg1,arg2,arg3,arg4
+.halfword 65
+.byte arg0
+.byte arg1
+.byte arg2
+.byte arg3
+.halfword arg4
+.endmacro
+
+.macro AddMultiOption,arg0,arg1
+.halfword 66
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro ShowMulti
+.halfword 67
+.endmacro
+
+// uses text bank 191 to choose what to do.
+.macro ListStandardText,x,y,cursor,cancel,selection
+.halfword 68
+.byte x
+.byte y
+.byte cursor
+.byte cancel
+.halfword selection
+.endmacro
+
+// uses the current loaded text bank on the map to choose what to do.
+.macro ListLocalText,x,y,cursor,cancel,selection
+.halfword 69
+.byte x
+.byte y
+.byte cursor
+.byte cancel
+.halfword selection
+.endmacro
+
+.macro AddListOption,optionmsg,highlightmsg,listslot
+.halfword 70
+.halfword optionmsg
+.halfword highlightmsg
+.halfword listslot
+.endmacro
+
+.macro ShowList
+.halfword 71
+.endmacro
+
+.macro MultiColumn,arg0
+.halfword 72
+.byte arg0
+.endmacro
+
+.macro PlayFanfare,arg0
+.halfword 73
+.halfword arg0
+.endmacro
+
+.macro StopFanfare,arg0
+.halfword 74
+.halfword arg0
+.endmacro
+
+.macro WaitFanfare,arg0
+.halfword 75
+.halfword arg0
+.endmacro
+
+.macro PlayCry,arg0,arg1
+.halfword 76
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro WaitCry
+.halfword 77
+.endmacro
+
+.macro PlaySound,fanfare
+.halfword 78
+.halfword fanfare
+.endmacro
+
+.macro WaitSound
+.halfword 79
+.endmacro
+
+.macro PlayMusic,bgm
+.halfword 80
+.halfword bgm
+.endmacro
+
+.macro StopMusic,arg0
+.halfword 81
+.halfword arg0
+.endmacro
+
+.macro PlayDefaultMusic
+.halfword 82
+.endmacro
+
+.macro SetMusic,arg0
+.halfword 83
+.halfword arg0
+.endmacro
+
+// Fade out the music to the target level
+// in the designated number of frames
+.macro FadeOutMusic,target,frames
+.halfword 84
+.halfword target
+.halfword frames
+.endmacro
+
+.macro FadeInMusic,arg0
+.halfword 85
+.halfword arg0
+.endmacro
+
+.macro SetMusicPauseStatus,arg0,arg1
+.halfword 86
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro TempMusic,arg0
+.halfword 87
+.halfword arg0
+.endmacro
+
+.macro SetBGMFlag,arg0
+.halfword 88
+.byte arg0
+.endmacro
+
+.macro CheckChatotCry,arg0
+.halfword 89
+.halfword arg0
+.endmacro
+
+.macro StartChatotCry,arg0
+.halfword 90
+.halfword arg0
+.endmacro
+
+.macro StopChatotCry
+.halfword 91
+.endmacro
+
+.macro SaveChatotCry
+.halfword 92
+.endmacro
+
+.macro CMD_093
+.halfword 93
+.endmacro
+
+.macro Movement,arg0,arg1
+.halfword 94
+.halfword arg0
+.word arg1-.-4
+.endmacro
+
+.macro WaitMovement
+.halfword 95
+.endmacro
+
+//.macro LockAll
+//.halfword 96
+//.endmacro
+//
+//.macro ReleaseAll
+//.halfword 97
+//.endmacro
+//
+//.macro Lock,arg0
+//.halfword 98
+//.halfword arg0
+//.endmacro
+//
+//.macro Release,arg0
+//.halfword 99
+//.halfword arg0
+//.endmacro
+
+.macro AddOW,arg0
+.halfword 100
+.halfword arg0
+.endmacro
+
+.macro RemoveOW,arg0
+.halfword 101
+.halfword arg0
+.endmacro
+
+.macro LockCamera,arg0,arg1
+.halfword 102
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro ReleaseCamera
+.halfword 103
+.endmacro
+
+//.macro FacePlayer
+//.halfword 104
+//.endmacro
+
+.macro GetPlayerPosition,arg0,arg1
+.halfword 105
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetOWPosition,arg0,arg1,arg2
+.halfword 106
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro SetFollowingOverworld,arg0,arg1,arg2
+.halfword 107
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro KeepOverworld,arg0,arg1
+.halfword 108
+.halfword arg0
+.byte arg1
+.endmacro
+
+.macro SetOWMovement,arg0,arg1
+.halfword 109
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveMoney,arg0
+.halfword 110
+.word arg0
+.endmacro
+
+.macro TakeMoney,arg0
+.halfword 111
+.word arg0
+.endmacro
+
+.macro CompareMoney,arg0,arg1
+.halfword 112
+.halfword arg0
+.word arg1
+.endmacro
+
+.macro ShowMoney,arg0,arg1
+.halfword 113
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro HideMoney
+.halfword 114
+.endmacro
+
+.macro UpdateMoney
+.halfword 115
+.endmacro
+
+.macro ShowSpecialCurrency,arg0,arg1,arg2
+.halfword 116
+.byte arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro HideSpecialCurrency
+.halfword 117
+.endmacro
+
+.macro UpdateSpecialCurrency,arg0
+.halfword 118
+.byte arg0
+.endmacro
+
+.macro CheckCoins,arg0
+.halfword 119
+.halfword arg0
+.endmacro
+
+.macro GiveCoins,arg0
+.halfword 120
+.halfword arg0
+.endmacro
+
+.macro TakeCoins,arg0
+.halfword 121
+.halfword arg0
+.endmacro
+
+.macro GiveAthletePoints,arg0
+.halfword 122
+.halfword arg0
+.endmacro
+
+.macro TakeAthletePoints,arg0
+.halfword 123
+.halfword arg0
+.endmacro
+
+.macro CompareAthletePoints,arg0,arg1
+.halfword 124
+.halfword arg0
+.halfword arg1
+.endmacro
+
+//.macro GiveItem,arg0,arg1,arg2
+//.halfword 125
+//.halfword arg0
+//.halfword arg1
+//.halfword arg2
+//.endmacro
+//
+//.macro TakeItem,arg0,arg1,arg2
+//.halfword 126
+//.halfword arg0
+//.halfword arg1
+//.halfword arg2
+//.endmacro
+
+.macro CheckItemSpace,arg0,arg1,arg2
+.halfword 127
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckItem,arg0,arg1,arg2
+.halfword 128
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckItemIsMachine,arg0,arg1
+.halfword 129
+.halfword arg0
+.halfword arg1
+.endmacro
+
+//.macro GetItemPocket,arg0,arg1
+//.halfword 130
+//.halfword arg0
+//.halfword arg1
+//.endmacro
+
+.macro SetStarter,arg0
+.halfword 131
+.halfword arg0
+.endmacro
+
+.macro GenderMessage,arg0,arg1
+.halfword 132
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro CheckSeals,arg0,arg1
+.halfword 133
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveSeals,arg0,arg1
+.halfword 134
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveRandomSeals,arg0,arg1,arg2
+.halfword 135
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckPokemonForm,arg0,arg1
+.halfword 136
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GivePokemon,arg0,arg1,arg2,arg3,arg4,arg5
+.halfword 137
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.halfword arg5
+.endmacro
+
+.macro GivePokemonEgg,arg0,arg1
+.halfword 138
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro ReplaceMove,arg0,arg1,arg2
+.halfword 139
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckPokemonHasMove,arg0,arg1,arg2
+.halfword 140
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckMoveInParty,arg0,arg1
+.halfword 141
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetPokeGearRematch,arg0,arg1
+.halfword 142
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro ChooseRivalName,arg0
+.halfword 143
+.halfword arg0
+.endmacro
+
+.macro GetCounterpartSprite,arg0
+.halfword 144
+.halfword arg0
+.endmacro
+
+.macro UpgradePokegear,arg0
+.halfword 145
+.byte arg0
+.endmacro
+
+.macro RecordPokegearNumber,arg0
+.halfword 146
+.halfword arg0
+.endmacro
+
+.macro CheckHasPokegearNumber,arg0,arg1
+.halfword 147
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_148,arg0,arg1
+.halfword 148
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro CMD_149,arg0
+.halfword 149
+.byte arg0
+.endmacro
+
+.macro ReturnScreen
+.halfword 150
+.endmacro
+
+.macro CMD_151
+.halfword 151
+.endmacro
+
+.macro Wifi
+.halfword 152
+.endmacro
+
+.macro DressPokemon,arg0
+.halfword 153
+.halfword arg0
+.endmacro
+
+.macro ContestDressupScreen,arg0,arg1,arg2
+.halfword 154
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro DressUpArtworkScreen,arg0,arg1
+.halfword 155
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SealCapsuleScreen
+.halfword 156
+.endmacro
+
+.macro WorldMapScreen
+.halfword 157
+.endmacro
+
+.macro PCBoxScreen,arg0
+.halfword 158
+.byte arg0
+.endmacro
+
+.macro DrawScreenUnion
+.halfword 159
+.endmacro
+
+.macro TrainerCaseUnion
+.halfword 160
+.endmacro
+
+.macro TradeScreenUnion
+.halfword 161
+.endmacro
+
+.macro RecordMixingUnion
+.halfword 162
+.endmacro
+
+.macro EndGameScreen,arg0
+.halfword 163
+.halfword arg0
+.endmacro
+
+.macro HallOfFameData
+.halfword 164
+.endmacro
+
+.macro StoreGTSStatus,arg0,arg1
+.halfword 165
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro InitWFC,arg0
+.halfword 166
+.halfword arg0
+.endmacro
+
+.macro StarterSelectionScreen
+.halfword 167
+.endmacro
+
+.macro GetTrainerPathToPlayer,arg0
+.halfword 168
+.halfword arg0
+.endmacro
+
+.macro TrainerStepTowardsPlayer,arg0,arg1
+.halfword 169
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetTrainerEyeType,arg0
+.halfword 170
+.halfword arg0
+.endmacro
+
+// For when one or more trainers see you
+.macro GetEyeTrainerNum,arg0,arg1
+.halfword 171
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro WritePlayerName,arg0
+.halfword 172
+.halfword arg0
+.endmacro
+
+.macro WritePokemonName,arg0,arg1
+.halfword 173
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro FadeScreen,arg0,speed,direction,color
+.halfword 174
+.halfword arg0
+.halfword speed
+.halfword direction
+.halfword color
+.endmacro
+
+.macro WaitFadeScreen
+.halfword 175
+.endmacro
+
+//.macro Warp,arg0,arg1,arg2,arg3,arg4
+//.halfword 176
+//.halfword arg0
+//.halfword arg1
+//.halfword arg2
+//.halfword arg3
+//.halfword arg4
+//.endmacro
+
+.macro RockClimbAnimation,arg0
+.halfword 177
+.halfword arg0
+.endmacro
+
+.macro SurfAnimation,arg0
+.halfword 178
+.halfword arg0
+.endmacro
+
+.macro WaterfallAnimation,arg0
+.halfword 179
+.halfword arg0
+.endmacro
+
+.macro FlyAnimation,arg0,arg1,arg2
+.halfword 180
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro FlashAnimation
+.halfword 181
+.endmacro
+
+.macro WhirlpoolAnimation,arg0
+.halfword 182
+.halfword arg0
+.endmacro
+
+.macro CutAnimation,arg0
+.halfword 183
+.halfword arg0
+.endmacro
+
+.macro CheckBike,arg0
+.halfword 184
+.halfword arg0
+.endmacro
+
+.macro RideBike,arg0
+.halfword 185
+.byte arg0
+.endmacro
+
+.macro CyclingRoad,arg0
+.halfword 186
+.byte arg0
+.endmacro
+
+// Get the overworld state of the player.
+// Used in some places to determine whether
+// the player is masquerading as a member
+// of Team Rocket.
+.macro CheckPlayerForm,var
+.halfword 187
+.halfword var
+.endmacro
+
+.macro SetPlayerForm,arg0
+.halfword 188
+.halfword arg0
+.endmacro
+
+.macro UpdatePlayerForm
+.halfword 189
+.endmacro
+
+// In the buffer_XXX commands,the maximum
+// acceptable value for the slot arg is 7.
+// This sets the message format placeholder
+// to whatever is buffered.
+.macro TextPlayerName,slot
+.halfword 190
+.byte slot
+.endmacro
+
+// If you use this before naming your rival,
+// this will be an empty string.
+.macro TextRivalName,slot
+.halfword 191
+.byte slot
+.endmacro
+
+.macro TextCounterpart,slot
+.halfword 192
+.byte slot
+.endmacro
+
+// For these commands, the additional argument
+// is a flex arg, meaning it can be a literal
+// or a variable.
+.macro TextPartyPokemon,slot,party_pos
+.halfword 193
+.byte slot
+.halfword party_pos
+.endmacro
+
+.macro TextItem,slot,item
+.halfword 194
+.byte slot
+.halfword item
+.endmacro
+
+.macro TextPocket,slot,pocket
+.halfword 195
+.byte slot
+.halfword pocket
+.endmacro
+
+.macro TextMachineMove,slot,tmhm
+.halfword 196
+.byte slot
+.halfword tmhm
+.endmacro
+
+.macro TextMove,slot,move
+.halfword 197
+.byte slot
+.halfword move
+.endmacro
+
+.macro TextNumber,slot,value
+.halfword 198
+.byte slot
+.halfword value
+.endmacro
+
+.macro TextPokeNickname,slot,party_pos
+.halfword 199
+.byte slot
+.halfword party_pos
+.endmacro
+
+.macro TextTrainerClassName,slot,trcls
+.halfword 200
+.byte slot
+.halfword trcls
+.endmacro
+
+.macro TextPlayerTrainerType,slot
+.halfword 201
+.byte slot
+.endmacro
+
+// The other two args here are unused
+.macro TextPokemon,slot,species,arg2,arg3
+.halfword 202
+.byte slot
+.halfword species
+.halfword arg2
+.byte arg3
+.endmacro
+
+.macro TextStarterPokemon,slot
+.halfword 203
+.byte slot
+.endmacro
+
+// These two commands are leftover from Platinum.
+// As such,they are configured to check for the
+// Sinnoh starters instead of the Johto starters.
+// Since the player will never start with any of
+// Turtwig,Chimchar,or Piplup,this command
+// will always return TURTWIG,and the following
+// CHIMCHAR.
+// These commands are unused in HGSS.
+.macro TextRivalStarter,slot
+.halfword 204
+.byte slot
+.endmacro
+
+.macro TextCounterpartStarter,slot
+.halfword 205
+.byte slot
+.endmacro
+
+// Gets your starter species into the indicated
+// variable. Used to calculate which rival
+// party to use.
+.macro CheckStarter,var
+.halfword 206
+.halfword var
+.endmacro
+
+.macro DummyTextGoods,slot,deco
+.halfword 207
+.byte slot
+.halfword deco
+.endmacro
+
+// Dummy
+.macro DummyTextTrap,slot,unk
+.halfword 208
+.byte slot
+.halfword unk
+.endmacro
+
+// Dummy
+.macro DummyTextTreasure,slot,unk
+.halfword 209
+.byte slot
+.halfword unk
+.endmacro
+
+.macro TextMapName,slot,location
+.halfword 210
+.byte slot
+.halfword location
+.endmacro
+
+.macro GetSwarmInfo,arg0,arg1
+.halfword 211
+.halfword arg0
+.halfword arg1
+.endmacro
+
+// For when you talk to a trainer
+.macro TrainerID,arg0
+.halfword 212
+.halfword arg0
+.endmacro
+
+.macro TrainerBattle,trainer,arg1,arg2,arg3
+.halfword 213
+.halfword trainer
+.halfword arg1
+.byte arg2
+.byte arg3
+.endmacro
+
+.macro TrainerMessage,trainer,param
+.halfword 214
+.halfword trainer
+.halfword param
+.endmacro
+
+.macro TrainerMsgCheck,intro,after,_1poke
+.halfword 215
+.halfword intro
+.halfword after
+.halfword _1poke
+.endmacro
+
+.macro TrainerRematchMsgCheck,arg0,arg1,arg2
+.halfword 216
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro TrainerTypeCheck,arg0
+.halfword 217
+.halfword arg0
+.endmacro
+
+.macro TrainerMusic,arg0
+.halfword 218
+.halfword arg0
+.endmacro
+
+.macro LostBattle
+.halfword 219
+.endmacro
+
+// Is this loss?
+.macro CheckBattleIsLost,var
+.halfword 220
+.halfword var
+.endmacro
+
+.macro CheckDefeatedPokemon,arg0,arg1
+.halfword 221
+.halfword arg0
+.byte arg1
+.endmacro
+
+.macro Check2vs2,arg0
+.halfword 222
+.halfword arg0
+.endmacro
+
+.macro DummyTrainerBattle
+.halfword 223
+.endmacro
+
+.macro DummyTrainerFlag
+.halfword 224
+.endmacro
+
+.macro DummyTrainerFlagJump,arg0
+.halfword 225
+.word arg0-.-4
+.endmacro
+
+.macro CMD_226,arg0,arg1,arg2,arg3
+.halfword 226
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_227,arg0,arg1,arg2,arg3
+.halfword 227
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_228,arg0
+.halfword 228
+.halfword arg0
+.endmacro
+
+.macro CMD_229,arg0
+.halfword 229
+.halfword arg0
+.endmacro
+
+.macro CMD_230
+.halfword 230
+.endmacro
+
+.macro CMD_231
+.halfword 231
+.endmacro
+
+.macro CMD_232,arg0
+.halfword 232
+.halfword arg0
+.endmacro
+
+.macro CMD_233,arg0
+.halfword 233
+.halfword arg0
+.endmacro
+
+.macro CMD_234,arg0,arg1,arg2,arg3
+.halfword 234
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_235,arg0
+.halfword 235
+.halfword arg0
+.endmacro
+
+.macro CMD_236,arg0
+.halfword 236
+.halfword arg0
+.endmacro
+
+.macro CMD_237
+.halfword 237
+.endmacro
+
+.macro CheckPokerus,arg0
+.halfword 238
+.halfword arg0
+.endmacro
+
+.macro GetPokemonGender,arg0,arg1
+.halfword 239
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetElevatorWarp,arg0,arg1,arg2,arg3,arg4
+.halfword 240
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro GetElevatorFloor,arg0
+.halfword 241
+.halfword arg0
+.endmacro
+
+.macro ElevatorBox,arg0,arg1,arg2,arg3
+.halfword 242
+.byte arg0
+.byte arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CountJohtoDexSeen,var
+.halfword 243
+.halfword var
+.endmacro
+
+.macro CountJohtoDexObtained,var
+.halfword 244
+.halfword var
+.endmacro
+
+.macro CountNationalDexSeen,var
+.halfword 245
+.halfword var
+.endmacro
+
+.macro CountNationalDexObtained,var
+.halfword 246
+.halfword var
+.endmacro
+
+// Dummy
+.macro DummyNationalDexCheck
+.halfword 247
+.endmacro
+
+// The actual Pokedex evaluation.
+// national: 0 = Johto dex, 1 = National dex
+// msg: Variable to return the message ID
+// fanfare: Variable to return the fanfare ID
+.macro GetDexProgressMsg,national,msg,fanfare
+.halfword 248
+.byte national
+.halfword msg
+.halfword fanfare
+.endmacro
+
+.macro WildBattle,arg0,arg1
+.halfword 249
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro WildBattleNoButtons,arg0,arg1
+.halfword 250
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CatchTutorial
+.halfword 251
+.endmacro
+
+.macro CMD_252
+.halfword 252
+.endmacro
+
+.macro CheckSaveGame,arg0
+.halfword 253
+.halfword arg0
+.endmacro
+
+.macro SaveGame,arg0
+.halfword 254
+.halfword arg0
+.endmacro
+
+.macro CheckPortrait,arg0,arg1
+.halfword 255
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetPortraitTitle,arg0
+.halfword 256
+.halfword arg0
+.endmacro
+
+.macro CMD_257,arg0
+.halfword 257
+.halfword arg0
+.endmacro
+
+.macro CMD_258
+.halfword 258
+.endmacro
+
+.macro CMD_259,arg0
+.halfword 259
+.halfword arg0
+.endmacro
+
+.macro CMD_260,arg0
+.halfword 260
+.halfword arg0
+.endmacro
+
+.macro CMD_261,arg0
+.halfword 261
+.halfword arg0
+.endmacro
+
+.macro CMD_262
+.halfword 262
+.endmacro
+
+.macro CMD_263
+.halfword 263
+.endmacro
+
+.macro CMD_264,arg0
+.halfword 264
+.halfword arg0
+.endmacro
+
+.macro CMD_265
+.halfword 265
+.endmacro
+
+.macro CMD_266
+.halfword 266
+.endmacro
+
+.macro CMD_267,arg0,arg1
+.halfword 267
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_268,arg0
+.halfword 268
+.halfword arg0
+.endmacro
+
+.macro CMD_269,arg0
+.halfword 269
+.halfword arg0
+.endmacro
+
+.macro CMD_270
+.halfword 270
+.endmacro
+
+.macro CMD_271,arg0,arg1
+.halfword 271
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_272,arg0
+.halfword 272
+.halfword arg0
+.endmacro
+
+.macro CMD_273,arg0
+.halfword 273
+.halfword arg0
+.endmacro
+
+.macro CMD_274,arg0,arg1
+.halfword 274
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro MartScreen,arg0
+.halfword 275
+.halfword arg0
+.endmacro
+
+.macro SpMartScreen,arg0
+.halfword 276
+.halfword arg0
+.endmacro
+
+.macro GoodsMartScreen,arg0
+.halfword 277
+.halfword arg0
+.endmacro
+
+.macro SealMartScreen,arg0
+.halfword 278
+.halfword arg0
+.endmacro
+
+// Used with poison faint,but due to overworld
+// poison mechanics in gen 4,this is
+// never reached.
+.macro DummyLostBattle
+.halfword 279
+.endmacro
+
+.macro SetLastWarp,arg0
+.halfword 280
+.halfword arg0
+.endmacro
+
+// Are you a boy? Or are you a girl?
+.macro CheckPlayerGender,var
+.halfword 281
+.halfword var
+.endmacro
+
+.macro HealPokemon
+.halfword 282
+.endmacro
+
+.macro EndWirelessComms
+.halfword 283
+.endmacro
+
+.macro EnterBattleRoom
+.halfword 284
+.endmacro
+
+.macro SetPlayerDirComm,arg0
+.halfword 285
+.halfword arg0
+.endmacro
+
+.macro UnionMapChange
+.halfword 286
+.endmacro
+
+.macro UnionRoomSpriteScreen
+.halfword 287
+.endmacro
+
+.macro StoreUnionSprite,arg0,arg1
+.halfword 288
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetUnionSprite,arg0
+.halfword 289
+.halfword arg0
+.endmacro
+
+.macro CheckPokedex,arg0
+.halfword 290
+.halfword arg0
+.endmacro
+
+.macro GivePokedex
+.halfword 291
+.endmacro
+
+.macro CheckShoes,arg0
+.halfword 292
+.halfword arg0
+.endmacro
+
+.macro GiveShoes
+.halfword 293
+.endmacro
+
+.macro CheckBadge,badge,var
+.halfword 294
+.halfword badge
+.halfword var
+.endmacro
+
+.macro GiveBadge,badge
+.halfword 295
+.halfword badge
+.endmacro
+
+// This command is never used because it is
+// assumed that you cannot get the 8th badge
+// before the other 7,or the 16th before the
+// other 15. This assumption does not account
+// for tweaking.
+.macro CountBadges,var
+.halfword 296
+.halfword var
+.endmacro
+
+.macro DummyCheckBag,arg0
+.halfword 297
+.halfword arg0
+.endmacro
+
+.macro DummyGiveBag
+.halfword 298
+.endmacro
+
+.macro CheckPartner,arg0
+.halfword 299
+.halfword arg0
+.endmacro
+
+.macro SetPartner
+.halfword 300
+.endmacro
+
+.macro ClearPartner
+.halfword 301
+.endmacro
+
+.macro CheckStepFlag,arg0
+.halfword 302
+.halfword arg0
+.endmacro
+
+.macro SetStepFlag
+.halfword 303
+.endmacro
+
+.macro ClearStepFlag
+.halfword 304
+.endmacro
+
+.macro DummyCheckGameCompleted,arg0
+.halfword 305
+.halfword arg0
+.endmacro
+
+.macro DummyGameCompleted
+.halfword 306
+.endmacro
+
+.macro DoorAnimation,arg0,arg1,arg2,arg3,arg4
+.halfword 307
+.halfword arg0 // matrix x
+.halfword arg1 // matrix y
+.halfword arg2 // map x
+.halfword arg3 // map y
+.byte arg4     // door id
+.endmacro
+
+.macro WaitDoor,arg0
+.halfword 308
+.byte arg0     // door id
+.endmacro
+
+.macro FreeDoor,arg0
+.halfword 309
+.byte arg0     // door id
+.endmacro
+
+.macro OpenDoor,arg0
+.halfword 310
+.byte arg0     // door id
+.endmacro
+
+.macro CloseDoor,arg0
+.halfword 311
+.byte arg0     // door id
+.endmacro
+
+.macro GetDaycareNames
+.halfword 312
+.endmacro
+
+.macro GetDaycareStatus,arg0
+.halfword 313
+.halfword arg0
+.endmacro
+
+.macro InitEcruteakGym
+.halfword 314
+.endmacro
+
+.macro CMD_315
+.halfword 315
+.endmacro
+
+.macro CMD_316
+.halfword 316
+.endmacro
+
+.macro CMD_317,arg0
+.halfword 317
+.byte arg0
+.endmacro
+
+.macro CianwoodGymInit
+.halfword 318
+.endmacro
+
+.macro CianwoodGymTurnWinch,arg0
+.halfword 319
+.halfword arg0
+.endmacro
+
+.macro VermilionGymInit
+.halfword 320
+.endmacro
+
+.macro VermilionGymLockAction,arg0,arg1
+.halfword 321
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro VermilionGymCanCheck,arg0,arg1
+.halfword 322
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro ResetVermilionGymCans
+.halfword 323
+.endmacro
+
+.macro InitVioletGym
+.halfword 324
+.endmacro
+
+.macro VioletGymElevator
+.halfword 325
+.endmacro
+
+.macro InitAzaleaGym
+.halfword 326
+.endmacro
+
+.macro AzaleaGymSpinarak,arg0
+.halfword 327
+.byte arg0
+.endmacro
+
+.macro AzaleaGymSwitch,arg0
+.halfword 328
+.byte arg0
+.endmacro
+
+.macro BlackthornGymInit
+.halfword 329
+.endmacro
+
+.macro FuchsiaGymInit
+.halfword 330
+.endmacro
+
+.macro ViridianGymInit
+.halfword 331
+.endmacro
+
+.macro GetPartyCount,var
+.halfword 332
+.halfword var
+.endmacro
+
+.macro BagScreen,arg0
+.halfword 333
+.byte arg0
+.endmacro
+
+.macro BagScreenSelection,arg0
+.halfword 334
+.halfword arg0
+.endmacro
+
+.macro CheckPocketItems,arg0,arg1
+.halfword 335
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro DummyTextBerry,slot,item,quantity
+.halfword 336
+.byte slot
+.halfword item
+.halfword quantity
+.endmacro
+
+.macro TextNature,slot,nature
+.halfword 337
+.byte slot
+.halfword nature
+.endmacro
+
+.macro SetOWDefaultPosition,arg0,arg1,arg2
+.halfword 338
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro SetOWPosition,person,x,z,y,facing
+.halfword 339
+.halfword person
+.halfword x
+.halfword z
+.halfword y
+.halfword facing
+.endmacro
+
+.macro SetOWDefaultMovement,arg0,arg1
+.halfword 340
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetOWDefaultDirection,arg0,arg1
+.halfword 341
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetWarpPosition,arg0,arg1,arg2
+.halfword 342
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro SetSpawnablePosition,arg0,arg1,arg2
+.halfword 343
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro SetOWDirection,arg0,arg1
+.halfword 344
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro AddWaitingIcon
+.halfword 345
+.endmacro
+
+.macro RemoveWaitingIcon
+.halfword 346
+.endmacro
+
+.macro ReturnScriptWkSet,arg0
+.halfword 347
+.halfword arg0
+.endmacro
+
+.macro WaitTimeOrAB,arg0
+.halfword 348
+.halfword arg0
+.endmacro
+
+.macro ChoosePKMNSelection
+.halfword 349
+.endmacro
+
+.macro UnionChoosePKMNSelection
+.halfword 350
+.endmacro
+
+.macro GetSelectedPartySlot,arg0
+.halfword 351
+.halfword arg0
+.endmacro
+
+.macro SelectMove,arg0,arg1,arg2
+.halfword 352
+.byte arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro GetMoveSelection,arg0,arg1
+.halfword 353
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro GetPartyPokemonID,slot,var
+.halfword 354
+.halfword slot
+.halfword var
+.endmacro
+
+.macro CheckTradedPokemon,slot,var
+.halfword 355
+.halfword slot
+.halfword var
+.endmacro
+
+.macro CountPartyBornPokemon,var
+.halfword 356
+.halfword var
+.endmacro
+
+// Count Pokemon that are not fainted.
+// If except is set, exclude that slot
+// from the tally. Use 6 to disable.
+.macro CountAlivePokemonExceptFirst,var,except
+.halfword 357
+.halfword var
+.halfword except
+.endmacro
+
+.macro CountTotalAlivePokemon,arg0
+.halfword 358
+.halfword arg0
+.endmacro
+
+.macro CountPartyEggs,arg0
+.halfword 359
+.halfword arg0
+.endmacro
+
+.macro TakeMoneyFlex,var
+.halfword 360
+.halfword var
+.endmacro
+
+.macro RetrieveDayCareMon,arg0,arg1
+.halfword 361
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveLoanMon,arg0,arg1,arg2
+.halfword 362
+.byte arg0
+.byte arg1
+.halfword arg2
+.endmacro
+
+.macro CheckReturnLoanMon,arg0,arg1,arg2
+.halfword 363
+.byte arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro DeletePartyPokemon,arg0
+.halfword 364
+.halfword arg0
+.endmacro
+
+.macro RemoveDayCareEgg
+.halfword 365
+.endmacro
+
+.macro GiveDayCareEgg
+.halfword 366
+.endmacro
+
+.macro TextDayCareCost,arg0,arg1
+.halfword 367
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CompareMoneyFlex,var,amount
+.halfword 368
+.halfword var
+.halfword amount
+.endmacro
+
+.macro EggHatchScreen
+.halfword 369
+.endmacro
+
+.macro CMD_370,arg0
+.halfword 370
+.byte arg0
+.endmacro
+
+.macro CheckDaycareLevelGain,arg0,arg1
+.halfword 371
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetDayCareSpeciesandNick,arg0
+.halfword 372
+.halfword arg0
+.endmacro
+
+.macro GiveDayCareMon,arg0
+.halfword 373
+.halfword arg0
+.endmacro
+
+.macro UnvanishOverworld,arg0
+.halfword 374
+.halfword arg0
+.endmacro
+
+.macro VanishOverworld,arg0
+.halfword 375
+.halfword arg0
+.endmacro
+
+.macro MailScreen
+.halfword 376
+.endmacro
+
+.macro CountMail,arg0
+.halfword 377
+.halfword arg0
+.endmacro
+
+.macro RankingView,arg0,arg1
+.halfword 378
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetTimePeriod,arg0
+.halfword 379
+.halfword arg0
+.endmacro
+
+.macro GetRandom,arg0,arg1
+.halfword 380
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro DummyGetRandom,arg0,arg1
+.halfword 381
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetPokemonHappiness,arg0,arg1
+.halfword 382
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro AddHappiness,arg0,arg1
+.halfword 383
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SubHappiness,arg0,arg1
+.halfword 384
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro TextDayCareMonStats,arg0,arg1,arg2,arg3
+.halfword 385
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro GetPlayerDirection,arg0
+.halfword 386
+.halfword arg0
+.endmacro
+
+.macro GetDayCareMonCompatibility,arg0
+.halfword 387
+.halfword arg0
+.endmacro
+
+.macro CheckDayCareEgg,arg0
+.halfword 388
+.halfword arg0
+.endmacro
+
+.macro CheckBornPokemonInParty,arg0,arg1
+.halfword 389
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckPokemonSizeRecord,arg0,arg1
+.halfword 390
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetPokemonSizeRecord,arg0
+.halfword 391
+.halfword arg0
+.endmacro
+
+.macro TextPartyPokemonSize,arg0,arg1,arg2
+.halfword 392
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro TextPokemonRecordSize,arg0,arg1,arg2
+.halfword 393
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_394,arg0
+.halfword 394
+.halfword arg0
+.endmacro
+
+.macro CMD_395,arg0
+.halfword 395
+.halfword arg0
+.endmacro
+
+.macro CountPokemonMoves,arg0,arg1
+.halfword 396
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro DeleteMove,arg0,arg1
+.halfword 397
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetPartyPokemonMove,arg0,arg1,arg2
+.halfword 398
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro TextPartyPokemonMove,slot,party_pos,move_pos
+.halfword 399
+.byte slot
+.halfword party_pos
+.halfword move_pos
+.endmacro
+
+// action = 0: Deactivate strength
+// action = 1: Activate strength
+// action = 2: Check whether strength is active
+.macro Strength,action,var
+.halfword 400
+.byte action
+.if action == 2
+.halfword var
+.endif
+.endmacro
+
+.macro FlashAction,action,var
+.halfword 401
+.byte action
+.if action == 2
+.halfword var
+.endif
+.endmacro
+
+.macro DefogAction,action,var
+.halfword 402
+.byte action
+.if action == 2
+.halfword var
+.endif
+.endmacro
+
+.macro GiveAccessory,arg0,arg1
+.halfword 403
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckGivenAccessory,arg0,arg1,arg2
+.halfword 404
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckAccessory,arg0,arg1,arg2
+.halfword 405
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro GiveBGAccessory,arg0
+.halfword 406
+.halfword arg0
+.endmacro
+
+.macro CheckBGAccessory,arg0,arg1
+.halfword 407
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_408,arg0,arg1
+.halfword 408
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_409
+.halfword 409
+.endmacro
+
+.macro CMD_410,arg0,arg1
+.halfword 410
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_411
+.halfword 411
+.endmacro
+
+.macro CMD_412,arg0,arg1,arg2
+.halfword 412
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_413,arg0,arg1,arg2,arg3
+.halfword 413
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_414,arg0
+.halfword 414
+.halfword arg0
+.endmacro
+
+.macro CMD_415,arg0
+.halfword 415
+.halfword arg0
+.endmacro
+
+.macro CMD_416,arg0,arg1,arg2
+.halfword 416
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_417,arg0,arg1
+.halfword 417
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_418,arg0,arg1
+.halfword 418
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_419,arg0
+.halfword 419
+.halfword arg0
+.endmacro
+
+.macro CMD_420,arg0
+.halfword 420
+.halfword arg0
+.endmacro
+
+.macro CMD_421,arg0,arg1,arg2
+.halfword 421
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_422,arg0,arg1,arg2,arg3
+.halfword 422
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.byte arg3
+.endmacro
+
+.macro CheckCompleteJohtoDex,arg0
+.halfword 423
+.halfword arg0
+.endmacro
+
+.macro CheckCompleteNationalDex,arg0
+.halfword 424
+.halfword arg0
+.endmacro
+
+.macro OpenPokedexScreen,arg0
+.halfword 425
+.halfword arg0
+.endmacro
+
+.macro CheckPokemonMail,arg0,arg1,arg2
+.halfword 426
+.halfword arg0
+.halfword arg1
+.byte arg2
+.endmacro
+
+.macro CMD_427,arg0
+.halfword 427
+.halfword arg0
+.endmacro
+
+.macro TakePokemonMail,arg0
+.halfword 428
+.halfword arg0
+.endmacro
+
+//.macro CountFossils,arg0
+//.halfword 429
+//.halfword arg0
+//.endmacro
+
+.macro SetPhoneCall,arg0,arg1,arg2
+.halfword 430
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro RunPhoneCall
+.halfword 431
+.endmacro
+
+.macro CheckFossilPokemon,arg0,arg1
+.halfword 432
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckFossil,arg0,arg1,arg2
+.halfword 433
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CountPokemonUnderLevel,arg0,arg1
+.halfword 434
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SurvivePoison,arg0,arg1
+.halfword 435
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro FinishOverworldScreen
+.halfword 436
+.endmacro
+
+.macro DebugPoketch,arg0
+.halfword 437
+.halfword arg0
+.endmacro
+
+.macro MessageAllFromArchive,arg0,arg1
+.halfword 438
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro MessageFromArchive,arg0,arg1
+.halfword 439
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro MessageAllPutPMS,arg0,arg1
+.halfword 440
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_441,arg0,arg1,arg2,arg3
+.halfword 441
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_442,arg0,arg1,arg2,arg3
+.halfword 442
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_443,arg0
+.halfword 443
+.byte arg0
+.endmacro
+
+.macro CMD_444,arg0,arg1,arg2,arg3
+.halfword 444
+.byte arg0
+.halfword arg1
+.halfword arg2
+.byte arg3
+.endmacro
+
+.macro GetPreviousHeaderID,arg0
+.halfword 445
+.halfword arg0
+.endmacro
+
+.macro GetCurrentHeaderID,arg0
+.halfword 446
+.halfword arg0
+.endmacro
+
+.macro SetSafariFlag,arg0,arg1
+.halfword 447
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro BattleRoomWarp,arg0,arg1,arg2,arg3,arg4
+.halfword 448
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro ExitBattleRoom
+.halfword 449
+.endmacro
+
+.macro GeonetScreen
+.halfword 450
+.endmacro
+
+.macro CMD_451,arg0
+.halfword 451
+.halfword arg0
+.endmacro
+
+.macro ShowPokemonPic,arg0,arg1
+.halfword 452
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro HidePokemonPic
+.halfword 453
+.endmacro
+
+.macro CMD_454
+.halfword 454
+.endmacro
+
+.macro CMD_455
+.halfword 455
+.endmacro
+
+.macro CMD_456,arg0
+.halfword 456
+.byte arg0
+.endmacro
+
+.macro GetPokemonNature,arg0,arg1
+.halfword 457
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckPartyNature,arg0,arg1
+.halfword 458
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_459
+.halfword 459
+.endmacro
+
+.macro LoadPokegearData,arg0,arg1
+.halfword 460
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetRebattleTrainerID,arg0,arg1,arg2
+.halfword 461
+.byte arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro SetRebattleGymLeaderID,arg0
+.halfword 462
+.halfword arg0
+.endmacro
+
+.macro EnableMassOutbreaks
+.halfword 463
+.endmacro
+
+.macro AddRoamingPokemon,arg0
+.halfword 464
+.byte arg0
+.endmacro
+
+.macro UnionGroup,arg0,arg1,arg2
+.halfword 465
+.halfword arg0
+.if arg0 <= 3
+	.halfword arg1
+	.halfword arg2
+.else
+	.if arg0 != 6
+		.halfword arg1
+	.endif
+.endif
+.endmacro
+
+.macro CheckEggMoves,arg0,arg1
+.halfword 466
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro RememberMoveScreen,arg0
+.halfword 467
+.halfword arg0
+.endmacro
+
+.macro TeachMovesScreen,arg0,arg1
+.halfword 468
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro ResponseTeachMove,arg0
+.halfword 469
+.halfword arg0
+.endmacro
+
+.macro InitTrade,arg0
+.halfword 470
+.byte arg0
+.endmacro
+
+.macro GetOfferedPokemon,arg0
+.halfword 471
+.halfword arg0
+.endmacro
+
+.macro GetRequestedPokemon,arg0
+.halfword 472
+.halfword arg0
+.endmacro
+
+.macro TradePokemonScreen,arg0
+.halfword 473
+.halfword arg0
+.endmacro
+
+.macro EndTrade
+.halfword 474
+.endmacro
+
+.macro DummyInternationalDex
+.halfword 475
+.endmacro
+
+.macro DummyDimorphismDex
+.halfword 476
+.endmacro
+
+.macro NationalDex,arg0,arg1
+.halfword 477
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CountPokemonRibbons,arg0,arg1
+.halfword 478
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CountPartyRibbons,arg0
+.halfword 479
+.halfword arg0
+.endmacro
+
+.macro CheckRibbon,arg0,arg1,arg2
+.halfword 480
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro GiveRibbon,arg0,arg1
+.halfword 481
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro TextRibbon,arg0,arg1
+.halfword 482
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CountPokemonEVs,arg0,arg1
+.halfword 483
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GetDayOfWeek,arg0
+.halfword 484
+.halfword arg0
+.endmacro
+
+.macro ShowRulesList,arg0
+.halfword 485
+.halfword arg0
+.endmacro
+
+.macro DummyGetPokemonFootprint
+.halfword 486
+.endmacro
+
+.macro PCHealAnimation,arg0
+.halfword 487
+.halfword arg0
+.endmacro
+
+.macro ElevatorAnimation,direction,distance
+.halfword 488
+.halfword direction
+.halfword distance
+.endmacro
+
+.macro MysteryGiftGive,arg0,arg1,arg2
+.halfword 489
+.halfword arg0
+.if arg0 >= 1 && arg0 <= 3
+    .halfword arg1
+.else
+    .if arg0 == 5 || arg0 == 6
+        .halfword arg1
+        .halfword arg2
+    .endif
+.endif
+.endmacro
+
+.macro CMD_490,arg0
+.halfword 490
+.halfword arg0
+.endmacro
+
+.macro CMD_491,arg0
+.halfword 491
+.halfword arg0
+.endmacro
+
+.macro CMD_492,arg0,arg1,arg2
+.halfword 492
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro MPT_EASY_CHAT,arg0,arg1,arg2
+.halfword 493
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_494,arg0,arg1
+.halfword 494
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckVersion,arg0
+.halfword 495
+.halfword arg0
+.endmacro
+
+.macro FirstPokemonInParty,arg0
+.halfword 496
+.halfword arg0
+.endmacro
+
+.macro CheckPokemonType,arg0,arg1,arg2
+.halfword 497
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro FirstPrimoPassword,arg0,arg1,arg2,arg3,arg4
+.halfword 498
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro SecondPrimoPassword,arg0,arg1,arg2,arg3,arg4
+.halfword 499
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro PreparePCAnimation,arg0
+.halfword 500
+.byte arg0
+.endmacro
+
+.macro OpenPCAnimation,arg0
+.halfword 501
+.byte arg0
+.endmacro
+
+.macro ClosePCAnimation,arg0
+.halfword 502
+.byte arg0
+.endmacro
+
+.macro GetLottoNumber,arg0
+.halfword 503
+.halfword arg0
+.endmacro
+
+.macro CheckWinLotto,arg0,arg1,arg2,arg3
+.halfword 504
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro InitLotto
+.halfword 505
+.endmacro
+
+.macro BufferBoxPokemonNick,arg0,arg1
+.halfword 506
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CountPCFreeSpace,arg0
+.halfword 507
+.halfword arg0
+.endmacro
+
+.macro PalParkControl,arg0
+.halfword 508
+.halfword arg0
+.endmacro
+
+.macro PalParkDepositCountCheck,arg0
+.halfword 509
+.halfword arg0
+.endmacro
+
+.macro PalParkBoxPokemonCaught
+.halfword 510
+.endmacro
+
+.macro PalParkScoreResult,arg0,arg1
+.halfword 511
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro PlayerMovementSavingSet
+.halfword 512
+.endmacro
+
+.macro PlayerMovementSavingClear
+.halfword 513
+.endmacro
+
+// Animate placing the balls on the machine
+// for the Hall of Fame
+.macro HallOfFameAnime,num
+.halfword 514
+.halfword num
+.endmacro
+
+.macro AddTrainerScore,arg0
+.halfword 515
+.halfword arg0
+.endmacro
+
+.macro TextAccessory,arg0,arg1
+.halfword 516
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CheckPokemonInParty,arg0,arg1
+.halfword 517
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetDeoxysForm,arg0
+.halfword 518
+.halfword arg0
+.endmacro
+
+.macro CheckBurmyForms,arg0
+.halfword 519
+.halfword arg0
+.endmacro
+
+.macro CMD_520
+.halfword 520
+.endmacro
+
+.macro CMD_521
+.halfword 521
+.endmacro
+
+.macro GetHour,arg0
+.halfword 522
+.halfword arg0
+.endmacro
+
+.macro ShakeOverworld,arg0,arg1,arg2,arg3,arg4
+.halfword 523
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro BlinkOverworld,arg0,arg1,arg2
+.halfword 524
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckRegis,arg0
+.halfword 525
+.halfword arg0
+.endmacro
+
+.macro CMD_526,arg0
+.halfword 526
+.halfword arg0
+.endmacro
+
+.macro MessageUnown,arg0
+.halfword 527
+.halfword arg0
+.endmacro
+
+.macro CheckGBACartidge,arg0
+.halfword 528
+.halfword arg0
+.endmacro
+
+.macro GetFirstAlivePokemonSlot,arg0
+.halfword 529
+.halfword arg0
+.endmacro
+
+.macro SetMatrixAlternativeMap,arg0,arg1
+.halfword 530
+.halfword arg0
+.byte arg1
+.endmacro
+
+.macro TextBackgroundName,arg0,arg1
+.halfword 531
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CheckCoinsImmediate,arg0,arg1
+.halfword 532
+.halfword arg0
+.word arg1
+.endmacro
+
+//.macro CheckCoins,arg0,arg1
+//.halfword 533
+//.halfword arg0
+//.halfword arg1
+//.endmacro
+
+.macro AddCoins,arg0
+.halfword 534
+.halfword arg0
+.endmacro
+
+.macro GetPokemonLevel,arg0,arg1
+.halfword 535
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_536,arg0,arg1
+.halfword 536
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_537
+.halfword 537
+.endmacro
+
+.macro CMD_538,arg0,arg1
+.halfword 538
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_539,arg0
+.halfword 539
+.halfword arg0
+.endmacro
+
+.macro CMD_540,arg0
+.halfword 540
+.halfword arg0
+.endmacro
+
+.macro TextNumberSp,arg0,arg1,arg2,arg3
+.halfword 541
+.byte arg0
+.halfword arg1
+.byte arg2
+.byte arg3
+.endmacro
+
+.macro MonGetContestValue,arg0,arg1,arg2
+.halfword 542
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CheckBirthday,arg0
+.halfword 543
+.halfword arg0
+.endmacro
+
+.macro MusicVolumeSet,arg0,arg1
+.halfword 544
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CountSeenUnown,arg0
+.halfword 545
+.halfword arg0
+.endmacro
+
+.macro CMD_546,arg0,arg1
+.halfword 546
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_547,arg0
+.halfword 547
+.halfword arg0
+.endmacro
+
+.macro CMD_548
+.halfword 548
+.endmacro
+
+.macro CMD_549,arg0
+.halfword 549
+.halfword arg0
+.endmacro
+
+.macro CountHallOfFameEntries,arg0
+.halfword 550
+.halfword arg0
+.endmacro
+
+.macro CMD_551,arg0
+.halfword 551
+.halfword arg0
+.endmacro
+
+.macro CMD_552,arg0,arg1
+.halfword 552
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_553,arg0,arg1
+.halfword 553
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_554,arg0
+.halfword 554
+.halfword arg0
+.endmacro
+
+.macro CMD_555,arg0
+.halfword 555
+.halfword arg0
+.endmacro
+
+.macro CMD_556,arg0
+.halfword 556
+.halfword arg0
+.endmacro
+
+.macro CheckBattlePoints,arg0,arg1
+.halfword 557
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveBP,arg0,arg1
+.halfword 558
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro TakeBP,arg0,arg1
+.halfword 559
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CompareBP,arg0,arg1
+.halfword 560
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro ShakeCamera,arg0,arg1,arg2,arg3
+.halfword 561
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro Battle2vs2,arg0,arg1,arg2,arg3
+.halfword 562
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.byte arg3
+.endmacro
+
+.macro CMD_563,arg0,arg1,arg2
+.halfword 563
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_564,arg0
+.halfword 564
+.halfword arg0
+.endmacro
+
+.macro CMD_565,arg0
+.halfword 565
+.halfword arg0
+.endmacro
+
+.macro PartyPokemonTradeScreen
+.halfword 566
+.endmacro
+
+.macro GetDPPtPrizeItemIdAndCost,arg0,arg1,arg2
+.halfword 567
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_568,arg0,arg1
+.halfword 568
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_569,arg0
+.halfword 569
+.halfword arg0
+.endmacro
+
+.macro CheckCoinsVar,arg0,arg1
+.halfword 570
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_571,arg0,arg1,arg2,arg3,arg4
+.halfword 571
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro GetUniqueSealsQuantity,arg0
+.halfword 572
+.halfword arg0
+.endmacro
+
+.macro DummyActivateMysteryGift
+.halfword 573
+.endmacro
+
+.macro GetOWMovement,arg0,arg1
+.halfword 574
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_575,arg0,arg1
+.halfword 575
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_576,arg0
+.halfword 576
+.halfword arg0
+.endmacro
+
+.macro CMD_577
+.halfword 577
+.endmacro
+
+.macro CMD_578
+.halfword 578
+.endmacro
+
+.macro CMD_579
+.halfword 579
+.endmacro
+
+.macro TextSealSingular,arg0,arg1
+.halfword 580
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro DummyLockAll
+.halfword 581
+.endmacro
+
+.macro CMD_582,arg0,arg1,arg2
+.halfword 582
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_583,arg0,arg1
+.halfword 583
+.halfword arg0
+.byte arg1
+.endmacro
+
+.macro PartyLegalCheck,arg0
+.halfword 584
+.halfword arg0
+.endmacro
+
+.macro CMD_585
+.halfword 585
+.endmacro
+
+.macro CMD_586,arg0
+.halfword 586
+.halfword arg0
+.endmacro
+
+.macro CMD_587
+.halfword 587
+.endmacro
+
+.macro LastBattleCheckCaught,arg0
+.halfword 588
+.halfword arg0
+.endmacro
+
+.macro WildBattleSp,species,level,shiny
+.halfword 589
+.halfword species
+.halfword level
+.byte shiny
+.endmacro
+
+.macro CheckTrainerCardLevel,arg0
+.halfword 590
+.halfword arg0
+.endmacro
+
+.macro DummyRideBike
+.halfword 591
+.endmacro
+
+.macro CMD_592,arg0
+.halfword 592
+.halfword arg0
+.endmacro
+
+.macro ShowSaveBox
+.halfword 593
+.endmacro
+
+.macro HideSaveBox
+.halfword 594
+.endmacro
+
+.macro ScopeMode,arg0
+.halfword 595
+.byte arg0
+.endmacro
+
+.macro GetFollowingPokeSize,arg0
+.halfword 596
+.halfword arg0
+.endmacro
+
+.macro CMD_597
+.halfword 597
+.endmacro
+
+.macro CMD_598,arg0
+.halfword 598
+.halfword arg0
+.endmacro
+
+.macro FollowingPokePCAnimation
+.halfword 599
+.endmacro
+
+.macro SendBackFollowingPoke
+.halfword 600
+.endmacro
+
+.macro FollowingPokeFacePlayer
+.halfword 601
+.endmacro
+
+.macro LockFollowingPoke,arg0
+.halfword 602
+.halfword arg0
+.endmacro
+
+.macro WaitFollowingPoke
+.halfword 603
+.endmacro
+
+.macro SetFollowingPokeMovement,arg0
+.halfword 604
+.halfword arg0
+.endmacro
+
+.macro SetFollowingPokePosition,arg0,arg1
+.halfword 605
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro BallResetFollowingPoke
+.halfword 606
+.endmacro
+
+.macro NoBallResetFollowingPoke
+.halfword 607
+.endmacro
+
+.macro SendOutFollowingPoke
+.halfword 608
+.endmacro
+
+.macro CMD_609
+.halfword 609
+.endmacro
+
+.macro CMD_610,arg0
+.halfword 610
+.halfword arg0
+.endmacro
+
+//.macro Pokeathlon,arg0,arg1,arg2,arg3,arg4,arg5,arg6
+//.halfword 611
+//.byte arg0
+//.byte arg1
+//.halfword arg2
+//.halfword arg3
+//.halfword arg4
+//.halfword arg5
+//.halfword arg6
+//.endmacro
+
+.macro CMD_612,arg0
+.halfword 612
+.halfword arg0
+.endmacro
+
+.macro GetPokegearContactRandomGiftBerry,arg0
+.halfword 613
+.halfword arg0
+.endmacro
+
+.macro GetPokegearContactGiftItem,arg0
+.halfword 614
+.halfword arg0
+.endmacro
+
+.macro CameronPhotoScreen,arg0
+.halfword 615
+.halfword arg0
+.endmacro
+
+.macro CMD_616,arg0
+.halfword 616
+.halfword arg0
+.endmacro
+
+.macro CMD_617
+.halfword 617
+.endmacro
+
+.macro CheckAlbumIfFull,arg0
+.halfword 618
+.halfword arg0
+.endmacro
+
+.macro CheckRocketCostume,arg0
+.halfword 619
+.halfword arg0
+.endmacro
+
+.macro ActivateRocketCostume,arg0
+.halfword 620
+.byte arg0
+.endmacro
+
+.macro CMD_621
+.halfword 621
+.endmacro
+
+.macro GetOWDirection,arg0,arg1
+.halfword 622
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro AnimationApricornTree,arg0
+.halfword 623
+.halfword arg0
+.endmacro
+
+.macro ApricornTreeGetApricorn,arg0
+.halfword 624
+.halfword arg0
+.endmacro
+
+.macro GiveApricornFromTree,arg0,arg1,arg2
+.halfword 625
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro TextApricornName,arg0,arg1
+.halfword 626
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_627,arg0
+.halfword 627
+.byte arg0
+.endmacro
+
+.macro CMD_628,arg0,arg1
+.halfword 628
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_629
+.halfword 629
+.endmacro
+
+.macro CMD_630,arg0
+.halfword 630
+.halfword arg0
+.endmacro
+
+.macro CMD_631,arg0,arg1,arg2
+.halfword 631
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CountPartyMonsOfSpecies,arg0,arg1
+.halfword 632
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_633,arg0,arg1,arg2
+.halfword 633
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_634,arg0,arg1
+.halfword 634
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_635,arg0,arg1
+.halfword 635
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_636,arg0
+.halfword 636
+.halfword arg0
+.endmacro
+
+.macro CMD_637,arg0,arg1,arg2
+.halfword 637
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_638,arg0,arg1,arg2
+.halfword 638
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_639,arg0,arg1,arg2
+.halfword 639
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_640,arg0
+.halfword 640
+.halfword arg0
+.endmacro
+
+.macro SaveWipeExtraChunks
+.halfword 641
+.endmacro
+
+.macro CMD_642,arg0
+.halfword 642
+.halfword arg0
+.endmacro
+
+.macro CMD_643,arg0,arg1,arg2
+.halfword 643
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_644,arg0,arg1,arg2
+.halfword 644
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_645,arg0,arg1,arg2
+.halfword 645
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_646,arg0
+.halfword 646
+.halfword arg0
+.endmacro
+
+.macro GetPartySlotWithSpecies,arg0,arg1
+.halfword 647
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_648,arg0,arg1,arg2,arg3,arg4
+.halfword 648
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro OpenScratchCardScreen
+.halfword 649
+.endmacro
+
+.macro CloseScratchCard
+.halfword 650
+.endmacro
+
+.macro GetScratchCardPrize,arg0,arg1,arg2
+.halfword 651
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_652,arg0,arg1,arg2
+.halfword 652
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro MoveTutorChooseMove,mon_slot,tutor_no,arg2,arg3
+.halfword 653
+.halfword mon_slot
+.halfword tutor_no
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro TutorMoveTeachInSlot,party_slot,move_slot,move
+.halfword 654
+.halfword party_slot
+.halfword move_slot
+.halfword move
+.endmacro
+
+.macro TutorMoveGetPrice,arg0,arg1
+.halfword 655
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckHeadbuttCompatibility,arg0,arg1
+.halfword 656
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro IVCheckerJudge,mon_slot,iv_sum,best_stat,best_iv
+.halfword 657
+.halfword mon_slot
+.halfword iv_sum
+.halfword best_stat
+.halfword best_iv
+.endmacro
+
+.macro BufferStatName,arg0,arg1
+.halfword 658
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro SetMonForme,arg0,arg1
+.halfword 659
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro TextTrainerName,arg0,arg1
+.halfword 660
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_661,arg0,arg1,arg2,arg3
+.halfword 661
+.byte arg0
+.word arg1
+.byte arg2
+.byte arg3
+.endmacro
+
+.macro CMD_662,arg0,arg1,arg2
+.halfword 662
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_663,arg0
+.halfword 663
+.halfword arg0
+.endmacro
+
+.macro CMD_664
+.halfword 664
+.endmacro
+
+.macro CMD_665,arg0
+.halfword 665
+.halfword arg0
+.endmacro
+
+.macro CMD_666,arg0
+.halfword 666
+.halfword arg0
+.endmacro
+
+.macro CMD_667,arg0
+.halfword 667
+.halfword arg0
+.endmacro
+
+.macro TextTypeName,arg0,arg1
+.halfword 668
+.byte arg0
+.halfword arg1
+.endmacro
+
+//.macro GetItemQuantity,arg0,arg1
+//.halfword 669
+//.halfword arg0
+//.halfword arg1
+//.endmacro
+
+.macro GetHiddenPowerType,arg0,arg1
+.halfword 670
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SetFavoriteMon
+.halfword 671
+.endmacro
+
+.macro GetFavoriteMon,arg0,arg1,arg2
+.halfword 672
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro GetOwnedRotomFormes,arg0,arg1,arg2,arg3,arg4
+.halfword 673
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro CountTranformedRotomsInParty,arg0,arg1
+.halfword 674
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro UpdateRotomForme,arg0,arg1,arg2,arg3
+.halfword 675
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro GetPartyPokemonForm,arg0,arg1
+.halfword 676
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_677,arg0,arg1
+.halfword 677
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_678,arg0,arg1
+.halfword 678
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_679
+.halfword 679
+.endmacro
+
+.macro CMD_680,arg0
+.halfword 680
+.halfword arg0
+.endmacro
+
+.macro CMD_681,arg0
+.halfword 681
+.halfword arg0
+.endmacro
+
+.macro CMD_682,arg0
+.halfword 682
+.halfword arg0
+.endmacro
+
+.macro CMD_683,arg0
+.halfword 683
+.halfword arg0
+.endmacro
+
+.macro GetCurrentWeather,arg0
+.halfword 684
+.halfword arg0
+.endmacro
+
+.macro GetPlayerCoordinates,arg0,arg1,arg2
+.halfword 685
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_686,arg0,arg1
+.halfword 686
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_687,arg0
+.halfword 687
+.halfword arg0
+.endmacro
+
+.macro CheckFatefulEncounter,arg0,arg1
+.halfword 688
+.halfword arg0
+.halfword arg1
+.endmacro
+
+// Attempt to remove all Griseous Orbs and reset Pokemon
+// to formes present in Diamond and Pearl, to avoid
+// problems communicating with those games.
+.macro CommSanitizeParty,var_result
+.halfword 689
+.halfword var_result
+.endmacro
+
+.macro DayCareSanitizeMon,arg0,arg1
+.halfword 690
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_691,arg0
+.halfword 691
+.halfword arg0
+.endmacro
+
+.macro TextBattleHallStreak,arg0,arg1,arg2,arg3,arg4,arg5
+.halfword 692
+.byte arg0
+.byte arg1
+.byte arg2
+.byte arg3
+.halfword arg4
+.halfword arg5
+.endmacro
+
+.macro BattleHallCountUsedSpecies,arg0
+.halfword 693
+.halfword arg0
+.endmacro
+
+.macro BattleHallGetTotalStreak,arg0
+.halfword 694
+.halfword arg0
+.endmacro
+
+.macro CMD_695,arg0
+.halfword 695
+.halfword arg0
+.endmacro
+
+.macro CMD_696,arg0
+.halfword 696
+.halfword arg0
+.endmacro
+
+.macro CMD_697,arg0
+.halfword 697
+.halfword arg0
+.endmacro
+
+.macro FollowingPokemonIsEventTrigger,arg0,arg1,arg2
+.halfword 698
+.byte arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_699
+.halfword 699
+.endmacro
+
+.macro CMD_700
+.halfword 700
+.endmacro
+
+.macro PokemonHasItem,arg0,arg1
+.halfword 701
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro BattleTowerSetUpMultiBattle
+.halfword 702
+.endmacro
+
+.macro SetPlayerVolume,arg0
+.halfword 703
+.halfword arg0
+.endmacro
+
+.macro CMD_704,arg0,arg1
+.halfword 704
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_705,arg0,arg1
+.halfword 705
+.halfword arg0
+.word arg1
+.endmacro
+
+.macro CMD_706,arg0
+.halfword 706
+.halfword arg0
+.endmacro
+
+.macro CheckPokemonIsSeen,arg0,arg1
+.halfword 707
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro FloorTrapAnimation,arg0
+.halfword 708
+.halfword arg0
+.endmacro
+
+.macro CMD_709
+.halfword 709
+.endmacro
+
+.macro CMD_710
+.halfword 710
+.endmacro
+
+.macro TalkFollowingPoke
+.halfword 711
+.endmacro
+
+.macro CMD_712,arg0
+.halfword 712
+.byte arg0
+.endmacro
+
+.macro OpenAlphPuzzle,arg0
+.halfword 713
+.byte arg0
+.endmacro
+
+.macro OpenRuinsofAlphHiddenRoom,arg0
+.halfword 714
+.byte arg0
+.endmacro
+
+.macro UpdateDayCareMonOverworlds
+.halfword 715
+.endmacro
+
+.macro CMD_716
+.halfword 716
+.endmacro
+
+.macro CMD_717,arg0
+.halfword 717
+.halfword arg0
+.endmacro
+
+.macro CMD_718,arg0,arg1
+.halfword 718
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_719,arg0,arg1
+.halfword 719
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_720,arg0
+.halfword 720
+.halfword arg0
+.endmacro
+
+.macro CMD_721,arg0
+.halfword 721
+.halfword arg0
+.endmacro
+
+.macro CMD_722,arg0,arg1,arg2,arg3,arg4
+.halfword 722
+.byte arg0
+.byte arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro BoatAnimation,arg0,arg1,arg2,arg3,arg4
+.halfword 723
+.byte arg0
+.byte arg1
+.halfword arg2
+.halfword arg3
+.halfword arg4
+.endmacro
+
+.macro CMD_724,arg0,arg1
+.halfword 724
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_725,arg0,arg1
+.halfword 725
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_726
+.halfword 726
+.endmacro
+
+.macro CMD_727,arg0
+.halfword 727
+.halfword arg0
+.endmacro
+
+.macro CMD_728,arg0,arg1
+.halfword 728
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro CheckAlivePokemon,arg0
+.halfword 729
+.halfword arg0
+.endmacro
+
+.macro CheckFollowingPoke,arg0
+.halfword 730
+.halfword arg0
+.endmacro
+
+.macro CMD_731
+.halfword 731
+.endmacro
+
+.macro CMD_732,arg0
+.halfword 732
+.byte arg0
+.endmacro
+
+.macro CMD_733,arg0,arg1
+.halfword 733
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_734,arg0
+.halfword 734
+.byte arg0
+.endmacro
+
+.macro CheckKurtApricorn,arg0
+.halfword 735
+.halfword arg0
+.endmacro
+
+.macro ClearKurtApricorn
+.halfword 736
+.endmacro
+
+.macro GiveApricornBalls,arg0
+.halfword 737
+.halfword arg0
+.endmacro
+
+.macro CheckApricornCount,arg0
+.halfword 738
+.halfword arg0
+.endmacro
+
+.macro KurtApricornMenuScreen
+.halfword 739
+.endmacro
+
+.macro StoreApricornJuice,arg0,arg1
+.halfword 740
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckJuice,arg0,arg1,arg2,arg3
+.halfword 741
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.halfword arg3
+.endmacro
+
+.macro CMD_742,arg0,arg1,arg2
+.halfword 742
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_743,arg0
+.halfword 743
+.halfword arg0
+.endmacro
+
+.macro CreatePokeathlonFriendshipRoomStatues
+.halfword 744
+.endmacro
+
+.macro TextPokeathlonCourseName,arg0,arg1
+.halfword 745
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro OpenTouchScreen
+.halfword 746
+.endmacro
+
+.macro CloseTouchScreen
+.halfword 747
+.endmacro
+
+.macro YesNoTouchScreen,arg0
+.halfword 748
+.halfword arg0
+.endmacro
+
+.macro MultiTouchStandardText,arg0,arg1,arg2,arg3,arg4
+.halfword 749
+.byte arg0
+.byte arg1
+.byte arg2
+.byte arg3
+.halfword arg4
+.endmacro
+
+.macro MultiTouchLocalText,arg0,arg1,arg2,arg3,arg4
+.halfword 750
+.byte arg0
+.byte arg1
+.byte arg2
+.byte arg3
+.halfword arg4
+.endmacro
+
+.macro CreateMultiTouchBox,arg0,arg1,arg2
+.halfword 751
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CloseMultiTouch
+.halfword 752
+.endmacro
+
+.macro RockSmashItemCheck,arg0,arg1,arg2
+.halfword 753
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_754,arg0
+.halfword 754
+.halfword arg0
+.endmacro
+
+.macro CMD_755
+.halfword 755
+.endmacro
+
+.macro CMD_756
+.halfword 756
+.endmacro
+
+.macro CMD_757
+.halfword 757
+.endmacro
+
+.macro CMD_758,arg0
+.halfword 758
+.halfword arg0
+.endmacro
+
+.macro CMD_759
+.halfword 759
+.endmacro
+
+.macro CMD_760
+.halfword 760
+.endmacro
+
+.macro CMD_761,arg0
+.halfword 761
+.halfword arg0
+.endmacro
+
+.macro CMD_762,arg0
+.halfword 762
+.halfword arg0
+.endmacro
+
+.macro CMD_763
+.halfword 763
+.endmacro
+
+.macro CMD_764
+.halfword 764
+.endmacro
+
+.macro CMD_765
+.halfword 765
+.endmacro
+
+.macro CMD_766
+.halfword 766
+.endmacro
+
+.macro CMD_767
+.halfword 767
+.endmacro
+
+.macro CMD_768
+.halfword 768
+.endmacro
+
+.macro CMD_769
+.halfword 769
+.endmacro
+
+.macro CMD_770,arg0
+.halfword 770
+.halfword arg0
+.endmacro
+
+.macro CMD_771
+.halfword 771
+.endmacro
+
+.macro CMD_772
+.halfword 772
+.endmacro
+
+.macro RenderCutscene,arg0
+.halfword 773
+.halfword arg0
+.endmacro
+
+.macro CMD_774,arg0
+.halfword 774
+.halfword arg0
+.endmacro
+
+.macro CMD_775,arg0,arg1
+.halfword 775
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveTogepiEgg
+.halfword 776
+.endmacro
+
+.macro CMD_777,arg0,arg1
+.halfword 777
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro GiveSpikyEaredPichu
+.halfword 778
+.endmacro
+
+.macro RadioMusicIsPlaying,arg0,arg1
+.halfword 779
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro OpenVoltorbFlip,arg0,arg1
+.halfword 780
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro KenyaCheckPartyOrMailbox,arg0
+.halfword 781
+.halfword arg0
+.endmacro
+
+.macro MartSell
+.halfword 782
+.endmacro
+
+.macro SetFollowPokeInhibitState,arg0
+.halfword 783
+.byte arg0
+.endmacro
+
+.macro ScriptOverlayCmd,arg0,arg1
+.halfword 784
+.byte arg0
+.byte arg1
+.endmacro
+
+.macro BugContestAction,arg0,arg1
+.halfword 785
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro TextBugContestWinner,arg0
+.halfword 786
+.byte arg0
+.endmacro
+
+.macro JudgeBugContest,arg0,arg1,arg2
+.halfword 787
+.halfword arg0
+.halfword arg1
+.halfword arg2
+.endmacro
+
+.macro TextBugContestMonNick,arg0,arg1
+.halfword 788
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro BugContestGetTimeLeft,arg0
+.halfword 789
+.byte arg0
+.endmacro
+
+.macro IsBugContestantRegistered,arg0,arg1
+.halfword 790
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_791,arg0,arg1
+.halfword 791
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_792
+.halfword 792
+.endmacro
+
+.macro TakeMomMoney,arg0,arg1
+.halfword 793
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CheckMomMoneyBalance,arg0,arg1
+.halfword 794
+.halfword arg0
+.word arg1
+.endmacro
+
+.macro ShowMomMoney,arg0,arg1
+.halfword 795
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro HideMomMoney
+.halfword 796
+.endmacro
+
+.macro CMD_797
+.halfword 797
+.endmacro
+
+.macro TextRulesetName,arg0
+.halfword 798
+.halfword arg0
+.endmacro
+
+.macro CMD_799,arg0
+.halfword 799
+.halfword arg0
+.endmacro
+
+.macro CMD_800,arg0
+.halfword 800
+.halfword arg0
+.endmacro
+
+.macro CMD_801,arg0
+.halfword 801
+.halfword arg0
+.endmacro
+
+.macro CMD_802
+.halfword 802
+.endmacro
+
+.macro CMD_803,arg0,arg1
+.halfword 803
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro UpdateTownMap,arg0
+.halfword 804
+.byte arg0
+.endmacro
+
+.macro CMD_805
+.halfword 805
+.endmacro
+
+.macro CMD_806
+.halfword 806
+.endmacro
+
+.macro CMD_807,arg0,arg1
+.halfword 807
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_808,arg0
+.halfword 808
+.halfword arg0
+.endmacro
+
+.macro CMD_809,arg0
+.halfword 809
+.halfword arg0
+.endmacro
+
+.macro CelebiTimeTravelAnimation
+.halfword 810
+.endmacro
+
+.macro CMD_811,arg0,arg1
+.halfword 811
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_812
+.halfword 812
+.endmacro
+
+.macro MomGiftCheck,arg0
+.halfword 813
+.halfword arg0
+.endmacro
+
+.macro CMD_814
+.halfword 814
+.endmacro
+
+.macro CMD_815,arg0
+.halfword 815
+.halfword arg0
+.endmacro
+
+.macro UnownCircle
+.halfword 816
+.endmacro
+
+.macro CMD_817,arg0
+.halfword 817
+.byte arg0
+.endmacro
+
+.macro InitMystriStageAnimation
+.halfword 818
+.endmacro
+
+.macro CMD_819
+.halfword 819
+.endmacro
+
+.macro CMD_820,arg0
+.halfword 820
+.byte arg0
+.endmacro
+
+.macro GetBuenasPassword,arg0,arg1
+.halfword 821
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_822
+.halfword 822
+.endmacro
+
+.macro CMD_823,arg0
+.halfword 823
+.halfword arg0
+.endmacro
+
+.macro CMD_824,arg0
+.halfword 824
+.halfword arg0
+.endmacro
+
+.macro GetShinyLeafCount,arg0,arg1
+.halfword 825
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro TryGiveShinyLeafCrown,arg0
+.halfword 826
+.halfword arg0
+.endmacro
+
+.macro CheckPokemonNickname,arg0,arg1
+.halfword 827
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_828,arg0,arg1,arg2
+.halfword 828
+.halfword arg0
+.byte arg1
+.halfword arg2
+.endmacro
+
+.macro CMD_829,arg0
+.halfword 829
+.halfword arg0
+.endmacro
+
+.macro CMD_830,arg0
+.halfword 830
+.halfword arg0
+.endmacro
+
+.macro CMD_831,arg0
+.halfword 831
+.halfword arg0
+.endmacro
+
+.macro CMD_832,arg0
+.halfword 832
+.halfword arg0
+.endmacro
+
+.macro CMD_833,arg0
+.halfword 833
+.halfword arg0
+.endmacro
+
+.macro CMD_834,arg0
+.halfword 834
+.halfword arg0
+.endmacro
+
+.macro CMD_835,arg0
+.halfword 835
+.halfword arg0
+.endmacro
+
+.macro CheckJadeOrbRequirements,arg0
+.halfword 836
+.halfword arg0
+.endmacro
+
+.macro CMD_837,arg0
+.halfword 837
+.halfword arg0
+.endmacro
+
+.macro CheckMoneyFull,arg0,arg1
+.halfword 838
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro SystemSetSleepFlag,arg0
+.halfword 839
+.halfword arg0
+.endmacro
+
+.macro CMD_840,arg0,arg1
+.halfword 840
+.halfword arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_841,arg0
+.halfword 841
+.byte arg0
+.endmacro
+
+.macro CMD_842,arg0
+.halfword 842
+.byte arg0
+.endmacro
+
+.macro TextItemLowercase,arg0,arg1
+.halfword 843
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro TextItemPlural,arg0,arg1
+.halfword 844
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro TextPartyPokemonDefault,arg0,arg1
+.halfword 845
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro CMD_846,arg0,arg1,arg2,arg3
+.halfword 846
+.byte arg0
+.halfword arg1
+.halfword arg2
+.byte arg3
+.endmacro
+
+.macro CMD_847,arg0
+.halfword 847
+.byte arg0
+.endmacro
+
+.macro CMD_848,arg0,arg1
+.halfword 848
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro TextTrainerClass,arg0,arg1
+.halfword 849
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro TextSealPlural,arg0,arg1
+.halfword 850
+.byte arg0
+.halfword arg1
+.endmacro
+
+.macro TextCapitalize,arg0
+.halfword 851
+.byte arg0
+.endmacro
+
+.macro TextFloor,arg0,arg1
+.halfword 852
+.byte arg0
+.byte arg1
+.endmacro
+
+// Convenience macros
+
+// Generic compare macro which attempts to deduce argument types based on their values
+// Any values between 0x4000 to 0x40FF and 0x8000 to 0x8015 are considered event variable identifiers
+//.macro Compare,var,arg
+//	.if ((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))
+//		compare_var_to_var var,arg
+//	.else
+//		compare_var_to_value var,arg
+//	.endif
+//.endmacro
+
+.macro JumpIfUnset,flag,dest
+checkflag flag
+goto_if 0,dest
+.endmacro
+
+.macro JumpIfSet,flag,dest
+checkflag flag
+goto_if 1,dest
+.endmacro
+
+.macro JumpIfLessThan,dest // LESS THAN
+goto_if 0,dest
+.endmacro
+
+.macro JumpIfEqual,dest // EQUAL
+goto_if 1,dest
+.endmacro
+
+.macro JumpIfGreaterThan,dest // GREATER THAN
+goto_if 2,dest
+.endmacro
+
+.macro JumpIfLessThanOrEqual,dest // LESS THAN OR EQUAL
+goto_if 3,dest
+.endmacro
+
+.macro JumpIfGreaterThanOrEqual,dest // GREATER THAN OR EQUAL
+goto_if 4,dest
+.endmacro
+
+.macro JumpIfNotEqual,dest // NOT EQUAL
+goto_if 5,dest
+.endmacro
+
+.macro CallIfNotSet,flag,dest
+checkflag flag
+call_if 0,dest
+.endmacro
+
+.macro CallIfSet,flag,dest
+checkflag flag
+call_if 1,dest
+.endmacro
+
+.macro CallIfLessThan,dest // LESS THAN
+call_if 0,dest
+.endmacro
+
+.macro CallIfEqual,dest // EQUAL
+call_if 1,dest
+.endmacro
+
+.macro CallIfGreaterThan,dest // GREATER THAN
+call_if 2,dest
+.endmacro
+
+.macro CallIfLessThanOrEqual,dest // LESS THAN OR EQUAL
+call_if 3,dest
+.endmacro
+
+.macro CallIfGreaterThanOrEqual,dest // GREATER THAN OR EQUAL
+call_if 4,dest
+.endmacro
+
+.macro CallIfNotEqual,dest // NOT EQUAL
+call_if 5,dest
+.endmacro
+
+.macro JumpIfDefeated,trainer,dest
+checktrainerflag trainer
+goto_if 1,dest
+.endmacro
+
+.macro JumpIfNotDefeated,trainer,dest
+checktrainerflag trainer
+goto_if 0,dest
+.endmacro
+
+.macro CallIfDefeated,trainer,dest
+checktrainerflag trainer
+call_if 1,dest
+.endmacro
+
+.macro CallIfNotDefeated,trainer,dest
+checktrainerflag trainer
+call_if 0,dest
+.endmacro
+
+.macro SetItemVars,item,quantity
+.if item < 0x4000
+setvar VAR_SPECIAL_x8004,item
+.else
+copyvar VAR_SPECIAL_x8004,item
+.endif
+.if quantity < 0x4000
+setvar VAR_SPECIAL_x8005,quantity
+.else
+copyvar VAR_SPECIAL_x8005,quantity
+.endif
+.endmacro
+
+.macro JumpIfNoItemSpace,item,quantity,target
+item_vars item,quantity
+hasspaceforitem VAR_SPECIAL_x8004,VAR_SPECIAL_x8005,VAR_SPECIAL_RESULT
+compare VAR_SPECIAL_RESULT,0
+goto_if_eq target
+.endmacro
+
+.macro GiveItemNoCheck,item,quantity
+item_vars item,quantity
+callstd std_give_item_verbose // std_give_item_verbose
+.endmacro
+
+.macro TakeItemNoCheck,item,quantity
+item_vars item,quantity
+takeitem VAR_SPECIAL_x8004,VAR_SPECIAL_x8005,VAR_SPECIAL_RESULT
+.endmacro
+
+//.macro Switch,var
+//copyvar VAR_SPECIAL_x8008,var
+//.endmacro
+
+//.macro Case,value,target
+//compare VAR_SPECIAL_x8008,value
+//goto_if_eq target
+//.endmacro
+
+.macro PhoneCall,who,b,c
+setvar VAR_SPECIAL_x8004,who
+setvar VAR_SPECIAL_x8005,b
+setvar VAR_SPECIAL_x8006,c
+callstd std_phone_call
+.endmacro
+
+.macro SimpleNPCMessage,msgid
+play_se 1500 // SEQ_SE_DP_SELECT
+lockall
+faceplayer
+npc_msg msgid
+wait_button_or_walk_away
+closemsg
+releaseall
 .endmacro

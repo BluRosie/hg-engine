@@ -13,7 +13,7 @@ MSGDATA_COMPILETIME_DEPENDENCIES_DIR := $(BUILD)/rawtext
 CHARMAP := charmap.txt
 
 
-$(BUILD)/rawtext/%.txt: $(BUILD_NARC)/a011.narc $(BUILD_NARC)/a055.narc $(BUILD_NARC)/mondata.narc scripts/msg_cat.py
+$(BUILD)/rawtext/%.txt: $(BUILD_NARC)/a011.narc $(BUILD_NARC)/a055.narc $(BUILD_NARC)/mondata.narc $(BUILD_NARC)/trainer_text_map.narc scripts/msg_cat.py
 	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 
 # actual msgdata rule at bottom to allow MSGDATA_COMPILETIME_DEPENDENCIES to be fully defined
@@ -79,20 +79,21 @@ NARC_FILES += $(OPENDEMO_NARC)
 MONDATA_DIR := $(BUILD)/a002
 MONDATA_NARC := $(BUILD_NARC)/mondata.narc
 MONDATA_TARGET := $(FILESYS)/a/0/0/2
-MONDATA_DEPENDENCIES := armips/data/mondata.s
+MONDATA_DEPENDENCIES := armips/data/mondata.s armips/data/tmlearnset.txt
 MONDATA_NAMES_DIR := $(BUILD)/rawtext/237 $(BUILD)/rawtext/238 $(BUILD)/rawtext/817
 MONDATA_DESCRIPTIONS_DIR := $(BUILD)/rawtext/803
-MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816
+MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816 $(BUILD)/rawtext/823
 MONDATA_HEIGHTS_DIR := $(BUILD)/rawtext/814 $(BUILD)/rawtext/815
 MONDATA_WEIGHTS_DIR := $(BUILD)/rawtext/812 $(BUILD)/rawtext/813
 
 $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 	mkdir -p $(MONDATA_DIR) $(MONDATA_NAMES_DIR) $(MONDATA_DESCRIPTIONS_DIR) $(MONDATA_CLASSIFICATIONS_DIR) $(MONDATA_HEIGHTS_DIR) $(MONDATA_WEIGHTS_DIR)
-	$(ARMIPS) $^
+	$(ARMIPS) armips/data/mondata.s
+	$(PYTHON) scripts/tm_learnset.py armips/data/tmlearnset.txt
 	$(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 
 NARC_FILES += $(MONDATA_NARC)
-MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/237.txt $(BUILD)/rawtext/238.txt $(BUILD)/rawtext/803.txt $(BUILD)/rawtext/812.txt $(BUILD)/rawtext/813.txt $(BUILD)/rawtext/814.txt $(BUILD)/rawtext/815.txt $(BUILD)/rawtext/817.txt
+MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/237.txt $(BUILD)/rawtext/238.txt $(BUILD)/rawtext/803.txt $(BUILD)/rawtext/812.txt $(BUILD)/rawtext/813.txt $(BUILD)/rawtext/814.txt $(BUILD)/rawtext/815.txt $(BUILD)/rawtext/817.txt $(BUILD)/rawtext/823.txt
 
 
 SPRITEOFFSETS_DIR := $(BUILD)/a180
@@ -222,6 +223,25 @@ $(TRAINERDATA_NARC): $(TRAINERDATA_DEPENDENCIES)
 NARC_FILES += $(TRAINERDATA_NARC)
 MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/729.txt
 
+
+TRAINERTEXT_DIR := $(BUILD)/trainer_text_map
+TRAINERTEXT_DIR_2 := $(BUILD)/trainer_text_offsets
+TRAINERTEXT_NARC := $(BUILD_NARC)/trainer_text_map.narc
+TRAINERTEXT_NARC_2 := $(BUILD_NARC)/trainer_text_offsets.narc
+TRAINERTEXT_TARGET := $(FILESYS)/a/0/5/7
+TRAINERTEXT_TARGET_2 := $(FILESYS)/a/1/3/1
+TRAINERTEXT_DEPENDENCIES := armips/data/trainers/trainertext.s
+
+$(TRAINERTEXT_NARC): $(TRAINERTEXT_DEPENDENCIES)
+	mkdir -p $(TRAINERTEXT_DIR) $(TRAINERTEXT_DIR_2) $(BUILD)/rawtext/728
+	touch $(TRAINERTEXT_DIR)/7_0
+	$(ARMIPS) $^
+	$(PYTHON) scripts/trainer_text.py
+	$(NARCHIVE) create $(TRAINERTEXT_NARC) $(TRAINERTEXT_DIR)
+	$(NARCHIVE) create $(TRAINERTEXT_NARC_2) $(TRAINERTEXT_DIR_2)
+
+NARC_FILES += $(TRAINERTEXT_NARC)
+MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/728.txt
 
 #FOOTPRINTS_DIR := $(BUILD)/a069
 FOOTPRINTS_NARC := $(BUILD_NARC)/a069.narc
@@ -384,6 +404,7 @@ overworld_extract:
 	$(NARCHIVE) extract $(OVERWORLDS_TARGET) -o $(OVERWORLDS_DIR) -nf
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_0%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
+	@rm -f $(OVERWORLDS_NARC)
 
 $(OVERWORLDS_NARC): | overworld_extract $(OVERWORLDS_OBJS)
 	$(NARCHIVE) create $@ $(OVERWORLDS_DIR) -nf
@@ -476,8 +497,8 @@ SDAT_MED_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVAR
 SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar,$(SDAT_SRCS))
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
-	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK
-	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq tools/adpcm-xq --temp-file-dir build/sdat/temp
+	mkdir -p $(SDAT_DIR) $(SDAT_OBJ_DIR) $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav) $(SDAT_OBJ_DIR)/BANK build/sdat/temp
+	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq $(ADPCMXQ) --temp-file-dir build/sdat/temp
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav
 	$(SWAV2SWAR) $< $@
@@ -591,4 +612,19 @@ $(SCR_SEQ_NARC): $(SCR_SEQ_DEPENDENCIES)
 	for file in $^; do $(ARMIPS) $$file; done
 	$(NARCHIVE) create $@ $(SCR_SEQ_DIR) -nf
 
+# for convenience, rebuild SCR_SEQ_NARC every build so that DSPRE changes are not overwritten
+.PHONY: $(SCR_SEQ_NARC)
+
 NARC_FILES += $(SCR_SEQ_NARC)
+
+HEADBUTT_DIR := $(BUILD)/headbutttrees
+HEADBUTT_NARC := $(BUILD_NARC)/headbutt.narc
+HEADBUTT_TARGET := $(FILESYS)/a/2/5/2
+HEADBUTT_DEPENDENCIES := armips/data/headbutt.s
+
+$(HEADBUTT_NARC): $(HEADBUTT_DEPENDENCIES)
+	mkdir -p $(HEADBUTT_DIR)
+	$(ARMIPS) $^
+	$(NARCHIVE) create $@ $(HEADBUTT_DIR) -nf
+
+NARC_FILES += $(HEADBUTT_NARC)

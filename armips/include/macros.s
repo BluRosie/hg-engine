@@ -112,9 +112,10 @@
 
 .macro colorflip,color,flip
 	.byte (color | flip << 7)
+    .close
 .endmacro
 
-.macro tmdata,num1,num2,num3,num4 // defined specifically in separate files though
+.macro tmdata,num1,num2,num3,num4 // handled by a python script and armips/data/tmlearnset.txt
 	.halfword 0 // padding
 	
 	.word num1
@@ -533,6 +534,16 @@
 	.close
 .endmacro
 
+// trainer text entry macro - string is parsed by python script
+
+.macro trainertextentry,num,type,string
+	//.close
+	//writestring "728", entrynum, string
+	//.open "build/trainer_text_map/7_0", 0
+	//.org entrynum*4
+	.halfword num, type
+.endmacro
+
 // encounter data macros
 
 .macro encounterdata,num
@@ -603,7 +614,7 @@
 .endmacro
 
 .macro trainername,id,name
-    writestring "729", id, name
+    writestring "729", id, "{TRNAME}"+name
 .endmacro
 
 .macro monname,id,name
@@ -618,6 +629,7 @@
 
 .macro mondexclassification,id,classification
     writestring "816", id, classification
+    writestring "823", id, classification
 .endmacro
 
 .macro mondexheight,id,height
@@ -632,3 +644,40 @@
 
 
 //note to self: 237.txt would be species names
+
+
+// headbutt trees
+
+.macro xycoords, x, y
+    .halfword x, y
+.endmacro
+
+.macro treecoords, x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6
+    xycoords x1, y1
+    xycoords x2, y2
+    xycoords x3, y3
+    xycoords x4, y4
+    xycoords x5, y5
+    xycoords x6, y6
+.endmacro
+
+.macro headbuttheader, num, headbuttTreeQuantity, specialTreeQuantity
+	.if num < 10
+		.create "build/headbutttrees/00" + tostring(num),0
+	.elseif num < 100
+		.create "build/headbutttrees/0" + tostring(num),0
+	.else
+		.create "build/headbutttrees/" + tostring(num),0
+	.endif
+    .halfword headbuttTreeQuantity, specialTreeQuantity
+.endmacro
+
+.macro headbuttencounter, species, minLevel, maxlevel
+	.halfword species
+	.byte minLevel, maxlevel
+.endmacro
+
+.macro headbuttencounterwithform, species, form, minLevel, maxlevel
+	.halfword species | (form << 11)
+	.byte minLevel, maxlevel
+.endmacro
