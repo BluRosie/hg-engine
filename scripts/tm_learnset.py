@@ -77,14 +77,16 @@ def tmdatabuilder(inputPath: str):
                 try:
                     tm_data[speciesDict[line.strip()]] |= (1 << tmId)
                 except KeyError:
-                    tm_data[speciesDict[line.strip()]] = (1 << tmId)
-    for elem in tm_data:
+                    tm_data[speciesDict[line.strip()]] = (1 << tmId)    
+    for key, item in speciesDict.items():
         data_to_write = [0, 0, 0, 0]
-        mondata = open("build/a002/mondata_{:04d}".format(elem), "rb+")
+        mondata = open("build/a002/mondata_{:04d}".format(item), "rb+")
         mondata.seek(0x1A)
         mondata.write(bytes([0, 0]))
         for i in range(0, 4):
-            data_to_write = struct.pack("<I", (tm_data[elem] >> (32 * i)) & 0xFFFFFFFF)
+            if item not in tm_data:
+                tm_data[item] = 0
+            data_to_write = struct.pack("<I", (tm_data[item] >> (32 * i)) & 0xFFFFFFFF)
             mondata.write(data_to_write)
         mondata.close()
 
