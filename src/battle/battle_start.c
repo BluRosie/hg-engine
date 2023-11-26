@@ -149,6 +149,8 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                             {
                                 sp->battlemon[client_no].canMega = 1;
                                 newBS.SideMega[0] = TRUE;
+                                if(sp->battlemon[client_no].id_no == sp->battlemon[2].id_no)
+                                    newBS.SideMega[2] = TRUE;
                                 flag = TRUE;
                             }
                         }
@@ -249,7 +251,12 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
         client_no = sp->turn_order[i];
         if (newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
         {
-            if (client_no == 0 || client_no == 2)
+            if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) 
+            {
+                if (client_no == 0 || (client_no == 2 && sp->battlemon[client_no].id_no == sp->battlemon[0].id_no))
+                    newBS.PlayerMegaed = TRUE;
+            }
+            else if (client_no == 0 || client_no == 2)
             {
                 newBS.PlayerMegaed = TRUE;
             }
