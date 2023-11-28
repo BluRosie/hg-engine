@@ -100,7 +100,7 @@ const u8 DPadSelectTouchDataIndex[] = { // dpad touch data index
     0, 5,
 };
 
-static const OAMSpriteTemplate PokeIconObjParam = {
+static const OAMSpriteTemplate MegaIconObjParam = {
     155,
     161,
     0, //x, y, z
@@ -269,7 +269,7 @@ void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
         newBS.MegaButton = NULL;
         if (newBS.MegaIconLight)
         {
-            newBS.playerWantMega = No2Bit(bip->client_no); // determine which party pos queued up the mega for cases where the player is in control of 2 clients
+            newBS.playerWantMega = No2Bit(bip->client_no_fight_screen); // determine which party pos queued up the mega for cases where the player is in control of 2 clients
         }
         else
             newBS.playerWantMega = FALSE;
@@ -305,6 +305,8 @@ void LoadMegaIcon(struct BI_PARAM *bip)
     void *csp;
     void *crp;
 
+    OAMSpriteTemplate template = MegaIconObjParam; // memcpy should handle this
+
     newBS.CanMega = CheckCanDrawMegaButton(bip);
     if (!newBS.MegaOAM && CheckIsMega(bip))
     {
@@ -312,7 +314,9 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
         OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
-        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+        if (bip->client_no != 0)
+            template.x = 103;
+        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
     else if (!newBS.MegaOAM && CheckIsPrimalGroudon(bip))
@@ -321,7 +325,9 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
         OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
-        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+        if (bip->client_no != 0)
+            template.x = 101;
+        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
     else if (!newBS.MegaOAM && CheckIsPrimalKyogre(bip))
@@ -330,7 +336,9 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
         OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
-        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+        if (bip->client_no != 0)
+            template.x = 101;
+        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
 
