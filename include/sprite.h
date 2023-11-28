@@ -63,9 +63,11 @@ struct BI_PARAM
     /*0x14*/ void *unk5;
     /*0x18*/ u8 type[4];
     /*0x1C*/ u8 client_type;
-    /*0x1D*/ u8 fill1D[0x34-0x1D];
-    /*0x34*/ u8 client_no;
-    /*0x35*/ u8 sel_mons_no;
+    /*0x1D*/ u8 client_no;
+    /*0x1E*/ u8 sel_mons_no;
+    /*0x1F*/ u8 fill1D[0x34-0x1F];
+    /*0x34*/ u8 client_no_fight_screen;
+    /*0x35*/ u8 sel_mons_no_fight_screen;
     /*0x36*/ u8 fill36[0x40-0x36];
 
     /*0x40*/ u16 *scrn_buf[5]; // 5*4=20=0x14

@@ -318,7 +318,7 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
-    if (IS_NOT_VALID_EWRAM_POINTER(bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
@@ -338,7 +338,7 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
-    if (IS_NOT_VALID_EWRAM_POINTER(bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
@@ -362,7 +362,7 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
-    if (IS_NOT_VALID_EWRAM_POINTER(bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
@@ -384,7 +384,7 @@ static BOOL CheckMegaData(u32 mon, u32 item)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;
-    for (i = 0; i < NELEMS(sMegaTable);i++)
+    for (i = 0; i < NELEMS(sMegaTable); i++)
     {
         if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item)
         {
@@ -449,7 +449,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
         return FALSE;
     }
 
-    if (IS_NOT_VALID_EWRAM_POINTER(bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
