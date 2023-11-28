@@ -444,11 +444,15 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 form_no;
     u16 moves[4];
 
-    if (IS_NOT_VALID_EWRAM_POINTER(bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    if (bip->client_no && newBS.playerWantMega) // if client number is not zero but the player has already queued up mega
     {
         return FALSE;
     }
 
+    if (IS_NOT_VALID_EWRAM_POINTER(bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
