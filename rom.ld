@@ -505,3 +505,5 @@ ItemFieldUseFunc_VSRecorder = 0x02065648 | 1;
 sub_0203FAE8 = 0x0203FAE8 | 1;
 sub_0203C8F0 = 0x0203C8F0 | 1;
 RegisteredItem_CreateGoToAppTask = 0x020658B8 | 1;
+
+PaletteRAMArray = 0x05000000;

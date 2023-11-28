@@ -162,16 +162,26 @@ struct PLAYERDATA {
     struct IGT igt;
 };
 
-void *__attribute__((long_call)) SaveBlock2_get(void);
-struct SAVE_MISC_DATA *__attribute__((long_call)) Sav2_Misc_get(void *saveData);
-struct ScriptState *__attribute__((long_call)) SavArray_Flags_get(void *saveData);
-struct PLAYERDATA *__attribute__((long_call)) Sav2_PlayerData_GetProfileAddr(void *saveData);
-void* __attribute__((long_call)) GetBagSaveData(void *saveData);
-u8* __attribute__((long_call)) SaveData_GetRepelPtr(void *saveData);
-void* __attribute__((long_call)) SaveData_GetEventPtr(void *saveData);
-void* __attribute__((long_call)) SaveData_GetDexPtr(void *saveData);
-void* __attribute__((long_call)) SaveData_GetPlayerPartyPtr(void *saveData);
-u32 __attribute__((long_call)) GetCaughtMonCount(void *dexSaveData);
+// palette convenience defines
+typedef enum PaletteMemoryRegions {
+    /* 0x000 */ MAIN_SCREEN_BG_PAL,
+    /* 0x200 */ MAIN_SCREEN_SPR_PAL,
+    /* 0x400 */ SUB_SCREEN_BG_PAL,
+    /* 0x600 */ SUB_SCREEN_SPR_PAL,
+} PaletteMemoryRegions;
+
+extern u16 PaletteRAMArray[4][16][16];
+
+void *LONG_CALL SaveBlock2_get(void);
+struct SAVE_MISC_DATA *LONG_CALL Sav2_Misc_get(void *saveData);
+struct ScriptState *LONG_CALL SavArray_Flags_get(void *saveData);
+struct PLAYERDATA *LONG_CALL Sav2_PlayerData_GetProfileAddr(void *saveData);
+void *LONG_CALL GetBagSaveData(void *saveData);
+u8 *LONG_CALL SaveData_GetRepelPtr(void *saveData);
+void *LONG_CALL SaveData_GetEventPtr(void *saveData);
+void *LONG_CALL SaveData_GetDexPtr(void *saveData);
+void *LONG_CALL SaveData_GetPlayerPartyPtr(void *saveData);
+u32 LONG_CALL GetCaughtMonCount(void *dexSaveData);
 
 /**
  *  @brief get daycare save data from save block
@@ -182,36 +192,36 @@ Daycare *Save_Daycare_Get(void *saveData);
 
 
 // grab var data from the save -> pass in SavArray_Flags_get for both flags/vars
-u32 __attribute__((long_call)) SetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id, u16 value);
-u16 __attribute__((long_call)) GetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id);
+u32 LONG_CALL SetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id, u16 value);
+u16 LONG_CALL GetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id);
 // grab flag data from the save
-void __attribute__((long_call)) SetScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
-void __attribute__((long_call)) ClearScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
-BOOL __attribute__((long_call)) CheckScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
+void LONG_CALL SetScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
+void LONG_CALL ClearScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
+BOOL LONG_CALL CheckScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
 
 
 
 /* overlay func defines */
-void __attribute__((long_call)) Overlay_UnloadID(u32 ovl_id);
-void __attribute__((long_call)) Overlay_Load(u32 ovl_id, u32 mode);
-u32 __attribute__((long_call)) WIPE_SYS_EndCheck(void);
-void *__attribute__((long_call)) PROC_GetWork(void *proc);
+void LONG_CALL Overlay_UnloadID(u32 ovl_id);
+void LONG_CALL Overlay_Load(u32 ovl_id, u32 mode);
+u32 LONG_CALL WIPE_SYS_EndCheck(void);
+void *LONG_CALL PROC_GetWork(void *proc);
 
 /* bag function defines are in bag.h */
 
 
 // defined in src/save.c
-u32 __attribute__((long_call)) Sav2_Misc_sizeof(void);
-void __attribute__((long_call)) InitStoredMons(struct SAVE_MISC_DATA *saveMiscData);
-void __attribute__((long_call)) Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData);
-u32 __attribute__((long_call)) sqrt(u32 num);
+u32 LONG_CALL Sav2_Misc_sizeof(void);
+void LONG_CALL InitStoredMons(struct SAVE_MISC_DATA *saveMiscData);
+void LONG_CALL Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData);
+u32 LONG_CALL sqrt(u32 num);
 
 // convenience variable/flag access functions
-u32 __attribute__((long_call)) SetScriptVar(u16 var_id, u16 value);
-u16 __attribute__((long_call)) GetScriptVar(u16 var_id);
-void __attribute__((long_call)) SetScriptFlag(u16 flag_id);
-void __attribute__((long_call)) ClearScriptFlag(u16 flag_id);
-BOOL __attribute__((long_call)) CheckScriptFlag(u16 flag_id);
+u32 LONG_CALL SetScriptVar(u16 var_id, u16 value);
+u16 LONG_CALL GetScriptVar(u16 var_id);
+void LONG_CALL SetScriptFlag(u16 flag_id);
+void LONG_CALL ClearScriptFlag(u16 flag_id);
+BOOL LONG_CALL CheckScriptFlag(u16 flag_id);
 
 
 #endif // SAVE_H
