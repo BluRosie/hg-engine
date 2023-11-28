@@ -1386,3 +1386,18 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Speed!
 {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
 The foe’s {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
+The field is in full bloom.
+The grass below caught flame!
+The Grassy Terrain\nstrengthened the attack!
+The wind picked up strength\nfrom the field!
+The grass softened the attack...
+{STRVAR_1 1, 0, 0}’s HP was restored.
+The wild {STRVAR_1 1, 0, 0}’s HP was restored.
+The foe’s {STRVAR_1 1, 0, 0}’s HP was restored.
+The cave echoes dully...
+ECHO-Echo-echo!
+The cave choked out the air!
+The cavern strengthened\nthe attack!
+...Piled on!
+Bits of rock fell from the crumbling ceiling!
+The quake collapsed the ceiling!

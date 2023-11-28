@@ -54,6 +54,13 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E7_ifmovepowergreaterthanzero(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E8_ifgrounded(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E9_checkifcurrentadjustedmoveistype(void *bw, struct BattleStruct *sp);
+// BOOL btl_scr_cmd_EA_ifcurrentfieldiscave(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EA_ifcontactmove(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EB_ifsoundmove(void *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -294,6 +301,12 @@ const u8 *BattleScrCmdNames[] =
     "isuserlowerlevel",
     "settailwind",
     "iftailwindactive",
+    "ifcurrentfieldistype",
+    "ifmovepowergreaterthanzero",
+    "ifgrounded",
+    "checkifcurrentadjustedmoveistype",
+    "ifcontactmove",
+    "ifsoundmove",
 };
 
 u32 cmdAddress = 0;
@@ -307,6 +320,13 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xE3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E3_isuserlowerlevel,
     [0xE4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E4_settailwind,
     [0xE5 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E5_iftailwindactive,
+    [0xE6 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E6_ifcurrentfieldistype,
+    [0xE7 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E7_ifmovepowergreaterthanzero,
+    [0xE8 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E8_ifgrounded,
+    [0xE9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E9_checkifcurrentadjustedmoveistype,
+    // [0xEA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EA_ifcurrentfieldiscave,
+    [0xEA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EA_ifcontactmove,
+    [0xEB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EB_ifsoundmove
 };
 
 
@@ -1081,6 +1101,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
     }
 
     JumpToMoveEffectScript(sp, 30, effect);
+    PushAndLoadBattleScript(sp, 1, SUB_SEQ_HANDLE_FIELD_EFFECTS);  // jump to custom subscript to handle field effects
 
     return FALSE;
 };
@@ -2289,6 +2310,183 @@ BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to jump somewhere if the current field/terrain is grass
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    u32 terrain = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    if (BattleWorkGroundIDGet(bw) == terrain) {
+        IncrementBattleScriptPtr(sp, address);
+    }    
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current field/terrain is grass
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E7_ifmovepowergreaterthanzero(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int address = read_battle_script_param(sp);
+
+    if (sp->moveTbl[sp->current_move_index].power > 0) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the mon is grounded
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E8_ifgrounded(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    u32 client_no = read_battle_script_param(sp);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, client_no);
+    u32 address = read_battle_script_param(sp);
+
+    u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
+
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE
+    && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+    && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0
+    && sp->battlemon[client_no].type1 != TYPE_FLYING
+    && sp->battlemon[client_no].type2 != TYPE_FLYING)
+    || (holdeffect == HOLD_EFFECT_HALVE_SPEED // holding Iron Ball
+        || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
+        || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+            // not in a semi-vulnerable state
+            if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
+                IncrementBattleScriptPtr(sp, address);
+                }
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current move is a certain type
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E9_checkifcurrentadjustedmoveistype(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int type = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    int movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
+    // sp->moveTbl[sp->current_move_index].type
+    if (type == movetype) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    return FALSE;
+}
+
+// /**
+//  *  @brief script command to jump somewhere if the current field/terrain is cave
+//  *
+//  *  @param bw battle work structure
+//  *  @param sp global battle structure
+//  *  @return FALSE
+//  */
+// BOOL btl_scr_cmd_EA_ifcurrentfieldiscave(void *bw, struct BattleStruct *sp) {
+//     IncrementBattleScriptPtr(sp, 1);
+//     int address = read_battle_script_param(sp);
+
+//     if (BattleWorkGroundIDGet(bw) == TERRAIN_CAVE) {
+//         IncrementBattleScriptPtr(sp, address);
+//     }
+//     return FALSE;
+// }
+
+/**
+ *  @brief script command to jump somewhere if the current move is a contact move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int address = read_battle_script_param(sp);
+
+    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief moves that soundproof blocks
+ */
+u16 SoundproofMovesList[] = {
+    MOVE_BOOMBURST,
+    MOVE_BUG_BUZZ,
+    MOVE_CHATTER,
+    MOVE_CLANGING_SCALES,
+    MOVE_CLANGOROUS_SOUL,
+    MOVE_CLANGOROUS_SOULBLAZE,
+    MOVE_CONFIDE,
+    MOVE_DISARMING_VOICE,
+    MOVE_ECHOED_VOICE,
+    MOVE_EERIE_SPELL,
+    MOVE_GRASS_WHISTLE,
+    MOVE_GROWL,
+    MOVE_HEAL_BELL,
+    MOVE_HOWL,
+    MOVE_HYPER_VOICE,
+    MOVE_METAL_SOUND,
+    MOVE_NOBLE_ROAR,
+    MOVE_OVERDRIVE,
+    MOVE_PARTING_SHOT,
+    MOVE_PERISH_SONG,
+    MOVE_RELIC_SONG,
+    MOVE_ROAR,
+    MOVE_ROUND,
+    MOVE_SCREECH,
+    MOVE_SING,
+    MOVE_SNARL,
+    MOVE_SNORE,
+    MOVE_SPARKLING_ARIA,
+    MOVE_SUPERSONIC,
+    MOVE_TORCH_SONG,
+    MOVE_UPROAR};
+
+/**
+ *  @brief script command to jump somewhere if the current move is a sound move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int address = read_battle_script_param(sp);
+
+    for (u32 i = 0; i < NELEMS(SoundproofMovesList); i++) {
+        if (SoundproofMovesList[i] == sp->current_move_index) {
+            IncrementBattleScriptPtr(sp, address);
+            break;
+        }
+    }
+
+    return FALSE;
+}
 
 extern u8 gSafariBallRateTable[13][2];
 u16 MoonBallSpecies[] =

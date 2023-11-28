@@ -6,6 +6,7 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/constants.s"
 
 .create "build/move/battle_sub_seq/1_217", 0
 
@@ -20,10 +21,12 @@ _0030:
     wait 0x1E
     setstatus2effect BATTLER_ATTACKER, 0xA
     waitmessage
+    checkitemeffect 0x1, BATTLER_ATTACKER, 0x63, SkipRemoveItem
     printmessage 0x4E3, 0xF, 0x1, 0x1, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
     removeitem BATTLER_ATTACKER
+SkipRemoveItem:
     changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
     endscript
 

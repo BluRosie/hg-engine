@@ -6,6 +6,7 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/constants.s"
 
 .create "build/move/battle_sub_seq/1_316", 0
 
@@ -20,6 +21,7 @@ a001_302:
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STAT_STAGE_ACCURACY, 12, NoStatusEffect
 
 StatusEffect:
+    ifcurrentfieldistype TERRAIN_GRASS, IsGrassTerrain // gain double of the normal stat-changing effects in grass terrain
     gotosubscript 76
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x200000
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4001
@@ -32,6 +34,23 @@ StatusEffect:
     gotosubscript 12
     //acc up
     changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, ACCURACY_UP
+    gotosubscript 12
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80
+    endscript
+IsGrassTerrain:
+    gotosubscript 76
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x200000
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x4001
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
+    //attack up
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, ATTACK_UP_2
+    gotosubscript 12
+    //def up
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, DEFENCE_UP_2
+    gotosubscript 12
+    //acc up
+    changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, ACCURACY_UP_2
     gotosubscript 12
     changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x2
     changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS2, 0x80

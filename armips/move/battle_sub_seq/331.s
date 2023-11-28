@@ -6,11 +6,13 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/constants.s"
 
 .create "build/move/battle_sub_seq/1_331", 0
 
 growthSubEffectScript: // a001_331
     if IF_MASK, VAR_FIELD_EFFECT, 0x30, SunIsUp // checks for sun weather
+    ifcurrentfieldistype TERRAIN_GRASS, SunIsUp // gain double of the normal stat-changing effects in grass terrain
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x80
     changevar VAR_OP_SET, VAR_ADD_EFFECT_ATTRIBUTE, ATTACK_UP
     gotosubscript 12

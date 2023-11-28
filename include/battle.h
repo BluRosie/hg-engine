@@ -1020,6 +1020,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ int SkillSeqWork[600];
     /*...*/
+               u8 printed_field_message;
 };
 
 
@@ -2292,3 +2293,35 @@ u32 GrabMegaTargetForm(u32 mon, u32 item);
 
 
 #endif
+
+typedef enum Terrain {
+    TERRAIN_PLAIN,
+    TERRAIN_SAND,
+    TERRAIN_GRASS,
+    TERRAIN_PUDDLE,
+    TERRAIN_MOUNTAIN,
+    TERRAIN_CAVE,
+    TERRAIN_SNOW,
+    TERRAIN_WATER,
+    TERRAIN_ICE,
+    TERRAIN_BUILDING,
+    TERRAIN_GREAT_MARSH,  // unused
+    TERRAIN_UNKNOWN,      // unused
+    TERRAIN_WILL,
+    TERRAIN_KOGA,
+    TERRAIN_BRUNO,
+    TERRAIN_KAREN,
+    TERRAIN_LANCE,
+    TERRAIN_DISTORTION_WORLD,  // unused
+    TERRAIN_BATTLE_TOWER,
+    TERRAIN_BATTLE_FACTORY,
+    TERRAIN_BATTLE_ARCADE,
+    TERRAIN_BATTLE_CASTLE,
+    TERRAIN_BATTLE_HALL,
+    TERRAIN_GIRATINA,  // unused
+    TERRAIN_MAX
+} Terrain;
+
+// This is a catch-all terrain that includes Pokemon League, Distortion World
+// and Battle Frontier.
+#define TERRAIN_OTHERS (TERRAIN_WILL)

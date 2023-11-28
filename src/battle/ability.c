@@ -272,7 +272,7 @@ enum
 
 // items that display messages.
     SWITCH_IN_CHECK_AIR_BALLOON,
-
+    SWITCH_IN_CHECK_FIELD,
     SWITCH_IN_CHECK_END,
 };
 
@@ -1156,10 +1156,21 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
                 FALLTHROUGH;
                 // 02253D78
+            case SWITCH_IN_CHECK_FIELD:
+                if (sp->printed_field_message == 0) {
+                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        sp->printed_field_message = 1;
+                    }
+                }
+                sp->switch_in_check_seq_no++;
+                break;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
-                break;
+                break;    
         }
     } while (ret == SWITCH_IN_CHECK_LOOP);
 
