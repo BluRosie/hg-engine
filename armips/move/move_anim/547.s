@@ -9,27 +9,22 @@
 
 .create "build/move/move_anim/0_547", 0
 
+/*
+// Gear Grind
+Very simple shake Pokemon + shake floor animation + Horn Drill sound
+No gear particles in Gen 4 :(
+*/
+
 a010_547:
-    loadparticlefromspa 0, 486
-    waitparticle
+    initspriteresource
+    loadspriteresource 0
+    loadspritemaybe 1, 0, 0, 0
 
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
+    callfunction 36, 5, 4, 0, 1, 20, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 68, 5, 0, 3, 0, 20, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
 
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
+    waitse 1850, 117, 3
 
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
-    waitparticle
-
-    unloadparticle 0
-    waitstate
     end
-    
 
 .close
