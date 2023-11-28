@@ -268,11 +268,14 @@ void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
         CATS_ActorPointerDelete_S(newBS.MegaButton);
         newBS.MegaButton = NULL;
         if (newBS.MegaIconLight)
-            newBS.playerWantMega = 1;
+        {
+            newBS.playerWantMega = No2Bit(bip->client_no); // determine which party pos queued up the mega for cases where the player is in control of 2 clients
+        }
         else
-            newBS.playerWantMega = 0;
+            newBS.playerWantMega = FALSE;
         newBS.MegaIconLight = 0;
     }
+
 
 
     if (newBS.weather & WEATHER_ANY_ICONS)
