@@ -1158,6 +1158,8 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 // 02253D78
             case SWITCH_IN_CHECK_FIELD:
                 if (sp->printed_field_message == 0) {
+                    newBS.terrainOverlay.type = TERRAIN_NONE;
+                    newBS.terrainOverlay.numberOfTurnsLeft = 0;
                     scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG;
                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
 

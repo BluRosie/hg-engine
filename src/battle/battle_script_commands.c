@@ -58,9 +58,10 @@ BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E7_ifmovepowergreaterthanzero(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E8_ifgrounded(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E9_checkifcurrentadjustedmoveistype(void *bw, struct BattleStruct *sp);
-// BOOL btl_scr_cmd_EA_ifcurrentfieldiscave(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EA_ifcontactmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EB_ifsoundmove(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -307,6 +308,8 @@ const u8 *BattleScrCmdNames[] =
     "checkifcurrentadjustedmoveistype",
     "ifcontactmove",
     "ifsoundmove",
+    "updateterrainoverlay",
+    "ifterrainoverlayistype",
 };
 
 u32 cmdAddress = 0;
@@ -324,12 +327,11 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xE7 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E7_ifmovepowergreaterthanzero,
     [0xE8 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E8_ifgrounded,
     [0xE9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E9_checkifcurrentadjustedmoveistype,
-    // [0xEA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EA_ifcurrentfieldiscave,
     [0xEA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EA_ifcontactmove,
-    [0xEB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EB_ifsoundmove
+    [0xEB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EB_ifsoundmove,
+    [0xEC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EC_updateterrainoverlay,
+    [0xED - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_ED_ifterrainoverlayistype
 };
-
-
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
 u16 sMetronomeMimicMoveBanList[] =
@@ -2311,7 +2313,7 @@ BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp)
 }
 
 /**
- *  @brief script command to jump somewhere if the current field/terrain is grass
+ *  @brief script command to jump somewhere if the current field is equal to the param
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2322,14 +2324,19 @@ BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp) {
     u32 terrain = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
 
-    if (BattleWorkGroundIDGet(bw) == terrain) {
+    #ifdef IMPLEMENT_FIELD_EFFECTS
+
+    if (BattleWorkGroundIDGet(bw) == terrain && newBS.terrainOverlay.type == TERRAIN_NONE) {
         IncrementBattleScriptPtr(sp, address);
-    }    
+    }
+    
+    #endif
+    
     return FALSE;
 }
 
 /**
- *  @brief script command to jump somewhere if the current field/terrain is grass
+ *  @brief script command to jump somewhere if move power is > 0
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2360,13 +2367,10 @@ BOOL btl_scr_cmd_E8_ifgrounded(void *bw UNUSED, struct BattleStruct *sp) {
 
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
-    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE
-    && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
-    && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0
-    && sp->battlemon[client_no].type1 != TYPE_FLYING
-    && sp->battlemon[client_no].type2 != TYPE_FLYING)
-    || (holdeffect == HOLD_EFFECT_HALVE_SPEED // holding Iron Ball
-        || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
+         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
+        (holdeffect == HOLD_EFFECT_HALVE_SPEED                                     // holding Iron Ball
+         || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
         || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
             // not in a semi-vulnerable state
             if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
@@ -2396,23 +2400,6 @@ BOOL btl_scr_cmd_E9_checkifcurrentadjustedmoveistype(void *bw UNUSED, struct Bat
     }
     return FALSE;
 }
-
-// /**
-//  *  @brief script command to jump somewhere if the current field/terrain is cave
-//  *
-//  *  @param bw battle work structure
-//  *  @param sp global battle structure
-//  *  @return FALSE
-//  */
-// BOOL btl_scr_cmd_EA_ifcurrentfieldiscave(void *bw, struct BattleStruct *sp) {
-//     IncrementBattleScriptPtr(sp, 1);
-//     int address = read_battle_script_param(sp);
-
-//     if (BattleWorkGroundIDGet(bw) == TERRAIN_CAVE) {
-//         IncrementBattleScriptPtr(sp, address);
-//     }
-//     return FALSE;
-// }
 
 /**
  *  @brief script command to jump somewhere if the current move is a contact move
@@ -2483,6 +2470,65 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
             IncrementBattleScriptPtr(sp, address);
             break;
         }
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to update the terrain overlay
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    switch (sp->current_move_index) {
+        case MOVE_GRASSY_TERRAIN:
+            newBS.terrainOverlay.type = GRASSY_TERRAIN;
+            break;
+        case MOVE_MISTY_TERRAIN:
+            newBS.terrainOverlay.type = MISTY_TERRAIN;
+            break;
+        case MOVE_ELECTRIC_TERRAIN:
+            newBS.terrainOverlay.type = ELECTRIC_TERRAIN;
+            break;
+        case MOVE_PSYCHIC_TERRAIN:
+            newBS.terrainOverlay.type = PSYCHIC_TERRAIN;
+            break;
+        default:
+            // I think this could work for moves that remove terrain
+            newBS.terrainOverlay.type = TERRAIN_NONE;
+            break;
+    }
+
+    if (newBS.terrainOverlay.type != TERRAIN_NONE) {
+        // TODO: handle item effects
+        newBS.terrainOverlay.numberOfTurnsLeft = 5;
+    } else {
+        newBS.terrainOverlay.numberOfTurnsLeft = 0;
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current terrain overlay is equal to the param
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    u8 terrainOverlayType = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    if (newBS.terrainOverlay.type == terrainOverlayType) {
+        IncrementBattleScriptPtr(sp, address);
     }
 
     return FALSE;

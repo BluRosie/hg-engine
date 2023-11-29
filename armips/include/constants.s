@@ -688,6 +688,8 @@ _y_ equ 0x015D
 _z_ equ 0x015E
 _endstr equ 0xFFFF
 
+// Vanilla Terrains (Fields)
+
 TERRAIN_PLAIN equ (0)
 TERRAIN_SAND equ (1)
 TERRAIN_GRASS equ (2)
@@ -713,3 +715,10 @@ TERRAIN_BATTLE_CASTLE equ (21)
 TERRAIN_BATTLE_HALL equ (22)
 TERRAIN_GIRATINA equ (23)  // unused
 TERRAIN_MAX equ (24)
+
+// Terrain Overlays
+TERRAIN_NONE        equ (0)
+GRASSY_TERRAIN      equ (1)
+MISTY_TERRAIN       equ (2)
+ELECTRIC_TERRAIN    equ (3)
+PSYCHIC_TERRAIN     equ (4)

@@ -8,14 +8,16 @@
 .include "armips/include/movenums.s"
 .include "armips/include/constants.s"
 
-// handle field effect end of turn
+// handle terrain and field effect end of turn
 
 .create "build/move/battle_sub_seq/1_347", 0
 
 a001_347:
-    ifcurrentfieldistype TERRAIN_GRASS, IsGrassTerrain
+    ifterrainoverlayistype GRASSY_TERRAIN, IsGrassyTerrain
+    ifcurrentfieldistype TERRAIN_GRASS, IsGrassField
     goto DefaultOrEnd
-IsGrassTerrain:
+IsGrassField:
+IsGrassyTerrain:
         changevar VAR_OP_SET, VAR_CLIENT_NO_AGI, 0x0
     GrassTerrainHealLoop:
         orderbattlersbyspeed 0x14

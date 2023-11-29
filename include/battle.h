@@ -1193,6 +1193,11 @@ enum
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0
 
+typedef struct {
+    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
+    u8 numberOfTurnsLeft;
+} __attribute__((packed)) TerrainOverlay;
+
 struct __attribute__((packed)) newBattleStruct
 {
     u8 SideMega[4];//检查双方是否mega过,0我方,1敌方
@@ -1208,6 +1213,8 @@ struct __attribute__((packed)) newBattleStruct
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
     u32 weather;
+
+    TerrainOverlay terrainOverlay;
 };
 
 typedef struct {

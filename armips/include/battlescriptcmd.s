@@ -1515,3 +1515,12 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xEB
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro updateterrainoverlay
+    .word 0xEC
+.endmacro
+
+.macro ifterrainoverlayistype,terrainOverlayType,address
+    .word 0xED, terrainOverlayType
+    .word ((address - org()) / 4) - 1
+.endmacro

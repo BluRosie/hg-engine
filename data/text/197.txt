@@ -1401,3 +1401,11 @@ The cavern strengthened\nthe attack!
 ...Piled on!
 Bits of rock fell from the crumbling ceiling!
 The quake collapsed the ceiling!
+Grass grew to cover the battlefield!
+The grass disappeared\nfrom the battlefield.
+Mist swirled about the battlefield!
+The mist disappeared\nfrom the battlefield.
+An electric current ran across the battlefield!
+The electricity disappeared\nfrom the battlefield.
+The battlefield got weird!
+The weirdness disappeared\nfrom the battlefield.
