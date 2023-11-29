@@ -16224,7 +16224,7 @@ mondata SPECIES_VOLCANION, "Volcanion"
     mondexweight SPECIES_VOLCANION, "429.9 lbs."
 
 
-mondata SPECIES_ROWLET, "Rowlett"
+mondata SPECIES_ROWLET, "Rowlet"
     basestats 68, 55, 55, 42, 50, 50
     types TYPE_GRASS, TYPE_FLYING
     catchrate 45
