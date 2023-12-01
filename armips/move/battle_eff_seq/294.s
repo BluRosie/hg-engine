@@ -16,9 +16,10 @@ Start:
     printattackmessage
     waitmessage
     wait 0x1E
+    // move logic up because need to jump if move fails
+    updateterrainoverlay FALSE, SameTerrainFail
     playanimation BATTLER_ATTACKER
     waitmessage
-    updateterrainoverlay
     ifterrainoverlayistype GRASSY_TERRAIN, GrassyTerrainMessage
     ifterrainoverlayistype MISTY_TERRAIN, MistyTerrainMessage
     ifterrainoverlayistype ELECTRIC_TERRAIN, ElectricTerrainMessage
@@ -44,6 +45,8 @@ PsychicTerrainMessage:
     waitmessage
     wait 0x1E
     endscript
+SameTerrainFail:
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
 DefaultOrEnd:
     endscript
 

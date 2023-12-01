@@ -2485,6 +2485,11 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 
+    u8 endTerrainFlag = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    enum TerrainOverlayType oldTerrainOverlay = newBS.terrainOverlay.type;
+
     switch (sp->current_move_index) {
         case MOVE_GRASSY_TERRAIN:
             newBS.terrainOverlay.type = GRASSY_TERRAIN;
@@ -2504,11 +2509,20 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
             break;
     }
 
-    if (newBS.terrainOverlay.type != TERRAIN_NONE) {
-        // TODO: handle item effects
-        newBS.terrainOverlay.numberOfTurnsLeft = 5;
+    if (endTerrainFlag == TRUE) {
+        newBS.terrainOverlay.type = TERRAIN_NONE;
+    }
+
+    // if the new terrain is the same as the old one, the move should fail
+    if (oldTerrainOverlay == newBS.terrainOverlay.type) {
+        IncrementBattleScriptPtr(sp, address);
     } else {
-        newBS.terrainOverlay.numberOfTurnsLeft = 0;
+        if (newBS.terrainOverlay.type != TERRAIN_NONE) {
+            // TODO: handle item effects
+            newBS.terrainOverlay.numberOfTurnsLeft = 5;
+        } else {
+            newBS.terrainOverlay.numberOfTurnsLeft = 0;
+        }
     }
 
     return FALSE;

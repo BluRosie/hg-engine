@@ -24,25 +24,25 @@ a001_348:
     ifterrainoverlayistype PSYCHIC_TERRAIN, IsPsychicTerrain
     goto DefaultOrEnd
 IsGrassyTerrain:
-    updateterrainoverlay
+    updateterrainoverlay TRUE, DefaultOrEnd
     printmessage GRASSY_TERRAIN_END_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass disappeared from the battlefield.
     waitmessage
     wait 0x1E
     endscript
 IsMistyTerrain:
-    updateterrainoverlay
+    updateterrainoverlay TRUE, DefaultOrEnd
     printmessage MISTY_TERRAIN_END_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The mist disappeared from the battlefield.
     waitmessage
     wait 0x1E
     endscript
 IsElectricTerrain:
-    updateterrainoverlay
+    updateterrainoverlay TRUE, DefaultOrEnd
     printmessage ELECTRIC_TERRAIN_END_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The electricity disappeared from the battlefield.
     waitmessage
     wait 0x1E
     endscript
 IsPsychicTerrain:
-    updateterrainoverlay
+    updateterrainoverlay TRUE, DefaultOrEnd
     printmessage PSYCHIC_TERRAIN_END_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The weirdness disappeared from the battlefield.
     waitmessage
     wait 0x1E

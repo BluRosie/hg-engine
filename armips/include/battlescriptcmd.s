@@ -1516,8 +1516,9 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word ((address - org()) / 4) - 1
 .endmacro
 
-.macro updateterrainoverlay
-    .word 0xEC
+.macro updateterrainoverlay,endTerrainFlag,failAddress
+    .word 0xEC, endTerrainFlag
+    .word ((failAddress - org()) / 4) - 1
 .endmacro
 
 .macro ifterrainoverlayistype,terrainOverlayType,address
