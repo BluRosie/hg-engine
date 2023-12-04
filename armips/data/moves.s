@@ -10516,7 +10516,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_FIRST_IMPRESSION, "First Impression"
+movedata MOVE_FIRST_IMPRESSION, "FirstImpression"
     battleeffect 158
     pss SPLIT_PHYSICAL
     basepower 90
