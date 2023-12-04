@@ -284,8 +284,8 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
 
     if (battle->battlemon[client].canMega)
         return FALSE;
-
-    if (newBS.SideMega[client&1])
+    
+    if (newBS.SideMega[client])
         return FALSE;
 
     if (form)
@@ -300,7 +300,7 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
 BOOL IsMegaSpecies(u32 mon, u32 form)
 {
 #ifdef MEGA_EVOLUTIONS
-    u8 i;
+    u32 i;
     for (i = 0; i < NELEMS(sMegaTable); i++)
     {
         if (sMegaTable[i].monindex == mon && sMegaTable[i].form == form)
@@ -318,7 +318,7 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
-    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
@@ -338,7 +338,7 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
-    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
@@ -362,7 +362,7 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
     u16 form_no;
     u16 mon;
 
-    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
     }
@@ -384,7 +384,7 @@ static BOOL CheckMegaData(u32 mon, u32 item)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;
-    for (i = 0; i < NELEMS(sMegaTable);i++)
+    for (i = 0; i < NELEMS(sMegaTable); i++)
     {
         if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item)
         {
@@ -444,11 +444,15 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 form_no;
     u16 moves[4];
 
-    if ((u32)bip->bw->opponentData[bip->client_no] <= 0x02000000) // fix crash on hardware/melonDS
+    if (bip->client_no && newBS.playerWantMega) // if client number is not zero but the player has already queued up mega
     {
         return FALSE;
     }
 
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
 
     pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
     item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);

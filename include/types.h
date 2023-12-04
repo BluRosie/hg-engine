@@ -74,6 +74,9 @@ VecFx32;
 
 #define No2Bit(n) ((1) << (n))
 
+// validates a pointer's value
+#define IS_NOT_VALID_EWRAM_POINTER(n) ((u32)(n) >= 0x03000000 || (u32)(n) < 0x02000000)
+
 void LONG_CALL GF_ASSERT(u32 cond);
 u16 LONG_CALL gf_rand(void);
 

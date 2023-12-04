@@ -382,9 +382,6 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             newBS.weather = 0;
                             break;
-                        default:
-                            newBS.weather = 0;
-                            break;
                     }
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT)
                     {

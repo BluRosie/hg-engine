@@ -1194,19 +1194,19 @@ enum
 
 struct __attribute__((packed)) newBattleStruct
 {
-    u8 SideMega[2];//检查双方是否mega过,0我方,1敌方
+    u8 SideMega[4];//检查双方是否mega过,0我方,1敌方
+    u8 needMega[4];//需要mega
     u8 playerWantMega;
     u8 PlayerMegaed;
-    u8 needMega[4];//需要mega
+    u8 MegaIconLight;
+    u8 ChangeBgFlag:4;
+    u8 CanMega:4;
 
     CATS_ACT_PTR MegaOAM;
     CATS_ACT_PTR MegaButton;
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
     u32 weather;
-    u8 MegaIconLight;
-    u8 ChangeBgFlag:4;
-    u8 CanMega:4;
 };
 
 typedef struct {
