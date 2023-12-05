@@ -11,18 +11,29 @@
 
 /*
 // Shift Gear
-Just shakes the user a bit and plays Horn Drill SE.
-No gear particles :(
+Just shakes the user a bit and plays Horn Drill SE.  Ported SPA file from White 2
 */
 
 a010_511:
-    initspriteresource
-    loadspriteresource 0
-    loadspritemaybe 1, 0, 0, 0
+    loadparticlefromspa 0, 520
+    waitparticle
 
-    callfunction 36, 5, 4, 0, 1, 20, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    addparticle 0, 0, 3
+    addparticle 0, 1, 3
+    addparticle 0, 2, 3
+    addparticle 0, 3, 3
+    addparticle 0, 4, 3
+    addparticle 0, 5, 3
 
+    wait 30
+    callfunction 36, 5, 4, 0, 1, 14, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitse 1850, 117, 3
+    addparticle 0, 6, 3
+    addparticle 0, 7, 3
+    waitparticle
+
+    unloadparticle 0
+    waitstate
 
     end
 
