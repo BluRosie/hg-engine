@@ -25,6 +25,8 @@ a010_511:
     addparticle 0, 4, 3
     addparticle 0, 5, 3
 
+    playsepan 2038, 117 // metal claw sound
+
     wait 30
     callfunction 36, 5, 4, 0, 1, 14, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitse 1850, 117, 3
