@@ -9,6 +9,9 @@
 
 .create "build/move/move_anim/0_575", 0
 
+// Petal Blizzard
+// Sweet Scent animation with Pokemon getting hit animation
+
 a010_575:
     initspriteresource
     loadspriteresource 0
@@ -20,39 +23,44 @@ a010_575:
     loadspritemaybe 6, 0, 2, 2
     loadspritemaybe 7, 0, 3, 3
     callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    loadparticle 0, 257
-    loadparticle 1, 111
+    loadparticle 0, 248
     waitstate
     unloadspriteresource
     resetsprite 0
     resetsprite 1
     resetsprite 2
     resetsprite 3
-    cmd3E 0, 0
-    cmd43
-    cmd0C 0, 0
-    cmd0C 1, 16
-    changebg 34, 0x20001
-    waitforchangebg
+    playsepan 2037, 0
+    addparticle 0, 1, 17
+    cmd37 6, 0, 2, 3, 0, 0, 0, "NaN", "NaN"
+    cmd37 4, 1, -2000, 8000, 0, "NaN", "NaN", "NaN", "NaN"
+    addparticle 0, 3, 0
+    addparticle 0, 4, 4
+    callfunction 34, 5, 8, 0, 2, 23199, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 5, 16, 0, 2, 23199, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
+
+    wait 20
+
+    loadparticle 1, 32
+    playsepan 1827, 117
     addparticle 1, 1, 4
-    addparticle 1, 2, 4
-    addparticle 1, 3, 4
-    addparticle 1, 0, 4
-    addparticle 0, 1, 20
-    wait 10
-    playsepan 1837, 117
-    wait 10
-    callfunction 36, 5, 3, 0, 1, 15, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
-    callfunction 36, 5, 3, 0, 1, 15, 272, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 51, 3, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+    playsepan 1827, 117
+    addparticle 1, 1, 4
+    callfunction 51, 3, 1, -4, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+    playsepan 1827, 117
+    addparticle 1, 1, 4
+    callfunction 51, 3, 1, -4, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+    playsepan 1827, 117
+    addparticle 1, 1, 4
+    callfunction 51, 3, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+
     waitparticle
-    freeresources 0
     unloadparticle 0
-    unloadparticle 1
-    cmd43
-    cmd0C 0, 0
-    cmd0C 1, 16
-    resetbg 34, 0x40001
-    waitforchangebg
     end
     
 .close

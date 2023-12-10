@@ -91,8 +91,8 @@
 
 // constants for panning
 
-PAN_LEFT equ -128
-PAN_RIGHT equ 127
+PAN_LEFT equ -117
+PAN_RIGHT equ 117
 PAN_CENTER equ 0
 
 .macro playsepan,id,pan
@@ -220,6 +220,11 @@ PAN_CENTER equ 0
         .word num9
     .endif
 .endmacro
+
+ANIM_TARGET_USER equ 3
+ANIM_TARGET_DEFENDER equ 4
+ANIM_TARGET_MISC equ 17
+ANIM_TARGET_DEFENDER_SIDE equ 20
 
 .macro addparticle,num0,num1,address
     .word 0x2E, num0, num1, address
@@ -509,6 +514,15 @@ PAN_CENTER equ 0
     callfunction 36, 5, times, 0, 1, magnitude, 264, "NaN", "NaN", "NaN", "NaN", "NaN" // shake target mon magnitude pixels times times
 .endmacro
 
+.macro shaketargetside,times,magnitude
+    callfunction 36, 5, times, 0, 1, magnitude, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 36, 5, times, 0, 1, magnitude, 272, "NaN", "NaN", "NaN", "NaN", "NaN"
+.endmacro
+
+.macro shakeallbutuser,times,magnitude
+    callfunction 36, 5, times, 0, 1, magnitude, 288, "NaN", "NaN", "NaN", "NaN", "NaN"
+.endmacro
+
 .macro slideattackingmon,x,y
     callfunction 57, 4, 4, x, y, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // slide attacking mon x, y
 .endmacro
@@ -535,4 +549,10 @@ PAN_CENTER equ 0
     unloadspriteresource
     cmd53 0
     resetsprite 4
+.endmacro
+
+// moves the x axis of a placed particle towards the attacker such that the particle
+// is emitted towards the attacker.  make sure to place particle using location 17
+.macro moveaxistotarget,slot,emitter
+    cmd37 6, slot, emitter, 6, 1, 0, 0, "NaN", "NaN"
 .endmacro
