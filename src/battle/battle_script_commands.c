@@ -2353,6 +2353,29 @@ BOOL btl_scr_cmd_E7_ifmovepowergreaterthanzero(void *bw UNUSED, struct BattleStr
 }
 
 /**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param client_no resolved battler
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL monIsGrounded(struct BattleStruct *sp, u32 client_no) {
+    u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
+
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
+         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
+        (holdeffect == HOLD_EFFECT_HALVE_SPEED                                     // holding Iron Ball
+         || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
+         || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+        // not in a semi-vulnerable state
+        if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+/**
  *  @brief script command to jump somewhere if the mon is grounded
  *
  *  @param bw battle work structure
@@ -2367,16 +2390,10 @@ BOOL btl_scr_cmd_E8_ifgrounded(void *bw UNUSED, struct BattleStruct *sp) {
 
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
-    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
-         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
-        (holdeffect == HOLD_EFFECT_HALVE_SPEED                                     // holding Iron Ball
-         || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
-        || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
-            // not in a semi-vulnerable state
-            if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
-                IncrementBattleScriptPtr(sp, address);
-                }
+    if(monIsGrounded(sp, client_no)) {
+        IncrementBattleScriptPtr(sp, address);
     }
+    
     return FALSE;
 }
 
@@ -2487,6 +2504,8 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
 
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
+    int client_set_max;
+    int client_no;
 
     enum TerrainOverlayType oldTerrainOverlay = newBS.terrainOverlay.type;
 
@@ -2522,6 +2541,17 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
             newBS.terrainOverlay.numberOfTurnsLeft = 5;
         } else {
             newBS.terrainOverlay.numberOfTurnsLeft = 0;
+        }
+    }
+
+    client_set_max = BattleWorkClientSetMaxGet(bw);
+
+    if (newBS.terrainOverlay.type == ELECTRIC_TERRAIN) {
+        for (int i = 0; i < client_set_max; i++) {
+            client_no = sp->turn_order[i];
+            if (monIsGrounded(sp, client_no)) {
+                sp->battlemon[client_no].effect_of_moves &= ~(MOVE_EFFECT_YAWN_COUNTER);
+            }
         }
     }
 

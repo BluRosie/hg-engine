@@ -1386,6 +1386,14 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Speed!
 {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
 The foe’s {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
+Grass grew to cover the battlefield!
+The grass disappeared\nfrom the battlefield.
+Mist swirled about the battlefield!
+The mist disappeared\nfrom the battlefield.
+An electric current\nran across the battlefield!
+The electricity disappeared\nfrom the battlefield.
+The battlefield got weird!
+The weirdness disappeared\nfrom the battlefield.
 The field is in full bloom.
 The grass below caught flame!
 The Grassy Terrain\nstrengthened the attack!
@@ -1401,11 +1409,6 @@ The cavern strengthened\nthe attack!
 ...Piled on!
 Bits of rock fell from the crumbling ceiling!
 The quake collapsed the ceiling!
-Grass grew to cover the battlefield!
-The grass disappeared\nfrom the battlefield.
-Mist swirled about the battlefield!
-The mist disappeared\nfrom the battlefield.
-An electric current ran across the battlefield!
-The electricity disappeared\nfrom the battlefield.
-The battlefield got weird!
-The weirdness disappeared\nfrom the battlefield.
+The Electric Terrain\nstrengthened the attack!
+The Misty Terrain\nstrengthened the attack!
+The Misty Terrain\nweakened the attack!

@@ -9327,7 +9327,7 @@ movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
-    appeal 0x03
+    appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
 
@@ -9342,7 +9342,7 @@ movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
-    appeal 0x03
+    appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
 
@@ -9676,7 +9676,7 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ELECTRIC_TERRAIN, "Electric Terrain"
+movedata MOVE_ELECTRIC_TERRAIN, "ElectricTerrain"
     battleeffect 294
     pss SPLIT_STATUS
     basepower 0
@@ -9687,7 +9687,7 @@ movedata MOVE_ELECTRIC_TERRAIN, "Electric Terrain"
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
-    appeal 0x03
+    appeal 0x05
     contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
     terminatedata
 

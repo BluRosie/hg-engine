@@ -10,6 +10,8 @@
 
 // handle terrain and field effect end of turn
 
+GenericHealMsg equ (1401)
+
 .create "build/move/battle_sub_seq/1_347", 0
 
 a001_347:
@@ -34,7 +36,7 @@ IsGrassyTerrain:
         changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
 
         gotosubscript 2
-        printmessage 1393, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s HP was restored.
+        printmessage GenericHealMsg, TAG_NICK, BATTLER_xFF, "NaN", "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s HP was restored.
         waitmessage
         wait 0x1E
     IncreaseCounter:

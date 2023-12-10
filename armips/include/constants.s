@@ -688,6 +688,16 @@ _y_ equ 0x015D
 _z_ equ 0x015E
 _endstr equ 0xFFFF
 
+// additional effect constants
+ADD_STATUS_NONE equ         (0)
+ADD_STATUS_DIRECT equ       (1)
+ADD_STATUS_INDIRECT equ     (2)
+ADD_STATUS_ABILITY equ      (3)
+ADD_STATUS_WAZA_KOUKA equ   (4)
+ADD_STATUS_SOUBIITEM equ    (5)
+ADD_STATUS_DOKUBISI equ     (6)
+ADD_STATUS_IGNORE equ       (7)
+
 // Vanilla Terrains (Fields)
 
 TERRAIN_PLAIN equ (0)

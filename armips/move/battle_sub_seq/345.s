@@ -10,6 +10,21 @@
 
 // handle terrain and field effects subscript
 
+GrassFieldFireBoostMsg equ (1397)
+GrassFieldGrassBoostMsg equ (1398)
+GrassFieldWindBoostMsg equ (1399)
+GrassFieldSoftenNerfMsg equ (1400)
+
+CaveFieldSoundBuffMsg equ (1405)
+CaveFieldChokeNerfMsg equ (1406)
+CaveFieldRockBoostMsg equ (1407)
+CaveFieldPiledOnBoostMsg equ (1408)
+
+ElectricFieldElectricBoostMsg equ (1411)
+
+MistyFieldFairyBoostMsg equ (1412)
+MistyFieldDragonNerfMsg equ (1413)
+
 .create "build/move/battle_sub_seq/1_345", 0x0
 
 HandleTerrainAndFieldEffects:
@@ -31,7 +46,9 @@ HandleTerrainOverlay:
         goto DefaultOrEnd
         endscript
     IsMistyTerrain:
+        ifmovepowergreaterthanzero MistyTerrainTypeCheck
     IsElectricTerrain:
+        ifmovepowergreaterthanzero ElectricTerrainTypeCheck
     IsPsychicTerrain:
     goto DefaultOrEnd
 
@@ -65,7 +82,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1389, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass below caught flame!
+            printmessage GrassFieldFireBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass below caught flame!
             waitmessage
             wait 0x1E
             endscript
@@ -74,7 +91,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1390, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Grassy Terrain strengthened the attack!
+            printmessage GrassFieldGrassBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Grassy Terrain strengthened the attack!
             wait 0x1E
             endscript
         GrassFieldWindBoost:
@@ -82,7 +99,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1391, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The wind picked up strength from the field!
+            printmessage GrassFieldWindBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The wind picked up strength from the field!
             waitmessage
             wait 0x1E
             endscript
@@ -91,7 +108,57 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1392, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass softened the attack...
+            printmessage GrassFieldSoftenNerfMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass softened the attack...
+            waitmessage
+            wait 0x1E
+            endscript
+
+    IsElectricField:
+            ifmovepowergreaterthanzero ElectricFieldTypeCheck
+            goto DefaultOrEnd
+        ElectricTerrainTypeCheck:
+        ElectricFieldTypeCheck:
+            checkifcurrentadjustedmoveistype TYPE_ELECTRIC, ElectricFieldAttackerGroundedCheck
+            goto DefaultOrEnd
+        ElectricFieldAttackerGroundedCheck:
+            ifgrounded BATTLER_ATTACKER, ElectricFieldElectricBoost
+            goto DefaultOrEnd
+        ElectricFieldElectricBoost:
+            changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xD // 1.3 multiplier
+            printattackmessage
+            waitmessage
+            wait 0x1E
+            printmessage ElectricFieldElectricBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Grassy Terrain strengthened the attack!
+            wait 0x1E
+            endscript
+    IsMistyField:
+            ifmovepowergreaterthanzero MistyFieldTypeCheck
+            goto DefaultOrEnd
+        MistyTerrainTypeCheck:
+        MistyFieldTypeCheck:
+            checkifcurrentadjustedmoveistype TYPE_FAIRY, MistyFieldAttackerGroundedCheck
+            checkifcurrentadjustedmoveistype TYPE_DRAGON, MistyFieldDefenderGroundedCheck
+            goto DefaultOrEnd
+        MistyFieldAttackerGroundedCheck:
+            ifgrounded BATTLER_ATTACKER, MistyFieldFairyBoost
+            goto DefaultOrEnd
+        MistyFieldDefenderGroundedCheck:
+            ifgrounded BATTLER_DEFENDER, MistyFieldDragonNerf
+            goto DefaultOrEnd
+        MistyFieldFairyBoost:
+            changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xD // 1.3 multiplier
+            printattackmessage
+            waitmessage
+            wait 0x1E
+            printmessage MistyFieldFairyBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Grassy Terrain strengthened the attack!
+            wait 0x1E
+            endscript
+        MistyFieldDragonNerf:
+            changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0x5 // 0.5 multiplier
+            printattackmessage
+            waitmessage
+            wait 0x1E
+            printmessage MistyFieldDragonNerfMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass softened the attack...
             waitmessage
             wait 0x1E
             endscript
@@ -119,7 +186,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1398, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The cave choked out the air!
+            printmessage CaveFieldChokeNerfMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The cave choked out the air!
             waitmessage
             wait 0x1E
             goto CaveFieldOtherChecks
@@ -128,7 +195,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1399, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The cavern strengthened the attack!
+            printmessage CaveFieldRockBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The cavern strengthened the attack!
             waitmessage
             wait 0x1E
             goto CaveFieldOtherChecks
@@ -141,13 +208,13 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage 1397, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // ECHO-Echo-echo!
+            printmessage CaveFieldSoundBuffMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // ECHO-Echo-echo!
             waitmessage
             wait 0x1E
             endscript
         CaveFieldPiledOnBoost:
             changevar VAR_OP_MUL, VAR_DAMAGE_MULT, 0xD // 1.3 * 1.3 = 1.7 multiplier
-            printmessage 1400, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // ...Piled on!
+            printmessage CaveFieldPiledOnBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // ...Piled on!
             waitmessage
             wait 0x1E
             endscript

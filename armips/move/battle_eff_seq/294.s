@@ -10,6 +10,11 @@
 
 // Handle updating of terrain overlays
 
+GRASSY_TERRAIN_APPLY_MSG equ (1388)
+MISTY_TERRAIN_APPLY_MSG equ (1390)
+ELECTRIC_TERRAIN_APPLY_MSG equ (1392)
+PSYCHIC_TERRAIN_APPLY_MSG equ (1394)
+
 .create "build/move/battle_eff_seq/0_294", 0
 
 Start:
@@ -26,22 +31,22 @@ Start:
     ifterrainoverlayistype PSYCHIC_TERRAIN, PsychicTerrainMessage
     goto DefaultOrEnd
 GrassyTerrainMessage:
-    printmessage 1403, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Grass grew to cover the battlefield!
+    printmessage GRASSY_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Grass grew to cover the battlefield!
     waitmessage
     wait 0x1E
     endscript
 MistyTerrainMessage:
-    printmessage 1405, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Mist swirled about the battlefield!
+    printmessage MISTY_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Mist swirled about the battlefield!
     waitmessage
     wait 0x1E
     endscript
 ElectricTerrainMessage:
-    printmessage 1407, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // An electric current ran across the battlefield!
+    printmessage ELECTRIC_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // An electric current ran across the battlefield!
     waitmessage
     wait 0x1E
     endscript
 PsychicTerrainMessage:
-    printmessage 1409, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The battlefield got weird!
+    printmessage PSYCHIC_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The battlefield got weird!
     waitmessage
     wait 0x1E
     endscript
