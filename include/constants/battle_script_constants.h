@@ -356,6 +356,7 @@
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG      (346)
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_END_OF_TURN      (347)
 #define SUB_SEQ_HANDLE_TERRAIN_END                    (348)
+#define SUB_SEQ_HANDLE_JUST_FAIL                      (349)
 
 
 

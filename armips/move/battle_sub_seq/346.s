@@ -10,8 +10,8 @@
 
 // handle printing field effects subscript
 
-GrassFieldInitialMsg equ (1396)
-CaveFieldInitialMsg equ (1404)
+GrassFieldInitialMsg equ (1503)
+CaveFieldInitialMsg equ (1506)
 
 .create "build/move/battle_sub_seq/1_346", 0x0
 

@@ -111,6 +111,70 @@ const u16 PowderMoveList[] = {
     MOVE_SPORE,
 };
 
+BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
+    // courtesy of Dray (https://github.com/Drayano60)
+
+    // Moves that Triage boosts the priority of.
+    // Move effects might be a tidier way to do it, but we don't have those defined for some of these moves yet.
+    const u16 TriageMovesList[] = {
+        MOVE_ABSORB,
+        MOVE_DRAIN_PUNCH,
+        MOVE_DRAINING_KISS,
+        MOVE_DREAM_EATER,
+        MOVE_FLORAL_HEALING,
+        MOVE_GIGA_DRAIN,
+        MOVE_HEAL_ORDER,
+        MOVE_HEAL_PULSE,
+        MOVE_HEALING_WISH,
+        MOVE_HORN_LEECH,
+        MOVE_LEECH_LIFE,
+        MOVE_LUNAR_DANCE,
+        MOVE_MEGA_DRAIN,
+        MOVE_MILK_DRINK,
+        MOVE_MOONLIGHT,
+        MOVE_MORNING_SUN,
+        MOVE_OBLIVION_WING,
+        MOVE_PARABOLIC_CHARGE,
+        MOVE_PURIFY,
+        MOVE_RECOVER,
+        MOVE_REST,
+        MOVE_ROOST,
+        MOVE_SHORE_UP,
+        MOVE_SLACK_OFF,
+        MOVE_SOFT_BOILED,
+        MOVE_STRENGTH_SAP,
+        MOVE_SWALLOW,
+        MOVE_SYNTHESIS,
+        MOVE_WISH,
+    };
+
+    BOOL isTriageMove = FALSE;
+
+    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
+        if (TriageMovesList[i] == sp->current_move_index) {
+            isTriageMove = TRUE;
+            break;
+        }
+    }
+
+    if (
+        (sp->moveTbl[sp->current_move_index].priority > 0) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&
+         (sp->moveTbl[sp->current_move_index].split == SPLIT_STATUS) &&
+         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Prankster is +1
+         ) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_GALE_WINGS) &&
+         (sp->moveTbl[sp->current_move_index].type == TYPE_FLYING) &&
+         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Gale Wings is +1
+         ) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_TRIAGE) &&
+         (isTriageMove) &&
+         (sp->moveTbl[sp->current_move_index].priority >= -2)  // Triage is +3
+         )) {
+        return TRUE;
+    }
+    return FALSE;
+}
 
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
@@ -237,6 +301,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         if ((movetype == TYPE_WATER) && (attacker != defender))
         {
             scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+        }
+    }
+
+    // Handle Psychic Terrain
+    // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
+    // courtesy of Dray (https://github.com/Drayano60)
+    if (newBS.terrainOverlay.type == PSYCHIC_TERRAIN && newBS.terrainOverlay.numberOfTurnsLeft > 0) {
+        if (adjustedMoveHasPositivePriority(sp, attacker)) {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
     }
 

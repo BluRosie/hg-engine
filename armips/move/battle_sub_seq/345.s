@@ -10,20 +10,26 @@
 
 // handle terrain and field effects subscript
 
-GrassFieldFireBoostMsg equ (1397)
-GrassFieldGrassBoostMsg equ (1398)
-GrassFieldWindBoostMsg equ (1399)
+GrassFieldGrassBoostMsg equ (1399)
 GrassFieldSoftenNerfMsg equ (1400)
 
-CaveFieldSoundBuffMsg equ (1405)
-CaveFieldChokeNerfMsg equ (1406)
-CaveFieldRockBoostMsg equ (1407)
-CaveFieldPiledOnBoostMsg equ (1408)
+ElectricFieldElectricBoostMsg equ (1401)
+ElectricFieldElectricNerfMsg equ (1402)
 
-ElectricFieldElectricBoostMsg equ (1411)
+MistyFieldFairyBoostMsg equ (1403)
+MistyFieldDragonNerfMsg equ (1404)
 
-MistyFieldFairyBoostMsg equ (1412)
-MistyFieldDragonNerfMsg equ (1413)
+PsychicFieldPsychicBoostMsg equ (1405)
+PsychicFieldPsychicNerfMsg equ (1406)
+
+
+GrassFieldFireBoostMsg equ (1504)
+GrassFieldWindBoostMsg equ (1505)
+
+CaveFieldSoundBuffMsg equ (1507)
+CaveFieldChokeNerfMsg equ (1508)
+CaveFieldRockBoostMsg equ (1509)
+CaveFieldPiledOnBoostMsg equ (1510)
 
 .create "build/move/battle_sub_seq/1_345", 0x0
 
@@ -47,9 +53,13 @@ HandleTerrainOverlay:
         endscript
     IsMistyTerrain:
         ifmovepowergreaterthanzero MistyTerrainTypeCheck
+        goto DefaultOrEnd
     IsElectricTerrain:
         ifmovepowergreaterthanzero ElectricTerrainTypeCheck
+        goto DefaultOrEnd
     IsPsychicTerrain:
+        ifmovepowergreaterthanzero PsychicFieldTypeCheck
+        goto DefaultOrEnd
     goto DefaultOrEnd
 
 HandleFieldEffects:
@@ -112,7 +122,6 @@ HandleFieldEffects:
             waitmessage
             wait 0x1E
             endscript
-
     IsElectricField:
             ifmovepowergreaterthanzero ElectricFieldTypeCheck
             goto DefaultOrEnd
@@ -162,7 +171,24 @@ HandleFieldEffects:
             waitmessage
             wait 0x1E
             endscript
-
+    IsPsychicField:
+            ifmovepowergreaterthanzero PsychicFieldTypeCheck
+            goto DefaultOrEnd
+        PsychicTerrainTypeCheck:
+        PsychicFieldTypeCheck:
+            checkifcurrentadjustedmoveistype TYPE_PSYCHIC, PsychicFieldAttackerGroundedCheck
+            goto DefaultOrEnd
+        PsychicFieldAttackerGroundedCheck:
+            ifgrounded BATTLER_ATTACKER, PsychicFieldElectricBoost
+            goto DefaultOrEnd
+        PsychicFieldElectricBoost:
+            changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xD // 1.3 multiplier
+            printattackmessage
+            waitmessage
+            wait 0x1E
+            printmessage PsychicFieldPsychicBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Psychic Terrain strengthened the attack!
+            wait 0x1E
+            endscript
     IsCaveField:
         // Ground type attacks can hit airborne Pokemon
             // changevar VAR_OP_SET, VAR_CLIENT_NO_AGI, 0x0

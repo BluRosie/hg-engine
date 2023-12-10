@@ -1394,14 +1394,116 @@ An electric current\nran across the battlefield!
 The electricity disappeared\nfrom the battlefield.
 The battlefield got weird!
 The weirdness disappeared\nfrom the battlefield.
-The field is in full bloom.
-The grass below caught flame!
-The Grassy Terrain\nstrengthened the attack!
-The wind picked up strength\nfrom the field!
-The grass softened the attack...
 {STRVAR_1 1, 0, 0}’s HP was restored.
 The wild {STRVAR_1 1, 0, 0}’s HP was restored.
 The foe’s {STRVAR_1 1, 0, 0}’s HP was restored.
+The Grassy Terrain\nstrengthened the attack!
+The grass softened the attack...
+The Electric Terrain\nstrengthened the attack!
+The Electric Terrain\nweakened the attack!
+The Misty Terrain\nstrengthened the attack!
+The Misty Terrain\nweakened the attack!
+The Psychic Terrain\nstrengthened the attack!
+The Psychic Terrain\nweakened the attack!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The field is in full bloom.
+The grass below caught flame!
+The wind picked up strength\nfrom the field!
 The cave echoes dully...
 ECHO-Echo-echo!
 The cave choked out the air!
@@ -1409,6 +1511,3 @@ The cavern strengthened\nthe attack!
 ...Piled on!
 Bits of rock fell from the crumbling ceiling!
 The quake collapsed the ceiling!
-The Electric Terrain\nstrengthened the attack!
-The Misty Terrain\nstrengthened the attack!
-The Misty Terrain\nweakened the attack!

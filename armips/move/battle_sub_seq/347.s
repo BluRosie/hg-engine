@@ -10,7 +10,7 @@
 
 // handle terrain and field effect end of turn
 
-GenericHealMsg equ (1401)
+GenericHealMsg equ (1396)
 
 .create "build/move/battle_sub_seq/1_347", 0
 
