@@ -177,6 +177,29 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
 }
 
 /**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param client_no resolved battler
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL monIsGroundedForPsychicTerrain(struct BattleStruct *sp, u32 client_no) {
+    u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
+
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
+         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
+        (holdeffect == HOLD_EFFECT_HALVE_SPEED                                     // holding Iron Ball
+         || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
+         || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+        // not in a semi-vulnerable state
+        if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+/**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
  *
  *  @param sp global battle structure
@@ -307,7 +330,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
     // courtesy of Dray (https://github.com/Drayano60)
-    if (newBS.terrainOverlay.type == PSYCHIC_TERRAIN && newBS.terrainOverlay.numberOfTurnsLeft > 0) {
+    if (newBS.terrainOverlay.type == PSYCHIC_TERRAIN && newBS.terrainOverlay.numberOfTurnsLeft > 0 && monIsGroundedForPsychicTerrain(sp, defender)) {
         if (adjustedMoveHasPositivePriority(sp, attacker)) {
             scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
