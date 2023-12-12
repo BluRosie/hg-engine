@@ -174,11 +174,11 @@
  *  @brief flags for effect_of_moves
  *  defines for BattleStruct's effect_of_moves field
  *  fields that cover multiple fields are often counters, i.e. MOVE_EFFECT_FLAG_LOCK_ON
- *  
+ *
  *  the following statement:
  *  sp->effect_of_moves -= (1 << 3);
  *  decrements the 2-bit counter for lock on
- *  
+ *
  *  seems to be duplicated in battle_moveflag structure (moveeffect field of BattleStruct)
  */
 #define MOVE_EFFECT_LEECH_SEED_BATTLER      (0x00000003) // leech seed battler
@@ -254,13 +254,24 @@
  *  @brief volatile status condition flags
  *  accessible in BattleStruct's battlemon[battler].condition2
  */
-#define STATUS2_FLAG_CONFUSED (0x00000007)
-#define STATUS2_FLAG_INFATUATION (0x000f0000) // ? doesn't seem like it?
-#define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
-#define STATUS2_FLAG_TRANSFORMED (0x00200000)
-#define STATUS2_FLAG_RAGE (0x00800000)
-#define STATUS2_FLAG_SUBSTITUTE (0x01000000)
-#define STATUS2_FLAG_FORESIGHT (0x20000000)
+#define STATUS2_CONFUSED (0x00000007)
+#define STATUS2_FLINCH (0x00000008)
+#define STATUS2_UPROAR (0x00000070)
+#define STATUS2_RAMPAGE_TURNS (0x00000C00)
+#define STATUS2_LOCKED_INTO_MOVE (0x00001000)
+#define STATUS2_BINDING_TURNS (0x0000E000)
+#define STATUS2_INFATUATION (0x000f0000)
+#define STATUS2_FOCUS_ENERGY (0x00100000)
+#define STATUS2_TRANSFORMED (0x00200000)
+#define STATUS2_RECHARGE (0x00400000)
+#define STATUS2_RAGE (0x00800000)
+#define STATUS2_SUBSTITUTE (0x01000000)
+#define STATUS2_MEAN_LOOK (0x04000000)
+#define STATUS2_NIGHTMARE (0x08000000)
+#define STATUS2_CURSE (0x1000000)
+#define STATUS2_FORESIGHT (0x20000000)
+#define STATUS2_DEFENCE_CURL (0x40000000)
+#define STATUS2_TORMENT (0x80000000)
 
 /**
  *  @brief side status flags that apply to one side
@@ -1135,14 +1146,17 @@ struct BattleSystem {
 };
 
 
-enum
-{
-    CHECK_PLAYER_SIDE_ALL = 0,
-    CHECK_PLAYER_SIDE_ALIVE,
-    CHECK_ENEMY_SIDE_ALL,
-    CHECK_ENEMY_SIDE_ALIVE,
-    CHECK_ALL_BATTLER_ALIVE = 8,
-};
+//Ability Checks - values for flag for CheckSideAbility
+#define CHECK_ABILITY_SAME_SIDE             0
+#define CHECK_ABILITY_SAME_SIDE_HP          1
+#define CHECK_ABILITY_OPPOSING_SIDE         2
+#define CHECK_ABILITY_OPPOSING_SIDE_HP      3
+#define CHECK_ABILITY_OPPOSING_SIDE_HP_RET  4
+#define CHECK_ABILITY_ALL                   5
+#define CHECK_ABILITY_ALL_NOT_USER          6
+#define CHECK_ABILITY_ALL_NOT_USER_RET      7
+#define CHECK_ABILITY_ALL_HP                8
+#define CHECK_ABILITY_ALL_HP_NOT_USER       9
 
 enum
 {
@@ -1187,6 +1201,8 @@ enum
     BATTLE_MON_FLASH_FIRE_ACTIVATED = 73,
     BATTLE_MON_DATA_SLOW_START_COUNTER = 89,
 };
+
+#define BATTLE_MON_HAS_TYPE(sp, client, type) (sp->battlemon[client].type1 == type || sp->battlemon[client].type2 == type)
 
 #define MEGA_NEED 1
 #define MEGA_CHECK_APPER 2
@@ -1489,7 +1505,7 @@ int LONG_CALL TypeCalc(void *bw, struct BattleStruct *sp, int movenum, int movet
  *
  *  @param sp global battle structure
  *  @param movenum move to check
- *  @return 
+ *  @return
  */
 u32 LONG_CALL AnticipateMoveEffectListCheck(struct BattleStruct *sp, int movenum);
 
@@ -1609,7 +1625,7 @@ void LONG_CALL PokeCopyPPtoPP(struct PartyPokemon *pp_src, struct PartyPokemon *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
  *  @param send_client client to copy BattlePokemon to PartyPokemon for
- *  @return 
+ *  @return
  */
 void LONG_CALL SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *sp, int send_client);
 
@@ -1625,8 +1641,8 @@ int LONG_CALL PokeParaGiratinaFormChange(struct PartyPokemon *pp);
  *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param cp 
- *  @param pep 
+ *  @param cp
+ *  @param pep
  */
 void LONG_CALL CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_ENCOUNT_PARAM *pep);
 
@@ -1634,8 +1650,8 @@ void LONG_CALL CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct PO
  *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param cp 
- *  @param pap 
+ *  @param cp
+ *  @param pap
  */
 void LONG_CALL CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 
@@ -1643,8 +1659,8 @@ void LONG_CALL CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, str
  *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param cp 
- *  @param pap 
+ *  @param cp
+ *  @param pap
  */
 void LONG_CALL CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 
@@ -1721,8 +1737,8 @@ void LONG_CALL SCIO_IncRecord(void *bw, int attack_client, int param1, int param
  *  @brief check if a status condition should be recovered on switch by an ability.  think natural cure
  *
  *  @param sp global battle structure
- *  @param ability 
- *  @param condition 
+ *  @param ability
+ *  @param condition
  *  @return TRUE if recovery should happen; FALSE otherwise
  */
 BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitch(struct BattleStruct *sp, int ability, int condition);
@@ -1867,7 +1883,7 @@ BOOL LONG_CALL HeldItemEffectCheck(void *bw, struct BattleStruct *sp, int client
 BOOL LONG_CALL HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
- *  @brief 
+ *  @brief
  *
  *  @param sp global battle structure
  *  @param attack_client battler that is the attacker
@@ -2017,7 +2033,7 @@ BOOL LONG_CALL AI_ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, u32 held_e
  *  @brief increment battle script VM "program counter" by a certain amount
  *
  *  @param sp global battle structure
- *  @param count amount to increment by in words/positions 
+ *  @param count amount to increment by in words/positions
  */
 void LONG_CALL IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
 
@@ -2052,7 +2068,7 @@ void LONG_CALL Link_CheckTimeout(struct BattleStruct *sp);
  *
  *  @param sp global battle structure
  *  @param client_no battler to grab the item of
- *  @return 
+ *  @return
  */
 u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 

@@ -894,7 +894,7 @@ BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
             }
         }
     }
-    
+
     if (cnt == 0) {
         sp->server_queue_time_out = 0;
     }
@@ -1649,9 +1649,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     // specifically for flower veil, we know that one of the Pokémon have flower veil.  we need to change the client that it prints the ability of to the flower veil client
                     u32 flower_veil_client;
-                    
+
                     flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
-                    
+
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
@@ -1744,7 +1744,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     flag = 1;
                 }
-                else if (sp->battlemon[sp->state_client].condition2 & STATUS2_FLAG_SUBSTITUTE)
+                else if (sp->battlemon[sp->state_client].condition2 & STATUS2_SUBSTITUTE)
                 {
                     flag = 2;
                 }
@@ -1925,7 +1925,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     int species, form, number_of_hits;
     s32 newBaseDamage;
     struct PartyPokemon *mon;
-    
+
     IncrementBattleScriptPtr(sp, 1);
 
     int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
@@ -1935,20 +1935,20 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
         sp->multi_hit_count_temp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
         while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 || 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0|| 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 || 
+                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
                 GetMonData(mon, MON_DATA_STATUS, 0) != 0))
                 {
 
             sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
-        
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+
         }
-    }   
+    }
 
     mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
     species = GetMonData(mon, MON_DATA_SPECIES, 0);
@@ -1964,13 +1964,13 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     number_of_hits = sp->beat_up_count;
 
     if (sp->beat_up_count < partyCount) {
-        
+
         mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
         while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 || 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 || 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 || 
+                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
                 GetMonData(mon, MON_DATA_STATUS, 0) != 0))
                 {
 
@@ -1983,7 +1983,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
                 break;
             }
 
-        } 
+        }
     } else {
         sp->multi_hit_count = 1;
         sp->multi_hit_count_temp = number_of_hits;
