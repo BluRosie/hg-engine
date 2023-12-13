@@ -512,25 +512,25 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     //handle steelworker
-    if(GetBattlerAbility(sp, attacker) == ABILITY_STEELWORKER && (movetype == TYPE_STEEL))
+    if(AttackingMon.ability == ABILITY_STEELWORKER && (movetype == TYPE_STEEL))
     {
         movepower = movepower * 150 / 100;
     }
 
     //handle dragon's maw
-    if(GetBattlerAbility(sp, attacker) == ABILITY_DRAGONS_MAW && (movetype == TYPE_DRAGON))
+    if(AttackingMon.ability == ABILITY_DRAGONS_MAW && (movetype == TYPE_DRAGON))
     {
         movepower = movepower * 150 / 100;
     }
 
     //handle transistor
-    if(GetBattlerAbility(sp, attacker) == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
+    if(AttackingMon.ability == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
     {
         movepower = movepower * 150 / 100;
     }
 
     //handle rocky payload
-    if(GetBattlerAbility(sp, attacker) == ABILITY_ROCKY_PAYLOAD && (movetype == TYPE_ROCK))
+    if(AttackingMon.ability == ABILITY_ROCKY_PAYLOAD && (movetype == TYPE_ROCK))
     {
         movepower = movepower * 150 / 100;
     }
@@ -557,56 +557,61 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 100 / 133;
 #endif
 
-    //handle steely spirit
-    if ((movetype == TYPE_STEEL) && (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, attacker, ABILITY_STEELY_SPIRIT)))
+    //handle steely spirit for the ally
+    if (movetype == TYPE_STEEL && GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_STEELY_SPIRIT)
     {
-        movepower = movepower * 15 / 10;
+        movepower = movepower * 150 / 100;
+    }
+    //handle steely spirit for the attacker--can stack
+    if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT)
+    {
+        movepower = movepower * 150 / 100;
     }
 
     //handle battery
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_BATTERY) == TRUE)
+    if (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_BATTERY)
     {
         sp_attack = sp_attack * 130 / 100;
     }
 
     //handle power spot
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_POWER_SPOT) == TRUE)
+    if (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_POWER_SPOT)
     {
         movepower = movepower * 130 / 100;
     }
 
     //handle friend guard
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD) == TRUE)
+    if (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD)
     {
         movepower = movepower * 75 / 100;
     }
 
     // handle aerilate - 20% boost if a normal type move was changed to a flying type move.  does not boost flying type moves themselves
-    if (GetBattlerAbility(sp, attacker) == ABILITY_AERILATE && movetype == TYPE_FLYING && sp->moveTbl[moveno].type == TYPE_NORMAL)
+    if (AttackingMon.ability == ABILITY_AERILATE && movetype == TYPE_FLYING && sp->moveTbl[moveno].type == TYPE_NORMAL)
     {
         movepower = movepower * 120 / 100;
     }
 
     // handle pixilate - 20% boost if a normal type move was changed to a fairy type move.  does not boost fairy type moves themselves
-    if (GetBattlerAbility(sp, attacker) == ABILITY_PIXILATE && movetype == TYPE_FAIRY && sp->moveTbl[moveno].type == TYPE_NORMAL)
+    if (AttackingMon.ability == ABILITY_PIXILATE && movetype == TYPE_FAIRY && sp->moveTbl[moveno].type == TYPE_NORMAL)
     {
         movepower = movepower * 120 / 100;
     }
 
     // handle galvanize - 20% boost if a normal type move was changed to an electric type move.  does not boost electric type moves themselves
-    if (GetBattlerAbility(sp, attacker) == ABILITY_GALVANIZE && movetype == TYPE_ELECTRIC && sp->moveTbl[moveno].type == TYPE_NORMAL)
+    if (AttackingMon.ability == ABILITY_GALVANIZE && movetype == TYPE_ELECTRIC && sp->moveTbl[moveno].type == TYPE_NORMAL)
     {
         movepower = movepower * 120 / 100;
     }
 
     // handle refrigerate - 20% boost if a normal type move was changed to an ice type move.  does not boost ice type moves themselves
-    if (GetBattlerAbility(sp, attacker) == ABILITY_REFRIGERATE && movetype == TYPE_ICE && sp->moveTbl[moveno].type == TYPE_NORMAL)
+    if (AttackingMon.ability == ABILITY_REFRIGERATE && movetype == TYPE_ICE && sp->moveTbl[moveno].type == TYPE_NORMAL)
     {
         movepower = movepower * 120 / 100;
     }
 
     // handle normalize - 20% boost if a normal type move is used (and it changes types to normal too)
-    if (GetBattlerAbility(sp, attacker) == ABILITY_NORMALIZE && movetype == TYPE_NORMAL)
+    if (AttackingMon.ability == ABILITY_NORMALIZE && movetype == TYPE_NORMAL)
     {
         movepower = movepower * 120 / 100;
     }
@@ -769,7 +774,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             attack = attack * 15 / 10;
         }
         if ((field_cond & WEATHER_SUNNY_ANY) &&
-            (GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER) &&
+            (AttackingMon.ability != ABILITY_MOLD_BREAKER) &&
             (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_FLOWER_GIFT)))
         {
             sp_defense = sp_defense * 15 / 10;
