@@ -1178,13 +1178,8 @@ u8 scratchpad[4] = {0, 0, 0, 0};
 
 #define monCount scratchpad[0]
 #define monCountFromItem scratchpad[1]
+#define trackPartyExperience scratchpad[2]
 
-/**
- *  @brief task to distribute experience
- *
- *  @param arg0 task structure
- *  @param work exp calculator structure
- */
 /**
  *  @brief task to distribute experience
  *
@@ -1244,6 +1239,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 goto _skipAllThis;
             item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
             eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+
             if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
             {
                 break;
@@ -1428,6 +1424,37 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
         expcalc->work[i] = store_work_params[i];
     }
 
+    if (expcalc->seq_no == 0) // set first pokemon gaining experience to a specific one so that it doesn't try to give experience to something that doesn't need it
+    {
+        int sel_mons_no, item, eqp;
+        struct PartyPokemon *pp;
+
+        // grab the pokémon that is actually gaining the experience, factor in experience share here because i don't want to expose the whole main task
+        for (sel_mons_no = 0; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, 0); sel_mons_no++)
+        {
+            if (!(trackPartyExperience & No2Bit(sel_mons_no))) // if party index has not already been looped over
+            {
+                pp = BattleWorkPokemonParamGet(expcalc->bw, 0, sel_mons_no);
+                if (pp == NULL)
+                {
+                    expcalc->work[6] = BattleWorkPokeCountGet(expcalc->bw, 0);
+                    break;
+                }
+                item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+                eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+
+                if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[(expcalc->sp->fainting_client >> 1) & 1] & No2Bit(sel_mons_no)))
+                {
+                    expcalc->work[6] = sel_mons_no;
+                    trackPartyExperience |= No2Bit(sel_mons_no);
+                    break;
+                }
+            }
+        }
+        if (sel_mons_no >= BattleWorkPokeCountGet(expcalc->bw, 0)) // invalid party index will end the task
+            expcalc->work[6] = sel_mons_no;
+    }
+
     // third step:  run current step of exp distribution
     Task_DistributeExp_Extend(arg0, expcalc);
 
@@ -1443,6 +1470,7 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
             store_work_params[i] = 0;
             expcalc->work[i] = original_work_params[i];
         }
+        trackPartyExperience = 0;
     }
     else // otherwise store the exp step to the variable, restore work params, pass back to main func
     {
