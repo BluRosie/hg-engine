@@ -508,7 +508,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle ice scales - halve damage if move is special, regardless of if it uses defense stat
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL)
     {
-        movepower *= 2;
+        movepower /= 2;
     }
 
     //handle steelworker
