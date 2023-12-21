@@ -771,6 +771,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 {
     // u16 temp;
     u16 critUp;
+    u16 CritChance;
     u16 item;
     int hold_effect;
     // u16 speed;
