@@ -34,6 +34,9 @@ arm9 0806DED0 60 B4 C0 46
 # 022615F0
 0012 08029D30 60 B4 C0 46
 
+# CantEscape hook setup
+0012 02252980 60 B4 C0 46
+
 # expand evolutions to 9 per mon + form evos - GetMonEvolution hook setup
 arm9 08070E34 60 B4 C0 46
 

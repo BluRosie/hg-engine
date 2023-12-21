@@ -552,7 +552,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             for(num = 0; num < client_set_max; num++)
                             {
                                 if ((IsClientEnemy(bw, client_no) != IsClientEnemy(bw, num))
-                                    && ((sp->battlemon[num].condition2 & STATUS2_FLAG_SUBSTITUTE) == 0)
+                                    && ((sp->battlemon[num].condition2 & STATUS2_SUBSTITUTE) == 0)
                                     && (sp->battlemon[num].hp))
                                 {
                                     def += sp->battlemon[num].defense * StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][0] / StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][1];
@@ -1055,7 +1055,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
                 
                 // fuck it get rid of transform script command:
-                sp->battlemon[sp->attack_client].condition2 |= STATUS2_FLAG_TRANSFORMED;
+                sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
                 sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
                 sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 0;
                 sp->battlemon[sp->attack_client].moveeffect.transformPid = sp->battlemon[sp->defence_client].personal_rnd;
@@ -1107,8 +1107,8 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     if ((sp->battlemon[client_no].species == SPECIES_EISCUE)
                      && (sp->battlemon[client_no].hp)
                      && (sp->battlemon[client_no].form_no == 1)
-                     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-                     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+                     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+                     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
                      && (sp->field_condition & WEATHER_HAIL_ANY)               // there is hail this turn
                      && ((sp->log_hail_for_ice_face & (1 << client_no)) == 0)  // and hail wasn't here last turn/the mon just switched in
                      && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)
@@ -1281,8 +1281,8 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
              && IS_ITEM_BERRY(sp->recycle_item[client_no])
              && ((BattleRand(bw) % 2 == 0) // 50% chance
               // OR sun is active + abilities are not fucking it
-              || ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-               && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+              || ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+               && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
                && (sp->field_condition & WEATHER_SUNNY_ANY))))
             {
                 sp->item_work = sp->recycle_item[client_no];
@@ -1689,7 +1689,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         case ABILITY_CUTE_CHARM:
             if ((sp->battlemon[sp->attack_client].hp)
-                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_FLAG_INFATUATION) == 0)
+                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_INFATUATION) == 0)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
@@ -1708,7 +1708,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         case ABILITY_AFTERMATH:
             if ((sp->defence_client == sp->fainting_client)
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
-                && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DAMP) == 0)
+                && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAMP) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && (sp->battlemon[sp->attack_client].hp)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
