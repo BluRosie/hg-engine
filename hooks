@@ -338,3 +338,4 @@ arm9 CapRareCandies 0208FEEA 1
 
 0012 CantEscape_hook 02252984 5
 0012 BattlerCantSwitch 02255920 3
+0012 BattleTryRun 02252B68 3
