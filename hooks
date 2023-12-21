@@ -118,7 +118,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
-#fix money calculation - 
+#fix money calculation -
 0012 fix_money_calc 0800829E 0
 
 #illusion hooks
@@ -168,8 +168,9 @@ arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
 
-#use item forme change
-arm9 UseItemFormeChange_hook 0807C29C 0
+#use item attribute change
+arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0
+0094 UseItemMonAttrLoadDiffMessage_hook 021E5A6A 1
 
 #ifdef ALLOW_SAVE_CHANGES
 

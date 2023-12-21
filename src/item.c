@@ -14,10 +14,13 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id);
 //void *LONG_CALL ItemDataTableLoad(int heapID);
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 BOOL ItemFieldUseFunc_RevealGlass(struct ItemFieldUseData *data);
+void *_CreateRevealGlassWork(FieldSystem *fieldSystem);
 void ItemMenuUseFunc_DNASplicers(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 BOOL ItemFieldUseFunc_DNASplicers(struct ItemFieldUseData *data);
-void *_CreateRevealGlassWork(FieldSystem *fieldSystem);
 void *_CreateDNASplicersWork(FieldSystem *fieldSystem);
+void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL ItemFieldUseFunc_AbilityCapsule(struct ItemFieldUseData *data);
+void *_CreateAbilityCapsuleWork(FieldSystem *fieldSystem);
 
 const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { NULL, ItemFieldUseFunc_Generic, NULL },
@@ -53,6 +56,7 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     // new item use entries
     { ItemMenuUseFunc_RevealGlass, ItemFieldUseFunc_RevealGlass, NULL },
     { ItemMenuUseFunc_DNASplicers, ItemFieldUseFunc_DNASplicers, NULL },
+    { ItemMenuUseFunc_AbilityCapsule, ItemFieldUseFunc_AbilityCapsule, NULL },
 };
 
 u16 GetItemIndex(u16 item, u16 type)
@@ -189,4 +193,23 @@ BOOL ItemFieldUseFunc_DNASplicers(struct ItemFieldUseData *data)
 void *_CreateDNASplicersWork(FieldSystem *fieldSystem)
 {
     return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS);
+}
+
+void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
+{
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_ABILITY_CAPSULE);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+BOOL ItemFieldUseFunc_AbilityCapsule(struct ItemFieldUseData *data)
+{
+    RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_CreateAbilityCapsuleWork, FALSE);
+    return TRUE;
+}
+
+void *_CreateAbilityCapsuleWork(FieldSystem *fieldSystem)
+{
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_ABILITY_CAPSULE);
 }
