@@ -187,3 +187,10 @@ arm9 0208CDE8 04
 
 # expand metronome movepool
 0012 022408F8 NUM_OF_MOVES
+
+# pass PartyPokemon to ModifyStatByNature for recalculating PartyPokemon stats
+arm9 0206E3C6 00 00 00 00
+arm9 0206E406 00 00 00 00
+arm9 0206E446 00 00 00 00
+arm9 0206E486 00 00 00 00
+arm9 0206E4C6 00 00 00 00

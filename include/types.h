@@ -65,6 +65,7 @@ VecFx32;
 #define LONG_CALL __attribute__((long_call))
 #define UNUSED __attribute__((unused))
 #define FALLTHROUGH __attribute__ ((fallthrough))
+#define PACKED __attribute__((packed))
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)

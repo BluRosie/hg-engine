@@ -192,3 +192,4 @@ The {STRVAR_1 8, 0, 0} cannot be\ngiven here.\r
 Pokémon holding a Soul Dew cannot be\nentered in the GS Cup.\r
 
 {STRVAR_1 0, 0, 0}’s ability was changed!\r
+{STRVAR_1 0, 0, 0}’s nature was changed!\r

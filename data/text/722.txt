@@ -207,7 +207,7 @@ Gives priority to\na healing move.
 Normal-type moves become\nElectric-type and powered.
 Doubles Speed on\nElectric Terrain.
 Forms a powerful school\nwhile it has a lot of HP.
-Its shroud protects\nit from an attack just once.
+Its shroud protects it\nfrom an attack just once.
 Defeating a foe\nlets it become Ash-Greninja.
 Changes with other Cells\nif HP becomes half or less.
 It can poison Steel- and\nPoison-type targets.
@@ -246,7 +246,7 @@ Powers up own sound moves.\nResists other sound moves.
 Creates a sandstorm\nwhen hit by an attack.
 Halves the damage\ntaken from special moves.
 Ripens Berries and\ndoubles their effect.
-Blocks a physical hit, but\nthe ice head breaks. 
+Blocks a physical hit, but\nthe ice head breaks.
 Just being next to\nthe Pokémon powers up moves.
 Changes type depending\non the terrain.
 On entering battle, clears\neffects of Reflect, etc.

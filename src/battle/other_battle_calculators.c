@@ -1180,7 +1180,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
     battleType = BattleTypeGet(bw);
     item = HeldItemHoldEffectGet(ctx, battlerId);
 
-    // if shed skin or no experience or has run away or has ghost type then there is nothing stopping the battler from escaping
+    // if shed shell or no experience or has run away or has ghost type then there is nothing stopping the battler from escaping
     if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(ctx, battlerId) == ABILITY_RUN_AWAY || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
         return FALSE;
     }

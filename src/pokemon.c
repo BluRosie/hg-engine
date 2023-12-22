@@ -3303,7 +3303,42 @@ u32 CanUseAbilityCapsule(struct PartyPokemon *pp)
 }
 
 
+u32 CanUseAbilityPatch(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 form = GetMonData(pp, MON_DATA_FORM, NULL);
+    u32 hidden_ability = GetMonHiddenAbility(species, form);
+
+    return (hidden_ability != 0);
+}
+
+
 u32 ALIGN4 partyMenuSignal = 0;
+
+u16 NatureToMintItem[] =
+{
+    [NATURE_LONELY] = ITEM_LONELY_MINT,
+    [NATURE_ADAMANT] = ITEM_ADAMANT_MINT,
+    [NATURE_NAUGHTY] = ITEM_NAUGHTY_MINT,
+    [NATURE_BRAVE] = ITEM_BRAVE_MINT,
+    [NATURE_BOLD] = ITEM_BOLD_MINT,
+    [NATURE_IMPISH] = ITEM_IMPISH_MINT,
+    [NATURE_LAX] = ITEM_LAX_MINT,
+    [NATURE_RELAXED] = ITEM_RELAXED_MINT,
+    [NATURE_MODEST] = ITEM_MODEST_MINT,
+    [NATURE_MILD] = ITEM_MILD_MINT,
+    [NATURE_RASH] = ITEM_RASH_MINT,
+    [NATURE_QUIET] = ITEM_QUIET_MINT,
+    [NATURE_CALM] = ITEM_CALM_MINT,
+    [NATURE_GENTLE] = ITEM_GENTLE_MINT,
+    [NATURE_CAREFUL] = ITEM_CAREFUL_MINT,
+    [NATURE_SASSY] = ITEM_SASSY_MINT,
+    [NATURE_TIMID] = ITEM_TIMID_MINT,
+    [NATURE_HASTY] = ITEM_HASTY_MINT,
+    [NATURE_JOLLY] = ITEM_JOLLY_MINT,
+    [NATURE_NAIVE] = ITEM_NAIVE_MINT,
+    [NATURE_SERIOUS] = ITEM_SERIOUS_MINT,
+};
 
 /**
  *  @brief see if an item changes attributes of the pokémon or not
@@ -3339,7 +3374,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
-        return 1;
+        return TRUE;
     }
 
 #ifdef ALLOW_SAVE_CHANGES
@@ -3419,10 +3454,45 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         TOGGLE_MON_SWAP_ABILITY_SLOT_BIT(pp)
         ResetPartyPokemonAbility(pp);
         Bag_TakeItem(bag, ITEM_ABILITY_CAPSULE, 1, 11);
-        return 1;
+        return TRUE;
     }
 
-    return 0;
+    // handle ability patch
+
+    if (wk->dat->item == ITEM_ABILITY_PATCH && CanUseAbilityPatch(pp) == TRUE)
+    {
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        partyMenuSignal = 193; // signal to change the message to this index
+        wk->dat->after_mons = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        TOGGLE_MON_HIDDEN_ABILITY_BIT(pp)
+        ResetPartyPokemonAbility(pp);
+        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        return TRUE;
+    }
+
+    // handle nature mints
+
+    if (IS_ITEM_NATURE_MINT(wk->dat->item))
+    {
+        u32 nature;
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        for (nature = 0; nature < 25; nature++)
+        {
+            if (NatureToMintItem[nature] == wk->dat->item)
+                break;
+        }
+        partyMenuSignal = 194; // signal to change the message to this index
+        SET_MON_NATURE_OVERRIDE(pp, nature)
+        RecalcPartyPokemonStats(pp);
+        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 /**
@@ -4002,7 +4072,8 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
             case EVO_LEVEL_NATURE_AMPED:
                 if (evoTable[i].param <= level)
                 {
-                    u32 nature = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL) % 25;
+                    // toxel evolution disrespects nature mints
+                    u32 nature = GetNatureFromPersonality(GetMonData(pokemon, MON_DATA_PERSONALITY, NULL));
                     switch (nature)
                     {
                     case NATURE_ADAMANT:
@@ -5382,3 +5453,31 @@ BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
 }
 
 #endif
+
+
+/**
+ *  @brief grab the nature of a BoxPokemon factoring in the nature mint override field
+ *
+ *  @param boxMon BoxPokemon whose nature to grab
+ *  @return nature of the BoxPokemon factoring in nature override
+ */
+u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon)
+{
+    BOOL decry = BoxMonSetFastModeOn(boxMon);
+    u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL);
+    u32 nature_override = GET_BOX_MON_NATURE_OVERRIDE(boxMon);
+    BoxMonSetFastModeOff(boxMon, decry);
+
+    if (nature_override != 0) {
+        return nature_override - 1;
+    }
+    // lord forgive me, i know not what i do
+    // modulo operator in this world is only signed!  0x80000000 % 25 = 23
+    // could just use GetNatureFromPersonality from the rom, but this was a good exercise anyway
+    if (personality & 0x80000000)
+        personality = ((((u32)personality & 0x7FFFFFFF) % 25) + 23) % 25;
+    else
+        personality %= 25;
+
+    return personality;
+}
