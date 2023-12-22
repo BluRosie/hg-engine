@@ -191,5 +191,29 @@ You must use the same kind\nof Pokémon.\r
 The {STRVAR_1 8, 0, 0} cannot be\ngiven here.\r
 Pokémon holding a Soul Dew cannot be\nentered in the GS Cup.\r
 
-{STRVAR_1 0, 0, 0}’s ability was changed!\r
-{STRVAR_1 0, 0, 0}’s nature was changed!\r
+{STRVAR_1 0, 0, 0}’s ability changed!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Hardy Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Lonely Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Brave Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Adamant Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Naughty Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Bold Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Docile Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Relaxed Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Impish Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Lax Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Timid Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Hasty Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Serious Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Jolly Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Naive Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Modest Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Mild Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Quiet Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Bashful Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Rash Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Calm Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Gentle Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Sassy Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Careful Mint!\r
+{STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Quirky Mint!\r

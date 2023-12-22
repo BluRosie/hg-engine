@@ -3483,7 +3483,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
             if (NatureToMintItem[nature] == wk->dat->item)
                 break;
         }
-        partyMenuSignal = 194; // signal to change the message to this index
+        partyMenuSignal = 194 + nature; // signal to change the message to this index
         SET_MON_NATURE_OVERRIDE(pp, nature)
         RecalcPartyPokemonStats(pp);
         Bag_TakeItem(bag, wk->dat->item, 1, 11);
