@@ -2212,6 +2212,14 @@ void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
 
 /**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param client_no resolved battler
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
+
+/**
  *  @brief check if waitmessage battle script command should end
  *
  *  @param sp global battle structure
