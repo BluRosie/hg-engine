@@ -137,7 +137,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage ElectricFieldElectricBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Grassy Terrain strengthened the attack!
+            printmessage ElectricFieldElectricBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Electric Terrain strengthened the attack!
             wait 0x1E
             endscript
     IsMistyField:
@@ -159,7 +159,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage MistyFieldFairyBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Grassy Terrain strengthened the attack!
+            printmessage MistyFieldFairyBoostMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Misty Terrain strengthened the attack!
             wait 0x1E
             endscript
         MistyFieldDragonNerf:
@@ -167,7 +167,7 @@ HandleFieldEffects:
             printattackmessage
             waitmessage
             wait 0x1E
-            printmessage MistyFieldDragonNerfMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The grass softened the attack...
+            printmessage MistyFieldDragonNerfMsg, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The Misty Terrain weakened the attack!
             waitmessage
             wait 0x1E
             endscript
@@ -179,9 +179,9 @@ HandleFieldEffects:
             checkifcurrentadjustedmoveistype TYPE_PSYCHIC, PsychicFieldAttackerGroundedCheck
             goto DefaultOrEnd
         PsychicFieldAttackerGroundedCheck:
-            ifgrounded BATTLER_ATTACKER, PsychicFieldElectricBoost
+            ifgrounded BATTLER_ATTACKER, PsychicFieldPsychicBoost
             goto DefaultOrEnd
-        PsychicFieldElectricBoost:
+        PsychicFieldPsychicBoost:
             changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xD // 1.3 multiplier
             printattackmessage
             waitmessage
