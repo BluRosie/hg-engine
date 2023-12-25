@@ -6,15 +6,12 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
-.include "armips/include/constants.s"
 
 .create "build/move/battle_eff_seq/0_263", 0
 
 a030_263:
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_2, 0x1000, _00B4
     checkitemeffect 0x0, BATTLER_ATTACKER, 0x63, _0064
-    // skip charge turn when in cave
-    ifcurrentfieldistype TERRAIN_CAVE, _0064
     changemondatabyvalue VAR_OP_SETMASK, BATTLER_ATTACKER, 0x3B, 0x40
     changevar VAR_OP_SET, VAR_ADD_STATUS1, 0x4000000C
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x23

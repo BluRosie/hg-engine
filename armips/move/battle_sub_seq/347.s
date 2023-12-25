@@ -16,7 +16,6 @@ GenericHealMsg equ (1396)
 
 a001_347:
     ifterrainoverlayistype GRASSY_TERRAIN, IsGrassyTerrain
-    ifcurrentfieldistype TERRAIN_GRASS, IsGrassField
     goto DefaultOrEnd
 IsGrassField:
 IsGrassyTerrain:
