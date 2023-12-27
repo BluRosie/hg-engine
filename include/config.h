@@ -26,8 +26,8 @@
 // commenting this line out essentially disables hidden abilities to maintain default behavior, while leaving this as-is will introduce hidden abilities and all of their handling.
 // just need to set the HIDDEN_ABILITIES_FLAG from the save and then every mon should be generated with its hidden ability until the flag is cleared from another script
 // #define HIDDEN_ABILITIES
-// #define HIDDEN_ABILITIES_FLAG 2600
-// #define HIDDEN_ABILITIES_STARTERS_FLAG 2601
+#define HIDDEN_ABILITIES_FLAG 2600
+#define HIDDEN_ABILITIES_STARTERS_FLAG 2601
 
 // MEGA_EVOLUTIONS defines whether or not Pokémon that are able to mega evolve will be able to do so.
 // commenting this line out essentially disables mega evolutions and maintains default behavior with respect to them.  leaving this as-is will introduce mega evolutions when applied to the game.
@@ -43,7 +43,8 @@
 
 // IMPLEMENT_BDHCAM_ROUTINE defines whether or not the BDHCam routine (by Mikelan) will be built into the ROM.  this is necessary to get it shiftable because DSPRE writes it to a fixed location
 // uncommenting this line will include it in your ROM
-#define IMPLEMENT_BDHCAM_ROUTINE
+// #define IMPLEMENT_BDHCAM_ROUTINE
+// #define IMPLEMENT_BDHCAM_ROUTINE
 
 // IMPLEMENT_TRANSPARENT_TEXTBOXES should be used if you want to implement transparent textboxes
 // uncommenting this line out will enable transparent textboxes
@@ -55,11 +56,11 @@
 
 // IMPLEMENT_CAPTURE_EXPERIENCE defines whether or not capturing wild pokemon will net experience
 // commenting this line out disables capture experience
-#define IMPLEMENT_CAPTURE_EXPERIENCE
+// #define IMPLEMENT_CAPTURE_EXPERIENCE
 
 // IMPLEMENT_CRITICAL_CAPTURE defines whether or not throwing a poké ball has a certain percent chance of a guaranteed capture called a critical throw
 // commenting this line out disables critical captures
-#define IMPLEMENT_CRITICAL_CAPTURE
+// #define IMPLEMENT_CRITICAL_CAPTURE
 
 // IMPLEMENT_NEW_EV_IV_VIEWER defines whether or not pressing L, R, or Select in the pokémon summaries will display EV's, IV's, or the raw stat
 // commenting this line out disables the building of the new EV/IV viewing system
@@ -69,7 +70,7 @@
 // if the level is greater than or equal to LEVEL_CAP_VARIABLE, the pokémon will no longer gain experience
 // uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  undefining LEVEL_CAP_VARIABLE will just cause compilation errors
 //#define IMPLEMENT_LEVEL_CAP
-//#define LEVEL_CAP_VARIABLE 0x416F
+#define LEVEL_CAP_VARIABLE 0x416F
 
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
