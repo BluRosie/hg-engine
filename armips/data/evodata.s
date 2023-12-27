@@ -12750,7 +12750,7 @@ evodata SPECIES_IRON_LEAVES
 terminateevodata
 
 evodata SPECIES_DIPPLIN
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_HAS_MOVE, MOVE_DRAGON_PULSE, SPECIES_HYDRAPPLE // todo change for dragon cheer
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
