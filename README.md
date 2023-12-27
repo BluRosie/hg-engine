@@ -113,17 +113,6 @@ You will still have to `make clean` and `make clean_code` manually when changing
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 
 1. Get your ROM, rename it to **rom.nds** and place it in `Documents/hg-engine`.
-<<<<<<< HEAD
-2. In Terminal/WSL, run ```cd hg-engine```
-3. In Terminal/WSL, run ```sudo make build_tools --jobs```. This will compile most of the tools that hg-engine needs to build.
-4. In Terminal/WSL, run ```sudo make build_nitrogfx --jobs```. This will compile nitrogfx, one of the tools needed for hg-engine to build.
-    * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then open it again and run the following:
-        * ```cd Documents/hg-engine```
-        * ```sudo make build_nitrogfx --jobs```
-    * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
-5. In Terminal/WSL, type `sudo make --jobs`.
-6. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
-=======
 2. In Terminal/WSL, type `make --jobs`.  It will start with building all the tools necessary, then move to the code, then the rest of the files in the folders.
     * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then open it again and run the following:
         * ```cd Documents/hg-engine```

@@ -47,28 +47,6 @@ default: all
 
 ROMNAME = rom.nds
 BUILDROM = test.nds
-<<<<<<< HEAD
-####################### Tools #########################
-PYTHON = python3
-O2NARC = tools/o2narc
-MSGENC = tools/msgenc
-NDSTOOL = tools/ndstool
-BLZ = tools/blz
-ARMIPS = tools/armips
-NARCHIVE = $(PYTHON) tools/narcpy.py
-GFX = tools/nitrogfx
-SDATTOOL = $(PYTHON) tools/SDATTool.py
-ADPCMXQ = adpcm-xq
-NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
-ENCODEPWIMG = tools/ENCODE_IMG
-###################### Setting ########################
-PREFIX = /opt/devkitpro/devkitARM/bin/arm-none-eabi-
-AS = $(DEVKITARM)/$(PREFIX)as
-CC = $(DEVKITARM)/$(PREFIX)gcc
-LD = $(DEVKITARM)/$(PREFIX)ld
-OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
-=======
->>>>>>> c3fecc9d5a2e3b1187241808ed63f20489b7a370
 
 ####################### Tools #######################
 ADPCMXQ := tools/adpcm-xq
