@@ -1075,14 +1075,20 @@ heightentry SPECIES_MIRAIDON, 3, 3, 0, 0
 heightentry SPECIES_WALKING_WAKE, 0, 0, 0, 0
 heightentry SPECIES_IRON_LEAVES, 0, 0, 0, 0
 heightentry SPECIES_DIPPLIN, 0, 0, 0, 0
-heightentry SPECIES_ARCHALUDON, 0, 0, 0, 0
-heightentry SPECIES_RAGING_BOLT, 0, 0, 0, 0
-heightentry SPECIES_IRON_CROWN, 0, 0, 0, 0
-heightentry SPECIES_OGERPON, 0, 0, 0, 0
+heightentry SPECIES_POLTCHAGEIST, 0, 0, 0, 0
+heightentry SPECIES_SINISTCHA, 0, 0, 0, 0
 heightentry SPECIES_OKIDOGI, 0, 0, 0, 0
 heightentry SPECIES_MUNKIDORI, 0, 0, 0, 0
 heightentry SPECIES_FEZANDIPITI, 0, 0, 0, 0
+heightentry SPECIES_OGERPON, 0, 0, 0, 0
+heightentry SPECIES_ARCHALUDON, 0, 0, 0, 0
+heightentry SPECIES_HYDRAPPLE, 0, 0, 0, 0
+heightentry SPECIES_GOUGING_FIRE, 0, 0, 0, 0
+heightentry SPECIES_RAGING_BOLT, 0, 0, 0, 0
+heightentry SPECIES_IRON_BOULDER, 0, 0, 0, 0
+heightentry SPECIES_IRON_CROWN, 0, 0, 0, 0
 heightentry SPECIES_TERAPAGOS, 0, 0, 0, 0
+heightentry SPECIES_PECHARUNT, 0, 0, 0, 0
 
 heightentry SPECIES_MEGA_VENUSAUR, 3, 3, 0, 0
 heightentry SPECIES_MEGA_CHARIZARD_X, 3, 3, 0, 0
@@ -1365,3 +1371,9 @@ heightentry SPECIES_REVAVROOM_SCHEDAR, 0, 0, 0, 0
 heightentry SPECIES_REVAVROOM_NAVI, 0, 0, 0, 0
 heightentry SPECIES_REVAVROOM_RUCHBAH, 0, 0, 0, 0
 heightentry SPECIES_REVAVROOM_CAPH, 0, 0, 0, 0
+heightentry SPECIES_POLTCHAGEIST_MASTERPIECE, 0, 0, 0, 0
+heightentry SPECIES_SINISTCHA_MASTERPIECE, 0, 0, 0, 0
+heightentry SPECIES_OGERPON_WELLSPRING_MASK, 0, 0, 0, 0
+heightentry SPECIES_OGERPON_HEARTHFLAME_MASK, 0, 0, 0, 0
+heightentry SPECIES_OGERPON_CORNERSTONE_MASK, 0, 0, 0, 0
+heightentry SPECIES_TERAPAGOS_STELLAR, 0, 0, 0, 0

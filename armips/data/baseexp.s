@@ -1066,15 +1066,21 @@
 /* SPECIES_MIRAIDON                    */ .halfword 335
 /* SPECIES_WALKING_WAKE                */ .halfword 295
 /* SPECIES_IRON_LEAVES                 */ .halfword 295
-/* SPECIES_DIPPLIN                     */ .halfword 0
-/* SPECIES_ARCHALUDON                  */ .halfword 0
-/* SPECIES_RAGING_BOLT                 */ .halfword 0
-/* SPECIES_IRON_CROWN                  */ .halfword 0
-/* SPECIES_OGERPON                     */ .halfword 0
-/* SPECIES_OKIDOGI                     */ .halfword 0
-/* SPECIES_MUNKIDORI                   */ .halfword 0
-/* SPECIES_FEZANDIPITI                 */ .halfword 0
-/* SPECIES_TERAPAGOS                   */ .halfword 0
+/* SPECIES_DIPPLIN                     */ .halfword 170
+/* SPECIES_POLTCHAGEIST                */ .halfword 62
+/* SPECIES_SINISTCHA                   */ .halfword 178
+/* SPECIES_OKIDOGI                     */ .halfword 278
+/* SPECIES_MUNKIDORI                   */ .halfword 278
+/* SPECIES_FEZANDIPITI                 */ .halfword 278
+/* SPECIES_OGERPON                     */ .halfword 275
+/* SPECIES_ARCHALUDON                  */ .halfword 275 // TODO verify
+/* SPECIES_HYDRAPPLE                   */ .halfword 170 // TODO verify
+/* SPECIES_GOUGING_FIRE                */ .halfword 295
+/* SPECIES_RAGING_BOLT                 */ .halfword 295
+/* SPECIES_IRON_BOULDER                */ .halfword 295
+/* SPECIES_IRON_CROWN                  */ .halfword 295
+/* SPECIES_TERAPAGOS                   */ .halfword 180 // TODO verify
+/* SPECIES_PECHARUNT                   */ .halfword 278 // TODO verify
 
 /* SPECIES_MEGA_VENUSAUR               */ .halfword 313
 /* SPECIES_MEGA_CHARIZARD_X            */ .halfword 317
@@ -1344,7 +1350,7 @@
 /* SPECIES_TATSUGIRI_STRETCHY          */ .halfword 166
 /* SPECIES_DUDUNSPARCE_THREE_SEGMENT   */ .halfword 182
 /* SPECIES_GIMMIGHOUL_ROAMING          */ .halfword 60
-/* SPECIES_TERAPAGOS_TERASTAL          */ .halfword 0
+/* SPECIES_TERAPAGOS_TERASTAL          */ .halfword 180 // TODO verify
 /* SPECIES_WOOPER_PALDEAN              */ .halfword 42
 /* SPECIES_TAUROS_COMBAT               */ .halfword 172
 /* SPECIES_TAUROS_BLAZE                */ .halfword 172
@@ -1355,5 +1361,11 @@
 /* SPECIES_REVAVROOM_NAVI              */ .halfword 175
 /* SPECIES_REVAVROOM_RUCHBAH           */ .halfword 175
 /* SPECIES_REVAVROOM_CAPH              */ .halfword 175
+/* SPECIES_POLTCHAGEIST_MASTERPIECE    */ .halfword 62
+/* SPECIES_SINISTCHA_MASTERPIECE       */ .halfword 178
+/* SPECIES_OGERPON_WELLSPRING_MASK     */ .halfword 275
+/* SPECIES_OGERPON_HEARTHFLAME_MASK    */ .halfword 275
+/* SPECIES_OGERPON_CORNERSTONE_MASK    */ .halfword 275
+/* SPECIES_TERAPAGOS_STELLAR           */ .halfword 180 // TODO verify
 
 .close

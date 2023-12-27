@@ -65,4 +65,5 @@ a010_836:
     resetsprite 1
     unloadspriteresource
     end
-    
+
+.close    

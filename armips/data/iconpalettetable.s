@@ -1083,14 +1083,20 @@ gIconPalTable:
 /* SPECIES_WALKING_WAKE    */ .byte  0x0
 /* SPECIES_IRON_LEAVES     */ .byte  0x0
 /* SPECIES_DIPPLIN         */ .byte  0x0
-/* SPECIES_ARCHALUDON      */ .byte  0x0
-/* SPECIES_RAGING_BOLT     */ .byte  0x0
-/* SPECIES_IRON_CROWN      */ .byte  0x0
-/* SPECIES_OGERPON         */ .byte  0x0
+/* SPECIES_POLTCHAGEIST    */ .byte  0x0
+/* SPECIES_SINISTCHA       */ .byte  0x0
 /* SPECIES_OKIDOGI         */ .byte  0x0
 /* SPECIES_MUNKIDORI       */ .byte  0x0
 /* SPECIES_FEZANDIPITI     */ .byte  0x0
+/* SPECIES_OGERPON         */ .byte  0x0
+/* SPECIES_ARCHALUDON      */ .byte  0x0
+/* SPECIES_HYDRAPPLE       */ .byte  0x0
+/* SPECIES_GOUGING_FIRE    */ .byte  0x0
+/* SPECIES_RAGING_BOLT     */ .byte  0x0
+/* SPECIES_IRON_BOULDER    */ .byte  0x0
+/* SPECIES_IRON_CROWN      */ .byte  0x0
 /* SPECIES_TERAPAGOS       */ .byte  0x0
+/* SPECIES_PECHARUNT       */ .byte  0x0
 
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
@@ -1371,6 +1377,12 @@ gIconPalTable:
 /* SPECIES_REVAVROOM_NAVI              */ .byte  0x0
 /* SPECIES_REVAVROOM_RUCHBAH           */ .byte  0x0
 /* SPECIES_REVAVROOM_CAPH              */ .byte  0x0
+/* SPECIES_POLTCHAGEIST_MASTERPIECE    */ .byte  0x0
+/* SPECIES_SINISTCHA_MASTERPIECE       */ .byte  0x0
+/* SPECIES_OGERPON_WELLSPRING_MASK     */ .byte  0x0
+/* SPECIES_OGERPON_HEARTHFLAME_MASK    */ .byte  0x0
+/* SPECIES_OGERPON_CORNERSTONE_MASK    */ .byte  0x0
+/* SPECIES_TERAPAGOS_STELLAR           */ .byte  0x0
 
 .endarea
 
