@@ -79,7 +79,4 @@
 // uncomment the line out to get this functionality
 //#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
-// Comment the line below to remove field effects.
-// #define IMPLEMENT_FIELD_EFFECTS
-
 #endif

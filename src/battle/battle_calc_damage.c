@@ -1001,6 +1001,47 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 //        }
 //    }
 
+    // Handle field effects
+    if (newBS.terrainOverlay.numberOfTurnsLeft > 0) {
+        switch (newBS.terrainOverlay.type)
+        {
+        case GRASSY_TERRAIN:
+            if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
+                damage = damage * 130 / 100;
+                break;
+            }
+            if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
+                damage /= 2;
+                break;
+            }
+            break;
+        case ELECTRIC_TERRAIN:
+            if (IsClientGrounded(sp, attacker) && movetype == TYPE_ELECTRIC) {
+                damage = damage * 130 / 100;
+                break;
+            }
+            break;
+        case MISTY_TERRAIN:
+            if (IsClientGrounded(sp, attacker) && movetype == TYPE_FAIRY) {
+                damage = damage * 130 / 100;
+                break;
+            }
+            if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
+                damage /= 2;
+                break;
+            }
+            break;
+        case PSYCHIC_TERRAIN:
+            if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
+                damage = damage * 130 / 100;
+                break;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
     return damage + 2;
 }
 

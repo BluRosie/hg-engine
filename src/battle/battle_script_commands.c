@@ -1103,7 +1103,6 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
     }
 
     JumpToMoveEffectScript(sp, 30, effect);
-    PushAndLoadBattleScript(sp, 1, SUB_SEQ_HANDLE_FIELD_EFFECTS);  // jump to custom subscript to handle field effects
 
     return FALSE;
 };
@@ -2324,13 +2323,9 @@ BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp) {
     u32 terrain = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
 
-    #ifdef IMPLEMENT_FIELD_EFFECTS
-
     if (BattleWorkGroundIDGet(bw) == terrain && newBS.terrainOverlay.type == TERRAIN_NONE) {
         IncrementBattleScriptPtr(sp, address);
     }
-    
-    #endif
     
     return FALSE;
 }
