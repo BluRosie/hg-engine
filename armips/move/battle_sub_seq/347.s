@@ -17,7 +17,7 @@ PSYCHIC_TERRAIN_END_MSG equ (1395)
 
 .create "build/move/battle_sub_seq/1_347", 0
 
-a001_348:
+a001_347:
     ifterrainoverlayistype GRASSY_TERRAIN, IsGrassyTerrain
     ifterrainoverlayistype MISTY_TERRAIN, IsMistyTerrain
     ifterrainoverlayistype ELECTRIC_TERRAIN, IsElectricTerrain

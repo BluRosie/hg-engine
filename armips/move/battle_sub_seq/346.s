@@ -14,7 +14,7 @@ GenericHealMsg equ (1396)
 
 .create "build/move/battle_sub_seq/1_346", 0
 
-a001_347:
+a001_346:
     ifterrainoverlayistype GRASSY_TERRAIN, IsGrassyTerrain
     goto DefaultOrEnd
 IsGrassyTerrain:

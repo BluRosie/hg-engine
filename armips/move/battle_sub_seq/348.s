@@ -12,7 +12,7 @@
 
 .create "build/move/battle_sub_seq/1_348", 0
 
-a001_349:
+a001_348:
     printattackmessage
     waitmessage
     wait 0x1E
