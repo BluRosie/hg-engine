@@ -2265,7 +2265,6 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
 
-
 // defined in other_battle_calculators.c
 /**
  *  @brief compare battlers to determine who goes first
@@ -2294,6 +2293,14 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
  */
 int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
 
+/**
+ *  @brief see if a move has positive priority after adjustment
+ *
+ *  @param sp battle structure
+ *  @param attacker client to check
+ *  @return TRUE if the move has positive priority after adjustments
+ */
+BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
 
 // defined in mega.c
 /**
@@ -2305,13 +2312,6 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
  */
 u32 GrabMegaTargetForm(u32 mon, u32 item);
 
-
-
-
-
-
-
-#endif
 
 typedef enum Terrain {
     TERRAIN_PLAIN,
@@ -2344,3 +2344,5 @@ typedef enum Terrain {
 // This is a catch-all terrain that includes Pokemon League, Distortion World
 // and Battle Frontier.
 #define TERRAIN_OTHERS (TERRAIN_WILL)
+
+#endif // BATTLE_H

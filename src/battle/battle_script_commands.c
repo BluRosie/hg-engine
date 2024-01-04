@@ -2383,8 +2383,6 @@ BOOL btl_scr_cmd_E8_ifgrounded(void *bw UNUSED, struct BattleStruct *sp) {
     client_no = GrabClientFromBattleScriptParam(bw, sp, client_no);
     u32 address = read_battle_script_param(sp);
 
-    u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
-
     if(IsClientGrounded(sp, client_no)) {
         IncrementBattleScriptPtr(sp, address);
     }

@@ -1158,3 +1158,40 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
 
     return damage;
 }
+
+
+/**
+ *  @brief see if a move has positive priority after adjustment
+ *
+ *  @param sp battle structure
+ *  @param attacker client to check
+ *  @return TRUE if the move has positive priority after adjustments
+ */
+BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
+    BOOL isTriageMove = FALSE;
+
+    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
+        if (TriageMovesList[i] == sp->current_move_index) {
+            isTriageMove = TRUE;
+            break;
+        }
+    }
+
+    if (
+        (sp->moveTbl[sp->current_move_index].priority > 0) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&
+         (sp->moveTbl[sp->current_move_index].split == SPLIT_STATUS) &&
+         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Prankster is +1
+         ) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_GALE_WINGS) &&
+         (sp->moveTbl[sp->current_move_index].type == TYPE_FLYING) &&
+         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Gale Wings is +1
+         ) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_TRIAGE) &&
+         (isTriageMove) &&
+         (sp->moveTbl[sp->current_move_index].priority >= -2)  // Triage is +3
+         )) {
+        return TRUE;
+    }
+    return FALSE;
+}
