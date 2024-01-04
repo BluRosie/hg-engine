@@ -840,6 +840,15 @@ struct __attribute__((packed)) BattleAIWorkTable
 
 
 /**
+ *  @brief structure that tracks the terrain type currently present
+ */
+typedef struct {
+    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
+    u8 numberOfTurnsLeft;
+} __attribute__((packed)) TerrainOverlay;
+
+
+/**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
@@ -1031,6 +1040,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ int SkillSeqWork[600];
     /*...*/
+
+               TerrainOverlay terrainOverlay;
+               u8 printed_field_message;
 };
 
 
@@ -2097,6 +2109,14 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // account for normalize and such
 
 /**
+ *  @brief check if a move is a sound-based move
+ *
+ *  @param move move index to check for sound property
+ *  @return TRUE if is a sound move; FALSE otherwise
+ */
+BOOL IsMoveSoundBased(u32 move);
+
+/**
  *  @brief get the adjusted move type accounting for normalize without relying on a client
  *
  *  @param sp global battle structure
@@ -2220,6 +2240,14 @@ void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
 
 /**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param client_no resolved battler
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
+
+/**
  *  @brief check if waitmessage battle script command should end
  *
  *  @param sp global battle structure
@@ -2261,7 +2289,6 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
 
-
 // defined in other_battle_calculators.c
 /**
  *  @brief compare battlers to determine who goes first
@@ -2290,6 +2317,14 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
  */
 int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
 
+/**
+ *  @brief see if a move has positive priority after adjustment
+ *
+ *  @param sp battle structure
+ *  @param attacker client to check
+ *  @return TRUE if the move has positive priority after adjustments
+ */
+BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
 
 // defined in mega.c
 /**
@@ -2302,9 +2337,36 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
 u32 GrabMegaTargetForm(u32 mon, u32 item);
 
 
+typedef enum Terrain {
+    TERRAIN_PLAIN,
+    TERRAIN_SAND,
+    TERRAIN_GRASS,
+    TERRAIN_PUDDLE,
+    TERRAIN_MOUNTAIN,
+    TERRAIN_CAVE,
+    TERRAIN_SNOW,
+    TERRAIN_WATER,
+    TERRAIN_ICE,
+    TERRAIN_BUILDING,
+    TERRAIN_GREAT_MARSH,  // unused
+    TERRAIN_UNKNOWN,      // unused
+    TERRAIN_WILL,
+    TERRAIN_KOGA,
+    TERRAIN_BRUNO,
+    TERRAIN_KAREN,
+    TERRAIN_LANCE,
+    TERRAIN_DISTORTION_WORLD,  // unused
+    TERRAIN_BATTLE_TOWER,
+    TERRAIN_BATTLE_FACTORY,
+    TERRAIN_BATTLE_ARCADE,
+    TERRAIN_BATTLE_CASTLE,
+    TERRAIN_BATTLE_HALL,
+    TERRAIN_GIRATINA,  // unused
+    TERRAIN_MAX
+} Terrain;
 
+// This is a catch-all terrain that includes Pokemon League, Distortion World
+// and Battle Frontier.
+#define TERRAIN_OTHERS (TERRAIN_WILL)
 
-
-
-
-#endif
+#endif // BATTLE_H

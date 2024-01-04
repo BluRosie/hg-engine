@@ -9317,7 +9317,7 @@ movedata MOVE_FLOWER_SHIELD, "Flower Shield"
     terminatedata
 
 movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
-    battleeffect 0
+    battleeffect 294
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -9327,12 +9327,12 @@ movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
-    appeal 0x00
-    contesttype CONTEST_COOL
+    appeal 0x05
+    contesttype CONTEST_BEAUTY
     terminatedata
 
 movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
-    battleeffect 0
+    battleeffect 294
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9342,8 +9342,8 @@ movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
-    appeal 0x00
-    contesttype CONTEST_COOL
+    appeal 0x05
+    contesttype CONTEST_BEAUTY
     terminatedata
 
 movedata MOVE_ELECTRIFY, "Electrify"
@@ -9676,8 +9676,8 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_ELECTRIC_TERRAIN, "Electric Terrain"
-    battleeffect 0
+movedata MOVE_ELECTRIC_TERRAIN, "ElectricTerrain"
+    battleeffect 294
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ELECTRIC
@@ -9687,8 +9687,8 @@ movedata MOVE_ELECTRIC_TERRAIN, "Electric Terrain"
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
-    appeal 0x00
-    contesttype CONTEST_COOL
+    appeal 0x05
+    contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
     terminatedata
 
 movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
@@ -10787,7 +10787,7 @@ movedata MOVE_ANCHOR_SHOT, "Anchor Shot"
     terminatedata
 
 movedata MOVE_PSYCHIC_TERRAIN, "Psychic Terrain"
-    battleeffect 0
+    battleeffect 294
     pss SPLIT_STATUS
     basepower 0
     type TYPE_PSYCHIC
