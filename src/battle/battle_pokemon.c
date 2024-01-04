@@ -211,8 +211,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && (sp->battlemon[sp->client_work].hp)
          && (GetBattlerAbility(sp,sp->client_work) == ABILITY_FORECAST))
         {
-            if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
+            if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
                 if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
                  && (sp->battlemon[sp->client_work].form_no != 0))
@@ -278,8 +278,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         if ((sp->battlemon[sp->client_work].species == SPECIES_CHERRIM)
          && (sp->battlemon[sp->client_work].hp))
         {
-            if ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-             && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0))
+            if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
                 if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
                  && (sp->battlemon[sp->client_work].form_no == 1))
@@ -361,11 +361,11 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && (sp->battlemon[sp->client_work].hp)
          && (sp->battlemon[sp->client_work].form_no == 1))
         {
-            if ((sp->battlemon[sp->client_work].condition2 & STATUS2_FLAG_TRANSFORMED)
+            if ((sp->battlemon[sp->client_work].condition2 & STATUS2_TRANSFORMED)
              || (((BattleWorkBattleStatusFlagGet(bw) & 0x80) == 0) // probably distortion world check
               && (sp->battlemon[sp->client_work].item != ITEM_GRISEOUS_ORB)))
             {
-                if(sp->battlemon[sp->client_work].condition2 & STATUS2_FLAG_TRANSFORMED)
+                if(sp->battlemon[sp->client_work].condition2 & STATUS2_TRANSFORMED)
                 {
                     struct PartyPokemon *pp;
                     int defence;

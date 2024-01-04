@@ -1,4 +1,5 @@
 #include "../include/types.h"
+#include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/config.h"
 #include "../include/debug.h"
@@ -969,124 +970,130 @@ static const u16 sSpeciesToOWGfx[] =
     [SPECIES_WYRDEER            ] = 1165,
     [SPECIES_KLEAVOR            ] = 1166,
     [SPECIES_URSALUNA           ] = 1167,
-    [SPECIES_BASCULEGION        ] = 1168,
-    [SPECIES_SNEASLER           ] = 1170,
-    [SPECIES_OVERQWIL           ] = 1171,
-    [SPECIES_ENAMORUS           ] = 1172,
-    [SPECIES_SPRIGATITO         ] = 1174,
-    [SPECIES_FLORAGATO          ] = 1175,
-    [SPECIES_MEOWSCARADA        ] = 1176,
-    [SPECIES_FUECOCO            ] = 1177,
-    [SPECIES_CROCALOR           ] = 1178,
-    [SPECIES_SKELEDIRGE         ] = 1179,
-    [SPECIES_QUAXLY             ] = 1180,
-    [SPECIES_QUAXWELL           ] = 1181,
-    [SPECIES_QUAQUAVAL          ] = 1182,
-    [SPECIES_LECHONK            ] = 1183,
-    [SPECIES_OINKOLOGNE         ] = 1184,
-    [SPECIES_TAROUNTULA         ] = 1186,
-    [SPECIES_SPIDOPS            ] = 1187,
-    [SPECIES_NYMBLE             ] = 1188,
-    [SPECIES_LOKIX              ] = 1189,
-    [SPECIES_PAWMI              ] = 1190,
-    [SPECIES_PAWMO              ] = 1191,
-    [SPECIES_PAWMOT             ] = 1192,
-    [SPECIES_TANDEMAUS          ] = 1193,
-    [SPECIES_MAUSHOLD           ] = 1194,
-    [SPECIES_FIDOUGH            ] = 1196,
-    [SPECIES_DACHSBUN           ] = 1197,
-    [SPECIES_SMOLIV             ] = 1198,
-    [SPECIES_DOLLIV             ] = 1199,
-    [SPECIES_ARBOLIVA           ] = 1200,
-    [SPECIES_SQUAWKABILLY       ] = 1201,
-    [SPECIES_NACLI              ] = 1205,
-    [SPECIES_NACLSTACK          ] = 1206,
-    [SPECIES_GARGANACL          ] = 1207,
-    [SPECIES_CHARCADET          ] = 1208,
-    [SPECIES_ARMAROUGE          ] = 1209,
-    [SPECIES_CERULEDGE          ] = 1210,
-    [SPECIES_TADBULB            ] = 1211,
-    [SPECIES_BELLIBOLT          ] = 1212,
-    [SPECIES_WATTREL            ] = 1213,
-    [SPECIES_KILOWATTREL        ] = 1214,
-    [SPECIES_MASCHIFF           ] = 1215,
-    [SPECIES_MABOSSTIFF         ] = 1216,
-    [SPECIES_SHROODLE           ] = 1217,
-    [SPECIES_GRAFAIAI           ] = 1218,
-    [SPECIES_BRAMBLIN           ] = 1219,
-    [SPECIES_BRAMBLEGHAST       ] = 1220,
-    [SPECIES_TOEDSCOOL          ] = 1221,
-    [SPECIES_TOEDSCRUEL         ] = 1222,
-    [SPECIES_KLAWF              ] = 1223,
-    [SPECIES_CAPSAKID           ] = 1224,
-    [SPECIES_SCOVILLAIN         ] = 1225,
-    [SPECIES_RELLOR             ] = 1226,
-    [SPECIES_RABSCA             ] = 1227,
-    [SPECIES_FLITTLE            ] = 1228,
-    [SPECIES_ESPATHRA           ] = 1229,
-    [SPECIES_TINKATINK          ] = 1230,
-    [SPECIES_TINKATUFF          ] = 1231,
-    [SPECIES_TINKATON           ] = 1232,
-    [SPECIES_WIGLETT            ] = 1233,
-    [SPECIES_WUGTRIO            ] = 1234,
-    [SPECIES_BOMBIRDIER         ] = 1235,
-    [SPECIES_FINIZEN            ] = 1236,
-    [SPECIES_PALAFIN            ] = 1237,
-    [SPECIES_VAROOM             ] = 1238,
-    [SPECIES_REVAVROOM          ] = 1239,
-    [SPECIES_CYCLIZAR           ] = 1245,
-    [SPECIES_ORTHWORM           ] = 1246,
-    [SPECIES_GLIMMET            ] = 1247,
-    [SPECIES_GLIMMORA           ] = 1248,
-    [SPECIES_GREAVARD           ] = 1249,
-    [SPECIES_HOUNDSTONE         ] = 1250,
-    [SPECIES_FLAMIGO            ] = 1251,
-    [SPECIES_CETODDLE           ] = 1252,
-    [SPECIES_CETITAN            ] = 1253,
-    [SPECIES_VELUZA             ] = 1254,
-    [SPECIES_DONDOZO            ] = 1255,
-    [SPECIES_TATSUGIRI          ] = 1256,
-    [SPECIES_ANNIHILAPE         ] = 1259,
-    [SPECIES_CLODSIRE           ] = 1260,
-    [SPECIES_FARIGIRAF          ] = 1261,
-    [SPECIES_DUDUNSPARCE        ] = 1262,
-    [SPECIES_KINGAMBIT          ] = 1264,
-    [SPECIES_GREAT_TUSK         ] = 1265,
-    [SPECIES_SCREAM_TAIL        ] = 1266,
-    [SPECIES_BRUTE_BONNET       ] = 1267,
-    [SPECIES_FLUTTER_MANE       ] = 1268,
-    [SPECIES_SLITHER_WING       ] = 1269,
-    [SPECIES_SANDY_SHOCKS       ] = 1270,
-    [SPECIES_IRON_TREADS        ] = 1271,
-    [SPECIES_IRON_BUNDLE        ] = 1272,
-    [SPECIES_IRON_HANDS         ] = 1273,
-    [SPECIES_IRON_JUGULIS       ] = 1274,
-    [SPECIES_IRON_MOTH          ] = 1275,
-    [SPECIES_IRON_THORNS        ] = 1276,
-    [SPECIES_FRIGIBAX           ] = 1277,
-    [SPECIES_ARCTIBAX           ] = 1278,
-    [SPECIES_BAXCALIBUR         ] = 1279,
-    [SPECIES_GIMMIGHOUL         ] = 1280,
-    [SPECIES_GHOLDENGO          ] = 1282,
-    [SPECIES_WO_CHIEN           ] = 1283,
-    [SPECIES_CHIEN_PAO          ] = 1284,
-    [SPECIES_TING_LU            ] = 1285,
-    [SPECIES_CHI_YU             ] = 1286,
-    [SPECIES_ROARING_MOON       ] = 1287,
-    [SPECIES_IRON_VALIANT       ] = 1288,
-    [SPECIES_KORAIDON           ] = 1289,
-    [SPECIES_MIRAIDON           ] = 1290,
-    [SPECIES_WALKING_WAKE       ] = 1291,
-    [SPECIES_IRON_LEAVES        ] = 1292,
-    [SPECIES_DIPPLIN            ] = 1293,
-    [SPECIES_ARCHALUDON         ] = 1294,
-    [SPECIES_RAGING_BOLT        ] = 1295,
-    [SPECIES_IRON_CROWN         ] = 1296,
-    [SPECIES_OGERPON            ] = 1297,
-    [SPECIES_OKIDOGI            ] = 1298,
-    [SPECIES_MUNKIDORI          ] = 1299,
-    [SPECIES_FEZANDIPITI        ] = 1300,
-    [SPECIES_TERAPAGOS          ] = 1301,
+    [SPECIES_BASCULEGION        ] = 1169,
+    [SPECIES_SNEASLER           ] = 1171,
+    [SPECIES_OVERQWIL           ] = 1172,
+    [SPECIES_ENAMORUS           ] = 1173,
+    [SPECIES_SPRIGATITO         ] = 1175,
+    [SPECIES_FLORAGATO          ] = 1176,
+    [SPECIES_MEOWSCARADA        ] = 1177,
+    [SPECIES_FUECOCO            ] = 1178,
+    [SPECIES_CROCALOR           ] = 1179,
+    [SPECIES_SKELEDIRGE         ] = 1180,
+    [SPECIES_QUAXLY             ] = 1181,
+    [SPECIES_QUAXWELL           ] = 1182,
+    [SPECIES_QUAQUAVAL          ] = 1183,
+    [SPECIES_LECHONK            ] = 1184,
+    [SPECIES_OINKOLOGNE         ] = 1185,
+    [SPECIES_TAROUNTULA         ] = 1187,
+    [SPECIES_SPIDOPS            ] = 1188,
+    [SPECIES_NYMBLE             ] = 1189,
+    [SPECIES_LOKIX              ] = 1190,
+    [SPECIES_PAWMI              ] = 1191,
+    [SPECIES_PAWMO              ] = 1192,
+    [SPECIES_PAWMOT             ] = 1193,
+    [SPECIES_TANDEMAUS          ] = 1194,
+    [SPECIES_MAUSHOLD           ] = 1195,
+    [SPECIES_FIDOUGH            ] = 1197,
+    [SPECIES_DACHSBUN           ] = 1198,
+    [SPECIES_SMOLIV             ] = 1199,
+    [SPECIES_DOLLIV             ] = 1200,
+    [SPECIES_ARBOLIVA           ] = 1201,
+    [SPECIES_SQUAWKABILLY       ] = 1202,
+    [SPECIES_NACLI              ] = 1206,
+    [SPECIES_NACLSTACK          ] = 1207,
+    [SPECIES_GARGANACL          ] = 1208,
+    [SPECIES_CHARCADET          ] = 1209,
+    [SPECIES_ARMAROUGE          ] = 1210,
+    [SPECIES_CERULEDGE          ] = 1211,
+    [SPECIES_TADBULB            ] = 1212,
+    [SPECIES_BELLIBOLT          ] = 1213,
+    [SPECIES_WATTREL            ] = 1214,
+    [SPECIES_KILOWATTREL        ] = 1215,
+    [SPECIES_MASCHIFF           ] = 1216,
+    [SPECIES_MABOSSTIFF         ] = 1217,
+    [SPECIES_SHROODLE           ] = 1218,
+    [SPECIES_GRAFAIAI           ] = 1219,
+    [SPECIES_BRAMBLIN           ] = 1220,
+    [SPECIES_BRAMBLEGHAST       ] = 1221,
+    [SPECIES_TOEDSCOOL          ] = 1222,
+    [SPECIES_TOEDSCRUEL         ] = 1223,
+    [SPECIES_KLAWF              ] = 1224,
+    [SPECIES_CAPSAKID           ] = 1225,
+    [SPECIES_SCOVILLAIN         ] = 1226,
+    [SPECIES_RELLOR             ] = 1227,
+    [SPECIES_RABSCA             ] = 1228,
+    [SPECIES_FLITTLE            ] = 1229,
+    [SPECIES_ESPATHRA           ] = 1230,
+    [SPECIES_TINKATINK          ] = 1231,
+    [SPECIES_TINKATUFF          ] = 1232,
+    [SPECIES_TINKATON           ] = 1233,
+    [SPECIES_WIGLETT            ] = 1234,
+    [SPECIES_WUGTRIO            ] = 1235,
+    [SPECIES_BOMBIRDIER         ] = 1236,
+    [SPECIES_FINIZEN            ] = 1237,
+    [SPECIES_PALAFIN            ] = 1238,
+    [SPECIES_VAROOM             ] = 1239,
+    [SPECIES_REVAVROOM          ] = 1240,
+    [SPECIES_CYCLIZAR           ] = 1246,
+    [SPECIES_ORTHWORM           ] = 1247,
+    [SPECIES_GLIMMET            ] = 1248,
+    [SPECIES_GLIMMORA           ] = 1249,
+    [SPECIES_GREAVARD           ] = 1250,
+    [SPECIES_HOUNDSTONE         ] = 1251,
+    [SPECIES_FLAMIGO            ] = 1252,
+    [SPECIES_CETODDLE           ] = 1253,
+    [SPECIES_CETITAN            ] = 1254,
+    [SPECIES_VELUZA             ] = 1255,
+    [SPECIES_DONDOZO            ] = 1256,
+    [SPECIES_TATSUGIRI          ] = 1257,
+    [SPECIES_ANNIHILAPE         ] = 1260,
+    [SPECIES_CLODSIRE           ] = 1261,
+    [SPECIES_FARIGIRAF          ] = 1262,
+    [SPECIES_DUDUNSPARCE        ] = 1263,
+    [SPECIES_KINGAMBIT          ] = 1265,
+    [SPECIES_GREAT_TUSK         ] = 1266,
+    [SPECIES_SCREAM_TAIL        ] = 1267,
+    [SPECIES_BRUTE_BONNET       ] = 1268,
+    [SPECIES_FLUTTER_MANE       ] = 1269,
+    [SPECIES_SLITHER_WING       ] = 1270,
+    [SPECIES_SANDY_SHOCKS       ] = 1271,
+    [SPECIES_IRON_TREADS        ] = 1272,
+    [SPECIES_IRON_BUNDLE        ] = 1273,
+    [SPECIES_IRON_HANDS         ] = 1274,
+    [SPECIES_IRON_JUGULIS       ] = 1275,
+    [SPECIES_IRON_MOTH          ] = 1276,
+    [SPECIES_IRON_THORNS        ] = 1277,
+    [SPECIES_FRIGIBAX           ] = 1278,
+    [SPECIES_ARCTIBAX           ] = 1279,
+    [SPECIES_BAXCALIBUR         ] = 1280,
+    [SPECIES_GIMMIGHOUL         ] = 1281,
+    [SPECIES_GHOLDENGO          ] = 1283,
+    [SPECIES_WO_CHIEN           ] = 1284,
+    [SPECIES_CHIEN_PAO          ] = 1285,
+    [SPECIES_TING_LU            ] = 1286,
+    [SPECIES_CHI_YU             ] = 1287,
+    [SPECIES_ROARING_MOON       ] = 1288,
+    [SPECIES_IRON_VALIANT       ] = 1289,
+    [SPECIES_KORAIDON           ] = 1290,
+    [SPECIES_MIRAIDON           ] = 1291,
+    [SPECIES_WALKING_WAKE       ] = 1292,
+    [SPECIES_IRON_LEAVES        ] = 1293,
+    [SPECIES_DIPPLIN            ] = 1294,
+    [SPECIES_POLTCHAGEIST       ] = 1295,
+    [SPECIES_SINISTCHA          ] = 1296,
+    [SPECIES_OKIDOGI            ] = 1297,
+    [SPECIES_MUNKIDORI          ] = 1298,
+    [SPECIES_FEZANDIPITI        ] = 1299,
+    [SPECIES_OGERPON            ] = 1300,
+    [SPECIES_ARCHALUDON         ] = 1301,
+    [SPECIES_HYDRAPPLE          ] = 1302,
+    [SPECIES_GOUGING_FIRE       ] = 1303,
+    [SPECIES_RAGING_BOLT        ] = 1304,
+    [SPECIES_IRON_BOULDER       ] = 1305,
+    [SPECIES_IRON_CROWN         ] = 1306,
+    [SPECIES_TERAPAGOS          ] = 1307,
+    [SPECIES_PECHARUNT          ] = 1308,
 };
 
 
@@ -2613,7 +2620,7 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 0,
         .file = SPECIES_DECIDUEYE_HISUIAN,
     },
-    
+
     /**significant gender differences**/
     {
         .species = SPECIES_UNFEZANT,
@@ -2657,7 +2664,168 @@ const struct FormData PokeFormDataTbl[]=
         .need_rev = 0,
         .file = SPECIES_BASCULEGION_FEMALE,
     },
-
+    {
+        .species = SPECIES_MAUSHOLD,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_MAUSHOLD_FAMILY_OF_THREE,
+    },
+    {
+        .species = SPECIES_SQUAWKABILLY,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_SQUAWKABILLY_BLUE_PLUMAGE,
+    },
+    {
+        .species = SPECIES_SQUAWKABILLY,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE,
+    },
+    {
+        .species = SPECIES_SQUAWKABILLY,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_SQUAWKABILLY_WHITE_PLUMAGE,
+    },
+    {
+        .species = SPECIES_PALAFIN,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_PALAFIN_HERO,
+    },
+    {
+        .species = SPECIES_TATSUGIRI,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_TATSUGIRI_DROOPY,
+    },
+    {
+        .species = SPECIES_TATSUGIRI,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_TATSUGIRI_STRETCHY,
+    },
+    {
+        .species = SPECIES_DUDUNSPARCE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_DUDUNSPARCE_THREE_SEGMENT,
+    },
+    {
+        .species = SPECIES_GIMMIGHOUL,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_GIMMIGHOUL_ROAMING,
+    },
+    {
+        .species = SPECIES_TERAPAGOS,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_TERAPAGOS_TERASTAL,
+    },
+    {
+        .species = SPECIES_TERAPAGOS,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_TERAPAGOS_STELLAR,
+    },
+    {
+        .species = SPECIES_WOOPER,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_WOOPER_PALDEAN,
+    },
+    {
+        .species = SPECIES_TAUROS,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_TAUROS_COMBAT,
+    },
+    {
+        .species = SPECIES_TAUROS,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_TAUROS_BLAZE,
+    },
+    {
+        .species = SPECIES_TAUROS,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_TAUROS_AQUA,
+    },
+    {
+        .species = SPECIES_OINKOLOGNE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_OINKOLOGNE_FEMALE,
+    },
+    {
+        .species = SPECIES_REVAVROOM,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_REVAVROOM_SEGIN,
+    },
+    {
+        .species = SPECIES_REVAVROOM,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_REVAVROOM_SCHEDAR,
+    },
+    {
+        .species = SPECIES_REVAVROOM,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_REVAVROOM_NAVI,
+    },
+    {
+        .species = SPECIES_REVAVROOM,
+        .form_no = 4,
+        .need_rev = 0,
+        .file = SPECIES_REVAVROOM_RUCHBAH,
+    },
+    {
+        .species = SPECIES_REVAVROOM,
+        .form_no = 5,
+        .need_rev = 0,
+        .file = SPECIES_REVAVROOM_CAPH,
+    },
+    {
+        .species = SPECIES_POLTCHAGEIST,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_POLTCHAGEIST_MASTERPIECE,
+    },
+    {
+        .species = SPECIES_SINISTCHA,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_SINISTCHA_MASTERPIECE,
+    },
+    {
+        .species = SPECIES_OGERPON,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_OGERPON_WELLSPRING_MASK,
+    },
+    {
+        .species = SPECIES_OGERPON,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_OGERPON_HEARTHFLAME_MASK,
+    },
+    {
+        .species = SPECIES_OGERPON,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_OGERPON_CORNERSTONE_MASK,
+    },
+    {
+        .species = SPECIES_URSALUNA,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_URSALUNA_BLOODMOON,
+    },
 };
 
 extern u32 word_to_store_form_at;
@@ -2926,7 +3094,7 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
 u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
 {
     u32 i;
-    
+
     if (isegg)
     {
         if (mons == SPECIES_MANAPHY)
@@ -3041,7 +3209,7 @@ u16 LONG_CALL GetMonHiddenAbility(u16 species, u32 form)
 }
 
 /**
- *  @brief set a box mon's ability--modified to account for hidden ability flag--should only be used in scripted wild encounters/givepokemon contexts
+ *  @brief set a box mon's ability--modified to account for hidden ability+ability capsule flags--should only be used in scripted wild encounters/givepokemon contexts
  *
  *  @param boxmon struct BoxPokemon whose ability to set when being generated
  */
@@ -3051,7 +3219,7 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     int mons_no, form;
     u32 ability1, ability2, hiddenability;
     u32 pid;
-    u16 has_hidden_ability;
+    u32 has_hidden_ability, ability_swapped;
 
     fastMode = BoxMonSetFastModeOn(boxmon);
 
@@ -3073,8 +3241,9 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     }
     else
     {
-        has_hidden_ability = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_1 & hidden ability mask
+        has_hidden_ability = GET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon); // dummy_p2_1 & hidden ability mask
     }
+    ability_swapped = GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon);
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
@@ -3088,14 +3257,22 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     }
     else if (ability2 != 0)
     {
+        u32 ability_to_set;
         if (pid & 1)
         {
-            SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability2);
+            if (ability_swapped)
+                ability_to_set = ability1;
+            else
+                ability_to_set = ability2;
         }
         else
         {
-            SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
+            if (ability_swapped)
+                ability_to_set = ability2;
+            else
+                ability_to_set = ability1;
         }
+        SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability_to_set);
     }
     else
     {
@@ -3116,7 +3293,7 @@ u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
 {
     u16 *baseExpTable = sys_AllocMemory(0, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
     u16 baseExp;
-    
+
     species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
 
     ArchiveDataLoad(baseExpTable, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST);
@@ -3173,7 +3350,7 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
     u32 ability = GetBoxMonData(bp, MON_DATA_ABILITY, NULL);
     u32 item = GetBoxMonData(bp, MON_DATA_HELD_ITEM, NULL);
     u32 form = 0;
-    
+
     if (species == SPECIES_ARCEUS
      && ability == ABILITY_MULTITYPE)
     {
@@ -3199,26 +3376,26 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
 BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
 {
     u32 species = GetBoxMonData(bp, MON_DATA_SPECIES, NULL);
-    
+
     if (species == SPECIES_ARCEUS || species == SPECIES_GENESECT)
     {
         u32 form_no = GetBoxMonData(bp, MON_DATA_FORM, NULL);
-        
+
         ArceusBoxPokemonFormeChange(bp);
-        
+
         if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
             return TRUE;
     }
     else if (species == SPECIES_GIRATINA)
     {
         u32 form_no = GetBoxMonData(bp, MON_DATA_FORM, NULL);
-        
+
         GiratinaBoxPokemonFormChange(bp);
-        
+
         if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
             return TRUE;
     }
-    
+
     return FALSE;
 }
 
@@ -3231,7 +3408,7 @@ BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
 BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
-    
+
     if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS)
     {
         return TRUE;
@@ -3253,17 +3430,17 @@ u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Pa
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u32 form_no = GetMonData(pp, MON_DATA_FORM, NULL);
-    
+
     if (species != SPECIES_KYUREM) // return invalid party slot if species isn't kyurem
     {
         return 6;
     }
-    
+
     for (s32 i = 0; i < ((form_no != 0) ? 6 : party->count); i++) // check all 6 party slots if looking to revert
     {
         struct PartyPokemon *currentmon = PokeParty_GetMemberPointer(party, i);
         u32 species2 = GetMonData(currentmon, MON_DATA_SPECIES, NULL);
-        
+
         if (species2 == 0 && form_no != 0) // looking for empty slot to dump reshiram to from save
         {
             return i;
@@ -3276,17 +3453,73 @@ u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Pa
     return 6;
 }
 
-u32 queueAddPokeCount = 0;
+
+u32 CanUseAbilityCapsule(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 form = GetMonData(pp, MON_DATA_FORM, NULL);
+    u32 hidden_ability = GET_MON_HIDDEN_ABILITY_BIT(pp);
+    u32 ability1 = PokeFormNoPersonalParaGet(species, form, PERSONAL_ABILITY_1);
+    u32 ability2 = PokeFormNoPersonalParaGet(species, form, PERSONAL_ABILITY_2);
+
+    if (hidden_ability)
+        return FALSE;
+
+    // ability capsule can only be used if ability2 is nonzero and is not equal to ability1
+    return (ability2 != 0 && ability1 != ability2);
+}
+
+
+u32 CanUseAbilityPatch(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 form = GetMonData(pp, MON_DATA_FORM, NULL);
+    u32 hidden_ability = GetMonHiddenAbility(species, form);
+
+    return (hidden_ability != 0);
+}
+
+
+u32 ALIGN4 partyMenuSignal = 0;
+
+u16 NatureToMintItem[] =
+{
+    [NATURE_LONELY] = ITEM_LONELY_MINT,
+    [NATURE_ADAMANT] = ITEM_ADAMANT_MINT,
+    [NATURE_NAUGHTY] = ITEM_NAUGHTY_MINT,
+    [NATURE_BRAVE] = ITEM_BRAVE_MINT,
+    [NATURE_BOLD] = ITEM_BOLD_MINT,
+    [NATURE_IMPISH] = ITEM_IMPISH_MINT,
+    [NATURE_LAX] = ITEM_LAX_MINT,
+    [NATURE_RELAXED] = ITEM_RELAXED_MINT,
+    [NATURE_MODEST] = ITEM_MODEST_MINT,
+    [NATURE_MILD] = ITEM_MILD_MINT,
+    [NATURE_RASH] = ITEM_RASH_MINT,
+    [NATURE_QUIET] = ITEM_QUIET_MINT,
+    [NATURE_CALM] = ITEM_CALM_MINT,
+    [NATURE_GENTLE] = ITEM_GENTLE_MINT,
+    [NATURE_CAREFUL] = ITEM_CAREFUL_MINT,
+    [NATURE_SASSY] = ITEM_SASSY_MINT,
+    [NATURE_TIMID] = ITEM_TIMID_MINT,
+    [NATURE_HASTY] = ITEM_HASTY_MINT,
+    [NATURE_JOLLY] = ITEM_JOLLY_MINT,
+    [NATURE_NAIVE] = ITEM_NAIVE_MINT,
+    [NATURE_SERIOUS] = ITEM_SERIOUS_MINT,
+};
 
 /**
- *  @brief see if an item changes form or not
+ *  @brief see if an item changes attributes of the pokémon or not
  *
  *  @param wk work structure
  *  @param dat data structure
  */
-u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
+u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
 {
     struct PartyPokemon *pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
+    partyMenuSignal = 0; // ensure it is 0 before potentially queuing up a different message
+
+    // handle shaymin
+
     if (wk->dat->item == ITEM_GRACIDEA
      && GrashideaFeasibleCheck(pp) == TRUE)
     {
@@ -3295,7 +3528,9 @@ u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
         PokeList_FormDemoOverlayLoad(wk);
         return TRUE;
     }
-    
+
+    // handle tornadus/thundurus/landorus/enamorus
+
     if (wk->dat->item == ITEM_REVEAL_GLASS
      && CanUseRevealGlass(pp) == TRUE)
     {
@@ -3306,20 +3541,22 @@ u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
-        return 1;
+        return TRUE;
     }
-    
+
 #ifdef ALLOW_SAVE_CHANGES
+    // handle reshiram/zekrom and kyurem
+
     u32 splicer_pos = CanUseDNASplicersGrabSplicerPos(pp, wk->dat->pp);
     u32 reshiramBool = splicer_pos & RESHIRAM_MASK;
     splicer_pos &= JUST_SPLICER_POS_MASK;
-    
+
     if (wk->dat->item == ITEM_DNA_SPLICERS
      && (splicer_pos < 6))
     {
         void *saveData = SaveBlock2_get();
         struct SAVE_MISC_DATA *saveMiscData = Sav2_Misc_get(saveData);
-        
+
         if (GetMonData(pp, MON_DATA_FORM, NULL) != 0 && saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS]) // revert forme and put reshiram back in party
         {
             u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
@@ -3329,12 +3566,12 @@ u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
             //PokeParty_Add(wk->dat->pp, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
             struct PartyPokemon *reshiram = PokeParty_GetMemberPointer(wk->dat->pp, splicer_pos);
             *reshiram = saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS];
-            queueAddPokeCount = 1;
+            partyMenuSignal = 1;
 
             // delete reshiram from save--may just be able to leave the old data without having to deal with memset as long as we flag it as no mon there
             memset((u8 *)&saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS], 0, sizeof(struct PartyPokemon));
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 0;
-            
+
             wk->dat->after_mons = 0;
 
             ChangePartyPokemonToForm(pp, 0);
@@ -3349,13 +3586,13 @@ u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
             // delete reshiram from party--splicer_pos has the position to delete
             PokeParty_Delete(wk->dat->pp, splicer_pos);
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 1;
-            
+
             if (splicer_pos < wk->pos) // adjust this position back so that the right pokemon's forme gets changed
             {
                 wk->pos--;
                 pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
             }
-            
+
             if (reshiramBool) // turn to white kyurem
                 wk->dat->after_mons = 1;
             else              // turn to black kyurem
@@ -3371,8 +3608,58 @@ u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
         return TRUE;
     }
 #endif
-    
-    return 0;
+
+    // handle ability capsule
+
+    if (wk->dat->item == ITEM_ABILITY_CAPSULE && CanUseAbilityCapsule(pp) == TRUE)
+    {
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        partyMenuSignal = 193; // signal to change the message to this index
+        wk->dat->after_mons = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        TOGGLE_MON_SWAP_ABILITY_SLOT_BIT(pp)
+        ResetPartyPokemonAbility(pp);
+        Bag_TakeItem(bag, ITEM_ABILITY_CAPSULE, 1, 11);
+        return TRUE;
+    }
+
+    // handle ability patch
+
+    if (wk->dat->item == ITEM_ABILITY_PATCH && CanUseAbilityPatch(pp) == TRUE)
+    {
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        partyMenuSignal = 193; // signal to change the message to this index
+        wk->dat->after_mons = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        TOGGLE_MON_HIDDEN_ABILITY_BIT(pp)
+        ResetPartyPokemonAbility(pp);
+        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        return TRUE;
+    }
+
+    // handle nature mints
+
+    if (IS_ITEM_NATURE_MINT(wk->dat->item))
+    {
+        u32 nature;
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        for (nature = 0; nature < 25; nature++)
+        {
+            if (NatureToMintItem[nature] == wk->dat->item)
+                break;
+        }
+        partyMenuSignal = 194 + nature; // signal to change the message to this index
+        SET_MON_NATURE_OVERRIDE(pp, nature)
+        RecalcPartyPokemonStats(pp);
+        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 /**
@@ -3384,10 +3671,10 @@ u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat)
 u32 LONG_CALL PokeListProc_End_Extend(void *proc, int *seq) // finally add to pokecount so that icons are fine
 {
     struct PLIST_WORK *wk = PROC_GetWork(proc);
-    
-    if (queueAddPokeCount)
+
+    if (partyMenuSignal == 1)
     {
-        queueAddPokeCount = 0;
+        partyMenuSignal = 0;
         wk->dat->pp->count++;
     }
 
@@ -3458,7 +3745,7 @@ u32 LONG_CALL GrabCurrentSeason(void)
 {
     struct RTCDate date;
     GF_RTC_CopyDate(&date);
-    
+
     return ((u8)(date.month-1)) % 4;
 }
 
@@ -3472,7 +3759,7 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u32 form = 0;
     BOOL shouldUpdate = TRUE;
-    
+
     switch (species)
     {
         case SPECIES_DEERLING:
@@ -3522,7 +3809,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
             ret = TRUE;
         }
     }
-    
+
     return ret;
 }
 
@@ -3535,7 +3822,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
  *  @param time
  *  @return TRUE if form change for shaymin is happening; FALSE otherwise
  */
-BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time) 
+BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time)
 {
     u32 ret = FALSE;
     // new:  deerling handling
@@ -3565,7 +3852,7 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
             return FALSE;
         }*/
     }
-    
+
     return ret;
 }
 
@@ -3635,10 +3922,10 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
             if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL))
                 return FALSE;
         }
-        
+
         return TRUE;
     }
-    
+
     return FALSE;
 }
 
@@ -3693,7 +3980,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
     int method_local;
     u32 form = GetMonData(pokemon, MON_DATA_FORM, NULL);
     u32 lowkey = 0;
-    
+
     struct PartyPokemon *ppFromParty = NULL;
 
     species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
@@ -3715,7 +4002,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
     if (method_ret == NULL) {
         method_ret = &method_local;
     }
-    
+
     species = PokeOtherFormMonsNoGet(species, form); // factor in form into species to cover shit like galarian corsola + cap pikachu that can't evolve
 
     evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
@@ -3919,7 +4206,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
             case EVO_HAS_MOVE_TYPE:
                 {
                     int k;
-                    
+
                     for (k = 0; k < 4; k++)
                     {
                         if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param)
@@ -3952,7 +4239,8 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
             case EVO_LEVEL_NATURE_AMPED:
                 if (evoTable[i].param <= level)
                 {
-                    u32 nature = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL) % 25;
+                    // toxel evolution disrespects nature mints
+                    u32 nature = GetNatureFromPersonality(GetMonData(pokemon, MON_DATA_PERSONALITY, NULL));
                     switch (nature)
                     {
                     case NATURE_ADAMANT:
@@ -3985,7 +4273,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
                 }
                 break;
             case EVO_AMOUNT_OF_CRITICAL_HITS: // needs to hit an amount of critical hits in a battle in one go.  need to log critical hits somewhere else
-                if (GetMonData(pokemon, MON_DATA_RESERVED_113, NULL) & DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS)
+                if (GET_MON_CRITICAL_HIT_EVOLUTION_BIT(pokemon))
                 {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_AMOUNT_OF_CRITICAL_HITS;
@@ -3994,7 +4282,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
             case EVO_HURT_IN_BATTLE_AMOUNT:
                 {
                     u32 hp = GetMonData(pokemon, MON_DATA_HP, NULL), maxhp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
-                    
+
                     if (hp && (maxhp - hp) >= evoTable[i].param) // if the mon has evoTable[i].param hp less than its max
                     {
                         GET_TARGET_AND_SET_FORM;
@@ -4026,7 +4314,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
             //        GET_TARGET_AND_SET_FORM;
             //        *method_ret = EVO_TRADE_SPECIFIC_MON;
             //    }
-            //    break; 
+            //    break;
             }
             if (target != SPECIES_NONE) {
                 break;
@@ -4079,7 +4367,7 @@ u32 LONG_CALL GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form)
         case 255: // unknown
             return POKEMON_GENDER_UNKNOWN;
     }
-    
+
     if (genderRatio > (pid & 0xFF))
         return POKEMON_GENDER_FEMALE;
 
@@ -4095,13 +4383,13 @@ u32 LONG_CALL GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form)
 u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
 {
     u32 species, pid, flag, form;
-    
+
     flag = BoxMonSetFastModeOn(bp);
     species = GetBoxMonData(bp, MON_DATA_SPECIES, NULL);
     pid = GetBoxMonData(bp, MON_DATA_PERSONALITY, NULL);
     form = GetBoxMonData(bp, MON_DATA_FORM, NULL);
     BoxMonSetFastModeOff(bp, flag);
-    
+
     return GrabSexFromSpeciesAndForm(species, pid, form);
 }
 
@@ -4147,7 +4435,7 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         ret += form;
     else if (isFemale && gDimorphismTable[species-1])
         ret += isFemale;
-    
+
     sys_FreeMemoryEz(form_table);
 
     return ret;
@@ -4176,7 +4464,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
 
     profile = Sav2_PlayerData_GetProfileAddr(saveData);
     party = SaveData_GetPlayerPartyPtr(saveData);
-    
+
     pokemon = AllocMonZeroed(heapId);
     ZeroMonData(pokemon);
     PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
@@ -4209,7 +4497,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
         UpdatePokedexWithReceivedSpecies(saveData, pokemon);
     }
     sys_FreeMemoryEz(pokemon);
-    
+
     return result;
 }
 
@@ -4235,16 +4523,16 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
     {
         range = 1;
     }
-    
+
     species = GetMonData(encounterPartyPokemon, MON_DATA_SPECIES, NULL);
-    
+
     if (space_for_setmondata != 0)
     {
         change_form = 1;
         form_no = space_for_setmondata;//(species & 0xF800) >> 11;
         space_for_setmondata = 0;
     }
-    
+
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
 
     if (species == SPECIES_UNOWN)
@@ -4746,7 +5034,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
         }
-        
+
         // if abilityslot is 2 force hidden ability with the bit set.  this specifically to cover darmanitan with zen mode switching between forms and such.
         if (abilityslot == 2)
         {
@@ -4856,7 +5144,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
                 u32 one = 1;
-                
+
                 SetMonData(mons[i],MON_DATA_HAS_NICKNAME, &one);
                 SetMonData(mons[i],MON_DATA_NICKNAME, nickname);
             }
@@ -4917,10 +5205,10 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
     void *profile = Sav2_PlayerData_GetProfileAddr(fsys->savedata);
 
     u16 species = ScriptGetVar(ctx);
-    
+
     u32 form = (species & 0xF800) >> 11; // extract form from egg
     species = species & 0x7FF;
-    
+
     u16 offset = ScriptGetVar(ctx);
 
     struct Party *party = SaveData_GetPlayerPartyPtr(fsys->savedata);
@@ -5030,9 +5318,9 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     u8 hasNickname = FALSE;
     u8 pokeball = 4; // poke ball
     u8 metLevel = 0;
-    
+
     u16 dummy_p2_1 = GetMonData(pokemon, MON_DATA_RESERVED_113, NULL); // hidden ability field
-    
+
     sub_0206D038(pokemon, heapId); // carries over egg values to a clean mon
     SetMonData(pokemon, MON_DATA_IS_EGG, &isEgg);
     GetSpeciesNameIntoArray(GetMonData(pokemon, MON_DATA_SPECIES, NULL), 0, nickname);
@@ -5158,16 +5446,16 @@ extern u32 gTriggerDouble;
  *  @param fsys field system structure
  *  @param pp PartyPokemon array to manipulate (is fully overwritten)
  *  @param bw battle work structure
- *  @param encData 
- *  @param encArea 
- *  @param encInfo 
+ *  @param encData
+ *  @param encArea
+ *  @param encInfo
  *  @return TRUE if both were successful; FALSE otherwise
  */
 u32 WildEncSingle(FieldSystem *fsys UNUSED, struct PartyPokemon *pp, void *bw, void *encData UNUSED, void *encArea, void *encInfo)
 {
     u32 ret;
     ret = SetEncountData(pp, 255, encInfo, encArea, 0, 1, bw);
-    
+
 #ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
 
     if (gTriggerDouble)
@@ -5186,9 +5474,9 @@ u32 WildEncSingle(FieldSystem *fsys UNUSED, struct PartyPokemon *pp, void *bw, v
  *  @param fsys field system structure
  *  @param pp PartyPokemon array to manipulate (is fully overwritten)
  *  @param bw battle work structure
- *  @param encArea 
- *  @param encInfo 
- *  @param smth 
+ *  @param encArea
+ *  @param encInfo
+ *  @param smth
  *  @return TRUE if both were successful; FALSE otherwise
  */
 u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *encArea, void *encInfo, BOOL smth)
@@ -5197,9 +5485,9 @@ u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, voi
     if (smth)
     {
         ret = SetEncountDataSwarm_maybe(fsys, pp, 255, encInfo, 1, 1, bw);
-    
+
 #ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
-    
+
         if (gTriggerDouble)
         {
             ret = SetEncountDataSwarm_maybe(fsys, pp, 255, encInfo, 1, 1, bw); // add another mon to the enemy party
@@ -5210,7 +5498,7 @@ u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, voi
     else
     {
         ret = SetEncountData(pp, 255, encInfo, encArea, 1, 1, bw);
-    
+
 #ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
 
         if (gTriggerDouble)
@@ -5220,7 +5508,7 @@ u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, voi
 
 #endif
     }
-    
+
     return ret;
 }
 
@@ -5332,3 +5620,31 @@ BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
 }
 
 #endif
+
+
+/**
+ *  @brief grab the nature of a BoxPokemon factoring in the nature mint override field
+ *
+ *  @param boxMon BoxPokemon whose nature to grab
+ *  @return nature of the BoxPokemon factoring in nature override
+ */
+u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon)
+{
+    BOOL decry = BoxMonSetFastModeOn(boxMon);
+    u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL);
+    u32 nature_override = GET_BOX_MON_NATURE_OVERRIDE(boxMon);
+    BoxMonSetFastModeOff(boxMon, decry);
+
+    if (nature_override != 0) {
+        return nature_override - 1;
+    }
+    // lord forgive me, i know not what i do
+    // modulo operator in this world is only signed!  0x80000000 % 25 = 23
+    // could just use GetNatureFromPersonality from the rom, but this was a good exercise anyway
+    if (personality & 0x80000000)
+        personality = ((((u32)personality & 0x7FFFFFFF) % 25) + 23) % 25;
+    else
+        personality %= 25;
+
+    return personality;
+}

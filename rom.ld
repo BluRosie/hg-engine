@@ -80,7 +80,7 @@ BoxMonInit = 0x0206DD0C |1;
 PokeLevelExpGet = 0x0206FD00 |1;
 Daycare_GetBoxMonI = 0x0206BDB0 |1;
 SetMonPersonality = 0x0207235C | 1;
-PokeNatureGet = 0x0206FE2C |1;
+GetNatureFromPersonality = 0x0206FE2C |1;
 PokeParaLevelExpGet = 0x0206FCDC | 1;
 PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
@@ -507,3 +507,5 @@ sub_0203C8F0 = 0x0203C8F0 | 1;
 RegisteredItem_CreateGoToAppTask = 0x020658B8 | 1;
 
 PaletteRAMArray = 0x05000000;
+
+GetMonNature = 0x0206FDFC | 1;

@@ -145,7 +145,7 @@ enum
     ITEM_GET_AGB_NUM   // AGBのアイテム番号
 };
 
-enum 
+enum
 {
     ITEM_PARAM_PRICE,
     ITEM_PARAM_HOLD_EFFECT,

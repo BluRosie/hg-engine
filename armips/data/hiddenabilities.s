@@ -1067,15 +1067,21 @@
 /* SPECIES_MIRAIDON                    */ .halfword ABILITY_NONE
 /* SPECIES_WALKING_WAKE                */ .halfword ABILITY_NONE
 /* SPECIES_IRON_LEAVES                 */ .halfword ABILITY_NONE
-/* SPECIES_DIPPLIN                     */ .halfword ABILITY_NONE
-/* SPECIES_ARCHALUDON                  */ .halfword ABILITY_NONE
-/* SPECIES_RAGING_BOLT                 */ .halfword ABILITY_NONE
-/* SPECIES_IRON_CROWN                  */ .halfword ABILITY_NONE
+/* SPECIES_DIPPLIN                     */ .halfword ABILITY_STICKY_HOLD
+/* SPECIES_POLTCHAGEIST                */ .halfword ABILITY_HEATPROOF
+/* SPECIES_SINISTCHA                   */ .halfword ABILITY_HEATPROOF
+/* SPECIES_OKIDOGI                     */ .halfword ABILITY_GUARD_DOG
+/* SPECIES_MUNKIDORI                   */ .halfword ABILITY_FRISK
+/* SPECIES_FEZANDIPITI                 */ .halfword ABILITY_TECHNICIAN
 /* SPECIES_OGERPON                     */ .halfword ABILITY_NONE
-/* SPECIES_OKIDOGI                     */ .halfword ABILITY_NONE
-/* SPECIES_MUNKIDORI                   */ .halfword ABILITY_NONE
-/* SPECIES_FEZANDIPITI                 */ .halfword ABILITY_NONE
+/* SPECIES_ARCHALUDON                  */ .halfword ABILITY_STALWART
+/* SPECIES_HYDRAPPLE                   */ .halfword ABILITY_STICKY_HOLD
+/* SPECIES_GOUGING_FIRE                */ .halfword ABILITY_NONE
+/* SPECIES_RAGING_BOLT                 */ .halfword ABILITY_NONE
+/* SPECIES_IRON_BOULDER                */ .halfword ABILITY_NONE
+/* SPECIES_IRON_CROWN                  */ .halfword ABILITY_NONE
 /* SPECIES_TERAPAGOS                   */ .halfword ABILITY_NONE
+/* SPECIES_PECHARUNT                   */ .halfword ABILITY_NONE
 
 /* SPECIES_MEGA_VENUSAUR               */ .halfword ABILITY_NONE
 /* SPECIES_MEGA_CHARIZARD_X            */ .halfword ABILITY_NONE
@@ -1357,5 +1363,12 @@
 /* SPECIES_REVAVROOM_NAVI              */ .halfword ABILITY_FILTER
 /* SPECIES_REVAVROOM_RUCHBAH           */ .halfword ABILITY_FILTER
 /* SPECIES_REVAVROOM_CAPH              */ .halfword ABILITY_FILTER
+/* SPECIES_POLTCHAGEIST_MASTERPIECE    */ .halfword ABILITY_HEATPROOF
+/* SPECIES_SINISTCHA_MASTERPIECE       */ .halfword ABILITY_HEATPROOF
+/* SPECIES_OGERPON_WELLSPRING_MASK     */ .halfword ABILITY_NONE
+/* SPECIES_OGERPON_HEARTHFLAME_MASK    */ .halfword ABILITY_NONE
+/* SPECIES_OGERPON_CORNERSTONE_MASK    */ .halfword ABILITY_NONE
+/* SPECIES_TERAPAGOS_STELLAR           */ .halfword ABILITY_NONE
+/* SPECIES_URSALUNA_BLOODMOON          */ .halfword ABILITY_NONE
 
 .close

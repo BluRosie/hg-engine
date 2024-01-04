@@ -34,6 +34,9 @@ arm9 0806DED0 60 B4 C0 46
 # 022615F0
 0012 08029D30 60 B4 C0 46
 
+# CantEscape hook setup
+0012 02252980 60 B4 C0 46
+
 # expand evolutions to 9 per mon + form evos - GetMonEvolution hook setup
 arm9 08070E34 60 B4 C0 46
 
@@ -184,3 +187,10 @@ arm9 0208CDE8 04
 
 # expand metronome movepool
 0012 022408F8 NUM_OF_MOVES
+
+# pass PartyPokemon to ModifyStatByNature for recalculating PartyPokemon stats
+arm9 0206E3C6 00 00 00 00
+arm9 0206E406 00 00 00 00
+arm9 0206E446 00 00 00 00
+arm9 0206E486 00 00 00 00
+arm9 0206E4C6 00 00 00 00

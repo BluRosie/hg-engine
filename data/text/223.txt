@@ -769,3 +769,24 @@ a {COLOR 255}Lift Key{COLOR 0}
 a {COLOR 255}Pewter Snacks{COLOR 0}
 a {COLOR 255}Silph Scope{COLOR 0}
 a {COLOR 255}Tea{COLOR 0}
+a {COLOR 255}Lonely Mint{COLOR 0}
+an {COLOR 255}Adamant Mint{COLOR 0}
+a {COLOR 255}Naughty Mint{COLOR 0}
+a {COLOR 255}Brave Mint{COLOR 0}
+a {COLOR 255}Bold Mint{COLOR 0}
+an {COLOR 255}Impish Mint{COLOR 0}
+a {COLOR 255}Lax Mint{COLOR 0}
+a {COLOR 255}Relaxed Mint{COLOR 0}
+a {COLOR 255}Modest Mint{COLOR 0}
+a {COLOR 255}Mild Mint{COLOR 0}
+a {COLOR 255}Rash Mint{COLOR 0}
+a {COLOR 255}Quiet Mint{COLOR 0}
+a {COLOR 255}Calm Mint{COLOR 0}
+a {COLOR 255}Gentle Mint{COLOR 0}
+a {COLOR 255}Careful Mint{COLOR 0}
+a {COLOR 255}Sassy Mint{COLOR 0}
+a {COLOR 255}Timid Mint{COLOR 0}
+a {COLOR 255}Hasty Mint{COLOR 0}
+a {COLOR 255}Jolly Mint{COLOR 0}
+a {COLOR 255}Naive Mint{COLOR 0}
+a {COLOR 255}Serious Mint{COLOR 0}

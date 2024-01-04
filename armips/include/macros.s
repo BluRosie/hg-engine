@@ -24,7 +24,7 @@
 
 .macro terminatelearnset
     .word 0xFFFF
-	
+
 	.close
 .endmacro
 
@@ -93,7 +93,9 @@
 .endmacro
 
 .macro abilities,abi1,abi2
-.if abi1 > 255
+.if abi1 > 255 && abi2 <= 255
+	.byte abi2
+.elseif abi1 > 255
 	.byte ABILITY_NONE
 .else
 	.byte abi1
@@ -117,12 +119,12 @@
 
 .macro tmdata,num1,num2,num3,num4 // handled by a python script and armips/data/tmlearnset.txt
 	.halfword 0 // padding
-	
+
 	.word num1
 	.word num2
 	.word num3
 	.word num4
-	
+
 	.close
 .endmacro
 
@@ -140,7 +142,7 @@
 	.else
 		.create "build/a034/evodata_" + tostring(species),0
 	.endif
-	
+
 .endmacro
 
 .macro evolution,method,parameter,species
@@ -158,7 +160,7 @@
 
 .macro terminateevodata
 	.halfword 0
-	
+
 	.close
 .endmacro
 
@@ -173,13 +175,13 @@
 	.if species == 1
 		.create "build/kowaza/kowaza_0",0
 	.endif
-	
+
 	.halfword species+20000
 .endmacro
 
 .macro terminateeggmoves
 	.halfword 0xFFFF
-	
+
 	.close
 .endmacro
 
@@ -192,9 +194,9 @@
 	.endif
 
 	.org (species * 2)
-	
+
 	.halfword baby
-	
+
 	.if species == NUM_OF_TOTAL_MONS_PLUS_FORMS
 		.close
 	.endif
@@ -209,7 +211,7 @@
 	.endif
 
 	.org ((species - 1) * 8)
-	
+
 	.word data1
 	.word data2
 .endmacro
@@ -224,11 +226,11 @@
 	.else
 		.create "build/a005/a005_" + tostring((species) * 4),0
 	.endif
-	
+
 	.if fback != "null"
 		.byte fback
 	.endif
-	
+
 	.close
 
 	.if ((species) * 4 + 1) < 10
@@ -240,11 +242,11 @@
 	.else
 		.create "build/a005/a005_" + tostring((species) * 4 + 1),0
 	.endif
-	
+
 	.if mback != "null"
 		.byte mback
 	.endif
-	
+
 	.close
 
 	.if ((species) * 4 + 2) < 10
@@ -256,11 +258,11 @@
 	.else
 		.create "build/a005/a005_" + tostring((species) * 4 + 2),0
 	.endif
-	
+
 	.if ffront != "null"
 		.byte ffront
 	.endif
-	
+
 	.close
 
 	.if ((species) * 4 + 3) < 10
@@ -272,11 +274,11 @@
 	.else
 		.create "build/a005/a005_" + tostring((species) * 4 + 3),0
 	.endif
-	
+
 	.if mfront != "null"
 		.byte mfront
 	.endif
-	
+
 	.close
 .endmacro
 
@@ -284,14 +286,14 @@
 	.if (species) > SPECIES_ARCEUS // fill in generic frame data for new mons (it is bulbasaur)
 		.orga ((species) * 0x59)
 		.byte 0x00, 0x02, 0x00, 0x00, 0x04, 0x00, 0x00, 0x01, 0x0A, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x09, 0x05, 0x0B, 0x00, 0x0B, 0x00, 0x00, 0x01, 0x0F, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00
-	.endif 
-	
+	.endif
+
 	.orga ((species) * 0x59) + 1
 	.byte monfrontanim
-	
+
 	.orga ((species) * 0x59) + 0x2C
 	.byte monbackanim
-	
+
 	.orga ((species) * 0x59) + 0x56
 	.byte monoffy
 	.byte shadowoffx
@@ -311,12 +313,12 @@
 	.else
 		.create "build/a141/a141_" + tostring(ownum),0
 	.endif
-	
+
 	.byte 0
 	.byte canenter
 	.byte bouncespeed
 	.byte 0
-	
+
 	.close
 .endmacro
 
@@ -373,7 +375,7 @@
 
 .macro dexendareadata
 	.word 0
-	
+
 	.close
 .endmacro
 
@@ -415,7 +417,7 @@
 
 .macro endentry
 	.byte 0, 0, 0
-	
+
 	.close
 .endmacro
 
