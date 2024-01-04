@@ -307,7 +307,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
     // courtesy of Dray (https://github.com/Drayano60)
-    if (newBS.terrainOverlay.type == PSYCHIC_TERRAIN && newBS.terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
+    if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
         if (adjustedMoveHasPositivePriority(sp, attacker)) {
             scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
@@ -1231,8 +1231,8 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 // 02253D78
             case SWITCH_IN_CHECK_FIELD:
                 if (sp->printed_field_message == 0) {
-                    newBS.terrainOverlay.type = TERRAIN_NONE;
-                    newBS.terrainOverlay.numberOfTurnsLeft = 0;
+                    sp->terrainOverlay.type = TERRAIN_NONE;
+                    sp->terrainOverlay.numberOfTurnsLeft = 0;
                     scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG;
                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
 

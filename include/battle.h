@@ -829,6 +829,15 @@ struct __attribute__((packed)) BattleAIWorkTable
 
 
 /**
+ *  @brief structure that tracks the terrain type currently present
+ */
+typedef struct {
+    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
+    u8 numberOfTurnsLeft;
+} __attribute__((packed)) TerrainOverlay;
+
+
+/**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
@@ -1020,6 +1029,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ int SkillSeqWork[600];
     /*...*/
+
+               TerrainOverlay terrainOverlay;
                u8 printed_field_message;
 };
 
@@ -1193,11 +1204,6 @@ enum
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0
 
-typedef struct {
-    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
-    u8 numberOfTurnsLeft;
-} __attribute__((packed)) TerrainOverlay;
-
 struct __attribute__((packed)) newBattleStruct
 {
     u8 SideMega[4];//检查双方是否mega过,0我方,1敌方
@@ -1213,8 +1219,6 @@ struct __attribute__((packed)) newBattleStruct
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
     u32 weather;
-
-    TerrainOverlay terrainOverlay;
 };
 
 typedef struct {

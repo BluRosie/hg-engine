@@ -2323,7 +2323,7 @@ BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp) {
     u32 terrain = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
 
-    if (BattleWorkGroundIDGet(bw) == terrain && newBS.terrainOverlay.type == TERRAIN_NONE) {
+    if (BattleWorkGroundIDGet(bw) == terrain && sp->terrainOverlay.type == TERRAIN_NONE) {
         IncrementBattleScriptPtr(sp, address);
     }
     
@@ -2502,46 +2502,46 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
     int client_set_max;
     int client_no;
 
-    enum TerrainOverlayType oldTerrainOverlay = newBS.terrainOverlay.type;
+    enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
 
     switch (sp->current_move_index) {
         case MOVE_GRASSY_TERRAIN:
-            newBS.terrainOverlay.type = GRASSY_TERRAIN;
+            sp->terrainOverlay.type = GRASSY_TERRAIN;
             break;
         case MOVE_MISTY_TERRAIN:
-            newBS.terrainOverlay.type = MISTY_TERRAIN;
+            sp->terrainOverlay.type = MISTY_TERRAIN;
             break;
         case MOVE_ELECTRIC_TERRAIN:
-            newBS.terrainOverlay.type = ELECTRIC_TERRAIN;
+            sp->terrainOverlay.type = ELECTRIC_TERRAIN;
             break;
         case MOVE_PSYCHIC_TERRAIN:
-            newBS.terrainOverlay.type = PSYCHIC_TERRAIN;
+            sp->terrainOverlay.type = PSYCHIC_TERRAIN;
             break;
         default:
             // I think this could work for moves that remove terrain
-            newBS.terrainOverlay.type = TERRAIN_NONE;
+            sp->terrainOverlay.type = TERRAIN_NONE;
             break;
     }
 
     if (endTerrainFlag == TRUE) {
-        newBS.terrainOverlay.type = TERRAIN_NONE;
+        sp->terrainOverlay.type = TERRAIN_NONE;
     }
 
     // if the new terrain is the same as the old one, the move should fail
-    if (oldTerrainOverlay == newBS.terrainOverlay.type) {
+    if (oldTerrainOverlay == sp->terrainOverlay.type) {
         IncrementBattleScriptPtr(sp, address);
     } else {
-        if (newBS.terrainOverlay.type != TERRAIN_NONE) {
+        if (sp->terrainOverlay.type != TERRAIN_NONE) {
             // TODO: handle item effects
-            newBS.terrainOverlay.numberOfTurnsLeft = 5;
+            sp->terrainOverlay.numberOfTurnsLeft = 5;
         } else {
-            newBS.terrainOverlay.numberOfTurnsLeft = 0;
+            sp->terrainOverlay.numberOfTurnsLeft = 0;
         }
     }
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
-    if (newBS.terrainOverlay.type == ELECTRIC_TERRAIN) {
+    if (sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
         for (int i = 0; i < client_set_max; i++) {
             client_no = sp->turn_order[i];
             if (IsClientGrounded(sp, client_no)) {
@@ -2566,7 +2566,7 @@ BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw UNUSED, struct BattleStruct 
     u8 terrainOverlayType = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
 
-    if (newBS.terrainOverlay.type == terrainOverlayType) {
+    if (sp->terrainOverlay.type == terrainOverlayType) {
         IncrementBattleScriptPtr(sp, address);
     }
 

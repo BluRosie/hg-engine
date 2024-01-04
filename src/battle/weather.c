@@ -422,9 +422,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             sp->fcc_seq_no++;
             break;
         case FCC_TERRAIN:
-            if (newBS.terrainOverlay.type != TERRAIN_NONE) {
-                newBS.terrainOverlay.numberOfTurnsLeft--;
-                if (newBS.terrainOverlay.numberOfTurnsLeft <= 0) {
+            if (sp->terrainOverlay.type != TERRAIN_NONE) {
+                sp->terrainOverlay.numberOfTurnsLeft--;
+                if (sp->terrainOverlay.numberOfTurnsLeft <= 0) {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;

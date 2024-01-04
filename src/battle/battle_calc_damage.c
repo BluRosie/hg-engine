@@ -1002,8 +1002,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 //    }
 
     // Handle field effects
-    if (newBS.terrainOverlay.numberOfTurnsLeft > 0) {
-        switch (newBS.terrainOverlay.type)
+    if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+        switch (sp->terrainOverlay.type)
         {
         case GRASSY_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
