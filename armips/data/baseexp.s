@@ -1367,5 +1367,6 @@
 /* SPECIES_OGERPON_HEARTHFLAME_MASK    */ .halfword 275
 /* SPECIES_OGERPON_CORNERSTONE_MASK    */ .halfword 275
 /* SPECIES_TERAPAGOS_STELLAR           */ .halfword 180 // TODO verify
+/* SPECIES_URSALUNA_BLOODMOON          */ .halfword 275
 
 .close

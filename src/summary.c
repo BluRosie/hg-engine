@@ -1,6 +1,7 @@
 #include "../include/types.h"
 
 #include "../include/summary.h"
+#include "../include/battle.h"
 
 
 // file is from LheaRachel on github who adapted it from Bubble
@@ -192,7 +193,7 @@ u16 ModifyStatByNature(u32 nature, u16 n, u8 statIndex) {
     u32 retVal;
 
     // Dont modify HP, Accuracy, or Evasion by nature
-    if (statIndex < 1 || statIndex > 5) {
+    if (statIndex < STAT_ATTACK || statIndex > STAT_SPDEF) {
         return n;
     }
 
@@ -201,7 +202,15 @@ u16 ModifyStatByNature(u32 nature, u16 n, u8 statIndex) {
         nature = GetBoxMonNatureCountMints(&((struct PartyPokemon *)nature)->box);
     }
 
-    switch (sNatureStatEffects[nature][statIndex - 1]) {
+    // thanks to dray for this fix!
+    if (statIndex == STAT_SPEED) // have to convert to window index to use the sNatureStatEffects table
+    {
+        statIndex = 5;
+    } else if (statIndex > STAT_SPEED) {
+        statIndex--;
+    }
+
+    switch (sNatureStatEffects[nature][statIndex]) {
     case 1:
         // NOTE: will overflow for n > 595 because the intermediate value is cast to u16 before the division.
         retVal = n * 110;

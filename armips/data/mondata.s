@@ -27401,3 +27401,20 @@ mondata SPECIES_TERAPAGOS_STELLAR, "-----"
     abilities ABILITY_TERAFORM_ZERO, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
+
+
+mondata SPECIES_URSALUNA_BLOODMOON, "-----"
+    basestats 113, 70, 120, 52, 135, 65
+    types TYPE_GROUND, TYPE_NORMAL
+    catchrate 20
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 127
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
+    abilities ABILITY_MINDS_EYE, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_BROWN, 0

@@ -12750,7 +12750,7 @@ evodata SPECIES_IRON_LEAVES
 terminateevodata
 
 evodata SPECIES_DIPPLIN
-    evolution EVO_HAS_MOVE, MOVE_DRAGON_PULSE, SPECIES_HYDRAPPLE // todo change for dragon cheer
+    evolution EVO_HAS_MOVE, MOVE_DRAGON_PULSE, SPECIES_HYDRAPPLE // TODO change for dragon cheer
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -16325,7 +16325,7 @@ evodata SPECIES_SINISTCHA_MASTERPIECE
 terminateevodata
 
 
-evodata SPECIES_OGERPON_WELLSPRING_MASK 
+evodata SPECIES_OGERPON_WELLSPRING_MASK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -16338,7 +16338,7 @@ evodata SPECIES_OGERPON_WELLSPRING_MASK
 terminateevodata
 
 
-evodata SPECIES_OGERPON_HEARTHFLAME_MASK 
+evodata SPECIES_OGERPON_HEARTHFLAME_MASK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -16351,7 +16351,7 @@ evodata SPECIES_OGERPON_HEARTHFLAME_MASK
 terminateevodata
 
 
-evodata SPECIES_OGERPON_CORNERSTONE_MASK 
+evodata SPECIES_OGERPON_CORNERSTONE_MASK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -16364,7 +16364,20 @@ evodata SPECIES_OGERPON_CORNERSTONE_MASK
 terminateevodata
 
 
-evodata SPECIES_TERAPAGOS_STELLAR 
+evodata SPECIES_TERAPAGOS_STELLAR
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+
+evodata SPECIES_URSALUNA_BLOODMOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
