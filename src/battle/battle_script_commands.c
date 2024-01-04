@@ -2429,42 +2429,6 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
 }
 
 /**
- *  @brief moves that soundproof blocks
- */
-u16 SoundproofMovesList[] = {
-    MOVE_BOOMBURST,
-    MOVE_BUG_BUZZ,
-    MOVE_CHATTER,
-    MOVE_CLANGING_SCALES,
-    MOVE_CLANGOROUS_SOUL,
-    MOVE_CLANGOROUS_SOULBLAZE,
-    MOVE_CONFIDE,
-    MOVE_DISARMING_VOICE,
-    MOVE_ECHOED_VOICE,
-    MOVE_EERIE_SPELL,
-    MOVE_GRASS_WHISTLE,
-    MOVE_GROWL,
-    MOVE_HEAL_BELL,
-    MOVE_HOWL,
-    MOVE_HYPER_VOICE,
-    MOVE_METAL_SOUND,
-    MOVE_NOBLE_ROAR,
-    MOVE_OVERDRIVE,
-    MOVE_PARTING_SHOT,
-    MOVE_PERISH_SONG,
-    MOVE_RELIC_SONG,
-    MOVE_ROAR,
-    MOVE_ROUND,
-    MOVE_SCREECH,
-    MOVE_SING,
-    MOVE_SNARL,
-    MOVE_SNORE,
-    MOVE_SPARKLING_ARIA,
-    MOVE_SUPERSONIC,
-    MOVE_TORCH_SONG,
-    MOVE_UPROAR};
-
-/**
  *  @brief script command to jump somewhere if the current move is a sound move
  *
  *  @param bw battle work structure
@@ -2475,11 +2439,8 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    for (u32 i = 0; i < NELEMS(SoundproofMovesList); i++) {
-        if (SoundproofMovesList[i] == sp->current_move_index) {
-            IncrementBattleScriptPtr(sp, address);
-            break;
-        }
+    if (IsMoveSoundBased(sp->current_move_index)) {
+        IncrementBattleScriptPtr(sp, address);
     }
 
     return FALSE;

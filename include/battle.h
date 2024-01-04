@@ -2093,6 +2093,14 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // account for normalize and such
 
 /**
+ *  @brief check if a move is a sound-based move
+ *
+ *  @param move move index to check for sound property
+ *  @return TRUE if is a sound move; FALSE otherwise
+ */
+BOOL IsMoveSoundBased(u32 move);
+
+/**
  *  @brief get the adjusted move type accounting for normalize without relying on a client
  *
  *  @param sp global battle structure
