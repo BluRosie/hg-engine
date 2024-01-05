@@ -30,9 +30,11 @@
 .endif
 
 // code addon list
-.include "armips/data/hiddenabilities.s" // the hidden ability list, 7
-.include "armips/data/baseexp.s" // the base experience list, 8
+//.include "armips/data/hiddenabilities.s" // the hidden ability list, 7
+//.include "armips/data/baseexp.s" // the base experience list, 8
 //.include "armips/data/monoverworlds.s" // built unconditionally in makefile, 9 includes the max amount of forms per mon not including gender differences
+// 10 - sSpeciesToOWGfx
+// 11 - PokeFormDataTbl
 
 /*
 CURRENT SYNTHETIC NARC ARMIPS USAGE - starting at START_ADDRESS (armips/include/config.s), sequentially
