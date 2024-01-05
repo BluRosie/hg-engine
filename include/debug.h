@@ -33,7 +33,7 @@
 //#define DEBUG_SOUND_SBNK_LOADS
 
 // GUARANTEE_CAPTURES guarantees captures
-#define GUARANTEE_CAPTURES
+//#define GUARANTEE_CAPTURES
 
 // DEBUG_SQRT prints debug information for the gpio sqrt function
 //#define DEBUG_SQRT
