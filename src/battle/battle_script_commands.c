@@ -1492,7 +1492,6 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
             store_work_params[i] = 0;
             expcalc->work[i] = original_work_params[i];
         }
-        trackPartyExperience = 0;
     }
     else // otherwise store the exp step to the variable, restore work params, pass back to main func
     {
@@ -2354,7 +2353,7 @@ BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp) {
     if (BattleWorkGroundIDGet(bw) == terrain && sp->terrainOverlay.type == TERRAIN_NONE) {
         IncrementBattleScriptPtr(sp, address);
     }
-    
+
     return FALSE;
 }
 
@@ -2414,7 +2413,7 @@ BOOL btl_scr_cmd_E8_ifgrounded(void *bw UNUSED, struct BattleStruct *sp) {
     if(IsClientGrounded(sp, client_no)) {
         IncrementBattleScriptPtr(sp, address);
     }
-    
+
     return FALSE;
 }
 
