@@ -1027,10 +1027,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             }
             break;
         case MISTY_TERRAIN:
-            if (IsClientGrounded(sp, attacker) && movetype == TYPE_FAIRY) {
-                damage = damage * 130 / 100;
-                break;
-            }
             if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
                 damage /= 2;
                 break;
