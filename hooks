@@ -341,3 +341,6 @@ arm9 CapRareCandies 0208FEEA 1
 0012 BattleTryRun 02252B68 3
 
 arm9 ModifyStatByNature 0206FE3C 3
+
+# when a specific mon is in illusion, the target icon brought up needs to be in the illusioned state
+0012 target_select_inject_illusion_icon 02267CDC 0
