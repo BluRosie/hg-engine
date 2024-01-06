@@ -687,3 +687,51 @@ _x_ equ 0x015C
 _y_ equ 0x015D
 _z_ equ 0x015E
 _endstr equ 0xFFFF
+
+// additional effect constants
+ADD_STATUS_NONE equ         (0)
+ADD_STATUS_DIRECT equ       (1)
+ADD_STATUS_INDIRECT equ     (2)
+ADD_STATUS_ABILITY equ      (3)
+ADD_STATUS_WAZA_KOUKA equ   (4)
+ADD_STATUS_SOUBIITEM equ    (5)
+ADD_STATUS_DOKUBISI equ     (6)
+ADD_STATUS_IGNORE equ       (7)
+
+// Vanilla Terrains (Fields)
+
+TERRAIN_PLAIN equ (0)
+TERRAIN_SAND equ (1)
+TERRAIN_GRASS equ (2)
+TERRAIN_PUDDLE equ (3)
+TERRAIN_MOUNTAIN equ (4)
+TERRAIN_CAVE equ (5)
+TERRAIN_SNOW equ (6)
+TERRAIN_WATER equ (7)
+TERRAIN_ICE equ (8)
+TERRAIN_BUILDING equ (9)
+TERRAIN_GREAT_MARSH equ (10)  // unused
+TERRAIN_UNKNOWN equ (11)   // unused
+TERRAIN_WILL equ (12)
+TERRAIN_KOGA equ (13)
+TERRAIN_BRUNO equ (14)
+TERRAIN_KAREN equ (15)
+TERRAIN_LANCE equ (16)
+TERRAIN_DISTORTION_WORLD equ (17)  // unused
+TERRAIN_BATTLE_TOWER equ (18)
+TERRAIN_BATTLE_FACTORY equ (29)
+TERRAIN_BATTLE_ARCADE equ (20)
+TERRAIN_BATTLE_CASTLE equ (21)
+TERRAIN_BATTLE_HALL equ (22)
+TERRAIN_GIRATINA equ (23)  // unused
+TERRAIN_MAX equ (24)
+
+// Terrain Overlays
+TERRAIN_NONE        equ (0)
+GRASSY_TERRAIN      equ (1)
+MISTY_TERRAIN       equ (2)
+ELECTRIC_TERRAIN    equ (3)
+PSYCHIC_TERRAIN     equ (4)
+
+FALSE               equ (0)
+TRUE                equ (1)

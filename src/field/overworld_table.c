@@ -1520,141 +1520,147 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1649, .gfx = 1283, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WYRDEER
     { .tag = 1650, .gfx = 1284, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KLEAVOR
     { .tag = 1651, .gfx = 1285, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_URSALUNA
-    { .tag = 1652, .gfx = 1286, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BASCULEGION
-    { .tag = 1653, .gfx = 1445, .callback_params = OVERWORLD_SIZE_SMALL}, // female
-    { .tag = 1654, .gfx = 1287, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SNEASLER
-    { .tag = 1655, .gfx = 1288, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OVERQWIL
-    { .tag = 1656, .gfx = 1289, .callback_params = OVERWORLD_SIZE_LARGE}, // SPECIES_ENAMORUS
-    { .tag = 1657, .gfx = 1446, .callback_params = OVERWORLD_SIZE_LARGE}, // therian
-    { .tag = 1658, .gfx = 1452, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPRIGATITO
-    { .tag = 1659, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLORAGATO
-    { .tag = 1660, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MEOWSCARADA
-    { .tag = 1661, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FUECOCO
-    { .tag = 1662, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CROCALOR
-    { .tag = 1663, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SKELEDIRGE
-    { .tag = 1664, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_QUAXLY
-    { .tag = 1665, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_QUAXWELL
-    { .tag = 1666, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_QUAQUAVAL
-    { .tag = 1667, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_LECHONK
-    { .tag = 1668, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OINKOLOGNE
-    { .tag = 1669, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // female
-    { .tag = 1670, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TAROUNTULA
-    { .tag = 1671, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPIDOPS
-    { .tag = 1672, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_NYMBLE
-    { .tag = 1673, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_LOKIX
-    { .tag = 1674, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PAWMI
-    { .tag = 1675, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PAWMO
-    { .tag = 1676, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PAWMOT
-    { .tag = 1677, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TANDEMAUS
-    { .tag = 1678, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MAUSHOLD
-    { .tag = 1679, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // family of three
-    { .tag = 1680, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FIDOUGH
-    { .tag = 1681, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DACHSBUN
-    { .tag = 1682, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SMOLIV
-    { .tag = 1683, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DOLLIV
-    { .tag = 1684, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARBOLIVA
-    { .tag = 1685, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SQUAWKABILLY
-    { .tag = 1686, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // blue
-    { .tag = 1687, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // yellow
-    { .tag = 1688, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // white
-    { .tag = 1689, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_NACLI
-    { .tag = 1690, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_NACLSTACK
-    { .tag = 1691, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GARGANACL
-    { .tag = 1692, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHARCADET
-    { .tag = 1693, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARMAROUGE
-    { .tag = 1694, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CERULEDGE
-    { .tag = 1695, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TADBULB
-    { .tag = 1696, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BELLIBOLT
-    { .tag = 1697, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WATTREL
-    { .tag = 1698, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KILOWATTREL
-    { .tag = 1699, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MASCHIFF
-    { .tag = 1700, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MABOSSTIFF
-    { .tag = 1701, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SHROODLE
-    { .tag = 1702, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GRAFAIAI
-    { .tag = 1703, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRAMBLIN
-    { .tag = 1704, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRAMBLEGHAST
-    { .tag = 1705, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TOEDSCOOL
-    { .tag = 1706, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TOEDSCRUEL
-    { .tag = 1707, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KLAWF
-    { .tag = 1708, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CAPSAKID
-    { .tag = 1709, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SCOVILLAIN
-    { .tag = 1710, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RELLOR
-    { .tag = 1711, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RABSCA
-    { .tag = 1712, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLITTLE
-    { .tag = 1713, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ESPATHRA
-    { .tag = 1714, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TINKATINK
-    { .tag = 1715, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TINKATUFF
-    { .tag = 1716, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TINKATON
-    { .tag = 1717, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WIGLETT
-    { .tag = 1718, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WUGTRIO
-    { .tag = 1719, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BOMBIRDIER
-    { .tag = 1720, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FINIZEN
-    { .tag = 1721, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PALAFIN
-    { .tag = 1722, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_VAROOM
-    { .tag = 1723, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_REVAVROOM
-    { .tag = 1724, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // segin
-    { .tag = 1725, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // schedar
-    { .tag = 1726, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // navi
-    { .tag = 1727, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // ruchbah
-    { .tag = 1728, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // caph
-    { .tag = 1729, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CYCLIZAR
-    { .tag = 1730, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ORTHWORM
-    { .tag = 1731, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GLIMMET
-    { .tag = 1732, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GLIMMORA
-    { .tag = 1733, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GREAVARD
-    { .tag = 1734, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_HOUNDSTONE
-    { .tag = 1735, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLAMIGO
-    { .tag = 1736, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CETODDLE
-    { .tag = 1737, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CETITAN
-    { .tag = 1738, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_VELUZA
-    { .tag = 1739, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DONDOZO
-    { .tag = 1740, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TATSUGIRI
-    { .tag = 1741, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // droopy
-    { .tag = 1742, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // stretchy
-    { .tag = 1743, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ANNIHILAPE
-    { .tag = 1744, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CLODSIRE
-    { .tag = 1745, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FARIGIRAF
-    { .tag = 1746, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DUDUNSPARCE
-    { .tag = 1747, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // three segment
-    { .tag = 1748, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KINGAMBIT
-    { .tag = 1749, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GREAT_TUSK
-    { .tag = 1750, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SCREAM_TAIL
-    { .tag = 1751, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRUTE_BONNET
-    { .tag = 1752, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLUTTER_MANE
-    { .tag = 1753, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SLITHER_WING
-    { .tag = 1754, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SANDY_SHOCKS
-    { .tag = 1755, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_TREADS
-    { .tag = 1756, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_BUNDLE
-    { .tag = 1757, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_HANDS
-    { .tag = 1758, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_JUGULIS
-    { .tag = 1759, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_MOTH
-    { .tag = 1760, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_THORNS
-    { .tag = 1761, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FRIGIBAX
-    { .tag = 1762, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARCTIBAX
-    { .tag = 1763, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BAXCALIBUR
-    { .tag = 1764, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GIMMIGHOUL
-    { .tag = 1765, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // roaming
-    { .tag = 1766, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GHOLDENGO
-    { .tag = 1767, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WO_CHIEN
-    { .tag = 1768, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHIEN_PAO
-    { .tag = 1769, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TING_LU
-    { .tag = 1770, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHI_YU
-    { .tag = 1771, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ROARING_MOON
-    { .tag = 1772, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_VALIANT
-    { .tag = 1773, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KORAIDON
-    { .tag = 1774, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MIRAIDON
-    { .tag = 1775, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WALKING_WAKE
-    { .tag = 1776, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_LEAVES
-    { .tag = 1777, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DIPPLIN
-    { .tag = 1778, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARCHALUDON
-    { .tag = 1779, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RAGING_BOLT
-    { .tag = 1780, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_CROWN
-    { .tag = 1781, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OGERPON
-    { .tag = 1782, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OKIDOGI
-    { .tag = 1783, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MUNKIDORI
-    { .tag = 1784, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FEZANDIPITI
-    { .tag = 1785, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TERAPAGOS
-    { .tag = 1786, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // terastal
+    { .tag = 1652, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // bloodmoon
+    { .tag = 1653, .gfx = 1286, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BASCULEGION
+    { .tag = 1654, .gfx = 1445, .callback_params = OVERWORLD_SIZE_SMALL}, // female
+    { .tag = 1655, .gfx = 1287, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SNEASLER
+    { .tag = 1656, .gfx = 1288, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OVERQWIL
+    { .tag = 1657, .gfx = 1289, .callback_params = OVERWORLD_SIZE_LARGE}, // SPECIES_ENAMORUS
+    { .tag = 1658, .gfx = 1446, .callback_params = OVERWORLD_SIZE_LARGE}, // therian
+    { .tag = 1659, .gfx = 1452, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPRIGATITO
+    { .tag = 1660, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLORAGATO
+    { .tag = 1661, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MEOWSCARADA
+    { .tag = 1662, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FUECOCO
+    { .tag = 1663, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CROCALOR
+    { .tag = 1664, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SKELEDIRGE
+    { .tag = 1665, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_QUAXLY
+    { .tag = 1666, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_QUAXWELL
+    { .tag = 1667, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_QUAQUAVAL
+    { .tag = 1668, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_LECHONK
+    { .tag = 1669, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OINKOLOGNE
+    { .tag = 1670, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // female
+    { .tag = 1671, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TAROUNTULA
+    { .tag = 1672, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPIDOPS
+    { .tag = 1673, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_NYMBLE
+    { .tag = 1674, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_LOKIX
+    { .tag = 1675, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PAWMI
+    { .tag = 1676, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PAWMO
+    { .tag = 1677, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PAWMOT
+    { .tag = 1678, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TANDEMAUS
+    { .tag = 1679, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MAUSHOLD
+    { .tag = 1680, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // family of three
+    { .tag = 1681, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FIDOUGH
+    { .tag = 1682, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DACHSBUN
+    { .tag = 1683, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SMOLIV
+    { .tag = 1684, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DOLLIV
+    { .tag = 1685, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARBOLIVA
+    { .tag = 1686, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SQUAWKABILLY
+    { .tag = 1687, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // blue
+    { .tag = 1688, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // yellow
+    { .tag = 1689, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // white
+    { .tag = 1690, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_NACLI
+    { .tag = 1691, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_NACLSTACK
+    { .tag = 1692, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GARGANACL
+    { .tag = 1693, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHARCADET
+    { .tag = 1694, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARMAROUGE
+    { .tag = 1695, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CERULEDGE
+    { .tag = 1696, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TADBULB
+    { .tag = 1697, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BELLIBOLT
+    { .tag = 1698, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WATTREL
+    { .tag = 1699, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KILOWATTREL
+    { .tag = 1700, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MASCHIFF
+    { .tag = 1701, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MABOSSTIFF
+    { .tag = 1702, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SHROODLE
+    { .tag = 1703, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GRAFAIAI
+    { .tag = 1704, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRAMBLIN
+    { .tag = 1705, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRAMBLEGHAST
+    { .tag = 1706, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TOEDSCOOL
+    { .tag = 1707, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TOEDSCRUEL
+    { .tag = 1708, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KLAWF
+    { .tag = 1709, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CAPSAKID
+    { .tag = 1710, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SCOVILLAIN
+    { .tag = 1711, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RELLOR
+    { .tag = 1712, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RABSCA
+    { .tag = 1713, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLITTLE
+    { .tag = 1714, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ESPATHRA
+    { .tag = 1715, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TINKATINK
+    { .tag = 1716, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TINKATUFF
+    { .tag = 1717, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TINKATON
+    { .tag = 1718, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WIGLETT
+    { .tag = 1719, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WUGTRIO
+    { .tag = 1720, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BOMBIRDIER
+    { .tag = 1721, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FINIZEN
+    { .tag = 1722, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PALAFIN
+    { .tag = 1723, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_VAROOM
+    { .tag = 1724, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_REVAVROOM
+    { .tag = 1725, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // segin
+    { .tag = 1726, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // schedar
+    { .tag = 1727, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // navi
+    { .tag = 1728, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // ruchbah
+    { .tag = 1729, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // caph
+    { .tag = 1730, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CYCLIZAR
+    { .tag = 1731, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ORTHWORM
+    { .tag = 1732, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GLIMMET
+    { .tag = 1733, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GLIMMORA
+    { .tag = 1734, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GREAVARD
+    { .tag = 1735, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_HOUNDSTONE
+    { .tag = 1736, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLAMIGO
+    { .tag = 1737, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CETODDLE
+    { .tag = 1738, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CETITAN
+    { .tag = 1739, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_VELUZA
+    { .tag = 1740, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DONDOZO
+    { .tag = 1741, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TATSUGIRI
+    { .tag = 1742, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // droopy
+    { .tag = 1743, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // stretchy
+    { .tag = 1744, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ANNIHILAPE
+    { .tag = 1745, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CLODSIRE
+    { .tag = 1746, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FARIGIRAF
+    { .tag = 1747, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DUDUNSPARCE
+    { .tag = 1748, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // three segment
+    { .tag = 1749, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KINGAMBIT
+    { .tag = 1750, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GREAT_TUSK
+    { .tag = 1751, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SCREAM_TAIL
+    { .tag = 1752, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRUTE_BONNET
+    { .tag = 1753, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FLUTTER_MANE
+    { .tag = 1754, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SLITHER_WING
+    { .tag = 1755, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SANDY_SHOCKS
+    { .tag = 1756, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_TREADS
+    { .tag = 1757, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_BUNDLE
+    { .tag = 1758, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_HANDS
+    { .tag = 1759, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_JUGULIS
+    { .tag = 1760, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_MOTH
+    { .tag = 1761, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_THORNS
+    { .tag = 1762, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FRIGIBAX
+    { .tag = 1763, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARCTIBAX
+    { .tag = 1764, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BAXCALIBUR
+    { .tag = 1765, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GIMMIGHOUL
+    { .tag = 1766, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // roaming
+    { .tag = 1767, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GHOLDENGO
+    { .tag = 1768, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WO_CHIEN
+    { .tag = 1769, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHIEN_PAO
+    { .tag = 1770, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TING_LU
+    { .tag = 1771, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHI_YU
+    { .tag = 1772, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ROARING_MOON
+    { .tag = 1773, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_VALIANT
+    { .tag = 1774, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KORAIDON
+    { .tag = 1775, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MIRAIDON
+    { .tag = 1776, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_WALKING_WAKE
+    { .tag = 1777, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_LEAVES
+    { .tag = 1778, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DIPPLIN
+    { .tag = 1779, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_POLTCHAGEIST
+    { .tag = 1780, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SINISTCHA
+    { .tag = 1781, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OKIDOGI
+    { .tag = 1782, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MUNKIDORI
+    { .tag = 1783, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_FEZANDIPITI
+    { .tag = 1784, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_OGERPON
+    { .tag = 1785, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_ARCHALUDON
+    { .tag = 1786, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_HYDRAPPLE
+    { .tag = 1787, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_GOUGING_FIRE
+    { .tag = 1788, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_RAGING_BOLT
+    { .tag = 1789, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_BOULDER
+    { .tag = 1790, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_CROWN
+    { .tag = 1791, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TERAPAGOS
+    { .tag = 1792, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PECHARUNT
 
     { 0xFFFF, 0, 0},
 };
@@ -1676,7 +1682,7 @@ struct OVERWORLD_TAG *grab_overworld_ptr(u16 tag)
 u16 get_a081_index_from_tag(u16 tag)
 {
     struct OVERWORLD_TAG *overworldData = grab_overworld_ptr(tag);
-    
+
     return overworldData->gfx;
 }
 
@@ -1686,13 +1692,13 @@ u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
 
     if (species <= 0 || species > MAX_MON_NUM) // base species, Enamorus
         ret = 1;
-    else 
+    else
     {
         // get the mon ow tag
         if (species == SPECIES_GENESECT)
             form = 0; // fuck genesect forme overworlds
         tag = get_mon_ow_tag(species, form, isFemale);
-        
+
         ret = get_a081_index_from_tag(tag);
     }
 

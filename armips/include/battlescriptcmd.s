@@ -1485,3 +1485,43 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xE5, battler
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro ifcurrentfieldistype,terrain,address
+    .word 0xE6, terrain
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro ifmovepowergreaterthanzero,address
+    .word 0xE7
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro ifgrounded,battler,address
+    .word 0xE8, battler
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro checkifcurrentadjustedmoveistype,type,address
+    .word 0xE9, type
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro ifcontactmove,address
+    .word 0xEA
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro ifsoundmove,address
+    .word 0xEB
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro updateterrainoverlay,endTerrainFlag,failAddress
+    .word 0xEC, endTerrainFlag
+    .word ((failAddress - org()) / 4) - 1
+.endmacro
+
+.macro ifterrainoverlayistype,terrainOverlayType,address
+    .word 0xED, terrainOverlayType
+    .word ((address - org()) / 4) - 1
+.endmacro

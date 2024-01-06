@@ -29,6 +29,8 @@ enum{
     FCC_HAIL,
     FCC_FOG,
     FCC_GRAVITY,
+    FCC_TERRAIN,
+    FCC_FIELD_EFFECT,
     FCC_END
 };
 
@@ -417,6 +419,26 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     ret = 1;
                 }
             }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_TERRAIN:
+            if (sp->terrainOverlay.type != TERRAIN_NONE) {
+                sp->terrainOverlay.numberOfTurnsLeft--;
+                if (sp->terrainOverlay.numberOfTurnsLeft <= 0) {
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+            }
+
+            sp->fcc_seq_no++;
+            break;
+        case FCC_FIELD_EFFECT:
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_FIELD_EFFECTS_END_OF_TURN);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
+            ret = 1;
             sp->fcc_seq_no++;
             break;
         case FCC_END:

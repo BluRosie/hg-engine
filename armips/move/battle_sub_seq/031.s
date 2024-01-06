@@ -21,10 +21,15 @@ a001_031:
 _checkFlowerVeil:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
-    goto _0044
+    goto CheckIfGrounded
 _checkGrassTypeForFlowerVeil:
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+CheckIfGrounded:
+    ifgrounded BATTLER_ADDL_EFFECT, CheckMistyTerrain
+    goto _0044
+CheckMistyTerrain:
+    ifterrainoverlayistype MISTY_TERRAIN, MistyTerrainFail
 
 _0044:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _006C
@@ -121,5 +126,11 @@ _printAttackIntoNoEffectFlowerVeil:
     wait 0x1E
     printmessage 644, TAG_NICK_ABILITY, BATTLER_ALLY | BATTLER_ADDL_EFFECT, BATTLER_ALLY | BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents paralysis!
     goto _0350
+
+MistyTerrainFail:
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, ADD_STATUS_INDIRECT, _036C
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, ADD_STATUS_ABILITY, _036C
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
+    endscript
 
 .close

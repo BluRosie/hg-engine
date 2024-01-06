@@ -1069,13 +1069,19 @@
 /* SPECIES_WALKING_WAKE    */ .halfword 0x151
 /* SPECIES_IRON_LEAVES     */ .halfword 0x151
 /* SPECIES_DIPPLIN         */ .halfword 0x151
-/* SPECIES_ARCHALUDON      */ .halfword 0x151
-/* SPECIES_RAGING_BOLT     */ .halfword 0x151
-/* SPECIES_IRON_CROWN      */ .halfword 0x151
-/* SPECIES_OGERPON         */ .halfword 0x151
+/* SPECIES_POLTCHAGEIST    */ .halfword 0x151
+/* SPECIES_SINISTCHA       */ .halfword 0x151
 /* SPECIES_OKIDOGI         */ .halfword 0x151
 /* SPECIES_MUNKIDORI       */ .halfword 0x151
 /* SPECIES_FEZANDIPITI     */ .halfword 0x151
+/* SPECIES_OGERPON         */ .halfword 0x151
+/* SPECIES_ARCHALUDON      */ .halfword 0x151
+/* SPECIES_HYDRAPPLE       */ .halfword 0x151
+/* SPECIES_GOUGING_FIRE    */ .halfword 0x151
+/* SPECIES_RAGING_BOLT     */ .halfword 0x151
+/* SPECIES_IRON_BOULDER    */ .halfword 0x151
+/* SPECIES_IRON_CROWN      */ .halfword 0x151
 /* SPECIES_TERAPAGOS       */ .halfword 0x151
+/* SPECIES_PECHARUNT       */ .halfword 0x151
 
 .close

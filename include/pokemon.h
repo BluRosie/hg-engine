@@ -13,33 +13,88 @@
 #define MONS_FEMALE     (254)
 #define MONS_UNKNOWN    (255)
 
-// MON_DATA_RESERVED_113 fields
+// MON_DATA_RESERVED_113 (2 bits) fields
 #define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
 #define DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS (0x02)
 
+// MON_DATA_RESERVED_114 (16 bits) fields
+#define DUMMY_P2_2_CHANGE_ABILITY_SLOT (0x0001)
+#define DUMMY_P2_2_NATURE_OVERRIDE (0x003E)
+#define DUMMY_P2_2_HP_IV_OVERRIDE (0x0040)
+#define DUMMY_P2_2_ATTACK_IV_OVERRIDE (0x0080)
+#define DUMMY_P2_2_DEFENSE_IV_OVERRIDE (0x0100)
+#define DUMMY_P2_2_SPEED_IV_OVERRIDE (0x0200)
+#define DUMMY_P2_2_SP_ATTACK_IV_OVERRIDE (0x0400)
+#define DUMMY_P2_2_SP_DEFENSE_IV_OVERRIDE (0x0800)
+
+// MON_DATA_UNK_121  (8 bits) fields
+
 
 #define SET_MON_HIDDEN_ABILITY_BIT(mon) { \
-    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
+    u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
 }
 #define SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon) { \
-    u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
+    u8 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
     SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
 }
+#define TOGGLE_MON_HIDDEN_ABILITY_BIT(mon) { \
+    u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
+    tempvarassumeunused ^= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
+    SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
+}
+#define GET_MON_HIDDEN_ABILITY_BIT(mon) (GetMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HIDDEN_ABILITY_MASK)
+#define GET_BOX_MON_HIDDEN_ABILITY_BIT(mon) (GetBoxMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HIDDEN_ABILITY_MASK)
 
 
 #define SET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon) { \
-    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
+    u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
     SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
 }
 #define SET_BOX_MON_CRITICAL_HIT_EVOLUTION_BIT(boxmon) { \
-    u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
+    u8 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
     tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
     SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
 }
+#define GET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon) (GetMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS)
+
+
+#define SET_MON_SWAP_ABILITY_SLOT_BIT(mon) { \
+    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
+    tempvarassumeunused |= DUMMY_P2_2_CHANGE_ABILITY_SLOT; \
+    SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
+}
+#define SET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon) { \
+    u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0); \
+    tempvarassumeunused |= DUMMY_P2_2_CHANGE_ABILITY_SLOT; \
+    SetBoxMonData(boxmon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
+}
+#define TOGGLE_MON_SWAP_ABILITY_SLOT_BIT(mon) { \
+    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
+    tempvarassumeunused ^= DUMMY_P2_2_CHANGE_ABILITY_SLOT; \
+    SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
+}
+#define GET_MON_SWAP_ABILITY_SLOT_BIT(mon) (GetMonData(mon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_CHANGE_ABILITY_SLOT)
+#define GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon) (GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_CHANGE_ABILITY_SLOT)
+
+
+#define SET_MON_NATURE_OVERRIDE(mon, nature) { \
+    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
+    tempvarassumeunused &= ~DUMMY_P2_2_NATURE_OVERRIDE; \
+    tempvarassumeunused |= ((nature+1) << 1) & DUMMY_P2_2_NATURE_OVERRIDE; \
+    SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
+}
+#define SET_BOX_MON_NATURE_OVERRIDE(boxmon, nature) { \
+    u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0); \
+    tempvarassumeunused &= ~DUMMY_P2_2_NATURE_OVERRIDE; \
+    tempvarassumeunused |= ((nature+1) << 1) & DUMMY_P2_2_NATURE_OVERRIDE; \
+    SetBoxMonData(boxmon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
+}
+#define GET_MON_NATURE_OVERRIDE(mon) (((GetMonData(mon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
+#define GET_BOX_MON_NATURE_OVERRIDE(boxmon) (((GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
 
 
 #define POW_RND (32)
@@ -901,7 +956,15 @@ void LONG_CALL SetMonPersonality(struct PartyPokemon *mon, u32 personal_rnd);
  *  @param personality pid from pokémon
  *  @return nature (i.e. personality % 25)
  */
-u8 LONG_CALL PokeNatureGet(u32 personality);
+u8 LONG_CALL GetNatureFromPersonality(u32 personality);
+
+/**
+ *  @brief grab nature from PartyPokemon
+ *
+ *  @param pp PartyPokemon whose nature to grab
+ *  @return nature
+ */
+u8 LONG_CALL GetMonNature(struct PartyPokemon *pp);
 
 /**
  *  @brief intialize a BoxPokemon's moves depending on level and such that are already set
@@ -1043,7 +1106,7 @@ u32 LONG_CALL get_ow_data_file_num(u32 species);
  *  @param ball caught ball
  *  @param encounterType encounter type
  *  @param heapId heap to use for memory allocations
- *  @return 
+ *  @return
  */
 BOOL LONG_CALL sub_020720FC(struct PartyPokemon *pp, void *profile, u16 item, u16 ball, u32 encounterType, int heapId);
 
@@ -1125,7 +1188,7 @@ u8 LONG_CALL TT_TrainerTypeSexGet(int trtype);
  *  @param index ball seal to set
  *  @param pp PartyPokemon to set seals on
  *  @param heap memory heap to use
- *  @return 
+ *  @return
  */
 u32 LONG_CALL TrainerCBSet(int index, struct PartyPokemon *pp, int heap);
 
@@ -1173,9 +1236,9 @@ u8 LONG_CALL GetArceusType(u16 held_effect);
 /**
  *  @brief something with eggs
  *
- *  @param mapsectype 
+ *  @param mapsectype
  *  @param offset variable value
- *  @return 
+ *  @return
  */
 int LONG_CALL sub_02017FE4(u32 mapsectype, u32);
 
@@ -1186,8 +1249,8 @@ int LONG_CALL sub_02017FE4(u32 mapsectype, u32);
  *  @param species species of egg
  *  @param metLocation met location for the egg
  *  @param profile profile in save data, i.e. Sav2_PlayerData_GetProfileAddr(SaveBlock2_get())
- *  @param a4 
- *  @param a5 
+ *  @param a4
+ *  @param a5
  */
 void LONG_CALL SetEggStats(struct PartyPokemon *pokemon, int species, u8 metLocation, void *profile, int a4, int a5);
 
@@ -1212,7 +1275,7 @@ void LONG_CALL SaveMisc_GetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveM
  *  @brief clear a PartyPokemon and carry over certain persistent values
  *
  *  @param pokemon PartyPokemon to use for hatching
- *  @param heapId heap to use for memory allocations 
+ *  @param heapId heap to use for memory allocations
  */
 void LONG_CALL sub_0206D038(struct PartyPokemon *pokemon, u32 heapId);
 
@@ -1230,9 +1293,9 @@ void LONG_CALL GetSpeciesNameIntoArray(u16 species, u32 heap_id, u16 *dest);
  *
  *  @param pp uninitialized PartyPokemon to init and add to enemy team
  *  @param rodType rod type (255 if N/A)
- *  @param encInfo 
- *  @param encArea 
- *  @param encounterType 
+ *  @param encInfo
+ *  @param encArea
+ *  @param encounterType
  *  @param battler battler whose team to add to
  *  @param bw battle work structure
  *  @return TRUE if PartyPokemon was successfully generated and added; FALSE otherwise
@@ -1245,8 +1308,8 @@ u32 LONG_CALL SetEncountData(struct PartyPokemon *pp, u32 rodType, void *encInfo
  *  @param fsys field system structure
  *  @param pp uninitialized PartyPokemon to init and add to enemy team
  *  @param rodType rod type (255 if N/A)
- *  @param encInfo 
- *  @param encounterType 
+ *  @param encInfo
+ *  @param encounterType
  *  @param battler battler whose team to add to
  *  @param bw battle work structure
  *  @return TRUE if PartyPokemon was successfully generated and added; FALSE otherwise
@@ -1441,12 +1504,12 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
 u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
 
 /**
- *  @brief see if an item changes form or not
+ *  @brief see if an item changes attributes of the pokémon or not
  *
  *  @param wk work structure
  *  @param dat data structure
  */
-u32 LONG_CALL UseItemFormeChangeCheck(struct PLIST_WORK *wk, void *dat);
+u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat);
 
 /**
  *  @brief modify PokeListProc_End to increase party size so that when Reshiram/Zekrom are added back from DNA Splicers there are no crashes
@@ -1612,6 +1675,14 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
  *  @param pokemon PartyPokemon whose moves to clear
  */
 void LONG_CALL ClearMonMoves(struct PartyPokemon *pokemon);
+
+/**
+ *  @brief grab the nature of a BoxPokemon factoring in the nature mint override field
+ *
+ *  @param boxMon BoxPokemon whose nature to grab
+ *  @return nature of the BoxPokemon factoring in nature override
+ */
+u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon);
 
 // defined in src/moves.c--can't just define in battles, sadly.  does need BattleMove structure from battle.h, though
 /**

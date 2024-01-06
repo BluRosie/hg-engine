@@ -181,7 +181,9 @@ _026F:
     set_avatar_bits PLAYER_TRANSITION_WALKING
 _0273:
     update_avatar_state
-
+    get_party_lead_alive VAR_SPECIAL_x8009
+    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
+    goto_if_eq _02B2
     wait 15, VAR_SPECIAL_x800A
     fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
@@ -190,12 +192,6 @@ _0273:
     scrcmd_150
     fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
-// reorder this
-    get_party_lead_alive VAR_SPECIAL_x8009
-    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
-    goto_if_eq _02B2
-
-
     bufferpartymonnick 0, VAR_SPECIAL_x8009
     npc_msg 102
 _02B2:
@@ -223,6 +219,9 @@ _02F3:
     set_avatar_bits PLAYER_TRANSITION_WALKING
 _02F7:
     update_avatar_state
+    get_party_lead_alive VAR_SPECIAL_x8009
+    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
+    goto_if_eq _0336
     wait 15, VAR_SPECIAL_x800A
     fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
@@ -231,11 +230,6 @@ _02F7:
     scrcmd_150
     fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
-
-// reorder this
-    get_party_lead_alive VAR_SPECIAL_x8009
-    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
-    goto_if_eq _0336
     bufferpartymonnick 0, VAR_SPECIAL_x8009
     npc_msg 102
 _0336:
@@ -268,6 +262,9 @@ _0364:
 _0391:
     set_avatar_bits PLAYER_TRANSITION_WALKING
 _0395:
+    get_party_lead_alive VAR_SPECIAL_x8009
+    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
+    goto_if_eq _03D4
     update_avatar_state
     wait 15, VAR_SPECIAL_x800A
     fade_screen 6, 1, 0, RGB_BLACK
@@ -277,11 +274,6 @@ _0395:
     scrcmd_150
     fade_screen 6, 1, 1, RGB_BLACK
     wait_fade
-
-// reorder this
-    get_party_lead_alive VAR_SPECIAL_x8009
-    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
-    goto_if_eq _03D4
     bufferpartymonnick 0, VAR_SPECIAL_x8009
     npc_msg 102
 _03D4:
@@ -1712,7 +1704,7 @@ scr_seq_0003_064:
     closemsg
     releaseall
     end
-    
+
 
 
 

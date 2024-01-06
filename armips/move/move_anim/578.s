@@ -92,3 +92,5 @@ _02EC:
     waitparticle
     unloadparticle 0
     end
+
+.close

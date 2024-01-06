@@ -1192,7 +1192,7 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
 
 
 /**
- *  @brief tries to see if the player can run.  queues up the proper message if so
+ *  @brief tries to see if the player can even try to run.  queues up the proper message if not
  *
  *  @param bw battle work structure
  *  @param ctx global battle structure
@@ -1210,7 +1210,8 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
     battleType = BattleTypeGet(bw);
     item = HeldItemHoldEffectGet(ctx, battlerId);
 
-    if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(ctx, battlerId) == ABILITY_RUN_AWAY) {
+    // if shed shell or no experience or has run away or has ghost type then there is nothing stopping the battler from escaping
+    if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(ctx, battlerId) == ABILITY_RUN_AWAY || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
         return FALSE;
     }
 
@@ -1218,8 +1219,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
     battlerIdAbility = CheckSideAbility(bw, ctx, CHECK_ABILITY_ALL_HP_NOT_USER, battlerId, ABILITY_SHADOW_TAG);
-    // if shadow tag is present, you can still get away if you have shadow tag or are ghost type
-    if (battlerIdAbility && GetBattlerAbility(ctx, battlerId) != ABILITY_SHADOW_TAG && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
+    if (battlerIdAbility && GetBattlerAbility(ctx, battlerId) != ABILITY_SHADOW_TAG) {
         if (msg == NULL) {
             return TRUE;
         }
@@ -1231,8 +1231,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
     }
 
     battlerIdAbility = CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
-    // if arena trap is present, you can still get away if you have ghost type
-    if (battlerIdAbility && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
+    if (battlerIdAbility) {
         if (!(ctx->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_HALVE_SPEED) {
             if (GetBattlerAbility(ctx, battlerId) != ABILITY_LEVITATE && !ctx->battlemon[battlerId].moveeffect.magnetRiseTurns && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_FLYING)) {
                if (msg == NULL) {
@@ -1257,8 +1256,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
     }
 
     battlerIdAbility = CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL);
-    // if magnet pull is present, you can still get away if you have ghost type
-    if (battlerIdAbility && BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_STEEL) && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
+    if (battlerIdAbility && BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_STEEL)) {
         if (msg == NULL) {
             return TRUE;
         }
@@ -1293,7 +1291,8 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
 BOOL BattlerCantSwitch(void *bw, struct BattleStruct *ctx, int battlerId) {
     BOOL ret = FALSE;
 
-    if (HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_SWITCH) {
+    // ghost types can switch from anything like they had shed skin
+    if (HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_SWITCH || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
         return FALSE;
     }
 
@@ -1301,25 +1300,102 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *ctx, int battlerId) {
         ret = TRUE;
     }
 
-    // ghost types can escape both shadow tag and magnet pull
-    if (!BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)
-     && ((GetBattlerAbility(ctx, battlerId) != ABILITY_SHADOW_TAG && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_SHADOW_TAG))
-      || (BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_STEEL) && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL))))
+    if ((GetBattlerAbility(ctx, battlerId) != ABILITY_SHADOW_TAG && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_SHADOW_TAG))
+     || (BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_STEEL) && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL)))
     {
         ret = TRUE;
     }
 
-    // ghost types can escape arena trap
-    if (!BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)
-      && ((GetBattlerAbility(ctx, battlerId) != ABILITY_LEVITATE
-        && ctx->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
-        && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_FLYING))
-       || HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_HALVE_SPEED
-       || (ctx->field_condition & FIELD_STATUS_GRAVITY))
+    if (((GetBattlerAbility(ctx, battlerId) != ABILITY_LEVITATE
+       && ctx->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
+       && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_FLYING))
+      || HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_HALVE_SPEED
+      || (ctx->field_condition & FIELD_STATUS_GRAVITY))
      && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP))
     {
         ret = TRUE;
     }
 
     return ret;
+}
+
+
+/**
+ *  @brief tries to see if the battler can run, sets escape_flag to 1 if it can via item or 2 if it can via ability
+ *         also takes into account the random chance to flee if none of the guaranteed chances work
+ *
+ *  @param bw battle work structure
+ *  @param ctx global battle structure
+ *  @param battlerId client to check for running
+ *  @return TRUE if the battler can run; FALSE if the battler can not switch
+ */
+BOOL BattleTryRun(void *bw, struct BattleStruct *ctx, int battlerId) {
+    BOOL ret;
+    u8 run;
+    int item;
+    u32 battleType;
+
+    battleType = BattleTypeGet(bw);
+    item = HeldItemHoldEffectGet(ctx, battlerId);
+    ret = FALSE;
+
+    if (item == HOLD_EFFECT_FLEE) {
+        ctx->oneTurnFlag[battlerId].escape_flag = 1;
+        ret = TRUE;
+    } else if (battleType & BATTLE_TYPE_NO_EXPERIENCE || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) { // ghost types can always escape regardless of speed
+        ret = TRUE;
+    } else if (GetBattlerAbility(ctx, battlerId) == ABILITY_RUN_AWAY) {
+        ctx->oneTurnFlag[battlerId].escape_flag = 2;
+        ret = TRUE;
+    } else {
+        if (ctx->battlemon[battlerId].speed < ctx->battlemon[battlerId ^ 1].speed) {
+            run = ctx->battlemon[battlerId].speed * 128 / ctx->battlemon[battlerId ^ 1].speed + ctx->escape_count * 30;
+            if (run > (BattleRand(bw) % 256)) {
+                ret = TRUE;
+            }
+        } else {
+            ret = TRUE;
+        }
+        if (!ret) {
+            SCIO_IncRecord(bw, battlerId, 0, 99);
+        }
+        ctx->escape_count++;
+    }
+    return ret;
+}
+
+/*
+ *  @brief see if a move has positive priority after adjustment
+ *
+ *  @param sp battle structure
+ *  @param attacker client to check
+ *  @return TRUE if the move has positive priority after adjustments
+ */
+BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
+    BOOL isTriageMove = FALSE;
+
+    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
+        if (TriageMovesList[i] == sp->current_move_index) {
+            isTriageMove = TRUE;
+            break;
+        }
+    }
+
+    if (
+        (sp->moveTbl[sp->current_move_index].priority > 0) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&
+         (sp->moveTbl[sp->current_move_index].split == SPLIT_STATUS) &&
+         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Prankster is +1
+         ) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_GALE_WINGS) &&
+         (sp->moveTbl[sp->current_move_index].type == TYPE_FLYING) &&
+         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Gale Wings is +1
+         ) ||
+        ((GetBattlerAbility(sp, attacker) == ABILITY_TRIAGE) &&
+         (isTriageMove) &&
+         (sp->moveTbl[sp->current_move_index].priority >= -2)  // Triage is +3
+         )) {
+        return TRUE;
+    }
+    return FALSE;
 }
