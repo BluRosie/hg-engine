@@ -2025,7 +2025,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u8 evnums[6];
     u8 types[2];
     u8 ppcounts[4];
-    u16 *nickname = sys_AllocMemory(heapID, 11*sizeof(16));
+    u16 *nickname = sys_AllocMemory(heapID, 11*sizeof(u16));
     u8 form_no = 0, abilityslot = 0, nature = 0, ballseal = 0, shinylock = 0, status = 0, ab1 = 0, ab2 = 0;
     u32 additionalflags = 0;
 

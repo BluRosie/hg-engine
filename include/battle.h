@@ -1352,6 +1352,7 @@ struct __attribute__((packed)) ILLUSION_STRUCT
 {
     u16 illusionNameBuf[4][12]; // at least get this hword aligned
     u8 illusionPos[4];
+    u8 illusionClient[4];
     u8 isSideInIllusion;
 };
 
@@ -2038,6 +2039,13 @@ int LONG_CALL AI_TypeCheckCalc(int effectiveness, u32 *flag);
  */
 BOOL LONG_CALL AI_ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, u32 held_effect, int pos);
 
+/**
+ *  @brief grab trainer id of a client
+ *  @param bw battle work structure
+ *  @param client client whose trainer id to grab
+ *  @return trainer id of client
+ */
+u32 LONG_CALL BattleWork_GetTrainerIndex(void *bw, u32 client);
 
 
 /*Battle Script Function Declarations*/
@@ -2175,6 +2183,14 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
  */
 BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
 
+/**
+ *  @brief dumbs client parameter down into its team in proper scenarios
+ *
+ *  @param bw battle work structure
+ *  @param client client to sanitize
+ *  @return team of client
+ */
+u32 SanitizeClientForTeamAccess(void *bw, u32 client);
 
 
 // defined in battle_script_commands.c
