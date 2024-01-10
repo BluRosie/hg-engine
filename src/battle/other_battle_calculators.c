@@ -1334,7 +1334,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *ctx, int battlerId) {
     return ret;
 }
 
-/*
+/**
  *  @brief see if a move has positive priority after adjustment
  *
  *  @param sp battle structure
@@ -1366,6 +1366,41 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
          (sp->moveTbl[sp->current_move_index].priority >= -2)  // Triage is +3
          )) {
         return TRUE;
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief Check if seed should activate
+ *
+ *  @param sp battle structure
+ *  @param heldItem held item
+ *  @return TRUE if seed should activate
+ */
+BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
+    switch (heldItem) {
+        case ITEM_ELECTRIC_SEED:
+            if (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        case ITEM_GRASSY_SEED:
+            if (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        case ITEM_MISTY_SEED:
+            if (sp->terrainOverlay.type == MISTY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        case ITEM_PSYCHIC_SEED:
+            if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        default:
+            return FALSE;
     }
     return FALSE;
 }

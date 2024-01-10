@@ -2326,6 +2326,15 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
  */
 BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
 
+/**
+ *  @brief Check if seed should activate
+ *
+ *  @param sp battle structure
+ *  @param heldItem held item
+ *  @return TRUE if seed should activate
+ */
+BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
+
 // defined in mega.c
 /**
  *  @brief grab mega form of a specific species with specific item
