@@ -241,9 +241,9 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
-    // courtesy of Dray (https://github.com/Drayano60)
+    // Courtesy of Dray (https://github.com/Drayano60)
     if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
-        if (adjustedMoveHasPositivePriority(sp, attacker)) {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
             scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
     }

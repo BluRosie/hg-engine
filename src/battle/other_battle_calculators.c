@@ -1371,6 +1371,54 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
 }
 
 /**
+ *  @brief see if the move should NOT be exempted from priority blocking effects
+ *
+ *  @param sp battle structure
+ *  @param attacker attacker client
+ *  @param defender defender client
+ *  @return TRUE if the move should NOT be exempted from priority blocking effects
+ */
+BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender) {
+    // Courtesy of The Pokeemerald Expansion (https://github.com/rh-hideout/pokeemerald-expansion/blob/selfhost-test/test/battle/terrain/psychic.c)
+
+    struct BattleMove currentMove = sp->moveTbl[sp->current_move_index];
+    u16 target = currentMove.target;
+
+    switch (target) {
+    // Psychic Terrain doesn't block priority moves that target the user
+    case MOVE_TARGET_USER:
+        return FALSE;
+        break;
+    
+    // Psychic Terrain doesn't block priority moves that target all battlers
+    // Psychic Terrain doesn't block priority field moves
+    case MOVE_TARGET_ACTIVE_FIELD:
+        return FALSE;
+        break;
+
+    // Psychic Terrain doesn't block priority moves that target all opponents
+    case MOVE_TARGET_OPPONENTS_FIELD:
+        return FALSE;
+        break;
+
+    // Psychic Terrain should not block Light Screen, Tailwind, etc.
+    case MOVE_TARGET_USER_SIDE:
+        return FALSE;
+        break;
+
+    default:
+        break;
+    }
+
+    //Psychic Terrain doesn't block priority moves that target allies
+    if (defender == BATTLER_ALLY(attacker)) {
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+/**
  *  @brief Check if seed should activate
  *
  *  @param sp battle structure

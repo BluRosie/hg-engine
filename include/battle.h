@@ -2327,6 +2327,16 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
 BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
 
 /**
+ *  @brief see if the move should NOT be exempted from priority blocking effects
+ *
+ *  @param sp battle structure
+ *  @param attacker attacker client
+ *  @param defender defender client
+ *  @return TRUE if the move should NOT be exempted from priority blocking effects
+ */
+BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender);
+
+/**
  *  @brief Check if seed should activate
  *
  *  @param sp battle structure
