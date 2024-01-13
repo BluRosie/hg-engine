@@ -11746,8 +11746,8 @@ movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
     contesttype CONTEST_COOL
     terminatedata
 
-movedata MOVE_DOUBLE_IRON_BASH, "Double Iron Bash"
-    battleeffect 31
+movedata MOVE_DOUBLE_IRON_BASH, "Double IronBash"
+    battleeffect 296
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_STEEL

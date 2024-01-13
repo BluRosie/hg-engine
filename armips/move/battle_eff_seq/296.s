@@ -7,10 +7,14 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
-.create "build/move/battle_eff_seq/0_295", 0
+.create "build/move/battle_eff_seq/0_296", 0
 
-a030_295:
-    changevar VAR_OP_SET, VAR_ADD_STATUS1,  ADD_STATUS_WORK_UP | ADD_STATUS_ATTACKER
+a030_296:
+    changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x80000008
+    setmultihit 0x2, 0xFD
+    changevar VAR_OP_SET, VAR_SUCCESSIVE_HIT, 0x1
+    critcalc
+    damagecalc
     endscript
 
 .close
