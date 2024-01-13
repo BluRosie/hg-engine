@@ -357,6 +357,7 @@
 #define SUB_SEQ_HANDLE_TERRAIN_END                    (347)
 #define SUB_SEQ_HANDLE_JUST_FAIL                      (348)
 #define SUB_SEQ_HANDLE_TERRAIN_SEEDS                  (349)
+#define SUB_SEQ_WORK_UP                               (350)
 
 
 
@@ -518,6 +519,7 @@
 #define ADD_STATUS_EFF_V_CREATE                        (153)
 #define ADD_STATUS_EFF_AUTOTOMIZE                      (154)
 #define ADD_STATUS_EFF_HANDLE_GROWTH                   (155)
+#define ADD_STATUS_EFF_WORK_UP                         (156)
 
 
 

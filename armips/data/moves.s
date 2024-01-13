@@ -8472,7 +8472,7 @@ movedata MOVE_DRAGON_TAIL, "Dragon Tail"
     movedescription MOVE_DRAGON_TAIL, "The foe is made to\nswitch out with an\nally. In the wild,\nthe battle ends."
 
 movedata MOVE_WORK_UP, "Work Up"
-    battleeffect 0
+    battleeffect 295
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
