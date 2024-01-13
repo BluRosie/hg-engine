@@ -8616,7 +8616,7 @@ movedata MOVE_RAZOR_SHELL, "Razor Shell"
     movedescription MOVE_RAZOR_SHELL, "The foe is cut\nby sharp shells.\nIt may also lower\nthe foe’s Defense."
 
 movedata MOVE_HEAT_CRASH, "Heat Crash"
-    battleeffect 0
+    battleeffect 292
     pss SPLIT_PHYSICAL
     basepower 1
     type TYPE_FIRE
