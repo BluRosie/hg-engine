@@ -2361,6 +2361,27 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
  */
 BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
+/**
+ * @brief gets the actual attack and defense for damage calculation
+ * @param sp battle structure
+ * @param attackerAttack attacker's Physical Attack
+ * @param defenderDefense defender's Physical Defense
+ * @param attackerSpecialAttack attacker's Special Attack
+ * @param defenderSpecialDefense defender's Special Defense
+ * @param attackerAttackstate attacker's Physical Attack state
+ * @param defenderDefenseState defender's Physical Defense state
+ * @param attackerSpecialAttackState attacker's Special Attack state
+ * @param defenderSpecialDefenseState defender's Special Defense state
+ * @param movesplit physical or special attack
+ * @param attacker attacker number
+ * @param defender defender number
+ * @param critical critial hit or not
+ * @param moveno move number
+ * @param equivalentAttack attack number used for calculation
+ * @param equivalentDefense defense number used for calculation
+ */
+void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
+
 // defined in mega.c
 /**
  *  @brief grab mega form of a specific species with specific item
