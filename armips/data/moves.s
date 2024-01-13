@@ -13487,7 +13487,7 @@ movedata MOVE_JET_PUNCH, "Jet Punch"
     terminatedata
 
 movedata MOVE_SPICY_EXTRACT, "Spicy Extract"
-    battleeffect 0
+    battleeffect 302
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
