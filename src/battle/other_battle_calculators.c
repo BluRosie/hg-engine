@@ -1534,6 +1534,7 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
     switch (moveno) {
         case MOVE_PSYSHOCK:
         case MOVE_PSYSTRIKE:
+        case MOVE_SECRET_SWORD:
             *equivalentDefense = rawPhysicalDefense;
             break;
         case MOVE_PRISMATIC_LASER:
