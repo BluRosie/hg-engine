@@ -12812,7 +12812,7 @@ movedata MOVE_FLIP_TURN, "Flip Turn"
     terminatedata
 
 movedata MOVE_TRIPLE_AXEL, "Triple Axel"
-    battleeffect 104
+    battleeffect 298
     pss SPLIT_PHYSICAL
     basepower 20
     type TYPE_ICE
@@ -13517,7 +13517,7 @@ movedata MOVE_SPIN_OUT, "Spin Out"
     terminatedata
 
 movedata MOVE_POPULATION_BOMB, "Population Bomb"
-    battleeffect 0
+    battleeffect 297
     pss SPLIT_PHYSICAL
     basepower 20
     type TYPE_NORMAL
@@ -13592,7 +13592,7 @@ movedata MOVE_SALT_CURE, "Salt Cure"
     terminatedata
 
 movedata MOVE_TRIPLE_DIVE, "Triple Dive"
-    battleeffect 104
+    battleeffect 299
     pss SPLIT_PHYSICAL
     basepower 30
     type TYPE_WATER
