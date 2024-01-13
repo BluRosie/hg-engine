@@ -14063,28 +14063,30 @@ movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     type TYPE_FIRE
     accuracy 100
     pp 10
-    effectchance 0
+    effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BLAZING_TORQUE, "---"
 
 movedata MOVE_WICKED_TORQUE, "Wicked Torque"
-    battleeffect 0
+    battleeffect 301
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DARK
     accuracy 100
     pp 10
-    effectchance 0
+    effectchance 10
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_WICKED_TORQUE, "---"
 
 movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
     battleeffect 2
@@ -14093,13 +14095,14 @@ movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
     type TYPE_POISON
     accuracy 100
     pp 10
-    effectchance 0
+    effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NOXIOUS_TORQUE, "---"
 
 movedata MOVE_COMBAT_TORQUE, "Combat Torque"
     battleeffect 6
@@ -14108,13 +14111,14 @@ movedata MOVE_COMBAT_TORQUE, "Combat Torque"
     type TYPE_FIGHTING
     accuracy 100
     pp 10
-    effectchance 0
+    effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_COMBAT_TORQUE, "---"
 
 movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     battleeffect 76
@@ -14123,13 +14127,14 @@ movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     accuracy 100
     pp 10
-    effectchance 0
+    effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAGICAL_TORQUE, "---"
 
 movedata MOVE_HYDRO_STEAM, "Hydro Steam"
     battleeffect 0
@@ -14147,7 +14152,7 @@ movedata MOVE_HYDRO_STEAM, "Hydro Steam"
     terminatedata
 
 movedata MOVE_PSYBLADE, "Psyblade"
-    battleeffect 0
+    battleeffect 300
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_PSYCHIC

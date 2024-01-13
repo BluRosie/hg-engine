@@ -893,7 +893,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                 damage = damage * 15 / 10;
                 break;
             case TYPE_WATER:
-                damage /= 2;
+                // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
+                if (moveno == MOVE_HYDRO_STEAM && item != ITEM_UTILITY_UMBRELLA) {
+                    damage = damage * 15 / 10;
+                } else {
+                    damage /= 2;
+                }
                 break;
             }
         }
