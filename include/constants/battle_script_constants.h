@@ -358,6 +358,7 @@
 #define SUB_SEQ_HANDLE_JUST_FAIL                      (348)
 #define SUB_SEQ_HANDLE_TERRAIN_SEEDS                  (349)
 #define SUB_SEQ_WORK_UP                               (350)
+#define SUB_SEQ_SPICY_EXTRACT                         (351)
 
 
 
@@ -520,6 +521,7 @@
 #define ADD_STATUS_EFF_AUTOTOMIZE                      (154)
 #define ADD_STATUS_EFF_HANDLE_GROWTH                   (155)
 #define ADD_STATUS_EFF_WORK_UP                         (156)
+#define ADD_STATUS_EFF_SPICY_EXTRACT                    (157)
 
 
 
