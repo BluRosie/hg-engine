@@ -37,25 +37,24 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
     u32 ret = FALSE;
     word_to_store_form_at = form_no;
 
-    if (!form_no)
-        return FALSE;
-
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-    for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+    if (form_no != 0)
     {
-        if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+
+        for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
         {
-            picdata->arc_no = ARC_MON_PIC;
-            picdata->index_chr = (PokeFormDataTbl[i].file) * 6 + dir;
-            picdata->index_pal = (PokeFormDataTbl[i].file) * 6 + 4 + col;
-            ret = TRUE;
+            if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+            {
+                picdata->arc_no = ARC_MON_PIC;
+                picdata->index_chr = (PokeFormDataTbl[i].file) * 6 + dir;
+                picdata->index_pal = (PokeFormDataTbl[i].file) * 6 + 4 + col;
+                ret = TRUE;
+            }
         }
+
+        sys_FreeMemoryEz(PokeFormDataTbl);
     }
-
-    sys_FreeMemoryEz(PokeFormDataTbl);
-
     return ret;
 }
 
@@ -69,8 +68,6 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
 int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
 {
     u32 i;
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
     switch (mons_no)
     {
     case SPECIES_DEOXYS:
@@ -105,19 +102,24 @@ int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
         }
         break;
 
-    default:
+    default:;
+        if (form_no != 0)
+        {
+            struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+            ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+
+            for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+            {
+                if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+                {
+                    mons_no = PokeFormDataTbl[i].file;
+                    break;
+                }
+            }
+            sys_FreeMemoryEz(PokeFormDataTbl);
+        }
         break;
     }
-
-    for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
-    {
-        if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
-        {
-            mons_no = PokeFormDataTbl[i].file;
-            break;
-        }
-    }
-    sys_FreeMemoryEz(PokeFormDataTbl);
     return mons_no;
 }
 
@@ -130,17 +132,20 @@ int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
  */
 u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
 {
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-    for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+    if (form_no != 0)
     {
-        if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+        for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
         {
-            mons_no = PokeFormDataTbl[i].file;
-            break;
+            if (mons_no == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+            {
+                mons_no = PokeFormDataTbl[i].file;
+                break;
+            }
         }
+        sys_FreeMemoryEz(PokeFormDataTbl);
     }
-    sys_FreeMemoryEz(PokeFormDataTbl);
     return mons_no;
 }
 
@@ -152,20 +157,21 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 {
-    if (mons_no <= MAX_MON_NUM)
-        return mons_no;
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-    for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+    if (mons_no > MAX_MON_NUM)
     {
-        if (mons_no == PokeFormDataTbl[i].file)
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+
+        for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
         {
-            mons_no = PokeFormDataTbl[i].species;
-            break;
+            if (mons_no == PokeFormDataTbl[i].file)
+            {
+                mons_no = PokeFormDataTbl[i].species;
+                break;
+            }
         }
+        sys_FreeMemoryEz(PokeFormDataTbl);
     }
-    sys_FreeMemoryEz(PokeFormDataTbl);
     return mons_no;
 }
 
@@ -180,7 +186,7 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 {
     u32 i;
-    u32 pat = form_no;
+    u32 pat = 7+mons;
 
     if (egg == 1)
     {
@@ -194,71 +200,74 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
         }
     }
 
-    pat = SanitizeFormNumber(mons, pat);//70438
-
-    if (pat != 0)
+    if (form_no != 0)
     {
-        if (mons == SPECIES_DEOXYS)
+        pat = SanitizeFormNumber(mons, form_no);//70438
+
+        if (pat != 0)
         {
-            return (503 + pat - 1);
+            if (mons == SPECIES_DEOXYS)
+            {
+                return (503 + pat - 1);
+            }
+            if (mons == SPECIES_UNOWN)
+            {
+                return (507 + pat - 1);
+            }
+            if (mons == SPECIES_BURMY)
+            {
+                return (534 + pat - 1);
+            }
+            if (mons == SPECIES_WORMADAM)
+            {
+                return (536 + pat - 1);
+            }
+            if (mons == SPECIES_SHELLOS)
+            {
+                return (538 + pat - 1);
+            }
+            if (mons == SPECIES_GASTRODON)
+            {
+                return (539 + pat - 1);
+            }
+            if (mons == SPECIES_GIRATINA)
+            {
+                return (540 + pat - 1);
+            }
+            if (mons == SPECIES_SHAYMIN)
+            {
+                return (541 + pat - 1);
+            }
+            if (mons == SPECIES_ROTOM)
+            {
+                return (542 + pat - 1);
+            }
+            else if (mons == SPECIES_CASTFORM)
+            {
+                return (547 + pat - 1);
+            }
+            else if (mons == SPECIES_CHERRIM)
+            {
+                return (550 + pat - 1);
+            }
         }
-        if (mons == SPECIES_UNOWN)
+
+        // pat is now treated as the return value.  is initially set as the mons+7, but is adjusted as necessary below
+
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+
+        pat = (7 + mons);
+        for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
         {
-            return (507 + pat - 1);
+            if (mons == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
+            {
+                pat = PokeFormDataTbl[i].file + 7;
+                break;
+            }
         }
-        if (mons == SPECIES_BURMY)
-        {
-            return (534 + pat - 1);
-        }
-        if (mons == SPECIES_WORMADAM)
-        {
-            return (536 + pat - 1);
-        }
-        if (mons == SPECIES_SHELLOS)
-        {
-            return (538 + pat - 1);
-        }
-        if (mons == SPECIES_GASTRODON)
-        {
-            return (539 + pat - 1);
-        }
-        if (mons == SPECIES_GIRATINA)
-        {
-            return (540 + pat - 1);
-        }
-        if (mons == SPECIES_SHAYMIN)
-        {
-            return (541 + pat - 1);
-        }
-        if (mons == SPECIES_ROTOM)
-        {
-            return (542 + pat - 1);
-        }
-        else if (mons == SPECIES_CASTFORM)
-        {
-            return (547 + pat - 1);
-        }
-        else if (mons == SPECIES_CHERRIM)
-        {
-            return (550 + pat - 1);
-        }
+        sys_FreeMemoryEz(PokeFormDataTbl);
     }
-
-    // pat is now treated as the return value.  is initially set as the mons+7, but is adjusted as necessary below
-
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-    pat = (7 + mons);
-    for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
-    {
-        if (mons == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no)
-        {
-            pat = PokeFormDataTbl[i].file + 7;
-            break;
-        }
-    }
-    sys_FreeMemoryEz(PokeFormDataTbl);
     return pat;
 }
 
@@ -274,6 +283,7 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
     u32 i, ret = 0;
 
     monsno = GetBoxMonData(ppp, MON_DATA_SPECIES_OR_EGG, NULL);
+    ret = monsno;
 
     switch (monsno)
     {
@@ -370,19 +380,23 @@ u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
         else if (mons == SPECIES_CHERRIM)
         {
             mons = 543 + form - 1;
-        }
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-        for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
-        {
-            if (mons == PokeFormDataTbl[i].species && form == PokeFormDataTbl[i].form_no)
+        } else {
+            if (form != 0)
             {
-                mons = PokeFormDataTbl[i].file;
-                break;
+                struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+                ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+
+                for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+                {
+                    if (mons == PokeFormDataTbl[i].species && form == PokeFormDataTbl[i].form_no)
+                    {
+                        mons = PokeFormDataTbl[i].file;
+                        break;
+                    }
+                }
+                sys_FreeMemoryEz(PokeFormDataTbl);
             }
         }
-        sys_FreeMemoryEz(PokeFormDataTbl);
     }
     return mons;
 }
@@ -1927,29 +1941,32 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
         SetMonData(pp, MON_DATA_STATUS, &work);
     }
 
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-    for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+    if (form_no != 0)
     {
-        if (species == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no && PokeFormDataTbl[i].need_rev)
-        {
-            if (species == SPECIES_DARMANITAN && form_no == 3)
-                work = 1;
-            else if (species == SPECIES_NECROZMA)
-                work = form_no-2;
-            else if (species == SPECIES_GRENINJA)
-                work = 1;
-            else if (species == SPECIES_MINIOR)
-                work = form_no-7;
-            else if (species == SPECIES_ZYGARDE)
-                work = form_no-2;
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(0, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
-            SetMonData(pp, MON_DATA_FORM, &work);
-            ret = TRUE;
+        for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+        {
+            if (species == PokeFormDataTbl[i].species && form_no == PokeFormDataTbl[i].form_no && PokeFormDataTbl[i].need_rev)
+            {
+                if (species == SPECIES_DARMANITAN && form_no == 3)
+                    work = 1;
+                else if (species == SPECIES_NECROZMA)
+                    work = form_no-2;
+                else if (species == SPECIES_GRENINJA)
+                    work = 1;
+                else if (species == SPECIES_MINIOR)
+                    work = form_no-7;
+                else if (species == SPECIES_ZYGARDE)
+                    work = form_no-2;
+
+                SetMonData(pp, MON_DATA_FORM, &work);
+                ret = TRUE;
+            }
         }
+        sys_FreeMemoryEz(PokeFormDataTbl);
     }
-    sys_FreeMemoryEz(PokeFormDataTbl);
     return ret;
 }
 

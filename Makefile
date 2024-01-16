@@ -277,6 +277,7 @@ print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 ####################### Final ROM Build #######################
 CODE_ADDON_ARTIFACTS := $(wildcard build/a028/9_*) $(wildcard build/a028/8_1*) $(wildcard build/a028/8_2*) build/a028/8_07 build/a028/8_08 build/a028/8_09
+CODE_ADDON_ARTIFACTS := $(filter-out build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
 	@echo "battle hud layout:"
