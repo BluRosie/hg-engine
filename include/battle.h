@@ -2192,6 +2192,15 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
  */
 u32 SanitizeClientForTeamAccess(void *bw, u32 client);
 
+/**
+ *  @brief checks if the client's side has 2 battlers
+ *
+ *  @param bw battle work structure
+ *  @param client client whose side to check for 2 battlers
+ *  @return TRUE if the client's side has 2 battlers
+ */
+BOOL DoesSideHave2Battlers(void *bw, u32 client);
+
 
 // defined in battle_script_commands.c
 enum
