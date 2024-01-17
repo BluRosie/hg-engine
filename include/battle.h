@@ -1350,9 +1350,10 @@ struct __attribute__((packed)) POKEMON_APPEAR_PARAM
 
 struct __attribute__((packed)) ILLUSION_STRUCT
 {
-    u16 illusionNameBuf[2][12]; // at least get this hword aligned
-    u8 isSideInIllusion[2];
-    u8 illusionPos[2];
+    u16 illusionNameBuf[4][12]; // at least get this hword aligned
+    u8 illusionPos[4];
+    u8 illusionClient[4];
+    u8 isSideInIllusion;
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
@@ -2038,6 +2039,13 @@ int LONG_CALL AI_TypeCheckCalc(int effectiveness, u32 *flag);
  */
 BOOL LONG_CALL AI_ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, u32 held_effect, int pos);
 
+/**
+ *  @brief grab trainer id of a client
+ *  @param bw battle work structure
+ *  @param client client whose trainer id to grab
+ *  @return trainer id of client
+ */
+u32 LONG_CALL BattleWork_GetTrainerIndex(void *bw, u32 client);
 
 
 /*Battle Script Function Declarations*/
@@ -2175,6 +2183,23 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
  */
 BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
 
+/**
+ *  @brief dumbs client parameter down into its team in proper scenarios
+ *
+ *  @param bw battle work structure
+ *  @param client client to sanitize
+ *  @return team of client
+ */
+u32 SanitizeClientForTeamAccess(void *bw, u32 client);
+
+/**
+ *  @brief checks if the client's side has 2 battlers
+ *
+ *  @param bw battle work structure
+ *  @param client client whose side to check for 2 battlers
+ *  @return TRUE if the client's side has 2 battlers
+ */
+BOOL DoesSideHave2Battlers(void *bw, u32 client);
 
 
 // defined in battle_script_commands.c
@@ -2325,6 +2350,25 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
  *  @return TRUE if the move has positive priority after adjustments
  */
 BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
+
+/**
+ *  @brief see if the move should NOT be exempted from priority blocking effects
+ *
+ *  @param sp battle structure
+ *  @param attacker attacker client
+ *  @param defender defender client
+ *  @return TRUE if the move should NOT be exempted from priority blocking effects
+ */
+BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender);
+
+/**
+ *  @brief Check if seed should activate
+ *
+ *  @param sp battle structure
+ *  @param heldItem held item
+ *  @return TRUE if seed should activate
+ */
+BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
 // defined in mega.c
 /**

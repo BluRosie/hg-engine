@@ -356,6 +356,7 @@
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_END_OF_TURN      (346)
 #define SUB_SEQ_HANDLE_TERRAIN_END                    (347)
 #define SUB_SEQ_HANDLE_JUST_FAIL                      (348)
+#define SUB_SEQ_HANDLE_TERRAIN_SEEDS                  (349)
 
 
 

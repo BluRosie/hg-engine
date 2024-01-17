@@ -1364,7 +1364,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *ctx, int battlerId) {
     return ret;
 }
 
-/*
+/**
  *  @brief see if a move has positive priority after adjustment
  *
  *  @param sp battle structure
@@ -1396,6 +1396,89 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
          (sp->moveTbl[sp->current_move_index].priority >= -2)  // Triage is +3
          )) {
         return TRUE;
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief see if the move should NOT be exempted from priority blocking effects
+ *
+ *  @param sp battle structure
+ *  @param attacker attacker client
+ *  @param defender defender client
+ *  @return TRUE if the move should NOT be exempted from priority blocking effects
+ */
+BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender) {
+    // Courtesy of The Pokeemerald Expansion (https://github.com/rh-hideout/pokeemerald-expansion/blob/selfhost-test/test/battle/terrain/psychic.c)
+
+    struct BattleMove currentMove = sp->moveTbl[sp->current_move_index];
+    u16 target = currentMove.target;
+
+    switch (target) {
+    // Psychic Terrain doesn't block priority moves that target the user
+    case MOVE_TARGET_USER:
+        return FALSE;
+        break;
+    
+    // Psychic Terrain doesn't block priority moves that target all battlers
+    // Psychic Terrain doesn't block priority field moves
+    case MOVE_TARGET_ACTIVE_FIELD:
+        return FALSE;
+        break;
+
+    // Psychic Terrain doesn't block priority moves that target all opponents
+    case MOVE_TARGET_OPPONENTS_FIELD:
+        return FALSE;
+        break;
+
+    // Psychic Terrain should not block Light Screen, Tailwind, etc.
+    case MOVE_TARGET_USER_SIDE:
+        return FALSE;
+        break;
+
+    default:
+        break;
+    }
+
+    //Psychic Terrain doesn't block priority moves that target allies
+    if (defender == BATTLER_ALLY(attacker)) {
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+/**
+ *  @brief Check if seed should activate
+ *
+ *  @param sp battle structure
+ *  @param heldItem held item
+ *  @return TRUE if seed should activate
+ */
+BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
+    switch (heldItem) {
+        case ITEM_ELECTRIC_SEED:
+            if (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        case ITEM_GRASSY_SEED:
+            if (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        case ITEM_MISTY_SEED:
+            if (sp->terrainOverlay.type == MISTY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        case ITEM_PSYCHIC_SEED:
+            if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                return TRUE;
+            }
+            break;
+        default:
+            return FALSE;
     }
     return FALSE;
 }

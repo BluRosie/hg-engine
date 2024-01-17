@@ -509,3 +509,4 @@ RegisteredItem_CreateGoToAppTask = 0x020658B8 | 1;
 PaletteRAMArray = 0x05000000;
 
 GetMonNature = 0x0206FDFC | 1;
+BattleWork_GetTrainerIndex = 0x0223A9AC | 1;
