@@ -13637,7 +13637,7 @@ movedata MOVE_DOODLE, "Doodle"
     terminatedata
 
 movedata MOVE_FILLET_AWAY, "Fillet Away"
-    battleeffect 0
+    battleeffect 303
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
