@@ -344,3 +344,61 @@ arm9 ModifyStatByNature 0206FE3C 3
 
 # when a specific mon is in illusion, the target icon brought up needs to be in the illusioned state
 0012 target_select_inject_illusion_icon 02267CDC 0
+
+
+# save expansion
+arm9 SaveData_New 020271B0 0
+arm9 SaveArray_Get 020272C8 2
+arm9 Save_DeleteAllData 020272F4 1
+arm9 SaveGameNormal 020273F0 1
+arm9 Save_NowWriteFile_AfterMGInit 0202746C 2
+arm9 Save_InitDynamicRegion 020274A8 1
+arm9 Save_PrepareForAsyncWrite 02027550 2
+arm9 Save_WriteFileAsync 02027564 1
+arm9 Save_Cancel 020275A4 1
+arm9 GetSaveSectorFooterPtr 020275F4 3
+arm9 ValidateSaveSectorFooter 0202761C 3
+arm9 SaveSlot_BuildFooter 020276C0 3
+arm9 Save_RecordWhichLatestGoodSector_hook 020277C0 5
+arm9 Save_LoadDynamicRegion 02027AD4 1
+arm9 Save_WriteSlotAsync 02027B74 3
+arm9 Save_WriteChunkFooterAsync 02027BAC 3
+arm9 Save_WriteManInit 02027BDC 3
+arm9 Save_WriteManFinish 02027CEC 3
+arm9 HandleWriteSaveAsync_PCBoxes 02028968 2
+arm9 Save_WritePCBoxes 02028AB4 2
+arm9 Save_WriteNextPCBox 02028BA8 3
+arm9 Save_WritePCFooter 02028BF8 3
+arm9 Save_CalcPCBoxModifiedFlags 02028C70 1
+
+#pc box expansion
+#arm9 PCStorage_sizeof 02073B20 0
+#arm9 PCStorage_InitializeBoxes 02073B28 1
+#arm9 PCStorage_PlaceMonInFirstEmptySlotInAnyBox 02073BB8 2
+#arm9 PCStorage_PlaceMonInBoxFirstEmptySlot 02073BFC 3
+#arm9 PCStorage_PlaceMonInBoxByIndexPair_hook 02073C70 5
+#arm9 PCStorage_SwapMonsInBoxByIndexPair_hook 02073CC4 5
+#arm9 PCStorage_DeleteBoxMonByIndexPair 02073D10 3
+#arm9 PCStorage_GetActiveBox 02073D4C 1
+#arm9 PCStorage_FindFirstBoxWithEmptySlot 02073D54 1
+#arm9 PCStorage_FindFirstEmptySlot 02073D9C 3
+#arm9 PCStorage_CountEmptySpotsInAllBoxes 02073DFC 1
+#arm9 PCStorage_CountEmptySpotsInBox 02073E40 2
+#arm9 PCStorage_SetActiveBox 02073E84 2
+#arm9 PCStorage_GetBoxWallpaper 02073E98 2
+#arm9 PCStorage_IsValidWallpaperId 02073EB4 1
+#arm9 PCStorage_SetBoxWallpaper 02073EC8 3
+#arm9 PCStorage_GetBoxName 02073F00 3
+#arm9 PCStorage_SetBoxName 02073F34 3
+#arm9 PCStorage_CountMonsAndEggsInBox 02073F64 2
+#arm9 PCStorage_CountMonsInBox 02073FA8 2
+#arm9 PCStorage_CountMonsInAllBoxes 02073FF8 1
+#arm9 PCStorage_GetMonDataByIndexPair_hook 02074018 5
+#arm9 PCStorage_GetMonByIndexPair 02074058 3
+#arm9 PCStorage_UnlockBonusWallpaper 02074094 2
+#arm9 PCStorage_IsBonusWallpaperUnlocked 020740B4 2
+#arm9 PCStorage_SetBoxModified 020740D8 2
+#arm9 PCStorage_SetAllBoxesModified 020740F8 1
+#arm9 PCStorage_ResetBoxModifiedFlags 02074108 1
+#arm9 PCStorage_GetBoxModifiedFlags 02074114 1
+#arm9 sub_02074128 02074128 1

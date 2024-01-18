@@ -309,3 +309,70 @@ return_to_208FEFA:
 ldr r3, =0x0208FEFA | 1
 bx r3
 
+
+.global Save_RecordWhichLatestGoodSector_hook
+Save_RecordWhichLatestGoodSector_hook:
+ldr r5, =Save_RecordWhichLatestGoodSector_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl Save_RecordWhichLatestGoodSector
+ldr r1, =Save_RecordWhichLatestGoodSector_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+Save_RecordWhichLatestGoodSector_return_address:
+.word 0
+
+
+.global PCStorage_PlaceMonInBoxByIndexPair_hook
+PCStorage_PlaceMonInBoxByIndexPair_hook:
+ldr r5, =PCStorage_PlaceMonInBoxByIndexPair_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl PCStorage_PlaceMonInBoxByIndexPair
+ldr r1, =PCStorage_PlaceMonInBoxByIndexPair_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+PCStorage_PlaceMonInBoxByIndexPair_return_address:
+.word 0
+
+
+.global PCStorage_SwapMonsInBoxByIndexPair_hook
+PCStorage_SwapMonsInBoxByIndexPair_hook:
+ldr r5, =PCStorage_SwapMonsInBoxByIndexPair_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl PCStorage_SwapMonsInBoxByIndexPair
+ldr r1, =PCStorage_SwapMonsInBoxByIndexPair_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+PCStorage_SwapMonsInBoxByIndexPair_return_address:
+.word 0
+
+
+.global PCStorage_GetMonDataByIndexPair_hook
+PCStorage_GetMonDataByIndexPair_hook:
+ldr r5, =PCStorage_GetMonDataByIndexPair_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl PCStorage_GetMonDataByIndexPair
+ldr r1, =PCStorage_GetMonDataByIndexPair_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+PCStorage_GetMonDataByIndexPair_return_address:
+.word 0
