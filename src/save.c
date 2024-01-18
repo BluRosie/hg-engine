@@ -181,7 +181,7 @@ SaveData *SaveData_New(void) {
         break;
     case LOAD_STATUS_TOTAL_FAIL:
         ret->statusFlags |= 2;
-        // fallthrough
+        FALLTHROUGH;
     case LOAD_STATUS_NOT_EXIST:
         Save_InitDynamicRegion(ret);
         break;
@@ -403,7 +403,7 @@ void Save_WriteManInit(SaveData *saveData, struct AsyncWriteManager *writeMan, i
 void Save_WriteManFinish(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2) {
     saveData->numModifiedBoxes = 0;
     saveData->nextBoxToWrite = 0;
-    if (a2 == 3) {
+    if (a2 == WRITE_STATUS_TOTAL_FAIL) {
         if (writeMan->rollbackCounter) {
             saveData->saveCounter = writeMan->count;
         }

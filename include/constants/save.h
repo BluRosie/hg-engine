@@ -10,12 +10,19 @@
 #define FULL_SAVE_SIZE 0x2F600
 #define DYNAMIC_REGION_SIZE 0x2F000
 #define DYNAMIC_REGION_BYTEWIDE_SIZE 0x2F
-#define NEW_HEAP3_SIZE 0x10E000
+#define NEW_HEAP3_SIZE 0x10D000
 
-#define SAVE_PAGE_MAX 35
+// done this way so scripts/make.py can understand
+#define SAVE_PAGE_MAX 0x2F
+#define SAVE_PAGE_MAX_3 0x32
+#define SAVE_PAGE_MAX_4 0x33
+#define SAVE_PAGE_MAX_6 0x35
+#define SAVE_PAGE_MAX_8 0x37
+#define SAVE_PAGE_MAX_10 0x39
+
 #define SAVE_SECTOR_SIZE 0x1000
 #define SAVE_BLOCK_NUM 42
 
-#define NUM_PC_BOXES 18
+#define NUM_PC_BOXES 30
 
 #endif // CONSTANTS_SAVE_H

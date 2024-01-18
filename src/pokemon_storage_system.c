@@ -37,7 +37,7 @@ void PCStorage_InitializeBoxes(PCStorage *storage) {
     msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, 27, 24, 0);
     if (msgData != NULL) {
         for (i = 0; i < NUM_PC_BOXES; i++) {
-            ReadMsgDataIntoU16Array(msgData, i + 6, storage->box_names[i]);
+            ReadMsgDataIntoU16Array(msgData, i + 95, storage->box_names[i]);
         }
         DestroyMsgData(msgData);
     }

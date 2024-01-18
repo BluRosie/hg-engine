@@ -78,9 +78,9 @@ VecFx32;
 // validates a pointer's value
 #define IS_NOT_VALID_EWRAM_POINTER(n) ((u32)(n) >= 0x03000000 || (u32)(n) < 0x02000000)
 
-#define GF_ASSERT(cond) if (!(cond)) GF_ASSERT_INTERNAL()
+#define GF_ASSERT(cond) if (!(cond)) { }
 
-void LONG_CALL GF_ASSERT_INTERNAL(void);
+void LONG_CALL GF_ASSERT_INTERNAL(BOOL cond);
 u16 LONG_CALL gf_rand(void);
 
 void LONG_CALL sys_FreeMemoryEz(void*);
