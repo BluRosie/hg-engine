@@ -248,9 +248,9 @@ _0164: // Trainer 30
     trainertextentry  30, TEXT_DEFEATED_IN_BATTLE, "Ugh...\n"
 
 _0170: // Trainer 31
-    trainertextentry  31, TEXT_LAST_MON_CRITICAL, "No, it’s not over yet--not yet!\nI still believe we can do it!\n"
-    trainertextentry  31, TEXT_LAST_MON_SENT_OUT, "We’ve got more discipline than\nanyone else!\n"
-    trainertextentry  31, TEXT_DEFEATED_IN_BATTLE, "How is this possible...\n"
+    trainertextentry  31, TEXT_LAST_MON_CRITICAL, "Morty: Death do us part.\n"
+    trainertextentry  31, TEXT_LAST_MON_SENT_OUT, "Morty: Giratina, give me power!\n"
+    trainertextentry  31, TEXT_DEFEATED_IN_BATTLE, "Morty: Oh...?\n"
 
 _017C: // Trainer 33
     trainertextentry  33, TEXT_LAST_MON_CRITICAL, "Properly tempered steel won’t be made\nrusty by things like this!\n"
@@ -263,9 +263,9 @@ _0188: // Trainer 34
     trainertextentry  34, TEXT_DEFEATED_IN_BATTLE, "We...lost...\n"
 
 _0194: // Trainer 32
-    trainertextentry  32, TEXT_LAST_MON_CRITICAL, "Humph... You are quite the Trainer.\n"
-    trainertextentry  32, TEXT_LAST_MON_SENT_OUT, "Willow is my middle name.\nWillow is flexible and not easily broken.\fI’m not giving up yet.\n"
-    trainertextentry  32, TEXT_DEFEATED_IN_BATTLE, "Hmm. Seems as if my luck has run out.\n"
+    trainertextentry  32, TEXT_LAST_MON_CRITICAL, "So this is how it ends.\n"
+    trainertextentry  32, TEXT_LAST_MON_SENT_OUT, "Cease! Galactic scum!\n"
+    trainertextentry  32, TEXT_DEFEATED_IN_BATTLE, "Dirty legendary spammer!\n"
 
 _01A0: // Trainer 35
     trainertextentry  35, TEXT_LAST_MON_CRITICAL, "One Pokémon left?\nThis is where the real battle begins!\n"
@@ -368,24 +368,24 @@ _028C: // Trainer 70
     trainertextentry  70, TEXT_DEFEATED_IN_OVERWORLD, "I taught MEOWTH moves for taking\non any type...\n"
 
 _0298: // Trainer 46
-    trainertextentry  46, TEXT_NOTICE_IN_OVERWORLD, "I shall win!\r"
-    trainertextentry  46, TEXT_DEFEATED_IN_BATTLE, "I... I... I lost!\n"
-    trainertextentry  46, TEXT_DEFEATED_IN_OVERWORLD, "The one who most wants to win--will!\n"
+    trainertextentry  46, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Darkness...\r"
+    trainertextentry  46, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "YEEEEEEEEESH!\n"
+    trainertextentry  46, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "Ah, I was controlled.\n"
 
 _02A4: // Trainer 89
-    trainertextentry  89, TEXT_NOTICE_IN_OVERWORLD, "Not sure of your way?\nDefeat me if you want a hint!\r"
+    trainertextentry  89, TEXT_NOTICE_IN_OVERWORLD, "Death...\r"
     trainertextentry  89, TEXT_DEFEATED_IN_BATTLE, "Wh-what?\n"
-    trainertextentry  89, TEXT_DEFEATED_IN_OVERWORLD, "Having trouble finding your way around?\nThe path is right before our eyes!\n"
+    trainertextentry  89, TEXT_DEFEATED_IN_OVERWORLD, "H-how did I get here?\n"
 
 _02B0: // Trainer 493
-    trainertextentry 493, TEXT_NOTICE_IN_OVERWORLD, "I spent the spring with my Pokémon.\nThen summer, autumn, and winter...\rThen spring came again. We have\nlived together for a long time.\r"
-    trainertextentry 493, TEXT_DEFEATED_IN_BATTLE, "Wins and losses--I experienced both.\n"
-    trainertextentry 493, TEXT_DEFEATED_IN_OVERWORLD, "Where did Pokémon come from?\n"
+    trainertextentry 493, TEXT_NOTICE_IN_OVERWORLD, "Despair...\r"
+    trainertextentry 493, TEXT_DEFEATED_IN_BATTLE, "Huh...?\n"
+    trainertextentry 493, TEXT_DEFEATED_IN_OVERWORLD, "Why am I here...?\n"
 
 _02BC: // Trainer 494
-    trainertextentry 494, TEXT_NOTICE_IN_OVERWORLD, "Can you inflict any damage on\nour Pokémon?\r"
-    trainertextentry 494, TEXT_DEFEATED_IN_BATTLE, "Ah! Well done!\n"
-    trainertextentry 494, TEXT_DEFEATED_IN_OVERWORLD, "We use only Ghost-type Pokémon.\rNo Normal-type attack can harm them!\n"
+    trainertextentry 494, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Can you inflict any damage on\nour Pokémon?\r"
+    trainertextentry 494, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Ah! Well done!\n"
+    trainertextentry 494, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "We use only Ghost-type Pokémon.\rNo Normal-type attack can harm them!\n"
 
 _02C8: // Trainer 156
     trainertextentry 156, TEXT_NOTICE_IN_OVERWORLD, "My Pokémon and I are bound together by\nfriendship.\fOur bond will never be broken!\r"
@@ -513,9 +513,10 @@ _03E8: // Trainer 261
     trainertextentry 261, TEXT_DEFEATED_IN_BATTLE, "This is the real power of Johto...\n"
 
 _03F4: // Trainer 253
-    trainertextentry 253, TEXT_LAST_MON_CRITICAL, "Ah ha ha! It itches! It itches!\n"
-    trainertextentry 253, TEXT_LAST_MON_SENT_OUT, "Ow ow ow ow ow...\n"
-    trainertextentry 253, TEXT_DEFEATED_IN_BATTLE, "Looks like you’re the stronger one...\n"
+    trainertextentry   253, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Stupid Johto doesn't have\nany hot women!!\r"
+    trainertextentry   253, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "You were hotter\nthan lava!"
+    trainertextentry   253, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "Gross, why did I visit Johto...?\n"
+    trainertextentry   253, TEXT_REMATCH_IN_OVERWORLD, "I’ve been waiting!\nLet’s battle now!\r"
 
 _0400: // Trainer 254
     trainertextentry 254, TEXT_LAST_MON_CRITICAL, "Hmm... You’re pretty good...\n"
@@ -1159,15 +1160,15 @@ _0A08: // Trainer 412
     trainertextentry 412, TEXT_DEFEATED_IN_OVERWORLD, "With your skills, you’ll do well at the\nPokémon League. That’s what my\fpremonition says.\n"
 
 _0A14: // Trainer 8
-    trainertextentry   8, TEXT_NOTICE_IN_OVERWORLD, "I just lost, so I’m trying to find\nmore Pokémon.\rWait! You look weak! Come on,\nlet’s battle!\r"
-    trainertextentry   8, TEXT_DEFEATED_IN_BATTLE, "Oh...\nI’m out of Pokémon that can fight.\n"
-    trainertextentry   8, TEXT_DEFEATED_IN_OVERWORLD, "I knew it--if you don’t have many\nPokémon, battles are harder!\fI need to catch more Pokémon!\n"
+    trainertextentry   8, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Go! Shiny Eevee!\r"
+    trainertextentry   8, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "You killed Eevee. Wtf.\n"
+    trainertextentry   8, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "I knew it--if you don’t have many\nPokémon, battles are harder!\fI need to catch more Pokémon!\n"
     trainertextentry   8, TEXT_REMATCH_IN_OVERWORLD, "I’ve been waiting!\nLet’s battle now!\r"
 
 _0A24: // Trainer 47
-    trainertextentry  47, TEXT_NOTICE_IN_OVERWORLD, "You’re a Pokémon Trainer, right?\nThen you have to battle!\r"
-    trainertextentry  47, TEXT_DEFEATED_IN_BATTLE, "That’s strange.\nI won before.\n"
-    trainertextentry  47, TEXT_DEFEATED_IN_OVERWORLD, "Becoming a good Trainer is really tough.\nI’m going to battle other people to\fget better.\n"
+    trainertextentry  47, TEXT_NOTICE_IN_OVERWORLD, "THIS LAVA IS COOKIN!\r"
+    trainertextentry  47, TEXT_DEFEATED_IN_BATTLE, "NOOOOOOO! MY LUNCH MONEY!\n"
+    trainertextentry  47, TEXT_DEFEATED_IN_OVERWORLD, "Wow, you took all my cash.\r"
 
 _0A30: // Trainer 249
     trainertextentry 249, TEXT_NOTICE_IN_OVERWORLD, "Instead of a bug Pokémon, I found\na Trainer!\r"
@@ -1549,19 +1550,19 @@ _0DD8: // Trainer 125
     trainertextentry 125, TEXT_DEFEATED_IN_OVERWORLD, "That’s 100 wins to 101 losses.\rI won’t battle again for a while.\n"
 
 _0DE4: // Trainer 406
-    trainertextentry 406, TEXT_NOTICE_IN_OVERWORLD, "I’ll do anything to get my hands on\nrare Pokémon!\r"
+    trainertextentry 406, TEXT_NOTICE_IN_OVERWORLD, "Heh, I thought I could find Pryce\nin this cave, but I'm lost!\r"
     trainertextentry 406, TEXT_DEFEATED_IN_BATTLE, "Oooh, your Pokémon are so appealing.\n"
-    trainertextentry 406, TEXT_DEFEATED_IN_OVERWORLD, "If a Pokémon has different colors than\nusual, it’s more valuable.\rWhat? You mean that’s not true?\n"
+    trainertextentry 406, TEXT_DEFEATED_IN_OVERWORLD, "Where's the exit!?\n"
 
 _0DF0: // Trainer 121
-    trainertextentry 121, TEXT_NOTICE_IN_OVERWORLD, "What is your battle strategy?\nIt is foolish to use strong moves\findiscriminately.\r"
-    trainertextentry 121, TEXT_DEFEATED_IN_BATTLE, "Fine. I lost.\n"
-    trainertextentry 121, TEXT_DEFEATED_IN_OVERWORLD, "I’m not for overly powerful moves.\rI want to win, but I also don’t want to\nharm Pokémon.\n"
+    trainertextentry 121, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "I bet you won't read this text!\r"
+    trainertextentry 121, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "*burp*\n"
+    trainertextentry 121, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "Dude, you've got legendary Pokemon!\n"
 
 _0DFC: // Trainer 108
-    trainertextentry 108, TEXT_NOTICE_IN_OVERWORLD, "What are your thoughts on\nraising Pokémon?\r"
-    trainertextentry 108, TEXT_DEFEATED_IN_BATTLE, "You’ve won my respect.\n"
-    trainertextentry 108, TEXT_DEFEATED_IN_OVERWORLD, "I see you’re raising your Pokémon\nwith care.\rThe bond you build will save you in\ntough situations.\n"
+    trainertextentry 108, TEXT_NOTICE_IN_OVERWORLD, "Has the frigid air chilled you\nto the bone?\r"
+    trainertextentry 108, TEXT_DEFEATED_IN_BATTLE, "Yikes, I'm frozen!\n"
+    trainertextentry 108, TEXT_DEFEATED_IN_OVERWORLD, "Pryce is ahead in this cave.\n"
 
 _0E08: // Trainer 17
     trainertextentry  17, TEXT_NOTICE_IN_OVERWORLD, "I was training here alone.\nBehold the result of my hard work!\r"
@@ -1783,6 +1784,8 @@ _1008: // Trainer 43
     trainertextentry  43, TEXT_NOTICE_IN_OVERWORLD, "We stand guard in this tower.\rHere, we express our gratitude to\nshow our respect for all Pokémon.\r"
     trainertextentry  43, TEXT_DEFEATED_IN_BATTLE, "Th-thank you!\n"
     trainertextentry  43, TEXT_DEFEATED_IN_OVERWORLD, "All living beings coexist through\ncooperation.\rWe must always be thankful for this.\n"
+    trainertextentry  43, TEXT_LAST_MON_CRITICAL, "For the love!\n"
+    trainertextentry  43, TEXT_LAST_MON_SENT_OUT, "I don't lose these.\n"
 
 _1014: // Trainer 51
     trainertextentry  51, TEXT_NOTICE_IN_OVERWORLD, "However hard we battle, the tower will\nstand strong.\r"
@@ -1848,22 +1851,24 @@ _10A0: // Trainer 178
     trainertextentry 178, TEXT_REMATCH_IN_OVERWORLD, "Yay!\nYou kept your promise and came back!\r"
 
 _10B0: // Trainer 185
-    trainertextentry 185, TEXT_DEFEATED_IN_BATTLE, "Y-you’re strong...\n"
+    trainertextentry 185, TEXT_NOTICE_IN_OVERWORLD, "G-145: Hiyaaah!! Get 'em Espurr!\r"
+    trainertextentry 185, TEXT_DEFEATED_IN_BATTLE, "My Espurr!\n"
+    trainertextentry 185, TEXT_DEFEATED_IN_OVERWORLD, "G-145: Man, Espurr's eyes...\nThis Pokemon has seen some stuff...\n"
 
 _10B4: // Trainer 186
-    trainertextentry 186, TEXT_NOTICE_IN_OVERWORLD, "Three years ago, Team Rocket was\nforced to disband.\rBut we’re making a comeback here!\r"
-    trainertextentry 186, TEXT_DEFEATED_IN_BATTLE, "Gwah! Don’t get cute!\n"
-    trainertextentry 186, TEXT_DEFEATED_IN_OVERWORLD, "We won’t let you ruin our plans for\nour comeback!\n"
+    trainertextentry 186, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "G-152: Mars failed here...\nI don't know why we haven't left.\r"
+    trainertextentry 186, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "G-152: My Ponyta!"
+    trainertextentry 186, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "G-152: I hope we leave soon...\nThis cave is awful.\n"
 
 _10C0: // Trainer 187
-    trainertextentry 187, TEXT_NOTICE_IN_OVERWORLD, "We’re Team Rocket!\nWe like to cause trouble!\rOoh! Are you scared?\r"
-    trainertextentry 187, TEXT_DEFEATED_IN_BATTLE, "You think you’re a hero?\n"
-    trainertextentry 187, TEXT_DEFEATED_IN_OVERWORLD, "We’re not always evil. We just do\nwhatever we like.\n"
+    trainertextentry 187, TEXT_NOTICE_IN_OVERWORLD, "G-220: I was told none should pass.\nWater squad, go!\r"
+    trainertextentry 187, TEXT_DEFEATED_IN_BATTLE, "My Lotad!\n"
+    trainertextentry 187, TEXT_DEFEATED_IN_OVERWORLD, "I thought it would be fun\nto join the Galactic gang.\n"
 
 _10CC: // Trainer 188
-    trainertextentry 188, TEXT_NOTICE_IN_OVERWORLD, "Hey, hey! Keep out of our way!\r"
-    trainertextentry 188, TEXT_DEFEATED_IN_BATTLE, "Arggh. I give up.\n"
-    trainertextentry 188, TEXT_DEFEATED_IN_OVERWORLD, "Our Executives are trying to take this\nplace over. They have some big plan.\fI wonder what it is.\n"
+    trainertextentry 188, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "G-233: I've got crabs!\r"
+    trainertextentry 188, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "My crabs!\n"
+    trainertextentry 188, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "I don't know what Cyrus wants.\n"
 
 _10D8: // Trainer 198
     trainertextentry 198, TEXT_NOTICE_IN_OVERWORLD, "Ha ha ha!\fHow boring. It was far too easy to take\nover this place!\rCome on, keep me amused!\r"
@@ -1876,19 +1881,19 @@ _10E4: // Trainer 471
     trainertextentry 471, TEXT_DEFEATED_IN_OVERWORLD, "Bwahahaha...\rI can transmit as strong a signal as\nI need from here.\n"
 
 _10F0: // Trainer 189
-    trainertextentry 189, TEXT_NOTICE_IN_OVERWORLD, "I’ve been given strict orders.\rI’m to crush anyone who challenges\nTeam Rocket!\r"
+    trainertextentry 189, TEXT_NOTICE_IN_OVERWORLD, "G-248: Water squad, fight!"
     trainertextentry 189, TEXT_DEFEATED_IN_BATTLE, "!!!\n"
-    trainertextentry 189, TEXT_DEFEATED_IN_OVERWORLD, "I failed in my duties...\nI’ll be docked pay for this...\n"
+    trainertextentry 189, TEXT_DEFEATED_IN_OVERWORLD, "G-248: I failed in my duties...\nI’ll be docked pay for this...\n"
 
 _10FC: // Trainer 190
-    trainertextentry 190, TEXT_NOTICE_IN_OVERWORLD, "It feels great ordering Pokémon to\ncommit crimes.\r"
+    trainertextentry 190, TEXT_NOTICE_IN_OVERWORLD, "G-261: Saturn is mean, but we're\nthe best water squad you'll meet!\r"
     trainertextentry 190, TEXT_DEFEATED_IN_BATTLE, "You’re kidding!\n"
-    trainertextentry 190, TEXT_DEFEATED_IN_OVERWORLD, "I feel lousy over losing! Bah!\nI hate useless Pokémon!\n"
+    trainertextentry 190, TEXT_DEFEATED_IN_OVERWORLD, "G-261: I want to get transferred to\nMar's division.\n"
 
 _1108: // Trainer 191
-    trainertextentry 191, TEXT_NOTICE_IN_OVERWORLD, "Why did the door open? Did you have\nsomething to do with this?\r"
+    trainertextentry 191, TEXT_NOTICE_IN_OVERWORLD, "G-270: It's FREEZING, man!!\r"
     trainertextentry 191, TEXT_DEFEATED_IN_BATTLE, "Gulp! This is a bleak moment.\n"
-    trainertextentry 191, TEXT_DEFEATED_IN_OVERWORLD, "What?! You made it past our men in\nthe Underground? How could you have?\n"
+    trainertextentry 191, TEXT_DEFEATED_IN_OVERWORLD, "I think a campfire is in order.\n"
 
 _1114: // Trainer 706
     trainertextentry 706, TEXT_NOTICE_IN_OVERWORLD, "Proton: Now, wait just one second!\rAren’t you the one who got in\nour way at the SLOWPOKE Well?\rI see... You’re doing all this because\nyou want to make me angry. Be careful!\rBut since you seem to wish it, I’ll show\nyou the full extent of a Team Rocket\fExecutive’s wrath!\r"
@@ -1903,17 +1908,17 @@ _1128: // Trainer 472
     trainertextentry 472, TEXT_DEFEATED_IN_OVERWORLD, "Do you honestly believe you can stop\nTeam Rocket?\n"
 
 _1134: // Trainer 192
-    trainertextentry 192, TEXT_NOTICE_IN_OVERWORLD, "You plan to rescue the Director?\nSo sad that won’t be possible--\fbecause I’m going to beat you!\r"
-    trainertextentry 192, TEXT_DEFEATED_IN_BATTLE, "No! Unbelievable!\n"
-    trainertextentry 192, TEXT_DEFEATED_IN_OVERWORLD, "I do not believe it! I was beaten!\n"
+    trainertextentry 192, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "G-298: I'm the strongest 200-level grunt!\nThis ends, now!\r"
+    trainertextentry 192, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "No! Unbelievable!\n"
+    trainertextentry 192, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "G-298: I'm definitely getting demoted.\n"
 
 _1140: // Trainer 200
     trainertextentry 200, TEXT_DEFEATED_IN_BATTLE, "Oh, no! They’re so useless!\n"
 
 _1144: // Trainer 487
-    trainertextentry 487, TEXT_LAST_MON_CRITICAL, "What? Am I losing?\n"
-    trainertextentry 487, TEXT_LAST_MON_SENT_OUT, "Hey, wait, are you serious?!\n"
-    trainertextentry 487, TEXT_DEFEATED_IN_BATTLE, "OK, OK. I’ll tell you where he is.\n"
+    trainertextentry 487, TEXT_LAST_MON_CRITICAL, "BRAT!!\n"
+    trainertextentry 487, TEXT_LAST_MON_SENT_OUT, "Hmmph. I don't lose these.\n"
+    trainertextentry 487, TEXT_DEFEATED_IN_BATTLE, "Mars: My psychic types were no match!\n"
 
 _1150: // Trainer 478
     trainertextentry 478, TEXT_NOTICE_IN_OVERWORLD, "Ariana: Hey, you...\nRemember me from the hideout in\fMahogany Town?\rThis time...\rHee hee hee. This time...it looks like\nyou’re really all alone. All alone...\rSo it should be quite easy.\nBring it! Let’s finish this!\r\n"
@@ -1923,9 +1928,9 @@ _1150: // Trainer 478
     trainertextentry 478, TEXT_DEFEATED_IN_OVERWORLD, "What a waste...\nnot to use your strength to do\fbad things!\rFeh... People like you will never in a\nmillion years understand our brilliance!\rIt’s too bad... I’ve really come to\nrespect your strength.\n"
 
 _1164: // Trainer 485
-    trainertextentry 485, TEXT_LAST_MON_CRITICAL, "We can’t have you getting in the way\nbefore news of our resurgence\freaches Giovanni!\n"
-    trainertextentry 485, TEXT_LAST_MON_SENT_OUT, "That’s impossible...\n"
-    trainertextentry 485, TEXT_DEFEATED_IN_BATTLE, "No!\nForgive me, Giovanni!\n"
+    trainertextentry 485, TEXT_LAST_MON_CRITICAL, "Cyrus: Time is inevitable.\n"
+    trainertextentry 485, TEXT_LAST_MON_SENT_OUT, "Cyrus: My ace.\n"
+    trainertextentry 485, TEXT_DEFEATED_IN_BATTLE, "Cyrus: When I control Kyurem...\n"
 
 _1170: // Trainer 42
     trainertextentry  42, TEXT_NOTICE_IN_OVERWORLD, "Hmmm...\nThis is a strange place.\r"
@@ -1993,24 +1998,24 @@ _1200: // Trainer 363
     trainertextentry 363, TEXT_DEFEATED_IN_OVERWORLD, "Just once a week, a Pokémon comes to\nthe water’s edge.\rI wanted to see that Pokémon...\n"
 
 _120C: // Trainer 486
-    trainertextentry 486, TEXT_LAST_MON_CRITICAL, "It doesn’t matter where we go, there’s\nalways someone who doesn’t agree\fwith us...\n"
-    trainertextentry 486, TEXT_LAST_MON_SENT_OUT, "Are you serious? Did you come here\nthinking you could mess with our plans?\n"
-    trainertextentry 486, TEXT_DEFEATED_IN_BATTLE, "Grr...\nFor a kid to be this good...\fI didn’t see it coming.\n"
+    trainertextentry 486, TEXT_LAST_MON_CRITICAL, "Saturn: Useless...\n"
+    trainertextentry 486, TEXT_LAST_MON_SENT_OUT, "Saturn: Now, my ace!\n"
+    trainertextentry 486, TEXT_DEFEATED_IN_BATTLE, "Saturn: Delay successful.\n"
 
 _1218: // Trainer 12
-    trainertextentry  12, TEXT_NOTICE_IN_OVERWORLD, "Quit taking SlowpokeTails?\rIf we listened to you, Team Rocket’s\nrep would be ruined!\r"
+    trainertextentry  12, TEXT_NOTICE_IN_OVERWORLD, "G-101: Man, it's HOT HERE!\r"
     trainertextentry  12, TEXT_DEFEATED_IN_BATTLE, "Just...\nToo strong...\n"
-    trainertextentry  12, TEXT_DEFEATED_IN_OVERWORLD, "We need the money, but selling\nSlowpokeTails?\rIt’s tough being a Team Rocket Grunt!\n"
+    trainertextentry  12, TEXT_DEFEATED_IN_OVERWORLD, "Hey listen, I'm not doing\nanything illegal!\n"
 
 _1224: // Trainer 101
-    trainertextentry 101, TEXT_NOTICE_IN_OVERWORLD, "Humph! I was standing guard up top\nwhen some old coot yelled at me.\rHe startled me so much that I fell\ndown here.\rHow about I vent my anger and take it\nout on you!\r"
-    trainertextentry 101, TEXT_DEFEATED_IN_BATTLE, "Arrgh! This is NOT my day!\n"
-    trainertextentry 101, TEXT_DEFEATED_IN_OVERWORLD, "Sure, we’ve been hacking the tails off\nSLOWPOKE and selling them.\rTeam Rocket will do anything for money!\n"
+    trainertextentry 101, TEXT_NOTICE_IN_OVERWORLD, "G-130: Woah there, slow down!\r"
+    trainertextentry 101, TEXT_DEFEATED_IN_BATTLE, "My Swirlix!\n"
+    trainertextentry 101, TEXT_DEFEATED_IN_OVERWORLD, "G-130: It's hot. I want to leave.\n"
 
 _1230: // Trainer 13
-    trainertextentry  13, TEXT_NOTICE_IN_OVERWORLD, "Stop taking SlowpokeTails?\rWhat?! You want us to disobey a direct\norder from Executive Proton?\rIf you want to stop us, you’ll have to\ndefeat us all! Go ahead and try!\r"
-    trainertextentry  13, TEXT_DEFEATED_IN_BATTLE, "You rotten brat!\n"
-    trainertextentry  13, TEXT_DEFEATED_IN_OVERWORLD, "SlowpokeTails grow back fast!\rBesides, it was an order from Proton,\nso I’m more concerned about that!\n"
+    trainertextentry  13, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Eat my Woobat, yeah!\r"
+    trainertextentry  13, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "You turkey!\n"
+    trainertextentry  13, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "I don't know why we're here.\n"
 
 _123C: // Trainer 73
     trainertextentry  73, TEXT_NOTICE_IN_OVERWORLD, "What are you here for? Just to stand\naround and gawk? I suggest you leave!\r"

@@ -250,9 +250,9 @@ movedata MOVE_SWORDS_DANCE, "Swords Dance"
 movedata MOVE_CUT, "Cut"
 	battleeffect 0
 	pss SPLIT_PHYSICAL
-	basepower 50
+	basepower 55
 	type TYPE_GRASS
-	accuracy 95
+	accuracy 100
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -343,21 +343,21 @@ movedata MOVE_BIND, "Bind"
 	terminatedata
 	movedescription MOVE_BIND, "A long body or\ntentacles are used\nto bind and squeeze\nthe foe for two to\nfive turns."
 
-movedata MOVE_SLAM, "Slam"
-	battleeffect 0
+movedata MOVE_SLAM, "Breaking Swipe"
+	battleeffect 68
 	pss SPLIT_PHYSICAL
-	basepower 80
-	type TYPE_NORMAL
-	accuracy 80
+	basepower 60
+	type TYPE_DRAGON
+	accuracy 100
 	pp 10
-	effectchance 0
-	target MOVE_TARGET_SELECTED
+	effectchance 100
+	target MOVE_TARGET_BOTH
 	priority 0
 	flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
 	appeal 0x16
 	contesttype CONTEST_SMART
 	terminatedata
-	movedescription MOVE_SLAM, "The foe is slammed\nwith a long tail,\nvines, etc., to inflict\ndamage.\n"
+	movedescription MOVE_SLAM, "The foes are smashed\nwith a long tail,\nto drop Atk by\none stage.\n"
 
 movedata MOVE_VINE_WHIP, "Vine Whip"
 	battleeffect 0
@@ -407,21 +407,21 @@ movedata MOVE_DOUBLE_KICK, "Double Kick"
 	terminatedata
 	movedescription MOVE_DOUBLE_KICK, "The foe is quickly\nkicked twice in\nsuccession using both\nfeet.\n"
 
-movedata MOVE_MEGA_KICK, "Mega Kick"
-	battleeffect 0
+movedata MOVE_MEGA_KICK, "Snipe Kick"
+	battleeffect 69
 	pss SPLIT_PHYSICAL
-	basepower 100
+	basepower 90
 	type TYPE_FIGHTING
-	accuracy 90
-	pp 5
-	effectchance 0
+	accuracy 100
+	pp 10
+	effectchance 100
 	target MOVE_TARGET_SELECTED
 	priority 0
 	flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_HIDE_SHADOW
 	appeal 0x16
 	contesttype CONTEST_SMART
 	terminatedata
-	movedescription MOVE_MEGA_KICK, "The foe is attacked\nby a kick launched\nwith muscle-packed\npower.\n"
+	movedescription MOVE_MEGA_KICK, "The foe is attacked\nby a kick launched\nwith muscle-packed\npower. Drops target\ndefense 1 stage."
 
 movedata MOVE_JUMP_KICK, "Jump Kick"
 	battleeffect 45
@@ -570,9 +570,9 @@ movedata MOVE_BODY_SLAM, "Body Slam"
 movedata MOVE_WRAP, "Wrap"
 	battleeffect 42
 	pss SPLIT_PHYSICAL
-	basepower 35
+	basepower 45
 	type TYPE_NORMAL
-	accuracy 90
+	accuracy 95
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -1052,7 +1052,7 @@ movedata MOVE_DRILL_PECK, "Drill Peck"
 	pss SPLIT_PHYSICAL
 	basepower 80
 	type TYPE_FLYING
-	accuracy 90
+	accuracy 100
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -1338,9 +1338,9 @@ movedata MOVE_DRAGON_RAGE, "Dragon Rage"
 movedata MOVE_FIRE_SPIN, "Fire Spin"
 	battleeffect 42
 	pss SPLIT_SPECIAL
-	basepower 40
+	basepower 45
 	type TYPE_FIRE
-	accuracy 90
+	accuracy 95
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -3978,7 +3978,7 @@ movedata MOVE_SHADOW_BALL, "Shadow Ball"
 movedata MOVE_FUTURE_SIGHT, "Future Sight"
 	battleeffect 148
 	pss SPLIT_SPECIAL
-	basepower 95
+	basepower 150
 	type TYPE_PSYCHIC
 	accuracy 100
 	pp 10
@@ -4010,9 +4010,9 @@ movedata MOVE_ROCK_SMASH, "Rock Smash"
 movedata MOVE_WHIRLPOOL, "Whirlpool"
 	battleeffect 261
 	pss SPLIT_SPECIAL
-	basepower 40
+	basepower 45
 	type TYPE_WATER
-	accuracy 90
+	accuracy 95
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -4842,7 +4842,7 @@ movedata MOVE_ICE_BALL, "Ice Ball"
 movedata MOVE_NEEDLE_ARM, "Needle Arm"
 	battleeffect 31
 	pss SPLIT_PHYSICAL
-	basepower 60
+	basepower 70
 	type TYPE_GRASS
 	accuracy 100
 	pp 10
@@ -5258,9 +5258,9 @@ movedata MOVE_SKY_UPPERCUT, "Sky Uppercut"
 movedata MOVE_SAND_TOMB, "Sand Tomb"
 	battleeffect 42
 	pss SPLIT_PHYSICAL
-	basepower 40
+	basepower 45
 	type TYPE_GROUND
-	accuracy 90
+	accuracy 95
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -6524,7 +6524,7 @@ movedata MOVE_DRAGON_RUSH, "Dragon Rush"
 	pss SPLIT_PHYSICAL
 	basepower 95
 	type TYPE_DRAGON
-	accuracy 80
+	accuracy 90
 	pp 10
 	effectchance 20
 	target MOVE_TARGET_SELECTED
@@ -8540,7 +8540,7 @@ movedata MOVE_DUAL_CHOP, "Dual Chop"
     pss SPLIT_PHYSICAL
     basepower 40
     type TYPE_DRAGON
-    accuracy 90
+    accuracy 95
     pp 15
     effectchance 0
     target MOVE_TARGET_SELECTED
@@ -8616,7 +8616,7 @@ movedata MOVE_RAZOR_SHELL, "Razor Shell"
     movedescription MOVE_RAZOR_SHELL, "The foe is cut\nby sharp shells.\nIt may also lower\nthe foe’s Defense."
 
 movedata MOVE_HEAT_CRASH, "Heat Crash"
-    battleeffect 0
+    battleeffect 292
     pss SPLIT_PHYSICAL
     basepower 1
     type TYPE_FIRE
@@ -9797,12 +9797,12 @@ movedata MOVE_INFESTATION, "Infestation"
     terminatedata
 
 movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
-    battleeffect 0
+    battleeffect 139
     pss SPLIT_PHYSICAL
     basepower 40
     type TYPE_FIGHTING
     accuracy 100
-    pp 20
+    pp 10
     effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
