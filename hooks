@@ -365,11 +365,17 @@ arm9 Save_WriteSlotAsync 02027B74 3
 arm9 Save_WriteChunkFooterAsync 02027BAC 3
 arm9 Save_WriteManInit 02027BDC 3
 arm9 Save_WriteManFinish 02027CEC 3
+
+arm9 SaveData_InitSlotSpecs 02027EFC 2
+
 arm9 HandleWriteSaveAsync_PCBoxes 02028968 2
 arm9 Save_WritePCBoxes 02028AB4 2
 arm9 Save_WriteNextPCBox 02028BA8 3
 arm9 Save_WritePCFooter 02028BF8 3
 arm9 Save_CalcPCBoxModifiedFlags 02028C70 1
+arm9 PCModifiedFlags_CountModifiedBoxes 02028C9C 1
+arm9 PCModifiedFlags_GetIndexOfNthModifiedBox 02028CD4 2
+
 
 #pc box expansion
 arm9 PCStorage_sizeof 02073B20 0

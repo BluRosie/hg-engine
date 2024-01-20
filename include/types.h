@@ -79,8 +79,9 @@ VecFx32;
 #define IS_NOT_VALID_EWRAM_POINTER(n) ((u32)(n) >= 0x03000000 || (u32)(n) < 0x02000000)
 
 #define GF_ASSERT(cond) if (!(cond)) { }
+//#define GF_ASSERT(cond) (cond) ? 0 : GF_ASSERT_INTERNAL()
 
-void LONG_CALL GF_ASSERT_INTERNAL(BOOL cond);
+void LONG_CALL GF_ASSERT_INTERNAL();
 u16 LONG_CALL gf_rand(void);
 
 void LONG_CALL sys_FreeMemoryEz(void*);

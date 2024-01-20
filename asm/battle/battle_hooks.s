@@ -233,7 +233,7 @@ bx r2
 .global remap_move_effect_to_subscript_table
 remap_move_effect_to_subscript_table:
 ldr r0, =move_effect_to_subscripts
-lsl r1, r4, #2
+lsl r1, r4, #1
 ldr r0, [r0, r1]
 pop {r4, pc}
 

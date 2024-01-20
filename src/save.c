@@ -448,6 +448,35 @@ void CancelAsyncSave(SaveData *saveData, struct AsyncWriteManager *writeMan) {
 
 // ReadExtraSaveChunk just needs lastGoodSaveSlot offset (0x232F0) at 020284A0
 
+void SaveData_InitSlotSpecs(struct SaveSlotSpec *slotSpecs, struct SaveArrayHeader *headers) {
+    int i;
+    int adrs;
+    int npage;
+    int j;
+
+    npage = 0;
+    adrs = 0;
+    j = 0;
+    for (i = 0; i < 2; i++) {
+        slotSpecs[i].id = i;
+        slotSpecs[i].size = 0;
+        for (; i == headers[j].slot && j < 42; j++) {
+            slotSpecs[i].size += headers[j].size;
+        }
+        slotSpecs[i].size += sizeof(struct SaveChunkFooter);
+        slotSpecs[i].firstPage = npage;
+        slotSpecs[i].offset = adrs;
+        slotSpecs[i].numPages = (slotSpecs[i].size + SAVE_SECTOR_SIZE - 1) / SAVE_SECTOR_SIZE;
+        npage += slotSpecs[i].numPages;
+        adrs += slotSpecs[i].size;
+        if (adrs % 0x100 != 0) {
+            adrs += (0x100 - (adrs % 0x100));
+        }
+    }
+    GF_ASSERT(npage == slotSpecs[1].firstPage + slotSpecs[1].numPages);
+    GF_ASSERT(npage <= SAVE_PAGE_MAX);
+}
+
 int HandleWriteSaveAsync_PCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan) {
     u32 r7;
     int r0;
@@ -600,6 +629,43 @@ u32 Save_CalcPCBoxModifiedFlags(SaveData *saveData) {
         ret = BOX_ALL_MODIFIED_FLAG;
     }
     return ret;
+}
+
+u32 PCModifiedFlags_CountModifiedBoxes(u32 flags) {
+    u8 i, n;
+    u32 t;
+
+    n = 0;
+    //t = PCStorage_GetNumBoxes();
+    t = NUM_PC_BOXES;
+    for (i = 0; i < t; i++) {
+        if (flags & 1) {
+            n++;
+        }
+        flags >>= 1;
+        flags &= BOX_ALL_MODIFIED_FLAG;
+    }
+    return n;
+}
+
+u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last) {
+    u8 i, n;
+    u32 t;
+
+    n = 0;
+    //t = PCStorage_GetNumBoxes();
+    t = NUM_PC_BOXES;
+    for (i = 0; i < t; i++) {
+        if (flags & 1) {
+            if (n == last) {
+                return i;
+            }
+            n++;
+        }
+        flags >>= 1;
+        flags &= BOX_ALL_MODIFIED_FLAG;
+    }
+    return 0xFF;
 }
 
 // expanded save size at 020F62AC (0x23600)

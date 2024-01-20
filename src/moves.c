@@ -9,7 +9,7 @@
 #include "../include/constants/moves.h"
 
 // brackets are there so we can possibly come back and make constants for them
-u32 move_effect_to_subscripts[] =
+u16 move_effect_to_subscripts[] =
 {
     [ADD_STATUS_EFF_START_BATTLE]                = SUB_SEQ_START_BATTLE,
     [ADD_STATUS_EFF_APPLY_SLEEP]                 = SUB_SEQ_APPLY_SLEEP,
