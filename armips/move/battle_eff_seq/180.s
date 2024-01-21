@@ -10,6 +10,7 @@
 .create "build/move/battle_eff_seq/0_180", 0
 
 a030_180:
+    setpsychicterrainmoveusedflag
     tryassist _0024
     printattackmessage
     waitmessage

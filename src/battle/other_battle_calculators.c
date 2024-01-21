@@ -1351,6 +1351,17 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
         }
     }
 
+    // Handle Prankster Metronome, Sleep Talk, Nature Power, Assist, Me First, Copycat
+    if (sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag &&
+        GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) {
+        // reset flag
+        sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag = 0;
+        return TRUE;
+    }
+
+    // reset flag
+    sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag = 0;
+
     if (
         (sp->moveTbl[sp->current_move_index].priority > 0) ||
         ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&

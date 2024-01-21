@@ -1528,3 +1528,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xED, terrainOverlayType
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro setpsychicterrainmoveusedflag
+    .word 0xEE
+.endmacro
