@@ -22,7 +22,7 @@ void PCStorage_InitializeBoxes(PCStorage *storage) {
         for (j = 0; j < MONS_PER_BOX; j++) {
             BoxMonInit(&storage->boxes[i].mons[j]);
 #ifdef DEBUG_INIT_PC_BOXES_WITH_MONS
-            CreateBoxMonData(&storage->boxes[i].mons[j], j + 1 + i * MONS_PER_BOX, 50, 31, FALSE, 0, FALSE, 0);
+            CreateBoxMonData(&storage->boxes[i].mons[j], j + 1 + i * MONS_PER_BOX + ((j + 1 + i * MONS_PER_BOX) > SPECIES_ARCEUS ? 50 : 0), 50, 31, FALSE, 0, FALSE, 0);
 #endif // DEBUG_INIT_PC_BOXES_WITH_MONS
         }
     }
