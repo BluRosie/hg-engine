@@ -13,6 +13,9 @@ ADD_STATUS_SHELL_SMASH equ 152
 ADD_STATUS_V_CREATE equ 153
 ADD_STATUS_AUTOTOMIZE equ 154
 ADD_STATUS_GROWTH equ 155
+ADD_STATUS_WORK_UP equ 156
+ADD_STATUS_SPICY_EXTRACT equ 157
+ADD_STATUS_FILLET_AWAY equ 158
 
 // status change
 
@@ -1524,4 +1527,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro ifterrainoverlayistype,terrainOverlayType,address
     .word 0xED, terrainOverlayType
     .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro setpsychicterrainmoveusedflag
+    .word 0xEE
 .endmacro

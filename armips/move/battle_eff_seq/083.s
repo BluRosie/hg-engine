@@ -10,6 +10,7 @@
 .create "build/move/battle_eff_seq/0_083", 0
 
 a030_083:
+    setpsychicterrainmoveusedflag
     printattackmessage
     waitmessage
     wait 0x1E

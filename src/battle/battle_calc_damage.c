@@ -198,11 +198,31 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     struct sDamageCalc AttackingMon;
     struct sDamageCalc DefendingMon;
 
-    attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+    // Handle Body Press
+    switch (moveno) {
+    case MOVE_BODY_PRESS:
+        attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
+        break;
+    
+    default:
+        attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+        break;
+    }
+
     defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
     sp_attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
     sp_defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
 
+    switch (moveno) {
+        case MOVE_BODY_PRESS:
+            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+            break;
+
+        default:
+            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
+            break;
+    }
+    
     atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
@@ -781,55 +801,23 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
     }
 
+    u16 equivalentAttack;
+    u16 equivalentDefense;
+    getEquivalentAttackAndDefense(sp, attack, defense, sp_attack, sp_defense, atkstate, defstate, spatkstate, spdefstate, &movesplit, attacker, defender, critical, moveno, &equivalentAttack, &equivalentDefense);
+
     //// halve the defense if using selfdestruct/explosion
     //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
     //    defense = defense / 2;
 
+    damage = equivalentAttack * movepower;
+    damage *= (level * 2 / 5 + 2);
+
+    damage = damage / equivalentDefense;
+    damage /= 50;
+
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
     {
-        if (critical > 1)
-        {
-            if (atkstate > 6)
-            {
-                damage = attack * StatBoostModifiers[atkstate][0];
-                damage /= StatBoostModifiers[atkstate][1];
-            }
-            else
-            {
-                damage = attack;
-            }
-        }
-        else
-        {
-            damage = attack * StatBoostModifiers[atkstate][0];
-            damage /= StatBoostModifiers[atkstate][1];
-        }
-
-        damage *= movepower;
-        damage *= (level * 2 / 5 + 2);
-
-        if (critical > 1)
-        {
-            if (defstate < 6)
-            {
-                damage2 = defense * StatBoostModifiers[defstate][0];
-                damage2 /= StatBoostModifiers[defstate][1];
-            }
-            else
-            {
-                damage2 = defense;
-            }
-        }
-        else
-        {
-            damage2 = defense * StatBoostModifiers[defstate][0];
-            damage2 /= StatBoostModifiers[defstate][1];
-        }
-
-        damage /= damage2;
-        damage /= 50;
-
         // burns halve physical damage.  this is ignored by guts and facade (as of gen 6)
         if ((AttackingMon.condition & STATUS_FLAG_BURNED) && (AttackingMon.ability != ABILITY_GUTS) && (moveno != MOVE_FACADE))
         {
@@ -854,48 +842,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
     else// if (movesplit == SPLIT_SPECIAL) // same as above, handle special moves
     {
-        if (critical > 1)
-        {
-            if (spatkstate > 6)
-            {
-                damage = sp_attack * StatBoostModifiers[spatkstate][0];
-                damage /= StatBoostModifiers[spatkstate][1];
-            }
-            else
-            {
-                damage = sp_attack;
-            }
-        }
-        else
-        {
-            damage = sp_attack * StatBoostModifiers[spatkstate][0];
-            damage /= StatBoostModifiers[spatkstate][1];
-        }
-
-        damage *= movepower;
-        damage *= (level * 2 / 5 + 2);
-
-        if (critical > 1)
-        {
-            if (spdefstate < 6)
-            {
-                damage2 = sp_defense * StatBoostModifiers[spdefstate][0];
-                damage2 /= StatBoostModifiers[spdefstate][1];
-            }
-            else
-            {
-                damage2 = sp_defense;
-            }
-        }
-        else
-        {
-            damage2 = sp_defense * StatBoostModifiers[spdefstate][0];
-            damage2 /= StatBoostModifiers[spdefstate][1];
-        }
-
-        damage /= damage2;
-        damage /= 50;
-
         // handle light screen
         if (((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
          && (critical == 1)
@@ -957,7 +903,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                 damage = damage * 15 / 10;
                 break;
             case TYPE_WATER:
-                damage /= 2;
+                // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
+                if (moveno == MOVE_HYDRO_STEAM && item != ITEM_UTILITY_UMBRELLA) {
+                    damage = damage * 15 / 10;
+                } else {
+                    damage /= 2;
+                }
                 break;
             }
         }
