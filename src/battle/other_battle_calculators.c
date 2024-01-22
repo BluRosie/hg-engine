@@ -1400,7 +1400,7 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
     case MOVE_TARGET_USER:
         return FALSE;
         break;
-    
+
     // Psychic Terrain doesn't block priority moves that target all battlers
     // Psychic Terrain doesn't block priority field moves
     case MOVE_TARGET_ACTIVE_FIELD:
@@ -1483,7 +1483,7 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
  * @param equivalentAttack attack number used for calculation
  * @param equivalentDefense defense number used for calculation
  */
-void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense) {
+void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender UNUSED, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense) {
     u16 rawPhysicalAttack;
     u16 rawSpecialAttack;
     u16 rawPhysicalDefense;

@@ -178,7 +178,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 {
     u32 i;
     s32 damage = 0;
-    s32 damage2 = 0;
     u8 movetype;
     u8 movesplit;
     u16 attack;
@@ -203,7 +202,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     case MOVE_BODY_PRESS:
         attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
         break;
-    
+
     default:
         attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
         break;
@@ -222,7 +221,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
             break;
     }
-    
+
     atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
