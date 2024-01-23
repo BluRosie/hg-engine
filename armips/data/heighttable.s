@@ -859,7 +859,7 @@ heightentry SPECIES_BUZZWOLE, 0, 0, 0, 0
 heightentry SPECIES_PHEROMOSA, 3, 3, 0, 0
 heightentry SPECIES_XURKITREE, 0, 0, 0, 0
 heightentry SPECIES_CELESTEELA, 0, 0, 0, 0
-heightentry SPECIES_KARTANA, 0, 0, 0, 0
+heightentry SPECIES_KARTANA, 13, 13, 0, 0
 heightentry SPECIES_GUZZLORD, 0, 0, 0, 0
 heightentry SPECIES_NECROZMA, 0, 0, 0, 0
 heightentry SPECIES_MAGEARNA, 3, 3, 0, 0

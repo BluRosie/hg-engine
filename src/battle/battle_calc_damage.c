@@ -199,13 +199,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // Handle Body Press
     switch (moveno) {
-    case MOVE_BODY_PRESS:
-        attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
-        break;
+        case MOVE_BODY_PRESS:
+            attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
+            break;
 
-    default:
-        attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
-        break;
+        default:
+            attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+            break;
     }
 
     defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
