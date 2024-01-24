@@ -1532,3 +1532,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro setpsychicterrainmoveusedflag
     .word 0xEE
 .endmacro
+
+.macro iffirsthitofparentalbond,address
+    .word 0xEF
+    .word ((address - org()) / 4) - 1
+.endmacro

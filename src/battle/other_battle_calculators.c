@@ -84,6 +84,46 @@ const u16 TriageMovesList[] = {
     MOVE_WISH,
 };
 
+// List of multi-strike moves
+// (https://bulbapedia.bulbagarden.net/wiki/Multi-strike_move)
+const u16 MultiHitMovesList[] = {
+    // Variable number of strikes
+    MOVE_ARM_THRUST,
+    MOVE_BARRAGE,
+    MOVE_BONE_RUSH,
+    MOVE_BULLET_SEED,
+    MOVE_COMET_PUNCH,
+    MOVE_DOUBLE_SLAP,
+    MOVE_FURY_ATTACK,
+    MOVE_FURY_SWIPES,
+    MOVE_ICICLE_SPEAR,
+    MOVE_PIN_MISSILE,
+    MOVE_ROCK_BLAST,
+    MOVE_SCALE_SHOT,
+    MOVE_SPIKE_CANNON,
+    MOVE_TAIL_SLAP,
+    MOVE_WATER_SHURIKEN,
+    // Fixed number of multiple strikes
+    MOVE_BONEMERANG,
+    MOVE_DOUBLE_HIT,
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_DOUBLE_KICK,
+    MOVE_DRAGON_DARTS,
+    MOVE_DUAL_CHOP,
+    MOVE_DUAL_WINGBEAT,
+    MOVE_GEAR_GRIND,
+    MOVE_SURGING_STRIKES,
+    MOVE_TRIPLE_DIVE,
+    MOVE_TWIN_BEAM,
+    MOVE_TWINEEDLE,
+    // Accuracy-dependent multiple strikes
+    MOVE_TRIPLE_AXEL,
+    MOVE_TRIPLE_KICK,
+    MOVE_POPULATION_BOMB,
+    // Party-dependent multiple strikes
+    MOVE_BEAT_UP,
+};
+
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
@@ -1460,6 +1500,19 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
             break;
         default:
             return FALSE;
+    }
+    return FALSE;
+}
+
+/**
+ * @brief Check if the current move is a multi hit move
+ * @param sp battle structure
+*/
+BOOL IsMultiHitMove(struct BattleStruct *sp) {
+    for (u16 i = 0; i < NELEMS(MultiHitMovesList); i++) {
+        if (sp->current_move_index == MultiHitMovesList[i]) {
+            return TRUE;
+        }
     }
     return FALSE;
 }

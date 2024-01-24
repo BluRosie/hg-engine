@@ -230,7 +230,8 @@ enum
     SEQ_WAZAKOYUU_CHECK,
     SEQ_DEFENCE_CHANGE_CHECK,
     SEQ_PROTEAN_CHECK,
-    SEQ_STANCE_CHANGE_CHECK
+    SEQ_STANCE_CHANGE_CHECK,
+    SEQ_PARENTAL_BOND_CHECK,
 };
 
 /**
@@ -437,6 +438,22 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             }
             else
             {
+                sp->wb_seq_no++;
+            }
+            FALLTHROUGH;
+        case SEQ_PARENTAL_BOND_CHECK:
+            if (sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND &&
+            sp->battlemon[sp->attack_client].parental_bond_flag == 0 &&
+            sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS &&
+            !IsMultiHitMove(sp)) {
+                sp->battlemon[sp->attack_client].parental_bond_flag = 1;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARENTAL_BOND);
+                // runMyScriptInstead = 1;
+                // LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
+                // sp->msg_work = sp->battlemon[sp->attack_client].type1;
+                // sp->client_work = sp->attack_client;
+                runMyScriptInstead = 1;
+            } else {
                 sp->wb_seq_no = 0;
             }
             break;

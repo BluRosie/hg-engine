@@ -63,6 +63,7 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -312,6 +313,7 @@ const u8 *BattleScrCmdNames[] =
     "updateterrainoverlay",
     "ifterrainoverlayistype",
     "setpsychicterrainmoveusedflag",
+    "iffirsthitofparentalbond",
 };
 
 u32 cmdAddress = 0;
@@ -334,6 +336,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xEC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EC_updateterrainoverlay,
     [0xED - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_ED_ifterrainoverlayistype,
     [0xEE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EE_setpsychicterrainmoveusedflag,
+    [0xEF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EF_iffirsthitofparentalbond,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -2573,6 +2576,25 @@ BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw UNUSED, struct Battle
     IncrementBattleScriptPtr(sp, 1);
 
     sp->battlemon[sp->attack_client].potentially_affected_by_psychic_terrain_move_used_flag = 1;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current hit is the first hit of Parental Bond
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1) {
+        IncrementBattleScriptPtr(sp, address);
+    }
 
     return FALSE;
 }

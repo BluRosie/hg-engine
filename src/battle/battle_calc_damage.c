@@ -805,6 +805,20 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     damage = damage / equivalentDefense;
     damage /= 50;
 
+    // Handle Parental Bond
+    if (sp->battlemon[attacker].parental_bond_flag == 2) {
+        damage /= 4;
+    }
+    switch (sp->battlemon[attacker].parental_bond_flag) {
+        case 1:
+            sp->battlemon[attacker].parental_bond_flag++;
+            break;
+
+        default:
+            sp->battlemon[attacker].parental_bond_flag = 0;
+            break;
+    }
+
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
     {

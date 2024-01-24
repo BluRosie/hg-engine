@@ -360,6 +360,7 @@
 #define SUB_SEQ_WORK_UP                               (350)
 #define SUB_SEQ_SPICY_EXTRACT                         (351)
 #define SUB_SEQ_FILLET_AWAY                           (352)
+#define SUB_SEQ_HANDLE_PARENTAL_BOND                  (353)
 
 
 
