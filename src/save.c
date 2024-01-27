@@ -135,6 +135,9 @@ void LONG_CALL HexDumpMemory(u8 *start, u32 size)
 
 // let's do some quick save expansion :grin:
 
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
+
 SaveData *SaveData_New(void) {
     SaveData *ret;
     int status;
@@ -328,10 +331,20 @@ void SaveSlot_BuildFooter(SaveData *saveData, void *data, int idx) {
     //SaveFooterDebugPrn(footer);
 }
 
+#endif // EXPAND_PC_BOXES
+#endif // ALLOW_SAVE_CHANGES
+
 void Save_RecordWhichLatestGoodSector(SaveData *saveData, struct SaveSlotCheck *checks_main, struct SaveSlotCheck *checks_sub UNUSED, int idx) {
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
     saveData->saveCounter = checks_main[idx].count;
     saveData->lastGoodSector = idx;
+#endif
+#endif
 }
+
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
 
 // instead of writing Save_GetFilesStatus to here, can just write offset of sectorCleanFlag to 020279E8 (0x23308)
 
@@ -671,3 +684,6 @@ u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last) {
 // expanded save size at 020F62AC (0x23600)
 
 // reduce heap size at 020F62BC (0x11D000)
+
+#endif // EXPAND_PC_BOXES
+#endif // ALLOW_SAVE_CHANGES

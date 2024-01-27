@@ -345,7 +345,8 @@ arm9 ModifyStatByNature 0206FE3C 3
 # when a specific mon is in illusion, the target icon brought up needs to be in the illusioned state
 0012 target_select_inject_illusion_icon 02267CDC 0
 
-
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
 # save expansion
 arm9 SaveData_New 020271B0 0
 arm9 SaveArray_Get 020272C8 2
@@ -408,3 +409,8 @@ arm9 PCStorage_SetAllBoxesModified 020740F8 1
 arm9 PCStorage_ResetBoxModifiedFlags 02074108 1
 arm9 PCStorage_GetBoxModifiedFlags 02074114 1
 arm9 sub_02074128 02074128 1
+
+#endif
+# EXPAND_PC_BOXES
+#endif
+# ALLOW_SAVE_CHANGES

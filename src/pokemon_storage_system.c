@@ -10,6 +10,9 @@
 #include "../include/task.h"
 
 
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
+
 u32 PCStorage_sizeof(void) {
     return sizeof(PCStorage);
 }
@@ -80,7 +83,12 @@ BOOL PCStorage_PlaceMonInBoxFirstEmptySlot(PCStorage* storage, u32 boxno, struct
     return FALSE;
 }
 
+#endif // EXPAND_PC_BOXES
+#endif // ALLOW_SAVE_CHANGES
+
 BOOL PCStorage_PlaceMonInBoxByIndexPair(PCStorage* storage, u32 boxno, u32 slotno, struct BoxPokemon *boxMon) {
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
     RestoreBoxMonPP(boxMon);
     if (boxno == -1u) {
         boxno = storage->curBox;
@@ -92,16 +100,26 @@ BOOL PCStorage_PlaceMonInBoxByIndexPair(PCStorage* storage, u32 boxno, u32 slotn
     }
     GF_ASSERT(0);
     return FALSE;
+#endif
+#endif
 }
 
 void PCStorage_SwapMonsInBoxByIndexPair(PCStorage* storage, u32 boxno, u32 from, u32 to) {
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
     struct BoxPokemon temp;
 
     temp = storage->boxes[boxno].mons[from];
     storage->boxes[boxno].mons[from] = storage->boxes[boxno].mons[to];
     storage->boxes[boxno].mons[to] = temp;
     PCStorage_SetBoxModified(storage, boxno);
+#endif
+#endif
 }
+
+
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
 
 void PCStorage_DeleteBoxMonByIndexPair(PCStorage* storage, u32 boxno, u32 slotno) {
     if (boxno == -1u) {
@@ -302,14 +320,25 @@ int PCStorage_CountMonsInAllBoxes(PCStorage* storage) {
     return count;
 }
 
+#endif // EXPAND_PC_BOXES
+#endif // ALLOW_SAVE_CHANGES
+
 u32 PCStorage_GetMonDataByIndexPair(PCStorage* storage, u32 boxno, u32 slotno, int attr, void *ptr) {
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
     GF_ASSERT(boxno < NUM_PC_BOXES || boxno == -1u);
     GF_ASSERT(slotno < MONS_PER_BOX);
     if (boxno == -1u) {
         boxno = storage->curBox;
     }
     return GetBoxMonData(&storage->boxes[boxno].mons[slotno], attr, ptr);
+#endif
+#endif
 }
+
+
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
 
 struct BoxPokemon *PCStorage_GetMonByIndexPair(PCStorage* storage, u32 boxno, u32 slotno) {
     GF_ASSERT(boxno < NUM_PC_BOXES || boxno == -1u);
@@ -360,3 +389,6 @@ void sub_02074128(PCStorage* storage) {
         }
     }
 }
+
+#endif
+#endif
