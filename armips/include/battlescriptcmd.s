@@ -1537,3 +1537,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xEF
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro ifsecondhitofparentalbond,address
+    .word 0xF0
+    .word ((address - org()) / 4) - 1
+.endmacro
