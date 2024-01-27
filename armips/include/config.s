@@ -37,8 +37,12 @@ BATTLES_UNCAPPED_FRAME_RATE equ 0
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
 
-//REUSABLE_TMS will make TMs infinite and hide the quantity number.
+// REUSABLE_TMS will make TMs infinite and hide the quantity number.
 REUSABLE_TMS equ 1
 
-//DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
+// DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
 DELETABLE_HMS equ 0
+
+// APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
+// comment out the lines if you do not want anti-piracy to be applied to your ROM
+.definelabel APPLY_ANTIPIRACY, 0
