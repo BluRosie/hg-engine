@@ -740,6 +740,16 @@ enum
 #define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x100
 #define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x200
 
+// kinda weird, specifically tracked in the RAM
+typedef struct WildEncounterWork
+{
+    u16 species:11;
+    u16 form:5;
+    u16 padding;
+    u16 maxLevel;
+    u16 minLevel;
+} WildEncounterWork;
+
 
 /**
  *  @brief allocate enough space for a PartyPokemon and zero it out

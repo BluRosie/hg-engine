@@ -2903,3 +2903,39 @@ u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon)
 
     return personality;
 }
+
+/**
+ *  @brief grab the encounter slot that should be forced when static/magnet pull proc
+ *         needed to fix the crash caused by static and magnet pull
+ *
+ *  @param inData WildEncounterWork array to parse through for matching type
+ *  @param inListNum amount of entries in inData
+ *  @param type type to check for
+ *  @param outNo encounter slot that is forced
+ */
+BOOL SetFixedWildEncounter(const WildEncounterWork *inData, const u8 inListNum, const u8 type, u8 * outNo)
+{
+    u8 same_type[12];
+    u32 cnt, i, type1, type2;
+    for (i = 0; i < 12; i++)
+    {
+        same_type[i] = 0;
+    }
+    cnt = 0;
+    for (i = 0; i < inListNum; i++)
+    {
+        u16 newSpecies = PokeOtherFormMonsNoGet(inData[i].species, inData[i].form);
+        type1 = PokePersonalParaGet(newSpecies, PERSONAL_TYPE_1);
+        type2 = PokePersonalParaGet(newSpecies, PERSONAL_TYPE_2);
+        if ((type1 == type) || (type2 == type))
+        {
+            same_type[cnt++] = i;
+        }
+    }
+    if (cnt == 0 || cnt == inListNum)
+    {
+        return FALSE;
+    }
+    *outNo = same_type[gf_rand() % cnt];
+    return TRUE;
+}

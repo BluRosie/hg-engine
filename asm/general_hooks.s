@@ -376,3 +376,20 @@ mov pc, r1
 
 PCStorage_GetMonDataByIndexPair_return_address:
 .word 0
+
+
+.global SetFixedWildEncounter_hook
+SetFixedWildEncounter_hook:
+ldr r5, =SetFixedWildEncounter_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl SetFixedWildEncounter
+ldr r1, =SetFixedWildEncounter_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+SetFixedWildEncounter_return_address:
+.word 0

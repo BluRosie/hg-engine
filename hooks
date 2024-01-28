@@ -414,3 +414,5 @@ arm9 sub_02074128 02074128 1
 # EXPAND_PC_BOXES
 #endif
 # ALLOW_SAVE_CHANGES
+
+0002 SetFixedWildEncounter_hook 022480C4 5

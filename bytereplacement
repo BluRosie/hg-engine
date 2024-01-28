@@ -388,3 +388,6 @@ arm9 02074114 01 49 40 58 70 47 C0 46
 arm9 02074128 F8 B5 82 B0 00 90 00 20
 
 #endif
+
+# SetFixedWildEncounter_hook setup
+0002 022480C0 60 B4 C0 46
