@@ -10,6 +10,7 @@
 .create "build/move/battle_eff_seq/0_173", 0
 
 a030_173:
+    setpsychicterrainmoveusedflag
     printattackmessage
     waitmessage
     playanimation BATTLER_ATTACKER

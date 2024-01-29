@@ -78,7 +78,10 @@ VecFx32;
 // validates a pointer's value
 #define IS_NOT_VALID_EWRAM_POINTER(n) ((u32)(n) >= 0x03000000 || (u32)(n) < 0x02000000)
 
-void LONG_CALL GF_ASSERT(u32 cond);
+#define GF_ASSERT(cond) if (!(cond)) { }
+//#define GF_ASSERT(cond) (cond) ? 0 : GF_ASSERT_INTERNAL()
+
+void LONG_CALL GF_ASSERT_INTERNAL();
 u16 LONG_CALL gf_rand(void);
 
 void LONG_CALL sys_FreeMemoryEz(void*);
@@ -94,9 +97,23 @@ void LONG_CALL ArchiveDataLoadOfs(void *data, int arcID, int datID, int ofs, int
 void *LONG_CALL sys_AllocMemoryLo(u32 heap_id, u32 size);
 void *LONG_CALL NARC_ctor(u32 narc_id, u32 heap_id);
 
+void LONG_CALL MIi_CpuClearFast(u32 value, void *dest, u32 size);
+u16 LONG_CALL GF_CalcCRC16(const void *data, u32 size);
+
+
 void *memcpy(void *dest, void *src, u32 size);
 void *memset(void *dest, u8 fill, u32 size);
 void sprintf(u8 *buf, char *str, ...);
 void debugsyscall(u8 *buf);
+
+
+static inline void MI_CpuFillFast(void *dst, int data, u32 size) {
+    MIi_CpuClearFast(data, dst, size);
+}
+
+static inline void MI_CpuClearFast(void *dest, u32 size) {
+    MIi_CpuClearFast(0, dest, size);
+}
+
 
 #endif

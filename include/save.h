@@ -2,6 +2,7 @@
 #define SAVE_H
 
 #include "config.h"
+#include "constants/save.h"
 #include "rtc.h"
 #include "pokemon.h"
 
@@ -171,6 +172,150 @@ typedef enum PaletteMemoryRegions {
 } PaletteMemoryRegions;
 
 extern u16 PaletteRAMArray[4][16][16];
+
+
+
+#define LOAD_STATUS_NOT_EXIST       0
+#define LOAD_STATUS_IS_GOOD         1
+#define LOAD_STATUS_SLOT_FAIL       2
+#define LOAD_STATUS_TOTAL_FAIL      3
+
+#define WRITE_STATUS_CONTINUE       0
+#define WRITE_STATUS_NEXT           1
+#define WRITE_STATUS_SUCCESS        2
+#define WRITE_STATUS_TOTAL_FAIL     3
+
+#define SAVE_CHUNK_MAGIC 0x20060623
+
+struct SaveArrayHeader {
+    int id;
+    u32 size;
+    u32 offset;
+    u16 crc;
+    u16 slot;
+}; // size=0x10
+
+struct SaveArrayFooter {
+    u32 magic;
+    u32 saveno;
+    u32 size;
+    u16 idx;
+    u16 crc;
+};
+
+struct SaveChunkFooter {
+    u32 count;
+    u32 size;
+    u32 magic;
+    u16 slot;
+    u16 crc;
+};
+
+struct SaveSlotSpec {
+    u8 id;
+    u8 firstPage;
+    u8 numPages;
+    u8 padding_3;
+    u32 offset;
+    u32 size;
+}; // size=0xC
+
+struct AsyncWriteManager {
+    int rollbackCounter;
+    int unk_4;
+    int curSector;
+    int numSectors;
+    int lockId;
+    u32 state;
+    u32 count;
+    BOOL waitingAsync;
+    u32 state_sub;
+};
+
+typedef struct SaveData {
+    BOOL flashChipDetected;
+    BOOL saveFileExists;
+    BOOL isNewGame;
+    u32 statusFlags;
+    u8 dynamic_region[SAVE_PAGE_MAX * SAVE_SECTOR_SIZE];
+    u32 saveCounter;
+    struct SaveArrayHeader arrayHeaders[SAVE_BLOCK_NUM]; // 23014
+    struct SaveSlotSpec saveSlotSpecs[2]; // 232B4
+    struct AsyncWriteManager asyncWriteMan;
+    u32 lastGoodSaveSlot;
+    u32 lastGoodSaveNo;
+    int boxModifiedFlags;
+    u32 newBoxModifiedFlags;
+    u16 pcStorageLastCRC;
+    u16 pcStorageCRC;
+    u16 numModifiedBoxes;
+    u16 nextBoxToWrite;
+    u8 sectorCleanFlag[2];
+    u16 lastGoodSector;
+} SaveData;
+
+struct SaveSlotCheck {
+    BOOL valid;
+    u32 count;
+};
+
+extern SaveData *sSaveDataPtr;
+
+BOOL LONG_CALL SaveDetectFlash(void);
+void LONG_CALL SaveData_InitSubstructs(struct SaveArrayHeader *headers);
+void LONG_CALL SaveData_InitSlotSpecs(struct SaveSlotSpec *slotSpecs, struct SaveArrayHeader *headers);
+int LONG_CALL Save_GetSaveFilesStatus(SaveData *saveData);
+BOOL LONG_CALL Save_LoadDynamicRegion(SaveData *saveData);
+u32 LONG_CALL Save_GetPCBoxModifiedFlags(SaveData *saveData);
+void LONG_CALL Save_CheckFrontierData(SaveData *saveData, int *err1, int *err2);
+void LONG_CALL Save_InitDynamicRegion(SaveData *saveData);
+void LONG_CALL Sys_SetSleepDisableFlag(BOOL sleepDisable);
+int LONG_CALL FlashClobberChunkFooter(SaveData *saveData, int spec, int sector);
+s32 LONG_CALL FlashWriteChunk(u32 offset, void *data, u32 size);
+void LONG_CALL Sys_ClearSleepDisableFlag(int a0);
+int LONG_CALL _NowWriteFlash(SaveData *saveData);
+void LONG_CALL Save_PrepareForAsyncWrite(SaveData *saveData, int a1);
+int LONG_CALL Save_WriteFileAsync(SaveData *saveData);
+void LONG_CALL Save_InitDynamicRegion_Internal(u8 *dynamic_region, struct SaveArrayHeader *headers);
+void LONG_CALL Save_WriteManInit(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2);
+int LONG_CALL HandleWriteSaveAsync_PCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan);
+int LONG_CALL HandleWriteSaveAsync_NormalData(SaveData *saveData, struct AsyncWriteManager *writeMan);
+void LONG_CALL Save_WriteManFinish(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2);
+void LONG_CALL CancelAsyncSave(SaveData *saveData, struct AsyncWriteManager *writeMan);
+u16 LONG_CALL SaveArray_CalcCRC16MinusFooter(SaveData *saveData, const void *data, u32 size);
+BOOL LONG_CALL FlashLoadSaveDataFromChunk(u32 slot, struct SaveSlotSpec *spec, void *dest);
+void LONG_CALL sub_020310A0(SaveData *saveData);
+void LONG_CALL sub_0202C6FC(SaveData *saveData);
+s32 LONG_CALL FlashWriteChunkInternal(u32 offset, void *data, u32 size);
+u32 LONG_CALL GetChunkOffsetFromCurrentSaveSlot(u32 slot, struct SaveSlotSpec *spec);
+void LONG_CALL sub_0202C714(SaveData *saveData);
+void LONG_CALL sub_02031084(SaveData *saveData);
+void LONG_CALL Save_ResetPCBoxModifiedFlags(SaveData *saveData);
+BOOL LONG_CALL CARD_TryWaitBackupAsync(void);
+void LONG_CALL CARD_CancelBackupAsync(void);
+void LONG_CALL CARD_UnlockBackup(int);
+void LONG_CALL OS_ReleaseLockID(int);
+u32 LONG_CALL Save_CalcPCBoxModifiedFlags(SaveData *saveData);
+u32 LONG_CALL PCModifiedFlags_CountModifiedBoxes(u32 flags);
+void LONG_CALL sub_020271A0(SaveData *saveData);
+void LONG_CALL Save_SetAllPCBoxesModified(SaveData *saveData);
+int LONG_CALL Save_WritePCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan);
+BOOL LONG_CALL WaitFlashWrite(s32 lockId, BOOL checkResult, BOOL *resultSuccess);
+int LONG_CALL Save_WriteNextPCBox(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot);
+int LONG_CALL Save_WritePCFooter(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot);
+u32 LONG_CALL PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last);
+
+
+
+
+
+
+
+
+
+
+
+
 
 void *LONG_CALL SaveBlock2_get(void);
 struct SAVE_MISC_DATA *LONG_CALL Sav2_Misc_get(void *saveData);
