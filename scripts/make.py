@@ -50,7 +50,7 @@ REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
 LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o']
-OFFSET_START_IN_129 = 0x1000
+OFFSET_START_IN_129 = 0x600
 
 def ExtractPointer(byteList: [bytes]):
     pointer = 0

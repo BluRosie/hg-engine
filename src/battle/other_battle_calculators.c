@@ -1564,7 +1564,7 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
         rawSpecialDefense /= StatBoostModifiers[defenderSpecialDefenseState][1];
     }
 
-    if (movesplit == SPLIT_PHYSICAL) {
+    if (*movesplit == SPLIT_PHYSICAL) {
         *equivalentAttack = rawPhysicalAttack;
         *equivalentDefense = rawPhysicalDefense;
     } else {
