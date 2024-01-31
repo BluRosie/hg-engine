@@ -281,6 +281,7 @@ enum
 // items that display messages.
     SWITCH_IN_CHECK_AIR_BALLOON,
     SWITCH_IN_CHECK_FIELD,
+    SWITCH_IN_CHECK_SURGE_ABILITY,
     SWITCH_IN_CHECK_TERRAIN_SEED,
     SWITCH_IN_CHECK_END,
 };
@@ -1177,6 +1178,45 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
                 sp->switch_in_check_seq_no++;
+                break;
+            case SWITCH_IN_CHECK_SURGE_ABILITY:
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turn_order[i];
+                    if (sp->battlemon[client_no].ability_activated_flag == 0 &&
+                        (sp->battlemon[client_no].hp)) {
+                        switch (GetBattlerAbility(sp, client_no)) {
+                            case ABILITY_GRASSY_SURGE:
+                                sp->current_move_index = MOVE_GRASSY_TERRAIN;  // force move anim to play
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            case ABILITY_MISTY_SURGE:
+                                sp->current_move_index = MOVE_MISTY_TERRAIN;  // force move anim to play
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            case ABILITY_ELECTRIC_SURGE:
+                                sp->current_move_index = MOVE_ELECTRIC_TERRAIN;  // force move anim to play
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            case ABILITY_PSYCHIC_SURGE:
+                                sp->current_move_index = MOVE_PSYCHIC_TERRAIN;  // force move anim to play
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                        if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            sp->client_work = client_no;
+                            scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
+                            break;
+                        }
+                    }
+                }
+                if (i == (s32)client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
                 break;
             case SWITCH_IN_CHECK_TERRAIN_SEED:;
                 u16 heldItem;

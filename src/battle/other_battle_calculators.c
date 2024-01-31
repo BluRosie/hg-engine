@@ -124,6 +124,43 @@ const u16 MultiHitMovesList[] = {
     MOVE_BEAT_UP,
 };
 
+// List of moves that should not hit twice when user has Parental Bond
+// (https://bulbapedia.bulbagarden.net/wiki/Parental_Bond_(Ability))
+const u16 ParentalBondSingleStrikeMovesList[] = {
+    // One-hit knockout moves
+    MOVE_FISSURE,
+    MOVE_GUILLOTINE,
+    MOVE_HORN_DRILL,
+    MOVE_SHEER_COLD,
+    // No category
+    MOVE_FLING,
+    MOVE_SELF_DESTRUCT,
+    MOVE_EXPLOSION,
+    MOVE_FINAL_GAMBIT,
+    MOVE_UPROAR,
+    MOVE_ROLLOUT,
+    MOVE_ICE_BALL,
+    MOVE_ENDEAVOR,
+    // Moves with a charging turn
+    MOVE_BOUNCE,
+    MOVE_DIG,
+    MOVE_DIVE,
+    // MOVE_ELECTRO_SHOT, // Not implemented yet
+    MOVE_FLY,
+    MOVE_FREEZE_SHOCK,
+    MOVE_GEOMANCY,
+    MOVE_ICE_BURN,
+    MOVE_METEOR_BEAM,
+    MOVE_PHANTOM_FORCE,
+    MOVE_RAZOR_WIND,
+    MOVE_SHADOW_FORCE,
+    MOVE_SKULL_BASH,
+    MOVE_SKY_ATTACK,
+    MOVE_SKY_DROP,
+    MOVE_SOLAR_BEAM,
+    MOVE_SOLAR_BLADE,
+};
+
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
@@ -1515,6 +1552,21 @@ BOOL IsMultiHitMove(struct BattleStruct *sp) {
         }
     }
     return FALSE;
+}
+
+/**
+ * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
+ * @param sp battle structure
+*/
+BOOL IsBannedParentalBondMove(struct BattleStruct *sp) {
+    u8 output = FALSE;
+    for (u16 i = 0; i < NELEMS(ParentalBondSingleStrikeMovesList); i++) {
+        if (sp->current_move_index == ParentalBondSingleStrikeMovesList[i]) {
+            output = TRUE;
+            break;
+        }
+    }
+    return output && IsMultiHitMove(sp);
 }
 
 /**

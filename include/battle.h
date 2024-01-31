@@ -693,7 +693,8 @@ struct __attribute__((packed)) BattlePokemon
                u32 air_ballon_flag : 1;      /**< the held air balloon has printed its message */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
                u32 parental_bond_flag : 2;
-               u32 : 8; // need to add to ClearBattleMonFlags when added to here as well
+               u32 ability_activated_flag : 1;
+               u32 : 7; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -2377,6 +2378,12 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
  * @param sp battle structure
 */
 BOOL IsMultiHitMove(struct BattleStruct *sp);
+
+/**
+ * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
+ * @param sp battle structure
+*/
+BOOL IsBannedParentalBondMove(struct BattleStruct *sp);
 
 /**
  * @brief gets the actual attack and defense for damage calculation
