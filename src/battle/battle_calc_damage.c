@@ -197,14 +197,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     struct sDamageCalc AttackingMon;
     struct sDamageCalc DefendingMon;
 
-    // Handle Body Press
     switch (moveno) {
+        // Handle Body Press - Attack is derived from Defense
         case MOVE_BODY_PRESS:
             attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
+            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
             break;
 
         default:
             attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
             break;
     }
 
@@ -212,17 +214,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     sp_attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
     sp_defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
 
-    switch (moveno) {
-        case MOVE_BODY_PRESS:
-            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
-            break;
-
-        default:
-            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
-            break;
-    }
-
-    atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
