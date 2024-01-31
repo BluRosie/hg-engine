@@ -11,6 +11,7 @@ struct LinkedOverlayList gLinkedOverlayList[] =
     { 63, 131}, // hall of fame - field extension
     { 96, 131}, // pokeathlon - field extension
     {112, 131}, // pokewalker - field extension
+    { 18, 132}, // pokedex - dex extension
 };
 
 
@@ -29,12 +30,12 @@ unloadSecond:
             break;
         }
     }
-    
+
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Freed overlay %d.\n", ovyId);
     debugsyscall(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
-    
+
     for (i = 0; i < NELEMS(gLinkedOverlayList); i++)
     {
         if (gLinkedOverlayList[i].first_id == ovyId)
@@ -117,7 +118,7 @@ loadExtension:
         GF_ASSERT(0);
         return FALSE;
     }
-    
+
     for (i = 0; i < NELEMS(gLinkedOverlayList); i++)
     {
         if (gLinkedOverlayList[i].first_id == ovyId)
@@ -145,6 +146,6 @@ u32 LONG_CALL IsOverlayLoaded(u32 ovyId)
             return 1;
         }
     }
-    
+
     return 0;
 }

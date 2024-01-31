@@ -69,6 +69,7 @@ SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 LDFLAGS = rom.ld -T linker.ld
 LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
 LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
+LDFLAGS_POKEDEX = rom_gen.ld -T linker_pokedex.ld
 ASFLAGS = -mthumb -I ./data
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 
@@ -87,6 +88,8 @@ BATTLE_LINK = $(BUILD)/battle_linked.o
 BATTLE_OUTPUT = $(BUILD)/output_battle.bin
 FIELD_LINK = $(BUILD)/field_linked.o
 FIELD_OUTPUT = $(BUILD)/output_field.bin
+POKEDEX_LINK = $(BUILD)/pokedex_linked.o
+POKEDEX_OUTPUT = $(BUILD)/output_pokedex.bin
 
 
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
@@ -109,6 +112,12 @@ FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
 FIELD_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/field/*.s)
 FIELD_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(FIELD_ASM_SRCS))
 FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
+
+POKEDEX_C_SRCS := $(wildcard $(C_SUBDIR)/pokedex/*.c)
+POKEDEX_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(POKEDEX_C_SRCS))
+POKEDEX_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/pokedex/*.s)
+POKEDEX_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(POKEDEX_ASM_SRCS))
+POKEDEX_OBJS   := $(POKEDEX_C_OBJS) $(POKEDEX_ASM_OBJS) build/thumb_help.d
 
 ## includes
 include data/graphics/pokegra.mk
@@ -220,7 +229,7 @@ $(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
 $(BUILD)/%.o:src/%.c
-	mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle
+	mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -242,7 +251,13 @@ $(BATTLE_LINK):$(BATTLE_OBJS) rom_gen.ld
 $(BATTLE_OUTPUT):$(BATTLE_LINK)
 	$(OBJCOPY) -O binary $< $@
 
-all: $(TOOLS) $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
+$(POKEDEX_LINK):$(POKEDEX_OBJS) rom_gen.ld
+	$(LD) $(LDFLAGS_POKEDEX) -o $@ $(POKEDEX_OBJS)
+
+$(POKEDEX_OUTPUT):$(POKEDEX_LINK)
+	$(OBJCOPY) -O binary $< $@
+
+all: $(TOOLS) $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT) $(POKEDEX_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
@@ -270,7 +285,7 @@ clean_tools:
 	rm -f $(TOOLS)
 
 clean_code:
-	rm -f $(OBJS) $(FIELD_OBJS) $(BATTLE_OBJS) $(LINK) $(OUTPUT)
+	rm -f $(OBJS) $(FIELD_OBJS) $(BATTLE_OBJS) $(POKEDEX_OBJS) $(LINK) $(OUTPUT) rom_gen.ld
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
