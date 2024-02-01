@@ -1215,12 +1215,21 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
  *  @return the target species to evolve into
  */
 u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
-    HandleLoadOverlay(OVERLAY_GETMONEVOLUTION_SPECIFIC, 2);
+    u32 ovyId, target, offset;
+    u16 (*internalFunc)(struct Party *, struct PartyPokemon *, u8, u16, int *);
 
-    u16 (*internalFunc)(struct Party *, struct PartyPokemon *, u8, u16, int *) = (u16 (*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(0x023C0400 | 1);
-    u16 target = internalFunc(party, pokemon, context, usedItem, method_ret);
-    
-    UnloadOverlayByID(OVERLAY_GETMONEVOLUTION_SPECIFIC);
+    if (IsOverlayLoaded(OVERLAY_BATTLE_EXTENSION)) // during battles it needs to be loaded to a separate location.  we have 2 overlays for this
+    {
+        ovyId = OVERLAY_GETMONEVOLUTION_BATTLE;
+        offset = 0x021FBE60 | 1;
+    } else {
+        ovyId = OVERLAY_GETMONEVOLUTION_SPECIFIC;
+        offset = 0x023C0400 | 1;
+    }
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (u16 (*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(offset);
+    target = internalFunc(party, pokemon, context, usedItem, method_ret);
+    UnloadOverlayByID(ovyId);
 
     return target;
 }

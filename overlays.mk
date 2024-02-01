@@ -1,7 +1,8 @@
 LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
 LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
 LDFLAGS_POKEDEX = rom_gen.ld -T linker_pokedex.ld
-LDFLAGS_GETMONEVOLUTION = rom_gen.ld -T linker_funcinternal.ld
+LDFLAGS_GETMONEVOLUTION = rom_gen.ld -T linker_battle.ld
+LDFLAGS_GETMONEVOLUTION_BATTLE = rom_gen.ld -T linker_pokedex.ld
 
 
 BATTLE_LINK = $(BUILD)/battle_linked.o
@@ -16,6 +17,9 @@ OVERLAY_OUTPUTS += $(POKEDEX_OUTPUT)
 GETMONEVOLUTION_LINK = $(BUILD)/getmonevolution_linked.o
 GETMONEVOLUTION_OUTPUT = $(BUILD)/output_getmonevolution.bin
 OVERLAY_OUTPUTS += $(GETMONEVOLUTION_OUTPUT)
+GETMONEVOLUTION_BATTLE_LINK = $(BUILD)/getmonevolution_battle_linked.o
+GETMONEVOLUTION_BATTLE_OUTPUT = $(BUILD)/output_getmonevolution_battle.bin
+OVERLAY_OUTPUTS += $(GETMONEVOLUTION_BATTLE_OUTPUT)
 
 
 BATTLE_C_SRCS := $(wildcard $(C_SUBDIR)/battle/*.c)
@@ -69,3 +73,8 @@ $(GETMONEVOLUTION_LINK):$(GETMONEVOLUTION_OBJS) rom_gen.ld
 $(GETMONEVOLUTION_OUTPUT):$(GETMONEVOLUTION_LINK)
 	$(OBJCOPY) -O binary $< $@
 
+$(GETMONEVOLUTION_BATTLE_LINK):$(GETMONEVOLUTION_OBJS) rom_gen.ld
+	$(LD) $(LDFLAGS_GETMONEVOLUTION_BATTLE) -o $@ $(GETMONEVOLUTION_OBJS)
+
+$(GETMONEVOLUTION_BATTLE_OUTPUT):$(GETMONEVOLUTION_BATTLE_LINK)
+	$(OBJCOPY) -O binary $< $@
