@@ -3,6 +3,7 @@
 #include "../include/battle.h"
 #include "../include/config.h"
 #include "../include/debug.h"
+#include "../include/overlay.h"
 #include "../include/pokemon.h"
 #include "../include/rtc.h"
 #include "../include/save.h"
@@ -39,7 +40,7 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
 
     if (form_no != 0)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -105,7 +106,7 @@ int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
     default:;
         if (form_no != 0)
         {
-            struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+            struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
             ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
             for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -134,7 +135,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
 {
     if (form_no != 0)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
         {
@@ -159,7 +160,7 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 {
     if (mons_no > MAX_MON_NUM)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -254,7 +255,7 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 
         // pat is now treated as the return value.  is initially set as the mons+7, but is adjusted as necessary below
 
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         pat = (7 + mons);
@@ -299,7 +300,7 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
         return GetBoxMonData(ppp, MON_DATA_FORM, NULL);
 
     default:;
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -383,7 +384,7 @@ u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
         } else {
             if (form != 0)
             {
-                struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+                struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
                 ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
                 for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -423,7 +424,7 @@ u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
  */
 u16 LONG_CALL GetPokemonOwNum(u16 species)
 {
-    u16 *sSpeciesToOWGfx = sys_AllocMemory(3, sizeof(u16) * (MAX_MON_NUM+1));
+    u16 *sSpeciesToOWGfx = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * (MAX_MON_NUM+1));
     u16 ret;
 
     ArchiveDataLoad(sSpeciesToOWGfx, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON);
@@ -444,7 +445,7 @@ u16 LONG_CALL GetMonHiddenAbility(u16 species, u32 form)
 {
 #ifdef HIDDEN_ABILITIES
     u16 ability = 0;
-    u16* hiddenAbilityTable = sys_AllocMemory(3, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
+    u16* hiddenAbilityTable = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
 
     species = PokeOtherFormMonsNoGet(species, form);
     ArchiveDataLoad(hiddenAbilityTable, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST);
@@ -539,7 +540,7 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
  */
 u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
 {
-    u16 *baseExpTable = sys_AllocMemory(3, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
+    u16 *baseExpTable = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
     u16 baseExp;
 
     species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
@@ -1119,7 +1120,7 @@ u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
     u16 species;
     u16 i;
 
-    kowaza_list = sys_AllocMemory(3, NUM_EGG_MOVES_TOTAL*2);
+    kowaza_list = sys_AllocMemory(HEAPID_MAIN_HEAP, NUM_EGG_MOVES_TOTAL*2);
     ArchiveDataLoad(kowaza_list, ARC_EGG_MOVES, 0);
 
     n = 0;
@@ -1211,386 +1212,16 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
  *  @param context EVOCTX_* constant deciding which evolution methods to check
  *  @param usedItem item used on the PartyPokemon, if applicable
  *  @param method_ret pointer to an integer to store the evolution method that was used to evolve
- *  @return the target species to evolev into
+ *  @return the target species to evolve into
  */
 u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
-    u16 species;
-    u16 heldItem;
-    u8 level;
-    int i, j;
-    u16 target = SPECIES_NONE;
-    u16 friendship;
-    u32 pid;
-    u8 holdEffect;
-    u8 beauty; // for Feebas, but queried unconditionally.
-    u16 pid_hi = 0;
-    struct Evolution *evoTable;
-    int method_local;
-    u32 form = GetMonData(pokemon, MON_DATA_FORM, NULL);
-    u32 lowkey = 0;
+    HandleLoadOverlay(OVERLAY_GETMONEVOLUTION_SPECIFIC, 2);
 
-    struct PartyPokemon *ppFromParty = NULL;
+    u16 (*internalFunc)(struct Party *, struct PartyPokemon *, u8, u16, int *) = (u16 (*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(0x023C0400 | 1);
+    u16 target = internalFunc(party, pokemon, context, usedItem, method_ret);
+    
+    UnloadOverlayByID(OVERLAY_GETMONEVOLUTION_SPECIFIC);
 
-    species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    heldItem = GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL);
-    pid = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    beauty = GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
-    pid_hi = (u16)((pid & 0xFFFF0000) >> 16);
-    holdEffect = GetItemData(heldItem, ITEM_PARAM_HOLD_EFFECT, 0);
-
-    if (species != SPECIES_KADABRA && holdEffect == HOLD_EFFECT_NO_EVOLVE && context != EVOCTX_ITEM_USE) {
-        return SPECIES_NONE;
-    }
-
-    // Spiky-ear Pichu cannot evolve
-    if (species == SPECIES_PICHU && form == 1) {
-        return SPECIES_NONE;
-    }
-
-    if (method_ret == NULL) {
-        method_ret = &method_local;
-    }
-
-    species = PokeOtherFormMonsNoGet(species, form); // factor in form into species to cover shit like galarian corsola + cap pikachu that can't evolve
-
-    evoTable = sys_AllocMemory(3, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
-    ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, species);
-
-    switch (context) {
-    case EVOCTX_LEVELUP:
-        level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
-        friendship = (u16)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
-        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
-            switch (evoTable[i].method) {
-            case EVO_NONE:
-                break;
-            case EVO_FRIENDSHIP:
-                if (friendship >= 220) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_FRIENDSHIP;
-                }
-                break;
-            case EVO_FRIENDSHIP_DAY:
-                if (IsNighttime() == 0 && friendship >= 220) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_FRIENDSHIP_DAY;
-                }
-                break;
-            case EVO_FRIENDSHIP_NIGHT:
-                if (IsNighttime() == 1 && friendship >= 220) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_FRIENDSHIP_NIGHT;
-                }
-                break;
-            case EVO_LEVEL:
-                if (evoTable[i].param <= level) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL;
-                }
-                break;
-            case EVO_TRADE:
-                break;
-            case EVO_TRADE_ITEM:
-                break;
-            case EVO_STONE:
-                break;
-            case EVO_LEVEL_ATK_GT_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) > GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_ATK_GT_DEF;
-                }
-                break;
-            case EVO_LEVEL_ATK_EQ_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) == GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_ATK_EQ_DEF;
-                }
-                break;
-            case EVO_LEVEL_ATK_LT_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) < GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_ATK_LT_DEF;
-                }
-                break;
-            case EVO_LEVEL_PID_LO:
-                if (evoTable[i].param <= level && pid_hi % 10 < 5) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_PID_LO;
-                }
-                break;
-            case EVO_LEVEL_PID_HI:
-                if (evoTable[i].param <= level && pid_hi % 10 >= 5) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_PID_HI;
-                }
-                break;
-            case EVO_LEVEL_NINJASK:
-                if (evoTable[i].param <= level) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_NINJASK;
-                }
-                break;
-            case EVO_LEVEL_SHEDINJA:
-                *method_ret = EVO_LEVEL_SHEDINJA;
-                break;
-            case EVO_BEAUTY:
-                if (evoTable[i].param <= beauty) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_BEAUTY;
-                }
-                break;
-            case EVO_STONE_MALE:
-                break;
-            case EVO_STONE_FEMALE:
-                break;
-            case EVO_ITEM_DAY:
-                if (IsNighttime() == 0 && evoTable[i].param == heldItem) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_ITEM_DAY;
-                }
-                break;
-            case EVO_ITEM_NIGHT:
-                if (IsNighttime() == 1 && evoTable[i].param == heldItem) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_ITEM_NIGHT;
-                }
-                break;
-            case EVO_HAS_MOVE:
-                if (MonHasMove(pokemon, evoTable[i].param) == TRUE) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_HAS_MOVE;
-                }
-                break;
-            case EVO_OTHER_PARTY_MON:
-                if (party != NULL && PartyHasMon(party, evoTable[i].param) == 1) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_OTHER_PARTY_MON;
-                }
-                break;
-            case EVO_LEVEL_MALE:
-                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_MALE && evoTable[i].param <= level) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_MALE;
-                }
-                break;
-            case EVO_LEVEL_FEMALE:
-                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_FEMALE && evoTable[i].param <= level) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_FEMALE;
-                }
-                break;
-            case EVO_CORONET: // magnetic field at route 43+kanto power plant
-                {
-                    u32 location = gFieldSysPtr->location->mapId;
-
-                    if (location == 45 || location == 18)
-                    {
-                        GET_TARGET_AND_SET_FORM;
-                        *method_ret = EVO_CORONET;
-                    }
-                }
-                break;
-            case EVO_ETERNA: // mossy rock at ilex+viridian forests
-                {
-                    u32 location = gFieldSysPtr->location->mapId;
-
-                    if (location == 117 || location == 147)
-                    {
-                        GET_TARGET_AND_SET_FORM;
-                        *method_ret = EVO_ETERNA;
-                    }
-                }
-                break;
-            case EVO_ROUTE217: // icy rock at ice path+seafoam islands
-                {
-                    u32 location = gFieldSysPtr->location->mapId;
-
-                    if (location == 239 || location == 456)
-                    {
-                        GET_TARGET_AND_SET_FORM;
-                        *method_ret = EVO_ROUTE217;
-                    }
-                }
-                break;
-
-            case EVO_LEVEL_DAY:
-                if (IsNighttime() == 0 && evoTable[i].param <= level) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_DAY;
-                }
-                break;
-            case EVO_LEVEL_NIGHT:
-                if (IsNighttime() == 1 && evoTable[i].param <= level) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_LEVEL_NIGHT;
-                }
-                break;
-            case EVO_LEVEL_DUSK:
-                {
-                    struct RTCTime time;
-                    GF_RTC_CopyTime(&time);
-
-                    if (time.hour == 17 && evoTable[i].param <= level) {
-                        GET_TARGET_AND_SET_FORM;
-                        *method_ret = EVO_LEVEL_DUSK;
-                    }
-                }
-                break;
-            case EVO_LEVEL_RAIN:
-                if (evoTable[i].param <= level)
-                {
-                    u32 weather = Fsys_GetWeather_HandleDiamondDust(gFieldSysPtr, gFieldSysPtr->location->mapId);
-
-                    switch (weather)
-                    {
-                    case WEATHER_SYS_RAIN:
-                    case WEATHER_SYS_HEAVY_RAIN:
-                    case WEATHER_SYS_THUNDER:
-                        GET_TARGET_AND_SET_FORM;
-                        *method_ret = EVO_LEVEL_RAIN;
-                    }
-                }
-                break;
-            case EVO_HAS_MOVE_TYPE:
-                {
-                    int k;
-
-                    for (k = 0; k < 4; k++)
-                    {
-                        if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param)
-                        {
-                            GET_TARGET_AND_SET_FORM;
-                            *method_ret = EVO_HAS_MOVE_TYPE;
-                            break;
-                        }
-                    }
-                }
-                break;
-            case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-                if (evoTable[i].param <= level && party != NULL)
-                {
-                    for (int k = 0; k < 6; k++)
-                    {
-                        if (!CheckIfMonsAreEqual(pokemon, PokeParty_GetMemberPointer(party, k)) // make sure that pancham doesn't satisfy its own requirement
-                         && (GetMonData(PokeParty_GetMemberPointer(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(PokeParty_GetMemberPointer(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
-                        {
-                            GET_TARGET_AND_SET_FORM;
-                            *method_ret = EVO_LEVEL_DARK_TYPE_MON_IN_PARTY;
-                            break;
-                        }
-                    }
-                }
-                break;
-            case EVO_LEVEL_NATURE_LOW_KEY:
-                lowkey = 1;
-                FALLTHROUGH;
-            case EVO_LEVEL_NATURE_AMPED:
-                if (evoTable[i].param <= level)
-                {
-                    // toxel evolution disrespects nature mints
-                    u32 nature = GetNatureFromPersonality(GetMonData(pokemon, MON_DATA_PERSONALITY, NULL));
-                    switch (nature)
-                    {
-                    case NATURE_ADAMANT:
-                    case NATURE_BRAVE:
-                    case NATURE_DOCILE:
-                    case NATURE_HARDY:
-                    case NATURE_HASTY:
-                    case NATURE_IMPISH:
-                    case NATURE_JOLLY:
-                    case NATURE_LAX:
-                    case NATURE_NAIVE:
-                    case NATURE_NAUGHTY:
-                    case NATURE_QUIRKY:
-                    case NATURE_RASH:
-                    case NATURE_SASSY:
-                        if (lowkey == 0) // for the amped evo method
-                        {
-                            GET_TARGET_AND_SET_FORM;
-                            *method_ret = EVO_LEVEL_NATURE_AMPED;
-                        }
-                        break;
-                    default:
-                        if (lowkey == 1) // for the lowkey evo method
-                        {
-                            GET_TARGET_AND_SET_FORM;
-                            *method_ret = EVO_LEVEL_NATURE_LOW_KEY;
-                        }
-                        break;
-                    }
-                }
-                break;
-            case EVO_AMOUNT_OF_CRITICAL_HITS: // needs to hit an amount of critical hits in a battle in one go.  need to log critical hits somewhere else
-                if (GET_MON_CRITICAL_HIT_EVOLUTION_BIT(pokemon))
-                {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_AMOUNT_OF_CRITICAL_HITS;
-                }
-                break;
-            case EVO_HURT_IN_BATTLE_AMOUNT:
-                {
-                    u32 hp = GetMonData(pokemon, MON_DATA_HP, NULL), maxhp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
-
-                    if (hp && (maxhp - hp) >= evoTable[i].param) // if the mon has evoTable[i].param hp less than its max
-                    {
-                        GET_TARGET_AND_SET_FORM;
-                        *method_ret = EVO_HURT_IN_BATTLE_AMOUNT;
-                    }
-                }
-                break;
-            }
-            if (target != SPECIES_NONE) {
-                break;
-            }
-        }
-        break;
-    case EVOCTX_TRADE:
-        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
-            switch (evoTable[i].method) {
-            case EVO_TRADE:
-                GET_TARGET_AND_SET_FORM;
-                *method_ret = EVO_TRADE;
-                break;
-            case EVO_TRADE_ITEM:
-                if (heldItem == evoTable[i].param) {
-                    GET_TARGET_AND_SET_FORM;
-                    *method_ret = EVO_TRADE_ITEM;
-                }
-                break;
-            //case EVO_TRADE_SPECIFIC_MON: // need to figure out how to deduce tradedSpecies
-            //    if (tradedSpecies == evoTable[i].param) {
-            //        GET_TARGET_AND_SET_FORM;
-            //        *method_ret = EVO_TRADE_SPECIFIC_MON;
-            //    }
-            //    break;
-            }
-            if (target != SPECIES_NONE) {
-                break;
-            }
-        }
-        break;
-    case EVOCTX_ITEM_CHECK:
-    case EVOCTX_ITEM_USE:
-        for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
-            if (evoTable[i].method == EVO_STONE && usedItem == evoTable[i].param) {
-                GET_TARGET_AND_SET_FORM;
-                *method_ret = 0;
-                break;
-            }
-            if (evoTable[i].method == EVO_STONE_MALE && GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_MALE && usedItem == evoTable[i].param) {
-                GET_TARGET_AND_SET_FORM;
-                *method_ret = 0;
-                break;
-            }
-            if (evoTable[i].method == EVO_STONE_FEMALE && GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_FEMALE && usedItem == evoTable[i].param) {
-                GET_TARGET_AND_SET_FORM;
-                *method_ret = 0;
-                break;
-            }
-        }
-        break;
-    }
-    sys_FreeMemoryEz(evoTable);
     return target;
 }
 
@@ -1663,7 +1294,7 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 
     ret = get_ow_data_file_num(species) + adjustment;
 
-    u8 *form_table = sys_AllocMemory(3, MAX_MON_NUM);
+    u8 *form_table = sys_AllocMemory(HEAPID_MAIN_HEAP, MAX_MON_NUM);
     ArchiveDataLoad(form_table, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON);
 
     if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
@@ -1884,7 +1515,7 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 
     if (form_no != 0)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(3, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)

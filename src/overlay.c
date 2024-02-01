@@ -2,16 +2,17 @@
 #include "../include/debug.h"
 #include "../include/overlay.h"
 #include "../include/save.h"
+#include "../include/constants/file.h"
 
 
 struct LinkedOverlayList gLinkedOverlayList[] =
 {
-    { 12, 130}, // battle - battle extension
-    {  1, 131}, // field - field extension
-    { 63, 131}, // hall of fame - field extension
-    { 96, 131}, // pokeathlon - field extension
-    {112, 131}, // pokewalker - field extension
-    { 18, 132}, // pokedex - dex extension
+    {OVERLAY_BATTLE, OVERLAY_BATTLE_EXTENSION},
+    {OVERLAY_FIELD, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_HALL_OF_FAME, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_POKEATHLON, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_POKEWALKER, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_POKEDEX, OVERLAY_POKEDEX_EXTENSION},
 };
 
 
@@ -24,7 +25,7 @@ void LONG_CALL UnloadOverlayByID(u32 ovyId) {
 
 unloadSecond:
     table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++) {
         if (table[i].active == TRUE && table[i].id == ovyId) {
             FreeOverlayAllocation(&table[i]);
             break;
@@ -69,7 +70,7 @@ loadExtension:
     overlayRegion = GetOverlayLoadDestination(ovyId);
     loadedOverlays = GetLoadedOverlaysInRegion(overlayRegion);
 
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++) {
         if (loadedOverlays[i].active == FALSE) {
             PMiLoadedOverlay *ovy = &loadedOverlays[i];
             ovy->active = TRUE;
@@ -83,7 +84,7 @@ loadExtension:
     debugsyscall(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
 
-    if (i >= 8) {
+    if (i >= MAX_ACTIVE_OVERLAYS) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
         debugsyscall("ERROR: Too many overlays!\n");
 #endif // DEBUG_PRINT_OVERLAY_LOADS
@@ -145,7 +146,7 @@ u32 LONG_CALL IsOverlayLoaded(u32 ovyId)
 {
     PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < MAX_ACTIVE_OVERLAYS; i++) {
         if (table[i].active == TRUE && table[i].id == ovyId) {
             return 1;
         }

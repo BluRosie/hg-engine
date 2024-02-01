@@ -67,9 +67,6 @@ SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T linker.ld
-LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
-LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
-LDFLAGS_POKEDEX = rom_gen.ld -T linker_pokedex.ld
 ASFLAGS = -mthumb -I ./data
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 
@@ -84,13 +81,6 @@ FILESYS := $(BASE)/root
 
 LINK = $(BUILD)/linked.o
 OUTPUT = $(BUILD)/output.bin
-BATTLE_LINK = $(BUILD)/battle_linked.o
-BATTLE_OUTPUT = $(BUILD)/output_battle.bin
-FIELD_LINK = $(BUILD)/field_linked.o
-FIELD_OUTPUT = $(BUILD)/output_field.bin
-POKEDEX_LINK = $(BUILD)/pokedex_linked.o
-POKEDEX_OUTPUT = $(BUILD)/output_pokedex.bin
-
 
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
 
@@ -101,29 +91,12 @@ ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(ASM_SRCS))
 OBJS     := $(C_OBJS) $(ASM_OBJS)
 
-BATTLE_C_SRCS := $(wildcard $(C_SUBDIR)/battle/*.c)
-BATTLE_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(BATTLE_C_SRCS))
-BATTLE_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/battle/*.s)
-BATTLE_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(BATTLE_ASM_SRCS))
-BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS) build/thumb_help.d
-
-FIELD_C_SRCS := $(wildcard $(C_SUBDIR)/field/*.c)
-FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
-FIELD_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/field/*.s)
-FIELD_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(FIELD_ASM_SRCS))
-FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
-
-POKEDEX_C_SRCS := $(wildcard $(C_SUBDIR)/pokedex/*.c)
-POKEDEX_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(POKEDEX_C_SRCS))
-POKEDEX_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/pokedex/*.s)
-POKEDEX_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(POKEDEX_ASM_SRCS))
-POKEDEX_OBJS   := $(POKEDEX_C_OBJS) $(POKEDEX_ASM_OBJS) build/thumb_help.d
-
 ## includes
 include data/graphics/pokegra.mk
 include data/itemdata/itemdata.mk
 include data/codetables.mk
 include narcs.mk
+include overlays.mk
 
 ####################### Build Tools #######################
 MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
@@ -229,7 +202,7 @@ $(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
 $(BUILD)/%.o:src/%.c
-	mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex
+	@mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex $(BUILD)/individual
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -239,25 +212,7 @@ $(LINK):$(OBJS)
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
-$(FIELD_LINK):$(FIELD_OBJS) rom_gen.ld
-	$(LD) $(LDFLAGS_FIELD) -o $@ $(FIELD_OBJS)
-
-$(FIELD_OUTPUT):$(FIELD_LINK)
-	$(OBJCOPY) -O binary $< $@
-
-$(BATTLE_LINK):$(BATTLE_OBJS) rom_gen.ld
-	$(LD) $(LDFLAGS_BATTLE) -o $@ $(BATTLE_OBJS)
-
-$(BATTLE_OUTPUT):$(BATTLE_LINK)
-	$(OBJCOPY) -O binary $< $@
-
-$(POKEDEX_LINK):$(POKEDEX_OBJS) rom_gen.ld
-	$(LD) $(LDFLAGS_POKEDEX) -o $@ $(POKEDEX_OBJS)
-
-$(POKEDEX_OUTPUT):$(POKEDEX_LINK)
-	$(OBJCOPY) -O binary $< $@
-
-all: $(TOOLS) $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT) $(POKEDEX_OUTPUT)
+all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
