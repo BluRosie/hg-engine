@@ -2448,6 +2448,35 @@ void LONG_CALL ClearMonMoves(struct PartyPokemon *pokemon)
     }
 }
 
+/**
+ *  @brief hatch a PartyPokemon--creates a new PartyPokemon and initializes a few characteristics
+ *
+ *  @param pokemon PartyPokemon that is hatching
+ *  @param heapId heap whose memory to use
+ */
+void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
+{
+    u16 nickname[11 + 1];
+    u8 isEgg = 70;
+    u8 hasNickname = FALSE;
+    u8 pokeball = 4; // poke ball
+    u8 metLevel = 0;
+
+    u16 dummy_p2_1 = GetMonData(pokemon, MON_DATA_RESERVED_113, NULL); // hidden ability field
+
+    sub_0206D038(pokemon, heapId); // carries over egg values to a clean mon
+    SetMonData(pokemon, MON_DATA_IS_EGG, &isEgg);
+    GetSpeciesNameIntoArray(GetMonData(pokemon, MON_DATA_SPECIES, NULL), 0, nickname);
+    SetMonData(pokemon, MON_DATA_NICKNAME, nickname);
+    SetMonData(pokemon, MON_DATA_HAS_NICKNAME, &hasNickname);
+    SetMonData(pokemon, MON_DATA_POKEBALL, &pokeball);
+    SetMonData(pokemon, MON_DATA_MET_LEVEL, &metLevel);
+    SetMonData(pokemon, MON_DATA_RESERVED_113, &dummy_p2_1);
+    RecalcPartyPokemonStats(pokemon);
+
+    ResetPartyPokemonAbility(pokemon);
+}
+
 
 #define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM+1)
 

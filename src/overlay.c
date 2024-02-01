@@ -59,6 +59,10 @@ u32 LONG_CALL HandleLoadOverlay(u32 ovyId, u32 loadType) {
 
 loadExtension:
     if (!CanOverlayBeLoaded(ovyId)) {
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+        sprintf(buf, "ERROR: Can't load in overlay_%04d.bin.\n", ovyId);
+        debugsyscall(buf);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
         return FALSE;
     }
 
