@@ -1208,7 +1208,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                         if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
-                            sp->client_work = client_no;
+                            sp->attack_client = client_no;
                             scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
                             break;
                         }
