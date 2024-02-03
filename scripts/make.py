@@ -43,13 +43,16 @@ else:  # Linux, OSX, etc.
 OUTPUT = 'build/output.bin'
 OUTPUT_FIELD = 'build/output_field.bin'
 OUTPUT_BATTLE = 'build/output_battle.bin'
+OUTPUT_POKEDEX = 'build/output_pokedex.bin'
+OUTPUT_GETMONEVOLUTION = 'build/output_getmonevolution.bin'
+OUTPUT_GETMONEVOLUTION_BATTLE = 'build/output_getmonevolution_battle.bin'
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
 ARM_HOOKS = 'armhooks'
 REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
-LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o']
+LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o', 'build/pokedex_linked.o']
 OFFSET_START_IN_129 = 0x600
 
 def ExtractPointer(byteList: [bytes]):
@@ -360,6 +363,30 @@ def writeall():
     OFFECTSFILES = "base/overlay/overlay_0131.bin"
     with open(OFFECTSFILES, 'wb+') as rom:
         with open(OUTPUT_FIELD, 'rb') as binary:
+            rom.seek(0)
+            rom.write(binary.read())
+            binary.close()
+        rom.close()
+
+    OFFECTSFILES = "base/overlay/overlay_0132.bin"
+    with open(OFFECTSFILES, 'wb+') as rom:
+        with open(OUTPUT_POKEDEX, 'rb') as binary:
+            rom.seek(0)
+            rom.write(binary.read())
+            binary.close()
+        rom.close()
+
+    OFFECTSFILES = "base/overlay/overlay_0133.bin"
+    with open(OFFECTSFILES, 'wb+') as rom:
+        with open(OUTPUT_GETMONEVOLUTION, 'rb') as binary:
+            rom.seek(0)
+            rom.write(binary.read())
+            binary.close()
+        rom.close()
+
+    OFFECTSFILES = "base/overlay/overlay_0134.bin"
+    with open(OFFECTSFILES, 'wb+') as rom:
+        with open(OUTPUT_GETMONEVOLUTION_BATTLE, 'rb') as binary:
             rom.seek(0)
             rom.write(binary.read())
             binary.close()
