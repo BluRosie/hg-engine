@@ -9,9 +9,9 @@
 // sequence. To update that text, modify text archive 190 in
 // DSPRE.
 .macro STARTER_CHOICES
-    .word SPECIES_CHIKORITA
-    .word SPECIES_CYNDAQUIL
-    .word SPECIES_TOTODILE
+    .word SPECIES_BULBASAUR
+    .word SPECIES_CHARMANDER
+    .word SPECIES_SQUIRTLE
 .endmacro
 
 .open "base/arm9.bin", 0x02000000
