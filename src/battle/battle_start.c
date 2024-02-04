@@ -448,10 +448,6 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             !IsBannedParentalBondMove(sp)) {
                 sp->battlemon[sp->attack_client].parental_bond_flag = 1;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARENTAL_BOND);
-                // runMyScriptInstead = 1;
-                // LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
-                // sp->msg_work = sp->battlemon[sp->attack_client].type1;
-                // sp->client_work = sp->attack_client;
                 runMyScriptInstead = 1;
             } else {
                 sp->wb_seq_no = 0;

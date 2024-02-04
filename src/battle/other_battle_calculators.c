@@ -159,6 +159,8 @@ const u16 ParentalBondSingleStrikeMovesList[] = {
     MOVE_SKY_DROP,
     MOVE_SOLAR_BEAM,
     MOVE_SOLAR_BLADE,
+    //Special case handled inside effect script for hg-engine
+    MOVE_PRESENT,
 };
 
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
@@ -183,6 +185,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
      && sp->moveTbl[move_no].power != 0) // move actually damages
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        sp->battlemon[attacker].parental_bond_flag = 0;
         return FALSE;
     }
 
@@ -192,6 +195,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
      && (attacker & 1) != (defender & 1)) // used on an enemy
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
+        sp->battlemon[attacker].parental_bond_flag = 0;
         return FALSE;
     }
 
@@ -206,6 +210,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             )
             {
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
+                sp->battlemon[attacker].parental_bond_flag = 0;
                 return FALSE;
             }
         }
@@ -377,6 +382,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if (((BattleRand(bw) % 100) + 1) > accuracy)
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        sp->battlemon[attacker].parental_bond_flag = 0;
     }
 
     return FALSE;
@@ -1124,6 +1130,7 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
      && (eqp_d != HOLD_EFFECT_HALVE_SPEED)) // iron ball halves speed and grounds
     {
         flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
+        sp->battlemon[attack_client].parental_bond_flag = 0;
     }
     else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
@@ -1132,6 +1139,7 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
           && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
+        sp->battlemon[attack_client].parental_bond_flag = 0;
     }
     else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
@@ -1140,6 +1148,7 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
           && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS; // air balloon just misses for the moment
+        sp->battlemon[attack_client].parental_bond_flag = 0;
     }
     else
     {
@@ -1194,6 +1203,7 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
      && (base_power))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;
+        sp->battlemon[attack_client].parental_bond_flag = 0;
     }
     else
     {
@@ -1566,7 +1576,7 @@ BOOL IsBannedParentalBondMove(struct BattleStruct *sp) {
             break;
         }
     }
-    return output && IsMultiHitMove(sp);
+    return output || IsMultiHitMove(sp);
 }
 
 /**
