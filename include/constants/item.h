@@ -821,7 +821,34 @@
 #define ITEM_SYLPH_SCOPE        (ITEM_PIXIE_PLATE + 185)
 #define ITEM_TEA                (ITEM_PIXIE_PLATE + 186)
 
+//Mints
+#define IS_ITEM_NATURE_MINT(item) (item >= ITEM_LONELY_MINT && item <= ITEM_SERIOUS_MINT)
+
+#define ITEM_LONELY_MINT        (ITEM_PIXIE_PLATE + 187)
+#define ITEM_ADAMANT_MINT       (ITEM_PIXIE_PLATE + 188)
+#define ITEM_NAUGHTY_MINT       (ITEM_PIXIE_PLATE + 189)
+#define ITEM_BRAVE_MINT         (ITEM_PIXIE_PLATE + 190)
+#define ITEM_BOLD_MINT          (ITEM_PIXIE_PLATE + 191)
+#define ITEM_IMPISH_MINT        (ITEM_PIXIE_PLATE + 192)
+#define ITEM_LAX_MINT           (ITEM_PIXIE_PLATE + 193)
+#define ITEM_RELAXED_MINT       (ITEM_PIXIE_PLATE + 194)
+#define ITEM_MODEST_MINT        (ITEM_PIXIE_PLATE + 195)
+#define ITEM_MILD_MINT          (ITEM_PIXIE_PLATE + 196)
+#define ITEM_RASH_MINT          (ITEM_PIXIE_PLATE + 197)
+#define ITEM_QUIET_MINT         (ITEM_PIXIE_PLATE + 198)
+#define ITEM_CALM_MINT          (ITEM_PIXIE_PLATE + 199)
+#define ITEM_GENTLE_MINT        (ITEM_PIXIE_PLATE + 200)
+#define ITEM_CAREFUL_MINT       (ITEM_PIXIE_PLATE + 201)
+#define ITEM_SASSY_MINT         (ITEM_PIXIE_PLATE + 202)
+#define ITEM_TIMID_MINT         (ITEM_PIXIE_PLATE + 203)
+#define ITEM_HASTY_MINT         (ITEM_PIXIE_PLATE + 204)
+#define ITEM_JOLLY_MINT         (ITEM_PIXIE_PLATE + 205)
+#define ITEM_NAIVE_MINT         (ITEM_PIXIE_PLATE + 206)
+#define ITEM_SERIOUS_MINT       (ITEM_PIXIE_PLATE + 207)
+
 #define NUM_MEGA_STONES 48 // includes the pixie plate
+
+#define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_PSYCHIC_SEED)
 
 #define NUM_UNKNOWN_SLOTS 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c

@@ -101,3 +101,31 @@ u32 LONG_CALL sqrt(u32 num)
 
     return reg_CP_SQRT_RESULT;
 }
+
+
+#ifdef DEBUG_PRINT_HEX_DUMP // will never pass ideally
+void LONG_CALL HexDumpMemory(u8 *start, u32 size)
+{
+    u8 buf[64];
+    for (int i = 0x0; i < size; i += 0x10)
+    {
+        sprintf(buf, "\n%08X:  ", (u32)&start[i]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+0], start[i+1]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+2], start[i+3]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+4], start[i+5]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+6], start[i+7]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+8], start[i+9]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+0xA], start[i+0xB]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+0xC], start[i+0xD]);
+        debugsyscall(buf);
+        sprintf(buf, "%02X %02X ", start[i+0xE], start[i+0xF]);
+    }
+}
+#endif

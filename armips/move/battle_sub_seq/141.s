@@ -22,10 +22,16 @@ a001_141:
 _checkFlowerVeil:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
-    goto _0058
+    goto CheckIfGrounded
 _checkGrassTypeForFlowerVeil:
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _printAttackIntoNoEffectFlowerVeil
+CheckIfGrounded:
+    ifgrounded BATTLER_ADDL_EFFECT, CheckElectricOrMistyTerrain
+    goto _0058
+CheckElectricOrMistyTerrain:
+    ifterrainoverlayistype ELECTRIC_TERRAIN, ElectricOrMistyTerrainFail
+    ifterrainoverlayistype ELECTRIC_TERRAIN, ElectricOrMistyTerrainFail
 
 _0058:
     printattackmessage
@@ -71,5 +77,9 @@ _printAttackIntoNoEffectFlowerVeil:
     wait 0x1E
     printmessage 734, TAG_NICK_ABILITY, BATTLER_ALLY | BATTLER_ADDL_EFFECT, BATTLER_ALLY | BATTLER_ADDL_EFFECT, "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it ineffective!
     goto _0168
+
+ElectricOrMistyTerrainFail:
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
+    endscript
 
 .close

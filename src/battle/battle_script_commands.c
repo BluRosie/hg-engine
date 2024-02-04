@@ -54,6 +54,14 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E3_isuserlowerlevel(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E4_settailwind(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E7_ifmovepowergreaterthanzero(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E8_ifgrounded(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_E9_checkifcurrentadjustedmoveistype(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EA_ifcontactmove(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EB_ifsoundmove(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -294,6 +302,14 @@ const u8 *BattleScrCmdNames[] =
     "isuserlowerlevel",
     "settailwind",
     "iftailwindactive",
+    "ifcurrentfieldistype",
+    "ifmovepowergreaterthanzero",
+    "ifgrounded",
+    "checkifcurrentadjustedmoveistype",
+    "ifcontactmove",
+    "ifsoundmove",
+    "updateterrainoverlay",
+    "ifterrainoverlayistype",
 };
 
 u32 cmdAddress = 0;
@@ -307,9 +323,15 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xE3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E3_isuserlowerlevel,
     [0xE4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E4_settailwind,
     [0xE5 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E5_iftailwindactive,
+    [0xE6 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E6_ifcurrentfieldistype,
+    [0xE7 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E7_ifmovepowergreaterthanzero,
+    [0xE8 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E8_ifgrounded,
+    [0xE9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_E9_checkifcurrentadjustedmoveistype,
+    [0xEA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EA_ifcontactmove,
+    [0xEB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EB_ifsoundmove,
+    [0xEC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EC_updateterrainoverlay,
+    [0xED - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_ED_ifterrainoverlayistype
 };
-
-
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
 u16 sMetronomeMimicMoveBanList[] =
@@ -894,7 +916,7 @@ BOOL Link_QueueIsEmpty(struct BattleStruct *sp) {
             }
         }
     }
-    
+
     if (cnt == 0) {
         sp->server_queue_time_out = 0;
     }
@@ -1178,13 +1200,8 @@ u8 scratchpad[4] = {0, 0, 0, 0};
 
 #define monCount scratchpad[0]
 #define monCountFromItem scratchpad[1]
+#define trackPartyExperience scratchpad[2]
 
-/**
- *  @brief task to distribute experience
- *
- *  @param arg0 task structure
- *  @param work exp calculator structure
- */
 /**
  *  @brief task to distribute experience
  *
@@ -1244,6 +1261,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 goto _skipAllThis;
             item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
             eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+
             if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
             {
                 break;
@@ -1426,6 +1444,37 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
     for (int i = 0; i < (s32)NELEMS(store_work_params); i++)
     {
         expcalc->work[i] = store_work_params[i];
+    }
+
+    if (expcalc->seq_no == 0) // set first pokemon gaining experience to a specific one so that it doesn't try to give experience to something that doesn't need it
+    {
+        int sel_mons_no, item, eqp;
+        struct PartyPokemon *pp;
+
+        // grab the pokémon that is actually gaining the experience, factor in experience share here because i don't want to expose the whole main task
+        for (sel_mons_no = 0; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, 0); sel_mons_no++)
+        {
+            if (!(trackPartyExperience & No2Bit(sel_mons_no))) // if party index has not already been looped over
+            {
+                pp = BattleWorkPokemonParamGet(expcalc->bw, 0, sel_mons_no);
+                if (pp == NULL)
+                {
+                    expcalc->work[6] = BattleWorkPokeCountGet(expcalc->bw, 0);
+                    break;
+                }
+                item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+                eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+
+                if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[(expcalc->sp->fainting_client >> 1) & 1] & No2Bit(sel_mons_no)))
+                {
+                    expcalc->work[6] = sel_mons_no;
+                    trackPartyExperience |= No2Bit(sel_mons_no);
+                    break;
+                }
+            }
+        }
+        if (sel_mons_no >= BattleWorkPokeCountGet(expcalc->bw, 0)) // invalid party index will end the task
+            expcalc->work[6] = sel_mons_no;
     }
 
     // third step:  run current step of exp distribution
@@ -1649,9 +1698,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     // specifically for flower veil, we know that one of the Pokémon have flower veil.  we need to change the client that it prints the ability of to the flower veil client
                     u32 flower_veil_client;
-                    
+
                     flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
-                    
+
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
@@ -1744,7 +1793,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     flag = 1;
                 }
-                else if (sp->battlemon[sp->state_client].condition2 & STATUS2_FLAG_SUBSTITUTE)
+                else if (sp->battlemon[sp->state_client].condition2 & STATUS2_SUBSTITUTE)
                 {
                     flag = 2;
                 }
@@ -1925,7 +1974,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     int species, form, number_of_hits;
     s32 newBaseDamage;
     struct PartyPokemon *mon;
-    
+
     IncrementBattleScriptPtr(sp, 1);
 
     int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
@@ -1935,20 +1984,20 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
         sp->multi_hit_count_temp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
         while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 || 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0|| 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 || 
+                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
                 GetMonData(mon, MON_DATA_STATUS, 0) != 0))
                 {
 
             sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count); 
-        
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+
         }
-    }   
+    }
 
     mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
     species = GetMonData(mon, MON_DATA_SPECIES, 0);
@@ -1964,13 +2013,13 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     number_of_hits = sp->beat_up_count;
 
     if (sp->beat_up_count < partyCount) {
-        
+
         mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
         while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 || 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 || 
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 || 
+                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
                 GetMonData(mon, MON_DATA_STATUS, 0) != 0))
                 {
 
@@ -1983,7 +2032,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
                 break;
             }
 
-        } 
+        }
     } else {
         sp->multi_hit_count = 1;
         sp->multi_hit_count_temp = number_of_hits;
@@ -2289,6 +2338,226 @@ BOOL btl_scr_cmd_E5_iftailwindactive(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+/**
+ *  @brief script command to jump somewhere if the current field is equal to the param
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E6_ifcurrentfieldistype(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    u32 terrain = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    if (BattleWorkGroundIDGet(bw) == terrain && sp->terrainOverlay.type == TERRAIN_NONE) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if move power is > 0
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E7_ifmovepowergreaterthanzero(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int address = read_battle_script_param(sp);
+
+    if (sp->moveTbl[sp->current_move_index].power > 0) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param client_no resolved battler
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL IsClientGrounded(struct BattleStruct *sp, u32 client_no) {
+    u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
+
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
+         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
+        (holdeffect == HOLD_EFFECT_HALVE_SPEED                                     // holding Iron Ball
+         || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
+         || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+        // not in a semi-vulnerable state
+        if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the mon is grounded
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E8_ifgrounded(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    u32 client_no = read_battle_script_param(sp);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, client_no);
+    u32 address = read_battle_script_param(sp);
+
+    if(IsClientGrounded(sp, client_no)) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current move is a certain type
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_E9_checkifcurrentadjustedmoveistype(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int type = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    int movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
+    // sp->moveTbl[sp->current_move_index].type
+    if (type == movetype) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current move is a contact move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int address = read_battle_script_param(sp);
+
+    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current move is a sound move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int address = read_battle_script_param(sp);
+
+    if (IsMoveSoundBased(sp->current_move_index)) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to update the terrain overlay
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    u8 endTerrainFlag = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+    int client_set_max;
+    int client_no;
+
+    enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
+
+    switch (sp->current_move_index) {
+        case MOVE_GRASSY_TERRAIN:
+            sp->terrainOverlay.type = GRASSY_TERRAIN;
+            break;
+        case MOVE_MISTY_TERRAIN:
+            sp->terrainOverlay.type = MISTY_TERRAIN;
+            break;
+        case MOVE_ELECTRIC_TERRAIN:
+            sp->terrainOverlay.type = ELECTRIC_TERRAIN;
+            break;
+        case MOVE_PSYCHIC_TERRAIN:
+            sp->terrainOverlay.type = PSYCHIC_TERRAIN;
+            break;
+        default:
+            // I think this could work for moves that remove terrain
+            sp->terrainOverlay.type = TERRAIN_NONE;
+            break;
+    }
+
+    if (endTerrainFlag == TRUE) {
+        sp->terrainOverlay.type = TERRAIN_NONE;
+    }
+
+    // if the new terrain is the same as the old one, the move should fail
+    if (oldTerrainOverlay == sp->terrainOverlay.type) {
+        IncrementBattleScriptPtr(sp, address);
+    } else {
+        if (sp->terrainOverlay.type != TERRAIN_NONE) {
+            // TODO: handle item effects
+            sp->terrainOverlay.numberOfTurnsLeft = 5;
+        } else {
+            sp->terrainOverlay.numberOfTurnsLeft = 0;
+        }
+    }
+
+    client_set_max = BattleWorkClientSetMaxGet(bw);
+
+    if (sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
+        for (int i = 0; i < client_set_max; i++) {
+            client_no = sp->turn_order[i];
+            if (IsClientGrounded(sp, client_no)) {
+                sp->battlemon[client_no].effect_of_moves &= ~(MOVE_EFFECT_YAWN_COUNTER);
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current terrain overlay is equal to the param
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    u8 terrainOverlayType = read_battle_script_param(sp);
+    int address = read_battle_script_param(sp);
+
+    if (sp->terrainOverlay.type == terrainOverlayType) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
 
 extern u8 gSafariBallRateTable[13][2];
 u16 MoonBallSpecies[] =

@@ -25,20 +25,20 @@ void __attribute__((long_call)) BGCallback_Waza(struct BI_PARAM *bip, int select
 
 
 
-// new battle structure with a few overlay 12 global things that can be accessed.  
+// new battle structure with a few overlay 12 global things that can be accessed.
 struct newBattleStruct newBS = {0};
 
 // icon sprite tags to keep track of things
-#define MEGA_ICON_SPRITE_TAG 20050
-#define MEGA_ICON_PAL_TAG 20051
-#define MEGA_ICON_CELL_TAG 20052
-#define MEGA_ICON_CELL_ANIM_TAG 20053
-#define MEGA_BUTTON_SPRITE_TAG 20054
-#define MEGA_BUTTON_PAL_TAG 20055
-#define WEATHER_ICON_SPRITE_TAG 20056
-#define WEATHER_ICON_PAL_TAG 20057
-#define WEATHER_ICON_CELL_TAG 20058
-#define WEATHER_ICON_CELL_ANIM_TAG 20059
+#define MEGA_ICON_SPRITE_TAG 22050
+#define MEGA_ICON_PAL_TAG 22051
+#define MEGA_ICON_CELL_TAG 22052
+#define MEGA_ICON_CELL_ANIM_TAG 22053
+#define MEGA_BUTTON_SPRITE_TAG 22054
+#define MEGA_BUTTON_PAL_TAG 22055
+#define WEATHER_ICON_SPRITE_TAG 22056
+#define WEATHER_ICON_PAL_TAG 22057
+#define WEATHER_ICON_CELL_TAG 22058
+#define WEATHER_ICON_CELL_ANIM_TAG 22059
 
 // values to return when rectangle is touched
 #define TOUCH_DATA_CANCEL 0
@@ -100,7 +100,7 @@ const u8 DPadSelectTouchDataIndex[] = { // dpad touch data index
     0, 5,
 };
 
-static const OAMSpriteTemplate PokeIconObjParam = {
+static const OAMSpriteTemplate MegaIconObjParam = {
     155,
     161,
     0, //x, y, z
@@ -182,17 +182,20 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 
     OAM_LoadResourceCellAnmArc(csp, crp, ARC_POKEICON, PokeIconAnmCellAnmArcIndexGet(), 0, 20021);
 
-    if (CheckIsPrimalGroudon(bip))
+    if (bip->client_no < CLIENT_MAX) // when in the fight screen, the client_no gets set to a crazy value.  do not load a different palette until the next mon is selected and client_no has returned to a sane value
     {
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
-    }
-    else if (CheckIsPrimalKyogre(bip))
-    {
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
-    }
-    else
-    {
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        if (CheckIsPrimalGroudon(bip))
+        {
+            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        }
+        else if (CheckIsPrimalKyogre(bip))
+        {
+            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        }
+        else if (CheckIsMega(bip))
+        {
+            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+        }
     }
 
     OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
@@ -268,11 +271,14 @@ void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
         CATS_ActorPointerDelete_S(newBS.MegaButton);
         newBS.MegaButton = NULL;
         if (newBS.MegaIconLight)
-            newBS.playerWantMega = 1;
+        {
+            newBS.playerWantMega = No2Bit(bip->client_no_fight_screen); // determine which party pos queued up the mega for cases where the player is in control of 2 clients
+        }
         else
-            newBS.playerWantMega = 0;
+            newBS.playerWantMega = FALSE;
         newBS.MegaIconLight = 0;
     }
+
 
 
     if (newBS.weather & WEATHER_ANY_ICONS)
@@ -302,6 +308,8 @@ void LoadMegaIcon(struct BI_PARAM *bip)
     void *csp;
     void *crp;
 
+    OAMSpriteTemplate template = MegaIconObjParam; // memcpy should handle this
+
     newBS.CanMega = CheckCanDrawMegaButton(bip);
     if (!newBS.MegaOAM && CheckIsMega(bip))
     {
@@ -309,7 +317,9 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
         OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
-        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+        if (bip->client_no != 0)
+            template.x = 103;
+        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
     else if (!newBS.MegaOAM && CheckIsPrimalGroudon(bip))
@@ -318,7 +328,9 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
         OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
-        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+        if (bip->client_no != 0)
+            template.x = 101;
+        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
     else if (!newBS.MegaOAM && CheckIsPrimalKyogre(bip))
@@ -327,7 +339,9 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
         OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
-        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &PokeIconObjParam);
+        if (bip->client_no != 0)
+            template.x = 101;
+        newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
 

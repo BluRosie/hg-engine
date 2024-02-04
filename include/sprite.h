@@ -55,17 +55,20 @@ typedef struct
 
 struct BI_PARAM
 {
-    /*0*/ struct BattleSystem *bw; // battle work structure that is only partially defined
-    void *unk1;
-    void *unk2;
-    void *unk3;
-    void *unk4;
-    void *unk5;
-    u8 type[4];
+    /*0x00*/ struct BattleSystem *bw; // battle work structure that is only partially defined
+    /*0x04*/ void *unk1;
+    /*0x08*/ void *unk2;
+    /*0x0C*/ void *unk3;
+    /*0x10*/ void *unk4;
+    /*0x14*/ void *unk5;
+    /*0x18*/ u8 type[4];
     /*0x1C*/ u8 client_type;
-    u8 client_no;
-    u8 sel_mons_no;
-    /*0x1F*/ u8 fill1F[0x40-0x1F];
+    /*0x1D*/ u8 client_no;
+    /*0x1E*/ u8 sel_mons_no;
+    /*0x1F*/ u8 fill1D[0x34-0x1F];
+    /*0x34*/ u8 client_no_fight_screen;
+    /*0x35*/ u8 sel_mons_no_fight_screen;
+    /*0x36*/ u8 fill36[0x40-0x36];
 
     /*0x40*/ u16 *scrn_buf[5]; // 5*4=20=0x14
     /*0x54*/ u8 fill54[0x69C-0x54];

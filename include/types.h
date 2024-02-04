@@ -65,6 +65,7 @@ VecFx32;
 #define LONG_CALL __attribute__((long_call))
 #define UNUSED __attribute__((unused))
 #define FALLTHROUGH __attribute__ ((fallthrough))
+#define PACKED __attribute__((packed))
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
@@ -73,6 +74,9 @@ VecFx32;
 #define LOHALF(n) ((n) & 0xFFFF)
 
 #define No2Bit(n) ((1) << (n))
+
+// validates a pointer's value
+#define IS_NOT_VALID_EWRAM_POINTER(n) ((u32)(n) >= 0x03000000 || (u32)(n) < 0x02000000)
 
 void LONG_CALL GF_ASSERT(u32 cond);
 u16 LONG_CALL gf_rand(void);

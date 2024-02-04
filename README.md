@@ -22,11 +22,15 @@
 
 
 ## Features:
+* Dex Expansion (through Gen 6 almost entirely implemented)
+* Ability Expansion (through Gen 6 almost entirely implemented)
+* Move Expansion with future generation moves
+* Item Expansion with future generation items
 * Mega Evolutions + Primal Reversions
-* Dex Expansion (currently has up to gen 5 completely implemented)
-* Ability expansion + Hidden abilities
-* Updated effects for gen 4 and prior abilities
-* All new functional Mega Stones added after the already-existing items
+* Much More Customizable Trainers
+* Fairy Type
+* Hidden Abilities
+* Updated Effects for Existing [Moves](https://github.com/users/BluRosie/projects/3) and [Abilities](https://github.com/users/BluRosie/projects/2)
 
 *A more comprehensive list of features + a roadmap can be found by visiting the [hg-engine wiki](https://github.com/BluRosie/hg-engine/wiki).  Please read this README and the Wiki thoroughly before asking questions.*
 

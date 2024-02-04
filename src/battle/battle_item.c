@@ -37,7 +37,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
     int def_hold_eff;
     int def_item_param;
     int atk_side;
-    
+
     ret = FALSE;
 
     atk_hold_eff = HeldItemHoldEffectGet(sp, sp->attack_client);
@@ -123,7 +123,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
     int client_set_max UNUSED;
     int hold_effect;
     int hold_effect_param;
-    
+
     ret = 0;
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
@@ -141,12 +141,12 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
         switch(sp->swhac_seq_no)
         {
         case SWHAC_RAGE_ATTACK_CHECK:
-            if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_FLAG_RAGE) && (sp->current_move_index != MOVE_RAGE))
+            if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE))
             {
-                sp->battlemon[sp->attack_client].condition2 &= (STATUS2_FLAG_RAGE ^ 0xFFFFFFFF);
+                sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
             }
             sp->swhac_seq_no++;
-            
+
             if (GetBattlerAbility(sp,sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1) // skip over shell bell and life orb if sheer force is active
                 sp->swhac_seq_no = SWHAC_END;
 

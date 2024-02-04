@@ -118,7 +118,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
-#fix money calculation - 
+#fix money calculation -
 0012 fix_money_calc 0800829E 0
 
 #illusion hooks
@@ -168,8 +168,9 @@ arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
 
-#use item forme change
-arm9 UseItemFormeChange_hook 0807C29C 0
+#use item attribute change
+arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0
+0094 UseItemMonAttrLoadDiffMessage_hook 021E5A6A 1
 
 #ifdef ALLOW_SAVE_CHANGES
 
@@ -334,3 +335,12 @@ arm9 CapRareCandies 0208FEEA 1
 0012 PushAndLoadBattleScript 0224EBDC 3
 
 0012 ServerInit 02248660 1
+
+0012 CantEscape_hook 02252984 5
+0012 BattlerCantSwitch 02255920 3
+0012 BattleTryRun 02252B68 3
+
+arm9 ModifyStatByNature 0206FE3C 3
+
+# when a specific mon is in illusion, the target icon brought up needs to be in the illusioned state
+0012 target_select_inject_illusion_icon 02267CDC 0

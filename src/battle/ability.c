@@ -111,7 +111,6 @@ const u16 PowderMoveList[] = {
     MOVE_SPORE,
 };
 
-
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
  *
@@ -240,6 +239,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // Handle Psychic Terrain
+    // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
+    // Courtesy of Dray (https://github.com/Drayano60)
+    if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
     return scriptnum;
 }
 
@@ -272,7 +280,8 @@ enum
 
 // items that display messages.
     SWITCH_IN_CHECK_AIR_BALLOON,
-
+    SWITCH_IN_CHECK_FIELD,
+    SWITCH_IN_CHECK_TERRAIN_SEED,
     SWITCH_IN_CHECK_END,
 };
 
@@ -382,9 +391,6 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         case 15:
                             scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = 0;
-                            break;
-                        default:
                             newBS.weather = 0;
                             break;
                     }
@@ -557,7 +563,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             for(num = 0; num < client_set_max; num++)
                             {
                                 if ((IsClientEnemy(bw, client_no) != IsClientEnemy(bw, num))
-                                    && ((sp->battlemon[num].condition2 & STATUS2_FLAG_SUBSTITUTE) == 0)
+                                    && ((sp->battlemon[num].condition2 & STATUS2_SUBSTITUTE) == 0)
                                     && (sp->battlemon[num].hp))
                                 {
                                     def += sp->battlemon[num].defense * StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][0] / StatBoostModifiers[sp->battlemon[num].states[STAT_DEFENSE]][1];
@@ -1060,7 +1066,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
                 
                 // fuck it get rid of transform script command:
-                sp->battlemon[sp->attack_client].condition2 |= STATUS2_FLAG_TRANSFORMED;
+                sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
                 sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
                 sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 0;
                 sp->battlemon[sp->attack_client].moveeffect.transformPid = sp->battlemon[sp->defence_client].personal_rnd;
@@ -1112,8 +1118,8 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     if ((sp->battlemon[client_no].species == SPECIES_EISCUE)
                      && (sp->battlemon[client_no].hp)
                      && (sp->battlemon[client_no].form_no == 1)
-                     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-                     && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+                     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+                     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
                      && (sp->field_condition & WEATHER_HAIL_ANY)               // there is hail this turn
                      && ((sp->log_hail_for_ice_face & (1 << client_no)) == 0)  // and hail wasn't here last turn/the mon just switched in
                      && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)
@@ -1159,8 +1165,37 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 if (i == (s32)client_set_max) {
                     sp->switch_in_check_seq_no++;
                 }
-                FALLTHROUGH;
+                break;
                 // 02253D78
+            case SWITCH_IN_CHECK_FIELD:
+                if (sp->printed_field_message == 0) {
+                    sp->terrainOverlay.type = TERRAIN_NONE;
+                    sp->terrainOverlay.numberOfTurnsLeft = 0;
+                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        sp->printed_field_message = 1;
+                    }
+                }
+                sp->switch_in_check_seq_no++;
+                break;
+            case SWITCH_IN_CHECK_TERRAIN_SEED:;
+                u16 heldItem;
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turn_order[i];
+                    heldItem = GetBattleMonItem(sp, client_no);
+                    if (IS_ITEM_TERRAIN_SEED(heldItem) && TerrainSeedShouldActivate(sp, heldItem)) {
+                        sp->state_client = client_no;
+                        scriptnum = SUB_SEQ_HANDLE_TERRAIN_SEEDS;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+                if (i == (s32)client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+                FALLTHROUGH;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
@@ -1286,8 +1321,8 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
              && IS_ITEM_BERRY(sp->recycle_item[client_no])
              && ((BattleRand(bw) % 2 == 0) // 50% chance
               // OR sun is active + abilities are not fucking it
-              || ((CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_CLOUD_NINE) == 0)
-               && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_AIR_LOCK) == 0)
+              || ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+               && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
                && (sp->field_condition & WEATHER_SUNNY_ANY))))
             {
                 sp->item_work = sp->recycle_item[client_no];
@@ -1694,7 +1729,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         case ABILITY_CUTE_CHARM:
             if ((sp->battlemon[sp->attack_client].hp)
-                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_FLAG_INFATUATION) == 0)
+                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_INFATUATION) == 0)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
@@ -1713,7 +1748,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         case ABILITY_AFTERMATH:
             if ((sp->defence_client == sp->fainting_client)
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
-                && (CheckSideAbility(bw, sp, CHECK_ALL_BATTLER_ALIVE, 0, ABILITY_DAMP) == 0)
+                && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAMP) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && (sp->battlemon[sp->attack_client].hp)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)

@@ -113,6 +113,7 @@ FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
 ## includes
 include data/graphics/pokegra.mk
 include data/itemdata/itemdata.mk
+include data/codetables.mk
 include narcs.mk
 
 ####################### Build Tools #######################
@@ -253,8 +254,8 @@ all: $(TOOLS) $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
-	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
+	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -275,10 +276,13 @@ clean_code:
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 ####################### Final ROM Build #######################
+CODE_ADDON_ARTIFACTS := $(wildcard build/a028/9_*) $(wildcard build/a028/8_1*) $(wildcard build/a028/8_2*) build/a028/8_07 build/a028/8_08 build/a028/8_09
+CODE_ADDON_ARTIFACTS := $(filter-out build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6, $(CODE_ADDON_ARTIFACTS))
+
 move_narc: $(NARC_FILES)
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
-	
+
 	@echo "move data:"
 	cp $(MOVEDATA_NARC) $(MOVEDATA_TARGET)
 
@@ -370,7 +374,7 @@ move_narc: $(NARC_FILES)
 
 	@echo "pokemon overworlds:"
 	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
-	
+
 	@echo "pokemon overworld data:"
 	cp $(OVERWORLD_DATA_NARC) $(OVERWORLD_DATA_TARGET)
 
@@ -409,6 +413,29 @@ move_narc: $(NARC_FILES)
 	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
 	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
 	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
+
+	@if test -s build/a028/8_00; then \
+		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
+	fi
+	@if test -s build/a028/8_7; then \
+		rm -rf build/a028/8_7 build/a028/8_8 build/a028/8_9; \
+	fi
+	@rm -rf $(CODE_ADDON_ARTIFACTS)
+
+	@echo "hidden ability table:"
+	cp $(HIDDEN_ABILITY_TABLE_BIN) $(HIDDEN_ABILITY_TABLE_TARGET)
+
+	@echo "base experience table:"
+	cp $(BASE_EXPERIENCE_TABLE_BIN) $(BASE_EXPERIENCE_TABLE_TARGET)
+
+	@echo "mon overworld data:"
+	$(ARMIPS) $(OVERWORLD_DATA_DEPENDENCIES)
+
+	@echo "species to ow gfx table:"
+	cp $(SPECIES_TO_OW_GFX_BIN) $(SPECIES_TO_OW_GFX_TARGET)
+
+	@echo "form data table:"
+	cp $(POKEFORMDATATBL_BIN) $(POKEFORMDATATBL_TARGET)
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

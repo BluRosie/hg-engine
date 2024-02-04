@@ -66,15 +66,15 @@ def GetTextSection(section=0) -> int:
         # Dump sections
         out = subprocess.check_output([OBJDUMP, '-t', LINKED_SECTIONS[section]])
         lines = out.decode().split('\n')
-    
+
         # Find text section
         text = filter(lambda x: x.strip().endswith('.text'), lines)
         section = (list(text))[0]
-    
+
         # Get the offset
         offset = int(section.split(' ')[0], 16)
         return offset
-    
+
     except:
         print("Error: The insertion process could not be completed.\n"
               + "The linker symbol file was not found. Most likely the compilation process was not completed.")
@@ -97,7 +97,7 @@ def GetSymbols() -> {str: int}:
 
             if parts[1].lower() not in {'t', 'd'}:
                 continue
-    
+
             offset = int(parts[0], 16)
             ret[parts[2]] = offset# - subtract
 
@@ -448,7 +448,7 @@ def offset():
                 rom.close()
 
 
-OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 63, 68, 96, 112]
+OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 63, 68, 94, 96, 112]
 
 
 def decompress():

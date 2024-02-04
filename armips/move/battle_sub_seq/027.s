@@ -20,10 +20,15 @@ a001_027:
 _checkFlowerVeil:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ALLY | BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil
-    goto _0030
+    goto CheckIfGrounded
 _checkGrassTypeForFlowerVeil:
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_1, TYPE_GRASS, _0180
     ifmonstat IF_EQUAL, BATTLER_ADDL_EFFECT, MON_DATA_TYPE_2, TYPE_GRASS, _0180
+CheckIfGrounded:
+    ifgrounded BATTLER_ADDL_EFFECT, CheckMistyTerrain
+    goto _0030
+CheckMistyTerrain:
+    ifterrainoverlayistype MISTY_TERRAIN, MistyTerrainFail
 
 _0030:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x2, _0058
@@ -82,6 +87,11 @@ _025C:
     wait 0x1E
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x80000000
 _0278:
+    endscript
+
+MistyTerrainFail:
+    if IF_EQUAL, VAR_ADD_EFFECT_TYPE, ADD_STATUS_INDIRECT, _0278
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

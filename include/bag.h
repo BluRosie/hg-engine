@@ -157,10 +157,10 @@ void Bag_UnregisterItem(BAG_DATA *bag, u16 itemId);
  * @returns: TRUE if the action succeeded or would succeed,
  *   otherwise FALSE.
  */
-BOOL Bag_HasSpaceForItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
-BOOL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
-BOOL Bag_TakeItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
-BOOL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_HasSpaceForItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_TakeItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
 
 /*
  * BOOL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity)
@@ -174,7 +174,7 @@ BOOL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
  *
  * @returns: TRUE if the action succeeded, otherwise FALSE.
  */
-BOOL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity);
+BOOL LONG_CALL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity);
 
 /*
  * BOOL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket)
@@ -187,7 +187,7 @@ BOOL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity);
  * @returns: TRUE if there is at least one item in the pocket,
  *   otherwise FALSE.
  */
-BOOL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket);
+BOOL LONG_CALL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket);
 
 /*
  * u16 Bag_GetQuantity(BAG_DATA *bag, u16 itemId, int heap_id)

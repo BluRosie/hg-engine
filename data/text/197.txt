@@ -1386,3 +1386,14 @@ The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Speed!
 {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
 The foe’s {STRVAR_1 1, 0, 0} stayed awake\nbecause of its ally’s {STRVAR_1 5, 1, 0}!
+Grass grew to cover the battlefield!
+The grass disappeared\nfrom the battlefield.
+Mist swirled about the battlefield!
+The mist disappeared\nfrom the battlefield.
+An electric current\nran across the battlefield!
+The electricity disappeared\nfrom the battlefield.
+The battlefield got weird!
+The weirdness disappeared\nfrom the battlefield.
+{STRVAR_1 1, 0, 0}’s HP was restored.
+The wild {STRVAR_1 1, 0, 0}’s HP was restored.
+The foe’s {STRVAR_1 1, 0, 0}’s HP was restored.

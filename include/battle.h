@@ -174,11 +174,11 @@
  *  @brief flags for effect_of_moves
  *  defines for BattleStruct's effect_of_moves field
  *  fields that cover multiple fields are often counters, i.e. MOVE_EFFECT_FLAG_LOCK_ON
- *  
+ *
  *  the following statement:
  *  sp->effect_of_moves -= (1 << 3);
  *  decrements the 2-bit counter for lock on
- *  
+ *
  *  seems to be duplicated in battle_moveflag structure (moveeffect field of BattleStruct)
  */
 #define MOVE_EFFECT_LEECH_SEED_BATTLER      (0x00000003) // leech seed battler
@@ -254,13 +254,24 @@
  *  @brief volatile status condition flags
  *  accessible in BattleStruct's battlemon[battler].condition2
  */
-#define STATUS2_FLAG_CONFUSED (0x00000007)
-#define STATUS2_FLAG_INFATUATION (0x000f0000) // ? doesn't seem like it?
-#define STATUS2_FLAG_FOCUS_ENERGY (0x00100000)
-#define STATUS2_FLAG_TRANSFORMED (0x00200000)
-#define STATUS2_FLAG_RAGE (0x00800000)
-#define STATUS2_FLAG_SUBSTITUTE (0x01000000)
-#define STATUS2_FLAG_FORESIGHT (0x20000000)
+#define STATUS2_CONFUSED (0x00000007)
+#define STATUS2_FLINCH (0x00000008)
+#define STATUS2_UPROAR (0x00000070)
+#define STATUS2_RAMPAGE_TURNS (0x00000C00)
+#define STATUS2_LOCKED_INTO_MOVE (0x00001000)
+#define STATUS2_BINDING_TURNS (0x0000E000)
+#define STATUS2_INFATUATION (0x000f0000)
+#define STATUS2_FOCUS_ENERGY (0x00100000)
+#define STATUS2_TRANSFORMED (0x00200000)
+#define STATUS2_RECHARGE (0x00400000)
+#define STATUS2_RAGE (0x00800000)
+#define STATUS2_SUBSTITUTE (0x01000000)
+#define STATUS2_MEAN_LOOK (0x04000000)
+#define STATUS2_NIGHTMARE (0x08000000)
+#define STATUS2_CURSE (0x1000000)
+#define STATUS2_FORESIGHT (0x20000000)
+#define STATUS2_DEFENCE_CURL (0x40000000)
+#define STATUS2_TORMENT (0x80000000)
 
 /**
  *  @brief side status flags that apply to one side
@@ -829,6 +840,15 @@ struct __attribute__((packed)) BattleAIWorkTable
 
 
 /**
+ *  @brief structure that tracks the terrain type currently present
+ */
+typedef struct {
+    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
+    u8 numberOfTurnsLeft;
+} __attribute__((packed)) TerrainOverlay;
+
+
+/**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
@@ -1020,6 +1040,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ int SkillSeqWork[600];
     /*...*/
+
+               TerrainOverlay terrainOverlay;
+               u8 printed_field_message;
 };
 
 
@@ -1135,14 +1158,17 @@ struct BattleSystem {
 };
 
 
-enum
-{
-    CHECK_PLAYER_SIDE_ALL = 0,
-    CHECK_PLAYER_SIDE_ALIVE,
-    CHECK_ENEMY_SIDE_ALL,
-    CHECK_ENEMY_SIDE_ALIVE,
-    CHECK_ALL_BATTLER_ALIVE = 8,
-};
+//Ability Checks - values for flag for CheckSideAbility
+#define CHECK_ABILITY_SAME_SIDE             0
+#define CHECK_ABILITY_SAME_SIDE_HP          1
+#define CHECK_ABILITY_OPPOSING_SIDE         2
+#define CHECK_ABILITY_OPPOSING_SIDE_HP      3
+#define CHECK_ABILITY_OPPOSING_SIDE_HP_RET  4
+#define CHECK_ABILITY_ALL                   5
+#define CHECK_ABILITY_ALL_NOT_USER          6
+#define CHECK_ABILITY_ALL_NOT_USER_RET      7
+#define CHECK_ABILITY_ALL_HP                8
+#define CHECK_ABILITY_ALL_HP_NOT_USER       9
 
 enum
 {
@@ -1188,25 +1214,27 @@ enum
     BATTLE_MON_DATA_SLOW_START_COUNTER = 89,
 };
 
+#define BATTLE_MON_HAS_TYPE(sp, client, type) (sp->battlemon[client].type1 == type || sp->battlemon[client].type2 == type)
+
 #define MEGA_NEED 1
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0
 
 struct __attribute__((packed)) newBattleStruct
 {
-    u8 SideMega[2];//检查双方是否mega过,0我方,1敌方
+    u8 SideMega[4];//检查双方是否mega过,0我方,1敌方
+    u8 needMega[4];//需要mega
     u8 playerWantMega;
     u8 PlayerMegaed;
-    u8 needMega[4];//需要mega
+    u8 MegaIconLight;
+    u8 ChangeBgFlag:4;
+    u8 CanMega:4;
 
     CATS_ACT_PTR MegaOAM;
     CATS_ACT_PTR MegaButton;
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
     u32 weather;
-    u8 MegaIconLight;
-    u8 ChangeBgFlag:4;
-    u8 CanMega:4;
 };
 
 typedef struct {
@@ -1322,9 +1350,10 @@ struct __attribute__((packed)) POKEMON_APPEAR_PARAM
 
 struct __attribute__((packed)) ILLUSION_STRUCT
 {
-    u16 illusionNameBuf[2][12]; // at least get this hword aligned
-    u8 isSideInIllusion[2];
-    u8 illusionPos[2];
+    u16 illusionNameBuf[4][12]; // at least get this hword aligned
+    u8 illusionPos[4];
+    u8 illusionClient[4];
+    u8 isSideInIllusion;
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM
@@ -1489,7 +1518,7 @@ int LONG_CALL TypeCalc(void *bw, struct BattleStruct *sp, int movenum, int movet
  *
  *  @param sp global battle structure
  *  @param movenum move to check
- *  @return 
+ *  @return
  */
 u32 LONG_CALL AnticipateMoveEffectListCheck(struct BattleStruct *sp, int movenum);
 
@@ -1609,7 +1638,7 @@ void LONG_CALL PokeCopyPPtoPP(struct PartyPokemon *pp_src, struct PartyPokemon *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
  *  @param send_client client to copy BattlePokemon to PartyPokemon for
- *  @return 
+ *  @return
  */
 void LONG_CALL SCIO_PSPtoPPCopy(void *bw, struct BattleStruct *sp, int send_client);
 
@@ -1625,8 +1654,8 @@ int LONG_CALL PokeParaGiratinaFormChange(struct PartyPokemon *pp);
  *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param cp 
- *  @param pep 
+ *  @param cp
+ *  @param pep
  */
 void LONG_CALL CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_ENCOUNT_PARAM *pep);
 
@@ -1634,8 +1663,8 @@ void LONG_CALL CT_PokemonEncountSet(void *bw, struct CLIENT_PARAM *cp, struct PO
  *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param cp 
- *  @param pap 
+ *  @param cp
+ *  @param pap
  */
 void LONG_CALL CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 
@@ -1643,8 +1672,8 @@ void LONG_CALL CT_PokemonEncountAppearSet(void *bw, struct CLIENT_PARAM *cp, str
  *  @brief load sprites and such for one case, not sure
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param cp 
- *  @param pap 
+ *  @param cp
+ *  @param pap
  */
 void LONG_CALL CT_PokemonAppearSet(void *bw, struct CLIENT_PARAM *cp, struct POKEMON_APPEAR_PARAM *pap);
 
@@ -1721,8 +1750,8 @@ void LONG_CALL SCIO_IncRecord(void *bw, int attack_client, int param1, int param
  *  @brief check if a status condition should be recovered on switch by an ability.  think natural cure
  *
  *  @param sp global battle structure
- *  @param ability 
- *  @param condition 
+ *  @param ability
+ *  @param condition
  *  @return TRUE if recovery should happen; FALSE otherwise
  */
 BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitch(struct BattleStruct *sp, int ability, int condition);
@@ -1867,7 +1896,7 @@ BOOL LONG_CALL HeldItemEffectCheck(void *bw, struct BattleStruct *sp, int client
 BOOL LONG_CALL HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
- *  @brief 
+ *  @brief
  *
  *  @param sp global battle structure
  *  @param attack_client battler that is the attacker
@@ -2010,6 +2039,13 @@ int LONG_CALL AI_TypeCheckCalc(int effectiveness, u32 *flag);
  */
 BOOL LONG_CALL AI_ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, u32 held_effect, int pos);
 
+/**
+ *  @brief grab trainer id of a client
+ *  @param bw battle work structure
+ *  @param client client whose trainer id to grab
+ *  @return trainer id of client
+ */
+u32 LONG_CALL BattleWork_GetTrainerIndex(void *bw, u32 client);
 
 
 /*Battle Script Function Declarations*/
@@ -2017,7 +2053,7 @@ BOOL LONG_CALL AI_ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, u32 held_e
  *  @brief increment battle script VM "program counter" by a certain amount
  *
  *  @param sp global battle structure
- *  @param count amount to increment by in words/positions 
+ *  @param count amount to increment by in words/positions
  */
 void LONG_CALL IncrementBattleScriptPtr(struct BattleStruct *sp, int count);
 
@@ -2052,7 +2088,7 @@ void LONG_CALL Link_CheckTimeout(struct BattleStruct *sp);
  *
  *  @param sp global battle structure
  *  @param client_no battler to grab the item of
- *  @return 
+ *  @return
  */
 u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
@@ -2079,6 +2115,14 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
  *  @param move index of the move to grab type for
  */
 u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // account for normalize and such
+
+/**
+ *  @brief check if a move is a sound-based move
+ *
+ *  @param move move index to check for sound property
+ *  @return TRUE if is a sound move; FALSE otherwise
+ */
+BOOL IsMoveSoundBased(u32 move);
 
 /**
  *  @brief get the adjusted move type accounting for normalize without relying on a client
@@ -2139,6 +2183,23 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
  */
 BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
 
+/**
+ *  @brief dumbs client parameter down into its team in proper scenarios
+ *
+ *  @param bw battle work structure
+ *  @param client client to sanitize
+ *  @return team of client
+ */
+u32 SanitizeClientForTeamAccess(void *bw, u32 client);
+
+/**
+ *  @brief checks if the client's side has 2 battlers
+ *
+ *  @param bw battle work structure
+ *  @param client client whose side to check for 2 battlers
+ *  @return TRUE if the client's side has 2 battlers
+ */
+BOOL DoesSideHave2Battlers(void *bw, u32 client);
 
 
 // defined in battle_script_commands.c
@@ -2204,6 +2265,14 @@ void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
 
 /**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param client_no resolved battler
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
+
+/**
  *  @brief check if waitmessage battle script command should end
  *
  *  @param sp global battle structure
@@ -2245,7 +2314,6 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
 
-
 // defined in other_battle_calculators.c
 /**
  *  @brief compare battlers to determine who goes first
@@ -2274,6 +2342,33 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
  */
 int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
 
+/**
+ *  @brief see if a move has positive priority after adjustment
+ *
+ *  @param sp battle structure
+ *  @param attacker client to check
+ *  @return TRUE if the move has positive priority after adjustments
+ */
+BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
+
+/**
+ *  @brief see if the move should NOT be exempted from priority blocking effects
+ *
+ *  @param sp battle structure
+ *  @param attacker attacker client
+ *  @param defender defender client
+ *  @return TRUE if the move should NOT be exempted from priority blocking effects
+ */
+BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender);
+
+/**
+ *  @brief Check if seed should activate
+ *
+ *  @param sp battle structure
+ *  @param heldItem held item
+ *  @return TRUE if seed should activate
+ */
+BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
 // defined in mega.c
 /**
@@ -2286,9 +2381,36 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
 u32 GrabMegaTargetForm(u32 mon, u32 item);
 
 
+typedef enum Terrain {
+    TERRAIN_PLAIN,
+    TERRAIN_SAND,
+    TERRAIN_GRASS,
+    TERRAIN_PUDDLE,
+    TERRAIN_MOUNTAIN,
+    TERRAIN_CAVE,
+    TERRAIN_SNOW,
+    TERRAIN_WATER,
+    TERRAIN_ICE,
+    TERRAIN_BUILDING,
+    TERRAIN_GREAT_MARSH,  // unused
+    TERRAIN_UNKNOWN,      // unused
+    TERRAIN_WILL,
+    TERRAIN_KOGA,
+    TERRAIN_BRUNO,
+    TERRAIN_KAREN,
+    TERRAIN_LANCE,
+    TERRAIN_DISTORTION_WORLD,  // unused
+    TERRAIN_BATTLE_TOWER,
+    TERRAIN_BATTLE_FACTORY,
+    TERRAIN_BATTLE_ARCADE,
+    TERRAIN_BATTLE_CASTLE,
+    TERRAIN_BATTLE_HALL,
+    TERRAIN_GIRATINA,  // unused
+    TERRAIN_MAX
+} Terrain;
 
+// This is a catch-all terrain that includes Pokemon League, Distortion World
+// and Battle Frontier.
+#define TERRAIN_OTHERS (TERRAIN_WILL)
 
-
-
-
-#endif
+#endif // BATTLE_H

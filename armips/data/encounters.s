@@ -7,7 +7,7 @@
 // Each encounter data has been labeled with the area it gets used.
 // Some are labeled ???, these are most likely not used.
 
-encounterdata   0//New Bark town
+encounterdata   0//New Bark Remains
 
 walkrate 25
 surfrate 15
@@ -18,8 +18,8 @@ superrodrate 0
 walklevels 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 //morning encounter slots
-pokemon SPECIES_COBALION
 pokemon SPECIES_STAKATAKA
+pokemon SPECIES_COBALION
 pokemon SPECIES_HEATRAN
 pokemon SPECIES_HEATRAN
 monwithform SPECIES_METAGROSS, 1
@@ -32,10 +32,10 @@ monwithform SPECIES_LUCARIO, 1
 monwithform SPECIES_LUCARIO, 1
 
 //day encounter slots
-pokemon SPECIES_COBALION
-pokemon SPECIES_STAKATAKA
-pokemon SPECIES_HEATRAN
-pokemon SPECIES_HEATRAN
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
 monwithform SPECIES_METAGROSS, 1
 monwithform SPECIES_METAGROSS, 1
 monwithform SPECIES_LUCARIO, 1
@@ -46,14 +46,14 @@ monwithform SPECIES_LUCARIO, 1
 monwithform SPECIES_LUCARIO, 1
 
 //night encounter slots
-pokemon SPECIES_COBALION
-pokemon SPECIES_STAKATAKA
-pokemon SPECIES_HEATRAN
-pokemon SPECIES_HEATRAN
-monwithform SPECIES_METAGROSS, 1
-monwithform SPECIES_METAGROSS, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
+pokemon SPECIES_REGIELEKI
 monwithform SPECIES_LUCARIO, 1
 monwithform SPECIES_LUCARIO, 1
 monwithform SPECIES_LUCARIO, 1
@@ -6863,11 +6863,11 @@ walklevels 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6
 
 //morning encounter slots
 pokemon SPECIES_TERRAKION
-pokemon SPECIES_MEGA_AGGRON
-pokemon SPECIES_MEGA_AERODACTYL
-pokemon SPECIES_MEGA_AERODACTYL
-pokemon SPECIES_MEGA_STEELIX
-pokemon SPECIES_MEGA_STEELIX
+monwithform SPECIES_AGGRON, 1
+monwithform SPECIES_AERODACTYL, 1
+monwithform SPECIES_AERODACTYL, 1
+monwithform SPECIES_STEELIX, 1
+monwithform SPECIES_STEELIX, 1
 pokemon SPECIES_REGIROCK
 pokemon SPECIES_REGIROCK
 pokemon SPECIES_REGIROCK
@@ -6877,11 +6877,11 @@ pokemon SPECIES_REGIROCK
 
 //day encounter slots
 pokemon SPECIES_TERRAKION
-pokemon SPECIES_MEGA_AGGRON
-pokemon SPECIES_MEGA_AERODACTYL
-pokemon SPECIES_MEGA_AERODACTYL
-pokemon SPECIES_MEGA_STEELIX
-pokemon SPECIES_MEGA_STEELIX
+monwithform SPECIES_AGGRON, 1
+monwithform SPECIES_AERODACTYL, 1
+monwithform SPECIES_AERODACTYL, 1
+monwithform SPECIES_STEELIX, 1
+monwithform SPECIES_STEELIX, 1
 pokemon SPECIES_REGIROCK
 pokemon SPECIES_REGIROCK
 pokemon SPECIES_REGIROCK
@@ -6891,11 +6891,11 @@ pokemon SPECIES_REGIROCK
 
 //night encounter slots
 pokemon SPECIES_TERRAKION
-pokemon SPECIES_MEGA_AGGRON
-pokemon SPECIES_MEGA_AERODACTYL
-pokemon SPECIES_MEGA_AERODACTYL
-pokemon SPECIES_MEGA_STEELIX
-pokemon SPECIES_MEGA_STEELIX
+monwithform SPECIES_AGGRON, 1
+monwithform SPECIES_AERODACTYL, 1
+monwithform SPECIES_AERODACTYL, 1
+monwithform SPECIES_STEELIX, 1
+monwithform SPECIES_STEELIX, 1
 pokemon SPECIES_REGIROCK
 pokemon SPECIES_REGIROCK
 pokemon SPECIES_REGIROCK
@@ -8382,7 +8382,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   82//CLIFF_EDGE_GATE
+encounterdata   82// Eternal Cliffs
 
 walkrate 25
 surfrate 15
@@ -8390,49 +8390,50 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+walklevels 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19
 
 //morning encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_MEWTWO
+pokemon SPECIES_VICTINI
+pokemon SPECIES_CELEBI
+pokemon SPECIES_MELOETTA
+pokemon SPECIES_JIRACHI
+pokemon SPECIES_CRESSELIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
 
 //day encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_MEWTWO
+pokemon SPECIES_VICTINI
+pokemon SPECIES_CELEBI
+pokemon SPECIES_MELOETTA
+pokemon SPECIES_JIRACHI
+pokemon SPECIES_CRESSELIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
 
 //night encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_MEWTWO
+pokemon SPECIES_VICTINI
+pokemon SPECIES_CELEBI
+pokemon SPECIES_MELOETTA
+pokemon SPECIES_JIRACHI
+pokemon SPECIES_CRESSELIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+pokemon SPECIES_LUGIA
+
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE

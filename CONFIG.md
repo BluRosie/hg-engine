@@ -45,6 +45,8 @@
 
  ``IMPLEMENT_LEVEL_CAP`` (``include/config.h`` only) is a toggle that will enable a hard level cap past which no Pokémon can gain experience or levels via any method.  The level is read from a script variable as defined by ``LEVEL_CAP_VARIABLE``.  If the Pokémon is at or above that level, the experience gain is disabled and Rare Candies stop working.  Make sure to set to level 100 to disable entirely, there is no error correction built in.
 
+ ``UPDATE_OVERWORLD_POISON`` (``include/config.h`` only) is a toggle that disables overworld poison when enabled.  Overworld poison is disabled by default.
+
  ``DISABLE_END_OF_TURN_WEATHER_MESSAGE`` (``include/config.h`` only) will remove end-of-turn weather printing for everything but Hail and Sandstorm, which still play the animation before harming the Pokémon.  There is a small overlay over the Fight button to show which weather is active.  The config defaults to keeping the weather printing at the end of the turn.
 
 ### ``scripts\make.py`` and ``linker.ld``
