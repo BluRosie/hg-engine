@@ -2653,7 +2653,8 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                  && (sp->defence_client != sp->attack_client)
                  && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                  && (sp->battlemon[sp->defence_client].hp)
-                 && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD))) // scald can also melt opponents as of gen 6
+                 && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD) || (sp->current_move_index == MOVE_STEAM_ERUPTION)) // scald can also melt opponents as of gen 6
+                 && sp->battlemon[sp->attack_client].parental_bond_flag == 0)
                 {
                     sp->client_work = sp->defence_client;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
