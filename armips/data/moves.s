@@ -4247,7 +4247,7 @@ movedata MOVE_FOCUS_PUNCH, "Focus Punch"
     terminatedata
     movedescription MOVE_FOCUS_PUNCH, "The user focuses its\nmind before launching\na punch. It will fail\nif the user is hit\nbefore it is used."
 
-movedata MOVE_SMELLING_SALT, "SmellingSalt"
+movedata MOVE_SMELLING_SALTS, "Smelling Salts"
     battleeffect 171
     pss SPLIT_PHYSICAL
     basepower 70
@@ -4261,7 +4261,7 @@ movedata MOVE_SMELLING_SALT, "SmellingSalt"
     appeal 0x10
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_SMELLING_SALT, "This attack inflicts\ndouble damage on a\nparalyzed foe. It\nalso cures the foe’s\nparalysis, however."
+    movedescription MOVE_SMELLING_SALTS, "This attack inflicts\ndouble damage on a\nparalyzed foe. It\nalso cures the foe’s\nparalysis, however."
 
 movedata MOVE_FOLLOW_ME, "Follow Me"
     battleeffect 172

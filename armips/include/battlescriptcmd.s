@@ -1542,3 +1542,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xF0
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro setparentalbondflag
+    .word 0xF1
+.endmacro
