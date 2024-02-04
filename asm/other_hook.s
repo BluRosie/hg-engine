@@ -276,10 +276,6 @@ bx r3
 
 .pool
 
-.global space_for_setmondata
-space_for_setmondata:
-.word 0
-
 
 .global UseItemMonAttrChangeCheck_hook
 UseItemMonAttrChangeCheck_hook:
@@ -591,3 +587,10 @@ ldr     r2, =0x02089E30 + 1
 bx      r2
 
 .pool
+
+.data
+
+.align 2
+.global space_for_setmondata
+space_for_setmondata:
+.word 0
