@@ -740,6 +740,16 @@ enum
 #define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x100
 #define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x200
 
+// kinda weird, specifically tracked in the RAM
+typedef struct WildEncounterWork
+{
+    u16 species:11;
+    u16 form:5;
+    u16 padding;
+    u16 maxLevel;
+    u16 minLevel;
+} WildEncounterWork;
+
 
 /**
  *  @brief allocate enough space for a PartyPokemon and zero it out
@@ -1332,6 +1342,13 @@ void LONG_CALL CopyBoxPokemonToPokemon(const struct BoxPokemon *src, struct Part
  *  @return experience needed to reach specified level
  */
 int LONG_CALL GetExpByGrowthRateAndLevel(int growthrate, u32 level);
+
+/**
+ *  @brief restore the pp of a BoxPokemon's moves
+ *
+ *  @param boxMon BoxPokemon whose move power points to restore
+ */
+void LONG_CALL RestoreBoxMonPP(struct BoxPokemon *boxMon);
 
 
 #define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))

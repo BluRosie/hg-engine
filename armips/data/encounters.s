@@ -22,20 +22,34 @@ pokemon SPECIES_STAKATAKA
 pokemon SPECIES_COBALION
 pokemon SPECIES_HEATRAN
 pokemon SPECIES_HEATRAN
-monwithform SPECIES_METAGROSS, 1
-monwithform SPECIES_METAGROSS, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
 
 //day encounter slots
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
+pokemon SPECIES_STAKATAKA
+pokemon SPECIES_COBALION
+pokemon SPECIES_HEATRAN
+pokemon SPECIES_HEATRAN
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_ZORUA, 1
+
+//night encounter slots
+pokemon SPECIES_STAKATAKA
+pokemon SPECIES_COBALION
+pokemon SPECIES_HEATRAN
+pokemon SPECIES_HEATRAN
 monwithform SPECIES_METAGROSS, 1
 monwithform SPECIES_METAGROSS, 1
 monwithform SPECIES_LUCARIO, 1
@@ -45,19 +59,6 @@ monwithform SPECIES_LUCARIO, 1
 monwithform SPECIES_LUCARIO, 1
 monwithform SPECIES_LUCARIO, 1
 
-//night encounter slots
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-pokemon SPECIES_REGIELEKI
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
-monwithform SPECIES_LUCARIO, 1
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -5333,7 +5334,7 @@ walklevels 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9
 pokemon SPECIES_ZEKROM
 pokemon SPECIES_RAIKOU
 pokemon SPECIES_ZAPDOS
-pokemon SPECIES_ZAPDOS
+pokemon SPECIES_REGIELEKI
 monwithform SPECIES_MANECTRIC, 1
 monwithform SPECIES_MANECTRIC, 1
 pokemon SPECIES_THUNDURUS
@@ -5347,7 +5348,7 @@ monwithform SPECIES_THUNDURUS, 1
 pokemon SPECIES_ZEKROM
 pokemon SPECIES_RAIKOU
 pokemon SPECIES_ZAPDOS
-pokemon SPECIES_ZAPDOS
+pokemon SPECIES_REGIELEKI
 monwithform SPECIES_MANECTRIC, 1
 monwithform SPECIES_MANECTRIC, 1
 pokemon SPECIES_THUNDURUS
@@ -5361,7 +5362,7 @@ monwithform SPECIES_THUNDURUS, 1
 pokemon SPECIES_ZEKROM
 pokemon SPECIES_RAIKOU
 pokemon SPECIES_ZAPDOS
-pokemon SPECIES_ZAPDOS
+pokemon SPECIES_REGIELEKI
 monwithform SPECIES_MANECTRIC, 1
 monwithform SPECIES_MANECTRIC, 1
 pokemon SPECIES_THUNDURUS
@@ -5436,8 +5437,8 @@ monwithform SPECIES_HOOPA, 1
 pokemon SPECIES_LUNALA
 monwithform SPECIES_GIRATINA, 1
 monwithform SPECIES_GIRATINA, 0
-pokemon SPECIES_DARKRAI
-pokemon SPECIES_DARKRAI
+pokemon SPECIES_SPECTRIER
+pokemon SPECIES_SPECTRIER
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
@@ -5450,8 +5451,8 @@ monwithform SPECIES_HOOPA, 1
 pokemon SPECIES_LUNALA
 monwithform SPECIES_GIRATINA, 1
 monwithform SPECIES_GIRATINA, 0
-pokemon SPECIES_DARKRAI
-pokemon SPECIES_DARKRAI
+pokemon SPECIES_SPECTRIER
+pokemon SPECIES_SPECTRIER
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
@@ -5464,8 +5465,8 @@ monwithform SPECIES_HOOPA, 1
 pokemon SPECIES_LUNALA
 monwithform SPECIES_GIRATINA, 1
 monwithform SPECIES_GIRATINA, 0
-pokemon SPECIES_DARKRAI
-pokemon SPECIES_DARKRAI
+pokemon SPECIES_SPECTRIER
+pokemon SPECIES_SPECTRIER
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
@@ -5841,7 +5842,7 @@ superrodrate 0
 walklevels 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
 
 //morning encounter slots
-monwithform SPECIES_GLALIE, 1
+pokemon SPECIES_GLASTRIER
 pokemon SPECIES_KYUREM
 monwithform SPECIES_ABOMASNOW, 1
 monwithform SPECIES_ABOMASNOW, 1
@@ -5855,7 +5856,7 @@ monwithform SPECIES_KYUREM, 1
 monwithform SPECIES_KYUREM, 1
 
 //day encounter slots
-monwithform SPECIES_GLALIE, 1
+pokemon SPECIES_GLASTRIER
 pokemon SPECIES_KYUREM
 monwithform SPECIES_ABOMASNOW, 1
 monwithform SPECIES_ABOMASNOW, 1
@@ -5869,7 +5870,7 @@ monwithform SPECIES_KYUREM, 1
 monwithform SPECIES_KYUREM, 1
 
 //night encounter slots
-monwithform SPECIES_GLALIE, 1
+pokemon SPECIES_GLASTRIER
 pokemon SPECIES_KYUREM
 monwithform SPECIES_ABOMASNOW, 1
 monwithform SPECIES_ABOMASNOW, 1

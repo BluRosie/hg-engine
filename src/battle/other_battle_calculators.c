@@ -1351,6 +1351,17 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
         }
     }
 
+    // Handle Prankster Metronome, Sleep Talk, Nature Power, Assist, Me First, Copycat
+    if (sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag &&
+        GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) {
+        // reset flag
+        sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag = 0;
+        return TRUE;
+    }
+
+    // reset flag
+    sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag = 0;
+
     if (
         (sp->moveTbl[sp->current_move_index].priority > 0) ||
         ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&
@@ -1389,7 +1400,7 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
     case MOVE_TARGET_USER:
         return FALSE;
         break;
-    
+
     // Psychic Terrain doesn't block priority moves that target all battlers
     // Psychic Terrain doesn't block priority field moves
     case MOVE_TARGET_ACTIVE_FIELD:
@@ -1451,4 +1462,105 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
             return FALSE;
     }
     return FALSE;
+}
+
+/**
+ * @brief gets the actual attack and defense for damage calculation
+ * @param sp battle structure
+ * @param attackerAttack attacker's Physical Attack
+ * @param defenderDefense defender's Physical Defense
+ * @param attackerSpecialAttack attacker's Special Attack
+ * @param defenderSpecialDefense defender's Special Defense
+ * @param attackerAttackstate attacker's Physical Attack state
+ * @param defenderDefenseState defender's Physical Defense state
+ * @param attackerSpecialAttackState attacker's Special Attack state
+ * @param defenderSpecialDefenseState defender's Special Defense state
+ * @param movesplit physical or special attack
+ * @param attacker attacker number
+ * @param defender defender number
+ * @param critical critial hit or not
+ * @param moveno move number
+ * @param equivalentAttack attack number used for calculation
+ * @param equivalentDefense defense number used for calculation
+ */
+void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender UNUSED, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense) {
+    u16 rawPhysicalAttack;
+    u16 rawSpecialAttack;
+    u16 rawPhysicalDefense;
+    u16 rawSpecialDefense;
+
+    u16 tempPhysicalAttack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL) * StatBoostModifiers[attackerAttackstate][0] / StatBoostModifiers[attackerAttackstate][1];
+    u16 tempSpecialAttack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL) * StatBoostModifiers[attackerSpecialAttackState][0] / StatBoostModifiers[attackerSpecialAttackState][1];
+
+    if (critical > 1) {
+        if (attackerAttackstate > 6) {
+            rawPhysicalAttack = attackerAttack * StatBoostModifiers[attackerAttackstate][0];
+            rawPhysicalAttack /= StatBoostModifiers[attackerAttackstate][1];
+        } else {
+            rawPhysicalAttack = attackerAttack;
+        }
+
+        if (defenderDefenseState < 6) {
+            rawPhysicalDefense = defenderDefense * StatBoostModifiers[defenderDefenseState][0];
+            rawPhysicalDefense /= StatBoostModifiers[defenderDefenseState][1];
+        } else {
+            rawPhysicalDefense = defenderDefense;
+        }
+
+        if (attackerSpecialAttackState > 6) {
+            rawSpecialAttack = attackerSpecialAttack * StatBoostModifiers[attackerSpecialAttackState][0];
+            rawSpecialAttack /= StatBoostModifiers[attackerSpecialAttackState][1];
+        } else {
+            rawSpecialAttack = attackerSpecialAttack;
+        }
+
+        if (defenderSpecialDefenseState < 6) {
+            rawSpecialDefense = defenderSpecialDefense * StatBoostModifiers[defenderSpecialDefenseState][0];
+            rawSpecialDefense /= StatBoostModifiers[defenderSpecialDefenseState][1];
+        } else {
+            rawSpecialDefense = defenderSpecialDefense;
+        }
+    } else {
+        rawPhysicalAttack = attackerAttack * StatBoostModifiers[attackerAttackstate][0];
+        rawPhysicalAttack /= StatBoostModifiers[attackerAttackstate][1];
+
+        rawPhysicalDefense = defenderDefense * StatBoostModifiers[defenderDefenseState][0];
+        rawPhysicalDefense /= StatBoostModifiers[defenderDefenseState][1];
+
+        rawSpecialAttack = attackerSpecialAttack * StatBoostModifiers[attackerSpecialAttackState][0];
+        rawSpecialAttack /= StatBoostModifiers[attackerSpecialAttackState][1];
+
+        rawSpecialDefense = defenderSpecialDefense * StatBoostModifiers[defenderSpecialDefenseState][0];
+        rawSpecialDefense /= StatBoostModifiers[defenderSpecialDefenseState][1];
+    }
+
+    if (*movesplit == SPLIT_PHYSICAL) {
+        *equivalentAttack = rawPhysicalAttack;
+        *equivalentDefense = rawPhysicalDefense;
+    } else {
+        *equivalentAttack = rawSpecialAttack;
+        *equivalentDefense = rawSpecialDefense;
+    }
+
+    switch (moveno) {
+        case MOVE_PSYSHOCK:
+        case MOVE_PSYSTRIKE:
+        case MOVE_SECRET_SWORD:
+            *equivalentDefense = rawPhysicalDefense;
+            break;
+        case MOVE_PRISMATIC_LASER:
+            if (tempPhysicalAttack > tempSpecialAttack) {
+                *movesplit = SPLIT_PHYSICAL;
+                *equivalentAttack = rawPhysicalAttack;
+                *equivalentDefense = rawPhysicalDefense;
+            } else {
+                *movesplit = SPLIT_SPECIAL;
+                *equivalentAttack = rawSpecialAttack;
+                *equivalentDefense = rawPhysicalDefense;
+            }
+            break;
+
+        default:
+            break;
+    }
 }

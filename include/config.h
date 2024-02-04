@@ -79,4 +79,8 @@
 // uncomment the line out to get this functionality
 //#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
+// EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
+// comment out the line below to keep the max at 18
+#define EXPAND_PC_BOXES
+
 #endif

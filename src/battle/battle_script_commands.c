@@ -62,6 +62,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EB_ifsoundmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -310,6 +311,7 @@ const u8 *BattleScrCmdNames[] =
     "ifsoundmove",
     "updateterrainoverlay",
     "ifterrainoverlayistype",
+    "setpsychicterrainmoveusedflag",
 };
 
 u32 cmdAddress = 0;
@@ -330,7 +332,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xEA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EA_ifcontactmove,
     [0xEB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EB_ifsoundmove,
     [0xEC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EC_updateterrainoverlay,
-    [0xED - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_ED_ifterrainoverlayistype
+    [0xED - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_ED_ifterrainoverlayistype,
+    [0xEE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EE_setpsychicterrainmoveusedflag,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -2555,6 +2558,21 @@ BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw UNUSED, struct BattleStruct 
     if (sp->terrainOverlay.type == terrainOverlayType) {
         IncrementBattleScriptPtr(sp, address);
     }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to potentially_affected_by_psychic_terrain_move_used_flag
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    sp->battlemon[sp->attack_client].potentially_affected_by_psychic_terrain_move_used_flag = 1;
 
     return FALSE;
 }

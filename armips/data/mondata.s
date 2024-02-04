@@ -12010,7 +12010,7 @@ mondata SPECIES_UNFEZANT, "Unfezant"
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
@@ -13501,7 +13501,7 @@ mondata SPECIES_FRILLISH, "Frillish"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 1
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -13522,7 +13522,7 @@ mondata SPECIES_JELLICENT, "Jellicent"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -15097,7 +15097,7 @@ mondata SPECIES_PYROAR, "Pyroar"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 222
+    genderratio 0
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
@@ -15307,7 +15307,7 @@ mondata SPECIES_MEOWSTIC, "Meowstic"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 2, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
@@ -18324,7 +18324,7 @@ mondata SPECIES_ROOKIDEE, "Rookidee"
     mondexweight SPECIES_ROOKIDEE, "4.0 lbs."
 
 
-mondata SPECIES_CORVISQUIRE, "Corvisquire"
+mondata SPECIES_CORVISQUIRE, "Corvsquire"
     basestats 68, 67, 55, 77, 43, 55
     types TYPE_FLYING, TYPE_FLYING
     catchrate 195
@@ -19465,7 +19465,7 @@ mondata SPECIES_INDEEDEE, "Indeedee"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 2, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 40
     basefriendship 140
     growthrate GROWTH_FAST
@@ -19911,7 +19911,7 @@ mondata SPECIES_SPECTRIER, "Spectrier"
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_GRIM_NEIGH, AABILITY_GRIM_NEIGH
+    abilities ABILITY_GRIM_NEIGH, ABILITY_GRIM_NEIGH
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     mondexentry SPECIES_SPECTRIER, "As it dashes through the night, it\nabsorbs the life energy of sleeping Pokémon. It\ncraves silence and solitude."
@@ -20011,7 +20011,7 @@ mondata SPECIES_BASCULEGION, "Basclegion"
     baseexp 0 // defined in baseexp.s
     evyields 2, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 127
+    genderratio 0
     eggcycles 0
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST

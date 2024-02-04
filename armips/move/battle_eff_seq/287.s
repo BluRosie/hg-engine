@@ -10,7 +10,7 @@
 .create "build/move/battle_eff_seq/0_287", 0
 
 a030_287:
-    ifmonstat2 IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0, Status
+    ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_STATUS_1, 0, Status
     changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xA
     goto _end
 

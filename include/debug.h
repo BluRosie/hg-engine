@@ -47,4 +47,7 @@
 // DEBUG_SERVER_QUEUE prints debug information about the status of the server queue when the waitmessage script command
 #define DEBUG_SERVER_QUEUE
 
+// DEBUG_INIT_PC_BOXES_WITH_MONS initializes pc boxes with mons on save creation.  inits with national dex num
+//#define DEBUG_INIT_PC_BOXES_WITH_MONS
+
 #endif // DEBUG_H
