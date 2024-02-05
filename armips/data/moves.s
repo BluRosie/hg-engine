@@ -8104,7 +8104,7 @@ movedata MOVE_ALLY_SWITCH, "Ally Switch"
     movedescription MOVE_ALLY_SWITCH, "The user teleports\nusing a strange\npower and switches\nplaces with one of\nits allies."
 
 movedata MOVE_SCALD, "Scald"
-    battleeffect 4
+    battleeffect 125
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_WATER
@@ -9497,7 +9497,7 @@ movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     terminatedata
 
 movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
-    battleeffect 4
+    battleeffect 125
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_WATER
