@@ -2386,6 +2386,12 @@ BOOL IsMultiHitMove(struct BattleStruct *sp);
 BOOL IsBannedParentalBondMove(struct BattleStruct *sp);
 
 /**
+ * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param sp battle structure
+ */
+BOOL IsBannedSpreadMoveForParentalBond(struct BattleStruct *sp);
+
+/**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure
  * @param attackerAttack attacker's Physical Attack

@@ -1580,6 +1580,36 @@ BOOL IsBannedParentalBondMove(struct BattleStruct *sp) {
 }
 
 /**
+ * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param sp battle structure
+ */
+BOOL IsBannedSpreadMoveForParentalBond(struct BattleStruct *sp) {
+    struct BattleMove currentMove = sp->moveTbl[sp->current_move_index];
+
+    struct BattlePokemon ally = sp->battlemon[BATTLER_ALLY(sp->attack_client)];
+    struct BattlePokemon opponent = sp->battlemon[BATTLER_OPPONENT(sp->attack_client)];
+    struct BattlePokemon across = sp->battlemon[BATTLER_ACROSS(sp->attack_client)];
+
+    switch (currentMove.target) {
+        case MOVE_TARGET_BOTH:
+            if (opponent.hp != 0 || across.hp != 0) {
+                return TRUE;
+            }
+            break;
+        case MOVE_TARGET_FOES_AND_ALLY:
+            if (ally.hp != 0 || opponent.hp != 0 || across.hp != 0) {
+                return TRUE;
+            }
+            break;
+
+        default:
+            return FALSE;
+            break;
+    }
+    return TRUE;
+}
+
+/**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure
  * @param attackerAttack attacker's Physical Attack
@@ -1679,3 +1709,4 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
             break;
     }
 }
+
