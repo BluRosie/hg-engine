@@ -1,4 +1,6 @@
 # credits
+[AdAstra](https://github.com/AdAstra-LD/) - `debugsyscall` implementation
+
 Adcroc1 - helping significantly with sprite formatting
 
 BagBoy - dex entries
