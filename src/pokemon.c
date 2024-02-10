@@ -1417,15 +1417,15 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
 
     flag = BoxMonSetFastModeOn(boxmon);
 
-    if(!rndflag){
+    if (!rndflag) {
         rnd = (gf_rand() | (gf_rand() << 16));
     }
     SetBoxMonData(boxmon,MON_DATA_PERSONALITY,(u8 *)&rnd);
 
-    if(idflag==ID_NO_SHINY){
-        do{
+    if (idflag==ID_NO_SHINY) {
+        do {
             id = (gf_rand() | (gf_rand() << 16));
-        } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((rnd & 0xffff0000) >> 16) ^ (rnd & 0xffff)) < 8);
+        } while (SHINY_CHECK(id, rnd));
     }
     else if(idflag!=ID_SET){
         id=0;
@@ -1960,4 +1960,42 @@ BOOL SetFixedWildEncounter(const WildEncounterWork *inData, const u8 inListNum, 
     }
     *outNo = same_type[gf_rand() % cnt];
     return TRUE;
+}
+
+/**
+ *  @brief perform shiny check given ot id and pid
+ *
+ *  @param otid original trainer id
+ *  @param pid personality id
+ *  @returns TRUE if otid and pid show a shiny pokémon; FALSE otherwise
+ */
+BOOL LONG_CALL CalcShininessByOtIdAndPersonality(u32 otid, u32 pid)
+{
+    return SHINY_CHECK(otid, pid);
+}
+
+/**
+ *  @brief adjust the pid to be shiny such that it keeps substructures in the same order
+ *
+ *  @param otid original trainer id
+ *  @param pid personality id
+ *  @returns adjusted pid to be a shiny without corrupting the mon
+ */
+u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
+{
+    /*
+        see: https://github.com/pret/pokeheartgold/blob/4d4037e05713e267b337aeb81abcbdd395c1f3ac/src/pokemon.c#L3955
+        substructure order is determined in GetSubstruct at the above link.  it uses the 5 bits occupied by 0x0003E000 to select the order.
+        when generating this, i just add the random number at the end to prevent every shiny given out this way from being a square shiny
+    */
+    u32 shinyValue = SHINY_VALUE(otId, pid);
+    if (shinyValue >= SHINY_ODDS) // xoring pid with shinyValue will give shiny but may corrupt substruct order
+    {
+        if (shinyValue & 0xE000)
+            pid = pid ^ ((shinyValue << 16) & 0xE0000000);
+        pid = pid ^ (shinyValue & 0x1FFF);
+        // shinyValue is now 0.  any xor must keep the shinyValue below SHINY_ODDS--should be fine to just generate a random number 0-SHINY_ODDS and xor it
+        pid = pid ^ (gf_rand() % (SHINY_ODDS));
+    }
+    return pid;
 }
