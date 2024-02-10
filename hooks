@@ -416,3 +416,6 @@ arm9 sub_02074128 02074128 1
 # ALLOW_SAVE_CHANGES
 
 0002 SetFixedWildEncounter_hook 022480C4 5
+
+# allow for crazy shiny odds calcs
+arm9 CalcShininessByOtIdAndPersonality 02070068 2

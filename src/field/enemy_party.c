@@ -388,9 +388,9 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             u32 pid = GetMonData(mons[i], MON_DATA_PERSONALITY, NULL);
             if (shinylock != 0)
             {
-                do{
+                do {
                     id = (gf_rand() | (gf_rand() << 16));
-                } while((((id & 0xffff0000) >> 16) ^ (id & 0xffff) ^ ((pid & 0xffff0000) >> 16) ^ (pid & 0xffff)) >= 8);
+                } while (!SHINY_CHECK(id, pid));
                 SetMonData(mons[i], MON_DATA_OTID, &id);
             }
         }
