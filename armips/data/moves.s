@@ -14406,7 +14406,7 @@ movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BLAZING_TORQUE, "Ima torque yo fire bro"
+    movedescription MOVE_BLAZING_TORQUE, "---"
 
 movedata MOVE_WICKED_TORQUE, "Wicked Torque"
     battleeffect 301
