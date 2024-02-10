@@ -1993,9 +1993,9 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
     {
         if (shinyValue & 0xE000)
             pid = pid ^ ((shinyValue << 16) & 0xE0000000);
-        if ((shinyValue & 0x1FFF) < (0x1FFF - SHINY_ODDS))
-            shinyValue += gf_rand() % SHINY_ODDS;
         pid = pid ^ (shinyValue & 0x1FFF);
+        // shinyValue is now 0.  any xor must keep the shinyValue below SHINY_ODDS--should be fine to just generate a random number 0-SHINY_ODDS and xor it
+        pid = pid ^ (gf_rand() % (SHINY_ODDS));
     }
     return pid;
 }
