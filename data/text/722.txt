@@ -170,7 +170,7 @@ It changes type to that\nof the move it’s about to use.
 Halves the damage from\nphysical moves.
 Steals the held item of\na Pokémon it hits.
 Protects the Pokémon from\nsome ball and bomb moves.
-Sharply boosts Sp. Atk when\na stat is lowered.
+Sharply boosts Sp. Atk\nwhen a stat is lowered.
 Boosts the power of\nbiting moves.
 Normal-type moves become\nIce-type and powered up.
 Prevents itself and\nallies from falling asleep.
