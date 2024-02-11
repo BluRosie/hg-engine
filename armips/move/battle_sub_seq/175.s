@@ -12,6 +12,8 @@
 .create "build/move/battle_sub_seq/1_175", 0
 
 a001_175:
+    ifmonstat IF_NOTEQUAL, BATTLER_DEFENDER, MON_DATA_HP, 0x0, CheckParentalBond
+Continue:
     checkwipeout BATTLER_DEFENDER, _02B4
     tryswitchinmon BATTLER_ATTACKER, 0x1, _02B4
 
@@ -75,5 +77,14 @@ _0238:
     jumptosubseq 10
 _02B4:
     endscript
+
+CheckParentalBond:
+    // this seems wrong, but when the first hit occured, the counter increases
+    // then it reaches here since this is in the sub sequence
+    // so the first hit will have the counter of 2
+    // the second hit will have the counter of 0
+    // here we reuse the script command for this purpose
+    ifsecondhitofparentalbond _02B4
+    goto Continue
 
 .close
