@@ -443,7 +443,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             FALLTHROUGH;
         case SEQ_PARENTAL_BOND_CHECK:
             if (sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND &&
-            sp->battlemon[sp->attack_client].parental_bond_flag == 0 &&
+            sp->loop_hit_check != 0xFD &&
             sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS &&
             !IsBannedParentalBondMove(sp) &&
             !IsBannedSpreadMoveForParentalBond(sp)) {
