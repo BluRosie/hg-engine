@@ -44,6 +44,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work);
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
 s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client);
 BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp);
@@ -1969,6 +1970,35 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_OHKO_HIT_NOHIT;
             }
         }
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to calculate the base power of Fury Cutter
+ *  @brief and set the counter for Fury Cutter
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct *sp) {
+    // probably no need to use int?
+    u8 i;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    if (sp->battlemon[sp->attack_client].moveeffect.furyCutterCount < 3 &&
+        // the second hit for Parental Bond doesn't increase the counter
+        sp->battlemon[sp->attack_client].parental_bond_flag != 2) {
+        sp->battlemon[sp->attack_client].moveeffect.furyCutterCount++;
+    }
+
+    sp->damage_power = sp->moveTbl[sp->current_move_index].power;
+
+    for (i = 1; i < sp->battlemon[sp->attack_client].moveeffect.furyCutterCount; i++) {
+        sp->damage_power *= 2;
     }
 
     return FALSE;
