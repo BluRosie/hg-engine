@@ -460,14 +460,16 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         }
 
-        // handle meloetta - change form to pirouette when using relic song.  changes back when switching/battle ends too
+        // handle meloetta - change to/from pirouette form when using relic song
         if ((sp->battlemon[sp->client_work].species == SPECIES_MELOETTA)
          && (sp->battlemon[sp->client_work].hp)
          && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
-         && (sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
-         && (sp->battlemon[sp->client_work].form_no != 1))
+         && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
+         && (sp->battlemon[sp->client_work].form_no < 2)
+         && (sp->relic_song_tracker & No2Bit(sp->client_work))) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
         {
-            sp->battlemon[sp->client_work].form_no = 1;
+            sp->relic_song_tracker &= ~No2Bit(sp->client_work);
+            sp->battlemon[sp->client_work].form_no ^= 1;
             BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
             *seq_no = SUB_SEQ_FORM_CHANGE;
             ret = TRUE;

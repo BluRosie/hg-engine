@@ -14239,7 +14239,7 @@ movedata MOVE_CHILLING_WATER, "Chilling Water"
     type TYPE_WATER
     accuracy 100
     pp 20
-    effectchance 0
+    effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
