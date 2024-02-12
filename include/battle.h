@@ -2375,21 +2375,35 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
 /**
  * @brief Check if the current move is a multi hit move
- * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a multi hit move
 */
-BOOL IsMultiHitMove(struct BattleStruct *sp);
+BOOL IsMultiHitMove(u32 moveIndex);
 
 /**
  * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
- * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
 */
-BOOL IsBannedParentalBondMove(struct BattleStruct *sp);
+BOOL IsBannedParentalBondMove(u32 moveIndex);
 
 /**
  * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
  * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
  */
-BOOL IsBannedSpreadMoveForParentalBond(struct BattleStruct *sp);
+BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a move that should be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param checkTempMove if move will be changed via Metronome, Assist, etc
+ * @return TRUE if it is a valid move
+ */
+BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove);
 
 /**
  * @brief gets the actual attack and defense for damage calculation

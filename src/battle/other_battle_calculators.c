@@ -1628,11 +1628,12 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
 
 /**
  * @brief Check if the current move is a multi hit move
- * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a multi hit move
 */
-BOOL IsMultiHitMove(struct BattleStruct *sp) {
+BOOL IsMultiHitMove(u32 moveIndex) {
     for (u16 i = 0; i < NELEMS(MultiHitMovesList); i++) {
-        if (sp->current_move_index == MultiHitMovesList[i]) {
+        if (moveIndex == MultiHitMovesList[i]) {
             return TRUE;
         }
     }
@@ -1641,25 +1642,34 @@ BOOL IsMultiHitMove(struct BattleStruct *sp) {
 
 /**
  * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
- * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
 */
-BOOL IsBannedParentalBondMove(struct BattleStruct *sp) {
+BOOL IsBannedParentalBondMove(u32 moveIndex) {
     u8 output = FALSE;
     for (u16 i = 0; i < NELEMS(ParentalBondSingleStrikeMovesList); i++) {
-        if (sp->current_move_index == ParentalBondSingleStrikeMovesList[i]) {
+        if (moveIndex == ParentalBondSingleStrikeMovesList[i]) {
             output = TRUE;
             break;
         }
     }
-    return output || IsMultiHitMove(sp);
+    return output || IsMultiHitMove(moveIndex);
 }
 
 /**
  * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
  * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
  */
-BOOL IsBannedSpreadMoveForParentalBond(struct BattleStruct *sp) {
-    struct BattleMove currentMove = sp->moveTbl[sp->current_move_index];
+BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex) {
+    //no need to check moves if it is a single battle
+    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) == 0) {
+        return FALSE;
+    }
+
+    struct BattleMove currentMove = sp->moveTbl[moveIndex];
 
     struct BattlePokemon ally = sp->battlemon[BATTLER_ALLY(sp->attack_client)];
     struct BattlePokemon opponent = sp->battlemon[BATTLER_OPPONENT(sp->attack_client)];
@@ -1682,6 +1692,22 @@ BOOL IsBannedSpreadMoveForParentalBond(struct BattleStruct *sp) {
             break;
     }
     return TRUE;
+}
+
+/**
+ * @brief Check if the current move is a move that should be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param checkTempMove if move will be changed via Metronome, Assist, etc
+ * @return TRUE if it is a valid move
+ */
+BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove) {
+    u32 moveIndex = checkTempMove ? sp->waza_work : sp->current_move_index;
+
+    return (sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND &&
+            sp->moveTbl[moveIndex].split != SPLIT_STATUS &&
+            !IsBannedParentalBondMove(moveIndex) &&
+            !IsBannedSpreadMoveForParentalBond(bw, sp, moveIndex));
 }
 
 /**
@@ -1783,27 +1809,4 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
         default:
             break;
     }
-}
-
-/**
- * @brief Get number of alive mons for a client
- * @param bw battle work structure; void * because we haven't defined the battle work structure
- * @param sp battle structure
- * @param client client number
- */
-u8 GetNumAliveMons(void *bw, struct BattleStruct *sp, int client) {
-    u32 hp;
-    struct PartyPokemon *mon;
-    u8 numMons = 0;
-
-    int partyCount = Battle_GetClientPartySize(bw, client);
-
-    for (int i = 0; i < partyCount; i++) {
-        mon = Battle_GetClientPartyMon(bw, client, i);
-        hp = GetMonData(mon, MON_DATA_HP, NULL);
-        if (hp != 0) {
-            numMons++;
-        }
-    }
-    return numMons;
 }

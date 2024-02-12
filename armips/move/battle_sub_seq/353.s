@@ -11,6 +11,7 @@
 
 // Handle Parental Bond
 a001_353:
+    setparentalbondflag
     // No accuracy check per hit
     setmultihit 0x2, 0xFD
     changevar VAR_OP_SET, VAR_SUCCESSIVE_HIT, 0x1

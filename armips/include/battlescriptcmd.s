@@ -1546,3 +1546,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro setparentalbondflag
     .word 0xF1
 .endmacro
+
+.macro ifcurrentmoveisvalidparentalbondmove,address
+    .word 0xF2
+    .word ((address - org()) / 4) - 1
+.endmacro

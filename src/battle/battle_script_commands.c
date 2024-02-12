@@ -67,6 +67,7 @@ BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw, struct BattleStruct 
 BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -319,6 +320,7 @@ const u8 *BattleScrCmdNames[] =
     "iffirsthitofparentalbond",
     "ifsecondhitofparentalbond",
     "setparentalbondflag",
+    "ifcurrentmoveisvalidparentalbondmove",
 };
 
 u32 cmdAddress = 0;
@@ -344,6 +346,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xEF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EF_iffirsthitofparentalbond,
     [0xF0 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F0_ifsecondhitofparentalbond,
     [0xF1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F1_setparentalbondflag,
+    [0xF2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -2665,6 +2668,18 @@ BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw UNUSED, struct BattleStruct *sp
     IncrementBattleScriptPtr(sp, 1);
 
     sp->battlemon[sp->attack_client].parental_bond_flag = 1;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (IsValidParentalBondMove(bw, sp, TRUE)) {
+        IncrementBattleScriptPtr(sp, address);
+    }
 
     return FALSE;
 }
