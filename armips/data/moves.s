@@ -9030,6 +9030,7 @@ movedata MOVE_FLYING_PRESS, "Flying Press"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLYING_PRESS, "---"
 
 movedata MOVE_MAT_BLOCK, "Mat Block"
     battleeffect 0
@@ -9045,6 +9046,7 @@ movedata MOVE_MAT_BLOCK, "Mat Block"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAT_BLOCK, "---"
 
 movedata MOVE_BELCH, "Belch"
     battleeffect 0
@@ -9060,6 +9062,7 @@ movedata MOVE_BELCH, "Belch"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BELCH, "---"
 
 movedata MOVE_ROTOTILLER, "Rototiller"
     battleeffect 0
@@ -9075,6 +9078,7 @@ movedata MOVE_ROTOTILLER, "Rototiller"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ROTOTILLER, "---"
 
 movedata MOVE_STICKY_WEB, "Sticky Web"
     battleeffect 0
@@ -9090,6 +9094,7 @@ movedata MOVE_STICKY_WEB, "Sticky Web"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STICKY_WEB, "---"
 
 movedata MOVE_FELL_STINGER, "Fell Stinger"
     battleeffect 0
@@ -9105,6 +9110,7 @@ movedata MOVE_FELL_STINGER, "Fell Stinger"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FELL_STINGER, "---"
 
 movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     battleeffect 272
@@ -9120,6 +9126,7 @@ movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PHANTOM_FORCE, "---"
 
 movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
     battleeffect 0
@@ -9135,6 +9142,7 @@ movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TRICK_OR_TREAT, "---"
 
 movedata MOVE_NOBLE_ROAR, "Noble Roar"
     battleeffect 0
@@ -9150,6 +9158,7 @@ movedata MOVE_NOBLE_ROAR, "Noble Roar"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NOBLE_ROAR, "---"
 
 movedata MOVE_ION_DELUGE, "Ion Deluge"
     battleeffect 0
@@ -9165,6 +9174,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ION_DELUGE, "---"
 
 movedata MOVE_PARABOLIC_CHARGE, "ParabolicCharge"
     battleeffect 3
@@ -9180,6 +9190,7 @@ movedata MOVE_PARABOLIC_CHARGE, "ParabolicCharge"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PARABOLIC_CHARGE, "---"
 
 movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
     battleeffect 0
@@ -9195,6 +9206,7 @@ movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FORESTS_CURSE, "---"
 
 movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
     battleeffect 0
@@ -9210,6 +9222,7 @@ movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PETAL_BLIZZARD, "---"
 
 movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     battleeffect 0
@@ -9225,6 +9238,7 @@ movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FREEZE_DRY, "---"
 
 movedata MOVE_DISARMING_VOICE, "Disarming Voice"
     battleeffect 0
@@ -9240,6 +9254,7 @@ movedata MOVE_DISARMING_VOICE, "Disarming Voice"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DISARMING_VOICE, "---"
 
 movedata MOVE_PARTING_SHOT, "Parting Shot"
     battleeffect 0
@@ -9255,6 +9270,7 @@ movedata MOVE_PARTING_SHOT, "Parting Shot"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PARTING_SHOT, "---"
 
 movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
     battleeffect 0
@@ -9270,6 +9286,7 @@ movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TOPSY_TURVY, "---"
 
 movedata MOVE_DRAINING_KISS, "Draining Kiss"
     battleeffect 3
@@ -9285,6 +9302,7 @@ movedata MOVE_DRAINING_KISS, "Draining Kiss"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DRAINING_KISS, "---"
 
 movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     battleeffect 0
@@ -9300,6 +9318,7 @@ movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CRAFTY_SHIELD, "---"
 
 movedata MOVE_FLOWER_SHIELD, "Flower Shield"
     battleeffect 0
@@ -9315,6 +9334,7 @@ movedata MOVE_FLOWER_SHIELD, "Flower Shield"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLOWER_SHIELD, "---"
 
 movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
     battleeffect 294
@@ -9330,6 +9350,7 @@ movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
     appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
+    movedescription MOVE_GRASSY_TERRAIN, "---"
 
 movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
     battleeffect 294
@@ -9345,6 +9366,7 @@ movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
     appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
+    movedescription MOVE_MISTY_TERRAIN, "---"
 
 movedata MOVE_ELECTRIFY, "Electrify"
     battleeffect 0
@@ -9360,6 +9382,7 @@ movedata MOVE_ELECTRIFY, "Electrify"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ELECTRIFY, "---"
 
 movedata MOVE_PLAY_ROUGH, "Play Rough"
     battleeffect 68
@@ -9375,6 +9398,7 @@ movedata MOVE_PLAY_ROUGH, "Play Rough"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PLAY_ROUGH, "---"
 
 movedata MOVE_FAIRY_WIND, "Fairy Wind"
     battleeffect 0
@@ -9390,6 +9414,7 @@ movedata MOVE_FAIRY_WIND, "Fairy Wind"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FAIRY_WIND, "---"
 
 movedata MOVE_MOONBLAST, "Moonblast"
     battleeffect 71
@@ -9405,6 +9430,7 @@ movedata MOVE_MOONBLAST, "Moonblast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MOONBLAST, "---"
 
 movedata MOVE_BOOMBURST, "Boomburst"
     battleeffect 0
@@ -9420,6 +9446,7 @@ movedata MOVE_BOOMBURST, "Boomburst"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BOOMBURST, "---"
 
 movedata MOVE_FAIRY_LOCK, "Fairy Lock"
     battleeffect 0
@@ -9435,6 +9462,7 @@ movedata MOVE_FAIRY_LOCK, "Fairy Lock"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FAIRY_LOCK, "---"
 
 movedata MOVE_KINGS_SHIELD, "King’s Shield"
     battleeffect 0
@@ -9450,6 +9478,7 @@ movedata MOVE_KINGS_SHIELD, "King’s Shield"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_KINGS_SHIELD, "---"
 
 movedata MOVE_PLAY_NICE, "Play Nice"
     battleeffect 18
@@ -9465,6 +9494,7 @@ movedata MOVE_PLAY_NICE, "Play Nice"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PLAY_NICE, "---"
 
 movedata MOVE_CONFIDE, "Confide"
     battleeffect 0
@@ -9480,6 +9510,7 @@ movedata MOVE_CONFIDE, "Confide"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CONFIDE, "---"
 
 movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     battleeffect 0
@@ -9495,6 +9526,7 @@ movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DIAMOND_STORM, "---"
 
 movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     battleeffect 4
@@ -9510,6 +9542,7 @@ movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STEAM_ERUPTION, "---"
 
 movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
     battleeffect 223
@@ -9525,6 +9558,7 @@ movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HYPERSPACE_HOLE, "---"
 
 movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
     battleeffect 29
@@ -9540,6 +9574,7 @@ movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_WATER_SHURIKEN, "---"
 
 movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
     battleeffect 71
@@ -9555,6 +9590,7 @@ movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MYSTICAL_FIRE, "---"
 
 movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
     battleeffect 0
@@ -9570,6 +9606,7 @@ movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPIKY_SHIELD, "---"
 
 movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     battleeffect 0
@@ -9585,6 +9622,7 @@ movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_AROMATIC_MIST, "---"
 
 movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
     battleeffect 0
@@ -9600,6 +9638,7 @@ movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_EERIE_IMPULSE, "---"
 
 movedata MOVE_VENOM_DRENCH, "Venom Drench"
     battleeffect 0
@@ -9615,6 +9654,7 @@ movedata MOVE_VENOM_DRENCH, "Venom Drench"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_VENOM_DRENCH, "---"
 
 movedata MOVE_POWDER, "Powder"
     battleeffect 0
@@ -9630,6 +9670,7 @@ movedata MOVE_POWDER, "Powder"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POWDER, "---"
 
 movedata MOVE_GEOMANCY, "Geomancy"
     battleeffect 0
@@ -9645,6 +9686,7 @@ movedata MOVE_GEOMANCY, "Geomancy"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GEOMANCY, "---"
 
 movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
     battleeffect 0
@@ -9660,6 +9702,7 @@ movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAGNETIC_FLUX, "---"
 
 movedata MOVE_HAPPY_HOUR, "Happy Hour"
     battleeffect 85
@@ -9675,6 +9718,7 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HAPPY_HOUR, "---"
 
 movedata MOVE_ELECTRIC_TERRAIN, "ElectricTerrain"
     battleeffect 294
@@ -9690,6 +9734,7 @@ movedata MOVE_ELECTRIC_TERRAIN, "ElectricTerrain"
     appeal 0x05
     contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
     terminatedata
+    movedescription MOVE_ELECTRIC_TERRAIN, "---"
 
 movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     battleeffect 0
@@ -9705,6 +9750,7 @@ movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DAZZLING_GLEAM, "---"
 
 movedata MOVE_CELEBRATE, "Celebrate"
     battleeffect 85
@@ -9720,6 +9766,7 @@ movedata MOVE_CELEBRATE, "Celebrate"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CELEBRATE, "---"
 
 movedata MOVE_HOLD_HANDS, "Hold Hands"
     battleeffect 85
@@ -9735,6 +9782,7 @@ movedata MOVE_HOLD_HANDS, "Hold Hands"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HOLD_HANDS, "---"
 
 movedata MOVE_BABY_DOLL_EYES, "Baby-Doll Eyes"
     battleeffect 18
@@ -9750,6 +9798,7 @@ movedata MOVE_BABY_DOLL_EYES, "Baby-Doll Eyes"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BABY_DOLL_EYES, "---"
 
 movedata MOVE_NUZZLE, "Nuzzle"
     battleeffect 6
@@ -9765,6 +9814,7 @@ movedata MOVE_NUZZLE, "Nuzzle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NUZZLE, "---"
 
 movedata MOVE_HOLD_BACK, "Hold Back"
     battleeffect 101
@@ -9780,6 +9830,7 @@ movedata MOVE_HOLD_BACK, "Hold Back"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HOLD_BACK, "---"
 
 movedata MOVE_INFESTATION, "Infestation"
     battleeffect 0
@@ -9795,6 +9846,7 @@ movedata MOVE_INFESTATION, "Infestation"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_INFESTATION, "---"
 
 movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     battleeffect 139
@@ -9810,6 +9862,7 @@ movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POWER_UP_PUNCH, "---"
 
 movedata MOVE_OBLIVION_WING, "Oblivion Wing"
     battleeffect 3
@@ -9825,6 +9878,7 @@ movedata MOVE_OBLIVION_WING, "Oblivion Wing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_OBLIVION_WING, "---"
 
 movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
     battleeffect 0
@@ -9840,6 +9894,7 @@ movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_THOUSAND_ARROWS, "---"
 
 movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
     battleeffect 0
@@ -9855,6 +9910,7 @@ movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_THOUSAND_WAVES, "---"
 
 movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     battleeffect 0
@@ -9870,6 +9926,7 @@ movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LANDS_WRATH, "---"
 
 movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
     battleeffect 269
@@ -9885,6 +9942,7 @@ movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LIGHT_OF_RUIN, "---"
 
 movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     battleeffect 0
@@ -9900,6 +9958,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ORIGIN_PULSE, "---"
 
 movedata MOVE_PRECIPICE_BLADES, "Precipice Blade"
     battleeffect 0
@@ -9915,6 +9974,7 @@ movedata MOVE_PRECIPICE_BLADES, "Precipice Blade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PRECIPICE_BLADES, "---"
 
 movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
     battleeffect 229
@@ -9930,6 +9990,7 @@ movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DRAGON_ASCENT, "---"
 
 movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     battleeffect 0
@@ -9945,6 +10006,7 @@ movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HYPERSPACE_FURY, "---"
 
 movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
     battleeffect 0
@@ -9960,6 +10022,7 @@ movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BREAKNECK_BLITZ_PHYSICAL, "---"
 
 movedata MOVE_BREAKNECK_BLITZ_SPECIAL, "Breakneck Blitz"
     battleeffect 0
@@ -9975,6 +10038,7 @@ movedata MOVE_BREAKNECK_BLITZ_SPECIAL, "Breakneck Blitz"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BREAKNECK_BLITZ_SPECIAL, "---"
 
 movedata MOVE_ALL_OUT_PUMMELING_PHYSICAL, "All-Out Pummeling"
     battleeffect 0
@@ -9990,6 +10054,7 @@ movedata MOVE_ALL_OUT_PUMMELING_PHYSICAL, "All-Out Pummeling"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ALL_OUT_PUMMELING_PHYSICAL, "---"
 
 movedata MOVE_ALL_OUT_PUMMELING_SPECIAL, "All-Out Pummeling"
     battleeffect 0
@@ -10005,6 +10070,7 @@ movedata MOVE_ALL_OUT_PUMMELING_SPECIAL, "All-Out Pummeling"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ALL_OUT_PUMMELING_SPECIAL, "---"
 
 movedata MOVE_SUPERSONIC_SKYSTRIKE_PHYSICAL, "Supersonic Skystrike"
     battleeffect 0
@@ -10020,6 +10086,7 @@ movedata MOVE_SUPERSONIC_SKYSTRIKE_PHYSICAL, "Supersonic Skystrike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SUPERSONIC_SKYSTRIKE_PHYSICAL, "---"
 
 movedata MOVE_SUPERSONIC_SKYSTRIKE_SPECIAL, "Supersonic Skystrike"
     battleeffect 0
@@ -10035,6 +10102,7 @@ movedata MOVE_SUPERSONIC_SKYSTRIKE_SPECIAL, "Supersonic Skystrike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SUPERSONIC_SKYSTRIKE_SPECIAL, "---"
 
 movedata MOVE_ACID_DOWNPOUR_PHYSICAL, "Acid Downpour"
     battleeffect 0
@@ -10050,6 +10118,7 @@ movedata MOVE_ACID_DOWNPOUR_PHYSICAL, "Acid Downpour"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ACID_DOWNPOUR_PHYSICAL, "---"
 
 movedata MOVE_ACID_DOWNPOUR_SPECIAL, "Acid Downpour"
     battleeffect 0
@@ -10065,6 +10134,7 @@ movedata MOVE_ACID_DOWNPOUR_SPECIAL, "Acid Downpour"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ACID_DOWNPOUR_SPECIAL, "---"
 
 movedata MOVE_TECTONIC_RAGE_PHYSICAL, "Tectonic Rage"
     battleeffect 0
@@ -10080,6 +10150,7 @@ movedata MOVE_TECTONIC_RAGE_PHYSICAL, "Tectonic Rage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TECTONIC_RAGE_PHYSICAL, "---"
 
 movedata MOVE_TECTONIC_RAGE_SPECIAL, "Tectonic Rage"
     battleeffect 0
@@ -10095,6 +10166,7 @@ movedata MOVE_TECTONIC_RAGE_SPECIAL, "Tectonic Rage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TECTONIC_RAGE_SPECIAL, "---"
 
 movedata MOVE_CONTINENTAL_CRUSH_PHYSICAL, "Continental Crush"
     battleeffect 0
@@ -10110,6 +10182,7 @@ movedata MOVE_CONTINENTAL_CRUSH_PHYSICAL, "Continental Crush"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CONTINENTAL_CRUSH_PHYSICAL, "---"
 
 movedata MOVE_CONTINENTAL_CRUSH_SPECIAL, "Continental Crush"
     battleeffect 0
@@ -10125,6 +10198,7 @@ movedata MOVE_CONTINENTAL_CRUSH_SPECIAL, "Continental Crush"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CONTINENTAL_CRUSH_SPECIAL, "---"
 
 movedata MOVE_SAVAGE_SPIN_OUT_PHYSICAL, "Savage Spin-Out"
     battleeffect 0
@@ -10140,6 +10214,7 @@ movedata MOVE_SAVAGE_SPIN_OUT_PHYSICAL, "Savage Spin-Out"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SAVAGE_SPIN_OUT_PHYSICAL, "---"
 
 movedata MOVE_SAVAGE_SPIN_OUT_SPECIAL, "Savage Spin-Out"
     battleeffect 0
@@ -10155,6 +10230,7 @@ movedata MOVE_SAVAGE_SPIN_OUT_SPECIAL, "Savage Spin-Out"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SAVAGE_SPIN_OUT_SPECIAL, "---"
 
 movedata MOVE_NEVER_ENDING_NIGHTMARE_PHYSICAL, "Never-Ending Nightmare"
     battleeffect 0
@@ -10170,6 +10246,7 @@ movedata MOVE_NEVER_ENDING_NIGHTMARE_PHYSICAL, "Never-Ending Nightmare"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NEVER_ENDING_NIGHTMARE_PHYSICAL, "---"
 
 movedata MOVE_NEVER_ENDING_NIGHTMARE_SPECIAL, "Never-Ending Nightmare"
     battleeffect 0
@@ -10185,6 +10262,7 @@ movedata MOVE_NEVER_ENDING_NIGHTMARE_SPECIAL, "Never-Ending Nightmare"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NEVER_ENDING_NIGHTMARE_SPECIAL, "---"
 
 movedata MOVE_CORKSCREW_CRASH_PHYSICAL, "Corkscrew Crash"
     battleeffect 0
@@ -10200,6 +10278,7 @@ movedata MOVE_CORKSCREW_CRASH_PHYSICAL, "Corkscrew Crash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CORKSCREW_CRASH_PHYSICAL, "---"
 
 movedata MOVE_CORKSCREW_CRASH_SPECIAL, "Corkscrew Crash"
     battleeffect 0
@@ -10215,6 +10294,7 @@ movedata MOVE_CORKSCREW_CRASH_SPECIAL, "Corkscrew Crash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CORKSCREW_CRASH_SPECIAL, "---"
 
 movedata MOVE_INFERNO_OVERDRIVE_PHYSICAL, "Inferno Overdrive"
     battleeffect 0
@@ -10230,6 +10310,7 @@ movedata MOVE_INFERNO_OVERDRIVE_PHYSICAL, "Inferno Overdrive"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_INFERNO_OVERDRIVE_PHYSICAL, "---"
 
 movedata MOVE_INFERNO_OVERDRIVE_SPECIAL, "Inferno Overdrive"
     battleeffect 0
@@ -10245,6 +10326,7 @@ movedata MOVE_INFERNO_OVERDRIVE_SPECIAL, "Inferno Overdrive"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_INFERNO_OVERDRIVE_SPECIAL, "---"
 
 movedata MOVE_HYDRO_VORTEX_PHYSICAL, "Hydro Vortex"
     battleeffect 0
@@ -10260,6 +10342,7 @@ movedata MOVE_HYDRO_VORTEX_PHYSICAL, "Hydro Vortex"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HYDRO_VORTEX_PHYSICAL, "---"
 
 movedata MOVE_HYDRO_VORTEX_SPECIAL, "Hydro Vortex"
     battleeffect 0
@@ -10275,6 +10358,7 @@ movedata MOVE_HYDRO_VORTEX_SPECIAL, "Hydro Vortex"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HYDRO_VORTEX_SPECIAL, "---"
 
 movedata MOVE_BLOOM_DOOM_PHYSICAL, "Bloom Doom"
     battleeffect 0
@@ -10290,6 +10374,7 @@ movedata MOVE_BLOOM_DOOM_PHYSICAL, "Bloom Doom"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BLOOM_DOOM_PHYSICAL, "---"
 
 movedata MOVE_BLOOM_DOOM_SPECIAL, "Bloom Doom"
     battleeffect 0
@@ -10305,6 +10390,7 @@ movedata MOVE_BLOOM_DOOM_SPECIAL, "Bloom Doom"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BLOOM_DOOM_SPECIAL, "---"
 
 movedata MOVE_GIGAVOLT_HAVOC_PHYSICAL, "Gigavolt Havoc"
     battleeffect 0
@@ -10320,6 +10406,7 @@ movedata MOVE_GIGAVOLT_HAVOC_PHYSICAL, "Gigavolt Havoc"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GIGAVOLT_HAVOC_PHYSICAL, "---"
 
 movedata MOVE_GIGAVOLT_HAVOC_SPECIAL, "Gigavolt Havoc"
     battleeffect 0
@@ -10335,6 +10422,7 @@ movedata MOVE_GIGAVOLT_HAVOC_SPECIAL, "Gigavolt Havoc"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GIGAVOLT_HAVOC_SPECIAL, "---"
 
 movedata MOVE_SHATTERED_PSYCHE_PHYSICAL, "Shattered Psyche"
     battleeffect 0
@@ -10350,6 +10438,7 @@ movedata MOVE_SHATTERED_PSYCHE_PHYSICAL, "Shattered Psyche"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHATTERED_PSYCHE_PHYSICAL, "---"
 
 movedata MOVE_SHATTERED_PSYCHE_SPECIAL, "Shattered Psyche"
     battleeffect 0
@@ -10365,6 +10454,7 @@ movedata MOVE_SHATTERED_PSYCHE_SPECIAL, "Shattered Psyche"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHATTERED_PSYCHE_SPECIAL, "---"
 
 movedata MOVE_SUBZERO_SLAMMER_PHYSICAL, "Subzero Slammer"
     battleeffect 0
@@ -10380,6 +10470,7 @@ movedata MOVE_SUBZERO_SLAMMER_PHYSICAL, "Subzero Slammer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SUBZERO_SLAMMER_PHYSICAL, "---"
 
 movedata MOVE_SUBZERO_SLAMMER_SPECIAL, "Subzero Slammer"
     battleeffect 0
@@ -10395,6 +10486,7 @@ movedata MOVE_SUBZERO_SLAMMER_SPECIAL, "Subzero Slammer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SUBZERO_SLAMMER_SPECIAL, "---"
 
 movedata MOVE_DEVASTATING_DRAKE_PHYSICAL, "Devastating Drake"
     battleeffect 0
@@ -10410,6 +10502,7 @@ movedata MOVE_DEVASTATING_DRAKE_PHYSICAL, "Devastating Drake"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DEVASTATING_DRAKE_PHYSICAL, "---"
 
 movedata MOVE_DEVASTATING_DRAKE_SPECIAL, "Devastating Drake"
     battleeffect 0
@@ -10425,6 +10518,7 @@ movedata MOVE_DEVASTATING_DRAKE_SPECIAL, "Devastating Drake"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DEVASTATING_DRAKE_SPECIAL, "---"
 
 movedata MOVE_BLACK_HOLE_ECLIPSE_PHYSICAL, "Black Hole Eclipse"
     battleeffect 0
@@ -10440,6 +10534,7 @@ movedata MOVE_BLACK_HOLE_ECLIPSE_PHYSICAL, "Black Hole Eclipse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BLACK_HOLE_ECLIPSE_PHYSICAL, "---"
 
 movedata MOVE_BLACK_HOLE_ECLIPSE_SPECIAL, "Black Hole Eclipse"
     battleeffect 0
@@ -10455,6 +10550,7 @@ movedata MOVE_BLACK_HOLE_ECLIPSE_SPECIAL, "Black Hole Eclipse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BLACK_HOLE_ECLIPSE_SPECIAL, "---"
 
 movedata MOVE_TWINKLE_TACKLE_PHYSICAL, "Twinkle Tackle"
     battleeffect 0
@@ -10470,6 +10566,7 @@ movedata MOVE_TWINKLE_TACKLE_PHYSICAL, "Twinkle Tackle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TWINKLE_TACKLE_PHYSICAL, "---"
 
 movedata MOVE_TWINKLE_TACKLE_SPECIAL, "Twinkle Tackle"
     battleeffect 0
@@ -10485,6 +10582,7 @@ movedata MOVE_TWINKLE_TACKLE_SPECIAL, "Twinkle Tackle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TWINKLE_TACKLE_SPECIAL, "---"
 
 movedata MOVE_CATASTROPIKA, "Catastropika"
     battleeffect 0
@@ -10500,6 +10598,7 @@ movedata MOVE_CATASTROPIKA, "Catastropika"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CATASTROPIKA, "---"
 
 movedata MOVE_SHORE_UP, "Shore Up"
     battleeffect 0
@@ -10515,6 +10614,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHORE_UP, "---"
 
 movedata MOVE_FIRST_IMPRESSION, "FirstImpression"
     battleeffect 158
@@ -10530,6 +10630,7 @@ movedata MOVE_FIRST_IMPRESSION, "FirstImpression"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FIRST_IMPRESSION, "---"
 
 movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
     battleeffect 111
@@ -10545,6 +10646,7 @@ movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BANEFUL_BUNKER, "---"
 
 movedata MOVE_SPIRIT_SHACKLE, "Spirit Shackle"
     battleeffect 0
@@ -10560,6 +10662,7 @@ movedata MOVE_SPIRIT_SHACKLE, "Spirit Shackle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPIRIT_SHACKLE, "---"
 
 movedata MOVE_DARKEST_LARIAT, "Darkest Lariat"
     battleeffect 0
@@ -10575,6 +10678,7 @@ movedata MOVE_DARKEST_LARIAT, "Darkest Lariat"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DARKEST_LARIAT, "---"
 
 movedata MOVE_SPARKLING_ARIA, "Sparkling Aria"
     battleeffect 0
@@ -10590,6 +10694,7 @@ movedata MOVE_SPARKLING_ARIA, "Sparkling Aria"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPARKLING_ARIA, "---"
 
 movedata MOVE_ICE_HAMMER, "Ice Hammer"
     battleeffect 218
@@ -10605,6 +10710,7 @@ movedata MOVE_ICE_HAMMER, "Ice Hammer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ICE_HAMMER, "---"
 
 movedata MOVE_FLORAL_HEALING, "Floral Healing"
     battleeffect 0
@@ -10620,6 +10726,7 @@ movedata MOVE_FLORAL_HEALING, "Floral Healing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLORAL_HEALING, "---"
 
 movedata MOVE_HIGH_HORSEPOWER, "High Horsepower"
     battleeffect 0
@@ -10635,6 +10742,7 @@ movedata MOVE_HIGH_HORSEPOWER, "High Horsepower"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HIGH_HORSEPOWER, "---"
 
 movedata MOVE_STRENGTH_SAP, "Strength Sap"
     battleeffect 0
@@ -10650,6 +10758,7 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STRENGTH_SAP, "---"
 
 movedata MOVE_SOLAR_BLADE, "Solar Blade"
     battleeffect 151
@@ -10665,6 +10774,7 @@ movedata MOVE_SOLAR_BLADE, "Solar Blade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SOLAR_BLADE, "---"
 
 movedata MOVE_LEAFAGE, "Leafage"
     battleeffect 0
@@ -10680,6 +10790,7 @@ movedata MOVE_LEAFAGE, "Leafage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LEAFAGE, "---"
 
 movedata MOVE_SPOTLIGHT, "Spotlight"
     battleeffect 172
@@ -10695,6 +10806,7 @@ movedata MOVE_SPOTLIGHT, "Spotlight"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPOTLIGHT, "---"
 
 movedata MOVE_TOXIC_THREAD, "Toxic Thread"
     battleeffect 0
@@ -10710,6 +10822,7 @@ movedata MOVE_TOXIC_THREAD, "Toxic Thread"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TOXIC_THREAD, "---"
 
 movedata MOVE_LASER_FOCUS, "Laser Focus"
     battleeffect 0
@@ -10725,6 +10838,7 @@ movedata MOVE_LASER_FOCUS, "Laser Focus"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LASER_FOCUS, "---"
 
 movedata MOVE_GEAR_UP, "Gear Up"
     battleeffect 0
@@ -10740,6 +10854,7 @@ movedata MOVE_GEAR_UP, "Gear Up"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GEAR_UP, "---"
 
 movedata MOVE_THROAT_CHOP, "Throat Chop"
     battleeffect 0
@@ -10755,6 +10870,7 @@ movedata MOVE_THROAT_CHOP, "Throat Chop"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_THROAT_CHOP, "---"
 
 movedata MOVE_POLLEN_PUFF, "Pollen Puff"
     battleeffect 0
@@ -10770,6 +10886,7 @@ movedata MOVE_POLLEN_PUFF, "Pollen Puff"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POLLEN_PUFF, "---"
 
 movedata MOVE_ANCHOR_SHOT, "Anchor Shot"
     battleeffect 0
@@ -10785,6 +10902,7 @@ movedata MOVE_ANCHOR_SHOT, "Anchor Shot"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ANCHOR_SHOT, "---"
 
 movedata MOVE_PSYCHIC_TERRAIN, "Psychic Terrain"
     battleeffect 294
@@ -10800,6 +10918,7 @@ movedata MOVE_PSYCHIC_TERRAIN, "Psychic Terrain"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PSYCHIC_TERRAIN, "---"
 
 movedata MOVE_LUNGE, "Lunge"
     battleeffect 68
@@ -10815,6 +10934,7 @@ movedata MOVE_LUNGE, "Lunge"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LUNGE, "---"
 
 movedata MOVE_FIRE_LASH, "Fire Lash"
     battleeffect 69
@@ -10830,6 +10950,7 @@ movedata MOVE_FIRE_LASH, "Fire Lash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FIRE_LASH, "---"
 
 movedata MOVE_POWER_TRIP, "Power Trip"
     battleeffect 0
@@ -10845,6 +10966,7 @@ movedata MOVE_POWER_TRIP, "Power Trip"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POWER_TRIP, "---"
 
 movedata MOVE_BURN_UP, "Burn Up"
     battleeffect 0
@@ -10860,6 +10982,7 @@ movedata MOVE_BURN_UP, "Burn Up"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BURN_UP, "---"
 
 movedata MOVE_SPEED_SWAP, "Speed Swap"
     battleeffect 0
@@ -10875,6 +10998,7 @@ movedata MOVE_SPEED_SWAP, "Speed Swap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPEED_SWAP, "---"
 
 movedata MOVE_SMART_STRIKE, "Smart Strike"
     battleeffect 0
@@ -10890,6 +11014,7 @@ movedata MOVE_SMART_STRIKE, "Smart Strike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SMART_STRIKE, "---"
 
 movedata MOVE_PURIFY, "Purify"
     battleeffect 0
@@ -10905,6 +11030,7 @@ movedata MOVE_PURIFY, "Purify"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PURIFY, "---"
 
 movedata MOVE_REVELATION_DANCE, "Revelation Dance"
     battleeffect 0
@@ -10920,6 +11046,7 @@ movedata MOVE_REVELATION_DANCE, "Revelation Dance"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_REVELATION_DANCE, "---"
 
 movedata MOVE_CORE_ENFORCER, "Core Enforcer"
     battleeffect 0
@@ -10935,6 +11062,7 @@ movedata MOVE_CORE_ENFORCER, "Core Enforcer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CORE_ENFORCER, "---"
 
 movedata MOVE_TROP_KICK, "Trop Kick"
     battleeffect 68
@@ -10950,6 +11078,7 @@ movedata MOVE_TROP_KICK, "Trop Kick"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TROP_KICK, "---"
 
 movedata MOVE_INSTRUCT, "Instruct"
     battleeffect 0
@@ -10965,6 +11094,7 @@ movedata MOVE_INSTRUCT, "Instruct"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_INSTRUCT, "---"
 
 movedata MOVE_BEAK_BLAST, "Beak Blast"
     battleeffect 0
@@ -10980,6 +11110,7 @@ movedata MOVE_BEAK_BLAST, "Beak Blast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BEAK_BLAST, "---"
 
 movedata MOVE_CLANGING_SCALES, "Clanging Scales"
     battleeffect 0
@@ -10995,6 +11126,7 @@ movedata MOVE_CLANGING_SCALES, "Clanging Scales"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CLANGING_SCALES, "---"
 
 movedata MOVE_DRAGON_HAMMER, "Dragon Hammer"
     battleeffect 0
@@ -11010,6 +11142,7 @@ movedata MOVE_DRAGON_HAMMER, "Dragon Hammer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DRAGON_HAMMER, "---"
 
 movedata MOVE_BRUTAL_SWING, "Brutal Swing"
     battleeffect 0
@@ -11025,6 +11158,7 @@ movedata MOVE_BRUTAL_SWING, "Brutal Swing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BRUTAL_SWING, "---"
 
 movedata MOVE_AURORA_VEIL, "Aurora Veil"
     battleeffect 0
@@ -11040,6 +11174,7 @@ movedata MOVE_AURORA_VEIL, "Aurora Veil"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_AURORA_VEIL, "---"
 
 movedata MOVE_SINISTER_ARROW_RAID, "Sinister Arrow Raid"
     battleeffect 0
@@ -11055,6 +11190,7 @@ movedata MOVE_SINISTER_ARROW_RAID, "Sinister Arrow Raid"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SINISTER_ARROW_RAID, "---"
 
 movedata MOVE_MALICIOUS_MOONSAULT, "Malicious Moonsault"
     battleeffect 0
@@ -11070,6 +11206,7 @@ movedata MOVE_MALICIOUS_MOONSAULT, "Malicious Moonsault"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MALICIOUS_MOONSAULT, "---"
 
 movedata MOVE_OCEANIC_OPERETTA, "Oceanic Operetta"
     battleeffect 0
@@ -11085,6 +11222,7 @@ movedata MOVE_OCEANIC_OPERETTA, "Oceanic Operetta"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_OCEANIC_OPERETTA, "---"
 
 movedata MOVE_GUARDIAN_OF_ALOLA, "Guardian of Alola"
     battleeffect 40
@@ -11100,6 +11238,7 @@ movedata MOVE_GUARDIAN_OF_ALOLA, "Guardian of Alola"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GUARDIAN_OF_ALOLA, "---"
 
 movedata MOVE_SOUL_STEALING_7_STAR_STRIKE, "Soul-Stealing 7-Star Strike"
     battleeffect 0
@@ -11115,6 +11254,7 @@ movedata MOVE_SOUL_STEALING_7_STAR_STRIKE, "Soul-Stealing 7-Star Strike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SOUL_STEALING_7_STAR_STRIKE, "---"
 
 movedata MOVE_STOKED_SPARKSURFER, "Stoked Sparksurfer"
     battleeffect 6
@@ -11130,6 +11270,7 @@ movedata MOVE_STOKED_SPARKSURFER, "Stoked Sparksurfer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STOKED_SPARKSURFER, "---"
 
 movedata MOVE_PULVERIZING_PANCAKE, "Pulverizing Pancake"
     battleeffect 0
@@ -11145,6 +11286,7 @@ movedata MOVE_PULVERIZING_PANCAKE, "Pulverizing Pancake"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PULVERIZING_PANCAKE, "---"
 
 movedata MOVE_EXTREME_EVOBOOST, "Extreme Evoboost"
     battleeffect 0
@@ -11160,6 +11302,7 @@ movedata MOVE_EXTREME_EVOBOOST, "Extreme Evoboost"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_EXTREME_EVOBOOST, "---"
 
 movedata MOVE_GENESIS_SUPERNOVA, "Genesis Supernova"
     battleeffect 0
@@ -11175,6 +11318,7 @@ movedata MOVE_GENESIS_SUPERNOVA, "Genesis Supernova"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GENESIS_SUPERNOVA, "---"
 
 movedata MOVE_SHELL_TRAP, "Shell Trap"
     battleeffect 0
@@ -11190,6 +11334,7 @@ movedata MOVE_SHELL_TRAP, "Shell Trap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHELL_TRAP, "---"
 
 movedata MOVE_FLEUR_CANNON, "Fleur Cannon"
     battleeffect 204
@@ -11205,6 +11350,7 @@ movedata MOVE_FLEUR_CANNON, "Fleur Cannon"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLEUR_CANNON, "---"
 
 movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
     battleeffect 186
@@ -11220,6 +11366,7 @@ movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PSYCHIC_FANGS, "---"
 
 movedata MOVE_STOMPING_TANTRUM, "Stomping Tantrum"
     battleeffect 0
@@ -11235,6 +11382,7 @@ movedata MOVE_STOMPING_TANTRUM, "Stomping Tantrum"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STOMPING_TANTRUM, "---"
 
 movedata MOVE_SHADOW_BONE, "Shadow Bone"
     battleeffect 69
@@ -11250,6 +11398,7 @@ movedata MOVE_SHADOW_BONE, "Shadow Bone"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHADOW_BONE, "---"
 
 movedata MOVE_ACCELEROCK, "Accelerock"
     battleeffect 0
@@ -11265,6 +11414,7 @@ movedata MOVE_ACCELEROCK, "Accelerock"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ACCELEROCK, "---"
 
 movedata MOVE_LIQUIDATION, "Liquidation"
     battleeffect 69
@@ -11280,6 +11430,7 @@ movedata MOVE_LIQUIDATION, "Liquidation"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LIQUIDATION, "---"
 
 movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
     battleeffect 80
@@ -11295,6 +11446,7 @@ movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PRISMATIC_LASER, "---"
 
 movedata MOVE_SPECTRAL_THIEF, "Spectral Thief"
     battleeffect 0
@@ -11310,6 +11462,7 @@ movedata MOVE_SPECTRAL_THIEF, "Spectral Thief"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPECTRAL_THIEF, "---"
 
 movedata MOVE_SUNSTEEL_STRIKE, "Sunsteel Strike"
     battleeffect 0
@@ -11325,6 +11478,7 @@ movedata MOVE_SUNSTEEL_STRIKE, "Sunsteel Strike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SUNSTEEL_STRIKE, "---"
 
 movedata MOVE_MOONGEIST_BEAM, "Moongeist Beam"
     battleeffect 0
@@ -11340,6 +11494,7 @@ movedata MOVE_MOONGEIST_BEAM, "Moongeist Beam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MOONGEIST_BEAM, "---"
 
 movedata MOVE_TEARFUL_LOOK, "Tearful Look"
     battleeffect 0
@@ -11355,6 +11510,7 @@ movedata MOVE_TEARFUL_LOOK, "Tearful Look"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TEARFUL_LOOK, "---"
 
 movedata MOVE_ZING_ZAP, "Zing Zap"
     battleeffect 31
@@ -11370,6 +11526,7 @@ movedata MOVE_ZING_ZAP, "Zing Zap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ZING_ZAP, "---"
 
 movedata MOVE_NATURES_MADNESS, "Nature’s Madness"
     battleeffect 40
@@ -11385,6 +11542,7 @@ movedata MOVE_NATURES_MADNESS, "Nature’s Madness"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NATURES_MADNESS, "---"
 
 movedata MOVE_MULTI_ATTACK, "Multi-Attack"
     battleeffect 0
@@ -11400,6 +11558,7 @@ movedata MOVE_MULTI_ATTACK, "Multi-Attack"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MULTI_ATTACK, "---"
 
 movedata MOVE_10_000_000_VOLT_THUNDERBOLT, "10,000,000 Volt Thunderbolt"
     battleeffect 0
@@ -11415,6 +11574,7 @@ movedata MOVE_10_000_000_VOLT_THUNDERBOLT, "10,000,000 Volt Thunderbolt"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_10_000_000_VOLT_THUNDERBOLT, "---"
 
 movedata MOVE_MIND_BLOWN, "Mind Blown"
     battleeffect 0
@@ -11430,6 +11590,7 @@ movedata MOVE_MIND_BLOWN, "Mind Blown"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MIND_BLOWN, "---"
 
 movedata MOVE_PLASMA_FISTS, "Plasma Fists"
     battleeffect 0
@@ -11445,6 +11606,7 @@ movedata MOVE_PLASMA_FISTS, "Plasma Fists"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PLASMA_FISTS, "---"
 
 movedata MOVE_PHOTON_GEYSER, "Photon Geyser"
     battleeffect 0
@@ -11460,6 +11622,7 @@ movedata MOVE_PHOTON_GEYSER, "Photon Geyser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PHOTON_GEYSER, "---"
 
 movedata MOVE_LIGHT_THAT_BURNS_THE_SKY, "Light That Burns the Sky"
     battleeffect 0
@@ -11475,6 +11638,7 @@ movedata MOVE_LIGHT_THAT_BURNS_THE_SKY, "Light That Burns the Sky"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "---"
 
 movedata MOVE_SEARING_SUNRAZE_SMASH, "Searing Sunraze Smash"
     battleeffect 0
@@ -11490,6 +11654,7 @@ movedata MOVE_SEARING_SUNRAZE_SMASH, "Searing Sunraze Smash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SEARING_SUNRAZE_SMASH, "---"
 
 movedata MOVE_MENACING_MOONRAZE_MAELSTROM, "Menacing Moonraze Maelstrom"
     battleeffect 0
@@ -11505,6 +11670,7 @@ movedata MOVE_MENACING_MOONRAZE_MAELSTROM, "Menacing Moonraze Maelstrom"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MENACING_MOONRAZE_MAELSTROM, "---"
 
 movedata MOVE_LETS_SNUGGLE_FOREVER, "Let’s Snuggle Forever"
     battleeffect 0
@@ -11520,6 +11686,7 @@ movedata MOVE_LETS_SNUGGLE_FOREVER, "Let’s Snuggle Forever"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LETS_SNUGGLE_FOREVER, "---"
 
 movedata MOVE_SPLINTERED_STORMSHARDS, "Splintered Stormshards"
     battleeffect 0
@@ -11535,6 +11702,7 @@ movedata MOVE_SPLINTERED_STORMSHARDS, "Splintered Stormshards"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPLINTERED_STORMSHARDS, "---"
 
 movedata MOVE_CLANGOROUS_SOULBLAZE, "Clangorous Soulblaze"
     battleeffect 140
@@ -11550,6 +11718,7 @@ movedata MOVE_CLANGOROUS_SOULBLAZE, "Clangorous Soulblaze"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CLANGOROUS_SOULBLAZE, "---"
 
 movedata MOVE_ZIPPY_ZAP, "Zippy Zap"
 	battleeffect 282
@@ -11565,6 +11734,7 @@ movedata MOVE_ZIPPY_ZAP, "Zippy Zap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ZIPPY_ZAP, "---"
 
 movedata MOVE_SPLISHY_SPLASH, "Splishy Splash"
     battleeffect 6
@@ -11580,6 +11750,7 @@ movedata MOVE_SPLISHY_SPLASH, "Splishy Splash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPLISHY_SPLASH, "---"
 
 movedata MOVE_FLOATY_FALL, "Floaty Fall"
     battleeffect 31
@@ -11595,6 +11766,7 @@ movedata MOVE_FLOATY_FALL, "Floaty Fall"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLOATY_FALL, "---"
 
 movedata MOVE_PIKA_PAPOW, "Pika Papow"
     battleeffect 121
@@ -11610,6 +11782,7 @@ movedata MOVE_PIKA_PAPOW, "Pika Papow"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PIKA_PAPOW, "---"
 
 movedata MOVE_BOUNCY_BUBBLE, "Bouncy Bubble"
     battleeffect 3
@@ -11625,6 +11798,7 @@ movedata MOVE_BOUNCY_BUBBLE, "Bouncy Bubble"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BOUNCY_BUBBLE, "---"
 
 movedata MOVE_BUZZY_BUZZ, "Buzzy Buzz"
     battleeffect 6
@@ -11640,6 +11814,7 @@ movedata MOVE_BUZZY_BUZZ, "Buzzy Buzz"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BUZZY_BUZZ, "---"
 
 movedata MOVE_SIZZLY_SLIDE, "Sizzly Slide"
     battleeffect 0
@@ -11655,6 +11830,7 @@ movedata MOVE_SIZZLY_SLIDE, "Sizzly Slide"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SIZZLY_SLIDE, "---"
 
 movedata MOVE_GLITZY_GLOW, "Glitzy Glow"
     battleeffect 0
@@ -11670,6 +11846,7 @@ movedata MOVE_GLITZY_GLOW, "Glitzy Glow"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GLITZY_GLOW, "---"
 
 movedata MOVE_BADDY_BAD, "Baddy Bad"
     battleeffect 0
@@ -11685,6 +11862,7 @@ movedata MOVE_BADDY_BAD, "Baddy Bad"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BADDY_BAD, "---"
 
 movedata MOVE_SAPPY_SEED, "Sappy Seed"
     battleeffect 0
@@ -11700,6 +11878,7 @@ movedata MOVE_SAPPY_SEED, "Sappy Seed"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SAPPY_SEED, "---"
 
 movedata MOVE_FREEZY_FROST, "Freezy Frost"
     battleeffect 0
@@ -11715,6 +11894,7 @@ movedata MOVE_FREEZY_FROST, "Freezy Frost"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FREEZY_FROST, "---"
 
 movedata MOVE_SPARKLY_SWIRL, "Sparkly Swirl"
     battleeffect 0
@@ -11730,6 +11910,7 @@ movedata MOVE_SPARKLY_SWIRL, "Sparkly Swirl"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPARKLY_SWIRL, "---"
 
 movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
     battleeffect 121
@@ -11745,6 +11926,7 @@ movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_VEEVEE_VOLLEY, "---"
 
 movedata MOVE_DOUBLE_IRON_BASH, "Double IronBash"
     battleeffect 296
@@ -11760,6 +11942,7 @@ movedata MOVE_DOUBLE_IRON_BASH, "Double IronBash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DOUBLE_IRON_BASH, "---"
 
 movedata MOVE_MAX_GUARD, "Max Guard"
     battleeffect 0
@@ -11775,6 +11958,7 @@ movedata MOVE_MAX_GUARD, "Max Guard"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_GUARD, "---"
 
 movedata MOVE_DYNAMAX_CANNON, "Dynamax Cannon"
     battleeffect 0
@@ -11790,6 +11974,7 @@ movedata MOVE_DYNAMAX_CANNON, "Dynamax Cannon"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DYNAMAX_CANNON, "---"
 
 movedata MOVE_SNIPE_SHOT, "Snipe Shot"
     battleeffect 0
@@ -11805,6 +11990,7 @@ movedata MOVE_SNIPE_SHOT, "Snipe Shot"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SNIPE_SHOT, "---"
 
 movedata MOVE_JAW_LOCK, "Jaw Lock"
     battleeffect 0
@@ -11820,6 +12006,7 @@ movedata MOVE_JAW_LOCK, "Jaw Lock"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_JAW_LOCK, "---"
 
 movedata MOVE_STUFF_CHEEKS, "Stuff Cheeks"
     battleeffect 0
@@ -11835,6 +12022,7 @@ movedata MOVE_STUFF_CHEEKS, "Stuff Cheeks"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STUFF_CHEEKS, "---"
 
 movedata MOVE_NO_RETREAT, "No Retreat"
     battleeffect 0
@@ -11850,6 +12038,7 @@ movedata MOVE_NO_RETREAT, "No Retreat"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_NO_RETREAT, "---"
 
 movedata MOVE_TAR_SHOT, "Tar Shot"
     battleeffect 0
@@ -11865,6 +12054,7 @@ movedata MOVE_TAR_SHOT, "Tar Shot"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TAR_SHOT, "---"
 
 movedata MOVE_MAGIC_POWDER, "Magic Powder"
     battleeffect 0
@@ -11880,6 +12070,7 @@ movedata MOVE_MAGIC_POWDER, "Magic Powder"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAGIC_POWDER, "---"
 
 movedata MOVE_DRAGON_DARTS, "Dragon Darts"
     battleeffect 0
@@ -11895,6 +12086,7 @@ movedata MOVE_DRAGON_DARTS, "Dragon Darts"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DRAGON_DARTS, "---"
 
 movedata MOVE_TEATIME, "Teatime"
     battleeffect 0
@@ -11910,6 +12102,7 @@ movedata MOVE_TEATIME, "Teatime"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TEATIME, "---"
 
 movedata MOVE_OCTOLOCK, "Octolock"
     battleeffect 0
@@ -11925,6 +12118,7 @@ movedata MOVE_OCTOLOCK, "Octolock"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_OCTOLOCK, "---"
 
 movedata MOVE_BOLT_BEAK, "Bolt Beak"
     battleeffect 0
@@ -11940,6 +12134,7 @@ movedata MOVE_BOLT_BEAK, "Bolt Beak"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BOLT_BEAK, "---"
 
 movedata MOVE_FISHIOUS_REND, "Fishious Rend"
     battleeffect 0
@@ -11955,6 +12150,7 @@ movedata MOVE_FISHIOUS_REND, "Fishious Rend"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FISHIOUS_REND, "---"
 
 movedata MOVE_COURT_CHANGE, "Court Change"
     battleeffect 0
@@ -11970,6 +12166,7 @@ movedata MOVE_COURT_CHANGE, "Court Change"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_COURT_CHANGE, "---"
 
 movedata MOVE_MAX_FLARE, "Max Flare"
     battleeffect 0
@@ -11985,6 +12182,7 @@ movedata MOVE_MAX_FLARE, "Max Flare"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_FLARE, "---"
 
 movedata MOVE_MAX_FLUTTERBY, "Max Flutterby"
     battleeffect 0
@@ -12000,6 +12198,7 @@ movedata MOVE_MAX_FLUTTERBY, "Max Flutterby"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_FLUTTERBY, "---"
 
 movedata MOVE_MAX_LIGHTNING, "Max Lightning"
     battleeffect 0
@@ -12015,6 +12214,7 @@ movedata MOVE_MAX_LIGHTNING, "Max Lightning"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_LIGHTNING, "---"
 
 movedata MOVE_MAX_STRIKE, "Max Strike"
     battleeffect 0
@@ -12030,6 +12230,7 @@ movedata MOVE_MAX_STRIKE, "Max Strike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_STRIKE, "---"
 
 movedata MOVE_MAX_KNUCKLE, "Max Knuckle"
     battleeffect 0
@@ -12045,6 +12246,7 @@ movedata MOVE_MAX_KNUCKLE, "Max Knuckle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_KNUCKLE, "---"
 
 movedata MOVE_MAX_PHANTASM, "Max Phantasm"
     battleeffect 0
@@ -12060,6 +12262,7 @@ movedata MOVE_MAX_PHANTASM, "Max Phantasm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_PHANTASM, "---"
 
 movedata MOVE_MAX_HAILSTORM, "Max Hailstorm"
     battleeffect 0
@@ -12075,6 +12278,7 @@ movedata MOVE_MAX_HAILSTORM, "Max Hailstorm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_HAILSTORM, "---"
 
 movedata MOVE_MAX_OOZE, "Max Ooze"
     battleeffect 0
@@ -12090,6 +12294,7 @@ movedata MOVE_MAX_OOZE, "Max Ooze"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_OOZE, "---"
 
 movedata MOVE_MAX_GEYSER, "Max Geyser"
     battleeffect 0
@@ -12105,6 +12310,7 @@ movedata MOVE_MAX_GEYSER, "Max Geyser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_GEYSER, "---"
 
 movedata MOVE_MAX_AIRSTREAM, "Max Airstream"
     battleeffect 0
@@ -12120,6 +12326,7 @@ movedata MOVE_MAX_AIRSTREAM, "Max Airstream"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_AIRSTREAM, "---"
 
 movedata MOVE_MAX_STARFALL, "Max Starfall"
     battleeffect 0
@@ -12135,6 +12342,7 @@ movedata MOVE_MAX_STARFALL, "Max Starfall"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_STARFALL, "---"
 
 movedata MOVE_MAX_WYRMWIND, "Max Wyrmwind"
     battleeffect 0
@@ -12150,6 +12358,7 @@ movedata MOVE_MAX_WYRMWIND, "Max Wyrmwind"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_WYRMWIND, "---"
 
 movedata MOVE_MAX_MINDSTORM, "Max Mindstorm"
     battleeffect 0
@@ -12165,6 +12374,7 @@ movedata MOVE_MAX_MINDSTORM, "Max Mindstorm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_MINDSTORM, "---"
 
 movedata MOVE_MAX_ROCKFALL, "Max Rockfall"
     battleeffect 0
@@ -12180,6 +12390,7 @@ movedata MOVE_MAX_ROCKFALL, "Max Rockfall"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_ROCKFALL, "---"
 
 movedata MOVE_MAX_QUAKE, "Max Quake"
     battleeffect 0
@@ -12195,6 +12406,7 @@ movedata MOVE_MAX_QUAKE, "Max Quake"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_QUAKE, "---"
 
 movedata MOVE_MAX_DARKNESS, "Max Darkness"
     battleeffect 0
@@ -12210,6 +12422,7 @@ movedata MOVE_MAX_DARKNESS, "Max Darkness"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_DARKNESS, "---"
 
 movedata MOVE_MAX_OVERGROWTH, "Max Overgrowth"
     battleeffect 0
@@ -12225,6 +12438,7 @@ movedata MOVE_MAX_OVERGROWTH, "Max Overgrowth"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_OVERGROWTH, "---"
 
 movedata MOVE_MAX_STEELSPIKE, "Max Steelspike"
     battleeffect 0
@@ -12240,6 +12454,7 @@ movedata MOVE_MAX_STEELSPIKE, "Max Steelspike"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAX_STEELSPIKE, "---"
 
 movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul"
     battleeffect 0
@@ -12255,6 +12470,7 @@ movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CLANGOROUS_SOUL, "---"
 
 movedata MOVE_BODY_PRESS, "Body Press"
     battleeffect 0
@@ -12270,6 +12486,7 @@ movedata MOVE_BODY_PRESS, "Body Press"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BODY_PRESS, "---"
 
 movedata MOVE_DECORATE, "Decorate"
     battleeffect 0
@@ -12285,6 +12502,7 @@ movedata MOVE_DECORATE, "Decorate"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DECORATE, "---"
 
 movedata MOVE_DRUM_BEATING, "Drum Beating"
     battleeffect 70
@@ -12300,6 +12518,7 @@ movedata MOVE_DRUM_BEATING, "Drum Beating"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DRUM_BEATING, "---"
 
 movedata MOVE_SNAP_TRAP, "Snap Trap"
     battleeffect 0
@@ -12315,6 +12534,7 @@ movedata MOVE_SNAP_TRAP, "Snap Trap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SNAP_TRAP, "---"
 
 movedata MOVE_PYRO_BALL, "Pyro Ball"
     battleeffect 4
@@ -12330,6 +12550,7 @@ movedata MOVE_PYRO_BALL, "Pyro Ball"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PYRO_BALL, "---"
 
 movedata MOVE_BEHEMOTH_BLADE, "Behemoth Blade"
     battleeffect 0
@@ -12345,6 +12566,7 @@ movedata MOVE_BEHEMOTH_BLADE, "Behemoth Blade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BEHEMOTH_BLADE, "---"
 
 movedata MOVE_BEHEMOTH_BASH, "Behemoth Bash"
     battleeffect 0
@@ -12360,6 +12582,7 @@ movedata MOVE_BEHEMOTH_BASH, "Behemoth Bash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BEHEMOTH_BASH, "---"
 
 movedata MOVE_AURA_WHEEL, "Aura Wheel"
     battleeffect 0
@@ -12375,6 +12598,7 @@ movedata MOVE_AURA_WHEEL, "Aura Wheel"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_AURA_WHEEL, "---"
 
 movedata MOVE_BREAKING_SWIPE, "Breaking Swipe"
     battleeffect 68
@@ -12390,6 +12614,7 @@ movedata MOVE_BREAKING_SWIPE, "Breaking Swipe"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BREAKING_SWIPE, "---"
 
 movedata MOVE_BRANCH_POKE, "Branch Poke"
     battleeffect 0
@@ -12405,6 +12630,7 @@ movedata MOVE_BRANCH_POKE, "Branch Poke"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BRANCH_POKE, "---"
 
 movedata MOVE_OVERDRIVE, "Overdrive"
     battleeffect 0
@@ -12420,6 +12646,7 @@ movedata MOVE_OVERDRIVE, "Overdrive"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_OVERDRIVE, "---"
 
 movedata MOVE_APPLE_ACID, "Apple Acid"
     battleeffect 72
@@ -12435,6 +12662,7 @@ movedata MOVE_APPLE_ACID, "Apple Acid"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_APPLE_ACID, "---"
 
 movedata MOVE_GRAV_APPLE, "Grav Apple"
     battleeffect 0
@@ -12450,6 +12678,7 @@ movedata MOVE_GRAV_APPLE, "Grav Apple"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GRAV_APPLE, "---"
 
 movedata MOVE_SPIRIT_BREAK, "Spirit Break"
     battleeffect 71
@@ -12465,6 +12694,7 @@ movedata MOVE_SPIRIT_BREAK, "Spirit Break"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPIRIT_BREAK, "---"
 
 movedata MOVE_STRANGE_STEAM, "Strange Steam"
     battleeffect 76
@@ -12480,6 +12710,7 @@ movedata MOVE_STRANGE_STEAM, "Strange Steam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STRANGE_STEAM, "---"
 
 movedata MOVE_LIFE_DEW, "Life Dew"
     battleeffect 0
@@ -12495,6 +12726,7 @@ movedata MOVE_LIFE_DEW, "Life Dew"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LIFE_DEW, "---"
 
 movedata MOVE_OBSTRUCT, "Obstruct"
     battleeffect 0
@@ -12510,6 +12742,7 @@ movedata MOVE_OBSTRUCT, "Obstruct"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_OBSTRUCT, "---"
 
 movedata MOVE_FALSE_SURRENDER, "False Surrender"
     battleeffect 0
@@ -12525,6 +12758,7 @@ movedata MOVE_FALSE_SURRENDER, "False Surrender"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FALSE_SURRENDER, "---"
 
 movedata MOVE_METEOR_ASSAULT, "Meteor Assault"
     battleeffect 80
@@ -12540,6 +12774,7 @@ movedata MOVE_METEOR_ASSAULT, "Meteor Assault"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_METEOR_ASSAULT, "---"
 
 movedata MOVE_ETERNABEAM, "Eternabeam"
     battleeffect 80
@@ -12555,6 +12790,7 @@ movedata MOVE_ETERNABEAM, "Eternabeam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ETERNABEAM, "---"
 
 movedata MOVE_STEEL_BEAM, "Steel Beam"
     battleeffect 0
@@ -12570,6 +12806,7 @@ movedata MOVE_STEEL_BEAM, "Steel Beam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STEEL_BEAM, "---"
 
 movedata MOVE_EXPANDING_FORCE, "Expanding Force"
     battleeffect 0
@@ -12585,6 +12822,7 @@ movedata MOVE_EXPANDING_FORCE, "Expanding Force"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_EXPANDING_FORCE, "---"
 
 movedata MOVE_STEEL_ROLLER, "Steel Roller"
     battleeffect 0
@@ -12600,6 +12838,7 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STEEL_ROLLER, "---"
 
 movedata MOVE_SCALE_SHOT, "Scale Shot"
     battleeffect 0
@@ -12615,6 +12854,7 @@ movedata MOVE_SCALE_SHOT, "Scale Shot"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SCALE_SHOT, "---"
 
 movedata MOVE_METEOR_BEAM, "Meteor Beam"
     battleeffect 0
@@ -12630,6 +12870,7 @@ movedata MOVE_METEOR_BEAM, "Meteor Beam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_METEOR_BEAM, "---"
 
 movedata MOVE_SHELL_SIDE_ARM, "Shell Side Arm"
     battleeffect 0
@@ -12645,6 +12886,7 @@ movedata MOVE_SHELL_SIDE_ARM, "Shell Side Arm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHELL_SIDE_ARM, "---"
 
 movedata MOVE_MISTY_EXPLOSION, "Misty Explosion"
     battleeffect 7
@@ -12660,6 +12902,7 @@ movedata MOVE_MISTY_EXPLOSION, "Misty Explosion"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MISTY_EXPLOSION, "---"
 
 movedata MOVE_GRASSY_GLIDE, "Grassy Glide"
     battleeffect 0
@@ -12675,6 +12918,7 @@ movedata MOVE_GRASSY_GLIDE, "Grassy Glide"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GRASSY_GLIDE, "---"
 
 movedata MOVE_RISING_VOLTAGE, "Rising Voltage"
     battleeffect 0
@@ -12690,6 +12934,7 @@ movedata MOVE_RISING_VOLTAGE, "Rising Voltage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_RISING_VOLTAGE, "---"
 
 movedata MOVE_TERRAIN_PULSE, "Terrain Pulse"
     battleeffect 0
@@ -12705,6 +12950,7 @@ movedata MOVE_TERRAIN_PULSE, "Terrain Pulse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TERRAIN_PULSE, "---"
 
 movedata MOVE_SKITTER_SMACK, "Skitter Smack"
     battleeffect 71
@@ -12720,6 +12966,7 @@ movedata MOVE_SKITTER_SMACK, "Skitter Smack"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SKITTER_SMACK, "---"
 
 movedata MOVE_BURNING_JEALOUSY, "Burning Jealousy"
     battleeffect 4
@@ -12735,6 +12982,7 @@ movedata MOVE_BURNING_JEALOUSY, "Burning Jealousy"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BURNING_JEALOUSY, "---"
 
 movedata MOVE_LASH_OUT, "Lash Out"
     battleeffect 0
@@ -12750,6 +12998,7 @@ movedata MOVE_LASH_OUT, "Lash Out"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LASH_OUT, "---"
 
 movedata MOVE_POLTERGEIST, "Poltergeist"
     battleeffect 0
@@ -12765,6 +13014,7 @@ movedata MOVE_POLTERGEIST, "Poltergeist"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POLTERGEIST, "---"
 
 movedata MOVE_CORROSIVE_GAS, "Corrosive Gas"
     battleeffect 0
@@ -12780,6 +13030,7 @@ movedata MOVE_CORROSIVE_GAS, "Corrosive Gas"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CORROSIVE_GAS, "---"
 
 movedata MOVE_COACHING, "Coaching"
     battleeffect 0
@@ -12795,6 +13046,7 @@ movedata MOVE_COACHING, "Coaching"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_COACHING, "---"
 
 movedata MOVE_FLIP_TURN, "Flip Turn"
     battleeffect 228
@@ -12810,6 +13062,7 @@ movedata MOVE_FLIP_TURN, "Flip Turn"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLIP_TURN, "---"
 
 movedata MOVE_TRIPLE_AXEL, "Triple Axel"
     battleeffect 298
@@ -12825,6 +13078,7 @@ movedata MOVE_TRIPLE_AXEL, "Triple Axel"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TRIPLE_AXEL, "---"
 
 movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     battleeffect 44
@@ -12840,6 +13094,7 @@ movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DUAL_WINGBEAT, "---"
 
 movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     battleeffect 4
@@ -12855,6 +13110,7 @@ movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SCORCHING_SANDS, "---"
 
 movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
     battleeffect 0
@@ -12870,6 +13126,7 @@ movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_JUNGLE_HEALING, "---"
 
 movedata MOVE_WICKED_BLOW, "Wicked Blow"
     battleeffect 282
@@ -12885,6 +13142,7 @@ movedata MOVE_WICKED_BLOW, "Wicked Blow"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_WICKED_BLOW, "---"
 
 movedata MOVE_SURGING_STRIKES, "Surging Strikes"
     battleeffect 282
@@ -12900,6 +13158,7 @@ movedata MOVE_SURGING_STRIKES, "Surging Strikes"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SURGING_STRIKES, "---"
 
 movedata MOVE_THUNDER_CAGE, "Thunder Cage"
     battleeffect 0
@@ -12915,6 +13174,7 @@ movedata MOVE_THUNDER_CAGE, "Thunder Cage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_THUNDER_CAGE, "---"
 
 movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
     battleeffect 190
@@ -12930,6 +13190,7 @@ movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DRAGON_ENERGY, "---"
 
 movedata MOVE_FREEZING_GLARE, "Freezing Glare"
     battleeffect 5
@@ -12945,6 +13206,7 @@ movedata MOVE_FREEZING_GLARE, "Freezing Glare"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FREEZING_GLARE, "---"
 
 movedata MOVE_FIERY_WRATH, "Fiery Wrath"
     battleeffect 31
@@ -12960,6 +13222,7 @@ movedata MOVE_FIERY_WRATH, "Fiery Wrath"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FIERY_WRATH, "---"
 
 movedata MOVE_THUNDEROUS_KICK, "Thunderous Kick"
     battleeffect 69
@@ -12975,6 +13238,7 @@ movedata MOVE_THUNDEROUS_KICK, "Thunderous Kick"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_THUNDEROUS_KICK, "---"
 
 movedata MOVE_GLACIAL_LANCE, "Glacial Lance"
     battleeffect 0
@@ -12990,6 +13254,7 @@ movedata MOVE_GLACIAL_LANCE, "Glacial Lance"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GLACIAL_LANCE, "---"
 
 movedata MOVE_ASTRAL_BARRAGE, "Astral Barrage"
     battleeffect 0
@@ -13005,6 +13270,7 @@ movedata MOVE_ASTRAL_BARRAGE, "Astral Barrage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ASTRAL_BARRAGE, "---"
 
 movedata MOVE_EERIE_SPELL, "Eerie Spell"
     battleeffect 0
@@ -13020,6 +13286,7 @@ movedata MOVE_EERIE_SPELL, "Eerie Spell"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_EERIE_SPELL, "---"
 
 movedata MOVE_DIRE_CLAW, "Dire Claw"
     battleeffect 0
@@ -13035,6 +13302,7 @@ movedata MOVE_DIRE_CLAW, "Dire Claw"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DIRE_CLAW, "---"
 
 movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
     battleeffect 138
@@ -13050,6 +13318,7 @@ movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PSYSHIELD_BASH, "---"
 
 movedata MOVE_POWER_SHIFT, "Power Shift"
     battleeffect 238
@@ -13065,6 +13334,7 @@ movedata MOVE_POWER_SHIFT, "Power Shift"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POWER_SHIFT, "---"
 
 movedata MOVE_STONE_AXE, "Stone Axe"
     battleeffect 0
@@ -13080,6 +13350,7 @@ movedata MOVE_STONE_AXE, "Stone Axe"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_STONE_AXE, "---"
 
 movedata MOVE_SPRINGTIDE_STORM, "Springtide Storm"
     battleeffect 68
@@ -13095,6 +13366,7 @@ movedata MOVE_SPRINGTIDE_STORM, "Springtide Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPRINGTIDE_STORM, "---"
 
 movedata MOVE_MYSTICAL_POWER, "Mystical Power"
     battleeffect 276
@@ -13110,6 +13382,7 @@ movedata MOVE_MYSTICAL_POWER, "Mystical Power"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MYSTICAL_POWER, "---"
 
 movedata MOVE_RAGING_FURY, "Raging Fury"
     battleeffect 27
@@ -13125,6 +13398,7 @@ movedata MOVE_RAGING_FURY, "Raging Fury"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_RAGING_FURY, "---"
 
 movedata MOVE_WAVE_CRASH, "Wave Crash"
     battleeffect 198
@@ -13140,6 +13414,7 @@ movedata MOVE_WAVE_CRASH, "Wave Crash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_WAVE_CRASH, "---"
 
 movedata MOVE_CHLOROBLAST, "Chloroblast"
     battleeffect 269
@@ -13155,6 +13430,7 @@ movedata MOVE_CHLOROBLAST, "Chloroblast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CHLOROBLAST, "---"
 
 movedata MOVE_MOUNTAIN_GALE, "Mountain Gale"
     battleeffect 31
@@ -13170,6 +13446,7 @@ movedata MOVE_MOUNTAIN_GALE, "Mountain Gale"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MOUNTAIN_GALE, "---"
 
 movedata MOVE_VICTORY_DANCE, "Victory Dance"
     battleeffect 0
@@ -13185,6 +13462,7 @@ movedata MOVE_VICTORY_DANCE, "Victory Dance"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_VICTORY_DANCE, "---"
 
 movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
     battleeffect 229
@@ -13200,6 +13478,7 @@ movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HEADLONG_RUSH, "---"
 
 movedata MOVE_BARB_BARRAGE, "Barb Barrage"
     battleeffect 0
@@ -13215,6 +13494,7 @@ movedata MOVE_BARB_BARRAGE, "Barb Barrage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BARB_BARRAGE, "---"
 
 movedata MOVE_ESPER_WING, "Esper Wing"
     battleeffect 285
@@ -13230,6 +13510,7 @@ movedata MOVE_ESPER_WING, "Esper Wing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ESPER_WING, "---"
 
 movedata MOVE_BITTER_MALICE, "Bitter Malice"
     battleeffect 68
@@ -13245,6 +13526,7 @@ movedata MOVE_BITTER_MALICE, "Bitter Malice"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BITTER_MALICE, "---"
 
 movedata MOVE_SHELTER, "Shelter"
     battleeffect 51
@@ -13260,6 +13542,7 @@ movedata MOVE_SHELTER, "Shelter"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHELTER, "---"
 
 movedata MOVE_TRIPLE_ARROWS, "Triple Arrows"
     battleeffect 0
@@ -13275,6 +13558,7 @@ movedata MOVE_TRIPLE_ARROWS, "Triple Arrows"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TRIPLE_ARROWS, "---"
 
 movedata MOVE_INFERNAL_PARADE, "Infernal Parade"
     battleeffect 0
@@ -13290,6 +13574,7 @@ movedata MOVE_INFERNAL_PARADE, "Infernal Parade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_INFERNAL_PARADE, "---"
 
 movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
     battleeffect 0
@@ -13305,6 +13590,7 @@ movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CEASELESS_EDGE, "---"
 
 movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
     battleeffect 70
@@ -13320,6 +13606,7 @@ movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BLEAKWIND_STORM, "---"
 
 movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
     battleeffect 6
@@ -13335,6 +13622,7 @@ movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_WILDBOLT_STORM, "---"
 
 movedata MOVE_SANDSEAR_STORM, "Sandsear Storm"
     battleeffect 4
@@ -13350,6 +13638,7 @@ movedata MOVE_SANDSEAR_STORM, "Sandsear Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SANDSEAR_STORM, "---"
 
 movedata MOVE_LUNAR_BLESSING, "Lunar Blessing"
     battleeffect 0
@@ -13365,6 +13654,7 @@ movedata MOVE_LUNAR_BLESSING, "Lunar Blessing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LUNAR_BLESSING, "---"
 
 movedata MOVE_TAKE_HEART, "Take Heart"
     battleeffect 0
@@ -13380,6 +13670,7 @@ movedata MOVE_TAKE_HEART, "Take Heart"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TAKE_HEART, "---"
 
 movedata MOVE_TERA_BLAST, "Tera Blast"
     battleeffect 0
@@ -13395,6 +13686,7 @@ movedata MOVE_TERA_BLAST, "Tera Blast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TERA_BLAST, "---"
 
 movedata MOVE_SILK_TRAP, "Silk Trap"
     battleeffect 0
@@ -13410,6 +13702,7 @@ movedata MOVE_SILK_TRAP, "Silk Trap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SILK_TRAP, "---"
 
 movedata MOVE_AXE_KICK, "Axe Kick"
     battleeffect 293
@@ -13425,6 +13718,7 @@ movedata MOVE_AXE_KICK, "Axe Kick"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_AXE_KICK, "---"
 
 movedata MOVE_LAST_RESPECTS, "Last Respects"
     battleeffect 0
@@ -13440,6 +13734,7 @@ movedata MOVE_LAST_RESPECTS, "Last Respects"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LAST_RESPECTS, "---"
 
 movedata MOVE_LUMINA_CRASH, "Lumina Crash"
     battleeffect 271
@@ -13455,6 +13750,7 @@ movedata MOVE_LUMINA_CRASH, "Lumina Crash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_LUMINA_CRASH, "---"
 
 movedata MOVE_ORDER_UP, "Order Up"
     battleeffect 0
@@ -13470,6 +13766,7 @@ movedata MOVE_ORDER_UP, "Order Up"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ORDER_UP, "---"
 
 movedata MOVE_JET_PUNCH, "Jet Punch"
     battleeffect 0
@@ -13485,6 +13782,7 @@ movedata MOVE_JET_PUNCH, "Jet Punch"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_JET_PUNCH, "---"
 
 movedata MOVE_SPICY_EXTRACT, "Spicy Extract"
     battleeffect 302
@@ -13500,6 +13798,7 @@ movedata MOVE_SPICY_EXTRACT, "Spicy Extract"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPICY_EXTRACT, "---"
 
 movedata MOVE_SPIN_OUT, "Spin Out"
     battleeffect 0
@@ -13515,6 +13814,7 @@ movedata MOVE_SPIN_OUT, "Spin Out"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SPIN_OUT, "---"
 
 movedata MOVE_POPULATION_BOMB, "Population Bomb"
     battleeffect 297
@@ -13530,6 +13830,7 @@ movedata MOVE_POPULATION_BOMB, "Population Bomb"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POPULATION_BOMB, "---"
 
 movedata MOVE_ICE_SPINNER, "Ice Spinner"
     battleeffect 0
@@ -13545,6 +13846,7 @@ movedata MOVE_ICE_SPINNER, "Ice Spinner"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ICE_SPINNER, "---"
 
 movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
     battleeffect 0
@@ -13560,6 +13862,7 @@ movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GLAIVE_RUSH, "---"
 
 movedata MOVE_REVIVAL_BLESSING, "Revival Blessing"
     battleeffect 0
@@ -13575,6 +13878,7 @@ movedata MOVE_REVIVAL_BLESSING, "Revival Blessing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_REVIVAL_BLESSING, "---"
 
 movedata MOVE_SALT_CURE, "Salt Cure"
     battleeffect 0
@@ -13590,6 +13894,7 @@ movedata MOVE_SALT_CURE, "Salt Cure"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SALT_CURE, "---"
 
 movedata MOVE_TRIPLE_DIVE, "Triple Dive"
     battleeffect 299
@@ -13605,6 +13910,7 @@ movedata MOVE_TRIPLE_DIVE, "Triple Dive"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TRIPLE_DIVE, "---"
 
 movedata MOVE_MORTAL_SPIN, "Mortal Spin"
     battleeffect 0
@@ -13620,6 +13926,7 @@ movedata MOVE_MORTAL_SPIN, "Mortal Spin"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MORTAL_SPIN, "---"
 
 movedata MOVE_DOODLE, "Doodle"
     battleeffect 0
@@ -13635,6 +13942,7 @@ movedata MOVE_DOODLE, "Doodle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DOODLE, "---"
 
 movedata MOVE_FILLET_AWAY, "Fillet Away"
     battleeffect 303
@@ -13650,6 +13958,7 @@ movedata MOVE_FILLET_AWAY, "Fillet Away"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FILLET_AWAY, "---"
 
 movedata MOVE_KOWTOW_CLEAVE, "Kowtow Cleave"
     battleeffect 0
@@ -13665,6 +13974,7 @@ movedata MOVE_KOWTOW_CLEAVE, "Kowtow Cleave"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_KOWTOW_CLEAVE, "---"
 
 movedata MOVE_FLOWER_TRICK, "Flower Trick"
     battleeffect 282
@@ -13680,6 +13990,7 @@ movedata MOVE_FLOWER_TRICK, "Flower Trick"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_FLOWER_TRICK, "---"
 
 movedata MOVE_TORCH_SONG, "Torch Song"
     battleeffect 276
@@ -13695,6 +14006,7 @@ movedata MOVE_TORCH_SONG, "Torch Song"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TORCH_SONG, "---"
 
 movedata MOVE_AQUA_STEP, "Aqua Step"
     battleeffect 285
@@ -13710,6 +14022,7 @@ movedata MOVE_AQUA_STEP, "Aqua Step"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_AQUA_STEP, "---"
 
 movedata MOVE_RAGING_BULL, "Raging Bull"
     battleeffect 0
@@ -13725,6 +14038,7 @@ movedata MOVE_RAGING_BULL, "Raging Bull"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_RAGING_BULL, "---"
 
 movedata MOVE_MAKE_IT_RAIN, "Make It Rain"
     battleeffect 0
@@ -13740,6 +14054,7 @@ movedata MOVE_MAKE_IT_RAIN, "Make It Rain"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_MAKE_IT_RAIN, "---"
 
 movedata MOVE_POUND_878, "Pound"
     battleeffect 0
@@ -13755,6 +14070,7 @@ movedata MOVE_POUND_878, "Pound"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POUND_878, "---"
 
 movedata MOVE_POUND_879, "Pound"
     battleeffect 0
@@ -13770,6 +14086,7 @@ movedata MOVE_POUND_879, "Pound"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POUND_879, "---"
 
 movedata MOVE_RUINATION, "Ruination"
     battleeffect 40
@@ -13785,6 +14102,7 @@ movedata MOVE_RUINATION, "Ruination"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_RUINATION, "---"
 
 movedata MOVE_COLLISION_COURSE, "Collision Course"
     battleeffect 0
@@ -13800,6 +14118,7 @@ movedata MOVE_COLLISION_COURSE, "Collision Course"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_COLLISION_COURSE, "---"
 
 movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
     battleeffect 0
@@ -13815,6 +14134,7 @@ movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ELECTRO_DRIFT, "---"
 
 movedata MOVE_SHED_TAIL, "Shed Tail"
     battleeffect 0
@@ -13830,6 +14150,7 @@ movedata MOVE_SHED_TAIL, "Shed Tail"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SHED_TAIL, "---"
 
 movedata MOVE_CHILLY_RECEPTION, "Chilly Reception"
     battleeffect 0
@@ -13845,6 +14166,7 @@ movedata MOVE_CHILLY_RECEPTION, "Chilly Reception"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CHILLY_RECEPTION, "---"
 
 movedata MOVE_TIDY_UP, "Tidy Up"
     battleeffect 0
@@ -13860,6 +14182,7 @@ movedata MOVE_TIDY_UP, "Tidy Up"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TIDY_UP, "---"
 
 movedata MOVE_SNOWSCAPE, "Snowscape"
     battleeffect 0
@@ -13875,6 +14198,7 @@ movedata MOVE_SNOWSCAPE, "Snowscape"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_SNOWSCAPE, "---"
 
 movedata MOVE_POUNCE, "Pounce"
     battleeffect 70
@@ -13890,6 +14214,7 @@ movedata MOVE_POUNCE, "Pounce"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_POUNCE, "---"
 
 movedata MOVE_TRAILBLAZE, "Trailblaze"
     battleeffect 285
@@ -13905,6 +14230,7 @@ movedata MOVE_TRAILBLAZE, "Trailblaze"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TRAILBLAZE, "---"
 
 movedata MOVE_CHILLING_WATER, "Chilling Water"
     battleeffect 68
@@ -13913,13 +14239,14 @@ movedata MOVE_CHILLING_WATER, "Chilling Water"
     type TYPE_WATER
     accuracy 100
     pp 20
-    effectchance 0
+    effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_CHILLING_WATER, "---"
 
 movedata MOVE_HYPER_DRILL, "Hyper Drill"
     battleeffect 0
@@ -13935,6 +14262,7 @@ movedata MOVE_HYPER_DRILL, "Hyper Drill"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HYPER_DRILL, "---"
 
 movedata MOVE_TWIN_BEAM, "Twin Beam"
     battleeffect 44
@@ -13950,6 +14278,7 @@ movedata MOVE_TWIN_BEAM, "Twin Beam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_TWIN_BEAM, "---"
 
 movedata MOVE_RAGE_FIST, "Rage Fist"
     battleeffect 0
@@ -13965,6 +14294,7 @@ movedata MOVE_RAGE_FIST, "Rage Fist"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_RAGE_FIST, "---"
 
 movedata MOVE_ARMOR_CANNON, "Armor Cannon"
     battleeffect 229
@@ -13980,6 +14310,7 @@ movedata MOVE_ARMOR_CANNON, "Armor Cannon"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_ARMOR_CANNON, "---"
 
 movedata MOVE_BITTER_BLADE, "Bitter Blade"
     battleeffect 3
@@ -13995,6 +14326,7 @@ movedata MOVE_BITTER_BLADE, "Bitter Blade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_BITTER_BLADE, "---"
 
 movedata MOVE_DOUBLE_SHOCK, "Double Shock"
     battleeffect 0
@@ -14010,6 +14342,7 @@ movedata MOVE_DOUBLE_SHOCK, "Double Shock"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_DOUBLE_SHOCK, "---"
 
 movedata MOVE_GIGATON_HAMMER, "Gigaton Hammer"
     battleeffect 0
@@ -14025,6 +14358,7 @@ movedata MOVE_GIGATON_HAMMER, "Gigaton Hammer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_GIGATON_HAMMER, "---"
 
 movedata MOVE_COMEUPPANCE, "Comeuppance"
     battleeffect 227
@@ -14040,6 +14374,7 @@ movedata MOVE_COMEUPPANCE, "Comeuppance"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_COMEUPPANCE, "---"
 
 movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
     battleeffect 0
@@ -14055,6 +14390,7 @@ movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_AQUA_CUTTER, "---"
 
 movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     battleeffect 4
@@ -14150,6 +14486,7 @@ movedata MOVE_HYDRO_STEAM, "Hydro Steam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_HYDRO_STEAM, "---"
 
 movedata MOVE_PSYBLADE, "Psyblade"
     battleeffect 300
@@ -14165,6 +14502,7 @@ movedata MOVE_PSYBLADE, "Psyblade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
+    movedescription MOVE_PSYBLADE, "---"
 
 movedatanoname NUM_OF_MOVES+1
     battleeffect 0

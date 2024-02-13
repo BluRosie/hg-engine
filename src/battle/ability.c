@@ -124,6 +124,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     int scriptnum = 0;
     int movetype;
 
+    // trigger meloetta's relic song form transformation if possible
+    if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
+     && (sp->battlemon[attacker].hp)
+     && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+     && (sp->battlemon[attacker].form_no < 2))
+    {
+        sp->relic_song_tracker |= No2Bit(attacker);
+    }
+
     movetype = GetAdjustedMoveType(sp, attacker, sp->current_move_index); // new normalize checks
 
     // 02252EF4
