@@ -16934,19 +16934,11 @@ levelup SPECIES_DIPPLIN
     learnset MOVE_TACKLE, 1 
     terminatelearnset
 
-levelup SPECIES_ARCHALUDON
+levelup SPECIES_POLTCHAGEIST
     learnset MOVE_TACKLE, 1 
     terminatelearnset
 
-levelup SPECIES_RAGING_BOLT
-    learnset MOVE_TACKLE, 1 
-    terminatelearnset
-
-levelup SPECIES_IRON_CROWN
-    learnset MOVE_TACKLE, 1 
-    terminatelearnset
-
-levelup SPECIES_OGERPON
+levelup SPECIES_SINISTCHA
     learnset MOVE_TACKLE, 1 
     terminatelearnset
 
@@ -16962,10 +16954,41 @@ levelup SPECIES_FEZANDIPITI
     learnset MOVE_TACKLE, 1 
     terminatelearnset
 
+levelup SPECIES_OGERPON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+
+levelup SPECIES_ARCHALUDON
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_HYDRAPPLE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_GOUGING_FIRE
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+levelup SPECIES_RAGING_BOLT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_BOULDER
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
+levelup SPECIES_IRON_CROWN
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
+
 levelup SPECIES_TERAPAGOS
     learnset MOVE_TACKLE, 1 
     terminatelearnset
 
+levelup SPECIES_PECHARUNT
+    learnset MOVE_TACKLE, 1 
+    terminatelearnset
 levelup SPECIES_MEGA_VENUSAUR
 	learnset MOVE_TACKLE, 1
 	learnset MOVE_INGRAIN, 3

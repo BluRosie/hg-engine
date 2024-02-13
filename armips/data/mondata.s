@@ -10440,7 +10440,7 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_COMPETITIVE, ABILITY_NONE
+    abilities ABILITY_DEFIANT, ABILITY_DEFIANT
     runchance 0
     colorflip BODY_COLOR_RED, 0
     mondexentry SPECIES_DEOXYS_ATTACK, "-----"
@@ -10461,7 +10461,7 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_COMPETITIVE, ABILITY_NONE
+    abilities ABILITY_REGENERATOR, ABILITY_REGENERATOR
     runchance 0
     colorflip BODY_COLOR_RED, 0
     mondexentry SPECIES_DEOXYS_DEFENSE, "-----"

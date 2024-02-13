@@ -22,28 +22,28 @@ pokemon SPECIES_STAKATAKA
 pokemon SPECIES_COBALION
 pokemon SPECIES_HEATRAN
 pokemon SPECIES_HEATRAN
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
 
 //day encounter slots
 pokemon SPECIES_STAKATAKA
 pokemon SPECIES_COBALION
 pokemon SPECIES_HEATRAN
 pokemon SPECIES_HEATRAN
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
-monwithform SPECIES_ZORUA, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_METAGROSS, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
+monwithform SPECIES_LUCARIO, 1
 
 //night encounter slots
 pokemon SPECIES_STAKATAKA

@@ -14134,7 +14134,7 @@ movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MAGICAL_TORQUE, "---"
+    movedescription MOVE_MAGICAL_TORQUE, "Very magic."
 
 movedata MOVE_HYDRO_STEAM, "Hydro Steam"
     battleeffect 0
