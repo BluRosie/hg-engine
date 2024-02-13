@@ -1152,6 +1152,10 @@ void LONG_CALL WildMonSetRandomHeldItem(struct PartyPokemon *pokemon, u32 fight_
  */
 BOOL LONG_CALL GrabAndRegisterUnownForm(EncounterInfo *encounterInfo);
 
+// shiny convenience macro
+#define SHINY_VALUE(otid, pid) (((otid & 0xffff0000) >> 16) ^ (otid & 0xffff) ^ ((pid & 0xffff0000) >> 16) ^ (pid & 0xffff))
+#define SHINY_CHECK(otid, pid) (SHINY_VALUE(otid, pid) <= SHINY_ODDS)
+
 /**
  *  @brief check if PartyPokemon is shiny
  *
@@ -1701,6 +1705,24 @@ void LONG_CALL ClearMonMoves(struct PartyPokemon *pokemon);
  */
 u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon);
 
+/**
+ *  @brief perform shiny check given ot id and pid
+ *
+ *  @param otid original trainer id
+ *  @param pid personality id
+ *  @returns TRUE if otid and pid show a shiny pokémon; FALSE otherwise
+ */
+BOOL LONG_CALL CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
+
+/**
+ *  @brief adjust the pid to be shiny such that it keeps substructures in the same order
+ *
+ *  @param otid original trainer id
+ *  @param pid personality id
+ *  @returns adjusted pid to be a shiny without corrupting the mon
+ */
+u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid);
+
 // defined in src/moves.c--can't just define in battles, sadly.  does need BattleMove structure from battle.h, though
 /**
  *  @brief get move data field requested from ARC_MOVE_DATA
@@ -1710,6 +1732,8 @@ u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon);
  *  @return requested data
  */
 u32 LONG_CALL GetMoveData(u16 id, u32 field);
+
+
 
 
 #endif
