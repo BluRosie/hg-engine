@@ -39,6 +39,8 @@ _00D8:
     addparticle 0, 0, 4
     wait 10
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitparticle
+    unloadparticle 0
     end
 _014C:
     addparticle 0, 2, 4
@@ -48,6 +50,8 @@ _014C:
     addparticle 0, 0, 4
     wait 10
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitparticle
+    unloadparticle 0
     end
 
 .close
