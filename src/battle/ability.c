@@ -2299,7 +2299,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 int seq_no;
 
                 sp->swoam_seq_no++;
-                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0))
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
                     sp->next_server_seq_no = sp->server_seq_no;
@@ -2376,7 +2376,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 int seq_no;
 
                 sp->swoam_seq_no++;
-                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0))
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
                     sp->next_server_seq_no = sp->server_seq_no;

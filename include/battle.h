@@ -116,7 +116,7 @@
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
 #define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
-#define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
+#define MOVE_STATUS_FLAG_FAILURE_ANY    (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          MOVE_STATUS_FLAG_FAILED|\
                                          MOVE_STATUS_FLAG_LEVITATE_MISS|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
@@ -128,7 +128,7 @@
                                          MOVE_STATUS_FLAG_NO_OHKO|\
                                          MOVE_STATUS_FLAG_MAGNET_RISE_MISS)
 
-#define WAZA_STATUS_FLAG_NO_OUT         (WAZA_STATUS_FLAG_HAZURE|\
+#define WAZA_STATUS_FLAG_NO_OUT         (MOVE_STATUS_FLAG_FAILURE_ANY|\
                                          WAZA_STATUS_FLAG_PP_NONE|\
                                          WAZA_STATUS_FLAG_SIPPAI)
 
@@ -1437,7 +1437,7 @@ void LONG_CALL ST_ServerDefenceClientTokuseiCheck(void *bw, struct BattleStruct 
 void LONG_CALL ST_ServerTotteokiCountCalc(void *bw,struct BattleStruct *sp);
 void LONG_CALL ST_ServerMetronomeBeforeCheck(void *bw,struct BattleStruct *sp);
 int LONG_CALL ST_ServerPokeAppearCheck(void *bw, struct BattleStruct *sp);
-int LONG_CALL TagNickParaMake(struct BattleStruct *sp, int client_no);
+int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
 
 
@@ -2394,6 +2394,8 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
 
 // defined in mega.c
+BOOL CheckMegaData(u32 mon, u32 item);
+
 /**
  *  @brief grab mega form of a specific species with specific item
  *

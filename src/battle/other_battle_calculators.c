@@ -1195,7 +1195,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
         msg->msg_para[1] = ABILITY_SHADOW_TAG;
         return TRUE;
     }
@@ -1209,7 +1209,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
                 }
                 msg->msg_tag = TAG_NICK_ABILITY;
                 msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-                msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+                msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
                 msg->msg_para[1] = ABILITY_ARENA_TRAP;
                 return TRUE;
             }
@@ -1219,7 +1219,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
             }
             msg->msg_tag = TAG_NICK_ABILITY;
             msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-            msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+            msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
             msg->msg_para[1] = ABILITY_ARENA_TRAP;
             return TRUE;
         }
@@ -1232,7 +1232,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
         msg->msg_para[1] = ABILITY_MAGNET_PULL;
         return TRUE;
     }

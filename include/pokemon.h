@@ -97,7 +97,8 @@
 #define GET_BOX_MON_NATURE_OVERRIDE(boxmon) (((GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
 
 
-#define POW_RND (32)
+#define IS_SPECIES_PARADOX_FORM(species) ((species >= SPECIES_GREAT_TUSK && species <= SPECIES_IRON_THORNS) || (species == SPECIES_ROARING_MOON) || (species == SPECIES_IRON_VALIANT) || (species == SPECIES_WALKING_WAKE) \
+    || (species == SPECIES_IRON_LEAVES) || (species >= SPECIES_GOUGING_FIRE && species <= SPECIES_IRON_CROWN))
 
 
 // personal narc fields

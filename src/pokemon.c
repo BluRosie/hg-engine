@@ -1697,7 +1697,7 @@ u32 storeShayminForm = 0;
  */
 u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 {
-    u32 newSpecies;
+    u32 newSpecies = 0;
     if (species > SPECIES_ARCEUS && species < SPECIES_VICTINI)
     {
         species = SPECIES_BULBASAUR;
