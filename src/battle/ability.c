@@ -41,7 +41,7 @@ const u16 SoundproofMoveList[] =
 {
     MOVE_BOOMBURST,
     MOVE_BUG_BUZZ,
-    MOVE_CHATTER,	
+    MOVE_CHATTER,
     MOVE_CLANGING_SCALES,
     MOVE_CLANGOROUS_SOUL,
     //MOVE_CLANGOROUS_SOULBLAZE,
@@ -54,7 +54,7 @@ const u16 SoundproofMoveList[] =
     //MOVE_HEAL_BELL,
     //MOVE_HOWL,
     MOVE_HYPER_VOICE,
-    MOVE_METAL_SOUND,	
+    MOVE_METAL_SOUND,
     MOVE_NOBLE_ROAR,
     MOVE_OVERDRIVE,
     MOVE_PARTING_SHOT,
@@ -123,6 +123,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 {
     int scriptnum = 0;
     int movetype;
+
+    // trigger meloetta's relic song form transformation if possible
+    if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
+     && (sp->battlemon[attacker].hp)
+     && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+     && (sp->battlemon[attacker].form_no < 2))
+    {
+        sp->relic_song_tracker |= No2Bit(attacker);
+    }
 
     movetype = GetAdjustedMoveType(sp, attacker, sp->current_move_index); // new normalize checks
 
@@ -430,7 +439,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         break;
                     }
                 }
-                
+
                 if (i == client_set_max)
 #endif // PRIMAL_REVERSION
                 {
@@ -1042,7 +1051,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         break;
                     }
                 }
-                
+
                 if (i == client_set_max) // went all the way through the loop
                 {
                     sp->switch_in_check_seq_no++;
@@ -1063,7 +1072,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 {
                     sp->defence_client = BATTLER_OPPONENT(client_no);
                 }
-                
+
                 // fuck it get rid of transform script command:
                 sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
                 sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
@@ -1096,7 +1105,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->battlemon[sp->attack_client].slow_start_flag = 0;
                 sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
                 ClearBattleMonFlags(sp, sp->attack_client); // clear extra flags here too
-                
+
                 for(i = 0; i < 4; i++)
                 {
                     sp->battlemon[sp->attack_client].move[i] = sp->battlemon[sp->defence_client].move[i];
@@ -1492,13 +1501,17 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
     };
 
     u8 max = 0;
-    for(u8 i = 0; i < NELEMS(stats); i++)
+    u8 ret = 0;
+    for (u8 i = 0; i < NELEMS(stats); i++)
     {
-        if(stats[i] > max)
-            max = i;
+        if (stats[i] > max)
+        {
+            max = stats[i];
+            ret = i;
+        }
     }
 
-    return max;
+    return ret;
 }
 
 
@@ -2040,7 +2053,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         // handle cursed body - disable the last used move by the pokemon.  disabling is handled here, script just displays the message
         case ABILITY_CURSED_BODY:
             move_pos = GetBattlePokemonMovePosFromMove(&sp->battlemon[sp->attack_client], sp->current_move_index);
-            if (sp->battlemon[sp->defence_client].hp != 0
+            if (sp->battlemon[sp->attack_client].hp != 0
              && sp->battlemon[sp->attack_client].moveeffect.disabledMove == 0
              && move_pos != 4 // is a valid move the mon knows
              && sp->battlemon[sp->attack_client].pp[move_pos] != 0 // pp is nonzero
@@ -2054,7 +2067,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 seq_no[0] = SUB_SEQ_HANDLE_CURSED_BODY;
                 ret = TRUE;
-            } 
+            }
             break;
         case ABILITY_DISGUISE:
             if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
@@ -2326,7 +2339,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 int seq_no;
 
                 sp->swoam_seq_no++;
-                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0))
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
                     sp->next_server_seq_no = sp->server_seq_no;
@@ -2403,7 +2416,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 int seq_no;
 
                 sp->swoam_seq_no++;
-                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & WAZA_STATUS_FLAG_HAZURE) == 0))
+                if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0))
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
                     sp->next_server_seq_no = sp->server_seq_no;

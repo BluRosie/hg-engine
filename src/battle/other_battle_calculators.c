@@ -1357,7 +1357,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
         msg->msg_para[1] = ABILITY_SHADOW_TAG;
         return TRUE;
     }
@@ -1371,7 +1371,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
                 }
                 msg->msg_tag = TAG_NICK_ABILITY;
                 msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-                msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+                msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
                 msg->msg_para[1] = ABILITY_ARENA_TRAP;
                 return TRUE;
             }
@@ -1381,7 +1381,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
             }
             msg->msg_tag = TAG_NICK_ABILITY;
             msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-            msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+            msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
             msg->msg_para[1] = ABILITY_ARENA_TRAP;
             return TRUE;
         }
@@ -1394,7 +1394,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
         msg->msg_para[1] = ABILITY_MAGNET_PULL;
         return TRUE;
     }
@@ -1702,7 +1702,7 @@ BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 mo
  * @return TRUE if it is a valid move
  */
 BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove) {
-    u32 moveIndex = checkTempMove ? sp->waza_work : sp->current_move_index;
+    u32 moveIndex = checkTempMove ? (u32)sp->waza_work : sp->current_move_index;
 
     return (sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND &&
             sp->moveTbl[moveIndex].split != SPLIT_STATUS &&

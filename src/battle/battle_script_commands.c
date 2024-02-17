@@ -46,6 +46,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_87_tryknockoff(void *bw, struct BattleStruct *sp);
 s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client);
 BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp);
@@ -68,6 +69,8 @@ BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *sp);
+BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -321,6 +324,7 @@ const u8 *BattleScrCmdNames[] =
     "ifsecondhitofparentalbond",
     "setparentalbondflag",
     "ifcurrentmoveisvalidparentalbondmove",
+    "canapplyknockoffdamageboost",
 };
 
 u32 cmdAddress = 0;
@@ -347,6 +351,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF0 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F0_ifsecondhitofparentalbond,
     [0xF1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F1_setparentalbondflag,
     [0xF2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove,
+    [0xF3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F3_canapplyknockoffdamageboost,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1634,7 +1639,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             {
                 sp->mp.msg_id = BATTLE_MSG_STAT_WONT_GO_HIGHER;
                 sp->mp.msg_tag = TAG_NICK_STAT;
-                sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                 sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address1);
@@ -1658,7 +1663,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     break;
                 }
                 sp->mp.msg_tag = TAG_NICK_ABILITY_STAT;
-                sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                 sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                 sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
             }
@@ -1666,7 +1671,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             {
                 sp->mp.msg_id = BATTLE_MSG_ITEM_RAISED_STAT;
                 sp->mp.msg_tag = TAG_NICK_ITEM_STAT;
-                sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                 sp->mp.msg_para[1] = sp->item_work;
                 sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
             }
@@ -1685,7 +1690,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     break;
                 }
                 sp->mp.msg_tag = TAG_NICK_STAT;
-                sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                 sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
             }
             battlemon->states[STAT_ATTACK + stattochange] += statchange;
@@ -1705,7 +1710,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     sp->mp.msg_id = BATTLE_MSG_PROTECTED_BY_MIST;
                     sp->mp.msg_tag = TAG_NICK;
-                    sp->mp.msg_para[0] = TagNickParaMake(sp,sp->state_client);
+                    sp->mp.msg_para[0] = CreateNicknameTag(sp,sp->state_client);
                     flag = 1;
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
@@ -1721,16 +1726,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
                         sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_ABILITY;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, flower_veil_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, flower_veil_client);
                         sp->mp.msg_para[1] = sp->battlemon[flower_veil_client].ability;
-                        sp->mp.msg_para[2] = TagNickParaMake(sp, sp->attack_client);
+                        sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->attack_client);
                         sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
                     }
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_PREVENTS_STAT_LOSS;
                         sp->mp.msg_tag = TAG_NICK_ABILITY;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, flower_veil_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, flower_veil_client);
                         sp->mp.msg_para[1] = sp->battlemon[flower_veil_client].ability;
                     }
                     flag = 1;
@@ -1743,16 +1748,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
                         sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_ABILITY;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
-                        sp->mp.msg_para[2] = TagNickParaMake(sp, sp->attack_client);
+                        sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->attack_client);
                         sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
                     }
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_PREVENTS_STAT_LOSS;
                         sp->mp.msg_tag = TAG_NICK_ABILITY;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                     }
                     flag = 1;
@@ -1768,16 +1773,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
                         sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_ABILITY;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
-                        sp->mp.msg_para[2] = TagNickParaMake(sp, sp->attack_client);
+                        sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->attack_client);
                         sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
                     }
                     else
                     {
                         sp->mp.msg_id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
                         sp->mp.msg_tag = TAG_NICK_ABILITY_STAT;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                         sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
                     }
@@ -1797,7 +1802,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     {
                         sp->mp.msg_id = BATTLE_MSG_STAT_WONT_GO_LOWER;
                         sp->mp.msg_tag = TAG_NICK_STAT;
-                        sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                         sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
                         sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address1);
@@ -1828,7 +1833,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     sp->mp.msg_id = BATTLE_MSG_STAT_WONT_GO_LOWER;
                     sp->mp.msg_tag = TAG_NICK_STAT;
-                    sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+                    sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                     sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
                     sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address1);
@@ -1858,7 +1863,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         {
             sp->mp.msg_id = BATTLE_MSG_ABILITY_LOWERED_ITS_OWN_STAT;
             sp->mp.msg_tag = TAG_NICK_ABILITY_STAT;
-            sp->mp.msg_para[0] = TagNickParaMake(sp, sp->client_work);
+            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->client_work);
             sp->mp.msg_para[1] = sp->battlemon[sp->client_work].ability;
             sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
         }
@@ -1866,9 +1871,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         {
             sp->mp.msg_id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
             sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_STAT;
-            sp->mp.msg_para[0] = TagNickParaMake(sp, sp->attack_client);
+            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
             sp->mp.msg_para[1] = sp->battlemon[sp->attack_client].ability;
-            sp->mp.msg_para[2] = TagNickParaMake(sp, sp->state_client);
+            sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->state_client);
             sp->mp.msg_para[3] = STAT_ATTACK + stattochange;
         }
         // certain abilities fuck it up.  this fixes them
@@ -1876,16 +1881,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         {
             sp->mp.msg_id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
             sp->mp.msg_tag = TAG_NICK_ABILITY_NICK_STAT;
-            sp->mp.msg_para[0] = TagNickParaMake(sp, sp->client_work);
+            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->client_work);
             sp->mp.msg_para[1] = sp->battlemon[sp->client_work].ability;
-            sp->mp.msg_para[2] = TagNickParaMake(sp, sp->state_client);
+            sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->state_client);
             sp->mp.msg_para[3] = STAT_ATTACK+stattochange;
         }
         else
         {
             sp->mp.msg_id = ((statchange == -1) ? BATTLE_MSG_STAT_FELL : BATTLE_MSG_STAT_HARSHLY_FELL);
             sp->mp.msg_tag = TAG_NICK_STAT;
-            sp->mp.msg_para[0] = TagNickParaMake(sp, sp->state_client);
+            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
             sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
         }
 
@@ -2081,6 +2086,47 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     } else {
         sp->multi_hit_count = 1;
         sp->multi_hit_count_temp = number_of_hits;
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to carry out the effects of knock off
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+    //u32 side = IsClientEnemy(bw, sp->defence_client);
+    u32 item = sp->battlemon[sp->defence_client].item;
+
+    // sticky hold and substitute will keep the mon's held item, but the damage boost will still apply
+    if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ABILITY_MADE_MOVE_INEFFECTIVE;
+        sp->mp.msg_tag = TAG_NICK_ABILITY_MOVE;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[1] = sp->battlemon[sp->defence_client].ability;
+        sp->mp.msg_para[2] = sp->current_move_index;
+    }
+    else if (CanKnockOffApply(sp))
+    {
+        sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
+        sp->mp.msg_tag = TAG_NICK_NICK_ITEM;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
+        sp->mp.msg_para[1] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[2] = item;
+        sp->battlemon[sp->defence_client].item = 0;
+        // update:  no longer render further items unusable--just set the item to 0 here
+        //sp->scw[side].knockoff_item |= No2Bit(sp->sel_mons_no[sp->defence_client]);
+    } else {
+        IncrementBattleScriptPtr(sp, adrs);
     }
 
     return FALSE;
@@ -2620,25 +2666,6 @@ BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw UNUSED, struct Battle
 }
 
 /**
- *  @brief script command to jump somewhere if the current hit is the first hit of Parental Bond
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return FALSE
- */
-BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
-    IncrementBattleScriptPtr(sp, 1);
-
-    int address = read_battle_script_param(sp);
-
-    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
-        IncrementBattleScriptPtr(sp, address);
-    }
-
-    return FALSE;
-}
-
-/**
  *  @brief script command to jump somewhere if the current hit is the second hit of Parental Bond
  *
  *  @param bw battle work structure
@@ -2672,6 +2699,13 @@ BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw UNUSED, struct BattleStruct *sp
     return FALSE;
 }
 
+/**
+ *  @brief script command to jump somewhere if the current move is a valid parental bond move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 
@@ -2681,6 +2715,92 @@ BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw UNUSED, struct
         IncrementBattleScriptPtr(sp, address);
     }
 
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current hit is the first hit of Parental Bond
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the knock off damage boost can not be applied
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+    if (!CanKnockOffApply(sp))
+        IncrementBattleScriptPtr(sp, address);
+
+    return FALSE;
+}
+
+/**
+ *  @brief check if knock off can remove the defender's held item
+ *         does not count sticky hold and substitute because those still allow knock off's base power increase
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
+ */
+BOOL CanKnockOffApply(struct BattleStruct *sp)
+{
+    u32 item = sp->battlemon[sp->defence_client].item;
+    u32 species = sp->battlemon[sp->defence_client].species;
+    u32 ability = GetBattlerAbility(sp, sp->defence_client);
+
+    // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
+        // abilities do 1/8th total hp as damage
+    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 8)
+        // rocky helmet does 1/6th total hp as damage
+      || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 6))
+     && sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT
+     && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
+    {
+        return FALSE;
+    }
+
+    if (item != 0
+        // z crystals can not be removed wherever they are
+        //&& !IS_ITEM_Z_CRYSTAL(item)
+        // mega stones can not be knocked off their own mon
+        && !CheckMegaData(species, item)
+        // arceus plate on arceus can not be knocked off
+        && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
+        // griseous orb on giratina can not be knocked off
+        && !(species == SPECIES_GIRATINA && item == ITEM_GRISEOUS_ORB)
+        // drives can not be knocked off of genesect
+        && !(species == SPECIES_GENESECT && IS_ITEM_GENESECT_DRIVE(item))
+        // silvally can not have its memory knocked off
+        && !(species == SPECIES_SILVALLY && IS_ITEM_MEMORY(item))
+        // zacian can not have its rusted sword knocked off
+        && !(species == SPECIES_ZACIAN && item == ITEM_RUSTED_SWORD)
+        // zamazenta can not have its rusted shield knocked off
+        && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)
+        // paradox mons can not have their booster energy knocked off
+        && !(IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
+    )
+    {
+        return TRUE;
+    }
     return FALSE;
 }
 
@@ -3029,7 +3149,7 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
 
 
 extern u32 BallToSpaIDs[][3];
-u32 __attribute__((long_call)) GetBallID_ov7(u32 itemId);
+u32 LONG_CALL GetBallID_ov7(u32 itemId);
 
 /**
  *  @brief load the particle effect on capture success

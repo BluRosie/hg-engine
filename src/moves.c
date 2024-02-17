@@ -226,8 +226,8 @@ u32 LONG_CALL GetMoveData(u16 id, u32 field)
         ret = bm->flag;
         break;
     }
-    
+
     sys_FreeMemoryEz(bm);
-    
+
     return ret;
 }

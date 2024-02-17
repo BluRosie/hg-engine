@@ -198,11 +198,6 @@ bx r0
 
 .pool
 
-.align 2
-.global word_to_store_form_at
-word_to_store_form_at:
-.word 0
-
 
 
 // 02247A18
@@ -275,10 +270,6 @@ call_via_r3:
 bx r3
 
 .pool
-
-.global space_for_setmondata
-space_for_setmondata:
-.word 0
 
 
 .global UseItemMonAttrChangeCheck_hook
@@ -366,10 +357,6 @@ bx r2
 
 .pool
 
-.global gFieldSysPtr
-gFieldSysPtr:
-.word 0
-
 .global WindowClose
 WindowClose:
 ldr r0, =0x04000050
@@ -383,11 +370,6 @@ ldr r2, =0x02041198 + 1
 bx r2
 
 .pool
-
-
-.global gTriggerDouble
-gTriggerDouble:
-.word 0
 
 
 // new method:  from the parent func
@@ -591,3 +573,22 @@ ldr     r2, =0x02089E30 + 1
 bx      r2
 
 .pool
+
+.data
+
+.align 2
+.global space_for_setmondata
+space_for_setmondata:
+.word 0
+
+.global gFieldSysPtr
+gFieldSysPtr:
+.word 0
+
+.global word_to_store_form_at
+word_to_store_form_at:
+.word 0
+
+.global gTriggerDouble
+gTriggerDouble:
+.word 0
