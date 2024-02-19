@@ -44,6 +44,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work);
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_87_tryknockoff(void *bw, struct BattleStruct *sp);
@@ -1985,6 +1986,44 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 
     return FALSE;
 }
+
+
+//BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *ctx) {
+//    u32 moveIndex, nonSelectableMoves;
+//
+//    IncrementBattleScriptPtr(ctx, 1);
+//
+//    u32 adrs = read_battle_script_param(ctx);
+//
+//    nonSelectableMoves = 0;
+//
+//    for (moveIndex = 0; moveIndex < 4; moveIndex++) {
+//        if (CheckMoveCallsOtherMove(ctx->battlemon[ctx->attack_client].move[moveIndex]) ||
+//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_FOCUS_PUNCH ||
+//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_UPROAR ||
+//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_CHATTER ||
+//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_REST ||
+//            ctx->current_move_index == ctx->battlemon[ctx->attack_client].move[moveIndex])
+//        {
+//            nonSelectableMoves |= No2Bit(moveIndex);
+//        }
+//    }
+//
+//    nonSelectableMoves = StruggleCheck(bw, ctx, ctx->attack_client, nonSelectableMoves, ~2);
+//
+//    if (nonSelectableMoves == 0xF) {
+//        IncrementBattleScriptPtr(ctx, adrs);
+//    } else {
+//        do {
+//            moveIndex = BattleRand(bw) % 4;
+//        } while (No2Bit(moveIndex) & nonSelectableMoves);
+//        ctx->waza_work = ctx->battlemon[ctx->attack_client].move[moveIndex];
+//    }
+//
+//
+//    return FALSE;
+//}
+
 
 /**
  *  @brief script command to calculate the base power of Fury Cutter

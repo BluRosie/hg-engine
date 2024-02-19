@@ -2086,6 +2086,25 @@ void LONG_CALL JumpToMoveEffectScript(struct BattleStruct *sp, int archive, int 
  */
 void LONG_CALL Link_CheckTimeout(struct BattleStruct *sp);
 
+/**
+ *  @brief check if a move index normally calls other moves as part of its operation
+ *
+ *  @param move move index to check
+ *  @return TRUE if the move results in another move; FALSE otherwise
+ */
+BOOL LONG_CALL CheckMoveCallsOtherMove(u16 move);
+
+/**
+ *  @brief updates the nonselectable moves that the battlerId currently has
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @param battlerId battler to check for struggle moves
+ *  @param nonSelectableMoves pass in moves that are already not selectable
+ *  @param a4
+ *  @return updated nonSelectableMoves field
+ */
+u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId, u32 nonSelectableMoves, u32 a4);
 
 // defined in battle_calc_damage.c
 /**
