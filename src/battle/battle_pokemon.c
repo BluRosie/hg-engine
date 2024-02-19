@@ -466,7 +466,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
          && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
          && (sp->battlemon[sp->client_work].form_no < 2)
-         && (sp->relic_song_tracker & No2Bit(sp->client_work))) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->relic_song_tracker & No2Bit(sp->client_work)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->multi_hit_count <= 1))
         {
             sp->relic_song_tracker &= ~No2Bit(sp->client_work);
             sp->battlemon[sp->client_work].form_no ^= 1;

@@ -1712,7 +1712,7 @@ BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 mo
 BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove) {
     u32 moveIndex = checkTempMove ? (u32)sp->waza_work : sp->current_move_index;
 
-    return (sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND &&
+    return (GetBattlerAbility(sp, sp->attack_client) == ABILITY_PARENTAL_BOND &&
             sp->moveTbl[moveIndex].split != SPLIT_STATUS &&
             !IsBannedParentalBondMove(moveIndex) &&
             !IsBannedSpreadMoveForParentalBond(bw, sp, moveIndex));
