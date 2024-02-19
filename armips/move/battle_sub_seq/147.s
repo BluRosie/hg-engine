@@ -14,7 +14,7 @@ a001_147:
     abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_MAGIC_GUARD, _009C
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_HIT_DAMAGE
-    abilitycheck 0, BATTLER_ATTACKER, ABILITY_PARENTAL_BOND, _handleParentalBond
+    isparentalbondactive _handleParentalBond
 _comeBackFromParentalBond:
     if IF_EQUAL, VAR_HP_TEMP, 0x0, _0068
     damagediv VAR_HP_TEMP, 3

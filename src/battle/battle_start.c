@@ -84,7 +84,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
             {
                 if (((sp->battlemon[client_no].condition & 7) != 0)
                  || (ST_ServerSelectWazaGet(sp, client_no) != MOVE_FURY_CUTTER)
-                 || (ST_CheckIfInTruant(sp, client_no) != FALSE) 
+                 || (ST_CheckIfInTruant(sp, client_no) != FALSE)
                  || (sp->oneTurnFlag[client_no].struggle_flag != 0))
                 sp->battlemon[client_no].moveeffect.furyCutterCount = 0;
             }
@@ -156,7 +156,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                         }
                         //ai requests mega
                         else
-                        { 
+                        {
                             if (CheckCanMega(sp, client_no))
                             {
                                 sp->battlemon[client_no].canMega = 1;
@@ -179,7 +179,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                         }
                         //ai requests mega
                         else
-                        { 
+                        {
                             if (CheckCanMega(sp, client_no))
                             {
                                 sp->battlemon[client_no].canMega = 1;
@@ -188,7 +188,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                                 flag = TRUE;
                             }
                         }
-                    }                  
+                    }
                 }
 
                 if (flag)
@@ -252,7 +252,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
         client_no = sp->turn_order[i];
         if (newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
         {
-            if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) 
+            if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI)
             {
                 if (client_no == 0 || (client_no == 2 && sp->battlemon[client_no].id_no == sp->battlemon[0].id_no))
                     newBS.PlayerMegaed = TRUE;
@@ -264,7 +264,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
 
             sp->battlemon[client_no].form_no = GrabMegaTargetForm(sp->battlemon[client_no].species, sp->battlemon[client_no].item);
             BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, TRUE);
-            
+
             newBS.needMega[client_no] = MEGA_CHECK_APPER;
             sp->client_work = client_no;
             if (CheckCanSpeciesMegaEvolveByMove(sp, client_no))
@@ -447,6 +447,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARENTAL_BOND);
                 runMyScriptInstead = 1;
             } else {
+                sp->battlemon[sp->client_work].parental_bond_is_active = FALSE;
                 sp->wb_seq_no = 0;
             }
             break;
@@ -463,7 +464,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
         if (runMyScriptInstead == 0)
         {
             LoadBattleSubSeqScript(sp, ARC_BATTLE_MOVE_SEQ, sp->current_move_index);
-            sp->next_server_seq_no = 24; // after that 
+            sp->next_server_seq_no = 24; // after that
         }
         else // might want to move this else to be up before the NO_OUT check above
         {

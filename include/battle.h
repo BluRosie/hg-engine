@@ -693,8 +693,9 @@ struct __attribute__((packed)) BattlePokemon
                u32 air_ballon_flag : 1;      /**< the held air balloon has printed its message */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
                u32 parental_bond_flag : 2;
+               u32 parental_bond_is_active : 1;
                u32 ability_activated_flag : 1;
-               u32 : 7; // need to add to ClearBattleMonFlags when added to here as well
+               u32 : 6; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -907,9 +908,9 @@ struct __attribute__((packed)) BattleStruct
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[4];
-    /*0xCC*/ int push_skill_arc_index[4];
-    /*0xDC*/ int push_skill_seq_no[4];
+    /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
+    /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
+    /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
     /*0xEC*/ int agi_cnt;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;
@@ -934,9 +935,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x184*/ struct field_condition_count fcc;
     /*0x1BC*/ u32 side_condition[2];
     /*0x1C4*/ struct side_condition_work scw[2];
-    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
-    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
-    /*0x344*/ struct MoveOutCheck moveOutCheck[4];
+    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[CLIENT_MAX];
+    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX];
+    /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX];
 
     /*0x354*/ struct BattleAIWorkTable aiWorkTable;
     /*0x2134*/ u32 *ai_seq_work;

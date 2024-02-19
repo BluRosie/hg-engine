@@ -70,6 +70,7 @@ BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw, struct BattleStruct *sp)
 BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -325,6 +326,7 @@ const u8 *BattleScrCmdNames[] =
     "setparentalbondflag",
     "ifcurrentmoveisvalidparentalbondmove",
     "canapplyknockoffdamageboost",
+    "isparentalbondactive",
 };
 
 u32 cmdAddress = 0;
@@ -352,6 +354,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F1_setparentalbondflag,
     [0xF2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove,
     [0xF3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F3_canapplyknockoffdamageboost,
+    [0xF4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F4_isparentalbondactive,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -2666,6 +2669,25 @@ BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw UNUSED, struct Battle
 }
 
 /**
+ *  @brief script command to jump somewhere if the current hit is the first hit of Parental Bond
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
  *  @brief script command to jump somewhere if the current hit is the second hit of Parental Bond
  *
  *  @param bw battle work structure
@@ -2695,6 +2717,7 @@ BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw UNUSED, struct BattleStruct *sp
     IncrementBattleScriptPtr(sp, 1);
 
     sp->battlemon[sp->attack_client].parental_bond_flag = 1;
+    sp->battlemon[sp->attack_client].parental_bond_is_active = TRUE;
 
     return FALSE;
 }
@@ -2719,25 +2742,6 @@ BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw UNUSED, struct
 }
 
 /**
- *  @brief script command to jump somewhere if the current hit is the first hit of Parental Bond
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return FALSE
- */
-BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
-    IncrementBattleScriptPtr(sp, 1);
-
-    int address = read_battle_script_param(sp);
-
-    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
-        IncrementBattleScriptPtr(sp, address);
-    }
-
-    return FALSE;
-}
-
-/**
  *  @brief script command to jump somewhere if the knock off damage boost can not be applied
  *
  *  @param bw battle work structure
@@ -2750,6 +2754,25 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleSt
     int address = read_battle_script_param(sp);
     if (!CanKnockOffApply(sp))
         IncrementBattleScriptPtr(sp, address);
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if parental bond is currently active beyond mummy
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_is_active == TRUE) {
+        IncrementBattleScriptPtr(sp, address);
+    }
 
     return FALSE;
 }

@@ -1556,3 +1556,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xF3
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro isparentalbondactive,address
+    .word 0xF4
+    .word ((address - org()) / 4) - 1
+.endmacro
