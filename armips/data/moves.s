@@ -14601,7 +14601,7 @@ movedata MOVE_BURNING_BULWARK, "Burning Bulwark"
     movedescription MOVE_BURNING_BULWARK, "---"
 
 movedata MOVE_THUNDERCLAP, "Thunderclap"
-    battleeffect 0
+    battleeffect 248
     pss SPLIT_SPECIAL
     basepower 70
     type TYPE_ELECTRIC
@@ -14626,7 +14626,7 @@ movedata MOVE_MIGHTY_CLEAVE, "Mighty Cleave"
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14713,7 +14713,7 @@ movedata MOVE_TEMPER_FLARE, "Temper Flare"
     movedescription MOVE_TEMPER_FLARE, "---"
 
 movedata MOVE_SUPERCELL_SLAM, "Supercell Slam"
-    battleeffect 0
+    battleeffect 45
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ELECTRIC
