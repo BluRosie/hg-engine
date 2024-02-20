@@ -7873,7 +7873,7 @@ movedata MOVE_FLAME_CHARGE, "Flame Charge"
     effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_CONTACT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_CONTACT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

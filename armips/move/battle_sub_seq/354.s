@@ -29,24 +29,21 @@ Start:
     goto DefaultOrEnd
 GrassyTerrainMessage:
     printmessage GRASSY_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Grass grew to cover the battlefield!
-    waitmessage
-    wait 0x1E
-    endscript
+    goto PostMessage
 MistyTerrainMessage:
     printmessage MISTY_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // Mist swirled about the battlefield!
-    waitmessage
-    wait 0x1E
-    endscript
+    goto PostMessage
 ElectricTerrainMessage:
     printmessage ELECTRIC_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // An electric current ran across the battlefield!
-    waitmessage
-    wait 0x1E
-    endscript
+    goto PostMessage
 PsychicTerrainMessage:
     printmessage PSYCHIC_TERRAIN_APPLY_MSG, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The battlefield got weird!
+PostMessage:
     waitmessage
     wait 0x1E
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000 // reenable animations
     endscript
+
 SameTerrainFail:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
 DefaultOrEnd:
