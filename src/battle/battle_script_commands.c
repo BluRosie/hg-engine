@@ -44,6 +44,8 @@ void Task_DistributeExp_Extend(void *arg0, void *work);
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_87_tryknockoff(void *bw, struct BattleStruct *sp);
 s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client);
@@ -64,7 +66,12 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_ED_ifterrainoverlayistype(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -315,7 +322,12 @@ const u8 *BattleScrCmdNames[] =
     "updateterrainoverlay",
     "ifterrainoverlayistype",
     "setpsychicterrainmoveusedflag",
+    "iffirsthitofparentalbond",
+    "ifsecondhitofparentalbond",
+    "setparentalbondflag",
+    "ifcurrentmoveisvalidparentalbondmove",
     "canapplyknockoffdamageboost",
+    "isparentalbondactive",
 };
 
 u32 cmdAddress = 0;
@@ -338,7 +350,12 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xEC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EC_updateterrainoverlay,
     [0xED - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_ED_ifterrainoverlayistype,
     [0xEE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EE_setpsychicterrainmoveusedflag,
+    [0xEF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_EF_iffirsthitofparentalbond,
+    [0xF0 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F0_ifsecondhitofparentalbond,
+    [0xF1 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F1_setparentalbondflag,
+    [0xF2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove,
     [0xF3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F3_canapplyknockoffdamageboost,
+    [0xF4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F4_isparentalbondactive,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1100,7 +1117,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 
             case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
             case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
-                effect = MOVE_EFFECT_RECOIL_HIT;
+                effect = MOVE_EFFECT_RECOIL_THIRD;
                 sp->battlemon[sp->attack_client].sheer_force_flag = 1;
                 break;
 
@@ -1970,6 +1987,141 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+
+/**
+ *  @brief checks if the given moveNo is a two-turn move at all
+ *
+ *  @param sp global battle structure
+ *  @param moveNo move index to check against a list of move effects that are charge moves
+ */
+BOOL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo) {
+    switch (sp->moveTbl[moveNo].effect) {
+    case MOVE_EFFECT_BIDE:
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT:
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
+    case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
+    case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
+    case MOVE_EFFECT_FLY:
+    case MOVE_EFFECT_DIVE:
+    case MOVE_EFFECT_DIG:
+    case MOVE_EFFECT_BOUNCE:
+    case MOVE_EFFECT_SHADOW_FORCE:
+        return TRUE;
+    }
+    return FALSE;
+// make sure to add geomancy here
+}
+
+
+u16 SleepTalkBanList[] =
+{
+    MOVE_ASSIST,
+    MOVE_BELCH,
+    MOVE_BEAK_BLAST,
+    MOVE_COPYCAT,
+    MOVE_DYNAMAX_CANNON,
+    MOVE_FREEZE_SHOCK,
+    MOVE_FOCUS_PUNCH,
+    MOVE_ICE_BURN,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_MIRROR_MOVE,
+    MOVE_MIMIC,
+    MOVE_SHELL_TRAP,
+    MOVE_SKETCH,
+    MOVE_STRUGGLE,
+    MOVE_UPROAR,
+};
+
+
+/**
+ *  @brief checks if the given moveNo is a two-turn move at all
+ *
+ *  @param sp global battle structure
+ *  @param moveNo move index to check against a list of move effects that are charge moves
+ */
+BOOL CanSleepTalkCallMove(struct BattleStruct *sp, u32 move)
+{
+    if (CheckMoveCallsOtherMove(move) || CheckMoveIsChargeMove(sp, move) || move > NUM_OF_MOVES)
+    {
+        return FALSE;
+    }
+
+    for (u32 i = 0; i < NELEMS(SleepTalkBanList); i++)
+    {
+        if (move == SleepTalkBanList[i]) return FALSE;
+    }
+    return TRUE;
+}
+
+
+/**
+ *  @brief script command to perform sleep talk's effect of redirecting to another move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp) {
+    u32 moveIndex, nonSelectableMoves;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+
+    nonSelectableMoves = 0;
+
+    for (moveIndex = 0; moveIndex < 4; moveIndex++) {
+        if (!CanSleepTalkCallMove(sp, sp->battlemon[sp->attack_client].move[moveIndex]))
+        {
+            nonSelectableMoves |= No2Bit(moveIndex);
+        }
+    }
+
+    nonSelectableMoves = StruggleCheck(bw, sp, sp->attack_client, nonSelectableMoves, ~2);
+
+    if (nonSelectableMoves == 0xF) {
+        IncrementBattleScriptPtr(sp, adrs);
+    } else {
+        do {
+            moveIndex = BattleRand(bw) % 4;
+        } while (No2Bit(moveIndex) & nonSelectableMoves);
+        sp->waza_work = sp->battlemon[sp->attack_client].move[moveIndex];
+    }
+
+    return FALSE;
+}
+
+
+/**
+ *  @brief script command to calculate the base power of Fury Cutter
+ *  @brief and set the counter for Fury Cutter
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct *sp) {
+    // probably no need to use int?
+    u8 i;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    if (sp->battlemon[sp->attack_client].moveeffect.furyCutterCount < 3 &&
+        // the second hit for Parental Bond doesn't increase the counter
+        sp->battlemon[sp->attack_client].parental_bond_flag != 2) {
+        sp->battlemon[sp->attack_client].moveeffect.furyCutterCount++;
+    }
+
+    sp->damage_power = sp->moveTbl[sp->current_move_index].power;
+
+    for (i = 1; i < sp->battlemon[sp->attack_client].moveeffect.furyCutterCount; i++) {
+        sp->damage_power *= 2;
+    }
+
+    return FALSE;
+}
+
 /**
  *  @brief script command to calculate the damage done by beat up
  *
@@ -2624,7 +2776,80 @@ BOOL btl_scr_cmd_EE_setpsychicterrainmoveusedflag(void *bw UNUSED, struct Battle
 }
 
 /**
- *  @brief script command to jump somewhere if the knockoff damage boost can not apply
+ *  @brief script command to jump somewhere if the current hit is the first hit of Parental Bond
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current hit is the second hit of Parental Bond
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_flag == 2) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to set the Parental Bond flag
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    sp->battlemon[sp->attack_client].parental_bond_flag = 1;
+    sp->battlemon[sp->attack_client].parental_bond_is_active = TRUE;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the current move is a valid parental bond move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (IsValidParentalBondMove(bw, sp, TRUE)) {
+        IncrementBattleScriptPtr(sp, address);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if the knock off damage boost can not be applied
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2636,6 +2861,25 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleSt
     int address = read_battle_script_param(sp);
     if (!CanKnockOffApply(sp))
         IncrementBattleScriptPtr(sp, address);
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if parental bond is currently active beyond mummy
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int address = read_battle_script_param(sp);
+
+    if (sp->battlemon[sp->attack_client].parental_bond_is_active == TRUE) {
+        IncrementBattleScriptPtr(sp, address);
+    }
 
     return FALSE;
 }

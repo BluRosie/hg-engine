@@ -466,7 +466,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
          && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
          && (sp->battlemon[sp->client_work].form_no < 2)
-         && (sp->relic_song_tracker & No2Bit(sp->client_work))) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->relic_song_tracker & No2Bit(sp->client_work)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->multi_hit_count <= 1))
         {
             sp->relic_song_tracker &= ~No2Bit(sp->client_work);
             sp->battlemon[sp->client_work].form_no ^= 1;
@@ -1256,6 +1257,9 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
     sp->battlemon[client].air_ballon_flag = 0;
+    sp->battlemon[client].ability_activated_flag = 0;
+    sp->battlemon[client].parental_bond_flag = 0;
+    sp->battlemon[client].parental_bond_is_active = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
 }

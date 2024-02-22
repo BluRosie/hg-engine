@@ -1533,7 +1533,31 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xEE
 .endmacro
 
+.macro iffirsthitofparentalbond,address
+    .word 0xEF
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro ifsecondhitofparentalbond,address
+    .word 0xF0
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro setparentalbondflag
+    .word 0xF1
+.endmacro
+
+.macro ifcurrentmoveisvalidparentalbondmove,address
+    .word 0xF2
+    .word ((address - org()) / 4) - 1
+.endmacro
+
 .macro canapplyknockoffdamageboost,address
     .word 0xF3
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro isparentalbondactive,address
+    .word 0xF4
     .word ((address - org()) / 4) - 1
 .endmacro

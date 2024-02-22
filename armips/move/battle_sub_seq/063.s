@@ -7,6 +7,10 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// 1/4 recoil subscript
+
+PARENTAL_BOND_SUBSCRIPT equ (353)
+
 .create "build/move/battle_sub_seq/1_063", 0
 
 a001_063:
@@ -14,8 +18,10 @@ a001_063:
     abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_MAGIC_GUARD, _009C
     changevar2 VAR_OP_SET, VAR_BATTLER_SOMETHING, VAR_ATTACKER
     changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_HIT_DAMAGE
+    isparentalbondactive _handleParentalBond
+_comeBackFromParentalBond:
     if IF_EQUAL, VAR_HP_TEMP, 0x0, _0068
-    damagediv 32, 4
+    damagediv VAR_HP_TEMP, 4
 _0068:
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x40
     gotosubscript 2
@@ -24,5 +30,15 @@ _0068:
     wait 0x1E
 _009C:
     endscript
+
+_handleParentalBond:
+    // this actually is a check for the first hit of parental bond--with the damagecalc script command run in the effect script, we have to check for the second hit here to delay the recoil
+    ifsecondhitofparentalbond _backupDamageForParentalBond
+    changevar2 VAR_OP_ADD, VAR_HP_TEMP, VAR_DAMAGE_BACKUP
+    goto _comeBackFromParentalBond
+
+_backupDamageForParentalBond:
+    changevar2 VAR_OP_SET, VAR_DAMAGE_BACKUP, VAR_HP_TEMP
+    goto _009C
 
 .close
