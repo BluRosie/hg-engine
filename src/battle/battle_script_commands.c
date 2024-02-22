@@ -1117,7 +1117,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 
             case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
             case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
-                effect = MOVE_EFFECT_RECOIL_HIT;
+                effect = MOVE_EFFECT_RECOIL_THIRD;
                 sp->battlemon[sp->attack_client].sheer_force_flag = 1;
                 break;
 
@@ -1988,41 +1988,109 @@ BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
 }
 
 
-//BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *ctx) {
-//    u32 moveIndex, nonSelectableMoves;
-//
-//    IncrementBattleScriptPtr(ctx, 1);
-//
-//    u32 adrs = read_battle_script_param(ctx);
-//
-//    nonSelectableMoves = 0;
-//
-//    for (moveIndex = 0; moveIndex < 4; moveIndex++) {
-//        if (CheckMoveCallsOtherMove(ctx->battlemon[ctx->attack_client].move[moveIndex]) ||
-//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_FOCUS_PUNCH ||
-//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_UPROAR ||
-//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_CHATTER ||
-//            ctx->battlemon[ctx->attack_client].move[moveIndex] == MOVE_REST ||
-//            ctx->current_move_index == ctx->battlemon[ctx->attack_client].move[moveIndex])
-//        {
-//            nonSelectableMoves |= No2Bit(moveIndex);
-//        }
-//    }
-//
-//    nonSelectableMoves = StruggleCheck(bw, ctx, ctx->attack_client, nonSelectableMoves, ~2);
-//
-//    if (nonSelectableMoves == 0xF) {
-//        IncrementBattleScriptPtr(ctx, adrs);
-//    } else {
-//        do {
-//            moveIndex = BattleRand(bw) % 4;
-//        } while (No2Bit(moveIndex) & nonSelectableMoves);
-//        ctx->waza_work = ctx->battlemon[ctx->attack_client].move[moveIndex];
-//    }
-//
-//
-//    return FALSE;
-//}
+/**
+ *  @brief checks if the given moveNo is a two-turn move at all
+ *
+ *  @param sp global battle structure
+ *  @param moveNo move index to check against a list of move effects that are charge moves
+ */
+BOOL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo) {
+    switch (sp->moveTbl[moveNo].effect) {
+    case MOVE_EFFECT_BIDE:
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT:
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
+    case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
+    case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
+    case MOVE_EFFECT_FLY:
+    case MOVE_EFFECT_DIVE:
+    case MOVE_EFFECT_DIG:
+    case MOVE_EFFECT_BOUNCE:
+    case MOVE_EFFECT_SHADOW_FORCE:
+        return TRUE;
+    }
+    return FALSE;
+// make sure to add geomancy here
+}
+
+
+u16 SleepTalkBanList[] =
+{
+    MOVE_ASSIST,
+    MOVE_BELCH,
+    MOVE_BEAK_BLAST,
+    MOVE_COPYCAT,
+    MOVE_DYNAMAX_CANNON,
+    MOVE_FREEZE_SHOCK,
+    MOVE_FOCUS_PUNCH,
+    MOVE_ICE_BURN,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_MIRROR_MOVE,
+    MOVE_MIMIC,
+    MOVE_SHELL_TRAP,
+    MOVE_SKETCH,
+    MOVE_STRUGGLE,
+    MOVE_UPROAR,
+};
+
+
+/**
+ *  @brief checks if the given moveNo is a two-turn move at all
+ *
+ *  @param sp global battle structure
+ *  @param moveNo move index to check against a list of move effects that are charge moves
+ */
+BOOL CanSleepTalkCallMove(struct BattleStruct *sp, u32 move)
+{
+    if (CheckMoveCallsOtherMove(move) || CheckMoveIsChargeMove(sp, move) || move > NUM_OF_MOVES)
+    {
+        return FALSE;
+    }
+
+    for (u32 i = 0; i < NELEMS(SleepTalkBanList); i++)
+    {
+        if (move == SleepTalkBanList[i]) return FALSE;
+    }
+    return TRUE;
+}
+
+
+/**
+ *  @brief script command to perform sleep talk's effect of redirecting to another move
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp) {
+    u32 moveIndex, nonSelectableMoves;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+
+    nonSelectableMoves = 0;
+
+    for (moveIndex = 0; moveIndex < 4; moveIndex++) {
+        if (!CanSleepTalkCallMove(sp, sp->battlemon[sp->attack_client].move[moveIndex]))
+        {
+            nonSelectableMoves |= No2Bit(moveIndex);
+        }
+    }
+
+    nonSelectableMoves = StruggleCheck(bw, sp, sp->attack_client, nonSelectableMoves, ~2);
+
+    if (nonSelectableMoves == 0xF) {
+        IncrementBattleScriptPtr(sp, adrs);
+    } else {
+        do {
+            moveIndex = BattleRand(bw) % 4;
+        } while (No2Bit(moveIndex) & nonSelectableMoves);
+        sp->waza_work = sp->battlemon[sp->attack_client].move[moveIndex];
+    }
+
+    return FALSE;
+}
 
 
 /**
