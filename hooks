@@ -99,6 +99,10 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
 #022404e0
 0012 btl_scr_cmd_54_ohko_move_handle 08008C20 3
+0012 CheckMoveIsChargeMove 022525AC 2
+0012 btl_scr_cmd_5f_trysleeptalk 02240F7C 3
+#02241F10
+0012 btl_scr_cmd_6f_fury_cutter_damage_calc 02241F10 3
 #02242710
 0012 btl_scr_cmd_7c_beat_up_damage_calc 0800AE50 3
 #0224324C
@@ -115,6 +119,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_27_shouldgetexp 08006DE0 3
 0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
 0012 Link_QueueIsEmpty 0224ED48 1
+0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

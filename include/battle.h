@@ -116,7 +116,7 @@
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
 #define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
-#define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
+#define MOVE_STATUS_FLAG_FAILURE_ANY    (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          MOVE_STATUS_FLAG_FAILED|\
                                          MOVE_STATUS_FLAG_LEVITATE_MISS|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
@@ -128,7 +128,7 @@
                                          MOVE_STATUS_FLAG_NO_OHKO|\
                                          MOVE_STATUS_FLAG_MAGNET_RISE_MISS)
 
-#define WAZA_STATUS_FLAG_NO_OUT         (WAZA_STATUS_FLAG_HAZURE|\
+#define WAZA_STATUS_FLAG_NO_OUT         (MOVE_STATUS_FLAG_FAILURE_ANY|\
                                          WAZA_STATUS_FLAG_PP_NONE|\
                                          WAZA_STATUS_FLAG_SIPPAI)
 
@@ -692,7 +692,10 @@ struct __attribute__((packed)) BattlePokemon
                u32 critical_hits : 2;        /**< tracks the amount of critical hits the pokémon has landed while in battle so far */
                u32 air_ballon_flag : 1;      /**< the held air balloon has printed its message */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
-               u32 : 10; // need to add to ClearBattleMonFlags when added to here as well
+               u32 parental_bond_flag : 2;
+               u32 parental_bond_is_active : 1;
+               u32 ability_activated_flag : 1;
+               u32 : 6; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -905,9 +908,9 @@ struct __attribute__((packed)) BattleStruct
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[4];
-    /*0xCC*/ int push_skill_arc_index[4];
-    /*0xDC*/ int push_skill_seq_no[4];
+    /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
+    /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
+    /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
     /*0xEC*/ int agi_cnt;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;
@@ -932,9 +935,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x184*/ struct field_condition_count fcc;
     /*0x1BC*/ u32 side_condition[2];
     /*0x1C4*/ struct side_condition_work scw[2];
-    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
-    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
-    /*0x344*/ struct MoveOutCheck moveOutCheck[4];
+    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[CLIENT_MAX];
+    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX];
+    /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX];
 
     /*0x354*/ struct BattleAIWorkTable aiWorkTable;
     /*0x2134*/ u32 *ai_seq_work;
@@ -1437,7 +1440,7 @@ void LONG_CALL ST_ServerDefenceClientTokuseiCheck(void *bw, struct BattleStruct 
 void LONG_CALL ST_ServerTotteokiCountCalc(void *bw,struct BattleStruct *sp);
 void LONG_CALL ST_ServerMetronomeBeforeCheck(void *bw,struct BattleStruct *sp);
 int LONG_CALL ST_ServerPokeAppearCheck(void *bw, struct BattleStruct *sp);
-int LONG_CALL TagNickParaMake(struct BattleStruct *sp, int client_no);
+int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
 
 
@@ -2083,6 +2086,25 @@ void LONG_CALL JumpToMoveEffectScript(struct BattleStruct *sp, int archive, int 
  */
 void LONG_CALL Link_CheckTimeout(struct BattleStruct *sp);
 
+/**
+ *  @brief check if a move index normally calls other moves as part of its operation
+ *
+ *  @param move move index to check
+ *  @return TRUE if the move results in another move; FALSE otherwise
+ */
+BOOL LONG_CALL CheckMoveCallsOtherMove(u16 move);
+
+/**
+ *  @brief updates the nonselectable moves that the battlerId currently has
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @param battlerId battler to check for struggle moves
+ *  @param nonSelectableMoves pass in moves that are already not selectable
+ *  @param a4
+ *  @return updated nonSelectableMoves field
+ */
+u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId, u32 nonSelectableMoves, u32 a4);
 
 // defined in battle_calc_damage.c
 /**
@@ -2373,6 +2395,38 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
 BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
 /**
+ * @brief Check if the current move is a multi hit move
+ * @param moveIndex move index
+ * @return TRUE if it is a multi hit move
+*/
+BOOL IsMultiHitMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
+*/
+BOOL IsBannedParentalBondMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
+ */
+BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a move that should be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param checkTempMove if move will be changed via Metronome, Assist, etc
+ * @return TRUE if it is a valid move
+ */
+BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove);
+
+/**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure
  * @param attackerAttack attacker's Physical Attack
@@ -2394,6 +2448,8 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
 
 // defined in mega.c
+BOOL CheckMegaData(u32 mon, u32 item);
+
 /**
  *  @brief grab mega form of a specific species with specific item
  *

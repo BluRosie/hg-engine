@@ -59,6 +59,8 @@ _00C8:
     callfunction 40, 2, 2, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
+    unloadparticle 1
+    unloadparticle 2
     end
 _0268:
     addparticle 0, 0, 3
@@ -69,16 +71,22 @@ _0268:
     jumpifside 0, _02CC, _02EC
     waitparticle
     unloadparticle 0
+    unloadparticle 1
+    unloadparticle 2
     end
 _02CC:
     addparticle 0, 6, 3
     waitparticle
     unloadparticle 0
+    unloadparticle 1
+    unloadparticle 2
     end
 _02EC:
     addparticle 0, 7, 3
     waitparticle
     unloadparticle 0
+    unloadparticle 1
+    unloadparticle 2
     end
 _030C:
     callfunction 40, 2, 2, 1, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
