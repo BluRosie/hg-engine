@@ -6,6 +6,7 @@
 #include "sprite.h"
 #include "pokemon.h"
 #include "task.h"
+#include "save.h"
 #include "constants/moves.h"
 
 #define CLIENT_MAX 4
@@ -1051,40 +1052,72 @@ struct __attribute__((packed)) BattleStruct
 };
 
 
+typedef struct GROUND_WORK {
+    void *unk0;
+    struct BattleSystem *bw;
+    u8 team;
+    u8 terrain;
+    s16 x;
+    s16 y;
+    u16 unused;
+} GROUND_WORK; //size: 0x10
+
+typedef struct {
+    u16 sentence_type;
+    u16 sentence_id;
+    u16 word[2];
+} PACKED PMS_DATA; // size: 8 bytes
+
+typedef struct {
+    u8 data_type;
+    u8 tr_type;
+    u8 tr_gra;
+    u8 poke_count;
+
+    u16 use_item[4];
+
+    u32 aibit;
+    u32 fight_type;
+
+    u16 name[8];
+    PMS_DATA win_word;
+    PMS_DATA lose_word;
+} PACKED TRAINER_DATA; // size: 52 bytes
+
+
 struct BattleSystem {
-    // u32 *unk0;
-    // BgConfig *bgConfig;
-    // Window *window;
-    // u32 *unkC;
-    // u32 *unk10;
-    // u32 *unk14;
-    // String *msgBuffer;
-    // u32 unk1C;
-    // u32 unk20;
-    // u32 unk24;
-    // PaletteData *palette;
-    // u32 battleType;
-    // BattleContext *ctx;
-    /* 0x00 */ u8 padding_0[0x34];
-    /* 0x34 */ void *opponentData[4];
-    // int maxBattlers;
-    // PlayerProfile *playerProfile[4];
-    // Bag *bag;
-    // BagCursor *bagCursor;
-    // Pokedex *pokedex;
-    // PCStorage *storage;
-    // Party *trainerParty[4];
-    // SOUND_CHATOT *chatotVoice[4];
-    // u32 *unk88;
-    // u32 *unk8C;
-    // SpriteRenderer *unk90;
-    // SpriteGfxHandler *unk94;
-    // u32 *unk98;
-    // u32 *unk9C;
-    // u16 trainerId[4];
-    // u8 trainerGender[4];
-    // Trainer trainers[4];
-    // UnkBattleSystemSub17C unk17C[2]; //Battle Background..?
+    /* 0x00 */ u32 *unk0;
+    /* 0x04 */ void * /*BgConfig **/ bgConfig;
+    /* 0x08 */ void * /*Window **/ window;
+    /* 0x0C */ u32 *unkC;
+    /* 0x10 */ u32 *unk10;
+    /* 0x14 */ u32 *unk14;
+    /* 0x18 */ void * /*String **/ msgBuffer;
+    /* 0x1C */ u32 unk1C;
+    /* 0x20 */ u32 unk20;
+    /* 0x24 */ u32 unk24;
+    /* 0x28 */ void * /*PaletteData **/ palette;
+    /* 0x2C */ u32 battleType;
+    /* 0x30 */ struct BattleStruct *sp;
+    /* 0x34 */ void * /*OpponentData **/ opponentData[4];
+    /* 0x38 */ int maxBattlers;
+    struct PlayerProfile *playerProfile[4];
+    void *bag;
+    void *bagCursor;
+    void *pokedex;
+    void *storage;
+    struct Party *trainerParty[4];
+    void *chatotVoice[4];
+    u32 *unk88;
+    u32 *unk8C;
+    void *unk90;
+    void *unk94;
+    u32 *unk98;
+    u32 *unk9C;
+    u16 trainerId[4];
+    u8 trainerGender[4];
+    TRAINER_DATA trainers[4];
+    GROUND_WORK ground[2];
     // u32 *unk19C;
     // u32 *unk1A0[2];
     // FontID *hpFont;
@@ -1122,8 +1155,9 @@ struct BattleSystem {
     // u8 unk240E_F:1;
     // u8 criticalHpMusic:2;
     // u8 criticalHpMusicDelay:3;
-    // Terrain terrain;
-    // int unk2404;
+    u8 padding[0x2400 - 0x19C];
+    u32 terrain;
+    int unk2404; // bg id
     // int location;
     // u32 battleSpecial;
     // int timezone; //might be timeOfDay? unclear
@@ -1242,29 +1276,7 @@ struct __attribute__((packed)) newBattleStruct
     u32 weather;
 };
 
-typedef struct {
-    u16 sentence_type;
-    u16 sentence_id;
-    u16 word[2];
-} __attribute__((packed)) PMS_DATA; // size: 8 bytes
-
-typedef struct {
-    u8 data_type;
-    u8 tr_type;
-    u8 tr_gra;
-    u8 poke_count;
-
-    u16 use_item[4];
-
-    u32 aibit;
-    u32 fight_type;
-
-    u16 name[8];
-    PMS_DATA win_word;
-    PMS_DATA lose_word;
-} __attribute__((packed)) TRAINER_DATA; // size: 52 bytes
-
-struct __attribute__((packed)) BATTLE_PARAM
+struct PACKED BATTLE_PARAM
 {
     /*0x0000*/  u32 fight_type;
     /*0x0004*/  struct Party *poke_party[4];
@@ -1276,7 +1288,7 @@ struct __attribute__((packed)) BATTLE_PARAM
 };
 
 
-struct __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE // structure isn't actually used as the structure is iterated through conditionally
+struct PACKED FULL_TRAINER_MON_DATA_STRUCTURE // structure isn't actually used as the structure is iterated through conditionally
 {
     /* 0x00 */ u8 ivs;
     /* 0x01 */ u8 abilityslot;
@@ -2105,6 +2117,25 @@ BOOL LONG_CALL CheckMoveCallsOtherMove(u16 move);
  *  @return updated nonSelectableMoves field
  */
 u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId, u32 nonSelectableMoves, u32 a4);
+
+#define NUM_VANILLA_BATTLE_BACKGROUNDS 23
+void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
+void LONG_CALL BattleWorkGroundBGChg(void *bw);
+u32 LONG_CALL GrabTimeOfDayFileAdjustment(void *bw);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // defined in battle_calc_damage.c
 /**
