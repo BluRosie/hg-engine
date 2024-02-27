@@ -1397,3 +1397,28 @@ The weirdness disappeared\nfrom the battlefield.
 {STRVAR_1 1, 0, 0}’s HP was restored.
 The wild {STRVAR_1 1, 0, 0}’s HP was restored.
 The foe’s {STRVAR_1 1, 0, 0}’s HP was restored.
+
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Atk of all surrounding\fPokémon!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Atk of all\fsurrounding Pokémon!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Atk of all\fsurrounding Pokémon!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Defense of all surrounding\fPokémon!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Defense of all\fsurrounding Pokémon!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Defense of all\fsurrounding Pokémon!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Attack of all surrounding\fPokémon!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Attack of all\fsurrounding Pokémon!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Attack of all\fsurrounding Pokémon!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Def of all surrounding\fPokémon!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Def of all\fsurrounding Pokémon!
+The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Def of all\fsurrounding Pokémon!
+{STRVAR_1 1, 0, 0} is preparing to tell\na chillingly bad joke!
+The wild {STRVAR_1 1, 0, 0} is preparing\nto tell a chillingly bad joke!
+The foe’s {STRVAR_1 1, 0, 0} is preparing\nto tell a chillingly bad joke!
+{STRVAR_1 1, 0, 0} shed its tail to\ncreate a decoy!
+The wild {STRVAR_1 1, 0, 0} shed its tail to\ncreate a decoy!
+The foe’s {STRVAR_1 1, 0, 0} shed its tail to\ncreate a decoy!
+{STRVAR_1 1, 0, 0} is overflowing\nwith space power!
+The wild {STRVAR_1 1, 0, 0} is overflowing\nwith space power!
+The foe’s {STRVAR_1 1, 0, 0} is overflowing\nwith space power!
+{STRVAR_1 1, 0, 0} absorbed\nelectricity!
+The wild {STRVAR_1 1, 0, 0} absorbed\nelectricity!
+The foe’s {STRVAR_1 1, 0, 0} absorbed\nelectricity!
