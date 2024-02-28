@@ -40,7 +40,7 @@ a001_355:
     changemondatabyvalue VAR_OP_SET, BATTLER_ATTACKER, 0x35, 0x1000000 
     // using VAR_OP_SET instead of VAR_OP_SETMASK to set up a substitute whilst clearing the other condition2 flags
 
-    printmessage 1415, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0} shed its tail to\ncreate a decoy!
+    printmessage 1414, 0x2, 0x1, "NaN", "NaN", "NaN", "NaN", "NaN" // {STRVAR_1 1, 0, 0} shed its tail to\ncreate a decoy!
     waitmessage
 
     // clear things that shouldnt be passed like stat boosts and leech seed

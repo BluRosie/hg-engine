@@ -14137,7 +14137,7 @@ movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
     movedescription MOVE_ELECTRO_DRIFT, "---"
 
 movedata MOVE_SHED_TAIL, "Shed Tail"
-    battleeffect 142
+    battleeffect 304
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL

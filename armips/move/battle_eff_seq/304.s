@@ -7,10 +7,12 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
-.create "build/move/battle_eff_seq/0_142", 0
+.create "build/move/battle_eff_seq/0_304", 0
 
-a030_142:
-    changevar VAR_OP_SET, VAR_ADD_STATUS1, 0x20000064
+// Shed Tail
+
+a030_304:
+    changevar VAR_OP_SET, VAR_ADD_STATUS1, ADD_STATUS_WORK | ADD_STATUS_SHED_TAIL
     endscript
 
 .close
