@@ -2118,7 +2118,6 @@ BOOL LONG_CALL CheckMoveCallsOtherMove(u16 move);
  */
 u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId, u32 nonSelectableMoves, u32 a4);
 
-#define NUM_VANILLA_BATTLE_BACKGROUNDS 23
 void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
 void LONG_CALL BattleWorkGroundBGChg(void *bw);
 u32 LONG_CALL GrabTimeOfDayFileAdjustment(void *bw);
@@ -2491,6 +2490,41 @@ BOOL CheckMegaData(u32 mon, u32 item);
 u32 GrabMegaTargetForm(u32 mon, u32 item);
 
 
+typedef struct BattleBGStorage {
+    u16 baseEntry:15;
+    u16 hasDayNightPals:1;
+} BattleBGStorage;
+
+
+typedef enum BattleBg {
+    BATTLE_BG_GENERAL,
+    BATTLE_BG_OCEAN,
+    BATTLE_BG_CITY,
+    BATTLE_BG_FOREST,
+    BATTLE_BG_MOUNTAIN,
+    BATTLE_BG_SNOW,
+    BATTLE_BG_BUILDING_1,
+    BATTLE_BG_BUILDING_2,
+    BATTLE_BG_BUILDING_3,
+    BATTLE_BG_CAVE_1,
+    BATTLE_BG_CAVE_2,
+    BATTLE_BG_CAVE_3,
+    BATTLE_BG_WILL,
+    BATTLE_BG_KOGA,
+    BATTLE_BG_BRUNO,
+    BATTLE_BG_KAREN,
+    BATTLE_BG_LANCE,
+    BATTLE_BG_DISTORTION_WORLD,
+    BATTLE_BG_BATTLE_TOWER,
+    BATTLE_BG_BATTLE_FACTORY,
+    BATTLE_BG_BATTLE_ARCADE,
+    BATTLE_BG_BATTLE_CASTLE,
+    BATTLE_BG_BATTLE_HALL,
+    NUM_VANILLA_BATTLE_BACKGROUNDS,
+    BATTLE_BG_ELECTRIC_TERRAIN = 23,
+} BattleBg;
+
+
 typedef enum Terrain {
     TERRAIN_PLAIN,
     TERRAIN_SAND,
@@ -2522,5 +2556,14 @@ typedef enum Terrain {
 // This is a catch-all terrain that includes Pokemon League, Distortion World
 // and Battle Frontier.
 #define TERRAIN_OTHERS (TERRAIN_WILL)
+
+/**
+ *  @brief load in different battle bg and terrain
+ *
+ *  @param bw battle work structure
+ *  @param bg background id to load
+ *  @param terrain platform id to load
+ */
+void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
 
 #endif // BATTLE_H

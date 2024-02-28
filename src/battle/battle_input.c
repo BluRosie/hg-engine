@@ -637,39 +637,6 @@ void SwapOutBottomScreen(struct BI_PARAM *bip)
 }
 
 
-/**
- *  @brief load in different battle bg and terrain
- *
- *  @param bw battle work structure
- *  @param bg background id to load
- *  @param terrain platform id to load
- */
-void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
-{
-    u32 palette;
-    if (bg < NUM_VANILLA_BATTLE_BACKGROUNDS)
-    {
-        // vanilla handling for ncgr/nclr pal grabbing
-        palette = 176 + 3*bg + GrabTimeOfDayFileAdjustment(bw);
-        bg = 3 + bg;
-    }
-    else
-    {
-        // every 4 files in a007 past 350 is a new battle bg, with format:
-        // [ncgr] [day pal] [evening pal] [night pal]
-        bg = 351 + 4*(bg - NUM_VANILLA_BATTLE_BACKGROUNDS);
-        palette = bg + 1 + GrabTimeOfDayFileAdjustment(bw);
-    }
-    // swap out battle bg
-    GfGfxLoader_LoadCharData(7, bg, bw->bgConfig, 3, 0, 0, 1, 5);
-    PaletteData_LoadNarc(bw->palette, 7, palette, 5, 0, 0, 0);
-
-    // swap out battle platform
-    Ground_ActorResourceSet(&bw->ground[0], bw, 0, terrain); // new terrains are just repointed below
-    Ground_ActorResourceSet(&bw->ground[1], bw, 1, terrain);
-    BattleWorkGroundBGChg(bw);
-}
-
 // indices in a008 that determine the ncgr's for the opponent's side of the field
 u16 TerrainPlatformEnemyNCGR[] =
 {
@@ -756,3 +723,40 @@ u16 TerrainPlatformPalettes[][3] =
     [TERRAIN_BATTLE_HALL] = {65, 66, 67},
     [TERRAIN_GIRATINA] = {68, 69, 4},
 };
+
+BattleBGStorage NewBattleBgTable[] =
+{
+    [BATTLE_BG_ELECTRIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 354, .hasDayNightPals = FALSE},
+};
+
+
+/**
+ *  @brief load in different battle bg and terrain
+ *
+ *  @param bw battle work structure
+ *  @param bg background id to load
+ *  @param terrain platform id to load
+ */
+void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
+{
+    u32 palette;
+    if (bg < NUM_VANILLA_BATTLE_BACKGROUNDS)
+    {
+        // vanilla handling for ncgr/nclr pal grabbing
+        palette = 176 + 3*bg + GrabTimeOfDayFileAdjustment(bw);
+        bg = 3 + bg;
+    }
+    else
+    {
+        bg = NewBattleBgTable[bg - NUM_VANILLA_BATTLE_BACKGROUNDS].baseEntry;
+        palette = bg + 1 + (NewBattleBgTable[bg - NUM_VANILLA_BATTLE_BACKGROUNDS].hasDayNightPals == TRUE ? GrabTimeOfDayFileAdjustment(bw) : 0);
+    }
+    // swap out battle bg
+    GfGfxLoader_LoadCharData(7, bg, bw->bgConfig, 3, 0, 0, 1, 5);
+    PaletteData_LoadNarc(bw->palette, 7, palette, 5, 0, 0, 0);
+
+    // swap out battle platform
+    Ground_ActorResourceSet(&bw->ground[0], bw, 0, terrain); // new terrains are just repointed below
+    Ground_ActorResourceSet(&bw->ground[1], bw, 1, terrain);
+    BattleWorkGroundBGChg(bw);
+}
