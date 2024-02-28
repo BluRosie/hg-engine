@@ -1397,7 +1397,6 @@ The weirdness disappeared\nfrom the battlefield.
 {STRVAR_1 1, 0, 0}’s HP was restored.
 The wild {STRVAR_1 1, 0, 0}’s HP was restored.
 The foe’s {STRVAR_1 1, 0, 0}’s HP was restored.
-
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Atk of all surrounding\fPokémon!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Atk of all\fsurrounding Pokémon!
 The foe’s {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Atk of all\fsurrounding Pokémon!
