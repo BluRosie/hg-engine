@@ -2684,6 +2684,9 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 
+    // update gBattleSystem to whatever it's about to need
+    gBattleSystem = bw;
+
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
     int client_set_max;

@@ -1157,7 +1157,7 @@ struct BattleSystem {
     // u8 criticalHpMusicDelay:3;
     u8 padding[0x2400 - 0x19C];
     u32 terrain;
-    int unk2404; // bg id
+    u32 bgId;
     // int location;
     // u32 battleSpecial;
     // int timezone; //might be timeOfDay? unclear
@@ -2121,6 +2121,23 @@ u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId,
 void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
 void LONG_CALL BattleWorkGroundBGChg(void *bw);
 u32 LONG_CALL GrabTimeOfDayFileAdjustment(void *bw);
+
+
+
+typedef struct ANIM_CMD_STRUCT
+{
+    u8 padding_0[0x18];
+    u32 *animScriptPtr;
+    // more stuff idk all i needed was where the stuff currently is
+} ANIM_CMD_STRUCT;
+
+
+#define NUM_VANILLA_ANIM_SCRIPT_COMMANDS (88)
+
+typedef void (*anim_scr_cmd_func)(ANIM_CMD_STRUCT *animCmdStruct);
+
+extern const anim_scr_cmd_func gAnimScrTable[NUM_VANILLA_ANIM_SCRIPT_COMMANDS];
+extern struct BattleSystem *gBattleSystem;
 
 
 

@@ -574,3 +574,7 @@ PaletteData_LoadNarc = 0x02003200 | 1;
 Ground_ActorResourceSet = 0x02265FD4 | 1;
 BattleWorkGroundBGChg = 0x0223B874 | 1;
 GrabTimeOfDayFileAdjustment = 0x0223B52C | 1;
+
+gAnimScrTable = 0x02234DE8;
+DrawFrameAndWindow2	= 0x0200E998 | 1;
+AddWindowParameterized = 0x0201D40C | 1;

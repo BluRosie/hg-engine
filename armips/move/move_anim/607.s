@@ -7,29 +7,13 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// electric terrain
+
 .create "build/move/move_anim/0_607", 0
 
 a010_607:
-    loadparticlefromspa 0, 486
-    waitparticle
-
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
-
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
-
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
-    waitparticle
-
-    unloadparticle 0
-    waitstate
+    changepermanentbg BATTLE_BG_ELECTRIC_TERRAIN, TERRAIN_CURRENT
     end
-    
+
 
 .close

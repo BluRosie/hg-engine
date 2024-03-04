@@ -562,7 +562,7 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
     // me when i commit crimes that transfer to low-level really nicely
     if (newBS.CanMega && !newBS.PlayerMegaed)
     {
-        scrn_data_id = 353; // new button layout nscr
+        scrn_data_id = 353; // new button layout nscr in a007
         *(u16 *)(0x0226E29E) = 353;
         // swap out touch data ptr
         *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchData; // something like this
@@ -754,6 +754,8 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     // swap out battle bg
     GfGfxLoader_LoadCharData(7, bg, bw->bgConfig, 3, 0, 0, 1, 5);
     PaletteData_LoadNarc(bw->palette, 7, palette, 5, 0, 0, 0);
+    PaletteData_LoadNarc(bw->palette, 38, 26, 5, 0, 0x20, 0xA0);
+    PaletteData_LoadNarc(bw->palette, 16, 8, 5, 0, 0x20, 0x80);
 
     // swap out battle platform
     Ground_ActorResourceSet(&bw->ground[0], bw, 0, terrain); // new terrains are just repointed below
