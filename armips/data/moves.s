@@ -14137,7 +14137,7 @@ movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
     movedescription MOVE_ELECTRO_DRIFT, "---"
 
 movedata MOVE_SHED_TAIL, "Shed Tail"
-    battleeffect 0
+    battleeffect 304
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -14150,7 +14150,7 @@ movedata MOVE_SHED_TAIL, "Shed Tail"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SHED_TAIL, "---"
+    movedescription MOVE_SHED_TAIL, "The user creates\na decoy using its own\nHP, then swaps places\nwith a party Pokémon\nin waiting."
 
 movedata MOVE_CHILLY_RECEPTION, "Chilly Reception"
     battleeffect 0

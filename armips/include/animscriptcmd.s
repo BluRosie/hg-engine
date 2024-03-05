@@ -476,6 +476,10 @@ ANIM_TARGET_DEFENDER_SIDE equ 20
     .word 0x57, num
 .endmacro
 
+.macro changepermanentbg,bg,terrain
+    .word 0x58, bg, terrain
+.endmacro
+
 // helpful macros
 
 .macro loadparticlefromspa,num0,file

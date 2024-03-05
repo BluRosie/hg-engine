@@ -16,6 +16,7 @@ ADD_STATUS_GROWTH equ 155
 ADD_STATUS_WORK_UP equ 156
 ADD_STATUS_SPICY_EXTRACT equ 157
 ADD_STATUS_FILLET_AWAY equ 158
+ADD_STATUS_SHED_TAIL equ 159
 
 // status change
 
@@ -1560,4 +1561,8 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro isparentalbondactive,address
     .word 0xF4
     .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro changepermanentbg,bg,terrain
+    .word 0xF5, bg, terrain
 .endmacro

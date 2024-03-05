@@ -1058,7 +1058,7 @@ gIconPalTable:
 /* SPECIES_GREAT_TUSK      */ .byte  0x0
 /* SPECIES_SCREAM_TAIL     */ .byte  0x0
 /* SPECIES_BRUTE_BONNET    */ .byte  0x0
-/* SPECIES_FLUTTER_MANE    */ .byte  0x0
+/* SPECIES_FLUTTER_MANE    */ .byte  0x2
 /* SPECIES_SLITHER_WING    */ .byte  0x0
 /* SPECIES_SANDY_SHOCKS    */ .byte  0x0
 /* SPECIES_IRON_TREADS     */ .byte  0x0
@@ -1088,10 +1088,10 @@ gIconPalTable:
 /* SPECIES_OKIDOGI         */ .byte  0x0
 /* SPECIES_MUNKIDORI       */ .byte  0x0
 /* SPECIES_FEZANDIPITI     */ .byte  0x0
-/* SPECIES_OGERPON         */ .byte  0x0
+/* SPECIES_OGERPON         */ .byte  0x1
 /* SPECIES_ARCHALUDON      */ .byte  0x0
-/* SPECIES_HYDRAPPLE       */ .byte  0x0
-/* SPECIES_GOUGING_FIRE    */ .byte  0x0
+/* SPECIES_HYDRAPPLE       */ .byte  0x1
+/* SPECIES_GOUGING_FIRE    */ .byte  0x2
 /* SPECIES_RAGING_BOLT     */ .byte  0x0
 /* SPECIES_IRON_BOULDER    */ .byte  0x0
 /* SPECIES_IRON_CROWN      */ .byte  0x0
@@ -1383,7 +1383,7 @@ gIconPalTable:
 /* SPECIES_OGERPON_HEARTHFLAME_MASK    */ .byte  0x0
 /* SPECIES_OGERPON_CORNERSTONE_MASK    */ .byte  0x0
 /* SPECIES_TERAPAGOS_STELLAR           */ .byte  0x0
-/* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x0
+/* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x2
 
 .endarea
 
