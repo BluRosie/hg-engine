@@ -1561,3 +1561,7 @@ MOVE_DATA_CONTEST_TYPE equ 11
     .word 0xF4
     .word ((address - org()) / 4) - 1
 .endmacro
+
+.macro changepermanentbg,bg,terrain
+    .word 0xF5, bg, terrain
+.endmacro

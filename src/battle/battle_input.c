@@ -754,6 +754,8 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     // swap out battle bg
     GfGfxLoader_LoadCharData(7, bg, bw->bgConfig, 3, 0, 0, 1, 5);
     PaletteData_LoadNarc(bw->palette, 7, palette, 5, 0, 0, 0);
+
+    // reload in pals for message box
     PaletteData_LoadNarc(bw->palette, 38, 26, 5, 0, 0x20, 0xA0);
     PaletteData_LoadNarc(bw->palette, 16, 8, 5, 0, 0x20, 0x80);
 
