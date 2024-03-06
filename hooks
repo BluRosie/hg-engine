@@ -427,3 +427,6 @@ arm9 CalcShininessByOtIdAndPersonality 02070068 2
 
 # expand animation command indices
 0007 GrabAnimScriptCommand 0221F8B0 1
+
+# evolution level up moves
+arm9 MonTryLearnMoveOnLevelUp 02071534 3
