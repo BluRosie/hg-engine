@@ -1344,8 +1344,8 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed B
 The wild {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
 The opposing {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
 {STRVAR_1 3, 0, 0}’s fervent wish has\nreached {STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} wished\nfervently!
-{STRVAR_1 3, 0, 0}’s fervent wish has\nreached {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} set its\nAwakening Emera on its Looplet!
+(Unused)
 {STRVAR_1 1, 0, 0}’s illusion\nfaded!
 The wild {STRVAR_1 1, 0, 0}’s\nillusion faded!
 The opposing {STRVAR_1 1, 0, 0}’s\nillusion faded!

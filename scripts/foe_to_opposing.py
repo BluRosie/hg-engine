@@ -34,7 +34,8 @@ def doIt():
             # The wild {STRVAR_1 1, 0, 0} wished\nfervently!
             # The foe’s fervent wish reached\nits {STRVAR_1 1, 0, 0}!
             newSentence = newSentence.replace("The fervent wish reached\\n{STRVAR_1 1, 0, 0}!", "{STRVAR_1 3, 0, 0}’s fervent wish has\\nreached {STRVAR_1 1, 1, 0}!")
-            newSentence = newSentence.replace("The foe’s fervent wish reached\\nits {STRVAR_1 1, 0, 0}!", "{STRVAR_1 3, 0, 0}’s fervent wish has\\nreached {STRVAR_1 1, 1, 0}!")
+            newSentence = newSentence.replace("The foe’s fervent wish reached\\nits {STRVAR_1 1, 0, 0}!", "(Unused)")
+            newSentence = newSentence.replace("The wild {STRVAR_1 1, 0, 0} wished\\nfervently!", "The wild {STRVAR_1 1, 0, 0} set its\\nAwakening Emera on its Looplet!")
             
             # Original text is also wrong, not "It’s reverted to a primal form!" but rather "It reverted to its primal form!"
             newSentence = newSentence.replace(" Primal Reversion!\\nIt’s reverted to a primal form!", "\\nPrimal Reversion! It reverted to\\fits primal form!")
@@ -83,7 +84,6 @@ def doIt():
                 checkSentence = checkSentence.replace("{STRVAR_1 5, 1, 0}", "Unnerve")
             if "Key Stone" in checkSentence or "Looplet" in checkSentence:
                 checkSentence = checkSentence.replace("{STRVAR_1 5, 1, 0}", "Charizardite X")
-                # awakening emera
                 
             checkSentence = checkSentence.replace("{STRVAR_1 1, 0, 0}", "1234567890").replace("{STRVAR_1 1, 1, 0}", "1234567890").replace("{STRVAR_1 1, 2, 0}", "1234567890")
             checkSentence = checkSentence.replace("{STRVAR_1 5, 1, 0}", "Utility Umbrella").replace("{STRVAR_1 13, 1, 0}", "Sp. Defense")

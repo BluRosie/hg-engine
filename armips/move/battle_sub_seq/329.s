@@ -14,7 +14,12 @@ mega:
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x1
     changevar VAR_OP_SET, VAR_MOVE_TEMP2, 470 // set temporary move to be 470, which is the move the setstatus2effect will treat as "mega"
     // play text
+    if IF_EQUAL, VAR_BATTLE_TYPE, 0x0, WildMega
     printmessage FerventWishMsg, TAG_TRNAME_NICK, 0xFF, 0x15,0,0,0,0
+    goto Continue
+WildMega:
+    printmessage FerventWishMsg, TAG_NICK, 0xFF, 0x15,0,0,0,0
+Continue:
     waitmessage
     wait 0x1E
     // jump if not a stand-in pokemon
