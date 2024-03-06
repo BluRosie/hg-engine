@@ -1275,11 +1275,11 @@ x{STRVAR_1 51, 0, 0}
 {ALN_RIGHT}Lv. {STRVAR_1 52, 1, 0}
 {STRVAR_1 3, 0, 0} got ${STRVAR_1 54, 1, 0} for winning!\nSent some to Mom!\r
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
+The wild {STRVAR_1 1, 0, 0} set its\n{STRVAR_1 5, 1, 0} on its Looplet!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
-{STRVAR_1 1, 0, 0}\nhas Mega Evolved!
-The wild {STRVAR_1 1, 0, 0}\nhas Mega Evolved!
-The opposing {STRVAR_1 1, 0, 0}\nhas Mega Evolved!
+{STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes the opposing\nteam too nervous to eat Berries!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!

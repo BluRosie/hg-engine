@@ -32,7 +32,7 @@ mega:
     wait 0x16e
     // change form
     waitmessage
-    printmessage MegaMsg + 3, 0xB, 0xFF, 0x15,0,0,0,0
+    printmessage MegaMsg + 3, TAG_NICK_POKE, 0xFF, 0x15,0,0,0,0
     waitmessage
     wait 0x1E
     // restore doubles flag
@@ -54,7 +54,7 @@ _0044:
     wait 0x16e
     // change form
     waitmessage
-    printmessage MegaMsg + 3, 0xB, 0xFF, 0x15,0,0,0,0
+    printmessage MegaMsg + 3, TAG_NICK_POKE, 0xFF, 0x15,0,0,0,0
     waitmessage
     wait 0x1E
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0

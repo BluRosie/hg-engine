@@ -25,8 +25,10 @@ def doIt():
             # Original text is also wrong, Mega Stone is the held item, Key Stone is the key item
             # TODO: Figure out a way to do TAG_NICK_ITEM_TRAINER
             # TODO: Split messages for different varients of Key Stones
+
+            newSentence = newSentence.replace("The wild {STRVAR_1 1, 0, 0} is reacting to\\nits Mega Stone!", "The wild {STRVAR_1 1, 0, 0} set its\\n{STRVAR_1 5, 1, 0} on its Looplet!")
             newSentence = newSentence.replace(" is reacting to\\nits Mega Stone!", "’s {STRVAR_1 5, 1, 0}\\nis reacting to the Key Stone!")
-            newSentence = newSentence.replace(" has Mega Evolved!", "\\nhas Mega Evolved!")
+            newSentence = newSentence.replace(" has Mega Evolved!", "\\nhas Mega Evolved into\\fMega {STRVAR_1 5, 1, 0}!")
             
             # The fervent wish reached\n{STRVAR_1 1, 0, 0}!
             # The wild {STRVAR_1 1, 0, 0} wished\nfervently!
@@ -79,8 +81,9 @@ def doIt():
             
             if "too nervous to eat Berries!" in checkSentence:
                 checkSentence = checkSentence.replace("{STRVAR_1 5, 1, 0}", "Unnerve")
-            if "Key Stone" in checkSentence:
+            if "Key Stone" in checkSentence or "Looplet" in checkSentence:
                 checkSentence = checkSentence.replace("{STRVAR_1 5, 1, 0}", "Charizardite X")
+                # awakening emera
                 
             checkSentence = checkSentence.replace("{STRVAR_1 1, 0, 0}", "1234567890").replace("{STRVAR_1 1, 1, 0}", "1234567890").replace("{STRVAR_1 1, 2, 0}", "1234567890")
             checkSentence = checkSentence.replace("{STRVAR_1 5, 1, 0}", "Utility Umbrella").replace("{STRVAR_1 13, 1, 0}", "Sp. Defense")
