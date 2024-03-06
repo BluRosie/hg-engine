@@ -1,4 +1,4 @@
-
+        
 {STRVAR_1 1, 0, 0} gained\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} gained a boosted\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} grew to\nLv. {STRVAR_1 52, 1, 0}!{WAIT 5}{WAIT 2}\r
@@ -198,11 +198,11 @@ The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense!
 The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense slightly!
 Your team became cloaked in\na mystical veil!
 The opposing team became\ncloaked in a mystical veil!
-{STRVAR_1 1, 0, 0} is protected\nby Safeguard!
-The wild {STRVAR_1 1, 0, 0} is protected\nby Safeguard!
-The opposing {STRVAR_1 1, 0, 0} is\n protected by Safeguard!
-Your team is no longer protected\nby Safeguard!
-The opposing team is no longer\n protected by Safeguard!
+{STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
+The wild {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
+The opposing {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
+Your team is no longer\nprotected by Safeguard!
+The opposing team is no longer\nprotected by Safeguard!
 {STRVAR_1 1, 0, 0} went\nto sleep!
 The wild {STRVAR_1 1, 0, 0} went\nto sleep!
 The opposing {STRVAR_1 1, 0, 0} went\nto sleep!
@@ -755,7 +755,7 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} rose!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nsharply rose!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nsharply rose!
 The {STRVAR_1 8, 1, 0} raised\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
-The {STRVAR_1 8, 1, 0} raised the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
+The {STRVAR_1 8, 1, 0} raised\nthe wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 The {STRVAR_1 8, 1, 0} raised\nthe opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 The {STRVAR_1 8, 1, 0} sharply raised\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 The {STRVAR_1 8, 1, 0} sharply raised\nthe wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
@@ -776,7 +776,7 @@ A critical hit!
 It’s a one-hit KO!
 1, 2, and... ... ... Poof!
 And...
-
+                               
 It’s not very effective...
 It’s super effective!
 Got away safely!\r
@@ -841,9 +841,9 @@ Player defeated\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
 {STRVAR_1 3, 0, 0} crept closer to\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 3, 0, 0} can’t get any closer!
 {STRVAR_1 1, 0, 0} is watching\ncarefully!
-
-
-
+                          
+                         
+                      
 {STRVAR_1 3, 0, 0} threw a Poffin\nat the {STRVAR_1 1, 1, 0}!
 Announcer: You’re out of\nSafari Balls!\fGame over!\r
 {STRVAR_1 3, 0, 0} threw\na Safari Ball!
@@ -932,15 +932,15 @@ CANCEL
 BALL
 BAIT
 MUD
-
-
+    
+    
 RUN
 {STRVAR_1 51, 0, 0}/{STRVAR_1 51, 1, 0}
 PP
 Which move should\nbe forgotten?
 Yes
 No
-
+                   
 Quit the battle?{YESNO 0}
 {STRVAR_1 1, 0, 0} {COLOR 1}♂{COLOR 0}\nLv. {STRVAR_1 52, 1, 0}
 {STRVAR_1 1, 0, 0} {COLOR 2}♀{COLOR 0}\nLv. {STRVAR_1 52, 1, 0}
@@ -950,13 +950,13 @@ Quit the battle?{YESNO 0}
 {STRVAR_1 52, 0, 0}
 SAFARI BALLS
 Left: {STRVAR_1 51, 0, 0}
-
+ 
 Player beat\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\fand {STRVAR_1 14, 2, 0} {STRVAR_1 3, 3, 0}!\r
-
+        
 Would you like to forfeit the match\nand quit now?{YESNO 0}
 {STRVAR_1 3, 0, 0}\nforfeited the match!
-
-
+        
+        
 {STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} fled!
 Player lost against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
 Player battled to a draw against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
@@ -1228,9 +1228,9 @@ All right! I got its HP down!\nTime to throw a Poké Ball!{YESNO 0}
 OK! Its HP is down!\nIt’s ready for a Poké Ball!{YESNO 0}
 {STRVAR_1 3, 0, 0} used\na Poké Ball!
 {STRVAR_1 1, 0, 0} got over its status\ntrouble!
-The tailwind blew from behind\nyour team!
+The Tailwind blew from behind\nyour team!
 The Tailwind blew from behind\nthe opposing team!
-Your team’s tailwind petered out!
+Your team’s Tailwind\npetered out!
 The opposing team’s Tailwind\npetered out!
 But there was no target...
 It failed to affect\n{STRVAR_1 1, 0, 0}!
@@ -1274,11 +1274,11 @@ x{STRVAR_1 51, 0, 0}
 ♀
 {ALN_RIGHT}Lv. {STRVAR_1 52, 1, 0}
 {STRVAR_1 3, 0, 0} got ${STRVAR_1 54, 1, 0} for winning!\nSent some to Mom!\r
-{STRVAR_1 1, 0, 0} is reacting to\nits Mega Stone!
-The wild {STRVAR_1 1, 0, 0} is reacting to\nits Mega Stone!
-The opposing {STRVAR_1 1, 0, 0} is reacting to\nits Mega Stone!
-{STRVAR_1 1, 0, 0} has Mega Evolved!
-The wild {STRVAR_1 1, 0, 0} has Mega Evolved!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
+{STRVAR_1 1, 0, 0}\nhas Mega Evolved!
+The wild {STRVAR_1 1, 0, 0}\nhas Mega Evolved!
 The opposing {STRVAR_1 1, 0, 0}\nhas Mega Evolved!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes the opposing\nteam too nervous to eat Berries!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
@@ -1292,8 +1292,8 @@ The opposing {STRVAR_1 1, 0, 0} is radiating\na dark aura!
 {STRVAR_1 1, 0, 0} is radiating\na fairy aura!
 The wild {STRVAR_1 1, 0, 0} is radiating\na fairy aura!
 The opposing {STRVAR_1 1, 0, 0} is radiating\na fairy aura!
-{STRVAR_1 1, 0, 0} reversed all other\nPokémon’s auras!
-The wild {STRVAR_1 1, 0, 0} reversed all other\nPokémon’s auras!
+{STRVAR_1 1, 0, 0} reversed\nall other Pokémon’s auras!
+The wild {STRVAR_1 1, 0, 0} reversed\nall other Pokémon’s auras!
 The opposing {STRVAR_1 1, 0, 0} reversed\nall other Pokémon’s auras!
 {STRVAR_1 1, 0, 0} is radiating a blazing\naura!
 The wild {STRVAR_1 1, 0, 0} is radiating a\nblazing aura!
@@ -1316,8 +1316,8 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13,
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\ndrastically rose!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncut its {STRVAR_1 13, 2, 0}!
+{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cut its {STRVAR_1 13, 2, 0}!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cut its {STRVAR_1 13, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cut its {STRVAR_1 13, 2, 0}!
 {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
 The wild {STRVAR_1 1, 0, 0} was cured of\nits {STRVAR_1 17, 2, 0} status\fby its ally’s Healer!
@@ -1340,12 +1340,12 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was bounced back by\fMag
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
-{STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
-The wild {STRVAR_1 1, 0, 0}’s Primal Reversion!\nIt’s reverted to a primal form!
+{STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
+The wild {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
 The opposing {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
-The fervent wish reached\n{STRVAR_1 1, 0, 0}!
+{STRVAR_1 3, 0, 0}’s fervent wish has\nreached {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} wished\nfervently!
-The opposing fervent wish reached\nits {STRVAR_1 1, 0, 0}!
+{STRVAR_1 3, 0, 0}’s fervent wish has\nreached {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0}’s illusion\nfaded!
 The wild {STRVAR_1 1, 0, 0}’s\nillusion faded!
 The opposing {STRVAR_1 1, 0, 0}’s\nillusion faded!
@@ -1360,13 +1360,13 @@ The wild {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
 The opposing {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
 You sense the presence of many!
 {STRVAR_1 1, 0, 0} transformed into its Complete\nForme!
-The wild {STRVAR_1 1, 0, 0} transformed into its\nComplete Forme!
+The wild {STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Sp. Attack!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Sp. Attack!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its Sp. Attack!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npopped!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npopped!
+{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} popped!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} popped!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} popped!
 {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} floats in the\nair with its {STRVAR_1 5, 1, 0}!
@@ -1394,21 +1394,21 @@ An electric current\nran across the battlefield!
 The electricity disappeared\nfrom the battlefield.
 The battlefield got weird!
 The weirdness disappeared\nfrom the battlefield.
-{STRVAR_1 1, 0, 0}’s HP was restored.
-The wild {STRVAR_1 1, 0, 0}’s HP was restored.
+{STRVAR_1 1, 0, 0}’s HP\nwas restored.
+The wild {STRVAR_1 1, 0, 0}’s HP\nwas restored.
 The opposing {STRVAR_1 1, 0, 0}’s HP\nwas restored.
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Atk of all surrounding\fPokémon!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Atk of all\fsurrounding Pokémon!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Atk of all\fsurrounding Pokémon!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Atk of\fall surrounding Pokémon!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Atk of\fall surrounding Pokémon!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Defense of all surrounding\fPokémon!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Defense of all\fsurrounding Pokémon!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Defense of all\fsurrounding Pokémon!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Defense of\fall surrounding Pokémon!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Defense of\fall surrounding Pokémon!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Attack of all surrounding\fPokémon!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Attack of all\fsurrounding Pokémon!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Attack of all\fsurrounding Pokémon!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Attack of\fall surrounding Pokémon!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Attack of\fall surrounding Pokémon!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Def of all surrounding\fPokémon!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Def of all\fsurrounding Pokémon!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nweakened the Sp. Def of all\fsurrounding Pokémon!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Def of\fall surrounding Pokémon!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Def of\fall surrounding Pokémon!
 {STRVAR_1 1, 0, 0} is preparing to tell\na chillingly bad joke!
 The wild {STRVAR_1 1, 0, 0} is preparing\nto tell a chillingly bad joke!
 The opposing {STRVAR_1 1, 0, 0} is preparing\nto tell a chillingly bad joke!
