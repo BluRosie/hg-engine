@@ -1040,7 +1040,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x315B*/ u8 mons_getting_exp;
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
-    /*0x315E*/ u8 padding_315E[0x20]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
+    /*0x315E*/ u8 padding_315F[0x1F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right

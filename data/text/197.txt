@@ -1,4 +1,4 @@
-        
+
 {STRVAR_1 1, 0, 0} gained\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} gained a boosted\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} grew to\nLv. {STRVAR_1 52, 1, 0}!{WAIT 5}{WAIT 2}\r
@@ -776,7 +776,7 @@ A critical hit!
 It’s a one-hit KO!
 1, 2, and... ... ... Poof!
 And...
-                               
+
 It’s not very effective...
 It’s super effective!
 Got away safely!\r
@@ -841,9 +841,9 @@ Player defeated\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
 {STRVAR_1 3, 0, 0} crept closer to\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 3, 0, 0} can’t get any closer!
 {STRVAR_1 1, 0, 0} is watching\ncarefully!
-                          
-                         
-                      
+
+
+
 {STRVAR_1 3, 0, 0} threw a Poffin\nat the {STRVAR_1 1, 1, 0}!
 Announcer: You’re out of\nSafari Balls!\fGame over!\r
 {STRVAR_1 3, 0, 0} threw\na Safari Ball!
@@ -932,15 +932,15 @@ CANCEL
 BALL
 BAIT
 MUD
-    
-    
+
+
 RUN
 {STRVAR_1 51, 0, 0}/{STRVAR_1 51, 1, 0}
 PP
 Which move should\nbe forgotten?
 Yes
 No
-                   
+
 Quit the battle?{YESNO 0}
 {STRVAR_1 1, 0, 0} {COLOR 1}♂{COLOR 0}\nLv. {STRVAR_1 52, 1, 0}
 {STRVAR_1 1, 0, 0} {COLOR 2}♀{COLOR 0}\nLv. {STRVAR_1 52, 1, 0}
@@ -950,13 +950,13 @@ Quit the battle?{YESNO 0}
 {STRVAR_1 52, 0, 0}
 SAFARI BALLS
 Left: {STRVAR_1 51, 0, 0}
- 
+
 Player beat\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\fand {STRVAR_1 14, 2, 0} {STRVAR_1 3, 3, 0}!\r
-        
+
 Would you like to forfeit the match\nand quit now?{YESNO 0}
 {STRVAR_1 3, 0, 0}\nforfeited the match!
-        
-        
+
+
 {STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} fled!
 Player lost against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
 Player battled to a draw against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
@@ -1421,3 +1421,10 @@ The opposing {STRVAR_1 1, 0, 0} is overflowing\nwith space power!
 {STRVAR_1 1, 0, 0} absorbed\nelectricity!
 The wild {STRVAR_1 1, 0, 0} absorbed\nelectricity!
 The opposing {STRVAR_1 1, 0, 0} absorbed\nelectricity!
+{STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
