@@ -4,7 +4,7 @@
     movenamecaps movenum, name
     userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} used\\n" + name + "!"
     userusedmovename 3*movenum+1, "The wild {STRVAR_1 1, 0, 0} used\\n" + name + "!"
-    userusedmovename 3*movenum+2, "The foe’s {STRVAR_1 1, 0, 0} used\\n" + name + "!"
+    userusedmovename 3*movenum+2, "The opposing {STRVAR_1 1, 0, 0} used\\n" + name + "!"
 
 	.if movenum < 10
 		.create "build/a011/move_00" + tostring(movenum),0
