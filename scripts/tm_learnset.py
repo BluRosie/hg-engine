@@ -77,7 +77,7 @@ def tmdatabuilder(inputPath: str):
                 try:
                     tm_data[speciesDict[line.strip()]] |= (1 << tmId)
                 except KeyError:
-                    tm_data[speciesDict[line.strip()]] = (1 << tmId)    
+                    tm_data[speciesDict[line.strip()]] = (1 << tmId)
     for species in range(0, len(speciesDict)):
         data_to_write = [0, 0, 0, 0]
         mondata = open("build/a002/mondata_{:04d}".format(species), "rb+")

@@ -249,6 +249,13 @@ arm9 0202716C NUM_PC_BOXES
 0014 021F726A NUM_PC_BOXES_MINUS_ONE
 0014 021F77BE NUM_PC_BOXES_MINUS_ONE
 
+# for the poké ball message
+0008 02222D48 NUM_PC_BOXES
+# for the safari zone encounter
+arm9 02050E7C NUM_PC_BOXES
+# additional safari zone encounter PA is over
+0012 02245314 NUM_PC_BOXES
+
 # new heap size
 #0014 080056E6 04
 # new substruct size
@@ -312,6 +319,10 @@ arm9 0202716C 12
 0014 021F6DD2 11
 0014 021F726A 11
 0014 021F77BE 11
+
+0008 02222D48 12
+arm9 02050E7C 12
+0012 02245314 12
 
 # new heap size
 #0014 080056E6 04

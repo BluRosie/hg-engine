@@ -21,7 +21,7 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
 
-struct __attribute__((packed)) sDamageCalc
+struct PACKED sDamageCalc
 {
     u16 species;
     s16 hp;
@@ -805,6 +805,20 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     damage = damage / equivalentDefense;
     damage /= 50;
 
+    // Handle Parental Bond
+    if (sp->battlemon[attacker].parental_bond_flag == 2) {
+        damage /= 4;
+    }
+    switch (sp->battlemon[attacker].parental_bond_flag) {
+        case 1:
+            sp->battlemon[attacker].parental_bond_flag++;
+            sp->battlemon[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
+            break;
+        default:
+            sp->battlemon[attacker].parental_bond_flag = 0;
+            break;
+    }
+
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
     {
@@ -1086,6 +1100,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
  */
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp UNUSED, int damage)
 {
+#ifdef DEBUG_ADJUSTED_DAMAGE
+    u8 buf[64];
+    sprintf(buf, "Unrolled damage: %d -- ", damage);
+    debugsyscall(buf);
+#endif // DEBUG_ADJUSTED_DAMAGE
 	if (damage)
     {
 		damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
@@ -1095,13 +1114,10 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp UNUSED, int damage)
 	}
 
 #ifdef DEBUG_ADJUSTED_DAMAGE
-
-    u8 buf[64];
     sprintf(buf, "Battler %d hit battler %d ", sp->attack_client, sp->defence_client);
     debugsyscall(buf);
     sprintf(buf, "for %d damage.\n", damage+1);
     debugsyscall(buf);
-
 #endif // DEBUG_ADJUSTED_DAMAGE
 
 	return damage;

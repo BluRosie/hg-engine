@@ -10,7 +10,15 @@
 .create "build/move/battle_eff_seq/0_122", 0
 
 a030_122:
-    trypresent _0014
+    ifsecondhitofparentalbond Attack
+    trypresent _0014    
+    ifmonstat IF_NOTEQUAL, BATTLER_ATTACKER, MON_DATA_ABILITY, ABILITY_PARENTAL_BOND, SkipParentalBondEffect
+    setparentalbondflag
+Attack:
+    // No accuracy check per hit
+    setmultihit 0x2, 0xFD
+    changevar VAR_OP_SET, VAR_SUCCESSIVE_HIT, 0x1
+SkipParentalBondEffect:
     critcalc
     damagecalc
     endscript

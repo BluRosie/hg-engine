@@ -118,11 +118,12 @@ You will still have to `make clean` and `make clean_code` manually when changing
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 
 1. Get your ROM, rename it to **rom.nds** and place it in `Documents/hg-engine`.
-2. In Terminal/WSL, type `make --jobs`.  It will start with building all the tools necessary, then move to the code, then the rest of the files in the folders.
+2. In Terminal/WSL, type `make`.  It will start with building all the tools necessary, then move to the code, then the rest of the files in the folders.
+    * `make` is initially very slow.  It can be sped up by specifying a certain amount of threads through the `-j#` flag, where # is a number.  The ideal amount of threads is typically the number that is given from `nproc`--so my `make` command, with `nproc` giving me `8`, is typically `make -j8`.
     * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then open it again and run the following:
         * ```cd Documents/hg-engine```
-        * ```make tools/nitrogfx --jobs```
-        * ```make tools/ENCODE_IMG --jobs```
+        * ```make tools/nitrogfx```
+        * ```make tools/ENCODE_IMG``
     * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
 3. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
    * It is important to note that this alone will not add new pokemon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.

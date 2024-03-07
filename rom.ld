@@ -238,7 +238,7 @@ Battle_GetClientPartyMon = 0x0223a880 | 1;
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
 /*read_battle_script_param = 0x022454E8 | 1;*/
-TagNickParaMake = 0x022522E0 | 1;
+CreateNicknameTag = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
 
@@ -566,11 +566,5 @@ RestoreBoxMonPP = 0x020728C4 | 1;
 //PCStorage_SetBoxModified = 0x020740D8 | 1;
 CopyU16ArrayToString = 0x020269A0 | 1;
 CopyStringToU16Array = 0x02026A68 | 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
-hhhhhhhhhhh = 0x| 1;
+CheckMoveCallsOtherMove = 0x02252698 | 1;
+StruggleCheck = 0x022517EC | 1;

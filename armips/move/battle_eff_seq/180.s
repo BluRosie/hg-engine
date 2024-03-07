@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+PARENTAL_BOND_SUBSCRIPT equ (353)
+
 .create "build/move/battle_eff_seq/0_180", 0
 
 a030_180:
@@ -16,9 +18,15 @@ a030_180:
     waitmessage
     playanimation BATTLER_ATTACKER
     waitmessage
+    ifcurrentmoveisvalidparentalbondmove DoParentalBond
+Continue:
     jumptoeffectscript 0
 _0024:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
+
+DoParentalBond:
+    gotosubscript PARENTAL_BOND_SUBSCRIPT
+    goto Continue
 
 .close

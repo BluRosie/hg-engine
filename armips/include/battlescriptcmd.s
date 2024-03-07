@@ -80,7 +80,7 @@ MON_DATA_MOVE_2 equ 7
 MON_DATA_MOVE_3 equ 8
 MON_DATA_MOVE_4 equ 9
 MON_DATA_10 equ 10
-MON_DATA_11 equ 11 
+MON_DATA_11 equ 11
 MON_DATA_12 equ 12
 MON_DATA_13 equ 13
 MON_DATA_14 equ 14
@@ -624,7 +624,7 @@ VAR_70 equ 70
 
 //The following vars have no pointer assigned
 VAR_71 equ 71
-VAR_72 equ 72 
+VAR_72 equ 72
 VAR_73 equ 73
 VAR_74 equ 74
 VAR_75 equ 75
@@ -1175,7 +1175,7 @@ SIDE_STATUS_TOXIC_SPIKES equ 5
     .word 0xA2, battler1, battler2
     .word ((address - org()) / 4) - 1
 .endmacro
- 
+
 .macro pickup
     .word 0xA3
 .endmacro
@@ -1531,4 +1531,33 @@ MOVE_DATA_CONTEST_TYPE equ 11
 
 .macro setpsychicterrainmoveusedflag
     .word 0xEE
+.endmacro
+
+.macro iffirsthitofparentalbond,address
+    .word 0xEF
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro ifsecondhitofparentalbond,address
+    .word 0xF0
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro setparentalbondflag
+    .word 0xF1
+.endmacro
+
+.macro ifcurrentmoveisvalidparentalbondmove,address
+    .word 0xF2
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro canapplyknockoffdamageboost,address
+    .word 0xF3
+    .word ((address - org()) / 4) - 1
+.endmacro
+
+.macro isparentalbondactive,address
+    .word 0xF4
+    .word ((address - org()) / 4) - 1
 .endmacro
