@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_344", 0
-
+//volt tackle
 a010_344:
     initspriteresource
     loadspriteresource 0

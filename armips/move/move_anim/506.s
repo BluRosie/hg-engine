@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_506", 0
-
+//scald
 a010_506:
     loadparticlefromspa 0, 87 //hydro pump
     waitparticle

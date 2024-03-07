@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_451", 0
-
+// charge beam
 a010_451:
     initspriteresource
     loadspriteresource 0

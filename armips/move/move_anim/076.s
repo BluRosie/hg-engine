@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_076", 0
-
+// solar beam
 a010_076:
     initspriteresource
     loadspriteresource 0
