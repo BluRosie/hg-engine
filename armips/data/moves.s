@@ -9176,7 +9176,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     terminatedata
     movedescription MOVE_ION_DELUGE, "---"
 
-movedata MOVE_PARABOLIC_CHARGE, "ParabolicCharge"
+movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 65
@@ -9720,7 +9720,7 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     terminatedata
     movedescription MOVE_HAPPY_HOUR, "---"
 
-movedata MOVE_ELECTRIC_TERRAIN, "ElectricTerrain"
+movedatalongname MOVE_ELECTRIC_TERRAIN, "ElectricTerrain", "Electric Terrain"
     battleeffect 294
     pss SPLIT_STATUS
     basepower 0
@@ -9960,7 +9960,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     terminatedata
     movedescription MOVE_ORIGIN_PULSE, "---"
 
-movedata MOVE_PRECIPICE_BLADES, "Precipice Blade"
+movedatalongname MOVE_PRECIPICE_BLADES, "Precipice Blade", "Precipice Blades"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
@@ -10616,7 +10616,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     terminatedata
     movedescription MOVE_SHORE_UP, "---"
 
-movedata MOVE_FIRST_IMPRESSION, "FirstImpression"
+movedatalongname MOVE_FIRST_IMPRESSION, "FirstImpression", "First Impression"
     battleeffect 158
     pss SPLIT_PHYSICAL
     basepower 90
