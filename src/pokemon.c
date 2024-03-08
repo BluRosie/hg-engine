@@ -2093,18 +2093,33 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
     if (isMonEvolving && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[*last_i]) == 0) // when evolving, try to learn moves at level 0
         level = 0;
 
-    if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END) {
+    if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END)
+    {
         sys_FreeMemoryEz(levelUpLearnset);
         return 0;
     }
-    while ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT)) {
+    while ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
+    {
         (*last_i)++;
         if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END) {
             sys_FreeMemoryEz(levelUpLearnset);
             return 0;
         }
+        if (isMonEvolving) // if a mon is evolving, it is possible that the current level move also corresponds with a move that it learns on evolution.  need to skip the entry if it has already been attempted to learn a move
+        {
+            u32 currMove = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
+            for (u32 i = 0; i < *last_i; i++)
+            {
+                if (LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]) == currMove && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[i]) == 0)
+                {
+                    (*last_i)++;
+                    break;
+                }
+            }
+        }
     }
-    if ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT)) {
+    if ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
+    {
         *sp0 = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
         (*last_i)++;
         ret = TryAppendMonMove(mon, *sp0);
