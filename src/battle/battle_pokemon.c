@@ -62,9 +62,12 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_POISON, TYPE_GROUND, 0x05 },
     { TYPE_POISON, TYPE_ROCK, 0x05 },
     { TYPE_POISON, TYPE_GHOST, 0x05 },
-    { TYPE_POISON, TYPE_STEEL, 0x00 },
+
+#if FAIRY_TYPE_IMPLEMENTED == 1
+    { TYPE_POISON, TYPE_FAIRY, 0x14 },
+#endif
+
     { TYPE_POISON, TYPE_GRASS, 0x14 },
-    { TYPE_GROUND, TYPE_FLYING, 0x00 },
     { TYPE_GROUND, TYPE_POISON, 0x14 },
     { TYPE_GROUND, TYPE_ROCK, 0x14 },
     { TYPE_GROUND, TYPE_BUG, 0x05 },
@@ -88,7 +91,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_BUG, TYPE_GRASS, 0x14 },
     { TYPE_BUG, TYPE_PSYCHIC, 0x14 },
     { TYPE_BUG, TYPE_DARK, 0x14 },
-    { TYPE_GHOST, TYPE_NORMAL, 0x00 },
     { TYPE_GHOST, TYPE_GHOST, 0x14 },
     { TYPE_GHOST, TYPE_PSYCHIC, 0x14 },
     { TYPE_GHOST, TYPE_DARK, 0x05 },
@@ -122,8 +124,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_GRASS, TYPE_ICE, 0x05 },
     { TYPE_GRASS, TYPE_DRAGON, 0x05 },
     { TYPE_ELECTRIC, TYPE_FLYING, 0x14 },
-    { TYPE_ELECTRIC, TYPE_GROUND, 0x00 },
-    { TYPE_ELECTRIC, TYPE_STEEL, 0x14 },
     { TYPE_ELECTRIC, TYPE_WATER, 0x14 },
     { TYPE_ELECTRIC, TYPE_GRASS, 0x05 },
     { TYPE_ELECTRIC, TYPE_ELECTRIC, 0x05 },
@@ -131,7 +131,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_PSYCHIC, TYPE_FIGHTING, 0x14 },
     { TYPE_PSYCHIC, TYPE_POISON, 0x14 },
     { TYPE_PSYCHIC, TYPE_PSYCHIC, 0x05 },
-    { TYPE_PSYCHIC, TYPE_DARK, 0x00 },
     { TYPE_ICE, TYPE_FLYING, 0x14 },
     { TYPE_ICE, TYPE_GROUND, 0x14 },
     { TYPE_ICE, TYPE_FIRE, 0x05 },
@@ -140,6 +139,7 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_ICE, TYPE_ICE, 0x05 },
     { TYPE_ICE, TYPE_DRAGON, 0x05 },
     { TYPE_DRAGON, TYPE_STEEL, 0x05 },
+
     { TYPE_DRAGON, TYPE_DRAGON, 0x14 },
     { TYPE_DARK, TYPE_FIGHTING, 0x05 },
     { TYPE_DARK, TYPE_GHOST, 0x14 },
@@ -159,6 +159,21 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_FAIRY, TYPE_GRASS, 0x00 },
     { TYPE_FAIRY, TYPE_DRAGON, 0x14 },
     { TYPE_FAIRY, TYPE_DARK, 0x14 },
+#endif
+
+    { TYPE_DARK, TYPE_PSYCHIC, 0x14 },
+    { TYPE_DARK, TYPE_DARK, 0x05 },
+
+// AI bugfix: move all of the immune type interactions to the end of the table so that the
+// immunities properly unset the super effective move effect flag (and a lanturn with thunderbolt
+// isn't switched in on a gliscor over a raichu with ice beam)
+    { TYPE_POISON, TYPE_STEEL, 0x00 },
+    { TYPE_GROUND, TYPE_FLYING, 0x00 },
+    { TYPE_GHOST, TYPE_NORMAL, 0x00 },
+    { TYPE_ELECTRIC, TYPE_GROUND, 0x00 },
+    { TYPE_PSYCHIC, TYPE_DARK, 0x00 },
+#if FAIRY_TYPE_IMPLEMENTED == 1
+    { TYPE_DRAGON, TYPE_FAIRY, 0x00 },
 #endif
 
     { 0xFE, 0xFE, 0x00 },

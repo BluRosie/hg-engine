@@ -362,6 +362,7 @@
 #define SUB_SEQ_FILLET_AWAY                           (352)
 #define SUB_SEQ_HANDLE_PARENTAL_BOND                  (353)
 #define SUB_SEQ_CREATE_TERRAIN_OVERLAY                (354)
+#define SUB_SEQ_HANDLE_SHED_TAIL                      (355)
 
 
 
@@ -526,6 +527,7 @@
 #define ADD_STATUS_EFF_WORK_UP                         (156)
 #define ADD_STATUS_EFF_SPICY_EXTRACT                   (157)
 #define ADD_STATUS_EFF_FILLET_AWAY                     (158)
+#define ADD_STATUS_EFF_SHED_TAIL                       (159)
 
 
 

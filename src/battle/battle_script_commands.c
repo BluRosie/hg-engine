@@ -72,6 +72,7 @@ BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -328,6 +329,7 @@ const u8 *BattleScrCmdNames[] =
     "ifcurrentmoveisvalidparentalbondmove",
     "canapplyknockoffdamageboost",
     "isparentalbondactive",
+    "changepermanentbg",
 };
 
 u32 cmdAddress = 0;
@@ -356,6 +358,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF2 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove,
     [0xF3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F3_canapplyknockoffdamageboost,
     [0xF4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F4_isparentalbondactive,
+    [0xF5 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F5_changepermanentbg,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -2684,6 +2687,9 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 
+    // update gBattleSystem to whatever it's about to need
+    gBattleSystem = bw;
+
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
     int client_set_max;
@@ -2880,6 +2886,32 @@ BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *s
     if (sp->battlemon[sp->attack_client].parental_bond_is_active == TRUE) {
         IncrementBattleScriptPtr(sp, address);
     }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if parental bond is currently active beyond mummy
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    int bg = read_battle_script_param(sp);
+    int terrain = read_battle_script_param(sp);
+
+    if (bg == -1)
+    {
+        bg = gBattleSystem->bgId;
+    }
+    if (terrain == -1)
+    {
+        terrain = gBattleSystem->terrain;
+    }
+    LoadDifferentBattleBackground(bw, bg, terrain);
 
     return FALSE;
 }

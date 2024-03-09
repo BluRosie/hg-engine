@@ -55,7 +55,7 @@ movedata MOVE_KARATE_CHOP, "Karate Chop"
     terminatedata
     movedescription MOVE_KARATE_CHOP, "The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.\n"
 
-movedata MOVE_DOUBLE_SLAP, "DoubleSlap"
+movedata MOVE_DOUBLE_SLAP, "Double Slap"
     battleeffect 29
     pss SPLIT_PHYSICAL
     basepower 15
@@ -151,7 +151,7 @@ movedata MOVE_ICE_PUNCH, "Ice Punch"
     terminatedata
     movedescription MOVE_ICE_PUNCH, "The foe is punched\nwith an icy fist.\nIt may leave the\ntarget frozen.\n"
 
-movedata MOVE_THUNDER_PUNCH, "ThunderPunch"
+movedata MOVE_THUNDER_PUNCH, "Thunder Punch"
     battleeffect 6
     pss SPLIT_PHYSICAL
     basepower 75
@@ -183,7 +183,7 @@ movedata MOVE_SCRATCH, "Scratch"
     terminatedata
     movedescription MOVE_SCRATCH, "Hard, pointed, and\nsharp claws rake the\nfoe to inflict damage.\n\n"
 
-movedata MOVE_VICE_GRIP, "ViceGrip"
+movedata MOVE_VICE_GRIP, "Vise Grip"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 55
@@ -455,7 +455,7 @@ movedata MOVE_ROLLING_KICK, "Rolling Kick"
     terminatedata
     movedescription MOVE_ROLLING_KICK, "The user lashes \nout with a quick,\nspinning kick. It\nmay also make the\ntarget flinch."
 
-movedata MOVE_SAND_ATTACK, "Sand-Attack"
+movedata MOVE_SAND_ATTACK, "Sand Attack"
     battleeffect 23
     pss SPLIT_STATUS
     basepower 0
@@ -791,7 +791,7 @@ movedata MOVE_SUPERSONIC, "Supersonic"
     terminatedata
     movedescription MOVE_SUPERSONIC, "The user generates\nodd sound waves from\nits body.\nIt may confuse the\ntarget."
 
-movedata MOVE_SONIC_BOOM, "SonicBoom"
+movedata MOVE_SONIC_BOOM, "Sonic Boom"
     battleeffect 130
     pss SPLIT_SPECIAL
     basepower 1
@@ -983,7 +983,7 @@ movedata MOVE_PSYBEAM, "Psybeam"
     terminatedata
     movedescription MOVE_PSYBEAM, "The foe is attacked\nwith a peculiar ray.\nIt may also leave the\ntarget confused.\n"
 
-movedata MOVE_BUBBLE_BEAM, "BubbleBeam"
+movedata MOVE_BUBBLE_BEAM, "Bubble Beam"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 65
@@ -1239,7 +1239,7 @@ movedata MOVE_SOLAR_BEAM, "Solar Beam"
     terminatedata
     movedescription MOVE_SOLAR_BEAM, "A two-turn attack.\nThe user gathers\nlight, then blasts a\nbundled beam on the\nsecond turn."
 
-movedata MOVE_POISON_POWDER, "PoisonPowder"
+movedata MOVE_POISON_POWDER, "Poison Powder"
     battleeffect 66
     pss SPLIT_STATUS
     basepower 0
@@ -1351,7 +1351,7 @@ movedata MOVE_FIRE_SPIN, "Fire Spin"
     terminatedata
     movedescription MOVE_FIRE_SPIN, "The foe becomes\ntrapped within a\nfierce vortex of fire\nthat rages for two\nto five turns."
 
-movedata MOVE_THUNDER_SHOCK, "ThunderShock"
+movedata MOVE_THUNDER_SHOCK, "Thunder Shock"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 40
@@ -1735,7 +1735,7 @@ movedata MOVE_MINIMIZE, "Minimize"
     terminatedata
     movedescription MOVE_MINIMIZE, "The user compresses\nits body to make\nitself look smaller.\nThe user’s evasion\nstat is boosted."
 
-movedata MOVE_SMOKESCREEN, "SmokeScreen"
+movedata MOVE_SMOKESCREEN, "Smokescreen"
     battleeffect 23
     pss SPLIT_STATUS
     basepower 0
@@ -1927,7 +1927,7 @@ movedata MOVE_MIRROR_MOVE, "Mirror Move"
     terminatedata
     movedescription MOVE_MIRROR_MOVE, "The user counters\nthe foe by mimicking\nthe move last used\nby the foe."
 
-movedata MOVE_SELF_DESTRUCT, "Selfdestruct"
+movedata MOVE_SELF_DESTRUCT, "Self-Destruct"
     battleeffect 7
     pss SPLIT_PHYSICAL
     basepower 200
@@ -2167,7 +2167,7 @@ movedata MOVE_KINESIS, "Kinesis"
     terminatedata
     movedescription MOVE_KINESIS, "The user distracts\nthe foe by bending a\nspoon.\nIt may lower the\ntarget’s accuracy."
 
-movedata MOVE_SOFT_BOILED, "Softboiled"
+movedata MOVE_SOFT_BOILED, "Soft-Boiled"
     battleeffect 32
     pss SPLIT_STATUS
     basepower 0
@@ -3575,7 +3575,7 @@ movedata MOVE_MAGNITUDE, "Magnitude"
     terminatedata
     movedescription MOVE_MAGNITUDE, "The user looses a\nground-shaking quake\naffecting everyone in\nbattle. Its power\nvaries."
 
-movedata MOVE_DYNAMIC_PUNCH, "DynamicPunch"
+movedata MOVE_DYNAMIC_PUNCH, "Dynamic Punch"
     battleeffect 76
     pss SPLIT_PHYSICAL
     basepower 100
@@ -3607,7 +3607,7 @@ movedata MOVE_MEGAHORN, "Megahorn"
     terminatedata
     movedescription MOVE_MEGAHORN, "Using its tough\nand impressive\nhorn, the user\nrams into the foe \nwith no letup.\n"
 
-movedata MOVE_DRAGON_BREATH, "DragonBreath"
+movedata MOVE_DRAGON_BREATH, "Dragon Breath"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 60
@@ -4759,7 +4759,7 @@ movedata MOVE_MIST_BALL, "Mist Ball"
     terminatedata
     movedescription MOVE_MIST_BALL, "A mistlike flurry of\ndown envelops and\ndamages the foe. It\nmay also lower the\ntarget’s Sp. Atk."
 
-movedata MOVE_FEATHER_DANCE, "FeatherDance"
+movedata MOVE_FEATHER_DANCE, "Feather Dance"
     battleeffect 58
     pss SPLIT_STATUS
     basepower 0
@@ -5127,7 +5127,7 @@ movedata MOVE_METAL_SOUND, "Metal Sound"
     terminatedata
     movedescription MOVE_METAL_SOUND, "A horrible sound like\nscraping metal is\nemitted to sharply\nreduce the foe’s\nSp. Def stat."
 
-movedata MOVE_GRASS_WHISTLE, "GrassWhistle"
+movedata MOVE_GRASS_WHISTLE, "Grass Whistle"
     battleeffect 1
     pss SPLIT_STATUS
     basepower 0
@@ -9176,7 +9176,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     terminatedata
     movedescription MOVE_ION_DELUGE, "---"
 
-movedata MOVE_PARABOLIC_CHARGE, "ParabolicCharge"
+movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     battleeffect 3
     pss SPLIT_SPECIAL
     basepower 65
@@ -9720,7 +9720,7 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     terminatedata
     movedescription MOVE_HAPPY_HOUR, "---"
 
-movedata MOVE_ELECTRIC_TERRAIN, "ElectricTerrain"
+movedatalongname MOVE_ELECTRIC_TERRAIN, "ElectricTerrain", "Electric Terrain"
     battleeffect 294
     pss SPLIT_STATUS
     basepower 0
@@ -9960,7 +9960,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     terminatedata
     movedescription MOVE_ORIGIN_PULSE, "---"
 
-movedata MOVE_PRECIPICE_BLADES, "Precipice Blade"
+movedatalongname MOVE_PRECIPICE_BLADES, "Precipice Blade", "Precipice Blades"
     battleeffect 0
     pss SPLIT_PHYSICAL
     basepower 120
@@ -10616,7 +10616,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     terminatedata
     movedescription MOVE_SHORE_UP, "---"
 
-movedata MOVE_FIRST_IMPRESSION, "FirstImpression"
+movedatalongname MOVE_FIRST_IMPRESSION, "FirstImpression", "First Impression"
     battleeffect 158
     pss SPLIT_PHYSICAL
     basepower 90
@@ -14137,7 +14137,7 @@ movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
     movedescription MOVE_ELECTRO_DRIFT, "---"
 
 movedata MOVE_SHED_TAIL, "Shed Tail"
-    battleeffect 0
+    battleeffect 304
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -14150,7 +14150,7 @@ movedata MOVE_SHED_TAIL, "Shed Tail"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SHED_TAIL, "---"
+    movedescription MOVE_SHED_TAIL, "The user creates\na decoy using its own\nHP, then swaps places\nwith a party Pokémon\nin waiting."
 
 movedata MOVE_CHILLY_RECEPTION, "Chilly Reception"
     battleeffect 0

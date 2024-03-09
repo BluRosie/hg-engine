@@ -88,4 +88,7 @@
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine
 #define SHINY_ODDS 8
 
+// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
+#define LEARNSET_TOTAL_MOVES 41 // 40+terminate - currently driven by gallade
+
 #endif

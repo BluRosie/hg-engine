@@ -36497,131 +36497,67 @@ routesandcities SPECIES_DIPPLIN, DEX_SPECIAL
     dexendareadata
 
 
-specialareas SPECIES_ARCHALUDON, DEX_MORNING
+specialareas SPECIES_POLTCHAGEIST, DEX_MORNING
     dexendareadata
 
 
-specialareas SPECIES_ARCHALUDON, DEX_DAY
+specialareas SPECIES_POLTCHAGEIST, DEX_DAY
     dexendareadata
 
 
-specialareas SPECIES_ARCHALUDON, DEX_NIGHT
+specialareas SPECIES_POLTCHAGEIST, DEX_NIGHT
     dexendareadata
 
 
-routesandcities SPECIES_ARCHALUDON, DEX_MORNING
+routesandcities SPECIES_POLTCHAGEIST, DEX_MORNING
     dexendareadata
 
 
-routesandcities SPECIES_ARCHALUDON, DEX_DAY
+routesandcities SPECIES_POLTCHAGEIST, DEX_DAY
     dexendareadata
 
 
-routesandcities SPECIES_ARCHALUDON, DEX_NIGHT
+routesandcities SPECIES_POLTCHAGEIST, DEX_NIGHT
     dexendareadata
 
 
-specialareas SPECIES_ARCHALUDON, DEX_SPECIAL
+specialareas SPECIES_POLTCHAGEIST, DEX_SPECIAL
     dexendareadata
 
 
-routesandcities SPECIES_ARCHALUDON, DEX_SPECIAL
+routesandcities SPECIES_POLTCHAGEIST, DEX_SPECIAL
     dexendareadata
 
 
-specialareas SPECIES_RAGING_BOLT, DEX_MORNING
+specialareas SPECIES_SINISTCHA, DEX_MORNING
     dexendareadata
 
 
-specialareas SPECIES_RAGING_BOLT, DEX_DAY
+specialareas SPECIES_SINISTCHA, DEX_DAY
     dexendareadata
 
 
-specialareas SPECIES_RAGING_BOLT, DEX_NIGHT
+specialareas SPECIES_SINISTCHA, DEX_NIGHT
     dexendareadata
 
 
-routesandcities SPECIES_RAGING_BOLT, DEX_MORNING
+routesandcities SPECIES_SINISTCHA, DEX_MORNING
     dexendareadata
 
 
-routesandcities SPECIES_RAGING_BOLT, DEX_DAY
+routesandcities SPECIES_SINISTCHA, DEX_DAY
     dexendareadata
 
 
-routesandcities SPECIES_RAGING_BOLT, DEX_NIGHT
+routesandcities SPECIES_SINISTCHA, DEX_NIGHT
     dexendareadata
 
 
-specialareas SPECIES_RAGING_BOLT, DEX_SPECIAL
+specialareas SPECIES_SINISTCHA, DEX_SPECIAL
     dexendareadata
 
 
-routesandcities SPECIES_RAGING_BOLT, DEX_SPECIAL
-    dexendareadata
-
-
-specialareas SPECIES_IRON_CROWN, DEX_MORNING
-    dexendareadata
-
-
-specialareas SPECIES_IRON_CROWN, DEX_DAY
-    dexendareadata
-
-
-specialareas SPECIES_IRON_CROWN, DEX_NIGHT
-    dexendareadata
-
-
-routesandcities SPECIES_IRON_CROWN, DEX_MORNING
-    dexendareadata
-
-
-routesandcities SPECIES_IRON_CROWN, DEX_DAY
-    dexendareadata
-
-
-routesandcities SPECIES_IRON_CROWN, DEX_NIGHT
-    dexendareadata
-
-
-specialareas SPECIES_IRON_CROWN, DEX_SPECIAL
-    dexendareadata
-
-
-routesandcities SPECIES_IRON_CROWN, DEX_SPECIAL
-    dexendareadata
-
-
-specialareas SPECIES_OGERPON, DEX_MORNING
-    dexendareadata
-
-
-specialareas SPECIES_OGERPON, DEX_DAY
-    dexendareadata
-
-
-specialareas SPECIES_OGERPON, DEX_NIGHT
-    dexendareadata
-
-
-routesandcities SPECIES_OGERPON, DEX_MORNING
-    dexendareadata
-
-
-routesandcities SPECIES_OGERPON, DEX_DAY
-    dexendareadata
-
-
-routesandcities SPECIES_OGERPON, DEX_NIGHT
-    dexendareadata
-
-
-specialareas SPECIES_OGERPON, DEX_SPECIAL
-    dexendareadata
-
-
-routesandcities SPECIES_OGERPON, DEX_SPECIAL
+routesandcities SPECIES_SINISTCHA, DEX_SPECIAL
     dexendareadata
 
 
@@ -36721,6 +36657,234 @@ routesandcities SPECIES_FEZANDIPITI, DEX_SPECIAL
     dexendareadata
 
 
+specialareas SPECIES_OGERPON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_OGERPON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_OGERPON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_OGERPON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_OGERPON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_OGERPON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_OGERPON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_OGERPON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_FEZANDIPITI, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_ARCHALUDON, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_ARCHALUDON, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_ARCHALUDON, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_ARCHALUDON, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_ARCHALUDON, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_ARCHALUDON, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_ARCHALUDON, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_ARCHALUDON, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_HYDRAPPLE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_HYDRAPPLE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_HYDRAPPLE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_HYDRAPPLE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_HYDRAPPLE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_HYDRAPPLE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_HYDRAPPLE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_HYDRAPPLE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_GOUGING_FIRE, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_GOUGING_FIRE, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_GOUGING_FIRE, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_GOUGING_FIRE, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_GOUGING_FIRE, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_GOUGING_FIRE, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_GOUGING_FIRE, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_GOUGING_FIRE, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_RAGING_BOLT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_RAGING_BOLT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_RAGING_BOLT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_RAGING_BOLT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_RAGING_BOLT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_RAGING_BOLT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_RAGING_BOLT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_RAGING_BOLT, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_IRON_BOULDER, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_IRON_BOULDER, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_IRON_BOULDER, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_BOULDER, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_BOULDER, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_BOULDER, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_IRON_BOULDER, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_BOULDER, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_IRON_CROWN, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_IRON_CROWN, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_IRON_CROWN, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_CROWN, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_CROWN, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_CROWN, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_IRON_CROWN, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_IRON_CROWN, DEX_SPECIAL
+    dexendareadata
+
+
 specialareas SPECIES_TERAPAGOS, DEX_MORNING
     dexendareadata
 
@@ -36750,4 +36914,36 @@ specialareas SPECIES_TERAPAGOS, DEX_SPECIAL
 
 
 routesandcities SPECIES_TERAPAGOS, DEX_SPECIAL
+    dexendareadata
+
+
+specialareas SPECIES_PECHARUNT, DEX_MORNING
+    dexendareadata
+
+
+specialareas SPECIES_PECHARUNT, DEX_DAY
+    dexendareadata
+
+
+specialareas SPECIES_PECHARUNT, DEX_NIGHT
+    dexendareadata
+
+
+routesandcities SPECIES_PECHARUNT, DEX_MORNING
+    dexendareadata
+
+
+routesandcities SPECIES_PECHARUNT, DEX_DAY
+    dexendareadata
+
+
+routesandcities SPECIES_PECHARUNT, DEX_NIGHT
+    dexendareadata
+
+
+specialareas SPECIES_PECHARUNT, DEX_SPECIAL
+    dexendareadata
+
+
+routesandcities SPECIES_PECHARUNT, DEX_SPECIAL
     dexendareadata

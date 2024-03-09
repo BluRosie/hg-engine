@@ -2064,3 +2064,66 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
     }
     return pid;
 }
+
+/**
+ *  @brief try learning a move upon level up
+*          edited to allow for moves to be learned on evolution at level 0
+ *
+ *  @param mon PartyPokemon whose level is checked for moves
+ *  @param last_i last entry in the level up learnset table that was checked
+ *  @param sp0 pointer to a u16 that contains the move constant
+ *  @return (u16)-1u if the mon's learnset is full, (u16)-2u if the mon already knows the move, and the move index if the mon had the move successfully added
+ */
+u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
+{
+    BOOL isMonEvolving = FALSE;
+    register u32 retAddr asm("lr");
+    if (retAddr == 0x020764EB) // right at the end of the massive evolution callback
+    {
+        isMonEvolving = TRUE;
+    }
+    u32 ret = 0;
+    u32 *levelUpLearnset = sys_AllocMemory(HEAPID_MAIN_HEAP, LEARNSET_TOTAL_MOVES * sizeof(u32));
+    u32 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
+    u32 level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
+
+    LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
+
+    if (isMonEvolving && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[*last_i]) == 0) // when evolving, try to learn moves at level 0
+        level = 0;
+
+    if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END)
+    {
+        sys_FreeMemoryEz(levelUpLearnset);
+        return 0;
+    }
+    while ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
+    {
+        (*last_i)++;
+        if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END) {
+            sys_FreeMemoryEz(levelUpLearnset);
+            return 0;
+        }
+        if (isMonEvolving) // if a mon is evolving, it is possible that the current level move also corresponds with a move that it learns on evolution.  need to skip the entry if it has already been attempted to learn a move
+        {
+            u32 currMove = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
+            for (u32 i = 0; i < *last_i; i++)
+            {
+                if (LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]) == currMove && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[i]) == 0)
+                {
+                    (*last_i)++;
+                    break;
+                }
+            }
+        }
+    }
+    if ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
+    {
+        *sp0 = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
+        (*last_i)++;
+        ret = TryAppendMonMove(mon, *sp0);
+    }
+    sys_FreeMemoryEz(levelUpLearnset);
+    return ret;
+}
