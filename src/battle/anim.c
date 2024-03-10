@@ -2,6 +2,7 @@
 #include "../../include/config.h"
 #include "../../include/debug.h"
 #include "../../include/pokemon.h"
+#include "../../include/sound.h"
 #include "../../include/types.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/hold_item_effects.h"
@@ -55,4 +56,14 @@ void AnimScrCmd_ChangePermanentBattleBackground(ANIM_CMD_STRUCT *animCmdStruct)
         terrain = bw->terrain;
     }
     LoadDifferentBattleBackground(bw, bg, terrain);
+}
+
+// if the form is nonzero, then ensure the PlayCry command just plays the cry itself and return
+BOOL AnimCmd_PlayCryEdit(u32 client)
+{
+    struct BattleStruct *sp = gBattleSystem->sp;
+    u32 form = sp->battlemon[client].form_no;
+    if (form)
+        PlayCry(sp->battlemon[client].species, form);
+    return (form != 0);
 }
