@@ -508,14 +508,14 @@ bx r1
 .global AnimCmd_PlayCryEdit_hook
 AnimCmd_PlayCryEdit_hook:
 // r3 is client
-push {r4-r6}
+push {r0-r6}
 mov r0, r3
 bl AnimCmd_PlayCryEdit
-pop {r4-r6}
 cmp r0, #0
 bne return_to_0221F87C
 
 // normal return
+pop {r0-r6}
 mov r0, #0x46
 add r2, r6, r2
 add r3, r6, r3
@@ -524,6 +524,7 @@ ldr r1, =0x0221F85C|1
 bx r1
 
 return_to_0221F87C:
+pop {r0-r6}
 ldr r1, =0x0221F87C|1
 bx r1
 
