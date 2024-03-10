@@ -2108,7 +2108,7 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
         if (isMonEvolving) // if a mon is evolving, it is possible that the current level move also corresponds with a move that it learns on evolution.  need to skip the entry if it has already been attempted to learn a move
         {
             u32 currMove = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
-            for (u32 i = 0; i < *last_i; i++)
+            for (s32 i = 0; i < *last_i; i++)
             {
                 if (LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]) == currMove && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[i]) == 0)
                 {
