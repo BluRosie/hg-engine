@@ -562,7 +562,7 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
     // me when i commit crimes that transfer to low-level really nicely
     if (newBS.CanMega && !newBS.PlayerMegaed)
     {
-        scrn_data_id = 353; // new button layout nscr
+        scrn_data_id = 353; // new button layout nscr in a007
         *(u16 *)(0x0226E29E) = 353;
         // swap out touch data ptr
         *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchData; // something like this
@@ -634,4 +634,133 @@ void SwapOutBottomScreen(struct BI_PARAM *bip)
         *(u32 *)(0x0226E930) = (u32)&SkillMenuTouchDataNoMega;
         *(u32 *)(0x02269F4C) = 0x0226E218; // original map x/y grid array for dpad movement callback
     }
+}
+
+
+// indices in a008 that determine the ncgr's for the opponent's side of the field
+u16 TerrainPlatformEnemyNCGR[] =
+{
+    [TERRAIN_PLAIN] = 136,
+    [TERRAIN_SAND] = 146,
+    [TERRAIN_GRASS] = 130,
+    [TERRAIN_PUDDLE] = 152,
+    [TERRAIN_MOUNTAIN] = 140,
+    [TERRAIN_CAVE] = 150,
+    [TERRAIN_SNOW] = 142,
+    [TERRAIN_WATER] = 134,
+    [TERRAIN_ICE] = 138,
+    [TERRAIN_BUILDING] = 144,
+    [TERRAIN_GREAT_MARSH] = 148,
+    [TERRAIN_UNKNOWN] = 148,
+    [TERRAIN_WILL] = 154,
+    [TERRAIN_KOGA] = 156,
+    [TERRAIN_BRUNO] = 158,
+    [TERRAIN_KAREN] = 160,
+    [TERRAIN_LANCE] = 162,
+    [TERRAIN_DISTORTION_WORLD] = 164,
+    [TERRAIN_BATTLE_TOWER] = 166,
+    [TERRAIN_BATTLE_FACTORY] = 168,
+    [TERRAIN_BATTLE_ARCADE] = 170,
+    [TERRAIN_BATTLE_CASTLE] = 172,
+    [TERRAIN_BATTLE_HALL] = 174,
+    [TERRAIN_GIRATINA] = 176,
+};
+
+// indices in a008 that determine the ncgr's for the player's side of the field
+u16 TerrainPlatformPlayerNCGR[] =
+{
+    [TERRAIN_PLAIN] = 135,
+    [TERRAIN_SAND] = 145,
+    [TERRAIN_GRASS] = 127,
+    [TERRAIN_PUDDLE] = 151,
+    [TERRAIN_MOUNTAIN] = 139,
+    [TERRAIN_CAVE] = 149,
+    [TERRAIN_SNOW] = 141,
+    [TERRAIN_WATER] = 133,
+    [TERRAIN_ICE] = 137,
+    [TERRAIN_BUILDING] = 143,
+    [TERRAIN_GREAT_MARSH] = 147,
+    [TERRAIN_UNKNOWN] = 151,
+    [TERRAIN_WILL] = 153,
+    [TERRAIN_KOGA] = 155,
+    [TERRAIN_BRUNO] = 157,
+    [TERRAIN_KAREN] = 159,
+    [TERRAIN_LANCE] = 161,
+    [TERRAIN_DISTORTION_WORLD] = 163,
+    [TERRAIN_BATTLE_TOWER] = 165,
+    [TERRAIN_BATTLE_FACTORY] = 167,
+    [TERRAIN_BATTLE_ARCADE] = 169,
+    [TERRAIN_BATTLE_CASTLE] = 171,
+    [TERRAIN_BATTLE_HALL] = 173,
+    [TERRAIN_GIRATINA] = 175,
+};
+
+// indices in a008 that determine the nclr's for both sides' platforms
+u16 TerrainPlatformPalettes[][3] =
+{
+    [TERRAIN_PLAIN] = {7, 8, 9},
+    [TERRAIN_SAND] = {22, 23, 24},
+    [TERRAIN_GRASS] = {1, 2, 3},
+    [TERRAIN_PUDDLE] = {31, 32, 33},
+    [TERRAIN_MOUNTAIN] = {13, 14, 15},
+    [TERRAIN_CAVE] = {28, 29, 30},
+    [TERRAIN_SNOW] = {16, 17, 18},
+    [TERRAIN_WATER] = {4, 5, 6},
+    [TERRAIN_ICE] = {10, 11, 12},
+    [TERRAIN_BUILDING] = {19, 20, 21},
+    [TERRAIN_GREAT_MARSH] = {25, 26, 27},
+    [TERRAIN_UNKNOWN] = {25, 26, 27},
+    [TERRAIN_WILL] = {34, 35, 36},
+    [TERRAIN_KOGA] = {38, 39, 40},
+    [TERRAIN_BRUNO] = {41, 42, 43},
+    [TERRAIN_KAREN] = {44, 45, 46},
+    [TERRAIN_LANCE] = {47, 48, 49},
+    [TERRAIN_DISTORTION_WORLD] = {50, 51, 52},
+    [TERRAIN_BATTLE_TOWER] = {53, 54, 55},
+    [TERRAIN_BATTLE_FACTORY] = {56, 57, 58},
+    [TERRAIN_BATTLE_ARCADE] = {59, 60, 61},
+    [TERRAIN_BATTLE_CASTLE] = {62, 63, 64},
+    [TERRAIN_BATTLE_HALL] = {65, 66, 67},
+    [TERRAIN_GIRATINA] = {68, 69, 4},
+};
+
+BattleBGStorage NewBattleBgTable[] =
+{
+    [BATTLE_BG_ELECTRIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 354, .hasDayNightPals = FALSE},
+};
+
+
+/**
+ *  @brief load in different battle bg and terrain
+ *
+ *  @param bw battle work structure
+ *  @param bg background id to load
+ *  @param terrain platform id to load
+ */
+void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
+{
+    u32 palette;
+    if (bg < NUM_VANILLA_BATTLE_BACKGROUNDS)
+    {
+        // vanilla handling for ncgr/nclr pal grabbing
+        palette = 176 + 3*bg + GrabTimeOfDayFileAdjustment(bw);
+        bg = 3 + bg;
+    }
+    else
+    {
+        bg = NewBattleBgTable[bg - NUM_VANILLA_BATTLE_BACKGROUNDS].baseEntry;
+        palette = bg + 1 + (NewBattleBgTable[bg - NUM_VANILLA_BATTLE_BACKGROUNDS].hasDayNightPals == TRUE ? GrabTimeOfDayFileAdjustment(bw) : 0);
+    }
+    // swap out battle bg
+    GfGfxLoader_LoadCharData(7, bg, bw->bgConfig, 3, 0, 0, 1, 5);
+    PaletteData_LoadNarc(bw->palette, 7, palette, 5, 0, 0, 0);
+
+    // reload in pals for message box
+    PaletteData_LoadNarc(bw->palette, 38, 26, 5, 0, 0x20, 0xA0);
+    PaletteData_LoadNarc(bw->palette, 16, 8, 5, 0, 0x20, 0x80);
+
+    // swap out battle platform
+    Ground_ActorResourceSet(&bw->ground[0], bw, 0, terrain); // new terrains are just repointed below
+    Ground_ActorResourceSet(&bw->ground[1], bw, 1, terrain);
+    BattleWorkGroundBGChg(bw);
 }

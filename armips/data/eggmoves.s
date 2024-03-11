@@ -259,7 +259,7 @@ eggmoveentry SPECIES_MANKEY
     eggmove MOVE_REVERSAL
     eggmove MOVE_BEAT_UP
     eggmove MOVE_REVENGE
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_CLOSE_COMBAT
     eggmove MOVE_ENCORE
 
@@ -307,7 +307,7 @@ eggmoveentry SPECIES_MACHOP
     eggmove MOVE_MEDITATE
     eggmove MOVE_ROLLING_KICK
     eggmove MOVE_ENCORE
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_COUNTER
     eggmove MOVE_ROCK_SLIDE
     eggmove MOVE_CLOSE_COMBAT
@@ -524,7 +524,7 @@ eggmoveentry SPECIES_LICKITUNG
     eggmove MOVE_MAGNITUDE
     eggmove MOVE_BODY_SLAM
     eggmove MOVE_CURSE
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_SLEEP_TALK
     eggmove MOVE_SNORE
     eggmove MOVE_SUBSTITUTE
@@ -1108,7 +1108,7 @@ eggmoveentry SPECIES_SNUBBULL
     eggmove MOVE_CRUNCH
     eggmove MOVE_HEAL_BELL
     eggmove MOVE_SNORE
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_CLOSE_COMBAT
     eggmove MOVE_ICE_FANG
     eggmove MOVE_FIRE_FANG
@@ -1401,7 +1401,7 @@ eggmoveentry SPECIES_TORCHIC
     eggmove MOVE_ENDURE
     eggmove MOVE_SWAGGER
     eggmove MOVE_ROCK_SLIDE
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_CRUSH_CLAW
     eggmove MOVE_BATON_PASS
     eggmove MOVE_AGILITY
@@ -1555,7 +1555,7 @@ eggmoveentry SPECIES_WHISMUR
     eggmove MOVE_SNORE
     eggmove MOVE_SWAGGER
     eggmove MOVE_EXTRASENSORY
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_SMOKESCREEN
     eggmove MOVE_ENDEAVOR
     eggmove MOVE_HAMMER_ARM
@@ -1638,7 +1638,7 @@ eggmoveentry SPECIES_ARON
     eggmove MOVE_ENDEAVOR
     eggmove MOVE_BODY_SLAM
     eggmove MOVE_STOMP
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_CURSE
     eggmove MOVE_SCREECH
     eggmove MOVE_IRON_HEAD
@@ -1790,7 +1790,7 @@ eggmoveentry SPECIES_SPINDA
     eggmove MOVE_BATON_PASS
     eggmove MOVE_WISH
     eggmove MOVE_TRICK
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_FAKE_OUT
     eggmove MOVE_ROLE_PLAY
     eggmove MOVE_PSYCHO_CUT
@@ -1812,7 +1812,7 @@ eggmoveentry SPECIES_CACNEA
     eggmove MOVE_DYNAMIC_PUNCH
     eggmove MOVE_COUNTER
     eggmove MOVE_LOW_KICK
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_MAGICAL_LEAF
     eggmove MOVE_SEED_BOMB
     eggmove MOVE_NASTY_PLOT
@@ -2398,7 +2398,7 @@ eggmoveentry SPECIES_CROAGUNK
     eggmove MOVE_MEDITATE
     eggmove MOVE_FAKE_OUT
     eggmove MOVE_WAKE_UP_SLAP
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_CROSS_CHOP
     eggmove MOVE_BULLET_PUNCH
     eggmove MOVE_COUNTER
@@ -2652,7 +2652,7 @@ eggmoveentry SPECIES_TIMBURR
     eggmove MOVE_FORESIGHT
     eggmove MOVE_MACH_PUNCH
     eggmove MOVE_REVERSAL
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     //eggmove MOVE_WIDE_GUARD
 
 
@@ -3063,7 +3063,7 @@ eggmoveentry SPECIES_MIENFOO
     eggmove MOVE_KNOCK_OFF
     eggmove MOVE_LOW_KICK
     eggmove MOVE_ME_FIRST
-    eggmove MOVE_SMELLING_SALT
+    eggmove MOVE_SMELLING_SALTS
     eggmove MOVE_VITAL_THROW
 
 

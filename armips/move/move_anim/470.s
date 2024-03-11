@@ -9,7 +9,7 @@
 MegaAnimScript:
     loadparticlefromspa 0, 489
     loadparticlefromspa 1, 490
-    wait 10
+    waitparticle
 
     playsepanmod 1939, -117, 0x75, 4, 2
 
@@ -18,26 +18,26 @@ MegaAnimScript:
 
     addparticle 0,0,3
     addparticle 0,8,3
-    wait 50
+    wait 15
 
-    
+
     addparticle 0,1,3
     addparticle 0,2,3
 
-    callfunction 0x22, 6, 2, 0, 1, 0x7FFF, 10, 100, 0, 0, 0, 0
+    //callfunction 0x22, 6, 2, 0, 1, 0x7FFF, 10, 100, 0, 0, 0, 0
     addparticle 1, 1, 3
     addparticle 0, 3, 3
     addparticle 0, 4, 3
     addparticle 0, 5, 3
     addparticle 0, 7, 3
-    wait 20
-    addparticle 1, 1, 3
-
-    addparticle 0, 6, 3
-    addparticle 1, 1, 3
-    waitparticle
+    wait 15
+    //addparticle 1, 1, 3
+    //addparticle 0, 6, 3
+    //addparticle 1, 1, 3
+    wait 30
     unloadparticle 1
     loadparticlefromspa 1, 107
+    //waitparticle
 
     addparticle 1,8,3
     addparticle 1,9,3
@@ -51,20 +51,20 @@ MegaAnimScript:
     waitstate
     addparticle 0, 10, 3
     addparticle 0, 12, 3
-    wait 30
+    wait 15
+    unloadparticle 0
+    playcry 0, -117, 127
+    waitcry 0
+    wait 15
+
 
     resetbg 47, 0x040001
-    playcry 0x9, 0xffffff8b, 0x64
-    waitcry 0
-    playcry 0xa, 0xffffff8b, 0x7f
-    
-    waitcry 0
+
     waitstate
     waitforchangebg
 
-    waitparticle
-    
-    unloadparticle 0
+    //waitparticle
+
     unloadparticle 1
     waitstate
 

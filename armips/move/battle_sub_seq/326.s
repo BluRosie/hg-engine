@@ -22,6 +22,7 @@ a001_092:
     printmessage 0x159, 0xE, 0x1, 0x2, "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000 // reenable animations
     endscript
 _0060:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40

@@ -1614,25 +1614,77 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 
 #define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM+1)
 
-
+// need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
-#define CRY_SPECIES_BASE_TORNADUS CRY_SPECIES_FORMS_BASE
-#define CRY_SPECIES_BASE_THUNDURUS CRY_SPECIES_FORMS_BASE+1
-#define CRY_SPECIES_BASE_LANDORUS CRY_SPECIES_FORMS_BASE+2
-#define CRY_SPECIES_BASE_KYUREM CRY_SPECIES_FORMS_BASE+3
-#define CRY_SPECIES_BASE_PUMPKABOO CRY_SPECIES_FORMS_BASE+5
-#define CRY_SPECIES_BASE_GOURGEIST CRY_SPECIES_FORMS_BASE+6
-#define CRY_SPECIES_BASE_HOOPA CRY_SPECIES_FORMS_BASE+7
-#define CRY_SPECIES_BASE_ORICORIO CRY_SPECIES_FORMS_BASE+8
-#define CRY_SPECIES_BASE_LYCANROC CRY_SPECIES_FORMS_BASE+11
-#define CRY_SPECIES_BASE_WISHIWASHI CRY_SPECIES_FORMS_BASE+13
-#define CRY_SPECIES_BASE_NECROZMA CRY_SPECIES_FORMS_BASE+14
-#define CRY_SPECIES_BASE_ZACIAN CRY_SPECIES_FORMS_BASE+18
-#define CRY_SPECIES_BASE_ZAMAZENTA CRY_SPECIES_FORMS_BASE+19
-#define CRY_SPECIES_BASE_URSHIFU CRY_SPECIES_FORMS_BASE+20
-#define CRY_SPECIES_BASE_CALYREX CRY_SPECIES_FORMS_BASE+21
-#define CRY_SPECIES_BASE_ENAMORUS CRY_SPECIES_FORMS_BASE+23
-#define CRY_SPECIES_BASE_MAUSHOLD CRY_SPECIES_FORMS_BASE+24
+
+// megas
+#define CRY_SPECIES_BASE_VENUSAUR (CRY_SPECIES_FORMS_BASE)
+#define CRY_SPECIES_BASE_CHARIZARD_X (CRY_SPECIES_FORMS_BASE + 1)
+#define CRY_SPECIES_BASE_CHARIZARD_Y (CRY_SPECIES_FORMS_BASE + 2)
+#define CRY_SPECIES_BASE_BLASTOISE (CRY_SPECIES_FORMS_BASE + 3)
+#define CRY_SPECIES_BASE_BEEDRILL (CRY_SPECIES_FORMS_BASE + 4)
+#define CRY_SPECIES_BASE_PIDGEOT (CRY_SPECIES_FORMS_BASE + 5)
+#define CRY_SPECIES_BASE_ALAKAZAM (CRY_SPECIES_FORMS_BASE + 6)
+#define CRY_SPECIES_BASE_SLOWBRO (CRY_SPECIES_FORMS_BASE + 7)
+#define CRY_SPECIES_BASE_GENGAR (CRY_SPECIES_FORMS_BASE + 8)
+#define CRY_SPECIES_BASE_KANGASKHAN (CRY_SPECIES_FORMS_BASE + 9)
+#define CRY_SPECIES_BASE_PINSIR (CRY_SPECIES_FORMS_BASE + 10)
+#define CRY_SPECIES_BASE_GYARADOS (CRY_SPECIES_FORMS_BASE + 11)
+#define CRY_SPECIES_BASE_AERODACTYL (CRY_SPECIES_FORMS_BASE + 12)
+#define CRY_SPECIES_BASE_MEWTWO_X (CRY_SPECIES_FORMS_BASE + 13)
+#define CRY_SPECIES_BASE_MEWTWO_Y (CRY_SPECIES_FORMS_BASE + 14)
+#define CRY_SPECIES_BASE_AMPHAROS (CRY_SPECIES_FORMS_BASE + 15)
+#define CRY_SPECIES_BASE_STEELIX (CRY_SPECIES_FORMS_BASE + 16)
+#define CRY_SPECIES_BASE_SCIZOR (CRY_SPECIES_FORMS_BASE + 17)
+#define CRY_SPECIES_BASE_HERACROSS (CRY_SPECIES_FORMS_BASE + 18)
+#define CRY_SPECIES_BASE_HOUNDOOM (CRY_SPECIES_FORMS_BASE + 19)
+#define CRY_SPECIES_BASE_TYRANITAR (CRY_SPECIES_FORMS_BASE + 20)
+#define CRY_SPECIES_BASE_SCEPTILE (CRY_SPECIES_FORMS_BASE + 21)
+#define CRY_SPECIES_BASE_BLAZIKEN (CRY_SPECIES_FORMS_BASE + 22)
+#define CRY_SPECIES_BASE_SWAMPERT (CRY_SPECIES_FORMS_BASE + 23)
+#define CRY_SPECIES_BASE_GARDEVOIR (CRY_SPECIES_FORMS_BASE + 24)
+#define CRY_SPECIES_BASE_SABLEYE (CRY_SPECIES_FORMS_BASE + 25)
+#define CRY_SPECIES_BASE_MAWILE (CRY_SPECIES_FORMS_BASE + 26)
+#define CRY_SPECIES_BASE_AGGRON (CRY_SPECIES_FORMS_BASE + 27)
+#define CRY_SPECIES_BASE_MEDICHAM (CRY_SPECIES_FORMS_BASE + 28)
+#define CRY_SPECIES_BASE_MANECTRIC (CRY_SPECIES_FORMS_BASE + 29)
+#define CRY_SPECIES_BASE_SHARPEDO (CRY_SPECIES_FORMS_BASE + 30)
+#define CRY_SPECIES_BASE_CAMERUPT (CRY_SPECIES_FORMS_BASE + 31)
+#define CRY_SPECIES_BASE_ALTARIA (CRY_SPECIES_FORMS_BASE + 32)
+#define CRY_SPECIES_BASE_BANETTE (CRY_SPECIES_FORMS_BASE + 33)
+#define CRY_SPECIES_BASE_ABSOL (CRY_SPECIES_FORMS_BASE + 34)
+#define CRY_SPECIES_BASE_GLALIE (CRY_SPECIES_FORMS_BASE + 35)
+#define CRY_SPECIES_BASE_SALAMENCE (CRY_SPECIES_FORMS_BASE + 36)
+#define CRY_SPECIES_BASE_METAGROSS (CRY_SPECIES_FORMS_BASE + 37)
+#define CRY_SPECIES_BASE_LATIAS (CRY_SPECIES_FORMS_BASE + 38)
+#define CRY_SPECIES_BASE_LATIOS (CRY_SPECIES_FORMS_BASE + 39)
+#define CRY_SPECIES_BASE_RAYQUAZA (CRY_SPECIES_FORMS_BASE + 40)
+#define CRY_SPECIES_BASE_LOPUNNY (CRY_SPECIES_FORMS_BASE + 41)
+#define CRY_SPECIES_BASE_GARCHOMP (CRY_SPECIES_FORMS_BASE + 42)
+#define CRY_SPECIES_BASE_LUCARIO (CRY_SPECIES_FORMS_BASE + 43)
+#define CRY_SPECIES_BASE_ABOMASNOW (CRY_SPECIES_FORMS_BASE + 44)
+#define CRY_SPECIES_BASE_GALLADE (CRY_SPECIES_FORMS_BASE + 45)
+#define CRY_SPECIES_BASE_AUDINO (CRY_SPECIES_FORMS_BASE + 46)
+#define CRY_SPECIES_BASE_DIANCIE (CRY_SPECIES_FORMS_BASE + 47)
+
+// everything else
+#define CRY_SPECIES_BASE_TORNADUS (CRY_SPECIES_FORMS_BASE + 48)
+#define CRY_SPECIES_BASE_THUNDURUS (CRY_SPECIES_FORMS_BASE+1 + 48)
+#define CRY_SPECIES_BASE_LANDORUS (CRY_SPECIES_FORMS_BASE+2 + 48)
+#define CRY_SPECIES_BASE_KYUREM (CRY_SPECIES_FORMS_BASE+3 + 48)
+#define CRY_SPECIES_BASE_PUMPKABOO (CRY_SPECIES_FORMS_BASE+5 + 48)
+#define CRY_SPECIES_BASE_GOURGEIST (CRY_SPECIES_FORMS_BASE+6 + 48)
+#define CRY_SPECIES_BASE_HOOPA (CRY_SPECIES_FORMS_BASE+7 + 48)
+#define CRY_SPECIES_BASE_ORICORIO (CRY_SPECIES_FORMS_BASE+8 + 48)
+#define CRY_SPECIES_BASE_LYCANROC (CRY_SPECIES_FORMS_BASE+11 + 48)
+#define CRY_SPECIES_BASE_WISHIWASHI (CRY_SPECIES_FORMS_BASE+13 + 48)
+#define CRY_SPECIES_BASE_NECROZMA (CRY_SPECIES_FORMS_BASE+14 + 48)
+#define CRY_SPECIES_BASE_ZACIAN (CRY_SPECIES_FORMS_BASE+18 + 48)
+#define CRY_SPECIES_BASE_ZAMAZENTA (CRY_SPECIES_FORMS_BASE+19 + 48)
+#define CRY_SPECIES_BASE_URSHIFU (CRY_SPECIES_FORMS_BASE+20 + 48)
+#define CRY_SPECIES_BASE_CALYREX (CRY_SPECIES_FORMS_BASE+21 + 48)
+#define CRY_SPECIES_BASE_ENAMORUS (CRY_SPECIES_FORMS_BASE+23 + 48)
+#define CRY_SPECIES_BASE_MAUSHOLD (CRY_SPECIES_FORMS_BASE+24 + 48)
 
 u32 storeShayminForm = 0;
 
@@ -1645,6 +1697,7 @@ u32 storeShayminForm = 0;
  */
 u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 {
+    u32 newSpecies = 0;
     if (species > SPECIES_ARCEUS && species < SPECIES_VICTINI)
     {
         species = SPECIES_BULBASAUR;
@@ -1652,6 +1705,8 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 
     if (species > MAX_MON_NUM) // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species
     {
+        // if form-adjusted species is passed in, no need to call it to grab it again
+        newSpecies = species;
         species = GetOriginalSpeciesBasedOnAdjustedForm(species);
     }
     else if (species == SPECIES_SHAYMIN) // shaymin has to have some hacks to get this to work proper because of the same battle stuff above
@@ -1659,7 +1714,7 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
         register u32 retAddr asm("lr");
         if (retAddr == 0x020069BF)
             storeShayminForm = form;
-        if (retAddr == 0x020063E5 || retAddr == 0x02006241)
+        else if (retAddr == 0x020063E5 || retAddr == 0x02006241)
             if (!storeShayminForm)
                 return species;
     }
@@ -1667,7 +1722,17 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     {
         return species;
     }
+    else
+    {
+        // need to grab form-adjusted species otherwise
+        newSpecies = PokeOtherFormMonsNoGet(species, form);
+    }
 
+    // handle megas in a way such that it's not added to the already-bad switch
+    if (newSpecies >= SPECIES_MEGA_START && newSpecies <= MAX_MEGA_NUM)
+        return (newSpecies - SPECIES_MEGA_START + CRY_SPECIES_BASE_VENUSAUR);
+
+    // handle the rest of the species
     switch (species)
     {
     case SPECIES_SHAYMIN:
@@ -1706,8 +1771,8 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
         return CRY_SPECIES_BASE_URSHIFU;
     case SPECIES_CALYREX:
         return CRY_SPECIES_BASE_CALYREX + form-1;
-    //case SPECIES_MAUSHOLD:
-    //    return CRY_SPECIES_BASE_MAUSHOLD;
+    case SPECIES_MAUSHOLD:
+        return CRY_SPECIES_BASE_MAUSHOLD;
     }
     return species;
 }
@@ -1998,4 +2063,67 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
         pid = pid ^ (gf_rand() % (SHINY_ODDS));
     }
     return pid;
+}
+
+/**
+ *  @brief try learning a move upon level up
+*          edited to allow for moves to be learned on evolution at level 0
+ *
+ *  @param mon PartyPokemon whose level is checked for moves
+ *  @param last_i last entry in the level up learnset table that was checked
+ *  @param sp0 pointer to a u16 that contains the move constant
+ *  @return (u16)-1u if the mon's learnset is full, (u16)-2u if the mon already knows the move, and the move index if the mon had the move successfully added
+ */
+u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
+{
+    BOOL isMonEvolving = FALSE;
+    register u32 retAddr asm("lr");
+    if (retAddr == 0x020764EB) // right at the end of the massive evolution callback
+    {
+        isMonEvolving = TRUE;
+    }
+    u32 ret = 0;
+    u32 *levelUpLearnset = sys_AllocMemory(HEAPID_MAIN_HEAP, LEARNSET_TOTAL_MOVES * sizeof(u32));
+    u32 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
+    u32 level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
+
+    LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
+
+    if (isMonEvolving && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[*last_i]) == 0) // when evolving, try to learn moves at level 0
+        level = 0;
+
+    if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END)
+    {
+        sys_FreeMemoryEz(levelUpLearnset);
+        return 0;
+    }
+    while ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
+    {
+        (*last_i)++;
+        if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END) {
+            sys_FreeMemoryEz(levelUpLearnset);
+            return 0;
+        }
+        if (isMonEvolving) // if a mon is evolving, it is possible that the current level move also corresponds with a move that it learns on evolution.  need to skip the entry if it has already been attempted to learn a move
+        {
+            u32 currMove = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
+            for (s32 i = 0; i < *last_i; i++)
+            {
+                if (LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]) == currMove && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[i]) == 0)
+                {
+                    (*last_i)++;
+                    break;
+                }
+            }
+        }
+    }
+    if ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
+    {
+        *sp0 = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
+        (*last_i)++;
+        ret = TryAppendMonMove(mon, *sp0);
+    }
+    sys_FreeMemoryEz(levelUpLearnset);
+    return ret;
 }

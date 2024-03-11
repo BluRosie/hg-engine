@@ -6,6 +6,7 @@
 #include "sprite.h"
 #include "pokemon.h"
 #include "task.h"
+#include "save.h"
 #include "constants/moves.h"
 
 #define CLIENT_MAX 4
@@ -116,7 +117,7 @@
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
 #define WAZA_STATUS_FLAG_IMAHITOTSU_OFF (WAZA_STATUS_FLAG_IMAHITOTSU^0xffffffff)
 
-#define WAZA_STATUS_FLAG_HAZURE         (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
+#define MOVE_STATUS_FLAG_FAILURE_ANY    (MOVE_STATUS_FLAG_MISS|MOVE_STATUS_FLAG_NOT_EFFECTIVE|\
                                          MOVE_STATUS_FLAG_FAILED|\
                                          MOVE_STATUS_FLAG_LEVITATE_MISS|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
@@ -128,7 +129,7 @@
                                          MOVE_STATUS_FLAG_NO_OHKO|\
                                          MOVE_STATUS_FLAG_MAGNET_RISE_MISS)
 
-#define WAZA_STATUS_FLAG_NO_OUT         (WAZA_STATUS_FLAG_HAZURE|\
+#define WAZA_STATUS_FLAG_NO_OUT         (MOVE_STATUS_FLAG_FAILURE_ANY|\
                                          WAZA_STATUS_FLAG_PP_NONE|\
                                          WAZA_STATUS_FLAG_SIPPAI)
 
@@ -692,7 +693,10 @@ struct __attribute__((packed)) BattlePokemon
                u32 critical_hits : 2;        /**< tracks the amount of critical hits the pokémon has landed while in battle so far */
                u32 air_ballon_flag : 1;      /**< the held air balloon has printed its message */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
-               u32 : 10; // need to add to ClearBattleMonFlags when added to here as well
+               u32 parental_bond_flag : 2;
+               u32 parental_bond_is_active : 1;
+               u32 ability_activated_flag : 1;
+               u32 : 6; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -905,9 +909,9 @@ struct __attribute__((packed)) BattleStruct
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[4];
-    /*0xCC*/ int push_skill_arc_index[4];
-    /*0xDC*/ int push_skill_seq_no[4];
+    /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
+    /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
+    /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
     /*0xEC*/ int agi_cnt;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;
@@ -932,9 +936,9 @@ struct __attribute__((packed)) BattleStruct
     /*0x184*/ struct field_condition_count fcc;
     /*0x1BC*/ u32 side_condition[2];
     /*0x1C4*/ struct side_condition_work scw[2];
-    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[4];
-    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[4];
-    /*0x344*/ struct MoveOutCheck moveOutCheck[4];
+    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[CLIENT_MAX];
+    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX];
+    /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX];
 
     /*0x354*/ struct BattleAIWorkTable aiWorkTable;
     /*0x2134*/ u32 *ai_seq_work;
@@ -1036,7 +1040,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x315B*/ u8 mons_getting_exp;
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
-    /*0x315E*/ u8 padding_315E[0x20]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
+    /*0x315E*/ u8 padding_315F[0x1F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1048,40 +1053,72 @@ struct __attribute__((packed)) BattleStruct
 };
 
 
+typedef struct GROUND_WORK {
+    void *unk0;
+    struct BattleSystem *bw;
+    u8 team;
+    u8 terrain;
+    s16 x;
+    s16 y;
+    u16 unused;
+} GROUND_WORK; //size: 0x10
+
+typedef struct {
+    u16 sentence_type;
+    u16 sentence_id;
+    u16 word[2];
+} PACKED PMS_DATA; // size: 8 bytes
+
+typedef struct {
+    u8 data_type;
+    u8 tr_type;
+    u8 tr_gra;
+    u8 poke_count;
+
+    u16 use_item[4];
+
+    u32 aibit;
+    u32 fight_type;
+
+    u16 name[8];
+    PMS_DATA win_word;
+    PMS_DATA lose_word;
+} PACKED TRAINER_DATA; // size: 52 bytes
+
+
 struct BattleSystem {
-    // u32 *unk0;
-    // BgConfig *bgConfig;
-    // Window *window;
-    // u32 *unkC;
-    // u32 *unk10;
-    // u32 *unk14;
-    // String *msgBuffer;
-    // u32 unk1C;
-    // u32 unk20;
-    // u32 unk24;
-    // PaletteData *palette;
-    // u32 battleType;
-    // BattleContext *ctx;
-    /* 0x00 */ u8 padding_0[0x34];
-    /* 0x34 */ void *opponentData[4];
-    // int maxBattlers;
-    // PlayerProfile *playerProfile[4];
-    // Bag *bag;
-    // BagCursor *bagCursor;
-    // Pokedex *pokedex;
-    // PCStorage *storage;
-    // Party *trainerParty[4];
-    // SOUND_CHATOT *chatotVoice[4];
-    // u32 *unk88;
-    // u32 *unk8C;
-    // SpriteRenderer *unk90;
-    // SpriteGfxHandler *unk94;
-    // u32 *unk98;
-    // u32 *unk9C;
-    // u16 trainerId[4];
-    // u8 trainerGender[4];
-    // Trainer trainers[4];
-    // UnkBattleSystemSub17C unk17C[2]; //Battle Background..?
+    /* 0x00 */ u32 *unk0;
+    /* 0x04 */ void * /*BgConfig **/ bgConfig;
+    /* 0x08 */ void * /*Window **/ window;
+    /* 0x0C */ u32 *unkC;
+    /* 0x10 */ u32 *unk10;
+    /* 0x14 */ u32 *unk14;
+    /* 0x18 */ void * /*String **/ msgBuffer;
+    /* 0x1C */ u32 unk1C;
+    /* 0x20 */ u32 unk20;
+    /* 0x24 */ u32 unk24;
+    /* 0x28 */ void * /*PaletteData **/ palette;
+    /* 0x2C */ u32 battleType;
+    /* 0x30 */ struct BattleStruct *sp;
+    /* 0x34 */ void * /*OpponentData **/ opponentData[4];
+    /* 0x38 */ int maxBattlers;
+    struct PlayerProfile *playerProfile[4];
+    void *bag;
+    void *bagCursor;
+    void *pokedex;
+    void *storage;
+    struct Party *trainerParty[4];
+    void *chatotVoice[4];
+    u32 *unk88;
+    u32 *unk8C;
+    void *unk90;
+    void *unk94;
+    u32 *unk98;
+    u32 *unk9C;
+    u16 trainerId[4];
+    u8 trainerGender[4];
+    TRAINER_DATA trainers[4];
+    GROUND_WORK ground[2];
     // u32 *unk19C;
     // u32 *unk1A0[2];
     // FontID *hpFont;
@@ -1119,8 +1156,9 @@ struct BattleSystem {
     // u8 unk240E_F:1;
     // u8 criticalHpMusic:2;
     // u8 criticalHpMusicDelay:3;
-    // Terrain terrain;
-    // int unk2404;
+    u8 padding[0x2400 - 0x19C];
+    u32 terrain;
+    u32 bgId;
     // int location;
     // u32 battleSpecial;
     // int timezone; //might be timeOfDay? unclear
@@ -1239,29 +1277,7 @@ struct __attribute__((packed)) newBattleStruct
     u32 weather;
 };
 
-typedef struct {
-    u16 sentence_type;
-    u16 sentence_id;
-    u16 word[2];
-} __attribute__((packed)) PMS_DATA; // size: 8 bytes
-
-typedef struct {
-    u8 data_type;
-    u8 tr_type;
-    u8 tr_gra;
-    u8 poke_count;
-
-    u16 use_item[4];
-
-    u32 aibit;
-    u32 fight_type;
-
-    u16 name[8];
-    PMS_DATA win_word;
-    PMS_DATA lose_word;
-} __attribute__((packed)) TRAINER_DATA; // size: 52 bytes
-
-struct __attribute__((packed)) BATTLE_PARAM
+struct PACKED BATTLE_PARAM
 {
     /*0x0000*/  u32 fight_type;
     /*0x0004*/  struct Party *poke_party[4];
@@ -1273,7 +1289,7 @@ struct __attribute__((packed)) BATTLE_PARAM
 };
 
 
-struct __attribute__((packed)) FULL_TRAINER_MON_DATA_STRUCTURE // structure isn't actually used as the structure is iterated through conditionally
+struct PACKED FULL_TRAINER_MON_DATA_STRUCTURE // structure isn't actually used as the structure is iterated through conditionally
 {
     /* 0x00 */ u8 ivs;
     /* 0x01 */ u8 abilityslot;
@@ -1437,7 +1453,7 @@ void LONG_CALL ST_ServerDefenceClientTokuseiCheck(void *bw, struct BattleStruct 
 void LONG_CALL ST_ServerTotteokiCountCalc(void *bw,struct BattleStruct *sp);
 void LONG_CALL ST_ServerMetronomeBeforeCheck(void *bw,struct BattleStruct *sp);
 int LONG_CALL ST_ServerPokeAppearCheck(void *bw, struct BattleStruct *sp);
-int LONG_CALL TagNickParaMake(struct BattleStruct *sp, int client_no);
+int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
 
 
@@ -2083,6 +2099,60 @@ void LONG_CALL JumpToMoveEffectScript(struct BattleStruct *sp, int archive, int 
  */
 void LONG_CALL Link_CheckTimeout(struct BattleStruct *sp);
 
+/**
+ *  @brief check if a move index normally calls other moves as part of its operation
+ *
+ *  @param move move index to check
+ *  @return TRUE if the move results in another move; FALSE otherwise
+ */
+BOOL LONG_CALL CheckMoveCallsOtherMove(u16 move);
+
+/**
+ *  @brief updates the nonselectable moves that the battlerId currently has
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @param battlerId battler to check for struggle moves
+ *  @param nonSelectableMoves pass in moves that are already not selectable
+ *  @param a4
+ *  @return updated nonSelectableMoves field
+ */
+u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId, u32 nonSelectableMoves, u32 a4);
+
+void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
+void LONG_CALL BattleWorkGroundBGChg(void *bw);
+u32 LONG_CALL GrabTimeOfDayFileAdjustment(void *bw);
+
+
+
+typedef struct ANIM_CMD_STRUCT
+{
+    u8 padding_0[0x18];
+    u32 *animScriptPtr;
+    // more stuff idk all i needed was where the stuff currently is
+} ANIM_CMD_STRUCT;
+
+
+#define NUM_VANILLA_ANIM_SCRIPT_COMMANDS (88)
+
+typedef void (*anim_scr_cmd_func)(ANIM_CMD_STRUCT *animCmdStruct);
+
+extern const anim_scr_cmd_func gAnimScrTable[NUM_VANILLA_ANIM_SCRIPT_COMMANDS];
+extern struct BattleSystem *gBattleSystem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // defined in battle_calc_damage.c
 /**
@@ -2373,6 +2443,38 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
 BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
 /**
+ * @brief Check if the current move is a multi hit move
+ * @param moveIndex move index
+ * @return TRUE if it is a multi hit move
+*/
+BOOL IsMultiHitMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
+*/
+BOOL IsBannedParentalBondMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
+ */
+BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a move that should be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param checkTempMove if move will be changed via Metronome, Assist, etc
+ * @return TRUE if it is a valid move
+ */
+BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove);
+
+/**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure
  * @param attackerAttack attacker's Physical Attack
@@ -2394,6 +2496,8 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
 
 // defined in mega.c
+BOOL CheckMegaData(u32 mon, u32 item);
+
 /**
  *  @brief grab mega form of a specific species with specific item
  *
@@ -2402,6 +2506,41 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
  *  @return target form
  */
 u32 GrabMegaTargetForm(u32 mon, u32 item);
+
+
+typedef struct BattleBGStorage {
+    u16 baseEntry:15;
+    u16 hasDayNightPals:1;
+} BattleBGStorage;
+
+
+typedef enum BattleBg {
+    BATTLE_BG_GENERAL,
+    BATTLE_BG_OCEAN,
+    BATTLE_BG_CITY,
+    BATTLE_BG_FOREST,
+    BATTLE_BG_MOUNTAIN,
+    BATTLE_BG_SNOW,
+    BATTLE_BG_BUILDING_1,
+    BATTLE_BG_BUILDING_2,
+    BATTLE_BG_BUILDING_3,
+    BATTLE_BG_CAVE_1,
+    BATTLE_BG_CAVE_2,
+    BATTLE_BG_CAVE_3,
+    BATTLE_BG_WILL,
+    BATTLE_BG_KOGA,
+    BATTLE_BG_BRUNO,
+    BATTLE_BG_KAREN,
+    BATTLE_BG_LANCE,
+    BATTLE_BG_DISTORTION_WORLD,
+    BATTLE_BG_BATTLE_TOWER,
+    BATTLE_BG_BATTLE_FACTORY,
+    BATTLE_BG_BATTLE_ARCADE,
+    BATTLE_BG_BATTLE_CASTLE,
+    BATTLE_BG_BATTLE_HALL,
+    NUM_VANILLA_BATTLE_BACKGROUNDS,
+    BATTLE_BG_ELECTRIC_TERRAIN = 23,
+} BattleBg;
 
 
 typedef enum Terrain {
@@ -2435,5 +2574,14 @@ typedef enum Terrain {
 // This is a catch-all terrain that includes Pokemon League, Distortion World
 // and Battle Frontier.
 #define TERRAIN_OTHERS (TERRAIN_WILL)
+
+/**
+ *  @brief load in different battle bg and terrain
+ *
+ *  @param bw battle work structure
+ *  @param bg background id to load
+ *  @param terrain platform id to load
+ */
+void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
 
 #endif // BATTLE_H

@@ -84,6 +84,160 @@ const u16 TriageMovesList[] = {
     MOVE_WISH,
 };
 
+// List of multi-strike moves
+// (https://bulbapedia.bulbagarden.net/wiki/Multi-strike_move)
+const u16 MultiHitMovesList[] = {
+    // Variable number of strikes
+    MOVE_ARM_THRUST,
+    MOVE_BARRAGE,
+    MOVE_BONE_RUSH,
+    MOVE_BULLET_SEED,
+    MOVE_COMET_PUNCH,
+    MOVE_DOUBLE_SLAP,
+    MOVE_FURY_ATTACK,
+    MOVE_FURY_SWIPES,
+    MOVE_ICICLE_SPEAR,
+    MOVE_PIN_MISSILE,
+    MOVE_ROCK_BLAST,
+    MOVE_SCALE_SHOT,
+    MOVE_SPIKE_CANNON,
+    MOVE_TAIL_SLAP,
+    MOVE_WATER_SHURIKEN,
+    // Fixed number of multiple strikes
+    MOVE_BONEMERANG,
+    MOVE_DOUBLE_HIT,
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_DOUBLE_KICK,
+    MOVE_DRAGON_DARTS,
+    MOVE_DUAL_CHOP,
+    MOVE_DUAL_WINGBEAT,
+    MOVE_GEAR_GRIND,
+    MOVE_SURGING_STRIKES,
+    MOVE_TRIPLE_DIVE,
+    MOVE_TWIN_BEAM,
+    MOVE_TWINEEDLE,
+    // Accuracy-dependent multiple strikes
+    MOVE_TRIPLE_AXEL,
+    MOVE_TRIPLE_KICK,
+    MOVE_POPULATION_BOMB,
+    // Party-dependent multiple strikes
+    MOVE_BEAT_UP,
+};
+
+// List of moves that should not hit twice when user has Parental Bond
+// (https://bulbapedia.bulbagarden.net/wiki/Parental_Bond_(Ability))
+const u16 ParentalBondSingleStrikeMovesList[] = {
+    // One-hit knockout moves
+    MOVE_FISSURE,
+    MOVE_GUILLOTINE,
+    MOVE_HORN_DRILL,
+    MOVE_SHEER_COLD,
+    // No category
+    MOVE_FLING,
+    MOVE_SELF_DESTRUCT,
+    MOVE_EXPLOSION,
+    MOVE_FINAL_GAMBIT,
+    MOVE_UPROAR,
+    MOVE_ROLLOUT,
+    MOVE_ICE_BALL,
+    MOVE_ENDEAVOR,
+    // Moves with a charging turn
+    MOVE_BOUNCE,
+    MOVE_DIG,
+    MOVE_DIVE,
+    // MOVE_ELECTRO_SHOT, // Not implemented yet
+    MOVE_FLY,
+    MOVE_FREEZE_SHOCK,
+    MOVE_GEOMANCY,
+    MOVE_ICE_BURN,
+    MOVE_METEOR_BEAM,
+    MOVE_PHANTOM_FORCE,
+    MOVE_RAZOR_WIND,
+    MOVE_SHADOW_FORCE,
+    MOVE_SKULL_BASH,
+    MOVE_SKY_ATTACK,
+    MOVE_SKY_DROP,
+    MOVE_SOLAR_BEAM,
+    MOVE_SOLAR_BLADE,
+    // Z-Moves
+    MOVE_BREAKNECK_BLITZ_PHYSICAL,
+    MOVE_BREAKNECK_BLITZ_SPECIAL,
+    MOVE_ALL_OUT_PUMMELING_PHYSICAL,
+    MOVE_ALL_OUT_PUMMELING_SPECIAL,
+    MOVE_SUPERSONIC_SKYSTRIKE_PHYSICAL,
+    MOVE_SUPERSONIC_SKYSTRIKE_SPECIAL,
+    MOVE_ACID_DOWNPOUR_PHYSICAL,
+    MOVE_ACID_DOWNPOUR_SPECIAL,
+    MOVE_TECTONIC_RAGE_PHYSICAL,
+    MOVE_TECTONIC_RAGE_SPECIAL,
+    MOVE_CONTINENTAL_CRUSH_PHYSICAL,
+    MOVE_CONTINENTAL_CRUSH_SPECIAL,
+    MOVE_SAVAGE_SPIN_OUT_PHYSICAL,
+    MOVE_SAVAGE_SPIN_OUT_SPECIAL,
+    MOVE_NEVER_ENDING_NIGHTMARE_PHYSICAL,
+    MOVE_NEVER_ENDING_NIGHTMARE_SPECIAL,
+    MOVE_CORKSCREW_CRASH_PHYSICAL,
+    MOVE_CORKSCREW_CRASH_SPECIAL,
+    MOVE_INFERNO_OVERDRIVE_PHYSICAL,
+    MOVE_INFERNO_OVERDRIVE_SPECIAL,
+    MOVE_HYDRO_VORTEX_PHYSICAL,
+    MOVE_HYDRO_VORTEX_SPECIAL,
+    MOVE_BLOOM_DOOM_PHYSICAL,
+    MOVE_BLOOM_DOOM_SPECIAL,
+    MOVE_GIGAVOLT_HAVOC_PHYSICAL,
+    MOVE_GIGAVOLT_HAVOC_SPECIAL,
+    MOVE_SHATTERED_PSYCHE_PHYSICAL,
+    MOVE_SHATTERED_PSYCHE_SPECIAL,
+    MOVE_SUBZERO_SLAMMER_PHYSICAL,
+    MOVE_SUBZERO_SLAMMER_SPECIAL,
+    MOVE_DEVASTATING_DRAKE_PHYSICAL,
+    MOVE_DEVASTATING_DRAKE_SPECIAL,
+    MOVE_BLACK_HOLE_ECLIPSE_PHYSICAL,
+    MOVE_BLACK_HOLE_ECLIPSE_SPECIAL,
+    MOVE_TWINKLE_TACKLE_PHYSICAL,
+    MOVE_TWINKLE_TACKLE_SPECIAL,
+    MOVE_CATASTROPIKA,
+    MOVE_10_000_000_VOLT_THUNDERBOLT,
+    MOVE_STOKED_SPARKSURFER,
+    MOVE_EXTREME_EVOBOOST,
+    MOVE_PULVERIZING_PANCAKE,
+    MOVE_GENESIS_SUPERNOVA,
+    MOVE_SINISTER_ARROW_RAID,
+    MOVE_MALICIOUS_MOONSAULT,
+    MOVE_OCEANIC_OPERETTA,
+    MOVE_SPLINTERED_STORMSHARDS,
+    MOVE_LETS_SNUGGLE_FOREVER,
+    MOVE_CLANGOROUS_SOULBLAZE,
+    MOVE_GUARDIAN_OF_ALOLA,
+    MOVE_SEARING_SUNRAZE_SMASH,
+    MOVE_MENACING_MOONRAZE_MAELSTROM,
+    MOVE_LIGHT_THAT_BURNS_THE_SKY,
+    MOVE_SOUL_STEALING_7_STAR_STRIKE,
+    // Max Moves
+    MOVE_MAX_GUARD,
+    MOVE_DYNAMAX_CANNON,
+    MOVE_MAX_FLARE,
+    MOVE_MAX_FLUTTERBY,
+    MOVE_MAX_LIGHTNING,
+    MOVE_MAX_STRIKE,
+    MOVE_MAX_KNUCKLE,
+    MOVE_MAX_PHANTASM,
+    MOVE_MAX_HAILSTORM,
+    MOVE_MAX_OOZE,
+    MOVE_MAX_GEYSER,
+    MOVE_MAX_AIRSTREAM,
+    MOVE_MAX_STARFALL,
+    MOVE_MAX_WYRMWIND,
+    MOVE_MAX_MINDSTORM,
+    MOVE_MAX_ROCKFALL,
+    MOVE_MAX_QUAKE,
+    MOVE_MAX_DARKNESS,
+    MOVE_MAX_OVERGROWTH,
+    MOVE_MAX_STEELSPIKE,
+    // Special case handled inside effect script for hg-engine
+    MOVE_PRESENT,
+};
+
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
@@ -106,6 +260,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
      && sp->moveTbl[move_no].power != 0) // move actually damages
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        sp->battlemon[attacker].parental_bond_flag = 0;
+        sp->battlemon[attacker].parental_bond_is_active = FALSE;
         return FALSE;
     }
 
@@ -115,6 +271,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
      && (attacker & 1) != (defender & 1)) // used on an enemy
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
+        sp->battlemon[attacker].parental_bond_flag = 0;
+        sp->battlemon[attacker].parental_bond_is_active = FALSE;
         return FALSE;
     }
 
@@ -129,6 +287,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             )
             {
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
+                sp->battlemon[attacker].parental_bond_flag = 0;
+                sp->battlemon[attacker].parental_bond_is_active = FALSE;
                 return FALSE;
             }
         }
@@ -300,6 +460,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if (((BattleRand(bw) % 100) + 1) > accuracy)
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        sp->battlemon[attacker].parental_bond_flag = 0;
+        sp->battlemon[attacker].parental_bond_is_active = FALSE;
     }
 
     return FALSE;
@@ -1047,6 +1209,8 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
      && (eqp_d != HOLD_EFFECT_HALVE_SPEED)) // iron ball halves speed and grounds
     {
         flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
+        sp->battlemon[attack_client].parental_bond_flag = 0;
+        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
     }
     else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
@@ -1055,6 +1219,8 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
           && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
+        sp->battlemon[attack_client].parental_bond_flag = 0;
+        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
     }
     else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
@@ -1063,6 +1229,8 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
           && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS; // air balloon just misses for the moment
+        sp->battlemon[attack_client].parental_bond_flag = 0;
+        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
     }
     else
     {
@@ -1117,6 +1285,8 @@ int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, i
      && (base_power))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;
+        sp->battlemon[attack_client].parental_bond_flag = 0;
+        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
     }
     else
     {
@@ -1195,7 +1365,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
         msg->msg_para[1] = ABILITY_SHADOW_TAG;
         return TRUE;
     }
@@ -1209,7 +1379,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
                 }
                 msg->msg_tag = TAG_NICK_ABILITY;
                 msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-                msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+                msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
                 msg->msg_para[1] = ABILITY_ARENA_TRAP;
                 return TRUE;
             }
@@ -1219,7 +1389,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
             }
             msg->msg_tag = TAG_NICK_ABILITY;
             msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-            msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+            msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
             msg->msg_para[1] = ABILITY_ARENA_TRAP;
             return TRUE;
         }
@@ -1232,7 +1402,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = TagNickParaMake(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
         msg->msg_para[1] = ABILITY_MAGNET_PULL;
         return TRUE;
     }
@@ -1462,6 +1632,90 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
             return FALSE;
     }
     return FALSE;
+}
+
+/**
+ * @brief Check if the current move is a multi hit move
+ * @param moveIndex move index
+ * @return TRUE if it is a multi hit move
+*/
+BOOL IsMultiHitMove(u32 moveIndex) {
+    for (u16 i = 0; i < NELEMS(MultiHitMovesList); i++) {
+        if (moveIndex == MultiHitMovesList[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+/**
+ * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
+*/
+BOOL IsBannedParentalBondMove(u32 moveIndex) {
+    u8 output = FALSE;
+    for (u16 i = 0; i < NELEMS(ParentalBondSingleStrikeMovesList); i++) {
+        if (moveIndex == ParentalBondSingleStrikeMovesList[i]) {
+            output = TRUE;
+            break;
+        }
+    }
+    return output || IsMultiHitMove(moveIndex);
+}
+
+/**
+ * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param moveIndex move index
+ * @return TRUE if it is a banned move
+ */
+BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex) {
+    //no need to check moves if it is a single battle
+    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) == 0) {
+        return FALSE;
+    }
+
+    struct BattleMove currentMove = sp->moveTbl[moveIndex];
+
+    struct BattlePokemon ally = sp->battlemon[BATTLER_ALLY(sp->attack_client)];
+    struct BattlePokemon opponent = sp->battlemon[BATTLER_OPPONENT(sp->attack_client)];
+    struct BattlePokemon across = sp->battlemon[BATTLER_ACROSS(sp->attack_client)];
+
+    switch (currentMove.target) {
+        case MOVE_TARGET_BOTH:
+            if (opponent.hp != 0 || across.hp != 0) {
+                return TRUE;
+            }
+            break;
+        case MOVE_TARGET_FOES_AND_ALLY:
+            if (ally.hp != 0 || opponent.hp != 0 || across.hp != 0) {
+                return TRUE;
+            }
+            break;
+
+        default:
+            return FALSE;
+            break;
+    }
+    return TRUE;
+}
+
+/**
+ * @brief Check if the current move is a move that should be affected by Parental Bond
+ * @param bw battle work structure; void * because we haven't defined the battle work structure
+ * @param sp battle structure
+ * @param checkTempMove if move will be changed via Metronome, Assist, etc
+ * @return TRUE if it is a valid move
+ */
+BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove) {
+    u32 moveIndex = checkTempMove ? (u32)sp->waza_work : sp->current_move_index;
+
+    return (GetBattlerAbility(sp, sp->attack_client) == ABILITY_PARENTAL_BOND &&
+            sp->moveTbl[moveIndex].split != SPLIT_STATUS &&
+            !IsBannedParentalBondMove(moveIndex) &&
+            !IsBannedSpreadMoveForParentalBond(bw, sp, moveIndex));
 }
 
 /**

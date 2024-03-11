@@ -13,7 +13,7 @@ mega:
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x1
     changevar VAR_OP_SET, VAR_MOVE_TEMP2, 470 // set temporary move to be 470, which is the move the setstatus2effect will treat as "mega"
     // play text
-    printmessage MegaMsg, 0xB, 0xFF, 0x15,0,0,0,0
+    printmessage MegaMsg, TAG_NICK_ITEM, 0xFF, 0x15,0,0,0,0
     waitmessage
     wait 0x1E
     // jump if not a stand-in pokemon
@@ -32,7 +32,7 @@ mega:
     wait 0x16e
     // change form
     waitmessage
-    printmessage MegaMsg + 3, 0xB, 0xFF, 0x15,0,0,0,0
+    printmessage MegaMsg + 3, TAG_NICK_POKE, 0xFF, 0x15,0,0,0,0
     waitmessage
     wait 0x1E
     // restore doubles flag
@@ -54,7 +54,7 @@ _0044:
     wait 0x16e
     // change form
     waitmessage
-    printmessage MegaMsg + 3, 0xB, 0xFF, 0x15,0,0,0,0
+    printmessage MegaMsg + 3, TAG_NICK_POKE, 0xFF, 0x15,0,0,0,0
     waitmessage
     wait 0x1E
     changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0

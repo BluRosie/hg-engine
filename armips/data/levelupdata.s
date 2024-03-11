@@ -5544,6 +5544,7 @@ levelup SPECIES_EXPLOUD
 	terminatelearnset
 
 levelup SPECIES_MAKUHITA
+<<<<<<< HEAD
 	learnset MOVE_TACKLE, 1
 	learnset MOVE_FOCUS_ENERGY, 2
 	learnset MOVE_MUD_SLAP, 3
@@ -5585,6 +5586,51 @@ levelup SPECIES_HARIYAMA
 	learnset MOVE_CLOSE_COMBAT, 52
 	learnset MOVE_REVERSAL, 57
 	terminatelearnset
+=======
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_FOCUS_ENERGY, 1
+    learnset MOVE_SAND_ATTACK, 4
+    learnset MOVE_ARM_THRUST, 7
+    learnset MOVE_FAKE_OUT, 10
+    learnset MOVE_FORCE_PALM, 13
+    learnset MOVE_WHIRLWIND, 16
+    learnset MOVE_KNOCK_OFF, 19
+    learnset MOVE_VITAL_THROW, 22
+    learnset MOVE_BELLY_DRUM, 25
+    learnset MOVE_SMELLING_SALTS, 28
+    learnset MOVE_SEISMIC_TOSS, 31
+    learnset MOVE_WAKE_UP_SLAP, 34
+    learnset MOVE_ENDURE, 37
+    learnset MOVE_CLOSE_COMBAT, 40
+    learnset MOVE_REVERSAL, 43
+    learnset MOVE_HEAVY_SLAM, 46
+    terminatelearnset
+
+
+levelup SPECIES_HARIYAMA
+    learnset MOVE_BRINE, 1
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_FOCUS_ENERGY, 1
+    learnset MOVE_SAND_ATTACK, 1
+    learnset MOVE_ARM_THRUST, 1
+    learnset MOVE_SAND_ATTACK, 4
+    learnset MOVE_ARM_THRUST, 7
+    learnset MOVE_FAKE_OUT, 10
+    learnset MOVE_FORCE_PALM, 13
+    learnset MOVE_WHIRLWIND, 16
+    learnset MOVE_KNOCK_OFF, 19
+    learnset MOVE_VITAL_THROW, 22
+    learnset MOVE_BELLY_DRUM, 26
+    learnset MOVE_SMELLING_SALTS, 30
+    learnset MOVE_SEISMIC_TOSS, 34
+    learnset MOVE_WAKE_UP_SLAP, 38
+    learnset MOVE_ENDURE, 42
+    learnset MOVE_CLOSE_COMBAT, 46
+    learnset MOVE_REVERSAL, 50
+    learnset MOVE_HEAVY_SLAM, 54
+    terminatelearnset
+
+>>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 levelup SPECIES_AZURILL
 	learnset MOVE_POUND, 1

@@ -304,6 +304,9 @@
 #define ITEM_SHED_SHELL      295
 #define ITEM_BIG_ROOT        296
 #define ITEM_CHOICE_SPECS    297
+
+#define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
+
 #define ITEM_FLAME_PLATE     298
 #define ITEM_SPLASH_PLATE    299
 #define ITEM_ZAP_PLATE       300
@@ -707,6 +710,8 @@
 #define ITEM_DOUSE_DRIVE        (ITEM_PIXIE_PLATE + 89)
 #define ITEM_SHOCK_DRIVE        (ITEM_PIXIE_PLATE + 90)
 
+#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
+
 //Fossils
 #define ITEM_COVER_FOSSIL       (ITEM_PIXIE_PLATE + 91)
 #define ITEM_PLUME_FOSSIL       (ITEM_PIXIE_PLATE + 92)
@@ -738,6 +743,8 @@
 #define ITEM_FAIRY_GEM          (ITEM_PIXIE_PLATE + 116)
 
 //Memories
+#define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
+
 #define ITEM_FIGHTING_MEMORY    (ITEM_PIXIE_PLATE + 117)
 #define ITEM_FLYING_MEMORY      (ITEM_PIXIE_PLATE + 118)
 #define ITEM_POISON_MEMORY      (ITEM_PIXIE_PLATE + 119)

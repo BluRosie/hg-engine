@@ -97,7 +97,8 @@
 #define GET_BOX_MON_NATURE_OVERRIDE(boxmon) (((GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
 
 
-#define POW_RND (32)
+#define IS_SPECIES_PARADOX_FORM(species) ((species >= SPECIES_GREAT_TUSK && species <= SPECIES_IRON_THORNS) || (species == SPECIES_ROARING_MOON) || (species == SPECIES_IRON_VALIANT) || (species == SPECIES_WALKING_WAKE) \
+    || (species == SPECIES_IRON_LEAVES) || (species >= SPECIES_GOUGING_FIRE && species <= SPECIES_IRON_CROWN))
 
 
 // personal narc fields
@@ -1354,6 +1355,30 @@ int LONG_CALL GetExpByGrowthRateAndLevel(int growthrate, u32 level);
  */
 void LONG_CALL RestoreBoxMonPP(struct BoxPokemon *boxMon);
 
+#define LEVEL_UP_LEARNSET_END 0xFFFF
+#define LEVEL_UP_LEARNSET_LEVEL_MASK 0xFFFF0000
+#define LEVEL_UP_LEARNSET_MOVE_MASK 0xFFFF
+#define LEVEL_UP_LEARNSET_LEVEL_SHIFT 16
+#define LEVEL_UP_LEARNSET_MOVE(move) (move & LEVEL_UP_LEARNSET_MOVE_MASK)
+#define LEVEL_UP_LEARNSET_LEVEL(move) ((move & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
+
+/**
+ *  @brief load the level up learnset to a u32 destination array.  account for form for this one
+ *
+ *  @param species species to load
+ *  @param form form to account for (adjust the species if necessary)
+ *  @param levelUpLearnset u32 array to store the level up learnset to
+ */
+void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset);
+
+/**
+ *  @brief try appending a move to a mon's learnset
+ *
+ *  @param mon PartyPokemon to try to give a move to
+ *  @param move move index to try to give to the mon
+ *  @return (u16)-1u if the mon's learnset is full, (u16)-2u if the mon already knows the move, and the move index if the mon had the move successfully added
+ */
+u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
 #define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))
 

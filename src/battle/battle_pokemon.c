@@ -65,14 +65,12 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_POISON, TYPE_GROUND, 0x05 },
     { TYPE_POISON, TYPE_ROCK, 0x05 },
     { TYPE_POISON, TYPE_GHOST, 0x05 },
-    { TYPE_POISON, TYPE_STEEL, 0x00 },
 
 #if FAIRY_TYPE_IMPLEMENTED == 1
     { TYPE_POISON, TYPE_FAIRY, 0x14 },
 #endif
 
     { TYPE_POISON, TYPE_GRASS, 0x14 },
-    { TYPE_GROUND, TYPE_FLYING, 0x00 },
     { TYPE_GROUND, TYPE_POISON, 0x14 },
     { TYPE_GROUND, TYPE_ROCK, 0x14 },
     { TYPE_GROUND, TYPE_BUG, 0x05 },
@@ -101,7 +99,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_BUG, TYPE_GRASS, 0x14 },
     { TYPE_BUG, TYPE_PSYCHIC, 0x14 },
     { TYPE_BUG, TYPE_DARK, 0x14 },
-    { TYPE_GHOST, TYPE_NORMAL, 0x00 },
     { TYPE_GHOST, TYPE_GHOST, 0x14 },
     { TYPE_GHOST, TYPE_PSYCHIC, 0x14 },
     { TYPE_GHOST, TYPE_DARK, 0x05 },
@@ -152,7 +149,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_GRASS, TYPE_GRASS, 0x05 },
     { TYPE_GRASS, TYPE_DRAGON, 0x05 },
     { TYPE_ELECTRIC, TYPE_FLYING, 0x14 },
-    { TYPE_ELECTRIC, TYPE_GROUND, 0x00 },
     { TYPE_ELECTRIC, TYPE_WATER, 0x14 },
     { TYPE_ELECTRIC, TYPE_GRASS, 0x05 },
     { TYPE_ELECTRIC, TYPE_ELECTRIC, 0x05 },
@@ -161,7 +157,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_PSYCHIC, TYPE_POISON, 0x14 },
     { TYPE_PSYCHIC, TYPE_STEEL, 0x05 },
     { TYPE_PSYCHIC, TYPE_PSYCHIC, 0x05 },
-    { TYPE_PSYCHIC, TYPE_DARK, 0x00 },
     { TYPE_ICE, TYPE_FLYING, 0x14 },
     { TYPE_ICE, TYPE_GROUND, 0x14 },
     { TYPE_ICE, TYPE_STEEL, 0x05 },
@@ -171,10 +166,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_ICE, TYPE_ICE, 0x05 },
     { TYPE_ICE, TYPE_DRAGON, 0x14 },
     { TYPE_DRAGON, TYPE_STEEL, 0x05 },
-
-#if FAIRY_TYPE_IMPLEMENTED == 1
-    { TYPE_DRAGON, TYPE_FAIRY, 0x00 },
-#endif
 
     { TYPE_DRAGON, TYPE_DRAGON, 0x14 },
     { TYPE_DARK, TYPE_FIGHTING, 0x05 },
@@ -186,6 +177,19 @@ u8 TypeEffectivenessTable[][3] =
 
     { TYPE_DARK, TYPE_PSYCHIC, 0x14 },
     { TYPE_DARK, TYPE_DARK, 0x05 },
+
+// AI bugfix: move all of the immune type interactions to the end of the table so that the
+// immunities properly unset the super effective move effect flag (and a lanturn with thunderbolt
+// isn't switched in on a gliscor over a raichu with ice beam)
+    { TYPE_POISON, TYPE_STEEL, 0x00 },
+    { TYPE_GROUND, TYPE_FLYING, 0x00 },
+    { TYPE_GHOST, TYPE_NORMAL, 0x00 },
+    { TYPE_ELECTRIC, TYPE_GROUND, 0x00 },
+    { TYPE_PSYCHIC, TYPE_DARK, 0x00 },
+#if FAIRY_TYPE_IMPLEMENTED == 1
+    { TYPE_DRAGON, TYPE_FAIRY, 0x00 },
+#endif
+
     { 0xFE, 0xFE, 0x00 },
     { TYPE_NORMAL, TYPE_GHOST, 0x00 },
     { TYPE_FIGHTING, TYPE_GHOST, 0x00 },
@@ -466,7 +470,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
          && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
          && (sp->battlemon[sp->client_work].form_no < 2)
-         && (sp->relic_song_tracker & No2Bit(sp->client_work))) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->relic_song_tracker & No2Bit(sp->client_work)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->multi_hit_count <= 1))
         {
             sp->relic_song_tracker &= ~No2Bit(sp->client_work);
             sp->battlemon[sp->client_work].form_no ^= 1;
@@ -1256,6 +1261,9 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
     sp->battlemon[client].air_ballon_flag = 0;
+    sp->battlemon[client].ability_activated_flag = 0;
+    sp->battlemon[client].parental_bond_flag = 0;
+    sp->battlemon[client].parental_bond_is_active = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
 }
