@@ -433,3 +433,5 @@ arm9 MonTryLearnMoveOnLevelUp 02071534 3
 
 # edit the playcry command to potentially take form into account
 0007 AnimCmd_PlayCryEdit_hook 0221F854 0
+
+arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
