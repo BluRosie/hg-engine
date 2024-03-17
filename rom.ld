@@ -583,3 +583,9 @@ LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
 TryAppendMonMove = 0x0207137C | 1;
 
 BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;
+
+Party_GetMonByIndex = 0x02074644 | 1;
+Mon_UpdateRotomForm = 0x02071EC0 | 1;
+Mon_UpdateShayminForm = 0x02071D6C | 1;
+Daycare_GetBothBoxMonsPtr = 0x0206C1C8 | 1;
+

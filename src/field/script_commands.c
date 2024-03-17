@@ -127,3 +127,85 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     return FALSE;
 }
+
+BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
+    struct PartyPokemon *mon;
+
+    FieldSystem *fieldSystem = ctx->fsys;
+    u16 party_slot = ScriptGetVar(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    void *party = SaveData_GetPlayerPartyPtr(fieldSystem->savedata);
+    mon = Party_GetMonByIndex(party, party_slot);
+
+    *ret_ptr = 0;
+
+    if (party_slot == 0xFF) {
+        return FALSE;
+    }
+
+    u32 held_item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+    if (held_item == ITEM_GRISEOUS_ORB) {
+        BAG_DATA *bag = Sav2_Bag_get(fieldSystem->savedata);
+        if (!Bag_AddItem(bag, ITEM_GRISEOUS_ORB, 1, 11)) {
+            *ret_ptr = 0xFF;
+            return FALSE;
+        }
+
+        u32 no_item = ITEM_NONE;
+        SetMonData(mon, MON_DATA_HELD_ITEM, &no_item);
+    }
+
+    s32 form = GetMonData(mon, MON_DATA_FORM, NULL);
+    if (form > 0) {
+        u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+        switch (species) {
+            case SPECIES_GIRATINA:
+                PokeParaGiratinaFormChange(mon);
+                break;
+            case SPECIES_ROTOM:
+                Mon_UpdateRotomForm(mon, 0, 0);
+                break;
+            case SPECIES_SHAYMIN:
+                Mon_UpdateShayminForm(mon, 0);
+                break;
+        }
+    }
+
+    // Begin custom logic for Mirror Herb
+    if (GetMonData(mon, MON_DATA_HELD_ITEM, NULL) == ITEM_MIRROR_HERB) {
+        // Get the other mon in the Daycare
+        Daycare *daycare = Save_Daycare_Get(SaveBlock2_get());
+        struct BoxPokemon *boxmon;
+
+        boxmon = Daycare_GetBoxMonI(daycare, 0);
+
+        // Check if there is an empty moveslot
+        u8 potentialOverrideMoveSlot;
+        for (potentialOverrideMoveSlot = 0; potentialOverrideMoveSlot < 4; potentialOverrideMoveSlot++) {
+            if (GetMonData(mon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, NULL) == MOVE_NONE) {
+                break;
+            }
+        }
+
+        if (potentialOverrideMoveSlot != 4 && GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL) != SPECIES_NONE) {
+            u16 baby_egg_moves[16];
+            u8 numEggMoves = LoadEggMoves(mon, baby_egg_moves);
+
+            u32 move1 = GetBoxMonData(boxmon, MON_DATA_MOVE1, NULL);
+            u32 move2 = GetBoxMonData(boxmon, MON_DATA_MOVE2, NULL);
+            u32 move3 = GetBoxMonData(boxmon, MON_DATA_MOVE3, NULL);
+            u32 move4 = GetBoxMonData(boxmon, MON_DATA_MOVE4, NULL);
+
+            for (u8 i = 0; i < numEggMoves; i++) {
+                if (move1 == baby_egg_moves[i] || move2 == baby_egg_moves[i] || move3 == baby_egg_moves[i] || move4 == baby_egg_moves[i]) {
+                    u32 newMove = baby_egg_moves[i];
+                    SetMonData(mon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
+                    u32 pp = GetMonData(mon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
+                    SetMonData(mon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
+                    break;
+                }
+            }
+        }
+    }
+    return FALSE;
+}
