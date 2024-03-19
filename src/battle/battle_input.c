@@ -727,6 +727,7 @@ u16 TerrainPlatformPalettes[][3] =
 BattleBGStorage NewBattleBgTable[] =
 {
     [BATTLE_BG_ELECTRIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 354, .hasDayNightPals = FALSE},
+    [BATTLE_BG_MISTY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 356, .hasDayNightPals = FALSE},
 };
 
 
