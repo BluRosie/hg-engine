@@ -27,7 +27,7 @@ a010_130:
     resetsprite 1
     resetsprite 2
     resetsprite 3
-    checkturn _00C8, _0158
+    checkturn _0158, _0158
     end
 _00C8:
     loop 2

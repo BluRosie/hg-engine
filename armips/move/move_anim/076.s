@@ -27,7 +27,7 @@ a010_076:
     resetsprite 1
     resetsprite 2
     resetsprite 3
-    checkturn _00C8, _0174
+    checkturn _0174, _0174
     end
 _00C8:
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
