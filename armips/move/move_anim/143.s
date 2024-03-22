@@ -10,7 +10,7 @@
 .create "build/move/move_anim/0_143", 0
 
 a010_143:
-    checkturn _0010, _0460
+    checkturn _0010, _0010
     end
 _0010:
     initspriteresource
@@ -31,7 +31,7 @@ _0010:
     resetsprite 2
     resetsprite 3
     addparticle 0, 2, 3
-    jumpifplayerattack _0204
+    jumpifplayerattack _0460
     callfunction 33, 5, 0, 1, 0, 10, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 2, 0, 1, 0, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 4, 0, 1, 0, 10, 30, "NaN", "NaN", "NaN", "NaN"

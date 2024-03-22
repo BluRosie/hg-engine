@@ -1224,11 +1224,11 @@ movedata MOVE_RAZOR_LEAF, "Razor Leaf"
     movedescription MOVE_RAZOR_LEAF, "Sharp-edged leaves\nare launched to slash\nat the foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_SOLAR_BEAM, "Solar Beam"
-    battleeffect 151
+    battleeffect 151 ;; update effect to recharge on miss
     pss SPLIT_SPECIAL
-    basepower 120
+    basepower 100
     type TYPE_GRASS
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 0
     target MOVE_TARGET_SELECTED
@@ -2088,12 +2088,12 @@ movedata MOVE_SWIFT, "Swift"
     movedescription MOVE_SWIFT, "Star-shaped rays are\nshot at the foe.\nThis attack never\nmisses.\n"
 
 movedata MOVE_SKULL_BASH, "Skull Bash"
-    battleeffect 145
+    battleeffect 145 ;; update effect to lower defense on miss
     pss SPLIT_PHYSICAL
-    basepower 130
+    basepower 100
     type TYPE_NORMAL
-    accuracy 100
-    pp 10
+    accuracy 95
+    pp 15
     effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
@@ -2296,12 +2296,12 @@ movedata MOVE_LOVELY_KISS, "Lovely Kiss"
     movedescription MOVE_LOVELY_KISS, "With a scary face, the\nuser tries to force a\nkiss on the foe. If it\nsucceeds, the target\nfalls asleep."
 
 movedata MOVE_SKY_ATTACK, "Sky Attack"
-    battleeffect 75
+    battleeffect 75 ;;update effect
     pss SPLIT_PHYSICAL
-    basepower 140
+    basepower 100
     type TYPE_FLYING
     accuracy 90
-    pp 5
+    pp 10
     effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
@@ -8906,10 +8906,10 @@ movedata MOVE_FIERY_DANCE, "Fiery Dance"
 movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
     battleeffect 75
     pss SPLIT_SPECIAL
-    basepower 140
+    basepower 100
     type TYPE_ICE
     accuracy 90
-    pp 5
+    pp 10
     effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
@@ -8922,10 +8922,10 @@ movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
 movedata MOVE_ICE_BURN, "Ice Burn"
     battleeffect 75
     pss SPLIT_SPECIAL
-    basepower 140
+    basepower 100
     type TYPE_ICE
     accuracy 90
-    pp 5
+    pp 10
     effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
@@ -10763,9 +10763,9 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap"
 movedata MOVE_SOLAR_BLADE, "Solar Blade"
     battleeffect 151
     pss SPLIT_PHYSICAL
-    basepower 125
+    basepower 100
     type TYPE_GRASS
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 0
     target MOVE_TARGET_SELECTED
