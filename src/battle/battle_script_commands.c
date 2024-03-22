@@ -569,6 +569,8 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
     u8 buf[64];
 #endif //DEBUG_BATTLE_SCRIPT_COMMANDS
 
+    gBattleSystem = bw; // constantly update bw even tho it really only need be done once
+
     do {
         command = sp->SkillSeqWork[sp->skill_seq_no];
 
@@ -2686,9 +2688,6 @@ BOOL btl_scr_cmd_EB_ifsoundmove(void *bw UNUSED, struct BattleStruct *sp) {
  */
 BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
-
-    // update gBattleSystem to whatever it's about to need
-    gBattleSystem = bw;
 
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);

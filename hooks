@@ -430,3 +430,6 @@ arm9 CalcShininessByOtIdAndPersonality 02070068 2
 
 # evolution level up moves
 arm9 MonTryLearnMoveOnLevelUp 02071534 3
+
+# edit the playcry command to potentially take form into account
+0007 AnimCmd_PlayCryEdit_hook 0221F854 0
