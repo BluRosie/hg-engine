@@ -9,10 +9,11 @@
 
 .create "build/move/battle_eff_seq/0_151", 0
 
-a030_151:
-    changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000001D
+a030_145:
+    abilitycheck 0x1, BATTLER_ATTACKER, ABILITY_RECKLESS, _0024
+    changevar VAR_OP_SET, VAR_DAMAGE_MULT, 0xC
 _0024:
-    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS2, 0x1000
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x1000
     critcalc
     damagecalc
     endscript
