@@ -10,7 +10,7 @@
 .create "build/move/move_anim/0_143", 0
 
 a010_143:
-    checkturn _0010, _0010
+    checkturn _0460, _0460
     end
 _0010:
     initspriteresource
