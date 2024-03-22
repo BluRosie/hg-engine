@@ -1228,9 +1228,9 @@ movedata MOVE_RAZOR_LEAF, "Razor Leaf"
 movedata MOVE_SOLAR_BEAM, "Solar Beam"
     battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS
     pss SPLIT_SPECIAL
-    basepower 120
+    basepower 100
     type TYPE_GRASS
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 0
     target MOVE_TARGET_SELECTED
@@ -2092,10 +2092,10 @@ movedata MOVE_SWIFT, "Swift"
 movedata MOVE_SKULL_BASH, "Skull Bash"
     battleeffect MOVE_EFFECT_CHARGE_TURN_DEF_UP
     pss SPLIT_PHYSICAL
-    basepower 130
+    basepower 100
     type TYPE_NORMAL
-    accuracy 100
-    pp 10
+    accuracy 95
+    pp 15
     effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
@@ -2300,10 +2300,10 @@ movedata MOVE_LOVELY_KISS, "Lovely Kiss"
 movedata MOVE_SKY_ATTACK, "Sky Attack"
     battleeffect MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH
     pss SPLIT_PHYSICAL
-    basepower 140
+    basepower 100
     type TYPE_FLYING
     accuracy 90
-    pp 5
+    pp 10
     effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
@@ -8908,10 +8908,10 @@ movedata MOVE_FIERY_DANCE, "Fiery Dance"
 movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
     battleeffect MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH
     pss SPLIT_SPECIAL
-    basepower 140
+    basepower 100
     type TYPE_ICE
     accuracy 90
-    pp 5
+    pp 10
     effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
@@ -8924,10 +8924,10 @@ movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
 movedata MOVE_ICE_BURN, "Ice Burn"
     battleeffect MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH
     pss SPLIT_SPECIAL
-    basepower 140
+    basepower 100
     type TYPE_ICE
     accuracy 90
-    pp 5
+    pp 10
     effectchance 30
     target MOVE_TARGET_SELECTED
     priority 0
@@ -10765,9 +10765,9 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap"
 movedata MOVE_SOLAR_BLADE, "Solar Blade"
     battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS
     pss SPLIT_PHYSICAL
-    basepower 125
+    basepower 100
     type TYPE_GRASS
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 0
     target MOVE_TARGET_SELECTED
