@@ -1,6 +1,6 @@
 	.text
 	.align 1
-    
+
     .force_thumb
     .syntax unified
     .global __aeabi_idiv
@@ -117,7 +117,7 @@ memset:
     blx 0x020E5B44
     pop {pc}
     .size memset, . - memset
-    
+
     .force_thumb
     .syntax unified
     .global __gnu_thumb1_case_shi

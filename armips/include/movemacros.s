@@ -1,10 +1,10 @@
-.macro movedata,movenum,name
+.macro movedatalongname,movenum,name,fullname
 
     movename movenum, name
     movenamecaps movenum, name
-    userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} used\\n" + name + "!"
-    userusedmovename 3*movenum+1, "The wild {STRVAR_1 1, 0, 0} used\\n" + name + "!"
-    userusedmovename 3*movenum+2, "The foe’s {STRVAR_1 1, 0, 0} used\\n" + name + "!"
+    userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
+    userusedmovename 3*movenum+1, "The wild {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
+    userusedmovename 3*movenum+2, "The opposing {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
 
 	.if movenum < 10
 		.create "build/a011/move_00" + tostring(movenum),0
@@ -13,7 +13,11 @@
 	.else
 		.create "build/a011/move_" + tostring(movenum),0
 	.endif
-	
+
+.endmacro
+
+.macro movedata,movenum,name
+    movedatalongname movenum, name, name
 .endmacro
 
 .macro movedatanoname, movenum
@@ -78,7 +82,7 @@
 
 .macro terminatedata
 	.halfword 0
-	
+
 	.close
 .endmacro
 

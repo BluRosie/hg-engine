@@ -809,7 +809,7 @@ heightentry SPECIES_ROCKRUFF, 0, 0, 0, 0
 heightentry SPECIES_LYCANROC, 8, 8, 0, 0
 heightentry SPECIES_WISHIWASHI, 8, 8, 0, 0
 heightentry SPECIES_MAREANIE, 8, 8, 0, 0
-heightentry SPECIES_TOXAPEX, 0, 0, 0, 0
+heightentry SPECIES_TOXAPEX, 3, 3, 0, 0
 heightentry SPECIES_MUDBRAY, 3, 3, 0, 0
 heightentry SPECIES_MUDSDALE, 3, 3, 0, 0
 heightentry SPECIES_DEWPIDER, 0, 0, 0, 0
@@ -833,7 +833,7 @@ heightentry SPECIES_GOLISOPOD, 0, 0, 0, 0
 heightentry SPECIES_SANDYGAST, 0, 0, 0, 0
 heightentry SPECIES_PALOSSAND, 0, 0, 0, 0
 heightentry SPECIES_PYUKUMUKU, 0, 0, 0, 0
-heightentry SPECIES_TYPE_NULL, 0, 0, 0, 0
+heightentry SPECIES_TYPE_NULL, 3, 3, 0, 0
 heightentry SPECIES_SILVALLY, 3, 3, 0, 0
 heightentry SPECIES_MINIOR, 3, 3, 0, 0
 heightentry SPECIES_KOMALA, 0, 0, 15, 15
@@ -949,17 +949,17 @@ heightentry SPECIES_DURALUDON, 3, 3, 0, 0
 heightentry SPECIES_DREEPY, 0, 0, 0, 0
 heightentry SPECIES_DRAKLOAK, 0, 0, 0, 0
 heightentry SPECIES_DRAGAPULT, 0, 0, 0, 0
-heightentry SPECIES_ZACIAN, 0, 0, 0, 0
+heightentry SPECIES_ZACIAN, 3, 3, 0, 0
 heightentry SPECIES_ZAMAZENTA, 0, 0, 0, 0
 heightentry SPECIES_ETERNATUS, 3, 3, 0, 0
 heightentry SPECIES_KUBFU, 3, 3, 0, 0
 heightentry SPECIES_URSHIFU, 3, 3, 0, 0
 heightentry SPECIES_ZARUDE, 0, 0, 0, 0
 heightentry SPECIES_REGIELEKI, 0, 0, 0, 0
-heightentry SPECIES_REGIDRAGO, 0, 0, 0, 0
+heightentry SPECIES_REGIDRAGO, 3, 3, 0, 0
 heightentry SPECIES_GLASTRIER, 0, 0, 0, 0
 heightentry SPECIES_SPECTRIER, 0, 0, 0, 0
-heightentry SPECIES_CALYREX, 0, 0, 0, 0
+heightentry SPECIES_CALYREX, 3, 3, 0, 0
 
 heightentry SPECIES_WYRDEER, 0, 0, 0, 0
 heightentry SPECIES_KLEAVOR, 0, 0, 0, 0
@@ -1081,7 +1081,7 @@ heightentry SPECIES_OKIDOGI, 0, 0, 0, 0
 heightentry SPECIES_MUNKIDORI, 0, 0, 0, 0
 heightentry SPECIES_FEZANDIPITI, 0, 0, 0, 0
 heightentry SPECIES_OGERPON, 0, 0, 0, 0
-heightentry SPECIES_ARCHALUDON, 0, 0, 0, 0
+heightentry SPECIES_ARCHALUDON, 3, 3, 0, 0
 heightentry SPECIES_HYDRAPPLE, 0, 0, 0, 0
 heightentry SPECIES_GOUGING_FIRE, 0, 0, 0, 0
 heightentry SPECIES_RAGING_BOLT, 0, 0, 0, 0
@@ -1161,8 +1161,8 @@ heightentry SPECIES_EXEGGUTOR_ALOLAN, 3, 3, 0, 0
 heightentry SPECIES_MAROWAK_ALOLAN, 9, 9, 0, 0
 heightentry SPECIES_MEOWTH_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_PONYTA_GALARIAN, 3, 3, 0, 0
-heightentry SPECIES_RAPIDASH_GALARIAN, 0, 0, 0, 0
-heightentry SPECIES_SLOWPOKE_GALARIAN, 0, 0, 0, 0
+heightentry SPECIES_RAPIDASH_GALARIAN, 3, 3, 0, 0
+heightentry SPECIES_SLOWPOKE_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_SLOWBRO_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_FARFETCHD_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_WEEZING_GALARIAN, 3, 3, 0, 0
@@ -1348,7 +1348,7 @@ heightentry SPECIES_FRILLISH_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_JELLICENT_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_PYROAR_FEMALE, 4, 4, 0, 0
 heightentry SPECIES_MEOWSTIC_FEMALE, 3, 3, 0, 0
-heightentry SPECIES_INDEEDEE_FEMALE, 0, 0, 0, 0
+heightentry SPECIES_INDEEDEE_FEMALE, 3, 3, 0, 0
 heightentry SPECIES_BASCULEGION_FEMALE, 12, 12, 0, 0
 
 heightentry SPECIES_MAUSHOLD_FAMILY_OF_THREE, 0, 0, 0, 0
@@ -1377,4 +1377,4 @@ heightentry SPECIES_OGERPON_WELLSPRING_MASK, 0, 0, 0, 0
 heightentry SPECIES_OGERPON_HEARTHFLAME_MASK, 0, 0, 0, 0
 heightentry SPECIES_OGERPON_CORNERSTONE_MASK, 0, 0, 0, 0
 heightentry SPECIES_TERAPAGOS_STELLAR, 0, 0, 0, 0
-heightentry SPECIES_URSALUNA_BLOODMOON, 0, 0, 0, 0
+heightentry SPECIES_URSALUNA_BLOODMOON, 3, 3, 0, 0

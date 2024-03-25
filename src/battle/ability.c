@@ -760,54 +760,66 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no = sp->turn_order[i];
-                    if ((sp->battlemon[client_no].frisk_flag == 0)
-                        && (sp->battlemon[client_no].hp)
-                        && (GetBattlerAbility(sp, client_no) == ABILITY_FRISK))
+                    if ((sp->battlemon[client_no].frisk_flag == FALSE)
+                     && (sp->battlemon[client_no].hp)
+                     && (GetBattlerAbility(sp, client_no) == ABILITY_FRISK))
                     {
-                        sp->battlemon[client_no].frisk_flag=1;
                         if(BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
                         {
+                            int def[2];
+
+                            def[0] = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_RIGHT);
+                            def[1] = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_LEFT);
+
+                            if ((sp->battlemon[def[0]].hp) && (sp->battlemon[def[0]].item)
+                                && (sp->battlemon[def[1]].hp) && (sp->battlemon[def[1]].item)) // if both mons are alive, check one randomly
                             {
-                                int def[2];
+                                u32 client = def[BattleRand(bw) & 1];
+                                sp->item_work = sp->battlemon[client].item;
+                                sp->defence_client = client;
+                                sp->frisk_tracker |= No2Bit(client);
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            }
+                            else if ((sp->battlemon[def[0]].hp) && (sp->battlemon[def[0]].item))
+                            {
+                                sp->item_work = sp->battlemon[def[0]].item;
+                                sp->frisk_tracker |= No2Bit(def[0]);
+                                sp->defence_client = def[0];
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            }
+                            else if ((sp->battlemon[def[1]].hp) && (sp->battlemon[def[1]].item))
+                            {
+                                sp->item_work = sp->battlemon[def[1]].item;
+                                sp->frisk_tracker |= No2Bit(def[1]);
+                                sp->defence_client = def[1];
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            }
 
-                                def[0] = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_RIGHT);
-                                def[1] = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_LEFT);
-
-                                if ((sp->battlemon[def[0]].hp) && (sp->battlemon[def[0]].item)
-                                    && (sp->battlemon[def[1]].hp) && (sp->battlemon[def[1]].item)) // if both mons are alive, check one randomly
-                                {
-                                    sp->item_work = sp->battlemon[def[BattleRand(bw) & 1]].item;
-                                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                }
-                                else if ((sp->battlemon[def[0]].hp) && (sp->battlemon[def[0]].item))
-                                {
-                                    sp->item_work = sp->battlemon[def[0]].item;
-                                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                }
-                                else if ((sp->battlemon[def[1]].hp) && (sp->battlemon[def[1]].item))
-                                {
-                                    sp->item_work = sp->battlemon[def[1]].item;
-                                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                }
+                            if (sp->frisk_tracker & No2Bit(def[0]) && sp->frisk_tracker & No2Bit(def[1])) // finally set frisk flag to true
+                            {
+                                sp->battlemon[client_no].frisk_flag = TRUE;
+                                sp->frisk_tracker = 0;
                             }
                         }
                         else
                         {
+                            sp->battlemon[client_no].frisk_flag = TRUE;
                             if ((sp->battlemon[client_no^1].hp) && (sp->battlemon[client_no^1].item)) // xor 1 will always result in opponent in single battle
                             {
                                 sp->item_work = sp->battlemon[client_no^1].item;
+                                sp->defence_client = client_no^1;
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             }
                         }
                     }
-                    if(ret == SWITCH_IN_CHECK_MOVE_SCRIPT)
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT)
                     {
                         sp->client_work = client_no;
                         scriptnum = SUB_SEQ_FRISK;
                         break;
                     }
                 }
-                if(i == client_set_max)
+                if (i == client_set_max)
                 {
                     sp->switch_in_check_seq_no++;
                 }
