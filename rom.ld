@@ -568,3 +568,16 @@ CopyU16ArrayToString = 0x020269A0 | 1;
 CopyStringToU16Array = 0x02026A68 | 1;
 CheckMoveCallsOtherMove = 0x02252698 | 1;
 StruggleCheck = 0x022517EC | 1;
+
+GfGfxLoader_LoadCharData = 0x020078F0 | 1;
+PaletteData_LoadNarc = 0x02003200 | 1;
+Ground_ActorResourceSet = 0x02265FD4 | 1;
+BattleWorkGroundBGChg = 0x0223B874 | 1;
+GrabTimeOfDayFileAdjustment = 0x0223B52C | 1;
+
+gAnimScrTable = 0x02234DE8;
+DrawFrameAndWindow2	= 0x0200E998 | 1;
+AddWindowParameterized = 0x0201D40C | 1;
+
+LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
+TryAppendMonMove = 0x0207137C | 1;
