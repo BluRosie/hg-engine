@@ -9052,11 +9052,16 @@ levelup SPECIES_PIPLUP
     learnset MOVE_MOONGEIST_BEAM, 10
     learnset MOVE_STEAM_ERUPTION, 11
     learnset MOVE_BOLT_STRIKE, 12
-    learnset MOVE_SUNSTEEL_STRIKE, 13
-    learnset MOVE_WHIRLPOOL, 32
-    learnset MOVE_MIST, 36
-    learnset MOVE_DRILL_PECK, 39
-    learnset MOVE_HYDRO_PUMP, 43
+    learnset MOVE_BLUE_FLARE, 13
+    learnset MOVE_LANDS_WRATH, 14
+    learnset MOVE_CORE_ENFORCER, 15
+    learnset MOVE_THOUSAND_WAVES, 16
+    learnset MOVE_BEHEMOTH_BLADE, 17
+    learnset MOVE_BEHEMOTH_BASH, 18
+    learnset MOVE_BLEAKWIND_STORM, 19
+    learnset MOVE_SANDSEAR_STORM, 20
+    learnset MOVE_WILDBOLT_STORM, 21
+    learnset MOVE_SPRINGTIDE_STORM, 22
     terminatelearnset
 
 

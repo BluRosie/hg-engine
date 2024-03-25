@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_240", 0
-
+// Rain Dance
 a010_240:
     initspriteresource
     loadspriteresource 0

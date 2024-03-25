@@ -9906,7 +9906,7 @@ movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
     effectchance 0
     target MOVE_TARGET_BOTH
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9922,7 +9922,7 @@ movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     effectchance 0
     target MOVE_TARGET_BOTH
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -11490,7 +11490,7 @@ movedata MOVE_MOONGEIST_BEAM, "Moongeist Beam"
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12562,7 +12562,7 @@ movedata MOVE_BEHEMOTH_BLADE, "Behemoth Blade"
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13352,7 +13352,7 @@ movedata MOVE_STONE_AXE, "Stone Axe"
     terminatedata
     movedescription MOVE_STONE_AXE, "---"
 
-movedata MOVE_SPRINGTIDE_STORM, "Springtide Storm"
+movedatalongname MOVE_SPRINGTIDE_STORM, "Springtide Storm"
     battleeffect 68
     pss SPLIT_SPECIAL
     basepower 100
@@ -13592,7 +13592,7 @@ movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
     terminatedata
     movedescription MOVE_CEASELESS_EDGE, "---"
 
-movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
+movedatalongname MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
     battleeffect 70
     pss SPLIT_SPECIAL
     basepower 100
@@ -13602,13 +13602,13 @@ movedata MOVE_BLEAKWIND_STORM, "Bleakwind Storm"
     effectchance 0
     target MOVE_TARGET_BOTH
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
     movedescription MOVE_BLEAKWIND_STORM, "---"
 
-movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
+movedatalongname MOVE_WILDBOLT_STORM, "Wildbolt Storm"
     battleeffect 6
     pss SPLIT_SPECIAL
     basepower 100
@@ -13618,13 +13618,13 @@ movedata MOVE_WILDBOLT_STORM, "Wildbolt Storm"
     effectchance 0
     target MOVE_TARGET_BOTH
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
     movedescription MOVE_WILDBOLT_STORM, "---"
 
-movedata MOVE_SANDSEAR_STORM, "Sandsear Storm"
+movedatalongname MOVE_SANDSEAR_STORM, "Sandsear Storm"
     battleeffect 4
     pss SPLIT_SPECIAL
     basepower 100
@@ -13634,7 +13634,7 @@ movedata MOVE_SANDSEAR_STORM, "Sandsear Storm"
     effectchance 0
     target MOVE_TARGET_BOTH
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

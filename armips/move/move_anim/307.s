@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_307", 0
-
+//blast burn
 a010_307:
     jumpifside 0, _0014, _0FD4
     end
