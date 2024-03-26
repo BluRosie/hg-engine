@@ -129,13 +129,13 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 }
 
 BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
-    struct PartyPokemon *mon;
+    struct PartyPokemon *partyMon;
 
     FieldSystem *fieldSystem = ctx->fsys;
     u16 party_slot = ScriptGetVar(ctx);
     u16 *ret_ptr = ScriptGetVarPointer(ctx);
     void *party = SaveData_GetPlayerPartyPtr(fieldSystem->savedata);
-    mon = Party_GetMonByIndex(party, party_slot);
+    partyMon = Party_GetMonByIndex(party, party_slot);
 
     *ret_ptr = 0;
 
@@ -143,7 +143,7 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
         return FALSE;
     }
 
-    u32 held_item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+    u32 held_item = GetMonData(partyMon, MON_DATA_HELD_ITEM, NULL);
     if (held_item == ITEM_GRISEOUS_ORB) {
         BAG_DATA *bag = Sav2_Bag_get(fieldSystem->savedata);
         if (!Bag_AddItem(bag, ITEM_GRISEOUS_ORB, 1, 11)) {
@@ -152,57 +152,149 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
         }
 
         u32 no_item = ITEM_NONE;
-        SetMonData(mon, MON_DATA_HELD_ITEM, &no_item);
+        SetMonData(partyMon, MON_DATA_HELD_ITEM, &no_item);
     }
 
-    s32 form = GetMonData(mon, MON_DATA_FORM, NULL);
+    s32 form = GetMonData(partyMon, MON_DATA_FORM, NULL);
     if (form > 0) {
-        u32 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+        u32 species = GetMonData(partyMon, MON_DATA_SPECIES, NULL);
         switch (species) {
             case SPECIES_GIRATINA:
-                PokeParaGiratinaFormChange(mon);
+                PokeParaGiratinaFormChange(partyMon);
                 break;
             case SPECIES_ROTOM:
-                Mon_UpdateRotomForm(mon, 0, 0);
+                Mon_UpdateRotomForm(partyMon, 0, 0);
                 break;
             case SPECIES_SHAYMIN:
-                Mon_UpdateShayminForm(mon, 0);
+                Mon_UpdateShayminForm(partyMon, 0);
                 break;
         }
     }
 
-    // Begin custom logic for Mirror Herb
-    if (GetMonData(mon, MON_DATA_HELD_ITEM, NULL) == ITEM_MIRROR_HERB) {
-        // Get the other mon in the Daycare
-        Daycare *daycare = Save_Daycare_Get(SaveBlock2_get());
-        struct BoxPokemon *boxmon;
+    // Get the other mon in the Daycare
+    Daycare *daycare = Save_Daycare_Get(SaveBlock2_get());
+    struct BoxPokemon *daycareMon;
 
-        boxmon = Daycare_GetBoxMonI(daycare, 0);
+    daycareMon = Daycare_GetBoxMonI(daycare, 0);
 
-        // Check if there is an empty moveslot
+    // Only perform custom logic if there is already a deposited mon
+    if (GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL) != SPECIES_NONE) {
+        u32 inheriterMoves[4];
+        u32 donorMoves[4];
+        u16 temp_egg_moves[16];
+        u16 baby_egg_moves[16];
         u8 potentialOverrideMoveSlot;
-        for (potentialOverrideMoveSlot = 0; potentialOverrideMoveSlot < 4; potentialOverrideMoveSlot++) {
-            if (GetMonData(mon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, NULL) == MOVE_NONE) {
-                break;
+        u8 numEggMoves;
+        u32 newMove;
+        u32 pp;
+        u8 buf[64];
+
+        // Begin custom logic for Mirror Herb
+        if (GetMonData(partyMon, MON_DATA_HELD_ITEM, NULL) == ITEM_MIRROR_HERB || GetMonData(partyMon, MON_DATA_SPECIES, NULL) == GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL)) {
+            // sprintf(buf, "Party mon logic.\n");
+            // debugsyscall(buf);
+
+            // Check if there is an empty moveslot
+            for (potentialOverrideMoveSlot = 0; potentialOverrideMoveSlot < 4; potentialOverrideMoveSlot++) {
+                if (GetMonData(partyMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, NULL) == MOVE_NONE) {
+                    break;
+                }
+            }
+
+            // sprintf(buf, "potentialOverrideMoveSlot: %d.\n", potentialOverrideMoveSlot);
+            // debugsyscall(buf);
+
+            for (u8 i = 0; i < 4; i++) {
+                inheriterMoves[i] = GetMonData(partyMon, MON_DATA_MOVE1 + i, NULL);
+                // sprintf(buf, "inheriterMoves %d: %d.\n", i, inheriterMoves[i]);
+                // debugsyscall(buf);
+            }
+
+            if (potentialOverrideMoveSlot != 4) {
+                numEggMoves = LoadEggMoves(partyMon, temp_egg_moves);
+
+                u32 numAvailableToInheritMoves = 0;
+                for (u8 i = 0; i < numEggMoves; i++) {
+                    if (temp_egg_moves[i] != inheriterMoves[0] && temp_egg_moves[i] != inheriterMoves[1] && temp_egg_moves[i] != inheriterMoves[2] && temp_egg_moves[i] != inheriterMoves[3]) {
+                        baby_egg_moves[numAvailableToInheritMoves] = temp_egg_moves[i];
+
+                        // sprintf(buf, "baby_egg_moves %d: %d.\n", numAvailableToInheritMoves, baby_egg_moves[numAvailableToInheritMoves]);
+                        // debugsyscall(buf);
+
+                        numAvailableToInheritMoves++;
+                    }
+                }
+
+                donorMoves[0] = GetBoxMonData(daycareMon, MON_DATA_MOVE1, NULL);
+                donorMoves[1] = GetBoxMonData(daycareMon, MON_DATA_MOVE2, NULL);
+                donorMoves[2] = GetBoxMonData(daycareMon, MON_DATA_MOVE3, NULL);
+                donorMoves[3] = GetBoxMonData(daycareMon, MON_DATA_MOVE4, NULL);
+
+                for (u8 i = 0; i < numAvailableToInheritMoves; i++) {
+                    if (donorMoves[0] == baby_egg_moves[i] || donorMoves[1] == baby_egg_moves[i] || donorMoves[2] == baby_egg_moves[i] || donorMoves[3] == baby_egg_moves[i]) {
+                        newMove = baby_egg_moves[i];
+                        SetMonData(partyMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
+                        pp = GetMonData(partyMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
+                        SetMonData(partyMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
+                        break;
+                    }
+                }
             }
         }
 
-        if (potentialOverrideMoveSlot != 4 && GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL) != SPECIES_NONE) {
-            u16 baby_egg_moves[16];
-            u8 numEggMoves = LoadEggMoves(mon, baby_egg_moves);
+        if (GetBoxMonData(daycareMon, MON_DATA_HELD_ITEM, NULL) == ITEM_MIRROR_HERB || GetMonData(partyMon, MON_DATA_SPECIES, NULL) == GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL)) {
+            // sprintf(buf, "Party mon logic.\n");
+            // debugsyscall(buf);
 
-            u32 move1 = GetBoxMonData(boxmon, MON_DATA_MOVE1, NULL);
-            u32 move2 = GetBoxMonData(boxmon, MON_DATA_MOVE2, NULL);
-            u32 move3 = GetBoxMonData(boxmon, MON_DATA_MOVE3, NULL);
-            u32 move4 = GetBoxMonData(boxmon, MON_DATA_MOVE4, NULL);
-
-            for (u8 i = 0; i < numEggMoves; i++) {
-                if (move1 == baby_egg_moves[i] || move2 == baby_egg_moves[i] || move3 == baby_egg_moves[i] || move4 == baby_egg_moves[i]) {
-                    u32 newMove = baby_egg_moves[i];
-                    SetMonData(mon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
-                    u32 pp = GetMonData(mon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
-                    SetMonData(mon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
+            // Check if there is an empty moveslot
+            for (potentialOverrideMoveSlot = 0; potentialOverrideMoveSlot < 4; potentialOverrideMoveSlot++) {
+                if (GetBoxMonData(daycareMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, NULL) == MOVE_NONE) {
                     break;
+                }
+            }
+
+            // sprintf(buf, "potentialOverrideMoveSlot: %d.\n", potentialOverrideMoveSlot);
+            // debugsyscall(buf);
+
+            for (u8 i = 0; i < 4; i++) {
+                inheriterMoves[i] = GetMonData(partyMon, MON_DATA_MOVE1 + i, NULL);
+                // sprintf(buf, "inheriterMoves %d: %d.\n", i, inheriterMoves[i]);
+                // debugsyscall(buf);
+            }
+
+            if (potentialOverrideMoveSlot != 4) {
+                // Evil code to convert a PartyPokemon to a BoxPokemon
+                struct PartyPokemon *tempMon = AllocMonZeroed(11);
+                ZeroMonData(tempMon);
+                PokeParaSet(tempMon, GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL), 69, 32, FALSE, 0, 0, 0);
+
+                numEggMoves = LoadEggMoves(tempMon, baby_egg_moves);
+
+                u32 numAvailableToInheritMoves = 0;
+                for (u8 i = 0; i < numEggMoves; i++) {
+                    if (temp_egg_moves[i] != inheriterMoves[0] && temp_egg_moves[i] != inheriterMoves[1] && temp_egg_moves[i] != inheriterMoves[2] && temp_egg_moves[i] != inheriterMoves[3]) {
+                        baby_egg_moves[numAvailableToInheritMoves] = temp_egg_moves[i];
+
+                        // sprintf(buf, "baby_egg_moves %d: %d.\n", numAvailableToInheritMoves, baby_egg_moves[numAvailableToInheritMoves]);
+                        // debugsyscall(buf);
+
+                        numAvailableToInheritMoves++;
+                    }
+                }
+
+                donorMoves[0] = GetMonData(partyMon, MON_DATA_MOVE1, NULL);
+                donorMoves[1] = GetMonData(partyMon, MON_DATA_MOVE2, NULL);
+                donorMoves[2] = GetMonData(partyMon, MON_DATA_MOVE3, NULL);
+                donorMoves[3] = GetMonData(partyMon, MON_DATA_MOVE4, NULL);
+
+                for (u8 i = 0; i < numAvailableToInheritMoves; i++) {
+                    if (donorMoves[0] == baby_egg_moves[i] || donorMoves[1] == baby_egg_moves[i] || donorMoves[2] == baby_egg_moves[i] || donorMoves[3] == baby_egg_moves[i]) {
+                        newMove = baby_egg_moves[i];
+                        SetBoxMonData(daycareMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
+                        pp = GetBoxMonData(daycareMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
+                        SetBoxMonData(daycareMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
+                        break;
+                    }
                 }
             }
         }
