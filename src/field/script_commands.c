@@ -187,7 +187,7 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
         u8 numEggMoves;
         u32 newMove;
         u32 pp;
-        u8 buf[64];
+        // u8 buf[64];
 
         // Begin custom logic for Mirror Herb
         if (GetMonData(partyMon, MON_DATA_HELD_ITEM, NULL) == ITEM_MIRROR_HERB || GetMonData(partyMon, MON_DATA_SPECIES, NULL) == GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL)) {
@@ -236,7 +236,10 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
                         SetMonData(partyMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
                         pp = GetMonData(partyMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
                         SetMonData(partyMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
-                        break;
+                        potentialOverrideMoveSlot++;
+                        if (potentialOverrideMoveSlot >= 4) {
+                            break;
+                        }
                     }
                 }
             }
@@ -293,7 +296,10 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
                         SetBoxMonData(daycareMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
                         pp = GetBoxMonData(daycareMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
                         SetBoxMonData(daycareMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
-                        break;
+                        potentialOverrideMoveSlot++;
+                        if (potentialOverrideMoveSlot >= 4) {
+                            break;
+                        }
                     }
                 }
             }
