@@ -823,6 +823,11 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         }
     }
 
+    if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
+        speed1 = (10000 - speed1) % 8192;
+        speed2 = (10000 - speed2) % 8192;
+    }
+
     if (priority1 == priority2)
     {
         if ((quick_claw1) && (quick_claw2)) // both mons quick claws activates/items that put them first
@@ -881,17 +886,6 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         else if ((ability1 != ABILITY_STALL) && (ability2 == ABILITY_STALL))
         {
             ret = 0;
-        }
-        else if (sp->field_condition & FIELD_STATUS_TRICK_ROOM)
-        {
-            if (speed1 > speed2)
-            {
-                ret = 1;
-            }
-            if ((speed1 == speed2) && (BattleRand(bw) & 1))
-            {
-                ret = 2;
-            }
         }
         else
         {
