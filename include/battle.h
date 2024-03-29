@@ -2585,4 +2585,13 @@ typedef enum Terrain {
  */
 void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
 
+/**
+ *  @brief Sorts clients' execution order factoring in who has already performed their action
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure. Apparently we have but we don't use it here so
+ *  @param sp global battle structure
+ */
+void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp);
+
+void LONG_CALL BattleControllerPlayer_CalcExecutionOrder(struct BattleSystem *bw, struct BattleStruct *sp);
+
 #endif // BATTLE_H

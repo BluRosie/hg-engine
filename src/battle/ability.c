@@ -348,6 +348,8 @@ BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
  */
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {
+    // Sort clients because abilities may affect speed
+    DynamicSortClientExecutionOrder(bw, sp);
     int i;
     int scriptnum = 0;
     int ret = SWITCH_IN_CHECK_LOOP;
@@ -2588,10 +2590,10 @@ enum
  */
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 {
-    switch(sp->swoak_seq_no)
-    {
-    case SWOAK_SEQ_VANISH_ON_OFF:
-        {
+    // Sort clients because moves may affect speed
+    DynamicSortClientExecutionOrder(bw, sp);
+    switch (sp->swoak_seq_no) {
+        case SWOAK_SEQ_VANISH_ON_OFF: {
             int ret = 0;
             while(sp->swoak_work < BattleWorkClientSetMaxGet(bw))
             {
