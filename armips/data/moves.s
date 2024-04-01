@@ -55,8 +55,7 @@ movedata MOVE_KARATE_CHOP, "Karate Chop"
 	terminatedata
 	movedescription MOVE_KARATE_CHOP, "The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.\n"
 
-<<<<<<< HEAD
-movedata MOVE_DOUBLE_SLAP, "DoubleSlap"
+movedata MOVE_DOUBLE_SLAP, "Double Slap"
 	battleeffect 29
 	pss SPLIT_PHYSICAL
 	basepower 20
@@ -71,23 +70,6 @@ movedata MOVE_DOUBLE_SLAP, "DoubleSlap"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_DOUBLE_SLAP, "The foe is slapped\nrepeatedly, back\nand forth, two to\nfive times in a row.\n"
-=======
-movedata MOVE_DOUBLE_SLAP, "Double Slap"
-    battleeffect 29
-    pss SPLIT_PHYSICAL
-    basepower 15
-    type TYPE_NORMAL
-    accuracy 85
-    pp 10
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
-    appeal 0x07
-    contesttype CONTEST_TOUGH
-    terminatedata
-    movedescription MOVE_DOUBLE_SLAP, "The foe is slapped\nrepeatedly, back\nand forth, two to\nfive times in a row.\n"
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_COMET_PUNCH, "Comet Punch"
 	battleeffect 29
@@ -169,8 +151,7 @@ movedata MOVE_ICE_PUNCH, "Ice Punch"
 	terminatedata
 	movedescription MOVE_ICE_PUNCH, "The foe is punched\nwith an icy fist.\nIt may leave the\ntarget frozen.\n"
 
-<<<<<<< HEAD
-movedata MOVE_THUNDER_PUNCH, "ThunderPunch"
+movedata MOVE_THUNDER_PUNCH, "Thunder Punch"
 	battleeffect 6
 	pss SPLIT_PHYSICAL
 	basepower 75
@@ -185,23 +166,6 @@ movedata MOVE_THUNDER_PUNCH, "ThunderPunch"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_THUNDER_PUNCH, "The foe is punched\nwith an electrified\nfist. It may leave\nthe target with\nparalysis."
-=======
-movedata MOVE_THUNDER_PUNCH, "Thunder Punch"
-    battleeffect 6
-    pss SPLIT_PHYSICAL
-    basepower 75
-    type TYPE_ELECTRIC
-    accuracy 100
-    pp 15
-    effectchance 10
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
-    appeal 0x11
-    contesttype CONTEST_COOL
-    terminatedata
-    movedescription MOVE_THUNDER_PUNCH, "The foe is punched\nwith an electrified\nfist. It may leave\nthe target with\nparalysis."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_SCRATCH, "Scratch"
 	battleeffect 0
@@ -219,8 +183,7 @@ movedata MOVE_SCRATCH, "Scratch"
 	terminatedata
 	movedescription MOVE_SCRATCH, "Hard, pointed, and\nsharp claws rake the\nfoe to inflict damage.\n\n"
 
-<<<<<<< HEAD
-movedata MOVE_VICE_GRIP, "ViceGrip"
+movedata MOVE_VICE_GRIP, "Vice Grip"
 	battleeffect 0
 	pss SPLIT_PHYSICAL
 	basepower 55
@@ -235,23 +198,6 @@ movedata MOVE_VICE_GRIP, "ViceGrip"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_VICE_GRIP, "Huge, impressive\npincers grip and\nsqueeze the foe.\n\n"
-=======
-movedata MOVE_VICE_GRIP, "Vise Grip"
-    battleeffect 0
-    pss SPLIT_PHYSICAL
-    basepower 55
-    type TYPE_NORMAL
-    accuracy 100
-    pp 30
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
-    appeal 0x05
-    contesttype CONTEST_TOUGH
-    terminatedata
-    movedescription MOVE_VICE_GRIP, "Huge, impressive\npincers grip and\nsqueeze the foe.\n\n"
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_GUILLOTINE, "Guillotine"
 	battleeffect 229
@@ -509,8 +455,7 @@ movedata MOVE_ROLLING_KICK, "Rolling Kick"
 	terminatedata
 	movedescription MOVE_ROLLING_KICK, "The user lashes \nout with a quick,\nspinning kick. It\nmay also make the\ntarget flinch."
 
-<<<<<<< HEAD
-movedata MOVE_SAND_ATTACK, "Sand-Attack"
+movedata MOVE_SAND_ATTACK, "Sand Attack"
 	battleeffect 23
 	pss SPLIT_STATUS
 	basepower 0
@@ -525,23 +470,6 @@ movedata MOVE_SAND_ATTACK, "Sand-Attack"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_SAND_ATTACK, "Sand is hurled in the\nfoe’s face, reducing\nits accuracy.\n\n"
-=======
-movedata MOVE_SAND_ATTACK, "Sand Attack"
-    battleeffect 23
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_GROUND
-    accuracy 100
-    pp 15
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
-    appeal 0x13
-    contesttype CONTEST_CUTE
-    terminatedata
-    movedescription MOVE_SAND_ATTACK, "Sand is hurled in the\nfoe’s face, reducing\nits accuracy.\n\n"
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_HEADBUTT, "Headbutt"
 	battleeffect 31
@@ -863,8 +791,7 @@ movedata MOVE_SUPERSONIC, "Supersonic"
 	terminatedata
 	movedescription MOVE_SUPERSONIC, "The user generates\nodd sound waves from\nits body.\nIt may confuse the\ntarget."
 
-<<<<<<< HEAD
-movedata MOVE_SONIC_BOOM, "SonicBoom"
+movedata MOVE_SONIC_BOOM, "Sonic Boom"
 	battleeffect 130
 	pss SPLIT_SPECIAL
 	basepower 1
@@ -879,23 +806,6 @@ movedata MOVE_SONIC_BOOM, "SonicBoom"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_SONIC_BOOM, "The foe is hit with a\ndestructive shock\nwave that always\ninflicts 20 HP damage.\n"
-=======
-movedata MOVE_SONIC_BOOM, "Sonic Boom"
-    battleeffect 130
-    pss SPLIT_SPECIAL
-    basepower 1
-    type TYPE_NORMAL
-    accuracy 90
-    pp 20
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
-    appeal 0x05
-    contesttype CONTEST_COOL
-    terminatedata
-    movedescription MOVE_SONIC_BOOM, "The foe is hit with a\ndestructive shock\nwave that always\ninflicts 20 HP damage.\n"
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_DISABLE, "Disable"
 	battleeffect 86
@@ -1073,8 +983,7 @@ movedata MOVE_PSYBEAM, "Psybeam"
 	terminatedata
 	movedescription MOVE_PSYBEAM, "The foe is attacked\nwith a peculiar ray.\nIt may also leave the\ntarget confused.\n"
 
-<<<<<<< HEAD
-movedata MOVE_BUBBLE_BEAM, "BubbleBeam"
+movedata MOVE_BUBBLE_BEAM, "Bubble Beam"
 	battleeffect 70
 	pss SPLIT_SPECIAL
 	basepower 65
@@ -1089,23 +998,6 @@ movedata MOVE_BUBBLE_BEAM, "BubbleBeam"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_BUBBLE_BEAM, "A spray of bubbles is\nforcefully ejected\nat the foe.\nIt may also lower the\ntarget’s Speed stat."
-=======
-movedata MOVE_BUBBLE_BEAM, "Bubble Beam"
-    battleeffect 70
-    pss SPLIT_SPECIAL
-    basepower 65
-    type TYPE_WATER
-    accuracy 100
-    pp 20
-    effectchance 10
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT
-    appeal 0x02
-    contesttype CONTEST_BEAUTY
-    terminatedata
-    movedescription MOVE_BUBBLE_BEAM, "A spray of bubbles is\nforcefully ejected\nat the foe.\nIt may also lower the\ntarget’s Speed stat."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_AURORA_BEAM, "Aurora Beam"
 	battleeffect 68
@@ -1347,8 +1239,7 @@ movedata MOVE_SOLAR_BEAM, "SolarBeam"
 	terminatedata
 	movedescription MOVE_SOLAR_BEAM, "A two-turn attack.\nThe user gathers\nlight, then blasts a\nbundled beam on the\nsecond turn."
 
-<<<<<<< HEAD
-movedata MOVE_POISON_POWDER, "PoisonPowder"
+movedata MOVE_POISON_POWDER, "Poison Powder"
 	battleeffect 66
 	pss SPLIT_STATUS
 	basepower 0
@@ -1363,23 +1254,6 @@ movedata MOVE_POISON_POWDER, "PoisonPowder"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_POISON_POWDER, "A cloud of poisonous\ndust is scattered on\nthe foe.\nIt may poison the\ntarget."
-=======
-movedata MOVE_POISON_POWDER, "Poison Powder"
-    battleeffect 66
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_POISON
-    accuracy 75
-    pp 35
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
-    appeal 0x13
-    contesttype CONTEST_SMART
-    terminatedata
-    movedescription MOVE_POISON_POWDER, "A cloud of poisonous\ndust is scattered on\nthe foe.\nIt may poison the\ntarget."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_STUN_SPORE, "Stun Spore"
 	battleeffect 67
@@ -1477,8 +1351,7 @@ movedata MOVE_FIRE_SPIN, "Fire Spin"
 	terminatedata
 	movedescription MOVE_FIRE_SPIN, "The foe becomes\ntrapped within a\nfierce vortex of fire\nthat rages for two\nto five turns."
 
-<<<<<<< HEAD
-movedata MOVE_THUNDER_SHOCK, "ThunderShock"
+movedata MOVE_THUNDER_SHOCK, "Thunder Shock"
 	battleeffect 6
 	pss SPLIT_SPECIAL
 	basepower 40
@@ -1493,23 +1366,6 @@ movedata MOVE_THUNDER_SHOCK, "ThunderShock"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_THUNDER_SHOCK, "A jolt of electricity\nis hurled at the foe\nto inflict damage.\nIt may also leave the\nfoe paralyzed."
-=======
-movedata MOVE_THUNDER_SHOCK, "Thunder Shock"
-    battleeffect 6
-    pss SPLIT_SPECIAL
-    basepower 40
-    type TYPE_ELECTRIC
-    accuracy 100
-    pp 30
-    effectchance 10
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT
-    appeal 0x05
-    contesttype CONTEST_COOL
-    terminatedata
-    movedescription MOVE_THUNDER_SHOCK, "A jolt of electricity\nis hurled at the foe\nto inflict damage.\nIt may also leave the\nfoe paralyzed."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_THUNDERBOLT, "Thunderbolt"
 	battleeffect 6
@@ -1879,8 +1735,7 @@ movedata MOVE_MINIMIZE, "Minimize"
 	terminatedata
 	movedescription MOVE_MINIMIZE, "The user compresses\nits body to make\nitself look smaller.\nThe user’s evasion\nstat is boosted."
 
-<<<<<<< HEAD
-movedata MOVE_SMOKESCREEN, "SmokeScreen"
+movedata MOVE_SMOKESCREEN, "Smoke Screen"
 	battleeffect 23
 	pss SPLIT_STATUS
 	basepower 0
@@ -1895,23 +1750,6 @@ movedata MOVE_SMOKESCREEN, "SmokeScreen"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_SMOKESCREEN, "The user releases an\nobscuring cloud of\nsmoke or ink.\nIt reduces the foe’s\naccuracy."
-=======
-movedata MOVE_SMOKESCREEN, "Smokescreen"
-    battleeffect 23
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_NORMAL
-    accuracy 100
-    pp 20
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
-    appeal 0x0A
-    contesttype CONTEST_SMART
-    terminatedata
-    movedescription MOVE_SMOKESCREEN, "The user releases an\nobscuring cloud of\nsmoke or ink.\nIt reduces the foe’s\naccuracy."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_CONFUSE_RAY, "Confuse Ray"
 	battleeffect 49
@@ -2089,8 +1927,7 @@ movedata MOVE_MIRROR_MOVE, "Mirror Move"
 	terminatedata
 	movedescription MOVE_MIRROR_MOVE, "The user counters\nthe foe by mimicking\nthe move last used\nby the foe."
 
-<<<<<<< HEAD
-movedata MOVE_SELF_DESTRUCT, "Selfdestruct"
+movedata MOVE_SELF_DESTRUCT, "Self-Destruct"
 	battleeffect 7
 	pss SPLIT_PHYSICAL
 	basepower 200
@@ -2105,23 +1942,6 @@ movedata MOVE_SELF_DESTRUCT, "Selfdestruct"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_SELF_DESTRUCT, "The user blows up to\ninflict damage on all\nPokémon in battle.\nThe user faints upon\nusing this move."
-=======
-movedata MOVE_SELF_DESTRUCT, "Self-Destruct"
-    battleeffect 7
-    pss SPLIT_PHYSICAL
-    basepower 200
-    type TYPE_NORMAL
-    accuracy 100
-    pp 5
-    effectchance 0
-    target MOVE_TARGET_FOES_AND_ALLY
-    priority 0
-    flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
-    appeal 0x09
-    contesttype CONTEST_BEAUTY
-    terminatedata
-    movedescription MOVE_SELF_DESTRUCT, "The user blows up to\ninflict damage on all\nPokémon in battle.\nThe user faints upon\nusing this move."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_EGG_BOMB, "Egg Bomb"
 	battleeffect 0
@@ -2347,8 +2167,7 @@ movedata MOVE_KINESIS, "Kinesis"
 	terminatedata
 	movedescription MOVE_KINESIS, "The user distracts\nthe foe by bending a\nspoon.\nIt may lower the\ntarget’s accuracy."
 
-<<<<<<< HEAD
-movedata MOVE_SOFT_BOILED, "Softboiled"
+movedata MOVE_SOFT_BOILED, "Soft-Boiled"
 	battleeffect 32
 	pss SPLIT_STATUS
 	basepower 0
@@ -2363,23 +2182,6 @@ movedata MOVE_SOFT_BOILED, "Softboiled"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_SOFT_BOILED, "The user restores its\nown HP by up to half\nof its maximum HP.\nIt may also be used\nto heal an ally’s HP."
-=======
-movedata MOVE_SOFT_BOILED, "Soft-Boiled"
-    battleeffect 32
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_NORMAL
-    accuracy 0
-    pp 5
-    effectchance 0
-    target MOVE_TARGET_USER
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_SNATCH
-    appeal 0x08
-    contesttype CONTEST_BEAUTY
-    terminatedata
-    movedescription MOVE_SOFT_BOILED, "The user restores its\nown HP by up to half\nof its maximum HP.\nIt may also be used\nto heal an ally’s HP."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_HIGH_JUMP_KICK, "Hi Jump Kick"
 	battleeffect 45
@@ -3773,8 +3575,7 @@ movedata MOVE_MAGNITUDE, "Magnitude"
 	terminatedata
 	movedescription MOVE_MAGNITUDE, "The user looses a\nground-shaking quake\naffecting everyone in\nbattle. Its power\nvaries."
 
-<<<<<<< HEAD
-movedata MOVE_DYNAMIC_PUNCH, "DynamicPunch"
+movedata MOVE_DYNAMIC_PUNCH, "Dynamic Punch"
 	battleeffect 76
 	pss SPLIT_PHYSICAL
 	basepower 100
@@ -3789,23 +3590,6 @@ movedata MOVE_DYNAMIC_PUNCH, "DynamicPunch"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_DYNAMIC_PUNCH, "The foe is punched\nwith the user’s full,\nconcentrated power.\nIt confuses the foe\nif it hits."
-=======
-movedata MOVE_DYNAMIC_PUNCH, "Dynamic Punch"
-    battleeffect 76
-    pss SPLIT_PHYSICAL
-    basepower 100
-    type TYPE_FIGHTING
-    accuracy 50
-    pp 5
-    effectchance 100
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_HIDE_SHADOW | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
-    appeal 0x12
-    contesttype CONTEST_COOL
-    terminatedata
-    movedescription MOVE_DYNAMIC_PUNCH, "The foe is punched\nwith the user’s full,\nconcentrated power.\nIt confuses the foe\nif it hits."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_MEGAHORN, "Megahorn"
 	battleeffect 0
@@ -3823,8 +3607,7 @@ movedata MOVE_MEGAHORN, "Megahorn"
 	terminatedata
 	movedescription MOVE_MEGAHORN, "Using its tough\nand impressive\nhorn, the user\nrams into the foe \nwith no letup.\n"
 
-<<<<<<< HEAD
-movedata MOVE_DRAGON_BREATH, "DragonBreath"
+movedata MOVE_DRAGON_BREATH, "Dragon Breath"
 	battleeffect 6
 	pss SPLIT_SPECIAL
 	basepower 60
@@ -3839,23 +3622,6 @@ movedata MOVE_DRAGON_BREATH, "DragonBreath"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_DRAGON_BREATH, "The user exhales\na mighty gust that\ninflicts damage.\nIt may also paralyze\nthe target."
-=======
-movedata MOVE_DRAGON_BREATH, "Dragon Breath"
-    battleeffect 6
-    pss SPLIT_SPECIAL
-    basepower 60
-    type TYPE_DRAGON
-    accuracy 100
-    pp 20
-    effectchance 30
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
-    appeal 0x11
-    contesttype CONTEST_COOL
-    terminatedata
-    movedescription MOVE_DRAGON_BREATH, "The user exhales\na mighty gust that\ninflicts damage.\nIt may also paralyze\nthe target."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_BATON_PASS, "Baton Pass"
 	battleeffect 127
@@ -3940,7 +3706,7 @@ movedata MOVE_SWEET_SCENT, "Fairy Breeze"
 movedata MOVE_IRON_TAIL, "Iron Tail"
 	battleeffect 69
 	pss SPLIT_PHYSICAL
-	basepower 90
+	basepower 95
 	type TYPE_STEEL
 	accuracy 90
 	pp 10
@@ -4481,8 +4247,7 @@ movedata MOVE_FOCUS_PUNCH, "Focus Punch"
 	terminatedata
 	movedescription MOVE_FOCUS_PUNCH, "The user focuses its\nmind before launching\na punch. It will fail\nif the user is hit\nbefore it is used."
 
-<<<<<<< HEAD
-movedata MOVE_SMELLING_SALT, "SmellingSalt"
+movedata MOVE_SMELLING_SALTS, "Smelling Salt"
 	battleeffect 0
 	pss SPLIT_PHYSICAL
 	basepower 90
@@ -4496,24 +4261,7 @@ movedata MOVE_SMELLING_SALT, "SmellingSalt"
 	appeal 0x16
 	contesttype CONTEST_SMART
 	terminatedata
-	movedescription MOVE_SMELLING_SALT, "This attack inflicts\ndouble damage on a\nparalyzed foe. It\nalso cures the foe’s\nparalysis, however."
-=======
-movedata MOVE_SMELLING_SALTS, "Smelling Salts"
-    battleeffect 171
-    pss SPLIT_PHYSICAL
-    basepower 70
-    type TYPE_NORMAL
-    accuracy 100
-    pp 10
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
-    appeal 0x10
-    contesttype CONTEST_SMART
-    terminatedata
-    movedescription MOVE_SMELLING_SALTS, "This attack inflicts\ndouble damage on a\nparalyzed foe. It\nalso cures the foe’s\nparalysis, however."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
+	movedescription MOVE_SMELLING_SALTS, "This attack inflicts\ndouble damage on a\nparalyzed foe. It\nalso cures the foe’s\nparalysis, however."
 
 movedata MOVE_FOLLOW_ME, "Follow Me"
 	battleeffect 172
@@ -5011,8 +4759,7 @@ movedata MOVE_MIST_BALL, "Moon Blast"
 	terminatedata
 	movedescription MOVE_MIST_BALL, "The user’s chucks a\nliteral moon at the\nfoe. It may also\nlower the foe’s Sp. Atk."
 
-<<<<<<< HEAD
-movedata MOVE_FEATHER_DANCE, "FeatherDance"
+movedata MOVE_FEATHER_DANCE, "Feather Dance"
 	battleeffect 58
 	pss SPLIT_STATUS
 	basepower 0
@@ -5027,23 +4774,6 @@ movedata MOVE_FEATHER_DANCE, "FeatherDance"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_FEATHER_DANCE, "The user covers the\nfoe with a mass of\ndown that sharply\nlowers the Attack\nstat."
-=======
-movedata MOVE_FEATHER_DANCE, "Feather Dance"
-    battleeffect 58
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_FLYING
-    accuracy 100
-    pp 15
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
-    appeal 0x13
-    contesttype CONTEST_BEAUTY
-    terminatedata
-    movedescription MOVE_FEATHER_DANCE, "The user covers the\nfoe with a mass of\ndown that sharply\nlowers the Attack\nstat."
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_TEETER_DANCE, "Teeter Dance"
 	battleeffect 49
@@ -5397,8 +5127,7 @@ movedata MOVE_METAL_SOUND, "Metal Sound"
 	terminatedata
 	movedescription MOVE_METAL_SOUND, "A horrible sound like\nscraping metal is\nemitted to sharply\nreduce the foe’s\nSp. Def stat."
 
-<<<<<<< HEAD
-movedata MOVE_GRASS_WHISTLE, "GrassWhistle"
+movedata MOVE_GRASS_WHISTLE, "Grass Whistle"
 	battleeffect 1
 	pss SPLIT_STATUS
 	basepower 0
@@ -5413,23 +5142,6 @@ movedata MOVE_GRASS_WHISTLE, "GrassWhistle"
 	contesttype CONTEST_SMART
 	terminatedata
 	movedescription MOVE_GRASS_WHISTLE, "The user plays a\npleasant melody that\nlulls the foe into a\ndeep sleep.\n"
-=======
-movedata MOVE_GRASS_WHISTLE, "Grass Whistle"
-    battleeffect 1
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_GRASS
-    accuracy 55
-    pp 15
-    effectchance 0
-    target MOVE_TARGET_SELECTED
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
-    appeal 0x13
-    contesttype CONTEST_SMART
-    terminatedata
-    movedescription MOVE_GRASS_WHISTLE, "The user plays a\npleasant melody that\nlulls the foe into a\ndeep sleep.\n"
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
 
 movedata MOVE_TICKLE, "Tickle"
 	battleeffect 205
@@ -9817,11 +9529,7 @@ movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     movedescription MOVE_DIAMOND_STORM, "---"
 
 movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
-<<<<<<< HEAD
-    battleeffect 0
-=======
     battleeffect 125
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_WATER
@@ -14348,22 +14056,13 @@ movedata MOVE_MAKE_IT_RAIN, "Make It Rain"
     terminatedata
     movedescription MOVE_MAKE_IT_RAIN, "---"
 
-<<<<<<< HEAD
-movedata MOVE_POUND, "Pound"
-    battleeffect 0
-=======
 movedata MOVE_PSYBLADE, "Psyblade"
     battleeffect 300
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_PSYCHIC
     accuracy 100
-<<<<<<< HEAD
-    pp 10
-=======
     pp 15
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
@@ -14373,21 +14072,13 @@ movedata MOVE_PSYBLADE, "Psyblade"
     terminatedata
     movedescription MOVE_PSYBLADE, "---"
 
-<<<<<<< HEAD
-movedata MOVE_POUND, "Pound"
-=======
 movedata MOVE_HYDRO_STEAM, "Hydro Steam"
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
     battleeffect 0
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_WATER
     accuracy 100
-<<<<<<< HEAD
-    pp 10
-=======
     pp 15
->>>>>>> 12a17f8a4c40927010a7882ac1703a5b8935356a
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0

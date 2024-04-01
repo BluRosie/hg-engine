@@ -1,7 +1,7 @@
 .nds
 .thumb
 
-// Aurora Crystal specific change
+// Thanks to Drayano for this mart template! -sauceyaTTa
 // Changes items obtainable in some Poké Marts
 
 .open "base/arm9.bin", 0x02000000
@@ -17,7 +17,7 @@ EIGHT_BADGES equ 6
 /* General Poké Mart Table */
 .org 0x020FBF22
 
-.halfword ITEM_ABILITY_CAPSULE
+.halfword ITEM_LONELY_MINT
 .halfword ZERO_BADGES
 
 .halfword ITEM_GREAT_BALL
@@ -26,7 +26,7 @@ EIGHT_BADGES equ 6
 .halfword ITEM_ULTRA_BALL
 .halfword THREE_BADGES
 
-.halfword ITEM_POTION
+.halfword ITEM_ADAMANT_MINT
 .halfword ZERO_BADGES
 
 .halfword ITEM_SUPER_POTION
