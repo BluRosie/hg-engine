@@ -91,4 +91,8 @@
 // LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
 #define LEARNSET_TOTAL_MOVES 41 // 40+terminate - currently driven by gallade
 
+// FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
+// modern generations have this value at 160, older ones at 220.  still max out at 255
+#define FRIENDSHIP_EVOLUTION_THRESHOLD 160
+
 #endif
