@@ -2512,8 +2512,9 @@ u32 GrabMegaTargetForm(u32 mon, u32 item);
 
 
 typedef struct BattleBGStorage {
-    u16 baseEntry:15;
+    u16 baseEntry:14;
     u16 hasDayNightPals:1;
+    u16 hasPlatforms:1;
 } BattleBGStorage;
 
 
@@ -2544,6 +2545,8 @@ typedef enum BattleBg {
     NUM_VANILLA_BATTLE_BACKGROUNDS,
     BATTLE_BG_ELECTRIC_TERRAIN = 23,
     BATTLE_BG_MISTY_TERRAIN,
+    BATTLE_BG_GRASSY_TERRAIN,
+    BATTLE_BG_PSYCHIC_TERRAIN,
 } BattleBg;
 
 
