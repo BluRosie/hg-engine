@@ -2399,6 +2399,9 @@ u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
  */
 u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
 
+#define CALCSPEED_FLAG_NOTHING 0
+#define CALCSPEED_FLAG_NO_PRIORITY 0x80
+
 /**
  *  @brief set move status effects for super effective and calculate modified damage
  *

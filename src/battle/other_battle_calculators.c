@@ -828,6 +828,12 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         speed2 = (10000 - speed2) % 8192;
     }
 
+    if (flag & CALCSPEED_FLAG_NO_PRIORITY)
+    {
+        priority1 = 0;
+        priority2 = 0;
+    }
+
     if (priority1 == priority2)
     {
         if ((quick_claw1) && (quick_claw2)) // both mons quick claws activates/items that put them first
@@ -971,6 +977,18 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
                     sp->client_agi_work[i] = temp2;
                     sp->client_agi_work[j] = temp1;
                 }
+            }
+        }
+    }
+
+    for (i = currentAttackerId; i < maxBattlers - 1; i++) {
+        for (j = i + 1; j < maxBattlers; j++) {
+            temp1 = sp->turn_order[i];
+            temp2 = sp->turn_order[j];
+
+            if (CalcSpeed(bw, sp, temp1, temp2, CALCSPEED_FLAG_NO_PRIORITY)) {
+                sp->turn_order[i] = temp2;
+                sp->turn_order[j] = temp1;
             }
         }
     }
