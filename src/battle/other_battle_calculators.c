@@ -981,7 +981,8 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
         }
     }
 
-    for (i = currentAttackerId; i < maxBattlers - 1; i++) {
+    // also sort turn_order, i.e. weather application + turn end things
+    for (i = 0; i < maxBattlers - 1; i++) {
         for (j = i + 1; j < maxBattlers; j++) {
             temp1 = sp->turn_order[i];
             temp2 = sp->turn_order[j];
