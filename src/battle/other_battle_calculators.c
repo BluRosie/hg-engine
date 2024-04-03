@@ -1032,11 +1032,11 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
 
 const u8 CriticalRateTable[] =
 {
-    16,
-    8,
-    4,
-    3,
-    2,
+     24,
+     8,
+     2,
+     1, 
+     1
 };
 
 // calculates the critical hit multiplier
