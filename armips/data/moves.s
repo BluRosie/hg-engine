@@ -8792,7 +8792,7 @@ movedata MOVE_SEARING_SHOT, "Searing Shot"
     movedescription MOVE_SEARING_SHOT, "The user torches\neverything around it\nin an inferno of\nscarlet flames. It\nmay burn the foes."
 
 movedata MOVE_TECHNO_BLAST, "Techno Blast"
-    battleeffect 0
+    battleeffect 307
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_NORMAL
@@ -8808,7 +8808,7 @@ movedata MOVE_TECHNO_BLAST, "Techno Blast"
     movedescription MOVE_TECHNO_BLAST, "The user fires a beam\nof light at its foe.\nThe type changes\ndepending on the\nDrive held."
 
 movedata MOVE_RELIC_SONG, "Relic Song"
-    battleeffect 0
+    battleeffect 301
     pss SPLIT_SPECIAL
     basepower 75
     type TYPE_NORMAL
@@ -11545,7 +11545,7 @@ movedata MOVE_NATURES_MADNESS, "Nature’s Madness"
     movedescription MOVE_NATURES_MADNESS, "---"
 
 movedata MOVE_MULTI_ATTACK, "Multi-Attack"
-    battleeffect 0
+    battleeffect 308
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_NORMAL
