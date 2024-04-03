@@ -2894,7 +2894,7 @@ BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *s
 }
 
 /**
- *  @brief script command to permeamently change the battle background
+ *  @brief script command to permanently change the battle background
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
