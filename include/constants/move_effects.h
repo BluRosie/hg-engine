@@ -264,7 +264,7 @@
 #define MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER      265
 #define MOVE_EFFECT_STEALTH_ROCK                       266
 #define MOVE_EFFECT_CHATTER                            267
-#define MOVE_EFFECT_JUDGEMENT                          268
+#define MOVE_EFFECT_JUDGMENT                           268
 #define MOVE_EFFECT_RECOIL_HALF                        269
 #define MOVE_EFFECT_FAINT_FULL_RESTORE_NEXT_MON        270
 #define MOVE_EFFECT_LOWER_SP_DEF_2_HIT                 271

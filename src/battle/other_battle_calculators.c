@@ -1934,3 +1934,23 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
             break;
     }
 }
+
+/**
+ * Check if move is affected by Normalize varients
+ * @param moveno move number
+ * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
+*/
+BOOL MoveIsAffectedByNormalizeVarients(int moveno) {
+    switch (moveno) {
+        case MOVE_HIDDEN_POWER:
+        case MOVE_WEATHER_BALL:
+        case MOVE_NATURAL_GIFT:
+        case MOVE_JUDGMENT:
+        case MOVE_TECHNO_BLAST:
+            return FALSE;
+            break;
+        default:
+            return TRUE;
+            break;
+    }
+}
