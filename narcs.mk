@@ -434,6 +434,7 @@ $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	for n in $$(seq 346 $$(expr $$(ls $(BATTLEGFX_DIR) | wc -l) - 1)); do rm -f $(BATTLEGFX_DIR)/8_$$n; done
 	cp -r $(BATTLEGFX_DEPENDENCIES_DIR)/. $(BATTLEGFX_DIR)
 	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*.png; do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
+	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png; do $(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; done
 	$(NARCHIVE) create $@ $(BATTLEGFX_DIR) -nf
 
 NARC_FILES += $(BATTLEGFX_NARC)

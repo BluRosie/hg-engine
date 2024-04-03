@@ -1136,7 +1136,8 @@ struct BattleSystem {
     // UnkBattleSystemSub1D0 unk1D0[4];
     // UnkBattleSystemSub220 unk220;
     // GAME_STATS *gameStats;
-    // u8 *unk230;
+    u8 padding_19C[0x230 - 0x19C];
+    u8 *bg_area;
     // u16 *unk234;
     // u8 sendBuffer[0x1000];
     // u8 recvBuffer[0x1000];
@@ -1158,7 +1159,7 @@ struct BattleSystem {
     // u8 unk240E_F:1;
     // u8 criticalHpMusic:2;
     // u8 criticalHpMusicDelay:3;
-    u8 padding[0x2400 - 0x19C];
+    u8 padding[0x2400 - 0x234];
     u32 terrain;
     u32 bgId;
     // int location;
@@ -2577,7 +2578,8 @@ typedef enum Terrain {
     TERRAIN_BATTLE_CASTLE,
     TERRAIN_BATTLE_HALL,
     TERRAIN_GIRATINA,  // unused
-    TERRAIN_MAX
+    TERRAIN_TRANSPARENT,
+    TERRAIN_MAX,
 } Terrain;
 
 // This is a catch-all terrain that includes Pokemon League, Distortion World
