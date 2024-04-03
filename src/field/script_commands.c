@@ -230,16 +230,21 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
                 donorMoves[2] = GetBoxMonData(daycareMon, MON_DATA_MOVE3, NULL);
                 donorMoves[3] = GetBoxMonData(daycareMon, MON_DATA_MOVE4, NULL);
 
-                for (u8 i = 0; i < numAvailableToInheritMoves; i++) {
-                    if (donorMoves[0] == baby_egg_moves[i] || donorMoves[1] == baby_egg_moves[i] || donorMoves[2] == baby_egg_moves[i] || donorMoves[3] == baby_egg_moves[i]) {
-                        newMove = baby_egg_moves[i];
-                        SetMonData(partyMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
-                        pp = GetMonData(partyMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
-                        SetMonData(partyMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
-                        potentialOverrideMoveSlot++;
-                        if (potentialOverrideMoveSlot >= 4) {
-                            break;
+                for (u8 i = 0; i < 4; i++) {
+                    for (u8 j = 0; j < numAvailableToInheritMoves; j++) {
+                        if (donorMoves[i] == baby_egg_moves[j]) {
+                            newMove = baby_egg_moves[j];
+                            SetMonData(partyMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
+                            pp = GetMonData(partyMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
+                            SetMonData(partyMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
+                            potentialOverrideMoveSlot++;
+                            if (potentialOverrideMoveSlot >= 4) {
+                                break;
+                            }
                         }
+                    }
+                    if (potentialOverrideMoveSlot >= 4) {
+                        break;
                     }
                 }
             }
@@ -290,16 +295,21 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
                 donorMoves[2] = GetMonData(partyMon, MON_DATA_MOVE3, NULL);
                 donorMoves[3] = GetMonData(partyMon, MON_DATA_MOVE4, NULL);
 
-                for (u8 i = 0; i < numAvailableToInheritMoves; i++) {
-                    if (donorMoves[0] == baby_egg_moves[i] || donorMoves[1] == baby_egg_moves[i] || donorMoves[2] == baby_egg_moves[i] || donorMoves[3] == baby_egg_moves[i]) {
-                        newMove = baby_egg_moves[i];
-                        SetBoxMonData(daycareMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
-                        pp = GetBoxMonData(daycareMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
-                        SetBoxMonData(daycareMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
-                        potentialOverrideMoveSlot++;
-                        if (potentialOverrideMoveSlot >= 4) {
-                            break;
+                for (u8 i = 0; i < 4; i++) {
+                    for (u8 j = 0; j < numAvailableToInheritMoves; j++) {
+                        if (donorMoves[i] == baby_egg_moves[j]) {
+                            newMove = baby_egg_moves[j];
+                            SetBoxMonData(daycareMon, MON_DATA_MOVE1 + potentialOverrideMoveSlot, &newMove);
+                            pp = GetBoxMonData(daycareMon, MON_DATA_MOVE1MAXPP + potentialOverrideMoveSlot, NULL);
+                            SetBoxMonData(daycareMon, MON_DATA_MOVE1PP + potentialOverrideMoveSlot, &pp);
+                            potentialOverrideMoveSlot++;
+                            if (potentialOverrideMoveSlot >= 4) {
+                                break;
+                            }
                         }
+                    }
+                    if (potentialOverrideMoveSlot >= 4) {
+                        break;
                     }
                 }
             }
