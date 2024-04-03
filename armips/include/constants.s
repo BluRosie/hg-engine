@@ -768,3 +768,7 @@ BATTLE_BG_CURRENT equ -1
 
 FALSE               equ (0)
 TRUE                equ (1)
+
+EXECUTION_ORDER_NORMAL          equ (0)
+EXECUTION_ORDER_AFTER_YOU       equ (1)
+EXECUTION_ORDER_QUASH           equ (2)

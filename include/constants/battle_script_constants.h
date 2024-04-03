@@ -363,6 +363,8 @@
 #define SUB_SEQ_HANDLE_PARENTAL_BOND                  (353)
 #define SUB_SEQ_CREATE_TERRAIN_OVERLAY                (354)
 #define SUB_SEQ_HANDLE_SHED_TAIL                      (355)
+#define SUB_SEQ_HANDLE_AFTER_YOU                      (356)
+#define SUB_SEQ_HANDLE_QUASH                          (357)
 
 
 
@@ -528,6 +530,8 @@
 #define ADD_STATUS_EFF_SPICY_EXTRACT                   (157)
 #define ADD_STATUS_EFF_FILLET_AWAY                     (158)
 #define ADD_STATUS_EFF_SHED_TAIL                       (159)
+#define ADD_STATUS_EFF_AFTER_YOU                       (160)
+#define ADD_STATUS_EFF_QUASH                           (161)
 
 
 
