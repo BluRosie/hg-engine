@@ -172,6 +172,8 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_SPICY_EXTRACT]               = SUB_SEQ_SPICY_EXTRACT,
     [ADD_STATUS_EFF_FILLET_AWAY]                 = SUB_SEQ_FILLET_AWAY,
     [ADD_STATUS_EFF_SHED_TAIL]                   = SUB_SEQ_HANDLE_SHED_TAIL,
+    [ADD_STATUS_EFF_AFTER_YOU]                   = SUB_SEQ_HANDLE_AFTER_YOU,
+    [ADD_STATUS_EFF_QUASH]                       = SUB_SEQ_HANDLE_QUASH,
 };
 
 

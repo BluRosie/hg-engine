@@ -17,6 +17,8 @@ ADD_STATUS_WORK_UP equ 156
 ADD_STATUS_SPICY_EXTRACT equ 157
 ADD_STATUS_FILLET_AWAY equ 158
 ADD_STATUS_SHED_TAIL equ 159
+ADD_STATUS_AFTER_YOU equ 160
+ADD_STATUS_QUASH equ 161
 
 // status change
 
@@ -1565,4 +1567,9 @@ MOVE_DATA_CONTEST_TYPE equ 11
 
 .macro changepermanentbg,bg,terrain
     .word 0xF5, bg, terrain
+.endmacro
+
+.macro changeexecutionorderpriority,side,forceExecutionOrder,failAddress
+    .word 0xF6, side, forceExecutionOrder
+    .word ((failAddress - org()) / 4) - 1
 .endmacro

@@ -514,6 +514,30 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         return 0;
     }
 
+    // Potential After You or Quash present
+    if (sp->oneTurnFlag[client1].force_execution_order_flag != sp->oneTurnFlag[client2].force_execution_order_flag) {
+        switch (sp->oneTurnFlag[client1].force_execution_order_flag) {
+            case EXECUTION_ORDER_AFTER_YOU:
+                return 0;
+                break;
+            case EXECUTION_ORDER_QUASH:
+                return 1;
+                break;
+            default:
+                break;
+        }
+        switch (sp->oneTurnFlag[client2].force_execution_order_flag) {
+            case EXECUTION_ORDER_AFTER_YOU:
+                return 1;
+                break;
+            case EXECUTION_ORDER_QUASH:
+                return 0;
+                break;
+            default:
+                break;
+        }
+    }
+
     ability1 = GetBattlerAbility(sp, client1);
     ability2 = GetBattlerAbility(sp, client2);
 
@@ -922,20 +946,20 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
     int maxBattlers;
     int i, j;
     int temp1, temp2;
-    int currentAttackerId = 0;
+    int currentAttackerId = sp->agi_cnt;
 
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
-    for (i = 0; i < maxBattlers; i++) {
-        if (sp->attack_client == sp->client_agi_work[i]) {
-            currentAttackerId = i;
-        }
-    }
+    // for (i = 0; i < maxBattlers; i++) {
+    //     if (sp->attack_client == sp->client_agi_work[i]) {
+    //         currentAttackerId = i;
+    //     }
+    // }
 
     // u8 buf[64];
     // sprintf(buf, "Current attacker: %d\n", sp->attack_client);
     // debugsyscall(buf);
-    // sprintf(buf, " Before turn_order: ");
+    // sprintf(buf, "\tBefore turn_order: ");
     // debugsyscall(buf);
 
     // for (i = 0; i < maxBattlers; i++) {
@@ -946,7 +970,7 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
     // sprintf(buf, "\n\n");
     // debugsyscall(buf);
 
-    for (i = currentAttackerId; i < maxBattlers - 1; i++) {
+    for (i = currentAttackerId + 1; i < maxBattlers - 1; i++) {
         // sprintf(buf, "i: %d\n", i);
         // debugsyscall(buf);
         for (j = i + 1; j < maxBattlers; j++) {
@@ -994,7 +1018,7 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
         }
     }
 
-    // sprintf(buf, " After turn_order: ");
+    // sprintf(buf, "\tAfter turn_order: ");
     // debugsyscall(buf);
 
     // for (i = 0; i < maxBattlers; i++) {
