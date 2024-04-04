@@ -823,6 +823,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             case TYPE_WATER:
                 damage /= 2;
                 break;
+            case TYPE_GRASS:
+                // Power up Solar Beam in the sun.
+                if (moveno == MOVE_SOLAR_BEAM) {
+                    damage = damage * 15 / 10;
+                } else {
+                    damage = damage;
+                }                
+                break;
             }
         }
 
