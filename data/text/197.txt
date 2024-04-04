@@ -1428,3 +1428,9 @@ The wild {STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 
 The wild {STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} frisked\n{STRVAR_1 1, 1, 0} and found its {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0}\ntook the kind offer!
+The wild {STRVAR_1 1, 0, 0}\ntook the kind offer!
+The opposing {STRVAR_1 1, 0, 0}\ntook the kind offer!
+{STRVAR_1 1, 0, 0}’s move\nwas postponed!
+The wild {STRVAR_1 1, 0, 0}’s move\nwas postponed!
+The opposing {STRVAR_1 1, 0, 0}’s move\nwas postponed!

@@ -104,19 +104,19 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
             case EVO_NONE:
                 break;
             case EVO_FRIENDSHIP:
-                if (friendship >= 220) {
+                if (friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_FRIENDSHIP;
                 }
                 break;
             case EVO_FRIENDSHIP_DAY:
-                if (IsNighttime() == 0 && friendship >= 220) {
+                if (IsNighttime() == 0 && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_FRIENDSHIP_DAY;
                 }
                 break;
             case EVO_FRIENDSHIP_NIGHT:
-                if (IsNighttime() == 1 && friendship >= 220) {
+                if (IsNighttime() == 1 && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_FRIENDSHIP_NIGHT;
                 }

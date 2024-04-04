@@ -69,6 +69,9 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
 
     do
     {
+        // Here we recalculate the execution order without considering who has already performed
+        // their action because this function takes place before anyone has performed an action
+        BattleControllerPlayer_CalcExecutionOrder(bw, sp);
         switch (sp->sba_seq_no)
         {
         case SBA_RESET_DEFIANT:

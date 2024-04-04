@@ -7976,7 +7976,7 @@ movedata MOVE_ENTRAINMENT, "Entrainment"
     movedescription MOVE_ENTRAINMENT, "The user dances\nwith an odd rhythm,\nmaking the target’s\nAbility the same as\nthe user’s Ability."
 
 movedata MOVE_AFTER_YOU, "After You"
-    battleeffect 0
+    battleeffect 305
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -8232,7 +8232,7 @@ movedata MOVE_INCINERATE, "Incinerate"
     movedescription MOVE_INCINERATE, "The user burns\nthe foe completely,\nrendering a held\nBerry useless."
 
 movedata MOVE_QUASH, "Quash"
-    battleeffect 0
+    battleeffect 306
     pss SPLIT_STATUS
     basepower 0
     type TYPE_DARK

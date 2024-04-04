@@ -73,6 +73,7 @@ BOOL btl_scr_cmd_F2_ifcurrentmoveisvalidparentalbondmove(void *bw, struct Battle
 BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -330,6 +331,7 @@ const u8 *BattleScrCmdNames[] =
     "canapplyknockoffdamageboost",
     "isparentalbondactive",
     "changepermanentbg",
+    "btl_scr_cmd_F6_changeexecutionorderpriority",
 };
 
 u32 cmdAddress = 0;
@@ -359,6 +361,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF3 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F3_canapplyknockoffdamageboost,
     [0xF4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F4_isparentalbondactive,
     [0xF5 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F5_changepermanentbg,
+    [0xF6 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F6_changeexecutionorderpriority,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -997,9 +1000,10 @@ BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
         move = sp->current_move_index;
     }
 
+    // mega evolution is animation 470--force it to play regardless of whether or not animations are on
     if ((((sp->server_status_flag & SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING) == 0)
       && (CheckBattleAnimationsOption(bw) == TRUE))
-     || (move == MOVE_TRANSFORM || move == MOVE_470)) // mega evolution is animation 470--force it to play regardless of whether or not animations are on
+     || (move == MOVE_TRANSFORM || move == MOVE_470 || move == MOVE_ELECTRIC_TERRAIN || move == MOVE_MISTY_TERRAIN || move == MOVE_GRASSY_TERRAIN || move == MOVE_PSYCHIC_TERRAIN))
     {
         sp->server_status_flag |= SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING;
         SCIO_QueueMoveAnimation(bw, sp, move);
@@ -1043,7 +1047,7 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
 
     if ((((sp->server_status_flag & SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING) == 0)
       && (CheckBattleAnimationsOption(bw) == TRUE))
-     || (move == MOVE_TRANSFORM || move == MOVE_470))
+     || (move == MOVE_TRANSFORM || move == MOVE_470 || move == MOVE_ELECTRIC_TERRAIN || move == MOVE_MISTY_TERRAIN || move == MOVE_GRASSY_TERRAIN || move == MOVE_PSYCHIC_TERRAIN))
     {
         sp->server_status_flag |= SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING;
         SCIO_QueueMoveAnimationConsiderAttackerDefender(bw, sp, move, cli_a, cli_d);
@@ -2890,7 +2894,7 @@ BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *s
 }
 
 /**
- *  @brief script command to jump somewhere if parental bond is currently active beyond mummy
+ *  @brief script command to permanently change the battle background
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2911,6 +2915,59 @@ BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp) {
         terrain = gBattleSystem->terrain;
     }
     LoadDifferentBattleBackground(bw, bg, terrain);
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to change the execution order "priority" of a client
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *sp) {
+    u8 side, client_no, clientPosition;
+    enum ForceExecutionOrder forceExecutionOrder;
+    int address, maxBattlers = BattleWorkClientSetMaxGet(bw);
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    side = read_battle_script_param(sp);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, side);
+
+    forceExecutionOrder = read_battle_script_param(sp);
+
+    address = read_battle_script_param(sp);
+
+    for (clientPosition = 0; clientPosition < maxBattlers; clientPosition++) {
+        if (sp->client_agi_work[clientPosition] == client_no) {
+            break;
+        }
+    }
+    // If target has already performed action
+    if (sp->agi_cnt > clientPosition) {
+        IncrementBattleScriptPtr(sp, address);
+        return FALSE;
+    }
+
+    switch (forceExecutionOrder) {
+        case EXECUTION_ORDER_AFTER_YOU:
+            sp->oneTurnFlag[client_no].force_execution_order_flag = EXECUTION_ORDER_AFTER_YOU;
+            break;
+        case EXECUTION_ORDER_QUASH:
+
+            sp->oneTurnFlag[client_no].force_execution_order_flag = EXECUTION_ORDER_QUASH;
+            break;
+        // user should not use this under normal circumstances
+        case EXECUTION_ORDER_NORMAL:
+            sp->oneTurnFlag[client_no].force_execution_order_flag = EXECUTION_ORDER_NORMAL;
+            break;
+        default:
+            // idk crash the game I guess
+            GF_ASSERT(forceExecutionOrder > EXECUTION_ORDER_AFTER_YOU);
+            break;
+    }
 
     return FALSE;
 }
