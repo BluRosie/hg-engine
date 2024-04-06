@@ -1,0 +1,4 @@
+# these jasc-pal files need to be crlf to be interpreted properly
+*.pal eol=crlf
+*.png binary
+*.NSCR binary
