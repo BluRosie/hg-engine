@@ -14521,7 +14521,7 @@ movedata MOVE_SYRUP_BOMB, "Syrup Bomb"
     movedescription MOVE_SYRUP_BOMB, "---"
 
 movedata MOVE_IVY_CUDGEL, "Ivy Cudgel"
-    battleeffect 0
+    battleeffect 309
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_GRASS

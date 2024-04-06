@@ -14,6 +14,8 @@ HOLD_EFFECT_CHILL_DRIVE equ (166)
 HOLD_EFFECT_DOUSE_DRIVE equ (167)
 HOLD_EFFECT_SHOCK_DRIVE equ (168)
 
+// Techno Blast
+
 .create "build/move/battle_eff_seq/0_307", 0
 
 a030_307:

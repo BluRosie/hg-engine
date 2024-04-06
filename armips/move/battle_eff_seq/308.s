@@ -27,6 +27,8 @@ HOLD_EFFECT_DRAGON_MEMORY   equ (183)
 HOLD_EFFECT_DARK_MEMORY     equ (184)
 HOLD_EFFECT_FAIRY_MEMORY    equ (185)
 
+// Multi-Attack
+
 .create "build/move/battle_eff_seq/0_308", 0
 
 a030_308:

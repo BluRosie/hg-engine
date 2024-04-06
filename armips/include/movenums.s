@@ -936,7 +936,7 @@ MOVE_MALIGNANT_CHAIN equ 922
 
 // there are a bunch more here but that is fine
 
-NUM_OF_MOVES equ 906
+NUM_OF_MOVES equ 923
 
 MOVE_G_MAX_WILDFIRE equ (NUM_OF_MOVES-1+1)
 MOVE_G_MAX_BEFUDDLE equ (NUM_OF_MOVES-1+2)
