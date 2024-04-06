@@ -10094,7 +10094,7 @@ mondata SPECIES_ROTOM, "Rotom"
 
 mondata SPECIES_UXIE, "Uxie"
     basestats 75, 75, 130, 95, 75, 130
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, TYPE_ELECTRIC
     catchrate 195
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 2, 0, 0, 1
@@ -10115,7 +10115,7 @@ mondata SPECIES_UXIE, "Uxie"
 
 mondata SPECIES_MESPRIT, "Mesprit"
     basestats 80, 105, 105, 80, 105, 105
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, TYPE_POISON
     catchrate 195
     baseexp 0 // defined in baseexp.s
     evyields 0, 1, 0, 0, 1, 1
@@ -10136,7 +10136,7 @@ mondata SPECIES_MESPRIT, "Mesprit"
 
 mondata SPECIES_AZELF, "Azelf"
     basestats 75, 125, 70, 115, 125, 70
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, TYPE_WATER
     catchrate 195
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 1, 0
