@@ -605,6 +605,16 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
         }
     }
 
+    if ((ability1 == ABILITY_SURGE_SURFER) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
+    {
+        speed1 *= 2;
+    }
+
+    if ((ability2 == ABILITY_SURGE_SURFER) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
+    {
+        speed2 *= 2;
+    }
+
     if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED)
     {
         speed1 = speed1 * 15 / 10;
