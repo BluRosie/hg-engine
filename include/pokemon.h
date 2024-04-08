@@ -897,7 +897,7 @@ void  LONG_CALL SetBoxMonData(struct BoxPokemon *boxmon, int id, const void *buf
  *  @param pos position to grab
  *  @return PartyPokemon requested
  */
-struct PartyPokemon * LONG_CALL PokeParty_GetMemberPointer(struct Party *party, int pos);
+struct PartyPokemon * LONG_CALL Party_GetMonByIndex(struct Party *party, int pos);
 
 /**
  *  @brief grab personal field accounting for form (for vanilla forms)
@@ -1757,9 +1757,6 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid);
  *  @return requested data
  */
 u32 LONG_CALL GetMoveData(u16 id, u32 field);
-
-
-struct PartyPokemon LONG_CALL *Party_GetMonByIndex(struct Party *party, int slot);
 
 BOOL LONG_CALL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
