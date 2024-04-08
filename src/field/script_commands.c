@@ -181,8 +181,8 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     if (GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL) != SPECIES_NONE) {
         u32 inheriterMoves[4];
         u32 donorMoves[4];
-        u16 temp_egg_moves[16];
-        u16 baby_egg_moves[16];
+        u16 temp_egg_moves[EGG_MOVES_PER_MON];
+        u16 baby_egg_moves[EGG_MOVES_PER_MON];
         u8 potentialOverrideMoveSlot;
         u8 numEggMoves;
         u32 newMove;
