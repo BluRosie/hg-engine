@@ -439,7 +439,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             {
                 for(j = 0; j < 4; j++)
                 {
-                    SetMonData(mons[i],MON_DATA_MOVE1PPUP+j, &ppcounts[j]);
+                    SetMonData(mons[i],MON_DATA_MOVE1PP+j, &ppcounts[j]);
                 }
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
