@@ -5,27 +5,10 @@
 .include "armips/include/abilities.s"
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
+.include "armips/include/hold_item_effects.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
-
-HOLD_EFFECT_FIGHTING_MEMORY equ (169)
-HOLD_EFFECT_FLYING_MEMORY   equ (170)
-HOLD_EFFECT_POISON_MEMORY   equ (171)
-HOLD_EFFECT_GROUND_MEMORY   equ (172)
-HOLD_EFFECT_ROCK_MEMORY     equ (173)
-HOLD_EFFECT_BUG_MEMORY      equ (174)
-HOLD_EFFECT_GHOST_MEMORY    equ (175)
-HOLD_EFFECT_STEEL_MEMORY    equ (176)
-HOLD_EFFECT_FIRE_MEMORY     equ (177)
-HOLD_EFFECT_WATER_MEMORY    equ (178)
-HOLD_EFFECT_GRASS_MEMORY    equ (179)
-HOLD_EFFECT_ELECTRIC_MEMORY equ (180)
-HOLD_EFFECT_PSYCHIC_MEMORY  equ (181)
-HOLD_EFFECT_ICE_MEMORY      equ (182)
-HOLD_EFFECT_DRAGON_MEMORY   equ (183)
-HOLD_EFFECT_DARK_MEMORY     equ (184)
-HOLD_EFFECT_FAIRY_MEMORY    equ (185)
 
 // Multi-Attack
 

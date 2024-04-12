@@ -5,14 +5,10 @@
 .include "armips/include/abilities.s"
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
+.include "armips/include/hold_item_effects.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
-
-HOLD_EFFECT_BURN_DRIVE  equ (165)
-HOLD_EFFECT_CHILL_DRIVE equ (166)
-HOLD_EFFECT_DOUSE_DRIVE equ (167)
-HOLD_EFFECT_SHOCK_DRIVE equ (168)
 
 // Techno Blast
 
