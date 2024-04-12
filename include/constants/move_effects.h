@@ -37,8 +37,8 @@
 #define MOVE_EFFECT_STATUS_BADLY_POISON                      33
 #define MOVE_EFFECT_INCREASE_PRIZE_MONEY                     34
 #define MOVE_EFFECT_SET_LIGHT_SCREEN                         35
-#define MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT                36 // tri attack
-#define MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP                 37 // rest
+#define MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT                36
+#define MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP                 37
 #define MOVE_EFFECT_ONE_HIT_KO                               38
 #define MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT                    39
 #define MOVE_EFFECT_HALVE_HP                                 40
@@ -51,7 +51,7 @@
 #define MOVE_EFFECT_CRIT_UP_2                                47
 #define MOVE_EFFECT_RECOIL_QUARTER_DAMAGE_DELT               48
 #define MOVE_EFFECT_STATUS_CONFUSE                           49
-#define MOVE_EFFECT_ATK_UP_2                                 50 // 2 refers to increasing atk by 2 stages
+#define MOVE_EFFECT_ATK_UP_2                                 50
 #define MOVE_EFFECT_DEF_UP_2                                 51
 #define MOVE_EFFECT_SPEED_UP_2                               52
 #define MOVE_EFFECT_SP_ATK_UP_2                              53
@@ -183,6 +183,10 @@
 #define MOVE_EFFECT_HEAL_IN_3_TURNS                         179
 #define MOVE_EFFECT_USE_RANDOM_ALLY_MOVE                    180
 #define MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL        181
+#define MOVE_EFFECT_SUPERPOWER                              182
+#define MOVE_EFFECT_MAGIC_COAT                              183
+#define MOVE_EFFECT_RECYCLE                                 184
+#define MOVE_EFFECT_DOUBLE_DAMAGE_IF_HIT                    185
 #define MOVE_EFFECT_REMOVE_SCREENS                          186
 #define MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN                  187
 #define MOVE_EFFECT_REMOVE_HELD_ITEM                        188
@@ -196,6 +200,7 @@
 #define MOVE_EFFECT_INCREASE_POWER_WITH_WEIGHT              196
 #define MOVE_EFFECT_SECRET_POWER                            197
 #define MOVE_EFFECT_RECOIL_THIRD                            198
+#define MOVE_EFFECT_CONFUSE_ALL_ADJACENT                    199
 #define MOVE_EFFECT_HIGH_CRITICAL_BURN_HIT                  200
 #define MOVE_EFFECT_HALVE_ELECTRIC_DAMAGE                   201
 #define MOVE_EFFECT_FLINCH_POISON_HIT                       202
@@ -299,7 +304,7 @@
 #define MOVE_EFFECT_HIT_THREE_TIMES_INCREASE_BASE_POWER     298
 #define MOVE_EFFECT_HIT_THREE_TIMES_TRIPLE_DIVE             299
 #define MOVE_EFFECT_PSYBLADE                                300
-#define MOVE_EFFECT_WICKED_TORQUE                           301
+#define MOVE_EFFECT_HIT_SLEEP                               301
 #define MOVE_EFFECT_SPICY_EXTRACT                           302
 #define MOVE_EFFECT_FILLET_AWAY                             303
 #define MOVE_EFFECT_SHED_TAIL                               304
