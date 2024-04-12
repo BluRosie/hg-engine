@@ -2501,6 +2501,27 @@ BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMo
  */
 void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
 
+/**
+ * @brief Check if the current move is a Z-Move
+ * @param moveIndex move index
+ * @return `TRUE` if it is a Z-Move
+*/
+BOOL MoveIsZMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a Max Move
+ * @param moveIndex move index
+ * @return `TRUE` if it is a Max Move
+*/
+BOOL MoveIsMaxMove(u32 moveIndex);
+
+/**
+ * Check if move is affected by Normalize varients
+ * @param moveno move number
+ * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
+*/
+BOOL MoveIsAffectedByNormalizeVariants(int moveno);
+
 // defined in mega.c
 BOOL CheckMegaData(u32 mon, u32 item);
 
