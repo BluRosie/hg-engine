@@ -596,7 +596,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 75 / 100;
     }
 
-    if (MoveIsAffectedByNormalizeVarients(moveno)) {
+    if (MoveIsAffectedByNormalizeVariants(moveno)) {
         // handle aerilate - 20% boost if a normal type move was changed to a flying type move.  does not boost flying type moves themselves
         if (AttackingMon.ability == ABILITY_AERILATE && movetype == TYPE_FLYING && sp->moveTbl[moveno].type == TYPE_NORMAL) {
             movepower = movepower * 120 / 100;

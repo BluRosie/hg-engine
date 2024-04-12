@@ -2520,7 +2520,7 @@ BOOL MoveIsMaxMove(u32 moveIndex);
  * @param moveno move number
  * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
 */
-BOOL MoveIsAffectedByNormalizeVarients(int moveno);
+BOOL MoveIsAffectedByNormalizeVariants(int moveno);
 
 // defined in mega.c
 BOOL CheckMegaData(u32 mon, u32 item);

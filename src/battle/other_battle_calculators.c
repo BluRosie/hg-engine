@@ -1114,7 +1114,7 @@ const u8 CriticalRateTable[] =
      24,
      8,
      2,
-     1, 
+     1,
      1
 };
 
@@ -2052,11 +2052,11 @@ BOOL MoveIsMaxMove(u32 moveIndex) {
  * @param moveno move number
  * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
 */
-BOOL MoveIsAffectedByNormalizeVarients(int moveno) {
+BOOL MoveIsAffectedByNormalizeVariants(int moveno) {
     if (MoveIsZMove(moveno) || MoveIsMaxMove(moveno)) {
         return FALSE;
     }
-    
+
     switch (moveno) {
         case MOVE_HIDDEN_POWER:
         case MOVE_WEATHER_BALL:
