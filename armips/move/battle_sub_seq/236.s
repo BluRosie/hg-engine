@@ -12,7 +12,7 @@
 .create "build/move/battle_sub_seq/1_236", 0
 
 a001_236:
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x10
+    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY
     printmessage 809, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The sunlight faded.
     waitmessage
     wait 0x1E

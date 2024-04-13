@@ -309,22 +309,46 @@
  *
  *  largely for weathers, but also covers uproar, gravity, fog, etc.
  */
-#define WEATHER_RAIN                    (0x00000001)
-#define WEATHER_RAIN_PERMANENT          (0x00000002)
-#define WEATHER_RAIN_ANY                (WEATHER_RAIN | WEATHER_RAIN_PERMANENT)
-#define WEATHER_SANDSTORM               (0x00000004)
-#define WEATHER_SANDSTORM_PERMANENT     (0x00000008)
-#define WEATHER_SANDSTORM_ANY           (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)
-#define WEATHER_SUNNY                   (0x00000010)
-#define WEATHER_SUNNY_PERMANENT         (0x00000020)
-#define WEATHER_SUNNY_ANY               (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT)
-#define WEATHER_HAIL                    (0x00000040)
-#define WEATHER_HAIL_PERMANENT          (0x00000080)
-#define WEATHER_HAIL_ANY                (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)
-#define FIELD_STATUS_UPROAR             (0x00000f00)
-#define FIELD_STATUS_GRAVITY            (0x00007000)
-#define FIELD_STATUS_FOG                (0x00008000)
-#define FIELD_STATUS_TRICK_ROOM         (0x00070000)
+#define WEATHER_RAIN                        (0x00000001)                                                                    // 0000 0000 0000 0000 0001
+#define WEATHER_RAIN_PERMANENT              (0x00000002)                                                                    // 0000 0000 0000 0000 0010
+#define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)          // 0010 0000 0000 0000 0000 0000 0011
+#define WEATHER_SANDSTORM                   (0x00000004)                                                                    // 0000 0000 0000 0000 0100
+#define WEATHER_SANDSTORM_PERMANENT         (0x00000008)                                                                    // 0000 0000 0000 0000 1000
+#define WEATHER_SANDSTORM_ANY               (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)                               // 0000 0000 0000 0000 1100
+#define WEATHER_SUNNY                       (0x00000010)                                                                    // 0000 0000 0000 0001 0000
+#define WEATHER_SUNNY_PERMANENT             (0x00000020)                                                                    // 0000 0000 0000 0010 0000
+#define WEATHER_SUNNY_ANY                   (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0000 0000 0000 0011 0000
+#define WEATHER_HAIL                        (0x00000040)                                                                    // 0000 0000 0000 0100 0000
+#define WEATHER_HAIL_PERMANENT              (0x00000080)                                                                    // 0000 0000 0000 1000 0000
+#define WEATHER_HAIL_ANY                    (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)                                         // 0000 0000 0000 1100 0000
+#define FIELD_STATUS_UPROAR                 (0x00000f00)                                                                    // 0000 0000 1111 0000 0000
+#define FIELD_CONDITION_GRAVITY_INIT        (0x00005000)                                                                    // 0000 0101 0000 0000 0000
+#define FIELD_STATUS_GRAVITY                (0x00007000)                                                                    // 0000 0111 0000 0000 0000
+#define FIELD_STATUS_FOG                    (0x00008000)                                                                    // 0000 1000 0000 0000 0000
+#define FIELD_CONDITION_TRICK_ROOM_INIT     (0x00050000)                                                                    // 0101 0000 0000 0000 0000
+#define FIELD_STATUS_TRICK_ROOM             (0x00070000)                                                                    // 0111 0000 0000 0000 0000
+
+// New weathers
+#define WEATHER_SNOW                        (0x00100000)                                                          //      0001 0000 0000 0000 0000 0000
+#define WEATHER_SNOW_PERMANENT              (0x00200000)                                                          //      0010 0000 0000 0000 0000 0000
+#define WEATHER_SNOW_ANY                    (WEATHER_SNOW | WEATHER_SNOW_PERMANENT)                               //      0011 0000 0000 0000 0000 0000
+// We have 2 extra bits let's have fun:           
+#define WEATHER_SHADOWY_AURA                (0x00400000)                                                          //      0100 0000 0000 0000 0000 0000
+#define WEATHER_SHADOWY_AURA_PERMANENT      (0x00800000)                                                          //      1000 0000 0000 0000 0000 0000
+#define WEATHER_SHADOWY_AURA_ANY            (WEATHER_SHADOWY_AURA | WEATHER_SHADOWY_AURA_PERMANENT)               //      1100 0000 0000 0000 0000 0000
+    
+#define WEATHER_EXTREMELY_HARSH_SUNLIGHT    (0x01000000)                                                          // 0001 0000 0000 0000 0000 0000 0000
+#define WEATHER_HEAVY_RAIN                  (0x02000000)                                                          // 0010 0000 0000 0000 0000 0000 0000
+#define WEATHER_STRONG_WINDS                (0x04000000)                                                          // 0100 0000 0000 0000 0000 0000 0000
+    
+#define FIELD_CONDITION_WEATHER_NO_SUN      (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG | WEATHER_SNOW_ANY \
+                                            | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN | WEATHER_STRONG_WINDS)
+#define FIELD_CONDITION_WEATHER_CASTFORM    (WEATHER_RAIN_ANY| WEATHER_HEAVY_RAIN | WEATHER_SUNNY_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT \
+                                            | WEATHER_HAIL_ANY)
+#define FIELD_CONDITION_WEATHER             (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG \
+                                            | WEATHER_SNOW_ANY | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN \
+                                            | WEATHER_STRONG_WINDS)
+
 
 // weather that has indicators on the bottom screen
 #define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)

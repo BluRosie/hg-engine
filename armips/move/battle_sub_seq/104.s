@@ -30,7 +30,7 @@ _0028:
     abilitycheck 0x0, BATTLER_xFF, ABILITY_ICE_BODY, handle_hail_immunity
     abilitycheck 0x0, BATTLER_xFF, ABILITY_SNOW_CLOAK, handle_hail_immunity
 return_from_weather_canceling_abilities:
-    if IF_MASK, VAR_FIELD_EFFECT, 0x30, _00B8
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _00B8
     printmessage 0x11D, 0x15, 0xFF, 0xFF, "NaN", "NaN", "NaN", "NaN" // sandstorm
     goto _00FC
 _00B8:
@@ -61,11 +61,11 @@ _018C:
     goto _016C
 
 handle_sand_force:
-    if IF_MASK, VAR_FIELD_EFFECT, 0xC, _016C // sandstorm | permanent sandstorm
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM_ANY, _016C // sandstorm | permanent sandstorm
     goto return_from_weather_canceling_abilities
 
 handle_hail_immunity:
-    if IF_MASK, VAR_FIELD_EFFECT, 0xC0, _016C // hail | permanent hail
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HAIL_ANY, _016C // hail | permanent hail
     goto return_from_weather_canceling_abilities
 
 .close
