@@ -843,7 +843,7 @@ mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
-    abilities ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE
+    abilities ABILITY_CUTE_CHARM, ABILITY_HUGE_POWER
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     mondexentry SPECIES_JIGGLYPUFF, "If it inflates to sing a lullaby,\nit can perform longer and cause\nsure drowsiness in its audience."
@@ -864,7 +864,7 @@ mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
-    abilities ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE
+    abilities ABILITY_CUTE_CHARM, ABILITY_HUGE_POWER
     runchance 0
     colorflip BODY_COLOR_PINK, 0
     mondexentry SPECIES_WIGGLYTUFF, "Their fur feels so good that if two\nof them snuggle together,\nthey won’t want to be separated."
@@ -1505,7 +1505,7 @@ mondata SPECIES_WEEPINBELL, "Weepinbell"
 
 mondata SPECIES_VICTREEBEL, "Victreebel"
     basestats 80, 105, 65, 70, 100, 70
-    types TYPE_GRASS, TYPE_DARK
+    types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
@@ -1515,7 +1515,7 @@ mondata SPECIES_VICTREEBEL, "Victreebel"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
-    abilities ABILITY_POISON_HEAL, ABILITY_NONE
+    abilities ABILITY_CORROSION, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_VICTREEBEL, "Acid that has dissolved many prey\nbecomes sweeter, making it even\nmore effective at attracting prey."
@@ -1820,7 +1820,7 @@ mondata SPECIES_DODRIO, "Dodrio"
 
 mondata SPECIES_SEEL, "Seel"
     basestats 65, 45, 55, 45, 45, 70
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_ICE
     catchrate 190
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 1
@@ -1925,7 +1925,7 @@ mondata SPECIES_SHELLDER, "Shellder"
 
 mondata SPECIES_CLOYSTER, "Cloyster"
     basestats 50, 95, 180, 70, 85, 45
-    types TYPE_STEEL, TYPE_ICE
+    types TYPE_WATER, TYPE_STEEL
     catchrate 60
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 2, 0, 0, 0
