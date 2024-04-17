@@ -379,7 +379,7 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
 #endif // PRIMAL_REVERSION
 }
 
-BOOL CheckMegaData(u32 mon, u32 item)
+BOOL LONG_CALL CheckMegaData(u32 mon, u32 item)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;
@@ -394,7 +394,7 @@ BOOL CheckMegaData(u32 mon, u32 item)
     return FALSE;
 }
 
-u32 GrabMegaTargetForm(u32 mon, u32 item)
+u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;

@@ -474,7 +474,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         defense = defense * 150 / 100;
     }
-	
+
     // handle plus/minus
     if (((AttackingMon.ability == ABILITY_PLUS) || (AttackingMon.ability == ABILITY_MINUS)) &&
         (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, attacker, ABILITY_MINUS) ||
@@ -1011,7 +1011,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
  *  @param client_no battler to grab the item of
  *  @return item that the client_no is holding accounting for embargo and such
  */
-u16 GetBattleMonItem(struct BattleStruct *sp, int client_no)
+u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
 {
     if ((GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ))
     {

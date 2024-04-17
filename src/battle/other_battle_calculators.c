@@ -560,7 +560,7 @@ const u8 DecreaseSpeedHoldEffects[] =
 };
 
 // return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
-u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
+u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
 {
     u8 ret = 0;
     u32 speed1, speed2;
@@ -1373,7 +1373,7 @@ u16 gf_p_rand(const u16 denominator)
  *  @param flag move status flags to mess around with
  *  @return modified damage
  */
-int ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
+int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
 {
     int i;
     int modifier;
@@ -1716,7 +1716,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *ctx, int battlerId) {
  *  @param attacker client to check
  *  @return TRUE if the move has positive priority after adjustments
  */
-BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
+BOOL LONG_CALL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
     BOOL isTriageMove = FALSE;
 
     for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
@@ -1764,7 +1764,7 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
  *  @param defender defender client
  *  @return TRUE if the move should NOT be exempted from priority blocking effects
  */
-BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender) {
+BOOL LONG_CALL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender) {
     // Courtesy of The Pokeemerald Expansion (https://github.com/rh-hideout/pokeemerald-expansion/blob/selfhost-test/test/battle/terrain/psychic.c)
 
     struct BattleMove currentMove = sp->moveTbl[sp->current_move_index];
@@ -1811,7 +1811,7 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
  *  @param heldItem held item
  *  @return TRUE if seed should activate
  */
-BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
+BOOL LONG_CALL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
     switch (heldItem) {
         case ITEM_ELECTRIC_SEED:
             if (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
@@ -1844,7 +1844,7 @@ BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem) {
  * @param moveIndex move index
  * @return TRUE if it is a multi hit move
 */
-BOOL IsMultiHitMove(u32 moveIndex) {
+BOOL LONG_CALL IsMultiHitMove(u32 moveIndex) {
     for (u16 i = 0; i < NELEMS(MultiHitMovesList); i++) {
         if (moveIndex == MultiHitMovesList[i]) {
             return TRUE;
@@ -1858,7 +1858,7 @@ BOOL IsMultiHitMove(u32 moveIndex) {
  * @param moveIndex move index
  * @return TRUE if it is a banned move
 */
-BOOL IsBannedParentalBondMove(u32 moveIndex) {
+BOOL LONG_CALL IsBannedParentalBondMove(u32 moveIndex) {
     u8 output = FALSE;
     for (u16 i = 0; i < NELEMS(ParentalBondSingleStrikeMovesList); i++) {
         if (moveIndex == ParentalBondSingleStrikeMovesList[i]) {
@@ -1876,7 +1876,7 @@ BOOL IsBannedParentalBondMove(u32 moveIndex) {
  * @param moveIndex move index
  * @return TRUE if it is a banned move
  */
-BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex) {
+BOOL LONG_CALL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex) {
     //no need to check moves if it is a single battle
     if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) == 0) {
         return FALSE;
@@ -1914,7 +1914,7 @@ BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 mo
  * @param checkTempMove if move will be changed via Metronome, Assist, etc
  * @return TRUE if it is a valid move
  */
-BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove) {
+BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove) {
     u32 moveIndex = checkTempMove ? (u32)sp->waza_work : sp->current_move_index;
 
     return (GetBattlerAbility(sp, sp->attack_client) == ABILITY_PARENTAL_BOND &&
@@ -1942,7 +1942,7 @@ BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMo
  * @param equivalentAttack attack number used for calculation
  * @param equivalentDefense defense number used for calculation
  */
-void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender UNUSED, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense) {
+void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender UNUSED, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense) {
     u16 rawPhysicalAttack;
     u16 rawSpecialAttack;
     u16 rawPhysicalDefense;
@@ -2030,7 +2030,7 @@ void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, 
  * @param moveIndex move index
  * @return `TRUE` if it is a Z-Move
 */
-BOOL MoveIsZMove(u32 moveIndex) {
+BOOL LONG_CALL MoveIsZMove(u32 moveIndex) {
     u8 output = FALSE;
     for (u16 i = 0; i < NELEMS(ZMoveList); i++) {
         if (moveIndex == ZMoveList[i]) {
@@ -2046,7 +2046,7 @@ BOOL MoveIsZMove(u32 moveIndex) {
  * @param moveIndex move index
  * @return `TRUE` if it is a Max Move
 */
-BOOL MoveIsMaxMove(u32 moveIndex) {
+BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex) {
     u8 output = FALSE;
     for (u16 i = 0; i < NELEMS(MaxMoveList); i++) {
         if (moveIndex == MaxMoveList[i]) {
@@ -2062,7 +2062,7 @@ BOOL MoveIsMaxMove(u32 moveIndex) {
  * @param moveno move number
  * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
 */
-BOOL MoveIsAffectedByNormalizeVariants(int moveno) {
+BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
     if (MoveIsZMove(moveno) || MoveIsMaxMove(moveno)) {
         return FALSE;
     }
