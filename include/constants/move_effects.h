@@ -320,6 +320,8 @@
 #define MOVE_EFFECT_HIT_AND_CURE_PARTY_STATUS               314
 #define MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT               315
 #define MOVE_EFFECT_HIT_AND_EVA_UP                          316
+#define MOVE_EFFECT_RAISE_DEF_2_HIT                         317
+#define MOVE_EFFECT_GEOMANCY                                318
 
 
 

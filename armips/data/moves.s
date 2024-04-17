@@ -9514,7 +9514,7 @@ movedata MOVE_CONFIDE, "Confide"
     movedescription MOVE_CONFIDE, "---"
 
 movedata MOVE_DIAMOND_STORM, "Diamond Storm"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RAISE_DEF_2_HIT
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ROCK
@@ -9674,7 +9674,7 @@ movedata MOVE_POWDER, "Powder"
     movedescription MOVE_POWDER, "---"
 
 movedata MOVE_GEOMANCY, "Geomancy"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_GEOMANCY
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL

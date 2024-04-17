@@ -317,3 +317,5 @@ MOVE_EFFECT_HIT_AND_RESET_STAT_CHANGES              equ 313
 MOVE_EFFECT_HIT_AND_CURE_PARTY_STATUS               equ 314
 MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT               equ 315
 MOVE_EFFECT_HIT_AND_EVA_UP                          equ 316
+MOVE_EFFECT_RAISE_DEF_2_HIT                         equ 317
+MOVE_EFFECT_GEOMANCY                                equ 318
