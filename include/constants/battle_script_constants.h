@@ -365,6 +365,7 @@
 #define SUB_SEQ_HANDLE_SHED_TAIL                      (355)
 #define SUB_SEQ_HANDLE_AFTER_YOU                      (356)
 #define SUB_SEQ_HANDLE_QUASH                          (357)
+#define SUB_SEQ_DRAIN_FULL                            (358)
 
 
 
@@ -532,6 +533,7 @@
 #define ADD_STATUS_EFF_SHED_TAIL                       (159)
 #define ADD_STATUS_EFF_AFTER_YOU                       (160)
 #define ADD_STATUS_EFF_QUASH                           (161)
+#define ADD_STATUS_EFF_DRAIN_FULL                      (162)
 
 
 
