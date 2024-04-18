@@ -11673,7 +11673,7 @@ movedatalongname MOVE_MENACING_MOONRAZE_MAELSTROM, "Moonraze Storm", "Menacing M
     terminatedata
     movedescription MOVE_MENACING_MOONRAZE_MAELSTROM, "---"
 
-movedatalongname MOVE_LETS_SNUGGLE_FOREVER, "Let’s Snuggle Forever", "Let’s Snuggle"
+movedatalongname MOVE_LETS_SNUGGLE_FOREVER, "Let’s Snuggle", "Let’s Snuggle Forever"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 190

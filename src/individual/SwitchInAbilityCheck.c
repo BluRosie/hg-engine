@@ -15,6 +15,9 @@
 
 
 static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
+static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client);
+
+extern struct ILLUSION_STRUCT gIllusionStruct;
 
 
 /**
@@ -735,10 +738,10 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     if ((sp->battlemon[client_no].imposter_flag == 0)
                         && (sp->battlemon[client_no].hp)
                         && (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 || sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
-                        && (GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER))
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER)
+                        && IsValidImposterTarget(bw, sp, client_no))
                     {
                         sp->battlemon[client_no].imposter_flag = 1;
-                        sp->client_work = client_no;
                         scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
@@ -753,18 +756,6 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 sp->attack_client = client_no; // attack transforms into defence
                 sp->current_move_index = MOVE_TRANSFORM; // force move anim to play
-                if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
-                {
-                    sp->defence_client = (client_no & 1) + ((BattleRand(bw) & 1) * 2); // get random defender
-                }
-                else if (sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
-                {
-                    sp->defence_client = BATTLER_ACROSS(client_no);
-                }
-                else //if (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
-                {
-                    sp->defence_client = BATTLER_OPPONENT(client_no);
-                }
 
                 // fuck it get rid of transform script command:
                 sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
@@ -978,4 +969,60 @@ static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
         }
     }
     return FALSE; // neither opposing battler has an ability that intimidate can activate on
+}
+
+/**
+ *  @brief see if the ability imposter should activate depending on what it is up against
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param client battler to check if either opponent is a valid imposter target
+ *  @return TRUE if imposter can target either of the opponents of client; FALSE otherwise.  also sets attack_client and defence_client automatically
+ */
+static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
+{
+    u32 testClient = BATTLER_OPPONENT(client);
+    struct BattlePokemon *battleMon = &sp->battlemon[testClient];
+    u32 keepTrack = 0;
+    if (battleMon->hp != 0
+    // can not copy another imposter
+     && battleMon->ability != ABILITY_IMPOSTER
+    // can not copy a disguised mon
+     && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
+       && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    // can not copy a substitute or transformed mon
+     && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
+    {
+        keepTrack++;
+        sp->defence_client = testClient;
+    }
+
+    testClient = BATTLER_ACROSS(client);
+    battleMon = &sp->battlemon[testClient];
+    if (battleMon->hp != 0
+    // can not copy another imposter
+     && battleMon->ability != ABILITY_IMPOSTER
+    // can not copy a disguised mon
+     && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
+       && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    // can not copy a substitute or transformed mon
+     && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
+    {
+        keepTrack++;
+        sp->defence_client = testClient;
+    }
+
+    if (keepTrack >= 2)
+    {
+        // choose randomly between the two valid targets
+        sp->defence_client = BattleRand(bw) & 1 ? BATTLER_OPPONENT(client) : BATTLER_ACROSS(client);
+        sp->attack_client = client;
+        return TRUE;
+    } else if (keepTrack == 1) {
+        // sp-defence_client is already set by the individual checks above
+        sp->attack_client = client;
+        return TRUE;
+    }
+
+    return FALSE;
 }
