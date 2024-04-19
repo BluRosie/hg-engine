@@ -403,7 +403,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->state_client = sp->defence_client;
                 sp->client_work = sp->defence_client;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
-                seq_no[0] = SUB_SEQ_HANDLE_DEFIANT;
+                seq_no[0] = SUB_SEQ_BOOST_STATS; //SUB_SEQ_HANDLE_DEFIANT;
                 ret = TRUE;
             }
             break;
@@ -424,7 +424,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->state_client = sp->defence_client;
                 sp->client_work = sp->defence_client;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
-                seq_no[0] = SUB_SEQ_HANDLE_COMPETITIVE;
+                seq_no[0] = SUB_SEQ_BOOST_STATS; //SUB_SEQ_HANDLE_COMPETITIVE;
                 ret = TRUE;
             }
             break;
