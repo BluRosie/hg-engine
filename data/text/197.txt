@@ -188,12 +188,12 @@ The opposing {STRVAR_1 1, 0, 0} regained\nhealth!
 {STRVAR_1 1, 0, 0}’s\nHP is full!
 The wild {STRVAR_1 1, 0, 0}’s\nHP is full!
 The opposing {STRVAR_1 1, 0, 0}’s\nHP is full!
-{STRVAR_1 6, 0, 0} raised your team’s\nSpecial Defense!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Special Defense!
+Light Screen made your team\nstronger against special moves!
+Light Screen made the opposing team\nstronger against special moves!
 {STRVAR_1 6, 0, 0} raised your team’s\nSpecial Defense slightly!
 The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Special Defense slightly!
-{STRVAR_1 6, 0, 0} raised your team’s\nDefense!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense!
+Reflect made your team\nstronger against physical moves!
+Reflect made the opposing team\nstronger against physical moves!
 {STRVAR_1 6, 0, 0} raised your team’s\nDefense slightly!
 The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense slightly!
 Your team became cloaked in\na mystical veil!

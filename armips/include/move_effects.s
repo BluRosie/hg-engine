@@ -320,3 +320,4 @@ MOVE_EFFECT_HIT_AND_EVA_UP                          equ 316
 MOVE_EFFECT_RAISE_DEF_2_HIT                         equ 317
 MOVE_EFFECT_GEOMANCY                                equ 318
 MOVE_EFFECT_WEATHER_SNOW                            equ 319
+MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 equ 320

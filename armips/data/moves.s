@@ -14730,7 +14730,7 @@ movedata MOVE_SUPERCELL_SLAM, "Supercell Slam"
     movedescription MOVE_SUPERCELL_SLAM, "---"
 
 movedata MOVE_PSYCHIC_NOISE, "Psychic Noise"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_PREVENT_HEALING
     pss SPLIT_SPECIAL
     basepower 75
     type TYPE_PSYCHIC

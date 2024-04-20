@@ -14,7 +14,7 @@
 healBellSubscript:
     healbell
     if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_AROMATHERAPY, _002C
-    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_SPARKLY_SWIRL, SkipPrintMessage
+    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_SPARKLY_SWIRL, _002C
     // "A bell chimed!"
     printmessage 821, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0038
