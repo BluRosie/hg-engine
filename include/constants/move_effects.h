@@ -322,6 +322,7 @@
 #define MOVE_EFFECT_HIT_AND_EVA_UP                          316
 #define MOVE_EFFECT_RAISE_DEF_2_HIT                         317
 #define MOVE_EFFECT_GEOMANCY                                318
+#define MOVE_EFFECT_WEATHER_SNOW                            319
 
 
 

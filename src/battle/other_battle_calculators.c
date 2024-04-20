@@ -472,7 +472,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
                 accuracy = accuracy * 80 / 100;
             }
         }
-        if (sp->field_condition & WEATHER_HAIL_ANY)
+        if (sp->field_condition & (WEATHER_HAIL_ANY || WEATHER_SNOW_ANY))
         {
             if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK) == TRUE)
             {
@@ -662,14 +662,14 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability1 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & WEATHER_HAIL_ANY)))
+         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY || WEATHER_SNOW_ANY))))
         {
             speed1 *= 2;
         }
         if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability2 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & WEATHER_HAIL_ANY)))
+         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY || WEATHER_SNOW_ANY))))
         {
             speed2 *= 2;
         }

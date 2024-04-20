@@ -366,6 +366,7 @@
 #define SUB_SEQ_HANDLE_AFTER_YOU                      (356)
 #define SUB_SEQ_HANDLE_QUASH                          (357)
 #define SUB_SEQ_DRAIN_FULL                            (358)
+#define SUB_SEQ_SNOW_END                              (359)
 
 
 
@@ -549,5 +550,29 @@
 
 #define ADD_STAGE_ATTACK_UP (15)
 #define ADD_STAGE_SP_ATK_UP (18)
+
+#define BATTLE_ANIMATION_NONE               0
+#define BATTLE_ANIMATION_ASLEEP             1
+#define BATTLE_ANIMATION_POISONED           2
+#define BATTLE_ANIMATION_BURNED             3
+#define BATTLE_ANIMATION_FROZEN             4
+#define BATTLE_ANIMATION_PARALYZED          5
+#define BATTLE_ANIMATION_CONFUSED           6
+#define BATTLE_ANIMATION_INFATUATED         7
+#define BATTLE_ANIMATION_LEVEL_UP           8
+#define BATTLE_ANIMATION_BAG_ITEM           9
+#define BATTLE_ANIMATION_HELD_ITEM          10
+#define BATTLE_ANIMATION_SHINY              11
+#define BATTLE_ANIMATION_STAT_BOOST         12
+#define BATTLE_ANIMATION_STAT_DROP          13
+#define BATTLE_ANIMATION_RESTORE_HP         14
+#define BATTLE_ANIMATION_SUB_OUT            15
+#define BATTLE_ANIMATION_SUB_IN             16
+#define BATTLE_ANIMATION_ITEM_ESCAPE        17
+#define BATTLE_ANIMATION_WEATHER_FOG        18
+#define BATTLE_ANIMATION_WEATHER_RAIN       19
+#define BATTLE_ANIMATION_WEATHER_HAIL       20
+#define BATTLE_ANIMATION_WEATHER_SAND       21
+#define BATTLE_ANIMATION_WEATHER_SUN        22
 
 #endif

@@ -14186,7 +14186,7 @@ movedata MOVE_TIDY_UP, "Tidy Up"
     movedescription MOVE_TIDY_UP, "---"
 
 movedata MOVE_SNOWSCAPE, "Snowscape"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_WEATHER_SNOW
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE
@@ -14195,7 +14195,7 @@ movedata MOVE_SNOWSCAPE, "Snowscape"
     effectchance 0
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

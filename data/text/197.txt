@@ -1437,3 +1437,5 @@ The opposing {STRVAR_1 1, 0, 0}’s move\nwas postponed!
 {STRVAR_1 1, 0, 0} is absorbing\npower!
 The wild {STRVAR_1 1, 0, 0} is absorbing\npower!
 The opposing {STRVAR_1 1, 0, 0} is absorbing\npower!
+It started to snow!
+The snow stopped.

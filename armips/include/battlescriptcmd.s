@@ -73,7 +73,7 @@ WEATHER_SANDSTORM_PERMANENT         equ (0x00000008)                            
 WEATHER_SANDSTORM_ANY               equ (0x0000000c)                                                                    // 0000 0000 0000 0000 1100
 WEATHER_SUNNY                       equ (0x00000010)                                                                    // 0000 0000 0000 0001 0000
 WEATHER_SUNNY_PERMANENT             equ (0x00000020)                                                                    // 0000 0000 0000 0010 0000
-WEATHER_SUNNY_ANY                   equ (0x00000030)                                                                    // 0000 0000 0000 0011 0000
+WEATHER_SUNNY_ANY                   equ (0x01000030)                                                          // 0001 0000 0000 0000 0000 0011 0000
 WEATHER_HAIL                        equ (0x00000040)                                                                    // 0000 0000 0000 0100 0000
 WEATHER_HAIL_PERMANENT              equ (0x00000080)                                                                    // 0000 0000 0000 1000 0000
 WEATHER_HAIL_ANY                    equ (0x000000c0)                                                                    // 0000 0000 0000 1100 0000
