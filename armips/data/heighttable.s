@@ -563,7 +563,7 @@ heightentry SPECIES_PIGNITE, 0, 0, 0, 0
 heightentry SPECIES_EMBOAR, 0, 0, 0, 0
 heightentry SPECIES_OSHAWOTT, 0, 0, 0, 0
 heightentry SPECIES_DEWOTT, 0, 0, 0, 0
-heightentry SPECIES_SAMUROTT, 0, 0, 0, 0
+heightentry SPECIES_SAMUROTT, 3, 3, 0, 0
 heightentry SPECIES_PATRAT, 0, 0, 0, 0
 heightentry SPECIES_WATCHOG, 0, 0, 0, 0
 heightentry SPECIES_LILLIPUP, 0, 0, 0, 0
@@ -1334,7 +1334,7 @@ heightentry SPECIES_ELECTRODE_HISUIAN, 3, 3, 0, 0
 heightentry SPECIES_TYPHLOSION_HISUIAN, 4, 4, 0, 0
 heightentry SPECIES_QWILFISH_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_SNEASEL_HISUIAN, 3, 3, 16, 16
-heightentry SPECIES_SAMUROTT_HISUIAN, 0, 0, 0, 0
+heightentry SPECIES_SAMUROTT_HISUIAN, 3, 3, 0, 0
 heightentry SPECIES_LILLIGANT_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_ZORUA_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_ZOROARK_HISUIAN, 0, 0, 0, 0
