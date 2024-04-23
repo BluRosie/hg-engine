@@ -7,18 +7,18 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
-// Hail / Snow Warning
+// Sunny Day / Drought
 
-.create "build/move/battle_sub_seq/1_360", 0
+.create "build/move/battle_sub_seq/1_361", 0
 
-a001_360:
-    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HAIL, _0094
-    preparemessage 701, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // It started to hail!
+a001_361:
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _0094
+    preparemessage 698, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The sunlight turned harsh!
     changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, FIELD_CONDITION_WEATHER
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_HAIL
+    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY
     changevar VAR_OP_SET, VAR_WEATHER_TURNS, 0x5
     changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000005D
-    checkitemeffect 0x1, BATTLER_ATTACKER, 0x6E, _0090
+    checkitemeffect 0x1, BATTLER_ATTACKER, 0x70, _0090
     getitempower BATTLER_ATTACKER, 0x9
     changevar2 VAR_OP_ADD, VAR_WEATHER_TURNS, VAR_CALCULATION_WORK
 _0090:

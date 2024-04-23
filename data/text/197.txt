@@ -696,9 +696,9 @@ The opposing {STRVAR_1 1, 0, 0} regained\na little HP with its {STRVAR_1 5, 1, 0
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwhipped up a sandstorm!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nintensified the sun’s rays!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} intensified\fthe sun’s rays!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} intensified\fthe sun’s rays!
+The sunlight turned harsh!
+(Unused)
+(Unused)
 It started to hail!
 (Unused)
 (Unused)
@@ -805,9 +805,9 @@ The rain stopped.
 A sandstorm brewed!
 The sandstorm rages.
 The sandstorm subsided.
-The sunlight turned harsh!
+The sunlight is harsh!
 The sunlight is strong.
-The sunlight faded.
+The harsh sunlight faded.
 It’s hailing!
 Hail continues to fall.
 The hail stopped.

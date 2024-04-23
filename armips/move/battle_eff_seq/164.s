@@ -12,6 +12,9 @@
 // Hail
 
 a030_164:
+    printattackmessage
+    waitmessage
+    wait 0x1E
     gotosubscript 360
     endscript
 
