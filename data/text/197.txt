@@ -699,9 +699,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nintensified the sun’s rays!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} intensified\fthe sun’s rays!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} intensified\fthe sun’s rays!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwhipped up a hailstorm!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa hailstorm!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa hailstorm!
+It started to hail!
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents {STRVAR_1 13, 2, 0} loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
@@ -808,7 +808,7 @@ The sandstorm subsided.
 The sunlight turned harsh!
 The sunlight is strong.
 The sunlight faded.
-It started to hail!
+It’s hailing!
 Hail continues to fall.
 The hail stopped.
 The fog is deep...

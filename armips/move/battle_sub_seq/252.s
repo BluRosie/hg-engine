@@ -14,12 +14,7 @@
 a001_252:
     setstatus2effect BATTLER_PLAYER, 0x14
     waitmessage
-    wait 0xF
-    printmessage 0x2BD, 0xB, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
-    waitmessage
-    wait 0x1E
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, FIELD_CONDITION_WEATHER
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_HAIL_PERMANENT
+    gotosubscript 360
     endscript
 
 .close
