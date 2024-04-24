@@ -693,9 +693,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} blocks\f{STRVAR_1 6, 2, 
 {STRVAR_1 1, 0, 0} regained a little\nHP with its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} regained\na little HP with its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} regained\na little HP with its {STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwhipped up a sandstorm!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
+A sandstorm kicked up!
+(Unused)
+(Unused)
 The sunlight turned harsh!
 (Unused)
 (Unused)
@@ -802,7 +802,7 @@ A downpour started!
 Rain continues to fall.
 The downpour continues.
 The rain stopped.
-A sandstorm brewed!
+The sandstorm is raging!
 The sandstorm rages.
 The sandstorm subsided.
 The sunlight is harsh!

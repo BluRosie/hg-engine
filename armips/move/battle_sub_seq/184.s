@@ -12,13 +12,14 @@
 // Sand Stream
 
 a001_184:
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM_ANY, SkipEffect
     setstatus2effect BATTLER_PLAYER, 0x15
     waitmessage
-    printmessage 0x2B7, 0xB, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
+    gotosubscript 363
+    printpreparedmessage
     waitmessage
     wait 0x1E
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, FIELD_CONDITION_WEATHER
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM_PERMANENT
+SkipEffect:
     endscript
 
 .close
