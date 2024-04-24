@@ -472,7 +472,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
                 accuracy = accuracy * 80 / 100;
             }
         }
-        if (sp->field_condition & (WEATHER_HAIL_ANY || WEATHER_SNOW_ANY))
+        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
         {
             if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK) == TRUE)
             {
@@ -662,14 +662,14 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability1 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY || WEATHER_SNOW_ANY))))
+         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
         {
             speed1 *= 2;
         }
         if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability2 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY || WEATHER_SNOW_ANY))))
+         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
         {
             speed2 *= 2;
         }
@@ -2096,4 +2096,48 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
     } else {
         return sp->moveTbl[moveno].split;
     }
+}
+
+BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bsys, struct BattleStruct *ctx, int battlerIdAttacker, int battlerIdTarget, int move) {
+    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
+        return FALSE;
+    }
+    
+    if (ctx->oneTurnFlag[battlerIdTarget].mamoru_flag 
+        && ctx->moveTbl[move].flag & (1 << 1)
+        && (move != MOVE_CURSE || CurseUserIsGhost(ctx, move, battlerIdAttacker) == TRUE)
+        && (!CheckMoveIsChargeMove(ctx, move) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
+        UnlockBattlerOutOfCurrentMove(bsys, ctx, battlerIdAttacker);
+        ctx->waza_status_flag |= WAZA_STATUS_FLAG_MAMORU_NOHIT; 
+        return FALSE;
+    }
+    
+    if (!(ctx->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
+        && ((ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
+            && ctx->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
+          || GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_NO_GUARD
+          || GetBattlerAbility(ctx, battlerIdTarget) == ABILITY_NO_GUARD)) {
+        ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return FALSE;
+    }
+    
+    if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if (ctx->field_condition & WEATHER_RAIN_ANY && ctx->moveTbl[move].effect == MOVE_EFFECT_THUNDER) {
+            ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        }
+        // Blizzard is 100% accurate in Snow also
+        if (ctx->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && ctx->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+            ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        }
+    }
+    
+    if (!(ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON) 
+        && ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_BOTH
+        && ((!(ctx->server_status_flag & BATTLE_STATUS_HIT_FLY) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR) 
+            || (!(ctx->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
+            || (!(ctx->server_status_flag & BATTLE_STATUS_HIT_DIG) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
+            || (!(ctx->server_status_flag & BATTLE_STATUS_HIT_DIVE) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
+        ctx->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
+    }
+    return FALSE;
 }
