@@ -13,7 +13,9 @@
 
 a001_360:
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HAIL, _0094
-    preparemessage 701, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // It started to hail!
+    printmessage 701, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // It started to hail!
+    waitmessage
+    wait 0x1E
     changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, FIELD_CONDITION_WEATHER
     changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_HAIL
     changevar VAR_OP_SET, VAR_WEATHER_TURNS, 0x5

@@ -13,7 +13,9 @@
 
 a001_363:
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM_ANY, _0094
-    preparemessage 695, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // A sandstorm kicked up!
+    printmessage 695, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // A sandstorm kicked up!
+    waitmessage
+    wait 0x1E
     changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, FIELD_CONDITION_WEATHER
     changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM
     changevar VAR_OP_SET, VAR_WEATHER_TURNS, 0x5

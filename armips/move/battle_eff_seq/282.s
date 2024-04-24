@@ -13,6 +13,7 @@
 
 a030_282:
     //changevar VAR_OP_SET, VAR_WAS_MOVE_CRITICAL, 0x2
+    critcalc
     damagecalc
     changevar VAR_OP_SET, VAR_ADD_STATUS1, ADD_STATUS_EFF_BOOST_STATS_EVASION_DOWN | ADD_STATUS_DEFENDER
     endscript

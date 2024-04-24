@@ -9,9 +9,14 @@ START_ADDRESS equ 0x0
 // if you do not want this change, then set it to 0
 FAIRY_TYPE_IMPLEMENTED equ 1
 
+// SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
+// 9 or above: Snow
+// Otherwise: Hail
+SNOW_WARNING_GENERATION equ 9
+
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.
-.definelabel ALLOW_SAVE_CHANGES, 0
+//.definelabel ALLOW_SAVE_CHANGES, 0
 
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 CRY_PSEUDOBANK_START equ 778
@@ -32,7 +37,7 @@ ALWAYS_HAVE_NATIONAL_DEX equ 0
 ALWAYS_UNCAPPED_FRAME_RATE equ 0
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
-BATTLES_UNCAPPED_FRAME_RATE equ 0
+BATTLES_UNCAPPED_FRAME_RATE equ 1
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
