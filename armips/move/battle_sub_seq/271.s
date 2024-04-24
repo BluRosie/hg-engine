@@ -14,7 +14,7 @@
 a001_271:
     setstatus2effect BATTLER_PLAYER, 0x13
     waitmessage
-    printmessage 0x31F, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    printmessage 0x31F, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // It’s raining!
     waitmessage
     wait 0x1E
     changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, WEATHER_RAIN_PERMANENT

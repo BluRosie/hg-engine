@@ -617,9 +617,9 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
 The wild {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it rain!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it rain!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it rain!
+It started to rain!
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -797,7 +797,7 @@ But nothing happened!
 But it failed!
 It hurt itself in its\nconfusion!
 Mirror Move failed!
-It started to rain!
+It’s raining!
 A downpour started!
 Rain continues to fall.
 The downpour continues.
