@@ -42,6 +42,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
+    // Sort here because damage taken here needs to account for speed
+    DynamicSortClientExecutionOrder(bw, sp, TRUE);
+
     do
     {
         if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)

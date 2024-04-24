@@ -1073,6 +1073,9 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 {
     int effect;
 
+    // Hopefully sorting here causes 0 problems
+    DynamicSortClientExecutionOrder(bw, sp, TRUE);
+
     IncrementBattleScriptPtr(sp, 1);
     effect = sp->moveTbl[sp->current_move_index].effect;
 

@@ -31,7 +31,7 @@ extern struct ILLUSION_STRUCT gIllusionStruct;
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {
     // Sort clients because abilities may affect speed
-    DynamicSortClientExecutionOrder(bw, sp);
+    DynamicSortClientExecutionOrder(bw, sp, FALSE);
     int i;
     int scriptnum = 0;
     int ret = SWITCH_IN_CHECK_LOOP;

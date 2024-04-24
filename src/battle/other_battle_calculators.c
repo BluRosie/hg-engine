@@ -1030,8 +1030,9 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
  *  @brief Sorts clients' execution order factoring in who has already performed their action
  *  @param bw battle work structure; void * because we haven't defined the battle work structure. Apparently we have but we don't use it here so
  *  @param sp global battle structure
+ *  @param sortTurnOrder whether to sort `turn_order` or not
  */
-void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
+void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp, BOOL sortTurnOrder) {
     int maxBattlers;
     int i, j;
     int temp1, temp2;
@@ -1094,15 +1095,17 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
         }
     }
 
-    // also sort turn_order, i.e. weather application + turn end things
-    for (i = 0; i < maxBattlers - 1; i++) {
-        for (j = i + 1; j < maxBattlers; j++) {
-            temp1 = sp->turn_order[i];
-            temp2 = sp->turn_order[j];
+    if (sortTurnOrder) {
+        // also sort turn_order, i.e. weather application + turn end things
+        for (i = 0; i < maxBattlers - 1; i++) {
+            for (j = i + 1; j < maxBattlers; j++) {
+                temp1 = sp->turn_order[i];
+                temp2 = sp->turn_order[j];
 
-            if (CalcSpeed(bw, sp, temp1, temp2, CALCSPEED_FLAG_NO_PRIORITY)) {
-                sp->turn_order[i] = temp2;
-                sp->turn_order[j] = temp1;
+                if (CalcSpeed(bw, sp, temp1, temp2, CALCSPEED_FLAG_NO_PRIORITY)) {
+                    sp->turn_order[i] = temp2;
+                    sp->turn_order[j] = temp1;
+                }
             }
         }
     }
