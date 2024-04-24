@@ -15,7 +15,11 @@ a030_136:
     printattackmessage
     waitmessage
     wait 0x1E
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_RAIN_ANY, NoAnimation
+    playanimation BATTLER_ATTACKER
+    waitmessage
     gotosubscript 362
+NoAnimation:
     endscript
 
 .close
