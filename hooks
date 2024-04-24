@@ -121,6 +121,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 Link_QueueIsEmpty 0224ED48 1
 0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
 0012 BtlCmd_WeatherHPRecovery 02242380 3
+0012 BtlCmd_CalcWeatherBallParams 022432AC 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

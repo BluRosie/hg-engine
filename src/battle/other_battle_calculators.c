@@ -2082,3 +2082,18 @@ BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
             break;
     }
 }
+
+/**
+ * @brief Get a move's split accounting for edge cases
+ * @param sp battle structure
+ * @param moveno move number
+ * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
+*/
+u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
+    // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
+    if (sp->move_type == TYPE_TYPELESS && moveno == MOVE_WEATHER_BALL && sp->current_move_index == moveno) {
+        return SPLIT_PHYSICAL;
+    } else {
+        return sp->moveTbl[moveno].split;
+    }
+}

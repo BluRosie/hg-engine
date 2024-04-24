@@ -76,6 +76,7 @@ BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -2656,6 +2657,41 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp) {
         // sprintf(buf, "Recover 1/4\n");
         // debugsyscall(buf);
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp, 4);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    // u8 buf[64];
+    // sprintf(buf, "In BtlCmd_CalcWeatherBallParams\n");
+    // debugsyscall(buf);
+
+    if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if ((sp->field_condition & FIELD_CONDITION_WEATHER) && !(sp->field_condition & WEATHER_STRONG_WINDS)) {
+            sp->damage_power = sp->moveTbl[sp->current_move_index].power * 2;
+            if (sp->field_condition & WEATHER_RAIN_ANY) {
+                sp->move_type = TYPE_WATER;
+            }
+            if (sp->field_condition & WEATHER_SANDSTORM_ANY) {
+                sp->move_type = TYPE_ROCK;
+            }
+            if (sp->field_condition & WEATHER_SUNNY_ANY) {
+                sp->move_type = TYPE_FIRE;
+            }
+            if (sp->field_condition & WEATHER_HAIL_ANY) {
+                sp->move_type = TYPE_ICE;
+            }
+            // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
+            if (sp->field_condition & WEATHER_SHADOWY_AURA_ANY) {
+                sp->move_type = TYPE_TYPELESS;
+            }
+
+        } else {
+            sp->damage_power = sp->moveTbl[sp->current_move_index].power;
+        }
     }
 
     return FALSE;

@@ -30,6 +30,8 @@
 #define TYPE_ICE      0x0f
 #define TYPE_DRAGON   0x10
 #define TYPE_DARK     0x11
+#define TYPE_TYPELESS 0x12
+#define TYPE_STELLAR  0x13
 
 #define SELECT_FIGHT_COMMAND 1
 #define SELECT_ITEM_COMMAND 2
@@ -2584,12 +2586,19 @@ BOOL LONG_CALL MoveIsZMove(u32 moveIndex);
 BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex);
 
 /**
- * Check if move is affected by Normalize varients
+ * @brief Check if move is affected by Normalize variants
  * @param moveno move number
  * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
 */
 BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno);
 
+/**
+ * @brief Get a move's split accounting for edge cases
+ * @param sp battle structure
+ * @param moveno move number
+ * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
+*/
+u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno);
 
 // defined in mega.c
 BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
