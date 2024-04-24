@@ -75,6 +75,7 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *s
 BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -2619,6 +2620,42 @@ BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *
             // idk crash the game I guess
             GF_ASSERT(forceExecutionOrder > EXECUTION_ORDER_AFTER_YOU);
             break;
+    }
+
+    return FALSE;
+}
+
+
+/**
+ *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    // u8 buf[64];
+    // sprintf(buf, "In BtlCmd_WeatherHPRecovery\n");
+    // debugsyscall(buf);
+
+    // For Strong Winds, the moves Moonlight, Morning Sun, and Synthesis continue to recover ½ of max HP, as they do in clear weather.
+    if (!(sp->field_condition & FIELD_CONDITION_WEATHER)
+    || (sp->field_condition & WEATHER_STRONG_WINDS)
+    || CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+    || CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        // sprintf(buf, "Recover half\n");
+        // debugsyscall(buf);
+        sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp / 2;
+    } else if (sp->field_condition & WEATHER_SUNNY_ANY) {
+        // sprintf(buf, "Recover 2/3\n");
+        // debugsyscall(buf);
+        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * 20, 30);
+    } else {
+        // sprintf(buf, "Recover 1/4\n");
+        // debugsyscall(buf);
+        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp, 4);
     }
 
     return FALSE;

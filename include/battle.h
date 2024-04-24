@@ -317,7 +317,7 @@
 #define WEATHER_SANDSTORM_ANY               (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)                               // 0000 0000 0000 0000 1100
 #define WEATHER_SUNNY                       (0x00000010)                                                                    // 0000 0000 0000 0001 0000
 #define WEATHER_SUNNY_PERMANENT             (0x00000020)                                                                    // 0000 0000 0000 0010 0000
-#define WEATHER_SUNNY_ANY                   (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0000 0000 0000 0011 0000
+#define WEATHER_SUNNY_ANY         (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0001 0000 0000 0000 0000 0011 0000
 #define WEATHER_HAIL                        (0x00000040)                                                                    // 0000 0000 0000 0100 0000
 #define WEATHER_HAIL_PERMANENT              (0x00000080)                                                                    // 0000 0000 0000 1000 0000
 #define WEATHER_HAIL_ANY                    (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)                                         // 0000 0000 0000 1100 0000
