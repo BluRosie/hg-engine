@@ -1052,6 +1052,9 @@ struct __attribute__((packed)) BattleStruct
 
                TerrainOverlay terrainOverlay;
                u8 printed_field_message;
+
+               BOOL checkOnlySpecifiedTarget; // for BattleFormChangeCheck
+               u8 checkOnlySpecifiedTargetClient;
 };
 
 
@@ -2148,33 +2151,11 @@ extern struct BattleSystem *gBattleSystem;
 enum
 {
     SWITCH_IN_CHECK_WEATHER = 0,
-    SWITCH_IN_CHECK_PRIMAL_REVERSION,
-    SWITCH_IN_CHECK_TRACE,
-    SWITCH_IN_CHECK_WEATHER_ABILITY,
-    SWITCH_IN_CHECK_INTIMIDATE,
-    SWITCH_IN_CHECK_DOWNLOAD,
-    SWITCH_IN_CHECK_ANTICIPATION,
-    SWITCH_IN_CHECK_FOREWARN,
-    SWITCH_IN_CHECK_FRISK,
-    SWITCH_IN_CHECK_SLOW_START,
-    SWITCH_IN_CHECK_MOLD_BREAKER,
-    SWITCH_IN_CHECK_PRESSURE,
-    SWITCH_IN_CHECK_FORECAST,
+    SWITCH_IN_CHECK_ENTRY_EFFECT,
     SWITCH_IN_CHECK_AMULET_COIN,
     SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_HEAL_STATUS,
-    SWITCH_IN_CHECK_UNNERVE,
-    SWITCH_IN_CHECK_DARK_AURA,
-    SWITCH_IN_CHECK_FAIRY_AURA,
-    SWITCH_IN_CHECK_AURA_BREAK,
-    SWITCH_IN_CHECK_IMPOSTER,
-    SWITCH_IN_CHECK_ICE_FACE,
-
-// items that display messages.
-    SWITCH_IN_CHECK_AIR_BALLOON,
-    SWITCH_IN_CHECK_FIELD,
-    SWITCH_IN_CHECK_SURGE_ABILITY,
-    SWITCH_IN_CHECK_TERRAIN_SEED,
+    SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
     SWITCH_IN_CHECK_END,
 };
 
@@ -2566,6 +2547,12 @@ BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex);
 */
 BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno);
 
+/**
+ * Check if client can undergo Primal Reversion
+ * @param moveno move number
+ * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
+*/
+BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no);
 
 // defined in mega.c
 BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);

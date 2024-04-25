@@ -212,7 +212,11 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
 
     for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
     {
-        sp->client_work = sp->turn_order[i];
+        if (sp->checkOnlySpecifiedTarget) {
+            sp->client_work = sp->checkOnlySpecifiedTargetClient;
+        } else {
+            sp->client_work = sp->turn_order[i];
+        }
 
         //handle castform
         if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)
