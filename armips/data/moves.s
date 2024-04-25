@@ -314,9 +314,9 @@ movedata MOVE_WHIRLWIND, "Whirlwind"
 movedata MOVE_FLY, "Fly"
 	battleeffect 155
 	pss SPLIT_PHYSICAL
-	basepower 60
+	basepower 90
 	type TYPE_FLYING
-	accuracy 95
+	accuracy 100
 	pp 10
 	effectchance 0
 	target MOVE_TARGET_SELECTED
@@ -603,7 +603,7 @@ movedata MOVE_THRASH, "Thrash"
 	battleeffect 27
 	pss SPLIT_PHYSICAL
 	basepower 90
-	type TYPE_FIGHTING
+	type TYPE_NORMAL
 	accuracy 100
 	pp 10
 	effectchance 0
@@ -4058,7 +4058,7 @@ movedata MOVE_FAKE_OUT, "Fake Out"
 movedata MOVE_UPROAR, "Uproar"
 	battleeffect 159
 	pss SPLIT_SPECIAL
-	basepower 50
+	basepower 70
 	type TYPE_NORMAL
 	accuracy 100
 	pp 10
@@ -9289,7 +9289,7 @@ movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
     movedescription MOVE_TOPSY_TURVY, "---"
 
 movedata MOVE_DRAINING_KISS, "Draining Kiss"
-    battleeffect 0
+    battleeffect 3
     pss SPLIT_SPECIAL
     basepower 50
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -12601,7 +12601,7 @@ movedata MOVE_AURA_WHEEL, "Aura Wheel"
     movedescription MOVE_AURA_WHEEL, "---"
 
 movedata MOVE_BREAKING_SWIPE, "Breaking Swipe"
-    battleeffect 0
+    battleeffect 68
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_DRAGON

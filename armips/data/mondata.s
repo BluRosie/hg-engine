@@ -22242,7 +22242,7 @@ mondata SPECIES_MIRAIDON, "Miraidon"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_DRIZZLE, ABILITY_NONE
+    abilities ABILITY_ELECTRIC_SURGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_MIRAIDON, "This seems to be the Iron Serpent mentioned in an old book. The Iron Serpent is said to have turned the land to ash with its lightning."
@@ -22636,7 +22636,7 @@ mondata SPECIES_MEGA_CHARIZARD_X, "-----"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
-    abilities ABILITY_PRESSURE, ABILITY_NONE
+    abilities ABILITY_TOUGH_CLAWS, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 
@@ -23388,7 +23388,7 @@ mondata SPECIES_GROUDON_PRIMAL, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
+    abilities ABILITY_DROUGHT, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 
@@ -23404,7 +23404,7 @@ mondata SPECIES_KYOGRE_PRIMAL, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
+    abilities ABILITY_DRIZZLE, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 

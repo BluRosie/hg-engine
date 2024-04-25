@@ -14339,10 +14339,10 @@ superrodrate 0
 walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 
 //morning encounter slots
-monwithform SPECIES_HOUNDOOM, 1
-pokemon SPECIES_HYDREIGON
 monwithform SPECIES_TYRANITAR, 1
-pokemon SPECIES_TYRANITAR
+pokemon SPECIES_HYDREIGON
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_HOUNDOOM, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_ABSOL, 1
@@ -14353,10 +14353,10 @@ pokemon SPECIES_HOOPA
 pokemon SPECIES_HOOPA
 
 //day encounter slots
-monwithform SPECIES_HOUNDOOM, 1
-pokemon SPECIES_HYDREIGON
 monwithform SPECIES_TYRANITAR, 1
-pokemon SPECIES_TYRANITAR
+pokemon SPECIES_HYDREIGON
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_HOUNDOOM, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_ABSOL, 1
@@ -14367,10 +14367,10 @@ pokemon SPECIES_HOOPA
 pokemon SPECIES_HOOPA
 
 //night encounter slots
-monwithform SPECIES_HOUNDOOM, 1
-pokemon SPECIES_HYDREIGON
 monwithform SPECIES_TYRANITAR, 1
-pokemon SPECIES_TYRANITAR
+pokemon SPECIES_HYDREIGON
+monwithform SPECIES_HOUNDOOM, 1
+monwithform SPECIES_HOUNDOOM, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_BANETTE, 1
 monwithform SPECIES_ABSOL, 1
