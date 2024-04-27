@@ -205,7 +205,7 @@ u8 TypeEffectivenessTable[][3] =
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     int i, form_no;
     BOOL ret = FALSE;
@@ -1144,7 +1144,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
  *  @param sp global battle structure
  *  @param SwitchAbility whether the ability should be updated from the base stats in personal
  */
-void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility)
+void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility)
 {
     void *pp2;
 
@@ -1251,7 +1251,7 @@ void BattleEndRevertFormChange(void *bw)
  *  @param sp global battle structure
  *  @param client battler whose flags to clear
  */
-void ClearBattleMonFlags(struct BattleStruct *sp, int client)
+void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     sp->battlemon[client].unnerve_flag = 0;
     sp->battlemon[client].dark_aura_flag = 0;
@@ -1314,7 +1314,7 @@ u16 SoundProofMovesList[] = {
  *  @param ability index of the ability to account for
  *  @param type if relevant, the type that is already set to overwrite the base move type
  */
-u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type)
+u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type)
 {
     u32 typeLocal;
 
@@ -1322,7 +1322,7 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
     {
         typeLocal = TYPE_NORMAL;
     }
-    else if (sp->moveTbl[move].type == TYPE_NORMAL && sp->current_move_index != MOVE_HIDDEN_POWER)
+    else if (sp->moveTbl[move].type == TYPE_NORMAL && MoveIsAffectedByNormalizeVariants(sp->current_move_index))
     {
         if (ability == ABILITY_PIXILATE)
         {
@@ -1371,7 +1371,7 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
  *  @param client battler to read data from
  *  @param move index of the move to grab type for
  */
-u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
+u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
 {
     return GetAdjustedMoveTypeBasics(sp, move, GetBattlerAbility(sp, client), sp->move_type);
 }
@@ -1382,7 +1382,7 @@ u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
  *  @param move move index to check for sound property
  *  @return TRUE if is a sound move; FALSE otherwise
  */
-BOOL IsMoveSoundBased(u32 move)
+BOOL LONG_CALL IsMoveSoundBased(u32 move)
 {
     int i;
     for (i = 0; i < (s32)NELEMS(SoundProofMovesList); i++)
@@ -1415,7 +1415,7 @@ struct PartyPokemon *TargetSelectGrabIllusionPartyPokemon(void *bw, u32 client, 
  *  @param client client to sanitize
  *  @return team of client
  */
-u32 SanitizeClientForTeamAccess(void *bw, u32 client)
+u32 LONG_CALL SanitizeClientForTeamAccess(void *bw, u32 client)
 {
     if (DoesSideHave2Battlers(bw, client))
     {
@@ -1435,7 +1435,7 @@ u32 SanitizeClientForTeamAccess(void *bw, u32 client)
  *  @param client client whose side to check for 2 battlers
  *  @return TRUE if the client's side has 2 battlers
  */
-BOOL DoesSideHave2Battlers(void *bw, u32 client)
+BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client)
 {
     if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) && (BattleWork_GetTrainerIndex(bw, client) != BattleWork_GetTrainerIndex(bw, BATTLER_ALLY(client))))
     {

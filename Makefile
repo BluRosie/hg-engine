@@ -235,12 +235,13 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 clean:
 	rm -rf $(BUILD)
 	rm -rf $(BASE)
+	rm -rf rom_gen.ld rom_gen_battle.ld
 
 clean_tools:
 	rm -f $(TOOLS)
 
 clean_code:
-	rm -f $(OBJS) $(FIELD_OBJS) $(BATTLE_OBJS) $(POKEDEX_OBJS) $(LINK) $(OUTPUT) rom_gen.ld
+	rm -f $(OBJS) $(FIELD_OBJS) $(BATTLE_OBJS) $(POKEDEX_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) rom_gen.ld rom_gen_battle.ld
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true

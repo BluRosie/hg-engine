@@ -2145,6 +2145,50 @@ extern struct BattleSystem *gBattleSystem;
 
 
 
+enum
+{
+    SWITCH_IN_CHECK_WEATHER = 0,
+    SWITCH_IN_CHECK_PRIMAL_REVERSION,
+    SWITCH_IN_CHECK_TRACE,
+    SWITCH_IN_CHECK_WEATHER_ABILITY,
+    SWITCH_IN_CHECK_INTIMIDATE,
+    SWITCH_IN_CHECK_DOWNLOAD,
+    SWITCH_IN_CHECK_ANTICIPATION,
+    SWITCH_IN_CHECK_FOREWARN,
+    SWITCH_IN_CHECK_FRISK,
+    SWITCH_IN_CHECK_SLOW_START,
+    SWITCH_IN_CHECK_MOLD_BREAKER,
+    SWITCH_IN_CHECK_PRESSURE,
+    SWITCH_IN_CHECK_FORECAST,
+    SWITCH_IN_CHECK_AMULET_COIN,
+    SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
+    SWITCH_IN_CHECK_HEAL_STATUS,
+    SWITCH_IN_CHECK_UNNERVE,
+    SWITCH_IN_CHECK_DARK_AURA,
+    SWITCH_IN_CHECK_FAIRY_AURA,
+    SWITCH_IN_CHECK_AURA_BREAK,
+    SWITCH_IN_CHECK_IMPOSTER,
+    SWITCH_IN_CHECK_ICE_FACE,
+
+// items that display messages.
+    SWITCH_IN_CHECK_AIR_BALLOON,
+    SWITCH_IN_CHECK_FIELD,
+    SWITCH_IN_CHECK_SURGE_ABILITY,
+    SWITCH_IN_CHECK_TERRAIN_SEED,
+    SWITCH_IN_CHECK_END,
+};
+
+enum
+{
+    SWITCH_IN_CHECK_LOOP = 0,
+    SWITCH_IN_CHECK_MOVE_SCRIPT,
+    SWITCH_IN_CHECK_CHECK_END,
+};
+
+extern const u8 StatBoostModifiers[][2];
+
+
+
 
 
 
@@ -2165,7 +2209,7 @@ extern struct BattleSystem *gBattleSystem;
  *  @param client_no battler to grab the item of
  *  @return
  */
-u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 
 
@@ -2179,7 +2223,7 @@ u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief get the adjusted move type accounting for normalize and friends
@@ -2189,7 +2233,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
  *  @param client battler to read data from
  *  @param move index of the move to grab type for
  */
-u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // account for normalize and such
+u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // account for normalize and such
 
 /**
  *  @brief check if a move is a sound-based move
@@ -2197,7 +2241,7 @@ u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move); // accou
  *  @param move move index to check for sound property
  *  @return TRUE if is a sound move; FALSE otherwise
  */
-BOOL IsMoveSoundBased(u32 move);
+BOOL LONG_CALL IsMoveSoundBased(u32 move);
 
 /**
  *  @brief get the adjusted move type accounting for normalize without relying on a client
@@ -2207,7 +2251,7 @@ BOOL IsMoveSoundBased(u32 move);
  *  @param ability index of the ability to account for
  *  @param type if relevant, the type that is already set to overwrite the base move type
  */
-u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type); // AI-specific, client-agnostic
+u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type); // AI-specific, client-agnostic
 
 /**
  *  @brief changes the form of the battler passed in.  updates all of the stats and possibly updates the ability if necessary
@@ -2218,7 +2262,7 @@ u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u3
  *  @param sp global battle structure
  *  @param SwitchAbility whether the ability should be updated from the base stats in personal
  */
-void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility);
+void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility);
 
 /**
  *  @brief clear the newly introduced battle mon flags in various scenarios, i.e. switching
@@ -2226,7 +2270,25 @@ void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp
  *  @param sp global battle structure
  *  @param client battler whose flags to clear
  */
-void ClearBattleMonFlags(struct BattleStruct *sp, int client);
+void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client);
+
+/**
+ *  @brief dumbs client parameter down into its team in proper scenarios
+ *
+ *  @param bw battle work structure
+ *  @param client client to sanitize
+ *  @return team of client
+ */
+u32 LONG_CALL SanitizeClientForTeamAccess(void *bw, u32 client);
+
+/**
+ *  @brief checks if the client's side has 2 battlers
+ *
+ *  @param bw battle work structure
+ *  @param client client whose side to check for 2 battlers
+ *  @return TRUE if the client's side has 2 battlers
+ */
+BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client);
 
 
 // defined in battle_item.c
@@ -2238,7 +2300,7 @@ void ClearBattleMonFlags(struct BattleStruct *sp, int client);
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief handle shell bell hp restore, rage is building message, and life orb after getting a hit
@@ -2246,7 +2308,7 @@ u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
  */
-u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
+u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
 
 /**
  *  @brief handle defender item effects on hit
@@ -2256,25 +2318,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
-
-/**
- *  @brief dumbs client parameter down into its team in proper scenarios
- *
- *  @param bw battle work structure
- *  @param client client to sanitize
- *  @return team of client
- */
-u32 SanitizeClientForTeamAccess(void *bw, u32 client);
-
-/**
- *  @brief checks if the client's side has 2 battlers
- *
- *  @param bw battle work structure
- *  @param client client whose side to check for 2 battlers
- *  @return TRUE if the client's side has 2 battlers
- */
-BOOL DoesSideHave2Battlers(void *bw, u32 client);
+BOOL LONG_CALL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
 
 
 // defined in battle_script_commands.c
@@ -2319,7 +2363,7 @@ enum
  *  @param side BTL_PARAM_* const to resolve to BattleStruct field
  *  @return resolved battler
  */
-int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side);
+s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side);
 
 /**
  *  @brief load battle script to BattleStruct's SkillSeqWork
@@ -2328,7 +2372,7 @@ int GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp, int side)
  *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
  *  @param index number to load
  */
-void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
+void LONG_CALL LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 
 /**
  *  @brief load battle script and queue up the current one to go after this one
@@ -2337,7 +2381,7 @@ void LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
  *  @param kind ARC_* constant to load from, doesn't have to be 0 for move scripts or 1 for subscripts
  *  @param index number to load
  */
-void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
+void LONG_CALL PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
 
 /**
  *  @brief function to check whether a mon is grounded or not
@@ -2345,7 +2389,7 @@ void PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int index);
  *  @param client_no resolved battler
  *  @return `TRUE` if grounded, `FALSE` otherwise
  */
-BOOL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
+BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
 
 /**
  *  @brief check if waitmessage battle script command should end
@@ -2353,7 +2397,7 @@ BOOL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
  *  @param sp global battle structure
  *  @return TRUE if link queue is empty; FALSE otherwise
  */
-BOOL Link_QueueIsEmpty(struct BattleStruct *sp);
+BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
 
 
@@ -2367,7 +2411,7 @@ BOOL Link_QueueIsEmpty(struct BattleStruct *sp);
  *  @param ability ability to check for
  *  @return TRUE if the defender has the ability and it isn't canceled by mold breaker; FALSE otherwise
  */
-u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
 
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
@@ -2377,7 +2421,7 @@ u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender,
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
@@ -2386,7 +2430,7 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
  *  @param sp global battle structure
  *  @return TRUE to signal that the battle subscript was loaded and to run it; FALSE otherwise
  */
-u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
+u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
 
 // defined in other_battle_calculators.c
@@ -2400,7 +2444,7 @@ u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
  *  @param flag if nonzero, ignore quick claw and custap berry modifiers
  *  @return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two
  */
-u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
+u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
 
 #define CALCSPEED_FLAG_NOTHING 0
 #define CALCSPEED_FLAG_NO_PRIORITY 0x80
@@ -2418,7 +2462,7 @@ u8 CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int fl
  *  @param flag move status flags to mess around with
  *  @return modified damage
  */
-int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
+int LONG_CALL ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
 
 /**
  *  @brief see if a move has positive priority after adjustment
@@ -2427,7 +2471,7 @@ int ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move
  *  @param attacker client to check
  *  @return TRUE if the move has positive priority after adjustments
  */
-BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
+BOOL LONG_CALL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
 
 /**
  *  @brief see if the move should NOT be exempted from priority blocking effects
@@ -2437,7 +2481,7 @@ BOOL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
  *  @param defender defender client
  *  @return TRUE if the move should NOT be exempted from priority blocking effects
  */
-BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender);
+BOOL LONG_CALL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp, int attacker, int defender);
 
 /**
  *  @brief Check if seed should activate
@@ -2446,21 +2490,21 @@ BOOL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleStruct *sp,
  *  @param heldItem held item
  *  @return TRUE if seed should activate
  */
-BOOL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
+BOOL LONG_CALL TerrainSeedShouldActivate(struct BattleStruct *sp, u16 heldItem);
 
 /**
  * @brief Check if the current move is a multi hit move
  * @param moveIndex move index
  * @return TRUE if it is a multi hit move
 */
-BOOL IsMultiHitMove(u32 moveIndex);
+BOOL LONG_CALL IsMultiHitMove(u32 moveIndex);
 
 /**
  * @brief Check if the current move is a move that shouldn't be affected by Parental Bond
  * @param moveIndex move index
  * @return TRUE if it is a banned move
 */
-BOOL IsBannedParentalBondMove(u32 moveIndex);
+BOOL LONG_CALL IsBannedParentalBondMove(u32 moveIndex);
 
 /**
  * @brief Check if the current move is a spread move that shouldn't be affected by Parental Bond
@@ -2469,7 +2513,7 @@ BOOL IsBannedParentalBondMove(u32 moveIndex);
  * @param moveIndex move index
  * @return TRUE if it is a banned move
  */
-BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex);
+BOOL LONG_CALL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex);
 
 /**
  * @brief Check if the current move is a move that should be affected by Parental Bond
@@ -2478,7 +2522,7 @@ BOOL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 mo
  * @param checkTempMove if move will be changed via Metronome, Assist, etc
  * @return TRUE if it is a valid move
  */
-BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove);
+BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove);
 
 /**
  * @brief gets the actual attack and defense for damage calculation
@@ -2499,10 +2543,32 @@ BOOL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMo
  * @param equivalentAttack attack number used for calculation
  * @param equivalentDefense defense number used for calculation
  */
-void getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
+void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attackerAttack, u16 defenderDefense, u16 attackerSpecialAttack, u16 defenderSpecialDefense, s8 attackerAttackstate, s8 defenderDefenseState, s8 attackerSpecialAttackState, s8 defenderSpecialDefenseState, u8 *movesplit, u8 attacker, u8 defender, u8 critical, int moveno, u16 *equivalentAttack, u16 *equivalentDefense);
+
+/**
+ * @brief Check if the current move is a Z-Move
+ * @param moveIndex move index
+ * @return `TRUE` if it is a Z-Move
+*/
+BOOL LONG_CALL MoveIsZMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a Max Move
+ * @param moveIndex move index
+ * @return `TRUE` if it is a Max Move
+*/
+BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex);
+
+/**
+ * Check if move is affected by Normalize varients
+ * @param moveno move number
+ * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
+*/
+BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno);
+
 
 // defined in mega.c
-BOOL CheckMegaData(u32 mon, u32 item);
+BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
 
 /**
  *  @brief grab mega form of a specific species with specific item
@@ -2511,9 +2577,10 @@ BOOL CheckMegaData(u32 mon, u32 item);
  *  @param item held item to check for mega stone
  *  @return target form
  */
-u32 GrabMegaTargetForm(u32 mon, u32 item);
+u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item);
 
 
+// defined in battle_input.c
 typedef struct BattleBGStorage {
     u16 baseEntry:14;
     u16 hasDayNightPals:1;
@@ -2593,14 +2660,14 @@ typedef enum Terrain {
  *  @param bg background id to load
  *  @param terrain platform id to load
  */
-void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
+void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
 
 /**
  *  @brief Sorts clients' execution order factoring in who has already performed their action
  *  @param bw battle work structure; void * because we haven't defined the battle work structure. Apparently we have but we don't use it here so
  *  @param sp global battle structure
  */
-void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp);
+void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp);
 
 void LONG_CALL BattleControllerPlayer_CalcExecutionOrder(struct BattleSystem *bw, struct BattleStruct *sp);
 

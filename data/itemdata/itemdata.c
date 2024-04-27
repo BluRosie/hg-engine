@@ -38688,12 +38688,12 @@ const ITEMDATA __data[] =
 
 [ITEM_ELECTRIC_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 10,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -38753,12 +38753,12 @@ const ITEMDATA __data[] =
 
 [ITEM_GRASSY_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 10,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -38818,12 +38818,12 @@ const ITEMDATA __data[] =
 
 [ITEM_MISTY_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 10,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -38883,12 +38883,12 @@ const ITEMDATA __data[] =
 
 [ITEM_PSYCHIC_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 10,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -41808,7 +41808,7 @@ const ITEMDATA __data[] =
 
 [ITEM_MIRROR_HERB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 200, // Cost: 30000 Sell: 7500 
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -42133,12 +42133,12 @@ const ITEMDATA __data[] =
 
 [ITEM_BURN_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A, Sell: 500
+    .holdEffect = HOLD_EFFECT_BURN_DRIVE,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 70,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -42198,12 +42198,12 @@ const ITEMDATA __data[] =
 
 [ITEM_CHILL_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A, Sell: 500
+    .holdEffect = HOLD_EFFECT_CHILL_DRIVE,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 70,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -42263,12 +42263,12 @@ const ITEMDATA __data[] =
 
 [ITEM_DOUSE_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A, Sell: 500
+    .holdEffect = HOLD_EFFECT_DOUSE_DRIVE,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 70,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -42328,12 +42328,12 @@ const ITEMDATA __data[] =
 
 [ITEM_SHOCK_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A, Sell: 500
+    .holdEffect = HOLD_EFFECT_SHOCK_DRIVE,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 70,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44083,12 +44083,12 @@ const ITEMDATA __data[] =
 
 [ITEM_FIGHTING_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_FIGHTING_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44148,12 +44148,12 @@ const ITEMDATA __data[] =
 
 [ITEM_FLYING_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_FLYING_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44213,12 +44213,12 @@ const ITEMDATA __data[] =
 
 [ITEM_POISON_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_POISON_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44278,12 +44278,12 @@ const ITEMDATA __data[] =
 
 [ITEM_GROUND_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_GROUND_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44343,12 +44343,12 @@ const ITEMDATA __data[] =
 
 [ITEM_ROCK_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_ROCK_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44408,12 +44408,12 @@ const ITEMDATA __data[] =
 
 [ITEM_BUG_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_BUG_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44473,12 +44473,12 @@ const ITEMDATA __data[] =
 
 [ITEM_GHOST_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_GHOST_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44538,12 +44538,12 @@ const ITEMDATA __data[] =
 
 [ITEM_STEEL_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_STEEL_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44603,12 +44603,12 @@ const ITEMDATA __data[] =
 
 [ITEM_FIRE_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_FIRE_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44668,12 +44668,12 @@ const ITEMDATA __data[] =
 
 [ITEM_WATER_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_WATER_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44733,12 +44733,12 @@ const ITEMDATA __data[] =
 
 [ITEM_GRASS_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_GRASS_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44798,12 +44798,12 @@ const ITEMDATA __data[] =
 
 [ITEM_ELECTRIC_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_ELECTRIC_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44863,12 +44863,12 @@ const ITEMDATA __data[] =
 
 [ITEM_PSYCHIC_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_PSYCHIC_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44928,12 +44928,12 @@ const ITEMDATA __data[] =
 
 [ITEM_ICE_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_ICE_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -44993,12 +44993,12 @@ const ITEMDATA __data[] =
 
 [ITEM_DRAGON_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_DRAGON_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -45058,12 +45058,12 @@ const ITEMDATA __data[] =
 
 [ITEM_DARK_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_DARK_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
@@ -45123,12 +45123,12 @@ const ITEMDATA __data[] =
 
 [ITEM_FAIRY_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
-    .holdEffect = 0,
+    .price = 1000, // Cost: N/A Sell: 500
+    .holdEffect = HOLD_EFFECT_FAIRY_MEMORY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 50,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
