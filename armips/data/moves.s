@@ -1225,7 +1225,7 @@ movedata MOVE_RAZOR_LEAF, "Razor Leaf"
     movedescription MOVE_RAZOR_LEAF, "Sharp-edged leaves\nare launched to slash\nat the foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_SOLAR_BEAM, "Solar Beam"
-    battleeffect 151
+    battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_GRASS
