@@ -995,7 +995,7 @@ heightentry SPECIES_SMOLIV, 0, 0, 0, 0
 heightentry SPECIES_DOLLIV, 0, 0, 0, 0
 heightentry SPECIES_ARBOLIVA, 0, 0, 0, 0
 heightentry SPECIES_SQUAWKABILLY, 0, 0, 0, 0
-heightentry SPECIES_NACLI, 0, 0, 0, 0
+heightentry SPECIES_NACLI, 3, 3, 0, 0
 heightentry SPECIES_NACLSTACK, 0, 0, 0, 0
 heightentry SPECIES_GARGANACL, 0, 0, 0, 0
 heightentry SPECIES_CHARCADET, 3, 3, 0, 0
@@ -1026,8 +1026,8 @@ heightentry SPECIES_TINKATON, 3, 3, 0, 0
 heightentry SPECIES_WIGLETT, 0, 0, 0, 0
 heightentry SPECIES_WUGTRIO, 0, 0, 0, 0
 heightentry SPECIES_BOMBIRDIER, 0, 0, 0, 0
-heightentry SPECIES_FINIZEN, 0, 0, 0, 0
-heightentry SPECIES_PALAFIN, 0, 0, 0, 0
+heightentry SPECIES_FINIZEN, 3, 3, 0, 0
+heightentry SPECIES_PALAFIN, 3, 3, 0, 0
 heightentry SPECIES_VAROOM, 0, 0, 0, 0
 heightentry SPECIES_REVAVROOM, 0, 0, 0, 0
 heightentry SPECIES_CYCLIZAR, 0, 0, 0, 0
@@ -1355,7 +1355,7 @@ heightentry SPECIES_MAUSHOLD_FAMILY_OF_THREE, 0, 0, 0, 0
 heightentry SPECIES_SQUAWKABILLY_BLUE_PLUMAGE, 0, 0, 0, 0
 heightentry SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE, 0, 0, 0, 0
 heightentry SPECIES_SQUAWKABILLY_WHITE_PLUMAGE, 0, 0, 0, 0
-heightentry SPECIES_PALAFIN_HERO, 0, 0, 0, 0
+heightentry SPECIES_PALAFIN_HERO, 3, 3, 0, 0
 heightentry SPECIES_TATSUGIRI_DROOPY, 0, 0, 0, 0
 heightentry SPECIES_TATSUGIRI_STRETCHY, 0, 0, 0, 0
 heightentry SPECIES_DUDUNSPARCE_THREE_SEGMENT, 3, 3, 0, 0
