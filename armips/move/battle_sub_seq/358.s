@@ -14,7 +14,6 @@
 a001_358:
     changevar2 VAR_OP_SET, VAR_HP_TEMP, VAR_HIT_DAMAGE
     if IF_EQUAL, VAR_HP_TEMP, 0x0, _0030
-    // removed the command to half the value
 _0030:
     checkitemeffect 0x1, BATTLER_ATTACKER, 0x7C, _0080
     getitempower BATTLER_ATTACKER, 0x9

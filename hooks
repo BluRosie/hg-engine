@@ -437,3 +437,6 @@ arm9 MonTryLearnMoveOnLevelUp 02071534 3
 0007 AnimCmd_PlayCryEdit_hook 0221F854 0
 
 arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
+
+# 0224C018 + 4 = 224C01C
+0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
