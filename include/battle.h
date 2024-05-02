@@ -2756,4 +2756,12 @@ BOOL LONG_CALL CurseUserIsGhost(struct BattleStruct *ctx, u16 moveNo, int battle
 
 void LONG_CALL UnlockBattlerOutOfCurrentMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
+/**
+ *  @brief checks if the given moveNo is a two-turn move at all
+ *
+ *  @param sp global battle structure
+ *  @param moveNo move index to check against a list of move effects that are charge moves
+ */
+BOOL LONG_CALL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo);
+
 #endif // BATTLE_H
