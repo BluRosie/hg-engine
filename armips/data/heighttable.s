@@ -1048,7 +1048,7 @@ heightentry SPECIES_FARIGIRAF, 0, 0, 0, 0
 heightentry SPECIES_DUDUNSPARCE, 3, 3, 0, 0
 heightentry SPECIES_KINGAMBIT, 3, 3, 0, 0
 heightentry SPECIES_GREAT_TUSK, 3, 3, 0, 0
-heightentry SPECIES_SCREAM_TAIL, 0, 0, 0, 0
+heightentry SPECIES_SCREAM_TAIL, 3, 3, 0, 0
 heightentry SPECIES_BRUTE_BONNET, 0, 0, 0, 0
 heightentry SPECIES_FLUTTER_MANE, 0, 0, 0, 0
 heightentry SPECIES_SLITHER_WING, 3, 3, 0, 0
@@ -1074,7 +1074,7 @@ heightentry SPECIES_KORAIDON, 3, 3, 0, 0
 heightentry SPECIES_MIRAIDON, 3, 3, 0, 0
 heightentry SPECIES_WALKING_WAKE, 3, 3, 0, 0
 heightentry SPECIES_IRON_LEAVES, 0, 0, 0, 0
-heightentry SPECIES_DIPPLIN, 0, 0, 0, 0
+heightentry SPECIES_DIPPLIN, 3, 3, 0, 0
 heightentry SPECIES_POLTCHAGEIST, 0, 0, 0, 0
 heightentry SPECIES_SINISTCHA, 0, 0, 0, 0
 heightentry SPECIES_OKIDOGI, 0, 0, 0, 0
@@ -1082,7 +1082,7 @@ heightentry SPECIES_MUNKIDORI, 0, 0, 0, 0
 heightentry SPECIES_FEZANDIPITI, 0, 0, 0, 0
 heightentry SPECIES_OGERPON, 0, 0, 0, 0
 heightentry SPECIES_ARCHALUDON, 3, 3, 0, 0
-heightentry SPECIES_HYDRAPPLE, 0, 0, 0, 0
+heightentry SPECIES_HYDRAPPLE, 3, 3, 0, 0
 heightentry SPECIES_GOUGING_FIRE, 0, 0, 0, 0
 heightentry SPECIES_RAGING_BOLT, 0, 0, 0, 0
 heightentry SPECIES_IRON_BOULDER, 0, 0, 0, 0
