@@ -1444,7 +1444,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         {
             if (TypeEffectivenessTable[i][0] == 0xfe) // handle foresight
             {
-                if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY))
+                if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY)) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
                 {
                     break;
                 }
