@@ -403,6 +403,16 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     {
         stat_stage_evasion = 0;
     }
+    
+    if (GetBattlerAbility(sp, attacker) == ABILITY_KEEN_EYE)
+    {
+        stat_stage_evasion = 0;
+    }    
+    
+    if (GetBattlerAbility(sp, attacker) == ABILITY_ILLUMINATE)
+    {
+        stat_stage_evasion = 0;
+    }
 
     if (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE))
      && (stat_stage_evasion < 0))
