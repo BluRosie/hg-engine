@@ -687,7 +687,7 @@ u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Pa
 
     for (s32 i = 0; i < ((form_no != 0) ? 6 : party->count); i++) // check all 6 party slots if looking to revert
     {
-        struct PartyPokemon *currentmon = PokeParty_GetMemberPointer(party, i);
+        struct PartyPokemon *currentmon = Party_GetMonByIndex(party, i);
         u32 species2 = GetMonData(currentmon, MON_DATA_SPECIES, NULL);
 
         if (species2 == 0 && form_no != 0) // looking for empty slot to dump reshiram to from save
@@ -764,7 +764,7 @@ u16 NatureToMintItem[] =
  */
 u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
 {
-    struct PartyPokemon *pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
+    struct PartyPokemon *pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
     partyMenuSignal = 0; // ensure it is 0 before potentially queuing up a different message
 
     // handle shaymin
@@ -813,7 +813,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
             // grab reshiram from save
             // add reshiram to party--can't just use PokeParty_Add because icons freak out when you tell them to animate something that isn't there
             //PokeParty_Add(wk->dat->pp, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
-            struct PartyPokemon *reshiram = PokeParty_GetMemberPointer(wk->dat->pp, splicer_pos);
+            struct PartyPokemon *reshiram = Party_GetMonByIndex(wk->dat->pp, splicer_pos);
             *reshiram = saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS];
             partyMenuSignal = 1;
 
@@ -831,7 +831,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         {
             // grab reshiram from party
             // store reshiram in save
-            saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS] = *PokeParty_GetMemberPointer(wk->dat->pp, splicer_pos); // may have to directly memcpy this but this is good for the moment
+            saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS] = *Party_GetMonByIndex(wk->dat->pp, splicer_pos); // may have to directly memcpy this but this is good for the moment
             // delete reshiram from party--splicer_pos has the position to delete
             PokeParty_Delete(wk->dat->pp, splicer_pos);
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 1;
@@ -839,7 +839,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
             if (splicer_pos < wk->pos) // adjust this position back so that the right pokemon's forme gets changed
             {
                 wk->pos--;
-                pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
+                pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
             }
 
             if (reshiramBool) // turn to white kyurem
@@ -1049,7 +1049,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
 
     for (int i = 0; i < party->count; i++)
     {
-        struct PartyPokemon *pp = PokeParty_GetMemberPointer(party, i);
+        struct PartyPokemon *pp = Party_GetMonByIndex(party, i);
         u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
         u32 newForm = GrabCurrentSeason();
         if (newForm != GetMonData(pp, MON_DATA_FORM, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK))
@@ -1186,7 +1186,7 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
     { \
         for (j = 0; j < party->count; j++) \
         { \
-            ppFromParty = PokeParty_GetMemberPointer(party, j); \
+            ppFromParty = Party_GetMonByIndex(party, j); \
             if (CheckIfMonsAreEqual(pokemon, ppFromParty)) \
                 break; \
         } \
@@ -1919,7 +1919,9 @@ u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
  */
 u32 GetLevelCap(void)
 {
-    return GetScriptVar(LEVEL_CAP_VARIABLE);
+    u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
+    if (levelCap > 100) levelCap = 100;
+    return levelCap;
 }
 
 /**

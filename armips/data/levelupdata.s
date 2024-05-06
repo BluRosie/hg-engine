@@ -11939,7 +11939,7 @@ levelup SPECIES_GENESECT
 	learnset MOVE_DOUBLE_TEAM, 3
 	learnset MOVE_METAL_CLAW, 5
 	learnset MOVE_QUICK_ATTACK, 7
-	learnset MOVE_BLOCK, 9
+	learnset MOVE_ODOR_SLEUTH, 9
 	learnset MOVE_ELECTROWEB, 13
 	learnset MOVE_THUNDER_WAVE, 17
 	learnset MOVE_BUG_BITE, 20

@@ -357,6 +357,15 @@ _0274: // Trainer 71
     trainertextentry  71, TEXT_DEFEATED_IN_BATTLE, "Oh, no, no, no!\n"
     trainertextentry  71, TEXT_DEFEATED_IN_OVERWORLD, "I’m training really hard to try to beat\nWhitney, but I’m starting to get\fdiscouraged...\rWhat to do...\nWell... If I lose, I’ll just try harder\fnext time!\n"
 
+    trainertextentry  10, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "I like cute Pokémon better than\nstrong Pokémon.\rBut I have strong and cute Pokémon!\r"
+    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Oh, no, no, no!\n"
+    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "I’m training really hard to try to beat\nWhitney, but I’m starting to get\fdiscouraged...\rWhat to do...\nWell... If I lose, I’ll just try harder\fnext time!\n"
+    trainertextentry  10, TEXT_DOUBLE_ONLY_1_POKEMON_1, "Only one Pokemon? We won't fight.\n"
+    trainertextentry  10, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_2, "Porygon2: PeeTwoooo!\r"
+    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_BATTLE_2, ""
+    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_2, "Porygon2: Poryyyyy...\n"
+    trainertextentry  10, TEXT_DOUBLE_ONLY_1_POKEMON_2, "Porygon2: PeeTwoooo!\n"
+
 _0280: // Trainer 5
     trainertextentry   5, TEXT_NOTICE_IN_OVERWORLD, "Oh, you are a cute little Trainer!\nI like you, but I won’t hold back!\r"
     trainertextentry   5, TEXT_DEFEATED_IN_BATTLE, "Let’s see...\nOops, it’s over?\n"
@@ -863,9 +872,16 @@ _0728: // Trainer 359
     trainertextentry 359, TEXT_DEFEATED_IN_OVERWORLD, "Hay fever is making me sneeze!\nAhahah-CHOO!\n"
 
 _0734: // Trainer 316
-    trainertextentry 316, TEXT_NOTICE_IN_OVERWORLD, "...\r"
-    trainertextentry 316, TEXT_DEFEATED_IN_BATTLE, "...\n"
-    trainertextentry 316, TEXT_DEFEATED_IN_OVERWORLD, "...\rI lost while I had my eyes closed...\n"
+    trainertextentry 316, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "...\r"
+    trainertextentry 316, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "...\n"
+    trainertextentry 316, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "...\n"
+    trainertextentry 316, TEXT_DOUBLE_ONLY_1_POKEMON_1, "We fight as a team.\nCome back later with\fmore Pokémon.\n"
+    trainertextentry 316, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_2, "Liepard: Lieee!!!\r"
+    trainertextentry 316, TEXT_DOUBLE_DEFEATED_IN_BATTLE_2, ""
+    trainertextentry 316, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_2, "Liepard: ...pard.\n"
+    trainertextentry 316, TEXT_DOUBLE_ONLY_1_POKEMON_2, "Liepard: Lieee!!!\n"
+
+
 
 _0740: // Trainer 317
     trainertextentry 317, TEXT_NOTICE_IN_OVERWORLD, "I can see it...\nEverything there is to see about you...\r"

@@ -261,7 +261,7 @@ CT_PokemonAppearSet = 0x02259D48 | 1;
 ClientCommandReset = 0x02259928 | 1;
 BattleWorkPokePartyGet = 0x0223A7F4 | 1;
 PokeParty_GetPokeCount = 0x02074640 | 1;
-PokeParty_GetMemberPointer = 0x02074644 | 1;
+Party_GetMonByIndex = 0x02074644 | 1;
 SideClientNoGet = 0x0224768C | 1;
 BattleWorkClientNoGet = 0x0223AAD8 | 1;
 BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
@@ -583,3 +583,7 @@ LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
 TryAppendMonMove = 0x0207137C | 1;
 
 BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;
+
+Mon_UpdateRotomForm = 0x02071EC0 | 1;
+Mon_UpdateShayminForm = 0x02071D6C | 1;
+Daycare_GetBothBoxMonsPtr = 0x0206C1C8 | 1;

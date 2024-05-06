@@ -138,11 +138,15 @@ UNCOMPRESSED equ 0x00000000
 .org 129 * 0x20 // new overlays
 
 // arm9 expansion overlay
-.word 129, 0x023D8000, filesize("base/overlay/overlay_0129.bin"), 0x00000000, 0x023D8000, 0x023D8000, 129, UNCOMPRESSED // arm9 expansion
-.word 130, 0x023C0400, filesize("base/overlay/overlay_0130.bin"), 0x00000000, 0x023C0400, 0x023C0400, 130, UNCOMPRESSED // battle overlay
-.word 131, 0x023C8000, filesize("base/overlay/overlay_0131.bin"), 0x00000000, 0x023C8000, 0x023C8000, 131, UNCOMPRESSED // field overlay
-.word 132, 0x021FBE60, filesize("base/overlay/overlay_0132.bin"), 0x00000000, 0x021FBE60, 0x021FBE60, 132, UNCOMPRESSED // pokedex overlay - located after the dex overlay in overlay 0's place
-.word 133, 0x023C0400, filesize("base/overlay/overlay_0133.bin"), 0x00000000, 0x023C0400, 0x023C0400, 133, UNCOMPRESSED // getmonevolution overlay
-.word 134, 0x021FBE60, filesize("base/overlay/overlay_0134.bin"), 0x00000000, 0x021FBE60, 0x021FBE60, 134, UNCOMPRESSED // getmonevolution overlay for battles
+.word 129, 0x023D8000, filesize("base/overlay/overlay_0129.bin"), 0x00000000, 0x00000000, 0x00000000, 129, UNCOMPRESSED // arm9 expansion
+.word 130, 0x023C4000, filesize("base/overlay/overlay_0130.bin"), 0x00000000, 0x00000000, 0x00000000, 130, UNCOMPRESSED // battle overlay
+.word 131, 0x023C8000, filesize("base/overlay/overlay_0131.bin"), 0x00000000, 0x00000000, 0x00000000, 131, UNCOMPRESSED // field overlay
+.word 132, 0x021FBE60, filesize("base/overlay/overlay_0132.bin"), 0x00000000, 0x00000000, 0x00000000, 132, UNCOMPRESSED // pokedex overlay - located after the dex overlay in overlay 0's place
+.word 133, 0x023C0400, filesize("base/overlay/overlay_0133.bin"), 0x00000000, 0x00000000, 0x00000000, 133, UNCOMPRESSED // getmonevolution overlay
+.word 134, 0x021FBE60, filesize("base/overlay/overlay_0134.bin"), 0x00000000, 0x00000000, 0x00000000, 134, UNCOMPRESSED // getmonevolution overlay for battles
+.word 135, 0x023C0400, filesize("base/overlay/overlay_0135.bin"), 0x00000000, 0x00000000, 0x00000000, 135, UNCOMPRESSED // MoveHitDefenderAbilityCheck specific overlay
+.word 136, 0x023C0400, filesize("base/overlay/overlay_0136.bin"), 0x00000000, 0x00000000, 0x00000000, 136, UNCOMPRESSED // SwitchInAbilityCheck specific overlay
+.word 137, 0x023C0400, filesize("base/overlay/overlay_0137.bin"), 0x00000000, 0x00000000, 0x00000000, 137, UNCOMPRESSED // statbuffchange specific overlay
+.word 138, 0x023C0400, filesize("base/overlay/overlay_0138.bin"), 0x00000000, 0x00000000, 0x00000000, 138, UNCOMPRESSED // CalcBaseDamage specific overlay
 
 .close

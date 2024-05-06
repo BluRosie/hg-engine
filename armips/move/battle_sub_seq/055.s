@@ -6,16 +6,20 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/constants.s"
 
 .create "build/move/battle_sub_seq/1_055", 0
 
 a001_055:
     printattackmessage
     waitmessage
+    ifterrainoverlayistype ELECTRIC_TERRAIN, ElectricOrMistyTerrainFail
+    ifterrainoverlayistype MISTY_TERRAIN, ElectricOrMistyTerrainFail
     abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_INSOMNIA, _018C
     abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_VITAL_SPIRIT, _018C
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_1, 0x7, _01B0
-    abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_SOUNDPROOF, _0070
+    // In Generations III–IV only, if the user has the user has Soundproof, then Rest can be used while Uproar is in effect.
+    //abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_SOUNDPROOF, _0070
     if IF_MASK, VAR_FIELD_EFFECT, 0xF00, _01D0
 _0070:
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
@@ -65,6 +69,10 @@ _0240:
 _0250:
     waitmessage
     wait 0x1E
+    endscript
+
+ElectricOrMistyTerrainFail:
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
     endscript
 
 .close

@@ -46,11 +46,18 @@ OUTPUT_BATTLE = 'build/output_battle.bin'
 OUTPUT_POKEDEX = 'build/output_pokedex.bin'
 OUTPUT_GETMONEVOLUTION = 'build/output_getmonevolution.bin'
 OUTPUT_GETMONEVOLUTION_BATTLE = 'build/output_getmonevolution_battle.bin'
+OUTPUT_MOVEHITDEFENDERABILITYCHECK = 'build/output_movehitdefenderabilitycheck.bin'
+OUTPUT_SWITCHINABILITYCHECK = 'build/output_switchinabilitycheck.bin'
+OUTPUT_STATBUFFCHANGE = 'build/output_btl_scr_cmd_33_statbuffchange.bin'
+OUTPUT_CALCBASEDAMAGE = 'build/output_calcbasedamage.bin'
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
 ARM_HOOKS = 'armhooks'
 REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
+
+NEW_OVERLAYS_NO_ARM9_EXT = [OUTPUT_BATTLE, OUTPUT_FIELD, OUTPUT_POKEDEX, OUTPUT_GETMONEVOLUTION, OUTPUT_GETMONEVOLUTION_BATTLE, OUTPUT_MOVEHITDEFENDERABILITYCHECK, OUTPUT_SWITCHINABILITYCHECK, OUTPUT_STATBUFFCHANGE,
+                            OUTPUT_CALCBASEDAMAGE]
 
 LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o', 'build/pokedex_linked.o']
 OFFSET_START_IN_129 = 0x600
@@ -352,45 +359,13 @@ def writeall():
             binary.close()
         rom.close()
 
-    OFFECTSFILES = "base/overlay/overlay_0130.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_BATTLE, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
-
-    OFFECTSFILES = "base/overlay/overlay_0131.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_FIELD, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
-
-    OFFECTSFILES = "base/overlay/overlay_0132.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_POKEDEX, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
-
-    OFFECTSFILES = "base/overlay/overlay_0133.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_GETMONEVOLUTION, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
-
-    OFFECTSFILES = "base/overlay/overlay_0134.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_GETMONEVOLUTION_BATTLE, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
+    for i in range(0, len(NEW_OVERLAYS_NO_ARM9_EXT)):
+        with open("base/overlay/overlay_{:04}.bin".format(130+i), 'wb+') as rom:
+            with open(NEW_OVERLAYS_NO_ARM9_EXT[i], 'rb') as binary:
+                rom.seek(0)
+                rom.write(binary.read())
+                binary.close()
+            rom.close()
 
     width = max(map(len, table.keys())) + 1
     if os.path.isfile('offsets.ini'):

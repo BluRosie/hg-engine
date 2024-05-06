@@ -14,7 +14,7 @@
 #include "../../include/constants/file.h"
 
 // this file's function declarations
-u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+//u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp);
 BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no);
 BOOL CheckItemByThief(u16 item);
@@ -29,7 +29,7 @@ BOOL CheckItemByThief(u16 item);
  *  @param seq_no subscript to load if TRUE is returned
  *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
  */
-u32 MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ret;
     int atk_hold_eff;
@@ -117,7 +117,7 @@ enum
  *  @param sp global battle structure
  *  @return TRUE if a battle subscript has been loaded and should be run; FALSE otherwise
  */
-u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
+u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
     int ret;
     int client_set_max UNUSED;
@@ -213,7 +213,7 @@ u32 ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
  *  @param seq_no subscript to load if TRUE is returned
  *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
  */
-BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL LONG_CALL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 
