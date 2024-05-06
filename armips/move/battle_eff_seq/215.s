@@ -9,8 +9,10 @@
 
 .create "build/move/battle_eff_seq/0_215", 0
 
+// Gravity
+
 a030_215:
-    if IF_MASK, VAR_FIELD_EFFECT, 0x7000, _0028
+    if IF_MASK, VAR_FIELD_EFFECT, FIELD_STATUS_GRAVITY, _0028
     changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x20000076
     endscript
 _0028:

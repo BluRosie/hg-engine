@@ -174,6 +174,7 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_SHED_TAIL]                   = SUB_SEQ_HANDLE_SHED_TAIL,
     [ADD_STATUS_EFF_AFTER_YOU]                   = SUB_SEQ_HANDLE_AFTER_YOU,
     [ADD_STATUS_EFF_QUASH]                       = SUB_SEQ_HANDLE_QUASH,
+    [ADD_STATUS_EFF_DRAIN_FULL]                  = SUB_SEQ_DRAIN_FULL,
 };
 
 

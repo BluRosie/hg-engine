@@ -346,7 +346,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     if (GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER // prankster ability
      && (sp->battlemon[defender].type1 == TYPE_DARK || sp->battlemon[defender].type2 == TYPE_DARK) // used on a dark type
-     && sp->moveTbl[move_no].split == SPLIT_STATUS // move is actually status
+     && GetMoveSplit(sp, move_no) == SPLIT_STATUS // move is actually status
      && (attacker & 1) != (defender & 1)) // used on an enemy
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
@@ -374,7 +374,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     move_type = GetAdjustedMoveType(sp, attacker, move_no);
-    move_split = sp->moveTbl[move_no].split;
+    move_split = GetMoveSplit(sp, move_no);
 
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
@@ -451,7 +451,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     //handle Wonder Skin
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (sp->moveTbl[move_no].split == SPLIT_STATUS))
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (GetMoveSplit(sp, move_no) == SPLIT_STATUS))
     {
         accuracy = accuracy * 50 / 100;
     }
@@ -472,7 +472,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
                 accuracy = accuracy * 80 / 100;
             }
         }
-        if (sp->field_condition & WEATHER_HAIL_ANY)
+        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
         {
             if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK) == TRUE)
             {
@@ -662,14 +662,14 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability1 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & WEATHER_HAIL_ANY)))
+         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
         {
             speed1 *= 2;
         }
         if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability2 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & WEATHER_HAIL_ANY)))
+         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
         {
             speed2 *= 2;
         }
@@ -885,12 +885,12 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         priority2 = sp->moveTbl[move2].priority;
 
         // handle prankster
-        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && sp->moveTbl[move1].split == SPLIT_STATUS)
+        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && GetMoveSplit(sp, move1) == SPLIT_STATUS)
         {
             priority1++;
         }
 
-        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && sp->moveTbl[move2].split == SPLIT_STATUS)
+        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && GetMoveSplit(sp, move2) == SPLIT_STATUS)
         {
             priority2++;
         }
@@ -1299,7 +1299,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             {
                 sp->battlemon[sp->defence_client].hit_count++;
             }
-            if (sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
+            if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)
             {
                 sp->oneTurnFlag[sp->defence_client].physical_damage[sp->attack_client] = sp->damage;
                 sp->oneTurnFlag[sp->defence_client].physical_damager = sp->attack_client;
@@ -1307,7 +1307,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->oneSelfFlag[sp->defence_client].physical_damage = sp->damage;
                 sp->oneSelfFlag[sp->defence_client].physical_damager = sp->attack_client;
             }
-            else if(sp->moveTbl[sp->current_move_index].split == SPLIT_SPECIAL)
+            else if(GetMoveSplit(sp, sp->current_move_index) == SPLIT_SPECIAL)
             {
                 sp->oneTurnFlag[sp->defence_client].special_damage[sp->attack_client] = sp->damage;
                 sp->oneTurnFlag[sp->defence_client].special_damager = sp->attack_client;
@@ -1740,7 +1740,7 @@ BOOL LONG_CALL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int atta
     if (
         (sp->moveTbl[sp->current_move_index].priority > 0) ||
         ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&
-         (sp->moveTbl[sp->current_move_index].split == SPLIT_STATUS) &&
+         (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS) &&
          (sp->moveTbl[sp->current_move_index].priority >= 0)  // Prankster is +1
          ) ||
         ((GetBattlerAbility(sp, attacker) == ABILITY_GALE_WINGS) &&
@@ -1918,7 +1918,7 @@ BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL c
     u32 moveIndex = checkTempMove ? (u32)sp->waza_work : sp->current_move_index;
 
     return (GetBattlerAbility(sp, sp->attack_client) == ABILITY_PARENTAL_BOND &&
-            sp->moveTbl[moveIndex].split != SPLIT_STATUS &&
+            GetMoveSplit(sp, moveIndex) != SPLIT_STATUS &&
             !IsBannedParentalBondMove(moveIndex) &&
             !IsBannedSpreadMoveForParentalBond(bw, sp, moveIndex));
 }
@@ -2081,4 +2081,63 @@ BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
             return TRUE;
             break;
     }
+}
+
+/**
+ * @brief Get a move's split accounting for edge cases
+ * @param sp battle structure
+ * @param moveno move number
+ * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
+*/
+u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
+    // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
+    if (sp->move_type == TYPE_TYPELESS && moveno == MOVE_WEATHER_BALL && sp->current_move_index == (u32)moveno) {
+        return SPLIT_PHYSICAL;
+    } else {
+        return sp->moveTbl[moveno].split;
+    }
+}
+
+BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bsys, struct BattleStruct *ctx, int battlerIdAttacker, int battlerIdTarget, int move) {
+    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
+        return FALSE;
+    }
+    
+    if (ctx->oneTurnFlag[battlerIdTarget].mamoru_flag 
+        && ctx->moveTbl[move].flag & (1 << 1)
+        && (move != MOVE_CURSE || CurseUserIsGhost(ctx, move, battlerIdAttacker) == TRUE)
+        && (!CheckMoveIsChargeMove(ctx, move) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
+        UnlockBattlerOutOfCurrentMove(bsys, ctx, battlerIdAttacker);
+        ctx->waza_status_flag |= WAZA_STATUS_FLAG_MAMORU_NOHIT; 
+        return FALSE;
+    }
+    
+    if (!(ctx->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
+        && ((ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
+            && ctx->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
+          || GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_NO_GUARD
+          || GetBattlerAbility(ctx, battlerIdTarget) == ABILITY_NO_GUARD)) {
+        ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return FALSE;
+    }
+
+    if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if (ctx->field_condition & WEATHER_RAIN_ANY && ctx->moveTbl[move].effect == MOVE_EFFECT_THUNDER) {
+            ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        }
+        // Blizzard is 100% accurate in Snow also
+        if (ctx->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && ctx->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+            ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        }
+    }
+    
+    if (!(ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON) 
+        && ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_BOTH
+        && ((!(ctx->server_status_flag & BATTLE_STATUS_HIT_FLY) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR) 
+            || (!(ctx->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
+            || (!(ctx->server_status_flag & BATTLE_STATUS_HIT_DIG) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
+            || (!(ctx->server_status_flag & BATTLE_STATUS_HIT_DIVE) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
+        ctx->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
+    }
+    return FALSE;
 }

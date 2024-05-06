@@ -15,7 +15,7 @@
 a001_027:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_MAGMA_ARMOR, _0204
     checkcloudnine _checkFlowerVeil
-    if IF_MASK, VAR_FIELD_EFFECT, 0x30, _0180
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _0180
 
 _checkFlowerVeil:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_FLOWER_VEIL, _checkGrassTypeForFlowerVeil

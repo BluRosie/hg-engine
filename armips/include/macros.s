@@ -17,9 +17,7 @@
 .endmacro
 
 .macro learnset,move,level
-.if move <= MOVE_FLYING_PRESS
     .word (level << 16 | move)
-.endif
 .endmacro
 
 .macro terminatelearnset

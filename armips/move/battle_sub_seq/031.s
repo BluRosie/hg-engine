@@ -15,7 +15,7 @@
 a001_031:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LIMBER, _02AC
     checkcloudnine _checkFlowerVeil
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _02AC
 
 _checkFlowerVeil:

@@ -6,18 +6,25 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/config.s"
 
 .create "build/move/battle_sub_seq/1_252", 0
 
+// Snow Warning
+
 a001_252:
+.if SNOW_WARNING_GENERATION < 9
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HAIL, SkipEffect
     setstatus2effect BATTLER_PLAYER, 0x14
     waitmessage
-    wait 0xF
-    printmessage 0x2BD, 0xB, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
+    gotosubscript 360
+.else
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SNOW, SkipEffect
+    setstatus2effect BATTLER_PLAYER, 0x14
     waitmessage
-    wait 0x1E
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x80FF
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, 0x80
+    gotosubscript 364
+.endif
+SkipEffect:
     endscript
 
 .close

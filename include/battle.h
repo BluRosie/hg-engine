@@ -30,6 +30,8 @@
 #define TYPE_ICE      0x0f
 #define TYPE_DRAGON   0x10
 #define TYPE_DARK     0x11
+#define TYPE_TYPELESS 0x12
+#define TYPE_STELLAR  0x13
 
 #define SELECT_FIGHT_COMMAND 1
 #define SELECT_ITEM_COMMAND 2
@@ -309,22 +311,46 @@
  *
  *  largely for weathers, but also covers uproar, gravity, fog, etc.
  */
-#define WEATHER_RAIN                    (0x00000001)
-#define WEATHER_RAIN_PERMANENT          (0x00000002)
-#define WEATHER_RAIN_ANY                (WEATHER_RAIN | WEATHER_RAIN_PERMANENT)
-#define WEATHER_SANDSTORM               (0x00000004)
-#define WEATHER_SANDSTORM_PERMANENT     (0x00000008)
-#define WEATHER_SANDSTORM_ANY           (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)
-#define WEATHER_SUNNY                   (0x00000010)
-#define WEATHER_SUNNY_PERMANENT         (0x00000020)
-#define WEATHER_SUNNY_ANY               (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT)
-#define WEATHER_HAIL                    (0x00000040)
-#define WEATHER_HAIL_PERMANENT          (0x00000080)
-#define WEATHER_HAIL_ANY                (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)
-#define FIELD_STATUS_UPROAR             (0x00000f00)
-#define FIELD_STATUS_GRAVITY            (0x00007000)
-#define FIELD_STATUS_FOG                (0x00008000)
-#define FIELD_STATUS_TRICK_ROOM         (0x00070000)
+#define WEATHER_RAIN                        (0x00000001)                                                                    // 0000 0000 0000 0000 0001
+#define WEATHER_RAIN_PERMANENT              (0x00000002)                                                                    // 0000 0000 0000 0000 0010
+#define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)          // 0010 0000 0000 0000 0000 0000 0011
+#define WEATHER_SANDSTORM                   (0x00000004)                                                                    // 0000 0000 0000 0000 0100
+#define WEATHER_SANDSTORM_PERMANENT         (0x00000008)                                                                    // 0000 0000 0000 0000 1000
+#define WEATHER_SANDSTORM_ANY               (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)                               // 0000 0000 0000 0000 1100
+#define WEATHER_SUNNY                       (0x00000010)                                                                    // 0000 0000 0000 0001 0000
+#define WEATHER_SUNNY_PERMANENT             (0x00000020)                                                                    // 0000 0000 0000 0010 0000
+#define WEATHER_SUNNY_ANY         (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0001 0000 0000 0000 0000 0011 0000
+#define WEATHER_HAIL                        (0x00000040)                                                                    // 0000 0000 0000 0100 0000
+#define WEATHER_HAIL_PERMANENT              (0x00000080)                                                                    // 0000 0000 0000 1000 0000
+#define WEATHER_HAIL_ANY                    (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)                                         // 0000 0000 0000 1100 0000
+#define FIELD_STATUS_UPROAR                 (0x00000f00)                                                                    // 0000 0000 1111 0000 0000
+#define FIELD_CONDITION_GRAVITY_INIT        (0x00005000)                                                                    // 0000 0101 0000 0000 0000
+#define FIELD_STATUS_GRAVITY                (0x00007000)                                                                    // 0000 0111 0000 0000 0000
+#define FIELD_STATUS_FOG                    (0x00008000)                                                                    // 0000 1000 0000 0000 0000
+#define FIELD_CONDITION_TRICK_ROOM_INIT     (0x00050000)                                                                    // 0101 0000 0000 0000 0000
+#define FIELD_STATUS_TRICK_ROOM             (0x00070000)                                                                    // 0111 0000 0000 0000 0000
+
+// New weathers
+#define WEATHER_SNOW                        (0x00100000)                                                          //      0001 0000 0000 0000 0000 0000
+#define WEATHER_SNOW_PERMANENT              (0x00200000)                                                          //      0010 0000 0000 0000 0000 0000
+#define WEATHER_SNOW_ANY                    (WEATHER_SNOW | WEATHER_SNOW_PERMANENT)                               //      0011 0000 0000 0000 0000 0000
+// We have 2 extra bits let's have fun:           
+#define WEATHER_SHADOWY_AURA                (0x00400000)                                                          //      0100 0000 0000 0000 0000 0000
+#define WEATHER_SHADOWY_AURA_PERMANENT      (0x00800000)                                                          //      1000 0000 0000 0000 0000 0000
+#define WEATHER_SHADOWY_AURA_ANY            (WEATHER_SHADOWY_AURA | WEATHER_SHADOWY_AURA_PERMANENT)               //      1100 0000 0000 0000 0000 0000
+    
+#define WEATHER_EXTREMELY_HARSH_SUNLIGHT    (0x01000000)                                                          // 0001 0000 0000 0000 0000 0000 0000
+#define WEATHER_HEAVY_RAIN                  (0x02000000)                                                          // 0010 0000 0000 0000 0000 0000 0000
+#define WEATHER_STRONG_WINDS                (0x04000000)                                                          // 0100 0000 0000 0000 0000 0000 0000
+    
+#define FIELD_CONDITION_WEATHER_NO_SUN      (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG | WEATHER_SNOW_ANY \
+                                            | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN | WEATHER_STRONG_WINDS)
+#define FIELD_CONDITION_WEATHER_CASTFORM    (WEATHER_RAIN_ANY| WEATHER_HEAVY_RAIN | WEATHER_SUNNY_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT \
+                                            | WEATHER_HAIL_ANY)
+#define FIELD_CONDITION_WEATHER             (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG \
+                                            | WEATHER_SNOW_ANY | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN \
+                                            | WEATHER_STRONG_WINDS)
+
 
 // weather that has indicators on the bottom screen
 #define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)
@@ -484,6 +510,54 @@
 #define NORMAL_MODE (0)
 #define CHALLENGE_MODE (1)
 #define EASY_MODE (2)
+
+//Battle Status
+#define BATTLE_STATUS_NO_ATTACK_MESSAGE             (1 << 0)
+#define BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE          (1 << 1)
+#define BATTLE_STATUS_HIT_FLY                       (1 << 2)
+#define BATTLE_STATUS_HIT_DIG                       (1 << 3)     
+#define BATTLE_STATUS_HIT_DIVE                      (1 << 4)
+#define BATTLE_STATUS_CHARGE_TURN                   (1 << 5)
+#define BATTLE_STATUS_NO_BLINK                      (1 << 6)
+#define BATTLE_STATUS_SYNCRONIZE                    (1 << 7)
+#define BATTLE_STATUS_BATON_PASS                    (1 << 8)
+#define BATTLE_STATUS_CHARGE_MOVE_HIT               (1 << 9)
+#define BATTLE_STATUS_FLAT_HIT_RATE                 (1 << 10)
+#define BATTLE_STATUS_IGNORE_TYPE_EFFECTIVENESS     (1 << 11)  
+#define BATTLE_STATUS_CRASH_DAMAGE                  (1 << 12)
+#define BATTLE_STATUS_MOVE_SUCCESSFUL               (1 << 13)
+#define BATTLE_STATUS_MOVE_ANIMATIONS_OFF           (1 << 14)
+#define BATTLE_STATUS_IGNORE_TYPE_IMMUNITY          (1 << 15)
+#define BATTLE_STATUS_MULTI_HIT_IGNORE_MESSAGE      (1 << 16)
+#define BATTLE_STATUS_FAIL_STAT_STAGE_CHANGE        (1 << 17)
+#define BATTLE_STATUS_MISS_MESSAGE                  (1 << 18)
+#define BATTLE_STATUS_SHADOW_FORCE                  (1 << 19)
+#define BATTLE_STATUS_NO_MOVE_SET                   (1 << 20)
+#define BATTLE_STATUS_MESSAGES_OFF                  (1 << 21)
+#define BATTLE_STATUS_SECONDARY_EFFECT              (1 << 22)
+#define BATTLE_STATUS_MOLD_BREAKER                  (1 << 23)
+#define BATTLE_STATUS_FAINTED                       (15 << 24)
+#define BATTLE_STATUS_SELFDESTRUCTED                (15 << 28)
+
+#define BATTLE_STATUS_FAINTED_SHIFT                 24
+#define BATTLE_STATUS_SELFDESTRUCTED_SHIFT          28
+
+//Battle Status 2
+#define BATTLE_STATUS2_NO_EXP_GAINED                (1 << 0)
+#define BATTLE_STATUS2_UPDATE_STAT_STAGES           (1 << 1)
+#define BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE       (1 << 2)
+#define BATTLE_STATUS2_MAGIC_COAT                   (1 << 3)
+#define BATTLE_STATUS2_UTURN                        (1 << 4)
+#define BATTLE_STATUS2_FIRST_DAMAGE_MESSAGE         (1 << 5)
+#define BATTLE_STATUS2_MOVE_SUCCEEDED               (1 << 6)
+#define BATTLE_STATUS2_STAT_STAGE_CHANGE_SHOWN      (1 << 7)
+#define BATTLE_STATUS2_RECOVER_HP_VISUAL            (1 << 8)
+#define BATTLE_STATUS2_20                           (1 << 20)
+#define BATTLE_STATUS2_FORM_CHANGE                  (1 << 26)
+#define BATTLE_STATUS2_RECALC_MON_STATS             (1 << 27)
+#define BATTLE_STATUS2_EXP_GAIN                     (15 << 28)
+
+#define BATTLE_STATUS2_EXP_GAIN_SHIFT               28
 
 /**
  *  @brief msg work specifically for statuses
@@ -2560,12 +2634,19 @@ BOOL LONG_CALL MoveIsZMove(u32 moveIndex);
 BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex);
 
 /**
- * Check if move is affected by Normalize varients
+ * @brief Check if move is affected by Normalize variants
  * @param moveno move number
  * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
 */
 BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno);
 
+/**
+ * @brief Get a move's split accounting for edge cases
+ * @param sp battle structure
+ * @param moveno move number
+ * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
+*/
+u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno);
 
 // defined in mega.c
 BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
@@ -2670,5 +2751,17 @@ void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u3
 void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp);
 
 void LONG_CALL BattleControllerPlayer_CalcExecutionOrder(struct BattleSystem *bw, struct BattleStruct *sp);
+
+BOOL LONG_CALL CurseUserIsGhost(struct BattleStruct *ctx, u16 moveNo, int battlerId);
+
+void LONG_CALL UnlockBattlerOutOfCurrentMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+/**
+ *  @brief checks if the given moveNo is a two-turn move at all
+ *
+ *  @param sp global battle structure
+ *  @param moveNo move index to check against a list of move effects that are charge moves
+ */
+BOOL LONG_CALL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo);
 
 #endif // BATTLE_H

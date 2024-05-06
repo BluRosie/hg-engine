@@ -9514,7 +9514,7 @@ movedata MOVE_CONFIDE, "Confide"
     movedescription MOVE_CONFIDE, "---"
 
 movedata MOVE_DIAMOND_STORM, "Diamond Storm"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RAISE_DEF_2_HIT
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ROCK
@@ -9674,7 +9674,7 @@ movedata MOVE_POWDER, "Powder"
     movedescription MOVE_POWDER, "---"
 
 movedata MOVE_GEOMANCY, "Geomancy"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_GEOMANCY
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11722,7 +11722,7 @@ movedatalongname MOVE_CLANGOROUS_SOULBLAZE, "Clang Soulblaze", "Clangorous Soulb
     movedescription MOVE_CLANGOROUS_SOULBLAZE, "---"
 
 movedata MOVE_ZIPPY_ZAP, "Zippy Zap"
-    battleeffect MOVE_EFFECT_ALWAYS_CRITICAL
+    battleeffect MOVE_EFFECT_HIT_AND_EVA_UP
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_ELECTRIC
@@ -11786,13 +11786,13 @@ movedata MOVE_PIKA_PAPOW, "Pika Papow"
     movedescription MOVE_PIKA_PAPOW, "---"
 
 movedata MOVE_BOUNCY_BUBBLE, "Bouncy Bubble"
-    battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
+    battleeffect MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT
     pss SPLIT_SPECIAL
     basepower 60
     type TYPE_WATER
     accuracy 100
     pp 20
-    effectchance 0
+    effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
@@ -11818,7 +11818,7 @@ movedata MOVE_BUZZY_BUZZ, "Buzzy Buzz"
     movedescription MOVE_BUZZY_BUZZ, "---"
 
 movedata MOVE_SIZZLY_SLIDE, "Sizzly Slide"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BURN_HIT
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_FIRE
@@ -11834,13 +11834,13 @@ movedata MOVE_SIZZLY_SLIDE, "Sizzly Slide"
     movedescription MOVE_SIZZLY_SLIDE, "---"
 
 movedata MOVE_GLITZY_GLOW, "Glitzy Glow"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_SET_LIGHT_SCREEN
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_PSYCHIC
     accuracy 95
     pp 15
-    effectchance 0
+    effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
@@ -11850,13 +11850,13 @@ movedata MOVE_GLITZY_GLOW, "Glitzy Glow"
     movedescription MOVE_GLITZY_GLOW, "---"
 
 movedata MOVE_BADDY_BAD, "Baddy Bad"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_SET_REFLECT
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_DARK
     accuracy 95
     pp 15
-    effectchance 0
+    effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
@@ -11866,7 +11866,7 @@ movedata MOVE_BADDY_BAD, "Baddy Bad"
     movedescription MOVE_BADDY_BAD, "---"
 
 movedata MOVE_SAPPY_SEED, "Sappy Seed"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_PLANT_SEED
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_GRASS
@@ -11882,7 +11882,7 @@ movedata MOVE_SAPPY_SEED, "Sappy Seed"
     movedescription MOVE_SAPPY_SEED, "---"
 
 movedata MOVE_FREEZY_FROST, "Freezy Frost"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_RESET_STAT_CHANGES
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_ICE
@@ -11898,7 +11898,7 @@ movedata MOVE_FREEZY_FROST, "Freezy Frost"
     movedescription MOVE_FREEZY_FROST, "---"
 
 movedata MOVE_SPARKLY_SWIRL, "Sparkly Swirl"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_CURE_PARTY_STATUS
     pss SPLIT_SPECIAL
     basepower 120
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -14186,7 +14186,7 @@ movedata MOVE_TIDY_UP, "Tidy Up"
     movedescription MOVE_TIDY_UP, "---"
 
 movedata MOVE_SNOWSCAPE, "Snowscape"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_WEATHER_SNOW
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE
@@ -14195,7 +14195,7 @@ movedata MOVE_SNOWSCAPE, "Snowscape"
     effectchance 0
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14730,7 +14730,7 @@ movedata MOVE_SUPERCELL_SLAM, "Supercell Slam"
     movedescription MOVE_SUPERCELL_SLAM, "---"
 
 movedata MOVE_PSYCHIC_NOISE, "Psychic Noise"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_AND_PREVENT_HEALING
     pss SPLIT_SPECIAL
     basepower 75
     type TYPE_PSYCHIC

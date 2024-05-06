@@ -313,6 +313,17 @@
 #define MOVE_EFFECT_TECHNO_BLAST                            307
 #define MOVE_EFFECT_MULTI_ATTACK                            308
 #define MOVE_EFFECT_IVY_CUDGEL                              309
+#define MOVE_EFFECT_HIT_AND_PLANT_SEED                      310
+#define MOVE_EFFECT_HIT_AND_SET_LIGHT_SCREEN                311
+#define MOVE_EFFECT_HIT_AND_SET_REFLECT                     312
+#define MOVE_EFFECT_HIT_AND_RESET_STAT_CHANGES              313
+#define MOVE_EFFECT_HIT_AND_CURE_PARTY_STATUS               314
+#define MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT               315
+#define MOVE_EFFECT_HIT_AND_EVA_UP                          316
+#define MOVE_EFFECT_RAISE_DEF_2_HIT                         317
+#define MOVE_EFFECT_GEOMANCY                                318
+#define MOVE_EFFECT_WEATHER_SNOW                            319
+#define MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 320
 
 
 
