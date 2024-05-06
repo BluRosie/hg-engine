@@ -1084,7 +1084,7 @@ heightentry SPECIES_OGERPON, 0, 0, 0, 0
 heightentry SPECIES_ARCHALUDON, 3, 3, 0, 0
 heightentry SPECIES_HYDRAPPLE, 3, 3, 0, 0
 heightentry SPECIES_GOUGING_FIRE, 0, 0, 0, 0
-heightentry SPECIES_RAGING_BOLT, 0, 0, 0, 0
+heightentry SPECIES_RAGING_BOLT, 3, 3, 0, 0
 heightentry SPECIES_IRON_BOULDER, 0, 0, 0, 0
 heightentry SPECIES_IRON_CROWN, 0, 0, 0, 0
 heightentry SPECIES_TERAPAGOS, 0, 0, 0, 0
