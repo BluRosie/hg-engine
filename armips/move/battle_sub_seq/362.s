@@ -21,7 +21,7 @@ a001_362:
     changevar VAR_OP_SET, VAR_WEATHER_TURNS, 0x5
     //changevar VAR_OP_SET, VAR_ADD_STATUS2, 0x2000005D
     checkitemeffect 0x1, BATTLER_ATTACKER, 0x71, _0090
-    getitempower BATTLER_ATTACKER, 0x9
+    getitempower BATTLER_ATTACKER, VAR_CALCULATION_WORK
     changevar2 VAR_OP_ADD, VAR_WEATHER_TURNS, VAR_CALCULATION_WORK
 _0090:
     endscript

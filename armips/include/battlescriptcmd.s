@@ -83,7 +83,7 @@ FIELD_STATUS_GRAVITY                equ (0x00007000)                            
 FIELD_STATUS_FOG                    equ (0x00008000)                                                                    // 0000 1000 0000 0000 0000
 FIELD_CONDITION_TRICK_ROOM_INIT     equ (0x00050000)                                                                    // 0101 0000 0000 0000 0000
 FIELD_STATUS_TRICK_ROOM             equ (0x00070000)                                                                    // 0111 0000 0000 0000 0000
-    
+
 // New weathers 
 WEATHER_SNOW                        equ (0x00100000)                                                          //      0001 0000 0000 0000 0000 0000
 WEATHER_SNOW_PERMANENT              equ (0x00200000)                                                          //      0010 0000 0000 0000 0000 0000
@@ -92,14 +92,14 @@ WEATHER_SNOW_ANY                    equ (0x00300000)                            
 WEATHER_SHADOWY_AURA                equ (0x00400000)                                                          //      0100 0000 0000 0000 0000 0000
 WEATHER_SHADOWY_AURA_PERMANENT      equ (0x00800000)                                                          //      1000 0000 0000 0000 0000 0000
 WEATHER_SHADOWY_AURA_ANY            equ (0x00c00000)                                                          //      1100 0000 0000 0000 0000 0000
-    
+
 WEATHER_EXTREMELY_HARSH_SUNLIGHT    equ (0x01000000)                                                          // 0001 0000 0000 0000 0000 0000 0000
 WEATHER_HEAVY_RAIN                  equ (0x02000000)                                                          // 0010 0000 0000 0000 0000 0000 0000
 WEATHER_STRONG_WINDS                equ (0x04000000)                                                          // 0100 0000 0000 0000 0000 0000 0000
-    
-FIELD_CONDITION_WEATHER_NO_SUN      equ (0x07F080CF)
-FIELD_CONDITION_WEATHER_CASTFORM    equ (0x030000F3)
-FIELD_CONDITION_WEATHER             equ (0x07F080FF)
+
+FIELD_CONDITION_WEATHER_NO_SUN      equ (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | FIELD_STATUS_FOG | WEATHER_SNOW_ANY | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN | WEATHER_STRONG_WINDS)
+FIELD_CONDITION_WEATHER_CASTFORM    equ (WEATHER_HEAVY_RAIN | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | WEATHER_RAIN_ANY)
+FIELD_CONDITION_WEATHER             equ (FIELD_CONDITION_WEATHER_NO_SUN | WEATHER_SUNNY_ANY)
 
 .macro startencounter
     .word 0x0
