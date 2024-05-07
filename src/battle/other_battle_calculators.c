@@ -327,6 +327,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     int hold_effect_atk;
     u8 move_type UNUSED; // unused but will be needed
     u8 move_split;
+    u16 atk_ability = GetBattlerAbility(sp, attacker);
 
     if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
     {
@@ -344,7 +345,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         return FALSE;
     }
 
-    if (GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER // prankster ability
+    if (atk_ability == ABILITY_PRANKSTER // prankster ability
      && (sp->battlemon[defender].type1 == TYPE_DARK || sp->battlemon[defender].type2 == TYPE_DARK) // used on a dark type
      && GetMoveSplit(sp, move_no) == SPLIT_STATUS // move is actually status
      && (attacker & 1) != (defender & 1)) // used on an enemy
@@ -379,7 +380,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
 
-    if (GetBattlerAbility(sp, attacker) == ABILITY_SIMPLE)
+    if (atk_ability == ABILITY_SIMPLE)
     {
         stat_stage_acc *= 2;
     }
@@ -394,7 +395,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         stat_stage_acc = 0;
     }
 
-    if (GetBattlerAbility(sp, attacker) == ABILITY_UNAWARE)
+    if (atk_ability == ABILITY_UNAWARE || atk_ability == ABILITY_MINDS_EYE || atk_ability == ABILITY_KEEN_EYE || atk_ability == ABILITY_ILLUMINATE)
     {
         stat_stage_evasion = 0;
     }
@@ -445,7 +446,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     accuracy *= sAccStatChanges[temp].numerator;
     accuracy /= sAccStatChanges[temp].denominator;
 
-    if (GetBattlerAbility(sp,attacker) == ABILITY_COMPOUND_EYES)
+    if (atk_ability == ABILITY_COMPOUND_EYES)
     {
         accuracy = accuracy * 130 / 100;
     }
@@ -458,7 +459,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     //handle victory star
     if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_VICTORY_STAR && sp->battlemon[BATTLER_ALLY(attacker)].hp != 0)
-            || (GetBattlerAbility(sp, attacker) == ABILITY_VICTORY_STAR))
+     || (atk_ability == ABILITY_VICTORY_STAR))
     {
         accuracy = accuracy * 110 / 100;
     }
@@ -485,7 +486,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         }
     }
 
-    if ((GetBattlerAbility(sp, attacker) == ABILITY_HUSTLE) && (move_split == SPLIT_PHYSICAL))
+    if ((atk_ability == ABILITY_HUSTLE) && (move_split == SPLIT_PHYSICAL))
     {
         accuracy = accuracy * 80 / 100;
     }
@@ -1444,7 +1445,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         {
             if (TypeEffectivenessTable[i][0] == 0xfe) // handle foresight
             {
-                if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY))
+                if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
                 {
                     break;
                 }
