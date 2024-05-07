@@ -1200,7 +1200,8 @@ void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
 void BattleEndRevertFormChange(void *bw)
 {
     int i, j;
-    void *pp;
+    struct PartyPokemon *pp;
+    struct Party *party;
     u16 monsno;
     u16 form;
 
@@ -1236,15 +1237,30 @@ void BattleEndRevertFormChange(void *bw)
     for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
     {
         pp = BattleWorkPokemonParamGet(bw, 0, i);
-        monsno = GetMonData(pp, 174, 0);
-        form = GetMonData(pp, 112, 0);
+        monsno = GetMonData(pp, MON_DATA_SPECIES, NULL);
+        form = GetMonData(pp, MON_DATA_FORM, NULL);
 
-        if (RevertFormChange(pp,monsno,form))
+        if (RevertFormChange(pp, monsno, form))
         {
             RecalcPartyPokemonStats(pp);
             ResetPartyPokemonAbility(pp);
         }
     }
+
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+
+    // restore items from the beginning of the battle to the player's party
+    party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
+    for (i = 0; i < party->count; i++)
+    {
+        u32 item = newBS.itemsToRestore[i];
+        if (!IS_ITEM_BERRY(item)) // do not restore berries!
+            SetMonData(Party_GetMonByIndex(party, i), MON_DATA_HELD_ITEM, &item);
+        newBS.itemsToRestore[i] = 0;
+    }
+
+#endif // RESTORE_ITEMS_AT_BATTLE_END
+
 }
 
 /**

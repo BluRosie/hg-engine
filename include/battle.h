@@ -1077,17 +1077,13 @@ struct __attribute__((packed)) BattleStruct
 
     /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
     /*0x30C4*/ //u8 unk_bytes_4[0x44];
-    /*0x    */ u16 waza_no_texture2[CLIENT_MAX];
-    /*0x    */ u16 waza_no_texture2_client[CLIENT_MAX];
-    /*0x    */ u16 waza_no_texture2_type[CLIENT_MAX];
-    /*0x    */ u16 waza_no_metronome[CLIENT_MAX];
-
-    /*0x    */ int store_damage[CLIENT_MAX];
-
-    /*0x    */ int client_no_hit[CLIENT_MAX];
-
-    /*0x    */ int client_no_agi;
-
+    /*0x30C4*/ u16 waza_no_texture2[CLIENT_MAX];
+    /*0x30CC*/ u16 waza_no_texture2_client[CLIENT_MAX];
+    /*0x30D4*/ u16 waza_no_texture2_type[CLIENT_MAX];
+    /*0x30DC*/ u16 waza_no_metronome[CLIENT_MAX];
+    /*0x30E4*/ int store_damage[CLIENT_MAX];
+    /*0x30F4*/ int client_no_hit[CLIENT_MAX];
+    /*0x3104*/ int client_no_agi;
     /*0x3108*/ u8 no_reshuffle_client;
     /*0x3109*/ u8 level_up_pokemon;
     /*0x310A*/ u16 que_check_wait;
@@ -1117,7 +1113,7 @@ struct __attribute__((packed)) BattleStruct
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
-    /*0x315E*/ u8 padding_315F[0x1F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315F*/ u8 padding_315F[0x1F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1337,7 +1333,7 @@ enum
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0
 
-struct __attribute__((packed)) newBattleStruct
+struct PACKED newBattleStruct
 {
     u8 SideMega[4];//检查双方是否mega过,0我方,1敌方
     u8 needMega[4];//需要mega
@@ -1352,6 +1348,10 @@ struct __attribute__((packed)) newBattleStruct
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
     u32 weather;
+
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+    u16 itemsToRestore[6]; // items that each mon was holding at the beginning of the battle
+#endif // RESTORE_ITEMS_AT_BATTLE_END
 };
 
 struct PACKED BATTLE_PARAM
