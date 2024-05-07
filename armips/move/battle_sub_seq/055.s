@@ -10,6 +10,8 @@
 
 .create "build/move/battle_sub_seq/1_055", 0
 
+// Rest
+
 a001_055:
     printattackmessage
     waitmessage
@@ -20,7 +22,7 @@ a001_055:
     ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_1, 0x7, _01B0
     // In Generations III–IV only, if the user has the user has Soundproof, then Rest can be used while Uproar is in effect.
     //abilitycheck 0x0, BATTLER_ATTACKER, ABILITY_SOUNDPROOF, _0070
-    if IF_MASK, VAR_FIELD_EFFECT, 0xF00, _01D0
+    if IF_MASK, VAR_FIELD_EFFECT, FIELD_STATUS_UPROAR, _01D0
 _0070:
     changemondatabyvar VAR_OP_GET_RESULT, BATTLER_ATTACKER, 0x30, VAR_HP_TEMP
     ifmonstat2 IF_EQUAL, BATTLER_ATTACKER, VAR_ATTACKER_STATUS, 0x20, _0228

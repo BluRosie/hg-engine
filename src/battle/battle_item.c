@@ -65,7 +65,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
     if ((atk_hold_eff == HOLD_EFFECT_HP_DRAIN_ON_ATK) // life orb
      && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
      && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
-     && (sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS)
+     && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS)
      && (sp->battlemon[sp->attack_client].hp)
      && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // sheer force prevents life orb from activating
     {
@@ -177,7 +177,7 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
              && (GetBattlerAbility(sp,sp->attack_client) != ABILITY_MAGIC_GUARD)
              && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
              && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
-             && (sp->moveTbl[sp->current_move_index].split != SPLIT_STATUS)
+             && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS)
              && (sp->battlemon[sp->attack_client].hp))
             {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);

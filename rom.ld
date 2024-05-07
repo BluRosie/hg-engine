@@ -587,3 +587,6 @@ BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;
 Mon_UpdateRotomForm = 0x02071EC0 | 1;
 Mon_UpdateShayminForm = 0x02071D6C | 1;
 Daycare_GetBothBoxMonsPtr = 0x0206C1C8 | 1;
+
+CurseUserIsGhost = 0x022526D0 | 1;
+UnlockBattlerOutOfCurrentMove = 0x02250CA0 | 1;
