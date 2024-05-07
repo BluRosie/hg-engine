@@ -119,9 +119,6 @@ TOOLS += $(SWAV2SWAR_EXE)
 
 $(NDSTOOL):
 ifeq (,$(wildcard $(NDSTOOL)))
-ifeq ($(MSYS2), 0)
-	wget -O $(NDSTOOL) https://github.com/AdAstra-LD/DS-Pokemon-Rom-Editor/raw/main/DS_Map/Tools/ndstool.exe
-else
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
@@ -130,7 +127,6 @@ else
 	cd tools/source/ndstool ; ./configure && $(MAKE)
 	mv tools/source/ndstool/ndstool tools/ndstool
 	rm -r -f tools/source/ndstool
-endif
 endif
 
 TOOLS += $(NDSTOOL)

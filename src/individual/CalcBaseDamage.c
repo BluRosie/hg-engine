@@ -322,16 +322,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if (AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_SPECS)
         sp_attack = sp_attack * 150 / 100;
 
-    // handle soul dew
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW) &&
-        ((battle_type & BATTLE_TYPE_BATTLE_TOWER) == 0) &&
-        ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS)))
-        sp_attack = sp_attack * 150 / 100;
-
-    if ((DefendingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW) &&
-        ((battle_type & BATTLE_TYPE_BATTLE_TOWER) == 0) &&
-        ((DefendingMon.species == SPECIES_LATIOS) || (DefendingMon.species == SPECIES_LATIAS)))
-        sp_defense = sp_defense * 150 / 100;
+    // handle soul dew - gen 7 changes it to just boost movepower if the type is dragon or psychic, no more defense boost
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW)
+     && ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS))
+     && (movetype == TYPE_DRAGON || movetype == TYPE_PSYCHIC))
+    {
+        movepower = movepower * 120 / 100; // 4915/4096
+    }
 
     // handle deep sea tooth
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_DEEP_SEA_TOOTH) && (AttackingMon.species == SPECIES_CLAMPERL))
