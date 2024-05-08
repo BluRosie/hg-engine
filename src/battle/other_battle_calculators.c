@@ -850,13 +850,13 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         move_last2 = 1;
     }
 
-    sp->psp_agi_point[client1]=speed1;
-    sp->psp_agi_point[client2]=speed2;
+    sp->effectiveSpeed[client1]=speed1;
+    sp->effectiveSpeed[client2]=speed2;
 
     if (flag == 0)
     {
-        command1 = sp->client_act_work[client1][3];
-        command2 = sp->client_act_work[client2][3];
+        command1 = sp->playerActions[client1][3];
+        command2 = sp->playerActions[client2][3];
         move_pos1 = sp->waza_no_pos[client1];
         move_pos2 = sp->waza_no_pos[client2];
 
@@ -1041,7 +1041,7 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
     // for (i = 0; i < maxBattlers; i++) {
-    //     if (sp->attack_client == sp->client_agi_work[i]) {
+    //     if (sp->attack_client == sp->executionOrder[i]) {
     //         currentAttackerId = i;
     //     }
     // }
@@ -1049,11 +1049,11 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
     // u8 buf[64];
     // sprintf(buf, "Current attacker: %d\n", sp->attack_client);
     // debugsyscall(buf);
-    // sprintf(buf, "\tBefore turn_order: ");
+    // sprintf(buf, "\tBefore turnOrder: ");
     // debugsyscall(buf);
 
     // for (i = 0; i < maxBattlers; i++) {
-    //     sprintf(buf, "%d ", sp->client_agi_work[i]);
+    //     sprintf(buf, "%d ", sp->executionOrder[i]);
     //     debugsyscall(buf);
     // }
 
@@ -1066,11 +1066,11 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
         for (j = i + 1; j < maxBattlers; j++) {
             // sprintf(buf, "j: %d\n", j);
             // debugsyscall(buf);
-            temp1 = sp->client_agi_work[i];
-            temp2 = sp->client_agi_work[j];
+            temp1 = sp->executionOrder[i];
+            temp2 = sp->executionOrder[j];
 
-            u32 command1 = sp->client_act_work[temp1][3];
-            u32 command2 = sp->client_act_work[temp2][3];
+            u32 command1 = sp->playerActions[temp1][3];
+            u32 command2 = sp->playerActions[temp2][3];
 
             // sprintf(buf, "temp1: %d\ntemp2: %d\n", temp1, temp2);
             // debugsyscall(buf);
@@ -1088,31 +1088,31 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
                 if (CalcSpeed(bw, sp, temp1, temp2, flag)) {
                     // sprintf(buf, "Swapping %d and %d\n", temp1, temp2);
                     // debugsyscall(buf);
-                    sp->client_agi_work[i] = temp2;
-                    sp->client_agi_work[j] = temp1;
+                    sp->executionOrder[i] = temp2;
+                    sp->executionOrder[j] = temp1;
                 }
             }
         }
     }
 
-    // also sort turn_order, i.e. weather application + turn end things
+    // also sort turnOrder, i.e. weather application + turn end things
     for (i = 0; i < maxBattlers - 1; i++) {
         for (j = i + 1; j < maxBattlers; j++) {
-            temp1 = sp->turn_order[i];
-            temp2 = sp->turn_order[j];
+            temp1 = sp->turnOrder[i];
+            temp2 = sp->turnOrder[j];
 
             if (CalcSpeed(bw, sp, temp1, temp2, CALCSPEED_FLAG_NO_PRIORITY)) {
-                sp->turn_order[i] = temp2;
-                sp->turn_order[j] = temp1;
+                sp->turnOrder[i] = temp2;
+                sp->turnOrder[j] = temp1;
             }
         }
     }
 
-    // sprintf(buf, "\tAfter turn_order: ");
+    // sprintf(buf, "\tAfter turnOrder: ");
     // debugsyscall(buf);
 
     // for (i = 0; i < maxBattlers; i++) {
-    //     sprintf(buf, "%d ", sp->client_agi_work[i]);
+    //     sprintf(buf, "%d ", sp->executionOrder[i]);
     //     debugsyscall(buf);
     // }
 
@@ -1541,12 +1541,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
  *  @brief tries to see if the player can even try to run.  queues up the proper message if not
  *
  *  @param bw battle work structure
- *  @param ctx global battle structure
+ *  @param sp global battle structure
  *  @param battlerId client to check for running
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
-BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM *msg) {
+BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM *msg) {
     int battlerIdAbility;
     int maxBattlers UNUSED;
     u8 side UNUSED;
@@ -1554,38 +1554,38 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
     u32 battleType;
 
     battleType = BattleTypeGet(bw);
-    item = HeldItemHoldEffectGet(ctx, battlerId);
+    item = HeldItemHoldEffectGet(sp, battlerId);
 
     // if shed shell or no experience or has run away or has ghost type then there is nothing stopping the battler from escaping
-    if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(ctx, battlerId) == ABILITY_RUN_AWAY || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
+    if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(sp, battlerId) == ABILITY_RUN_AWAY || BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_GHOST)) {
         return FALSE;
     }
 
     side = IsClientEnemy(bw, battlerId);
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
-    battlerIdAbility = CheckSideAbility(bw, ctx, CHECK_ABILITY_ALL_HP_NOT_USER, battlerId, ABILITY_SHADOW_TAG);
-    if (battlerIdAbility && GetBattlerAbility(ctx, battlerId) != ABILITY_SHADOW_TAG) {
+    battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP_NOT_USER, battlerId, ABILITY_SHADOW_TAG);
+    if (battlerIdAbility && GetBattlerAbility(sp, battlerId) != ABILITY_SHADOW_TAG) {
         if (msg == NULL) {
             return TRUE;
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
         msg->msg_para[1] = ABILITY_SHADOW_TAG;
         return TRUE;
     }
 
-    battlerIdAbility = CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
+    battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
     if (battlerIdAbility) {
-        if (!(ctx->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_HALVE_SPEED) {
-            if (GetBattlerAbility(ctx, battlerId) != ABILITY_LEVITATE && !ctx->battlemon[battlerId].moveeffect.magnetRiseTurns && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_FLYING)) {
+        if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_HALVE_SPEED) {
+            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_FLYING)) {
                if (msg == NULL) {
                     return TRUE;
                 }
                 msg->msg_tag = TAG_NICK_ABILITY;
                 msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-                msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
+                msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
                 msg->msg_para[1] = ABILITY_ARENA_TRAP;
                 return TRUE;
             }
@@ -1595,25 +1595,25 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
             }
             msg->msg_tag = TAG_NICK_ABILITY;
             msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-            msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
+            msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
             msg->msg_para[1] = ABILITY_ARENA_TRAP;
             return TRUE;
         }
     }
 
-    battlerIdAbility = CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL);
-    if (battlerIdAbility && BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_STEEL)) {
+    battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL);
+    if (battlerIdAbility && BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_STEEL)) {
         if (msg == NULL) {
             return TRUE;
         }
         msg->msg_tag = TAG_NICK_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
-        msg->msg_para[0] = CreateNicknameTag(ctx, battlerIdAbility);
+        msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
         msg->msg_para[1] = ABILITY_MAGNET_PULL;
         return TRUE;
     }
 
-    if ((ctx->battlemon[battlerId].condition2 & (STATUS2_BINDING_TURNS | STATUS2_MEAN_LOOK)) || (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)){
+    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0){
         if (msg == NULL) {
             return TRUE;
         }
@@ -1630,34 +1630,34 @@ BOOL CantEscape(void *bw, struct BattleStruct *ctx, int battlerId, MESSAGE_PARAM
  *  @brief tries to see if the battler can switch
  *
  *  @param bw battle work structure
- *  @param ctx global battle structure
+ *  @param sp global battle structure
  *  @param battlerId client to check for running
  *  @return TRUE if the battler can not switch; FALSE if the battler can switch
  */
-BOOL BattlerCantSwitch(void *bw, struct BattleStruct *ctx, int battlerId) {
+BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId) {
     BOOL ret = FALSE;
 
     // ghost types can switch from anything like they had shed skin
-    if (HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_SWITCH || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) {
+    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH || BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_GHOST)) {
         return FALSE;
     }
 
-    if ((ctx->battlemon[battlerId].condition2 & (STATUS2_BINDING_TURNS | STATUS2_MEAN_LOOK)) || (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)) {
+    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0) {
         ret = TRUE;
     }
 
-    if ((GetBattlerAbility(ctx, battlerId) != ABILITY_SHADOW_TAG && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_SHADOW_TAG))
-     || (BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_STEEL) && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL)))
+    if ((GetBattlerAbility(sp, battlerId) != ABILITY_SHADOW_TAG && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_SHADOW_TAG))
+     || (BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_STEEL) && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL)))
     {
         ret = TRUE;
     }
 
-    if (((GetBattlerAbility(ctx, battlerId) != ABILITY_LEVITATE
-       && ctx->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
-       && !BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_FLYING))
-      || HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_HALVE_SPEED
-      || (ctx->field_condition & FIELD_STATUS_GRAVITY))
-     && CheckSideAbility(bw, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP))
+    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
+       && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
+       && !BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_FLYING))
+      || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_HALVE_SPEED
+      || (sp->field_condition & FIELD_STATUS_GRAVITY))
+     && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP))
     {
         ret = TRUE;
     }
@@ -1671,31 +1671,31 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *ctx, int battlerId) {
  *         also takes into account the random chance to flee if none of the guaranteed chances work
  *
  *  @param bw battle work structure
- *  @param ctx global battle structure
+ *  @param sp global battle structure
  *  @param battlerId client to check for running
  *  @return TRUE if the battler can run; FALSE if the battler can not switch
  */
-BOOL BattleTryRun(void *bw, struct BattleStruct *ctx, int battlerId) {
+BOOL BattleTryRun(void *bw, struct BattleStruct *sp, int battlerId) {
     BOOL ret;
     u8 run;
     int item;
     u32 battleType;
 
     battleType = BattleTypeGet(bw);
-    item = HeldItemHoldEffectGet(ctx, battlerId);
+    item = HeldItemHoldEffectGet(sp, battlerId);
     ret = FALSE;
 
     if (item == HOLD_EFFECT_FLEE) {
-        ctx->oneTurnFlag[battlerId].escape_flag = 1;
+        sp->oneTurnFlag[battlerId].escape_flag = 1;
         ret = TRUE;
-    } else if (battleType & BATTLE_TYPE_NO_EXPERIENCE || BATTLE_MON_HAS_TYPE(ctx, battlerId, TYPE_GHOST)) { // ghost types can always escape regardless of speed
+    } else if (battleType & BATTLE_TYPE_NO_EXPERIENCE || BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_GHOST)) { // ghost types can always escape regardless of speed
         ret = TRUE;
-    } else if (GetBattlerAbility(ctx, battlerId) == ABILITY_RUN_AWAY) {
-        ctx->oneTurnFlag[battlerId].escape_flag = 2;
+    } else if (GetBattlerAbility(sp, battlerId) == ABILITY_RUN_AWAY) {
+        sp->oneTurnFlag[battlerId].escape_flag = 2;
         ret = TRUE;
     } else {
-        if (ctx->battlemon[battlerId].speed < ctx->battlemon[battlerId ^ 1].speed) {
-            run = ctx->battlemon[battlerId].speed * 128 / ctx->battlemon[battlerId ^ 1].speed + ctx->escape_count * 30;
+        if (sp->battlemon[battlerId].speed < sp->battlemon[battlerId ^ 1].speed) {
+            run = sp->battlemon[battlerId].speed * 128 / sp->battlemon[battlerId ^ 1].speed + sp->escape_count * 30;
             if (run > (BattleRand(bw) % 256)) {
                 ret = TRUE;
             }
@@ -1705,7 +1705,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *ctx, int battlerId) {
         if (!ret) {
             SCIO_IncRecord(bw, battlerId, 0, 99);
         }
-        ctx->escape_count++;
+        sp->escape_count++;
     }
     return ret;
 }
@@ -2099,46 +2099,471 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
     }
 }
 
-BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bsys, struct BattleStruct *ctx, int battlerIdAttacker, int battlerIdTarget, int move) {
-    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
-        return FALSE;
-    }
-    
-    if (ctx->oneTurnFlag[battlerIdTarget].mamoru_flag 
-        && ctx->moveTbl[move].flag & (1 << 1)
-        && (move != MOVE_CURSE || CurseUserIsGhost(ctx, move, battlerIdAttacker) == TRUE)
-        && (!CheckMoveIsChargeMove(ctx, move) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
-        UnlockBattlerOutOfCurrentMove(bsys, ctx, battlerIdAttacker);
-        ctx->waza_status_flag |= WAZA_STATUS_FLAG_MAMORU_NOHIT; 
-        return FALSE;
-    }
-    
-    if (!(ctx->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
-        && ((ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
-            && ctx->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
-          || GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_NO_GUARD
-          || GetBattlerAbility(ctx, battlerIdTarget) == ABILITY_NO_GUARD)) {
-        ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move) {
+    if (sp->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
         return FALSE;
     }
 
-    if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if (ctx->field_condition & WEATHER_RAIN_ANY && ctx->moveTbl[move].effect == MOVE_EFFECT_THUNDER) {
-            ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+    if (sp->oneTurnFlag[battlerIdTarget].mamoru_flag
+        && sp->moveTbl[move].flag & (1 << 1)
+        && (move != MOVE_CURSE || CurseUserIsGhost(sp, move, battlerIdAttacker) == TRUE)
+        && (!CheckMoveIsChargeMove(sp, move) || sp->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
+        UnlockBattlerOutOfCurrentMove(bw, sp, battlerIdAttacker);
+        sp->waza_status_flag |= WAZA_STATUS_FLAG_MAMORU_NOHIT;
+        return FALSE;
+    }
+
+    if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
+        && ((sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
+            && sp->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
+          || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
+          || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return FALSE;
+    }
+
+    if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
         // Blizzard is 100% accurate in Snow also
-        if (ctx->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && ctx->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
-            ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
     }
-    
-    if (!(ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON) 
-        && ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_BOTH
-        && ((!(ctx->server_status_flag & BATTLE_STATUS_HIT_FLY) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR) 
-            || (!(ctx->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
-            || (!(ctx->server_status_flag & BATTLE_STATUS_HIT_DIG) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
-            || (!(ctx->server_status_flag & BATTLE_STATUS_HIT_DIVE) && ctx->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
-        ctx->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
+
+    if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
+        && sp->moveTbl[sp->current_move_index].target != MOVE_TARGET_BOTH
+        && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
+            || (!(sp->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
+            || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
+            || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
+        sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
     }
     return FALSE;
+}
+
+
+typedef enum UpdateMonConditionState {
+    UMC_STATE_INGRAIN,
+    UMC_STATE_AQUA_RING,
+    UMC_STATE_ABILITY,
+    UMC_STATE_HELD_ITEM,
+    UMC_STATE_LEFTOVERS_RECOVERY,
+    UMC_STATE_LEECH_SEED,
+    UMC_STATE_POISON,
+    UMC_STATE_BAD_POISON,
+    UMC_STATE_BURN,
+    UMC_STATE_NIGHTMARE,
+    UMC_STATE_CURSE,
+    UMC_STATE_BINDING,
+    UMC_STATE_BAD_DREAMS,
+    UMC_STATE_UPROAR,
+    UMC_STATE_RAMPAGE,
+    UMC_STATE_DISABLE,
+    UMC_STATE_ENCORE,
+    UMC_STATE_LOCK_ON,
+    UMC_STATE_CHARGE,
+    UMC_STATE_TAUNT,
+    UMC_STATE_MAGNET_RISE,
+    UMC_STATE_HEALBLOCK,
+    UMC_STATE_EMBARGO,
+    UMC_STATE_YAWN,
+    UMC_STATE_HELD_ITEM_STATUS,
+    UMC_STATE_HELD_ITEM_DAMAGE,
+    UMC_STATE_END
+} UpdateMonConditionState;
+
+
+void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp) {
+    int i;
+    u8 flag = 0;
+    int maxBattlers;
+    int battlerId;
+
+    maxBattlers = BattleWorkClientSetMaxGet(bw);
+
+    if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE) {
+        return;
+    }
+
+    if (ServerGetExpCheck(sp, sp->server_seq_no, sp->server_seq_no) == TRUE) {
+        return;
+    }
+
+    if (ServerZenmetsuCheck(bw, sp) == TRUE) {
+        return;
+    }
+
+    while (sp->updateMonConditionData < maxBattlers) {
+        battlerId = sp->turnOrder[sp->updateMonConditionData];
+        if (sp->no_reshuffle_client & No2Bit(battlerId)) {
+            sp->updateMonConditionData++;
+            continue;
+        }
+        switch (sp->stateUpdateMonCondition) {
+        case UMC_STATE_INGRAIN:
+            if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp && sp->battlemon[battlerId].hp != 0) {
+                if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_HEAL);
+                } else {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_INGRAIN_HEAL);
+                }
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_AQUA_RING:
+            if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) && (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp && sp->battlemon[battlerId].hp != 0) {
+                if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_HEAL);
+                } else {
+                    sp->client_work = battlerId;
+                    sp->waza_work = MOVE_AQUA_RING;
+                    sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_AQUA_RING_HEAL);
+                }
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_ABILITY:
+            if (TurnEndAbilityCheck(bw, sp, battlerId) == TRUE) {
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_HELD_ITEM:
+            if (TryUseHeldItem(bw, sp, battlerId) == TRUE) {
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_LEFTOVERS_RECOVERY:
+            if (CheckItemGradualHPRestore(bw, sp, battlerId) == TRUE) { // come back for this one
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_LEECH_SEED:
+            if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE) && sp->battlemon[sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER].hp != 0 &&
+                GetBattlerAbility(sp, battlerId) != ABILITY_MAGIC_GUARD && sp->battlemon[battlerId].hp != 0) {
+                sp->attack_client_work = sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER;
+                sp->defence_client_work = battlerId;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LEECH_SEED_DAMAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_POISON:
+            if ((sp->battlemon[battlerId].condition & STATUS_FLAG_POISONED) && sp->battlemon[battlerId].hp != 0) {
+                sp->client_work = battlerId;
+                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_BAD_POISON:
+            if ((sp->battlemon[battlerId].condition & STATUS_FLAG_BADLY_POISONED) && sp->battlemon[battlerId].hp != 0) {
+                sp->client_work = battlerId;
+                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
+                if ((sp->battlemon[battlerId].condition & STATUS_FLAG_TOXIC_COUNT) != STATUS_FLAG_TOXIC_COUNT) {
+                    sp->battlemon[battlerId].condition += 1 << 8;
+                }
+                sp->hp_calc_work *= ((sp->battlemon[battlerId].condition & STATUS_FLAG_TOXIC_COUNT) >> 8);
+                sp->hp_calc_work *= -1;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_BURN:
+            if ((sp->battlemon[battlerId].condition & STATUS_FLAG_BURNED) && sp->battlemon[battlerId].hp != 0) {
+                sp->client_work = battlerId;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BURN_DAMAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_NIGHTMARE:
+            if ((sp->battlemon[battlerId].condition2 & STATUS2_NIGHTMARE) && sp->battlemon[battlerId].hp != 0) {
+                if (sp->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
+                   sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_NIGHTMARE_DAMAGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                } else {
+                    sp->battlemon[battlerId].condition2 &= ~STATUS2_NIGHTMARE;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_CURSE:
+            if ((sp->battlemon[battlerId].condition2 & STATUS2_CURSE) && sp->battlemon[battlerId].hp != 0) {
+                sp->client_work = battlerId;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CURSE_DAMAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_BINDING:
+            if (sp->binding_turns[battlerId] && sp->battlemon[battlerId].hp != 0) {
+                //sp->battlemon[battlerId].condition2 -= 1 << 13;
+                sp->binding_turns[battlerId]--;
+                if (sp->binding_turns[battlerId]) {
+                    sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLAMP_DAMAGE);
+                } else {
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLAMP_END);
+                }
+                sp->waza_work = sp->battlemon[battlerId].moveeffect.bindingMove;
+                sp->client_work = battlerId;
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_BAD_DREAMS:
+            sp->temp_work = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP_RET, battlerId, ABILITY_BAD_DREAMS);
+            if ((sp->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) && GetBattlerAbility(sp, battlerId) != ABILITY_MAGIC_GUARD &&
+                sp->battlemon[battlerId].hp != 0 && sp->temp_work) {
+                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8); // 1/8 health drop, can probably put binding band in here too soon
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BAD_DREAMS);
+                sp->server_status_flag |= BATTLE_STATUS_NO_BLINK;
+                sp->client_work = battlerId;
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_UPROAR:
+            if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
+                u8 battlerIdSleep;
+                for (battlerIdSleep = 0; battlerIdSleep < maxBattlers; battlerIdSleep++) {
+                    if ((sp->battlemon[battlerIdSleep].condition & STATUS_FLAG_ASLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
+                        sp->client_work = battlerIdSleep;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WAKE_UP);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        break;
+                    }
+                }
+                if (battlerIdSleep != maxBattlers) {
+                    flag = 2;
+                    break;
+                }
+                sp->battlemon[battlerId].condition2 -= 1 << 4;
+                if (ov12_02252218(sp, battlerId)) { // come back to this
+                    i = SUB_SEQ_UPROAR_END;
+                    sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
+                    sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
+                } else if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
+                    i = SUB_SEQ_MAKING_AN_UPROAR;
+                } else {
+                    i = SUB_SEQ_UPROAR_END;
+                    sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
+                    sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
+                }
+                sp->client_work = battlerId;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, i);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            if (flag != 2) {
+                sp->stateUpdateMonCondition++;
+            }
+            break;
+        case UMC_STATE_RAMPAGE:
+            if (sp->battlemon[battlerId].condition2 & STATUS2_RAMPAGE_TURNS) {
+                sp->battlemon[battlerId].condition2 -= 1 << 10;
+                if (ov12_02252218(sp, battlerId)) { // come back to this
+                    sp->battlemon[battlerId].condition2 &= ~STATUS2_RAMPAGE_TURNS;
+                } else if (!(sp->battlemon[battlerId].condition2 & STATUS2_RAMPAGE_TURNS) && !(sp->battlemon[battlerId].condition2 & STATUS2_CONFUSED)) {
+                    sp->state_client = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_DISABLE:
+            if (sp->battlemon[battlerId].moveeffect.disabledMove) {
+                for (i = 0; i < 4; i++) {
+                    if (sp->battlemon[battlerId].moveeffect.disabledMove == sp->battlemon[battlerId].move[i]) {
+                        break;
+                    }
+                }
+                if (i == 4) {
+                    sp->battlemon[battlerId].moveeffect.disabledTurns = 0;
+                }
+                if (sp->battlemon[battlerId].moveeffect.disabledTurns) {
+                    sp->battlemon[battlerId].moveeffect.disabledTurns--;
+                } else {
+                    sp->battlemon[battlerId].moveeffect.disabledMove = 0;
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DISABLE_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_ENCORE:
+            if (sp->battlemon[battlerId].moveeffect.encoredMove) {
+                for (i = 0; i < 4; i++) {
+                    if (sp->battlemon[battlerId].moveeffect.encoredMove == sp->battlemon[battlerId].move[i]) {
+                        break;
+                    }
+                }
+                if (i == 4 || (i != 4 && !sp->battlemon[battlerId].pp[i])) {
+                    sp->battlemon[battlerId].moveeffect.encoredTurns = 0;
+                }
+                if (sp->battlemon[battlerId].moveeffect.encoredTurns) {
+                    sp->battlemon[battlerId].moveeffect.encoredTurns--;
+                } else {
+                    sp->battlemon[battlerId].moveeffect.encoredMove = 0;
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ENCORE_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_LOCK_ON:
+            if (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) {
+                sp->battlemon[battlerId].effect_of_moves -= 1 << 3;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_CHARGE:
+            if (sp->battlemon[battlerId].moveeffect.isCharged) {
+                if (--sp->battlemon[battlerId].moveeffect.isCharged == 0) {
+                    sp->battlemon[battlerId].effect_of_moves &= ~MOVE_EFFECT_FLAG_CHARGE;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_TAUNT:
+            if (sp->battlemon[battlerId].moveeffect.tauntTurns != 0) {
+                sp->battlemon[battlerId].moveeffect.tauntTurns--;
+                if (sp->battlemon[battlerId].moveeffect.tauntTurns == 0) {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAUNT_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_MAGNET_RISE:
+            if (sp->battlemon[battlerId].moveeffect.magnetRiseTurns) {
+                if (--sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0) {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGNET_RISE_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_HEALBLOCK:
+            if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
+                if (--sp->battlemon[battlerId].moveeffect.healBlockTurns == 0) {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_BLOCK_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_EMBARGO:
+            if (sp->battlemon[battlerId].moveeffect.embargoFlag) {
+                if (--sp->battlemon[battlerId].moveeffect.embargoFlag == 0) {
+                    sp->client_work = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_EMBARGO_END);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_YAWN:
+            if (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_YAWN_COUNTER) {
+                sp->battlemon[battlerId].effect_of_moves -= 1 << 11;
+                if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_YAWN_COUNTER) == 0) {
+                    sp->state_client = battlerId;
+                    sp->addeffect_type = 4;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_SLEEP);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    flag = 1;
+                }
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_HELD_ITEM_STATUS:
+        {
+            int script;
+
+            if (HeldItemHealCheck(bw, sp, battlerId, (int *)&script) == TRUE) {
+                sp->client_work = battlerId;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, script);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        }
+        case UMC_STATE_HELD_ITEM_DAMAGE:
+            if (TryHeldItemNegativeEffect(bw, sp, battlerId) == TRUE) { // come back to this
+                flag = 1;
+            }
+            sp->stateUpdateMonCondition++;
+            break;
+        case UMC_STATE_END:
+            sp->stateUpdateMonCondition = 0;
+            sp->updateMonConditionData++;
+            break;
+        }
+        if (flag) {
+            SCIO_BlankMessage(bw);
+            return;
+        }
+    }
+    sp->stateUpdateMonCondition = 0;
+    sp->updateMonConditionData = 0;
+    sp->server_seq_no = 11;
 }

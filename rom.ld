@@ -229,7 +229,7 @@ ST_ServerQueCheck = 0x0224ED48 | 1;
 SCIO_StatusEffectSet = 0x02263848 | 1;
 SCIO_LevelUpEffectSet = 0x0226399C | 1;
 BattleWorkPlaceIDGet = 0x0223AB60 | 1;
-HeldItemEffectCheck = 0x0225471C | 1;
+TryUseHeldItem = 0x0225471C | 1;
 HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
@@ -589,3 +589,7 @@ Daycare_GetBothBoxMonsPtr = 0x0206C1C8 | 1;
 
 CurseUserIsGhost = 0x022526D0 | 1;
 UnlockBattlerOutOfCurrentMove = 0x02250CA0 | 1;
+
+CheckItemGradualHPRestore = 0x02254D80 | 1;
+ov12_02252218 = 0x02252218 | 1;
+TryHeldItemNegativeEffect = 0x0225551C | 1;

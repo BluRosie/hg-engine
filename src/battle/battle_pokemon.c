@@ -213,7 +213,7 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
 
     for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
     {
-        sp->client_work = sp->turn_order[i];
+        sp->client_work = sp->turnOrder[i];
 
         //handle castform
         if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)
@@ -385,7 +385,7 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
                     pp = AllocMonZeroed(5);
                     if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
                     {
-                        defence = sp->client_act_work[sp->client_work][1];
+                        defence = sp->playerActions[sp->client_work][1];
                     }
                     else
                     {
@@ -1289,6 +1289,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].parental_bond_is_active = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
+    sp->binding_turns[client] = 0;
 }
 
 /**

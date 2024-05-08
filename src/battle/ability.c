@@ -1111,7 +1111,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     }
     for(i = 0; i < client_set_max; i++)
     {
-        client_no = sp->turn_order[i];
+        client_no = sp->turnOrder[i];
         if (((sp->waza_status_flag & 0x801FDA49) == 0)
          && (sp->oneTurnFlag[client_no].yokodori_flag)
          && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
@@ -1209,14 +1209,14 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
         FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER:
         sp->swoak_seq_no++;
-        if (HeldItemEffectCheck(bw, sp, sp->attack_client) == TRUE) // will eventually need HeldItemEffectCheck anyway.  generic berry function thing
+        if (TryUseHeldItem(bw, sp, sp->attack_client) == TRUE) // will eventually need TryUseHeldItem anyway.  generic berry function thing
             return;
         FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER:
         sp->swoak_seq_no++;
         if (sp->defence_client != 0xFF)
         {
-            if (HeldItemEffectCheck(bw, sp, sp->defence_client) == TRUE)
+            if (TryUseHeldItem(bw, sp, sp->defence_client) == TRUE)
                 return;
         }
         FALLTHROUGH;
@@ -1269,7 +1269,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 
             while (sp->swoak_work < BattleWorkClientSetMaxGet(bw))
             {
-                client_no = sp->turn_order[sp->swoak_work];
+                client_no = sp->turnOrder[sp->swoak_work];
                 if (sp->no_reshuffle_client & No2Bit(client_no))
                 {
                     sp->swoak_work++;

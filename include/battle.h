@@ -179,7 +179,7 @@
  *  fields that cover multiple fields are often counters, i.e. MOVE_EFFECT_FLAG_LOCK_ON
  *
  *  the following statement:
- *  sp->effect_of_moves -= (1 << 3);
+ *  sp->battlemon[sp->attack_client].effect_of_moves -= (1 << 3);
  *  decrements the 2-bit counter for lock on
  *
  *  seems to be duplicated in battle_moveflag structure (moveeffect field of BattleStruct)
@@ -262,7 +262,7 @@
 #define STATUS2_UPROAR (0x00000070)
 #define STATUS2_RAMPAGE_TURNS (0x00000C00)
 #define STATUS2_LOCKED_INTO_MOVE (0x00001000)
-#define STATUS2_BINDING_TURNS (0x0000E000)
+#define STATUS2_BINDING_TURNS (0x0000E000) // no longer used, see sp->binding_turns
 #define STATUS2_INFATUATION (0x000f0000)
 #define STATUS2_FOCUS_ENERGY (0x00100000)
 #define STATUS2_TRANSFORMED (0x00200000)
@@ -283,9 +283,14 @@
  */
 #define SIDE_STATUS_REFLECT (0x1)
 #define SIDE_STATUS_LIGHT_SCREEN (0x2)
+#define SIDE_STATUS_SPIKES (0x4)
 #define SIDE_STATUS_SAFEGUARD (0x8)
+#define SIDE_STATUS_FUTURE_SIGHT (0x10)
+#define SIDE_STATUS_WISH (0x20)
 #define SIDE_STATUS_MIST (0x40)
-#define SIDE_STATUS_TAILWIND (0x300)
+#define SIDE_STATUS_STEALTH_ROCK (0x80)
+#define SIDE_STATUS_TAILWIND (0x300) // no longer used, see sp->tailwindCount
+#define SIDE_STATUS_TOXIC_SPIKES (0x400)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 /**
@@ -861,8 +866,8 @@ struct __attribute__((packed)) side_condition_work
     u32     knockoff_item           : 6;
     u32     oikaze_count            : 3;
 
-    u32     makibisi_count          : 2;
-    u32     dokubisi_count          : 2;
+    u32     spikesLayers            : 2;
+    u32     toxicSpikesLayers       : 2;
     u32                             :28;
 };
 
@@ -942,8 +947,8 @@ struct __attribute__((packed)) BattleStruct
     /*0xC*/ int next_server_seq_no;
     /*0x10*/ int fcc_seq_no;
     /*0x14*/ int fcc_work;
-    /*0x18*/ int pcc_seq_no;
-    /*0x1C*/ int pcc_work;
+    /*0x18*/ int stateUpdateMonCondition;
+    /*0x1C*/ int updateMonConditionData;
     /*0x20*/ int scc_seq_no;
     /*0x24*/ int scc_work;
     /*0x28*/ int sba_seq_no;
@@ -1050,10 +1055,10 @@ struct __attribute__((packed)) BattleStruct
     /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];
     /*0x21A0*/ u8 reshuffle_sel_mons_no[CLIENT_MAX];
     /*0x21A4*/ u8 ai_reshuffle_sel_mons_no[CLIENT_MAX];
-    /*0x21A8*/ u32 client_act_work[4][4];
-    /*0x21E8*/ u8 client_agi_work[4];
-    /*0x21EC*/ u8 turn_order[4];
-    /*0x21F0*/ u32 psp_agi_point[4];
+    /*0x21A8*/ u32 playerActions[4][4]; // client_act_work
+    /*0x21E8*/ u8 executionOrder[4]; // client_agi_work -- accounts for running, items, etc used in battler slots
+    /*0x21EC*/ u8 turnOrder[4]; // turn_order -- by pokemon speed, accounting for trick room
+    /*0x21F0*/ u32 effectiveSpeed[4]; // psp_agi_point
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
     /*0x2700*/ int SkillSeqWorkOld[400];
@@ -1113,7 +1118,8 @@ struct __attribute__((packed)) BattleStruct
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
-    /*0x315F*/ u8 padding_315F[0x1F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315F*/ u8 binding_turns[4]; // turns left for bind
+    /*0x3163*/ u8 padding_3163[0x1B]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1977,7 +1983,7 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @param client_no is the battler to check
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
-BOOL LONG_CALL HeldItemEffectCheck(void *bw, struct BattleStruct *sp, int client_no);
+BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
 
 /**
  *  @brief check if held item effect needs to activate, specifically directly after moves.  for things like status items
@@ -2199,6 +2205,9 @@ u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId,
 void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
 void LONG_CALL BattleWorkGroundBGChg(void *bw);
 u32 LONG_CALL GrabTimeOfDayFileAdjustment(void *bw);
+BOOL LONG_CALL CheckItemGradualHPRestore(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+BOOL LONG_CALL ov12_02252218(struct BattleStruct *ctx, int battlerId);
+BOOL LONG_CALL TryHeldItemNegativeEffect(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
 
 
@@ -2505,6 +2514,16 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
  *  @return TRUE to signal that the battle subscript was loaded and to run it; FALSE otherwise
  */
 u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
+
+/**
+ *  @brief check if client_no's ability should activate, specifically at the end of the turn.  loads subseq and returns TRUE if it should
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param client_no is the battler whose ability to check for
+ *  @return TRUE if subseq was loaded; FALSE otherwise
+ */
+u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
 
 
 // defined in other_battle_calculators.c
