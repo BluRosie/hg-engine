@@ -34,44 +34,6 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
 
-
-
-
-const u16 SoundproofMoveList[] =
-{
-    MOVE_BOOMBURST,
-    MOVE_BUG_BUZZ,
-    MOVE_CHATTER,
-    MOVE_CLANGING_SCALES,
-    MOVE_CLANGOROUS_SOUL,
-    //MOVE_CLANGOROUS_SOULBLAZE,
-    MOVE_CONFIDE,
-    MOVE_DISARMING_VOICE,
-    MOVE_ECHOED_VOICE,
-    MOVE_EERIE_SPELL,
-    MOVE_GRASS_WHISTLE,
-    MOVE_GROWL,
-    //MOVE_HEAL_BELL,
-    //MOVE_HOWL,
-    MOVE_HYPER_VOICE,
-    MOVE_METAL_SOUND,
-    MOVE_NOBLE_ROAR,
-    MOVE_OVERDRIVE,
-    MOVE_PARTING_SHOT,
-    MOVE_PERISH_SONG,
-    MOVE_RELIC_SONG,
-    MOVE_ROAR,
-    MOVE_ROUND,
-    MOVE_SCREECH,
-    //MOVE_SHADOW_PANIC,
-    MOVE_SING,
-    MOVE_SNARL,
-    MOVE_SNORE,
-    MOVE_SPARKLING_ARIA,
-    MOVE_SUPERSONIC,
-    MOVE_UPROAR,
-};
-
 const u16 BulletproofMoveList[] =
 {
     MOVE_ACID_SPRAY,
@@ -170,33 +132,18 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // 02252FB0
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE)
     {
+        if (IsMoveSoundBased(sp->current_move_index))
         {
-            u32 i;
-
-            for (i = 0; i < NELEMS(SoundproofMoveList); i++){
-                if (SoundproofMoveList[i] == sp->current_move_index)
-                {
-                    scriptnum = SUB_SEQ_SOUNDPROOF;
-                    break;
-                }
-            }
+            scriptnum = SUB_SEQ_SOUNDPROOF;
         }
     }
 
     // Handle Bulletproof
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
     {
+        if (IsElementInArray(BulletproofMoveList, (u16 *)&sp->current_move_index, NELEMS(BulletproofMoveList), sizeof(BulletproofMoveList[0])))
         {
-            u32 i;
-
-            for (i = 0; i < NELEMS(BulletproofMoveList); i++){
-                if (BulletproofMoveList[i] == sp->current_move_index)
-                {
-                    // This works fine for Bulletproof too
-                    scriptnum = SUB_SEQ_SOUNDPROOF;
-                    break;
-                }
-            }
+            scriptnum = SUB_SEQ_SOUNDPROOF;
         }
     }
 

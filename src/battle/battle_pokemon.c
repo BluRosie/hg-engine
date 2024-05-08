@@ -1408,13 +1408,7 @@ u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
  */
 BOOL LONG_CALL IsMoveSoundBased(u32 move)
 {
-    int i;
-    for (i = 0; i < (s32)NELEMS(SoundProofMovesList); i++)
-    {
-        if (SoundProofMovesList[i] == move)
-            break;
-    }
-    return (i != NELEMS(SoundProofMovesList));
+    return IsElementInArray(SoundProofMovesList, (u16 *)(&move), NELEMS(SoundProofMovesList), sizeof(SoundProofMovesList[0]));
 }
 
 
