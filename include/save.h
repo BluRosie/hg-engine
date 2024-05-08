@@ -367,5 +367,15 @@ void LONG_CALL SetScriptFlag(u16 flag_id);
 void LONG_CALL ClearScriptFlag(u16 flag_id);
 BOOL LONG_CALL CheckScriptFlag(u16 flag_id);
 
+/**
+ *  @brief check if an element of an array exists byte-for-byte in the buf sent to it
+ *
+ *  @param array pointer to any type array
+ *  @param element pointer to any element of an array
+ *  @param len number of elements in the overall array
+ *  @param size size of each individual element, used both as length of element and length of members of array
+ *  @return TRUE if the element exists verbatim inside of the array; FALSE otherwise
+ */
+BOOL LONG_CALL IsElementInArray(void *array, void *element, u32 len, u32 size);
 
 #endif // SAVE_H

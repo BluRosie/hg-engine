@@ -687,3 +687,36 @@ u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last) {
 
 #endif // EXPAND_PC_BOXES
 #endif // ALLOW_SAVE_CHANGES
+
+/**
+ *  @brief check if an element of an array exists byte-for-byte in the buf sent to it
+ *
+ *  @param array pointer to any type array
+ *  @param element pointer to any element of an array
+ *  @param len number of elements in the overall array
+ *  @param size size of each individual element, used both as length of element and length of members of array
+ *  @return TRUE if the element exists verbatim inside of the array; FALSE otherwise
+ */
+BOOL LONG_CALL IsElementInArray(void *array, void *element, u32 len, u32 size)
+{
+    u32 i, j;
+    u8 *arr = array;
+    u8 *elem = element;
+    u8 buf[64];
+    sprintf(buf, "Called IsElementInArray(0x%08X, 0x%08X, 0x%X, 0x%X)\n", (u32)array, (u32)element, len, size);
+    debugsyscall(buf);
+    for (i = 0; i < len; i++)
+    {
+        for (j = 0; j < size; j++)
+        {
+            u8 *currElem = &arr[i * size];
+            if (j[currElem] != elem[j])
+            {
+                break;
+            }
+        }
+        if (j == size)
+            return TRUE;
+    }
+    return FALSE;
+}

@@ -1248,11 +1248,12 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
         {
             u32 battleType = BattleTypeGet(bw);
-            u32 item = newBS.itemsToRestore[i];
-            u32 battleItem = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-            // if the battler has an item from the battle that is different from the one it started with
+            u16 item = newBS.itemsToRestore[i];
+            u16 battleItem = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            // if the battler has an item from the battle that is different from those that any mon started with
             if (battleItem != 0 && item != battleItem
-             && (battleType & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0)
+             && (battleType & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0
+             && !IsElementInArray(&newBS.itemsToRestore[0], &battleItem, NELEMS(newBS.itemsToRestore), sizeof(newBS.itemsToRestore[0])))
             {
                 Bag_AddItem(bw->bag, battleItem, 1, 5);
             }
