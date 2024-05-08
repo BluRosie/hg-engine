@@ -1,4 +1,5 @@
 #include "../../include/types.h"
+#include "../../include/bag.h"
 #include "../../include/battle.h"
 #include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
@@ -20,7 +21,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
 void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp);
 //void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility);
 void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no);
-void BattleEndRevertFormChange(void *bw);
+void BattleEndRevertFormChange(struct BattleSystem *bw);
 //void ClearBattleMonFlags(struct BattleStruct *sp, int client);
 //u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type);
 //u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move);
@@ -1197,7 +1198,7 @@ void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
  *
  *  @param bw battle work structure
  */
-void BattleEndRevertFormChange(void *bw)
+void BattleEndRevertFormChange(struct BattleSystem *bw)
 {
     int i, j;
     struct PartyPokemon *pp;
@@ -1246,9 +1247,20 @@ void BattleEndRevertFormChange(void *bw)
         }
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
         {
+            u32 battleType = BattleTypeGet(bw);
             u32 item = newBS.itemsToRestore[i];
-            if (!IS_ITEM_BERRY(item)) // do not restore berries!
+            u32 battleItem = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            // if the battler has an item from the battle that is different from the one it started with
+            if (battleItem != 0 && item != battleItem
+             && (battleType & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0)
+            {
+                Bag_AddItem(bw->bag, battleItem, 1, 5);
+            }
+            // restore items regardless of if it's a trainer battle--this will also overwrite items gained from trainers
+            if (!IS_ITEM_BERRY(item))
+            {
                 SetMonData(pp, MON_DATA_HELD_ITEM, &item);
+            }
             newBS.itemsToRestore[i] = 0;
         }
 #endif // RESTORE_ITEMS_AT_BATTLE_END
