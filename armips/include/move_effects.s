@@ -133,7 +133,7 @@ MOVE_EFFECT_UNUSED_131                              equ 131
 MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   equ 132
 MOVE_EFFECT_UNUSED_133                              equ 133
 MOVE_EFFECT_UNUSED_134                              equ 134
-MOVE_EFFECT_RANDOM_POWER_BASED_ON_IVS               equ 135
+MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                equ 135
 MOVE_EFFECT_WEATHER_RAIN                            equ 136
 MOVE_EFFECT_WEATHER_SUN                             equ 137
 MOVE_EFFECT_RAISE_DEF_HIT                           equ 138
