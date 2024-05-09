@@ -364,8 +364,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
         case ABILITY_MOODY: // this is going to be interesting
             if (sp->battlemon[client_no].hp)
             {
-                // Use % 7 and pass FALSE to AreAnyStatsNotAtValue
-                // to include accuracy/evasion like earlier gens.
+                // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
                 
                 int temp = BattleRand(bw) % 5;
 
