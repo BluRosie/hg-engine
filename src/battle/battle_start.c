@@ -417,10 +417,12 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
                 && (sp->battlemon[sp->attack_client].type1 != sp->moveTbl[sp->current_move_index].type  // if either type is not the move's type
                     || sp->battlemon[sp->attack_client].type2 != sp->moveTbl[sp->current_move_index].type)
+                && (sp->battlemon[sp->attack_client].protean_flag == 0) // Protean should activate only once per switch-in
                 && sp->moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
             {
                 sp->battlemon[sp->attack_client].type1 = sp->moveTbl[sp->current_move_index].type;
                 sp->battlemon[sp->attack_client].type2 = sp->moveTbl[sp->current_move_index].type;
+                sp->battlemon[sp->attack_client].protean_flag = 1;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
                 sp->msg_work = sp->battlemon[sp->attack_client].type1;
                 sp->client_work = sp->attack_client;
