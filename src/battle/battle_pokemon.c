@@ -227,8 +227,6 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
                 if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
                  && (sp->battlemon[sp->client_work].form_no != 0))
                 {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_NORMAL;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
                     sp->battlemon[sp->client_work].form_no = 0;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
                     *seq_no = SUB_SEQ_FORM_CHANGE;
@@ -238,8 +236,6 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
                 else if ((sp->field_condition & WEATHER_SUNNY_ANY)
                       && (sp->battlemon[sp->client_work].form_no != 1))
                 {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_FIRE;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_FIRE;
                     sp->battlemon[sp->client_work].form_no = 1;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
                     *seq_no = SUB_SEQ_FORM_CHANGE;
@@ -249,8 +245,6 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
                 else if ((sp->field_condition & WEATHER_RAIN_ANY)
                       && (sp->battlemon[sp->client_work].form_no != 2))
                 {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_WATER;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_WATER;
                     sp->battlemon[sp->client_work].form_no = 2;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
                     *seq_no = SUB_SEQ_FORM_CHANGE;
@@ -260,8 +254,6 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
                 else if ((sp->field_condition & WEATHER_HAIL_ANY)
                       && (sp->battlemon[sp->client_work].form_no != 3))
                 {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_ICE;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_ICE;
                     sp->battlemon[sp->client_work].form_no = 3;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
                     *seq_no = SUB_SEQ_FORM_CHANGE;
@@ -269,19 +261,25 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
                     break;
                 }
             }
-            else
+            else if ((sp->battlemon[sp->client_work].form_no != 0))
             {
-                if ((sp->battlemon[sp->client_work].form_no != 0))
-                {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_NORMAL;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
+                sp->battlemon[sp->client_work].form_no = 0;
+                BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
+                *seq_no = SUB_SEQ_FORM_CHANGE;
+                ret = TRUE;
+                break;
             }
+        }
+        // ability is NOT forecast, but is still an alive castform
+        else if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)
+              && (sp->battlemon[sp->client_work].hp)
+              && (sp->battlemon[sp->client_work].form_no != 0))
+        {
+            sp->battlemon[sp->client_work].form_no = 0;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
+            *seq_no = SUB_SEQ_FORM_CHANGE;
+            ret = TRUE;
+            break;
         }
 
         // handle cherrim
