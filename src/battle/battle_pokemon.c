@@ -213,12 +213,16 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
     BOOL ret;
     BOOL (*internalFunc)(void *bw, struct BattleStruct *sp, int *seq_no);
 
+    UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
+
     ovyId = OVERLAY_BATTLEFORMCHANGECHECK;
-    offset = 0x023C0400 | 1;
+    offset = 0x023C2400 | 1;
     HandleLoadOverlay(ovyId, 2);
     internalFunc = (int (*)(void *bw, struct BattleStruct *sp, int *seq_no))(offset);
     ret = internalFunc(bw, sp, seq_no);
     UnloadOverlayByID(ovyId);
+
+    HandleLoadOverlay(6, 2); // reload 6 so things are okay
 
     return ret;
 }

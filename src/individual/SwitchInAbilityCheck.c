@@ -28,7 +28,7 @@ extern struct ILLUSION_STRUCT gIllusionStruct;
  *  @param sp global battle structure
  *  @return script subseq to run if there's one that should be run; 0 if nothing should be run
  */
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
+int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {
     // Sort clients because abilities may affect speed
     DynamicSortClientExecutionOrder(bw, sp);
@@ -600,7 +600,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 break;
                 // 02253CA6
             case SWITCH_IN_CHECK_FORECAST:
-                if(BattleFormChangeCheck(bw, sp, &scriptnum) == TRUE)
+                if (BattleFormChangeCheck(bw, sp, &scriptnum) == TRUE) // oh yeah
                 {
                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                 }
