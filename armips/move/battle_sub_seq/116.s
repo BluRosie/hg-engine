@@ -7,6 +7,9 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// break free of bind
+// called from rapid spin script command, funnily enough
+
 .create "build/move/battle_sub_seq/1_116", 0
 
 a001_116:

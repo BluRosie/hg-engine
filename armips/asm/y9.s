@@ -148,5 +148,7 @@ UNCOMPRESSED equ 0x00000000
 .word 136, 0x023C0400, filesize("base/overlay/overlay_0136.bin"), 0x00000000, 0x00000000, 0x00000000, 136, UNCOMPRESSED // SwitchInAbilityCheck specific overlay
 .word 137, 0x023C0400, filesize("base/overlay/overlay_0137.bin"), 0x00000000, 0x00000000, 0x00000000, 137, UNCOMPRESSED // statbuffchange specific overlay
 .word 138, 0x023C0400, filesize("base/overlay/overlay_0138.bin"), 0x00000000, 0x00000000, 0x00000000, 138, UNCOMPRESSED // CalcBaseDamage specific overlay
+.word 139, 0x023C2400, filesize("base/overlay/overlay_0139.bin"), 0x00000000, 0x00000000, 0x00000000, 139, UNCOMPRESSED // BattleFormChangeCheck specific overlay
+.word 140, 0x023C0400, filesize("base/overlay/overlay_0140.bin"), 0x00000000, 0x00000000, 0x00000000, 140, UNCOMPRESSED // CheckDefenderItemEffectOnHit specific overlay
 
 .close

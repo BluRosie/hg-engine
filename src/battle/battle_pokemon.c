@@ -1,6 +1,7 @@
 #include "../../include/types.h"
 #include "../../include/bag.h"
 #include "../../include/battle.h"
+#include "../../include/overlay.h"
 #include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/battle_message_constants.h"
@@ -208,354 +209,20 @@ u8 TypeEffectivenessTable[][3] =
  */
 BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
-    int i, form_no;
-    BOOL ret = FALSE;
+    u32 ovyId, offset;
+    BOOL ret;
+    BOOL (*internalFunc)(void *bw, struct BattleStruct *sp, int *seq_no);
 
-    for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
-    {
-        sp->client_work = sp->turn_order[i];
+    UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
 
-        //handle castform
-        if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)
-         && (sp->battlemon[sp->client_work].hp)
-         && (GetBattlerAbility(sp,sp->client_work) == ABILITY_FORECAST))
-        {
-            if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
-            {
-                // Snow does not affect Castform in SV, since it cannot enter Paldea, Kitakami nor Blueberry Academy there is no way to confirm
-                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
-                 && (sp->battlemon[sp->client_work].form_no != 0))
-                {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_NORMAL;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
-                      && (sp->battlemon[sp->client_work].form_no != 1))
-                {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_FIRE;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_FIRE;
-                    sp->battlemon[sp->client_work].form_no = 1;
-                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else if ((sp->field_condition & WEATHER_RAIN_ANY)
-                      && (sp->battlemon[sp->client_work].form_no != 2))
-                {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_WATER;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_WATER;
-                    sp->battlemon[sp->client_work].form_no = 2;
-                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else if ((sp->field_condition & WEATHER_HAIL_ANY)
-                      && (sp->battlemon[sp->client_work].form_no != 3))
-                {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_ICE;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_ICE;
-                    sp->battlemon[sp->client_work].form_no = 3;
-                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-            }
-            else
-            {
-                if ((sp->battlemon[sp->client_work].form_no != 0))
-                {
-//                    sp->battlemon[sp->client_work].type1 = TYPE_NORMAL;
-//                    sp->battlemon[sp->client_work].type2 = TYPE_NORMAL;
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-            }
-        }
+    ovyId = OVERLAY_BATTLEFORMCHANGECHECK;
+    offset = 0x023C2400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (int (*)(void *bw, struct BattleStruct *sp, int *seq_no))(offset);
+    ret = internalFunc(bw, sp, seq_no);
+    UnloadOverlayByID(ovyId);
 
-        // handle cherrim
-        if ((sp->battlemon[sp->client_work].species == SPECIES_CHERRIM)
-         && (sp->battlemon[sp->client_work].hp))
-        {
-            if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
-            {
-                // Same with Forecast, unknown interaction with Snow
-                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
-                 && (sp->battlemon[sp->client_work].form_no == 1))
-                {
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
-                      && (sp->battlemon[sp->client_work].form_no == 0))
-                {
-                    sp->battlemon[sp->client_work].form_no = 1;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else if ((sp->field_condition & WEATHER_RAIN_ANY)
-                      && (sp->battlemon[sp->client_work].form_no == 1))
-                {
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else if ((sp->field_condition & WEATHER_HAIL_ANY)
-                      && (sp->battlemon[sp->client_work].form_no == 1))
-                {
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-            }
-            else
-            {
-                if (sp->battlemon[sp->client_work].form_no == 1)
-                {
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-            }
-        }
-
-        // handle arceus
-        if ((sp->battlemon[sp->client_work].species == SPECIES_ARCEUS)
-         && (sp->battlemon[sp->client_work].hp)
-         && (GetBattlerAbility(sp, sp->client_work) == ABILITY_MULTITYPE))
-        {
-            form_no = GetArceusType(BattleItemDataGet(sp, sp->battlemon[sp->client_work].item, 1));
-            if(sp->battlemon[sp->client_work].form_no != form_no)
-            {
-                sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // handle Silvally TODO check if this actually works, eventually change to use the memories instead of plates
-        if ((sp->battlemon[sp->client_work].species == SPECIES_SILVALLY)
-            && (sp->battlemon[sp->client_work].hp)
-            && (GetBattlerAbility(sp, sp->client_work) == ABILITY_RKS_SYSTEM))
-        {
-            form_no = GetArceusType(BattleItemDataGet(sp, sp->battlemon[sp->client_work].item, 1));
-            if(sp->battlemon[sp->client_work].form_no != form_no)
-            {
-                sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // handle giratina
-        if ((sp->battlemon[sp->client_work].species == SPECIES_GIRATINA)
-         && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].form_no == 1))
-        {
-            if ((sp->battlemon[sp->client_work].condition2 & STATUS2_TRANSFORMED)
-             || (((BattleWorkBattleStatusFlagGet(bw) & 0x80) == 0) // probably distortion world check
-              && (sp->battlemon[sp->client_work].item != ITEM_GRISEOUS_ORB)))
-            {
-                if(sp->battlemon[sp->client_work].condition2 & STATUS2_TRANSFORMED)
-                {
-                    struct PartyPokemon *pp;
-                    int defence;
-                    int work;
-
-                    pp = AllocMonZeroed(5);
-                    if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
-                    {
-                        defence = sp->client_act_work[sp->client_work][1];
-                    }
-                    else
-                    {
-                        defence = BATTLER_OPPONENT(sp->client_work);
-                    }
-                    PokeCopyPPtoPP(BattleWorkPokemonParamGet(bw, defence, sp->sel_mons_no[defence]), pp);
-                    work = 0;
-                    SetMonData(pp, MON_DATA_HELD_ITEM, &work);
-                    work = 0;
-                    SetMonData(pp, MON_DATA_FORM, &work);
-                    PokeParaGiratinaFormChange(pp);
-                    sp->battlemon[sp->client_work].attack =  GetMonData(pp, MON_DATA_ATTACK,          0);
-                    sp->battlemon[sp->client_work].defense = GetMonData(pp, MON_DATA_DEFENSE,         0);
-                    sp->battlemon[sp->client_work].speed =   GetMonData(pp, MON_DATA_SPEED,           0);
-                    sp->battlemon[sp->client_work].spatk =   GetMonData(pp, MON_DATA_SPECIAL_ATTACK,  0);
-                    sp->battlemon[sp->client_work].spdef =   GetMonData(pp, MON_DATA_SPECIAL_DEFENSE, 0);
-                    sp->battlemon[sp->client_work].ability = GetMonData(pp, MON_DATA_ABILITY,         0);
-                    sp->battlemon[sp->client_work].form_no = 0;
-                    sp->server_status_flag2 |= SERVER_STATUS_FLAG2_FORM_CHANGE;
-                    SCIO_PSPtoPPCopy(bw, sp, sp->client_work);
-                    sys_FreeMemoryEz(pp);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
-                    break;
-                }
-                else
-                {
-                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHECK;
-                    ret = TRUE;
-                    break;
-                }
-            }
-        }
-
-        // handle darmanitan zen mode
-        if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
-         && (GetBattlerAbility(sp, sp->client_work) == ABILITY_ZEN_MODE)
-         && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp <= (s32)(sp->battlemon[sp->client_work].maxhp / 2))
-         && (sp->battlemon[sp->client_work].form_no < 2)) // forms 0 and 1
-        {
-            sp->battlemon[sp->client_work].form_no += 2;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        } else if ((sp->battlemon[sp->client_work].species == SPECIES_DARMANITAN)
-         && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp > (s32)(sp->battlemon[sp->client_work].maxhp / 2) || (GetBattlerAbility(sp, sp->client_work) != ABILITY_ZEN_MODE))
-         && (sp->battlemon[sp->client_work].form_no >= 2)) // forms 2 and 3
-        {
-            sp->battlemon[sp->client_work].form_no -= 2;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        }
-
-        // fuck illusion
-        if (GetBattlerAbility(sp, sp->client_work) == ABILITY_ILLUSION
-         && gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, sp->client_work))
-         && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->client_work)] == sp->client_work
-         && gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->client_work)] == sp->sel_mons_no[sp->client_work]
-         && (sp->oneSelfFlag[sp->client_work].physical_damage || sp->oneSelfFlag[sp->client_work].special_damage))
-        {
-            SetMonData(Party_GetMonByIndex(BattleWorkPokePartyGet(bw, sp->client_work), gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->client_work)]), MON_DATA_NICKNAME, gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, sp->client_work)]);
-
-            gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, sp->client_work));
-            gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->client_work)] = CLIENT_MAX;
-            gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->client_work)] = 6;
-            for (int k = 0; k < 11; k++)
-            {
-                sp->battlemon[sp->client_work].nickname[k] = gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, sp->client_work)][k];
-                gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, sp->client_work)][k] = 0;
-            }
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_ILLUSION_FADED;
-            ret = TRUE;
-            break;
-        }
-
-        // handle meloetta - change to/from pirouette form when using relic song
-        if ((sp->battlemon[sp->client_work].species == SPECIES_MELOETTA)
-         && (sp->battlemon[sp->client_work].hp)
-         && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
-         && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[sp->client_work] == MOVE_RELIC_SONG)
-         && (sp->battlemon[sp->client_work].form_no < 2)
-         && (sp->relic_song_tracker & No2Bit(sp->client_work)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
-         && (sp->multi_hit_count <= 1))
-        {
-            sp->relic_song_tracker &= ~No2Bit(sp->client_work);
-            sp->battlemon[sp->client_work].form_no ^= 1;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        }
-
-        // handle genesect
-        if ((sp->battlemon[sp->client_work].species == SPECIES_GENESECT)
-         && (sp->battlemon[sp->client_work].hp))
-        {
-            form_no = GetGenesectForme(sp->battlemon[sp->client_work].item);
-            if(sp->battlemon[sp->client_work].form_no != form_no)
-            {
-                sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // handle xerneas - force into active mode
-        if ((sp->battlemon[sp->client_work].species == SPECIES_XERNEAS)
-         && (sp->battlemon[sp->client_work].hp))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->client_work].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
-                sp->battlemon[sp->client_work].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
-
-
-        // handle Zygarde TODO test
-        if ((sp->battlemon[sp->client_work].species == SPECIES_ZYGARDE)
-         && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].hp <= (s32)(sp->battlemon[sp->client_work].maxhp / 2))
-         && (sp->battlemon[sp->client_work].form_no == 2 || sp->battlemon[sp->client_work].form_no == 3))
-        {
-            //TODO this has not yet been tested
-            sp->battlemon[sp->client_work].form_no += 2;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp - sp->battlemon[sp->attack_client].hp;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
-            sp->battlemon[sp->client_work].maxhp = GetMonData(pp2, MON_DATA_MAXHP, NULL);
-            *seq_no = SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        }
-
-        // handle Wishiwashi TODO test (also at some point add custom transform text)
-        if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
-            && (sp->battlemon[sp->client_work].hp)
-            && (sp->battlemon[sp->client_work].form_no == 0)
-            && (sp->battlemon[sp->client_work].hp > (s32)(sp->battlemon[sp->client_work].maxhp / 4)))
-        {
-            sp->battlemon[sp->client_work].form_no = 1;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        }
-        else if ((sp->battlemon[sp->client_work].species == SPECIES_WISHIWASHI)
-         && (sp->battlemon[sp->client_work].hp)
-         && (sp->battlemon[sp->client_work].form_no == 1)
-         && (sp->battlemon[sp->client_work].hp <= (s32)(sp->battlemon[sp->client_work].maxhp / 4)))
-        {
-            sp->battlemon[sp->client_work].form_no = 0;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        }
-    }
+    HandleLoadOverlay(6, 2); // reload 6 so things are okay
 
     return ret;
 }
@@ -1204,6 +871,7 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
     struct PartyPokemon *pp;
     u16 monsno;
     u16 form;
+    u16 newItems[6] = {0};
 
     newBS.SideMega[0] = 0;
     newBS.SideMega[1] = 0;
@@ -1234,6 +902,14 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
             gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, i)][j] = 0;
     }
 
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+    // grab newItems array for use later
+    for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
+    {
+        newItems[i] = GetMonData(BattleWorkPokemonParamGet(bw, 0, i), MON_DATA_HELD_ITEM, NULL);
+    }
+#endif
+
     for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
     {
         pp = BattleWorkPokemonParamGet(bw, 0, i);
@@ -1247,15 +923,57 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
         }
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
         {
-            u32 battleType = BattleTypeGet(bw);
             u16 item = newBS.itemsToRestore[i];
-            u16 battleItem = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-            // if the battler has an item from the battle that is different from those that any mon started with
-            if (battleItem != 0 && item != battleItem
-             && (battleType & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0
-             && !IsElementInArray(&newBS.itemsToRestore[0], &battleItem, NELEMS(newBS.itemsToRestore), sizeof(newBS.itemsToRestore[0])))
+            u16 battleItem = newItems[i];
+            u8 originalQuantity = 0;
+            u8 newQuantity = 0;
+
+            // count up quantity of items at the start of the battle
+            if (item)
             {
-                Bag_AddItem(bw->bag, battleItem, 1, 5);
+                for (j = 0; j < BattleWorkPokeCountGet(bw, 0); j++)
+                {
+                    if (item == newBS.itemsToRestore[j])
+                    {
+                        if (i > j) // item has already been handled, assign it 0xFF as a marker
+                        {
+                            originalQuantity = 0xFF;
+                            break;
+                        }
+                        else
+                        {
+                            originalQuantity++;
+                        }
+                    }
+                }
+            } else { originalQuantity = 0xFF; }
+
+            // count up quantity of items at the end of the battle
+            if (battleItem)
+            {
+                for (j = 0; j < BattleWorkPokeCountGet(bw, 0); j++)
+                {
+                    if (battleItem == newItems[j])
+                    {
+                        if (i > j) // item has already been handled, assign it 0xFF as a marker
+                        {
+                            newQuantity = 0xFF;
+                            break;
+                        }
+                        else
+                        {
+                            newQuantity++;
+                        }
+                    }
+                }
+            } else { newQuantity = 0xFF; }
+
+            if (newQuantity > originalQuantity && newQuantity != 0xFF && originalQuantity != 0xFF // newQ > oldQ && hasn't already been handled
+             && battleItem != 0 && item != battleItem // if item == battleItem then pass through to restore instead of passing to bag.
+             && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0)
+            {
+                // if the battler has an item from the battle that pushes the end-battle quantity of the item over the quantity at the start of the battle
+                Bag_AddItem(bw->bag, battleItem, newQuantity - originalQuantity, 5);
             }
             // restore items regardless of if it's a trainer battle--this will also overwrite items gained from trainers
             if (!IS_ITEM_BERRY(item))
@@ -1289,6 +1007,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].parental_bond_is_active = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
+    sp->binding_turns[client] = 0;
 }
 
 /**
@@ -1407,13 +1126,7 @@ u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
  */
 BOOL LONG_CALL IsMoveSoundBased(u32 move)
 {
-    int i;
-    for (i = 0; i < (s32)NELEMS(SoundProofMovesList); i++)
-    {
-        if (SoundProofMovesList[i] == move)
-            break;
-    }
-    return (i != NELEMS(SoundProofMovesList));
+    return IsElementInArray(SoundProofMovesList, (u16 *)(&move), NELEMS(SoundProofMovesList), sizeof(SoundProofMovesList[0]));
 }
 
 
