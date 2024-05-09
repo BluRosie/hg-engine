@@ -35,6 +35,17 @@ struct BattleStruct *ServerInit(void *bw)
     DumpMoveTableData(&sp->moveTbl[0]);
     sp->aiWorkTable.item = ItemDataTableLoad(5);
 
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+
+    // store items for the player's party in sp so we can restore them at the end
+    struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
+    for (int i = 0; i < party->count; i++)
+    {
+        newBS.itemsToRestore[i] = GetMonData(Party_GetMonByIndex(party, i), MON_DATA_HELD_ITEM, NULL);
+    }
+
+#endif // RESTORE_ITEMS_AT_BATTLE_END
+
     return sp;
 }
 

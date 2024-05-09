@@ -304,53 +304,53 @@
 #define SUB_SEQ_GIRATINA_FORM_CHECK             (296)
 
 // new sub_seq entries:
-#define SUB_SEQ_HANDLE_MEGA_EVOLUTION           (297)
-#define SUB_SEQ_HANDLE_UNNERVE_MESSAGE          (298)
-#define SUB_SEQ_HANDLE_PROTEAN_MESSAGE          (299)
-#define SUB_SEQ_HANDLE_DARK_AURA_MESSAGE        (300)
-#define SUB_SEQ_HANDLE_FAIRY_AURA_MESSAGE       (301)
-#define SUB_SEQ_HANDLE_AURA_BREAK_MESSAGE       (302)
-#define SUB_SEQ_HANDLE_TURBOBLAZE_MESSAGE       (303)
-#define SUB_SEQ_HANDLE_TERAVOLT_MESSAGE         (304)
-#define SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE      (305)
-#define SUB_SEQ_HANDLE_MUMMY_MESSAGE            (306)
-#define SUB_SEQ_HANDLE_WEAK_ARMOR               (307)
-#define SUB_SEQ_HANDLE_SAP_SIPPER               (308)
-#define SUB_SEQ_HANDLE_DEFIANT                  (309)
-#define SUB_SEQ_HANDLE_HEALER                   (310)
-#define SUB_SEQ_RAISE_ATTACK_AND_ACCURACY       (311)
-#define SUB_SEQ_GUARD_SPLIT                     (312)
-#define SUB_SEQ_POWER_SPLIT                     (313)
-#define SUB_SEQ_QUIVER_DANCE                    (314)
-#define SUB_SEQ_CHANGE_TARGET_TO_WATER_TYPE     (315)
-#define SUB_SEQ_COIL                            (316)
-#define SUB_SEQ_SHIFT_GEAR                      (317)
-#define SUB_SEQ_SHELL_SMASH                     (318)
-#define SUB_SEQ_V_CREATE                        (319)
-#define SUB_SEQ_AUTOTOMIZE                      (320)
-#define SUB_SEQ_HANDLE_HARVEST                  (321)
-#define SUB_SEQ_HANDLE_MOODY                    (322)
-#define SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK (323)
-#define SUB_SEQ_HANDLE_PICKPOCKET_DEF           (324)
-#define SUB_SEQ_HANDLE_PICKPOCKET_ATK           (325)
-#define SUB_SEQ_HANDLE_IMPOSTER                 (326)
-#define SUB_SEQ_HANDLE_CURSED_BODY              (327)
-#define SUB_SEQ_HANDLE_PRIMAL_REVERSION         (328)
-#define SUB_SEQ_HANDLE_MOVE_MEGA_EVOLUTION      (329)
-#define SUB_SEQ_HANDLE_ILLUSION_FADED           (330)
-#define SUB_SEQ_HANDLE_GROWTH                   (331)
-#define SUB_SEQ_HANDLE_DISGUISE_ICE_FACE        (332)
-#define SUB_SEQ_HANDLE_RESTORE_ICE_FACE         (333)
-#define SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE      (334)
-#define SUB_SEQ_HANDLE_COMPETITIVE              (335)
-#define SUB_SEQ_HANDLE_RAISE_SPECIAL_ATTACK_ON_HIT (336)
-#define SUB_SEQ_HANDLE_AIR_BALLOON_POP          (337)
-#define SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE      (338)
-#define SUB_SEQ_HANDLE_RAISE_ATTACK_ON_HIT      (339)
-#define SUB_SEQ_HANDLE_SWITCHING_ITEMS          (340)
-#define SUB_SEQ_HANDLE_RAISE_DEFENSE_ON_HIT     (341)
-#define SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT (342)
-#define SUB_SEQ_HANDLE_RAISE_SPEED_ON_HIT       (343)
+#define SUB_SEQ_HANDLE_MEGA_EVOLUTION                 (297)
+#define SUB_SEQ_HANDLE_UNNERVE_MESSAGE                (298)
+#define SUB_SEQ_HANDLE_PROTEAN_MESSAGE                (299)
+#define SUB_SEQ_HANDLE_DARK_AURA_MESSAGE              (300)
+#define SUB_SEQ_HANDLE_FAIRY_AURA_MESSAGE             (301)
+#define SUB_SEQ_HANDLE_AURA_BREAK_MESSAGE             (302)
+#define SUB_SEQ_HANDLE_TURBOBLAZE_MESSAGE             (303)
+#define SUB_SEQ_HANDLE_TERAVOLT_MESSAGE               (304)
+#define SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE            (305)
+#define SUB_SEQ_HANDLE_MUMMY_MESSAGE                  (306)
+#define SUB_SEQ_HANDLE_WEAK_ARMOR                     (307)
+#define SUB_SEQ_HANDLE_SAP_SIPPER                     (308)
+#define SUB_SEQ_HANDLE_DEFIANT                        (309)
+#define SUB_SEQ_HANDLE_HEALER                         (310)
+#define SUB_SEQ_RAISE_ATTACK_AND_ACCURACY             (311)
+#define SUB_SEQ_GUARD_SPLIT                           (312)
+#define SUB_SEQ_POWER_SPLIT                           (313)
+#define SUB_SEQ_QUIVER_DANCE                          (314)
+#define SUB_SEQ_CHANGE_TARGET_TO_WATER_TYPE           (315)
+#define SUB_SEQ_COIL                                  (316)
+#define SUB_SEQ_SHIFT_GEAR                            (317)
+#define SUB_SEQ_SHELL_SMASH                           (318)
+#define SUB_SEQ_V_CREATE                              (319)
+#define SUB_SEQ_AUTOTOMIZE                            (320)
+#define SUB_SEQ_HANDLE_HARVEST                        (321)
+#define SUB_SEQ_HANDLE_MOODY                          (322)
+#define SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK      (323)
+#define SUB_SEQ_HANDLE_PICKPOCKET_DEF                 (324)
+#define SUB_SEQ_HANDLE_PICKPOCKET_ATK                 (325)
+#define SUB_SEQ_HANDLE_IMPOSTER                       (326)
+#define SUB_SEQ_HANDLE_CURSED_BODY                    (327)
+#define SUB_SEQ_HANDLE_PRIMAL_REVERSION               (328)
+#define SUB_SEQ_HANDLE_MOVE_MEGA_EVOLUTION            (329)
+#define SUB_SEQ_HANDLE_ILLUSION_FADED                 (330)
+#define SUB_SEQ_HANDLE_GROWTH                         (331)
+#define SUB_SEQ_HANDLE_DISGUISE_ICE_FACE              (332)
+#define SUB_SEQ_HANDLE_RESTORE_ICE_FACE               (333)
+#define SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE            (334)
+#define SUB_SEQ_HANDLE_COMPETITIVE                    (335)
+#define SUB_SEQ_HANDLE_RAISE_SPECIAL_ATTACK_ON_HIT    (336)
+#define SUB_SEQ_HANDLE_AIR_BALLOON_POP                (337)
+#define SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE            (338)
+#define SUB_SEQ_HANDLE_RAISE_ATTACK_ON_HIT            (339)
+#define SUB_SEQ_HANDLE_SWITCHING_ITEMS                (340)
+#define SUB_SEQ_HANDLE_RAISE_DEFENSE_ON_HIT           (341)
+#define SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT   (342)
+#define SUB_SEQ_HANDLE_RAISE_SPEED_ON_HIT             (343)
 #define SUB_SEQ_HANDLE_RAISE_ATTACK_AND_SP_ATK_ON_HIT (344)
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG      (345)
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_END_OF_TURN      (346)
@@ -365,6 +365,13 @@
 #define SUB_SEQ_HANDLE_SHED_TAIL                      (355)
 #define SUB_SEQ_HANDLE_AFTER_YOU                      (356)
 #define SUB_SEQ_HANDLE_QUASH                          (357)
+#define SUB_SEQ_DRAIN_FULL                            (358)
+#define SUB_SEQ_SNOW_END                              (359)
+#define SUB_SEQ_HANDLE_HAIL_TEMPORARY                 (360)
+#define SUB_SEQ_HANDLE_SUN_TEMPORARY                  (361)
+#define SUB_SEQ_HANDLE_RAIN_TEMPORARY                 (362)
+#define SUB_SEQ_HANDLE_SANDSTORM_TEMPORARY            (363)
+#define SUB_SEQ_HANDLE_SNOW_TEMPORARY                 (364)
 
 
 
@@ -532,6 +539,7 @@
 #define ADD_STATUS_EFF_SHED_TAIL                       (159)
 #define ADD_STATUS_EFF_AFTER_YOU                       (160)
 #define ADD_STATUS_EFF_QUASH                           (161)
+#define ADD_STATUS_EFF_DRAIN_FULL                      (162)
 
 
 
@@ -547,5 +555,29 @@
 
 #define ADD_STAGE_ATTACK_UP (15)
 #define ADD_STAGE_SP_ATK_UP (18)
+
+#define BATTLE_ANIMATION_NONE               0
+#define BATTLE_ANIMATION_ASLEEP             1
+#define BATTLE_ANIMATION_POISONED           2
+#define BATTLE_ANIMATION_BURNED             3
+#define BATTLE_ANIMATION_FROZEN             4
+#define BATTLE_ANIMATION_PARALYZED          5
+#define BATTLE_ANIMATION_CONFUSED           6
+#define BATTLE_ANIMATION_INFATUATED         7
+#define BATTLE_ANIMATION_LEVEL_UP           8
+#define BATTLE_ANIMATION_BAG_ITEM           9
+#define BATTLE_ANIMATION_HELD_ITEM          10
+#define BATTLE_ANIMATION_SHINY              11
+#define BATTLE_ANIMATION_STAT_BOOST         12
+#define BATTLE_ANIMATION_STAT_DROP          13
+#define BATTLE_ANIMATION_RESTORE_HP         14
+#define BATTLE_ANIMATION_SUB_OUT            15
+#define BATTLE_ANIMATION_SUB_IN             16
+#define BATTLE_ANIMATION_ITEM_ESCAPE        17
+#define BATTLE_ANIMATION_WEATHER_FOG        18
+#define BATTLE_ANIMATION_WEATHER_RAIN       19
+#define BATTLE_ANIMATION_WEATHER_HAIL       20
+#define BATTLE_ANIMATION_WEATHER_SAND       21
+#define BATTLE_ANIMATION_WEATHER_SUN        22
 
 #endif

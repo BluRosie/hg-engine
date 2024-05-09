@@ -405,3 +405,6 @@ arm9 02074128 F8 B5 82 B0 00 90 00 20
 
 # expand allowed terrain platforms
 0012 02265FEE FF
+
+# BattleSystem_CheckMoveEffect_hook setup
+0012 0224C018 60 B4 C0 46

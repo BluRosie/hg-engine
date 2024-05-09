@@ -16,7 +16,7 @@ a001_047:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, ADD_STATUS_DOKUBISI, NotToxicSpikes
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_IMMUNITY, _03E8
     checkcloudnine _checkFlowerVeil
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil ;if not sun
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _checkFlowerVeil ;if not sun
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _03E8
 
 _checkFlowerVeil:
@@ -37,7 +37,7 @@ NotToxicSpikes:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, ADD_STATUS_SOUBIITEM, NotToxicOrb
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_IMMUNITY, _end_script
     checkcloudnine _checkFlowerVeil2
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil2
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _checkFlowerVeil2
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _end_script
 
 _checkFlowerVeil2:
@@ -71,7 +71,7 @@ _skipTypeChecks:
 NotToxicOrb:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_IMMUNITY, _03E8
     checkcloudnine _checkFlowerVeil3
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil3
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _checkFlowerVeil3
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _03E8
 
 _checkFlowerVeil3:

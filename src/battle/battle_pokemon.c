@@ -1,4 +1,5 @@
 #include "../../include/types.h"
+#include "../../include/bag.h"
 #include "../../include/battle.h"
 #include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
@@ -20,7 +21,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
 void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct ENCOUNT_SEND_OUT_MESSAGE_PARAM *esomp, MESSAGE_PARAM *mp);
 //void BattleFormChange(int client, int form_no, void* bw, struct BattleStruct *sp, bool8 SwitchAbility);
 void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no);
-void BattleEndRevertFormChange(void *bw);
+void BattleEndRevertFormChange(struct BattleSystem *bw);
 //void ClearBattleMonFlags(struct BattleStruct *sp, int client);
 //u32 GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 ability, u32 type);
 //u32 GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move);
@@ -222,6 +223,7 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
             if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
              && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
+                // Snow does not affect Castform in SV, since it cannot enter Paldea, Kitakami nor Blueberry Academy there is no way to confirm
                 if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
                  && (sp->battlemon[sp->client_work].form_no != 0))
                 {
@@ -289,6 +291,7 @@ BOOL LONG_CALL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq
             if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
              && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
+                // Same with Forecast, unknown interaction with Snow
                 if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
                  && (sp->battlemon[sp->client_work].form_no == 1))
                 {
@@ -1195,10 +1198,10 @@ void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
  *
  *  @param bw battle work structure
  */
-void BattleEndRevertFormChange(void *bw)
+void BattleEndRevertFormChange(struct BattleSystem *bw)
 {
     int i, j;
-    void *pp;
+    struct PartyPokemon *pp;
     u16 monsno;
     u16 form;
 
@@ -1234,14 +1237,34 @@ void BattleEndRevertFormChange(void *bw)
     for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
     {
         pp = BattleWorkPokemonParamGet(bw, 0, i);
-        monsno = GetMonData(pp, 174, 0);
-        form = GetMonData(pp, 112, 0);
+        monsno = GetMonData(pp, MON_DATA_SPECIES, NULL);
+        form = GetMonData(pp, MON_DATA_FORM, NULL);
 
-        if (RevertFormChange(pp,monsno,form))
+        if (RevertFormChange(pp, monsno, form))
         {
             RecalcPartyPokemonStats(pp);
             ResetPartyPokemonAbility(pp);
         }
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+        {
+            u32 battleType = BattleTypeGet(bw);
+            u16 item = newBS.itemsToRestore[i];
+            u16 battleItem = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            // if the battler has an item from the battle that is different from those that any mon started with
+            if (battleItem != 0 && item != battleItem
+             && (battleType & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0
+             && !IsElementInArray(&newBS.itemsToRestore[0], &battleItem, NELEMS(newBS.itemsToRestore), sizeof(newBS.itemsToRestore[0])))
+            {
+                Bag_AddItem(bw->bag, battleItem, 1, 5);
+            }
+            // restore items regardless of if it's a trainer battle--this will also overwrite items gained from trainers
+            if (!IS_ITEM_BERRY(item))
+            {
+                SetMonData(pp, MON_DATA_HELD_ITEM, &item);
+            }
+            newBS.itemsToRestore[i] = 0;
+        }
+#endif // RESTORE_ITEMS_AT_BATTLE_END
     }
 }
 

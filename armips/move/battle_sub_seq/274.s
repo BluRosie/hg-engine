@@ -9,13 +9,15 @@
 
 .create "build/move/battle_sub_seq/1_274", 0
 
+// Overworld Fog
+
 a001_274:
     setstatus2effect BATTLER_PLAYER, 0x12
     waitmessage
     printmessage 0x32D, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, 0x8000
+    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, FIELD_STATUS_FOG
     endscript
 
 .close

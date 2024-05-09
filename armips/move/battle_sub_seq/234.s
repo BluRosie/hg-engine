@@ -12,7 +12,7 @@
 .create "build/move/battle_sub_seq/1_234", 0
 
 a001_234:
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x1
+    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, WEATHER_RAIN
     printmessage 803, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The rain stopped.
     waitmessage
     wait 0x1E

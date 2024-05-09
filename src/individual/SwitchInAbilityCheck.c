@@ -812,7 +812,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                      && (sp->battlemon[client_no].form_no == 1)
                      && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
                      && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
-                     && (sp->field_condition & WEATHER_HAIL_ANY)               // there is hail this turn
+                     && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))               // there is hail this turn
                      && ((sp->log_hail_for_ice_face & (1 << client_no)) == 0)  // and hail wasn't here last turn/the mon just switched in
                      && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)
                     )
@@ -824,7 +824,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         ret = TRUE;
                     }
 
-                    if (sp->field_condition & WEATHER_HAIL_ANY) // update log_hail_for_ice_face
+                    if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)) // update log_hail_for_ice_face
                         sp->log_hail_for_ice_face |= (1 << client_no);
                     else
                         sp->log_hail_for_ice_face &= ~(1 << client_no);

@@ -14,6 +14,7 @@
 healBellSubscript:
     healbell
     if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_AROMATHERAPY, _002C
+    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_SPARKLY_SWIRL, _002C
     // "A bell chimed!"
     printmessage 821, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     goto _0038
@@ -23,7 +24,9 @@ _002C:
 _0038:
     waitmessage
     wait 0x1E
+SkipPrintMessage:
     if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_AROMATHERAPY, _00C8
+    if IF_EQUAL, VAR_CURRENT_MOVE, MOVE_SPARKLY_SWIRL, _00C8 // no Soundproof check?
     if IF_NOTMASK, VAR_CALCULATION_WORK, 0x1, _0090
     // "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nblocks {STRVAR_1 6, 2, 0}!"
     printmessage 689, TAG_NICK_ABILITY_MOVE, BATTLER_ATTACKER, BATTLER_ATTACKER, BATTLER_xFF, "NaN", "NaN", "NaN"

@@ -9,8 +9,20 @@
 
 .create "build/move/battle_eff_seq/0_151", 0
 
-a030_145:
-    changevar VAR_OP_SETMASK, VAR_ADD_STATUS2, 0x2000001D
+a030_151:
+    checkcloudnine _001C
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _0074
+_001C:
+    ifmonstat IF_MASK, BATTLER_ATTACKER, MON_DATA_STATUS_2, 0x1000, _0088
+    checkitemeffect 0x0, BATTLER_ATTACKER, 0x63, _006C
+    changevar VAR_OP_SET, VAR_ADD_STATUS1, 0x4000000C
+    changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x23
+    endscript
+_006C:
+    gotosubscript 217
+_0074:
+    if IF_EQUAL, VAR_DEFENDER, 0xFF, _0090
+_0088:
     critcalc
     damagecalc
     endscript

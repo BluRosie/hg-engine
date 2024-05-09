@@ -359,6 +359,13 @@ SUB_SEQ_CREATE_TERRAIN_OVERLAY                equ (354)
 SUB_SEQ_HANDLE_SHED_TAIL                      equ (355)
 SUB_SEQ_HANDLE_AFTER_YOU                      equ (356)
 SUB_SEQ_HANDLE_QUASH                          equ (357)
+SUB_SEQ_DRAIN_FULL                            equ (358)
+SUB_SEQ_SNOW_END                              equ (359)
+SUB_SEQ_HANDLE_HAIL_TEMPORARY                 equ (360)
+SUB_SEQ_HANDLE_SUN_TEMPORARY                  equ (361)
+SUB_SEQ_HANDLE_RAIN_TEMPORARY                 equ (362)
+SUB_SEQ_HANDLE_SANDSTORM_TEMPORARY            equ (363)
+SUB_SEQ_HANDLE_SNOW_TEMPORARY                 equ (364)
 
 
 
@@ -526,3 +533,4 @@ ADD_STATUS_EFF_FILLET_AWAY                     equ (158)
 ADD_STATUS_EFF_SHED_TAIL                       equ (159)
 ADD_STATUS_EFF_AFTER_YOU                       equ (160)
 ADD_STATUS_EFF_QUASH                           equ (161)
+ADD_STATUS_EFF_DRAIN_FULL                      equ (162)
