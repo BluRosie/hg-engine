@@ -1489,6 +1489,7 @@ extern u8 TypeEffectivenessTable[][3];
 
 
 extern struct newBattleStruct newBS;
+extern struct ILLUSION_STRUCT gIllusionStruct;
 extern const u16 TetsunoKobushiTable[0xF];
 
 int LONG_CALL BattlePokemonParamGet(void*,int ,int,void*);
