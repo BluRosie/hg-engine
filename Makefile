@@ -150,7 +150,7 @@ endif
 TOOLS += $(ARMIPS)
 
 $(ADPCMXQ):
-ifeq (,$(wildcard $(ARMIPS)))
+ifeq (,$(wildcard $(ADPCMXQ)))
 	rm -r -f tools/source/adpcm-xq
 	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
 	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq

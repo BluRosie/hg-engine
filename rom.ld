@@ -593,3 +593,4 @@ UnlockBattlerOutOfCurrentMove = 0x02250CA0 | 1;
 CheckItemGradualHPRestore = 0x02254D80 | 1;
 ov12_02252218 = 0x02252218 | 1;
 TryHeldItemNegativeEffect = 0x0225551C | 1;
+DistributeEffortValues = 0x022463E8 | 1;

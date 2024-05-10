@@ -935,11 +935,65 @@ typedef struct {
 
 
 /**
+ *  @brief enum for command field from BattleStruct
+ */
+typedef enum ControllerCommand {
+    CONTROLLER_COMMAND_GET_BATTLE_MON,
+    CONTROLLER_COMMAND_START_ENCOUNTER,
+    CONTROLLER_COMMAND_TRAINER_MESSAGE,
+    CONTROLLER_COMMAND_SEND_OUT,
+    CONTROLLER_COMMAND_SELECTION_SCREEN_INIT,
+    CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT,
+    CONTROLLER_COMMAND_CALC_EXECUTION_ORDER,
+    CONTROLLER_COMMAND_BEFORE_TURN,
+    CONTROLLER_COMMAND_8,
+    CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION,
+    CONTROLLER_COMMAND_UPDATE_MON_CONDITION, //10
+    CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION_EXTRA,
+    CONTROLLER_COMMAND_TURN_END,
+    CONTROLLER_COMMAND_FIGHT_INPUT,
+    CONTROLLER_COMMAND_ITEM_INPUT,
+    CONTROLLER_COMMAND_POKEMON_INPUT, //15
+    CONTROLLER_COMMAND_RUN_INPUT,
+    CONTROLLER_COMMAND_SAFARI_THROW_BALL,
+    CONTROLLER_COMMAND_SAFARI_THROW_MUD,
+    CONTROLLER_COMMAND_SAFARI_RUN,
+    CONTROLLER_COMMAND_SAFARI_WATCHING, //20
+    CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL,
+    CONTROLLER_COMMAND_RUN_SCRIPT,
+    CONTROLLER_COMMAND_23,
+    CONTROLLER_COMMAND_24,
+    CONTROLLER_COMMAND_25,
+    CONTROLLER_COMMAND_26,
+    CONTROLLER_COMMAND_27,
+    CONTROLLER_COMMAND_HP_CALC,
+    CONTROLLER_COMMAND_29,
+    CONTROLLER_COMMAND_30,
+    CONTROLLER_COMMAND_31,
+    CONTROLLER_COMMAND_32,
+    CONTROLLER_COMMAND_33,
+    CONTROLLER_COMMAND_34,
+    CONTROLLER_COMMAND_35,
+    CONTROLLER_COMMAND_36,
+    CONTROLLER_COMMAND_37,
+    CONTROLLER_COMMAND_38,
+    CONTROLLER_COMMAND_39,
+    CONTROLLER_COMMAND_40,
+    CONTROLLER_COMMAND_41,
+    CONTROLLER_COMMAND_42,
+    CONTROLLER_COMMAND_43,
+    CONTROLLER_COMMAND_44,
+    CONTROLLER_COMMAND_45,
+    CONTROLLER_COMMAND_MAX
+} ControllerCommand;
+
+
+/**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct __attribute__((packed)) BattleStruct
+struct PACKED BattleStruct
 {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
@@ -993,7 +1047,7 @@ struct __attribute__((packed)) BattleStruct
     /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
     /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
     /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
-    /*0xEC*/ int agi_cnt;
+    /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;
     /*0x118*/ int client_work;
@@ -1539,6 +1593,7 @@ void LONG_CALL ST_ServerMetronomeBeforeCheck(void *bw,struct BattleStruct *sp);
 int LONG_CALL ST_ServerPokeAppearCheck(void *bw, struct BattleStruct *sp);
 int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
+void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species, u32 form);
 
 
 

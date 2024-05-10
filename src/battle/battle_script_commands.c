@@ -1255,20 +1255,39 @@ u8 scratchpad[4] = {0, 0, 0, 0};
  */
 void Task_DistributeExp_Extend(void *arg0, void *work)
 {
-    struct EXP_CALCULATOR *expcalc = work;
-#if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
-    int sel_mons_no;
-    struct PartyPokemon *pp = NULL;
+    int sel_mons_no = 0;
     int client_no;
-    struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
-    int exp_client_no = 0;
     int item;
     int eqp;
+    struct PartyPokemon *pp = NULL;
+    struct EXP_CALCULATOR *expcalc = work;
+    int exp_client_no = 0;
+
+    client_no = (expcalc->sp->fainting_client >> 1) & 1;
+
+    if (expcalc->seq_no < 37)
+    {
+        // grab the pokémon that is actually gaining the experience
+        for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+        {
+            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+            if (pp == NULL)
+                goto _skipAllThis;
+            item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+
+            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
+            {
+                break;
+            }
+        }
+    }
+
+#if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
+    struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
     //u32 mons_getting_exp_from_item = 0;
     //u32 mons_getting_exp = 0;
     u32 totalexp = 0;
-
-    client_no = (expcalc->sp->fainting_client >> 1) & 1;
 
     // count how many pokémon are getting experience
     if (!expcalc->work[6])
@@ -1298,21 +1317,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
     if (expcalc->seq_no < 37) // either this or switch to below.  this prevents NULL access though (ideally)
     {
-        // grab the pokémon that is actually gaining the experience
-        for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
-        {
-            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
-            if (pp == NULL)
-                goto _skipAllThis;
-            item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-            eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
-
-            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
-            {
-                break;
-            }
-        }
-
         if (sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no))
         {
             // actually calculate the experience
@@ -1378,7 +1382,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         struct PartyPokemon *pp;
         struct BattleStruct *sp = expcalc->sp;
         void *bw = expcalc->bw;
-        int exp_client_no = 0;
 
         // count how many pokémon are getting experience
         if (!expcalc->work[6])
@@ -1440,6 +1443,15 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #endif
 
 #endif
+
+    // distribute effort values to level 100 pokémon who would otherwise not get it
+    if (expcalc->seq_no == 0 && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
+    {
+        DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
+                               sel_mons_no,
+                               expcalc->sp->battlemon[expcalc->sp->fainting_client].species,
+                               expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no);
+    }
 
 _skipAllThis:
     Task_DistributeExp(arg0, work);
@@ -2607,7 +2619,7 @@ BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *
         }
     }
     // If target has already performed action
-    if (sp->agi_cnt > clientPosition) {
+    if (sp->executionIndex > clientPosition) {
         IncrementBattleScriptPtr(sp, address);
         return FALSE;
     }

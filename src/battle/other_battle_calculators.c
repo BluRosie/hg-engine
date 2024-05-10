@@ -1036,7 +1036,7 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
     int maxBattlers;
     int i, j;
     int temp1, temp2;
-    int currentAttackerId = sp->agi_cnt;
+    int currentAttackerId = sp->executionIndex;
 
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
