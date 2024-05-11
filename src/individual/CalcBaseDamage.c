@@ -291,27 +291,20 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 130 / 100;
     }
 
-    // handle punk rock TODO uncomment
-//    if (AttackingMon.ability == ABILITY_PUNK_ROCK)
+//    // handle punk rock TODO uncomment
+//    if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index))
 //    {
-//        for(i = 0; i < NELEMS(SoundproofMoveList); i++)
-//        {
-//            if(moveno == SoundproofMoveList[i])
-//            {
-//                movepower = movepower * 130 / 100;
-//                break;
-//            }
-//        }
+//        movepower = movepower * 130 / 100;
+//        break;
 //    }
 
 
     // type boosting held items
-    for (i = 0; i < NELEMS(HeldItemPowerUpTable); i++)
     {
-        if ((AttackingMon.item_held_effect == HeldItemPowerUpTable[i][0]) && (movetype == HeldItemPowerUpTable[i][1]))
+        u8 element[2] = {AttackingMon.item_held_effect, movetype};
+        if (IsElementInArray(HeldItemPowerUpTable, element, NELEMS(HeldItemPowerUpTable), sizeof(element)))
         {
             movepower = movepower * (100 + AttackingMon.item_power) / 100;
-            break;
         }
     }
     // handle choice band
@@ -322,16 +315,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if (AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_SPECS)
         sp_attack = sp_attack * 150 / 100;
 
-    // handle soul dew
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW) &&
-        ((battle_type & BATTLE_TYPE_BATTLE_TOWER) == 0) &&
-        ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS)))
-        sp_attack = sp_attack * 150 / 100;
-
-    if ((DefendingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW) &&
-        ((battle_type & BATTLE_TYPE_BATTLE_TOWER) == 0) &&
-        ((DefendingMon.species == SPECIES_LATIOS) || (DefendingMon.species == SPECIES_LATIAS)))
-        sp_defense = sp_defense * 150 / 100;
+    // handle soul dew - gen 7 changes it to just boost movepower if the type is dragon or psychic, no more defense boost
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_SOUL_DEW)
+     && ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS))
+     && (movetype == TYPE_DRAGON || movetype == TYPE_PSYCHIC))
+    {
+        movepower = movepower * 120 / 100; // 4915/4096
+    }
 
     // handle deep sea tooth
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_DEEP_SEA_TOOTH) && (AttackingMon.species == SPECIES_CLAMPERL))
@@ -697,43 +687,27 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle iron fist
-    for (i = 0; i < NELEMS(IronFistMovesTable); i++)
+    if ((AttackingMon.ability == ABILITY_IRON_FIST) && IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0])))
     {
-        if ((IronFistMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_IRON_FIST))
-        {
-            movepower = movepower * 12 / 10;
-            break;
-        }
+        movepower = movepower * 12 / 10;
     }
 
     // handle strong jaw
-    for (i = 0; i < NELEMS(StrongJawMovesTable); i++)
+    if ((AttackingMon.ability == ABILITY_STRONG_JAW) && IsElementInArray(StrongJawMovesTable, (u16 *)&moveno, NELEMS(StrongJawMovesTable), sizeof(StrongJawMovesTable[0])))
     {
-        if ((StrongJawMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_STRONG_JAW))
-        {
-            movepower = movepower * 15 / 10;
-            break;
-        }
+        movepower = movepower * 15 / 10;
     }
 
     // handle mega launcher
-    for (i = 0; i < NELEMS(MegaLauncherMovesTable); i++)
+    if ((AttackingMon.ability == ABILITY_MEGA_LAUNCHER) && IsElementInArray(MegaLauncherMovesTable, (u16 *)&moveno, NELEMS(MegaLauncherMovesTable), sizeof(MegaLauncherMovesTable[0])))
     {
-        if ((MegaLauncherMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_MEGA_LAUNCHER))
-        {
-            movepower = movepower * 15 / 10;
-            break;
-        }
+        movepower = movepower * 15 / 10;
     }
 
     // handle sharpness
-    for (i = 0; i < NELEMS(SharpnessMovesTable); i++)
+    if ((AttackingMon.ability == ABILITY_SHARPNESS) && IsElementInArray(SharpnessMovesTable, (u16 *)&moveno, NELEMS(SharpnessMovesTable), sizeof(SharpnessMovesTable[0])))
     {
-        if ((SharpnessMovesTable[i] == moveno) && (AttackingMon.ability == ABILITY_SHARPNESS))
-        {
-            movepower = movepower * 15 / 10;
-            break;
-        }
+        movepower = movepower * 15 / 10;
     }
 
     //handles water bubble
@@ -930,17 +904,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
 
-    // handle punk rock TODO uncomment
-//    if (DefendingMon.ability == ABILITY_PUNK_ROCK)
+//    // handle punk rock TODO uncomment
+//    if (DefendingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno))
 //    {
-//        for(i = 0; i < NELEMS(SoundproofMoveList); i++)
-//        {
-//            if(moveno == SoundproofMoveList[i])
-//            {
-//                damage /= 2;
-//                break;
-//            }
-//        }
+//        damage /= 2;
+//        break;
 //    }
 
     // Handle field effects

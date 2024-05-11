@@ -84,11 +84,11 @@ FIELD_STATUS_FOG                    equ (0x00008000)                            
 FIELD_CONDITION_TRICK_ROOM_INIT     equ (0x00050000)                                                                    // 0101 0000 0000 0000 0000
 FIELD_STATUS_TRICK_ROOM             equ (0x00070000)                                                                    // 0111 0000 0000 0000 0000
 
-// New weathers 
+// New weathers
 WEATHER_SNOW                        equ (0x00100000)                                                          //      0001 0000 0000 0000 0000 0000
 WEATHER_SNOW_PERMANENT              equ (0x00200000)                                                          //      0010 0000 0000 0000 0000 0000
 WEATHER_SNOW_ANY                    equ (0x00300000)                                                          //      0011 0000 0000 0000 0000 0000
-// We have 2 extra bits let's have fun:           
+// We have 2 extra bits let's have fun:
 WEATHER_SHADOWY_AURA                equ (0x00400000)                                                          //      0100 0000 0000 0000 0000 0000
 WEATHER_SHADOWY_AURA_PERMANENT      equ (0x00800000)                                                          //      1000 0000 0000 0000 0000 0000
 WEATHER_SHADOWY_AURA_ANY            equ (0x00c00000)                                                          //      1100 0000 0000 0000 0000 0000
@@ -1608,4 +1608,13 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro changeexecutionorderpriority,side,forceExecutionOrder,failAddress
     .word 0xF6, side, forceExecutionOrder
     .word ((failAddress - org()) / 4) - 1
+.endmacro
+
+.macro setbindingcounter,adrs
+    .word 0xF7
+    .word ((adrs - org()) / 4) - 1
+.endmacro
+
+.macro clearbindcounter
+    .word 0xF8
 .endmacro

@@ -75,15 +75,18 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw, struct BattleStruct *s
 BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F7_setbindingcounter(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
-
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 const u8 *BattleScrCmdNames[] =
@@ -334,7 +337,9 @@ const u8 *BattleScrCmdNames[] =
     "canapplyknockoffdamageboost",
     "isparentalbondactive",
     "changepermanentbg",
-    "btl_scr_cmd_F6_changeexecutionorderpriority",
+    "changeexecutionorderpriority",
+    "setbindingcounter",
+    "clearbindcounter",
 };
 
 u32 cmdAddress = 0;
@@ -365,6 +370,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF4 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F4_isparentalbondactive,
     [0xF5 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F5_changepermanentbg,
     [0xF6 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F6_changeexecutionorderpriority,
+    [0xF7 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F7_setbindingcounter,
+    [0xF8 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F8_clearbindcounter,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1248,20 +1255,39 @@ u8 scratchpad[4] = {0, 0, 0, 0};
  */
 void Task_DistributeExp_Extend(void *arg0, void *work)
 {
-    struct EXP_CALCULATOR *expcalc = work;
-#if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
-    int sel_mons_no;
-    struct PartyPokemon *pp = NULL;
+    int sel_mons_no = 0;
     int client_no;
-    struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
-    int exp_client_no = 0;
     int item;
     int eqp;
+    struct PartyPokemon *pp = NULL;
+    struct EXP_CALCULATOR *expcalc = work;
+    int exp_client_no = 0;
+
+    client_no = (expcalc->sp->fainting_client >> 1) & 1;
+
+    if (expcalc->seq_no < 37)
+    {
+        // grab the pokémon that is actually gaining the experience
+        for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+        {
+            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+            if (pp == NULL)
+                goto _skipAllThis;
+            item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+            eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
+
+            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
+            {
+                break;
+            }
+        }
+    }
+
+#if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
+    struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
     //u32 mons_getting_exp_from_item = 0;
     //u32 mons_getting_exp = 0;
     u32 totalexp = 0;
-
-    client_no = (expcalc->sp->fainting_client >> 1) & 1;
 
     // count how many pokémon are getting experience
     if (!expcalc->work[6])
@@ -1291,21 +1317,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
     if (expcalc->seq_no < 37) // either this or switch to below.  this prevents NULL access though (ideally)
     {
-        // grab the pokémon that is actually gaining the experience
-        for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
-        {
-            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
-            if (pp == NULL)
-                goto _skipAllThis;
-            item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
-            eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
-
-            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
-            {
-                break;
-            }
-        }
-
         if (sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no))
         {
             // actually calculate the experience
@@ -1371,7 +1382,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         struct PartyPokemon *pp;
         struct BattleStruct *sp = expcalc->sp;
         void *bw = expcalc->bw;
-        int exp_client_no = 0;
 
         // count how many pokémon are getting experience
         if (!expcalc->work[6])
@@ -1433,6 +1443,15 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #endif
 
 #endif
+
+    // distribute effort values to level 100 pokémon who would otherwise not get it
+    if (expcalc->seq_no == 0 && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
+    {
+        DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
+                               sel_mons_no,
+                               expcalc->sp->battlemon[expcalc->sp->fainting_client].species,
+                               expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no);
+    }
 
 _skipAllThis:
     Task_DistributeExp(arg0, work);
@@ -2393,7 +2412,7 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
 
     if (sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
         for (int i = 0; i < client_set_max; i++) {
-            client_no = sp->turn_order[i];
+            client_no = sp->turnOrder[i];
             if (IsClientGrounded(sp, client_no)) {
                 sp->battlemon[client_no].effect_of_moves &= ~(MOVE_EFFECT_YAWN_COUNTER);
             }
@@ -2595,12 +2614,12 @@ BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *
     address = read_battle_script_param(sp);
 
     for (clientPosition = 0; clientPosition < maxBattlers; clientPosition++) {
-        if (sp->client_agi_work[clientPosition] == client_no) {
+        if (sp->executionOrder[clientPosition] == client_no) {
             break;
         }
     }
     // If target has already performed action
-    if (sp->agi_cnt > clientPosition) {
+    if (sp->executionIndex > clientPosition) {
         IncrementBattleScriptPtr(sp, address);
         return FALSE;
     }
@@ -2622,6 +2641,54 @@ BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *
             GF_ASSERT(forceExecutionOrder > EXECUTION_ORDER_AFTER_YOU);
             break;
     }
+
+    return FALSE;
+}
+
+
+/**
+ *  @brief script command to calculate and set the binding turns for a binding move that was just used
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F7_setbindingcounter(void *bw, struct BattleStruct *sp) {
+    u32 turns;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    turns = read_battle_script_param(sp);
+
+    if (sp->binding_turns[sp->defence_client] != 0)
+    {
+        IncrementBattleScriptPtr(sp, turns);
+        return FALSE;
+    }
+
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_TRAPPING) {
+        turns = 8; // 7 turns
+    } else {
+        turns = 5 + (BattleRand(bw) & 1); // 4-5 turns
+    }
+
+    sp->binding_turns[sp->defence_client] = turns;
+
+    return FALSE;
+}
+
+
+/**
+ *  @brief script command to clear binding turns
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_F8_clearbindcounter(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    sp->binding_turns[sp->attack_client] = 0;
 
     return FALSE;
 }
@@ -2693,6 +2760,79 @@ BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp) {
             sp->damage_power = sp->moveTbl[sp->current_move_index].power;
         }
     }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_TrySubstitute(void *bw UNUSED, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    int adrs = read_battle_script_param(sp);
+
+    int subHp = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp, 4);
+
+    if (sp->battlemon[sp->attack_client].hp <= subHp) {
+        IncrementBattleScriptPtr(sp, adrs);
+    } else {
+        sp->hp_calc_work = -subHp;
+        sp->battlemon[sp->attack_client].moveeffect.substituteHp = subHp;
+        sp->binding_turns[sp->attack_client] = 0;
+        //sp->battlemon[sp->attack_client].condition2 &= ~STATUS2_BIND;
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
+{
+    int side = IsClientEnemy(bw, sp->attack_client);
+
+    //Binding Moves
+    if (sp->binding_turns[sp->attack_client] != 0) {
+        sp->binding_turns[sp->attack_client] = 0;
+        sp->client_work = sp->battlemon[sp->attack_client].moveeffect.battlerIdBinding;
+        sp->waza_work = sp->battlemon[sp->attack_client].moveeffect.bindingMove;
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BREAK_CLAMP);
+        return FALSE;
+    }
+
+    //Leech Seed
+    if (sp->battlemon[sp->attack_client].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE) {
+        sp->battlemon[sp->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE;
+        sp->battlemon[sp->attack_client].effect_of_moves &= ~MOVE_EFFECT_LEECH_SEED_BATTLER;
+        sp->waza_work = MOVE_LEECH_SEED;
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        return FALSE;
+    }
+
+    //Spikes
+    if (sp->scw[side].spikesLayers) {
+        sp->side_condition[side] &= ~SIDE_STATUS_SPIKES;
+        sp->scw[side].spikesLayers = 0;
+        sp->waza_work = MOVE_SPIKES;
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        return FALSE;
+    }
+
+    //Toxic Spikes
+    if (sp->scw[side].toxicSpikesLayers) {
+        sp->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
+        sp->scw[side].toxicSpikesLayers = 0;
+        sp->waza_work = MOVE_TOXIC_SPIKES;
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        return FALSE;
+    }
+
+    //Stealth Rocks
+    if (sp->side_condition[side] & SIDE_STATUS_STEALTH_ROCK) {
+        sp->side_condition[side] &= ~SIDE_STATUS_STEALTH_ROCK;
+        sp->waza_work = MOVE_STEALTH_ROCK;
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        return FALSE;
+    }
+
+    IncrementBattleScriptPtr(sp, 1);
 
     return FALSE;
 }

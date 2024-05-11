@@ -35,6 +35,17 @@ struct BattleStruct *ServerInit(void *bw)
     DumpMoveTableData(&sp->moveTbl[0]);
     sp->aiWorkTable.item = ItemDataTableLoad(5);
 
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+
+    // store items for the player's party in sp so we can restore them at the end
+    struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
+    for (int i = 0; i < party->count; i++)
+    {
+        newBS.itemsToRestore[i] = GetMonData(Party_GetMonByIndex(party, i), MON_DATA_HELD_ITEM, NULL);
+    }
+
+#endif // RESTORE_ITEMS_AT_BATTLE_END
+
     return sp;
 }
 
@@ -96,7 +107,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
         case SBA_FOCUS_PUNCH:
             while (sp->sba_work < client_set_max)
             {
-                client_no = sp->client_agi_work[sp->sba_work];
+                client_no = sp->executionOrder[sp->sba_work];
                 if (sp->no_reshuffle_client & No2Bit(client_no))
                 {
                     sp->sba_work++;
@@ -141,8 +152,8 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
             for (client_no = 0; client_no < client_set_max; client_no++)
             {
                 flag = FALSE;
-                if (sp->client_act_work[0][3] != SELECT_ESCAPE_COMMAND &&
-                    sp->client_act_work[2][3] != SELECT_ESCAPE_COMMAND)
+                if (sp->playerActions[0][3] != SELECT_ESCAPE_COMMAND &&
+                    sp->playerActions[2][3] != SELECT_ESCAPE_COMMAND)
                 {
                     if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
                         //player requests mega
@@ -252,7 +263,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
     client_set_max = BattleWorkClientSetMaxGet(bw);
     for (i = 0; i < client_set_max; i++)
     {
-        client_no = sp->turn_order[i];
+        client_no = sp->turnOrder[i];
         if (newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
         {
             if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI)

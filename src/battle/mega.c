@@ -290,7 +290,7 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
     if (form)
         return FALSE;
 
-    if (battle->client_act_work[client][3] != SELECT_FIGHT_COMMAND)
+    if (battle->playerActions[client][3] != SELECT_FIGHT_COMMAND)
         return FALSE;
 
     return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, battle->battlemon[client].move));

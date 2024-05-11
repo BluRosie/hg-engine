@@ -50,6 +50,8 @@ OUTPUT_MOVEHITDEFENDERABILITYCHECK = 'build/output_movehitdefenderabilitycheck.b
 OUTPUT_SWITCHINABILITYCHECK = 'build/output_switchinabilitycheck.bin'
 OUTPUT_STATBUFFCHANGE = 'build/output_btl_scr_cmd_33_statbuffchange.bin'
 OUTPUT_CALCBASEDAMAGE = 'build/output_calcbasedamage.bin'
+OUTPUT_BATTLEFORMCHANGECHECK = 'build/output_battleformchangecheck.bin'
+OUTPUT_CHECKDEFENDERITEMEFFECTONHIT = 'build/output_checkdefenderitemeffectonhit.bin'
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
 ARM_HOOKS = 'armhooks'
@@ -57,7 +59,7 @@ REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
 NEW_OVERLAYS_NO_ARM9_EXT = [OUTPUT_BATTLE, OUTPUT_FIELD, OUTPUT_POKEDEX, OUTPUT_GETMONEVOLUTION, OUTPUT_GETMONEVOLUTION_BATTLE, OUTPUT_MOVEHITDEFENDERABILITYCHECK, OUTPUT_SWITCHINABILITYCHECK, OUTPUT_STATBUFFCHANGE,
-                            OUTPUT_CALCBASEDAMAGE]
+                            OUTPUT_CALCBASEDAMAGE, OUTPUT_BATTLEFORMCHANGECHECK, OUTPUT_CHECKDEFENDERITEMEFFECTONHIT]
 
 LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o', 'build/pokedex_linked.o']
 OFFSET_START_IN_129 = 0x600

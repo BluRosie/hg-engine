@@ -227,7 +227,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
         case FCC_WISH:
             while (sp->fcc_work < client_set_max)
             {
-                side = sp->turn_order[sp->fcc_work];
+                side = sp->turnOrder[sp->fcc_work];
                 if (sp->fcc.wish_count[side])
                 {
                     if (--sp->fcc.wish_count[side] == 0)

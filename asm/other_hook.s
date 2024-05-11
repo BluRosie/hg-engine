@@ -574,6 +574,15 @@ bx      r2
 
 .pool
 
+.global AllocFail_hook
+AllocFail_hook:
+// spC is always the place that called the AllocMemory function, sp10 now
+push {lr}
+ldr r0, [sp, #0x10]
+bl AllocFail
+pop {pc}
+
+
 .data
 
 .align 2
