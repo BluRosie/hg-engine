@@ -1031,8 +1031,9 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
  *  @brief Sorts clients' execution order factoring in who has already performed their action
  *  @param bw battle work structure; void * because we haven't defined the battle work structure. Apparently we have but we don't use it here so
  *  @param sp global battle structure
+ *  @param sortTurnOrder whether to sort `turn_order` or not
  */
-void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
+void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp, BOOL sortTurnOrder) {
     int maxBattlers;
     int i, j;
     int temp1, temp2;
@@ -1095,15 +1096,17 @@ void DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp) {
         }
     }
 
-    // also sort turnOrder, i.e. weather application + turn end things
-    for (i = 0; i < maxBattlers - 1; i++) {
-        for (j = i + 1; j < maxBattlers; j++) {
-            temp1 = sp->turnOrder[i];
-            temp2 = sp->turnOrder[j];
+    if (sortTurnOrder) {
+        // also sort turnOrder, i.e. weather application + turn end things
+        for (i = 0; i < maxBattlers - 1; i++) {
+            for (j = i + 1; j < maxBattlers; j++) {
+                temp1 = sp->turnOrder[i];
+                temp2 = sp->turnOrder[j];
 
-            if (CalcSpeed(bw, sp, temp1, temp2, CALCSPEED_FLAG_NO_PRIORITY)) {
-                sp->turnOrder[i] = temp2;
-                sp->turnOrder[j] = temp1;
+                if (CalcSpeed(bw, sp, temp1, temp2, CALCSPEED_FLAG_NO_PRIORITY)) {
+                    sp->turnOrder[i] = temp2;
+                    sp->turnOrder[j] = temp1;
+                }
             }
         }
     }
@@ -2059,9 +2062,9 @@ BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex) {
 }
 
 /**
- * Check if move is affected by Normalize varients
+ * @brief Check if move is affected by Normalize variants
  * @param moveno move number
- * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
+ * @return `TRUE`if move is affected by Normalize variants, `FALSE` otherwise
 */
 BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
     if (MoveIsZMove(moveno) || MoveIsMaxMove(moveno)) {
@@ -2089,7 +2092,7 @@ BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
  * @param sp battle structure
  * @param moveno move number
  * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
-*/
+ */
 u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
     // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
     if (sp->move_type == TYPE_TYPELESS && moveno == MOVE_WEATHER_BALL && sp->current_move_index == (u32)moveno) {
@@ -2143,6 +2146,34 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     return FALSE;
 }
 
+/**
+ * @brief Check if client can undergo Primal Reversion
+ * @param sp move number
+ * @param client_no battler to check for primal reversion possibility
+ * @return `TRUE` if mon can undergo primal reversion, `FALSE` otherwise
+ */
+BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no) {
+#ifdef PRIMAL_REVERSION
+    if (((sp->battlemon[client_no].species == SPECIES_KYOGRE
+#ifdef DEBUG_PRIMAL_REVERSION
+          && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
+#else
+          && GetBattleMonItem(sp, client_no) == ITEM_BLUE_ORB
+#endif
+          ) ||
+         (sp->battlemon[client_no].species == SPECIES_GROUDON
+#ifdef DEBUG_PRIMAL_REVERSION
+          && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
+#else
+          && GetBattleMonItem(sp, client_no) == ITEM_RED_ORB
+#endif
+          )) &&
+        sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 0) {
+        return TRUE;
+    }
+#endif  // PRIMAL_REVERSION
+    return FALSE;
+}
 
 typedef enum UpdateMonConditionState {
     UMC_STATE_INGRAIN,

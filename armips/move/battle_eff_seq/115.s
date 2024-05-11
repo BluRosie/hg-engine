@@ -3,6 +3,7 @@
 
 .include "armips/include/battlescriptcmd.s"
 .include "armips/include/abilities.s"
+.include "armips/include/battle_script_constants.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
@@ -19,7 +20,7 @@ a030_115:
     playanimation BATTLER_ATTACKER
     waitmessage
 NoAnimation:
-    gotosubscript 363
+    gotosubscript SUB_SEQ_HANDLE_SANDSTORM_TEMPORARY
     endscript
 
 .close

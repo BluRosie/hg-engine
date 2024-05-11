@@ -1107,7 +1107,7 @@ enum
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 {
     // Sort clients because moves may affect speed
-    DynamicSortClientExecutionOrder(bw, sp);
+    DynamicSortClientExecutionOrder(bw, sp, FALSE);
     switch (sp->swoak_seq_no) {
         case SWOAK_SEQ_VANISH_ON_OFF: {
             int ret = 0;
