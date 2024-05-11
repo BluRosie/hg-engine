@@ -844,7 +844,7 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
 
 #endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 
-void AllocFail(u32 retAddr) {
+void AllocFail(u32 retAddr UNUSED) {
 #ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
     // r5 is actually always heap id, spC is lr.  AllocFail_hook will pass us the retAddr
     register u32 heapId asm("r5");
