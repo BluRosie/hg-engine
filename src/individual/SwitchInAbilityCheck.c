@@ -1519,11 +1519,11 @@ static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
  *  @param bw battle work structure
  *  @param sp global battle structure
  *  @param client battler to check if either opponent is a valid imposter target
- *  @return TRUE if imposter can target either of the opponents of client; FALSE otherwise.  also sets attack_client and defence_client automatically
+ *  @return TRUE if imposter can target the client directly opposite the passed client; FALSE otherwise.  also sets attack_client and defence_client automatically
  */
 static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
 {
-    u32 testClient = BATTLER_OPPONENT(client);
+    u32 testClient = BATTLER_ACROSS(client);
     struct BattlePokemon *battleMon = &sp->battlemon[testClient];
     u32 keepTrack = 0;
     if (battleMon->hp != 0
@@ -1539,28 +1539,28 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
         sp->defence_client = testClient;
     }
 
-    testClient = BATTLER_ACROSS(client);
-    battleMon = &sp->battlemon[testClient];
-    if (battleMon->hp != 0
-    // can not copy another imposter
-     && battleMon->ability != ABILITY_IMPOSTER
-    // can not copy a disguised mon
-     && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
-       && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
-    // can not copy a substitute or transformed mon
-     && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
-    {
-        keepTrack++;
-        sp->defence_client = testClient;
-    }
+    //testClient = BATTLER_ACROSS(client);
+    //battleMon = &sp->battlemon[testClient];
+    //if (battleMon->hp != 0
+    //// can not copy another imposter
+    // && battleMon->ability != ABILITY_IMPOSTER
+    //// can not copy a disguised mon
+    // && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
+    //   && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    //// can not copy a substitute or transformed mon
+    // && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
+    //{
+    //    keepTrack++;
+    //    sp->defence_client = testClient;
+    //}
 
-    if (keepTrack >= 2)
+    /*if (keepTrack >= 2)
     {
         // choose randomly between the two valid targets
         sp->defence_client = BattleRand(bw) & 1 ? BATTLER_OPPONENT(client) : BATTLER_ACROSS(client);
         sp->attack_client = client;
         return TRUE;
-    } else if (keepTrack == 1) {
+    } else */if (keepTrack == 1) {
         // sp-defence_client is already set by the individual checks above
         sp->attack_client = client;
         return TRUE;
