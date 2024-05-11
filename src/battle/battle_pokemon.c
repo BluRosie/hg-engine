@@ -910,9 +910,9 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 
         if (RevertFormChange(pp, monsno, form))
         {
-            RecalcPartyPokemonStats(pp);
             ResetPartyPokemonAbility(pp);
         }
+        RecalcPartyPokemonStats(pp); // always recalc stats at the end of each battle
     }
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
