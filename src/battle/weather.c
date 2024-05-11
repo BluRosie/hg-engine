@@ -44,7 +44,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
     // Sort here because damage taken here needs to account for speed
-    DynamicSortClientExecutionOrder(bw, sp, TRUE);
+    // store command so that it is unedited by the function call
+    side = sp->server_seq_no;
+    BattleControllerPlayer_CalcExecutionOrder(bw, sp);
+    sp->server_seq_no = side;
 
     do
     {

@@ -471,7 +471,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Imposter
                     {
-                        if ((sp->battlemon[client_no].imposter_flag == 0) && (sp->battlemon[client_no].hp) && (sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0 || sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0) && (GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && IsValidImposterTarget(bw, sp, client_no)) {
+                        if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)
+                         && (sp->battlemon[client_no].hp) && (sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
+                         && IsValidImposterTarget(bw, sp, client_no)) {
+                            u32 num;
                             sp->battlemon[client_no].imposter_flag = 1;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -492,8 +495,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             src = (u8 *)&sp->battlemon[sp->attack_client];
                             dest = (u8 *)&sp->battlemon[sp->defence_client];
 
-                            for (i = 0; i <= (int)offsetof(struct BattlePokemon, ability); i++) {
-                                src[i] = dest[i];
+                            for (num = 0; num <= (int)offsetof(struct BattlePokemon, ability); num++) {
+                                src[num] = dest[num];
                             }
 
                             sp->battlemon[sp->attack_client].appear_check_flag = 0;
@@ -511,12 +514,12 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
                             ClearBattleMonFlags(sp, sp->attack_client);  // clear extra flags here too
 
-                            for (i = 0; i < 4; i++) {
-                                sp->battlemon[sp->attack_client].move[i] = sp->battlemon[sp->defence_client].move[i];
-                                if (sp->moveTbl[sp->battlemon[sp->attack_client].move[i]].pp < 5) {
-                                    sp->battlemon[sp->attack_client].pp[i] = sp->moveTbl[sp->battlemon[sp->attack_client].move[i]].pp;
+                            for (num = 0; num < 4; num++) {
+                                sp->battlemon[sp->attack_client].move[num] = sp->battlemon[sp->defence_client].move[num];
+                                if (sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp < 5) {
+                                    sp->battlemon[sp->attack_client].pp[num] = sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp;
                                 } else {
-                                    sp->battlemon[sp->attack_client].pp[i] = 5;
+                                    sp->battlemon[sp->attack_client].pp[num] = 5;
                                 }
                             }
                             break;
@@ -537,7 +540,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Ice Face
                     {
                         if ((sp->battlemon[client_no].species == SPECIES_EISCUE) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].form_no == 1) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) && (sp->field_condition & WEATHER_HAIL_ANY)  // there is hail this turn
-                            && ((sp->log_hail_for_ice_face & (1 << client_no)) == 0)                                                                                                                                                                                                                                                                                    // and hail wasn't here last turn/the mon just switched in
+                            && ((sp->log_hail_for_ice_face & No2Bit(client_no)) == 0)                                                                                                                                                                                                                                                                                   // and hail wasn't here last turn/the mon just switched in
                             && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)) {
                             sp->client_work = client_no;
                             BattleFormChange(client_no, 0, bw, sp, TRUE);
@@ -547,9 +550,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
 
                         if (sp->field_condition & WEATHER_HAIL_ANY)  // update log_hail_for_ice_face
-                            sp->log_hail_for_ice_face |= (1 << client_no);
+                            sp->log_hail_for_ice_face |= No2Bit(client_no);
                         else
-                            sp->log_hail_for_ice_face &= ~(1 << client_no);
+                            sp->log_hail_for_ice_face &= ~No2Bit(client_no);
 
                         if (ret)
                             break;
