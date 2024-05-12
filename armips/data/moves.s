@@ -13098,7 +13098,7 @@ movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     movedescription MOVE_DUAL_WINGBEAT, "---"
 
 movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
-    battleeffect MOVE_EFFECT_BURN_HIT
+    battleeffect MOVE_EFFECT_THAW_AND_BURN_HIT
     pss SPLIT_SPECIAL
     basepower 70
     type TYPE_GROUND
@@ -13111,7 +13111,7 @@ movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SCORCHING_SANDS, "---"
+    movedescription MOVE_SCORCHING_SANDS, "Throws scorching sand\nat the target.\nMay leave a burn."
 
 movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
     battleeffect MOVE_EFFECT_HIT

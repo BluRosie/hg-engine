@@ -2957,7 +2957,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         break;
     case ITEM_NET_BALL:
         if (type1 == TYPE_WATER || type2 == TYPE_WATER || type1 == TYPE_BUG || type2 == TYPE_BUG)
-            ballRate = 30;
+            ballRate = 35;
         break;
     case ITEM_DIVE_BALL:
         if (BattleWorkGroundIDGet(bw) == 7) // if the battle is happening with a water background
@@ -2971,7 +2971,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         break;
     case ITEM_REPEAT_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species))
-            ballRate = 30;
+            ballRate = 35;
         break;
     case ITEM_TIMER_BALL:
         ballRate = 10 + sp->total_turn;
@@ -2986,14 +2986,14 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     //    break;
     case ITEM_DUSK_BALL:
         if (Battle_GetTimeOfDay(bw) == 3 || Battle_GetTimeOfDay(bw) == 4 || BattleWorkGroundIDGet(bw) == 5)
-            ballRate = 35;
+            ballRate = 30;
         break;
     //case ITEM_HEAL_BALL:
     //
     //    break;
     case ITEM_QUICK_BALL:
         if (sp->total_turn < 1)
-            ballRate = 40;
+            ballRate = 50;
         break;
     //case ITEM_CHERISH_BALL:
     //
