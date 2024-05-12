@@ -935,11 +935,65 @@ typedef struct {
 
 
 /**
+ *  @brief enum for command field from BattleStruct
+ */
+typedef enum ControllerCommand {
+    CONTROLLER_COMMAND_GET_BATTLE_MON,
+    CONTROLLER_COMMAND_START_ENCOUNTER,
+    CONTROLLER_COMMAND_TRAINER_MESSAGE,
+    CONTROLLER_COMMAND_SEND_OUT,
+    CONTROLLER_COMMAND_SELECTION_SCREEN_INIT,
+    CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT,
+    CONTROLLER_COMMAND_CALC_EXECUTION_ORDER,
+    CONTROLLER_COMMAND_BEFORE_TURN,
+    CONTROLLER_COMMAND_8,
+    CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION,
+    CONTROLLER_COMMAND_UPDATE_MON_CONDITION, //10
+    CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION_EXTRA,
+    CONTROLLER_COMMAND_TURN_END,
+    CONTROLLER_COMMAND_FIGHT_INPUT,
+    CONTROLLER_COMMAND_ITEM_INPUT,
+    CONTROLLER_COMMAND_POKEMON_INPUT, //15
+    CONTROLLER_COMMAND_RUN_INPUT,
+    CONTROLLER_COMMAND_SAFARI_THROW_BALL,
+    CONTROLLER_COMMAND_SAFARI_THROW_MUD,
+    CONTROLLER_COMMAND_SAFARI_RUN,
+    CONTROLLER_COMMAND_SAFARI_WATCHING, //20
+    CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL,
+    CONTROLLER_COMMAND_RUN_SCRIPT,
+    CONTROLLER_COMMAND_23,
+    CONTROLLER_COMMAND_24,
+    CONTROLLER_COMMAND_25,
+    CONTROLLER_COMMAND_26,
+    CONTROLLER_COMMAND_27,
+    CONTROLLER_COMMAND_HP_CALC,
+    CONTROLLER_COMMAND_29,
+    CONTROLLER_COMMAND_30,
+    CONTROLLER_COMMAND_31,
+    CONTROLLER_COMMAND_32,
+    CONTROLLER_COMMAND_33,
+    CONTROLLER_COMMAND_34,
+    CONTROLLER_COMMAND_35,
+    CONTROLLER_COMMAND_36,
+    CONTROLLER_COMMAND_37,
+    CONTROLLER_COMMAND_38,
+    CONTROLLER_COMMAND_39,
+    CONTROLLER_COMMAND_40,
+    CONTROLLER_COMMAND_41,
+    CONTROLLER_COMMAND_42,
+    CONTROLLER_COMMAND_43,
+    CONTROLLER_COMMAND_44,
+    CONTROLLER_COMMAND_45,
+    CONTROLLER_COMMAND_MAX
+} ControllerCommand;
+
+
+/**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct __attribute__((packed)) BattleStruct
+struct PACKED BattleStruct
 {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
@@ -993,7 +1047,7 @@ struct __attribute__((packed)) BattleStruct
     /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
     /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
     /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
-    /*0xEC*/ int agi_cnt;
+    /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;
     /*0x118*/ int client_work;
@@ -1128,6 +1182,9 @@ struct __attribute__((packed)) BattleStruct
 
                TerrainOverlay terrainOverlay;
                u8 printed_field_message;
+
+               BOOL checkOnlySpecifiedTarget; // for BattleFormChangeCheck
+               u8 checkOnlySpecifiedTargetClient;
 };
 
 
@@ -1539,6 +1596,7 @@ void LONG_CALL ST_ServerMetronomeBeforeCheck(void *bw,struct BattleStruct *sp);
 int LONG_CALL ST_ServerPokeAppearCheck(void *bw, struct BattleStruct *sp);
 int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
+void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species, u32 form);
 
 
 
@@ -2232,33 +2290,11 @@ extern struct BattleSystem *gBattleSystem;
 enum
 {
     SWITCH_IN_CHECK_WEATHER = 0,
-    SWITCH_IN_CHECK_PRIMAL_REVERSION,
-    SWITCH_IN_CHECK_TRACE,
-    SWITCH_IN_CHECK_WEATHER_ABILITY,
-    SWITCH_IN_CHECK_INTIMIDATE,
-    SWITCH_IN_CHECK_DOWNLOAD,
-    SWITCH_IN_CHECK_ANTICIPATION,
-    SWITCH_IN_CHECK_FOREWARN,
-    SWITCH_IN_CHECK_FRISK,
-    SWITCH_IN_CHECK_SLOW_START,
-    SWITCH_IN_CHECK_MOLD_BREAKER,
-    SWITCH_IN_CHECK_PRESSURE,
-    SWITCH_IN_CHECK_FORECAST,
+    SWITCH_IN_CHECK_ENTRY_EFFECT,
     SWITCH_IN_CHECK_AMULET_COIN,
     SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_HEAL_STATUS,
-    SWITCH_IN_CHECK_UNNERVE,
-    SWITCH_IN_CHECK_DARK_AURA,
-    SWITCH_IN_CHECK_FAIRY_AURA,
-    SWITCH_IN_CHECK_AURA_BREAK,
-    SWITCH_IN_CHECK_IMPOSTER,
-    SWITCH_IN_CHECK_ICE_FACE,
-
-// items that display messages.
-    SWITCH_IN_CHECK_AIR_BALLOON,
-    SWITCH_IN_CHECK_FIELD,
-    SWITCH_IN_CHECK_SURGE_ABILITY,
-    SWITCH_IN_CHECK_TERRAIN_SEED,
+    SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
     SWITCH_IN_CHECK_END,
 };
 
@@ -2656,7 +2692,7 @@ BOOL LONG_CALL MoveIsMaxMove(u32 moveIndex);
 /**
  * @brief Check if move is affected by Normalize variants
  * @param moveno move number
- * @return `TRUE`if move is affected by Normalize varients, `FALSE` otherwise
+ * @return `TRUE`if move is affected by Normalize variants, `FALSE` otherwise
 */
 BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno);
 
@@ -2667,6 +2703,14 @@ BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno);
  * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
 */
 u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno);
+
+/**
+ * @brief Check if client can undergo Primal Reversion
+ * @param sp move number
+ * @param client_no battler to check for primal reversion possibility
+ * @return `TRUE` if mon can undergo primal reversion, `FALSE` otherwise
+ */
+BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no);
 
 // defined in mega.c
 BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
@@ -2767,8 +2811,9 @@ void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u3
  *  @brief Sorts clients' execution order factoring in who has already performed their action
  *  @param bw battle work structure; void * because we haven't defined the battle work structure. Apparently we have but we don't use it here so
  *  @param sp global battle structure
+ *  @param sortTurnOrder whether to sort `turn_order` or not
  */
-void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp);
+void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp, BOOL sortTurnOrder);
 
 void LONG_CALL BattleControllerPlayer_CalcExecutionOrder(struct BattleSystem *bw, struct BattleStruct *sp);
 

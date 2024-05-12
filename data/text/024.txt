@@ -123,3 +123,5 @@ Box 27
 Box 28
 Box 29
 Box 30
+
+OOPSIE WOOPSIE!! Uwu\n\nWe made a fucky wucky!!\nA wittle fucko boingo!\nYour heap XX overflowed!\n\nThe allocating return point was at\n0xXXXXXXXX.\nPress the A Button to reset.

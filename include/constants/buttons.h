@@ -1,6 +1,11 @@
 #ifndef CONSTANTS_BUTTON_H
 #define CONSTANTS_BUTTON_H
 
+#define HW_MAIN_MEM             0x02000000
+#define HW_MAIN_MEM_SIZE        0x00400000
+
+#define HW_BUTTON_XY_BUF        (HW_MAIN_MEM + 0x007FFFA8)
+
 #define PAD_PLUS_KEY_MASK       0x00f0
 #define PAD_BUTTON_MASK         0x2f0f
 #define PAD_DEBUG_BUTTON_MASK   0x2000
