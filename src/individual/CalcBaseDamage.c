@@ -511,7 +511,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     //handle transistor
     if(AttackingMon.ability == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
     {
-        movepower = movepower * 130 / 100;
+        movepower = movepower * 150 / 100;
     }
 
     //handle rocky payload
