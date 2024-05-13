@@ -415,4 +415,4 @@ arm9 02074128 F8 B5 82 B0 00 90 00 20
 #endif
 
 # Fix Hidden Power to 60 BP (change +30 instruction to =60)
-0012 022424DC 20 3C
+0012 022424DC 3C 20
