@@ -777,7 +777,8 @@ struct __attribute__((packed)) BattlePokemon
                u32 parental_bond_flag : 2;
                u32 parental_bond_is_active : 1;
                u32 ability_activated_flag : 1;
-               u32 : 6; // need to add to ClearBattleMonFlags when added to here as well
+               u32 protean_flag : 1;
+               u32 : 5; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
