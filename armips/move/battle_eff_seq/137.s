@@ -3,6 +3,7 @@
 
 .include "armips/include/battlescriptcmd.s"
 .include "armips/include/abilities.s"
+.include "armips/include/battle_script_constants.s"
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
@@ -18,8 +19,8 @@ a030_137:
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, NoAnimation
     playanimation BATTLER_ATTACKER
     waitmessage
-    gotosubscript 361
 NoAnimation:
+    gotosubscript SUB_SEQ_HANDLE_SUN_TEMPORARY
     endscript
 
 .close

@@ -902,14 +902,6 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
             gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, i)][j] = 0;
     }
 
-#ifdef RESTORE_ITEMS_AT_BATTLE_END
-    // grab newItems array for use later
-    for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
-    {
-        newItems[i] = GetMonData(BattleWorkPokemonParamGet(bw, 0, i), MON_DATA_HELD_ITEM, NULL);
-    }
-#endif
-
     for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
     {
         pp = BattleWorkPokemonParamGet(bw, 0, i);
@@ -918,72 +910,70 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 
         if (RevertFormChange(pp, monsno, form))
         {
-            RecalcPartyPokemonStats(pp);
             ResetPartyPokemonAbility(pp);
         }
-#ifdef RESTORE_ITEMS_AT_BATTLE_END
-        {
-            u16 item = newBS.itemsToRestore[i];
-            u16 battleItem = newItems[i];
-            u8 originalQuantity = 0;
-            u8 newQuantity = 0;
-
-            // count up quantity of items at the start of the battle
-            if (item)
-            {
-                for (j = 0; j < BattleWorkPokeCountGet(bw, 0); j++)
-                {
-                    if (item == newBS.itemsToRestore[j])
-                    {
-                        if (i > j) // item has already been handled, assign it 0xFF as a marker
-                        {
-                            originalQuantity = 0xFF;
-                            break;
-                        }
-                        else
-                        {
-                            originalQuantity++;
-                        }
-                    }
-                }
-            } else { originalQuantity = 0xFF; }
-
-            // count up quantity of items at the end of the battle
-            if (battleItem)
-            {
-                for (j = 0; j < BattleWorkPokeCountGet(bw, 0); j++)
-                {
-                    if (battleItem == newItems[j])
-                    {
-                        if (i > j) // item has already been handled, assign it 0xFF as a marker
-                        {
-                            newQuantity = 0xFF;
-                            break;
-                        }
-                        else
-                        {
-                            newQuantity++;
-                        }
-                    }
-                }
-            } else { newQuantity = 0xFF; }
-
-            if (newQuantity > originalQuantity && newQuantity != 0xFF && originalQuantity != 0xFF // newQ > oldQ && hasn't already been handled
-             && battleItem != 0 && item != battleItem // if item == battleItem then pass through to restore instead of passing to bag.
-             && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0)
-            {
-                // if the battler has an item from the battle that pushes the end-battle quantity of the item over the quantity at the start of the battle
-                Bag_AddItem(bw->bag, battleItem, newQuantity - originalQuantity, 5);
-            }
-            // restore items regardless of if it's a trainer battle--this will also overwrite items gained from trainers
-            if (!IS_ITEM_BERRY(item))
-            {
-                SetMonData(pp, MON_DATA_HELD_ITEM, &item);
-            }
-            newBS.itemsToRestore[i] = 0;
-        }
-#endif // RESTORE_ITEMS_AT_BATTLE_END
+        RecalcPartyPokemonStats(pp); // always recalc stats at the end of each battle
     }
+
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+    // grab newItems array for use later
+    for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
+    {
+        newItems[i] = GetMonData(BattleWorkPokemonParamGet(bw, 0, i), MON_DATA_HELD_ITEM, NULL);
+    }
+
+    // add the items that the mons have stolen to the bag
+    for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
+    {
+        u32 battleItem = newItems[i];
+        u32 originalQuantity = 0;
+        u32 newQuantity = 0;
+
+        // count up both old and new quantities of an item
+        if (battleItem)
+        {
+            for (j = 0; j < BattleWorkPokeCountGet(bw, 0); j++)
+            {
+                if (battleItem == newItems[j])
+                {
+                    // current item is identical to an item that we've previously handled, move to the next one
+                    if (i > j)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        newQuantity++;
+                    }
+                }
+            }
+            for (j = 0; j < BattleWorkPokeCountGet(bw, 0); j++)
+            {
+                if (battleItem == newBS.itemsToRestore[j])
+                {
+                    originalQuantity++;
+                }
+            }
+        } else continue;
+
+        // if mon i has a held item that has a bigger quantity across the party than was started with, add the extra quantity to the bag
+        if (newQuantity > originalQuantity && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_NO_EXPERIENCE)) == 0)
+        {
+            Bag_AddItem(bw->bag, battleItem, newQuantity - originalQuantity, 5);
+        }
+    }
+
+    // restore items regardless of if it's a trainer battle--this will also overwrite items gained from trainers
+    for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
+    {
+        pp = BattleWorkPokemonParamGet(bw, 0, i);
+        if (!IS_ITEM_BERRY(newBS.itemsToRestore[i]))
+        {
+            SetMonData(pp, MON_DATA_HELD_ITEM, &newBS.itemsToRestore[i]);
+        }
+        newBS.itemsToRestore[i] = 0;
+    }
+#endif // RESTORE_ITEMS_AT_BATTLE_END
 }
 
 /**

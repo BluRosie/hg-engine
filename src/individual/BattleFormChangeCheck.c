@@ -27,7 +27,11 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
     for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
     {
-        sp->client_work = sp->turnOrder[i];
+        if (sp->checkOnlySpecifiedTarget) {
+            sp->client_work = sp->checkOnlySpecifiedTargetClient;
+        } else {
+            sp->client_work = sp->turnOrder[i];
+        }
 
         //handle castform
         if ((sp->battlemon[sp->client_work].species == SPECIES_CASTFORM)

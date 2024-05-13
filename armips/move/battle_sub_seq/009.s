@@ -7,9 +7,12 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// Switch Mon
+
 .create "build/move/battle_sub_seq/1_009", 0
 
 a001_009:
+    // Check if Primal Weathers need to be cleared
     trynaturalcure BATTLER_REPLACE, _0020
     changemondatabyvalue VAR_OP_SET, BATTLER_REPLACE, 0x34, 0x0
 _0020:
