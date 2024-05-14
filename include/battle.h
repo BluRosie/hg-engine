@@ -173,6 +173,7 @@
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
 
+
 /**
  *  @brief flags for effect_of_moves
  *  defines for BattleStruct's effect_of_moves field
@@ -777,8 +778,7 @@ struct __attribute__((packed)) BattlePokemon
                u32 parental_bond_flag : 2;
                u32 parental_bond_is_active : 1;
                u32 ability_activated_flag : 1;
-               u32 protean_flag : 1;
-               u32 : 5; // need to add to ClearBattleMonFlags when added to here as well
+               u32 : 6; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -2829,5 +2829,21 @@ void LONG_CALL UnlockBattlerOutOfCurrentMove(struct BattleSystem *bsys, struct B
  *  @param moveNo move index to check against a list of move effects that are charge moves
  */
 BOOL LONG_CALL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo);
+
+// Possibly BattleController_AnyExpPayout
+BOOL LONG_CALL ov12_0224DD18(struct BattleStruct *ctx, ControllerCommand a1, ControllerCommand a2);
+
+// Possibly BattleController_CheckBattleOver
+BOOL LONG_CALL ov12_0224D7EC(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+// Possibly BattleController_ToggleSemiInvulnMons
+BOOL LONG_CALL ov12_0224E130(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+// Possibly BattleController_ClearFlags
+void LONG_CALL ov12_0224DC0C(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+void LONG_CALL SortExecutionOrderBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+void LONG_CALL SortMonsBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 #endif // BATTLE_H

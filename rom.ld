@@ -641,3 +641,10 @@ RemoveWindow = 0x0201D520 | 1;
 DestroyMsgData = 0x0200BB44 | 1;
 OS_ResetSystem = 0x020D3B84;
 AddWindow = 0x0201D4F8 | 1;
+
+ov12_0224DD18 = 0x0224DD18 | 1;
+ov12_0224D7EC = 0x0224D7EC | 1;
+ov12_0224E130 = 0x0224E130 | 1;
+ov12_0224DC0C = 0x0224DC0C | 1;
+SortExecutionOrderBySpeed = 0x02257EC0 | 1;
+SortMonsBySpeed = 0x02252D3C | 1;

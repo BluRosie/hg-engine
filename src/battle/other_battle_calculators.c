@@ -2605,3 +2605,55 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
     sp->updateMonConditionData = 0;
     sp->server_seq_no = 11;
 }
+
+/**
+ * Platinum version as reference
+ * BattleController_MoveEnd
+ * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
+ */
+void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int script;
+    u32 battleType = BattleTypeGet(bsys);
+    
+    if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_POKE_PARK))) {
+        if (AbilityStatusRecoverCheck(bsys, ctx, ctx->attack_client, 0) == TRUE) {
+            return;
+        }
+        // BATTLER_NONE
+        if (ctx->defence_client != 0xFF && AbilityStatusRecoverCheck(bsys, ctx, ctx->defence_client, 0) == TRUE) {
+            return;
+        }
+        if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
+            return;
+        }
+        if (ov12_0224D7EC(bsys, ctx) == TRUE) {
+            return;
+        }
+        
+        script = SwitchInAbilityCheck(bsys, ctx);
+        if (script) {
+            LoadBattleSubSeqScript(ctx, 1, script);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+        if (ov12_0224E130(bsys, ctx) == TRUE) {
+            return;
+        }
+        ov12_0224DC0C(bsys, ctx);
+    }
+    
+    ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
+    
+    if (ctx->oneSelfFlag[ctx->attack_client].trickroom_flag) {
+        SortExecutionOrderBySpeed(bsys, ctx);
+        SortMonsBySpeed(bsys, ctx);
+        ctx->executionIndex = 0;
+    } else {
+        ctx->executionIndex++;
+    }
+    
+    BattleStructureInit(ctx);
+    
+    ctx->server_seq_no = CONTROLLER_COMMAND_8;
+}
