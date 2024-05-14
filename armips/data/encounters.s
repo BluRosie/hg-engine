@@ -1442,7 +1442,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   14//UNION_CAVE
+encounterdata   14//Connecting Cave
 
 walkrate 25
 surfrate 15
@@ -1450,49 +1450,50 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+walklevels 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36
 
 //morning encounter slots
-pokemon SPECIES_POOCHYENA
-pokemon SPECIES_PURRLOIN
-pokemon SPECIES_EKANS
-pokemon SPECIES_RALTS
-monwithform SPECIES_ZORUA, 1
-pokemon SPECIES_VENIPEDE
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_HONEDGE
-pokemon SPECIES_KLINK
-pokemon SPECIES_BRONZOR
+pokemon SPECIES_LANDORUS
+monwithform SPECIES_LANDORUS, 1
+monwithform SPECIES_ZYGARDE, 5
+monwithform SPECIES_ZYGARDE, 5
+pokemon SPECIES_GREAT_TUSK
+pokemon SPECIES_GREAT_TUSK
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
 
 //day encounter slots
-pokemon SPECIES_POOCHYENA
-pokemon SPECIES_PURRLOIN
-pokemon SPECIES_EKANS
-pokemon SPECIES_RALTS
-monwithform SPECIES_ZORUA, 1
-pokemon SPECIES_VENIPEDE
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_HONEDGE
-pokemon SPECIES_KLINK
-pokemon SPECIES_BRONZOR
+pokemon SPECIES_LANDORUS
+monwithform SPECIES_LANDORUS, 1
+monwithform SPECIES_ZYGARDE, 5
+monwithform SPECIES_ZYGARDE, 5
+pokemon SPECIES_GREAT_TUSK
+pokemon SPECIES_GREAT_TUSK
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
 
 //night encounter slots
-pokemon SPECIES_POOCHYENA
-pokemon SPECIES_PURRLOIN
-pokemon SPECIES_EKANS
-pokemon SPECIES_RALTS
-monwithform SPECIES_ZORUA, 1
-pokemon SPECIES_VENIPEDE
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_HONEDGE
-pokemon SPECIES_KLINK
-pokemon SPECIES_BRONZOR
+pokemon SPECIES_LANDORUS
+monwithform SPECIES_LANDORUS, 1
+monwithform SPECIES_ZYGARDE, 5
+monwithform SPECIES_ZYGARDE, 5
+pokemon SPECIES_GREAT_TUSK
+pokemon SPECIES_GREAT_TUSK
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+monwithform SPECIES_GARCHOMP, 1
+
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
