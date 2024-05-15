@@ -587,3 +587,206 @@ An item to be held by a Pokémon.\nThis single-use bulb boosts Sp. Atk\nif hit w
 An item to be held by a Pokémon.\nThe holder will float in the air until hit.\nOnce hit, this item will burst.
 A rare mushroom that gives off\na nice fragrance. It can be sold at\na high price to shops.
 A big nugget of pure gold that gives\noff a lustrous gleam. It can be sold at\na high price to shops.
+Binding Band Description
+Casteliacone Description
+Cell Battery Description
+Comet Shard Description
+Dream Ball Description
+Eject Button Description
+A mysterious evolutionary lump. When\nheld by a Pokémon that can still evolve,\nit boosts Defense and Sp. Def by 50%.
+Float Stone Description
+Pearl String Description
+A mysterious scale that causes\na certain Pokémon to evolve.\nIt shines in rainbow colors.
+Red Card Description
+Ring Target Description
+An item to be held by a Pokémon. If the\nholder is hit with a contact move, the\nattacker is damaged by a sixth of its HP.
+Sweet Heart Description
+A capsule that allows a Pokémon to\nswitch its current Ability to the other\nAbility its species can have.
+An item to be held by a Pokémon. This\nvest boosts the holder’s Sp. Def by\n50%, but makes its status moves fail.
+Luminous Moss Description
+Lumiose Galette Description
+A sachet filled with fragrant perfumes\nthat are just slightly too overwhelming.\nIt’s loved by a certain Pokémon.
+Safety Goggles Description
+Shalour Sable Description
+Snowball Description
+An item to be held by a Pokémon.\nThis item sharply raises its Attack and\nSp. Atk if hit by a supereffective move.
+A soft and sweet treat made of fluffy,\npuffy, whipped, and whirled cream.\nIt’s loved by a certain Pokémon. 
+Adrenaline Orb Description
+Beast Ball Description
+Big Malasada Description
+A lovely silver bottle cap.\nCertain people are delighted to be\ngiven one of these.
+Gold Bottle Cap Description
+Electric Seed Description
+Grassy Seed Description
+Misty Seed Description
+Psychic Seed Description
+A peculiar stone that makes certain\nspecies of Pokémon evolve.\nIt has a snowflake pattern in it.
+Protective Pads Description
+Terrain Ext. Description
+A patch that can be used to change\nthe regular Ability of a Pokémon to\na rarer Ability, or the opposite.
+A glassy black stone that produces\na sharp cutting edge when split.\nIt is loved by a certain Pokémon.
+Berry Sweet Description
+Clover Sweet Description
+Flower Sweet Description
+Love Sweet Description
+Ribbon Sweet Description
+Star Sweet Description
+StrawberrySweet Description
+Blunder Policy Description
+Chipped Pot Description
+Cracked Pot Description
+Eject Pack Description
+Exp. Candy S Description
+Exp. Candy M Description
+Exp. Candy L Description
+Exp. Candy XS Description
+Exp. Candy XL Description
+A cuff made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
+Galarica Twig Description
+A wreath made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
+Also known as the Heavy-Duty Boots.\nThese boots protect the holder from\ntraps set on the battlefield.
+A string exuding an odd energy that\nmakes you feel a sense of connection.\nIt’s loved by certain Pokémon.
+Moomoo Cheese Description
+A block of muddy material that can be\nused as fuel for burning when dried.\nIt is loved by a certain Pokémon.
+Room Service Description
+Rusted Shield Description
+Rusted Sword Description
+Sweet Apple Description
+Tart Apple Description
+An item to be held by a Pokémon.\nIf the holder uses a sound-based move,\nthis item will boost its Sp. Atk stat.
+Utility Umbrella Description
+Ability Shield Description
+Auspicious Armor Description
+Booster Energy Description
+Clear Amulet Description
+An item to be held by a Pokémon.\nThis hooded cloak protects the holder\nfrom the additional effects of moves.
+Gimmighoul Coin Description
+A shard of what appears to be an old\nblade of some sort.\nIt is loved by a certain Pokémon.
+An item to be held by a Pokémon.\nThis loaded dice ensures the holder’s\nmultistrike moves hit at least 4 times.
+Malicious Armor Description
+Mirror Herb Description
+Punching Glove Description
+If held, it halves the damage taken from\na supereffective Fairy-type attack.\n(This Berry cannot be planted.)
+Kee Berry Description
+Maranga Berry Description
+Burn Drive Description
+Chill Drive Description
+Douse Drive Description
+Shock Drive Description
+A fossil of an ancient Pokémon that\nlived in the sea. It appears to be\npart of its back.
+A fossil of an ancient Pokémon that\nlived in the sky. It appears to be\npart of its wing.
+A fossil of an ancient Pokémon that\nlived on the land. It appears to be\npart of a large jaw.
+A fossil of an ancient Pokémon that\nlived in the land. It appears to be\nan impression of a skin sail.
+Fossilized Bird Description
+Fossilized Dino Description
+Fossilized Drake Description
+Fossilized Fish Description
+Normal Gem Description
+Fighting Gem Description
+Flying Gem Description
+Poison Gem Description
+Ground Gem Description
+Rock Gem Description
+Bug Gem Description
+Ghost Gem Description
+Steel Gem Description
+Fire Gem Description
+Water Gem Description
+Grass Gem Description
+Electric Gem Description
+Psychic Gem Description
+Ice Gem Description
+Dragon Gem Description
+Dark Gem Description
+Fairy Gem Description
+Fighting Memory Description
+Flying Memory Description
+Poison Memory Description
+Ground Memory Description
+Rock Memory Description
+Bug Memory Description
+Ghost Memory Description
+Steel Memory Description
+Fire Memory Description
+Water Memory Description
+Grass Memory Description
+Electric Memory Description
+Psychic Memory Description
+Ice Memory Description
+Dragon Memory Description
+Dark Memory Description
+Fairy Memory Description
+Red Nectar Description
+Yellow Nectar Description
+Pink Nectar Description
+Purple Nectar Description
+Blank Plate Description
+Legend Plate Description
+Relic Copper Description
+Relic Silver Description
+Relic Gold Description
+Relic Vase Description
+Relic Band Description
+Relic Statue Description
+Relic Crown Description
+Health Feather Description
+Muscle Feather Description
+Resist Feather Description
+Genius Feather Description
+Clever Feather Description
+Swift Feather Description
+Pretty Feather Description
+DNA Splicers Description
+Reveal Glass Description
+Prison Bottle Description
+Catching Charm Description
+Exp. Charm Description
+Oval Charm Description
+Shiny Charm Description
+N Solarizer Description
+N Lunarizer Description
+A device that allows you to press “R”\nto access the Pokémon storage system.\nIt won’t work in certain places, though.
+Zygarde Cube Description
+Sun Flute Description
+Moon Flute Description
+Light Stone Description
+Dark Stone Description
+Iceroot Carrot Description
+Shady Carrot Description
+Reins of Unity Description
+Wooden Crown Description
+Rotom Catalog Description
+Adamant Crystal Description
+Lustrous Globe Description
+Griseous Core Description
+Darkness Scroll Description
+Waters Scroll Description
+Mega Ring Description
+Autograph Description
+Gold Teeth Description
+A stone filled with an unexplained power.\nIt allows Pokémon that battle with\na Mega Stone to Mega Evolve.
+Lift Key Description
+Pewter Snacks Description
+Silph Scope Description
+Tea Description
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Defense stat may suffer.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Defense stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Defense stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Defense stat may suffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint will\ncause all of its stats to grow at\nan equal rate.

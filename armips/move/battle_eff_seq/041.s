@@ -12,7 +12,7 @@
 a030_041:
     if IF_MASK, VAR_RULESET, 0x1, _0038
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x800
-    changevar VAR_OP_SET, VAR_DAMAGE, 0xFFFFFFD8
+    changevar VAR_OP_SET, VAR_DAMAGE, -40
     endscript
 _0038:
     changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40

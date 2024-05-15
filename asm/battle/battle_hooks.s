@@ -529,3 +529,19 @@ ldr r1, =0x0221F87C|1
 bx r1
 
 .pool
+
+.global BattleSystem_CheckMoveEffect_hook
+BattleSystem_CheckMoveEffect_hook:
+ldr r5, =BattleSystem_CheckMoveEffect_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl BattleSystem_CheckMoveEffect
+ldr r1, =BattleSystem_CheckMoveEffect_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+BattleSystem_CheckMoveEffect_return_address:
+.word 0

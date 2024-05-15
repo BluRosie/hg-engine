@@ -9,11 +9,13 @@
 
 .create "build/move/battle_sub_seq/1_156", 0
 
+// Gravity Start
+
 a001_156:
     printmessage 0x3E5, 0x0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitmessage
     wait 0x1E
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, 0x5000
+    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, FIELD_CONDITION_GRAVITY_INIT
     changevar VAR_OP_SET, VAR_CLIENT_NO_AGI, 0x0
 _0038:
     orderbattlersbyspeed 0x14

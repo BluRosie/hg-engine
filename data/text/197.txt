@@ -188,12 +188,12 @@ The opposing {STRVAR_1 1, 0, 0} regained\nhealth!
 {STRVAR_1 1, 0, 0}’s\nHP is full!
 The wild {STRVAR_1 1, 0, 0}’s\nHP is full!
 The opposing {STRVAR_1 1, 0, 0}’s\nHP is full!
-{STRVAR_1 6, 0, 0} raised your team’s\nSpecial Defense!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Special Defense!
+Light Screen made your team\nstronger against special moves!
+Light Screen made the opposing team\nstronger against special moves!
 {STRVAR_1 6, 0, 0} raised your team’s\nSpecial Defense slightly!
 The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Special Defense slightly!
-{STRVAR_1 6, 0, 0} raised your team’s\nDefense!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense!
+Reflect made your team\nstronger against physical moves!
+Reflect made the opposing team\nstronger against physical moves!
 {STRVAR_1 6, 0, 0} raised your team’s\nDefense slightly!
 The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense slightly!
 Your team became cloaked in\na mystical veil!
@@ -617,9 +617,9 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
 The wild {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it rain!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it rain!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it rain!
+It started to rain!
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -693,15 +693,15 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} blocks\f{STRVAR_1 6, 2, 
 {STRVAR_1 1, 0, 0} regained a little\nHP with its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} regained\na little HP with its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} regained\na little HP with its {STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwhipped up a sandstorm!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa sandstorm!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nintensified the sun’s rays!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} intensified\fthe sun’s rays!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} intensified\fthe sun’s rays!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwhipped up a hailstorm!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa hailstorm!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} whipped up\fa hailstorm!
+A sandstorm kicked up!
+(Unused)
+(Unused)
+The sunlight turned harsh!
+(Unused)
+(Unused)
+It started to hail!
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents {STRVAR_1 13, 2, 0} loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
@@ -797,18 +797,18 @@ But nothing happened!
 But it failed!
 It hurt itself in its\nconfusion!
 Mirror Move failed!
-It started to rain!
+It’s raining!
 A downpour started!
 Rain continues to fall.
 The downpour continues.
 The rain stopped.
-A sandstorm brewed!
+The sandstorm is raging!
 The sandstorm rages.
 The sandstorm subsided.
-The sunlight turned harsh!
+The sunlight is harsh!
 The sunlight is strong.
-The sunlight faded.
-It started to hail!
+The harsh sunlight faded.
+It’s hailing!
 Hail continues to fall.
 The hail stopped.
 The fog is deep...
@@ -1434,3 +1434,8 @@ The opposing {STRVAR_1 1, 0, 0}\ntook the kind offer!
 {STRVAR_1 1, 0, 0}’s move\nwas postponed!
 The wild {STRVAR_1 1, 0, 0}’s move\nwas postponed!
 The opposing {STRVAR_1 1, 0, 0}’s move\nwas postponed!
+{STRVAR_1 1, 0, 0} is absorbing\npower!
+The wild {STRVAR_1 1, 0, 0} is absorbing\npower!
+The opposing {STRVAR_1 1, 0, 0} is absorbing\npower!
+It started to snow!
+The snow stopped.

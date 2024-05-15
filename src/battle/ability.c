@@ -20,7 +20,7 @@
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
-BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value);
+BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
 BOOL MummyAbilityCheck(struct BattleStruct *sp);
 BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
@@ -33,44 +33,6 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
-
-
-
-
-const u16 SoundproofMoveList[] =
-{
-    MOVE_BOOMBURST,
-    MOVE_BUG_BUZZ,
-    MOVE_CHATTER,
-    MOVE_CLANGING_SCALES,
-    MOVE_CLANGOROUS_SOUL,
-    //MOVE_CLANGOROUS_SOULBLAZE,
-    MOVE_CONFIDE,
-    MOVE_DISARMING_VOICE,
-    MOVE_ECHOED_VOICE,
-    MOVE_EERIE_SPELL,
-    MOVE_GRASS_WHISTLE,
-    MOVE_GROWL,
-    //MOVE_HEAL_BELL,
-    //MOVE_HOWL,
-    MOVE_HYPER_VOICE,
-    MOVE_METAL_SOUND,
-    MOVE_NOBLE_ROAR,
-    MOVE_OVERDRIVE,
-    MOVE_PARTING_SHOT,
-    MOVE_PERISH_SONG,
-    MOVE_RELIC_SONG,
-    MOVE_ROAR,
-    MOVE_ROUND,
-    MOVE_SCREECH,
-    //MOVE_SHADOW_PANIC,
-    MOVE_SING,
-    MOVE_SNARL,
-    MOVE_SNORE,
-    MOVE_SPARKLING_ARIA,
-    MOVE_SUPERSONIC,
-    MOVE_UPROAR,
-};
 
 const u16 BulletproofMoveList[] =
 {
@@ -170,33 +132,18 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // 02252FB0
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE)
     {
+        if (IsMoveSoundBased(sp->current_move_index))
         {
-            u32 i;
-
-            for (i = 0; i < NELEMS(SoundproofMoveList); i++){
-                if (SoundproofMoveList[i] == sp->current_move_index)
-                {
-                    scriptnum = SUB_SEQ_SOUNDPROOF;
-                    break;
-                }
-            }
+            scriptnum = SUB_SEQ_SOUNDPROOF;
         }
     }
 
     // Handle Bulletproof
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
     {
+        if (IsElementInArray(BulletproofMoveList, (u16 *)&sp->current_move_index, NELEMS(BulletproofMoveList), sizeof(BulletproofMoveList[0])))
         {
-            u32 i;
-
-            for (i = 0; i < NELEMS(BulletproofMoveList); i++){
-                if (BulletproofMoveList[i] == sp->current_move_index)
-                {
-                    // This works fine for Bulletproof too
-                    scriptnum = SUB_SEQ_SOUNDPROOF;
-                    break;
-                }
-            }
+            scriptnum = SUB_SEQ_SOUNDPROOF;
         }
     }
 
@@ -294,9 +241,11 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
  *  @param value to check for.  made flexible for every circumstance, i.e. Moody needs to check if any stat can be raised/lowered
  *  @return TRUE if there is a stat stage not at the passed value; FALSE otherwise (yes accuracy and evasion count too)
  */
-BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value)
+BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion)
 {
-    for (int i = 0; i < 7; i++)
+    int counter = excludeAccuracyEvasion ? 5 : 7;
+
+    for (int i = 0; i < counter; i++)
     {
         if (sp->battlemon[client].states[i] != value)
         {
@@ -415,13 +364,15 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
         case ABILITY_MOODY: // this is going to be interesting
             if (sp->battlemon[client_no].hp)
             {
-                int temp = BattleRand(bw) % 7;
+                // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
+                
+                int temp = BattleRand(bw) % 5;
 
-                if (AreAnyStatsNotAtValue(sp, client_no, 12)) // if any stat can be lowered
+                if (AreAnyStatsNotAtValue(sp, client_no, 12, TRUE)) // if any stat can be lowered
                 {
                     while (sp->battlemon[client_no].states[temp] == 12)
                     {
-                        temp = BattleRand(bw) % 7;
+                        temp = BattleRand(bw) % 5;
                     }
                 }
                 else
@@ -431,14 +382,14 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
                 sp->calc_work = temp;
 
 
-                temp = BattleRand(bw) % 7;
+                temp = BattleRand(bw) % 5;
 
-                if (AreAnyStatsNotAtValue(sp, client_no, 0)) // if any stat can be raised
+                if (AreAnyStatsNotAtValue(sp, client_no, 0, TRUE)) // if any stat can be raised
                 {
                     while (sp->battlemon[client_no].states[temp] == 0
                         || temp == sp->calc_work)
                     {
-                        temp = BattleRand(bw) % 7;
+                        temp = BattleRand(bw) % 5;
                     }
                 }
                 else
@@ -1111,7 +1062,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     }
     for(i = 0; i < client_set_max; i++)
     {
-        client_no = sp->turn_order[i];
+        client_no = sp->turnOrder[i];
         if (((sp->waza_status_flag & 0x801FDA49) == 0)
          && (sp->oneTurnFlag[client_no].yokodori_flag)
          && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
@@ -1160,7 +1111,7 @@ enum
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 {
     // Sort clients because moves may affect speed
-    DynamicSortClientExecutionOrder(bw, sp);
+    DynamicSortClientExecutionOrder(bw, sp, FALSE);
     switch (sp->swoak_seq_no) {
         case SWOAK_SEQ_VANISH_ON_OFF: {
             int ret = 0;
@@ -1209,14 +1160,14 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
         FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER:
         sp->swoak_seq_no++;
-        if (HeldItemEffectCheck(bw, sp, sp->attack_client) == TRUE) // will eventually need HeldItemEffectCheck anyway.  generic berry function thing
+        if (TryUseHeldItem(bw, sp, sp->attack_client) == TRUE) // will eventually need TryUseHeldItem anyway.  generic berry function thing
             return;
         FALLTHROUGH;
     case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER:
         sp->swoak_seq_no++;
         if (sp->defence_client != 0xFF)
         {
-            if (HeldItemEffectCheck(bw, sp, sp->defence_client) == TRUE)
+            if (TryUseHeldItem(bw, sp, sp->defence_client) == TRUE)
                 return;
         }
         FALLTHROUGH;
@@ -1269,7 +1220,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 
             while (sp->swoak_work < BattleWorkClientSetMaxGet(bw))
             {
-                client_no = sp->turn_order[sp->swoak_work];
+                client_no = sp->turnOrder[sp->swoak_work];
                 if (sp->no_reshuffle_client & No2Bit(client_no))
                 {
                     sp->swoak_work++;

@@ -1,4 +1,5 @@
 #include "../../include/types.h"
+#include "../../include/config.h"
 #include "../../include/battle.h"
 #include "../../include/item.h"
 #include "../../include/mega.h"
@@ -34,6 +35,17 @@ struct BattleStruct *ServerInit(void *bw)
     ServerMoveAIInit(bw, sp);
     DumpMoveTableData(&sp->moveTbl[0]);
     sp->aiWorkTable.item = ItemDataTableLoad(5);
+
+#ifdef RESTORE_ITEMS_AT_BATTLE_END
+
+    // store items for the player's party in sp so we can restore them at the end
+    struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
+    for (int i = 0; i < party->count; i++)
+    {
+        newBS.itemsToRestore[i] = GetMonData(Party_GetMonByIndex(party, i), MON_DATA_HELD_ITEM, NULL);
+    }
+
+#endif // RESTORE_ITEMS_AT_BATTLE_END
 
     return sp;
 }
@@ -96,7 +108,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
         case SBA_FOCUS_PUNCH:
             while (sp->sba_work < client_set_max)
             {
-                client_no = sp->client_agi_work[sp->sba_work];
+                client_no = sp->executionOrder[sp->sba_work];
                 if (sp->no_reshuffle_client & No2Bit(client_no))
                 {
                     sp->sba_work++;
@@ -141,8 +153,8 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
             for (client_no = 0; client_no < client_set_max; client_no++)
             {
                 flag = FALSE;
-                if (sp->client_act_work[0][3] != SELECT_ESCAPE_COMMAND &&
-                    sp->client_act_work[2][3] != SELECT_ESCAPE_COMMAND)
+                if (sp->playerActions[0][3] != SELECT_ESCAPE_COMMAND &&
+                    sp->playerActions[2][3] != SELECT_ESCAPE_COMMAND)
                 {
                     if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
                         //player requests mega
@@ -252,7 +264,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
     client_set_max = BattleWorkClientSetMaxGet(bw);
     for (i = 0; i < client_set_max; i++)
     {
-        client_no = sp->turn_order[i];
+        client_no = sp->turnOrder[i];
         if (newBS.needMega[client_no] == MEGA_NEED && sp->battlemon[sp->attack_client].hp)
         {
             if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI)
@@ -406,10 +418,14 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN
                 && (sp->battlemon[sp->attack_client].type1 != sp->moveTbl[sp->current_move_index].type  // if either type is not the move's type
                     || sp->battlemon[sp->attack_client].type2 != sp->moveTbl[sp->current_move_index].type)
+                && (sp->battlemon[sp->attack_client].protean_flag == 0 || PROTEAN_GENERATION < 9) // Protean should activate only once per switch-in if gen 9 behavior
                 && sp->moveTbl[sp->current_move_index].power != 0) // the move has to have power in order for it to change the type
             {
                 sp->battlemon[sp->attack_client].type1 = sp->moveTbl[sp->current_move_index].type;
                 sp->battlemon[sp->attack_client].type2 = sp->moveTbl[sp->current_move_index].type;
+                #if PROTEAN_GENERATION >= 9
+                sp->battlemon[sp->attack_client].protean_flag = 1;
+                #endif
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
                 sp->msg_work = sp->battlemon[sp->attack_client].type1;
                 sp->client_work = sp->attack_client;

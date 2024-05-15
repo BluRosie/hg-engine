@@ -1,11 +1,14 @@
 #include "../include/types.h"
 #include "../include/config.h"
 #include "../include/debug.h"
+#include "../include/msgdata.h"
 #include "../include/pokemon.h"
 #include "../include/pokemon_storage_system.h"
 #include "../include/save.h"
 #include "../include/script.h"
+#include "../include/sprite.h"
 #include "../include/task.h"
+#include "../include/constants/buttons.h"
 
 
 // these functions are configured to not hook from hooks directly under ALLOW_SAVE_CHANGES
@@ -687,3 +690,167 @@ u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last) {
 
 #endif // EXPAND_PC_BOXES
 #endif // ALLOW_SAVE_CHANGES
+
+/**
+ *  @brief check if an element of an array exists byte-for-byte in the buf sent to it
+ *
+ *  @param array pointer to any type array
+ *  @param element pointer to any element of an array
+ *  @param len number of elements in the overall array
+ *  @param size size of each individual element, used both as length of element and length of members of array
+ *  @return TRUE if the element exists verbatim inside of the array; FALSE otherwise
+ */
+BOOL LONG_CALL IsElementInArray(const void *array, void *element, u32 len, u32 size)
+{
+    u32 i, j;
+    const u8 *arr = array;
+    u8 *elem = element;
+    //u8 buf[64];
+    //sprintf(buf, "Called IsElementInArray(0x%08X, 0x%08X, 0x%X, 0x%X)\n", (const u32)array, (u32)element, len, size);
+    //debugsyscall(buf);
+    for (i = 0; i < len; i++)
+    {
+        for (j = 0; j < size; j++)
+        {
+            const u8 *currElem = &arr[i * size];
+            if (j[currElem] != elem[j])
+            {
+                break;
+            }
+        }
+        if (j == size)
+            return TRUE;
+    }
+    //debugsyscall("Element is not in array!");
+    return FALSE;
+}
+
+#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+
+#define sErrorMessagePrinterLock *(u32 *)(0x021D43B4)
+#define CRASH_MESSAGE_HEAP_CHAR_START 79
+#define CRASH_MESSAGE_RETADDR_CHAR_START 132
+
+void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
+    u32 window;
+
+    if (sErrorMessagePrinterLock == TRUE) {
+        return;
+    }
+
+    sErrorMessagePrinterLock = TRUE;
+
+    OS_SetArenaHi(0, OS_GetInitArenaHi(0));
+    OS_SetArenaLo(0, OS_GetInitArenaLo(0));
+    InitHeapSystem((void *)0x02108528, 1, 1, 0);
+
+    sub_0200FBF4(0, 0);
+    sub_0200FBF4(1, 0);
+
+    OS_DisableIrqMask(1);
+    OS_SetIrqFunction(1, (void *)(0x2096318|1));
+    OS_EnableIrqMask(1);
+
+    Main_SetVBlankIntrCB(NULL, NULL);
+    Main_SetHBlankIntrCB(NULL, NULL);
+
+    GfGfx_DisableEngineAPlanes();
+    GfGfx_DisableEngineBPlanes();
+    GX_SetVisiblePlane(0);
+    GXS_SetVisiblePlane(0);
+
+    SetKeyRepeatTimers(4, 8);
+
+    //gSystem.screensFlipped = FALSE;
+    *(u8 *)(0x21D116C) = FALSE;
+
+    GfGfx_SwapDisplay();
+    G2_BlendNone();
+    G2S_BlendNone();
+    GX_SetVisibleWnd(0);
+    GXS_SetVisibleWnd(0);
+    GfGfx_SetBanks((void *)0x0210855C);
+
+    void * bg_config = BgConfig_Alloc(0);
+    SetBothScreensModesAndDisable((void *)0x02108530);
+    InitBgFromTemplate(bg_config, 0, (void *)0x02108540, 0);
+    BgClearTilemapBufferAndCommit(bg_config, 0);
+    LoadUserFrameGfx1(bg_config, 0, 0x1F7, 2, 0, 0);
+    LoadFontPal0(0, 0x20, 0);
+    BG_ClearCharDataRange(0, 0x20, 0, 0);
+    BG_SetMaskColor(0, RGB(27, 1, 1));
+    BG_SetMaskColor(4, RGB(27, 1, 1));
+
+    void *error_msgdata = NewMsgDataFromNarc(1, 27, 24, 0); // a027 subfile 41
+    String *error_str = String_New(640, 0);
+
+    ResetAllTextPrinters();
+
+    AddWindow(bg_config, &window, (void *)(0x02108520));
+    FillWindowPixelRect(&window, 0xF, 0, 0, 208, 144);
+    DrawFrameAndWindow1(&window, FALSE, 0x1F7, 2);
+
+    ReadMsgDataIntoString(error_msgdata, 126, error_str);
+    error_str->data[  CRASH_MESSAGE_HEAP_CHAR_START] = 0x0121 + (heapId / 10);
+    error_str->data[CRASH_MESSAGE_HEAP_CHAR_START+1] = 0x0121 + (heapId % 10);
+    error_str->data[  CRASH_MESSAGE_RETADDR_CHAR_START] = 0x0121 + ((retAddr >> 28) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+1] = 0x0121 + ((retAddr >> 24) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+2] = 0x0121 + ((retAddr >> 20) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+3] = 0x0121 + ((retAddr >> 16) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+4] = 0x0121 + ((retAddr >> 12) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+5] = 0x0121 + ((retAddr >>  8) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+6] = 0x0121 + ((retAddr >>  4) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+7] = 0x0121 + (retAddr & 0xF);
+    AddTextPrinterParameterized(&window, 0, error_str, 0, 0, 0, NULL);
+    String_Delete(error_str);
+
+    GfGfx_BothDispOn();
+    SetMasterBrightnessNeutral(0);
+    SetMasterBrightnessNeutral(1);
+    SetBlendBrightness(0, 0x3F, 3);
+
+    sub_02038D90();
+
+    while (TRUE) {
+        HandleDSLidAction();
+        sub_02036144();
+
+        if (sub_02039AA4())
+        {
+            break;
+        }
+        OS_WaitIrq(TRUE, 1);
+    }
+
+    while (TRUE) {
+        HandleDSLidAction();
+
+        if (PAD_Read() & PAD_BUTTON_A) {
+            break;
+        }
+
+        OS_WaitIrq(TRUE, 1);
+    }
+
+    sub_0200FBF4(0, 0x7FFF);
+    sub_0200FBF4(1, 0x7FFF);
+
+    RemoveWindow(&window);
+    DestroyMsgData(error_msgdata);
+    sys_FreeMemoryEz(bg_config);
+
+    OS_ResetSystem(0);
+}
+
+#endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+
+void AllocFail(u32 retAddr UNUSED) {
+#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+    // r5 is actually always heap id, spC is lr.  AllocFail_hook will pass us the retAddr
+    register u32 heapId asm("r5");
+    //if (sub_02037D78())
+    {
+        PrintCrashMessageAndReset(heapId, retAddr);
+    }
+#endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+}

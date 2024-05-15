@@ -775,5 +775,9 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     }
     Ground_ActorResourceSet(&bw->ground[0], bw, 0, terrain); // new terrains are just repointed below
     Ground_ActorResourceSet(&bw->ground[1], bw, 1, terrain);
+
+    // free resources
+    sys_FreeMemoryEz(bw->bg_area);
+    sys_FreeMemoryEz(bw->pal_area);
     BattleWorkGroundBGChg(bw);
 }

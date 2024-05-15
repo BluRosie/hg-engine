@@ -1545,7 +1545,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   15//UNION_CAVE
+encounterdata   15//Mesa Butte
 
 walkrate 25
 surfrate 15
@@ -1553,49 +1553,49 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+walklevels 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40
 
 //morning encounter slots
-pokemon SPECIES_POOCHYENA
-pokemon SPECIES_VENONAT
-pokemon SPECIES_EKANS
-pokemon SPECIES_RALTS
-pokemon SPECIES_CHINGLING
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_BRONZOR
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_MOLTRES, 1
+monwithform SPECIES_TYRANITAR, 1
+monwithform SPECIES_TYRANITAR, 1
+pokemon SPECIES_URSHIFU
+pokemon SPECIES_URSHIFU
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
 
 //day encounter slots
-pokemon SPECIES_POOCHYENA
-pokemon SPECIES_VENONAT
-pokemon SPECIES_EKANS
-pokemon SPECIES_RALTS
-pokemon SPECIES_CHINGLING
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_BRONZOR
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_MOLTRES, 1
+monwithform SPECIES_TYRANITAR, 1
+monwithform SPECIES_TYRANITAR, 1
+pokemon SPECIES_URSHIFU
+pokemon SPECIES_URSHIFU
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
 
 //night encounter slots
-pokemon SPECIES_POOCHYENA
-pokemon SPECIES_VENONAT
-pokemon SPECIES_EKANS
-pokemon SPECIES_RALTS
-pokemon SPECIES_CHINGLING
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DIGLETT
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_DUSKULL
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_BRONZOR
+monwithform SPECIES_ABSOL, 1
+monwithform SPECIES_MOLTRES, 1
+monwithform SPECIES_TYRANITAR, 1
+monwithform SPECIES_TYRANITAR, 1
+pokemon SPECIES_URSHIFU
+pokemon SPECIES_URSHIFU
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
+pokemon SPECIES_GUZZLORD
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE

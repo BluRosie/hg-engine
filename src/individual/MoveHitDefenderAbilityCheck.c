@@ -472,7 +472,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
              && (sp->battlemon[sp->defence_client].form_no == 0)
              && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
              && (sp->moveTbl[sp->current_move_index].power != 0)
-             && (sp->moveTbl[sp->current_move_index].split == SPLIT_PHYSICAL)
+             && (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)
             )
             {
                 BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);

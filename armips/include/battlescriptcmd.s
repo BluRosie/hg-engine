@@ -65,6 +65,42 @@ SPDEF_DOWN_2 equ 50
 ACCURACY_DOWN_2 equ 51
 EVASION_DOWN_2 equ 52
 
+WEATHER_RAIN                        equ (0x00000001)                                                                    // 0000 0000 0000 0000 0001
+WEATHER_RAIN_PERMANENT              equ (0x00000002)                                                                    // 0000 0000 0000 0000 0010
+WEATHER_RAIN_ANY                    equ (0x02000003)                                                          // 0010 0000 0000 0000 0000 0000 0011
+WEATHER_SANDSTORM                   equ (0x00000004)                                                                    // 0000 0000 0000 0000 0100
+WEATHER_SANDSTORM_PERMANENT         equ (0x00000008)                                                                    // 0000 0000 0000 0000 1000
+WEATHER_SANDSTORM_ANY               equ (0x0000000c)                                                                    // 0000 0000 0000 0000 1100
+WEATHER_SUNNY                       equ (0x00000010)                                                                    // 0000 0000 0000 0001 0000
+WEATHER_SUNNY_PERMANENT             equ (0x00000020)                                                                    // 0000 0000 0000 0010 0000
+WEATHER_SUNNY_ANY                   equ (0x01000030)                                                          // 0001 0000 0000 0000 0000 0011 0000
+WEATHER_HAIL                        equ (0x00000040)                                                                    // 0000 0000 0000 0100 0000
+WEATHER_HAIL_PERMANENT              equ (0x00000080)                                                                    // 0000 0000 0000 1000 0000
+WEATHER_HAIL_ANY                    equ (0x000000c0)                                                                    // 0000 0000 0000 1100 0000
+FIELD_STATUS_UPROAR                 equ (0x00000f00)                                                                    // 0000 0000 1111 0000 0000
+FIELD_CONDITION_GRAVITY_INIT        equ (0x00005000)                                                                    // 0000 0101 0000 0000 0000
+FIELD_STATUS_GRAVITY                equ (0x00007000)                                                                    // 0000 0111 0000 0000 0000
+FIELD_STATUS_FOG                    equ (0x00008000)                                                                    // 0000 1000 0000 0000 0000
+FIELD_CONDITION_TRICK_ROOM_INIT     equ (0x00050000)                                                                    // 0101 0000 0000 0000 0000
+FIELD_STATUS_TRICK_ROOM             equ (0x00070000)                                                                    // 0111 0000 0000 0000 0000
+
+// New weathers
+WEATHER_SNOW                        equ (0x00100000)                                                          //      0001 0000 0000 0000 0000 0000
+WEATHER_SNOW_PERMANENT              equ (0x00200000)                                                          //      0010 0000 0000 0000 0000 0000
+WEATHER_SNOW_ANY                    equ (0x00300000)                                                          //      0011 0000 0000 0000 0000 0000
+// We have 2 extra bits let's have fun:
+WEATHER_SHADOWY_AURA                equ (0x00400000)                                                          //      0100 0000 0000 0000 0000 0000
+WEATHER_SHADOWY_AURA_PERMANENT      equ (0x00800000)                                                          //      1000 0000 0000 0000 0000 0000
+WEATHER_SHADOWY_AURA_ANY            equ (0x00c00000)                                                          //      1100 0000 0000 0000 0000 0000
+
+WEATHER_EXTREMELY_HARSH_SUNLIGHT    equ (0x01000000)                                                          // 0001 0000 0000 0000 0000 0000 0000
+WEATHER_HEAVY_RAIN                  equ (0x02000000)                                                          // 0010 0000 0000 0000 0000 0000 0000
+WEATHER_STRONG_WINDS                equ (0x04000000)                                                          // 0100 0000 0000 0000 0000 0000 0000
+
+FIELD_CONDITION_WEATHER_NO_SUN      equ (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | FIELD_STATUS_FOG | WEATHER_SNOW_ANY | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN | WEATHER_STRONG_WINDS)
+FIELD_CONDITION_WEATHER_CASTFORM    equ (WEATHER_HEAVY_RAIN | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | WEATHER_RAIN_ANY)
+FIELD_CONDITION_WEATHER             equ (FIELD_CONDITION_WEATHER_NO_SUN | WEATHER_SUNNY_ANY)
+
 .macro startencounter
     .word 0x0
 .endmacro
@@ -1572,4 +1608,13 @@ MOVE_DATA_CONTEST_TYPE equ 11
 .macro changeexecutionorderpriority,side,forceExecutionOrder,failAddress
     .word 0xF6, side, forceExecutionOrder
     .word ((failAddress - org()) / 4) - 1
+.endmacro
+
+.macro setbindingcounter,adrs
+    .word 0xF7
+    .word ((adrs - org()) / 4) - 1
+.endmacro
+
+.macro clearbindcounter
+    .word 0xF8
 .endmacro

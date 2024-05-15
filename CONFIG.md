@@ -53,7 +53,9 @@
 
  ``EXPAND_PC_BOXES`` (``include/config.h`` only) will expand the PC boxes to 30 in the game from the original 18.  Boxes are expanded to 30 by default.
 
-``FRIENDSHIP_EVOLUTION_THRESHOLD`` (``include/config.h`` only) defines the threshold for evolutions that involve friendship to start happening.  This is vanilla 220, but in modern generations is 160.
+ ``FRIENDSHIP_EVOLUTION_THRESHOLD`` (``include/config.h`` only) defines the threshold for evolutions that involve friendship to start happening.  This is vanilla 220, but in modern generations is 160.
+
+ ``RESTORE_ITEMS_AT_BATTLE_END`` (``include/config.h`` only) will restore most single-use items at the end of the battle if defined.  This does not include held berries per modern generation standards.
 
 ### ``scripts\make.py`` and ``linker.ld``
  On line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in overlay 129 with enough free space.  This is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.

@@ -27,6 +27,7 @@ enum{
     FCC_SANDSTORM,
     FCC_SUNNY,
     FCC_HAIL,
+    FCC_SNOW,
     FCC_FOG,
     FCC_GRAVITY,
     FCC_TERRAIN,
@@ -41,6 +42,12 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
     int client_set_max;
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
+
+    // Sort here because damage taken here needs to account for speed
+    // store command so that it is unedited by the function call
+    side = sp->server_seq_no;
+    BattleControllerPlayer_CalcExecutionOrder(bw, sp);
+    sp->server_seq_no = side;
 
     do
     {
@@ -223,7 +230,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
         case FCC_WISH:
             while (sp->fcc_work < client_set_max)
             {
-                side = sp->turn_order[sp->fcc_work];
+                side = sp->turnOrder[sp->fcc_work];
                 if (sp->fcc.wish_count[side])
                 {
                     if (--sp->fcc.wish_count[side] == 0)
@@ -387,6 +394,29 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         sp->server_seq_no = 22;
                     }
                 }
+                sp->temp_work = 20;
+                ret = 1;
+            }
+            sp->fcc_seq_no++;
+            break;
+        case FCC_SNOW:
+            if (sp->field_condition & WEATHER_SNOW_ANY) {
+                if (sp->field_condition & WEATHER_SNOW_PERMANENT) {
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                } else {
+                    if (--sp->fcc.weather_count == 0) {
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SNOW_END);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    } else {
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                    }
+                }
+                // Reuse same animation for now
                 sp->temp_work = 20;
                 ret = 1;
             }

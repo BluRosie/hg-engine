@@ -133,7 +133,7 @@ MOVE_EFFECT_UNUSED_131                              equ 131
 MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   equ 132
 MOVE_EFFECT_UNUSED_133                              equ 133
 MOVE_EFFECT_UNUSED_134                              equ 134
-MOVE_EFFECT_RANDOM_POWER_BASED_ON_IVS               equ 135
+MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                equ 135
 MOVE_EFFECT_WEATHER_RAIN                            equ 136
 MOVE_EFFECT_WEATHER_SUN                             equ 137
 MOVE_EFFECT_RAISE_DEF_HIT                           equ 138
@@ -310,3 +310,14 @@ MOVE_EFFECT_QUASH                                   equ 306
 MOVE_EFFECT_TECHNO_BLAST                            equ 307
 MOVE_EFFECT_MULTI_ATTACK                            equ 308
 MOVE_EFFECT_IVY_CUDGEL                              equ 309
+MOVE_EFFECT_HIT_AND_PLANT_SEED                      equ 310
+MOVE_EFFECT_HIT_AND_SET_LIGHT_SCREEN                equ 311
+MOVE_EFFECT_HIT_AND_SET_REFLECT                     equ 312
+MOVE_EFFECT_HIT_AND_RESET_STAT_CHANGES              equ 313
+MOVE_EFFECT_HIT_AND_CURE_PARTY_STATUS               equ 314
+MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT               equ 315
+MOVE_EFFECT_HIT_AND_EVA_UP                          equ 316
+MOVE_EFFECT_RAISE_DEF_2_HIT                         equ 317
+MOVE_EFFECT_GEOMANCY                                equ 318
+MOVE_EFFECT_WEATHER_SNOW                            equ 319
+MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 equ 320

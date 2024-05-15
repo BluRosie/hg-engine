@@ -136,7 +136,7 @@
 #define MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   132
 #define MOVE_EFFECT_UNUSED_133                              133
 #define MOVE_EFFECT_UNUSED_134                              134
-#define MOVE_EFFECT_RANDOM_POWER_BASED_ON_IVS               135
+#define MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                135
 #define MOVE_EFFECT_WEATHER_RAIN                            136
 #define MOVE_EFFECT_WEATHER_SUN                             137
 #define MOVE_EFFECT_RAISE_DEF_HIT                           138
@@ -313,6 +313,17 @@
 #define MOVE_EFFECT_TECHNO_BLAST                            307
 #define MOVE_EFFECT_MULTI_ATTACK                            308
 #define MOVE_EFFECT_IVY_CUDGEL                              309
+#define MOVE_EFFECT_HIT_AND_PLANT_SEED                      310
+#define MOVE_EFFECT_HIT_AND_SET_LIGHT_SCREEN                311
+#define MOVE_EFFECT_HIT_AND_SET_REFLECT                     312
+#define MOVE_EFFECT_HIT_AND_RESET_STAT_CHANGES              313
+#define MOVE_EFFECT_HIT_AND_CURE_PARTY_STATUS               314
+#define MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT               315
+#define MOVE_EFFECT_HIT_AND_EVA_UP                          316
+#define MOVE_EFFECT_RAISE_DEF_2_HIT                         317
+#define MOVE_EFFECT_GEOMANCY                                318
+#define MOVE_EFFECT_WEATHER_SNOW                            319
+#define MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 320
 
 
 

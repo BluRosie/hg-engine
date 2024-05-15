@@ -12,7 +12,7 @@
 .create "build/move/battle_sub_seq/1_235", 0
 
 a001_235:
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x4
+    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM
     printmessage 806, TAG_NONE, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // The sandstorm subsided.
     waitmessage
     wait 0x1E

@@ -1,4 +1,5 @@
 #include "include/config.h"
+#include "include/debug.h"
 
 #overlay 1 is loaded in at 021E5900
 #overlay 2 is loaded in at 02245B80
@@ -120,6 +121,10 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
 0012 Link_QueueIsEmpty 0224ED48 1
 0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
+0012 BtlCmd_WeatherHPRecovery 02242380 3
+0012 BtlCmd_CalcWeatherBallParams 022432AC 3
+0012 BtlCmd_TrySubstitute 022414F0 3
+0012 BtlCmd_RapidSpin 02242238 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -435,3 +440,13 @@ arm9 MonTryLearnMoveOnLevelUp 02071534 3
 0007 AnimCmd_PlayCryEdit_hook 0221F854 0
 
 arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
+
+# 0224C018 + 4 = 224C01C
+0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
+
+0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
+
+#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+arm9 AllocFail_hook 0201AA7C 0
+#endif
+# DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
