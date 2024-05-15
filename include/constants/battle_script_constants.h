@@ -372,6 +372,13 @@
 #define SUB_SEQ_HANDLE_RAIN_TEMPORARY                 (362)
 #define SUB_SEQ_HANDLE_SANDSTORM_TEMPORARY            (363)
 #define SUB_SEQ_HANDLE_SNOW_TEMPORARY                 (364)
+#define SUB_SEQ_DESOLATE_LAND                         (365)
+#define SUB_SEQ_PRIMORDIAL_SEA                        (366)
+#define SUB_SEQ_DELTA_STREAM                          (367)
+#define SUB_SEQ_TRY_CLEAR_PRIMAL_WEATHERS             (368)
+#define SUB_SEQ_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING    (369)
+#define SUB_SEQ_CANCEL_WATER_MOVE                     (370)
+#define SUB_SEQ_CANCEL_FIRE_MOVE                      (371)
 
 
 

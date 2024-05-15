@@ -179,6 +179,27 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                         newBS.weather = WEATHER_HAIL_PERMANENT;
                                     }
                                     break;
+                                case ABILITY_DESOLATE_LAND:
+                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    if ((sp->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) == 0) {
+                                        scriptnum = SUB_SEQ_DESOLATE_LAND;
+                                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    }
+                                    break;
+                                case ABILITY_PRIMORDIAL_SEA:
+                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    if ((sp->field_condition & WEATHER_HEAVY_RAIN) == 0) {
+                                        scriptnum = SUB_SEQ_PRIMORDIAL_SEA;
+                                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    }
+                                    break;
+                                case ABILITY_DELTA_STREAM:
+                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    if ((sp->field_condition & WEATHER_STRONG_WINDS) == 0) {
+                                        scriptnum = SUB_SEQ_DELTA_STREAM;
+                                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    }
+                                    break;
                             }
                         }
                         if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
