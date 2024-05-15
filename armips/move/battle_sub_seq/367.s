@@ -12,7 +12,7 @@
 .create "build/move/battle_sub_seq/1_367", 0
 
 a001_367:
-    // Rain animation
+    // Tailwind animation
     changevar VAR_OP_SET, VAR_MOVE_TEMP2, MOVE_TAILWIND
     playanimation BATTLER_xFF
     waitmessage

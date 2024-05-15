@@ -1470,7 +1470,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
             {
                 if (TypeEffectivenessTable[i][1] == defender_type_1)
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                        && sp->field_condition & WEATHER_STRONG_WINDS
+                        && (TypeEffectivenessTable[i][2] == 20)
+                        && defender_type_1 == TYPE_FLYING))
                     {
                         damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                         if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
@@ -1481,7 +1486,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 }
                 if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                        && sp->field_condition & WEATHER_STRONG_WINDS
+                        && (TypeEffectivenessTable[i][2] == 20)
+                        && defender_type_2 == TYPE_FLYING))
                     {
                         damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                         if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
@@ -2658,6 +2668,39 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
 }
 
+/**
+ *  @brief checks if the given move should be weakened or not (only prints message)
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE/FALSE
+ */
+BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
+    u8 defender_type_1 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL);
+    u8 defender_type_2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL);
+    u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
+    u8 i = 0;
+    
+    // TODO: Check type3
+    while (TypeEffectivenessTable[i][0] != 0xff) {
+        if (TypeEffectivenessTable[i][0] == move_type) {
+            if ((TypeEffectivenessTable[i][1] == defender_type_1) || (TypeEffectivenessTable[i][1] == defender_type_2)) {
+                if ((!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                && sp->field_condition & WEATHER_STRONG_WINDS
+                && (TypeEffectivenessTable[i][2] == 20)
+                && ((defender_type_1 == TYPE_FLYING) || (defender_type_2 == TYPE_FLYING)))) {
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    return TRUE;
+                }
+            }
+        }
+        i++;
+    }
+
+    return FALSE;
+}
+
 enum {
     TRY_MOVE_START = 0,
 
@@ -2667,6 +2710,7 @@ enum {
     TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES,
     TRY_MOVE_STATE_CHECK_TYPE_CHART,
     TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES,
+    TRY_MOVE_STATE_TRIGGER_STRONG_WINDS,
 
     TRY_MOVE_END,
 };
@@ -2718,6 +2762,12 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
             return;
         }
         ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_TRIGGER_STRONG_WINDS:
+        ctx->woc_seq_no++;
+        if (CheckStrongWindsWeaken(bsys, ctx)) {
+            return;
+        }
         //fallthrough
     case TRY_MOVE_END:
         ctx->woc_seq_no = 0;

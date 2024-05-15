@@ -379,6 +379,7 @@
 #define SUB_SEQ_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING    (369)
 #define SUB_SEQ_CANCEL_WATER_MOVE                     (370)
 #define SUB_SEQ_CANCEL_FIRE_MOVE                      (371)
+#define SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS             (372)
 
 
 
