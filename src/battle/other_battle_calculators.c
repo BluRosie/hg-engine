@@ -2657,3 +2657,71 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
 }
+
+enum {
+    TRY_MOVE_START = 0,
+
+    TRY_MOVE_STATE_CHECK_VALID_TARGET = TRY_MOVE_START,
+    TRY_MOVE_STATE_TRIGGER_REDIRECTION_ABILITIES,
+    TRY_MOVE_STATE_CHECK_MOVE_HITS,
+    TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES,
+    TRY_MOVE_STATE_CHECK_TYPE_CHART,
+    TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES,
+
+    TRY_MOVE_END,
+};
+
+/**
+ * Platinum version as reference
+ * BattleController_TryMove
+ * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3240
+ */
+void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    // u8 buf[64];
+    // sprintf(buf, "In BattleController_TryMove\n");
+    // debugsyscall(buf);
+
+    switch (ctx->woc_seq_no) {
+    case TRY_MOVE_STATE_CHECK_VALID_TARGET:
+        ctx->woc_seq_no++;
+        if (ov12_0224B398(bsys, ctx) == TRUE) {
+            return;
+        }
+        //fallthrough
+    case TRY_MOVE_STATE_TRIGGER_REDIRECTION_ABILITIES:
+        ctx->woc_seq_no++;
+        if (ov12_02250BBC(bsys, ctx) == TRUE) {
+            return;
+        }
+        //fallthrough
+    case TRY_MOVE_STATE_CHECK_MOVE_HITS:
+        // BATTLER_NONE
+        if (!(ctx->waza_out_check_on_off & 0x20) && ctx->defence_client != 0xFF && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES:
+        if (!(ctx->waza_out_check_on_off & 0x40) && ctx->defence_client != 0xFF && BattleSystem_CheckMoveEffect(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_CHECK_TYPE_CHART:
+        if (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != 0xFF && ov12_0224B498(bsys, ctx) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES:
+        if (!(ctx->waza_out_check_on_off & 0x10) && ctx->defence_client != 0xFF && ov12_0224BC2C(bsys, ctx) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_END:
+        ctx->woc_seq_no = 0;
+        break;
+    }
+    ctx->server_seq_no = CONTROLLER_COMMAND_25;
+}

@@ -1103,7 +1103,7 @@ struct PACKED BattleStruct
     /*0x217F*/ u8 beat_up_count;
 
     /*0x2180*/ u32 loop_flag;
-    /*0x2184*/ u32 waza_out_check_on_off;
+    /*0x2184*/ u32 waza_out_check_on_off; // multiHitCheckFlags
     /*0x2188*/ u32 loop_hit_check;
 
     /*0x218C*/ u32 condition2_off_req[CLIENT_MAX];
@@ -2845,5 +2845,15 @@ void LONG_CALL ov12_0224DC0C(struct BattleSystem *bsys, struct BattleStruct *ctx
 void LONG_CALL SortExecutionOrderBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 void LONG_CALL SortMonsBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL ov12_0224B398(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL ov12_02250BBC(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL BattleSystem_CheckMoveHit(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerIdAttacker, int battlerIdTarget, int move);
+
+BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 #endif // BATTLE_H

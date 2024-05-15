@@ -2704,9 +2704,9 @@ BOOL btl_scr_cmd_F8_clearbindcounter(void *bw UNUSED, struct BattleStruct *sp) {
  *  @return FALSE
  */
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp) {
-    u8 buf[64];
-    sprintf(buf, "In canclearprimalweather\n");
-    debugsyscall(buf);
+    // u8 buf[64];
+    // sprintf(buf, "In canclearprimalweather\n");
+    // debugsyscall(buf);
 
     int client_no = 0;  // initialize
     u8 count = 0;
@@ -2750,8 +2750,8 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp) {
         }
     }
 
-    sprintf(buf, "Count: %d\n", count);
-    debugsyscall(buf);
+    // sprintf(buf, "Count: %d\n", count);
+    // debugsyscall(buf);
 
     // There is still another mon with the primal ability on the field
     if (count > lowerBound) {
@@ -2760,27 +2760,27 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp) {
     } else {
         switch (currentPrimalWeather) {
             case WEATHER_EXTREMELY_HARSH_SUNLIGHT:
-                sprintf(buf, "WEATHER_EXTREMELY_HARSH_SUNLIGHT\n");
-                debugsyscall(buf);
+                // sprintf(buf, "WEATHER_EXTREMELY_HARSH_SUNLIGHT\n");
+                // debugsyscall(buf);
                 IncrementBattleScriptPtr(sp, sunAddress);
                 return FALSE;
                 break;
             case WEATHER_HEAVY_RAIN:
-                sprintf(buf, "WEATHER_HEAVY_RAIN\n");
-                debugsyscall(buf);
+                // sprintf(buf, "WEATHER_HEAVY_RAIN\n");
+                // debugsyscall(buf);
                 IncrementBattleScriptPtr(sp, rainAddress);
                 return FALSE;
                 break;
             case WEATHER_STRONG_WINDS:
-                sprintf(buf, "WEATHER_STRONG_WINDS\n");
-                debugsyscall(buf);
+                // sprintf(buf, "WEATHER_STRONG_WINDS\n");
+                // debugsyscall(buf);
                 IncrementBattleScriptPtr(sp, windsAddress);
                 return FALSE;
                 break;
 
             default:
-                sprintf(buf, "Fail?\n");
-                debugsyscall(buf);
+                // sprintf(buf, "Fail?\n");
+                // debugsyscall(buf);
                 break;
         }
     }
