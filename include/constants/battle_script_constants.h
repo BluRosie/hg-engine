@@ -380,6 +380,7 @@
 #define SUB_SEQ_CANCEL_WATER_MOVE                     (370)
 #define SUB_SEQ_CANCEL_FIRE_MOVE                      (371)
 #define SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS             (372)
+#define SUB_SEQ_PREVENT_CHANGING_WEATHER              (373)
 
 
 
