@@ -136,7 +136,7 @@
 #define MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   132
 #define MOVE_EFFECT_UNUSED_133                              133
 #define MOVE_EFFECT_UNUSED_134                              134
-#define MOVE_EFFECT_RANDOM_POWER_BASED_ON_IVS               135
+#define MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                135
 #define MOVE_EFFECT_WEATHER_RAIN                            136
 #define MOVE_EFFECT_WEATHER_SUN                             137
 #define MOVE_EFFECT_RAISE_DEF_HIT                           138

@@ -3801,9 +3801,9 @@ movedata MOVE_MOONLIGHT, "Moonlight"
     movedescription MOVE_MOONLIGHT, "The user restores its\nown HP.\nThe amount of HP\nregained varies with\nthe weather."
 
 movedata MOVE_HIDDEN_POWER, "Hidden Power"
-    battleeffect MOVE_EFFECT_RANDOM_POWER_BASED_ON_IVS
+    battleeffect MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS
     pss SPLIT_SPECIAL
-    basepower DEBUG_NEEDS_TESTING ? 60 : 1 // come back and look at this eventually
+    basepower 60
     type TYPE_NORMAL
     accuracy 100
     pp 15
@@ -3814,7 +3814,7 @@ movedata MOVE_HIDDEN_POWER, "Hidden Power"
     appeal 0x17
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_HIDDEN_POWER, "A unique attack that\nvaries in type and\nintensity depending\non the Pokémon using\nit."
+    movedescription MOVE_HIDDEN_POWER, "A unique attack that\nvaries in type\ndepending on the\nPokémon using it."
 
 movedata MOVE_CROSS_CHOP, "Cross Chop"
     battleeffect MOVE_EFFECT_HIGH_CRITICAL
