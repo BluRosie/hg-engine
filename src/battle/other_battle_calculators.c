@@ -22,6 +22,8 @@ typedef struct
     u8  denominator;
 } AccuracyStatChangeRatio;
 
+int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
+
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
     {  33, 100 },
@@ -2624,7 +2626,7 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
 void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int script;
     u32 battleType = BattleTypeGet(bsys);
-    
+
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_POKE_PARK))) {
         if (AbilityStatusRecoverCheck(bsys, ctx, ctx->attack_client, 0) == TRUE) {
             return;
@@ -2639,7 +2641,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         if (ov12_0224D7EC(bsys, ctx) == TRUE) {
             return;
         }
-        
+
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);
@@ -2652,9 +2654,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         }
         ov12_0224DC0C(bsys, ctx);
     }
-    
+
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
-    
+
     if (ctx->oneSelfFlag[ctx->attack_client].trickroom_flag) {
         SortExecutionOrderBySpeed(bsys, ctx);
         SortMonsBySpeed(bsys, ctx);
@@ -2662,9 +2664,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else {
         ctx->executionIndex++;
     }
-    
+
     BattleStructureInit(ctx);
-    
+
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
 }
 
@@ -2679,7 +2681,7 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
     int defender_type_2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL);
     u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
     int i = 0;
-    
+
     // TODO: Check type3
     while (TypeEffectivenessTable[i][0] != 0xff) {
         if (TypeEffectivenessTable[i][0] == move_type) {
