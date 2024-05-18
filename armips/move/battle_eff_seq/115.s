@@ -16,6 +16,11 @@ a030_115:
     printattackmessage
     waitmessage
     wait 0x1E
+
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_EXTREMELY_HARSH_SUNLIGHT, PreventChangingWeather
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HEAVY_RAIN, PreventChangingWeather
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_STRONG_WINDS, PreventChangingWeather
+
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM_ANY, NoAnimation
     playanimation BATTLER_ATTACKER
     waitmessage
@@ -23,4 +28,8 @@ NoAnimation:
     gotosubscript SUB_SEQ_HANDLE_SANDSTORM_TEMPORARY
     endscript
 
+PreventChangingWeather:
+    gotosubscript SUB_SEQ_PREVENT_CHANGING_WEATHER
+    changevar VAR_OP_SETMASK, VAR_MOVE_STATUS, 0x40
+    endscript
 .close

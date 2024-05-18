@@ -1470,7 +1470,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
             {
                 if (TypeEffectivenessTable[i][1] == defender_type_1)
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                        && sp->field_condition & WEATHER_STRONG_WINDS
+                        && (TypeEffectivenessTable[i][2] == 20)
+                        && defender_type_1 == TYPE_FLYING))
                     {
                         damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                         if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
@@ -1481,7 +1486,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 }
                 if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                        && sp->field_condition & WEATHER_STRONG_WINDS
+                        && (TypeEffectivenessTable[i][2] == 20)
+                        && defender_type_2 == TYPE_FLYING))
                     {
                         damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                         if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
@@ -2604,4 +2614,164 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
     sp->stateUpdateMonCondition = 0;
     sp->updateMonConditionData = 0;
     sp->server_seq_no = 11;
+}
+
+/**
+ * Platinum version as reference
+ * BattleController_MoveEnd
+ * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
+ */
+void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int script;
+    u32 battleType = BattleTypeGet(bsys);
+    
+    if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_POKE_PARK))) {
+        if (AbilityStatusRecoverCheck(bsys, ctx, ctx->attack_client, 0) == TRUE) {
+            return;
+        }
+        // BATTLER_NONE
+        if (ctx->defence_client != 0xFF && AbilityStatusRecoverCheck(bsys, ctx, ctx->defence_client, 0) == TRUE) {
+            return;
+        }
+        if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
+            return;
+        }
+        if (ov12_0224D7EC(bsys, ctx) == TRUE) {
+            return;
+        }
+        
+        script = SwitchInAbilityCheck(bsys, ctx);
+        if (script) {
+            LoadBattleSubSeqScript(ctx, 1, script);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+        if (ov12_0224E130(bsys, ctx) == TRUE) {
+            return;
+        }
+        ov12_0224DC0C(bsys, ctx);
+    }
+    
+    ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
+    
+    if (ctx->oneSelfFlag[ctx->attack_client].trickroom_flag) {
+        SortExecutionOrderBySpeed(bsys, ctx);
+        SortMonsBySpeed(bsys, ctx);
+        ctx->executionIndex = 0;
+    } else {
+        ctx->executionIndex++;
+    }
+    
+    BattleStructureInit(ctx);
+    
+    ctx->server_seq_no = CONTROLLER_COMMAND_8;
+}
+
+/**
+ *  @brief checks if the given move should be weakened or not (only prints message)
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE/FALSE
+ */
+BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
+    int defender_type_1 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL);
+    int defender_type_2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL);
+    u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
+    int i = 0;
+    
+    // TODO: Check type3
+    while (TypeEffectivenessTable[i][0] != 0xff) {
+        if (TypeEffectivenessTable[i][0] == move_type) {
+            if ((TypeEffectivenessTable[i][1] == defender_type_1) || (TypeEffectivenessTable[i][1] == defender_type_2)) {
+                if ((!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                && sp->field_condition & WEATHER_STRONG_WINDS
+                && (TypeEffectivenessTable[i][2] == 20)
+                && ((defender_type_1 == TYPE_FLYING) || (defender_type_2 == TYPE_FLYING)))) {
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    return TRUE;
+                }
+            }
+        }
+        i++;
+    }
+
+    return FALSE;
+}
+
+enum {
+    TRY_MOVE_START = 0,
+
+    TRY_MOVE_STATE_CHECK_VALID_TARGET = TRY_MOVE_START,
+    TRY_MOVE_STATE_TRIGGER_REDIRECTION_ABILITIES,
+    TRY_MOVE_STATE_CHECK_MOVE_HITS,
+    TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES,
+    TRY_MOVE_STATE_CHECK_TYPE_CHART,
+    TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES,
+    TRY_MOVE_STATE_TRIGGER_STRONG_WINDS,
+
+    TRY_MOVE_END,
+};
+
+/**
+ * Platinum version as reference
+ * BattleController_TryMove
+ * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3240
+ */
+void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    // u8 buf[64];
+    // sprintf(buf, "In BattleController_TryMove\n");
+    // debugsyscall(buf);
+
+    switch (ctx->woc_seq_no) {
+    case TRY_MOVE_STATE_CHECK_VALID_TARGET:
+        ctx->woc_seq_no++;
+        if (ov12_0224B398(bsys, ctx) == TRUE) {
+            return;
+        }
+        //fallthrough
+    case TRY_MOVE_STATE_TRIGGER_REDIRECTION_ABILITIES:
+        ctx->woc_seq_no++;
+        if (ov12_02250BBC(bsys, ctx) == TRUE) {
+            return;
+        }
+        //fallthrough
+    case TRY_MOVE_STATE_CHECK_MOVE_HITS:
+        // BATTLER_NONE
+        if (!(ctx->waza_out_check_on_off & 0x20) && ctx->defence_client != 0xFF && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES:
+        if (!(ctx->waza_out_check_on_off & 0x40) && ctx->defence_client != 0xFF && BattleSystem_CheckMoveEffect(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_CHECK_TYPE_CHART:
+        if (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != 0xFF && ov12_0224B498(bsys, ctx) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES:
+        if (!(ctx->waza_out_check_on_off & 0x10) && ctx->defence_client != 0xFF && ov12_0224BC2C(bsys, ctx) == TRUE) {
+            return;
+        }
+        ctx->woc_seq_no++;
+        //fallthrough
+    case TRY_MOVE_STATE_TRIGGER_STRONG_WINDS:
+        ctx->woc_seq_no++;
+        if (CheckStrongWindsWeaken(bsys, ctx)) {
+            return;
+        }
+        //fallthrough
+    case TRY_MOVE_END:
+        ctx->woc_seq_no = 0;
+        break;
+    }
+    ctx->server_seq_no = CONTROLLER_COMMAND_25;
 }
