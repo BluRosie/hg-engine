@@ -133,10 +133,6 @@ TOOLS += $(NDSTOOL)
 
 $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
-ifeq ($(MSYS2), 0)
-	wget -O $(ARMIPS).7z https://github.com/Kingcom/armips/releases/download/v0.11.0/armips-v0.11.0-windows-x86.7z
-	cd tools; p7zip -d armips.7z; rm -f Readme.md
-else
 	rm -r -f tools/source/armips
 	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
 	#cd tools/source ; cp -r ~/git/armips armips
@@ -145,7 +141,6 @@ else
 	cd tools/source/armips/build ; cmake --build .
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
-endif
 endif
 
 TOOLS += $(ARMIPS)
