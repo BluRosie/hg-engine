@@ -62,7 +62,7 @@ _Switch:
     waitmessage
     preparehpgaugeslide BATTLER_ATTACKER 
     waitmessage
-    changevar2 VAR_OP_SET, VAR_SWITCHED_BATTLER, 0x1000000
+    changevar2 VAR_OP_SET, VAR_SWITCHED_BATTLER, VAR_ATTACKER
     changevar VAR_OP_SETMASK, VAR_SERVER_STATUS1, 0x100
     jumptosubseq 10
 
