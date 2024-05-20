@@ -138,7 +138,8 @@ ifeq ($(MSYS2), 0)
 	cd tools; p7zip -d armips.7z; rm -f Readme.md
 else
 	rm -r -f tools/source/armips
-	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
+	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
+	#cd tools/source ; cp -r ~/git/armips armips
 	cd tools/source/armips ; mkdir build
 	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
 	cd tools/source/armips/build ; cmake --build .
@@ -225,7 +226,7 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo "Done.  See output test.nds."
+	@echo "Done.  See output $(BUILDROM)."
 
 ####################### Clean #######################
 clean:
