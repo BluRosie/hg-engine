@@ -1240,8 +1240,8 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->client_work = sp->defence_client;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
+            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->commandNext = CONTROLLER_COMMAND_29;
         }
         else
         {
@@ -1337,15 +1337,15 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             sp->hp_calc_work = sp->damage;
 
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
+            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->commandNext = CONTROLLER_COMMAND_29;
 
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
         }
     }
     else
     {
-        sp->server_seq_no = 29;
+        sp->command = CONTROLLER_COMMAND_29;
     }
 }
 
@@ -2233,11 +2233,11 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
 
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
-    if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE) {
+    if (CheckIfAnyoneShouldFaint(sp, sp->command, sp->command, 1) == TRUE) {
         return;
     }
 
-    if (ServerGetExpCheck(sp, sp->server_seq_no, sp->server_seq_no) == TRUE) {
+    if (ServerGetExpCheck(sp, sp->command, sp->command) == TRUE) {
         return;
     }
 
@@ -2261,8 +2261,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_INGRAIN_HEAL);
                 }
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2278,8 +2278,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                     sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_AQUA_RING_HEAL);
                 }
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2308,8 +2308,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 sp->attack_client_work = sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER;
                 sp->defence_client_work = battlerId;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LEECH_SEED_DAMAGE);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2319,8 +2319,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 sp->client_work = battlerId;
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2335,8 +2335,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 sp->hp_calc_work *= ((sp->battlemon[battlerId].condition & STATUS_FLAG_TOXIC_COUNT) >> 8);
                 sp->hp_calc_work *= -1;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2345,8 +2345,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
             if ((sp->battlemon[battlerId].condition & STATUS_FLAG_BURNED) && sp->battlemon[battlerId].hp != 0) {
                 sp->client_work = battlerId;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BURN_DAMAGE);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2356,8 +2356,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 if (sp->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
                    sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_NIGHTMARE_DAMAGE);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 } else {
                     sp->battlemon[battlerId].condition2 &= ~STATUS2_NIGHTMARE;
@@ -2369,8 +2369,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
             if ((sp->battlemon[battlerId].condition2 & STATUS2_CURSE) && sp->battlemon[battlerId].hp != 0) {
                 sp->client_work = battlerId;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CURSE_DAMAGE);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2387,8 +2387,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 }
                 sp->waza_work = sp->battlemon[battlerId].moveeffect.bindingMove;
                 sp->client_work = battlerId;
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2401,8 +2401,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BAD_DREAMS);
                 sp->server_status_flag |= BATTLE_STATUS_NO_BLINK;
                 sp->client_work = battlerId;
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2414,8 +2414,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                     if ((sp->battlemon[battlerIdSleep].condition & STATUS_FLAG_ASLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
                         sp->client_work = battlerIdSleep;
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WAKE_UP);
-                        sp->next_server_seq_no = sp->server_seq_no;
-                        sp->server_seq_no = 22;
+                        sp->commandNext = sp->command;
+                        sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                         break;
                     }
                 }
@@ -2437,8 +2437,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 }
                 sp->client_work = battlerId;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, i);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             if (flag != 2) {
@@ -2453,8 +2453,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 } else if (!(sp->battlemon[battlerId].condition2 & STATUS2_RAMPAGE_TURNS) && !(sp->battlemon[battlerId].condition2 & STATUS2_CONFUSED)) {
                     sp->state_client = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2476,8 +2476,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                     sp->battlemon[battlerId].moveeffect.disabledMove = 0;
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DISABLE_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2499,8 +2499,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                     sp->battlemon[battlerId].moveeffect.encoredMove = 0;
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ENCORE_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2526,8 +2526,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 if (sp->battlemon[battlerId].moveeffect.tauntTurns == 0) {
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAUNT_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2538,8 +2538,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 if (--sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0) {
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGNET_RISE_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2550,8 +2550,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 if (--sp->battlemon[battlerId].moveeffect.healBlockTurns == 0) {
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_BLOCK_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2562,8 +2562,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                 if (--sp->battlemon[battlerId].moveeffect.embargoFlag == 0) {
                     sp->client_work = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_EMBARGO_END);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2576,8 +2576,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
                     sp->state_client = battlerId;
                     sp->addeffect_type = 4;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_SLEEP);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     flag = 1;
                 }
             }
@@ -2590,8 +2590,8 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
             if (HeldItemHealCheck(bw, sp, battlerId, (int *)&script) == TRUE) {
                 sp->client_work = battlerId;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, script);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 flag = 1;
             }
             sp->stateUpdateMonCondition++;
@@ -2615,7 +2615,7 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
     }
     sp->stateUpdateMonCondition = 0;
     sp->updateMonConditionData = 0;
-    sp->server_seq_no = 11;
+    sp->command = CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION_EXTRA;
 }
 
 /**
@@ -2635,7 +2635,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         if (ctx->defence_client != 0xFF && AbilityStatusRecoverCheck(bsys, ctx, ctx->defence_client, 0) == TRUE) {
             return;
         }
-        if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
+        if (ov12_0224DD18(ctx, ctx->command, ctx->command) == TRUE) {
             return;
         }
         if (ov12_0224D7EC(bsys, ctx) == TRUE) {
@@ -2645,8 +2645,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->commandNext = ctx->command;
+            ctx->command = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
         if (ov12_0224E130(bsys, ctx) == TRUE) {
@@ -2667,7 +2667,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     BattleStructureInit(ctx);
 
-    ctx->server_seq_no = CONTROLLER_COMMAND_8;
+    ctx->command = CONTROLLER_COMMAND_8;
 }
 
 /**
@@ -2691,8 +2691,8 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
                 && (TypeEffectivenessTable[i][2] == 20)
                 && ((defender_type_1 == TYPE_FLYING) || (defender_type_2 == TYPE_FLYING)))) {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return TRUE;
                 }
             }
@@ -2775,5 +2775,5 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
         ctx->woc_seq_no = 0;
         break;
     }
-    ctx->server_seq_no = CONTROLLER_COMMAND_25;
+    ctx->command = CONTROLLER_COMMAND_25;
 }

@@ -64,7 +64,7 @@ enum
 
 /**
  *  @brief actions that take precedence over all moves
- *         loads in battle sub script and queues it up by setting server_seq_no to 22
+ *         loads in battle sub script and queues it up by setting command to CONTROLLER_COMMAND_RUN_SCRIPT
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -124,8 +124,8 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
                     sp->client_work = client_no;
                     sp->battlemon[client_no].form_no = 1; // ?
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FOCUS_PUNCH_START);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
+                    sp->commandNext = sp->command;
+                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return;
                 }
             }
@@ -223,7 +223,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp)
     } while (ret == 0);
     if (ret == 2)
     {
-        sp->server_seq_no = 8;
+        sp->command = CONTROLLER_COMMAND_8;
     }
 }
 
@@ -290,8 +290,8 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION); // load sequence 297 and execute
             }
-            sp->next_server_seq_no = sp->server_seq_no;
-            sp->server_seq_no = 22;
+            sp->commandNext = sp->command;
+            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
         if (newBS.needMega[client_no] == MEGA_CHECK_APPER && sp->battlemon[sp->attack_client].hp)
@@ -301,8 +301,8 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
             if (seq)
             {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
+                sp->commandNext = sp->command;
+                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
 
@@ -362,16 +362,16 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                         switch (ret)
                         {
                             case 1:
-                                sp->next_server_seq_no = 39;
+                                sp->commandNext = CONTROLLER_COMMAND_39;
                                 break;
                             case 2:
-                                sp->next_server_seq_no = sp->server_seq_no;
+                                sp->commandNext = sp->command;
                                 break;
                             case 3:
-                                sp->next_server_seq_no = 34;
+                                sp->commandNext = CONTROLLER_COMMAND_34;
                                 break;
                         }
-                        sp->server_seq_no = 22;
+                        sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
                         return;
                     }
@@ -474,20 +474,20 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
 
     if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT)
     {
-        sp->server_seq_no = 26;
+        sp->command = CONTROLLER_COMMAND_26;
     }
     else
     {
         sp->server_status_flag2 |= 0x40;
-        sp->server_seq_no = 22; // execute protean OR the move
+        sp->command = CONTROLLER_COMMAND_RUN_SCRIPT; // execute protean OR the move
         if (runMyScriptInstead == 0)
         {
             LoadBattleSubSeqScript(sp, ARC_BATTLE_MOVE_SEQ, sp->current_move_index);
-            sp->next_server_seq_no = 24; // after that
+            sp->commandNext = CONTROLLER_COMMAND_24; // after that
         }
         else // might want to move this else to be up before the NO_OUT check above
         {
-            sp->next_server_seq_no = 23; // loop back to this one after the protean executes so that it can catch the actual move as well
+            sp->commandNext = CONTROLLER_COMMAND_23; // loop back to this one after the protean executes so that it can catch the actual move as well
         }
         ST_ServerTotteokiCountCalc(bw, sp);//801B570h
     }

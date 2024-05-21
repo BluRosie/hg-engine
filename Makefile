@@ -307,14 +307,14 @@ move_narc: $(NARC_FILES)
 	@echo "move sub animations:"
 	cp $(MOVESUBANIM_NARC) $(MOVESUBANIM_TARGET)
 
-	@echo "move battle scripts:"
-	cp $(MOVE_SEQ_NARC) $(MOVE_SEQ_TARGET)
-
-	@echo "move battle scripts:"
-	cp $(BATTLE_EFF_NARC) $(BATTLE_EFF_TARGET)
-
-	@echo "battle sub effects:"
-	cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
+#	@echo "move battle scripts:"
+#	cp $(MOVE_SEQ_NARC) $(MOVE_SEQ_TARGET)
+#
+#	@echo "move battle scripts:"
+#	cp $(BATTLE_EFF_NARC) $(BATTLE_EFF_TARGET)
+#
+#	@echo "battle sub effects:"
+#	cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
 
 	@echo "item gfx:"
 	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)

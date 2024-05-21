@@ -998,8 +998,8 @@ struct PACKED BattleStruct
 {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
-    /*0x8*/ int server_seq_no;
-    /*0xC*/ int next_server_seq_no;
+    /*0x8*/ ControllerCommand command;
+    /*0xC*/ ControllerCommand commandNext;
     /*0x10*/ int fcc_seq_no;
     /*0x14*/ int fcc_work;
     /*0x18*/ int stateUpdateMonCondition;
