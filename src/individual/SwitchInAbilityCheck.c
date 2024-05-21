@@ -669,7 +669,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no=sp->turnOrder[i];
-                    if (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_DOUBLE_MONEY_GAIN)
+                    if (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_MONEY_UP)
                     {
                         sp->money_multiplier = 2;
                     }

@@ -804,12 +804,12 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_STENCH) // stench adds 10% flinch chance
     {
         atk += 10;
-        heldeffect = HOLD_EFFECT_INCREASE_FLINCH; // doesn't permanently change the hold effect, just for this function
+        heldeffect = HOLD_EFFECT_SOMETIMES_FLINCH; // doesn't permanently change the hold effect, just for this function
     }
 
     if (sp->defence_client != 0xFF)
     {
-        if ((heldeffect == HOLD_EFFECT_INCREASE_FLINCH)
+        if ((heldeffect == HOLD_EFFECT_SOMETIMES_FLINCH)
          && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
          && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
           || (sp->oneSelfFlag[sp->defence_client].special_damage))
