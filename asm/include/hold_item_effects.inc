@@ -1,5 +1,5 @@
 .ifndef GUARD_HELD_ITEM_EFFECTS
-.define GUARD_HELD_ITEM_EFFECTS
+.definelabel GUARD_HELD_ITEM_EFFECTS, 0
 
 
 .equ HOLD_EFFECT_NONE,                                 0

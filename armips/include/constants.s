@@ -1,3 +1,5 @@
+// keeping this in armips/include for the time being
+
 // types
 
 .equ TYPE_NORMAL, 0
@@ -688,16 +690,6 @@
 .equ _z_, 0x015E
 .equ _endstr, 0xFFFF
 
-// additional effect constants
-.equ ADD_STATUS_NONE,         (0)
-.equ ADD_STATUS_DIRECT,       (1)
-.equ ADD_STATUS_INDIRECT,     (2)
-.equ ADD_STATUS_ABILITY,      (3)
-.equ ADD_STATUS_WAZA_KOUKA,   (4)
-.equ ADD_STATUS_SOUBIITEM,    (5)
-.equ ADD_STATUS_DOKUBISI,     (6)
-.equ ADD_STATUS_IGNORE,       (7)
-
 // Vanilla Terrains (Fields)
 
 .equ TERRAIN_PLAIN, (0)
@@ -768,7 +760,3 @@
 
 .equ FALSE, (0)
 .equ TRUE, (1)
-
-.equ EXECUTION_ORDER_NORMAL, (0)
-.equ EXECUTION_ORDER_AFTER_YOU, (1)
-.equ EXECUTION_ORDER_QUASH, (2)

@@ -1,0 +1,17 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _017
+    TryDisable _017
+    Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
+    // {0}’s {1} was disabled!
+    PrintMessage 366, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_MSG_TEMP
+    Wait 
+    WaitButtonABTime 30
+    End 
+
+_017:
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
+    End 

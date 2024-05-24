@@ -3,9 +3,10 @@
 
 .include "armips/include/macros.s"
 .include "armips/include/constants.s"
-.include "armips/include/monnums.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/items.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/species.inc"
 
 // the evolution data of each mon
 

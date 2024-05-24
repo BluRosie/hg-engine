@@ -3,7 +3,9 @@
 
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/species.inc"
+
 .include "armips/asm/icons.s"
 
 .if (fileexists("base/overlay/overlay_0129.bin"))

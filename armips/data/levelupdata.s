@@ -2,8 +2,9 @@
 .thumb
 
 .include "armips/include/macros.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/moves.inc"
+.include "asm/include/species.inc"
 
 // the level up moves for each pokemon
 

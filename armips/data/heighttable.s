@@ -2,7 +2,8 @@
 .thumb
 
 .include "armips/include/macros.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/species.inc"
 
 // format of heightentry:
 // heightentry species, female back height offset, male back height offset, female front height offset, male front height offset
