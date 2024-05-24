@@ -449,6 +449,12 @@ BOOL MummyAbilityCheck(struct BattleStruct *sp)
         case ABILITY_DISGUISE:
         case ABILITY_COMATOSE:
         case ABILITY_MUMMY:
+        case ABILITY_AS_ONE_GLASTRIER:
+        case ABILITY_AS_ONE_SPECTRIER:
+        // seems to be based on Lingering Aroma from Bulbapedia
+        case ABILITY_ZERO_TO_HERO:
+        case ABILITY_COMMANDER:
+        case ABILITY_LINGERING_AROMA:
             return FALSE;
         default:
             return TRUE;
