@@ -22224,7 +22224,7 @@ mondata SPECIES_KORAIDON, "Koraidon"
     abilities ABILITY_DROUGHT, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
-    mondexentry SPECIES_KORAIDON, "This Pokémon resembles Cyclizar, but it is far burlier and more ferocious. Nothing is known about its ecology or other features."
+    mondexentry SPECIES_KORAIDON, "This Pokémon resembles Cyclizar, but\n it is far burlier and ferocious."
     mondexclassification SPECIES_KORAIDON, "Paradox Pokémon"
     mondexheight SPECIES_KORAIDON, "8’02”"
     mondexweight SPECIES_KORAIDON, "668.0 lbs."
@@ -22245,7 +22245,7 @@ mondata SPECIES_MIRAIDON, "Miraidon"
     abilities ABILITY_ELECTRIC_SURGE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    mondexentry SPECIES_MIRAIDON, "This seems to be the Iron Serpent mentioned in an old book. The Iron Serpent is said to have turned the land to ash with its lightning."
+    mondexentry SPECIES_MIRAIDON, "This seems to be the Iron Serpent\nmentioned in an old book.\r"
     mondexclassification SPECIES_MIRAIDON, "Paradox Pokémon"
     mondexheight SPECIES_MIRAIDON, "11’06”"
     mondexweight SPECIES_MIRAIDON, "529.1 lbs."
@@ -23020,7 +23020,7 @@ mondata SPECIES_MEGA_SABLEYE, "-----"
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
-    abilities ABILITY_PRESSURE, ABILITY_FRISK //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
+    abilities ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
     runchance 0
     colorflip 0, 0
 
@@ -23132,7 +23132,7 @@ mondata SPECIES_MEGA_ALTARIA, "-----"
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
-    abilities ABILITY_PIXILATE, ABILITY_NONE
+    abilities ABILITY_PIXILATE, ABILITY_PIXILATE
     runchance 0
     colorflip 0, 0
 
@@ -23388,7 +23388,7 @@ mondata SPECIES_GROUDON_PRIMAL, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_DROUGHT, ABILITY_NONE
+    abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 
@@ -23404,7 +23404,7 @@ mondata SPECIES_KYOGRE_PRIMAL, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_DRIZZLE, ABILITY_NONE
+    abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 

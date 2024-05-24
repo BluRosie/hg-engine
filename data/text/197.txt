@@ -28,14 +28,14 @@ The opposing {STRVAR_1 1, 0, 0} avoided\nthe attack!
 It doesn’t affect\n{STRVAR_1 1, 0, 0}...
 It doesn’t affect\nthe wild {STRVAR_1 1, 0, 0}...
 It doesn’t affect\nthe opposing {STRVAR_1 1, 0, 0}...
-{STRVAR_1 1, 0, 0} fainted!\r
-The wild {STRVAR_1 1, 0, 0} fainted!\r
-The opposing {STRVAR_1 1, 0, 0} fainted!\r
+{STRVAR_1 1, 0, 0} was KOed!\r
+The wild {STRVAR_1 1, 0, 0} was KOed!\r
+The opposing {STRVAR_1 1, 0, 0} was KOed!\r
 {STRVAR_1 3, 0, 0} got ${STRVAR_1 54, 1, 0}\nfor winning!\r
 {STRVAR_1 3, 0, 0} dropped ${STRVAR_1 54, 1, 0}\nin panic!\r
 {STRVAR_1 3, 0, 0} paid out ${STRVAR_1 54, 1, 0}\nto the winner.\r
 {STRVAR_1 3, 0, 0} is out of\nusable Pokémon!\r
-{STRVAR_1 3, 0, 0} blacked out!\r
+{STRVAR_1 3, 0, 0} wiped! Game Over!\r
 ... ... ... ...\r
 {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
 The wild {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
@@ -128,9 +128,9 @@ The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0}!\fIt may be unable to move!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0}!\fIt may be unable to move!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-{STRVAR_1 1, 0, 0} is paralyzed!\nIt can’t move!
-The wild {STRVAR_1 1, 0, 0} is paralyzed!\nIt can’t move!
-The opposing {STRVAR_1 1, 0, 0} is paralyzed!\nIt can’t move!
+{STRVAR_1 1, 0, 0} is parahaxed!\nIt can’t move!
+The wild {STRVAR_1 1, 0, 0} is parahaxed!\nIt can’t move!
+The opposing {STRVAR_1 1, 0, 0} is parahaxed!\nIt can’t move!
 {STRVAR_1 1, 0, 0} is\nalready paralyzed!
 The wild {STRVAR_1 1, 0, 0} is\nalready paralyzed!
 The opposing {STRVAR_1 1, 0, 0} is\nalready paralyzed!
