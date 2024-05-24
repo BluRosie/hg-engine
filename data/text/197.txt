@@ -1439,3 +1439,15 @@ The wild {STRVAR_1 1, 0, 0} is absorbing\npower!
 The opposing {STRVAR_1 1, 0, 0} is absorbing\npower!
 It started to snow!
 The snow stopped.
+The sunlight turned extremely harsh!
+The extremely harsh sunlight\nwas not lessened at all!
+The Water-type attack evaporated\nin the harsh sunlight!
+The harsh sunlight faded.
+A heavy rain began to fall!
+There is no relief from this heavy rain!
+The Fire-type attack fizzled out in the heavy rain!
+The heavy rain has lifted!
+Mysterious strong winds are protecting\nFlying-type Pokémon!
+The mysterious strong winds\nblow on regardless!
+The mysterious strong winds\nweakened the attack!
+The mysterious strong winds\nhave dissipated!

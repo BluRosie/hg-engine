@@ -12,6 +12,7 @@
 
 // Psyblade
 a030_300:
+    changevar VAR_OP_SET, VAR_ABILITY_TEMP, 80
     ifterrainoverlayistype ELECTRIC_TERRAIN, IncreaseBasePower
     goto Continue
 // If the user is on Electric Terrain, its base power is increased to 120.

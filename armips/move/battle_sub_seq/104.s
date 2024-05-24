@@ -15,7 +15,7 @@ a001_104:
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SNOW_ANY, SkipPrintWeatherMessage
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_EXTREMELY_HARSH_SUNLIGHT, SkipPrintWeatherMessage
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HEAVY_RAIN, SkipPrintWeatherMessage
-    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_STRONG_WINDS, SkipPrintWeatherMessage
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_STRONG_WINDS, PlayStrongWindsAnimation
     gotosubscript 57
 SkipPrintWeatherMessage:
     setstatus2effect3 BATTLER_PLAYER, 0x2B
@@ -73,4 +73,12 @@ handle_hail_immunity:
     if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HAIL_ANY, _016C // hail | permanent hail
     goto return_from_weather_canceling_abilities
 
+PlayStrongWindsAnimation:
+    // Tailwind animation
+    changevar VAR_OP_SET, VAR_MOVE_TEMP2, MOVE_TAILWIND
+    playanimation BATTLER_xFF
+    waitmessage
+    changevar VAR_OP_SET, VAR_MOVE_EFFECT, 0x0
+    changevar VAR_OP_CLEARMASK, VAR_SERVER_STATUS1, 0x4000
+    goto SkipPrintWeatherMessage
 .close
