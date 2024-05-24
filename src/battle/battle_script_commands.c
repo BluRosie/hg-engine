@@ -1691,10 +1691,10 @@ BOOL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo) {
     case MOVE_EFFECT_DIG:
     case MOVE_EFFECT_BOUNCE:
     case MOVE_EFFECT_SHADOW_FORCE:
+    case MOVE_EFFECT_GEOMANCY:
         return TRUE;
     }
     return FALSE;
-// make sure to add geomancy here
 }
 
 
