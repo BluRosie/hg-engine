@@ -18,11 +18,11 @@ _000:
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 4
     UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_SUBSTITUTE_HP, BSCRIPT_VAR_HP_CALC
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_SUBSTITUTE_IN
-    Wait 
+    Wait
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
     // {0} shed its tail to create a decoy!
     PrintMessage 1414, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STAT_CHANGE_ATK, 6
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STAT_CHANGE_DEF, 6
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STAT_CHANGE_SPATK, 6
@@ -39,27 +39,27 @@ _111:
 
 _121:
     DeletePokemon BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     HealthbarSlideOut BATTLER_CATEGORY_ATTACKER
-    Wait 
-    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_FIX_THIS_LATER
+    Wait
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_BATON_PASS
     GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
 
 _137:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
-    End 
+    End
 
 _142:
-    PrintAttackMessage 
+    PrintAttackMessage
     // {0} already has a substitute!
     PrintMessage 351, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
-    Wait 
-    End 
+    Wait
+    End
 
 _149:
-    PrintAttackMessage 
+    PrintAttackMessage
     // It was too weak to make a substitute!
     PrintMessage 819, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
-    Wait 
-    End 
+    Wait
+    End
