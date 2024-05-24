@@ -2373,6 +2373,7 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
     int address = read_battle_script_param(sp);
     int client_set_max;
     int client_no;
+    int item, itemPower;
 
     enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
 
@@ -2404,8 +2405,12 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
         IncrementBattleScriptPtr(sp, address);
     } else {
         if (sp->terrainOverlay.type != TERRAIN_NONE) {
-            // TODO: handle item effects
+            item = GetBattleMonItem(sp, sp->attack_client);
+            itemPower = BattleItemDataGet(sp, item, 2);
             sp->terrainOverlay.numberOfTurnsLeft = 5;
+            if (item == ITEM_TERRAIN_EXTENDER) {
+                sp->terrainOverlay.numberOfTurnsLeft += itemPower;
+            }
         } else {
             sp->terrainOverlay.numberOfTurnsLeft = 0;
         }
