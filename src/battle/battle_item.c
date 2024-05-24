@@ -132,7 +132,7 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
     hold_effect = HeldItemHoldEffectGet(sp, sp->attack_client);
     hold_effect_param = HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL);
 
-    if (CheckIfAnyoneShouldFaint(sp, sp->command, sp->command, 1) == TRUE)
+    if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
     {
         return TRUE;
     }
@@ -166,8 +166,8 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                     sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
                     sp->client_work=sp->attack_client;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_GRADUAL);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     ret = 1;
                 }
             }
@@ -184,8 +184,8 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
                 sp->client_work = sp->attack_client;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_LOSS);
-                sp->commandNext = sp->command;
-                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
                 ret = 1;
             }
             sp->swhac_seq_no++;

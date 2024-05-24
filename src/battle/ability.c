@@ -28,7 +28,7 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
-BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int command);
+BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
 BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
@@ -374,7 +374,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
             if (sp->battlemon[client_no].hp)
             {
                 // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
-                
+
                 int temp = BattleRand(bw) % 5;
 
                 if (AreAnyStatsNotAtValue(sp, client_no, 12, TRUE)) // if any stat can be lowered
@@ -419,8 +419,8 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     if (ret == TRUE)
     {
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-        sp->commandNext = sp->command;
-        sp->command = MOVE_SEQUENCE_NO; // not sure what this corresponds to
+        sp->next_server_seq_no = sp->server_seq_no;
+        sp->server_seq_no = MOVE_SEQUENCE_NO; // not sure what this corresponds to
     }
 
     return ret;
@@ -692,10 +692,10 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
- *  @param command current server step, to be queued as sp->commandNext if a synchronize check passes
+ *  @param server_seq_no current server step, to be queued as sp->next_server_seq_no if a synchronize check passes
  *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
  */
-BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int command)
+BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
 {
     BOOL ret;
     int seq_no;
@@ -736,8 +736,8 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int command)
         if(seq_no) {
             sp->addeffect_type = ADD_STATUS_ABILITY;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-            sp->commandNext = command;
-            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->next_server_seq_no = server_seq_no;
+            sp->server_seq_no = 22;
 
             return ret;
         }
@@ -747,8 +747,8 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int command)
     ret = BattleFormChangeCheck(bw, sp, &seq_no);
     if(ret == TRUE) {
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-        sp->commandNext = command;
-        sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+        sp->next_server_seq_no = server_seq_no;
+        sp->server_seq_no = 22;
         return ret;
     }
 
@@ -775,8 +775,8 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int command)
         seq_no =  SUB_SEQ_APPLY_ATTRACT;
         sp->addeffect_type = ADD_STATUS_SOUBIITEM;
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-        sp->commandNext = command;
-        sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+        sp->next_server_seq_no = server_seq_no;
+        sp->server_seq_no = 22;
 
         return ret;
     }
@@ -820,8 +820,8 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
             sp->state_client = sp->defence_client;
             sp->addeffect_type = ADD_STATUS_INDIRECT;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TRY_FLINCH);
-            sp->commandNext = sp->command;
-            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
             ret = TRUE;
         }
     }
@@ -885,8 +885,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0))
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -894,8 +894,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         case SEQ_NORMAL_FORM_CHG_CHECK:
             sp->swoam_seq_no++;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
-            sp->commandNext = sp->command;
-            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
             return;
         case SEQ_NORMAL_IKARI_CHECK:
             sp->swoam_seq_no++;
@@ -912,8 +912,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 if (MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -926,8 +926,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 if (MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -962,8 +962,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 if ((ST_ServerAddStatusCheck(bw, sp, &seq_no) == TRUE) && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0))
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -971,8 +971,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
         case SEQ_LOOP_FORM_CHG_CHECK:
             sp->swoam_seq_no++;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
-            sp->commandNext = sp->command;
-            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
             return;
         case SEQ_LOOP_IKARI_CHECK:
             sp->swoam_seq_no++;
@@ -989,8 +989,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 if (MoveHitAttackerAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -1003,8 +1003,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 if (MoveHitDefenderAbilityCheck(bw, sp, &seq_no) == TRUE)
                 {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -1030,7 +1030,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     }
 
     sp->swoam_seq_no = 0;
-    sp->command = CONTROLLER_COMMAND_31;
+    sp->server_seq_no = 31;
 }
 
 
@@ -1064,8 +1064,8 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
         sp->waza_no_last = sp->waza_no_temp;
         sp->server_status_flag |= (0x00100000);
         LoadBattleSubSeqScript(sp, 1, SUB_SEQ_MAGIC_COAT);
-        sp->commandNext = sp->command;
-        sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+        sp->next_server_seq_no = sp->server_seq_no;
+        sp->server_seq_no = 22;
         CheckPressureForPPDecrease(sp, sp->defence_client, sp->attack_client);
         return TRUE;
     }
@@ -1086,8 +1086,8 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
                 sp->server_status_flag |= (0x00100000);
             }
             LoadBattleSubSeqScript(sp, 1, SUB_SEQ_SNATCH);
-            sp->commandNext = sp->command;
-            sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = 22;
             CheckPressureForPPDecrease(sp, client_no, sp->attack_client);
             return TRUE;
         }
@@ -1132,8 +1132,8 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                     sp->battlemon[sp->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE);
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_VANISH_OFF);
                     sp->client_work = sp->swoak_work;
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     ret = 1;
                 }
 
@@ -1148,7 +1148,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
         FALLTHROUGH;
     case SWOAK_SEQ_SYNCHRONIZE_CHECK:
         sp->swoak_seq_no++;
-        if (SynchroniseAbilityCheck(bw, sp, sp->command) == TRUE)
+        if (SynchroniseAbilityCheck(bw, sp, sp->server_seq_no) == TRUE)
             return;
         FALLTHROUGH;
     case SWOAK_SEQ_POKE_APPEAR_CHECK:
@@ -1160,8 +1160,8 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
             if (seq_no)
             {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                sp->commandNext = sp->command;
-                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
                 return;
             }
         }
@@ -1188,8 +1188,8 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
             if (CheckDefenderItemEffectOnHit(bw, sp, &seq_no) == TRUE)
             {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                sp->commandNext = sp->command;
-                sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
                 return;
             }
         }
@@ -1214,8 +1214,8 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                 {
                     sp->client_work = sp->defence_client;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     return;
                 }
             }
@@ -1242,8 +1242,8 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                 {
                     sp->client_work = client_no;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->commandNext = sp->command;
-                    sp->command = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
                     ret = 1;
                     break;
                 }
@@ -1261,5 +1261,5 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
     }
     sp->swoak_seq_no = 0;
     sp->swoak_work = 0;
-    sp->command = CONTROLLER_COMMAND_32;
+    sp->server_seq_no = 32;
 }
