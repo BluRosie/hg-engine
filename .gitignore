@@ -85,3 +85,4 @@ tools/swav2swar.exe
 *:Zone.Identifier
 
 *.ml*
+/scripts/fixed

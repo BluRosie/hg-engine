@@ -3279,7 +3279,7 @@ mondata SPECIES_CYNDAQUIL, "Cyndaquil"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_BLAZE, ABILITY_NONE
+    abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     mondexentry SPECIES_CYNDAQUIL, "It is timid, and always curls itself\nup in a ball. If attacked, it\nflares up its back for protection."
@@ -3300,7 +3300,7 @@ mondata SPECIES_QUILAVA, "Quilava"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_BLAZE, ABILITY_NONE
+    abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     mondexentry SPECIES_QUILAVA, "Be careful if it turns its back\nduring battle. It means that it will\nattack with the fire on its back."
@@ -11595,7 +11595,7 @@ mondata SPECIES_OSHAWOTT, "Oshawott"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_TORRENT, ABILITY_NONE
+    abilities ABILITY_SHARPNESS, ABILITY_INNER_FOCUS
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_OSHAWOTT, "The scalchop on its stomach isn’t just\nused for battle--it is also used to\nbreak open hard berries."
@@ -11616,7 +11616,7 @@ mondata SPECIES_DEWOTT, "Dewott"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_TORRENT, ABILITY_NONE
+    abilities ABILITY_SHARPNESS, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_DEWOTT, "Strict training is how it learns its\nflowing double-scalchop technique."
@@ -11637,7 +11637,7 @@ mondata SPECIES_SAMUROTT, "Samurott"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_TORRENT, ABILITY_NONE
+    abilities ABILITY_SHARPNESS, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_SAMUROTT, "In the time it takes a foe to blink, it\ncan draw and sheathe the seamitars\nattached to its front legs."
@@ -16236,7 +16236,7 @@ mondata SPECIES_ROWLET, "Rowlet"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_QUICK_DRAW, ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_ROWLET, "It feels relaxed in tight, dark places\nand has been known to use its Trainer’s\npocket or bag as a nest."
@@ -16257,7 +16257,7 @@ mondata SPECIES_DARTRIX, "Dartrix"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_QUICK_DRAW, ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_DARTRIX, "It throws sharp feathers called blade\nquills at enemies or prey. It seldom\nmisses."
@@ -26638,7 +26638,7 @@ mondata SPECIES_ELECTRODE_HISUIAN, "-----"
     colorflip BODY_COLOR_RED, 0
 
 
-mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
+mondata SPECIES_TYPHLOSION_HISUIAN, "Typhlosion"
     basestats 73, 84, 78, 95, 119, 85
     types TYPE_FIRE, TYPE_GHOST
     catchrate 45
@@ -26650,9 +26650,13 @@ mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_BLAZE, ABILITY_NONE
+    abilities ABILITY_FLASH_FIRE, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
+    mondexentry SPECIES_TYPHLOSION_HISUIAN, "It purifies the souls of the dead with\nits ethereal flames, using them as its\nlife force."
+    mondexclassification SPECIES_TYPHLOSION_HISUIAN, "Ghost Flame Pokémon"
+    mondexheight SPECIES_TYPHLOSION_HISUIAN, "5’03”"
+    mondexweight SPECIES_TYPHLOSION_HISUIAN, "153.9 lbs."
 
 
 mondata SPECIES_QWILFISH_HISUIAN, "-----"
@@ -26689,7 +26693,7 @@ mondata SPECIES_SNEASEL_HISUIAN, "-----"
     colorflip BODY_COLOR_BLACK, 1
 
 
-mondata SPECIES_SAMUROTT_HISUIAN, "-----"
+mondata SPECIES_SAMUROTT_HISUIAN, "Samurott"
     basestats 90, 108, 80, 85, 100, 65
     types TYPE_WATER, TYPE_DARK
     catchrate 55
@@ -26701,9 +26705,13 @@ mondata SPECIES_SAMUROTT_HISUIAN, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_TORRENT, ABILITY_TORRENT
+    abilities ABILITY_SHARPNESS, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
+    mondexentry SPECIES_SAMUROTT_HISUIAN, "It will use any trick to overcome its\nfoes. It is said to stalk its victims on\npaths to cut them down."
+    mondexclassification SPECIES_SAMUROTT_HISUIAN, "Formidable Pokémon"
+    mondexheight SPECIES_SAMUROTT_HISUIAN, "4’11”"
+    mondexweight SPECIES_SAMUROTT_HISUIAN, "128.3 lbs."
 
 
 mondata SPECIES_LILLIGANT_HISUIAN, "-----"
@@ -26825,7 +26833,7 @@ mondata SPECIES_AVALUGG_HISUIAN, "-----"
     colorflip BODY_COLOR_BLUE, 0
 
 
-mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
+mondata SPECIES_DECIDUEYE_HISUIAN, "Decidueye"
     basestats 88, 112, 80, 60, 95, 95
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 55
@@ -26837,10 +26845,13 @@ mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-    abilities ABILITY_OVERGROW,  ABILITY_NONE
+    abilities ABILITY_QUICK_DRAW,  ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-
+    mondexentry SPECIES_DECIDUEYE_HISUIAN, "It roams the forests of Johto for prey.\nIt will rush them down in the blink of\nan eye."
+    mondexclassification SPECIES_DECIDUEYE_HISUIAN, "Arrow Quill Pokémon"
+    mondexheight SPECIES_DECIDUEYE_HISUIAN, "5’03”"
+    mondexweight SPECIES_DECIDUEYE_HISUIAN, "81.6 lbs."
 
 mondata SPECIES_UNFEZANT_FEMALE, "-----"
     basestats 80, 115, 80, 93, 65, 55
