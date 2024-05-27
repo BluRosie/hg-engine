@@ -86,3 +86,4 @@ tools/swav2swar.exe
 
 *.ml*
 /scripts/fixed
+*.bak

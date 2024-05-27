@@ -85,6 +85,7 @@ trainerdata 2, "Silver"
         ballseal 0
     endparty
 
+// First rival fight, player chose fire
 trainerdata 3, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
@@ -102,7 +103,7 @@ trainerdata 3, "Silver"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_TOTODILE
+        pokemon SPECIES_OSHAWOTT
         ballseal 0
     endparty
 
@@ -8765,6 +8766,8 @@ trainerdata 264, "Silver"
         ballseal 0
     endparty
 
+// First rival fight, player chose water
+
 trainerdata 265, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_RIVAL
@@ -8782,7 +8785,7 @@ trainerdata 265, "Silver"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_CHIKORITA
+        pokemon SPECIES_ROWLET
         ballseal 0
     endparty
 
@@ -16687,6 +16690,8 @@ trainerdata 494, "Georgina"
         ballseal 0
     endparty
 
+// First rival fight, player chose water
+
 trainerdata 495, "Boy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PASSERBY
@@ -16704,9 +16709,11 @@ trainerdata 495, "Boy"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_CHIKORITA
+        pokemon SPECIES_ROWLET
         ballseal 0
     endparty
+
+// First rival fight, player chose grass
 
 trainerdata 496, "Boy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
@@ -16729,6 +16736,8 @@ trainerdata 496, "Boy"
         ballseal 0
     endparty
 
+// First rival fight, player chose fire
+
 trainerdata 497, "Boy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PASSERBY
@@ -16746,7 +16755,7 @@ trainerdata 497, "Boy"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_TOTODILE
+        pokemon SPECIES_OSHAWOTT
         ballseal 0
     endparty
 
