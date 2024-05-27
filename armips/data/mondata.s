@@ -3324,10 +3324,10 @@ mondata SPECIES_TYPHLOSION, "Typhlosion"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    mondexentry SPECIES_TYPHLOSION, "If its rage peaks, it becomes so\nhot that anything that touches it\nwill instantly go up in flames."
-    mondexclassification SPECIES_TYPHLOSION, "Volcano Pokémon"
-    mondexheight SPECIES_TYPHLOSION, "5’07”"
-    mondexweight SPECIES_TYPHLOSION, "175.3 lbs."
+    mondexentry SPECIES_TYPHLOSION_HISUIAN, "It purifies the souls of the dead with\nits ethereal flames, using them as its\nlife force."
+    mondexclassification SPECIES_TYPHLOSION_HISUIAN, "Ghost Flame Pokémon"
+    mondexheight SPECIES_TYPHLOSION_HISUIAN, "5’03”"
+    mondexweight SPECIES_TYPHLOSION_HISUIAN, "153.9 lbs."
 
 
 mondata SPECIES_TOTODILE, "Totodile"
@@ -11640,10 +11640,10 @@ mondata SPECIES_SAMUROTT, "Samurott"
     abilities ABILITY_SHARPNESS, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    mondexentry SPECIES_SAMUROTT, "In the time it takes a foe to blink, it\ncan draw and sheathe the seamitars\nattached to its front legs."
-    mondexclassification SPECIES_SAMUROTT, "Formidable Pokémon"
-    mondexheight SPECIES_SAMUROTT, "4’11”"
-    mondexweight SPECIES_SAMUROTT, "208.6 lbs."
+    mondexentry SPECIES_SAMUROTT_HISUIAN, "It will use any trick to overcome its\nfoes. It is said to stalk its victims on\npaths to cut them down."
+    mondexclassification SPECIES_SAMUROTT_HISUIAN, "Formidable Pokémon"
+    mondexheight SPECIES_SAMUROTT_HISUIAN, "4’11”"
+    mondexweight SPECIES_SAMUROTT_HISUIAN, "128.3 lbs."
 
 
 mondata SPECIES_PATRAT, "Patrat"
@@ -16281,10 +16281,10 @@ mondata SPECIES_DECIDUEYE, "Decidueye"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    mondexentry SPECIES_DECIDUEYE, "Although basically cool and cautious,\nwhen it’s caught by surprise, it’s\nseized by panic."
+    mondexentry SPECIES_DECIDUEYE, "It roams the forests of Johto for prey.\nIt will rush them down in the blink of\nan eye."
     mondexclassification SPECIES_DECIDUEYE, "Arrow Quill Pokémon"
     mondexheight SPECIES_DECIDUEYE, "5’03”"
-    mondexweight SPECIES_DECIDUEYE, "80.7 lbs."
+    mondexweight SPECIES_DECIDUEYE, "81.6 lbs."
 
 
 mondata SPECIES_LITTEN, "Litten"
@@ -26638,7 +26638,7 @@ mondata SPECIES_ELECTRODE_HISUIAN, "-----"
     colorflip BODY_COLOR_RED, 0
 
 
-mondata SPECIES_TYPHLOSION_HISUIAN, "Typhlosion"
+mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
     basestats 73, 84, 78, 95, 119, 85
     types TYPE_FIRE, TYPE_GHOST
     catchrate 45
@@ -26653,10 +26653,6 @@ mondata SPECIES_TYPHLOSION_HISUIAN, "Typhlosion"
     abilities ABILITY_FLASH_FIRE, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    mondexentry SPECIES_TYPHLOSION_HISUIAN, "It purifies the souls of the dead with\nits ethereal flames, using them as its\nlife force."
-    mondexclassification SPECIES_TYPHLOSION_HISUIAN, "Ghost Flame Pokémon"
-    mondexheight SPECIES_TYPHLOSION_HISUIAN, "5’03”"
-    mondexweight SPECIES_TYPHLOSION_HISUIAN, "153.9 lbs."
 
 
 mondata SPECIES_QWILFISH_HISUIAN, "-----"
@@ -26693,7 +26689,7 @@ mondata SPECIES_SNEASEL_HISUIAN, "-----"
     colorflip BODY_COLOR_BLACK, 1
 
 
-mondata SPECIES_SAMUROTT_HISUIAN, "Samurott"
+mondata SPECIES_SAMUROTT_HISUIAN, "-----"
     basestats 90, 108, 80, 85, 100, 65
     types TYPE_WATER, TYPE_DARK
     catchrate 55
@@ -26708,10 +26704,6 @@ mondata SPECIES_SAMUROTT_HISUIAN, "Samurott"
     abilities ABILITY_SHARPNESS, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    mondexentry SPECIES_SAMUROTT_HISUIAN, "It will use any trick to overcome its\nfoes. It is said to stalk its victims on\npaths to cut them down."
-    mondexclassification SPECIES_SAMUROTT_HISUIAN, "Formidable Pokémon"
-    mondexheight SPECIES_SAMUROTT_HISUIAN, "4’11”"
-    mondexweight SPECIES_SAMUROTT_HISUIAN, "128.3 lbs."
 
 
 mondata SPECIES_LILLIGANT_HISUIAN, "-----"
@@ -26833,7 +26825,7 @@ mondata SPECIES_AVALUGG_HISUIAN, "-----"
     colorflip BODY_COLOR_BLUE, 0
 
 
-mondata SPECIES_DECIDUEYE_HISUIAN, "Decidueye"
+mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
     basestats 88, 112, 80, 60, 95, 95
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 55
@@ -26848,10 +26840,6 @@ mondata SPECIES_DECIDUEYE_HISUIAN, "Decidueye"
     abilities ABILITY_QUICK_DRAW,  ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
-    mondexentry SPECIES_DECIDUEYE_HISUIAN, "It roams the forests of Johto for prey.\nIt will rush them down in the blink of\nan eye."
-    mondexclassification SPECIES_DECIDUEYE_HISUIAN, "Arrow Quill Pokémon"
-    mondexheight SPECIES_DECIDUEYE_HISUIAN, "5’03”"
-    mondexweight SPECIES_DECIDUEYE_HISUIAN, "81.6 lbs."
 
 mondata SPECIES_UNFEZANT_FEMALE, "-----"
     basestats 80, 115, 80, 93, 65, 55
