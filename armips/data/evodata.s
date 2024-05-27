@@ -9291,7 +9291,7 @@ evodata SPECIES_ROWLET
 terminateevodata
 
 evodata SPECIES_DARTRIX
-    evolutionwithform EVO_LEVEL, 36, SPECIES_DECIDUEYE_HISUIAN, 1
+    evolutionwithform EVO_LEVEL, 36, SPECIES_DECIDUEYE, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
