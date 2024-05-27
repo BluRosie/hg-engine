@@ -3324,10 +3324,10 @@ mondata SPECIES_TYPHLOSION, "Typhlosion"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    mondexentry SPECIES_TYPHLOSION_HISUIAN, "It purifies the souls of the dead with\nits ethereal flames, using them as its\nlife force."
-    mondexclassification SPECIES_TYPHLOSION_HISUIAN, "Ghost Flame Pokémon"
-    mondexheight SPECIES_TYPHLOSION_HISUIAN, "5’03”"
-    mondexweight SPECIES_TYPHLOSION_HISUIAN, "153.9 lbs."
+    mondexentry SPECIES_TYPHLOSION, "It purifies the souls of the dead with\nits ethereal flames, using them as its\nlife force."
+    mondexclassification SPECIES_TYPHLOSION, "Ghost Flame Pokémon"
+    mondexheight SPECIES_TYPHLOSION, "5’03”"
+    mondexweight SPECIES_TYPHLOSION, "153.9 lbs."
 
 
 mondata SPECIES_TOTODILE, "Totodile"
@@ -11640,10 +11640,10 @@ mondata SPECIES_SAMUROTT, "Samurott"
     abilities ABILITY_SHARPNESS, ABILITY_INTIMIDATE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    mondexentry SPECIES_SAMUROTT_HISUIAN, "It will use any trick to overcome its\nfoes. It is said to stalk its victims on\npaths to cut them down."
-    mondexclassification SPECIES_SAMUROTT_HISUIAN, "Formidable Pokémon"
-    mondexheight SPECIES_SAMUROTT_HISUIAN, "4’11”"
-    mondexweight SPECIES_SAMUROTT_HISUIAN, "128.3 lbs."
+    mondexentry SPECIES_SAMUROTT, "It will use any trick to overcome its\nfoes. It is said to stalk its victims on\npaths to cut them down."
+    mondexclassification SPECIES_SAMUROTT, "Formidable Pokémon"
+    mondexheight SPECIES_SAMUROTT, "4’11”"
+    mondexweight SPECIES_SAMUROTT, "128.3 lbs."
 
 
 mondata SPECIES_PATRAT, "Patrat"
