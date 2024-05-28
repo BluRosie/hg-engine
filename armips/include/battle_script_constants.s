@@ -366,6 +366,15 @@ SUB_SEQ_HANDLE_SUN_TEMPORARY                  equ (361)
 SUB_SEQ_HANDLE_RAIN_TEMPORARY                 equ (362)
 SUB_SEQ_HANDLE_SANDSTORM_TEMPORARY            equ (363)
 SUB_SEQ_HANDLE_SNOW_TEMPORARY                 equ (364)
+SUB_SEQ_DESOLATE_LAND                         equ (365)
+SUB_SEQ_PRIMORDIAL_SEA                        equ (366)
+SUB_SEQ_DELTA_STREAM                          equ (367)
+SUB_SEQ_TRY_CLEAR_PRIMAL_WEATHERS             equ (368)
+SUB_SEQ_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING    equ (369)
+SUB_SEQ_CANCEL_WATER_MOVE                     equ (370)
+SUB_SEQ_CANCEL_FIRE_MOVE                      equ (371)
+SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS             equ (372)
+SUB_SEQ_PREVENT_CHANGING_WEATHER              equ (373)
 
 
 

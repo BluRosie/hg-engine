@@ -23260,7 +23260,7 @@ mondata SPECIES_MEGA_RAYQUAZA, "-----"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_CLOUD_NINE /*ABILITY_DELTA_STREAM*/, ABILITY_NONE
+    abilities ABILITY_DELTA_STREAM, ABILITY_NONE
     runchance 0
     colorflip 0, 0
 
