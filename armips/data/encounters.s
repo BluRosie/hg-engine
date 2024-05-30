@@ -13518,49 +13518,49 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27
+walklevels 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68, 68
 
 //morning encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_MUNCHLAX
-pokemon SPECIES_DITTO
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_ONIX
-pokemon SPECIES_NOSEPASS
-pokemon SPECIES_NOSEPASS
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
+monwithform SPECIES_ETERNATUS, 1
+monwithform SPECIES_ZACIAN, 1
+monwithform SPECIES_ZAMAZENTA, 1
+monwithform SPECIES_ZYGARDE, 5
+monwithform SPECIES_NECROZMA, 3
+monwithform SPECIES_KYOGRE, 1
+monwithform SPECIES_GROUDON, 1
+monwithform SPECIES_MEWTWO, 1
+monwithform SPECIES_MEWTWO, 2
+monwithform SPECIES_LATIOS, 1
+monwithform SPECIES_LATIAS, 1
+pokemon SPECIES_ARCEUS
 
 //day encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_MUNCHLAX
-pokemon SPECIES_DITTO
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_ONIX
-pokemon SPECIES_NOSEPASS
-pokemon SPECIES_NOSEPASS
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
+monwithform SPECIES_ETERNATUS, 1
+monwithform SPECIES_ZACIAN, 1
+monwithform SPECIES_ZAMAZENTA, 1
+monwithform SPECIES_ZYGARDE, 5
+monwithform SPECIES_NECROZMA, 3
+monwithform SPECIES_KYOGRE, 1
+monwithform SPECIES_GROUDON, 1
+monwithform SPECIES_MEWTWO, 1
+monwithform SPECIES_MEWTWO, 2
+monwithform SPECIES_LATIOS, 1
+monwithform SPECIES_LATIAS, 1
+pokemon SPECIES_ARCEUS
 
 //night encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_MUNCHLAX
-pokemon SPECIES_DITTO
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_ONIX
-pokemon SPECIES_NOSEPASS
-pokemon SPECIES_NOSEPASS
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
-pokemon SPECIES_MAWILE
+monwithform SPECIES_ETERNATUS, 1
+monwithform SPECIES_ZACIAN, 1
+monwithform SPECIES_ZAMAZENTA, 1
+monwithform SPECIES_ZYGARDE, 5
+monwithform SPECIES_NECROZMA, 3
+monwithform SPECIES_KYOGRE, 1
+monwithform SPECIES_GROUDON, 1
+monwithform SPECIES_MEWTWO, 1
+monwithform SPECIES_MEWTWO, 2
+monwithform SPECIES_LATIOS, 1
+monwithform SPECIES_LATIAS, 1
+pokemon SPECIES_ARCEUS
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE

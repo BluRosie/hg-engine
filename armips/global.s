@@ -23,6 +23,12 @@
 //custom asm scripts
 .include "armips/asm/custom/mart_items.s"
 .include "armips/asm/custom/double_battle_music.s"
+.include "armips/asm/custom/vitamins.s"
+.include "armips/asm/custom/title_screen_cry.s"
+.include "armips/asm/custom/shiny_rate.s"
+.include "armips/asm/custom/hp_bar_speed.s"
+.include "armips/asm/custom/hidden_power.s"
+.include "armips/asm/custom/ev_cap.s"
 
 
 .if REUSABLE_TMS == 1

@@ -1056,12 +1056,25 @@ levelup SPECIES_GROWLITHE
 	terminatelearnset
 
 levelup SPECIES_ARCANINE
-	learnset MOVE_THUNDER_FANG, 1
-	learnset MOVE_BITE, 1
-	learnset MOVE_ROAR, 1
-	learnset MOVE_FIRE_FANG, 1
-	learnset MOVE_ODOR_SLEUTH, 1
-	learnset MOVE_EXTREME_SPEED, 39
+	learnset MOVE_TACKLE, 1
+	learnset MOVE_GROWL, 3
+	learnset MOVE_EMBER, 5
+	learnset MOVE_SUNNY_DAY, 7
+	learnset MOVE_BITE, 9
+	learnset MOVE_FLAME_WHEEL, 12
+	learnset MOVE_SNARL, 15
+	learnset MOVE_THUNDER_FANG, 18
+	learnset MOVE_BULLDOZE, 21
+	learnset MOVE_SCORCHING_SANDS, 24
+	learnset MOVE_LAVA_PLUME, 28
+	learnset MOVE_CRUNCH, 32
+	learnset MOVE_EXTREME_SPEED, 36
+	learnset MOVE_HEAT_WAVE, 41
+	learnset MOVE_WILD_CHARGE, 45
+	learnset MOVE_CLOSE_COMBAT, 49
+	learnset MOVE_RAGING_FURY, 53
+	learnset MOVE_WILL_O_WISP, 58
+	learnset MOVE_PLAY_ROUGH, 61
 	terminatelearnset
 
 levelup SPECIES_POLIWAG
@@ -21554,25 +21567,26 @@ levelup SPECIES_NECROZMA_ULTRA_DUSK_MANE
 
 
 levelup SPECIES_NECROZMA_ULTRA_DAWN_WINGS
-    learnset MOVE_MOONLIGHT, 1
-    learnset MOVE_MORNING_SUN, 1
-    learnset MOVE_CHARGE_BEAM, 1
-    learnset MOVE_MIRROR_SHOT, 1
-    learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_SLASH, 7
-    learnset MOVE_STORED_POWER, 13
-    learnset MOVE_ROCK_BLAST, 19
-    learnset MOVE_NIGHT_SLASH, 23
-    learnset MOVE_GRAVITY, 31
-    learnset MOVE_PSYCHO_CUT, 37
-    learnset MOVE_POWER_GEM, 43
-    learnset MOVE_AUTOTOMIZE, 47
-    learnset MOVE_PHOTON_GEYSER, 50
-    learnset MOVE_STEALTH_ROCK, 53
-    learnset MOVE_IRON_DEFENSE, 59
-    learnset MOVE_WRING_OUT, 67
-    learnset MOVE_PRISMATIC_LASER, 73
+	learnset MOVE_TACKLE, 1
+	learnset MOVE_LIGHT_SCREEN, 3
+	learnset MOVE_CONFUSION, 5
+	learnset MOVE_HIDDEN_POWER, 7
+	learnset MOVE_REFLECT, 9
+	learnset MOVE_TWISTER, 13
+	learnset MOVE_TRICK, 15
+	learnset MOVE_PSYBEAM, 18
+	learnset MOVE_RECOVER, 21
+	learnset MOVE_BREAKING_SWIPE, 24
+	learnset MOVE_GRAVITY, 28
+	learnset MOVE_PSYSHOCK, 32
+	learnset MOVE_POWER_GEM, 36
+	learnset MOVE_PHOTON_GEYSER, 41
+	learnset MOVE_CALM_MIND, 45
+	learnset MOVE_MOONGEIST_BEAM, 49
+	learnset MOVE_SUNSTEEL_STRIKE, 49
+	learnset MOVE_DRAGON_PULSE, 53
+	learnset MOVE_WRING_OUT, 58
+	learnset MOVE_LIGHT_THAT_BURNS_THE_SKY, 61
     terminatelearnset
 
 
@@ -22072,24 +22086,25 @@ levelup SPECIES_GROWLITHE_HISUIAN
 
 
 levelup SPECIES_ARCANINE_HISUIAN
-    learnset MOVE_EXTREME_SPEED, 1
-    learnset MOVE_BURN_UP, 1
-    learnset MOVE_FLAME_WHEEL, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_AGILITY, 1
-    learnset MOVE_FIRE_FANG, 1
-    learnset MOVE_RETALIATE, 1
-    learnset MOVE_CRUNCH, 1
-    learnset MOVE_TAKE_DOWN, 1
-    learnset MOVE_FLAMETHROWER, 1
-    learnset MOVE_ROAR, 1
-    learnset MOVE_PLAY_ROUGH, 1
-    learnset MOVE_REVERSAL, 1
-    learnset MOVE_FLARE_BLITZ, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_HOWL, 1
-    learnset MOVE_BITE, 1
+	learnset MOVE_ROCK_BLAST, 1
+	learnset MOVE_GROWL, 3
+	learnset MOVE_EMBER, 5
+	learnset MOVE_ACCELEROCK, 7
+	learnset MOVE_BITE, 9
+	learnset MOVE_FLAME_CHARGE, 12
+	learnset MOVE_DOUBLE_KICK, 15
+	learnset MOVE_FIRE_FANG, 18
+	learnset MOVE_ROCK_TOMB, 21
+	learnset MOVE_PSYCHIC_FANGS, 24
+	learnset MOVE_LAVA_PLUME, 28
+	learnset MOVE_ROCK_SLIDE, 32
+	learnset MOVE_EXTREME_SPEED, 36
+	learnset MOVE_FLAMETHROWER, 41
+	learnset MOVE_WILD_CHARGE, 45
+	learnset MOVE_CLOSE_COMBAT, 49
+	learnset MOVE_RAGING_FURY, 53
+	learnset MOVE_HEAD_SMASH, 58
+	learnset MOVE_PLAY_ROUGH, 61
     terminatelearnset
 
 

@@ -931,9 +931,9 @@ _07B0: // Trainer 349
     trainertextentry 349, TEXT_DEFEATED_IN_OVERWORLD, "You look like you have many Pokémon,\nbut PIKACHU is still the best.\n"
 
 _07BC: // Trainer 492
-    trainertextentry 492, TEXT_NOTICE_IN_OVERWORLD, "Bow down before my regal Pokémon!\r"
-    trainertextentry 492, TEXT_DEFEATED_IN_BATTLE, "How... How dare you mock royalty!\n"
-    trainertextentry 492, TEXT_DEFEATED_IN_OVERWORLD, "Doesn’t everyone wish to be\na ruler someday?\n"
+    trainertextentry 492, TEXT_NOTICE_IN_OVERWORLD, "Mars: I'll destroy you with the\nRayquaza that Cyrus caught for me!\r"
+    trainertextentry 492, TEXT_DEFEATED_IN_BATTLE, "Mars: Wha!\n"
+    trainertextentry 492, TEXT_DEFEATED_IN_OVERWORLD, "Mars: ... ... I'll never\nbe able to beat you.\n"
 
 _07C8: // Trainer 358
     trainertextentry 358, TEXT_NOTICE_IN_OVERWORLD, "I should go to Rock Tunnel to get\nmyself an ONIX.\r"
@@ -1137,20 +1137,24 @@ _099C: // Trainer 113
     trainertextentry 113, TEXT_REMATCH_IN_OVERWORLD, "You get along really well with your\nPokémon, don’t you?\fCan you show me once more?\r"
 
 _09AC: // Trainer 411
-    trainertextentry 411, TEXT_NOTICE_IN_OVERWORLD, "Wow, look at all those Badges!\nI’m impressed.\rBut you’re not satisfied by just\ncollecting them, right?\r"
-    trainertextentry 411, TEXT_DEFEATED_IN_BATTLE, "Good battle!\n"
-    trainertextentry 411, TEXT_DEFEATED_IN_OVERWORLD, "People and Pokémon grow from\ntheir experiences.\rDon’t get lazy and complacent.\n"
+    trainertextentry 411, TEXT_NOTICE_IN_OVERWORLD, "G-980: You're getting close!\r"
+    trainertextentry 411, TEXT_DEFEATED_IN_BATTLE, "G-980: Woah!\n"
+    trainertextentry 411, TEXT_DEFEATED_IN_OVERWORLD, "G-980: Ok kid, you're tough.\n"
 
 _09B8: // Trainer 413
-    trainertextentry 413, TEXT_NOTICE_IN_OVERWORLD, "I’m feeling great today!\fI feel like I could even beat the\nLeague Champion!\r"
-    trainertextentry 413, TEXT_DEFEATED_IN_BATTLE, "No!\nNot in this battle!\n"
-    trainertextentry 413, TEXT_DEFEATED_IN_OVERWORLD, "Just like in fishing, it’s all over in\nPokémon if you give up.\n"
+    trainertextentry  413, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "G-991: Stop!\r"
+    trainertextentry  413, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "G-991: My powerful Pokemon!\n"
+    trainertextentry  413, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "G-991: Typhosion! No!\n"
+    trainertextentry  413, TEXT_DOUBLE_ONLY_1_POKEMON_1, "G-991: Fight with 2 or more\nPokemon!\n"
+    trainertextentry  413, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_2, "Typhlosion: PHLO!\r"
+    trainertextentry  413, TEXT_DOUBLE_DEFEATED_IN_BATTLE_2, "AH..."
+    trainertextentry  413, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_2, "Typhlosion: ...tyyyyyy!\n"
+    trainertextentry  413, TEXT_DOUBLE_ONLY_1_POKEMON_2, "Typhlosion: PHLO!\n
 
 _09C4: // Trainer 414
-    trainertextentry 414, TEXT_NOTICE_IN_OVERWORLD, "Tweet! Tweet!\nTet-weet!\r"
-    trainertextentry 414, TEXT_DEFEATED_IN_BATTLE, "Tweet!\n"
-    trainertextentry 414, TEXT_DEFEATED_IN_OVERWORLD, "Bird Keepers like me mimic bird whistles\nto command Pokémon.\n"
-    trainertextentry 414, TEXT_REMATCH_IN_OVERWORLD, "Tweet! I’ve been waiting for this!\nTeweet!\r"
+    trainertextentry 414, TEXT_NOTICE_IN_OVERWORLD, "G-999: The top of the Grunts!\nThat's me!\r"
+    trainertextentry 414, TEXT_DEFEATED_IN_BATTLE, "G-999: I suck!\n"
+    trainertextentry 414, TEXT_DEFEATED_IN_OVERWORLD, "G-999:... ... I wanted to become\na commander!\n"
 
 _09D4: // Trainer 103
     trainertextentry 103, TEXT_NOTICE_IN_OVERWORLD, "You look pretty strong.\nLet me battle you!\r"
@@ -1174,9 +1178,9 @@ _09FC: // Trainer 115
     trainertextentry 115, TEXT_DEFEATED_IN_OVERWORLD, "I’m checking out pre- and\npost-evolution Pokémon. Evolution\freally does make Pokémon stronger.\rBut evolved forms also learn moves\nlater on.\n"
 
 _0A08: // Trainer 412
-    trainertextentry 412, TEXT_NOTICE_IN_OVERWORLD, "Don’t say a thing! Let me guess what\nyou’re thinking. Mmmmmmm...\rI got it! You’re on the Pokémon\nLeague challenge!\r"
-    trainertextentry 412, TEXT_DEFEATED_IN_BATTLE, "You’re too much!\n"
-    trainertextentry 412, TEXT_DEFEATED_IN_OVERWORLD, "With your skills, you’ll do well at the\nPokémon League. That’s what my\fpremonition says.\n"
+    trainertextentry 412, TEXT_NOTICE_IN_OVERWORLD, "G-982: Geheheheh! I'm slap you around!\r"
+    trainertextentry 412, TEXT_DEFEATED_IN_BATTLE, "G-982: I got slapped!\n"
+    trainertextentry 412, TEXT_DEFEATED_IN_OVERWORLD, "G-982: My dragons were no match!\n"
 
 _0A14: // Trainer 8
     trainertextentry   8, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Go! Shiny Eevee!\r"
@@ -1396,9 +1400,14 @@ _0C08: // Trainer 400
     trainertextentry 400, TEXT_REMATCH_IN_OVERWORLD, "Oh, here you are again!\nThere’s so many more things I want to\flearn from you!\r"
 
 _0C18: // Trainer 410
-    trainertextentry 410, TEXT_NOTICE_IN_OVERWORLD, "I’ve been overseas, so I know about all\nsorts of Pokémon!\r"
-    trainertextentry 410, TEXT_DEFEATED_IN_BATTLE, "Your skill is world class!\n"
-    trainertextentry 410, TEXT_DEFEATED_IN_OVERWORLD, "All kinds of people around the world live\nhappily with Pokémon.\n"
+    trainertextentry  410, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "G-971: Choice Scarf Surprise!\r"
+    trainertextentry  410, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "G-971: I made my choice!\n"
+    trainertextentry  410, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "G-971: More than one move on\nmy Pokemon might help...\n"
+    trainertextentry  410, TEXT_DOUBLE_ONLY_1_POKEMON_1, "G-971: Fight with 2 or more\nPokemon!\n"
+    trainertextentry  410, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_2, "Chandelure: CHAN!\r"
+    trainertextentry  410, TEXT_DOUBLE_DEFEATED_IN_BATTLE_2, "AH..."
+    trainertextentry  410, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_2, "Chandelure: ...delureeee.\n"
+    trainertextentry  410, TEXT_DOUBLE_ONLY_1_POKEMON_2, "Chandelure: CHAN!\n"
 
 _0C24: // Trainer 397
     trainertextentry 397, TEXT_NOTICE_IN_OVERWORLD, "Let me try something I learned today.\r"
@@ -1567,9 +1576,9 @@ _0DB0: // Trainer 408
     trainertextentry 408, TEXT_DEFEATED_IN_OVERWORLD, "We all get better by experiencing many\nbattles. I battled a lot to become what\fI am today--an elite.\n"
 
 _0DBC: // Trainer 405
-    trainertextentry 405, TEXT_NOTICE_IN_OVERWORLD, "I’m gonna win for sure!\r"
-    trainertextentry 405, TEXT_DEFEATED_IN_BATTLE, "Arrgh... That’s a shocking loss...\n"
-    trainertextentry 405, TEXT_DEFEATED_IN_OVERWORLD, "It’s important to have conviction on\nyour side.\n"
+    trainertextentry 405, TEXT_NOTICE_IN_OVERWORLD, "G-967: Hah! Gotcha!\r"
+    trainertextentry 405, TEXT_DEFEATED_IN_BATTLE, "G-967: Nooooooo!\n"
+    trainertextentry 405, TEXT_DEFEATED_IN_OVERWORLD, "G-967: You're goofy strong!\n"
 
 _0DC8: // Trainer 124
     trainertextentry 124, TEXT_NOTICE_IN_OVERWORLD, "Aack! You made me lose a POLIWAG!\nWhat are you going to do about it?\r"
@@ -2178,9 +2187,9 @@ _1328: // Trainer 222
     trainertextentry 222, TEXT_DEFEATED_IN_OVERWORLD, "G-534: I kinda want to go\ncamping here. That'd be fun...\n"
 
 _1334: // Trainer 404
-    trainertextentry 404, TEXT_NOTICE_IN_OVERWORLD, "Do I know the password?\rMaybe.\rBut no weakling’s going to get it!\r"
-    trainertextentry 404, TEXT_DEFEATED_IN_BATTLE, "The password for the boss’s door--\rSLOWPOKETAIL.\n"
-    trainertextentry 404, TEXT_DEFEATED_IN_OVERWORLD, "The password to the boss’s room is\nSLOWPOKETAIL.\rBut it’s useless unless you have two\npasswords.\n"
+    trainertextentry 404, TEXT_NOTICE_IN_OVERWORLD, "G-931: Boss's plans are almost\ncomplete. No stopping now!\r"
+    trainertextentry 404, TEXT_DEFEATED_IN_BATTLE, "G-931: Gah!\n"
+    trainertextentry 404, TEXT_DEFEATED_IN_OVERWORLD, "G-931: Home... soon.\n"
 
 _1340: // Trainer 391
     trainertextentry 391, TEXT_NOTICE_IN_OVERWORLD, "My Pokémon just got a haircut!\nI’ll show you how strong it is!\r"
@@ -2876,7 +2885,9 @@ _1938: // Trainer 512
     trainertextentry 512, TEXT_DEFEATED_IN_BATTLE, "Awwwww...\n"
 
 _193C: // Trainer 279
-    trainertextentry 279, TEXT_DEFEATED_IN_BATTLE, "No...\nI’m out of Pokémon that can fight.\n"
+    trainertextentry 279, TEXT_NOTICE_IN_OVERWORLD, "Joey: I'm youngster Joey!\nAnd you're screwed!\r"
+    trainertextentry 279, TEXT_DEFEATED_IN_BATTLE, "No. Way.\n"
+    trainertextentry 279, TEXT_DEFEATED_IN_OVERWORLD, "Joey: Wow, you beat the doof!\n"
 
 _1940: // Trainer 280
     trainertextentry 280, TEXT_DEFEATED_IN_BATTLE, "No...\nI’m out of Pokémon that can fight.\n"

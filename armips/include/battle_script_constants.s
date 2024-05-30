@@ -296,6 +296,7 @@ SUB_SEQ_SHAYMIN_FORM_CHECK              equ (293)
 SUB_SEQ_OVERWORLD_SUN                   equ (294)
 SUB_SEQ_OVERWORLD_TRICK_ROOM            equ (295)
 SUB_SEQ_GIRATINA_FORM_CHECK             equ (296)
+//SUB_SEQ_HANDLE_WEAKNESS_POLICY          equ ()
 
 // new sub_seq entries:
 SUB_SEQ_HANDLE_MEGA_EVOLUTION                 equ (297)
