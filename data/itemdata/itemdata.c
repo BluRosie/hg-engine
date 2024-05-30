@@ -39013,7 +39013,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PROTECTIVE_PADS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 15000,
     .holdEffect = HOLD_EFFECT_PREVENT_CONTACT_EFFECTS,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -39078,12 +39078,12 @@ const ITEMDATA __data[] =
 
 [ITEM_TERRAIN_EXTENDER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
-    .price = 200,
+    .price = 15000,
     .holdEffect = 0,
-    .holdEffectParam = 0,
+    .holdEffectParam = 3,
     .pluckEffect = 0,
     .flingEffect = 0,
-    .flingPower = 30,
+    .flingPower = 60,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = FALSE,
