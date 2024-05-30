@@ -3580,41 +3580,40 @@ levelup SPECIES_MEGANIUM
 levelup SPECIES_CYNDAQUIL
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_SMOKESCREEN, 5
-    learnset MOVE_EMBER, 6
-    learnset MOVE_QUICK_ATTACK, 13
-    learnset MOVE_FLAME_WHEEL, 19
-    learnset MOVE_DEFENSE_CURL, 22
-    learnset MOVE_FLAME_CHARGE, 28
-    learnset MOVE_SWIFT, 31
-    learnset MOVE_LAVA_PLUME, 37
-    learnset MOVE_FLAMETHROWER, 40
-    learnset MOVE_INFERNO, 46
-    learnset MOVE_ROLLOUT, 49
-    learnset MOVE_DOUBLE_EDGE, 55
-    learnset MOVE_BURN_UP, 58
-    learnset MOVE_ERUPTION, 64
+    learnset MOVE_EMBER, 5
+    learnset MOVE_SMOKESCREEN, 8
+    learnset MOVE_INCINERATE, 12
+    learnset MOVE_QUICK_ATTACK, 14
+    learnset MOVE_NASTY_PLOT, 17
+    learnset MOVE_MUD_SHOT, 20
+    learnset MOVE_OMINOUS_WIND, 23
+    learnset MOVE_HYPER_VOICE, 27
+    learnset MOVE_LAVA_PLUME, 30
+    learnset MOVE_FLAMETHROWER, 38
+    learnset MOVE_INFERNO, 40
+    learnset MOVE_FIRE_BLAST, 44
+    learnset MOVE_ERUPTION, 50
+    learnset MOVE_BLAST_BURN, 55
     terminatelearnset
 
 
 levelup SPECIES_QUILAVA
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_SMOKESCREEN, 6
-    learnset MOVE_EMBER, 10
-    learnset MOVE_QUICK_ATTACK, 13
-    learnset MOVE_FLAME_WHEEL, 20
-    learnset MOVE_DEFENSE_CURL, 24
-    learnset MOVE_SWIFT, 31
-    learnset MOVE_FLAME_CHARGE, 35
-    learnset MOVE_LAVA_PLUME, 42
-    learnset MOVE_FLAMETHROWER, 46
-    learnset MOVE_INFERNO, 53
-    learnset MOVE_ROLLOUT, 57
-    learnset MOVE_DOUBLE_EDGE, 64
-    learnset MOVE_BURN_UP, 68
-    learnset MOVE_ERUPTION, 75
+    learnset MOVE_EMBER, 5
+    learnset MOVE_SMOKESCREEN, 8
+    learnset MOVE_INCINERATE, 12
+    learnset MOVE_QUICK_ATTACK, 14
+    learnset MOVE_NASTY_PLOT, 18
+    learnset MOVE_MUD_SHOT, 21
+    learnset MOVE_OMINOUS_WIND, 26
+    learnset MOVE_HYPER_VOICE, 30
+    learnset MOVE_LAVA_PLUME, 35
+    learnset MOVE_FLAMETHROWER, 40
+    learnset MOVE_INFERNO, 44
+    learnset MOVE_FIRE_BLAST, 48
+    learnset MOVE_ERUPTION, 55
+    learnset MOVE_BLAST_BURN, 58
     terminatelearnset
 
 
@@ -11885,8 +11884,8 @@ levelup SPECIES_EMBOAR
 levelup SPECIES_OSHAWOTT
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 3
-    learnset MOVE_WATER_GUN, 4
-    learnset MOVE_WATER_SPORT, 5
+    learnset MOVE_WATER_GUN, 5
+    learnset MOVE_WATER_SPORT, 8
     learnset MOVE_FOCUS_ENERGY, 13
     learnset MOVE_RAZOR_SHELL, 17
     learnset MOVE_FURY_CUTTER, 19
@@ -17067,10 +17066,9 @@ levelup SPECIES_VOLCANION
 levelup SPECIES_ROWLET
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_GROWL, 5
-    learnset MOVE_LEAFAGE, 6
+    learnset MOVE_LEAFAGE, 5
+     learnset MOVE_PECK, 6
     learnset MOVE_ASTONISH, 8
-    learnset MOVE_PECK, 8
     learnset MOVE_SHADOW_SNEAK, 12
     learnset MOVE_RAZOR_LEAF, 14
     learnset MOVE_OMINOUS_WIND, 16
@@ -26546,27 +26544,23 @@ levelup SPECIES_ELECTRODE_HISUIAN
 
 
 levelup SPECIES_TYPHLOSION_HISUIAN
-    learnset MOVE_ERUPTION, 1
-    learnset MOVE_DOUBLE_EDGE, 1
-    learnset MOVE_GYRO_BALL, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_SMOKESCREEN, 6
-    learnset MOVE_EMBER, 10
-    learnset MOVE_QUICK_ATTACK, 13
-    learnset MOVE_FLAME_WHEEL, 20
-    learnset MOVE_DEFENSE_CURL, 24
-    learnset MOVE_SWIFT, 31
-    learnset MOVE_HEX, 35
-    learnset MOVE_SHADOW_BALL, 43
-    learnset MOVE_FLAMETHROWER, 48
-    learnset MOVE_INFERNO, 56
-    learnset MOVE_ROLLOUT, 61
-    learnset MOVE_DOUBLE_EDGE, 69
-    learnset MOVE_BURN_UP, 74
-    learnset MOVE_ERUPTION, 82
+    learnset MOVE_EMBER, 5
+    learnset MOVE_SMOKESCREEN, 8
+    learnset MOVE_INCINERATE, 12
+    learnset MOVE_QUICK_ATTACK, 14
+    learnset MOVE_NASTY_PLOT, 18
+    learnset MOVE_MUD_SHOT, 21
+    learnset MOVE_OMINOUS_WIND, 26
+    learnset MOVE_HYPER_VOICE, 30
+    learnset MOVE_LAVA_PLUME, 35
+    learnset MOVE_HEX, 36
+    learnset MOVE_FLAMETHROWER, 40
+    learnset MOVE_INFERNO, 44
+    learnset MOVE_FIRE_BLAST, 48
+    learnset MOVE_ERUPTION, 55
+    learnset MOVE_BLAST_BURN, 58
     terminatelearnset
 
 

@@ -16693,7 +16693,7 @@ trainerdata 494, "Georgina"
 // First rival fight, player chose water
 
 trainerdata 495, "Boy"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PASSERBY
     nummons 1
     item ITEM_NONE
