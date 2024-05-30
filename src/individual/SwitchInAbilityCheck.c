@@ -493,7 +493,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Imposter
                     {
                         if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)
-                         && (sp->battlemon[client_no].hp) && (sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
+                         && (sp->battlemon[client_no].hp)
                          && IsValidImposterTarget(bw, sp, client_no)) {
                             u32 num;
                             sp->battlemon[client_no].imposter_flag = 1;
