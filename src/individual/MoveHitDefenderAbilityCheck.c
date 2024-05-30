@@ -308,7 +308,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             {
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->client_work = sp->attack_client;
-                sp->battlemon[sp->attack_client].ability = ABILITY_MUMMY;
+                sp->battlemon[sp->attack_client].ability = GetBattlerAbility(sp, sp->defence_client); // spread defender ability to attacker
                 seq_no[0] = SUB_SEQ_HANDLE_MUMMY_MESSAGE;
                 ret = TRUE;
             }
