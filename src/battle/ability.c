@@ -429,39 +429,6 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
 }
 
 /**
- *  @brief check if mummy can overwrite the attacker's ability
- *
- *  @param sp global battle structure
- *  @return TRUE if the ability can be overwritten; FALSE otherwise
- */
-BOOL MummyAbilityCheck(struct BattleStruct *sp)
-{
-    switch(GetBattlerAbility(sp, sp->attack_client))
-    {
-        case ABILITY_MULTITYPE:
-        case ABILITY_ZEN_MODE:
-        case ABILITY_STANCE_CHANGE:
-        case ABILITY_SCHOOLING:
-        case ABILITY_BATTLE_BOND:
-        case ABILITY_POWER_CONSTRUCT:
-        case ABILITY_SHIELDS_DOWN:
-        case ABILITY_RKS_SYSTEM:
-        case ABILITY_DISGUISE:
-        case ABILITY_COMATOSE:
-        case ABILITY_MUMMY:
-        case ABILITY_AS_ONE_GLASTRIER:
-        case ABILITY_AS_ONE_SPECTRIER:
-        // seems to be based on Lingering Aroma from Bulbapedia
-        case ABILITY_ZERO_TO_HERO:
-        case ABILITY_COMMANDER:
-        case ABILITY_LINGERING_AROMA:
-            return FALSE;
-        default:
-            return TRUE;
-    }
-}
-
-/**
  *  @brief check if the client_no's item can be stolen by pickpocket
  *
  *  @param sp global battle structure
