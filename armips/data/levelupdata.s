@@ -3581,6 +3581,7 @@ levelup SPECIES_CYNDAQUIL
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
     learnset MOVE_EMBER, 5
+    learnset MOVE_INFERNAL_PARADE, 5
     learnset MOVE_SMOKESCREEN, 8
     learnset MOVE_INCINERATE, 12
     learnset MOVE_QUICK_ATTACK, 14

@@ -324,6 +324,7 @@
 #define MOVE_EFFECT_GEOMANCY                                318
 #define MOVE_EFFECT_WEATHER_SNOW                            319
 #define MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 320
+#define MOVE_EFFECT_DOUBLE_DAMAGE_ON_STATUS_AND_BURN        321
 
 
 
