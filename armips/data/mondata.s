@@ -26587,7 +26587,7 @@ mondata SPECIES_GROWLITHE_HISUIAN, "-----"
     colorflip BODY_COLOR_BROWN, 0
 
 
-mondata SPECIES_ARCANINE_HISUIAN, "-----"
+mondata SPECIES_ARCANINE_HISUIAN, "Arcanine-H"
     basestats 95, 115, 80, 90, 95, 80
     types TYPE_FIRE, TYPE_ROCK
     catchrate 195
