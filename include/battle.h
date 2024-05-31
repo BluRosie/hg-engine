@@ -1397,7 +1397,7 @@ enum
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0
 
-struct PACKED newBattleStruct
+struct newBattleStruct
 {
     u8 SideMega[4];//检查双方是否mega过,0我方,1敌方
     u8 needMega[4];//需要mega
