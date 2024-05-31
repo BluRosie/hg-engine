@@ -498,8 +498,6 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
     }
 
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
-    range = (gf_rand() % ITEM_SERIOUS_MINT) + 1;
-    SetMonData(encounterPartyPokemon, MON_DATA_HELD_ITEM, &range);
 
     if (species == SPECIES_UNOWN)
     {
