@@ -1581,7 +1581,8 @@ static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
  */
 static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
 {
-    u32 testClient = BATTLER_ACROSS(client);
+    // double battles need to use BATTLER_ACROSS to get the battler standing visibly across from it.  BATTLER_OPPONENT needs to be used otherwise
+    u32 testClient = (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) ? BATTLER_ACROSS(client) : BATTLER_OPPONENT(client);
     struct BattlePokemon *battleMon = &sp->battlemon[testClient];
     u32 keepTrack = 0;
     if (battleMon->hp != 0
@@ -1612,6 +1613,7 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
     //    sp->defence_client = testClient;
     //}
 
+    // there is no handling for "randomly choose between both of the enemies"
     /*if (keepTrack >= 2)
     {
         // choose randomly between the two valid targets
