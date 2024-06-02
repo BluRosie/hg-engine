@@ -23,8 +23,8 @@ a010_524:
     callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     loadparticle 0, 387
     waitstate
-    loadparticlefromspa 1, 502 //electric charging, emitter 5
-    waitparticle
+    //loadparticlefromspa 1, 502 //electric charging, emitter 5
+    //waitparticle
     loadparticlefromspa 2, 212 //zap cannon ball, emitter 0
     unloadspriteresource
     resetsprite 0
@@ -34,7 +34,7 @@ a010_524:
     checkturn _00C8, _0268
     end
 _00C8:
-    addparticle 1, 5, 3
+    //addparticle 1, 5, 3
     jumpifcontest _030C
     callfunction 40, 2, 2, 1, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     playsepan 1839, -117
@@ -46,6 +46,9 @@ _00C8:
     playsepan 1827, 117
     addparticle 2, 2, 17 //electric hit marker
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
+
+
+
     addparticle 0, 2, 17
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
     addparticle 0, 5, 17

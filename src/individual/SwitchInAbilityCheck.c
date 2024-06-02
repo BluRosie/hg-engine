@@ -253,6 +253,38 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
+                    // Intrepid Sword
+                    {
+                        if ((sp->battlemon[client_no].appear_check_flag == 0 && sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTREPID_SWORD) ) {
+
+                            sp->addeffect_param = ADD_STAGE_ATTACK_UP;
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            sp->battlemon[client_no].appear_check_flag = 1;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+
+                            
+                        }
+                    }
+                    // Dauntless Shield
+                    {
+                        if ((sp->battlemon[client_no].appear_check_flag == 0 && sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_DAUNTLESS_SHIELD) ) {
+
+                            sp->addeffect_param = 16;
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            sp->battlemon[client_no].appear_check_flag = 1;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+
+                            
+                        }
+                    }
+
+
                     // Anticipation
                     {
                         if ((sp->battlemon[client_no].anticipation_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_ANTICIPATION)) {

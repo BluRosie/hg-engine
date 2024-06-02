@@ -194,7 +194,7 @@ Stamina
 Wimp Out
 Emergency Exit
 Water Compaction
-Merciless
+As One
 Shields Down
 Stakeout
 Water Bubble
@@ -206,7 +206,7 @@ Liquid Voice
 Triage
 Galvanize
 Surge Surfer
-Schooling
+As One
 Disguise
 Battle Bond
 Power Construct
@@ -264,8 +264,8 @@ Run Away
 Illuminate
 Stall
 Anticipation
-As One
-As One
+Schooling
+Merciless
 Lingering Aroma
 Seed Sower
 Thermal Exchange

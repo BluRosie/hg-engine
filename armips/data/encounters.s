@@ -530,7 +530,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40
+walklevels 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
 
 //morning encounter slots
 pokemon SPECIES_UXIE
@@ -594,11 +594,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_MAGIKARP, 1, 2
-encounter SPECIES_TYMPOLE, 1, 2
-encounter SPECIES_FEEBAS, 1, 2
-encounter SPECIES_FEEBAS, 1, 2
-encounter SPECIES_FEEBAS, 1, 2
+encounter SPECIES_KYOGRE, 40, 41
+encounter SPECIES_PALKIA, 40, 41
+encounter SPECIES_PALKIA, 40, 41
+encounter SPECIES_PALKIA, 40, 41
+encounter SPECIES_PALKIA, 40, 41
 
 //good rod encounters
 encounter SPECIES_MAGIKARP, 1, 2
@@ -837,7 +837,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37
+walklevels 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47
 
 //morning encounter slots
 pokemon SPECIES_GENESECT
@@ -901,11 +901,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_FEEBAS, 4, 4
-encounter SPECIES_TIRTOUGA, 4, 4
-encounter SPECIES_TYNAMO, 4, 4
-encounter SPECIES_TYNAMO, 4, 4
-encounter SPECIES_TYNAMO, 4, 4
+encounter SPECIES_SUICUNE, 36, 38
+encounter SPECIES_TAPU_FINI, 36, 38
+encounter SPECIES_TAPU_FINI, 36, 38
+encounter SPECIES_TAPU_FINI, 36, 38
+encounter SPECIES_TAPU_FINI, 36, 38
 
 //good rod encounters
 encounter SPECIES_FEEBAS, 4, 4
@@ -1554,7 +1554,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40
+walklevels 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43
 
 //morning encounter slots
 monwithform SPECIES_ABSOL, 1
@@ -1758,7 +1758,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34
+walklevels 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43
 
 //morning encounter slots
 pokemon SPECIES_RAYQUAZA
@@ -1822,11 +1822,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_NONE, 0, 0
-encounter SPECIES_NONE, 0, 0
-encounter SPECIES_NONE, 0, 0
-encounter SPECIES_NONE, 0, 0
-encounter SPECIES_NONE, 0, 0
+encounterwithform SPECIES_KYOGRE, 1, 35, 36
+encounterwithform SPECIES_KYOGRE, 1, 35, 36
+encounterwithform SPECIES_KYOGRE, 1, 35, 36
+encounterwithform SPECIES_KYOGRE, 1, 35, 36
+encounterwithform SPECIES_KYOGRE, 1, 35, 36
 
 //good rod encounters
 encounter SPECIES_NONE, 0, 0
@@ -2065,8 +2065,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30
-
+walklevels 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40
 //morning encounter slots
 pokemon SPECIES_ZARUDE
 pokemon SPECIES_TAPU_BULU
@@ -2168,7 +2167,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27
+walklevels 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35
 
 //morning encounter slots
 monwithform SPECIES_LANDORUS, 1
@@ -2232,11 +2231,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_LUVDISC, 4, 5
-encounter SPECIES_TENTACOOL, 4, 5
-encounter SPECIES_HORSEA, 4, 5
-encounter SPECIES_HORSEA, 4, 5
-encounter SPECIES_HORSEA, 4, 5
+encounterwithform SPECIES_BLASTOISE, 1, 26, 28
+encounterwithform SPECIES_BLASTOISE, 1, 26, 28
+encounterwithform SPECIES_BLASTOISE, 1, 26, 28
+encounterwithform SPECIES_BLASTOISE, 1, 26, 28
+encounterwithform SPECIES_BLASTOISE, 1, 26, 28
 
 //good rod encounters
 encounter SPECIES_LUVDISC, 8, 8
@@ -2271,7 +2270,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23
+walklevels 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28
 
 //morning encounter slots
 pokemon SPECIES_YVELTAL
@@ -2374,7 +2373,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23
+walklevels 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28
 
 //morning encounter slots
 pokemon SPECIES_XERNEAS
@@ -2579,7 +2578,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21
+walklevels 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28
 
 //morning encounter slots
 monwithform SPECIES_MEWTWO, 1
@@ -2682,7 +2681,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
+walklevels 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28
 
 //morning encounter slots
 monwithform SPECIES_RAYQUAZA, 1
@@ -4796,11 +4795,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_WAILMER, 11, 12
-encounter SPECIES_GOLDEEN, 11, 12
-encounter SPECIES_HORSEA, 11, 12
-encounter SPECIES_HORSEA, 11, 12
-encounter SPECIES_HORSEA, 11, 12
+encounter SPECIES_MANAPHY, 16, 18
+encounter SPECIES_TAPU_FINI, 16, 18
+encounter SPECIES_TAPU_FINI, 16, 18
+encounter SPECIES_TAPU_FINI, 16, 18
+encounter SPECIES_TAPU_FINI, 16, 18
 
 //good rod encounters
 encounter SPECIES_WAILMER, 25, 25
@@ -5243,7 +5242,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18
+walklevels 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25
 
 //morning encounter slots
 monwithform SPECIES_HOOPA, 1
@@ -8417,7 +8416,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19
+walklevels 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25
 
 //morning encounter slots
 pokemon SPECIES_MEWTWO
@@ -13510,7 +13509,7 @@ pokemon SPECIES_NONE
 
 .close
 
-encounterdata   132//TOHJO_FALLS
+encounterdata   132//Mt. Coronet
 
 walkrate 25
 surfrate 15
@@ -13561,6 +13560,7 @@ monwithform SPECIES_MEWTWO, 2
 monwithform SPECIES_LATIOS, 1
 monwithform SPECIES_LATIAS, 1
 pokemon SPECIES_ARCEUS
+
 //hoenn encounter slots
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -13581,11 +13581,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 //old rod encounters
-encounter SPECIES_PIPLUP, 27, 27
-encounter SPECIES_SQUIRTLE, 27, 27
-encounter SPECIES_TOTODILE, 27, 27
-encounter SPECIES_TOTODILE, 27, 27
-encounter SPECIES_TOTODILE, 27, 27
+encounterwithform SPECIES_KYOGRE, 1, 66, 68
+encounter SPECIES_PALKIA, 67, 68
+encounter SPECIES_PALKIA, 67, 68
+encounter SPECIES_PALKIA, 67, 68
+encounter SPECIES_PALKIA, 67, 68
 
 //good rod encounters
 encounter SPECIES_PIPLUP, 27, 27
@@ -14028,7 +14028,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 31,31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31
+walklevels 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40
 
 //morning encounter slots
 pokemon SPECIES_RESHIRAM
@@ -14441,7 +14441,7 @@ rocksmashrate 0
 oldrodrate 100
 goodrodrate 0
 superrodrate 0
-walklevels 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24
+walklevels 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35
 
 //morning encounter slots
 pokemon SPECIES_KORAIDON

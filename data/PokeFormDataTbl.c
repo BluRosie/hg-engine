@@ -1259,13 +1259,13 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_ZYGARDE,
         .form_no = 4,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_ZYGARDE_10_COMPLETE,
     },
     {
         .species = SPECIES_ZYGARDE,
         .form_no = 5,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_ZYGARDE_50_COMPLETE,
     },
     {
@@ -1409,13 +1409,13 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_ZACIAN,
         .form_no = 1,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_ZACIAN_CROWNED,
     },
     {
         .species = SPECIES_ZAMAZENTA,
         .form_no = 1,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_ZAMAZENTA_CROWNED,
     },
     {

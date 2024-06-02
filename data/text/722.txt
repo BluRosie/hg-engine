@@ -194,7 +194,7 @@ Boosts Defense when\nhit by an attack.
 Cowardly switches out if\nits HP becomes half or less.
 Switches out if\nits HP becomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.
-Its attacks are critical hits\nwhen it is poisoned.
+Combines Unnerve\nand Grim Neigh.
 Its shell breaks if its\nHP becomes half or less.
 Deals doubles damage to\na target’s replacement.
 Weakens incoming Fire-type\nmoves and prevents burns.
@@ -206,7 +206,7 @@ Its sound-based moves\nbecome Water-type.
 Gives priority to\na healing move.
 Normal-type moves become\nElectric-type and powered.
 Doubles Speed on\nElectric Terrain.
-Forms a powerful school\nwhile it has a lot of HP.
+Combines Unnerve\nand Chilling Neigh.
 Its shroud protects it\nfrom an attack just once.
 Defeating a foe\nlets it become Ash-Greninja.
 Changes with other Cells\nif HP becomes half or less.
@@ -264,8 +264,8 @@ Enables sure getaway\nfrom wild Pokémon.
 Raises the likelihood of\nmeeting wild Pokémon.
 The Pokémon moves after\neven slower foes.
 Senses the foe’s\ndangerous moves.
-Combines Unnerve\nand Chilling Neigh.
-Combines Unnerve\nand Grim Neigh.
+Forms a powerful school\nwhile it has a lot of HP.
+Its attacks are critical hits\nwhen it is poisoned.
 Contact with this Pokémon\nspreads this Ability.
 Turns the ground into\nGrassy Terrain if attacked.
 Ups Attack if hit\nby Fire moves. Prevents burns.
