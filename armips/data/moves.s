@@ -5979,7 +5979,7 @@ movedata MOVE_ASSURANCE, "Assurance"
     movedescription MOVE_ASSURANCE, "If the foe has\nalready taken some\ndamage in the same\nturn, this attack’s\npower is doubled."
 
 movedata MOVE_EMBARGO, "Taxation"
-    battleeffect 3
+    battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
 	pss SPLIT_SPECIAL
 	basepower 65
 	type TYPE_DARK

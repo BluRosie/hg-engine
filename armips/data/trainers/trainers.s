@@ -3933,7 +3933,7 @@ trainerdata 71, "Cathy"
 		ivs 250
 		abilityslot 32
 		level 38
-		pokemon SPECIES_FARIGARAF
+		pokemon SPECIES_FARIGIRAF
 		item ITEM_TWISTED_SPOON
 		move MOVE_PSYCHIC
 		move MOVE_HYPER_VOICE
