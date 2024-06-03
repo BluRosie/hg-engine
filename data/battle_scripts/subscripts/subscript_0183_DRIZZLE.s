@@ -10,9 +10,6 @@ _000:
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER, BATTLE_ANIMATION_WEATHER_RAIN
     Wait 
     Call BATTLE_SUBSCRIPT_HANDLE_RAIN_TEMPORARY
-    PrintBufferedMessage 
-    Wait 
-    WaitButtonABTime 30
 
 _029:
     End 
