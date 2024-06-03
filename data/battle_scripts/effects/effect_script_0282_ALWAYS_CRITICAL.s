@@ -3,7 +3,6 @@
 .data
 
 _000:
-    CalcCrit 
-    CalcDamage 
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_TO_DEFENDER|MOVE_SUBSCRIPT_PTR_EVASION_DOWN_1_STAGE
-    End 
+    CalcCrit
+    CalcDamage
+    End

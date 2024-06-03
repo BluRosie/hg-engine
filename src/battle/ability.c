@@ -18,7 +18,6 @@
 
 // function declarations from this file
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
-BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);

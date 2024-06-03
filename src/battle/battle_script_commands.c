@@ -2937,6 +2937,39 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
 }
 
 /**
+ *  @brief check if a substitute is up and jump to destination if there is one up
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    // handle infiltrator
+    if ((ctx->addeffect_type == 4 || ctx->addeffect_type == 1) // SIDE_EFFECT_TYPE_MOVE_EFFECT || SIDE_EFFECT_TYPE_DIRECT
+                                                                           // if the current check is being done from a move or move effect
+     && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_INFILTRATOR  // and the attacker's ability is infiltrator
+     && ctx->current_move_index != MOVE_TRANSFORM                          // and the move is not transform
+     && ctx->current_move_index != MOVE_SKY_DROP)                          // and the move is not sky drop
+    {
+        return FALSE; // bypass the substitute that is up
+    }
+
+    if (ctx->battlemon[battlerId].condition2 & STATUS2_SUBSTITUTE || ctx->oneSelfFlag[battlerId].status_flag & SELF_STATUS_FLAG_SUBSTITUTE_HIT)
+    {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+/**
  *  @brief check if knock off can remove the defender's held item
  *         does not count sticky hold and substitute because those still allow knock off's base power increase
  *
