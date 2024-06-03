@@ -21466,7 +21466,7 @@ levelup SPECIES_TOEDSCRUEL
 
 levelup SPECIES_KLAWF
     learnset MOVE_ROCK_THROW, 1
-    learnset MOVE_VISE_GRIP, 1
+    learnset MOVE_VICE_GRIP, 1
     learnset MOVE_HARDEN, 6
     learnset MOVE_ROCK_SMASH, 9
     learnset MOVE_ROCK_TOMB, 13
@@ -21534,9 +21534,9 @@ levelup SPECIES_RELLOR
 
 levelup SPECIES_RABSCA
     learnset MOVE_REVIVAL_BLESSING, 0
-    learnset MOVE_REVIVAL_BLESSING, 0
-    learnset MOVE_PSYCH_UP, 0
-    learnset MOVE_SAFEGUARD, 0
+    learnset MOVE_REVIVAL_BLESSING, 1
+    learnset MOVE_PSYCH_UP, 1
+    learnset MOVE_SAFEGUARD, 1
     learnset MOVE_CONFUSION, 1
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_TACKLE, 1
@@ -28874,8 +28874,8 @@ levelup SPECIES_TAUROS_AQUA
     terminatelearnset
 
 levelup SPECIES_OINKOLOGNE_FEMALE
-    learnset MOVE_TACKLE, —
-    learnset MOVE_TAIL_WHIP, —
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_TAIL_WHIP, 1
     learnset MOVE_DISARMING_VOICE, 3
     learnset MOVE_ECHOED_VOICE, 6
     learnset MOVE_MUD_SHOT, 9
