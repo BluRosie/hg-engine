@@ -19,13 +19,6 @@ a010_623:
     changebg 56, 0x20001
     waitforchangebg
 
-    cmd52 2, 0, 4
-    callfunction 38, 6, 1, 16, 0, 0, 16, 8, "NaN", "NaN", "NaN", "NaN"
-    wait 1
-    callfunction 40, 2, 2, 1, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    enablemonsprite 0, 0x0
-    enablemonsprite 4, 0x0
     playsepanmod 2068, -117, 117, 4, 2
 
     addparticle 0, 1, 17
@@ -47,11 +40,6 @@ a010_623:
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    enablemonsprite 0, 0x1
-    enablemonsprite 4, 0x1
-    callfunction 38, 6, 1, 0, 16, 16, 0, 8, "NaN", "NaN", "NaN", "NaN"
-    wait 7
-    callfunction 40, 2, 2, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
 
     cmd43
     cmd0C 4, 0
