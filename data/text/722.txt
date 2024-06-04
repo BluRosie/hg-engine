@@ -33,7 +33,7 @@ The Pokémon draws in all\nElectric-type moves.
 Boosts the likelihood of\nadded effects appearing.
 Boosts the Pokémon’s\nSpeed in rain.
 Boosts the Pokémon’s\nSpeed in sunshine.
-Raises the likelihood of\nmeeting wild Pokémon.
+Powers up\nDragon-type moves.
 The Pokémon copies the\nfoe’s ability.
 Raises the Pokémon’s\nAttack stat.
 Contact with the Pokémon\nmay poison the foe.

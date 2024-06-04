@@ -1693,7 +1693,7 @@ trainerdata 31, "Morty"
 		move MOVE_HIDDEN_POWER
 		ability ABILITY_FLAME_BODY
 		setivs 31, 31, 30, 31, 30, 30 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 0, 252, 0, 0
+		setevs 252, 0, 0, 0, 252, 0
 		nature NATURE_MODEST
 		shinylock 1
 		ballseal 16
@@ -2622,7 +2622,7 @@ trainerdata 43, "Guide Gent"
 		move MOVE_SWEET_SCENT
 		move MOVE_STOMP
 		move MOVE_NONE
-		ability ABILITY_ANTICIPATION
+		ability ABILITY_PIXILATE
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
 		setevs 0, 0, 0, 252, 0, 0
 		nature NATURE_TIMID
@@ -19817,7 +19817,7 @@ trainerdata 471, "Garett"
 		move MOVE_THUNDERBOLT
 		move MOVE_HIDDEN_POWER
 		move MOVE_PROTECT
-		ability ABILITY_STAMINA
+		ability ABILITY_TRANSISTOR
 		setivs 31, 31, 31, 30, 31, 31 // hp, atk, def, spe, spatk, spdef
 		setevs 0, 0, 0, 252, 252, 0
 		nature NATURE_TIMID
@@ -20197,7 +20197,7 @@ trainerdata 480, "Diana"
 	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
     trainerclass CLASS_SKIER
      
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -21822,21 +21822,22 @@ trainerdata 500, "Darkrai"
 		shinylock 0
 		ballseal 0
 	// mon 1
-		ivs 250
+    	ivs 250
 		abilityslot 32
 		level 75
-		pokemon SPECIES_ARCEUS
-		item ITEM_PIXIE_PLATE
-		move MOVE_JUDGMENT
-		move MOVE_CALM_MIND
-		move MOVE_RECOVER
-		move MOVE_FLAMETHROWER
-		ability ABILITY_MULTITYPE
+		monwithform SPECIES_ZACIAN, 1
+		item ITEM_RUSTED_SWORD
+		move MOVE_BEHEMOTH_BLADE
+		move MOVE_PLAY_ROUGH
+		move MOVE_CLOSE_COMBAT
+		move MOVE_PROTECT
+		ability ABILITY_INTREPID_SWORD
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 0, 0, 0, 252
-		nature NATURE_MODEST
+		setevs 0, 252, 0, 252, 0, 0
+		nature NATURE_ADAMANT
 		shinylock 0
 		ballseal 0
+		
 	// mon 2
 		ivs 250
 		abilityslot 32
@@ -21870,19 +21871,19 @@ trainerdata 500, "Darkrai"
 		shinylock 1
 		ballseal 0
     // mon 4
-		ivs 250
+        ivs 250
 		abilityslot 32
 		level 75
-		monwithform SPECIES_ZACIAN, 1
-		item ITEM_RUSTED_SWORD
-		move MOVE_BEHEMOTH_BLADE
-		move MOVE_PLAY_ROUGH
-		move MOVE_CLOSE_COMBAT
-		move MOVE_PROTECT
-		ability ABILITY_INTREPID_SWORD
+		pokemon SPECIES_ARCEUS
+		item ITEM_PIXIE_PLATE
+		move MOVE_JUDGMENT
+		move MOVE_CALM_MIND
+		move MOVE_RECOVER
+		move MOVE_FLAMETHROWER
+		ability ABILITY_MULTITYPE
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 252, 0, 252, 0, 0
-		nature NATURE_ADAMANT
+		setevs 252, 0, 0, 0, 0, 252
+		nature NATURE_MODEST
 		shinylock 0
 		ballseal 0
     // mon 5
@@ -30476,7 +30477,7 @@ trainerdata 718, "Chuck"
 		move MOVE_FIRE_BLAST
 		move MOVE_FOCUS_BLAST
 		move MOVE_VACUUM_WAVE
-		move MOVE_HYDRO_PUMP
+		move MOVE_HIDDEN_POWER
 		ability ABILITY_NO_GUARD
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
 		setevs 252, 0, 0, 0, 252, 0

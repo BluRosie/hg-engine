@@ -21969,7 +21969,7 @@ levelup SPECIES_URSHIFU_RAPID_STRIKE
 	learnset MOVE_IRON_HEAD, 44
 	learnset MOVE_POISON_JAB, 48
 	learnset MOVE_THUNDER_PUNCH, 53
-	learnset MOVE_WICKED_BLOW, 54
+	learnset MOVE_SURGING_STRIKES, 54
 	learnset MOVE_CLOSE_COMBAT, 58
 	learnset MOVE_ACROBATICS, 62
     terminatelearnset
@@ -22028,17 +22028,17 @@ levelup SPECIES_CALYREX_SHADOW_RIDER
 	learnset MOVE_HEX, 12
 	learnset MOVE_SNARL, 15
 	learnset MOVE_PSYBEAM, 18
-	learnset MOVE_ICE_FANG, 21
-	learnset MOVE_IRON_DEFENSE, 24
-	learnset MOVE_BULLDOZE, 28
-	learnset MOVE_AVALANCHE, 32
-	learnset MOVE_BODY_PRESS, 36
-	learnset MOVE_PSYCHIC_FANGS, 41
-	learnset MOVE_GLACIAL_LANCE, 45
-	learnset MOVE_SWORDS_DANCE, 49
-	learnset MOVE_HEAVY_SLAM, 53
-	learnset MOVE_CLOSE_COMBAT, 58
-	learnset MOVE_MEGAHORN, 61
+	learnset MOVE_OMINOUS_WIND, 21
+	learnset MOVE_PSYBEAM, 24
+	learnset MOVE_TRICK_ROOM, 28
+	learnset MOVE_PSYSHOCK, 32
+	learnset MOVE_GIGA_DRAIN, 36
+	learnset MOVE_NIGHT_DAZE, 41
+	learnset MOVE_ASTRAL_BARRAGE, 45
+	learnset MOVE_NASTY_PLOT, 49
+	learnset MOVE_TAUNT, 53
+	learnset MOVE_FOUL_PLAY, 58
+	learnset MOVE_LEAF_STORM, 61
     terminatelearnset
 
 
@@ -22089,7 +22089,7 @@ levelup SPECIES_ARCANINE_HISUIAN
 	learnset MOVE_ROCK_BLAST, 1
 	learnset MOVE_GROWL, 3
 	learnset MOVE_EMBER, 5
-	learnset MOVE_ACCELEROCK, 7
+	learnset MOVE_STEALTH_ROCK, 7
 	learnset MOVE_BITE, 9
 	learnset MOVE_FLAME_CHARGE, 12
 	learnset MOVE_DOUBLE_KICK, 15

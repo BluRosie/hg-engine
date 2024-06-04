@@ -22515,7 +22515,7 @@ mondata SPECIES_RAGING_BOLT, "RagingBolt"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
+    abilities ABILITY_BEAST_BOOST, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     mondexentry SPECIES_RAGING_BOLT, "This is a newly discovered\nPokémon."

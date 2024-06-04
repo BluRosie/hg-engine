@@ -1373,13 +1373,13 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_NECROZMA,
         .form_no = 3,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_NECROZMA_ULTRA_DUSK_MANE,
     },
     {
         .species = SPECIES_NECROZMA,
         .form_no = 4,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_NECROZMA_ULTRA_DAWN_WINGS,
     },
     {
