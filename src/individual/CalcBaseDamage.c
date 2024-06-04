@@ -930,16 +930,28 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                 damage = damage * 130 / 100;
                 break;
             }
+            if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
+                movepower = movepower * 2;
+                break;
+            }
             break;
         case MISTY_TERRAIN:
             if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
                 damage /= 2;
                 break;
             }
+            if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
+                movepower = movepower * 15 / 10;
+                break;
+            }
             break;
         case PSYCHIC_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
                 damage = damage * 130 / 100;
+                break;
+            }
+            if (IsClientGrounded(sp, attacker) && moveno == MOVE_EXPANDING_FORCE) {
+                movepower = movepower * 15 / 10;
                 break;
             }
             break;

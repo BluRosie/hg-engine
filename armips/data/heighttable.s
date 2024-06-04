@@ -828,7 +828,7 @@ heightentry SPECIES_TSAREENA, 8, 8, 0, 0
 heightentry SPECIES_COMFEY, 3, 3, 0, 0
 heightentry SPECIES_ORANGURU, 0, 0, 0, 0
 heightentry SPECIES_PASSIMIAN, 0, 0, 0, 0
-heightentry SPECIES_WIMPOD, 0, 0, 0, 0
+heightentry SPECIES_WIMPOD, 8, 8, 0, 0
 heightentry SPECIES_GOLISOPOD, 3, 3, 0, 0
 heightentry SPECIES_SANDYGAST, 0, 0, 0, 0
 heightentry SPECIES_PALOSSAND, 0, 0, 0, 0
