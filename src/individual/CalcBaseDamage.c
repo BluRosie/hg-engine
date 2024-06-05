@@ -716,6 +716,30 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 2;
     }
 
+    // Handle field effects interacting with their moves
+    if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+        switch (sp->terrainOverlay.type)
+        {
+        case ELECTRIC_TERRAIN:
+            if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
+                movepower = movepower * 2;
+            }
+            break;
+        case MISTY_TERRAIN:
+            if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
+                movepower = movepower * 15 / 10;
+            }
+            break;
+        case PSYCHIC_TERRAIN:
+            if (IsClientGrounded(sp, attacker) && moveno == MOVE_EXPANDING_FORCE) {
+                movepower = movepower * 15 / 10;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
     // handle weather boosts
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) &&
         (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
@@ -918,41 +942,24 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         case GRASSY_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
                 damage = damage * 130 / 100;
-                break;
             }
             if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
                 damage /= 2;
-                break;
             }
             break;
         case ELECTRIC_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_ELECTRIC) {
                 damage = damage * 130 / 100;
-                break;
-            }
-            if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
-                movepower = movepower * 2;
-                break;
             }
             break;
         case MISTY_TERRAIN:
             if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
                 damage /= 2;
-                break;
-            }
-            if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
-                movepower = movepower * 15 / 10;
-                break;
             }
             break;
         case PSYCHIC_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
                 damage = damage * 130 / 100;
-                break;
-            }
-            if (IsClientGrounded(sp, attacker) && moveno == MOVE_EXPANDING_FORCE) {
-                movepower = movepower * 15 / 10;
-                break;
             }
             break;
         default:

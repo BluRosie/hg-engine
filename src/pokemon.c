@@ -1010,15 +1010,17 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
     BOOL shouldUpdate = TRUE;
 
     switch (species)
-    {   
+    {
         case SPECIES_DEERLING:
         case SPECIES_SAWSBUCK:
             form = GrabCurrentSeason(); // update to the current season
             break;
+        case SPECIES_UNFEZANT:
         case SPECIES_FRILLISH:
         case SPECIES_JELLICENT:
         case SPECIES_MEOWSTIC:
         case SPECIES_INDEEDEE:
+        case SPECIES_OINKOLOGNE:
             form = gf_rand() & 1; // 1/2 male
             break;
         case SPECIES_BASCULEGION:
@@ -1028,8 +1030,10 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
         case SPECIES_DUNSPARCE:
+        case SPECIES_DUDUNSPARCE:
         case SPECIES_TANDEMAUS:
-            form = (gf_rand() % 100 != 1); // 1/100 three seg / family of three
+        case SPECIES_MAUSHOLD:
+            form = (gf_rand() % 100 != 0); // 1/100 three seg / family of three
             break;
         case SPECIES_FLABEBE:
         case SPECIES_FLOETTE:
@@ -1047,7 +1051,8 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_POLTEAGEIST:
         case SPECIES_SINISTCHA:
         case SPECIES_POLTCHAGEIST:
-            form = (gf_rand() % 20 != 1); // 5% authentic / masterpiece
+            form = (gf_rand() % 20 != 0); // 5% authentic / masterpiece
+            break;
         case SPECIES_TATSUGIRI:
             form = gf_rand() % 3; // equal chance for all forms
             break;
