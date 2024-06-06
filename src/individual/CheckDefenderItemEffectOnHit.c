@@ -40,7 +40,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     int side           = IsClientEnemy(bw, sp->attack_client);
     switch (itemHoldEffect) {
         // vanilla gen4 effects
-        case HOLD_EFFECT_DAMAGE_HOLDER_TRANSFER_ON_CONTACT:     // Sticky Barb
+        case HOLD_EFFECT_DMG_USER_CONTACT_XFR:     // Sticky Barb
             // Attacker is alive after the attack
             if ((sp->battlemon[sp->attack_client].hp)
                 // Attacker has no item
@@ -91,7 +91,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-        case HOLD_EFFECT_RESTORE_HP_ON_SE:                      // Enigma Berry
+        case HOLD_EFFECT_HP_RESTORE_SE:                      // Enigma Berry
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Super Effective attack

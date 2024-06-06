@@ -1,12 +1,13 @@
 .nds
 .thumb
 
-.include "armips/include/abilities.s"
 .include "armips/include/constants.s"
-.include "armips/include/itemnums.s"
 .include "armips/include/macros.s"
-.include "armips/include/movenums.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/species.inc"
 
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
@@ -16997,7 +16998,7 @@ trainerdata 400, "Dana"
     endparty
 
 trainerdata 401, "Alfred"
-	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
+	trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
      
     nummons 1
@@ -30368,7 +30369,7 @@ trainerdata 716, "Pryce"
     endparty
 
 trainerdata 717, "Jasmine"
-	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
+	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_2
      
     nummons 6

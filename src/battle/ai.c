@@ -47,7 +47,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
      && (defAbility == ABILITY_LEVITATE)
      && (typeLocal == TYPE_GROUND)
      && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-     && (held_effect != HOLD_EFFECT_HALVE_SPEED))
+     && (held_effect != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
     {
         flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE; // not "not very effective", ineffective
     }

@@ -1068,13 +1068,19 @@
 /* SPECIES_WALKING_WAKE    */ .word 2800
 /* SPECIES_IRON_LEAVES     */ .word 1250
 /* SPECIES_DIPPLIN         */ .word 44
-/* SPECIES_ARCHALUDON      */ .word 00
-/* SPECIES_RAGING_BOLT     */ .word 1560
-/* SPECIES_IRON_CROWN      */ .word 4800
-/* SPECIES_OGERPON         */ .word 0000 // TODO: update once confirmed
-/* SPECIES_OKIDOGI         */ .word 0000 // TODO: update once confirmed
-/* SPECIES_MUNKIDORI       */ .word 0000 // TODO: update once confirmed
-/* SPECIES_FEZANDIPITI     */ .word 0000 // TODO: update once confirmed
-/* SPECIES_TERAPAGOS       */ .word 0000 // TODO: update once confirmed
+/* SPECIES_POLTEAGEIST     */ .word 11
+/* SPECIES_SINISTCHA       */ .word 22
+/* SPECIES_OKIDOGI         */ .word 922
+/* SPECIES_MUNKIDORI       */ .word 122
+/* SPECIES_FEZANDIPITI     */ .word 301
+/* SPECIES_OGERPON         */ .word 398
+/* SPECIES_ARCHALUDON      */ .word 600
+/* SPECIES_HYDRAPPLE       */ .word 930
+/* SPECIES_GOUGING_FIRE    */ .word 5900
+/* SPECIES_RAGING_BOLT     */ .word 4800
+/* SPECIES_IRON_BOULDER    */ .word 1625
+/* SPECIES_IRON_CROWN      */ .word 1560
+/* SPECIES_TERAPAGOS       */ .word 65 // Normal Form
+/* SPECIES_PECHARUNT       */ .word 3
 
 .close

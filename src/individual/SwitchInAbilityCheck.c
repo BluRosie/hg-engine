@@ -151,7 +151,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             switch (GetBattlerAbility(sp, client_no)) {
                                 case ABILITY_DRIZZLE:
                                     sp->battlemon[client_no].appear_check_flag = 1;
-                                    if ((sp->field_condition & WEATHER_RAIN_PERMANENT) == 0) {
+                                    if ((sp->field_condition & WEATHER_RAIN_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DRIZZLE;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                         newBS.weather = WEATHER_RAIN_PERMANENT;
@@ -159,7 +159,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     break;
                                 case ABILITY_SAND_STREAM:
                                     sp->battlemon[client_no].appear_check_flag = 1;
-                                    if ((sp->field_condition & WEATHER_SANDSTORM_PERMANENT) == 0) {
+                                    if ((sp->field_condition & WEATHER_SANDSTORM_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SAND_STREAM;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                         newBS.weather = WEATHER_SANDSTORM_PERMANENT;
@@ -167,7 +167,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     break;
                                 case ABILITY_DROUGHT:
                                     sp->battlemon[client_no].appear_check_flag = 1;
-                                    if ((sp->field_condition & WEATHER_SUNNY_PERMANENT) == 0) {
+                                    if ((sp->field_condition & WEATHER_SUNNY_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DROUGHT;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                         newBS.weather = WEATHER_SUNNY_PERMANENT;
@@ -175,7 +175,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     break;
                                 case ABILITY_SNOW_WARNING:
                                     sp->battlemon[client_no].appear_check_flag = 1;
-                                    if ((sp->field_condition & WEATHER_HAIL_PERMANENT) == 0) {
+                                    if ((sp->field_condition & WEATHER_HAIL_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SNOW_WARNING;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                         newBS.weather = WEATHER_HAIL_PERMANENT;
@@ -527,7 +527,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Imposter
                     {
                         if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)
-                         && (sp->battlemon[client_no].hp) && (sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0)
+                         && (sp->battlemon[client_no].hp)
                          && IsValidImposterTarget(bw, sp, client_no)) {
                             u32 num;
                             sp->battlemon[client_no].imposter_flag = 1;
@@ -703,7 +703,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no=sp->turnOrder[i];
-                    if (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_DOUBLE_MONEY_GAIN)
+                    if (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_MONEY_UP)
                     {
                         sp->money_multiplier = 2;
                     }

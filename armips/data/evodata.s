@@ -3,9 +3,10 @@
 
 .include "armips/include/macros.s"
 .include "armips/include/constants.s"
-.include "armips/include/monnums.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/items.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/species.inc"
 
 // the evolution data of each mon
 
@@ -12750,7 +12751,7 @@ evodata SPECIES_IRON_LEAVES
 terminateevodata
 
 evodata SPECIES_DIPPLIN
-    evolution EVO_HAS_MOVE, MOVE_DRAGON_PULSE, SPECIES_HYDRAPPLE // TODO change for dragon cheer
+    evolution EVO_HAS_MOVE, MOVE_DRAGON_CHEER, SPECIES_HYDRAPPLE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

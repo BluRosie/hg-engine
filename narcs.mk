@@ -305,32 +305,38 @@ NARC_FILES += $(MOVESUBANIM_NARC)
 
 
 MOVE_SEQ_DIR := $(BUILD)/move/battle_move_seq
+MOVE_SEQ_OBJ_DIR := $(BUILD)/move/objects/battle_move_seq
 MOVE_SEQ_NARC := $(BUILD_NARC)/a000.narc
 MOVE_SEQ_TARGET := $(FILESYS)/a/0/0/0
-MOVE_SEQ_DEPENDENCIES_DIR := armips/move/battle_move_seq
+MOVE_SEQ_DEPENDENCIES_DIR := data/battle_scripts/moves
 
 MOVE_SEQ_SRCS := $(wildcard $(MOVE_SEQ_DEPENDENCIES_DIR)/*.s)
 MOVE_SEQ_OBJS := $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_DIR)/0_%,$(MOVE_SEQ_SRCS))
 
 $(MOVE_SEQ_DIR)/0_%:$(MOVE_SEQ_DEPENDENCIES_DIR)/%.s
-	$(ARMIPS) $<
+	$(AS) -c $< -o $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<)
+	$(OBJCOPY) -O binary $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<) $@
 
 $(MOVE_SEQ_NARC): $(MOVE_SEQ_OBJS)
 	$(NARCHIVE) create $@ $(MOVE_SEQ_DIR) -nf
+
+$(OUTPUT):$(LINK)
 
 NARC_FILES += $(MOVE_SEQ_NARC)
 
 
 BATTLE_EFF_DIR := $(BUILD)/move/battle_eff_seq
+BATTLE_EFF_OBJ_DIR := $(BUILD)/move/objects/battle_eff_seq
 BATTLE_EFF_NARC := $(BUILD_NARC)/a030.narc
 BATTLE_EFF_TARGET := $(FILESYS)/a/0/3/0
-BATTLE_EFF_DEPENDENCIES_DIR := armips/move/battle_eff_seq
+BATTLE_EFF_DEPENDENCIES_DIR := data/battle_scripts/effects
 
 BATTLE_EFF_SRCS := $(wildcard $(BATTLE_EFF_DEPENDENCIES_DIR)/*.s)
 BATTLE_EFF_OBJS := $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_DIR)/0_%,$(BATTLE_EFF_SRCS))
 
 $(BATTLE_EFF_DIR)/0_%:$(BATTLE_EFF_DEPENDENCIES_DIR)/%.s
-	$(ARMIPS) $<
+	$(AS) -c $< -o $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<)
+	$(OBJCOPY) -O binary $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<) $@
 
 $(BATTLE_EFF_NARC): $(BATTLE_EFF_OBJS)
 	$(NARCHIVE) create $@ $(BATTLE_EFF_DIR) -nf
@@ -339,15 +345,17 @@ NARC_FILES += $(BATTLE_EFF_NARC)
 
 
 BATTLE_SUB_DIR := $(BUILD)/move/battle_sub_seq
+BATTLE_SUB_OBJ_DIR := $(BUILD)/move/objects/battle_sub_seq
 BATTLE_SUB_NARC := $(BUILD_NARC)/a001.narc
 BATTLE_SUB_TARGET := $(FILESYS)/a/0/0/1
-BATTLE_SUB_DEPENDENCIES_DIR := armips/move/battle_sub_seq
+BATTLE_SUB_DEPENDENCIES_DIR := data/battle_scripts/subscripts
 
 BATTLE_SUB_SRCS := $(wildcard $(BATTLE_SUB_DEPENDENCIES_DIR)/*.s)
 BATTLE_SUB_OBJS := $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_DIR)/1_%,$(BATTLE_SUB_SRCS))
 
 $(BATTLE_SUB_DIR)/1_%:$(BATTLE_SUB_DEPENDENCIES_DIR)/%.s
-	$(ARMIPS) $<
+	$(AS) -c $< -o $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<)
+	$(OBJCOPY) -O binary $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<) $@
 
 $(BATTLE_SUB_NARC): $(BATTLE_SUB_OBJS)
 	$(NARCHIVE) create $@ $(BATTLE_SUB_DIR) -nf

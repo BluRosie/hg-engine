@@ -973,7 +973,8 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
             SetMonData(pp, MON_DATA_HELD_ITEM, &battleItem);
         }
     }
-    // hopefully this fixes the restoration bs
+
+    // set to zero after the items have already been restored to maybe prevent observed byte loss
     for (i = 0; i < BattleWorkPokeCountGet(bw, 0); i++)
     {
         newBS.itemsToRestore[i] = 0;

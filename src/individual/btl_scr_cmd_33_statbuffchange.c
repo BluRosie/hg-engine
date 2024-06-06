@@ -188,7 +188,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         {
             if (sp->attack_client != sp->state_client)
             {
-                if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount)
+                // infiltrator bypasses mist
+                if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount && GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR)
                 {
                     sp->mp.msg_id = BATTLE_MSG_PROTECTED_BY_MIST;
                     sp->mp.msg_tag = TAG_NICK;
