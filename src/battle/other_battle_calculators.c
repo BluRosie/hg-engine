@@ -2115,7 +2115,7 @@ BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
  * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
  */
 u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
-        return sp->moveTbl[moveno].split;
+    return sp->moveTbl[moveno].split;
 }
 
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move) {
@@ -2998,3 +2998,111 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
     return GetAdjustedMoveTypeBasics(ctx, moveNo, GetBattlerAbility(ctx, battlerId), type);
 }
 
+u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 nonSelectableMoves, u32 struggleCheckFlags) {
+    // u8 buf[64];
+    // sprintf(buf, "In StruggleCheck\n");
+    // debugsyscall(buf);
+
+    int movePos;
+    int item = HeldItemHoldEffectGet(ctx, battlerId);
+
+    for (movePos = 0; movePos < 4; movePos++) {
+        if (!(ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_NO_MOVES)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (!(ctx->battlemon[battlerId].pp[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_NO_PP)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((ctx->battlemon[battlerId].move[movePos] == ctx->battlemon[battlerId].moveeffect.disabledMove) && (struggleCheckFlags & STRUGGLE_CHECK_DISABLED)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((ctx->battlemon[battlerId].move[movePos] == ctx->waza_no_old[battlerId]) && (struggleCheckFlags & STRUGGLE_CHECK_TORMENT) && (ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (ctx->battlemon[battlerId].moveeffect.tauntTurns && (struggleCheckFlags & STRUGGLE_CHECK_TAUNT) && !(ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].power)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (BattleContext_CheckMoveImprisoned(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_IMPRISON)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (BattleContext_CheckMoveUnuseableInGravity(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_GRAVITY)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (BattleContext_CheckMoveHealBlocked(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_HEAL_BLOCK)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((ctx->battlemon[battlerId].moveeffect.encoredMove) && (ctx->battlemon[battlerId].moveeffect.encoredMove != ctx->battlemon[battlerId].move[movePos])) {
+            //BUG: The flag check for encore is missing in this if statement, though it's unclear if this effects anything functionally
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
+            if (GetBattlePokemonMovePosFromMove(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
+                ctx->battlemon[battlerId].moveeffect.moveNoChoice = 0;
+            } else if (ctx->battlemon[battlerId].moveeffect.moveNoChoice && ctx->battlemon[battlerId].moveeffect.moveNoChoice != ctx->battlemon[battlerId].move[movePos]) {
+                nonSelectableMoves |= No2Bit(movePos);
+            }
+        }
+    }
+    return nonSelectableMoves;
+}
+
+//Buffer messages related to being unable to select moves?
+BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg) {
+    // u8 buf[64];
+    // sprintf(buf, "In ov12_02251A28\n");
+    // debugsyscall(buf);
+
+    BOOL ret = TRUE;
+
+    if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
+        msg->msg_id = 609;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TORMENT) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK;
+        // {STRVAR_1 1, 0, 0} can’t use the same move\ntwice in a row due to the torment!\r
+        msg->msg_id = 612;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TAUNT) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_id = 613;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_IMPRISON) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_id = 616;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GRAVITY) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_id = 1001;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_HEAL_BLOCK) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE_MOVE;
+        msg->msg_id = 1057;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = MOVE_HEAL_BLOCK;
+        msg->msg_para[2] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_CHOICED) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_ITEM_MOVE;
+        msg->msg_id = 911;
+        msg->msg_para[0] = ctx->battlemon[battlerId].item;
+        msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_NO_PP) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NONE;
+        msg->msg_id = 823;
+        ret = FALSE;
+    }
+
+    return ret;
+}

@@ -565,6 +565,18 @@
 
 #define BATTLE_STATUS2_EXP_GAIN_SHIFT               28
 
+//Struggle Checks
+#define STRUGGLE_CHECK_NO_MOVES             (1 << 0)
+#define STRUGGLE_CHECK_NO_PP                (1 << 1)
+#define STRUGGLE_CHECK_DISABLED             (1 << 2)
+#define STRUGGLE_CHECK_TORMENT              (1 << 3)
+#define STRUGGLE_CHECK_TAUNT                (1 << 4)
+#define STRUGGLE_CHECK_IMPRISON             (1 << 5)
+#define STRUGGLE_CHECK_GRAVITY              (1 << 6)
+#define STRUGGLE_CHECK_HEAL_BLOCK           (1 << 7)
+#define STRUGGLE_CHECK_ENCORE               (1 << 8) //unused because they straight up forgot
+#define STRUGGLE_CHECK_CHOICED              (1 << 9)
+
 /**
  *  @brief msg work specifically for statuses
  */
@@ -2256,10 +2268,10 @@ BOOL LONG_CALL CheckMoveCallsOtherMove(u16 move);
  *  @param ctx global battle structure
  *  @param battlerId battler to check for struggle moves
  *  @param nonSelectableMoves pass in moves that are already not selectable
- *  @param a4
+ *  @param struggleCheckFlags
  *  @return updated nonSelectableMoves field
  */
-u32 LONG_CALL StruggleCheck(void *bsys, struct BattleStruct *ctx, u32 battlerId, u32 nonSelectableMoves, u32 a4);
+u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 nonSelectableMoves, u32 struggleCheckFlags);
 
 void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
 void LONG_CALL BattleWorkGroundBGChg(void *bw);
@@ -2867,5 +2879,14 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
+
+BOOL LONG_CALL BattleContext_CheckMoveImprisoned(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
+
+BOOL LONG_CALL BattleContext_CheckMoveUnuseableInGravity(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
+
+BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
+
+//Buffer messages related to being unable to select moves?
+BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
 
 #endif // BATTLE_H
