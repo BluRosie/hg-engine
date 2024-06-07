@@ -992,10 +992,6 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     int i;
-    sp->battlemon[client].unnerve_flag = 0;
-    sp->battlemon[client].dark_aura_flag = 0;
-    sp->battlemon[client].fairy_aura_flag = 0;
-    sp->battlemon[client].aura_break_flag = 0;
     sp->battlemon[client].sheer_force_flag = 0;
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
