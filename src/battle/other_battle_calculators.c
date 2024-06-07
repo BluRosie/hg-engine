@@ -2784,6 +2784,10 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
     //BUGFIX
     type = ctx->move_type;
 
+    mon = Battle_GetClientPartyMon(bsys, ctx->attack_client, ctx->sel_mons_no[ctx->attack_client]);
+    species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    form = GetMonData(mon, MON_DATA_FORM, 0);
+
     switch (moveNo) {
     case MOVE_NATURAL_GIFT:
         type = GetNaturalGiftType(ctx, battlerId);
@@ -2906,6 +2910,9 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
             break;
         }
         break;
+    case MOVE_REVELATION_DANCE:
+        // TODO: Handle 3rd Types and Tera Type
+        break;
     case MOVE_MULTI_ATTACK:
         switch (HeldItemHoldEffectGet(ctx, battlerId)) {
         case HOLD_EFFECT_FIGHTING_MEMORY:
@@ -2964,31 +2971,86 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
             break;
         }
         break;
-    case MOVE_IVY_CUDGEL:
-        mon = Battle_GetClientPartyMon(bsys, ctx->attack_client, ctx->sel_mons_no[ctx->attack_client]);
-        species = GetMonData(mon, MON_DATA_SPECIES, 0);
-        form = GetMonData(mon, MON_DATA_FORM, 0);
-        if (species == SPECIES_OGERPON) {
+    case MOVE_AURA_WHEEL:
+        if (species == SPECIES_MORPEKO) {
             switch (form) {
+                // SPECIES_MORPEKO
                 case 0:
-                    type = TYPE_GRASS;
+                    type = TYPE_ELECTRIC;
                     break;
+                // SPECIES_MORPEKO_HANGRY
                 case 1:
-                    type = TYPE_WATER;
+                    type = TYPE_DARK;
                     break;
+
+                default:
+                    // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+                    type = TYPE_TYPELESS;
+                    break;
+            }
+        } else {
+            // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+            type = TYPE_TYPELESS;
+        }
+        break;
+    case MOVE_TERRAIN_PULSE:
+        // TODO: Do after terrain refactor
+        break;
+    case MOVE_TERA_BLAST:
+        break;
+    case MOVE_RAGING_BULL:
+        if (species == SPECIES_TAUROS) {
+            switch (form) {
+                // SPECIES_TAUROS_COMBAT
+                case 1:
+                    type = TYPE_FIGHTING;
+                    break;
+                // SPECIES_TAUROS_BLAZE
                 case 2:
                     type = TYPE_FIRE;
                     break;
+                // SPECIES_TAUROS_AQUA
+                case 3:
+                    type = TYPE_WATER;
+                    break;
+
+                default:
+                    type = TYPE_NORMAL;
+                    break;
+            }
+        } else {
+            type = TYPE_NORMAL;
+        }
+        break;
+    case MOVE_IVY_CUDGEL:
+        if (species == SPECIES_OGERPON) {
+            switch (form) {
+                // SPECIES_OGERPON
+                case 0:
+                    type = TYPE_GRASS;
+                    break;
+                // SPECIES_OGERPON_WELLSPRING_MASK
+                case 1:
+                    type = TYPE_WATER;
+                    break;
+                // SPECIES_OGERPON_HEARTHFLAME_MASK
+                case 2:
+                    type = TYPE_FIRE;
+                    break;
+                // SPECIES_OGERPON_CORNERSTONE_MASK
                 case 3:
                     type = TYPE_ROCK;
                     break;
 
                 default:
+                    type = TYPE_GRASS;
                     break;
             }
         } else {
             type = TYPE_GRASS;
         }
+        break;
+    case MOVE_TERA_STARSTORM:
         break;
     default:
         type = TYPE_NORMAL;
