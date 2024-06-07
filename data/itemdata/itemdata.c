@@ -47789,7 +47789,7 @@ const ITEMDATA __data[] =
 [ITEM_ADAMANT_CRYSTAL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 10000,
-    .holdEffect = HOLD_EFFECT_BOOST_AND_TRANSFORM_DIALGA,
+    .holdEffect = HOLD_EFFECT_DIALGA_BOOST_AND_TRANSFORM,
     .holdEffectParam = 20,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -47854,7 +47854,7 @@ const ITEMDATA __data[] =
 [ITEM_LUSTROUS_GLOBE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 200,
-    .holdEffect = HOLD_EFFECT_BOOST_AND_TRANSFORM_PALKIA,
+    .holdEffect = HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM,
     .holdEffectParam = 20,
     .pluckEffect = 0,
     .flingEffect = 0,
@@ -47919,7 +47919,7 @@ const ITEMDATA __data[] =
 [ITEM_GRISEOUS_CORE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
 {
     .price = 10000,
-    .holdEffect = HOLD_EFFECT_BOOST_AND_TRANSFORM_GIRATINA,
+    .holdEffect = HOLD_EFFECT_GIRATINA_BOOST_AND_TRANSFORM,
     .holdEffectParam = 20,
     .pluckEffect = 0,
     .flingEffect = 0,
