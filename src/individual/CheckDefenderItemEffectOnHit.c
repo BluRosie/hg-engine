@@ -193,6 +193,9 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
                 // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
                 && (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)
+                // punching glove & punching move foundation
+                // && ((HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && 
+                // IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0]))))
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))

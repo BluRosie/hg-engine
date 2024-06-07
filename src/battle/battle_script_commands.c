@@ -3000,7 +3000,7 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
         && !CheckMegaData(species, item)
         // arceus plate on arceus can not be knocked off
         && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
-        // griseous orb on giratina can not be knocked off
+        // technically this can be knocked off as of SV but the transformation code hasnt been moved to the core as of right now so ill leave it alone for right now
         && !(species == SPECIES_GIRATINA && item == ITEM_GRISEOUS_ORB)
         // drives can not be knocked off of genesect
         && !(species == SPECIES_GENESECT && IS_ITEM_GENESECT_DRIVE(item))
@@ -3009,9 +3009,11 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
         // zacian can not have its rusted sword knocked off
         && !(species == SPECIES_ZACIAN && item == ITEM_RUSTED_SWORD)
         // zamazenta can not have its rusted shield knocked off
-        && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)
+        && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)        
         // paradox mons can not have their booster energy knocked off
         && !(IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
+        // masks can not be knocked off of ogerpon
+        && !(species == SPECIES_OGERPON && IS_ITEM_MASK(item))
     )
     {
         return TRUE;
