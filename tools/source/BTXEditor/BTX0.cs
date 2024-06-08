@@ -15,66 +15,66 @@ namespace BTX_Editor
 			{
 				return null;
 			}
-			uint num = BitConverter.ToUInt32(BTXFile, 16);
-			if (BitConverter.ToUInt32(BTXFile, (int)num) != 811091284U)
+			uint TEXoffset = BitConverter.ToUInt32(BTXFile, 16);
+			if (BitConverter.ToUInt32(BTXFile, (int)TEXoffset) != 811091284U)
 			{
 				return null;
 			}
-			uint num2 = num + (uint)BitConverter.ToUInt16(BTXFile, (int)(num + 14U));
-			uint num3 = num + BitConverter.ToUInt32(BTXFile, (int)(num + 20U));
-			Program.ImageOffset = num3;
-			uint num4 = BitConverter.ToUInt32(BTXFile, (int)(num + 48U)) << 3;
-			uint num5 = num + BitConverter.ToUInt32(BTXFile, (int)(num + 52U));
-			uint num6 = num + BitConverter.ToUInt32(BTXFile, (int)(num + 56U));
-			Program.PaletteOffset = num6;
-			uint num7 = (uint)BTXFile[(int)(num2 + 1U)];
-			uint num8 = (uint)BitConverter.ToUInt16(BTXFile, (int)(num2 + 12U + num7 * 4U + 6U));
-			uint num9 = 8U << ((int)num8 >> 4 & 7);
-			uint num10 = num8 >> 10 & 7U;
+			uint paramsOffset = TEXoffset + (uint)BitConverter.ToUInt16(BTXFile, (int)(TEXoffset + 0xEU));
+			uint startImgOffset = TEXoffset + BitConverter.ToUInt32(BTXFile, (int)(TEXoffset + 0x14U));
+			Program.ImageOffset = startImgOffset;
+			uint num4 = BitConverter.ToUInt32(BTXFile, (int)(TEXoffset + 0x30U)) << 3;
+			uint num5 = TEXoffset + BitConverter.ToUInt32(BTXFile, (int)(TEXoffset + 0x34U));
+			uint endImgOffset = TEXoffset + BitConverter.ToUInt32(BTXFile, (int)(TEXoffset + 0x38U));
+			Program.PaletteOffset = endImgOffset;
+			uint numFrames = (uint)BTXFile[(int)(paramsOffset + 1U)];
+			uint propertiesOffset = (uint)BitConverter.ToUInt16(BTXFile, (int)(paramsOffset + 0x12U + numFrames * 4U)); // first frame's properties offset
+			uint width = 8U << ((int)propertiesOffset >> 4 & 7);
+			uint num10 = propertiesOffset >> 10 & 7U;
 			uint num11 = (uint)BTXFile[(int)(num5 + 1U)];
 			Program.PaletteCount = num11;
 			Program.PaletteSize = num4;
 			if (num10 == 3U)
 			{
-				Color[] array = new Color[num4 / num11 / 2U];
+				Color[] palettes = new Color[num4 / num11 / 2U];
 				if (num4 < 64U && num11 >= 2U)
 				{
-					array = new Color[((long)BTXFile.Length - (long)((ulong)num6)) / 2L];
+					palettes = new Color[((long)BTXFile.Length - (long)((ulong)endImgOffset)) / 2L];
 				}
-				Program.ColorCount = (uint)array.Length;
-				for (int i = 0; i < array.Length; i++)
+				Program.ColorCount = (uint)palettes.Length;
+				for (int i = 0; i < palettes.Length; i++)
 				{
-					ushort num12 = BitConverter.ToUInt16(BTXFile, (int)(num6 + Program.PaletteIndex * (Program.ColorCount * 2U) + (uint)(i * 2)));
-					uint red = (uint)((uint)(num12 & 31) << 3);
-					uint green = (uint)(num12 & 992) >> 2;
-					uint blue = (uint)(num12 & 31744) >> 7;
-					array[i] = Color.FromArgb(255, (int)red, (int)green, (int)blue);
+					ushort num12 = BitConverter.ToUInt16(BTXFile, (int)(endImgOffset + Program.PaletteIndex * (Program.ColorCount * 2U) + (uint)(i * 2)));
+					uint red = (uint)((uint)(num12 & 0x1F) << 3);
+					uint green = (uint)(num12 & 0x3E0) >> 2;
+					uint blue = (uint)(num12 & 0x7C00) >> 7;
+					palettes[i] = Color.FromArgb(255, (int)red, (int)green, (int)blue);
 				}
-				Program.ImageWidth = num9;
-				Program.ImageHeight = (num6 - num3) * 2U / num9;
+				Program.ImageWidth = width;
+				Program.ImageHeight = (endImgOffset - startImgOffset) * 2U / width;
 				Bitmap bitmap = new Bitmap((int)Program.ImageWidth, (int)Program.ImageHeight);
-				uint num13 = 0U;
-				uint num14 = 0U;
-				int num15 = (int)num3;
-				while ((long)num15 < (long)((ulong)num6))
+				uint currentColumn = 0U;
+				uint currRow = 0U;
+				int currOffset = (int)startImgOffset;
+				while ((long)currOffset < (long)((ulong)endImgOffset))
 				{
-					uint num16 = (uint)BTXFile[num15];
-					uint[] array2 = new uint[]
+					uint num16 = (uint)BTXFile[currOffset];
+					uint[] pixArray = new uint[]
 					{
 						num16 & 15U,
 						num16 >> 4
 					};
-					for (int j = 0; j < array2.Length; j++)
+					for (int j = 0; j < pixArray.Length; j++)
 					{
-						bitmap.SetPixel((int)num13, (int)num14, array[(int)array2[j]]);
-						num13 += 1U;
+						bitmap.SetPixel((int)currentColumn, (int)currRow, palettes[(int)pixArray[j]]);
+						currentColumn += 1U;
 					}
-					if (num13 >= num9)
+					if (currentColumn >= width)
 					{
-						num13 = 0U;
-						num14 += 1U;
+						currentColumn = 0U;
+						currRow += 1U;
 					}
-					num15++;
+					currOffset++;
 				}
 				return bitmap;
 			}

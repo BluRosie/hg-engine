@@ -112,6 +112,10 @@ $(BTX_EXE): $(BTX_SOURCES)
 
 TOOLS += $(BTX_EXE)
 
+# for future reference as they say
+tools/btx0topng.exe: "source/BTXEditor/Program-B.cs" "source/BTXEditor/btx0topng.cs" "source/BTXEditor/BTX0.cs"
+	cd tools ; $(CSC) /target:exe /out:btx0topng.exe "source/BTXEditor/Program-B.cs" "source/BTXEditor/btx0topng.cs" "source/BTXEditor/BTX0.cs"
+
 $(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
 	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
 
