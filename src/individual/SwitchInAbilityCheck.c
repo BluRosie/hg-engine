@@ -607,7 +607,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                             if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                                 sp->battlemon[client_no].ability_activated_flag = 1;
-                                sp->attack_client = client_no;
+                                sp->attack_client = client_no; // this should allow for the seeds to affect the terrain
                                 scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
                                 break;
                             }
@@ -696,7 +696,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
                 // 02253D38
-            case SWITCH_IN_CHECK_HEAL_STATUS:{
+            case SWITCH_IN_CHECK_HEAL_STATUS: {
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no = sp->turnOrder[i];
@@ -713,20 +713,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
                 break;
-            case SWITCH_IN_CHECK_FIELD: {
-                if (sp->printed_field_message == 0) {
-                    sp->terrainOverlay.type = TERRAIN_NONE;
-                    sp->terrainOverlay.numberOfTurnsLeft = 0;
-                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG;
-                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-
-                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-                        sp->printed_field_message = 1;
-                    }
-                }
+            case SWITCH_IN_CHECK_FIELD:; // TODO come back to this
+//                if (sp->printed_field_message == 0) {
+//                    sp->terrainOverlay.type = TERRAIN_NONE;
+//                    sp->terrainOverlay.numberOfTurnsLeft = 0;
+//                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG; // currently NULL
+//                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+//
+//                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+//                        sp->printed_field_message = 1;
+//                    }
+//                }
                 sp->switch_in_check_seq_no++;
-            }
-                FALLTHROUGH;
+                break;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;

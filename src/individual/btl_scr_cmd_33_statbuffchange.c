@@ -226,7 +226,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
                       || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
                       || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)   // Full Metal Body cannot be ignored
-                      || (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_STAT_DROPS)) // clear amulet
+                      /*|| (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_STAT_DROPS)*/) // clear amulet : TODO needs its own branch with separate message
                 {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
