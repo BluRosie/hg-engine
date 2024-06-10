@@ -992,7 +992,6 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     int i;
-    int maxBattlers = BattleWorkClientSetMaxGet(gBattleSystem);
     sp->battlemon[client].unnerve_flag = 0;
     sp->battlemon[client].dark_aura_flag = 0;
     sp->battlemon[client].fairy_aura_flag = 0;
@@ -1008,11 +1007,15 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
 
-    for (i = 0; i < maxBattlers; i++) // will be run multiple times per client but whatever
+    if (gBattleSystem != NULL)
     {
-        if (sp->battlemon[i].moveeffect.battlerIdBinding == client)
+        int maxBattlers = BattleWorkClientSetMaxGet(gBattleSystem);
+        for (i = 0; i < maxBattlers; i++) // will be run multiple times per client but whatever
         {
-            sp->binding_turns[i] = 0;
+            if (sp->battlemon[i].moveeffect.battlerIdBinding == client)
+            {
+                sp->binding_turns[i] = 0;
+            }
         }
     }
 }
