@@ -113,13 +113,13 @@ static const u16 StrongJawMovesTable[] = {
 };
 
 static const u16 MegaLauncherMovesTable[] = {
-        MOVE_AURA_SPHERE,
-        MOVE_DARK_PULSE,
-        MOVE_DRAGON_PULSE,
-        MOVE_HEAL_PULSE,
-        MOVE_ORIGIN_PULSE,
-        MOVE_TERRAIN_PULSE,
-        MOVE_WATER_PULSE,
+        MOVE_HYDRO_CANNON,
+        MOVE_HYDRO_PUMP,
+        MOVE_ZAP_CANNON,
+        MOVE_FLASH_CANNON,
+        MOVE_WATER_GUN,
+        MOVE_AQUA_JET,
+        MOVE_WATER_SPOUT,
 };
 
 static const u16 SharpnessMovesTable[] = {
@@ -701,7 +701,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle mega launcher
     if ((AttackingMon.ability == ABILITY_MEGA_LAUNCHER) && IsElementInArray(MegaLauncherMovesTable, (u16 *)&moveno, NELEMS(MegaLauncherMovesTable), sizeof(MegaLauncherMovesTable[0])))
     {
-        movepower = movepower * 15 / 10;
+        movepower = movepower * 130 / 100;
     }
 
     // handle sharpness
