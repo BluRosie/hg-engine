@@ -2781,280 +2781,327 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
     int species, form;
     struct PartyPokemon *mon;
 
-    //BUGFIX
+    // BUGFIX
     type = ctx->move_type;
 
-    mon = Battle_GetClientPartyMon(bsys, ctx->attack_client, ctx->sel_mons_no[ctx->attack_client]);
+    mon = Battle_GetClientPartyMon(bsys, battlerId, ctx->sel_mons_no[battlerId]);
     species = GetMonData(mon, MON_DATA_SPECIES, 0);
     form = GetMonData(mon, MON_DATA_FORM, 0);
 
     switch (moveNo) {
-    case MOVE_NATURAL_GIFT:
-        type = GetNaturalGiftType(ctx, battlerId);
-        break;
-    case MOVE_JUDGMENT:
-        switch (HeldItemHoldEffectGet(ctx, battlerId)) {
-        case HOLD_EFFECT_ARCEUS_FIGHTING:
-            type = TYPE_FIGHTING;
+        case MOVE_NATURAL_GIFT:
+            type = GetNaturalGiftType(ctx, battlerId);
             break;
-        case HOLD_EFFECT_ARCEUS_FLYING:
-            type = TYPE_FLYING;
-            break;
-        case HOLD_EFFECT_ARCEUS_POISON:
-            type = TYPE_POISON;
-            break;
-        case HOLD_EFFECT_ARCEUS_GROUND:
-            type = TYPE_GROUND;
-            break;
-        case HOLD_EFFECT_ARCEUS_ROCK:
-            type = TYPE_ROCK;
-            break;
-        case HOLD_EFFECT_ARCEUS_BUG:
-            type = TYPE_BUG;
-            break;
-        case HOLD_EFFECT_ARCEUS_GHOST:
-            type = TYPE_GHOST;
-            break;
-        case HOLD_EFFECT_ARCEUS_STEEL:
-            type = TYPE_STEEL;
-            break;
-        case HOLD_EFFECT_ARCEUS_FIRE:
-            type = TYPE_FIRE;
-            break;
-        case HOLD_EFFECT_ARCEUS_WATER:
-            type = TYPE_WATER;
-            break;
-        case HOLD_EFFECT_ARCEUS_GRASS:
-            type = TYPE_GRASS;
-            break;
-        case HOLD_EFFECT_ARCEUS_ELECTRIC:
-            type = TYPE_ELECTRIC;
-            break;
-        case HOLD_EFFECT_ARCEUS_PSYCHIC:
-            type = TYPE_PSYCHIC;
-            break;
-        case HOLD_EFFECT_ARCEUS_ICE:
-            type = TYPE_ICE;
-            break;
-        case HOLD_EFFECT_ARCEUS_DRAGON:
-            type = TYPE_DRAGON;
-            break;
-        case HOLD_EFFECT_ARCEUS_DARK:
-            type = TYPE_DARK;
-            break;
-        case HOLD_EFFECT_ARCEUS_FAIRY:
-            type = TYPE_FAIRY;
-            break;
-        // TODO: handle Blank Plate, Legend Plate, Z-Crystals
-        default:
-            type = TYPE_NORMAL;
-            break;
-        }
-        break;
-    case MOVE_HIDDEN_POWER:
-        type = (ctx->battlemon[battlerId].hp_iv & 1) |
-               ((ctx->battlemon[battlerId].atk_iv & 1) << 1)|
-               ((ctx->battlemon[battlerId].def_iv & 1) << 2) |
-               ((ctx->battlemon[battlerId].spe_iv & 1) << 3) |
-               ((ctx->battlemon[battlerId].spatk_iv & 1) << 4) |
-               ((ctx->battlemon[battlerId].spdef_iv & 1) << 5);
-
-       type = (type * 15 / 63) + 1;
-
-       if (type >= TYPE_MYSTERY) {
-           type++;
-       }
-       break;
-    case MOVE_WEATHER_BALL:
-        if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-            if (ctx->field_condition & FIELD_CONDITION_WEATHER) {
-                if (ctx->field_condition & WEATHER_RAIN_ANY) {
-                    type = TYPE_WATER;
-                }
-                if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
-                    type = TYPE_ROCK;
-                }
-                if (ctx->field_condition & WEATHER_SUNNY_ANY) {
-                    type = TYPE_FIRE;
-                }
-                if (ctx->field_condition & WEATHER_HAIL_ANY) {
-                    type = TYPE_ICE;
-                }
-                //BUG: If the weather is foggy, then type doesn't get set properly before being returned
-                //BUGFIX
-                if (ctx->field_condition & FIELD_STATUS_FOG) {
-                    type = TYPE_NORMAL;
-                }
-                if (ctx->field_condition & WEATHER_SHADOWY_AURA_ANY) {
-                    type = TYPE_TYPELESS;
-                }
-            }
-        }
-        break;
-    case MOVE_TECHNO_BLAST:
-        switch (HeldItemHoldEffectGet(ctx, battlerId)) {
-        case HOLD_EFFECT_BURN_DRIVE:
-            type = TYPE_FIRE;
-            break;
-        case HOLD_EFFECT_DOUSE_DRIVE:
-            type = TYPE_WATER;
-            break;
-        case HOLD_EFFECT_SHOCK_DRIVE:
-            type = TYPE_ELECTRIC;
-            break;
-        case HOLD_EFFECT_CHILL_DRIVE:
-            type = TYPE_ICE;
-            break;
-        default:
-            type = TYPE_NORMAL;
-            break;
-        }
-        break;
-    case MOVE_REVELATION_DANCE:
-        // TODO: Handle 3rd Types and Tera Type
-        break;
-    case MOVE_MULTI_ATTACK:
-        switch (HeldItemHoldEffectGet(ctx, battlerId)) {
-        case HOLD_EFFECT_FIGHTING_MEMORY:
-            type = TYPE_FIGHTING;
-            break;
-        case HOLD_EFFECT_FLYING_MEMORY:
-            type = TYPE_FLYING;
-            break;
-        case HOLD_EFFECT_POISON_MEMORY:
-            type = TYPE_POISON;
-            break;
-        case HOLD_EFFECT_GROUND_MEMORY:
-            type = TYPE_GROUND;
-            break;
-        case HOLD_EFFECT_ROCK_MEMORY:
-            type = TYPE_ROCK;
-            break;
-        case HOLD_EFFECT_BUG_MEMORY:
-            type = TYPE_BUG;
-            break;
-        case HOLD_EFFECT_GHOST_MEMORY:
-            type = TYPE_GHOST;
-            break;
-        case HOLD_EFFECT_STEEL_MEMORY:
-            type = TYPE_STEEL;
-            break;
-        case HOLD_EFFECT_FIRE_MEMORY:
-            type = TYPE_FIRE;
-            break;
-        case HOLD_EFFECT_WATER_MEMORY:
-            type = TYPE_WATER;
-            break;
-        case HOLD_EFFECT_GRASS_MEMORY:
-            type = TYPE_GRASS;
-            break;
-        case HOLD_EFFECT_ELECTRIC_MEMORY:
-            type = TYPE_ELECTRIC;
-            break;
-        case HOLD_EFFECT_PSYCHIC_MEMORY:
-            type = TYPE_PSYCHIC;
-            break;
-        case HOLD_EFFECT_ICE_MEMORY:
-            type = TYPE_ICE;
-            break;
-        case HOLD_EFFECT_DRAGON_MEMORY:
-            type = TYPE_DRAGON;
-            break;
-        case HOLD_EFFECT_DARK_MEMORY:
-            type = TYPE_DARK;
-            break;
-        case HOLD_EFFECT_FAIRY_MEMORY:
-            type = TYPE_FAIRY;
-            break;
-        default:
-            type = TYPE_NORMAL;
-            break;
-        }
-        break;
-    case MOVE_AURA_WHEEL:
-        if (species == SPECIES_MORPEKO) {
-            switch (form) {
-                // SPECIES_MORPEKO
-                case 0:
-                    type = TYPE_ELECTRIC;
-                    break;
-                // SPECIES_MORPEKO_HANGRY
-                case 1:
-                    type = TYPE_DARK;
-                    break;
-
-                default:
-                    // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
-                    type = TYPE_TYPELESS;
-                    break;
-            }
-        } else {
-            // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
-            type = TYPE_TYPELESS;
-        }
-        break;
-    case MOVE_TERRAIN_PULSE:
-        // TODO: Do after terrain refactor
-        break;
-    case MOVE_TERA_BLAST:
-        break;
-    case MOVE_RAGING_BULL:
-        if (species == SPECIES_TAUROS) {
-            switch (form) {
-                // SPECIES_TAUROS_COMBAT
-                case 1:
+        case MOVE_JUDGMENT:
+            switch (HeldItemHoldEffectGet(ctx, battlerId)) {
+                case HOLD_EFFECT_ARCEUS_FIGHTING:
                     type = TYPE_FIGHTING;
                     break;
-                // SPECIES_TAUROS_BLAZE
-                case 2:
+                case HOLD_EFFECT_ARCEUS_FLYING:
+                    type = TYPE_FLYING;
+                    break;
+                case HOLD_EFFECT_ARCEUS_POISON:
+                    type = TYPE_POISON;
+                    break;
+                case HOLD_EFFECT_ARCEUS_GROUND:
+                    type = TYPE_GROUND;
+                    break;
+                case HOLD_EFFECT_ARCEUS_ROCK:
+                    type = TYPE_ROCK;
+                    break;
+                case HOLD_EFFECT_ARCEUS_BUG:
+                    type = TYPE_BUG;
+                    break;
+                case HOLD_EFFECT_ARCEUS_GHOST:
+                    type = TYPE_GHOST;
+                    break;
+                case HOLD_EFFECT_ARCEUS_STEEL:
+                    type = TYPE_STEEL;
+                    break;
+                case HOLD_EFFECT_ARCEUS_FIRE:
                     type = TYPE_FIRE;
                     break;
-                // SPECIES_TAUROS_AQUA
-                case 3:
+                case HOLD_EFFECT_ARCEUS_WATER:
                     type = TYPE_WATER;
                     break;
-
+                case HOLD_EFFECT_ARCEUS_GRASS:
+                    type = TYPE_GRASS;
+                    break;
+                case HOLD_EFFECT_ARCEUS_ELECTRIC:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case HOLD_EFFECT_ARCEUS_PSYCHIC:
+                    type = TYPE_PSYCHIC;
+                    break;
+                case HOLD_EFFECT_ARCEUS_ICE:
+                    type = TYPE_ICE;
+                    break;
+                case HOLD_EFFECT_ARCEUS_DRAGON:
+                    type = TYPE_DRAGON;
+                    break;
+                case HOLD_EFFECT_ARCEUS_DARK:
+                    type = TYPE_DARK;
+                    break;
+                case HOLD_EFFECT_ARCEUS_FAIRY:
+                    type = TYPE_FAIRY;
+                    break;
+                // TODO: handle Blank Plate, Legend Plate, Z-Crystals
                 default:
                     type = TYPE_NORMAL;
                     break;
             }
-        } else {
-            type = TYPE_NORMAL;
-        }
-        break;
-    case MOVE_IVY_CUDGEL:
-        if (species == SPECIES_OGERPON) {
-            switch (form) {
-                // SPECIES_OGERPON
-                case 0:
-                    type = TYPE_GRASS;
-                    break;
-                // SPECIES_OGERPON_WELLSPRING_MASK
-                case 1:
-                    type = TYPE_WATER;
-                    break;
-                // SPECIES_OGERPON_HEARTHFLAME_MASK
-                case 2:
+            break;
+        case MOVE_HIDDEN_POWER:
+            type = (ctx->battlemon[battlerId].hp_iv & 1) |
+                   ((ctx->battlemon[battlerId].atk_iv & 1) << 1) |
+                   ((ctx->battlemon[battlerId].def_iv & 1) << 2) |
+                   ((ctx->battlemon[battlerId].spe_iv & 1) << 3) |
+                   ((ctx->battlemon[battlerId].spatk_iv & 1) << 4) |
+                   ((ctx->battlemon[battlerId].spdef_iv & 1) << 5);
+
+            type = (type * 15 / 63) + 1;
+
+            if (type >= TYPE_MYSTERY) {
+                type++;
+            }
+            break;
+        case MOVE_WEATHER_BALL:
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if (ctx->field_condition & FIELD_CONDITION_WEATHER) {
+                    if (ctx->field_condition & WEATHER_RAIN_ANY) {
+                        type = TYPE_WATER;
+                    }
+                    if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
+                        type = TYPE_ROCK;
+                    }
+                    if (ctx->field_condition & WEATHER_SUNNY_ANY) {
+                        type = TYPE_FIRE;
+                    }
+                    if (ctx->field_condition & WEATHER_HAIL_ANY) {
+                        type = TYPE_ICE;
+                    }
+                    // BUG: If the weather is foggy, then type doesn't get set properly before being returned
+                    // BUGFIX
+                    if (ctx->field_condition & FIELD_STATUS_FOG) {
+                        type = TYPE_NORMAL;
+                    }
+                    if (ctx->field_condition & WEATHER_SHADOWY_AURA_ANY) {
+                        type = TYPE_TYPELESS;
+                    }
+                }
+            }
+            break;
+        case MOVE_TECHNO_BLAST:
+            switch (HeldItemHoldEffectGet(ctx, battlerId)) {
+                case HOLD_EFFECT_BURN_DRIVE:
                     type = TYPE_FIRE;
                     break;
-                // SPECIES_OGERPON_CORNERSTONE_MASK
-                case 3:
-                    type = TYPE_ROCK;
+                case HOLD_EFFECT_DOUSE_DRIVE:
+                    type = TYPE_WATER;
                     break;
-
+                case HOLD_EFFECT_SHOCK_DRIVE:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case HOLD_EFFECT_CHILL_DRIVE:
+                    type = TYPE_ICE;
+                    break;
                 default:
-                    type = TYPE_GRASS;
+                    type = TYPE_NORMAL;
                     break;
             }
-        } else {
-            type = TYPE_GRASS;
-        }
-        break;
-    case MOVE_TERA_STARSTORM:
-        break;
-    default:
-        type = TYPE_NORMAL;
-        break;
+            break;
+        case MOVE_REVELATION_DANCE:
+            // TODO: Handle 3rd Types
+            if (ctx->battlemon[battlerId].is_currently_terastallized && ctx->battlemon[battlerId].tera_type != TYPE_STELLAR) {
+                // Assert that the Tera Type is valid
+                GF_ASSERT(TYPE_NORMAL <= ctx->battlemon[battlerId].tera_type && TYPE_STELLAR >= ctx->battlemon[battlerId].tera_type && TYPE_TYPELESS != ctx->battlemon[battlerId].tera_type);
+
+                type = ctx->battlemon[battlerId].tera_type;
+            } else if (ctx->battlemon[battlerId].type1 != TYPE_TYPELESS) {
+                type = ctx->battlemon[battlerId].type1;
+            } else if (ctx->battlemon[battlerId].type2 != TYPE_TYPELESS) {
+                type = ctx->battlemon[battlerId].type2;
+            } /*else if (ctx->battlemon[battlerId].type3 != TYPE_TYPELESS) {
+                type = ctx->battlemon[battlerId].type3;
+            }*/
+            else {
+                type = TYPE_TYPELESS;
+            }
+            break;
+        case MOVE_MULTI_ATTACK:
+            switch (HeldItemHoldEffectGet(ctx, battlerId)) {
+                case HOLD_EFFECT_FIGHTING_MEMORY:
+                    type = TYPE_FIGHTING;
+                    break;
+                case HOLD_EFFECT_FLYING_MEMORY:
+                    type = TYPE_FLYING;
+                    break;
+                case HOLD_EFFECT_POISON_MEMORY:
+                    type = TYPE_POISON;
+                    break;
+                case HOLD_EFFECT_GROUND_MEMORY:
+                    type = TYPE_GROUND;
+                    break;
+                case HOLD_EFFECT_ROCK_MEMORY:
+                    type = TYPE_ROCK;
+                    break;
+                case HOLD_EFFECT_BUG_MEMORY:
+                    type = TYPE_BUG;
+                    break;
+                case HOLD_EFFECT_GHOST_MEMORY:
+                    type = TYPE_GHOST;
+                    break;
+                case HOLD_EFFECT_STEEL_MEMORY:
+                    type = TYPE_STEEL;
+                    break;
+                case HOLD_EFFECT_FIRE_MEMORY:
+                    type = TYPE_FIRE;
+                    break;
+                case HOLD_EFFECT_WATER_MEMORY:
+                    type = TYPE_WATER;
+                    break;
+                case HOLD_EFFECT_GRASS_MEMORY:
+                    type = TYPE_GRASS;
+                    break;
+                case HOLD_EFFECT_ELECTRIC_MEMORY:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case HOLD_EFFECT_PSYCHIC_MEMORY:
+                    type = TYPE_PSYCHIC;
+                    break;
+                case HOLD_EFFECT_ICE_MEMORY:
+                    type = TYPE_ICE;
+                    break;
+                case HOLD_EFFECT_DRAGON_MEMORY:
+                    type = TYPE_DRAGON;
+                    break;
+                case HOLD_EFFECT_DARK_MEMORY:
+                    type = TYPE_DARK;
+                    break;
+                case HOLD_EFFECT_FAIRY_MEMORY:
+                    type = TYPE_FAIRY;
+                    break;
+                default:
+                    type = TYPE_NORMAL;
+                    break;
+            }
+            break;
+        case MOVE_AURA_WHEEL:
+            if (species == SPECIES_MORPEKO) {
+                switch (form) {
+                    // SPECIES_MORPEKO
+                    case 0:
+                        type = TYPE_ELECTRIC;
+                        break;
+                    // SPECIES_MORPEKO_HANGRY
+                    case 1:
+                        type = TYPE_DARK;
+                        break;
+
+                    default:
+                        // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+                        type = TYPE_TYPELESS;
+                        break;
+                }
+            } else {
+                // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+                type = TYPE_TYPELESS;
+            }
+            break;
+        case MOVE_TERRAIN_PULSE:
+            // TODO: Do after terrain refactor
+            break;
+        case MOVE_TERA_BLAST:
+        case MOVE_TERA_STARSTORM:
+            if (ctx->battlemon[battlerId].is_currently_terastallized) {
+                // Assert that the Tera Type is valid
+                GF_ASSERT(TYPE_NORMAL <= ctx->battlemon[battlerId].tera_type && TYPE_STELLAR >= ctx->battlemon[battlerId].tera_type && TYPE_TYPELESS != ctx->battlemon[battlerId].tera_type);
+
+                // Assert that Ogerpon has the correct Tera Type. However, the game should stall at Terastallization animation
+                if (species == SPECIES_OGERPON) {
+                    switch (form) {
+                        // SPECIES_OGERPON
+                        case 0:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_GRASS);
+                            break;
+                        // SPECIES_OGERPON_WELLSPRING_MASK
+                        case 1:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_WATER);
+                            break;
+                        // SPECIES_OGERPON_HEARTHFLAME_MASK
+                        case 2:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_FIRE);
+                            break;
+                        // SPECIES_OGERPON_CORNERSTONE_MASK
+                        case 3:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_ROCK);
+                            break;
+
+                        default:
+                            GF_ASSERT(form >= 0 && form <= 3);
+                            break;
+                    }
+                }
+                type = ctx->battlemon[battlerId].tera_type;
+            } else {
+                type = TYPE_NORMAL;
+            }
+            break;
+        case MOVE_RAGING_BULL:
+            if (species == SPECIES_TAUROS) {
+                switch (form) {
+                    // SPECIES_TAUROS_COMBAT
+                    case 1:
+                        type = TYPE_FIGHTING;
+                        break;
+                    // SPECIES_TAUROS_BLAZE
+                    case 2:
+                        type = TYPE_FIRE;
+                        break;
+                    // SPECIES_TAUROS_AQUA
+                    case 3:
+                        type = TYPE_WATER;
+                        break;
+
+                    default:
+                        type = TYPE_NORMAL;
+                        break;
+                }
+            } else {
+                type = TYPE_NORMAL;
+            }
+            break;
+        case MOVE_IVY_CUDGEL:
+            if (species == SPECIES_OGERPON) {
+                switch (form) {
+                    // SPECIES_OGERPON
+                    case 0:
+                        type = TYPE_GRASS;
+                        break;
+                    // SPECIES_OGERPON_WELLSPRING_MASK
+                    case 1:
+                        type = TYPE_WATER;
+                        break;
+                    // SPECIES_OGERPON_HEARTHFLAME_MASK
+                    case 2:
+                        type = TYPE_FIRE;
+                        break;
+                    // SPECIES_OGERPON_CORNERSTONE_MASK
+                    case 3:
+                        type = TYPE_ROCK;
+                        break;
+
+                    default:
+                        type = TYPE_GRASS;
+                        break;
+                }
+            } else {
+                type = TYPE_GRASS;
+            }
+            break;
+        default:
+            type = TYPE_NORMAL;
+            break;
     }
 
     return GetAdjustedMoveTypeBasics(ctx, moveNo, GetBattlerAbility(ctx, battlerId), type);
