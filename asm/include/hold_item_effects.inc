@@ -191,6 +191,6 @@
 .equ HOLD_EFFECT_DRAGON_MEMORY,                      183
 .equ HOLD_EFFECT_DARK_MEMORY,                        184
 .equ HOLD_EFFECT_FAIRY_MEMORY,                       185
-
+.equ HOLD_EFFECT_ASSAULT_VEST,                       186
 
 .endif

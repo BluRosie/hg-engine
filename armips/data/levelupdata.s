@@ -12795,7 +12795,7 @@ levelup SPECIES_YVELTAL
 levelup SPECIES_ZYGARDE
 	learnset MOVE_BIND, 1
 	learnset MOVE_SANDSTORM, 3
-	learnset MOVE_WRAP, 5
+	learnset MOVE_MUD_SLAP, 5
 	learnset MOVE_SAND_TOMB, 7
 	learnset MOVE_TWISTER, 9
 	learnset MOVE_GLARE, 13
@@ -22771,7 +22771,7 @@ levelup SPECIES_ZYGARDE_10_COMPLETE
 levelup SPECIES_ZYGARDE_50_COMPLETE
 	learnset MOVE_MUD_SLAP, 1
 	learnset MOVE_SANDSTORM, 3
-	learnset MOVE_WRAP, 5
+	learnset MOVE_TWISTER, 5
 	learnset MOVE_SAND_TOMB, 7
 	learnset MOVE_SCALE_SHOT, 9
 	learnset MOVE_GLARE, 13

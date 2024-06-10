@@ -8266,7 +8266,7 @@ trainerdata 190, "G-261"
 		level 14
 		pokemon SPECIES_TENTACOOL
 		item ITEM_ORAN_BERRY
-		move MOVE_WRAP
+		move MOVE_WHIRLPOOL
 		move MOVE_POISON_STING
 		move MOVE_WATER_GUN
 		move MOVE_TOXIC
@@ -8363,7 +8363,7 @@ trainerdata 192, "G-298"
 		pokemon SPECIES_OMANYTE
 		item ITEM_RINDO_BERRY
 		move MOVE_ANCIENT_POWER
-		move MOVE_WRAP
+		move MOVE_WATER_PULSE
 		move MOVE_MUD_SHOT
 		move MOVE_ICY_WIND
 		ability ABILITY_SHELL_ARMOR
@@ -20607,8 +20607,8 @@ trainerdata 487, "Mars"
 		item ITEM_NONE
 		move MOVE_TRICK_ROOM
 		move MOVE_METRONOME
-		move MOVE_WRAP
 		move MOVE_PAYBACK
+		move MOVE_NONE
 		ability ABILITY_CONTRARY
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
 		setevs 0, 0, 252, 0, 0, 0
