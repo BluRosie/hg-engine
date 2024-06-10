@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_338", 0
-
+//Frenzy Plant
 a010_338:
     initspriteresource
     loadspriteresource 0

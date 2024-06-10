@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_436", 0
-
+//Lava Plume
 a010_436:
     initspriteresource
     loadspriteresource 0

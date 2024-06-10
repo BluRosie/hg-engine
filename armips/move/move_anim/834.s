@@ -28,10 +28,11 @@ a010_834:
     addparticle 1, 4, 4 //these are the hurricane particles
     
     wait 10
-    playsepanmod 1911, -117, 117, 4, 2
+    playsepan 1837, 117
     shaketargetmon 10, 4
     shadetargetmon 29, 29, 29
-    waitparticle
+    wait 20
+
     unloadparticle 0
     waitstate
     unloadparticle 1

@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_116", 0
-
+//Focus Energy
 a010_116:
     initspriteresource
     loadspriteresource 0

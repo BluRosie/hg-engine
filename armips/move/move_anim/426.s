@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_426", 0
-
+// Mud Bomb
 a010_426:
     initspriteresource
     loadspriteresource 0

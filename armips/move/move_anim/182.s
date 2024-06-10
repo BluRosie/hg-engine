@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_182", 0
-
+//Protect
 a010_182:
     initspriteresource
     loadspriteresource 0

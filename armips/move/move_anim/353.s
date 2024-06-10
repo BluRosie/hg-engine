@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_353", 0
-
+// Doom Desire
 a010_353:
     checkturn _0010, _009C
     end

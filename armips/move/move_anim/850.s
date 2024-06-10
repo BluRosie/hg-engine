@@ -43,7 +43,7 @@ a010_850:
     addparticle 0, 2, 4 //big zappies linger
     shadetargetmon 20, 20, 0 //make target yellow
     shaketargetmon 10, 8
-    repeatse 1952, 117, 2, 2
+    playsepan 1837, 117
     wait 20
 
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"

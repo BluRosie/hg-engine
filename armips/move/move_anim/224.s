@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_224", 0
-
+//Megahorn
 a010_224:
     initspriteresource
     loadspriteresource 0

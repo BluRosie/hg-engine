@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_072", 0
-
+//Mega Drain
 a010_072:
     initspriteresource
     loadspriteresource 0

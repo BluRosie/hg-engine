@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_322", 0
-
+// Cosmic Power
 a010_322:
     initspriteresource
     loadspriteresource 0

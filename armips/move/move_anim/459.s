@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_459", 0
-
+//Roar of Time
 a010_459:
     initspriteresource
     loadspriteresource 0

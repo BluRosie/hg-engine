@@ -1622,8 +1622,8 @@ levelup SPECIES_TENTACRUEL
 
 
 levelup SPECIES_GEODUDE
-    learnset MOVE_MOONGEIST_BEAM, 1
-    learnset MOVE_MOONGEIST_BEAM, 1
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_MUD_SPORT, 4
     learnset MOVE_ROCK_POLISH, 6
     learnset MOVE_ROLLOUT, 10
@@ -9045,23 +9045,18 @@ levelup SPECIES_INFERNAPE
 
 levelup SPECIES_PIPLUP
     learnset MOVE_POUND, 1
-    learnset MOVE_SURGING_STRIKES, 6
-    learnset MOVE_WICKED_BLOW, 7
-    learnset MOVE_OBLIVION_WING, 8
-    learnset MOVE_HYPERSPACE_HOLE, 9
-    learnset MOVE_MOONGEIST_BEAM, 10
-    learnset MOVE_STEAM_ERUPTION, 11
-    learnset MOVE_BOLT_STRIKE, 12
-    learnset MOVE_BLUE_FLARE, 13
-    learnset MOVE_LANDS_WRATH, 14
-    learnset MOVE_CORE_ENFORCER, 15
-    learnset MOVE_THOUSAND_WAVES, 16
-    learnset MOVE_BEHEMOTH_BLADE, 17
-    learnset MOVE_BEHEMOTH_BASH, 18
-    learnset MOVE_BLEAKWIND_STORM, 19
-    learnset MOVE_SANDSEAR_STORM, 20
-    learnset MOVE_WILDBOLT_STORM, 21
-    learnset MOVE_SPRINGTIDE_STORM, 22
+    learnset MOVE_GROWL, 4
+    learnset MOVE_BUBBLE, 8
+    learnset MOVE_WATER_SPORT, 11
+    learnset MOVE_PECK, 15
+    learnset MOVE_BUBBLE_BEAM, 18
+    learnset MOVE_BIDE, 22
+    learnset MOVE_FURY_ATTACK, 25
+    learnset MOVE_BRINE, 29
+    learnset MOVE_WHIRLPOOL, 32
+    learnset MOVE_MIST, 36
+    learnset MOVE_DRILL_PECK, 39
+    learnset MOVE_HYDRO_PUMP, 43
     terminatelearnset
 
 

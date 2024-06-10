@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_009", 0
-
+//Thunder Punch
 a010_009:
     initspriteresource
     loadspriteresource 0

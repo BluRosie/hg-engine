@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_389", 0
-
+//Sucker Punch
 a010_389:
     initspriteresource
     loadspriteresource 0

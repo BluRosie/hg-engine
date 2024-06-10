@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_095", 0
-
+// Hypnosis
 a010_095:
     initspriteresource
     loadspriteresource 0

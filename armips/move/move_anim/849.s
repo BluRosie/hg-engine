@@ -19,14 +19,14 @@ a010_849:
     playsepanmod 2121, -117, 117, 4, 2
     changebg 25, 0x1
     waitforchangebg //Aeroblast bg
+    callfunction 68, 5, 0, 4, 0, 28, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 15
-    shakescreen
     addparticle 1, 0, 4
     addparticle 1, 1, 4
     addparticle 1, 2, 4
     addparticle 1, 3, 4
     addparticle 1, 4, 4 //these are the Hurricane particles
-    playsepanmod 1911, -117, 117, 4, 2
+    playsepan 1837, 117
     shaketargetmon 10, 4
     shadetargetmon 29, 29, 29
     wait 22

@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_441", 0
-
+// Gunk Shot
 a010_441:
     initspriteresource
     loadspriteresource 0

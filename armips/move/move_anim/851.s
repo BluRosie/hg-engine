@@ -19,13 +19,14 @@ a010_851:
     addparticle 0, 0, 0
     playsepan 2022, 0  //exactly the sandstorm animation and sound
 
-    wait 15
+    wait 10
     addparticle 1, 0, 4
     addparticle 1, 1, 4
     addparticle 1, 2, 4
     addparticle 1, 3, 4
     addparticle 1, 4, 4 //these are the hurricane particles
-    playsepanmod 1911, -117, 117, 4, 2
+    wait 10
+    playsepan 1837, 117
     shaketargetmon 10, 4
     shadetargetmon 29, 29, 29
     wait 30

@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_058", 0
-
+// Ice Beam
 a010_058:
     initspriteresource
     loadspriteresource 0

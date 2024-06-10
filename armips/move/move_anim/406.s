@@ -8,7 +8,7 @@
 .include "armips/include/movenums.s"
 
 .create "build/move/move_anim/0_406", 0
-
+//Dragon Pulse
 a010_406:
     initspriteresource
     loadspriteresource 0
