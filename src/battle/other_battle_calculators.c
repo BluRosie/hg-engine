@@ -52,6 +52,16 @@ const u16 PowderMovesList[] = {
     MOVE_MAGIC_POWDER,
 };
 
+const u16 MegaLauncherMovesTable[] = {
+        MOVE_HYDRO_CANNON,
+        MOVE_HYDRO_PUMP,
+        MOVE_ZAP_CANNON,
+        MOVE_FLASH_CANNON,
+        MOVE_WATER_GUN,
+        MOVE_AQUA_JET,
+        MOVE_WATER_SPOUT,
+};
+
 // Moves that Triage boosts the priority of.
 // Move effects might be a tidier way to do it, but we don't have those defined for some of these moves yet.
 const u16 TriageMovesList[] = {
@@ -450,6 +460,11 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     if (atk_ability == ABILITY_COMPOUND_EYES)
     {
+        accuracy = accuracy * 130 / 100;
+    }
+
+    // handle mega launcher
+    if ((atk_ability == ABILITY_MEGA_LAUNCHER) && IsElementInArray(MegaLauncherMovesTable, (u16 *)&move_no, NELEMS(MegaLauncherMovesTable), sizeof(MegaLauncherMovesTable[0])))
         accuracy = accuracy * 130 / 100;
     }
 
