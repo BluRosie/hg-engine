@@ -3151,6 +3151,11 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
                 nonSelectableMoves |= No2Bit(movePos);
             }
         }
+        if (struggleCheckFlags & STRUGGLE_CHECK_GORILLA_TACTICS && GetBattlerAbility(ctx, battlerId) == ABILITY_GORILLA_TACTICS) {
+            if (ctx->waza_no_old[battlerId] != ctx->battlemon[battlerId].move[movePos] && ctx->waza_no_old[battlerId] != 0) {
+                nonSelectableMoves |= No2Bit(movePos);
+            }
+        }
     }
     return nonSelectableMoves;
 }
@@ -3178,24 +3183,29 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TAUNT) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
         msg->msg_id = 613;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_IMPRISON) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = 616;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GRAVITY) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
         msg->msg_id = 1001;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_HEAL_BLOCK) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE_MOVE;
+        // TODO: Is this a vanilla bug?
+        // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STRVAR_1 6, 1, 0}!\r
         msg->msg_id = 1057;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = MOVE_HEAL_BLOCK;
@@ -3203,12 +3213,21 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_CHOICED) & No2Bit(movePos)) {
         msg->msg_tag = TAG_ITEM_MOVE;
+        // The {STRVAR_1 8, 0, 0} allows the\nuse of only {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = 911;
         msg->msg_para[0] = ctx->battlemon[battlerId].item;
         msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
         ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GORILLA_TACTICS) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
+        msg->msg_id = 1457;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->waza_no_old[battlerId];
+        ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_NO_PP) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NONE;
+        // There’s no PP left for this move!
         msg->msg_id = 823;
         ret = FALSE;
     }

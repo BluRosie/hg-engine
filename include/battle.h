@@ -576,6 +576,7 @@
 #define STRUGGLE_CHECK_HEAL_BLOCK           (1 << 7)
 #define STRUGGLE_CHECK_ENCORE               (1 << 8) //unused because they straight up forgot
 #define STRUGGLE_CHECK_CHOICED              (1 << 9)
+#define STRUGGLE_CHECK_GORILLA_TACTICS      (1 << 10)
 
 /**
  *  @brief msg work specifically for statuses
@@ -728,7 +729,7 @@ struct __attribute__((packed)) battle_moveflag
     /* 0x24 */ u16 encoredMove;              /**< move that is forced by encore */
     /* 0x26 */ u16 encoredMoveIndex;         /**< move position that is forced by encore in the pokémon's move array */
     /* 0x28 */ u16 lastResortMoves[4];       /**< which moves have been used for last resort purposes */
-    /* 0x2a */ u16 moveNoChoice;             /**< move position selected */
+    /* 0x2a */ u16 moveNoChoice;             /**< move number forced by choice item */
     /* 0x2c */ u16 transformGender;          /**< pokémon sex stored for transform purposes */
 // padding at 2e
     /* 0x30 */ int itemHpRecover;            /**< how much hp was just restored by an item */
