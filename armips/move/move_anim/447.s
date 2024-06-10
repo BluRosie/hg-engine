@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_447", 0
-
+// Grass Knot
 a010_447:
     initspriteresource
     loadspriteresource 0

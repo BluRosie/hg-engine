@@ -10,7 +10,7 @@
 
 .create "build/move/move_anim/0_063", 0
 
-a010_063:
+a010_063: //hyper beam
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1

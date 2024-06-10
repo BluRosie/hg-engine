@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_396", 0
-
+//aura sphere
 a010_396:
     initspriteresource
     loadspriteresource 0
