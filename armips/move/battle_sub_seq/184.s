@@ -6,17 +6,28 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/battle_script_constants.s"
 
 .create "build/move/battle_sub_seq/1_184", 0
 
+// Sand Stream
+
 a001_184:
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_EXTREMELY_HARSH_SUNLIGHT, PreventChangingWeather
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HEAVY_RAIN, PreventChangingWeather
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_STRONG_WINDS, PreventChangingWeather
+
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SANDSTORM_ANY, SkipEffect
     setstatus2effect BATTLER_PLAYER, 0x15
     waitmessage
-    printmessage 0x2B7, 0xB, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
+    gotosubscript 363
+    printpreparedmessage
     waitmessage
     wait 0x1E
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x80FF
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, 0x8
+SkipEffect:
     endscript
 
+PreventChangingWeather:
+    gotosubscript SUB_SEQ_PREVENT_CHANGING_WEATHER
+    endscript
 .close

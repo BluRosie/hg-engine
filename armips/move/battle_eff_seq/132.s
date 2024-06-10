@@ -7,6 +7,8 @@
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
 
+// Moonlight, Morning Sun, Synthesis
+
 .create "build/move/battle_eff_seq/0_132", 0
 
 a030_132:

@@ -6,17 +6,28 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/battle_script_constants.s"
 
 .create "build/move/battle_sub_seq/1_185", 0
 
+// Drought
+
 a001_185:
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_EXTREMELY_HARSH_SUNLIGHT, PreventChangingWeather
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_HEAVY_RAIN, PreventChangingWeather
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_STRONG_WINDS, PreventChangingWeather
+
+    if IF_MASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, SkipEffect
     setstatus2effect BATTLER_PLAYER, 0x16
     waitmessage
-    printmessage 0x2BA, 0xB, 0xFF, 0x15, "NaN", "NaN", "NaN", "NaN"
+    gotosubscript 361
+    printpreparedmessage
     waitmessage
     wait 0x1E
-    changevar VAR_OP_CLEARMASK, VAR_FIELD_EFFECT, 0x80FF
-    changevar VAR_OP_SETMASK, VAR_FIELD_EFFECT, 0x20
+SkipEffect:
     endscript
 
+PreventChangingWeather:
+    gotosubscript SUB_SEQ_PREVENT_CHANGING_WEATHER
+    endscript
 .close

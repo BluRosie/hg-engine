@@ -24,7 +24,7 @@
     { \
         for (j = 0; j < party->count; j++) \
         { \
-            ppFromParty = PokeParty_GetMemberPointer(party, j); \
+            ppFromParty = Party_GetMonByIndex(party, j); \
             if (CheckIfMonsAreEqual(pokemon, ppFromParty)) \
                 break; \
         } \
@@ -104,19 +104,19 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
             case EVO_NONE:
                 break;
             case EVO_FRIENDSHIP:
-                if (friendship >= 220) {
+                if (friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_FRIENDSHIP;
                 }
                 break;
             case EVO_FRIENDSHIP_DAY:
-                if (IsNighttime() == 0 && friendship >= 220) {
+                if (IsNighttime() == 0 && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_FRIENDSHIP_DAY;
                 }
                 break;
             case EVO_FRIENDSHIP_NIGHT:
-                if (IsNighttime() == 1 && friendship >= 220) {
+                if (IsNighttime() == 1 && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
                     GET_TARGET_AND_SET_FORM;
                     *method_ret = EVO_FRIENDSHIP_NIGHT;
                 }
@@ -310,8 +310,8 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 {
                     for (int k = 0; k < 6; k++)
                     {
-                        if (!CheckIfMonsAreEqual(pokemon, PokeParty_GetMemberPointer(party, k)) // make sure that pancham doesn't satisfy its own requirement
-                         && (GetMonData(PokeParty_GetMemberPointer(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(PokeParty_GetMemberPointer(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
+                        if (!CheckIfMonsAreEqual(pokemon, Party_GetMonByIndex(party, k)) // make sure that pancham doesn't satisfy its own requirement
+                         && (GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
                         {
                             GET_TARGET_AND_SET_FORM;
                             *method_ret = EVO_LEVEL_DARK_TYPE_MON_IN_PARTY;

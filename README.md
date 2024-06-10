@@ -46,7 +46,7 @@
 1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
 2. In a Terminal window, run the following commands:
     * ```xcode-select --install```
-    * ```brew install python3 libpng automake cmake zlib```
+    * ```brew install python3 libpng automake cmake zlib pkg-config```
     * ```brew install --cask gcc-arm-embedded```
     * ```python3 -m pip install ndspy```
     * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
@@ -123,7 +123,7 @@ You will still have to `make clean` and `make clean_code` manually when changing
     * If you are a macOS user who is on arm64 (an Apple M1 Processor), you may have issues running this command due to `libpng` linker issues caused by an expected architecture mismatch. You can get around this issue by going to `Applications/Utilities/`, right clicking on Terminal, Clicking "Get Info", and clicking the "Open using Rosetta" checkbox so it becomes blue. Close Terminal if you had it open, then open it again and run the following:
         * ```cd Documents/hg-engine```
         * ```make tools/nitrogfx```
-        * ```make tools/ENCODE_IMG``
+        * ```make tools/ENCODE_IMG```
     * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
 3. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
    * It is important to note that this alone will not add new pokemon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.

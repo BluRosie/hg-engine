@@ -28,7 +28,22 @@ BATTLEHUD_DEPENDENCIES := $(wildcard $(BATTLEHUD_DEPENDENCIES_DIR)/*)
 
 $(BATTLEHUD_NARC): $(BATTLEHUD_DEPENDENCIES)
 	$(NARCHIVE) extract $(BATTLEHUD_TARGET) -o $(BATTLEHUD_DIR) -nf
-	cp -r $(BATTLEHUD_DEPENDENCIES_DIR)/. $(BATTLEHUD_DIR)
+	for file in $(BATTLEHUD_DEPENDENCIES_DIR)/*.png; do \
+		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR -bitdepth 8; \
+		$(GFX) $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR.lz; \
+		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCLR -bitdepth 8; \
+		mv $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR.lz $(BATTLEHUD_DIR)/$$(basename $$file .png); \
+		export FILENAME_TEMP=$$(basename $$file); \
+		mv $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCLR $(BATTLEHUD_DIR)/7_$$(($$(basename $${FILENAME_TEMP#*_} .png)+1)); \
+	done
+	for file in $(BATTLEHUD_DEPENDENCIES_DIR)/*.pal; do \
+		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .pal).NCLR; \
+		mv $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .pal).NCLR $(BATTLEHUD_DIR)/$$(basename $$file .pal); \
+	done
+	for file in $(BATTLEHUD_DEPENDENCIES_DIR)/*.NSCR; do \
+		cp $$file $(BATTLEHUD_DIR)/$$(basename $$file .NSCR); \
+	done
+	rm $(BATTLEHUD_DEPENDENCIES_DIR)/*.NCGR
 	$(NARCHIVE) create $@ $(BATTLEHUD_DIR) -nf
 
 NARC_FILES += $(BATTLEHUD_NARC)
@@ -375,6 +390,10 @@ OVERWORLDS_SRCS := $(filter-out $(wildcard $(OVERWORLDS_DEPENDENCIES_DIR)/*_shin
 OVERWORLDS_OBJS := $(patsubst $(OVERWORLDS_DEPENDENCIES_DIR)/%.png,$(OVERWORLDS_DIR)/2_%,$(OVERWORLDS_SRCS))
 OVERWORLDS_OBJ_FILTERS := $(patsubst $(OVERWORLDS_DEPENDENCIES_DIR)/%.png,$(OVERWORLDS_DIR)/3_%,$(OVERWORLDS_SRCS))
 
+# add your own overworld sources here
+ALL_OVERWORLDS_SRCS := $(OVERWORLDS_SRCS)
+ALL_OVERWORLDS_OBJS := $(OVERWORLDS_OBJS)
+
 $(OVERWORLDS_DIR)/2_%_shiny:$(OVERWORLDS_DEPENDENCIES_DIR)/%_shiny.png
 	@:
 
@@ -387,7 +406,7 @@ overworld_extract:
 	@rm -rf $(patsubst $(OVERWORLDS_DIR)/3_%,$(OVERWORLDS_DIR)/1_%,$(OVERWORLDS_OBJ_FILTERS))
 	@rm -f $(OVERWORLDS_NARC)
 
-$(OVERWORLDS_NARC): | overworld_extract $(OVERWORLDS_OBJS)
+$(OVERWORLDS_NARC): $(ALL_OVERWORLDS_SRCS) | overworld_extract $(ALL_OVERWORLDS_OBJS)
 	$(NARCHIVE) create $@ $(OVERWORLDS_DIR) -nf
 
 NARC_FILES += $(OVERWORLDS_NARC)
@@ -419,6 +438,7 @@ $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	for n in $$(seq 346 $$(expr $$(ls $(BATTLEGFX_DIR) | wc -l) - 1)); do rm -f $(BATTLEGFX_DIR)/8_$$n; done
 	cp -r $(BATTLEGFX_DEPENDENCIES_DIR)/. $(BATTLEGFX_DIR)
 	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*.png; do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
+	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png; do $(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; done
 	$(NARCHIVE) create $@ $(BATTLEGFX_DIR) -nf
 
 NARC_FILES += $(BATTLEGFX_NARC)

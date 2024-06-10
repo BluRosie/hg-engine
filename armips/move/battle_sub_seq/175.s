@@ -6,6 +6,7 @@
 .include "armips/include/itemnums.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/battle_script_constants.s"
 
 // u-turn script
 
@@ -41,6 +42,7 @@ _003C:
     wait 0x1E
     incrementgamestat BATTLER_FAINTED, 0x1, 0x2A
     incrementgamestat BATTLER_FAINTED, 0x0, 0x61
+    gotosubscript SUB_SEQ_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING
 _0140:
     changevar2 VAR_OP_GET_RESULT, VAR_FAINTED_BATTLER, VAR_ITEM_TEMP
     changevar2 VAR_OP_SET, VAR_FAINTED_BATTLER, VAR_DEFENDER

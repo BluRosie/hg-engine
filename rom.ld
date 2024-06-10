@@ -96,7 +96,6 @@ SetEggStats = 0x0206C8B8 | 1;
 SaveMisc_SetTogepiPersonalityGender = 0x0202ABB0 | 1;
 SaveMisc_GetTogepiPersonalityGender = 0x0202ABBC | 1;
 
-GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;
 SaveData_GetEventPtr = 0x020503D0 | 1;
 SaveData_GetDexPtr = 0x0202A634 |1;
@@ -230,7 +229,7 @@ ST_ServerQueCheck = 0x0224ED48 | 1;
 SCIO_StatusEffectSet = 0x02263848 | 1;
 SCIO_LevelUpEffectSet = 0x0226399C | 1;
 BattleWorkPlaceIDGet = 0x0223AB60 | 1;
-HeldItemEffectCheck = 0x0225471C | 1;
+TryUseHeldItem = 0x0225471C | 1;
 HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
@@ -261,7 +260,7 @@ CT_PokemonAppearSet = 0x02259D48 | 1;
 ClientCommandReset = 0x02259928 | 1;
 BattleWorkPokePartyGet = 0x0223A7F4 | 1;
 PokeParty_GetPokeCount = 0x02074640 | 1;
-PokeParty_GetMemberPointer = 0x02074644 | 1;
+Party_GetMonByIndex = 0x02074644 | 1;
 SideClientNoGet = 0x0224768C | 1;
 BattleWorkClientNoGet = 0x0223AAD8 | 1;
 BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
@@ -581,3 +580,77 @@ AddWindowParameterized = 0x0201D40C | 1;
 
 LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
 TryAppendMonMove = 0x0207137C | 1;
+
+BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;
+
+Mon_UpdateRotomForm = 0x02071EC0 | 1;
+Mon_UpdateShayminForm = 0x02071D6C | 1;
+Daycare_GetBothBoxMonsPtr = 0x0206C1C8 | 1;
+
+CurseUserIsGhost = 0x022526D0 | 1;
+UnlockBattlerOutOfCurrentMove = 0x02250CA0 | 1;
+
+CheckItemGradualHPRestore = 0x02254D80 | 1;
+ov12_02252218 = 0x02252218 | 1;
+TryHeldItemNegativeEffect = 0x0225551C | 1;
+DistributeEffortValues = 0x022463E8 | 1;
+
+sub_02037D78 = 0x02037D78 | 1;
+PrintErrorMessageAndReset = 0x02096338 | 1;
+
+OS_SetArenaHi = 0x020D2C78;
+OS_GetInitArenaHi = 0x020D2AEC;
+OS_SetArenaLo = 0x020D2C8C;
+OS_GetInitArenaLo = 0x020D2BD0;
+InitHeapSystem = 0x0201A7BC | 1;
+sub_0200FBF4 = 0x0200FBF4 | 1;
+OS_DisableIrqMask = 0x020D1204;
+OS_SetIrqFunction = 0x020D1004;
+OS_EnableIrqMask = 0x020D11D4;
+Main_SetVBlankIntrCB = 0x0201A0FC | 1;
+Main_SetHBlankIntrCB = 0x0201A120 | 1;
+GfGfx_DisableEngineAPlanes = 0x02022C54 | 1;
+GfGfx_DisableEngineBPlanes = 0x02022CBC | 1;
+SetKeyRepeatTimers = 0x0201A71C | 1;
+GfGfx_SwapDisplay = 0x02022D3C | 1;
+GfGfx_SetBanks = 0x02022BE8 | 1;
+BgConfig_Alloc = 0x0201AC88 | 1;
+SetBothScreensModesAndDisable = 0x0201ACB0 | 1;
+InitBgFromTemplate = 0x0201B1E4 | 1;
+BgClearTilemapBufferAndCommit = 0x0201CAE0 | 1;
+LoadUserFrameGfx1 = 0x0200E3DC | 1;
+LoadFontPal0 = 0x02003030 | 1;
+BG_ClearCharDataRange = 0x0201C1C4 | 1;
+BG_SetMaskColor = 0x0201C2D8 | 1;
+String_New = 0x02026354 | 1;
+ResetAllTextPrinters = 0x02020080 | 1;
+FillWindowPixelRect = 0x0201DA74 | 1;
+DrawFrameAndWindow1 = 0x0200E580 | 1;
+ReadMsgDataIntoString = 0x0200BB6C | 1;
+AddTextPrinterParameterized = 0x020200A8 | 1;
+String_Delete = 0x02026380 | 1;
+GfGfx_BothDispOn = 0x02022D24 | 1;
+SetMasterBrightnessNeutral = 0x0200FBE8 | 1;
+SetBlendBrightness = 0x0200B4F0 | 1;
+sub_02038D90 = 0x02038D90 | 1;
+HandleDSLidAction = 0x0200110C | 1;
+sub_02036144 = 0x02036144 | 1;
+sub_02039AA4 = 0x02039AA4 | 1;
+OS_WaitIrq = 0x020D0E6C;
+RemoveWindow = 0x0201D520 | 1;
+DestroyMsgData = 0x0200BB44 | 1;
+OS_ResetSystem = 0x020D3B84;
+AddWindow = 0x0201D4F8 | 1;
+
+ov12_0224DD18 = 0x0224DD18 | 1;
+ov12_0224D7EC = 0x0224D7EC | 1;
+ov12_0224E130 = 0x0224E130 | 1;
+ov12_0224DC0C = 0x0224DC0C | 1;
+SortExecutionOrderBySpeed = 0x02257EC0 | 1;
+SortMonsBySpeed = 0x02252D3C | 1;
+
+ov12_0224B398 = 0x0224B398 | 1;
+ov12_02250BBC = 0x02250BBC | 1;
+BattleSystem_CheckMoveHit = 0x0224BCC4 | 1;
+ov12_0224B498 = 0x0224B498 | 1;
+ov12_0224BC2C = 0x0224BC2C | 1;

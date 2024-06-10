@@ -16,7 +16,7 @@ a001_025:
     if IF_NOTEQUAL, VAR_ADD_EFFECT_TYPE, 0x5, _00D4
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_WATER_VEIL, _0350
     checkcloudnine _0058
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _0058
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _0058
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _0350
 _0058:
     ifmonstat IF_MASK, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x10, _0350
@@ -28,7 +28,7 @@ _0058:
 _00D4:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_WATER_VEIL, _0424
     checkcloudnine _checkFlowerVeil
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _0424
 
 _checkFlowerVeil:

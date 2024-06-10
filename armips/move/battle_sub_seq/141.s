@@ -16,7 +16,7 @@ a001_141:
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_INSOMNIA, _010C
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_VITAL_SPIRIT, _010C
     checkcloudnine _checkFlowerVeil
-    if IF_NOTMASK, VAR_FIELD_EFFECT, 0x30, _checkFlowerVeil
+    if IF_NOTMASK, VAR_FIELD_EFFECT, WEATHER_SUNNY_ANY, _checkFlowerVeil
     moldbreakerabilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_LEAF_GUARD, _010C
 
 _checkFlowerVeil:
@@ -38,7 +38,7 @@ _0058:
     waitmessage
     checksubstitute BATTLER_ADDL_EFFECT, _0138
     abilitycheck 0x0, BATTLER_ADDL_EFFECT, ABILITY_SOUNDPROOF, _0094
-    if IF_MASK, VAR_FIELD_EFFECT, 0xF00, _0138
+    if IF_MASK, VAR_FIELD_EFFECT, FIELD_STATUS_UPROAR, _0138
 _0094:
     ifmonstat IF_NOTEQUAL, BATTLER_ADDL_EFFECT, MON_DATA_STATUS_1, 0x0, _0138
     if IF_MASK, VAR_SIDE_EFFECT_ACTIVE_BATTLER, 0x8, _0150
