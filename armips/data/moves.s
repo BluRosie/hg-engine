@@ -1351,7 +1351,7 @@ movedata MOVE_FIRE_SPIN, "Fire Vortex"
     appeal 0x15
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_FIRE_SPIN, "A blazing fire\nswirls around\the foe. It has a\nhigh critical-hit\nratio."
+    movedescription MOVE_FIRE_SPIN, "A blazing fire\nswirls around\nthe foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_THUNDER_SHOCK, "Thunder Shock"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
@@ -4025,7 +4025,7 @@ movedata MOVE_WHIRLPOOL, "Aqua Vortex"
     appeal 0x15
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_WHIRLPOOL, "A harsh whirlpool\nswirls around\the foe. It has a\nhigh critical-hit\nratio."
+    movedescription MOVE_WHIRLPOOL, "A harsh whirlpool\nswirls around\nthe foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_BEAT_UP, "Beat Up"
     battleeffect MOVE_EFFECT_BEAT_UP
@@ -5273,7 +5273,7 @@ movedata MOVE_SAND_TOMB, "Sand Vortex"
     appeal 0x15
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_SAND_TOMB, "A harsh sandstorm\nswirls around\the foe. It has a\nhigh critical-hit\nratio."
+    movedescription MOVE_SAND_TOMB, "A harsh sandstorm\nswirls around\nthe foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_SHEER_COLD, "Permafrost"
 	battleeffect 5
