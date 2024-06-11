@@ -577,6 +577,8 @@
 #define STRUGGLE_CHECK_ENCORE               (1 << 8) //unused because they straight up forgot
 #define STRUGGLE_CHECK_CHOICED              (1 << 9)
 #define STRUGGLE_CHECK_GORILLA_TACTICS      (1 << 10)
+#define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
+#define STRUGGLE_CHECK_ASSAULT_VEST         (1 << 12)
 
 /**
  *  @brief msg work specifically for statuses
