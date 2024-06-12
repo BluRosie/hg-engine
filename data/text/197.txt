@@ -909,7 +909,7 @@ The opposing {STRVAR_1 1, 0, 0} restored its\nstatus using its {STRVAR_1 8, 1, 0
 {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
-The {STRVAR_1 8, 0, 0} allows the\nuse of only {STRVAR_1 6, 1, 0}!\r
+The {STRVAR_1 8, 0, 0} only allows the\nuse of {STRVAR_1 6, 1, 0}!\r
 {STRVAR_1 1, 0, 0} hung on\nusing its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} hung on\nusing its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} hung on\nusing its {STRVAR_1 8, 1, 0}!
@@ -1457,3 +1457,4 @@ A lingering aroma clings to the opposing {STRVAR_1 1, 0, 0}!
 The mysterious strong winds blow on!
 {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
 You can’t use {STRVAR_1 6, 0, 0}\ntwice in a row!\r
+The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!

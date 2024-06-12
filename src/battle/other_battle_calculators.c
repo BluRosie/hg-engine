@@ -3169,6 +3169,9 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
                 }
             }
         }
+        if ((struggleCheckFlags & STRUGGLE_CHECK_ASSAULT_VEST) && (item == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES && !(ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].power) && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST))) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
     }
     return nonSelectableMoves;
 }
@@ -3226,7 +3229,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_CHOICED) & No2Bit(movePos)) {
         msg->msg_tag = TAG_ITEM_MOVE;
-        // The {STRVAR_1 8, 0, 0} allows the\nuse of only {STRVAR_1 6, 1, 0}!\r
+        // The {STRVAR_1 8, 0, 0} only allows the\nuse of {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = 911;
         msg->msg_para[0] = ctx->battlemon[battlerId].item;
         msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
@@ -3243,6 +3246,12 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         // {You can’t use {STRVAR_1 6, 0, 0} twice in a row!\r
         msg->msg_id = 1458;
         msg->msg_para[0] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_ASSAULT_VEST) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_MOVE;
+        // The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
+        msg->msg_id = 1459;
+        msg->msg_para[0] = ctx->battlemon[battlerId].item;
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_NO_PP) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NONE;
