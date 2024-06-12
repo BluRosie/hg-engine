@@ -984,12 +984,14 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 
 /**
  *  @brief clear the newly introduced battle mon flags in various scenarios, i.e. switching
+ *         recently expanded to include immediately when fainting
  *
  *  @param sp global battle structure
  *  @param client battler whose flags to clear
  */
 void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
+    int i;
     sp->battlemon[client].unnerve_flag = 0;
     sp->battlemon[client].dark_aura_flag = 0;
     sp->battlemon[client].fairy_aura_flag = 0;
@@ -1004,6 +1006,18 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
+
+    if (gBattleSystem != NULL)
+    {
+        int maxBattlers = BattleWorkClientSetMaxGet(gBattleSystem);
+        for (i = 0; i < maxBattlers; i++) // will be run multiple times per client but whatever
+        {
+            if (sp->battlemon[i].moveeffect.battlerIdBinding == client)
+            {
+                sp->binding_turns[i] = 0;
+            }
+        }
+    }
 }
 
 /**

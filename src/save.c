@@ -856,8 +856,8 @@ void AllocFail(u32 retAddr UNUSED) {
 }
 
 void GF_AssertFail(void) {
-#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL
     register u32 retAddr asm("lr");
     PrintCrashMessageAndReset(255, retAddr);
-#endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+#endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL
 }

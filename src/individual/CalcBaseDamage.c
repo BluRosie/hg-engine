@@ -68,6 +68,7 @@ static const u8 HeldItemPowerUpTable[][2]={
     {HOLD_EFFECT_ARCEUS_STEEL, TYPE_STEEL},
     {HOLD_EFFECT_ARCEUS_NORMAL, TYPE_NORMAL},
 #if FAIRY_TYPE_IMPLEMENTED == 1
+    {HOLD_EFFECT_STRENGTHEN_FAIRY, TYPE_FAIRY},
     {HOLD_EFFECT_ARCEUS_FAIRY, TYPE_FAIRY},
 #endif
 };
@@ -340,9 +341,9 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         defense *= 2;
 
     // handle eviolite
-   // if ((DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE)
-   //     defense *= 2;
-   //     sp_defense *= 2;
+    //if ((DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE)
+    //    defense *= 2;
+    //    sp_defense *= 2;
 
     // handle thick club
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
@@ -350,9 +351,17 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
       || (AttackingMon.species == SPECIES_MAROWAK)))
         attack *= 2;
 
-    // handle adamant/lustrous/griseous orb
+    // handle adamant/lustrous/griseous orb & adamant crystal, lustrous globe & griseous core
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_DIALGA_BOOST) &&
         ((movetype == TYPE_DRAGON) || (movetype == TYPE_STEEL)) &&
+        (AttackingMon.species == SPECIES_DIALGA))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_DIALGA_BOOST_AND_TRANSFORM) &&
+        ((movetype == TYPE_DRAGON) || (movetype == TYPE_STEEL)) &&
+        ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
         (AttackingMon.species == SPECIES_DIALGA))
     {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
@@ -365,10 +374,40 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
     }
 
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM) &&
+        ((movetype == TYPE_DRAGON) || (movetype == TYPE_WATER)) &&
+        ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
+        (AttackingMon.species == SPECIES_PALKIA))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_GIRATINA_BOOST) &&
+        ((movetype == TYPE_DRAGON) || (movetype == TYPE_GHOST)) &&
+        (AttackingMon.species == SPECIES_GIRATINA))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_GIRATINA_BOOST_AND_TRANSFORM) &&
         ((movetype == TYPE_DRAGON) || (movetype == TYPE_GHOST)) &&
         ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
         (AttackingMon.species == SPECIES_GIRATINA))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+
+    // handle punching glove
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0])))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+
+    // handle ogerpon mask boosts
+    if (((AttackingMon.item_held_effect == HOLD_EFFECT_CORNERSTONE_MASK) ||
+        (AttackingMon.item_held_effect == HOLD_EFFECT_WELLSPRING_MASK) ||
+        (AttackingMon.item_held_effect == HOLD_EFFECT_HEARTHFLAME_MASK)) &&
+        (AttackingMon.species == SPECIES_OGERPON))
     {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
     }
@@ -403,19 +442,19 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         attack = attack * 150 / 100;
     }
 
-    //handle toxic boost
+    // handle toxic boost
     if ((AttackingMon.ability == ABILITY_TOXIC_BOOST) && ((AttackingMon.condition & STATUS_FLAG_BADLY_POISONED) || (AttackingMon.condition & STATUS_FLAG_POISONED)))
     {
         attack = attack * 150 / 100;
     }
 
-    //handle flare boost
+    // handle flare boost
     if ((AttackingMon.ability == ABILITY_FLARE_BOOST) && ((AttackingMon.condition & STATUS_FLAG_BURNED)))
     {
         sp_attack = sp_attack * 150 / 100;
     }
 
-    //handle tough claws
+    // handle tough claws
     if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
     {
         movepower = movepower * 130 / 100;
@@ -519,25 +558,25 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower /= 2;
     }
 
-    //handle steelworker
+    // handle steelworker
     if(AttackingMon.ability == ABILITY_STEELWORKER && (movetype == TYPE_STEEL))
     {
         movepower = movepower * 150 / 100;
     }
 
-    //handle dragon's maw
+    // handle dragon's maw
     if(AttackingMon.ability == ABILITY_DRAGONS_MAW && (movetype == TYPE_DRAGON))
     {
         movepower = movepower * 150 / 100;
     }
 
-    //handle transistor
+    // handle transistor
     if(AttackingMon.ability == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
     {
         movepower = movepower * 130 / 100;
     }
 
-    //handle rocky payload
+    // handle rocky payload
     if(AttackingMon.ability == ABILITY_ROCKY_PAYLOAD && (movetype == TYPE_ROCK))
     {
         movepower = movepower * 150 / 100;
@@ -565,30 +604,30 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 100 / 133;
 #endif
 
-    //handle steely spirit for the ally
+    // handle steely spirit for the ally
     if (movetype == TYPE_STEEL && GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_STEELY_SPIRIT)
     {
         movepower = movepower * 150 / 100;
     }
-    //handle steely spirit for the attacker--can stack
+    // handle steely spirit for the attacker--can stack
     if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT)
     {
         movepower = movepower * 150 / 100;
     }
 
-    //handle battery
+    // handle battery
     if (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_BATTERY)
     {
         sp_attack = sp_attack * 130 / 100;
     }
 
-    //handle power spot
+    // handle power spot
     if (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_POWER_SPOT)
     {
         movepower = movepower * 130 / 100;
     }
 
-    //handle friend guard
+    // handle friend guard
     if (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD)
     {
         movepower = movepower * 75 / 100;
@@ -733,7 +772,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 15 / 10;
     }
 
-    //handles water bubble
+    // handle water bubble
     if((AttackingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_WATER))
     {
         movepower = movepower * 2;
@@ -933,19 +972,19 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage = damage * 15 / 10;
     }
 
-    //handles multiscale
+    // handle multiscale
     if ((DefendingMon.ability == ABILITY_MULTISCALE) && (DefendingMon.hp == DefendingMon.maxhp))
     {
         damage /= 2;
     }
 
-    //handles shadow shield
+    // handle shadow shield
     if ((DefendingMon.ability == ABILITY_SHADOW_SHIELD) && (DefendingMon.hp == DefendingMon.maxhp))
     {
         damage /= 2;
     }
 
-    //handles water bubble
+    // handle water bubble
     if ((DefendingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_FIRE))
     {
         damage /= 2;
