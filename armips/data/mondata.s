@@ -22508,7 +22508,7 @@ mondata SPECIES_GOUGING_FIRE, "GougedFire"
 mondata SPECIES_RAGING_BOLT, "RagingBolt"
     basestats 125, 73, 91, 75, 137, 89
     types TYPE_ELECTRIC, TYPE_DRAGON
-    catchrate 10
+    catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 3, 0
     items ITEM_NONE, ITEM_NONE

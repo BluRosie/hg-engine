@@ -10685,7 +10685,7 @@ trainerdata 244, "Lance"
 		level 67
 		pokemon SPECIES_DRUDDIGON
 		item ITEM_ROCKY_HELMET
-		move MOVE_DRAGON_TAIL
+		move MOVE_DRAGON_RUSH
 		move MOVE_SUCKER_PUNCH
 		move MOVE_BULLDOZE
 		move MOVE_SWAGGER
