@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import random
 import struct
 import subprocess
 import sys
@@ -46,18 +47,61 @@ def dump_btx_to_png_and_mappings():
     btxFile.seek(0x8, 0)
     totalSize = struct.unpack("<H", btxFile.read(2))[0]
     btxFile.seek(0x10, 0)
-    TEXOffset = struct.unpack("<H", btxFile.read(2))[0]
+    TEXOffset = struct.unpack("<I", btxFile.read(4))[0]
+
+# relevant TEX0 fields
+"""
+public struct Header
+{
+    /* 0x00 */ public char[] type;
+    /* 0x04 */ public uint section_size;
+    /* 0x08 */ public uint padding;
+    /* 0x0C */ public ushort textData_size;
+    /* 0x0E */ public ushort textInfo_offset;
+    /* 0x10 */ public uint padding2;
+    /* 0x14 */ public uint textData_offset;
+    /* 0x18 */ public uint padding3;
+    /* 0x1C */ public ushort textCompressedData_size;
+    /* 0x1E */ public ushort textCompressedInfo_offset;
+    /* 0x20 */ public uint padding4;
+    /* 0x24 */ public uint textCompressedData_offset;
+    /* 0x28 */ public uint textCompressedInfoData_offset;
+    /* 0x2C */ public uint padding5;
+    /* 0x30 */ public uint paletteData_size;
+    /* 0x34 */ public uint paletteInfo_offset;
+    /* 0x38 */ public uint paletteData_offset;
+}
+"""
     btxFile.seek(TEXOffset + 0x14, 0)
-    textureOffset = TEXOffset + struct.unpack("<H", btxFile.read(2))[0]
+    textureOffset = TEXOffset + struct.unpack("<I", btxFile.read(4))[0]
     btxFile.seek(TEXOffset + 0x38, 0)
-    palOffset = TEXOffset + struct.unpack("<H", btxFile.read(2))[0]
+    palOffset = TEXOffset + struct.unpack("<I", btxFile.read(4))[0]
+    btxFile.seek(TEXOffset + 0xE, 0)
+    textInfoOffset = TEXOffset + struct.unpack("<H", btxFile.read(2))[0]
+
+# compressed info offset/size
+    
+    
+
+# finally read data
     btxFile.seek(textureOffset, 0)
     texture4bpp = btxFile.read(palOffset - textureOffset)
     btxFile.seek(palOffset, 0)
     gbapal = btxFile.read(totalSize - palOffset)
+    
+    btxFile.close()
+    
+    suffix = str(random.randint(0, 65535))
+    while (os.path.exists(f"image-{suffix}.4bpp")):
+        suffix = str(random.randint(0, 65535))
 
-    open("image.4bpp", "wb").write(texture4bpp)
-    open("image.gbapal", "wb").write(gbapal[:0x20])
+    open(f"image-{suffix}.4bpp", "wb").write(texture4bpp)
+    open(f"image-{suffix}.gbapal", "wb").write(gbapal[:0x20])
+    
+    subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", "8"])
+    
+    os.remove(f"image-{suffix}.4bpp")
+    os.remove(f"image-{suffix}.gbapal")
     
 
 if __name__ == '__main__':
@@ -116,6 +160,6 @@ if __name__ == '__main__':
 
     # now we handle things
     if (dump):
-        dump_btx_to_png()
+        dump_btx_to_png_and_mappings()
     else:
         print(f"Dump state {dump}, GFX = {GFX}")
