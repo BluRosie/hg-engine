@@ -924,7 +924,7 @@ heightentry SPECIES_HATTERENE, 3, 3, 0, 0
 heightentry SPECIES_IMPIDIMP, 3, 3, 0, 0
 heightentry SPECIES_MORGREM, 0, 0, 0, 0
 heightentry SPECIES_GRIMMSNARL, 0, 0, 0, 0
-heightentry SPECIES_OBSTAGOON, 0, 0, 0, 0
+heightentry SPECIES_OBSTAGOON, 9, 9, 0, 0
 heightentry SPECIES_PERRSERKER, 3, 3, 0, 0
 heightentry SPECIES_CURSOLA, 0, 0, 0, 0
 heightentry SPECIES_SIRFETCHD, 3, 3, 0, 0
