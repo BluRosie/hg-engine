@@ -54,35 +54,29 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         case WEATHER_SYS_THUNDER:
                             scriptnum = SUB_SEQ_OVERWORLD_RAIN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = WEATHER_RAIN_PERMANENT;
                             break;
                         case WEATHER_SYS_SNOW:
                         case WEATHER_SYS_SNOWSTORM:
                             // case WEATHER_SYS_BLIZZARD:
                             scriptnum = SUB_SEQ_OVERWORLD_HAIL;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = WEATHER_HAIL_PERMANENT;
                             break;
                         case WEATHER_SYS_SANDSTORM:
                             scriptnum = SUB_SEQ_OVERWORLD_SANDSTORM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = WEATHER_SANDSTORM_PERMANENT;
                             break;
                         case WEATHER_SYS_MIST1:
                         case WEATHER_SYS_MIST2:
                             scriptnum = SUB_SEQ_OVERWORLD_FOG;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = FIELD_STATUS_FOG;
                             break;
                         case WEATHER_SYS_HIGH_SUN:
                             scriptnum = SUB_SEQ_OVERWORLD_SUN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = WEATHER_SUNNY_PERMANENT;
                             break;
                         case WEATHER_SYS_TRICK_ROOM:
                             scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            newBS.weather = 0;
                             break;
                     }
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
@@ -152,7 +146,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     if ((sp->field_condition & WEATHER_RAIN_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DRIZZLE;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                        newBS.weather = WEATHER_RAIN_PERMANENT;
                                     }
                                     break;
                                 case ABILITY_SAND_STREAM:
@@ -160,7 +153,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     if ((sp->field_condition & WEATHER_SANDSTORM_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SAND_STREAM;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                        newBS.weather = WEATHER_SANDSTORM_PERMANENT;
                                     }
                                     break;
                                 case ABILITY_DROUGHT:
@@ -168,7 +160,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     if ((sp->field_condition & WEATHER_SUNNY_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DROUGHT;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                        newBS.weather = WEATHER_SUNNY_PERMANENT;
                                     }
                                     break;
                                 case ABILITY_SNOW_WARNING:
@@ -176,7 +167,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     if ((sp->field_condition & WEATHER_HAIL_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SNOW_WARNING;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                        newBS.weather = WEATHER_HAIL_PERMANENT;
                                     }
                                     break;
                                 case ABILITY_DESOLATE_LAND:
@@ -607,7 +597,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                             if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                                 sp->battlemon[client_no].ability_activated_flag = 1;
-                                sp->attack_client = client_no;
+                                sp->attack_client = client_no; // this should allow for the seeds to affect the terrain
                                 scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
                                 break;
                             }
@@ -696,7 +686,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
                 // 02253D38
-            case SWITCH_IN_CHECK_HEAL_STATUS:{
+            case SWITCH_IN_CHECK_HEAL_STATUS: {
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no = sp->turnOrder[i];
@@ -713,20 +703,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
                 break;
-            case SWITCH_IN_CHECK_FIELD: {
-                if (sp->printed_field_message == 0) {
-                    sp->terrainOverlay.type = TERRAIN_NONE;
-                    sp->terrainOverlay.numberOfTurnsLeft = 0;
-                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG;
-                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-
-                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-                        sp->printed_field_message = 1;
-                    }
-                }
+            case SWITCH_IN_CHECK_FIELD:; // TODO come back to this
+//                if (sp->printed_field_message == 0) {
+//                    sp->terrainOverlay.type = TERRAIN_NONE;
+//                    sp->terrainOverlay.numberOfTurnsLeft = 0;
+//                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG; // currently NULL
+//                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+//
+//                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+//                        sp->printed_field_message = 1;
+//                    }
+//                }
                 sp->switch_in_check_seq_no++;
-            }
-                FALLTHROUGH;
+                break;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
@@ -839,7 +828,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 if ((sp->field_condition & WEATHER_RAIN_PERMANENT) == 0) {
                                     scriptnum = SUB_SEQ_DRIZZLE;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                    newBS.weather = WEATHER_RAIN_PERMANENT;
                                 }
                                 break;
                             case ABILITY_SAND_STREAM:
@@ -847,7 +835,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 if ((sp->field_condition & WEATHER_SANDSTORM_PERMANENT) == 0) {
                                     scriptnum = SUB_SEQ_SAND_STREAM;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                    newBS.weather = WEATHER_SANDSTORM_PERMANENT;
                                 }
                                 break;
                             case ABILITY_DROUGHT:
@@ -855,7 +842,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 if ((sp->field_condition & WEATHER_SUNNY_PERMANENT) == 0) {
                                     scriptnum = SUB_SEQ_DROUGHT;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                    newBS.weather = WEATHER_SUNNY_PERMANENT;
                                 }
                                 break;
                             case ABILITY_SNOW_WARNING:
@@ -863,7 +849,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 if ((sp->field_condition & WEATHER_HAIL_PERMANENT) == 0) {
                                     scriptnum = SUB_SEQ_SNOW_WARNING;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                    newBS.weather = WEATHER_HAIL_PERMANENT;
                                 }
                                 break;
                         }

@@ -3009,7 +3009,7 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
         // zacian can not have its rusted sword knocked off
         && !(species == SPECIES_ZACIAN && item == ITEM_RUSTED_SWORD)
         // zamazenta can not have its rusted shield knocked off
-        && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)        
+        && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)
         // paradox mons can not have their booster energy knocked off
         && !(IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
         // masks can not be knocked off of ogerpon

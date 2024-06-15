@@ -2157,7 +2157,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-        && sp->moveTbl[sp->current_move_index].target != MOVE_TARGET_BOTH
+        && sp->moveTbl[sp->current_move_index].target != MOVE_TARGET_OPPONENTS_FIELD
         && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
             || (!(sp->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)

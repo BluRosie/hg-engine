@@ -1411,7 +1411,6 @@ struct PACKED newBattleStruct
     CATS_ACT_PTR MegaButton;
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
-    u32 weather;
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
     u16 itemsToRestore[6]; // items that each mon was holding at the beginning of the battle

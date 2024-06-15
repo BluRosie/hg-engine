@@ -77,6 +77,8 @@ VecFx32;
 #define FALLTHROUGH __attribute__ ((fallthrough))
 #define PACKED __attribute__((packed))
 
+#define debug_printf(str, ...) { u8 buf_assumeunuasedfasdf[128]; sprintf(buf_assumeunuasedfasdf, str, __VA_ARGS__); debugsyscall(buf_assumeunuasedfasdf); }
+
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
 
