@@ -3248,7 +3248,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_para[0] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_ASSAULT_VEST) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_MOVE;
+        msg->msg_tag = TAG_ITEM;
         // The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
         msg->msg_id = 1459;
         msg->msg_para[0] = ctx->battlemon[battlerId].item;
