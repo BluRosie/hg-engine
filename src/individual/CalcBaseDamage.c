@@ -239,23 +239,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     movetype = GetAdjustedMoveType(sp, attacker, moveno);
     movepower = movepower * sp->damage_value / 10;
 
-    // temporary damage handling until the move effect is made
-    if (moveno == MOVE_INFERNAL_PARADE) 
-    {
-        if (DefendingMon.condition > 0) 
-        {
-            movepower = movepower * 2;
-        }
-    }
-
-    if (moveno == MOVE_BARB_BARRAGE) 
-    {
-        if (DefendingMon.condition & STATUS_POISON_ANY) 
-        {
-            movepower = movepower * 2;
-        }
-    }
-
     // handle charge
     if ((sp->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_CHARGE) && (movetype == TYPE_ELECTRIC))
         movepower *= 2;

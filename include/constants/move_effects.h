@@ -324,6 +324,8 @@
 #define MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2       318
 #define MOVE_EFFECT_WEATHER_SNOW                            319
 #define MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 320
+#define MOVE_EFFECT_INFERNAL_PARADE                         321
+#define MOVE_EFFECT_BARB_BARRAGE                            322
 
 
 

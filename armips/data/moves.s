@@ -13483,7 +13483,7 @@ movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
     movedescription MOVE_HEADLONG_RUSH, "---"
 
 movedata MOVE_BARB_BARRAGE, "Barb Barrage"
-    battleeffect MOVE_EFFECT_POISON_HIT // venoshock part handled in CalcBaseDamage.c temporarily
+    battleeffect MOVE_EFFECT_BARB_BARRAGE
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_POISON
@@ -13563,7 +13563,7 @@ movedata MOVE_TRIPLE_ARROWS, "Triple Arrows"
     movedescription MOVE_TRIPLE_ARROWS, "---"
 
 movedata MOVE_INFERNAL_PARADE, "Infernal Parade"
-    battleeffect MOVE_EFFECT_BURN_HIT // hex part handled in CalcBaseDamage.c temporarily
+    battleeffect MOVE_EFFECT_INFERNAL_PARADE
     pss SPLIT_SPECIAL
     basepower 60
     type TYPE_GHOST
