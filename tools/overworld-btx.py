@@ -1,10 +1,92 @@
 #!/usr/bin/env python3
 
+from dataclasses import dataclass
 import os
 import random
 import struct
 import subprocess
 import sys
+
+def read_field(file, offset, size) -> int:
+    file.seek(offset, 0)
+    format = ("<I" if size == 4 else ("<H" if size == 2 else ("<B")))
+    return struct.unpack(format, file.read(size))[0]
+
+@dataclass
+class PaletteInfo:
+    palOffset: int
+    unk0: int
+
+    name: str
+    fileName: str
+
+    def fillDataValues(self, btxFile, baseOffset):
+        self.palOffset = read_field(btxFile, baseOffset, 2)
+        self.unk0 = read_field(btxFile, baseOffset + 2, 2)
+
+    def setName(self, btxFile, baseOffset):
+        self.name = ""
+        for i in range(0, 16):
+            currChar = read_field(btxFile, baseOffset + i, 1)
+            if (currChar != 0):
+                self.name += chr(currChar)
+            else:
+                break
+
+    def __init__(self, btxFile, baseOffset):
+        self.fillDataValues(btxFile, baseOffset)
+
+@dataclass
+class TextureInfo:
+    imgOffset: int
+    params: int
+    width2: int
+    unk0: int
+    unk1: int
+    unk2: int
+
+    coordTrans: bool
+    color0: bool
+    format: int
+    height: int
+    width: int
+    flipY: bool
+    flipX: bool
+    repeatY: bool
+    repeatX: bool
+
+    name: str
+
+    # based on code from tinke
+    def deriveParameterValues(self):
+        self.coordTrans = (self.params & 0x14)
+        self.color0 = (self.params >> 13) & 1
+        self.format = (self.params >> 10) & 7
+        self.height = (8 << ((self.params >> 7) & 7))
+        self.width = (8 << ((self.params >> 4) & 7))
+        self.flipY = (self.params >> 3) & 1
+        self.flipX = (self.params >> 2) & 1
+        self.repeatY = (self.params >> 1) & 1
+        self.repeatX = self.params & 1
+
+    def fillDataValues(self, btxFile, baseOffset):
+        self.imgOffset = read_field(btxFile, baseOffset, 2)
+        self.params = read_field(btxFile, baseOffset+2, 2)
+        self.width2 = read_field(btxFile, baseOffset+4, 1)
+        self.unk0 = read_field(btxFile, baseOffset+5, 1)
+        self.unk1 = read_field(btxFile, baseOffset+6, 1)
+        self.unk2 = read_field(btxFile, baseOffset+7, 1)
+        self.deriveParameterValues()
+
+    def setName(self, btxFile, baseOffset):
+        self.name = ""
+        for i in range(0, 16):
+            currChar = read_field(btxFile, baseOffset + i, 1)
+            if (currChar != 0):
+                self.name += chr(currChar)
+
+    def __init__(self, btxFile, baseOffset):
+        self.fillDataValues(btxFile, baseOffset)
 
 usage_str = """python3 overworld-btx.py input.png output.btx0 [options]
 this is not meant to be a generic btx0 handler
@@ -44,65 +126,123 @@ struct BTX0_HEADER
 # so this is all that is really necessary to get to png!  however, it does still need the mappings from the beginning of the file
 def dump_btx_to_png_and_mappings():
     btxFile = open(btxFilename, "rb")
-    btxFile.seek(0x8, 0)
-    totalSize = struct.unpack("<H", btxFile.read(2))[0]
-    btxFile.seek(0x10, 0)
-    TEXOffset = struct.unpack("<I", btxFile.read(4))[0]
+    totalSize = read_field(btxFile, 0x8, 2)
+    TEXOffset = read_field(btxFile, 0x10, 4)
 
 # relevant TEX0 fields
-"""
-public struct Header
-{
-    /* 0x00 */ public char[] type;
-    /* 0x04 */ public uint section_size;
-    /* 0x08 */ public uint padding;
-    /* 0x0C */ public ushort textData_size;
-    /* 0x0E */ public ushort textInfo_offset;
-    /* 0x10 */ public uint padding2;
-    /* 0x14 */ public uint textData_offset;
-    /* 0x18 */ public uint padding3;
-    /* 0x1C */ public ushort textCompressedData_size;
-    /* 0x1E */ public ushort textCompressedInfo_offset;
-    /* 0x20 */ public uint padding4;
-    /* 0x24 */ public uint textCompressedData_offset;
-    /* 0x28 */ public uint textCompressedInfoData_offset;
-    /* 0x2C */ public uint padding5;
-    /* 0x30 */ public uint paletteData_size;
-    /* 0x34 */ public uint paletteInfo_offset;
-    /* 0x38 */ public uint paletteData_offset;
-}
-"""
-    btxFile.seek(TEXOffset + 0x14, 0)
-    textureOffset = TEXOffset + struct.unpack("<I", btxFile.read(4))[0]
-    btxFile.seek(TEXOffset + 0x38, 0)
-    palOffset = TEXOffset + struct.unpack("<I", btxFile.read(4))[0]
-    btxFile.seek(TEXOffset + 0xE, 0)
-    textInfoOffset = TEXOffset + struct.unpack("<H", btxFile.read(2))[0]
+    """
+    public struct Header
+    {
+        /* 0x00 */ public char[] type;
+        /* 0x04 */ public uint section_size;
+        /* 0x08 */ public uint padding;
+        /* 0x0C */ public ushort textData_size;
+        /* 0x0E */ public ushort textInfo_offset;
+        /* 0x10 */ public uint padding2;
+        /* 0x14 */ public uint textData_offset;
+        /* 0x18 */ public uint padding3;
+        /* 0x1C */ public ushort textCompressedData_size;
+        /* 0x1E */ public ushort textCompressedInfo_offset; // see textInfo_offset
+        /* 0x20 */ public uint padding4;
+        /* 0x24 */ public uint textCompressedData_offset;
+        /* 0x28 */ public uint textCompressedInfoData_offset; // see textCompressedData_offset
+        /* 0x2C */ public uint padding5;
+        /* 0x30 */ public uint paletteData_size;
+        /* 0x34 */ public uint paletteInfo_offset;
+        /* 0x38 */ public uint paletteData_offset; // see textCompressedData_offset
+    }
+    """
+    textureOffset = TEXOffset + read_field(btxFile, TEXOffset + 0x14, 4)
+    textInfoOffset = TEXOffset + read_field(btxFile, TEXOffset + 0xE, 2)
+    palInfoOffset = TEXOffset + read_field(btxFile, TEXOffset + 0x34, 4)
+    palOffset = TEXOffset + read_field(btxFile, TEXOffset + 0x38, 4)
 
-# compressed info offset/size
+# grab textureInfo
+    numObjs = read_field(btxFile, textInfoOffset + 1, 1)
+    propertiesOffset = textInfoOffset + 4 + read_field(btxFile, textInfoOffset + 6, 2)
+    textStringOffset = propertiesOffset + 8 * numObjs
+    textureInfo = {}
+
+    for i in range(0, numObjs):
+        textureInfo[i] = TextureInfo(btxFile, propertiesOffset + i*8)
+        textureInfo[i].setName(btxFile, textStringOffset + i*16)
+
+# palette info stuff yay
+    numObjs = read_field(btxFile, palInfoOffset + 1, 1)
+    propertiesOffset = palInfoOffset + 4 + read_field(btxFile, palInfoOffset + 6, 2)
+    textStringOffset = propertiesOffset + 4 * numObjs
+    paletteInfo = {}
+
+    for i in range(0, numObjs):
+        paletteInfo[i] = PaletteInfo(btxFile, propertiesOffset + i*4)
+        paletteInfo[i].setName(btxFile, textStringOffset + i*16)
     
-    
+    if ".png" in pngFilename:
+        metadataStr = pngFilename[:(-1 * len(".png"))]
+    else:
+        metadataStr = pngFilename
+    metadata = open(metadataStr + ".json", "w")
+    metadata.write("{\n")
+    for i in range(0, len(textureInfo)):
+        metadata.write(f"\t\"{textureInfo[i].name}\": ")
+        metadata.write("{\n")
+        #metadata.write(f"\t\t\"name\": \"{textureInfo[i].name}\",\n")
+        # instead of imgOffset define frame
+        # size of frame is height * width / 16 (for 4bpp)
+        # so we can just write the frame...
+        metadata.write(f"\t\t\"frame\": {int(textureInfo[i].imgOffset / (textureInfo[i].width * textureInfo[i].height / 16))},\n")
+        # params will be derived from everything else
+        # width2 is always just width
+        metadata.write(f"\t\t\"unk0\": {textureInfo[i].unk0},\n")
+        metadata.write(f"\t\t\"unk1\": {textureInfo[i].unk1},\n")
+        metadata.write(f"\t\t\"unk2\": {textureInfo[i].unk2},\n")
+        metadata.write(f"\t\t\"coordTrans\": {textureInfo[i].coordTrans},\n")
+        metadata.write(f"\t\t\"color0\": {textureInfo[i].color0},\n")
+        metadata.write(f"\t\t\"format\": {textureInfo[i].format},\n")
+        metadata.write(f"\t\t\"height\": {textureInfo[i].height},\n")
+        metadata.write(f"\t\t\"width\": {textureInfo[i].width},\n")
+        metadata.write(f"\t\t\"flipY\": {textureInfo[i].flipY},\n")
+        metadata.write(f"\t\t\"flipX\": {textureInfo[i].flipX},\n")
+        metadata.write(f"\t\t\"repeatY\": {textureInfo[i].repeatY},\n")
+        metadata.write(f"\t\t\"repeatX\": {textureInfo[i].repeatX}\n")
+        metadata.write("\t},\n")
+
+    btxFile.seek(palOffset, 0)
+    gbapal = btxFile.read(totalSize - palOffset)
+    for i in range(0, len(paletteInfo)):
+        metadata.write(f"\t\"{paletteInfo[i].name}\": ")
+        metadata.write("{\n")
+        metadata.write(f"\t\t\"palOffset\": {paletteInfo[i].palOffset},\n")
+        metadata.write(f"\t\t\"unk0\": {paletteInfo[i].unk0},\n")
+        metadata.write(f"\t\t\"fileName\": \"{metadataStr + '-' + paletteInfo[i].name}.pal\"\n")
+        if i != (len(paletteInfo) - 1):
+            metadata.write("\t},\n")
+        else:
+            metadata.write("\t}\n}\n")
+    metadata.close()
 
 # finally read data
     btxFile.seek(textureOffset, 0)
     texture4bpp = btxFile.read(palOffset - textureOffset)
-    btxFile.seek(palOffset, 0)
-    gbapal = btxFile.read(totalSize - palOffset)
-    
+
     btxFile.close()
-    
+
     suffix = str(random.randint(0, 65535))
     while (os.path.exists(f"image-{suffix}.4bpp")):
         suffix = str(random.randint(0, 65535))
 
+    for i in range(0, len(paletteInfo)):
+        open(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", "wb").write(gbapal[(0x20 * i):(0x20 * (i+1))])
+        subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[i].name}.pal"])
+        os.remove(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal")
+
     open(f"image-{suffix}.4bpp", "wb").write(texture4bpp)
     open(f"image-{suffix}.gbapal", "wb").write(gbapal[:0x20])
-    
-    subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", "8"])
-    
+
+    subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", str(textureInfo[0].width2 / 8)])
+
     os.remove(f"image-{suffix}.4bpp")
     os.remove(f"image-{suffix}.gbapal")
-    
 
 if __name__ == '__main__':
     args = sys.argv[1:]
