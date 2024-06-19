@@ -4,9 +4,10 @@
 .include "armips/include/macros.s"
 .include "armips/include/constants.s"
 .include "armips/include/config.s"
-.include "armips/include/move_effects.s"
 .include "armips/include/movemacros.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/moves.inc"
+.include "asm/include/move_effects.inc"
 
 movedata MOVE_NONE, "-"
     battleeffect MOVE_EFFECT_HIT
@@ -7770,7 +7771,7 @@ movedata MOVE_FLAME_BURST, "Flame Burst"
 
 movedata MOVE_SLUDGE_WAVE, "Sludge Wave"
     battleeffect MOVE_EFFECT_POISON_HIT
-    pss SPLIT_PHYSICAL
+    pss SPLIT_SPECIAL
     basepower 95
     type TYPE_POISON
     accuracy 100
@@ -14777,7 +14778,7 @@ movedata MOVE_MALIGNANT_CHAIN, "Malignant Chain"
     terminatedata
     movedescription MOVE_MALIGNANT_CHAIN, "---"
 
-movedatanoname NUM_OF_MOVES+1
+movedatanoname NUM_OF_MOVES
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
     basepower 100
