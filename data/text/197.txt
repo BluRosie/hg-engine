@@ -425,8 +425,8 @@ The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on the opposing
 {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The wild {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The opposing {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
-Spikes were scattered\non the ground all around your team!
-Spikes were scattered\non the ground all around the opposing team!
+Spikes were scattered\non the ground all around\fyour team!
+Spikes were scattered\non the ground all around\fthe opposing team!
 {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
@@ -1061,8 +1061,8 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STR
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwore off!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
-Poison spikes were scattered\non the ground all around your team!
-Poison spikes were scattered\non the ground all around the opposing team!
+Poison spikes were scattered\non the ground all around\fyour team!
+Poison spikes were scattered\non the ground all around\fthe opposing team!
 The poison spikes disappeared from\nthe ground around your team!
 The poison spikes disappeared from\nthe ground around the opposing team!
 {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
