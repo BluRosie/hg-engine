@@ -3187,42 +3187,41 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
         // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
-        msg->msg_id = 609;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TORMENT) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK;
         // {STRVAR_1 1, 0, 0} can’t use the same move\ntwice in a row due to the torment!\r
-        msg->msg_id = 612;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TORMENT;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TAUNT) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
-        msg->msg_id = 613;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TAUNT;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_IMPRISON) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
-        msg->msg_id = 616;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_IMPRISON;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GRAVITY) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
-        msg->msg_id = 1001;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GRAVITY;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_HEAL_BLOCK) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE_MOVE;
-        // TODO: Is this a vanilla bug?
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STRVAR_1 6, 1, 0}!\r
-        msg->msg_id = 1057;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_HEAL_BLOCK;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = MOVE_HEAL_BLOCK;
         msg->msg_para[2] = ctx->battlemon[battlerId].move[movePos];
@@ -3230,33 +3229,33 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_CHOICED) & No2Bit(movePos)) {
         msg->msg_tag = TAG_ITEM_MOVE;
         // The {STRVAR_1 8, 0, 0} only allows the\nuse of {STRVAR_1 6, 1, 0}!\r
-        msg->msg_id = 911;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_CHOICED;
         msg->msg_para[0] = ctx->battlemon[battlerId].item;
         msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GORILLA_TACTICS) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICK_MOVE;
         // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
-        msg->msg_id = 1457;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GORILLA_TACTICS;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->waza_no_old[battlerId];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GIGATON_HAMMER) & No2Bit(movePos)) {
         msg->msg_tag = TAG_MOVE;
         // {You can’t use {STRVAR_1 6, 0, 0} twice in a row!\r
-        msg->msg_id = 1458;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GIGATON_HAMMER;
         msg->msg_para[0] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_ASSAULT_VEST) & No2Bit(movePos)) {
         msg->msg_tag = TAG_ITEM;
         // The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
-        msg->msg_id = 1459;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_ASSAULT_VEST;
         msg->msg_para[0] = ctx->battlemon[battlerId].item;
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_NO_PP) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NONE;
         // There’s no PP left for this move!
-        msg->msg_id = 823;
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
     }
 
