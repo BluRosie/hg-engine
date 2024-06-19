@@ -1145,14 +1145,14 @@ void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp
     // debugsyscall(buf);
 }
 
-const u8 CriticalRateTable[] =
-{
-     24,
-     8,
-     2,
-     1,
-     1
-};
+// const u8 CriticalRateTable[] =
+// {
+//      24,
+//      8,
+//      2,
+//      1, 
+//      1
+// };
 
 // calculates the critical hit multiplier
 int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
@@ -1162,6 +1162,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     u16 CritChance;
     u16 item;
     int hold_effect;
+    // u16 speed;
     u16 species;
     u32 defender_condition;
     u32 condition2;
@@ -1199,8 +1200,6 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     (
         BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
-        //|| (GetMoveData(sp->current_move_index, MOVE_DATA_EFFECT) == MOVE_EFFECT_ALWAYS_CRITICAL)
-        || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)

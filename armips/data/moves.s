@@ -2090,7 +2090,7 @@ movedata MOVE_SWIFT, "Swift"
     movedescription MOVE_SWIFT, "Star-shaped rays are\nshot at the foe.\nThis attack never\nmisses.\n"
 
 movedata MOVE_SKULL_BASH, "Skull Bash"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_DEF_UP
+    battleeffect 145
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_NORMAL
@@ -2298,7 +2298,7 @@ movedata MOVE_LOVELY_KISS, "Lovely Kiss"
     movedescription MOVE_LOVELY_KISS, "With a scary face, the\nuser tries to force a\nkiss on the foe. If it\nsucceeds, the target\nfalls asleep."
 
 movedata MOVE_SKY_ATTACK, "Sky Attack"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH
+    battleeffect 75
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_FLYING
