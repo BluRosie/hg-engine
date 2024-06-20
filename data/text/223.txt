@@ -790,3 +790,11 @@ a {COLOR 255}Hasty Mint{COLOR 0}
 a {COLOR 255}Jolly Mint{COLOR 0}
 a {COLOR 255}Naive Mint{COLOR 0}
 a {COLOR 255}Serious Mint{COLOR 0}
+a {COLOR 255}Fairy Feather{COLOR 0}
+a {COLOR 255}Syrupy Apple{COLOR 0}
+a {COLOR 255}Mediocre Teacup{COLOR 0}
+a {COLOR 255}MasterfulTeacup{COLOR 0}
+a {COLOR 255}CornerstoneMask{COLOR 0}
+a {COLOR 255}Wellspring Mask{COLOR 0}
+a {COLOR 255}HearthflameMask{COLOR 0}
+a {COLOR 255}Metal Alloy{COLOR 0}

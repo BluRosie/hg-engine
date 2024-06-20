@@ -7,11 +7,11 @@
     userusedmovename 3*movenum+2, "The opposing {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
 
 	.if movenum < 10
-		.create "build/a011/move_00" + tostring(movenum),0
+		.create "build/a011/move_00" + movenum,0
 	.elseif movenum < 100
-		.create "build/a011/move_0" + tostring(movenum),0
+		.create "build/a011/move_0" + movenum,0
 	.else
-		.create "build/a011/move_" + tostring(movenum),0
+		.create "build/a011/move_" + movenum,0
 	.endif
 
 .endmacro
@@ -23,11 +23,11 @@
 .macro movedatanoname, movenum
 
 	.if movenum < 10
-		.create "build/a011/move_00" + tostring(movenum),0
+		.create "build/a011/move_00" + movenum,0
 	.elseif movenum < 100
-		.create "build/a011/move_0" + tostring(movenum),0
+		.create "build/a011/move_0" + movenum,0
 	.else
-		.create "build/a011/move_" + tostring(movenum),0
+		.create "build/a011/move_" + movenum,0
 	.endif
 
 .endmacro

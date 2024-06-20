@@ -316,6 +316,18 @@ bx r3
 .pool
 
 
+.global ClearBattleMonFlags_hook2
+ClearBattleMonFlags_hook2:
+// r5 is fainting battler, sp+4 is BattleStruct
+ldr r0, [sp, #4]
+mov r1, r5
+bl ClearBattleMonFlags
+ldr r0, =0x0225157E | 1
+bx r0
+
+.pool
+
+
 // get_client_no is r7.  we have to figure out how to run the exp task that pushes forward
 .global Task_DistributeExp_capture_experience_hook
 Task_DistributeExp_capture_experience_hook:
@@ -545,3 +557,37 @@ mov pc, r1
 
 BattleSystem_CheckMoveEffect_return_address:
 .word 0
+.word 0
+
+
+.global ai_switch_ban_for_bind_hook
+ai_switch_ban_for_bind_hook:
+
+// r0 is already bw, r1 is already sp, r6 is battler
+
+push {r0-r3}
+
+add r2, r6, #0
+bl SeeIfBindShouldRestrainSwitch
+cmp r0, #1
+beq _returnTo02220424
+
+pop {r0-r3}
+// else do not return false and just continue the checks, starting with mean look
+//ldr r2, =0x2DB0
+mov r2, #0x2D
+lsl r2, #0x8
+add r2, #0xB0 // fuck you movw
+mov r3, #1
+lsl r3, #26 // 0x04000000 for mean look
+ldr r4, [r5, r2]
+str r0, [sp, #4]
+ldr r7, =0x022203BC | 1
+bx r7
+
+_returnTo02220424:
+pop {r0-r3}
+ldr r0, =0x02220424 | 1
+bx r0
+
+.pool

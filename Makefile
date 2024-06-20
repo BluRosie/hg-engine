@@ -133,18 +133,14 @@ TOOLS += $(NDSTOOL)
 
 $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
-ifeq ($(MSYS2), 0)
-	wget -O $(ARMIPS).7z https://github.com/Kingcom/armips/releases/download/v0.11.0/armips-v0.11.0-windows-x86.7z
-	cd tools; p7zip -d armips.7z; rm -f Readme.md
-else
 	rm -r -f tools/source/armips
-	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
+	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
+	#cd tools/source ; cp -r ~/git/armips armips
 	cd tools/source/armips ; mkdir build
 	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
 	cd tools/source/armips/build ; cmake --build .
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
-endif
 endif
 
 TOOLS += $(ARMIPS)
@@ -210,10 +206,9 @@ $(OUTPUT):$(LINK)
 
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
-	mkdir -p $(BASE)
-	mkdir -p $(BUILD)
+	@mkdir -p $(BASE) $(BUILD) $(BUILD)/move $(BUILD)/objects $(MOVE_SEQ_DIR) $(MOVE_SEQ_OBJ_DIR) $(BATTLE_EFF_DIR) $(BATTLE_EFF_OBJ_DIR) $(BATTLE_SUB_DIR) $(BATTLE_SUB_OBJ_DIR)
 	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
-	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim $(BUILD)/pw_pokegra $(BUILD)/pw_pokeicon $(BUILD)/pw_pokegra_int $(BUILD)/pw_pokeicon_int
+	mkdir -p $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim $(BUILD)/pw_pokegra $(BUILD)/pw_pokeicon $(BUILD)/pw_pokegra_int $(BUILD)/pw_pokeicon_int
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -225,7 +220,7 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo "Done.  See output test.nds."
+	@echo "Done.  See output $(BUILDROM)."
 
 ####################### Clean #######################
 clean:

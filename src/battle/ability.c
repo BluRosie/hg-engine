@@ -18,7 +18,6 @@
 
 // function declarations from this file
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
-BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
@@ -204,13 +203,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // TODO: Check Cloud Nine and Air Lock
-    if ((sp->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) && (movetype == TYPE_WATER)) {
-        scriptnum = SUB_SEQ_CANCEL_WATER_MOVE;
-    }
+    // Handle Extremely Harsh Sunlight and Heavy Rain
+    if (!CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if ((sp->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) && (movetype == TYPE_WATER)) {
+            scriptnum = SUB_SEQ_CANCEL_WATER_MOVE;
+        }
 
-    if ((sp->field_condition & WEATHER_HEAVY_RAIN) && (movetype == TYPE_FIRE)) {
-        scriptnum = SUB_SEQ_CANCEL_FIRE_MOVE;
+        if ((sp->field_condition & WEATHER_HEAVY_RAIN) && (movetype == TYPE_FIRE)) {
+            scriptnum = SUB_SEQ_CANCEL_FIRE_MOVE;
+        }
     }
 
     return scriptnum;
@@ -374,7 +375,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
             if (sp->battlemon[client_no].hp)
             {
                 // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
-                
+
                 int temp = BattleRand(bw) % 5;
 
                 if (AreAnyStatsNotAtValue(sp, client_no, 12, TRUE)) // if any stat can be lowered
@@ -424,33 +425,6 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
     }
 
     return ret;
-}
-
-/**
- *  @brief check if mummy can overwrite the attacker's ability
- *
- *  @param sp global battle structure
- *  @return TRUE if the ability can be overwritten; FALSE otherwise
- */
-BOOL MummyAbilityCheck(struct BattleStruct *sp)
-{
-    switch(GetBattlerAbility(sp, sp->attack_client))
-    {
-        case ABILITY_MULTITYPE:
-        case ABILITY_ZEN_MODE:
-        case ABILITY_STANCE_CHANGE:
-        case ABILITY_SCHOOLING:
-        case ABILITY_BATTLE_BOND:
-        case ABILITY_POWER_CONSTRUCT:
-        case ABILITY_SHIELDS_DOWN:
-        case ABILITY_RKS_SYSTEM:
-        case ABILITY_DISGUISE:
-        case ABILITY_COMATOSE:
-        case ABILITY_MUMMY:
-            return FALSE;
-        default:
-            return TRUE;
-    }
 }
 
 /**
@@ -804,12 +778,12 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_STENCH) // stench adds 10% flinch chance
     {
         atk += 10;
-        heldeffect = HOLD_EFFECT_INCREASE_FLINCH; // doesn't permanently change the hold effect, just for this function
+        heldeffect = HOLD_EFFECT_SOMETIMES_FLINCH; // doesn't permanently change the hold effect, just for this function
     }
 
     if (sp->defence_client != 0xFF)
     {
-        if ((heldeffect == HOLD_EFFECT_INCREASE_FLINCH)
+        if ((heldeffect == HOLD_EFFECT_SOMETIMES_FLINCH)
          && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
          && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
           || (sp->oneSelfFlag[sp->defence_client].special_damage))

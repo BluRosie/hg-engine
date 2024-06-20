@@ -1017,21 +1017,22 @@ CopyPokedexStruct: // rewrite for new struct size
 .org 0x02029408
 
 IsMonNotValid:
-    push {r3, lr}
-    cmp r0, #0
-    beq @@_invalid_mon
-    ldr r1, =NUM_OF_MONS
-    cmp r0, r1
-    bls @@_return_valid
-
-@@_invalid_mon:
-    bl 0x0202551C // HandleError
-    mov r0, #1
-    pop {r3, pc}
-
-@@_return_valid:
+//    push {r3, lr}
+//    cmp r0, #0
+//    beq @@_invalid_mon
+//    ldr r1, =NUM_OF_MONS
+//    cmp r0, r1
+//    bls @@_return_valid
+//
+//@@_invalid_mon:
+//    bl 0x0202551C // HandleError
+//    mov r0, #1
+//    pop {r3, pc}
+//
+//@@_return_valid:
     mov r0, #0
-    pop {r3, pc}
+    bx lr
+//    pop {r3, pc}
 
 .pool
 
@@ -1176,9 +1177,9 @@ GetCaughtMonCount:
     ble @@_loop
     mov r0, r5
     pop {r3-r7, pc}
-    
+
 .pool
-    
+
 .endarea
 
 
@@ -1216,7 +1217,7 @@ GetSeenMonCount:
     ble @@_loop
     mov r0, r5
     pop {r3-r7, pc}
-    
+
 .pool
 
 .endarea

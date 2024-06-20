@@ -3,7 +3,9 @@
 
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/species.inc"
+
 .include "armips/asm/icons.s"
 
 .if (fileexists("base/overlay/overlay_0129.bin"))
@@ -997,19 +999,19 @@ gIconPalTable:
 /* SPECIES_PAWMOT          */ .byte  0x0
 /* SPECIES_TANDEMAUS       */ .byte  0x0
 /* SPECIES_MAUSHOLD        */ .byte  0x0
-/* SPECIES_FIDOUGH         */ .byte  0x0
+/* SPECIES_FIDOUGH         */ .byte  0x1
 /* SPECIES_DACHSBUN        */ .byte  0x0
 /* SPECIES_SMOLIV          */ .byte  0x0
 /* SPECIES_DOLLIV          */ .byte  0x0
 /* SPECIES_ARBOLIVA        */ .byte  0x0
-/* SPECIES_SQUAWKABILLY    */ .byte  0x0
+/* SPECIES_SQUAWKABILLY    */ .byte  0x1
 /* SPECIES_NACLI           */ .byte  0x2
 /* SPECIES_NACLSTACK       */ .byte  0x0
 /* SPECIES_GARGANACL       */ .byte  0x0
 /* SPECIES_CHARCADET       */ .byte  0x0
 /* SPECIES_ARMAROUGE       */ .byte  0x0
 /* SPECIES_CERULEDGE       */ .byte  0x0
-/* SPECIES_TADBULB         */ .byte  0x0
+/* SPECIES_TADBULB         */ .byte  0x2
 /* SPECIES_BELLIBOLT       */ .byte  0x0
 /* SPECIES_WATTREL         */ .byte  0x0
 /* SPECIES_KILOWATTREL     */ .byte  0x0
@@ -1018,7 +1020,7 @@ gIconPalTable:
 /* SPECIES_SHROODLE        */ .byte  0x0
 /* SPECIES_GRAFAIAI        */ .byte  0x0
 /* SPECIES_BRAMBLIN        */ .byte  0x0
-/* SPECIES_BRAMBLEGHAST    */ .byte  0x0
+/* SPECIES_BRAMBLEGHAST    */ .byte  0x2
 /* SPECIES_TOEDSCOOL       */ .byte  0x0
 /* SPECIES_TOEDSCRUEL      */ .byte  0x0
 /* SPECIES_KLAWF           */ .byte  0x0
