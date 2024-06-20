@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from dataclasses import dataclass
+import json
 import os
 import random
 import struct
@@ -12,17 +13,27 @@ def read_field(file, offset, size) -> int:
     format = ("<I" if size == 4 else ("<H" if size == 2 else ("<B")))
     return struct.unpack(format, file.read(size))[0]
 
+def bit_to_num(num) -> int:
+    for i in range(0, 32):
+        if num == (1 << i):
+            return i
+
+def write_field(file, offset, field, size):
+    file.seek(offset, 0)
+    format = ("<I" if size == 4 else ("<H" if size == 2 else ("<B")))
+    file.write(struct.pack(format, field))
+
 @dataclass
 class PaletteInfo:
-    palOffset: int
     unk0: int
+    unk1: int
 
     name: str
     fileName: str
 
     def fillDataValues(self, btxFile, baseOffset):
-        self.palOffset = read_field(btxFile, baseOffset, 2)
-        self.unk0 = read_field(btxFile, baseOffset + 2, 2)
+        self.unk0 = read_field(btxFile, baseOffset, 2)
+        self.unk1 = read_field(btxFile, baseOffset + 2, 2)
 
     def setName(self, btxFile, baseOffset):
         self.name = ""
@@ -38,6 +49,8 @@ class PaletteInfo:
 
 @dataclass
 class TextureInfo:
+    unkBlockUnk0: int
+    unkBlockUnk1: int
     imgOffset: int
     params: int
     width2: int
@@ -84,9 +97,25 @@ class TextureInfo:
             currChar = read_field(btxFile, baseOffset + i, 1)
             if (currChar != 0):
                 self.name += chr(currChar)
+    
+    def setUnkBlock(self, btxFile, baseOffset):
+        self.unkBlockUnk0 = read_field(btxFile, baseOffset, 2)
+        self.unkBlockUnk1 = read_field(btxFile, baseOffset + 2, 2)
 
     def __init__(self, btxFile, baseOffset):
         self.fillDataValues(btxFile, baseOffset)
+
+def rebuildParameterValues(jsonEntry) -> int:
+    params = (jsonEntry["coordTrans"] & 0x14)
+    params |= (jsonEntry["color0"] & 1) << 13
+    params |= (jsonEntry["format"] & 7) << 10
+    params |= ((bit_to_num(jsonEntry["height"]) - 3) & 7) << 7
+    params |= ((bit_to_num(jsonEntry["width"]) - 3) & 7) << 4
+    params |= (jsonEntry["flipY"] & 1) << 3
+    params |= (jsonEntry["flipX"] & 1) << 2
+    params |= (jsonEntry["repeatY"] & 1) << 1
+    params |= (jsonEntry["repeatX"] & 1)
+    return params
 
 usage_str = """python3 overworld-btx.py input.png output.btx0 [options]
 this is not meant to be a generic btx0 handler
@@ -121,37 +150,162 @@ struct BTX0_HEADER
 };
 """
 
-# TEX0 format:
+def build_btx_from_png_and_mappings():
+    btxFile = open(btxFilename, "wb")
 
-# so this is all that is really necessary to get to png!  however, it does still need the mappings from the beginning of the file
+    if ".png" in pngFilename:
+        metadataStr = pngFilename[:(-1 * len(".png"))]
+    else:
+        metadataStr = pngFilename
+    metadata = json.load(open(metadataStr + ".json", "r"))
+    frames = 0
+    palettes = 0
+    numSeparateFrames = 0
+    frameWidth = 0
+    frameHeight = 0
+    frameNames = {}
+    palNames = {}
+    for metafield in metadata.keys():
+        if "fileName" not in str(metadata[metafield]):
+            if metadata[metafield]["frame"] > numSeparateFrames:
+                numSeparateFrames = metadata[metafield]["frame"]
+            if frameHeight == 0:
+                frameHeight = metadata[metafield]["height"]
+            if frameWidth == 0:
+                frameWidth = metadata[metafield]["width"]
+            frameNames[frames] = metafield
+            frames = frames + 1
+        else:
+            palNames[palettes] = metafield
+            palettes = palettes + 1
+    numSeparateFrames = numSeparateFrames + 1
+
+    TEXOffset = 0x14 # this seems pretty standard to me
+    textureDataSize = int(numSeparateFrames * frameHeight * frameWidth / 16)
+
+    propertiesOffset = 0x50 # this also seems pretty standard to me
+    paletteInfoOffset = propertiesOffset + 0x10 + frames * 0x1C
+
+    # palette info header
+    write_field(btxFile, paletteInfoOffset + 1, palettes, 1)
+    write_field(btxFile, paletteInfoOffset + 2, 0x10 + palettes * 0x18, 2)
+    write_field(btxFile, paletteInfoOffset + 4, 8, 2)
+    write_field(btxFile, paletteInfoOffset + 6, 0xC + palettes*4, 2)
+    write_field(btxFile, paletteInfoOffset + 8, 0x17F, 4)
+    for i in range(0, palettes):
+        write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), metadata[palNames[i]]["unk0"], 2)
+        write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), metadata[palNames[i]]["unk1"], 2)
+    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes), 4, 2)
+    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes) + 2, 4 + 4*palettes, 2)
+    for i in range(0, palettes):
+        write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), 4 * i, 4)
+    for i in range(0, palettes):
+        for j in range(0, len(palNames[i])):
+            write_field(btxFile, (paletteInfoOffset + 0x10 + (0x8 * palettes) + (16 * i) + j), ord(palNames[i][j]), 1)
+
+    textureOffset = (paletteInfoOffset + 0x10 + (0x18 * palettes))
+    paletteOffset = textureOffset + textureDataSize*8
+    totalSize = paletteOffset + 0x20*palettes
+
+    # now we start writing the texture header
+    write_field(btxFile, TEXOffset, 0x30584554, 4)
+    write_field(btxFile, TEXOffset + 4, totalSize - TEXOffset, 4)
+    write_field(btxFile, TEXOffset + 8, 0, 4)
+    write_field(btxFile, TEXOffset + 0xC, textureDataSize, 2)
+    write_field(btxFile, TEXOffset + 0xE, propertiesOffset - TEXOffset, 2)
+    write_field(btxFile, TEXOffset + 0x10, 0, 4)
+    write_field(btxFile, TEXOffset + 0x14, textureOffset - TEXOffset, 4)
+    write_field(btxFile, TEXOffset + 0x18, 0, 4)
+    write_field(btxFile, TEXOffset + 0x1C, 0, 2)
+    write_field(btxFile, TEXOffset + 0x1E, propertiesOffset - TEXOffset, 2)
+    write_field(btxFile, TEXOffset + 0x20, 0, 4)
+    write_field(btxFile, TEXOffset + 0x24, paletteOffset - TEXOffset, 4)
+    write_field(btxFile, TEXOffset + 0x28, paletteOffset - TEXOffset, 4)
+    write_field(btxFile, TEXOffset + 0x2C, 0, 4)
+    write_field(btxFile, TEXOffset + 0x30, palettes * 4, 4) # size of palette info
+    write_field(btxFile, TEXOffset + 0x34, paletteInfoOffset - TEXOffset, 4)
+    write_field(btxFile, TEXOffset + 0x38, paletteOffset - TEXOffset, 4)
+
+    # now we take a look at the properties of each frame
+    write_field(btxFile, propertiesOffset + 1, frames, 1)
+    write_field(btxFile, propertiesOffset + 2, 0x10 + frames*0x1C, 2)
+    write_field(btxFile, propertiesOffset + 4, 8, 2)
+    write_field(btxFile, propertiesOffset + 6, 0xC + frames*4, 2)
+    write_field(btxFile, propertiesOffset + 8, 0x17F, 4)
+    for i in range(0, frames):
+        write_field(btxFile, propertiesOffset + 0xC + i*4, metadata[frameNames[i]]["unkBlockUnk0"], 2)
+        write_field(btxFile, propertiesOffset + 0xE + i*4, metadata[frameNames[i]]["unkBlockUnk1"], 2)
+    newBaseOffset = propertiesOffset + 0xC + frames*4
+    write_field(btxFile, newBaseOffset, 8, 2)
+    write_field(btxFile, newBaseOffset + 2, 4 + frames * 8, 2)
+    for i in range(0, frames):
+        write_field(btxFile, newBaseOffset + 4 + 8*i, int(metadata[frameNames[i]]["frame"] * metadata[frameNames[i]]["width"] * metadata[frameNames[i]]["height"] / 16), 2)
+        write_field(btxFile, newBaseOffset + 6 + 8*i, rebuildParameterValues(metadata[frameNames[i]]), 2)
+        write_field(btxFile, newBaseOffset + 8 + 8*i, metadata[frameNames[i]]["width"], 1)
+        write_field(btxFile, newBaseOffset + 9 + 8*i, metadata[frameNames[i]]["unk0"], 1)
+        write_field(btxFile, newBaseOffset + 0xA + 8*i, metadata[frameNames[i]]["unk1"], 1)
+        write_field(btxFile, newBaseOffset + 0xB + 8*i, metadata[frameNames[i]]["unk2"], 1)
+    newBaseOffset = newBaseOffset + 0x4 + 8*frames
+    for i in range(0, frames):
+        for j in range(0, len(frameNames[i])):
+            write_field(btxFile, newBaseOffset + i * 16 + j, ord(frameNames[i][j]), 1)
+
+    # end with writing the overall header
+    write_field(btxFile, 0, 0x30585442, 4)
+    write_field(btxFile, 4, 0x0001FEFF, 4)
+    write_field(btxFile, 8, totalSize, 4)
+    write_field(btxFile, 0xC, 0x10, 2)
+    write_field(btxFile, 0xE, 1, 2)
+    write_field(btxFile, 0x10, TEXOffset, 4)
+
+    # finally, convert all of the files and write them to the file
+    suffix = str(random.randint(0, 65535))
+    while (os.path.exists(f"image-{suffix}.4bpp")):
+        suffix = str(random.randint(0, 65535))
+    subprocess.run([GFX, pngFilename, f"image-{suffix}.4bpp", "-notiles"])
+    btxFile.seek(textureOffset, 0)
+    btxFile.write(open(f"image-{suffix}.4bpp", "rb").read())
+    for i in range(0, palettes):
+        subprocess.run([GFX, metadataStr + "-" + metadata[palNames[i]]["fileName"], f"image-{suffix}.gbapal"])
+        btxFile.seek(paletteOffset + i*0x20, 0)
+        btxFile.write(open(f"image-{suffix}.gbapal", "rb").read())
+
+    os.remove(f"image-{suffix}.4bpp")
+    os.remove(f"image-{suffix}.gbapal")
+
+    btxFile.close()
+
+
+# relevant TEX0 fields
+"""
+public struct Header
+{
+    /* 0x00 */ public char[] type;
+    /* 0x04 */ public uint section_size;
+    /* 0x08 */ public uint padding;
+    /* 0x0C */ public ushort textData_size;
+    /* 0x0E */ public ushort textInfo_offset;
+    /* 0x10 */ public uint padding2;
+    /* 0x14 */ public uint textData_offset;
+    /* 0x18 */ public uint padding3;
+    /* 0x1C */ public ushort textCompressedData_size;
+    /* 0x1E */ public ushort textCompressedInfo_offset; // see textInfo_offset
+    /* 0x20 */ public uint padding4;
+    /* 0x24 */ public uint textCompressedData_offset;
+    /* 0x28 */ public uint textCompressedInfoData_offset; // see textCompressedData_offset
+    /* 0x2C */ public uint padding5;
+    /* 0x30 */ public uint paletteData_size;
+    /* 0x34 */ public uint paletteInfo_offset;
+    /* 0x38 */ public uint paletteData_offset; // see textCompressedData_offset
+}
+"""
+
+# so this is all that is really necessary to get to png!
 def dump_btx_to_png_and_mappings():
     btxFile = open(btxFilename, "rb")
     totalSize = read_field(btxFile, 0x8, 2)
     TEXOffset = read_field(btxFile, 0x10, 4)
 
-# relevant TEX0 fields
-    """
-    public struct Header
-    {
-        /* 0x00 */ public char[] type;
-        /* 0x04 */ public uint section_size;
-        /* 0x08 */ public uint padding;
-        /* 0x0C */ public ushort textData_size;
-        /* 0x0E */ public ushort textInfo_offset;
-        /* 0x10 */ public uint padding2;
-        /* 0x14 */ public uint textData_offset;
-        /* 0x18 */ public uint padding3;
-        /* 0x1C */ public ushort textCompressedData_size;
-        /* 0x1E */ public ushort textCompressedInfo_offset; // see textInfo_offset
-        /* 0x20 */ public uint padding4;
-        /* 0x24 */ public uint textCompressedData_offset;
-        /* 0x28 */ public uint textCompressedInfoData_offset; // see textCompressedData_offset
-        /* 0x2C */ public uint padding5;
-        /* 0x30 */ public uint paletteData_size;
-        /* 0x34 */ public uint paletteInfo_offset;
-        /* 0x38 */ public uint paletteData_offset; // see textCompressedData_offset
-    }
-    """
     textureOffset = TEXOffset + read_field(btxFile, TEXOffset + 0x14, 4)
     textInfoOffset = TEXOffset + read_field(btxFile, TEXOffset + 0xE, 2)
     palInfoOffset = TEXOffset + read_field(btxFile, TEXOffset + 0x34, 4)
@@ -166,11 +320,12 @@ def dump_btx_to_png_and_mappings():
     for i in range(0, numObjs):
         textureInfo[i] = TextureInfo(btxFile, propertiesOffset + i*8)
         textureInfo[i].setName(btxFile, textStringOffset + i*16)
+        textureInfo[i].setUnkBlock(btxFile, 0x5C + 4*i)
 
 # palette info stuff yay
     numObjs = read_field(btxFile, palInfoOffset + 1, 1)
-    propertiesOffset = palInfoOffset + 4 + read_field(btxFile, palInfoOffset + 6, 2)
-    textStringOffset = propertiesOffset + 4 * numObjs
+    propertiesOffset = palInfoOffset + 0xC
+    textStringOffset = propertiesOffset + 4 + (8 * numObjs)
     paletteInfo = {}
 
     for i in range(0, numObjs):
@@ -193,9 +348,6 @@ def dump_btx_to_png_and_mappings():
         metadata.write(f"\t\t\"frame\": {int(textureInfo[i].imgOffset / (textureInfo[i].width * textureInfo[i].height / 16))},\n")
         # params will be derived from everything else
         # width2 is always just width
-        metadata.write(f"\t\t\"unk0\": {textureInfo[i].unk0},\n")
-        metadata.write(f"\t\t\"unk1\": {textureInfo[i].unk1},\n")
-        metadata.write(f"\t\t\"unk2\": {textureInfo[i].unk2},\n")
         metadata.write(f"\t\t\"coordTrans\": {textureInfo[i].coordTrans},\n")
         metadata.write(f"\t\t\"color0\": {textureInfo[i].color0},\n")
         metadata.write(f"\t\t\"format\": {textureInfo[i].format},\n")
@@ -204,7 +356,12 @@ def dump_btx_to_png_and_mappings():
         metadata.write(f"\t\t\"flipY\": {textureInfo[i].flipY},\n")
         metadata.write(f"\t\t\"flipX\": {textureInfo[i].flipX},\n")
         metadata.write(f"\t\t\"repeatY\": {textureInfo[i].repeatY},\n")
-        metadata.write(f"\t\t\"repeatX\": {textureInfo[i].repeatX}\n")
+        metadata.write(f"\t\t\"repeatX\": {textureInfo[i].repeatX},\n")
+        metadata.write(f"\t\t\"unkBlockUnk0\": {textureInfo[i].unkBlockUnk0},\n")
+        metadata.write(f"\t\t\"unkBlockUnk1\": {textureInfo[i].unkBlockUnk1},\n")
+        metadata.write(f"\t\t\"unk0\": {textureInfo[i].unk0},\n")
+        metadata.write(f"\t\t\"unk1\": {textureInfo[i].unk1},\n")
+        metadata.write(f"\t\t\"unk2\": {textureInfo[i].unk2}\n")
         metadata.write("\t},\n")
 
     btxFile.seek(palOffset, 0)
@@ -212,9 +369,9 @@ def dump_btx_to_png_and_mappings():
     for i in range(0, len(paletteInfo)):
         metadata.write(f"\t\"{paletteInfo[i].name}\": ")
         metadata.write("{\n")
-        metadata.write(f"\t\t\"palOffset\": {paletteInfo[i].palOffset},\n")
         metadata.write(f"\t\t\"unk0\": {paletteInfo[i].unk0},\n")
-        metadata.write(f"\t\t\"fileName\": \"{metadataStr + '-' + paletteInfo[i].name}.pal\"\n")
+        metadata.write(f"\t\t\"unk1\": {paletteInfo[i].unk1},\n")
+        metadata.write(f"\t\t\"fileName\": \"{paletteInfo[i].name}.pal\"\n")
         if i != (len(paletteInfo) - 1):
             metadata.write("\t},\n")
         else:
@@ -302,4 +459,4 @@ if __name__ == '__main__':
     if (dump):
         dump_btx_to_png_and_mappings()
     else:
-        print(f"Dump state {dump}, GFX = {GFX}")
+        build_btx_from_png_and_mappings()
