@@ -1,5 +1,5 @@
 ./tools/source/dumptools/dumprom.sh
-rm -rf build/pokemonow data/graphics/overworlds
+rm -rf build/pokemonow
 mkdir -p data/graphics/overworlds
 python3 tools/narcpy.py extract base/root/a/0/8/1 -o build/pokemonow
 if test -s build/pokemonow/1_0000; then
