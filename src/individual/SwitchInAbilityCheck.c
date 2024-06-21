@@ -70,10 +70,12 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             scriptnum = SUB_SEQ_OVERWORLD_FOG;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 14:
                         case WEATHER_SYS_HIGH_SUN:
                             scriptnum = SUB_SEQ_OVERWORLD_SUN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 15:
                         case WEATHER_SYS_TRICK_ROOM:
                             scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
