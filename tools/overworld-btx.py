@@ -27,6 +27,7 @@ def write_field(file, offset, field, size):
 class PaletteInfo:
     unk0: int
     unk1: int
+    offset: int # increment by 4 for each palette entry
 
     name: str
     fileName: str
@@ -192,20 +193,27 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, paletteInfoOffset + 4, 8, 2)
     write_field(btxFile, paletteInfoOffset + 6, 0xC + palettes*4, 2)
     write_field(btxFile, paletteInfoOffset + 8, 0x17F, 4)
+    #for i in range(0, palettes):
+    #    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), metadata[palNames[i]]["unk0"], 2)
+    #    write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), metadata[palNames[i]]["unk1"], 2)
+    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes), 4, 2)
+    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes) + 2, 4 + 4*palettes, 2)
+    #for i in range(0, palettes):
+    #    write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), metadata[palNames[i]]["offset"], 4)
+    highestOffset = 0
     for i in range(0, palettes):
         write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), metadata[palNames[i]]["unk0"], 2)
         write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), metadata[palNames[i]]["unk1"], 2)
-    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes), 4, 2)
-    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes) + 2, 4 + 4*palettes, 2)
-    for i in range(0, palettes):
-        write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), 4 * i, 4)
-    for i in range(0, palettes):
+        write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), metadata[palNames[i]]["offset"] * 4, 4)
         for j in range(0, len(palNames[i])):
             write_field(btxFile, (paletteInfoOffset + 0x10 + (0x8 * palettes) + (16 * i) + j), ord(palNames[i][j]), 1)
+        if (metadata[palNames[i]]["offset"] > highestOffset):
+            highestOffset = metadata[palNames[i]]["offset"]
+    highestOffset = highestOffset + 1
 
     textureOffset = (paletteInfoOffset + 0x10 + (0x18 * palettes))
     paletteOffset = textureOffset + textureDataSize*8
-    totalSize = paletteOffset + 0x20*palettes
+    totalSize = paletteOffset + 0x20*highestOffset
 
     # now we start writing the texture header
     write_field(btxFile, TEXOffset, 0x30584554, 4)
@@ -222,7 +230,7 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, TEXOffset + 0x24, paletteOffset - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 0x28, paletteOffset - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 0x2C, 0, 4)
-    write_field(btxFile, TEXOffset + 0x30, palettes * 4, 4) # size of palette info
+    write_field(btxFile, TEXOffset + 0x30, highestOffset * 4, 4) # size of palette info
     write_field(btxFile, TEXOffset + 0x34, paletteInfoOffset - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 0x38, paletteOffset - TEXOffset, 4)
 
@@ -266,8 +274,9 @@ def build_btx_from_png_and_mappings():
     btxFile.seek(textureOffset, 0)
     btxFile.write(open(f"image-{suffix}.4bpp", "rb").read())
     for i in range(0, palettes):
+        offset = metadata[palNames[i]]["offset"]
         subprocess.run([GFX, metadataStr + "-" + metadata[palNames[i]]["fileName"], f"image-{suffix}.gbapal"])
-        btxFile.seek(paletteOffset + i*0x20, 0)
+        btxFile.seek(paletteOffset + offset*0x20, 0)
         btxFile.write(open(f"image-{suffix}.gbapal", "rb").read())
 
     os.remove(f"image-{suffix}.4bpp")
@@ -303,6 +312,13 @@ public struct Header
 # so this is all that is really necessary to get to png!
 def dump_btx_to_png_and_mappings():
     btxFile = open(btxFilename, "rb")
+    
+    headerMagic = read_field(btxFile, 0, 4)
+    if (headerMagic != 0x30585442):
+        headerMagic = chr(read_field(btxFile, 0, 1)) + chr(read_field(btxFile, 1, 1)) + chr(read_field(btxFile, 2, 1)) + chr(read_field(btxFile, 3, 1))
+        print(f"Error: BTX file is not a valid btx--header magic is {headerMagic}, not BTX0")
+        return
+    
     totalSize = read_field(btxFile, 0x8, 2)
     TEXOffset = read_field(btxFile, 0x10, 4)
 
@@ -330,6 +346,7 @@ def dump_btx_to_png_and_mappings():
 
     for i in range(0, numObjs):
         paletteInfo[i] = PaletteInfo(btxFile, propertiesOffset + i*4)
+        paletteInfo[i].offset = read_field(btxFile, textStringOffset - 4*numObjs + 4*i, 4)
         paletteInfo[i].setName(btxFile, textStringOffset + i*16)
     
     if ".png" in pngFilename:
@@ -364,14 +381,21 @@ def dump_btx_to_png_and_mappings():
         metadata.write(f"\t\t\"unk2\": {textureInfo[i].unk2}\n")
         metadata.write("\t},\n")
 
-    btxFile.seek(palOffset, 0)
-    gbapal = btxFile.read(totalSize - palOffset)
     for i in range(0, len(paletteInfo)):
+        offset = int(paletteInfo[i].offset / 4)
+        offsetAlreadyUsed = 0xFF
+        for j in range(0, i):
+            if int(paletteInfo[j].offset / 4) == offset:
+                offsetAlreadyUsed = offset
         metadata.write(f"\t\"{paletteInfo[i].name}\": ")
         metadata.write("{\n")
+        metadata.write(f"\t\t\"offset\": {offset},\n")
         metadata.write(f"\t\t\"unk0\": {paletteInfo[i].unk0},\n")
         metadata.write(f"\t\t\"unk1\": {paletteInfo[i].unk1},\n")
-        metadata.write(f"\t\t\"fileName\": \"{paletteInfo[i].name}.pal\"\n")
+        if (offsetAlreadyUsed != 0xFF):
+            metadata.write(f"\t\t\"fileName\": \"{paletteInfo[offsetAlreadyUsed].name}.pal\"\n")
+        else:
+            metadata.write(f"\t\t\"fileName\": \"{paletteInfo[i].name}.pal\"\n")
         if i != (len(paletteInfo) - 1):
             metadata.write("\t},\n")
         else:
@@ -382,16 +406,20 @@ def dump_btx_to_png_and_mappings():
     btxFile.seek(textureOffset, 0)
     texture4bpp = btxFile.read(palOffset - textureOffset)
 
-    btxFile.close()
-
     suffix = str(random.randint(0, 65535))
     while (os.path.exists(f"image-{suffix}.4bpp")):
         suffix = str(random.randint(0, 65535))
 
+    btxFile.seek(palOffset, 0)
+    gbapal = btxFile.read(totalSize - palOffset)
     for i in range(0, len(paletteInfo)):
-        open(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", "wb").write(gbapal[(0x20 * i):(0x20 * (i+1))])
-        subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[i].name}.pal"])
-        os.remove(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal")
+        offset = int(paletteInfo[i].offset / 4)
+        if (offsetAlreadyUsed == 0xFF or offsetAlreadyUsed == offset):
+            open(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", "wb").write(gbapal[(0x20 * offset):(0x20 * (offset+1))])
+            subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[i].name}.pal"])
+            os.remove(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal")
+
+    btxFile.close()
 
     open(f"image-{suffix}.4bpp", "wb").write(texture4bpp)
     open(f"image-{suffix}.gbapal", "wb").write(gbapal[:0x20])
