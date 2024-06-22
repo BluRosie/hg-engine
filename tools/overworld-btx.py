@@ -386,7 +386,8 @@ def dump_btx_to_png_and_mappings():
         offsetAlreadyUsed = 0xFF
         for j in range(0, i):
             if int(paletteInfo[j].offset / 4) == offset:
-                offsetAlreadyUsed = offset
+                offsetAlreadyUsed = j
+                break
         metadata.write(f"\t\"{paletteInfo[i].name}\": ")
         metadata.write("{\n")
         metadata.write(f"\t\t\"offset\": {offset},\n")
@@ -414,17 +415,31 @@ def dump_btx_to_png_and_mappings():
     gbapal = btxFile.read(totalSize - palOffset)
     for i in range(0, len(paletteInfo)):
         offset = int(paletteInfo[i].offset / 4)
-        if (offsetAlreadyUsed == 0xFF or offsetAlreadyUsed == offset):
+        offsetAlreadyUsed = 0xFF
+        for j in range(0, i):
+            if int(paletteInfo[j].offset / 4) == offset:
+                offsetAlreadyUsed = j
+                break
+        if (offsetAlreadyUsed != 0xFF):
             open(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", "wb").write(gbapal[(0x20 * offset):(0x20 * (offset+1))])
-            subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[i].name}.pal"])
+            subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[offsetAlreadyUsed].name}.pal"])
             os.remove(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal")
 
     btxFile.close()
 
     open(f"image-{suffix}.4bpp", "wb").write(texture4bpp)
+    #if len(gbapal) > 0x20:
+    #    open(f"image-{suffix}.gbapal", "wb").write(gbapal[0x20:0x40])
+    #else:
+    #    open(f"image-{suffix}.gbapal", "wb").write(gbapal[:0x20])
     open(f"image-{suffix}.gbapal", "wb").write(gbapal[:0x20])
 
-    subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", str(textureInfo[0].width2 / 8)])
+    try:
+        subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", str(textureInfo[0].width2 / 8)])
+    except KeyError:
+        print(pngFilename, textureInfo, len(textureInfo))
+
+
 
     os.remove(f"image-{suffix}.4bpp")
     os.remove(f"image-{suffix}.gbapal")
