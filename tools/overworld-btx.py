@@ -98,7 +98,7 @@ class TextureInfo:
             currChar = read_field(btxFile, baseOffset + i, 1)
             if (currChar != 0):
                 self.name += chr(currChar)
-    
+
     def setUnkBlock(self, btxFile, baseOffset):
         self.unkBlockUnk0 = read_field(btxFile, baseOffset, 2)
         self.unkBlockUnk1 = read_field(btxFile, baseOffset + 2, 2)
@@ -312,13 +312,13 @@ public struct Header
 # so this is all that is really necessary to get to png!
 def dump_btx_to_png_and_mappings():
     btxFile = open(btxFilename, "rb")
-    
+
     headerMagic = read_field(btxFile, 0, 4)
     if (headerMagic != 0x30585442):
         headerMagic = chr(read_field(btxFile, 0, 1)) + chr(read_field(btxFile, 1, 1)) + chr(read_field(btxFile, 2, 1)) + chr(read_field(btxFile, 3, 1))
         print(f"Error: BTX file is not a valid btx--header magic is {headerMagic}, not BTX0")
         return
-    
+
     totalSize = read_field(btxFile, 0x8, 2)
     TEXOffset = read_field(btxFile, 0x10, 4)
 
@@ -348,7 +348,7 @@ def dump_btx_to_png_and_mappings():
         paletteInfo[i] = PaletteInfo(btxFile, propertiesOffset + i*4)
         paletteInfo[i].offset = read_field(btxFile, textStringOffset - 4*numObjs + 4*i, 4)
         paletteInfo[i].setName(btxFile, textStringOffset + i*16)
-    
+
     if ".png" in pngFilename:
         metadataStr = pngFilename[:(-1 * len(".png"))]
     else:
@@ -415,14 +415,18 @@ def dump_btx_to_png_and_mappings():
     gbapal = btxFile.read(totalSize - palOffset)
     for i in range(0, len(paletteInfo)):
         offset = int(paletteInfo[i].offset / 4)
-        offsetAlreadyUsed = 0xFF
+        offsetAlreadyUsed = i
         for j in range(0, i):
             if int(paletteInfo[j].offset / 4) == offset:
                 offsetAlreadyUsed = j
                 break
-        if (offsetAlreadyUsed != 0xFF):
+        if (offsetAlreadyUsed != i):
             open(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", "wb").write(gbapal[(0x20 * offset):(0x20 * (offset+1))])
             subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[offsetAlreadyUsed].name}.pal"])
+            os.remove(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal")
+        else:
+            open(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", "wb").write(gbapal[(0x20 * offset):(0x20 * (offset+1))])
+            subprocess.run([GFX, f"{metadataStr + '-' + paletteInfo[i].name}.gbapal", f"{metadataStr + '-' + paletteInfo[i].name}.pal"])
             os.remove(f"{metadataStr + '-' + paletteInfo[i].name}.gbapal")
 
     btxFile.close()
@@ -455,7 +459,7 @@ if __name__ == '__main__':
         if (currArg == "-d" or currArg == "--dump"):
             dump = True
         i = i + 1
-    
+
     # now can worry about the rest of them
     i = 0
     while (i < len(args)):
