@@ -437,39 +437,50 @@ levelup SPECIES_RATICATE
 
 
 levelup SPECIES_SPEAROW
-    learnset MOVE_PECK, 1
+    learnset MOVE_SCRATCH, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_LEER, 4
-    learnset MOVE_PURSUIT, 8
-    learnset MOVE_FURY_ATTACK, 11
-    learnset MOVE_AERIAL_ACE, 15
-    learnset MOVE_MIRROR_MOVE, 18
-    learnset MOVE_ASSURANCE, 22
-    learnset MOVE_AGILITY, 25
-    learnset MOVE_FOCUS_ENERGY, 29
-    learnset MOVE_ROOST, 32
-    learnset MOVE_DRILL_PECK, 36
+    learnset MOVE_PECK, 4
+    learnset MOVE_LEER, 7
+    learnset MOVE_PURSUIT, 10
+    learnset MOVE_FURY_ATTACK, 13
+    learnset MOVE_FOCUS_ENERGY, 16
+    learnset MOVE_SAND_ATTACK, 19
+    learnset MOVE_AERIAL_ACE, 25
+    learnset MOVE_MIRROR_MOVE, 28
+    learnset MOVE_ASSURANCE, 31
+    learnset MOVE_AGILITY, 34
+    learnset MOVE_SUBMISSION, 37
+    learnset MOVE_ROOST, 40
+    learnset MOVE_DRILL_PECK, 43
+    learnset MOVE_DOUBLE_TEAM, 46
+    learnset MOVE_HYPER_BEAM, 49
     terminatelearnset
 
 
 levelup SPECIES_FEAROW
-    learnset MOVE_DRILL_RUN, 1
+    learnset MOVE_SONIC_BOOM, 0
+    learnset MOVE_SONIC_BOOM, 1
+    learnset MOVE_BRAVE_BIRD, 1
     learnset MOVE_PLUCK, 1
-    learnset MOVE_PECK, 1
+    learnset MOVE_DRILL_RUN, 1
+    learnset MOVE_SCRATCH, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_PURSUIT, 1
-    learnset MOVE_LEER, 4
-    learnset MOVE_PURSUIT, 8
-    learnset MOVE_FURY_ATTACK, 11
-    learnset MOVE_AERIAL_ACE, 15
-    learnset MOVE_MIRROR_MOVE, 18
-    learnset MOVE_ASSURANCE, 23
-    learnset MOVE_AGILITY, 27
-    learnset MOVE_FOCUS_ENERGY, 32
-    learnset MOVE_ROOST, 36
-    learnset MOVE_DRILL_PECK, 41
-    learnset MOVE_DRILL_RUN, 45
+    learnset MOVE_PECK, 5
+    learnset MOVE_LEER, 8
+    learnset MOVE_PURSUIT, 11
+    learnset MOVE_FURY_ATTACK, 14
+    learnset MOVE_FOCUS_ENERGY, 17
+    learnset MOVE_SAND_ATTACK, 20
+    learnset MOVE_RAGE, 23
+    learnset MOVE_AERIAL_ACE, 26
+    learnset MOVE_MIRROR_MOVE, 29
+    learnset MOVE_ASSURANCE, 32
+    learnset MOVE_AGILITY, 35
+    learnset MOVE_SUBMISSION, 38
+    learnset MOVE_ROOST, 41
+    learnset MOVE_DRILL_PECK, 44
+    learnset MOVE_DOUBLE_TEAM, 47
+    learnset MOVE_HYPER_BEAM, 50
     terminatelearnset
 
 
