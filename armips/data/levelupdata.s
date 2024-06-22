@@ -488,48 +488,58 @@ levelup SPECIES_EKANS
     learnset MOVE_WRAP, 1
     learnset MOVE_LEER, 1
     learnset MOVE_POISON_STING, 4
-    learnset MOVE_BITE, 9
-    learnset MOVE_GLARE, 12
-    learnset MOVE_SCREECH, 17
-    learnset MOVE_ACID, 20
-    learnset MOVE_STOCKPILE, 25
-    learnset MOVE_SWALLOW, 25
-    learnset MOVE_SPIT_UP, 25
-    learnset MOVE_ACID_SPRAY, 28
-    learnset MOVE_MUD_BOMB, 33
-    learnset MOVE_GASTRO_ACID, 36
-    learnset MOVE_BELCH, 38
-    learnset MOVE_HAZE, 41
-    learnset MOVE_COIL, 44
-    learnset MOVE_GUNK_SHOT, 49
+    learnset MOVE_BITE, 7
+    learnset MOVE_MUD_SLAP, 10
+    learnset MOVE_GLARE, 13
+    learnset MOVE_SCREECH, 16
+    learnset MOVE_SLAM, 19
+    learnset MOVE_DISABLE, 21
+    learnset MOVE_STOCKPILE, 24
+    learnset MOVE_SWALLOW, 24
+    learnset MOVE_SPIT_UP, 24
+    learnset MOVE_POISON_TAIL, 27
+    learnset MOVE_MUD_BOMB, 30
+    learnset MOVE_GASTRO_ACID, 33
+    learnset MOVE_KNOCK_OFF, 36
+    learnset MOVE_TOXIC, 39
+    learnset MOVE_SLUDGE_BOMB, 42
+    learnset MOVE_HAZE, 45
+    learnset MOVE_CRUNCH, 48
+    learnset MOVE_BELCH, 52
+    learnset MOVE_COIL, 55
+    learnset MOVE_GUNK_SHOT, 58
     terminatelearnset
 
 
 levelup SPECIES_ARBOK
-    learnset MOVE_CRUNCH, 0
-    learnset MOVE_CRUNCH, 1
+    learnset MOVE_SCARY_FACE, 0
+    learnset MOVE_SCARY_FACE, 1
     learnset MOVE_ICE_FANG, 1
     learnset MOVE_THUNDER_FANG, 1
     learnset MOVE_FIRE_FANG, 1
     learnset MOVE_WRAP, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_POISON_STING, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_POISON_STING, 4
-    learnset MOVE_BITE, 9
-    learnset MOVE_GLARE, 12
+    learnset MOVE_POISON_STING, 5
+    learnset MOVE_BITE, 8
+    learnset MOVE_MUD_SLAP, 11
+    learnset MOVE_GLARE, 14
     learnset MOVE_SCREECH, 17
-    learnset MOVE_ACID, 20
-    learnset MOVE_STOCKPILE, 27
-    learnset MOVE_SWALLOW, 27
-    learnset MOVE_SPIT_UP, 27
-    learnset MOVE_ACID_SPRAY, 32
-    learnset MOVE_MUD_BOMB, 39
-    learnset MOVE_GASTRO_ACID, 44
-    learnset MOVE_BELCH, 48
-    learnset MOVE_HAZE, 51
+    learnset MOVE_SLAM, 20
+    learnset MOVE_DISABLE, 22
+    learnset MOVE_STOCKPILE, 25
+    learnset MOVE_SWALLOW, 25
+    learnset MOVE_SPIT_UP, 25
+    learnset MOVE_POISON_TAIL, 28
+    learnset MOVE_MUD_BOMB, 31
+    learnset MOVE_GASTRO_ACID, 34
+    learnset MOVE_KNOCK_OFF, 37
+    learnset MOVE_TOXIC, 40
+    learnset MOVE_SLUDGE_BOMB, 43
+    learnset MOVE_HAZE, 46
+    learnset MOVE_CRUNCH, 49
+    learnset MOVE_BELCH, 53
     learnset MOVE_COIL, 56
-    learnset MOVE_GUNK_SHOT, 63
+    learnset MOVE_GUNK_SHOT, 59
     terminatelearnset
 
 
