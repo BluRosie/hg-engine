@@ -389,14 +389,20 @@ levelup SPECIES_RATTATA
     learnset MOVE_QUICK_ATTACK, 4
     learnset MOVE_FOCUS_ENERGY, 7
     learnset MOVE_BITE, 10
-    learnset MOVE_PURSUIT, 13
-    learnset MOVE_HYPER_FANG, 16
-    learnset MOVE_ASSURANCE, 19
-    learnset MOVE_CRUNCH, 22
-    learnset MOVE_SUCKER_PUNCH, 25
-    learnset MOVE_SUPER_FANG, 28
-    learnset MOVE_DOUBLE_EDGE, 31
-    learnset MOVE_ENDEAVOR, 34
+    learnset MOVE_SAND_ATTACK, 13
+    learnset MOVE_PURSUIT, 16
+    learnset MOVE_FLAME_CHARGE, 19
+    learnset MOVE_FEINT_ATTACK, 22
+    learnset MOVE_ASSURANCE, 25
+    learnset MOVE_SUCKER_PUNCH, 28
+    learnset MOVE_WORK_UP, 31
+    learnset MOVE_SUPER_FANG, 34
+    learnset MOVE_HEADBUTT, 37
+    learnset MOVE_CRUNCH, 40
+    learnset MOVE_ENDEAVOR, 43
+    learnset MOVE_HYPER_FANG, 46
+    learnset MOVE_REVERSAL, 49
+    learnset MOVE_DOUBLE_EDGE, 52
     terminatelearnset
 
 
@@ -404,21 +410,29 @@ levelup SPECIES_RATICATE
     learnset MOVE_SCARY_FACE, 0
     learnset MOVE_SCARY_FACE, 1
     learnset MOVE_SWORDS_DANCE, 1
+    learnset MOVE_FURY_SWIPES, 1
+    learnset MOVE_COUNTER, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_FOCUS_ENERGY, 1
     learnset MOVE_QUICK_ATTACK, 4
     learnset MOVE_FOCUS_ENERGY, 7
     learnset MOVE_BITE, 10
-    learnset MOVE_PURSUIT, 13
-    learnset MOVE_HYPER_FANG, 16
-    learnset MOVE_ASSURANCE, 19
-    learnset MOVE_CRUNCH, 24
-    learnset MOVE_SUCKER_PUNCH, 29
-    learnset MOVE_SUPER_FANG, 34
-    learnset MOVE_DOUBLE_EDGE, 39
-    learnset MOVE_ENDEAVOR, 44
+    learnset MOVE_SAND_ATTACK, 13
+    learnset MOVE_PURSUIT, 16
+    learnset MOVE_FLAME_CHARGE, 19
+    learnset MOVE_FEINT_ATTACK, 22
+    learnset MOVE_ASSURANCE, 25
+    learnset MOVE_GLARE, 28
+    learnset MOVE_SUCKER_PUNCH, 31
+    learnset MOVE_WORK_UP, 34
+    learnset MOVE_SUPER_FANG, 37
+    learnset MOVE_LUNGE, 40
+    learnset MOVE_HEADBUTT, 43
+    learnset MOVE_CRUNCH, 46
+    learnset MOVE_ENDEAVOR, 49
+    learnset MOVE_HYPER_FANG, 52
+    learnset MOVE_REVERSAL, 56
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
@@ -22645,14 +22659,20 @@ levelup SPECIES_RATTATA_ALOLAN
     learnset MOVE_QUICK_ATTACK, 4
     learnset MOVE_FOCUS_ENERGY, 7
     learnset MOVE_BITE, 10
-    learnset MOVE_PURSUIT, 13
-    learnset MOVE_HYPER_FANG, 16
-    learnset MOVE_ASSURANCE, 19
-    learnset MOVE_CRUNCH, 22
-    learnset MOVE_SUCKER_PUNCH, 25
-    learnset MOVE_SUPER_FANG, 28
-    learnset MOVE_DOUBLE_EDGE, 31
-    learnset MOVE_ENDEAVOR, 34
+    learnset MOVE_SAND_ATTACK, 13
+    learnset MOVE_PURSUIT, 16
+    learnset MOVE_FLAME_CHARGE, 19
+    learnset MOVE_FEINT_ATTACK, 22
+    learnset MOVE_ASSURANCE, 25
+    learnset MOVE_SUCKER_PUNCH, 28
+    learnset MOVE_WORK_UP, 31
+    learnset MOVE_SUPER_FANG, 34
+    learnset MOVE_HEADBUTT, 37
+    learnset MOVE_CRUNCH, 40
+    learnset MOVE_ENDEAVOR, 43
+    learnset MOVE_HYPER_FANG, 46
+    learnset MOVE_REVERSAL, 49
+    learnset MOVE_DOUBLE_EDGE, 52
     terminatelearnset
 
 
@@ -22660,21 +22680,29 @@ levelup SPECIES_RATICATE_ALOLAN
     learnset MOVE_SCARY_FACE, 0
     learnset MOVE_SCARY_FACE, 1
     learnset MOVE_SWORDS_DANCE, 1
+    learnset MOVE_FURY_SWIPES, 1
+    learnset MOVE_COUNTER, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_FOCUS_ENERGY, 1
     learnset MOVE_QUICK_ATTACK, 4
     learnset MOVE_FOCUS_ENERGY, 7
     learnset MOVE_BITE, 10
-    learnset MOVE_PURSUIT, 13
-    learnset MOVE_HYPER_FANG, 16
-    learnset MOVE_ASSURANCE, 19
-    learnset MOVE_CRUNCH, 24
-    learnset MOVE_SUCKER_PUNCH, 29
-    learnset MOVE_SUPER_FANG, 34
-    learnset MOVE_DOUBLE_EDGE, 39
-    learnset MOVE_ENDEAVOR, 44
+    learnset MOVE_SAND_ATTACK, 13
+    learnset MOVE_PURSUIT, 16
+    learnset MOVE_FLAME_CHARGE, 19
+    learnset MOVE_FEINT_ATTACK, 22
+    learnset MOVE_ASSURANCE, 25
+    learnset MOVE_GLARE, 28
+    learnset MOVE_SUCKER_PUNCH, 31
+    learnset MOVE_WORK_UP, 34
+    learnset MOVE_SUPER_FANG, 37
+    learnset MOVE_LUNGE, 40
+    learnset MOVE_HEADBUTT, 43
+    learnset MOVE_CRUNCH, 46
+    learnset MOVE_ENDEAVOR, 49
+    learnset MOVE_HYPER_FANG, 52
+    learnset MOVE_REVERSAL, 56
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
