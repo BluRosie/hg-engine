@@ -3994,7 +3994,7 @@ levelup SPECIES_PICHU
     learnset MOVE_THUNDER_SHOCK, 1
     learnset MOVE_TAIL_WHIP, 1
     learnset MOVE_CHARM, 1
-    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_PLAY_NICE, 3
     learnset MOVE_TAIL_WHIP, 5
     learnset MOVE_SWEET_KISS, 8
     learnset MOVE_NUZZLE, 12
