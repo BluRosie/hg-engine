@@ -8865,7 +8865,7 @@ movedata MOVE_GLACIATE, "Glaciate"
 
 movedata MOVE_BOLT_STRIKE, "Bolt Strike"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
-    pss SPLIT_SPECIAL
+    pss SPLIT_PHYSICAL
     basepower 130
     type TYPE_ELECTRIC
     accuracy 85
@@ -9134,7 +9134,7 @@ movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PHANTOM_FORCE, "---"
+    movedescription MOVE_PHANTOM_FORCE, "Invulnerable on\nturn 1.\nBreaks protect on\nturn 2."
 
 movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
     battleeffect MOVE_EFFECT_HIT
@@ -9198,7 +9198,7 @@ movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PARABOLIC_CHARGE, "---"
+    movedescription MOVE_PARABOLIC_CHARGE, "Guzzles HP from\nopponents. 50%\nHP recovery.\nbzzzzt bzzzzt."
 
 movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
     battleeffect MOVE_EFFECT_HIT
@@ -9310,7 +9310,7 @@ movedata MOVE_DRAINING_KISS, "Draining Kiss"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DRAINING_KISS, "---"
+    movedescription MOVE_DRAINING_KISS, "Guzzles the HP of\nthe opponent.\n50% HP recovery."
 
 movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     battleeffect MOVE_EFFECT_HIT
@@ -9358,7 +9358,7 @@ movedata MOVE_GRASSY_TERRAIN, "Grassy Terrain"
     appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_GRASSY_TERRAIN, "---"
+    movedescription MOVE_GRASSY_TERRAIN, "Sprouts Grassy\nterrain on the\nfield. Boosts grass\ndamage, 1/16 HP\nrecovery."
 
 movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
     battleeffect MOVE_EFFECT_APPLY_TERRAINS
@@ -9374,7 +9374,7 @@ movedata MOVE_MISTY_TERRAIN, "Misty Terrain"
     appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_MISTY_TERRAIN, "---"
+    movedescription MOVE_MISTY_TERRAIN, "Prevents status\non grounded\nPokemon."
 
 movedata MOVE_ELECTRIFY, "Electrify"
     battleeffect MOVE_EFFECT_HIT
@@ -9406,7 +9406,7 @@ movedata MOVE_PLAY_ROUGH, "Play Rough"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PLAY_ROUGH, "---"
+    movedescription MOVE_PLAY_ROUGH, "WHAM WHAM WHAM!\n10% chance to\nlower foe's attack."
 
 movedata MOVE_FAIRY_WIND, "Fairy Wind"
     battleeffect MOVE_EFFECT_HIT
@@ -9422,7 +9422,7 @@ movedata MOVE_FAIRY_WIND, "Fairy Wind"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FAIRY_WIND, "---"
+    movedescription MOVE_FAIRY_WIND, "Weak fairy damage.\nThat's it."
 
 movedata MOVE_MOONBLAST, "Moonblast"
     battleeffect MOVE_EFFECT_LOWER_SP_ATK_HIT
@@ -9438,7 +9438,7 @@ movedata MOVE_MOONBLAST, "Moonblast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MOONBLAST, "---"
+    movedescription MOVE_MOONBLAST, "Chucks the moon\nat the opponent.\n30% chance to\nlower Sp. Atk."
 
 movedata MOVE_BOOMBURST, "Boomburst"
     battleeffect MOVE_EFFECT_HIT
@@ -9534,7 +9534,7 @@ movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DIAMOND_STORM, "---"
+    movedescription MOVE_DIAMOND_STORM, "Shoots a flurry\nof diamonds at\nthe foes.\n50% chance to\nraise defense."
 
 movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     battleeffect MOVE_EFFECT_THAW_AND_BURN_HIT
@@ -9550,7 +9550,7 @@ movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_STEAM_ERUPTION, "---"
+    movedescription MOVE_STEAM_ERUPTION, "Just better scald."
 
 movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
     battleeffect MOVE_EFFECT_REMOVE_PROTECT
@@ -9566,7 +9566,7 @@ movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HYPERSPACE_HOLE, "---"
+    movedescription MOVE_HYPERSPACE_HOLE, "Sucks the foe\ninto a space\nhole. Breaks protect."
 
 movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
     battleeffect MOVE_EFFECT_MULTI_HIT
@@ -9598,7 +9598,7 @@ movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MYSTICAL_FIRE, "---"
+    movedescription MOVE_MYSTICAL_FIRE, "Lowers foe's Sp. Atk\nby one stage."
 
 movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
     battleeffect MOVE_EFFECT_HIT
@@ -9694,7 +9694,7 @@ movedata MOVE_GEOMANCY, "Geomancy"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_GEOMANCY, "---"
+    movedescription MOVE_GEOMANCY, "Double boosts\nuser's Sp. Atk,\nSp. Def, and Speed\non turn 2."
 
 movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
     battleeffect MOVE_EFFECT_HIT
@@ -9742,7 +9742,7 @@ movedatalongname MOVE_ELECTRIC_TERRAIN, "ElectricTerrain", "Electric Terrain"
     appeal 0x05
     contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
     terminatedata
-    movedescription MOVE_ELECTRIC_TERRAIN, "---"
+    movedescription MOVE_ELECTRIC_TERRAIN, "Prevents sleep on\grounded Pokemon\nfor 5 turns.\nBoosts electric moves.\n"
 
 movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     battleeffect MOVE_EFFECT_HIT
@@ -9758,7 +9758,7 @@ movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DAZZLING_GLEAM, "---"
+    movedescription MOVE_DAZZLING_GLEAM, "Wow. So bright.\nUwu fairy light."
 
 movedata MOVE_CELEBRATE, "Celebrate"
     battleeffect MOVE_EFFECT_DO_NOTHING
@@ -9806,7 +9806,7 @@ movedata MOVE_BABY_DOLL_EYES, "Baby-Doll Eyes"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BABY_DOLL_EYES, "---"
+    movedescription MOVE_BABY_DOLL_EYES, "User becomes cute.\n-1 Atk.\n+1 priority."
 
 movedata MOVE_NUZZLE, "Nuzzle"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
@@ -9822,7 +9822,7 @@ movedata MOVE_NUZZLE, "Nuzzle"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_NUZZLE, "---"
+    movedescription MOVE_NUZZLE, "Paralyzes foe.\nJust better than\nThunder Wave."
 
 movedata MOVE_HOLD_BACK, "Hold Back"
     battleeffect MOVE_EFFECT_LEAVE_WITH_1_HP
@@ -9870,7 +9870,7 @@ movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_POWER_UP_PUNCH, "---"
+    movedescription MOVE_POWER_UP_PUNCH, "+1 user Atk."
 
 movedata MOVE_OBLIVION_WING, "Oblivion Wing"
     battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
@@ -9886,7 +9886,7 @@ movedata MOVE_OBLIVION_WING, "Oblivion Wing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_OBLIVION_WING, "---"
+    movedescription MOVE_OBLIVION_WING, "Yveltal uses its\nwings to suck HP\nfrom the foe.\nIdk how this works."
 
 movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
     battleeffect MOVE_EFFECT_HIT
@@ -9934,7 +9934,7 @@ movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LANDS_WRATH, "---"
+    movedescription MOVE_LANDS_WRATH, "The land is angry.\nHits both opponents."
 
 movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
     battleeffect MOVE_EFFECT_RECOIL_HALF
@@ -9966,7 +9966,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_ORIGIN_PULSE, "---"
+    movedescription MOVE_ORIGIN_PULSE, "Blasts both foes.\nDon't miss!"
 
 movedatalongname MOVE_PRECIPICE_BLADES, "Precipice Blade", "Precipice Blades"
     battleeffect MOVE_EFFECT_HIT
@@ -9982,7 +9982,7 @@ movedatalongname MOVE_PRECIPICE_BLADES, "Precipice Blade", "Precipice Blades"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PRECIPICE_BLADES, "---"
+    movedescription MOVE_PRECIPICE_BLADES, "User slices the foe\nwith sharp rocks.\nGroudon is happy."
 
 movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
     battleeffect MOVE_EFFECT_DEF_SPD_DOWN_HIT
@@ -9998,7 +9998,7 @@ movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DRAGON_ASCENT, "---"
+    movedescription MOVE_DRAGON_ASCENT, "Rayquaza obliterates\nthe opponent.\n-1 Def/Sp.Def for\nthe user."
 
 movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     battleeffect MOVE_EFFECT_HIT
@@ -10014,7 +10014,7 @@ movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HYPERSPACE_FURY, "---"
+    movedescription MOVE_HYPERSPACE_FURY, "Outer space hurts\nthe opponent.\nCan't miss!"
 
 movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
     battleeffect MOVE_EFFECT_HIT
@@ -10638,7 +10638,7 @@ movedatalongname MOVE_FIRST_IMPRESSION, "FirstImpression", "First Impression"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FIRST_IMPRESSION, "---"
+    movedescription MOVE_FIRST_IMPRESSION, "Hit's first on\nuser's first turn\non the field."
 
 movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
     battleeffect MOVE_EFFECT_PROTECT
@@ -10750,7 +10750,7 @@ movedata MOVE_HIGH_HORSEPOWER, "High Horsepower"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HIGH_HORSEPOWER, "---"
+    movedescription MOVE_HIGH_HORSEPOWER, "Big ground damage."
 
 movedata MOVE_STRENGTH_SAP, "Strength Sap"
     battleeffect MOVE_EFFECT_HIT
@@ -10926,7 +10926,7 @@ movedata MOVE_PSYCHIC_TERRAIN, "Psychic Terrain"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PSYCHIC_TERRAIN, "---"
+    movedescription MOVE_PSYCHIC_TERRAIN, "Blocks priority moves\non grounded Pokemon.\nBoosts Psychic moves.\n"
 
 movedata MOVE_LUNGE, "Lunge"
     battleeffect MOVE_EFFECT_LOWER_ATTACK_HIT
@@ -10942,7 +10942,7 @@ movedata MOVE_LUNGE, "Lunge"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LUNGE, "---"
+    movedescription MOVE_LUNGE, "Lowers foe's Atk\nby one stage."
 
 movedata MOVE_FIRE_LASH, "Fire Lash"
     battleeffect MOVE_EFFECT_LOWER_DEFENSE_HIT
@@ -11070,7 +11070,7 @@ movedata MOVE_CORE_ENFORCER, "Core Enforcer"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_CORE_ENFORCER, "---"
+    movedescription MOVE_CORE_ENFORCER, "Enforces the core."
 
 movedata MOVE_TROP_KICK, "Trop Kick"
     battleeffect MOVE_EFFECT_LOWER_ATTACK_HIT
@@ -11166,7 +11166,7 @@ movedata MOVE_BRUTAL_SWING, "Brutal Swing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BRUTAL_SWING, "---"
+    movedescription MOVE_BRUTAL_SWING, "Brutally swings\nsomething around.\nHits everyone."
 
 movedata MOVE_AURORA_VEIL, "Aurora Veil"
     battleeffect MOVE_EFFECT_HIT
@@ -11358,7 +11358,7 @@ movedata MOVE_FLEUR_CANNON, "Fleur Cannon"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FLEUR_CANNON, "---"
+    movedescription MOVE_FLEUR_CANNON, "Blasts opponent with\nlots of flowers.\n-2 Sp. Atk recoil."
 
 movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
     battleeffect MOVE_EFFECT_REMOVE_SCREENS
@@ -11374,7 +11374,7 @@ movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PSYCHIC_FANGS, "---"
+    movedescription MOVE_PSYCHIC_FANGS, "Breaks screens."
 
 movedatalongname MOVE_STOMPING_TANTRUM, "Stomp Tantrum", "Stomping Tantrum"
     battleeffect MOVE_EFFECT_HIT
@@ -11438,7 +11438,7 @@ movedata MOVE_LIQUIDATION, "Liquidation"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LIQUIDATION, "---"
+    movedescription MOVE_LIQUIDATION, "May lower opponent's\nDefense on hit."
 
 movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
     battleeffect MOVE_EFFECT_RECHARGE_AFTER
@@ -11454,7 +11454,7 @@ movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PRISMATIC_LASER, "---"
+    movedescription MOVE_PRISMATIC_LASER, "User must recharge\non the next turn."
 
 movedata MOVE_SPECTRAL_THIEF, "Spectral Thief"
     battleeffect MOVE_EFFECT_HIT
@@ -11550,7 +11550,7 @@ movedatalongname MOVE_NATURES_MADNESS, "Nature’sMadness", "Nature’s Madness"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_NATURES_MADNESS, "---"
+    movedescription MOVE_NATURES_MADNESS, "Cuts opponent's HP\nby half."
 
 movedata MOVE_MULTI_ATTACK, "Multi-Attack"
     battleeffect MOVE_EFFECT_MULTI_ATTACK
@@ -11646,7 +11646,7 @@ movedatalongname MOVE_LIGHT_THAT_BURNS_THE_SKY, "LightBurnSky", "Light That Burn
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "---"
+    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "Light that burns\nmy eyes."
 
 movedatalongname MOVE_SEARING_SUNRAZE_SMASH, "Sunraze Smash", "Searing Sunraze Smash"
     battleeffect MOVE_EFFECT_HIT
@@ -11950,7 +11950,7 @@ movedatalongname MOVE_DOUBLE_IRON_BASH, "Double IronBash", "Double Iron Bash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DOUBLE_IRON_BASH, "---"
+    movedescription MOVE_DOUBLE_IRON_BASH, "May flinch opponent.\nHits twice."
 
 movedata MOVE_MAX_GUARD, "Max Guard"
     battleeffect MOVE_EFFECT_HIT
@@ -12494,7 +12494,7 @@ movedata MOVE_BODY_PRESS, "Body Press"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BODY_PRESS, "---"
+    movedescription MOVE_BODY_PRESS, "Uses user's Def\nstat for damage."
 
 movedata MOVE_DECORATE, "Decorate"
     battleeffect MOVE_EFFECT_HIT
@@ -12574,7 +12574,7 @@ movedata MOVE_BEHEMOTH_BLADE, "Behemoth Blade"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BEHEMOTH_BLADE, "---"
+    movedescription MOVE_BEHEMOTH_BLADE, "Double damage on\ndynamaxed Pokemon."
 
 movedata MOVE_BEHEMOTH_BASH, "Behemoth Bash"
     battleeffect MOVE_EFFECT_HIT
@@ -12590,7 +12590,7 @@ movedata MOVE_BEHEMOTH_BASH, "Behemoth Bash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BEHEMOTH_BASH, "---"
+    movedescription MOVE_BEHEMOTH_BASH, "Double damage on\ndynamaxed Pokemon."
 
 movedata MOVE_AURA_WHEEL, "Aura Wheel"
     battleeffect MOVE_EFFECT_HIT
@@ -12622,7 +12622,7 @@ movedata MOVE_BREAKING_SWIPE, "Breaking Swipe"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BREAKING_SWIPE, "---"
+    movedescription MOVE_BREAKING_SWIPE, "Lowers opponents'\nattack by one."
 
 movedata MOVE_BRANCH_POKE, "Branch Poke"
     battleeffect MOVE_EFFECT_HIT
@@ -12638,7 +12638,7 @@ movedata MOVE_BRANCH_POKE, "Branch Poke"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BRANCH_POKE, "---"
+    movedescription MOVE_BRANCH_POKE, "Pokey pokey.\nHey! Stop that!"
 
 movedata MOVE_OVERDRIVE, "Overdrive"
     battleeffect MOVE_EFFECT_HIT
@@ -12670,7 +12670,7 @@ movedata MOVE_APPLE_ACID, "Apple Acid"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_APPLE_ACID, "---"
+    movedescription MOVE_APPLE_ACID, "Guaranteed to\nlower foe's Sp. Def\nby 2 stages."
 
 movedata MOVE_GRAV_APPLE, "Grav Apple"
     battleeffect MOVE_EFFECT_HIT
@@ -12702,7 +12702,7 @@ movedata MOVE_SPIRIT_BREAK, "Spirit Break"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SPIRIT_BREAK, "---"
+    movedescription MOVE_SPIRIT_BREAK, "Lowers opponent's\nSp. Atk. by one\nstage."
 
 movedata MOVE_STRANGE_STEAM, "Strange Steam"
     battleeffect MOVE_EFFECT_CONFUSE_HIT
@@ -12798,7 +12798,7 @@ movedata MOVE_ETERNABEAM, "Eternabeam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_ETERNABEAM, "---"
+    movedescription MOVE_ETERNABEAM, "User must\nrecharge on turn\ntwo.\nThat's a lotta\ndamage!"
 
 movedata MOVE_STEEL_BEAM, "Steel Beam"
     battleeffect MOVE_EFFECT_HIT
@@ -12830,7 +12830,7 @@ movedata MOVE_EXPANDING_FORCE, "Expanding Force"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_EXPANDING_FORCE, "---"
+    movedescription MOVE_EXPANDING_FORCE, "Boosted damage\nand spread move\non Psychic Terrain."
 
 movedata MOVE_STEEL_ROLLER, "Steel Roller"
     battleeffect MOVE_EFFECT_HIT
@@ -12910,7 +12910,7 @@ movedata MOVE_MISTY_EXPLOSION, "Misty Explosion"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MISTY_EXPLOSION, "---"
+    movedescription MOVE_MISTY_EXPLOSION, "KABOOM!"
 
 movedata MOVE_GRASSY_GLIDE, "Grassy Glide"
     battleeffect MOVE_EFFECT_HIT
@@ -13102,7 +13102,7 @@ movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DUAL_WINGBEAT, "---"
+    movedescription MOVE_DUAL_WINGBEAT, "Hits twice."
 
 movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     battleeffect MOVE_EFFECT_BURN_HIT
@@ -13118,7 +13118,7 @@ movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SCORCHING_SANDS, "---"
+    movedescription MOVE_SCORCHING_SANDS, "30% chance to\nburn the target."
 
 movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
     battleeffect MOVE_EFFECT_HIT
@@ -13150,7 +13150,7 @@ movedata MOVE_WICKED_BLOW, "Wicked Blow"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_WICKED_BLOW, "---"
+    movedescription MOVE_WICKED_BLOW, "Always results in\na critical hit."
 
 movedata MOVE_SURGING_STRIKES, "Surging Strikes"
     battleeffect MOVE_EFFECT_ALWAYS_CRITICAL
@@ -13166,7 +13166,7 @@ movedata MOVE_SURGING_STRIKES, "Surging Strikes"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SURGING_STRIKES, "---"
+    movedescription MOVE_SURGING_STRIKES, "Always results in\na critical hit."
 
 movedata MOVE_THUNDER_CAGE, "Thunder Cage"
     battleeffect MOVE_EFFECT_HIT
@@ -13198,7 +13198,7 @@ movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DRAGON_ENERGY, "---"
+    movedescription MOVE_DRAGON_ENERGY, "Regidrago wanted\nto use Water Spout\nbut got this\ninstead."
 
 movedata MOVE_FREEZING_GLARE, "Freezing Glare"
     battleeffect MOVE_EFFECT_FREEZE_HIT
@@ -13214,7 +13214,7 @@ movedata MOVE_FREEZING_GLARE, "Freezing Glare"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FREEZING_GLARE, "---"
+    movedescription MOVE_FREEZING_GLARE, "10% chance to\nfreeze opponent."
 
 movedata MOVE_FIERY_WRATH, "Fiery Wrath"
     battleeffect MOVE_EFFECT_FLINCH_HIT
@@ -13230,7 +13230,7 @@ movedata MOVE_FIERY_WRATH, "Fiery Wrath"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FIERY_WRATH, "---"
+    movedescription MOVE_FIERY_WRATH, "20% chance to\nflinch the foes."
 
 movedata MOVE_THUNDEROUS_KICK, "Thunderous Kick"
     battleeffect MOVE_EFFECT_LOWER_DEFENSE_HIT
@@ -13246,7 +13246,7 @@ movedata MOVE_THUNDEROUS_KICK, "Thunderous Kick"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_THUNDEROUS_KICK, "---"
+    movedescription MOVE_THUNDEROUS_KICK, "100% chance to\nlower target's Def."
 
 movedata MOVE_GLACIAL_LANCE, "Glacial Lance"
     battleeffect MOVE_EFFECT_HIT
@@ -13262,7 +13262,7 @@ movedata MOVE_GLACIAL_LANCE, "Glacial Lance"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_GLACIAL_LANCE, "---"
+    movedescription MOVE_GLACIAL_LANCE, "Shanks foes\nwith ice hunks."
 
 movedata MOVE_ASTRAL_BARRAGE, "Astral Barrage"
     battleeffect MOVE_EFFECT_HIT
@@ -13278,7 +13278,7 @@ movedata MOVE_ASTRAL_BARRAGE, "Astral Barrage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_ASTRAL_BARRAGE, "---"
+    movedescription MOVE_ASTRAL_BARRAGE, "Calrex go\nBRRRRRRRRRRRRRRRR."
 
 movedata MOVE_EERIE_SPELL, "Eerie Spell"
     battleeffect MOVE_EFFECT_HIT
@@ -13374,7 +13374,7 @@ movedatalongname MOVE_SPRINGTIDE_STORM, "SpringtideStorm", "Springtide Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SPRINGTIDE_STORM, "---"
+    movedescription MOVE_SPRINGTIDE_STORM, "Spring is here!\nGoodbye Atk stat!"
 
 movedata MOVE_MYSTICAL_POWER, "Mystical Power"
     battleeffect MOVE_EFFECT_RAISE_SP_ATK_HIT
@@ -13422,7 +13422,7 @@ movedata MOVE_WAVE_CRASH, "Wave Crash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_WAVE_CRASH, "---"
+    movedescription MOVE_WAVE_CRASH, "Recoils user\nby 1/3 of damage\ndealt."
 
 movedata MOVE_CHLOROBLAST, "Chloroblast"
     battleeffect MOVE_EFFECT_RECOIL_HALF
@@ -13614,7 +13614,7 @@ movedatalongname MOVE_BLEAKWIND_STORM, "BleakwindStorm","Bleakwind Storm"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BLEAKWIND_STORM, "---"
+    movedescription MOVE_BLEAKWIND_STORM, "Hits both foes.\n"
 
 movedatalongname MOVE_WILDBOLT_STORM, "WildboltStorm","Wildbolt Storm"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
