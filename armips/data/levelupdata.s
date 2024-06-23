@@ -8637,20 +8637,18 @@ levelup SPECIES_LUVDISC
 levelup SPECIES_BAGON
     learnset MOVE_EMBER, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_RAGE, 1
-    learnset MOVE_EMBER, 4
-    learnset MOVE_BITE, 7
-    learnset MOVE_LEER, 7
-    learnset MOVE_DRAGON_BREATH, 11
-    learnset MOVE_HEADBUTT, 15
-    learnset MOVE_CRUNCH, 25
-    learnset MOVE_SCARY_FACE, 28
-    learnset MOVE_DRAGON_CLAW, 30
-    learnset MOVE_FOCUS_ENERGY, 31
-    learnset MOVE_ZEN_HEADBUTT, 34
-    learnset MOVE_FLAMETHROWER, 44
-    learnset MOVE_OUTRAGE, 50
-    learnset MOVE_DOUBLE_EDGE, 52
+    learnset MOVE_BITE, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_DRAGON_BREATH, 10
+    learnset MOVE_SCARY_FACE, 15
+    learnset MOVE_HEADBUTT, 20
+    learnset MOVE_BREAKING_SWIPE, 25
+    learnset MOVE_FLAME_BURST, 30
+    learnset MOVE_ZEN_HEADBUTT, 35
+    learnset MOVE_DRAGON_CLAW, 40
+    learnset MOVE_FLAMETHROWER, 45
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_OUTRAGE, 65
     terminatelearnset
 
 
@@ -8659,50 +8657,43 @@ levelup SPECIES_SHELGON
     learnset MOVE_PROTECT, 1
     learnset MOVE_EMBER, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_DRAGON_BREATH, 1
-    learnset MOVE_RAGE, 1
-    learnset MOVE_EMBER, 4
-    learnset MOVE_LEER, 7
-    learnset MOVE_BITE, 10
-    learnset MOVE_DRAGON_BREATH, 13
-    learnset MOVE_HEADBUTT, 15
-    learnset MOVE_CRUNCH, 25
-    learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_DRAGON_CLAW, 31
-    learnset MOVE_FOCUS_ENERGY, 34
-    learnset MOVE_ZEN_HEADBUTT, 37
-    learnset MOVE_FLAMETHROWER, 51
-    learnset MOVE_OUTRAGE, 60
-    learnset MOVE_DOUBLE_EDGE, 61
+    learnset MOVE_BITE, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_DRAGON_BREATH, 10
+    learnset MOVE_SCARY_FACE, 15
+    learnset MOVE_HEADBUTT, 20
+    learnset MOVE_BREAKING_SWIPE, 25
+    learnset MOVE_FLAME_BURST, 30
+    learnset MOVE_ZEN_HEADBUTT, 35
+    learnset MOVE_DRAGON_CLAW, 40
+    learnset MOVE_FLAMETHROWER, 45
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_OUTRAGE, 65
     terminatelearnset
 
 
 levelup SPECIES_SALAMENCE
     learnset MOVE_FLY, 0
     learnset MOVE_FLY, 1
-    learnset MOVE_PROTECT, 1
-    learnset MOVE_DRAGON_TAIL, 1
     learnset MOVE_EMBER, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_DRAGON_BREATH, 1
-    learnset MOVE_FIRE_FANG, 1
-    learnset MOVE_THUNDER_FANG, 1
-    learnset MOVE_RAGE, 1
-    learnset MOVE_EMBER, 4
-    learnset MOVE_LEER, 7
-    learnset MOVE_BITE, 10
-    learnset MOVE_DRAGON_BREATH, 13
-    learnset MOVE_HEADBUTT, 15
-    learnset MOVE_CRUNCH, 25
-    learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_DRAGON_CLAW, 31
-    learnset MOVE_FOCUS_ENERGY, 34
-    learnset MOVE_ZEN_HEADBUTT, 37
-    learnset MOVE_FLAMETHROWER, 52
-    learnset MOVE_OUTRAGE, 64
-    learnset MOVE_DOUBLE_EDGE, 68
+    learnset MOVE_BITE, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_DRAGON_BREATH, 10
+    learnset MOVE_SCARY_FACE, 15
+    learnset MOVE_HEADBUTT, 20
+    learnset MOVE_BREAKING_SWIPE, 25
+    learnset MOVE_FLAME_BURST, 30
+    learnset MOVE_ZEN_HEADBUTT, 35
+    learnset MOVE_DRAGON_CLAW, 40
+    learnset MOVE_FLAMETHROWER, 45
+    learnset MOVE_FIRE_FANG, 51
+    learnset MOVE_THUNDER_FANG, 51
+    learnset MOVE_DRAGON_TAIL, 53
+    learnset MOVE_DUAL_WINGBEAT, 55
+    learnset MOVE_ROOST, 60
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_OUTRAGE, 69
     terminatelearnset
 
 
