@@ -22,6 +22,8 @@ typedef struct
     u8  denominator;
 } AccuracyStatChangeRatio;
 
+int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
+
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
     {  33, 100 },
@@ -500,7 +502,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     hold_effect = HeldItemHoldEffectGet(sp, defender);
     hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
 
-    if (hold_effect == HOLD_EFFECT_DECREASE_ACCURACY)
+    if (hold_effect == HOLD_EFFECT_ACC_REDUCE)
     {
         accuracy = accuracy * (100 - hold_effect_atk) / 100;
     }
@@ -508,12 +510,12 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     hold_effect = HeldItemHoldEffectGet(sp, attacker);
     hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
 
-    if (hold_effect == HOLD_EFFECT_INCREASE_ACCURACY)
+    if (hold_effect == HOLD_EFFECT_ACCURACY_UP)
     {
         accuracy = accuracy * (100 + hold_effect_atk) / 100;
     }
 
-    if ((hold_effect == HOLD_EFFECT_ZOOM_LENS) && (IsMovingAfterClient(sp, defender) == TRUE))
+    if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE))
     {
         accuracy = accuracy * (100 + hold_effect_atk) / 100;
     }
@@ -550,14 +552,14 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
 const u8 DecreaseSpeedHoldEffects[] =
 {
-    HOLD_EFFECT_DOUBLE_EV_GAIN,
-    HOLD_EFFECT_HALVE_SPEED,
-    HOLD_EFFECT_GAIN_HP_EVS,
-    HOLD_EFFECT_GAIN_ATTACK_EVS,
-    HOLD_EFFECT_GAIN_DEFENSE_EVS,
-    HOLD_EFFECT_GAIN_SPEED_EVS,
-    HOLD_EFFECT_GAIN_SP_ATK_EVS,
-    HOLD_EFFECT_GAIN_SP_DEF_EVS,
+    HOLD_EFFECT_EVS_UP_SPEED_DOWN,
+    HOLD_EFFECT_SPEED_DOWN_GROUNDED,
+    HOLD_EFFECT_LVLUP_HP_EV_UP,
+    HOLD_EFFECT_LVLUP_ATK_EV_UP,
+    HOLD_EFFECT_LVLUP_DEF_EV_UP,
+    HOLD_EFFECT_LVLUP_SPEED_EV_UP,
+    HOLD_EFFECT_LVLUP_SPATK_EV_UP,
+    HOLD_EFFECT_LVLUP_SPDEF_EV_UP,
 };
 
 // return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
@@ -700,7 +702,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speed1 = speed1 * 15 / 10;
     }
 
-    if ((hold_effect1 == HOLD_EFFECT_BOOST_DITTO_SPEED) && (sp->battlemon[client1].species == SPECIES_DITTO))
+    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO))
     {
         speed1 *= 2;
     }
@@ -735,7 +737,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speed1 *= 2;
     }
 
-    if (hold_effect1 == HOLD_EFFECT_QUICK_CLAW)
+    if (hold_effect1 == HOLD_EFFECT_SOMETIMES_PRIORITY)
     {
         if ((sp->agi_rand[client1] % (100 / hold_atk1)) == 0)
         {
@@ -747,7 +749,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         }
     }
 
-    if (hold_effect1 == HOLD_EFFECT_RAISE_SPEED_IN_PINCH)
+    if (hold_effect1 == HOLD_EFFECT_PINCH_PRIORITY)
     {
         if (GetBattlerAbility(sp, client1) == ABILITY_GLUTTONY)
         {
@@ -763,7 +765,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         }
     }
 
-    if (hold_effect1 == HOLD_EFFECT_LAGGING_TAIL)
+    if (hold_effect1 == HOLD_EFFECT_PRIORITY_DOWN)
     {
         move_last1 = 1;
     }
@@ -782,7 +784,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speed2 = speed2 * 15 / 10;
     }
 
-    if ((hold_effect2 == HOLD_EFFECT_BOOST_DITTO_SPEED) && (sp->battlemon[client2].species == SPECIES_DITTO))
+    if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client2].species == SPECIES_DITTO))
     {
         speed2 *= 2;
     }
@@ -817,7 +819,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speed2 *= 2;
     }
 
-    if (hold_effect2 == HOLD_EFFECT_QUICK_CLAW)
+    if (hold_effect2 == HOLD_EFFECT_SOMETIMES_PRIORITY)
     {
         if ((sp->agi_rand[client2] % (100 / hold_atk2)) == 0)
         {
@@ -829,7 +831,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         }
     }
 
-    if (hold_effect2 == HOLD_EFFECT_RAISE_SPEED_IN_PINCH)
+    if (hold_effect2 == HOLD_EFFECT_PINCH_PRIORITY)
     {
         if (GetBattlerAbility(sp, client2) == ABILITY_GLUTTONY)
         {
@@ -845,7 +847,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         }
     }
 
-    if (hold_effect2 == HOLD_EFFECT_LAGGING_TAIL)
+    if (hold_effect2 == HOLD_EFFECT_PRIORITY_DOWN)
     {
         move_last2 = 1;
     }
@@ -1154,9 +1156,9 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     move_effect = sp->battlemon[defender].effect_of_moves;
     ability = sp->battlemon[attacker].ability;
 
-    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_BOOST_CRITICAL_RATE) + critical_count + (ability == ABILITY_SUPER_LUCK)
-         + (2 * ((hold_effect == HOLD_EFFECT_BOOST_CHANSEY_CRITICAL) && (species == SPECIES_CHANSEY)))
-         + (2 * ((hold_effect == HOLD_EFFECT_BOOST_FARFETCHD_CRITICAL) && (species == SPECIES_FARFETCHD)));
+    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
+         + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
+         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
 
     if (temp > 4)
     {
@@ -1167,6 +1169,8 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     (
         BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
+        //|| (GetMoveData(sp->current_move_index, MOVE_DATA_EFFECT) == MOVE_EFFECT_ALWAYS_CRITICAL)
+        || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
@@ -1252,11 +1256,11 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             }
             if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == FALSE)
             {
-                if ((eqp == HOLD_EFFECT_FOCUS_BAND) && ((BattleRand(bw) % 100) < atk))
+                if ((eqp == HOLD_EFFECT_MAYBE_ENDURE) && ((BattleRand(bw) % 100) < atk))
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
                 }
-                else if ((eqp == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[sp->defence_client].hp == (s32)sp->battlemon[sp->defence_client].maxhp))
+                else if ((eqp == HOLD_EFFECT_ENDURE) && (sp->battlemon[sp->defence_client].hp == (s32)sp->battlemon[sp->defence_client].maxhp))
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
                 }
@@ -1419,7 +1423,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
 
     if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_LEVITATE) == TRUE)
      && (move_type == TYPE_GROUND)
-     && (eqp_d != HOLD_EFFECT_HALVE_SPEED)) // iron ball halves speed and grounds
+     && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) // iron ball halves speed and grounds
     {
         flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
         sp->battlemon[attack_client].parental_bond_flag = 0;
@@ -1429,7 +1433,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
           && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
           && (move_type == TYPE_GROUND)
-          && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
+          && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
         sp->battlemon[attack_client].parental_bond_flag = 0;
@@ -1439,7 +1443,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
           && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
           && (move_type == TYPE_GROUND)
-          && (eqp_d != HOLD_EFFECT_HALVE_SPEED))
+          && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS; // air balloon just misses for the moment
         sp->battlemon[attack_client].parental_bond_flag = 0;
@@ -1598,7 +1602,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
 
     battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
     if (battlerIdAbility) {
-        if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_HALVE_SPEED) {
+        if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
             if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_FLYING)) {
                if (msg == NULL) {
                     return TRUE;
@@ -1675,7 +1679,7 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId) {
     if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
        && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
        && !BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_FLYING))
-      || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_HALVE_SPEED
+      || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
       || (sp->field_condition & FIELD_STATUS_GRAVITY))
      && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP))
     {
@@ -2153,7 +2157,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-        && sp->moveTbl[sp->current_move_index].target != MOVE_TARGET_BOTH
+        && sp->moveTbl[sp->current_move_index].target != MOVE_TARGET_OPPONENTS_FIELD
         && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
             || (!(sp->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
@@ -2624,7 +2628,7 @@ void BattleControllerPlayer_UpdateMonCondition(void *bw, struct BattleStruct *sp
 void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int script;
     u32 battleType = BattleTypeGet(bsys);
-    
+
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_POKE_PARK))) {
         if (AbilityStatusRecoverCheck(bsys, ctx, ctx->attack_client, 0) == TRUE) {
             return;
@@ -2639,7 +2643,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         if (ov12_0224D7EC(bsys, ctx) == TRUE) {
             return;
         }
-        
+
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);
@@ -2652,9 +2656,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         }
         ov12_0224DC0C(bsys, ctx);
     }
-    
+
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
-    
+
     if (ctx->oneSelfFlag[ctx->attack_client].trickroom_flag) {
         SortExecutionOrderBySpeed(bsys, ctx);
         SortMonsBySpeed(bsys, ctx);
@@ -2662,9 +2666,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else {
         ctx->executionIndex++;
     }
-    
+
     BattleStructureInit(ctx);
-    
+
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
 }
 
@@ -2679,7 +2683,7 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
     int defender_type_2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL);
     u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
     int i = 0;
-    
+
     // TODO: Check type3
     while (TypeEffectivenessTable[i][0] != 0xff) {
         if (TypeEffectivenessTable[i][0] == move_type) {

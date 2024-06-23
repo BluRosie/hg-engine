@@ -86,7 +86,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
         ret = TRUE;
     }
 
-    if ((def_hold_eff == HOLD_EFFECT_DAMAGE_HOLDER_TRANSFER_ON_CONTACT) // sticky barb
+    if ((def_hold_eff == HOLD_EFFECT_DMG_USER_CONTACT_XFR) // sticky barb
      && (sp->battlemon[sp->attack_client].hp)
         && (sp->battlemon[sp->attack_client].item == 0)
         && ((sp->scw[atk_side].knockoff_item & (1 << sp->sel_mons_no[sp->attack_client])) == 0)
