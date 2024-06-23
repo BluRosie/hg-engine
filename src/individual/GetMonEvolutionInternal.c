@@ -426,6 +426,11 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 *method_ret = 0;
                 break;
             }
+            if (evoTable[i].method == EVO_TRADE_ITEM && heldItem == evoTable[i].param && usedItem == ITEM_LINKING_CORD) {
+                GET_TARGET_AND_SET_FORM;
+                *method_ret = 0;
+                break;
+            }
         }
         break;
     }
