@@ -2,13 +2,14 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_506", 0
-
+//scald
 a010_506:
     loadparticlefromspa 0, 87 //hydro pump
     waitparticle

@@ -2,29 +2,31 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_551", 0
-
+// Secret Sword
 a010_551:
-    loadparticlefromspa 0, 486
+    loadparticlefromspa 0, 527 //secret sword from white 2 version
     waitparticle
 
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
+    playsepan 2113, 117
+    addparticle 0, 6, 4
+    addparticle 0, 5, 4
+    addparticle 0, 7, 4 //initial slice
 
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
+    wait 35
 
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
+    addparticle 0, 3, 4
+    wait 10
+    playsepan 1910, 117
+    addparticle 0, 2, 4
+    addparticle 0, 1, 4
+    addparticle 0, 0, 4 //slash hit
     waitparticle
 
     unloadparticle 0

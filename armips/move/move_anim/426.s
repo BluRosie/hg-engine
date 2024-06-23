@@ -2,13 +2,14 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_426", 0
-
+// Mud Bomb
 a010_426:
     initspriteresource
     loadspriteresource 0

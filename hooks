@@ -125,6 +125,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_CalcWeatherBallParams 022432AC 3
 0012 BtlCmd_TrySubstitute 022414F0 3
 0012 BtlCmd_RapidSpin 02242238 3
+0012 BtlCmd_CheckSubstitute 0224514C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -154,7 +155,10 @@ arm9 MakeTrainerPokemonParty 08073604 3
 0012 BattleScriptCommandHandler 080056A8 2
 
 #reset battlemon switch in flags (now really really do it)
+# smack in the middle of BattleSystem_GetBattleMon
 0012 ClearBattleMonFlags_hook 0224E998 3
+# need to do it in the middle of InitFaintedWork too
+0012 ClearBattleMonFlags_hook2 0225155C 0
 
 #hidden ability
 arm9 SetBoxMonAbility 080722DC 1
@@ -450,7 +454,10 @@ arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
 arm9 AllocFail_hook 0201AA7C 0
 #endif
 # DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
-
+arm9 GF_AssertFail 0202551C 0
 
 0012 ov12_0224D368 0224D368 3
 0012 ov12_0224C4D8 0224C4D8 3
+
+# fix trainer ai being able to switch illegally when binded
+0010 ai_switch_ban_for_bind_hook 022203B4 2
