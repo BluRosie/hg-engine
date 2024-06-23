@@ -224,5 +224,23 @@
 #define HOLD_EFFECT_CORNERSTONE_MASK                   217
 #define HOLD_EFFECT_WELLSPRING_MASK                    218
 #define HOLD_EFFECT_HEARTHFLAME_MASK                   219
+#define HOLD_EFFECT_GEM_NORMAL                         220
+#define HOLD_EFFECT_GEM_FIGHTING                       221
+#define HOLD_EFFECT_GEM_FLYING                         222
+#define HOLD_EFFECT_GEM_POISON                         223
+#define HOLD_EFFECT_GEM_GROUND                         224
+#define HOLD_EFFECT_GEM_ROCK                           225
+#define HOLD_EFFECT_GEM_BUG                            226
+#define HOLD_EFFECT_GEM_GHOST                          227
+#define HOLD_EFFECT_GEM_STEEL                          228
+#define HOLD_EFFECT_GEM_FAIRY                          229
+#define HOLD_EFFECT_GEM_FIRE                           230
+#define HOLD_EFFECT_GEM_WATER                          231
+#define HOLD_EFFECT_GEM_GRASS                          232
+#define HOLD_EFFECT_GEM_ELECTRIC                       233
+#define HOLD_EFFECT_GEM_PSYCHIC                        234
+#define HOLD_EFFECT_GEM_ICE                            235
+#define HOLD_EFFECT_GEM_DRAGON                         236
+#define HOLD_EFFECT_GEM_DARK                           237
 
 #endif

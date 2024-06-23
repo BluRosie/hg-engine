@@ -1385,6 +1385,12 @@ u16 gf_p_rand(const u16 denominator)
  */
 int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
 {
+    #ifdef DEBUG_DAMAGE_CALC
+    u8 buf[128];
+    sprintf(buf, "In ServerDoTypeCalcMod, damage is %d\n", damage);
+    debugsyscall(buf);
+    #endif
+
     int i;
     int modifier;
     u32 base_power;
@@ -1458,6 +1464,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     else
     {
         i = 0;
+        // TODO: Roost
         while (TypeEffectivenessTable[i][0] != 0xff)
         {
             if (TypeEffectivenessTable[i][0] == 0xfe) // handle foresight

@@ -624,7 +624,7 @@ struct __attribute__((packed)) OneTurnEffect
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
                u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
                u32 yokodori_flag : 1;
-               u32 haneyasume_flag : 1;
+               u32 haneyasume_flag : 1;   /**< はねやすめ flag (Roost flag) */
                u32 escape_flag : 2;
                u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
                // begin custom flags
@@ -1102,7 +1102,7 @@ struct PACKED BattleStruct
     /*0x214C*/ int critical_count;
     /*0x2150*/ int critical;
     /*0x2154*/ int damage_power;
-    /*0x2158*/ int damage_value;
+    /*0x2158*/ int damage_value; // powerModifier
     /*0x215C*/ int hp_calc_work;
     /*0x2160*/ int move_type;
     /*0x2164*/ int waza_eff_cnt;
@@ -1563,6 +1563,40 @@ extern u8 TypeEffectivenessTable[][3];
 extern struct newBattleStruct newBS;
 extern struct ILLUSION_STRUCT gIllusionStruct;
 extern const u16 TetsunoKobushiTable[0xF];
+
+struct CalcStats {
+    u16 attack;
+    u16 defense;
+    u16 spAttack;
+    u16 spDefense;
+};
+
+struct CalcStages {
+    u8  attack;
+    u8  defense;
+    u8  spAttack;
+    u8  spDefense;
+};
+
+struct PACKED CalcParams {
+    u16 species;
+    s16 currentHP;
+    u16 maxHP;
+    u16 ability;
+
+    int heldItemEffect;
+    int heldItemPower;
+
+    u32 condition;
+
+    struct CalcStats stats;
+    struct CalcStages stages;
+
+    u8 gender;
+    u8 type1;
+    u8 type2;
+    u8 _padding;
+};
 
 int LONG_CALL BattlePokemonParamGet(void*,int ,int,void*);
 s32 LONG_CALL BattleItemDataGet(void*,u16,u16);

@@ -225,6 +225,24 @@
 .equ HOLD_EFFECT_CORNERSTONE_MASK,                   217
 .equ HOLD_EFFECT_WELLSPRING_MASK,                    218
 .equ HOLD_EFFECT_HEARTHFLAME_MASK,                   219
+.equ HOLD_EFFECT_GEM_NORMAL,                         220
+.equ HOLD_EFFECT_GEM_FIGHTING,                       221
+.equ HOLD_EFFECT_GEM_FLYING,                         222
+.equ HOLD_EFFECT_GEM_POISON,                         223
+.equ HOLD_EFFECT_GEM_GROUND,                         224
+.equ HOLD_EFFECT_GEM_ROCK,                           225
+.equ HOLD_EFFECT_GEM_BUG,                            226
+.equ HOLD_EFFECT_GEM_GHOST,                          227
+.equ HOLD_EFFECT_GEM_STEEL,                          228
+.equ HOLD_EFFECT_GEM_FAIRY,                          229
+.equ HOLD_EFFECT_GEM_FIRE,                           230
+.equ HOLD_EFFECT_GEM_WATER,                          231
+.equ HOLD_EFFECT_GEM_GRASS,                          232
+.equ HOLD_EFFECT_GEM_ELECTRIC,                       233
+.equ HOLD_EFFECT_GEM_PSYCHIC,                        234
+.equ HOLD_EFFECT_GEM_ICE,                            235
+.equ HOLD_EFFECT_GEM_DRAGON,                         236
+.equ HOLD_EFFECT_GEM_DARK,                           237
 
 
 .endif

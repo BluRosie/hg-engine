@@ -11,14 +11,17 @@
 #include "../../include/constants/move_effects.h"
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
+#include "../../include/q412.h"
 
 
 
 // function declarations
+
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 //u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
-void CalcDamageOverall(void *bw, struct BattleStruct *sp);
+
+void CalcDamageOverall(struct BattleSystem *battle, struct BattleStruct *server);
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
@@ -42,6 +45,7 @@ const u8 StatBoostModifiers[][2] = {
         {          40,          10 },
 };
 
+/*
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
@@ -60,6 +64,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     return ret;
 }
+*/
 
 /**
  *  @brief grab a battler's item.  returns 0 if the battler is in embargo or can't hold an item for any other reason
@@ -92,61 +97,21 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
 
 /**
  *  @brief calculate overall damage, accounting for critical hits and me first boosts.  passed into damage roller below
- *
+ *  Equivalent to Calc_MoveDamage in plat-engine
+ *  https://github.com/lhearachel/plat-engine/blob/00bbf5fc4d743d82e5fbbe1f97c1d8a07e404640/src/battle/calc.c#L2370
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
+void CalcDamageOverall(struct BattleSystem *battle, struct BattleStruct *server) {
+    u32 ovyId, offset;
+    void (*internalFunc)(struct BattleSystem *battle, struct BattleStruct *server);
 
-void CalcDamageOverall(void *bw, struct BattleStruct *sp)
-{
-    int type;
-
-    type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
-
-    sp->damage = CalcBaseDamage(bw,
-                                sp,
-                                sp->current_move_index,
-                                sp->side_condition[IsClientEnemy(bw, sp->defence_client)],
-                                sp->field_condition,
-                                sp->damage_power,
-                                type,
-                                sp->attack_client, sp->defence_client, sp->critical);
-
-    //sp->damage *= sp->critical;
-    if (sp->critical > 1) // update critical hit mechanics
-    {
-        for (type = sp->critical; type > 1; type--) // for every critical multiplier above 1, tack on 1.5x multiplier
-        {
-            sp->damage = sp->damage * 150 / 100;
-        }
-    }
-
-    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_HP_DRAIN_ON_ATK)
-    {
-        sp->damage = sp->damage * (100 + HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL)) / 100;
-    }
-
-    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_BOOST_REPEATED)
-    {
-        sp->damage = sp->damage * (10 + sp->battlemon[sp->attack_client].moveeffect.metronomeTurns) / 10;
-    }
-
-    if (sp->battlemon[sp->attack_client].moveeffect.meFirstFlag)
-    {
-        if (sp->me_first_total_turns == sp->battlemon[sp->attack_client].moveeffect.meFirstCount)
-        {
-            sp->battlemon[sp->attack_client].moveeffect.meFirstCount--;
-        }
-
-        if ((sp->me_first_total_turns - sp->battlemon[sp->attack_client].moveeffect.meFirstCount) < 2)
-        {
-            sp->damage = sp->damage * 15 / 10;
-        }
-        else
-        {
-            sp->battlemon[sp->attack_client].moveeffect.meFirstFlag = 0;
-        }
-    }
+    ovyId = OVERLAY_CALCBASEDAMAGE;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(struct BattleSystem *battle, struct BattleStruct *server))(offset);
+    internalFunc(battle, server);
+    UnloadOverlayByID(ovyId);
 }
 
 
