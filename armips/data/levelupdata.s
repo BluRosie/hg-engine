@@ -180,7 +180,7 @@ levelup SPECIES_SQUIRTLE
     learnset MOVE_ICY_WIND, 8
     learnset MOVE_RAPID_SPIN, 11
     learnset MOVE_BITE, 13
-    learnset MOVE_AQUA_JET 16
+    learnset MOVE_AQUA_JET, 16
     learnset MOVE_PROTECT, 18
     learnset MOVE_RAIN_DANCE, 21
     learnset MOVE_WATER_PULSE, 24
@@ -207,7 +207,7 @@ levelup SPECIES_WARTORTLE
     learnset MOVE_ICY_WIND, 9
     learnset MOVE_RAPID_SPIN, 12
     learnset MOVE_BITE, 14
-    learnset MOVE_AQUA_JET 17
+    learnset MOVE_AQUA_JET, 17    
     learnset MOVE_PROTECT, 19
     learnset MOVE_RAIN_DANCE, 22
     learnset MOVE_WATER_PULSE, 25
@@ -235,7 +235,7 @@ levelup SPECIES_BLASTOISE
     learnset MOVE_ICY_WIND, 10
     learnset MOVE_RAPID_SPIN, 13
     learnset MOVE_BITE, 15
-    learnset MOVE_AQUA_JET 18
+    learnset MOVE_AQUA_JET, 18    
     learnset MOVE_PROTECT, 20
     learnset MOVE_RAIN_DANCE, 23
     learnset MOVE_WATER_PULSE, 26
