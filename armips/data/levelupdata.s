@@ -8714,58 +8714,63 @@ levelup SPECIES_SALAMENCE
 
 
 levelup SPECIES_BELDUM
-    learnset MOVE_TACKLE, 1
     learnset MOVE_TAKE_DOWN, 1
+    learnset MOVE_TACKLE, 10
     terminatelearnset
 
 
 levelup SPECIES_METANG
-    learnset MOVE_METAL_CLAW, 0
-    learnset MOVE_CONFUSION, 0
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_METAL_CLAW, 1
+    learnset MOVE_BULLET_PUNCH, 0
     learnset MOVE_BULLET_PUNCH, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_MAGNET_RISE, 1
     learnset MOVE_TAKE_DOWN, 1
-    learnset MOVE_MAGNET_RISE, 12
-    learnset MOVE_ZEN_HEADBUTT, 18
-    learnset MOVE_FLASH_CANNON, 18
-    learnset MOVE_PURSUIT, 23
+    learnset MOVE_TACKLE, 10
+    learnset MOVE_MAGNET_RISE, 23
+    learnset MOVE_METAL_CLAW, 26
+    learnset MOVE_PSYBEAM, 26
+    learnset MOVE_MIRACLE_EYE, 29
+    learnset MOVE_PURSUIT, 32
+    learnset MOVE_IRON_DEFENSE, 35
+    learnset MOVE_FLASH_CANNON, 38
     learnset MOVE_TAKE_DOWN, 26
     learnset MOVE_BULLET_PUNCH, 26
     learnset MOVE_MIRACLE_EYE, 29
     learnset MOVE_PSYCHIC, 35
     learnset MOVE_SCARY_FACE, 38
-    learnset MOVE_METEOR_MASH, 47
-    learnset MOVE_IRON_DEFENSE, 52
-    learnset MOVE_AGILITY, 54
-    learnset MOVE_HYPER_BEAM, 62
+    learnset MOVE_AGILITY, 42
+    learnset MOVE_ZEN_HEADBUTT, 45
+    learnset MOVE_IRON_HEAD, 48
+    learnset MOVE_SHIFT_GEAR, 52
+    learnset MOVE_PSYCHIC_FANGS, 55
+    learnset MOVE_EARTHQUAKE, 58
+    learnset MOVE_METEOR_MASH, 62
     terminatelearnset
 
 
 levelup SPECIES_METAGROSS
     learnset MOVE_HAMMER_ARM, 0
     learnset MOVE_HAMMER_ARM, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_BULLET_PUNCH, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_MAGNET_RISE, 1
+    learnset MOVE_EXPLOSION, 1
     learnset MOVE_TAKE_DOWN, 1
-    learnset MOVE_MAGNET_RISE, 12
-    learnset MOVE_FLASH_CANNON, 16
-    learnset MOVE_ZEN_HEADBUTT, 18
-    learnset MOVE_PURSUIT, 23
+    learnset MOVE_TACKLE, 10
+    learnset MOVE_MAGNET_RISE, 23
+    learnset MOVE_METAL_CLAW, 26
+    learnset MOVE_PSYBEAM, 26
+    learnset MOVE_MIRACLE_EYE, 29
+    learnset MOVE_PURSUIT, 32
+    learnset MOVE_IRON_DEFENSE, 35
+    learnset MOVE_FLASH_CANNON, 38
     learnset MOVE_TAKE_DOWN, 26
     learnset MOVE_BULLET_PUNCH, 26
     learnset MOVE_MIRACLE_EYE, 29
     learnset MOVE_PSYCHIC, 35
     learnset MOVE_SCARY_FACE, 38
-    learnset MOVE_METEOR_MASH, 48
-    learnset MOVE_IRON_DEFENSE, 57
-    learnset MOVE_AGILITY, 57
-    learnset MOVE_HYPER_BEAM, 71
+    learnset MOVE_AGILITY, 42
+    learnset MOVE_ZEN_HEADBUTT, 45
+    learnset MOVE_IRON_HEAD, 48
+    learnset MOVE_SHIFT_GEAR, 52
+    learnset MOVE_PSYCHIC_FANGS, 55
+    learnset MOVE_EARTHQUAKE, 58
+    learnset MOVE_METEOR_MASH, 62
     terminatelearnset
 
 
