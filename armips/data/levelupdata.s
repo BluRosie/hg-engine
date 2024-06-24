@@ -1562,49 +1562,56 @@ levelup SPECIES_ABRA
 levelup SPECIES_KADABRA
     learnset MOVE_CONFUSION, 0
     learnset MOVE_KINESIS, 0
+    learnset MOVE_DISABLE, 0
     learnset MOVE_CONFUSION, 1
     learnset MOVE_KINESIS, 1
     learnset MOVE_DISABLE, 1
     learnset MOVE_TELEPORT, 1
-    learnset MOVE_PSYBEAM, 12
-    learnset MOVE_CONFUSION, 16
-    learnset MOVE_REFLECT, 17
-    learnset MOVE_DISABLE, 18
-    learnset MOVE_PSYCHO_CUT, 23
-    learnset MOVE_MIRACLE_EYE, 23
-    learnset MOVE_ALLY_SWITCH, 24
-    learnset MOVE_RECOVER, 27
-    learnset MOVE_PSYSHOCK, 30
-    learnset MOVE_TELEKINESIS, 33
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_ROLE_PLAY, 40
-    learnset MOVE_FUTURE_SIGHT, 44
-    learnset MOVE_TRICK, 46
+    learnset MOVE_GLARE, 1
+    learnset MOVE_MIMIC, 1
+    learnset MOVE_REFLECT, 20
+    learnset MOVE_LIGHT_SCREEN, 20
+    learnset MOVE_ICY_WIND, 23
+    learnset MOVE_PSYCHO_CUT, 26
+    learnset MOVE_RECOVER, 29
+    learnset MOVE_PSYBEAM, 32
+    learnset MOVE_HYPNOSIS, 35
+    learnset MOVE_AURA_SPHERE, 38
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_TRI_ATTACK, 46
     learnset MOVE_CALM_MIND, 50
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_SHADOW_BALL, 58
+    learnset MOVE_NASTY_PLOT, 62
+    learnset MOVE_FUTURE_SIGHT, 65
     terminatelearnset
 
 
 levelup SPECIES_ALAKAZAM
-    learnset MOVE_KINESIS, 0
+    learnset MOVE_BARRIER, 1
+    learnset MOVE_ENCORE, 1
+    learnset MOVE_DOUBLE_TEAM, 1
     learnset MOVE_CONFUSION, 1
     learnset MOVE_KINESIS, 1
     learnset MOVE_DISABLE, 1
     learnset MOVE_TELEPORT, 1
-    learnset MOVE_PSYBEAM, 12
-    learnset MOVE_CONFUSION, 16
-    learnset MOVE_REFLECT, 17
-    learnset MOVE_DISABLE, 18
-    learnset MOVE_PSYCHO_CUT, 23
-    learnset MOVE_MIRACLE_EYE, 23
-    learnset MOVE_ALLY_SWITCH, 24
-    learnset MOVE_RECOVER, 27
-    learnset MOVE_PSYSHOCK, 30
-    learnset MOVE_TELEKINESIS, 33
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_ROLE_PLAY, 40
-    learnset MOVE_FUTURE_SIGHT, 44
-    learnset MOVE_CALM_MIND, 45
-    learnset MOVE_TRICK, 46
+    learnset MOVE_GLARE, 1
+    learnset MOVE_MIMIC, 1
+    learnset MOVE_REFLECT, 20
+    learnset MOVE_LIGHT_SCREEN, 20
+    learnset MOVE_ICY_WIND, 23
+    learnset MOVE_PSYCHO_CUT, 26
+    learnset MOVE_RECOVER, 29
+    learnset MOVE_PSYBEAM, 32
+    learnset MOVE_HYPNOSIS, 35
+    learnset MOVE_AURA_SPHERE, 38
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_TRI_ATTACK, 46
+    learnset MOVE_CALM_MIND, 50
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_SHADOW_BALL, 58
+    learnset MOVE_NASTY_PLOT, 62
+    learnset MOVE_FUTURE_SIGHT, 65
     terminatelearnset
 
 
