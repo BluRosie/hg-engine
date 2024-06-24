@@ -1018,7 +1018,7 @@ levelup SPECIES_ZUBAT
     learnset MOVE_CRUNCH, 48
     learnset MOVE_HAZE, 51
     learnset MOVE_POISON_JAB, 54
-    learnset MOVE_PSYCHIC, 57
+    learnset MOVE_ZEN_HEADBUTT, 57
     learnset MOVE_BRAVE_BIRD, 60
     learnset MOVE_GUNK_SHOT, 64
     terminatelearnset
@@ -1049,7 +1049,7 @@ levelup SPECIES_GOLBAT
     learnset MOVE_CRUNCH, 49
     learnset MOVE_HAZE, 52
     learnset MOVE_POISON_JAB, 55
-    learnset MOVE_PSYCHIC, 58
+    learnset MOVE_ZEN_HEADBUTT, 58
     learnset MOVE_BRAVE_BIRD, 61
     learnset MOVE_GUNK_SHOT, 65
     terminatelearnset
@@ -3999,7 +3999,7 @@ levelup SPECIES_CROBAT
     learnset MOVE_CRUNCH, 50
     learnset MOVE_HAZE, 53
     learnset MOVE_POISON_JAB, 56
-    learnset MOVE_PSYCHIC, 59
+    learnset MOVE_ZEN_HEADBUTT, 59
     learnset MOVE_BRAVE_BIRD, 61
     learnset MOVE_GUNK_SHOT, 65
     terminatelearnset
