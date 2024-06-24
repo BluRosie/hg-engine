@@ -859,51 +859,72 @@ levelup SPECIES_CLEFABLE
 
 
 levelup SPECIES_VULPIX
-    learnset MOVE_EMBER, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_DISABLE, 4
-    learnset MOVE_TAIL_WHIP, 4
+    learnset MOVE_EMBER, 1
+    learnset MOVE_DISABLE, 3
+    learnset MOVE_QUICK_ATTACK, 5
     learnset MOVE_ROAR, 7
-    learnset MOVE_QUICK_ATTACK, 8
     learnset MOVE_BABY_DOLL_EYES, 9
-    learnset MOVE_SPITE, 12
-    learnset MOVE_INCINERATE, 16
-    learnset MOVE_CONFUSE_RAY, 16
-    learnset MOVE_PAYBACK, 18
-    learnset MOVE_WILL_O_WISP, 22
-    learnset MOVE_FEINT_ATTACK, 23
-    learnset MOVE_HEX, 26
-    learnset MOVE_FIRE_SPIN, 28
-    learnset MOVE_FLAME_BURST, 28
-    learnset MOVE_EXTRASENSORY, 29
-    learnset MOVE_FLAMETHROWER, 33
-    learnset MOVE_IMPRISON, 37
-    learnset MOVE_SAFEGUARD, 39
-    learnset MOVE_CAPTIVATE, 47
-    learnset MOVE_INFERNO, 48
-    learnset MOVE_GRUDGE, 48
-    learnset MOVE_FIRE_BLAST, 49
+    learnset MOVE_SPITE, 11
+    learnset MOVE_FIRE_SPIN, 13
+    learnset MOVE_WILL_O_WISP, 15
+    learnset MOVE_CONFUSE_RAY, 17
+    learnset MOVE_PAYBACK, 19
+    learnset MOVE_IMPRISON, 21
+    learnset MOVE_FLAME_WHEEL, 23
+    learnset MOVE_FEINT_ATTACK, 25
+    learnset MOVE_INCINERATE, 27
+    learnset MOVE_CAPTIVATE, 29
+    learnset MOVE_FLAME_BURST, 31
+    learnset MOVE_SAFEGUARD, 33
+    learnset MOVE_HEX, 35
+    learnset MOVE_DOUBLE_TEAM, 37
+    learnset MOVE_SNARL, 39
+    learnset MOVE_EXTRASENSORY, 42
+    learnset MOVE_FLAMETHROWER, 45
+    learnset MOVE_SPITE, 48
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_HEAT_WAVE, 54
+    learnset MOVE_ENCORE, 57
+    learnset MOVE_FIRE_BLAST, 60
+    learnset MOVE_GRUDGE, 64
     terminatelearnset
 
 
 levelup SPECIES_NINETALES
-    learnset MOVE_NASTY_PLOT, 1
-    learnset MOVE_INCINERATE, 1
-    learnset MOVE_SPITE, 1
-    learnset MOVE_CONFUSE_RAY, 1
-    learnset MOVE_WILL_O_WISP, 1
-    learnset MOVE_EXTRASENSORY, 1
-    learnset MOVE_FLAMETHROWER, 1
-    learnset MOVE_IMPRISON, 1
-    learnset MOVE_FIRE_SPIN, 1
-    learnset MOVE_SAFEGUARD, 1
-    learnset MOVE_INFERNO, 1
-    learnset MOVE_GRUDGE, 1
-    learnset MOVE_FIRE_BLAST, 1
-    learnset MOVE_EMBER, 1
+    learnset MOVE_HYPNOSIS, 0
+    learnset MOVE_HYPNOSIS, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_DISABLE, 1
-    learnset MOVE_QUICK_ATTACK, 1
+    learnset MOVE_EMBER, 1
+    learnset MOVE_DISABLE, 3
+    learnset MOVE_QUICK_ATTACK, 5
+    learnset MOVE_ROAR, 7
+    learnset MOVE_BABY_DOLL_EYES, 9
+    learnset MOVE_SPITE, 11
+    learnset MOVE_FIRE_SPIN, 13
+    learnset MOVE_WILL_O_WISP, 15
+    learnset MOVE_CONFUSE_RAY, 17
+    learnset MOVE_PAYBACK, 19
+    learnset MOVE_IMPRISON, 21
+    learnset MOVE_FLAME_WHEEL, 23
+    learnset MOVE_FEINT_ATTACK, 25
+    learnset MOVE_INCINERATE, 27
+    learnset MOVE_CAPTIVATE, 29
+    learnset MOVE_FLAME_BURST, 31
+    learnset MOVE_SAFEGUARD, 33
+    learnset MOVE_HEX, 35
+    learnset MOVE_DOUBLE_TEAM, 37
+    learnset MOVE_SNARL, 39
+    learnset MOVE_EXTRASENSORY, 42
+    learnset MOVE_FLAMETHROWER, 45
+    learnset MOVE_SPITE, 48
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_HEAT_WAVE, 54
+    learnset MOVE_ENCORE, 57
+    learnset MOVE_FIRE_BLAST, 60
+    learnset MOVE_GRUDGE, 64
     terminatelearnset
 
 
