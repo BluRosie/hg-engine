@@ -1381,51 +1381,65 @@ levelup SPECIES_GOLDUCK
 
 
 levelup SPECIES_MANKEY
-    learnset MOVE_COVET, 1
     learnset MOVE_SCRATCH, 1
-    learnset MOVE_LOW_KICK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_FURY_SWIPES, 5
-    learnset MOVE_KARATE_CHOP, 8
-    learnset MOVE_PURSUIT, 12
-    learnset MOVE_SEISMIC_TOSS, 15
-    learnset MOVE_SWAGGER, 19
-    learnset MOVE_CROSS_CHOP, 22
-    learnset MOVE_ASSURANCE, 26
-    learnset MOVE_PUNISHMENT, 29
-    learnset MOVE_THRASH, 33
-    learnset MOVE_CLOSE_COMBAT, 36
-    learnset MOVE_SCREECH, 40
-    learnset MOVE_STOMPING_TANTRUM, 43
-    learnset MOVE_OUTRAGE, 47
-    learnset MOVE_FINAL_GAMBIT, 50
+    learnset MOVE_LOW_KICK, 4
+    learnset MOVE_FURY_SWIPES, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_SEISMIC_TOSS, 16
+    learnset MOVE_SWAGGER, 18
+    learnset MOVE_ASSURANCE, 21
+    learnset MOVE_MACH_PUNCH, 24
+    learnset MOVE_SCREECH, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_DETECT, 33
+    learnset MOVE_LOW_SWEEP, 36
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_SUBMISSION, 42
+    learnset MOVE_RAGE_FIST, 45
+    learnset MOVE_AGILITY, 48
+    learnset MOVE_CROSS_CHOP, 51
+    learnset MOVE_POISON_JAB, 54
+    learnset MOVE_STOMPING_TANTRUM, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_CLOSE_COMBAT, 64
+    learnset MOVE_FINAL_GAMBIT, 68
     terminatelearnset
 
 
 levelup SPECIES_PRIMEAPE
     learnset MOVE_RAGE, 0
     learnset MOVE_RAGE, 1
-    learnset MOVE_FINAL_GAMBIT, 1
-    learnset MOVE_FLING, 1
+    learnset MOVE_ENCORE, 1
+    learnset MOVE_COUNTER, 1
+    learnset MOVE_FIRE_PUNCH, 1
+    learnset MOVE_THUNDER_PUNCH, 1
+    learnset MOVE_ICE_PUNCH, 1
     learnset MOVE_SCRATCH, 1
-    learnset MOVE_LOW_KICK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_FURY_SWIPES, 5
-    learnset MOVE_KARATE_CHOP, 8
-    learnset MOVE_PURSUIT, 12
-    learnset MOVE_SEISMIC_TOSS, 15
-    learnset MOVE_SWAGGER, 19
-    learnset MOVE_CROSS_CHOP, 22
-    learnset MOVE_ASSURANCE, 26
-    learnset MOVE_PUNISHMENT, 30
-    learnset MOVE_THRASH, 35
-    learnset MOVE_CLOSE_COMBAT, 39
-    learnset MOVE_SCREECH, 44
-    learnset MOVE_STOMPING_TANTRUM, 48
-    learnset MOVE_OUTRAGE, 53
-    learnset MOVE_FINAL_GAMBIT, 57
+    learnset MOVE_LOW_KICK, 4
+    learnset MOVE_FURY_SWIPES, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_SEISMIC_TOSS, 16
+    learnset MOVE_SWAGGER, 18
+    learnset MOVE_ASSURANCE, 21
+    learnset MOVE_MACH_PUNCH, 24
+    learnset MOVE_SCREECH, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_DETECT, 33
+    learnset MOVE_LOW_SWEEP, 36
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_SUBMISSION, 42
+    learnset MOVE_RAGE_FIST, 45
+    learnset MOVE_AGILITY, 48
+    learnset MOVE_CROSS_CHOP, 51
+    learnset MOVE_POISON_JAB, 54
+    learnset MOVE_STOMPING_TANTRUM, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_CLOSE_COMBAT, 64
+    learnset MOVE_FINAL_GAMBIT, 68
     terminatelearnset
 
 
@@ -22205,29 +22219,35 @@ levelup SPECIES_TATSUGIRI
 levelup SPECIES_ANNIHILAPE
     learnset MOVE_SHADOW_PUNCH, 0
     learnset MOVE_SHADOW_PUNCH, 1
+    learnset MOVE_ENCORE, 1
     learnset MOVE_COUNTER, 1
-    learnset MOVE_RAGE, 1
-    learnset MOVE_FINAL_GAMBIT, 1
-    learnset MOVE_FLING, 1
+    learnset MOVE_FIRE_PUNCH, 1
+    learnset MOVE_THUNDER_PUNCH, 1
+    learnset MOVE_ICE_PUNCH, 1
     learnset MOVE_SCRATCH, 1
-    learnset MOVE_KARATE_CHOP, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_FURY_SWIPES, 5
-    learnset MOVE_LOW_KICK, 8
-    learnset MOVE_PURSUIT, 12
-    learnset MOVE_SEISMIC_TOSS, 15
-    learnset MOVE_SWAGGER, 17
-    learnset MOVE_CROSS_CHOP, 22
-    learnset MOVE_ASSURANCE, 26
-    learnset MOVE_PUNISHMENT, 30
-    learnset MOVE_THRASH, 30
-    learnset MOVE_RAGE_FIST, 35	
-    learnset MOVE_CLOSE_COMBAT, 39
-    learnset MOVE_SCREECH, 44
-    learnset MOVE_STOMPING_TANTRUM, 48
-    learnset MOVE_OUTRAGE, 53
-    learnset MOVE_FINAL_GAMBIT, 57
+    learnset MOVE_LOW_KICK, 4
+    learnset MOVE_FURY_SWIPES, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_SEISMIC_TOSS, 16
+    learnset MOVE_SWAGGER, 18
+    learnset MOVE_ASSURANCE, 21
+    learnset MOVE_MACH_PUNCH, 24
+    learnset MOVE_SCREECH, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_DETECT, 33
+    learnset MOVE_LOW_SWEEP, 36
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_SUBMISSION, 42
+    learnset MOVE_RAGE_FIST, 45
+    learnset MOVE_AGILITY, 48
+    learnset MOVE_CROSS_CHOP, 51
+    learnset MOVE_POISON_JAB, 54
+    learnset MOVE_STOMPING_TANTRUM, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_CLOSE_COMBAT, 64
+    learnset MOVE_FINAL_GAMBIT, 68
     terminatelearnset
 
 levelup SPECIES_CLODSIRE
