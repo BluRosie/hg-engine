@@ -1057,44 +1057,55 @@ levelup SPECIES_GOLBAT
 
 levelup SPECIES_ODDISH
     learnset MOVE_ABSORB, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_ACID, 6
-    learnset MOVE_SWEET_SCENT, 6
+    learnset MOVE_LEECH_SEED, 1
+    learnset MOVE_ACID, 4
+    learnset MOVE_SWEET_SCENT, 7
+    learnset MOVE_MEGA_DRAIN, 10
     learnset MOVE_POISON_POWDER, 13
-    learnset MOVE_MEGA_DRAIN, 15
-    learnset MOVE_STUN_SPORE, 15
-    learnset MOVE_SLEEP_POWDER, 16
-    learnset MOVE_LUCKY_CHANT, 23
-    learnset MOVE_GIGA_DRAIN, 25
-    learnset MOVE_TOXIC, 29
-    learnset MOVE_MOONLIGHT, 31
-    learnset MOVE_MOONBLAST, 35
-    learnset MOVE_GRASSY_TERRAIN, 39
+    learnset MOVE_STUN_SPORE, 16
+    learnset MOVE_SLEEP_POWDER, 18
+    learnset MOVE_GROWTH, 21
+    learnset MOVE_TOXIC, 24
+    learnset MOVE_VENOSHOCK, 27
+    learnset MOVE_GIGA_DRAIN, 30
+    learnset MOVE_GRASSY_TERRAIN, 33
+    learnset MOVE_MOONLIGHT, 36
     learnset MOVE_NATURAL_GIFT, 39
-    learnset MOVE_PETAL_DANCE, 45
+    learnset MOVE_LUCKY_CHANT, 42
+    learnset MOVE_DAZZLING_GLEAM, 45
+    learnset MOVE_ENERGY_BALL, 48
+    learnset MOVE_SUNNY_DAY, 51
+    learnset MOVE_WEATHER_BALL, 54
+    learnset MOVE_SLUDGE_BOMB, 57
+    learnset MOVE_SOLAR_BEAM, 60
+    learnset MOVE_PETAL_DANCE, 64
     terminatelearnset
 
 
 levelup SPECIES_GLOOM
     learnset MOVE_ABSORB, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_SWEET_SCENT, 5
-    learnset MOVE_ACID, 9
-    learnset MOVE_POISON_POWDER, 13
-    learnset MOVE_MEGA_DRAIN, 15
-    learnset MOVE_STUN_SPORE, 15
-    learnset MOVE_SLEEP_POWDER, 16
-    learnset MOVE_LUCKY_CHANT, 24
-    learnset MOVE_GIGA_DRAIN, 26
-    learnset MOVE_TOXIC, 32
-    learnset MOVE_MOONBLAST, 32
+    learnset MOVE_LEECH_SEED, 1
+    learnset MOVE_ACID, 5
+    learnset MOVE_SWEET_SCENT, 8
+    learnset MOVE_MEGA_DRAIN, 11
+    learnset MOVE_POISON_POWDER, 14
+    learnset MOVE_STUN_SPORE, 17
+    learnset MOVE_SLEEP_POWDER, 19
+    learnset MOVE_GROWTH, 22
+    learnset MOVE_TOXIC, 25
+    learnset MOVE_VENOSHOCK, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_GRASSY_TERRAIN, 34
     learnset MOVE_MOONLIGHT, 37
-    learnset MOVE_NATURAL_GIFT, 44
-    learnset MOVE_GRASSY_TERRAIN, 45
-    learnset MOVE_PETAL_BLIZZARD, 49
-    learnset MOVE_PETAL_DANCE, 54
+    learnset MOVE_NATURAL_GIFT, 40
+    learnset MOVE_LUCKY_CHANT, 43
+    learnset MOVE_DAZZLING_GLEAM, 46
+    learnset MOVE_ENERGY_BALL, 49
+    learnset MOVE_SUNNY_DAY, 52
+    learnset MOVE_WEATHER_BALL, 55
+    learnset MOVE_SLUDGE_BOMB, 58
+    learnset MOVE_SOLAR_BEAM, 61
+    learnset MOVE_PETAL_DANCE, 65
     terminatelearnset
 
 
@@ -1102,23 +1113,29 @@ levelup SPECIES_VILEPLUME
     learnset MOVE_PETAL_BLIZZARD, 0
     learnset MOVE_PETAL_BLIZZARD, 1
     learnset MOVE_AROMATHERAPY, 1
-    learnset MOVE_MEGA_DRAIN, 1
-    learnset MOVE_POISON_POWDER, 1
-    learnset MOVE_STUN_SPORE, 1
-    learnset MOVE_SLEEP_POWDER, 1
-    learnset MOVE_GIGA_DRAIN, 1
-    learnset MOVE_TOXIC, 1
-    learnset MOVE_MOONBLAST, 1
-    learnset MOVE_GRASSY_TERRAIN, 1
-    learnset MOVE_MOONLIGHT, 1
-    learnset MOVE_PETAL_DANCE, 1
     learnset MOVE_ABSORB, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_PETAL_BLIZZARD, 49
-    learnset MOVE_PETAL_DANCE, 59
-    learnset MOVE_SOLAR_BEAM, 69
+    learnset MOVE_LEECH_SEED, 1
+    learnset MOVE_ACID, 5
+    learnset MOVE_SWEET_SCENT, 8
+    learnset MOVE_MEGA_DRAIN, 11
+    learnset MOVE_POISON_POWDER, 14
+    learnset MOVE_STUN_SPORE, 17
+    learnset MOVE_SLEEP_POWDER, 19
+    learnset MOVE_GROWTH, 22
+    learnset MOVE_TOXIC, 25
+    learnset MOVE_VENOSHOCK, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_GRASSY_TERRAIN, 34
+    learnset MOVE_MOONLIGHT, 37
+    learnset MOVE_NATURAL_GIFT, 40
+    learnset MOVE_LUCKY_CHANT, 43
+    learnset MOVE_DAZZLING_GLEAM, 46
+    learnset MOVE_ENERGY_BALL, 49
+    learnset MOVE_SUNNY_DAY, 52
+    learnset MOVE_WEATHER_BALL, 55
+    learnset MOVE_SLUDGE_BOMB, 58
+    learnset MOVE_SOLAR_BEAM, 61
+    learnset MOVE_PETAL_DANCE, 65
     terminatelearnset
 
 
@@ -4284,31 +4301,32 @@ levelup SPECIES_AMPHAROS
 
 
 levelup SPECIES_BELLOSSOM
-    learnset MOVE_PETAL_BLIZZARD, 0
     learnset MOVE_MAGICAL_LEAF, 0
-    learnset MOVE_PETAL_BLIZZARD, 1
-    learnset MOVE_QUIVER_DANCE, 1
-    learnset MOVE_MEGA_DRAIN, 1
-    learnset MOVE_POISON_POWDER, 1
-    learnset MOVE_STUN_SPORE, 1
-    learnset MOVE_SLEEP_POWDER, 1
-    learnset MOVE_GIGA_DRAIN, 1
-    learnset MOVE_TOXIC, 1
-    learnset MOVE_MOONBLAST, 1
-    learnset MOVE_GRASSY_TERRAIN, 1
-    learnset MOVE_MOONLIGHT, 1
-    learnset MOVE_PETAL_DANCE, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_SWEET_SCENT, 1
     learnset MOVE_MAGICAL_LEAF, 1
-    learnset MOVE_LEAF_STORM, 1
     learnset MOVE_LEAF_BLADE, 1
-    learnset MOVE_SUNNY_DAY, 1
-    learnset MOVE_QUIVER_DANCE, 39
-    learnset MOVE_PETAL_BLIZZARD, 49
-    learnset MOVE_PETAL_DANCE, 59
+    learnset MOVE_ABSORB, 1
+    learnset MOVE_LEECH_SEED, 1
+    learnset MOVE_ACID, 5
+    learnset MOVE_SWEET_SCENT, 8
+    learnset MOVE_MEGA_DRAIN, 11
+    learnset MOVE_POISON_POWDER, 14
+    learnset MOVE_STUN_SPORE, 17
+    learnset MOVE_SLEEP_POWDER, 19
+    learnset MOVE_GROWTH, 22
+    learnset MOVE_TOXIC, 25
+    learnset MOVE_VENOSHOCK, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_GRASSY_TERRAIN, 34
+    learnset MOVE_MOONLIGHT, 37
+    learnset MOVE_QUIVER_DANCE, 40
+    learnset MOVE_NATURAL_GIFT, 43
+    learnset MOVE_LUCKY_CHANT, 46
+    learnset MOVE_DAZZLING_GLEAM, 49
+    learnset MOVE_ENERGY_BALL, 52
+    learnset MOVE_SUNNY_DAY, 55
+    learnset MOVE_WEATHER_BALL, 58
+    learnset MOVE_SLUDGE_BOMB, 61
+    learnset MOVE_SOLAR_BEAM, 65
     learnset MOVE_LEAF_STORM, 69
     terminatelearnset
 
