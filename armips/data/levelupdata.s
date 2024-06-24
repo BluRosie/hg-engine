@@ -5615,22 +5615,26 @@ levelup SPECIES_MAGBY
 levelup SPECIES_MILTANK
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_GROWL, 3
+    learnset MOVE_ROLLOUT, 4
     learnset MOVE_DEFENSE_CURL, 7
-    learnset MOVE_ROLLOUT, 11
-    learnset MOVE_STOMP, 11
-    learnset MOVE_BIDE, 15
-    learnset MOVE_MILK_DRINK, 23
-    learnset MOVE_HEADBUTT, 25
-    learnset MOVE_ZEN_HEADBUTT, 29
-    learnset MOVE_BODY_SLAM, 32
-    learnset MOVE_HEAL_BELL, 33
-    learnset MOVE_CAPTIVATE, 35
-    learnset MOVE_GYRO_BALL, 41
-    learnset MOVE_PLAY_ROUGH, 45
-    learnset MOVE_CHARM, 50
-    learnset MOVE_WAKE_UP_SLAP, 50
-    learnset MOVE_HIGH_HORSEPOWER, 55
+    learnset MOVE_CHARM, 10
+    learnset MOVE_BIDE, 13
+    learnset MOVE_STOMP, 16
+    learnset MOVE_BULLDOZE, 18
+    learnset MOVE_MILK_DRINK, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_ZEN_HEADBUTT, 27
+    learnset MOVE_ROCK_SMASH, 30
+    learnset MOVE_CURSE, 33
+    learnset MOVE_FACADE, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_BODY_SLAM, 42
+    learnset MOVE_HEAL_BELL, 45
+    learnset MOVE_GYRO_BALL, 48
+    learnset MOVE_CAPTIVATE, 51
+    learnset MOVE_PLAY_ROUGH, 54
+    learnset MOVE_DOUBLE_EDGE, 57
+    learnset MOVE_HIGH_HORSEPOWER, 60
     terminatelearnset
 
 
