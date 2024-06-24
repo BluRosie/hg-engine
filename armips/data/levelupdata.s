@@ -11870,44 +11870,34 @@ levelup SPECIES_VICTINI
 
 
 levelup SPECIES_SNIVY
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_LEER, 4
-    learnset MOVE_VINE_WHIP, 7
-    learnset MOVE_WRAP, 10
-    learnset MOVE_GROWTH, 13
-    learnset MOVE_LEAF_TORNADO, 16
-    learnset MOVE_LEECH_SEED, 19
-    learnset MOVE_MEGA_DRAIN, 22
-    learnset MOVE_SLAM, 25
-    learnset MOVE_LEAF_BLADE, 28
-    learnset MOVE_COIL, 31
-    learnset MOVE_GIGA_DRAIN, 34
-    learnset MOVE_WRING_OUT, 37
-    learnset MOVE_GASTRO_ACID, 40
-    learnset MOVE_LEAF_STORM, 43
+    learnset MOVE_TACKLE,1                   
+    learnset MOVE_LEER,3           
+    learnset MOVE_VINE_WHIP,5               
+    learnset MOVE_WRAP,8                          
+    learnset MOVE_GROWTH,11         
+    learnset MOVE_MEGA_DRAIN,13        
+    learnset MOVE_LEECH_SEED,16     // status
+    learnset MOVE_LEAF_TORNADO,20           
     terminatelearnset
 
 
 levelup SPECIES_SERVINE
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_WRAP, 1
-    learnset MOVE_LEER, 4
-    learnset MOVE_VINE_WHIP, 7
-    learnset MOVE_WRAP, 10
-    learnset MOVE_GROWTH, 13
-    learnset MOVE_LEAF_TORNADO, 16
-    learnset MOVE_LEECH_SEED, 20
-    learnset MOVE_MEGA_DRAIN, 24
-    learnset MOVE_SLAM, 28
-    learnset MOVE_LEAF_BLADE, 32
-    learnset MOVE_COIL, 36
-    learnset MOVE_GIGA_DRAIN, 40
-    learnset MOVE_WRING_OUT, 44
-    learnset MOVE_GASTRO_ACID, 48
-    learnset MOVE_LEAF_STORM, 52
-    terminatelearnset
+    learnset MOVE_TACKLE,1                          // coverage
+    learnset MOVE_LEER,3            // status
+    learnset MOVE_VINE_WHIP,5                // stab
+    learnset MOVE_WRAP,8                            // coverage
+    learnset MOVE_GROWTH,11         // status
+    learnset MOVE_MEGA_DRAIN,13              / stab
+    learnset MOVE_LEECH_SEED,16     // status
+    learnset MOVE_MAGICAL_LEAF,20            // stab
+    learnset MOVE_SLAM,22                           // coverage
+    learnset MOVE_SYNTHESIS,25      // status
+    learnset MOVE_GRASS_KNOT,28              // stab
+    learnset MOVE_TWISTER,30                        // coverage
+    learnset MOVE_MAGNITUDE,34                      // coverage
+    learnset MOVE_DRAGON_DANCE,37   // status
+    learnset MOVE_LEAF_TORNADO,40           // stab
+    learnset MOVE_DRAGON_TAIL,44                    // coverage
 
 
 levelup SPECIES_SERPERIOR
