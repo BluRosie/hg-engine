@@ -1616,80 +1616,94 @@ levelup SPECIES_ALAKAZAM
 
 
 levelup SPECIES_MACHOP
-    learnset MOVE_LOW_KICK, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FOCUS_ENERGY, 3
-    learnset MOVE_KARATE_CHOP, 7
-    learnset MOVE_FORESIGHT, 9
-    learnset MOVE_LOW_SWEEP, 12
-    learnset MOVE_REVENGE, 13
-    learnset MOVE_KNOCK_OFF, 18
-    learnset MOVE_VITAL_THROW, 24
-    learnset MOVE_WAKE_UP_SLAP, 27
-    learnset MOVE_SEISMIC_TOSS, 28
-    learnset MOVE_STRENGTH, 29
-    learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_DUAL_CHOP, 31
-    learnset MOVE_SUBMISSION, 33
-    learnset MOVE_BULK_UP, 36
-    learnset MOVE_CROSS_CHOP, 43
-    learnset MOVE_DYNAMIC_PUNCH, 44
-    learnset MOVE_DOUBLE_EDGE, 52
+    learnset MOVE_LOW_KICK, 4
+    learnset MOVE_FORESIGHT, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_ROCK_THROW, 13
+    learnset MOVE_SCARY_FACE, 16
+    learnset MOVE_REVENGE, 18
+    learnset MOVE_KNOCK_OFF, 21
+    learnset MOVE_BULLET_PUNCH, 24
+    learnset MOVE_MACH_PUNCH, 27
+    learnset MOVE_BULK_UP, 30
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_LOW_SWEEP, 36
+    learnset MOVE_DUAL_CHOP, 39
+    learnset MOVE_DRAIN_PUNCH, 42
+    learnset MOVE_PAYBACK, 45
+    learnset MOVE_STRENGTH, 48
+    learnset MOVE_CROSS_CHOP, 52
+    learnset MOVE_POISON_JAB, 55
+    learnset MOVE_HEAVY_SLAM, 58
+    learnset MOVE_DYNAMIC_PUNCH, 62
+    learnset MOVE_STONE_EDGE, 65
+    learnset MOVE_CLOSE_COMBAT, 68
     terminatelearnset
 
 
 levelup SPECIES_MACHOKE
-    learnset MOVE_LOW_KICK, 1
+    learnset MOVE_COMET_PUNCH, 0
+    learnset MOVE_COMET_PUNCH, 1
+    learnset MOVE_COUNTER, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_REVENGE, 1
-    learnset MOVE_KARATE_CHOP, 1
-    learnset MOVE_FOCUS_ENERGY, 3
-    learnset MOVE_KARATE_CHOP, 7
-    learnset MOVE_FORESIGHT, 9
-    learnset MOVE_LOW_SWEEP, 12
-    learnset MOVE_KNOCK_OFF, 18
+    learnset MOVE_LOW_KICK, 5
+    learnset MOVE_FORESIGHT, 8
+    learnset MOVE_KARATE_CHOP, 11
+    learnset MOVE_ROCK_THROW, 14
+    learnset MOVE_SCARY_FACE, 17
     learnset MOVE_REVENGE, 19
-    learnset MOVE_VITAL_THROW, 24
-    learnset MOVE_WAKE_UP_SLAP, 27
-    learnset MOVE_STRENGTH, 31
-    learnset MOVE_SEISMIC_TOSS, 32
-    learnset MOVE_DUAL_CHOP, 34
-    learnset MOVE_SCARY_FACE, 35
-    learnset MOVE_SUBMISSION, 37
-    learnset MOVE_BULK_UP, 42
+    learnset MOVE_KNOCK_OFF, 22
+    learnset MOVE_BULLET_PUNCH, 25
+    learnset MOVE_MACH_PUNCH, 28
+    learnset MOVE_BULK_UP, 31
+    learnset MOVE_ROCK_SLIDE, 34
+    learnset MOVE_LOW_SWEEP, 37
+    learnset MOVE_DUAL_CHOP, 40
+    learnset MOVE_DRAIN_PUNCH, 43
+    learnset MOVE_PAYBACK, 46
+    learnset MOVE_STRENGTH, 49
     learnset MOVE_CROSS_CHOP, 53
-    learnset MOVE_DYNAMIC_PUNCH, 55
-    learnset MOVE_DOUBLE_EDGE, 66
+    learnset MOVE_POISON_JAB, 56
+    learnset MOVE_HEAVY_SLAM, 59
+    learnset MOVE_DYNAMIC_PUNCH, 63
+    learnset MOVE_STONE_EDGE, 66
+    learnset MOVE_CLOSE_COMBAT, 69
     terminatelearnset
 
 
 levelup SPECIES_MACHAMP
-    learnset MOVE_STRENGTH, 0
-    learnset MOVE_WIDE_GUARD, 1
-    learnset MOVE_LOW_KICK, 1
+    learnset MOVE_COUNTER, 1
+    learnset MOVE_ENCORE, 1
+    learnset MOVE_FIRE_PUNCH, 1
+    learnset MOVE_THUNDER_PUNCH, 1
+    learnset MOVE_ICE_PUNCH, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_REVENGE, 1
-    learnset MOVE_STRENGTH, 1
-    learnset MOVE_KARATE_CHOP, 1
-    learnset MOVE_FOCUS_ENERGY, 3
-    learnset MOVE_KARATE_CHOP, 7
+    learnset MOVE_LOW_KICK, 6
     learnset MOVE_FORESIGHT, 9
-    learnset MOVE_LOW_SWEEP, 12
-    learnset MOVE_KNOCK_OFF, 18
-    learnset MOVE_REVENGE, 19
-    learnset MOVE_VITAL_THROW, 24
-    learnset MOVE_WAKE_UP_SLAP, 27
-    learnset MOVE_STRENGTH, 31
-    learnset MOVE_SEISMIC_TOSS, 32
-    learnset MOVE_DUAL_CHOP, 34
-    learnset MOVE_SCARY_FACE, 35
-    learnset MOVE_SUBMISSION, 37
-    learnset MOVE_BULK_UP, 42
-    learnset MOVE_CROSS_CHOP, 53
-    learnset MOVE_DYNAMIC_PUNCH, 55
-    learnset MOVE_DOUBLE_EDGE, 66
+    learnset MOVE_KARATE_CHOP, 12
+    learnset MOVE_ROCK_THROW, 15
+    learnset MOVE_SCARY_FACE, 18
+    learnset MOVE_REVENGE, 20
+    learnset MOVE_KNOCK_OFF, 23
+    learnset MOVE_BULLET_PUNCH, 26
+    learnset MOVE_MACH_PUNCH, 29
+    learnset MOVE_BULK_UP, 32
+    learnset MOVE_ROCK_SLIDE, 35
+    learnset MOVE_LOW_SWEEP, 38
+    learnset MOVE_DUAL_CHOP, 41
+    learnset MOVE_DRAIN_PUNCH, 44
+    learnset MOVE_PAYBACK, 47
+    learnset MOVE_STRENGTH, 50
+    learnset MOVE_CROSS_CHOP, 54
+    learnset MOVE_POISON_JAB, 57
+    learnset MOVE_HEAVY_SLAM, 60
+    learnset MOVE_DYNAMIC_PUNCH, 64
+    learnset MOVE_STONE_EDGE, 67
+    learnset MOVE_CLOSE_COMBAT, 70
     terminatelearnset
 
 
