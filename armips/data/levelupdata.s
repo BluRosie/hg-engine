@@ -998,46 +998,60 @@ levelup SPECIES_WIGGLYTUFF
 
 
 levelup SPECIES_ZUBAT
-    learnset MOVE_ABSORB, 1
+    learnset MOVE_POISON_STING, 1
     learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_ASTONISH, 5
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_WING_ATTACK, 13
-    learnset MOVE_MEAN_LOOK, 18
-    learnset MOVE_POISON_FANG, 19
-    learnset MOVE_BITE, 21
-    learnset MOVE_AIR_CUTTER, 22
-    learnset MOVE_SWIFT, 23
-    learnset MOVE_QUICK_GUARD, 30
-    learnset MOVE_CONFUSE_RAY, 31
-    learnset MOVE_HAZE, 35
-    learnset MOVE_VENOSHOCK, 38
-    learnset MOVE_LEECH_LIFE, 43
-    learnset MOVE_AIR_SLASH, 45
+    learnset MOVE_ASTONISH, 4
+    learnset MOVE_HYPNOSIS, 7
+    learnset MOVE_GUST, 10
+    learnset MOVE_SONIC_BOOM, 13
+    learnset MOVE_BITE, 16
+    learnset MOVE_POISON_FANG, 18
+    learnset MOVE_SCREECH, 21
+    learnset MOVE_AERIAL_ACE, 24
+    learnset MOVE_MEAN_LOOK, 27
+    learnset MOVE_U_TURN, 30
+    learnset MOVE_ACROBATICS, 33
+    learnset MOVE_TOXIC, 36
+    learnset MOVE_VENOSHOCK, 39
+    learnset MOVE_AIR_SLASH, 42
+    learnset MOVE_LEECH_LIFE, 45
+    learnset MOVE_CRUNCH, 48
+    learnset MOVE_HAZE, 51
+    learnset MOVE_POISON_JAB, 54
+    learnset MOVE_PSYCHIC, 57
+    learnset MOVE_BRAVE_BIRD, 60
+    learnset MOVE_GUNK_SHOT, 64
     terminatelearnset
 
 
 levelup SPECIES_GOLBAT
-    learnset MOVE_SCREECH, 1
-    learnset MOVE_ABSORB, 1
+    learnset MOVE_CONFUSION, 0
+    learnset MOVE_CONFUSION, 1
+    learnset MOVE_WHIRLWIND, 1
+    learnset MOVE_QUICK_ATTACK, 1
+    learnset MOVE_POISON_STING, 1
     learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_ASTONISH, 1
-    learnset MOVE_MEAN_LOOK, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_ASTONISH, 7
-    learnset MOVE_WING_ATTACK, 13
-    learnset MOVE_POISON_FANG, 20
-    learnset MOVE_AIR_CUTTER, 23
-    learnset MOVE_BITE, 23
-    learnset MOVE_SWIFT, 24
-    learnset MOVE_MEAN_LOOK, 32
-    learnset MOVE_QUICK_GUARD, 34
-    learnset MOVE_CONFUSE_RAY, 37
-    learnset MOVE_HAZE, 40
-    learnset MOVE_VENOSHOCK, 45
-    learnset MOVE_LEECH_LIFE, 53
-    learnset MOVE_AIR_SLASH, 55
+    learnset MOVE_ASTONISH, 5
+    learnset MOVE_HYPNOSIS, 8
+    learnset MOVE_GUST, 11
+    learnset MOVE_SONIC_BOOM, 14
+    learnset MOVE_BITE, 17
+    learnset MOVE_POISON_FANG, 19
+    learnset MOVE_SCREECH, 22
+    learnset MOVE_AERIAL_ACE, 25
+    learnset MOVE_MEAN_LOOK, 28
+    learnset MOVE_U_TURN, 31
+    learnset MOVE_ACROBATICS, 34
+    learnset MOVE_TOXIC, 37
+    learnset MOVE_VENOSHOCK, 40
+    learnset MOVE_AIR_SLASH, 43
+    learnset MOVE_LEECH_LIFE, 46
+    learnset MOVE_CRUNCH, 49
+    learnset MOVE_HAZE, 52
+    learnset MOVE_POISON_JAB, 55
+    learnset MOVE_PSYCHIC, 58
+    learnset MOVE_BRAVE_BIRD, 61
+    learnset MOVE_GUNK_SHOT, 65
     terminatelearnset
 
 
@@ -3963,27 +3977,31 @@ levelup SPECIES_CROBAT
     learnset MOVE_CROSS_POISON, 0
     learnset MOVE_CROSS_POISON, 1
     learnset MOVE_TAILWIND, 1
-    learnset MOVE_TOXIC, 1
-    learnset MOVE_SCREECH, 1
-    learnset MOVE_ABSORB, 1
+    learnset MOVE_WHIRLWIND, 1
+    learnset MOVE_QUICK_ATTACK, 1   
+    learnset MOVE_POISON_STING, 1
     learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_ASTONISH, 1
-    learnset MOVE_MEAN_LOOK, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_ASTONISH, 7
-    learnset MOVE_WING_ATTACK, 13
+    learnset MOVE_ASTONISH, 6
+    learnset MOVE_HYPNOSIS, 9
+    learnset MOVE_GUST, 12
+    learnset MOVE_SONIC_BOOM, 15
+    learnset MOVE_BITE, 18
     learnset MOVE_POISON_FANG, 20
-    learnset MOVE_AIR_CUTTER, 23
-    learnset MOVE_BITE, 23
-    learnset MOVE_SWIFT, 24
-    learnset MOVE_MEAN_LOOK, 32
-    learnset MOVE_QUICK_GUARD, 34
-    learnset MOVE_CONFUSE_RAY, 37
-    learnset MOVE_HAZE, 40
-    learnset MOVE_VENOSHOCK, 45
-    learnset MOVE_LEECH_LIFE, 53
-    learnset MOVE_AIR_SLASH, 55
+    learnset MOVE_SCREECH, 23
+    learnset MOVE_AERIAL_ACE, 26
+    learnset MOVE_MEAN_LOOK, 29
+    learnset MOVE_U_TURN, 32
+    learnset MOVE_ACROBATICS, 35
+    learnset MOVE_TOXIC, 38
+    learnset MOVE_VENOSHOCK, 41
+    learnset MOVE_AIR_SLASH, 44
+    learnset MOVE_LEECH_LIFE, 47
+    learnset MOVE_CRUNCH, 50
+    learnset MOVE_HAZE, 53
+    learnset MOVE_POISON_JAB, 56
+    learnset MOVE_PSYCHIC, 59
+    learnset MOVE_BRAVE_BIRD, 61
+    learnset MOVE_GUNK_SHOT, 65
     terminatelearnset
 
 
