@@ -797,64 +797,74 @@ levelup SPECIES_NIDOKING
 
 
 levelup SPECIES_CLEFAIRY
-    learnset MOVE_SING, 1
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_ENCORE, 1
-    learnset MOVE_CHARM, 1
+    learnset MOVE_AFTER_YOU, 1
+    learnset MOVE_HEALING_WISH, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_SPOTLIGHT, 1
     learnset MOVE_SPLASH, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_SPOTLIGHT, 1
-    learnset MOVE_SING, 7
-    learnset MOVE_DOUBLE_SLAP, 10
-    learnset MOVE_DEFENSE_CURL, 13
-    learnset MOVE_STORED_POWER, 15
-    learnset MOVE_MINIMIZE, 15
-    learnset MOVE_LIFE_DEW, 16
-    learnset MOVE_BESTOW, 19
-    learnset MOVE_WAKE_UP_SLAP, 22
-    learnset MOVE_METRONOME, 25
-    learnset MOVE_FOLLOW_ME, 26
-    learnset MOVE_MOONLIGHT, 32
-    learnset MOVE_AFTER_YOU, 33
-    learnset MOVE_GRAVITY, 37
-    learnset MOVE_COSMIC_POWER, 37
-    learnset MOVE_LUCKY_CHANT, 37
-    learnset MOVE_METEOR_MASH, 40
-    learnset MOVE_BODY_SLAM, 40
-    learnset MOVE_MOONBLAST, 44
-    learnset MOVE_HEALING_WISH, 51
+    learnset MOVE_CHARM, 1
+    learnset MOVE_ENCORE, 4
+    learnset MOVE_SING, 6
+    learnset MOVE_DEFENSE_CURL, 7
+    learnset MOVE_DOUBLE_SLAP, 9
+    learnset MOVE_SWEET_KISS, 11
+    learnset MOVE_DISARMING_VOICE, 13
+    learnset MOVE_MINIMIZE, 16
+    learnset MOVE_MAGICAL_LEAF, 18
+    learnset MOVE_CHARM, 21
+    learnset MOVE_FAIRY_WIND, 24
+    learnset MOVE_METRONOME, 27
+    learnset MOVE_DRAINING_KISS, 29
+    learnset MOVE_LIGHT_SCREEN, 32
+    learnset MOVE_MIMIC, 34
+    learnset MOVE_CALM_MIND, 38
+    learnset MOVE_DOUBLE_EDGE, 40
+    learnset MOVE_METEOR_MASH, 42
+    learnset MOVE_COSMIC_POWER, 46
+    learnset MOVE_STORED_POWER, 48
+    learnset MOVE_PSYCHIC, 50
+    learnset MOVE_MOONLIGHT, 52
+    learnset MOVE_MOONBLAST, 54
+    learnset MOVE_AMNESIA, 56
+    learnset MOVE_BATON_PASS, 58
     terminatelearnset
 
 
 levelup SPECIES_CLEFABLE
-    learnset MOVE_SING, 1
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_ENCORE, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_STORED_POWER, 1
-    learnset MOVE_MINIMIZE, 1
     learnset MOVE_AFTER_YOU, 1
-    learnset MOVE_LIFE_DEW, 1
-    learnset MOVE_METRONOME, 1
-    learnset MOVE_MOONLIGHT, 1
-    learnset MOVE_GRAVITY, 1
-    learnset MOVE_METEOR_MASH, 1
-    learnset MOVE_FOLLOW_ME, 1
-    learnset MOVE_COSMIC_POWER, 1
-    learnset MOVE_MOONBLAST, 1
     learnset MOVE_HEALING_WISH, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_SPOTLIGHT, 1
     learnset MOVE_SPLASH, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_SPOTLIGHT, 1
-    learnset MOVE_DOUBLE_SLAP, 1
+    learnset MOVE_CHARM, 1
+    learnset MOVE_ENCORE, 5
+    learnset MOVE_SING, 7
+    learnset MOVE_DEFENSE_CURL, 8
+    learnset MOVE_DOUBLE_SLAP, 10
+    learnset MOVE_SWEET_KISS, 12
+    learnset MOVE_DISARMING_VOICE, 14
+    learnset MOVE_MINIMIZE, 17
+    learnset MOVE_MAGICAL_LEAF, 19
+    learnset MOVE_CHARM, 22
+    learnset MOVE_FAIRY_WIND, 25
+    learnset MOVE_METRONOME, 28
+    learnset MOVE_DRAINING_KISS, 30
+    learnset MOVE_LIGHT_SCREEN, 33
+    learnset MOVE_MIMIC, 35
+    learnset MOVE_CALM_MIND, 39
+    learnset MOVE_DOUBLE_EDGE, 41
+    learnset MOVE_METEOR_MASH, 43
+    learnset MOVE_COSMIC_POWER, 47
+    learnset MOVE_STORED_POWER, 49
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_MOONLIGHT, 53
+    learnset MOVE_MOONBLAST, 55
+    learnset MOVE_AMNESIA, 57
+    learnset MOVE_BATON_PASS, 59
     terminatelearnset
 
 
@@ -4053,13 +4063,25 @@ levelup SPECIES_CLEFFA
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
     learnset MOVE_CHARM, 1
+    learnset MOVE_ENCORE, 3
     learnset MOVE_SING, 5
-    learnset MOVE_SWEET_KISS, 8
-    learnset MOVE_ENCORE, 10
+    learnset MOVE_DEFENSE_CURL, 6
+    learnset MOVE_DOUBLE_SLAP, 8
+    learnset MOVE_SWEET_KISS, 10
     learnset MOVE_DISARMING_VOICE, 12
-    learnset MOVE_COPYCAT, 13
-    learnset MOVE_MAGICAL_LEAF, 16
+    learnset MOVE_MINIMIZE, 15
+    learnset MOVE_MAGICAL_LEAF, 17
     learnset MOVE_CHARM, 20
+    learnset MOVE_FAIRY_WIND, 23
+    learnset MOVE_METRONOME, 26
+    learnset MOVE_DRAINING_KISS, 28
+    learnset MOVE_LIGHT_SCREEN, 31
+    learnset MOVE_MIMIC, 33
+    learnset MOVE_CALM_MIND, 37
+    learnset MOVE_DOUBLE_EDGE, 39
+    learnset MOVE_PSYCHIC, 49
+    learnset MOVE_MOONLIGHT, 51
+    learnset MOVE_MOONBLAST, 53
     terminatelearnset
 
 
