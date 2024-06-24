@@ -1444,44 +1444,59 @@ levelup SPECIES_PRIMEAPE
 
 
 levelup SPECIES_GROWLITHE
-    learnset MOVE_EMBER, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_HOWL, 4
-    learnset MOVE_BITE, 8
-    learnset MOVE_FLAME_WHEEL, 12
+    learnset MOVE_EMBER, 4
+    learnset MOVE_HOWL, 7
+    learnset MOVE_BITE, 10
+    learnset MOVE_FLAME_WHEEL, 13
     learnset MOVE_HELPING_HAND, 16
-    learnset MOVE_AGILITY, 20
+    learnset MOVE_SNARL, 18
+    learnset MOVE_HEADBUTT, 21
     learnset MOVE_FIRE_FANG, 24
-    learnset MOVE_RETALIATE, 28
-    learnset MOVE_CRUNCH, 32
-    learnset MOVE_TAKE_DOWN, 36
-    learnset MOVE_FLAMETHROWER, 40
-    learnset MOVE_ROAR, 44
-    learnset MOVE_PLAY_ROUGH, 48
-    learnset MOVE_REVERSAL, 52
-    learnset MOVE_FLARE_BLITZ, 56
+    learnset MOVE_WORK_UP, 27
+    learnset MOVE_THUNDER_FANG, 30
+    learnset MOVE_CRUNCH, 33
+    learnset MOVE_FLAME_BURST, 36
+    learnset MOVE_AGILITY, 39
+    learnset MOVE_FLAMETHROWER, 42
+    learnset MOVE_TAKE_DOWN, 45
+    learnset MOVE_ROAR, 48
+    learnset MOVE_PLAY_ROUGH, 52
+    learnset MOVE_REVERSAL, 55
+    learnset MOVE_EXTREME_SPEED, 58
+    learnset MOVE_FLARE_BLITZ, 62
+    learnset MOVE_RAGING_FURY, 65
     terminatelearnset
 
 
 levelup SPECIES_ARCANINE
-    learnset MOVE_EXTREME_SPEED, 0
-    learnset MOVE_EXTREME_SPEED, 1
-    learnset MOVE_AGILITY, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_CRUNCH, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_FIRE_FANG, 1
-    learnset MOVE_FLAME_WHEEL, 1
-    learnset MOVE_FLARE_BLITZ, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_HOWL, 1
+    learnset MOVE_RAGE, 0
+    learnset MOVE_RAGE, 1
+    learnset MOVE_DOUBLE_EDGE, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_PLAY_ROUGH, 1
-    learnset MOVE_RETALIATE, 1
-    learnset MOVE_REVERSAL, 1
-    learnset MOVE_ROAR, 1
-    learnset MOVE_TAKE_DOWN, 1
-    learnset MOVE_FLAMETHROWER, 5
+    learnset MOVE_EMBER, 6
+    learnset MOVE_HOWL, 9
+    learnset MOVE_BITE, 12
+    learnset MOVE_FLAME_WHEEL, 15
+    learnset MOVE_HELPING_HAND, 18
+    learnset MOVE_SNARL, 20
+    learnset MOVE_HEADBUTT, 23
+    learnset MOVE_FIRE_FANG, 26
+    learnset MOVE_WORK_UP, 29
+    learnset MOVE_THUNDER_FANG, 32
+    learnset MOVE_CRUNCH, 35
+    learnset MOVE_FLAME_BURST, 38
+    learnset MOVE_AGILITY, 41
+    learnset MOVE_FLAMETHROWER, 44
+    learnset MOVE_TAKE_DOWN, 47
+    learnset MOVE_ROAR, 50
+    learnset MOVE_PLAY_ROUGH, 54
+    learnset MOVE_REVERSAL, 57
+    learnset MOVE_EXTREME_SPEED, 60
+    learnset MOVE_FLARE_BLITZ, 64
+    learnset MOVE_RAGING_FURY, 67
     terminatelearnset
 
 
