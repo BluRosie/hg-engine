@@ -571,6 +571,7 @@ levelup SPECIES_PIKACHU
     learnset MOVE_THUNDERBOLT, 48
     learnset MOVE_LIGHT_SCREEN, 50
     learnset MOVE_THUNDER, 57
+    learnset MOVE_VOLT_TACKLE, 60
     terminatelearnset
 
 
