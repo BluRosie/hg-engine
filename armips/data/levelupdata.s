@@ -12389,39 +12389,53 @@ levelup SPECIES_UNFEZANT
 levelup SPECIES_BLITZLE
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_CHARGE, 8
-    learnset MOVE_SHOCK_WAVE, 11
-    learnset MOVE_THUNDER_WAVE, 15
-    learnset MOVE_FLAME_CHARGE, 18
-    learnset MOVE_PURSUIT, 22
-    learnset MOVE_SPARK, 25
-    learnset MOVE_STOMP, 29
-    learnset MOVE_DISCHARGE, 32
-    learnset MOVE_AGILITY, 36
-    learnset MOVE_WILD_CHARGE, 39
-    learnset MOVE_THRASH, 43
+    learnset MOVE_THUNDER_SHOCK, 7
+    learnset MOVE_CHARGE, 10
+    learnset MOVE_FLAME_CHARGE, 13
+    learnset MOVE_SHOCK_WAVE, 16
+    learnset MOVE_PURSUIT, 18
+    learnset MOVE_SCREECH, 21
+    learnset MOVE_SMART_STRIKE, 24
+    learnset MOVE_SPARK, 27
+    learnset MOVE_NIGHT_SLASH, 30
+    learnset MOVE_AGILITY, 33
+    learnset MOVE_VOLT_SWITCH, 36
+    learnset MOVE_BLAZE_KICK, 39
+    learnset MOVE_WILD_CHARGE, 42
+    learnset MOVE_BOUNCE, 45
+    learnset MOVE_TAUNT, 48
+    learnset MOVE_HIGH_HORSEPOWER, 51
+    learnset MOVE_SUPERCELL_SLAM, 54
+    learnset MOVE_HELPING_HAND, 57
+    learnset MOVE_FLARE_BLITZ, 60
+    learnset MOVE_VOLT_TACKLE, 64
     terminatelearnset
 
 
 levelup SPECIES_ZEBSTRIKA
     learnset MOVE_ION_DELUGE, 1
     learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_CHARGE, 1
-    learnset MOVE_THUNDER_WAVE, 1
-    learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_CHARGE, 8
-    learnset MOVE_SHOCK_WAVE, 11
-    learnset MOVE_THUNDER_WAVE, 15
-    learnset MOVE_FLAME_CHARGE, 18
-    learnset MOVE_PURSUIT, 22
-    learnset MOVE_SPARK, 25
-    learnset MOVE_STOMP, 31
-    learnset MOVE_DISCHARGE, 36
-    learnset MOVE_AGILITY, 42
-    learnset MOVE_WILD_CHARGE, 47
-    learnset MOVE_THRASH, 53
-    learnset MOVE_ION_DELUGE, 58
+    learnset MOVE_TAIL_WHIP, 5
+    learnset MOVE_THUNDER_SHOCK, 8
+    learnset MOVE_CHARGE, 11
+    learnset MOVE_FLAME_CHARGE, 14
+    learnset MOVE_SHOCK_WAVE, 17
+    learnset MOVE_PURSUIT, 19
+    learnset MOVE_SCREECH, 22
+    learnset MOVE_SMART_STRIKE, 25
+    learnset MOVE_SPARK, 28
+    learnset MOVE_NIGHT_SLASH, 31
+    learnset MOVE_AGILITY, 34
+    learnset MOVE_VOLT_SWITCH, 37
+    learnset MOVE_BLAZE_KICK, 40
+    learnset MOVE_WILD_CHARGE, 43
+    learnset MOVE_BOUNCE, 46
+    learnset MOVE_TAUNT, 49
+    learnset MOVE_HIGH_HORSEPOWER, 52
+    learnset MOVE_SUPERCELL_SLAM, 55
+    learnset MOVE_HELPING_HAND, 58
+    learnset MOVE_FLARE_BLITZ, 61
+    learnset MOVE_VOLT_TACKLE, 65
     terminatelearnset
 
 
