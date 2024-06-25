@@ -2467,50 +2467,60 @@ levelup SPECIES_ONIX
 
 
 levelup SPECIES_DROWZEE
-    learnset MOVE_HYPNOSIS, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_DISABLE, 5
-    learnset MOVE_CONFUSION, 9
+    learnset MOVE_DISABLE, 1
+    learnset MOVE_CONFUSION, 4
+    learnset MOVE_HYPNOSIS, 7
+    learnset MOVE_DRAINING_KISS, 10
     learnset MOVE_HEADBUTT, 13
-    learnset MOVE_POISON_GAS, 17
-    learnset MOVE_MEDITATE, 21
-    learnset MOVE_PSYBEAM, 25
-    learnset MOVE_WAKE_UP_SLAP, 29
+    learnset MOVE_POISON_GAS, 16
+    learnset MOVE_CONFUSE_RAY, 18
+    learnset MOVE_MEMENTO, 21
+    learnset MOVE_PSYBEAM, 24
+    learnset MOVE_WAKE_UP_SLAP, 27
+    learnset MOVE_ZEN_HEADBUTT, 30
     learnset MOVE_PSYCH_UP, 33
-    learnset MOVE_SYNCHRONOISE, 37
-    learnset MOVE_ZEN_HEADBUTT, 41
+    learnset MOVE_DRAIN_PUNCH, 36
+    learnset MOVE_CALM_MIND, 39
+    learnset MOVE_PSYSHOCK, 42
     learnset MOVE_SWAGGER, 45
-    learnset MOVE_PSYCHIC, 49
-    learnset MOVE_NASTY_PLOT, 53
-    learnset MOVE_PSYSHOCK, 57
-    learnset MOVE_FUTURE_SIGHT, 61
+    learnset MOVE_AURA_SPHERE, 48
+    learnset MOVE_NASTY_PLOT, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_DARK_PULSE, 57
+    learnset MOVE_DARK_VOID, 60
+    learnset MOVE_DREAM_EATER, 63
+    learnset MOVE_FUTURE_SIGHT, 66
     terminatelearnset
 
 
 levelup SPECIES_HYPNO
-    learnset MOVE_FUTURE_SIGHT, 1
-    learnset MOVE_NASTY_PLOT, 1
     learnset MOVE_NIGHTMARE, 1
     learnset MOVE_SWITCHEROO, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_HYPNOSIS, 1
     learnset MOVE_DISABLE, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_DISABLE, 5
-    learnset MOVE_CONFUSION, 9
-    learnset MOVE_HEADBUTT, 13
+    learnset MOVE_CONFUSION, 5
+    learnset MOVE_HYPNOSIS, 8
+    learnset MOVE_DRAINING_KISS, 11
+    learnset MOVE_HEADBUTT, 14
     learnset MOVE_POISON_GAS, 17
-    learnset MOVE_MEDITATE, 21
+    learnset MOVE_CONFUSE_RAY, 19
+    learnset MOVE_MEMENTO, 22
     learnset MOVE_PSYBEAM, 25
-    learnset MOVE_WAKE_UP_SLAP, 29
-    learnset MOVE_PSYCH_UP, 33
-    learnset MOVE_SYNCHRONOISE, 37
-    learnset MOVE_ZEN_HEADBUTT, 41
-    learnset MOVE_SWAGGER, 45
-    learnset MOVE_PSYCHIC, 49
-    learnset MOVE_NASTY_PLOT, 53
-    learnset MOVE_PSYSHOCK, 57
-    learnset MOVE_FUTURE_SIGHT, 61
+    learnset MOVE_WAKE_UP_SLAP, 28
+    learnset MOVE_ZEN_HEADBUTT, 31
+    learnset MOVE_PSYCH_UP, 34
+    learnset MOVE_DRAIN_PUNCH, 37
+    learnset MOVE_CALM_MIND, 40
+    learnset MOVE_PSYSHOCK, 43
+    learnset MOVE_SWAGGER, 46
+    learnset MOVE_AURA_SPHERE, 49
+    learnset MOVE_NASTY_PLOT, 52
+    learnset MOVE_PSYCHIC, 55
+    learnset MOVE_DARK_PULSE, 58
+    learnset MOVE_DARK_VOID, 61
+    learnset MOVE_DREAM_EATER, 64
+    learnset MOVE_FUTURE_SIGHT, 67
     terminatelearnset
 
 
