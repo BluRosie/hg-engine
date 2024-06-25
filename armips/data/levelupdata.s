@@ -2135,20 +2135,28 @@ levelup SPECIES_FARFETCHD
 levelup SPECIES_DODUO
     learnset MOVE_PECK, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_QUICK_ATTACK, 5
-    learnset MOVE_RAGE, 8
-    learnset MOVE_FURY_ATTACK, 12
-    learnset MOVE_PURSUIT, 15
-    learnset MOVE_PLUCK, 19
-    learnset MOVE_DOUBLE_HIT, 22
-    learnset MOVE_AGILITY, 26
-    learnset MOVE_UPROAR, 29
-    learnset MOVE_ACUPRESSURE, 33
-    learnset MOVE_SWORDS_DANCE, 36
-    learnset MOVE_JUMP_KICK, 40
-    learnset MOVE_DRILL_PECK, 43
-    learnset MOVE_ENDEAVOR, 47
-    learnset MOVE_THRASH, 50
+    learnset MOVE_PURSUIT, 4
+    learnset MOVE_QUICK_ATTACK, 7
+    learnset MOVE_RAGE, 10
+    learnset MOVE_MUD_SLAP, 13
+    learnset MOVE_FURY_ATTACK, 16
+    learnset MOVE_ASSURANCE, 18
+    learnset MOVE_PLUCK, 21
+    learnset MOVE_AGILITY, 24
+    learnset MOVE_DOUBLE_HIT, 27
+    learnset MOVE_LOW_KICK, 30
+    learnset MOVE_FEATHER_DANCE, 33
+    learnset MOVE_ACROBATICS, 36
+    learnset MOVE_LUNGE, 39
+    learnset MOVE_DRILL_PECK, 42
+    learnset MOVE_ACUPRESSURE, 45
+    learnset MOVE_JUMP_KICK, 48
+    learnset MOVE_ENDEAVOR, 51
+    learnset MOVE_BODY_SLAM, 54
+    learnset MOVE_DRILL_RUN, 57
+    learnset MOVE_BRAVE_BIRD, 60
+    learnset MOVE_THRASH, 63
+    learnset MOVE_DOUBLE_EDGE, 66
     terminatelearnset
 
 
@@ -2157,22 +2165,28 @@ levelup SPECIES_DODRIO
     learnset MOVE_TRI_ATTACK, 1
     learnset MOVE_PECK, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_RAGE, 1
-    learnset MOVE_QUICK_ATTACK, 5
-    learnset MOVE_RAGE, 8
-    learnset MOVE_FURY_ATTACK, 12
-    learnset MOVE_PURSUIT, 15
-    learnset MOVE_PLUCK, 19
-    learnset MOVE_DOUBLE_HIT, 22
-    learnset MOVE_AGILITY, 26
-    learnset MOVE_UPROAR, 29
-    learnset MOVE_ACUPRESSURE, 34
-    learnset MOVE_SWORDS_DANCE, 38
-    learnset MOVE_JUMP_KICK, 43
-    learnset MOVE_DRILL_PECK, 47
+    learnset MOVE_PURSUIT, 5
+    learnset MOVE_QUICK_ATTACK, 8
+    learnset MOVE_RAGE, 11
+    learnset MOVE_MUD_SLAP, 14
+    learnset MOVE_FURY_ATTACK, 17
+    learnset MOVE_ASSURANCE, 19
+    learnset MOVE_PLUCK, 22
+    learnset MOVE_AGILITY, 25
+    learnset MOVE_DOUBLE_HIT, 28
+    learnset MOVE_LOW_KICK, 31
+    learnset MOVE_FEATHER_DANCE, 34
+    learnset MOVE_ACROBATICS, 37
+    learnset MOVE_LUNGE, 40
+    learnset MOVE_DRILL_PECK, 43
+    learnset MOVE_ACUPRESSURE, 46
+    learnset MOVE_JUMP_KICK, 49
     learnset MOVE_ENDEAVOR, 52
-    learnset MOVE_THRASH, 56
+    learnset MOVE_BODY_SLAM, 55
+    learnset MOVE_DRILL_RUN, 58
+    learnset MOVE_BRAVE_BIRD, 61
+    learnset MOVE_THRASH, 64
+    learnset MOVE_DOUBLE_EDGE, 67
     terminatelearnset
 
 
