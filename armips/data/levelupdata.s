@@ -1877,66 +1877,87 @@ levelup SPECIES_TENTACRUEL
 levelup SPECIES_GEODUDE
     learnset MOVE_TACKLE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_MUD_SPORT, 4
-    learnset MOVE_ROCK_POLISH, 6
-    learnset MOVE_ROLLOUT, 10
-    learnset MOVE_MAGNITUDE, 12
-    learnset MOVE_ROCK_THROW, 16
-    learnset MOVE_SMACK_DOWN, 18
-    learnset MOVE_BULLDOZE, 22
-    learnset MOVE_SELF_DESTRUCT, 24
-    learnset MOVE_STEALTH_ROCK, 28
-    learnset MOVE_ROCK_BLAST, 30
-    learnset MOVE_EARTHQUAKE, 34
-    learnset MOVE_EXPLOSION, 36
-    learnset MOVE_DOUBLE_EDGE, 40
+    learnset MOVE_MUD_SLAP, 4
+    learnset MOVE_ROCK_POLISH, 7
+    learnset MOVE_ROCK_THROW, 10
+    learnset MOVE_MAGNITUDE, 13
+    learnset MOVE_STEALTH_ROCK, 16
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_BULLDOZE, 21
+    learnset MOVE_FIRE_PUNCH, 24
+    learnset MOVE_STEALTH_ROCK, 27
+    learnset MOVE_THUNDER_PUNCH, 30
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_SCARY_FACE, 36
+    learnset MOVE_STOMPING_TANTRUM, 39
     learnset MOVE_STONE_EDGE, 42
+    learnset MOVE_IRON_DEFENSE, 45
+    learnset MOVE_BODY_SLAM, 48
+    learnset MOVE_EARTHQUAKE, 52
+    learnset MOVE_GYRO_BALL, 55
+    learnset MOVE_CURSE, 58
+    learnset MOVE_EXPLOSION, 62
+    learnset MOVE_DOUBLE_EDGE, 65
+    learnset MOVE_HEAD_SMASH, 68
     terminatelearnset
 
 
 levelup SPECIES_GRAVELER
     learnset MOVE_TACKLE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_ROCK_POLISH, 1
-    learnset MOVE_MUD_SPORT, 4
-    learnset MOVE_ROCK_POLISH, 6
-    learnset MOVE_ROLLOUT, 10
-    learnset MOVE_MAGNITUDE, 12
-    learnset MOVE_ROCK_THROW, 16
-    learnset MOVE_SMACK_DOWN, 18
+    learnset MOVE_MUD_SLAP, 5
+    learnset MOVE_ROCK_POLISH, 8
+    learnset MOVE_ROCK_THROW, 11
+    learnset MOVE_MAGNITUDE, 14
+    learnset MOVE_STEALTH_ROCK, 17
+    learnset MOVE_ROCK_TOMB, 19
     learnset MOVE_BULLDOZE, 22
-    learnset MOVE_SELF_DESTRUCT, 24
-    learnset MOVE_STEALTH_ROCK, 30
-    learnset MOVE_ROCK_BLAST, 34
-    learnset MOVE_EARTHQUAKE, 40
-    learnset MOVE_EXPLOSION, 44
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_FIRE_PUNCH, 25
+    learnset MOVE_STEALTH_ROCK, 28
+    learnset MOVE_THUNDER_PUNCH, 31
+    learnset MOVE_ROCK_SLIDE, 34
+    learnset MOVE_SCARY_FACE, 37
+    learnset MOVE_STOMPING_TANTRUM, 40
+    learnset MOVE_STONE_EDGE, 43
+    learnset MOVE_IRON_DEFENSE, 46
+    learnset MOVE_BODY_SLAM, 49
+    learnset MOVE_EARTHQUAKE, 53
+    learnset MOVE_GYRO_BALL, 56
+    learnset MOVE_CURSE, 59
+    learnset MOVE_EXPLOSION, 63
+    learnset MOVE_DOUBLE_EDGE, 66
+    learnset MOVE_HEAD_SMASH, 69
     terminatelearnset
 
 
 levelup SPECIES_GOLEM
+    learnset MOVE_STEAMROLLER, 1
     learnset MOVE_HEAVY_SLAM, 1
+    learnset MOVE_FISSURE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_ROCK_POLISH, 1
-    learnset MOVE_MUD_SPORT, 4
-    learnset MOVE_ROCK_POLISH, 6
-    learnset MOVE_STEAMROLLER, 10
-    learnset MOVE_MAGNITUDE, 12
-    learnset MOVE_ROCK_THROW, 16
-    learnset MOVE_SMACK_DOWN, 18
+    learnset MOVE_MUD_SLAP, 5
+    learnset MOVE_ROCK_POLISH, 8
+    learnset MOVE_ROCK_THROW, 11
+    learnset MOVE_MAGNITUDE, 14
+    learnset MOVE_STEALTH_ROCK, 17
+    learnset MOVE_ROCK_TOMB, 19
     learnset MOVE_BULLDOZE, 22
-    learnset MOVE_SELF_DESTRUCT, 24
-    learnset MOVE_STEALTH_ROCK, 30
-    learnset MOVE_ROCK_BLAST, 34
-    learnset MOVE_EARTHQUAKE, 40
-    learnset MOVE_EXPLOSION, 44
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_STONE_EDGE, 54
-    learnset MOVE_HEAVY_SLAM, 60
+    learnset MOVE_FIRE_PUNCH, 25
+    learnset MOVE_STEALTH_ROCK, 28
+    learnset MOVE_THUNDER_PUNCH, 31
+    learnset MOVE_ROCK_SLIDE, 34
+    learnset MOVE_SCARY_FACE, 37
+    learnset MOVE_STOMPING_TANTRUM, 40
+    learnset MOVE_STONE_EDGE, 43
+    learnset MOVE_IRON_DEFENSE, 46
+    learnset MOVE_BODY_SLAM, 49
+    learnset MOVE_EARTHQUAKE, 53
+    learnset MOVE_GYRO_BALL, 56
+    learnset MOVE_CURSE, 59
+    learnset MOVE_EXPLOSION, 63
+    learnset MOVE_DOUBLE_EDGE, 66
+    learnset MOVE_HEAD_SMASH, 69
     terminatelearnset
 
 
@@ -24914,66 +24935,87 @@ levelup SPECIES_PERSIAN_ALOLAN
 levelup SPECIES_GEODUDE_ALOLAN
     learnset MOVE_TACKLE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_CHARGE, 4
-    learnset MOVE_ROCK_POLISH, 6
-    learnset MOVE_ROLLOUT, 10
-    learnset MOVE_SPARK, 12
-    learnset MOVE_ROCK_THROW, 16
-    learnset MOVE_SMACK_DOWN, 18
-    learnset MOVE_THUNDER_PUNCH, 22
-    learnset MOVE_SELF_DESTRUCT, 24
-    learnset MOVE_STEALTH_ROCK, 28
-    learnset MOVE_ROCK_BLAST, 30
-    learnset MOVE_DISCHARGE, 34
-    learnset MOVE_EXPLOSION, 36
-    learnset MOVE_DOUBLE_EDGE, 40
+    learnset MOVE_THUNDER_SHOCK, 4
+    learnset MOVE_ROCK_POLISH, 7
+    learnset MOVE_ROCK_THROW, 10
+    learnset MOVE_SHOCK_WAVE, 13
+    learnset MOVE_STEALTH_ROCK, 16
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_SPARK, 21
+    learnset MOVE_FIRE_PUNCH, 24
+    learnset MOVE_STEALTH_ROCK, 27
+    learnset MOVE_THUNDER_PUNCH, 30
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_SCARY_FACE, 36
+    learnset MOVE_DISCHARGE, 39
     learnset MOVE_STONE_EDGE, 42
+    learnset MOVE_IRON_DEFENSE, 45
+    learnset MOVE_BODY_SLAM, 48
+    learnset MOVE_WILD_CHARGE, 52
+    learnset MOVE_GYRO_BALL, 55
+    learnset MOVE_CURSE, 58
+    learnset MOVE_EXPLOSION, 62
+    learnset MOVE_DOUBLE_EDGE, 65
+    learnset MOVE_HEAD_SMASH, 68
     terminatelearnset
 
 
 levelup SPECIES_GRAVELER_ALOLAN
     learnset MOVE_TACKLE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_CHARGE, 1
-    learnset MOVE_ROCK_POLISH, 1
-    learnset MOVE_CHARGE, 4
-    learnset MOVE_ROCK_POLISH, 6
-    learnset MOVE_ROLLOUT, 10
-    learnset MOVE_SPARK, 12
-    learnset MOVE_ROCK_THROW, 16
-    learnset MOVE_SMACK_DOWN, 18
-    learnset MOVE_THUNDER_PUNCH, 22
-    learnset MOVE_SELF_DESTRUCT, 24
-    learnset MOVE_STEALTH_ROCK, 30
-    learnset MOVE_ROCK_BLAST, 34
+    learnset MOVE_THUNDER_SHOCK, 5
+    learnset MOVE_ROCK_POLISH, 8
+    learnset MOVE_ROCK_THROW, 11
+    learnset MOVE_SHOCK_WAVE, 14
+    learnset MOVE_STEALTH_ROCK, 17
+    learnset MOVE_ROCK_TOMB, 19
+    learnset MOVE_SPARK, 22
+    learnset MOVE_FIRE_PUNCH, 25
+    learnset MOVE_STEALTH_ROCK, 28
+    learnset MOVE_THUNDER_PUNCH, 31
+    learnset MOVE_ROCK_SLIDE, 34
+    learnset MOVE_SCARY_FACE, 37
     learnset MOVE_DISCHARGE, 40
-    learnset MOVE_EXPLOSION, 44
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_STONE_EDGE, 43
+    learnset MOVE_IRON_DEFENSE, 46
+    learnset MOVE_BODY_SLAM, 49
+    learnset MOVE_WILD_CHARGE, 53
+    learnset MOVE_GYRO_BALL, 56
+    learnset MOVE_CURSE, 59
+    learnset MOVE_EXPLOSION, 63
+    learnset MOVE_DOUBLE_EDGE, 66
+    learnset MOVE_HEAD_SMASH, 69
     terminatelearnset
 
 
 levelup SPECIES_GOLEM_ALOLAN
+    learnset MOVE_STEAMROLLER, 1
+    learnset MOVE_MEGA_PUNCH, 1
     learnset MOVE_HEAVY_SLAM, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_CHARGE, 1
-    learnset MOVE_ROCK_POLISH, 1
-    learnset MOVE_CHARGE, 4
-    learnset MOVE_ROCK_POLISH, 6
-    learnset MOVE_STEAMROLLER, 10
-    learnset MOVE_SPARK, 12
-    learnset MOVE_ROCK_THROW, 16
-    learnset MOVE_SMACK_DOWN, 18
-    learnset MOVE_THUNDER_PUNCH, 22
-    learnset MOVE_SELF_DESTRUCT, 24
-    learnset MOVE_STEALTH_ROCK, 30
-    learnset MOVE_ROCK_BLAST, 34
-    learnset MOVE_DISCHARGE, 40
-    learnset MOVE_EXPLOSION, 44
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_STONE_EDGE, 54
-    learnset MOVE_HEAVY_SLAM, 60
+    learnset MOVE_THUNDER_SHOCK, 6
+    learnset MOVE_ROCK_POLISH, 9
+    learnset MOVE_ROCK_THROW, 12
+    learnset MOVE_SHOCK_WAVE, 15
+    learnset MOVE_STEALTH_ROCK, 18
+    learnset MOVE_ROCK_TOMB, 20
+    learnset MOVE_SPARK, 23
+    learnset MOVE_FIRE_PUNCH, 26
+    learnset MOVE_STEALTH_ROCK, 29
+    learnset MOVE_THUNDER_PUNCH, 32
+    learnset MOVE_ROCK_SLIDE, 35
+    learnset MOVE_SCARY_FACE, 38
+    learnset MOVE_DISCHARGE, 41
+    learnset MOVE_STONE_EDGE, 44
+    learnset MOVE_IRON_DEFENSE, 47
+    learnset MOVE_BODY_SLAM, 50
+    learnset MOVE_WILD_CHARGE, 54
+    learnset MOVE_GYRO_BALL, 57
+    learnset MOVE_CURSE, 60
+    learnset MOVE_EXPLOSION, 64
+    learnset MOVE_DOUBLE_EDGE, 67
+    learnset MOVE_HEAD_SMASH, 70
     terminatelearnset
 
 
