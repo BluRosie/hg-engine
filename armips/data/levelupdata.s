@@ -2191,49 +2191,61 @@ levelup SPECIES_DODRIO
 
 
 levelup SPECIES_SEEL
-    learnset MOVE_HEADBUTT, 1
-    learnset MOVE_GROWL, 3
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_POWDER_SNOW, 4
     learnset MOVE_WATER_SPORT, 7
-    learnset MOVE_ICY_WIND, 11
+    learnset MOVE_ICY_WIND, 10
     learnset MOVE_ENCORE, 13
-    learnset MOVE_ICE_SHARD, 17
+    learnset MOVE_WHIRLPOOL, 16
+    learnset MOVE_ICE_SHARD, 18
     learnset MOVE_REST, 21
-    learnset MOVE_AQUA_RING, 23
-    learnset MOVE_AURORA_BEAM, 27
-    learnset MOVE_AQUA_JET, 31
-    learnset MOVE_BRINE, 33
-    learnset MOVE_TAKE_DOWN, 37
-    learnset MOVE_DIVE, 41
-    learnset MOVE_AQUA_TAIL, 43
-    learnset MOVE_ICE_BEAM, 47
-    learnset MOVE_SAFEGUARD, 51
-    learnset MOVE_HAIL, 53
+    learnset MOVE_SMART_STRIKE, 24
+    learnset MOVE_AQUA_RING, 27
+    learnset MOVE_AURORA_BEAM, 30
+    learnset MOVE_WATER_PULSE, 33
+    learnset MOVE_RAIN_DANCE, 36
+    learnset MOVE_DRILL_RUN, 39
+    learnset MOVE_DIVE, 42
+    learnset MOVE_SAFEGUARD, 45
+    learnset MOVE_SIGNAL_BEAM, 48
+    learnset MOVE_SCALD, 51
+    learnset MOVE_ICE_BEAM, 54
+    learnset MOVE_HAIL, 57
+    learnset MOVE_HYDRO_PUMP, 60
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_BLIZZARD, 66
     terminatelearnset
 
 
 levelup SPECIES_DEWGONG
-    learnset MOVE_SHEER_COLD, 0
-    learnset MOVE_SHEER_COLD, 1
-    learnset MOVE_HEADBUTT, 1
+    learnset MOVE_BUBBLE_BEAM, 1
+    learnset MOVE_FAKE_OUT, 1
+    learnset MOVE_HORN_DRILL, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_SIGNAL_BEAM, 1
-    learnset MOVE_ICY_WIND, 1
-    learnset MOVE_GROWL, 3
-    learnset MOVE_SIGNAL_BEAM, 7
+    learnset MOVE_POWDER_SNOW, 5
+    learnset MOVE_WATER_SPORT, 8
     learnset MOVE_ICY_WIND, 11
-    learnset MOVE_ENCORE, 13
-    learnset MOVE_ICE_SHARD, 17
-    learnset MOVE_REST, 21
-    learnset MOVE_AQUA_RING, 23
-    learnset MOVE_AURORA_BEAM, 27
-    learnset MOVE_AQUA_JET, 31
-    learnset MOVE_BRINE, 33
-    learnset MOVE_TAKE_DOWN, 39
-    learnset MOVE_DIVE, 45
-    learnset MOVE_AQUA_TAIL, 49
+    learnset MOVE_ENCORE, 14
+    learnset MOVE_WHIRLPOOL, 17
+    learnset MOVE_ICE_SHARD, 19
+    learnset MOVE_REST, 22
+    learnset MOVE_SMART_STRIKE, 25
+    learnset MOVE_AQUA_RING, 28
+    learnset MOVE_AURORA_BEAM, 31
+    learnset MOVE_WATER_PULSE, 34
+    learnset MOVE_RAIN_DANCE, 37
+    learnset MOVE_DRILL_RUN, 40
+    learnset MOVE_DIVE, 43
+    learnset MOVE_SAFEGUARD, 46
+    learnset MOVE_SIGNAL_BEAM, 49
+    learnset MOVE_SCALD, 52
     learnset MOVE_ICE_BEAM, 55
-    learnset MOVE_SAFEGUARD, 61
-    learnset MOVE_HAIL, 65
+    learnset MOVE_HAIL, 58
+    learnset MOVE_HYDRO_PUMP, 61
+    learnset MOVE_DOUBLE_EDGE, 64
+    learnset MOVE_BLIZZARD, 67
     terminatelearnset
 
 
