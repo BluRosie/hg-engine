@@ -993,53 +993,25 @@ BOOL LONG_CALL UseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, u16 moveId
     if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_LEVEL_UP)) {        
         if (sp5C < GetLevelCap()) {
             u16 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
-            // u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
-            // u32 exp = GetMonData(mon, MON_DATA_EXPERIENCE, NULL);
+            // u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);            
             u32 growthrate = (u32)PokePersonalParaGet(species, PERSONAL_EXP_GROUP);
             u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, GetLevelCap());
-            //AddMonData(mon, MON_DATA_EXPERIENCE, CalcMonExpToNextLevel(mon));
-            SetMonData(mon, MON_DATA_EXPERIENCE, &maxexp);
+            if(itemData->holdEffectParam > 0) {
+                u32 exp = GetMonData(mon, MON_DATA_EXPERIENCE, NULL);
+                if (exp + itemData->holdEffectParam > maxexp) {
+                    SetMonData(mon, MON_DATA_EXPERIENCE, &maxexp);
+                } else {
+                    AddMonData(mon, MON_DATA_EXPERIENCE, itemData->holdEffectParam);
+                }                
+            } else {
+                SetMonData(mon, MON_DATA_EXPERIENCE, &maxexp);
+            }            
+
             RecalcPartyPokemonStats(mon);
             if (sp54 == 0) {
                 sp60 = GetMonData(mon, MON_DATA_MAXHP, NULL);
                 RestoreMonHPBy(mon, sp54, sp60, sp60 - sp58);
-            }
-            //UseItemOnPokemon(mon, itemID, moveIdx, location, heapID);
-            // u16 *eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(mon, HEAPID_32);
-            // debugsyscall("[UseItemOnPokemon] Set eligible moves\n");
-            // MoveRelearnerArgs **moveRelearnerPtr = FieldSysGetAttrAddr(gFieldSysPtr, SCRIPTENV_AC);
-            // debugsyscall("[UseItemOnPokemon] Created moverelearner pointer pointer\n");
-            // MoveRelearnerArgs *moveRelearner = MoveRelearner_New(HEAPID_32);
-            // debugsyscall("[UseItemOnPokemon] Created moverelearner pointer\n");
-            // *moveRelearnerPtr = moveRelearner;
-            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner pointer to moverelearner pointer pointer\n");
-
-            // moveRelearner->mon = mon;
-            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner mon\n");
-            // moveRelearner->profile = Sav2_PlayerData_GetProfileAddr(gFieldSysPtr->savedata);
-            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner profile\n");
-            // moveRelearner->options = Sav2_PlayerData_GetOptionsAddr(gFieldSysPtr->savedata);
-            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner options\n");
-            // moveRelearner->eligibleMoves = eligibleMoves;
-            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner moves\n");
-            // moveRelearner->type = 1;
-            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner type\n");
-
-            // MoveRelearner_LaunchApp(gFieldSysPtr, moveRelearner);
-            // debugsyscall("[UseItemOnPokemon] Launched moverelearner\n");
-            // struct SCRIPTCONTEXT *ctx = sys_AllocMemory(HEAPID_WORLD, sizeof(SCRIPTCONTEXT));            
-            // ctx->fsys = gFieldSysPtr;
-            // struct SCRIPTCONTEXT *ctx = CreateScriptContext(gFieldSysPtr, 0);
-            // debugsyscall("[UseItemOnPokemon] Allocated scriptcontext\n");
-            // ctx->mode = 2;
-            // ctx->native_ptr = ScrNative_WaitApplication;
-            // debugsyscall("[UseItemOnPokemon] Set context wait\n");
-            // StartMoveRelearner(ctx, 1, mon, eligibleMoves);
-            // debugsyscall("[UseItemOnPokemon] Try direct launch\n");
-            // sys_FreeMemoryEz(eligibleMoves);
-            // debugsyscall("[UseItemOnPokemon] Freed memory\n");
-            // EventSet_Script(gFieldSysPtr, 2014, NULL);
-
+            }           
             hadEffect = TRUE;
         }
         effectFound = TRUE;
@@ -1171,6 +1143,8 @@ BOOL LONG_CALL UseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, u16 moveId
             effectFound = TRUE;
         }
     }
+
+
 
     if (hadEffect == FALSE && effectFound == TRUE) {
         sys_FreeMemoryEz(itemData);
