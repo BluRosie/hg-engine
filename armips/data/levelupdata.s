@@ -1724,54 +1724,99 @@ levelup SPECIES_MACHAMP
 
 levelup SPECIES_BELLSPROUT
     learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_GROWTH, 7
-    learnset MOVE_WRAP, 11
-    learnset MOVE_SLEEP_POWDER, 13
-    learnset MOVE_POISON_POWDER, 15
-    learnset MOVE_STUN_SPORE, 17
-    learnset MOVE_ACID, 23
+    learnset MOVE_GROWTH, 1
+    learnset MOVE_WRAP, 4
+    learnset MOVE_ACID_SPRAY, 7
+    learnset MOVE_SLEEP_POWDER, 10
+    learnset MOVE_POISON_POWDER, 10
+    learnset MOVE_STUN_SPORE, 10
+    learnset MOVE_FALSE_SWIPE, 13
+    learnset MOVE_RAZOR_LEAF, 16
+    learnset MOVE_SWEET_SCENT, 18
+    learnset MOVE_SLUDGE, 21
+    learnset MOVE_SYNTHESIS, 24
     learnset MOVE_KNOCK_OFF, 27
-    learnset MOVE_SWEET_SCENT, 29
-    learnset MOVE_GASTRO_ACID, 35
-    learnset MOVE_RAZOR_LEAF, 39
-    learnset MOVE_POISON_JAB, 41
-    learnset MOVE_SLAM, 47
-    learnset MOVE_WRING_OUT, 50
+    learnset MOVE_GIGA_DRAIN, 30
+    learnset MOVE_LUNGE, 33
+    learnset MOVE_SUNNY_DAY, 36
+    learnset MOVE_WEATHER_BALL, 39
+    learnset MOVE_LEAF_BLADE, 42
+    learnset MOVE_POISON_JAB, 45
+    learnset MOVE_TOXIC, 48
+    learnset MOVE_SLUDGE_BOMB, 52
+    learnset MOVE_ENERGY_BALL, 55
+    learnset MOVE_LEECH_LIFE, 58
+    learnset MOVE_SOLAR_BEAM, 62
+    learnset MOVE_GUNK_SHOT, 65
+    learnset MOVE_LEAF_STORM, 68
     terminatelearnset
 
 
 levelup SPECIES_WEEPINBELL
+    learnset MOVE_LEAF_TORNADO, 0
+    learnset MOVE_LEAF_TORNADO, 1
     learnset MOVE_VINE_WHIP, 1
     learnset MOVE_GROWTH, 1
-    learnset MOVE_WRAP, 1
-    learnset MOVE_GROWTH, 7
-    learnset MOVE_WRAP, 11
-    learnset MOVE_SLEEP_POWDER, 13
-    learnset MOVE_POISON_POWDER, 15
-    learnset MOVE_STUN_SPORE, 17
-    learnset MOVE_ACID, 24
-    learnset MOVE_KNOCK_OFF, 29
-    learnset MOVE_SWEET_SCENT, 32
-    learnset MOVE_GASTRO_ACID, 39
-    learnset MOVE_RAZOR_LEAF, 44
-    learnset MOVE_POISON_JAB, 47
-    learnset MOVE_SLAM, 54
-    learnset MOVE_WRING_OUT, 58
+    learnset MOVE_WRAP, 5
+    learnset MOVE_ACID_SPRAY, 8
+    learnset MOVE_SLEEP_POWDER, 11
+    learnset MOVE_POISON_POWDER, 11
+    learnset MOVE_STUN_SPORE, 11
+    learnset MOVE_FALSE_SWIPE, 14
+    learnset MOVE_RAZOR_LEAF, 17
+    learnset MOVE_SWEET_SCENT, 19
+    learnset MOVE_SLUDGE, 22
+    learnset MOVE_SYNTHESIS, 25
+    learnset MOVE_KNOCK_OFF, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_LUNGE, 34
+    learnset MOVE_SUNNY_DAY, 37
+    learnset MOVE_WEATHER_BALL, 40
+    learnset MOVE_LEAF_BLADE, 43
+    learnset MOVE_POISON_JAB, 46
+    learnset MOVE_TOXIC, 49
+    learnset MOVE_SLUDGE_BOMB, 53
+    learnset MOVE_ENERGY_BALL, 56
+    learnset MOVE_LEECH_LIFE, 59
+    learnset MOVE_SOLAR_BEAM, 63
+    learnset MOVE_GUNK_SHOT, 66
+    learnset MOVE_LEAF_STORM, 69
     terminatelearnset
 
 
 levelup SPECIES_VICTREEBEL
-    learnset MOVE_LEAF_TORNADO, 0
-    learnset MOVE_LEAF_TORNADO, 1
     learnset MOVE_STOCKPILE, 1
     learnset MOVE_SWALLOW, 1
     learnset MOVE_SPIT_UP, 1
+    learnset MOVE_CLEAR_SMOG, 1
+    learnset MOVE_SWORDS_DANCE, 1
+    learnset MOVE_SUCKER_PUNCH, 1
     learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_SLEEP_POWDER, 1
-    learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_RAZOR_LEAF, 1
-    learnset MOVE_LEAF_STORM, 32
-    learnset MOVE_LEAF_BLADE, 44
+    learnset MOVE_GROWTH, 1
+    learnset MOVE_WRAP, 5
+    learnset MOVE_ACID_SPRAY, 8
+    learnset MOVE_SLEEP_POWDER, 11
+    learnset MOVE_POISON_POWDER, 11
+    learnset MOVE_STUN_SPORE, 11
+    learnset MOVE_FALSE_SWIPE, 14
+    learnset MOVE_RAZOR_LEAF, 17
+    learnset MOVE_SWEET_SCENT, 19
+    learnset MOVE_SLUDGE, 22
+    learnset MOVE_SYNTHESIS, 25
+    learnset MOVE_KNOCK_OFF, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_LUNGE, 34
+    learnset MOVE_SUNNY_DAY, 37
+    learnset MOVE_WEATHER_BALL, 40
+    learnset MOVE_LEAF_BLADE, 43
+    learnset MOVE_POISON_JAB, 46
+    learnset MOVE_TOXIC, 49
+    learnset MOVE_SLUDGE_BOMB, 53
+    learnset MOVE_ENERGY_BALL, 56
+    learnset MOVE_LEECH_LIFE, 59
+    learnset MOVE_SOLAR_BEAM, 63
+    learnset MOVE_GUNK_SHOT, 66
+    learnset MOVE_LEAF_STORM, 69
     terminatelearnset
 
 
