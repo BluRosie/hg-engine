@@ -1,4 +1,5 @@
 #include "../../include/types.h"
+#include "../../include/battle.h"
 #include "../../include/constants/file.h"
 #include "../../include/overlay.h"
 

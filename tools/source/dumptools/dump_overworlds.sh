@@ -17,3 +17,4 @@ else
 		cp build/pokemonow/1_$file data/graphics/overworlds/0$file.bin;
 	done
 fi
+rm -rf build/pokemonow

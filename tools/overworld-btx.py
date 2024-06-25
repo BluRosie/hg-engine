@@ -27,7 +27,7 @@ def write_field(file, offset, field, size):
 class PaletteInfo:
     unk0: int
     unk1: int
-    offset: int # increment by 4 for each palette entry
+    offset: int
 
     name: str
     fileName: str
@@ -166,19 +166,20 @@ def build_btx_from_png_and_mappings():
     frameHeight = 0
     frameNames = {}
     palNames = {}
-    for metafield in metadata.keys():
-        if "fileName" not in str(metadata[metafield]):
-            if metadata[metafield]["frame"] > numSeparateFrames:
-                numSeparateFrames = metadata[metafield]["frame"]
-            if frameHeight == 0:
-                frameHeight = metadata[metafield]["height"]
-            if frameWidth == 0:
-                frameWidth = metadata[metafield]["width"]
-            frameNames[frames] = metafield
-            frames = frames + 1
-        else:
-            palNames[palettes] = metafield
-            palettes = palettes + 1
+    frameMetadata = metadata["frames"]
+    paletteMetadata = metadata["palettes"]
+    for metafield in frameMetadata.keys():
+        if frameMetadata[metafield]["frame"] > numSeparateFrames:
+            numSeparateFrames = frameMetadata[metafield]["frame"]
+        if frameHeight == 0:
+            frameHeight = frameMetadata[metafield]["height"]
+        if frameWidth == 0:
+            frameWidth = frameMetadata[metafield]["width"]
+        frameNames[frames] = metafield
+        frames = frames + 1
+    for metafield in paletteMetadata.keys():
+        palNames[palettes] = metafield
+        palettes = palettes + 1
     numSeparateFrames = numSeparateFrames + 1
 
     TEXOffset = 0x14 # this seems pretty standard to me
@@ -194,21 +195,21 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, paletteInfoOffset + 6, 0xC + palettes*4, 2)
     write_field(btxFile, paletteInfoOffset + 8, 0x17F, 4)
     #for i in range(0, palettes):
-    #    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), metadata[palNames[i]]["unk0"], 2)
-    #    write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), metadata[palNames[i]]["unk1"], 2)
+    #    write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), paletteMetadata[palNames[i]]["unk0"], 2)
+    #    write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), paletteMetadata[palNames[i]]["unk1"], 2)
     write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes), 4, 2)
     write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes) + 2, 4 + 4*palettes, 2)
     #for i in range(0, palettes):
-    #    write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), metadata[palNames[i]]["offset"], 4)
+    #    write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), paletteMetadata[palNames[i]]["offset"], 4)
     highestOffset = 0
     for i in range(0, palettes):
-        write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), metadata[palNames[i]]["unk0"], 2)
-        write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), metadata[palNames[i]]["unk1"], 2)
-        write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), metadata[palNames[i]]["offset"] * 4, 4)
+        write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), paletteMetadata[palNames[i]]["unk0"], 2)
+        write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), paletteMetadata[palNames[i]]["unk1"], 2)
+        write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), paletteMetadata[palNames[i]]["offset"] * 4, 4)
         for j in range(0, len(palNames[i])):
             write_field(btxFile, (paletteInfoOffset + 0x10 + (0x8 * palettes) + (16 * i) + j), ord(palNames[i][j]), 1)
-        if (metadata[palNames[i]]["offset"] > highestOffset):
-            highestOffset = metadata[palNames[i]]["offset"]
+        if (paletteMetadata[palNames[i]]["offset"] > highestOffset):
+            highestOffset = paletteMetadata[palNames[i]]["offset"]
     highestOffset = highestOffset + 1
 
     textureOffset = (paletteInfoOffset + 0x10 + (0x18 * palettes))
@@ -241,18 +242,18 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, propertiesOffset + 6, 0xC + frames*4, 2)
     write_field(btxFile, propertiesOffset + 8, 0x17F, 4)
     for i in range(0, frames):
-        write_field(btxFile, propertiesOffset + 0xC + i*4, metadata[frameNames[i]]["unkBlockUnk0"], 2)
-        write_field(btxFile, propertiesOffset + 0xE + i*4, metadata[frameNames[i]]["unkBlockUnk1"], 2)
+        write_field(btxFile, propertiesOffset + 0xC + i*4, frameMetadata[frameNames[i]]["unkBlockUnk0"], 2)
+        write_field(btxFile, propertiesOffset + 0xE + i*4, frameMetadata[frameNames[i]]["unkBlockUnk1"], 2)
     newBaseOffset = propertiesOffset + 0xC + frames*4
     write_field(btxFile, newBaseOffset, 8, 2)
     write_field(btxFile, newBaseOffset + 2, 4 + frames * 8, 2)
     for i in range(0, frames):
-        write_field(btxFile, newBaseOffset + 4 + 8*i, int(metadata[frameNames[i]]["frame"] * metadata[frameNames[i]]["width"] * metadata[frameNames[i]]["height"] / 16), 2)
-        write_field(btxFile, newBaseOffset + 6 + 8*i, rebuildParameterValues(metadata[frameNames[i]]), 2)
-        write_field(btxFile, newBaseOffset + 8 + 8*i, metadata[frameNames[i]]["width"], 1)
-        write_field(btxFile, newBaseOffset + 9 + 8*i, metadata[frameNames[i]]["unk0"], 1)
-        write_field(btxFile, newBaseOffset + 0xA + 8*i, metadata[frameNames[i]]["unk1"], 1)
-        write_field(btxFile, newBaseOffset + 0xB + 8*i, metadata[frameNames[i]]["unk2"], 1)
+        write_field(btxFile, newBaseOffset + 4 + 8*i, int(frameMetadata[frameNames[i]]["frame"] * frameMetadata[frameNames[i]]["width"] * frameMetadata[frameNames[i]]["height"] / 16), 2)
+        write_field(btxFile, newBaseOffset + 6 + 8*i, rebuildParameterValues(frameMetadata[frameNames[i]]), 2)
+        write_field(btxFile, newBaseOffset + 8 + 8*i, frameMetadata[frameNames[i]]["width"], 1)
+        write_field(btxFile, newBaseOffset + 9 + 8*i, frameMetadata[frameNames[i]]["unk0"], 1)
+        write_field(btxFile, newBaseOffset + 0xA + 8*i, frameMetadata[frameNames[i]]["unk1"], 1)
+        write_field(btxFile, newBaseOffset + 0xB + 8*i, frameMetadata[frameNames[i]]["unk2"], 1)
     newBaseOffset = newBaseOffset + 0x4 + 8*frames
     for i in range(0, frames):
         for j in range(0, len(frameNames[i])):
@@ -274,8 +275,8 @@ def build_btx_from_png_and_mappings():
     btxFile.seek(textureOffset, 0)
     btxFile.write(open(f"image-{suffix}.4bpp", "rb").read())
     for i in range(0, palettes):
-        offset = metadata[palNames[i]]["offset"]
-        subprocess.run([GFX, metadataStr + "-" + metadata[palNames[i]]["fileName"], f"image-{suffix}.gbapal"])
+        offset = paletteMetadata[palNames[i]]["offset"]
+        subprocess.run([GFX, metadataStr + "-" + paletteMetadata[palNames[i]]["fileName"], f"image-{suffix}.gbapal"])
         btxFile.seek(paletteOffset + offset*0x20, 0)
         btxFile.write(open(f"image-{suffix}.gbapal", "rb").read())
 
@@ -354,32 +355,33 @@ def dump_btx_to_png_and_mappings():
     else:
         metadataStr = pngFilename
     metadata = open(metadataStr + ".json", "w")
-    metadata.write("{\n")
+    metadata.write("{\n\t\"frames\": {\n")
     for i in range(0, len(textureInfo)):
-        metadata.write(f"\t\"{textureInfo[i].name}\": ")
+        metadata.write(f"\t\t\"{textureInfo[i].name}\": ")
         metadata.write("{\n")
-        #metadata.write(f"\t\t\"name\": \"{textureInfo[i].name}\",\n")
-        # instead of imgOffset define frame
-        # size of frame is height * width / 16 (for 4bpp)
-        # so we can just write the frame...
-        metadata.write(f"\t\t\"frame\": {int(textureInfo[i].imgOffset / (textureInfo[i].width * textureInfo[i].height / 16))},\n")
+        metadata.write(f"\t\t\t\"frame\": {int(textureInfo[i].imgOffset / (textureInfo[i].width * textureInfo[i].height / 16))},\n")
         # params will be derived from everything else
         # width2 is always just width
-        metadata.write(f"\t\t\"coordTrans\": {textureInfo[i].coordTrans},\n")
-        metadata.write(f"\t\t\"color0\": {textureInfo[i].color0},\n")
-        metadata.write(f"\t\t\"format\": {textureInfo[i].format},\n")
-        metadata.write(f"\t\t\"height\": {textureInfo[i].height},\n")
-        metadata.write(f"\t\t\"width\": {textureInfo[i].width},\n")
-        metadata.write(f"\t\t\"flipY\": {textureInfo[i].flipY},\n")
-        metadata.write(f"\t\t\"flipX\": {textureInfo[i].flipX},\n")
-        metadata.write(f"\t\t\"repeatY\": {textureInfo[i].repeatY},\n")
-        metadata.write(f"\t\t\"repeatX\": {textureInfo[i].repeatX},\n")
-        metadata.write(f"\t\t\"unkBlockUnk0\": {textureInfo[i].unkBlockUnk0},\n")
-        metadata.write(f"\t\t\"unkBlockUnk1\": {textureInfo[i].unkBlockUnk1},\n")
-        metadata.write(f"\t\t\"unk0\": {textureInfo[i].unk0},\n")
-        metadata.write(f"\t\t\"unk1\": {textureInfo[i].unk1},\n")
-        metadata.write(f"\t\t\"unk2\": {textureInfo[i].unk2}\n")
-        metadata.write("\t},\n")
+        metadata.write(f"\t\t\t\"coordTrans\": {textureInfo[i].coordTrans},\n")
+        metadata.write(f"\t\t\t\"color0\": {textureInfo[i].color0},\n")
+        metadata.write(f"\t\t\t\"format\": {textureInfo[i].format},\n")
+        metadata.write(f"\t\t\t\"height\": {textureInfo[i].height},\n")
+        metadata.write(f"\t\t\t\"width\": {textureInfo[i].width},\n")
+        metadata.write(f"\t\t\t\"flipY\": {textureInfo[i].flipY},\n")
+        metadata.write(f"\t\t\t\"flipX\": {textureInfo[i].flipX},\n")
+        metadata.write(f"\t\t\t\"repeatY\": {textureInfo[i].repeatY},\n")
+        metadata.write(f"\t\t\t\"repeatX\": {textureInfo[i].repeatX},\n")
+        metadata.write(f"\t\t\t\"unkBlockUnk0\": {textureInfo[i].unkBlockUnk0},\n")
+        metadata.write(f"\t\t\t\"unkBlockUnk1\": {textureInfo[i].unkBlockUnk1},\n")
+        metadata.write(f"\t\t\t\"unk0\": {textureInfo[i].unk0},\n")
+        metadata.write(f"\t\t\t\"unk1\": {textureInfo[i].unk1},\n")
+        metadata.write(f"\t\t\t\"unk2\": {textureInfo[i].unk2}\n")
+        if (i != (len(textureInfo) - 1)):
+            metadata.write("\t\t},\n")
+        else:
+            metadata.write("\t\t}\n\t},\n")
+
+    metadata.write("\t\"palettes\": {\n")
 
     for i in range(0, len(paletteInfo)):
         offset = int(paletteInfo[i].offset / 4)
@@ -388,19 +390,19 @@ def dump_btx_to_png_and_mappings():
             if int(paletteInfo[j].offset / 4) == offset:
                 offsetAlreadyUsed = j
                 break
-        metadata.write(f"\t\"{paletteInfo[i].name}\": ")
+        metadata.write(f"\t\t\"{paletteInfo[i].name}\": ")
         metadata.write("{\n")
-        metadata.write(f"\t\t\"offset\": {offset},\n")
-        metadata.write(f"\t\t\"unk0\": {paletteInfo[i].unk0},\n")
-        metadata.write(f"\t\t\"unk1\": {paletteInfo[i].unk1},\n")
+        metadata.write(f"\t\t\t\"offset\": {offset},\n")
+        metadata.write(f"\t\t\t\"unk0\": {paletteInfo[i].unk0},\n")
+        metadata.write(f"\t\t\t\"unk1\": {paletteInfo[i].unk1},\n")
         if (offsetAlreadyUsed != 0xFF):
-            metadata.write(f"\t\t\"fileName\": \"{paletteInfo[offsetAlreadyUsed].name}.pal\"\n")
+            metadata.write(f"\t\t\t\"fileName\": \"{paletteInfo[offsetAlreadyUsed].name}.pal\"\n")
         else:
-            metadata.write(f"\t\t\"fileName\": \"{paletteInfo[i].name}.pal\"\n")
+            metadata.write(f"\t\t\t\"fileName\": \"{paletteInfo[i].name}.pal\"\n")
         if i != (len(paletteInfo) - 1):
-            metadata.write("\t},\n")
+            metadata.write("\t\t},\n")
         else:
-            metadata.write("\t}\n}\n")
+            metadata.write("\t\t}\n\t}\n}\n")
     metadata.close()
 
 # finally read data

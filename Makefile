@@ -52,8 +52,7 @@ BUILDROM = test.nds
 ADPCMXQ := tools/adpcm-xq
 ARMIPS := tools/armips
 BLZ := tools/blz
-BTX_EXE := tools/pngtobtx0.exe
-BTX := mono $(BTX_EXE)
+BTX := $(PYTHON) tools/overworld-btx.py
 ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
@@ -105,16 +104,6 @@ $(MSGENC): tools/source/msgenc/*
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 TOOLS += $(MSGENC)
-
-BTX_SOURCES := $(wildcard tools/source/BTXEditor/*.cs)
-$(BTX_EXE): $(BTX_SOURCES)
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source/BTXEditor/Program-P.cs" "source/BTXEditor/pngtobtx0.cs" "source/BTXEditor/BTX0.cs"
-
-TOOLS += $(BTX_EXE)
-
-# for future reference as they say
-tools/btx0topng.exe: "source/BTXEditor/Program-B.cs" "source/BTXEditor/btx0topng.cs" "source/BTXEditor/BTX0.cs"
-	cd tools ; $(CSC) /target:exe /out:btx0topng.exe "source/BTXEditor/Program-B.cs" "source/BTXEditor/btx0topng.cs" "source/BTXEditor/BTX0.cs"
 
 $(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
 	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
