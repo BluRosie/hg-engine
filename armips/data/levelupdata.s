@@ -2310,22 +2310,28 @@ levelup SPECIES_MUK
 
 levelup SPECIES_SHELLDER
     learnset MOVE_TACKLE, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_WITHDRAW, 4
-    learnset MOVE_ICICLE_SPEAR, 13
-    learnset MOVE_SUPERSONIC, 14
-    learnset MOVE_LEER, 15
-    learnset MOVE_ICE_SHARD, 17
-    learnset MOVE_PROTECT, 22
-    learnset MOVE_CLAMP, 25
-    learnset MOVE_WHIRLPOOL, 27
-    learnset MOVE_AURORA_BEAM, 30
-    learnset MOVE_RAZOR_SHELL, 32
-    learnset MOVE_IRON_DEFENSE, 42
-    learnset MOVE_BRINE, 44
-    learnset MOVE_ICE_BEAM, 45
-    learnset MOVE_SHELL_SMASH, 49
-    learnset MOVE_HYDRO_PUMP, 54
+    learnset MOVE_WITHDRAW, 1
+    learnset MOVE_BUBBLE, 4
+    learnset MOVE_SUPERSONIC, 7
+    learnset MOVE_ICE_SHARD, 10
+    learnset MOVE_LEER, 13
+    learnset MOVE_WHIRLPOOL, 16
+    learnset MOVE_MUD_SHOT, 18
+    learnset MOVE_PROTECT, 21
+    learnset MOVE_CLAMP, 24
+    learnset MOVE_ROCK_BLAST, 27
+    learnset MOVE_AVALANCHE, 30
+    learnset MOVE_IRON_DEFENSE, 33
+    learnset MOVE_RAZOR_SHELL, 36
+    learnset MOVE_AQUA_RING, 39
+    learnset MOVE_SPIKE_CANNON, 42
+    learnset MOVE_LIQUIDATION, 45
+    learnset MOVE_SCREECH, 48
+    learnset MOVE_ICE_BEAM, 51
+    learnset MOVE_SURF, 54
+    learnset MOVE_SHELL_SMASH, 57
+    learnset MOVE_BLIZZARD, 60
+    learnset MOVE_HYDRO_PUMP, 63
     terminatelearnset
 
 
@@ -2335,23 +2341,30 @@ levelup SPECIES_CLOYSTER
     learnset MOVE_ICICLE_CRASH, 1
     learnset MOVE_TOXIC_SPIKES, 1
     learnset MOVE_SPIKES, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_WHIRLPOOL, 1
-    learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_AURORA_BEAM, 1
-    learnset MOVE_PROTECT, 1
-    learnset MOVE_RAZOR_SHELL, 1
-    learnset MOVE_IRON_DEFENSE, 1
-    learnset MOVE_ICE_BEAM, 1
-    learnset MOVE_SHELL_SMASH, 1
-    learnset MOVE_HYDRO_PUMP, 1
+    learnset MOVE_BULLET_SEED, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_WATER_GUN, 1
     learnset MOVE_WITHDRAW, 1
-    learnset MOVE_ICE_SHARD, 1
-    learnset MOVE_SPIKE_CANNON, 13
-    learnset MOVE_SPIKES, 28
-    learnset MOVE_ICICLE_CRASH, 50
+    learnset MOVE_BUBBLE, 5
+    learnset MOVE_SUPERSONIC, 8
+    learnset MOVE_ICE_SHARD, 11
+    learnset MOVE_LEER, 14
+    learnset MOVE_WHIRLPOOL, 17
+    learnset MOVE_MUD_SHOT, 19
+    learnset MOVE_PROTECT, 22
+    learnset MOVE_CLAMP, 25
+    learnset MOVE_ROCK_BLAST, 28
+    learnset MOVE_AVALANCHE, 31
+    learnset MOVE_IRON_DEFENSE, 34
+    learnset MOVE_RAZOR_SHELL, 37
+    learnset MOVE_AQUA_RING, 40
+    learnset MOVE_SPIKE_CANNON, 43
+    learnset MOVE_LIQUIDATION, 46
+    learnset MOVE_SCREECH, 49
+    learnset MOVE_ICE_BEAM, 52
+    learnset MOVE_SURF, 55
+    learnset MOVE_SHELL_SMASH, 58
+    learnset MOVE_BLIZZARD, 61
+    learnset MOVE_HYDRO_PUMP, 64
     terminatelearnset
 
 
