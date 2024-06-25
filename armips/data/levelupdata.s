@@ -2254,42 +2254,57 @@ levelup SPECIES_GRIMER
     learnset MOVE_POISON_GAS, 1
     learnset MOVE_HARDEN, 4
     learnset MOVE_MUD_SLAP, 7
-    learnset MOVE_DISABLE, 12
-    learnset MOVE_SLUDGE, 15
+    learnset MOVE_ACID_SPRAY, 10
+    learnset MOVE_DISABLE, 13
+    learnset MOVE_SLUDGE, 16
     learnset MOVE_MUD_BOMB, 18
     learnset MOVE_MINIMIZE, 21
-    learnset MOVE_FLING, 26
-    learnset MOVE_SLUDGE_BOMB, 29
-    learnset MOVE_SLUDGE_WAVE, 32
-    learnset MOVE_SCREECH, 37
-    learnset MOVE_GUNK_SHOT, 40
-    learnset MOVE_ACID_ARMOR, 43
-    learnset MOVE_BELCH, 46
-    learnset MOVE_MEMENTO, 48
+    learnset MOVE_KNOCK_OFF, 24
+    learnset MOVE_FLING, 27
+    learnset MOVE_TOXIC, 30
+    learnset MOVE_VENOSHOCK, 33
+    learnset MOVE_DRAIN_PUNCH, 36
+    learnset MOVE_SCREECH, 39
+    learnset MOVE_POISON_JAB, 42
+    learnset MOVE_ACID_ARMOR, 45
+    learnset MOVE_DARK_PULSE, 48
+    learnset MOVE_SLUDGE_BOMB, 51
+    learnset MOVE_SLUDGE_WAVE, 54
+    learnset MOVE_GIGA_DRAIN, 57
+    learnset MOVE_MEMENTO, 60
+    learnset MOVE_GUNK_SHOT, 63
+    learnset MOVE_EXPLOSION, 66
     terminatelearnset
 
 
 levelup SPECIES_MUK
     learnset MOVE_VENOM_DRENCH, 0
     learnset MOVE_VENOM_DRENCH, 1
+    learnset MOVE_SURF, 1
     learnset MOVE_POUND, 1
     learnset MOVE_POISON_GAS, 1
-    learnset MOVE_HARDEN, 1
-    learnset MOVE_MUD_SLAP, 1
-    learnset MOVE_HARDEN, 4
-    learnset MOVE_MUD_SLAP, 7
-    learnset MOVE_DISABLE, 12
-    learnset MOVE_SLUDGE, 15
-    learnset MOVE_MUD_BOMB, 18
-    learnset MOVE_MINIMIZE, 21
-    learnset MOVE_FLING, 26
-    learnset MOVE_SLUDGE_BOMB, 29
-    learnset MOVE_SLUDGE_WAVE, 32
-    learnset MOVE_SCREECH, 37
-    learnset MOVE_GUNK_SHOT, 40
+    learnset MOVE_HARDEN, 5
+    learnset MOVE_MUD_SLAP, 8
+    learnset MOVE_ACID_SPRAY, 11
+    learnset MOVE_DISABLE, 14
+    learnset MOVE_SLUDGE, 17
+    learnset MOVE_MUD_BOMB, 19
+    learnset MOVE_MINIMIZE, 22
+    learnset MOVE_KNOCK_OFF, 25
+    learnset MOVE_FLING, 28
+    learnset MOVE_TOXIC, 31
+    learnset MOVE_VENOSHOCK, 34
+    learnset MOVE_DRAIN_PUNCH, 37
+    learnset MOVE_SCREECH, 40
+    learnset MOVE_POISON_JAB, 43
     learnset MOVE_ACID_ARMOR, 46
-    learnset MOVE_BELCH, 52
-    learnset MOVE_MEMENTO, 57
+    learnset MOVE_DARK_PULSE, 49
+    learnset MOVE_SLUDGE_BOMB, 52
+    learnset MOVE_SLUDGE_WAVE, 55
+    learnset MOVE_GIGA_DRAIN, 58
+    learnset MOVE_MEMENTO, 61
+    learnset MOVE_GUNK_SHOT, 64
+    learnset MOVE_EXPLOSION, 67
     terminatelearnset
 
 
