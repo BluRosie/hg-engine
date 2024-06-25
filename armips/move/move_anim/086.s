@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_086", 0
-
+// Thunder Wave
 a010_086:
     initspriteresource
     loadspriteresource 0

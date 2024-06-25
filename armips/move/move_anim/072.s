@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_072", 0
-
+//Mega Drain
 a010_072:
     initspriteresource
     loadspriteresource 0

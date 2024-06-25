@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_360", 0
-
+//gyro ball
 a010_360:
     initspriteresource
     loadspriteresource 0

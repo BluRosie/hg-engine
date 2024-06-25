@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_467", 0
-
+// Shadow Force
 a010_467:
     initspriteresource
     loadspriteresource 0

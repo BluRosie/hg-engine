@@ -10,7 +10,7 @@
 
 .create "build/move/move_anim/0_153", 0
 
-a010_153:
+a010_153: //explosion
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1

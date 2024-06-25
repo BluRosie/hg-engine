@@ -10,7 +10,7 @@
 
 .create "build/move/move_anim/0_127", 0
 
-a010_127:
+a010_127: //waterfall
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1

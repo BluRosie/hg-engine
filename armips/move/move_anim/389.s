@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_389", 0
-
+//Sucker Punch
 a010_389:
     initspriteresource
     loadspriteresource 0

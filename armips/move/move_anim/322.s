@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_322", 0
-
+// Cosmic Power
 a010_322:
     initspriteresource
     loadspriteresource 0

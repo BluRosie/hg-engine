@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_412", 0
-
+// energy ball
 a010_412:
     initspriteresource
     loadspriteresource 0

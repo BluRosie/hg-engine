@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_434", 0
-
+//draco meteor
 a010_434:
     initspriteresource
     loadspriteresource 0

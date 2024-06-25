@@ -28,25 +28,25 @@ DEBUG_NEEDS_TESTING equ 0
 LEARNSET_TOTAL_MOVES equ 41 // 40+terminate - currently driven by gallade
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
-BATTLE_MODE_FORCE_SET equ 0
+BATTLE_MODE_FORCE_SET equ 1
 
 // ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
-ALWAYS_HAVE_NATIONAL_DEX equ 0
+ALWAYS_HAVE_NATIONAL_DEX equ 1
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
 ALWAYS_UNCAPPED_FRAME_RATE equ 0
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
-BATTLES_UNCAPPED_FRAME_RATE equ 0
+BATTLES_UNCAPPED_FRAME_RATE equ 1
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
-FAST_TEXT_PRINTING equ 0
+FAST_TEXT_PRINTING equ 1
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 REUSABLE_TMS equ 1
 
 // DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-DELETABLE_HMS equ 0
+DELETABLE_HMS equ 1
 
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM

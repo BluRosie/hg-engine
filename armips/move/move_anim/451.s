@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_451", 0
-
+// charge beam
 a010_451:
     initspriteresource
     loadspriteresource 0

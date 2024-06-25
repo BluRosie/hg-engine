@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_009", 0
-
+//Thunder Punch
 a010_009:
     initspriteresource
     loadspriteresource 0
