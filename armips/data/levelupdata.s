@@ -2260,7 +2260,7 @@ levelup SPECIES_GRIMER
     learnset MOVE_MUD_BOMB, 18
     learnset MOVE_MINIMIZE, 21
     learnset MOVE_KNOCK_OFF, 24
-    learnset MOVE_FLING, 27
+    learnset MOVE_MEMENTO, 27
     learnset MOVE_TOXIC, 30
     learnset MOVE_VENOSHOCK, 33
     learnset MOVE_DRAIN_PUNCH, 36
@@ -2271,7 +2271,7 @@ levelup SPECIES_GRIMER
     learnset MOVE_SLUDGE_BOMB, 51
     learnset MOVE_SLUDGE_WAVE, 54
     learnset MOVE_GIGA_DRAIN, 57
-    learnset MOVE_MEMENTO, 60
+    learnset MOVE_FIRE_BLAST, 60
     learnset MOVE_GUNK_SHOT, 63
     learnset MOVE_EXPLOSION, 66
     terminatelearnset
@@ -2291,7 +2291,7 @@ levelup SPECIES_MUK
     learnset MOVE_MUD_BOMB, 19
     learnset MOVE_MINIMIZE, 22
     learnset MOVE_KNOCK_OFF, 25
-    learnset MOVE_FLING, 28
+    learnset MOVE_MEMENTO, 28
     learnset MOVE_TOXIC, 31
     learnset MOVE_VENOSHOCK, 34
     learnset MOVE_DRAIN_PUNCH, 37
@@ -2302,7 +2302,7 @@ levelup SPECIES_MUK
     learnset MOVE_SLUDGE_BOMB, 52
     learnset MOVE_SLUDGE_WAVE, 55
     learnset MOVE_GIGA_DRAIN, 58
-    learnset MOVE_MEMENTO, 61
+    learnset MOVE_FIRE_BLAST, 61
     learnset MOVE_GUNK_SHOT, 64
     learnset MOVE_EXPLOSION, 67
     terminatelearnset
