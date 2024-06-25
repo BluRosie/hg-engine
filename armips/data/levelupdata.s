@@ -2103,29 +2103,32 @@ levelup SPECIES_MAGNETON
 
 
 levelup SPECIES_FARFETCHD
-    learnset MOVE_PECK, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_BRAVE_BIRD, 1
+    learnset MOVE_MIRROR_MOVE, 1
     learnset MOVE_POISON_JAB, 1
+    learnset MOVE_QUICK_ATTACK, 1
+    learnset MOVE_PECK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_LEER, 5
-    learnset MOVE_FURY_ATTACK, 7
-    learnset MOVE_FURY_CUTTER, 10
-    learnset MOVE_AERIAL_ACE, 14
-    learnset MOVE_CUT, 15
-    learnset MOVE_KNOCK_OFF, 22
-    learnset MOVE_AIR_CUTTER, 23
-    learnset MOVE_SLASH, 30
-    learnset MOVE_NIGHT_SLASH, 33
-    learnset MOVE_SWORDS_DANCE, 35
-    learnset MOVE_ACROBATICS, 37
-    learnset MOVE_FALSE_SWIPE, 39
-    learnset MOVE_FEINT, 43
-    learnset MOVE_AGILITY, 46
-    learnset MOVE_AIR_SLASH, 49
-    learnset MOVE_LEAF_BLADE, 55
-    learnset MOVE_BRAVE_BIRD, 60
+    learnset MOVE_FURY_CUTTER, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_FURY_ATTACK, 10
+    learnset MOVE_RAZOR_LEAF, 13
+    learnset MOVE_DEFOG, 16
+    learnset MOVE_AERIAL_ACE, 18
+    learnset MOVE_KNOCK_OFF, 21
+    learnset MOVE_SLASH, 24
+    learnset MOVE_SWAGGER, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_ACROBATICS, 33
+    learnset MOVE_WORK_UP, 36
+    learnset MOVE_STEEL_WING, 39
+    learnset MOVE_DUAL_WINGBEAT, 42
+    learnset MOVE_NIGHT_SLASH, 45
+    learnset MOVE_AGILITY, 48
+    learnset MOVE_LEAF_BLADE, 52
+    learnset MOVE_FLY, 55
+    learnset MOVE_SWORDS_DANCE, 58
+    learnset MOVE_BRAVE_BIRD, 62
+    learnset MOVE_SKY_ATTACK, 65
     terminatelearnset
 
 
@@ -20207,24 +20210,29 @@ levelup SPECIES_CURSOLA
 
 
 levelup SPECIES_SIRFETCHD
-    learnset MOVE_IRON_DEFENSE, 1
-    learnset MOVE_FIRST_IMPRESSION, 1
     learnset MOVE_PECK, 1
     learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_ROCK_SMASH, 15
-    learnset MOVE_BRUTAL_SWING, 20
-    learnset MOVE_DETECT, 25
-    learnset MOVE_KNOCK_OFF, 30
-    learnset MOVE_DEFOG, 35
-    learnset MOVE_BRICK_BREAK, 40
-    learnset MOVE_SWORDS_DANCE, 45
-    learnset MOVE_SLAM, 50
-    learnset MOVE_LEAF_BLADE, 55
+    learnset MOVE_LEER, 6
+    learnset MOVE_ROCK_SMASH, 9
+    learnset MOVE_FURY_CUTTER, 12
+    learnset MOVE_FOCUS_ENERGY, 15
+    learnset MOVE_KARATE_CHOP, 18
+    learnset MOVE_AERIAL_ACE, 20
+    learnset MOVE_BRUTAL_SWING, 23
+    learnset MOVE_DETECT, 26
+    learnset MOVE_REVENGE, 29
+    learnset MOVE_KNOCK_OFF, 32
+    learnset MOVE_BRICK_BREAK, 35
+    learnset MOVE_DEFOG, 38
+    learnset MOVE_DUAL_WINGBEAT, 41
+    learnset MOVE_FIRST_IMPRESSION, 44
+    learnset MOVE_SWORDS_DANCE, 47
+    learnset MOVE_LEAF_BLADE, 50
+    learnset MOVE_SLAM, 54
+    learnset MOVE_POISON_JAB, 57
     learnset MOVE_FINAL_GAMBIT, 60
-    learnset MOVE_BRAVE_BIRD, 65
-    learnset MOVE_METEOR_ASSAULT, 70
+    learnset MOVE_CLOSE_COMBAT, 64
+    learnset MOVE_BRAVE_BIRD, 67
     terminatelearnset
 
 
@@ -25233,18 +25241,26 @@ levelup SPECIES_SLOWBRO_GALARIAN
 levelup SPECIES_FARFETCHD_GALARIAN
     learnset MOVE_PECK, 1
     learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_LEER, 5
+    learnset MOVE_LEER, 4
+    learnset MOVE_ROCK_SMASH, 7
     learnset MOVE_FURY_CUTTER, 10
-    learnset MOVE_ROCK_SMASH, 15
-    learnset MOVE_BRUTAL_SWING, 20
-    learnset MOVE_DETECT, 25
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_KARATE_CHOP, 16
+    learnset MOVE_AERIAL_ACE, 18
+    learnset MOVE_BRUTAL_SWING, 21
+    learnset MOVE_DETECT, 24
+    learnset MOVE_REVENGE, 27
     learnset MOVE_KNOCK_OFF, 30
-    learnset MOVE_DEFOG, 35
-    learnset MOVE_BRICK_BREAK, 40
+    learnset MOVE_BRICK_BREAK, 33
+    learnset MOVE_DEFOG, 36
+    learnset MOVE_DUAL_WINGBEAT, 39
+    learnset MOVE_FIRST_IMPRESSION, 42
     learnset MOVE_SWORDS_DANCE, 45
-    learnset MOVE_SLAM, 50
-    learnset MOVE_LEAF_BLADE, 55
-    learnset MOVE_FINAL_GAMBIT, 60
+    learnset MOVE_LEAF_BLADE, 48
+    learnset MOVE_SLAM, 52
+    learnset MOVE_POISON_JAB, 55
+    learnset MOVE_FINAL_GAMBIT, 58
+    learnset MOVE_CLOSE_COMBAT, 62
     learnset MOVE_BRAVE_BIRD, 65
     terminatelearnset
 
