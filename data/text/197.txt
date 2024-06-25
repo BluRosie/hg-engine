@@ -425,8 +425,8 @@ The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on the opposing
 {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The wild {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The opposing {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
-Spikes were scattered all around\nyour team’s feet!
-Spikes were scattered all around\nthe feet of the opposing team!
+Spikes were scattered\non the ground all around\fyour team!
+Spikes were scattered\non the ground all around\fthe opposing team!
 {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
@@ -909,7 +909,7 @@ The opposing {STRVAR_1 1, 0, 0} restored its\nstatus using its {STRVAR_1 8, 1, 0
 {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
-The {STRVAR_1 8, 0, 0} allows the\nuse of only {STRVAR_1 6, 1, 0}!\r
+The {STRVAR_1 8, 0, 0} only allows the\nuse of {STRVAR_1 6, 1, 0}!\r
 {STRVAR_1 1, 0, 0} hung on\nusing its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} hung on\nusing its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} hung on\nusing its {STRVAR_1 8, 1, 0}!
@@ -1061,10 +1061,10 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STR
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwore off!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
-Poison spikes were scattered all\naround your team’s feet!
-Poison spikes were scattered all\naround the enemy team’s feet!
-The poison spikes disappeared from\naround your team’s feet!
-The poison spikes disappeared from\naround the enemy team’s feet!
+Poison spikes were scattered\non the ground all around\fyour team!
+Poison spikes were scattered\non the ground all around\fthe opposing team!
+The poison spikes disappeared from\nthe ground around your team!
+The poison spikes disappeared from\nthe ground around the opposing team!
 {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
@@ -1076,7 +1076,7 @@ The wild {STRVAR_1 1, 0, 0} restored\nthe twisted dimensions!
 The opposing {STRVAR_1 1, 0, 0} restored\nthe twisted dimensions!
 The twisted dimensions returned to\nnormal!
 Pointed stones float in the air\naround your team!
-Pointed stones float in the air\naround your opposing team!
+Pointed stones float in the air\naround the opposing team!
 Pointed stones dug into\n{STRVAR_1 1, 0, 0}!
 Pointed stones dug into\nthe wild {STRVAR_1 1, 0, 0}!
 Pointed stones dug into\nthe opposing {STRVAR_1 1, 0, 0}!
@@ -1455,3 +1455,6 @@ A lingering aroma clings to {STRVAR_1 1, 0, 0}!
 A lingering aroma clings to the wild {STRVAR_1 1, 0, 0}!
 A lingering aroma clings to the opposing {STRVAR_1 1, 0, 0}!
 The mysterious strong winds blow on!
+{STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
+You can’t use {STRVAR_1 6, 0, 0}\ntwice in a row!\r
+The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
