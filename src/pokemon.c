@@ -1,8 +1,10 @@
 #include "../include/types.h"
+#include "../include/item.h"
 #include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/config.h"
 #include "../include/debug.h"
+#include "../include/move_relearner.h"
 #include "../include/overlay.h"
 #include "../include/pokemon.h"
 #include "../include/rtc.h"
@@ -21,6 +23,12 @@
 #define NELEMS_POKEFORMDATATBL 285
 
 extern u32 word_to_store_form_at;
+
+u32 GetLevelCap(void);
+u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0);
+BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon);
+
+BOOL LONG_CALL ScrNative_WaitApplication(struct SCRIPTCONTEXT *ctx);
 
 /**
  *  @brief set up the indices for the new form system pictures.  if necessary, loop through the form table, searching for the new form index to load sprites from
@@ -910,6 +918,300 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
 
     return FALSE;
 }
+
+BOOL LONG_CALL UseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, u16 moveIdx, u16 location, int heapID) {
+    s32 stack_data[8];
+#define sp70 stack_data[7]
+#define sp6C stack_data[6]
+#define sp68 stack_data[5]
+#define sp64 stack_data[4]
+#define sp60 stack_data[3]
+#define sp5C stack_data[2]
+#define sp58 stack_data[1]
+#define sp54 stack_data[0]
+    BOOL hadEffect;
+    BOOL effectFound;
+
+    struct ItemData *itemData = LoadItemDataOrGfx(itemID, ITEM_GET_DATA, heapID);
+    if (itemData->partyUse != 1) {
+        sys_FreeMemoryEz(itemData);
+        return FALSE;
+    }
+
+    hadEffect = FALSE;
+    effectFound = FALSE;
+
+    sp58 = sp54 = GetMonData(mon, MON_DATA_STATUS, NULL);
+    if (itemData->partyUseParam.slp_heal) {
+        sp58 &= ~STATUS_FLAG_ASLEEP;
+        effectFound = TRUE;
+    }
+
+    if (itemData->partyUseParam.psn_heal) {
+        sp58 &= ~(STATUS_FLAG_POISONED | STATUS_FLAG_BADLY_POISONED | 0xF00);
+        effectFound = TRUE;
+    }
+
+    if (itemData->partyUseParam.brn_heal) {
+        sp58 &= ~STATUS_FLAG_BURNED;
+        effectFound = TRUE;
+    }
+
+    if (itemData->partyUseParam.frz_heal) {
+        sp58 &= ~STATUS_FLAG_FROZEN;
+        effectFound = TRUE;
+    }
+
+    if (itemData->partyUseParam.prz_heal) {
+        sp58 &= ~STATUS_FLAG_PARALYZED;
+        effectFound = TRUE;
+    }
+
+    if (sp54 != sp58) {
+        SetMonData(mon, MON_DATA_STATUS, &sp58);
+        hadEffect = TRUE;
+    }
+
+    sp54 = GetMonData(mon, MON_DATA_HP, NULL);
+    sp58 = GetMonData(mon, MON_DATA_MAXHP, NULL);
+    if ((GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_DEATH_RECOVERY) || GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ALL_DEATH_RECOVERY)) 
+        && GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_LEVEL_UP)) {
+        if (sp54 == 0) {
+            RestoreMonHPBy(mon, sp54, sp58, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_HP_RECOVERY_POINT));
+            hadEffect = TRUE;
+        }
+        effectFound = TRUE;
+    } else if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_HP_RECOVERY)) {
+        if (sp54 < sp58) {
+            RestoreMonHPBy(mon, sp54, sp58, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_HP_RECOVERY_POINT));
+            hadEffect = TRUE;
+        }
+        effectFound = TRUE;
+    }
+
+    sp5C = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_LEVEL_UP)) {        
+        if (sp5C < GetLevelCap()) {
+            u16 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
+            // u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
+            // u32 exp = GetMonData(mon, MON_DATA_EXPERIENCE, NULL);
+            u32 growthrate = (u32)PokePersonalParaGet(species, PERSONAL_EXP_GROUP);
+            u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, GetLevelCap());
+            //AddMonData(mon, MON_DATA_EXPERIENCE, CalcMonExpToNextLevel(mon));
+            SetMonData(mon, MON_DATA_EXPERIENCE, &maxexp);
+            RecalcPartyPokemonStats(mon);
+            if (sp54 == 0) {
+                sp60 = GetMonData(mon, MON_DATA_MAXHP, NULL);
+                RestoreMonHPBy(mon, sp54, sp60, sp60 - sp58);
+            }
+            //UseItemOnPokemon(mon, itemID, moveIdx, location, heapID);
+            // u16 *eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(mon, HEAPID_32);
+            // debugsyscall("[UseItemOnPokemon] Set eligible moves\n");
+            // MoveRelearnerArgs **moveRelearnerPtr = FieldSysGetAttrAddr(gFieldSysPtr, SCRIPTENV_AC);
+            // debugsyscall("[UseItemOnPokemon] Created moverelearner pointer pointer\n");
+            // MoveRelearnerArgs *moveRelearner = MoveRelearner_New(HEAPID_32);
+            // debugsyscall("[UseItemOnPokemon] Created moverelearner pointer\n");
+            // *moveRelearnerPtr = moveRelearner;
+            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner pointer to moverelearner pointer pointer\n");
+
+            // moveRelearner->mon = mon;
+            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner mon\n");
+            // moveRelearner->profile = Sav2_PlayerData_GetProfileAddr(gFieldSysPtr->savedata);
+            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner profile\n");
+            // moveRelearner->options = Sav2_PlayerData_GetOptionsAddr(gFieldSysPtr->savedata);
+            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner options\n");
+            // moveRelearner->eligibleMoves = eligibleMoves;
+            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner moves\n");
+            // moveRelearner->type = 1;
+            // debugsyscall("[UseItemOnPokemon] Assigned moverelearner type\n");
+
+            // MoveRelearner_LaunchApp(gFieldSysPtr, moveRelearner);
+            // debugsyscall("[UseItemOnPokemon] Launched moverelearner\n");
+            // struct SCRIPTCONTEXT *ctx = sys_AllocMemory(HEAPID_WORLD, sizeof(SCRIPTCONTEXT));            
+            // ctx->fsys = gFieldSysPtr;
+            // struct SCRIPTCONTEXT *ctx = CreateScriptContext(gFieldSysPtr, 0);
+            // debugsyscall("[UseItemOnPokemon] Allocated scriptcontext\n");
+            // ctx->mode = 2;
+            // ctx->native_ptr = ScrNative_WaitApplication;
+            // debugsyscall("[UseItemOnPokemon] Set context wait\n");
+            // StartMoveRelearner(ctx, 1, mon, eligibleMoves);
+            // debugsyscall("[UseItemOnPokemon] Try direct launch\n");
+            // sys_FreeMemoryEz(eligibleMoves);
+            // debugsyscall("[UseItemOnPokemon] Freed memory\n");
+            // EventSet_Script(gFieldSysPtr, 2014, NULL);
+
+            hadEffect = TRUE;
+        }
+        effectFound = TRUE;
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_EVOLUTION)) {
+        effectFound = TRUE;
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_UP)) {
+        if (BoostMonMovePpUpBy(mon, moveIdx, 1) == TRUE) {
+            hadEffect = TRUE;
+        }
+        effectFound = TRUE;
+    } else if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_MAX)) {
+        if (BoostMonMovePpUpBy(mon, moveIdx, 3) == TRUE) {
+            hadEffect = TRUE;
+        }
+        effectFound = TRUE;
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_RECOVERY)) {
+        if (MonMoveRestorePP(mon, moveIdx, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_RECOVERY_POINT)) == 1) {
+            hadEffect = TRUE;
+        }
+        effectFound = TRUE;
+    } else if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ALL_PP_RECOVERY)) {
+        sp54 = 0;
+        for (; sp54 < 4; sp54++) {
+            if (MonMoveRestorePP(mon, sp54, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_RECOVERY_POINT)) == 1) {
+                hadEffect = TRUE;
+            }
+        }
+        effectFound = TRUE;
+    }
+
+    sp54 = GetMonData(mon, MON_DATA_HP_EV, NULL);
+    sp58 = GetMonData(mon, MON_DATA_ATK_EV, NULL);
+    sp5C = GetMonData(mon, MON_DATA_DEF_EV, NULL);
+    sp60 = GetMonData(mon, MON_DATA_SPEED_EV, NULL);
+    sp64 = GetMonData(mon, MON_DATA_SPATK_EV, NULL);
+    sp68 = GetMonData(mon, MON_DATA_SPDEF_EV, NULL);
+    if (GetMonData(mon, MON_DATA_SPECIES, NULL) != SPECIES_SHEDINJA &&GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_HP_EVS)) {
+        sp70 = GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_HP_EVS_POINT);
+        sp6C = TryModEV(sp54, sp58 + sp5C + sp60 + sp64 + sp68, sp70);
+        if (sp6C != -1) {
+            sp54 = sp6C;
+            SetMonData(mon, MON_DATA_HP_EV, &sp54);
+            RecalcPartyPokemonStats(mon);
+            hadEffect = TRUE;
+        }
+
+        if (sp70 > 0) {
+            effectFound = TRUE;
+        }
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ATTACK_EVS)) {
+        sp70 = GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ATTACK_EVS_POINT);
+        sp6C = TryModEV(sp58, sp54 + sp5C + sp60 + sp64 + sp68, sp70);
+        if (sp6C != -1) {
+            sp58 = sp6C;
+            SetMonData(mon, MON_DATA_ATK_EV, &sp58);
+            RecalcPartyPokemonStats(mon);
+            hadEffect = TRUE;
+        }
+
+        if (sp70 > 0) {
+            effectFound = TRUE;
+        }
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_DEFENSE_EVS)) {
+        sp70 = GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_DEFENSE_EVS_POINT);
+        sp6C = TryModEV(sp5C, sp54 + sp58 + sp60 + sp64 + sp68, sp70);
+        if (sp6C != -1) {
+            sp5C = sp6C;
+            SetMonData(mon, MON_DATA_DEF_EV, &sp5C);
+            RecalcPartyPokemonStats(mon);
+            hadEffect = TRUE;
+        }
+
+        if (sp70 > 0) {
+            effectFound = TRUE;
+        }
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_SPEED_EVS)) {
+        sp70 = GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_SPEED_EVS_POINT);
+        sp6C = TryModEV(sp60, sp54 + sp58 + sp5C + sp64 + sp68, sp70);
+        if (sp6C != -1) {
+            sp60 = sp6C;
+            SetMonData(mon, MON_DATA_SPEED_EV, &sp60);
+            RecalcPartyPokemonStats(mon);
+            hadEffect = TRUE;
+        }
+
+        if (sp70 > 0) {
+            effectFound = TRUE;
+        }
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_SP_ATTACK_EVS)) {
+        sp70 = GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_SP_ATTACK_EVS_POINT);
+        sp6C = TryModEV(sp64, sp54 + sp58 + sp5C + sp60 + sp68, sp70);
+        if (sp6C != -1) {
+            sp64 = sp6C;
+            SetMonData(mon, MON_DATA_SPATK_EV, &sp64);
+            RecalcPartyPokemonStats(mon);
+            hadEffect = TRUE;
+        }
+
+        if (sp70 > 0) {
+            effectFound = TRUE;
+        }
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_SP_DEFENSE_EVS)) {
+        sp70 = GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_SP_DEFENCE_EVS_POINT);
+        sp6C = TryModEV(sp68, sp54 + sp58 + sp5C + sp60 + sp64, sp70);
+        if (sp6C != -1) {
+            sp68 = sp6C;
+            SetMonData(mon, MON_DATA_SPDEF_EV, &sp68);
+            RecalcPartyPokemonStats(mon);
+            hadEffect = TRUE;
+        }
+
+        if (sp70 > 0) {
+            effectFound = TRUE;
+        }
+    }
+
+    if (hadEffect == FALSE && effectFound == TRUE) {
+        sys_FreeMemoryEz(itemData);
+        return FALSE;
+    }
+
+    sp54 = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);
+    if (sp54 < 100) {
+        if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_FRIENDSHIP_1)) {
+            ApplyItemEffectOnMonMood(mon, itemID);
+            DoItemFriendshipMod(mon, sp54, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_FRIENDSHIP_1_POINT), location, heapID);
+            sys_FreeMemoryEz(itemData);
+            return hadEffect;
+        }
+    } else if (sp54 >= 100 && sp54 < 200) {
+        if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_FRIENDSHIP_2)) {
+            ApplyItemEffectOnMonMood(mon, itemID);
+            DoItemFriendshipMod(mon, sp54, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_FRIENDSHIP_2_POINT), location, heapID);
+            sys_FreeMemoryEz(itemData);
+            return hadEffect;
+        }
+    } else if (sp54 >= 200 && sp54 <= 255) {
+        if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_FRIENDSHIP_3)) {
+            ApplyItemEffectOnMonMood(mon, itemID);
+            DoItemFriendshipMod(mon, sp54, GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_FRIENDSHIP_3_POINT), location, heapID);
+            sys_FreeMemoryEz(itemData);
+            return hadEffect;
+        }
+    }
+
+    sys_FreeMemoryEz(itemData);
+    return hadEffect;
+}
+#undef sp70
+#undef sp6C
+#undef sp68
+#undef sp64
+#undef sp60
+#undef sp5C
+#undef sp58
+#undef sp54
 
 /**
  *  @brief modify PokeListProc_End to increase party size so that when Reshiram/Zekrom are added back from DNA Splicers there are no crashes

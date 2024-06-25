@@ -654,3 +654,24 @@ ov12_02250BBC = 0x02250BBC | 1;
 BattleSystem_CheckMoveHit = 0x0224BCC4 | 1;
 ov12_0224B498 = 0x0224B498 | 1;
 ov12_0224BC2C = 0x0224BC2C | 1;
+
+/* Adding things to make multi level candy work */
+ov12_02263D14 = 0x02263D14 | 1;
+SelectPartyMonAndLearnMove = 0x0203E6D4 | 1;
+TryModEV = 0x02090A84 | 1;
+GetItemAttr_PreloadedItemData = 0x02077DAC | 1;
+LoadItemDataOrGfx = 0x02077CE8 | 1;
+AddMonData = 0x0206F558 |1;
+BoostMonMovePpUpBy = 0x0209099C | 1;
+MonMoveRestorePP = 0x0209091C | 1;
+RestoreMonHPBy = 0x02090A44 | 1;
+DoItemFriendshipMod = 0x02090B68 | 1;
+ApplyItemEffectOnMonMood = 0x02097EF4 | 1;
+CalcMonExpToNextLevel = 0x0206FCA0 | 1;
+MoveRelearner_GetEligibleLevelUpMoves = 0x0209176C | 1;
+MoveRelearner_LaunchApp = 0x0203F9C4 | 1;
+MoveRelearner_New = 0x0209174C | 1;
+Sav2_PlayerData_GetOptionsAddr = 0x02028EA8 | 1;
+ScrNative_WaitApplication = 0x020429F8 | 1;
+StartMoveRelearner = 0x0204ECD0 | 1;
+CreateScriptContext = 0x020400AC | 1;
