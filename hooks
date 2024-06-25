@@ -461,3 +461,15 @@ arm9 GF_AssertFail 0202551C 0
 
 # fix trainer ai being able to switch illegally when binded
 0010 ai_switch_ban_for_bind_hook 022203B4 2
+
+# hooking item use : 020902D0 + 4 = 020902D4
+arm9 UseItemOnPokemon_hook 020902D4 5 
+
+# **** Iridium: Added hooks to support the portable relearner. ****
+
+# pc anywhere
+0001 ClearOverworldRequestFlags 021E6880 1
+# hook from where y button is checked
+0001 SetOverworldRequestFlags_hook 021E6982 0
+# hook from near beginning of function
+0001 CheckOverworldRequestFlags_hook 021E6AF6 3

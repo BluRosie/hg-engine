@@ -249,6 +249,78 @@ void LONG_CALL SetUpItemScript(void *iuwk, const void *icwk, u32 scr_id);
  */
 u32 LONG_CALL GetItemData(u16 item, u32 param, u32 heap_id);
 
+/*
+ * void *LoadItemDataOrGfx(u16 itemId, int attrno, HeapID heapId)
+ *
+ * Loads the raw data corresponding to the given item. Allocates a new buffer.
+ *
+ * @param itemId:      Item ID to look up
+ * @param attrno:      Type of object to load
+ * @param heapId:     ID of heap to allocate the result from
+ *
+ * @returns: Pointer to loaded data. If attrNo is ... then ...
+ *     ITEMNARC_PARAM:   ItemData* from itemtool/itemdata/item_data.narc
+ *     ITEMNARC_NCGR:    NCGR from itemtool/itemdata/item_icon.narc
+ *     ITEMNARC_NCLR:    NCLR from itemtool/itemdata/item_icon.narc
+ *
+ * If itemId or attrno is invalid, or if allocation failed, returns NULL
+ */
+struct ItemData* LONG_CALL LoadItemDataOrGfx(u16 itemId, int attrno, u32 heapId);
+
+
+/*
+ * s32 GetItemAttr_PreloadedItemData(u16 itemId, u16 attrno, HeapID heapId)
+ *
+ * Gets the specified item effect parameter from itemtool/itemdata/item_data.narc
+ *
+ * @param itemData:    Pointer to the preloaded row from itemtool/itemdata/item_data.narc
+ * @param attrno:      The attribute you want to read
+ *
+ * @returns: Integer attribute value
+ */
+s32 LONG_CALL GetItemAttr_PreloadedItemData(struct ItemData *itemData, u16 attrno);
+
+
+/*
+ * s32 TryModEV(s32 ev, s32 evSum, s32 by)
+ *
+ * modifies EVs by an amount based on item used normally
+ *
+ * @param ev:    the ev to augment
+ * @param evSum:      the sum of all evs
+ * @param by:      the amount to augment ev by
+ *
+ * @returns: the modified EV or -1 if failed due to MAX EV or SUM
+ */
+s32 LONG_CALL TryModEV(s32 ev, s32 evSum, s32 by);
+
+
+/* 
+ * Boost PP of a move by certain amount
+*/
+BOOL LONG_CALL BoostMonMovePpUpBy(struct PartyPokemon *mon, int moveIdx, int nPpUp);
+
+/* 
+ * Restore PP of a move by certain amount
+*/
+BOOL LONG_CALL MonMoveRestorePP(struct PartyPokemon *mon, int moveIdx, int ppRestore);
+
+/* 
+ * Restore HP of a mon by certain amount
+*/
+void LONG_CALL RestoreMonHPBy(struct PartyPokemon *mon, u32 hp, u32 maxHp, u32 restoration);
+
+/* 
+ * <Modify friendship?>
+*/
+BOOL LONG_CALL DoItemFriendshipMod(struct PartyPokemon *mon, s32 friendship, s32 mod, u16 location, u32 heapID);
+
+/* 
+ * Modify mood due to item
+ * <What is mood, friendship?>
+*/
+void LONG_CALL ApplyItemEffectOnMonMood(struct PartyPokemon *mon, u16 itemId);
+
 /* item use funcs */
 BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_Generic(struct ItemFieldUseData *data);
 void LONG_CALL THUMB_FUNC ItemMenuUseFunc_HealingItem(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
