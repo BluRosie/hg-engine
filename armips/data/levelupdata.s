@@ -2695,46 +2695,56 @@ levelup SPECIES_EXEGGUTOR
 levelup SPECIES_CUBONE
     learnset MOVE_MUD_SLAP, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_TAIL_WHIP, 3
+    learnset MOVE_TAIL_WHIP, 4
     learnset MOVE_BONE_CLUB, 7
-    learnset MOVE_HEADBUTT, 11
+    learnset MOVE_HEADBUTT, 10
     learnset MOVE_LEER, 13
-    learnset MOVE_FALSE_SWIPE, 16
-    learnset MOVE_RAGE, 23
-    learnset MOVE_FOCUS_ENERGY, 25
-    learnset MOVE_FLING, 26
-    learnset MOVE_RETALIATE, 30
-    learnset MOVE_STOMPING_TANTRUM, 30
-    learnset MOVE_BONEMERANG, 31
-    learnset MOVE_THRASH, 37
-    learnset MOVE_ENDEAVOR, 38
-    learnset MOVE_BONE_RUSH, 39
-    learnset MOVE_DOUBLE_EDGE, 45
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_DETECT, 18
+    learnset MOVE_ROCK_TOMB, 21
+    learnset MOVE_FALSE_SWIPE, 24
+    learnset MOVE_STEALTH_ROCK, 27
+    learnset MOVE_BONE_RUSH, 30
+    learnset MOVE_AERIAL_ACE, 33
+    learnset MOVE_ENDEAVOR, 36
+    learnset MOVE_STOMPING_TANTRUM, 39
+    learnset MOVE_BULK_UP, 42
+    learnset MOVE_BONEMERANG, 45
+    learnset MOVE_IRON_HEAD, 48
+    learnset MOVE_ROCK_SLIDE, 52
+    learnset MOVE_SWORDS_DANCE, 55
+    learnset MOVE_DOUBLE_EDGE, 58
+    learnset MOVE_HEADLONG_RUSH, 62
+    learnset MOVE_HEAD_SMASH, 65
     terminatelearnset
 
 
 levelup SPECIES_MAROWAK
+    learnset MOVE_FISSURE 1
+    learnset MOVE_SCREECH, 1
     learnset MOVE_MUD_SLAP, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_FALSE_SWIPE, 1
-    learnset MOVE_BONE_CLUB, 1
-    learnset MOVE_HEADBUTT, 1
-    learnset MOVE_TAIL_WHIP, 3
-    learnset MOVE_BONE_CLUB, 7
+    learnset MOVE_TAIL_WHIP, 5
+    learnset MOVE_BONE_CLUB, 8
     learnset MOVE_HEADBUTT, 11
-    learnset MOVE_LEER, 13
-    learnset MOVE_RAGE, 23
-    learnset MOVE_FLING, 27
-    learnset MOVE_FOCUS_ENERGY, 27
-    learnset MOVE_FALSE_SWIPE, 27
-    learnset MOVE_STOMPING_TANTRUM, 32
-    learnset MOVE_BONEMERANG, 35
-    learnset MOVE_RETALIATE, 36
-    learnset MOVE_THRASH, 44
-    learnset MOVE_ENDEAVOR, 45
-    learnset MOVE_BONE_RUSH, 46
-    learnset MOVE_DOUBLE_EDGE, 56
+    learnset MOVE_LEER, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_DETECT, 19
+    learnset MOVE_ROCK_TOMB, 22
+    learnset MOVE_FALSE_SWIPE, 25
+    learnset MOVE_STEALTH_ROCK, 28
+    learnset MOVE_BONE_RUSH, 31
+    learnset MOVE_AERIAL_ACE, 34
+    learnset MOVE_ENDEAVOR, 37
+    learnset MOVE_STOMPING_TANTRUM, 40
+    learnset MOVE_BULK_UP, 43
+    learnset MOVE_BONEMERANG, 46
+    learnset MOVE_IRON_HEAD, 49
+    learnset MOVE_ROCK_SLIDE, 53
+    learnset MOVE_SWORDS_DANCE, 56
+    learnset MOVE_DOUBLE_EDGE, 59
+    learnset MOVE_HEADLONG_RUSH, 63
+    learnset MOVE_HEAD_SMASH, 66
     terminatelearnset
 
 
@@ -25188,32 +25198,33 @@ levelup SPECIES_EXEGGUTOR_ALOLAN
 
 levelup SPECIES_MAROWAK_ALOLAN
     learnset MOVE_SHADOW_BONE, 0
-    learnset MOVE_FALSE_SWIPE, 1
-    learnset MOVE_HEADBUTT, 1
-    learnset MOVE_RETALIATE, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_DOUBLE_EDGE, 1
+    learnset MOVE_SHADOW_BONE, 1
+    learnset MOVE_FLAME_WHEEL, 1
+    learnset MOVE_FIRE_SPIN, 1
+    learnset MOVE_SCREECH, 1
     learnset MOVE_MUD_SLAP, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_FIRE_SPIN, 1
-    learnset MOVE_BONE_CLUB, 1
-    learnset MOVE_FLAME_WHEEL, 1
-    learnset MOVE_TAIL_WHIP, 3
-    learnset MOVE_BONE_CLUB, 7
-    learnset MOVE_FLAME_WHEEL, 11
-    learnset MOVE_LEER, 13
-    learnset MOVE_HEX, 16
-    learnset MOVE_FLING, 27
-    learnset MOVE_SHADOW_BONE, 27
-    learnset MOVE_WILL_O_WISP, 29
-    learnset MOVE_STOMPING_TANTRUM, 32
-    learnset MOVE_BONEMERANG, 35
-    learnset MOVE_THRASH, 44
-    learnset MOVE_ENDEAVOR, 45
-    learnset MOVE_BONE_RUSH, 46
-    learnset MOVE_FLARE_BLITZ, 56
-    learnset MOVE_RETALIATE, 59
+    learnset MOVE_TAIL_WHIP, 5
+    learnset MOVE_BONE_CLUB, 8
+    learnset MOVE_HEADBUTT, 11
+    learnset MOVE_LEER, 14
+    learnset MOVE_HEX, 17
+    learnset MOVE_DETECT, 19
+    learnset MOVE_ROCK_TOMB, 22
+    learnset MOVE_FALSE_SWIPE, 25
+    learnset MOVE_WILL_O_WISP, 28
+    learnset MOVE_BONE_RUSH, 31
+    learnset MOVE_AERIAL_ACE, 34
+    learnset MOVE_ENDEAVOR, 37
+    learnset MOVE_STOMPING_TANTRUM, 40
+    learnset MOVE_BULK_UP, 43
+    learnset MOVE_BONEMERANG, 46
+    learnset MOVE_IRON_HEAD, 49
+    learnset MOVE_ROCK_SLIDE, 53
+    learnset MOVE_SWORDS_DANCE, 56
+    learnset MOVE_DOUBLE_EDGE, 59
+    learnset MOVE_FLARE_BLITZ, 63
+    learnset MOVE_HEAD_SMASH, 66
     terminatelearnset
 
 
