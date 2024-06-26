@@ -209,7 +209,9 @@ typedef struct OVERWORLD_REQUEST_FLAGS {
               u16 DebugHook:1;    // 0x1000
               u16 DebugKeyPush:1; // 0x2000
               u16 OpenPCCheck:1;
-              u16 Unused:1;
+              
+              /**** IRIDIUM: Checking against a byte for the Relearner functionality. ****/
+              u16 OpenRelearnerCheck:1;
     /* 0x2 */ u16 unk2; // if you told me that they just inserted unk0_0018 without decreasing Unused size, i would believe you
     /* 0x4 */ u8 Site;
     /* 0x5 */ s8 PushSite;

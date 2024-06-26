@@ -170,6 +170,11 @@ void LONG_CALL ScriptJump(SCRIPTCONTEXT* ctx, const u8* ptr); // this is importa
 void *LONG_CALL FieldSysGetAttrAddr(FieldSystem *fsys, int field);
 u32 LONG_CALL Fsys_GetWeather_HandleDiamondDust(FieldSystem *fsys, u32 mapID);
 
+void LONG_CALL StartMoveRelearner(struct SCRIPTCONTEXT *ctx, int type, struct PartyPokemon *mon, u16 *eligibleMoves);
+
+struct SCRIPTCONTEXT LONG_CALL *CreateScriptContext(struct FieldSystem *fieldSystem, u16 script);
+
+
 // there are actual functions for ScriptReadHalfword and ScriptReadWord, but it's whatever
 #define ScriptReadByte(ctx) *(u8*)(ctx->script_ptr++)
 #define ScriptReadHalfword(ctx) (ScriptReadByte(ctx) | (ScriptReadByte(ctx) << 8))

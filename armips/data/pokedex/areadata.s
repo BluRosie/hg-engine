@@ -3,7 +3,8 @@
 
 .include "armips/include/constants.s"
 .include "armips/include/macros.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/species.inc"
 
 /*
 

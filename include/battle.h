@@ -272,7 +272,7 @@
 #define STATUS2_SUBSTITUTE (0x01000000)
 #define STATUS2_MEAN_LOOK (0x04000000)
 #define STATUS2_NIGHTMARE (0x08000000)
-#define STATUS2_CURSE (0x1000000)
+#define STATUS2_CURSE (0x10000000)
 #define STATUS2_FORESIGHT (0x20000000)
 #define STATUS2_DEFENCE_CURL (0x40000000)
 #define STATUS2_TORMENT (0x80000000)
@@ -319,13 +319,13 @@
  */
 #define WEATHER_RAIN                        (0x00000001)                                                                    // 0000 0000 0000 0000 0001
 #define WEATHER_RAIN_PERMANENT              (0x00000002)                                                                    // 0000 0000 0000 0000 0010
-#define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)          // 0010 0000 0000 0000 0000 0000 0011
+#define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)                    // 0010 0000 0000 0000 0000 0000 0011
 #define WEATHER_SANDSTORM                   (0x00000004)                                                                    // 0000 0000 0000 0000 0100
 #define WEATHER_SANDSTORM_PERMANENT         (0x00000008)                                                                    // 0000 0000 0000 0000 1000
 #define WEATHER_SANDSTORM_ANY               (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)                               // 0000 0000 0000 0000 1100
 #define WEATHER_SUNNY                       (0x00000010)                                                                    // 0000 0000 0000 0001 0000
 #define WEATHER_SUNNY_PERMANENT             (0x00000020)                                                                    // 0000 0000 0000 0010 0000
-#define WEATHER_SUNNY_ANY         (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0001 0000 0000 0000 0000 0011 0000
+#define WEATHER_SUNNY_ANY                   (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0001 0000 0000 0000 0000 0011 0000
 #define WEATHER_HAIL                        (0x00000040)                                                                    // 0000 0000 0000 0100 0000
 #define WEATHER_HAIL_PERMANENT              (0x00000080)                                                                    // 0000 0000 0000 1000 0000
 #define WEATHER_HAIL_ANY                    (WEATHER_HAIL | WEATHER_HAIL_PERMANENT)                                         // 0000 0000 0000 1100 0000
@@ -1411,7 +1411,6 @@ struct PACKED newBattleStruct
     CATS_ACT_PTR MegaButton;
     CATS_ACT_PTR WeatherOAM;
     SysTask *weatherUpdateTask;
-    u32 weather;
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
     u16 itemsToRestore[6]; // items that each mon was holding at the beginning of the battle

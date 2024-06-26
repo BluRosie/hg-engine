@@ -30,7 +30,7 @@ FUN_GetCamBox:
 FUN_GDMI:
     //push { lr }
     push { r0-r7 }
-    
+
     mov r0, #1 // field
     ldr r1, =IsOverlayLoaded
 	bl bx_r1
@@ -41,6 +41,12 @@ FUN_GDMI:
 	//bl IsPlayerOnLadder
 	ldr r1, =IsPlayerOnLadder
 	bl bx_r1
+    cmp r0, #0
+    bne LAB_023d95fe
+
+// if the player is in the union room
+    ldr r1, =0x02037D78 | 1
+    bl bx_r1
     cmp r0, #0
     bne LAB_023d95fe
 
@@ -63,10 +69,10 @@ LAB_023d95fe:
 
 _ret_2022FA2:
     //pop { pc }
-    
+
     ldr r0, =0x021D2204
     add r1, sp, #0xC
-    
+
     ldr r2, =0x0202317D
     bx r2
 
