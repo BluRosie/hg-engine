@@ -2631,24 +2631,29 @@ levelup SPECIES_ELECTRODE
 levelup SPECIES_EXEGGCUTE
     learnset MOVE_ABSORB, 1
     learnset MOVE_HYPNOSIS, 1
-    learnset MOVE_BARRAGE, 1
-    learnset MOVE_UPROAR, 1
-    learnset MOVE_REFLECT, 5
+    learnset MOVE_BARRAGE, 4
+    learnset MOVE_REFLECT, 7
     learnset MOVE_LEECH_SEED, 10
-    learnset MOVE_MEGA_DRAIN, 15
-    learnset MOVE_STUN_SPORE, 19
-    learnset MOVE_POISON_POWDER, 21
-    learnset MOVE_CONFUSION, 23
-    learnset MOVE_BULLET_SEED, 23
-    learnset MOVE_SLEEP_POWDER, 23
-    learnset MOVE_SYNTHESIS, 25
-    learnset MOVE_GIGA_DRAIN, 35
-    learnset MOVE_NATURAL_GIFT, 37
+    learnset MOVE_CONFUSION, 13
+    learnset MOVE_MEGA_DRAIN, 16
+    learnset MOVE_STUN_SPORE, 18
+    learnset MOVE_POISON_POWDER, 18
+    learnset MOVE_SLEEP_POWDER, 18
+    learnset MOVE_BULLET_SEED, 21
+    learnset MOVE_SYNTHESIS, 24
+    learnset MOVE_ANCIENT_POWER, 27
+    learnset MOVE_GIGA_DRAIN, 30
+    learnset MOVE_NATURAL_GIFT, 33
+    learnset MOVE_SUNNY_DAY, 36
+    learnset MOVE_PSYBEAM, 39
     learnset MOVE_WORRY_SEED, 42
-    learnset MOVE_EXTRASENSORY, 43
-    learnset MOVE_UPROAR, 45
-    learnset MOVE_SOLAR_BEAM, 49
-    learnset MOVE_BESTOW, 50
+    learnset MOVE_ENERGY_BALL, 45
+    learnset MOVE_EGG_BOMB, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_WEATHER_BALL, 54
+    learnset MOVE_UPROAR, 57
+    learnset MOVE_SOLAR_BEAM, 60
+    learnset MOVE_LEAF_STORM, 63
     terminatelearnset
 
 
@@ -2658,25 +2663,32 @@ levelup SPECIES_EXEGGUTOR
     learnset MOVE_SEED_BOMB, 1
     learnset MOVE_PSYSHOCK, 1
     learnset MOVE_WOOD_HAMMER, 1
-    learnset MOVE_LEAF_STORM, 1
-    learnset MOVE_MEGA_DRAIN, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_SYNTHESIS, 1
-    learnset MOVE_BULLET_SEED, 1
-    learnset MOVE_GIGA_DRAIN, 1
-    learnset MOVE_EXTRASENSORY, 1
-    learnset MOVE_UPROAR, 1
-    learnset MOVE_WORRY_SEED, 1
-    learnset MOVE_SOLAR_BEAM, 1
+    learnset MOVE_GROWTH, 1
     learnset MOVE_ABSORB, 1
     learnset MOVE_HYPNOSIS, 1
-    learnset MOVE_REFLECT, 1
-    learnset MOVE_LEECH_SEED, 1
-    learnset MOVE_BARRAGE, 1
-    learnset MOVE_PSYSHOCK, 17
-    learnset MOVE_EGG_BOMB, 27
-    learnset MOVE_WOOD_HAMMER, 37
-    learnset MOVE_LEAF_STORM, 47
+    learnset MOVE_BARRAGE, 5
+    learnset MOVE_REFLECT, 8
+    learnset MOVE_LEECH_SEED, 11
+    learnset MOVE_CONFUSION, 14
+    learnset MOVE_MEGA_DRAIN, 17
+    learnset MOVE_STUN_SPORE, 19
+    learnset MOVE_POISON_POWDER, 19
+    learnset MOVE_SLEEP_POWDER, 19
+    learnset MOVE_BULLET_SEED, 22
+    learnset MOVE_SYNTHESIS, 25
+    learnset MOVE_ANCIENT_POWER, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_NATURAL_GIFT, 34
+    learnset MOVE_SUNNY_DAY, 37
+    learnset MOVE_PSYBEAM, 40
+    learnset MOVE_WORRY_SEED, 43
+    learnset MOVE_ENERGY_BALL, 46
+    learnset MOVE_EGG_BOMB, 49
+    learnset MOVE_PSYCHIC, 52
+    learnset MOVE_WEATHER_BALL, 55
+    learnset MOVE_UPROAR, 58
+    learnset MOVE_SOLAR_BEAM, 61
+    learnset MOVE_LEAF_STORM, 64
     terminatelearnset
 
 
@@ -25146,25 +25158,31 @@ levelup SPECIES_EXEGGUTOR_ALOLAN
     learnset MOVE_SEED_BOMB, 1
     learnset MOVE_PSYSHOCK, 1
     learnset MOVE_WOOD_HAMMER, 1
-    learnset MOVE_LEAF_STORM, 1
-    learnset MOVE_MEGA_DRAIN, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_SYNTHESIS, 1
-    learnset MOVE_BULLET_SEED, 1
-    learnset MOVE_GIGA_DRAIN, 1
-    learnset MOVE_EXTRASENSORY, 1
-    learnset MOVE_UPROAR, 1
-    learnset MOVE_WORRY_SEED, 1
-    learnset MOVE_SOLAR_BEAM, 1
     learnset MOVE_ABSORB, 1
     learnset MOVE_HYPNOSIS, 1
-    learnset MOVE_REFLECT, 1
-    learnset MOVE_LEECH_SEED, 1
-    learnset MOVE_BARRAGE, 1
-    learnset MOVE_PSYSHOCK, 17
-    learnset MOVE_EGG_BOMB, 27
-    learnset MOVE_WOOD_HAMMER, 37
-    learnset MOVE_LEAF_STORM, 47
+    learnset MOVE_BARRAGE, 5
+    learnset MOVE_REFLECT, 8
+    learnset MOVE_LEECH_SEED, 11
+    learnset MOVE_CONFUSION, 14
+    learnset MOVE_MEGA_DRAIN, 17
+    learnset MOVE_STUN_SPORE, 19
+    learnset MOVE_POISON_POWDER, 19
+    learnset MOVE_SLEEP_POWDER, 19
+    learnset MOVE_BULLET_SEED, 22
+    learnset MOVE_SYNTHESIS, 25
+    learnset MOVE_ANCIENT_POWER, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_NATURAL_GIFT, 34
+    learnset MOVE_SUNNY_DAY, 37
+    learnset MOVE_PSYBEAM, 40
+    learnset MOVE_WORRY_SEED, 43
+    learnset MOVE_ENERGY_BALL, 46
+    learnset MOVE_EGG_BOMB, 49
+    learnset MOVE_PSYCHIC, 52
+    learnset MOVE_WEATHER_BALL, 55
+    learnset MOVE_UPROAR, 58
+    learnset MOVE_SOLAR_BEAM, 61
+    learnset MOVE_LEAF_STORM, 64
     terminatelearnset
 
 
