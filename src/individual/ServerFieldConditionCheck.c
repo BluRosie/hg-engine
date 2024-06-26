@@ -442,7 +442,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 #ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
             if (sp->field_condition & WEATHER_STRONG_WINDS)
             {
-                sp->mp.msg_id = BATTLE_MSG_STRONG_WINDS_BLOW_ON; // The fog is deep...
+                sp->mp.msg_id = BATTLE_MSG_STRONG_WINDS_BLOW_ON; // The strong winds blow on!
                 sp->mp.msg_tag = TAG_NONE;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
                 sp->next_server_seq_no = sp->server_seq_no;
