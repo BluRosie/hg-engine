@@ -605,8 +605,8 @@ levelup SPECIES_NIDORAN_F
     learnset MOVE_SCRATCH 1 
     learnset MOVE_GROWL 1
     learnset MOVE_POISON_STING 4
-    learnset MOVE_TAIL _WHIP 7
-    learnset MOVE_MUD _SLAP 10
+    learnset MOVE_TAIL_WHIP 7
+    learnset MOVE_MUD_SLAP 10
     learnset MOVE_ACID 13
     learnset MOVE_FURY_SWIPES 16
     learnset MOVE_BITE 17
