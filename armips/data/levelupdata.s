@@ -18426,7 +18426,7 @@ levelup SPECIES_SALAZZLE
     learnset MOVE_VENOSHOCK, 40
     learnset MOVE_SWAGGER, 43
     learnset MOVE_DRAGON_PULSE, 46
-    learnset MOVE_ENDEAVOR, 48
+    learnset MOVE_ENDEAVOR, 49
     learnset MOVE_TOXIC, 52
     learnset MOVE_FLAMETHROWER, 56
     learnset MOVE_SLUDGE_BOMB, 62
