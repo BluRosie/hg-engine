@@ -2847,18 +2847,25 @@ levelup SPECIES_KOFFING
     learnset MOVE_TACKLE, 1
     learnset MOVE_SMOG, 4
     learnset MOVE_SMOKESCREEN, 7
+    learnset MOVE_ASSURANCE, 10
     learnset MOVE_CLEAR_SMOG, 13
-    learnset MOVE_ASSURANCE, 14
-    learnset MOVE_SLUDGE, 19
+    learnset MOVE_INCINERATE, 16
+    learnset MOVE_CURSE, 18
+    learnset MOVE_SLUDGE, 21
     learnset MOVE_HAZE, 24
-    learnset MOVE_SELF_DESTRUCT, 25
-    learnset MOVE_GYRO_BALL, 29
-    learnset MOVE_SLUDGE_BOMB, 32
-    learnset MOVE_TOXIC, 36
-    learnset MOVE_BELCH, 40
-    learnset MOVE_EXPLOSION, 40
-    learnset MOVE_MEMENTO, 46
-    learnset MOVE_DESTINY_BOND, 46
+    learnset MOVE_SELF_DESTRUCT, 27
+    learnset MOVE_GYRO_BALL, 30
+    learnset MOVE_TOXIC, 33
+    learnset MOVE_VENOSHOCK, 36
+    learnset MOVE_WILL_O_WISP, 39
+    learnset MOVE_EXPLOSION, 42
+    learnset MOVE_SLUDGE_BOMB, 45
+    learnset MOVE_DESTINY_BOND, 48
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_PAIN_SPLIT, 54
+    learnset MOVE_FLAMETHROWER, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_FIRE_BLAST, 63
     terminatelearnset
 
 
@@ -2866,24 +2873,31 @@ levelup SPECIES_WEEZING
     learnset MOVE_DOUBLE_HIT, 0
     learnset MOVE_DOUBLE_HIT, 1
     learnset MOVE_HEAT_WAVE, 1
+    learnset MOVE_PSYBEAM, 1
+    learnset MOVE_SCREECH, 1
     learnset MOVE_POISON_GAS, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_SMOG, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_SMOG, 4
-    learnset MOVE_SMOKESCREEN, 7
-    learnset MOVE_CLEAR_SMOG, 13
-    learnset MOVE_ASSURANCE, 14
-    learnset MOVE_SLUDGE, 19
-    learnset MOVE_HAZE, 24
-    learnset MOVE_SELF_DESTRUCT, 25
-    learnset MOVE_GYRO_BALL, 29
-    learnset MOVE_SLUDGE_BOMB, 32
-    learnset MOVE_TOXIC, 38
-    learnset MOVE_EXPLOSION, 45
-    learnset MOVE_BELCH, 47
-    learnset MOVE_DESTINY_BOND, 54
-    learnset MOVE_MEMENTO, 56
+    learnset MOVE_SMOG, 5
+    learnset MOVE_SMOKESCREEN, 8
+    learnset MOVE_ASSURANCE, 11
+    learnset MOVE_CLEAR_SMOG, 14
+    learnset MOVE_INCINERATE, 17
+    learnset MOVE_CURSE, 19
+    learnset MOVE_SLUDGE, 22
+    learnset MOVE_HAZE, 25
+    learnset MOVE_SELF_DESTRUCT, 28
+    learnset MOVE_GYRO_BALL, 31
+    learnset MOVE_TOXIC, 34
+    learnset MOVE_VENOSHOCK, 37
+    learnset MOVE_WILL_O_WISP, 40
+    learnset MOVE_EXPLOSION, 44
+    learnset MOVE_SLUDGE_BOMB, 47
+    learnset MOVE_DESTINY_BOND, 49
+    learnset MOVE_DARK_PULSE, 52
+    learnset MOVE_PAIN_SPLIT, 55
+    learnset MOVE_FLAMETHROWER, 58
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_FIRE_BLAST, 64
     terminatelearnset
 
 
@@ -25362,29 +25376,35 @@ levelup SPECIES_FARFETCHD_GALARIAN
 
 
 levelup SPECIES_WEEZING_GALARIAN
+    learnset MOVE_DOUBLE_HIT, 0
     learnset MOVE_DOUBLE_HIT, 1
-    learnset MOVE_STRANGE_STEAM, 1
-    learnset MOVE_DEFOG, 1
     learnset MOVE_HEAT_WAVE, 1
-    learnset MOVE_SMOG, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_HAZE, 1
+    learnset MOVE_STRANGE_STEAM, 1
+    learnset MOVE_FAIRY_WIND, 1
+    learnset MOVE_AROMATHERAPY, 1
     learnset MOVE_POISON_GAS, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_FAIRY_WIND, 1
-    learnset MOVE_AROMATIC_MIST, 1
-    learnset MOVE_CLEAR_SMOG, 12
-    learnset MOVE_ASSURANCE, 16
-    learnset MOVE_SLUDGE, 20
-    learnset MOVE_AROMATHERAPY, 24
+    learnset MOVE_SMOG, 5
+    learnset MOVE_SMOKESCREEN, 8
+    learnset MOVE_ASSURANCE, 11
+    learnset MOVE_CLEAR_SMOG, 14
+    learnset MOVE_FAIRY_WIND, 17
+    learnset MOVE_CURSE, 19
+    learnset MOVE_SLUDGE, 22
+    learnset MOVE_HAZE, 25
     learnset MOVE_SELF_DESTRUCT, 28
-    learnset MOVE_SLUDGE_BOMB, 32
-    learnset MOVE_TOXIC, 38
-    learnset MOVE_BELCH, 44
-    learnset MOVE_EXPLOSION, 50
-    learnset MOVE_MEMENTO, 56
-    learnset MOVE_DESTINY_BOND, 62
-    learnset MOVE_MISTY_TERRAIN, 68
+    learnset MOVE_DAZZLING_GLEAM, 31
+    learnset MOVE_TOXIC, 34
+    learnset MOVE_VENOSHOCK, 37
+    learnset MOVE_WILL_O_WISP, 40
+    learnset MOVE_EXPLOSION, 44
+    learnset MOVE_SLUDGE_BOMB, 47
+    learnset MOVE_DESTINY_BOND, 49
+    learnset MOVE_MOONBLAST, 52
+    learnset MOVE_MISTY_TERRAIN, 55
+    learnset MOVE_FLAMETHROWER, 58
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_MISTY_EXPLOSION, 64
     terminatelearnset
 
 
