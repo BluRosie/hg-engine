@@ -2749,81 +2749,75 @@ levelup SPECIES_MAROWAK
 
 
 levelup SPECIES_HITMONLEE
-    learnset MOVE_BRICK_BREAK, 0
     learnset MOVE_DOUBLE_KICK, 0
-    learnset MOVE_BRICK_BREAK, 1
-    learnset MOVE_FEINT, 1
+    learnset MOVE_DOUBLE_KICK, 1
+    learnset MOVE_MEDITATE, 1
+    learnset MOVE_REVENGE, 1
     learnset MOVE_LOW_SWEEP, 1
+    learnset MOVE_FEINT, 1
+    learnset MOVE_LOW_KICK, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_HELPING_HAND, 1
     learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_DOUBLE_KICK, 1
-    learnset MOVE_REVERSAL, 1
-    learnset MOVE_CLOSE_COMBAT, 1
-    learnset MOVE_MEGA_KICK, 1
-    learnset MOVE_REVENGE, 1
-    learnset MOVE_MEDITATE, 1
-    learnset MOVE_ROLLING_KICK, 1
-    learnset MOVE_JUMP_KICK, 1
-    learnset MOVE_DOUBLE_KICK, 4
-    learnset MOVE_MEDITATE, 5
-    learnset MOVE_LOW_KICK, 8
-    learnset MOVE_ROLLING_KICK, 9
-    learnset MOVE_JUMP_KICK, 13
-    learnset MOVE_REVENGE, 16
-    learnset MOVE_BRICK_BREAK, 17
-    learnset MOVE_FOCUS_ENERGY, 21
-    learnset MOVE_FEINT, 25
-    learnset MOVE_ENDURE, 29
-    learnset MOVE_WIDE_GUARD, 30
-    learnset MOVE_MIND_READER, 30
-    learnset MOVE_BLAZE_KICK, 33
-    learnset MOVE_HIGH_JUMP_KICK, 37
-    learnset MOVE_FORESIGHT, 37
-    learnset MOVE_MEGA_KICK, 41
-    learnset MOVE_CLOSE_COMBAT, 45
-    learnset MOVE_REVERSAL, 49
+    learnset MOVE_FORESIGHT, 1
+    learnset MOVE_MEDITATE, 4
+    learnset MOVE_KARATE_CHOP, 7
+    learnset MOVE_PURSUIT, 10
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_QUICK_ATTACK, 16
+    learnset MOVE_FEINT, 18
+    learnset MOVE_ROLLING_KICK, 21
+    learnset MOVE_DETECT, 24
+    learnset MOVE_RAPID_SPIN, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_KNOCK_OFF, 33
+    learnset MOVE_ENDURE, 36
+    learnset MOVE_ROCK_SLIDE, 39
+    learnset MOVE_JUMP_KICK, 42
+    learnset MOVE_SUCKER_PUNCH, 45
+    learnset MOVE_REVERSAL, 48
+    learnset MOVE_AXE_KICK, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_BLAZE_KICK, 57
+    learnset MOVE_CLOSE_COMBAT, 60
     terminatelearnset
 
 
 levelup SPECIES_HITMONCHAN
-    learnset MOVE_DRAIN_PUNCH, 0
     learnset MOVE_COMET_PUNCH, 0
-    learnset MOVE_DRAIN_PUNCH, 1
+    learnset MOVE_COMET_PUNCH, 1
+    learnset MOVE_REVENGE, 1
     learnset MOVE_FEINT, 1
-    learnset MOVE_VACUUM_WAVE, 1
-    learnset MOVE_BULLET_PUNCH, 1
+    learnset MOVE_AGILITY, 1
+    learnset MOVE_PURSUIT, 1
+    learnset MOVE_DRAIN_PUNCH, 1
+    learnset MOVE_POWER_UP_PUNCH, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_HELPING_HAND, 1
     learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_COMET_PUNCH, 1
-    learnset MOVE_CLOSE_COMBAT, 1
-    learnset MOVE_COUNTER, 1
-    learnset MOVE_FOCUS_PUNCH, 1
-    learnset MOVE_REVENGE, 1
-    learnset MOVE_AGILITY, 1
-    learnset MOVE_PURSUIT, 1
-    learnset MOVE_MACH_PUNCH, 1
-    learnset MOVE_POWER_UP_PUNCH, 8
-    learnset MOVE_MACH_PUNCH, 9
-    learnset MOVE_PURSUIT, 11
-    learnset MOVE_REVENGE, 16
-    learnset MOVE_BULLET_PUNCH, 16
-    learnset MOVE_AGILITY, 17
-    learnset MOVE_FEINT, 21
-    learnset MOVE_QUICK_GUARD, 25
-    learnset MOVE_VACUUM_WAVE, 26
-    learnset MOVE_DETECT, 29
-    learnset MOVE_THUNDER_PUNCH, 29
-    learnset MOVE_ICE_PUNCH, 29
-    learnset MOVE_FIRE_PUNCH, 29
-    learnset MOVE_MEGA_PUNCH, 38
-    learnset MOVE_SKY_UPPERCUT, 41
-    learnset MOVE_COUNTER, 49
-    learnset MOVE_FOCUS_PUNCH, 49
-    learnset MOVE_CLOSE_COMBAT, 50
+    learnset MOVE_FORESIGHT, 1
+    learnset MOVE_MEDITATE, 4
+    learnset MOVE_KARATE_CHOP, 7
+    learnset MOVE_PURSUIT, 10
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_QUICK_ATTACK, 16
+    learnset MOVE_FEINT, 18
+    learnset MOVE_MACH_PUNCH, 21
+    learnset MOVE_DETECT, 24
+    learnset MOVE_BULLET_PUNCH, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_KNOCK_OFF, 33
+    learnset MOVE_ENDURE, 36
+    learnset MOVE_ROCK_SLIDE, 39
+    learnset MOVE_FIRE_PUNCH, 42
+    learnset MOVE_THUNDER_PUNCH, 42
+    learnset MOVE_ICE_PUNCH, 42
+    learnset MOVE_SUCKER_PUNCH, 45
+    learnset MOVE_SKY_UPPERCUT, 48
+    learnset MOVE_COUNTER, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_MEGA_PUNCH, 57
+    learnset MOVE_CLOSE_COMBAT, 60
     terminatelearnset
 
 
@@ -5755,45 +5749,48 @@ levelup SPECIES_TYROGUE
     learnset MOVE_TACKLE, 1
     learnset MOVE_HELPING_HAND, 1
     learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_FOCUS_ENERGY, 1
     learnset MOVE_FORESIGHT, 1
+    learnset MOVE_MEDITATE, 4
+    learnset MOVE_KARATE_CHOP, 7
+    learnset MOVE_PURSUIT, 10
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_QUICK_ATTACK, 16
+    learnset MOVE_FEINT, 18
     terminatelearnset
 
 
 levelup SPECIES_HITMONTOP
     learnset MOVE_TRIPLE_KICK, 0
-    learnset MOVE_ROLLING_KICK, 0
     learnset MOVE_TRIPLE_KICK, 1
+    learnset MOVE_MEDITATE, 1
+    learnset MOVE_REVENGE, 1
     learnset MOVE_FEINT, 1
-    learnset MOVE_RAPID_SPIN, 1
+    learnset MOVE_AGILITY, 1
+    learnset MOVE_PURSUIT, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_HELPING_HAND, 1
     learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_ROLLING_KICK, 1
-    learnset MOVE_ENDEAVOR, 1
-    learnset MOVE_CLOSE_COMBAT, 1
-    learnset MOVE_DETECT, 1
-    learnset MOVE_REVENGE, 1
-    learnset MOVE_PURSUIT, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_FOCUS_ENERGY, 6
-    learnset MOVE_QUICK_ATTACK, 9
+    learnset MOVE_FORESIGHT, 1
+    learnset MOVE_MEDITATE, 4
+    learnset MOVE_KARATE_CHOP, 7
     learnset MOVE_PURSUIT, 10
-    learnset MOVE_REVENGE, 16
-    learnset MOVE_RAPID_SPIN, 19
-    learnset MOVE_GYRO_BALL, 23
-    learnset MOVE_SUCKER_PUNCH, 24
-    learnset MOVE_FEINT, 24
-    learnset MOVE_DETECT, 29
-    learnset MOVE_WIDE_GUARD, 32
-    learnset MOVE_QUICK_GUARD, 32
-    learnset MOVE_AGILITY, 32
-    learnset MOVE_DIG, 32
-    learnset MOVE_TRIPLE_KICK, 33
-    learnset MOVE_COUNTER, 34
-    learnset MOVE_CLOSE_COMBAT, 44
-    learnset MOVE_ENDEAVOR, 51
+    learnset MOVE_FOCUS_ENERGY, 13
+    learnset MOVE_QUICK_ATTACK, 16
+    learnset MOVE_FEINT, 18
+    learnset MOVE_ROLLING_KICK, 21
+    learnset MOVE_DETECT, 24
+    learnset MOVE_RAPID_SPIN, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_GYRO_BALL, 33
+    learnset MOVE_AGILITY, 36
+    learnset MOVE_ROCK_SLIDE, 39
+    learnset MOVE_DRILL_RUN, 42
+    learnset MOVE_SUCKER_PUNCH, 45
+    learnset MOVE_ENDEAVOR, 48
+    learnset MOVE_COUNTER, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_TRIPLE_AXEL, 57
+    learnset MOVE_CLOSE_COMBAT, 60
     terminatelearnset
 
 
