@@ -1,0 +1,29 @@
+{
+	"frames": {
+		"kabigon": {
+			"frame": 0,
+			"coordTrans": 16,
+			"color0": 1,
+			"format": 3,
+			"height": 64,
+			"width": 64,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 54,
+			"unkBlockUnk1": 1,
+			"unk0": 0,
+			"unk1": 2,
+			"unk2": 128
+		}
+	},
+	"palettes": {
+		"kabigon_pl": {
+			"offset": 0,
+			"unk0": 78,
+			"unk1": 1,
+			"fileName": "kabigon_pl.pal"
+		}
+	}
+}

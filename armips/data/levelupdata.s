@@ -13093,7 +13093,7 @@ levelup SPECIES_DRILBUR
     learnset MOVE_EARTHQUAKE, 60
     learnset MOVE_SLUDGE_BOMB, 63
     learnset MOVE_GUILLOTINE, 66
-    learnset MOVE_FISURE, 69
+    learnset MOVE_FISSURE, 69
     terminatelearnset
 
 
@@ -15611,7 +15611,7 @@ levelup SPECIES_DURANT
     learnset MOVE_BUG_BITE, 16
     learnset MOVE_ENDURE, 19
     learnset MOVE_BEAT_UP, 21
-    learnset MOVE_BULK_UP, 23  #if implemented, spicy extract should be in this slot
+    learnset MOVE_BULK_UP, 23  //if implemented, spicy extract should be in this slot
     learnset MOVE_ACROBATICS, 26
     learnset MOVE_SMART_STRIKE, 30
     learnset MOVE_METAL_SOUND, 33
@@ -17567,7 +17567,7 @@ levelup SPECIES_AVALUGG
     learnset MOVE_ROCK_SLIDE, 35
     learnset MOVE_PROTECT, 38
     learnset MOVE_ICICLE_CRASH, 43
-    learnset MOVE_BODY_PRESS, 47 # 184 base defense. BODY PRESS GAMING. LETSSS GOOOO
+    learnset MOVE_BODY_PRESS, 47 // 184 base defense. BODY PRESS GAMING. LETSSS GOOOO
     learnset MOVE_REST, 51
     learnset MOVE_SURF, 54
     learnset MOVE_HEAVY_SLAM, 57
@@ -20485,7 +20485,7 @@ levelup SPECIES_TOXTRICITY
     learnset MOVE_HEAL_BELL, 42
     learnset MOVE_TOXIC, 45
     learnset MOVE_HEX, 48
-    learnset MOVE_PSYSHOCK, 51 # should be PSYCHIC_NOISE if implemented
+    learnset MOVE_PSYSHOCK, 51 // should be PSYCHIC_NOISE if implemented
     learnset MOVE_OVERDRIVE, 54
     learnset MOVE_HYPER_VOICE, 57
     learnset MOVE_GUNK_SHOT, 60
@@ -21429,7 +21429,7 @@ levelup SPECIES_WYRDEER
     learnset MOVE_CALM_MIND, 21
     learnset MOVE_BULLDOZE, 23
     learnset MOVE_HYPNOSIS, 25
-    learnset MOVE_PSYLESHIELD_BASH, 28
+    learnset MOVE_PSYSHIELD_BASH, 28
     learnset MOVE_TRI_ATTACK, 31
     learnset MOVE_IMPRISON, 33
     learnset MOVE_HORN_LEECH, 37

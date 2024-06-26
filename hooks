@@ -473,3 +473,10 @@ arm9 UseItemOnPokemon_hook 020902D4 5
 0001 SetOverworldRequestFlags_hook 021E6982 0
 # hook from near beginning of function
 0001 CheckOverworldRequestFlags_hook 021E6AF6 3
+0012 GetDynamicMoveType 02258688 4
+
+# 022517EC + 4 = 22517F0
+0012 StruggleCheck_hook 22517F0 5
+
+# 02251A28 + 4 = 2251A2C
+0012 ov12_02251A28_hook 2251A2C 5

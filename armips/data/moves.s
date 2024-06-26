@@ -314,7 +314,7 @@ movedata MOVE_WHIRLWIND, "Whirlwind"
     movedescription MOVE_WHIRLWIND, "The foe is blown away,\nto be replaced by\nanother Pokémon\nin its party. In the\nwild, the battle ends."
 
 movedata MOVE_FLY, "Fly"
-    battleeffect MOVE_EFFECT_FLY
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_FLYING
@@ -1337,8 +1337,8 @@ movedata MOVE_DRAGON_RAGE, "Dragon Rage"
     terminatedata
     movedescription MOVE_DRAGON_RAGE, "The foe is stricken\nby a shock wave.\nThis attack always\ninflicts 40 HP\ndamage."
 
-movedata MOVE_FIRE_SPIN, "Fire Spin"
-    battleeffect MOVE_EFFECT_BIND_HIT
+movedata MOVE_FIRE_SPIN, "Fire Vortex"
+    battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_SPECIAL
     basepower 50
     type TYPE_FIRE
@@ -1351,7 +1351,7 @@ movedata MOVE_FIRE_SPIN, "Fire Spin"
     appeal 0x15
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_FIRE_SPIN, "The foe becomes\ntrapped within a\nfierce vortex of fire\nthat rages for two\nto five turns."
+    movedescription MOVE_FIRE_SPIN, "A blazing fire\nswirls around\nthe foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_THUNDER_SHOCK, "Thunder Shock"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
@@ -1466,7 +1466,7 @@ movedata MOVE_FISSURE, "EarthShatter"
 	movedescription MOVE_FISSURE, "The user rips open a\ncrevice in the ground\nand drops the foe in.\n33% recoil."
 
 movedata MOVE_DIG, "Dig"
-    battleeffect MOVE_EFFECT_DIG
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_GROUND
@@ -4011,8 +4011,8 @@ movedata MOVE_ROCK_SMASH, "Rock Smash"
     terminatedata
     movedescription MOVE_ROCK_SMASH, "The user hits with a\npunch that may lower\nthe target’s Defense.\nIt can also smash\ncracked boulders."
 
-movedata MOVE_WHIRLPOOL, "Whirlpool"
-    battleeffect MOVE_EFFECT_WHIRLPOOL
+movedata MOVE_WHIRLPOOL, "Aqua Vortex"
+    battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_SPECIAL
     basepower 50
     type TYPE_WATER
@@ -4025,7 +4025,7 @@ movedata MOVE_WHIRLPOOL, "Whirlpool"
     appeal 0x15
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_WHIRLPOOL, "Traps the foe inside a\nwhirlpool that lasts\nfor two to five turns.\nThe user can pass\nthrough whirlpools."
+    movedescription MOVE_WHIRLPOOL, "A harsh whirlpool\nswirls around\nthe foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_BEAT_UP, "Beat Up"
     battleeffect MOVE_EFFECT_BEAT_UP
@@ -4668,7 +4668,7 @@ movedata MOVE_SECRET_POWER, "Secret Power"
     movedescription MOVE_SECRET_POWER, "The user attacks with\na secret power. Its\nadded effects vary\ndepending on the\nuser’s environment."
 
 movedata MOVE_DIVE, "Dive"
-    battleeffect MOVE_EFFECT_DIVE
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_WATER
@@ -5259,8 +5259,8 @@ movedata MOVE_SKY_UPPERCUT, "Sky Uppercut"
     terminatedata
     movedescription MOVE_SKY_UPPERCUT, "The user attacks the\nfoe with an uppercut\nthrown skyward\nwith force.\n"
 
-movedata MOVE_SAND_TOMB, "Sand Tomb"
-    battleeffect MOVE_EFFECT_BIND_HIT
+movedata MOVE_SAND_TOMB, "Sand Vortex"
+    battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_PHYSICAL
     basepower 50
     type TYPE_GROUND
@@ -5273,7 +5273,7 @@ movedata MOVE_SAND_TOMB, "Sand Tomb"
     appeal 0x15
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_SAND_TOMB, "The user traps the\nfoe inside a harshly\nraging sandstorm for\ntwo to five turns.\n"
+    movedescription MOVE_SAND_TOMB, "A harsh sandstorm\nswirls around\nthe foe. It has a\nhigh critical-hit\nratio."
 
 movedata MOVE_SHEER_COLD, "Permafrost"
 	battleeffect 5
@@ -5452,7 +5452,7 @@ movedata MOVE_BULK_UP, "Bulk Up"
     movedescription MOVE_BULK_UP, "The user tenses its\nmuscles to bulk up\nits body, boosting\nboth its Attack and\nDefense stats."
 
 movedata MOVE_BOUNCE, "Bounce"
-    battleeffect MOVE_EFFECT_BOUNCE
+    battleeffect MOVE_EFFECT_PARALYZE_HIT
     pss SPLIT_PHYSICAL
     basepower 85
     type TYPE_FLYING
@@ -7488,7 +7488,7 @@ movedata MOVE_OMINOUS_WIND, "Ominous Wind"
     movedescription MOVE_OMINOUS_WIND, "The user creates a\ngust of repulsive\nwind. It may also\nraise all the user’s\nstats at once."
 
 movedata MOVE_SHADOW_FORCE, "Shadow Force"
-    battleeffect MOVE_EFFECT_SHADOW_FORCE
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_GHOST
