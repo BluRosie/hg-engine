@@ -3155,47 +3155,56 @@ levelup SPECIES_SEAKING
 levelup SPECIES_STARYU
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_WATER_GUN, 4
-    learnset MOVE_RAPID_SPIN, 9
-    learnset MOVE_PSYWAVE, 13
+    learnset MOVE_BUBBLE, 4
+    learnset MOVE_CONFUSE_RAY, 7
+    learnset MOVE_RAPID_SPIN, 10
+    learnset MOVE_CONFUSION, 13
+    learnset MOVE_DOUBLE_TEAM, 16
     learnset MOVE_SWIFT, 18
-    learnset MOVE_BUBBLE_BEAM, 18
-    learnset MOVE_CONFUSE_RAY, 22
-    learnset MOVE_CAMOUFLAGE, 22
-    learnset MOVE_MINIMIZE, 23
-    learnset MOVE_PSYBEAM, 24
-    learnset MOVE_GYRO_BALL, 24
-    learnset MOVE_BRINE, 28
-    learnset MOVE_RECOVER, 30
-    learnset MOVE_REFLECT_TYPE, 35
-    learnset MOVE_POWER_GEM, 36
-    learnset MOVE_LIGHT_SCREEN, 38
-    learnset MOVE_PSYCHIC, 40
-    learnset MOVE_SURF, 44
-    learnset MOVE_COSMIC_POWER, 50
-    learnset MOVE_HYDRO_PUMP, 54
+    learnset MOVE_BUBBLE_BEAM, 21
+    learnset MOVE_CONFUSE_RAY, 24
+    learnset MOVE_PSYBEAM, 27
+    learnset MOVE_MINIMIZE, 30
+    learnset MOVE_BRINE, 33
+    learnset MOVE_LIGHT_SCREEN, 36
+    learnset MOVE_REFLECT, 36
+    learnset MOVE_GYRO_BALL, 39
+    learnset MOVE_EXTRASENSORY, 42
+    learnset MOVE_SCALD, 45
+    learnset MOVE_RECOVER, 48
+    learnset MOVE_ICE_BEAM, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_COSMIC_POWER, 57
+    learnset MOVE_DAZZLING_GLEAM, 60
+    learnset MOVE_HYDRO_PUMP, 63
     terminatelearnset
 
 
 levelup SPECIES_STARMIE
-    learnset MOVE_RAPID_SPIN, 1
-    learnset MOVE_MINIMIZE, 1
-    learnset MOVE_SWIFT, 1
-    learnset MOVE_PSYBEAM, 1
-    learnset MOVE_BRINE, 1
-    learnset MOVE_LIGHT_SCREEN, 1
-    learnset MOVE_POWER_GEM, 1
-    learnset MOVE_PSYCHIC, 1
-    learnset MOVE_SURF, 1
-    learnset MOVE_RECOVER, 1
-    learnset MOVE_COSMIC_POWER, 1
-    learnset MOVE_HYDRO_PUMP, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_CONFUSE_RAY, 1
-    learnset MOVE_SPOTLIGHT, 1
-    learnset MOVE_CONFUSE_RAY, 40
+    learnset MOVE_BUBBLE, 5
+    learnset MOVE_CONFUSE_RAY, 8
+    learnset MOVE_RAPID_SPIN, 11
+    learnset MOVE_CONFUSION, 14
+    learnset MOVE_DOUBLE_TEAM, 17
+    learnset MOVE_SWIFT, 19
+    learnset MOVE_BUBBLE_BEAM, 22
+    learnset MOVE_CONFUSE_RAY, 25
+    learnset MOVE_PSYBEAM, 28
+    learnset MOVE_MINIMIZE, 31
+    learnset MOVE_BRINE, 34
+    learnset MOVE_LIGHT_SCREEN, 37
+    learnset MOVE_REFLECT, 37
+    learnset MOVE_GYRO_BALL, 40
+    learnset MOVE_EXTRASENSORY, 43
+    learnset MOVE_SCALD, 46
+    learnset MOVE_RECOVER, 49
+    learnset MOVE_ICE_BEAM, 52
+    learnset MOVE_PSYCHIC, 55
+    learnset MOVE_COSMIC_POWER, 58
+    learnset MOVE_DAZZLING_GLEAM, 61
+    learnset MOVE_HYDRO_PUMP, 64
     terminatelearnset
 
 
