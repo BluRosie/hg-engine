@@ -74,6 +74,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     && (sp->moveTbl[sp->current_move_index].power)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)
+                    && (sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
                     && (sp->multi_hit_count <= 1)) // don't activate until the last hit of a multi-hit move
                 {
                     seq_no[0] = SUB_SEQ_COLOR_CHANGE;
@@ -482,6 +483,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
                 ret = TRUE;
             }
+            break;
         case ABILITY_THERMAL_EXCHANGE:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
