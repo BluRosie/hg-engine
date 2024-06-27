@@ -3097,40 +3097,58 @@ levelup SPECIES_SEADRA
 levelup SPECIES_GOLDEEN
     learnset MOVE_PECK, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_WATER_SPORT, 1
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_HORN_ATTACK, 11
-    learnset MOVE_WATER_PULSE, 12
-    learnset MOVE_FLAIL, 22
-    learnset MOVE_AQUA_RING, 23
+    learnset MOVE_AQUA_JET, 4
+    learnset MOVE_SUPERSONIC, 7
+    learnset MOVE_FURY_ATTACK, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_RAIN_DANCE, 16
+    learnset MOVE_AQUA_RING, 18
+    learnset MOVE_FLAIL, 21
     learnset MOVE_AGILITY, 24
-    learnset MOVE_FURY_ATTACK, 24
-    learnset MOVE_WATERFALL, 33
-    learnset MOVE_SOAK, 40
-    learnset MOVE_HORN_DRILL, 43
-    learnset MOVE_MEGAHORN, 45
+    learnset MOVE_HORN_ATTACK, 27
+    learnset MOVE_SCALD, 30
+    learnset MOVE_SOAK, 33
+    learnset MOVE_ICE_BEAM, 36
+    learnset MOVE_DOUBLE_TEAM, 39
+    learnset MOVE_WATERFALL, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_ACUPRESSURE, 48
+    learnset MOVE_AQUA_TAIL, 51
+    learnset MOVE_DRILL_RUN, 54
+    learnset MOVE_MEGAHORN, 57
+    learnset MOVE_THRASH, 60
+    learnset MOVE_WAVE_CRASH, 63
     terminatelearnset
 
 
 levelup SPECIES_SEAKING
+    learnset MOVE_HAZE, 0
+    learnset MOVE_HAZE, 1
+    learnset MOVE_POISON_JAB, 1
+    learnset MOVE_ZEN_HEADBUTT, 1
     learnset MOVE_PECK, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_WATER_PULSE, 1
-    learnset MOVE_MEGAHORN, 1
-    learnset MOVE_POISON_JAB, 1
-    learnset MOVE_WATER_SPORT, 1
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_HORN_ATTACK, 11
-    learnset MOVE_WATER_PULSE, 16
-    learnset MOVE_FLAIL, 22
-    learnset MOVE_AQUA_RING, 23
+    learnset MOVE_AQUA_JET, 4
+    learnset MOVE_SUPERSONIC, 7
+    learnset MOVE_FURY_ATTACK, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_RAIN_DANCE, 16
+    learnset MOVE_AQUA_RING, 18
+    learnset MOVE_FLAIL, 21
     learnset MOVE_AGILITY, 24
-    learnset MOVE_FURY_ATTACK, 24
-    learnset MOVE_WATERFALL, 34
-    learnset MOVE_SOAK, 44
-    learnset MOVE_HORN_DRILL, 49
-    learnset MOVE_MEGAHORN, 52
+    learnset MOVE_HORN_ATTACK, 27
+    learnset MOVE_SCALD, 30
+    learnset MOVE_SOAK, 33
+    learnset MOVE_ICE_BEAM, 36
+    learnset MOVE_DOUBLE_TEAM, 39
+    learnset MOVE_WATERFALL, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_ACUPRESSURE, 48
+    learnset MOVE_AQUA_TAIL, 51
+    learnset MOVE_DRILL_RUN, 54
+    learnset MOVE_MEGAHORN, 57
+    learnset MOVE_THRASH, 60
+    learnset MOVE_WAVE_CRASH, 63
     terminatelearnset
 
 
