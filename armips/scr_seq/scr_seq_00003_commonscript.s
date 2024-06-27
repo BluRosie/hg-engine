@@ -86,6 +86,7 @@ scrdef scr_seq_0003_068
 scrdef scr_seq_0003_069
 scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
+scrdef scr_seq_0003_072
 scrdef_end
 
 scr_seq_0003_002:
@@ -1289,6 +1290,22 @@ scr_seq_0003_022:
     lockall
     npc_msg 65
     wait_button
+    closemsg
+    releaseall
+    end
+
+scr_seq_0003_072:
+    play_se SEQ_SE_DP_SELECT
+    lockall
+    npc_msg 118
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq scr_seq_0003_072_end
+    RunNewCommand 0, 0
+    PlayFanfare SEQ_SE_DP_CARD2
+    buffer_players_name 0
+    npc_msg 119
+scr_seq_0003_072_end:
     closemsg
     releaseall
     end

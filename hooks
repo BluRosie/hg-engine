@@ -461,3 +461,7 @@ arm9 GF_AssertFail 0202551C 0
 
 # fix trainer ai being able to switch illegally when binded
 0010 ai_switch_ban_for_bind_hook 022203B4 2
+
+0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
+
+0015 BagApp_GetRepelStepCountAddr 0x021F993C 3
