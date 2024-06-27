@@ -3014,26 +3014,27 @@ levelup SPECIES_TANGELA
 levelup SPECIES_KANGASKHAN
     learnset MOVE_POUND, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_COMET_PUNCH, 1
-    learnset MOVE_LEER, 1
     learnset MOVE_GROWL, 4
     learnset MOVE_FAKE_OUT, 7
-    learnset MOVE_TAIL_WHIP, 10
-    learnset MOVE_BITE, 12
-    learnset MOVE_STOMP, 16
-    learnset MOVE_FOCUS_ENERGY, 20
-    learnset MOVE_RAGE, 22
-    learnset MOVE_HEADBUTT, 24
-    learnset MOVE_DOUBLE_HIT, 25
-    learnset MOVE_MEGA_PUNCH, 25
-    learnset MOVE_CHIP_AWAY, 31
-    learnset MOVE_DIZZY_PUNCH, 34
-    learnset MOVE_CRUNCH, 36
-    learnset MOVE_SUCKER_PUNCH, 37
-    learnset MOVE_ENDURE, 41
-    learnset MOVE_REVERSAL, 46
-    learnset MOVE_OUTRAGE, 47
-    learnset MOVE_LAST_RESORT, 52
+    learnset MOVE_RAGE, 10
+    learnset MOVE_BITE, 13
+    learnset MOVE_FOCUS_ENERGY, 16
+    learnset MOVE_POWER_UP_PUNCH, 18
+    learnset MOVE_WORK_UP, 21
+    learnset MOVE_STOMP, 24
+    learnset MOVE_SUCKER_PUNCH, 27
+    learnset MOVE_DRAIN_PUNCH, 30
+    learnset MOVE_HEADBUTT, 33
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_ENDURE, 39
+    learnset MOVE_REVERSAL, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_HAMMER_ARM, 48
+    learnset MOVE_DOUBLE_TEAM, 51
+    learnset MOVE_IRON_TAIL, 54
+    learnset MOVE_EARTHQUAKE, 57
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_LAST_RESORT, 63
     terminatelearnset
 
 
