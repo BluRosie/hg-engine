@@ -2904,51 +2904,55 @@ levelup SPECIES_WEEZING
 levelup SPECIES_RHYHORN
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_HORN_ATTACK, 1
-    learnset MOVE_FURY_ATTACK, 1
-    learnset MOVE_SCARY_FACE, 1
-    learnset MOVE_FURY_ATTACK, 5
-    learnset MOVE_SMACK_DOWN, 8
-    learnset MOVE_SCARY_FACE, 14
-    learnset MOVE_BULLDOZE, 15
-    learnset MOVE_HORN_ATTACK, 15
+    learnset MOVE_MUD_SLAP, 4
+    learnset MOVE_FURY_ATTACK, 7
+    learnset MOVE_SCARY_FACE, 10
+    learnset MOVE_ROCK_THROW, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_ROCK_POLISH, 18
     learnset MOVE_STOMP, 21
-    learnset MOVE_CHIP_AWAY, 25
-    learnset MOVE_ROCK_BLAST, 29
-    learnset MOVE_DRILL_RUN, 34
-    learnset MOVE_TAKE_DOWN, 38
-    learnset MOVE_EARTHQUAKE, 45
-    learnset MOVE_STONE_EDGE, 45
-    learnset MOVE_MEGAHORN, 52
-    learnset MOVE_HORN_DRILL, 56
+    learnset MOVE_HORN_ATTACK, 24
+    learnset MOVE_STEALTH_ROCK, 27
+    learnset MOVE_ROCK_SLIDE, 30
+    learnset MOVE_CURSE, 33
+    learnset MOVE_SMART_STRIKE, 36
+    learnset MOVE_TAKE_DOWN, 39
+    learnset MOVE_DRILL_RUN, 42
+    learnset MOVE_CRUNCH, 45
+    learnset MOVE_SANDSTORM, 48
+    learnset MOVE_HIGH_HORSEPOWER, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_MEGAHORN, 57
+    learnset MOVE_EARTHQUAKE, 60
     terminatelearnset
 
 
 levelup SPECIES_RHYDON
     learnset MOVE_HAMMER_ARM, 0
     learnset MOVE_HAMMER_ARM, 1
+    learnset MOVE_COUNTER, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_SMACK_DOWN, 1
-    learnset MOVE_BULLDOZE, 1
-    learnset MOVE_HORN_DRILL, 1
-    learnset MOVE_HORN_ATTACK, 1
-    learnset MOVE_FURY_ATTACK, 1
-    learnset MOVE_SCARY_FACE, 1
-    learnset MOVE_FURY_ATTACK, 5
-    learnset MOVE_SMACK_DOWN, 13
-    learnset MOVE_SCARY_FACE, 14
-    learnset MOVE_HORN_ATTACK, 15
-    learnset MOVE_STOMP, 21
-    learnset MOVE_BULLDOZE, 21
-    learnset MOVE_CHIP_AWAY, 25
-    learnset MOVE_ROCK_BLAST, 29
-    learnset MOVE_DRILL_RUN, 34
-    learnset MOVE_TAKE_DOWN, 38
-    learnset MOVE_EARTHQUAKE, 47
-    learnset MOVE_STONE_EDGE, 47
+    learnset MOVE_MUD_SLAP, 5
+    learnset MOVE_FURY_ATTACK, 8
+    learnset MOVE_SCARY_FACE, 11
+    learnset MOVE_ROCK_THROW, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_ROCK_POLISH, 19
+    learnset MOVE_STOMP, 22
+    learnset MOVE_HORN_ATTACK, 25
+    learnset MOVE_STEALTH_ROCK, 28
+    learnset MOVE_ROCK_SLIDE, 31
+    learnset MOVE_CURSE, 34
+    learnset MOVE_SMART_STRIKE, 37
+    learnset MOVE_TAKE_DOWN, 40
+    learnset MOVE_DRILL_RUN, 43
+    learnset MOVE_CRUNCH, 46
+    learnset MOVE_SANDSTORM, 49
+    learnset MOVE_HIGH_HORSEPOWER, 52
+    learnset MOVE_STONE_EDGE, 55
     learnset MOVE_MEGAHORN, 58
-    learnset MOVE_HORN_DRILL, 65
+    learnset MOVE_EARTHQUAKE, 61
     terminatelearnset
 
 
@@ -10896,32 +10900,32 @@ levelup SPECIES_LICKILICKY
 
 
 levelup SPECIES_RHYPERIOR
-    learnset MOVE_HAMMER_ARM, 1
+    learnset MOVE_POISON_JAB, 0
+    learnset MOVE_POISON_JAB, 1
+    learnset MOVE_COUNTER, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_SMACK_DOWN, 1
-    learnset MOVE_BULLDOZE, 1
-    learnset MOVE_ROCK_WRECKER, 1
-    learnset MOVE_HORN_DRILL, 1
-    learnset MOVE_POISON_JAB, 1
-    learnset MOVE_HORN_ATTACK, 1
-    learnset MOVE_FURY_ATTACK, 1
-    learnset MOVE_SCARY_FACE, 1
-    learnset MOVE_FURY_ATTACK, 5
-    learnset MOVE_SMACK_DOWN, 13
-    learnset MOVE_SCARY_FACE, 14
-    learnset MOVE_HORN_ATTACK, 15
-    learnset MOVE_STOMP, 21
-    learnset MOVE_BULLDOZE, 21
-    learnset MOVE_CHIP_AWAY, 25
-    learnset MOVE_ROCK_BLAST, 29
-    learnset MOVE_DRILL_RUN, 34
-    learnset MOVE_TAKE_DOWN, 38
-    learnset MOVE_EARTHQUAKE, 47
-    learnset MOVE_STONE_EDGE, 47
-    learnset MOVE_MEGAHORN, 58
-    learnset MOVE_HORN_DRILL, 65
-    learnset MOVE_ROCK_WRECKER, 72
+    learnset MOVE_MUD_SLAP, 6
+    learnset MOVE_FURY_ATTACK, 9
+    learnset MOVE_SCARY_FACE, 12
+    learnset MOVE_ROCK_THROW, 15
+    learnset MOVE_BULLDOZE, 18
+    learnset MOVE_ROCK_POLISH, 20
+    learnset MOVE_STOMP, 23
+    learnset MOVE_HORN_ATTACK, 26
+    learnset MOVE_STEALTH_ROCK, 29
+    learnset MOVE_ROCK_SLIDE, 32
+    learnset MOVE_CURSE, 35
+    learnset MOVE_SMART_STRIKE, 38
+    learnset MOVE_TAKE_DOWN, 41
+    learnset MOVE_DRILL_RUN, 44
+    learnset MOVE_CRUNCH, 47
+    learnset MOVE_SANDSTORM, 50
+    learnset MOVE_HIGH_HORSEPOWER, 53
+    learnset MOVE_STONE_EDGE, 56
+    learnset MOVE_MEGAHORN, 59
+    learnset MOVE_EARTHQUAKE, 63
+    learnset MOVE_ROCK_WRECKER, 66
     terminatelearnset
 
 
