@@ -1301,10 +1301,12 @@ scr_seq_0003_072:
     yesno VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq scr_seq_0003_072_end
-    RunNewCommand 0, 0
+    RunNewCommand 0, VAR_SPECIAL_RESULT
     PlayFanfare SEQ_SE_DP_CARD2
     buffer_players_name 0
+    buffer_item_name 1, VAR_SPECIAL_RESULT
     npc_msg 119
+    wait_button_or_walk_away
 scr_seq_0003_072_end:
     closemsg
     releaseall

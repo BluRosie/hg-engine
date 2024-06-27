@@ -116,5 +116,5 @@ WHEN YOU LOSE
 WHEN YOU’RE #1
 NOT TELLING
 
-Repel’s effect wore off, use another?
-{STRVAR_1 3, 0, 0} used a repel.
+Repel’s effect wore off.\nWould you like to use another one?
+{STRVAR_1 3, 0, 0} used the {STRVAR_1 8, 1, 0}.

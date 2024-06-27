@@ -13,7 +13,9 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
 
     switch (sw) {
         case SCRIPT_NEW_CMD_REPEL_USE:
-            return Repel_UseMostRecent(HEAPID_MAIN_HEAP);
+            u16 most_recent_repel = Repel_GetMostRecent();
+            SetScriptVar(arg0, most_recent_repel);
+            Repel_Use(most_recent_repel, HEAPID_MAIN_HEAP);
             break;
 
         default: break;

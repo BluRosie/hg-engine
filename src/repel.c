@@ -29,8 +29,8 @@ bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fi
     return FALSE;
 }
 
-BOOL Repel_UseMostRecent(u32 heap_id) {
-    return Repel_Use(CurrentRepelType, heap_id);
+u16 Repel_GetMostRecent() {
+    return CurrentRepelType;
 }
 
 BOOL Repel_Use(u16 item_id, u32 heap_id) {
