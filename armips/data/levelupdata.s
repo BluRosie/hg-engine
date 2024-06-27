@@ -3333,24 +3333,27 @@ levelup SPECIES_ELECTABUZZ
 levelup SPECIES_MAGMAR
     learnset MOVE_SMOG, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_SMOKESCREEN, 1
     learnset MOVE_EMBER, 5
     learnset MOVE_SMOKESCREEN, 8
-    learnset MOVE_FEINT_ATTACK, 12
-    learnset MOVE_CLEAR_SMOG, 15
-    learnset MOVE_FIRE_SPIN, 15
-    learnset MOVE_FLAME_WHEEL, 16
+    learnset MOVE_FIRE_SPIN, 11
+    learnset MOVE_WILL_O_WISP, 14
+    learnset MOVE_CLEAR_SMOG, 17
+    learnset MOVE_THIEF, 19
     learnset MOVE_CONFUSE_RAY, 22
-    learnset MOVE_FLAME_BURST, 22
-    learnset MOVE_SCARY_FACE, 24
+    learnset MOVE_VACUUM_WAVE, 25
     learnset MOVE_FIRE_PUNCH, 28
-    learnset MOVE_LAVA_PLUME, 34
-    learnset MOVE_LOW_KICK, 40
-    learnset MOVE_FLAMETHROWER, 47
-    learnset MOVE_SUNNY_DAY, 47
-    learnset MOVE_FIRE_BLAST, 56
-    learnset MOVE_HYPER_BEAM, 64
+    learnset MOVE_FOLLOW_ME, 31
+    learnset MOVE_FLAME_BURST, 34
+    learnset MOVE_SCORCHING_SANDS, 37
+    learnset MOVE_SUNNY_DAY, 40
+    learnset MOVE_LAVA_PLUME, 43
+    learnset MOVE_TAUNT, 46
+    learnset MOVE_PSYCHIC, 49
+    learnset MOVE_FLAMETHROWER, 52
+    learnset MOVE_THUNDERBOLT, 55
+    learnset MOVE_AURA_SPHERE, 58
+    learnset MOVE_SEARING_SHOT, 61
+    learnset MOVE_SOLAR_BEAM, 64
     terminatelearnset
 
 
@@ -5924,20 +5927,26 @@ levelup SPECIES_MAGBY
     learnset MOVE_SMOG, 1
     learnset MOVE_LEER, 1
     learnset MOVE_EMBER, 4
-    learnset MOVE_SMOKESCREEN, 8
-    learnset MOVE_FEINT_ATTACK, 12
-    learnset MOVE_CLEAR_SMOG, 15
-    learnset MOVE_FIRE_SPIN, 15
-    learnset MOVE_FLAME_WHEEL, 16
-    learnset MOVE_CONFUSE_RAY, 22
-    learnset MOVE_FLAME_BURST, 22
-    learnset MOVE_SCARY_FACE, 24
-    learnset MOVE_FIRE_PUNCH, 28
-    learnset MOVE_LAVA_PLUME, 32
-    learnset MOVE_LOW_KICK, 36
-    learnset MOVE_FLAMETHROWER, 40
-    learnset MOVE_SUNNY_DAY, 40
-    learnset MOVE_FIRE_BLAST, 45
+    learnset MOVE_SMOKESCREEN, 7
+    learnset MOVE_FIRE_SPIN, 10
+    learnset MOVE_WILL_O_WISP, 13
+    learnset MOVE_CLEAR_SMOG, 16
+    learnset MOVE_THIEF, 18
+    learnset MOVE_CONFUSE_RAY, 21
+    learnset MOVE_VACUUM_WAVE, 24
+    learnset MOVE_FIRE_PUNCH, 27
+    learnset MOVE_FOLLOW_ME, 30
+    learnset MOVE_FLAME_BURST, 33
+    learnset MOVE_SCORCHING_SANDS, 36
+    learnset MOVE_SUNNY_DAY, 39
+    learnset MOVE_LAVA_PLUME, 42
+    learnset MOVE_TAUNT, 45
+    learnset MOVE_PSYCHIC, 48
+    learnset MOVE_FLAMETHROWER, 51
+    learnset MOVE_THUNDERBOLT, 54
+    learnset MOVE_AURA_SPHERE, 57
+    learnset MOVE_SEARING_SHOT, 60
+    learnset MOVE_SOLAR_BEAM, 63
     terminatelearnset
 
 
@@ -11062,27 +11071,32 @@ levelup SPECIES_ELECTIVIRE
 
 
 levelup SPECIES_MAGMORTAR
+    learnset MOVE_OVERHEAT, 1
+    learnset MOVE_SLUDGE_BOMB, 1
+    learnset MOVE_THUNDER_PUNCH, 1
     learnset MOVE_SMOG, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_THUNDER_PUNCH, 1
-    learnset MOVE_EMBER, 5
-    learnset MOVE_SMOKESCREEN, 8
-    learnset MOVE_FEINT_ATTACK, 12
-    learnset MOVE_CLEAR_SMOG, 15
-    learnset MOVE_FIRE_SPIN, 15
-    learnset MOVE_FLAME_WHEEL, 16
-    learnset MOVE_CONFUSE_RAY, 22
-    learnset MOVE_FLAME_BURST, 22
-    learnset MOVE_SCARY_FACE, 24
-    learnset MOVE_FIRE_PUNCH, 28
-    learnset MOVE_LAVA_PLUME, 34
-    learnset MOVE_LOW_KICK, 40
-    learnset MOVE_FLAMETHROWER, 47
-    learnset MOVE_SUNNY_DAY, 47
-    learnset MOVE_FIRE_BLAST, 56
-    learnset MOVE_HYPER_BEAM, 63
+    learnset MOVE_EMBER, 6
+    learnset MOVE_SMOKESCREEN, 9
+    learnset MOVE_FIRE_SPIN, 12
+    learnset MOVE_WILL_O_WISP, 15
+    learnset MOVE_CLEAR_SMOG, 18
+    learnset MOVE_THIEF, 20
+    learnset MOVE_CONFUSE_RAY, 23
+    learnset MOVE_VACUUM_WAVE, 24
+    learnset MOVE_FIRE_PUNCH, 29
+    learnset MOVE_FOLLOW_ME, 32
+    learnset MOVE_FLAME_BURST, 35
+    learnset MOVE_SCORCHING_SANDS, 38
+    learnset MOVE_SUNNY_DAY, 41
+    learnset MOVE_LAVA_PLUME, 44
+    learnset MOVE_TAUNT, 47
+    learnset MOVE_PSYCHIC, 50
+    learnset MOVE_FLAMETHROWER, 53
+    learnset MOVE_THUNDERBOLT, 56
+    learnset MOVE_AURA_SPHERE, 59
+    learnset MOVE_SEARING_SHOT, 62
+    learnset MOVE_SOLAR_BEAM, 65
     terminatelearnset
 
 
