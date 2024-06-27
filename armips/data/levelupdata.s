@@ -3249,16 +3249,26 @@ levelup SPECIES_SCYTHER
     learnset MOVE_LEER, 1
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_FURY_CUTTER, 4
-    learnset MOVE_FALSE_SWIPE, 8
-    learnset MOVE_WING_ATTACK, 12
+    learnset MOVE_FALSE_SWIPE, 7
+    learnset MOVE_FOCUS_ENERGY, 10
+    learnset MOVE_AERIAL_ACE, 13
     learnset MOVE_DOUBLE_TEAM, 16
-    learnset MOVE_DOUBLE_HIT, 20
-    learnset MOVE_SLASH, 24
-    learnset MOVE_FOCUS_ENERGY, 28
-    learnset MOVE_AGILITY, 32
-    learnset MOVE_AIR_SLASH, 36
-    learnset MOVE_X_SCISSOR, 40
-    learnset MOVE_SWORDS_DANCE, 44
+    learnset MOVE_POUNCE, 18
+    learnset MOVE_DOUBLE_HIT, 21
+    learnset MOVE_MACH_PUNCH, 24
+    learnset MOVE_FOCUS_ENERGY, 27
+    learnset MOVE_U_TURN, 30
+    learnset MOVE_AGILITY, 33
+    learnset MOVE_ACROBATICS, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_X_SCISSOR, 42
+    learnset MOVE_SWORDS_DANCE, 45
+    learnset MOVE_DUAL_WINGBEAT, 48
+    learnset MOVE_NIGHT_SLASH, 51
+    learnset MOVE_ENDURE, 54
+    learnset MOVE_REVERSAL, 57
+    learnset MOVE_AIR_SLASH, 60
+    learnset MOVE_CLOSE_COMBAT, 63
     terminatelearnset
 
 
@@ -5273,31 +5283,30 @@ levelup SPECIES_QWILFISH
 levelup SPECIES_SCIZOR
     learnset MOVE_BULLET_PUNCH, 0
     learnset MOVE_BULLET_PUNCH, 1
-    learnset MOVE_WING_ATTACK, 1
-    learnset MOVE_AGILITY, 1
-    learnset MOVE_AIR_SLASH, 1
-    learnset MOVE_QUICK_ATTACK, 1
+    learnset MOVE_IRON_DEFENSE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_FALSE_SWIPE, 1
-    learnset MOVE_FEINT, 1
-    learnset MOVE_PURSUIT, 9
-    learnset MOVE_FALSE_SWIPE, 13
-    learnset MOVE_METAL_CLAW, 16
+    learnset MOVE_QUICK_ATTACK, 1
+    learnset MOVE_FURY_CUTTER, 4
+    learnset MOVE_FALSE_SWIPE, 7
+    learnset MOVE_FOCUS_ENERGY, 10
+    learnset MOVE_METAL_CLAW, 13
     learnset MOVE_DOUBLE_TEAM, 16
-    learnset MOVE_FOCUS_ENERGY, 17
-    learnset MOVE_AGILITY, 17
-    learnset MOVE_FURY_CUTTER, 25
-    learnset MOVE_SLASH, 26
-    learnset MOVE_DOUBLE_HIT, 33
-    learnset MOVE_RAZOR_WIND, 33
-    learnset MOVE_IRON_DEFENSE, 34
-    learnset MOVE_X_SCISSOR, 40
-    learnset MOVE_IRON_HEAD, 42
-    learnset MOVE_LASER_FOCUS, 44
-    learnset MOVE_NIGHT_SLASH, 45
-    learnset MOVE_SWORDS_DANCE, 52
-    learnset MOVE_FEINT, 61
+    learnset MOVE_POUNCE, 18
+    learnset MOVE_DOUBLE_HIT, 21
+    learnset MOVE_MACH_PUNCH, 24
+    learnset MOVE_FOCUS_ENERGY, 27
+    learnset MOVE_U_TURN, 30
+    learnset MOVE_AGILITY, 33
+    learnset MOVE_SMART_STRIKE, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_X_SCISSOR, 42
+    learnset MOVE_SWORDS_DANCE, 45
+    learnset MOVE_IRON_HEAD, 48
+    learnset MOVE_NIGHT_SLASH, 51
+    learnset MOVE_ENDURE, 54
+    learnset MOVE_REVERSAL, 57
+    learnset MOVE_METEOR_MASH, 60
+    learnset MOVE_CLOSE_COMBAT, 63
     terminatelearnset
 
 
@@ -21015,19 +21024,30 @@ levelup SPECIES_WYRDEER
 levelup SPECIES_KLEAVOR
     learnset MOVE_STONE_AXE, 0
     learnset MOVE_STONE_AXE, 1
+    learnset MOVE_SMACK_DOWN, 1
     learnset MOVE_LEER, 1
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_FURY_CUTTER, 4
-    learnset MOVE_FALSE_SWIPE, 8
-    learnset MOVE_SMACK_DOWN, 12
+    learnset MOVE_FALSE_SWIPE, 7
+    learnset MOVE_FOCUS_ENERGY, 10
+    learnset MOVE_ROCK_BLAST, 13
     learnset MOVE_DOUBLE_TEAM, 16
-    learnset MOVE_DOUBLE_HIT, 20
-    learnset MOVE_SLASH, 24
-    learnset MOVE_FOCUS_ENERGY, 28
-    learnset MOVE_AGILITY, 32
-    learnset MOVE_ROCK_SLIDE, 36
-    learnset MOVE_X_SCISSOR, 40
-    learnset MOVE_SWORDS_DANCE, 44
+    learnset MOVE_POUNCE, 18
+    learnset MOVE_DOUBLE_HIT, 21
+    learnset MOVE_MACH_PUNCH, 24
+    learnset MOVE_FOCUS_ENERGY, 27
+    learnset MOVE_U_TURN, 30
+    learnset MOVE_AGILITY, 33
+    learnset MOVE_ROCK_TOMB, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_X_SCISSOR, 42
+    learnset MOVE_SWORDS_DANCE, 45
+    learnset MOVE_ROCK_SLIDE, 48
+    learnset MOVE_NIGHT_SLASH, 51
+    learnset MOVE_ENDURE, 54
+    learnset MOVE_REVERSAL, 57
+    learnset MOVE_STONE_EDGE, 60
+    learnset MOVE_CLOSE_COMBAT, 63
     terminatelearnset
 
 
