@@ -6659,6 +6659,13 @@ TRIGGER_LOAD_GAME equ 4
 .halfword unk
 .endmacro
 
+// 208 has been reused for new script commands
+.macro RunNewCommand,slot,unk
+.halfword 208
+.byte slot
+.halfword unk
+.endmacro
+
 // Dummy
 .macro DummyTextTreasure,slot,unk
 .halfword 209

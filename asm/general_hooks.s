@@ -376,3 +376,23 @@ mov pc, r1
 
 SetFixedWildEncounter_return_address:
 .word 0
+
+
+.global BagApp_GetRepelStepCountAddr
+BagApp_GetRepelStepCountAddr:
+	push {r4, lr}
+    ldr r3, =CurrentRepelType
+    strh r5, [r3]
+	add r4, r1, #0
+    ldr r3, =BagApp_GetSaveRoamers
+	blx r3
+    ldr r3, =SaveData_GetRepelPtr
+	blx r3
+	strb r4, [r0]
+	pop {r4, pc}
+
+.pool
+
+.global CurrentRepelType
+CurrentRepelType:
+.short 0

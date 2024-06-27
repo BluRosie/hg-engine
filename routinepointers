@@ -4,3 +4,5 @@ arm9 PokeListProc_End_Extend 081015A4
 0012 Task_DistributeExp_Extend 0223E858
 # 0226E944
 0012 BGCallback_Waza_Extend 08037084
+# New Script Commands, ID 0xD0 (DummyTextTrap)
+arm9 Script_RunNewCmd 080FB040

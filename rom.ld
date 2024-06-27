@@ -654,3 +654,5 @@ ov12_02250BBC = 0x02250BBC | 1;
 BattleSystem_CheckMoveHit = 0x0224BCC4 | 1;
 ov12_0224B498 = 0x0224B498 | 1;
 ov12_0224BC2C = 0x0224BC2C | 1;
+
+BagApp_GetSaveRoamers = 0x021F992C | 1;
