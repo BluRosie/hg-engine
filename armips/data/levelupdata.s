@@ -3305,21 +3305,28 @@ levelup SPECIES_JYNX
 levelup SPECIES_ELECTABUZZ
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_THUNDER_SHOCK, 1
-    learnset MOVE_CHARGE, 1
     learnset MOVE_THUNDER_SHOCK, 5
-    learnset MOVE_SWIFT, 12
-    learnset MOVE_SHOCK_WAVE, 15
-    learnset MOVE_THUNDER_WAVE, 19
-    learnset MOVE_ELECTRO_BALL, 22
-    learnset MOVE_LOW_KICK, 25
+    learnset MOVE_THUNDER_WAVE, 8
+    learnset MOVE_LOW_KICK, 11
+    learnset MOVE_SWIFT, 14
+    learnset MOVE_SHOCK_WAVE, 17
+    learnset MOVE_CHARGE, 19
+    learnset MOVE_LOW_SWEEP, 22
+    learnset MOVE_FOLLOW_ME, 25
     learnset MOVE_THUNDER_PUNCH, 28
-    learnset MOVE_SCREECH, 32
-    learnset MOVE_DISCHARGE, 34
-    learnset MOVE_LIGHT_SCREEN, 39
-    learnset MOVE_THUNDERBOLT, 47
-    learnset MOVE_THUNDER, 56
-    learnset MOVE_GIGA_IMPACT, 64
+    learnset MOVE_SCREECH, 31
+    learnset MOVE_VOLT_SWITCH, 34
+    learnset MOVE_LIGHT_SCREEN, 37
+    learnset MOVE_KNOCK_OFF, 40
+    learnset MOVE_DISCHARGE, 43
+    learnset MOVE_DRAIN_PUNCH, 46
+    learnset MOVE_ELECTRIC_TERRAIN, 49
+    learnset MOVE_THUNDERBOLT, 52
+    learnset MOVE_BULK_UP, 55
+    learnset MOVE_CROSS_CHOP, 58
+    learnset MOVE_SUPERCELL_SLAM, 61
+    learnset MOVE_THUNDER, 64
+    learnset MOVE_GIGA_IMPACT, 67
     terminatelearnset
 
 
@@ -5889,18 +5896,27 @@ levelup SPECIES_ELEKID
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
     learnset MOVE_THUNDER_SHOCK, 4
-    learnset MOVE_CHARGE, 8
-    learnset MOVE_SWIFT, 12
-    learnset MOVE_SHOCK_WAVE, 15
-    learnset MOVE_THUNDER_WAVE, 19
-    learnset MOVE_LOW_KICK, 22
-    learnset MOVE_ELECTRO_BALL, 22
-    learnset MOVE_THUNDER_PUNCH, 28
-    learnset MOVE_SCREECH, 29
-    learnset MOVE_DISCHARGE, 32
-    learnset MOVE_LIGHT_SCREEN, 35
-    learnset MOVE_THUNDERBOLT, 40
-    learnset MOVE_THUNDER, 45
+    learnset MOVE_THUNDER_WAVE, 7
+    learnset MOVE_LOW_KICK, 10
+    learnset MOVE_SWIFT, 13
+    learnset MOVE_SHOCK_WAVE, 16
+    learnset MOVE_CHARGE, 18
+    learnset MOVE_LOW_SWEEP, 21
+    learnset MOVE_FOLLOW_ME, 24
+    learnset MOVE_THUNDER_PUNCH, 27
+    learnset MOVE_SCREECH, 30
+    learnset MOVE_VOLT_SWITCH, 33
+    learnset MOVE_LIGHT_SCREEN, 36
+    learnset MOVE_KNOCK_OFF, 39
+    learnset MOVE_DISCHARGE, 42
+    learnset MOVE_DRAIN_PUNCH, 45
+    learnset MOVE_ELECTRIC_TERRAIN, 48
+    learnset MOVE_THUNDERBOLT, 51
+    learnset MOVE_BULK_UP, 54
+    learnset MOVE_CROSS_CHOP, 57
+    learnset MOVE_SUPERCELL_SLAM, 60
+    learnset MOVE_THUNDER, 63
+    learnset MOVE_GIGA_IMPACT, 66
     terminatelearnset
 
 
@@ -11015,28 +11031,33 @@ levelup SPECIES_TANGROWTH
 
 
 levelup SPECIES_ELECTIVIRE
+    learnset MOVE_VOLT_TACKLE, 1
+    learnset MOVE_FIRE_PUNCH, 1
+    learnset MOVE_ICE_PUNCH, 1
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_THUNDER_SHOCK, 1
-    learnset MOVE_CHARGE, 1
-    learnset MOVE_ELECTRIC_TERRAIN, 1
-    learnset MOVE_ION_DELUGE, 1
-    learnset MOVE_FIRE_PUNCH, 1
-    learnset MOVE_LOW_KICK, 1
-    learnset MOVE_THUNDER_SHOCK, 5
-    learnset MOVE_SWIFT, 12
-    learnset MOVE_SHOCK_WAVE, 15
-    learnset MOVE_THUNDER_WAVE, 19
-    learnset MOVE_ELECTRO_BALL, 22
-    learnset MOVE_LOW_KICK, 25
-    learnset MOVE_THUNDER_PUNCH, 28
+    learnset MOVE_THUNDER_SHOCK, 6
+    learnset MOVE_THUNDER_WAVE, 9
+    learnset MOVE_LOW_KICK, 12
+    learnset MOVE_SWIFT, 15
+    learnset MOVE_SHOCK_WAVE, 18
+    learnset MOVE_CHARGE, 20
+    learnset MOVE_LOW_SWEEP, 23
+    learnset MOVE_FOLLOW_ME, 26
+    learnset MOVE_THUNDER_PUNCH, 29
     learnset MOVE_SCREECH, 32
-    learnset MOVE_DISCHARGE, 34
-    learnset MOVE_LIGHT_SCREEN, 39
-    learnset MOVE_THUNDERBOLT, 47
-    learnset MOVE_THUNDER, 56
-    learnset MOVE_GIGA_IMPACT, 63
-    learnset MOVE_ELECTRIC_TERRAIN, 65
+    learnset MOVE_VOLT_SWITCH, 35
+    learnset MOVE_LIGHT_SCREEN, 38
+    learnset MOVE_KNOCK_OFF, 41
+    learnset MOVE_DISCHARGE, 44
+    learnset MOVE_DRAIN_PUNCH, 47
+    learnset MOVE_ELECTRIC_TERRAIN, 50
+    learnset MOVE_THUNDERBOLT, 53
+    learnset MOVE_BULK_UP, 56
+    learnset MOVE_CROSS_CHOP, 59
+    learnset MOVE_SUPERCELL_SLAM, 62
+    learnset MOVE_THUNDER, 65
+    learnset MOVE_GIGA_IMPACT, 68
     terminatelearnset
 
 
