@@ -7562,42 +7562,54 @@ levelup SPECIES_MINUN
 
 
 levelup SPECIES_VOLBEAT
-    learnset MOVE_FLASH, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_DOUBLE_TEAM, 5
-    learnset MOVE_CONFUSE_RAY, 8
-    learnset MOVE_QUICK_ATTACK, 12
-    learnset MOVE_STRUGGLE_BUG, 15
-    learnset MOVE_MOONLIGHT, 19
-    learnset MOVE_TAIL_GLOW, 22
-    learnset MOVE_SIGNAL_BEAM, 26
-    learnset MOVE_PROTECT, 29
-    learnset MOVE_ZEN_HEADBUTT, 33
-    learnset MOVE_HELPING_HAND, 36
-    learnset MOVE_BUG_BUZZ, 40
-    learnset MOVE_PLAY_ROUGH, 43
-    learnset MOVE_DOUBLE_EDGE, 47
-    learnset MOVE_INFESTATION, 50
+    learnset MOVE_CHARM, 1
+    learnset MOVE_STRUGGLE_BUG, 4
+    learnset MOVE_CONFUSE_RAY, 7
+    learnset MOVE_SEISMIC_TOSS, 10
+    learnset MOVE_QUICK_ATTACK, 13
+    learnset MOVE_THUNDER_WAVE, 16
+    learnset MOVE_BUG_BITE, 18
+    learnset MOVE_MOONLIGHT, 21
+    learnset MOVE_DOUBLE_TEAM, 24
+    learnset MOVE_ENCORE, 27
+    learnset MOVE_U_TURN, 30
+    learnset MOVE_PROTECT, 33
+    learnset MOVE_PSYBEAM, 36
+    learnset MOVE_HELPING_HAND, 39
+    learnset MOVE_TAILWIND, 42
+    learnset MOVE_LUNGE, 45
+    learnset MOVE_PLAY_ROUGH, 48
+    learnset MOVE_TAIL_GLOW, 51
+    learnset MOVE_ZEN_HEADBUTT, 54
+    learnset MOVE_BATON_PASS, 57
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
 levelup SPECIES_ILLUMISE
-    learnset MOVE_PLAY_NICE, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_SWEET_SCENT, 5
-    learnset MOVE_CHARM, 9
-    learnset MOVE_QUICK_ATTACK, 12
-    learnset MOVE_STRUGGLE_BUG, 15
-    learnset MOVE_MOONLIGHT, 19
-    learnset MOVE_WISH, 22
-    learnset MOVE_ENCORE, 26
-    learnset MOVE_FLATTER, 29
-    learnset MOVE_ZEN_HEADBUTT, 33
-    learnset MOVE_HELPING_HAND, 36
-    learnset MOVE_BUG_BUZZ, 40
-    learnset MOVE_PLAY_ROUGH, 43
-    learnset MOVE_COVET, 47
-    learnset MOVE_INFESTATION, 50
+    learnset MOVE_CHARM, 1
+    learnset MOVE_STRUGGLE_BUG, 4
+    learnset MOVE_CONFUSE_RAY, 7
+    learnset MOVE_SEISMIC_TOSS, 10
+    learnset MOVE_QUICK_ATTACK, 13
+    learnset MOVE_THUNDER_WAVE, 16
+    learnset MOVE_BUG_BITE, 18
+    learnset MOVE_MOONLIGHT, 21
+    learnset MOVE_DOUBLE_TEAM, 24
+    learnset MOVE_ENCORE, 27
+    learnset MOVE_U_TURN, 30
+    learnset MOVE_PROTECT, 33
+    learnset MOVE_PSYBEAM, 36
+    learnset MOVE_HELPING_HAND, 39
+    learnset MOVE_TAILWIND, 42
+    learnset MOVE_BUG_BUZZ, 45
+    learnset MOVE_DAZZLING_GLEAM, 48
+    learnset MOVE_TAIL_GLOW, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_BATON_PASS, 57
+    learnset MOVE_BOOMBURST, 60
     terminatelearnset
 
 
