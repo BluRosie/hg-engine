@@ -2957,34 +2957,31 @@ levelup SPECIES_RHYDON
 
 
 levelup SPECIES_CHANSEY
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_COVET, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_MINIMIZE, 1
+    learnset MOVE_DOUBLE_SLAP, 0
+    learnset MOVE_DOUBLE_SLAP, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_DOUBLE_EDGE, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_ECHOED_VOICE, 8
-    learnset MOVE_REFRESH, 9
-    learnset MOVE_LIFE_DEW, 12
-    learnset MOVE_DOUBLE_SLAP, 12
-    learnset MOVE_BESTOW, 20
-    learnset MOVE_SING, 23
-    learnset MOVE_MINIMIZE, 23
-    learnset MOVE_TAKE_DOWN, 25
-    learnset MOVE_FLING, 27
-    learnset MOVE_SOFT_BOILED, 30
-    learnset MOVE_HELPING_HAND, 32
-    learnset MOVE_HEAL_PULSE, 33
-    learnset MOVE_LIGHT_SCREEN, 42
-    learnset MOVE_EGG_BOMB, 44
-    learnset MOVE_LAST_RESORT, 48
-    learnset MOVE_DOUBLE_EDGE, 51
-    learnset MOVE_HEALING_WISH, 54
+    learnset MOVE_DEFENSE_CURL, 4
+    learnset MOVE_SWEET_KISS, 8
+    learnset MOVE_REFRESH, 10
+    learnset MOVE_DISARMING_VOICE, 13
+    learnset MOVE_COVET, 16
+    learnset MOVE_CHARM, 18
+    learnset MOVE_DRAINING_KISS, 21
+    learnset MOVE_SWIFT, 24
+    learnset MOVE_SING, 27
+    learnset MOVE_EGG_BOMB, 30
+    learnset MOVE_REFLECT, 33
+    learnset MOVE_LIGHT_SCREEN, 33
+    learnset MOVE_SEISMIC_TOSS, 36
+    learnset MOVE_SOFT_BOILED, 39
+    learnset MOVE_HYPER_VOICE, 42
+    learnset MOVE_HELPING_HAND, 45
+    learnset MOVE_DAZZLING_GLEAM, 48
+    learnset MOVE_DOUBLE_EDGE, 52
+    learnset MOVE_PAIN_SPLIT, 55
+    learnset MOVE_HEALING_WISH, 58
+    learnset MOVE_BOOMBURST, 62
     terminatelearnset
 
 
@@ -5901,34 +5898,29 @@ levelup SPECIES_MILTANK
 
 
 levelup SPECIES_BLISSEY
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_COVET, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_MINIMIZE, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_DOUBLE_EDGE, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_ECHOED_VOICE, 8
-    learnset MOVE_REFRESH, 9
-    learnset MOVE_LIFE_DEW, 12
-    learnset MOVE_DOUBLE_SLAP, 12
-    learnset MOVE_BESTOW, 20
-    learnset MOVE_SING, 23
-    learnset MOVE_MINIMIZE, 23
-    learnset MOVE_TAKE_DOWN, 25
-    learnset MOVE_FLING, 26
-    learnset MOVE_SOFT_BOILED, 30
-    learnset MOVE_HELPING_HAND, 32
-    learnset MOVE_HEAL_PULSE, 33
-    learnset MOVE_LIGHT_SCREEN, 42
-    learnset MOVE_EGG_BOMB, 44
-    learnset MOVE_LAST_RESORT, 48
-    learnset MOVE_DOUBLE_EDGE, 51
-    learnset MOVE_HEALING_WISH, 54
+    learnset MOVE_DEFENSE_CURL, 6
+    learnset MOVE_SWEET_KISS, 10
+    learnset MOVE_REFRESH, 12
+    learnset MOVE_DISARMING_VOICE, 15
+    learnset MOVE_COVET, 18
+    learnset MOVE_CHARM, 20
+    learnset MOVE_DRAINING_KISS, 23
+    learnset MOVE_SWIFT, 26
+    learnset MOVE_SING, 29
+    learnset MOVE_EGG_BOMB, 32
+    learnset MOVE_REFLECT, 35
+    learnset MOVE_LIGHT_SCREEN, 35
+    learnset MOVE_SEISMIC_TOSS, 38
+    learnset MOVE_SOFT_BOILED, 41
+    learnset MOVE_HYPER_VOICE, 44
+    learnset MOVE_HELPING_HAND, 47
+    learnset MOVE_DAZZLING_GLEAM, 50
+    learnset MOVE_DOUBLE_EDGE, 54
+    learnset MOVE_PAIN_SPLIT, 57
+    learnset MOVE_HEALING_WISH, 60
+    learnset MOVE_BOOMBURST, 64
     terminatelearnset
 
 
@@ -10338,17 +10330,14 @@ levelup SPECIES_MIMEJR
 
 
 levelup SPECIES_HAPPINY
-    learnset MOVE_MINIMIZE, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_CHARM, 1
     learnset MOVE_DEFENSE_CURL, 4
-    learnset MOVE_COPYCAT, 5
-    learnset MOVE_SWEET_KISS, 9
-    learnset MOVE_REFRESH, 9
-    learnset MOVE_DISARMING_VOICE, 12
+    learnset MOVE_SWEET_KISS, 8
+    learnset MOVE_REFRESH, 10
+    learnset MOVE_DISARMING_VOICE, 13
     learnset MOVE_COVET, 16
-    learnset MOVE_CHARM, 20
+    learnset MOVE_CHARM, 18
     terminatelearnset
 
 
