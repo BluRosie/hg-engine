@@ -3039,47 +3039,58 @@ levelup SPECIES_KANGASKHAN
 
 
 levelup SPECIES_HORSEA
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_LEER, 1
     learnset MOVE_BUBBLE, 1
-    learnset MOVE_SMOKESCREEN, 5
-    learnset MOVE_LEER, 9
-    learnset MOVE_TWISTER, 13
-    learnset MOVE_WATER_GUN, 13
-    learnset MOVE_FOCUS_ENERGY, 20
-    learnset MOVE_DRAGON_BREATH, 20
-    learnset MOVE_BUBBLE_BEAM, 23
-    learnset MOVE_BRINE, 31
-    learnset MOVE_AGILITY, 32
-    learnset MOVE_LASER_FOCUS, 35
-    learnset MOVE_DRAGON_PULSE, 40
-    learnset MOVE_HYDRO_PUMP, 48
-    learnset MOVE_DRAGON_DANCE, 48
-    learnset MOVE_RAIN_DANCE, 55
+    learnset MOVE_LEER, 1
+    learnset MOVE_SMOKESCREEN, 4
+    learnset MOVE_ICY_WIND, 7
+    learnset MOVE_TWISTER, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_CLEAR_SMOG, 16
+    learnset MOVE_FOCUS_ENERGY, 18
+    learnset MOVE_DRAGON_BREATH, 21
+    learnset MOVE_BUBBLE_BEAM, 24
+    learnset MOVE_AURORA_BEAM, 27
+    learnset MOVE_BRINE, 30
+    learnset MOVE_AGILITY, 33
+    learnset MOVE_FLIP_TURN, 36
+    learnset MOVE_RAIN_DANCE, 39
+    learnset MOVE_LIQUIDATION, 42
+    learnset MOVE_DRAGON_PULSE, 45
+    learnset MOVE_ICE_BEAM, 48
+    learnset MOVE_FLASH_CANNON, 51
+    learnset MOVE_SURF, 54
+    learnset MOVE_DRAGON_DANCE, 57
+    learnset MOVE_HYDRO_PUMP, 60
+    learnset MOVE_DRACO_METEOR, 63
     terminatelearnset
 
 
 levelup SPECIES_SEADRA
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_TWISTER, 1
-    learnset MOVE_HYDRO_PUMP, 1
+    learnset MOVE_BREAKING_SWIPE, 1
+    learnset MOVE_DISABLE, 1
     learnset MOVE_BUBBLE, 1
+    learnset MOVE_LEER, 1
     learnset MOVE_SMOKESCREEN, 5
-    learnset MOVE_LEER, 9
-    learnset MOVE_WATER_GUN, 13
-    learnset MOVE_TWISTER, 17
-    learnset MOVE_FOCUS_ENERGY, 20
-    learnset MOVE_DRAGON_BREATH, 20
-    learnset MOVE_BUBBLE_BEAM, 23
+    learnset MOVE_ICY_WIND, 8
+    learnset MOVE_TWISTER, 11
+    learnset MOVE_WATER_PULSE, 14
+    learnset MOVE_CLEAR_SMOG, 17
+    learnset MOVE_FOCUS_ENERGY, 19
+    learnset MOVE_DRAGON_BREATH, 22
+    learnset MOVE_BUBBLE_BEAM, 25
+    learnset MOVE_AURORA_BEAM, 28
     learnset MOVE_BRINE, 31
-    learnset MOVE_AGILITY, 33
-    learnset MOVE_LASER_FOCUS, 37
-    learnset MOVE_DRAGON_PULSE, 44
-    learnset MOVE_HYDRO_PUMP, 55
-    learnset MOVE_DRAGON_DANCE, 55
-    learnset MOVE_RAIN_DANCE, 65
+    learnset MOVE_AGILITY, 34
+    learnset MOVE_FLIP_TURN, 37
+    learnset MOVE_RAIN_DANCE, 40
+    learnset MOVE_LIQUIDATION, 43
+    learnset MOVE_DRAGON_PULSE, 46
+    learnset MOVE_ICE_BEAM, 49
+    learnset MOVE_FLASH_CANNON, 52
+    learnset MOVE_SURF, 55
+    learnset MOVE_DRAGON_DANCE, 58
+    learnset MOVE_HYDRO_PUMP, 61
+    learnset MOVE_DRACO_METEOR, 64
     terminatelearnset
 
 
@@ -5643,26 +5654,32 @@ levelup SPECIES_HOUNDOOM
 levelup SPECIES_KINGDRA
     learnset MOVE_WHIRLPOOL, 1
     learnset MOVE_YAWN, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_TWISTER, 1
-    learnset MOVE_HYDRO_PUMP, 1
+    learnset MOVE_BREAKING_SWIPE, 1
+    learnset MOVE_DISABLE, 1
     learnset MOVE_BUBBLE, 1
-    learnset MOVE_SMOKESCREEN, 5
-    learnset MOVE_LEER, 9
-    learnset MOVE_WATER_GUN, 13
-    learnset MOVE_TWISTER, 17
+    learnset MOVE_LEER, 1
+    learnset MOVE_SMOKESCREEN, 6
+    learnset MOVE_ICY_WIND, 9
+    learnset MOVE_TWISTER, 12
+    learnset MOVE_WATER_PULSE, 15
+    learnset MOVE_CLEAR_SMOG, 18
     learnset MOVE_FOCUS_ENERGY, 20
-    learnset MOVE_DRAGON_BREATH, 20
-    learnset MOVE_BUBBLE_BEAM, 23
-    learnset MOVE_BRINE, 31
-    learnset MOVE_AGILITY, 33
-    learnset MOVE_LASER_FOCUS, 37
-    learnset MOVE_DRAGON_PULSE, 44
-    learnset MOVE_HYDRO_PUMP, 55
-    learnset MOVE_DRAGON_DANCE, 55
-    learnset MOVE_RAIN_DANCE, 65
+    learnset MOVE_DRAGON_BREATH, 23
+    learnset MOVE_BUBBLE_BEAM, 26
+    learnset MOVE_AURORA_BEAM, 29
+    learnset MOVE_BRINE, 32
+    learnset MOVE_AGILITY, 35
+    learnset MOVE_FLIP_TURN, 38
+    learnset MOVE_RAIN_DANCE, 41
+    learnset MOVE_LIQUIDATION, 44
+    learnset MOVE_DRAGON_PULSE, 47
+    learnset MOVE_ICE_BEAM, 50
+    learnset MOVE_FLASH_CANNON, 53
+    learnset MOVE_SURF, 56
+    learnset MOVE_DRAGON_DANCE, 59
+    learnset MOVE_HYDRO_PUMP, 62
+    learnset MOVE_DRACO_METEOR, 65
+    learnset MOVE_WAVE_CRASH, 68
     terminatelearnset
 
 
