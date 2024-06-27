@@ -3384,18 +3384,28 @@ levelup SPECIES_PINSIR
 levelup SPECIES_TAUROS
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_WORK_UP, 5
-    learnset MOVE_PAYBACK, 10
-    learnset MOVE_ASSURANCE, 15
-    learnset MOVE_HORN_ATTACK, 20
-    learnset MOVE_SCARY_FACE, 25
-    learnset MOVE_ZEN_HEADBUTT, 30
-    learnset MOVE_RAGING_BULL, 35
-    learnset MOVE_REST, 40
-    learnset MOVE_SWAGGER, 45
-    learnset MOVE_THRASH, 50
-    learnset MOVE_DOUBLE_EDGE, 55
-    learnset MOVE_GIGA_IMPACT, 60
+    learnset MOVE_PAYBACK, 4
+    learnset MOVE_WORK_UP, 7
+    learnset MOVE_QUICK_ATTACK, 10
+    learnset MOVE_FLAME_CHARGE, 13
+    learnset MOVE_ASSURANCE, 16
+    learnset MOVE_ENDURE, 18
+    learnset MOVE_HORN_ATTACK, 21
+    learnset MOVE_SCARY_FACE, 24
+    learnset MOVE_STOMP, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_AGILITY, 33
+    learnset MOVE_FACADE, 36
+    learnset MOVE_REVERSAL, 39
+    learnset MOVE_REST, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_ZEN_HEADBUTT, 48
+    learnset MOVE_SWAGGER, 51
+    learnset MOVE_EARTHQUAKE, 54
+    learnset MOVE_WILD_CHARGE, 57
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_CLOSE_COMBAT, 63
+    learnset MOVE_GIGA_IMPACT, 66
     terminatelearnset
 
 
