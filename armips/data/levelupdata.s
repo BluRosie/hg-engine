@@ -4958,7 +4958,7 @@ levelup SPECIES_WOOPER
     learnset MOVE_TOXIC, 36
     learnset MOVE_COUNTER, 39
     learnset MOVE_LIQUIDATION, 42
-    learnset MOVE_SLAM, 45
+    learnset MOVE_BODY_SLAM, 45
     learnset MOVE_CURSE, 48
     learnset MOVE_EARTHQUAKE, 51
     learnset MOVE_SLUDGE_BOMB, 54
@@ -4985,7 +4985,7 @@ levelup SPECIES_QUAGSIRE
     learnset MOVE_TOXIC, 37
     learnset MOVE_COUNTER, 40
     learnset MOVE_LIQUIDATION, 43
-    learnset MOVE_SLAM, 46
+    learnset MOVE_BODY_SLAM, 46
     learnset MOVE_CURSE, 49
     learnset MOVE_EARTHQUAKE, 52
     learnset MOVE_SLUDGE_BOMB, 55
