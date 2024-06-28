@@ -3439,7 +3439,6 @@ levelup SPECIES_GYARADOS
     learnset MOVE_WAVE_CRASH, 63
     learnset MOVE_THRASH, 66
     learnset MOVE_GIGA_IMPACT, 69
-    
     terminatelearnset
 
 
