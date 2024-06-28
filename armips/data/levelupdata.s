@@ -5109,19 +5109,28 @@ levelup SPECIES_SLOWKING
 
 levelup SPECIES_MISDREAVUS
     learnset MOVE_GROWL, 1
-    learnset MOVE_PSYWAVE, 1
-    learnset MOVE_SPITE, 5
-    learnset MOVE_ASTONISH, 10
-    learnset MOVE_CONFUSE_RAY, 14
-    learnset MOVE_MEAN_LOOK, 19
-    learnset MOVE_HEX, 23
-    learnset MOVE_PSYBEAM, 28
-    learnset MOVE_PAIN_SPLIT, 32
-    learnset MOVE_PAYBACK, 37
-    learnset MOVE_SHADOW_BALL, 41
-    learnset MOVE_PERISH_SONG, 46
-    learnset MOVE_GRUDGE, 50
-    learnset MOVE_POWER_GEM, 55
+    learnset MOVE_CONFUSION, 1
+    learnset MOVE_ASTONISH, 4
+    learnset MOVE_SPITE, 7
+    learnset MOVE_MEMENTO, 10
+    learnset MOVE_CONFUSE_RAY, 13
+    learnset MOVE_DRAINING_KISS, 16
+    learnset MOVE_MEAN_LOOK, 18
+    learnset MOVE_THIEF, 21
+    learnset MOVE_HEX, 24
+    learnset MOVE_PSYBEAM, 27
+    learnset MOVE_MAGICAL_LEAF, 30
+    learnset MOVE_PAIN_SPLIT, 33
+    learnset MOVE_PAYBACK, 36
+    learnset MOVE_WILL_O_WISP, 39
+    learnset MOVE_SHADOW_BALL, 42
+    learnset MOVE_PERISH_SONG, 45
+    learnset MOVE_DARK_PULSE, 48
+    learnset MOVE_GRUDGE, 51
+    learnset MOVE_POWER_GEM, 54
+    learnset MOVE_DAZZLING_GLEAM, 57
+    learnset MOVE_PSYCHIC, 60
+    learnset MOVE_DESTINY_BOND, 63
     terminatelearnset
 
 
@@ -10263,12 +10272,29 @@ levelup SPECIES_MISMAGIUS
     learnset MOVE_MYSTICAL_FIRE, 1
     learnset MOVE_POWER_GEM, 1
     learnset MOVE_PHANTOM_FORCE, 1
-    learnset MOVE_LUCKY_CHANT, 1
-    learnset MOVE_MAGICAL_LEAF, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_PSYWAVE, 1
-    learnset MOVE_SPITE, 1
-    learnset MOVE_ASTONISH, 1
+    learnset MOVE_CONFUSION, 1
+    learnset MOVE_ASTONISH, 5
+    learnset MOVE_SPITE, 8
+    learnset MOVE_MEMENTO, 11
+    learnset MOVE_CONFUSE_RAY, 14
+    learnset MOVE_DRAINING_KISS, 17
+    learnset MOVE_MEAN_LOOK, 19
+    learnset MOVE_THIEF, 22
+    learnset MOVE_HEX, 25
+    learnset MOVE_PSYBEAM, 28
+    learnset MOVE_MAGICAL_LEAF, 31
+    learnset MOVE_PAIN_SPLIT, 34
+    learnset MOVE_PAYBACK, 37
+    learnset MOVE_WILL_O_WISP, 40
+    learnset MOVE_SHADOW_BALL, 43
+    learnset MOVE_PERISH_SONG, 46
+    learnset MOVE_DARK_PULSE, 49
+    learnset MOVE_GRUDGE, 52
+    learnset MOVE_POWER_GEM, 55
+    learnset MOVE_DAZZLING_GLEAM, 58
+    learnset MOVE_PSYCHIC, 61
+    learnset MOVE_DESTINY_BOND, 64
     terminatelearnset
 
 
