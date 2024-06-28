@@ -3579,21 +3579,26 @@ levelup SPECIES_FLAREON
 levelup SPECIES_PORYGON
     learnset MOVE_TACKLE, 1
     learnset MOVE_CONVERSION, 1
-    learnset MOVE_CONVERSION_2, 1
-    learnset MOVE_SHARPEN, 1
+    learnset MOVE_THUNDER_SHOCK, 4
+    learnset MOVE_SHARPEN, 7
+    learnset MOVE_MAGNET_RISE, 10
     learnset MOVE_PSYBEAM, 13
-    learnset MOVE_THUNDER_SHOCK, 15
-    learnset MOVE_MAGNET_RISE, 16
+    learnset MOVE_SWIFT, 16
     learnset MOVE_RECYCLE, 18
     learnset MOVE_AGILITY, 21
-    learnset MOVE_CONVERSION_2, 25
-    learnset MOVE_RECOVER, 27
-    learnset MOVE_SIGNAL_BEAM, 29
-    learnset MOVE_DISCHARGE, 40
-    learnset MOVE_TRI_ATTACK, 47
-    learnset MOVE_LOCK_ON, 50
-    learnset MOVE_MAGIC_COAT, 52
-    learnset MOVE_ZAP_CANNON, 60
+    learnset MOVE_SHOCK_WAVE, 24
+    learnset MOVE_CONVERSION_2, 27
+    learnset MOVE_RECOVER, 30
+    learnset MOVE_SIGNAL_BEAM, 33
+    learnset MOVE_BARRIER, 36
+    learnset MOVE_GRAVITY, 39
+    learnset MOVE_DISCHARGE, 42
+    learnset MOVE_TRI_ATTACK, 45
+    learnset MOVE_PSYCHIC, 48
+    learnset MOVE_MAGIC_COAT, 51
+    learnset MOVE_LOCK_ON, 54
+    learnset MOVE_ZAP_CANNON, 57
+    learnset MOVE_HYPER_BEAM, 60
     terminatelearnset
 
 
@@ -5776,28 +5781,30 @@ levelup SPECIES_DONPHAN
 
 
 levelup SPECIES_PORYGON2
+    learnset MOVE_DEFENSE_CURL, 0
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_CONVERSION, 1
-    learnset MOVE_RECYCLE, 1
-    learnset MOVE_MAGNET_RISE, 1
-    learnset MOVE_ZAP_CANNON, 1
-    learnset MOVE_MAGIC_COAT, 1
-    learnset MOVE_CONVERSION_2, 1
-    learnset MOVE_PSYBEAM, 13
-    learnset MOVE_THUNDER_SHOCK, 15
-    learnset MOVE_AGILITY, 21
-    learnset MOVE_MAGNET_RISE, 23
-    learnset MOVE_CONVERSION_2, 25
-    learnset MOVE_RECOVER, 27
-    learnset MOVE_SIGNAL_BEAM, 29
-    learnset MOVE_RECYCLE, 34
-    learnset MOVE_DISCHARGE, 40
-    learnset MOVE_TRI_ATTACK, 47
-    learnset MOVE_LOCK_ON, 50
+    learnset MOVE_THUNDER_SHOCK, 5
+    learnset MOVE_SHARPEN, 8
+    learnset MOVE_MAGNET_RISE, 11
+    learnset MOVE_PSYBEAM, 14
+    learnset MOVE_SWIFT, 17
+    learnset MOVE_RECYCLE, 19
+    learnset MOVE_AGILITY, 22
+    learnset MOVE_SHOCK_WAVE, 25
+    learnset MOVE_CONVERSION_2, 28
+    learnset MOVE_RECOVER, 31
+    learnset MOVE_SIGNAL_BEAM, 34
+    learnset MOVE_BARRIER, 37
+    learnset MOVE_GRAVITY, 40
+    learnset MOVE_DISCHARGE, 43
+    learnset MOVE_TRI_ATTACK, 46
+    learnset MOVE_PSYCHIC, 49
     learnset MOVE_MAGIC_COAT, 52
-    learnset MOVE_ZAP_CANNON, 60
-    learnset MOVE_HYPER_BEAM, 65
+    learnset MOVE_LOCK_ON, 55
+    learnset MOVE_ZAP_CANNON, 58
+    learnset MOVE_HYPER_BEAM, 61
     terminatelearnset
 
 
@@ -11285,25 +11292,26 @@ levelup SPECIES_PORYGON_Z
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_CONVERSION, 1
-    learnset MOVE_RECYCLE, 1
-    learnset MOVE_MAGNET_RISE, 1
-    learnset MOVE_ZAP_CANNON, 1
-    learnset MOVE_MAGIC_COAT, 1
-    learnset MOVE_CONVERSION_2, 1
-    learnset MOVE_PSYBEAM, 13
-    learnset MOVE_THUNDER_SHOCK, 15
-    learnset MOVE_AGILITY, 21
-    learnset MOVE_MAGNET_RISE, 23
-    learnset MOVE_CONVERSION_2, 25
-    learnset MOVE_RECOVER, 27
-    learnset MOVE_SIGNAL_BEAM, 29
-    learnset MOVE_EMBARGO, 34
-    learnset MOVE_DISCHARGE, 40
+    learnset MOVE_THUNDER_SHOCK, 6
+    learnset MOVE_SHARPEN, 9
+    learnset MOVE_MAGNET_RISE, 12
+    learnset MOVE_PSYBEAM, 15
+    learnset MOVE_SWIFT, 18
+    learnset MOVE_RECYCLE, 20
+    learnset MOVE_AGILITY, 23
+    learnset MOVE_SHOCK_WAVE, 26
+    learnset MOVE_CONVERSION_2, 29
+    learnset MOVE_RECOVER, 32
+    learnset MOVE_SIGNAL_BEAM, 35
+    learnset MOVE_BARRIER, 38
+    learnset MOVE_GRAVITY, 41
+    learnset MOVE_DISCHARGE, 44
     learnset MOVE_TRI_ATTACK, 47
-    learnset MOVE_LOCK_ON, 50
-    learnset MOVE_MAGIC_COAT, 52
-    learnset MOVE_ZAP_CANNON, 60
-    learnset MOVE_HYPER_BEAM, 65
+    learnset MOVE_PSYCHIC, 50
+    learnset MOVE_MAGIC_COAT, 53
+    learnset MOVE_LOCK_ON, 56
+    learnset MOVE_ZAP_CANNON, 59
+    learnset MOVE_HYPER_BEAM, 62
     terminatelearnset
 
 
