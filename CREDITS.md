@@ -23,7 +23,7 @@ Kingcom - [armips](https://github.com/Kingcom/armips)
 
 MaMe and maple - a lot of mega sprites touched up
 
-Mikelan98 - initial graphics compilation, BDHCAM routine
+Mikelan98 - initial graphics compilation, BDHCAM routine, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle) 
 
 RH-Hideout Team - cries from gen 9
 
