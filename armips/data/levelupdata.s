@@ -5056,20 +5056,29 @@ levelup SPECIES_UMBREON
 
 levelup SPECIES_MURKROW
     learnset MOVE_PECK, 1
-    learnset MOVE_ASTONISH, 1
-    learnset MOVE_PURSUIT, 5
-    learnset MOVE_HAZE, 11
-    learnset MOVE_WING_ATTACK, 15
+    learnset MOVE_SAND_ATTACK, 1
+    learnset MOVE_PURSUIT, 4
+    learnset MOVE_ASTONISH, 7
+    learnset MOVE_HAZE, 10
+    learnset MOVE_SNARL, 13
+    learnset MOVE_AERIAL_ACE, 16
+    learnset MOVE_TAUNT, 18
     learnset MOVE_NIGHT_SHADE, 21
-    learnset MOVE_ASSURANCE, 25
-    learnset MOVE_TAUNT, 31
-    learnset MOVE_FEINT_ATTACK, 35
-    learnset MOVE_MEAN_LOOK, 41
-    learnset MOVE_FOUL_PLAY, 45
-    learnset MOVE_TAILWIND, 50
-    learnset MOVE_SUCKER_PUNCH, 55
-    learnset MOVE_TORMENT, 61
-    learnset MOVE_QUASH, 65
+    learnset MOVE_KNOCK_OFF, 24
+    learnset MOVE_U_TURN, 27
+    learnset MOVE_TORMENT, 30
+    learnset MOVE_MEAN_LOOK, 33
+    learnset MOVE_SUCKER_PUNCH, 36
+    learnset MOVE_FEATHER_DANCE, 39
+    learnset MOVE_DARK_PULSE, 42
+    learnset MOVE_DRILL_PECK, 45
+    learnset MOVE_HEAT_WAVE, 48
+    learnset MOVE_TAILWIND, 51
+    learnset MOVE_FOUL_PLAY, 54
+    learnset MOVE_QUASH, 57
+    learnset MOVE_BRAVE_BIRD, 60
+    learnset MOVE_COMEUPPANCE, 63
+    learnset MOVE_SKY_ATTACK, 66
     terminatelearnset
 
 
@@ -10264,18 +10273,32 @@ levelup SPECIES_MISMAGIUS
 
 
 levelup SPECIES_HONCHKROW
-    learnset MOVE_NIGHT_SLASH, 1
-    learnset MOVE_SUCKER_PUNCH, 1
-    learnset MOVE_ASTONISH, 1
-    learnset MOVE_PURSUIT, 1
-    learnset MOVE_HAZE, 1
-    learnset MOVE_WING_ATTACK, 1
-    learnset MOVE_SWAGGER, 25
-    learnset MOVE_NASTY_PLOT, 35
-    learnset MOVE_FOUL_PLAY, 45
-    learnset MOVE_NIGHT_SLASH, 55
-    learnset MOVE_QUASH, 65
-    learnset MOVE_DARK_PULSE, 75
+    learnset MOVE_SWAGGER, 0
+    learnset MOVE_SWAGGER, 1
+    learnset MOVE_PECK, 1
+    learnset MOVE_SAND_ATTACK, 1
+    learnset MOVE_PURSUIT, 5
+    learnset MOVE_ASTONISH, 8
+    learnset MOVE_HAZE, 11
+    learnset MOVE_SNARL, 14
+    learnset MOVE_AERIAL_ACE, 17
+    learnset MOVE_TAUNT, 19
+    learnset MOVE_NIGHT_SHADE, 22
+    learnset MOVE_KNOCK_OFF, 25
+    learnset MOVE_U_TURN, 28
+    learnset MOVE_TORMENT, 31
+    learnset MOVE_MEAN_LOOK, 34
+    learnset MOVE_SUCKER_PUNCH, 37
+    learnset MOVE_FEATHER_DANCE, 40
+    learnset MOVE_DARK_PULSE, 43
+    learnset MOVE_DRILL_PECK, 46
+    learnset MOVE_HEAT_WAVE, 49
+    learnset MOVE_TAILWIND, 52
+    learnset MOVE_FOUL_PLAY, 55
+    learnset MOVE_QUASH, 58
+    learnset MOVE_BRAVE_BIRD, 61
+    learnset MOVE_COMEUPPANCE, 64
+    learnset MOVE_SKY_ATTACK, 67
     terminatelearnset
 
 
