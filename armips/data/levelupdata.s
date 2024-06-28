@@ -3836,43 +3836,54 @@ levelup SPECIES_FERALIGATR
 
 
 levelup SPECIES_SENTRET
-    learnset MOVE_SCRATCH, 1
-    learnset MOVE_FORESIGHT, 1
-    learnset MOVE_DEFENSE_CURL, 4
-    learnset MOVE_QUICK_ATTACK, 7
-    learnset MOVE_FURY_SWIPES, 13
-    learnset MOVE_HELPING_HAND, 16
-    learnset MOVE_FOLLOW_ME, 19
-    learnset MOVE_SLAM, 25
-    learnset MOVE_REST, 28
-    learnset MOVE_SUCKER_PUNCH, 31
-    learnset MOVE_AMNESIA, 36
-    learnset MOVE_BATON_PASS, 39
-    learnset MOVE_ME_FIRST, 42
-    learnset MOVE_HYPER_VOICE, 47
+    learnset MOVE_SCRATCH,1                     // stab
+    learnset MOVE_DEFENSE_CURL,1    // status
+    learnset MOVE_QUICK_ATTACK,3                // stab
+    learnset MOVE_FURY_SWIPES,5                 // stab
+    learnset MOVE_COIL,8            // status
+    learnset MOVE_MUD_SLAP,11                           // coverage
+    learnset MOVE_SAND_ATTACK,14    // status
+    learnset MOVE_ROLLOUT,18                            // coverage
+    learnset MOVE_RAPID_SPIN,21                 // stab
+    learnset MOVE_BATON_PASS,24     // status
+    learnset MOVE_CHIP_AWAY,28                 // stab
+    learnset MOVE_DIG,30                                // coverage
+    learnset MOVE_TAKE_DOWN,32                  // stab
+    learnset MOVE_IRON_TAIL,36                          // coverage
+    learnset MOVE_EXTREME_SPEED,40               // stab
+    learnset MOVE_PLAY_ROUGH,44                         // coverage
+    learnset MOVE_SUCKER_PUNCH,46                       // coverage
+    learnset MOVE_AMNESIA,48        // status
+    learnset MOVE_DOUBLE_EDGE,50                // stab
     terminatelearnset
 
 
 levelup SPECIES_FURRET
-    learnset MOVE_AGILITY, 0
-    learnset MOVE_AGILITY, 1
-    learnset MOVE_COIL, 1
-    learnset MOVE_SCRATCH, 1
-    learnset MOVE_FORESIGHT, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_DEFENSE_CURL, 4
-    learnset MOVE_QUICK_ATTACK, 7
-    learnset MOVE_FURY_SWIPES, 13
-    learnset MOVE_HELPING_HAND, 17
-    learnset MOVE_FOLLOW_ME, 21
-    learnset MOVE_SLAM, 28
-    learnset MOVE_REST, 32
-    learnset MOVE_SUCKER_PUNCH, 36
-    learnset MOVE_AMNESIA, 42
-    learnset MOVE_BATON_PASS, 46
-    learnset MOVE_ME_FIRST, 50
-    learnset MOVE_HYPER_VOICE, 56
+    learnset MOVE_AGILITY,0         // status
+    learnset MOVE_SCRATCH,1                     // stab
+    learnset MOVE_DEFENSE_CURL,1    // status
+    learnset MOVE_QUICK_ATTACK,3                // stab
+    learnset MOVE_FURY_SWIPES,5                 // stab
+    learnset MOVE_COIL,8            // status
+    learnset MOVE_MUD_SLAP,11                           // coverage
+    learnset MOVE_SAND_ATTACK,14    // status
+    learnset MOVE_ROLLOUT,18                            // coverage
+    learnset MOVE_RAPID_SPIN,21                 // stab
+    learnset MOVE_BATON_PASS,24     // status
+    learnset MOVE_CHIP_AWAY,29                 // stab
+    learnset MOVE_DIG,32                                // coverage
+    learnset MOVE_TAKE_DOWN,34                  // stab
+    learnset MOVE_IRON_TAIL,38                          // coverage
+    learnset MOVE_EXTREME_SPEED,42               // stab
+    learnset MOVE_PLAY_ROUGH,44                         // coverage
+    learnset MOVE_SUCKER_PUNCH,46                       // coverage
+    learnset MOVE_AMNESIA,49        // status
+    learnset MOVE_DOUBLE_EDGE,51                // stab
+    learnset MOVE_ENCORE,53         // status
+    learnset MOVE_FACADE,56                     // stab
+    learnset MOVE_EARTHQUAKE,58                         // coverage
+    learnset MOVE_SUBSTITUTE,60      // status
+    learnset MOVE_GIGA_IMPACT,62                // stab
     terminatelearnset
 
 
