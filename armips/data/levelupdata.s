@@ -3411,36 +3411,35 @@ levelup SPECIES_TAUROS
 
 levelup SPECIES_MAGIKARP
     learnset MOVE_SPLASH, 1
-    learnset MOVE_TACKLE, 15
-    learnset MOVE_FLAIL, 27
+    learnset MOVE_TACKLE, 10
+    learnset MOVE_FLAIL, 15
     terminatelearnset
 
 
 levelup SPECIES_GYARADOS
     learnset MOVE_BITE, 0
     learnset MOVE_BITE, 1
-    learnset MOVE_FLAIL, 1
     learnset MOVE_SPLASH, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_TWISTER, 1
-    learnset MOVE_THRASH, 1
-    learnset MOVE_WHIRLPOOL, 4
-    learnset MOVE_BRINE, 12
-    learnset MOVE_ICE_FANG, 16
-    learnset MOVE_WATERFALL, 21
-    learnset MOVE_LEER, 21
-    learnset MOVE_SCARY_FACE, 23
-    learnset MOVE_TWISTER, 24
-    learnset MOVE_CRUNCH, 31
-    learnset MOVE_AQUA_TAIL, 31
-    learnset MOVE_DRAGON_RAGE, 36
-    learnset MOVE_RAIN_DANCE, 38
-    learnset MOVE_DRAGON_DANCE, 40
-    learnset MOVE_HYDRO_PUMP, 40
-    learnset MOVE_HURRICANE, 45
-    learnset MOVE_THRASH, 48
-    learnset MOVE_HYPER_BEAM, 52
+    learnset MOVE_TACKLE, 10
+    learnset MOVE_FLAIL, 15
+    learnset MOVE_DRAGON_RAGE, 21
+    learnset MOVE_ICE_FANG, 24
+    learnset MOVE_SCARY_FACE, 27
+    learnset MOVE_BRINE, 30
+    learnset MOVE_RAIN_DANCE, 33
+    learnset MOVE_OUTRAGE, 36
+    learnset MOVE_TAUNT, 39
+    learnset MOVE_WATERFALL, 42
+    learnset MOVE_CRUNCH, 45
+    learnset MOVE_DRAGON_DANCE, 48
+    learnset MOVE_BOUNCE, 51
+    learnset MOVE_AQUA_TAIL, 54
+    learnset MOVE_IRON_HEAD, 57
+    learnset MOVE_HURRICANE, 60
+    learnset MOVE_WAVE_CRASH, 63
+    learnset MOVE_THRASH, 66
+    learnset MOVE_GIGA_IMPACT, 69
+    
     terminatelearnset
 
 
