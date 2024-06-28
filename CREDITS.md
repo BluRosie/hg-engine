@@ -1,9 +1,9 @@
 # credits
-[AdAstra](https://github.com/AdAstra-LD/) - `debugsyscall` implementation
+[AdAstra](https://github.com/AdAstra-LD/) - `debugsyscall` implementation,  Music tables (trainerclassbattle, maintablescombo, and pokemonbattle) 
 
 Adcroc1 - helping significantly with sprite formatting
 
-BagBoy - dex entries
+BagBoy - dex entries, SEQ_EYE, Prize money
 
 Barro - swav2swar
 
@@ -26,6 +26,8 @@ MaMe and maple - a lot of mega sprites touched up
 Mikelan98 - initial graphics compilation, BDHCAM routine
 
 RH-Hideout Team - cries from gen 9
+
+Senate - Prize Money, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle) 
 
 Shy - platinum Battle BG Insertion tutorial
 
