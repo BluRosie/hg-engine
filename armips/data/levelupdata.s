@@ -4178,38 +4178,56 @@ levelup SPECIES_FURRET
 levelup SPECIES_HOOTHOOT
     learnset MOVE_GROWL, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_TACKLE, 3
-    learnset MOVE_ECHOED_VOICE, 6
-    learnset MOVE_CONFUSION, 9
-    learnset MOVE_REFLECT, 12
-    learnset MOVE_DEFOG, 15
-    learnset MOVE_AIR_SLASH, 18
-    learnset MOVE_EXTRASENSORY, 21
-    learnset MOVE_TAKE_DOWN, 24
-    learnset MOVE_UPROAR, 27
+    learnset MOVE_TACKLE, 4
+    learnset MOVE_ECHOED_VOICE, 7
+    learnset MOVE_CONFUSION, 10
+    learnset MOVE_REFLECT, 13
+    learnset MOVE_LIGHT_SCREEN, 13
+    learnset MOVE_DEFOG, 16
+    learnset MOVE_AIR_CUTTER, 18
+    learnset MOVE_PSYBEAM, 21
+    learnset MOVE_FEATHER_DANCE, 24
+    learnset MOVE_SWIFT, 27
     learnset MOVE_ROOST, 30
-    learnset MOVE_MOONBLAST, 33
-    learnset MOVE_HYPNOSIS, 36
-    learnset MOVE_DREAM_EATER, 39
+    learnset MOVE_AIR_SLASH, 33
+    learnset MOVE_AGILITY, 36
+    learnset MOVE_IMPRISON, 39
+    learnset MOVE_HYPNOSIS, 42
+    learnset MOVE_DREAM_EATER, 45
+    learnset MOVE_HYPER_VOICE, 48
+    learnset MOVE_HEAT_WAVE, 51
+    learnset MOVE_TAILWIND, 54
+    learnset MOVE_MOONBLAST, 57
+    learnset MOVE_HURRICANE, 60
+    learnset MOVE_FOCUS_BLAST, 63
     terminatelearnset
 
 
 levelup SPECIES_NOCTOWL
-    learnset MOVE_ECHOED_VOICE, 1
     learnset MOVE_GROWL, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_SKY_ATTACK, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_CONFUSION, 9
-    learnset MOVE_REFLECT, 12
-    learnset MOVE_AIR_SLASH, 18
-    learnset MOVE_EXTRASENSORY, 23
-    learnset MOVE_TAKE_DOWN, 28
-    learnset MOVE_UPROAR, 33
-    learnset MOVE_ROOST, 38
-    learnset MOVE_MOONBLAST, 43
-    learnset MOVE_HYPNOSIS, 48
-    learnset MOVE_DREAM_EATER, 53
+    learnset MOVE_TACKLE, 5
+    learnset MOVE_ECHOED_VOICE, 8
+    learnset MOVE_CONFUSION, 11
+    learnset MOVE_REFLECT, 14
+    learnset MOVE_LIGHT_SCREEN, 14
+    learnset MOVE_DEFOG, 17
+    learnset MOVE_AIR_CUTTER, 19
+    learnset MOVE_PSYBEAM, 22
+    learnset MOVE_FEATHER_DANCE, 25
+    learnset MOVE_SWIFT, 28
+    learnset MOVE_ROOST, 31
+    learnset MOVE_AIR_SLASH, 34
+    learnset MOVE_AGILITY, 37
+    learnset MOVE_IMPRISON, 40
+    learnset MOVE_HYPNOSIS, 43
+    learnset MOVE_DREAM_EATER, 46
+    learnset MOVE_HYPER_VOICE, 49
+    learnset MOVE_HEAT_WAVE, 52
+    learnset MOVE_TAILWIND, 55
+    learnset MOVE_MOONBLAST, 58
+    learnset MOVE_HURRICANE, 61
+    learnset MOVE_FOCUS_BLAST, 64
     terminatelearnset
 
 
