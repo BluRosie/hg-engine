@@ -4518,46 +4518,60 @@ levelup SPECIES_TOGETIC
 levelup SPECIES_NATU
     learnset MOVE_PECK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_TELEPORT, 9
+    learnset MOVE_CONFUSION, 4
+    learnset MOVE_TELEPORT, 7
     learnset MOVE_STORED_POWER, 10
-    learnset MOVE_LUCKY_CHANT, 12
-    learnset MOVE_NIGHT_SHADE, 13
+    learnset MOVE_AIR_CUTTER, 13
+    learnset MOVE_NIGHT_SHADE, 16
     learnset MOVE_CONFUSE_RAY, 18
-    learnset MOVE_OMINOUS_WIND, 20
-    learnset MOVE_PSYCHO_SHIFT, 32
-    learnset MOVE_PSYCHIC, 34
-    learnset MOVE_WISH, 34
+    learnset MOVE_OMINOUS_WIND, 21
+    learnset MOVE_PSYBEAM, 24
+    learnset MOVE_PSYCHO_SHIFT, 27
+    learnset MOVE_AIR_SLASH, 30
+    learnset MOVE_GIGA_DRAIN, 33
     learnset MOVE_MIRACLE_EYE, 36
-    learnset MOVE_POWER_SWAP, 37
-    learnset MOVE_GUARD_SWAP, 40
-    learnset MOVE_FUTURE_SIGHT, 44
-    learnset MOVE_ME_FIRST, 50
+    learnset MOVE_WISH, 39
+    learnset MOVE_POWER_SWAP, 42
+    learnset MOVE_GUARD_SWAP, 42
+    learnset MOVE_EXTRASENSORY, 45
+    learnset MOVE_SHADOW_BALL, 48
+    learnset MOVE_DAZZLING_GLEAM, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_CALM_MIND, 57
+    learnset MOVE_HURRICANE, 60
+    learnset MOVE_SOLAR_BEAM, 63
+    learnset MOVE_FUTURE_SIGHT, 66
     terminatelearnset
 
 
 levelup SPECIES_XATU
-    learnset MOVE_AIR_SLASH, 0
-    learnset MOVE_AIR_SLASH, 1
+    learnset MOVE_TAILWIND, 0
     learnset MOVE_TAILWIND, 1
     learnset MOVE_PECK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_STORED_POWER, 1
-    learnset MOVE_TELEPORT, 1
-    learnset MOVE_NIGHT_SHADE, 1
-    learnset MOVE_TELEPORT, 9
-    learnset MOVE_LUCKY_CHANT, 12
-    learnset MOVE_NIGHT_SHADE, 13
-    learnset MOVE_STORED_POWER, 17
-    learnset MOVE_CONFUSE_RAY, 18
-    learnset MOVE_OMINOUS_WIND, 20
-    learnset MOVE_PSYCHO_SHIFT, 35
-    learnset MOVE_PSYCHIC, 38
-    learnset MOVE_WISH, 39
-    learnset MOVE_MIRACLE_EYE, 39
-    learnset MOVE_POWER_SWAP, 42
-    learnset MOVE_GUARD_SWAP, 42
-    learnset MOVE_FUTURE_SIGHT, 52
-    learnset MOVE_ME_FIRST, 57
+    learnset MOVE_CONFUSION, 5
+    learnset MOVE_TELEPORT, 8
+    learnset MOVE_STORED_POWER, 11
+    learnset MOVE_AIR_CUTTER, 14
+    learnset MOVE_NIGHT_SHADE, 17
+    learnset MOVE_CONFUSE_RAY, 19
+    learnset MOVE_OMINOUS_WIND, 22
+    learnset MOVE_PSYBEAM, 25
+    learnset MOVE_PSYCHO_SHIFT, 28
+    learnset MOVE_AIR_SLASH, 31
+    learnset MOVE_GIGA_DRAIN, 34
+    learnset MOVE_MIRACLE_EYE, 37
+    learnset MOVE_WISH, 40
+    learnset MOVE_POWER_SWAP, 43
+    learnset MOVE_GUARD_SWAP, 43
+    learnset MOVE_EXTRASENSORY, 46
+    learnset MOVE_SHADOW_BALL, 49
+    learnset MOVE_DAZZLING_GLEAM, 52
+    learnset MOVE_PSYCHIC, 55
+    learnset MOVE_CALM_MIND, 58
+    learnset MOVE_HURRICANE, 61
+    learnset MOVE_SOLAR_BEAM, 64
+    learnset MOVE_FUTURE_SIGHT, 67
     terminatelearnset
 
 
