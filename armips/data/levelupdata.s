@@ -10275,6 +10275,9 @@ levelup SPECIES_MISMAGIUS
 levelup SPECIES_HONCHKROW
     learnset MOVE_SWAGGER, 0
     learnset MOVE_SWAGGER, 1
+    learnset MOVE_NIGHT_SLASH, 1
+    learnset MOVE_LEAF_BLADE, 1
+    learnset MOVE_AIR_CUTTER, 1
     learnset MOVE_PECK, 1
     learnset MOVE_SAND_ATTACK, 1
     learnset MOVE_PURSUIT, 5
