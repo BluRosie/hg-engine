@@ -4941,43 +4941,56 @@ levelup SPECIES_YANMA
 
 
 levelup SPECIES_WOOPER
-    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_BUBBLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_MUD_SPORT, 5
-    learnset MOVE_MUD_SHOT, 8
-    learnset MOVE_SLAM, 15
-    learnset MOVE_RAIN_DANCE, 19
-    learnset MOVE_MUD_BOMB, 19
+    learnset MOVE_RAIN_DANCE, 4
+    learnset MOVE_MUD_SHOT, 7
+    learnset MOVE_ACID_SPRAY, 10
+    learnset MOVE_HAZE, 13
+    learnset MOVE_MIST, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_RAIN_DANCE, 18
+    learnset MOVE_MUD_BOMB, 21
     learnset MOVE_YAWN, 24
-    learnset MOVE_AQUA_TAIL, 24
-    learnset MOVE_MIST, 26
-    learnset MOVE_HAZE, 26
-    learnset MOVE_AMNESIA, 27
-    learnset MOVE_MUDDY_WATER, 36
+    learnset MOVE_WATER_PULSE, 27
+    learnset MOVE_RECOVER, 30
+    learnset MOVE_ROCK_SLIDE, 33
     learnset MOVE_TOXIC, 36
-    learnset MOVE_EARTHQUAKE, 36
+    learnset MOVE_COUNTER, 39
+    learnset MOVE_LIQUIDATION, 42
+    learnset MOVE_SLAM, 45
+    learnset MOVE_CURSE, 48
+    learnset MOVE_EARTHQUAKE, 51
+    learnset MOVE_SLUDGE_BOMB, 54
+    learnset MOVE_HYDRO_PUMP, 57
+    learnset MOVE_STONE_EDGE, 60
     terminatelearnset
 
 
 levelup SPECIES_QUAGSIRE
-    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_BUBBLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_RAIN_DANCE, 1
-    learnset MOVE_MUD_SHOT, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_MUD_SPORT, 5
-    learnset MOVE_MUD_SHOT, 9
-    learnset MOVE_SLAM, 15
-    learnset MOVE_MUD_BOMB, 19
-    learnset MOVE_YAWN, 26
-    learnset MOVE_MIST, 28
-    learnset MOVE_HAZE, 28
-    learnset MOVE_AQUA_TAIL, 28
-    learnset MOVE_AMNESIA, 32
-    learnset MOVE_RAIN_DANCE, 41
-    learnset MOVE_MUDDY_WATER, 42
-    learnset MOVE_EARTHQUAKE, 44
-    learnset MOVE_TOXIC, 46
+    learnset MOVE_RAIN_DANCE, 5
+    learnset MOVE_MUD_SHOT, 8
+    learnset MOVE_ACID_SPRAY, 11
+    learnset MOVE_HAZE, 14
+    learnset MOVE_MIST, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_RAIN_DANCE, 19
+    learnset MOVE_MUD_BOMB, 22
+    learnset MOVE_YAWN, 25
+    learnset MOVE_WATER_PULSE, 28
+    learnset MOVE_RECOVER, 31
+    learnset MOVE_ROCK_SLIDE, 34
+    learnset MOVE_TOXIC, 37
+    learnset MOVE_COUNTER, 40
+    learnset MOVE_LIQUIDATION, 43
+    learnset MOVE_SLAM, 46
+    learnset MOVE_CURSE, 49
+    learnset MOVE_EARTHQUAKE, 52
+    learnset MOVE_SLUDGE_BOMB, 55
+    learnset MOVE_HYDRO_PUMP, 58
+    learnset MOVE_STONE_EDGE, 61
     terminatelearnset
 
 
