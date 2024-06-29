@@ -5188,49 +5188,54 @@ levelup SPECIES_GIRAFARIG
 levelup SPECIES_PINECO
     learnset MOVE_TACKLE, 1
     learnset MOVE_PROTECT, 1
-    learnset MOVE_SELF_DESTRUCT, 6
-    learnset MOVE_BUG_BITE, 9
-    learnset MOVE_TAKE_DOWN, 12
-    learnset MOVE_RAPID_SPIN, 17
-    learnset MOVE_BIDE, 20
-    learnset MOVE_NATURAL_GIFT, 23
-    learnset MOVE_SPIKES, 28
-    learnset MOVE_PAYBACK, 31
-    learnset MOVE_EXPLOSION, 34
+    learnset MOVE_POUNCE, 4
+    learnset MOVE_SELF_DESTRUCT, 7
+    learnset MOVE_BUG_BITE, 10
+    learnset MOVE_SAND_TOMB, 13
+    learnset MOVE_RAPID_SPIN, 16
+    learnset MOVE_HARDEN, 18
+    learnset MOVE_BIDE, 21
+    learnset MOVE_NATURAL_GIFT, 24
+    learnset MOVE_SPIKES, 27
+    learnset MOVE_TOXIC_SPIKES, 27
+    learnset MOVE_PAYBACK, 30
+    learnset MOVE_EXPLOSION, 33
+    learnset MOVE_U_TURN, 36
     learnset MOVE_IRON_DEFENSE, 39
-    learnset MOVE_GYRO_BALL, 42
-    learnset MOVE_DOUBLE_EDGE, 45
+    learnset MOVE_IRON_HEAD, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_COUNTER, 48
+    learnset MOVE_POISON_JAB, 51
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
 levelup SPECIES_FORRETRESS
-    learnset MOVE_AUTOTOMIZE, 0
-    learnset MOVE_MIRROR_SHOT, 0
-    learnset MOVE_MIRROR_SHOT, 1
-    learnset MOVE_AUTOTOMIZE, 1
-    learnset MOVE_HEAVY_SLAM, 1
-    learnset MOVE_ZAP_CANNON, 1
-    learnset MOVE_MAGNET_RISE, 1
-    learnset MOVE_TOXIC_SPIKES, 1
+    learnset MOVE_MAGNET_BOMB, 0
+    learnset MOVE_MAGNET_BOMB, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_PROTECT, 1
-    learnset MOVE_SELF_DESTRUCT, 1
-    learnset MOVE_BUG_BITE, 1
-    learnset MOVE_SELF_DESTRUCT, 6
-    learnset MOVE_BUG_BITE, 9
-    learnset MOVE_TAKE_DOWN, 12
-    learnset MOVE_RAPID_SPIN, 17
-    learnset MOVE_BIDE, 20
-    learnset MOVE_NATURAL_GIFT, 23
-    learnset MOVE_SPIKES, 28
-    learnset MOVE_PAYBACK, 32
-    learnset MOVE_EXPLOSION, 36
-    learnset MOVE_IRON_DEFENSE, 42
-    learnset MOVE_GYRO_BALL, 46
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_MAGNET_RISE, 56
-    learnset MOVE_ZAP_CANNON, 60
-    learnset MOVE_HEAVY_SLAM, 64
+    learnset MOVE_POUNCE, 4
+    learnset MOVE_SELF_DESTRUCT, 7
+    learnset MOVE_BUG_BITE, 10
+    learnset MOVE_SAND_TOMB, 13
+    learnset MOVE_RAPID_SPIN, 16
+    learnset MOVE_HARDEN, 18
+    learnset MOVE_BIDE, 21
+    learnset MOVE_NATURAL_GIFT, 24
+    learnset MOVE_SPIKES, 27
+    learnset MOVE_TOXIC_SPIKES, 27
+    learnset MOVE_PAYBACK, 30
+    learnset MOVE_EXPLOSION, 33
+    learnset MOVE_U_TURN, 36
+    learnset MOVE_IRON_DEFENSE, 39
+    learnset MOVE_IRON_HEAD, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_COUNTER, 48
+    learnset MOVE_POISON_JAB, 51
+    learnset MOVE_HEAVY_SLAM, 54
+    learnset MOVE_ZAP_CANNON, 57
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
