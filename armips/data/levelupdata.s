@@ -5360,31 +5360,28 @@ levelup SPECIES_GRANBULL
 levelup SPECIES_QWILFISH
     learnset MOVE_POISON_STING, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_FELL_STINGER, 1
-    learnset MOVE_HYDRO_PUMP, 1
-    learnset MOVE_DESTINY_BOND, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_SPIKES, 1
-    learnset MOVE_HARDEN, 6
-    learnset MOVE_WATER_GUN, 8
-    learnset MOVE_MINIMIZE, 12
-    learnset MOVE_BUBBLE, 13
-    learnset MOVE_ROLLOUT, 17
-    learnset MOVE_SPIKES, 20
-    learnset MOVE_BRINE, 28
-    learnset MOVE_REVENGE, 28
-    learnset MOVE_TOXIC_SPIKES, 29
-    learnset MOVE_FELL_STINGER, 34
-    learnset MOVE_PIN_MISSILE, 34
-    learnset MOVE_STOCKPILE, 35
-    learnset MOVE_SPIT_UP, 35
-    learnset MOVE_POISON_JAB, 44
-    learnset MOVE_TAKE_DOWN, 44
-    learnset MOVE_AQUA_TAIL, 50
-    learnset MOVE_TOXIC, 52
-    learnset MOVE_HYDRO_PUMP, 57
-    learnset MOVE_DESTINY_BOND, 59
-    learnset MOVE_ACUPRESSURE, 60
+    learnset MOVE_HARDEN, 4
+    learnset MOVE_AQUA_JET, 7
+    learnset MOVE_WATER_PULSE, 10
+    learnset MOVE_PIN_MISSILE, 13
+    learnset MOVE_MINIMIZE, 16
+    learnset MOVE_POISON_TAIL, 18
+    learnset MOVE_SPIKES, 21
+    learnset MOVE_REVENGE, 24
+    learnset MOVE_BRINE, 27
+    learnset MOVE_SELF_DESTRUCT, 30
+    learnset MOVE_VENOSHOCK, 33
+    learnset MOVE_TOXIC_SPIKES, 36
+    learnset MOVE_STOCKPILE, 39
+    learnset MOVE_SPIT_UP, 39
+    learnset MOVE_LIQUIDATION, 42
+    learnset MOVE_POISON_JAB, 45
+    learnset MOVE_ACUPRESSURE, 48
+    learnset MOVE_CRUNCH, 51
+    learnset MOVE_SLUDGE_BOMB, 54
+    learnset MOVE_DESTINY_BOND, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_WAVE_CRASH, 63
     terminatelearnset
 
 
@@ -21290,21 +21287,28 @@ levelup SPECIES_SNEASLER
 levelup SPECIES_OVERQWIL
     learnset MOVE_POISON_STING, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_HARDEN, 4
+    learnset MOVE_HARDEN, 5
     learnset MOVE_BITE, 8
-    learnset MOVE_FELL_STINGER, 12
-    learnset MOVE_MINIMIZE, 16
-    learnset MOVE_SPIKES, 20
-    learnset MOVE_BRINE, 24
-    learnset MOVE_BARB_BARRAGE, 28
-    learnset MOVE_PIN_MISSILE, 32
-    learnset MOVE_TOXIC_SPIKES, 36
-    learnset MOVE_SPIT_UP, 40
+    learnset MOVE_PAYBACK, 11
+    learnset MOVE_PIN_MISSILE, 14
+    learnset MOVE_MINIMIZE, 17
+    learnset MOVE_POISON_TAIL, 19
+    learnset MOVE_SPIKES, 22
+    learnset MOVE_REVENGE, 25
+    learnset MOVE_BRINE, 28
+    learnset MOVE_SELF_DESTRUCT, 31
+    learnset MOVE_VENOSHOCK, 34
+    learnset MOVE_TOXIC_SPIKES, 37
     learnset MOVE_STOCKPILE, 40
-    learnset MOVE_TOXIC, 44
-    learnset MOVE_CRUNCH, 48
-    learnset MOVE_ACUPRESSURE, 52
-    learnset MOVE_DESTINY_BOND, 56
+    learnset MOVE_SPIT_UP, 40
+    learnset MOVE_CRUNCH, 43
+    learnset MOVE_POISON_JAB, 46
+    learnset MOVE_ACUPRESSURE, 49
+    learnset MOVE_LIQUIDATION, 52
+    learnset MOVE_SLUDGE_BOMB, 55
+    learnset MOVE_DESTINY_BOND, 58
+    learnset MOVE_GUNK_SHOT, 61
+    learnset MOVE_DOUBLE_EDGE, 63
     terminatelearnset
 
 
@@ -29087,20 +29091,27 @@ levelup SPECIES_QWILFISH_HISUIAN
     learnset MOVE_POISON_STING, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 4
-    learnset MOVE_BITE, 8
-    learnset MOVE_FELL_STINGER, 12
+    learnset MOVE_BITE, 7
+    learnset MOVE_PAYBACK, 10
+    learnset MOVE_PIN_MISSILE, 13
     learnset MOVE_MINIMIZE, 16
-    learnset MOVE_SPIKES, 20
-    learnset MOVE_BRINE, 24
-    learnset MOVE_BARB_BARRAGE, 28
-    learnset MOVE_PIN_MISSILE, 32
+    learnset MOVE_POISON_TAIL, 18
+    learnset MOVE_SPIKES, 21
+    learnset MOVE_REVENGE, 24
+    learnset MOVE_BRINE, 27
+    learnset MOVE_SELF_DESTRUCT, 30
+    learnset MOVE_VENOSHOCK, 33
     learnset MOVE_TOXIC_SPIKES, 36
-    learnset MOVE_SPIT_UP, 40
-    learnset MOVE_STOCKPILE, 40
-    learnset MOVE_TOXIC, 44
-    learnset MOVE_CRUNCH, 48
-    learnset MOVE_ACUPRESSURE, 52
-    learnset MOVE_DESTINY_BOND, 56
+    learnset MOVE_STOCKPILE, 39
+    learnset MOVE_SPIT_UP, 39
+    learnset MOVE_CRUNCH, 42
+    learnset MOVE_POISON_JAB, 45
+    learnset MOVE_ACUPRESSURE, 48
+    learnset MOVE_LIQUIDATION, 51
+    learnset MOVE_SLUDGE_BOMB, 54
+    learnset MOVE_DESTINY_BOND, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_DOUBLE_EDGE, 63
     terminatelearnset
 
 
