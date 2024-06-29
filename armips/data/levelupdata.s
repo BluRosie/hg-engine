@@ -5418,26 +5418,27 @@ levelup SPECIES_SCIZOR
 levelup SPECIES_SHUCKLE
     learnset MOVE_WITHDRAW, 1
     learnset MOVE_WRAP, 1
-    learnset MOVE_STICKY_WEB, 1
-    learnset MOVE_CONSTRICT, 1
-    learnset MOVE_BIDE, 1
-    learnset MOVE_ROLLOUT, 1
-    learnset MOVE_ROLLOUT, 5
-    learnset MOVE_ENCORE, 5
-    learnset MOVE_WRAP, 9
+    learnset MOVE_ROLLOUT, 4
+    learnset MOVE_ENCORE, 7
     learnset MOVE_STRUGGLE_BUG, 10
-    learnset MOVE_ROCK_THROW, 18
-    learnset MOVE_SAFEGUARD, 18
-    learnset MOVE_REST, 22
-    learnset MOVE_BUG_BITE, 35
+    learnset MOVE_SAFEGUARD, 13
+    learnset MOVE_ROCK_THROW, 16
+    learnset MOVE_ACID, 18
+    learnset MOVE_RECOVER, 21
+    learnset MOVE_BUG_BITE, 24
+    learnset MOVE_ANCIENT_POWER, 27
+    learnset MOVE_TOXIC, 30
+    learnset MOVE_SAND_TOMB, 33
     learnset MOVE_GASTRO_ACID, 36
     learnset MOVE_POWER_SPLIT, 39
     learnset MOVE_GUARD_SPLIT, 39
-    learnset MOVE_ROCK_SLIDE, 39
-    learnset MOVE_POWER_TRICK, 43
-    learnset MOVE_SHELL_SMASH, 50
-    learnset MOVE_STICKY_WEB, 51
+    learnset MOVE_ROCK_SLIDE, 42
+    learnset MOVE_POWER_TRICK, 45
+    learnset MOVE_KNOCK_OFF, 48
+    learnset MOVE_SHELL_SMASH, 51
     learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_ACUPRESSURE, 57
+    learnset MOVE_FINAL_GAMBIT, 60
     terminatelearnset
 
 
