@@ -5528,45 +5528,58 @@ levelup SPECIES_URSARING
 levelup SPECIES_SLUGMA
     learnset MOVE_YAWN, 1
     learnset MOVE_SMOG, 1
-    learnset MOVE_EMBER, 6
-    learnset MOVE_ROCK_THROW, 8
+    learnset MOVE_EMBER, 4
+    learnset MOVE_ROCK_THROW, 7
+    learnset MOVE_FIRE_SPIN, 10
     learnset MOVE_HARDEN, 13
-    learnset MOVE_INCINERATE, 15
-    learnset MOVE_CLEAR_SMOG, 20
-    learnset MOVE_ANCIENT_POWER, 22
+    learnset MOVE_INCINERATE, 16
+    learnset MOVE_MUD_SHOT, 18
+    learnset MOVE_CLEAR_SMOG, 21
+    learnset MOVE_ANCIENT_POWER, 24
     learnset MOVE_FLAME_BURST, 27
-    learnset MOVE_ROCK_SLIDE, 29
-    learnset MOVE_LAVA_PLUME, 34
+    learnset MOVE_ROCK_SLIDE, 30
+    learnset MOVE_MUD_BOMB, 33
     learnset MOVE_AMNESIA, 36
-    learnset MOVE_BODY_SLAM, 41
-    learnset MOVE_RECOVER, 43
+    learnset MOVE_SUNNY_DAY, 39
+    learnset MOVE_BODY_SLAM, 42
+    learnset MOVE_RECOVER, 45
     learnset MOVE_FLAMETHROWER, 48
-    learnset MOVE_EARTH_POWER, 50
+    learnset MOVE_POWER_GEM, 51
+    learnset MOVE_ACID_ARMOR, 54
+    learnset MOVE_EARTH_POWER, 57
+    learnset MOVE_FIRE_BLAST, 60
+    learnset MOVE_SOLAR_BEAM, 63
+    learnset MOVE_OVERHEAT, 66
     terminatelearnset
 
 
 levelup SPECIES_MAGCARGO
     learnset MOVE_SHELL_SMASH, 0
     learnset MOVE_SHELL_SMASH, 1
-    learnset MOVE_EARTH_POWER, 1
     learnset MOVE_YAWN, 1
     learnset MOVE_SMOG, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_ROCK_THROW, 1
-    learnset MOVE_EMBER, 6
+    learnset MOVE_EMBER, 5
     learnset MOVE_ROCK_THROW, 8
-    learnset MOVE_HARDEN, 13
-    learnset MOVE_INCINERATE, 15
-    learnset MOVE_CLEAR_SMOG, 20
-    learnset MOVE_ANCIENT_POWER, 22
-    learnset MOVE_FLAME_BURST, 27
-    learnset MOVE_ROCK_SLIDE, 29
-    learnset MOVE_LAVA_PLUME, 34
-    learnset MOVE_AMNESIA, 36
+    learnset MOVE_FIRE_SPIN, 11
+    learnset MOVE_HARDEN, 14
+    learnset MOVE_INCINERATE, 17
+    learnset MOVE_MUD_SHOT, 19
+    learnset MOVE_CLEAR_SMOG, 22
+    learnset MOVE_ANCIENT_POWER, 25
+    learnset MOVE_FLAME_BURST, 28
+    learnset MOVE_ROCK_SLIDE, 31
+    learnset MOVE_MUD_BOMB, 34
+    learnset MOVE_AMNESIA, 37
+    learnset MOVE_SUNNY_DAY, 40
     learnset MOVE_BODY_SLAM, 43
-    learnset MOVE_RECOVER, 47
-    learnset MOVE_FLAMETHROWER, 54
+    learnset MOVE_RECOVER, 46
+    learnset MOVE_FLAMETHROWER, 49
+    learnset MOVE_POWER_GEM, 52
+    learnset MOVE_ACID_ARMOR, 55
     learnset MOVE_EARTH_POWER, 58
+    learnset MOVE_FIRE_BLAST, 61
+    learnset MOVE_SOLAR_BEAM, 64
+    learnset MOVE_OVERHEAT, 67
     terminatelearnset
 
 
