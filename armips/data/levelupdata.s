@@ -5243,18 +5243,26 @@ levelup SPECIES_DUNSPARCE
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_FLAIL, 1
     learnset MOVE_MUD_SLAP, 4
-    learnset MOVE_ROLLOUT, 8
-    learnset MOVE_GLARE, 12
-    learnset MOVE_SCREECH, 16
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_DRILL_RUN, 24
-    learnset MOVE_YAWN, 28
-    learnset MOVE_HYPER_DRILL, 32
+    learnset MOVE_ROLLOUT, 7
+    learnset MOVE_PURSUIT, 10
+    learnset MOVE_GLARE, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_BITE, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_YAWN, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_FACADE, 33
     learnset MOVE_ROOST, 36
-    learnset MOVE_DRAGON_RUSH, 40
-    learnset MOVE_COIL, 44
-    learnset MOVE_DOUBLE_EDGE, 48
-    learnset MOVE_ENDEAVOR, 52
+    learnset MOVE_STOMPING_TANTRUM, 39
+    learnset MOVE_HYPER_DRILL, 42
+    learnset MOVE_COIL, 45
+    learnset MOVE_DRILL_RUN, 48
+    learnset MOVE_ENDEAVOR, 51
+    learnset MOVE_DRAGON_RUSH, 54
+    learnset MOVE_EARTHQUAKE, 57
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_LAST_RESORT, 63
     terminatelearnset
 
 
@@ -22745,20 +22753,28 @@ levelup SPECIES_DUDUNSPARCE
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_FLAIL, 1
     learnset MOVE_MUD_SLAP, 4
-    learnset MOVE_ROLLOUT, 8
-    learnset MOVE_GLARE, 12
-    learnset MOVE_SCREECH, 16
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_DRILL_RUN, 24
-    learnset MOVE_YAWN, 28
-    learnset MOVE_HYPER_DRILL, 32
+    learnset MOVE_ROLLOUT, 7
+    learnset MOVE_PURSUIT, 10
+    learnset MOVE_GLARE, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_BITE, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_YAWN, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_FACADE, 33
     learnset MOVE_ROOST, 36
-    learnset MOVE_DRAGON_RUSH, 40
-    learnset MOVE_COIL, 44
-    learnset MOVE_DOUBLE_EDGE, 48
-    learnset MOVE_ENDEAVOR, 52
-    learnset MOVE_HURRICANE, 56
-    learnset MOVE_BOOMBURST, 62
+    learnset MOVE_STOMPING_TANTRUM, 39
+    learnset MOVE_HYPER_DRILL, 42
+    learnset MOVE_COIL, 45
+    learnset MOVE_DRILL_RUN, 48
+    learnset MOVE_ENDEAVOR, 51
+    learnset MOVE_DRAGON_RUSH, 54
+    learnset MOVE_EARTHQUAKE, 57
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_LAST_RESORT, 63
+    learnset MOVE_HURRICANE, 66
+    learnset MOVE_BOOMBURST, 69
     terminatelearnset
 
 levelup SPECIES_KINGAMBIT
