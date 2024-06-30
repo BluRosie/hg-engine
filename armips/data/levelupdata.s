@@ -7319,18 +7319,19 @@ levelup SPECIES_SHEDINJA
 levelup SPECIES_WHISMUR
     learnset MOVE_ASTONISH, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_ECHOED_VOICE, 4
-    learnset MOVE_ASTONISH, 8
+    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_ECHOED_VOICE, 7
     learnset MOVE_HOWL, 10
+    learnset MOVE_DISARMING_VOICE, 13
+    learnset MOVE_REST, 16
+    learnset MOVE_SLEEP_TALK, 16
+    learnset MOVE_SNORE, 18
     learnset MOVE_STOMP, 21
-    learnset MOVE_REST, 22
-    learnset MOVE_SLEEP_TALK, 24
     learnset MOVE_SUPERSONIC, 24
-    learnset MOVE_ROAR, 26
-    learnset MOVE_SCREECH, 28
-    learnset MOVE_UPROAR, 30
-    learnset MOVE_HYPER_VOICE, 42
-    learnset MOVE_SYNCHRONOISE, 43
+    learnset MOVE_ROAR, 27
+    learnset MOVE_SCREECH, 30
+    learnset MOVE_UPROAR, 33
+    learnset MOVE_HYPER_VOICE, 36
     terminatelearnset
 
 
@@ -7339,49 +7340,59 @@ levelup SPECIES_LOUDRED
     learnset MOVE_BITE, 1
     learnset MOVE_ASTONISH, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_ECHOED_VOICE, 1
-    learnset MOVE_HOWL, 1
-    learnset MOVE_ECHOED_VOICE, 4
-    learnset MOVE_ASTONISH, 9
-    learnset MOVE_HOWL, 11
-    learnset MOVE_STOMP, 23
-    learnset MOVE_REST, 24
-    learnset MOVE_SLEEP_TALK, 27
+    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_ECHOED_VOICE, 7
+    learnset MOVE_HOWL, 10
+    learnset MOVE_DISARMING_VOICE, 13
+    learnset MOVE_REST, 16
+    learnset MOVE_SLEEP_TALK, 16
+    learnset MOVE_SNORE, 18
+    learnset MOVE_STOMP, 21
+    learnset MOVE_ROCK_TOMB, 24
     learnset MOVE_SUPERSONIC, 27
-    learnset MOVE_ROAR, 30
-    learnset MOVE_SCREECH, 33
-    learnset MOVE_UPROAR, 35
-    learnset MOVE_SYNCHRONOISE, 50
-    learnset MOVE_HYPER_VOICE, 51
+    learnset MOVE_BULLDOZE, 30
+    learnset MOVE_ROAR, 33
+    learnset MOVE_UPROAR, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_SCREECH, 42
+    learnset MOVE_HYPER_VOICE, 45
+    learnset MOVE_SHADOW_BALL, 48
+    learnset MOVE_EARTHQUAKE, 51
+    learnset MOVE_SWAGGER, 54
+    learnset MOVE_FLAMETHROWER, 57
     terminatelearnset
 
 
 levelup SPECIES_EXPLOUD
     learnset MOVE_CRUNCH, 0
     learnset MOVE_CRUNCH, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_ICE_FANG, 1
     learnset MOVE_FIRE_FANG, 1
     learnset MOVE_THUNDER_FANG, 1
+    learnset MOVE_ICE_FANG
     learnset MOVE_ASTONISH, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_ECHOED_VOICE, 1
-    learnset MOVE_HOWL, 1
-    learnset MOVE_BOOMBURST, 1
-    learnset MOVE_ECHOED_VOICE, 4
-    learnset MOVE_ASTONISH, 9
-    learnset MOVE_HOWL, 11
-    learnset MOVE_STOMP, 23
-    learnset MOVE_REST, 24
-    learnset MOVE_SLEEP_TALK, 27
+    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_ECHOED_VOICE, 7
+    learnset MOVE_HOWL, 10
+    learnset MOVE_DISARMING_VOICE, 13
+    learnset MOVE_REST, 16
+    learnset MOVE_SLEEP_TALK, 16
+    learnset MOVE_SNORE, 18
+    learnset MOVE_STOMP, 21
+    learnset MOVE_ROCK_TOMB, 24
     learnset MOVE_SUPERSONIC, 27
-    learnset MOVE_ROAR, 30
-    learnset MOVE_SCREECH, 35
+    learnset MOVE_BULLDOZE, 30
+    learnset MOVE_ROAR, 33
     learnset MOVE_UPROAR, 36
-    learnset MOVE_SYNCHRONOISE, 53
-    learnset MOVE_HYPER_VOICE, 55
-    learnset MOVE_BOOMBURST, 65
-    learnset MOVE_HYPER_BEAM, 73
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_SCREECH, 42
+    learnset MOVE_HYPER_VOICE, 45
+    learnset MOVE_SHADOW_BALL, 48
+    learnset MOVE_EARTHQUAKE, 51
+    learnset MOVE_SWAGGER, 54
+    learnset MOVE_FLAMETHROWER, 57
+    learnset MOVE_BOOMBURST, 60
+    learnset MOVE_HYPER_BEAM, 63
     terminatelearnset
 
 
