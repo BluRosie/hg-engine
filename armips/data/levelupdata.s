@@ -5719,25 +5719,27 @@ levelup SPECIES_MANTINE
     learnset MOVE_BULLET_SEED, 1
     learnset MOVE_ROOST, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_WING_ATTACK, 1
-    learnset MOVE_SIGNAL_BEAM, 1
     learnset MOVE_BUBBLE, 1
-    learnset MOVE_BUBBLE_BEAM, 1
-    learnset MOVE_SUPERSONIC, 3
+    learnset MOVE_SUPERSONIC, 5
+    learnset MOVE_GUST, 8
     learnset MOVE_CONFUSE_RAY, 11
-    learnset MOVE_WING_ATTACK, 14
-    learnset MOVE_WATER_PULSE, 15
-    learnset MOVE_BUBBLE_BEAM, 16
-    learnset MOVE_WIDE_GUARD, 19
-    learnset MOVE_HEADBUTT, 22
+    learnset MOVE_WATER_PULSE, 14
+    learnset MOVE_TWISTER, 17
+    learnset MOVE_AIR_CUTTER, 19
+    learnset MOVE_BUBBLE_BEAM, 22
     learnset MOVE_AGILITY, 25
-    learnset MOVE_AIR_SLASH, 33
-    learnset MOVE_TAKE_DOWN, 36
+    learnset MOVE_HEADBUTT, 28
+    learnset MOVE_AURORA_BEAM, 31
+    learnset MOVE_AIR_SLASH, 34
     learnset MOVE_AQUA_RING, 37
-    learnset MOVE_BOUNCE, 42
-    learnset MOVE_HYDRO_PUMP, 48
+    learnset MOVE_SCALD, 40
+    learnset MOVE_BOUNCE, 43
+    learnset MOVE_HAZE, 46
+    learnset MOVE_ICE_BEAM, 49
+    learnset MOVE_TAILWIND, 52
+    learnset MOVE_HURRICANE, 55
+    learnset MOVE_HYDRO_PUMP, 58
+    learnset MOVE_BLIZZARD, 61
     terminatelearnset
 
 
@@ -10986,21 +10988,27 @@ levelup SPECIES_LUMINEON
 
 levelup SPECIES_MANTYKE
     learnset MOVE_TACKLE, 1
-    learnset MOVE_WATER_GUN, 1
     learnset MOVE_BUBBLE, 1
-    learnset MOVE_SUPERSONIC, 3
-    learnset MOVE_WING_ATTACK, 10
-    learnset MOVE_CONFUSE_RAY, 11
-    learnset MOVE_WATER_PULSE, 15
-    learnset MOVE_BUBBLE_BEAM, 16
-    learnset MOVE_WIDE_GUARD, 19
-    learnset MOVE_HEADBUTT, 22
-    learnset MOVE_AGILITY, 25
+    learnset MOVE_SUPERSONIC, 4
+    learnset MOVE_GUST, 7
+    learnset MOVE_CONFUSE_RAY, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_TWISTER, 16
+    learnset MOVE_AIR_CUTTER, 18
+    learnset MOVE_BUBBLE_BEAM, 21
+    learnset MOVE_AGILITY, 24
+    learnset MOVE_HEADBUTT, 27
+    learnset MOVE_AURORA_BEAM, 30
     learnset MOVE_AIR_SLASH, 33
-    learnset MOVE_TAKE_DOWN, 36
-    learnset MOVE_AQUA_RING, 37
+    learnset MOVE_AQUA_RING, 36
+    learnset MOVE_SCALD, 39
     learnset MOVE_BOUNCE, 42
-    learnset MOVE_HYDRO_PUMP, 48
+    learnset MOVE_HAZE, 45
+    learnset MOVE_ICE_BEAM, 48
+    learnset MOVE_TAILWIND, 51
+    learnset MOVE_HURRICANE, 54
+    learnset MOVE_HYDRO_PUMP, 57
+    learnset MOVE_BLIZZARD, 60
     terminatelearnset
 
 
