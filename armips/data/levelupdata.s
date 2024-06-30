@@ -6665,20 +6665,25 @@ levelup SPECIES_ZIGZAGOON
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
     learnset MOVE_SAND_ATTACK, 4
-    learnset MOVE_TAIL_WHIP, 5
-    learnset MOVE_HEADBUTT, 11
+    learnset MOVE_TAIL_WHIP, 7
+    learnset MOVE_COVET, 10
     learnset MOVE_BABY_DOLL_EYES, 13
-    learnset MOVE_ODOR_SLEUTH, 13
-    learnset MOVE_COVET, 15
-    learnset MOVE_MUD_SPORT, 17
+    learnset MOVE_THIEF, 16
     learnset MOVE_PIN_MISSILE, 18
-    learnset MOVE_BESTOW, 25
-    learnset MOVE_REST, 27
-    learnset MOVE_TAKE_DOWN, 27
-    learnset MOVE_FLAIL, 29
-    learnset MOVE_FLING, 33
-    learnset MOVE_BELLY_DRUM, 34
-    learnset MOVE_DOUBLE_EDGE, 36
+    learnset MOVE_REST, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_FLING, 27
+    learnset MOVE_ENDURE, 30
+    learnset MOVE_FLAIL, 33
+    learnset MOVE_REVERSAL, 36
+    learnset MOVE_HELPING_HAND, 39
+    learnset MOVE_DIG, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_DOUBLE_TEAM, 48
+    learnset MOVE_EXTREME_SPEED, 51
+    learnset MOVE_PLAY_ROUGH, 54
+    learnset MOVE_BELLY_DRUM, 57
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
@@ -6686,30 +6691,28 @@ levelup SPECIES_LINOONE
     learnset MOVE_SLASH, 0
     learnset MOVE_SLASH, 1
     learnset MOVE_SWITCHEROO, 1
-    learnset MOVE_PIN_MISSILE, 1
-    learnset MOVE_BABY_DOLL_EYES, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_PLAY_ROUGH, 1
-    learnset MOVE_ROTOTILLER, 1
-    learnset MOVE_TAIL_WHIP, 5
-    learnset MOVE_SAND_ATTACK, 7
-    learnset MOVE_HEADBUTT, 11
-    learnset MOVE_ODOR_SLEUTH, 13
-    learnset MOVE_HONE_CLAWS, 15
-    learnset MOVE_COVET, 16
-    learnset MOVE_MUD_SPORT, 17
-    learnset MOVE_FURY_SWIPES, 18
-    learnset MOVE_BESTOW, 27
-    learnset MOVE_TAKE_DOWN, 28
-    learnset MOVE_REST, 30
-    learnset MOVE_SLASH, 32
-    learnset MOVE_FLAIL, 38
-    learnset MOVE_FLING, 40
-    learnset MOVE_DOUBLE_EDGE, 41
-    learnset MOVE_BELLY_DRUM, 43
+    learnset MOVE_SAND_ATTACK, 5
+    learnset MOVE_TAIL_WHIP, 8
+    learnset MOVE_COVET, 11
+    learnset MOVE_BABY_DOLL_EYES, 14
+    learnset MOVE_THIEF, 17
+    learnset MOVE_PIN_MISSILE, 19
+    learnset MOVE_REST, 22
+    learnset MOVE_HEADBUTT, 25
+    learnset MOVE_FLING, 28
+    learnset MOVE_ENDURE, 31
+    learnset MOVE_FLAIL, 34
+    learnset MOVE_REVERSAL, 37
+    learnset MOVE_HELPING_HAND, 40
+    learnset MOVE_DIG, 43
+    learnset MOVE_BODY_SLAM, 46
+    learnset MOVE_DOUBLE_TEAM, 49
+    learnset MOVE_EXTREME_SPEED, 52
+    learnset MOVE_PLAY_ROUGH, 55
+    learnset MOVE_BELLY_DRUM, 58
+    learnset MOVE_DOUBLE_EDGE, 61
     terminatelearnset
 
 
