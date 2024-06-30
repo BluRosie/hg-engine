@@ -7399,45 +7399,55 @@ levelup SPECIES_EXPLOUD
 levelup SPECIES_MAKUHITA
     learnset MOVE_TACKLE, 1
     learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_SAND_ATTACK, 4
-    learnset MOVE_ARM_THRUST, 7
+    learnset MOVE_ARM_THRUST, 4
+    learnset MOVE_SAND_ATTACK, 7
     learnset MOVE_FAKE_OUT, 10
     learnset MOVE_FORCE_PALM, 13
     learnset MOVE_WHIRLWIND, 16
-    learnset MOVE_KNOCK_OFF, 19
-    learnset MOVE_VITAL_THROW, 22
-    learnset MOVE_BELLY_DRUM, 25
-    learnset MOVE_SMELLING_SALTS, 28
-    learnset MOVE_SEISMIC_TOSS, 31
-    learnset MOVE_WAKE_UP_SLAP, 34
-    learnset MOVE_ENDURE, 37
-    learnset MOVE_CLOSE_COMBAT, 40
-    learnset MOVE_REVERSAL, 43
-    learnset MOVE_HEAVY_SLAM, 46
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_VITAL_THROW, 21
+    learnset MOVE_HELPING_HAND, 24
+    learnset MOVE_KNOCK_OFF, 27
+    learnset MOVE_SEISMIC_TOSS, 30
+    learnset MOVE_BULLET_PUNCH, 33
+    learnset MOVE_ENDURE, 36
+    learnset MOVE_REVERSAL, 39
+    learnset MOVE_POISON_JAB, 42
+    learnset MOVE_BULK_UP, 45
+    learnset MOVE_DRAIN_PUNCH, 48
+    learnset MOVE_COUNTER, 51
+    learnset MOVE_CROSS_CHOP, 54
+    learnset MOVE_STONE_EDGE, 57
+    learnset MOVE_HEAVY_SLAM, 60
+    learnset MOVE_CLOSE_COMBAT, 63
     terminatelearnset
 
 
 levelup SPECIES_HARIYAMA
-    learnset MOVE_BRINE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_ARM_THRUST, 1
-    learnset MOVE_SAND_ATTACK, 4
-    learnset MOVE_ARM_THRUST, 7
-    learnset MOVE_FAKE_OUT, 10
-    learnset MOVE_FORCE_PALM, 13
-    learnset MOVE_WHIRLWIND, 16
-    learnset MOVE_KNOCK_OFF, 19
+    learnset MOVE_ARM_THRUST, 5
+    learnset MOVE_SAND_ATTACK, 8
+    learnset MOVE_FAKE_OUT, 11
+    learnset MOVE_FORCE_PALM, 14
+    learnset MOVE_WHIRLWIND, 17
+    learnset MOVE_ROCK_TOMB, 19
     learnset MOVE_VITAL_THROW, 22
-    learnset MOVE_BELLY_DRUM, 26
-    learnset MOVE_SMELLING_SALTS, 30
-    learnset MOVE_SEISMIC_TOSS, 34
-    learnset MOVE_WAKE_UP_SLAP, 38
-    learnset MOVE_ENDURE, 42
-    learnset MOVE_CLOSE_COMBAT, 46
-    learnset MOVE_REVERSAL, 50
-    learnset MOVE_HEAVY_SLAM, 54
+    learnset MOVE_HELPING_HAND, 25
+    learnset MOVE_KNOCK_OFF, 28
+    learnset MOVE_SEISMIC_TOSS, 31
+    learnset MOVE_BULLET_PUNCH, 34
+    learnset MOVE_ENDURE, 37
+    learnset MOVE_REVERSAL, 40
+    learnset MOVE_POISON_JAB, 43
+    learnset MOVE_BULK_UP, 46
+    learnset MOVE_DRAIN_PUNCH, 49
+    learnset MOVE_COUNTER, 52
+    learnset MOVE_CROSS_CHOP, 55
+    learnset MOVE_STONE_EDGE, 58
+    learnset MOVE_HEAVY_SLAM, 61
+    learnset MOVE_CLOSE_COMBAT, 64
+    learnset MOVE_HEADLONG_RUSH, 67
     terminatelearnset
 
 
