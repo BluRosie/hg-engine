@@ -6359,87 +6359,84 @@ levelup SPECIES_CELEBI
 levelup SPECIES_TREECKO
     learnset MOVE_POUND, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_LEAFAGE, 3
-    learnset MOVE_ABSORB, 5
+    learnset MOVE_LEAFAGE, 4
     learnset MOVE_QUICK_ATTACK, 7
-    learnset MOVE_MEGA_DRAIN, 10
-    learnset MOVE_PURSUIT, 17
+    learnset MOVE_BULLET_SEED, 10
+    learnset MOVE_DETECT, 13
+    learnset MOVE_MAGICAL_LEAF, 16
     learnset MOVE_ASSURANCE, 18
-    learnset MOVE_DETECT, 21
-    learnset MOVE_GIGA_DRAIN, 21
-    learnset MOVE_AGILITY, 25
-    learnset MOVE_SLAM, 26
-    learnset MOVE_QUICK_GUARD, 27
+    learnset MOVE_AGILITY, 21
+    learnset MOVE_GIGA_DRAIN, 24
     learnset MOVE_DOUBLE_TEAM, 27
-    learnset MOVE_ENERGY_BALL, 33
-    learnset MOVE_LEAF_STORM, 39
-    learnset MOVE_SCREECH, 40
-    learnset MOVE_ENDEAVOR, 40
+    learnset MOVE_ACROBATICS, 30
+    learnset MOVE_DRAGON_BREATH, 33
+    learnset MOVE_ENDEAVOR, 36
+    learnset MOVE_SCREECH, 39
+    learnset MOVE_SEED_BOMB, 42
+    learnset MOVE_DRAGON_CLAW, 45
+    learnset MOVE_SWORDS_DANCE, 48
+    learnset MOVE_ENERGY_BALL, 51
+    learnset MOVE_DRAGON_PULSE, 54
+    learnset MOVE_LEAF_STORM, 57
     terminatelearnset
 
 
 levelup SPECIES_GROVYLE
     learnset MOVE_FURY_CUTTER, 0
     learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_FALSE_SWIPE, 1
-    learnset MOVE_X_SCISSOR, 1
-    learnset MOVE_ENERGY_BALL, 1
     learnset MOVE_POUND, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_LEAFAGE, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_ABSORB, 5
-    learnset MOVE_QUICK_ATTACK, 9
-    learnset MOVE_MEGA_DRAIN, 10
-    learnset MOVE_PURSUIT, 18
-    learnset MOVE_ASSURANCE, 20
-    learnset MOVE_DETECT, 24
-    learnset MOVE_GIGA_DRAIN, 25
-    learnset MOVE_AGILITY, 28
-    learnset MOVE_SLAM, 31
-    learnset MOVE_QUICK_GUARD, 32
-    learnset MOVE_LEAF_BLADE, 32
-    learnset MOVE_DOUBLE_TEAM, 35
-    learnset MOVE_X_SCISSOR, 43
-    learnset MOVE_FALSE_SWIPE, 48
-    learnset MOVE_ENDEAVOR, 50
-    learnset MOVE_SCREECH, 53
-    learnset MOVE_LEAF_STORM, 56
+    learnset MOVE_LEAFAGE, 4
+    learnset MOVE_QUICK_ATTACK, 7
+    learnset MOVE_BULLET_SEED, 10
+    learnset MOVE_DETECT, 13
+    learnset MOVE_MAGICAL_LEAF, 16
+    learnset MOVE_ASSURANCE, 18
+    learnset MOVE_AGILITY, 21
+    learnset MOVE_GIGA_DRAIN, 24
+    learnset MOVE_FALSE_SWIPE, 26
+    learnset MOVE_DOUBLE_TEAM, 28
+    learnset MOVE_ACROBATICS, 30
+    learnset MOVE_DRAGON_BREATH, 33
+    learnset MOVE_ENDEAVOR, 36
+    learnset MOVE_SCREECH, 39
+    learnset MOVE_LEAF_BLADE, 42
+    learnset MOVE_DRAGON_CLAW, 45
+    learnset MOVE_SWORDS_DANCE, 48
+    learnset MOVE_ENERGY_BALL, 51
+    learnset MOVE_DRAGON_PULSE, 54
+    learnset MOVE_LEAF_STORM, 57
     terminatelearnset
 
 
 levelup SPECIES_SCEPTILE
     learnset MOVE_DUAL_CHOP, 0
     learnset MOVE_DUAL_CHOP, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_FALSE_SWIPE, 1
     learnset MOVE_X_SCISSOR, 1
-    learnset MOVE_ENERGY_BALL, 1
+    learnset MOVE_NIGHT_SLASH, 1
     learnset MOVE_POUND, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_LEAFAGE, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_LEAF_STORM, 1
-    learnset MOVE_NIGHT_SLASH, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_ABSORB, 5
-    learnset MOVE_MEGA_DRAIN, 8
-    learnset MOVE_QUICK_ATTACK, 9
-    learnset MOVE_PURSUIT, 18
-    learnset MOVE_ASSURANCE, 20
-    learnset MOVE_DETECT, 24
-    learnset MOVE_GIGA_DRAIN, 25
-    learnset MOVE_AGILITY, 28
-    learnset MOVE_SLAM, 31
-    learnset MOVE_LEAF_BLADE, 33
-    learnset MOVE_QUICK_GUARD, 34
-    learnset MOVE_DOUBLE_TEAM, 35
-    learnset MOVE_X_SCISSOR, 45
-    learnset MOVE_FALSE_SWIPE, 51
-    learnset MOVE_ENDEAVOR, 56
-    learnset MOVE_SCREECH, 58
-    learnset MOVE_LEAF_STORM, 63
+    learnset MOVE_LEAFAGE, 4
+    learnset MOVE_QUICK_ATTACK, 7
+    learnset MOVE_BULLET_SEED, 10
+    learnset MOVE_DETECT, 13
+    learnset MOVE_MAGICAL_LEAF, 16
+    learnset MOVE_ASSURANCE, 18
+    learnset MOVE_AGILITY, 21
+    learnset MOVE_GIGA_DRAIN, 24
+    learnset MOVE_FALSE_SWIPE, 26
+    learnset MOVE_DOUBLE_TEAM, 28
+    learnset MOVE_ACROBATICS, 30
+    learnset MOVE_DRAGON_BREATH, 33
+    learnset MOVE_ENDEAVOR, 36
+    learnset MOVE_SCREECH, 39
+    learnset MOVE_LEAF_BLADE, 42
+    learnset MOVE_DRAGON_CLAW, 45
+    learnset MOVE_SWORDS_DANCE, 48
+    learnset MOVE_SHED_TAIL, 51
+    learnset MOVE_ENERGY_BALL, 54
+    learnset MOVE_DRAGON_PULSE, 57
+    learnset MOVE_LEAF_STORM, 60
     terminatelearnset
 
 
