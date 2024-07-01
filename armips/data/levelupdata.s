@@ -7520,27 +7520,32 @@ levelup SPECIES_DELCATTY
 
 
 levelup SPECIES_SABLEYE
+    learnset MOVE_DARK_PULSE, 1
+    learnset MOVE_WILL_O_WISP, 1
     learnset MOVE_LEER, 1
     learnset MOVE_SCRATCH, 1
-    learnset MOVE_FORESIGHT, 4
-    learnset MOVE_ASTONISH, 5
-    learnset MOVE_SHADOW_SNEAK, 12
-    learnset MOVE_NIGHT_SHADE, 14
-    learnset MOVE_DISABLE, 15
-    learnset MOVE_FAKE_OUT, 16
-    learnset MOVE_DETECT, 16
-    learnset MOVE_CONFUSE_RAY, 17
-    learnset MOVE_FURY_SWIPES, 17
-    learnset MOVE_FEINT_ATTACK, 19
-    learnset MOVE_PUNISHMENT, 24
-    learnset MOVE_KNOCK_OFF, 26
-    learnset MOVE_SHADOW_CLAW, 31
-    learnset MOVE_QUASH, 36
-    learnset MOVE_POWER_GEM, 37
-    learnset MOVE_ZEN_HEADBUTT, 38
-    learnset MOVE_MEAN_LOOK, 40
-    learnset MOVE_SHADOW_BALL, 42
-    learnset MOVE_FOUL_PLAY, 44
+    learnset MOVE_ASTONISH, 4
+    learnset MOVE_TAUNT, 7
+    learnset MOVE_SHADOW_SNEAK, 10
+    learnset MOVE_FAKE_OUT, 13
+    learnset MOVE_DISABLE, 16
+    learnset MOVE_DETECT, 18
+    learnset MOVE_SNARL, 21
+    learnset MOVE_FURY_SWIPES, 24
+    learnset MOVE_KNOCK_OFF, 27
+    learnset MOVE_QUASH, 30
+    learnset MOVE_SHADOW_CLAW, 33
+    learnset MOVE_MEAN_LOOK, 36
+    learnset MOVE_POWER_GEM, 39
+    learnset MOVE_ZEN_HEADBUTT, 42
+    learnset MOVE_SHADOW_BALL, 45
+    learnset MOVE_RECOVER, 48
+    learnset MOVE_SUCKER_PUNCH, 51
+    learnset MOVE_METAL_BURST, 54
+    learnset MOVE_TORMENT, 60
+    learnset MOVE_FOUL_PLAY, 63
+    learnset MOVE_SWAGGER, 66
+    learnset MOVE_PHANTOM_FORCE, 69
     terminatelearnset
 
 
