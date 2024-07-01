@@ -2781,7 +2781,7 @@ levelup SPECIES_CUBONE
 
 
 levelup SPECIES_MAROWAK
-    learnset MOVE_FISSURE 1
+    learnset MOVE_FISSURE, 1
     learnset MOVE_SCREECH, 1
     learnset MOVE_MUD_SLAP, 1
     learnset MOVE_GROWL, 1
@@ -3908,7 +3908,7 @@ levelup SPECIES_DRAGONITE
     learnset MOVE_BREAKING_SWIPE,50        // stab
     learnset MOVE_CLEAR_SMOG,54                     // coverage
     learnset MOVE_EXTREME_SPEED,58                  // coverage
-    learnset MOVE_OUTRAGE,61,              // stab
+    learnset MOVE_OUTRAGE,61              // stab
     learnset MOVE_EARTHQUAKE,66                     // coverage
     learnset MOVE_SCALE_SHOT,70            // stab
     terminatelearnset
@@ -5889,7 +5889,7 @@ levelup SPECIES_STANTLER
     learnset MOVE_CALM_MIND, 21
     learnset MOVE_BULLDOZE, 23
     learnset MOVE_HYPNOSIS, 25
-    learnset MOVE_PSYLESHIELD_BASH, 28
+    learnset MOVE_PSYSHIELD_BASH, 28
     learnset MOVE_TRI_ATTACK, 31
     learnset MOVE_IMPRISON, 33
     learnset MOVE_HORN_LEECH, 37
@@ -10572,7 +10572,7 @@ levelup SPECIES_SPIRITOMB
     learnset MOVE_QUICK_ATTACK, 4                   // coverage
     learnset MOVE_POWER_TRIP, 6             // stab
     learnset MOVE_LICK, 9                   // stab
-    learnset MOVE_WILL-O-WISP, 13   // status
+    learnset MOVE_WILL_O_WISP, 13   // status
     learnset MOVE_DISABLE, 16       // status
     learnset MOVE_HEX, 20                   // stab
     learnset MOVE_PAYBACK, 23               // stab
@@ -12321,7 +12321,7 @@ levelup SPECIES_SERVINE
     learnset MOVE_VINE_WHIP,5                // stab
     learnset MOVE_WRAP,8                            // coverage
     learnset MOVE_GROWTH,11         // status
-    learnset MOVE_MEGA_DRAIN,13              / stab
+    learnset MOVE_MEGA_DRAIN,13              // stab
     learnset MOVE_LEECH_SEED,16     // status
     learnset MOVE_MAGICAL_LEAF,20            // stab
     learnset MOVE_SLAM,22                           // coverage
@@ -12332,7 +12332,7 @@ levelup SPECIES_SERVINE
     learnset MOVE_DRAGON_DANCE,37   // status
     learnset MOVE_LEAF_TORNADO,40           // stab
     learnset MOVE_DRAGON_TAIL,44                    // coverage
-
+    terminatelearnset
 
 levelup SPECIES_SERPERIOR
     learnset MOVE_DRAGON_PULSE,0                    // coverage
@@ -12376,7 +12376,7 @@ levelup SPECIES_TEPIG
  
 
 levelup SPECIES_PIGNITE
-    learnset MOVE_HEAT_CRAS,0              // stab
+    learnset MOVE_HEAT_CRASH,0              // stab
     learnset MOVE_TACKLE,1                          // coverage
     learnset MOVE_TAIL_WHIP,3       // status
     learnset MOVE_EMBER,5                   // stab
@@ -13123,7 +13123,7 @@ levelup SPECIES_EXCADRILL
     learnset MOVE_HORN_DRILL, 60
     learnset MOVE_SLUDGE_BOMB, 63
     learnset MOVE_GUILLOTINE, 66
-    learnset MOVE_FISURE, 69
+    learnset MOVE_FISSURE, 69
     learnset MOVE_SANDSTORM, 74
     terminatelearnset
 
@@ -13449,7 +13449,7 @@ levelup SPECIES_SCOLIPEDE
     learnset MOVE_FIRST_IMPRESSION,62           // stab
     learnset MOVE_STONE_EDGE,66                         // coverage
     learnset MOVE_GUNK_SHOT,70                  // stab
-    learnset MOVE_MEGA_HORN,72                  // stab
+    learnset MOVE_MEGAHORN,72                  // stab
     terminatelearnset
 
 
@@ -14777,9 +14777,9 @@ levelup SPECIES_KLINK
     learnset MOVE_HEAT_CRASH,26                     // coverage
     learnset MOVE_ROCK_THROW,29                     // coverage
     learnset MOVE_GEAR_GRIND,33              // stab
-    learnset MOVE_AUTOMIZE,38       // status
+    learnset MOVE_AUTOTOMIZE,38       // status
     learnset MOVE_DISCHARGE,40                      // coverage
-    learnset MOVE_LOCK-ON,44        // status
+    learnset MOVE_LOCK_ON,44        // status
     learnset MOVE_FLASH_CANNON,47           // stab
     learnset MOVE_METAL_SOUND,49    // status
     learnset MOVE_RAPID_SPIN,53                     // coverage
@@ -14791,7 +14791,7 @@ levelup SPECIES_KLINK
     learnset MOVE_METEOR_MASH,72            // stab
     terminatelearnset
 
-llevelup SPECIES_KLANG
+levelup SPECIES_KLANG
     learnset MOVE_GEAR_UP,0         // status
     learnset MOVE_TACKLE,1                          // coverage
     learnset MOVE_THUNDER_SHOCK,3                   // coverage
@@ -14805,9 +14805,9 @@ llevelup SPECIES_KLANG
     learnset MOVE_HEAT_CRASH,26                     // coverage
     learnset MOVE_ROCK_THROW,29                     // coverage
     learnset MOVE_GEAR_GRIND,33              // stab
-    learnset MOVE_AUTOMIZE,38       // status
+    learnset MOVE_AUTOTOMIZE,38       // status
     learnset MOVE_DISCHARGE,40                      // coverage
-    learnset MOVE_LOCK-ON,44        // status
+    learnset MOVE_LOCK_ON,44        // status
     learnset MOVE_FLASH_CANNON,47           // stab
     learnset MOVE_METAL_SOUND,49    // status
     learnset MOVE_RAPID_SPIN,53                     // coverage
@@ -14834,9 +14834,9 @@ levelup SPECIES_KLINKLANG
     learnset MOVE_HEAT_CRASH,26                     // coverage
     learnset MOVE_ROCK_THROW,29                     // coverage
     learnset MOVE_GEAR_GRIND,33              // stab
-    learnset MOVE_AUTOMIZE,38       // status
+    learnset MOVE_AUTOTOMIZE,38       // status
     learnset MOVE_DISCHARGE,40                      // coverage
-    learnset MOVE_LOCK-ON,44        // status
+    learnset MOVE_LOCK_ON,44        // status
     learnset MOVE_FLASH_CANNON,47           // stab
     learnset MOVE_METAL_SOUND,49    // status
     learnset MOVE_RAPID_SPIN,53                     // coverage
@@ -15182,7 +15182,7 @@ levelup SPECIES_BEARTIC
     terminatelearnset
 
 
-levelup SPECIES_CRYOGONA
+levelup SPECIES_CRYOGONAL
     learnset MOVE_RAPID_SPIN, 1
     learnset MOVE_ICE_SHARD, 1
     learnset MOVE_MIST, 4
@@ -15201,7 +15201,7 @@ levelup SPECIES_CRYOGONA
     learnset MOVE_LIGHT_SCREEN, 41
     learnset MOVE_POISON_JAB, 45
     learnset MOVE_RECOVER, 48
-    learnset MOVE_ICE BEAM, 51
+    learnset MOVE_ICE_BEAM, 51
     learnset MOVE_FLASH_CANNON, 54
     learnset MOVE_BLIZZARD, 57
     learnset MOVE_ACID_ARMOR, 61
@@ -29418,7 +29418,7 @@ levelup SPECIES_SAMUROTT_HISUIAN
     learnset MOVE_TAUNT, 43
     learnset MOVE_LIQUIDATION, 46
     learnset MOVE_DRILL_RUN, 51
-    learnset MOVE_PSYCHO_CUTTER, 55
+    learnset MOVE_PSYCHO_CUT, 55
     learnset MOVE_WAVE_CRASH, 59
     learnset MOVE_SUPERPOWER, 63
     learnset MOVE_SWORDS_DANCE, 66

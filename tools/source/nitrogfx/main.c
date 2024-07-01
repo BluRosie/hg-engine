@@ -37,7 +37,7 @@ void ConvertGbaToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
         image.hasPalette = false;
     }
 
-    ReadImage(inputPath, options->width, options->bitDepth, options->colsPerChunk, options->rowsPerChunk, &image, !image.hasPalette);
+    ReadImage(inputPath, options->width, options->bitDepth, options->colsPerChunk, options->rowsPerChunk, &image, !image.hasPalette, options->noTiles);
 
     image.hasTransparency = options->hasTransparency;
 
@@ -111,7 +111,7 @@ void ConvertPngToGba(char *inputPath, char *outputPath, struct PngToGbaOptions *
 
     ReadPng(inputPath, &image);
 
-    WriteImage(outputPath, options->numTiles, options->bitDepth, options->colsPerChunk, options->rowsPerChunk, &image, !image.hasPalette);
+    WriteImage(outputPath, options->numTiles, options->bitDepth, options->colsPerChunk, options->rowsPerChunk, &image, !image.hasPalette, options->noTiles);
 
     FreeImage(&image);
 }
@@ -236,6 +236,10 @@ void HandleGbaToPngCommand(char *inputPath, char *outputPath, int argc, char **a
 
             if (options.rowsPerChunk < 1)
                 FATAL_ERROR("rows per chunk must be positive.\n");
+        }
+        else if (strcmp(option, "-notiles") == 0)
+        {
+            options.noTiles = true;
         }
         else
         {
@@ -363,6 +367,7 @@ void HandlePngToGbaCommand(char *inputPath, char *outputPath, int argc, char **a
     options.bitDepth = bitDepth;
     options.colsPerChunk = 1;
     options.rowsPerChunk = 1;
+    options.noTiles = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -406,6 +411,10 @@ void HandlePngToGbaCommand(char *inputPath, char *outputPath, int argc, char **a
 
             if (options.rowsPerChunk < 1)
                 FATAL_ERROR("rows per chunk must be positive.\n");
+        }
+        else if (strcmp(option, "-notiles") == 0)
+        {
+            options.noTiles = true;
         }
         else
         {
@@ -463,8 +472,7 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
             if (options.colsPerChunk < 1)
                 FATAL_ERROR("columns per chunk must be positive.\n");
         }
-        else if (strcmp(option, "-mheight") == 0 || strcmp(option, "-rpc") == 0)
-        {
+        else if (strcmp(option, "-mheight") == 0 || strcmp(option, "-rpc") == 0) {
             if (i + 1 >= argc)
                 FATAL_ERROR("No rows per chunk value following \"%s\".\n", option);
 

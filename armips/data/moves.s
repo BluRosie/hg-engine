@@ -9742,7 +9742,7 @@ movedatalongname MOVE_ELECTRIC_TERRAIN, "ElectricTerrain", "Electric Terrain"
     appeal 0x05
     contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
     terminatedata
-    movedescription MOVE_ELECTRIC_TERRAIN, "Prevents sleep on\grounded Pokemon\nfor 5 turns.\nBoosts electric moves.\n"
+    movedescription MOVE_ELECTRIC_TERRAIN, "Prevents sleep on\ngrounded Pokemon\nfor 5 turns.\nBoosts electric moves.\n"
 
 movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     battleeffect MOVE_EFFECT_HIT
@@ -13314,7 +13314,7 @@ movedata MOVE_DIRE_CLAW, "Dire Claw"
 
 movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
     battleeffect MOVE_EFFECT_RAISE_DEF_HIT
-    pss SPLIT_PHYSICAL
+    pss SPLIT_SPECIAL
     basepower 70
     type TYPE_PSYCHIC
     accuracy 90
