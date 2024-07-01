@@ -7871,21 +7871,29 @@ levelup SPECIES_ROSELIA
 
 levelup SPECIES_GULPIN
     learnset MOVE_POUND, 1
-    learnset MOVE_YAWN, 5
-    learnset MOVE_POISON_GAS, 8
-    learnset MOVE_SLUDGE, 10
-    learnset MOVE_AMNESIA, 12
-    learnset MOVE_ACID_SPRAY, 17
-    learnset MOVE_ENCORE, 20
-    learnset MOVE_TOXIC, 25
-    learnset MOVE_STOCKPILE, 28
-    learnset MOVE_SPIT_UP, 28
-    learnset MOVE_SWALLOW, 28
-    learnset MOVE_SLUDGE_BOMB, 33
-    learnset MOVE_GASTRO_ACID, 36
-    learnset MOVE_BELCH, 41
-    learnset MOVE_WRING_OUT, 44
-    learnset MOVE_GUNK_SHOT, 49
+    learnset MOVE_YAWN, 4
+    learnset MOVE_SMOG, 7
+    learnset MOVE_POISON_GAS, 10
+    learnset MOVE_MUD_SLAP, 13
+    learnset MOVE_AMNESIA, 16
+    learnset MOVE_ACID_SPRAY, 18
+    learnset MOVE_ENCORE, 21
+    learnset MOVE_TOXIC, 24
+    learnset MOVE_VENOSHOCK, 27
+    learnset MOVE_MUD_SHOT, 30
+    learnset MOVE_STOCKPILE, 33
+    learnset MOVE_SPIT_UP, 33
+    learnset MOVE_SWALLOW, 33
+    learnset MOVE_WATER_PULSE, 36
+    learnset MOVE_GASTRO_ACID, 39
+    learnset MOVE_POISON_JAB, 42
+    learnset MOVE_ICE_BEAM, 45
+    learnset MOVE_PAIN_SPLIT, 48
+    learnset MOVE_SLUDGE_BOMB, 51
+    learnset MOVE_SHADOW_BALL, 54
+    learnset MOVE_DESTINY_BOND, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_EARTH_POWER, 63
     terminatelearnset
 
 
@@ -7893,27 +7901,30 @@ levelup SPECIES_SWALOT
     learnset MOVE_BODY_SLAM, 0
     learnset MOVE_BODY_SLAM, 1
     learnset MOVE_VENOM_DRENCH, 1
-    learnset MOVE_GUNK_SHOT, 1
-    learnset MOVE_WRING_OUT, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_YAWN, 1
-    learnset MOVE_POISON_GAS, 1
-    learnset MOVE_SLUDGE, 1
     learnset MOVE_YAWN, 5
-    learnset MOVE_POISON_GAS, 8
-    learnset MOVE_SLUDGE, 10
-    learnset MOVE_AMNESIA, 12
-    learnset MOVE_ACID_SPRAY, 17
-    learnset MOVE_ENCORE, 20
+    learnset MOVE_SMOG, 8
+    learnset MOVE_POISON_GAS, 11
+    learnset MOVE_MUD_SLAP, 14
+    learnset MOVE_AMNESIA, 17
+    learnset MOVE_ACID_SPRAY, 19
+    learnset MOVE_ENCORE, 22
     learnset MOVE_TOXIC, 25
-    learnset MOVE_STOCKPILE, 30
-    learnset MOVE_SPIT_UP, 30
-    learnset MOVE_SWALLOW, 30
-    learnset MOVE_SLUDGE_BOMB, 37
-    learnset MOVE_GASTRO_ACID, 42
-    learnset MOVE_BELCH, 49
-    learnset MOVE_WRING_OUT, 54
+    learnset MOVE_VENOSHOCK, 28
+    learnset MOVE_MUD_SHOT, 31
+    learnset MOVE_STOCKPILE, 34
+    learnset MOVE_SPIT_UP, 34
+    learnset MOVE_SWALLOW, 34
+    learnset MOVE_WATER_PULSE, 37
+    learnset MOVE_GASTRO_ACID, 40
+    learnset MOVE_POISON_JAB, 43
+    learnset MOVE_ICE_BEAM, 46
+    learnset MOVE_PAIN_SPLIT, 49
+    learnset MOVE_SLUDGE_BOMB, 52
+    learnset MOVE_SHADOW_BALL, 55
+    learnset MOVE_DESTINY_BOND, 58
     learnset MOVE_GUNK_SHOT, 61
+    learnset MOVE_EARTH_POWER, 64
     terminatelearnset
 
 
