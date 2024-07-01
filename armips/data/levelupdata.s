@@ -7981,51 +7981,60 @@ levelup SPECIES_SHARPEDO
 
 
 levelup SPECIES_WAILMER
-    learnset MOVE_SPLASH, 1
-    learnset MOVE_GROWL, 3
-    learnset MOVE_WATER_GUN, 9
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_GROWL, 4
+    learnset MOVE_WATER_GUN, 7
     learnset MOVE_ASTONISH, 10
-    learnset MOVE_ROLLOUT, 10
+    learnset MOVE_CHILLING_WATER, 13
+    learnset MOVE_ROLLOUT, 16
     learnset MOVE_MIST, 18
-    learnset MOVE_WATER_PULSE, 18
-    learnset MOVE_WHIRLPOOL, 20
-    learnset MOVE_BRINE, 24
-    learnset MOVE_REST, 34
-    learnset MOVE_HEAVY_SLAM, 35
-    learnset MOVE_DIVE, 35
-    learnset MOVE_BODY_SLAM, 36
-    learnset MOVE_BOUNCE, 38
+    learnset MOVE_AVALANCHE, 21
+    learnset MOVE_WATER_PULSE, 24
+    learnset MOVE_AQUA_RING, 27
+    learnset MOVE_BRINE, 30
+    learnset MOVE_REST, 33
+    learnset MOVE_HEAVY_SLAM, 36
     learnset MOVE_AMNESIA, 39
-    learnset MOVE_WATER_SPOUT, 41
-    learnset MOVE_HYDRO_PUMP, 46
+    learnset MOVE_SCALD, 42
+    learnset MOVE_ICE_BEAM, 45
+    learnset MOVE_RAIN_DANCE, 48
+    learnset MOVE_BODY_SLAM, 51
+    learnset MOVE_SURF, 54
+    learnset MOVE_ZEN_HEADBUTT, 57
+    learnset MOVE_HYDRO_PUMP, 60
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_WATER_SPOUT, 66
+    learnset MOVE_EXPLOSION, 69
     terminatelearnset
 
 
 levelup SPECIES_WAILORD
     learnset MOVE_SOAK, 1
     learnset MOVE_NOBLE_ROAR, 1
-    learnset MOVE_SPLASH, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_ASTONISH, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_HEAVY_SLAM, 1
-    learnset MOVE_ROLLOUT, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_WATER_GUN, 7
-    learnset MOVE_ROLLOUT, 10
-    learnset MOVE_ASTONISH, 16
-    learnset MOVE_MIST, 18
-    learnset MOVE_WATER_PULSE, 18
-    learnset MOVE_WHIRLPOOL, 20
-    learnset MOVE_BRINE, 24
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_GROWL, 5
+    learnset MOVE_WATER_GUN, 8
+    learnset MOVE_ASTONISH, 11
+    learnset MOVE_CHILLING_WATER, 14
+    learnset MOVE_ROLLOUT, 17
+    learnset MOVE_MIST, 19
+    learnset MOVE_AVALANCHE, 22
+    learnset MOVE_WATER_PULSE, 25
+    learnset MOVE_AQUA_RING, 28
+    learnset MOVE_BRINE, 31
     learnset MOVE_REST, 34
-    learnset MOVE_DIVE, 36
-    learnset MOVE_BODY_SLAM, 36
+    learnset MOVE_HEAVY_SLAM, 37
     learnset MOVE_AMNESIA, 40
-    learnset MOVE_HEAVY_SLAM, 41
-    learnset MOVE_BOUNCE, 41
-    learnset MOVE_WATER_SPOUT, 44
-    learnset MOVE_HYDRO_PUMP, 53
+    learnset MOVE_SCALD, 43
+    learnset MOVE_ICE_BEAM, 46
+    learnset MOVE_RAIN_DANCE, 49
+    learnset MOVE_BODY_SLAM, 52
+    learnset MOVE_SURF, 55
+    learnset MOVE_ZEN_HEADBUTT, 58
+    learnset MOVE_HYDRO_PUMP, 61
+    learnset MOVE_DOUBLE_EDGE, 64
+    learnset MOVE_WATER_SPOUT, 67
+    learnset MOVE_EXPLOSION, 70
     terminatelearnset
 
 
