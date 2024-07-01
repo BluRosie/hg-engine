@@ -7469,20 +7469,22 @@ levelup SPECIES_AZURILL
 levelup SPECIES_NOSEPASS
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 4
-    learnset MOVE_BLOCK, 7
-    learnset MOVE_ROCK_THROW, 10
+    learnset MOVE_ROCK_THROW, 7
+    learnset MOVE_BLOCK, 10
     learnset MOVE_THUNDER_WAVE, 13
-    learnset MOVE_REST, 16
-    learnset MOVE_SPARK, 19
-    learnset MOVE_ROCK_SLIDE, 22
-    learnset MOVE_POWER_GEM, 25
-    learnset MOVE_ROCK_BLAST, 28
-    learnset MOVE_DISCHARGE, 31
-    learnset MOVE_SANDSTORM, 34
-    learnset MOVE_EARTH_POWER, 37
-    learnset MOVE_STONE_EDGE, 40
-    learnset MOVE_LOCK_ON, 43
-    learnset MOVE_ZAP_CANNON, 43
+    learnset MOVE_ROCK_BLAST, 16
+    learnset MOVE_SPARK, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_REST, 24
+    learnset MOVE_VOLT_SWITCH, 27
+    learnset MOVE_SANDSTORM, 30
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_IRON_DEFENSE, 36
+    learnset MOVE_EARTH_POWER, 39
+    learnset MOVE_POWER_GEM, 42
+    learnset MOVE_STONE_EDGE, 45
+    learnset MOVE_LOCK_ON, 48
+    learnset MOVE_ZAP_CANNON, 51
     terminatelearnset
 
 
@@ -11531,24 +11533,28 @@ levelup SPECIES_PROBOPASS
     learnset MOVE_GRAVITY, 1
     learnset MOVE_WIDE_GUARD, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_IRON_DEFENSE, 1
-    learnset MOVE_BLOCK, 1
-    learnset MOVE_MAGNET_BOMB, 1
-    learnset MOVE_IRON_DEFENSE, 4
-    learnset MOVE_BLOCK, 7
-    learnset MOVE_MAGNET_BOMB, 10
+    learnset MOVE_HARDEN, 4
+    learnset MOVE_ROCK_THROW, 7
+    learnset MOVE_BLOCK, 10
     learnset MOVE_THUNDER_WAVE, 13
-    learnset MOVE_REST, 16
-    learnset MOVE_SPARK, 19
-    learnset MOVE_ROCK_SLIDE, 22
-    learnset MOVE_POWER_GEM, 25
-    learnset MOVE_ROCK_BLAST, 28
-    learnset MOVE_DISCHARGE, 31
-    learnset MOVE_SANDSTORM, 34
-    learnset MOVE_EARTH_POWER, 37
-    learnset MOVE_STONE_EDGE, 40
-    learnset MOVE_LOCK_ON, 43
-    learnset MOVE_ZAP_CANNON, 43
+    learnset MOVE_ROCK_BLAST, 16
+    learnset MOVE_SPARK, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_REST, 24
+    learnset MOVE_MAGNET_BOMB, 27
+    learnset MOVE_VOLT_SWITCH, 30
+    learnset MOVE_SANDSTORM, 33
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_IRON_DEFENSE, 39
+    learnset MOVE_EARTH_POWER, 42
+    learnset MOVE_POWER_GEM, 45
+    learnset MOVE_FLASH_CANNON, 48
+    learnset MOVE_BODY_PRESS, 51
+    learnset MOVE_DISCHARGE, 54
+    learnset MOVE_STONE_EDGE, 57
+    learnset MOVE_LOCK_ON, 60
+    learnset MOVE_ZAP_CANNON, 63
+    learnset MOVE_STEEL_BEAM, 66
     terminatelearnset
 
 
