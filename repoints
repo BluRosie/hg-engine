@@ -48,3 +48,21 @@ arm9 sItemFieldUseFuncs+8 020649B4
 0012 TerrainPlatformPlayerNCGR 02265F1C
 0012 TerrainPlatformEnemyNCGR 02265F24
 0012 TerrainPlatformPalettes 02265F2C
+
+# Trainer Class Money Table
+0012 PrizeMoney 08008380
+0012 PrizeMoney+2 08008384
+arm9 sTrainerGenders 020FFB90
+
+# sTrainerEncounterMusicParam
+arm9 sTrainerEncounterMusicParam 020550E0
+
+# Trainer class battle music table
+arm9 classToMusic 08051890
+
+# Combo table for battle music
+arm9 MainTableCombo 080517C8
+arm9 MainTableCombo+2 080517E4
+
+# Pokemon battle music table
+arm9 PokemonBattleMusic 080518D4
