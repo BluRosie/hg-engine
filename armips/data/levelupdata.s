@@ -8643,47 +8643,62 @@ levelup SPECIES_CLAYDOL
 levelup SPECIES_LILEEP
     learnset MOVE_WRAP, 1
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_CONSTRICT, 1
     learnset MOVE_ACID, 4
+    learnset MOVE_ABSORB, 7
     learnset MOVE_CONFUSE_RAY, 10
-    learnset MOVE_INGRAIN, 10
+    learnset MOVE_INGRAIN, 13
     learnset MOVE_ANCIENT_POWER, 16
-    learnset MOVE_MEGA_DRAIN, 20
-    learnset MOVE_BRINE, 22
-    learnset MOVE_AMNESIA, 31
-    learnset MOVE_GASTRO_ACID, 31
-    learnset MOVE_GIGA_DRAIN, 31
-    learnset MOVE_ENERGY_BALL, 42
-    learnset MOVE_STOCKPILE, 43
-    learnset MOVE_SPIT_UP, 43
-    learnset MOVE_SWALLOW, 43
-    learnset MOVE_WRING_OUT, 52
+    learnset MOVE_MUD_SHOT, 18
+    learnset MOVE_MEGA_DRAIN, 21
+    learnset MOVE_BRINE, 24
+    learnset MOVE_RECOVER, 27
+    learnset MOVE_SCORCHING_SANDS, 30
+    learnset MOVE_GASTRO_ACID, 33
+    learnset MOVE_GIGA_DRAIN, 36
+    learnset MOVE_STEALTH_ROCK, 39
+    learnset MOVE_SEED_BOMB, 42
+    learnset MOVE_STOCKPILE, 45
+    learnset MOVE_SPIT_UP, 45
+    learnset MOVE_SWALLOW, 45
+    learnset MOVE_POWER_GEM, 48
+    learnset MOVE_MIRROR_COAT, 51
+    learnset MOVE_ENERGY_BALL, 54
+    learnset MOVE_WRING_OUT, 57
+    learnset MOVE_SUNNY_DAY, 60
+    learnset MOVE_SOLAR_BEAM, 63
+    learnset MOVE_METEOR_BEAM, 66
     terminatelearnset
 
 
 levelup SPECIES_CRADILY
+    learnset MOVE_LEECH_SEED, 0
     learnset MOVE_LEECH_SEED, 1
     learnset MOVE_WRAP, 1
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_CONFUSE_RAY, 1
-    learnset MOVE_WRING_OUT, 1
-    learnset MOVE_CONSTRICT, 1
-    learnset MOVE_INGRAIN, 1
     learnset MOVE_ACID, 5
-    learnset MOVE_INGRAIN, 10
-    learnset MOVE_CONFUSE_RAY, 13
-    learnset MOVE_ANCIENT_POWER, 16
-    learnset MOVE_MEGA_DRAIN, 20
-    learnset MOVE_BRINE, 22
-    learnset MOVE_AMNESIA, 31
-    learnset MOVE_GASTRO_ACID, 31
-    learnset MOVE_GIGA_DRAIN, 31
-    learnset MOVE_ENERGY_BALL, 46
-    learnset MOVE_STOCKPILE, 47
-    learnset MOVE_SPIT_UP, 47
-    learnset MOVE_SWALLOW, 47
-    learnset MOVE_WRING_OUT, 61
+    learnset MOVE_ABSORB, 8
+    learnset MOVE_CONFUSE_RAY, 11
+    learnset MOVE_INGRAIN, 14
+    learnset MOVE_ANCIENT_POWER, 17
+    learnset MOVE_MUD_SHOT, 19
+    learnset MOVE_MEGA_DRAIN, 22
+    learnset MOVE_BRINE, 25
+    learnset MOVE_RECOVER, 28
+    learnset MOVE_SCORCHING_SANDS, 31
+    learnset MOVE_GASTRO_ACID, 34
+    learnset MOVE_GIGA_DRAIN, 37
+    learnset MOVE_STEALTH_ROCK, 40
+    learnset MOVE_SEED_BOMB, 43
+    learnset MOVE_STOCKPILE, 46
+    learnset MOVE_SPIT_UP, 46
+    learnset MOVE_SWALLOW, 46
+    learnset MOVE_POWER_GEM, 49
+    learnset MOVE_MIRROR_COAT, 52
+    learnset MOVE_ENERGY_BALL, 55
+    learnset MOVE_WRING_OUT, 58
+    learnset MOVE_SUNNY_DAY, 61
+    learnset MOVE_SOLAR_BEAM, 64
+    learnset MOVE_METEOR_BEAM, 67
     terminatelearnset
 
 
