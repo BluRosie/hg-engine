@@ -8108,46 +8108,58 @@ levelup SPECIES_TORKOAL
 
 
 levelup SPECIES_SPOINK
-    learnset MOVE_SPLASH, 1
-    learnset MOVE_PSYWAVE, 7
-    learnset MOVE_ODOR_SLEUTH, 10
-    learnset MOVE_PSYBEAM, 14
-    learnset MOVE_PSYCH_UP, 15
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_LEER, 4
+    learnset MOVE_CONFUSION, 7
+    learnset MOVE_GROWL, 10
+    learnset MOVE_SWIFT, 13
+    learnset MOVE_DISARMING_VOICE, 16
     learnset MOVE_CONFUSE_RAY, 18
-    learnset MOVE_MAGIC_COAT, 21
-    learnset MOVE_ZEN_HEADBUTT, 26
-    learnset MOVE_POWER_GEM, 29
-    learnset MOVE_REST, 29
+    learnset MOVE_SKILL_SWAP, 21
+    learnset MOVE_PSYBEAM, 24
+    learnset MOVE_ZEN_HEADBUTT, 27
+    learnset MOVE_SNARL, 30
+    learnset MOVE_REST, 33
     learnset MOVE_SNORE, 33
-    learnset MOVE_PSYSHOCK, 38
-    learnset MOVE_PAYBACK, 40
-    learnset MOVE_PSYCHIC, 44
-    learnset MOVE_BOUNCE, 50
+    learnset MOVE_DAZZLING_GLEAM, 36
+    learnset MOVE_AMNESIA, 39
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_CALM_MIND, 45
+    learnset MOVE_DARK_PULSE, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_BOUNCE, 54
+    learnset MOVE_TRICK, 57
+    learnset MOVE_SHADOW_BALL, 60
+    learnset MOVE_FUTURE_SIGHT, 63
     terminatelearnset
 
 
 levelup SPECIES_GRUMPIG
     learnset MOVE_TEETER_DANCE, 0
     learnset MOVE_TEETER_DANCE, 1
-    learnset MOVE_BELCH, 1
-    learnset MOVE_SPLASH, 1
-    learnset MOVE_PSYWAVE, 1
-    learnset MOVE_ODOR_SLEUTH, 1
-    learnset MOVE_PSYBEAM, 1
-    learnset MOVE_PSYWAVE, 7
-    learnset MOVE_ODOR_SLEUTH, 10
-    learnset MOVE_PSYBEAM, 14
-    learnset MOVE_PSYCH_UP, 15
-    learnset MOVE_CONFUSE_RAY, 18
-    learnset MOVE_MAGIC_COAT, 21
-    learnset MOVE_ZEN_HEADBUTT, 26
-    learnset MOVE_POWER_GEM, 29
-    learnset MOVE_REST, 35
-    learnset MOVE_SNORE, 35
-    learnset MOVE_PSYSHOCK, 42
-    learnset MOVE_PAYBACK, 46
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_LEER, 5
+    learnset MOVE_CONFUSION, 8
+    learnset MOVE_GROWL, 11
+    learnset MOVE_SWIFT, 14
+    learnset MOVE_DISARMING_VOICE, 17
+    learnset MOVE_CONFUSE_RAY, 19
+    learnset MOVE_SKILL_SWAP, 22
+    learnset MOVE_PSYBEAM, 25
+    learnset MOVE_ZEN_HEADBUTT, 28
+    learnset MOVE_SNARL, 31
+    learnset MOVE_REST, 34
+    learnset MOVE_SNORE, 34
+    learnset MOVE_DAZZLING_GLEAM, 37
+    learnset MOVE_AMNESIA, 40
+    learnset MOVE_PSYSHOCK, 43
+    learnset MOVE_CALM_MIND, 46
+    learnset MOVE_DARK_PULSE, 49
     learnset MOVE_PSYCHIC, 52
-    learnset MOVE_BOUNCE, 60
+    learnset MOVE_BOUNCE, 55
+    learnset MOVE_TRICK, 58
+    learnset MOVE_SHADOW_BALL, 61
+    learnset MOVE_FUTURE_SIGHT, 64
     terminatelearnset
 
 
