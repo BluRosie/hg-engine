@@ -8532,51 +8532,60 @@ levelup SPECIES_WHISCASH
 
 
 levelup SPECIES_CORPHISH
-    learnset MOVE_WATER_GUN, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_HARDEN, 5
-    learnset MOVE_LEER, 6
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_LEER, 4
     learnset MOVE_VICE_GRIP, 7
-    learnset MOVE_BUBBLE_BEAM, 12
-    learnset MOVE_KNOCK_OFF, 19
-    learnset MOVE_TAUNT, 20
-    learnset MOVE_DOUBLE_HIT, 20
-    learnset MOVE_PROTECT, 20
-    learnset MOVE_NIGHT_SLASH, 27
-    learnset MOVE_RAZOR_SHELL, 31
-    learnset MOVE_SWORDS_DANCE, 36
-    learnset MOVE_CRUNCH, 39
-    learnset MOVE_CRABHAMMER, 43
-    learnset MOVE_ENDEAVOR, 48
-    learnset MOVE_GUILLOTINE, 50
+    learnset MOVE_TAUNT, 10
+    learnset MOVE_BUBBLE_BEAM, 13
+    learnset MOVE_FEINT_ATTACK, 16
+    learnset MOVE_AQUA_JET, 18
+    learnset MOVE_KNOCK_OFF, 21
+    learnset MOVE_PROTECT, 24
+    learnset MOVE_SLASH, 27
+    learnset MOVE_NIGHT_SLASH, 30
+    learnset MOVE_RAZOR_SHELL, 33
+    learnset MOVE_BRICK_BREAK, 36
+    learnset MOVE_SWORDS_DANCE, 39
+    learnset MOVE_CRUNCH, 42
+    learnset MOVE_LIQUIDATION, 45
+    learnset MOVE_X_SCISSOR, 48
+    learnset MOVE_ENDEAVOR, 51
+    learnset MOVE_IRON_DEFENSE, 54
+    learnset MOVE_CRABHAMMER, 57
+    learnset MOVE_SUPERPOWER, 60
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_GUILLOTINE, 66
     terminatelearnset
 
 
 levelup SPECIES_CRAWDAUNT
     learnset MOVE_SWIFT, 0
     learnset MOVE_SWIFT, 1
-    learnset MOVE_WATER_GUN, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_VICE_GRIP, 1
-    learnset MOVE_HARDEN, 5
-    learnset MOVE_VICE_GRIP, 7
-    learnset MOVE_LEER, 10
-    learnset MOVE_BUBBLE_BEAM, 12
-    learnset MOVE_KNOCK_OFF, 19
-    learnset MOVE_DOUBLE_HIT, 20
-    learnset MOVE_PROTECT, 20
-    learnset MOVE_NIGHT_SLASH, 27
-    learnset MOVE_RAZOR_SHELL, 33
-    learnset MOVE_TAUNT, 36
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_LEER, 5
+    learnset MOVE_VICE_GRIP, 8
+    learnset MOVE_TAUNT, 11
+    learnset MOVE_BUBBLE_BEAM, 14
+    learnset MOVE_FEINT_ATTACK, 17
+    learnset MOVE_AQUA_JET, 19
+    learnset MOVE_KNOCK_OFF, 22
+    learnset MOVE_PROTECT, 25
+    learnset MOVE_SLASH, 28
+    learnset MOVE_NIGHT_SLASH, 31
+    learnset MOVE_RAZOR_SHELL, 34
+    learnset MOVE_BRICK_BREAK, 37
     learnset MOVE_SWORDS_DANCE, 40
-    learnset MOVE_CRUNCH, 44
-    learnset MOVE_CRABHAMMER, 50
-    learnset MOVE_ENDEAVOR, 58
-    learnset MOVE_GUILLOTINE, 59
+    learnset MOVE_CRUNCH, 43
+    learnset MOVE_LIQUIDATION, 46
+    learnset MOVE_X_SCISSOR, 49
+    learnset MOVE_ENDEAVOR, 52
+    learnset MOVE_IRON_DEFENSE, 55
+    learnset MOVE_CRABHAMMER, 58
+    learnset MOVE_SUPERPOWER, 61
+    learnset MOVE_DOUBLE_EDGE, 64
+    learnset MOVE_GUILLOTINE, 67
     terminatelearnset
 
 
