@@ -8703,45 +8703,56 @@ levelup SPECIES_CRADILY
 
 
 levelup SPECIES_ANORITH
-    learnset MOVE_FURY_CUTTER, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_SCRATCH, 1
-    learnset MOVE_MUD_SPORT, 4
-    learnset MOVE_WATER_GUN, 5
-    learnset MOVE_SMACK_DOWN, 10
-    learnset MOVE_FURY_CUTTER, 10
-    learnset MOVE_METAL_CLAW, 14
-    learnset MOVE_ANCIENT_POWER, 18
-    learnset MOVE_BUG_BITE, 22
-    learnset MOVE_BRINE, 26
-    learnset MOVE_SLASH, 30
-    learnset MOVE_CRUSH_CLAW, 35
-    learnset MOVE_ROCK_BLAST, 44
-    learnset MOVE_PROTECT, 44
-    learnset MOVE_X_SCISSOR, 44
+    learnset MOVE_FURY_CUTTER, 1
+    learnset MOVE_AQUA_JET, 4
+    learnset MOVE_ACCELEROCK, 7
+    learnset MOVE_SAND_ATTACK, 10
+    learnset MOVE_METAL_CLAW, 13
+    learnset MOVE_ROCK_BLAST, 16
+    learnset MOVE_PROTECT, 18
+    learnset MOVE_BUG_BITE, 21
+    learnset MOVE_AQUA_CUTTER, 24
+    learnset MOVE_BRICK_BREAK, 27
+    learnset MOVE_STEALTH_ROCK, 30
+    learnset MOVE_KNOCK_OFF, 33
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_RAPID_SPIN, 39
+    learnset MOVE_SWORDS_DANCE, 42
+    learnset MOVE_X_SCISSOR, 45
+    learnset MOVE_ROCK_POLISH, 48
+    learnset MOVE_POISON_JAB, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_EARTHQUAKE, 57
+    learnset MOVE_SUPERPOWER, 60
+    learnset MOVE_GIGA_IMPACT, 63
     terminatelearnset
 
 
 levelup SPECIES_ARMALDO
-    learnset MOVE_FURY_CUTTER, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_SMACK_DOWN, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_SCRATCH, 1
-    learnset MOVE_MUD_SPORT, 4
-    learnset MOVE_WATER_GUN, 7
-    learnset MOVE_FURY_CUTTER, 10
-    learnset MOVE_SMACK_DOWN, 13
+    learnset MOVE_FURY_CUTTER, 1
+    learnset MOVE_AQUA_JET, 5
+    learnset MOVE_ACCELEROCK, 8
+    learnset MOVE_SAND_ATTACK, 11
     learnset MOVE_METAL_CLAW, 14
-    learnset MOVE_ANCIENT_POWER, 18
+    learnset MOVE_ROCK_BLAST, 17
+    learnset MOVE_PROTECT, 19
     learnset MOVE_BUG_BITE, 22
-    learnset MOVE_BRINE, 26
-    learnset MOVE_SLASH, 30
-    learnset MOVE_CRUSH_CLAW, 35
-    learnset MOVE_ROCK_BLAST, 47
-    learnset MOVE_PROTECT, 47
-    learnset MOVE_X_SCISSOR, 47
+    learnset MOVE_AQUA_CUTTER, 25
+    learnset MOVE_BRICK_BREAK, 28
+    learnset MOVE_STEALTH_ROCK, 31
+    learnset MOVE_KNOCK_OFF, 34
+    learnset MOVE_ROCK_SLIDE, 37
+    learnset MOVE_RAPID_SPIN, 40
+    learnset MOVE_SWORDS_DANCE, 43
+    learnset MOVE_X_SCISSOR, 46
+    learnset MOVE_ROCK_POLISH, 49
+    learnset MOVE_POISON_JAB, 52
+    learnset MOVE_STONE_EDGE, 55
+    learnset MOVE_EARTHQUAKE, 58
+    learnset MOVE_SUPERPOWER, 61
+    learnset MOVE_GIGA_IMPACT, 64
     terminatelearnset
 
 
