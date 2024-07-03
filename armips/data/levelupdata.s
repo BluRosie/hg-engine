@@ -9206,23 +9206,28 @@ levelup SPECIES_GOREBYSS
 levelup SPECIES_RELICANTH
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_FLAIL, 1
-    learnset MOVE_HEAD_SMASH, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_MUD_SPORT, 6
-    learnset MOVE_WATER_GUN, 7
-    learnset MOVE_ANCIENT_POWER, 15
-    learnset MOVE_ROCK_TOMB, 15
-    learnset MOVE_DIVE, 22
-    learnset MOVE_YAWN, 24
-    learnset MOVE_TAKE_DOWN, 27
-    learnset MOVE_AQUA_TAIL, 30
-    learnset MOVE_REST, 37
-    learnset MOVE_FLAIL, 40
-    learnset MOVE_HYDRO_PUMP, 45
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_HEAD_SMASH, 55
+    learnset MOVE_BUBBLE, 4
+    learnset MOVE_MUD_SPORT, 7
+    learnset MOVE_ROCK_TOMB, 10
+    learnset MOVE_ICY_WIND, 13
+    learnset MOVE_AQUA_JET, 16
+    learnset MOVE_YAWN, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_BULLDOZE, 24
+    learnset MOVE_BRINE, 27
+    learnset MOVE_ENDURE, 30
+    learnset MOVE_FLAIL, 33
+    learnset MOVE_REST, 36
+    learnset MOVE_ROCK_SLIDE, 39
+    learnset MOVE_LIQUIDATION, 42
+    learnset MOVE_ZEN_HEADBUTT, 45
+    learnset MOVE_IRON_DEFENSE, 48
+    learnset MOVE_SCALE_SHOT, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_BODY_PRESS, 57
+    learnset MOVE_WAVE_CRASH, 60
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_HEAD_SMASH, 66
     terminatelearnset
 
 
