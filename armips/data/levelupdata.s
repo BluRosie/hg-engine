@@ -9144,40 +9144,62 @@ levelup SPECIES_CLAMPERL
 
 
 levelup SPECIES_HUNTAIL
-    learnset MOVE_WHIRLPOOL, 1
+    learnset MOVE_BITE, 0
     learnset MOVE_BITE, 1
-    learnset MOVE_SCREECH, 5
-    learnset MOVE_SCARY_FACE, 9
-    learnset MOVE_FEINT_ATTACK, 11
-    learnset MOVE_WATER_PULSE, 14
-    learnset MOVE_ICE_FANG, 16
-    learnset MOVE_BRINE, 19
-    learnset MOVE_SUCKER_PUNCH, 23
-    learnset MOVE_DIVE, 26
-    learnset MOVE_BATON_PASS, 29
-    learnset MOVE_CRUNCH, 34
-    learnset MOVE_AQUA_TAIL, 39
+    learnset MOVE_WHIRLPOOL, 1
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_IRON_DEFENSE, 1
+    learnset MOVE_SCREECH, 4
+    learnset MOVE_AQUA_JET, 7
+    learnset MOVE_SCARY_FACE, 10
+    learnset MOVE_PAYBACK, 13
+    learnset MOVE_WATER_PULSE, 16
+    learnset MOVE_AQUA_RING, 18
+    learnset MOVE_ICE_FANG, 21
+    learnset MOVE_SUCKER_PUNCH, 24
+    learnset MOVE_CONFUSE_RAY, 27
+    learnset MOVE_BRINE, 30
+    learnset MOVE_BODY_SLAM, 33
+    learnset MOVE_RAIN_DANCE, 36
+    learnset MOVE_SCALD, 39
+    learnset MOVE_CRUNCH, 42
     learnset MOVE_COIL, 45
-    learnset MOVE_HYDRO_PUMP, 50
+    learnset MOVE_ICE_BEAM, 48
+    learnset MOVE_SHELL_SMASH, 51
+    learnset MOVE_AQUA_TAIL, 54
+    learnset MOVE_SWAGGER, 57
+    learnset MOVE_BLIZZARD, 60
+    learnset MOVE_WAVE_CRASH, 63
     terminatelearnset
 
 
 levelup SPECIES_GOREBYSS
-    learnset MOVE_WHIRLPOOL, 1
+    learnset MOVE_CONFUSION, 0
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_WATER_SPORT, 5
-    learnset MOVE_AGILITY, 9
-    learnset MOVE_DRAINING_KISS, 11
-    learnset MOVE_WATER_PULSE, 14
-    learnset MOVE_AMNESIA, 16
-    learnset MOVE_AQUA_RING, 19
-    learnset MOVE_CAPTIVATE, 23
-    learnset MOVE_DIVE, 26
-    learnset MOVE_BATON_PASS, 29
-    learnset MOVE_PSYCHIC, 34
-    learnset MOVE_AQUA_TAIL, 39
+    learnset MOVE_WHIRLPOOL, 1
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_IRON_DEFENSE, 1
+    learnset MOVE_CHARM, 4
+    learnset MOVE_CHILLING_WATER, 7
+    learnset MOVE_AGILITY, 10
+    learnset MOVE_DRAINING_KISS, 13
+    learnset MOVE_WATER_PULSE, 16
+    learnset MOVE_AQUA_RING, 18
+    learnset MOVE_AURORA_BEAM, 21
+    learnset MOVE_PSYBEAM, 24
+    learnset MOVE_AMNESIA, 27
+    learnset MOVE_BRINE, 30
+    learnset MOVE_BODY_SLAM, 33
+    learnset MOVE_RAIN_DANCE, 36
+    learnset MOVE_SCALD, 39
+    learnset MOVE_PSYCHIC, 42
     learnset MOVE_COIL, 45
-    learnset MOVE_HYDRO_PUMP, 50
+    learnset MOVE_ICE_BEAM, 48
+    learnset MOVE_SHELL_SMASH, 51
+    learnset MOVE_SURF, 54
+    learnset MOVE_FLATTER, 57
+    learnset MOVE_BLIZZARD, 60
+    learnset MOVE_HYDRO_PUMP, 63
     terminatelearnset
 
 
