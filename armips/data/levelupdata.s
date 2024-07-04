@@ -9689,17 +9689,21 @@ levelup SPECIES_TORTERRA
 levelup SPECIES_CHIMCHAR
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 7
-    learnset MOVE_TAUNT, 9
-    learnset MOVE_FURY_SWIPES, 15
-    learnset MOVE_FLAME_WHEEL, 17
-    learnset MOVE_NASTY_PLOT, 23
-    learnset MOVE_TORMENT, 25
-    learnset MOVE_FACADE, 31
-    learnset MOVE_FIRE_SPIN, 33
+    learnset MOVE_EMBER, 4
+    learnset MOVE_TAUNT, 7
+    learnset MOVE_FAKE_OUT, 10
+    learnset MOVE_POWER_UP_PUNCH, 13
+    learnset MOVE_FURY_SWIPES, 16
+    learnset MOVE_FLAME_WHEEL, 18
+    learnset MOVE_LOW_SWEEP, 21
+    learnset MOVE_TORMENT, 24
+    learnset MOVE_FIRE_PUNCH, 27
+    learnset MOVE_THUNDER_PUNCH, 30
+    learnset MOVE_BULK_UP, 33
+    learnset MOVE_FIRE_SPIN, 36
     learnset MOVE_ACROBATICS, 39
-    learnset MOVE_SLACK_OFF, 41
-    learnset MOVE_FLAMETHROWER, 47
+    learnset MOVE_SLACK_OFF, 42
+    learnset MOVE_FLAMETHROWER, 45
     terminatelearnset
 
 
@@ -9708,40 +9712,52 @@ levelup SPECIES_MONFERNO
     learnset MOVE_MACH_PUNCH, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_EMBER, 7
-    learnset MOVE_TAUNT, 9
-    learnset MOVE_FURY_SWIPES, 16
+    learnset MOVE_EMBER, 5
+    learnset MOVE_TAUNT, 8
+    learnset MOVE_FAKE_OUT, 11
+    learnset MOVE_POWER_UP_PUNCH, 14
+    learnset MOVE_FURY_SWIPES, 17
     learnset MOVE_FLAME_WHEEL, 19
-    learnset MOVE_FEINT, 26
-    learnset MOVE_TORMENT, 29
-    learnset MOVE_CLOSE_COMBAT, 36
-    learnset MOVE_FIRE_SPIN, 39
-    learnset MOVE_ACROBATICS, 46
-    learnset MOVE_SLACK_OFF, 49
-    learnset MOVE_FLARE_BLITZ, 56
+    learnset MOVE_LOW_SWEEP, 22
+    learnset MOVE_TORMENT, 25
+    learnset MOVE_FIRE_PUNCH, 28
+    learnset MOVE_THUNDER_PUNCH, 31
+    learnset MOVE_BULK_UP, 34
+    learnset MOVE_FIRE_SPIN, 37
+    learnset MOVE_ACROBATICS, 40
+    learnset MOVE_SLACK_OFF, 43
+    learnset MOVE_FLAMETHROWER, 46
     terminatelearnset
 
 
 levelup SPECIES_INFERNAPE
     learnset MOVE_CLOSE_COMBAT, 0
     learnset MOVE_CLOSE_COMBAT, 1
-    learnset MOVE_MACH_PUNCH, 1
-    learnset MOVE_FLARE_BLITZ, 1
+    learnset MOVE_OVERHEAT, 1
+    learnset MOVE_AURA_SPHERE, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_EMBER, 7
-    learnset MOVE_TAUNT, 9
-    learnset MOVE_FURY_SWIPES, 16
+    learnset MOVE_EMBER, 5
+    learnset MOVE_TAUNT, 8
+    learnset MOVE_FAKE_OUT, 11
+    learnset MOVE_POWER_UP_PUNCH, 14
+    learnset MOVE_FURY_SWIPES, 17
     learnset MOVE_FLAME_WHEEL, 19
-    learnset MOVE_FEINT, 26
-    learnset MOVE_PUNISHMENT, 29
-    learnset MOVE_FIRE_SPIN, 42
-    learnset MOVE_ACROBATICS, 52
-    learnset MOVE_CALM_MIND, 58
-    learnset MOVE_FLARE_BLITZ, 68
+    learnset MOVE_LOW_SWEEP, 22
+    learnset MOVE_TORMENT, 25
+    learnset MOVE_FIRE_PUNCH, 28
+    learnset MOVE_THUNDER_PUNCH, 31
+    learnset MOVE_BULK_UP, 34
+    learnset MOVE_FIRE_SPIN, 37
+    learnset MOVE_ACROBATICS, 40
+    learnset MOVE_SLACK_OFF, 43
+    learnset MOVE_FLAMETHROWER, 46
+    learnset MOVE_CALM_MIND, 49
+    learnset MOVE_PUNISHMENT, 52
+    learnset MOVE_U_TURN, 55
+    learnset MOVE_SWORDS_DANCE, 58
+    learnset MOVE_FLARE_BLITZ, 61
+    learnset MOVE_RAGING_FURY, 64
     terminatelearnset
 
 
