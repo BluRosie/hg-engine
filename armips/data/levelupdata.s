@@ -9610,57 +9610,79 @@ levelup SPECIES_DEOXYS
 
 levelup SPECIES_TURTWIG
     learnset MOVE_TACKLE, 1
-    learnset MOVE_WITHDRAW, 5
-    learnset MOVE_ABSORB, 9
+    learnset MOVE_WITHDRAW, 1
+    learnset MOVE_LEAFAGE, 4
+    learnset MOVE_SAND_TOMB, 7
+    learnset MOVE_GROWTH, 10
     learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_CURSE, 17
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_CURSE, 18
     learnset MOVE_BITE, 21
-    learnset MOVE_MEGA_DRAIN, 25
-    learnset MOVE_LEECH_SEED, 29
+    learnset MOVE_TRAILBLAZE, 24
+    learnset MOVE_LEECH_SEED, 27
+    learnset MOVE_GIGA_DRAIN, 30
     learnset MOVE_SYNTHESIS, 33
-    learnset MOVE_CRUNCH, 37
-    learnset MOVE_GIGA_DRAIN, 41
-    learnset MOVE_LEAF_STORM, 45
+    learnset MOVE_CRUNCH, 36
+    learnset MOVE_SLEEP_POWDER, 39
+    learnset MOVE_SEED_BOMB, 42
+    learnset MOVE_IRON_HEAD, 45
+    learnset MOVE_LEAF_STORM, 48
+    learnset MOVE_STONE_EDGE, 51
+    learnset MOVE_SHELL_SMASH, 54
+    learnset MOVE_HEAVY_SLAM, 57
     terminatelearnset
 
 
 levelup SPECIES_GROTLE
     learnset MOVE_TACKLE, 1
     learnset MOVE_WITHDRAW, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_WITHDRAW, 5
-    learnset MOVE_ABSORB, 9
-    learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_CURSE, 17
+    learnset MOVE_LEAFAGE, 5
+    learnset MOVE_SAND_TOMB, 8
+    learnset MOVE_GROWTH, 11
+    learnset MOVE_RAZOR_LEAF, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_CURSE, 19
     learnset MOVE_BITE, 22
-    learnset MOVE_MEGA_DRAIN, 27
-    learnset MOVE_LEECH_SEED, 32
-    learnset MOVE_SYNTHESIS, 37
-    learnset MOVE_CRUNCH, 42
-    learnset MOVE_GIGA_DRAIN, 47
-    learnset MOVE_LEAF_STORM, 52
+    learnset MOVE_TRAILBLAZE, 25
+    learnset MOVE_LEECH_SEED, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_SYNTHESIS, 34
+    learnset MOVE_CRUNCH, 37
+    learnset MOVE_SLEEP_POWDER, 40
+    learnset MOVE_SEED_BOMB, 43
+    learnset MOVE_IRON_HEAD, 46
+    learnset MOVE_LEAF_STORM, 49
+    learnset MOVE_STONE_EDGE, 52
+    learnset MOVE_SHELL_SMASH, 55
+    learnset MOVE_HEAVY_SLAM, 58
     terminatelearnset
 
 
 levelup SPECIES_TORTERRA
     learnset MOVE_EARTHQUAKE, 0
     learnset MOVE_EARTHQUAKE, 1
-    learnset MOVE_WOOD_HAMMER, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_WITHDRAW, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_RAZOR_LEAF, 1
-    learnset MOVE_WITHDRAW, 5
-    learnset MOVE_ABSORB, 9
-    learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_CURSE, 17
+    learnset MOVE_LEAFAGE, 5
+    learnset MOVE_SAND_TOMB, 8
+    learnset MOVE_GROWTH, 11
+    learnset MOVE_RAZOR_LEAF, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_CURSE, 19
     learnset MOVE_BITE, 22
-    learnset MOVE_MEGA_DRAIN, 27
-    learnset MOVE_LEECH_SEED, 33
-    learnset MOVE_SYNTHESIS, 39
-    learnset MOVE_CRUNCH, 45
-    learnset MOVE_GIGA_DRAIN, 51
-    learnset MOVE_LEAF_STORM, 57
+    learnset MOVE_TRAILBLAZE, 25
+    learnset MOVE_LEECH_SEED, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_SYNTHESIS, 34
+    learnset MOVE_CRUNCH, 37
+    learnset MOVE_SLEEP_POWDER, 40
+    learnset MOVE_SEED_BOMB, 43
+    learnset MOVE_IRON_HEAD, 46
+    learnset MOVE_LEAF_STORM, 49
+    learnset MOVE_STONE_EDGE, 52
+    learnset MOVE_SHELL_SMASH, 55
+    learnset MOVE_HEAVY_SLAM, 58
+    learnset MOVE_HEADLONG_RUSH, 61
     terminatelearnset
 
 
