@@ -10185,39 +10185,34 @@ levelup SPECIES_MOTHIM
 levelup SPECIES_COMBEE
     learnset MOVE_SWEET_SCENT, 1
     learnset MOVE_GUST, 1
-    learnset MOVE_STRUGGLE_BUG, 1
-    learnset MOVE_BUG_BITE, 1
+    learnset MOVE_STRUGGLE_BUG, 6
     learnset MOVE_BUG_BITE, 13
-    learnset MOVE_BUG_BUZZ, 29
     terminatelearnset
 
 
 levelup SPECIES_VESPIQUEN
     learnset MOVE_SLASH, 0
     learnset MOVE_SLASH, 1
-    learnset MOVE_STRUGGLE_BUG, 1
-    learnset MOVE_BUG_BITE, 1
+    learnset MOVE_POISON_STING, 1
     learnset MOVE_SWEET_SCENT, 1
     learnset MOVE_GUST, 1
-    learnset MOVE_POISON_STING, 1
-    learnset MOVE_CONFUSE_RAY, 1
-    learnset MOVE_FELL_STINGER, 1
-    learnset MOVE_DESTINY_BOND, 1
-    learnset MOVE_FURY_CUTTER, 4
-    learnset MOVE_AROMATIC_MIST, 8
-    learnset MOVE_PURSUIT, 9
-    learnset MOVE_FURY_SWIPES, 14
-    learnset MOVE_AROMATHERAPY, 24
-    learnset MOVE_POWER_GEM, 28
-    learnset MOVE_DEFEND_ORDER, 29
-    learnset MOVE_HEAL_ORDER, 29
-    learnset MOVE_AIR_SLASH, 32
-    learnset MOVE_FELL_STINGER, 33
-    learnset MOVE_SWAGGER, 33
-    learnset MOVE_TOXIC, 34
-    learnset MOVE_CAPTIVATE, 41
-    learnset MOVE_ATTACK_ORDER, 42
-    learnset MOVE_DESTINY_BOND, 48
+    learnset MOVE_STRUGGLE_BUG, 6
+    learnset MOVE_BUG_BITE, 13
+    learnset MOVE_CONFUSE_RAY, 22
+    learnset MOVE_FURY_CUTTER, 25
+    learnset MOVE_FEINT_ATTACK, 28
+    learnset MOVE_HEAL_ORDER, 31
+    learnset MOVE_AIR_CUTTER, 34
+    learnset MOVE_HEX, 37
+    learnset MOVE_TOXIC, 40
+    learnset MOVE_ATTACK_ORDER, 43
+    learnset MOVE_DEFEND_ORDER, 43
+    learnset MOVE_POWER_GEM, 46
+    learnset MOVE_DUAL_WINGBEAT, 49
+    learnset MOVE_BUG_BUZZ, 52
+    learnset MOVE_DESTINY_BOND, 55
+    learnset MOVE_SLUDGE_BOMB, 58
+    learnset MOVE_HURRICANE, 61
     terminatelearnset
 
 
