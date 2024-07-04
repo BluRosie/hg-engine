@@ -9451,32 +9451,30 @@ levelup SPECIES_REGISTEEL
 
 
 levelup SPECIES_LATIAS
-    learnset MOVE_STORED_POWER, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_HEALING_WISH, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_WISH, 1
     learnset MOVE_PSYWAVE, 1
-    learnset MOVE_SAFEGUARD, 1
-    learnset MOVE_WATER_SPORT, 4
-    learnset MOVE_HELPING_HAND, 5
-    learnset MOVE_CHARM, 7
-    learnset MOVE_STORED_POWER, 10
-    learnset MOVE_REFRESH, 13
-    learnset MOVE_CONFUSION, 15
-    learnset MOVE_RECOVER, 20
-    learnset MOVE_TAILWIND, 20
-    learnset MOVE_DRAGON_BREATH, 22
-    learnset MOVE_MIST_BALL, 29
+    learnset MOVE_CHARM, 1
+    learnset MOVE_WHIRLPOOL, 4
+    learnset MOVE_HELPING_HAND, 7
+    learnset MOVE_BREAKING_SWIPE, 10
+    learnset MOVE_RECOVER, 13
+    learnset MOVE_CONFUSION, 16
+    learnset MOVE_WATER_PULSE, 18
+    learnset MOVE_TAILWIND, 21
+    learnset MOVE_DRAGON_BREATH, 24
+    learnset MOVE_AIR_CUTTER, 27
     learnset MOVE_WISH, 30
-    learnset MOVE_HEAL_PULSE, 34
-    learnset MOVE_ZEN_HEADBUTT, 40
-    learnset MOVE_REFLECT_TYPE, 46
-    learnset MOVE_DRAGON_PULSE, 50
-    learnset MOVE_PSYCHO_SHIFT, 53
-    learnset MOVE_PSYCHIC, 55
-    learnset MOVE_GUARD_SPLIT, 56
-    learnset MOVE_HEALING_WISH, 65
+    learnset MOVE_ZEN_HEADBUTT, 33
+    learnset MOVE_AIR_SLASH, 36
+    learnset MOVE_CALM_MIND, 39
+    learnset MOVE_DRAGON_PULSE, 42
+    learnset MOVE_AURA_SPHERE, 45
+    learnset MOVE_HEAL_PULSE, 48
+    learnset MOVE_MIST_BALL, 51
+    learnset MOVE_GUARD_SPLIT, 54
+    learnset MOVE_ICE_BEAM, 57
+    learnset MOVE_FUTURE_SIGHT, 60
+    learnset MOVE_HEALING_WISH, 63
+    learnset MOVE_DRACO_METEOR, 66
     terminatelearnset
 
 
