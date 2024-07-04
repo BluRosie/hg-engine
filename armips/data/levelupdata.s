@@ -9763,61 +9763,74 @@ levelup SPECIES_INFERNAPE
 
 levelup SPECIES_PIPLUP
     learnset MOVE_POUND, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_BUBBLE, 8
-    learnset MOVE_WATER_SPORT, 11
-    learnset MOVE_PECK, 15
-    learnset MOVE_BUBBLE_BEAM, 18
-    learnset MOVE_BIDE, 22
-    learnset MOVE_FURY_ATTACK, 25
-    learnset MOVE_BRINE, 29
-    learnset MOVE_WHIRLPOOL, 32
+    learnset MOVE_GROWL, 1
+    learnset MOVE_BUBBLE, 4
+    learnset MOVE_PECK, 7
+    learnset MOVE_CHARM, 10
+    learnset MOVE_CHILLING_WATER, 13
+    learnset MOVE_ICY_WIND, 16
+    learnset MOVE_SWAGGER, 18
+    learnset MOVE_BUBBLE_BEAM, 21
+    learnset MOVE_FURY_ATTACK, 24
+    learnset MOVE_ROOST, 27
+    learnset MOVE_AURORA_BEAM, 30
+    learnset MOVE_FLIP_TURN, 33
     learnset MOVE_MIST, 36
     learnset MOVE_DRILL_PECK, 39
-    learnset MOVE_HYDRO_PUMP, 43
+    learnset MOVE_HYDRO_PUMP, 42
     terminatelearnset
 
 
 levelup SPECIES_PRINPLUP
     learnset MOVE_METAL_CLAW, 0
     learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_TACKLE, 1
+    learnset MOVE_POUND, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_BUBBLE, 8
-    learnset MOVE_WATER_SPORT, 11
-    learnset MOVE_PECK, 15
-    learnset MOVE_BUBBLE_BEAM, 19
-    learnset MOVE_BIDE, 24
-    learnset MOVE_FURY_ATTACK, 28
-    learnset MOVE_BRINE, 33
-    learnset MOVE_WHIRLPOOL, 37
-    learnset MOVE_MIST, 42
-    learnset MOVE_DRILL_PECK, 46
-    learnset MOVE_HYDRO_PUMP, 50
+    learnset MOVE_BUBBLE, 5
+    learnset MOVE_PECK, 8
+    learnset MOVE_CHARM, 11
+    learnset MOVE_CHILLING_WATER, 14
+    learnset MOVE_ICY_WIND, 17
+    learnset MOVE_SWAGGER, 19
+    learnset MOVE_BUBBLE_BEAM, 22
+    learnset MOVE_FURY_ATTACK, 25
+    learnset MOVE_ROOST, 28
+    learnset MOVE_AURORA_BEAM, 31
+    learnset MOVE_FLIP_TURN, 34
+    learnset MOVE_MIST, 37
+    learnset MOVE_DRILL_PECK, 40
+    learnset MOVE_HYDRO_PUMP, 43
     terminatelearnset
 
 
 levelup SPECIES_EMPOLEON
     learnset MOVE_AQUA_JET, 0
     learnset MOVE_AQUA_JET, 1
-    learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_TACKLE, 1
+    learnset MOVE_BRICK_BREAK, 1
+    learnset MOVE_POUND, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_BUBBLE, 8
-    learnset MOVE_SWORDS_DANCE, 11
-    learnset MOVE_PECK, 15
-    learnset MOVE_BUBBLE_BEAM, 19
-    learnset MOVE_SWAGGER, 24
-    learnset MOVE_FURY_ATTACK, 28
-    learnset MOVE_BRINE, 33
-    learnset MOVE_WHIRLPOOL, 39
-    learnset MOVE_MIST, 46
-    learnset MOVE_DRILL_PECK, 52
-    learnset MOVE_HYDRO_PUMP, 59
+    learnset MOVE_BUBBLE, 5
+    learnset MOVE_PECK, 8
+    learnset MOVE_CHARM, 11
+    learnset MOVE_CHILLING_WATER, 14
+    learnset MOVE_ICY_WIND, 17
+    learnset MOVE_SWAGGER, 19
+    learnset MOVE_BUBBLE_BEAM, 22
+    learnset MOVE_FURY_ATTACK, 25
+    learnset MOVE_ROOST, 28
+    learnset MOVE_AURORA_BEAM, 31
+    learnset MOVE_FLIP_TURN, 34
+    learnset MOVE_MIST, 37
+    learnset MOVE_DRILL_PECK, 40
+    learnset MOVE_FLASH_CANNON, 43
+    learnset MOVE_IRON_DEFENSE, 46
+    learnset MOVE_LIQUIDATION, 49
+    learnset MOVE_ICE_BEAM, 52
+    learnset MOVE_SWORDS_DANCE, 55
+    learnset MOVE_HYDRO_PUMP, 58
+    learnset MOVE_BLIZZARD, 61
+    learnset MOVE_WAVE_CRASH, 64
+    learnset MOVE_STEEL_BEAM, 67
     terminatelearnset
 
 
