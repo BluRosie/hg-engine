@@ -3094,6 +3094,9 @@ _1ACC: // Trainer 629
 _1AD0: // Trainer 630
     trainertextentry 630, TEXT_DEFEATED_IN_BATTLE, "Whoa, you’re kickin’!\n"
 
+2A04: // Trainer 738
+    trainertextentry 630, TEXT_DEFEATED_IN_BATTLE, "Not bad!\n"
+
 .close
 
 
