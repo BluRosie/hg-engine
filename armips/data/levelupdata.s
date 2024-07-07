@@ -10332,41 +10332,51 @@ levelup SPECIES_CHERRIM
 
 levelup SPECIES_SHELLOS
     learnset MOVE_WATER_GUN, 1
-    learnset MOVE_MUD_SLAP, 1
-    learnset MOVE_MUD_SPORT, 2
     learnset MOVE_HARDEN, 4
-    learnset MOVE_WATER_PULSE, 11
-    learnset MOVE_MUD_BOMB, 11
-    learnset MOVE_HIDDEN_POWER, 16
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_RECOVER, 26
-    learnset MOVE_BODY_SLAM, 26
-    learnset MOVE_RAIN_DANCE, 31
-    learnset MOVE_MUDDY_WATER, 33
-    learnset MOVE_EARTH_POWER, 35
-    learnset MOVE_MEMENTO, 45
+    learnset MOVE_MUD_SLAP, 7
+    learnset MOVE_RECOVER, 10
+    learnset MOVE_CLEAR_SMOG, 13
+    learnset MOVE_CHILLING_WATER, 16
+    learnset MOVE_MUD_SHOT, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_WATER_PULSE, 24
+    learnset MOVE_ROCK_TOMB, 27
+    learnset MOVE_RAIN_DANCE, 30
+    learnset MOVE_MUD_BOMB, 33
+    learnset MOVE_YAWN, 36
+    learnset MOVE_BODY_SLAM, 39
+    learnset MOVE_SCALD, 42
+    learnset MOVE_ICE_BEAM, 45
+    learnset MOVE_COUNTER, 48
+    learnset MOVE_EARTH_POWER, 51
+    learnset MOVE_MEMENTO, 54
+    learnset MOVE_SLUDGE_WAVE, 57
+    learnset MOVE_HYDRO_PUMP, 60
     terminatelearnset
 
 
 levelup SPECIES_GASTRODON
     learnset MOVE_WATER_GUN, 1
-    learnset MOVE_MUD_SLAP, 1
-    learnset MOVE_HARDEN, 1
-    learnset MOVE_RECOVER, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_WATER_PULSE, 1
-    learnset MOVE_MUD_SPORT, 2
-    learnset MOVE_HARDEN, 4
-    learnset MOVE_WATER_PULSE, 11
-    learnset MOVE_MUD_BOMB, 11
-    learnset MOVE_HIDDEN_POWER, 16
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_BODY_SLAM, 26
-    learnset MOVE_RAIN_DANCE, 34
-    learnset MOVE_MUDDY_WATER, 36
-    learnset MOVE_EARTH_POWER, 39
-    learnset MOVE_MEMENTO, 53
-    learnset MOVE_RECOVER, 54
+    learnset MOVE_HARDEN, 5
+    learnset MOVE_MUD_SLAP, 8
+    learnset MOVE_RECOVER, 11
+    learnset MOVE_CLEAR_SMOG, 14
+    learnset MOVE_CHILLING_WATER, 17
+    learnset MOVE_MUD_SHOT, 19
+    learnset MOVE_ANCIENT_POWER, 22
+    learnset MOVE_WATER_PULSE, 25
+    learnset MOVE_ROCK_TOMB, 28
+    learnset MOVE_RAIN_DANCE, 31
+    learnset MOVE_MUD_BOMB, 34
+    learnset MOVE_YAWN, 37
+    learnset MOVE_BODY_SLAM, 40
+    learnset MOVE_SCALD, 43
+    learnset MOVE_ICE_BEAM, 46
+    learnset MOVE_COUNTER, 49
+    learnset MOVE_EARTH_POWER, 52
+    learnset MOVE_MEMENTO, 55
+    learnset MOVE_SLUDGE_WAVE, 58
+    learnset MOVE_HYDRO_PUMP, 61
     terminatelearnset
 
 
@@ -26517,33 +26527,52 @@ levelup SPECIES_CHERRIM_SUNSHINE
 
 
 levelup SPECIES_SHELLOS_EAST_SEA
-    learnset MOVE_MUD_SLAP, 1
-    learnset MOVE_MUD_SPORT, 2
+    learnset MOVE_WATER_GUN, 1
     learnset MOVE_HARDEN, 4
-    learnset MOVE_WATER_PULSE, 7
-    learnset MOVE_MUD_BOMB, 11
-    learnset MOVE_HIDDEN_POWER, 16
-    learnset MOVE_RAIN_DANCE, 22
-    learnset MOVE_BODY_SLAM, 29
-    learnset MOVE_MUDDY_WATER, 37
-    learnset MOVE_RECOVER, 46
+    learnset MOVE_MUD_SLAP, 7
+    learnset MOVE_RECOVER, 10
+    learnset MOVE_CLEAR_SMOG, 13
+    learnset MOVE_CHILLING_WATER, 16
+    learnset MOVE_MUD_SHOT, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_WATER_PULSE, 24
+    learnset MOVE_ROCK_TOMB, 27
+    learnset MOVE_RAIN_DANCE, 30
+    learnset MOVE_MUD_BOMB, 33
+    learnset MOVE_YAWN, 36
+    learnset MOVE_BODY_SLAM, 39
+    learnset MOVE_SCALD, 42
+    learnset MOVE_ICE_BEAM, 45
+    learnset MOVE_COUNTER, 48
+    learnset MOVE_EARTH_POWER, 51
+    learnset MOVE_MEMENTO, 54
+    learnset MOVE_SLUDGE_WAVE, 57
+    learnset MOVE_HYDRO_PUMP, 60
     terminatelearnset
 
 
 levelup SPECIES_GASTRODON_EAST_SEA
-    learnset MOVE_MUD_SLAP, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_HARDEN, 1
-    learnset MOVE_WATER_PULSE, 1
-    learnset MOVE_MUD_SPORT, 2
-    learnset MOVE_HARDEN, 4
-    learnset MOVE_WATER_PULSE, 7
-    learnset MOVE_MUD_BOMB, 11
-    learnset MOVE_HIDDEN_POWER, 16
-    learnset MOVE_RAIN_DANCE, 22
-    learnset MOVE_BODY_SLAM, 29
-    learnset MOVE_MUDDY_WATER, 41
-    learnset MOVE_RECOVER, 54
+    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_HARDEN, 5
+    learnset MOVE_MUD_SLAP, 8
+    learnset MOVE_RECOVER, 11
+    learnset MOVE_CLEAR_SMOG, 14
+    learnset MOVE_CHILLING_WATER, 17
+    learnset MOVE_MUD_SHOT, 19
+    learnset MOVE_ANCIENT_POWER, 22
+    learnset MOVE_WATER_PULSE, 25
+    learnset MOVE_ROCK_TOMB, 28
+    learnset MOVE_RAIN_DANCE, 31
+    learnset MOVE_MUD_BOMB, 34
+    learnset MOVE_YAWN, 37
+    learnset MOVE_BODY_SLAM, 40
+    learnset MOVE_SCALD, 43
+    learnset MOVE_ICE_BEAM, 46
+    learnset MOVE_COUNTER, 49
+    learnset MOVE_EARTH_POWER, 52
+    learnset MOVE_MEMENTO, 55
+    learnset MOVE_SLUDGE_WAVE, 58
+    learnset MOVE_HYDRO_PUMP, 61
     terminatelearnset
 
 
