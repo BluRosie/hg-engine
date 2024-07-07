@@ -10575,19 +10575,24 @@ levelup SPECIES_HONCHKROW
 
 levelup SPECIES_GLAMEOW
     learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_SCRATCH, 5
-    learnset MOVE_GROWL, 8
+    learnset MOVE_SCRATCH, 4
+    learnset MOVE_GROWL, 7
+    learnset MOVE_QUICK_ATTACK, 10
     learnset MOVE_HYPNOSIS, 13
-    learnset MOVE_FEINT_ATTACK, 17
-    learnset MOVE_FURY_SWIPES, 20
-    learnset MOVE_CHARM, 25
-    learnset MOVE_ASSIST, 29
-    learnset MOVE_CAPTIVATE, 32
-    learnset MOVE_SLASH, 37
-    learnset MOVE_SUCKER_PUNCH, 41
-    learnset MOVE_ATTRACT, 44
+    learnset MOVE_AERIAL_ACE, 16
+    learnset MOVE_FEINT_ATTACK, 18
+    learnset MOVE_FURY_SWIPES, 21
+    learnset MOVE_CHARM, 24
+    learnset MOVE_SLASH, 27
+    learnset MOVE_ATTRACT, 30
+    learnset MOVE_U_TURN, 33
+    learnset MOVE_CAPTIVATE, 36
+    learnset MOVE_SHADOW_CLAW, 39
+    learnset MOVE_SUCKER_PUNCH, 42
     learnset MOVE_HONE_CLAWS, 48
-    learnset MOVE_PLAY_ROUGH, 50
+    learnset MOVE_PLAY_ROUGH, 51
+    learnset MOVE_TORMENT, 54
+    learnset MOVE_DOUBLE_EDGE, 57
     terminatelearnset
 
 
@@ -10595,20 +10600,25 @@ levelup SPECIES_PURUGLY
     learnset MOVE_SWAGGER, 0
     learnset MOVE_SWAGGER, 1
     learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_SCRATCH, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_SCRATCH, 5
-    learnset MOVE_GROWL, 8
+    learnset MOVE_SCRATCH, 4
+    learnset MOVE_GROWL, 7
+    learnset MOVE_QUICK_ATTACK, 10
     learnset MOVE_HYPNOSIS, 13
-    learnset MOVE_FEINT_ATTACK, 17
-    learnset MOVE_FURY_SWIPES, 20
-    learnset MOVE_CHARM, 25
-    learnset MOVE_ASSIST, 29
-    learnset MOVE_CAPTIVATE, 32
-    learnset MOVE_SLASH, 37
-    learnset MOVE_BODY_SLAM, 45
-    learnset MOVE_ATTRACT, 52
-    learnset MOVE_HONE_CLAWS, 60
+    learnset MOVE_AERIAL_ACE, 16
+    learnset MOVE_FEINT_ATTACK, 18
+    learnset MOVE_FURY_SWIPES, 21
+    learnset MOVE_CHARM, 24
+    learnset MOVE_SLASH, 27
+    learnset MOVE_ATTRACT, 30
+    learnset MOVE_U_TURN, 33
+    learnset MOVE_CAPTIVATE, 36
+    learnset MOVE_SHADOW_CLAW, 39
+    learnset MOVE_SUCKER_PUNCH, 42
+    learnset MOVE_BODY_SLAM
+    learnset MOVE_HONE_CLAWS, 48
+    learnset MOVE_PLAY_ROUGH, 51
+    learnset MOVE_TORMENT, 54
+    learnset MOVE_DOUBLE_EDGE, 57
     terminatelearnset
 
 
