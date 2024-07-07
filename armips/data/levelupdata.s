@@ -10279,42 +10279,54 @@ levelup SPECIES_FLOATZEL
 levelup SPECIES_CHERUBI
     learnset MOVE_MORNING_SUN, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_LEAFAGE, 5
-    learnset MOVE_GROWTH, 8
-    learnset MOVE_HELPING_HAND, 14
+    learnset MOVE_LEAFAGE, 4
+    learnset MOVE_GROWTH, 7
+    learnset MOVE_RAZOR_LEAF, 10
+    learnset MOVE_HELPING_HAND, 13
+    learnset MOVE_ROLLOUT, 16
     learnset MOVE_LEECH_SEED, 18
-    learnset MOVE_MAGICAL_LEAF, 19
-    learnset MOVE_SUNNY_DAY, 22
+    learnset MOVE_MAGICAL_LEAF, 21
+    learnset MOVE_SUNNY_DAY, 24
+    learnset MOVE_ANCIENT_POWER, 27
     learnset MOVE_TAKE_DOWN, 30
-    learnset MOVE_WORRY_SEED, 34
-    learnset MOVE_PETAL_BLIZZARD, 40
-    learnset MOVE_LUCKY_CHANT, 40
-    learnset MOVE_SOLAR_BEAM, 41
+    learnset MOVE_WORRY_SEED, 33
+    learnset MOVE_GIGA_DRAIN, 36
+    learnset MOVE_WEATHER_BALL, 39
+    learnset MOVE_DAZZLING_GLEAM, 42
+    learnset MOVE_ENERGY_BALL, 45
+    learnset MOVE_AROMATHERAPY, 48
+    learnset MOVE_PETAL_BLIZZARD, 51
+    learnset MOVE_LUCKY_CHANT, 54
+    learnset MOVE_POWER_GEM, 57
+    learnset MOVE_SOLAR_BEAM, 60
     terminatelearnset
 
 
 levelup SPECIES_CHERRIM
-    learnset MOVE_SUNNY_DAY, 0
-    learnset MOVE_PETAL_DANCE, 0
-    learnset MOVE_SUNNY_DAY, 1
+    learnset MOVE_FLOWER_SHIELD, 0
     learnset MOVE_FLOWER_SHIELD, 1
     learnset MOVE_MORNING_SUN, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_LEAFAGE, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_PETAL_DANCE, 1
-    learnset MOVE_LEECH_SEED, 1
-    learnset MOVE_GROWTH, 7
+    learnset MOVE_LEAFAGE, 5
+    learnset MOVE_GROWTH, 8
+    learnset MOVE_RAZOR_LEAF, 11
     learnset MOVE_HELPING_HAND, 14
-    learnset MOVE_MAGICAL_LEAF, 19
+    learnset MOVE_ROLLOUT, 17
     learnset MOVE_LEECH_SEED, 19
-    learnset MOVE_SUNNY_DAY, 22
-    learnset MOVE_TAKE_DOWN, 34
-    learnset MOVE_WORRY_SEED, 39
-    learnset MOVE_PETAL_BLIZZARD, 45
-    learnset MOVE_LUCKY_CHANT, 48
-    learnset MOVE_SOLAR_BEAM, 49
-    learnset MOVE_PETAL_DANCE, 62
+    learnset MOVE_MAGICAL_LEAF, 22
+    learnset MOVE_SUNNY_DAY, 25
+    learnset MOVE_ANCIENT_POWER, 28
+    learnset MOVE_TAKE_DOWN, 31
+    learnset MOVE_WORRY_SEED, 34
+    learnset MOVE_GIGA_DRAIN, 37
+    learnset MOVE_WEATHER_BALL, 40
+    learnset MOVE_DAZZLING_GLEAM, 43
+    learnset MOVE_ENERGY_BALL, 46
+    learnset MOVE_AROMATHERAPY, 49
+    learnset MOVE_PETAL_BLIZZARD, 52
+    learnset MOVE_LUCKY_CHANT, 55
+    learnset MOVE_POWER_GEM, 58
+    learnset MOVE_SOLAR_BEAM, 61
     terminatelearnset
 
 
