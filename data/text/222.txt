@@ -48,7 +48,7 @@ Protein
 Iron
 Carbos
 Calcium
-Rare Candy
+Infinite Candy
 PP Up
 Zinc
 PP Max
@@ -790,3 +790,11 @@ Hasty Mint
 Jolly Mint
 Naive Mint
 Serious Mint
+Fairy Feather
+Syrupy Apple
+Mediocre Teacup
+MasterfulTeacup
+CornerstoneMask
+Wellspring Mask
+HearthflameMask
+Metal Alloy

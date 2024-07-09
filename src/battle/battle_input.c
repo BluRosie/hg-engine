@@ -204,21 +204,21 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 
 
     // weather
-    if (newBS.weather & WEATHER_ANY_ICONS)
+    if (bip->bw->sp->field_condition & WEATHER_ANY_ICONS)
     {
-        if (newBS.weather & WEATHER_SUNNY_ANY)
+        if (bip->bw->sp->field_condition & WEATHER_SUNNY_ANY)
         {
             nclr = BATTLE_GFX_SUN_NCLR;
         }
-        else if (newBS.weather & WEATHER_RAIN_ANY)
+        else if (bip->bw->sp->field_condition & WEATHER_RAIN_ANY)
         {
             nclr = BATTLE_GFX_RAIN_NCLR;
         }
-        else if (newBS.weather & WEATHER_SANDSTORM_ANY)
+        else if (bip->bw->sp->field_condition & WEATHER_SANDSTORM_ANY)
         {
             nclr = BATTLE_GFX_SANDSTORM_NCLR;
         }
-        else if (newBS.weather & WEATHER_HAIL_ANY)
+        else if (bip->bw->sp->field_condition & WEATHER_HAIL_ANY)
         {
             nclr = BATTLE_GFX_HAIL_NCLR;
         }
@@ -281,7 +281,7 @@ void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
 
 
 
-    if (newBS.weather & WEATHER_ANY_ICONS)
+    if (bip->bw->sp->field_condition & WEATHER_ANY_ICONS)
     {
         if (newBS.WeatherOAM)
         {
@@ -345,25 +345,25 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
 
-    if (newBS.weather & WEATHER_ANY_ICONS)
+    if (bip->bw->sp->field_condition & WEATHER_ANY_ICONS)
     {
         u32 ncgr;
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        if (newBS.weather & WEATHER_SUNNY_ANY)
+        if (bip->bw->sp->field_condition & WEATHER_SUNNY_ANY)
         {
             ncgr = BATTLE_GFX_SUN_NCGR;
         }
-        else if (newBS.weather & WEATHER_RAIN_ANY)
+        else if (bip->bw->sp->field_condition & WEATHER_RAIN_ANY)
         {
             ncgr = BATTLE_GFX_RAIN_NCGR;
         }
-        else if (newBS.weather & WEATHER_SANDSTORM_ANY)
+        else if (bip->bw->sp->field_condition & WEATHER_SANDSTORM_ANY)
         {
             ncgr = BATTLE_GFX_SANDSTORM_NCGR;
         }
-        else if (newBS.weather & WEATHER_HAIL_ANY)
+        else if (bip->bw->sp->field_condition & WEATHER_HAIL_ANY)
         {
             ncgr = BATTLE_GFX_HAIL_NCGR;
         }

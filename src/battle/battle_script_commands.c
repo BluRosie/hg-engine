@@ -1448,7 +1448,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #endif
 
     // distribute effort values to level 100 pokémon who would otherwise not get it
-    if (expcalc->seq_no == 0 && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
+    if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
     {
         DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
                                sel_mons_no,
@@ -1691,10 +1691,10 @@ BOOL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo) {
     case MOVE_EFFECT_DIG:
     case MOVE_EFFECT_BOUNCE:
     case MOVE_EFFECT_SHADOW_FORCE:
+    case MOVE_EFFECT_GEOMANCY:
         return TRUE;
     }
     return FALSE;
-// make sure to add geomancy here
 }
 
 
@@ -2026,11 +2026,11 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     {
         flag = 2;
     }
-    else if ((holdeffect == HOLD_EFFECT_FOCUS_BAND) && ((BattleRand(bw) % 100) < atk))
+    else if ((holdeffect == HOLD_EFFECT_MAYBE_ENDURE) && ((BattleRand(bw) % 100) < atk))
     {
         flag = 1;
     }
-    else if ((holdeffect == HOLD_EFFECT_HP_MAX_SURVIVE_1_HP) && (sp->battlemon[client_no].hp == (s32)sp->battlemon[client_no].maxhp))
+    else if ((holdeffect == HOLD_EFFECT_ENDURE) && (sp->battlemon[client_no].hp == (s32)sp->battlemon[client_no].maxhp))
     {
         flag = 1;
     }
@@ -2271,7 +2271,7 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no) {
 
     if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
          && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
-        (holdeffect == HOLD_EFFECT_HALVE_SPEED                                     // holding Iron Ball
+        (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED                             // holding Iron Ball
          || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
          || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
         // not in a semi-vulnerable state
@@ -2373,6 +2373,7 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
     int address = read_battle_script_param(sp);
     int client_set_max;
     int client_no;
+    int item, itemPower;
 
     enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
 
@@ -2404,8 +2405,12 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
         IncrementBattleScriptPtr(sp, address);
     } else {
         if (sp->terrainOverlay.type != TERRAIN_NONE) {
-            // TODO: handle item effects
+            item = GetBattleMonItem(sp, sp->attack_client);
+            itemPower = BattleItemDataGet(sp, item, 2);
             sp->terrainOverlay.numberOfTurnsLeft = 5;
+            if (item == ITEM_TERRAIN_EXTENDER) {
+                sp->terrainOverlay.numberOfTurnsLeft += itemPower;
+            }
         } else {
             sp->terrainOverlay.numberOfTurnsLeft = 0;
         }
@@ -2932,6 +2937,39 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
 }
 
 /**
+ *  @brief check if a substitute is up and jump to destination if there is one up
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    // handle infiltrator
+    if ((ctx->addeffect_type == 4 || ctx->addeffect_type == 1) // SIDE_EFFECT_TYPE_MOVE_EFFECT || SIDE_EFFECT_TYPE_DIRECT
+                                                                           // if the current check is being done from a move or move effect
+     && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_INFILTRATOR  // and the attacker's ability is infiltrator
+     && ctx->current_move_index != MOVE_TRANSFORM                          // and the move is not transform
+     && ctx->current_move_index != MOVE_SKY_DROP)                          // and the move is not sky drop
+    {
+        return FALSE; // bypass the substitute that is up
+    }
+
+    if (ctx->battlemon[battlerId].condition2 & STATUS2_SUBSTITUTE || ctx->oneSelfFlag[battlerId].status_flag & SELF_STATUS_FLAG_SUBSTITUTE_HIT)
+    {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+/**
  *  @brief check if knock off can remove the defender's held item
  *         does not count sticky hold and substitute because those still allow knock off's base power increase
  *
@@ -2962,7 +3000,7 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
         && !CheckMegaData(species, item)
         // arceus plate on arceus can not be knocked off
         && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
-        // griseous orb on giratina can not be knocked off
+        // technically this can be knocked off as of SV but the transformation code hasnt been moved to the core as of right now so ill leave it alone for right now
         && !(species == SPECIES_GIRATINA && item == ITEM_GRISEOUS_ORB)
         // drives can not be knocked off of genesect
         && !(species == SPECIES_GENESECT && IS_ITEM_GENESECT_DRIVE(item))
@@ -2974,6 +3012,8 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
         && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)
         // paradox mons can not have their booster energy knocked off
         && !(IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
+        // masks can not be knocked off of ogerpon
+        && !(species == SPECIES_OGERPON && IS_ITEM_MASK(item))
     )
     {
         return TRUE;
