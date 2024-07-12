@@ -48,3 +48,8 @@ arm9 sItemFieldUseFuncs+8 020649B4
 0012 TerrainPlatformPlayerNCGR 02265F1C
 0012 TerrainPlatformEnemyNCGR 02265F24
 0012 TerrainPlatformPalettes 02265F2C
+
+# swarm table
+arm9 sSwarmMapLUT 02097FF0
+arm9 sSwarmMapLUT 02097F94
+arm9 sSwarmMapLUT+2 02097F98
