@@ -33,7 +33,7 @@ The Pokémon draws in all\nElectric-type moves.
 Boosts the likelihood of\nadded effects appearing.
 Boosts the Pokémon’s\nSpeed in rain.
 Boosts the Pokémon’s\nSpeed in sunshine.
-Raises the likelihood of\nmeeting wild Pokémon.
+Powers up\nDragon-type moves.
 The Pokémon copies the\nfoe’s ability.
 Raises the Pokémon’s\nAttack stat.
 Contact with the Pokémon\nmay poison the foe.
@@ -48,7 +48,7 @@ The Pokémon raises the\nfoe’s PP usage.
 Ups resistance to Fire-\nand Ice-type moves.
 The Pokémon awakens\nquickly from sleep.
 Contact with the Pokémon\nmay burn the foe.
-Enables sure getaway\nfrom wild Pokémon.
+Powers up\nElectric-type moves.
 Prevents the Pokémon\nfrom losing accuracy.
 Prevents the Attack\nstat from being lowered.
 The Pokémon may\npick up items.
@@ -98,14 +98,14 @@ All the Pokémon’s moves\nbecome the Normal type.
 Powers up moves if they\nbecome critical hits.
 The Pokémon only takes\ndamage from attacks.
 Ensures both Pokémon’s\nand foe’s attacks land.
-The Pokémon moves after\neven slower foes.
+When knocking out a\ntarget, raises Attack.
 Powers up the Pokémon’s\nweaker moves.
 Prevents problems with\nstatus in sunny weather.
 The Pokémon can’t use\nany held items.
 Moves can be used\nregardless of abilities.
 Heightens the critical-\nhit ratios of moves.
 Damages the foe landing\nthe finishing hit.
-Senses the foe’s\ndangerous moves.
+When knocking out a\ntarget, raises Sp. Atk.
 Determines what moves\nthe foe has.
 Ignores any change in\nability by the foe.
 Powers up “not very\neffective” moves.
@@ -194,7 +194,7 @@ Boosts Defense when\nhit by an attack.
 Cowardly switches out if\nits HP becomes half or less.
 Switches out if\nits HP becomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.
-Its attacks are critical hits\nwhen it is poisoned.
+Combines Unnerve\nand Grim Neigh.
 Its shell breaks if its\nHP becomes half or less.
 Deals doubles damage to\na target’s replacement.
 Weakens incoming Fire-type\nmoves and prevents burns.
@@ -206,7 +206,7 @@ Its sound-based moves\nbecome Water-type.
 Gives priority to\na healing move.
 Normal-type moves become\nElectric-type and powered.
 Doubles Speed on\nElectric Terrain.
-Forms a powerful school\nwhile it has a lot of HP.
+Combines Unnerve\nand Chilling Neigh.
 Its shroud protects it\nfrom an attack just once.
 Defeating a foe\nlets it become Ash-Greninja.
 Changes with other Cells\nif HP becomes half or less.
@@ -260,12 +260,12 @@ Changes between Full Belly\nand Hangry Mode each turn.
 Enables the Pokémon to\nmove first occasionally.
 The Pokémon’s contact\nmoves ignore protections.
 Removes all allies’ stat\nchanges on joining battle.
-Powers up\nElectric-type moves.
-Powers up\nDragon-type moves.
-When knocking out a\ntarget, raises Attack.
-When knocking out a\ntarget, raises Sp. Atk.
-Combines Unnerve\nand Chilling Neigh.
-Combines Unnerve\nand Grim Neigh.
+Enables sure getaway\nfrom wild Pokémon.
+Raises the likelihood of\nmeeting wild Pokémon.
+The Pokémon moves after\neven slower foes.
+Senses the foe’s\ndangerous moves.
+Forms a powerful school\nwhile it has a lot of HP.
+Its attacks are critical hits\nwhen it is poisoned.
 Contact with this Pokémon\nspreads this Ability.
 Turns the ground into\nGrassy Terrain if attacked.
 Ups Attack if hit\nby Fire moves. Prevents burns.

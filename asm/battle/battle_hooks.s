@@ -591,3 +591,37 @@ ldr r0, =0x02220424 | 1
 bx r0
 
 .pool
+
+
+.global StruggleCheck_hook
+StruggleCheck_hook:
+ldr r5, =StruggleCheck_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl StruggleCheck
+ldr r1, =StruggleCheck_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+StruggleCheck_return_address:
+.word 0
+
+
+.global ov12_02251A28_hook
+ov12_02251A28_hook:
+ldr r5, =ov12_02251A28_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl ov12_02251A28
+ldr r1, =ov12_02251A28_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+ov12_02251A28_return_address:
+.word 0

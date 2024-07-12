@@ -566,7 +566,7 @@ RestoreBoxMonPP = 0x020728C4 | 1;
 CopyU16ArrayToString = 0x020269A0 | 1;
 CopyStringToU16Array = 0x02026A68 | 1;
 CheckMoveCallsOtherMove = 0x02252698 | 1;
-StruggleCheck = 0x022517EC | 1;
+//StruggleCheck = 0x022517EC | 1;
 
 GfGfxLoader_LoadCharData = 0x020078F0 | 1;
 PaletteData_LoadNarc = 0x02003200 | 1;
@@ -675,3 +675,8 @@ Sav2_PlayerData_GetOptionsAddr = 0x02028EA8 | 1;
 ScrNative_WaitApplication = 0x020429F8 | 1;
 StartMoveRelearner = 0x0204ECD0 | 1;
 CreateScriptContext = 0x020400AC | 1;
+GetNaturalGiftType = 0x022558A4 | 1;
+
+BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
+BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
+BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;

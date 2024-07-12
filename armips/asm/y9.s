@@ -150,5 +150,6 @@ UNCOMPRESSED equ 0x00000000
 .word 138, 0x023C0400, filesize("base/overlay/overlay_0138.bin"), 0x00000000, 0x00000000, 0x00000000, 138, UNCOMPRESSED // CalcBaseDamage specific overlay
 .word 139, 0x023C2400, filesize("base/overlay/overlay_0139.bin"), 0x00000000, 0x00000000, 0x00000000, 139, UNCOMPRESSED // BattleFormChangeCheck specific overlay
 .word 140, 0x023C0400, filesize("base/overlay/overlay_0140.bin"), 0x00000000, 0x00000000, 0x00000000, 140, UNCOMPRESSED // CheckDefenderItemEffectOnHit specific overlay
+.word 141, 0x023C0400, filesize("base/overlay/overlay_0141.bin"), 0x00000000, 0x00000000, 0x00000000, 141, UNCOMPRESSED // ServerFieldConditionCheck specific overlay
 
 .close
