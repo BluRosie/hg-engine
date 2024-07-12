@@ -3,9 +3,10 @@
 
 .include "armips/include/scriptmacros.s"
 .include "armips/include/flags.s"
-.include "armips/include/itemnums.s"
 .include "armips/include/soundeffects.s"
 .include "armips/include/vars.s"
+
+.include "asm/include/items.inc"
 
 
 // text archive to grab from: 040.txt

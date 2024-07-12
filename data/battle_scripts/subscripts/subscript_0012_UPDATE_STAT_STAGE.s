@@ -1,0 +1,54 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    ChangeStatStage _051, _069, _070
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _010
+    PrintAttackMessage 
+    Wait 
+
+_010:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _018
+    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
+    Wait 
+
+_018:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_RAPID_SPIN, _075
+
+_023:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES, _041
+    PlayBattleAnimationFromVar BATTLER_CATEGORY_SIDE_EFFECT_MON, BSCRIPT_VAR_TEMP_DATA
+    Wait 
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_STAT_STAGE_CHANGE_SHOWN, _041
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES
+
+_041:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE, _069
+    PrintBufferedMessage 
+    Wait 
+    WaitButtonABTime 30
+    End 
+
+_051:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _058
+    PrintAttackMessage 
+    Wait 
+
+_058:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MESSAGES_OFF, _069
+    WaitButtonABTime 30
+    PrintBufferedMessage 
+    Wait 
+    WaitButtonABTime 30
+
+_069:
+    End 
+
+_070:
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
+    End 
+
+_075:
+    RapidSpin 
+    GoTo _023

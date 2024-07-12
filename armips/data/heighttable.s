@@ -2,7 +2,8 @@
 .thumb
 
 .include "armips/include/macros.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/species.inc"
 
 // format of heightentry:
 // heightentry species, female back height offset, male back height offset, female front height offset, male front height offset
@@ -828,7 +829,7 @@ heightentry SPECIES_TSAREENA, 8, 8, 0, 0
 heightentry SPECIES_COMFEY, 3, 3, 0, 0
 heightentry SPECIES_ORANGURU, 0, 0, 0, 0
 heightentry SPECIES_PASSIMIAN, 0, 0, 0, 0
-heightentry SPECIES_WIMPOD, 0, 0, 0, 0
+heightentry SPECIES_WIMPOD, 8, 8, 0, 0
 heightentry SPECIES_GOLISOPOD, 3, 3, 0, 0
 heightentry SPECIES_SANDYGAST, 0, 0, 0, 0
 heightentry SPECIES_PALOSSAND, 0, 0, 0, 0
@@ -923,7 +924,7 @@ heightentry SPECIES_HATTERENE, 3, 3, 0, 0
 heightentry SPECIES_IMPIDIMP, 3, 3, 0, 0
 heightentry SPECIES_MORGREM, 0, 0, 0, 0
 heightentry SPECIES_GRIMMSNARL, 0, 0, 0, 0
-heightentry SPECIES_OBSTAGOON, 0, 0, 0, 0
+heightentry SPECIES_OBSTAGOON, 9, 9, 0, 0
 heightentry SPECIES_PERRSERKER, 3, 3, 0, 0
 heightentry SPECIES_CURSOLA, 0, 0, 0, 0
 heightentry SPECIES_SIRFETCHD, 3, 3, 0, 0
@@ -981,12 +982,12 @@ heightentry SPECIES_QUAQUAVAL, 3, 3, 0, 0
 heightentry SPECIES_LECHONK, 0, 0, 0, 0
 heightentry SPECIES_OINKOLOGNE, 0, 0, 0, 0
 heightentry SPECIES_TAROUNTULA, 3, 3, 0, 0
-heightentry SPECIES_SPIDOPS, 3, 3, 0, 0
+heightentry SPECIES_SPIDOPS, 0, 0, 0, 0
 heightentry SPECIES_NYMBLE, 0, 0, 0, 0
 heightentry SPECIES_LOKIX, 0, 0, 0, 0
 heightentry SPECIES_PAWMI, 3, 3, 0, 0
 heightentry SPECIES_PAWMO, 3, 3, 0, 0
-heightentry SPECIES_PAWMOT, 3, 3, 0, 0
+heightentry SPECIES_PAWMOT, 5, 5, 0, 0
 heightentry SPECIES_TANDEMAUS, 3, 3, 0, 0
 heightentry SPECIES_MAUSHOLD, 3, 3, 0, 0
 heightentry SPECIES_FIDOUGH, 0, 0, 0, 0
@@ -1001,21 +1002,21 @@ heightentry SPECIES_GARGANACL, 0, 0, 0, 0
 heightentry SPECIES_CHARCADET, 3, 3, 0, 0
 heightentry SPECIES_ARMAROUGE, 3, 3, 0, 0
 heightentry SPECIES_CERULEDGE, 3, 3, 0, 0
-heightentry SPECIES_TADBULB, 0, 0, 0, 0
+heightentry SPECIES_TADBULB, 5, 5, 0, 0
 heightentry SPECIES_BELLIBOLT, 0, 0, 0, 0
 heightentry SPECIES_WATTREL, 3, 3, 0, 0
 heightentry SPECIES_KILOWATTREL, 3, 3, 0, 0
 heightentry SPECIES_MASCHIFF, 3, 3, 0, 0
 heightentry SPECIES_MABOSSTIFF, 3, 3, 0, 0
 heightentry SPECIES_SHROODLE, 0, 0, 0, 0
-heightentry SPECIES_GRAFAIAI, 0, 0, 0, 0
+heightentry SPECIES_GRAFAIAI, 12, 12, 0, 0
 heightentry SPECIES_BRAMBLIN, 0, 0, 0, 0
 heightentry SPECIES_BRAMBLEGHAST, 0, 0, 0, 0
 heightentry SPECIES_TOEDSCOOL, 0, 0, 0, 0
 heightentry SPECIES_TOEDSCRUEL, 0, 0, 0, 0
-heightentry SPECIES_KLAWF, 3, 3, 0, 0
+heightentry SPECIES_KLAWF, 0, 0, 11, 11
 heightentry SPECIES_CAPSAKID, 0, 0, 0, 0
-heightentry SPECIES_SCOVILLAIN, 3, 3, 0, 0
+heightentry SPECIES_SCOVILLAIN, 0, 0, 0, 0
 heightentry SPECIES_RELLOR, 3, 3, 0, 0
 heightentry SPECIES_RABSCA, 3, 3, 0, 0
 heightentry SPECIES_FLITTLE, 0, 0, 0, 0
@@ -1159,14 +1160,14 @@ heightentry SPECIES_GRIMER_ALOLAN, 13, 13, 0, 0
 heightentry SPECIES_MUK_ALOLAN, 8, 8, 0, 0
 heightentry SPECIES_EXEGGUTOR_ALOLAN, 3, 3, 0, 0
 heightentry SPECIES_MAROWAK_ALOLAN, 9, 9, 0, 0
-heightentry SPECIES_MEOWTH_GALARIAN, 0, 0, 0, 0
+heightentry SPECIES_MEOWTH_GALARIAN, 7, 7, 16, 16
 heightentry SPECIES_PONYTA_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_RAPIDASH_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_SLOWPOKE_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_SLOWBRO_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_FARFETCHD_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_WEEZING_GALARIAN, 3, 3, 0, 0
-heightentry SPECIES_MR_MIME_GALARIAN, 0, 0, 0, 0
+heightentry SPECIES_MR_MIME_GALARIAN, 10, 10, 12, 12
 heightentry SPECIES_ARTICUNO_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_ZAPDOS_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_MOLTRES_GALARIAN, 3, 3, 0, 0

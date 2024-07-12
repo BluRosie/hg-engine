@@ -566,7 +566,7 @@ RestoreBoxMonPP = 0x020728C4 | 1;
 CopyU16ArrayToString = 0x020269A0 | 1;
 CopyStringToU16Array = 0x02026A68 | 1;
 CheckMoveCallsOtherMove = 0x02252698 | 1;
-StruggleCheck = 0x022517EC | 1;
+//StruggleCheck = 0x022517EC | 1;
 
 GfGfxLoader_LoadCharData = 0x020078F0 | 1;
 PaletteData_LoadNarc = 0x02003200 | 1;
@@ -654,3 +654,9 @@ ov12_02250BBC = 0x02250BBC | 1;
 BattleSystem_CheckMoveHit = 0x0224BCC4 | 1;
 ov12_0224B498 = 0x0224B498 | 1;
 ov12_0224BC2C = 0x0224BC2C | 1;
+
+GetNaturalGiftType = 0x022558A4 | 1;
+
+BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
+BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
+BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;

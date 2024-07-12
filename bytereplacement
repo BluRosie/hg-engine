@@ -416,3 +416,13 @@ arm9 02074128 F8 B5 82 B0 00 90 00 20
 
 # Fix Hidden Power to 60 BP (change +30 instruction to =60)
 0012 022424DC 3C 20
+
+# StruggleCheck_hook setup
+0012 022517EC 60 B4 C0 46
+
+# ov12_02251A28_hook setup
+0012 02251A28 60 B4 C0 46
+
+# normal as a second type should show up in the dex/pc
+0018 021F21AE C0 46
+0014 021F3DB0 C0 46
