@@ -1,10 +1,6 @@
 #include "../include/types.h"
 #include "../include/constants/trainerclass.h"
 
-#define TRAINER_MALE     0
-#define TRAINER_FEMALE   1
-#define TRAINER_DOUBLE   2
-
 const u8 sTrainerGenders[] = {
     TRAINER_MALE,   // TRAINERCLASS_PKMN_TRAINER_ETHAN
     TRAINER_FEMALE, // TRAINERCLASS_PKMN_TRAINER_LYRA
