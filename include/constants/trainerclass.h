@@ -48,7 +48,7 @@
 #define CLASS_TUBER_M   44
 #define CLASS_TUBER_F   45
 #define CLASS_SAILOR   46
-#define CLASS_KIMONO_GIRL_1   47
+#define CLASS_KIMONO_GIRL   47
 #define CLASS_RUIN_MANIAC   48
 #define CLASS_PSYCHIC_M   49
 #define CLASS_PSYCHIC_F   50
