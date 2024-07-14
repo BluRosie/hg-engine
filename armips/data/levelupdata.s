@@ -11230,17 +11230,28 @@ levelup SPECIES_MANTYKE
 levelup SPECIES_SNOVER
     learnset MOVE_POWDER_SNOW, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_LEAFAGE, 5
+    learnset MOVE_LEAFAGE, 4
+    learnset MOVE_MUD_SLAP, 7
+    learnset MOVE_MIST, 10
     learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_GRASS_WHISTLE, 13
-    learnset MOVE_MIST, 15
-    learnset MOVE_ICY_WIND, 17
-    learnset MOVE_ICE_SHARD, 20
-    learnset MOVE_SWAGGER, 23
+    learnset MOVE_LEECH_SEED, 16
+    learnset MOVE_ICY_WIND, 18
+    learnset MOVE_ICE_SHARD, 21
+    learnset MOVE_SWAGGER, 24
+    learnset MOVE_STOMP, 27
+    learnset MOVE_GIGA_DRAIN, 30
     learnset MOVE_INGRAIN, 33
-    learnset MOVE_WOOD_HAMMER, 38
-    learnset MOVE_BLIZZARD, 43
-    learnset MOVE_SHEER_COLD, 48
+    learnset MOVE_ANCIENT_POWER, 36
+    learnset MOVE_AURORA_BEAM, 39
+    learnset MOVE_GROWTH, 42
+    learnset MOVE_SEED_BOMB, 45
+    learnset MOVE_TAKE_DOWN, 48
+    learnset MOVE_ICE_BEAM, 51
+    learnset MOVE_EARTHQUAKE, 54
+    learnset MOVE_ENERGY_BALL, 57
+    learnset MOVE_BLIZZARD, 60
+    learnset MOVE_WOOD_HAMMER, 63
+    learnset MOVE_LEAF_STORM, 66
     terminatelearnset
 
 
@@ -11250,20 +11261,28 @@ levelup SPECIES_ABOMASNOW
     learnset MOVE_AURORA_VEIL, 1
     learnset MOVE_POWDER_SNOW, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_LEAFAGE, 1
-    learnset MOVE_MIST, 1
-    learnset MOVE_RAZOR_LEAF, 1
-    learnset MOVE_ICY_WIND, 1
-    learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_GRASS_WHISTLE, 13
-    learnset MOVE_ICY_WIND, 17
-    learnset MOVE_ICE_SHARD, 20
-    learnset MOVE_MIST, 21
-    learnset MOVE_SWAGGER, 23
-    learnset MOVE_INGRAIN, 33
-    learnset MOVE_WOOD_HAMMER, 39
-    learnset MOVE_BLIZZARD, 48
-    learnset MOVE_SHEER_COLD, 56
+    learnset MOVE_LEAFAGE, 5
+    learnset MOVE_MUD_SLAP, 8
+    learnset MOVE_MIST, 11
+    learnset MOVE_RAZOR_LEAF, 14
+    learnset MOVE_LEECH_SEED, 17
+    learnset MOVE_ICY_WIND, 19
+    learnset MOVE_ICE_SHARD, 22
+    learnset MOVE_SWAGGER, 25
+    learnset MOVE_STOMP, 28
+    learnset MOVE_GIGA_DRAIN, 31
+    learnset MOVE_INGRAIN, 34
+    learnset MOVE_ANCIENT_POWER, 37
+    learnset MOVE_AURORA_BEAM, 40
+    learnset MOVE_GROWTH, 43
+    learnset MOVE_SEED_BOMB, 46
+    learnset MOVE_TAKE_DOWN, 49
+    learnset MOVE_ICE_BEAM, 52
+    learnset MOVE_EARTHQUAKE, 55
+    learnset MOVE_ENERGY_BALL, 58
+    learnset MOVE_BLIZZARD, 61
+    learnset MOVE_WOOD_HAMMER, 64
+    learnset MOVE_LEAF_STORM, 67
     terminatelearnset
 
 
