@@ -10797,25 +10797,27 @@ levelup SPECIES_HAPPINY
 
 
 levelup SPECIES_CHATOT
-    learnset MOVE_HYPER_VOICE, 1
-    learnset MOVE_CHATTER, 1
-    learnset MOVE_CONFIDE, 1
-    learnset MOVE_TAUNT, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_GROWL, 5
-    learnset MOVE_MIRROR_MOVE, 9
+    learnset MOVE_GROWL, 1
+    learnset MOVE_CONFIDE, 4
+    learnset MOVE_GUST, 7
+    learnset MOVE_MIRROR_MOVE, 10
     learnset MOVE_SING, 13
-    learnset MOVE_FURY_ATTACK, 17
-    learnset MOVE_CHATTER, 21
-    learnset MOVE_TAUNT, 25
-    learnset MOVE_ROUND, 29
+    learnset MOVE_FURY_ATTACK, 16
+    learnset MOVE_ENCORE, 18
+    learnset MOVE_AIR_CUTTER, 21
+    learnset MOVE_TAUNT, 24
+    learnset MOVE_SWIFT, 27
+    learnset MOVE_ROUND, 30
     learnset MOVE_MIMIC, 33
-    learnset MOVE_ECHOED_VOICE, 37
-    learnset MOVE_ROOST, 41
-    learnset MOVE_UPROAR, 45
-    learnset MOVE_SYNCHRONOISE, 49
-    learnset MOVE_FEATHER_DANCE, 50
-    learnset MOVE_HYPER_VOICE, 57
+    learnset MOVE_CHATTER, 36
+    learnset MOVE_FEATHER_DANCE, 39
+    learnset MOVE_HYPER_VOICE, 42
+    learnset MOVE_ROOST, 45
+    learnset MOVE_PLAY_ROUGH, 48
+    learnset MOVE_AIR_SLASH, 51
+    learnset MOVE_AGILITY, 54
+    learnset MOVE_HURRICANE, 57
     terminatelearnset
 
 
