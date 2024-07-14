@@ -11954,27 +11954,30 @@ levelup SPECIES_PALKIA
 
 
 levelup SPECIES_HEATRAN
-    learnset MOVE_FIRE_SPIN, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_MAGMA_STORM, 1
-    learnset MOVE_HEAT_WAVE, 1
-    learnset MOVE_EARTH_POWER, 1
-    learnset MOVE_IRON_HEAD, 1
-    learnset MOVE_ANCIENT_POWER, 1
-    learnset MOVE_METAL_CLAW, 6
-    learnset MOVE_LEER, 9
-    learnset MOVE_ANCIENT_POWER, 12
-    learnset MOVE_FIRE_FANG, 17
-    learnset MOVE_SCARY_FACE, 31
-    learnset MOVE_CRUNCH, 34
-    learnset MOVE_METAL_SOUND, 37
+    learnset MOVE_EMBER, 1
+    learnset MOVE_LEER, 4
+    learnset MOVE_ANCIENT_POWER, 7
+    learnset MOVE_METAL_CLAW, 10
+    learnset MOVE_SCARY_FACE, 13
+    learnset MOVE_FIRE_SPIN, 16
+    learnset MOVE_BULLDOZE, 18
+    learnset MOVE_FLAME_CHARGE, 21
+    learnset MOVE_WILL_O_WISP, 24
+    learnset MOVE_ROCK_SLIDE, 27
+    learnset MOVE_FLAME_BURST, 30
+    learnset MOVE_METAL_SOUND, 33
+    learnset MOVE_SCORCHING_SANDS, 36
+    learnset MOVE_CRUNCH, 39
+    learnset MOVE_TAUNT, 42
     learnset MOVE_LAVA_PLUME, 45
-    learnset MOVE_IRON_HEAD, 46
-    learnset MOVE_FIRE_SPIN, 57
-    learnset MOVE_EARTH_POWER, 62
-    learnset MOVE_HEAT_WAVE, 69
-    learnset MOVE_STONE_EDGE, 76
-    learnset MOVE_MAGMA_STORM, 83
+    learnset MOVE_IRON_DEFENSE, 48
+    learnset MOVE_FLASH_CANNON, 51
+    learnset MOVE_EARTH_POWER, 54
+    learnset MOVE_METAL_BURST, 57
+    learnset MOVE_STONE_EDGE, 60
+    learnset MOVE_HEAT_WAVE, 63
+    learnset MOVE_MAGMA_STORM, 66
+    learnset MOVE_OVERHEAT, 69 
     terminatelearnset
 
 
