@@ -13587,21 +13587,28 @@ levelup SPECIES_SEISMITOAD
 levelup SPECIES_THROH
     learnset MOVE_BIND, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_MAT_BLOCK, 1
-    learnset MOVE_BIDE, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_FOCUS_ENERGY, 5
+    learnset MOVE_ROCK_SMASH, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_SEISMIC_TOSS, 10
+    learnset MOVE_ROCK_TOMB, 13
     learnset MOVE_REVENGE, 16
-    learnset MOVE_CIRCLE_THROW, 18
-    learnset MOVE_BODY_SLAM, 21
-    learnset MOVE_VITAL_THROW, 22
-    learnset MOVE_STORM_THROW, 23
-    learnset MOVE_SEISMIC_TOSS, 23
-    learnset MOVE_WIDE_GUARD, 25
-    learnset MOVE_BULK_UP, 25
-    learnset MOVE_ENDURE, 39
-    learnset MOVE_REVERSAL, 47
-    learnset MOVE_SUPERPOWER, 48
+    learnset MOVE_PAYBACK, 18
+    learnset MOVE_WIDE_GUARD, 21
+    learnset MOVE_VITAL_THROW, 24
+    learnset MOVE_BULK_UP, 27
+    learnset MOVE_STORM_THROW, 30
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_ENDURE, 36
+    learnset MOVE_REVERSAL, 39
+    learnset MOVE_STOMPING_TANTRUM, 42
+    learnset MOVE_BRICK_BREAK, 45
+    learnset MOVE_POISON_JAB, 48
+    learnset MOVE_SLACK_OFF, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_ZEN_HEADBUTT, 57
+    learnset MOVE_EARTHQUAKE, 60
+    learnset MOVE_MAT_BLOCK, 63
+    learnset MOVE_SUPERPOWER, 66
     terminatelearnset
 
 
