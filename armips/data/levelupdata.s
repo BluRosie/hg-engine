@@ -13110,64 +13110,84 @@ levelup SPECIES_MUSHARNA
 levelup SPECIES_PIDOVE
     learnset MOVE_GUST, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_LEER, 5
-    learnset MOVE_QUICK_ATTACK, 9
-    learnset MOVE_AIR_CUTTER, 15
-    learnset MOVE_TAUNT, 18
-    learnset MOVE_DETECT, 25
-    learnset MOVE_ROOST, 27
-    learnset MOVE_SWAGGER, 28
-    learnset MOVE_FEATHER_DANCE, 29
-    learnset MOVE_AIR_SLASH, 30
-    learnset MOVE_RAZOR_WIND, 32
-    learnset MOVE_TAILWIND, 42
-    learnset MOVE_FACADE, 43
-    learnset MOVE_SKY_ATTACK, 46
+    learnset MOVE_LEER, 4
+    learnset MOVE_QUICK_ATTACK, 7
+    learnset MOVE_TAUNT, 10
+    learnset MOVE_SWIFT, 13
+    learnset MOVE_AERIAL_ACE, 16
+    learnset MOVE_SWAGGER, 18
+    learnset MOVE_STEEL_WING, 21
+    learnset MOVE_DETECT, 24
+    learnset MOVE_NIGHT_SLASH, 27
+    learnset MOVE_ROOST, 30
+    learnset MOVE_SECRET_POWER, 33
+    learnset MOVE_FEATHER_DANCE, 36
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_DUAL_WINGBEAT, 42
+    learnset MOVE_TAILWIND, 45
+    learnset MOVE_LEAF_BLADE, 48
+    learnset MOVE_HURRICANE, 51
+    learnset MOVE_HEAT_WAVE, 54
+    learnset MOVE_HYPER_VOICE, 57
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_BRAVE_BIRD, 63
+    learnset MOVE_SKY_ATTACK, 66
     terminatelearnset
 
 
 levelup SPECIES_TRANQUILL
     learnset MOVE_GUST, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_LEER, 8
-    learnset MOVE_QUICK_ATTACK, 11
-    learnset MOVE_AIR_CUTTER, 15
-    learnset MOVE_TAUNT, 19
-    learnset MOVE_DETECT, 28
-    learnset MOVE_SWAGGER, 31
+    learnset MOVE_LEER, 5
+    learnset MOVE_QUICK_ATTACK, 8
+    learnset MOVE_TAUNT, 11
+    learnset MOVE_SWIFT, 14
+    learnset MOVE_AERIAL_ACE, 17
+    learnset MOVE_SWAGGER, 19
+    learnset MOVE_STEEL_WING, 22
+    learnset MOVE_DETECT, 25
+    learnset MOVE_NIGHT_SLASH, 28
     learnset MOVE_ROOST, 31
-    learnset MOVE_FEATHER_DANCE, 33
-    learnset MOVE_AIR_SLASH, 35
-    learnset MOVE_RAZOR_WIND, 36
-    learnset MOVE_FACADE, 50
-    learnset MOVE_TAILWIND, 51
-    learnset MOVE_SKY_ATTACK, 57
+    learnset MOVE_SECRET_POWER, 34
+    learnset MOVE_FEATHER_DANCE, 37
+    learnset MOVE_U_TURN, 40
+    learnset MOVE_DUAL_WINGBEAT, 43
+    learnset MOVE_TAILWIND, 46
+    learnset MOVE_LEAF_BLADE, 49
+    learnset MOVE_HURRICANE, 52
+    learnset MOVE_HEAT_WAVE, 55
+    learnset MOVE_HYPER_VOICE, 58
+    learnset MOVE_DOUBLE_EDGE, 61
+    learnset MOVE_BRAVE_BIRD, 64
+    learnset MOVE_SKY_ATTACK, 67
     terminatelearnset
 
 
 levelup SPECIES_UNFEZANT
     learnset MOVE_GUST, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_GROWL, 4
-    learnset MOVE_LEER, 8
-    learnset MOVE_QUICK_ATTACK, 11
-    learnset MOVE_AIR_CUTTER, 15
-    learnset MOVE_TAUNT, 19
-    learnset MOVE_DETECT, 29
-    learnset MOVE_SWAGGER, 33
-    learnset MOVE_FEATHER_DANCE, 34
-    learnset MOVE_ROOST, 35
-    learnset MOVE_AIR_SLASH, 37
-    learnset MOVE_RAZOR_WIND, 38
-    learnset MOVE_FACADE, 55
-    learnset MOVE_TAILWIND, 58
-    learnset MOVE_SKY_ATTACK, 66
+    learnset MOVE_LEER, 6
+    learnset MOVE_QUICK_ATTACK, 9
+    learnset MOVE_TAUNT, 12
+    learnset MOVE_SWIFT, 15
+    learnset MOVE_AERIAL_ACE, 18
+    learnset MOVE_SWAGGER, 20
+    learnset MOVE_STEEL_WING, 23
+    learnset MOVE_DETECT, 26
+    learnset MOVE_NIGHT_SLASH, 29
+    learnset MOVE_ROOST, 32
+    learnset MOVE_SECRET_POWER, 35
+    learnset MOVE_FEATHER_DANCE, 38
+    learnset MOVE_U_TURN, 41
+    learnset MOVE_DUAL_WINGBEAT, 44
+    learnset MOVE_TAILWIND, 47
+    learnset MOVE_LEAF_BLADE, 50
+    learnset MOVE_HURRICANE, 53
+    learnset MOVE_HEAT_WAVE, 56
+    learnset MOVE_HYPER_VOICE, 59
+    learnset MOVE_DOUBLE_EDGE, 62
+    learnset MOVE_BRAVE_BIRD, 65
+    learnset MOVE_SKY_ATTACK, 68
     terminatelearnset
 
 
