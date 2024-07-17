@@ -13643,45 +13643,59 @@ levelup SPECIES_SAWK
 levelup SPECIES_SEWADDLE
     learnset MOVE_TACKLE, 1
     learnset MOVE_STRING_SHOT, 1
-    learnset MOVE_BUG_BITE, 8
-    learnset MOVE_RAZOR_LEAF, 15
-    learnset MOVE_STRUGGLE_BUG, 22
-    learnset MOVE_ENDURE, 29
-    learnset MOVE_STICKY_WEB, 31
-    learnset MOVE_BUG_BUZZ, 36
-    learnset MOVE_FLAIL, 43
+    learnset MOVE_STRUGGLE_BUG, 4
+    learnset MOVE_RAZOR_LEAF, 7
+    learnset MOVE_BUG_BITE, 10
+    learnset MOVE_ENDURE, 13
+    learnset MOVE_STICKY_WEB, 16
+    learnset MOVE_BUG_BUZZ, 18
+    learnset MOVE_FLAIL, 21
     terminatelearnset
 
 
 levelup SPECIES_SWADLOON
     learnset MOVE_PROTECT, 0
     learnset MOVE_PROTECT, 1
-    learnset MOVE_GRASS_WHISTLE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_STRING_SHOT, 1
-    learnset MOVE_BUG_BITE, 1
-    learnset MOVE_RAZOR_LEAF, 1
+    learnset MOVE_STRUGGLE_BUG, 4
+    learnset MOVE_RAZOR_LEAF, 7
+    learnset MOVE_BUG_BITE, 10
+    learnset MOVE_ENDURE, 13
+    learnset MOVE_STICKY_WEB, 16
+    learnset MOVE_BUG_BUZZ, 18
+    learnset MOVE_FLAIL, 21
+    learnset MOVE_GRASS_WHISTLE, 24
     terminatelearnset
 
 
 levelup SPECIES_LEAVANNY
     learnset MOVE_SLASH, 0
     learnset MOVE_SLASH, 1
-    learnset MOVE_FALSE_SWIPE, 1
+    learnset MOVE_PROTECT, 0
+    learnset MOVE_PROTECT, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_STRING_SHOT, 1
-    learnset MOVE_BUG_BITE, 1
-    learnset MOVE_RAZOR_LEAF, 1
-    learnset MOVE_BUG_BITE, 8
-    learnset MOVE_RAZOR_LEAF, 15
-    learnset MOVE_STRUGGLE_BUG, 22
-    learnset MOVE_FELL_STINGER, 29
-    learnset MOVE_HELPING_HAND, 32
-    learnset MOVE_LEAF_BLADE, 36
-    learnset MOVE_X_SCISSOR, 39
-    learnset MOVE_ENTRAINMENT, 43
-    learnset MOVE_SWORDS_DANCE, 46
-    learnset MOVE_LEAF_STORM, 50
+    learnset MOVE_STRUGGLE_BUG, 4
+    learnset MOVE_RAZOR_LEAF, 7
+    learnset MOVE_BUG_BITE, 10
+    learnset MOVE_ENDURE, 13
+    learnset MOVE_STICKY_WEB, 16
+    learnset MOVE_BUG_BUZZ, 18
+    learnset MOVE_FLAIL, 21
+    learnset MOVE_GRASS_WHISTLE, 24
+    learnset MOVE_FALSE_SWIPE, 27
+    learnset MOVE_FELL_STINGER, 30
+    learnset MOVE_HELPING_HAND, 33
+    learnset MOVE_ENERGY_BALL, 36
+    learnset MOVE_BUG_BUZZ, 39
+    learnset MOVE_ENTRAINMENT, 42
+    learnset MOVE_LUNGE, 45
+    learnset MOVE_SWORDS_DANCE, 48
+    learnset MOVE_LEAF_BLADE, 51
+    learnset MOVE_POISON_JAB, 54
+    learnset MOVE_LEAF_STORM, 57
+    learnset MOVE_SOLAR_BLADE, 60
     terminatelearnset
 
 
