@@ -13512,69 +13512,75 @@ levelup SPECIES_CONKELDURR
 levelup SPECIES_TYMPOLE
     learnset MOVE_ECHOED_VOICE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_ACID, 4
-    learnset MOVE_SUPERSONIC, 6
-    learnset MOVE_ROUND, 12
-    learnset MOVE_MUD_SHOT, 13
-    learnset MOVE_BUBBLE_BEAM, 16
-    learnset MOVE_UPROAR, 25
-    learnset MOVE_AQUA_RING, 26
-    learnset MOVE_FLAIL, 28
-    learnset MOVE_MUDDY_WATER, 33
-    learnset MOVE_RAIN_DANCE, 37
-    learnset MOVE_ECHOED_VOICE, 38
-    learnset MOVE_HYPER_VOICE, 40
-    learnset MOVE_HYDRO_PUMP, 45
+    learnset MOVE_BUBBLE, 4
+    learnset MOVE_ACID, 7
+    learnset MOVE_SUPERSONIC, 10
+    learnset MOVE_ROUND, 13
+    learnset MOVE_MUD_SHOT, 16
+    learnset MOVE_MIST, 18
+    learnset MOVE_BUBBLE_BEAM, 21
+    learnset MOVE_BULLDOZE, 24
+    learnset MOVE_AQUA_RING, 27
+    learnset MOVE_UPROAR, 30
+    learnset MOVE_STOMPING_TANTRUM, 33
+    learnset MOVE_RAIN_DANCE, 36
+    learnset MOVE_HYPER_VOICE, 39
+    learnset MOVE_TOXIC, 42
+    learnset MOVE_LIQUIDATION, 45
+    learnset MOVE_HYDRO_PUMP, 48
     terminatelearnset
 
 
 levelup SPECIES_PALPITOAD
     learnset MOVE_ECHOED_VOICE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_ROUND, 1
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_ROUND, 12
-    learnset MOVE_MUD_SHOT, 13
-    learnset MOVE_BUBBLE_BEAM, 16
-    learnset MOVE_UPROAR, 26
-    learnset MOVE_AQUA_RING, 29
-    learnset MOVE_FLAIL, 30
-    learnset MOVE_MUDDY_WATER, 38
-    learnset MOVE_ECHOED_VOICE, 42
-    learnset MOVE_RAIN_DANCE, 44
-    learnset MOVE_HYPER_VOICE, 46
-    learnset MOVE_HYDRO_PUMP, 53
+    learnset MOVE_BUBBLE, 5
+    learnset MOVE_ACID, 8
+    learnset MOVE_SUPERSONIC, 11
+    learnset MOVE_ROUND, 14
+    learnset MOVE_MUD_SHOT, 17
+    learnset MOVE_MIST, 19
+    learnset MOVE_BUBBLE_BEAM, 22
+    learnset MOVE_BULLDOZE, 25
+    learnset MOVE_AQUA_RING, 28
+    learnset MOVE_UPROAR, 31
+    learnset MOVE_STOMPING_TANTRUM, 34
+    learnset MOVE_RAIN_DANCE, 37
+    learnset MOVE_HYPER_VOICE, 40
+    learnset MOVE_TOXIC, 43
+    learnset MOVE_LIQUIDATION, 46
+    learnset MOVE_HYDRO_PUMP, 49
     terminatelearnset
 
 
 levelup SPECIES_SEISMITOAD
     learnset MOVE_DRAIN_PUNCH, 0
-    learnset MOVE_ACID, 0
     learnset MOVE_DRAIN_PUNCH, 1
     learnset MOVE_GASTRO_ACID, 1
     learnset MOVE_ECHOED_VOICE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_ROUND, 1
-    learnset MOVE_SUPERSONIC, 5
-    learnset MOVE_ROUND, 12
-    learnset MOVE_MUD_SHOT, 13
-    learnset MOVE_BUBBLE_BEAM, 16
-    learnset MOVE_UPROAR, 26
-    learnset MOVE_AQUA_RING, 30
-    learnset MOVE_FLAIL, 31
-    learnset MOVE_MUDDY_WATER, 41
-    learnset MOVE_DRAIN_PUNCH, 44
-    learnset MOVE_RAIN_DANCE, 48
-    learnset MOVE_ECHOED_VOICE, 49
-    learnset MOVE_HYPER_VOICE, 52
-    learnset MOVE_HYDRO_PUMP, 62
+    learnset MOVE_BUBBLE, 5
+    learnset MOVE_ACID, 8
+    learnset MOVE_SUPERSONIC, 11
+    learnset MOVE_ROUND, 14
+    learnset MOVE_MUD_SHOT, 17
+    learnset MOVE_MIST, 19
+    learnset MOVE_BUBBLE_BEAM, 22
+    learnset MOVE_BULLDOZE, 25
+    learnset MOVE_AQUA_RING, 28
+    learnset MOVE_UPROAR, 31
+    learnset MOVE_STOMPING_TANTRUM, 34
+    learnset MOVE_RAIN_DANCE, 37
+    learnset MOVE_HYPER_VOICE, 40
+    learnset MOVE_TOXIC, 43
+    learnset MOVE_LIQUIDATION, 46
+    learnset MOVE_POISON_JAB, 49
+    learnset MOVE_SCALD, 52
+    learnset MOVE_SLUDGE_BOMB, 55
+    learnset MOVE_POWER_WHIP, 58
+    learnset MOVE_HYDRO_PUMP, 61
+    learnset MOVE_EARTHQUAKE, 64
+    learnset MOVE_GUNK_SHOT, 67
     terminatelearnset
 
 
