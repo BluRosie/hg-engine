@@ -12841,68 +12841,77 @@ levelup SPECIES_WATCHOG
 
 
 levelup SPECIES_LILLIPUP
-    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_ODOR_SLEUTH, 5
-    learnset MOVE_BITE, 8
-    learnset MOVE_WORK_UP, 11
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_WORK_UP, 4
+    learnset MOVE_BITE, 7
+    learnset MOVE_COVET, 10
     learnset MOVE_BABY_DOLL_EYES, 13
-    learnset MOVE_RETALIATE, 19
-    learnset MOVE_TAKE_DOWN, 21
-    learnset MOVE_HELPING_HAND, 22
-    learnset MOVE_CRUNCH, 23
-    learnset MOVE_PLAY_ROUGH, 31
-    learnset MOVE_ROAR, 33
-    learnset MOVE_REVERSAL, 34
-    learnset MOVE_LAST_RESORT, 40
-    learnset MOVE_GIGA_IMPACT, 44
+    learnset MOVE_PAYBACK, 16
+    learnset MOVE_BULLDOZE, 18
+    learnset MOVE_RETALIATE, 21
+    learnset MOVE_HELPING_HAND, 24
+    learnset MOVE_STOMPING_TANTRUM, 27
+    learnset MOVE_ROAR, 30
+    learnset MOVE_CRUNCH, 33
+    learnset MOVE_HELPING_HAND, 36
+    learnset MOVE_PSYCHIC_FANGS, 39
+    learnset MOVE_TAKE_DOWN, 42
+    learnset MOVE_LAST_RESORT, 45
+    learnset MOVE_GIGA_IMPACT, 48
     terminatelearnset
 
 
 levelup SPECIES_HERDIER
-    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_WORK_UP, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_ODOR_SLEUTH, 1
-    learnset MOVE_ODOR_SLEUTH, 5
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_WORK_UP, 5
     learnset MOVE_BITE, 8
-    learnset MOVE_BABY_DOLL_EYES, 19
-    learnset MOVE_WORK_UP, 20
-    learnset MOVE_RETALIATE, 21
-    learnset MOVE_TAKE_DOWN, 26
-    learnset MOVE_CRUNCH, 27
-    learnset MOVE_HELPING_HAND, 28
-    learnset MOVE_PLAY_ROUGH, 37
-    learnset MOVE_ROAR, 42
-    learnset MOVE_REVERSAL, 43
-    learnset MOVE_LAST_RESORT, 51
-    learnset MOVE_GIGA_IMPACT, 57
+    learnset MOVE_COVET, 11
+    learnset MOVE_BABY_DOLL_EYES, 14
+    learnset MOVE_PAYBACK, 17
+    learnset MOVE_BULLDOZE, 19
+    learnset MOVE_RETALIATE, 22
+    learnset MOVE_HELPING_HAND, 25
+    learnset MOVE_STOMPING_TANTRUM, 28
+    learnset MOVE_ROAR, 31
+    learnset MOVE_CRUNCH, 34
+    learnset MOVE_HELPING_HAND, 37
+    learnset MOVE_PSYCHIC_FANGS, 40
+    learnset MOVE_TAKE_DOWN, 43
+    learnset MOVE_LAST_RESORT, 46
+    learnset MOVE_GIGA_IMPACT, 49
     terminatelearnset
 
 
 levelup SPECIES_STOUTLAND
-    learnset MOVE_ICE_FANG, 1
-    learnset MOVE_FIRE_FANG, 1
-    learnset MOVE_THUNDER_FANG, 1
-    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_WORK_UP, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_ODOR_SLEUTH, 1
-    learnset MOVE_ODOR_SLEUTH, 5
-    learnset MOVE_BITE, 8
-    learnset MOVE_BABY_DOLL_EYES, 19
-    learnset MOVE_WORK_UP, 20
+    learnset MOVE_TACKLE, 1
+    learnset MOVE_WORK_UP, 6
+    learnset MOVE_BITE, 9
+    learnset MOVE_COVET, 12
+    learnset MOVE_BABY_DOLL_EYES, 15
+    learnset MOVE_PAYBACK, 18
+    learnset MOVE_BULLDOZE, 20
     learnset MOVE_RETALIATE, 23
-    learnset MOVE_CRUNCH, 27
-    learnset MOVE_TAKE_DOWN, 27
-    learnset MOVE_HELPING_HAND, 30
-    learnset MOVE_PLAY_ROUGH, 42
-    learnset MOVE_ROAR, 46
-    learnset MOVE_REVERSAL, 48
-    learnset MOVE_LAST_RESORT, 61
-    learnset MOVE_GIGA_IMPACT, 69
+    learnset MOVE_HELPING_HAND, 26
+    learnset MOVE_STOMPING_TANTRUM, 29
+    learnset MOVE_ROAR, 32
+    learnset MOVE_FIRE_FANG, 33
+    learnset MOVE_ICE_FANG, 33
+    learnset MOVE_THUNDER_FANG, 33
+    learnset MOVE_CRUNCH, 35
+    learnset MOVE_HELPING_HAND, 38
+    learnset MOVE_PSYCHIC_FANGS, 41
+    learnset MOVE_TAKE_DOWN, 44
+    learnset MOVE_BODY_SLAM, 47
+    learnset MOVE_IRON_HEAD, 50
+    learnset MOVE_WILD_CHARGE, 53
+    learnset MOVE_ENDURE, 56
+    learnset MOVE_REVERSAL, 59
+    learnset MOVE_LAST_RESORT, 62
+    learnset MOVE_SUPERPOWER, 65
+    learnset MOVE_GIGA_IMPACT, 68
     terminatelearnset
 
 
