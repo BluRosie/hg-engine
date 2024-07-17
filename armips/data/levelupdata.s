@@ -12779,22 +12779,31 @@ levelup SPECIES_SAMUROTT
 
 levelup SPECIES_PATRAT
     learnset MOVE_TACKLE, 1
-    learnset MOVE_LEER, 3
-    learnset MOVE_BITE, 6
-    learnset MOVE_BIDE, 8
-    learnset MOVE_DETECT, 11
+    learnset MOVE_LEER, 1
+    learnset MOVE_BITE, 4
+    learnset MOVE_BIDE, 7
+    learnset MOVE_DETECT, 10
     learnset MOVE_SAND_ATTACK, 13
-    learnset MOVE_CRUNCH, 16
+    learnset MOVE_PAYBACK, 16
     learnset MOVE_HYPNOSIS, 18
     learnset MOVE_SUPER_FANG, 21
-    learnset MOVE_AFTER_YOU, 23
-    learnset MOVE_FOCUS_ENERGY, 26
-    learnset MOVE_WORK_UP, 28
-    learnset MOVE_HYPER_FANG, 31
-    learnset MOVE_NASTY_PLOT, 33
+    learnset MOVE_AFTER_YOU, 24
+    learnset MOVE_HEADBUTT, 27
+    learnset MOVE_WORK_UP, 30
+    learnset MOVE_REVENGE, 33
     learnset MOVE_MEAN_LOOK, 36
-    learnset MOVE_BATON_PASS, 38
-    learnset MOVE_SLAM, 41
+    learnset MOVE_SUCKER_PUNCH, 39
+    learnset MOVE_HYPER_FANG, 42
+    learnset MOVE_BATON_PASS, 45
+    learnset MOVE_PLAY_ROUGH, 48
+    learnset MOVE_RETURN, 51
+    learnset MOVE_TAKE_DOWN, 54
+    learnset MOVE_NASTY_PLOT, 57
+    learnset MOVE_ENDEAVOR, 60
+    learnset MOVE_IRON_TAIL, 63
+    learnset MOVE_FOCUS_BLAST, 66
+    learnset MOVE_GUNK_SHOT, 69
+    learnset MOVE_LAST_RESORT, 72
     terminatelearnset
 
 
@@ -12804,24 +12813,30 @@ levelup SPECIES_WATCHOG
     learnset MOVE_ROTOTILLER, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_LOW_KICK, 1
-    learnset MOVE_LEER, 3
-    learnset MOVE_BITE, 6
+    learnset MOVE_BITE, 5
     learnset MOVE_BIDE, 8
     learnset MOVE_DETECT, 11
-    learnset MOVE_SAND_ATTACK, 13
-    learnset MOVE_CRUNCH, 16
-    learnset MOVE_HYPNOSIS, 18
+    learnset MOVE_SAND_ATTACK, 14
+    learnset MOVE_PAYBACK, 17
+    learnset MOVE_HYPNOSIS, 19
     learnset MOVE_SUPER_FANG, 22
     learnset MOVE_AFTER_YOU, 25
-    learnset MOVE_FOCUS_ENERGY, 29
-    learnset MOVE_PSYCH_UP, 32
-    learnset MOVE_HYPER_FANG, 36
-    learnset MOVE_NASTY_PLOT, 39
-    learnset MOVE_MEAN_LOOK, 43
+    learnset MOVE_HEADBUTT, 28
+    learnset MOVE_WORK_UP, 31
+    learnset MOVE_REVENGE, 34
+    learnset MOVE_MEAN_LOOK, 37
+    learnset MOVE_SUCKER_PUNCH, 40
+    learnset MOVE_HYPER_FANG, 43
     learnset MOVE_BATON_PASS, 46
-    learnset MOVE_SLAM, 50
+    learnset MOVE_PLAY_ROUGH, 49
+    learnset MOVE_RETURN, 52
+    learnset MOVE_TAKE_DOWN, 55
+    learnset MOVE_NASTY_PLOT, 58
+    learnset MOVE_ENDEAVOR, 61
+    learnset MOVE_IRON_TAIL, 64
+    learnset MOVE_FOCUS_BLAST, 67
+    learnset MOVE_GUNK_SHOT, 70
+    learnset MOVE_LAST_RESORT, 73
     terminatelearnset
 
 
