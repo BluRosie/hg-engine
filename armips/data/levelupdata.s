@@ -13308,48 +13308,54 @@ levelup SPECIES_GIGALITH
 
 
 levelup SPECIES_WOOBAT
-    learnset MOVE_GUST, 1
-    learnset MOVE_ATTRACT, 1
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_ODOR_SLEUTH, 4
-    learnset MOVE_CONFUSION, 5
-    learnset MOVE_GUST, 8
-    learnset MOVE_HEART_STAMP, 15
-    learnset MOVE_AIR_CUTTER, 17
+    learnset MOVE_ATTRACT, 1
+    learnset MOVE_GUST, 4
+    learnset MOVE_FLATTER, 7
+    learnset MOVE_ENDEAVOR, 10
+    learnset MOVE_HEART_STAMP, 13
+    learnset MOVE_AIR_CUTTER, 16
     learnset MOVE_ASSURANCE, 18
-    learnset MOVE_IMPRISON, 19
-    learnset MOVE_ATTRACT, 25
-    learnset MOVE_ENDEAVOR, 27
-    learnset MOVE_AMNESIA, 29
+    learnset MOVE_IMPRISON, 21
+    learnset MOVE_PSYBEAM, 24
+    learnset MOVE_GIGA_DRAIN, 27
+    learnset MOVE_AMNESIA, 30
     learnset MOVE_AIR_SLASH, 33
-    learnset MOVE_CALM_MIND, 37
-    learnset MOVE_PSYCHIC, 40
-    learnset MOVE_FUTURE_SIGHT, 43
-    learnset MOVE_SIMPLE_BEAM, 55
+    learnset MOVE_SIMPLE_BEAM, 36
+    learnset MOVE_SHADOW_BALL, 39
+    learnset MOVE_PSYCHIC, 42
+    learnset MOVE_CALM_MIND, 45
+    learnset MOVE_DAZZLING_GLEAM, 48
+    learnset MOVE_ROOST, 51
+    learnset MOVE_HEAT_WAVE, 54
+    learnset MOVE_HURRICANE, 57
+    learnset MOVE_FUTURE_SIGHT, 60
     terminatelearnset
 
 
 levelup SPECIES_SWOOBAT
-    learnset MOVE_GUST, 1
-    learnset MOVE_ATTRACT, 1
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_ENDEAVOR, 1
-    learnset MOVE_ODOR_SLEUTH, 1
-    learnset MOVE_ASSURANCE, 1
-    learnset MOVE_ODOR_SLEUTH, 4
-    learnset MOVE_GUST, 8
-    learnset MOVE_HEART_STAMP, 15
+    learnset MOVE_ATTRACT, 1
+    learnset MOVE_GUST, 5
+    learnset MOVE_FLATTER, 8
+    learnset MOVE_ENDEAVOR, 11
+    learnset MOVE_HEART_STAMP, 14
     learnset MOVE_AIR_CUTTER, 17
-    learnset MOVE_ASSURANCE, 18
-    learnset MOVE_IMPRISON, 19
-    learnset MOVE_ATTRACT, 25
-    learnset MOVE_AMNESIA, 29
-    learnset MOVE_AIR_SLASH, 33
-    learnset MOVE_CALM_MIND, 37
-    learnset MOVE_PSYCHIC, 40
-    learnset MOVE_FUTURE_SIGHT, 43
-    learnset MOVE_ENDEAVOR, 47
-    learnset MOVE_SIMPLE_BEAM, 55
+    learnset MOVE_ASSURANCE, 19
+    learnset MOVE_IMPRISON, 22
+    learnset MOVE_PSYBEAM, 25
+    learnset MOVE_GIGA_DRAIN, 28
+    learnset MOVE_AMNESIA, 31
+    learnset MOVE_AIR_SLASH, 34
+    learnset MOVE_SIMPLE_BEAM, 37
+    learnset MOVE_SHADOW_BALL, 40
+    learnset MOVE_PSYCHIC, 43
+    learnset MOVE_CALM_MIND, 46
+    learnset MOVE_DAZZLING_GLEAM, 49
+    learnset MOVE_ROOST, 52
+    learnset MOVE_HEAT_WAVE, 55
+    learnset MOVE_HURRICANE, 58
+    learnset MOVE_FUTURE_SIGHT, 61
     terminatelearnset
 
 
