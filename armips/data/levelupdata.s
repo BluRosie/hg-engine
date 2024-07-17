@@ -14336,49 +14336,60 @@ levelup SPECIES_ARCHEOPS
 levelup SPECIES_TRUBBISH
     learnset MOVE_POUND, 1
     learnset MOVE_POISON_GAS, 1
-    learnset MOVE_RECYCLE, 3
-    learnset MOVE_ACID_SPRAY, 8
-    learnset MOVE_TOXIC_SPIKES, 11
-    learnset MOVE_DOUBLE_SLAP, 14
-    learnset MOVE_SLUDGE, 18
-    learnset MOVE_STOCKPILE, 21
-    learnset MOVE_SWALLOW, 21
-    learnset MOVE_CLEAR_SMOG, 22
-    learnset MOVE_AMNESIA, 23
-    learnset MOVE_TAKE_DOWN, 24
-    learnset MOVE_SLUDGE_BOMB, 27
-    learnset MOVE_TOXIC, 32
-    learnset MOVE_BELCH, 37
-    learnset MOVE_PAIN_SPLIT, 37
-    learnset MOVE_GUNK_SHOT, 41
-    learnset MOVE_EXPLOSION, 44
+    learnset MOVE_RECYCLE, 4
+    learnset MOVE_ACID_SPRAY, 7
+    learnset MOVE_AMNESIA, 10
+    learnset MOVE_CLEAR_SMOG, 13
+    learnset MOVE_TOXIC_SPIKES, 16
+    learnset MOVE_PAYBACK, 18
+    learnset MOVE_SLUDGE, 21
+    learnset MOVE_STOCKPILE, 24
+    learnset MOVE_SWALLOW, 24
+    learnset MOVE_DARK_PULSE, 27
+    learnset MOVE_VENOSHOCK, 30
+    learnset MOVE_TOXIC, 33
+    learnset MOVE_DRAIN_PUNCH, 36
+    learnset MOVE_CURSE, 39
+    learnset MOVE_SEED_BOMB, 42
+    learnset MOVE_POISON_JAB, 45
+    learnset MOVE_AUTOTOMIZE, 48
+    learnset MOVE_EARTH_POWER, 51
+    learnset MOVE_SLUDGE_BOMB, 54
+    learnset MOVE_EARTHQUAKE, 57
+    learnset MOVE_EXPLOSION, 60
+    learnset MOVE_SLUDGE_WAVE, 63
+    learnset MOVE_GUNK_SHOT, 66
     terminatelearnset
 
 
 levelup SPECIES_GARBODOR
-    learnset MOVE_POUND, 1
-    learnset MOVE_TAKE_DOWN, 1
+    learnset MOVE_METAL_CLAW, 0
     learnset MOVE_METAL_CLAW, 1
+    learnset MOVE_POUND, 1
     learnset MOVE_POISON_GAS, 1
-    learnset MOVE_RECYCLE, 1
-    learnset MOVE_ACID_SPRAY, 1
-    learnset MOVE_TOXIC_SPIKES, 1
-    learnset MOVE_RECYCLE, 3
-    learnset MOVE_TOXIC_SPIKES, 11
-    learnset MOVE_ACID_SPRAY, 12
-    learnset MOVE_DOUBLE_SLAP, 14
-    learnset MOVE_SLUDGE, 18
-    learnset MOVE_STOCKPILE, 21
-    learnset MOVE_SWALLOW, 21
-    learnset MOVE_CLEAR_SMOG, 22
-    learnset MOVE_BODY_SLAM, 24
-    learnset MOVE_AMNESIA, 26
-    learnset MOVE_SLUDGE_BOMB, 27
+    learnset MOVE_RECYCLE, 5
+    learnset MOVE_ACID_SPRAY, 8
+    learnset MOVE_AMNESIA, 11
+    learnset MOVE_CLEAR_SMOG, 14
+    learnset MOVE_TOXIC_SPIKES, 17
+    learnset MOVE_PAYBACK, 19
+    learnset MOVE_SLUDGE, 22
+    learnset MOVE_STOCKPILE, 25
+    learnset MOVE_SWALLOW, 25
+    learnset MOVE_DARK_PULSE, 28
+    learnset MOVE_VENOSHOCK, 31
     learnset MOVE_TOXIC, 34
-    learnset MOVE_PAIN_SPLIT, 39
-    learnset MOVE_BELCH, 40
-    learnset MOVE_GUNK_SHOT, 48
-    learnset MOVE_EXPLOSION, 53
+    learnset MOVE_DRAIN_PUNCH, 37
+    learnset MOVE_CURSE, 40
+    learnset MOVE_SEED_BOMB, 43
+    learnset MOVE_POISON_JAB, 46
+    learnset MOVE_AUTOTOMIZE, 49
+    learnset MOVE_EARTH_POWER, 52
+    learnset MOVE_SLUDGE_BOMB, 55
+    learnset MOVE_EARTHQUAKE, 58
+    learnset MOVE_EXPLOSION, 61
+    learnset MOVE_SLUDGE_WAVE, 64
+    learnset MOVE_GUNK_SHOT, 67
     terminatelearnset
 
 
