@@ -13777,53 +13777,50 @@ levelup SPECIES_SCOLIPEDE
 levelup SPECIES_COTTONEE
     learnset MOVE_ABSORB, 1
     learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_FAIRY_WIND, 1
-    learnset MOVE_FAIRY_WIND, 3
+    learnset MOVE_FAIRY_WIND, 4
     learnset MOVE_STUN_SPORE, 7
-    learnset MOVE_GROWTH, 11
-    learnset MOVE_MEGA_DRAIN, 12
-    learnset MOVE_RAZOR_LEAF, 16
-    learnset MOVE_LEECH_SEED, 19
+    learnset MOVE_DISARMING_VOICE, 10
+    learnset MOVE_MEGA_DRAIN, 13
+    learnset MOVE_MAGICAL_LEAF, 16
+    learnset MOVE_LEECH_SEED, 18
     learnset MOVE_POISON_POWDER, 21
     learnset MOVE_GIGA_DRAIN, 24
-    learnset MOVE_COTTON_SPORE, 25
     learnset MOVE_CHARM, 27
-    learnset MOVE_HELPING_HAND, 31
-    learnset MOVE_ENERGY_BALL, 35
+    learnset MOVE_GROWTH, 30
+    learnset MOVE_HELPING_HAND, 33
+    learnset MOVE_ENERGY_BALL, 36
     learnset MOVE_SUNNY_DAY, 39
-    learnset MOVE_COTTON_GUARD, 41
-    learnset MOVE_ENDEAVOR, 42
-    learnset MOVE_SOLAR_BEAM, 47
+    learnset MOVE_WEATHER_BALL, 42
+    learnset MOVE_ENDEAVOR, 45
+    learnset MOVE_MOONBLAST, 48
+    learnset MOVE_SOLAR_BEAM, 51
     terminatelearnset
 
 
 levelup SPECIES_WHIMSICOTT
+    learnset MOVE_GUST, 0
     learnset MOVE_GUST, 1
-    learnset MOVE_TAILWIND, 1
-    learnset MOVE_MOONBLAST, 1
-    learnset MOVE_MEMENTO, 1
-    learnset MOVE_HURRICANE, 1
-    learnset MOVE_MEGA_DRAIN, 1
-    learnset MOVE_RAZOR_LEAF, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_POISON_POWDER, 1
-    learnset MOVE_GIGA_DRAIN, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_LEECH_SEED, 1
-    learnset MOVE_COTTON_SPORE, 1
-    learnset MOVE_ENERGY_BALL, 1
-    learnset MOVE_SUNNY_DAY, 1
-    learnset MOVE_ENDEAVOR, 1
-    learnset MOVE_COTTON_GUARD, 1
-    learnset MOVE_SOLAR_BEAM, 1
     learnset MOVE_ABSORB, 1
     learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_FAIRY_WIND, 1
-    learnset MOVE_STUN_SPORE, 1
-    learnset MOVE_GUST, 10
-    learnset MOVE_TAILWIND, 28
-    learnset MOVE_HURRICANE, 46
-    learnset MOVE_MOONBLAST, 50
+    learnset MOVE_FAIRY_WIND, 4
+    learnset MOVE_STUN_SPORE, 7
+    learnset MOVE_DISARMING_VOICE, 10
+    learnset MOVE_MEGA_DRAIN, 13
+    learnset MOVE_MAGICAL_LEAF, 16
+    learnset MOVE_LEECH_SEED, 18
+    learnset MOVE_POISON_POWDER, 21
+    learnset MOVE_GIGA_DRAIN, 24
+    learnset MOVE_CHARM, 27
+    learnset MOVE_GROWTH, 30
+    learnset MOVE_HELPING_HAND, 33
+    learnset MOVE_ENERGY_BALL, 36
+    learnset MOVE_SUNNY_DAY, 39
+    learnset MOVE_WEATHER_BALL, 42
+    learnset MOVE_ENDEAVOR, 45
+    learnset MOVE_MOONBLAST, 48
+    learnset MOVE_TAILWIND, 51
+    learnset MOVE_HURRICANE, 54
+    learnset MOVE_SOLAR_BEAM, 57
     terminatelearnset
 
 
