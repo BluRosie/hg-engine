@@ -14181,49 +14181,58 @@ levelup SPECIES_SIGILYPH
 levelup SPECIES_YAMASK
     learnset MOVE_ASTONISH, 1
     learnset MOVE_PROTECT, 1
-    learnset MOVE_HAZE, 6
-    learnset MOVE_DISABLE, 8
-    learnset MOVE_NIGHT_SHADE, 10
+    learnset MOVE_HAZE, 4
+    learnset MOVE_NIGHT_SHADE, 7
+    learnset MOVE_DISABLE, 10
+    learnset MOVE_PAYBACK, 13
+    learnset MOVE_OMINOUS_WIND, 16
     learnset MOVE_WILL_O_WISP, 18
-    learnset MOVE_CRAFTY_SHIELD, 20
-    learnset MOVE_HEX, 20
-    learnset MOVE_OMINOUS_WIND, 25
-    learnset MOVE_CURSE, 32
-    learnset MOVE_MEAN_LOOK, 35
+    learnset MOVE_HEX, 21
+    learnset MOVE_CRAFTY_SHIELD, 24
+    learnset MOVE_MEAN_LOOK, 27
+    learnset MOVE_IMPRISON, 30
+    learnset MOVE_CURSE, 33
     learnset MOVE_GRUDGE, 36
-    learnset MOVE_SHADOW_BALL, 38
-    learnset MOVE_POWER_SPLIT, 41
-    learnset MOVE_GUARD_SPLIT, 41
-    learnset MOVE_DARK_PULSE, 44
-    learnset MOVE_DESTINY_BOND, 50
+    learnset MOVE_SHADOW_BALL, 39
+    learnset MOVE_POWER_SPLIT, 42
+    learnset MOVE_GUARD_SPLIT, 42
+    learnset MOVE_DARK_PULSE, 45
+    learnset MOVE_DESTINY_BOND, 48
+    learnset MOVE_ENERGY_BALL, 51
+    learnset MOVE_TOXIC_SPIKES, 54
+    learnset MOVE_PSYCHIC, 57
+    learnset MOVE_TRICK_ROOM, 60
+    learnset MOVE_MEMENTO, 63
     terminatelearnset
 
 
 levelup SPECIES_COFAGRIGUS
     learnset MOVE_SHADOW_CLAW, 0
-    learnset MOVE_SCARY_FACE, 0
     learnset MOVE_SHADOW_CLAW, 1
-    learnset MOVE_SCARY_FACE, 1
     learnset MOVE_ASTONISH, 1
     learnset MOVE_PROTECT, 1
-    learnset MOVE_HAZE, 1
-    learnset MOVE_NIGHT_SHADE, 1
-    learnset MOVE_DISABLE, 1
-    learnset MOVE_DISABLE, 8
-    learnset MOVE_HAZE, 9
-    learnset MOVE_NIGHT_SHADE, 13
-    learnset MOVE_WILL_O_WISP, 18
-    learnset MOVE_CRAFTY_SHIELD, 20
-    learnset MOVE_HEX, 20
-    learnset MOVE_OMINOUS_WIND, 25
-    learnset MOVE_CURSE, 33
-    learnset MOVE_MEAN_LOOK, 38
-    learnset MOVE_GRUDGE, 38
-    learnset MOVE_SHADOW_BALL, 41
-    learnset MOVE_POWER_SPLIT, 45
-    learnset MOVE_GUARD_SPLIT, 45
-    learnset MOVE_DARK_PULSE, 50
-    learnset MOVE_DESTINY_BOND, 59
+    learnset MOVE_HAZE, 5
+    learnset MOVE_NIGHT_SHADE, 8
+    learnset MOVE_DISABLE, 11
+    learnset MOVE_PAYBACK, 14
+    learnset MOVE_OMINOUS_WIND, 17
+    learnset MOVE_WILL_O_WISP, 19
+    learnset MOVE_HEX, 22
+    learnset MOVE_CRAFTY_SHIELD, 25
+    learnset MOVE_MEAN_LOOK, 28
+    learnset MOVE_IMPRISON, 31
+    learnset MOVE_CURSE, 34
+    learnset MOVE_GRUDGE, 37
+    learnset MOVE_SHADOW_BALL, 40
+    learnset MOVE_POWER_SPLIT, 43
+    learnset MOVE_GUARD_SPLIT, 43
+    learnset MOVE_DARK_PULSE, 46
+    learnset MOVE_DESTINY_BOND, 49
+    learnset MOVE_ENERGY_BALL, 52
+    learnset MOVE_TOXIC_SPIKES, 55
+    learnset MOVE_PSYCHIC, 58
+    learnset MOVE_TRICK_ROOM, 61
+    learnset MOVE_MEMENTO, 64
     terminatelearnset
 
 
