@@ -14046,44 +14046,56 @@ levelup SPECIES_MARACTUS
 levelup SPECIES_DWEBBLE
     learnset MOVE_FURY_CUTTER, 1
     learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_WITHDRAW, 5
-    learnset MOVE_SAND_ATTACK, 11
-    learnset MOVE_SMACK_DOWN, 12
-    learnset MOVE_FEINT_ATTACK, 13
-    learnset MOVE_BUG_BITE, 17
-    learnset MOVE_ROCK_BLAST, 19
-    learnset MOVE_SLASH, 25
-    learnset MOVE_ROCK_SLIDE, 26
-    learnset MOVE_STEALTH_ROCK, 26
-    learnset MOVE_FLAIL, 27
+    learnset MOVE_WITHDRAW, 4
+    learnset MOVE_ROCK_BLAST, 7
+    learnset MOVE_FEINT_ATTACK, 10
+    learnset MOVE_BUG_BITE, 13
+    learnset MOVE_ROCK_TOMB, 16
+    learnset MOVE_BULLDOZE, 18
+    learnset MOVE_SLASH, 21
+    learnset MOVE_ROCK_SLIDE, 24
+    learnset MOVE_STEALTH_ROCK, 27
+    learnset MOVE_SPIKES, 27
     learnset MOVE_ROCK_POLISH, 30
-    learnset MOVE_X_SCISSOR, 35
-    learnset MOVE_SHELL_SMASH, 40
-    learnset MOVE_ROCK_WRECKER, 45
+    learnset MOVE_SKITTER_SMACK, 33
+    learnset MOVE_KNOCK_OFF, 36
+    learnset MOVE_STOMPING_TANTRUM, 39
+    learnset MOVE_X_SCISSOR, 42
+    learnset MOVE_SHELL_SMASH, 45
+    learnset MOVE_COUNTER, 48
+    learnset MOVE_STONE_EDGE, 51
+    learnset MOVE_EARTHQUAKE, 54
+    learnset MOVE_BODY_PRESS, 57
+    learnset MOVE_POISON_JAB, 60
+    learnset MOVE_ROCK_WRECKER, 63
     terminatelearnset
 
 
 levelup SPECIES_CRUSTLE
     learnset MOVE_FURY_CUTTER, 1
     learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_WITHDRAW, 1
-    learnset MOVE_SMACK_DOWN, 1
-    learnset MOVE_SHELL_SMASH, 1
-    learnset MOVE_ROCK_BLAST, 1
-    learnset MOVE_WITHDRAW, 7
-    learnset MOVE_SAND_ATTACK, 11
-    learnset MOVE_FEINT_ATTACK, 13
-    learnset MOVE_BUG_BITE, 17
-    learnset MOVE_SMACK_DOWN, 17
-    learnset MOVE_ROCK_BLAST, 19
-    learnset MOVE_SLASH, 25
-    learnset MOVE_ROCK_SLIDE, 26
-    learnset MOVE_STEALTH_ROCK, 26
-    learnset MOVE_FLAIL, 31
-    learnset MOVE_ROCK_POLISH, 32
-    learnset MOVE_X_SCISSOR, 38
+    learnset MOVE_WITHDRAW, 5
+    learnset MOVE_ROCK_BLAST, 8
+    learnset MOVE_FEINT_ATTACK, 11
+    learnset MOVE_BUG_BITE, 14
+    learnset MOVE_ROCK_TOMB, 17
+    learnset MOVE_BULLDOZE, 19
+    learnset MOVE_SLASH, 22
+    learnset MOVE_ROCK_SLIDE, 25
+    learnset MOVE_STEALTH_ROCK, 28
+    learnset MOVE_SPIKES, 28
+    learnset MOVE_ROCK_POLISH, 31
+    learnset MOVE_SKITTER_SMACK, 34
+    learnset MOVE_KNOCK_OFF, 37
+    learnset MOVE_STOMPING_TANTRUM, 40
+    learnset MOVE_X_SCISSOR, 43
     learnset MOVE_SHELL_SMASH, 46
-    learnset MOVE_ROCK_WRECKER, 55
+    learnset MOVE_COUNTER, 49
+    learnset MOVE_STONE_EDGE, 52
+    learnset MOVE_EARTHQUAKE, 55
+    learnset MOVE_BODY_PRESS, 58
+    learnset MOVE_POISON_JAB, 61
+    learnset MOVE_ROCK_WRECKER, 64
     terminatelearnset
 
 
