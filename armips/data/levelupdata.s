@@ -14100,52 +14100,58 @@ levelup SPECIES_CRUSTLE
 
 
 levelup SPECIES_SCRAGGY
-    learnset MOVE_LOW_KICK, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_HEADBUTT, 1
-    learnset MOVE_HEADBUTT, 8
-    learnset MOVE_SAND_ATTACK, 8
-    learnset MOVE_FEINT_ATTACK, 9
-    learnset MOVE_PAYBACK, 11
-    learnset MOVE_LOW_KICK, 16
-    learnset MOVE_PROTECT, 20
+    learnset MOVE_LOW_KICK, 4
+    learnset MOVE_SAND_ATTACK, 7
+    learnset MOVE_FAKE_OUT, 10
+    learnset MOVE_DETECT, 13
+    learnset MOVE_PAYBACK, 16
+    learnset MOVE_LOW_SWEEP, 18
+    learnset MOVE_TORMENT, 21
     learnset MOVE_BEAT_UP, 24
-    learnset MOVE_SWAGGER, 24
-    learnset MOVE_BRICK_BREAK, 27
-    learnset MOVE_CHIP_AWAY, 27
-    learnset MOVE_FACADE, 28
+    learnset MOVE_HEADBUTT, 27
     learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_HIGH_JUMP_KICK, 37
-    learnset MOVE_CRUNCH, 39
-    learnset MOVE_ROCK_CLIMB, 45
-    learnset MOVE_FOCUS_PUNCH, 48
-    learnset MOVE_HEAD_SMASH, 51
+    learnset MOVE_BRICK_BREAK, 33
+    learnset MOVE_SWAGGER, 36
+    learnset MOVE_ROCK_SLIDE, 39
+    learnset MOVE_CRUNCH, 42
+    learnset MOVE_POISON_JAB, 45
+    learnset MOVE_BULK_UP, 48
+    learnset MOVE_HIGH_JUMP_KICK, 51
+    learnset MOVE_ZEN_HEADBUTT, 54
+    learnset MOVE_DRAGON_DANCE, 57
+    learnset MOVE_GUNK_SHOT, 60
+    learnset MOVE_CLOSE_COMBAT, 63
+    learnset MOVE_HEAD_SMASH, 66
     terminatelearnset
 
 
 levelup SPECIES_SCRAFTY
-    learnset MOVE_LOW_KICK, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_PAYBACK, 1
-    learnset MOVE_HEADBUTT, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_FEINT_ATTACK, 1
+    learnset MOVE_LOW_KICK, 5
     learnset MOVE_SAND_ATTACK, 8
-    learnset MOVE_FEINT_ATTACK, 9
-    learnset MOVE_LOW_KICK, 16
-    learnset MOVE_PROTECT, 20
-    learnset MOVE_PAYBACK, 20
-    learnset MOVE_BEAT_UP, 24
-    learnset MOVE_SWAGGER, 24
-    learnset MOVE_BRICK_BREAK, 27
-    learnset MOVE_CHIP_AWAY, 27
-    learnset MOVE_FACADE, 29
-    learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_CRUNCH, 40
-    learnset MOVE_HIGH_JUMP_KICK, 40
-    learnset MOVE_ROCK_CLIMB, 51
-    learnset MOVE_FOCUS_PUNCH, 55
-    learnset MOVE_HEAD_SMASH, 62
+    learnset MOVE_FAKE_OUT, 11
+    learnset MOVE_DETECT, 14
+    learnset MOVE_PAYBACK, 17
+    learnset MOVE_LOW_SWEEP, 19
+    learnset MOVE_TORMENT, 22
+    learnset MOVE_BEAT_UP, 25
+    learnset MOVE_HEADBUTT, 28
+    learnset MOVE_SCARY_FACE, 31
+    learnset MOVE_BRICK_BREAK, 34
+    learnset MOVE_SWAGGER, 37
+    learnset MOVE_ROCK_SLIDE, 40
+    learnset MOVE_CRUNCH, 43
+    learnset MOVE_POISON_JAB, 46
+    learnset MOVE_BULK_UP, 49
+    learnset MOVE_HIGH_JUMP_KICK, 52
+    learnset MOVE_ZEN_HEADBUTT, 55
+    learnset MOVE_DRAGON_DANCE, 58
+    learnset MOVE_GUNK_SHOT, 61
+    learnset MOVE_CLOSE_COMBAT, 64
+    learnset MOVE_HEAD_SMASH, 67
     terminatelearnset
 
 
