@@ -13615,20 +13615,28 @@ levelup SPECIES_THROH
 levelup SPECIES_SAWK
     learnset MOVE_ROCK_SMASH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_BIDE, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_FOCUS_ENERGY, 5
+    learnset MOVE_FOCUS_ENERGY, 4
     learnset MOVE_DOUBLE_KICK, 7
-    learnset MOVE_LOW_SWEEP, 14
-    learnset MOVE_KARATE_CHOP, 17
-    learnset MOVE_QUICK_GUARD, 25
-    learnset MOVE_BULK_UP, 25
-    learnset MOVE_COUNTER, 27
-    learnset MOVE_BRICK_BREAK, 28
-    learnset MOVE_RETALIATE, 29
-    learnset MOVE_ENDURE, 39
-    learnset MOVE_REVERSAL, 47
-    learnset MOVE_CLOSE_COMBAT, 48
+    learnset MOVE_MACH_PUNCH, 10
+    learnset MOVE_ROCK_TOMB, 13
+    learnset MOVE_LOW_KICK, 16
+    learnset MOVE_PAYBACK, 18
+    learnset MOVE_QUICK_GUARD, 21
+    learnset MOVE_LOW_SWEEP, 24
+    learnset MOVE_BULK_UP, 27
+    learnset MOVE_COUNTER, 30
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_ENDURE, 36
+    learnset MOVE_REVERSAL, 39
+    learnset MOVE_BULLDOZE, 42
+    learnset MOVE_BRICK_BREAK, 45
+    learnset MOVE_POISON_JAB, 48
+    learnset MOVE_BULK_UP, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_ZEN_HEADBUTT, 57
+    learnset MOVE_EARTHQUAKE, 60
+    learnset MOVE_HELPING_HAND, 63
+    learnset MOVE_CLOSE_COMBAT, 66
     terminatelearnset
 
 
