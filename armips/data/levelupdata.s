@@ -13047,48 +13047,63 @@ levelup SPECIES_SIMIPOUR
 
 
 levelup SPECIES_MUNNA
-    learnset MOVE_STORED_POWER, 1
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_PSYWAVE, 1
-    learnset MOVE_LUCKY_CHANT, 5
-    learnset MOVE_PSYBEAM, 9
-    learnset MOVE_HYPNOSIS, 11
-    learnset MOVE_IMPRISON, 12
-    learnset MOVE_MOONLIGHT, 16
-    learnset MOVE_MAGIC_COAT, 20
-    learnset MOVE_YAWN, 20
-    learnset MOVE_ZEN_HEADBUTT, 23
-    learnset MOVE_SYNCHRONOISE, 25
-    learnset MOVE_NIGHTMARE, 29
-    learnset MOVE_CALM_MIND, 31
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_MOONBLAST, 40
-    learnset MOVE_FUTURE_SIGHT, 40
-    learnset MOVE_DREAM_EATER, 42
-    learnset MOVE_TELEKINESIS, 43
-    learnset MOVE_STORED_POWER, 47
-    learnset MOVE_WONDER_ROOM, 52
+    learnset MOVE_DISARMING_VOICE, 4
+    learnset MOVE_LUCKY_CHANT, 7
+    learnset MOVE_PSYBEAM, 10
+    learnset MOVE_HYPNOSIS, 13
+    learnset MOVE_DRAINING_KISS, 16
+    learnset MOVE_MOONLIGHT, 18
+    learnset MOVE_YAWN, 21
+    learnset MOVE_ZEN_HEADBUTT, 24
+    learnset MOVE_NIGHTMARE, 27
+    learnset MOVE_CALM_MIND, 30
+    learnset MOVE_PLAY_ROUGH, 33
+    learnset MOVE_SKILL_SWAP, 36
+    learnset MOVE_DAZZLING_GLEAM, 39
+    learnset MOVE_SHADOW_BALL, 42
+    learnset MOVE_PSYSHOCK, 45
+    learnset MOVE_IMPRISON, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_POWER_GEM, 54
+    learnset MOVE_HEALING_WISH, 57
+    learnset MOVE_DREAM_EATER, 60
+    learnset MOVE_TRICK_ROOM, 63
+    learnset MOVE_WONDER_ROOM, 66
+    learnset MOVE_FUTURE_SIGHT, 69
     terminatelearnset
 
 
 levelup SPECIES_MUSHARNA
     learnset MOVE_PSYCHIC_TERRAIN, 1
-    learnset MOVE_IMPRISON, 1
-    learnset MOVE_MOONLIGHT, 1
-    learnset MOVE_MAGIC_COAT, 1
-    learnset MOVE_ZEN_HEADBUTT, 1
-    learnset MOVE_CALM_MIND, 1
-    learnset MOVE_YAWN, 1
-    learnset MOVE_PSYCHIC, 1
-    learnset MOVE_MOONBLAST, 1
-    learnset MOVE_DREAM_EATER, 1
-    learnset MOVE_FUTURE_SIGHT, 1
-    learnset MOVE_WONDER_ROOM, 1
-    learnset MOVE_STORED_POWER, 1
+    learnset MOVE_TELEKINESIS, 1
+    learnset MOVE_EXPANDING_FORCE, 1
     learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_HYPNOSIS, 1
-    learnset MOVE_PSYBEAM, 1
-    learnset MOVE_LUCKY_CHANT, 1
+    learnset MOVE_PSYWAVE, 1
+    learnset MOVE_DISARMING_VOICE, 5
+    learnset MOVE_LUCKY_CHANT, 8
+    learnset MOVE_PSYBEAM, 11
+    learnset MOVE_HYPNOSIS, 14
+    learnset MOVE_DRAINING_KISS, 17
+    learnset MOVE_MOONLIGHT, 19
+    learnset MOVE_YAWN, 22
+    learnset MOVE_ZEN_HEADBUTT, 25
+    learnset MOVE_NIGHTMARE, 28
+    learnset MOVE_CALM_MIND, 31
+    learnset MOVE_PLAY_ROUGH, 34
+    learnset MOVE_SKILL_SWAP, 37
+    learnset MOVE_DAZZLING_GLEAM, 40
+    learnset MOVE_SHADOW_BALL, 43
+    learnset MOVE_PSYSHOCK, 46
+    learnset MOVE_IMPRISON, 49
+    learnset MOVE_PSYCHIC, 52
+    learnset MOVE_POWER_GEM, 55
+    learnset MOVE_HEALING_WISH, 58
+    learnset MOVE_DREAM_EATER, 61
+    learnset MOVE_TRICK_ROOM, 64
+    learnset MOVE_WONDER_ROOM, 67
+    learnset MOVE_FUTURE_SIGHT, 70
     terminatelearnset
 
 
