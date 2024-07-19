@@ -61,7 +61,7 @@ trainerdata 1, "Silver"
         ivs 30
         abilityslot 0
         level 18
-        pokemon SPECIES_BAYLEEF
+        pokemon SPECIES_SERVINE
         ballseal 0
     endparty
 
@@ -8993,7 +8993,7 @@ trainerdata 263, "Silver"
         ivs 80
         abilityslot 0
         level 22
-        pokemon SPECIES_BAYLEEF
+        pokemon SPECIES_SERVINE
         move MOVE_SYNTHESIS
         move MOVE_REFLECT
         move MOVE_MAGICAL_LEAF
@@ -9073,7 +9073,7 @@ trainerdata 264, "Silver"
         ivs 160
         abilityslot 0
         level 40
-        pokemon SPECIES_MEGANIUM
+        pokemon SPECIES_SERPERIOR
         move MOVE_REFLECT
         move MOVE_PETAL_DANCE
         move MOVE_POISON_POWDER
@@ -9133,7 +9133,7 @@ trainerdata 266, "Silver"
         ivs 30
         abilityslot 0
         level 18
-        pokemon SPECIES_QUILAVA
+        pokemon SPECIES_MONFERNO
         ballseal 0
     endparty
 
@@ -9187,7 +9187,7 @@ trainerdata 267, "Silver"
         ivs 80
         abilityslot 0
         level 22
-        pokemon SPECIES_QUILAVA
+        pokemon SPECIES_MONFERNO
         move MOVE_FLAME_WHEEL
         move MOVE_SMOKESCREEN
         move MOVE_EMBER
@@ -9267,7 +9267,7 @@ trainerdata 268, "Silver"
         ivs 160
         abilityslot 0
         level 40
-        pokemon SPECIES_TYPHLOSION
+        pokemon SPECIES_INFERNAPE
         move MOVE_LAVA_PLUME
         move MOVE_SWIFT
         move MOVE_QUICK_ATTACK
@@ -9306,7 +9306,7 @@ trainerdata 269, "Silver"
         ivs 30
         abilityslot 0
         level 18
-        pokemon SPECIES_CROCONAW
+        pokemon SPECIES_FROGADIER
         ballseal 0
     endparty
 
@@ -9360,7 +9360,7 @@ trainerdata 270, "Silver"
         ivs 80
         abilityslot 0
         level 22
-        pokemon SPECIES_CROCONAW
+        pokemon SPECIES_FROGADIER
         move MOVE_SCARY_FACE
         move MOVE_ICE_FANG
         move MOVE_WATER_GUN
@@ -9429,7 +9429,7 @@ trainerdata 271, "Silver"
         ivs 120
         abilityslot 0
         level 32
-        pokemon SPECIES_FERALIGATR
+        pokemon SPECIES_GRENINJA
         move MOVE_ICE_FANG
         move MOVE_WATER_GUN
         move MOVE_CRUNCH
@@ -9509,7 +9509,7 @@ trainerdata 272, "Silver"
         ivs 160
         abilityslot 0
         level 40
-        pokemon SPECIES_FERALIGATR
+        pokemon SPECIES_GRENINJA
         move MOVE_WATERFALL
         move MOVE_ICE_FANG
         move MOVE_CRUNCH
@@ -9986,7 +9986,7 @@ trainerdata 285, "Silver"
         ivs 200
         abilityslot 0
         level 50
-        pokemon SPECIES_MEGANIUM
+        pokemon SPECIES_SERPERIOR
         move MOVE_PETAL_DANCE
         move MOVE_POISON_POWDER
         move MOVE_SYNTHESIS
@@ -10066,7 +10066,7 @@ trainerdata 286, "Silver"
         ivs 200
         abilityslot 0
         level 50
-        pokemon SPECIES_TYPHLOSION
+        pokemon SPECIES_INFERNAPE
         move MOVE_FLAMETHROWER
         move MOVE_QUICK_ATTACK
         move MOVE_FLAME_WHEEL
@@ -10146,7 +10146,7 @@ trainerdata 287, "Silver"
         ivs 200
         abilityslot 0
         level 50
-        pokemon SPECIES_FERALIGATR
+        pokemon SPECIES_GRENINJA
         move MOVE_WATERFALL
         move MOVE_ICE_FANG
         move MOVE_CRUNCH
@@ -10215,7 +10215,7 @@ trainerdata 288, "Silver"
         ivs 120
         abilityslot 0
         level 34
-        pokemon SPECIES_MEGANIUM
+        pokemon SPECIES_SERPERIOR
         move MOVE_REFLECT
         move MOVE_SYNTHESIS
         move MOVE_POISON_POWDER
@@ -10284,7 +10284,7 @@ trainerdata 289, "Silver"
         ivs 120
         abilityslot 0
         level 34
-        pokemon SPECIES_QUILAVA
+        pokemon SPECIES_MONFERNO
         move MOVE_SMOKESCREEN
         move MOVE_SWIFT
         move MOVE_QUICK_ATTACK
@@ -16773,7 +16773,7 @@ trainerdata 489, "Silver"
         ivs 250
         abilityslot 0
         level 60
-        pokemon SPECIES_MEGANIUM
+        pokemon SPECIES_SERPERIOR
         move MOVE_PETAL_DANCE
         move MOVE_BODY_SLAM
         move MOVE_LIGHT_SCREEN
@@ -16853,7 +16853,7 @@ trainerdata 490, "Silver"
         ivs 250
         abilityslot 0
         level 60
-        pokemon SPECIES_TYPHLOSION
+        pokemon SPECIES_INFERNAPE
         move MOVE_ROLLOUT
         move MOVE_FLAMETHROWER
         move MOVE_WILL_O_WISP
@@ -16938,7 +16938,7 @@ trainerdata 491, "Silver"
         ivs 250
         abilityslot 0
         level 60
-        pokemon SPECIES_FERALIGATR
+        pokemon SPECIES_GRENINJA
         item ITEM_NONE
         move MOVE_CRUNCH
         move MOVE_AQUA_TAIL
@@ -26099,7 +26099,7 @@ trainerdata 735, "Silver"
         ivs 250
         abilityslot 0
         level 60
-        pokemon SPECIES_MEGANIUM
+        pokemon SPECIES_SERPERIOR
         item ITEM_NONE
         move MOVE_PETAL_DANCE
         move MOVE_BODY_SLAM
@@ -26149,7 +26149,7 @@ trainerdata 736, "Silver"
         ivs 250
         abilityslot 0
         level 60
-        pokemon SPECIES_TYPHLOSION
+        pokemon SPECIES_INFERNAPE
         item ITEM_NONE
         move MOVE_ROLLOUT
         move MOVE_FLAMETHROWER
@@ -26199,7 +26199,7 @@ trainerdata 737, "Silver"
         ivs 250
         abilityslot 0
         level 60
-        pokemon SPECIES_FERALIGATR
+        pokemon SPECIES_GRENINJA
         item ITEM_NONE
         move MOVE_CRUNCH
         move MOVE_AQUA_TAIL
