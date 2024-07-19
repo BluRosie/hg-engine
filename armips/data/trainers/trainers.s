@@ -783,18 +783,18 @@ trainerdata 21, "Bugsy"
         // mon 0
         ivs 200
         abilityslot 0
-        level 19
-        pokemon SPECIES_SHUCKLE
+        level 20
+        pokemon SPECIES_ANORITH 
         item ITEM_LEFTOVERS
         move MOVE_STEALTH_ROCK
-        move MOVE_ROCK_THROW
+        move MOVE_SMACK_DOWN
         move MOVE_BUG_BITE
-        move MOVE_STICKY_WEB
-        ability ABILITY_STURDY
+        move MOVE_METAL_CLAW
+        ability ABILITY_BATTLE_ARMOR
         ball ITEM_GREAT_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 252, 252, 0, 0, 0, 0
-        nature NATURE_BRAVE
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0 // no further entries data will be read, but needs to be here as the trainer data structure specifies additionalflags
         ballseal 0
@@ -823,7 +823,7 @@ trainerdata 21, "Bugsy"
         abilityslot 0
         level 21
         pokemon SPECIES_BEEDRILL
-        item ITEM_CHOICE_BAND
+        item ITEM_FOCUS_SASH
         move MOVE_POISON_JAB
         move MOVE_BUG_BITE
         move MOVE_AERIAL_ACE
@@ -831,7 +831,7 @@ trainerdata 21, "Bugsy"
         ability ABILITY_SNIPER
         ball ITEM_GREAT_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 252, 252, 0, 0, 0, 0
+        setevs 0, 252, 0, 252, 0, 0
         nature NATURE_JOLLY
         shinylock 0
         additionalflags 0 
@@ -859,7 +859,7 @@ trainerdata 21, "Bugsy"
         // mon 4
         ivs 200
         abilityslot 0
-        level 19
+        level 20
         pokemon SPECIES_HERACROSS
         item ITEM_FLAME_ORB
         move MOVE_BRICK_BREAK
