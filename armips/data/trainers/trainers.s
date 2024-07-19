@@ -1157,9 +1157,8 @@ trainerdata 29, "Rod"
     endparty
 
 trainerdata 30, "Whitney"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER
-    nummons 2
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS    trainerclass CLASS_LEADER
+    nummons 6
     item ITEM_SUPER_POTION
     item ITEM_SUPER_POTION
     item ITEM_NONE
@@ -1170,29 +1169,118 @@ trainerdata 30, "Whitney"
 
     party 30
         // mon 0
-        ivs 100
+        ivs 200
         abilityslot 0
-        level 17
-        pokemon SPECIES_CLEFAIRY
-        item ITEM_NONE
-        move MOVE_DOUBLE_SLAP
-        move MOVE_MIMIC
-        move MOVE_ENCORE
-        move MOVE_METRONOME
+        level 25
+        pokemon SPECIES_STARAVIA
+        item ITEM_SHARP_BEAK
+        move MOVE_QUICK_ATTACK
+        move MOVE_AERIAL_ACE
+        move MOVE_U_TURN
+        move MOVE_TAILWIND
+        ability ABILITY_INTIMIDATE
+        ball ITEM_GREAT_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 252, 252, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0 
         ballseal 0
 
         // mon 1
-        ivs 100
+        ivs 200
         abilityslot 0
-        level 19
-        pokemon SPECIES_MILTANK
-        item ITEM_LUM_BERRY
-        move MOVE_ROLLOUT
-        move MOVE_ATTRACT
-        move MOVE_STOMP
-        move MOVE_MILK_DRINK
+        level 24
+        pokemon SPECIES_CLEFABLE
+        item ITEM_LEFTOVERS
+        move MOVE_CHARGE_BEAM
+        move MOVE_ICY_WIND
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_PSYBEAM
+        ability ABILITY_MAGIC_GUARD
+        ball ITEM_GREAT_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 252, 252
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0 
         ballseal 0
-    endparty
+
+        // mon 2
+        ivs 200
+        abilityslot 0
+        level 25
+        pokemon SPECIES_DUBWOOL
+        item ITEM_MUSCLE_BAND
+        move MOVE_TAKE_DOWN
+        move MOVE_WILD_CHARGE
+        move MOVE_REST
+        move MOVE_SLEEP_TALK
+        ability ABILITY_FLUFFY
+        ball ITEM_GREAT_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 252, 0, 252, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0 
+        ballseal 0
+
+        // mon 3
+        ivs 200
+        abilityslot 0
+        level 24
+        pokemon SPECIES_DRAMPA
+        item ITEM_DRAGON_FANG
+        move MOVE_DRAGON_BREATH
+        move MOVE_GRASS_KNOT
+        move MOVE_CALM_MIND
+        move MOVE_SWIFT
+        ability ABILITY_BERSERK
+        ball ITEM_GREAT_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 252, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0 
+        ballseal 0
+
+        // mon 4
+        ivs 200
+        abilityslot 0
+        level 25
+        pokemon SPECIES_HELIOLISK
+        item ITEM_MAGNET
+        move MOVE_DISCHARGE
+        move MOVE_HYPER_VOICE
+        move MOVE_SUNNY_DAY
+        move MOVE_SOLAR_BEAM
+        ability ABILITY_SOLAR_POWER
+        ball ITEM_GREAT_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 252, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0 
+        ballseal 0
+
+        // mon 5
+        ivs 200
+        abilityslot 0
+        level 26
+        pokemon SPECIES_MILTANK
+        item ITEM_SITRUS_BERRY
+        move MOVE_HEADBUTT
+        move MOVE_IRON_TAIL
+        move MOVE_MILK_DRINK
+        move MOVE_PLAY_ROUGH
+        ability ABILITY_THICK_FAT
+        ball ITEM_GREAT_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 252, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0 
+        ballseal 0
 
 trainerdata 31, "Morty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
