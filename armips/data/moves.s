@@ -14261,7 +14261,6 @@ movedata MOVE_HYPER_DRILL, "Hyper Drill"
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_CONTACT
-    flags FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
