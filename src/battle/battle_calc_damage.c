@@ -103,10 +103,15 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
  *  @param sp global battle structure
  */
 void CalcDamageOverall(struct BattleSystem *battle, struct BattleStruct *server) {
+    #ifdef DEBUG_DAMAGE_CALC
+    u8 buf[128];
+    sprintf(buf, "[PLAT-ENGINE] CalcDamageOverall\n");
+    debugsyscall(buf);
+    #endif
     u32 ovyId, offset;
     void (*internalFunc)(struct BattleSystem *battle, struct BattleStruct *server);
 
-    ovyId = OVERLAY_CALCBASEDAMAGE;
+    ovyId = OVERLAY_CALCDAMAGEOVERALL;
     offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
     internalFunc = (void (*)(struct BattleSystem *battle, struct BattleStruct *server))(offset);

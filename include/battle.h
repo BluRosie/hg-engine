@@ -2926,4 +2926,10 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, str
 //Buffer messages related to being unable to select moves?
 BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
 
+BOOL WeatherIsActive(struct BattleSystem *battle, struct BattleStruct *server, u32 weatherMask);
+
+BOOL AllyHasAbility(struct BattleStruct *server, int battler, u16 ability);
+
+u16 Calc_StatWithStages(u16 stat, u8 stage);
+
 #endif // BATTLE_H
