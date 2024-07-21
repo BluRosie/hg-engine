@@ -1888,49 +1888,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 5, 6, 5, 6, 7, 7, 6, 6, 8, 8, 8, 8
+walklevels 18, 18, 18, 19, 19, 19, 20, 20, 18, 20, 19, 20
 
 // morning encounter slots
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_SLOWPOKE
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
 
 // day encounter slots
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_SLOWPOKE
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
 
 // night encounter slots
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_SLOWPOKE
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -1996,45 +1996,45 @@ walklevels 21, 23, 21, 23, 19, 19, 21, 21, 23, 23, 23, 23
 
 // morning encounter slots
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_ZUBAT
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
 
 // day encounter slots
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_ZUBAT
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
 
 // night encounter slots
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_ZUBAT
+pokemon SPECIES_AZUMARILL
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
+pokemon SPECIES_NOIBAT
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -2096,49 +2096,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6
+walklevels 18, 18, 20, 18, 18, 19, 19, 19, 20, 20, 20, 20
 
 // morning encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_PARAS
-pokemon SPECIES_PARAS
+pokemon SPECIES_BUNEARY
+pokemon SPECIES_SHROOMISH
+pokemon SPECIES_NOCTOWL
+pokemon SPECIES_FOONGUS
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_PHANTUMP
+pokemon SPECIES_PHANTUMP
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_ZUBAT
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_ZUBAT
 
 // day encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
+pokemon SPECIES_BUNEARY
+pokemon SPECIES_SHROOMISH
+pokemon SPECIES_NOCTOWL
+pokemon SPECIES_FOONGUS
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_PHANTUMP
+pokemon SPECIES_PHANTUMP
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_ZUBAT
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_ZUBAT
 
 // night encounter slots
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
+pokemon SPECIES_BUNEARY
+pokemon SPECIES_SHROOMISH
+pokemon SPECIES_NOCTOWL
+pokemon SPECIES_FOONGUS
 pokemon SPECIES_ZUBAT
+pokemon SPECIES_PHANTUMP
+pokemon SPECIES_PHANTUMP
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_PARAS
+pokemon SPECIES_FOONGUS
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_FOONGUS
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
 
 // hoenn encounter slots
 pokemon SPECIES_SPOINK
@@ -2160,25 +2160,25 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_MAGIKARP, 17, 19
+encounter SPECIES_POLIWAG, 17, 19
+encounter SPECIES_STARYU, 17, 19
+encounter SPECIES_STARYU, 17, 19
+encounter SPECIES_STARYU, 17, 19
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
+encounter SPECIES_MAGIKARP, 17, 19
+encounter SPECIES_POLIWAG, 17, 19
+encounter SPECIES_STARYU, 17, 19
+encounter SPECIES_STARYU, 17, 19
+encounter SPECIES_STARYU, 17, 19
 
 // super rod encounters
-encounter SPECIES_POLIWAG, 40, 40
-encounter SPECIES_POLIWAG, 40, 40
-encounter SPECIES_MAGIKARP, 40, 40
-encounter SPECIES_POLIWAG, 40, 40
-encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 17, 19
+encounter SPECIES_POLIWAG, 17, 19
+encounter SPECIES_STARYU, 17, 19
+encounter SPECIES_STARYU, 17, 19
+encounter SPECIES_STARYU, 17, 19
 
 // swarm grass
 pokemon SPECIES_CATERPIE
