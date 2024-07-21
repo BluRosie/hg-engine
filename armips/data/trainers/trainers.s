@@ -1295,6 +1295,7 @@ trainerdata 30, "Whitney"
         shinylock 0
         additionalflags 0 
         ballseal 0
+    endparty
 
 trainerdata 31, "Morty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
