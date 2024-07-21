@@ -2641,6 +2641,38 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
             return;
         }
 
+        // Handle Sparkling Aria
+        if (ctx->current_move_index == MOVE_SPARKLING_ARIA) {
+            int i;
+            int numberOfClientsHitBySparklingAria = 0;
+            int client_no = 0;  // initialize
+            int client_set_max = BattleWorkClientSetMaxGet(bsys);
+
+            // Count how many mons were hit by Sparkling Aria
+            for (i = 0; i < client_set_max; i++) {
+                client_no = ctx->turnOrder[i];
+                if (ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client) {
+                    numberOfClientsHitBySparklingAria++;
+                }
+            }
+
+            // Heal Burn loop
+            for (i = 0; i < client_set_max; i++) {
+                client_no = ctx->turnOrder[i];
+                if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
+                && (ctx->battlemon[client_no].condition & STATUS_FLAG_BURNED)
+                && (ctx->battlemon[client_no].hp)) {
+                    if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
+                        ctx->client_work = client_no;
+                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HEAL_TARGET_BURN);
+                        ctx->next_server_seq_no = ctx->server_seq_no;
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        return;
+                    }
+                }
+            }
+        }
+
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);
