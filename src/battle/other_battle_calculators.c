@@ -3201,7 +3201,10 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
                 }
             }
         }
-        if ((struggleCheckFlags & STRUGGLE_CHECK_ASSAULT_VEST) && (item == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES && !(ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].power) && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST))) {
+        if ((struggleCheckFlags & STRUGGLE_CHECK_ASSAULT_VEST)
+        && (item == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES)
+        && (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].split == SPLIT_STATUS)
+        && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
     }
