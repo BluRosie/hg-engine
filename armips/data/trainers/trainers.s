@@ -199,7 +199,7 @@ trainerdata 6, "Keith"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
     battletype SINGLE_BATTLE
     endentry
 
@@ -2439,7 +2439,7 @@ trainerdata 65, "Gina"
         ivs 0
         abilityslot 0
         level 23
-        pokemon SPECIES_SKIPLOOM
+        pokemon SPECIES_HOPPIP
         ballseal 0
 
         // mon 1
@@ -2465,7 +2465,7 @@ trainerdata 66, "Todd"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
     battletype SINGLE_BATTLE
     endentry
 
