@@ -1171,14 +1171,14 @@ trainerdata 29, "Rod"
     endparty
 
 trainerdata 30, "Whitney"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS    trainerclass CLASS_LEADER
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass CLASS_LEADER
     nummons 6
     item ITEM_SUPER_POTION
     item ITEM_SUPER_POTION
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1186,7 +1186,7 @@ trainerdata 30, "Whitney"
         // mon 0
         ivs 200
         abilityslot 0
-        level 25
+        level 28
         pokemon SPECIES_STARAVIA
         item ITEM_SHARP_BEAK
         move MOVE_QUICK_ATTACK
@@ -1205,7 +1205,7 @@ trainerdata 30, "Whitney"
         // mon 1
         ivs 200
         abilityslot 0
-        level 24
+        level 29
         pokemon SPECIES_CLEFABLE
         item ITEM_LEFTOVERS
         move MOVE_CHARGE_BEAM
@@ -1224,7 +1224,7 @@ trainerdata 30, "Whitney"
         // mon 2
         ivs 200
         abilityslot 0
-        level 25
+        level 28
         pokemon SPECIES_DUBWOOL
         item ITEM_MUSCLE_BAND
         move MOVE_TAKE_DOWN
@@ -1243,7 +1243,7 @@ trainerdata 30, "Whitney"
         // mon 3
         ivs 200
         abilityslot 0
-        level 24
+        level 28
         pokemon SPECIES_DRAMPA
         item ITEM_DRAGON_FANG
         move MOVE_DRAGON_BREATH
@@ -1262,7 +1262,7 @@ trainerdata 30, "Whitney"
         // mon 4
         ivs 200
         abilityslot 0
-        level 25
+        level 28
         pokemon SPECIES_HELIOLISK
         item ITEM_MAGNET
         move MOVE_DISCHARGE
@@ -1281,7 +1281,7 @@ trainerdata 30, "Whitney"
         // mon 5
         ivs 200
         abilityslot 0
-        level 26
+        level 30
         pokemon SPECIES_MILTANK
         item ITEM_SITRUS_BERRY
         move MOVE_HEADBUTT
