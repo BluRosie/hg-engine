@@ -2642,7 +2642,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         }
 
         // Handle Sparkling Aria
-        if (ctx->current_move_index == MOVE_SPARKLING_ARIA) {
+        if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
             int i;
             int numberOfClientsHitBySparklingAria = 0;
             int client_no = 0;  // initialize

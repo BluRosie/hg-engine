@@ -1151,6 +1151,9 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 sp->battlemon[sp->attack_client].sheer_force_flag = 0;
                 break;
         }
+        if (sp->current_move_index == MOVE_SPARKLING_ARIA) {
+            sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+        }
     }
 
     JumpToMoveEffectScript(sp, 30, effect);
