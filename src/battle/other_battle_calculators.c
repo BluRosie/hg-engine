@@ -342,8 +342,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
      && sp->moveTbl[move_no].power != 0) // move actually damages
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
-        sp->battlemon[attacker].parental_bond_flag = 0;
-        sp->battlemon[attacker].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
+        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
         return FALSE;
     }
 
@@ -353,8 +353,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
      && (attacker & 1) != (defender & 1)) // used on an enemy
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-        sp->battlemon[attacker].parental_bond_flag = 0;
-        sp->battlemon[attacker].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
+        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
         return FALSE;
     }
 
@@ -369,8 +369,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             )
             {
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-                sp->battlemon[attacker].parental_bond_flag = 0;
-                sp->battlemon[attacker].parental_bond_is_active = FALSE;
+                sp->oneTurnFlag[attacker].parental_bond_flag = 0;
+                sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
                 return FALSE;
             }
         }
@@ -542,8 +542,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if (((BattleRand(bw) % 100) + 1) > accuracy)
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
-        sp->battlemon[attacker].parental_bond_flag = 0;
-        sp->battlemon[attacker].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
+        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
     }
 
     return FALSE;
@@ -1428,8 +1428,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
      && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) // iron ball halves speed and grounds
     {
         flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
-        sp->battlemon[attack_client].parental_bond_flag = 0;
-        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
     }
     else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
@@ -1438,8 +1438,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
           && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
-        sp->battlemon[attack_client].parental_bond_flag = 0;
-        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
     }
     else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
           && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
@@ -1448,8 +1448,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
           && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS; // air balloon just misses for the moment
-        sp->battlemon[attack_client].parental_bond_flag = 0;
-        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
     }
     else if ((move_no == MOVE_SHEER_COLD) && (defender_type_1 == TYPE_ICE || defender_type_2 == TYPE_ICE))
     {
@@ -1517,8 +1517,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
      && (base_power))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;
-        sp->battlemon[attack_client].parental_bond_flag = 0;
-        sp->battlemon[attack_client].parental_bond_is_active = FALSE;
+        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
     }
     else
     {
