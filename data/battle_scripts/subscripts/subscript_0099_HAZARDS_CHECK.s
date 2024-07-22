@@ -11,7 +11,7 @@ _checkUnnerve:
     PrintMessage 1282, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
     Wait 
     WaitButtonABTime 30
-    TurnOnAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
+    SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
 _realHazardsCheck:
     // toxic spikes can inflict poison through magic guard, but not subsequently damage the mon (which is already handled in the damage subscript)
     //CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _105
