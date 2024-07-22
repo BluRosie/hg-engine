@@ -10683,7 +10683,7 @@ movedata MOVE_DARKEST_LARIAT, "Darkest Lariat"
     movedescription MOVE_DARKEST_LARIAT, "---"
 
 movedata MOVE_SPARKLING_ARIA, "Sparkling Aria"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // handle in ov12_0224D368
     pss SPLIT_SPECIAL
     basepower 90
     type TYPE_WATER
