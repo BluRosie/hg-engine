@@ -14576,87 +14576,87 @@ levelup SPECIES_GOTHITELLE
 
 levelup SPECIES_SOLOSIS
     learnset MOVE_PROTECT, 1
-    learnset MOVE_CONFUSION, 1
     learnset MOVE_PSYWAVE, 1
+    learnset MOVE_ENDEAVOR, 4
     learnset MOVE_ROLLOUT, 7
-    learnset MOVE_SNATCH, 10
-    learnset MOVE_PSYBEAM, 12
-    learnset MOVE_RECOVER, 13
-    learnset MOVE_REFLECT, 14
-    learnset MOVE_HIDDEN_POWER, 14
-    learnset MOVE_ENDEAVOR, 17
-    learnset MOVE_CHARM, 17
-    learnset MOVE_LIGHT_SCREEN, 20
-    learnset MOVE_PSYSHOCK, 22
-    learnset MOVE_ALLY_SWITCH, 28
-    learnset MOVE_PAIN_SPLIT, 33
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_FUTURE_SIGHT, 37
-    learnset MOVE_SKILL_SWAP, 40
-    learnset MOVE_HEAL_BLOCK, 46
-    learnset MOVE_WONDER_ROOM, 48
+    learnset MOVE_RECOVER, 10
+    learnset MOVE_CONFUSION, 13
+    learnset MOVE_CHARM, 16
+    learnset MOVE_HIDDEN_POWER, 18
+    learnset MOVE_PSYBEAM, 21
+    learnset MOVE_LIGHT_SCREEN, 24
+    learnset MOVE_REFLECT, 24
+    learnset MOVE_DRAINING_KISS, 27
+    learnset MOVE_ALLY_SWITCH, 30
+    learnset MOVE_DAZZLING_GLEAM, 33
+    learnset MOVE_PAIN_SPLIT, 36
+    learnset MOVE_SHADOW_BALL, 39
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_SKILL_SWAP, 45
+    learnset MOVE_FLASH_CANNON, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_TRICK_ROOM, 54
+    learnset MOVE_ENERGY_BALL, 57
+    learnset MOVE_FUTURE_SIGHT, 60
+    learnset MOVE_HEAL_BLOCK, 63
     terminatelearnset
 
 
 levelup SPECIES_DUOSION
     learnset MOVE_PROTECT, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_RECOVER, 1
-    learnset MOVE_ENDEAVOR, 1
     learnset MOVE_PSYWAVE, 1
-    learnset MOVE_REFLECT, 1
-    learnset MOVE_ROLLOUT, 1
-    learnset MOVE_SNATCH, 1
-    learnset MOVE_ROLLOUT, 7
-    learnset MOVE_SNATCH, 10
-    learnset MOVE_PSYBEAM, 12
-    learnset MOVE_REFLECT, 14
-    learnset MOVE_HIDDEN_POWER, 14
+    learnset MOVE_ENDEAVOR, 5
+    learnset MOVE_ROLLOUT, 8
+    learnset MOVE_RECOVER, 11
+    learnset MOVE_CONFUSION, 14
     learnset MOVE_CHARM, 17
-    learnset MOVE_LIGHT_SCREEN, 20
-    learnset MOVE_PSYSHOCK, 22
-    learnset MOVE_RECOVER, 24
-    learnset MOVE_ALLY_SWITCH, 28
-    learnset MOVE_ENDEAVOR, 28
-    learnset MOVE_PAIN_SPLIT, 34
-    learnset MOVE_PSYCHIC, 39
-    learnset MOVE_FUTURE_SIGHT, 42
-    learnset MOVE_SKILL_SWAP, 44
-    learnset MOVE_HEAL_BLOCK, 50
-    learnset MOVE_WONDER_ROOM, 55
+    learnset MOVE_HIDDEN_POWER, 19
+    learnset MOVE_PSYBEAM, 22
+    learnset MOVE_LIGHT_SCREEN, 25
+    learnset MOVE_REFLECT, 25
+    learnset MOVE_DRAINING_KISS, 28
+    learnset MOVE_ALLY_SWITCH, 31
+    learnset MOVE_DAZZLING_GLEAM, 34
+    learnset MOVE_PAIN_SPLIT, 37
+    learnset MOVE_SHADOW_BALL, 40
+    learnset MOVE_PSYSHOCK, 43
+    learnset MOVE_SKILL_SWAP, 46
+    learnset MOVE_FLASH_CANNON, 49
+    learnset MOVE_PSYCHIC, 52
+    learnset MOVE_TRICK_ROOM, 55
+    learnset MOVE_ENERGY_BALL, 58
+    learnset MOVE_FUTURE_SIGHT, 61
+    learnset MOVE_HEAL_BLOCK, 64
     terminatelearnset
 
 
 levelup SPECIES_REUNICLUS
     learnset MOVE_HAMMER_ARM, 0
-    learnset MOVE_DIZZY_PUNCH, 0
     learnset MOVE_HAMMER_ARM, 1
     learnset MOVE_PROTECT, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_RECOVER, 1
-    learnset MOVE_ENDEAVOR, 1
-    learnset MOVE_DIZZY_PUNCH, 1
     learnset MOVE_PSYWAVE, 1
-    learnset MOVE_REFLECT, 1
-    learnset MOVE_ROLLOUT, 1
-    learnset MOVE_SNATCH, 1
-    learnset MOVE_ROLLOUT, 7
-    learnset MOVE_SNATCH, 10
-    learnset MOVE_PSYBEAM, 12
-    learnset MOVE_REFLECT, 14
-    learnset MOVE_HIDDEN_POWER, 14
-    learnset MOVE_CHARM, 17
-    learnset MOVE_LIGHT_SCREEN, 20
-    learnset MOVE_PSYSHOCK, 22
-    learnset MOVE_RECOVER, 24
-    learnset MOVE_ALLY_SWITCH, 28
-    learnset MOVE_ENDEAVOR, 28
-    learnset MOVE_PAIN_SPLIT, 34
-    learnset MOVE_PSYCHIC, 39
-    learnset MOVE_FUTURE_SIGHT, 44
-    learnset MOVE_SKILL_SWAP, 46
-    learnset MOVE_HEAL_BLOCK, 54
-    learnset MOVE_WONDER_ROOM, 61
+    learnset MOVE_ENDEAVOR, 6
+    learnset MOVE_ROLLOUT, 9
+    learnset MOVE_RECOVER, 12
+    learnset MOVE_CONFUSION, 15
+    learnset MOVE_CHARM, 18
+    learnset MOVE_HIDDEN_POWER, 20
+    learnset MOVE_PSYBEAM, 23
+    learnset MOVE_LIGHT_SCREEN, 26
+    learnset MOVE_REFLECT, 26
+    learnset MOVE_DRAINING_KISS, 29
+    learnset MOVE_ALLY_SWITCH, 32
+    learnset MOVE_DAZZLING_GLEAM, 35
+    learnset MOVE_PAIN_SPLIT, 38
+    learnset MOVE_SHADOW_BALL, 41
+    learnset MOVE_PSYSHOCK, 44
+    learnset MOVE_SKILL_SWAP, 47
+    learnset MOVE_FLASH_CANNON, 50
+    learnset MOVE_PSYCHIC, 53
+    learnset MOVE_TRICK_ROOM, 56
+    learnset MOVE_ENERGY_BALL, 59
+    learnset MOVE_FUTURE_SIGHT, 62
+    learnset MOVE_HEAL_BLOCK, 65
     terminatelearnset
 
 
