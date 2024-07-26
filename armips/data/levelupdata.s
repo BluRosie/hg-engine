@@ -14490,74 +14490,87 @@ levelup SPECIES_CINCCINO
 levelup SPECIES_GOTHITA
     learnset MOVE_POUND, 1
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_CONFUSION, 3
-    learnset MOVE_PLAY_NICE, 5
-    learnset MOVE_TICKLE, 7
-    learnset MOVE_PSYBEAM, 13
-    learnset MOVE_DOUBLE_SLAP, 14
-    learnset MOVE_FAKE_TEARS, 19
-    learnset MOVE_EMBARGO, 19
-    learnset MOVE_PSYSHOCK, 22
-    learnset MOVE_HYPNOSIS, 24
-    learnset MOVE_FEINT_ATTACK, 24
-    learnset MOVE_CHARM, 30
+    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_DISARMING_VOICE, 7
+    learnset MOVE_TICKLE, 10
+    learnset MOVE_DOUBLE_SLAP, 13
+    learnset MOVE_CHARM, 16
+    learnset MOVE_DRAINING_KISS, 18
+    learnset MOVE_HYPNOSIS, 21
+    learnset MOVE_PSYBEAM, 24
+    learnset MOVE_FAKE_TEARS, 27
+    learnset MOVE_ZEN_HEADBUTT, 30
     learnset MOVE_PSYCH_UP, 33
-    learnset MOVE_HEAL_BLOCK, 33
-    learnset MOVE_FLATTER, 34
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_FUTURE_SIGHT, 37
-    learnset MOVE_TELEKINESIS, 40
-    learnset MOVE_MAGIC_ROOM, 48
+    learnset MOVE_DARK_PULSE, 36
+    learnset MOVE_FLATTER, 39
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_ENERGY_BALL, 45
+    learnset MOVE_IMPRISON, 48
+    learnset MOVE_SHADOW_BALL, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_CALM_MIND, 57
+    learnset MOVE_FUTURE_SIGHT, 60
+    learnset MOVE_TELEKINESIS, 63
+    learnset MOVE_NIGHT_DAZE, 66
+    learnset MOVE_MIRROR_COAT, 69
     terminatelearnset
 
 
 levelup SPECIES_GOTHORITA
     learnset MOVE_POUND, 1
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_TICKLE, 1
-    learnset MOVE_CONFUSION, 3
-    learnset MOVE_TICKLE, 7
-    learnset MOVE_PSYBEAM, 13
+    learnset MOVE_PLAY_NICE, 5
+    learnset MOVE_DISARMING_VOICE, 8
+    learnset MOVE_TICKLE, 11
     learnset MOVE_DOUBLE_SLAP, 14
-    learnset MOVE_FAKE_TEARS, 19
-    learnset MOVE_EMBARGO, 19
-    learnset MOVE_PSYSHOCK, 22
-    learnset MOVE_HYPNOSIS, 24
-    learnset MOVE_FEINT_ATTACK, 24
-    learnset MOVE_CHARM, 31
-    learnset MOVE_HEAL_BLOCK, 34
-    learnset MOVE_PSYCH_UP, 35
-    learnset MOVE_FLATTER, 37
-    learnset MOVE_PSYCHIC, 39
-    learnset MOVE_FUTURE_SIGHT, 42
-    learnset MOVE_TELEKINESIS, 43
-    learnset MOVE_MAGIC_ROOM, 55
+    learnset MOVE_CHARM, 17
+    learnset MOVE_DRAINING_KISS, 19
+    learnset MOVE_HYPNOSIS, 22
+    learnset MOVE_PSYBEAM, 25
+    learnset MOVE_FAKE_TEARS, 28
+    learnset MOVE_ZEN_HEADBUTT, 31
+    learnset MOVE_PSYCH_UP, 34
+    learnset MOVE_DARK_PULSE, 37
+    learnset MOVE_FLATTER, 40
+    learnset MOVE_PSYSHOCK, 43
+    learnset MOVE_ENERGY_BALL, 46
+    learnset MOVE_IMPRISON, 49
+    learnset MOVE_SHADOW_BALL, 52
+    learnset MOVE_PSYCHIC, 55
+    learnset MOVE_CALM_MIND, 58
+    learnset MOVE_FUTURE_SIGHT, 61
+    learnset MOVE_TELEKINESIS, 64
+    learnset MOVE_NIGHT_DAZE, 67
+    learnset MOVE_MIRROR_COAT, 70
     terminatelearnset
 
 
 levelup SPECIES_GOTHITELLE
     learnset MOVE_POUND, 1
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_TICKLE, 1
-    learnset MOVE_CONFUSION, 3
-    learnset MOVE_TICKLE, 7
-    learnset MOVE_PSYBEAM, 13
-    learnset MOVE_DOUBLE_SLAP, 14
-    learnset MOVE_FAKE_TEARS, 19
-    learnset MOVE_EMBARGO, 19
-    learnset MOVE_PSYSHOCK, 22
-    learnset MOVE_HYPNOSIS, 24
-    learnset MOVE_FEINT_ATTACK, 24
-    learnset MOVE_CHARM, 33
-    learnset MOVE_HEAL_BLOCK, 34
+    learnset MOVE_PLAY_NICE, 6
+    learnset MOVE_DISARMING_VOICE, 9
+    learnset MOVE_TICKLE, 12
+    learnset MOVE_DOUBLE_SLAP, 15
+    learnset MOVE_CHARM, 18
+    learnset MOVE_DRAINING_KISS, 20
+    learnset MOVE_HYPNOSIS, 23
+    learnset MOVE_PSYBEAM, 26
+    learnset MOVE_FAKE_TEARS, 29
+    learnset MOVE_ZEN_HEADBUTT, 32
     learnset MOVE_PSYCH_UP, 35
-    learnset MOVE_FLATTER, 38
-    learnset MOVE_PSYCHIC, 39
-    learnset MOVE_FUTURE_SIGHT, 44
-    learnset MOVE_TELEKINESIS, 45
-    learnset MOVE_MAGIC_ROOM, 61
+    learnset MOVE_DARK_PULSE, 38
+    learnset MOVE_FLATTER, 41
+    learnset MOVE_PSYSHOCK, 44
+    learnset MOVE_ENERGY_BALL, 47
+    learnset MOVE_IMPRISON, 50
+    learnset MOVE_SHADOW_BALL, 53
+    learnset MOVE_PSYCHIC, 56
+    learnset MOVE_CALM_MIND, 59
+    learnset MOVE_FUTURE_SIGHT, 62
+    learnset MOVE_TELEKINESIS, 65
+    learnset MOVE_NIGHT_DAZE, 68
+    learnset MOVE_MIRROR_COAT, 71
     terminatelearnset
 
 
