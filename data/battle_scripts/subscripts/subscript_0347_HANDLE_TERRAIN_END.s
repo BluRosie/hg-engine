@@ -3,47 +3,41 @@
 .data
 
 _000:
-    GotoIfTerrainOverlayIsType GRASSY_TERRAIN, _013
-    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _026
-    GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _039
-    GotoIfTerrainOverlayIsType PSYCHIC_TERRAIN, _052
-    GoTo _065
+    GotoIfTerrainOverlayIsType GRASSY_TERRAIN, _grassyTerrain
+    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _mistyTerrain
+    GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _electricTerrain
+    GotoIfTerrainOverlayIsType PSYCHIC_TERRAIN, _psychicTerrain
+    GoTo _end
 
-_013:
-    UpdateTerrainOverlay TRUE, _065
+_grassyTerrain:
+    UpdateTerrainOverlay TRUE, _end
     ChangePermanentBackground BATTLE_BG_CURRENT, TERRAIN_CURRENT
     // The grass disappeared from the battlefield.
     PrintMessage 1389, TAG_NONE
-    Wait 
-    WaitButtonABTime 30
-    End 
+    GoTo _afterMessage
 
-_026:
-    UpdateTerrainOverlay TRUE, _065
+_mistyTerrain:
+    UpdateTerrainOverlay TRUE, _end
     ChangePermanentBackground BATTLE_BG_CURRENT, TERRAIN_CURRENT
     // The mist disappeared from the battlefield.
     PrintMessage 1391, TAG_NONE
-    Wait 
-    WaitButtonABTime 30
-    End 
+    GoTo _afterMessage
 
-_039:
-    UpdateTerrainOverlay TRUE, _065
+_electricTerrain:
+    UpdateTerrainOverlay TRUE, _end
     ChangePermanentBackground BATTLE_BG_CURRENT, TERRAIN_CURRENT
     // The electricity disappeared from the battlefield.
     PrintMessage 1393, TAG_NONE
-    Wait 
-    WaitButtonABTime 30
-    End 
+    GoTo _afterMessage
 
-_052:
-    UpdateTerrainOverlay TRUE, _065
+_psychicTerrain:
+    UpdateTerrainOverlay TRUE, _end
     ChangePermanentBackground BATTLE_BG_CURRENT, TERRAIN_CURRENT
     // The weirdness disappeared from the battlefield.
     PrintMessage 1395, TAG_NONE
+
+_afterMessage:
     Wait 
     WaitButtonABTime 30
-    End 
-
-_065:
+_end:
     End 

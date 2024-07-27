@@ -466,7 +466,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARENTAL_BOND);
                 runMyScriptInstead = 1;
             } else {
-                sp->battlemon[sp->client_work].parental_bond_is_active = FALSE;
+                sp->oneTurnFlag[sp->client_work].parental_bond_is_active = FALSE;
                 sp->wb_seq_no = 0;
             }
             break;

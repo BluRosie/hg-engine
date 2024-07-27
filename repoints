@@ -49,6 +49,11 @@ arm9 sItemFieldUseFuncs+8 020649B4
 0012 TerrainPlatformEnemyNCGR 02265F24
 0012 TerrainPlatformPalettes 02265F2C
 
+# swarm table
+arm9 sSwarmMapLUT 02097FF0
+arm9 sSwarmMapLUT 02097F94
+arm9 sSwarmMapLUT+2 02097F98
+
 # Trainer Class Money Table
 0012 PrizeMoney 08008380
 0012 PrizeMoney+2 08008384
