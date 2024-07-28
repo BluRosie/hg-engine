@@ -7270,7 +7270,7 @@ trainerdata 163, "Kuni"
 
 trainerdata 164, "Miki"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_KIMONO_GIRL
+    trainerclass CLASS_TRAINER_N
      
     nummons 1
     item ITEM_NONE
@@ -19409,9 +19409,9 @@ trainerdata 461, "Wade"
         ballseal 0
     endparty
 
-trainerdata 462, "Ralph"
+trainerdata 462, "P-101"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
+    trainerclass CLASS_PLASMA_M
      
     nummons 1
     item ITEM_NONE
@@ -19426,16 +19426,16 @@ trainerdata 462, "Ralph"
         // mon 0
         ivs 0
         abilityslot 0
-        level 40
-        pokemon SPECIES_SEAKING
+        level 1
+        pokemon SPECIES_HYDREIGON
         ballseal 0
     endparty
 
-trainerdata 463, "Ralph"
+trainerdata 463, "Ghetsis"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
+    trainerclass CLASS_GHETSIS
      
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -19448,16 +19448,10 @@ trainerdata 463, "Ralph"
         // mon 0
         ivs 0
         abilityslot 0
-        level 45
-        pokemon SPECIES_QWILFISH
+        level 1
+        pokemon SPECIES_ANNIHILAPE
         ballseal 0
 
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 42
-        pokemon SPECIES_SEAKING
-        ballseal 0
     endparty
 
 trainerdata 464, "Dana"
@@ -26832,7 +26826,7 @@ trainerdata 641, "G-658"
 
 trainerdata 642, "G-671"
 	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
-    trainerclass CLASS_TEAM_ROCKET
+    trainerclass CLASS_GALACTIC_M
      
     nummons 0x80 | 3
     item ITEM_NONE
@@ -31734,7 +31728,7 @@ trainerdata 736, "Silver"
 
 trainerdata 737, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
+    trainerclass CLASS_IRIS
      
     nummons 3
     item ITEM_FULL_RESTORE

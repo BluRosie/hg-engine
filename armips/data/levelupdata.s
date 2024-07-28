@@ -1434,7 +1434,7 @@ levelup SPECIES_PSYDUCK
     learnset MOVE_WATER_PULSE, 22
     learnset MOVE_PSYWAVE, 25
     learnset MOVE_HIDDEN_POWER, 28 
-    learnset MOVE_BUBBLEBEAM, 31
+    learnset MOVE_BUBBLE_BEAM, 31
     learnset MOVE_AMNESIA, 34
     learnset MOVE_PSYBEAM, 36
     learnset MOVE_HEADBUTT, 39 
@@ -1450,8 +1450,8 @@ levelup SPECIES_PSYDUCK
 
 
 levelup SPECIES_GOLDUCK
-    learnset MOVE_AQUA_JET 0
-    learnset MOVE_AQUA_JET 1
+    learnset MOVE_AQUA_JET, 0
+    learnset MOVE_AQUA_JET, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_TAIL_WHIP, 1
     learnset MOVE_WATER_GUN, 4
@@ -1463,7 +1463,7 @@ levelup SPECIES_GOLDUCK
     learnset MOVE_WATER_PULSE, 22
     learnset MOVE_PSYWAVE, 25
     learnset MOVE_HIDDEN_POWER, 28 
-    learnset MOVE_BUBBLEBEAM, 31
+    learnset MOVE_BUBBLE_BEAM, 31
     learnset MOVE_PSYBEAM, 36
     learnset MOVE_AGILITY, 40
     learnset MOVE_HEADBUTT, 43
@@ -1612,7 +1612,7 @@ levelup SPECIES_POLIWAG
     learnset MOVE_WATER_PULSE, 25
     learnset MOVE_LIFE_DEW, 28
     learnset MOVE_MUD_SHOT, 31
-    learnset MOVE_BUBBLEBEAM, 34
+    learnset MOVE_BUBBLE_BEAM, 34
     learnset MOVE_WAKE_UP_SLAP, 37
     learnset MOVE_RAIN_DANCE, 40
     learnset MOVE_SCALD, 43
@@ -1637,7 +1637,7 @@ levelup SPECIES_POLIWHIRL
     learnset MOVE_DIZZY_PUNCH, 28
     learnset MOVE_LIFE_DEW, 31
     learnset MOVE_MUD_SHOT, 34
-    learnset MOVE_BUBBLEBEAM, 37
+    learnset MOVE_BUBBLE_BEAM, 37
     learnset MOVE_WAKE_UP_SLAP, 40
     learnset MOVE_MEGA_PUNCH, 43
     learnset MOVE_RAIN_DANCE, 46
@@ -1670,7 +1670,7 @@ levelup SPECIES_POLIWRATH
     learnset MOVE_RAIN_DANCE, 46
     learnset MOVE_DRAIN_PUNCH, 49
     learnset MOVE_BODY_SLAM, 52
-    learnset MOVE_LIQUIDATION 55
+    learnset MOVE_LIQUIDATION, 55
     learnset MOVE_CROSS_CHOP, 58
     learnset MOVE_BELLY_DRUM, 61
     learnset MOVE_ICE_PUNCH, 64
@@ -1944,7 +1944,7 @@ levelup SPECIES_TENTACOOL
     learnset MOVE_ACID_SPRAY, 25
     learnset MOVE_AURORA_BEAM, 28
     learnset MOVE_SLUDGE, 31
-    learnset MOVE_BUBBLEBEAM, 34
+    learnset MOVE_BUBBLE_BEAM, 34
     learnset MOVE_CONFUSE_RAY, 37
     learnset MOVE_PSYBEAM, 40
     learnset MOVE_VENOSHOCK, 43
@@ -1975,7 +1975,7 @@ levelup SPECIES_TENTACRUEL
     learnset MOVE_ACID_SPRAY, 25
     learnset MOVE_AURORA_BEAM, 28
     learnset MOVE_SLUDGE, 32
-    learnset MOVE_BUBBLEBEAM, 35
+    learnset MOVE_BUBBLE_BEAM, 35
     learnset MOVE_CONFUSE_RAY, 38
     learnset MOVE_PSYBEAM, 41
     learnset MOVE_VENOSHOCK, 44
@@ -2190,7 +2190,7 @@ levelup SPECIES_SLOWBRO
 levelup SPECIES_MAGNEMITE
     learnset MOVE_TACKLE, 1
     learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_THUNDERSHOCK, 4
+    learnset MOVE_THUNDER_SHOCK, 4
     learnset MOVE_THUNDER_WAVE, 7
     learnset MOVE_ELECTRO_BALL, 10
     learnset MOVE_GYRO_BALL, 13
@@ -2222,7 +2222,7 @@ levelup SPECIES_MAGNETON
     learnset MOVE_SIGNAL_BEAM, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_THUNDERSHOCK, 4
+    learnset MOVE_THUNDER_SHOCK, 4
     learnset MOVE_THUNDER_WAVE, 7
     learnset MOVE_ELECTRO_BALL, 10
     learnset MOVE_GYRO_BALL, 13
@@ -5035,7 +5035,7 @@ levelup SPECIES_POLITOED
     learnset MOVE_DIZZY_PUNCH, 28
     learnset MOVE_LIFE_DEW, 31
     learnset MOVE_MUD_SHOT, 34
-    learnset MOVE_BUBBLEBEAM, 37
+    learnset MOVE_BUBBLE_BEAM, 37
     learnset MOVE_WAKE_UP_SLAP, 40
     learnset MOVE_NOBLE_ROAR, 43
     learnset MOVE_RAIN_DANCE, 46
@@ -7680,7 +7680,7 @@ levelup SPECIES_EXPLOUD
     learnset MOVE_CRUNCH, 1
     learnset MOVE_FIRE_FANG, 1
     learnset MOVE_THUNDER_FANG, 1
-    learnset MOVE_ICE_FANG
+    learnset MOVE_ICE_FANG,1 
     learnset MOVE_ASTONISH, 1
     learnset MOVE_POUND, 1
     learnset MOVE_PLAY_NICE, 4
@@ -11634,7 +11634,7 @@ levelup SPECIES_MAGNEZONE
     learnset MOVE_ELECTRIC_TERRAIN, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_THUNDERSHOCK, 4
+    learnset MOVE_THUNDER_SHOCK, 4
     learnset MOVE_THUNDER_WAVE, 7
     learnset MOVE_ELECTRO_BALL, 10
     learnset MOVE_GYRO_BALL, 13
@@ -14231,7 +14231,7 @@ levelup SPECIES_KROKOROK
 
 
 levelup SPECIES_KROOKODILE
-    learnset MOVE_OUTRAGE 1
+    learnset MOVE_OUTRAGE, 1
     learnset MOVE_THRASH, 1
     learnset MOVE_THUNDER_FANG, 1
     learnset MOVE_ICE_FANG, 1
