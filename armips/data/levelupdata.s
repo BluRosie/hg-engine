@@ -16154,24 +16154,28 @@ levelup SPECIES_TERRAKION
 levelup SPECIES_VIRIZION
     learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_WORK_UP, 1
-    learnset MOVE_CLOSE_COMBAT, 1
-    learnset MOVE_LEAF_BLADE, 1
-    learnset MOVE_DOUBLE_KICK, 1
-    learnset MOVE_MAGICAL_LEAF, 1
-    learnset MOVE_MAGICAL_LEAF, 7
-    learnset MOVE_HELPING_HAND, 13
-    learnset MOVE_DOUBLE_KICK, 21
-    learnset MOVE_RETALIATE, 23
-    learnset MOVE_TAKE_DOWN, 25
-    learnset MOVE_QUICK_GUARD, 27
-    learnset MOVE_GIGA_DRAIN, 30
-    learnset MOVE_SACRED_SWORD, 40
-    learnset MOVE_SWORDS_DANCE, 47
-    learnset MOVE_WORK_UP, 49
-    learnset MOVE_LEAF_BLADE, 59
-    learnset MOVE_CLOSE_COMBAT, 65
+    learnset MOVE_MAGICAL_LEAF, 4
+    learnset MOVE_HELPING_HAND, 7
+    learnset MOVE_DOUBLE_KICK, 10
+    learnset MOVE_QUICK_GUARD, 13
+    learnset MOVE_ROCK_TOMB, 16
+    learnset MOVE_BULLET_SEED, 18
+    learnset MOVE_VACUUM_WAVE, 21
+    learnset MOVE_RETALIATE, 24
+    learnset MOVE_GIGA_DRAIN, 27
+    learnset MOVE_SMART_STRIKE, 30
+    learnset MOVE_TAUNT, 33
+    learnset MOVE_SYNTHESIS, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_WORK_UP, 42
+    learnset MOVE_LEAF_BLADE, 45
+    learnset MOVE_SACRED_SWORD, 48
+    learnset MOVE_SWORDS_DANCE, 51
+    learnset MOVE_ZEN_HEADBUTT, 54
+    learnset MOVE_STONE_EDGE, 57
+    learnset MOVE_CLOSE_COMBAT, 60
+    learnset MOVE_MEGAHORN, 63
+    learnset MOVE_SOLAR_BLADE, 66
     terminatelearnset
 
 
