@@ -14721,76 +14721,82 @@ levelup SPECIES_SWANNA
 levelup SPECIES_VANILLITE
     learnset MOVE_ASTONISH, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_ICICLE_SPEAR, 1
-    learnset MOVE_HARDEN, 4
-    learnset MOVE_ASTONISH, 7
-    learnset MOVE_MIST, 11
-    learnset MOVE_TAUNT, 12
-    learnset MOVE_ICY_WIND, 12
-    learnset MOVE_AVALANCHE, 17
-    learnset MOVE_UPROAR, 19
+    learnset MOVE_POWDER_SNOW, 4
+    learnset MOVE_MIST, 7
+    learnset MOVE_ICE_SHARD, 10
+    learnset MOVE_TAUNT, 13
+    learnset MOVE_ICY_WIND, 16
+    learnset MOVE_MIRROR_SHOT, 18
+    learnset MOVE_HAIL, 21
     learnset MOVE_ICICLE_SPEAR, 24
-    learnset MOVE_MIRROR_SHOT, 26
-    learnset MOVE_HAIL, 29
-    learnset MOVE_ACID_ARMOR, 31
-    learnset MOVE_ICE_BEAM, 37
+    learnset MOVE_ROUND, 27
+    learnset MOVE_ACID_ARMOR, 30
+    learnset MOVE_AVALANCHE, 33
+    learnset MOVE_UPROAR, 36
     learnset MOVE_MIRROR_COAT, 39
-    learnset MOVE_BLIZZARD, 46
-    learnset MOVE_SHEER_COLD, 50
+    learnset MOVE_ICE_BEAM, 42
+    learnset MOVE_HYPER_VOICE, 45
+    learnset MOVE_MAGNET_RISE, 48
+    learnset MOVE_FLASH_CANNON, 51
+    learnset MOVE_BLIZZARD, 54
+    learnset MOVE_AURORA_VEIL, 57
+    learnset MOVE_EXPLOSION, 60
     terminatelearnset
 
 
 levelup SPECIES_VANILLISH
     learnset MOVE_ASTONISH, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_MIST, 1
-    learnset MOVE_ICICLE_SPEAR, 1
-    learnset MOVE_UPROAR, 1
-    learnset MOVE_HARDEN, 4
-    learnset MOVE_ASTONISH, 7
-    learnset MOVE_ICY_WIND, 12
-    learnset MOVE_MIST, 16
-    learnset MOVE_AVALANCHE, 17
-    learnset MOVE_UPROAR, 19
-    learnset MOVE_TAUNT, 22
-    learnset MOVE_ICICLE_SPEAR, 24
-    learnset MOVE_MIRROR_SHOT, 26
-    learnset MOVE_HAIL, 30
+    learnset MOVE_POWDER_SNOW, 5
+    learnset MOVE_MIST, 8
+    learnset MOVE_ICE_SHARD, 11
+    learnset MOVE_TAUNT, 14
+    learnset MOVE_ICY_WIND, 17
+    learnset MOVE_MIRROR_SHOT, 19
+    learnset MOVE_HAIL, 22
+    learnset MOVE_ICICLE_SPEAR, 25
+    learnset MOVE_ROUND, 28
     learnset MOVE_ACID_ARMOR, 31
-    learnset MOVE_ICE_BEAM, 40
-    learnset MOVE_MIRROR_COAT, 42
-    learnset MOVE_BLIZZARD, 51
-    learnset MOVE_SHEER_COLD, 56
+    learnset MOVE_AVALANCHE, 34
+    learnset MOVE_UPROAR, 37
+    learnset MOVE_MIRROR_COAT, 40
+    learnset MOVE_ICE_BEAM, 43
+    learnset MOVE_HYPER_VOICE, 46
+    learnset MOVE_MAGNET_RISE, 49
+    learnset MOVE_FLASH_CANNON, 52
+    learnset MOVE_BLIZZARD, 55
+    learnset MOVE_AURORA_VEIL, 58
+    learnset MOVE_EXPLOSION, 61
     terminatelearnset
 
 
 levelup SPECIES_VANILLUXE
-    learnset MOVE_WEATHER_BALL, 1
-    learnset MOVE_ICICLE_CRASH, 1
+    learnset MOVE_FREEZE_DRY, 0
     learnset MOVE_FREEZE_DRY, 1
     learnset MOVE_ASTONISH, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_MIST, 1
-    learnset MOVE_SHEER_COLD, 1
-    learnset MOVE_ICICLE_SPEAR, 1
-    learnset MOVE_UPROAR, 1
-    learnset MOVE_HARDEN, 4
-    learnset MOVE_ASTONISH, 7
-    learnset MOVE_ICY_WIND, 12
-    learnset MOVE_MIST, 16
-    learnset MOVE_AVALANCHE, 17
-    learnset MOVE_UPROAR, 19
-    learnset MOVE_TAUNT, 22
-    learnset MOVE_ICICLE_SPEAR, 24
-    learnset MOVE_MIRROR_SHOT, 26
-    learnset MOVE_HAIL, 30
-    learnset MOVE_ACID_ARMOR, 31
-    learnset MOVE_ICE_BEAM, 40
-    learnset MOVE_MIRROR_COAT, 43
-    learnset MOVE_BLIZZARD, 55
-    learnset MOVE_SHEER_COLD, 63
+    learnset MOVE_POWDER_SNOW, 6
+    learnset MOVE_MIST, 9
+    learnset MOVE_ICE_SHARD, 12
+    learnset MOVE_TAUNT, 15
+    learnset MOVE_ICY_WIND, 18
+    learnset MOVE_MIRROR_SHOT, 20
+    learnset MOVE_HAIL, 23
+    learnset MOVE_ICICLE_SPEAR, 26
+    learnset MOVE_ROUND, 29
+    learnset MOVE_ACID_ARMOR, 32
+    learnset MOVE_AVALANCHE, 35
+    learnset MOVE_UPROAR, 38
+    learnset MOVE_MIRROR_COAT, 41
+    learnset MOVE_ICE_BEAM, 44
+    learnset MOVE_HYPER_VOICE, 47
+    learnset MOVE_MAGNET_RISE, 50
+    learnset MOVE_ICICLE_CRASH, 53
+    learnset MOVE_FLASH_CANNON, 56
+    learnset MOVE_WEATHER_BALL, 59
+    learnset MOVE_BLIZZARD, 62
+    learnset MOVE_AURORA_VEIL, 65
+    learnset MOVE_EXPLOSION, 68
     terminatelearnset
 
 
