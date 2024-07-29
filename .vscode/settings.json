@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "battle_message_constants.h": "c",
+        "file.h": "c",
+        "moves.h": "c",
+        "item.h": "c",
+        "weather_numbers.h": "c",
+        "ability.h": "c",
+        "bag.h": "c"
+    }
+}

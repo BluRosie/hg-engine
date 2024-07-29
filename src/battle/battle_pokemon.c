@@ -992,10 +992,6 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     int i;
-    sp->battlemon[client].unnerve_flag = 0;
-    sp->battlemon[client].dark_aura_flag = 0;
-    sp->battlemon[client].fairy_aura_flag = 0;
-    sp->battlemon[client].aura_break_flag = 0;
     sp->battlemon[client].sheer_force_flag = 0;
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
@@ -1017,6 +1013,11 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
                 sp->binding_turns[i] = 0;
             }
         }
+    }
+
+    // Xerneas should be in Active Mode when in battle
+    if (sp->battlemon[client].species == SPECIES_XERNEAS) {
+        sp->battlemon[client].form_no = 1;
     }
 }
 

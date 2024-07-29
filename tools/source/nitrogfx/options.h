@@ -14,6 +14,7 @@ struct GbaToPngOptions {
     int colsPerChunk;
     int rowsPerChunk;
     int palIndex;
+    bool noTiles;
 };
 
 struct PngToGbaOptions {
@@ -21,6 +22,7 @@ struct PngToGbaOptions {
     int bitDepth;
     int colsPerChunk;
     int rowsPerChunk;
+    bool noTiles;
 };
 
 struct PngToNtrOptions {

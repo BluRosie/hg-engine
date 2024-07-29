@@ -1,0 +1,29 @@
+{
+	"frames": {
+		"bonmi_r": {
+			"frame": 0,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 54,
+			"unkBlockUnk1": 1,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		}
+	},
+	"palettes": {
+		"bonmi_r_pl": {
+			"offset": 0,
+			"unk0": 78,
+			"unk1": 1,
+			"fileName": "bonmi_r_pl.pal"
+		}
+	}
+}
