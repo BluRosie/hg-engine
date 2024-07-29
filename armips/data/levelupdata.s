@@ -16182,27 +16182,28 @@ levelup SPECIES_VIRIZION
 levelup SPECIES_TORNADUS
     learnset MOVE_ASTONISH, 1
     learnset MOVE_GUST, 1
-    learnset MOVE_THRASH, 1
-    learnset MOVE_HAMMER_ARM, 1
-    learnset MOVE_HURRICANE, 1
-    learnset MOVE_UPROAR, 1
-    learnset MOVE_SWAGGER, 1
-    learnset MOVE_LEER, 5
+    learnset MOVE_LEER, 4
+    learnset MOVE_ICY_WIND, 7
     learnset MOVE_SWAGGER, 10
-    learnset MOVE_BITE, 11
-    learnset MOVE_REVENGE, 13
-    learnset MOVE_AIR_CUTTER, 19
-    learnset MOVE_AGILITY, 27
-    learnset MOVE_AIR_SLASH, 35
-    learnset MOVE_EXTRASENSORY, 35
-    learnset MOVE_TAILWIND, 38
-    learnset MOVE_CRUNCH, 41
-    learnset MOVE_UPROAR, 50
-    learnset MOVE_RAIN_DANCE, 57
-    learnset MOVE_HAMMER_ARM, 63
-    learnset MOVE_HURRICANE, 63
-    learnset MOVE_DARK_PULSE, 67
-    learnset MOVE_THRASH, 74
+    learnset MOVE_BITE, 13
+    learnset MOVE_REVENGE, 16
+    learnset MOVE_TAUNT, 18
+    learnset MOVE_AIR_CUTTER, 21
+    learnset MOVE_AGILITY, 24
+    learnset MOVE_U_TURN, 27
+    learnset MOVE_TAILWIND, 30
+    learnset MOVE_EXTRASENSORY, 33
+    learnset MOVE_AIR_SLASH, 36
+    learnset MOVE_CRUNCH, 39
+    learnset MOVE_HEAT_WAVE, 42
+    learnset MOVE_GRASS_KNOT, 45
+    learnset MOVE_RAIN_DANCE, 48
+    learnset MOVE_HYPER_VOICE, 51
+    learnset MOVE_HAMMER_ARM, 54
+    learnset MOVE_NASTY_PLOT, 57
+    learnset MOVE_HURRICANE, 60
+    learnset MOVE_THRASH, 63
+    learnset MOVE_BLEAKWIND_STORM, 66
     terminatelearnset
 
 
