@@ -14924,43 +14924,53 @@ levelup SPECIES_FOONGUS
     learnset MOVE_ABSORB, 1
     learnset MOVE_ASTONISH, 1
     learnset MOVE_GROWTH, 4
-    learnset MOVE_STUN_SPORE, 8
-    learnset MOVE_ASTONISH, 8
-    learnset MOVE_BIDE, 12
+    learnset MOVE_STUN_SPORE, 7
+    learnset MOVE_POISON_POWDER, 10
     learnset MOVE_MEGA_DRAIN, 13
-    learnset MOVE_FEINT_ATTACK, 20
-    learnset MOVE_SYNTHESIS, 24
+    learnset MOVE_SYNTHESIS, 16
+    learnset MOVE_FEINT_ATTACK, 18
+    learnset MOVE_CLEAR_SMOG, 21
     learnset MOVE_SWEET_SCENT, 24
-    learnset MOVE_INGRAIN, 25
-    learnset MOVE_CLEAR_SMOG, 28
-    learnset MOVE_GIGA_DRAIN, 28
-    learnset MOVE_TOXIC, 34
-    learnset MOVE_RAGE_POWDER, 42
-    learnset MOVE_SOLAR_BEAM, 43
+    learnset MOVE_GIGA_DRAIN, 27
+    learnset MOVE_TOXIC, 30
+    learnset MOVE_VENOSHOCK, 33
+    learnset MOVE_INGRAIN, 36
+    learnset MOVE_RAGE_POWDER, 39
+    learnset MOVE_ENERGY_BALL, 42
+    learnset MOVE_POLLEN_PUFF, 45
     learnset MOVE_SPORE, 48
+    learnset MOVE_SLUDGE_BOMB, 51
+    learnset MOVE_DARK_PULSE, 54
+    learnset MOVE_WEATHER_BALL, 57
+    learnset MOVE_SOLAR_BEAM, 60
+    learnset MOVE_LEAF_STORM, 63
     terminatelearnset
 
 
 levelup SPECIES_AMOONGUSS
     learnset MOVE_ABSORB, 1
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_STUN_SPORE, 1
-    learnset MOVE_BIDE, 1
-    learnset MOVE_GROWTH, 6
-    learnset MOVE_ASTONISH, 8
-    learnset MOVE_BIDE, 12
-    learnset MOVE_MEGA_DRAIN, 13
-    learnset MOVE_FEINT_ATTACK, 20
-    learnset MOVE_SYNTHESIS, 24
-    learnset MOVE_SWEET_SCENT, 24
-    learnset MOVE_INGRAIN, 25
+    learnset MOVE_GROWTH, 5
+    learnset MOVE_STUN_SPORE, 8
+    learnset MOVE_POISON_POWDER, 11
+    learnset MOVE_MEGA_DRAIN, 14
+    learnset MOVE_SYNTHESIS, 17
+    learnset MOVE_FEINT_ATTACK, 19
+    learnset MOVE_CLEAR_SMOG, 22
+    learnset MOVE_SWEET_SCENT, 25
     learnset MOVE_GIGA_DRAIN, 28
-    learnset MOVE_CLEAR_SMOG, 30
-    learnset MOVE_TOXIC, 34
-    learnset MOVE_RAGE_POWDER, 47
-    learnset MOVE_SOLAR_BEAM, 48
-    learnset MOVE_SPORE, 57
+    learnset MOVE_TOXIC, 31
+    learnset MOVE_VENOSHOCK, 34
+    learnset MOVE_INGRAIN, 37
+    learnset MOVE_RAGE_POWDER, 40
+    learnset MOVE_ENERGY_BALL, 43
+    learnset MOVE_POLLEN_PUFF, 46
+    learnset MOVE_SPORE, 49
+    learnset MOVE_SLUDGE_BOMB, 52
+    learnset MOVE_DARK_PULSE, 55
+    learnset MOVE_WEATHER_BALL, 58
+    learnset MOVE_SOLAR_BEAM, 61
+    learnset MOVE_LEAF_STORM, 64
     terminatelearnset
 
 
