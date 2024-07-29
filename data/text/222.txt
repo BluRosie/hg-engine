@@ -48,7 +48,7 @@ Protein
 Iron
 Carbos
 Calcium
-Rare Candy
+Infinite Candy
 PP Up
 Zinc
 PP Max
@@ -443,14 +443,14 @@ Red Chain
 Town Map
 Vs. Seeker
 Coin Case
-Old Rod
+Fishing Rod
 Good Rod
 Super Rod
 Sprayduck
 Poffin Case
 Bicycle
 Suite Key
-Oak’s Letter
+Clair’s Letter
 Lunar Wing
 Member Card
 Azure Flute

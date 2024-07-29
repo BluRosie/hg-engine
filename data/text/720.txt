@@ -29,11 +29,11 @@ Effect Spore
 Synchronize
 Clear Body
 Natural Cure
-LightningRod
+Lightning Rod
 Serene Grace
 Swift Swim
 Chlorophyll
-Illuminate
+Dragon’s Maw
 Trace
 Huge Power
 Poison Point
@@ -48,7 +48,7 @@ Pressure
 Thick Fat
 Early Bird
 Flame Body
-Run Away
+Transistor
 Keen Eye
 Hyper Cutter
 Pickup
@@ -98,14 +98,14 @@ Normalize
 Sniper
 Magic Guard
 No Guard
-Stall
+Chilling Neigh
 Technician
 Leaf Guard
 Klutz
 Mold Breaker
 Super Luck
 Aftermath
-Anticipation
+Grim Neigh
 Forewarn
 Unaware
 Tinted Lens
@@ -194,7 +194,7 @@ Stamina
 Wimp Out
 Emergency Exit
 Water Compaction
-Merciless
+As One
 Shields Down
 Stakeout
 Water Bubble
@@ -206,7 +206,7 @@ Liquid Voice
 Triage
 Galvanize
 Surge Surfer
-Schooling
+As One
 Disguise
 Battle Bond
 Power Construct
@@ -260,12 +260,12 @@ Hunger Switch
 Quick Draw
 Unseen Fist
 Curious Medicine
-Transistor
-Dragon’s Maw
-Chilling Neigh
-Grim Neigh
-As One
-As One
+Run Away
+Illuminate
+Stall
+Anticipation
+Schooling
+Merciless
 Lingering Aroma
 Seed Sower
 Thermal Exchange

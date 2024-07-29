@@ -1110,7 +1110,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
             case MOVE_EFFECT_FLINCH_FREEZE_HIT:
             case MOVE_EFFECT_RAISE_ATTACK_HIT:
             case MOVE_EFFECT_LOWER_ACCURACY_HIT:
-            case MOVE_EFFECT_FLINCH_POISON_HIT:
+            case MOVE_EFFECT_BADLY_POISON_HIT:
             //case MOVE_EFFECT_SECRET_POWER: // need a different way of doing this i think
             case MOVE_EFFECT_LOWER_SP_ATK_HIT:
             case MOVE_EFFECT_THUNDER:
@@ -1691,7 +1691,7 @@ BOOL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo) {
     case MOVE_EFFECT_DIG:
     case MOVE_EFFECT_BOUNCE:
     case MOVE_EFFECT_SHADOW_FORCE:
-    case MOVE_EFFECT_GEOMANCY:
+    case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2 :
         return TRUE;
     }
     return FALSE;
