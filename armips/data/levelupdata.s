@@ -14869,53 +14869,54 @@ levelup SPECIES_EMOLGA
 levelup SPECIES_KARRABLAST
     learnset MOVE_PECK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_LEER, 4
-    learnset MOVE_FURY_CUTTER, 8
-    learnset MOVE_ENDURE, 8
+    learnset MOVE_FURY_CUTTER, 4
+    learnset MOVE_ENDURE, 7
+    learnset MOVE_FURY_ATTACK, 10
+    learnset MOVE_FALSE_SWIPE, 13
     learnset MOVE_ACID_SPRAY, 16
-    learnset MOVE_FURY_ATTACK, 16
-    learnset MOVE_FALSE_SWIPE, 18
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_SLASH, 32
-    learnset MOVE_SCARY_FACE, 33
-    learnset MOVE_FLAIL, 35
-    learnset MOVE_BUG_BUZZ, 36
-    learnset MOVE_X_SCISSOR, 37
-    learnset MOVE_TAKE_DOWN, 38
-    learnset MOVE_SWORDS_DANCE, 43
+    learnset MOVE_BUG_BITE, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_FLAIL, 24
+    learnset MOVE_SCARY_FACE, 27
+    learnset MOVE_KNOCK_OFF, 30
+    learnset MOVE_SLASH, 33
+    learnset MOVE_COUNTER, 36
+    learnset MOVE_NIGHT_SLASH, 39
+    learnset MOVE_X_SCISSOR, 42
+    learnset MOVE_TAKE_DOWN, 45
+    learnset MOVE_SWORDS_DANCE, 48
     learnset MOVE_DOUBLE_EDGE, 51
     terminatelearnset
 
 
 levelup SPECIES_ESCAVALIER
+    learnset MOVE_FELL_STINGER, 0
     learnset MOVE_FELL_STINGER, 1
-    learnset MOVE_ENDURE, 1
-    learnset MOVE_FLAIL, 1
-    learnset MOVE_SCARY_FACE, 1
-    learnset MOVE_TAKE_DOWN, 1
-    learnset MOVE_DOUBLE_EDGE, 1
     learnset MOVE_PECK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_QUICK_GUARD, 1
-    learnset MOVE_TWINEEDLE, 1
-    learnset MOVE_LEER, 4
-    learnset MOVE_QUICK_GUARD, 8
-    learnset MOVE_TWINEEDLE, 13
-    learnset MOVE_ACID_SPRAY, 16
-    learnset MOVE_FURY_ATTACK, 16
-    learnset MOVE_FALSE_SWIPE, 18
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_SLASH, 32
-    learnset MOVE_IRON_DEFENSE, 33
-    learnset MOVE_REVERSAL, 35
-    learnset MOVE_BUG_BUZZ, 36
-    learnset MOVE_X_SCISSOR, 37
-    learnset MOVE_IRON_HEAD, 38
-    learnset MOVE_SWORDS_DANCE, 43
-    learnset MOVE_GIGA_IMPACT, 51
-    learnset MOVE_METAL_BURST, 52
-    learnset MOVE_FELL_STINGER, 60
+    learnset MOVE_FURY_CUTTER, 5
+    learnset MOVE_ENDURE, 8
+    learnset MOVE_FURY_ATTACK, 11
+    learnset MOVE_FALSE_SWIPE, 14
+    learnset MOVE_ACID_SPRAY, 17
+    learnset MOVE_BUG_BITE, 19
+    learnset MOVE_HEADBUTT, 22
+    learnset MOVE_FLAIL, 25
+    learnset MOVE_SCARY_FACE, 28
+    learnset MOVE_TWINEEDLE, 31
+    learnset MOVE_KNOCK_OFF, 34
+    learnset MOVE_SLASH, 37
+    learnset MOVE_COUNTER, 40
+    learnset MOVE_NIGHT_SLASH, 43
+    learnset MOVE_IRON_HEAD, 46
+    learnset MOVE_REVERSAL, 49
+    learnset MOVE_IRON_DEFENSE, 52
+    learnset MOVE_X_SCISSOR, 55
+    learnset MOVE_TAKE_DOWN, 58
+    learnset MOVE_SWORDS_DANCE, 61
+    learnset MOVE_DOUBLE_EDGE, 64
+    learnset MOVE_METAL_BURST, 67
+    learnset MOVE_GIGA_IMPACT, 70
     terminatelearnset
 
 
