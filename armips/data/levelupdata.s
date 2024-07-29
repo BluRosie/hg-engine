@@ -15539,51 +15539,48 @@ levelup SPECIES_SHELMET
     learnset MOVE_ABSORB, 1
     learnset MOVE_PROTECT, 1
     learnset MOVE_ACID, 4
-    learnset MOVE_BIDE, 8
+    learnset MOVE_BIDE, 7
     learnset MOVE_CURSE, 10
-    learnset MOVE_MEGA_DRAIN, 15
+    learnset MOVE_MEGA_DRAIN, 13
     learnset MOVE_STRUGGLE_BUG, 16
-    learnset MOVE_YAWN, 22
-    learnset MOVE_ACID_ARMOR, 27
-    learnset MOVE_PROTECT, 28
-    learnset MOVE_GIGA_DRAIN, 32
-    learnset MOVE_BODY_SLAM, 37
-    learnset MOVE_GUARD_SWAP, 40
-    learnset MOVE_RECOVER, 44
-    learnset MOVE_BUG_BUZZ, 44
-    learnset MOVE_FINAL_GAMBIT, 51
+    learnset MOVE_YAWN, 18
+    learnset MOVE_SKITTER_SMACK, 21
+    learnset MOVE_ACID_ARMOR, 24
+    learnset MOVE_GIGA_DRAIN, 27
+    learnset MOVE_GUARD_SWAP, 30
+    learnset MOVE_BODY_SLAM, 33
+    learnset MOVE_RECOVER, 36
+    learnset MOVE_BUG_BUZZ, 39
+    learnset MOVE_FINAL_GAMBIT, 42
     terminatelearnset
 
 
 levelup SPECIES_ACCELGOR
-    learnset MOVE_WATER_SHURIKEN, 1
-    learnset MOVE_ACID, 1
-    learnset MOVE_CURSE, 1
-    learnset MOVE_YAWN, 1
-    learnset MOVE_ACID_ARMOR, 1
-    learnset MOVE_GUARD_SWAP, 1
-    learnset MOVE_BODY_SLAM, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_DOUBLE_TEAM, 1
-    learnset MOVE_ACID_SPRAY, 1
+    learnset MOVE_QUICK_ATTACK, 0
     learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_FINAL_GAMBIT, 1
-    learnset MOVE_POWER_SWAP, 1
-    learnset MOVE_ACID_SPRAY, 4
-    learnset MOVE_DOUBLE_TEAM, 8
-    learnset MOVE_QUICK_ATTACK, 13
-    learnset MOVE_MEGA_DRAIN, 15
-    learnset MOVE_STRUGGLE_BUG, 16
-    learnset MOVE_SWIFT, 22
-    learnset MOVE_AGILITY, 27
-    learnset MOVE_ME_FIRST, 28
-    learnset MOVE_GIGA_DRAIN, 32
-    learnset MOVE_U_TURN, 37
-    learnset MOVE_POWER_SWAP, 41
-    learnset MOVE_RECOVER, 44
-    learnset MOVE_BUG_BUZZ, 44
-    learnset MOVE_FINAL_GAMBIT, 51
-    learnset MOVE_TOXIC, 52
+    learnset MOVE_ABSORB, 1
+    learnset MOVE_PROTECT, 1
+    learnset MOVE_ACID, 5
+    learnset MOVE_BIDE, 8
+    learnset MOVE_CURSE, 11
+    learnset MOVE_MEGA_DRAIN, 14
+    learnset MOVE_STRUGGLE_BUG, 17
+    learnset MOVE_ME_FIRST, 19
+    learnset MOVE_YAWN, 22
+    learnset MOVE_SKITTER_SMACK, 25
+    learnset MOVE_ACID_SPRAY, 28
+    learnset MOVE_ACID_ARMOR, 31
+    learnset MOVE_GIGA_DRAIN, 34
+    learnset MOVE_GUARD_SWAP, 37
+    learnset MOVE_POWER_SWAP, 37
+    learnset MOVE_WATER_SHURIKEN, 40
+    learnset MOVE_BODY_SLAM, 43
+    learnset MOVE_AGILITY, 46
+    learnset MOVE_U_TURN, 49
+    learnset MOVE_RECOVER, 52
+    learnset MOVE_BUG_BUZZ, 55
+    learnset MOVE_TOXIC, 58
+    learnset MOVE_FINAL_GAMBIT, 61
     terminatelearnset
 
 
