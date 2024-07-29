@@ -15741,50 +15741,54 @@ levelup SPECIES_GOLURK
 levelup SPECIES_PAWNIARD
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 6
-    learnset MOVE_LEER, 6
-    learnset MOVE_TORMENT, 14
-    learnset MOVE_METAL_CLAW, 17
-    learnset MOVE_FEINT_ATTACK, 17
-    learnset MOVE_SCARY_FACE, 20
-    learnset MOVE_ASSURANCE, 28
-    learnset MOVE_SLASH, 32
-    learnset MOVE_METAL_SOUND, 33
-    learnset MOVE_EMBARGO, 41
-    learnset MOVE_NIGHT_SLASH, 44
+    learnset MOVE_FURY_CUTTER, 4
+    learnset MOVE_TAUNT, 7
+    learnset MOVE_METAL_CLAW, 10
+    learnset MOVE_FALSE_SWIPE, 13
+    learnset MOVE_TORMENT, 16
+    learnset MOVE_FEINT_ATTACK, 18
+    learnset MOVE_SCARY_FACE, 21
+    learnset MOVE_PAYBACK, 24
+    learnset MOVE_ROCK_TOMB, 27
+    learnset MOVE_METAL_SOUND, 30
+    learnset MOVE_SLASH, 33
+    learnset MOVE_SUCKER_PUNCH, 36
+    learnset MOVE_NIGHT_SLASH, 39
+    learnset MOVE_ROCK_SLIDE, 42
     learnset MOVE_IRON_DEFENSE, 45
-    learnset MOVE_LASER_FOCUS, 50
-    learnset MOVE_IRON_HEAD, 54
-    learnset MOVE_SWORDS_DANCE, 58
-    learnset MOVE_GUILLOTINE, 63
+    learnset MOVE_EMBARGO, 48
+    learnset MOVE_IRON_HEAD, 51
+    learnset MOVE_SWORDS_DANCE, 54
+    learnset MOVE_STONE_EDGE, 57
+    learnset MOVE_GUILLOTINE, 60
     terminatelearnset
 
 
 levelup SPECIES_BISHARP
+    learnset MOVE_METAL_BURST, 0
     learnset MOVE_METAL_BURST, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_GUILLOTINE, 1
-    learnset MOVE_IRON_HEAD, 1
-    learnset MOVE_TORMENT, 1
-    learnset MOVE_LEER, 6
-    learnset MOVE_FURY_CUTTER, 9
-    learnset MOVE_TORMENT, 14
-    learnset MOVE_FEINT_ATTACK, 17
-    learnset MOVE_SCARY_FACE, 20
-    learnset MOVE_METAL_CLAW, 25
-    learnset MOVE_ASSURANCE, 28
-    learnset MOVE_SLASH, 32
-    learnset MOVE_METAL_SOUND, 33
-    learnset MOVE_EMBARGO, 41
-    learnset MOVE_NIGHT_SLASH, 44
-    learnset MOVE_IRON_DEFENSE, 45
-    learnset MOVE_LASER_FOCUS, 50
-    learnset MOVE_IRON_HEAD, 57
-    learnset MOVE_SWORDS_DANCE, 63
-    learnset MOVE_GUILLOTINE, 71
+    learnset MOVE_FURY_CUTTER, 5
+    learnset MOVE_TAUNT, 8
+    learnset MOVE_METAL_CLAW, 11
+    learnset MOVE_FALSE_SWIPE, 14
+    learnset MOVE_TORMENT, 17
+    learnset MOVE_FEINT_ATTACK, 19
+    learnset MOVE_SCARY_FACE, 22
+    learnset MOVE_PAYBACK, 25
+    learnset MOVE_ROCK_TOMB, 28
+    learnset MOVE_METAL_SOUND, 31
+    learnset MOVE_SLASH, 34
+    learnset MOVE_SUCKER_PUNCH, 37
+    learnset MOVE_NIGHT_SLASH, 40
+    learnset MOVE_ROCK_SLIDE, 43
+    learnset MOVE_IRON_DEFENSE, 46
+    learnset MOVE_EMBARGO, 49
+    learnset MOVE_IRON_HEAD, 52
+    learnset MOVE_SWORDS_DANCE, 55
+    learnset MOVE_STONE_EDGE, 58
+    learnset MOVE_GUILLOTINE, 61
     terminatelearnset
 
 
@@ -23217,24 +23221,28 @@ levelup SPECIES_DUDUNSPARCE
 levelup SPECIES_KINGAMBIT
     learnset MOVE_KOWTOW_CLEAVE, 0
     learnset MOVE_KOWTOW_CLEAVE, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_LEER, 1	
-    learnset MOVE_METAL_BURST, 1
-    learnset MOVE_METAL_CLAW, 1
     learnset MOVE_SCRATCH, 1
-    learnset MOVE_TORMENT, 15
-    learnset MOVE_FEINT_ATTACK, 17
-    learnset MOVE_SCARY_FACE, 20
-    learnset MOVE_ASSURANCE, 25
-    learnset MOVE_METAL_SOUND, 30	
+    learnset MOVE_LEER, 1
+    learnset MOVE_FURY_CUTTER, 6
+    learnset MOVE_TAUNT, 9
+    learnset MOVE_METAL_CLAW, 12
+    learnset MOVE_FALSE_SWIPE, 15
+    learnset MOVE_TORMENT, 18
+    learnset MOVE_FEINT_ATTACK, 20
+    learnset MOVE_SCARY_FACE, 23
+    learnset MOVE_PAYBACK, 26
+    learnset MOVE_ROCK_TOMB, 29
+    learnset MOVE_METAL_SOUND, 32
     learnset MOVE_SLASH, 35
-    learnset MOVE_NIGHT_SLASH, 40	
-    learnset MOVE_EMBARGO, 41
-    learnset MOVE_IRON_DEFENSE, 45
-    learnset MOVE_RETALIATE, 50	
-    learnset MOVE_IRON_HEAD, 57
-    learnset MOVE_SWORDS_DANCE, 64
-    learnset MOVE_GUILLOTINE, 71
+    learnset MOVE_SUCKER_PUNCH, 39
+    learnset MOVE_NIGHT_SLASH, 41
+    learnset MOVE_ROCK_SLIDE, 44
+    learnset MOVE_IRON_DEFENSE, 47
+    learnset MOVE_EMBARGO, 50
+    learnset MOVE_IRON_HEAD, 53
+    learnset MOVE_SWORDS_DANCE, 56
+    learnset MOVE_STONE_EDGE, 59
+    learnset MOVE_GUILLOTINE, 62
     terminatelearnset
 
 levelup SPECIES_GREAT_TUSK
