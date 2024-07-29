@@ -15462,56 +15462,48 @@ levelup SPECIES_HAXORUS
 levelup SPECIES_CUBCHOO
     learnset MOVE_POWDER_SNOW, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_POWDER_SNOW, 5
-    learnset MOVE_BIDE, 9
+    learnset MOVE_ENDURE, 4
+    learnset MOVE_FURY_SWIPES, 7
     learnset MOVE_ICY_WIND, 10
-    learnset MOVE_FURY_SWIPES, 11
-    learnset MOVE_ENDURE, 13
     learnset MOVE_PLAY_NICE, 13
-    learnset MOVE_BRINE, 17
+    learnset MOVE_BRINE, 16
     learnset MOVE_FROST_BREATH, 18
-    learnset MOVE_SLASH, 26
+    learnset MOVE_SLASH, 21
+    learnset MOVE_FLAIL, 24
     learnset MOVE_CHARM, 27
-    learnset MOVE_FLAIL, 29
-    learnset MOVE_HAIL, 38
-    learnset MOVE_REST, 38
-    learnset MOVE_BLIZZARD, 41
-    learnset MOVE_THRASH, 42
-    learnset MOVE_SHEER_COLD, 49
+    learnset MOVE_AVALANCHE, 30
+    learnset MOVE_SNOWSCAPE, 33
+    learnset MOVE_NIGHT_SLASH, 36
+    learnset MOVE_REST, 39
+    learnset MOVE_BLIZZARD, 42
     terminatelearnset
 
 
 levelup SPECIES_BEARTIC
-    learnset MOVE_ICICLE_CRASH, 0
-    learnset MOVE_ICICLE_CRASH, 1
+    learnset MOVE_AQUA_JET, 0
     learnset MOVE_AQUA_JET, 1
-    learnset MOVE_CHARM, 1
     learnset MOVE_POWDER_SNOW, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_ENDURE, 1
-    learnset MOVE_FURY_SWIPES, 1
-    learnset MOVE_SHEER_COLD, 1
-    learnset MOVE_THRASH, 1
-    learnset MOVE_SUPERPOWER, 1
-    learnset MOVE_BIDE, 1
-    learnset MOVE_ICY_WIND, 1
-    learnset MOVE_POWDER_SNOW, 5
-    learnset MOVE_BIDE, 9
-    learnset MOVE_ICY_WIND, 10
-    learnset MOVE_PLAY_NICE, 13
+    learnset MOVE_ENDURE, 5
+    learnset MOVE_FURY_SWIPES, 8
+    learnset MOVE_ICY_WIND, 11
+    learnset MOVE_PLAY_NICE, 14
     learnset MOVE_BRINE, 17
-    learnset MOVE_FURY_SWIPES, 17
-    learnset MOVE_FROST_BREATH, 18
-    learnset MOVE_ENDURE, 25
-    learnset MOVE_SLASH, 26
-    learnset MOVE_SWAGGER, 27
-    learnset MOVE_FLAIL, 29
-    learnset MOVE_REST, 38
-    learnset MOVE_HAIL, 40
-    learnset MOVE_BLIZZARD, 42
-    learnset MOVE_THRASH, 45
-    learnset MOVE_SUPERPOWER, 51
-    learnset MOVE_SHEER_COLD, 55
+    learnset MOVE_FROST_BREATH, 19
+    learnset MOVE_SLASH, 22
+    learnset MOVE_FLAIL, 25
+    learnset MOVE_CHARM, 28
+    learnset MOVE_AVALANCHE, 31
+    learnset MOVE_SNOWSCAPE, 34
+    learnset MOVE_NIGHT_SLASH, 37
+    learnset MOVE_REST, 40
+    learnset MOVE_ICICLE_CRASH, 43
+    learnset MOVE_LIQUIDATION, 46
+    learnset MOVE_BULK_UP, 49
+    learnset MOVE_PLAY_ROUGH, 52
+    learnset MOVE_BLIZZARD, 55
+    learnset MOVE_CLOSE_COMBAT, 58
+    learnset MOVE_ICE_HAMMER, 61
     terminatelearnset
 
 
