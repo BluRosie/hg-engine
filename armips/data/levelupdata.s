@@ -20009,28 +20009,27 @@ levelup SPECIES_TSAREENA
 levelup SPECIES_COMFEY
     learnset MOVE_WRAP, 1
     learnset MOVE_GROWTH, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_FLOWER_SHIELD, 1
-    learnset MOVE_VINE_WHIP, 3
-    learnset MOVE_HELPING_HAND, 6
-    learnset MOVE_DRAINING_KISS, 8
-    learnset MOVE_FLOWER_SHIELD, 12
-    learnset MOVE_MAGICAL_LEAF, 12
-    learnset MOVE_LEECH_SEED, 13
-    learnset MOVE_GROWTH, 13
-    learnset MOVE_WRAP, 16
-    learnset MOVE_SYNTHESIS, 22
-    learnset MOVE_NATURAL_GIFT, 22
-    learnset MOVE_SWEET_KISS, 23
-    learnset MOVE_GRASS_KNOT, 28
-    learnset MOVE_PETAL_BLIZZARD, 29
-    learnset MOVE_FLORAL_HEALING, 33
-    learnset MOVE_SWEET_SCENT, 36
-    learnset MOVE_AROMATHERAPY, 39
-    learnset MOVE_PETAL_DANCE, 42
-    learnset MOVE_PLAY_ROUGH, 43
-    learnset MOVE_GRASSY_TERRAIN, 47
+    learnset MOVE_VINE_WHIP, 4
+    learnset MOVE_HELPING_HAND, 7
+    learnset MOVE_DRAINING_KISS, 10
+    learnset MOVE_CHARM, 13
+    learnset MOVE_MAGICAL_LEAF, 16
+    learnset MOVE_SYNTHESIS, 18
+    learnset MOVE_LEECH_SEED, 21
+    learnset MOVE_GRASS_KNOT, 24
+    learnset MOVE_SWEET_KISS, 27
+    learnset MOVE_FLORAL_HEALING, 30
+    learnset MOVE_GIGA_DRAIN, 33
+    learnset MOVE_WORRY_SEED, 36
+    learnset MOVE_DAZZLING_GLEAM, 39
+    learnset MOVE_ENERGY_BALL, 42
+    learnset MOVE_ENCORE, 45
+    learnset MOVE_MOONBLAST, 48
+    learnset MOVE_GRASSY_TERRAIN, 51
+    learnset MOVE_POLLEN_PUFF, 54
+    learnset MOVE_PAIN_SPLIT, 57
+    learnset MOVE_LEAF_STORM, 60
+    learnset MOVE_HEALING_WISH, 63
     terminatelearnset
 
 
