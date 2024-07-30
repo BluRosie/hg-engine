@@ -16800,41 +16800,55 @@ levelup SPECIES_VIVILLON
 levelup SPECIES_LITLEO
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 5
-    learnset MOVE_WORK_UP, 8
-    learnset MOVE_HEADBUTT, 11
-    learnset MOVE_NOBLE_ROAR, 15
-    learnset MOVE_TAKE_DOWN, 20
-    learnset MOVE_FIRE_FANG, 23
-    learnset MOVE_ENDEAVOR, 28
-    learnset MOVE_ECHOED_VOICE, 33
-    learnset MOVE_FLAMETHROWER, 36
+    learnset MOVE_EMBER, 4
+    learnset MOVE_WORK_UP, 7
+    learnset MOVE_SWIFT, 10
+    learnset MOVE_BITE, 13
+    learnset MOVE_NOBLE_ROAR, 16
+    learnset MOVE_FIRE_SPIN, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_FIRE_FANG, 24
+    learnset MOVE_ENDEAVOR, 27
+    learnset MOVE_WILL_O_WISP, 30
+    learnset MOVE_PSYCHIC_FANGS, 33
+    learnset MOVE_FLAME_BURST, 36
     learnset MOVE_CRUNCH, 39
-    learnset MOVE_HYPER_VOICE, 43
-    learnset MOVE_INCINERATE, 46
-    learnset MOVE_OVERHEAT, 50
+    learnset MOVE_HYPER_VOICE, 42
+    learnset MOVE_WILD_CHARGE, 45
+    learnset MOVE_NASTY_PLOT, 48
+    learnset MOVE_FLAMETHROWER, 51
+    learnset MOVE_DARK_PULSE, 54
+    learnset MOVE_FIRE_BLAST, 57
+    learnset MOVE_SOLAR_BEAM, 60
+    learnset MOVE_OVERHEAT, 63
     terminatelearnset
 
 
 levelup SPECIES_PYROAR
-    learnset MOVE_HYPER_BEAM, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_EMBER, 1
-    learnset MOVE_WORK_UP, 1
     learnset MOVE_EMBER, 5
     learnset MOVE_WORK_UP, 8
-    learnset MOVE_HEADBUTT, 11
-    learnset MOVE_NOBLE_ROAR, 15
-    learnset MOVE_TAKE_DOWN, 20
-    learnset MOVE_FIRE_FANG, 23
+    learnset MOVE_SWIFT, 11
+    learnset MOVE_BITE, 14
+    learnset MOVE_NOBLE_ROAR, 17
+    learnset MOVE_FIRE_SPIN, 19
+    learnset MOVE_HEADBUTT, 22
+    learnset MOVE_FIRE_FANG, 25
     learnset MOVE_ENDEAVOR, 28
-    learnset MOVE_ECHOED_VOICE, 33
-    learnset MOVE_FLAMETHROWER, 38
-    learnset MOVE_CRUNCH, 42
-    learnset MOVE_HYPER_VOICE, 48
-    learnset MOVE_INCINERATE, 51
-    learnset MOVE_OVERHEAT, 57
+    learnset MOVE_WILL_O_WISP, 31
+    learnset MOVE_PSYCHIC_FANGS, 34
+    learnset MOVE_FLAME_BURST, 37
+    learnset MOVE_CRUNCH, 40
+    learnset MOVE_HYPER_VOICE, 43
+    learnset MOVE_WILD_CHARGE, 46
+    learnset MOVE_NASTY_PLOT, 49
+    learnset MOVE_FLAMETHROWER, 52
+    learnset MOVE_DARK_PULSE, 55
+    learnset MOVE_FIRE_BLAST, 58
+    learnset MOVE_SOLAR_BEAM, 61
+    learnset MOVE_OVERHEAT, 64
+    learnset MOVE_HYPER_BEAM, 67
     terminatelearnset
 
 
