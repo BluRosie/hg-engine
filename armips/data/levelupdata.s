@@ -19636,45 +19636,56 @@ levelup SPECIES_TOXAPEX
 levelup SPECIES_MUDBRAY
     learnset MOVE_MUD_SLAP, 1
     learnset MOVE_ROCK_SMASH, 1
-    learnset MOVE_MUD_SPORT, 3
-    learnset MOVE_ROTOTILLER, 8
-    learnset MOVE_DOUBLE_KICK, 11
-    learnset MOVE_BULLDOZE, 11
-    learnset MOVE_IRON_DEFENSE, 15
+    learnset MOVE_IRON_DEFENSE, 4
+    learnset MOVE_DOUBLE_KICK, 7
+    learnset MOVE_SMACK_DOWN, 10
+    learnset MOVE_BULLDOZE, 13
     learnset MOVE_STOMP, 16
-    learnset MOVE_STRENGTH, 20
-    learnset MOVE_BIDE, 22
-    learnset MOVE_HIGH_HORSEPOWER, 26
-    learnset MOVE_COUNTER, 29
-    learnset MOVE_HEAVY_SLAM, 31
-    learnset MOVE_EARTHQUAKE, 36
-    learnset MOVE_MEGA_KICK, 41
-    learnset MOVE_SUPERPOWER, 44
+    learnset MOVE_LOW_SWEEP, 18
+    learnset MOVE_STRENGTH, 21
+    learnset MOVE_COUNTER, 24
+    learnset MOVE_STOMPING_TANTRUM, 27
+    learnset MOVE_REST, 30
+    learnset MOVE_SLEEP_TALK, 30
+    learnset MOVE_HEAVY_SLAM, 33
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_IRON_HEAD, 39
+    learnset MOVE_HIGH_HORSEPOWER, 42
+    learnset MOVE_BODY_PRESS, 45
+    learnset MOVE_SANDSTORM, 48
+    learnset MOVE_EARTHQUAKE, 51
+    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_DOUBLE_EDGE, 57
+    learnset MOVE_CLOSE_COMBAT, 60
+    learnset MOVE_HEADLONG_RUSH, 63
     terminatelearnset
 
 
 levelup SPECIES_MUDSDALE
     learnset MOVE_MUD_SLAP, 1
     learnset MOVE_ROCK_SMASH, 1
-    learnset MOVE_IRON_DEFENSE, 1
-    learnset MOVE_DOUBLE_KICK, 1
-    learnset MOVE_MUD_SPORT, 1
-    learnset MOVE_ROTOTILLER, 1
-    learnset MOVE_BULLDOZE, 1
-    learnset MOVE_MUD_SPORT, 3
-    learnset MOVE_ROTOTILLER, 8
-    learnset MOVE_BULLDOZE, 11
-    learnset MOVE_DOUBLE_KICK, 15
-    learnset MOVE_STOMP, 16
-    learnset MOVE_STRENGTH, 20
-    learnset MOVE_BIDE, 22
-    learnset MOVE_HIGH_HORSEPOWER, 26
-    learnset MOVE_IRON_DEFENSE, 29
-    learnset MOVE_COUNTER, 32
+    learnset MOVE_IRON_DEFENSE, 5
+    learnset MOVE_DOUBLE_KICK, 8
+    learnset MOVE_SMACK_DOWN, 11
+    learnset MOVE_BULLDOZE, 14
+    learnset MOVE_STOMP, 17
+    learnset MOVE_LOW_SWEEP, 19
+    learnset MOVE_STRENGTH, 22
+    learnset MOVE_COUNTER, 25
+    learnset MOVE_STOMPING_TANTRUM, 28
+    learnset MOVE_REST, 31
+    learnset MOVE_SLEEP_TALK, 31
     learnset MOVE_HEAVY_SLAM, 34
-    learnset MOVE_EARTHQUAKE, 43
-    learnset MOVE_MEGA_KICK, 50
-    learnset MOVE_SUPERPOWER, 55
+    learnset MOVE_ROCK_SLIDE, 37
+    learnset MOVE_IRON_HEAD, 40
+    learnset MOVE_HIGH_HORSEPOWER, 43
+    learnset MOVE_BODY_PRESS, 46
+    learnset MOVE_SANDSTORM, 49
+    learnset MOVE_EARTHQUAKE, 52
+    learnset MOVE_STONE_EDGE, 55
+    learnset MOVE_DOUBLE_EDGE, 58
+    learnset MOVE_CLOSE_COMBAT, 61
+    learnset MOVE_HEADLONG_RUSH, 64
     terminatelearnset
 
 
