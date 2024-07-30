@@ -1,0 +1,29 @@
+{
+	"frames": {
+		"breakrock": {
+			"frame": 0,
+			"coordTrans": 16,
+			"color0": 1,
+			"format": 3,
+			"height": 16,
+			"width": 16,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 70,
+			"unkBlockUnk1": 1,
+			"unk0": 128,
+			"unk1": 0,
+			"unk2": 128
+		}
+	},
+	"palettes": {
+		"breakrock": {
+			"offset": 0,
+			"unk0": 70,
+			"unk1": 1,
+			"fileName": "breakrock.pal"
+		}
+	}
+}
