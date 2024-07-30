@@ -19461,41 +19461,53 @@ levelup SPECIES_ORICORIO
 
 levelup SPECIES_CUTIEFLY
     learnset MOVE_ABSORB, 1
-    learnset MOVE_FAIRY_WIND, 1
     learnset MOVE_FAIRY_WIND, 4
-    learnset MOVE_STUN_SPORE, 6
-    learnset MOVE_SILVER_WIND, 13
-    learnset MOVE_SWEET_SCENT, 16
-    learnset MOVE_DRAINING_KISS, 17
-    learnset MOVE_STRUGGLE_BUG, 17
-    learnset MOVE_AROMATHERAPY, 32
-    learnset MOVE_SWITCHEROO, 36
-    learnset MOVE_DAZZLING_GLEAM, 36
-    learnset MOVE_BUG_BUZZ, 37
-    learnset MOVE_QUIVER_DANCE, 47
+    learnset MOVE_STUN_SPORE, 7
+    learnset MOVE_STRUGGLE_BUG, 10
+    learnset MOVE_MEGA_DRAIN, 13
+    learnset MOVE_SILVER_WIND, 16
+    learnset MOVE_DRAINING_KISS, 18
+    learnset MOVE_AROMATHERAPY, 21
+    learnset MOVE_SIGNAL_BEAM, 24
+    learnset MOVE_U_TURN, 27
+    learnset MOVE_SWITCHEROO, 30
+    learnset MOVE_GIGA_DRAIN, 33
+    learnset MOVE_EARTH_POWER, 36
+    learnset MOVE_STICKY_WEB, 39
+    learnset MOVE_BUG_BUZZ, 42
+    learnset MOVE_DAZZLING_GLEAM, 45
+    learnset MOVE_QUIVER_DANCE, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_MOONBLAST, 54
+    learnset MOVE_HEAT_WAVE, 57
+    learnset MOVE_POLLEN_PUFF, 60
+    learnset MOVE_LUNAR_DANCE, 63
     terminatelearnset
 
 
 levelup SPECIES_RIBOMBEE
-    learnset MOVE_POLLEN_PUFF, 0
-    learnset MOVE_POLLEN_PUFF, 1
-    learnset MOVE_COVET, 1
     learnset MOVE_ABSORB, 1
-    learnset MOVE_FAIRY_WIND, 1
-    learnset MOVE_STUN_SPORE, 1
-    learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_STRUGGLE_BUG, 1
-    learnset MOVE_FAIRY_WIND, 4
-    learnset MOVE_STUN_SPORE, 7
-    learnset MOVE_SILVER_WIND, 13
-    learnset MOVE_DRAINING_KISS, 17
-    learnset MOVE_STRUGGLE_BUG, 17
-    learnset MOVE_SWEET_SCENT, 21
-    learnset MOVE_AROMATHERAPY, 36
-    learnset MOVE_SWITCHEROO, 40
-    learnset MOVE_DAZZLING_GLEAM, 41
+    learnset MOVE_FAIRY_WIND, 5
+    learnset MOVE_STUN_SPORE, 8
+    learnset MOVE_STRUGGLE_BUG, 11
+    learnset MOVE_MEGA_DRAIN, 13
+    learnset MOVE_SILVER_WIND, 16
+    learnset MOVE_DRAINING_KISS, 18
+    learnset MOVE_AROMATHERAPY, 21
+    learnset MOVE_SIGNAL_BEAM, 24
+    learnset MOVE_U_TURN, 27
+    learnset MOVE_SWITCHEROO, 30
+    learnset MOVE_GIGA_DRAIN, 33
+    learnset MOVE_EARTH_POWER, 36
+    learnset MOVE_STICKY_WEB, 39
     learnset MOVE_BUG_BUZZ, 42
-    learnset MOVE_QUIVER_DANCE, 57
+    learnset MOVE_DAZZLING_GLEAM, 45
+    learnset MOVE_QUIVER_DANCE, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_MOONBLAST, 54
+    learnset MOVE_HEAT_WAVE, 57
+    learnset MOVE_POLLEN_PUFF, 60
+    learnset MOVE_LUNAR_DANCE, 63
     terminatelearnset
 
 
