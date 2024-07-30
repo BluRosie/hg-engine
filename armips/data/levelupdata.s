@@ -17034,44 +17034,43 @@ levelup SPECIES_FURFROU
 levelup SPECIES_ESPURR
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_CONFUSION, 9
-    learnset MOVE_FAKE_OUT, 10
-    learnset MOVE_COVET, 11
-    learnset MOVE_DISARMING_VOICE, 13
-    learnset MOVE_PSYBEAM, 19
-    learnset MOVE_LIGHT_SCREEN, 22
-    learnset MOVE_PSYSHOCK, 29
-    learnset MOVE_REFLECT, 30
+    learnset MOVE_FAKE_OUT, 4
+    learnset MOVE_DISARMING_VOICE, 7
+    learnset MOVE_CONFUSION, 10
+    learnset MOVE_COVET, 13
+    learnset MOVE_TICKLE, 16
+    learnset MOVE_LIGHT_SCREEN, 18
+    learnset MOVE_REFLECT, 18
+    learnset MOVE_PSYBEAM, 21
     terminatelearnset
 
 
 levelup SPECIES_MEOWSTIC
+    learnset MOVE_MEAN_LOOK, 0
     learnset MOVE_MEAN_LOOK, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_QUICK_GUARD, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_COVET, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_CONFUSION, 9
-    learnset MOVE_COVET, 11
-    learnset MOVE_HELPING_HAND, 12
-    learnset MOVE_PSYBEAM, 19
-    learnset MOVE_FAKE_OUT, 19
-    learnset MOVE_CHARM, 21
-    learnset MOVE_DISARMING_VOICE, 22
-    learnset MOVE_LIGHT_SCREEN, 24
-    learnset MOVE_MIRACLE_EYE, 31
-    learnset MOVE_PSYSHOCK, 32
-    learnset MOVE_REFLECT, 34
-    learnset MOVE_SUCKER_PUNCH, 35
-    learnset MOVE_ROLE_PLAY, 35
-    learnset MOVE_IMPRISON, 44
-    learnset MOVE_PSYCHIC, 47
-    learnset MOVE_QUICK_GUARD, 50
-    learnset MOVE_MISTY_TERRAIN, 54
+    learnset MOVE_FAKE_OUT, 4
+    learnset MOVE_DISARMING_VOICE, 7
+    learnset MOVE_CONFUSION, 10
+    learnset MOVE_COVET, 13
+    learnset MOVE_TICKLE, 16
+    learnset MOVE_LIGHT_SCREEN, 18
+    learnset MOVE_REFLECT, 18
+    learnset MOVE_PSYBEAM, 21
+    learnset MOVE_SUCKER_PUNCH, 24
+    learnset MOVE_DRAINING_KISS, 27
+    learnset MOVE_ROLE_PLAY, 30
+    learnset MOVE_CHARM, 33
+    learnset MOVE_DAZZLING_GLEAM, 36
+    learnset MOVE_SIGNAL_BEAM, 39
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_IMPRISON, 45
+    learnset MOVE_QUICK_GUARD, 48
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_PSYCHIC_TERRAIN, 57
+    learnset MOVE_FUTURE_SIGHT, 60
     terminatelearnset
 
 
@@ -29934,32 +29933,31 @@ levelup SPECIES_PYROAR_FEMALE
 
 
 levelup SPECIES_MEOWSTIC_FEMALE
+    learnset MOVE_MAGICAL_LEAF, 0
     learnset MOVE_MAGICAL_LEAF, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FAKE_OUT, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_STORED_POWER, 1
-    learnset MOVE_ME_FIRST, 1
-    learnset MOVE_COVET, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_CONFUSION, 9
-    learnset MOVE_COVET, 11
-    learnset MOVE_PSYBEAM, 19
-    learnset MOVE_FAKE_OUT, 19
-    learnset MOVE_CHARGE_BEAM, 21
-    learnset MOVE_DISARMING_VOICE, 22
-    learnset MOVE_LIGHT_SCREEN, 24
-    learnset MOVE_STORED_POWER, 31
-    learnset MOVE_PSYSHOCK, 32
-    learnset MOVE_REFLECT, 34
-    learnset MOVE_SUCKER_PUNCH, 35
-    learnset MOVE_ROLE_PLAY, 35
-    learnset MOVE_EXTRASENSORY, 39
-    learnset MOVE_SHADOW_BALL, 40
-    learnset MOVE_SIGNAL_BEAM, 45
-    learnset MOVE_PSYCHIC, 47
-    learnset MOVE_FUTURE_SIGHT, 54
+    learnset MOVE_FAKE_OUT, 4
+    learnset MOVE_DISARMING_VOICE, 7
+    learnset MOVE_CONFUSION, 10
+    learnset MOVE_COVET, 13
+    learnset MOVE_STORED_POWER, 16
+    learnset MOVE_LIGHT_SCREEN, 18
+    learnset MOVE_REFLECT, 18
+    learnset MOVE_PSYBEAM, 21
+    learnset MOVE_SUCKER_PUNCH, 24
+    learnset MOVE_DRAINING_KISS, 27
+    learnset MOVE_ROLE_PLAY, 30
+    learnset MOVE_CHARGE_BEAM, 33
+    learnset MOVE_DAZZLING_GLEAM, 36
+    learnset MOVE_SIGNAL_BEAM, 39
+    learnset MOVE_PSYSHOCK, 42
+    learnset MOVE_ENERGY_BALL, 45
+    learnset MOVE_SHADOW_BALL, 48
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_NASTY_PLOT, 57
+    learnset MOVE_FUTURE_SIGHT, 60
     terminatelearnset
 
 
