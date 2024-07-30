@@ -19205,63 +19205,65 @@ levelup SPECIES_PRIMARINA
 
 levelup SPECIES_PIKIPEK
     learnset MOVE_PECK, 1
-    learnset MOVE_GROWL, 3
+    learnset MOVE_GROWL, 4
     learnset MOVE_ECHOED_VOICE, 7
-    learnset MOVE_ROCK_SMASH, 9
+    learnset MOVE_ROCK_SMASH, 10
     learnset MOVE_SUPERSONIC, 13
-    learnset MOVE_PLUCK, 15
-    learnset MOVE_ROOST, 19
+    learnset MOVE_PLUCK, 16
+    learnset MOVE_ROOST, 18
     learnset MOVE_FURY_ATTACK, 21
-    learnset MOVE_SCREECH, 25
-    learnset MOVE_DRILL_PECK, 27
-    learnset MOVE_BULLET_SEED, 31
+    learnset MOVE_SCREECH, 24
+    learnset MOVE_AERIAL_ACE, 27
+    learnset MOVE_BULLET_SEED, 30
     learnset MOVE_FEATHER_DANCE, 33
-    learnset MOVE_HYPER_VOICE, 37
+    learnset MOVE_BRICK_BREAK, 36
     terminatelearnset
 
 
 levelup SPECIES_TRUMBEAK
+    learnset MOVE_ROCK_BLAST, 0
     learnset MOVE_ROCK_BLAST, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_ECHOED_VOICE, 1
-    learnset MOVE_ROCK_SMASH, 1
-    learnset MOVE_GROWL, 3
-    learnset MOVE_ECHOED_VOICE, 7
-    learnset MOVE_ROCK_SMASH, 9
-    learnset MOVE_SUPERSONIC, 13
-    learnset MOVE_PLUCK, 16
-    learnset MOVE_ROOST, 21
-    learnset MOVE_FURY_ATTACK, 24
-    learnset MOVE_SCREECH, 29
-    learnset MOVE_DRILL_PECK, 32
-    learnset MOVE_BULLET_SEED, 37
-    learnset MOVE_FEATHER_DANCE, 40
-    learnset MOVE_HYPER_VOICE, 45
+    learnset MOVE_GROWL, 5
+    learnset MOVE_ECHOED_VOICE, 8
+    learnset MOVE_ROCK_SMASH, 11
+    learnset MOVE_SUPERSONIC, 14
+    learnset MOVE_PLUCK, 17
+    learnset MOVE_ROOST, 19
+    learnset MOVE_FURY_ATTACK, 22
+    learnset MOVE_SCREECH, 25
+    learnset MOVE_AERIAL_ACE, 28
+    learnset MOVE_BULLET_SEED, 31
+    learnset MOVE_FEATHER_DANCE, 34
+    learnset MOVE_BRICK_BREAK, 37
     terminatelearnset
 
 
 levelup SPECIES_TOUCANNON
     learnset MOVE_BEAK_BLAST, 0
     learnset MOVE_BEAK_BLAST, 1
-    learnset MOVE_ROCK_BLAST, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_ECHOED_VOICE, 1
-    learnset MOVE_ROCK_SMASH, 1
-    learnset MOVE_GROWL, 3
-    learnset MOVE_ECHOED_VOICE, 7
-    learnset MOVE_ROCK_SMASH, 9
-    learnset MOVE_SUPERSONIC, 13
-    learnset MOVE_PLUCK, 16
-    learnset MOVE_ROOST, 21
-    learnset MOVE_FURY_ATTACK, 24
-    learnset MOVE_BEAK_BLAST, 28
-    learnset MOVE_SCREECH, 30
-    learnset MOVE_DRILL_PECK, 34
-    learnset MOVE_BULLET_SEED, 40
-    learnset MOVE_FEATHER_DANCE, 44
-    learnset MOVE_HYPER_VOICE, 50
+    learnset MOVE_GROWL, 6
+    learnset MOVE_ECHOED_VOICE, 9
+    learnset MOVE_ROCK_SMASH, 12
+    learnset MOVE_SUPERSONIC, 15
+    learnset MOVE_PLUCK, 18
+    learnset MOVE_ROOST, 20
+    learnset MOVE_FURY_ATTACK, 23
+    learnset MOVE_SCREECH, 26
+    learnset MOVE_AERIAL_ACE, 29
+    learnset MOVE_BULLET_SEED, 32
+    learnset MOVE_FEATHER_DANCE, 35
+    learnset MOVE_BRICK_BREAK, 38
+    learnset MOVE_DRILL_PECK, 41
+    learnset MOVE_SWORDS_DANCE, 44
+    learnset MOVE_KNOCK_OFF, 47
+    learnset MOVE_BODY_SLAM, 50
+    learnset MOVE_TEMPER_FLARE, 53
+    learnset MOVE_U_TURN, 56
+    learnset MOVE_GUNK_SHOT, 59
+    learnset MOVE_DOUBLE_EDGE, 62
+    learnset MOVE_BRAVE_BIRD, 65
     terminatelearnset
 
 
