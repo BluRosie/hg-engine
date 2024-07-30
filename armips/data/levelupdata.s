@@ -17527,54 +17527,64 @@ levelup SPECIES_TYRANTRUM
 
 
 levelup SPECIES_AMAURA
-    learnset MOVE_POWDER_SNOW, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_ROCK_THROW, 10
-    learnset MOVE_ICY_WIND, 12
-    learnset MOVE_TAKE_DOWN, 15
-    learnset MOVE_ANCIENT_POWER, 16
-    learnset MOVE_THUNDER_WAVE, 17
-    learnset MOVE_MIST, 19
-    learnset MOVE_ENCORE, 22
-    learnset MOVE_ROUND, 22
-    learnset MOVE_AURORA_BEAM, 22
-    learnset MOVE_AVALANCHE, 34
-    learnset MOVE_NATURE_POWER, 36
-    learnset MOVE_FREEZE_DRY, 36
-    learnset MOVE_HAIL, 43
-    learnset MOVE_ICE_BEAM, 44
-    learnset MOVE_LIGHT_SCREEN, 45
-    learnset MOVE_HYPER_BEAM, 56
-    learnset MOVE_BLIZZARD, 58
+    learnset MOVE_POWDER_SNOW, 1
+    learnset MOVE_ENCORE, 4
+    learnset MOVE_ANCIENT_POWER, 7
+    learnset MOVE_PROTECT, 10
+    learnset MOVE_ICY_WIND, 13
+    learnset MOVE_ROCK_TOMB, 16
+    learnset MOVE_ROUND, 18
+    learnset MOVE_MIST, 21
+    learnset MOVE_AURORA_BEAM, 24
+    learnset MOVE_THUNDER_WAVE, 27
+    learnset MOVE_STOMPING_TANTRUM, 30
+    learnset MOVE_ZEN_HEADBUTT, 33
+    learnset MOVE_BODY_SLAM, 36
+    learnset MOVE_ROCK_SLIDE, 39
+    learnset MOVE_HAIL, 42
+    learnset MOVE_HYPER_VOICE, 45
+    learnset MOVE_LIGHT_SCREEN, 48
+    learnset MOVE_REFLECT, 48
+    learnset MOVE_POWER_GEM, 51
+    learnset MOVE_DISCHARGE, 54
+    learnset MOVE_EARTH_POWER, 57
+    learnset MOVE_BLIZZARD, 60
+    learnset MOVE_METEOR_BEAM, 63
+    learnset MOVE_THUNDER, 66
+    learnset MOVE_BOOMBURST, 69
     terminatelearnset
 
 
 levelup SPECIES_AURORUS
     learnset MOVE_FREEZE_DRY, 0
-    learnset MOVE_POWDER_SNOW, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_ENCORE, 1
-    learnset MOVE_ANCIENT_POWER, 1
     learnset MOVE_FREEZE_DRY, 1
-    learnset MOVE_THUNDER_WAVE, 1
-    learnset MOVE_ROCK_THROW, 1
-    learnset MOVE_ROCK_THROW, 10
-    learnset MOVE_ICY_WIND, 12
-    learnset MOVE_TAKE_DOWN, 15
-    learnset MOVE_THUNDER_WAVE, 17
-    learnset MOVE_MIST, 19
-    learnset MOVE_ROUND, 22
-    learnset MOVE_AURORA_BEAM, 22
-    learnset MOVE_ANCIENT_POWER, 26
-    learnset MOVE_AVALANCHE, 34
-    learnset MOVE_FREEZE_DRY, 36
-    learnset MOVE_NATURE_POWER, 37
-    learnset MOVE_HAIL, 46
-    learnset MOVE_ENCORE, 46
-    learnset MOVE_ICE_BEAM, 48
-    learnset MOVE_LIGHT_SCREEN, 48
-    learnset MOVE_HYPER_BEAM, 64
-    learnset MOVE_BLIZZARD, 66
+    learnset MOVE_GROWL, 1
+    learnset MOVE_POWDER_SNOW, 1
+    learnset MOVE_ENCORE, 5
+    learnset MOVE_ANCIENT_POWER, 8
+    learnset MOVE_PROTECT, 11
+    learnset MOVE_ICY_WIND, 14
+    learnset MOVE_ROCK_TOMB, 17
+    learnset MOVE_ROUND, 19
+    learnset MOVE_MIST, 22
+    learnset MOVE_AURORA_BEAM, 25
+    learnset MOVE_THUNDER_WAVE, 28
+    learnset MOVE_STOMPING_TANTRUM, 31
+    learnset MOVE_ZEN_HEADBUTT, 34
+    learnset MOVE_BODY_SLAM, 37
+    learnset MOVE_ROCK_SLIDE, 40
+    learnset MOVE_HAIL, 43
+    learnset MOVE_HYPER_VOICE, 46
+    learnset MOVE_LIGHT_SCREEN, 49
+    learnset MOVE_REFLECT, 49
+    learnset MOVE_POWER_GEM, 52
+    learnset MOVE_DISCHARGE, 55
+    learnset MOVE_EARTH_POWER, 58
+    learnset MOVE_BLIZZARD, 61
+    learnset MOVE_METEOR_BEAM, 64
+    learnset MOVE_THUNDER, 67
+    learnset MOVE_BOOMBURST, 70
     terminatelearnset
 
 
