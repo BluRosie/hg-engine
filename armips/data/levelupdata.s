@@ -19692,48 +19692,54 @@ levelup SPECIES_MUDSDALE
 levelup SPECIES_DEWPIDER
     learnset MOVE_WATER_GUN, 1
     learnset MOVE_INFESTATION, 1
-    learnset MOVE_WATER_SPORT, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_INFESTATION, 5
-    learnset MOVE_BUG_BITE, 8
-    learnset MOVE_SPIDER_WEB, 8
-    learnset MOVE_BUBBLE_BEAM, 13
-    learnset MOVE_BITE, 14
-    learnset MOVE_AQUA_RING, 19
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_CRUNCH, 27
-    learnset MOVE_SOAK, 28
-    learnset MOVE_LUNGE, 36
-    learnset MOVE_LEECH_LIFE, 37
-    learnset MOVE_ENTRAINMENT, 39
-    learnset MOVE_LIQUIDATION, 42
-    learnset MOVE_MIRROR_COAT, 44
+    learnset MOVE_BUG_BITE, 4
+    learnset MOVE_BITE, 7
+    learnset MOVE_STICKY_WEB, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_AQUA_RING, 16
+    learnset MOVE_ICY_WIND, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_GIGA_DRAIN, 24
+    learnset MOVE_SOAK, 27
+    learnset MOVE_SKITTER_SMACK, 30
+    learnset MOVE_ENTRAINMENT, 33
+    learnset MOVE_LIQUIDATION, 36
+    learnset MOVE_CRUNCH, 39
+    learnset MOVE_LUNGE, 42
+    learnset MOVE_POISON_JAB, 45
+    learnset MOVE_MIRROR_COAT, 48
+    learnset MOVE_LEECH_LIFE, 51
+    learnset MOVE_ICE_BEAM, 54
+    learnset MOVE_IRON_DEFENSE, 57
+    learnset MOVE_HYDRO_PUMP, 60
     terminatelearnset
 
 
 levelup SPECIES_ARAQUANID
+    learnset MOVE_WIDE_GUARD, 0
     learnset MOVE_WIDE_GUARD, 1
     learnset MOVE_WATER_GUN, 1
     learnset MOVE_INFESTATION, 1
-    learnset MOVE_BUG_BITE, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_SOAK, 1
-    learnset MOVE_BUBBLE, 1
-    learnset MOVE_SPIDER_WEB, 1
-    learnset MOVE_INFESTATION, 5
-    learnset MOVE_SPIDER_WEB, 8
-    learnset MOVE_BUBBLE_BEAM, 13
-    learnset MOVE_BUG_BITE, 13
-    learnset MOVE_AQUA_RING, 20
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_BITE, 21
-    learnset MOVE_CRUNCH, 31
-    learnset MOVE_SOAK, 32
-    learnset MOVE_LUNGE, 44
-    learnset MOVE_LEECH_LIFE, 45
-    learnset MOVE_ENTRAINMENT, 49
-    learnset MOVE_LIQUIDATION, 53
-    learnset MOVE_MIRROR_COAT, 56
+    learnset MOVE_BUG_BITE, 5
+    learnset MOVE_BITE, 8
+    learnset MOVE_STICKY_WEB, 11
+    learnset MOVE_WATER_PULSE, 14
+    learnset MOVE_AQUA_RING, 17
+    learnset MOVE_ICY_WIND, 19
+    learnset MOVE_HEADBUTT, 22
+    learnset MOVE_GIGA_DRAIN, 25
+    learnset MOVE_SOAK, 28
+    learnset MOVE_SKITTER_SMACK, 31
+    learnset MOVE_ENTRAINMENT, 34
+    learnset MOVE_LIQUIDATION, 37
+    learnset MOVE_CRUNCH, 40
+    learnset MOVE_LUNGE, 43
+    learnset MOVE_POISON_JAB, 46
+    learnset MOVE_MIRROR_COAT, 49
+    learnset MOVE_LEECH_LIFE, 52
+    learnset MOVE_ICE_BEAM, 55
+    learnset MOVE_IRON_DEFENSE, 58
+    learnset MOVE_HYDRO_PUMP, 61
     terminatelearnset
 
 
