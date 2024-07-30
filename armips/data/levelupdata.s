@@ -17764,26 +17764,27 @@ levelup SPECIES_GOODRA
 
 
 levelup SPECIES_KLEFKI
-    learnset MOVE_FAIRY_LOCK, 1
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_TACKLE, 1
     learnset MOVE_TACKLE, 4
-    learnset MOVE_FAIRY_WIND, 6
-    learnset MOVE_ASTONISH, 8
-    learnset MOVE_SPIKES, 15
-    learnset MOVE_METAL_SOUND, 16
-    learnset MOVE_CRAFTY_SHIELD, 19
-    learnset MOVE_TORMENT, 21
-    learnset MOVE_DRAINING_KISS, 21
-    learnset MOVE_RECYCLE, 33
+    learnset MOVE_FAIRY_WIND, 7
+    learnset MOVE_MIRROR_SHOT, 10
+    learnset MOVE_TORMENT, 13
+    learnset MOVE_FAIRY_LOCK, 16
+    learnset MOVE_SPIKES, 18
+    learnset MOVE_METAL_SOUND, 21
+    learnset MOVE_DRAINING_KISS, 24
+    learnset MOVE_RECYCLE, 27
+    learnset MOVE_DAZZLING_GLEAM, 30
     learnset MOVE_IMPRISON, 33
-    learnset MOVE_MIRROR_SHOT, 34
-    learnset MOVE_FLASH_CANNON, 36
-    learnset MOVE_FOUL_PLAY, 38
-    learnset MOVE_PLAY_ROUGH, 41
-    learnset MOVE_MAGIC_ROOM, 44
-    learnset MOVE_HEAL_BLOCK, 50
-    learnset MOVE_LAST_RESORT, 52
+    learnset MOVE_SWAGGER, 36
+    learnset MOVE_FOUL_PLAY, 39
+    learnset MOVE_FLASH_CANNON, 42
+    learnset MOVE_MAGIC_ROOM, 45
+    learnset MOVE_PLAY_ROUGH, 48
+    learnset MOVE_HEAL_BLOCK, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_MOONBLAST, 57
+    learnset MOVE_STEEL_BEAM, 60
     terminatelearnset
 
 
