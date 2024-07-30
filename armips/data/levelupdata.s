@@ -16284,30 +16284,27 @@ levelup SPECIES_ZEKROM
 levelup SPECIES_LANDORUS
     learnset MOVE_SAND_TOMB, 1
     learnset MOVE_ROCK_THROW, 1
-    learnset MOVE_OUTRAGE, 1
-    learnset MOVE_HAMMER_ARM, 1
-    learnset MOVE_FISSURE, 1
-    learnset MOVE_BLOCK, 1
-    learnset MOVE_MUD_SHOT, 1
-    learnset MOVE_ROCK_TOMB, 1
-    learnset MOVE_IMPRISON, 1
-    learnset MOVE_LEER, 5
-    learnset MOVE_PUNISHMENT, 7
+    learnset MOVE_LEER, 4
     learnset MOVE_BLOCK, 10
-    learnset MOVE_BULLDOZE, 14
-    learnset MOVE_ROCK_THROW, 19
-    learnset MOVE_ROCK_TOMB, 20
-    learnset MOVE_SWORDS_DANCE, 27
+    learnset MOVE_GUST, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_TAUNT, 18
+    learnset MOVE_ROCK_TOMB, 21
+    learnset MOVE_AIR_CUTTER, 24
+    learnset MOVE_MUD_BOMB, 27
     learnset MOVE_IMPRISON, 30
-    learnset MOVE_EXTRASENSORY, 35
-    learnset MOVE_ROCK_SLIDE, 38
-    learnset MOVE_EARTH_POWER, 38
-    learnset MOVE_STONE_EDGE, 57
-    learnset MOVE_SANDSTORM, 57
-    learnset MOVE_EARTHQUAKE, 57
-    learnset MOVE_HAMMER_ARM, 63
-    learnset MOVE_FISSURE, 68
-    learnset MOVE_OUTRAGE, 74
+    learnset MOVE_STOMPING_TANTRUM, 33
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_CRUNCH, 39
+    learnset MOVE_EARTH_POWER, 42
+    learnset MOVE_EXTRASENSORY, 45
+    learnset MOVE_SANDSTORM, 48
+    learnset MOVE_STONE_EDGE, 51
+    learnset MOVE_EARTHQUAKE, 54
+    learnset MOVE_HAMMER_ARM, 57
+    learnset MOVE_FISSURE, 60
+    learnset MOVE_OUTRAGE, 63
+    learnset MOVE_SANDSEAR_STORM, 66
     terminatelearnset
 
 
