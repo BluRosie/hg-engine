@@ -19582,18 +19582,26 @@ levelup SPECIES_WISHIWASHI
 levelup SPECIES_MAREANIE
     learnset MOVE_POISON_STING, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_PECK, 5
-    learnset MOVE_BITE, 9
-    learnset MOVE_WIDE_GUARD, 10
-    learnset MOVE_VENOSHOCK, 19
-    learnset MOVE_TOXIC_SPIKES, 22
-    learnset MOVE_RECOVER, 26
-    learnset MOVE_SPIKE_CANNON, 29
-    learnset MOVE_PIN_MISSILE, 34
-    learnset MOVE_TOXIC, 36
-    learnset MOVE_VENOM_DRENCH, 40
-    learnset MOVE_LIQUIDATION, 41
-    learnset MOVE_POISON_JAB, 41
+    learnset MOVE_WIDE_GUARD, 4
+    learnset MOVE_WATER_GUN, 7
+    learnset MOVE_BITE, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_ACID_SPRAY, 16
+    learnset MOVE_INFESTATION, 18
+    learnset MOVE_RECOVER, 21
+    learnset MOVE_PIN_MISSILE, 24
+    learnset MOVE_VENOSHOCK, 27
+    learnset MOVE_TOXIC_SPIKES, 30
+    learnset MOVE_LEECH_LIFE, 33
+    learnset MOVE_SPIKE_CANNON, 36
+    learnset MOVE_PROTECT, 39
+    learnset MOVE_POISON_JAB, 42
+    learnset MOVE_LIQUIDATION, 45
+    learnset MOVE_TOXIC, 48
+    learnset MOVE_SCALD, 51
+    learnset MOVE_SLUDGE_BOMB, 54
+    learnset MOVE_HAZE, 57
+    learnset MOVE_GUNK_SHOT, 60
     terminatelearnset
 
 
@@ -19602,21 +19610,26 @@ levelup SPECIES_TOXAPEX
     learnset MOVE_BANEFUL_BUNKER, 1
     learnset MOVE_POISON_STING, 1
     learnset MOVE_PECK, 1
-    learnset MOVE_WIDE_GUARD, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_TOXIC_SPIKES, 1
-    learnset MOVE_PECK, 5
-    learnset MOVE_BITE, 9
-    learnset MOVE_WIDE_GUARD, 17
-    learnset MOVE_VENOSHOCK, 19
-    learnset MOVE_TOXIC_SPIKES, 22
-    learnset MOVE_RECOVER, 26
-    learnset MOVE_SPIKE_CANNON, 29
-    learnset MOVE_PIN_MISSILE, 37
-    learnset MOVE_TOXIC, 39
-    learnset MOVE_VENOM_DRENCH, 42
+    learnset MOVE_WIDE_GUARD, 5
+    learnset MOVE_WATER_GUN, 8
+    learnset MOVE_BITE, 11
+    learnset MOVE_WATER_PULSE, 14
+    learnset MOVE_ACID_SPRAY, 17
+    learnset MOVE_INFESTATION, 19
+    learnset MOVE_RECOVER, 22
+    learnset MOVE_PIN_MISSILE, 25
+    learnset MOVE_VENOSHOCK, 28
+    learnset MOVE_TOXIC_SPIKES, 31
+    learnset MOVE_LEECH_LIFE, 34
+    learnset MOVE_SPIKE_CANNON, 37
+    learnset MOVE_PROTECT, 40
     learnset MOVE_POISON_JAB, 43
-    learnset MOVE_LIQUIDATION, 45
+    learnset MOVE_LIQUIDATION, 46
+    learnset MOVE_TOXIC, 49
+    learnset MOVE_SCALD, 52
+    learnset MOVE_SLUDGE_BOMB, 55
+    learnset MOVE_HAZE, 58
+    learnset MOVE_GUNK_SHOT, 61
     terminatelearnset
 
 
