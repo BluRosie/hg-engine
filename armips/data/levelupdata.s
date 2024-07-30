@@ -16408,16 +16408,20 @@ levelup SPECIES_GENESECT
 
 
 levelup SPECIES_CHESPIN
+    learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_VINE_WHIP, 5
-    learnset MOVE_ROLLOUT, 8
-    learnset MOVE_BITE, 11
-    learnset MOVE_LEECH_SEED, 15
+    learnset MOVE_VINE_WHIP, 4
+    learnset MOVE_ROLLOUT, 7
+    learnset MOVE_BITE, 10
+    learnset MOVE_TRAILBLAZE, 13
+    learnset MOVE_LEECH_SEED, 16
     learnset MOVE_PIN_MISSILE, 18
-    learnset MOVE_TAKE_DOWN, 27
-    learnset MOVE_SEED_BOMB, 32
-    learnset MOVE_MUD_SHOT, 35
+    learnset MOVE_BULLDOZE, 21
+    learnset MOVE_THUNDER_PUNCH, 24
+    learnset MOVE_SYNTHESIS, 27
+    learnset MOVE_DRAIN_PUNCH, 30
+    learnset MOVE_STOMPING_TANTRUM, 33
+    learnset MOVE_SEED_BOMB, 36
     learnset MOVE_BULK_UP, 39
     learnset MOVE_BODY_SLAM, 42
     learnset MOVE_PAIN_SPLIT, 45
@@ -16428,48 +16432,52 @@ levelup SPECIES_CHESPIN
 levelup SPECIES_QUILLADIN
     learnset MOVE_NEEDLE_ARM, 0
     learnset MOVE_NEEDLE_ARM, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_VINE_WHIP, 1
     learnset MOVE_VINE_WHIP, 5
     learnset MOVE_ROLLOUT, 8
     learnset MOVE_BITE, 11
-    learnset MOVE_LEECH_SEED, 15
+    learnset MOVE_TRAILBLAZE, 14
+    learnset MOVE_LEECH_SEED, 17
     learnset MOVE_PIN_MISSILE, 19
-    learnset MOVE_TAKE_DOWN, 29
-    learnset MOVE_SEED_BOMB, 35
-    learnset MOVE_MUD_SHOT, 39
-    learnset MOVE_BULK_UP, 44
-    learnset MOVE_BODY_SLAM, 48
-    learnset MOVE_PAIN_SPLIT, 52
-    learnset MOVE_WOOD_HAMMER, 56
+    learnset MOVE_BULLDOZE, 22
+    learnset MOVE_THUNDER_PUNCH, 25
+    learnset MOVE_SYNTHESIS, 28
+    learnset MOVE_DRAIN_PUNCH, 31
+    learnset MOVE_STOMPING_TANTRUM, 34
+    learnset MOVE_SEED_BOMB, 37
+    learnset MOVE_BULK_UP, 40
+    learnset MOVE_BODY_SLAM, 43
+    learnset MOVE_PAIN_SPLIT, 46
+    learnset MOVE_WOOD_HAMMER, 49
     terminatelearnset
 
 
 levelup SPECIES_CHESNAUGHT
     learnset MOVE_SPIKY_SHIELD, 0
     learnset MOVE_SPIKY_SHIELD, 1
-    learnset MOVE_NEEDLE_ARM, 1
-    learnset MOVE_HAMMER_ARM, 1
-    learnset MOVE_FEINT, 1
-    learnset MOVE_BELLY_DRUM, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_ROLLOUT, 1
-    learnset MOVE_VINE_WHIP, 5
-    learnset MOVE_ROLLOUT, 8
-    learnset MOVE_BITE, 11
-    learnset MOVE_LEECH_SEED, 15
-    learnset MOVE_PIN_MISSILE, 19
-    learnset MOVE_TAKE_DOWN, 29
-    learnset MOVE_SEED_BOMB, 35
-    learnset MOVE_MUD_SHOT, 41
-    learnset MOVE_BULK_UP, 48
-    learnset MOVE_BODY_SLAM, 54
-    learnset MOVE_PAIN_SPLIT, 60
-    learnset MOVE_WOOD_HAMMER, 66
-    learnset MOVE_HAMMER_ARM, 72
-    learnset MOVE_GIGA_IMPACT, 78
+    learnset MOVE_VINE_WHIP, 6
+    learnset MOVE_ROLLOUT, 9
+    learnset MOVE_BITE, 12
+    learnset MOVE_TRAILBLAZE, 15
+    learnset MOVE_LEECH_SEED, 18
+    learnset MOVE_PIN_MISSILE, 20
+    learnset MOVE_BULLDOZE, 23
+    learnset MOVE_THUNDER_PUNCH, 26
+    learnset MOVE_SYNTHESIS, 29
+    learnset MOVE_DRAIN_PUNCH, 32
+    learnset MOVE_STOMPING_TANTRUM, 35
+    learnset MOVE_SEED_BOMB, 38
+    learnset MOVE_BULK_UP, 41
+    learnset MOVE_BODY_PRESS, 44
+    learnset MOVE_BODY_SLAM, 47
+    learnset MOVE_PAIN_SPLIT, 50
+    learnset MOVE_IRON_HEAD, 53
+    learnset MOVE_STONE_EDGE, 56
+    learnset MOVE_CLOSE_COMBAT, 59
+    learnset MOVE_WOOD_HAMMER, 62
     terminatelearnset
 
 
