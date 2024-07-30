@@ -16908,45 +16908,58 @@ levelup SPECIES_FLORGES
 levelup SPECIES_SKIDDO
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWTH, 1
-    learnset MOVE_VINE_WHIP, 7
-    learnset MOVE_TAIL_WHIP, 9
-    learnset MOVE_LEECH_SEED, 12
-    learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_WORRY_SEED, 16
-    learnset MOVE_SYNTHESIS, 20
-    learnset MOVE_TAKE_DOWN, 22
-    learnset MOVE_BULLDOZE, 26
-    learnset MOVE_SEED_BOMB, 30
-    learnset MOVE_BULK_UP, 34
-    learnset MOVE_DOUBLE_EDGE, 38
-    learnset MOVE_HORN_LEECH, 42
-    learnset MOVE_LEAF_BLADE, 45
-    learnset MOVE_MILK_DRINK, 50
+    learnset MOVE_VINE_WHIP, 4
+    learnset MOVE_TAIL_WHIP, 7
+    learnset MOVE_RAZOR_LEAF, 10
+    learnset MOVE_LEECH_SEED, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_WORRY_SEED, 18
+    learnset MOVE_ROCK_TOMB, 21
+    learnset MOVE_REST, 24
+    learnset MOVE_STOMPING_TANTRUM, 27
+    learnset MOVE_MILK_DRINK, 30
+    learnset MOVE_HORN_LEECH, 33
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_BULK_UP, 39
+    learnset MOVE_SEED_BOMB, 42
+    learnset MOVE_TAKE_DOWN, 45
+    learnset MOVE_ZEN_HEADBUTT, 48
+    learnset MOVE_LEAF_BLADE, 51
+    learnset MOVE_PLAY_ROUGH, 54
+    learnset MOVE_STONE_EDGE, 57
+    learnset MOVE_WOOD_HAMMER, 60
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_HEADLONG_RUSH, 66
     terminatelearnset
 
 
 levelup SPECIES_GOGOAT
     learnset MOVE_AERIAL_ACE, 0
     learnset MOVE_AERIAL_ACE, 1
-    learnset MOVE_EARTHQUAKE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWTH, 1
-    learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_VINE_WHIP, 7
-    learnset MOVE_TAIL_WHIP, 9
-    learnset MOVE_LEECH_SEED, 12
-    learnset MOVE_RAZOR_LEAF, 13
-    learnset MOVE_WORRY_SEED, 16
-    learnset MOVE_SYNTHESIS, 20
-    learnset MOVE_TAKE_DOWN, 22
-    learnset MOVE_BULLDOZE, 26
-    learnset MOVE_SEED_BOMB, 30
-    learnset MOVE_BULK_UP, 34
-    learnset MOVE_DOUBLE_EDGE, 40
-    learnset MOVE_HORN_LEECH, 47
-    learnset MOVE_LEAF_BLADE, 55
-    learnset MOVE_MILK_DRINK, 58
+    learnset MOVE_VINE_WHIP, 5
+    learnset MOVE_TAIL_WHIP, 8
+    learnset MOVE_RAZOR_LEAF, 11
+    learnset MOVE_LEECH_SEED, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_WORRY_SEED, 19
+    learnset MOVE_ROCK_TOMB, 22
+    learnset MOVE_REST, 25
+    learnset MOVE_STOMPING_TANTRUM, 28
+    learnset MOVE_MILK_DRINK, 31
+    learnset MOVE_HORN_LEECH, 34
+    learnset MOVE_ROCK_SLIDE, 37
+    learnset MOVE_BULK_UP, 40
+    learnset MOVE_SEED_BOMB, 43
+    learnset MOVE_TAKE_DOWN, 46
+    learnset MOVE_ZEN_HEADBUTT, 49
+    learnset MOVE_LEAF_BLADE, 52
+    learnset MOVE_PLAY_ROUGH, 55
+    learnset MOVE_STONE_EDGE, 58
+    learnset MOVE_WOOD_HAMMER, 61
+    learnset MOVE_DOUBLE_EDGE, 64
+    learnset MOVE_HEADLONG_RUSH, 67
     terminatelearnset
 
 
