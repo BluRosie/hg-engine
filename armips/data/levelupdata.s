@@ -17192,45 +17192,54 @@ levelup SPECIES_AROMATISSE
 levelup SPECIES_SWIRLIX
     learnset MOVE_TACKLE, 1
     learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_PLAY_NICE, 5
-    learnset MOVE_FAIRY_WIND, 5
-    learnset MOVE_FAKE_TEARS, 12
-    learnset MOVE_ROUND, 15
-    learnset MOVE_AROMATHERAPY, 16
-    learnset MOVE_DRAINING_KISS, 20
-    learnset MOVE_COTTON_SPORE, 20
+    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_ECHOED_VOICE, 7
+    learnset MOVE_AROMATHERAPY, 10
+    learnset MOVE_DRAINING_KISS, 13
+    learnset MOVE_FAKE_TEARS, 16
+    learnset MOVE_ROUND, 18
     learnset MOVE_STRING_SHOT, 21
-    learnset MOVE_ENDEAVOR, 30
-    learnset MOVE_ENERGY_BALL, 31
-    learnset MOVE_WISH, 37
-    learnset MOVE_COTTON_GUARD, 38
-    learnset MOVE_PLAY_ROUGH, 40
-    learnset MOVE_LIGHT_SCREEN, 58
-    learnset MOVE_SAFEGUARD, 67
+    learnset MOVE_COTTON_SPORE, 24
+    learnset MOVE_GIGA_DRAIN, 27
+    learnset MOVE_WISH, 30
+    learnset MOVE_ENERGY_BALL, 33
+    learnset MOVE_COPYCAT, 36
+    learnset MOVE_EXTRASENSORY, 39
+    learnset MOVE_COTTON_GUARD, 42
+    learnset MOVE_PLAY_ROUGH, 45
+    learnset MOVE_LIGHT_SCREEN, 48
+    learnset MOVE_REFLECT, 48
+    learnset MOVE_MOONBLAST, 51
+    learnset MOVE_FLAMETHROWER, 54
+    learnset MOVE_SAFEGUARD, 57
+    learnset MOVE_MISTY_EXPLOSION, 60
     terminatelearnset
 
 
 levelup SPECIES_SLURPUFF
     learnset MOVE_TACKLE, 1
     learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_FAIRY_WIND, 1
-    learnset MOVE_FAIRY_WIND, 5
-    learnset MOVE_PLAY_NICE, 8
-    learnset MOVE_FAKE_TEARS, 12
-    learnset MOVE_ROUND, 15
-    learnset MOVE_AROMATHERAPY, 16
-    learnset MOVE_DRAINING_KISS, 20
-    learnset MOVE_COTTON_SPORE, 20
+    learnset MOVE_PLAY_NICE, 4
+    learnset MOVE_ECHOED_VOICE, 7
+    learnset MOVE_AROMATHERAPY, 10
+    learnset MOVE_DRAINING_KISS, 13
+    learnset MOVE_FAKE_TEARS, 16
+    learnset MOVE_ROUND, 18
     learnset MOVE_STRING_SHOT, 21
-    learnset MOVE_ENDEAVOR, 30
-    learnset MOVE_ENERGY_BALL, 31
-    learnset MOVE_WISH, 37
-    learnset MOVE_COTTON_GUARD, 38
-    learnset MOVE_PLAY_ROUGH, 40
-    learnset MOVE_STICKY_WEB, 42
-    learnset MOVE_LIGHT_SCREEN, 58
-    learnset MOVE_SAFEGUARD, 67
+    learnset MOVE_COTTON_SPORE, 24
+    learnset MOVE_GIGA_DRAIN, 27
+    learnset MOVE_WISH, 30
+    learnset MOVE_ENERGY_BALL, 33
+    learnset MOVE_COPYCAT, 36
+    learnset MOVE_EXTRASENSORY, 39
+    learnset MOVE_COTTON_GUARD, 42
+    learnset MOVE_PLAY_ROUGH, 45
+    learnset MOVE_LIGHT_SCREEN, 48
+    learnset MOVE_REFLECT, 48
+    learnset MOVE_MOONBLAST, 51
+    learnset MOVE_FLAMETHROWER, 54
+    learnset MOVE_SAFEGUARD, 57
+    learnset MOVE_MISTY_EXPLOSION, 60
     terminatelearnset
 
 
