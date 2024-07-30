@@ -17144,46 +17144,48 @@ levelup SPECIES_SPRITZEE
     learnset MOVE_FAIRY_WIND, 1
     learnset MOVE_SWEET_SCENT, 1
     learnset MOVE_SWEET_KISS, 4
-    learnset MOVE_ODOR_SLEUTH, 8
-    learnset MOVE_ECHOED_VOICE, 9
-    learnset MOVE_DRAINING_KISS, 14
-    learnset MOVE_AROMATHERAPY, 18
-    learnset MOVE_ATTRACT, 23
-    learnset MOVE_CALM_MIND, 25
-    learnset MOVE_FLAIL, 28
-    learnset MOVE_MISTY_TERRAIN, 32
-    learnset MOVE_CHARM, 32
-    learnset MOVE_MOONBLAST, 33
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_SKILL_SWAP, 41
-    learnset MOVE_DISARMING_VOICE, 50
+    learnset MOVE_ECHOED_VOICE, 7
+    learnset MOVE_DRAINING_KISS, 10
+    learnset MOVE_AROMATHERAPY, 13
+    learnset MOVE_GRAVITY, 16
+    learnset MOVE_ATTRACT, 18
+    learnset MOVE_FLAIL, 21
+    learnset MOVE_MISTY_TERRAIN, 24
+    learnset MOVE_PSYBEAM, 27
+    learnset MOVE_CHARM, 30
+    learnset MOVE_CALM_MIND, 33
+    learnset MOVE_MOONBLAST, 36
+    learnset MOVE_SKILL_SWAP, 39
+    learnset MOVE_PSYCHIC, 42
     terminatelearnset
 
 
 levelup SPECIES_AROMATISSE
+    learnset MOVE_AROMATIC_MIST, 0
     learnset MOVE_AROMATIC_MIST, 1
-    learnset MOVE_HEAL_PULSE, 1
     learnset MOVE_FAIRY_WIND, 1
     learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_ECHOED_VOICE, 1
-    learnset MOVE_ODOR_SLEUTH, 1
-    learnset MOVE_SWEET_KISS, 6
-    learnset MOVE_ODOR_SLEUTH, 8
-    learnset MOVE_ECHOED_VOICE, 13
-    learnset MOVE_DRAINING_KISS, 17
-    learnset MOVE_AROMATHERAPY, 18
-    learnset MOVE_ATTRACT, 23
-    learnset MOVE_CALM_MIND, 25
-    learnset MOVE_FLAIL, 28
-    learnset MOVE_DISARMING_VOICE, 29
-    learnset MOVE_MISTY_TERRAIN, 32
-    learnset MOVE_CHARM, 32
-    learnset MOVE_MOONBLAST, 33
-    learnset MOVE_PSYCHIC, 36
-    learnset MOVE_SKILL_SWAP, 41
-    learnset MOVE_PSYCH_UP, 52
-    learnset MOVE_REFLECT, 57
+    learnset MOVE_SWEET_KISS, 5
+    learnset MOVE_ECHOED_VOICE, 8
+    learnset MOVE_DRAINING_KISS, 11
+    learnset MOVE_AROMATHERAPY, 14
+    learnset MOVE_GRAVITY, 17
+    learnset MOVE_ATTRACT, 19
+    learnset MOVE_FLAIL, 22
+    learnset MOVE_MISTY_TERRAIN, 25
+    learnset MOVE_PSYBEAM, 28
+    learnset MOVE_CHARM, 31
+    learnset MOVE_DRAIN_PUNCH, 34
+    learnset MOVE_CALM_MIND, 37
+    learnset MOVE_PSYSHOCK, 40
+    learnset MOVE_HEAL_PULSE, 43
+    learnset MOVE_DAZZLING_GLEAM, 46
+    learnset MOVE_PSYCH_UP, 49
+    learnset MOVE_THUNDERBOLT, 52
+    learnset MOVE_MOONBLAST, 55
+    learnset MOVE_SKILL_SWAP, 58
+    learnset MOVE_PSYCHIC, 61
+    learnset MOVE_MISTY_EXPLOSION, 64
     terminatelearnset
 
 
