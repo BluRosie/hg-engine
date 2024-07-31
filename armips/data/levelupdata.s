@@ -20213,58 +20213,57 @@ levelup SPECIES_PYUKUMUKU
 levelup SPECIES_TYPE_NULL
     learnset MOVE_TACKLE, 1
     learnset MOVE_IMPRISON, 1
-    learnset MOVE_RAGE, 5
-    learnset MOVE_PURSUIT, 10
-    learnset MOVE_AERIAL_ACE, 12
-    learnset MOVE_IMPRISON, 15
-    learnset MOVE_SCARY_FACE, 19
-    learnset MOVE_CRUSH_CLAW, 25
-    learnset MOVE_METAL_SOUND, 31
-    learnset MOVE_DOUBLE_HIT, 33
-    learnset MOVE_X_SCISSOR, 37
-    learnset MOVE_AIR_SLASH, 44
-    learnset MOVE_TAKE_DOWN, 45
-    learnset MOVE_IRON_HEAD, 47
-    learnset MOVE_TRI_ATTACK, 53
-    learnset MOVE_PUNISHMENT, 65
-    learnset MOVE_DOUBLE_EDGE, 66
-    learnset MOVE_RAZOR_WIND, 70
-    learnset MOVE_HEAL_BLOCK, 85
+    learnset MOVE_RAGE, 4
+    learnset MOVE_AERIAL_ACE, 7
+    learnset MOVE_SCARY_FACE, 10
+    learnset MOVE_PAYBACK, 13
+    learnset MOVE_DOUBLE_HIT, 16
+    learnset MOVE_SCARY_FACE, 18
+    learnset MOVE_METAL_SOUND, 21
+    learnset MOVE_CRUSH_CLAW, 24
+    learnset MOVE_FEINT_ATTACK, 27
+    learnset MOVE_AIR_SLASH, 30
+    learnset MOVE_FACADE, 33
+    learnset MOVE_U_TURN, 36
+    learnset MOVE_SHADOW_CLAW, 39
+    learnset MOVE_TRI_ATTACK, 42
+    learnset MOVE_IRON_HEAD, 45
+    learnset MOVE_X_SCISSOR, 48
+    learnset MOVE_TAKE_DOWN, 51
+    learnset MOVE_BODY_SLAM, 54
+    learnset MOVE_IMPRISON, 57
+    learnset MOVE_MULTI_ATTACK, 60
     terminatelearnset
 
 
 levelup SPECIES_SILVALLY
-    learnset MOVE_MULTI_ATTACK, 0
-    learnset MOVE_MULTI_ATTACK, 1
     learnset MOVE_EXPLOSION, 1
     learnset MOVE_THUNDER_FANG, 1
     learnset MOVE_ICE_FANG, 1
     learnset MOVE_FIRE_FANG, 1
     learnset MOVE_POISON_FANG, 1
-    learnset MOVE_IMPRISON, 1
-    learnset MOVE_IRON_HEAD, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_AERIAL_ACE, 1
-    learnset MOVE_SCARY_FACE, 1
-    learnset MOVE_HEAL_BLOCK, 1
-    learnset MOVE_RAGE, 5
-    learnset MOVE_PURSUIT, 10
-    learnset MOVE_BITE, 15
-    learnset MOVE_AERIAL_ACE, 20
-    learnset MOVE_CRUSH_CLAW, 25
-    learnset MOVE_SCARY_FACE, 30
-    learnset MOVE_METAL_SOUND, 31
-    learnset MOVE_DOUBLE_HIT, 33
-    learnset MOVE_X_SCISSOR, 37
-    learnset MOVE_AIR_SLASH, 44
-    learnset MOVE_TAKE_DOWN, 45
-    learnset MOVE_CRUNCH, 47
-    learnset MOVE_TRI_ATTACK, 53
-    learnset MOVE_PUNISHMENT, 65
-    learnset MOVE_DOUBLE_EDGE, 66
-    learnset MOVE_RAZOR_WIND, 70
-    learnset MOVE_PARTING_SHOT, 71
+    learnset MOVE_IMPRISON, 1
+    learnset MOVE_RAGE, 4
+    learnset MOVE_AERIAL_ACE, 7
+    learnset MOVE_SCARY_FACE, 10
+    learnset MOVE_PAYBACK, 13
+    learnset MOVE_DOUBLE_HIT, 16
+    learnset MOVE_SCARY_FACE, 18
+    learnset MOVE_METAL_SOUND, 21
+    learnset MOVE_CRUSH_CLAW, 24
+    learnset MOVE_FEINT_ATTACK, 27
+    learnset MOVE_AIR_SLASH, 30
+    learnset MOVE_FACADE, 33
+    learnset MOVE_U_TURN, 36
+    learnset MOVE_SHADOW_CLAW, 39
+    learnset MOVE_TRI_ATTACK, 42
+    learnset MOVE_IRON_HEAD, 45
+    learnset MOVE_X_SCISSOR, 48
+    learnset MOVE_TAKE_DOWN, 51
+    learnset MOVE_BODY_SLAM, 54
+    learnset MOVE_IMPRISON, 57
+    learnset MOVE_MULTI_ATTACK, 60
     terminatelearnset
 
 
