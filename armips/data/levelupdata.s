@@ -21701,47 +21701,88 @@ levelup SPECIES_BOLTUND
 levelup SPECIES_ROLYCOLY
     learnset MOVE_TACKLE, 1
     learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_RAPID_SPIN, 5
+    learnset MOVE_EMBER, 4
+    learnset MOVE_RAPID_SPIN, 7
     learnset MOVE_SMACK_DOWN, 10
-    learnset MOVE_ROCK_POLISH, 15
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_INCINERATE, 25
+    learnset MOVE_BULLDOZE, 13
+    learnset MOVE_ROCK_TOMB, 16
+    learnset MOVE_WILL_O_WISP, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_INCINERATE, 24
+    learnset MOVE_SCORCHING_SANDS, 27
     learnset MOVE_STEALTH_ROCK, 30
-    learnset MOVE_HEAT_CRASH, 35
-    learnset MOVE_ROCK_BLAST, 40
+    learnset MOVE_ROCK_SLIDE, 33
+    learnset MOVE_HEAT_CRASH, 36
+    learnset MOVE_BLOCK, 39
+    learnset MOVE_BODY_PRESS, 42
+    learnset MOVE_IRON_DEFENSE, 45
+    learnset MOVE_FLAMETHROWER, 48
+    learnset MOVE_POWER_GEM, 51
+    learnset MOVE_EARTH_POWER, 54
+    learnset MOVE_FIRE_BLAST, 57
+    learnset MOVE_STONE_EDGE, 60
+    learnset MOVE_SOLAR_BEAM, 63
+    learnset MOVE_FLARE_BLITZ, 66
     terminatelearnset
 
 
 levelup SPECIES_CARKOL
+    learnset MOVE_FLAME_CHARGE, 0
     learnset MOVE_FLAME_CHARGE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_RAPID_SPIN, 1
-    learnset MOVE_SMACK_DOWN, 1
-    learnset MOVE_ROCK_POLISH, 15
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_INCINERATE, 27
-    learnset MOVE_STEALTH_ROCK, 35
-    learnset MOVE_HEAT_CRASH, 41
-    learnset MOVE_ROCK_BLAST, 48
-    learnset MOVE_BURN_UP, 55
+    learnset MOVE_EMBER, 5
+    learnset MOVE_RAPID_SPIN, 8
+    learnset MOVE_SMACK_DOWN, 11
+    learnset MOVE_BULLDOZE, 14
+    learnset MOVE_ROCK_TOMB, 17
+    learnset MOVE_WILL_O_WISP, 19
+    learnset MOVE_ANCIENT_POWER, 22
+    learnset MOVE_INCINERATE, 25
+    learnset MOVE_SCORCHING_SANDS, 28
+    learnset MOVE_STEALTH_ROCK, 31
+    learnset MOVE_ROCK_SLIDE, 34
+    learnset MOVE_HEAT_CRASH, 37
+    learnset MOVE_BLOCK, 40
+    learnset MOVE_BODY_PRESS, 43
+    learnset MOVE_IRON_DEFENSE, 46
+    learnset MOVE_FLAMETHROWER, 49
+    learnset MOVE_POWER_GEM, 52
+    learnset MOVE_EARTH_POWER, 55
+    learnset MOVE_FIRE_BLAST, 58
+    learnset MOVE_STONE_EDGE, 61
+    learnset MOVE_SOLAR_BEAM, 64
+    learnset MOVE_FLARE_BLITZ, 67
     terminatelearnset
 
 
 levelup SPECIES_COALOSSAL
+    learnset MOVE_TAR_SHOT, 0
     learnset MOVE_TAR_SHOT, 1
-    learnset MOVE_FLAME_CHARGE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_SMOKESCREEN, 1
-    learnset MOVE_RAPID_SPIN, 1
-    learnset MOVE_SMACK_DOWN, 1
-    learnset MOVE_ROCK_POLISH, 15
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_INCINERATE, 27
-    learnset MOVE_STEALTH_ROCK, 37
-    learnset MOVE_HEAT_CRASH, 45
-    learnset MOVE_ROCK_BLAST, 54
-    learnset MOVE_BURN_UP, 63
+    learnset MOVE_EMBER, 6
+    learnset MOVE_RAPID_SPIN, 9
+    learnset MOVE_SMACK_DOWN, 12
+    learnset MOVE_BULLDOZE, 15
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_WILL_O_WISP, 20
+    learnset MOVE_ANCIENT_POWER, 23
+    learnset MOVE_INCINERATE, 26
+    learnset MOVE_SCORCHING_SANDS, 29
+    learnset MOVE_STEALTH_ROCK, 32
+    learnset MOVE_ROCK_SLIDE, 35
+    learnset MOVE_HEAT_CRASH, 38
+    learnset MOVE_BLOCK, 41
+    learnset MOVE_BODY_PRESS, 44
+    learnset MOVE_IRON_DEFENSE, 47
+    learnset MOVE_FLAMETHROWER, 50
+    learnset MOVE_POWER_GEM, 53
+    learnset MOVE_EARTH_POWER, 56
+    learnset MOVE_FIRE_BLAST, 59
+    learnset MOVE_STONE_EDGE, 62
+    learnset MOVE_SOLAR_BEAM, 65
+    learnset MOVE_FLARE_BLITZ, 68
     terminatelearnset
 
 
