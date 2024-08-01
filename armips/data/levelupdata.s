@@ -21505,31 +21505,45 @@ levelup SPECIES_GOSSIFLEUR
     learnset MOVE_LEAFAGE, 1
     learnset MOVE_SING, 1
     learnset MOVE_RAPID_SPIN, 4
-    learnset MOVE_SWEET_SCENT, 8
-    learnset MOVE_RAZOR_LEAF, 12
+    learnset MOVE_SWEET_SCENT, 7
+    learnset MOVE_LEECH_SEED, 10
+    learnset MOVE_RAZOR_LEAF, 13
     learnset MOVE_ROUND, 16
+    learnset MOVE_CHARM, 18
     learnset MOVE_LEAF_TORNADO, 21
     learnset MOVE_SYNTHESIS, 24
-    learnset MOVE_HYPER_VOICE, 28
-    learnset MOVE_AROMATHERAPY, 32
-    learnset MOVE_LEAF_STORM, 36
+    learnset MOVE_HYPER_VOICE, 27
+    learnset MOVE_SUNNY_DAY, 30
+    learnset MOVE_WEATHER_BALL, 33
+    learnset MOVE_AROMATHERAPY, 36
+    learnset MOVE_ENERGY_BALL, 39
+    learnset MOVE_POLLEN_PUFF, 42
+    learnset MOVE_GRASS_KNOT, 45
+    learnset MOVE_LEAF_STORM, 48
     terminatelearnset
 
 
 levelup SPECIES_ELDEGOSS
+    learnset MOVE_COTTON_SPORE, 0
     learnset MOVE_COTTON_SPORE, 1
     learnset MOVE_LEAFAGE, 1
     learnset MOVE_SING, 1
-    learnset MOVE_RAPID_SPIN, 1
-    learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_RAZOR_LEAF, 12
-    learnset MOVE_ROUND, 16
-    learnset MOVE_LEAF_TORNADO, 23
-    learnset MOVE_SYNTHESIS, 28
-    learnset MOVE_HYPER_VOICE, 34
-    learnset MOVE_AROMATHERAPY, 40
-    learnset MOVE_LEAF_STORM, 46
-    learnset MOVE_COTTON_GUARD, 52
+    learnset MOVE_RAPID_SPIN, 5
+    learnset MOVE_SWEET_SCENT, 8
+    learnset MOVE_LEECH_SEED, 11
+    learnset MOVE_RAZOR_LEAF, 14
+    learnset MOVE_ROUND, 17
+    learnset MOVE_CHARM, 19
+    learnset MOVE_LEAF_TORNADO, 22
+    learnset MOVE_SYNTHESIS, 25
+    learnset MOVE_HYPER_VOICE, 28
+    learnset MOVE_SUNNY_DAY, 31
+    learnset MOVE_WEATHER_BALL, 34
+    learnset MOVE_AROMATHERAPY, 37
+    learnset MOVE_ENERGY_BALL, 40
+    learnset MOVE_POLLEN_PUFF, 43
+    learnset MOVE_GRASS_KNOT, 46
+    learnset MOVE_LEAF_STORM, 49
     terminatelearnset
 
 
