@@ -21273,48 +21273,67 @@ levelup SPECIES_CINDERACE
 levelup SPECIES_SOBBLE
     learnset MOVE_POUND, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_WATER_GUN, 6
-    learnset MOVE_BIND, 8
-    learnset MOVE_WATER_PULSE, 12
-    learnset MOVE_TEARFUL_LOOK, 17
-    learnset MOVE_SUCKER_PUNCH, 20
+    learnset MOVE_WATER_GUN, 4
+    learnset MOVE_BIND, 7
+    learnset MOVE_ICE_SHARD, 10
+    learnset MOVE_CHILLING_WATER, 13
+    learnset MOVE_AQUA_JET, 16
+    learnset MOVE_TEARFUL_LOOK, 18
+    learnset MOVE_SUCKER_PUNCH, 21
     learnset MOVE_U_TURN, 24
-    learnset MOVE_LIQUIDATION, 28
-    learnset MOVE_SOAK, 32
+    learnset MOVE_BRINE, 27
+    learnset MOVE_SOAK, 30
+    learnset MOVE_MUD_SHOT, 33
     learnset MOVE_RAIN_DANCE, 36
+    learnset MOVE_LIQUIDATION, 39
     terminatelearnset
 
 
 levelup SPECIES_DRIZZILE
     learnset MOVE_POUND, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_BIND, 1
-    learnset MOVE_WATER_PULSE, 12
+    learnset MOVE_WATER_GUN, 5
+    learnset MOVE_BIND, 8
+    learnset MOVE_ICE_SHARD, 11
+    learnset MOVE_CHILLING_WATER, 14
+    learnset MOVE_AQUA_JET, 17
     learnset MOVE_TEARFUL_LOOK, 19
-    learnset MOVE_SUCKER_PUNCH, 24
-    learnset MOVE_U_TURN, 30
-    learnset MOVE_LIQUIDATION, 36
-    learnset MOVE_SOAK, 42
-    learnset MOVE_RAIN_DANCE, 48
+    learnset MOVE_SUCKER_PUNCH, 22
+    learnset MOVE_U_TURN, 25
+    learnset MOVE_BRINE, 28
+    learnset MOVE_SOAK, 31
+    learnset MOVE_MUD_SHOT, 34
+    learnset MOVE_RAIN_DANCE, 37
+    learnset MOVE_LIQUIDATION, 40
     terminatelearnset
 
 
 levelup SPECIES_INTELEON
+    learnset MOVE_SNIPE_SHOT, 0
     learnset MOVE_SNIPE_SHOT, 1
-    learnset MOVE_ACROBATICS, 1
     learnset MOVE_POUND, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_BIND, 1
-    learnset MOVE_WATER_PULSE, 12
-    learnset MOVE_TEARFUL_LOOK, 19
-    learnset MOVE_SUCKER_PUNCH, 24
-    learnset MOVE_U_TURN, 30
-    learnset MOVE_LIQUIDATION, 38
-    learnset MOVE_SOAK, 46
-    learnset MOVE_RAIN_DANCE, 54
-    learnset MOVE_HYDRO_PUMP, 62
+    learnset MOVE_WATER_GUN, 6
+    learnset MOVE_BIND, 9
+    learnset MOVE_ICE_SHARD, 12
+    learnset MOVE_CHILLING_WATER, 15
+    learnset MOVE_AQUA_JET, 18
+    learnset MOVE_TEARFUL_LOOK, 20
+    learnset MOVE_SUCKER_PUNCH, 23
+    learnset MOVE_U_TURN, 26
+    learnset MOVE_BRINE, 29
+    learnset MOVE_SOAK, 32
+    learnset MOVE_MUD_SHOT, 35
+    learnset MOVE_RAIN_DANCE, 38
+    learnset MOVE_LIQUIDATION, 41
+    learnset MOVE_ACROBATICS, 44
+    learnset MOVE_DOUBLE_TEAM, 47
+    learnset MOVE_DARK_PULSE, 50
+    learnset MOVE_HYDRO_PUMP, 53
+    learnset MOVE_ICE_BEAM, 56
+    learnset MOVE_HAZE, 59
+    learnset MOVE_BLIZZARD, 62
+    learnset MOVE_HYDRO_CANNON, 65
     terminatelearnset
 
 
