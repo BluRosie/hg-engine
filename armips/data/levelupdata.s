@@ -21837,33 +21837,46 @@ levelup SPECIES_APPLETUN
 levelup SPECIES_SILICOBRA
     learnset MOVE_WRAP, 1
     learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_MINIMIZE, 5
+    learnset MOVE_MUD_SLAP, 4
+    learnset MOVE_POISON_TAIL, 7
     learnset MOVE_BRUTAL_SWING, 10
-    learnset MOVE_BULLDOZE, 15
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_GLARE, 25
-    learnset MOVE_DIG, 30
-    learnset MOVE_SANDSTORM, 35
-    learnset MOVE_SLAM, 40
-    learnset MOVE_COIL, 45
-    learnset MOVE_SAND_TOMB, 50
+    learnset MOVE_ROCK_TOMB, 13
+    learnset MOVE_BULLDOZE, 16
+    learnset MOVE_STEALTH_ROCK, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_GLARE, 24
+    learnset MOVE_THUNDER_FANG, 27
+    learnset MOVE_STOMPING_TANTRUM, 30
+    learnset MOVE_FIRE_FANG, 33
+    learnset MOVE_SANDSTORM, 36
+    learnset MOVE_SLAM, 39
+    learnset MOVE_COIL, 42
     terminatelearnset
 
 
 levelup SPECIES_SANDACONDA
-    learnset MOVE_SKULL_BASH, 1
     learnset MOVE_WRAP, 1
     learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_MINIMIZE, 1
-    learnset MOVE_BRUTAL_SWING, 1
-    learnset MOVE_BULLDOZE, 15
-    learnset MOVE_HEADBUTT, 20
+    learnset MOVE_MUD_SLAP, 5
+    learnset MOVE_POISON_TAIL, 8
+    learnset MOVE_BRUTAL_SWING, 11
+    learnset MOVE_ROCK_TOMB, 14
+    learnset MOVE_BULLDOZE, 17
+    learnset MOVE_STEALTH_ROCK, 19
+    learnset MOVE_HEADBUTT, 22
     learnset MOVE_GLARE, 25
-    learnset MOVE_DIG, 30
-    learnset MOVE_SANDSTORM, 35
-    learnset MOVE_SLAM, 42
-    learnset MOVE_COIL, 49
-    learnset MOVE_SAND_TOMB, 51
+    learnset MOVE_THUNDER_FANG, 28
+    learnset MOVE_STOMPING_TANTRUM, 31
+    learnset MOVE_FIRE_FANG, 34
+    learnset MOVE_SANDSTORM, 37
+    learnset MOVE_SLAM, 40
+    learnset MOVE_COIL, 43
+    learnset MOVE_DRILL_RUN, 46
+    learnset MOVE_ROCK_SLIDE, 49
+    learnset MOVE_IRON_DEFENSE, 52
+    learnset MOVE_BODY_PRESS, 55
+    learnset MOVE_DRAGON_RUSH, 58
+    learnset MOVE_EARTHQUAKE, 61
     terminatelearnset
 
 
