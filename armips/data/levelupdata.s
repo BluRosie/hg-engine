@@ -21658,32 +21658,43 @@ levelup SPECIES_DREDNAW
 levelup SPECIES_YAMPER
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_NUZZLE, 5
+    learnset MOVE_NUZZLE, 4
+    learnset MOVE_HOWL, 7
     learnset MOVE_BITE, 10
-    learnset MOVE_ROAR, 15
-    learnset MOVE_SPARK, 20
-    learnset MOVE_CHARM, 26
+    learnset MOVE_THUNDER_SHOCK, 13
+    learnset MOVE_ROAR, 16
+    learnset MOVE_VOLT_SWITCH, 18
+    learnset MOVE_SPARK, 21
+    learnset MOVE_FIRE_FANG, 24
+    learnset MOVE_CHARM, 27
     learnset MOVE_CRUNCH, 30
-    learnset MOVE_CHARGE, 35
-    learnset MOVE_WILD_CHARGE, 40
-    learnset MOVE_PLAY_ROUGH, 45
+    learnset MOVE_THUNDER_FANG, 33
+    learnset MOVE_CHARGE, 36
+    learnset MOVE_WILD_CHARGE, 39
+    learnset MOVE_PLAY_ROUGH, 42
     terminatelearnset
 
 
 levelup SPECIES_BOLTUND
-    learnset MOVE_ELECTRIFY, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_NUZZLE, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_ROAR, 15
-    learnset MOVE_SPARK, 20
+    learnset MOVE_NUZZLE, 5
+    learnset MOVE_HOWL, 8
+    learnset MOVE_BITE, 11
+    learnset MOVE_THUNDER_SHOCK, 14
+    learnset MOVE_ROAR, 17
+    learnset MOVE_VOLT_SWITCH, 19
+    learnset MOVE_SPARK, 22
+    learnset MOVE_FIRE_FANG, 25
     learnset MOVE_CHARM, 28
-    learnset MOVE_CRUNCH, 34
-    learnset MOVE_CHARGE, 41
-    learnset MOVE_WILD_CHARGE, 48
-    learnset MOVE_PLAY_ROUGH, 55
-    learnset MOVE_ELECTRIC_TERRAIN, 62
+    learnset MOVE_CRUNCH, 31
+    learnset MOVE_THUNDER_FANG, 34
+    learnset MOVE_CHARGE, 37
+    learnset MOVE_PSYCHIC_FANGS, 40
+    learnset MOVE_WILD_CHARGE, 43
+    learnset MOVE_BULK_UP, 46
+    learnset MOVE_PLAY_ROUGH, 49
+    learnset MOVE_DOUBLE_EDGE, 52
     terminatelearnset
 
 
