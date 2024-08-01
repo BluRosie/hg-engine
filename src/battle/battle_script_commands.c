@@ -3184,6 +3184,14 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
         return FALSE;
     }
 
+    //Sticky Web
+    if (sp->side_condition[side] & SIDE_STATUS_STICKY_WEB) {
+        sp->side_condition[side] &= ~SIDE_STATUS_STICKY_WEB;
+        sp->waza_work = MOVE_STICKY_WEB;
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        return FALSE;
+    }
+
     IncrementBattleScriptPtr(sp, 1);
 
     return FALSE;
