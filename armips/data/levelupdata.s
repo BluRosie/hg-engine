@@ -21340,35 +21340,51 @@ levelup SPECIES_INTELEON
 levelup SPECIES_SKWOVET
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_BITE, 5
+    learnset MOVE_BITE, 4
+    learnset MOVE_MUD_SLAP, 7
     learnset MOVE_STUFF_CHEEKS, 10
-    learnset MOVE_STOCKPILE, 15
-    learnset MOVE_SWALLOW, 15
-    learnset MOVE_SPIT_UP, 15
-    learnset MOVE_BODY_SLAM, 20
-    learnset MOVE_REST, 25
+    learnset MOVE_COVET, 13
+    learnset MOVE_STOCKPILE, 16
+    learnset MOVE_SWALLOW, 16
+    learnset MOVE_SPIT_UP, 16
+    learnset MOVE_BULLDOZE, 18
+    learnset MOVE_FACADE, 21
+    learnset MOVE_REST, 24
+    learnset MOVE_BULLET_SEED, 27
     learnset MOVE_COUNTER, 30
-    learnset MOVE_BULLET_SEED, 35
-    learnset MOVE_SUPER_FANG, 40
+    learnset MOVE_DIG, 33
+    learnset MOVE_CRUNCH, 36
+    learnset MOVE_SEED_BOMB, 39
+    learnset MOVE_BODY_SLAM, 42
     learnset MOVE_BELCH, 45
     terminatelearnset
 
 
 levelup SPECIES_GREEDENT
-    learnset MOVE_COVET, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_STUFF_CHEEKS, 1
-    learnset MOVE_STOCKPILE, 15
-    learnset MOVE_SWALLOW, 15
-    learnset MOVE_SPIT_UP, 15
-    learnset MOVE_BODY_SLAM, 20
-    learnset MOVE_REST, 27
-    learnset MOVE_COUNTER, 34
-    learnset MOVE_BULLET_SEED, 41
-    learnset MOVE_SUPER_FANG, 48
-    learnset MOVE_BELCH, 55
+    learnset MOVE_BITE, 5
+    learnset MOVE_MUD_SLAP, 8
+    learnset MOVE_STUFF_CHEEKS, 11
+    learnset MOVE_COVET, 14
+    learnset MOVE_STOCKPILE, 17
+    learnset MOVE_SWALLOW, 17
+    learnset MOVE_SPIT_UP, 17
+    learnset MOVE_BULLDOZE, 19
+    learnset MOVE_FACADE, 22
+    learnset MOVE_REST, 25
+    learnset MOVE_BULLET_SEED, 28
+    learnset MOVE_COUNTER, 31
+    learnset MOVE_DIG, 34
+    learnset MOVE_CRUNCH, 37
+    learnset MOVE_SEED_BOMB, 40
+    learnset MOVE_BODY_SLAM, 43
+    learnset MOVE_BELCH, 46
+    learnset MOVE_PSYCHIC_FANGS, 49
+    learnset MOVE_BODY_PRESS, 52
+    learnset MOVE_EARTHQUAKE, 55
+    learnset MOVE_AMNESIA, 58
+    learnset MOVE_DOUBLE_EDGE, 61
     terminatelearnset
 
 
