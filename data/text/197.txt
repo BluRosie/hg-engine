@@ -1472,3 +1472,8 @@ The effects of the weather disappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
+A sticky web has been laid out on the\nground around your team!
+A sticky web has been laid out on the\nground around the opposing team!
+{STRVAR_1 1, 0, 0} was caught\nin a sticky web!
+The wild {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
+The opposing {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
