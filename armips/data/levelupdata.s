@@ -21156,51 +21156,69 @@ levelup SPECIES_MELMETAL
 levelup SPECIES_GROOKEY
     learnset MOVE_SCRATCH, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_BRANCH_POKE, 6
-    learnset MOVE_TAUNT, 8
-    learnset MOVE_RAZOR_LEAF, 12
-    learnset MOVE_SCREECH, 17
-    learnset MOVE_KNOCK_OFF, 20
-    learnset MOVE_SLAM, 24
-    learnset MOVE_UPROAR, 28
-    learnset MOVE_WOOD_HAMMER, 32
-    learnset MOVE_ENDEAVOR, 36
+    learnset MOVE_BRANCH_POKE, 4
+    learnset MOVE_TAUNT, 7
+    learnset MOVE_FAKE_OUT, 10
+    learnset MOVE_RAZOR_LEAF, 13
+    learnset MOVE_LOW_KICK, 16
+    learnset MOVE_SCREECH, 18
+    learnset MOVE_KNOCK_OFF, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_U_TURN, 27
+    learnset MOVE_ENERGY_BALL, 30
+    learnset MOVE_ENDEAVOR, 33
+    learnset MOVE_DRAIN_PUNCH, 36
+    learnset MOVE_GRASSY_TERRAIN, 39
     terminatelearnset
 
 
 levelup SPECIES_THWACKEY
+    learnset MOVE_DOUBLE_HIT, 0
     learnset MOVE_DOUBLE_HIT, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_BRANCH_POKE, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_RAZOR_LEAF, 12
+    learnset MOVE_BRANCH_POKE, 5
+    learnset MOVE_TAUNT, 8
+    learnset MOVE_FAKE_OUT, 11
+    learnset MOVE_RAZOR_LEAF, 14
+    learnset MOVE_LOW_KICK, 17
     learnset MOVE_SCREECH, 19
-    learnset MOVE_KNOCK_OFF, 24
-    learnset MOVE_SLAM, 30
-    learnset MOVE_UPROAR, 36
-    learnset MOVE_WOOD_HAMMER, 42
-    learnset MOVE_ENDEAVOR, 48
+    learnset MOVE_KNOCK_OFF, 22
+    learnset MOVE_HEADBUTT, 25
+    learnset MOVE_U_TURN, 28
+    learnset MOVE_ENERGY_BALL, 31
+    learnset MOVE_ENDEAVOR, 34
+    learnset MOVE_DRAIN_PUNCH, 37
+    learnset MOVE_GRASSY_TERRAIN, 40
     terminatelearnset
 
 
 levelup SPECIES_RILLABOOM
+    learnset MOVE_DRUM_BEATING, 0
     learnset MOVE_DRUM_BEATING, 1
-    learnset MOVE_DOUBLE_HIT, 1
-    learnset MOVE_GRASSY_TERRAIN, 1
-    learnset MOVE_NOBLE_ROAR, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_BRANCH_POKE, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_RAZOR_LEAF, 12
-    learnset MOVE_SCREECH, 19
-    learnset MOVE_KNOCK_OFF, 24
-    learnset MOVE_SLAM, 30
-    learnset MOVE_UPROAR, 38
-    learnset MOVE_WOOD_HAMMER, 46
-    learnset MOVE_ENDEAVOR, 54
-    learnset MOVE_BOOMBURST, 62
+    learnset MOVE_BRANCH_POKE, 6
+    learnset MOVE_TAUNT, 9
+    learnset MOVE_FAKE_OUT, 12
+    learnset MOVE_RAZOR_LEAF, 15
+    learnset MOVE_LOW_KICK, 18
+    learnset MOVE_SCREECH, 20
+    learnset MOVE_KNOCK_OFF, 23
+    learnset MOVE_HEADBUTT, 26
+    learnset MOVE_U_TURN, 29
+    learnset MOVE_ENERGY_BALL, 32
+    learnset MOVE_ENDEAVOR, 35
+    learnset MOVE_DRAIN_PUNCH, 38
+    learnset MOVE_GRASSY_TERRAIN, 41
+    learnset MOVE_GRASSY_GLIDE, 44
+    learnset MOVE_STOMPING_TANTRUM, 47
+    learnset MOVE_TAUNT, 50
+    learnset MOVE_BODY_SLAM, 53
+    learnset MOVE_HAMMER_ARM, 56
+    learnset MOVE_WOOD_HAMMER, 59
+    learnset MOVE_EARTHQUAKE, 62
+    learnset MOVE_FRENZY_PLANT, 65
     terminatelearnset
 
 
