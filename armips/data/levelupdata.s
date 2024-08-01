@@ -21551,32 +21551,47 @@ levelup SPECIES_WOOLOO
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
     learnset MOVE_DEFENSE_CURL, 4
-    learnset MOVE_COPYCAT, 8
-    learnset MOVE_GUARD_SPLIT, 12
+    learnset MOVE_COPYCAT, 7
+    learnset MOVE_TRAILBLAZE, 10
+    learnset MOVE_GUARD_SPLIT, 13
     learnset MOVE_DOUBLE_KICK, 16
+    learnset MOVE_PAYBACK, 18
     learnset MOVE_HEADBUTT, 21
-    learnset MOVE_TAKE_DOWN, 25
-    learnset MOVE_GUARD_SWAP, 28
-    learnset MOVE_REVERSAL, 32
+    learnset MOVE_WILD_CHARGE, 24
+    learnset MOVE_GUARD_SWAP, 27
+    learnset MOVE_ENDURE, 30
+    learnset MOVE_REVERSAL, 33
     learnset MOVE_COTTON_GUARD, 36
-    learnset MOVE_DOUBLE_EDGE, 40
+    learnset MOVE_TAKE_DOWN, 39
+    learnset MOVE_BODY_SLAM, 42
+    learnset MOVE_COUNTER, 45
+    learnset MOVE_DOUBLE_EDGE, 48
     terminatelearnset
 
 
 levelup SPECIES_DUBWOOL
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_COPYCAT, 1
-    learnset MOVE_GUARD_SPLIT, 12
-    learnset MOVE_DOUBLE_KICK, 16
-    learnset MOVE_HEADBUTT, 21
-    learnset MOVE_TAKE_DOWN, 27
-    learnset MOVE_GUARD_SWAP, 32
-    learnset MOVE_REVERSAL, 38
-    learnset MOVE_COTTON_GUARD, 44
-    learnset MOVE_DOUBLE_EDGE, 50
-    learnset MOVE_LAST_RESORT, 56
+    learnset MOVE_DEFENSE_CURL, 5
+    learnset MOVE_COPYCAT, 8
+    learnset MOVE_TRAILBLAZE, 11
+    learnset MOVE_GUARD_SPLIT, 14
+    learnset MOVE_DOUBLE_KICK, 17
+    learnset MOVE_PAYBACK, 19
+    learnset MOVE_HEADBUTT, 22
+    learnset MOVE_WILD_CHARGE, 25
+    learnset MOVE_GUARD_SWAP, 28
+    learnset MOVE_ENDURE, 31
+    learnset MOVE_REVERSAL, 34
+    learnset MOVE_COTTON_GUARD, 37
+    learnset MOVE_TAKE_DOWN, 40
+    learnset MOVE_BODY_SLAM, 43
+    learnset MOVE_COUNTER, 46
+    learnset MOVE_BODY_PRESS, 49
+    learnset MOVE_ZEN_HEADBUTT, 52
+    learnset MOVE_BOUNCE, 55
+    learnset MOVE_DOUBLE_EDGE, 58
+    learnset MOVE_LAST_RESORT, 61
     terminatelearnset
 
 
