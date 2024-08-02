@@ -22102,48 +22102,72 @@ levelup SPECIES_POLTEAGEIST
 levelup SPECIES_HATENNA
     learnset MOVE_CONFUSION, 1
     learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_LIFE_DEW, 5
+    learnset MOVE_LIFE_DEW, 4
+    learnset MOVE_MAGICAL_LEAF, 7
     learnset MOVE_DISARMING_VOICE, 10
-    learnset MOVE_AROMATHERAPY, 15
-    learnset MOVE_PSYBEAM, 20
-    learnset MOVE_HEAL_PULSE, 25
+    learnset MOVE_SWIFT, 13
+    learnset MOVE_AROMATIC_MIST, 16
+    learnset MOVE_DRAINING_KISS, 18
+    learnset MOVE_PSYBEAM, 21
+    learnset MOVE_HEAL_PULSE, 24
+    learnset MOVE_MYSTICAL_FIRE, 27
     learnset MOVE_DAZZLING_GLEAM, 30
-    learnset MOVE_CALM_MIND, 35
-    learnset MOVE_PSYCHIC, 40
+    learnset MOVE_GIGA_DRAIN, 33
+    learnset MOVE_CALM_MIND, 36
+    learnset MOVE_DARK_PULSE, 39
+    learnset MOVE_PSYCHIC, 42
     learnset MOVE_HEALING_WISH, 45
     terminatelearnset
 
 
 levelup SPECIES_HATTREM
+    learnset MOVE_BRUTAL_SWING, 0
     learnset MOVE_BRUTAL_SWING, 1
     learnset MOVE_CONFUSION, 1
     learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_LIFE_DEW, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_AROMATHERAPY, 15
-    learnset MOVE_PSYBEAM, 20
+    learnset MOVE_LIFE_DEW, 5
+    learnset MOVE_MAGICAL_LEAF, 8
+    learnset MOVE_DISARMING_VOICE, 11
+    learnset MOVE_SWIFT, 14
+    learnset MOVE_AROMATIC_MIST, 17
+    learnset MOVE_DRAINING_KISS, 19
+    learnset MOVE_PSYBEAM, 22
     learnset MOVE_HEAL_PULSE, 25
-    learnset MOVE_DAZZLING_GLEAM, 30
+    learnset MOVE_MYSTICAL_FIRE, 28
+    learnset MOVE_DAZZLING_GLEAM, 31
+    learnset MOVE_GIGA_DRAIN, 34
     learnset MOVE_CALM_MIND, 37
-    learnset MOVE_PSYCHIC, 44
-    learnset MOVE_HEALING_WISH, 51
+    learnset MOVE_DARK_PULSE, 40
+    learnset MOVE_PSYCHIC, 43
+    learnset MOVE_HEALING_WISH, 46
     terminatelearnset
 
 
 levelup SPECIES_HATTERENE
+    learnset MOVE_PSYCHO_CUT, 0
     learnset MOVE_PSYCHO_CUT, 1
-    learnset MOVE_BRUTAL_SWING, 1
     learnset MOVE_CONFUSION, 1
     learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_LIFE_DEW, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_AROMATHERAPY, 15
-    learnset MOVE_PSYBEAM, 20
+    learnset MOVE_LIFE_DEW, 5
+    learnset MOVE_MAGICAL_LEAF, 8
+    learnset MOVE_DISARMING_VOICE, 11
+    learnset MOVE_SWIFT, 14
+    learnset MOVE_AROMATIC_MIST, 17
+    learnset MOVE_DRAINING_KISS, 19
+    learnset MOVE_PSYBEAM, 22
     learnset MOVE_HEAL_PULSE, 25
-    learnset MOVE_DAZZLING_GLEAM, 30
+    learnset MOVE_MYSTICAL_FIRE, 28
+    learnset MOVE_DAZZLING_GLEAM, 31
+    learnset MOVE_GIGA_DRAIN, 34
     learnset MOVE_CALM_MIND, 37
-    learnset MOVE_PSYCHIC, 46
-    learnset MOVE_HEALING_WISH, 55
+    learnset MOVE_DARK_PULSE, 40
+    learnset MOVE_PSYCHIC, 43
+    learnset MOVE_HEALING_WISH, 46
+    learnset MOVE_SHADOW_BALL, 49
+    learnset MOVE_TRICK_ROOM, 52
+    learnset MOVE_MOONBLAST, 55
+    learnset MOVE_CALM_MIND, 58
+    learnset MOVE_FUTURE_SIGHT, 61
     learnset MOVE_MAGIC_POWDER, 64
     terminatelearnset
 
