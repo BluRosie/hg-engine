@@ -424,3 +424,7 @@ arm9 020902D0 60 B4 C0 46
 
 # ov12_02251A28_hook setup
 0012 02251A28 60 B4 C0 46
+
+# normal as a second type should show up in the dex/pc
+0018 021F21AE C0 46
+0014 021F3DB0 C0 46
