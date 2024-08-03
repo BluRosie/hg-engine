@@ -22176,56 +22176,74 @@ levelup SPECIES_IMPIDIMP
     learnset MOVE_FAKE_OUT, 1
     learnset MOVE_CONFIDE, 1
     learnset MOVE_BITE, 4
-    learnset MOVE_FLATTER, 8
-    learnset MOVE_FAKE_TEARS, 12
+    learnset MOVE_FLATTER, 7
+    learnset MOVE_DRAINING_KISS, 10
+    learnset MOVE_FAKE_TEARS, 13
     learnset MOVE_ASSURANCE, 16
-    learnset MOVE_SWAGGER, 20
+    learnset MOVE_LOW_KICK, 18
+    learnset MOVE_SWAGGER, 21
     learnset MOVE_SUCKER_PUNCH, 24
-    learnset MOVE_TORMENT, 28
+    learnset MOVE_TORMENT, 27
+    learnset MOVE_DRAIN_PUNCH, 30
     learnset MOVE_DARK_PULSE, 33
-    learnset MOVE_NASTY_PLOT, 36
-    learnset MOVE_PLAY_ROUGH, 40
-    learnset MOVE_FOUL_PLAY, 44
+    learnset MOVE_PARTING_SHOT, 36
+    learnset MOVE_SPIRIT_BREAK, 39
+    learnset MOVE_FALSE_SURRENDER, 42
+    learnset MOVE_REFLECT, 45
+    learnset MOVE_LIGHT_SCREEN, 45
+    learnset MOVE_PLAY_ROUGH, 48
+    learnset MOVE_FOUL_PLAY, 51
     terminatelearnset
 
 
 levelup SPECIES_MORGREM
-    learnset MOVE_FALSE_SURRENDER, 1
     learnset MOVE_FAKE_OUT, 1
     learnset MOVE_CONFIDE, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_FLATTER, 1
-    learnset MOVE_FAKE_TEARS, 12
-    learnset MOVE_ASSURANCE, 16
-    learnset MOVE_SWAGGER, 20
-    learnset MOVE_SUCKER_PUNCH, 24
+    learnset MOVE_BITE, 5
+    learnset MOVE_FLATTER, 8
+    learnset MOVE_DRAINING_KISS, 11
+    learnset MOVE_FAKE_TEARS, 14
+    learnset MOVE_ASSURANCE, 17
+    learnset MOVE_LOW_KICK, 19
+    learnset MOVE_SWAGGER, 22
+    learnset MOVE_SUCKER_PUNCH, 25
     learnset MOVE_TORMENT, 28
-    learnset MOVE_DARK_PULSE, 35
-    learnset MOVE_NASTY_PLOT, 40
-    learnset MOVE_PLAY_ROUGH, 46
+    learnset MOVE_DRAIN_PUNCH, 31
+    learnset MOVE_DARK_PULSE, 34
+    learnset MOVE_PARTING_SHOT, 37
+    learnset MOVE_SPIRIT_BREAK, 40
+    learnset MOVE_FALSE_SURRENDER, 43
+    learnset MOVE_REFLECT, 46
+    learnset MOVE_LIGHT_SCREEN, 46
+    learnset MOVE_PLAY_ROUGH, 49
     learnset MOVE_FOUL_PLAY, 52
     terminatelearnset
 
 
 levelup SPECIES_GRIMMSNARL
-    learnset MOVE_SPIRIT_BREAK, 1
-    learnset MOVE_FALSE_SURRENDER, 1
-    learnset MOVE_BULK_UP, 1
-    learnset MOVE_POWER_UP_PUNCH, 1
     learnset MOVE_FAKE_OUT, 1
     learnset MOVE_CONFIDE, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_FLATTER, 1
-    learnset MOVE_FAKE_TEARS, 12
-    learnset MOVE_ASSURANCE, 16
-    learnset MOVE_SWAGGER, 20
-    learnset MOVE_SUCKER_PUNCH, 24
-    learnset MOVE_TORMENT, 28
+    learnset MOVE_BITE, 6
+    learnset MOVE_FLATTER, 9
+    learnset MOVE_DRAINING_KISS, 12
+    learnset MOVE_FAKE_TEARS, 15
+    learnset MOVE_ASSURANCE, 18
+    learnset MOVE_LOW_KICK, 20
+    learnset MOVE_SWAGGER, 23
+    learnset MOVE_SUCKER_PUNCH, 26
+    learnset MOVE_TORMENT, 29
+    learnset MOVE_DRAIN_PUNCH, 32
     learnset MOVE_DARK_PULSE, 35
-    learnset MOVE_NASTY_PLOT, 40
-    learnset MOVE_PLAY_ROUGH, 48
+    learnset MOVE_PARTING_SHOT, 38
+    learnset MOVE_SPIRIT_BREAK, 41
+    learnset MOVE_FALSE_SURRENDER, 44
+    learnset MOVE_REFLECT, 47
+    learnset MOVE_LIGHT_SCREEN, 47
+    learnset MOVE_PLAY_ROUGH, 50
+    learnset MOVE_HAMMER_ARM, 53
     learnset MOVE_FOUL_PLAY, 56
-    learnset MOVE_HAMMER_ARM, 64
+    learnset MOVE_EARTHQUAKE, 59
+    learnset MOVE_IMPRISON, 62
     terminatelearnset
 
 
