@@ -22248,27 +22248,32 @@ levelup SPECIES_GRIMMSNARL
 
 
 levelup SPECIES_OBSTAGOON
+    learnset MOVE_OBSTRUCT, 0
     learnset MOVE_OBSTRUCT, 1
-    learnset MOVE_CROSS_CHOP, 1
-    learnset MOVE_SUBMISSION, 1
-    learnset MOVE_NIGHT_SLASH, 1
-    learnset MOVE_SWITCHEROO, 1
-    learnset MOVE_PIN_MISSILE, 1
-    learnset MOVE_BABY_DOLL_EYES, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_LICK, 1
-    learnset MOVE_SNARL, 9
-    learnset MOVE_HEADBUTT, 12
-    learnset MOVE_HONE_CLAWS, 15
-    learnset MOVE_FURY_SWIPES, 18
+    learnset MOVE_SAND_ATTACK, 6
+    learnset MOVE_LICK, 9
+    learnset MOVE_SNARL, 12
+    learnset MOVE_HEADBUTT, 15
+    learnset MOVE_BABY_DOLL_EYES, 18
+    learnset MOVE_PIN_MISSILE, 20
     learnset MOVE_REST, 23
-    learnset MOVE_TAKE_DOWN, 28
-    learnset MOVE_SCARY_FACE, 35
-    learnset MOVE_COUNTER, 42
-    learnset MOVE_TAUNT, 49
-    learnset MOVE_DOUBLE_EDGE, 56
+    learnset MOVE_KNOCK_OFF, 26
+    learnset MOVE_SCARY_FACE, 29
+    learnset MOVE_COUNTER, 32
+    learnset MOVE_TAUNT, 35
+    learnset MOVE_NIGHT_SLASH, 38
+    learnset MOVE_QUICK_GUARD, 41
+    learnset MOVE_DIG, 44
+    learnset MOVE_BODY_SLAM, 47
+    learnset MOVE_SUBMISSION, 50
+    learnset MOVE_QUICK_GUARD, 53
+    learnset MOVE_FOUL_PLAY, 56
+    learnset MOVE_PLAY_ROUGH, 59
+    learnset MOVE_CROSS_CHOP, 62
+    learnset MOVE_BELLY_DRUM, 65
+    learnset MOVE_DOUBLE_EDGE, 68
     terminatelearnset
 
 
@@ -27747,40 +27752,52 @@ levelup SPECIES_CORSOLA_GALARIAN
 levelup SPECIES_ZIGZAGOON_GALARIAN
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_SAND_ATTACK, 3
-    learnset MOVE_LICK, 6
-    learnset MOVE_SNARL, 9
-    learnset MOVE_HEADBUTT, 12
-    learnset MOVE_BABY_DOLL_EYES, 15
+    learnset MOVE_SAND_ATTACK, 4
+    learnset MOVE_LICK, 7
+    learnset MOVE_SNARL, 10
+    learnset MOVE_HEADBUTT, 13
+    learnset MOVE_BABY_DOLL_EYES, 16
     learnset MOVE_PIN_MISSILE, 18
     learnset MOVE_REST, 21
-    learnset MOVE_TAKE_DOWN, 24
+    learnset MOVE_KNOCK_OFF, 24
     learnset MOVE_SCARY_FACE, 27
     learnset MOVE_COUNTER, 30
     learnset MOVE_TAUNT, 33
-    learnset MOVE_DOUBLE_EDGE, 36
+    learnset MOVE_NIGHT_SLASH, 36
+    learnset MOVE_QUICK_GUARD, 39
+    learnset MOVE_DIG, 42
+    learnset MOVE_BODY_SLAM, 45
+    learnset MOVE_QUICK_GUARD, 48
+    learnset MOVE_FOUL_PLAY, 51
+    learnset MOVE_PLAY_ROUGH, 54
+    learnset MOVE_BELLY_DRUM, 57
+    learnset MOVE_DOUBLE_EDGE, 60
     terminatelearnset
 
 
 levelup SPECIES_LINOONE_GALARIAN
-    learnset MOVE_NIGHT_SLASH, 1
-    learnset MOVE_SWITCHEROO, 1
-    learnset MOVE_PIN_MISSILE, 1
-    learnset MOVE_BABY_DOLL_EYES, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_LICK, 1
-    learnset MOVE_SNARL, 9
-    learnset MOVE_HEADBUTT, 12
-    learnset MOVE_HONE_CLAWS, 15
-    learnset MOVE_FURY_SWIPES, 18
-    learnset MOVE_REST, 23
-    learnset MOVE_TAKE_DOWN, 28
-    learnset MOVE_SCARY_FACE, 33
-    learnset MOVE_COUNTER, 38
-    learnset MOVE_TAUNT, 43
-    learnset MOVE_DOUBLE_EDGE, 48
+    learnset MOVE_SAND_ATTACK, 5
+    learnset MOVE_LICK, 8
+    learnset MOVE_SNARL, 11
+    learnset MOVE_HEADBUTT, 14
+    learnset MOVE_BABY_DOLL_EYES, 17
+    learnset MOVE_PIN_MISSILE, 19
+    learnset MOVE_REST, 22
+    learnset MOVE_KNOCK_OFF, 25
+    learnset MOVE_SCARY_FACE, 28
+    learnset MOVE_COUNTER, 31
+    learnset MOVE_TAUNT, 34
+    learnset MOVE_NIGHT_SLASH, 37
+    learnset MOVE_QUICK_GUARD, 40
+    learnset MOVE_DIG, 43
+    learnset MOVE_BODY_SLAM, 46
+    learnset MOVE_QUICK_GUARD, 49
+    learnset MOVE_FOUL_PLAY, 52
+    learnset MOVE_PLAY_ROUGH, 55
+    learnset MOVE_BELLY_DRUM, 58
+    learnset MOVE_DOUBLE_EDGE, 61
     terminatelearnset
 
 
