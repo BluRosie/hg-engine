@@ -277,7 +277,29 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 ret                  = TRUE;
             }
             break;
-
+            
+        // Weakness Policy
+        case HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE:
+            if
+            (
+                (sp->battlemon[sp->defence_client].hp)
+                && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
+                && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                && (
+                    ((GetBattlerAbility(sp,sp->defence_client) == ABILITY_CONTRARY) && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0) || (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))
+                    ||
+                    ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12) || (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12))
+                )
+            )
+            {
+                sp->addeffect_type = ADD_STATUS_SOUBIITEM;
+                sp->state_client = sp->defence_client;
+                sp->item_work = sp->battlemon[sp->defence_client].item;
+                seq_no[0] = SUB_SEQ_HANDLE_RAISE_ATTACK_AND_SP_ATK_ON_HIT; //SUB_SEQ_HANDLE_WEAKNESS_POLICY;
+                ret = TRUE;
+            }
+            break;
 
 #ifdef LATER_GEN_ITEM_EFFECTS
 

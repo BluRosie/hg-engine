@@ -1,0 +1,29 @@
+{
+	"frames": {
+		"pokewall": {
+			"frame": 0,
+			"coordTrans": 16,
+			"color0": 1,
+			"format": 3,
+			"height": 64,
+			"width": 64,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 62,
+			"unkBlockUnk1": 1,
+			"unk0": 0,
+			"unk1": 2,
+			"unk2": 128
+		}
+	},
+	"palettes": {
+		"pokewall_pl": {
+			"offset": 0,
+			"unk0": 86,
+			"unk1": 1,
+			"fileName": "pokewall_pl.pal"
+		}
+	}
+}
