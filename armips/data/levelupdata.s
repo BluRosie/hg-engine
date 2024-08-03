@@ -22306,20 +22306,29 @@ levelup SPECIES_PERRSERKER
 
 
 levelup SPECIES_CURSOLA
-    learnset MOVE_PERISH_SONG, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_ASTONISH, 1
-    learnset MOVE_DISABLE, 1
-    learnset MOVE_SPITE, 15
-    learnset MOVE_ANCIENT_POWER, 20
+    learnset MOVE_ASTONISH, 5
+    learnset MOVE_WATER_GUN, 8
+    learnset MOVE_DISABLE, 11
+    learnset MOVE_WHIRLPOOL, 14
+    learnset MOVE_SPITE, 17
+    learnset MOVE_WILL_O_WISP, 19
+    learnset MOVE_ANCIENT_POWER, 22
     learnset MOVE_HEX, 25
-    learnset MOVE_CURSE, 30
-    learnset MOVE_STRENGTH_SAP, 35
-    learnset MOVE_POWER_GEM, 40
-    learnset MOVE_NIGHT_SHADE, 45
-    learnset MOVE_GRUDGE, 50
+    learnset MOVE_GIGA_DRAIN, 28
+    learnset MOVE_CURSE, 31
+    learnset MOVE_LIQUIDATION, 34
+    learnset MOVE_STRENGTH_SAP, 37
+    learnset MOVE_CONFUSE_RAY, 40
+    learnset MOVE_POWER_GEM, 43
+    learnset MOVE_SHADOW_BALL, 46
+    learnset MOVE_SCALD, 49
+    learnset MOVE_GRUDGE, 52
     learnset MOVE_MIRROR_COAT, 55
+    learnset MOVE_POLTERGEIST, 58
+    learnset MOVE_HEAD_SMASH, 61
+    learnset MOVE_PERISH_SONG, 64
     terminatelearnset
 
 
@@ -27735,17 +27744,26 @@ levelup SPECIES_SLOWKING_GALARIAN
 levelup SPECIES_CORSOLA_GALARIAN
     learnset MOVE_TACKLE, 1
     learnset MOVE_HARDEN, 1
-    learnset MOVE_ASTONISH, 5
+    learnset MOVE_ASTONISH, 4
+    learnset MOVE_WATER_GUN, 7
     learnset MOVE_DISABLE, 10
-    learnset MOVE_SPITE, 15
-    learnset MOVE_ANCIENT_POWER, 20
-    learnset MOVE_HEX, 25
+    learnset MOVE_WHIRLPOOL, 13
+    learnset MOVE_SPITE, 16
+    learnset MOVE_WILL_O_WISP, 18
+    learnset MOVE_ANCIENT_POWER, 21
+    learnset MOVE_HEX, 24
+    learnset MOVE_GIGA_DRAIN, 27
     learnset MOVE_CURSE, 30
-    learnset MOVE_STRENGTH_SAP, 35
-    learnset MOVE_POWER_GEM, 40
-    learnset MOVE_NIGHT_SHADE, 45
-    learnset MOVE_GRUDGE, 50
-    learnset MOVE_MIRROR_COAT, 55
+    learnset MOVE_LIQUIDATION, 33
+    learnset MOVE_STRENGTH_SAP, 36
+    learnset MOVE_CONFUSE_RAY, 39
+    learnset MOVE_POWER_GEM, 42
+    learnset MOVE_SHADOW_BALL, 45
+    learnset MOVE_SCALD, 48
+    learnset MOVE_GRUDGE, 51
+    learnset MOVE_MIRROR_COAT, 54
+    learnset MOVE_POLTERGEIST, 57
+    learnset MOVE_HEAD_SMASH, 60
     terminatelearnset
 
 
