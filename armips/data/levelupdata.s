@@ -23071,18 +23071,28 @@ levelup SPECIES_GLASTRIER
 levelup SPECIES_SPECTRIER
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_DOUBLE_KICK, 6
-    learnset MOVE_HEX, 12
+    learnset MOVE_SNARL, 4
+    learnset MOVE_DOUBLE_KICK, 7
+    learnset MOVE_OMINOUS_WIND, 10
+    learnset MOVE_WILL_O_WISP, 13
+    learnset MOVE_DRAINING_KISS, 16
     learnset MOVE_STOMP, 18
+    learnset MOVE_HEX, 21
     learnset MOVE_CONFUSE_RAY, 24
+    learnset MOVE_MUD_SHOT, 27
     learnset MOVE_HAZE, 30
-    learnset MOVE_SHADOW_BALL, 36
-    learnset MOVE_TAKE_DOWN, 42
+    learnset MOVE_STOMPING_TANTRUM, 33
+    learnset MOVE_PHANTOM_FORCE, 36
+    learnset MOVE_EXTRASENSORY, 39
+    learnset MOVE_AURA_SPHERE, 42
+    learnset MOVE_SHADOW_BALL, 45
     learnset MOVE_AGILITY, 48
-    learnset MOVE_THRASH, 54
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_PSYCHIC, 54
+    learnset MOVE_DAZZLING_GLEAM, 57
     learnset MOVE_DISABLE, 60
-    learnset MOVE_DOUBLE_EDGE, 66
-    learnset MOVE_NASTY_PLOT, 72
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_NASTY_PLOT, 66
     terminatelearnset
 
 
