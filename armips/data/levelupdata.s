@@ -23043,18 +23043,28 @@ levelup SPECIES_REGIDRAGO
 levelup SPECIES_GLASTRIER
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_DOUBLE_KICK, 6
-    learnset MOVE_AVALANCHE, 12
+    learnset MOVE_ICICLE_SPEAR, 4
+    learnset MOVE_DOUBLE_KICK, 7
+    learnset MOVE_BULLDOZE, 10
+    learnset MOVE_ICE_SHARD, 13
+    learnset MOVE_TRAILBLAZE, 16
     learnset MOVE_STOMP, 18
+    learnset MOVE_AVALANCHE, 21
     learnset MOVE_TORMENT, 24
+    learnset MOVE_SMART_STRIKE, 27
     learnset MOVE_MIST, 30
-    learnset MOVE_ICICLE_CRASH, 36
+    learnset MOVE_STOMPING_TANTRUM, 33
+    learnset MOVE_ICE_BEAM, 36
+    learnset MOVE_ZEN_HEADBUTT, 39
     learnset MOVE_TAKE_DOWN, 42
+    learnset MOVE_ICICLE_CRASH, 45
     learnset MOVE_IRON_DEFENSE, 48
-    learnset MOVE_THRASH, 54
+    learnset MOVE_BODY_PRESS, 51
+    learnset MOVE_ICE_HAMMER, 54
+    learnset MOVE_CLOSE_COMBAT, 57
     learnset MOVE_TAUNT, 60
-    learnset MOVE_DOUBLE_EDGE, 66
-    learnset MOVE_SWORDS_DANCE, 72
+    learnset MOVE_DOUBLE_EDGE, 63
+    learnset MOVE_SWORDS_DANCE, 66
     terminatelearnset
 
 
