@@ -381,6 +381,7 @@
 #define SUB_SEQ_CANCEL_FIRE_MOVE                      (371)
 #define SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS             (372)
 #define SUB_SEQ_PREVENT_CHANGING_WEATHER              (373)
+#define SUB_SEQ_HEAL_TARGET_BURN                      (374)
 
 
 

@@ -5,6 +5,14 @@
 // TODO: clear MOVE_STICKY_WEB
 
 _000:
+_checkUnnerve:
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE, _realHazardsCheck
+    // {0}’s {1} makes the opposing team too nervous to eat Berries!
+    PrintMessage 1282, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    WaitButtonABTime 30
+    SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
+_realHazardsCheck:
     // toxic spikes can inflict poison through magic guard, but not subsequently damage the mon (which is already handled in the damage subscript)
     //CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _105
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkToxicSpikes
