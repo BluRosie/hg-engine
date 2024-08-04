@@ -22427,33 +22427,54 @@ levelup SPECIES_RUNERIGUS
 levelup SPECIES_MILCERY
     learnset MOVE_TACKLE, 1
     learnset MOVE_AROMATIC_MIST, 1
-    learnset MOVE_SWEET_KISS, 5
-    learnset MOVE_SWEET_SCENT, 10
-    learnset MOVE_DRAINING_KISS, 15
-    learnset MOVE_AROMATHERAPY, 20
-    learnset MOVE_ATTRACT, 25
+    learnset MOVE_SWEET_KISS, 4
+    learnset MOVE_SWEET_SCENT, 7
+    learnset MOVE_MEGA_DRAIN, 10
+    learnset MOVE_CONFUSION, 13
+    learnset MOVE_DRAINING_KISS, 16
+    learnset MOVE_MAGICAL_LEAF, 18
+    learnset MOVE_AROMATHERAPY, 21
+    learnset MOVE_GIGA_DRAIN, 24
+    learnset MOVE_PSYBEAM, 27
     learnset MOVE_ACID_ARMOR, 30
-    learnset MOVE_DAZZLING_GLEAM, 35
-    learnset MOVE_RECOVER, 40
+    learnset MOVE_MYSTICAL_FIRE, 33
+    learnset MOVE_ENCORE, 36
+    learnset MOVE_DAZZLING_GLEAM, 39
+    learnset MOVE_RECOVER, 42
     learnset MOVE_MISTY_TERRAIN, 45
-    learnset MOVE_ENTRAINMENT, 50
+    learnset MOVE_PSYCHIC, 48
+    learnset MOVE_ENTRAINMENT, 51
+    learnset MOVE_MOONBLAST, 54
+    learnset MOVE_ENERGY_BALL, 57
+    learnset MOVE_MISTY_EXPLOSION, 60
     terminatelearnset
 
 
 levelup SPECIES_ALCREMIE
+    learnset MOVE_DECORATE, 0
     learnset MOVE_DECORATE, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_AROMATIC_MIST, 1
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_SWEET_SCENT, 1
-    learnset MOVE_DRAINING_KISS, 15
-    learnset MOVE_AROMATHERAPY, 20
-    learnset MOVE_ATTRACT, 25
-    learnset MOVE_ACID_ARMOR, 30
-    learnset MOVE_DAZZLING_GLEAM, 35
-    learnset MOVE_RECOVER, 40
-    learnset MOVE_MISTY_TERRAIN, 45
-    learnset MOVE_ENTRAINMENT, 50
+    learnset MOVE_SWEET_KISS, 5
+    learnset MOVE_SWEET_SCENT, 8
+    learnset MOVE_MEGA_DRAIN, 11
+    learnset MOVE_CONFUSION, 14
+    learnset MOVE_DRAINING_KISS, 17
+    learnset MOVE_MAGICAL_LEAF, 19
+    learnset MOVE_AROMATHERAPY, 22
+    learnset MOVE_GIGA_DRAIN, 25
+    learnset MOVE_PSYBEAM, 28
+    learnset MOVE_ACID_ARMOR, 31
+    learnset MOVE_MYSTICAL_FIRE, 34
+    learnset MOVE_ENCORE, 37
+    learnset MOVE_DAZZLING_GLEAM, 40
+    learnset MOVE_RECOVER, 43
+    learnset MOVE_MISTY_TERRAIN, 46
+    learnset MOVE_PSYCHIC, 49
+    learnset MOVE_ENTRAINMENT, 52
+    learnset MOVE_MOONBLAST, 55
+    learnset MOVE_ENERGY_BALL, 58
+    learnset MOVE_MISTY_EXPLOSION, 61
     terminatelearnset
 
 
