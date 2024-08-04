@@ -22394,24 +22394,32 @@ levelup SPECIES_MR_RIME
 
 
 levelup SPECIES_RUNERIGUS
+    learnset MOVE_SHADOW_CLAW, 0
     learnset MOVE_SHADOW_CLAW, 1
-    learnset MOVE_SCARY_FACE, 1
     learnset MOVE_ASTONISH, 1
     learnset MOVE_PROTECT, 1
-    learnset MOVE_HAZE, 1
-    learnset MOVE_NIGHT_SHADE, 1
-    learnset MOVE_DISABLE, 12
-    learnset MOVE_BRUTAL_SWING, 16
-    learnset MOVE_CRAFTY_SHIELD, 20
-    learnset MOVE_HEX, 24
-    learnset MOVE_MEAN_LOOK, 28
-    learnset MOVE_SLAM, 32
-    learnset MOVE_CURSE, 38
-    learnset MOVE_SHADOW_BALL, 44
-    learnset MOVE_EARTHQUAKE, 50
-    learnset MOVE_POWER_SPLIT, 56
-    learnset MOVE_GUARD_SPLIT, 56
-    learnset MOVE_DESTINY_BOND, 62
+    learnset MOVE_HAZE, 5
+    learnset MOVE_NIGHT_SHADE, 8
+    learnset MOVE_DISABLE, 11
+    learnset MOVE_BRUTAL_SWING, 14
+    learnset MOVE_OMINOUS_WIND, 17
+    learnset MOVE_WILL_O_WISP, 19
+    learnset MOVE_HEX, 22
+    learnset MOVE_CRAFTY_SHIELD, 25
+    learnset MOVE_STOMPING_TANTRUM, 28
+    learnset MOVE_IMPRISON, 31
+    learnset MOVE_CURSE, 34
+    learnset MOVE_EARTH_POWER, 37
+    learnset MOVE_SHADOW_BALL, 40
+    learnset MOVE_POWER_SPLIT, 43
+    learnset MOVE_GUARD_SPLIT, 43
+    learnset MOVE_EARTHQUAKE, 46
+    learnset MOVE_DESTINY_BOND, 49
+    learnset MOVE_ZEN_HEADBUTT, 52
+    learnset MOVE_TOXIC_SPIKES, 55
+    learnset MOVE_POLTERGEIST, 58
+    learnset MOVE_TRICK_ROOM, 61
+    learnset MOVE_MEMENTO, 64
     terminatelearnset
 
 
@@ -27860,19 +27868,27 @@ levelup SPECIES_YAMASK_GALARIAN
     learnset MOVE_ASTONISH, 1
     learnset MOVE_PROTECT, 1
     learnset MOVE_HAZE, 4
-    learnset MOVE_NIGHT_SHADE, 8
-    learnset MOVE_DISABLE, 12
-    learnset MOVE_BRUTAL_SWING, 16
-    learnset MOVE_CRAFTY_SHIELD, 20
-    learnset MOVE_HEX, 24
-    learnset MOVE_MEAN_LOOK, 28
-    learnset MOVE_SLAM, 32
-    learnset MOVE_CURSE, 36
-    learnset MOVE_SHADOW_BALL, 40
-    learnset MOVE_EARTHQUAKE, 44
-    learnset MOVE_POWER_SPLIT, 48
-    learnset MOVE_GUARD_SPLIT, 48
-    learnset MOVE_DESTINY_BOND, 52
+    learnset MOVE_NIGHT_SHADE, 7
+    learnset MOVE_DISABLE, 10
+    learnset MOVE_BRUTAL_SWING, 13
+    learnset MOVE_OMINOUS_WIND, 16
+    learnset MOVE_WILL_O_WISP, 18
+    learnset MOVE_HEX, 21
+    learnset MOVE_CRAFTY_SHIELD, 24
+    learnset MOVE_STOMPING_TANTRUM, 27
+    learnset MOVE_IMPRISON, 30
+    learnset MOVE_CURSE, 33
+    learnset MOVE_EARTH_POWER, 36
+    learnset MOVE_SHADOW_BALL, 39
+    learnset MOVE_POWER_SPLIT, 42
+    learnset MOVE_GUARD_SPLIT, 42
+    learnset MOVE_EARTHQUAKE, 45
+    learnset MOVE_DESTINY_BOND, 48
+    learnset MOVE_ZEN_HEADBUTT, 51
+    learnset MOVE_TOXIC_SPIKES, 54
+    learnset MOVE_POLTERGEIST, 57
+    learnset MOVE_TRICK_ROOM, 60
+    learnset MOVE_MEMENTO, 63
     terminatelearnset
 
 
