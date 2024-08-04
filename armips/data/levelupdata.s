@@ -22586,19 +22586,28 @@ levelup SPECIES_EISCUE
 
 
 levelup SPECIES_INDEEDEE
-    learnset MOVE_STORED_POWER, 1
+    learnset MOVE_CONFUSION, 1
     learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_ENCORE, 5
+    learnset MOVE_ENCORE, 4
+    learnset MOVE_FAKE_OUT, 7
     learnset MOVE_DISARMING_VOICE, 10
-    learnset MOVE_PSYBEAM, 15
-    learnset MOVE_HELPING_HAND, 20
-    learnset MOVE_AFTER_YOU, 25
+    learnset MOVE_MAGICAL_LEAF, 13
+    learnset MOVE_DRAINING_KISS, 16
+    learnset MOVE_HELPING_HAND, 18
+    learnset MOVE_SWIFT, 21
+    learnset MOVE_AFTER_YOU, 24
+    learnset MOVE_PSYBEAM, 27
     learnset MOVE_AROMATHERAPY, 30
-    learnset MOVE_PSYCHIC, 35
-    learnset MOVE_CALM_MIND, 40
+    learnset MOVE_SHADOW_BALL, 33
+    learnset MOVE_ZEN_HEADBUTT, 36
+    learnset MOVE_IMPRISON, 39
+    learnset MOVE_HYPER_VOICE, 42
     learnset MOVE_POWER_SPLIT, 45
-    learnset MOVE_PSYCHIC_TERRAIN, 50
-    learnset MOVE_LAST_RESORT, 55
+    learnset MOVE_ENERGY_BALL, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_PSYCHIC_TERRAIN, 54
+    learnset MOVE_LAST_RESORT, 57
+    learnset MOVE_FUTURE_SIGHT, 60
     terminatelearnset
 
 
@@ -31786,19 +31795,28 @@ levelup SPECIES_MEOWSTIC_FEMALE //MadebyDaotama
 
 
 levelup SPECIES_INDEEDEE_FEMALE
-    learnset MOVE_STORED_POWER, 1
+    learnset MOVE_CONFUSION, 1
     learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_BATON_PASS, 5
+    learnset MOVE_BATON_PASS, 4
+    learnset MOVE_FAKE_OUT, 7
     learnset MOVE_DISARMING_VOICE, 10
-    learnset MOVE_PSYBEAM, 15
-    learnset MOVE_HELPING_HAND, 20
-    learnset MOVE_FOLLOW_ME, 25
+    learnset MOVE_MAGICAL_LEAF, 13
+    learnset MOVE_DRAINING_KISS, 16
+    learnset MOVE_HELPING_HAND, 18
+    learnset MOVE_SWIFT, 21
+    learnset MOVE_FOLLOW_ME, 24
+    learnset MOVE_PSYBEAM, 27
     learnset MOVE_AROMATHERAPY, 30
-    learnset MOVE_PSYCHIC, 35
-    learnset MOVE_CALM_MIND, 40
+    learnset MOVE_SHADOW_BALL, 33
+    learnset MOVE_ZEN_HEADBUTT, 36
+    learnset MOVE_IMPRISON, 39
+    learnset MOVE_HYPER_VOICE, 42
     learnset MOVE_GUARD_SPLIT, 45
-    learnset MOVE_PSYCHIC_TERRAIN, 50
-    learnset MOVE_HEALING_WISH, 55
+    learnset MOVE_ENERGY_BALL, 48
+    learnset MOVE_PSYCHIC, 51
+    learnset MOVE_PSYCHIC_TERRAIN, 54
+    learnset MOVE_LAST_RESORT, 57
+    learnset MOVE_FUTURE_SIGHT, 60
     terminatelearnset
 
 
