@@ -1005,61 +1005,52 @@ levelup SPECIES_NINETALES
 
 
 levelup SPECIES_JIGGLYPUFF
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_DISABLE, 1
-    learnset MOVE_CHARM, 1
     learnset MOVE_SING, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_DEFENSE_CURL, 3
-    learnset MOVE_ECHOED_VOICE, 4
-    learnset MOVE_POUND, 5
-    learnset MOVE_COVET, 8
-    learnset MOVE_PLAY_NICE, 9
-    learnset MOVE_DISARMING_VOICE, 11
-    learnset MOVE_DISABLE, 14
-    learnset MOVE_DOUBLE_SLAP, 17
-    learnset MOVE_STOCKPILE, 18
-    learnset MOVE_SWALLOW, 18
-    learnset MOVE_SPIT_UP, 18
-    learnset MOVE_ROUND, 18
-    learnset MOVE_ROLLOUT, 20
-    learnset MOVE_REST, 24
-    learnset MOVE_BODY_SLAM, 27
-    learnset MOVE_WAKE_UP_SLAP, 27
-    learnset MOVE_MIMIC, 32
+    learnset MOVE_DEFENSE_CURL, 4
+    learnset MOVE_SWEET_KISS, 7
+    learnset MOVE_SWIFT, 10
+    learnset MOVE_DISABLE, 13
+    learnset MOVE_DISARMING_VOICE, 16
+    learnset MOVE_CHARM, 18
+    learnset MOVE_REST, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_MIMIC, 27
+    learnset MOVE_ZEN_HEADBUTT, 30
     learnset MOVE_GYRO_BALL, 33
-    learnset MOVE_HYPER_VOICE, 38
-    learnset MOVE_PLAY_ROUGH, 40
-    learnset MOVE_DOUBLE_EDGE, 44
+    learnset MOVE_BODY_SLAM, 36
+    learnset MOVE_PLAY_ROUGH, 39
+    learnset MOVE_DOUBLE_EDGE, 42
     terminatelearnset
 
 
 levelup SPECIES_WIGGLYTUFF
-    learnset MOVE_SWEET_KISS, 1
-    learnset MOVE_DISARMING_VOICE, 1
-    learnset MOVE_DISABLE, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_ECHOED_VOICE, 1
-    learnset MOVE_COVET, 1
-    learnset MOVE_STOCKPILE, 1
-    learnset MOVE_SWALLOW, 1
-    learnset MOVE_SPIT_UP, 1
-    learnset MOVE_ROUND, 1
-    learnset MOVE_REST, 1
-    learnset MOVE_BODY_SLAM, 1
-    learnset MOVE_MIMIC, 1
-    learnset MOVE_GYRO_BALL, 1
-    learnset MOVE_PLAY_ROUGH, 1
-    learnset MOVE_HYPER_VOICE, 1
-    learnset MOVE_DOUBLE_EDGE, 1
     learnset MOVE_SING, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_DEFENSE_CURL, 1
-    learnset MOVE_DOUBLE_SLAP, 1
+    learnset MOVE_DEFENSE_CURL, 4
+    learnset MOVE_SWEET_KISS, 7
+    learnset MOVE_SWIFT, 10
+    learnset MOVE_DISABLE, 13
+    learnset MOVE_DISARMING_VOICE, 16
+    learnset MOVE_CHARM, 18
+    learnset MOVE_REST, 21
+    learnset MOVE_HEADBUTT, 24
+    learnset MOVE_MIMIC, 27
+    learnset MOVE_ZEN_HEADBUTT, 30
+    learnset MOVE_GYRO_BALL, 33
+    learnset MOVE_WISH, 36
+    learnset MOVE_BRICK_BREAK, 39
+    learnset MOVE_BODY_SLAM, 42
+    learnset MOVE_PLAY_ROUGH, 45
+    learnset MOVE_STOCKPILE, 48
+    learnset MOVE_SWALLOW, 48
+    learnset MOVE_FLAMETHROWER, 51
+    learnset MOVE_MOONBLAST, 54
+    learnset MOVE_HYPER_VOICE, 57
+    learnset MOVE_DOUBLE_EDGE, 60
+    learnset MOVE_FOCUS_BLAST, 63
     terminatelearnset
 
 
@@ -4717,14 +4708,12 @@ levelup SPECIES_IGGLYBUFF
     learnset MOVE_SING, 1
     learnset MOVE_POUND, 1
     learnset MOVE_COPYCAT, 1
-    learnset MOVE_CHARM, 1
-    learnset MOVE_DEFENSE_CURL, 3
-    learnset MOVE_POUND, 5
-    learnset MOVE_SWEET_KISS, 8
-    learnset MOVE_COPYCAT, 11
-    learnset MOVE_DISARMING_VOICE, 12
+    learnset MOVE_DEFENSE_CURL, 4
+    learnset MOVE_SWEET_KISS, 7
+    learnset MOVE_SWIFT, 10
+    learnset MOVE_DISARMING_VOICE, 13
     learnset MOVE_DISABLE, 16
-    learnset MOVE_CHARM, 20
+    learnset MOVE_CHARM, 18
     terminatelearnset
 
 
