@@ -1,4 +1,6 @@
 # credits
+Contributors: Aero, BluRose, Brioche, Charliexox, DavveDP, Dog-Broad, Drayano, Koekenpann, kumakuma1, lhearachel, maxchristy, Mixone, mozzydippers, PandaPanda-Panda, TixoRebel, TurtleIsaac, YGlitzer
+
 [AdAstra](https://github.com/AdAstra-LD/) - `debugsyscall` implementation
 
 Adcroc1 - helping significantly with sprite formatting

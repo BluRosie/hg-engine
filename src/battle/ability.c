@@ -770,6 +770,41 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 
 
 /**
+ *  @brief check if the move should get the flinch boost from king's rock
+ *
+ *  @param sp global battle structure
+ *  @param move move index
+ *  @return TRUE if king's rock should affect the move, FALSE otherwise
+ */
+BOOL IsMoveAffectedByKingsRock(struct BattleStruct *sp, u32 move)
+{
+    if (sp->moveTbl[move].power != 0)
+    {
+        u32 effect = sp->moveTbl[move].effect;
+        switch (effect)
+        {
+        case MOVE_EFFECT_FLINCH_BURN_HIT:
+        case MOVE_EFFECT_FLINCH_FREEZE_HIT:
+        case MOVE_EFFECT_FLINCH_PARALYZE_HIT:
+        case MOVE_EFFECT_HIT_TWICE_AND_FLINCH:
+        case MOVE_EFFECT_FLINCH_HIT:
+        case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
+        case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE:
+        case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
+        case MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY:
+            effect = FALSE;
+            break;
+        default:
+            effect = TRUE;
+            break;
+        }
+        return effect;
+    }
+    return FALSE;
+}
+
+
+/**
  *  @brief check if the sp->defence_client should flinch and load the subscript if so
  *
  *  @param bw battle work structure
@@ -781,6 +816,7 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
     BOOL ret = FALSE;
     int heldeffect;
     int atk;
+    u32 sereneGraceShift = 0; // it's less cycles this way okay probably
 
     heldeffect = HeldItemHoldEffectGet(sp, sp->attack_client);
     atk = HeldItemAtkGet(sp, sp->attack_client, 0);
@@ -791,14 +827,20 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
         heldeffect = HOLD_EFFECT_SOMETIMES_FLINCH; // doesn't permanently change the hold effect, just for this function
     }
 
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SERENE_GRACE)
+    {
+        sereneGraceShift = 1;
+    }
+
     if (sp->defence_client != 0xFF)
     {
         if ((heldeffect == HOLD_EFFECT_SOMETIMES_FLINCH)
          && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
          && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
           || (sp->oneSelfFlag[sp->defence_client].special_damage))
-         && ((BattleRand(bw) % 100) < atk)
-         && (sp->moveTbl[sp->current_move_index].flag & FLAG_KINGS_ROCK)
+         && (((BattleRand(bw) % 100) << sereneGraceShift) < atk)
+         //&& (sp->moveTbl[sp->current_move_index].flag & FLAG_KINGS_ROCK)
+         && IsMoveAffectedByKingsRock(sp, sp->current_move_index)
          && (sp->battlemon[sp->defence_client].hp))
         {
             sp->state_client = sp->defence_client;
@@ -1194,7 +1236,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                  && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                  && (sp->battlemon[sp->defence_client].hp)
                  && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD) || (sp->current_move_index == MOVE_STEAM_ERUPTION)) // scald can also melt opponents as of gen 6
-                 && sp->battlemon[sp->attack_client].parental_bond_flag == 0)
+                 && sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 0)
                 {
                     sp->client_work = sp->defence_client;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
