@@ -1,3 +1,4 @@
 [submodule "tools/source/nitrogfx"]
 	path = tools/source/nitrogfx
-	url = https://github.com/red031000/nitrogfx.git
+	url = https://github.com/BluRosie/nitrogfx.git
+	branch = master

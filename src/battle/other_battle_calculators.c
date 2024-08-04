@@ -680,10 +680,11 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
     {
-        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i])
-        {
+        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
+            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
             speed1 /= 2;
             break;
+            }
         }
     }
 
@@ -772,10 +773,11 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
     {
-        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i])
-        {
-            speed2 /= 2;
+        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
+            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+                speed2 /= 2;
             break;
+            }
         }
     }
 
@@ -2115,12 +2117,7 @@ BOOL LONG_CALL MoveIsAffectedByNormalizeVariants(int moveno) {
  * @return `SPLIT_PHYSICAL` or `SPLIT_SPECIAL`
  */
 u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
-    // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
-    if (sp->move_type == TYPE_TYPELESS && moveno == MOVE_WEATHER_BALL && sp->current_move_index == (u32)moveno) {
-        return SPLIT_PHYSICAL;
-    } else {
-        return sp->moveTbl[moveno].split;
-    }
+    return sp->moveTbl[moveno].split;
 }
 
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move) {
@@ -2778,4 +2775,489 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
         break;
     }
     ctx->server_seq_no = CONTROLLER_COMMAND_25;
+}
+
+int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo) {
+    int type;
+
+    int species, form;
+    struct PartyPokemon *mon;
+
+    // BUGFIX
+    type = ctx->move_type;
+
+    mon = Battle_GetClientPartyMon(bsys, battlerId, ctx->sel_mons_no[battlerId]);
+    species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    form = GetMonData(mon, MON_DATA_FORM, 0);
+
+    switch (moveNo) {
+        case MOVE_NATURAL_GIFT:
+            type = GetNaturalGiftType(ctx, battlerId);
+            break;
+        case MOVE_JUDGMENT:
+            switch (HeldItemHoldEffectGet(ctx, battlerId)) {
+                case HOLD_EFFECT_ARCEUS_FIGHTING:
+                    type = TYPE_FIGHTING;
+                    break;
+                case HOLD_EFFECT_ARCEUS_FLYING:
+                    type = TYPE_FLYING;
+                    break;
+                case HOLD_EFFECT_ARCEUS_POISON:
+                    type = TYPE_POISON;
+                    break;
+                case HOLD_EFFECT_ARCEUS_GROUND:
+                    type = TYPE_GROUND;
+                    break;
+                case HOLD_EFFECT_ARCEUS_ROCK:
+                    type = TYPE_ROCK;
+                    break;
+                case HOLD_EFFECT_ARCEUS_BUG:
+                    type = TYPE_BUG;
+                    break;
+                case HOLD_EFFECT_ARCEUS_GHOST:
+                    type = TYPE_GHOST;
+                    break;
+                case HOLD_EFFECT_ARCEUS_STEEL:
+                    type = TYPE_STEEL;
+                    break;
+                case HOLD_EFFECT_ARCEUS_FIRE:
+                    type = TYPE_FIRE;
+                    break;
+                case HOLD_EFFECT_ARCEUS_WATER:
+                    type = TYPE_WATER;
+                    break;
+                case HOLD_EFFECT_ARCEUS_GRASS:
+                    type = TYPE_GRASS;
+                    break;
+                case HOLD_EFFECT_ARCEUS_ELECTRIC:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case HOLD_EFFECT_ARCEUS_PSYCHIC:
+                    type = TYPE_PSYCHIC;
+                    break;
+                case HOLD_EFFECT_ARCEUS_ICE:
+                    type = TYPE_ICE;
+                    break;
+                case HOLD_EFFECT_ARCEUS_DRAGON:
+                    type = TYPE_DRAGON;
+                    break;
+                case HOLD_EFFECT_ARCEUS_DARK:
+                    type = TYPE_DARK;
+                    break;
+                case HOLD_EFFECT_ARCEUS_FAIRY:
+                    type = TYPE_FAIRY;
+                    break;
+                // TODO: handle Blank Plate, Legend Plate, Z-Crystals
+                default:
+                    type = TYPE_NORMAL;
+                    break;
+            }
+            break;
+        case MOVE_HIDDEN_POWER:
+            type = (ctx->battlemon[battlerId].hp_iv & 1) |
+                   ((ctx->battlemon[battlerId].atk_iv & 1) << 1) |
+                   ((ctx->battlemon[battlerId].def_iv & 1) << 2) |
+                   ((ctx->battlemon[battlerId].spe_iv & 1) << 3) |
+                   ((ctx->battlemon[battlerId].spatk_iv & 1) << 4) |
+                   ((ctx->battlemon[battlerId].spdef_iv & 1) << 5);
+
+            type = (type * 15 / 63) + 1;
+
+            if (type >= TYPE_MYSTERY) {
+                type++;
+            }
+            break;
+        case MOVE_WEATHER_BALL:
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if (ctx->field_condition & FIELD_CONDITION_WEATHER) {
+                    if (ctx->field_condition & WEATHER_RAIN_ANY) {
+                        type = TYPE_WATER;
+                    }
+                    if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
+                        type = TYPE_ROCK;
+                    }
+                    if (ctx->field_condition & WEATHER_SUNNY_ANY) {
+                        type = TYPE_FIRE;
+                    }
+                    if (ctx->field_condition & WEATHER_HAIL_ANY) {
+                        type = TYPE_ICE;
+                    }
+                    // BUG: If the weather is foggy, then type doesn't get set properly before being returned
+                    // BUGFIX
+                    if (ctx->field_condition & FIELD_STATUS_FOG) {
+                        type = TYPE_NORMAL;
+                    }
+                    if (ctx->field_condition & WEATHER_SHADOWY_AURA_ANY) {
+                        type = TYPE_TYPELESS;
+                    }
+                }
+            }
+            break;
+        case MOVE_TECHNO_BLAST:
+            switch (HeldItemHoldEffectGet(ctx, battlerId)) {
+                case HOLD_EFFECT_BURN_DRIVE:
+                    type = TYPE_FIRE;
+                    break;
+                case HOLD_EFFECT_DOUSE_DRIVE:
+                    type = TYPE_WATER;
+                    break;
+                case HOLD_EFFECT_SHOCK_DRIVE:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case HOLD_EFFECT_CHILL_DRIVE:
+                    type = TYPE_ICE;
+                    break;
+                default:
+                    type = TYPE_NORMAL;
+                    break;
+            }
+            break;
+        case MOVE_REVELATION_DANCE:
+            // TODO: Handle 3rd Types
+            if (ctx->battlemon[battlerId].is_currently_terastallized && ctx->battlemon[battlerId].tera_type != TYPE_STELLAR) {
+                // Assert that the Tera Type is valid
+                GF_ASSERT(TYPE_NORMAL <= ctx->battlemon[battlerId].tera_type && TYPE_STELLAR >= ctx->battlemon[battlerId].tera_type && TYPE_TYPELESS != ctx->battlemon[battlerId].tera_type);
+
+                type = ctx->battlemon[battlerId].tera_type;
+            } else if (ctx->battlemon[battlerId].type1 != TYPE_TYPELESS) {
+                type = ctx->battlemon[battlerId].type1;
+            } else if (ctx->battlemon[battlerId].type2 != TYPE_TYPELESS) {
+                type = ctx->battlemon[battlerId].type2;
+            } /*else if (ctx->battlemon[battlerId].type3 != TYPE_TYPELESS) {
+                type = ctx->battlemon[battlerId].type3;
+            }*/
+            else {
+                type = TYPE_TYPELESS;
+            }
+            break;
+        case MOVE_MULTI_ATTACK:
+            switch (HeldItemHoldEffectGet(ctx, battlerId)) {
+                case HOLD_EFFECT_FIGHTING_MEMORY:
+                    type = TYPE_FIGHTING;
+                    break;
+                case HOLD_EFFECT_FLYING_MEMORY:
+                    type = TYPE_FLYING;
+                    break;
+                case HOLD_EFFECT_POISON_MEMORY:
+                    type = TYPE_POISON;
+                    break;
+                case HOLD_EFFECT_GROUND_MEMORY:
+                    type = TYPE_GROUND;
+                    break;
+                case HOLD_EFFECT_ROCK_MEMORY:
+                    type = TYPE_ROCK;
+                    break;
+                case HOLD_EFFECT_BUG_MEMORY:
+                    type = TYPE_BUG;
+                    break;
+                case HOLD_EFFECT_GHOST_MEMORY:
+                    type = TYPE_GHOST;
+                    break;
+                case HOLD_EFFECT_STEEL_MEMORY:
+                    type = TYPE_STEEL;
+                    break;
+                case HOLD_EFFECT_FIRE_MEMORY:
+                    type = TYPE_FIRE;
+                    break;
+                case HOLD_EFFECT_WATER_MEMORY:
+                    type = TYPE_WATER;
+                    break;
+                case HOLD_EFFECT_GRASS_MEMORY:
+                    type = TYPE_GRASS;
+                    break;
+                case HOLD_EFFECT_ELECTRIC_MEMORY:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case HOLD_EFFECT_PSYCHIC_MEMORY:
+                    type = TYPE_PSYCHIC;
+                    break;
+                case HOLD_EFFECT_ICE_MEMORY:
+                    type = TYPE_ICE;
+                    break;
+                case HOLD_EFFECT_DRAGON_MEMORY:
+                    type = TYPE_DRAGON;
+                    break;
+                case HOLD_EFFECT_DARK_MEMORY:
+                    type = TYPE_DARK;
+                    break;
+                case HOLD_EFFECT_FAIRY_MEMORY:
+                    type = TYPE_FAIRY;
+                    break;
+                default:
+                    type = TYPE_NORMAL;
+                    break;
+            }
+            break;
+        case MOVE_AURA_WHEEL:
+            if (species == SPECIES_MORPEKO) {
+                switch (form) {
+                    // SPECIES_MORPEKO
+                    case 0:
+                        type = TYPE_ELECTRIC;
+                        break;
+                    // SPECIES_MORPEKO_HANGRY
+                    case 1:
+                        type = TYPE_DARK;
+                        break;
+
+                    default:
+                        // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+                        type = TYPE_TYPELESS;
+                        break;
+                }
+            } else {
+                // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+                type = TYPE_TYPELESS;
+            }
+            break;
+        case MOVE_TERRAIN_PULSE:
+            // TODO: Do after terrain refactor
+            break;
+        case MOVE_TERA_BLAST:
+        case MOVE_TERA_STARSTORM:
+            if (ctx->battlemon[battlerId].is_currently_terastallized) {
+                // Assert that the Tera Type is valid
+                GF_ASSERT(TYPE_NORMAL <= ctx->battlemon[battlerId].tera_type && TYPE_STELLAR >= ctx->battlemon[battlerId].tera_type && TYPE_TYPELESS != ctx->battlemon[battlerId].tera_type);
+
+                // Assert that Ogerpon has the correct Tera Type. However, the game should stall at Terastallization animation
+                if (species == SPECIES_OGERPON) {
+                    switch (form) {
+                        // SPECIES_OGERPON
+                        case 0:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_GRASS);
+                            break;
+                        // SPECIES_OGERPON_WELLSPRING_MASK
+                        case 1:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_WATER);
+                            break;
+                        // SPECIES_OGERPON_HEARTHFLAME_MASK
+                        case 2:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_FIRE);
+                            break;
+                        // SPECIES_OGERPON_CORNERSTONE_MASK
+                        case 3:
+                            GF_ASSERT(ctx->battlemon[battlerId].tera_type == TYPE_ROCK);
+                            break;
+
+                        default:
+                            GF_ASSERT(form >= 0 && form <= 3);
+                            break;
+                    }
+                }
+                type = ctx->battlemon[battlerId].tera_type;
+            } else {
+                type = TYPE_NORMAL;
+            }
+            break;
+        case MOVE_RAGING_BULL:
+            if (species == SPECIES_TAUROS) {
+                switch (form) {
+                    // SPECIES_TAUROS_COMBAT
+                    case 1:
+                        type = TYPE_FIGHTING;
+                        break;
+                    // SPECIES_TAUROS_BLAZE
+                    case 2:
+                        type = TYPE_FIRE;
+                        break;
+                    // SPECIES_TAUROS_AQUA
+                    case 3:
+                        type = TYPE_WATER;
+                        break;
+
+                    default:
+                        type = TYPE_NORMAL;
+                        break;
+                }
+            } else {
+                type = TYPE_NORMAL;
+            }
+            break;
+        case MOVE_IVY_CUDGEL:
+            if (species == SPECIES_OGERPON) {
+                switch (form) {
+                    // SPECIES_OGERPON
+                    case 0:
+                        type = TYPE_GRASS;
+                        break;
+                    // SPECIES_OGERPON_WELLSPRING_MASK
+                    case 1:
+                        type = TYPE_WATER;
+                        break;
+                    // SPECIES_OGERPON_HEARTHFLAME_MASK
+                    case 2:
+                        type = TYPE_FIRE;
+                        break;
+                    // SPECIES_OGERPON_CORNERSTONE_MASK
+                    case 3:
+                        type = TYPE_ROCK;
+                        break;
+
+                    default:
+                        type = TYPE_GRASS;
+                        break;
+                }
+            } else {
+                type = TYPE_GRASS;
+            }
+            break;
+        default:
+            type = TYPE_NORMAL;
+            break;
+    }
+
+    return GetAdjustedMoveTypeBasics(ctx, moveNo, GetBattlerAbility(ctx, battlerId), type);
+}
+
+u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 nonSelectableMoves, u32 struggleCheckFlags) {
+    // u8 buf[64];
+    // sprintf(buf, "In StruggleCheck\n");
+    // debugsyscall(buf);
+
+    int movePos;
+    int item = HeldItemHoldEffectGet(ctx, battlerId);
+
+    for (movePos = 0; movePos < 4; movePos++) {
+        if (!(ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_NO_MOVES)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (!(ctx->battlemon[battlerId].pp[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_NO_PP)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((ctx->battlemon[battlerId].move[movePos] == ctx->battlemon[battlerId].moveeffect.disabledMove) && (struggleCheckFlags & STRUGGLE_CHECK_DISABLED)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((ctx->battlemon[battlerId].move[movePos] == ctx->waza_no_old[battlerId]) && (struggleCheckFlags & STRUGGLE_CHECK_TORMENT) && (ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (ctx->battlemon[battlerId].moveeffect.tauntTurns && (struggleCheckFlags & STRUGGLE_CHECK_TAUNT) && !(ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].power)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (BattleContext_CheckMoveImprisoned(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_IMPRISON)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (BattleContext_CheckMoveUnuseableInGravity(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_GRAVITY)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if (BattleContext_CheckMoveHealBlocked(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_HEAL_BLOCK)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((ctx->battlemon[battlerId].moveeffect.encoredMove) && (ctx->battlemon[battlerId].moveeffect.encoredMove != ctx->battlemon[battlerId].move[movePos])) {
+            //BUG: The flag check for encore is missing in this if statement, though it's unclear if this effects anything functionally
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+        if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
+            if (GetBattlePokemonMovePosFromMove(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
+                ctx->battlemon[battlerId].moveeffect.moveNoChoice = 0;
+            } else if (ctx->battlemon[battlerId].moveeffect.moveNoChoice && ctx->battlemon[battlerId].moveeffect.moveNoChoice != ctx->battlemon[battlerId].move[movePos]) {
+                nonSelectableMoves |= No2Bit(movePos);
+            }
+        }
+        if (struggleCheckFlags & STRUGGLE_CHECK_GORILLA_TACTICS && GetBattlerAbility(ctx, battlerId) == ABILITY_GORILLA_TACTICS) {
+            if (ctx->waza_no_old[battlerId] != 0) {
+                ctx->battlemon[battlerId].moveeffect.moveNoChoice = ctx->waza_no_old[battlerId];
+            }
+            if (ctx->waza_no_old[battlerId] != ctx->battlemon[battlerId].move[movePos] && ctx->waza_no_old[battlerId] != 0) {
+                nonSelectableMoves |= No2Bit(movePos);
+            }
+        }
+        if (struggleCheckFlags & STRUGGLE_CHECK_GIGATON_HAMMER) {
+            // Encore allows Gigaton Hammer to be used twice in a row, but on subsequent turns of the Encore the user will be forced to Struggle.
+            if (!(ctx->battlemon[battlerId].moveeffect.encoredMove && ctx->battlemon[battlerId].moveeffect.encoredTurns == 3)) {
+                if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos] && ctx->waza_no_old[battlerId] == MOVE_GIGATON_HAMMER) {
+                    nonSelectableMoves |= No2Bit(movePos);
+                }
+            }
+        }
+        if ((struggleCheckFlags & STRUGGLE_CHECK_ASSAULT_VEST) && (item == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES && !(ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].power) && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST))) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+    }
+    return nonSelectableMoves;
+}
+
+//Buffer messages related to being unable to select moves?
+BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg) {
+    // u8 buf[64];
+    // sprintf(buf, "In ov12_02251A28\n");
+    // debugsyscall(buf);
+
+    BOOL ret = TRUE;
+
+    if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TORMENT) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK;
+        // {STRVAR_1 1, 0, 0} can’t use the same move\ntwice in a row due to the torment!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TORMENT;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TAUNT) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TAUNT;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_IMPRISON) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_IMPRISON;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GRAVITY) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GRAVITY;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_HEAL_BLOCK) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE_MOVE;
+        // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STRVAR_1 6, 1, 0}!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_HEAL_BLOCK;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = MOVE_HEAL_BLOCK;
+        msg->msg_para[2] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_CHOICED) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_ITEM_MOVE;
+        // The {STRVAR_1 8, 0, 0} only allows the\nuse of {STRVAR_1 6, 1, 0}!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_CHOICED;
+        msg->msg_para[0] = ctx->battlemon[battlerId].item;
+        msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GORILLA_TACTICS) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NICK_MOVE;
+        // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GORILLA_TACTICS;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->waza_no_old[battlerId];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GIGATON_HAMMER) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_MOVE;
+        // {You can’t use {STRVAR_1 6, 0, 0} twice in a row!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GIGATON_HAMMER;
+        msg->msg_para[0] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_ASSAULT_VEST) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_ITEM;
+        // The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_ASSAULT_VEST;
+        msg->msg_para[0] = ctx->battlemon[battlerId].item;
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_NO_PP) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_NONE;
+        // There’s no PP left for this move!
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
+        ret = FALSE;
+    }
+
+    return ret;
 }

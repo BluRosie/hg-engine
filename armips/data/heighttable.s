@@ -924,7 +924,7 @@ heightentry SPECIES_HATTERENE, 3, 3, 0, 0
 heightentry SPECIES_IMPIDIMP, 3, 3, 0, 0
 heightentry SPECIES_MORGREM, 0, 0, 0, 0
 heightentry SPECIES_GRIMMSNARL, 0, 0, 0, 0
-heightentry SPECIES_OBSTAGOON, 0, 0, 0, 0
+heightentry SPECIES_OBSTAGOON, 9, 9, 0, 0
 heightentry SPECIES_PERRSERKER, 3, 3, 0, 0
 heightentry SPECIES_CURSOLA, 0, 0, 0, 0
 heightentry SPECIES_SIRFETCHD, 3, 3, 0, 0
@@ -1160,14 +1160,14 @@ heightentry SPECIES_GRIMER_ALOLAN, 13, 13, 0, 0
 heightentry SPECIES_MUK_ALOLAN, 8, 8, 0, 0
 heightentry SPECIES_EXEGGUTOR_ALOLAN, 3, 3, 0, 0
 heightentry SPECIES_MAROWAK_ALOLAN, 9, 9, 0, 0
-heightentry SPECIES_MEOWTH_GALARIAN, 0, 0, 0, 0
+heightentry SPECIES_MEOWTH_GALARIAN, 7, 7, 16, 16
 heightentry SPECIES_PONYTA_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_RAPIDASH_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_SLOWPOKE_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_SLOWBRO_GALARIAN, 11, 11, 0, 0
 heightentry SPECIES_FARFETCHD_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_WEEZING_GALARIAN, 3, 3, 0, 0
-heightentry SPECIES_MR_MIME_GALARIAN, 0, 0, 0, 0
+heightentry SPECIES_MR_MIME_GALARIAN, 10, 10, 12, 12
 heightentry SPECIES_ARTICUNO_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_ZAPDOS_GALARIAN, 3, 3, 0, 0
 heightentry SPECIES_MOLTRES_GALARIAN, 3, 3, 0, 0
