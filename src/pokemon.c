@@ -1207,29 +1207,25 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
     return FALSE;
 }
 
+/**
+ *  @brief check if can use item on mon in party.  subfunction checks everything and is only used here, so we hook this to save space and add what we need.
+ *
+ *  @param party party structure
+ *  @param itemID item index that is being used
+ *  @param partyIdx position in party
+ *  @param moveIdx move position to check if needed
+ *  @param heapID heap to use for allocations
+ *  @return TRUE if can use item, FALSE otherwise
+ */
+BOOL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID) {
+    struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIdx);
 
-// top 5 bits are now form bit
-// if the form is nonzero, have to set it to that form.  most mons should keep their forms on evolution, but specifically significant gendered mons will need to not
-#define GET_TARGET_AND_SET_FORM { \
-    if (party != NULL) \
-    { \
-        for (j = 0; j < party->count; j++) \
-        { \
-            ppFromParty = Party_GetMonByIndex(party, j); \
-            if (CheckIfMonsAreEqual(pokemon, ppFromParty)) \
-                break; \
-        } \
-        target = evoTable[i].target & 0x7FF; \
-        form = evoTable[i].target >> 11; \
-        if (form != 0) { \
-            SetMonData(ppFromParty, MON_DATA_FORM, &form); \
-        } \
-    } \
-    else { \
-        target = evoTable[i].target & 0x7FF; \
-        form = evoTable[i].target >> 11; \
-        SetMonData(pokemon, MON_DATA_FORM, &form); \
-    } \
+    if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID) && GetMonData(mon, MON_DATA_LEVEL, NULL) == 100 && GetMonEvolution(party, mon, EVOCTX_LEVELUP, itemID, NULL))
+    {
+        return TRUE;
+    }
+
+    return CanUseItemOnPokemon(mon, itemID, moveIdx, heapID);
 }
 
 /**

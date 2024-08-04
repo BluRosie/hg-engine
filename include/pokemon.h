@@ -1764,4 +1764,6 @@ void LONG_CALL Mon_UpdateShayminForm(struct PartyPokemon *mon, int form);
 
 void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **boxmons);
 
+BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
+
 #endif
