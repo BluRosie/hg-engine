@@ -22752,17 +22752,28 @@ levelup SPECIES_ARCTOVISH
 levelup SPECIES_DURALUDON
     learnset MOVE_METAL_CLAW, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_ROCK_SMASH, 6
-    learnset MOVE_HONE_CLAWS, 12
+    learnset MOVE_SNARL, 4
+    learnset MOVE_ROCK_SMASH, 7
+    learnset MOVE_MAGNET_BOMB, 10
+    learnset MOVE_HONE_CLAWS, 13
+    learnset MOVE_BREAKING_SWIPE, 16
     learnset MOVE_METAL_SOUND, 18
-    learnset MOVE_BREAKING_SWIPE, 24
-    learnset MOVE_DRAGON_TAIL, 30
+    learnset MOVE_SLASH, 21
+    learnset MOVE_DRAGON_TAIL, 24
+    learnset MOVE_MIRROR_SHOT, 27
+    learnset MOVE_DRAGON_BREATH, 30
+    learnset MOVE_BRICK_BREAK, 33
     learnset MOVE_IRON_DEFENSE, 36
+    learnset MOVE_DRAGON_CLAW, 39
     learnset MOVE_LASER_FOCUS, 42
-    learnset MOVE_DRAGON_CLAW, 48
-    learnset MOVE_FLASH_CANNON, 54
+    learnset MOVE_FLASH_CANNON, 45
+    learnset MOVE_BODY_PRESS, 48
+    learnset MOVE_DARK_PULSE, 51
+    learnset MOVE_DRAGON_PULSE, 54
+    learnset MOVE_THUNDERBOLT, 57
     learnset MOVE_METAL_BURST, 60
-    learnset MOVE_HYPER_BEAM, 66
+    learnset MOVE_DRACO_METEOR, 63
+    learnset MOVE_STEEL_BEAM, 66
     terminatelearnset
 
 
@@ -25379,19 +25390,30 @@ levelup SPECIES_OGERPON
 levelup SPECIES_ARCHALUDON
     learnset MOVE_ELECTRO_SHOT, 0
     learnset MOVE_ELECTRO_SHOT, 1
-    learnset MOVE_LEER, 1
     learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_ROCK_SMASH, 6
-    learnset MOVE_HONE_CLAWS, 12
-    learnset MOVE_METAL_SOUND, 18
-    learnset MOVE_BREAKING_SWIPE, 24
-    learnset MOVE_DRAGON_TAIL, 30
-    learnset MOVE_IRON_DEFENSE, 36
-    learnset MOVE_FOCUS_ENERGY, 42
-    learnset MOVE_DRAGON_CLAW, 48
-    learnset MOVE_FLASH_CANNON, 54
-    learnset MOVE_METAL_BURST, 60
-    learnset MOVE_HYPER_BEAM, 66
+    learnset MOVE_LEER, 1
+    learnset MOVE_SNARL, 6
+    learnset MOVE_ROCK_SMASH, 9
+    learnset MOVE_MAGNET_BOMB, 12
+    learnset MOVE_HONE_CLAWS, 15
+    learnset MOVE_BREAKING_SWIPE, 18
+    learnset MOVE_METAL_SOUND, 20
+    learnset MOVE_SLASH, 23
+    learnset MOVE_DRAGON_TAIL, 26
+    learnset MOVE_MIRROR_SHOT, 29
+    learnset MOVE_DRAGON_BREATH, 32
+    learnset MOVE_BRICK_BREAK, 35
+    learnset MOVE_IRON_DEFENSE, 38
+    learnset MOVE_DRAGON_CLAW, 41
+    learnset MOVE_LASER_FOCUS, 44
+    learnset MOVE_FLASH_CANNON, 47
+    learnset MOVE_BODY_PRESS, 50
+    learnset MOVE_DARK_PULSE, 53
+    learnset MOVE_DRAGON_PULSE, 56
+    learnset MOVE_THUNDERBOLT, 59
+    learnset MOVE_METAL_BURST, 62
+    learnset MOVE_DRACO_METEOR, 65
+    learnset MOVE_STEEL_BEAM, 68
     terminatelearnset
 
 levelup SPECIES_HYDRAPPLE
