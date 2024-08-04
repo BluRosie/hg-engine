@@ -22779,53 +22779,95 @@ levelup SPECIES_DURALUDON
 
 levelup SPECIES_DREEPY
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_INFESTATION, 1
     learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_BITE, 1
+    learnset MOVE_BITE, 4
+    learnset MOVE_LOCK_ON, 7
+    learnset MOVE_INFESTATION, 10
+    learnset MOVE_ASSURANCE, 13
+    learnset MOVE_WILL_O_WISP, 16
+    learnset MOVE_HEX, 18
+    learnset MOVE_BREAKING_SWIPE, 21
+    learnset MOVE_AGILITY, 24
+    learnset MOVE_THIEF, 27
+    learnset MOVE_DOUBLE_HIT, 30
+    learnset MOVE_CURSE, 33
+    learnset MOVE_U_TURN, 36
+    learnset MOVE_SUCKER_PUNCH, 39
+    learnset MOVE_DOUBLE_TEAM, 42
+    learnset MOVE_DRAGON_CLAW, 45
+    learnset MOVE_PHANTOM_FORCE, 48
+    learnset MOVE_PSYCHIC_FANGS, 51
+    learnset MOVE_TAKE_DOWN, 54
+    learnset MOVE_AGILITY, 57
+    learnset MOVE_DRAGON_RUSH, 60
+    learnset MOVE_DRAGON_DANCE, 63
+    learnset MOVE_DOUBLE_EDGE, 66
+    learnset MOVE_DRACO_METEOR, 69
+    learnset MOVE_SHADOW_FORCE, 72
     terminatelearnset
 
 
 levelup SPECIES_DRAKLOAK
+    learnset MOVE_DRAGON_PULSE, 0
     learnset MOVE_DRAGON_PULSE, 1
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_INFESTATION, 1
     learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_LOCK_ON, 6
-    learnset MOVE_ASSURANCE, 12
-    learnset MOVE_HEX, 18
-    learnset MOVE_AGILITY, 24
-    learnset MOVE_DOUBLE_HIT, 30
-    learnset MOVE_U_TURN, 36
-    learnset MOVE_DRAGON_DANCE, 42
-    learnset MOVE_PHANTOM_FORCE, 48
-    learnset MOVE_TAKE_DOWN, 54
+    learnset MOVE_BITE, 5
+    learnset MOVE_LOCK_ON, 8
+    learnset MOVE_INFESTATION, 11
+    learnset MOVE_ASSURANCE, 14
+    learnset MOVE_WILL_O_WISP, 17
+    learnset MOVE_HEX, 19
+    learnset MOVE_BREAKING_SWIPE, 22
+    learnset MOVE_AGILITY, 25
+    learnset MOVE_THIEF, 28
+    learnset MOVE_DOUBLE_HIT, 31
+    learnset MOVE_CURSE, 34
+    learnset MOVE_U_TURN, 37
+    learnset MOVE_SUCKER_PUNCH, 40
+    learnset MOVE_DOUBLE_TEAM, 43
+    learnset MOVE_DRAGON_CLAW, 46
+    learnset MOVE_PHANTOM_FORCE, 49
+    learnset MOVE_PSYCHIC_FANGS, 52
+    learnset MOVE_TAKE_DOWN, 55
+    learnset MOVE_AGILITY, 58
     learnset MOVE_DRAGON_RUSH, 61
-    learnset MOVE_DOUBLE_EDGE, 66
-    learnset MOVE_LAST_RESORT, 72
+    learnset MOVE_DRAGON_DANCE, 64
+    learnset MOVE_DOUBLE_EDGE, 67
+    learnset MOVE_DRACO_METEOR, 70
+    learnset MOVE_SHADOW_FORCE, 73
     terminatelearnset
 
 
 levelup SPECIES_DRAGAPULT
+    learnset MOVE_DRAGON_DARTS, 0
     learnset MOVE_DRAGON_DARTS, 1
-    learnset MOVE_DRAGON_BREATH, 1
-    learnset MOVE_SUCKER_PUNCH, 1
     learnset MOVE_ASTONISH, 1
-    learnset MOVE_INFESTATION, 1
     learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_LOCK_ON, 6
-    learnset MOVE_ASSURANCE, 12
-    learnset MOVE_HEX, 18
-    learnset MOVE_AGILITY, 24
-    learnset MOVE_DOUBLE_HIT, 30
-    learnset MOVE_U_TURN, 36
-    learnset MOVE_DRAGON_DANCE, 42
-    learnset MOVE_PHANTOM_FORCE, 48
-    learnset MOVE_TAKE_DOWN, 54
-    learnset MOVE_DRAGON_RUSH, 63
-    learnset MOVE_DOUBLE_EDGE, 70
-    learnset MOVE_LAST_RESORT, 78
+    learnset MOVE_BITE, 6
+    learnset MOVE_LOCK_ON, 9
+    learnset MOVE_INFESTATION, 12
+    learnset MOVE_ASSURANCE, 15
+    learnset MOVE_WILL_O_WISP, 18
+    learnset MOVE_HEX, 20
+    learnset MOVE_BREAKING_SWIPE, 23
+    learnset MOVE_AGILITY, 26
+    learnset MOVE_THIEF, 29
+    learnset MOVE_DOUBLE_HIT, 32
+    learnset MOVE_CURSE, 35
+    learnset MOVE_U_TURN, 38
+    learnset MOVE_SUCKER_PUNCH, 41
+    learnset MOVE_DOUBLE_TEAM, 44
+    learnset MOVE_DRAGON_CLAW, 47
+    learnset MOVE_PHANTOM_FORCE, 50
+    learnset MOVE_PSYCHIC_FANGS, 53
+    learnset MOVE_TAKE_DOWN, 56
+    learnset MOVE_AGILITY, 59
+    learnset MOVE_DRAGON_RUSH, 62
+    learnset MOVE_DRAGON_DANCE, 65
+    learnset MOVE_DOUBLE_EDGE, 68
+    learnset MOVE_DRACO_METEOR, 71
+    learnset MOVE_SHADOW_FORCE, 74
     terminatelearnset
 
 
