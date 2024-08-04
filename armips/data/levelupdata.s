@@ -14083,30 +14083,26 @@ levelup SPECIES_EXCADRILL
 levelup SPECIES_AUDINO
     learnset MOVE_POUND, 1
     learnset MOVE_PLAY_NICE, 1
-    learnset MOVE_LAST_RESORT, 1
-    learnset MOVE_HYPER_VOICE, 1
-    learnset MOVE_MISTY_TERRAIN, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_HELPING_HAND, 1
-    learnset MOVE_BABY_DOLL_EYES, 7
-    learnset MOVE_DISARMING_VOICE, 8
-    learnset MOVE_REFRESH, 9
-    learnset MOVE_HELPING_HAND, 12
+    learnset MOVE_DISARMING_VOICE, 4
+    learnset MOVE_YAWN, 7
+    learnset MOVE_BABY_DOLL_EYES, 10
+    learnset MOVE_HELPING_HAND, 13
     learnset MOVE_GROWL, 16
-    learnset MOVE_DOUBLE_SLAP, 17
-    learnset MOVE_ZEN_HEADBUTT, 20
-    learnset MOVE_ATTRACT, 21
+    learnset MOVE_DOUBLE_SLAP, 18
+    learnset MOVE_ZEN_HEADBUTT, 21
     learnset MOVE_LIFE_DEW, 24
-    learnset MOVE_SECRET_POWER, 25
-    learnset MOVE_TAKE_DOWN, 32
-    learnset MOVE_AFTER_YOU, 34
-    learnset MOVE_SIMPLE_BEAM, 40
-    learnset MOVE_HEAL_PULSE, 40
-    learnset MOVE_ENTRAINMENT, 41
-    learnset MOVE_HYPER_VOICE, 46
-    learnset MOVE_DOUBLE_EDGE, 48
-    learnset MOVE_MISTY_TERRAIN, 56
-    learnset MOVE_LAST_RESORT, 58
+    learnset MOVE_AFTER_YOU, 27
+    learnset MOVE_WISH, 30
+    learnset MOVE_EXTRASENSORY, 33
+    learnset MOVE_SIMPLE_BEAM, 36
+    learnset MOVE_DAZZLING_GLEAM, 39
+    learnset MOVE_HYPER_VOICE, 42
+    learnset MOVE_HEAL_PULSE, 45
+    learnset MOVE_FLAMETHROWER, 48
+    learnset MOVE_ENTRAINMENT, 51
+    learnset MOVE_MOONBLAST, 54
+    learnset MOVE_MISTY_TERRAIN, 57
+    learnset MOVE_BOOMBURST, 60
     terminatelearnset
 
 
