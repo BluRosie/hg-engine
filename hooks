@@ -129,6 +129,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
+arm9 TT_TrainerTypeSexGet 020735F8 1 
+
 #fix money calculation -
 0012 fix_money_calc 0800829E 0
 

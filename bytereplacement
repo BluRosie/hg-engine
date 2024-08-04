@@ -429,3 +429,16 @@ arm9 020902B8 60 B4 C0 46
 # normal as a second type should show up in the dex/pc
 0018 021F21AE C0 46
 0014 021F3DB0 C0 46
+
+# Trainer class music table range
+arm9 08051886 50
+
+# Maintable combo range
+arm9 080517AA 64
+arm9 080517D4 64
+
+# Pokemon battle music table range
+arm9 080518CA 28
+
+# sTrainerEncounterMusicParam table range
+arm9 080550D4 2C
