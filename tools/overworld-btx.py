@@ -445,7 +445,7 @@ def dump_btx_to_png_and_mappings():
     open(f"image-{suffix}.gbapal", "wb").write(gbapal[:0x20])
 
     try:
-        subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", str(textureInfo[0].width2 / 8), '-bitdepth', '4'])
+        subprocess.run([GFX, f"image-{suffix}.4bpp", pngFilename, "-palette", f"image-{suffix}.gbapal", "-notiles", "-width", str(textureInfo[0].width2 / 8)])
     except KeyError:
         print(pngFilename, textureInfo, len(textureInfo))
 
