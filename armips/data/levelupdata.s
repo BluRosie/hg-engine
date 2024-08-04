@@ -295,7 +295,7 @@ levelup SPECIES_BUTTERFREE
 levelup SPECIES_WEEDLE
     learnset MOVE_POISON_STING, 1
     learnset MOVE_STRING_SHOT, 1
-    learnset MOVE_BUG_BITE, 9
+    learnset MOVE_BUG_BITE, 4
     terminatelearnset
 
 
@@ -309,18 +309,23 @@ levelup SPECIES_BEEDRILL
     learnset MOVE_TWINEEDLE, 0
     learnset MOVE_TWINEEDLE, 1
     learnset MOVE_FURY_ATTACK, 1
-    learnset MOVE_FURY_ATTACK, 11
-    learnset MOVE_RAGE, 14
-    learnset MOVE_PURSUIT, 17
-    learnset MOVE_FOCUS_ENERGY, 20
-    learnset MOVE_VENOSHOCK, 23
-    learnset MOVE_ASSURANCE, 26
-    learnset MOVE_TOXIC_SPIKES, 29
-    learnset MOVE_PIN_MISSILE, 32
-    learnset MOVE_POISON_JAB, 35
-    learnset MOVE_AGILITY, 38
-    learnset MOVE_ENDEAVOR, 41
-    learnset MOVE_FELL_STINGER, 44
+    learnset MOVE_FURY_ATTACK, 13
+    learnset MOVE_RAGE, 16
+    learnset MOVE_PURSUIT, 18
+    learnset MOVE_FOCUS_ENERGY, 21
+    learnset MOVE_VENOSHOCK, 24
+    learnset MOVE_KNOCK_OFF, 27
+    learnset MOVE_TOXIC_SPIKES, 30
+    learnset MOVE_U_TURN, 33
+    learnset MOVE_CROSS_POISON, 36
+    learnset MOVE_AGILITY, 39
+    learnset MOVE_ENDEAVOR, 42
+    learnset MOVE_LEECH_LIFE, 45
+    learnset MOVE_DRILL_RUN, 48
+    learnset MOVE_POISON_JAB, 51
+    learnset MOVE_SWORDS_DANCE, 54
+    learnset MOVE_LUNGE, 57
+    learnset MOVE_FELL_STINGER, 60
     terminatelearnset
 
 
