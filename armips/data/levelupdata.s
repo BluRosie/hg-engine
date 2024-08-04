@@ -22927,21 +22927,28 @@ levelup SPECIES_ETERNATUS
 
 
 levelup SPECIES_KUBFU
-    learnset MOVE_ROCK_SMASH, 1
+    learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_ENDURE, 4
-    learnset MOVE_FOCUS_ENERGY, 8
-    learnset MOVE_AERIAL_ACE, 12
+    learnset MOVE_ROCK_SMASH, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_AERIAL_ACE, 13
     learnset MOVE_SCARY_FACE, 16
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_BRICK_BREAK, 24
-    learnset MOVE_DETECT, 28
-    learnset MOVE_BULK_UP, 32
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_LOW_SWEEP, 24
+    learnset MOVE_DETECT, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_BULK_UP, 33
     learnset MOVE_IRON_HEAD, 36
-    learnset MOVE_DYNAMIC_PUNCH, 40
-    learnset MOVE_COUNTER, 44
-    learnset MOVE_CLOSE_COMBAT, 48
-    learnset MOVE_FOCUS_PUNCH, 52
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_ENDURE, 42
+    learnset MOVE_REVERSAL, 45
+    learnset MOVE_DYNAMIC_PUNCH, 48
+    learnset MOVE_ZEN_HEADBUTT, 51
+    learnset MOVE_BODY_SLAM, 54
+    learnset MOVE_CLOSE_COMBAT, 57
+    learnset MOVE_FOCUS_PUNCH, 60
     terminatelearnset
 
 
@@ -22949,21 +22956,28 @@ levelup SPECIES_URSHIFU
     learnset MOVE_WICKED_BLOW, 0
     learnset MOVE_WICKED_BLOW, 1
     learnset MOVE_SUCKER_PUNCH, 1
-    learnset MOVE_ROCK_SMASH, 1
+    learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_ENDURE, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_AERIAL_ACE, 12
+    learnset MOVE_ROCK_SMASH, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_AERIAL_ACE, 13
     learnset MOVE_SCARY_FACE, 16
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_BRICK_BREAK, 24
-    learnset MOVE_DETECT, 28
-    learnset MOVE_BULK_UP, 32
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_LOW_SWEEP, 24
+    learnset MOVE_DETECT, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_BULK_UP, 33
     learnset MOVE_IRON_HEAD, 36
-    learnset MOVE_DYNAMIC_PUNCH, 40
-    learnset MOVE_COUNTER, 44
-    learnset MOVE_CLOSE_COMBAT, 48
-    learnset MOVE_FOCUS_PUNCH, 52
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_ENDURE, 42
+    learnset MOVE_REVERSAL, 45
+    learnset MOVE_DYNAMIC_PUNCH, 48
+    learnset MOVE_ZEN_HEADBUTT, 51
+    learnset MOVE_BODY_SLAM, 54
+    learnset MOVE_CLOSE_COMBAT, 57
+    learnset MOVE_FOCUS_PUNCH, 60
     terminatelearnset
 
 
@@ -31184,21 +31198,28 @@ levelup SPECIES_URSHIFU_RAPID_STRIKE
     learnset MOVE_SURGING_STRIKES, 0
     learnset MOVE_SURGING_STRIKES, 1
     learnset MOVE_AQUA_JET, 1
-    learnset MOVE_ROCK_SMASH, 1
+    learnset MOVE_QUICK_ATTACK, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_ENDURE, 1
-    learnset MOVE_FOCUS_ENERGY, 1
-    learnset MOVE_AERIAL_ACE, 12
+    learnset MOVE_ROCK_SMASH, 4
+    learnset MOVE_FOCUS_ENERGY, 7
+    learnset MOVE_KARATE_CHOP, 10
+    learnset MOVE_AERIAL_ACE, 13
     learnset MOVE_SCARY_FACE, 16
-    learnset MOVE_HEADBUTT, 20
-    learnset MOVE_BRICK_BREAK, 24
-    learnset MOVE_DETECT, 28
-    learnset MOVE_BULK_UP, 32
+    learnset MOVE_ROCK_TOMB, 18
+    learnset MOVE_HEADBUTT, 21
+    learnset MOVE_LOW_SWEEP, 24
+    learnset MOVE_DETECT, 27
+    learnset MOVE_BRICK_BREAK, 30
+    learnset MOVE_BULK_UP, 33
     learnset MOVE_IRON_HEAD, 36
-    learnset MOVE_DYNAMIC_PUNCH, 40
-    learnset MOVE_COUNTER, 44
-    learnset MOVE_CLOSE_COMBAT, 48
-    learnset MOVE_FOCUS_PUNCH, 52
+    learnset MOVE_U_TURN, 39
+    learnset MOVE_ENDURE, 42
+    learnset MOVE_REVERSAL, 45
+    learnset MOVE_DYNAMIC_PUNCH, 48
+    learnset MOVE_ZEN_HEADBUTT, 51
+    learnset MOVE_BODY_SLAM, 54
+    learnset MOVE_CLOSE_COMBAT, 57
+    learnset MOVE_FOCUS_PUNCH, 60
     terminatelearnset
 
 
