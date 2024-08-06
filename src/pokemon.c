@@ -21,6 +21,8 @@
 #define NELEMS_POKEFORMDATATBL 285
 
 extern u32 word_to_store_form_at;
+// [preevo] = {species, form}, [postevo] = {species, form},
+u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
 /**
  *  @brief set up the indices for the new form system pictures.  if necessary, loop through the form table, searching for the new form index to load sprites from
@@ -36,6 +38,7 @@ extern u32 word_to_store_form_at;
 BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8 form_no)
 {
     u32 ret = FALSE;
+
     word_to_store_form_at = form_no;
 
     if (form_no != 0)
@@ -57,6 +60,20 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
         sys_FreeMemoryEz(PokeFormDataTbl);
     }
     return ret;
+}
+
+void SetPartyPokemonParamsForEvoCutscene(struct PartyPokemon *mon, u16 *targetSpecies, BOOL clearEvoStructure)
+{
+    u32 form = 0;
+    if (gEvolutionSceneOverride[0][0] == *targetSpecies)
+        form = gEvolutionSceneOverride[0][1];
+    else if (gEvolutionSceneOverride[1][0] == *targetSpecies)
+        form = gEvolutionSceneOverride[1][1];
+    SetMonData(mon, MON_DATA_SPECIES, targetSpecies);
+    if (form)
+        SetMonData(mon, MON_DATA_FORM, &form);
+    if (clearEvoStructure)
+        memset(gEvolutionSceneOverride, 0, sizeof(gEvolutionSceneOverride));
 }
 
 /**

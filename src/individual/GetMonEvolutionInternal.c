@@ -20,6 +20,8 @@
 // top 5 bits are now form bit
 // if the form is nonzero, have to set it to that form.  most mons should keep their forms on evolution, but specifically significant gendered mons will need to not
 
+extern u16 gEvolutionSceneOverride[2][2];
+
 /**
  *  @brief get the evolution species for a pokemon.  generalized depending on context
  *         also set form depending on the evolution structure read from armips/data/evodata.s
@@ -53,6 +55,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
     beauty = GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
     pid_hi = (u16)((pid & 0xFFFF0000) >> 16);
     holdEffect = GetItemData(heldItem, ITEM_PARAM_HOLD_EFFECT, 0);
+    level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
 
     if (species != SPECIES_KADABRA && holdEffect == HOLD_EFFECT_NO_EVOLVE && context != EVOCTX_ITEM_USE) {
         return SPECIES_NONE;
@@ -74,7 +77,6 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
 
     switch (context) {
     case EVOCTX_LEVELUP:
-        level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
         friendship = (u16)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
         for (i = 0; i < MAX_EVOS_PER_POKE; i++) {
             switch (evoTable[i].method) {
@@ -419,6 +421,21 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
         }
         break;
     }
+
+    if (target) {
+        u32 form = (evoTable[i].target & 0xF800) >> 11;
+
+        if (form)
+        {
+            gEvolutionSceneOverride[0][0] = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+            gEvolutionSceneOverride[0][1] = GetMonData(pokemon, MON_DATA_FORM, NULL);
+            gEvolutionSceneOverride[1][0] = target;
+            gEvolutionSceneOverride[1][1] = form;
+        } else {
+            memset(gEvolutionSceneOverride, 0, sizeof(gEvolutionSceneOverride));
+        }
+    }
     sys_FreeMemoryEz(evoTable);
+
     return target;
 }

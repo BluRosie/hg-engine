@@ -470,3 +470,9 @@ arm9 GF_AssertFail 0202551C 0
 
 # 02251A28 + 4 = 2251A2C
 0012 ov12_02251A28_hook 2251A2C 5
+
+# evolutions with forms, this time bugless
+# used for queuing up sprites
+arm9 form_evo_hook_1 02077224 1
+# actually setting the new mon's form
+arm9 form_evo_hook_2 0207641C 0
