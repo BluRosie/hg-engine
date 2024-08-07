@@ -106,14 +106,14 @@ _0000: // Trainer 0
        // Trainer 709
        // Trainer 710
        // Trainer 711
-    trainertextentry 495, TEXT_LAST_MON_SENT_OUT, "...Humph!\nYou’re doing OK for someone weak.\n"
-    trainertextentry 495, TEXT_DEFEATED_IN_BATTLE, "...Humph!\nAre you happy you won?\n"
-    trainertextentry 495, TEXT_PLAYER_LOSES, "...Humph!\nThat was a waste of time.\n"
+    trainertextentry 495, TEXT_LAST_MON_CRITICAL, "...NO WAY!\n"
+    trainertextentry 495, TEXT_DEFEATED_IN_BATTLE, "Wow, the first win\ngoes to you!\n"
+    trainertextentry 495, TEXT_PLAYER_LOSES, "Hey, the first win\ngoes to me!\n"
 
 _000C: // Trainer 496
-    trainertextentry 496, TEXT_LAST_MON_SENT_OUT, "...Humph!\nYou’re doing OK for someone weak.\n"
-    trainertextentry 496, TEXT_DEFEATED_IN_BATTLE, "...Humph!\nAre you happy you won?\n"
-    trainertextentry 496, TEXT_PLAYER_LOSES, "...Humph!\nThat was a waste of time.\n"
+    trainertextentry 496, TEXT_LAST_MON_CRITICAL, "Don't count me out.\n"
+    trainertextentry 496, TEXT_DEFEATED_IN_BATTLE, "You are a natural.\n"
+    trainertextentry 496, TEXT_PLAYER_LOSES, "Just a child, after all...\n"
 
 _0018: // Trainer 497
     trainertextentry 497, TEXT_LAST_MON_SENT_OUT, "...Humph!\nYou’re doing OK for someone weak.\n"

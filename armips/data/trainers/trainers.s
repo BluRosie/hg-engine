@@ -10603,7 +10603,7 @@ trainerdata 243, "Katie"
 
 trainerdata 244, "Lance"
 	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
-    trainerclass CLASS_LANCE
+    trainerclass CLASS_STEVEN
      
     nummons 6
     item ITEM_NONE
@@ -21274,121 +21274,41 @@ trainerdata 494, "Georgina"
 		ballseal 16
     endparty
 
-trainerdata 495, "Saturn"
+trainerdata 495, "Iris"
 	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
-    trainerclass CLASS_SATURN
+    trainerclass CLASS_IRIS
      
-    nummons 0x80 | 6
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
 	aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype DOUBLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 495
         //mon 0
         ivs 250
 		abilityslot 32
-		level 75
-		pokemon SPECIES_LUDICOLO
-		item ITEM_LEFTOVERS
-		move MOVE_FAKE_OUT
-		move MOVE_LEECH_SEED
-		move MOVE_HYDRO_PUMP
-		move MOVE_ICY_WIND
-		ability ABILITY_SWIFT_SWIM
+		level 3
+		pokemon SPECIES_AXEW
+		item ITEM_NONE
+		move MOVE_SCRATCH
+		move MOVE_LEER
+		move MOVE_NONE
+		move MOVE_NONE
+		ability ABILITY_MOLD_BREAKER
 		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 252, 0, 0, 0
-		nature NATURE_BOLD
-		shinylock 0
-		ballseal 0
-	// mon 1
-		ivs 250
-		abilityslot 32
-		level 75
-		monwithform SPECIES_ROTOM, 2
-		item ITEM_RINDO_BERRY
-		move MOVE_SCALD
-		move MOVE_THUNDERBOLT
-		move MOVE_SHADOW_BALL
-		move MOVE_NASTY_PLOT
-		ability ABILITY_LEVITATE
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 252, 0, 0, 0
-		nature NATURE_MODEST
-		shinylock 0
-		ballseal 0
-	// mon 2
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_POLITOED
-		item ITEM_WACAN_BERRY
-		move MOVE_HYDRO_PUMP
-		move MOVE_ICE_BEAM
-		move MOVE_HYPNOSIS
-		move MOVE_PERISH_SONG
-		ability ABILITY_DRIZZLE
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 0, 0, 0, 252
-		nature NATURE_CALM
-		shinylock 0
-		ballseal 0
-    // mon 3
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_GYARADOS
-		item ITEM_WACAN_BERRY
-		move MOVE_WATERFALL
-		move MOVE_EARTHQUAKE
-		move MOVE_THUNDER_FANG
-		move MOVE_DRAGON_DANCE
-		ability ABILITY_MOXIE
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 252, 0, 252, 0, 0
-		nature NATURE_JOLLY
+		setevs 0, 0, 0, 0, 0, 0
+		nature NATURE_HARDY
 		shinylock 1
-		ballseal 0
-    // mon 4
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_SWAMPERT
-		item ITEM_SWAMPERTITE
-		move MOVE_FISSURE
-		move MOVE_AQUA_TAIL
-		move MOVE_LOW_KICK
-		move MOVE_BULK_UP
-		ability ABILITY_SWIFT_SWIM
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 252, 0, 0, 0, 0
-		nature NATURE_ADAMANT
-		shinylock 0
-		ballseal 0
-    // mon 5
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_KYOGRE
-		item ITEM_MYSTIC_WATER
-		move MOVE_ORIGIN_PULSE
-		move MOVE_ICE_BEAM
-		move MOVE_THUNDER
-		move MOVE_CALM_MIND
-		ability ABILITY_DRIZZLE
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 0, 0, 252, 252, 0
-		nature NATURE_TIMID
-		shinylock 1
-		ballseal 10
+		ballseal 1
     endparty
 
 trainerdata 496, "Cyrus"
 	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
-    trainerclass CLASS_CYRUS
+    trainerclass CLASS_STEVEN
      
     nummons 0x80 | 6
     item ITEM_NONE
@@ -29236,7 +29156,7 @@ trainerdata 700, "Giovanni"
 
 trainerdata 701, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LANCE
+    trainerclass CLASS_STEVEN
      
     nummons 6
     item ITEM_FULL_RESTORE
