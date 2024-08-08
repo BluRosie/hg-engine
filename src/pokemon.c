@@ -194,6 +194,33 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 }
 
 /**
+ *  @brief pass adjusted species and return form of the base species it applies to
+ *
+ *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
+ *  @return form of adjusted species
+ */
+u16 LONG_CALL GetFormBasedOnAdjustedForm(u32 mons_no)
+{
+    if (mons_no > MAX_MON_NUM) {
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
+
+        for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+        {
+            if (mons_no == PokeFormDataTbl[i].file)
+            {
+                mons_no = PokeFormDataTbl[i].form_no;
+                break;
+            }
+        }
+        sys_FreeMemoryEz(PokeFormDataTbl);
+    } else {
+        return 0; // base species are all before MAX_MON_NUM
+    }
+    return mons_no;
+}
+
+/**
  *  @brief grab index in ARC_POKEICON from original species, egg status, and form number
  *
  *  @param mons base species index
@@ -1741,19 +1768,23 @@ u32 storeShayminForm = 0;
 u32 GrabCryNumSpeciesForm(u32 species, u32 form)
 {
     u32 newSpecies = 0;
-    if (species > SPECIES_ARCEUS && species < SPECIES_VICTINI)
-    {
+
+    // manually map all of the limbo slots to bulbasaur's cry
+    if (species > SPECIES_ARCEUS && species < SPECIES_VICTINI) {
         species = SPECIES_BULBASAUR;
     }
 
-    if (species > MAX_MON_NUM) // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species
-    {
+    //debug_printf("[GrabCryNumSpeciesForm] species = %d, form = %d\n", species, form)
+
+    // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species and extract form
+    if (species > MAX_MON_NUM) {
         // if form-adjusted species is passed in, no need to call it to grab it again
         newSpecies = species;
+        form = GetFormBasedOnAdjustedForm(species);
         species = GetOriginalSpeciesBasedOnAdjustedForm(species);
     }
-    else if (species == SPECIES_SHAYMIN) // shaymin has to have some hacks to get this to work proper because of the same battle stuff above
-    {
+    // shaymin has to have some hacks to get this to work proper because of the same battle stuff above
+    else if (species == SPECIES_SHAYMIN) {
         register u32 retAddr asm("lr");
         if (retAddr == 0x020069BF)
             storeShayminForm = form;
@@ -1761,7 +1792,7 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
             if (!storeShayminForm)
                 return species;
     }
-    else if (form == 0)
+    else if (form == 0) // can just return species for the cry if it is base form
     {
         return species;
     }
