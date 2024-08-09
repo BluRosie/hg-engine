@@ -21306,11 +21306,11 @@ trainerdata 495, "Iris"
 		ballseal 1
     endparty
 
-trainerdata 496, "Cyrus"
+trainerdata 496, "Steven"
 	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
     trainerclass CLASS_STEVEN
      
-    nummons 0x80 | 6
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -21323,99 +21323,20 @@ trainerdata 496, "Cyrus"
     //mon 0
         ivs 250
 		abilityslot 32
-		level 75
-		pokemon SPECIES_URSHIFU
-		item ITEM_FOCUS_SASH
-		move MOVE_WICKED_BLOW
-		move MOVE_CLOSE_COMBAT
-		move MOVE_SUCKER_PUNCH
-		move MOVE_U_TURN
-		ability ABILITY_UNSEEN_FIST
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 252, 0, 252, 0, 0
-		nature NATURE_JOLLY
+		level 2
+		pokemon SPECIES_BELDUM
+		item ITEM_NONE
+		move MOVE_TAKE_DOWN
+		move MOVE_NONE
+		move MOVE_NONE
+		move MOVE_NONE
+		ability ABILITY_LIGHT_METAL
+		setivs 31, 0, 0, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
+		setevs 0, 0, 0, 0, 0, 0
+		nature NATURE_LONELY
 		shinylock 0
 		ballseal 0
-	// mon 1
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_HAXORUS
-		item ITEM_CHOICE_SCARF
-		move MOVE_OUTRAGE
-		move MOVE_IRON_TAIL
-		move MOVE_EARTHQUAKE
-		move MOVE_AQUA_TAIL
-		ability ABILITY_MOLD_BREAKER
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 252, 0, 252, 0, 0
-		nature NATURE_ADAMANT
-		shinylock 0
-		ballseal 0
-	// mon 2
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_TYRANITAR
-		item ITEM_CHOPLE_BERRY
-		move MOVE_STONE_EDGE
-		move MOVE_CRUNCH
-		move MOVE_ICE_PUNCH
-		move MOVE_DRAGON_TAIL
-		ability ABILITY_SAND_STREAM
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 252, 0, 0, 0, 0
-		nature NATURE_ADAMANT
-		shinylock 0
-		ballseal 0
-    // mon 3
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_ARCHALUDON
-		item ITEM_WHITE_HERB
-		move MOVE_DRACO_METEOR
-		move MOVE_FLASH_CANNON
-		move MOVE_THUNDER
-		move MOVE_PSYSHOCK
-		ability ABILITY_STAMINA
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 0, 0, 252, 0
-		nature NATURE_MODEST
-		shinylock 0
-		ballseal 0
-    // mon 4
-		ivs 250
-		abilityslot 32
-		level 75
-		pokemon SPECIES_SABLEYE
-		item ITEM_SABLENITE 
-		move MOVE_FOUL_PLAY
-		move MOVE_WILL_O_WISP
-		move MOVE_RECOVER
-		move MOVE_FAKE_OUT
-		ability ABILITY_MAGIC_BOUNCE
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 252, 0, 252, 0, 0, 0
-		nature NATURE_IMPISH
-		shinylock 1
-		ballseal 0
-    // mon 5
-		ivs 250
-		abilityslot 32
-		level 75
-		monwithform SPECIES_KYUREM, 2
-		item ITEM_LIFE_ORB
-		move MOVE_BOLT_STRIKE
-		move MOVE_ICICLE_CRASH
-		move MOVE_EARTHQUAKE
-		move MOVE_IRON_HEAD
-		ability ABILITY_TERAVOLT
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 252, 0, 252, 0, 0
-		nature NATURE_ADAMANT
-		shinylock 1
-		ballseal 10
+	
     endparty
 
 trainerdata 497, "Red"
@@ -31444,7 +31365,7 @@ trainerdata 732, "Grant"
 
 trainerdata 733, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LANCE
+    trainerclass CLASS_STEVEN
      
     nummons 3
     item ITEM_FULL_RESTORE
