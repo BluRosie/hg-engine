@@ -1613,6 +1613,12 @@ int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
 void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species, u32 form);
 
+u16 LONG_CALL BattleSystem_Random(struct BattleSystem *bsys);
+BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
+int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
+void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
 
 
 

@@ -476,3 +476,5 @@ arm9 GF_AssertFail 0202551C 0
 arm9 form_evo_hook_1 02077224 1
 # actually setting the new mon's form
 arm9 form_evo_hook_2 0207641C 0
+
+0012 ov12_0224B528 0224B528 2

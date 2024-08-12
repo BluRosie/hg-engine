@@ -3296,3 +3296,266 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     return ret;
 }
+
+static BOOL LONG_CALL ov12_0224B528(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int effect = ctx->moveTbl[ctx->current_move_index].effect;
+    int ret = 0;
+    
+    do {
+        switch (ctx->ssc_seq_no) {
+        case 0:
+            ctx->battlemon[ctx->attack_client].condition2 &= ~0x2000000;//STATUS2_DESTINY_BOND
+            ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
+            ctx->ssc_seq_no++;
+            break;
+        case 1:
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_ASLEEP) {
+                if (ctx->field_condition & FIELD_STATUS_UPROAR && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_SOUNDPROOF) {
+                    ctx->client_work = ctx->attack_client;
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_WAKE_UP);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 2;
+                } else if ((ctx->current_move_index != MOVE_SLEEP_TALK && ctx->waza_no_temp == MOVE_SLEEP_TALK) == 0) {
+                    int sleepCounterDecrease;
+                    
+                    if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_EARLY_BIRD) {
+                        sleepCounterDecrease = 2;
+                    } else {
+                        sleepCounterDecrease = 1;
+                    }
+                    if (((int) ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_ASLEEP) < sleepCounterDecrease) {
+                        ctx->battlemon[ctx->attack_client].condition &= ~STATUS_FLAG_ASLEEP;
+                    } else {
+                        ctx->battlemon[ctx->attack_client].condition -= sleepCounterDecrease;
+                    }
+                    
+                    if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_ASLEEP) {
+                        if (ctx->current_move_index != MOVE_SNORE && ctx->waza_no_temp != MOVE_SLEEP_TALK) {
+                            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_SLEEPING);
+                            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                            ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                            ret = 2;
+                        }
+                    } else {
+                        ctx->client_work = ctx->attack_client;
+                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_WAKE_UP);
+                        ctx->next_server_seq_no = ctx->server_seq_no;
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        ret = 2;
+                    }
+                }
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 2:
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_FROZEN) {
+                if (BattleSystem_Random(bsys) % 5 != 0) {
+                    if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT) {
+                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FROZEN);
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                        ret = 1;
+                    }
+                } else {
+                    ctx->client_work = ctx->attack_client;
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_THAW_OUT);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 2;
+                }
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 3:
+            if (CheckTruant(ctx, ctx->attack_client) == TRUE) {
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_LOAFING);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 4:
+            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RECHARGE) {
+                ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RECHARGE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_RECHARGE_TURN);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 5:
+            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_FLINCH) {
+                ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_FLINCH;
+                ctx->moveOutCheck[ctx->attack_client].stoppedFromFlinch = TRUE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAIL_FLINCHED);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 6:
+            if (ctx->battlemon[ctx->attack_client].moveeffect.disabledMove == ctx->waza_no_temp) {
+                ctx->moveOutCheck[ctx->attack_client].stoppedFromDisable = TRUE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_IS_DISABLED);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 7:
+            if (ctx->battlemon[ctx->attack_client].moveeffect.tauntTurns && ctx->moveTbl[ctx->current_move_index].power == 0) {
+                ctx->moveOutCheck[ctx->attack_client].stoppedFromTaunt = TRUE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAIL_TAUNTED);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 8:
+            if (BattleContext_CheckMoveImprisoned(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
+                ctx->moveOutCheck[ctx->attack_client].stoppedFromImprison = TRUE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_IS_IMPRISONED);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 9:
+            if (BattleContext_CheckMoveUnuseableInGravity(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
+                ctx->moveOutCheck[ctx->attack_client].stoppedFromGravity = TRUE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAIL_GRAVITY);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 10:
+            if (BattleContext_CheckMoveHealBlocked(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
+                ctx->moveOutCheck[ctx->attack_client].stoppedFromHealBlock = TRUE;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAILED_HEAL_BLOCK);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                ret = 1;
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 11:
+            ctx->ssc_seq_no++;
+            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSED) {
+                ctx->battlemon[ctx->attack_client].condition2 -= 1;
+                if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSED) {
+                    if (BattleSystem_Random(bsys) & 2) {
+                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_CONFUSED);
+                        ctx->next_server_seq_no = ctx->server_seq_no;
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        ret = 2;
+                    } else {
+                        ctx->moveOutCheck[ctx->attack_client].stoppedFromConfusion = TRUE;
+                        ctx->defence_client = ctx->attack_client;
+                        ctx->client_work = ctx->defence_client;
+                        ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, ctx->attack_client, ctx->attack_client, 1);
+                        ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+                        ctx->hp_calc_work *= -1;
+                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_CONFUSED_SELF_HIT);
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
+                        ret = 1;
+                    }
+                } else {
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_CONFUSED_NO_MORE);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 2;
+                }
+            }
+            break;
+        case 12:
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_PARALYZED && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD) {
+                if (BattleSystem_Random(bsys) % 4 == 0) {
+                    ctx->moveOutCheck[ctx->attack_client].stoppedFromParalysis = TRUE;
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FULLY_PARALYZED);
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                    ret = 1;
+                }
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 13:
+            if (ctx->battlemon[ctx->attack_client].condition2 & 0xF0000) { //STATUS2_ATTRACT
+                ctx->client_work = LowestFlagNo((ctx->battlemon[ctx->attack_client].condition2 & 0xF0000) >> 16); //STATUS2_ATTRACT) >> STATUS2_ATTRACT_SHIFT
+                if (BattleSystem_Random(bsys) & 1) {
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_INFATUATED);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 2;
+                } else {
+                    ctx->moveOutCheck[ctx->attack_client].stoppedFromAttract = TRUE;
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_IMMOBILIZED_BY_LOVE);
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                    ret = 1;
+                }
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 14:
+            ctx->ssc_seq_no++;
+            if (ctx->battlemon[ctx->attack_client].condition2 & 0x300) { //STATUS2_BIDE
+                ctx->battlemon[ctx->attack_client].condition2 -= (1 << 8);//STATUS2_BIDE_SHIFT
+                if (!(ctx->battlemon[ctx->attack_client].condition2 & 0x300) && ctx->store_damage[ctx->attack_client]) { //STATUS2_BIDE
+                    ctx->damage = ctx->store_damage[ctx->attack_client] * 2;
+                    if (ctx->battlemon[ctx->client_no_hit[ctx->attack_client]].hp != 0) {
+                        ctx->defence_client = ctx->client_no_hit[ctx->attack_client];
+                    } else {
+                        ctx->defence_client = ChooseRandomTarget(bsys, ctx, ctx->attack_client);
+                        if (ctx->battlemon[ctx->defence_client].hp == 0) {
+                            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BIDE_END_NO_TARGET);
+                            ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+                            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                            ret = 2;
+                            break;
+                        }
+                    }
+                }
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_END_BIDE);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ret = 2;
+            }
+            break;
+        case 15:
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_FROZEN) {
+                if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT) {
+                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_THAW_OUT_FROM_MOVE);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 2;
+                }
+            }
+            ctx->ssc_seq_no++;
+            break;
+        case 16:
+            ctx->ssc_seq_no = 0;
+            ret = 3;
+            break;
+        }
+    } while (ret == 0);
+    
+    CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+    
+    if (ret == 1) {
+        ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
+        ctx->waza_status_flag |= 0x80000000;//MOVE_STATUS_NO_MORE_WORK
+    }
+    
+    return (ret != 3);
+}

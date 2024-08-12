@@ -662,3 +662,8 @@ BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
 BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 
 CanUseItemOnPokemon = 0x0208FD9C | 1;
+
+BattleSystem_Random = 0x0223BD98 | 1;
+CheckTruant = 0x02252C40 | 2;
+LowestFlagNo = 0x020726E0 | 1;
+CopyBattleMonToPartyMon = 0x02250C40 | 3;
