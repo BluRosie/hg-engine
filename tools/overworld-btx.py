@@ -214,11 +214,9 @@ def build_btx_from_png_and_mappings():
 
     textureOffset = (paletteInfoOffset + 0x10 + (0x18 * palettes))
     paletteOffset = textureOffset + textureDataSize*8
-    totalSize = paletteOffset + 0x20*highestOffset
 
     # now we start writing the texture header
     write_field(btxFile, TEXOffset, 0x30584554, 4)
-    write_field(btxFile, TEXOffset + 4, totalSize - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 8, 0, 4)
     write_field(btxFile, TEXOffset + 0xC, textureDataSize, 2)
     write_field(btxFile, TEXOffset + 0xE, propertiesOffset - TEXOffset, 2)
@@ -231,7 +229,6 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, TEXOffset + 0x24, paletteOffset - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 0x28, paletteOffset - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 0x2C, 0, 4)
-    write_field(btxFile, TEXOffset + 0x30, highestOffset * 4, 4) # size of palette info
     write_field(btxFile, TEXOffset + 0x34, paletteInfoOffset - TEXOffset, 4)
     write_field(btxFile, TEXOffset + 0x38, paletteOffset - TEXOffset, 4)
 
@@ -262,7 +259,6 @@ def build_btx_from_png_and_mappings():
     # end with writing the overall header
     write_field(btxFile, 0, 0x30585442, 4)
     write_field(btxFile, 4, 0x0001FEFF, 4)
-    write_field(btxFile, 8, totalSize, 4)
     write_field(btxFile, 0xC, 0x10, 2)
     write_field(btxFile, 0xE, 1, 2)
     write_field(btxFile, 0x10, TEXOffset, 4)
@@ -277,11 +273,19 @@ def build_btx_from_png_and_mappings():
     for i in range(0, palettes):
         offset = paletteMetadata[palNames[i]]["offset"]
         subprocess.run([GFX, metadataStr + "-" + paletteMetadata[palNames[i]]["fileName"], f"image-{suffix}.gbapal"])
-        btxFile.seek(paletteOffset + offset*0x20, 0)
+        btxFile.seek(paletteOffset + offset*0x20, 0) # this probably doesn't match exactly for edge cases of btx0 files but it does for my personal case
         btxFile.write(open(f"image-{suffix}.gbapal", "rb").read())
 
     os.remove(f"image-{suffix}.4bpp")
     os.remove(f"image-{suffix}.gbapal")
+
+    # recalculate the total size stuff at the end just to make sure everything works
+    btxFile.seek(0, 2) # end of file just to make sure
+    totalSize = btxFile.tell()
+    palSize = totalSize - paletteOffset
+    write_field(btxFile, TEXOffset + 4, totalSize - TEXOffset, 4)
+    write_field(btxFile, TEXOffset + 0x30, int(palSize / 8), 4) # size of palette info in 8-byte blocks it seems
+    write_field(btxFile, 8, totalSize, 4)
 
     btxFile.close()
 

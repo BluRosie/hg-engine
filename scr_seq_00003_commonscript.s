@@ -3,10 +3,9 @@
 
 .include "armips/include/scriptmacros.s"
 .include "armips/include/flags.s"
+.include "armips/include/itemnums.s"
 .include "armips/include/soundeffects.s"
 .include "armips/include/vars.s"
-
-.include "asm/include/items.inc"
 
 
 // text archive to grab from: 040.txt
@@ -86,7 +85,6 @@ scrdef scr_seq_0003_068
 scrdef scr_seq_0003_069
 scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
-scrdef scr_seq_0003_072
 scrdef_end
 
 scr_seq_0003_002:
@@ -183,17 +181,21 @@ _026F:
     set_avatar_bits PLAYER_TRANSITION_WALKING
 _0273:
     update_avatar_state
-    get_party_lead_alive VAR_SPECIAL_x8009
-    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
-    goto_if_eq _02B2
+
     wait 15, VAR_SPECIAL_x800A
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     closemsg
     scrcmd_436
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
+// reorder this
+    get_party_lead_alive VAR_SPECIAL_x8009
+    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
+    goto_if_eq _02B2
+
+
     bufferpartymonnick 0, VAR_SPECIAL_x8009
     npc_msg 102
 _02B2:
@@ -221,17 +223,19 @@ _02F3:
     set_avatar_bits PLAYER_TRANSITION_WALKING
 _02F7:
     update_avatar_state
-    get_party_lead_alive VAR_SPECIAL_x8009
-    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
-    goto_if_eq _0336
     wait 15, VAR_SPECIAL_x800A
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     closemsg
     scrcmd_436
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
+
+// reorder this
+    get_party_lead_alive VAR_SPECIAL_x8009
+    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
+    goto_if_eq _0336
     bufferpartymonnick 0, VAR_SPECIAL_x8009
     npc_msg 102
 _0336:
@@ -264,18 +268,20 @@ _0364:
 _0391:
     set_avatar_bits PLAYER_TRANSITION_WALKING
 _0395:
-    get_party_lead_alive VAR_SPECIAL_x8009
-    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
-    goto_if_eq _03D4
     update_avatar_state
     wait 15, VAR_SPECIAL_x800A
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     closemsg
     scrcmd_436
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
+
+// reorder this
+    get_party_lead_alive VAR_SPECIAL_x8009
+    compare VAR_SPECIAL_x8008, VAR_SPECIAL_x8009
+    goto_if_eq _03D4
     bufferpartymonnick 0, VAR_SPECIAL_x8009
     npc_msg 102
 _03D4:
@@ -323,8 +329,7 @@ _041D:
 _0445:
     setvar VAR_SPECIAL_x8004, 1
     goto _01AA
-
-.align 4
+    .byte 0x00, 0x00, 0x00
 
 _0454:
     step 100, 1
@@ -338,17 +343,15 @@ _0460:
 _0468:
     step 104, 1
     step_end
-
-
 scr_seq_0003_069:
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     scrcmd_436
     play_fanfare SEQ_ME_ASA
     wait_fanfare
     heal_party
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     endstd
     end
@@ -433,10 +436,10 @@ _05AD:
     end
 
 scr_seq_0003_004:
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     wait_button
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     end
 
@@ -446,7 +449,7 @@ _05F5:
     wait_button
     closemsg
     fade_out_bgm 0, 10
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     scrcmd_436
     overworld_white_out
@@ -649,14 +652,18 @@ scr_seq_0003_033_give_item_verbose:
     end
 
 _085F:
+.ifndef DEBUG_GIVE_ALL_ITEMS
     call _04F2
+.endif
     giveitem VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     getitempocket VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+.ifndef DEBUG_GIVE_ALL_ITEMS
     compare VAR_SPECIAL_RESULT, 7
     call_if_eq _0892
     compare VAR_SPECIAL_RESULT, 7
     call_if_ne _08A3
     npc_msg 89
+.endif
     return
 
 _0892:
@@ -881,7 +888,7 @@ _0C01:
     non_npc_msg 34
     call _0B17
     call _0A18
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     goto _0B53
 
 _0C23:
@@ -944,7 +951,7 @@ _0D18:
     non_npc_msg 34
     call _0CA7
     call _0A18
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     goto _0C39
 
 _0D3A:
@@ -965,7 +972,7 @@ _0D64:
     non_npc_msg 34
     call _0CA7
     call _0A18
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     goto _0C39
 
 _0D86:
@@ -980,7 +987,7 @@ _0D98:
     non_npc_msg 34
     call _0CA7
     call _0A18
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     goto _0C39
 
 _0DBA:
@@ -1012,12 +1019,12 @@ _skipPCOff:
 
 _0E02:
     call _0A18
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     return
 
 _0E16:
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     goto_if_set 0x18F, _skipPCTransition
     scrcmd_309 90
@@ -1025,10 +1032,10 @@ _skipPCTransition:
     return
 
 scr_seq_0003_014:
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     scrcmd_156
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     end
 
@@ -1043,17 +1050,17 @@ scr_seq_0003_012:
     apply_movement obj_player, _1054
     apply_movement 0, _105C
     wait_movement
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     buffer_players_name 0
     npc_msg 41
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     closemsg
     play_fanfare SEQ_ME_ASA
     wait_fanfare
     heal_party
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     npc_msg 42
     wait_button_or_walk_away
@@ -1065,7 +1072,7 @@ scr_seq_0003_012:
 scr_seq_0003_013:
     scrcmd_609
     lockall
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     get_player_state VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, PLAYER_STATE_ROCKET
@@ -1185,8 +1192,7 @@ _1042:
 _104A:
     setvar VAR_SPECIAL_x8007, 3
     return
-
-.align 4
+    .byte 0x00, 0x00
 
 _1054:
     step 0, 1
@@ -1205,16 +1211,14 @@ _1064:
 _107C:
     step 1, 1
     step_end
-
-
 scr_seq_0003_015:
     play_se SEQ_SE_DP_SELECT
     lockall
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     scrcmd_450
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     releaseall
     end
@@ -1283,11 +1287,11 @@ scr_seq_0003_021:
     lockall
     npc_msg 62
     wait_button
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     closemsg
     egg_hatch_anim
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     releaseall
     end
@@ -1320,14 +1324,14 @@ _11AE:
     setvar VAR_SPECIAL_x8004, 104
     addvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
     non_npc_msg_var VAR_SPECIAL_x8004
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     closemsg
     setvar VAR_SPECIAL_x8000, 2
     addvar VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT
     scrcmd_492 VAR_SPECIAL_x8000, VAR_SPECIAL_RESULT, VAR_SPECIAL_x8001
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _1277
@@ -1463,11 +1467,11 @@ _136C:
     wait_se SEQ_SE_GS_PHONE0
     play_se SEQ_SE_GS_PHONE0
     wait_se SEQ_SE_GS_PHONE0
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     run_phone_call
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     return
 
@@ -1500,7 +1504,7 @@ scr_seq_0003_041:
     end
 
 scr_seq_0003_046:
-    fade_screen 6, 1, 0, RGB_BLACK
+    fade_screen 6, 1, 0, RGB(0, 0, 0)
     wait_fade
     scrcmd_166 VAR_SPECIAL_RESULT
     copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
@@ -1508,14 +1512,14 @@ scr_seq_0003_046:
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _1444
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     endstd
     end
 
 _1444:
     scrcmd_150
-    fade_screen 6, 1, 1, RGB_BLACK
+    fade_screen 6, 1, 1, RGB(0, 0, 0)
     wait_fade
     endstd
     end
@@ -1719,28 +1723,8 @@ scr_seq_0003_064:
     closemsg
     releaseall
     end
+    
 
-scr_seq_0003_072:
-    playfanfare SEQ_SE_DP_SELECT
-	lockall 
-	fade_screen 6, 1, 0, RGB_BLACK
-	wait_fade 
-	party_select_ui 
-	getselectedpartyslot VAR_SPECIAL_x8005
-	returnscreen 
-	fade_screen 6, 1, 1, RGB_BLACK
-	wait_fade 
-	getpartypokemonid VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
-	scrcmd_466 VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005
-	fade_screen 6, 1, 0, RGB_BLACK
-	wait_fade 
-	move_relearner_init VAR_SPECIAL_x8005
-	move_relearner_get_result VAR_SPECIAL_RESULT
-	returnscreen 
-	fade_screen 6, 1, 1, RGB_BLACK
-	wait_fade 
-	releaseall 
-    end 
 
 
 

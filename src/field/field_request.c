@@ -47,9 +47,9 @@ void SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, u16 trg)
         req->OpenRelearnerCheck = TRUE;
     }
 
-    // if (trg & PAD_BUTTON_R) {
-    //     req->OpenPCCheck = TRUE;
-    // }
+     if (trg & PAD_BUTTON_L) {
+        req->OpenPCCheck = TRUE;
+     }
 }
 
 /**
@@ -72,8 +72,12 @@ void CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, FieldSystem *fsys)
     if (req->OpenRelearnerCheck) {
         EventSet_Script(fsys, 2072, NULL); // set up script 2072
     }
+    if (req->OpenPCCheck) {
+        SetScriptFlag(0x18F); // some random flag that should be set by script 2010 (file 3 script 10)
+        EventSet_Script(fsys, 2010, NULL); // set up script 2010
+    }
 
-    // // Don't allow the PC at all if flag 398 hasn't been set
+    // Don't allow the PC at all if flag 398 hasn't been set
     // if (req->OpenPCCheck && CheckScriptFlag(398)) {
     //     if (CheckScriptFlag(397)) {
     //         EventSet_Script(fsys, 2072, NULL); // set up script 2072 to show a cannot use PC message if flag 397 is set
