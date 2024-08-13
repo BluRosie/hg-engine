@@ -6,8 +6,9 @@
   this file does not deal with the summary screen icon (img & pal), the dex icon (img), the item gfx (pal), the arceus btx0 overworlds, or the judgment battle script
 */
 
-HELD_EFFECT_FLAME_PLATE equ 0x7E
-HELD_EFFECT_PIXIE_PLATE equ 0x93
+HOLD_EFFECT_ARCEUS_FIRE equ 126
+HOLD_EFFECT_ARCEUS_STEEL equ 141
+HOLD_EFFECT_ARCEUS_FAIRY equ 164
 
 .open "base/arm9.bin", 0x02000000
 
@@ -42,11 +43,17 @@ basic premise:
 .area 0x02071CA0-., 0xFF
 
 get_arceus_type_from_held_effect: // a much simpler routine that uses a table instead of some weird jumptable
-    sub r0, #HELD_EFFECT_FLAME_PLATE
-    cmp r0, #HELD_EFFECT_PIXIE_PLATE - HELD_EFFECT_FLAME_PLATE
+    cmp r0, #HOLD_EFFECT_ARCEUS_FAIRY
+    beq @@fairy
+    sub r0, #HOLD_EFFECT_ARCEUS_FIRE
+    cmp r0, #HOLD_EFFECT_ARCEUS_STEEL - HOLD_EFFECT_ARCEUS_FIRE
     bhi @@normal // this catches negative numbers too
     ldr r1, =plate_to_type_table
     ldrb r0, [r1, r0]
+    bx lr
+
+@@fairy:
+    mov r0, #TYPE_FAIRY
     bx lr
 
 @@normal:
@@ -73,13 +80,6 @@ plate_to_type_table:     // 21 bytes
     .byte TYPE_DRAGON    // 0x8b
     .byte TYPE_DARK      // 0x8c
     .byte TYPE_STEEL     // 0x8d
-    // it should be noted that 0 is the default return value
-    .byte 0              // 0x8e
-    .byte 0              // 0x8f
-    .byte 0              // 0x90
-    .byte 0              // 0x91
-    .byte 0              // 0x92
-    .byte TYPE_FAIRY     // 0x93 - new fairy held type
 
 .endarea
 

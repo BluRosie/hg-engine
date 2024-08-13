@@ -52,8 +52,7 @@ BUILDROM = test.nds
 ADPCMXQ := tools/adpcm-xq
 ARMIPS := tools/armips
 BLZ := tools/blz
-BTX_EXE := tools/pngtobtx0.exe
-BTX := mono $(BTX_EXE)
+BTX := $(PYTHON) tools/overworld-btx.py
 ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
@@ -106,12 +105,6 @@ $(MSGENC): tools/source/msgenc/*
 
 TOOLS += $(MSGENC)
 
-BTX_SOURCES := $(wildcard tools/source/BTXEditor/*.cs)
-$(BTX_EXE): $(BTX_SOURCES)
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source/BTXEditor/Program-P.cs" "source/BTXEditor/pngtobtx0.cs" "source/BTXEditor/BTX0.cs"
-
-TOOLS += $(BTX_EXE)
-
 $(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
 	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
 
@@ -149,7 +142,7 @@ $(ADPCMXQ):
 ifeq (,$(wildcard $(ADPCMXQ)))
 	rm -r -f tools/source/adpcm-xq
 	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
-	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq
+	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq -lm
 	mv tools/source/adpcm-xq/adpcm-xq $(ADPCMXQ)
 	rm -r -f tools/source/adpcm-xq
 endif

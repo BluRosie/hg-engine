@@ -51,6 +51,15 @@ elif args[0] == 'create':
     narcbytes[FNTB_offset+8] = 0x4;
     del narcbytes[FNTB_offset+0x10:FNTB_offset+0x14]
     
+    # filler bytes are 0xFF in heart gold narcs
+    fileOffset = FNTB_offset + 0x18 # assume empty FNTB
+    for i in range(0x1C, FNTB_offset, 8):
+        currSize = struct.unpack_from("<I", narcbytes[i+4:i+8])[0]
+        currMargin = currSize % 4
+        if ((currMargin) != 0):
+            for j in range(0, 4-currMargin):
+                narcbytes[fileOffset + currSize + j] = 0xFF
+
     narcfile = open(args[1], 'wb')
     narcfile.write(narcbytes)
     narcfile.close()

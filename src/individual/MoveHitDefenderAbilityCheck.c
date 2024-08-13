@@ -74,6 +74,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     && (sp->moveTbl[sp->current_move_index].power)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)
+                    && (sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
                     && (sp->multi_hit_count <= 1)) // don't activate until the last hit of a multi-hit move
                 {
                     seq_no[0] = SUB_SEQ_COLOR_CHANGE;
@@ -481,6 +482,34 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->battlemon[sp->defence_client].form_no = 1;
                 seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
                 ret = TRUE;
+            }
+            break;
+        case ABILITY_THERMAL_EXCHANGE:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
+                && ((sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                u8 movetype;
+
+                movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
+
+                if(movetype == TYPE_FIRE)
+                {
+                    if(sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
+                    {
+                        sp->addeffect_param = ADD_STATE_ATTACK_UP;
+                        sp->addeffect_type = ADD_EFFECT_ABILITY;
+                        sp->state_client = sp->defence_client;
+                        sp->client_work = sp->defence_client;
+                        seq_no[0] = SUB_SEQ_BOOST_STATS;
+                        ret = TRUE;
+                    }
+                }
             }
             break;
         default:

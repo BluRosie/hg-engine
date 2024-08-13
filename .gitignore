@@ -85,4 +85,7 @@ tools/swav2swar.exe
 *:Zone.Identifier
 
 *.ml*
+
+*.gbapal
+*.4bpp
 changelog

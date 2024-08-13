@@ -1,0 +1,80 @@
+{
+	"frames": {
+		"swimhero.1": {
+			"frame": 0,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 77,
+			"unkBlockUnk1": 2,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"swimhero.2": {
+			"frame": 1,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 842,
+			"unkBlockUnk1": 770,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"swimhero.3": {
+			"frame": 2,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 329,
+			"unkBlockUnk1": 260,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"swimhero.4": {
+			"frame": 3,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 840,
+			"unkBlockUnk1": 516,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		}
+	},
+	"palettes": {
+		"swimhero": {
+			"offset": 0,
+			"unk0": 62,
+			"unk1": 1,
+			"fileName": "swimhero.pal"
+		}
+	}
+}

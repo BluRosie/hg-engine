@@ -1,0 +1,2 @@
+# these jasc-pal files need to be crlf to be interpreted properly
+*.pal text eol=crlf
