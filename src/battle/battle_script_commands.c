@@ -3040,8 +3040,7 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) 
     if (ctx->fcc.future_prediction_count[ctx->defence_client] == 0) {
         int side = IsClientEnemy(bsys, ctx->defence_client);
         ctx->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
-        // ctx->fcc.future_prediction_count[ctx->defence_client] = 3;
-        ctx->fcc.future_prediction_count[ctx->defence_client] = 2;
+        ctx->fcc.future_prediction_count[ctx->defence_client] = 3;
         ctx->fcc.future_prediction_wazano[ctx->defence_client] = ctx->current_move_index;
         ctx->fcc.future_prediction_client_no[ctx->defence_client] = ctx->attack_client;
         int damage = CalcBaseDamage(bsys, ctx, ctx->current_move_index, ctx->side_condition[side], ctx->field_condition, 0, 0, ctx->attack_client, ctx->defence_client, 1) * -1;
@@ -3076,7 +3075,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
             } else if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) { // Loaded Dice
-                cnt = BattleRand(bsys) & 1 + 4; // 0-1 + 4 -> 4-5 hits
+                cnt = (BattleRand(bsys) & 1) + 4; // 0-1 + 4 -> 4-5 hits
             } else {
                 cnt = (BattleRand(bsys) & 100);
                 if (cnt >= 0 && cnt <= 35) {

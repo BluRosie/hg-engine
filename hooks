@@ -452,7 +452,7 @@ arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
 # 0224C018 + 4 = 224C01C
 0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
 
-0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
+# 0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
 
 #ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 arm9 AllocFail_hook 0201AA7C 0
