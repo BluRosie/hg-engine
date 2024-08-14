@@ -15,6 +15,8 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
+
 struct EXP_CALCULATOR
 {
     /* 0x00 */ void *bw;
@@ -79,6 +81,7 @@ BOOL btl_scr_cmd_F7_setbindingcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -348,6 +351,7 @@ const u8 *BattleScrCmdNames[] =
     "clearbindcounter",
     "canclearprimalweather",
     "setabilityactivatedflag",
+    "switchinabilitycheck",
 };
 
 u32 cmdAddress = 0;
@@ -382,6 +386,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF8 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F8_clearbindcounter,
     [0xF9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F9_canclearprimalweather,
     [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
+    [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FB_switchinabilitycheck,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -2824,6 +2829,31 @@ BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw UNUSED, struct BattleStruct
 }
 
 /**
+ *  @brief script command to store the subscipt to jump to for effects that should trigger immediately
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    // u8 buf[64];
+    // sprintf(buf, "In switchinabilitycheck\n");
+    // debugsyscall(buf);
+
+    int script;
+
+    script = SwitchInAbilityCheck(bw, sp);
+    sp->temp_work = script;
+
+    // sprintf(buf, "script: %d\n", script);
+    // debugsyscall(buf);
+
+    return FALSE;
+}
+
+/**
  *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
  *
  *  @param bw battle work structure
@@ -2996,15 +3026,6 @@ BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx) {
                 break;
             }
         }
-
-        // debug_printf("Client %d future order: %d, wish order: %d\n\n", ctx->attack_client, ctx->futureConditionQueueWrong[ctx->attack_client].futureSightOrDoomDesireExecutionOrder, ctx->futureConditionQueueWrong[ctx->attack_client].wishExecutionOrder);
-
-        // if (ctx->futureConditionQueueWrong[ctx->attack_client].futureSightOrDoomDesireExecutionOrder) {
-        //     ctx->futureConditionQueueWrong[ctx->attack_client].wishExecutionOrder = 2;
-        // } else {
-        //     ctx->futureConditionQueueWrong[ctx->attack_client].wishExecutionOrder = 1;
-        // }
-        
     }
 
     return FALSE;
@@ -3036,14 +3057,6 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) 
                 break;
             }
         }
-
-        // debug_printf("Client %d future order: %d, wish order: %d\n\n", ctx->defence_client, ctx->futureConditionQueueWrong[ctx->defence_client].futureSightOrDoomDesireExecutionOrder, ctx->futureConditionQueueWrong[ctx->defence_client].wishExecutionOrder);
-
-        // if (ctx->futureConditionQueueWrong[ctx->defence_client].wishExecutionOrder) {
-        //     ctx->futureConditionQueueWrong[ctx->defence_client].futureSightOrDoomDesireExecutionOrder = 2;
-        // } else {
-        //     ctx->futureConditionQueueWrong[ctx->defence_client].futureSightOrDoomDesireExecutionOrder = 1;
-        // }
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
@@ -3063,11 +3076,18 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
             } else if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) { // Loaded Dice
-                cnt = BattleRand(bsys) % 2 + 4; // 0-1 + 4 -> 4-5 hits
-            } else if ((cnt = BattleRand(bsys) & 3) < 2) {
-                cnt += 2;
+                cnt = BattleRand(bsys) & 1 + 4; // 0-1 + 4 -> 4-5 hits
             } else {
-                cnt = (BattleRand(bsys) & 3) + 2;
+                cnt = (BattleRand(bsys) & 100);
+                if (cnt >= 0 && cnt <= 35) {
+                    cnt = 2;
+                } else if (cnt > 35 && cnt <= 70) {
+                    cnt = 3;
+                } else if (cnt > 70 && cnt <= 85) {
+                    cnt = 4;
+                } else {
+                    cnt = 5;
+                }
             }
         }
 
