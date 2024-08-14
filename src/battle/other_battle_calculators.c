@@ -2673,6 +2673,17 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
             }
         }
 
+        // If the user's next move is not Electric-type, Charge no longer wears off, and instead remains active for the next move that is.
+        // However, if the user attempted to use an Electric-type move,
+        // Charge will still wear off even if a condition prevented the move from being used, such as being asleep or flinching.
+        // TODO: Refactor this
+        int move_type = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
+        if (ctx->battlemon[ctx->attack_client].moveeffect.isCharged && move_type == TYPE_ELECTRIC) {
+            if (--ctx->battlemon[ctx->attack_client].moveeffect.isCharged == 0) {
+                    ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_CHARGE;
+                }
+        }
+
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);

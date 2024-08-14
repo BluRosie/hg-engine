@@ -190,12 +190,12 @@ The wild {STRVAR_1 1, 0, 0}’s\nHP is full!
 The opposing {STRVAR_1 1, 0, 0}’s\nHP is full!
 Light Screen made your team\nstronger against special moves!
 Light Screen made the opposing team\nstronger against special moves!
-{STRVAR_1 6, 0, 0} raised your team’s\nSpecial Defense slightly!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Special Defense slightly!
+Light Screen made your team\nstronger against special moves!
+Light Screen made the opposing team\nstronger against special moves!
 Reflect made your team\nstronger against physical moves!
 Reflect made the opposing team\nstronger against physical moves!
-{STRVAR_1 6, 0, 0} raised your team’s\nDefense slightly!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense slightly!
+Reflect made your team\nstronger against physical moves!
+Reflect made the opposing team\nstronger against physical moves!
 Your team became cloaked in\na mystical veil!
 The opposing team became\ncloaked in a mystical veil!
 {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
@@ -287,7 +287,7 @@ The opposing {STRVAR_1 1, 0, 0} protected\nitself!
 The wild {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 The opposing {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 Your team’s {STRVAR_1 6, 0, 0}\nwore off!
-The opposing {STRVAR_1 6, 0, 0}\nwore off!
+The opposing team’s {STRVAR_1 6, 0, 0}\nwore off!
 {STRVAR_1 1, 0, 0} was seeded!
 The wild {STRVAR_1 1, 0, 0}\nwas seeded!
 The opposing {STRVAR_1 1, 0, 0}\nwas seeded!
@@ -1039,7 +1039,7 @@ The wild {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
 The wild {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
-The electromagnetism of the opposing\n{STRVAR_1 1, 0, 0} wore off!
+The opposing\n{STRVAR_1 1, 0, 0}\nelectromagnetism wore off!
 {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
@@ -1084,7 +1084,7 @@ Pointed stones dug into\nthe opposing {STRVAR_1 1, 0, 0}!
 The wild {STRVAR_1 1, 0, 0} vanished\ninstantly!
 The opposing {STRVAR_1 1, 0, 0} vanished\ninstantly!
 Your team’s Lucky Chant wore off!
-The opposing Lucky Chant wore off!
+The opposing team’s Lucky Chant wore off!
 {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
@@ -1394,9 +1394,9 @@ An electric current\nran across the battlefield!
 The electricity disappeared\nfrom the battlefield.
 The battlefield got weird!
 The weirdness disappeared\nfrom the battlefield.
-{STRVAR_1 1, 0, 0}’s HP\nwas restored.
-The wild {STRVAR_1 1, 0, 0}’s HP\nwas restored.
-The opposing {STRVAR_1 1, 0, 0}’s HP\nwas restored.
+{STRVAR_1 1, 0, 0} had\nits HP restored.
+The wild {STRVAR_1 1, 0, 0} had\nits HP restored.
+The opposing {STRVAR_1 1, 0, 0} had\nits HP restored.
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Atk of all surrounding\fPokémon!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Atk of\fall surrounding Pokémon!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Atk of\fall surrounding Pokémon!

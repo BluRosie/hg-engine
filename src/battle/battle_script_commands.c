@@ -81,6 +81,10 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
@@ -2883,6 +2887,204 @@ BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp) {
 
         } else {
             sp->damage_power = sp->moveTbl[sp->current_move_index].power;
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
+
+    ctx->temp_work = 0;
+    ctx->hp_calc_work = 0;
+
+    u32 type1 = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_TYPE1, NULL);
+    u32 type2 = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_TYPE2, NULL);
+
+    int item = GetBattleMonItem(ctx, battlerId);
+    int hold_effect = BattleItemDataGet(ctx, item, 1);
+    int ability = GetBattlerAbility(ctx, battlerId);
+
+    if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0 && CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) {
+        if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
+            if (type1 != TYPE_ROCK && type2 != TYPE_ROCK &&
+                type1 != TYPE_STEEL && type2 != TYPE_STEEL &&
+                type1 != TYPE_GROUND && type2 != TYPE_GROUND &&
+                ctx->battlemon[battlerId].hp &&
+                ability != ABILITY_SAND_VEIL &&
+                ability != ABILITY_MAGIC_GUARD &&
+                ability != ABILITY_OVERCOAT &&
+                ability != ABILITY_SAND_RUSH &&
+                ability != ABILITY_SAND_FORCE &&
+                hold_effect != HOLD_EFFECT_SPORE_POWDER_IMMUNITY &&
+                !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+                    ctx->waza_work = MOVE_SANDSTORM;
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 16);
+            }
+        }
+        if (ctx->field_condition & WEATHER_SUNNY_ANY) {
+            if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+                if (ability == ABILITY_DRY_SKIN || ability == ABILITY_SOLAR_POWER) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 8);
+                }
+                if (ability == ABILITY_SOLAR_POWER) {
+                    ctx->temp_work = 2;
+                }
+            }
+        }
+        if (ctx->field_condition & WEATHER_HAIL_ANY) {
+            if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+                if (ability == ABILITY_ICE_BODY) {
+                    if (ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp) {
+                        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
+                    }
+                } else if (type1 != TYPE_ICE && type2 != TYPE_ICE &&
+                           ability != ABILITY_SNOW_CLOAK &&
+                           ability != ABILITY_MAGIC_GUARD &&
+                           ability != ABILITY_OVERCOAT &&
+                           hold_effect != HOLD_EFFECT_SPORE_POWDER_IMMUNITY) {
+                    ctx->waza_work = MOVE_HAIL;
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 16);
+
+                }
+            }
+        }
+
+        if (ctx->field_condition & WEATHER_SNOW_ANY) {
+            if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+                if (ability == ABILITY_ICE_BODY) {
+                    if (ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp) {
+                        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
+                    }
+                }
+            }
+        }
+
+        if (ctx->field_condition & WEATHER_RAIN_ANY) {
+            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp &&
+                ability == ABILITY_RAIN_DISH) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
+            }
+            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp &&
+                ability == ABILITY_DRY_SKIN) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 8);
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->fcc.wish_count[ctx->attack_client]) {
+        IncrementBattleScriptPtr(ctx, adrs);
+    } else {
+        ctx->fcc.wish_count[ctx->attack_client] = 2;
+        ctx->fcc.wish_sel_mons[ctx->attack_client] = ctx->sel_mons_no[ctx->attack_client];
+
+        for (int i = 0; i < CLIENT_MAX * FUTURE_CONDITION_MAX; i++) {
+            if (ctx->futureConditionQueue[i].conditionType.futureConditionType == FUTURE_CONDITION_NONE) {
+                ctx->futureConditionQueue[i].conditionType.futureConditionType = FUTURE_CONDITION_WISH;
+                ctx->futureConditionQueue[i].affectedClient = ctx->attack_client;
+                break;
+            }
+        }
+
+        // debug_printf("Client %d future order: %d, wish order: %d\n\n", ctx->attack_client, ctx->futureConditionQueueWrong[ctx->attack_client].futureSightOrDoomDesireExecutionOrder, ctx->futureConditionQueueWrong[ctx->attack_client].wishExecutionOrder);
+
+        // if (ctx->futureConditionQueueWrong[ctx->attack_client].futureSightOrDoomDesireExecutionOrder) {
+        //     ctx->futureConditionQueueWrong[ctx->attack_client].wishExecutionOrder = 2;
+        // } else {
+        //     ctx->futureConditionQueueWrong[ctx->attack_client].wishExecutionOrder = 1;
+        // }
+        
+    }
+
+    return FALSE;
+}
+
+// TODO: Modernize damage
+BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->fcc.future_prediction_count[ctx->defence_client] == 0) {
+        int side = IsClientEnemy(bsys, ctx->defence_client);
+        ctx->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
+        // ctx->fcc.future_prediction_count[ctx->defence_client] = 3;
+        ctx->fcc.future_prediction_count[ctx->defence_client] = 2;
+        ctx->fcc.future_prediction_wazano[ctx->defence_client] = ctx->current_move_index;
+        ctx->fcc.future_prediction_client_no[ctx->defence_client] = ctx->attack_client;
+        int damage = CalcBaseDamage(bsys, ctx, ctx->current_move_index, ctx->side_condition[side], ctx->field_condition, 0, 0, ctx->attack_client, ctx->defence_client, 1) * -1;
+        ctx->fcc.future_prediction_damage[ctx->defence_client] = AdjustDamageForRoll(bsys, ctx, damage);
+        if (ctx->oneTurnFlag[ctx->attack_client].helping_hand_flag) {
+            ctx->fcc.future_prediction_damage[ctx->defence_client] = ctx->fcc.future_prediction_damage[ctx->defence_client]*15/10;
+        }
+
+        for (int i = 0; i < CLIENT_MAX * FUTURE_CONDITION_MAX; i++) {
+            if (ctx->futureConditionQueue[i].conditionType.futureConditionType == FUTURE_CONDITION_NONE) {
+                ctx->futureConditionQueue[i].conditionType.futureConditionType = FUTURE_CONDITION_FUTURE_SIGHT_OR_DOOM_DESIRE;
+                ctx->futureConditionQueue[i].affectedClient = ctx->defence_client;
+                break;
+            }
+        }
+
+        // debug_printf("Client %d future order: %d, wish order: %d\n\n", ctx->defence_client, ctx->futureConditionQueueWrong[ctx->defence_client].futureSightOrDoomDesireExecutionOrder, ctx->futureConditionQueueWrong[ctx->defence_client].wishExecutionOrder);
+
+        // if (ctx->futureConditionQueueWrong[ctx->defence_client].wishExecutionOrder) {
+        //     ctx->futureConditionQueueWrong[ctx->defence_client].futureSightOrDoomDesireExecutionOrder = 2;
+        // } else {
+        //     ctx->futureConditionQueueWrong[ctx->defence_client].futureSightOrDoomDesireExecutionOrder = 1;
+        // }
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int cnt = read_battle_script_param(ctx);
+    int checkMultiHit = read_battle_script_param(ctx);
+
+    if (ctx->multi_hit_count_temp == 0) {
+        // Handle 2-5 hits
+        if (cnt == 0) {
+            if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
+                cnt = 5;
+            } else if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) { // Loaded Dice
+                cnt = BattleRand(bsys) % 2 + 4; // 0-1 + 4 -> 4-5 hits
+            } else if ((cnt = BattleRand(bsys) & 3) < 2) {
+                cnt += 2;
+            } else {
+                cnt = (BattleRand(bsys) & 3) + 2;
+            }
+        }
+
+        // Population Bomb
+        if (cnt == 10 && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
+            cnt = BattleRand(bsys) % 7 + 4; // 0-6 + 4 -> 4-10 hits
+        }
+
+        ctx->multi_hit_count = cnt;
+        ctx->multi_hit_count_temp = cnt;
+
+        // MULTIHIT_TRIPLE_KICK, 0xDD
+        // MULTIHIT_MULTI_HIT_MOVE, 0xFD
+        if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {  // Loaded Dice
+            ctx->loop_hit_check = 0xFD;
+        } else {
+            ctx->loop_hit_check = checkMultiHit;
         }
     }
 

@@ -59,4 +59,6 @@
 // DEBUG_ALWAYS_OBEY will force all battlers to obey regardless of badges owned
 //#define DEBUG_ALWAYS_OBEY
 
+// #define DEBUG_ENDTURN_LOGIC
+
 #endif // DEBUG_H
