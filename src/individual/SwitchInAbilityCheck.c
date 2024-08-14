@@ -99,7 +99,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Unnerve / As One
                     {
                         if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp)
-                        && ((GetBattlerAbility(sp, client_no) == ABILITY_WANDERING_SPIRIT)
+                        && ((GetBattlerAbility(sp, client_no) == ABILITY_AS_ONE_GLASTRIER)
                         || (GetBattlerAbility(sp, client_no) == ABILITY_AS_ONE_SPECTRIER)
                         || (GetBattlerAbility(sp, client_no) == ABILITY_UNNERVE))) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
