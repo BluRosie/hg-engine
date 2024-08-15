@@ -17,7 +17,7 @@ _000:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_SYS_STATUS, BATTLE_SPECIAL_FIRST_RIVAL, _055
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_SYS_STATUS, BATTLE_SPECIAL_HONEY_TREE, _061
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_DOUBLES, _079
-    // A wild {0} appeared!
+    // You encountered a wild {0}!
     PrintGlobalMessage 965, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     GoTo _084
 
@@ -32,7 +32,7 @@ _061:
     GoTo _084
 
 _067:
-    // A wild {0} appeared!
+    // {0} appeared!
     PrintGlobalMessage 1246, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     GoTo _084
 
@@ -136,7 +136,7 @@ _227:
     WaitTime 122
     HealthbarSlideInDelay BATTLER_CATEGORY_ENEMY
     Wait 
-    // A wild {0} appeared!
+    // You encountered a wild {0}!
     PrintGlobalMessage 965, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait 
     HealthbarSlideIn BATTLER_CATEGORY_PLAYER
