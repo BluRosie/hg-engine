@@ -1816,7 +1816,7 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
 bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_no)
 {
     u32 i, ret = FALSE;
-    int work = 0;
+    int work;
 
     // use this chance to make bad poisoning normal poison at the end of battle
     work = GetMonData(pp, MON_DATA_STATUS, NULL);
@@ -1826,6 +1826,7 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
         work |= STATUS_FLAG_POISONED;
         SetMonData(pp, MON_DATA_STATUS, &work);
     }
+    work = 0; // reset work variable so that the form is fine
 
     if (form_no != 0)
     {
