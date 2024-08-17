@@ -82,6 +82,7 @@ BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -352,6 +353,7 @@ const u8 *BattleScrCmdNames[] =
     "canclearprimalweather",
     "setabilityactivatedflag",
     "switchinabilitycheck",
+    "trystickyweb",
 };
 
 u32 cmdAddress = 0;
@@ -387,6 +389,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F9_canclearprimalweather,
     [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
     [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FB_switchinabilitycheck,
+    [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trystickyweb,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -3193,6 +3196,34 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
     }
 
     IncrementBattleScriptPtr(sp, 1);
+
+    return FALSE;
+}
+
+/**
+ * @brief Try to execute the Sticky Web effect.
+ * Stores the user and the users side in sp->scw
+ * Stores the existence of Sticky Web in sp->side_condition to the defenders side
+ * This command will fail if there is Sticky Web already laid on the defenders side.
+ *
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return FALSE
+ */
+
+BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int adrs = read_battle_script_param(sp);
+    int side = IsClientEnemy(bw, sp->defence_client);
+
+    if (sp->side_condition[side] & SIDE_STATUS_STICKY_WEB) {
+        sp->oneSelfFlag[sp->attack_client].no_pressure_flag = 1;
+        IncrementBattleScriptPtr(sp, adrs);
+    } else {
+        sp->side_condition[side] |= SIDE_STATUS_STICKY_WEB;
+        sp->scw[side].stickyWebBattlerId = sp->attack_client;                      // For Mirror Armor in doubles
+        sp->scw[side].stickyWebBattlerSide = IsClientEnemy(bw, sp->attack_client); // For Court Change and Defiant
+    }
 
     return FALSE;
 }
