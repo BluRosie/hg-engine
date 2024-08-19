@@ -58,6 +58,7 @@ _122:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_FUTURE_SIGHT
     TriggerAbilityOnHit _end
     CallFromVar BSCRIPT_VAR_TEMP_DATA
+    Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
 
 _end:
     End 

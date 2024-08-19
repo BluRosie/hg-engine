@@ -2843,12 +2843,18 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp) {
     // debugsyscall(buf);
 
     int script;
+    int failAddress = read_battle_script_param(sp);
 
     script = SwitchInAbilityCheck(bw, sp);
-    sp->temp_work = script;
-
-    // sprintf(buf, "script: %d\n", script);
-    // debugsyscall(buf);
+    if (script) {
+        // sprintf(buf, "script: %d\n", script);
+        // debugsyscall(buf);
+        sp->temp_work = script;
+    } else {
+        // sprintf(buf, "no script needed\n");
+        // debugsyscall(buf);
+        IncrementBattleScriptPtr(sp, failAddress);
+    }
 
     return FALSE;
 }

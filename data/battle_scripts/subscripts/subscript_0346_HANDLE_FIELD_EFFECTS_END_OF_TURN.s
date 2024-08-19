@@ -13,5 +13,6 @@ _004:
     PrintMessage 1396, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
+    Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
 _end:
     End 
