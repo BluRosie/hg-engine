@@ -78,6 +78,7 @@ BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *
 BOOL btl_scr_cmd_F7_setbindingcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
@@ -342,6 +343,7 @@ const u8 *BattleScrCmdNames[] =
     "setbindingcounter",
     "clearbindcounter",
     "canclearprimalweather",
+    "setabilityactivatedflag",
 };
 
 u32 cmdAddress = 0;
@@ -375,6 +377,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF7 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F7_setbindingcounter,
     [0xF8 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F8_clearbindcounter,
     [0xF9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F9_canclearprimalweather,
+    [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1148,6 +1151,9 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 sp->battlemon[sp->attack_client].sheer_force_flag = 0;
                 break;
         }
+        if (sp->current_move_index == MOVE_SPARKLING_ARIA) {
+            sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+        }
     }
 
     JumpToMoveEffectScript(sp, 30, effect);
@@ -1794,7 +1800,7 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
 
     if (sp->battlemon[sp->attack_client].moveeffect.furyCutterCount < 3 &&
         // the second hit for Parental Bond doesn't increase the counter
-        sp->battlemon[sp->attack_client].parental_bond_flag != 2) {
+        sp->oneTurnFlag[sp->attack_client].parental_bond_flag != 2) {
         sp->battlemon[sp->attack_client].moveeffect.furyCutterCount++;
     }
 
@@ -2477,7 +2483,7 @@ BOOL btl_scr_cmd_EF_iffirsthitofparentalbond(void *bw UNUSED, struct BattleStruc
 
     int address = read_battle_script_param(sp);
 
-    if (sp->battlemon[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
+    if (sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 1 && sp->battlemon[sp->attack_client].ability == ABILITY_PARENTAL_BOND) {
         IncrementBattleScriptPtr(sp, address);
     }
 
@@ -2496,7 +2502,7 @@ BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw UNUSED, struct BattleStru
 
     int address = read_battle_script_param(sp);
 
-    if (sp->battlemon[sp->attack_client].parental_bond_flag == 2) {
+    if (sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 2) {
         IncrementBattleScriptPtr(sp, address);
     }
 
@@ -2513,8 +2519,8 @@ BOOL btl_scr_cmd_F0_ifsecondhitofparentalbond(void *bw UNUSED, struct BattleStru
 BOOL btl_scr_cmd_F1_setparentalbondflag(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 
-    sp->battlemon[sp->attack_client].parental_bond_flag = 1;
-    sp->battlemon[sp->attack_client].parental_bond_is_active = TRUE;
+    sp->oneTurnFlag[sp->attack_client].parental_bond_flag = 1;
+    sp->oneTurnFlag[sp->attack_client].parental_bond_is_active = TRUE;
 
     return FALSE;
 }
@@ -2567,7 +2573,7 @@ BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *s
 
     int address = read_battle_script_param(sp);
 
-    if (sp->battlemon[sp->attack_client].parental_bond_is_active == TRUE) {
+    if (sp->oneTurnFlag[sp->attack_client].parental_bond_is_active == TRUE) {
         IncrementBattleScriptPtr(sp, address);
     }
 
@@ -2789,6 +2795,26 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp) {
                 break;
         }
     }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to turn on the ability activated flag for a client
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    u8 side, client_no;
+
+    side = read_battle_script_param(sp);
+    client_no = GrabClientFromBattleScriptParam(bw, sp, side);
+
+    sp->battlemon[client_no].ability_activated_flag = 1;
 
     return FALSE;
 }

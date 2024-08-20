@@ -1037,9 +1037,9 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1166, .gfx =  918, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PETILIL
     { .tag = 1167, .gfx =  919, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_LILLIGANT
     { .tag = 1168, .gfx = 1349, .callback_params = OVERWORLD_SIZE_SMALL}, // hisui
-    { .tag = 1169, .gfx =  920, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BASCULIN
-    { .tag = 1170, .gfx =  921, .callback_params = OVERWORLD_SIZE_SMALL}, // red stripe
-    { .tag = 1171, .gfx = 1350, .callback_params = OVERWORLD_SIZE_SMALL}, // blue stripe
+    { .tag = 1169, .gfx =  921, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BASCULIN
+    { .tag = 1170, .gfx = 1350, .callback_params = OVERWORLD_SIZE_SMALL}, // blue stripe
+    { .tag = 1171, .gfx =  920, .callback_params = OVERWORLD_SIZE_SMALL}, // white stripe
     { .tag = 1172, .gfx =  922, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SANDILE
     { .tag = 1173, .gfx =  923, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KROKOROK
     { .tag = 1174, .gfx =  924, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_KROOKODILE

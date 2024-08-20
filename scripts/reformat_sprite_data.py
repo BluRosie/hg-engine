@@ -76,7 +76,7 @@ ICONGFX_OBJS += {0}.NCGR
 
 
 """
-path_resolver takes an input file and tries to determine the species name from it so it can 
+path_resolver takes an input file and tries to determine the species name from it so it can
 return the output path.  this output path is then fed to nitrogfx to build proper for narc packing
 """
 def path_resolver(inputPath: str, speciesDict: dict) -> str:
@@ -86,7 +86,7 @@ def path_resolver(inputPath: str, speciesDict: dict) -> str:
     speciesName = "SPECIES_" + inputPath.upper()
 
     inputPath = "build/pokemonpic/{:04d}".format(speciesDict[speciesName])
-    
+
     return inputPath
 
 
@@ -97,7 +97,7 @@ def path_resolver_icons(inputPath: str, speciesDict: dict) -> str:
     speciesName = "SPECIES_" + inputPath.upper()
 
     inputPath = "build/pokemonicon/1_{:04d}".format(speciesDict[speciesName])
-    
+
     return inputPath
 
 
@@ -171,10 +171,13 @@ if __name__ == '__main__':
     if (len(args) == 1):
         GrabSpeciesDict(speciesDict)
         GenMakefile(args[0].strip(), speciesDict)
-    elif '--convert' in args[0]:
+    elif len(args) > 0 and '--convert' in args[0]:
         dump = True
         GrabSpeciesDict(entryDict)
         dump = False
         GrabSpeciesDict(speciesDict)
         ConvertExistingRepo(speciesDict, entryDict)
         GenMakefile(args[1].strip(), speciesDict)
+    elif (len(args) == 0):
+        GrabSpeciesDict(speciesDict)
+        GenMakefile("data/graphics/pokegra.mk", speciesDict)

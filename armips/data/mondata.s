@@ -24413,23 +24413,6 @@ mondata SPECIES_PALKIA_ORIGIN, "-----"
     colorflip BODY_COLOR_PURPLE, 0
 
 
-mondata SPECIES_BASCULIN_RED_STRIPED, "-----"
-    basestats 70, 92, 65, 98, 80, 55
-    types TYPE_WATER, TYPE_WATER
-    catchrate 25
-    baseexp 161
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
-    genderratio 127
-    eggcycles 40
-    basefriendship 70
-    growthrate GROWTH_MEDIUM_FAST
-    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
-    abilities ABILITY_RECKLESS,  ABILITY_ADAPTABILITY
-    runchance 0
-    colorflip BODY_COLOR_GREEN, 0
-
-
 mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     basestats 70, 92, 65, 98, 80, 55
     types TYPE_WATER, TYPE_WATER
@@ -24443,6 +24426,23 @@ mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_ROCK_HEAD,  ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip BODY_COLOR_GREEN, 0
+
+
+mondata SPECIES_BASCULIN_WHITE_STRIPED, "-----"
+    basestats 70, 92, 65, 98, 80, 55
+    types TYPE_WATER, TYPE_WATER
+    catchrate 25
+    baseexp 161
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
+    genderratio 127
+    eggcycles 40
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
+    abilities ABILITY_RATTLED,  ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
 
@@ -25134,7 +25134,7 @@ mondata SPECIES_FLABEBE_YELLOW_FLOWER, "-----"
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25151,7 +25151,7 @@ mondata SPECIES_FLABEBE_ORANGE_FLOWER, "-----"
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25168,7 +25168,7 @@ mondata SPECIES_FLABEBE_BLUE_FLOWER, "-----"
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25185,7 +25185,7 @@ mondata SPECIES_FLABEBE_WHITE_FLOWER, "-----"
     baseexp 61
     evyields 0, 0, 0, 0, 0, 1
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25202,7 +25202,7 @@ mondata SPECIES_FLOETTE_YELLOW_FLOWER, "-----"
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25219,7 +25219,7 @@ mondata SPECIES_FLOETTE_ORANGE_FLOWER, "-----"
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25236,7 +25236,7 @@ mondata SPECIES_FLOETTE_BLUE_FLOWER, "-----"
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25253,7 +25253,7 @@ mondata SPECIES_FLOETTE_WHITE_FLOWER, "-----"
     baseexp 130
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25270,7 +25270,7 @@ mondata SPECIES_FLOETTE_ETERNAL_FLOWER, "-----"
     baseexp 243
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25287,7 +25287,7 @@ mondata SPECIES_FLORGES_YELLOW_FLOWER, "-----"
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25304,7 +25304,7 @@ mondata SPECIES_FLORGES_ORANGE_FLOWER, "-----"
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25321,7 +25321,7 @@ mondata SPECIES_FLORGES_BLUE_FLOWER, "-----"
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -25338,7 +25338,7 @@ mondata SPECIES_FLORGES_WHITE_FLOWER, "-----"
     baseexp 248
     evyields 0, 0, 0, 0, 0, 3
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26273,7 +26273,7 @@ mondata SPECIES_ALCREMIE_BERRY_SWEET, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26290,7 +26290,7 @@ mondata SPECIES_ALCREMIE_LOVE_SWEET, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26307,7 +26307,7 @@ mondata SPECIES_ALCREMIE_STAR_SWEET, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26324,7 +26324,7 @@ mondata SPECIES_ALCREMIE_CLOVER_SWEET, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26341,7 +26341,7 @@ mondata SPECIES_ALCREMIE_FLOWER_SWEET, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26358,7 +26358,7 @@ mondata SPECIES_ALCREMIE_RIBBON_SWEET, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26375,7 +26375,7 @@ mondata SPECIES_ALCREMIE_FILLER_1, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
@@ -26392,7 +26392,7 @@ mondata SPECIES_ALCREMIE_FILLER_2, "-----"
     baseexp 173
     evyields 0, 0, 0, 0, 0, 2
     items ITEM_NONE, ITEM_NONE
-    genderratio 244
+    genderratio 254
     eggcycles 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST

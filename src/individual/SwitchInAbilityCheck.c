@@ -200,12 +200,15 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Intimidate
                     {
-                        if ((sp->battlemon[client_no].intimidate_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE) && (IntimidateCheckHelper(sp, client_no))) {
+                        if ((sp->battlemon[client_no].intimidate_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE)) {
+                            // mark intimidate as having activated if it can regardless of if it does so that abilities that suppress it don't suddenly let it activate once they disappear
                             sp->battlemon[client_no].intimidate_flag = 1;
-                            sp->client_work = client_no;
-                            scriptnum = SUB_SEQ_INTIMIDATE;
-                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            break;
+                            if (IntimidateCheckHelper(sp, client_no)) {
+                                sp->client_work = client_no;
+                                scriptnum = SUB_SEQ_INTIMIDATE;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            }
                         }
                     }
 
@@ -575,22 +578,25 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             (sp->battlemon[client_no].hp)) {
                             switch (GetBattlerAbility(sp, client_no)) {
                                 case ABILITY_GRASSY_SURGE:
-                                    sp->current_move_index = MOVE_GRASSY_TERRAIN;  // force move anim to play
+                                    sp->calc_work = sp->current_move_index;
+                                    sp->current_move_index = MOVE_GRASSY_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 case ABILITY_MISTY_SURGE:
-                                    sp->current_move_index = MOVE_MISTY_TERRAIN;  // force move anim to play
+                                    sp->calc_work = sp->current_move_index;
+                                    sp->current_move_index = MOVE_MISTY_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 case ABILITY_ELECTRIC_SURGE:
-                                    sp->current_move_index = MOVE_ELECTRIC_TERRAIN;  // force move anim to play
+                                    sp->calc_work = sp->current_move_index;
+                                    sp->current_move_index = MOVE_ELECTRIC_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 case ABILITY_PSYCHIC_SURGE:
-                                    sp->current_move_index = MOVE_PSYCHIC_TERRAIN;  // force move anim to play
+                                    sp->calc_work = sp->current_move_index;
+                                    sp->current_move_index = MOVE_PSYCHIC_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
-
                                 default:
                                     break;
                             }
@@ -599,6 +605,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 sp->battlemon[client_no].ability_activated_flag = 1;
                                 sp->attack_client = client_no; // this should allow for the seeds to affect the terrain
                                 scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
+                                sp->addeffect_type = ADD_EFFECT_ABILITY; // need to restore the current move index after the animation has played
                                 break;
                             }
                         }
@@ -746,6 +753,7 @@ static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
             u32 ability = GetBattlerAbility(sp, clientCheck);
             switch (ability)
             {
+                // should maybe move these to the battle script like clear body
             case ABILITY_INNER_FOCUS:
             case ABILITY_SCRAPPY:
             case ABILITY_OBLIVIOUS:

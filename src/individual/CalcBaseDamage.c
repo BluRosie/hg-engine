@@ -853,16 +853,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     damage /= 50;
 
     // Handle Parental Bond
-    if (sp->battlemon[attacker].parental_bond_flag == 2) {
+    if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
         damage /= 4;
     }
-    switch (sp->battlemon[attacker].parental_bond_flag) {
+    switch (sp->oneTurnFlag[attacker].parental_bond_flag) {
         case 1:
-            sp->battlemon[attacker].parental_bond_flag++;
-            sp->battlemon[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
+            sp->oneTurnFlag[attacker].parental_bond_flag++;
+            sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
             break;
         default:
-            sp->battlemon[attacker].parental_bond_flag = 0;
+            sp->oneTurnFlag[attacker].parental_bond_flag = 0;
             break;
     }
 
