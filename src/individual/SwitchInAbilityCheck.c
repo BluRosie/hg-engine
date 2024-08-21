@@ -86,6 +86,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no++;
             }
                 break;
+            case SWITCH_IN_CHECK_FIELD: // TODO come back to this
+                sp->switch_in_check_seq_no++;
+                break;
             // https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
             case SWITCH_IN_CHECK_ENTRY_EFFECT: {
                 for (i = 0; i < client_set_max; i++) {
@@ -709,19 +712,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     sp->switch_in_check_seq_no++;
                 }
             }
-                break;
-            case SWITCH_IN_CHECK_FIELD:; // TODO come back to this
-//                if (sp->printed_field_message == 0) {
-//                    sp->terrainOverlay.type = TERRAIN_NONE;
-//                    sp->terrainOverlay.numberOfTurnsLeft = 0;
-//                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG; // currently NULL
-//                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-//
-//                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-//                        sp->printed_field_message = 1;
-//                    }
-//                }
-                sp->switch_in_check_seq_no++;
                 break;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;

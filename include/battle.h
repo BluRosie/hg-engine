@@ -2343,11 +2343,11 @@ extern struct BattleSystem *gBattleSystem;
 enum
 {
     SWITCH_IN_CHECK_WEATHER = 0,
+    SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
     SWITCH_IN_CHECK_ENTRY_EFFECT,
     SWITCH_IN_CHECK_AMULET_COIN,
     SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_HEAL_STATUS,
-    SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
     SWITCH_IN_CHECK_END,
 };
 
