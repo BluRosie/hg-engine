@@ -1085,9 +1085,9 @@ The wild {STRVAR_1 1, 0, 0} vanished\ninstantly!
 The opposing {STRVAR_1 1, 0, 0} vanished\ninstantly!
 Your team’s Lucky Chant wore off!
 The opposing team’s Lucky Chant wore off!
-{STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0}\nbreaks the mold!
+The wild {STRVAR_1 1, 0, 0}\nbreaks the mold!
+The opposing {STRVAR_1 1, 0, 0}\nbreaks the mold!
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
