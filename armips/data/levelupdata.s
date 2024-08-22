@@ -27884,6 +27884,7 @@ levelup SPECIES_PIKACHU_PARTNER
     learnset MOVE_SLAM, 24
     learnset MOVE_AGILITY, 27
     learnset MOVE_THUNDER, 30
+    terminatelearnset
 
 levelup SPECIES_EEVEE_PARTNER
     learnset MOVE_TACKLE, 1
@@ -27897,6 +27898,7 @@ levelup SPECIES_EEVEE_PARTNER
     learnset MOVE_TAKE_DOWN, 24
     learnset MOVE_DOUBLE_EDGE, 28
     learnset MOVE_HELPING_HAND, 31
+    terminatelearnset
 
 levelup SPECIES_CRAMORANT_GULPING
     learnset MOVE_BELCH, 1

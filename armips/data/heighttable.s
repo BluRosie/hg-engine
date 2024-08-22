@@ -885,7 +885,7 @@ heightentry SPECIES_SKWOVET, 0, 0, 0, 0
 heightentry SPECIES_GREEDENT, 0, 0, 0, 0
 heightentry SPECIES_ROOKIDEE, 0, 0, 0, 0
 heightentry SPECIES_CORVISQUIRE, 0, 0, 0, 0
-heightentry SPECIES_CORVIKNIGHT, 0, 0, 0,
+heightentry SPECIES_CORVIKNIGHT, 0, 0, 0, 0
 heightentry SPECIES_BLIPBUG, 0, 0, 0, 0
 heightentry SPECIES_DOTTLER, 0, 0, 0, 0
 heightentry SPECIES_ORBEETLE, 0, 0, 0, 0
