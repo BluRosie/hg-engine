@@ -153,7 +153,7 @@ Passes through the foe’s\nbarrier and strikes.
 Contact with this Pokémon\nspreads this Ability.
 Boosts Attack after\nknocking out any Pokémon.
 Raises Attack when\nhit by a Dark-type move.
-Some move types\nscare it and boost its Speed.
+Some move types scare\nit and boost its Speed.
 Reflects\nstatus-changing moves.
 Boosts Attack when\nhit by a Grass-type move.
 Gives priority to\na status move.
@@ -297,3 +297,15 @@ Scatters poison spikes\nif hit by physical moves.
 Makes foes unable to\nuse priority attacks.
 Restores HP if hit by a\nGround-type move.
 Status moves go last\nbut ignore abilities.
+Upon entry, restores\nan allies HP.
+Ignores accuracy changes\nand Ghost type immunities.
+The Teal Mask shines,\nboosting the Speed stat.
+The Wellspring Mask shines,\nboosting the Sp. Def stat.
+The Hearthflame Mask shines,\nboosting the Attack stat.
+The Cornerstone Mask shines,\nboosting the Defense stat.
+May badly poison targets when\na Pokémon makes contact.
+Lowers evasiveness of\nPokémon upon first entry.
+Transforms into its Terastal Form\nupon entering battle.
+Resists all damage when\nHP is full.
+Reduces effects of weather\nand terrain to zero.
+Pokémon poisoned by Pecharunt\nwill also become confused.
