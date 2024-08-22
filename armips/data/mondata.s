@@ -26181,6 +26181,40 @@ mondata SPECIES_MAGEARNA_ORIGINAL, "-----"
     colorflip BODY_COLOR_RED, 0
 
 
+mondata SPECIES_PIKACHU_PARTNER, "-----"
+    basestats 45, 80, 50, 120, 70, 60
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
+    catchrate 190
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
+    genderratio 127
+    eggcycles 10
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
+    abilities ABILITY_STATIC, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_YELLOW, 0
+
+
+mondata SPECIES_EEVEE_PARTNER, "-----"
+    basestats 65, 75, 70, 75, 65, 75
+    types TYPE_NORMAL, TYPE_NORMAL
+    catchrate 45
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 0, 0, 1
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 35
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
+    abilities ABILITY_RUN_AWAY, ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip BODY_COLOR_BROWN, 0
+
+
 mondata SPECIES_CRAMORANT_GULPING, "-----"
     basestats 70, 85, 55, 85, 85, 95
     types TYPE_FLYING, TYPE_WATER
