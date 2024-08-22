@@ -49,7 +49,7 @@
 #define MOVE_EFFECT_CRASH_ON_MISS                            45
 #define MOVE_EFFECT_PREVENT_STAT_REDUCTION                   46
 #define MOVE_EFFECT_CRIT_UP_2                                47
-#define MOVE_EFFECT_RECOIL_QUARTER_DAMAGE_DELT               48
+#define MOVE_EFFECT_RECOIL_QUARTER                           48
 #define MOVE_EFFECT_STATUS_CONFUSE                           49
 #define MOVE_EFFECT_ATK_UP_2                                 50
 #define MOVE_EFFECT_DEF_UP_2                                 51
@@ -283,7 +283,7 @@
 #define MOVE_EFFECT_ATK_ACC_UP                              277
 #define MOVE_EFFECT_GUARD_SPLIT                             278
 #define MOVE_EFFECT_POWER_SPLIT                             279
-#define MOVE_EFFECT_DOUBLE_POISONED_HIT                     280
+#define MOVE_EFFECT_DOUBLE_POWER_ON_POISONED                280
 #define MOVE_EFFECT_AUTOTOMIZE                              281
 #define MOVE_EFFECT_ALWAYS_CRITICAL                         282
 #define MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP                  283
@@ -292,9 +292,9 @@
 #define MOVE_EFFECT_ATK_DEF_ACC_UP                          286
 #define MOVE_EFFECT_DOUBLE_DAMAGE_ON_STATUS                 287
 #define MOVE_EFFECT_ATK_UP_SPEED_UP_2                       288
-#define MOVE_EFFECT_DOUBLE_DAMAGE_WITHOUT_ITEM              289
+#define MOVE_EFFECT_DOUBLE_POWER_WITHOUT_ITEM               289
 #define MOVE_EFFECT_DEF_SP_DEF_DOWN_ATK_SP_ATK_SPEED_UP_2   290
-#define MOVE_EFFECT_ATK_DEF_SPEED_DOWN_HIT                  291
+#define MOVE_EFFECT_DEF_SP_DEF_SPEED_DOWN_HIT               291
 #define MOVE_EFFECT_HEAVY_SLAM                              292
 #define MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS               293
 #define MOVE_EFFECT_APPLY_TERRAINS                          294
@@ -323,9 +323,9 @@
 #define MOVE_EFFECT_RAISE_DEF_2_HIT                         317
 #define MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2       318
 #define MOVE_EFFECT_WEATHER_SNOW                            319
-#define MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 320
-#define MOVE_EFFECT_INFERNAL_PARADE                         321
-#define MOVE_EFFECT_BARB_BARRAGE                            322
+#define MOVE_EFFECT_PREVENT_HEALING_HIT                     320
+#define MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS         321
+#define MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED     322
 
 
 
