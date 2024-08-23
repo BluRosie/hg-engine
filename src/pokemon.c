@@ -2203,3 +2203,35 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
     sys_FreeMemoryEz(levelUpLearnset);
     return ret;
 }
+
+static const s8 sFlavorPreferencesByNature[25][5] = {
+    { 0,  0,  0,  0,  0},
+    { 1,  0,  0,  0, -1},
+    { 1,  0, -1,  0,  0},
+    { 1, -1,  0,  0,  0},
+    { 1,  0,  0, -1,  0},
+    {-1,  0,  0,  0,  1},
+    { 0,  0,  0,  0,  0},
+    { 0,  0, -1,  0,  1},
+    { 0, -1,  0,  0,  1},
+    { 0,  0,  0, -1,  1},
+    {-1,  0,  1,  0,  0},
+    { 0,  0,  1,  0, -1},
+    { 0,  0,  0,  0,  0},
+    { 0, -1,  1,  0,  0},
+    { 0,  0,  1, -1,  0},
+    {-1,  1,  0,  0,  0},
+    { 0,  1,  0,  0, -1},
+    { 0,  1, -1,  0,  0},
+    { 0,  0,  0,  0,  0},
+    { 0,  1,  0, -1,  0},
+    {-1,  0,  0,  1,  0},
+    { 0,  0,  0,  1, -1},
+    { 0,  0, -1,  1,  0},
+    { 0, -1,  0,  1,  0},
+    { 0,  0,  0,  0,  0},
+};
+
+s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor) {
+    return sFlavorPreferencesByNature[GetNatureFromPersonality(personality)][flavor];
+}

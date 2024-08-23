@@ -1776,4 +1776,6 @@ BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 mov
 
 int LONG_CALL LowestFlagNo(u32 mask);
 
+s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
+
 #endif

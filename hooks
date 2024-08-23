@@ -478,3 +478,7 @@ arm9 form_evo_hook_1 02077224 1
 arm9 form_evo_hook_2 0207641C 0
 
 0012 ov12_0224B528 0224B528 2
+
+0012 TryUseHeldItem 0225471C 3
+0012 HeldItemHealCheck 02254E7C 4
+arm9 GetFlavorPreferenceFromPID 020718E8 2
