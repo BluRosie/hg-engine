@@ -1031,15 +1031,15 @@ The opposing {STRVAR_1 1, 0, 0} surrounded\nitself with a veil of water!
 {STRVAR_1 6, 1, 0} restored\n{STRVAR_1 1, 0, 0}’s HP!
 {STRVAR_1 6, 1, 0} restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 {STRVAR_1 6, 1, 0} restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-{STRVAR_1 1, 0, 0} levitated\non electromagnetism!
-The wild {STRVAR_1 1, 0, 0} levitated\non electromagnetism!
-The opposing {STRVAR_1 1, 0, 0} levitated\non electromagnetism!
+{STRVAR_1 1, 0, 0} levitated\nwith electromagnetism!
+The wild {STRVAR_1 1, 0, 0} levitated\nwith electromagnetism!
+The opposing {STRVAR_1 1, 0, 0} levitated\nwith electromagnetism!
 {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
 The wild {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
-The opposing\n{STRVAR_1 1, 0, 0}\nelectromagnetism wore off!
+The opposing {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
 {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!

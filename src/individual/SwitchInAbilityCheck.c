@@ -204,6 +204,17 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
+                    // Cloud Nine/Air Lock
+                    {
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && ((GetBattlerAbility(sp, client_no) == ABILITY_CLOUD_NINE) || (GetBattlerAbility(sp, client_no) == ABILITY_AIR_LOCK))) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            scriptnum = SUB_SEQ_HANDLE_CLOUD_NINE_MESSAGE;
+
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
                     // Intimidate
                     {
                         if ((sp->battlemon[client_no].intimidate_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE) && (IntimidateCheckHelper(sp, client_no))) {
