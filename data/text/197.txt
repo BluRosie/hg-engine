@@ -1469,3 +1469,6 @@ A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
 The effects of the weather disappeared.
+{STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
+The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
+The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!

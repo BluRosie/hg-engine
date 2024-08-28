@@ -209,7 +209,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // Courtesy of Dray (https://github.com/Drayano60)
     if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
-            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+            scriptnum = SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION;
         }
     }
 
