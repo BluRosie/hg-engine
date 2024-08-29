@@ -137,7 +137,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // Handle Bulletproof
+    // handle bulletproof
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
     {
         if (IsElementInArray(BulletproofMoveList, (u16 *)&sp->current_move_index, NELEMS(BulletproofMoveList), sizeof(BulletproofMoveList[0])))
@@ -194,6 +194,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // handle well baked body
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
+    {
+        if ((movetype == TYPE_FIRE) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_WELL_BAKED_BODY_RAISE_DEF_2;
+        }
+    }
+
     // handle earth eater
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
     {
@@ -201,6 +210,17 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+        }
+    }
+
+    // handle queenly majesty, dazzling & armor tail
+    if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_QUEENLY_MAJESTY)) &&
+     (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE))
+     // something here to handle if theyre an ally or not
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
     }
 

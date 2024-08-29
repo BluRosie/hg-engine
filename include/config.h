@@ -102,4 +102,10 @@
 // PROTEAN_GENERATION defines the behavior that protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
 #define PROTEAN_GENERATION 9
 
+// GALE_WINGS_GENERATION changes the behavior that gale wings should exhibit
+#define GALE_WINGS_GENERATION 9
+
+// DISGUISE_GENERATION defines the behavior that gale wings should exhibit
+#define DISGUISE_GENERATION 9
+
 #endif

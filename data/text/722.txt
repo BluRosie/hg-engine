@@ -135,11 +135,11 @@ Physical attacks lower\nDefense and raise Speed.
 Doubles the\nPokémon’s weight.
 Halves the\nPokémon’s weight.
 Reduces damage\nwhen HP is full.
-Powers up physical attacks\nwhen poisoned.
-Powers up special attacks\nwhen burned.
+Powers up physical\nattacks when poisoned.
+Powers up special\nattacks when burned.
 May create another Berry\nafter one is used.
 Anticipates an ally’s\nattack and dodges it.
-Raises one stat and\nlowers another.
+Sharply raises one stat\nand lowers another.
 Protects the Pokémon from\ndamage from weather.
 May poison targets when\na Pokémon makes contact.
 Restores a little HP when\nwithdrawn from battle.
@@ -147,7 +147,7 @@ Protects from\nDefense-lowering attacks.
 Boosts the Pokémon’s Speed\nin a sandstorm.
 Makes status-changing moves\nmore likely to miss.
 Boosts move power when\nthe Pokémon moves last.
-Comes out disguised as the\nPokémon in back.
+Comes out disguised as\nthe Pokémon in back.
 It transforms itself into\nthe Pokémon it is facing.
 Passes through the foe’s\nbarrier and strikes.
 Contact with this Pokémon\nspreads this Ability.
@@ -191,7 +191,7 @@ Changes the weather\nto nullify Fire-type moves.
 Changes the weather\nto nullify Water-type moves.
 Alters weather to\nremove Flying-type’s weaknesses.
 Boosts Defense when\nhit by an attack.
-Cowardly switches out if\nits HP becomes half or less.
+Cowardly switches out if its\nHP becomes half or less.
 Switches out if\nits HP becomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.
 Its attacks are critical hits\nwhen it is poisoned.
