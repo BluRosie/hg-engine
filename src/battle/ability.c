@@ -224,6 +224,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // handle good as gold
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
+    {
+        if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS)
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
     // Courtesy of Dray (https://github.com/Drayano60)
