@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_464", 0
-
+// Dark Void
 a010_464:
     initspriteresource
     loadspriteresource 0
