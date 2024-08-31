@@ -107,8 +107,8 @@ PAN_CENTER equ 0
     .word 0x18, id, panstart, panend, panadd, time
 .endmacro
 
-.macro repeatse,id,pan,num1,num2
-    .word 0x19, id, pan, num1, num2
+.macro repeatse,id,pan,frames,repeat
+    .word 0x19, id, pan, frames, repeat
 .endmacro
 
 .macro waitse,id,pan,num
@@ -559,4 +559,9 @@ ANIM_TARGET_DEFENDER_SIDE equ 20
 // is emitted towards the attacker.  make sure to place particle using location 17
 .macro moveaxistotarget,slot,emitter
     cmd37 6, slot, emitter, 6, 1, 0, 0, "NaN", "NaN"
+.endmacro
+
+// starts a transition from alpha0 to alpha1 of tint color rgb
+.macro shadescreencolor,red,green,blue,alpha0,alpha1
+    callfunction 33, 5, 0, 1, alpha0, alpha1, red | green << 5 | blue << 10, "NaN", "NaN", "NaN", "NaN", "NaN"
 .endmacro

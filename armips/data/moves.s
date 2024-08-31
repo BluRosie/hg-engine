@@ -9675,7 +9675,7 @@ movedata MOVE_POWDER, "Powder"
     movedescription MOVE_POWDER, "---"
 
 movedata MOVE_GEOMANCY, "Geomancy"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2 
+    battleeffect MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11899,7 +11899,7 @@ movedata MOVE_FREEZY_FROST, "Freezy Frost"
     movedescription MOVE_FREEZY_FROST, "---"
 
 movedata MOVE_SPARKLY_SWIRL, "Sparkly Swirl"
-    battleeffect MOVE_EFFECT_CURE_PARTY_STATUS_HIT 
+    battleeffect MOVE_EFFECT_CURE_PARTY_STATUS_HIT
     pss SPLIT_SPECIAL
     basepower 120
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11930,7 +11930,7 @@ movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
     terminatedata
     movedescription MOVE_VEEVEE_VOLLEY, "---"
 
-movedatalongname MOVE_DOUBLE_IRON_BASH, "Double IronBash", "Double Iron Bash"
+movedatalongname MOVE_DOUBLE_IRON_BASH, "Dual Iron Bash", "Double Iron Bash"
     battleeffect MOVE_EFFECT_HIT_TWICE_AND_FLINCH
     pss SPLIT_PHYSICAL
     basepower 60
@@ -13515,7 +13515,7 @@ movedata MOVE_ESPER_WING, "Esper Wing"
     movedescription MOVE_ESPER_WING, "---"
 
 movedata MOVE_BITTER_MALICE, "Bitter Malice"
-    battleeffect MOVE_EFFECT_LOWER_ATTACK_HIT 
+    battleeffect MOVE_EFFECT_LOWER_ATTACK_HIT
     pss SPLIT_SPECIAL
     basepower 75
     type TYPE_GHOST
@@ -14171,7 +14171,7 @@ movedatalongname MOVE_CHILLY_RECEPTION, "ChillyReception", "Chilly Reception"
     movedescription MOVE_CHILLY_RECEPTION, "---"
 
 movedata MOVE_TIDY_UP, "Tidy Up"
-    battleeffect MOVE_EFFECT_ATK_SPEED_UP 
+    battleeffect MOVE_EFFECT_ATK_SPEED_UP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL

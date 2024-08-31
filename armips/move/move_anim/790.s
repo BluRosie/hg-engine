@@ -16,8 +16,8 @@ a010_790:
     loadparticlefromspa 1, 398//gastro acid
     waitparticle
 
-    callfunction 33, 5, 0, 1, 0, 8, 11252, "NaN", "NaN", "NaN", "NaN", "NaN"
-    
+    shadescreencolor 20, 31, 10, 0, 8
+
 
 
 
@@ -26,16 +26,19 @@ a010_790:
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
     addparticle 1, 1, 17
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
-    callfunction 34, 6, 8, 0, 2, 11252, 10, 0, "NaN", "NaN", "NaN", "NaN"
-    callfunction 36, 5, 2, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    //callfunction 34, 6, 8, 0, 2, 11252, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    wait 10
+    shaketargetmon 4, 8
+    shadetargetmon 20, 31, 10
+    wait 30
+    shadescreencolor 20, 31, 10, 8, 0
 
-    callfunction 33, 5, 0, 1, 8, 0, 11252, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
+    waitparticle
     unloadparticle 0
     waitstate
     unloadparticle 1
     waitstate
     end
-    
+
 
 .close

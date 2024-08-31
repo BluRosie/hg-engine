@@ -23,7 +23,7 @@ a010_561:
     addparticle 0, 5, 3
     addparticle 0, 6, 3
     wait 20
-    playsepan 1874, 117
+    repeatse 1993, 117, 3, 6
     addparticle 0, 3, 4
     addparticle 0, 4, 4
     shakescreen
@@ -36,6 +36,6 @@ a010_561:
     unloadparticle 0
     waitstate
     end
-    
+
 
 .close

@@ -26,7 +26,9 @@ a010_912:
 
     addparticle 1, 4, 4
     addparticle 1, 3, 4
-    wait 35
+    playsepan 1968, 117
+    waitse 1952, 117, 13
+    wait 22
 
     addparticle 0, 1, 4
     addparticle 0, 0, 4
@@ -40,6 +42,7 @@ a010_912:
     addparticle 1, 0, 4
     addparticle 1, 2, 4
     playsepan 2007, 117
+    shaketargetmon 4, 8
     waitparticle
 
 
@@ -55,6 +58,6 @@ a010_912:
     unloadparticle 1
     waitstate
     end
-    
+
 
 .close

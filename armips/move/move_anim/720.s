@@ -23,10 +23,12 @@ a010_720:
 
     addparticle 0, 1, 3
     addparticle 0, 0, 3
+    playsepan 2074, -117
     wait 30
     repeatse 1920, 117, 3, 6
     addparticle 1, 0, 4
     addparticle 1, 1, 4
+    shaketargetmon 8, 4
     waitparticle
 
     cmd43
@@ -39,6 +41,6 @@ a010_720:
     unloadparticle 1
     waitstate
     end
-    
+
 
 .close

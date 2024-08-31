@@ -13,15 +13,16 @@
 a010_882:
     loadparticlefromspa 0, 533 //g5 initial blue electricity
     waitparticle
-    loadparticlefromspa 1, 534 //g5 blue electricity hits 
+    loadparticlefromspa 1, 534 //g5 blue electricity hits
     waitparticle
     cmd43
     cmd0C 7, 1
     changebg 19, 0x800001
     waitforchangebg
-    addparticle 0, 0, 3 
-    addparticle 0, 1, 3 
+    addparticle 0, 0, 3
+    addparticle 0, 1, 3
     addparticle 0, 3, 3 //user charges blue electricity
+    repeatse 2066, -117, 12, 5
 
     slideattackingmon -16, 8 //slide back and charge
 
@@ -30,7 +31,7 @@ a010_882:
     slideattackingmon 32, -16 //move forward with hit
     waitstate
     addparticle 1, 3, 3 //electricity bursts out
-    addparticle 1, 1, 4 
+    addparticle 1, 1, 4
 
     playsepan 1874, 0
     wait 14
@@ -39,7 +40,7 @@ a010_882:
     addparticle 1, 7,4
     addparticle 1, 8,4
     addparticle 1, 9,4
-     
+
     shaketargetmon 4, 7 // 4 times magnitude 7
     shadetargetmon 30, 30, 30
     wait 30
@@ -58,5 +59,5 @@ a010_882:
     resetbg 19, 0x1000001
     waitforchangebg
     end
-    
+
 .close

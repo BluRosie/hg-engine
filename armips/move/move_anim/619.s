@@ -16,8 +16,10 @@ a010_619:
 
     //eq screenshake and flash
     callfunction 24, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 33, 5, 0, 1, 0, 12, 2124, "NaN", "NaN", "NaN", "NaN", "NaN"
 
     playsepan 1938, 117 //begin the earth power sequence
+    loop 2
     addparticle 0, 3, 17
     cmd37 6, 0, 2, 5, 0, 0, 0, "NaN", "NaN"
     cmd37 4, 1, -5504, -1720, 0, "NaN", "NaN", "NaN", "NaN"
@@ -36,6 +38,7 @@ a010_619:
     callfunction 68, 5, 0, 5, 0, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 8, 0, 1, 2124, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    repeatse 2096, 117, 3, 3 //explosion noise
     wait 20
     addparticle 0, 3, 17
     cmd37 6, 0, 2, 5, 0, 0, 0, "NaN", "NaN"
@@ -55,8 +58,8 @@ a010_619:
     callfunction 68, 5, 0, 5, 0, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 8, 0, 1, 2124, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    repeatse 2096, 117, 3, 3 //explosion noise
     wait 20
-
     addparticle 0, 3, 17
     cmd37 6, 0, 2, 5, 0, 0, 0, "NaN", "NaN"
     cmd37 4, 1, 0, -1720, 0, "NaN", "NaN", "NaN", "NaN"
@@ -75,18 +78,14 @@ a010_619:
     callfunction 68, 5, 0, 5, 0, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 8, 0, 1, 2124, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    repeatse 2096, 117, 3, 3 //explosion noise
+    wait 20
+    doloop
     waitstate
     waitparticle
     unloadparticle 0
-    callfunction 33, 5, 0, 1, 12, 0, 2124, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate //terminate earth power sequence
-
-
-
-
-    
-
+    waitstate
     end
-    
+
 
 .close

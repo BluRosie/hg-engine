@@ -22,12 +22,14 @@ a010_664:
 
     addparticle 0, 0, 17//protect
     cmd37 6, 0, 1, 2, 0, 0, 0, "NaN", "NaN"
+    wait 20
+    shadeattackingmon 20, 4, 31
     waitparticle
 
 
     unloadparticle 0
     waitstate
     end
-    
+
 
 .close

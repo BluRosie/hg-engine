@@ -20,6 +20,7 @@ a010_708:
     cmd0C 7, 1
     changebg 11, 0x800001
     waitforchangebg
+    playsepan 2074, -117
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
 
     addparticle 1, 0, 17
@@ -28,14 +29,15 @@ a010_708:
     //addparticle 0, 2, 0
     addparticle 1, 4, 4
     wait 10
+    playsepanmod 2080, -117, 117, 4, 2
 
     addparticle 0, 3, 17
     cmd37 6, 0, 2, 26, 20, 0, 0, "NaN", "NaN"
     addparticle 0, 0, 17
     cmd37 6, 0, 2, 26, 20, 0, 0, "NaN", "NaN"
-    shaketargetmon 10, 4
+    shaketargetmon 10, 20
     shadetargetmon 15, 15, 15
-    waitparticle             //dragon pulse 
+    waitparticle             //dragon pulse
 
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
@@ -47,6 +49,6 @@ a010_708:
     unloadparticle 1
     waitstate
     end
-    
+
 
 .close

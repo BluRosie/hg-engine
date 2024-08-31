@@ -35,7 +35,8 @@ a010_723:
     wait 14
     repeatse 2096, -117, 3, 4
     callfunction 36, 5, 4, 0, 1, 2, 320, "NaN", "NaN", "NaN", "NaN", "NaN"
-    wait 15
+    shaketargetmon 8, 4
+    //wait 15
     callfunction 33, 5, 0, 0, 15, 0, 32767, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 68, 5, 8, 8, 0, 8, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
@@ -50,6 +51,6 @@ a010_723:
     resetbg 43, 0x40001
     waitforchangebg
     end
-    
+
 
 .close

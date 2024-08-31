@@ -24,14 +24,14 @@ a010_616: //oblivion wing, need to redo
     cmd43
     cmd0C 7, 1
     changebg 14, 0x800001 //hyper beam background
-    waitforchangebg 
+    waitforchangebg
     addparticle 0, 1, 3 //dark ring outward
     addparticle 0, 0, 3 //more dark pulse
     playsepan 1874, 0
     wait 3
     repeatse 2096, -117, 3, 6 //explosion noise
     addparticle 1, 4, 4 //blast opponent
-    shaketargetmon 6, 8
+    shaketargetmon 6, 20
     shadetargetmon 4, 4, 4
     waitparticle
 
@@ -42,6 +42,6 @@ a010_616: //oblivion wing, need to redo
     unloadparticle 1
     waitstate
     end
-    
+
 
 .close

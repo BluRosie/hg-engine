@@ -27,26 +27,28 @@ a010_618:
 
     shakescreen
 
+    loop 4
     addparticle 1, 4, 3 //wave bursts outward
     shaketargetmon 2, 6
     shadetargetmon 29, 29, 29
     repeatse 1968, -117, 1, 2
     wait 10
-    addparticle 1, 4, 3 //wave bursts outward
-    shaketargetmon 2, 6
-    shadetargetmon 29, 29, 29
-    repeatse 1968, -117, 1, 2
-    wait 10
-    addparticle 1, 4, 3 //wave bursts outward
-    shaketargetmon 2, 6
-    shadetargetmon 29, 29, 29
-    repeatse 1968, -117, 1, 2
-    wait 10
-    addparticle 1, 4, 3 //wave bursts outward
-    shaketargetmon 2, 6
-    shadetargetmon 29, 29, 29
-    repeatse 1968, -117, 1, 2
-    wait 10
+    doloop
+    //addparticle 1, 4, 3 //wave bursts outward
+    //shaketargetmon 2, 6
+    //shadetargetmon 29, 29, 29
+    //repeatse 1968, -117, 1, 2
+    //wait 10
+    //addparticle 1, 4, 3 //wave bursts outward
+    //shaketargetmon 2, 6
+    //shadetargetmon 29, 29, 29
+    //repeatse 1968, -117, 1, 2
+    //wait 10
+    //addparticle 1, 4, 3 //wave bursts outward
+    //shaketargetmon 2, 6
+    //shadetargetmon 29, 29, 29
+    //repeatse 1968, -117, 1, 2
+    //wait 10
     //addparticle 1, 4, 3 //wave bursts outward
     //shaketargetmon 2, 6
     //shadetargetmon 29, 29, 29
@@ -58,13 +60,12 @@ a010_618:
 
     callfunction 33, 5, 0, 1, 12, 0, 6912, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    resetbg 33, 0x1 //reset green bg
 
     unloadparticle 0
     waitstate
     unloadparticle 1
     waitstate
     end
-    
+
 
 .close
