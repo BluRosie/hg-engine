@@ -24,11 +24,11 @@ a010_560:
     
 
 
+    wait 60
     shadeattackingmon 31, 3, 3
-    wait 60
+    wait 30
     callfunction 47, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    wait 60
-    callfunction 48, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 10
 
     addparticle 0, 8, 4
     addparticle 0, 10, 4

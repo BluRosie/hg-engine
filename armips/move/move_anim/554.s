@@ -40,6 +40,12 @@ a010_554:
     addparticle 0, 1, 4
     shaketargetmon 10, 10
     shadetargetmon 20, 0, 0
+    wait 30
+    shaketargetmon 10, 10
+    shadetargetmon 20, 0, 0
+    wait 30
+    shaketargetmon 10, 10
+    shadetargetmon 20, 0, 0
     waitparticle
     cmd43
     cmd0C 0, -32
