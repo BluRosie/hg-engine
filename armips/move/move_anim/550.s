@@ -15,17 +15,16 @@ a010_550:
     waitparticle
 
     playsepanmod 1936, -117, 117, 4, 2
-    addparticle 0, 6, 3
-    addparticle 0, 5, 3
-    addparticle 0, 2, 3
-
-    wait 20
-    playcry 0, -117, 127
+    //addparticle 0, 6, 3
+    //addparticle 0, 5, 3
+    //addparticle 0, 2, 3
 
     addparticle 0, 7, 17
     cmd37 6, 0, 2, 14, 8, 0, 0, "NaN", "NaN"
-    callfunction 34, 6, 8, 0, 1, 31764, 8, 10, "NaN", "NaN", "NaN", "NaN"
+    wait 20
+    playcry 0, -117, 127
     loop 2
+    callfunction 34, 6, 8, 0, 1, 31764, 8, 10, "NaN", "NaN", "NaN", "NaN"
     callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 8
     callfunction 52, 3, 16, -16, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -50,7 +49,14 @@ a010_550:
     addparticle 0, 0, 4
     addparticle 0, 1, 4
     addparticle 0, 4, 4
-    wait 30
+
+    callfunction 34, 6, 8, 0, 1, 31764, 8, 10, "NaN", "NaN", "NaN", "NaN"
+    callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+    callfunction 52, 3, 16, -16, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 16
+    callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
 
     unloadparticle 0
     waitstate
