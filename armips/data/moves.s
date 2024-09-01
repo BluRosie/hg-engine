@@ -7946,7 +7946,7 @@ movedata MOVE_FOUL_PLAY, "Foul Play"
     movedescription MOVE_FOUL_PLAY, "The user turns the\ntarget’s power\nagainst it. Power\nincreases with the\nfoe’s Attack stat."
 
 movedata MOVE_SIMPLE_BEAM, "Simple Beam"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_SET_ABILITY_TO_SIMPLE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
