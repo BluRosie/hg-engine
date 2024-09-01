@@ -7,6 +7,7 @@
 
 void Repel_SetCurrentType();
 
+#ifdef IMPLEMENT_REUSABLE_REPELS
 u16 ALIGN4 CurrentRepelType = 0;
 
 bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fieldSystem) {
@@ -57,8 +58,10 @@ BOOL Repel_Use(u16 item_id, u32 heap_id) {
 u8 Repel_GetSteps(u16 item_id, u32 heap_id) {
     return GetItemData(item_id, ITEM_PARAM_ATTACK, heap_id);
 }
+#endif
 
 void Repel_SetCurrentType() {
+#ifdef IMPLEMENT_REUSABLE_REPELS
     u16 item_id = 0;
     BAG_DATA *bag = Sav2_Bag_get(SaveBlock2_get());
     if (Bag_HasItem(bag, ITEM_MAX_REPEL, 1, HEAPID_MAIN_HEAP))
@@ -69,4 +72,5 @@ void Repel_SetCurrentType() {
         item_id = ITEM_REPEL;
 
     CurrentRepelType = item_id;
+#endif
 }
