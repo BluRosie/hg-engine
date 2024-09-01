@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_461", 0
-
+//lunar dance
 a010_461:
     checkturn _0010, _03BC
     end

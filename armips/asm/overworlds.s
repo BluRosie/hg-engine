@@ -3,10 +3,13 @@
 
 .open "base/overlay/overlay_0001.bin", 0x021E5900
 
-.org 0x021F73C4
+//.org 0x021F73C4
+//
+//.halfword NUM_OF_MON_OVERWORLDS + 0x1E4 // update the limiter
+//// 0x1E4 is the start of the follower mon tags
 
-.halfword NUM_OF_MON_OVERWORLDS + 0x1E4 // update the limiter
-// 0x1E4 is the start of the follower mon tags
+.org 0x021F7394
+nop
 
 .close
 

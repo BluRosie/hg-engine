@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_284", 0
-
+//Eruption
 a010_284:
     initspriteresource
     loadspriteresource 0

@@ -1,0 +1,75 @@
+{
+	"frames": {
+		"bonguri_bk.1": {
+			"frame": 0,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 93,
+			"unkBlockUnk1": 2,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"bonguri_bk.2": {
+			"frame": 1,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 345,
+			"unkBlockUnk1": 259,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"bonguri_bk.3": {
+			"frame": 2,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 600,
+			"unkBlockUnk1": 515,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		}
+	},
+	"palettes": {
+		"bonguri_bk.1_pl": {
+			"offset": 0,
+			"unk0": 118,
+			"unk1": 2,
+			"fileName": "bonguri_bk.1_pl.pal"
+		},
+		"bonguri_bk.2_pl": {
+			"offset": 0,
+			"unk0": 345,
+			"unk1": 259,
+			"fileName": "bonguri_bk.1_pl.pal"
+		},
+		"bonguri_bk.3_pl": {
+			"offset": 0,
+			"unk0": 600,
+			"unk1": 515,
+			"fileName": "bonguri_bk.1_pl.pal"
+		}
+	}
+}
