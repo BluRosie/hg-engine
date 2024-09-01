@@ -12,7 +12,7 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
     u16 arg0 = ScriptReadHalfword(ctx);
 
     switch (sw) {
-        case SCRIPT_NEW_CMD_REPEL_USE:
+        case SCRIPT_NEW_CMD_REPEL_USE:;
             u16 most_recent_repel = Repel_GetMostRecent();
             SetScriptVar(arg0, most_recent_repel);
             Repel_Use(most_recent_repel, HEAPID_MAIN_HEAP);
