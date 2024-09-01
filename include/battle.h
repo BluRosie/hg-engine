@@ -1613,6 +1613,12 @@ int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
 void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species, u32 form);
 
+u16 LONG_CALL BattleSystem_Random(struct BattleSystem *bsys);
+BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
+int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
+void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
 
 
 
@@ -1745,7 +1751,7 @@ u32 LONG_CALL AbilityStatusRecoverCheck(void *bw, struct BattleStruct *sp, int c
  *  @param seq_no pointer to store subscript to if the held item heals
  *  @return TRUE if held item heals and a subscript was stored in seq_no; FALSE otherwise
  */
-u32 LONG_CALL HeldItemHealCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
+BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int *script);
 
 /**
  *  @brief grab the held item effect of the client
@@ -2057,18 +2063,7 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @param client_no is the battler to check
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
-BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
-
-/**
- *  @brief check if held item effect needs to activate, specifically directly after moves.  for things like status items
- *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
- *  @param client_no is the battler to check
- *  @param seq_no is the script to run if TRUE is returned; LoadBattleSubSeqScript is used for this one
- *  @return TRUE if a held item effect is going to happen and *seq_no is assigned that number; FALSE otherwise
- */
-BOOL LONG_CALL HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
+BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
 /**
  *  @brief

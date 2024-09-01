@@ -1264,7 +1264,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 
                 sp->swoak_work++;
 
-                if (HeldItemHealStatusCheck(bw, sp, client_no, &seq_no) == TRUE) // will also probably need this one too
+                if (HeldItemHealCheck(bw, sp, client_no, &seq_no) == TRUE) // will also probably need this one too
                 {
                     sp->client_work = client_no;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
