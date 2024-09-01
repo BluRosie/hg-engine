@@ -27,8 +27,6 @@ _realHazardsCheck:
     //CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _105
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkToxicSpikes
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkToxicSpikes
-    // Heavy-Duty Boots to ignore Stealth Rock when airborne (other cases are handled after)
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _end
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_LEVITATE, _checkStealthRock
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_TYPE_1, TYPE_FLYING, _checkStealthRock
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_TYPE_2, TYPE_FLYING, _checkStealthRock
@@ -80,7 +78,7 @@ _checkStickyWeb:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_STAT_CHANGE, BSCRIPT_VAR_BATTLER_SWITCH
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_SPEED_DOWN_1_STAGE
     Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
-    // Handle Defiant and Competitive TODO: Should not activate when Sticky Web gets court changed
+    // Handle Defiant and Competitive. In Gen 8, Court Changed Sticky Web did not proc these abilities. This is changed in Gen 9.
     CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_DEFIANT, _checkCompetitive
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY
     Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
@@ -91,6 +89,8 @@ _checkCompetitive:
     Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
 
 _checkStealthRock:
+    // Heavy-Duty Boots to ignore Stealth Rock when airborne
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _end
     CheckStealthRock BATTLER_CATEGORY_SWITCHED_MON, _end
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_SWITCH
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
