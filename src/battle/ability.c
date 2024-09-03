@@ -214,10 +214,53 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // handle queenly majesty, dazzling & armor tail
-    if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_QUEENLY_MAJESTY)) &&
-     (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE))
-    /* && sp->state_client != sp->attack_client // can't raise own stats
-     && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats */
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE) &&
+     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_QUEENLY_MAJESTY)))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE) &&
+      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_QUEENLY_MAJESTY))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DAZZLING) == TRUE) &&
+     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAZZLING)))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DAZZLING) == TRUE) &&
+      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_DAZZLING))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ARMOR_TAIL) == TRUE) &&
+     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_ARMOR_TAIL)))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ARMOR_TAIL) == TRUE) &&
+      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_ARMOR_TAIL))
     {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
         {
@@ -226,13 +269,13 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // handle good as gold
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
+    /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
     {
         if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS)
         {
             scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
-    }
+    } */
 
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
