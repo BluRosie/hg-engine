@@ -211,7 +211,7 @@ Its shroud protects it\nfrom an attack just once.
 Defeating a foe\nlets it become Ash-Greninja.
 Changes with other Cells\nif HP becomes half or less.
 It can poison Steel- and\nPoison-type targets.
-It’s always drowsing,\nand attacks without waking.
+It’s always drowsing, and\nattacks without waking.
 Makes foes unable to\nuse priority attacks.
 Damages an attacker that\nlands the finishing hit.
 Repeats another Pokémon’s\ndance move immediately.

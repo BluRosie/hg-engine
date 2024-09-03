@@ -382,7 +382,8 @@
 #define SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS             (372)
 #define SUB_SEQ_PREVENT_CHANGING_WEATHER              (373)
 #define SUB_SEQ_HEAL_TARGET_BURN                      (374)
-#define SUB_SEQ_HANDLE_WELL_BAKED_BODY_RAISE_DEF_2    (375)
+#define SUB_SEQ_SIMPLE_BEAM                           (375)
+#define SUB_SEQ_HANDLE_WELL_BAKED_BODY_RAISE_DEF_2    (376)
 
 
 
@@ -551,6 +552,7 @@
 #define ADD_STATUS_EFF_AFTER_YOU                       (160)
 #define ADD_STATUS_EFF_QUASH                           (161)
 #define ADD_STATUS_EFF_DRAIN_FULL                      (162)
+#define ADD_STATUS_EFF_SIMPLE_BEAM                     (163)
 
 
 
