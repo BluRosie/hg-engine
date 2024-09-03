@@ -2734,6 +2734,55 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
     return FALSE;
 }
 
+/** 
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp) {
+
+    // Attacker abilities
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
+        // Kept in case people add their own
+        // || GetBattlerAbility(sp, sp->attack_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_ATTACK
+        ) {
+            return FALSE;
+        }
+
+    // Defender abilities
+    // Kept in case people add their own
+    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE             
+    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE   
+    //     ) {
+    //         return FALSE;
+    //     }       
+    
+    // Check for items attacker
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        || HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+        // Kept in case people add their own
+        // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
+        ) {
+            return FALSE;
+    }
+
+    // Check for items defender
+    if (HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // Kept in case people add their own
+        // || HeldItemHoldEffectGet(sp, sp->defence_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_DEFENDER_CONTACT
+        ) {
+            return FALSE;
+    }
+
+    // Does the move make contact vanilla
+    if (IsContactBeingMade(bw, sp)) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 enum {
     TRY_MOVE_START = 0,
 
