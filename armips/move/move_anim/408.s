@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_408", 0
-
+//Power Gem
 a010_408:
     initspriteresource
     loadspriteresource 0

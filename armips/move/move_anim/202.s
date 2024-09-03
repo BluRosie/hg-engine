@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_202", 0
-
+// Giga Drain
 a010_202:
     initspriteresource
     loadspriteresource 0
