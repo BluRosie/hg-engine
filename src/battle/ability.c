@@ -216,7 +216,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // handle queenly majesty, dazzling & armor tail
     if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_QUEENLY_MAJESTY)) &&
      (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE))
-     // something here to handle if theyre an ally or not
+    /* && sp->state_client != sp->attack_client // can't raise own stats
+     && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats */
     {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
         {

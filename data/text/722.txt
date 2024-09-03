@@ -144,7 +144,7 @@ Protects the Pokémon from\ndamage from weather.
 May poison targets when\na Pokémon makes contact.
 Restores a little HP when\nwithdrawn from battle.
 Protects from\nDefense-lowering attacks.
-Boosts the Pokémon’s Speed\nin a sandstorm.
+Boosts the Pokémon’s\nSpeed in a sandstorm.
 Makes status-changing moves\nmore likely to miss.
 Boosts move power when\nthe Pokémon moves last.
 Comes out disguised as\nthe Pokémon in back.
@@ -184,15 +184,15 @@ Normal-type moves become\nFairy-type and powered up.
 Contact with it lowers the\nattacker’s Speed stat.
 Normal-type moves become\nFlying-type and power up.
 Parent and child\neach attacks.
-Powers up each\nPokémon’s Dark-type moves.
-Powers up each\nPokémon’s Fairy-type moves.
+Powers up each Pokémon’s\nDark-type moves.
+Powers up each Pokémon’s\nFairy-type moves.
 The effects of “Aura”\nAbilities are reversed.
 Changes the weather\nto nullify Fire-type moves.
 Changes the weather\nto nullify Water-type moves.
 Alters weather to\nremove Flying-type’s weaknesses.
 Boosts Defense when\nhit by an attack.
-Cowardly switches out if its\nHP becomes half or less.
-Switches out if\nits HP becomes half or less.
+Wimpily switches out if its\nHP becomes half or less.
+Switches out if its HP\nbecomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.
 Its attacks are critical hits\nwhen it is poisoned.
 Its shell breaks if its\nHP becomes half or less.
@@ -235,7 +235,7 @@ Powers up moves that\nare super-effective.
 Boosts Attack when\nentering a battle.
 Boosts Defense when\nentering a battle.
 It changes type to that\nof the move it’s about to use.
-Retrieves the first\nthrown Poké Ball if it failed.
+Retrieves the first thrown\nPoké Ball if it failed.
 Scatters Speed-lowering\ncotton fluff when hit.
 This Pokémon’s\nmoves cannot be redirected.
 Bounces back\nstat-lowering effects.
@@ -247,7 +247,7 @@ Creates a sandstorm\nwhen hit by an attack.
 Halves the damage\ntaken from special moves.
 Ripens Berries and\ndoubles their effect.
 Blocks a physical hit, but\nthe ice head breaks.
-Just being next to\nthe Pokémon powers up moves.
+Just being next to the\nPokémon powers up moves.
 Changes type depending\non the terrain.
 On entering battle, clears\neffects of Reflect, etc.
 Powers up ally Pokémon’s\nSteel-type moves.

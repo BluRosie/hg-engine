@@ -174,9 +174,9 @@ Competitive
 Strong Jaw
 Refrigerate
 Sweet Veil
-Stance Change
+StanceChange
 Gale Wings
-Mega Launcher
+MegaLauncher
 Grass Pelt
 Symbiosis
 Tough Claws
@@ -193,7 +193,7 @@ Delta Stream
 Stamina
 Wimp Out
 Emergency Exit
-Water Compaction
+WaterCompaction
 Merciless
 Shields Down
 Stakeout
@@ -224,15 +224,15 @@ Receiver
 Power of Alchemy
 Beast Boost
 RKS System
-Electric Surge
+ElectricSurge
 Psychic Surge
 Misty Surge
 Grassy Surge
-Full Metal Body
+FullMetalBody
 Shadow Shield
 Prism Armor
 Neuroforce
-Intrepid Sword
+IntrepidSword
 Dauntless Shield
 Libero
 Ball Fetch

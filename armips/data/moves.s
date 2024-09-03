@@ -11370,7 +11370,7 @@ movedata MOVE_PSYCHIC_FANGS, "Psychic Fangs"
     terminatedata
     movedescription MOVE_PSYCHIC_FANGS, "---"
 
-movedatalongname MOVE_STOMPING_TANTRUM, "Stomp Tantrum", "Stomping Tantrum"
+movedatalongname MOVE_STOMPING_TANTRUM, "StompingTantrum", "Stomping Tantrum"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 75
