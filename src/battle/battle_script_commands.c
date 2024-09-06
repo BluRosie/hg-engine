@@ -2595,11 +2595,11 @@ BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp) {
 
     if (bg == -1)
     {
-        bg = gBattleSystem->bgId;
+        bg = gBattleSystem->sp->original_bgId;
     }
     if (terrain == -1)
     {
-        terrain = gBattleSystem->terrain;
+        terrain = gBattleSystem->sp->original_terrain;
     }
     LoadDifferentBattleBackground(bw, bg, terrain);
 
