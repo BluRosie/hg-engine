@@ -2844,7 +2844,7 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp) {
     } else if (sp->field_condition & WEATHER_SUNNY_ANY) {
         // sprintf(buf, "Recover 2/3\n");
         // debugsyscall(buf);
-        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * 20, 30);
+        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * 2, 3);
     } else {
         // sprintf(buf, "Recover 1/4\n");
         // debugsyscall(buf);
@@ -3440,4 +3440,37 @@ u32 LoadCaptureSuccessSPANumEmitters(u32 id)
         return 5;
     else
         return BallToSpaIDs[id][2];
+}
+
+BOOL BtlCmd_TryProtection(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->waza_no_mamoru[ctx->attack_client] != MOVE_PROTECT &&
+			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_DETECT &&
+			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_ENDURE) {
+        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+    }
+
+    if ((ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) && (ctx->client_working_count != 1)) {
+        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
+            ctx->oneTurnFlag[ctx->attack_client].mamoru_flag = TRUE;
+            ctx->mp.msg_id = 282;
+        }
+        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
+            ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
+            ctx->mp.msg_id = 442;
+        }
+        ctx->mp.msg_tag = 2;
+        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+        if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) {
+            ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 1;
+        }
+
+    } else {
+        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
 }

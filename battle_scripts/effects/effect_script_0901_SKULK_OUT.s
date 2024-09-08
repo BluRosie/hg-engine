@@ -1,0 +1,49 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_FEINT
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, 1, _Alone
+    Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
+    TryRestoreStatusOnSwitch BATTLER_CATEGORY_ATTACKER, _NoNaturalCure
+    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_NONE
+_NoNaturalCure:
+    DeletePokemon BATTLER_CATEGORY_ATTACKER
+    Wait 
+    HealthbarSlideOut BATTLER_CATEGORY_ATTACKER
+    Wait 
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_ATTACKER
+    ShowParty 
+    WaitMonSelection 
+_FuckGoBack:
+    SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
+    LoadPartyGaugeGraphics 
+    ShowPartyGauge BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    PrintSendOutMessage BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    HidePartyGauge BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    FreePartyGaugeGraphics 
+    PokemonSendOut BATTLER_CATEGORY_SWITCHED_MON
+    WaitTime 72
+    HealthbarSlideIn BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_FAINTED, _Alive
+    Call BATTLE_SUBSCRIPT_FAINT_MON
+_Alive:
+    GoToIfAnySwitches _FuckGoBack //This is in subseq 10 for whatever reason
+	CalcCrit
+	CalcDamage
+    End
+
+_Alone:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _Failed
+	UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_TELEPORT
+    End
+
+_Failed:
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
+	End

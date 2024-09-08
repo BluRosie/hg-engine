@@ -26,19 +26,19 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
-    {  33, 100 },
-    {  36, 100 },
-    {  43, 100 },
-    {  50, 100 },
-    {  60, 100 },
-    {  75, 100 },
-    {   1,   1 },
-    { 133, 100 },
-    { 166, 100 },
-    {   2,   1 },
-    { 233, 100 },
-    { 133,  50 },
-    {   3,   1 },
+	{3, 9},
+    {3, 8},
+    {3, 7},
+    {3, 6},
+    {3, 5},
+    {3, 4},
+    {3, 3},
+    {4, 3},
+    {5, 3},
+    {6, 3},
+    {7, 3},
+    {8, 3},
+    {9, 3},
 };
 
 const u16 PowderMovesList[] = {
@@ -3490,8 +3490,8 @@ static BOOL LONG_CALL ov12_0224B528(struct BattleSystem *bsys, struct BattleStru
             ctx->ssc_seq_no++;
             break;
         case 13:
-            if (ctx->battlemon[ctx->attack_client].condition2 & 0xF0000) { //STATUS2_ATTRACT
-                ctx->client_work = LowestFlagNo((ctx->battlemon[ctx->attack_client].condition2 & 0xF0000) >> 16); //STATUS2_ATTRACT) >> STATUS2_ATTRACT_SHIFT
+            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_INFATUATION) {
+                ctx->client_work = LowestFlagNo((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_INFATUATION) >> 16); //>> STATUS2_ATTRACT_SHIFT
                 if (BattleSystem_Random(bsys) & 1) {
                     LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_INFATUATED);
                     ctx->next_server_seq_no = ctx->server_seq_no;
@@ -3509,7 +3509,7 @@ static BOOL LONG_CALL ov12_0224B528(struct BattleSystem *bsys, struct BattleStru
             break;
         case 14:
             ctx->ssc_seq_no++;
-            if (ctx->battlemon[ctx->attack_client].condition2 & 0x300) { //STATUS2_BIDE
+            if (ctx->battlemon[ctx->attack_client].condition2 & 0x300) { //STATUS2_BIDE	
                 ctx->battlemon[ctx->attack_client].condition2 -= (1 << 8);//STATUS2_BIDE_SHIFT
                 if (!(ctx->battlemon[ctx->attack_client].condition2 & 0x300) && ctx->store_damage[ctx->attack_client]) { //STATUS2_BIDE
                     ctx->damage = ctx->store_damage[ctx->attack_client] * 2;
@@ -3573,14 +3573,22 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
         switch (item) {
         case HOLD_EFFECT_HP_RESTORE: //oran berry, berry juice
             if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-                ctx->hp_calc_work = boost;
+				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
+					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
+				} else {
+					ctx->hp_calc_work = boost;
+				}
                 script = SUB_SEQ_ITEM_HP_RESTORE;
                 ret = TRUE;
             }
             break;
         case HOLD_EFFECT_HP_PCT_RESTORE: //sitrus berry
             if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
+				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
+					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
+				} else {
+					ctx->hp_calc_work = boost;
+				}
                 script = SUB_SEQ_ITEM_HP_RESTORE;
                 ret = TRUE;
             }
@@ -3881,16 +3889,24 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
         switch (item) {
         case HOLD_EFFECT_HP_RESTORE: //oran berry, berry juice
             if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-                ctx->hp_calc_work = boost;
-                *script = SUB_SEQ_ITEM_HP_RESTORE;
-                ret = TRUE;
+				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
+					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
+				} else {
+					ctx->hp_calc_work = boost;
+				}
+				*script = SUB_SEQ_ITEM_HP_RESTORE;
+				ret = TRUE;
             }
             break;
         case HOLD_EFFECT_HP_PCT_RESTORE: //sitrus berry
             if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
-                *script = SUB_SEQ_ITEM_HP_RESTORE;
-                ret = TRUE;
+				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
+					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
+				} else {
+					ctx->hp_calc_work = boost;
+				}
+				*script = SUB_SEQ_ITEM_HP_RESTORE;
+				ret = TRUE;
             }
             break;
         case HOLD_EFFECT_PRZ_RESTORE: //cheri berry

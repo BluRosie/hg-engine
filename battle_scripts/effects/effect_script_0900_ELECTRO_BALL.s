@@ -1,0 +1,32 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ATK, BMON_DATA_TEMP
+    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ATK, BMON_DATA_UNUSED_99
+    UpdateVar OPCODE_MUL, BMON_DATA_TEMP, 12288
+    UpdateVar OPCODE_DIV, BMON_DATA_TEMP, BMON_DATA_UNUSED_99
+    CompareVarToValue OPCODE_GT, BMON_DATA_TEMP, 12288/4, _150bp
+    CompareVarToValue OPCODE_GT, BMON_DATA_TEMP, 12288/3, _120bp
+    CompareVarToValue OPCODE_GT, BMON_DATA_TEMP, 12288/2, _80bp
+    CompareVarToValue OPCODE_GT, BMON_DATA_TEMP, 12288, _60bp
+_40bp:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_POWER, 40
+    GoTo _end
+_60bp:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_POWER, 60
+    GoTo _end
+_80bp:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_POWER, 80
+    GoTo _end
+_120bp:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_POWER, 120
+    GoTo _end
+_150bp:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_POWER, 150
+_end:
+    UpdateVar OPCODE_SET, BMON_DATA_UNUSED_99, 0
+    CalcCrit
+    CalcDamage
+    End

@@ -52,6 +52,7 @@
 //heap IDs
 #define HEAPID_MAIN_HEAP 3
 #define HEAPID_WORLD 11
+#define HEAPID_32 32
 
 //overlay id's
 #define OVERLAY_WIFI 0

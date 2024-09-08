@@ -63,7 +63,6 @@ PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 GetBoxMonData = 0x0206E640 |1;
 SetMonData = 0x0206EC40 |1;
-PokeStatusPokeParamGet = 0x0208A520 | 1;
 RecalcPartyPokemonStats = 0x0206E250 | 1;
 ResetPartyPokemonAbility = 0x020722D4 |1;
 SanitizeFormNumber = 0x02070438 |1;
@@ -198,7 +197,6 @@ BattleRand = 0x0223BD98 | 1;
 ChooseRandomTarget = 0x02253DA0 | 1;
 CountBattlerMoves = 0x02252EA8 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
-HeldItemHealCheck = 0x02254E7C | 1;
 /*LoadBattleSubSeqScript = 0x172DC + 0x022378C1;*/
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
@@ -667,3 +665,28 @@ LowestFlagNo = 0x020726E0 | 1;
 CopyBattleMonToPartyMon = 0x02250C40 | 3;
 
 BattleMon_AddVar = 0x0224F7AC | 3;
+
+AcquireMonLock = 0x0206DD40 | 1;
+LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
+ReleaseMonLock = 0x0206DD8C | 1;
+
+/* Adding things to make multi level candy work */
+ov12_02263D14 = 0x02263D14 | 1;
+SelectPartyMonAndLearnMove = 0x0203E6D4 | 1;
+TryModEV = 0x02090A84 | 1;
+GetItemAttr_PreloadedItemData = 0x02077DAC | 1;
+LoadItemDataOrGfx = 0x02077CE8 | 1;
+AddMonData = 0x0206F558 |1;
+BoostMonMovePpUpBy = 0x0209099C | 1;
+MonMoveRestorePP = 0x0209091C | 1;
+RestoreMonHPBy = 0x02090A44 | 1;
+DoItemFriendshipMod = 0x02090B68 | 1;
+ApplyItemEffectOnMonMood = 0x02097EF4 | 1;
+CalcMonExpToNextLevel = 0x0206FCA0 | 1;
+MoveRelearner_GetEligibleLevelUpMoves = 0x0209176C | 1;
+MoveRelearner_LaunchApp = 0x0203F9C4 | 1;
+MoveRelearner_New = 0x0209174C | 1;
+Sav2_PlayerData_GetOptionsAddr = 0x02028EA8 | 1;
+ScrNative_WaitApplication = 0x020429F8 | 1;
+StartMoveRelearner = 0x0204ECD0 | 1;
+CreateScriptContext = 0x020400AC | 1;

@@ -168,7 +168,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     s8 defstate;
     s8 spatkstate;
     s8 spdefstate;
-    u8 level;
     u16 movepower;
     u16 item;
     u32 battle_type;
@@ -197,8 +196,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
-
-    level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
     DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
@@ -342,12 +339,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // handle Gorilla Tactics
     if (AttackingMon.ability == ABILITY_GORILLA_TACTICS) {
-        attack = attack * 150 / 100;
+        attack = attack * 15 / 10;
     }    
 
     // Handle Assault Vest
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES)) {
-        sp_defense = sp_defense * 150 / 100;
+        sp_defense = sp_defense * 15 / 10;
     }
 
     // handle eviolite
@@ -474,11 +471,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // Handle Fluffy
     if (DefendingMon.ability == ABILITY_FLUFFY) {
         if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
-            movepower = movepower * 50 / 100;
+            movepower = movepower / 2;
         }
 
         if (movetype == TYPE_FIRE) {
-            movepower = movepower * 200 / 100;
+            movepower = movepower * 2;
         }
     }
 
@@ -846,11 +843,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
     //    defense = defense / 2;
 
-    damage = equivalentAttack * movepower;
-    damage *= (level * 2 / 5 + 2);
-
-    damage = damage / equivalentDefense;
-    damage /= 50;
+    damage = movepower * equivalentAttack / equivalentDefense / 5;
 
     // Handle Parental Bond
     if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
@@ -968,7 +961,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
          && field_cond & WEATHER_SANDSTORM_ANY
          && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL))
         {
-            damage = damage * 130 / 100;
+            damage = damage * 13 / 10;
         }
     }
 
@@ -1040,5 +1033,5 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
     }
 
-    return damage + 2;
+    return damage;
 }

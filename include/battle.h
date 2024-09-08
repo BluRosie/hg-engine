@@ -2734,7 +2734,6 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
  */
 u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item);
 
-
 // defined in battle_input.c
 typedef struct BattleBGStorage {
     u16 baseEntry:14;
@@ -2886,5 +2885,7 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, str
 
 //Buffer messages related to being unable to select moves?
 BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
+
+void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 
 #endif // BATTLE_H

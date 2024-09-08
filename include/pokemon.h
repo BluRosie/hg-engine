@@ -9,6 +9,9 @@
 #define POKEMON_GENDER_FEMALE 1
 #define POKEMON_GENDER_UNKNOWN 2
 
+#define MOVE_APPEND_FULL    0xFFFFu
+#define MOVE_APPEND_KNOWN   0xFFFEu
+
 #define MONS_MALE       (0)
 #define MONS_FEMALE     (254)
 #define MONS_UNKNOWN    (255)
@@ -891,6 +894,15 @@ u32 LONG_CALL GetBoxMonData(struct BoxPokemon *boxmon, int field, void *buffer);
 void  LONG_CALL SetBoxMonData(struct BoxPokemon *boxmon, int id, const void *buf);
 
 /**
+ *  @brief adds to a specific field on a PartyPokemon
+ *
+ *  @param mon PartyPokemon to set data on
+ *  @param attr MON_DATA_* constant to determine which data to set
+ *  @param amount amount to increase by
+ */
+void LONG_CALL AddMonData(struct PartyPokemon *mon, int attr, int amount);
+
+/**
  *  @brief grab the pointer to a member in a Party
  *
  *  @param party Party whose member to grab
@@ -1346,7 +1358,7 @@ void LONG_CALL CopyBoxPokemonToPokemon(const struct BoxPokemon *src, struct Part
  *  @param level level asked for
  *  @return experience needed to reach specified level
  */
-int LONG_CALL GetExpByGrowthRateAndLevel(int growthrate, u32 level);
+u32 LONG_CALL GetExpByGrowthRateAndLevel(int growthrate, u32 level);
 
 /**
  *  @brief restore the pp of a BoxPokemon's moves
@@ -1776,6 +1788,55 @@ BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 mov
 
 int LONG_CALL LowestFlagNo(u32 mask);
 
+void LONG_CALL ov12_02263D14(void *bsys, int battlerId, u32 a2, int slot);
+
+void LONG_CALL *SelectPartyMonAndLearnMove(void *taskman, u32 heapId);
+
+u32 LONG_CALL CalcMonExpToNextLevel(struct PartyPokemon *mon);
+
 s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
+
+void LONG_CALL CalcMonStats(struct PartyPokemon *mon);
+
+typedef struct BaseStats {
+    /* 0x00 */ u8 hp;
+    /* 0x01 */ u8 atk;
+    /* 0x02 */ u8 def;
+    /* 0x03 */ u8 speed;
+    /* 0x04 */ u8 spatk;
+    /* 0x05 */ u8 spdef;
+    /* 0x06 */ u8 types[2];
+    /* 0x08 */ u8 catchRate;
+    /* 0x09 */ u8 expYield;
+    /* 0x0A */ u16 hp_yield:2;
+    u16 atk_yield:2;
+    u16 def_yield:2;
+    u16 speed_yield:2;
+    /* 0x0B */ u16 spatk_yield:2;
+    u16 spdef_yield:2;
+    u16 padding_B_4:4;
+    /* 0x0C */ u16 item1;
+    /* 0x0E */ u16 item2;
+    /* 0x10 */ u8 genderRatio;
+    /* 0x11 */ u8 eggCycles;
+    /* 0x12 */ u8 friendship;
+    /* 0x13 */ u8 growthRate;
+    /* 0x14 */ u8 eggGroups[2];
+    /* 0x16 */ u8 abilities[2];
+    /* 0x18 */ u8 greatMarshRate;
+    /* 0x19 */ u8 color:7;
+    u8 flip:1;
+    u8 padding_1A[2];
+    /* 0x1C */ u32 tmhm_1;
+    /* 0x20 */ u32 tmhm_2;
+    /* 0x24 */ u32 tmhm_3;
+    /* 0x28 */ u32 tmhm_4;
+} BASE_STATS;
+
+BOOL LONG_CALL AcquireMonLock(struct PartyPokemon *mon);
+
+BOOL LONG_CALL ReleaseMonLock(struct PartyPokemon *mon, BOOL decrypt_result);
+
+void LONG_CALL LoadMonBaseStats_HandleAlternateForm(int species, int form, BASE_STATS *personal);
 
 #endif
