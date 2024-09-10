@@ -496,3 +496,8 @@ arm9 CalcMonStats 0206E27C 1
 
 # hooking item use : 020902D0 + 4 = 020902D4
 arm9 UseItemOnPokemon_hook 020902D4 5 
+
+#ifdef IMPLEMENT_REUSABLE_REPELS
+0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
+0015 BagApp_GetRepelStepCountAddr 021F993C 3
+#endif

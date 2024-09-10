@@ -54,7 +54,11 @@ u32 LONG_CALL SetScriptVar(u16 var_id, u16 value)
 
 u16 LONG_CALL GetScriptVar(u16 var_id)
 {
-    if (var_id < 0x8000)
+    if (var_id < 0x4000)
+    {
+        return var_id; // default to returning the number passed so that it's technically a "flex" parameter
+    }
+    else if (var_id < 0x8000)
     {
         return GetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id);
     }

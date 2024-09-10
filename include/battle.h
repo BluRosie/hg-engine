@@ -1619,9 +1619,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
-
-
-
 /* new battle engine declarations*/
 /**
  *  @brief grab battler ability.  don't consider mold breaker in this
@@ -2733,6 +2730,7 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
  *  @return target form
  */
 u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item);
+
 
 // defined in battle_input.c
 typedef struct BattleBGStorage {

@@ -63,6 +63,7 @@ PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 GetBoxMonData = 0x0206E640 |1;
 SetMonData = 0x0206EC40 |1;
+PokeStatusPokeParamGet = 0x0208A520 | 1;
 RecalcPartyPokemonStats = 0x0206E250 | 1;
 ResetPartyPokemonAbility = 0x020722D4 |1;
 SanitizeFormNumber = 0x02070438 |1;
@@ -658,6 +659,8 @@ BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
 BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 
 CanUseItemOnPokemon = 0x0208FD9C | 1;
+
+BagApp_GetSaveRoamers = 0x021F992C | 1;
 
 BattleSystem_Random = 0x0223BD98 | 1;
 CheckTruant = 0x02252C40 | 2;

@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_411", 0
-
+//Focus Blast
 a010_411:
     initspriteresource
     loadspriteresource 0
