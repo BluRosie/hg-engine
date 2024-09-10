@@ -1329,6 +1329,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         if (sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no))
         {
             // actually calculate the experience
+			pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, 0);
             u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
             u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
