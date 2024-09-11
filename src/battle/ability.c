@@ -209,7 +209,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // Courtesy of Dray (https://github.com/Drayano60)
     if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
-            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+            scriptnum = SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION;
         }
     }
 
@@ -541,11 +541,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
                     && (sp->battlemon[sp->attack_client].moveeffect.fakeOutCount != (sp->total_turn + 1)))
                 {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP + stat;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
@@ -560,11 +556,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 if (sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
                 {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
@@ -578,11 +570,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 if (sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
                 {
-                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
@@ -595,11 +583,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 if (sp->battlemon[sp->attack_client].species == SPECIES_GRENINJA && sp->battlemon[sp->attack_client].form_no == 1)
                 {
-                    sp->state_client = sp->attack_client;
-                    sp->client_work = sp->attack_client;
-                    sp->battlemon[sp->attack_client].form_no = 2;
-                    seq_no[0] = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
