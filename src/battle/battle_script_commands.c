@@ -389,7 +389,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F9_canclearprimalweather,
     [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
     [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FB_switchinabilitycheck,
-    [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trystickyweb,
+    [0xFC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trystickyweb,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
