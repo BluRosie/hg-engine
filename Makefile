@@ -142,7 +142,7 @@ $(ADPCMXQ):
 ifeq (,$(wildcard $(ADPCMXQ)))
 	rm -r -f tools/source/adpcm-xq
 	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
-	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq
+	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq -lm
 	mv tools/source/adpcm-xq/adpcm-xq $(ADPCMXQ)
 	rm -r -f tools/source/adpcm-xq
 endif

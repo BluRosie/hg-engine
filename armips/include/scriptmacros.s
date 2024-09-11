@@ -1530,6 +1530,10 @@ PLAYER_TRANSITION_x4000            equ 16384
 .halfword unk
 .endmacro
 
+.macro queue_new_repel
+RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
+.endmacro
+
 // Dummy
 .macro scrcmd_209,slot,unk
 .halfword 209
@@ -6657,6 +6661,17 @@ TRIGGER_LOAD_GAME equ 4
 .halfword 208
 .byte slot
 .halfword unk
+.endmacro
+
+// 208 has been reused for new script commands
+.equ NEW_COMMAND_QUEUE_NEW_REPEL, 0
+
+.macro RunNewCommand,slot,unk
+DummyTextTrap slot, unk
+.endmacro
+
+.macro QueueNewRepel
+RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 .endmacro
 
 // Dummy

@@ -948,13 +948,21 @@ struct __attribute__((packed)) BattleAIWorkTable
 };
 
 
+enum TerrainOverlayType {
+    TERRAIN_NONE,
+    GRASSY_TERRAIN,
+    MISTY_TERRAIN,
+    ELECTRIC_TERRAIN,
+    PSYCHIC_TERRAIN
+};
+
 /**
  *  @brief structure that tracks the terrain type currently present
  */
 typedef struct {
-    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
+    u8 type; /**< TerrainOverlayType enum */
     u8 numberOfTurnsLeft;
-} __attribute__((packed)) TerrainOverlay;
+} TerrainOverlay;
 
 
 /**
@@ -1231,14 +1239,17 @@ struct PACKED BattleStruct
     /*0x    */ int SkillSeqWork[600];
     /*...*/
 
-               TerrainOverlay terrainOverlay;
-               u8 printed_field_message;
-
+               FutureCondition futureConditionQueue[CLIENT_MAX * FUTURE_CONDITION_MAX];
                BOOL checkOnlySpecifiedTarget; // for BattleFormChangeCheck
+               u8 endTurnEventBlockSequenceNumber;
                u8 checkOnlySpecifiedTargetClient;
 
-               u8 endTurnEventBlockSequenceNumber;
-               FutureCondition futureConditionQueue[CLIENT_MAX * FUTURE_CONDITION_MAX];
+               TerrainOverlay terrainOverlay; // realign this to u32 boundary lol
+               u8 printed_field_message;
+               u8 original_terrain:7;
+               u8 hasLoadedTerrainOver:1;
+               u8 original_bgId:7;
+               u8 hasLoadedBgIdOver:1;
 };
 
 
