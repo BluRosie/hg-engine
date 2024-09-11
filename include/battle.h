@@ -2881,6 +2881,15 @@ typedef enum Terrain {
 // and Battle Frontier.
 #define TERRAIN_OTHERS (TERRAIN_WILL)
 
+
+// Battler IDs
+#define BATTLER_NONE    0xFF
+#define BATTLER_PLAYER  0
+#define BATTLER_ENEMY   1
+#define BATTLER_PLAYER2 2
+#define BATTLER_ENEMY2  3
+#define BATTLER_MAX     4
+
 /**
  *  @brief load in different battle bg and terrain
  *
@@ -2964,5 +2973,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
+
+// BattleSystem_Defender
+int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
+
+void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 
 #endif // BATTLE_H

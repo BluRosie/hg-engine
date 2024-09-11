@@ -666,3 +666,6 @@ BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
+
+ov12_022506D4 = 0x022506D4 | 1;
+ov12_02250A18 = 0x02250A18 | 1;
