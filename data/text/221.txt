@@ -587,12 +587,12 @@ An item to be held by a Pokémon.\nThe holder will float in the air until hit.\n
 A rare mushroom that gives off\na nice fragrance. It can be sold at\na high price to shops.
 A big nugget of pure gold that gives\noff a lustrous gleam. It can be sold at\na high price to shops.
 An item to be held by a Pokémon.\nThis band boosts the power of binding moves\nused by the holder.
-Castelia City's specialty: soft-serve\nice cream. It can be used to cure any\nstatus condition a Pokémon may have.
+Castelia City’s specialty: soft-serve\nice cream. It can be used to cure any\nstatus condition a Pokémon may have.
 An item to be held by a Pokémon.\nThis single-use battery boosts Attack\nif hit with an Electric-type attack.
 A shard that fell to the ground when a\ncomet passed nearby. It can be sold at\na high price to shops.
 A somewhat different Poké Ball that\nmakes it easier to catch wild Pokémon\nwhile they're asleep.
 An item to be held by a Pokémon.\nIf the holder is hit by an attack, it\nwill be switched out of battle.
-A mysterious evolutionary lump. When\nheld by a Pokémon that can still evolve,\nit boosts Defense and Sp. Def by 50%.
+A mysterious evolutionary lump.\nWhen held by a Pokémon that can still\revolve, it raises both Defense and Sp. Def.
 An item to be held by a Pokémon.\nThis very light stone reduces the\nweight of the holder.
 Very large pearls that have a nice\nsilvery sheen to them. They can be sold\nat a high price to shops.
 A mysterious scale that causes\na certain Pokémon to evolve.\nIt shines in rainbow colors.
@@ -643,7 +643,7 @@ A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery l
 A cuff made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
 A twig from a species of tree called\nGalarica. It's a material for an\naccessory for a certain Pokémon.
 A wreath made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
-Also known as the Heavy-Duty Boots.\nThese boots protect the holder from\ntraps set on the battlefield.
+An item to be held by a Pokémon.\nThese boots prevent the effects of traps\rset on the battlefield.
 A string exuding an odd energy that\nmakes you feel a sense of connection.\nIt’s loved by certain Pokémon.
 Moomoo Cheese Description
 A block of muddy material that can be\nused as fuel for burning when dried.\nIt is loved by a certain Pokémon.

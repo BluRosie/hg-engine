@@ -20147,7 +20147,7 @@ mondata SPECIES_MEOWSCARADA, "Mewscarada"
     abilities ABILITY_OVERGROW, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
-    mondexentry SPECIES_MEOWSCARADA, "With skillful misdirection, it rigs foes with\npollen-packed flower bombs, and sets them\noff before its foes realize what's going on."
+    mondexentry SPECIES_MEOWSCARADA, "With skillful misdirection, it rigs foes with\npollen-packed flower bombs, and sets them\noff before its foes realize what’s going on."
     mondexclassification SPECIES_MEOWSCARADA, "Magician Pokémon"
     mondexheight SPECIES_MEOWSCARADA, "4’11”"
     mondexweight SPECIES_MEOWSCARADA, "68.8 lbs."

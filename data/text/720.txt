@@ -192,7 +192,7 @@ Desolate Land
 Delta Stream
 Stamina
 Wimp Out
-Emergency Exit
+EmergencyExit
 WaterCompaction
 Merciless
 Shields Down
@@ -224,7 +224,7 @@ Receiver
 Power of Alchemy
 Beast Boost
 RKS System
-ElectricSurge
+Electric Surge
 Psychic Surge
 Misty Surge
 Grassy Surge
