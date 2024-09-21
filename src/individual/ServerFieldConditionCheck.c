@@ -532,7 +532,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                             if (sp->terrainOverlay.type == GRASSY_TERRAIN
                             && sp->battlemon[battlerId].hp
-                            && sp->battlemon[battlerId].hp < sp->battlemon[battlerId].maxhp
+                            && sp->battlemon[battlerId].hp < (s32)sp->battlemon[battlerId].maxhp
                             && IsClientGrounded(sp, battlerId)) {
                                 sp->client_work = battlerId;
                                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
@@ -1698,7 +1698,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         sp->battlemon[sp->updateMonConditionData].hp != 0) {
                                             seq_no = SUB_SEQ_BAD_DREAMS;
                                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->updateMonConditionData].maxhp * -1, 8); // 1/8 health drop, can probably put binding band in here too soon
+#ifdef DEBUG_ENDTURN_LOGIC
                                             debug_printf("\n\nhp_calc_work: %d\n\n", sp->hp_calc_work);
+#endif
                                             sp->server_status_flag |= BATTLE_STATUS_NO_BLINK;
                                             sp->attack_client = battlerId;
                                             sp->client_work = sp->updateMonConditionData;

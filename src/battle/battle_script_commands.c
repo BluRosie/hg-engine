@@ -2974,7 +2974,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
         if (ctx->field_condition & WEATHER_HAIL_ANY) {
             if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
                 if (ability == ABILITY_ICE_BODY) {
-                    if (ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp) {
+                    if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
                         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
                     }
                 } else if (type1 != TYPE_ICE && type2 != TYPE_ICE &&
@@ -2992,7 +2992,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
         if (ctx->field_condition & WEATHER_SNOW_ANY) {
             if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
                 if (ability == ABILITY_ICE_BODY) {
-                    if (ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp) {
+                    if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
                         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
                     }
                 }
@@ -3000,11 +3000,11 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
         }
 
         if (ctx->field_condition & WEATHER_RAIN_ANY) {
-            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp &&
+            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp &&
                 ability == ABILITY_RAIN_DISH) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
             }
-            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < ctx->battlemon[battlerId].maxhp &&
+            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp &&
                 ability == ABILITY_DRY_SKIN) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 8);
             }
@@ -3014,7 +3014,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
     return FALSE;
 }
 
-BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+BOOL BtlCmd_TryWish(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
     int adrs = read_battle_script_param(ctx);

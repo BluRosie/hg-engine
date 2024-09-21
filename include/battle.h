@@ -2587,6 +2587,16 @@ BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
 // defined in ability.c
 /**
+ *  @brief check if any specific stat stage is not at the passed value
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose stat stages to check
+ *  @param value to check for.  made flexible for every circumstance, i.e. Moody needs to check if any stat can be raised/lowered
+ *  @return TRUE if there is a stat stage not at the passed value; FALSE otherwise (yes accuracy and evasion count too)
+ */
+BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
+
+/**
  *  @brief check if an ability is present and account for mold breaker
  *
  *  @param sp global battle structure
@@ -2625,6 +2635,15 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
  *  @return TRUE if subseq was loaded; FALSE otherwise
  */
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
+
+/**
+ *  @brief grab which of the client's raw stats (excluding HP) are the highest for the ability beast boost
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose stats to compare among themselves for beast boost
+ *  @return the highest raw stat the the client has (excluding HP)
+ */
+u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 
 
 // defined in other_battle_calculators.c
