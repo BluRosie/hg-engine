@@ -213,53 +213,12 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // handle queenly majesty, dazzling & armor tail
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE) &&
-     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_QUEENLY_MAJESTY)))
-    {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
-        {
-            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
-        }
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE) &&
-      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_QUEENLY_MAJESTY))
-    {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
-        {
-            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
-        }
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DAZZLING) == TRUE) &&
-     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAZZLING)))
-    {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
-        {
-            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
-        }
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DAZZLING) == TRUE) &&
-      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_DAZZLING))
-    {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
-        {
-            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
-        }
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ARMOR_TAIL) == TRUE) &&
-     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_ARMOR_TAIL)))
-    {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
-        {
-            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
-        }
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ARMOR_TAIL) == TRUE) &&
-      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_ARMOR_TAIL))
+    if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
+      || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
+      || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
+     && GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER
+     && GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT
+     && GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE)
     {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
         {
