@@ -10,34 +10,34 @@
 // headbuttheader header, numberOfNormalTrees, numberOfSpecialTrees
 // treecoords requires 6 pairs of x/y coordinates per tree.  fill the remaining pairs with -1's
 
-headbuttheader   0,   0,   0
+headbuttheader   0,   0,   0   // EVERYWHERE 
 .close
 
-headbuttheader   1,   0,   0
+headbuttheader   1,   0,   0   // NOTHING
 .close
 
-headbuttheader   2,   0,   0
+headbuttheader   2,   0,   0   // Union Room
 .close
 
-headbuttheader   3,   0,   0
+headbuttheader   3,   0,   0   // UG 
 .close
 
-headbuttheader   4,   0,   0
+headbuttheader   4,   0,   0   // DIRECT2 
 .close
 
-headbuttheader   5,   0,   0
+headbuttheader   5,   0,   0   // DIRECT4
 .close
 
-headbuttheader   6,   0,   0
+headbuttheader   6,   0,   0   // Bellchime Trail
 .close
 
-headbuttheader   7,   0,   0
+headbuttheader   7,   0,   0   // Burned Tower (1F)
 .close
 
-headbuttheader   8,   0,   0
+headbuttheader   8,   0,   0   // Ruins Of Alph (Inside)
 .close
 
-headbuttheader   9,  20,   0
+headbuttheader   9,  20,   0   // Route 1
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 2, 3
@@ -81,7 +81,7 @@ headbuttheader   9,  20,   0
     treecoords 1029, 292, 1029, 293, 1028, 293, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  10,  15,   0
+headbuttheader  10,  15,   0   // Route 2
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 4
     headbuttencounter SPECIES_PINECO, 3, 4
@@ -120,7 +120,7 @@ headbuttheader  10,  15,   0
     treecoords 1042, 195, 1042, 194, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  11,   4,   0
+headbuttheader  11,   4,   0   // Route 3
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 6, 7
     headbuttencounter SPECIES_PINECO, 6, 7
@@ -148,7 +148,7 @@ headbuttheader  11,   4,   0
     treecoords 1113, 110, 1113, 109, 1114, 109, 1114, 110, -1, -1, -1, -1
 .close
 
-headbuttheader  12,   9,   0
+headbuttheader  12,   9,   0   // Route 4
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 6, 7
     headbuttencounter SPECIES_PINECO, 6, 7
@@ -181,7 +181,7 @@ headbuttheader  12,   9,   0
     treecoords 1256, 112, 1257, 112, 1256, 113, 1256, 114, 1257, 114, -1, -1
 .close
 
-headbuttheader  13,   4,   0
+headbuttheader  13,   4,   0   // Route 5
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 11, 13
     headbuttencounter SPECIES_PINECO, 11, 13
@@ -209,7 +209,7 @@ headbuttheader  13,   4,   0
     treecoords 1304, 189, 1305, 189, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  14,   6,   0
+headbuttheader  14,   6,   0   // Route 6
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 11, 13
     headbuttencounter SPECIES_PINECO, 11, 13
@@ -239,7 +239,7 @@ headbuttheader  14,   6,   0
     treecoords 1285, 260, 1285, 261, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  15,   8,   0
+headbuttheader  15,   8,   0   // Route 7
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 15, 17
     headbuttencounter SPECIES_HERACROSS, 15, 17
@@ -271,7 +271,7 @@ headbuttheader  15,   8,   0
     treecoords 1250, 243, 1251, 243, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  16,   5,   0
+headbuttheader  16,   5,   0   // Route 8
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 16, 17
     headbuttencounter SPECIES_PINECO, 16, 17
@@ -300,13 +300,13 @@ headbuttheader  16,   5,   0
     treecoords 1392, 244, 1392, 243, 1393, 244, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  17,   0,   0
+headbuttheader  17,   0,   0   // Route 9
 .close
 
-headbuttheader  18,   0,   0
+headbuttheader  18,   0,   0   // Route 10
 .close
 
-headbuttheader  19,  11,   0
+headbuttheader  19,  11,   0   // Route 11
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 13, 14
     headbuttencounter SPECIES_HERACROSS, 13, 14
@@ -341,7 +341,7 @@ headbuttheader  19,  11,   0
     treecoords 1382, 311, 1383, 311, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  20,  10,   0
+headbuttheader  20,  10,   0   // Route 12
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 22, 23
     headbuttencounter SPECIES_SPINARAK, 22, 23
@@ -375,7 +375,7 @@ headbuttheader  20,  10,   0
     treecoords 1417, 287, 1417, 286, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  21,  15,   0
+headbuttheader  21,  15,   0   // Route 13
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 22, 23
     headbuttencounter SPECIES_SPINARAK, 22, 23
@@ -414,7 +414,7 @@ headbuttheader  21,  15,   0
     treecoords 1376, 367, 1377, 367, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  22,   3,   0
+headbuttheader  22,   3,   0   // Route 14
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 26, 27
     headbuttencounter SPECIES_SPINARAK, 26, 27
@@ -441,7 +441,7 @@ headbuttheader  22,   3,   0
     treecoords 1352, 388, 1353, 388, 1353, 389, 1353, 390, 1352, 390, -1, -1
 .close
 
-headbuttheader  23,  19,   0
+headbuttheader  23,  19,   0   // Route 15
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 21, 23
     headbuttencounter SPECIES_SPINARAK, 21, 23
@@ -484,7 +484,7 @@ headbuttheader  23,  19,   0
     treecoords 1290, 419, 1291, 419, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  24,   2,   0
+headbuttheader  24,   2,   0   // Route 16
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 26, 27
     headbuttencounter SPECIES_HERACROSS, 26, 27
@@ -510,10 +510,10 @@ headbuttheader  24,   2,   0
     treecoords 1149, 279, 1150, 279, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  25,   0,   0
+headbuttheader  25,   0,   0   // Route 17
 .close
 
-headbuttheader  26,   3,   0
+headbuttheader  26,   3,   0   // Route 18
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 26, 27
     headbuttencounter SPECIES_SPINARAK, 26, 27
@@ -540,7 +540,7 @@ headbuttheader  26,   3,   0
     treecoords 1172, 429, 1173, 429, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  27,   7,   0
+headbuttheader  27,   7,   0   // Route 22
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 4
     headbuttencounter SPECIES_PINECO, 3, 4
@@ -571,10 +571,10 @@ headbuttheader  27,   7,   0
     treecoords 978, 273, 978, 272, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  28,   0,   0
+headbuttheader  28,   0,   0   // Route 24
 .close
 
-headbuttheader  29,  11,   4
+headbuttheader  29,  11,   4   // Route 25
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 10, 11
     headbuttencounter SPECIES_PINECO, 10, 11
@@ -614,7 +614,7 @@ headbuttheader  29,  11,   4
     treecoords 1321, 41, 1322, 41, 1322, 40, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  30,  17,   0
+headbuttheader  30,  17,   0   // Route 26
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 28, 29
     headbuttencounter SPECIES_PINECO, 28, 29
@@ -655,7 +655,7 @@ headbuttheader  30,  17,   0
     treecoords 925, 333, 926, 333, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  31,  17,   0
+headbuttheader  31,  17,   0   // Route 27
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 28, 29
     headbuttencounter SPECIES_PINECO, 28, 29
@@ -696,7 +696,7 @@ headbuttheader  31,  17,   0
     treecoords 754, 408, 755, 408, 754, 406, 755, 406, -1, -1, -1, -1
 .close
 
-headbuttheader  32,  15,   0
+headbuttheader  32,  15,   0   // Route 28
     // normal slots
     headbuttencounter SPECIES_HERACROSS, 39, 40
     headbuttencounter SPECIES_AIPOM, 39, 40
@@ -735,7 +735,7 @@ headbuttheader  32,  15,   0
     treecoords 848, 272, 849, 272, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  33,  35,   0
+headbuttheader  33,  35,   0   // Route 29
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 2, 3
@@ -794,7 +794,7 @@ headbuttheader  33,  35,   0
     treecoords 646, 385, 647, 385, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  34,  30,   0
+headbuttheader  34,  30,   0   // Route 30
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 2, 3
@@ -848,7 +848,7 @@ headbuttheader  34,  30,   0
     treecoords 569, 308, 570, 308, 570, 309, 570, 310, 569, 310, -1, -1
 .close
 
-headbuttheader  35,  15,   0
+headbuttheader  35,  15,   0   // Route 31
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 4
     headbuttencounter SPECIES_PINECO, 3, 4
@@ -887,7 +887,7 @@ headbuttheader  35,  15,   0
     treecoords 536, 281, 537, 281, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  36,  35,   0
+headbuttheader  36,  35,   0   // Route 32
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 4, 5
     headbuttencounter SPECIES_PINECO, 4, 5
@@ -946,7 +946,7 @@ headbuttheader  36,  35,   0
     treecoords 455, 406, 455, 407, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  37,   4,   0
+headbuttheader  37,   4,   0   // Route 33
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 3, 5
     headbuttencounter SPECIES_HERACROSS, 3, 5
@@ -974,7 +974,7 @@ headbuttheader  37,   4,   0
     treecoords 472, 477, 473, 477, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  38,  15,   1
+headbuttheader  38,  15,   1   // Route 34
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 9, 10
     headbuttencounter SPECIES_PINECO, 9, 10
@@ -989,12 +989,12 @@ headbuttheader  38,  15,   1
     headbuttencounter SPECIES_EXEGGCUTE, 11, 12
     headbuttencounter SPECIES_EXEGGCUTE, 11, 12
     // special slots
-    headbuttencounter SPECIES_CELEBI, 2, 2
-    headbuttencounter SPECIES_CELEBI, 2, 2
-    headbuttencounter SPECIES_CELEBI, 2, 2
-    headbuttencounter SPECIES_CELEBI, 2, 2
-    headbuttencounter SPECIES_CELEBI, 2, 2
-    headbuttencounter SPECIES_CELEBI, 2, 2
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_NONE, 0, 0
     // normal trees
     treecoords 355, 405, 355, 404, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 355, 403, 355, 402, -1, -1, -1, -1, -1, -1, -1, -1
@@ -1011,11 +1011,9 @@ headbuttheader  38,  15,   1
     treecoords 361, 473, 361, 472, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 368, 477, 369, 477, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 366, 465, 367, 465, -1, -1, -1, -1, -1, -1, -1, -1
-    // special trees
-    treecoords 364, 394, 365, 394, 364, 395, 365, 395, -1, -1, -1, -1
 .close
 
-headbuttheader  39,  14,   0
+headbuttheader  39,  14,   0   // Route 35
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 10, 11
     headbuttencounter SPECIES_PINECO, 10, 11
@@ -1053,7 +1051,7 @@ headbuttheader  39,  14,   0
     treecoords 368, 265, 369, 265, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  40,  26,   0
+headbuttheader  40,  26,   0   // Route 36
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 4, 5
     headbuttencounter SPECIES_PINECO, 4, 5
@@ -1103,7 +1101,7 @@ headbuttheader  40,  26,   0
     treecoords 434, 252, 434, 251, 435, 251, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  41,  13,   0
+headbuttheader  41,  13,   0   // Route 37
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 12, 14
     headbuttencounter SPECIES_PINECO, 12, 14
@@ -1140,7 +1138,7 @@ headbuttheader  41,  13,   0
     treecoords 404, 221, 405, 221, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  42,  13,   1
+headbuttheader  42,  13,   1   // Route 38
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 13, 14
     headbuttencounter SPECIES_PINECO, 13, 14
@@ -1179,7 +1177,7 @@ headbuttheader  42,  13,   1
     treecoords 302, 189, 302, 190, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  43,   3,   0
+headbuttheader  43,   3,   0   // Route 39
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 14, 15
     headbuttencounter SPECIES_PINECO, 14, 15
@@ -1206,7 +1204,7 @@ headbuttheader  43,   3,   0
     treecoords 274, 216, 275, 216, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  44,  10,   0
+headbuttheader  44,  10,   0   // Route 42
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 13, 14
     headbuttencounter SPECIES_HERACROSS, 13, 14
@@ -1240,7 +1238,7 @@ headbuttheader  44,  10,   0
     treecoords 469, 179, 470, 179, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  45,  17,   0
+headbuttheader  45,  17,   0   // Route 43
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 15, 16
     headbuttencounter SPECIES_PINECO, 15, 16
@@ -1281,7 +1279,7 @@ headbuttheader  45,  17,   0
     treecoords 527, 122, 527, 121, 526, 122, 526, 121, -1, -1, -1, -1
 .close
 
-headbuttheader  46,  14,   0
+headbuttheader  46,  14,   0   // Route 44
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 21, 22
     headbuttencounter SPECIES_HERACROSS, 21, 22
@@ -1319,7 +1317,7 @@ headbuttheader  46,  14,   0
     treecoords 567, 164, 568, 164, 568, 163, 568, 162, -1, -1, -1, -1
 .close
 
-headbuttheader  47,   3,   0
+headbuttheader  47,   3,   0   // Route 45
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 23, 24
     headbuttencounter SPECIES_HERACROSS, 23, 24
@@ -1346,7 +1344,7 @@ headbuttheader  47,   3,   0
     treecoords 657, 331, 657, 330, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  48,  10,   0
+headbuttheader  48,  10,   0   // Route 46
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 2, 3
     headbuttencounter SPECIES_HERACROSS, 2, 3
@@ -1380,7 +1378,7 @@ headbuttheader  48,  10,   0
     treecoords 611, 368, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  49,  17,   0
+headbuttheader  49,  17,   0   // Pallet Town
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 2, 3
@@ -1421,7 +1419,7 @@ headbuttheader  49,  17,   0
     treecoords 1052, 361, 1052, 369, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  50,  21,   0
+headbuttheader  50,  21,   0   // Viridian City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 4
     headbuttencounter SPECIES_PINECO, 3, 4
@@ -1466,7 +1464,7 @@ headbuttheader  50,  21,   0
     treecoords 1040, 231, 1041, 231, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  51,  21,   2
+headbuttheader  51,  21,   2   // Pewter City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 5
     headbuttencounter SPECIES_PINECO, 3, 5
@@ -1514,7 +1512,7 @@ headbuttheader  51,  21,   2
     treecoords 1037, 120, 1037, 121, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  52,  11,   0
+headbuttheader  52,  11,   0   // Cerulean City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 11, 13
     headbuttencounter SPECIES_PINECO, 11, 13
@@ -1549,10 +1547,10 @@ headbuttheader  52,  11,   0
     treecoords 1330, 105, 1331, 105, 1330, 104, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  53,   0,   0
+headbuttheader  53,   0,   0   // Lavender Town
 .close
 
-headbuttheader  54,  10,   0
+headbuttheader  54,  10,   0   // Vermilion City
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 11, 13
     headbuttencounter SPECIES_HERACROSS, 11, 13
@@ -1586,7 +1584,7 @@ headbuttheader  54,  10,   0
     treecoords 1342, 327, 1343, 327, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  55,  32,   0
+headbuttheader  55,  32,   0   // Celadon City
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 15, 17
     headbuttencounter SPECIES_HERACROSS, 15, 17
@@ -1642,7 +1640,7 @@ headbuttheader  55,  32,   0
     treecoords 1240, 255, 1240, 254, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  56,  18,   0
+headbuttheader  56,  18,   0   // Fuchsia City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 21, 23
     headbuttencounter SPECIES_SPINARAK, 21, 23
@@ -1684,16 +1682,16 @@ headbuttheader  56,  18,   0
     treecoords 1236, 409, 1236, 408, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  57,   0,   0
+headbuttheader  57,   0,   0   // Cinnabar Island
 .close
 
-headbuttheader  58,   0,   0
+headbuttheader  58,   0,   0   // Indigo Plateau
 .close
 
-headbuttheader  59,   0,   0
+headbuttheader  59,   0,   0   // Saffron City
 .close
 
-headbuttheader  60,  11,   0
+headbuttheader  60,  11,   0   // New Bark Town
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 2, 3
@@ -1728,25 +1726,25 @@ headbuttheader  60,  11,   0
     treecoords 676, 395, 677, 395, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  61,   0,   0
+headbuttheader  61,   0,   0   // Elms Lab (1F)
 .close
 
-headbuttheader  62,   0,   0
+headbuttheader  62,   0,   0   // Elms Lab (2F)
 .close
 
-headbuttheader  63,   0,   0
+headbuttheader  63,   0,   0   // Moms House (1F)
 .close
 
-headbuttheader  64,   0,   0
+headbuttheader  64,   0,   0   // Moms House (2F)
 .close
 
-headbuttheader  65,   0,   0
+headbuttheader  65,   0,   0   // New Bark Town House
 .close
 
-headbuttheader  66,   0,   0
+headbuttheader  66,   0,   0   // Ethan / Lyras House (1F)
 .close
 
-headbuttheader  67,   7,   4
+headbuttheader  67,   7,   4   // Cherrygrove City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 2, 3
@@ -1782,22 +1780,22 @@ headbuttheader  67,   7,   4
     treecoords 526, 389, 526, 388, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  68,   0,   0
+headbuttheader  68,   0,   0   // Cherrygrove City Pokémart
 .close
 
-headbuttheader  69,   0,   0
+headbuttheader  69,   0,   0   // Cherrygrove City Pokémon Centre
 .close
 
-headbuttheader  70,   0,   0
+headbuttheader  70,   0,   0   // Cherrygrove City House
 .close
 
-headbuttheader  71,   0,   0
+headbuttheader  71,   0,   0   // Cherrygrove City House
 .close
 
-headbuttheader  72,   0,   0
+headbuttheader  72,   0,   0   // Cherrygrove City House
 .close
 
-headbuttheader  73,  27,   0
+headbuttheader  73,  27,   0   // Violet City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
     headbuttencounter SPECIES_PINECO, 10, 10
@@ -1848,7 +1846,7 @@ headbuttheader  73,  27,   0
     treecoords 461, 227, 462, 227, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  74,  15,   0
+headbuttheader  74,  15,   0   // Azalea Town
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 3, 5
     headbuttencounter SPECIES_HERACROSS, 3, 5
@@ -1887,16 +1885,16 @@ headbuttheader  74,  15,   0
     treecoords 412, 477, 413, 477, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  75,   0,   0
+headbuttheader  75,   0,   0   // Cianwood City
 .close
 
-headbuttheader  76,   0,   0
+headbuttheader  76,   0,   0   // Goldenrod City
 .close
 
-headbuttheader  77,   0,   0
+headbuttheader  77,   0,   0   // Olivine City
 .close
 
-headbuttheader  78,  18,   0
+headbuttheader  78,  18,   0   // Ecruteak City
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 12, 14
     headbuttencounter SPECIES_PINECO, 12, 14
@@ -1938,34 +1936,34 @@ headbuttheader  78,  18,   0
     treecoords 378, 173, 379, 173, 379, 172, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  79,   0,   0
+headbuttheader  79,   0,   0   // Ecruteak City Pokémart
 .close
 
-headbuttheader  80,   0,   0
+headbuttheader  80,   0,   0   // Ecruteak City Gym
 .close
 
-headbuttheader  81,   0,   0
+headbuttheader  81,   0,   0   // Ecruteak Pokémon Centre
 .close
 
-headbuttheader  82,   0,   0
+headbuttheader  82,   0,   0   // Jubilife City ? (Unused)
 .close
 
-headbuttheader  83,   0,   0
+headbuttheader  83,   0,   0   // Barrier Station to Bell Tower
 .close
 
-headbuttheader  84,   0,   0
+headbuttheader  84,   0,   0   // Ecruteak City House
 .close
 
-headbuttheader  85,   0,   0
+headbuttheader  85,   0,   0   // Ecruteak City House
 .close
 
-headbuttheader  86,   0,   0
+headbuttheader  86,   0,   0   // Ecruteak Dance Theatre
 .close
 
-headbuttheader  87,   0,   0
+headbuttheader  87,   0,   0   // Mahogany Town
 .close
 
-headbuttheader  88,  22,   0
+headbuttheader  88,  22,   0   // Lake of Rage
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 14, 16
     headbuttencounter SPECIES_PINECO, 14, 16
@@ -2011,10 +2009,10 @@ headbuttheader  88,  22,   0
     treecoords 542, 35, 543, 35, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  89,   0,   0
+headbuttheader  89,   0,   0   // Blackthorn City
 .close
 
-headbuttheader  90,   5,   0
+headbuttheader  90,   5,   0   // Mt. Silver 
     // normal slots
     headbuttencounter SPECIES_HERACROSS, 39, 40
     headbuttencounter SPECIES_AIPOM, 39, 40
@@ -2043,13 +2041,13 @@ headbuttheader  90,   5,   0
     treecoords 816, 262, 816, 261, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  91,   0,   0
+headbuttheader  91,   0,   0   // Route 19
 .close
 
-headbuttheader  92,   0,   0
+headbuttheader  92,   0,   0   // Route 20
 .close
 
-headbuttheader  93,   3,   0
+headbuttheader  93,   3,   0   // Route 21
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 24, 26
     headbuttencounter SPECIES_SPINARAK, 24, 26
@@ -2076,13 +2074,13 @@ headbuttheader  93,   3,   0
     treecoords 1046, 389, 1046, 388, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  94,   0,   0
+headbuttheader  94,   0,   0   // Route 40
 .close
 
-headbuttheader  95,   0,   0
+headbuttheader  95,   0,   0   // Route 41
 .close
 
-headbuttheader  96,  22,   5
+headbuttheader  96,  22,   5   // National Park
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 10, 12
     headbuttencounter SPECIES_PINECO, 10, 12
@@ -2134,67 +2132,67 @@ headbuttheader  96,  22,   5
     treecoords 82, 17, 82, 16, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader  97,   0,   0
+headbuttheader  97,   0,   0   // Route 31 & Violet City Gate
 .close
 
-headbuttheader  98,   0,   0
+headbuttheader  98,   0,   0   // Route 32 & Ruins Of Alph Gate
 .close
 
-headbuttheader  99,   0,   0
+headbuttheader  99,   0,   0   // Union Cave 1F
 .close
 
-headbuttheader 100,   0,   0
+headbuttheader 100,   0,   0   // Azalea Town & Ilex Forest Gate
 .close
 
-headbuttheader 101,   0,   0
+headbuttheader 101,   0,   0   // Goldenrod City & Route 35 Gate
 .close
 
-headbuttheader 102,   0,   0
+headbuttheader 102,   0,   0   // Route 35 & National Park Gate
 .close
 
-headbuttheader 103,   0,   0
+headbuttheader 103,   0,   0   // Ruins Of Alph & Route 36 Gate
 .close
 
-headbuttheader 104,   0,   0
+headbuttheader 104,   0,   0   // National Park & Route 36 Gate
 .close
 
-headbuttheader 105,   0,   0
+headbuttheader 105,   0,   0   // Jubilife City ? (Unused)
 .close
 
-headbuttheader 106,   0,   0
+headbuttheader 106,   0,   0   // Digletts Cave
 .close
 
-headbuttheader 107,   0,   0
+headbuttheader 107,   0,   0   // Mt. Moon
 .close
 
-headbuttheader 108,   0,   0
+headbuttheader 108,   0,   0   // Rock Tunnel (1F)
 .close
 
-headbuttheader 109,   0,   0
+headbuttheader 109,   0,   0   // Pal Park
 .close
 
-headbuttheader 110,   0,   0
+headbuttheader 110,   0,   0   // Sprout Tower (1F)
 .close
 
-headbuttheader 111,   0,   0
+headbuttheader 111,   0,   0   // Bell Tower (1F)
 .close
 
-headbuttheader 112,   0,   0
+headbuttheader 112,   0,   0   // Radio Tower (1F)
 .close
 
-headbuttheader 113,   0,   0
+headbuttheader 113,   0,   0   // Ruins Of Alph (Outside)
 .close
 
-headbuttheader 114,   0,   0
+headbuttheader 114,   0,   0   // Slowpoke Well Entrance
 .close
 
-headbuttheader 115,   0,   0
+headbuttheader 115,   0,   0   // Olivine Lighthouse (1F)
 .close
 
-headbuttheader 116,   0,   0
+headbuttheader 116,   0,   0   // Mahogany Town Souvenir Shop
 .close
 
-headbuttheader 117,  56,   0
+headbuttheader 117,  56,   0   // Ilex Forest
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 5
     headbuttencounter SPECIES_CATERPIE, 3, 5
@@ -2274,94 +2272,94 @@ headbuttheader 117,  56,   0
     treecoords 46, 35, 47, 35, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 118,   0,   0
+headbuttheader 118,   0,   0   // Goldenrod Tunnel
 .close
 
-headbuttheader 119,   0,   0
+headbuttheader 119,   0,   0   // Mt. Mortar (1F)
 .close
 
-headbuttheader 120,   0,   0
+headbuttheader 120,   0,   0   // Ice Path (1F)
 .close
 
-headbuttheader 121,   0,   0
+headbuttheader 121,   0,   0   // Whirl Islands
 .close
 
-headbuttheader 122,   0,   0
+headbuttheader 122,   0,   0   // Mt. Silver Cave
 .close
 
-headbuttheader 123,   0,   0
+headbuttheader 123,   0,   0   // Dark Cave (Route 45 entrance)
 .close
 
-headbuttheader 124,   0,   0
+headbuttheader 124,   0,   0   // Victory Road (1F)
 .close
 
-headbuttheader 125,   0,   0
+headbuttheader 125,   0,   0   // Dragons Den Entrance
 .close
 
-headbuttheader 126,   0,   0
+headbuttheader 126,   0,   0   // Tohjo Falls
 .close
 
-headbuttheader 127,   0,   0
+headbuttheader 127,   0,   0   // Route 30 House
 .close
 
-headbuttheader 128,   0,   0
+headbuttheader 128,   0,   0   // Ecruteak City ? (Union Room ?)
 .close
 
-headbuttheader 129,   0,   0
+headbuttheader 129,   0,   0   // Ecruteak City ? (Union Room ?) 
 .close
 
-headbuttheader 130,   0,   0
+headbuttheader 130,   0,   0   // Ecruteak City ? (Union Room ?)
 .close
 
-headbuttheader 131,   0,   0
+headbuttheader 131,   0,   0   // Ecruteak City Pokémon Centre (Lower) 
 .close
 
-headbuttheader 132,   0,   0
+headbuttheader 132,   0,   0   // Ecruteak City & Route 42 Gate
 .close
 
-headbuttheader 133,   0,   0
+headbuttheader 133,   0,   0   // Mahogany Town House
 .close
 
-headbuttheader 134,   0,   0
+headbuttheader 134,   0,   0   // Route 29 & Route 46 Gate
 .close
 
-headbuttheader 135,   0,   0
+headbuttheader 135,   0,   0   // Violet City Gym
 .close
 
-headbuttheader 136,   0,   0
+headbuttheader 136,   0,   0   // Azalea Gym (Entrance)
 .close
 
-headbuttheader 137,   0,   0
+headbuttheader 137,   0,   0   // Goldenrod City Gym
 .close
 
-headbuttheader 138,   0,   0
+headbuttheader 138,   0,   0   // Olivine City Gym
 .close
 
-headbuttheader 139,   0,   0
+headbuttheader 139,   0,   0   // Cianwood City Gym
 .close
 
-headbuttheader 140,   0,   0
+headbuttheader 140,   0,   0   // Mahogany City Gym (3rd Room)
 .close
 
-headbuttheader 141,   0,   0
+headbuttheader 141,   0,   0   // Blackthorn City Gym
 .close
 
-headbuttheader 142,   0,   0
+headbuttheader 142,   0,   0   // Route 43 Gate
 .close
 
-headbuttheader 143,   0,   0
+headbuttheader 143,   0,   0   // Mr Pokémons House
 .close
 
-headbuttheader 144,   0,   0
+headbuttheader 144,   0,   0   // Cherrygrove City Pokémon Centre (Lower)
 .close
 
-headbuttheader 145,   0,   0
+headbuttheader 145,   0,   0   // Cerulean Cave (1F)
 .close
 
-headbuttheader 146,   0,   0
+headbuttheader 146,   0,   0   // Seafoam Islands (1F)
 .close
 
-headbuttheader 147,  24,   0
+headbuttheader 147,  24,   0   // Viridian Forest
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 4
     headbuttencounter SPECIES_SEEDOT, 3, 4
@@ -2409,16 +2407,16 @@ headbuttheader 147,  24,   0
     treecoords 17, 23, 17, 22, 16, 23, 16, 22, -1, -1, -1, -1
 .close
 
-headbuttheader 148,   0,   0
+headbuttheader 148,   0,   0   // Power Plant ? (Unused)
 .close
 
-headbuttheader 149,   0,   0
+headbuttheader 149,   0,   0   // Route 36 & Violet City Inbetween
 .close
 
-headbuttheader 150,   0,   0
+headbuttheader 150,   0,   0   // Route 35 & Pokéathlon Dome Inbetween
 .close
 
-headbuttheader 151,  10,   4
+headbuttheader 151,  10,   4   // Route 47
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 15, 16
     headbuttencounter SPECIES_PINECO, 15, 16
@@ -2457,7 +2455,7 @@ headbuttheader 151,  10,   4
     treecoords 132, 363, 133, 363, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 152,   6,   0
+headbuttheader 152,   6,   0   // Route 48
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 15, 16
     headbuttencounter SPECIES_PINECO, 15, 16
@@ -2487,70 +2485,70 @@ headbuttheader 152,   6,   0
     treecoords 82, 335, 82, 334, 82, 333, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 153,   0,   0
+headbuttheader 153,   0,   0   // Union Cave (B1F)
 .close
 
-headbuttheader 154,   0,   0
+headbuttheader 154,   0,   0   // Union Cave (B2F)
 .close
 
-headbuttheader 155,   0,   0
+headbuttheader 155,   0,   0   // Sprout Tower (2F)
 .close
 
-headbuttheader 156,   0,   0
+headbuttheader 156,   0,   0   // Sprout Tower (3F)
 .close
 
-headbuttheader 157,   0,   0
+headbuttheader 157,   0,   0   // Violet City Pokémart
 .close
 
-headbuttheader 158,   0,   0
+headbuttheader 158,   0,   0   // Violet City Pokémon Centre
 .close
 
-headbuttheader 159,   0,   0
+headbuttheader 159,   0,   0   // Violet City Pokémon School
 .close
 
-headbuttheader 160,   0,   0
+headbuttheader 160,   0,   0   // Violet City House
 .close
 
-headbuttheader 161,   0,   0
+headbuttheader 161,   0,   0   // Jubilife City (Unused)
 .close
 
-headbuttheader 162,   0,   0
+headbuttheader 162,   0,   0   // Violet City House
 .close
 
-headbuttheader 163,   0,   0
+headbuttheader 163,   0,   0   // Azalea Town Charcoal Kiln
 .close
 
-headbuttheader 164,   0,   0
+headbuttheader 164,   0,   0   // Azalea Town Kurts House
 .close
 
-headbuttheader 165,   0,   0
+headbuttheader 165,   0,   0   // Azalea Town Pokémart
 .close
 
-headbuttheader 166,   0,   0
+headbuttheader 166,   0,   0   // Azalea Town Pokémon Centre
 .close
 
-headbuttheader 167,   0,   0
+headbuttheader 167,   0,   0   // Violet City Pokémon Centre (Lower)
 .close
 
-headbuttheader 168,   0,   0
+headbuttheader 168,   0,   0   // Azalea Town Pokémon Centre (Lower)
 .close
 
-headbuttheader 169,   0,   0
+headbuttheader 169,   0,   0   // Route 32 Pokémon Centre
 .close
 
-headbuttheader 170,   0,   0
+headbuttheader 170,   0,   0   // Route 32 Pokémon Centre (Lower)
 .close
 
-headbuttheader 171,   0,   0
+headbuttheader 171,   0,   0   // Ilex Forest & Route 34 Gate
 .close
 
-headbuttheader 172,   0,   0
+headbuttheader 172,   0,   0   // Ecruteak & Route 38 Gate
 .close
 
-headbuttheader 173,   0,   0
+headbuttheader 173,   0,   0   // Safari Zone Gate (Inside)
 .close
 
-headbuttheader 174,  17,   0
+headbuttheader 174,  17,   0   // Safari Zone Gate (Outside)
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 14, 16
     headbuttencounter SPECIES_PINECO, 14, 16
@@ -2591,724 +2589,724 @@ headbuttheader 174,  17,   0
     treecoords 101, 299, 101, 298, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 175,   0,   0
+headbuttheader 175,   0,   0   // Jubilife City ? (Unused)
 .close
 
-headbuttheader 176,   0,   0
+headbuttheader 176,   0,   0   // Dark Cave (Route 31 entrance)
 .close
 
-headbuttheader 177,   0,   0
+headbuttheader 177,   0,   0   // Slowpoke Well (1F)
 .close
 
-headbuttheader 178,   0,   0
+headbuttheader 178,   0,   0   // Victory Road (2F)
 .close
 
-headbuttheader 179,   0,   0
+headbuttheader 179,   0,   0   // Victory Road (3F)
 .close
 
-headbuttheader 180,   0,   0
+headbuttheader 180,   0,   0   // Azalea Town Gym
 .close
 
-headbuttheader 181,   0,   0
+headbuttheader 181,   0,   0   // Slowpoke Well (B1F)
 .close
 
-headbuttheader 182,   0,   0
+headbuttheader 182,   0,   0   // Goldenrod City Bike Store
 .close
 
-headbuttheader 183,   0,   0
+headbuttheader 183,   0,   0   // Goldenrod City Game Corner (JAP)
 .close
 
-headbuttheader 184,   0,   0
+headbuttheader 184,   0,   0   // Goldenrod City Flower Shop
 .close
 
-headbuttheader 185,   0,   0
+headbuttheader 185,   0,   0   // Goldenrod City Pokémon Centre
 .close
 
-headbuttheader 186,   0,   0
+headbuttheader 186,   0,   0   // Goldenrod Radio Tower (2F)
 .close
 
-headbuttheader 187,   0,   0
+headbuttheader 187,   0,   0   // Goldenrod Radio Tower (3F)
 .close
 
-headbuttheader 188,   0,   0
+headbuttheader 188,   0,   0   // Goldenrod Radio Tower (4F)
 .close
 
-headbuttheader 189,   0,   0
+headbuttheader 189,   0,   0   // Goldenrod Radio Tower (5F)
 .close
 
-headbuttheader 190,   0,   0
+headbuttheader 190,   0,   0   // Goldenrod Radio Tower Observation Deck
 .close
 
-headbuttheader 191,   0,   0
+headbuttheader 191,   0,   0   // Goldenrod Department Store (1F)
 .close
 
-headbuttheader 192,   0,   0
+headbuttheader 192,   0,   0   // Goldenrod Department Store (2F)
 .close
 
-headbuttheader 193,   0,   0
+headbuttheader 193,   0,   0   // Goldenrod Department Store (3F)
 .close
 
-headbuttheader 194,   0,   0
+headbuttheader 194,   0,   0   // Goldenrod Department Store (4F)
 .close
 
-headbuttheader 195,   0,   0
+headbuttheader 195,   0,   0   // Goldenrod Department Store (5F)
 .close
 
-headbuttheader 196,   0,   0
+headbuttheader 196,   0,   0   // Goldenrod Department Store (6F)
 .close
 
-headbuttheader 197,   0,   0
+headbuttheader 197,   0,   0   // Goldenrod City Magnet Train Station
 .close
 
-headbuttheader 198,   0,   0
+headbuttheader 198,   0,   0   // Goldenrod City Magnet Train Station
 .close
 
-headbuttheader 199,   0,   0
+headbuttheader 199,   0,   0   // Goldenrod Tunnel   
 .close
 
-headbuttheader 200,   0,   0
+headbuttheader 200,   0,   0   // Goldenrod Department Store Basement 
 .close
 
-headbuttheader 201,   0,   0
+headbuttheader 201,   0,   0   // Goldenrod Tunnel (B2F)
 .close
 
-headbuttheader 202,   0,   0
+headbuttheader 202,   0,   0   // Goldenrod Tunnel Warehouse
 .close
 
-headbuttheader 203,   0,   0
+headbuttheader 203,   0,   0   // Goldenrod City House
 .close
 
-headbuttheader 204,   0,   0
+headbuttheader 204,   0,   0   // Goldenrod City House
 .close
 
-headbuttheader 205,   0,   0
+headbuttheader 205,   0,   0   // Goldenrod City House
 .close
 
-headbuttheader 206,   0,   0
+headbuttheader 206,   0,   0   // Goldenrod City Name Rater
 .close
 
-headbuttheader 207,   0,   0
+headbuttheader 207,   0,   0   // Global Terminal
 .close
 
-headbuttheader 208,   0,   0
+headbuttheader 208,   0,   0   // Goldenrod City House (1F)
 .close
 
-headbuttheader 209,   0,   0
+headbuttheader 209,   0,   0   // Goldenrod City House (2F)
 .close
 
-headbuttheader 210,   0,   0
+headbuttheader 210,   0,   0   // Goldenrod City House (3F)
 .close
 
-headbuttheader 211,   0,   0
+headbuttheader 211,   0,   0   // Goldenrod City House (4F)
 .close
 
-headbuttheader 212,   0,   0
+headbuttheader 212,   0,   0   // Goldenrod City House (5F)
 .close
 
-headbuttheader 213,   0,   0
+headbuttheader 213,   0,   0   // Goldenrod City House (6F)
 .close
 
-headbuttheader 214,   0,   0
+headbuttheader 214,   0,   0   // Moomoo Farm House
 .close
 
-headbuttheader 215,   0,   0
+headbuttheader 215,   0,   0   // Moomoo Farm Barn
 .close
 
-headbuttheader 216,   0,   0
+headbuttheader 216,   0,   0   // Barrier Station to Bell Tower & Bellchime Trail Path
 .close
 
-headbuttheader 217,   0,   0
+headbuttheader 217,   0,   0   // Burned Tower B1F
 .close
 
-headbuttheader 218,   0,   0
+headbuttheader 218,   0,   0   // Ruins of Alph (Inside)
 .close
 
-headbuttheader 219,   0,   0
+headbuttheader 219,   0,   0   // Goldenrod City Pokémon Centre (Lower)
 .close
 
-headbuttheader 220,   0,   0
+headbuttheader 220,   0,   0   // Glitter Lighthouse (2F)
 .close
 
-headbuttheader 221,   0,   0
+headbuttheader 221,   0,   0   // Glitter Lighthouse Exterior
 .close
 
-headbuttheader 222,   0,   0
+headbuttheader 222,   0,   0   // Glitter Lighthouse (3F)
 .close
 
-headbuttheader 223,   0,   0
+headbuttheader 223,   0,   0   // Glitter Lighthouse (4F)
 .close
 
-headbuttheader 224,   0,   0
+headbuttheader 224,   0,   0   // Glitter Lighthouse (5F)
 .close
 
-headbuttheader 225,   0,   0
+headbuttheader 225,   0,   0   // Glitter Lighthouse Light Room
 .close
 
-headbuttheader 226,   0,   0
+headbuttheader 226,   0,   0   // Olivine City Pokémon Centre
 .close
 
-headbuttheader 227,   0,   0
+headbuttheader 227,   0,   0   // Olivine City Pokémart
 .close
 
-headbuttheader 228,   0,   0
+headbuttheader 228,   0,   0   // Olivine City House
 .close
 
-headbuttheader 229,   0,   0
+headbuttheader 229,   0,   0   // Olivine City House
 .close
 
-headbuttheader 230,   0,   0
+headbuttheader 230,   0,   0   // Olivine City House
 .close
 
-headbuttheader 231,   0,   0
+headbuttheader 231,   0,   0   // Olivine City Café
 .close
 
-headbuttheader 232,   0,   0
+headbuttheader 232,   0,   0   // Cianwood City House
 .close
 
-headbuttheader 233,   0,   0
+headbuttheader 233,   0,   0   // Cianwood City Pharmacy
 .close
 
-headbuttheader 234,   0,   0
+headbuttheader 234,   0,   0   // Cianwood City House
 .close
 
-headbuttheader 235,   0,   0
+headbuttheader 235,   0,   0   // Cianwood City House
 .close
 
-headbuttheader 236,   0,   0
+headbuttheader 236,   0,   0   // Cianwood City Pokémon Centre
 .close
 
-headbuttheader 237,   0,   0
+headbuttheader 237,   0,   0   // (Ice Path B1F)
 .close
 
-headbuttheader 238,   0,   0
+headbuttheader 238,   0,   0   // Ice Path (B2F)
 .close
 
-headbuttheader 239,   0,   0
+headbuttheader 239,   0,   0   // Ice Path (B3F)
 .close
 
-headbuttheader 240,   0,   0
+headbuttheader 240,   0,   0   // Olivine City House
 .close
 
-headbuttheader 241,   0,   0
+headbuttheader 241,   0,   0   // Cianwood City Pokémon Centre (Lower)
 .close
 
-headbuttheader 242,   0,   0
+headbuttheader 242,   0,   0   // Whirl Islands (B1F)
 .close
 
-headbuttheader 243,   0,   0
+headbuttheader 243,   0,   0   // Whirl Islands (B2F)
 .close
 
-headbuttheader 244,   0,   0
+headbuttheader 244,   0,   0   // Whirl Islands (B3F)
 .close
 
-headbuttheader 245,   0,   0
+headbuttheader 245,   0,   0   // Route 43 Gate
 .close
 
-headbuttheader 246,   0,   0
+headbuttheader 246,   0,   0   // Mahogany Town Pokémon Centre
 .close
 
-headbuttheader 247,   0,   0
+headbuttheader 247,   0,   0   // Team Rocket HQ (B1F)
 .close
 
-headbuttheader 248,   0,   0
+headbuttheader 248,   0,   0   // Team Rocket HQ (B2F)
 .close
 
-headbuttheader 249,   0,   0
+headbuttheader 249,   0,   0   // Team Rocket HQ (B3F)
 .close
 
-headbuttheader 250,   0,   0
+headbuttheader 250,   0,   0   // Mt. Mortar (1F)
 .close
 
-headbuttheader 251,   0,   0
+headbuttheader 251,   0,   0   // Mt. Mortar (2F)
 .close
 
-headbuttheader 252,   0,   0
+headbuttheader 252,   0,   0   // Mt. Mortar (1F)
 .close
 
-headbuttheader 253,   0,   0
+headbuttheader 253,   0,   0   // Dragons Den (Main)
 .close
 
-headbuttheader 254,   0,   0
+headbuttheader 254,   0,   0   // Fight Area
 .close
 
-headbuttheader 255,   0,   0
+headbuttheader 255,   0,   0   // Fight Area
 .close
 
-headbuttheader 256,   0,   0
+headbuttheader 256,   0,   0   // Fight Area
 .close
 
-headbuttheader 257,   0,   0
+headbuttheader 257,   0,   0   // Fight Area
 .close
 
-headbuttheader 258,   0,   0
+headbuttheader 258,   0,   0   // Fight Area
 .close
 
-headbuttheader 259,   0,   0
+headbuttheader 259,   0,   0   // Fight Area
 .close
 
-headbuttheader 260,   0,   0
+headbuttheader 260,   0,   0   // Fight Area
 .close
 
-headbuttheader 261,   0,   0
+headbuttheader 261,   0,   0   // Fight Area
 .close
 
-headbuttheader 262,   0,   0
+headbuttheader 262,   0,   0   // Fight Area
 .close
 
-headbuttheader 263,   0,   0
+headbuttheader 263,   0,   0   // Battle Park
 .close
 
-headbuttheader 264,   0,   0
+headbuttheader 264,   0,   0   // Battle Park
 .close
 
-headbuttheader 265,   0,   0
+headbuttheader 265,   0,   0   // Battle Tower
 .close
 
-headbuttheader 266,   0,   0
+headbuttheader 266,   0,   0   // Battle Tower
 .close
 
-headbuttheader 267,   0,   0
+headbuttheader 267,   0,   0   // Battle Tower
 .close
 
-headbuttheader 268,   0,   0
+headbuttheader 268,   0,   0   // Battle Tower
 .close
 
-headbuttheader 269,   0,   0
+headbuttheader 269,   0,   0   // Battle Tower
 .close
 
-headbuttheader 270,   0,   0
+headbuttheader 270,   0,   0   // Battle Tower
 .close
 
-headbuttheader 271,   0,   0
+headbuttheader 271,   0,   0   // Battle Tower
 .close
 
-headbuttheader 272,   0,   0
+headbuttheader 272,   0,   0   // Battle Frontier
 .close
 
-headbuttheader 273,   0,   0
+headbuttheader 273,   0,   0   // Battle Frontier
 .close
 
-headbuttheader 274,   0,   0
+headbuttheader 274,   0,   0   // Battle Tower
 .close
 
-headbuttheader 275,   0,   0
+headbuttheader 275,   0,   0   // Battle Factory
 .close
 
-headbuttheader 276,   0,   0
+headbuttheader 276,   0,   0   // Battle Hall
 .close
 
-headbuttheader 277,   0,   0
+headbuttheader 277,   0,   0   // Battle Castle
 .close
 
-headbuttheader 278,   0,   0
+headbuttheader 278,   0,   0   // Battle Arcade
 .close
 
-headbuttheader 279,   0,   0
+headbuttheader 279,   0,   0   // Cliff Edge Gate
 .close
 
-headbuttheader 280,   0,   0
+headbuttheader 280,   0,   0   // Pokéathlon Dome (Outside)
 .close
 
-headbuttheader 281,   0,   0
+headbuttheader 281,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 282,   0,   0
+headbuttheader 282,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 283,   0,   0
+headbuttheader 283,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 284,   0,   0
+headbuttheader 284,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 285,   0,   0
+headbuttheader 285,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 286,   0,   0
+headbuttheader 286,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 287,   0,   0
+headbuttheader 287,   0,   0   // Pokéathlon Dome (Inside)
 .close
 
-headbuttheader 288,   0,   0
+headbuttheader 288,   0,   0   // Dragons Den (Shrine)
 .close
 
-headbuttheader 289,   0,   0
+headbuttheader 289,   0,   0   // Blackthorn City House
 .close
 
-headbuttheader 290,   0,   0
+headbuttheader 290,   0,   0   // Blackthorn City House
 .close
 
-headbuttheader 291,   0,   0
+headbuttheader 291,   0,   0   // Blackthorn City House
 .close
 
-headbuttheader 292,   0,   0
+headbuttheader 292,   0,   0   // Blackthorn City Pokémart
 .close
 
-headbuttheader 293,   0,   0
+headbuttheader 293,   0,   0   // Blackthorn City Pokémon Centre
 .close
 
-headbuttheader 294,   0,   0
+headbuttheader 294,   0,   0   // Lake of Rage House
 .close
 
-headbuttheader 295,   0,   0
+headbuttheader 295,   0,   0   // Lake of Rage House
 .close
 
-headbuttheader 296,   0,   0
+headbuttheader 296,   0,   0   // Route 26 House
 .close
 
-headbuttheader 297,   0,   0
+headbuttheader 297,   0,   0   // Route 26 Week Siblings House
 .close
 
-headbuttheader 298,   0,   0
+headbuttheader 298,   0,   0   // Tohjo Falls Hidden Room
 .close
 
-headbuttheader 299,   0,   0
+headbuttheader 299,   0,   0   // Pokémon League Reception Gate
 .close
 
-headbuttheader 300,   0,   0
+headbuttheader 300,   0,   0   // Pokémon League
 .close
 
-headbuttheader 301,   0,   0
+headbuttheader 301,   0,   0   // Pokémon League (Wills Room)
 .close
 
-headbuttheader 302,   0,   0
+headbuttheader 302,   0,   0   // Pokémon League (Kogas Room)
 .close
 
-headbuttheader 303,   0,   0
+headbuttheader 303,   0,   0   // Pokémon League (Brunos Room)
 .close
 
-headbuttheader 304,   0,   0
+headbuttheader 304,   0,   0   // Pokémon League (Karens Room)
 .close
 
-headbuttheader 305,   0,   0
+headbuttheader 305,   0,   0   // Pokémon League (Lances Room)
 .close
 
-headbuttheader 306,   0,   0
+headbuttheader 306,   0,   0   // Pokémon League (Hall of Fame)
 .close
 
-headbuttheader 307,   0,   0
+headbuttheader 307,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 308,   0,   0
+headbuttheader 308,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 309,   0,   0
+headbuttheader 309,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 310,   0,   0
+headbuttheader 310,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 311,   0,   0
+headbuttheader 311,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 312,   0,   0
+headbuttheader 312,   0,   0   // Ruins of Alph (Entrance) 
 .close
 
-headbuttheader 313,   0,   0
+headbuttheader 313,   0,   0   // Ruins of Alph (Chamber 1)
 .close
 
-headbuttheader 314,   0,   0
+headbuttheader 314,   0,   0   // Ruins of Alph (Entrance) 
 .close
 
-headbuttheader 315,   0,   0
+headbuttheader 315,   0,   0   // Ruins of Alph (Underground Hall)
 .close
 
-headbuttheader 316,   0,   0
+headbuttheader 316,   0,   0   // Ruins of Alph (Entrance) 
 .close
 
-headbuttheader 317,   0,   0
+headbuttheader 317,   0,   0   // Ruins of Alph (Chamber 3)
 .close
 
-headbuttheader 318,   0,   0
+headbuttheader 318,   0,   0   // Ruins of Alph (Entrance) 
 .close
 
-headbuttheader 319,   0,   0
+headbuttheader 319,   0,   0   // Ruins of Alph (Chamber 4)
 .close
 
-headbuttheader 320,   0,   0
+headbuttheader 320,   0,   0   // Ruins of Alph (Chamber 2) 
 .close
 
-headbuttheader 321,   0,   0
+headbuttheader 321,   0,   0   // Ruins of Alph Research Center
 .close
 
-headbuttheader 322,   0,   0
+headbuttheader 322,   0,   0   // Route 27 House
 .close
 
-headbuttheader 323,   0,   0
+headbuttheader 323,   0,   0   // Ruins of Alph (Hall Entrance)
 .close
 
-headbuttheader 324,   0,   0
+headbuttheader 324,   0,   0   // Ruins of Alph (Entrance 2)
 .close
 
-headbuttheader 325,   0,   0
+headbuttheader 325,   0,   0   // Ruins of Alph (Entrance 2)
 .close
 
-headbuttheader 326,   0,   0
+headbuttheader 326,   0,   0   // Ruins of Alph (Entrance 2)
 .close
 
-headbuttheader 327,   0,   0
+headbuttheader 327,   0,   0   // Ruins of Alph (Entrance 2)
 .close
 
-headbuttheader 328,   0,   0
+headbuttheader 328,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 329,   0,   0
+headbuttheader 329,   0,   0   // S.S Aqua
 .close
 
-headbuttheader 330,   0,   0
+headbuttheader 330,   0,   0   // Olivine Port
 .close
 
-headbuttheader 331,   0,   0
+headbuttheader 331,   0,   0   // Pokémon Daycare
 .close
 
-headbuttheader 332,   0,   0
+headbuttheader 332,   0,   0   // Bell Tower (2F)
 .close
 
-headbuttheader 333,   0,   0
+headbuttheader 333,   0,   0   // Bell Tower (3F)
 .close
 
-headbuttheader 334,   0,   0
+headbuttheader 334,   0,   0   // Bell Tower (4F)
 .close
 
-headbuttheader 335,   0,   0
+headbuttheader 335,   0,   0   // Bell Tower (5F)
 .close
 
-headbuttheader 336,   0,   0
+headbuttheader 336,   0,   0   // Bell Tower (6F)
 .close
 
-headbuttheader 337,   0,   0
+headbuttheader 337,   0,   0   // Bell Tower (7F)
 .close
 
-headbuttheader 338,   0,   0
+headbuttheader 338,   0,   0   // Bell Tower (8F)
 .close
 
-headbuttheader 339,   0,   0
+headbuttheader 339,   0,   0   // Bell Tower (9F)
 .close
 
-headbuttheader 340,   0,   0
+headbuttheader 340,   0,   0   // Bell Tower Roof
 .close
 
-headbuttheader 341,   0,   0
+headbuttheader 341,   0,   0   // Bell Tower (10F)
 .close
 
-headbuttheader 342,   0,   0
+headbuttheader 342,   0,   0   // Cliff Cave
 .close
 
-headbuttheader 343,   0,   0
+headbuttheader 343,   0,   0   // Safari Zone
 .close
 
-headbuttheader 344,   0,   0
+headbuttheader 344,   0,   0   // Safari Zone
 .close
 
-headbuttheader 345,   0,   0
+headbuttheader 345,   0,   0   // Safari Zone
 .close
 
-headbuttheader 346,   0,   0
+headbuttheader 346,   0,   0   // Safari Zone
 .close
 
-headbuttheader 347,   0,   0
+headbuttheader 347,   0,   0   // Safari Zone
 .close
 
-headbuttheader 348,   0,   0
+headbuttheader 348,   0,   0   // Safari Zone
 .close
 
-headbuttheader 349,   0,   0
+headbuttheader 349,   0,   0   // Safari Zone
 .close
 
-headbuttheader 350,   0,   0
+headbuttheader 350,   0,   0   // Safari Zone
 .close
 
-headbuttheader 351,   0,   0
+headbuttheader 351,   0,   0   // Safari Zone
 .close
 
-headbuttheader 352,   0,   0
+headbuttheader 352,   0,   0   // Safari Zone
 .close
 
-headbuttheader 353,   0,   0
+headbuttheader 353,   0,   0   // Safari Zone
 .close
 
-headbuttheader 354,   0,   0
+headbuttheader 354,   0,   0   // Safari Zone
 .close
 
-headbuttheader 355,   0,   0
+headbuttheader 355,   0,   0   // Safari Zone
 .close
 
-headbuttheader 356,   0,   0
+headbuttheader 356,   0,   0   // Safari Zone
 .close
 
-headbuttheader 357,   0,   0
+headbuttheader 357,   0,   0   // Safari Zone
 .close
 
-headbuttheader 358,   0,   0
+headbuttheader 358,   0,   0   // Vermilion City Pokémon Centre
 .close
 
-headbuttheader 359,   0,   0
+headbuttheader 359,   0,   0   // Vermilion City Pokémon Centre (Lower)
 .close
 
-headbuttheader 360,   0,   0
+headbuttheader 360,   0,   0   // Vermilion City Pokémart
 .close
 
-headbuttheader 361,   0,   0
+headbuttheader 361,   0,   0   // Vermilion City Pokémon Centre
 .close
 
-headbuttheader 362,   0,   0
+headbuttheader 362,   0,   0   // Vermilion City Pokémon Fan Club
 .close
 
-headbuttheader 363,   0,   0
+headbuttheader 363,   0,   0   // Vermilion City House
 .close
 
-headbuttheader 364,   0,   0
+headbuttheader 364,   0,   0   // Vermilion City House
 .close
 
-headbuttheader 365,   0,   0
+headbuttheader 365,   0,   0   // Vermilion City Gym
 .close
 
-headbuttheader 366,   0,   0
+headbuttheader 366,   0,   0   // Route 40 & Frontier Access Gate
 .close
 
-headbuttheader 367,   0,   0
+headbuttheader 367,   0,   0   // Olivine City Pokémon Center (Lower)
 .close
 
-headbuttheader 368,   0,   0
+headbuttheader 368,   0,   0   // Mahogany Town Pokémon Center (Lower)
 .close
 
-headbuttheader 369,   0,   0
+headbuttheader 369,   0,   0   // Blackthorn Town Pokémon Center (Lower)
 .close
 
-headbuttheader 370,   0,   0
+headbuttheader 370,   0,   0   // Celadon City Department Store (1F)
 .close
 
-headbuttheader 371,   0,   0
+headbuttheader 371,   0,   0   // Celadon City Department Store (2F)
 .close
 
-headbuttheader 372,   0,   0
+headbuttheader 372,   0,   0   // Celadon City Department Store (3F)
 .close
 
-headbuttheader 373,   0,   0
+headbuttheader 373,   0,   0   // Celadon City Department Store (4F)
 .close
 
-headbuttheader 374,   0,   0
+headbuttheader 374,   0,   0   // Celadon City Department Store (5F)
 .close
 
-headbuttheader 375,   0,   0
+headbuttheader 375,   0,   0   // Celadon City Department Store (6F)
 .close
 
-headbuttheader 376,   0,   0
+headbuttheader 376,   0,   0   // Celadon Condominiums (1F)
 .close
 
-headbuttheader 377,   0,   0
+headbuttheader 377,   0,   0   // Celadon Condominiums (2F)
 .close
 
-headbuttheader 378,   0,   0
+headbuttheader 378,   0,   0   // Celadon Condominiums (3F)
 .close
 
-headbuttheader 379,   0,   0
+headbuttheader 379,   0,   0   // Celadon Condominiums (4F)
 .close
 
-headbuttheader 380,   0,   0
+headbuttheader 380,   0,   0   // Celadon Condominiums (5F)
 .close
 
-headbuttheader 381,   0,   0
+headbuttheader 381,   0,   0   // Celadon Game Corner (Main, JP)
 .close
 
-headbuttheader 382,   0,   0
+headbuttheader 382,   0,   0   // Celadon Game Corner (Prize Building, JP)
 .close
 
-headbuttheader 383,   0,   0
+headbuttheader 383,   0,   0   // Celadon City House
 .close
 
-headbuttheader 384,   0,   0
+headbuttheader 384,   0,   0   // Ethan / Lyras House (2F)
 .close
 
-headbuttheader 385,   0,   0
+headbuttheader 385,   0,   0   // Cianwood City House
 .close
 
-headbuttheader 386,   0,   0
+headbuttheader 386,   0,   0   // Vermilion Port
 .close
 
-headbuttheader 387,   0,   0
+headbuttheader 387,   0,   0   // Vermilion Port
 .close
 
-headbuttheader 388,   0,   0
+headbuttheader 388,   0,   0   // Route 10
 .close
 
-headbuttheader 389,   0,   0
+headbuttheader 389,   0,   0   // Route 6 & Saffron City Gate
 .close
 
-headbuttheader 390,   0,   0
+headbuttheader 390,   0,   0   // Route 8 & Saffron City Gate
 .close
 
-headbuttheader 391,   0,   0
+headbuttheader 391,   0,   0   // Route 5 & Saffron City Gate
 .close
 
-headbuttheader 392,   0,   0
+headbuttheader 392,   0,   0   // Route 15 & Fushsia City Gate
 .close
 
-headbuttheader 393,   0,   0
+headbuttheader 393,   0,   0   // Celadon City Pokémon Centre
 .close
 
-headbuttheader 394,   0,   0
+headbuttheader 394,   0,   0   // Celadon City Pokémon Centre (Lower)
 .close
 
-headbuttheader 395,   0,   0
+headbuttheader 395,   0,   0   // Celadon City Gym
 .close
 
-headbuttheader 396,   0,   0
+headbuttheader 396,   0,   0   // Mahogany Town Gym (2nd Room)
 .close
 
-headbuttheader 397,   0,   0
+headbuttheader 397,   0,   0   // Mahogany Town Gym (1st Room)
 .close
 
-headbuttheader 398,   0,   0
+headbuttheader 398,   0,   0   // Saffron City Fighting Dojo
 .close
 
-headbuttheader 399,   0,   0
+headbuttheader 399,   0,   0   // Saffron City House
 .close
 
-headbuttheader 400,   0,   0
+headbuttheader 400,   0,   0   // Saffron City Magnet Train Station
 .close
 
-headbuttheader 401,   0,   0
+headbuttheader 401,   0,   0   // Saffron City Magnet Train Station
 .close
 
-headbuttheader 402,   0,   0
+headbuttheader 402,   0,   0   // Saffron City Magnet Train Station (?)
 .close
 
-headbuttheader 403,   0,   0
+headbuttheader 403,   0,   0   // ROTOMs Room
 .close
 
-headbuttheader 404,   0,   0
+headbuttheader 404,   0,   0   // Saffron City House
 .close
 
-headbuttheader 405,   0,   0
+headbuttheader 405,   0,   0   // Saffron City House
 .close
 
-headbuttheader 406,   0,   0
+headbuttheader 406,   0,   0   // Saffron City House
 .close
 
-headbuttheader 407,   0,   0
+headbuttheader 407,   0,   0   // Saffron City Pokémon Center
 .close
 
-headbuttheader 408,   0,   0
+headbuttheader 408,   0,   0   // Saffron City Pokémon Center (Lower)
 .close
 
-headbuttheader 409,   0,   0
+headbuttheader 409,   0,   0   // Saffron City Pokémart
 .close
 
-headbuttheader 410,   0,   0
+headbuttheader 410,   0,   0   // Saffron City Gym
 .close
 
-headbuttheader 411,   0,   0
+headbuttheader 411,   0,   0   // Frontier Access
 .close
 
-headbuttheader 412,   0,   0
+headbuttheader 412,   0,   0   // Global Terminal (2F)
 .close
 
-headbuttheader 413,   0,   0
+headbuttheader 413,   0,   0   // Global Terminal (3F)
 .close
 
-headbuttheader 414,  13,   0
+headbuttheader 414,  13,   0   // Route 2
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 3, 4
     headbuttencounter SPECIES_PINECO, 3, 4
@@ -3345,28 +3343,28 @@ headbuttheader 414,  13,   0
     treecoords 1047, 174, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 415,   0,   0
+headbuttheader 415,   0,   0   // Route 16 House
 .close
 
-headbuttheader 416,   0,   0
+headbuttheader 416,   0,   0   // Route 20 (Unused?)
 .close
 
-headbuttheader 417,   0,   0
+headbuttheader 417,   0,   0   // Route 2
 .close
 
-headbuttheader 418,   0,   0
+headbuttheader 418,   0,   0   // Route 2 & Pewter City Gate
 .close
 
-headbuttheader 419,   0,   0
+headbuttheader 419,   0,   0   // Route 2 & Viridian City Gate
 .close
 
-headbuttheader 420,   0,   0
+headbuttheader 420,   0,   0   // Route 2 Gate
 .close
 
-headbuttheader 421,   0,   0
+headbuttheader 421,   0,   0   // Route 16 Gate
 .close
 
-headbuttheader 422,   5,   0
+headbuttheader 422,   5,   0   // Route 16
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 26, 27
     headbuttencounter SPECIES_HERACROSS, 26, 27
@@ -3395,118 +3393,118 @@ headbuttheader 422,   5,   0
     treecoords 1178, 261, 1179, 261, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 423,   0,   0
+headbuttheader 423,   0,   0   // Route 18 Gate
 .close
 
-headbuttheader 424,   0,   0
+headbuttheader 424,   0,   0   // Route 19 & Fushsia City Gate
 .close
 
-headbuttheader 425,   0,   0
+headbuttheader 425,   0,   0   // Route 11 & Route 12 Gate
 .close
 
-headbuttheader 426,   0,   0
+headbuttheader 426,   0,   0   // Cerulean City Pokémart
 .close
 
-headbuttheader 427,   0,   0
+headbuttheader 427,   0,   0   // Cerulean City Gym
 .close
 
-headbuttheader 428,   0,   0
+headbuttheader 428,   0,   0   // Cerulean City Pokémon Centre
 .close
 
-headbuttheader 429,   0,   0
+headbuttheader 429,   0,   0   // Cerulean City House
 .close
 
-headbuttheader 430,   0,   0
+headbuttheader 430,   0,   0   // Cerulean City House
 .close
 
-headbuttheader 431,   0,   0
+headbuttheader 431,   0,   0   // Cerulean City House
 .close
 
-headbuttheader 432,   0,   0
+headbuttheader 432,   0,   0   // Cerulean City Bike Shop
 .close
 
-headbuttheader 433,   0,   0
+headbuttheader 433,   0,   0   // Lavender Town Pokémart
 .close
 
-headbuttheader 434,   0,   0
+headbuttheader 434,   0,   0   // Lavender Town Pokémon Centre
 .close
 
-headbuttheader 435,   0,   0
+headbuttheader 435,   0,   0   // Lavender Town House
 .close
 
-headbuttheader 436,   0,   0
+headbuttheader 436,   0,   0   // Lavender Town House
 .close
 
-headbuttheader 437,   0,   0
+headbuttheader 437,   0,   0   // Lavender Town Name Rater
 .close
 
-headbuttheader 438,   0,   0
+headbuttheader 438,   0,   0   // House of Memories
 .close
 
-headbuttheader 439,   0,   0
+headbuttheader 439,   0,   0   // Lavender Town Radio Tower
 .close
 
-headbuttheader 440,   0,   0
+headbuttheader 440,   0,   0   // Sea Cottage
 .close
 
-headbuttheader 441,   0,   0
+headbuttheader 441,   0,   0   // Goldenrod City Elevator
 .close
 
-headbuttheader 442,   0,   0
+headbuttheader 442,   0,   0   // Celadon City Elevator
 .close
 
-headbuttheader 443,   0,   0
+headbuttheader 443,   0,   0   // Celadon City Elevator
 .close
 
-headbuttheader 444,   0,   0
+headbuttheader 444,   0,   0   // Celadon City Elevator
 .close
 
-headbuttheader 445,   0,   0
+headbuttheader 445,   0,   0   // Saffron City Elevator
 .close
 
-headbuttheader 446,   0,   0
+headbuttheader 446,   0,   0   // Lighthouse Elevator
 .close
 
-headbuttheader 447,   0,   0
+headbuttheader 447,   0,   0   // Radio Tower Elevator
 .close
 
-headbuttheader 448,   0,   0
+headbuttheader 448,   0,   0   // Mt. Moon Entrance
 .close
 
-headbuttheader 449,   0,   0
+headbuttheader 449,   0,   0   // Mt. Moon Square
 .close
 
-headbuttheader 450,   0,   0
+headbuttheader 450,   0,   0   // Cerulean Cave (2F)
 .close
 
-headbuttheader 451,   0,   0
+headbuttheader 451,   0,   0   // Cerulean Cave (B1F)
 .close
 
-headbuttheader 452,   0,   0
+headbuttheader 452,   0,   0   // Rock Tunnel (B1F)
 .close
 
-headbuttheader 453,   0,   0
+headbuttheader 453,   0,   0   // Seafoam Islands (B1F)
 .close
 
-headbuttheader 454,   0,   0
+headbuttheader 454,   0,   0   // Seafoam Islands (B2F)
 .close
 
-headbuttheader 455,   0,   0
+headbuttheader 455,   0,   0   // Seafoam Islands (B3F)
 .close
 
-headbuttheader 456,   0,   0
+headbuttheader 456,   0,   0   // Seafoam Islands (B4F)
 .close
 
-headbuttheader 457,   0,   0
+headbuttheader 457,   0,   0   // Cinnabar Gym
 .close
 
-headbuttheader 458,   0,   0
+headbuttheader 458,   0,   0   // Cinnabar Gym (?)
 .close
 
-headbuttheader 459,   0,   0
+headbuttheader 459,   0,   0   // Mt. Silver Cave (Upper Mountainside)
 .close
 
-headbuttheader 460,   3,   0
+headbuttheader 460,   3,   0   // Mt. Silver Cave (Lower Mountainside)
     // normal slots
     headbuttencounter SPECIES_HERACROSS, 42, 44
     headbuttencounter SPECIES_AIPOM, 42, 44
@@ -3533,239 +3531,239 @@ headbuttheader 460,   3,   0
     treecoords 15, 13, 16, 13, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
-headbuttheader 461,   0,   0
+headbuttheader 461,   0,   0   // Mt. Silver Cave (Expert Belt Chamber)
 .close
 
-headbuttheader 462,   0,   0
+headbuttheader 462,   0,   0   // Mt. Silver Cave (Moltres Chamber)
 .close
 
-headbuttheader 463,   0,   0
+headbuttheader 463,   0,   0   // Mt. Silver Cave (2F)
 .close
 
-headbuttheader 464,   0,   0
+headbuttheader 464,   0,   0   // Mt. Silver Cave (3F)
 .close
 
-headbuttheader 465,   0,   0
+headbuttheader 465,   0,   0   // Mt. Silver Cave (Summit)
 .close
 
-headbuttheader 466,   0,   0
+headbuttheader 466,   0,   0   // Route 10 Pokémon Centre
 .close
 
-headbuttheader 467,   0,   0
+headbuttheader 467,   0,   0   // Power Plant
 .close
 
-headbuttheader 468,   0,   0
+headbuttheader 468,   0,   0   // Underground Path
 .close
 
-headbuttheader 469,   0,   0
+headbuttheader 469,   0,   0   // Route 5 Underground Path Entrance
 .close
 
-headbuttheader 470,   0,   0
+headbuttheader 470,   0,   0   // Route 6 Underground Path Entrance
 .close
 
-headbuttheader 471,   0,   0
+headbuttheader 471,   0,   0   // Pewter Museum of Science
 .close
 
-headbuttheader 472,   0,   0
+headbuttheader 472,   0,   0   // Pewter City House
 .close
 
-headbuttheader 473,   0,   0
+headbuttheader 473,   0,   0   // Pewter City Gym
 .close
 
-headbuttheader 474,   0,   0
+headbuttheader 474,   0,   0   // Pewter City Pokémart
 .close
 
-headbuttheader 475,   0,   0
+headbuttheader 475,   0,   0   // Pewter City Pokémon Centre
 .close
 
-headbuttheader 476,   0,   0
+headbuttheader 476,   0,   0   // Pewter City Pokémon Centre (Lower)
 .close
 
-headbuttheader 477,   0,   0
+headbuttheader 477,   0,   0   // Pewter City House
 .close
 
-headbuttheader 478,   0,   0
+headbuttheader 478,   0,   0   // Fushsia City Pokémart
 .close
 
-headbuttheader 479,   0,   0
+headbuttheader 479,   0,   0   // Pal Park (Inside)
 .close
 
-headbuttheader 480,   0,   0
+headbuttheader 480,   0,   0   // Fushsia City Gym
 .close
 
-headbuttheader 481,   0,   0
+headbuttheader 481,   0,   0   // Fushsia City House
 .close
 
-headbuttheader 482,   0,   0
+headbuttheader 482,   0,   0   // Fushsia City Pokémon Centre
 .close
 
-headbuttheader 483,   0,   0
+headbuttheader 483,   0,   0   // Fushsia City House
 .close
 
-headbuttheader 484,   0,   0
+headbuttheader 484,   0,   0   // Route 10 Pokémon Centre (Lower)
 .close
 
-headbuttheader 485,   0,   0
+headbuttheader 485,   0,   0   // Fuchsia City Pokémon Centre (Lower)
 .close
 
-headbuttheader 486,   0,   0
+headbuttheader 486,   0,   0   // Whirl Islands (Lugias Room)
 .close
 
-headbuttheader 487,   0,   0
+headbuttheader 487,   0,   0   // National Park (Bug Catching Contest?)
 .close
 
-headbuttheader 488,   0,   0
+headbuttheader 488,   0,   0   // National Park (Bug Catching Contest National Dex?)
 .close
 
-headbuttheader 489,   0,   0
+headbuttheader 489,   0,   0   // Power Plant
 .close
 
-headbuttheader 490,   0,   0
+headbuttheader 490,   0,   0   // Ruins of Alph (Underground Hall)
 .close
 
-headbuttheader 491,   0,   0
+headbuttheader 491,   0,   0   // Ruins of Alph (Hall Entrance)
 .close
 
-headbuttheader 492,   0,   0
+headbuttheader 492,   0,   0   // Ruins of Alph (Underground Hall)
 .close
 
-headbuttheader 493,   0,   0
+headbuttheader 493,   0,   0   // Route 7 & Saffron City Gate
 .close
 
-headbuttheader 494,   0,   0
+headbuttheader 494,   0,   0   // Lavender Town Pokémon Centre (Lower)
 .close
 
-headbuttheader 495,   0,   0
+headbuttheader 495,   0,   0   // Cerulean City Pokémon Centre (Lower)
 .close
 
-headbuttheader 496,   0,   0
+headbuttheader 496,   0,   0   // Viridian City Gym
 .close
 
-headbuttheader 497,   0,   0
+headbuttheader 497,   0,   0   // Viridian City House
 .close
 
-headbuttheader 498,   0,   0
+headbuttheader 498,   0,   0   // Viridian City Trainer House
 .close
 
-headbuttheader 499,   0,   0
+headbuttheader 499,   0,   0   // Viridian City Trainer House 2F
 .close
 
-headbuttheader 500,   0,   0
+headbuttheader 500,   0,   0   // Viridian City Pokémart
 .close
 
-headbuttheader 501,   0,   0
+headbuttheader 501,   0,   0   // Viridian City Pokémon Centre 
 .close
 
-headbuttheader 502,   0,   0
+headbuttheader 502,   0,   0   // Viridian City Pokémon Centre (Lower)
 .close
 
-headbuttheader 503,   0,   0
+headbuttheader 503,   0,   0   // Pallet Town Reds House 1F
 .close
 
-headbuttheader 504,   0,   0
+headbuttheader 504,   0,   0   // Pallet Town Blues House 1F
 .close
 
-headbuttheader 505,   0,   0
+headbuttheader 505,   0,   0   // Oaks Lab
 .close
 
-headbuttheader 506,   0,   0
+headbuttheader 506,   0,   0   // Pallet Town Reds House 2F
 .close
 
-headbuttheader 507,   0,   0
+headbuttheader 507,   0,   0   // Pallet Town Blues House 2F
 .close
 
-headbuttheader 508,   0,   0
+headbuttheader 508,   0,   0   // Cinnabar Island Pokémon Centre
 .close
 
-headbuttheader 509,   0,   0
+headbuttheader 509,   0,   0   // Cinnabar Island Pokémon Centre (Lower)
 .close
 
-headbuttheader 510,   0,   0
+headbuttheader 510,   0,   0   // Route 28 House
 .close
 
-headbuttheader 511,   0,   0
+headbuttheader 511,   0,   0   // Route 3 Pokémon Centre
 .close
 
-headbuttheader 512,   0,   0
+headbuttheader 512,   0,   0   // Route 3 Pokémon Centre (Lower)
 .close
 
-headbuttheader 513,   0,   0
+headbuttheader 513,   0,   0   // Mt. Moon Square
 .close
 
-headbuttheader 514,   0,   0
+headbuttheader 514,   0,   0   // Mt. Silver Pokémon Centre
 .close
 
-headbuttheader 515,   0,   0
+headbuttheader 515,   0,   0   // Mt. Silver Pokémon Centre (Lower)
 .close
 
-headbuttheader 516,   0,   0
+headbuttheader 516,   0,   0   // HIROBA
 .close
 
-headbuttheader 517,   0,   0
+headbuttheader 517,   0,   0   // Route 5 House
 .close
 
-headbuttheader 518,   0,   0
+headbuttheader 518,   0,   0   // Mt. Moon Square House
 .close
 
-headbuttheader 519,   0,   0
+headbuttheader 519,   0,   0   // Goldenrod City Magnet Train Station
 .close
 
-headbuttheader 520,   0,   0
+headbuttheader 520,   0,   0   // Saffron City Magnet Train Station
 .close
 
-headbuttheader 521,   0,   0
+headbuttheader 521,   0,   0   // Sinjoh Ruins (Outside)
 .close
 
-headbuttheader 522,   0,   0
+headbuttheader 522,   0,   0   // Sinjoh Ruins (Mystri Stage)
 .close
 
-headbuttheader 523,   0,   0
+headbuttheader 523,   0,   0   // Sinjoh Ruins Cabin
 .close
 
-headbuttheader 524,   0,   0
+headbuttheader 524,   0,   0   // Embedded Tower (Groudon)
 .close
 
-headbuttheader 525,   0,   0
+headbuttheader 525,   0,   0   // Embedded Tower (Kyogre)
 .close
 
-headbuttheader 526,   0,   0
+headbuttheader 526,   0,   0   // Embedded Tower (Rayquaza)
 .close
 
-headbuttheader 527,   0,   0
+headbuttheader 527,   0,   0   // Route 1 & Viridian City Gate
 .close
 
-headbuttheader 528,   0,   0
+headbuttheader 528,   0,   0   // Frontier Access Pokémon Center
 .close
 
-headbuttheader 529,   0,   0
+headbuttheader 529,   0,   0   // Frontier Access Pokémon Center (Lower)
 .close
 
-headbuttheader 530,   0,   0
+headbuttheader 530,   0,   0   // Frontier Access Pokémart
 .close
 
-headbuttheader 531,   0,   0
+headbuttheader 531,   0,   0   // Frontier Access House
 .close
 
-headbuttheader 532,   0,   0
+headbuttheader 532,   0,   0   // Underground Path
 .close
 
-headbuttheader 533,   0,   0
+headbuttheader 533,   0,   0   // Route 12 House
 .close
 
-headbuttheader 534,   0,   0
+headbuttheader 534,   0,   0   // Safari Zone Gate Pokémon Center
 .close
 
-headbuttheader 535,   0,   0
+headbuttheader 535,   0,   0   // Safari Zone Gate Pokémon Centre (Lower)
 .close
 
-headbuttheader 536,   0,   0
+headbuttheader 536,   0,   0   // Goldenrod City Game Corner
 .close
 
-headbuttheader 537,   0,   0
+headbuttheader 537,   0,   0   // Celadon City Game Corner
 .close
 
-headbuttheader 538,   0,   0
+headbuttheader 538,   0,   0   // Mystery Zone
 .close
 
-headbuttheader 539,   0,   0
+headbuttheader 539,   0,   0   // Pokémon League Pokémon Centre (Lower)
 .close

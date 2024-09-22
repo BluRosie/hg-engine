@@ -453,13 +453,13 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 130 / 100;
     }
 
-    //handle Wonder Skin
+    // handle wonder skin
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (GetMoveSplit(sp, move_no) == SPLIT_STATUS))
     {
         accuracy = accuracy * 50 / 100;
     }
 
-    //handle victory star
+    // handle victory star
     if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_VICTORY_STAR && sp->battlemon[BATTLER_ALLY(attacker)].hp != 0)
      || (atk_ability == ABILITY_VICTORY_STAR))
     {
@@ -531,7 +531,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * 10 / 6;
     }
 
-    //Toxic when used by a poison type
+    // toxic when used by a poison type
     if (move_no == MOVE_TOXIC
      && (BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
       || BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON))
@@ -900,7 +900,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
             priority2++;
         }
 
-        // Handle Gale Wings
+        // handle gale wings
         if
         (
             GetBattlerAbility(sp, client1) == ABILITY_GALE_WINGS
@@ -919,7 +919,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
             priority2++;
         }
 
-        // Handle Triage
+        // handle triage
         if (GetBattlerAbility(sp, client1) == ABILITY_TRIAGE) {
             for (i = 0; i < NELEMS(TriageMovesList); i++)
             {
@@ -1171,7 +1171,6 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     (
         BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
-        //|| (GetMoveData(sp->current_move_index, MOVE_DATA_EFFECT) == MOVE_EFFECT_ALWAYS_CRITICAL)
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )
     {

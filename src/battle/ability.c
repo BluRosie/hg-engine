@@ -136,7 +136,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // Handle Bulletproof
+    // handle bulletproof
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
     {
         if (IsElementInArray(BulletproofMoveList, (u16 *)&sp->current_move_index, NELEMS(BulletproofMoveList), sizeof(BulletproofMoveList[0])))
@@ -193,6 +193,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // handle well baked body
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
+    {
+        if ((movetype == TYPE_FIRE) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
+        }
+    }
+
     // handle earth eater
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
     {
@@ -202,6 +211,70 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
             scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
         }
     }
+
+    // handle queenly majesty, dazzling & armor tail
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE) &&
+     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_QUEENLY_MAJESTY)))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_QUEENLY_MAJESTY) == TRUE) &&
+      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_QUEENLY_MAJESTY))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DAZZLING) == TRUE) &&
+     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAZZLING)))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DAZZLING) == TRUE) &&
+      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_DAZZLING))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ARMOR_TAIL) == TRUE) &&
+     (CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_ARMOR_TAIL)))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ARMOR_TAIL) == TRUE) &&
+      (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_ARMOR_TAIL))
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    // handle good as gold
+    /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
+    {
+        if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS)
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    } */
 
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
