@@ -68,8 +68,9 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 MoveCheckDamageNegatingAbilities 0801B608 3
 #02253194
 0012 SwitchInAbilityCheck 0801B8D4 2
-#02253068
-0012 TurnEndAbilityCheck 0801B7A8 3
+## this is no longer needed--handled in
+##02253068
+#0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
 0012 MoveHitDefenderAbilityCheck 0801C544 3
 #0224BCC4+4
