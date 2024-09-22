@@ -355,7 +355,7 @@
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG      (345)
 #define SUB_SEQ_HANDLE_FIELD_EFFECTS_END_OF_TURN      (346)
 #define SUB_SEQ_HANDLE_TERRAIN_END                    (347)
-#define SUB_SEQ_HANDLE_JUST_FAIL                      (348)
+#define SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION     (348)
 #define SUB_SEQ_HANDLE_TERRAIN_SEEDS                  (349)
 #define SUB_SEQ_ATK_SP_ATK_UP                         (350)
 #define SUB_SEQ_SPICY_EXTRACT                         (351)
@@ -382,8 +382,11 @@
 #define SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS             (372)
 #define SUB_SEQ_PREVENT_CHANGING_WEATHER              (373)
 #define SUB_SEQ_HEAL_TARGET_BURN                      (374)
-#define SUB_SEQ_SIMPLE_BEAM                           (375)
-#define SUB_SEQ_HANDLE_WELL_BAKED_BODY_RAISE_DEF_2    (376)
+#define SUB_SEQ_SWITCH_IN_ABILITY_CHECK               (375)
+#define SUB_SEQ_HANDLE_CLOUD_NINE_MESSAGE             (376)
+#define SUB_SEQ_GIVE_TARGET_SIMPLE                    (377)
+#define SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE             (378)
+#define SUB_SEQ_CANNOT_USE_MOVE                       (379)
 
 
 

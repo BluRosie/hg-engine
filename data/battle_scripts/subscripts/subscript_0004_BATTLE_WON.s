@@ -3,12 +3,14 @@
 .data
 
 _000:
-    TryRestoreStatusOnSwitch BATTLER_CATEGORY_PLAYER_SLOT_1, _007
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_PLAYER_SLOT_1, BMON_DATA_STATUS, STATUS_NONE
+    // Modernise to Gen 8+: Natural Cure no longer heals status conditions upon completing a battle.
+    // TryRestoreStatusOnSwitch BATTLER_CATEGORY_PLAYER_SLOT_1, _007
+    // UpdateMonData OPCODE_SET, BATTLER_CATEGORY_PLAYER_SLOT_1, BMON_DATA_STATUS, STATUS_NONE
 
 _007:
-    TryRestoreStatusOnSwitch BATTLER_CATEGORY_PLAYER_SLOT_2, _015
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_PLAYER_SLOT_2, BMON_DATA_STATUS, STATUS_NONE
+    // Also bugfix: Avoids double Regeneration activation
+    // TryRestoreStatusOnSwitch BATTLER_CATEGORY_PLAYER_SLOT_2, _015
+    // UpdateMonData OPCODE_SET, BATTLER_CATEGORY_PLAYER_SLOT_2, BMON_DATA_STATUS, STATUS_NONE
 
 _015:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _147

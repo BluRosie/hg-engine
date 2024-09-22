@@ -15,8 +15,8 @@ if sys.platform.startswith('win'):
     if PATH == '':
         PATH = 'C://devkitPro//devkitARM//bin'
         if os.path.isdir(PATH) is False:
-            print('Devkit not found.')
-            sys.exit(1)
+            print('Devkit not found, trying executables on PATH...')
+            PATH = ''
 
     PREFIX = 'arm-none-eabi-'
     OBJDUMP = os.path.join(PATH, PREFIX + 'objdump')
