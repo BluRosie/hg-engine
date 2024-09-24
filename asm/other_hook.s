@@ -583,6 +583,48 @@ bl AllocFail
 pop {pc}
 
 
+.global form_evo_hook_1
+form_evo_hook_1:
+// r0 is already pointer to party mon.  need to set species and form
+// r4+0x62 is target species
+add r2, r2, #0x62
+mov r1, r2
+mov r2, #0
+bl SetPartyPokemonParamsForEvoCutscene
+ldr r0, =0x0207722C | 1
+bx r0
+
+.pool
+
+
+.global form_evo_hook_2
+form_evo_hook_2:
+ldr r0, [r4, #0x28]
+add r2, r2, #0x62
+mov r1, r2
+mov r2, #1
+bl SetPartyPokemonParamsForEvoCutscene
+ldr r0, =0x02076426 | 1
+bx r0
+
+.pool
+
+
+.global BagApp_GetRepelStepCountAddr
+BagApp_GetRepelStepCountAddr:
+    push {r4, lr}
+    add r4, r1, #0
+    ldr r3, =0x021F992C | 1 // BagApp_GetSaveRoamers
+    bl bx_r3
+    ldr r3, =0x0202DB04 | 1 // SaveData_GetRepelPtr
+    bl bx_r3
+    strb r4, [r0]
+    bl Repel_SetCurrentType
+    pop {r4, pc}
+
+.pool
+
+
 .data
 
 .align 2

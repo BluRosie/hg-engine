@@ -631,16 +631,28 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_PIKACHU_WORLD_CAP,
     },
     {
+        .species = SPECIES_PIKACHU,
+        .form_no = 15,
+        .need_rev = 0,
+        .file = SPECIES_PIKACHU_PARTNER,
+    },
+    {
+        .species = SPECIES_EEVEE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_EEVEE_PARTNER,
+    },
+    {
         .species = SPECIES_BASCULIN,
         .form_no = 1,
         .need_rev = 0,
-        .file = SPECIES_BASCULIN_RED_STRIPED,
+        .file = SPECIES_BASCULIN_BLUE_STRIPED,
     },
     {
         .species = SPECIES_BASCULIN,
         .form_no = 2,
         .need_rev = 0,
-        .file = SPECIES_BASCULIN_BLUE_STRIPED,
+        .file = SPECIES_BASCULIN_WHITE_STRIPED,
     },
     {
         .species = SPECIES_DEERLING,
@@ -1568,7 +1580,7 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     },
     {
         .species = SPECIES_BASCULEGION,
-        .form_no = 3,
+        .form_no = 1,
         .need_rev = 0,
         .file = SPECIES_BASCULEGION_FEMALE,
     },

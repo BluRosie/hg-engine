@@ -448,6 +448,8 @@ ST_ServerDir2ClientNoGet = 0x02257E98 | 1;
 /* tasks */
 CreateSysTask = 0x0200E320 | 1;
 DestroySysTask = 0x0200E390 | 1;
+SysTask_CreateOnVBlankQueue = 0x0200E33C | 1;
+DebugTextBuf = 0x020741C4;
 
 BattleWorkClientParamGet = 0x0223A7E8 | 1;
 
@@ -659,3 +661,7 @@ GetNaturalGiftType = 0x022558A4 | 1;
 BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
 BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
 BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
+
+CanUseItemOnPokemon = 0x0208FD9C | 1;
+
+BagApp_GetSaveRoamers = 0x021F992C | 1;

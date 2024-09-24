@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_441", 0
-
+// Gunk Shot
 a010_441:
     initspriteresource
     loadspriteresource 0

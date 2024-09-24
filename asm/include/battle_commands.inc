@@ -1373,4 +1373,9 @@
     .long \arg_0
     .endm
 
+    .macro SwitchInAbilityCheck arg_0
+    .long 251
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
 .endif

@@ -10,7 +10,7 @@
 
 .create "build/move/move_anim/0_416", 0
 
-a010_416:
+a010_416: //giga impact
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1

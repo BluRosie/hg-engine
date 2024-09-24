@@ -71,7 +71,7 @@ def DumpTrainerText():
 def BuildTrainerLines():
     # i could just write here, but this doesn't work too well.  will have to open each individual file and pass off to msg_cat
     currentEntry = 0
-    with open("armips/data/trainers/trainertext.s", "r") as f:
+    with open("armips/data/trainers/trainertext.s", "r", encoding="utf-8") as f:
         for line in f:
             if '"' in line and "trainer_text_map" not in line and "trainer_text_offsets" not in line and "armips" not in line:
                 output = open("build/rawtext/728/{:04d}.txt".format(currentEntry), "w")
