@@ -98,6 +98,8 @@
 // RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle
 // comment out the line below to keep vanilla behavior
 #define RESTORE_ITEMS_AT_BATTLE_END
+// AI_CAN_GRAB_ITEMS allows to use Trick, Switcheroo, (Thief still todo) on the Player and actually grab items. This can result in lost items.
+//#define AI_CAN_GRAB_ITEMS
 
 // PROTEAN_GENERATION defines the behavior that protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
 #define PROTEAN_GENERATION 9
