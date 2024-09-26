@@ -55,7 +55,6 @@ def process_text(folder):
                 infile = open(os.path.join(folder, file), 'r', encoding='cp1252').read()
             #with open(os.path.join(folder, file), 'r', encoding='utf-8') as infile:
             s = infile.replace('"','”').replace('\'','’').replace('`','’')
-            infile.close()
             if caps:
                 s = s.upper()
             if articles:
