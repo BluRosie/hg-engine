@@ -535,240 +535,239 @@ A sturdy Capsule that can only be\nopened with a special key.
 A shiny red orb that is said to have\na legend and has a deep connection with\nthe Hoenn region.
 A shiny blue orb that is said to have\na legend and has a deep connection with\nthe Hoenn region.
 A crystal ball that was excavated from\nthe ground. A very beautiful stone that\nis covered with bits of rock and earth.
-One of a variety of Mega Stones.\nIt will Mega Evolve Venusaur when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Charizard when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Charizard when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Blastoise when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Beedrill when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Pidgeot when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Alakazam when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Slowbro when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Gengar when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Kangaskhan when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Pinsir when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Gyarados when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Aerodactyl when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Mewtwo when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Mewtwo when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Ampharos when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Steelix when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Scizor when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Heracross when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Houndoom when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Tyranitar when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Sceptile when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Blaziken when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Swampert when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Gardevoir when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Sableye when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Mawile when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Aggron when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Medicham when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Manectric when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Sharpedo when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Camerupt when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Altaria when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Banette when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Absol when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Glalie when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Salamence when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Metagross when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Latias when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Latios when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Lopunny when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Garchomp when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Lucario when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Abomasnow when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Gallade when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Audino when held.
-One of a variety of Mega Stones.\nIt will Mega Evolve Diancie when held.
+One of a variety of Mega Stones.\nHave Venusaur hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Charizard hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Charizard hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Blastoise hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Beedrill hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Pidgeot hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Alakazam hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Slowbro hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Gengar hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Kangaskhan hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Pinsir hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Gyarados hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Aerodactyl hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Mewtwo hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Mewtwo hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Ampharos hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Steelix hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Heracross hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Houndoom hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Tyranitar hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Sceptile hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Blaziken hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Swampert hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Gardevoir hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Sableye hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Mawile hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Aggron hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Medicham hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Manectric hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Sharpedo hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Camerupt hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Altaria hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Banette hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Absol hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Glalie hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Salamence hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Metagross hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Latias hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Latios hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Lopunny hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Garchomp hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Lucario hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Abomasnow hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Gallade hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Audino hold it, and this stone\nwill enable it to Mega Evolve in battle.
+One of a variety of Mega Stones.\nHave Diancie hold it, and this stone\nwill enable it to Mega Evolve in battle.
 An item to be held by a Pokémon.\nIt is a stone tablet that boosts the\npower of Fairy-type moves.
 An item to be held by a Pokémon.\nThis single-use bulb boosts Sp. Atk\nif hit with a Water-type attack.
 An item to be held by a Pokémon.\nThe holder will float in the air until hit.\nOnce hit, this item will burst.
 A rare mushroom that gives off\na nice fragrance. It can be sold at\na high price to shops.
 A big nugget of pure gold that gives\noff a lustrous gleam. It can be sold at\na high price to shops.
-Binding Band Description
-Casteliacone Description
-Cell Battery Description
-Comet Shard Description
-Dream Ball Description
-Eject Button Description
-A mysterious evolutionary lump. When\nheld by a Pokémon that can still evolve,\nit boosts Defense and Sp. Def by 50%.
-Float Stone Description
-Pearl String Description
+An item to be held by a Pokémon.\nThis band boosts the power of binding moves\nused by the holder.
+Castelia City’s specialty: soft-serve\nice cream. It can be used to cure any\nstatus condition a Pokémon may have.
+An item to be held by a Pokémon.\nThis single-use battery boosts Attack\nif hit with an Electric-type attack.
+A shard that fell to the ground when a\ncomet passed nearby. It can be sold at\na high price to shops.
+A somewhat different Poké Ball that\nmakes it easier to catch wild Pokémon\nwhile they're asleep.
+An item to be held by a Pokémon.\nIf the holder is hit by an attack, it\nwill be switched out of battle.
+A mysterious evolutionary lump.\nWhen held by a Pokémon that can still\revolve, it raises both Defense and Sp. Def.
+An item to be held by a Pokémon.\nThis very light stone reduces the\nweight of the holder.
+Very large pearls that have a nice\nsilvery sheen to them. They can be sold\nat a high price to shops.
 A mysterious scale that causes\na certain Pokémon to evolve.\nIt shines in rainbow colors.
-Red Card Description
-Ring Target Description
-An item to be held by a Pokémon. If the\nholder is hit with a contact move, the\nattacker is damaged by a sixth of its HP.
-Sweet Heart Description
+An item to be held by a Pokémon.\nWhen the holder is hit by an attack, the\nattacker is removed from battle.
+An item to be held by a Pokémon.\nMoves that normally have no effect will land\non a Pokémon holding it.
+An item to be held by a Pokémon.\nIf the holder is hit, the attacker will\nalso be damaged upon contact.
+A piece of cloyingly sweet chocolate.\nIt can be used to restore 20 HP to a\nPokémon.
 A capsule that allows a Pokémon to\nswitch its current Ability to the other\nAbility its species can have.
-An item to be held by a Pokémon. This\nvest boosts the holder’s Sp. Def by\n50%, but makes its status moves fail.
-Luminous Moss Description
-Lumiose Galette Description
+An item to be held by a Pokémon.\nThis offensive vest raises Sp. Def but\nprevents the use of status moves.
+An item to be held by a Pokémon. It\nboosts Sp. Def if hit with a Water-type\nattack. It can only be used once.
+A popular treat in Lumiose City.\nIt can be used to cure any status\ncondition a Pokémon may have.
 A sachet filled with fragrant perfumes\nthat are just slightly too overwhelming.\nIt’s loved by a certain Pokémon.
-Safety Goggles Description
-Shalour Sable Description
-Snowball Description
+An item to be held by a Pokémon.\nThese goggles protect the holder from\nboth weather-related damage and powder.
+Shalour City’s famous shortbread.\nIt can be used to cure any status\ncondition a Pokémon may have.
+An item to be held by a Pokémon. It\nboosts Attack if hit with an Ice-type\nattack. It can only be used once.
 An item to be held by a Pokémon.\nThis item sharply raises its Attack and\nSp. Atk if hit by a supereffective move.
 A soft and sweet treat made of fluffy,\npuffy, whipped, and whirled cream.\nIt’s loved by a certain Pokémon. 
-Adrenaline Orb Description
-Beast Ball Description
-Big Malasada Description
+An item to be held by a Pokémon.\nThis orb boosts the Speed stat if the\nholder is intimidated.
+A special Poké Ball designed to catch\nUltra Beasts. It has a low success rate\nfor catching others.
+The Alola region's famous fried\nconfection. It can be used to cure any\nstatus condition a Pokémon may have.
 A lovely silver bottle cap.\nCertain people are delighted to be\ngiven one of these.
-Gold Bottle Cap Description
-Electric Seed Description
-Grassy Seed Description
-Misty Seed Description
-Psychic Seed Description
+A beautiful bottle cap that gives off a\ngolden gleam.\nSome people are happy to receive one.
+An item to be held by a Pokémon.\nIt boosts Defense on Electric Terrain.\nIt can only be used once.
+An item to be held by a Pokémon.\nIt boosts Defense on Grassy Terrain.\nIt can only be used once.
+An item to be held by a Pokémon.\nIt boosts Sp. Defense on Misty Terrain.\nIt can only be used once.
+An item to be held by a Pokémon.\nIt boosts Sp. Defense on Psychic Terrain.\nIt can only be used once.
 A peculiar stone that makes certain\nspecies of Pokémon evolve.\nIt has a snowflake pattern in it.
 Protective Pads Description
-Terrain Ext. Description
+An item to be held by a Pokémon.\nIt extends the duration of terrain\ncaused by the holder's move or Ability.
 A patch that can be used to change\nthe regular Ability of a Pokémon to\na rarer Ability, or the opposite.
 A glassy black stone that produces\na sharp cutting edge when split.\nIt is loved by a certain Pokémon.
-Berry Sweet Description
-Clover Sweet Description
-Flower Sweet Description
-Love Sweet Description
-Ribbon Sweet Description
-Star Sweet Description
-StrawberrySweet Description
-Blunder Policy Description
-Chipped Pot Description
-Cracked Pot Description
-Eject Pack Description
-Exp. Candy S Description
-Exp. Candy M Description
-Exp. Candy L Description
-Exp. Candy XS Description
-Exp. Candy XL Description
+A berry-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+A clover-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+A flower-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+A love-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+A ribbon-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+A star-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+A strawberry-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
+An item to be held by a Pokémon.\nSharply boosts Speed when a Pokémon\nmisses with a move because of accuracy.
+A teapot that can make a certain\nspecies of Pokémon evolve. It may be\nchipped, but tea from it is delicious.
+A teapot that can make a certain\nspecies of Pokémon evolve. It may be\ncracked, but tea from it is delicious.
+An item to be held by a Pokémon.\nIf the holder's stats are lowered, it\nwill be switched out of battle.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nsmall number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nmoderate number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nlarge number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery small number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery large number of Exp. Points.
 A cuff made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
-Galarica Twig Description
+A twig from a species of tree called\nGalarica. It's a material for an\naccessory for a certain Pokémon.
 A wreath made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
-Also known as the Heavy-Duty Boots.\nThese boots protect the holder from\ntraps set on the battlefield.
+An item to be held by a Pokémon.\nThese boots prevent the effects of traps\rset on the battlefield.
 A string exuding an odd energy that\nmakes you feel a sense of connection.\nIt’s loved by certain Pokémon.
 Moomoo Cheese Description
 A block of muddy material that can be\nused as fuel for burning when dried.\nIt is loved by a certain Pokémon.
-Room Service Description
-Rusted Shield Description
-Rusted Sword Description
-Sweet Apple Description
-Tart Apple Description
+An item to be held by a Pokémon.\nIf Trick Room takes effect, this item\nwill lower the holder's Speed stat.
+It is said that a hero used this shield\nto halt a terrible disaster in ancient\ntimes. But it's grown rusty and worn.
+It is said that a hero used this sword\nto halt a terrible disaster in ancient\ntimes. But it's grown rusty and worn.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt's exceptionally sweet.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt's exceptionally tart.
 An item to be held by a Pokémon.\nIf the holder uses a sound-based move,\nthis item will boost its Sp. Atk stat.
-Utility Umbrella Description
-Ability Shield Description
-Auspicious Armor Description
+An item to be held by a Pokémon.\nThis umbrella protects the holder from\nthe effects of rain and harsh sunlight.
+An item to be held by a Pokémon.\nThis shield protects the holder from\nhaving its Ability changed by others.
+A peculiar set of armor that can make a\ncertain species of Pokémon evolve.\nAuspicious wishes live within it.
 Booster Energy Description
-Clear Amulet Description
+An item to be held by a Pokémon.\nThis amulet protects the holder from\nhaving its stats lowered by other Pokémon.
 An item to be held by a Pokémon.\nThis hooded cloak protects the holder\nfrom the additional effects of moves.
-Gimmighoul Coin Description
+A material accidentally dropped by a\nPokémon. It seems that Gimmighoul\ntreasure and hoard these.
 A shard of what appears to be an old\nblade of some sort.\nIt is loved by a certain Pokémon.
 An item to be held by a Pokémon.\nThis loaded dice ensures the holder’s\nmultistrike moves hit at least 4 times.
-Malicious Armor Description
-Mirror Herb Description
-Punching Glove Description
+A peculiar set of armor that can make a\ncertain species of Pokémon evolve.\nMalicious will lurks within it.
+An item to be held by a Pokémon.\nThis herb will allow the holder to mirror\nan opponent's stat increase, but only once.
+An item to be held by a Pokémon.\nThis glove ups the power of punching\nmoves and prevents contact with targets.
 If held, it halves the damage taken from\na supereffective Fairy-type attack.\n(This Berry cannot be planted.)
-Kee Berry Description
-Maranga Berry Description
-Burn Drive Description
-Chill Drive Description
-Douse Drive Description
-Shock Drive Description
+If held, it boosts the Defense stat\nafter being hit with a physical move.\n(This Berry cannot be planted.)
+If held, it boosts the Sp. Defense stat\nafter being hit with a special move.\n(This Berry cannot be planted.)
+A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Fire type.
+A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Ice type.
+A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Water type.
+A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Electric type.
 A fossil of an ancient Pokémon that\nlived in the sea. It appears to be\npart of its back.
 A fossil of an ancient Pokémon that\nlived in the sky. It appears to be\npart of its wing.
 A fossil of an ancient Pokémon that\nlived on the land. It appears to be\npart of a large jaw.
 A fossil of an ancient Pokémon that\nlived in the land. It appears to be\nan impression of a skin sail.
-Fossilized Bird Description
-Fossilized Dino Description
-Fossilized Drake Description
-Fossilized Fish Description
-Normal Gem Description
-Fighting Gem Description
-Flying Gem Description
-Poison Gem Description
-Ground Gem Description
-Rock Gem Description
-Bug Gem Description
-Ghost Gem Description
-Steel Gem Description
-Fire Gem Description
-Water Gem Description
-Grass Gem Description
-Electric Gem Description
-Psychic Gem Description
-Ice Gem Description
-Dragon Gem Description
-Dark Gem Description
-Fairy Gem Description
-Fighting Memory Description
-Flying Memory Description
-Poison Memory Description
-Ground Memory Description
-Rock Memory Description
-Bug Memory Description
-Ghost Memory Description
-Steel Memory Description
-Fire Memory Description
-Water Memory Description
-Grass Memory Description
-Electric Memory Description
-Psychic Memory Description
-Ice Memory Description
-Dragon Memory Description
-Dark Memory Description
-Fairy Memory Description
-Red Nectar Description
-Yellow Nectar Description
-Pink Nectar Description
-Purple Nectar Description
-Blank Plate Description
-Legend Plate Description
-Relic Copper Description
-Relic Silver Description
-Relic Gold Description
-Relic Vase Description
-Relic Band Description
-Relic Statue Description
-Relic Crown Description
-Health Feather Description
-Muscle Feather Description
-Resist Feather Description
-Genius Feather Description
-Clever Feather Description
-Swift Feather Description
-Pretty Feather Description
-DNA Splicers Description
-Reveal Glass Description
-Prison Bottle Description
-Catching Charm Description
-Exp. Charm Description
-Oval Charm Description
-Shiny Charm Description
-N Solarizer Description
-N Lunarizer Description
+The fossil of an ancient Pokémon that\nonce soared through the sky.\nWhat it looked like is a mystery.
+The fossil of an ancient Pokémon that\nonce lived in the sea.\nWhat it looked like is a mystery.
+The fossil of an ancient Pokémon that\nonce roamed the land.\nWhat it looked like is a mystery.
+The fossil of an ancient Pokémon that\nonce lived in the sea.\nWhat it looked like is a mystery.
+A gem with an ordinary essence.\nWhen held, it strengthens the power of a\nNormal-type move one time.
+A gem with an essence of combat.\nWhen held, it strengthens the power of a\nFighting-type move one time.
+A gem with an essence of air.\nWhen held, it strengthens the power of a\nFlying-type move one time.
+A gem with an essence of poison.\nWhen held, it strengthens the power of a\nPoison-type move one time.
+A gem with an essence of land.\nWhen held, it strengthens the power of a\nGround-type move one time.
+A gem with an essence of rock.\nWhen held, it strengthens the power of a\nRock-type move one time.
+A gem with an insect-like essence.\nWhen held, it strengthens the power of a\nBug-type move one time.
+A gem with a spectral essence.\nWhen held, it strengthens the power of a\nGhost-type move one time.
+A gem with an essence of steel.\nWhen held, it strengthens the power of a\nSteel-type move one time.
+A gem with an essence of fire.\nWhen held, it strengthens the power of a\nFire-type move one time.
+A gem with an essence of water.\nWhen held, it strengthens the power of a\nWater-type move one time.
+A gem with an essence of nature.\nWhen held, it strengthens the power of a\nGrass-type move one time.
+A gem with an essence of electricity.\nWhen held, it strengthens the power of\nan Electric-type move one time.
+A gem with an essence of the mind.\nWhen held, it strengthens the power of a\nPsychic-type move one time.
+A gem with an essence of ice.\nWhen held, it strengthens the power of a\nIce-type move one time.
+A gem with a draconic essence.\nWhen held, it strengthens the power of a\nDragon-type move one time.
+A gem with an essence of darkness.\nWhen held, it strengthens the power of a\nDark-type move one time.
+A gem with an essence of the fey.\nWhen held, it strengthens the power of a\nFairy-type move one time.
+A memory disc that contains Fighting-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Flying-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Poison-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Ground-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Rock-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Bug-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Ghost-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Steel-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Fire-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Water-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Grass-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Electric-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Psychic-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Ice-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Dragon-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Dark-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+A memory disc that contains Fairy-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
+Flower nectar obtained from a red\nflower. It changes the form of a\rcertain species of Pokémon.
+Flower nectar obtained from a yellow\nflower. It changes the form of a\rcertain species of Pokémon.
+Flower nectar obtained from a pink\nflower. It changes the form of a\rcertain species of Pokémon.
+Flower nectar obtained from a purple\nflower. It changes the form of a\rcertain species of Pokémon.
+An item to be held by a Pokémon.\nIt is a stone tablet that boosts the\npower of Normal-type moves.
+An item to be held by a Pokémon.\nWhen used on a certain Pokémon, it allows\nthem to gain the power of every type.
+A copper coin used by an ancient\ncivilization about three thousand years\nago.
+A silver coin used by an ancient\ncivilization about three thousand years\nago.
+A gold coin used by an ancient\ncivilization about three thousand years\nago.
+A vase made by an ancient civilization\nabout three thousand years ago.
+A bracelet made by an ancient\ncivilization about three thousand years\nago.
+A stone figurine made by an ancient\ncivilization about three thousand years\nago.
+A crown made by an ancient civilization\nabout three thousand years ago.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's HP stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Attack stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Defense stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Sp. Atk stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Sp. Def stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Speed stat.
+Though this feather is beautiful, it's\njust a regular feather and has no\neffect.
+A splicer that fuses Kyurem and a\ncertain Pokémon. They are said to have\noriginally been one.
+A looking glass that reveals the truth.\nIt can return a Pokémon to its original\nshape.
+A bottle believed to have been used to\nseal away the power of a certain\nPokémon long, long ago.
+Having one of these mysterious,\nunshakable charms makes it more likely\nyou’ll get a critical catch.
+A charm that increases the Exp. Points\nthat Pokémon can get. A machine-like\nobject is inside the charm.
+An oval charm said to increase the\nchance of Pokémon Eggs being found at\nthe Day Care.
+Having one of these mysterious shining\ncharms makes it more likely you'll\nencounter Shiny Pokémon in the wild.
+A machine to fuse Necrozma, which needs\nlight, and Solgaleo.
+A machine to fuse Necrozma, which needs\nlight, and Lunala.
 A device that allows you to press “R”\nto access the Pokémon storage system.\nIt won’t work in certain places, though.
-Zygarde Cube Description
+An item to store Zygarde Cores and\nCells. You can also use it to teach\nZygarde moves.
 Sun Flute Description
 Moon Flute Description
-Light Stone Description
-Dark Stone Description
-Iceroot Carrot Description
-Shady Carrot Description
+Reshiram's body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
+Zekrom's body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
+Produce that the King of Bountiful\nHarvests' beloved steed likes to eat.\nIt grew in a field covered in snow.
+Produce that the King of Bountiful\nHarvests' beloved steed likes to eat.\nIt grew in a gloomy field.
 Reins of Unity Description
-Wooden Crown Description
-Rotom Catalog Description
-Adamant Crystal Description
-Lustrous Globe Description
-Griseous Core Description
-Darkness Scroll Description
-Waters Scroll Description
-Mega Ring Description
-Autograph Description
-Gold Teeth Description
+A mysterious object made of wood. Part\nof it seems to be chipped. Maybe it's\nmeant to be part of something.
+A catalog of devices that Rotom like.\nUse the catalog to have Rotom hop in\nand out of the devices listed within.
+An item to be held by Dialga.\nThis large, glowing gem wells with power\nand allows the Pokémon to change form.
+An item to be held by Palkia.\nThis large, glowing orb wells with power\nand allows the Pokémon to change form.
+An item to be held by Giratina.\nThis large, glowing gem wells with power\nand allows the Pokémon to change form.
+A scroll that can make a certain\nPokémon evolve. Written on it are the\ntrue secrets of the path of darkness.
+A scroll that can make a certain\nPokémon evolve. Written on it are the\ntrue secrets of the path of water.
+This ring contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+The autograph you got from the\nVermilion City Gym Leader, Lt. Surge.\nHe wrote, "Good luck!"
+A set of golden false teeth lost by the\nSafari Zone's warden.\nThey make his smile sparkle.
 A stone filled with an unexplained power.\nIt allows Pokémon that battle with\na Mega Stone to Mega Evolve.
-Lift Key Description
-Pewter Snacks Description
-Silph Scope Description
-Tea Description
+A key that operates the elevator in the\nTeam Rocket Hideout.\nIt bears the Team Rocket logo.
+Pewter City's famous crunchy snack.\nThey can be used to cure any status\ncondition a Pokémon may have.
+A scope that lets you see what cannot\nusually be seen.\nIt is made by Silph Co.
+Aromatic tea that has a slightly bitter\ntaste. It soothes a dry throat.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Defense stat may suffer.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Def stat may suffer.
@@ -790,3 +789,11 @@ Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowev
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Def stat may suffer.
 Having a Pokémon smell this mint will\ncause all of its stats to grow at\nan equal rate.
+An item to be held by a Pokémon. This\nfeather, which gleams faintly in light,\nups the power of Fairy-type moves.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt's exceptionally syrupy.
+A teacup that can make a certain\nspecies of Pokémon evolve. It may be\ncracked, but tea from it is delicious.
+A teacup that can make a certain\nspecies of Pokémon evolve. It may be\nchipped, but tea from it is delicious.
+An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Rock type during battle.
+An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Water type during battle.
+An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Fire type during battle.
+A peculiar metal that can make certain\nspecies of Pokémon evolve.\nIt is composed of many layers.
