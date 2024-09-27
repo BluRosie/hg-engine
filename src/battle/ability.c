@@ -394,7 +394,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->defence_client;
-                sp->client_work = sp->attack_client;
+                sp->battlerIdTemp = sp->attack_client;
                 seq_no[0] = SUB_SEQ_APPLY_POISON;
                 ret = TRUE;
             }
@@ -547,7 +547,7 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
        (sp->defence_client == sp->state_client) &&
        (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
     {
-        sp->client_work = sp->defence_client;
+        sp->battlerIdTemp = sp->defence_client;
         sp->state_client = sp->attack_client;
         ret=TRUE;
     }
@@ -555,20 +555,20 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
        (sp->attack_client == sp->state_client) &&
        (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
     {
-        sp->client_work = sp->attack_client;
+        sp->battlerIdTemp = sp->attack_client;
         sp->state_client = sp->defence_client;
         ret = TRUE;
     }
 
     if (ret == TRUE)
     {
-        if(sp->battlemon[sp->client_work].condition & STATUS_POISON_ANY) {
+        if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ANY) {
             seq_no = SUB_SEQ_APPLY_POISON;
         }
-        else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_BURNED) {
+        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_FLAG_BURNED) {
             seq_no = SUB_SEQ_APPLY_BURN;
         }
-        else if(sp->battlemon[sp->client_work].condition & STATUS_FLAG_PARALYZED) {
+        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_FLAG_PARALYZED) {
             seq_no = SUB_SEQ_APPLY_PARALYSIS;
         }
         if(seq_no) {
@@ -596,7 +596,7 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
        (sp->defence_client == sp->state_client) &&
        (sp->oneSelfFlag[sp->defence_client].status_flag & SELF_STATUS_FLAG_ATTRACT))
     {
-        sp->client_work = sp->defence_client;
+        sp->battlerIdTemp = sp->defence_client;
         sp->state_client = sp->attack_client;
         ret = TRUE;
     }
@@ -604,7 +604,7 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
             (sp->attack_client == sp->state_client) &&
             (sp->oneSelfFlag[sp->attack_client].status_flag & SELF_STATUS_FLAG_ATTRACT))
     {
-        sp->client_work = sp->attack_client;
+        sp->battlerIdTemp = sp->attack_client;
         sp->state_client = sp->defence_client;
         ret = TRUE;
     }
@@ -940,8 +940,8 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
         sp->waza_no_mamoru[sp->attack_client] = 0;
-        sp->waza_no_old[sp->attack_client] = sp->waza_no_temp;
-        sp->waza_no_last = sp->waza_no_temp;
+        sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
+        sp->waza_no_last = sp->moveNoTemp;
         sp->server_status_flag |= (0x00100000);
         LoadBattleSubSeqScript(sp, 1, SUB_SEQ_MAGIC_COAT);
         sp->next_server_seq_no = sp->server_seq_no;
@@ -956,13 +956,13 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
          && (sp->oneTurnFlag[client_no].yokodori_flag)
          && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
         {
-            sp->client_work = client_no;
+            sp->battlerIdTemp = client_no;
             sp->oneTurnFlag[client_no].yokodori_flag=0;
             if ((sp->server_status_flag & (0x00100000)) == 0)
             {
                 sp->waza_no_mamoru[sp->attack_client] = 0;
-                sp->waza_no_old[sp->attack_client] = sp->waza_no_temp;
-                sp->waza_no_last = sp->waza_no_temp;
+                sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
+                sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (0x00100000);
             }
             LoadBattleSubSeqScript(sp, 1, SUB_SEQ_SNATCH);
@@ -1011,7 +1011,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                 {
                     sp->battlemon[sp->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE);
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_VANISH_OFF);
-                    sp->client_work = sp->swoak_work;
+                    sp->battlerIdTemp = sp->swoak_work;
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;
@@ -1092,7 +1092,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                  && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD) || (sp->current_move_index == MOVE_STEAM_ERUPTION)) // scald can also melt opponents as of gen 6
                  && sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 0)
                 {
-                    sp->client_work = sp->defence_client;
+                    sp->battlerIdTemp = sp->defence_client;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
@@ -1120,7 +1120,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 
                 if (HeldItemHealStatusCheck(bw, sp, client_no, &seq_no) == TRUE) // will also probably need this one too
                 {
-                    sp->client_work = client_no;
+                    sp->battlerIdTemp = client_no;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;

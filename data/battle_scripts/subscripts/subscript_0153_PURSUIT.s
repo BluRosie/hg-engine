@@ -7,6 +7,12 @@ _000:
 
 _001:
     TryPursuit _238
+    TryMegaDuringPursuit NoMega
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+    // Handle cases such as Mega Manectric's Intimidate ability (Switch -> Mega Evolution -> Intimidate -> Pursuit)
+    // 處理例如超級雷電獸的威嚇特性 （切換中 -> 超級進化 -> 威嚇 -> 追打）
+    Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
+NoMega:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 20
     CalcCrit 
     CalcDamage 

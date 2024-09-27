@@ -1252,9 +1252,9 @@ The opposing {STRVAR_1 1, 0, 0} became\ntrapped by swirling magma!
 {STRVAR_1 1, 0, 0} became fully\ncharged due to its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} became fully\ncharged due to its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} became fully\ncharged due to its {STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nlet it move first!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} let it move first!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} let it move first!
+{STRVAR_1 1, 0, 0}\ncan act faster than normal,\fthanks to its {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}\ncan act faster than normal,\fthanks to its {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0}\ncan act faster than normal,\fthanks to its {STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwore off!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!

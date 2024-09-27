@@ -106,7 +106,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         || (GetBattlerAbility(sp, client_no) == ABILITY_AS_ONE_SPECTRIER)
                         || (GetBattlerAbility(sp, client_no) == ABILITY_UNNERVE))) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_UNNERVE_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -136,7 +136,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                         if ((sp->battlemon[client_no].trace_flag == 0) && (sp->defence_client_work != 0xFF) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB) && (sp->battlemon[sp->defence_client_work].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_TRACE)) {
                             sp->battlemon[client_no].trace_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_TRACE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -199,7 +199,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             }
                         }
                         if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             break;
                         }
                     }
@@ -221,7 +221,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             // mark intimidate as having activated if it can regardless of if it does so that abilities that suppress it don't suddenly let it activate once they disappear
                             sp->battlemon[client_no].intimidate_flag = 1;
                             if (IntimidateCheckHelper(sp, client_no)) {
-                                sp->client_work = client_no;
+                                sp->battlerIdTemp = client_no;
                                 scriptnum = SUB_SEQ_INTIMIDATE;
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 break;
@@ -291,7 +291,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     }
                                 }
                                 if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-                                    sp->client_work = client_no;
+                                    sp->battlerIdTemp = client_no;
                                     scriptnum = SUB_SEQ_HANDLE_ANTICIPATION;
                                 }
                                 break;
@@ -354,14 +354,14 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 }
 
                                 if (basepower_temp) {
-                                    sp->client_work = client_no;
+                                    sp->battlerIdTemp = client_no;
                                     scriptnum = SUB_SEQ_HANDLE_FOREWARN;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 } else if (hp) {
                                     num = ChooseRandomTarget(bw, sp, client_no);
                                     pos = CountBattlerMoves(bw, sp, num);
                                     sp->waza_work = sp->battlemon[num].move[BattleRand(bw) % pos];
-                                    sp->client_work = client_no;
+                                    sp->battlerIdTemp = client_no;
                                     scriptnum = SUB_SEQ_HANDLE_FOREWARN;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 }
@@ -412,7 +412,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             }
                         }
                         if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_FRISK;
                             break;
                         }
@@ -422,7 +422,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].slow_start_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_SLOW_START) && (sp->total_turn <= sp->battlemon[client_no].moveeffect.slowStartTurns)) {
                             sp->battlemon[client_no].slow_start_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_SLOW_START;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -431,7 +431,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         // check slow start end as well
                         if ((sp->battlemon[client_no].slow_start_end_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_SLOW_START) && ((sp->total_turn - sp->battlemon[client_no].moveeffect.slowStartTurns) == 5)) {
                             sp->battlemon[client_no].slow_start_end_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_SLOW_START_END;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -442,7 +442,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].mold_breaker_flag == 0) && (sp->battlemon[client_no].hp) && ((GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER) || (GetBattlerAbility(sp, client_no) == ABILITY_TURBOBLAZE) || (GetBattlerAbility(sp, client_no) == ABILITY_TERAVOLT))) {
                             sp->battlemon[client_no].mold_breaker_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             if (GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER) {
                                 scriptnum = SUB_SEQ_MOLD_BREAKER;
                             } else if (GetBattlerAbility(sp, client_no) == ABILITY_TURBOBLAZE) {
@@ -460,7 +460,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].pressure_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_PRESSURE)) {
                             sp->battlemon[client_no].pressure_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_PRESSURE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -471,7 +471,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_DARK_AURA)) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_DARK_AURA_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -482,7 +482,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_FAIRY_AURA)) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_FAIRY_AURA_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -493,7 +493,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_AURA_BREAK)) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_AURA_BREAK_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -561,7 +561,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((sp->battlemon[client_no].air_ballon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
                             sp->battlemon[client_no].air_ballon_flag = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -573,7 +573,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         if ((sp->battlemon[client_no].species == SPECIES_EISCUE) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].form_no == 1) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) && (sp->field_condition & WEATHER_HAIL_ANY)  // there is hail this turn
                             && ((sp->log_hail_for_ice_face & No2Bit(client_no)) == 0)                                                                                                                                                                                                                                                                                   // and hail wasn't here last turn/the mon just switched in
                             && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)) {
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             BattleFormChange(client_no, 0, bw, sp, TRUE);
                             sp->battlemon[client_no].form_no = 0;
                             scriptnum = SUB_SEQ_HANDLE_RESTORE_ICE_FACE;
@@ -661,7 +661,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         if (CanUndergoPrimalReversion(sp, client_no)) {
                             BattleFormChange(client_no, 1, bw, sp, TRUE);
                             sp->battlemon[client_no].form_no = 1;
-                            sp->client_work = client_no;
+                            sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -716,7 +716,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     client_no = sp->turnOrder[i];
                     if(HeldItemHealCheck(bw, sp, client_no, &scriptnum) == TRUE)
                     {
-                        sp->client_work = client_no;
+                        sp->battlerIdTemp = client_no;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
                     }

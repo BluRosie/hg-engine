@@ -1241,7 +1241,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->hit_damage = sp->damage;
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
-            sp->client_work = sp->defence_client;
+            sp->battlerIdTemp = sp->defence_client;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
             sp->server_seq_no = 22;
             sp->next_server_seq_no = 29;
@@ -1336,7 +1336,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             sp->oneTurnFlag[sp->defence_client].last_damage = sp->damage;
             sp->oneTurnFlag[sp->defence_client].last_damager = sp->attack_client;
 
-            sp->client_work = sp->defence_client;
+            sp->battlerIdTemp = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
@@ -2238,7 +2238,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 && (ctx->battlemon[client_no].condition & STATUS_FLAG_BURNED)
                 && (ctx->battlemon[client_no].hp)) {
                     if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                        ctx->client_work = client_no;
+                        ctx->battlerIdTemp = client_no;
                         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HEAL_TARGET_BURN);
                         ctx->next_server_seq_no = ctx->server_seq_no;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2370,7 +2370,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                     if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA && ctx->battlemon[ctx->attack_client].form_no == 1) {
                         ctx->state_client = ctx->attack_client;
-                        ctx->client_work = ctx->attack_client;
+                        ctx->battlerIdTemp = ctx->attack_client;
                         ctx->battlemon[ctx->attack_client].form_no = 2;
                         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORM_CHANGE);
                         ctx->next_server_seq_no = ctx->server_seq_no;

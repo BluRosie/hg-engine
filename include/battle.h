@@ -113,7 +113,7 @@
 #define MOVE_STATUS_FLAG_NO_OHKO                 (0x00080000)
 #define MOVE_STATUS_FLAG_MAGNET_RISE_MISS        (0x00100000)
 
-#define WAZA_STATUS_FLAG_SIPPAI                 (0x80000000)
+#define MOVE_STATUS_NO_MORE_WORK                 (0x80000000)
 
 #define WAZA_STATUS_FLAG_NOHIT_OFF      (MOVE_STATUS_FLAG_MISS^0xffffffff)
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
@@ -133,7 +133,7 @@
 
 #define WAZA_STATUS_FLAG_NO_OUT         (MOVE_STATUS_FLAG_FAILURE_ANY|\
                                          WAZA_STATUS_FLAG_PP_NONE|\
-                                         WAZA_STATUS_FLAG_SIPPAI)
+                                         MOVE_STATUS_NO_MORE_WORK)
 
 #define WAZA_STATUS_FLAG_SOUSAI         (WAZA_STATUS_FLAG_BATSUGUN|\
                                          WAZA_STATUS_FLAG_IMAHITOTSU)
@@ -230,6 +230,79 @@
 
 #define STATUS_POISON_ANY (STATUS_FLAG_POISONED | STATUS_FLAG_BADLY_POISONED | STATUS_FLAG_TOXIC_COUNT)
 #define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED)
+
+// Status
+#define STATUS_NONE         0
+#define STATUS_SLEEP_0      (1 << 0)
+#define STATUS_SLEEP_1      (1 << 1)
+#define STATUS_SLEEP_2      (1 << 2)
+#define STATUS_POISON       (1 << 3)
+#define STATUS_BURN         (1 << 4)
+#define STATUS_FREEZE       (1 << 5)
+#define STATUS_PARALYSIS    (1 << 6)
+#define STATUS_BAD_POISON   (1 << 7)
+#define STATUS_POISON_COUNT (15 << 8)
+
+#define STATUS_SLEEP      (STATUS_SLEEP_0 | STATUS_SLEEP_1 | STATUS_SLEEP_2)
+#define STATUS_NOT_SLEEP  ~STATUS_SLEEP
+#define STATUS_POISON_ALL (STATUS_POISON | STATUS_BAD_POISON | STATUS_POISON_COUNT)
+
+#define STATUS_ALL             (STATUS_SLEEP | STATUS_POISON | STATUS_BURN | STATUS_FREEZE | STATUS_PARALYSIS | STATUS_BAD_POISON)
+#define STATUS_FACADE_BOOST    (STATUS_POISON | STATUS_BAD_POISON | STATUS_BURN | STATUS_PARALYSIS)
+#define STATUS_CAN_SYNCHRONIZE (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)
+
+#define STATUS_POISON_COUNT_SHIFT 8
+
+// Status Conditions
+#define CONDITION_NONE      0
+#define CONDITION_SLEEP     1
+#define CONDITION_POISON    2
+#define CONDITION_BURN      3
+#define CONDITION_FREEZE    4
+#define CONDITION_PARALYSIS 
+
+// Status 2
+#define STATUS2_CONFUSION        (7 << 0)
+#define STATUS2_FLINCH           (1 << 3)
+#define STATUS2_UPROAR           (7 << 4)
+#define STATUS2_BIDE_0           (1 << 8)
+#define STATUS2_BIDE_1           (1 << 9)
+#define STATUS2_RAMPAGE          (3 << 10)
+#define STATUS2_LOCKED_INTO_MOVE (1 << 12)
+#define STATUS2_BIND             (7 << 13)
+#define STATUS2_ATTRACT_BATTLER1 (1 << 16)
+#define STATUS2_ATTRACT_BATTLER2 (1 << 17)
+#define STATUS2_ATTRACT_BATTLER3 (1 << 18)
+#define STATUS2_ATTRACT_BATTLER4 (1 << 19)
+#define STATUS2_FOCUS_ENERGY     (1 << 20)
+#define STATUS2_TRANSFORM        (1 << 21)
+#define STATUS2_RECHARGE         (1 << 22)
+#define STATUS2_RAGE             (1 << 23)
+#define STATUS2_SUBSTITUTE       (1 << 24)
+#define STATUS2_DESTINY_BOND     (1 << 25)
+#define STATUS2_MEAN_LOOK        (1 << 26)
+#define STATUS2_NIGHTMARE        (1 << 27)
+#define STATUS2_CURSE            (1 << 28)
+#define STATUS2_FORESIGHT        (1 << 29)
+#define STATUS2_DEFENSE_CURL     (1 << 30)
+#define STATUS2_TORMENT          (1 << 31)
+
+#define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
+#define STATUS2_ATTRACT (STATUS2_ATTRACT_BATTLER1 | STATUS2_ATTRACT_BATTLER2 | STATUS2_ATTRACT_BATTLER3 | STATUS2_ATTRACT_BATTLER4)
+
+#define STATUS2_UPROAR_SHIFT  4
+#define STATUS2_BIDE_SHIFT    8
+#define STATUS2_RAMPAGE_SHIFT 10
+#define STATUS2_BINDING_SHIFT 13
+#define STATUS2_ATTRACT_SHIFT 16
+
+#define STATUS2_BATON_PASSABLE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_MEAN_LOOK | STATUS2_CURSE)
+
+// Self Turns Flags
+#define SELF_TURN_FLAG_CLEAR          0
+#define SELF_TURN_FLAG_PLUCK_BERRY    (1 << 1)
+#define SELF_TURN_FLAG_INFATUATED     (1 << 2)
+#define SELF_TURN_FLAG_SUBSTITUTE_HIT (1 << 3
 
 /**
  *  @brief server status flags (for BattleStruct's server_status_flag)
@@ -811,8 +884,8 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x54 */ u16 oyaname[8];               /**< OT name */
     /* 0x68 */ u32 exp; //68                 /**< total experience */
     /* 0x6c */ u32 personal_rnd;             /**< personality id */
-    /* 0x70 */ u32 condition;                /**< non-volatile status conditions (STATUS_* constants) */
-    /* 0x74 */ u32 condition2;               /**< most other status conditions (STATUS2_* constants) */
+    /* 0x70 */ u32 condition;                /**< non-volatile status conditions (STATUS_* constants) */ // status
+    /* 0x74 */ u32 condition2;               /**< most other status conditions (STATUS2_* constants) */  // status2
     /* 0x78 */ u32 id_no;                    /**< OT ID */
     /* 0x7c */ u16 item;                     /**< held item */
     /* 0x7e */ u16 dummy;
@@ -1018,6 +1091,57 @@ typedef enum ControllerCommand {
     CONTROLLER_COMMAND_MAX
 } ControllerCommand;
 
+enum BattleControlSequence {
+    BATTLE_CONTROL_GET_BATTLE_MON = 0,
+    BATTLE_CONTROL_START_ENCOUNTER,
+    BATTLE_CONTROL_TRAINER_MESSAGE,
+    BATTLE_CONTROL_SHOW_BATTLE_MON,
+    BATTLE_CONTROL_INIT_COMMAND_SELECTION,
+    BATTLE_CONTROL_COMMAND_SELECTION_INPUT,
+    BATTLE_CONTROL_CALC_TURN_ORDER,
+    BATTLE_CONTROL_CHECK_PRE_MOVE_ACTIONS,
+    BATTLE_CONTROL_BRANCH_ACTIONS,
+    BATTLE_CONTROL_CHECK_FIELD_CONDITIONS,
+    BATTLE_CONTROL_CHECK_MON_CONDITIONS,
+    BATTLE_CONTROL_CHECK_SIDE_CONDITIONS,
+    BATTLE_CONTROL_TURN_END,
+
+    BATTLE_CONTROL_FIGHT,
+    BATTLE_CONTROL_ITEM,
+    BATTLE_CONTROL_PARTY,
+    BATTLE_CONTROL_RUN,
+
+    BATTLE_CONTROL_SAFARI_BALL,
+    BATTLE_CONTROL_SAFARI_BAIT,
+    BATTLE_CONTROL_SAFARI_ROCK,
+    BATTLE_CONTROL_SAFARI_WAIT,
+
+    BATTLE_CONTROL_EXEC_SCRIPT,
+    BATTLE_CONTROL_BEFORE_MOVE,
+    BATTLE_CONTROL_TRY_MOVE,
+    BATTLE_CONTROL_PRIMARY_EFFECT,
+    BATTLE_CONTROL_MOVE_FAILED,
+    BATTLE_CONTROL_USE_MOVE,
+    BATTLE_CONTROL_UPDATE_HP,
+    BATTLE_CONTROL_AFTER_MOVE_MESSAGE,
+    // 29 is an unused state
+    BATTLE_CONTROL_AFTER_MOVE_EFFECT = 30,
+    BATTLE_CONTROL_LOOP_MULTI_HIT,
+    // 32 is an unused state
+    BATTLE_CONTROL_LOOP_FAINTED = 33,
+    BATTLE_CONTROL_LOOP_SPREAD_MOVES,
+    BATTLE_CONTROL_FAINT_AFTER_SELFDESTRUCT,
+    BATTLE_CONTROL_TRIGGER_AFTER_HIT_EFFECTS,
+    // 37 is an unused state
+    BATTLE_CONTROL_UPDATE_MOVE_BUFFERS = 38,
+    BATTLE_CONTROL_MOVE_END,
+    BATTLE_CONTROL_CHECK_ANY_FAINTED,
+    BATTLE_CONTROL_RESULT,
+    BATTLE_CONTROL_SCREEN_WIPE,
+    BATTLE_CONTROL_FIGHT_END,
+    BATTLE_CONTROL_END_WAIT,
+};
+
 typedef enum FutureConditionType {
     FUTURE_CONDITION_NONE = 0,
     FUTURE_CONDITION_WISH,
@@ -1109,7 +1233,7 @@ struct PACKED BattleStruct
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg
-    /*0x118*/ int client_work;          // battlerIdTemp
+    /*0x118*/ int battlerIdTemp;          // battlerIdTemp
     /*0x11C*/ int attack_client_work;   // battlerIdLeechSeedRecv
     /*0x120*/ int defence_client_work;  // battlerIdLeechSeeded
     /*0x124*/ int waza_work;            // moveTemp
@@ -1132,7 +1256,7 @@ struct PACKED BattleStruct
     /*0x1C4*/ struct side_condition_work scw[2];                    // fieldSideConditionData
     /*0x1D4*/ struct OneTurnEffect oneTurnFlag[CLIENT_MAX];         // turnData
     /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX];     // selfTurnData
-    /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX];
+    /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX];         // MoveFail
 
     /*0x354*/ struct BattleAIWorkTable aiWorkTable;
     /*0x2134*/ u32 *ai_seq_work;
@@ -1150,7 +1274,7 @@ struct PACKED BattleStruct
     /*0x2160*/ int move_type;                                       // moveType
     /*0x2164*/ int waza_eff_cnt;
     /*0x2168*/ int money_multiplier;
-    /*0x216C*/ u32 waza_status_flag;
+    /*0x216C*/ u32 waza_status_flag;                                // moveStatusFlag
 
     /*0x2170*/ u32 add_status_flag_direct;
     /*0x2174*/ u32 add_status_flag_indirect;
@@ -1176,7 +1300,7 @@ struct PACKED BattleStruct
     /*0x2300*/ u8 server_buffer[4][256];
     /*0x2700*/ int SkillSeqWorkOld[400];
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
-    /*0x3040*/ u32 waza_no_temp;
+    /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
     // u8 unk_bytes4[0x74];
 
@@ -2978,5 +3102,15 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
+
+void LONG_CALL BattleControllerPlayer_ItemInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+void LONG_CALL BattleControllerPlayer_PokemonInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+void LONG_CALL BattleControllerPlayer_RunInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+int  LONG_CALL BattleMon_GetMoveIndex(struct BattlePokemon *mon, u16 move);
+
+BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
 
 #endif // BATTLE_H

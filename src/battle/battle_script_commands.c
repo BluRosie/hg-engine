@@ -82,6 +82,7 @@ BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FC_trymegaduringpursuit(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -353,6 +354,7 @@ const u8 *BattleScrCmdNames[] =
     "canclearprimalweather",
     "setabilityactivatedflag",
     "switchinabilitycheck",
+    "trymegaduringpursuit",
 };
 
 u32 cmdAddress = 0;
@@ -388,6 +390,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F9_canclearprimalweather,
     [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
     [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FB_switchinabilitycheck,
+    [0xFC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trymegaduringpursuit,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -926,7 +929,7 @@ s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp,
         break;
     case BTL_PARAM_BATTLER_WORK:
     case BTL_PARAM_BATTLER_x15:
-        client_no = sp->client_work;
+        client_no = sp->battlerIdTemp;
         break;
     }
 
@@ -2129,7 +2132,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
         {
             u32 form_no = 0;
             sp->battlemon[client_no].form_no = form_no;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
+            BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 1);
             SetMonData(pp, MON_DATA_FORM, (u8 *)&form_no);
         }
 
@@ -2896,6 +2899,52 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp) {
 }
 
 /**
+ *  @brief script command to check if Mega Evolution is needed during Pursuit
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FC_trymegaduringpursuit(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    // debug_printf("In trymegaduringpursuit\n");
+
+    int script = 0;
+    int failAddress = read_battle_script_param(sp);
+
+    if (newBS.needMega[sp->attack_client] == MEGA_NEED && sp->battlemon[sp->attack_client].hp) {
+        if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
+            if (sp->attack_client == 0 || (sp->attack_client == 2 && sp->battlemon[sp->attack_client].id_no == sp->battlemon[0].id_no))
+                newBS.PlayerMegaed = TRUE;
+        } else if (sp->attack_client == 0 || sp->attack_client == 2) {
+            newBS.PlayerMegaed = TRUE;
+        }
+
+        sp->battlemon[sp->attack_client].form_no = GrabMegaTargetForm(sp->battlemon[sp->attack_client].species, sp->battlemon[sp->attack_client].item);
+        BattleFormChange(sp->attack_client, sp->battlemon[sp->attack_client].form_no, bw, sp, TRUE);
+
+        newBS.needMega[sp->attack_client] = MEGA_NO_NEED;
+        sp->battlerIdTemp = sp->attack_client;
+        if (CheckCanSpeciesMegaEvolveByMove(sp, sp->attack_client)) {
+            script = SUB_SEQ_HANDLE_MOVE_MEGA_EVOLUTION;
+        } else {
+            script = SUB_SEQ_HANDLE_MEGA_EVOLUTION;
+        }
+    }
+
+    if (script) {
+        // debug_printf("script: %d\n", script);
+        sp->temp_work = script;
+    } else {
+        // debug_printf("no script needed\n");
+        IncrementBattleScriptPtr(sp, failAddress);
+    }
+
+    return FALSE;
+}
+
+/**
  *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
  *
  *  @param bw battle work structure
@@ -3179,7 +3228,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
     //Binding Moves
     if (sp->binding_turns[sp->attack_client] != 0) {
         sp->binding_turns[sp->attack_client] = 0;
-        sp->client_work = sp->battlemon[sp->attack_client].moveeffect.battlerIdBinding;
+        sp->battlerIdTemp = sp->battlemon[sp->attack_client].moveeffect.battlerIdBinding;
         sp->waza_work = sp->battlemon[sp->attack_client].moveeffect.bindingMove;
         SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BREAK_CLAMP);
         return FALSE;

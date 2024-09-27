@@ -50,7 +50,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_APPLY_PARALYSIS;
                 ret = TRUE;
             }
@@ -94,7 +94,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
                 && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 8);
-                sp->client_work = sp->attack_client;
+                sp->battlerIdTemp = sp->attack_client;
                 seq_no[0] = SUB_SEQ_ROUGH_SKIN;
                 ret = TRUE;
             }
@@ -123,7 +123,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 }
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 ret = TRUE;
             }
             break;
@@ -139,7 +139,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_APPLY_POISON;
                 ret = TRUE;
             }
@@ -156,7 +156,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_APPLY_BURN;
                 ret = TRUE;
             }
@@ -174,7 +174,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && (BattleRand(bw) % 10 < 3)) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_APPLY_ATTRACT;
                 ret = TRUE;
             }
@@ -188,7 +188,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 4);
-                sp->client_work = sp->attack_client;
+                sp->battlerIdTemp = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_AFTERMATH;
                 ret = TRUE;
             }
@@ -201,7 +201,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
             {
                 sp->hp_calc_work = sp->damage;
-                sp->client_work = sp->attack_client;
+                sp->battlerIdTemp = sp->attack_client;
                 seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
                 ret = TRUE;
             }
@@ -225,7 +225,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     sp->addeffect_param = ADD_STATE_SPEED_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
-                    sp->client_work = sp->defence_client;
+                    sp->battlerIdTemp = sp->defence_client;
                     seq_no[0] = SUB_SEQ_BOOST_STATS;
                     ret = TRUE;
                 }
@@ -257,7 +257,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_param = ADD_STATE_SP_ATK_UP;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_BOOST_STATS;
                 ret = TRUE;
             }
@@ -274,7 +274,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_param = ADD_STATE_DEFENSE_UP;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_BOOST_STATS;
                 ret = TRUE;
             }
@@ -292,7 +292,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_param = ADD_STATE_SPEED_DOWN;
                 sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
                 sp->state_client = sp->attack_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 seq_no[0] = SUB_SEQ_BOOST_STATS;
                 ret = TRUE;
             }
@@ -308,7 +308,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
-                sp->client_work = sp->attack_client;
+                sp->battlerIdTemp = sp->attack_client;
                 sp->battlemon[sp->attack_client].ability = GetBattlerAbility(sp, sp->defence_client); // spread defender ability to attacker
                 seq_no[0] = SUB_SEQ_HANDLE_MUMMY_MESSAGE;
                 ret = TRUE;
@@ -334,7 +334,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                         sp->addeffect_param = ADD_STATE_DEFENSE_UP_2;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
-                        sp->client_work = sp->defence_client;
+                        sp->battlerIdTemp = sp->defence_client;
                         seq_no[0] = SUB_SEQ_BOOST_STATS;
                         ret = TRUE;
                     }
@@ -343,7 +343,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                         sp->addeffect_param = ADD_STATE_DEFENSE_UP;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
-                        sp->client_work = sp->defence_client;
+                        sp->battlerIdTemp = sp->defence_client;
                         seq_no[0] = SUB_SEQ_BOOST_STATS;
                         ret = TRUE;
                     }
@@ -368,7 +368,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     sp->addeffect_param = ADD_STATE_ATTACK_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
-                    sp->client_work = sp->defence_client;
+                    sp->battlerIdTemp = sp->defence_client;
                     seq_no[0] = SUB_SEQ_BOOST_STATS;
                     ret = TRUE;
                 }
@@ -383,7 +383,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && (sp->oneSelfFlag[sp->defence_client].physical_damage))
             {
                 sp->state_client = sp->defence_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 seq_no[0] = SUB_SEQ_HANDLE_WEAK_ARMOR;
                 ret = TRUE;
@@ -399,7 +399,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             {
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 sp->state_client = sp->defence_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 seq_no[0] = SUB_SEQ_HANDLE_DEFIANT;
                 ret = TRUE;
@@ -416,7 +416,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             {
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 sp->state_client = sp->defence_client;
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 seq_no[0] = SUB_SEQ_HANDLE_COMPETITIVE;
                 ret = TRUE;
@@ -462,7 +462,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             )
             {
                 BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->battlemon[sp->defence_client].form_no = 1;
                 seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
                 ret = TRUE;
@@ -478,7 +478,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             )
             {
                 BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->battlemon[sp->defence_client].form_no = 1;
                 seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
                 ret = TRUE;
@@ -505,7 +505,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                         sp->addeffect_param = ADD_STATE_ATTACK_UP;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
-                        sp->client_work = sp->defence_client;
+                        sp->battlerIdTemp = sp->defence_client;
                         seq_no[0] = SUB_SEQ_BOOST_STATS;
                         ret = TRUE;
                     }
