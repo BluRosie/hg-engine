@@ -590,7 +590,7 @@ An item to be held by a Pokémon.\nThis band boosts the power of binding moves\n
 Castelia City’s specialty: soft-serve\nice cream. It can be used to cure any\nstatus condition a Pokémon may have.
 An item to be held by a Pokémon.\nThis single-use battery boosts Attack\nif hit with an Electric-type attack.
 A shard that fell to the ground when a\ncomet passed nearby. It can be sold at\na high price to shops.
-A somewhat different Poké Ball that\nmakes it easier to catch wild Pokémon\nwhile they're asleep.
+A somewhat different Poké Ball that\nmakes it easier to catch wild Pokémon\nwhile they’re asleep.
 An item to be held by a Pokémon.\nIf the holder is hit by an attack, it\nwill be switched out of battle.
 A mysterious evolutionary lump.\nWhen held by a Pokémon that can still\revolve, it raises both Defense and Sp. Def.
 An item to be held by a Pokémon.\nThis very light stone reduces the\nweight of the holder.
@@ -612,7 +612,7 @@ An item to be held by a Pokémon.\nThis item sharply raises its Attack and\nSp. 
 A soft and sweet treat made of fluffy,\npuffy, whipped, and whirled cream.\nIt’s loved by a certain Pokémon. 
 An item to be held by a Pokémon.\nThis orb boosts the Speed stat if the\nholder is intimidated.
 A special Poké Ball designed to catch\nUltra Beasts. It has a low success rate\nfor catching others.
-The Alola region's famous fried\nconfection. It can be used to cure any\nstatus condition a Pokémon may have.
+The Alola region’s famous fried\nconfection. It can be used to cure any\nstatus condition a Pokémon may have.
 A lovely silver bottle cap.\nCertain people are delighted to be\ngiven one of these.
 A beautiful bottle cap that gives off a\ngolden gleam.\nSome people are happy to receive one.
 An item to be held by a Pokémon.\nIt boosts Defense on Electric Terrain.\nIt can only be used once.
@@ -621,7 +621,7 @@ An item to be held by a Pokémon.\nIt boosts Sp. Defense on Misty Terrain.\nIt c
 An item to be held by a Pokémon.\nIt boosts Sp. Defense on Psychic Terrain.\nIt can only be used once.
 A peculiar stone that makes certain\nspecies of Pokémon evolve.\nIt has a snowflake pattern in it.
 Protective Pads Description
-An item to be held by a Pokémon.\nIt extends the duration of terrain\ncaused by the holder's move or Ability.
+An item to be held by a Pokémon.\nIt extends the duration of terrain\ncaused by the holder’s move or Ability.
 A patch that can be used to change\nthe regular Ability of a Pokémon to\na rarer Ability, or the opposite.
 A glassy black stone that produces\na sharp cutting edge when split.\nIt is loved by a certain Pokémon.
 A berry-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
@@ -634,24 +634,24 @@ A strawberry-shaped sweet.\nWhen a Milcery holds this, it spins\naround happily.
 An item to be held by a Pokémon.\nSharply boosts Speed when a Pokémon\nmisses with a move because of accuracy.
 A teapot that can make a certain\nspecies of Pokémon evolve. It may be\nchipped, but tea from it is delicious.
 A teapot that can make a certain\nspecies of Pokémon evolve. It may be\ncracked, but tea from it is delicious.
-An item to be held by a Pokémon.\nIf the holder's stats are lowered, it\nwill be switched out of battle.
+An item to be held by a Pokémon.\nIf the holder’s stats are lowered, it\nwill be switched out of battle.
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nsmall number of Exp. Points.
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nmoderate number of Exp. Points.
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nlarge number of Exp. Points.
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery small number of Exp. Points.
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery large number of Exp. Points.
 A cuff made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
-A twig from a species of tree called\nGalarica. It's a material for an\naccessory for a certain Pokémon.
+A twig from a species of tree called\nGalarica. It’s a material for an\naccessory for a certain Pokémon.
 A wreath made from Galarica Twigs that\nwere woven together.\nIt makes a certain Pokémon very happy.
 An item to be held by a Pokémon.\nThese boots prevent the effects of traps\rset on the battlefield.
 A string exuding an odd energy that\nmakes you feel a sense of connection.\nIt’s loved by certain Pokémon.
 Moomoo Cheese Description
 A block of muddy material that can be\nused as fuel for burning when dried.\nIt is loved by a certain Pokémon.
-An item to be held by a Pokémon.\nIf Trick Room takes effect, this item\nwill lower the holder's Speed stat.
-It is said that a hero used this shield\nto halt a terrible disaster in ancient\ntimes. But it's grown rusty and worn.
-It is said that a hero used this sword\nto halt a terrible disaster in ancient\ntimes. But it's grown rusty and worn.
-A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt's exceptionally sweet.
-A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt's exceptionally tart.
+An item to be held by a Pokémon.\nIf Trick Room takes effect, this item\nwill lower the holder’s Speed stat.
+It is said that a hero used this shield\nto halt a terrible disaster in ancient\ntimes. But it’s grown rusty and worn.
+It is said that a hero used this sword\nto halt a terrible disaster in ancient\ntimes. But it’s grown rusty and worn.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt’s exceptionally sweet.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt’s exceptionally tart.
 An item to be held by a Pokémon.\nIf the holder uses a sound-based move,\nthis item will boost its Sp. Atk stat.
 An item to be held by a Pokémon.\nThis umbrella protects the holder from\nthe effects of rain and harsh sunlight.
 An item to be held by a Pokémon.\nThis shield protects the holder from\nhaving its Ability changed by others.
@@ -663,15 +663,15 @@ A material accidentally dropped by a\nPokémon. It seems that Gimmighoul\ntreasu
 A shard of what appears to be an old\nblade of some sort.\nIt is loved by a certain Pokémon.
 An item to be held by a Pokémon.\nThis loaded dice ensures the holder’s\nmultistrike moves hit at least 4 times.
 A peculiar set of armor that can make a\ncertain species of Pokémon evolve.\nMalicious will lurks within it.
-An item to be held by a Pokémon.\nThis herb will allow the holder to mirror\nan opponent's stat increase, but only once.
+An item to be held by a Pokémon.\nThis herb will allow the holder to mirror\nan opponent’s stat increase, but only once.
 An item to be held by a Pokémon.\nThis glove ups the power of punching\nmoves and prevents contact with targets.
 If held, it halves the damage taken from\na supereffective Fairy-type attack.\n(This Berry cannot be planted.)
 If held, it boosts the Defense stat\nafter being hit with a physical move.\n(This Berry cannot be planted.)
 If held, it boosts the Sp. Defense stat\nafter being hit with a special move.\n(This Berry cannot be planted.)
-A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Fire type.
-A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Ice type.
-A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Water type.
-A cassette to be held by Genesect.\nIt changes Genesect's Techno Blast move so\nit becomes Electric type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast move so\nit becomes Fire type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast move so\nit becomes Ice type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast move so\nit becomes Water type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast move so\nit becomes Electric type.
 A fossil of an ancient Pokémon that\nlived in the sea. It appears to be\npart of its back.
 A fossil of an ancient Pokémon that\nlived in the sky. It appears to be\npart of its wing.
 A fossil of an ancient Pokémon that\nlived on the land. It appears to be\npart of a large jaw.
@@ -728,32 +728,32 @@ A vase made by an ancient civilization\nabout three thousand years ago.
 A bracelet made by an ancient\ncivilization about three thousand years\nago.
 A stone figurine made by an ancient\ncivilization about three thousand years\nago.
 A crown made by an ancient civilization\nabout three thousand years ago.
-An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's HP stat.
-An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Attack stat.
-An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Defense stat.
-An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Sp. Atk stat.
-An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Sp. Def stat.
-An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon's Speed stat.
-Though this feather is beautiful, it's\njust a regular feather and has no\neffect.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon’s HP stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon’s Attack stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon’s Defense stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon’s Sp. Atk stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon’s Sp. Def stat.
+An item to be used on a Pokémon.\nThis feather slightly increases base points\nfor a Pokémon’s Speed stat.
+Though this feather is beautiful, it’s\njust a regular feather and has no\neffect.
 A splicer that fuses Kyurem and a\ncertain Pokémon. They are said to have\noriginally been one.
 A looking glass that reveals the truth.\nIt can return a Pokémon to its original\nshape.
 A bottle believed to have been used to\nseal away the power of a certain\nPokémon long, long ago.
 Having one of these mysterious,\nunshakable charms makes it more likely\nyou’ll get a critical catch.
 A charm that increases the Exp. Points\nthat Pokémon can get. A machine-like\nobject is inside the charm.
 An oval charm said to increase the\nchance of Pokémon Eggs being found at\nthe Day Care.
-Having one of these mysterious shining\ncharms makes it more likely you'll\nencounter Shiny Pokémon in the wild.
+Having one of these mysterious shining\ncharms makes it more likely you’ll\nencounter Shiny Pokémon in the wild.
 A machine to fuse Necrozma, which needs\nlight, and Solgaleo.
 A machine to fuse Necrozma, which needs\nlight, and Lunala.
 A device that allows you to press “R”\nto access the Pokémon storage system.\nIt won’t work in certain places, though.
 An item to store Zygarde Cores and\nCells. You can also use it to teach\nZygarde moves.
 Sun Flute Description
 Moon Flute Description
-Reshiram's body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
-Zekrom's body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
-Produce that the King of Bountiful\nHarvests' beloved steed likes to eat.\nIt grew in a field covered in snow.
-Produce that the King of Bountiful\nHarvests' beloved steed likes to eat.\nIt grew in a gloomy field.
+Reshiram’s body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
+Zekrom’s body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
+Produce that the King of Bountiful\nHarvests’ beloved steed likes to eat.\nIt grew in a field covered in snow.
+Produce that the King of Bountiful\nHarvests’ beloved steed likes to eat.\nIt grew in a gloomy field.
 Reins of Unity Description
-A mysterious object made of wood. Part\nof it seems to be chipped. Maybe it's\nmeant to be part of something.
+A mysterious object made of wood. Part\nof it seems to be chipped. Maybe it’s\nmeant to be part of something.
 A catalog of devices that Rotom like.\nUse the catalog to have Rotom hop in\nand out of the devices listed within.
 An item to be held by Dialga.\nThis large, glowing gem wells with power\nand allows the Pokémon to change form.
 An item to be held by Palkia.\nThis large, glowing orb wells with power\nand allows the Pokémon to change form.
@@ -761,11 +761,11 @@ An item to be held by Giratina.\nThis large, glowing gem wells with power\nand a
 A scroll that can make a certain\nPokémon evolve. Written on it are the\ntrue secrets of the path of darkness.
 A scroll that can make a certain\nPokémon evolve. Written on it are the\ntrue secrets of the path of water.
 This ring contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-The autograph you got from the\nVermilion City Gym Leader, Lt. Surge.\nHe wrote, "Good luck!"
-A set of golden false teeth lost by the\nSafari Zone's warden.\nThey make his smile sparkle.
+The autograph you got from the\nVermilion City Gym Leader, Lt. Surge.\nHe wrote, “Good luck!”
+A set of golden false teeth lost by the\nSafari Zone’s warden.\nThey make his smile sparkle.
 A stone filled with an unexplained power.\nIt allows Pokémon that battle with\na Mega Stone to Mega Evolve.
 A key that operates the elevator in the\nTeam Rocket Hideout.\nIt bears the Team Rocket logo.
-Pewter City's famous crunchy snack.\nThey can be used to cure any status\ncondition a Pokémon may have.
+Pewter City’s famous crunchy snack.\nThey can be used to cure any status\ncondition a Pokémon may have.
 A scope that lets you see what cannot\nusually be seen.\nIt is made by Silph Co.
 Aromatic tea that has a slightly bitter\ntaste. It soothes a dry throat.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Defense stat may suffer.
@@ -790,7 +790,7 @@ Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowev
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Def stat may suffer.
 Having a Pokémon smell this mint will\ncause all of its stats to grow at\nan equal rate.
 An item to be held by a Pokémon. This\nfeather, which gleams faintly in light,\nups the power of Fairy-type moves.
-A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt's exceptionally syrupy.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt’s exceptionally syrupy.
 A teacup that can make a certain\nspecies of Pokémon evolve. It may be\ncracked, but tea from it is delicious.
 A teacup that can make a certain\nspecies of Pokémon evolve. It may be\nchipped, but tea from it is delicious.
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Rock type during battle.
