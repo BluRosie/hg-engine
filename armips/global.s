@@ -21,6 +21,7 @@
 .include "armips/asm/swarms.s" // modify swarms
 
 .include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
+.include "armips/asm/tm_palettes.s" // allows editing of pallete table for TMs 
 
 .if REUSABLE_TMS == 1
 
