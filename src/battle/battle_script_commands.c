@@ -478,6 +478,11 @@ u16 sMetronomeMimicMoveBanList[] =
     MOVE_MAX_OVERGROWTH,
     MOVE_MAX_STEELSPIKE,
 
+// invalid moves
+    MOVE_468,
+    MOVE_469,
+    MOVE_470,
+
     0xFFFE,
     MOVE_AFTER_YOU,
     MOVE_APPLE_ACID,
