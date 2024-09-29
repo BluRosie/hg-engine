@@ -262,13 +262,13 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                 break;
             }
             case SBA_ESCAPING: {
-                debug_printf("In SBA_ESCAPING\n");
+                // debug_printf("In SBA_ESCAPING\n");
 
                 // TODO: this line allows handling Ball Fetch after using a ball
                 script = SwitchInAbilityCheck(bw, sp);
 
                 if (script) {
-                    debug_printf("Detour SwitchInAbilityCheck\n");
+                    // debug_printf("Detour SwitchInAbilityCheck\n");
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, script);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
@@ -292,11 +292,12 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                         // Try escaping first, then handle Mega Evolution
                         // 先逃走，然後才處理超級進化
 
-                        debug_printf("client %d: SELECT_ESCAPE_COMMAND\n", client_no);
+                        // debug_printf("client %d: SELECT_ESCAPE_COMMAND\n", client_no);
                         BattleControllerPlayer_RunInput(bw, sp);
                         sp->next_server_seq_no = tempSequenceNumber;
                         sp->waza_status_flag = tempMoveStatusFlag;
                         sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
+                        sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
                         return;
                     default:
                         break;
@@ -311,7 +312,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                 script = SwitchInAbilityCheck(bw, sp);
 
                 if (script) {
-                    debug_printf("Detour SwitchInAbilityCheck\n");
+                    // debug_printf("Detour SwitchInAbilityCheck\n");
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, script);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
@@ -335,11 +336,12 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                         // Try switching first, then handle Mega Evolution
                         // 先切換，然後才處理超級進化
 
-                        debug_printf("client %d: SELECT_POKEMON_COMMAND\n", client_no);
+                        // debug_printf("client %d: SELECT_POKEMON_COMMAND\n", client_no);
                         BattleControllerPlayer_PokemonInput(bw, sp);
                         sp->next_server_seq_no = tempSequenceNumber;
                         sp->waza_status_flag = tempMoveStatusFlag;
                         sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
+                        sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
                         return;
                     default:
                         break;
@@ -360,7 +362,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                 script = SwitchInAbilityCheck(bw, sp);
 
                 if (script) {
-                    debug_printf("Detour SwitchInAbilityCheck\n");
+                    // debug_printf("Detour SwitchInAbilityCheck\n");
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, script);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
@@ -384,13 +386,14 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                         // Use item first, then handle Mega Evolution
                         // 先使用道具，然後才處理超級進化
 
-                        debug_printf("client %d: SELECT_ITEM_COMMAND\n", client_no);
+                        // debug_printf("client %d: SELECT_ITEM_COMMAND\n", client_no);
                         BattleControllerPlayer_ItemInput(bw, sp);
                         sp->next_server_seq_no = tempSequenceNumber;
                         sp->waza_status_flag = tempMoveStatusFlag;
                         // CONTROLLER_COMMAND_40 makes the client not take an action, taken from BtlCmd_TryPursuit
                         // 參考 BtlCmd_TryPursuit ，令寶可夢不會行動
                         sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
+                        sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
                         return;
                     default:
                         break;
