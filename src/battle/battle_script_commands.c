@@ -1319,15 +1319,15 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         monCountFromItem = 0;
         for (int i = 0; i < party->count; i++)
         {
-            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
-            if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
+            struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+            if ((GetMonData(pploop, MON_DATA_SPECIES, NULL)) && (GetMonData(pploop, MON_DATA_HP, NULL)))
             {
                 if (expcalc->sp->obtained_exp_right_flag[client_no /*(expcalc->sp->fainting_client >> 1) & 1*/] & No2Bit(i))
                 {
                     monCount++;
                 }
 
-                item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+                item = GetMonData(pploop, MON_DATA_HELD_ITEM, NULL);
                 eqp = BattleItemDataGet(expcalc->sp, item, 1);
 
                 if (eqp == HOLD_EFFECT_EXP_SHARE)
@@ -1346,15 +1346,32 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
             u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
-            totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-            totalexp = (totalexp * level) / 5;
+            u32 base = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
+            totalexp = (base * level) / 5;
 
-            u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
+            u32 top = (2*level + 10) * (2*level + 10) * sqrt(2*level + 10);
             u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
 
-            totalexp *= top;
-            totalexp /= bottom;
-            totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
+            u32 result = top * totalexp;
+            // top is at minimum 3 (beat a level 3 mon), don't need to worry about it being 0
+            if (/*top != 0 && */(result / top) != totalexp)
+            {
+                // the only way that this is possible is if an overflow happened--the top value is going to be really high, so we correct the top to prevent overflow
+                //debug_printf("[Task_DistributeExp_Extend] Overflow detected...  result = %d\n", result);
+                // so basically the real bL*5 * top = (-1u) + (result + 1)
+                // max bL*5 * top = 7840980000 (level 1 manages to beat level 100 blissey)
+                // loops around to 3546012704
+                // so now we just need to add the results divided by bottom (and add another 1 to correct for what i'm looking at)
+                totalexp = result + 1;
+                totalexp = (totalexp / bottom) + (-1u / bottom) + 1;
+            }
+            else
+            {
+                totalexp *= top;
+                totalexp /= bottom;
+            }
+
+            //debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
             if (monCountFromItem)
             {
