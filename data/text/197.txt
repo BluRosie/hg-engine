@@ -121,13 +121,13 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
 {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The wild {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The opposing {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
 {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
 The wild {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
 The opposing {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
