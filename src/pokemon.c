@@ -1050,6 +1050,7 @@ u32 LONG_CALL GrabCurrentSeason(void)
 void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 pid = GetMonData(pp, MON_DATA_PERSONALITY, NULL);
     u32 form = 0;
     BOOL shouldUpdate = TRUE;
 
@@ -1074,10 +1075,10 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
         case SPECIES_DUNSPARCE:
-        case SPECIES_DUDUNSPARCE:
+        // case SPECIES_DUDUNSPARCE:    // This is not the case for wild Dudunsparce (including those encountered in Tera Raid Battles), as these will always be in Two-Segment Form regardless of their encryption constant value.
         case SPECIES_TANDEMAUS:
         case SPECIES_MAUSHOLD:
-            form = (gf_rand() % 100 != 0); // 1/100 three seg / family of three
+            form = (pid % 100 == 0); // 1/100 three seg / family of three
             break;
         case SPECIES_FLABEBE:
         case SPECIES_FLOETTE:
@@ -1095,7 +1096,7 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_POLTEAGEIST:
         case SPECIES_SINISTCHA:
         case SPECIES_POLTCHAGEIST:
-            form = (gf_rand() % 20 != 0); // 5% authentic / masterpiece
+            form = (gf_rand() % 20 == 0); // 5% authentic / masterpiece
             break;
         case SPECIES_TATSUGIRI:
             form = gf_rand() % 3; // equal chance for all forms
