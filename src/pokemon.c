@@ -468,13 +468,8 @@ u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
  */
 u16 LONG_CALL GetPokemonOwNum(u16 species)
 {
-    u16 *sSpeciesToOWGfx = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * (MAX_MON_NUM+1));
     u16 ret;
-
-    ArchiveDataLoad(sSpeciesToOWGfx, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON);
-    ret = sSpeciesToOWGfx[species];
-    sys_FreeMemoryEz(sSpeciesToOWGfx);
-
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON, sizeof(u16)*species, sizeof(u16));
     return ret;
 }
 
@@ -489,13 +484,8 @@ u16 LONG_CALL GetMonHiddenAbility(u16 species, u32 form)
 {
 #ifdef HIDDEN_ABILITIES
     u16 ability = 0;
-    u16* hiddenAbilityTable = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
-
     species = PokeOtherFormMonsNoGet(species, form);
-    ArchiveDataLoad(hiddenAbilityTable, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST);
-    ability = hiddenAbilityTable[species];
-    sys_FreeMemoryEz(hiddenAbilityTable);
-
+    ArchiveDataLoadOfs(&ability, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST, sizeof(u16)*species, sizeof(u16));
     return ability;
 #else
     return 0;
@@ -584,15 +574,9 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
  */
 u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
 {
-    u16 *baseExpTable = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
     u16 baseExp;
-
     species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
-
-    ArchiveDataLoad(baseExpTable, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST);
-    baseExp = baseExpTable[species];
-    sys_FreeMemoryEz(baseExpTable);
-
+    ArchiveDataLoadOfs(&baseExp, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST, sizeof(u16)*species, sizeof(u16));
     return baseExp;
 }
 
@@ -1361,7 +1345,8 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
     u32 adjustment = 0, ret = 0;
-    if (species > SPECIES_SNOVER) // split between 0x1AC and 0x1E4
+    u8 maxForm = 0;
+    if (species > SPECIES_FINNEON) // split between 0x1AC and 0x1E4
     {
         adjustment = 0x1E4;
     }
@@ -1370,30 +1355,27 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         adjustment = 0x1AC;
     }
 
-    ret = get_ow_data_file_num(species) + adjustment;
+    ret = GetPokemonOwNum(species) + adjustment;
 
-    u8 *form_table = sys_AllocMemory(HEAPID_MAIN_HEAP, MAX_MON_NUM);
-    ArchiveDataLoad(form_table, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON);
+    ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
 
     if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
     {
         if (isFemale || form) // both female pikachu and those with forms will need this adjustment
             ret++;
-        if (form < form_table[SPECIES_PIKACHU]) // invalid pikachu forms will show as female, but that's okay
+        if (form < maxForm) // invalid pikachu forms will show as female, but that's okay
             ret += form;
     }
     else if (species == SPECIES_SLOWBRO && form)
     {
         u32 newform = form - 1;
-        if (newform <= form_table[SPECIES_SLOWBRO])
+        if (newform <= maxForm)
             ret += newform;
     }
-    else if (form <= form_table[species])
+    else if (form <= maxForm)
         ret += form;
     else if (isFemale && gDimorphismTable[species-1])
         ret += isFemale;
-
-    sys_FreeMemoryEz(form_table);
 
     return ret;
 }
