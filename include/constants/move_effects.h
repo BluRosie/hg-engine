@@ -327,6 +327,7 @@
 #define MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS         321
 #define MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED     322
 #define MOVE_EFFECT_SET_ABILITY_TO_SIMPLE                   323
+#define MOVE_EFFECT_STICKY_WEB                              324
 
 
 
