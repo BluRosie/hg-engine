@@ -1,3 +1,4 @@
+
 Any line that doesn't start with TUTOR or SPECIES is discarded as a comment.
 The move specified will automatically be written over the overlay 1 entry as well.
 The entries between ARCEUS and VICTINI for EGG, BAD_EGG, etc.
@@ -5408,4 +5409,3 @@ TUTOR_HEADBUTT: MOVE_HEADBUTT 0
     SPECIES_DEOXYS_ATTACK
     SPECIES_WORMADAM_SANDY
     SPECIES_WORMADAM_TRASHY
-
