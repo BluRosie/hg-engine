@@ -662,12 +662,11 @@ CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
 
-BattleSystem_Random = 0x0223BD98 | 1;
-CheckTruant = 0x02252C40 | 2;
+CheckTruant = 0x02252C40 | 1;
 LowestFlagNo = 0x020726E0 | 1;
-CopyBattleMonToPartyMon = 0x02250C40 | 3;
+CopyBattleMonToPartyMon = 0x02250C40 | 1;
 
-BattleMon_AddVar = 0x0224F7AC | 3;
+BattleMon_AddVar = 0x0224F7AC | 1;
 
 AcquireMonLock = 0x0206DD40 | 1;
 LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;

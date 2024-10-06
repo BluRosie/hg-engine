@@ -164,14 +164,8 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp UNUSED, int damage)
     u8 buf[128];
     s32 predamage = damage;
 #endif // DEBUG_ADJUSTED_DAMAGE
-	if (damage)
-    {
-		damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
-		damage /= 100;
-		if (damage == 0)
-			damage = 1;
-	}
-
+	if (damage == 0)
+		damage = 1;
 #ifdef DEBUG_ADJUSTED_DAMAGE
     sprintf(buf, "Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage, sp->attack_client, sp->defence_client, damage+1);
     debugsyscall(buf);

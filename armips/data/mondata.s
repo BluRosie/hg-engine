@@ -273,7 +273,7 @@ mondata SPECIES_BUTTERFREE, "Butterfree"
     mondexweight SPECIES_BUTTERFREE, "70.5 lbs."
 
 mondata SPECIES_WEEDLE, "Weedle"
-    basestats 30, 30, 40, 30, 30, 40
+    basestats 30, 40, 30, 30, 40, 30
     types TYPE_BUG, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3274,7 +3274,7 @@ mondata SPECIES_FURRET, "Furret"
 
 mondata SPECIES_HOOTHOOT, "Hoothoot"
     basestats 70, 30, 30, 60, 50, 60
-    types TYPE_FLYING, TYPE_FLYING
+    types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -3293,8 +3293,8 @@ mondata SPECIES_HOOTHOOT, "Hoothoot"
     mondexweight SPECIES_HOOTHOOT, "46.7 lbs."
 
 mondata SPECIES_NOCTOWL, "Noctowl"
-    basestats 100, 50, 50, 100, 100, 100
-    types TYPE_PSYCHIC, TYPE_FLYING
+    basestats 100, 30, 30, 70, 80, 90
+    types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -3593,7 +3593,7 @@ mondata SPECIES_XATU, "Xatu"
     mondexweight SPECIES_XATU, "33.1 lbs."
 
 mondata SPECIES_MAREEP, "Mareep"
-    basestats 60, 40, 40, 40, 80, 40
+    basestats 40, 20, 20, 20, 80, 20
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3613,7 +3613,7 @@ mondata SPECIES_MAREEP, "Mareep"
     mondexweight SPECIES_MAREEP, "17.2 lbs."
 
 mondata SPECIES_FLAAFFY, "Flaaffy"
-    basestats 80, 60, 60, 60, 80, 60
+    basestats 60, 40, 40, 40, 80, 40
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3633,7 +3633,7 @@ mondata SPECIES_FLAAFFY, "Flaaffy"
     mondexweight SPECIES_FLAAFFY, "29.3 lbs."
 
 mondata SPECIES_AMPHAROS, "Ampharos"
-    basestats 80, 80, 90, 60, 100, 90
+    basestats 60, 60, 70, 40, 100, 70
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -13839,7 +13839,7 @@ mondata SPECIES_TORNADUS, "Tornadus"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 0
     basefriendship 90
     growthrate GROWTH_SLOW
@@ -13859,7 +13859,7 @@ mondata SPECIES_THUNDURUS, "Thundurus"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 0
     basefriendship 90
     growthrate GROWTH_SLOW
@@ -13919,7 +13919,7 @@ mondata SPECIES_LANDORUS, "Landorus"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 0
     basefriendship 90
     growthrate GROWTH_SLOW
@@ -24889,6 +24889,38 @@ mondata SPECIES_MAGEARNA_ORIGINAL, "-----"
     abilities ABILITY_SOUL_HEART, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
+	
+mondata SPECIES_PIKACHU_PARTNER, "-----"
+    basestats 45, 80, 50, 120, 70, 60
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
+    catchrate 190
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
+    genderratio 127
+    eggcycles 10
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
+    abilities ABILITY_STATIC, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_YELLOW, 0
+
+mondata SPECIES_EEVEE_PARTNER, "-----"
+    basestats 65, 75, 70, 75, 65, 75
+    types TYPE_NORMAL, TYPE_NORMAL
+    catchrate 45
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 0, 0, 1
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 35
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
+    abilities ABILITY_RUN_AWAY, ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip BODY_COLOR_BROWN, 0
 
 mondata SPECIES_CRAMORANT_GULPING, "-----"
     basestats 70, 85, 55, 85, 85, 95

@@ -68,8 +68,9 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 MoveCheckDamageNegatingAbilities 0801B608 3
 #02253194
 0012 SwitchInAbilityCheck 0801B8D4 2
-#02253068
-0012 TurnEndAbilityCheck 0801B7A8 3
+## this is no longer needed--handled in
+##02253068
+#0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
 0012 MoveHitDefenderAbilityCheck 0801C544 3
 #0224BCC4+4
@@ -123,9 +124,13 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
 0012 BtlCmd_WeatherHPRecovery 02242380 3
 0012 BtlCmd_CalcWeatherBallParams 022432AC 3
+0012 BtlCmd_EndOfTurnWeatherEffect 02241B30 3
 0012 BtlCmd_TrySubstitute 022414F0 3
 0012 BtlCmd_RapidSpin 02242238 3
 0012 BtlCmd_CheckSubstitute 0224514C 3
+0012 BtlCmd_TryWish 02242B58 3
+0012 BtlCmd_TryFutureSight 02242570 3
+0012 BtlCmd_SetMultiHit 0223EC10 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -351,13 +356,6 @@ arm9 CapRareCandies 0208FEEA 1
 
 0012 ServerInit 02248660 1
 
-# pc anywhere
-0001 ClearOverworldRequestFlags 021E6880 1
-# hook from where y button is checked
-0001 SetOverworldRequestFlags_hook 021E6982 0
-# hook from near beginning of function
-0001 CheckOverworldRequestFlags_hook 021E6AF6 3
-
 0012 CantEscape_hook 02252984 5
 0012 BattlerCantSwitch 02255920 3
 0012 BattleTryRun 02252B68 3
@@ -456,7 +454,7 @@ arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
 # 0224C018 + 4 = 224C01C
 0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
 
-0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
+# 0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
 
 #ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 arm9 AllocFail_hook 0201AA7C 0
@@ -484,6 +482,11 @@ arm9 form_evo_hook_1 02077224 1
 # actually setting the new mon's form
 arm9 form_evo_hook_2 0207641C 0
 
+#ifdef IMPLEMENT_REUSABLE_REPELS
+0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
+0015 BagApp_GetRepelStepCountAddr 021F993C 3
+#endif
+
 0012 ov12_0224B528 0224B528 2
 
 0012 TryUseHeldItem 0225471C 3
@@ -493,11 +496,3 @@ arm9 GetFlavorPreferenceFromPID 020718E8 2
 arm9 CalcMonStats 0206E27C 1
 
 0012 BtlCmd_TryProtection 022413B4 2
-
-# hooking item use : 020902D0 + 4 = 020902D4
-arm9 UseItemOnPokemon_hook 020902D4 5 
-
-#ifdef IMPLEMENT_REUSABLE_REPELS
-0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
-0015 BagApp_GetRepelStepCountAddr 021F993C 3
-#endif

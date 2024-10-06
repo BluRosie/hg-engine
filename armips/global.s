@@ -23,6 +23,8 @@
 .include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
 
 .include "armips/asm/custom/skipinfo.s" // info tutorial skip
+.include "armips/asm/custom/mart_items.s" // edit mart items
+.include "armips/asm/custom/tm_palettes.s" // edit tm palettes
 
 .if REUSABLE_TMS == 1
 

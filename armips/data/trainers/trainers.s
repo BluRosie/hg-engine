@@ -653,7 +653,7 @@ trainerdata 21, "Bugsy"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_F
     nummons 3
-    item ITEM_SUPER_POTION
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -667,7 +667,7 @@ trainerdata 21, "Bugsy"
         abilityslot 32
         level 17
         pokemon SPECIES_SCYTHER
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_QUICK_ATTACK
         move MOVE_LEER
         move MOVE_U_TURN
@@ -922,8 +922,8 @@ trainerdata 30, "Whitney"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER
     nummons 2
-    item ITEM_SUPER_POTION
-    item ITEM_SUPER_POTION
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -948,7 +948,7 @@ trainerdata 30, "Whitney"
         abilityslot 32
         level 19
         pokemon SPECIES_MILTANK
-        item ITEM_LUM_BERRY
+        item ITEM_NONE
         move MOVE_ROLLOUT
         move MOVE_ATTRACT
         move MOVE_STOMP
@@ -960,8 +960,8 @@ trainerdata 31, "Morty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_0
     nummons 4
-    item ITEM_HYPER_POTION
-    item ITEM_HYPER_POTION
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -998,7 +998,7 @@ trainerdata 31, "Morty"
         abilityslot 0
         level 25
         pokemon SPECIES_GENGAR
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_HYPNOSIS
         move MOVE_SHADOW_BALL
         move MOVE_MEAN_LOOK
@@ -1022,8 +1022,8 @@ trainerdata 32, "Pryce"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_1
     nummons 3
-    item ITEM_HYPER_POTION
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
@@ -1060,7 +1060,7 @@ trainerdata 32, "Pryce"
         abilityslot 32
         level 34
         pokemon SPECIES_PILOSWINE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_HAIL
         move MOVE_ICE_FANG
         move MOVE_MUD_BOMB
@@ -1072,8 +1072,8 @@ trainerdata 33, "Jasmine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_2
     nummons 3
-    item ITEM_HYPER_POTION
-    item ITEM_HYPER_POTION
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -1110,7 +1110,7 @@ trainerdata 33, "Jasmine"
         abilityslot 32
         level 35
         pokemon SPECIES_STEELIX
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SCREECH
         move MOVE_SANDSTORM
         move MOVE_ROCK_THROW
@@ -1122,8 +1122,8 @@ trainerdata 34, "Chuck"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_3
     nummons 2
-    item ITEM_HYPER_POTION
-    item ITEM_HYPER_POTION
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
@@ -1148,7 +1148,7 @@ trainerdata 34, "Chuck"
         abilityslot 0
         level 31
         pokemon SPECIES_POLIWRATH
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_HYPNOSIS
         move MOVE_SURF
         move MOVE_FOCUS_PUNCH
@@ -1160,8 +1160,8 @@ trainerdata 35, "Clair"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_4
     nummons 4
-    item ITEM_HYPER_POTION
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -1210,7 +1210,7 @@ trainerdata 35, "Clair"
         abilityslot 32
         level 41
         pokemon SPECIES_KINGDRA
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SMOKESCREEN
         move MOVE_HYDRO_PUMP
         move MOVE_HYPER_BEAM
@@ -1258,7 +1258,7 @@ trainerdata 37, "Preston"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 2
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -7055,7 +7055,7 @@ trainerdata 231, "Edward"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -7502,10 +7502,10 @@ trainerdata 244, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CHAMPION
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
     endentry
@@ -7576,7 +7576,7 @@ trainerdata 244, "Lance"
         abilityslot 0
         level 50
         pokemon SPECIES_DRAGONITE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_FIRE_BLAST
         move MOVE_SAFEGUARD
         move MOVE_OUTRAGE
@@ -7588,8 +7588,8 @@ trainerdata 245, "Will"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_0
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -7650,7 +7650,7 @@ trainerdata 245, "Will"
         abilityslot 32
         level 42
         pokemon SPECIES_XATU
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_AERIAL_ACE
         move MOVE_OMINOUS_WIND
         move MOVE_CONFUSE_RAY
@@ -7662,8 +7662,8 @@ trainerdata 246, "Karen"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_1
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -7724,7 +7724,7 @@ trainerdata 246, "Karen"
         abilityslot 0
         level 47
         pokemon SPECIES_HOUNDOOM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_NASTY_PLOT
         move MOVE_DARK_PULSE
         move MOVE_FLAMETHROWER
@@ -7736,8 +7736,8 @@ trainerdata 247, "Koga"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_2
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -7786,7 +7786,7 @@ trainerdata 247, "Koga"
         abilityslot 32
         level 42
         pokemon SPECIES_MUK
-        item ITEM_BLACK_SLUDGE
+        item ITEM_NONE
         move MOVE_MINIMIZE
         move MOVE_SCREECH
         move MOVE_GUNK_SHOT
@@ -7798,7 +7798,7 @@ trainerdata 247, "Koga"
         abilityslot 0
         level 44
         pokemon SPECIES_CROBAT
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_DOUBLE_TEAM
         move MOVE_QUICK_ATTACK
         move MOVE_WING_ATTACK
@@ -7979,9 +7979,9 @@ trainerdata 253, "Brock"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_5
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -8029,7 +8029,7 @@ trainerdata 253, "Brock"
         abilityslot 0
         level 54
         pokemon SPECIES_ONIX
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_IRON_TAIL
         move MOVE_ROCK_SLIDE
         move MOVE_SCREECH
@@ -8053,9 +8053,9 @@ trainerdata 254, "Misty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_6
     nummons 4
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -8103,7 +8103,7 @@ trainerdata 254, "Misty"
         abilityslot 32
         level 54
         pokemon SPECIES_STARMIE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_WATER_PULSE
         move MOVE_CONFUSE_RAY
         move MOVE_RECOVER
@@ -8115,9 +8115,9 @@ trainerdata 255, "Lt. Surge"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_7
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -8177,7 +8177,7 @@ trainerdata 255, "Lt. Surge"
         abilityslot 0
         level 53
         pokemon SPECIES_ELECTABUZZ
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_QUICK_ATTACK
         move MOVE_SHOCK_WAVE
         move MOVE_LIGHT_SCREEN
@@ -8189,9 +8189,9 @@ trainerdata 256, "Erika"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_8
     nummons 4
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
     battletype SINGLE_BATTLE
@@ -8239,7 +8239,7 @@ trainerdata 256, "Erika"
         abilityslot 0
         level 56
         pokemon SPECIES_BELLOSSOM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SUNNY_DAY
         move MOVE_SYNTHESIS
         move MOVE_GIGA_DRAIN
@@ -8251,9 +8251,9 @@ trainerdata 257, "Janine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_9
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -8313,7 +8313,7 @@ trainerdata 257, "Janine"
         abilityslot 0
         level 50
         pokemon SPECIES_VENOMOTH
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SLUDGE_BOMB
         move MOVE_DOUBLE_TEAM
         move MOVE_SIGNAL_BEAM
@@ -8325,9 +8325,9 @@ trainerdata 258, "Sabrina"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_10
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -8363,7 +8363,7 @@ trainerdata 258, "Sabrina"
         abilityslot 0
         level 55
         pokemon SPECIES_ALAKAZAM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SKILL_SWAP
         move MOVE_PSYCHIC
         move MOVE_ENERGY_BALL
@@ -8375,9 +8375,9 @@ trainerdata 259, "Blaine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_11
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
     battletype SINGLE_BATTLE
@@ -8389,7 +8389,7 @@ trainerdata 259, "Blaine"
         abilityslot 32
         level 54
         pokemon SPECIES_MAGCARGO
-        item ITEM_WHITE_HERB
+        item ITEM_NONE
         move MOVE_SUNNY_DAY
         move MOVE_SMOG
         move MOVE_OVERHEAT
@@ -8401,7 +8401,7 @@ trainerdata 259, "Blaine"
         abilityslot 0
         level 54
         pokemon SPECIES_MAGMAR
-        item ITEM_WHITE_HERB
+        item ITEM_NONE
         move MOVE_THUNDER_PUNCH
         move MOVE_OVERHEAT
         move MOVE_SUNNY_DAY
@@ -8413,7 +8413,7 @@ trainerdata 259, "Blaine"
         abilityslot 32
         level 59
         pokemon SPECIES_RAPIDASH
-        item ITEM_WHITE_HERB
+        item ITEM_NONE
         move MOVE_QUICK_ATTACK
         move MOVE_FLARE_BLITZ
         move MOVE_BOUNCE
@@ -8425,10 +8425,10 @@ trainerdata 260, "Red"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_9
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
     endentry
@@ -8439,7 +8439,7 @@ trainerdata 260, "Red"
         abilityslot 0
         level 88
         pokemon SPECIES_PIKACHU
-        item ITEM_LIGHT_BALL
+        item ITEM_NONE
         move MOVE_VOLT_TACKLE
         move MOVE_IRON_TAIL
         move MOVE_QUICK_ATTACK
@@ -8511,10 +8511,10 @@ trainerdata 261, "Blue"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_12
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
     endentry
@@ -8585,7 +8585,7 @@ trainerdata 261, "Blue"
         abilityslot 0
         level 60
         pokemon SPECIES_PIDGEOT
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_RETURN
         move MOVE_WHIRLWIND
         move MOVE_AIR_SLASH
@@ -11232,7 +11232,7 @@ trainerdata 329, "Dudley"
         abilityslot 0
         level 45
         pokemon SPECIES_ODDISH
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         ballseal 0
     endparty
 
@@ -11254,7 +11254,7 @@ trainerdata 330, "Joe"
         abilityslot 0
         level 44
         pokemon SPECIES_TANGELA
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         ballseal 0
 
         // mon 1
@@ -11449,7 +11449,7 @@ trainerdata 337, "Gregory"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_GENTLEMAN
     nummons 3
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -11496,7 +11496,7 @@ trainerdata 338, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -11963,7 +11963,7 @@ trainerdata 354, "Laura"
         abilityslot 0
         level 38
         pokemon SPECIES_GLOOM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         ballseal 0
 
         // mon 1
@@ -12300,7 +12300,7 @@ trainerdata 364, "Sam"
         abilityslot 0
         level 44
         pokemon SPECIES_MUK
-        item ITEM_TOXIC_ORB
+        item ITEM_NONE
         ballseal 0
     endparty
 
@@ -12391,7 +12391,7 @@ trainerdata 367, "Shawn"
         abilityslot 0
         level 41
         pokemon SPECIES_MUK
-        item ITEM_NUGGET
+        item ITEM_NONE
         ballseal 0
 
         // mon 2
@@ -13425,7 +13425,7 @@ trainerdata 400, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     nummons 2
-    item ITEM_MOOMOO_MILK
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -13461,7 +13461,7 @@ trainerdata 401, "Alfred"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -13995,8 +13995,8 @@ trainerdata 418, "Bruno"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_3
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -14057,7 +14057,7 @@ trainerdata 418, "Bruno"
         abilityslot 32
         level 46
         pokemon SPECIES_MACHAMP
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_ROCK_SLIDE
         move MOVE_FORESIGHT
         move MOVE_REVENGE
@@ -14360,7 +14360,7 @@ trainerdata 429, "Ricky"
         abilityslot 0
         level 40
         pokemon SPECIES_AIPOM
-        item ITEM_HARD_STONE
+        item ITEM_NONE
         ballseal 0
 
         // mon 1
@@ -15495,7 +15495,7 @@ trainerdata 464, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     nummons 2
-    item ITEM_MOOMOO_MILK
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -15531,7 +15531,7 @@ trainerdata 465, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     nummons 2
-    item ITEM_MOOMOO_MILK
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -16341,8 +16341,8 @@ trainerdata 489, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -16421,8 +16421,8 @@ trainerdata 490, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -16501,8 +16501,8 @@ trainerdata 491, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -16946,7 +16946,7 @@ trainerdata 503, "Jack"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_SCHOOL_KID_M
     nummons 3
-    item ITEM_HYPER_POTION
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -17957,7 +17957,7 @@ trainerdata 528, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LASS
     nummons 2
-    item ITEM_MOOMOO_MILK
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -18498,7 +18498,7 @@ trainerdata 545, "French"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ACE_TRAINER_M
     nummons 2
-    item ITEM_DIRE_HIT
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -18787,7 +18787,7 @@ trainerdata 554, "Milton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -19061,7 +19061,7 @@ trainerdata 564, "Clarice"
         abilityslot 32
         level 41
         pokemon SPECIES_ZIGZAGOON
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_BELLY_DRUM
         move MOVE_FLAIL
         move MOVE_RETURN
@@ -19120,7 +19120,7 @@ trainerdata 566, "Connor"
         abilityslot 32
         level 42
         pokemon SPECIES_ZIGZAGOON
-        item ITEM_CHESTO_BERRY
+        item ITEM_NONE
         move MOVE_BELLY_DRUM
         move MOVE_REST
         move MOVE_FLAIL
@@ -19291,7 +19291,7 @@ trainerdata 572, "Dale"
         abilityslot 32
         level 47
         pokemon SPECIES_GULPIN
-        item ITEM_BLACK_SLUDGE
+        item ITEM_NONE
         ballseal 0
     endparty
 
@@ -19488,7 +19488,7 @@ trainerdata 580, "Pedro"
         abilityslot 32
         level 45
         pokemon SPECIES_LINOONE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_BELLY_DRUM
         move MOVE_SLASH
         move MOVE_DIG
@@ -20072,7 +20072,7 @@ trainerdata 602, "Jose"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BIRD_KEEPER_1
     nummons 3
-    item ITEM_X_ATTACK
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -22291,8 +22291,8 @@ trainerdata 667, "Cheryl"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_2
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -22353,7 +22353,7 @@ trainerdata 667, "Cheryl"
         abilityslot 0
         level 65
         pokemon SPECIES_BLISSEY
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SOFT_BOILED
         move MOVE_COUNTER
         move MOVE_PSYCHIC
@@ -22365,8 +22365,8 @@ trainerdata 668, "Marley"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_4
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -22427,7 +22427,7 @@ trainerdata 668, "Marley"
         abilityslot 0
         level 65
         pokemon SPECIES_ARCANINE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_EXTREME_SPEED
         move MOVE_FLARE_BLITZ
         move MOVE_CRUNCH
@@ -22439,8 +22439,8 @@ trainerdata 669, "Mira"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_6
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -22501,7 +22501,7 @@ trainerdata 669, "Mira"
         abilityslot 0
         level 65
         pokemon SPECIES_ALAKAZAM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_PSYCHIC
         move MOVE_FOCUS_BLAST
         move MOVE_CALM_MIND
@@ -22513,8 +22513,8 @@ trainerdata 670, "Riley"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_3
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -22575,7 +22575,7 @@ trainerdata 670, "Riley"
         abilityslot 0
         level 65
         pokemon SPECIES_LUCARIO
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_EXTREME_SPEED
         move MOVE_CLOSE_COMBAT
         move MOVE_BONE_RUSH
@@ -22587,8 +22587,8 @@ trainerdata 671, "Buck"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_PKMN_TRAINER_5
     nummons 5
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -22649,7 +22649,7 @@ trainerdata 671, "Buck"
         abilityslot 0
         level 65
         pokemon SPECIES_CLAYDOL
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_EARTH_POWER
         move MOVE_PSYCHIC
         move MOVE_ANCIENT_POWER
@@ -22661,7 +22661,7 @@ trainerdata 672, "Alfred"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -22682,7 +22682,7 @@ trainerdata 673, "Alfred"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -22703,7 +22703,7 @@ trainerdata 674, "Alfred"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_GENTLEMAN
     nummons 1
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -22997,7 +22997,7 @@ trainerdata 683, "Salma"
         abilityslot 0
         level 50
         pokemon SPECIES_SLOWKING
-        item ITEM_ORAN_BERRY
+        item ITEM_NONE
         move MOVE_SURF
         move MOVE_PSYCHIC
         move MOVE_FLAMETHROWER
@@ -23465,7 +23465,7 @@ trainerdata 700, "Giovanni"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ROCKET_BOSS
     nummons 4
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -23527,10 +23527,10 @@ trainerdata 701, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CHAMPION
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
     endentry
@@ -23541,7 +23541,7 @@ trainerdata 701, "Lance"
         abilityslot 0
         level 72
         pokemon SPECIES_SALAMENCE
-        item ITEM_LUM_BERRY
+        item ITEM_NONE
         move MOVE_FLAMETHROWER
         move MOVE_SHADOW_CLAW
         move MOVE_DRAGON_CLAW
@@ -23601,7 +23601,7 @@ trainerdata 701, "Lance"
         abilityslot 0
         level 75
         pokemon SPECIES_DRAGONITE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_FIRE_BLAST
         move MOVE_SAFEGUARD
         move MOVE_DRACO_METEOR
@@ -23613,8 +23613,8 @@ trainerdata 702, "Will"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_0
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -23687,7 +23687,7 @@ trainerdata 702, "Will"
         abilityslot 32
         level 62
         pokemon SPECIES_XATU
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_QUICK_ATTACK
         move MOVE_SHADOW_BALL
         move MOVE_CONFUSE_RAY
@@ -23699,8 +23699,8 @@ trainerdata 703, "Koga"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_2
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -23749,7 +23749,7 @@ trainerdata 703, "Koga"
         abilityslot 32
         level 62
         pokemon SPECIES_MUK
-        item ITEM_BLACK_SLUDGE
+        item ITEM_NONE
         move MOVE_MINIMIZE
         move MOVE_SCREECH
         move MOVE_SWAGGER
@@ -23773,7 +23773,7 @@ trainerdata 703, "Koga"
         abilityslot 32
         level 62
         pokemon SPECIES_SWALOT
-        item ITEM_LEFTOVERS
+        item ITEM_NONE
         move MOVE_YAWN
         move MOVE_AMNESIA
         move MOVE_PAIN_SPLIT
@@ -23785,8 +23785,8 @@ trainerdata 704, "Bruno"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_3
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -23835,7 +23835,7 @@ trainerdata 704, "Bruno"
         abilityslot 0
         level 62
         pokemon SPECIES_HARIYAMA
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_LOW_KICK
         move MOVE_PAYBACK
         move MOVE_BULLET_PUNCH
@@ -23871,8 +23871,8 @@ trainerdata 705, "Karen"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_ELITE_FOUR_1
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -23945,7 +23945,7 @@ trainerdata 705, "Karen"
         abilityslot 0
         level 64
         pokemon SPECIES_UMBREON
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_CURSE
         move MOVE_PAYBACK
         move MOVE_CONFUSE_RAY
@@ -24098,9 +24098,9 @@ trainerdata 712, "Falkner"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_M
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24136,7 +24136,7 @@ trainerdata 712, "Falkner"
         abilityslot 0
         level 52
         pokemon SPECIES_SWELLOW
-        item ITEM_FLAME_ORB
+        item ITEM_NONE
         move MOVE_FACADE
         move MOVE_PROTECT
         move MOVE_DOUBLE_TEAM
@@ -24184,9 +24184,9 @@ trainerdata 713, "Bugsy"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_F
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24198,7 +24198,7 @@ trainerdata 713, "Bugsy"
         abilityslot 32
         level 56
         pokemon SPECIES_SCIZOR
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_BULLET_PUNCH
         move MOVE_X_SCISSOR
         move MOVE_SWORDS_DANCE
@@ -24258,7 +24258,7 @@ trainerdata 713, "Bugsy"
         abilityslot 0
         level 52
         pokemon SPECIES_VESPIQUEN
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_PROTECT
         move MOVE_CONFUSE_RAY
         move MOVE_ATTACK_ORDER
@@ -24270,9 +24270,9 @@ trainerdata 714, "Whitney"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
     battletype SINGLE_BATTLE
@@ -24344,7 +24344,7 @@ trainerdata 714, "Whitney"
         abilityslot 32
         level 58
         pokemon SPECIES_MILTANK
-        item ITEM_LUM_BERRY
+        item ITEM_NONE
         move MOVE_BODY_SLAM
         move MOVE_ATTRACT
         move MOVE_SLEEP_TALK
@@ -24356,9 +24356,9 @@ trainerdata 715, "Morty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_0
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24370,7 +24370,7 @@ trainerdata 715, "Morty"
         abilityslot 32
         level 52
         pokemon SPECIES_DRIFBLIM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_DESTINY_BOND
         move MOVE_SUBSTITUTE
         move MOVE_THUNDERBOLT
@@ -24442,9 +24442,9 @@ trainerdata 716, "Pryce"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_1
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
     battletype SINGLE_BATTLE
@@ -24468,7 +24468,7 @@ trainerdata 716, "Pryce"
         abilityslot 0
         level 58
         pokemon SPECIES_DEWGONG
-        item ITEM_LUM_BERRY
+        item ITEM_NONE
         move MOVE_DIVE
         move MOVE_SHEER_COLD
         move MOVE_SLEEP_TALK
@@ -24516,7 +24516,7 @@ trainerdata 716, "Pryce"
         abilityslot 32
         level 60
         pokemon SPECIES_MAMOSWINE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_EARTHQUAKE
         move MOVE_AVALANCHE
         move MOVE_STONE_EDGE
@@ -24528,9 +24528,9 @@ trainerdata 717, "Jasmine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_2
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24614,9 +24614,9 @@ trainerdata 718, "Chuck"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_3
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24628,7 +24628,7 @@ trainerdata 718, "Chuck"
         abilityslot 0
         level 54
         pokemon SPECIES_MEDICHAM
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_HIGH_JUMP_KICK
         move MOVE_PSYCHO_CUT
         move MOVE_ATTRACT
@@ -24664,7 +24664,7 @@ trainerdata 718, "Chuck"
         abilityslot 32
         level 54
         pokemon SPECIES_BRELOOM
-        item ITEM_TOXIC_ORB
+        item ITEM_NONE
         move MOVE_SUBSTITUTE
         move MOVE_FOCUS_PUNCH
         move MOVE_DRAIN_PUNCH
@@ -24688,7 +24688,7 @@ trainerdata 718, "Chuck"
         abilityslot 0
         level 60
         pokemon SPECIES_POLIWRATH
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_DOUBLE_TEAM
         move MOVE_WATERFALL
         move MOVE_FOCUS_PUNCH
@@ -24700,9 +24700,9 @@ trainerdata 719, "Clair"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_4
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24714,7 +24714,7 @@ trainerdata 719, "Clair"
         abilityslot 0
         level 56
         pokemon SPECIES_GYARADOS
-        item ITEM_WACAN_BERRY
+        item ITEM_NONE
         move MOVE_DRAGON_DANCE
         move MOVE_EARTHQUAKE
         move MOVE_WATERFALL
@@ -24774,7 +24774,7 @@ trainerdata 719, "Clair"
         abilityslot 0
         level 60
         pokemon SPECIES_DRAGONITE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_THUNDER
         move MOVE_SAFEGUARD
         move MOVE_DRAGON_BREATH
@@ -24786,9 +24786,9 @@ trainerdata 720, "Brock"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_5
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24812,7 +24812,7 @@ trainerdata 720, "Brock"
         abilityslot 32
         level 54
         pokemon SPECIES_RELICANTH
-        item ITEM_LUM_BERRY
+        item ITEM_NONE
         move MOVE_HEAD_SMASH
         move MOVE_AQUA_TAIL
         move MOVE_EARTHQUAKE
@@ -24836,7 +24836,7 @@ trainerdata 720, "Brock"
         abilityslot 0
         level 61
         pokemon SPECIES_ONIX
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_STEALTH_ROCK
         move MOVE_ROCK_SLIDE
         move MOVE_ROCK_POLISH
@@ -24872,9 +24872,9 @@ trainerdata 721, "Misty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_6
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24886,7 +24886,7 @@ trainerdata 721, "Misty"
         abilityslot 32
         level 60
         pokemon SPECIES_STARMIE
-        item ITEM_COLBUR_BERRY
+        item ITEM_NONE
         move MOVE_THUNDERBOLT
         move MOVE_PSYCHIC
         move MOVE_ICE_BEAM
@@ -24958,9 +24958,9 @@ trainerdata 722, "Lt. Surge"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_7
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -24984,7 +24984,7 @@ trainerdata 722, "Lt. Surge"
         abilityslot 0
         level 52
         pokemon SPECIES_MANECTRIC
-        item ITEM_PINAP_BERRY
+        item ITEM_NONE
         move MOVE_THUNDER_WAVE
         move MOVE_NATURAL_GIFT
         move MOVE_DISCHARGE
@@ -25032,7 +25032,7 @@ trainerdata 722, "Lt. Surge"
         abilityslot 0
         level 56
         pokemon SPECIES_ELECTIVIRE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_THUNDERBOLT
         move MOVE_CROSS_CHOP
         move MOVE_ICE_PUNCH
@@ -25044,9 +25044,9 @@ trainerdata 723, "Erika"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_8
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
     battletype SINGLE_BATTLE
@@ -25082,7 +25082,7 @@ trainerdata 723, "Erika"
         abilityslot 0
         level 56
         pokemon SPECIES_VICTREEBEL
-        item ITEM_KELPSY_BERRY
+        item ITEM_NONE
         move MOVE_NATURAL_GIFT
         move MOVE_SLUDGE_BOMB
         move MOVE_LEAF_STORM
@@ -25130,9 +25130,9 @@ trainerdata 724, "Janine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_9
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -25192,7 +25192,7 @@ trainerdata 724, "Janine"
         abilityslot 0
         level 59
         pokemon SPECIES_VENOMOTH
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_SLEEP_POWDER
         move MOVE_DOUBLE_TEAM
         move MOVE_BUG_BUZZ
@@ -25216,9 +25216,9 @@ trainerdata 725, "Sabrina"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_10
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
     battletype SINGLE_BATTLE
@@ -25290,7 +25290,7 @@ trainerdata 725, "Sabrina"
         abilityslot 0
         level 53
         pokemon SPECIES_GALLADE
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_CLOSE_COMBAT
         move MOVE_PSYCHO_CUT
         move MOVE_NIGHT_SLASH
@@ -25302,9 +25302,9 @@ trainerdata 726, "Blaine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_11
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
@@ -25388,10 +25388,10 @@ trainerdata 727, "Blue"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_12
     nummons 6
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
     endentry
@@ -25414,7 +25414,7 @@ trainerdata 727, "Blue"
         abilityslot 32
         level 69
         pokemon SPECIES_MACHAMP
-        item ITEM_IRON_BALL
+        item ITEM_NONE
         move MOVE_DYNAMIC_PUNCH
         move MOVE_STONE_EDGE
         move MOVE_FLING
@@ -25462,7 +25462,7 @@ trainerdata 727, "Blue"
         abilityslot 0
         level 72
         pokemon SPECIES_PIDGEOT
-        item ITEM_SITRUS_BERRY
+        item ITEM_NONE
         move MOVE_RETURN
         move MOVE_DOUBLE_TEAM
         move MOVE_AIR_SLASH
@@ -25622,8 +25622,8 @@ trainerdata 733, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_CHAMPION
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -25672,8 +25672,8 @@ trainerdata 734, "Clair"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_LEADER_4
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -25722,8 +25722,8 @@ trainerdata 735, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -25772,8 +25772,8 @@ trainerdata 736, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
@@ -25822,8 +25822,8 @@ trainerdata 737, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
     nummons 3
-    item ITEM_FULL_RESTORE
-    item ITEM_FULL_RESTORE
+    item ITEM_NONE
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0

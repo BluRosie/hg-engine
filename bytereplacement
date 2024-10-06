@@ -430,10 +430,11 @@ arm9 020902B8 60 B4 C0 46
 0018 021F21AE C0 46
 0014 021F3DB0 C0 46
 
-# UseItemOnPokemon_hook setup
-arm9 020902D0 60 B4 C0 46
-
 #ifndef IMPLEMENT_REUSABLE_REPELS
 0002 0224BAE4 10 B5 0C 1C E1 F5 6C FF
 0015 021F993C 10 B5 0C 1C FF F7 F4 FF
 #endif
+
+# one of a few terrain limiters, this one at least partially affects nature power/secret power/camouflage
+# need to disable each of their individual ones but i'm not on that computer rn and i'll get to it later
+0012 0223AB46 FF
