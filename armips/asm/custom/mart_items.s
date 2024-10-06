@@ -6,7 +6,7 @@
 
 .open "base/arm9.bin", 0x02000000
 
-/* Values for badge restrictions as it isn't 1:1 */
+/* Values for badge restrictions as it isnt 1:1 */
 ZERO_BADGES equ 1
 ONE_BADGE equ 2
 THREE_BADGES equ 3
@@ -74,7 +74,7 @@ EIGHT_BADGES equ 6
 .halfword ITEM_POKE_DOLL
 .halfword ZERO_BADGES
 
-/** Special Mart Index - This is not in byte order
+/* Special Mart Index - This is not in byte order
 const u16 *_0210FA3C[] = {
     _020FBA54, 0
     _020FBA78, 1

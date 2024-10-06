@@ -25,6 +25,7 @@
 .include "armips/asm/custom/skipinfo.s" // info tutorial skip
 .include "armips/asm/custom/mart_items.s" // edit mart items
 .include "armips/asm/custom/tm_palettes.s" // edit tm palettes
+.include "armips/asm/custom/tutorial.s" // edit tutorial rattata level
 
 .if REUSABLE_TMS == 1
 

@@ -3445,7 +3445,7 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
     return ret;
 }
 
-u32 LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int *script) {
+BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int *script) {
     BOOL ret = FALSE;
     int item;
     int boost;
@@ -3456,16 +3456,6 @@ u32 LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *
     if (ctx->battlemon[battlerId].hp) {
         switch (item) {
         case HOLD_EFFECT_HP_RESTORE: //oran berry, berry juice
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
-					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
-				} else {
-					ctx->hp_calc_work = boost;
-				}
-				*script = SUB_SEQ_ITEM_HP_RESTORE;
-				ret = TRUE;
-            }
-            break;
         case HOLD_EFFECT_HP_PCT_RESTORE: //sitrus berry
             if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
 				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {

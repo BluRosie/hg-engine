@@ -1797,7 +1797,7 @@ u32 LONG_CALL AbilityStatusRecoverCheck(void *bw, struct BattleStruct *sp, int c
  *  @param seq_no pointer to store subscript to if the held item heals
  *  @return TRUE if held item heals and a subscript was stored in seq_no; FALSE otherwise
  */
-u32 LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int *script);
+BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int *script);
 
 /**
  *  @brief grab the held item effect of the client
