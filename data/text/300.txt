@@ -126,53 +126,53 @@ This can’t be used on\nthat Pokémon.\r
 
 
 Not enough HP...\r
-SWITCH
-SUMMARY
-ITEM
-MAIL
-READ
-TAKE
-STORE
-QUIT
+Switch
+Summary
+Item
+Mail
+Read
+Take
+Store
+Quit
 
-ENTER
-NO ENTRY
+Enter
+No Entry
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
-GIVE
-TAKE
+Give
+Take
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
-SET
-NOT ENTERED
-BANNED
-FIRST
-SECOND
-THIRD
-FOURTH
-FIFTH
-SIXTH
-ABLE!
-UNABLE!
-LEARNED
-ABLE!
-UNABLE!
-ABLE!
-UNABLE!
+Set
+Not Entered
+Banned
+First
+Second
+Third
+Fourth
+Fifth
+Sixth
+Able!
+Unable!
+Learned
+Able!
+Unable!
+Able!
+Unable!
 Identical Pokémon are not permitted.\r
 Some Pokémon are holding identical\nitems.\r
 The total of all party members’\nlevels has gone over {STRVAR_1 52, 0, 0}.\r
 There are three or more\nlegendary Pokémon.\r
-MAX HP
-ATTACK
-DEFENSE
-SP. ATK
-SP. DEF
-SPEED
+Max HP
+Attack
+Defense
+Sp. Atk
+Sp. Def
+Speed
 +
 {STRVAR_1 52, 0, 0}
 {STRVAR_1 1, 0, 0} was elevated to\nLv. {STRVAR_1 52, 1, 0}.{WAIT 4}{WAIT 2}\r
@@ -184,7 +184,7 @@ This isn’t the place for that!\r
 What will you do\nwith the Egg?
 Please select an Egg.
 
-CONFIRM
+Confirm
 You must use the same kind\nof Pokémon.\r
 {STRVAR_1 0, 0, 0} changed Forme!\r
 {STRVAR_1 1, 0, 0} cannot hold\n{STRVAR_1 8, 1, 0}!\r

@@ -4,28 +4,28 @@
 
 
 {STRVAR_1 11, 0, 0}
-BOX 1
-BOX 2
-BOX 3
-BOX 4
-BOX 5
-BOX 6
-BOX 7
-BOX 8
-BOX 9
-BOX 10
-BOX 11
-BOX 12
-BOX 13
-BOX 14
-BOX 15
-BOX 16
-BOX 17
-BOX 18
+Box 1
+Box 2
+Box 3
+Box 4
+Box 5
+Box 6
+Box 7
+Box 8
+Box 9
+Box 10
+Box 11
+Box 12
+Box 13
+Box 14
+Box 15
+Box 16
+Box 17
+Box 18
 {STRVAR_1 51, 0, 0}/{STRVAR_1 51, 1, 0}
 
-WALLPAPER
-NAME
+Wallpaper
+Name
 
 
 
@@ -33,61 +33,61 @@ NAME
 
 
 
-FOREST
-CITY
-DESERT
-SAVANNA
-CRAG
-VOLCANO
-SNOW
-CAVE
-BEACH
-SEAFLOOR
-RIVER
-SKY
-POKé CENTER
-MACHINE
-CHECKS
-SIMPLE
-HEART
-SOUL
-BIG BROTHER
-POKéATHLON
-TRIO
-SPIKY PIKA
-KIMONO GIRL
-REVIVAL
+Forest
+City
+Desert
+Savanna
+Crag
+Volcano
+Snow
+Cave
+Beach
+Seafloor
+River
+Sky
+Poké Center
+Machine
+Checks
+Simple
+Heart
+Soul
+Big Brother
+Pokéathlon
+Trio
+Spiky Pika
+Kimono Girl
+Revival
 －
-PARTY ₧₦
-MOVE
-RETURN
-CHANGE BOX
-SORT ITEMS
-SUMMARY
-HELD ITEMS
-MARKING
-RELEASE
-WITHDRAW
-DEPOSIT
-EXIT
-CONFIRM
-CANCEL
-SWITCH
-EXIT
-EXIT
-CHANGE\nBOX
-CHANGE\nWALLPAPER
-DEPOSIT\nPOKéMON
-BAG
-GIVE
+Party ₧₦
+Move
+Return
+Change Box
+Sort Items
+Summary
+Held Items
+Marking
+Release
+Withdraw
+Deposit
+Exit
+Confirm
+Cancel
+Switch
+Exit
+Exit
+Change\nBox
+Change\Wallpaper
+Deposit\nPokémon
+Bag
+Give
 ㊚
 ㊛
 {STRVAR_1 5, 0, 0}
 {STRVAR_1 7, 0, 0}
 {STRVAR_1 8, 0, 0}
-NATURE
-ABILITY
-ITEM
+Nature
+Ability
+Item
 {STRVAR_1 52, 0, 0}
 {STRVAR_1 52, 0, 0}
 None

@@ -5,7 +5,7 @@
 Item
 {STRVAR_1 8, 0, 0}
 None
-INFO
+Info
 Dex No.
 {STRVAR_1 52, 0, 0}
 Name
@@ -21,7 +21,7 @@ To Next Lv.
 
 {STRVAR_1 55, 0, 0}
 ???
-TRAINER MEMO
+Trainer Memo
 {COLOR 2}Hardy{COLOR 0} nature.
 {COLOR 2}Lonely{COLOR 0} nature.
 {COLOR 2}Brave{COLOR 0} nature.
@@ -107,7 +107,7 @@ Somewhat stubborn.
 “The Egg Watch”\nIt appears to move\noccasionally. It may\nbe close to hatching.
 “The Egg Watch”\nWhat will hatch from\nthis? It doesn’t seem\nclose to hatching.
 “The Egg Watch”\nIt looks like this Egg\nwill take a long time to\nhatch.
-SKILLS
+Skills
 HP
 Attack
 Defense
@@ -126,7 +126,7 @@ Ability
 {STRVAR_1 5, 0, 0}
        
    
-BATTLE MOVES
+Battle Moves
     
 {STRVAR_1 6, 0, 0}
 {STRVAR_1 6, 0, 0}
@@ -145,17 +145,17 @@ PP
 {STRVAR_1 51, 0, 0}
 {STRVAR_1 51, 0, 0}
 {ALN_CENTER}Cancel
-POWER
-ACCURACY
-CATEGORY
+Power
+Accuracy
+Category
 {STRVAR_1 52, 0, 0}
 {STRVAR_1 52, 0, 0}
-SWITCH
+Switch
 --
 ---
     
 HM moves can’t be\nforgotten now.
-PERFORMANCE
+Performance
     
     
         
@@ -177,7 +177,7 @@ PERFORMANCE
                 
             
                   
-RIBBONS
+Ribbons
     
    
 No. of Ribbons:
