@@ -95,7 +95,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
      && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
         || (sp->oneSelfFlag[sp->defence_client].special_damage))
      // Attacker used a move that makes contact
-     && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+     && (IsContactBeingMade(bw, sp)))
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, def_item_param);
         seq_no[0] = SUB_SEQ_ITEM_DAMAGE_BACK;
@@ -108,7 +108,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
         && ((sp->scw[atk_side].knockoff_item & (1 << sp->sel_mons_no[sp->attack_client])) == 0)
         && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
       || (sp->oneSelfFlag[sp->defence_client].special_damage))
-        && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+        && (IsContactBeingMade(bw, sp)))
     {
         seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
         ret = TRUE;
