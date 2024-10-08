@@ -1101,14 +1101,6 @@ BOOL LONG_CALL MonHasMove(struct PartyPokemon *mon, u16 move);
 BOOL LONG_CALL does_species_have_dimorphism(u32 species);
 
 /**
- *  @brief grab the base overworld data file number for a species
- *
- *  @param species species index
- *  @return requested base overworld data file number
- */
-u32 LONG_CALL get_ow_data_file_num(u32 species);
-
-/**
  *  @brief intialize various values to a PartyPokemon (location caught, caught ball, etc.)
  *
  *  @param pp PartyPokemon to initialize
