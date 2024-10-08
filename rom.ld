@@ -272,7 +272,6 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
-get_ow_data_file_num = 0x0206A304 | 1;
 does_species_have_dimorphism = 0x0206A338 | 1;
 
 /*first E0 battle script commands*/
@@ -449,6 +448,8 @@ ST_ServerDir2ClientNoGet = 0x02257E98 | 1;
 /* tasks */
 CreateSysTask = 0x0200E320 | 1;
 DestroySysTask = 0x0200E390 | 1;
+SysTask_CreateOnVBlankQueue = 0x0200E33C | 1;
+DebugTextBuf = 0x020741C4;
 
 BattleWorkClientParamGet = 0x0223A7E8 | 1;
 

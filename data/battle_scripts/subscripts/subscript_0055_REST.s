@@ -23,7 +23,7 @@ _000:
 _054:
     SetHealthbarStatus BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_NONE
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_NOT_SLEEP
-    // {0} slept and became healthy!
+    // {0} slept and restored its HP!
     PrintMessage 208, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
 
 _066:

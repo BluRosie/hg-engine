@@ -18,7 +18,7 @@
 #include "../include/constants/weather_numbers.h"
 
 
-#define NELEMS_POKEFORMDATATBL 285
+#define NELEMS_POKEFORMDATATBL 287
 
 extern u32 word_to_store_form_at;
 // [preevo] = {species, form}, [postevo] = {species, form},
@@ -43,7 +43,7 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
 
     if (form_no != 0)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -123,7 +123,7 @@ int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
     default:;
         if (form_no != 0)
         {
-            struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+            struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
             ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
             for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -152,7 +152,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
 {
     if (form_no != 0)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
         {
@@ -177,7 +177,7 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 {
     if (mons_no > MAX_MON_NUM)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -202,7 +202,7 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
 u16 LONG_CALL GetFormBasedOnAdjustedForm(u32 mons_no)
 {
     if (mons_no > MAX_MON_NUM) {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -299,7 +299,7 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 
         // pat is now treated as the return value.  is initially set as the mons+7, but is adjusted as necessary below
 
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         pat = (7 + mons);
@@ -344,7 +344,7 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
         return GetBoxMonData(ppp, MON_DATA_FORM, NULL);
 
     default:;
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -428,7 +428,7 @@ u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
         } else {
             if (form != 0)
             {
-                struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+                struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
                 ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
                 for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -468,13 +468,8 @@ u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
  */
 u16 LONG_CALL GetPokemonOwNum(u16 species)
 {
-    u16 *sSpeciesToOWGfx = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * (MAX_MON_NUM+1));
     u16 ret;
-
-    ArchiveDataLoad(sSpeciesToOWGfx, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON);
-    ret = sSpeciesToOWGfx[species];
-    sys_FreeMemoryEz(sSpeciesToOWGfx);
-
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON, sizeof(u16)*species, sizeof(u16));
     return ret;
 }
 
@@ -489,13 +484,8 @@ u16 LONG_CALL GetMonHiddenAbility(u16 species, u32 form)
 {
 #ifdef HIDDEN_ABILITIES
     u16 ability = 0;
-    u16* hiddenAbilityTable = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
-
     species = PokeOtherFormMonsNoGet(species, form);
-    ArchiveDataLoad(hiddenAbilityTable, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST);
-    ability = hiddenAbilityTable[species];
-    sys_FreeMemoryEz(hiddenAbilityTable);
-
+    ArchiveDataLoadOfs(&ability, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST, sizeof(u16)*species, sizeof(u16));
     return ability;
 #else
     return 0;
@@ -584,15 +574,9 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
  */
 u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
 {
-    u16 *baseExpTable = sys_AllocMemory(HEAPID_MAIN_HEAP, sizeof(u16) * MAX_SPECIES_INCLUDING_FORMS);
     u16 baseExp;
-
     species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
-
-    ArchiveDataLoad(baseExpTable, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST);
-    baseExp = baseExpTable[species];
-    sys_FreeMemoryEz(baseExpTable);
-
+    ArchiveDataLoadOfs(&baseExp, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST, sizeof(u16)*species, sizeof(u16));
     return baseExp;
 }
 
@@ -1361,7 +1345,8 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
     u32 adjustment = 0, ret = 0;
-    if (species > SPECIES_SNOVER) // split between 0x1AC and 0x1E4
+    u8 maxForm = 0;
+    if (species > SPECIES_FINNEON) // split between 0x1AC and 0x1E4
     {
         adjustment = 0x1E4;
     }
@@ -1370,30 +1355,27 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         adjustment = 0x1AC;
     }
 
-    ret = get_ow_data_file_num(species) + adjustment;
+    ret = GetPokemonOwNum(species) + adjustment;
 
-    u8 *form_table = sys_AllocMemory(HEAPID_MAIN_HEAP, MAX_MON_NUM);
-    ArchiveDataLoad(form_table, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON);
+    ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
 
     if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
     {
         if (isFemale || form) // both female pikachu and those with forms will need this adjustment
             ret++;
-        if (form < form_table[SPECIES_PIKACHU]) // invalid pikachu forms will show as female, but that's okay
+        if (form < maxForm) // invalid pikachu forms will show as female, but that's okay
             ret += form;
     }
     else if (species == SPECIES_SLOWBRO && form)
     {
         u32 newform = form - 1;
-        if (newform <= form_table[SPECIES_SLOWBRO])
+        if (newform <= maxForm)
             ret += newform;
     }
-    else if (form <= form_table[species])
+    else if (form <= maxForm)
         ret += form;
     else if (isFemale && gDimorphismTable[species-1])
         ret += isFemale;
-
-    sys_FreeMemoryEz(form_table);
 
     return ret;
 }
@@ -1594,7 +1576,7 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 
     if (form_no != 0)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
+        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
         ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
 
         for (i = 0; i < NELEMS_POKEFORMDATATBL; i++)
@@ -2159,7 +2141,7 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
         isMonEvolving = TRUE;
     }
     u32 ret = 0;
-    u32 *levelUpLearnset = sys_AllocMemory(HEAPID_MAIN_HEAP, LEARNSET_TOTAL_MOVES * sizeof(u32));
+    u32 *levelUpLearnset = sys_AllocMemory(HEAPID_DEFAULT, LEARNSET_TOTAL_MOVES * sizeof(u32));
     u32 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
     u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
     u32 level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
