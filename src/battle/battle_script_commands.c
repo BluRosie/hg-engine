@@ -1131,6 +1131,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
             //case MOVE_EFFECT_SECRET_POWER: // need a different way of doing this i think
             case MOVE_EFFECT_LOWER_SP_ATK_HIT:
             case MOVE_EFFECT_THUNDER:
+            case MOVE_EFFECT_HURRICANE:
             case MOVE_EFFECT_FLINCH_PARALYZE_HIT:
             case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE: // removes the double damage flying too
             case MOVE_EFFECT_LOWER_SP_DEF_2_HIT:
@@ -1165,7 +1166,8 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 sp->battlemon[sp->attack_client].sheer_force_flag = 0;
                 break;
         }
-        if (sp->current_move_index == MOVE_SPARKLING_ARIA) {
+        if ((sp->current_move_index == MOVE_SPARKLING_ARIA) 
+         || (sp->current_move_index == MOVE_ELECTRO_SHOT)) {
             sp->battlemon[sp->attack_client].sheer_force_flag = 1;
         }
     }

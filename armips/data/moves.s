@@ -8730,7 +8730,7 @@ movedata MOVE_TAIL_SLAP, "Tail Slap"
     movedescription MOVE_TAIL_SLAP, "The use attacks by\nhitting the target\nwith its hard tail.\nIt hits two to five\ntimes in a row."
 
 movedata MOVE_HURRICANE, "Hurricane"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HURRICANE
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_FLYING
@@ -8743,7 +8743,7 @@ movedata MOVE_HURRICANE, "Hurricane"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HURRICANE, "The foe is caught\nin a fierce wind.\nIt may also confuse\nthe foe."
+    movedescription MOVE_HURRICANE, "The user attacks by\nwrapping its opponent\nin a fierce wind.\nThis may also confuse\nthe target."
 
 movedata MOVE_HEAD_CHARGE, "Head Charge"
     battleeffect MOVE_EFFECT_RECOIL_THIRD
