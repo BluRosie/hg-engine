@@ -938,7 +938,7 @@ heightentry SPECIES_SNOM, 0, 0, 0, 0
 heightentry SPECIES_FROSMOTH, 0, 0, 0, 0
 heightentry SPECIES_STONJOURNER, 0, 0, 0, 0
 heightentry SPECIES_EISCUE, 0, 0, 0, 0
-heightentry SPECIES_INDEEDEE, "null", 0, "null", 0
+heightentry SPECIES_INDEEDEE, 0, 0, 0, 0
 heightentry SPECIES_MORPEKO, 0, 0, 0, 0
 heightentry SPECIES_CUFANT, 0, 0, 0, 0
 heightentry SPECIES_COPPERAJAH, 0, 0, 0, 0
