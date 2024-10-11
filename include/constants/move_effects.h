@@ -330,6 +330,8 @@
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
 #define MOVE_EFFECT_HURRICANE                               326
+#define MOVE_EFFECT_USER_DEF_DOWN_HIT                       327
+#define MOVE_EFFECT_USER_DEF_DOWN_HIT_REMOVE_PROTECT        328
 
 
 
