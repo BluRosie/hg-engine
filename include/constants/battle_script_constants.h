@@ -391,6 +391,7 @@
 #define SUB_SEQ_SP_ATK_UP_RAIN_SKIP                   (381)
 #define SUB_SEQ_USER_DEF_DOWN_HIT                     (382)
 #define SUB_SEQ_ATK_DEF_SPEED_UP                      (383)
+#define SUB_SEQ_HYPERSPACE_FURY                       (384)
 
 
 
@@ -562,7 +563,7 @@
 #define ADD_STATUS_EFF_SIMPLE_BEAM                     (163)
 #define ADD_STATUS_EFF_USER_DEF_DOWN_HIT               (164)
 #define ADD_STATUS_EFF_ATK_DEF_SPEED_UP                (165)
-
+#define ADD_STATUS_EFF_HYPERSPACE_FURY                 (166)
 
 
 // additional effect constants
