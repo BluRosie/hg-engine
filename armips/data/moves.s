@@ -9944,7 +9944,7 @@ movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LIGHT_OF_RUIN, "Drawing power from the\nEternal Flower, the user\rfires a powerful beam of\nlight. This also damages\rthe user terribly."
+    movedescription MOVE_LIGHT_OF_RUIN, "Drawing power from the\nEternal Flower, the user\nfires a powerful beam of\nlight. This also damages\nthe user terribly."
 
 movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     battleeffect MOVE_EFFECT_HIT
@@ -9960,7 +9960,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_ORIGIN_PULSE, "The user attacks\nopposing Pokémon with\rcountless beams of\nlight that glow a deep\rand brilliant blue."
+    movedescription MOVE_ORIGIN_PULSE, "The user attacks\nopposing Pokémon with\ncountless beams of\nlight that glow a deep\nand brilliant blue."
 
 movedatalongname MOVE_PRECIPICE_BLADES, "PrecipiceBlades", "Precipice Blades"
     battleeffect MOVE_EFFECT_HIT
@@ -12472,7 +12472,7 @@ movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_CLANGOROUS_SOUL, "---"
+    movedescription MOVE_CLANGOROUS_SOUL, "The user boosts all\nits stats by using\nsome of its own HP."
 
 movedata MOVE_BODY_PRESS, "Body Press"
     battleeffect MOVE_EFFECT_HIT
@@ -13003,7 +13003,7 @@ movedata MOVE_LASH_OUT, "Lash Out"
     movedescription MOVE_LASH_OUT, "---"
 
 movedata MOVE_POLTERGEIST, "Poltergeist"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_POLTERGEIST
     pss SPLIT_PHYSICAL
     basepower 110
     type TYPE_GHOST
@@ -13016,7 +13016,7 @@ movedata MOVE_POLTERGEIST, "Poltergeist"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_POLTERGEIST, "---"
+    movedescription MOVE_POLTERGEIST, "The user attacks by\ncontrolling the\ntarget's item. This\nmove fails if the foe\nisn't holding an item."
 
 movedata MOVE_CORROSIVE_GAS, "Corrosive Gas"
     battleeffect MOVE_EFFECT_HIT
