@@ -12459,7 +12459,7 @@ movedata MOVE_MAX_STEELSPIKE, "Max Steelspike"
     movedescription MOVE_MAX_STEELSPIKE, "---"
 
 movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_DRAGON
