@@ -13451,7 +13451,7 @@ movedata MOVE_MOUNTAIN_GALE, "Mountain Gale"
     movedescription MOVE_MOUNTAIN_GALE, "---"
 
 movedata MOVE_VICTORY_DANCE, "Victory Dance"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ATK_DEF_SPEED_UP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_FIGHTING
@@ -13464,7 +13464,7 @@ movedata MOVE_VICTORY_DANCE, "Victory Dance"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_VICTORY_DANCE, "---"
+    movedescription MOVE_VICTORY_DANCE, "The user performs an\nintense dance to usher\nin victory, boosting\nits Attack, Defense,\nand Speed stats."
 
 movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
     battleeffect MOVE_EFFECT_USER_DEF_SP_DEF_DOWN_HIT

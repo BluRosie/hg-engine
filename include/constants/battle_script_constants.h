@@ -390,6 +390,7 @@
 #define SUB_SEQ_POWER_HERB_METEOR_BEAM                (380)
 #define SUB_SEQ_SP_ATK_UP_RAIN_SKIP                   (381)
 #define SUB_SEQ_USER_DEF_DOWN_HIT                     (382)
+#define SUB_SEQ_ATK_DEF_SPEED_UP                      (383)
 
 
 
@@ -560,6 +561,7 @@
 #define ADD_STATUS_EFF_DRAIN_FULL                      (162)
 #define ADD_STATUS_EFF_SIMPLE_BEAM                     (163)
 #define ADD_STATUS_EFF_USER_DEF_DOWN_HIT               (164)
+#define ADD_STATUS_EFF_ATK_DEF_SPEED_UP                (165)
 
 
 

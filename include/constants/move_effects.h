@@ -332,6 +332,7 @@
 #define MOVE_EFFECT_HURRICANE                               326
 #define MOVE_EFFECT_USER_DEF_DOWN_HIT                       327
 #define MOVE_EFFECT_USER_DEF_DOWN_HIT_REMOVE_PROTECT        328
+#define MOVE_EFFECT_ATK_DEF_SPEED_UP                        329
 
 
 
