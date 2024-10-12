@@ -2034,7 +2034,6 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
             *equivalentDefense = rawPhysicalDefense;
             break;
         case MOVE_PHOTON_GEYSER:
-        case MOVE_PRISMATIC_LASER:
             if (tempPhysicalAttack > tempSpecialAttack) {
                 *movesplit = SPLIT_PHYSICAL;
                 *equivalentAttack = rawPhysicalAttack;

@@ -11448,7 +11448,7 @@ movedata MOVE_PRISMATIC_LASER, "Prismatic Laser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PRISMATIC_LASER, "---"
+    movedescription MOVE_PRISMATIC_LASER, "The user shoots\npowerful lasers using\rthe power of a prism.\nThe user can't move on\rthe next turn."
 
 movedata MOVE_SPECTRAL_THIEF, "Spectral Thief"
     battleeffect MOVE_EFFECT_HIT
