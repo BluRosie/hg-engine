@@ -3695,19 +3695,21 @@ u32 LoadCaptureSuccessSPANumEmitters(u32 id)
 }
 
 
-BOOL CanTrickHeldItem(u16 item, u16 attacker_species, u16 defender_species)
+BOOL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species)
 { 
-    if( (item == ITEM_RUSTED_SHIELD && (attacker_species == SPECIES_ZAMAZENTA || defender_species == SPECIES_ZAMAZENTA))
-        || (item == ITEM_RUSTED_SWORD && (attacker_species == SPECIES_ZACIAN || defender_species == SPECIES_ZACIAN))
-        || (IS_ITEM_GENESECT_DRIVE(item) && (attacker_species == SPECIES_GENESECT || defender_species == SPECIES_GENESECT))
-        || (item == ITEM_BLUE_ORB && (attacker_species == SPECIES_KYOGRE || defender_species == SPECIES_KYOGRE))
-        || (item == ITEM_RED_ORB && (attacker_species == SPECIES_GROUDON || defender_species == SPECIES_GROUDON))
-        || (item == ITEM_GRISEOUS_ORB && (attacker_species == SPECIES_GIRATINA || defender_species == SPECIES_GIRATINA))
-        || (IS_ITEM_MEMORY(item) && (attacker_species == SPECIES_SILVALLY || defender_species == SPECIES_SILVALLY))
-        || (item == ITEM_BOOSTER_ENERGY && (IS_SPECIES_PARADOX_FORM(attacker_species) || IS_SPECIES_PARADOX_FORM(defender_species)))
-        || (IS_ITEM_MASK(item) && (attacker_species == SPECIES_OGERPON || defender_species == SPECIES_OGERPON))
-        || (CheckMegaData(attacker_species, item) || CheckMegaData(defender_species, item))
-        || IS_ITEM_MAIL(item)) // || IS_ITEM_Z_CRYSTAL(item)
+    if( ((attacker_item == ITEM_RUSTED_SHIELD || defender_item == ITEM_RUSTED_SHIELD) && (attacker_species == SPECIES_ZAMAZENTA || defender_species == SPECIES_ZAMAZENTA))
+        || ((attacker_item == ITEM_RUSTED_SWORD || defender_item == ITEM_RUSTED_SWORD) && (attacker_species == SPECIES_ZACIAN || defender_species == SPECIES_ZACIAN))
+        || ((IS_ITEM_GENESECT_DRIVE(attacker_item) || IS_ITEM_GENESECT_DRIVE(defender_item)) && (attacker_species == SPECIES_GENESECT || defender_species == SPECIES_GENESECT))
+        || ((attacker_item == ITEM_BLUE_ORB || defender_item == ITEM_BLUE_ORB) && (attacker_species == SPECIES_KYOGRE || defender_species == SPECIES_KYOGRE))
+        || ((attacker_item == ITEM_RED_ORB || defender_item == ITEM_RED_ORB) && (attacker_species == SPECIES_GROUDON || defender_species == SPECIES_GROUDON))
+        || ((attacker_item == ITEM_GRISEOUS_ORB || defender_item == ITEM_GRISEOUS_ORB) && (attacker_species == SPECIES_GIRATINA || defender_species == SPECIES_GIRATINA))
+        || ((IS_ITEM_MEMORY(attacker_item) || IS_ITEM_MEMORY(defender_item)) && (attacker_species == SPECIES_SILVALLY || defender_species == SPECIES_SILVALLY))
+        || ((attacker_item == ITEM_BOOSTER_ENERGY || defender_item == ITEM_BOOSTER_ENERGY) && (IS_SPECIES_PARADOX_FORM(attacker_species) || IS_SPECIES_PARADOX_FORM(defender_species)))
+        || ((IS_ITEM_MASK(attacker_item) || IS_ITEM_MASK(defender_item)) && (attacker_species == SPECIES_OGERPON || defender_species == SPECIES_OGERPON))
+        || (CheckMegaData(attacker_species, attacker_item) || CheckMegaData(defender_species, defender_item))
+        || (CheckMegaData(attacker_species, defender_item) || CheckMegaData(defender_species, attacker_item))
+        || IS_ITEM_MAIL(attacker_item) // || IS_ITEM_Z_CRYSTAL(attacker_item)
+        || IS_ITEM_MAIL(defender_item)) // || IS_ITEM_Z_CRYSTAL(defender_item)
         return FALSE;
 
     return TRUE;
@@ -3725,15 +3727,15 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
     isTrickAllowedInFight = 0;
 #endif
 
-    int attackerItem = sp->battlemon[sp->defence_client].item;
-    int defenderItem = sp->battlemon[sp->attack_client].item;
+    int attackerItem = sp->battlemon[sp->attack_client].item;
     int attackerSpecies = sp->battlemon[sp->attack_client].species;
+    int defenderItem = sp->battlemon[sp->defence_client].item;
     int defenderSpecies = sp->battlemon[sp->defence_client].species;
     if (isTrickAllowedInFight != 0) 
         IncrementBattleScriptPtr(sp, attack);
     else if (attackerItem == 0 && defenderItem == 0)
         IncrementBattleScriptPtr(sp, attack);
-    else if (!CanTrickHeldItem(attackerItem, attackerSpecies, defenderSpecies) || !CanTrickHeldItem(defenderItem, attackerSpecies, defenderSpecies))
+    else if (!CanTrickHeldItem(attackerItem, attackerSpecies, defenderItem, defenderSpecies))
         IncrementBattleScriptPtr(sp, attack);
     else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE)
         IncrementBattleScriptPtr(sp, defence);
