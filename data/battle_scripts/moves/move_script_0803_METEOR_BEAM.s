@@ -3,4 +3,6 @@
 .data
 
 _000:
-    GoToEffectScript 
+    // {0} is overflowing with space power!
+    BufferMessage 1477, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    GoToEffectScript  
