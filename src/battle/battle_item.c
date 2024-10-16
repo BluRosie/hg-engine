@@ -86,6 +86,22 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
         ret = TRUE;
     }
 
+    if ((def_hold_eff == HOLD_EFFECT_DAMAGE_ON_CONTACT) // Rocky Helmet
+     && (sp->battlemon[sp->attack_client].hp)
+     && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
+     // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
+     && (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)
+     // Damage was dealt
+     && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+        || (sp->oneSelfFlag[sp->defence_client].special_damage))
+     // Attacker used a move that makes contact
+     && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+    {
+        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, def_item_param);
+        seq_no[0] = SUB_SEQ_ITEM_DAMAGE_BACK;
+        ret = TRUE;
+    }
+
     if ((def_hold_eff == HOLD_EFFECT_DMG_USER_CONTACT_XFR) // sticky barb
      && (sp->battlemon[sp->attack_client].hp)
         && (sp->battlemon[sp->attack_client].item == 0)

@@ -49,7 +49,7 @@
 #define MOVE_EFFECT_CRASH_ON_MISS                            45
 #define MOVE_EFFECT_PREVENT_STAT_REDUCTION                   46
 #define MOVE_EFFECT_CRIT_UP_2                                47
-#define MOVE_EFFECT_RECOIL_QUARTER_DAMAGE_DELT               48
+#define MOVE_EFFECT_RECOIL_QUARTER                           48
 #define MOVE_EFFECT_STATUS_CONFUSE                           49
 #define MOVE_EFFECT_ATK_UP_2                                 50
 #define MOVE_EFFECT_DEF_UP_2                                 51
@@ -183,7 +183,7 @@
 #define MOVE_EFFECT_HEAL_IN_3_TURNS                         179
 #define MOVE_EFFECT_USE_RANDOM_ALLY_MOVE                    180
 #define MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL        181
-#define MOVE_EFFECT_ATK_DEF_DOWN_HIT                        182
+#define MOVE_EFFECT_USER_ATK_DEF_DOWN_HIT                   182
 #define MOVE_EFFECT_MAGIC_COAT                              183
 #define MOVE_EFFECT_RECYCLE                                 184
 #define MOVE_EFFECT_DOUBLE_DAMAGE_IF_HIT                    185
@@ -219,7 +219,7 @@
 #define MOVE_EFFECT_GRAVITY                                 215
 #define MOVE_EFFECT_IGNORE_EVATION_REMOVE_DARK_IMMUNE       216
 #define MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP                 217
-#define MOVE_EFFECT_SPEED_DOWN_HIT                          218
+#define MOVE_EFFECT_USER_SPEED_DOWN_HIT                     218
 #define MOVE_EFFECT_POWER_BASED_ON_LOW_SPEED                219
 #define MOVE_EFFECT_FAINT_AND_FULL_HEAL_NEXT_MON            220
 #define MOVE_EFFECT_DOUBLE_POWER_WHEN_BELOW_HALF            221
@@ -230,7 +230,7 @@
 #define MOVE_EFFECT_RANDOM_STAT_UP_2                        226
 #define MOVE_EFFECT_METAL_BURST                             227
 #define MOVE_EFFECT_SWITCH_HIT                              228
-#define MOVE_EFFECT_DEF_SP_DEF_DOWN_HIT                     229
+#define MOVE_EFFECT_USER_DEF_SP_DEF_DOWN_HIT                229
 #define MOVE_EFFECT_DOUBLE_POWER_IF_HIT                     230
 #define MOVE_EFFECT_DOUBLE_POWER_IF_TARGET_HIT              231
 #define MOVE_EFFECT_PREVENT_ITEM_USE                        232
@@ -283,7 +283,7 @@
 #define MOVE_EFFECT_ATK_ACC_UP                              277
 #define MOVE_EFFECT_GUARD_SPLIT                             278
 #define MOVE_EFFECT_POWER_SPLIT                             279
-#define MOVE_EFFECT_DOUBLE_POISONED_HIT                     280
+#define MOVE_EFFECT_DOUBLE_POWER_ON_POISONED                280
 #define MOVE_EFFECT_AUTOTOMIZE                              281
 #define MOVE_EFFECT_ALWAYS_CRITICAL                         282
 #define MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP                  283
@@ -291,10 +291,10 @@
 #define MOVE_EFFECT_RAISE_SPEED_HIT                         285
 #define MOVE_EFFECT_ATK_DEF_ACC_UP                          286
 #define MOVE_EFFECT_DOUBLE_DAMAGE_ON_STATUS                 287
-#define MOVE_EFFECT_ATK_UP_SPEED_UP_2                       288
-#define MOVE_EFFECT_DOUBLE_DAMAGE_WITHOUT_ITEM              289
-#define MOVE_EFFECT_DEF_SP_DEF_DOWN_ATK_SP_ATK_SPEED_UP_2   290
-#define MOVE_EFFECT_ATK_DEF_SPEED_DOWN_HIT                  291
+#define MOVE_EFFECT_SPEED_UP_2_ATK_UP                       288
+#define MOVE_EFFECT_DOUBLE_POWER_WITHOUT_ITEM               289
+#define MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN   290
+#define MOVE_EFFECT_USER_DEF_SP_DEF_SPEED_DOWN_HIT          291
 #define MOVE_EFFECT_HEAVY_SLAM                              292
 #define MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS               293
 #define MOVE_EFFECT_APPLY_TERRAINS                          294
@@ -323,9 +323,12 @@
 #define MOVE_EFFECT_RAISE_DEF_2_HIT                         317
 #define MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2       318
 #define MOVE_EFFECT_WEATHER_SNOW                            319
-#define MOVE_EFFECT_HIT_AND_PREVENT_HEALING                 320
-#define MOVE_EFFECT_INFERNAL_PARADE                         321
-#define MOVE_EFFECT_BARB_BARRAGE                            322
+#define MOVE_EFFECT_PREVENT_HEALING_HIT                     320
+#define MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS         321
+#define MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED     322
+#define MOVE_EFFECT_SET_ABILITY_TO_SIMPLE                   323
+#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
+#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
 
 
 

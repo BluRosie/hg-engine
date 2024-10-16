@@ -3,9 +3,9 @@
 {STRVAR_1 1, 0, 0} gained a boosted\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} grew to\nLv. {STRVAR_1 52, 1, 0}!{WAIT 5}{WAIT 2}\r
 {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!{WAIT 5}{WAIT 2}\r
-{STRVAR_1 1, 0, 0} is trying to\nlearn {STRVAR_1 6, 1, 0}.\r
+{STRVAR_1 1, 0, 0} wants to learn the move\n{STRVAR_1 6, 1, 0}.\r
 But {STRVAR_1 1, 0, 0} can’t learn\nmore than four moves.\r
-Delete a move to make\nroom for {STRVAR_1 6, 1, 0}?\r
+Should another move be forgotten and\nreplaced with {STRVAR_1 6, 1, 0}?\r
 {STRVAR_1 1, 0, 0} forgot the move\n{STRVAR_1 6, 2, 0}.\r
 Give up on learning the move\n{STRVAR_1 6, 1, 0}?\r
 {STRVAR_1 1, 0, 0} did not learn\n{STRVAR_1 6, 1, 0}.\r
@@ -31,20 +31,20 @@ It doesn’t affect\nthe opposing {STRVAR_1 1, 0, 0}...
 {STRVAR_1 1, 0, 0} fainted!\r
 The wild {STRVAR_1 1, 0, 0} fainted!\r
 The opposing {STRVAR_1 1, 0, 0} fainted!\r
-{STRVAR_1 3, 0, 0} got ${STRVAR_1 54, 1, 0}\nfor winning!\r
-{STRVAR_1 3, 0, 0} dropped ${STRVAR_1 54, 1, 0}\nin panic!\r
-{STRVAR_1 3, 0, 0} paid out ${STRVAR_1 54, 1, 0}\nto the winner.\r
-{STRVAR_1 3, 0, 0} is out of\nusable Pokémon!\r
-{STRVAR_1 3, 0, 0} blacked out!\r
+You got ${STRVAR_1 54, 1, 0}\nfor winning!\r
+You panicked and dropped ${STRVAR_1 54, 1, 0}...\r
+You gave ${STRVAR_1 54, 1, 0}\nto the winner...\r
+You have no more Pokémon\nthat can fight!\r
+You were overwhelmed by your defeat!\r
 ... ... ... ...\r
 {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
 The wild {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
-Can’t escape!\r
+You couldn’t get away!\r
 {STRVAR_1 1, 0, 0} can’t escape!\r
 The wild {STRVAR_1 1, 0, 0} can’t escape!\r
 The opposing {STRVAR_1 1, 0, 0} can’t escape!\r
-Hit {STRVAR_1 50, 0, 0} time(s)!
+The Pokémon was\nhit {STRVAR_1 50, 0, 0} time(s)!
 {STRVAR_1 1, 0, 0}\nfell asleep!
 The wild {STRVAR_1 1, 0, 0}\nfell asleep!
 The opposing {STRVAR_1 1, 0, 0}\nfell asleep!
@@ -71,9 +71,9 @@ The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\f{STRVAR_1 1, 2, 0}
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\fthe wild {STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\f{STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\fthe opposing {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0} is hurt\nby poison!
-The wild {STRVAR_1 1, 0, 0} is hurt\nby poison!
-The opposing {STRVAR_1 1, 0, 0} is hurt\nby poison!
+{STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
+The wild {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
+The opposing {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
 {STRVAR_1 1, 0, 0} is already\npoisoned.
 The wild {STRVAR_1 1, 0, 0} is already\npoisoned.
 The opposing {STRVAR_1 1, 0, 0} is already\npoisoned.
@@ -115,28 +115,28 @@ The opposing {STRVAR_1 1, 0, 0} is\nfrozen solid!
 {STRVAR_1 1, 0, 0} thawed out!
 The wild {STRVAR_1 1, 0, 0} thawed out!
 The opposing {STRVAR_1 1, 0, 0} thawed out!
-{STRVAR_1 1, 0, 0} was\ndefrosted by {STRVAR_1 6, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} was\ndefrosted by {STRVAR_1 6, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} was\ndefrosted by {STRVAR_1 6, 1, 0}!
-{STRVAR_1 1, 0, 0} is paralyzed!\nIt may be unable to move!
-The wild {STRVAR_1 1, 0, 0} is paralyzed!\nIt may be unable to move!
-The opposing {STRVAR_1 1, 0, 0} is paralyzed!\nIt may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0}!\fIt may be unable to move!
-{STRVAR_1 1, 0, 0} is paralyzed!\nIt can’t move!
-The wild {STRVAR_1 1, 0, 0} is paralyzed!\nIt can’t move!
-The opposing {STRVAR_1 1, 0, 0} is paralyzed!\nIt can’t move!
+{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
+{STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
+The wild {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
+The opposing {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
 {STRVAR_1 1, 0, 0} is\nalready paralyzed!
 The wild {STRVAR_1 1, 0, 0} is\nalready paralyzed!
 The opposing {STRVAR_1 1, 0, 0} is\nalready paralyzed!
-{STRVAR_1 1, 0, 0} was\nhealed of paralysis!
-The wild {STRVAR_1 1, 0, 0} was\nhealed of paralysis!
-The opposing {STRVAR_1 1, 0, 0} was\nhealed of paralysis!
+{STRVAR_1 1, 0, 0} was\ncured of paralysis!
+The wild {STRVAR_1 1, 0, 0} was\ncured of paralysis!
+The opposing {STRVAR_1 1, 0, 0} was\ncured of paralysis!
 {STRVAR_1 1, 0, 0}’s\ndream was eaten!
 The wild {STRVAR_1 1, 0, 0}’s\ndream was eaten!
 The opposing {STRVAR_1 1, 0, 0}’s\ndream was eaten!
@@ -151,9 +151,9 @@ The effect of the opposing\n{STRVAR_1 6, 0, 0} wore off!
 {STRVAR_1 1, 0, 0} is\nconfused!
 The wild {STRVAR_1 1, 0, 0} is\nconfused!
 The opposing {STRVAR_1 1, 0, 0} is\nconfused!
-{STRVAR_1 1, 0, 0} snapped\nout of confusion!
-The wild {STRVAR_1 1, 0, 0} snapped\nout of confusion!
-The opposing {STRVAR_1 1, 0, 0} snapped\nout of confusion!
+{STRVAR_1 1, 0, 0} snapped\nout of its confusion!
+The wild {STRVAR_1 1, 0, 0} snapped\nout of its confusion!
+The opposing {STRVAR_1 1, 0, 0} snapped\nout of its confusion!
 {STRVAR_1 1, 0, 0} became\nconfused!
 The wild {STRVAR_1 1, 0, 0} became\nconfused!
 The opposing {STRVAR_1 1, 0, 0} became\nconfused!
@@ -182,20 +182,20 @@ The opposing {STRVAR_1 1, 0, 0} transformed\ninto the {STRVAR_1 15, 1, 0} type!
 {STRVAR_1 1, 0, 0} flinched!
 The wild {STRVAR_1 1, 0, 0} flinched!
 The opposing {STRVAR_1 1, 0, 0} flinched!
-{STRVAR_1 1, 0, 0} regained\nhealth!
-The wild {STRVAR_1 1, 0, 0} regained\nhealth!
-The opposing {STRVAR_1 1, 0, 0} regained\nhealth!
+{STRVAR_1 1, 0, 0}’s HP\nwas restored!
+The wild {STRVAR_1 1, 0, 0}’s HP\nwas restored!
+The opposing {STRVAR_1 1, 0, 0}’s HP\nwas restored!
 {STRVAR_1 1, 0, 0}’s\nHP is full!
 The wild {STRVAR_1 1, 0, 0}’s\nHP is full!
 The opposing {STRVAR_1 1, 0, 0}’s\nHP is full!
 Light Screen made your team\nstronger against special moves!
 Light Screen made the opposing team\nstronger against special moves!
-{STRVAR_1 6, 0, 0} raised your team’s\nSpecial Defense slightly!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Special Defense slightly!
+Light Screen made your team\nstronger against special moves!
+Light Screen made the opposing team\nstronger against special moves!
 Reflect made your team\nstronger against physical moves!
 Reflect made the opposing team\nstronger against physical moves!
-{STRVAR_1 6, 0, 0} raised your team’s\nDefense slightly!
-The opposing {STRVAR_1 6, 0, 0} raised\nits team’s Defense slightly!
+Reflect made your team\nstronger against physical moves!
+Reflect made the opposing team\nstronger against physical moves!
 Your team became cloaked in\na mystical veil!
 The opposing team became\ncloaked in a mystical veil!
 {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
@@ -206,9 +206,9 @@ The opposing team is no longer\nprotected by Safeguard!
 {STRVAR_1 1, 0, 0} went\nto sleep!
 The wild {STRVAR_1 1, 0, 0} went\nto sleep!
 The opposing {STRVAR_1 1, 0, 0} went\nto sleep!
-{STRVAR_1 1, 0, 0} slept and\nbecame healthy!
-The wild {STRVAR_1 1, 0, 0} slept and\nbecame healthy!
-The opposing {STRVAR_1 1, 0, 0} slept and\nbecame healthy!
+{STRVAR_1 1, 0, 0} slept and\nrestored its HP!
+The wild {STRVAR_1 1, 0, 0} slept and\nrestored its HP!
+The opposing {STRVAR_1 1, 0, 0} slept and\nrestored its HP!
 {STRVAR_1 1, 0, 0} whipped\nup a whirlwind!
 The wild {STRVAR_1 1, 0, 0} whipped\nup a whirlwind!
 The opposing {STRVAR_1 1, 0, 0} whipped\nup a whirlwind!
@@ -240,12 +240,12 @@ The wild {STRVAR_1 1, 0, 0} was squeezed\nby {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} was squeezed\nby the wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} was squeezed\nby {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} was squeezed\nby the opposing {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} was trapped\nin the vortex!
-The wild {STRVAR_1 1, 0, 0} was trapped\nin the vortex!
-The opposing {STRVAR_1 1, 0, 0} was trapped\nin the vortex!
-{STRVAR_1 1, 0, 0} was trapped\nby Sand Tomb!
-The wild {STRVAR_1 1, 0, 0} was trapped\nby Sand Tomb!
-The opposing {STRVAR_1 1, 0, 0} was trapped\nby Sand Tomb!
+{STRVAR_1 1, 0, 0} became trapped\nin the vortex!
+The wild {STRVAR_1 1, 0, 0} became trapped\nin the vortex!
+The opposing {STRVAR_1 1, 0, 0} became trapped\nin the vortex!
+{STRVAR_1 1, 0, 0} was trapped\nby the quicksand!
+The wild {STRVAR_1 1, 0, 0} was trapped\nby the quicksand!
+The opposing {STRVAR_1 1, 0, 0} was trapped\nby the quicksand!
 {STRVAR_1 1, 0, 0} was wrapped by\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} was wrapped by\nthe wild {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} was wrapped by\nthe opposing {STRVAR_1 1, 1, 0}!
@@ -271,15 +271,15 @@ The wild {STRVAR_1 1, 0, 0} kept going\nand crashed!
 The opposing {STRVAR_1 1, 0, 0} kept going\nand crashed!
 Your team became\nshrouded in mist!
 The opposing team became\nshrouded in mist!
-{STRVAR_1 1, 0, 0} is protected\nby Mist!
-The wild {STRVAR_1 1, 0, 0} is protected\nby Mist!
-The opposing {STRVAR_1 1, 0, 0} is protected\nby Mist!
+{STRVAR_1 1, 0, 0} is protected\nby the mist!
+The wild {STRVAR_1 1, 0, 0} is protected\nby the mist!
+The opposing {STRVAR_1 1, 0, 0} is protected\nby the mist!
 {STRVAR_1 1, 0, 0} is getting\npumped!
 The wild {STRVAR_1 1, 0, 0} is getting\npumped!
 The opposing {STRVAR_1 1, 0, 0} is getting\npumped!
-{STRVAR_1 1, 0, 0} is hit\nwith recoil!
-The wild {STRVAR_1 1, 0, 0} is hit\nwith recoil!
-The opposing {STRVAR_1 1, 0, 0} is hit\nwith recoil!
+{STRVAR_1 1, 0, 0} was damaged\nby the recoil!
+The wild {STRVAR_1 1, 0, 0} was damaged\nby the recoil!
+The opposing {STRVAR_1 1, 0, 0} was damaged\nby the recoil!
 {STRVAR_1 1, 0, 0} protected\nitself!
 The wild {STRVAR_1 1, 0, 0} protected\nitself!
 The opposing {STRVAR_1 1, 0, 0} protected\nitself!
@@ -287,7 +287,7 @@ The opposing {STRVAR_1 1, 0, 0} protected\nitself!
 The wild {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 The opposing {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 Your team’s {STRVAR_1 6, 0, 0}\nwore off!
-The opposing {STRVAR_1 6, 0, 0}\nwore off!
+The opposing team’s {STRVAR_1 6, 0, 0}\nwore off!
 {STRVAR_1 1, 0, 0} was seeded!
 The wild {STRVAR_1 1, 0, 0}\nwas seeded!
 The opposing {STRVAR_1 1, 0, 0}\nwas seeded!
@@ -303,9 +303,9 @@ The opposing {STRVAR_1 1, 0, 0} is fast\nasleep.
 {STRVAR_1 1, 0, 0} woke up!
 The wild {STRVAR_1 1, 0, 0}\nwoke up!
 The opposing {STRVAR_1 1, 0, 0}\nwoke up!
-The uproar woke up\nthe {STRVAR_1 1, 0, 0}!
-The uproar woke up the\nwild {STRVAR_1 1, 0, 0}!
-The uproar woke up the\nopposing {STRVAR_1 1, 0, 0}!
+The uproar woke\n{STRVAR_1 1, 0, 0}!
+The uproar woke the\nwild {STRVAR_1 1, 0, 0}!
+The uproar woke the\nopposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} caused\nan uproar!
 The wild {STRVAR_1 1, 0, 0} caused\nan uproar!
 The opposing {STRVAR_1 1, 0, 0} caused\nan uproar!
@@ -339,7 +339,7 @@ The opposing {STRVAR_1 1, 0, 0} unleashed\nenergy!
 {STRVAR_1 1, 0, 0} became\nconfused due to fatigue!
 The wild {STRVAR_1 1, 0, 0} became\nconfused due to fatigue!
 The opposing {STRVAR_1 1, 0, 0} became\nconfused due to fatigue!
-{STRVAR_1 3, 0, 0} picked up\n${STRVAR_1 54, 1, 0}!\r
+You picked up\n${STRVAR_1 54, 1, 0}!\r
 {STRVAR_1 1, 0, 0} is\nunaffected!
 The wild {STRVAR_1 1, 0, 0} is\nunaffected!
 The opposing {STRVAR_1 1, 0, 0} is\nunaffected!
@@ -367,15 +367,15 @@ The opposing {STRVAR_1 1, 0, 0}’s rage\nis building!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled!
-{STRVAR_1 1, 0, 0} is no\nlonger disabled!
-The wild {STRVAR_1 1, 0, 0} is no\nlonger disabled!
-The opposing {STRVAR_1 1, 0, 0} is no\nlonger disabled!
-{STRVAR_1 1, 0, 0} received\nan encore!
-The wild {STRVAR_1 1, 0, 0} received\nan encore!
-The opposing {STRVAR_1 1, 0, 0} received\nan encore!
-{STRVAR_1 1, 0, 0}’s encore\nended!
-The wild {STRVAR_1 1, 0, 0}’s encore\nended!
-The opposing {STRVAR_1 1, 0, 0}’s encore\nended!
+{STRVAR_1 1, 0, 0}’s move\nis no longer disabled!
+The wild {STRVAR_1 1, 0, 0}’s move\nis no longer disabled!
+The opposing {STRVAR_1 1, 0, 0}’s move\nis no longer disabled!
+{STRVAR_1 1, 0, 0}\nmust do an encore!
+The wild {STRVAR_1 1, 0, 0}\nmust do an encore!
+The opposing {STRVAR_1 1, 0, 0}\nmust do an encore!
+{STRVAR_1 1, 0, 0} ended\nits encore!
+The wild {STRVAR_1 1, 0, 0} ended\nits encore!
+The opposing {STRVAR_1 1, 0, 0} ended\nits encore!
 {STRVAR_1 1, 0, 0} took aim at\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} took aim at\nthe wild {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} took aim at\nthe opposing {STRVAR_1 1, 1, 0}!
@@ -386,19 +386,19 @@ The opposing {STRVAR_1 1, 0, 0} took aim at\nthe opposing {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} sketched\n{STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} sketched\n{STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} sketched\n{STRVAR_1 6, 1, 0}!
-{STRVAR_1 1, 0, 0} is trying\nto take its attacker down with it!
-The wild {STRVAR_1 1, 0, 0} is trying\nto take its attacker down with it!
-The opposing {STRVAR_1 1, 0, 0} is trying\nto take its attacker down with it!
-{STRVAR_1 1, 0, 0} took\n{STRVAR_1 1, 1, 0} down with it!
-{STRVAR_1 1, 0, 0} took the wild\n{STRVAR_1 1, 1, 0} down with it!
-{STRVAR_1 1, 0, 0} took the opposing\n{STRVAR_1 1, 1, 0} down with it!
-The wild {STRVAR_1 1, 0, 0} took\n{STRVAR_1 1, 1, 0} down with it!
-The wild {STRVAR_1 1, 0, 0} took\nthe wild {STRVAR_1 1, 1, 0} down with it!
-The opposing {STRVAR_1 1, 0, 0} took\n{STRVAR_1 1, 1, 0} down with it!
-The opposing {STRVAR_1 1, 0, 0} took\nthe opposing {STRVAR_1 1, 1, 0} down with it!
-It reduced the PP of {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} by {STRVAR_1 50, 2, 0}!
-It reduced the PP of the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0} by {STRVAR_1 50, 2, 0}!
-It reduced the PP of the opposing\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0} by {STRVAR_1 50, 2, 0}!
+{STRVAR_1 1, 0, 0} is hoping\nto take its attacker down with it!
+The wild {STRVAR_1 1, 0, 0} is hoping\nto take its attacker down with it!
+The opposing {STRVAR_1 1, 0, 0} is hoping\nto take its attacker down with it!
+{STRVAR_1 1, 0, 0} took\nits attacker down with it!
+{STRVAR_1 1, 0, 0} took\nits attacker down with it!
+{STRVAR_1 1, 0, 0} took\nits attacker down with it!
+The wild {STRVAR_1 1, 0, 0} took\nits attacker down with it!
+The wild {STRVAR_1 1, 0, 0} took\nits attacker down with it!
+The opposing {STRVAR_1 1, 0, 0} took\nits attacker down with it!
+The opposing {STRVAR_1 1, 0, 0} took\nits attacker down with it!
+{STRVAR_1 1, 0, 0}’s\n PP was reduced!
+The wild\n{STRVAR_1 1, 0, 0}’s\n PP was reduced!
+The opposing\n{STRVAR_1 1, 0, 0}’s\n PP was reduced!
 {STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} stole the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} stole the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
@@ -415,28 +415,28 @@ The opposing {STRVAR_1 1, 0, 0} began\nhaving a nightmare!
 {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
 The wild {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
 The opposing {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
-{STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on the wild\f{STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on the opposing\f{STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on {STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on the wild\f{STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on {STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand laid a curse on the opposing\f{STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the wild\f{STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the opposing\f{STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the wild\f{STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the opposing\f{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The wild {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The opposing {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 Spikes were scattered\non the ground all around\fyour team!
 Spikes were scattered\non the ground all around\fthe opposing team!
-{STRVAR_1 1, 0, 0} is hurt\nby the spikes!
-The wild {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
-The opposing {STRVAR_1 1, 0, 0} is hurt\nby the spikes!
-{STRVAR_1 1, 0, 0} identified\n{STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} identified\nthe wild {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} identified\nthe opposing {STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} identified\n{STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} identified\nthe wild {STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} identified\n{STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} identified\nthe opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} was hurt\nby the spikes!
+The wild {STRVAR_1 1, 0, 0} was hurt\nby the spikes!
+The opposing {STRVAR_1 1, 0, 0} was hurt\nby the spikes!
+{STRVAR_1 1, 1, 0} was identified!
+The wild {STRVAR_1 1, 1, 0} was identified!
+The opposing {STRVAR_1 1, 1, 0} was identified!
+{STRVAR_1 1, 1, 0} was identified!
+The wild {STRVAR_1 1, 1, 0} was identified!
+{STRVAR_1 1, 1, 0} was identified!
+The opposing {STRVAR_1 1, 1, 0} was identified!
 {STRVAR_1 1, 0, 0}’s perish count\nfell to {STRVAR_1 50, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}’s perish count\nfell to {STRVAR_1 50, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s perish count\nfell to {STRVAR_1 50, 1, 0}!
@@ -476,12 +476,12 @@ The opposing {STRVAR_1 1, 0, 0} foresaw\nan attack!
 {STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
 The wild {STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
 The opposing {STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
-{STRVAR_1 1, 0, 0} chose\n{STRVAR_1 6, 1, 0} as its destiny!
-The wild {STRVAR_1 1, 0, 0} chose\n{STRVAR_1 6, 1, 0} as its destiny!
-The opposing {STRVAR_1 1, 0, 0} chose\n{STRVAR_1 6, 1, 0} as its destiny!
-{STRVAR_1 1, 0, 0}’s attack!
-The wild {STRVAR_1 1, 0, 0}’s attack!
-The opposing {STRVAR_1 1, 0, 0}’s attack!
+{STRVAR_1 1, 0, 0} chose\nDoom Desire as its destiny!
+The wild {STRVAR_1 1, 0, 0} chose\nDoom Desire as its destiny!
+The opposing {STRVAR_1 1, 0, 0} chose\nDoom Desire as its destiny!
+{STRVAR_1 1, 0, 0}’s attack! (Unused)
+The wild {STRVAR_1 1, 0, 0}’s attack! (Unused)
+The opposing {STRVAR_1 1, 0, 0}’s attack! (Unused)
 {STRVAR_1 1, 0, 0} became\nthe center of attention!
 The wild {STRVAR_1 1, 0, 0} became\nthe center of attention!
 The opposing {STRVAR_1 1, 0, 0} became\nthe center of attention!
@@ -492,9 +492,9 @@ The opposing {STRVAR_1 1, 0, 0} began\ncharging power!
 {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
 The wild {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
 The opposing {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
-{STRVAR_1 1, 0, 0} was subjected\nto Torment!
-The wild {STRVAR_1 1, 0, 0} was subjected\nto Torment!
-The opposing {STRVAR_1 1, 0, 0} was subjected\nto Torment!
+{STRVAR_1 1, 0, 0} was subjected\nto torment!
+The wild {STRVAR_1 1, 0, 0} was subjected\nto torment!
+The opposing {STRVAR_1 1, 0, 0} was subjected\nto torment!
 {STRVAR_1 1, 0, 0} is tightening\nits focus!
 The wild {STRVAR_1 1, 0, 0} is tightening\nits focus!
 The opposing {STRVAR_1 1, 0, 0} is tightening\nits focus!
@@ -511,23 +511,23 @@ The opposing {STRVAR_1 1, 0, 0} is ready to\nhelp the opposing {STRVAR_1 1, 1, 0
 {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The wild {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The opposing {STRVAR_1 1, 0, 0} switched\nitems with its target!
-{STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.
-The wild {STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.
-The opposing {STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.
-{STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.
-{STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.\r
-{STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\none {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\none {STRVAR_1 8, 3, 0}.\r
-{STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-{STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-{STRVAR_1 1, 0, 0} copied the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} copied the\nopposing {STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s Ability!
+{STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s Ability!
+{STRVAR_1 1, 0, 0} copied the opposing\n{STRVAR_1 1, 1, 0}’s Ability!
+The wild {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s Ability!
+The wild {STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s Ability!
+The opposing {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s Ability!
+The opposing {STRVAR_1 1, 0, 0} copied the\nopposing {STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} made a wish!
 The wild {STRVAR_1 1, 0, 0}\nmade a wish!
 The opposing {STRVAR_1 1, 0, 0}\nmade a wish!
@@ -543,13 +543,13 @@ The opposing {STRVAR_1 1, 0, 0} absorbed\nnutrients with its roots!
 {STRVAR_1 1, 0, 0} anchored\nitself with its roots!
 The wild {STRVAR_1 1, 0, 0} anchored\nitself with its roots!
 The opposing {STRVAR_1 1, 0, 0} anchored\nitself with its roots!
-{STRVAR_1 1, 0, 0} made\n{STRVAR_1 1, 1, 0} drowsy!
-{STRVAR_1 1, 0, 0} made the wild\n{STRVAR_1 1, 1, 0} drowsy!
-{STRVAR_1 1, 0, 0} made the opposing\n{STRVAR_1 1, 1, 0} drowsy!
-The wild {STRVAR_1 1, 0, 0} made\n{STRVAR_1 1, 1, 0} drowsy!
-The wild {STRVAR_1 1, 0, 0} made\nthe wild {STRVAR_1 1, 1, 0} drowsy!
-The opposing {STRVAR_1 1, 0, 0} made\n{STRVAR_1 1, 1, 0} drowsy!
-The opposing {STRVAR_1 1, 0, 0} made\nthe opposing {STRVAR_1 1, 1, 0} drowsy!
+{STRVAR_1 1, 1, 0} grew drowsy!
+The wild\n{STRVAR_1 1, 1, 0} grew drowsy!
+The opposing\n{STRVAR_1 1, 1, 0} grew drowsy!
+{STRVAR_1 1, 1, 0} grew drowsy!
+The wild {STRVAR_1 1, 1, 0} grew drowsy!
+{STRVAR_1 1, 1, 0} grew drowsy!
+The opposing {STRVAR_1 1, 1, 0} grew drowsy!
 {STRVAR_1 1, 0, 0} knocked off\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} knocked off the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} knocked off the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
@@ -557,15 +557,15 @@ The wild {STRVAR_1 1, 0, 0} knocked off\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 
 The wild {STRVAR_1 1, 0, 0} knocked off the\nwild {STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0} knocked off\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0} knocked off\nthe opposing {STRVAR_1 1, 1, 0}’s\f{STRVAR_1 8, 2, 0}!
-{STRVAR_1 1, 0, 0} swapped\nabilities with its target!
-The wild {STRVAR_1 1, 0, 0} swapped\nabilities with its target!
-The opposing {STRVAR_1 1, 0, 0} swapped\nabilities with its target!
-{STRVAR_1 1, 0, 0} sealed the\nopponent’s move(s)!
-The wild {STRVAR_1 1, 0, 0} sealed the\nopponent’s move(s)!
-The opposing {STRVAR_1 1, 0, 0} sealed the\nopponent’s move(s)!
-{STRVAR_1 1, 0, 0} wants the\ntarget to bear a grudge!
-The wild {STRVAR_1 1, 0, 0} wants the\ntarget to bear a grudge!
-The opposing {STRVAR_1 1, 0, 0} wants the\ntarget to bear a grudge!
+{STRVAR_1 1, 0, 0} swapped\nAbilities with its target!
+The wild {STRVAR_1 1, 0, 0} swapped\nAbilities with its target!
+The opposing {STRVAR_1 1, 0, 0} swapped\nAbilities with its target!
+{STRVAR_1 1, 0, 0} sealed any moves\nits target shares with it!
+The wild {STRVAR_1 1, 0, 0} sealed any moves\nits target shares with it!
+The opposing {STRVAR_1 1, 0, 0} sealed any moves\nits target shares with it!
+{STRVAR_1 1, 0, 0} wants its\ntarget to bear a grudge!
+The wild {STRVAR_1 1, 0, 0} wants its\ntarget to bear a grudge!
+The opposing {STRVAR_1 1, 0, 0} wants its\ntarget to bear a grudge!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0} lost\nall its PP due to the grudge!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} lost all its PP\fdue to the grudge!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} lost all its PP\fdue to the grudge!
@@ -606,7 +606,7 @@ The wild {STRVAR_1 1, 0, 0} was\ndragged out!\r
 The opposing {STRVAR_1 1, 0, 0} was\ndragged out!\r
 It shattered the barrier!
 But it had no effect!
-{STRVAR_1 1, 0, 0} has no\nmoves left!\r
+{STRVAR_1 1, 0, 0} has no\nmoves left that it can use!\r
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} is disabled!\r
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} is disabled!\r
@@ -614,9 +614,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} is disabled!\r
 {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
 The wild {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
-{STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
-The wild {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
-The opposing {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
+{STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
+The wild {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
+The opposing {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 It started to rain!
 (Unused)
 (Unused)
@@ -705,13 +705,13 @@ It started to hail!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents {STRVAR_1 13, 2, 0} loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ninfatuated {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ninfatuated the wild {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ninfatuated the opposing {STRVAR_1 1, 2, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} infatuated\f{STRVAR_1 1, 2, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} infatuated the wild\f{STRVAR_1 1, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} infatuated\f{STRVAR_1 1, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} infatuated the opposing\f{STRVAR_1 1, 2, 0}!
+{STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+The wild {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+The opposing {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+The wild {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+The opposing {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade {STRVAR_1 6, 2, 0} ineffective!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 6, 2, 0}\fineffective!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 6, 2, 0}\fineffective!
@@ -779,20 +779,20 @@ And...
 
 It’s not very effective...
 It’s super effective!
-Got away safely!\r
+You got away safely!\r
 {STRVAR_1 1, 0, 0} fled\nusing its {STRVAR_1 8, 1, 0}!\r
 {STRVAR_1 1, 0, 0} fled\nusing {STRVAR_1 5, 1, 0}!\r
 The wild {STRVAR_1 1, 0, 0} fled!
-Player defeated\n{STRVAR_1 3, 0, 0}!
-Player defeated {STRVAR_1 3, 0, 0}\nand {STRVAR_1 3, 1, 0}!
-Player lost against\n{STRVAR_1 3, 0, 0}!
-Player lost to {STRVAR_1 3, 0, 0}\nand {STRVAR_1 3, 1, 0}!
-Player battled to a draw against\n{STRVAR_1 3, 0, 0}!
-Player battled to a draw against\n{STRVAR_1 3, 0, 0} and {STRVAR_1 3, 1, 0}!
+You defeated\n{STRVAR_1 3, 0, 0}!
+You defeated {STRVAR_1 3, 0, 0}\nand {STRVAR_1 3, 1, 0}!
+You lost against\n{STRVAR_1 3, 0, 0}!
+You lost to {STRVAR_1 3, 0, 0}\nand {STRVAR_1 3, 1, 0}!
+You battled to a draw against\n{STRVAR_1 3, 0, 0}!
+You battled to a draw against\n{STRVAR_1 3, 0, 0} and {STRVAR_1 3, 1, 0}!
 {STRVAR_1 3, 0, 0} fled!
 {STRVAR_1 3, 0, 0} and\n{STRVAR_1 3, 1, 0} fled!
 No! There’s no running\nfrom a Trainer battle!\r
-Can’t escape!\r
+You couldn’t get away!\r
 But nothing happened!
 But it failed!
 It hurt itself in its\nconfusion!
@@ -817,13 +817,13 @@ But it failed to swallow a thing!
 The wind turned into a\nheat wave!
 All stat changes were\neliminated!
 Coins were scattered everywhere!
-It was too weak to make\na substitute!
+But it does not have enough HP\nleft to make a substitute!
 The battlers shared\ntheir pain!
 A bell chimed!
-All Pokémon hearing the song\nwill faint in three turns!
+All Pokémon that heard the song\nwill faint in three turns!
 There’s no PP left for this move!
 But there was no PP left\nfor the move!
-{STRVAR_1 1, 0, 0} ignored\norders while asleep!
+{STRVAR_1 1, 0, 0} ignored\norders and kept sleeping!
 {STRVAR_1 1, 0, 0} ignored orders!
 {STRVAR_1 1, 0, 0} began to nap!
 {STRVAR_1 1, 0, 0} is\nloafing around!
@@ -833,11 +833,11 @@ But there was no PP left\nfor the move!
 {STRVAR_1 1, 0, 0} is\nloafing around!
 The wild {STRVAR_1 1, 0, 0} is\nloafing around!
 The opposing {STRVAR_1 1, 0, 0} is\nloafing around!
-{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} is\nabout to send in {STRVAR_1 1, 2, 0}.\fWill you switch your Pokémon?{YESNO 0}
+{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} is\nabout to send out {STRVAR_1 1, 2, 0}.\fWill you switch your Pokémon?{YESNO 0}
 {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!
-Player defeated\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
+You defeated\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
 {STRVAR_1 3, 0, 0} crept closer to\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 3, 0, 0} can’t get any closer!
 {STRVAR_1 1, 0, 0} is watching\ncarefully!
@@ -859,17 +859,17 @@ Announcer: You’re out of\nSafari Balls! Game over!
 {STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\nused one {STRVAR_1 8, 2, 0}!
 The Trainer blocked the Ball!
 Don’t be a thief!
-It dodged the thrown Ball!\nThis Pokémon can’t be caught!
+It dodged your thrown Poké Ball!\nThis Pokémon can’t be caught!
 You missed the Pokémon!
 Oh, no!\nThe Pokémon broke free!
 Aww!\nIt appeared to be caught!
 Aargh!\nAlmost had it!
-Shoot!\nIt was so close, too!
+Gah!\nIt was so close, too!
 {WAIT 3}Gotcha!\n{STRVAR_1 1, 0, 0} was caught!{WAIT 2}\r
-Give a nickname to the\ncaught {STRVAR_1 1, 0, 0}?{YESNO 0}
-{STRVAR_1 1, 0, 0} was sent to\nsomeone’s PC.
-{STRVAR_1 1, 0, 0} was sent to\nBill’s PC!
-{STRVAR_1 1, 0, 0}’s data was\nadded to the Pokédex.\r
+Would you like to give\n{STRVAR_1 1, 0, 0} a nickname?{YESNO 0}
+{STRVAR_1 1, 0, 0} has been sent to\nsomeone’s PC.
+{STRVAR_1 1, 0, 0} has been sent to\nBill’s PC!
+{STRVAR_1 1, 0, 0}’s data has\nbeen added to the Pokédex.\r
 It is raining.
 A sandstorm is raging.
 There is no room left in the PC!\r
@@ -888,9 +888,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} defrosted it!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwoke it up!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} woke it up!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} woke it up!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nsnapped it out of confusion!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} snapped it out of\fconfusion!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} snapped it out of\fconfusion!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nsnapped it out of its confusion!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} snapped it out of\fits confusion!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} snapped it out of\fits confusion!
 {STRVAR_1 1, 0, 0} cured its {STRVAR_1 17, 2, 0}\nstatus using its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} cured its\n{STRVAR_1 17, 2, 0} status\fusing its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} cured its\n{STRVAR_1 17, 2, 0} status\fusing its {STRVAR_1 8, 1, 0}!
@@ -900,12 +900,12 @@ The opposing {STRVAR_1 1, 0, 0} normalized its\nstatus using its {STRVAR_1 8, 1,
 {STRVAR_1 1, 0, 0} restored its\nhealth using its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} restored its\nhealth using its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} restored its\nhealth using its {STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 0, 0} restored\n{STRVAR_1 6, 2, 0}’s PP using its\f{STRVAR_1 8, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} restored\n{STRVAR_1 6, 2, 0}’s PP using its\f{STRVAR_1 8, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} restored\n{STRVAR_1 6, 2, 0}’s PP using its\f{STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 0, 0} restored its\nstatus using its {STRVAR_1 8, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} restored its\nstatus using its {STRVAR_1 8, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} restored its\nstatus using its {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} restored\nPP to its move {STRVAR_1 6, 2, 0}\fusing its {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} restored\nPP to its move {STRVAR_1 6, 2, 0}\fusing its {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} restored\nPP to its move {STRVAR_1 6, 2, 0}\fusing its {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} returned its\nstats to normal using its\f{STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} returned its\nstats to normal using its\f{STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} returned its\nstats to normal using its\f{STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} restored\na little HP using its {STRVAR_1 8, 1, 0}!
@@ -951,20 +951,20 @@ Quit the battle?{YESNO 0}
 SAFARI BALLS
 Left: {STRVAR_1 51, 0, 0}
 
-Player beat\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\fand {STRVAR_1 14, 2, 0} {STRVAR_1 3, 3, 0}!\r
+You beat\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\fand {STRVAR_1 14, 2, 0} {STRVAR_1 3, 3, 0}!\r
 
 Would you like to forfeit the match\nand quit now?{YESNO 0}
 {STRVAR_1 3, 0, 0}\nforfeited the match!
 
 
 {STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} fled!
-Player lost against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
-Player battled to a draw against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
+You lost against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
+You battled to a draw against\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!
 {STRVAR_1 1, 0, 0}{COLOR 3}♂{COLOR 0}
 {STRVAR_1 1, 0, 0}{COLOR 4}♀{COLOR 0}
 {STRVAR_1 1, 0, 0}
-A wild {STRVAR_1 1, 0, 0} appeared!\r
-A wild {STRVAR_1 1, 0, 0} appeared!\r
+You encountered a wild {STRVAR_1 1, 0, 0}!\r
+A wild {STRVAR_1 1, 0, 0} appeared!\r (Unused)
 A wild {STRVAR_1 1, 0, 0} and\n{STRVAR_1 1, 1, 0} appeared!\r
 A wild {STRVAR_1 1, 0, 0} appeared from\nthe tree you slathered with Honey!\r
 You are challenged by\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!\r
@@ -984,9 +984,9 @@ Your foe’s weak!\nGet ’em, {STRVAR_1 1, 0, 0}!
 Just a little more!\nHang in there, {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0}, switch out!\nCome back!
 {STRVAR_1 1, 0, 0}, come back!
-{STRVAR_1 1, 0, 0}, OK!\nCome back!
+OK, {STRVAR_1 1, 0, 0}!\nCome back!
 {STRVAR_1 1, 0, 0}, enough!\nGet back!
-{STRVAR_1 1, 0, 0}, good!\nCome back!
+Good job, {STRVAR_1 1, 0, 0}!\nCome back!
 {STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\nwithdrew {STRVAR_1 1, 2, 0}!
 {STRVAR_1 3, 0, 0} withdrew\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} sent\nout {STRVAR_1 1, 2, 0}!\r{STRVAR_1 14, 3, 0} {STRVAR_1 3, 4, 0} sent\nout {STRVAR_1 1, 5, 0}!\r
@@ -996,9 +996,9 @@ You are challenged by\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0} and\f{STRVAR_1 14,
 The wild {STRVAR_1 1, 0, 0}’s stockpiled\neffect wore off!
 The opposing {STRVAR_1 1, 0, 0}’s stockpiled\neffect wore off!
 Gravity intensified!
-{STRVAR_1 1, 0, 0} couldn’t stay\nairborne because of gravity!
-The wild {STRVAR_1 1, 0, 0} couldn’t stay\nairborne because of gravity!
-The opposing {STRVAR_1 1, 0, 0} couldn’t stay\nairborne because of gravity!
+{STRVAR_1 1, 0, 0} fell from\nthe sky due to the gravity!
+The wild {STRVAR_1 1, 0, 0} fell from\nthe sky due to the gravity!
+The opposing {STRVAR_1 1, 0, 0} fell from\nthe sky due to the gravity!
 {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
 The wild {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
 The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!\r
@@ -1010,36 +1010,36 @@ The tailwind petered out!
 {STRVAR_1 1, 0, 0} switched\nits Attack and Defense!
 The wild {STRVAR_1 1, 0, 0} switched\nits Attack and Defense!
 The opposing {STRVAR_1 1, 0, 0} switched\nits Attack and Defense!
-{STRVAR_1 1, 0, 0}’s ability\nwas suppressed!
-The wild {STRVAR_1 1, 0, 0}’s ability\nwas suppressed!
-The opposing {STRVAR_1 1, 0, 0}’s ability\nwas suppressed!
-{STRVAR_1 1, 0, 0} switched all\nchanges to its Attack and Sp. Atk\fwith the target!
-The wild {STRVAR_1 1, 0, 0} switched all\nchanges to its Attack and Sp. Atk\fwith the target!
-The opposing {STRVAR_1 1, 0, 0} switched all\nchanges to its Attack and Sp. Atk\fwith the target!
-{STRVAR_1 1, 0, 0} switched all\nchanges to its Defense and Sp. Def\fwith the target!
-The wild {STRVAR_1 1, 0, 0} switched all\nchanges to its Defense and Sp. Def\fwith the target!
-The opposing {STRVAR_1 1, 0, 0} switched all\nchanges to its Defense and Sp. Def\fwith the target!
+{STRVAR_1 1, 0, 0}’s Ability\nwas suppressed!
+The wild {STRVAR_1 1, 0, 0}’s Ability\nwas suppressed!
+The opposing {STRVAR_1 1, 0, 0}’s Ability\nwas suppressed!
+{STRVAR_1 1, 0, 0} switched all\nchanges to its Attack and Sp. Atk\fwith its target!
+The wild {STRVAR_1 1, 0, 0} switched all\nchanges to its Attack and Sp. Atk\fwith its target!
+The opposing {STRVAR_1 1, 0, 0} switched all\nchanges to its Attack and Sp. Atk\fwith its target!
+{STRVAR_1 1, 0, 0} switched all\nchanges to its Defense and Sp. Def\fwith its target!
+The wild {STRVAR_1 1, 0, 0} switched all\nchanges to its Defense and Sp. Def\fwith its target!
+The opposing {STRVAR_1 1, 0, 0} switched all\nchanges to its Defense and Sp. Def\fwith its target!
 {STRVAR_1 1, 0, 0} acquired\n{STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} acquired\n{STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} acquired\n{STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 0, 0} switched stat\nchanges with the target!
-The wild {STRVAR_1 1, 0, 0} switched stat\nchanges with the target!
-The opposing {STRVAR_1 1, 0, 0} switched stat\nchanges with the target!
+{STRVAR_1 1, 0, 0} switched stat\nchanges with its target!
+The wild {STRVAR_1 1, 0, 0} switched stat\nchanges with its target!
+The opposing {STRVAR_1 1, 0, 0} switched stat\nchanges with its target!
 {STRVAR_1 1, 0, 0} surrounded\nitself with a veil of water!
 The wild {STRVAR_1 1, 0, 0} surrounded\nitself with a veil of water!
 The opposing {STRVAR_1 1, 0, 0} surrounded\nitself with a veil of water!
 {STRVAR_1 6, 1, 0} restored\n{STRVAR_1 1, 0, 0}’s HP!
 {STRVAR_1 6, 1, 0} restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 {STRVAR_1 6, 1, 0} restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-{STRVAR_1 1, 0, 0} levitated\non electromagnetism!
-The wild {STRVAR_1 1, 0, 0} levitated\non electromagnetism!
-The opposing {STRVAR_1 1, 0, 0} levitated\non electromagnetism!
+{STRVAR_1 1, 0, 0} levitated\nwith electromagnetism!
+The wild {STRVAR_1 1, 0, 0} levitated\nwith electromagnetism!
+The opposing {STRVAR_1 1, 0, 0} levitated\nwith electromagnetism!
 {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} evades\nGround moves with {STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
 The wild {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
-The electromagnetism of the opposing\n{STRVAR_1 1, 0, 0} wore off!
+The opposing {STRVAR_1 1, 0, 0}’s\nelectromagnetism wore off!
 {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
@@ -1084,10 +1084,10 @@ Pointed stones dug into\nthe opposing {STRVAR_1 1, 0, 0}!
 The wild {STRVAR_1 1, 0, 0} vanished\ninstantly!
 The opposing {STRVAR_1 1, 0, 0} vanished\ninstantly!
 Your team’s Lucky Chant wore off!
-The opposing Lucky Chant wore off!
-{STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} has\n{STRVAR_1 5, 1, 0}!
+The opposing team’s Lucky Chant wore off!
+{STRVAR_1 1, 0, 0}\nbreaks the mold!
+The wild {STRVAR_1 1, 0, 0}\nbreaks the mold!
+The opposing {STRVAR_1 1, 0, 0}\nbreaks the mold!
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
@@ -1110,9 +1110,9 @@ The opposing {STRVAR_1 1, 1, 0}’s\n{STRVAR_1 5, 0, 0} made it shudder!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nalerted it to {STRVAR_1 6, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s Forewarn\nalerted it to {STRVAR_1 6, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s Forewarn\nalerted it to {STRVAR_1 6, 2, 0}!
-{STRVAR_1 1, 0, 0} can’t get it\ngoing because of its {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} can’t get it\ngoing because of its {STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} can’t get it\ngoing because of its {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0} is slow\nto get going!
+The wild {STRVAR_1 1, 0, 0} is slow\nto get going!
+The opposing {STRVAR_1 1, 0, 0} is slow\nto get going!
 {STRVAR_1 1, 0, 0} finally got\nits act together!
 The wild {STRVAR_1 1, 0, 0} finally got\nits act together!
 The opposing {STRVAR_1 1, 0, 0} finally got\nits act together!
@@ -1139,9 +1139,9 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\nitems anymore!
 {STRVAR_1 1, 0, 0} can use\nitems again!
 The wild {STRVAR_1 1, 0, 0} can use\nitems again!
 The opposing {STRVAR_1 1, 0, 0} can use\nitems again!
-{STRVAR_1 1, 0, 0} stole and\nate its opposing {STRVAR_1 8, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} stole and\nate its opposing {STRVAR_1 8, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} stole and\nate its opposing {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} stole and\nate its target’s {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} stole and\nate its target’s {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} stole and\nate its target’s {STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0} flung\nits {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} flung\nits {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} flung\nits {STRVAR_1 8, 1, 0}!
@@ -1187,8 +1187,8 @@ Should this Pokémon give up on\nlearning this new move?{YESNO 0}
 {ALN_CENTER}Give up on {STRVAR_1 6, 0, 0}!
 {ALN_CENTER}Don’t give up on {STRVAR_1 6, 0, 0}!
 {STRVAR_1 1, 0, 0} did not learn\n{STRVAR_1 6, 1, 0}.\r
-1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}{WAIT 4}Poof!\r
-{STRVAR_1 1, 0, 0} forgot how to\nuse {STRVAR_1 6, 1, 0}.\r
+One...{PAUSE 20}two...{PAUSE 20}and...{PAUSE 20}{WAIT 4}ta-da!\r
+{STRVAR_1 1, 0, 0} forgot\n{STRVAR_1 6, 1, 0}.\r
 And...\r
 {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!{WAIT 5}{WAIT 2}\r
 {STRVAR_1 1, 0, 0} wants to learn\nthe move {STRVAR_1 6, 1, 0}.\r
@@ -1197,8 +1197,8 @@ Should a move be deleted? {YESNO 0}
 Which move should be forgotten?\r
 Stop trying to teach\n{STRVAR_1 6, 0, 0}? {YESNO 0}
 {STRVAR_1 1, 0, 0} did not learn the\nmove {STRVAR_1 6, 1, 0}.\r
-1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}{WAIT 4}Poof!\r
-{STRVAR_1 1, 0, 0} forgot how to\nuse {STRVAR_1 6, 1, 0}.\r
+One...{PAUSE 20}two...{PAUSE 20}and...{PAUSE 20}{WAIT 4}ta-da!\r
+{STRVAR_1 1, 0, 0} forgot\n{STRVAR_1 6, 1, 0}.\r
 And...\r
 {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!{WAIT 5}{WAIT 2}\r
 {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} rose!
@@ -1239,12 +1239,12 @@ It failed to affect\nthe opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} is exerting\nits {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} is exerting\nits {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is exerting\nits {STRVAR_1 5, 1, 0}!
-The Lucky Chant shielded your team\nfrom critical hits!
+Lucky Chant shielded your team\nfrom critical hits!
 Lucky Chant shielded the opposing team\nfrom critical hits!
 It broke through\n{STRVAR_1 1, 0, 0}’s protection!
 It broke through the wild\n{STRVAR_1 1, 0, 0}’s protection!
 It broke through the opposing\n{STRVAR_1 1, 0, 0}’s protection!
-A wild {STRVAR_1 1, 0, 0} appeared!
+{STRVAR_1 1, 0, 0} appeared!
 {STRVAR_1 1, 0, 0} became\ntrapped by swirling magma!
 The wild {STRVAR_1 1, 0, 0} became\ntrapped by swirling magma!
 The opposing {STRVAR_1 1, 0, 0} became\ntrapped by swirling magma!
@@ -1340,15 +1340,15 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was bounced back by\fMag
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
-{STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
-The wild {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
-The opposing {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal form!
+{STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal state!
+The wild {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal state!
+The opposing {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal state!
 {STRVAR_1 3, 0, 0}’s fervent wish has\nreached {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} set its\nAwakening Emera on its Looplet!
 (Unused)
-{STRVAR_1 1, 0, 0}’s illusion\nfaded!
-The wild {STRVAR_1 1, 0, 0}’s\nillusion faded!
-The opposing {STRVAR_1 1, 0, 0}’s\nillusion faded!
+{STRVAR_1 1, 0, 0}’s\nillusion wore off!
+The wild {STRVAR_1 1, 0, 0}’s\nillusion wore off!
+The opposing {STRVAR_1 1, 0, 0}’s\nillusion wore off!
 {STRVAR_1 1, 0, 0}’s disguise was busted!
 The wild {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
 The opposing {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
@@ -1394,9 +1394,9 @@ An electric current\nran across the battlefield!
 The electricity disappeared\nfrom the battlefield.
 The battlefield got weird!
 The weirdness disappeared\nfrom the battlefield.
-{STRVAR_1 1, 0, 0}’s HP\nwas restored.
-The wild {STRVAR_1 1, 0, 0}’s HP\nwas restored.
-The opposing {STRVAR_1 1, 0, 0}’s HP\nwas restored.
+{STRVAR_1 1, 0, 0} had\nits HP restored.
+The wild {STRVAR_1 1, 0, 0} had\nits HP restored.
+The opposing {STRVAR_1 1, 0, 0} had\nits HP restored.
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} weakened\nthe Sp. Atk of all surrounding\fPokémon!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Atk of\fall surrounding Pokémon!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} weakened the Sp. Atk of\fall surrounding Pokémon!
@@ -1461,3 +1461,23 @@ The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
 {STRVAR_1 1, 0, 0}’s burn was healed!
 The wild {STRVAR_1 1, 0, 0}’s burn was healed!
 The opposing {STRVAR_1 1, 0, 0}’s burn was healed!
+{STRVAR_1 1, 0, 0}\nhas two Abilities!
+The wild {STRVAR_1 1, 0, 0}\nhas two Abilities!
+The opposing {STRVAR_1 1, 0, 0}\nhas two Abilities!
+Fog crept up as thick as soup!
+A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
+A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
+A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
+The effects of the weather disappeared.
+{STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
+The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
+The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
+{STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
+{STRVAR_1 1, 0, 0} is\noverflowing with space power!
+The wild {STRVAR_1 1, 0, 0} is\noverflowing with space power!
+The opposing {STRVAR_1 1, 0, 0} is\noverflowing with space power!
+{STRVAR_1 1, 0, 0} absorbed\nelectricity!
+The wild {STRVAR_1 1, 0, 0} absorbed\nelectricity!
+The opposing {STRVAR_1 1, 0, 0} absorbed\nelectricity!

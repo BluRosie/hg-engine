@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+typedef struct SysTaskQueue SysTaskQueue;
 typedef struct SysTask SysTask;
 typedef void (*SysTaskFunc)(SysTask *task, void *data);
 
@@ -14,6 +15,27 @@ typedef struct TaskManager TaskManager;
 typedef struct FieldSystem FieldSystem;
 
 typedef BOOL (*TaskFunc)(TaskManager *taskman);
+
+typedef struct SysTask {
+    SysTaskQueue *queue;
+    SysTask *prev;
+    SysTask *next;
+    u32 priority;
+    void *data;
+    SysTaskFunc func;
+    u32 runNow;
+} SysTask;
+
+typedef struct SysTaskQueue {
+    u16 limit;
+    u16 activeCount;
+    SysTask headSentinel;
+    SysTask **taskStack;
+    SysTask *taskList;
+    BOOL isInsertingTask;
+    SysTask *runningTask;
+    SysTask *nextTask;
+} SysTaskQueue;
 
 struct TaskManager { //declared in field_system.h
     TaskManager *prev;
@@ -28,5 +50,6 @@ struct TaskManager { //declared in field_system.h
 
 SysTask *LONG_CALL CreateSysTask(SysTaskFunc func, void *data, int priority);
 void LONG_CALL DestroySysTask(SysTask *task);
+SysTask *LONG_CALL SysTask_CreateOnVBlankQueue(SysTaskFunc func, void *data, int priority);
 
 #endif

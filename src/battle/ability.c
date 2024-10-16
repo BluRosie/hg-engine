@@ -19,11 +19,10 @@
 // function declarations from this file
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
-BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
-u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
+//BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 BOOL MummyAbilityCheck(struct BattleStruct *sp);
 BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
-u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
+//u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
@@ -137,7 +136,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // Handle Bulletproof
+    // handle bulletproof
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
     {
         if (IsElementInArray(BulletproofMoveList, (u16 *)&sp->current_move_index, NELEMS(BulletproofMoveList), sizeof(BulletproofMoveList[0])))
@@ -194,6 +193,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // handle well baked body
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
+    {
+        if ((movetype == TYPE_FIRE) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
+        }
+    }
+
     // handle earth eater
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
     {
@@ -204,12 +212,35 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // handle queenly majesty, dazzling & armor tail
+    if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
+      || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
+      || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
+     && GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER
+     && GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT
+     && GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE)
+    {
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        {
+            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
+        }
+    }
+
+    // handle good as gold
+    /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
+    {
+        if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS)
+        {
+            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+        }
+    } */
+
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
     // Courtesy of Dray (https://github.com/Drayano60)
     if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
-            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
+            scriptnum = SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION;
         }
     }
 
@@ -261,7 +292,7 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
  *  @param value to check for.  made flexible for every circumstance, i.e. Moody needs to check if any stat can be raised/lowered
  *  @return TRUE if there is a stat stage not at the passed value; FALSE otherwise (yes accuracy and evasion count too)
  */
-BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion)
+BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion)
 {
     int counter = excludeAccuracyEvasion ? 5 : 7;
 
@@ -274,167 +305,6 @@ BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL 
     }
 
     return FALSE;
-}
-
-/**
- *  @brief check if client_no's ability should activate, specifically at the end of the turn.  loads subseq and returns TRUE if it should
- *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
- *  @param client_no is the battler whose ability to check for
- *  @return TRUE if subseq was loaded; FALSE otherwise
- */
-u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no)
-{
-    u32 ret = FALSE;
-    int seq_no;
-
-    switch (GetBattlerAbility(sp, client_no))
-    {
-        case ABILITY_SPEED_BOOST:
-            if ((sp->battlemon[client_no].hp)
-                && (sp->battlemon[client_no].states[STAT_SPEED] < 12)
-                && (sp->battlemon[client_no].moveeffect.fakeOutCount != (sp->total_turn + 1)))
-            {
-                sp->addeffect_param = ADD_STATE_SPEED_UP;
-                sp->addeffect_type = ADD_EFFECT_ABILITY;
-                sp->state_client = client_no;
-                seq_no = SUB_SEQ_BOOST_STATS;
-                ret = TRUE;
-            }
-            break;
-        case ABILITY_SHED_SKIN:
-            if ((sp->battlemon[client_no].condition & STATUS_ANY_PERSISTENT)
-                && (sp->battlemon[client_no].hp)
-                && (BattleRand(bw) % 10 < 3)) // 30% chance
-            {
-                if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
-                {
-                    sp->msg_work = MSG_HEAL_SLEEP;
-                }
-                else if (sp->battlemon[client_no].condition & STATUS_POISON_ANY)
-                {
-                    sp->msg_work = MSG_HEAL_POISON;
-                }
-                else if (sp->battlemon[client_no].condition & STATUS_FLAG_BURNED)
-                {
-                    sp->msg_work = MSG_HEAL_BURN;
-                }
-                else if (sp->battlemon[client_no].condition & STATUS_FLAG_PARALYZED)
-                {
-                    sp->msg_work = MSG_HEAL_PARALYSIS;
-                }
-                else
-                {
-                    sp->msg_work = MSG_HEAL_FROZEN;
-                }
-                sp->client_work = client_no;
-                seq_no = SUB_SEQ_SHED_SKIN;
-                ret = TRUE;
-            }
-            break;
-        case ABILITY_HEALER:
-            if ((sp->battlemon[BATTLER_ALLY(client_no)].condition & STATUS_ANY_PERSISTENT) // if the partner of the client has a status condition
-             && (sp->battlemon[client_no].hp)
-             && (sp->battlemon[BATTLER_ALLY(client_no)].hp)
-             && (BattleRand(bw) % 10 < 3)) // 30% chance
-            {
-                client_no = BATTLER_ALLY(client_no);
-                if (sp->battlemon[client_no].condition & STATUS_FLAG_ASLEEP)
-                {
-                    sp->msg_work = MSG_HEAL_SLEEP;
-                }
-                else if (sp->battlemon[client_no].condition & STATUS_POISON_ANY)
-                {
-                    sp->msg_work = MSG_HEAL_POISON;
-                }
-                else if (sp->battlemon[client_no].condition & STATUS_FLAG_BURNED)
-                {
-                    sp->msg_work = MSG_HEAL_BURN;
-                }
-                else if (sp->battlemon[client_no].condition & STATUS_FLAG_PARALYZED)
-                {
-                    sp->msg_work = MSG_HEAL_PARALYSIS;
-                }
-                else
-                {
-                    sp->msg_work = MSG_HEAL_FROZEN;
-                }
-                sp->client_work = client_no;
-                seq_no = SUB_SEQ_HANDLE_HEALER;
-                ret = TRUE;
-            }
-            break;
-        case ABILITY_HARVEST:
-            if ((sp->battlemon[client_no].hp)
-             && IS_ITEM_BERRY(sp->recycle_item[client_no])
-             && ((BattleRand(bw) % 2 == 0) // 50% chance
-              // OR sun is active + abilities are not fucking it
-              || ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-               && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
-               && (sp->field_condition & WEATHER_SUNNY_ANY))))
-            {
-                sp->item_work = sp->recycle_item[client_no];
-                sp->recycle_item[client_no] = 0;
-                sp->battlemon[client_no].item = sp->item_work;
-                seq_no = SUB_SEQ_HANDLE_HARVEST;
-                ret = TRUE;
-            }
-            break;
-        case ABILITY_MOODY: // this is going to be interesting
-            if (sp->battlemon[client_no].hp)
-            {
-                // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
-
-                int temp = BattleRand(bw) % 5;
-
-                if (AreAnyStatsNotAtValue(sp, client_no, 12, TRUE)) // if any stat can be lowered
-                {
-                    while (sp->battlemon[client_no].states[temp] == 12)
-                    {
-                        temp = BattleRand(bw) % 5;
-                    }
-                }
-                else
-                {
-                    sp->calc_work = 8; // skip the raising if this is the case
-                }
-                sp->calc_work = temp;
-
-
-                temp = BattleRand(bw) % 5;
-
-                if (AreAnyStatsNotAtValue(sp, client_no, 0, TRUE)) // if any stat can be raised
-                {
-                    while (sp->battlemon[client_no].states[temp] == 0
-                        || temp == sp->calc_work)
-                    {
-                        temp = BattleRand(bw) % 5;
-                    }
-                }
-                else
-                {
-                    sp->tokusei_work = 8; // skip the lowering if this is the case
-                }
-                sp->tokusei_work = temp; // VAR_ABILITY_TEMP2
-
-                sp->client_work = client_no;
-                sp->state_client = client_no;
-                seq_no = SUB_SEQ_HANDLE_MOODY;
-                ret = TRUE;
-            }
-        default:
-            break;
-    }
-
-    if (ret == TRUE)
-    {
-        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-        sp->next_server_seq_no = sp->server_seq_no;
-        sp->server_seq_no = MOVE_SEQUENCE_NO; // not sure what this corresponds to
-    }
-
-    return ret;
 }
 
 /**
@@ -541,11 +411,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
                     && (sp->battlemon[sp->attack_client].moveeffect.fakeOutCount != (sp->total_turn + 1)))
                 {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP + stat;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
@@ -560,11 +426,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 if (sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
                 {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
@@ -578,11 +440,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 if (sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
                 {
-                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
-                    sp->addeffect_type = ADD_EFFECT_ABILITY;
-                    sp->state_client = sp->attack_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;
@@ -595,11 +453,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
                 if (sp->battlemon[sp->attack_client].species == SPECIES_GRENINJA && sp->battlemon[sp->attack_client].form_no == 1)
                 {
-                    sp->state_client = sp->attack_client;
-                    sp->client_work = sp->attack_client;
-                    sp->battlemon[sp->attack_client].form_no = 2;
-                    seq_no[0] = SUB_SEQ_FORM_CHANGE;
-                    ret = TRUE;
+                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
                 }
             }
             break;

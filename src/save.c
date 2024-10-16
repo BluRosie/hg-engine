@@ -115,26 +115,17 @@ u32 LONG_CALL sqrt(u32 num)
 #ifdef DEBUG_PRINT_HEX_DUMP // will never pass ideally
 void LONG_CALL HexDumpMemory(u8 *start, u32 size)
 {
-    u8 buf[64];
     for (int i = 0x0; i < size; i += 0x10)
     {
-        sprintf(buf, "\n%08X:  ", (u32)&start[i]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+0], start[i+1]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+2], start[i+3]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+4], start[i+5]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+6], start[i+7]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+8], start[i+9]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+0xA], start[i+0xB]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+0xC], start[i+0xD]);
-        debugsyscall(buf);
-        sprintf(buf, "%02X %02X ", start[i+0xE], start[i+0xF]);
+        debug_printf("\n%08X:  ", (u32)&start[i]);
+        debug_printf("%02X %02X ", start[i+0], start[i+1]);
+        debug_printf("%02X %02X ", start[i+2], start[i+3]);
+        debug_printf("%02X %02X ", start[i+4], start[i+5]);
+        debug_printf("%02X %02X ", start[i+6], start[i+7]);
+        debug_printf("%02X %02X ", start[i+8], start[i+9]);
+        debug_printf("%02X %02X ", start[i+0xA], start[i+0xB]);
+        debug_printf("%02X %02X ", start[i+0xC], start[i+0xD]);
+        debug_printf("%02X %02X ", start[i+0xE], start[i+0xF]);
     }
 }
 #endif
@@ -729,7 +720,7 @@ BOOL LONG_CALL IsElementInArray(const void *array, void *element, u32 len, u32 s
     return FALSE;
 }
 
-#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+#if defined(DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES) || defined(DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL)
 
 #define sErrorMessagePrinterLock *(u32 *)(0x021D43B4)
 #define CRASH_MESSAGE_HEAP_CHAR_START 79
