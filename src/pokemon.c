@@ -1252,7 +1252,16 @@ BOOL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 m
     {
         return TRUE;
     }
-
+#ifdef IMPLEMENT_LEVEL_CAP && defined UNCAP_CANDIES_FROM_LEVEL_CAP
+    int currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID))
+    {        
+        if (currentLevel < 100 && itemID == ITEM_RARE_CANDY)
+        {
+            return TRUE;
+        }
+    }
+#endif
     return CanUseItemOnPokemon(mon, itemID, moveIdx, heapID);
 }
 
