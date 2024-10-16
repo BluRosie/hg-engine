@@ -13,6 +13,8 @@ _000:
     GotoIfCurrentMoveIsValidForParentalBond _012
 
 _010:
+    // Waggling a finger let it use {1}!
+    PrintMessage 1483, TAG_MOVE_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     GoToMoveScript FALSE
 
 _012:
