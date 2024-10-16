@@ -147,7 +147,7 @@ const u16 ParentalBondSingleStrikeMovesList[] = {
     MOVE_BOUNCE,
     MOVE_DIG,
     MOVE_DIVE,
-    // MOVE_ELECTRO_SHOT, // Not implemented yet
+    MOVE_ELECTRO_SHOT,
     MOVE_FLY,
     MOVE_FREEZE_SHOCK,
     MOVE_GEOMANCY,
@@ -2033,6 +2033,7 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
         case MOVE_SECRET_SWORD:
             *equivalentDefense = rawPhysicalDefense;
             break;
+        case MOVE_PHOTON_GEYSER:
         case MOVE_PRISMATIC_LASER:
             if (tempPhysicalAttack > tempSpecialAttack) {
                 *movesplit = SPLIT_PHYSICAL;
