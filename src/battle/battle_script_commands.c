@@ -91,7 +91,7 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
-BOOL CanKnockOffApply(struct BattleStruct *sp);
+BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -1980,7 +1980,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.msg_para[1] = sp->battlemon[sp->defence_client].ability;
         sp->mp.msg_para[2] = sp->current_move_index;
     }
-    else if (CanKnockOffApply(sp))
+    else if (CanKnockOffApply(bw, sp))
     {
         sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
         sp->mp.msg_tag = TAG_NICK_NICK_ITEM;
@@ -2405,7 +2405,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+    if (IsContactBeingMade(bw, sp)) {
         IncrementBattleScriptPtr(sp, address);
     }
     return FALSE;
@@ -2619,7 +2619,7 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleSt
     IncrementBattleScriptPtr(sp, 1);
 
     int address = read_battle_script_param(sp);
-    if (!CanKnockOffApply(sp))
+    if (!CanKnockOffApply(bw, sp))
         IncrementBattleScriptPtr(sp, address);
 
     return FALSE;
@@ -3284,7 +3284,7 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL CanKnockOffApply(struct BattleStruct *sp)
+BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
 {
     u32 item = sp->battlemon[sp->defence_client].item;
     u32 species = sp->battlemon[sp->defence_client].species;
@@ -3295,7 +3295,7 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
     if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 8)
         // rocky helmet does 1/6th total hp as damage
       || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 6))
-     && sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT
+     && IsContactBeingMade(bw, sp)
      && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
     {
         return FALSE;

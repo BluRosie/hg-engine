@@ -2956,6 +2956,14 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
  */
 BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
 
+/** 
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
