@@ -1482,3 +1482,6 @@ The opposing {STRVAR_1 1, 0, 0} is\noverflowing with space power!
 The wild {STRVAR_1 1, 0, 0} absorbed\nelectricity!
 The opposing {STRVAR_1 1, 0, 0} absorbed\nelectricity!
 Waggling a finger let it use\n{STRVAR_1 6, 1, 0}!
+{STRVAR_1 1, 0, 0} is about to be\nattacked by its {STRVAR_1 6, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} is about to be\nattacked by its {STRVAR_1 6, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} is about to be\nattacked by its {STRVAR_1 6, 1, 0}!
