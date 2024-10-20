@@ -1378,9 +1378,13 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro TryMegaDuringPursuit arg_0
+    .macro TryMegaOrUltraBurstDuringPursuit arg_0
     .long 252
     .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro CalcConfusionDamage
+    .long 253
     .endm
 
 .endif

@@ -82,7 +82,8 @@ BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
-BOOL btl_scr_cmd_FC_trymegaduringpursuit(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FC_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FD_calcconfusiondamage(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -354,7 +355,8 @@ const u8 *BattleScrCmdNames[] =
     "canclearprimalweather",
     "setabilityactivatedflag",
     "switchinabilitycheck",
-    "trymegaduringpursuit",
+    "trymegaorultraburstduringpursuit",
+    "calcconfusiondamage"
 };
 
 u32 cmdAddress = 0;
@@ -390,7 +392,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xF9 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_F9_canclearprimalweather,
     [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
     [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FB_switchinabilitycheck,
-    [0xFC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trymegaduringpursuit,
+    [0xFC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trymegaorultraburstduringpursuit,
+    [0xFD - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FD_calcconfusiondamage,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1956,7 +1959,8 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     u32 item = sp->battlemon[sp->defence_client].item;
 
     // sticky hold and substitute will keep the mon's held item, but the damage boost will still apply
-    if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE)
+    // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
+    if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
         sp->mp.msg_id = BATTLE_MSG_ABILITY_MADE_MOVE_INEFFECTIVE;
         sp->mp.msg_tag = TAG_NICK_ABILITY_MOVE;
@@ -2324,12 +2328,36 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no) {
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
     if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
-         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
+         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING)) ||
         (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED                             // holding Iron Ball
          || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
          || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
         // not in a semi-vulnerable state
         if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param attacker resolved battler attacker
+ *  @param defender resolved battler defender
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker, u32 defender) {
+    u8 holdeffect = HeldItemHoldEffectGet(sp, defender);
+
+    if ((!MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LEVITATE) && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
+         && (sp->battlemon[defender].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, defender, TYPE_FLYING)) ||
+        (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED                             // holding Iron Ball
+         || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
+         || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+        // not in a semi-vulnerable state
+        if ((sp->battlemon[defender].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
             return TRUE;
         }
     }
@@ -2905,10 +2933,10 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp) {
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_FC_trymegaduringpursuit(void *bw, struct BattleStruct *sp) {
+BOOL btl_scr_cmd_FC_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 
-    // debug_printf("In trymegaduringpursuit\n");
+    // debug_printf("In trymegaorultraburstduringpursuit\n");
 
     int script = 0;
     int failAddress = read_battle_script_param(sp);
@@ -2940,6 +2968,19 @@ BOOL btl_scr_cmd_FC_trymegaduringpursuit(void *bw, struct BattleStruct *sp) {
         // debug_printf("no script needed\n");
         IncrementBattleScriptPtr(sp, failAddress);
     }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_FD_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->moveOutCheck[ctx->attack_client].stoppedFromConfusion = TRUE;
+    ctx->defence_client = ctx->attack_client;
+    ctx->battlerIdTemp = ctx->defence_client;
+    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, ctx->attack_client, ctx->attack_client, 1);
+    ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+    ctx->hp_calc_work *= -1;
 
     return FALSE;
 }

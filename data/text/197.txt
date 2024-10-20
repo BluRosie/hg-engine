@@ -74,9 +74,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\fthe opposing {
 {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
 The wild {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
 The opposing {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
-{STRVAR_1 1, 0, 0} is already\npoisoned.
-The wild {STRVAR_1 1, 0, 0} is already\npoisoned.
-The opposing {STRVAR_1 1, 0, 0} is already\npoisoned.
+{STRVAR_1 1, 0, 0} is already\npoisoned!
+The wild {STRVAR_1 1, 0, 0} is already\npoisoned!
+The opposing {STRVAR_1 1, 0, 0}\nis already poisoned!
 {STRVAR_1 1, 0, 0} was badly\npoisoned!
 The wild {STRVAR_1 1, 0, 0} was badly\npoisoned!
 The opposing {STRVAR_1 1, 0, 0} was badly\npoisoned!
@@ -96,9 +96,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned the opposing\f{ST
 {STRVAR_1 1, 0, 0} is hurt\nby its burn!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby its burn!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby its burn!
-{STRVAR_1 1, 0, 0} already\nhas a burn.
-The wild {STRVAR_1 1, 0, 0} already\nhas a burn.
-The opposing {STRVAR_1 1, 0, 0} already\nhas a burn.
+{STRVAR_1 1, 0, 0} is already burned!
+The wild {STRVAR_1 1, 0, 0}\nis already burned!
+The opposing {STRVAR_1 1, 0, 0}\nis already burned!
 {STRVAR_1 1, 0, 0} was\nfrozen solid!
 The wild {STRVAR_1 1, 0, 0} was\nfrozen solid!
 The opposing {STRVAR_1 1, 0, 0} was\nfrozen solid!
@@ -540,9 +540,9 @@ The opposing {STRVAR_1 1, 0, 0} planted\nits roots!
 {STRVAR_1 1, 0, 0} absorbed\nnutrients with its roots!
 The wild {STRVAR_1 1, 0, 0} absorbed\nnutrients with its roots!
 The opposing {STRVAR_1 1, 0, 0} absorbed\nnutrients with its roots!
-{STRVAR_1 1, 0, 0} anchored\nitself with its roots!
-The wild {STRVAR_1 1, 0, 0} anchored\nitself with its roots!
-The opposing {STRVAR_1 1, 0, 0} anchored\nitself with its roots!
+{STRVAR_1 1, 0, 0}\nis anchored in place\fwith its roots!
+The wild {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its roots!
+The opposing {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its roots!
 {STRVAR_1 1, 1, 0} grew drowsy!
 The wild\n{STRVAR_1 1, 1, 0} grew drowsy!
 The opposing\n{STRVAR_1 1, 1, 0} grew drowsy!
@@ -657,9 +657,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents confusion!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} raised\nthe power of its Fire-type moves!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its Fire-type moves!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its Fire-type moves!
-{STRVAR_1 1, 0, 0} anchors\nitself with {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} anchors\nitself with {STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} anchors\nitself with {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
+The wild {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
+The opposing {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts {STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts the wild {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts the opposing {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
@@ -1476,3 +1476,33 @@ The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
 Waggling a finger let it use\n{STRVAR_1 6, 1, 0}!
+{STRVAR_1 1, 0, 0}\nis protected by the Electric Terrain!
+The wild {STRVAR_1 1, 0, 0}\nis protected by the Electric Terrain!
+The opposing {STRVAR_1 1, 0, 0}\nis protected by the Electric Terrain!
+{STRVAR_1 1, 0, 0}\nis not affected by\f{STRVAR_1 6, 1, 0}\fthanks to its Safety Goggles!
+The wild {STRVAR_1 1, 0, 0}\nis not affected by\f{STRVAR_1 6, 1, 0}\fthanks to its Safety Goggles!
+The opposing {STRVAR_1 1, 0, 0}\nis not affected by\f{STRVAR_1 6, 1, 0}\fthanks to its Safety Goggles!
+The move was blocked\nby the power of Dynamax!
+But {STRVAR_1 1, 0, 0} can’t use the move!
+But {STRVAR_1 1, 0, 0} can’t use it the way it is now!
+{STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
+The wild {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
+The opposing {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
+{STRVAR_1 1, 0, 0} surrounds itself with\na protective mist!
+The wild {STRVAR_1 1, 0, 0}\nsurrounds itself with\fa protective mist!
+The opposing {STRVAR_1 1, 0, 0}nsurrounds itself with\fa protective mist!
+{STRVAR_1 1, 0, 0}’s\nstats were not lowered!
+The wild {STRVAR_1 1, 0, 0}’s\nstats were not lowered!
+The opposing {STRVAR_1 1, 0, 0}’s\nstats were not lowered!
+{STRVAR_1 1, 0, 0}’s\nAttack was not lowered!
+The wild {STRVAR_1 1, 0, 0}’s\nAttack was not lowered!
+The opposing {STRVAR_1 1, 0, 0}’s\nAttack was not lowered!
+{STRVAR_1 1, 0, 0}’s\nDefense was not lowered!
+The wild {STRVAR_1 1, 0, 0}’s\nDefense was not lowered!
+The opposing {STRVAR_1 1, 0, 0}’s\nDefense was not lowered!
+{STRVAR_1 1, 0, 0}’s\naccuracy was not lowered!
+The wild {STRVAR_1 1, 0, 0}’s\naccuracy was not lowered!
+The opposing {STRVAR_1 1, 0, 0}’s\naccuracy was not lowered!
+{STRVAR_1 1, 0, 0}\nsurrounded itself with a veil\fof petals!
+The wild {STRVAR_1 1, 0, 0}\nsurrounded itself with a veil\fof petals!
+The opposing {STRVAR_1 1, 0, 0}\nsurrounded itself with a veil\fof petals!

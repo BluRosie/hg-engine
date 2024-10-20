@@ -12,6 +12,7 @@
 #include "../../include/constants/move_effects.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/system_control.h"
+#include "../../include/overlay.h"
 
 /********************************************************************************************************************/
 /********************************************************************************************************************/
@@ -181,7 +182,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                 // debug_printf("In SBA_RESET_FURY_CUTTER\n");
 
                 for (client_no = 0; client_no < client_set_max; client_no++) {
-                    if (((sp->battlemon[client_no].condition & 7) != 0) || (ST_ServerSelectWazaGet(sp, client_no) != MOVE_FURY_CUTTER) || (ST_CheckIfInTruant(sp, client_no) != FALSE) || (sp->oneTurnFlag[client_no].struggle_flag != 0))
+                    if (((sp->battlemon[client_no].condition & 7) != 0) || (GetBattlerSelectedMove(sp, client_no) != MOVE_FURY_CUTTER) || (ST_CheckIfInTruant(sp, client_no) != FALSE) || (sp->oneTurnFlag[client_no].struggle_flag != 0))
                         sp->battlemon[client_no].moveeffect.furyCutterCount = 0;
                 }
                 sp->sba_seq_no++;
@@ -358,8 +359,8 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
             case SBA_USING_ITEM: {
                 // debug_printf("In SBA_USING_ITEM\n");
 
-                // TODO: this line allows handling Ball Fetch after using a ball
-                script = SwitchInAbilityCheck(bw, sp);
+                    // TODO: this line allows handling Ball Fetch after using a ball
+                    script = SwitchInAbilityCheck(bw, sp);
 
                 if (script) {
                     // debug_printf("Detour SwitchInAbilityCheck\n");
@@ -441,7 +442,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
 
                     // 真氣拳
                     if (((sp->battlemon[client_no].condition & 7) == 0) &&
-                        (ST_ServerSelectWazaGet(sp, client_no) == MOVE_FOCUS_PUNCH) &&
+                        (GetBattlerSelectedMove(sp, client_no) == MOVE_FOCUS_PUNCH) &&
                         (ST_CheckIfInTruant(sp, client_no) == FALSE) &&
                         (sp->oneTurnFlag[client_no].struggle_flag == 0)) {
                         SCIO_BlankMessage(bw);
@@ -467,7 +468,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
             case SBA_RAGE: {
                 // debug_printf("In SBA_RAGE\n");
                 for (client_no = 0; client_no < client_set_max; client_no++) {
-                    if ((sp->battlemon[client_no].condition2 & 0x800000) && (ST_ServerSelectWazaGet(sp, client_no) != MOVE_RAGE)) {
+                    if ((sp->battlemon[client_no].condition2 & 0x800000) && (GetBattlerSelectedMove(sp, client_no) != MOVE_RAGE)) {
                         sp->battlemon[client_no].condition2 &= 0x800000;
                     }
                 }
@@ -531,6 +532,22 @@ enum {
  *  @param sp global battle structure
  */
 void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
+    u32 ovyId, offset;
+
+    void (*internalFunc)(void *bw, struct BattleStruct *sp);
+
+    UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
+
+    ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(void *bw, struct BattleStruct *sp))(offset);
+    internalFunc(bw, sp);
+    UnloadOverlayByID(ovyId);
+
+    HandleLoadOverlay(6, 2); // reload 6 so things are okay
+
+/*
     u32 runMyScriptInstead = 0;
     switch (sp->wb_seq_no) {
         case SEQ_MEGA_CHECK: {
@@ -689,4 +706,5 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
         ST_ServerTotteokiCountCalc(bw, sp);  // 801B570h
     }
     ST_ServerMetronomeBeforeCheck(bw, sp);  // 801ED20h
+*/
 }

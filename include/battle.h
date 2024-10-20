@@ -796,7 +796,7 @@ struct __attribute__((packed)) battle_moveflag
                u32 embargoFlag : 3;          /**< embargo duration */
                u32 knockOffFlag : 1;         /**< if the pokémon has lost its item.  used for unburden */
                u32 metronomeTurns : 4;       /**< how many turns the metronome item has run for */
-               u32 boostedAccuracy : 1;      /**< accuracy boosted flag */
+               u32 boostedAccuracy : 1;      /**< accuracy boosted flag, see Micle Berry */
                u32 custapBerryFlag : 1;      /**< whether the custap berry has activated */
                u32 quickClawFlag : 1;        /**< whether the quick claw activated */
                u32 meFirstFlag : 1;          /**< whether the move me first was used */
@@ -873,7 +873,7 @@ struct __attribute__((packed)) BattlePokemon
                u32 is_currently_terastallized : 1;
                u32 is_currently_dynamaxed : 1;
                u32 has_dynamaxed_before : 1; /**< for Cherrim and Flower Gift */
-               u32 : 5; // need to add to ClearBattleMonFlags when added to here as well
+               u32 type3 : 5; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -1716,6 +1716,65 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 sel_mons_no[CLIENT_MAX];
 };
 
+enum {
+    TRY_MOVE_START = 0,
+
+    // TRY_MOVE_STATE_ANNOUNCE_MOVE,    // just handle in each fail
+    TRY_MOVE_STATE_MOVE_TYPE_CHANGES,
+    // TRY_MOVE_STATE_ASSIGN_TARGET,    // TODO: just handle in original function, add Curse modernisation
+    // TRY_MOVE_STATE_ABILITY_REDIRECT_TARGET,
+    TRY_MOVE_STATE_REDIRECT_TARGET,
+    TRY_MOVE_STATE_DECREMENT_PP,
+    TRY_MOVE_STATE_CHOICE_LOCK,
+    TRY_MOVE_STATE_BURN_UP_OR_DOUBLE_SHOCK,
+    TRY_MOVE_STATE_PRIMAL_WEATHER,
+    TRY_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG,
+    TRY_MOVE_STATE_MOVE_FAILURES_1,
+    TRY_MOVE_STATE_ABILITY_FAILURES_1,
+    TRY_MOVE_STATE_INTERRUPTIBLE_MOVES,
+    TRY_MOVE_STATE_PROTEAN_OR_LIBERO,
+    TRY_MOVE_STATE_CHARGING_MOVE_MESSAGE,
+    TRY_MOVE_STATE_CHECK_STOLEN,
+    TRY_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
+    TRY_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
+    TRY_MOVE_STATE_SET_STEEL_BEAM_FLAG,
+    TRY_MOVE_STATE_CHECK_SKY_DROP_TARGET,
+    TRY_MOVE_STATE_SEMI_INVULNERABILITY,
+    TRY_MOVE_STATE_PSYCHIC_TERRAIN,
+    TRY_MOVE_STATE_TEAMMATE_PROTECTION,
+    TRY_MOVE_STATE_PROTECT_AND_FRIENDS,
+    TRY_MOVE_STATE_MAT_BLOCK,
+    TRY_MOVE_STATE_MAX_GUARD,
+    TRY_MOVE_STATE_MAGIC_COAT,
+    TRY_MOVE_STATE_TELEKINESIS_FAILURES,
+    TRY_MOVE_STATE_MAGIC_BOUNCE,
+    TRY_MOVE_STATE_ABILITY_FAILURES_2,
+    TRY_MOVE_STATE_TYPE_CHART_IMMUNITY,
+    TRY_MOVE_STATE_LEVITATE,
+    TRY_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE,
+    TRY_MOVE_STATE_SAFETY_GOGGLES,
+    TRY_MOVE_STATE_ABILITY_FAILURES_3,
+    TRY_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_1,
+    TRY_MOVE_STATE_MOVE_FAILURES_2,
+    TRY_MOVE_STATE_MOVE_FAILURES_3,
+    TRY_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2,
+    TRY_MOVE_STATE_UPROAR_STOPPING_MOVES,
+    TRY_MOVE_STATE_SAFEGUARD,
+    TRY_MOVE_STATE_TERRAIN_BLOCK,
+    TRY_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
+    TRY_MOVE_STATE_MIST,
+    TRY_MOVE_STATE_ABILITY_FAILURES_4,
+    TRY_MOVE_STATE_MOVE_ACCURACY,
+    TRY_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
+    TRY_MOVE_STATE_MIRROR_ARMOR,
+    TRY_MOVE_STATE_ROAR_WHIRLWIND_INTO_DYNAMAXED_TARGET,
+    TRY_MOVE_STATE_MOVE_FAILURES_4,
+    TRY_MOVE_STATE_MOVE_FAILURES_5,
+    TRY_MOVE_STATE_AROMA_VEIL,
+
+    TRY_MOVE_END,
+};
+
 extern u8 TypeEffectivenessTable[][3];
 
 
@@ -1770,7 +1829,7 @@ int LONG_CALL ST_ServerWaruagakiCheck(void *bw, struct BattleStruct *sp, int cli
 struct Save_DexData* LONG_CALL BattleWorkZukanWorkGet(void *bw);
 int LONG_CALL BattleWorkClientSetMaxGet(void*);
 u8 LONG_CALL ST_ServerAgiCalc(void*,void*,int ,int,int);
-u16 LONG_CALL ST_ServerSelectWazaGet(void*,int);
+u16 LONG_CALL GetBattlerSelectedMove(void*,int);
 BOOL LONG_CALL  ST_ServerNamakeCheck(void*,int);
 void LONG_CALL SCIO_BlankMessage(void*);
 BOOL LONG_CALL ServerSenseiCheck(void *bw, struct BattleStruct *sp);
@@ -2700,6 +2759,15 @@ void LONG_CALL PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int in
 BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
 
 /**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param attacker resolved battler attacker
+ *  @param defender resolved battler defender
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker, u32 defender);
+
+/**
  *  @brief check if waitmessage battle script command should end
  *
  *  @param sp global battle structure
@@ -2860,6 +2928,34 @@ BOOL LONG_CALL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *
  * @return TRUE if it is a valid move
  */
 BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL checkTempMove);
+
+/**
+ * @brief Check if the current move is a Powder move
+ * @param moveIndex move index
+ * @return TRUE if it is a Powder move
+*/
+BOOL LONG_CALL IsPowderMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a Weight move
+ * @param moveIndex move index
+ * @return TRUE if it is a Weight move
+*/
+BOOL LONG_CALL IsWeightMove(u32 moveIndex);
+
+/**
+ * @brief Check if the current move is a ball or bomb move
+ * @param moveIndex move index
+ * @return TRUE if it is a Weight move
+*/
+BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex);
+
+/// @brief Get the priority of the client
+/// @param bsys 
+/// @param ctx 
+/// @param battlerId 
+/// @return Priority
+int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
 /**
  * @brief gets the actual attack and defense for damage calculation
@@ -3109,8 +3205,29 @@ void LONG_CALL BattleControllerPlayer_PokemonInput(struct BattleSystem *bsys, st
 
 void LONG_CALL BattleControllerPlayer_RunInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-int  LONG_CALL BattleMon_GetMoveIndex(struct BattlePokemon *mon, u16 move);
+int LONG_CALL BattleMon_GetMoveIndex(struct BattlePokemon *mon, u16 move);
 
 BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
+
+void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+int LONG_CALL LowestFlagNo(u32 mask);
+
+int LONG_CALL Battler_GetRandomOpposingBattlerId(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+int LONG_CALL GetBattlerLearnedMoveCount(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move);
+
+/// @brief Checks if a client has the type
+/// @param ctx 
+/// @param battlerId 
+/// @param type 
+/// @return whether the client has the type
+BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL IfAbilityCanBeReplacedByWorrySeed(struct BattleStruct *ctx, int battlerId);
 
 #endif // BATTLE_H

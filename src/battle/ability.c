@@ -32,45 +32,6 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
 
-const u16 BulletproofMoveList[] =
-{
-    MOVE_ACID_SPRAY,
-    MOVE_AURA_SPHERE,
-    MOVE_BARRAGE,
-    MOVE_BULLET_SEED,
-    MOVE_EGG_BOMB,
-    MOVE_ELECTRO_BALL,
-    MOVE_ENERGY_BALL,
-    MOVE_FOCUS_BLAST,
-    MOVE_GYRO_BALL,
-    MOVE_ICE_BALL,
-    MOVE_MAGNET_BOMB,
-    MOVE_MIST_BALL,
-    MOVE_MUD_BOMB,
-    MOVE_OCTAZOOKA,
-    MOVE_POLLEN_PUFF,
-    MOVE_PYRO_BALL,
-    MOVE_ROCK_BLAST,
-    MOVE_ROCK_WRECKER,
-    MOVE_SEARING_SHOT,
-    MOVE_SEED_BOMB,
-    MOVE_SHADOW_BALL,
-    MOVE_SLUDGE_BOMB,
-    MOVE_WEATHER_BALL,
-    MOVE_ZAP_CANNON,
-};
-
-const u16 PowderMoveList[] = {
-    MOVE_COTTON_SPORE,
-    MOVE_MAGIC_POWDER,
-    MOVE_POISON_POWDER,
-    MOVE_POWDER,
-    MOVE_RAGE_POWDER,
-    MOVE_SLEEP_POWDER,
-    MOVE_STUN_SPORE,
-    MOVE_SPORE,
-};
-
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
  *
@@ -131,15 +92,6 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE)
     {
         if (IsMoveSoundBased(sp->current_move_index))
-        {
-            scriptnum = SUB_SEQ_SOUNDPROOF;
-        }
-    }
-
-    // handle bulletproof
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BULLETPROOF) == TRUE)
-    {
-        if (IsElementInArray(BulletproofMoveList, (u16 *)&sp->current_move_index, NELEMS(BulletproofMoveList), sizeof(BulletproofMoveList[0])))
         {
             scriptnum = SUB_SEQ_SOUNDPROOF;
         }
@@ -241,17 +193,6 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
         if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
             scriptnum = SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION;
-        }
-    }
-
-    // Handle Extremely Harsh Sunlight and Heavy Rain
-    if (!CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if ((sp->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) && (movetype == TYPE_WATER)) {
-            scriptnum = SUB_SEQ_CANCEL_WATER_MOVE;
-        }
-
-        if ((sp->field_condition & WEATHER_HEAVY_RAIN) && (movetype == TYPE_FIRE)) {
-            scriptnum = SUB_SEQ_CANCEL_FIRE_MOVE;
         }
     }
 

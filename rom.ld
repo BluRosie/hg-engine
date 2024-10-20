@@ -11,7 +11,7 @@ BattleWorkZukanWorkGet = 0x307C + 0x022378C1;
 BattleWorkClientSetMaxGet = 0x2F30 + 0x022378C1;
 ST_ServerAgiCalc = 0x18388 + 0x022378C1;
 Sub_GaugeObjHeadGet = 0x2E2F8 + 0x022378C1;
-ST_ServerSelectWazaGet = 0x1AA30 + 0x022378C1;
+GetBattlerSelectedMove = 0x1AA30 + 0x022378C1;
 ST_CheckIfInTruant = 0x1B380 + 0x022378C1;
 SCIO_BlankMessage = 0x2CA30 + 0x022378C1;
 BattleWorkFightMsgGet = 0x0223A930 | 1;
@@ -669,3 +669,14 @@ BagApp_GetSaveRoamers = 0x021F992C | 1;
 
 ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
+
+BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
+BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
+BattleControllerPlayer_RunInput = 0x0224AC94 | 1;
+BattleMon_GetMoveIndex = 0x02251C60 | 1;
+CheckTruant = 0x02252C40 | 1;
+CopyBattleMonToPartyMon = 0x02250C40 | 1;
+LowestFlagNo = 0x020726E0 | 1;
+Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
+GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
+CanSwitchMon = 0x02252890 | 1;

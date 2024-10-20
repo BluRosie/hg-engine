@@ -151,5 +151,8 @@ UNCOMPRESSED equ 0x00000000
 .word 139, 0x023C2400, filesize("base/overlay/overlay_0139.bin"), 0x00000000, 0x00000000, 0x00000000, 139, UNCOMPRESSED // BattleFormChangeCheck specific overlay
 .word 140, 0x023C0400, filesize("base/overlay/overlay_0140.bin"), 0x00000000, 0x00000000, 0x00000000, 140, UNCOMPRESSED // CheckDefenderItemEffectOnHit specific overlay
 .word 141, 0x023C0400, filesize("base/overlay/overlay_0141.bin"), 0x00000000, 0x00000000, 0x00000000, 141, UNCOMPRESSED // ServerFieldConditionCheck specific overlay
+.word 142, 0x023C0400, filesize("base/overlay/overlay_0142.bin"), 0x00000000, 0x00000000, 0x00000000, 142, UNCOMPRESSED // BattleController_BeforeMove specific overlay
+.word 143, 0x023C0400, filesize("base/overlay/overlay_0143.bin"), 0x00000000, 0x00000000, 0x00000000, 143, UNCOMPRESSED // BattleController_TryMove specific overlay
+.word 143, 0x023C0400, filesize("base/overlay/overlay_0144.bin"), 0x00000000, 0x00000000, 0x00000000, 144, UNCOMPRESSED // BattleController_TryMove2 specific overlay haha wtf
 
 .close
