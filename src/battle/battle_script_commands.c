@@ -2927,7 +2927,7 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp) {
 }
 
 /**
- *  @brief script command to check if Mega Evolution is needed during Pursuit
+ *  @brief script command to check if Mega Evolution or Ultra Burst is needed to be queued for the attacker during Pursuit
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2972,6 +2972,13 @@ BOOL btl_scr_cmd_FC_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
     return FALSE;
 }
 
+/**
+ *  @brief script command to calculate confusion damage since we cannot load both overlays at the same time
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
 BOOL btl_scr_cmd_FD_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
