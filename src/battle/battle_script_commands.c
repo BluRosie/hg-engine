@@ -82,6 +82,7 @@ BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -1175,6 +1176,36 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
     return FALSE;
 };
 
+BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 unkA = read_battle_script_param(ctx);
+
+    // Metronome uses a different message
+    if (ctx->current_move_index != MOVE_METRONOME) {
+        ctx->server_status_flag &= ~BATTLE_STATUS_NO_ATTACK_MESSAGE;
+    }
+    
+    ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
+
+    ctx->current_move_index = ctx->waza_work;
+
+    if (unkA == 0) {
+        ctx->defence_client = ov12_022506D4(bsys, ctx, ctx->attack_client, (u16)ctx->waza_work, 1, 0);
+        ov12_02250A18(bsys, ctx, ctx->attack_client, ctx->waza_work);
+        ctx->playerActions[ctx->attack_client][1] = ctx->defence_client;
+    }
+
+    if (ctx->defence_client == BATTLER_NONE) {
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+        JumpToMoveEffectScript(ctx, 1, SUB_SEQ_NO_TARGET);
+    } else {
+        JumpToMoveEffectScript(ctx, 0, ctx->current_move_index);
+    }
+
+    return FALSE;
+}
+
 /**
  *  @brief script command to start the experience loop
  *
@@ -1319,15 +1350,15 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         monCountFromItem = 0;
         for (int i = 0; i < party->count; i++)
         {
-            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
-            if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
+            struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+            if ((GetMonData(pploop, MON_DATA_SPECIES, NULL)) && (GetMonData(pploop, MON_DATA_HP, NULL)))
             {
                 if (expcalc->sp->obtained_exp_right_flag[client_no /*(expcalc->sp->fainting_client >> 1) & 1*/] & No2Bit(i))
                 {
                     monCount++;
                 }
 
-                item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+                item = GetMonData(pploop, MON_DATA_HELD_ITEM, NULL);
                 eqp = BattleItemDataGet(expcalc->sp, item, 1);
 
                 if (eqp == HOLD_EFFECT_EXP_SHARE)
@@ -1346,15 +1377,32 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
             u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
-            totalexp = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-            totalexp = (totalexp * level) / 5;
+            u32 base = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
+            totalexp = (base * level) / 5;
 
-            u32 top = (2*level + 10) * (2*level + 10); // tack on the square root later
+            u32 top = (2*level + 10) * (2*level + 10) * sqrt(2*level + 10);
             u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
 
-            totalexp *= top;
-            totalexp /= bottom;
-            totalexp = totalexp * sqrt(2*level + 10); // square root tacked on
+            u32 result = top * totalexp;
+            // top is at minimum 3 (beat a level 3 mon), don't need to worry about it being 0
+            if (/*top != 0 && */(result / top) != totalexp)
+            {
+                // the only way that this is possible is if an overflow happened--the top value is going to be really high, so we correct the top to prevent overflow
+                //debug_printf("[Task_DistributeExp_Extend] Overflow detected...  result = %d\n", result);
+                // so basically the real bL*5 * top = (-1u) + (result + 1)
+                // max bL*5 * top = 7840980000 (level 1 manages to beat level 100 blissey)
+                // loops around to 3546012704
+                // so now we just need to add the results divided by bottom (and add another 1 to correct for what i'm looking at)
+                totalexp = result + 1;
+                totalexp = (totalexp / bottom) + (-1u / bottom) + 1;
+            }
+            else
+            {
+                totalexp *= top;
+                totalexp /= bottom;
+            }
+
+            //debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
             if (monCountFromItem)
             {
@@ -1711,7 +1759,9 @@ BOOL CheckMoveIsChargeMove(struct BattleStruct *sp, int moveNo) {
     case MOVE_EFFECT_DIG:
     case MOVE_EFFECT_BOUNCE:
     case MOVE_EFFECT_SHADOW_FORCE:
-    case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2 :
+    case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
+    case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
+    case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
         return TRUE;
     }
     return FALSE;

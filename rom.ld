@@ -271,7 +271,6 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
-get_ow_data_file_num = 0x0206A304 | 1;
 does_species_have_dimorphism = 0x0206A338 | 1;
 
 /*first E0 battle script commands*/
@@ -665,3 +664,6 @@ BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
+
+ov12_022506D4 = 0x022506D4 | 1;
+ov12_02250A18 = 0x02250A18 | 1;
