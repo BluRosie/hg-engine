@@ -34,6 +34,7 @@ _063:
 
 _069:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_LEVITATE_IMMUNE, _081
+    //TODO: Add ability popup
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoTo _179
@@ -41,7 +42,6 @@ _069:
 _081:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_MAGNET_RISE_IMMUNE, _097
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_MAGNET_RISE
-    //TODO: Add ability popup
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoTo _179
