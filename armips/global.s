@@ -22,6 +22,7 @@
 
 .include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
 .include "armips/asm/tm_palettes.s" // allows editing of pallete table for TMs 
+.include "armips/asm/hidden_items.s" // allows editing of hidden items for Dowsing Machine 
 
 .if REUSABLE_TMS == 1
 
