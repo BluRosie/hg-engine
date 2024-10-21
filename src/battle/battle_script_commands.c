@@ -82,6 +82,7 @@ BOOL btl_scr_cmd_F8_clearbindcounter(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
+BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -90,6 +91,7 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
+BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
@@ -1176,6 +1178,36 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
     return FALSE;
 };
 
+BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 unkA = read_battle_script_param(ctx);
+
+    // Metronome uses a different message
+    if (ctx->current_move_index != MOVE_METRONOME) {
+        ctx->server_status_flag &= ~BATTLE_STATUS_NO_ATTACK_MESSAGE;
+    }
+    
+    ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
+
+    ctx->current_move_index = ctx->waza_work;
+
+    if (unkA == 0) {
+        ctx->defence_client = ov12_022506D4(bsys, ctx, ctx->attack_client, (u16)ctx->waza_work, 1, 0);
+        ov12_02250A18(bsys, ctx, ctx->attack_client, ctx->waza_work);
+        ctx->playerActions[ctx->attack_client][1] = ctx->defence_client;
+    }
+
+    if (ctx->defence_client == BATTLER_NONE) {
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+        JumpToMoveEffectScript(ctx, 1, SUB_SEQ_NO_TARGET);
+    } else {
+        JumpToMoveEffectScript(ctx, 0, ctx->current_move_index);
+    }
+
+    return FALSE;
+}
+
 /**
  *  @brief script command to start the experience loop
  *
@@ -1950,7 +1982,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.msg_para[1] = sp->battlemon[sp->defence_client].ability;
         sp->mp.msg_para[2] = sp->current_move_index;
     }
-    else if (CanKnockOffApply(sp))
+    else if (CanKnockOffApply(bw, sp))
     {
         sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
         sp->mp.msg_tag = TAG_NICK_NICK_ITEM;
@@ -2375,7 +2407,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+    if (IsContactBeingMade(bw, sp)) {
         IncrementBattleScriptPtr(sp, address);
     }
     return FALSE;
@@ -2589,7 +2621,7 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleSt
     IncrementBattleScriptPtr(sp, 1);
 
     int address = read_battle_script_param(sp);
-    if (!CanKnockOffApply(sp))
+    if (!CanKnockOffApply(bw, sp))
         IncrementBattleScriptPtr(sp, address);
 
     return FALSE;
@@ -3254,7 +3286,7 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL CanKnockOffApply(struct BattleStruct *sp)
+BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
 {
     u32 item = sp->battlemon[sp->defence_client].item;
     u32 species = sp->battlemon[sp->defence_client].species;
@@ -3265,7 +3297,7 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
     if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 8)
         // rocky helmet does 1/6th total hp as damage
       || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 6))
-     && sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT
+     && IsContactBeingMade(bw, sp)
      && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
     {
         return FALSE;
