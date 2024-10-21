@@ -670,7 +670,7 @@ ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
 
 /* Stuff for Battle End Item */
-sPickupTable1 = 0x0226C404 | 1;
-sPickupTable2 = 0x0226C30C | 1;
-sPickupWeightTable = 0x0226CA4C | 1;
-sHoneyGatherChanceTable = 0x0226CA58 | 1;
+sPickupTable1 = 0x0226C404;
+sPickupTable2 = 0x0226C30C;
+sPickupWeightTable = 0x0226CA4C;
+sHoneyGatherChanceTable = 0x0226CA58;
