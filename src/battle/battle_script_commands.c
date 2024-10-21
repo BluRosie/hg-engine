@@ -92,6 +92,8 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL CanKnockOffApply(struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -3722,4 +3724,68 @@ u32 LoadCaptureSuccessSPANumEmitters(u32 id)
         return 5;
     else
         return BallToSpaIDs[id][2];
+}
+
+extern const u16 sPickupTable1[18];
+extern const u16 sPickupTable2[11];
+extern const u8 sPickupWeightTable[9];
+extern const u8 sHoneyGatherChanceTable[10];
+
+BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp) {
+    int rnd, i, j, k;
+    u16 species, item;
+    u8 ability, lvl;
+    struct PartyPokemon *mon;
+
+    IncrementBattleScriptPtr(sp, 1);
+
+    for (i = 0; i < Battle_GetClientPartySize(bw, 0); i++) {
+        mon     = Battle_GetClientPartyMon(bw, 0, i);
+        species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+        item    = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
+        ability = GetMonData(mon, MON_DATA_ABILITY, 0);
+        if (ability == ABILITY_PICKUP
+            && species != SPECIES_NONE
+            && species != SPECIES_EGG
+            && item == ITEM_NONE
+            && !(BattleRand(bw) % 10)) {
+            rnd = BattleRand(bw) % 100;
+            lvl = (GetMonData(mon, MON_DATA_LEVEL, 0) - 1) / 10;
+            if (lvl >= 10) {
+                lvl = 9;
+            }
+            for (j = 0; j < 9; j++) {
+                if (sPickupWeightTable[j] > rnd) {
+                    item = sPickupTable1[lvl + j];
+                    SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                    break;
+                } else if (rnd >= 98 && rnd <= 99) {
+                    item = sPickupTable2[lvl + (99 - rnd)];
+                    SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                    break;
+                }
+            }
+        }
+        if (ability == ABILITY_HONEY_GATHER
+            && species != SPECIES_NONE
+            && species != SPECIES_EGG
+            && item == ITEM_NONE) {
+            j   = 0;
+            k   = 10;
+            lvl = GetMonData(mon, MON_DATA_LEVEL, 0);
+            while (lvl > k) {
+                j++;
+                k += 10;
+            }
+
+            GF_ASSERT(j < 10);
+
+            if ((BattleRand(bw) % 100) < sHoneyGatherChanceTable[j]) {
+                j = ITEM_HONEY;
+                SetMonData(mon, MON_DATA_HELD_ITEM, &j);
+            }
+        }
+    }
+
+    return FALSE;
 }
