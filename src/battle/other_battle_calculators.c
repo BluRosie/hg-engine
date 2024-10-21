@@ -319,6 +319,33 @@ const u16 MaxMoveList[] = {
     MOVE_MAX_STEELSPIKE,
 };
 
+const u16 PunchingMovesTable[] = {
+    MOVE_BULLET_PUNCH,
+    MOVE_COMET_PUNCH,
+    MOVE_DIZZY_PUNCH,
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_DRAIN_PUNCH,
+    MOVE_DYNAMIC_PUNCH,
+    MOVE_FIRE_PUNCH,
+    MOVE_FOCUS_PUNCH,
+    MOVE_HAMMER_ARM,
+    MOVE_HEADLONG_RUSH,
+    MOVE_ICE_HAMMER,
+    MOVE_ICE_PUNCH,
+    MOVE_JET_PUNCH,
+    MOVE_MACH_PUNCH,
+    MOVE_MEGA_PUNCH,
+    MOVE_METEOR_MASH,
+    MOVE_PLASMA_FISTS,
+    MOVE_POWER_UP_PUNCH,
+    MOVE_RAGE_FIST,
+    MOVE_SHADOW_PUNCH,
+    MOVE_SKY_UPPERCUT,
+    MOVE_SURGING_STRIKES,
+    MOVE_THUNDER_PUNCH,
+    MOVE_WICKED_BLOW,
+};
+
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
@@ -2455,7 +2482,7 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
  * @param sp global battle structure
  * @return TRUE/FALSE
 */
-BOOL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp) {
+BOOL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
 
     // Attacker abilities
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
@@ -2475,7 +2502,9 @@ BOOL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp) {
     
     // Check for items attacker
     if (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        || HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+        // punching gloves prevents contact when attacking with punching moves
+        || (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+            && IsElementInArray(PunchingMovesTable, (u16 *)&sp->current_move_index, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
         // Kept in case people add their own
         // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
         ) {
@@ -2491,7 +2520,7 @@ BOOL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp) {
     }
 
     // Does the move make contact vanilla
-    if (IsContactBeingMade(bw, sp)) {
+    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
         return TRUE;
     }
 
