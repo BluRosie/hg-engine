@@ -14532,7 +14532,7 @@ mondata SPECIES_TORNADUS, "Tornadus"
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 120
     basefriendship 90
     growthrate GROWTH_SLOW
@@ -14553,7 +14553,7 @@ mondata SPECIES_THUNDURUS, "Thundurus"
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 120
     basefriendship 90
     growthrate GROWTH_SLOW
@@ -14616,7 +14616,7 @@ mondata SPECIES_LANDORUS, "Landorus"
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 3, 0
     items ITEM_NONE, ITEM_NONE
-    genderratio 255
+    genderratio 0
     eggcycles 120
     basefriendship 90
     growthrate GROWTH_SLOW

@@ -121,13 +121,13 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
 {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The wild {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The opposing {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0}!,\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the wild\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} paralyzed the opposing\f{STRVAR_1 1, 2, 0},\fso it may be unable to move!
 {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
 The wild {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
 The opposing {STRVAR_1 1, 0, 0} couldn’t move\nbecause it’s paralyzed!
@@ -488,7 +488,7 @@ The opposing {STRVAR_1 1, 0, 0} became\nthe center of attention!
 {STRVAR_1 1, 0, 0} began\ncharging power!
 The wild {STRVAR_1 1, 0, 0} began\ncharging power!
 The opposing {STRVAR_1 1, 0, 0} began\ncharging power!
-{STRVAR_1 6, 0, 0} turned into\n{STRVAR_1 6, 1, 0}!
+Nature Power turned into\n{STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
 The wild {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
 The opposing {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
@@ -1475,6 +1475,13 @@ The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\ncannot use {STRVAR_1 6, 1, 0}!
+{STRVAR_1 1, 0, 0} is\noverflowing with space power!
+The wild {STRVAR_1 1, 0, 0} is\noverflowing with space power!
+The opposing {STRVAR_1 1, 0, 0} is\noverflowing with space power!
+{STRVAR_1 1, 0, 0} absorbed\nelectricity!
+The wild {STRVAR_1 1, 0, 0} absorbed\nelectricity!
+The opposing {STRVAR_1 1, 0, 0} absorbed\nelectricity!
+Waggling a finger let it use\n{STRVAR_1 6, 1, 0}!
 A sticky web has been laid out on the\nground around your team!
 A sticky web has been laid out on the\nground around the opposing team!
 {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
