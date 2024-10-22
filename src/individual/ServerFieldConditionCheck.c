@@ -556,7 +556,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     if ((GetBattlerAbility(sp, battlerId) == ABILITY_SHED_SKIN
                                     && sp->battlemon[battlerId].condition & STATUS_ANY_PERSISTENT
                                     && sp->battlemon[battlerId].hp
-                                    && (BattleRand(bw) % 10 < 3))  // 30% chance
+                                    && (BattleRand(bw) % 3 == 0))  // Generation V onward: Shed Skin has a 1/3 chance of curing the Pokémon.
                                     || (GetBattlerAbility(sp, battlerId) == ABILITY_HYDRATION
                                     && sp->field_condition & WEATHER_RAIN_ANY
                                     && sp->battlemon[battlerId].hp
