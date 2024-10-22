@@ -5,6 +5,7 @@
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
+#include "../include/constants/file.h"
 #include "../include/party_menu.h"
 
 #if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
@@ -83,3 +84,47 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
     return count;
 }
 
+
+void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
+{
+    ClearFrameAndWindow2(&wk->windows[PARTY_MENU_WINDOW_ID_32], TRUE);
+
+    u8 *buf;
+    buf = sys_AllocMemory(HEAP_ID_PARTY_MENU, MAX_BUTTONS_IN_PARTY_MENU);
+    u8 numItems;
+
+    switch (wk->dat->mode)//(partyMenu->args->context)
+    {
+    case PARTY_MENU_CONTEXT_0:
+        numItems = sub_0207B0B0(wk, buf);
+        break;
+    case PARTY_MENU_CONTEXT_UNION_ROOM_BATTLE_SELECT:
+    case PARTY_MENU_CONTEXT_17:
+        numItems = sub_0207B23C(wk, buf);
+        break;
+    case PARTY_MENU_CONTEXT_ATTACH_CAPSULE:
+        numItems = PartyMenu_SetContextMenuItems_GiveCapsule(wk, buf);
+        break;
+    case PARTY_MENU_CONTEXT_18:
+        numItems = sub_0207B1C8(wk, buf);
+        break;
+    case PARTY_MENU_CONTEXT_SPIN_TRADE:
+        numItems = PartyMenu_SetContextMenuItems_SpinTrade(wk, buf);
+        break;
+    case PARTY_MENU_CONTEXT_BATTLE_HALL:
+        numItems = PartyMenu_SetContextMenuItems_BattleHallEntry(wk, buf);
+        break;
+    case PARTY_MENU_CONTEXT_23:
+        numItems = sub_0207B2DC(wk, buf);
+        break;
+    default:
+        numItems = sub_0207B200(wk, buf);
+        break;
+    }
+
+    PartyMenu_OpenContextMenu(wk, buf, numItems);
+    FreeToHeapExplicit(HEAP_ID_PARTY_MENU, buf);
+    sub_0207D1C8(wk);
+    PartyMenu_PrintMessageOnWindow33(wk, -1, TRUE);
+    thunk_Sprite_SetPalIndex(wk->sprites[PARTY_MENU_SPRITE_ID_CURSOR], 1);
+}
