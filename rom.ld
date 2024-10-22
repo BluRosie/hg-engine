@@ -665,3 +665,8 @@ BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
+
+
+FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
+MoveId_GetFieldEffectId = 0x0207BCC0 | 1;
+PartyMenu_ContextMenuAddFieldMove = 0x0207D0A0 | 1;
