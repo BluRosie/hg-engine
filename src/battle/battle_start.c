@@ -50,6 +50,9 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw)
     sp->original_terrain = bw->terrain;
     sp->original_bgId = bw->bgId;
 
+    sp->scw[0].stickyWebBattlerId = CLIENT_MAX; // init to invalid value to start
+    sp->scw[1].stickyWebBattlerId = CLIENT_MAX; // init to invalid value to start
+
     return sp;
 }
 
