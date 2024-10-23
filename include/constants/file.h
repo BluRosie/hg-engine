@@ -53,6 +53,7 @@
 #define HEAPID_DEFAULT 0
 #define HEAPID_MAIN_HEAP 3
 #define HEAPID_WORLD 11
+#define HEAP_ID_PARTY_MENU 12
 
 //overlay id's
 #define OVERLAY_WIFI 0
