@@ -802,6 +802,9 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
                 movepower = movepower * 2;
             }
+            if (AttackingMon.ability == ABILITY_HADRON_ENGINE) {
+                sp_attack = sp_attack * 4 / 3; // 5461/4096
+            }
             break;
         case MISTY_TERRAIN:
             if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
@@ -852,6 +855,10 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_FLOWER_GIFT)))
         {
             sp_defense = sp_defense * 15 / 10;
+        }
+        if ((field_cond & WEATHER_SUNNY_ANY) && (AttackingMon.ability == ABILITY_ORICHALCUM_PULSE))
+        {
+            attack = attack * 4 / 3; // 5461/4096
         }
     }
 
