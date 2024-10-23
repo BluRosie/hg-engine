@@ -41,8 +41,6 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 
     buf[count] = PARTY_MON_CONTEXT_MENU_SUMMARY;
     ++count;
-    buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
-    ++count;
     if (!FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom(wk->dat->fsys))
     {
         buf[count] = PARTY_MON_CONTEXT_MENU_SWITCH;
@@ -82,6 +80,9 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
         }
     }
 
+    buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
+    ++count;
+    
     return count;
 }
 
