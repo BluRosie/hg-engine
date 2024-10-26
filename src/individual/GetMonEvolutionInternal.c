@@ -411,7 +411,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 break;
             }
         }
-        if (level == 100 && usedItem == ITEM_RARE_CANDY)
+        if ((level == 100 || level == GetScriptVar(LEVEL_CAP_VARIABLE)) && usedItem == ITEM_RARE_CANDY)
         {
             species = GetMonEvolutionInternal(party, pokemon, EVOCTX_LEVELUP, usedItem, NULL);
             if (species) {
