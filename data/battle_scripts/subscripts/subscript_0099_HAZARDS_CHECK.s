@@ -77,6 +77,8 @@ _checkStickyWeb:
     PrintMessage 1486, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
+    // As of Gen 9: If Mirror Armor mon switches in, skip stat drop after displaying caught in webs message
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MIRROR_ARMOR, _checkStealthRock
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_STAT_CHANGE, BSCRIPT_VAR_BATTLER_SWITCH
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_SPEED_DOWN_1_STAGE
     Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
