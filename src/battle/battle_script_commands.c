@@ -3277,7 +3277,6 @@ BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp) {
         IncrementBattleScriptPtr(sp, adrs);
     } else {
         sp->side_condition[side] |= SIDE_STATUS_STICKY_WEB;
-        sp->scw[side].stickyWebBattlerId = sp->attack_client;                      // For Mirror Armor in doubles
         sp->scw[side].stickyWebBattlerSide = IsClientEnemy(bw, sp->attack_client); // For Court Change and Defiant
     }
 

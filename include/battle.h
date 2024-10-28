@@ -892,9 +892,8 @@ struct __attribute__((packed)) side_condition_work
 
     u32     spikesLayers            : 2;
     u32     toxicSpikesLayers       : 2;
-    u32     stickyWebBattlerId      : 2; // For Mirror Armor 
     u32     stickyWebBattlerSide    : 2; // For Court Change/Defiant
-    u32                             :24;
+    u32                             :26;
 };
 
 struct __attribute__((packed)) BattleAIWorkTable

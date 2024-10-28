@@ -1019,13 +1019,6 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     if (sp->battlemon[client].species == SPECIES_XERNEAS) {
         sp->battlemon[client].form_no = 1;
     }
-
-    // sticky web client tracking needs to clear when switched out for mirror armor
-    for (i = 0; i < 1; i++)
-    {
-        if (sp->scw[i].stickyWebBattlerId == client)
-            sp->scw[i].stickyWebBattlerId = CLIENT_MAX;
-    }
 }
 
 /**
