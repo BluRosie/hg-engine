@@ -105,4 +105,7 @@
 // IMPLEMENT_REUSABLE_REPELS defines whether or not a prompt to use another repel automatically appears upon the previous repel being used up
 #define IMPLEMENT_REUSABLE_REPELS
 
+// DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
+//#define DISABLE_ITEMS_IN_TRAINER_BATTLE
+
 #endif

@@ -486,3 +486,5 @@ arm9 form_evo_hook_2 0207641C 0
 0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
 0015 BagApp_GetRepelStepCountAddr 021F993C 3
 #endif
+
+0012 BattleContext_Main 022486B0 2
