@@ -965,6 +965,28 @@ typedef struct {
 } TerrainOverlay;
 
 
+typedef enum BattleSelectState {
+    SSI_STATE_SELECT_COMMAND_INIT,
+    SSI_STATE_1,
+    SSI_STATE_2,
+    SSI_STATE_3,
+    SSI_STATE_4,
+    SSI_STATE_5,
+    SSI_STATE_6,
+    SSI_STATE_7,
+    SSI_STATE_8,
+    SSI_STATE_9,
+    SSI_STATE_10,
+    SSI_STATE_11,
+    SSI_STATE_12,
+    SSI_STATE_13,
+    SSI_STATE_14,
+    SSI_STATE_15,
+    SSI_STATE_NO_MOVES,
+    SSI_STATE_END
+} BattleSelectState;
+
+
 /**
  *  @brief enum for command field from BattleStruct
  */
