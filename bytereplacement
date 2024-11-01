@@ -438,3 +438,6 @@ arm9 020902B8 60 B4 C0 46
 # one of a few terrain limiters, this one at least partially affects nature power/secret power/camouflage
 # need to disable each of their individual ones but i'm not on that computer rn and i'll get to it later
 0012 0223AB46 FF
+
+# _CreateTradeMon_hook setup
+0023 02259C40 60 B4 C0 46
