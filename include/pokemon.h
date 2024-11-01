@@ -1766,4 +1766,6 @@ void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **b
 
 BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
 
+void LONG_CALL CreateMon(struct PartyPokemon *mon, s32 species, s32 level, s32 fixedIV, s32 hasFixedPersonality, s32 fixedPersonality, s32 otIdType, s32 fixedOtId);
+
 #endif
