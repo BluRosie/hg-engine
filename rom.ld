@@ -665,3 +665,8 @@ BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
+
+CreateMon = 0x0206DE38 | 1;
+_GetNpcTradeName = 0x02259C1C | 1;
+MonSetTrainerMemo = 0x0208F260 | 1;
+MapHeader_GetMapSec = 0x0203B36C | 1;
