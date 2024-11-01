@@ -393,3 +393,19 @@ mov pc, r1
 
 CanUseItemOnMonInParty_return_address:
 .word 0
+
+.global _CreateTradeMon_hook
+_CreateTradeMon_hook:
+ldr r5, =_CreateTradeMon_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl _CreateTradeMon
+ldr r1, =_CreateTradeMon_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+_CreateTradeMon_return_address:
+.word 0
