@@ -486,3 +486,6 @@ arm9 form_evo_hook_2 0207641C 0
 0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
 0015 BagApp_GetRepelStepCountAddr 021F993C 3
 #endif
+
+#02259C40(+4)  _CreateTradeMon	(npc_trade.o)
+0023 _CreateTradeMon_hook 02259C44 5
