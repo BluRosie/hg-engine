@@ -56,6 +56,8 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
                 buf[count] = PARTY_MON_CONTEXT_MENU_ITEM;
             }
             ++count;
+            buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
+            ++count;
 #if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
             count = customFieldMoveCheckInPartyMenu(wk, pp, buf, count);
 #else
@@ -78,10 +80,19 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
             }
 #endif
         }
+        else
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
+            ++count;
+        }
+    }
+    else
+	{
+        buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
+        ++count;
     }
 
-    buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
-    ++count;
+
     
     return count;
 }
