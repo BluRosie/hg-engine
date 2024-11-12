@@ -429,7 +429,6 @@ arm9 020902B8 60 B4 C0 46
 # normal as a second type should show up in the dex/pc
 0018 021F21AE C0 46
 0014 021F3DB0 C0 46
-
 #ifndef IMPLEMENT_REUSABLE_REPELS
 0002 0224BAE4 10 B5 0C 1C E1 F5 6C FF
 0015 021F993C 10 B5 0C 1C FF F7 F4 FF
@@ -473,3 +472,16 @@ arm9 0204B948 FC
 arm9 0204B94C FC
 0012 0224655C FC
 0012 02246560 FC
+
+# Trainer class music table range
+arm9 08051886 50
+
+# Maintable combo range
+arm9 080517AA 64
+arm9 080517D4 64
+
+# Pokemon battle music table range
+arm9 080518CA 28
+
+# sTrainerEncounterMusicParam table range
+arm9 080550D4 2C
