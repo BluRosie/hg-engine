@@ -1,0 +1,12 @@
+Function 1:
+	CompareVarValue 0x4001 4
+	JumpIf DIFFERENT Function#2
+	SetOWPosition Overworld.0 18 0 10 Down
+	SetWarpPosition 2 20 3
+End 
+
+
+Function 2:
+End 
+
+

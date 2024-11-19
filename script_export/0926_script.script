@@ -1,0 +1,53 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 264
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#2
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#3
+	CheckBadge 3 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#5
+	Message 0
+Jump Function#6
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 264
+	JumpIf EQUAL Function#7
+	CheckFlag 259
+	JumpIf EQUAL Function#8
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#9
+	Message 6
+Jump Function#10
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	CheckFlag 264
+	JumpIf EQUAL Function#11
+End 
+
+

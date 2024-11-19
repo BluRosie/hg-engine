@@ -1,0 +1,2995 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TrainerID 0x8004
+	CMD_460 0x8004 0x4010
+	CMD_574 0x8001 0x800D
+	CompareVarValue 0x8001 51
+	CallIf EQUAL Function#1
+	CompareVarValue 0x8001 52
+	CallIf EQUAL Function#1
+	CompareVarValue 0x8001 53
+	CallIf EQUAL Function#1
+	CompareVarValue 0x8001 54
+	CallIf EQUAL Function#1
+	CheckTrainerFlag 0x8004
+	JumpIf EQUAL Function#2
+	TrainerTypeCheck 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#3
+	Check2vs2 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+Jump Function#3
+
+
+Script 2:
+	UseScript_#1
+
+
+Script 3:
+	UseScript_#1
+
+
+Script 4:
+	UseScript_#1
+
+
+Script 5:
+	UseScript_#1
+
+
+Script 6:
+	UseScript_#1
+
+
+Script 7:
+	UseScript_#1
+
+
+Script 8:
+	UseScript_#1
+
+
+Script 9:
+	UseScript_#1
+
+
+Script 10:
+	UseScript_#1
+
+
+Script 11:
+	UseScript_#1
+
+
+Script 12:
+	UseScript_#1
+
+
+Script 13:
+	UseScript_#1
+
+
+Script 14:
+	UseScript_#1
+
+
+Script 15:
+	UseScript_#1
+
+
+Script 16:
+	UseScript_#1
+
+
+Script 17:
+	UseScript_#1
+
+
+Script 18:
+	UseScript_#1
+
+
+Script 19:
+	UseScript_#1
+
+
+Script 20:
+	UseScript_#1
+
+
+Script 21:
+	UseScript_#1
+
+
+Script 22:
+	UseScript_#1
+
+
+Script 23:
+	UseScript_#1
+
+
+Script 24:
+	UseScript_#1
+
+
+Script 25:
+	UseScript_#1
+
+
+Script 26:
+	UseScript_#1
+
+
+Script 27:
+	UseScript_#1
+
+
+Script 28:
+	UseScript_#1
+
+
+Script 29:
+	UseScript_#1
+
+
+Script 30:
+	UseScript_#1
+
+
+Script 31:
+	UseScript_#1
+
+
+Script 32:
+	UseScript_#1
+
+
+Script 33:
+	UseScript_#1
+
+
+Script 34:
+	UseScript_#1
+
+
+Script 35:
+	UseScript_#1
+
+
+Script 36:
+	UseScript_#1
+
+
+Script 37:
+	UseScript_#1
+
+
+Script 38:
+	UseScript_#1
+
+
+Script 39:
+	UseScript_#1
+
+
+Script 40:
+	UseScript_#1
+
+
+Script 41:
+	UseScript_#1
+
+
+Script 42:
+	UseScript_#1
+
+
+Script 43:
+	UseScript_#1
+
+
+Script 44:
+	UseScript_#1
+
+
+Script 45:
+	UseScript_#1
+
+
+Script 46:
+	UseScript_#1
+
+
+Script 47:
+	UseScript_#1
+
+
+Script 48:
+	UseScript_#1
+
+
+Script 49:
+	UseScript_#1
+
+
+Script 50:
+	UseScript_#1
+
+
+Script 51:
+	UseScript_#1
+
+
+Script 52:
+	UseScript_#1
+
+
+Script 53:
+	UseScript_#1
+
+
+Script 54:
+	UseScript_#1
+
+
+Script 55:
+	UseScript_#1
+
+
+Script 56:
+	UseScript_#1
+
+
+Script 57:
+	UseScript_#1
+
+
+Script 58:
+	UseScript_#1
+
+
+Script 59:
+	UseScript_#1
+
+
+Script 60:
+	UseScript_#1
+
+
+Script 61:
+	UseScript_#1
+
+
+Script 62:
+	UseScript_#1
+
+
+Script 63:
+	UseScript_#1
+
+
+Script 64:
+	UseScript_#1
+
+
+Script 65:
+	UseScript_#1
+
+
+Script 66:
+	UseScript_#1
+
+
+Script 67:
+	UseScript_#1
+
+
+Script 68:
+	UseScript_#1
+
+
+Script 69:
+	UseScript_#1
+
+
+Script 70:
+	UseScript_#1
+
+
+Script 71:
+	UseScript_#1
+
+
+Script 72:
+	UseScript_#1
+
+
+Script 73:
+	UseScript_#1
+
+
+Script 74:
+	UseScript_#1
+
+
+Script 75:
+	UseScript_#1
+
+
+Script 76:
+	UseScript_#1
+
+
+Script 77:
+	UseScript_#1
+
+
+Script 78:
+	UseScript_#1
+
+
+Script 79:
+	UseScript_#1
+
+
+Script 80:
+	UseScript_#1
+
+
+Script 81:
+	UseScript_#1
+
+
+Script 82:
+	UseScript_#1
+
+
+Script 83:
+	UseScript_#1
+
+
+Script 84:
+	UseScript_#1
+
+
+Script 85:
+	UseScript_#1
+
+
+Script 86:
+	UseScript_#1
+
+
+Script 87:
+	UseScript_#1
+
+
+Script 88:
+	UseScript_#1
+
+
+Script 89:
+	UseScript_#1
+
+
+Script 90:
+	UseScript_#1
+
+
+Script 91:
+	UseScript_#1
+
+
+Script 92:
+	UseScript_#1
+
+
+Script 93:
+	UseScript_#1
+
+
+Script 94:
+	UseScript_#1
+
+
+Script 95:
+	UseScript_#1
+
+
+Script 96:
+	UseScript_#1
+
+
+Script 97:
+	UseScript_#1
+
+
+Script 98:
+	UseScript_#1
+
+
+Script 99:
+	UseScript_#1
+
+
+Script 100:
+	UseScript_#1
+
+
+Script 101:
+	UseScript_#1
+
+
+Script 102:
+	UseScript_#1
+
+
+Script 103:
+	UseScript_#1
+
+
+Script 104:
+	UseScript_#1
+
+
+Script 105:
+	UseScript_#1
+
+
+Script 106:
+	UseScript_#1
+
+
+Script 107:
+	UseScript_#1
+
+
+Script 108:
+	UseScript_#1
+
+
+Script 109:
+	UseScript_#1
+
+
+Script 110:
+	UseScript_#1
+
+
+Script 111:
+	UseScript_#1
+
+
+Script 112:
+	UseScript_#1
+
+
+Script 113:
+	UseScript_#1
+
+
+Script 114:
+	UseScript_#1
+
+
+Script 115:
+	UseScript_#1
+
+
+Script 116:
+	UseScript_#1
+
+
+Script 117:
+	UseScript_#1
+
+
+Script 118:
+	UseScript_#1
+
+
+Script 119:
+	UseScript_#1
+
+
+Script 120:
+	UseScript_#1
+
+
+Script 121:
+	UseScript_#1
+
+
+Script 122:
+	UseScript_#1
+
+
+Script 123:
+	UseScript_#1
+
+
+Script 124:
+	UseScript_#1
+
+
+Script 125:
+	UseScript_#1
+
+
+Script 126:
+	UseScript_#1
+
+
+Script 127:
+	UseScript_#1
+
+
+Script 128:
+	UseScript_#1
+
+
+Script 129:
+	UseScript_#1
+
+
+Script 130:
+	UseScript_#1
+
+
+Script 131:
+	UseScript_#1
+
+
+Script 132:
+	UseScript_#1
+
+
+Script 133:
+	UseScript_#1
+
+
+Script 134:
+	UseScript_#1
+
+
+Script 135:
+	UseScript_#1
+
+
+Script 136:
+	UseScript_#1
+
+
+Script 137:
+	UseScript_#1
+
+
+Script 138:
+	UseScript_#1
+
+
+Script 139:
+	UseScript_#1
+
+
+Script 140:
+	UseScript_#1
+
+
+Script 141:
+	UseScript_#1
+
+
+Script 142:
+	UseScript_#1
+
+
+Script 143:
+	UseScript_#1
+
+
+Script 144:
+	UseScript_#1
+
+
+Script 145:
+	UseScript_#1
+
+
+Script 146:
+	UseScript_#1
+
+
+Script 147:
+	UseScript_#1
+
+
+Script 148:
+	UseScript_#1
+
+
+Script 149:
+	UseScript_#1
+
+
+Script 150:
+	UseScript_#1
+
+
+Script 151:
+	UseScript_#1
+
+
+Script 152:
+	UseScript_#1
+
+
+Script 153:
+	UseScript_#1
+
+
+Script 154:
+	UseScript_#1
+
+
+Script 155:
+	UseScript_#1
+
+
+Script 156:
+	UseScript_#1
+
+
+Script 157:
+	UseScript_#1
+
+
+Script 158:
+	UseScript_#1
+
+
+Script 159:
+	UseScript_#1
+
+
+Script 160:
+	UseScript_#1
+
+
+Script 161:
+	UseScript_#1
+
+
+Script 162:
+	UseScript_#1
+
+
+Script 163:
+	UseScript_#1
+
+
+Script 164:
+	UseScript_#1
+
+
+Script 165:
+	UseScript_#1
+
+
+Script 166:
+	UseScript_#1
+
+
+Script 167:
+	UseScript_#1
+
+
+Script 168:
+	UseScript_#1
+
+
+Script 169:
+	UseScript_#1
+
+
+Script 170:
+	UseScript_#1
+
+
+Script 171:
+	UseScript_#1
+
+
+Script 172:
+	UseScript_#1
+
+
+Script 173:
+	UseScript_#1
+
+
+Script 174:
+	UseScript_#1
+
+
+Script 175:
+	UseScript_#1
+
+
+Script 176:
+	UseScript_#1
+
+
+Script 177:
+	UseScript_#1
+
+
+Script 178:
+	UseScript_#1
+
+
+Script 179:
+	UseScript_#1
+
+
+Script 180:
+	UseScript_#1
+
+
+Script 181:
+	UseScript_#1
+
+
+Script 182:
+	UseScript_#1
+
+
+Script 183:
+	UseScript_#1
+
+
+Script 184:
+	UseScript_#1
+
+
+Script 185:
+	UseScript_#1
+
+
+Script 186:
+	UseScript_#1
+
+
+Script 187:
+	UseScript_#1
+
+
+Script 188:
+	UseScript_#1
+
+
+Script 189:
+	UseScript_#1
+
+
+Script 190:
+	UseScript_#1
+
+
+Script 191:
+	UseScript_#1
+
+
+Script 192:
+	UseScript_#1
+
+
+Script 193:
+	UseScript_#1
+
+
+Script 194:
+	UseScript_#1
+
+
+Script 195:
+	UseScript_#1
+
+
+Script 196:
+	UseScript_#1
+
+
+Script 197:
+	UseScript_#1
+
+
+Script 198:
+	UseScript_#1
+
+
+Script 199:
+	UseScript_#1
+
+
+Script 200:
+	UseScript_#1
+
+
+Script 201:
+	UseScript_#1
+
+
+Script 202:
+	UseScript_#1
+
+
+Script 203:
+	UseScript_#1
+
+
+Script 204:
+	UseScript_#1
+
+
+Script 205:
+	UseScript_#1
+
+
+Script 206:
+	UseScript_#1
+
+
+Script 207:
+	UseScript_#1
+
+
+Script 208:
+	UseScript_#1
+
+
+Script 209:
+	UseScript_#1
+
+
+Script 210:
+	UseScript_#1
+
+
+Script 211:
+	UseScript_#1
+
+
+Script 212:
+	UseScript_#1
+
+
+Script 213:
+	UseScript_#1
+
+
+Script 214:
+	UseScript_#1
+
+
+Script 215:
+	UseScript_#1
+
+
+Script 216:
+	UseScript_#1
+
+
+Script 217:
+	UseScript_#1
+
+
+Script 218:
+	UseScript_#1
+
+
+Script 219:
+	UseScript_#1
+
+
+Script 220:
+	UseScript_#1
+
+
+Script 221:
+	UseScript_#1
+
+
+Script 222:
+	UseScript_#1
+
+
+Script 223:
+	UseScript_#1
+
+
+Script 224:
+	UseScript_#1
+
+
+Script 225:
+	UseScript_#1
+
+
+Script 226:
+	UseScript_#1
+
+
+Script 227:
+	UseScript_#1
+
+
+Script 228:
+	UseScript_#1
+
+
+Script 229:
+	UseScript_#1
+
+
+Script 230:
+	UseScript_#1
+
+
+Script 231:
+	UseScript_#1
+
+
+Script 232:
+	UseScript_#1
+
+
+Script 233:
+	UseScript_#1
+
+
+Script 234:
+	UseScript_#1
+
+
+Script 235:
+	UseScript_#1
+
+
+Script 236:
+	UseScript_#1
+
+
+Script 237:
+	UseScript_#1
+
+
+Script 238:
+	UseScript_#1
+
+
+Script 239:
+	UseScript_#1
+
+
+Script 240:
+	UseScript_#1
+
+
+Script 241:
+	UseScript_#1
+
+
+Script 242:
+	UseScript_#1
+
+
+Script 243:
+	UseScript_#1
+
+
+Script 244:
+	UseScript_#1
+
+
+Script 245:
+	UseScript_#1
+
+
+Script 246:
+	UseScript_#1
+
+
+Script 247:
+	UseScript_#1
+
+
+Script 248:
+	UseScript_#1
+
+
+Script 249:
+	UseScript_#1
+
+
+Script 250:
+	UseScript_#1
+
+
+Script 251:
+	UseScript_#1
+
+
+Script 252:
+	UseScript_#1
+
+
+Script 253:
+	UseScript_#1
+
+
+Script 254:
+	UseScript_#1
+
+
+Script 255:
+	UseScript_#1
+
+
+Script 256:
+	UseScript_#1
+
+
+Script 257:
+	UseScript_#1
+
+
+Script 258:
+	UseScript_#1
+
+
+Script 259:
+	UseScript_#1
+
+
+Script 260:
+	UseScript_#1
+
+
+Script 261:
+	UseScript_#1
+
+
+Script 262:
+	UseScript_#1
+
+
+Script 263:
+	UseScript_#1
+
+
+Script 264:
+	UseScript_#1
+
+
+Script 265:
+	UseScript_#1
+
+
+Script 266:
+	UseScript_#1
+
+
+Script 267:
+	UseScript_#1
+
+
+Script 268:
+	UseScript_#1
+
+
+Script 269:
+	UseScript_#1
+
+
+Script 270:
+	UseScript_#1
+
+
+Script 271:
+	UseScript_#1
+
+
+Script 272:
+	UseScript_#1
+
+
+Script 273:
+	UseScript_#1
+
+
+Script 274:
+	UseScript_#1
+
+
+Script 275:
+	UseScript_#1
+
+
+Script 276:
+	UseScript_#1
+
+
+Script 277:
+	UseScript_#1
+
+
+Script 278:
+	UseScript_#1
+
+
+Script 279:
+	UseScript_#1
+
+
+Script 280:
+	UseScript_#1
+
+
+Script 281:
+	UseScript_#1
+
+
+Script 282:
+	UseScript_#1
+
+
+Script 283:
+	UseScript_#1
+
+
+Script 284:
+	UseScript_#1
+
+
+Script 285:
+	UseScript_#1
+
+
+Script 286:
+	UseScript_#1
+
+
+Script 287:
+	UseScript_#1
+
+
+Script 288:
+	UseScript_#1
+
+
+Script 289:
+	UseScript_#1
+
+
+Script 290:
+	UseScript_#1
+
+
+Script 291:
+	UseScript_#1
+
+
+Script 292:
+	UseScript_#1
+
+
+Script 293:
+	UseScript_#1
+
+
+Script 294:
+	UseScript_#1
+
+
+Script 295:
+	UseScript_#1
+
+
+Script 296:
+	UseScript_#1
+
+
+Script 297:
+	UseScript_#1
+
+
+Script 298:
+	UseScript_#1
+
+
+Script 299:
+	UseScript_#1
+
+
+Script 300:
+	UseScript_#1
+
+
+Script 301:
+	UseScript_#1
+
+
+Script 302:
+	UseScript_#1
+
+
+Script 303:
+	UseScript_#1
+
+
+Script 304:
+	UseScript_#1
+
+
+Script 305:
+	UseScript_#1
+
+
+Script 306:
+	UseScript_#1
+
+
+Script 307:
+	UseScript_#1
+
+
+Script 308:
+	UseScript_#1
+
+
+Script 309:
+	UseScript_#1
+
+
+Script 310:
+	UseScript_#1
+
+
+Script 311:
+	UseScript_#1
+
+
+Script 312:
+	UseScript_#1
+
+
+Script 313:
+	UseScript_#1
+
+
+Script 314:
+	UseScript_#1
+
+
+Script 315:
+	UseScript_#1
+
+
+Script 316:
+	UseScript_#1
+
+
+Script 317:
+	UseScript_#1
+
+
+Script 318:
+	UseScript_#1
+
+
+Script 319:
+	UseScript_#1
+
+
+Script 320:
+	UseScript_#1
+
+
+Script 321:
+	UseScript_#1
+
+
+Script 322:
+	UseScript_#1
+
+
+Script 323:
+	UseScript_#1
+
+
+Script 324:
+	UseScript_#1
+
+
+Script 325:
+	UseScript_#1
+
+
+Script 326:
+	UseScript_#1
+
+
+Script 327:
+	UseScript_#1
+
+
+Script 328:
+	UseScript_#1
+
+
+Script 329:
+	UseScript_#1
+
+
+Script 330:
+	UseScript_#1
+
+
+Script 331:
+	UseScript_#1
+
+
+Script 332:
+	UseScript_#1
+
+
+Script 333:
+	UseScript_#1
+
+
+Script 334:
+	UseScript_#1
+
+
+Script 335:
+	UseScript_#1
+
+
+Script 336:
+	UseScript_#1
+
+
+Script 337:
+	UseScript_#1
+
+
+Script 338:
+	UseScript_#1
+
+
+Script 339:
+	UseScript_#1
+
+
+Script 340:
+	UseScript_#1
+
+
+Script 341:
+	UseScript_#1
+
+
+Script 342:
+	UseScript_#1
+
+
+Script 343:
+	UseScript_#1
+
+
+Script 344:
+	UseScript_#1
+
+
+Script 345:
+	UseScript_#1
+
+
+Script 346:
+	UseScript_#1
+
+
+Script 347:
+	UseScript_#1
+
+
+Script 348:
+	UseScript_#1
+
+
+Script 349:
+	UseScript_#1
+
+
+Script 350:
+	UseScript_#1
+
+
+Script 351:
+	UseScript_#1
+
+
+Script 352:
+	UseScript_#1
+
+
+Script 353:
+	UseScript_#1
+
+
+Script 354:
+	UseScript_#1
+
+
+Script 355:
+	UseScript_#1
+
+
+Script 356:
+	UseScript_#1
+
+
+Script 357:
+	UseScript_#1
+
+
+Script 358:
+	UseScript_#1
+
+
+Script 359:
+	UseScript_#1
+
+
+Script 360:
+	UseScript_#1
+
+
+Script 361:
+	UseScript_#1
+
+
+Script 362:
+	UseScript_#1
+
+
+Script 363:
+	UseScript_#1
+
+
+Script 364:
+	UseScript_#1
+
+
+Script 365:
+	UseScript_#1
+
+
+Script 366:
+	UseScript_#1
+
+
+Script 367:
+	UseScript_#1
+
+
+Script 368:
+	UseScript_#1
+
+
+Script 369:
+	UseScript_#1
+
+
+Script 370:
+	UseScript_#1
+
+
+Script 371:
+	UseScript_#1
+
+
+Script 372:
+	UseScript_#1
+
+
+Script 373:
+	UseScript_#1
+
+
+Script 374:
+	UseScript_#1
+
+
+Script 375:
+	UseScript_#1
+
+
+Script 376:
+	UseScript_#1
+
+
+Script 377:
+	UseScript_#1
+
+
+Script 378:
+	UseScript_#1
+
+
+Script 379:
+	UseScript_#1
+
+
+Script 380:
+	UseScript_#1
+
+
+Script 381:
+	UseScript_#1
+
+
+Script 382:
+	UseScript_#1
+
+
+Script 383:
+	UseScript_#1
+
+
+Script 384:
+	UseScript_#1
+
+
+Script 385:
+	UseScript_#1
+
+
+Script 386:
+	UseScript_#1
+
+
+Script 387:
+	UseScript_#1
+
+
+Script 388:
+	UseScript_#1
+
+
+Script 389:
+	UseScript_#1
+
+
+Script 390:
+	UseScript_#1
+
+
+Script 391:
+	UseScript_#1
+
+
+Script 392:
+	UseScript_#1
+
+
+Script 393:
+	UseScript_#1
+
+
+Script 394:
+	UseScript_#1
+
+
+Script 395:
+	UseScript_#1
+
+
+Script 396:
+	UseScript_#1
+
+
+Script 397:
+	UseScript_#1
+
+
+Script 398:
+	UseScript_#1
+
+
+Script 399:
+	UseScript_#1
+
+
+Script 400:
+	UseScript_#1
+
+
+Script 401:
+	UseScript_#1
+
+
+Script 402:
+	UseScript_#1
+
+
+Script 403:
+	UseScript_#1
+
+
+Script 404:
+	UseScript_#1
+
+
+Script 405:
+	UseScript_#1
+
+
+Script 406:
+	UseScript_#1
+
+
+Script 407:
+	UseScript_#1
+
+
+Script 408:
+	UseScript_#1
+
+
+Script 409:
+	UseScript_#1
+
+
+Script 410:
+	UseScript_#1
+
+
+Script 411:
+	UseScript_#1
+
+
+Script 412:
+	UseScript_#1
+
+
+Script 413:
+	UseScript_#1
+
+
+Script 414:
+	UseScript_#1
+
+
+Script 415:
+	UseScript_#1
+
+
+Script 416:
+	UseScript_#1
+
+
+Script 417:
+	UseScript_#1
+
+
+Script 418:
+	UseScript_#1
+
+
+Script 419:
+	UseScript_#1
+
+
+Script 420:
+	UseScript_#1
+
+
+Script 421:
+	UseScript_#1
+
+
+Script 422:
+	UseScript_#1
+
+
+Script 423:
+	UseScript_#1
+
+
+Script 424:
+	UseScript_#1
+
+
+Script 425:
+	UseScript_#1
+
+
+Script 426:
+	UseScript_#1
+
+
+Script 427:
+	UseScript_#1
+
+
+Script 428:
+	UseScript_#1
+
+
+Script 429:
+	UseScript_#1
+
+
+Script 430:
+	UseScript_#1
+
+
+Script 431:
+	UseScript_#1
+
+
+Script 432:
+	UseScript_#1
+
+
+Script 433:
+	UseScript_#1
+
+
+Script 434:
+	UseScript_#1
+
+
+Script 435:
+	UseScript_#1
+
+
+Script 436:
+	UseScript_#1
+
+
+Script 437:
+	UseScript_#1
+
+
+Script 438:
+	UseScript_#1
+
+
+Script 439:
+	UseScript_#1
+
+
+Script 440:
+	UseScript_#1
+
+
+Script 441:
+	UseScript_#1
+
+
+Script 442:
+	UseScript_#1
+
+
+Script 443:
+	UseScript_#1
+
+
+Script 444:
+	UseScript_#1
+
+
+Script 445:
+	UseScript_#1
+
+
+Script 446:
+	UseScript_#1
+
+
+Script 447:
+	UseScript_#1
+
+
+Script 448:
+	UseScript_#1
+
+
+Script 449:
+	UseScript_#1
+
+
+Script 450:
+	UseScript_#1
+
+
+Script 451:
+	UseScript_#1
+
+
+Script 452:
+	UseScript_#1
+
+
+Script 453:
+	UseScript_#1
+
+
+Script 454:
+	UseScript_#1
+
+
+Script 455:
+	UseScript_#1
+
+
+Script 456:
+	UseScript_#1
+
+
+Script 457:
+	UseScript_#1
+
+
+Script 458:
+	UseScript_#1
+
+
+Script 459:
+	UseScript_#1
+
+
+Script 460:
+	UseScript_#1
+
+
+Script 461:
+	UseScript_#1
+
+
+Script 462:
+	UseScript_#1
+
+
+Script 463:
+	UseScript_#1
+
+
+Script 464:
+	UseScript_#1
+
+
+Script 465:
+	UseScript_#1
+
+
+Script 466:
+	UseScript_#1
+
+
+Script 467:
+	UseScript_#1
+
+
+Script 468:
+	UseScript_#1
+
+
+Script 469:
+	UseScript_#1
+
+
+Script 470:
+	UseScript_#1
+
+
+Script 471:
+	UseScript_#1
+
+
+Script 472:
+	UseScript_#1
+
+
+Script 473:
+	UseScript_#1
+
+
+Script 474:
+	UseScript_#1
+
+
+Script 475:
+	UseScript_#1
+
+
+Script 476:
+	UseScript_#1
+
+
+Script 477:
+	UseScript_#1
+
+
+Script 478:
+	UseScript_#1
+
+
+Script 479:
+	UseScript_#1
+
+
+Script 480:
+	UseScript_#1
+
+
+Script 481:
+	UseScript_#1
+
+
+Script 482:
+	UseScript_#1
+
+
+Script 483:
+	UseScript_#1
+
+
+Script 484:
+	UseScript_#1
+
+
+Script 485:
+	UseScript_#1
+
+
+Script 486:
+	UseScript_#1
+
+
+Script 487:
+	UseScript_#1
+
+
+Script 488:
+	UseScript_#1
+
+
+Script 489:
+	UseScript_#1
+
+
+Script 490:
+	UseScript_#1
+
+
+Script 491:
+	UseScript_#1
+
+
+Script 492:
+	UseScript_#1
+
+
+Script 493:
+	UseScript_#1
+
+
+Script 494:
+	UseScript_#1
+
+
+Script 495:
+	UseScript_#1
+
+
+Script 496:
+	UseScript_#1
+
+
+Script 497:
+	UseScript_#1
+
+
+Script 498:
+	UseScript_#1
+
+
+Script 499:
+	UseScript_#1
+
+
+Script 500:
+	UseScript_#1
+
+
+Script 501:
+	UseScript_#1
+
+
+Script 502:
+	UseScript_#1
+
+
+Script 503:
+	UseScript_#1
+
+
+Script 504:
+	UseScript_#1
+
+
+Script 505:
+	UseScript_#1
+
+
+Script 506:
+	UseScript_#1
+
+
+Script 507:
+	UseScript_#1
+
+
+Script 508:
+	UseScript_#1
+
+
+Script 509:
+	UseScript_#1
+
+
+Script 510:
+	UseScript_#1
+
+
+Script 511:
+	UseScript_#1
+
+
+Script 512:
+	UseScript_#1
+
+
+Script 513:
+	UseScript_#1
+
+
+Script 514:
+	UseScript_#1
+
+
+Script 515:
+	UseScript_#1
+
+
+Script 516:
+	UseScript_#1
+
+
+Script 517:
+	UseScript_#1
+
+
+Script 518:
+	UseScript_#1
+
+
+Script 519:
+	UseScript_#1
+
+
+Script 520:
+	UseScript_#1
+
+
+Script 521:
+	UseScript_#1
+
+
+Script 522:
+	UseScript_#1
+
+
+Script 523:
+	UseScript_#1
+
+
+Script 524:
+	UseScript_#1
+
+
+Script 525:
+	UseScript_#1
+
+
+Script 526:
+	UseScript_#1
+
+
+Script 527:
+	UseScript_#1
+
+
+Script 528:
+	UseScript_#1
+
+
+Script 529:
+	UseScript_#1
+
+
+Script 530:
+	UseScript_#1
+
+
+Script 531:
+	UseScript_#1
+
+
+Script 532:
+	UseScript_#1
+
+
+Script 533:
+	UseScript_#1
+
+
+Script 534:
+	UseScript_#1
+
+
+Script 535:
+	UseScript_#1
+
+
+Script 536:
+	UseScript_#1
+
+
+Script 537:
+	UseScript_#1
+
+
+Script 538:
+	UseScript_#1
+
+
+Script 539:
+	UseScript_#1
+
+
+Script 540:
+	UseScript_#1
+
+
+Script 541:
+	UseScript_#1
+
+
+Script 542:
+	UseScript_#1
+
+
+Script 543:
+	UseScript_#1
+
+
+Script 544:
+	UseScript_#1
+
+
+Script 545:
+	UseScript_#1
+
+
+Script 546:
+	UseScript_#1
+
+
+Script 547:
+	UseScript_#1
+
+
+Script 548:
+	UseScript_#1
+
+
+Script 549:
+	UseScript_#1
+
+
+Script 550:
+	UseScript_#1
+
+
+Script 551:
+	UseScript_#1
+
+
+Script 552:
+	UseScript_#1
+
+
+Script 553:
+	UseScript_#1
+
+
+Script 554:
+	UseScript_#1
+
+
+Script 555:
+	UseScript_#1
+
+
+Script 556:
+	UseScript_#1
+
+
+Script 557:
+	UseScript_#1
+
+
+Script 558:
+	UseScript_#1
+
+
+Script 559:
+	UseScript_#1
+
+
+Script 560:
+	UseScript_#1
+
+
+Script 561:
+	UseScript_#1
+
+
+Script 562:
+	UseScript_#1
+
+
+Script 563:
+	UseScript_#1
+
+
+Script 564:
+	UseScript_#1
+
+
+Script 565:
+	UseScript_#1
+
+
+Script 566:
+	UseScript_#1
+
+
+Script 567:
+	UseScript_#1
+
+
+Script 568:
+	UseScript_#1
+
+
+Script 569:
+	UseScript_#1
+
+
+Script 570:
+	UseScript_#1
+
+
+Script 571:
+	UseScript_#1
+
+
+Script 572:
+	UseScript_#1
+
+
+Script 573:
+	UseScript_#1
+
+
+Script 574:
+	UseScript_#1
+
+
+Script 575:
+	UseScript_#1
+
+
+Script 576:
+	UseScript_#1
+
+
+Script 577:
+	UseScript_#1
+
+
+Script 578:
+	UseScript_#1
+
+
+Script 579:
+	UseScript_#1
+
+
+Script 580:
+	UseScript_#1
+
+
+Script 581:
+	UseScript_#1
+
+
+Script 582:
+	UseScript_#1
+
+
+Script 583:
+	UseScript_#1
+
+
+Script 584:
+	UseScript_#1
+
+
+Script 585:
+	UseScript_#1
+
+
+Script 586:
+	UseScript_#1
+
+
+Script 587:
+	UseScript_#1
+
+
+Script 588:
+	UseScript_#1
+
+
+Script 589:
+	UseScript_#1
+
+
+Script 590:
+	UseScript_#1
+
+
+Script 591:
+	UseScript_#1
+
+
+Script 592:
+	UseScript_#1
+
+
+Script 593:
+	UseScript_#1
+
+
+Script 594:
+	UseScript_#1
+
+
+Script 595:
+	UseScript_#1
+
+
+Script 596:
+	UseScript_#1
+
+
+Script 597:
+	UseScript_#1
+
+
+Script 598:
+	UseScript_#1
+
+
+Script 599:
+	UseScript_#1
+
+
+Script 600:
+	UseScript_#1
+
+
+Script 601:
+	UseScript_#1
+
+
+Script 602:
+	UseScript_#1
+
+
+Script 603:
+	UseScript_#1
+
+
+Script 604:
+	UseScript_#1
+
+
+Script 605:
+	UseScript_#1
+
+
+Script 606:
+	UseScript_#1
+
+
+Script 607:
+	UseScript_#1
+
+
+Script 608:
+	UseScript_#1
+
+
+Script 609:
+	UseScript_#1
+
+
+Script 610:
+	UseScript_#1
+
+
+Script 611:
+	UseScript_#1
+
+
+Script 612:
+	UseScript_#1
+
+
+Script 613:
+	UseScript_#1
+
+
+Script 614:
+	UseScript_#1
+
+
+Script 615:
+	UseScript_#1
+
+
+Script 616:
+	UseScript_#1
+
+
+Script 617:
+	UseScript_#1
+
+
+Script 618:
+	UseScript_#1
+
+
+Script 619:
+	UseScript_#1
+
+
+Script 620:
+	UseScript_#1
+
+
+Script 621:
+	UseScript_#1
+
+
+Script 622:
+	UseScript_#1
+
+
+Script 623:
+	UseScript_#1
+
+
+Script 624:
+	UseScript_#1
+
+
+Script 625:
+	UseScript_#1
+
+
+Script 626:
+	UseScript_#1
+
+
+Script 627:
+	UseScript_#1
+
+
+Script 628:
+	UseScript_#1
+
+
+Script 629:
+	UseScript_#1
+
+
+Script 630:
+	UseScript_#1
+
+
+Script 631:
+	UseScript_#1
+
+
+Script 632:
+	UseScript_#1
+
+
+Script 633:
+	UseScript_#1
+
+
+Script 634:
+	UseScript_#1
+
+
+Script 635:
+	UseScript_#1
+
+
+Script 636:
+	UseScript_#1
+
+
+Script 637:
+	UseScript_#1
+
+
+Script 638:
+	UseScript_#1
+
+
+Script 639:
+	UseScript_#1
+
+
+Script 640:
+	UseScript_#1
+
+
+Script 641:
+	UseScript_#1
+
+
+Script 642:
+	UseScript_#1
+
+
+Script 643:
+	UseScript_#1
+
+
+Script 644:
+	UseScript_#1
+
+
+Script 645:
+	UseScript_#1
+
+
+Script 646:
+	UseScript_#1
+
+
+Script 647:
+	UseScript_#1
+
+
+Script 648:
+	UseScript_#1
+
+
+Script 649:
+	UseScript_#1
+
+
+Script 650:
+	UseScript_#1
+
+
+Script 651:
+	UseScript_#1
+
+
+Script 652:
+	UseScript_#1
+
+
+Script 653:
+	UseScript_#1
+
+
+Script 654:
+	UseScript_#1
+
+
+Script 655:
+	UseScript_#1
+
+
+Script 656:
+	UseScript_#1
+
+
+Script 657:
+	UseScript_#1
+
+
+Script 658:
+	UseScript_#1
+
+
+Script 659:
+	UseScript_#1
+
+
+Script 660:
+	UseScript_#1
+
+
+Script 661:
+	UseScript_#1
+
+
+Script 662:
+	UseScript_#1
+
+
+Script 663:
+	UseScript_#1
+
+
+Script 664:
+	UseScript_#1
+
+
+Script 665:
+	UseScript_#1
+
+
+Script 666:
+	UseScript_#1
+
+
+Script 667:
+	UseScript_#1
+
+
+Script 668:
+	UseScript_#1
+
+
+Script 669:
+	UseScript_#1
+
+
+Script 670:
+	UseScript_#1
+
+
+Script 671:
+	UseScript_#1
+
+
+Script 672:
+	UseScript_#1
+
+
+Script 673:
+	UseScript_#1
+
+
+Script 674:
+	UseScript_#1
+
+
+Script 675:
+	UseScript_#1
+
+
+Script 676:
+	UseScript_#1
+
+
+Script 677:
+	UseScript_#1
+
+
+Script 678:
+	UseScript_#1
+
+
+Script 679:
+	UseScript_#1
+
+
+Script 680:
+	UseScript_#1
+
+
+Script 681:
+	UseScript_#1
+
+
+Script 682:
+	UseScript_#1
+
+
+Script 683:
+	UseScript_#1
+
+
+Script 684:
+	UseScript_#1
+
+
+Script 685:
+	UseScript_#1
+
+
+Script 686:
+	UseScript_#1
+
+
+Script 687:
+	UseScript_#1
+
+
+Script 688:
+	UseScript_#1
+
+
+Script 689:
+	UseScript_#1
+
+
+Script 690:
+	UseScript_#1
+
+
+Script 691:
+	UseScript_#1
+
+
+Script 692:
+	UseScript_#1
+
+
+Script 693:
+	UseScript_#1
+
+
+Script 694:
+	UseScript_#1
+
+
+Script 695:
+	UseScript_#1
+
+
+Script 696:
+	UseScript_#1
+
+
+Script 697:
+	UseScript_#1
+
+
+Script 698:
+	UseScript_#1
+
+
+Script 699:
+	UseScript_#1
+
+
+Script 700:
+	UseScript_#1
+
+
+Script 701:
+	UseScript_#1
+
+
+Script 702:
+	UseScript_#1
+
+
+Script 703:
+	UseScript_#1
+
+
+Script 704:
+	UseScript_#1
+
+
+Script 705:
+	UseScript_#1
+
+
+Script 706:
+	UseScript_#1
+
+
+Script 707:
+	UseScript_#1
+
+
+Script 708:
+	UseScript_#1
+
+
+Script 709:
+	UseScript_#1
+
+
+Script 710:
+	UseScript_#1
+
+
+Script 711:
+	UseScript_#1
+
+
+Script 712:
+	UseScript_#1
+
+
+Script 713:
+	UseScript_#1
+
+
+Script 714:
+	UseScript_#1
+
+
+Script 715:
+	UseScript_#1
+
+
+Script 716:
+	UseScript_#1
+
+
+Script 717:
+	UseScript_#1
+
+
+Script 718:
+	UseScript_#1
+
+
+Script 719:
+	UseScript_#1
+
+
+Script 720:
+	UseScript_#1
+
+
+Script 721:
+	UseScript_#1
+
+
+Script 722:
+	UseScript_#1
+
+
+Script 723:
+	UseScript_#1
+
+
+Script 724:
+	UseScript_#1
+
+
+Script 725:
+	UseScript_#1
+
+
+Script 726:
+	UseScript_#1
+
+
+Script 727:
+	UseScript_#1
+
+
+Script 728:
+	UseScript_#1
+
+
+Script 729:
+	UseScript_#1
+
+
+Script 730:
+	UseScript_#1
+
+
+Script 731:
+	UseScript_#1
+
+
+Script 732:
+	UseScript_#1
+
+
+Script 733:
+	UseScript_#1
+
+
+Script 734:
+	UseScript_#1
+
+
+Script 735:
+	UseScript_#1
+
+
+Script 736:
+	UseScript_#1
+
+
+Script 737:
+	UseScript_#1
+
+
+Script 738:
+	UseScript_#1
+
+
+Script 739:
+	UseScript_#1
+
+
+Script 740:
+	WaitFollowingPoke 
+	LockAll 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#5
+	Release Following
+	CMD_170 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#8
+End 
+
+

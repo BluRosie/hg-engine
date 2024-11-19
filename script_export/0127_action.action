@@ -1,0 +1,20 @@
+Action 1:
+	JumpDownSite 0x2
+End
+
+
+Action 2:
+	JumpUpSite 0x2
+End
+
+
+Action 3:
+	JumpRightSite 0x2
+End
+
+
+Action 4:
+	JumpLeftSite 0x2
+End
+
+

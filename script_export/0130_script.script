@@ -1,0 +1,59 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Movement Player Action#2
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	SetOWPosition Overworld.0 13 1 28 Up
+	SetVar 0x40FB 5
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	CloseMessage 
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	DoorAnimation 0 0 20 25 77
+	OpenDoor 77
+	WaitDoor 77
+	Movement Overworld.0 Action#6
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 731
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	SetVar 0x40FB 6
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CompareVarValue 0x40FB 5
+	JumpIf EQUAL Function#1
+End 
+
+
+Script 4:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 7 0x800C
+	CommonScript 2000
+End 
+
+

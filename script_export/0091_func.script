@@ -1,0 +1,211 @@
+Function 1:
+	CompareVarValue 0x4001 18
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.7 Action#13
+Jump Function#2
+
+
+Function 2:
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#14
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextRivalName 0
+	Message 3
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Overworld.7 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.7 Action#17
+	WaitMovement 
+	CommonScript 2032
+	RemoveOW Overworld.7
+	SetFlag 509
+	ReleaseAll 
+	SetVar 0x40AC 3
+End 
+
+
+Function 3:
+	Movement Player Action#18
+	Movement Overworld.18 Action#19
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.18 Action#20
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.18 Action#21
+	WaitMovement 
+	ClearFlag 500
+	AddOW Overworld.8
+	SetFlag 640
+	RemoveOW Overworld.18
+	Movement Overworld.8 Action#22
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	TrainerBattle 488 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Message 7
+	CloseMessage 
+	Movement Overworld.8 Action#23
+	WaitMovement 
+	RemoveOW Overworld.8
+	SetFlag 500
+	Movement Overworld.9 Action#24
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Message 9
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.9 Action#25
+	Movement Player Action#26
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40AC 4
+	RemoveOW Overworld.9
+	SetFlag 586
+	ClearFlag 587
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Movement Overworld.18 Action#19
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.18 Action#20
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.18 Action#21
+	WaitMovement 
+	ClearFlag 500
+	AddOW Overworld.8
+	SetFlag 640
+	RemoveOW Overworld.18
+	Movement Overworld.8 Action#22
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	TrainerBattle 488 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Message 7
+	CloseMessage 
+	Movement Overworld.8 Action#23
+	WaitMovement 
+	RemoveOW Overworld.8
+	SetFlag 500
+	Movement Overworld.9 Action#24
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Message 9
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.9 Action#25
+	Movement Player Action#26
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40AC 4
+	RemoveOW Overworld.9
+	SetFlag 586
+	ClearFlag 587
+	ReleaseAll 
+End 
+
+
+Function 5:
+End 
+
+
+Function 6:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+End 
+
+
+Function 8:
+	SetOWPosition Overworld.10 22 0 15 Up
+	SetOWPosition Overworld.11 22 0 15 Up
+End 
+
+
+Function 9:
+	Movement Overworld.7 Action#27
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#14
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextRivalName 0
+	Message 3
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Overworld.7 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.7 Action#17
+	WaitMovement 
+	CommonScript 2032
+	RemoveOW Overworld.7
+	SetFlag 509
+	ReleaseAll 
+	SetVar 0x40AC 3
+End 
+
+
+Function 10:
+	LostBattle 
+	ReleaseAll 
+End 
+
+

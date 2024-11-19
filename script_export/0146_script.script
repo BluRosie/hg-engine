@@ -1,0 +1,286 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckMoveInParty 0x800C 15
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#1
+	CheckBadge 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CloseMessage 
+Jump Function#3
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckMoveInParty 0x800C 249
+	SetVarFromVariable 0x8004 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#4
+	CheckBadge 0 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	Message 3
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CloseMessage 
+Jump Function#3
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Strength 2 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#6
+	Call Function#7
+Jump Function#3
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	CheckMoveInParty 0x800C 431
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#8
+	CheckBadge 15 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CheckPartner 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	Message 20
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CloseMessage 
+Jump Function#11
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	CheckPartner 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+	Message 14
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#13
+	CloseMessage 
+Jump Function#11
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	CheckMoveInParty 0x800C 127
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#14
+	CheckBadge 7 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	Message 24
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#15
+	CloseMessage 
+Jump Function#11
+
+
+Script 7:
+End 
+
+
+Script 8:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 1
+	CloseMessage 
+	CMD_727 0x8004
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#16
+	CutAnimation 0x8000
+	CMD_560 0 0x8005
+Jump Function#17
+
+
+Script 9:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 5
+	CloseMessage 
+	CMD_727 0x8004
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#18
+	SetVar 0x8007 0
+	CutAnimation 0x8000
+	CMD_560 1 0x8005
+Jump Function#19
+
+
+Script 10:
+	MecScript 
+	LockAll 
+	Strength 2 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#20
+	Call Function#7
+Jump Function#21
+
+
+Script 11:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 21
+	CloseMessage 
+	RockClimbAnimation 0x8000
+	ReleaseAll 
+End 
+
+
+Script 12:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 15
+	CloseMessage 
+	Release Player
+	SurfAnimation 0x8000
+	Lock Player
+	ReleaseAll 
+End 
+
+
+Script 13:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 25
+	CloseMessage 
+	Release Player
+	WaterfallAnimation 0x8000
+	Lock Player
+	ReleaseAll 
+End 
+
+
+Script 14:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 28
+	CloseMessage 
+	CMD_727 0x8005
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#22
+	CutAnimation 0x8000
+Jump Function#23
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckMoveInParty 0x800C 29
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#24
+	Message 32
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CloseMessage 
+Jump Function#3
+
+
+Script 16:
+	PlayFanfare 2182
+	WaitTime 12 0x800C
+	PlayFanfare 2183
+	ShakeCamera 0 4 2 8
+	ShakeCamera 0 2 1 8
+	WaitFanfare 2183
+	Message 13
+	WaitButton 
+	CloseMessage 
+End 
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	CheckMoveInParty 0x800C 250
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#26
+	CheckBadge 6 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	Message 29
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	CloseMessage 
+Jump Function#11
+
+
+Script 18:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 30
+	CloseMessage 
+	Release Player
+	WhirlpoolAnimation 0x8000
+	Lock Player
+	ReleaseAll 
+End 
+
+
+Script 19:
+	MecScript 
+	LockAll 
+	TextPokeNickname 0 0x8000
+	Message 33
+	CloseMessage 
+	CMD_727 0x8004
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#28
+	CutAnimation 0x8000
+	CMD_560 4 0x8005
+Jump Function#29
+
+

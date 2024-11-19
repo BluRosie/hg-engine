@@ -1,0 +1,84 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckItem 444 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Message 40
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_780 0
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetVar 0x4001 2
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetPlayerDirection 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#2
+	Call Function#3
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckItem 444 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#6
+	Message 34
+	SetVar 0x4001 1
+Jump Function#7
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_784 3
+	Message 0
+	OpenTouchScreen 
+	CMD_116 0
+	CommonScript 2
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 12 255 0
+	CreateMultiTouchBox 13 255 1
+	CreateMultiTouchBox 11 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#9
+Jump Function#10
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_784 3
+	Message 9
+	OpenTouchScreen 
+	CMD_116 0
+	CommonScript 2
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#11
+Jump Function#12
+
+

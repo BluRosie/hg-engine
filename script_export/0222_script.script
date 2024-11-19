@@ -1,0 +1,18 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 233
+	JumpIf EQUAL Function#1
+	Message 0
+	GetFirstAlivePokemonSlot 0x4000
+	GetPokemonHappiness 0x800C 0x4000
+	CompareVarValue 0x800C 150
+	JumpIf GREATER/EQUAL Function#2
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

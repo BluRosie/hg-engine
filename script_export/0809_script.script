@@ -1,0 +1,141 @@
+Script 1:
+	CMD_330 
+	CMD_142 26 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#1
+	CMD_147 26 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#2
+	CheckBadge 12 0x4002
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#3
+Jump Function#4
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 12 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	Message 0
+	CloseMessage 
+	SetVar 0x400B 111
+	TrainerBattle 257 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	SetVar 0x400B 0
+	GiveBadge 12
+	IncrementVar 0x4135 1
+	CMD_515 22
+	SetTrainerFlag 83
+	SetTrainerFlag 84
+	SetTrainerFlag 136
+	SetTrainerFlag 183
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	Message 3
+Jump Function#7
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 12 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckTrainerFlag 136
+	JumpIf EQUAL Function#9
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.8 Action#1
+Jump Function#11
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckTrainerFlag 84
+	JumpIf EQUAL Function#12
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.7 Action#1
+Jump Function#14
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckTrainerFlag 183
+	JumpIf EQUAL Function#15
+	Message 11
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#16
+	Movement Overworld.9 Action#1
+Jump Function#17
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckTrainerFlag 83
+	JumpIf EQUAL Function#18
+	Message 14
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#19
+	Movement Overworld.6 Action#1
+Jump Function#20
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 12 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#21
+	Message 17
+Jump Function#22
+
+
+Script 9:
+	CompareVarValue 0x400B 111
+	JumpIf DIFFERENT Function#23
+	CheckTrainerFlag 136
+	CallIf LESS Function#24
+	CheckTrainerFlag 84
+	CallIf LESS Function#25
+	CheckTrainerFlag 183
+	CallIf LESS Function#26
+	CheckTrainerFlag 83
+	CallIf LESS Function#27
+End 
+
+

@@ -1,0 +1,641 @@
+Function 1:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#6
+	Movement Player Action#3
+	Movement Overworld.12 Action#2
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#7
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 74 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#8
+	SetFlag 638
+End 
+
+
+Function 6:
+	Movement Player Action#5
+	Movement Overworld.12 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#7
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 74 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 74 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	ClearFlag 638
+End 
+
+Function 9:
+    LockAll
+    Movement Overworld.5 Action#6
+    Message 4 
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.6 Action#7
+    Message 5 
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    ReleaseAll
+End
+
+Function 10:
+    LockAll
+    Movement Overworld.5 Action#6
+    Message 4
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.6 Action#7
+    Message 5 
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.5 Action#6
+    Message 6 
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.6 Action#7
+    Message 7
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    GetPlayerPosition 0x4000 0x4001
+    CompareVarValue 0x4000 233
+    CallIf EQUAL Function#39
+    CompareVarValue 0x4000 240
+    CallIf EQUAL Function#40
+    Movement Overworld.5 Action#8
+    Movement Overworld.6 Action#10
+    WaitMovement
+    Movement Overworld.7 Action#12
+    Movement Overworld.8 Action#12
+    WaitMovement
+    Movement Overworld.7 Action#9
+    Movement Overworld.8 Action#11
+    WaitMovement
+    SetFlag 2127
+    RemoveOW Overworld.5
+    RemoveOW Overworld.6
+    RemoveOW Overworld.7
+    RemoveOW Overworld.8
+    ClearFlag 2128
+    AddOW Overworld.9
+    AddOW Overworld.10
+    AddOW Overworld.11
+    AddOW Overworld.12
+    ReleaseAll
+End
+
+Function 11:
+    LostBattle
+    SetVar 0x4023 6
+    ReleaseAll
+End
+
+Function 12:
+    CheckFlag 2116
+    JumpIf EQUAL Function#15
+    CheckFlag 2116
+    JumpIf DIFFERENT Function#13
+End
+
+Function 13:
+    LockAll 
+    Message 12
+    WaitAB
+    CloseMessage
+	PlayCry 74 0
+    WaitCry 
+	ReleaseAll 
+End
+
+Function 14:
+    LockAll
+    Message 8
+    WaitAB
+    CloseMessage
+    Movement Overworld.11 Action#14
+    WaitMovement
+    PlayCry 66 0
+    WaitCry 
+    Movement Overworld.10 Action#15
+    WaitMovement
+    Message 9
+    WaitAB
+    CloseMessage
+    Message 10
+    WaitAB
+    CloseMessage
+    GetFirstAlivePokemonSlot 0x8000
+	TextPartyPokemon 1 0x8000
+    FacePlayer
+    Message 11
+    WaitAB
+    CloseMessage
+    TrainerBattle 7 0 0 0
+    CheckBattleIsLost 0x800C
+    CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#11
+    Movement Overworld.10 Action#18
+    SetFlag 2115
+    ReleaseAll
+End
+
+Function 15:
+    ##Beginning of decision and checks side
+    LockAll
+    Message 19
+    WaitAB
+    CloseMessage
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4000 234
+    ##This goes to the left side
+    JumpIf LESS/EQUAL Function#19
+    ##This goes to the right side
+    JumpIf GREATER Function#23
+    ReleaseAll
+End
+
+Function 16:
+    CheckFlag 2115
+    JumpIf EQUAL Function#15
+    CheckFlag 2115
+    JumpIf DIFFERENT Function#18
+End
+
+Function 17:
+    LockAll
+    Message 13
+    WaitAB
+    CloseMessage
+    Movement Overworld.8 Action#13
+    WaitMovement
+    PlayCry 74 0
+    WaitCry 
+    Movement Overworld.9 Action#16
+    WaitMovement
+    Message 14
+    WaitAB
+    CloseMessage
+    Message 15
+    WaitAB
+    CloseMessage
+    GetFirstAlivePokemonSlot 0x8000
+	TextPartyPokemon 1 0x8000
+    FacePlayer
+    Message 16
+    WaitAB
+    CloseMessage
+    TrainerBattle 6 0 0 0
+    CheckBattleIsLost 0x800C
+    CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#11
+    Movement Overworld.9 Action#17
+    SetFlag 2116
+    ReleaseAll
+End
+
+Function 18:
+    LockAll 
+    Message 18
+    WaitAB
+    CloseMessage
+	PlayCry 66 0
+    WaitCry 
+    Movement Overworld.11 Action#13
+	ReleaseAll 
+End
+
+Function 19:
+    ##Checks to see if they need to gtfo the way
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4000 234
+    ##In middle
+    JumpIf EQUAL Function#21
+    CompareVarValue 0x4000 234
+    JumpIf DIFFERENT Function#22
+End
+
+Function 20:
+    ##Converging message
+    Message 20
+    WaitAB
+    CloseMessage
+    ##WaitTime 6 0x800C
+    PlayFanfare 1516
+    WaitFanfare 1516
+    Movement Overworld.11 Action#14
+    WaitMovement
+    PlayCry 74 0
+    WaitCry 
+    ##Sets the workers to face the player
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4001 390
+    CallIf EQUAL Function#33
+    CompareVarValue 0x4001 392
+    CallIf EQUAL Function#34
+    ##Message 34
+    ##WaitAB
+    ##CloseMessage
+    ##WaitTime 6 0x800C
+    ##HealPokemon
+    ##PlayFanfare 1516
+    ##WaitFanfare 1516
+    Message 21
+    WaitAB
+    OpenTouchScreen
+    MultiTouchStandardText 1 1 0 0 0x800C
+    CreateMultiTouchBox 493 255 0
+    CreateMultiTouchBox 494 255 1
+    CloseMultiTouch 
+    CloseTouchScreen
+    ##1 is sugar coating and avoids the battles
+    CompareVarValue 0x800C 1
+    JumpIf EQUAL Function#24
+    Message 22
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 23
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    TrainerBattle 8 0 0 0
+    CheckBattleIsLost 0x800C
+    CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#11
+    GetPlayerPosition 0x4000 0x4001
+    CompareVarValue 0x4001 390
+    CallIf EQUAL Function#30
+    CompareVarValue 0x4001 392
+    CallIf EQUAL Function#31
+    Movement Player Action#18
+    Message 31
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    TrainerBattle 9 0 0 0
+    CheckBattleIsLost 0x800C
+    CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#11
+    Message 32
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.9 Action#18
+    Message 33
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Jump Function#26
+End
+
+Function 21:
+    ##Move the player OUTTA THE WAY on left
+    LockFollowingPoke 0
+    WaitFollowingPoke 
+    SetFollowingPokeMovement 55
+    Movement Player Action#22
+    WaitMovement
+    WaitFollowingPoke 
+    Jump Function#22
+End
+
+
+Function 22:
+    ##Move worker over to left side
+    Movement Overworld.9 Action#32
+    Movement Overworld.12 Action#32
+    WaitMovement
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4001 390
+    CallIf EQUAL Function#29
+    CompareVarValue 0x4001 392
+    CallIf EQUAL Function#32
+    Jump Function#20
+End
+
+
+Function 23:
+    ##Handle right movement
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4000 239
+    JumpIf EQUAL Function#27
+    CompareVarValue 0x4000 239
+    JumpIf DIFFERENT Function#25
+End
+
+
+Function 24:
+    ##Sugarcoating that they suck at battling
+    Message 24
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    GetPlayerPosition 0x4000 0x4001
+    CompareVarValue 0x4001 390
+    CallIf EQUAL Function#30
+    CompareVarValue 0x4001 392
+    CallIf EQUAL Function#31
+    Movement Player Action#18
+    Message 25
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 26
+    WaitAB
+    CloseMessage
+    Jump Function#26
+End
+
+
+Function 25:
+    ##Move worker over from right side
+    Movement Overworld.9 Action#19
+    Movement Overworld.12 Action#19
+    WaitMovement
+    GetPlayerPosition 0x4000 0x4001
+    ##Talked to below or above
+    CompareVarValue 0x4000 240
+    CallIf EQUAL Function#35
+    ##Talked to from middle
+    CompareVarValue 0x4000 240
+    CallIf DIFFERENT Function#36
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4001 392
+    CallIf EQUAL Function#37
+    CompareVarValue 0x4001 390
+    CallIf EQUAL Function#38
+    Jump Function#20
+End
+
+
+Function 26:
+    ##Ending for quest if the player is successful either way
+    Movement Overworld.9 Action#31
+    WaitMovement
+    Message 27
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 28
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    PlayCry 74 0
+    WaitCry 
+    Movement Overworld.11 Action#14
+    WaitMovement
+    PlayCry 66 0
+    WaitCry 
+    Movement Overworld.12 Action#13
+    WaitMovement
+    Movement Overworld.9 Action#16
+    WaitMovement
+    Message 29
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.11 Action#37
+    WaitMovement
+    Movement Overworld.10 Action#38
+    WaitMovement
+    Movement Overworld.11 Action#35
+    WaitMovement
+    Movement Overworld.9 Action#36
+    Movement Overworld.10 Action#36
+    Movement Overworld.11 Action#36
+    Movement Overworld.12 Action#36
+    WaitMovement
+    FadeScreen 6 6 1 0
+	WaitFadeScreen 
+    RemoveOW Overworld.9
+    RemoveOW Overworld.10
+    RemoveOW Overworld.11
+    RemoveOW Overworld.12
+    SetVar 0x4023 5
+    SetFlag 2128
+    ClearFlag 2129
+    ReleaseAll
+End
+
+Function 27:
+    ##Move the player OUTTA THE WAY on the right
+    LockFollowingPoke 0
+    WaitFollowingPoke 
+    SetFollowingPokeMovement 55
+    Movement Player Action#22
+    WaitMovement 
+	WaitFollowingPoke 
+    Jump Function#25
+End
+
+Function 28:
+    ##Handle moving left and facing dir
+    GetPlayerPosition 0x4000 0x4001 
+    CompareVarValue 0x4001 390
+    JumpIf EQUAL Function#29
+    CompareVarValue 0x4001 392
+    JumpIf EQUAL Function#32
+Return
+
+Function 29:
+    ##Handle movement over OWs
+    Movement Player Action#25
+    Movement Following Action#25
+    WaitMovement
+Return
+
+
+Function 30:
+    ##Moves second OW up
+    Movement Overworld.10 Action#28
+    Movement Overworld.11 Action#28
+    WaitMovement
+Return
+
+Function 31:
+    ##Moves second OW down
+    Movement Overworld.10 Action#27
+    Movement Overworld.11 Action#27
+    WaitMovement
+Return
+
+Function 32:
+    ##Handle movement under OWs
+    Movement Player Action#26
+    Movement Following Action#26
+    WaitMovement
+Return
+
+Function 33:
+    Movement Overworld.10 Action#30
+    Movement Overworld.9 Action#30
+    WaitMovement
+Return
+
+Function 34:
+    Movement Overworld.10 Action#31
+    Movement Overworld.9 Action#31
+    WaitMovement
+Return
+
+Function 35:
+    LockFollowingPoke 0
+    WaitFollowingPoke 
+    SetFollowingPokeMovement 55
+    Movement Player Action#32
+    WaitMovement
+    WaitFollowingPoke 
+Return
+
+Function 36:
+    LockFollowingPoke 0
+    WaitFollowingPoke 
+    SetFollowingPokeMovement 55
+    Movement Player Action#23
+    WaitMovement
+    WaitFollowingPoke 
+Return
+
+Function 37:
+    ##Look up
+    Movement Player Action#30
+Return
+
+Function 38:
+    ##Look down
+    Movement Player Action#31
+Return
+
+Function 39:
+    ##Bumps player out of the OW's way during the intro
+    LockFollowingPoke 0
+    WaitFollowingPoke 
+    SetFollowingPokeMovement 55
+    Movement Player Action#33
+    WaitMovement 
+    WaitFollowingPoke     
+Return
+
+Function 40:
+    ##Bumps player out of the OW's way during the intro
+    LockFollowingPoke 0
+    WaitFollowingPoke 
+    SetFollowingPokeMovement 55
+    Movement Player Action#34
+    WaitMovement 
+    WaitFollowingPoke     
+Return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+Function 1:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#6
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	Movement Player Action#6
+Jump Function#3
+
+
+Function 3:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1538
+	CMD_723 1 307 24
+	ParallelCommonScript 97
+End 
+
+
+Function 4:
+	SetOWPosition Overworld.0 24 0 19 Left
+End 
+
+
+Function 5:
+	CMD_804 2
+	SetFlag 360
+	SetFlag 2485
+	CMD_582 54 1309 340
+End 
+
+
+Function 6:
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Movement Player Action#8
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1538
+	CMD_723 1 307 24
+	ParallelCommonScript 97
+End 
+
+

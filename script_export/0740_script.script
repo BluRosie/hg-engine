@@ -1,0 +1,527 @@
+Script 1:
+	## Walk Up
+	Movement Overworld.0 Action#1
+	## Walk Down
+	Movement Overworld.0 Action#2
+	## Walk Left
+	Movement Overworld.0 Action#3
+	## Walk Right
+	Movement Overworld.0 Action#4
+	## Walk Up Fast
+	Movement Overworld.0 Action#5
+	## Walk Down Fast
+	Movement Overworld.0 Action#6
+	## Walk Left Fast
+	Movement Overworld.0 Action#7
+	## Walk Right Fast
+	Movement Overworld.0 Action#8
+	## Look Up
+	Movement Overworld.0 Action#9
+	## Look Down
+	Movement Overworld.0 Action#10
+	## Look Left
+	Movement Overworld.0 Action#11
+	## Look Right
+	Movement Overworld.0 Action#12
+End
+
+Script 2:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+End 
+
+
+Script 3:
+	## This Script will be triggered by a Level script every time one enters the map
+	CMD_144 0x4020
+	RemoveOW Overworld.17
+	SetFlag 2110
+	## Handle OW removal of all the students in the lab
+	## 2124 flag is being set after the starter selection
+	## precisely after oak's final dialogues
+	CheckFLag 2124
+	CallIf EQUAL Function#24
+End 
+
+
+Script 4:
+    ## Just a flag for the pond stuff and charmander tail
+	SetFlag 2611
+	SetFlag 2612
+	## Move Player to seat 
+	GetPlayerPosition 0x800C 0x800D
+	CompareVarValue 0x800D 10
+	CallIf EQUAL Function#2
+	CompareVarValue 0x800D 11
+	CallIf EQUAL Function#3
+	CompareVarValue 0x800D 12
+	CallIf EQUAL Function#4
+	CompareVarValue 0x800D 13
+	CallIf EQUAL Function#5
+	CompareVarValue 0x800D 14
+	CallIf EQUAL Function#6
+	CompareVarValue 0x800D 15
+	CallIf EQUAL Function#7
+	## Start the sequence
+	TextPlayerName 0
+	## Move Elm and rowan to their positions
+	Movement Overworld.2 Action#21
+	Movement Overworld.3 Action#22
+	Message 21
+	WaitAB 
+	CloseMessage 
+	Message 22
+	WaitAB
+	CloseMessage
+	WaitTime 6 0x800C
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	## Move camera up by 1 to centre the stage
+	Movement Camera Action#1
+	WaitMovement
+	ReleaseCamera
+	## Make ELm start talking
+	Movement Overworld.2 Action#23
+	WaitMovement 
+	Message 23
+	WaitAB 
+	CloseMessage 
+	## Moving left fast
+	Movement Overworld.2 Action#7
+	Message 24
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.2 Action#24
+	Message 25
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.2 Action#25
+	WaitMovement 
+	Message 26
+	WaitAB 
+	CloseMessage
+	## Move camera back down
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#2
+	WaitMovement
+	ReleaseCamera
+	## Make students chatter
+	Movement Overworld.1 Action#26
+	Movement Overworld.7 Action#28
+	WaitTime 6 0x800C
+	Movement Overworld.6 Action#26
+	WaitTime 6 0x800C
+	Movement Overworld.1 Action#27
+	Movement Overworld.7 Action#27
+	Movement Overworld.6 Action#28
+	WaitTime 6 0x800C
+	Movement Overworld.6 Action#27
+	## Chatter... Chatter...
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 27 0x800C
+	CommonScript 2000
+	WaitTime 6 0x800C
+	Message 28
+	StopMusic 0
+	## Here Comes Oak's theme
+	PlayMusic 1067
+	ClearFlag 2200
+	## And here comes the man himself!!
+	AddOW Overworld.0
+	## Move him right fast 3 times
+	Movement Overworld.0 Action#8
+	Movement Overworld.0 Action#8
+	Movement Overworld.0 Action#8
+	WaitTime 6 0x800C
+	Message 29
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Overworld.0 Action#29
+	## More Chatter... Chatter...
+	Movement Overworld.1 Action#26
+	Movement Overworld.7 Action#28
+	WaitTime 6 0x800C
+	Movement Overworld.6 Action#26
+	WaitTime 6 0x800C
+	Movement Overworld.1 Action#27
+	Movement Overworld.7 Action#27
+	Movement Overworld.6 Action#28
+	WaitTime 6 0x800C
+	Movement Overworld.6 Action#27
+	## Background dialogues
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 27 0x800C
+	CommonScript 2000
+	WaitTime 6 0x800C
+	Message 30 
+	WaitAB
+	CloseMessage
+	WaitTime 1 0x800C
+	TextPlayerName 0
+	## Call Red/Green thinking part
+	CheckPlayerGender 0x800C
+	## Male
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#8
+	## Female
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#9
+	## Centre stage again
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#1
+	WaitMovement 
+	ReleaseCamera 
+	## Elm moving away and Oak speaking
+	Movement Overworld.2 Action#30
+	WaitMovement 
+	Message 35
+	WaitAB 
+	CloseMessage 
+	Message 36
+	WaitAB 
+	CloseMessage 
+	## Oak turns left
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	## Flashes and oak sends out nidorino
+	FadeScreen 4 1 1 0x7FFF
+	AddOW Overworld.16
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	FadeScreen 4 1 1 0x7FFF
+	AddOW Overworld.10
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	FadeScreen 4 1 1 0x7FFF
+	RemoveOW Overworld.16
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	Movement Overworld.10 Action#31
+	WaitMovement
+	Movement Overworld.10 Action#32
+	WaitMovement
+	ShowPokemonPic 29 1
+	PlayCry 29 0
+	WaitCry 
+	HidePokemonPic 
+	Movement Overworld.0 Action#10
+	Message 38
+	WaitTime 6 0x800C
+	WaitMovement 
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#11
+	Message 39
+	WaitTime 6 0x800C
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#10
+	WaitMovement 
+	Message 40
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.2 Action#33
+	WaitMovement
+	Movement Overworld.0 Action#34
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#34
+	WaitMovement 
+	Movement Overworld.2 Action#12
+	Message 41
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.2 Action#35
+	Message 42
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 43
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 44
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#11
+	Movement Overworld.3 Action#36
+	Movement Overworld.3 Action#12
+	Movement Overworld.2 Action#12
+	Movement Overworld.2 Action#11
+	WaitTime 12 0x800C
+	Movement Overworld.3 Action#35
+	Message 45
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 46
+	Movement Overworld.0 Action#10
+	WaitMovement 
+	Movement Overworld.2 Action#10
+	Movement Overworld.3 Action#10
+	WaitTime 6 0x800C
+	Movement Overworld.0 Action#37
+	Movement Camera Action#37
+	WaitMovement 
+	ReleaseCamera 
+	WaitAB 
+	CloseMessage 
+	StopMusic 0
+	PlayDefaultMusic 
+	Message 47
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	Movement Overworld.10 Action#12
+	WaitMovement 
+	Movement Overworld.10 Action#7
+	WaitMovement 
+	Movement Overworld.10 Action#32
+	WaitMovement
+    ## Reset camera
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#2
+	WaitMovement 
+	ReleaseCamera 
+	WaitTime 6 0x800C
+	## Bye Bye nido :'(
+	FadeScreen 4 1 1 0x7FFF
+	ClearFlag 2110
+	AddOW Overworld.17
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	FadeScreen 4 1 1 0x7FFF
+	RemoveOW Overworld.10
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	FadeScreen 4 1 1 0x7FFF
+	RemoveOW Overworld.17
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	Movement Overworld.0 Action#10
+	Movement Overworld.2 Action#38
+	Movement Overworld.1 Action#26
+	Movement Overworld.7 Action#28
+	WaitTime 6 0x800C
+	Movement Overworld.6 Action#26
+	WaitTime 6 0x800C
+	Movement Overworld.1 Action#27
+	Movement Overworld.7 Action#27
+	Movement Overworld.6 Action#28
+	WaitTime 6 0x800C
+	Movement Overworld.6 Action#27
+	## Background dialogues
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 27 0x800C
+	CommonScript 2000
+	WaitTime 1 0x800C
+	Movement Overworld.7 Action#57
+	Message 48  ## Worried student (Only three!?)
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.2 Action#33
+	## Make the class quiet
+	Message 49
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#1
+	WaitMovement 
+	ReleaseCamera 
+	CloseMessage 
+	Message 50
+	Movement Overworld.4 Action#35
+	Movement Overworld.6 Action#35
+	WaitTime 1 0x800C
+	Movement Overworld.7 Action#35
+	WaitTime 1 0x800C
+	Movement Overworld.1 Action#35
+	WaitAB
+	CloseMessage 
+	Message 51
+	WaitAB
+	CloseMessage 
+	Movement Overworld.2 Action#39
+	Movement Overworld.0 Action#40
+	FadeScreen 6 6 0 0
+	WaitFadeScreen 
+	WaitMovement 
+	FadeScreen 6 6 1 0
+	WaitFadeScreen 
+	Movement Overworld.2 Action#10
+	WaitMovement 
+	Message 52
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.2 Action#11
+	WaitMovement 
+	Message 53
+	WaitAB 
+	CloseMessage 
+	Call Function#10
+
+	Movement Overworld.2 Action#11
+	WaitMovement
+	CheckPlayerGender 0x800C
+	## Male
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#22
+	## Female
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#23
+
+	SetFlag 2608
+	## Clear Oak and starters flags
+	ClearFlag 2111
+	SetVar 0x4022 1
+	PlayFanfare 1538
+	FadeScreen 4 1 0 0
+	WaitFadeScreen
+	SetMatrixAlternativeMap 0 1
+	Warp 49 0 225 333 2
+	FadeScreen 4 1 1 0
+End
+
+
+Script 5:
+	LockAll 
+	PlayFanfare 1500
+	Message 13
+	WaitAB 
+	CloseMessage 
+End 
+
+
+Script 6:
+	LockAll 
+	PlayFanfare 1500
+	Message 14
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 15
+	WaitAB 
+	CloseMessage 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	Message 1
+	WaitButton 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Overworld.2 Action#35
+	Message 10
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 11
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+

@@ -1,0 +1,257 @@
+Function 1:
+	CompareVarValue 0x4114 2
+	JumpIf DIFFERENT Function#3
+Jump Function#4
+
+
+Function 2:
+	Message 1
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x4000
+	CompareVarValue 0x4000 255
+	JumpIf EQUAL Function#5
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf EQUAL Function#6
+	CMD_426 12 128 64
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CMD_426 12 128 320
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CMD_363 7 0x4000 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#10
+	DeletePartyPokemon 0x4000
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#11
+	Movement Player Action#1
+Jump Function#12
+
+
+Function 3:
+	CompareVarValue 0x4114 4
+	JumpIf DIFFERENT Function#13
+Jump Function#4
+
+
+Function 4:
+	SetVar 0x8004 371
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2033
+	CompareVarValue 0x4114 2
+	JumpIf DIFFERENT Function#15
+	SetVar 0x4114 3
+Jump Function#16
+
+
+Function 5:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 4
+	CloseMessage 
+	TextPlayerName 0
+	Message 6
+	PlaySound 1185
+	WaitSound 
+	CMD_428 0x4000
+Jump Function#17
+
+
+Function 10:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#18
+	Movement Player Action#2
+Jump Function#12
+
+
+Function 12:
+	WaitMovement 
+	TextPlayerName 0
+	Message 5
+	PlaySound 1185
+	WaitSound 
+	Message 7
+	SetVar 0x4114 2
+	CompareVars 0x4000 0x4001
+	JumpIf DIFFERENT Function#4
+	BallResetFollowingPoke 
+	SetVar 0x8004 371
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2033
+	CompareVarValue 0x4114 2
+	JumpIf DIFFERENT Function#15
+	SetVar 0x4114 3
+Jump Function#16
+
+
+Function 13:
+	CompareVarValue 0x4114 6
+	JumpIf DIFFERENT Function#19
+	CMD_781 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#20
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	SetVar 0x4114 5
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	Message 7
+	SetVar 0x4114 2
+	CompareVars 0x4000 0x4001
+	JumpIf DIFFERENT Function#4
+	BallResetFollowingPoke 
+	SetVar 0x8004 371
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2033
+	CompareVarValue 0x4114 2
+	JumpIf DIFFERENT Function#15
+	SetVar 0x4114 3
+Jump Function#16
+
+
+Function 18:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#21
+	Movement Player Action#3
+Jump Function#12
+
+
+Function 19:
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	SetVar 0x4114 1
+Jump Function#2
+
+
+Function 21:
+	Movement Player Action#4
+	WaitMovement 
+	TextPlayerName 0
+	Message 5
+	PlaySound 1185
+	WaitSound 
+	Message 7
+	SetVar 0x4114 2
+	CompareVars 0x4000 0x4001
+	JumpIf DIFFERENT Function#4
+	BallResetFollowingPoke 
+	SetVar 0x8004 371
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2033
+	CompareVarValue 0x4114 2
+	JumpIf DIFFERENT Function#15
+	SetVar 0x4114 3
+Jump Function#16
+
+

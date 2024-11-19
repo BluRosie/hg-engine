@@ -1,0 +1,71 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x4087 2
+	JumpIf DIFFERENT Function#1
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x4087 2
+	JumpIf DIFFERENT Function#3
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	StopMusic 1061
+	PlayMusic 1112
+	Message 0
+	CloseMessage 
+	TrainerBattle 353 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Message 2
+	CloseMessage 
+	FadeOutMusic 0 30
+	Message 3
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Overworld.2 Action#1
+	Movement Player Action#2
+	Movement Overworld.0 Action#3
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	RemoveOW Overworld.2
+	SetFlag 597
+	ClearFlag 599
+	PlayMusic 1061
+	SetVar 0x4087 3
+	ReleaseAll 
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#6
+	Movement Overworld.2 Action#5
+	Movement Overworld.0 Action#6
+	Movement Overworld.1 Action#7
+Jump Function#7
+
+
+Script 5:
+	CompareVarValue 0x4087 2
+	JumpIf EQUAL Function#8
+End 
+
+

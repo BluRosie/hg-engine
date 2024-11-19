@@ -1,0 +1,54 @@
+Script 1:
+	MecScript 
+	LockAll 
+	CommonScript 2042
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	TextPlayerName 0
+	Message 2
+	WaitButton 
+	CloseMessage 
+	CommonScript 2043
+	SetVar 0x40A2 1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	CommonScript 2031
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 0
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#1
+	TrainerBattle 267 0 0 0
+Jump Function#2
+
+

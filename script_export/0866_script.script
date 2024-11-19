@@ -1,0 +1,185 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+	PlayCry 79 0
+	Message 10
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	FadeOutMusic 0 3
+	Movement Player Action#1
+	WaitMovement 
+	SetVar 0x4099 1
+	CommonScript 2031
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 462
+	JumpIf DIFFERENT Function#1
+	SetOWPosition Overworld.9 404 0 463 Left
+	Movement Overworld.9 Action#2
+	Movement Player Action#3
+Jump Function#2
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	Movement Overworld.12 Action#4
+	WaitMovement 
+	Message 16
+	PlayFanfare 1536
+	Message 17
+	CloseMessage 
+	Movement Overworld.13 Action#5
+	WaitMovement 
+	SetOWPosition Overworld.13 23 0 16 Right
+	Movement Overworld.12 Action#6
+	WaitMovement 
+	RemoveOW Overworld.13
+	SetFlag 626
+	SetFlag 625
+	ClearFlag 415
+	SetVar 0x4080 1
+	ReleaseAll 
+End 
+
+
+Script 5:
+	CompareVarValue 0x4080 0
+	JumpIf DIFFERENT Function#3
+	SetFlag 415
+	ClearFlag 625
+	ClearFlag 626
+End 
+
+
+Script 6:
+	UseScript_#1
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 123
+	JumpIf EQUAL Function#4
+	Message 18
+Jump Function#5
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 123
+	JumpIf EQUAL Function#6
+	Message 5
+Jump Function#5
+
+
+Script 9:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 12 0x800C
+	CommonScript 2000
+End 
+
+
+Script 10:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 13 0x800C
+	CommonScript 2000
+End 
+
+
+Script 11:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 15 0x800C
+	CommonScript 2000
+End 
+
+
+Script 12:
+	SetIconBoard 11 0 14 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 13:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 14 0x800C
+	CommonScript 2000
+End 
+
+
+Script 14:
+	SetIconBoard 0 1 2 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

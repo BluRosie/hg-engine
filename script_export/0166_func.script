@@ -1,0 +1,711 @@
+Function 1:
+Return 
+
+
+Function 2:
+Return 
+
+
+Function 3:
+	CompareVarValue 0x4003 1
+	JumpIf EQUAL Function#5
+	Message 4
+Jump Function#6
+
+
+Function 4:
+	Message 112
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 113 0
+	AddMultiOption 114 1
+	AddMultiOption 115 2
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#9
+Jump Function#9
+
+
+Function 5:
+	Message 12
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 8 0
+	AddMultiOption 9 1
+	AddMultiOption 10 2
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#11
+Jump Function#12
+
+
+Function 6:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 8 0
+	AddMultiOption 9 1
+	AddMultiOption 10 2
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#11
+Jump Function#12
+
+
+Function 7:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 155 0
+	AddMultiOption 156 1
+	AddMultiOption 157 2
+	AddMultiOption 158 3
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#13
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#15
+Jump Function#16
+
+
+Function 8:
+	Message 117
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 121 0
+	AddMultiOption 118 1
+	AddMultiOption 119 2
+	AddMultiOption 120 3
+	AddMultiOption 122 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#20
+Jump Function#4
+
+
+Function 9:
+	Message 116
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+Jump Function#21
+
+
+Function 11:
+	CompareVarValue 0x4003 1
+	JumpIf EQUAL Function#22
+Jump Function#23
+
+
+Function 12:
+	CMD_283 
+	SetVar 0x4133 0
+	ClearFlag 2406
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	SetVar 0x4004 0
+	SetVar 0x8007 3
+Jump Function#24
+
+
+Function 14:
+	SetVar 0x4004 1
+	SetVar 0x8005 0
+	SetVar 0x8007 5
+Jump Function#24
+
+
+Function 15:
+	SetVar 0x4004 0
+	SetVar 0x8007 7
+Jump Function#24
+
+
+Function 16:
+	Message 159
+	WaitButton 
+Jump Function#25
+
+
+Function 17:
+	Message 124
+	Message 117
+Jump Function#26
+
+
+Function 18:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 125 0
+	AddMultiOption 126 1
+	AddMultiOption 127 2
+	AddMultiOption 129 3
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#28
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#29
+Jump Function#30
+
+
+Function 19:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 135 0
+	AddMultiOption 136 1
+	AddMultiOption 137 2
+	AddMultiOption 138 3
+	AddMultiOption 139 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#32
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#33
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#34
+Jump Function#35
+
+
+Function 20:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 145 0
+	AddMultiOption 146 1
+	AddMultiOption 147 2
+	AddMultiOption 148 3
+	AddMultiOption 149 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#36
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#37
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#38
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#39
+Jump Function#40
+
+
+Function 21:
+	Message 219
+	MultiStandardText 18 1 0 1 0x800C
+	AddMultiOption 14 0
+	AddMultiOption 15 1
+	AddMultiOption 5 2
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#41
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#42
+Jump Function#12
+
+
+Function 22:
+	Message 13
+Jump Function#3
+
+
+Function 23:
+	Message 5
+	MultiStandardText 1 1 0 1 0x800C
+	AddMultiOption 96 0
+	AddMultiOption 97 1
+	AddMultiOption 98 2
+	AddMultiOption 99 3
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#43
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#44
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#45
+Jump Function#3
+
+
+Function 24:
+	CompareVarValue 0x4004 1
+	JumpIf EQUAL Function#46
+Jump Function#47
+
+
+Function 25:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 26:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 121 0
+	AddMultiOption 118 1
+	AddMultiOption 119 2
+	AddMultiOption 120 3
+	AddMultiOption 122 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#20
+Jump Function#4
+
+
+Function 27:
+	Message 130
+Jump Function#48
+
+
+Function 28:
+	Message 131
+Jump Function#48
+
+
+Function 29:
+	Message 132
+Jump Function#48
+
+
+Function 30:
+Jump Function#26
+
+
+Function 31:
+	Message 140
+Jump Function#49
+
+
+Function 32:
+	Message 141
+Jump Function#49
+
+
+Function 33:
+	Message 142
+Jump Function#49
+
+
+Function 34:
+	Message 143
+Jump Function#49
+
+
+Function 35:
+Jump Function#26
+
+
+Function 36:
+	Message 150
+Jump Function#50
+
+
+Function 37:
+	Message 151
+Jump Function#50
+
+
+Function 38:
+	Message 152
+Jump Function#50
+
+
+Function 39:
+	Message 153
+Jump Function#50
+
+
+Function 40:
+Jump Function#26
+
+
+Function 41:
+	Message 212
+	YesNoBox 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#21
+	CloseMessage 
+	CMD_226 8 0x8005 0x8004 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#51
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#52
+Jump Function#53
+
+
+Function 42:
+	Message 212
+	YesNoBox 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#21
+	CloseMessage 
+	CMD_227 8 0x8005 0x8004 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#54
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#55
+Jump Function#53
+
+
+Function 43:
+Jump Function#56
+
+
+Function 44:
+	Message 18
+Jump Function#23
+
+
+Function 45:
+	Message 19
+Jump Function#23
+
+
+Function 46:
+	Message 175
+	Message 176
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetVar 0x800C 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#57
+	CMD_353 0 0x800C
+Jump Function#58
+
+
+Function 47:
+	Message 160
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 161 0
+	AddMultiOption 162 1
+	AddMultiOption 163 2
+	AddMultiOption 164 3
+	AddMultiOption 165 4
+	AddMultiOption 166 5
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#59
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#60
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#61
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#62
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#63
+Jump Function#64
+
+
+Function 48:
+	Message 117
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 125 0
+	AddMultiOption 126 1
+	AddMultiOption 127 2
+	AddMultiOption 129 3
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#28
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#29
+Jump Function#30
+
+
+Function 49:
+	Message 117
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 135 0
+	AddMultiOption 136 1
+	AddMultiOption 137 2
+	AddMultiOption 138 3
+	AddMultiOption 139 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#32
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#33
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#34
+Jump Function#35
+
+
+Function 50:
+	Message 117
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 145 0
+	AddMultiOption 146 1
+	AddMultiOption 147 2
+	AddMultiOption 148 3
+	AddMultiOption 149 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#36
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#37
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#38
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#39
+Jump Function#40
+
+
+Function 51:
+Jump Function#21
+
+
+Function 52:
+Jump Function#21
+
+
+Function 53:
+	CMD_234 0x8004 0x8005 0x8007 0x4002
+	CMD_232 25 233 25
+	CompareVarValue 0x4003 0
+	JumpIf EQUAL Function#65
+	CompareVarValue 0x4003 1
+	JumpIf EQUAL Function#66
+	CompareVarValue 0x4003 2
+	JumpIf EQUAL Function#67
+End 
+
+
+Function 54:
+Jump Function#21
+
+
+Function 55:
+	CMD_283 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 56:
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 36 0
+	AddMultiOption 37 1
+	AddMultiOption 38 2
+	AddMultiOption 39 3
+	AddMultiOption 40 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#68
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#69
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#70
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#71
+Jump Function#72
+
+
+Function 57:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x4002 255
+	JumpIf EQUAL Function#64
+Jump Function#53
+
+
+Function 58:
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#57
+	CMD_353 0 0x800C
+Jump Function#58
+
+
+Function 59:
+	SetVar 0x8005 0
+Jump Function#46
+
+
+Function 60:
+	SetVar 0x8005 1
+Jump Function#46
+
+
+Function 61:
+	SetVar 0x8005 2
+Jump Function#46
+
+
+Function 62:
+	SetVar 0x8005 3
+Jump Function#46
+
+
+Function 63:
+	SetVar 0x8005 4
+Jump Function#46
+
+
+Function 64:
+	Message 167
+	WaitButton 
+Jump Function#25
+
+
+Function 65:
+Jump Function#73
+
+
+Function 66:
+	SetFlag 2406
+	SetVar 0x4133 5
+Jump Function#73
+
+
+Function 67:
+	CMD_048 211
+	CloseMessage 
+Jump Function#73
+
+
+Function 68:
+	Message 14
+Jump Function#74
+
+
+Function 69:
+	Message 15
+Jump Function#74
+
+
+Function 70:
+	Message 16
+Jump Function#74
+
+
+Function 71:
+	Message 17
+Jump Function#74
+
+
+Function 72:
+	MultiStandardText 1 1 0 1 0x800C
+	AddMultiOption 96 0
+	AddMultiOption 97 1
+	AddMultiOption 98 2
+	AddMultiOption 99 3
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#43
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#44
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#45
+Jump Function#3
+
+
+Function 73:
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#75
+Jump Function#76
+
+
+Function 74:
+	Message 117
+	MultiLocalText 1 1 0 1 0x800C
+	AddMultiOption 36 0
+	AddMultiOption 37 1
+	AddMultiOption 38 2
+	AddMultiOption 39 3
+	AddMultiOption 40 4
+	ShowMulti 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#68
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#69
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#70
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#71
+Jump Function#72
+
+
+Function 75:
+	TextPlayerName 0
+	CMD_048 66
+Jump Function#77
+
+
+Function 76:
+	TextPlayerName 0
+	CMD_048 67
+Jump Function#77
+
+
+Function 77:
+	CMD_048 68
+	CMD_232 26 233 26
+	CloseMessage 
+Jump Function#78
+
+
+Function 78:
+	CMD_232 4 233 4
+	CMD_257 239
+	CMD_611 1 0x8000 0x800C 0x8001 0x8002 0x8003
+	CMD_237 
+	CMD_048 78
+	CloseMessage 
+	CMD_232 24 233 24
+	CMD_587 
+	WaitTime 10 0x800C
+	CMD_235 0x4002
+	ClearFlag 2406
+	SetVar 0x4133 0
+Jump Function#79
+
+
+Function 79:
+	ReleaseAll 
+End 
+
+

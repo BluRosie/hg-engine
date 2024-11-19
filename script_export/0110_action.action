@@ -1,0 +1,121 @@
+Action 1:
+	Exclamation 0x1
+	Freeze8 0x2
+	LookDown 0x2
+End
+
+
+Action 2:
+	WalkUpVeryFast 0x3
+	LookRight 0x2
+	WalkRightVeryFast 0x4
+	LookUp 0x2
+	WalkUpVeryFast 0x3
+End
+
+
+Action 3:
+	WalkUpVeryFast 0x3
+	LookRight 0x2
+	WalkRightVeryFast 0x5
+	LookUp 0x2
+	WalkUpVeryFast 0x3
+End
+
+
+Action 4:
+	WalkDown 0x1
+End
+
+
+Action 5:
+	RunUpSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 6:
+	Freeze4 0x3
+	RunUp 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 7:
+	WalkUpVeryFast 0x3
+	LookRight 0x2
+	WalkRightVeryFast 0x6
+	LookUp 0x2
+	WalkUpVeryFast 0x3
+End
+
+
+Action 8:
+	LookDown 0x2
+	WalkDownFast 0x2
+	LookLeft 0x2
+	WalkLeftFast 0x5
+	LookDown 0x2
+	WalkDownFast 0x7
+End
+
+
+Action 9:
+	RunDownSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 10:
+	Freeze4 0x3
+	RunDown 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 11:
+	LookDown 0x2
+	WalkDownFast 0x2
+	LookLeft 0x2
+	WalkLeftFast 0x6
+	LookDown 0x2
+	WalkDownFast 0x7
+End
+
+
+Action 12:
+	RunRightSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 13:
+	Freeze4 0x3
+	RunRight 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 14:
+	LookDown 0x2
+	WalkDownFast 0x2
+	LookLeft 0x2
+	WalkLeftFast 0x7
+	LookDown 0x2
+	WalkDownFast 0x7
+End
+
+
+Action 15:
+	RunLeftSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 16:
+	Freeze4 0x3
+	RunLeft 0x1
+	DisappearTrue 0x1
+End
+
+

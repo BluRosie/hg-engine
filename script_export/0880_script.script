@@ -1,0 +1,13 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 193
+	JumpIf EQUAL Function#1
+	CheckFlag 191
+	JumpIf LESS Function#2
+	CheckFlag 2749
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+

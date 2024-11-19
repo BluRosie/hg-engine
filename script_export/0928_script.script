@@ -1,0 +1,310 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 162
+	JumpIf EQUAL Function#1
+	Message 25
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 54 0
+	Message 30
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x400A 10
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x410C 1
+	JumpIf EQUAL Function#3
+	Message 31
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	StopMusic 0
+	PlayMusic 1112
+	Message 5
+	CloseMessage 
+	SetVar 0x4009 222
+	TrainerBattle 601 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	Message 6
+	CloseMessage 
+	GetPlayerDirection 0x8004
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.12 Action#1
+Jump Function#6
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x410C 1
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x400A 10
+	JumpIf EQUAL Function#8
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 264
+	JumpIf EQUAL Function#9
+	CheckFlag 265
+	JumpIf EQUAL Function#9
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 264
+	JumpIf EQUAL Function#10
+	CheckFlag 265
+	JumpIf EQUAL Function#10
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x8000 77
+	CheckFlag 264
+	JumpIf EQUAL Function#11
+	CheckFlag 265
+	JumpIf EQUAL Function#11
+	Message 13
+	OpenTouchScreen 
+	YesNoTouchScreen 0x8004
+	CloseTouchScreen 
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#12
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	CallIf DIFFERENT Function#13
+Jump Function#14
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 264
+	JumpIf EQUAL Function#15
+	CheckFlag 265
+	JumpIf EQUAL Function#15
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 264
+	JumpIf EQUAL Function#16
+	CheckFlag 265
+	JumpIf EQUAL Function#16
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 39
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 12:
+	MecScript 
+	LockAll 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 26
+	SetVar 0x8004 422
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	CommonScript 2033
+	SetFlag 162
+	SetVar 0x410C 3
+	SetVar 0x4090 1
+	Message 28
+	CloseMessage 
+	Movement Overworld.2 Action#3
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	MecScript 
+	LockAll 
+	Movement Overworld.2 Action#4
+	WaitMovement 
+	Message 26
+	SetVar 0x8004 422
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	CommonScript 2033
+	SetFlag 162
+	SetVar 0x4090 1
+	SetVar 0x410C 3
+	Message 28
+	CloseMessage 
+	Movement Overworld.2 Action#5
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 14:
+	CompareVarValue 0x410C 1
+	JumpIf GREATER Function#18
+	VanishOverworld 12
+	CompareVarValue 0x410C 0
+	JumpIf DIFFERENT Function#19
+	SetOWPosition Overworld.9 6 0 6 Right
+	SetOWPosition Overworld.6 8 0 6 Left
+	CompareVarValue 0x4009 222
+	JumpIf DIFFERENT Function#20
+	SetOWPosition Overworld.9 29 0 29 Down
+	VanishOverworld 9
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#21
+	SetOWPosition Overworld.12 7 0 6 Down
+Jump Function#22
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x400A 10
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x410C 1
+	JumpIf EQUAL Function#24
+	Message 36
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	MecScript 
+	LockAll 
+	Message 0
+	CloseMessage 
+	Movement Overworld.9 Action#6
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#7
+	WaitMovement 
+	WaitTime 10 0x800C
+	Movement Overworld.9 Action#8
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.6 Action#9
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	Movement Overworld.9 Action#10
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.6 Action#11
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.9 Action#12
+	WaitMovement 
+	Movement Overworld.9 Action#13
+	Movement Camera Action#14
+	WaitMovement 
+	ReleaseCamera 
+	ReleaseAll 
+	SetVar 0x410C 1
+End 
+
+
+Script 17:
+	MecScript 
+	LockAll 
+	SetVar 0x8000 11
+	SetVar 0x410C 5
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#15
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#25
+	Message 11
+Jump Function#26
+
+

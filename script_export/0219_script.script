@@ -1,0 +1,33 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PlaySound 1183
+	WaitSound 
+	HealPokemon 
+	CMD_436 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

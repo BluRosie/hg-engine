@@ -1,0 +1,210 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckCompleteJohtoDex 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	CheckFlag 323
+	JumpIf EQUAL Function#2
+	Message 1
+	PlaySound 1195
+	WaitSound 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_425 0
+	ReturnScreen 
+	SetFlag 323
+	CMD_515 25
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CheckCompleteNationalDex 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	CheckFlag 324
+	JumpIf EQUAL Function#3
+	Message 2
+	PlaySound 1195
+	WaitSound 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_425 1
+	ReturnScreen 
+	SetFlag 324
+	CMD_515 26
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	CMD_144 0x4020
+	SetVar 0x4125 0
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 15 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	MecScript 
+	LockAll 
+	CommonScript 2029
+	Movement Overworld.5 Action#1
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 12 13
+	CloseMessage 
+	Movement Overworld.5 Action#3
+	Movement Overworld.6 Action#4
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#5
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 14 15
+	CloseMessage 
+	Movement Overworld.5 Action#6
+	Movement Overworld.6 Action#7
+	WaitMovement 
+	DoorAnimation 0 0 3 2 77
+	OpenDoor 77
+	WaitDoor 77
+	Movement Overworld.5 Action#8
+	Movement Overworld.6 Action#9
+	WaitMovement 
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	CommonScript 2030
+	SetVar 0x412C 1
+	SetOWPosition Overworld.5 29 0 29 Left
+	SetOWPosition Overworld.6 29 0 29 Left
+	ReleaseAll 
+End 
+
+
+Script 12:
+	CompareVarValue 0x412C 0
+	JumpIf DIFFERENT Function#5
+	SetOWPosition Overworld.5 12 0 6 Left
+	SetOWPosition Overworld.6 13 0 6 Left
+End 
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

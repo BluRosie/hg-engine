@@ -1,0 +1,22 @@
+Script 1:
+	MecScript 
+	LockAll 
+	SetVar 0x40CD 1
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

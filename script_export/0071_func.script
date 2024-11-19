@@ -1,0 +1,58 @@
+Function 1:
+	VanishOverworld 255
+Return 
+
+
+Function 2:
+	DoorAnimation 0 0 2 2 77
+	OpenDoor 77
+	WaitDoor 77
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	UnvanishOverworld 255
+	Movement Player Action#2
+	WaitMovement 
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+Return 
+
+
+Function 3:
+	Movement Overworld.0 Action#3
+	Movement Player Action#4
+	WaitMovement 
+Jump Function#7
+
+
+Function 4:
+	Movement Overworld.0 Action#5
+	Movement Player Action#6
+	WaitMovement 
+Jump Function#7
+
+
+Function 5:
+	Movement Overworld.0 Action#7
+	Movement Player Action#8
+	WaitMovement 
+Jump Function#7
+
+
+Function 6:
+	Movement Overworld.0 Action#9
+	Movement Player Action#10
+	WaitMovement 
+Jump Function#7
+
+
+Function 7:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 269 0 7 6 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

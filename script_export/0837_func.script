@@ -1,0 +1,442 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetVar 0x4009 1
+	ClearFlag 641
+	ClearFlag 642
+	CheckFlag 359
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x4130 4
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x4130 1
+	JumpIf LESS/EQUAL Function#5
+	CompareVarValue 0x40FD 0
+	JumpIf EQUAL Function#5
+	ClearFlag 762
+	CompareVarValue 0x4130 5
+	CallIf EQUAL Function#6
+End 
+
+
+Function 4:
+	SetFlag 160
+	SetFlag 641
+	SetFlag 642
+	SetFlag 762
+	Call Function#13
+End 
+
+
+Function 5:
+	SetFlag 762
+	Call Function#13
+End 
+
+
+Function 6:
+	SetFlag 791
+Return 
+
+
+Function 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4130 6
+	CompareVarValue 0x400A 77
+	JumpIf DIFFERENT Function#14
+	Message 8
+Jump Function#15
+
+
+Function 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 24
+Jump Function#16
+
+
+Function 9:
+	CompareVarValue 0x4002 2
+	JumpIf DIFFERENT Function#17
+	Movement Overworld.2 Action#2
+Jump Function#10
+
+
+Function 10:
+	WaitMovement 
+	Movement Overworld.2 Action#3
+	WaitMovement 
+	Message 15
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.2 Action#1
+Jump Function#19
+
+
+Function 11:
+	CompareVarValue 0x4008 0
+	JumpIf DIFFERENT Function#12
+	CompareVarValue 0x4130 3
+	JumpIf GREATER Function#12
+	SetOWPosition Overworld.2 22 0 8 Up
+End 
+
+
+Function 12:
+End 
+
+
+Function 13:
+	SetVar 0x4008 1
+Return 
+
+
+Function 14:
+	Message 7
+	SetVar 0x400A 77
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#20
+	Message 9
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#20
+	InitTrade 12
+	SetVarFromVariable 0x8004 0x800C
+	GetPokemonHappiness 0x4002 0x8004
+	GetPartyPokemonID 0x8004 0x8005
+	GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C
+	JumpIf DIFFERENT Function#21
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 359
+	CompareVarValue 0x4002 200
+	JumpIf LESS Function#22
+	Message 13
+Jump Function#23
+
+
+Function 15:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#20
+	Message 9
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#20
+	InitTrade 12
+	SetVarFromVariable 0x8004 0x800C
+	GetPokemonHappiness 0x4002 0x8004
+	GetPartyPokemonID 0x8004 0x8005
+	GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C
+	JumpIf DIFFERENT Function#21
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 359
+	CompareVarValue 0x4002 200
+	JumpIf LESS Function#22
+	Message 13
+Jump Function#23
+
+
+Function 16:
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x8004
+	CreateMultiTouchBox 17 255 0
+	CreateMultiTouchBox 18 255 1
+	CreateMultiTouchBox 19 255 2
+	CreateMultiTouchBox 27 255 3
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x8004
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#26
+	SetVar 0x8004 252
+Jump Function#27
+
+
+Function 17:
+	Movement Overworld.2 Action#4
+	WaitMovement 
+	Movement Overworld.2 Action#3
+	WaitMovement 
+	Message 15
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.2 Action#1
+Jump Function#19
+
+
+Function 18:
+	CompareVarValue 0x4002 2
+	JumpIf DIFFERENT Function#28
+	Movement Overworld.2 Action#2
+Jump Function#19
+
+
+Function 19:
+	WaitMovement 
+	Message 16
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x8004
+	CreateMultiTouchBox 17 255 0
+	CreateMultiTouchBox 18 255 1
+	CreateMultiTouchBox 19 255 2
+	CreateMultiTouchBox 27 255 3
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x8004
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#26
+	SetVar 0x8004 252
+Jump Function#27
+
+
+Function 20:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	EndTrade 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	Message 12
+	CloseMessage 
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#29
+	Movement Overworld.2 Action#5
+Jump Function#30
+
+
+Function 23:
+	CloseMessage 
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#29
+	Movement Overworld.2 Action#5
+Jump Function#30
+
+
+Function 24:
+	Message 28
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	Message 23
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 26:
+	CompareVarValue 0x8004 1
+	JumpIf DIFFERENT Function#31
+	SetVar 0x8004 255
+Jump Function#27
+
+
+Function 27:
+	TextPokemon 1 0x8004 0 0
+	TextPlayerName 0
+	Message 20
+	PlaySound 1187
+	Message 21
+	WaitSound 
+	GivePokemon 0x8004 5 0 0 0 0x800C
+	OpenTouchScreen 
+	Message 25
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	CloseTouchScreen 
+	Message 22
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#33
+	Movement Overworld.2 Action#6
+Jump Function#34
+
+
+Function 28:
+	Movement Overworld.2 Action#4
+	WaitMovement 
+	Message 16
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x8004
+	CreateMultiTouchBox 17 255 0
+	CreateMultiTouchBox 18 255 1
+	CreateMultiTouchBox 19 255 2
+	CreateMultiTouchBox 27 255 3
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x8004
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#26
+	SetVar 0x8004 252
+Jump Function#27
+
+
+Function 29:
+	Movement Overworld.2 Action#7
+	WaitMovement 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	RemoveOW Overworld.2
+	SetFlag 762
+	SetVar 0x4130 7
+	ReleaseAll 
+End 
+
+
+Function 30:
+	WaitMovement 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	RemoveOW Overworld.2
+	SetFlag 762
+	SetVar 0x4130 7
+	ReleaseAll 
+End 
+
+
+Function 31:
+	SetVar 0x8004 258
+	TextPokemon 1 0x8004 0 0
+	TextPlayerName 0
+	Message 20
+	PlaySound 1187
+	Message 21
+	WaitSound 
+	GivePokemon 0x8004 5 0 0 0 0x800C
+	OpenTouchScreen 
+	Message 25
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	CloseTouchScreen 
+	Message 22
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#33
+	Movement Overworld.2 Action#6
+Jump Function#34
+
+
+Function 32:
+	CloseMessage 
+	GetPartyCount 0x800C
+	DecrementVar 0x800C 1
+	SetVar 0x4000 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_815 0
+	ChoosePokemonNickname 0x800C 0x4000
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#35
+	Message 26
+Jump Function#35
+
+
+Function 33:
+	Movement Overworld.2 Action#8
+	WaitMovement 
+	RemoveOW Overworld.2
+	SetFlag 762
+	SetFlag 375
+	SetVar 0x4130 4
+	ClearFlag 791
+	ReleaseAll 
+End 
+
+
+Function 34:
+	WaitMovement 
+	RemoveOW Overworld.2
+	SetFlag 762
+	SetFlag 375
+	SetVar 0x4130 4
+	ClearFlag 791
+	ReleaseAll 
+End 
+
+
+Function 35:
+	Message 22
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#33
+	Movement Overworld.2 Action#6
+Jump Function#34
+
+

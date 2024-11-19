@@ -1,0 +1,27 @@
+Script 1:
+	CheckFlag 393
+	JumpIf LESS Function#1
+	ClearFlag 393
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_147 37 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#3
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#5
+End 
+
+

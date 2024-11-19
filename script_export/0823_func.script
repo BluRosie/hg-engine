@@ -1,0 +1,49 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	TrainerBattle 246 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	SetFlag 231
+	Message 1
+	CloseMessage 
+	PlayFanfare 1561
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	SetFlag 231
+	Message 1
+	CloseMessage 
+	PlayFanfare 1561
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	ReleaseAll 
+End 
+
+
+Function 4:
+End 
+
+
+Function 5:
+	LostBattle 
+	ReleaseAll 
+End 
+
+

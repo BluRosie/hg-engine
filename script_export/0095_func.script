@@ -1,0 +1,179 @@
+Function 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CompareVarValue 0x4001 16
+	JumpIf DIFFERENT Function#7
+Jump Function#8
+
+
+Function 3:
+	CheckFlag 151
+	JumpIf EQUAL Function#1
+	GetOWDirection 4 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#9
+Jump Function#10
+
+
+Function 4:
+	CheckFlag 151
+	JumpIf EQUAL Function#11
+	CheckFlag 152
+	JumpIf EQUAL Function#12
+	SetOWMovement Overworld.0 Move.9
+	SetOWPosition Overworld.1 19 0 16 Down
+	SetOWPosition Overworld.7 19 0 18 Up
+	SetOWPosition Overworld.9 19 0 17 Up
+	SetOWPosition Overworld.10 20 0 17 Up
+	SetOWPosition Overworld.11 20 0 18 Up
+End 
+
+
+Function 5:
+	CheckFlag 152
+	JumpIf EQUAL Function#13
+	SetOWPosition Overworld.2 3 0 14 Left
+	SetOWPosition Overworld.6 1 0 14 Up
+	SetOWPosition Overworld.12 1 0 13 Up
+	SetOWPosition Overworld.13 2 0 13 Up
+	SetOWPosition Overworld.14 2 0 14 Up
+End 
+
+
+Function 6:
+	SetOWPosition Overworld.3 7 0 17 Right
+	SetOWPosition Overworld.5 8 0 18 Up
+	SetOWPosition Overworld.15 8 0 17 Up
+	SetOWPosition Overworld.16 9 0 17 Up
+	SetOWPosition Overworld.17 9 0 18 Up
+End 
+
+
+Function 7:
+Jump Function#1
+
+
+Function 8:
+	CheckFlag 152
+	JumpIf EQUAL Function#1
+	GetOWDirection 4 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#14
+Jump Function#15
+
+
+Function 9:
+Jump Function#1
+
+
+Function 10:
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	Movement Overworld.6 Action#2
+	Movement Overworld.12 Action#2
+	Movement Overworld.13 Action#2
+	Movement Overworld.14 Action#2
+	WaitMovement 
+	SetFlag 151
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CheckFlag 152
+	JumpIf EQUAL Function#16
+	SetOWMovement Overworld.0 Move.9
+	SetOWPosition Overworld.1 19 0 16 Down
+	SetOWPosition Overworld.7 19 0 18 Up
+	SetOWPosition Overworld.9 19 0 17 Up
+	SetOWPosition Overworld.10 20 0 17 Up
+	SetOWPosition Overworld.11 20 0 18 Up
+	SetOWPosition Overworld.2 3 0 14 Left
+	SetOWPosition Overworld.6 1 0 14 Up
+	SetOWPosition Overworld.12 1 0 13 Up
+	SetOWPosition Overworld.13 2 0 13 Up
+	SetOWPosition Overworld.14 2 0 14 Up
+End 
+
+
+Function 12:
+	SetOWMovement Overworld.0 Move.9
+	SetOWPosition Overworld.1 19 0 16 Down
+	SetOWPosition Overworld.7 19 0 18 Up
+	SetOWPosition Overworld.9 19 0 17 Up
+	SetOWPosition Overworld.10 20 0 17 Up
+	SetOWPosition Overworld.11 20 0 18 Up
+	SetOWPosition Overworld.3 7 0 17 Right
+	SetOWPosition Overworld.5 8 0 18 Up
+	SetOWPosition Overworld.15 8 0 17 Up
+	SetOWPosition Overworld.16 9 0 17 Up
+	SetOWPosition Overworld.17 9 0 18 Up
+End 
+
+
+Function 13:
+	SetOWPosition Overworld.2 3 0 14 Left
+	SetOWPosition Overworld.6 1 0 14 Up
+	SetOWPosition Overworld.12 1 0 13 Up
+	SetOWPosition Overworld.13 2 0 13 Up
+	SetOWPosition Overworld.14 2 0 14 Up
+	SetOWPosition Overworld.3 7 0 17 Right
+	SetOWPosition Overworld.5 8 0 18 Up
+	SetOWPosition Overworld.15 8 0 17 Up
+	SetOWPosition Overworld.16 9 0 17 Up
+	SetOWPosition Overworld.17 9 0 18 Up
+End 
+
+
+Function 14:
+Jump Function#1
+
+
+Function 15:
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	CloseMessage 
+	Movement Overworld.3 Action#3
+	Movement Overworld.5 Action#3
+	Movement Overworld.15 Action#3
+	Movement Overworld.16 Action#3
+	Movement Overworld.17 Action#3
+	WaitMovement 
+	SetFlag 152
+	ReleaseAll 
+End 
+
+
+Function 16:
+	SetOWMovement Overworld.0 Move.9
+	SetOWPosition Overworld.1 19 0 16 Down
+	SetOWPosition Overworld.7 19 0 18 Up
+	SetOWPosition Overworld.9 19 0 17 Up
+	SetOWPosition Overworld.10 20 0 17 Up
+	SetOWPosition Overworld.11 20 0 18 Up
+	SetOWPosition Overworld.2 3 0 14 Left
+	SetOWPosition Overworld.6 1 0 14 Up
+	SetOWPosition Overworld.12 1 0 13 Up
+	SetOWPosition Overworld.13 2 0 13 Up
+	SetOWPosition Overworld.14 2 0 14 Up
+	SetOWPosition Overworld.3 7 0 17 Right
+	SetOWPosition Overworld.5 8 0 18 Up
+	SetOWPosition Overworld.15 8 0 17 Up
+	SetOWPosition Overworld.16 9 0 17 Up
+	SetOWPosition Overworld.17 9 0 18 Up
+End 
+
+

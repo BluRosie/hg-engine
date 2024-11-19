@@ -1,0 +1,143 @@
+Script 1:
+End 
+
+
+Script 2:
+	VanishOverworld 1
+	VanishOverworld 2
+	VanishOverworld 3
+	CompareVarValue 0x40AC 9
+	JumpIf GREATER/EQUAL Function#1
+	CompareVarValue 0x40A8 2
+	JumpIf GREATER/EQUAL Function#2
+	CompareVarValue 0x40A8 1
+	JumpIf EQUAL Function#3
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40A8 2
+	JumpIf GREATER/EQUAL Function#4
+	Message 0
+	FreezeMessage 
+	SetVar 0x8004 28
+	CommonScript 2052
+	ReleaseAll 
+End 
+
+
+Script 4:
+	CompareVarValue 0x40A8 2
+	JumpIf GREATER/EQUAL Function#5
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetFlag 369
+	Message 10
+	FreezeMessage 
+	SetVar 0x8004 29
+	CommonScript 2052
+	ClearFlag 369
+	ReleaseAll 
+End 
+
+
+Script 6:
+End 
+
+
+Script 7:
+	StopMusic 0
+	PlayMusic 1079
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	PlayFanfare 2302
+	Movement Overworld.8 Action#2
+	WaitFanfare 2258
+	Movement Overworld.4 Action#3
+	WaitMovement 
+	Movement Overworld.7 Action#4
+	Movement Overworld.8 Action#5
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 5 6
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.7 Action#6
+	Movement Player Action#7
+	Movement Overworld.8 Action#8
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.5 Action#9
+	WaitMovement 
+	Movement Overworld.7 Action#10
+	WaitMovement 
+	Message 7
+	CloseMessage 
+	Movement Overworld.5 Action#11
+	WaitMovement 
+	PlayFanfare 1574
+	Movement Overworld.0 Action#12
+	Movement Overworld.1 Action#12
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#12
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 8 9
+	CloseMessage 
+	Movement Overworld.7 Action#13
+	WaitMovement 
+	RemoveOW Overworld.7
+	Movement Overworld.8 Action#14
+	WaitMovement 
+	RemoveOW Overworld.8
+	SetFlag 504
+	SetVar 0x40A8 2
+	ReleaseAll 
+End 
+
+
+Script 8:
+End 
+
+
+Script 9:
+	CompareVarValue 0x40AC 3
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x40AC 8
+	JumpIf EQUAL Function#7
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40AC 10
+	JumpIf GREATER/EQUAL Function#8
+	Message 15
+Jump Function#9
+
+

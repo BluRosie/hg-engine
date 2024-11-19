@@ -1,0 +1,61 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40CB 3
+	JumpIf GREATER Function#1
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Message 1
+Jump Function#2
+
+
+Script 2:
+	CompareVarValue 0x40CB 7
+	JumpIf GREATER/EQUAL Function#3
+	CompareVarValue 0x40CB 4
+	JumpIf GREATER Function#4
+	SetFlag 536
+Jump Function#5
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	GenderMessage 2 3
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 4 5
+	SetVar 0x8004 233
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CommonScript 2033
+	SetVar 0x40CB 6
+	SetFlag 554
+	PlayFanfare 1521
+	WaitFanfare 1521
+	SetFlag 235
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,116 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	CommonScript 2036
+	WaitTime 30 0x800C
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 0 1
+	SetFlag 283
+	PlaySound 1418
+	WaitSound 
+	Message 2
+	SetFlag 284
+	PlaySound 1418
+	WaitSound 
+	Message 3
+	SetFlag 285
+	PlaySound 1418
+	WaitSound 
+	Message 4
+	SetFlag 286
+	PlaySound 1418
+	WaitSound 
+	Message 5
+	CloseMessage 
+	WaitTime 15 0x800C
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	CommonScript 2038
+	SetVar 0x4106 1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	CheckFlag 2404
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4108 4
+	JumpIf GREATER/EQUAL Function#2
+	CheckFlag 106
+	JumpIf EQUAL Function#3
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	Message 35
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 36
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 37
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	Message 38
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	CommonScript 2036
+	WaitTime 30 0x800C
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	TextPlayerName 0
+	Message 33
+	CloseMessage 
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	CommonScript 2038
+	SetVar 0x4106 4
+	ReleaseAll 
+End 
+
+

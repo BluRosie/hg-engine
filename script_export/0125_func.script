@@ -1,0 +1,17 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+End 
+
+
+Function 3:
+	SetVar 0x400B 1
+End 
+
+

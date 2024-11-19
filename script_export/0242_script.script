@@ -1,0 +1,180 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28A5
+	CompareVarValue 0x4118 1
+	JumpIf DIFFERENT Function#1
+	CheckFlag 452
+	JumpIf EQUAL Function#2
+	GetPlayerDirection 0x800C
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#3
+	Movement Player Action#1
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	MecScript 
+	LockAll 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 7
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.2 Action#3
+Jump Function#6
+
+
+Script 10:
+End 
+
+
+Script 11:
+	MecScript 
+	LockAll 
+	Movement Player Action#4
+	Movement Overworld.7 Action#5
+	WaitMovement 
+	CommonScript 0x28A6
+	CompareVarValue 0x4118 1
+	JumpIf DIFFERENT Function#7
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#6
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 487 0 40 86 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Lock Following
+	GetFollowingPokeSize 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+	BallResetFollowingPoke 
+Jump Function#9
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#12
+	Movement Player Action#7
+	Movement Overworld.6 Action#8
+Jump Function#13
+
+
+Script 13:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4118 1
+	JumpIf DIFFERENT Function#14
+	ClearFlag 452
+	SetFlag 451
+Jump Function#15
+
+

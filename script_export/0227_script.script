@@ -1,0 +1,140 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	CloseMessage 
+	Movement Overworld.6 Action#1
+	WaitMovement 
+	Movement Overworld.7 Action#2
+	WaitMovement 
+	PlayFanfare 1500
+	FacePlayer 
+	Message 1
+	CloseMessage 
+	Movement Overworld.8 Action#3
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	SetFlag 238
+	SetVar 0x8004 1
+	SetVar 0x8005 2
+	SetVar 0x8006 0
+	CommonScript 2039
+	SetVar 0x408C 3
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	DoorAnimation 17 11 11 3 77
+	OpenDoor 77
+	WaitDoor 77
+	ClearFlag 591
+	AddOW Overworld.13
+	Movement Overworld.13 Action#4
+	WaitMovement 
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	Movement Overworld.13 Action#5
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	CompareVarValue 0x4000 558
+	JumpIf DIFFERENT Function#1
+	Movement Player Action#6
+Jump Function#2
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	SetVar 0x8004 0
+	SetVar 0x8005 2
+	SetVar 0x8006 0
+	CommonScript 2039
+	SetVar 0x4095 0
+	SetFlag 167
+	ReleaseAll 
+End 
+
+
+Script 6:
+	SetIconBoard 9 1 6 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 7:
+	SetIconBoard 10 1 3 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 8:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 12 0x800C
+	CommonScript 2000
+End 
+
+
+Script 9:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 11 0x800C
+	CommonScript 2000
+End 
+
+
+Script 10:
+	CheckFlag 107
+	JumpIf EQUAL Function#3
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,188 @@
+Function 1:
+	Movement Overworld.3 Action#1
+	Movement Overworld.4 Action#1
+	Movement Overworld.5 Action#1
+	Movement Overworld.6 Action#1
+	Movement Overworld.7 Action#1
+	Movement Overworld.8 Action#1
+	WaitMovement 
+Return 
+
+
+Function 2:
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.3 Action#2
+	Movement Overworld.4 Action#2
+	Movement Overworld.5 Action#2
+	Movement Overworld.6 Action#3
+	Movement Overworld.7 Action#3
+	Movement Overworld.8 Action#3
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Return 
+
+
+Function 3:
+	Message 3
+	Call Function#4
+	CloseTouchScreen 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 451 255 0
+	CreateMultiTouchBox 452 255 1
+	CreateMultiTouchBox 453 255 2
+	CreateMultiTouchBox 454 255 3
+	CreateMultiTouchBox 455 255 4
+	CreateMultiTouchBox 456 255 5
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#20
+Return 
+
+
+Function 5:
+	CloseTouchScreen 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 18
+Jump Function#7
+
+
+Function 7:
+	Message 19
+Jump Function#21
+
+
+Function 8:
+	Message 21
+Jump Function#9
+
+
+Function 9:
+	Message 22
+Jump Function#22
+
+
+Function 10:
+	Message 24
+Jump Function#11
+
+
+Function 11:
+	Message 25
+Jump Function#23
+
+
+Function 12:
+	Message 27
+Jump Function#13
+
+
+Function 13:
+	Message 28
+Jump Function#24
+
+
+Function 14:
+	Message 30
+Jump Function#15
+
+
+Function 15:
+	Message 31
+Jump Function#25
+
+
+Function 16:
+	Message 5
+	Message 4
+Jump Function#4
+
+
+Function 17:
+	Message 6
+	Message 4
+Jump Function#4
+
+
+Function 18:
+	Message 7
+	Message 4
+Jump Function#4
+
+
+Function 19:
+	Message 8
+	Message 4
+Jump Function#4
+
+
+Function 20:
+	Message 9
+	Message 4
+Jump Function#4
+
+
+Function 21:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 24:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

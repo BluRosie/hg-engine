@@ -1,0 +1,88 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CountSeenUnown 0x800C
+	CompareVarValue 0x800C 28
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x40EC 1
+	JumpIf GREATER/EQUAL Function#2
+	CheckFlag 271
+	JumpIf EQUAL Function#3
+	Message 0
+	SetFlag 271
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.0 Action#1
+Jump Function#5
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x403E 8
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x403E 7
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x403E 4
+	JumpIf GREATER/EQUAL Function#8
+	CountSeenUnown 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CMD_770 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x40EC 4
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x40EC 3
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x40EC 2
+	JumpIf EQUAL Function#13
+	CompareVarValue 0x40EC 1
+	JumpIf EQUAL Function#14
+	Message 4
+Jump Function#15
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_770 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#16
+	CountSeenUnown 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	Message 19
+Jump Function#15
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x403E 7
+	JumpIf GREATER/EQUAL Function#18
+	CMD_770 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#19
+	Message 21
+Jump Function#15
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 24
+Jump Function#15
+
+
+Script 6:
+	ClearFlag 271
+End 
+
+

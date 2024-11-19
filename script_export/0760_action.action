@@ -1,0 +1,41 @@
+Action 1:
+	RunDown 0x5
+End
+
+
+Action 2:
+	LockDir 0x1
+	JumpUp2 0x1
+	Freeze8 0x2
+	WalkDownVeryFast 0x2
+End
+
+
+Action 3:
+	Exclamation 0x1
+	LockDir 0x1
+	WalkUpFast 0x2
+End
+
+
+Action 4:
+	WalkDownFast 0x2
+End
+
+
+Action 5:
+	WalkDownVeryFast 0x1
+End
+
+
+Action 6:
+	WalkLeftVeryFast 0x1
+	LookRight 0x1
+End
+
+
+Action 7:
+	WalkLeftVeryFast 0x1
+End
+
+

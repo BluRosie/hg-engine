@@ -1,0 +1,9 @@
+Script 1:
+	CheckFlag 2741
+	JumpIf EQUAL Function#1
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#2
+Jump Function#3
+
+

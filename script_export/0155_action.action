@@ -1,0 +1,51 @@
+Action 1:
+	LookLeft 0x1
+	WalkLeftFast 0x1
+	WalkRightFastSite 0x1
+End
+
+
+Action 2:
+	WalkLeftFast 0x1
+	LookUp 0x1
+	WalkUpFast 0x2
+End
+
+
+Action 3:
+	WalkDownFast 0x3
+End
+
+
+Action 4:
+	WalkLeftFast 0x1
+	WalkDownFastSite 0x1
+End
+
+
+Action 5:
+	LookRight 0x1
+	WalkRightFast 0x1
+	WalkLeftFastSite 0x1
+End
+
+
+Action 6:
+	WalkRightFast 0x1
+	LookUp 0x1
+	WalkUpFast 0x2
+End
+
+
+Action 7:
+	LookRight 0x1
+	WalkRightFast 0x1
+	WalkLeftFastSite 0x1
+End
+
+
+Action 8:
+	WalkUpFast 0x2
+End
+
+

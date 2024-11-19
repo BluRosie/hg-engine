@@ -1,0 +1,666 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x8000
+	CreateMultiTouchBox 209 255 0
+	CreateMultiTouchBox 210 255 1
+	CreateMultiTouchBox 211 255 2
+	CreateMultiTouchBox 212 255 3
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x8000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#20
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#21
+	Message 9
+Jump Function#22
+
+
+Function 6:
+	CompareMoney 0x800C 300
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	TakeMoney 300
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 11
+	GetRandom 0x800C 100
+	CompareVarValue 0x800C 40
+	JumpIf GREATER/EQUAL Function#9
+	CompareVarValue 0x800C 4
+	JumpIf GREATER/EQUAL Function#10
+	CompareVarValue 0x800C 0
+	JumpIf GREATER/EQUAL Function#11
+End 
+
+
+Function 7:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	Message 16
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	PlayFanfare 2323
+	TextNumber 0 3
+	Message 12
+	GetRandom 0x800C 70
+	CompareVarValue 0x800C 60
+	JumpIf GREATER/EQUAL Function#23
+	CompareVarValue 0x800C 50
+	JumpIf GREATER/EQUAL Function#24
+	CompareVarValue 0x800C 40
+	JumpIf GREATER/EQUAL Function#25
+	CompareVarValue 0x800C 30
+	JumpIf GREATER/EQUAL Function#26
+	CompareVarValue 0x800C 20
+	JumpIf GREATER/EQUAL Function#27
+	CompareVarValue 0x800C 10
+	JumpIf GREATER/EQUAL Function#28
+	CompareVarValue 0x800C 0
+	JumpIf GREATER/EQUAL Function#29
+End 
+
+
+Function 10:
+	PlayFanfare 2323
+	TextNumber 0 2
+	Message 12
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#30
+	SetVar 0x8004 11
+	SetVar 0x8005 1
+Jump Function#31
+
+
+Function 11:
+	PlayFanfare 2301
+	TextNumber 0 1
+	Message 12
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#32
+	SetVar 0x8004 329
+	SetVar 0x8005 1
+Jump Function#33
+
+
+Function 12:
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#34
+	Message 19
+Jump Function#13
+
+
+Function 13:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	CheckFlag 2404
+	JumpIf LESS Function#35
+	CMD_142 17 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#35
+	CMD_147 17 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#36
+	GetHour 0x4000
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#37
+	ClearFlag 623
+Jump Function#38
+
+
+Function 15:
+	Message 30
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#39
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#40
+	Message 31
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 15 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 32
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	Message 29
+Jump Function#41
+
+
+Function 17:
+	TextPlayerName 0
+	Message 26
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 17
+	Message 27
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 623
+	RemoveOW Overworld.3
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	SetVar 0x4002 1
+	Message 28
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	SetVar 0x8001 30
+Jump Function#42
+
+
+Function 20:
+	SetVar 0x8001 31
+Jump Function#42
+
+
+Function 21:
+	SetVar 0x8001 32
+Jump Function#42
+
+
+Function 22:
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	SetVar 0x8004 155
+	SetVar 0x8005 1
+Jump Function#43
+
+
+Function 24:
+	SetVar 0x8004 150
+	SetVar 0x8005 1
+Jump Function#43
+
+
+Function 25:
+	SetVar 0x8004 151
+	SetVar 0x8005 1
+Jump Function#43
+
+
+Function 26:
+	SetVar 0x8004 152
+	SetVar 0x8005 1
+Jump Function#43
+
+
+Function 27:
+	SetVar 0x8004 153
+	SetVar 0x8005 1
+Jump Function#43
+
+
+Function 28:
+	SetVar 0x8004 156
+	SetVar 0x8005 1
+Jump Function#43
+
+
+Function 29:
+	SetVar 0x8004 149
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#44
+	CommonScript 2008
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 30:
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#45
+	SetVar 0x8004 8
+	SetVar 0x8005 1
+Jump Function#31
+
+
+Function 31:
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#44
+	CommonScript 2008
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 32:
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#46
+	SetVar 0x8004 392
+	SetVar 0x8005 1
+Jump Function#33
+
+
+Function 33:
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#44
+	CommonScript 2008
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 34:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#47
+	Message 20
+Jump Function#13
+
+
+Function 35:
+	SetFlag 623
+End 
+
+
+Function 36:
+	GetHour 0x4000
+	CompareVarValue 0x4000 18
+	JumpIf DIFFERENT Function#48
+	ClearFlag 623
+Jump Function#49
+
+
+Function 37:
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#50
+	ClearFlag 623
+Jump Function#38
+
+
+Function 38:
+End 
+
+
+Function 39:
+	Message 33
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 40:
+	Message 34
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 41:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#18
+End 
+
+
+Function 42:
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#51
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#52
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#53
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#54
+	CheckItemSpace 0x8001 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#55
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#56
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#57
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#58
+	UpdateMoney 
+	TextItem 0 0x8001
+	PlayFanfare 1558
+	TextItem 0 0x8001
+	Message 6
+	SetVarFromVariable 0x8004 0x8001
+	SetVar 0x8005 1
+	CommonScript 2033
+	GetRandom 0x800C 64
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#59
+	PlayFanfare 1558
+	TextItem 0 0x8001
+	Message 7
+	CheckItemSpace 0x8001 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#55
+	CommonScript 2033
+	Message 5
+Jump Function#5
+
+
+Function 43:
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#44
+	CommonScript 2008
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 44:
+	Message 15
+	CloseMessage 
+	GiveMoney 300
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 17
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 45:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#60
+	SetVar 0x8004 9
+	SetVar 0x8005 1
+Jump Function#31
+
+
+Function 46:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#61
+	SetVar 0x8004 418
+	SetVar 0x8005 1
+Jump Function#33
+
+
+Function 47:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#62
+	Message 21
+Jump Function#13
+
+
+Function 48:
+	CompareVarValue 0x4000 19
+	JumpIf DIFFERENT Function#63
+	ClearFlag 623
+Jump Function#49
+
+
+Function 49:
+End 
+
+
+Function 50:
+	CompareVarValue 0x4000 14
+	JumpIf DIFFERENT Function#64
+	ClearFlag 623
+Jump Function#38
+
+
+Function 51:
+	CompareMoney 0x800C 200
+Return 
+
+
+Function 52:
+	CompareMoney 0x800C 300
+Return 
+
+
+Function 53:
+	CompareMoney 0x800C 350
+Return 
+
+
+Function 54:
+	Message 8
+Jump Function#22
+
+
+Function 55:
+	CommonScript 2009
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 56:
+	TakeMoney 200
+Return 
+
+
+Function 57:
+	TakeMoney 300
+Return 
+
+
+Function 58:
+	TakeMoney 350
+Return 
+
+
+Function 59:
+	Message 5
+Jump Function#5
+
+
+Function 60:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#65
+	SetVar 0x8004 6
+	SetVar 0x8005 1
+Jump Function#31
+
+
+Function 61:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#66
+	SetVar 0x8004 384
+	SetVar 0x8005 1
+Jump Function#33
+
+
+Function 62:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#67
+	Message 22
+Jump Function#13
+
+
+Function 63:
+	CompareVarValue 0x4000 20
+	JumpIf DIFFERENT Function#68
+	ClearFlag 623
+Jump Function#49
+
+
+Function 64:
+	CompareVarValue 0x4000 15
+	JumpIf DIFFERENT Function#69
+	ClearFlag 623
+Jump Function#38
+
+
+Function 65:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#70
+	SetVar 0x8004 15
+	SetVar 0x8005 1
+Jump Function#31
+
+
+Function 66:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#71
+	SetVar 0x8004 387
+	SetVar 0x8005 1
+Jump Function#33
+
+
+Function 67:
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#72
+	Message 23
+Jump Function#13
+
+
+Function 68:
+Jump Function#35
+
+
+Function 69:
+Jump Function#35
+
+
+Function 70:
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#73
+	SetVar 0x8004 13
+	SetVar 0x8005 1
+Jump Function#31
+
+
+Function 71:
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#74
+	SetVar 0x8004 369
+	SetVar 0x8005 1
+Jump Function#33
+
+
+Function 72:
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 73:
+	SetVar 0x8004 10
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#44
+	CommonScript 2008
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 74:
+	SetVar 0x8004 389
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#44
+	CommonScript 2008
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+

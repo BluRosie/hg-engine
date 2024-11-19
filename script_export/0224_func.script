@@ -1,0 +1,97 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.0 Action#3
+Jump Function#3
+
+
+Function 3:
+	WaitMovement 
+	Message 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.0 Action#4
+Jump Function#6
+
+
+Function 4:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.0 Action#5
+Jump Function#3
+
+
+Function 5:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#8
+	Movement Overworld.0 Action#5
+Jump Function#6
+
+
+Function 6:
+	WaitMovement 
+	Message 1
+	SetVar 0x8004 374
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CommonScript 2033
+	SetFlag 311
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Message 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.0 Action#4
+Jump Function#6
+
+
+Function 8:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.0 Action#3
+Jump Function#6
+
+
+Function 9:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Message 1
+	SetVar 0x8004 374
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CommonScript 2033
+	SetFlag 311
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

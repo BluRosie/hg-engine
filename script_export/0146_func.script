@@ -1,0 +1,849 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+Jump Function#3
+
+
+Function 2:
+	CheckMoveInParty 0x800C 15
+	SetVarFromVariable 0x8004 0x800C
+	CMD_727 0x8005
+	TextPokeNickname 0 0x800C
+	Message 1
+	CloseMessage 
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#30
+	CutAnimation 0x8004
+	CMD_560 0 0x8005
+Jump Function#31
+
+
+Function 3:
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 4
+	WaitButton 
+	CloseMessage 
+Jump Function#3
+
+
+Function 5:
+	TextPokeNickname 0 0x8004
+	Message 5
+	CloseMessage 
+	CMD_727 0x8005
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#32
+	SetVar 0x8007 0
+	CutAnimation 0x8004
+	CMD_560 1 0x8005
+Jump Function#33
+
+
+Function 6:
+	CheckMoveInParty 0x800C 70
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#34
+	CheckBadge 2 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#34
+	Message 7
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#35
+	CloseMessage 
+Jump Function#3
+
+
+Function 7:
+	Message 10
+	WaitButton 
+	CloseMessage 
+Return 
+
+
+Function 8:
+	Message 22
+	WaitButton 
+	CloseMessage 
+Jump Function#11
+
+
+Function 9:
+	Message 23
+	WaitButton 
+	CloseMessage 
+Jump Function#11
+
+
+Function 10:
+	CheckMoveInParty 0x800C 431
+	SetVarFromVariable 0x8004 0x800C
+	TextPokeNickname 0 0x800C
+	Message 21
+	CloseMessage 
+	RockClimbAnimation 0x8004
+Jump Function#11
+
+
+Function 11:
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 16
+	WaitButton 
+	CloseMessage 
+Jump Function#11
+
+
+Function 13:
+	CheckMoveInParty 0x800C 57
+	SetVarFromVariable 0x8004 0x800C
+	TextPokeNickname 0 0x800C
+	Message 15
+	CloseMessage 
+	SurfAnimation 0x8004
+Jump Function#11
+
+
+Function 14:
+	Message 26
+	WaitButton 
+	CloseMessage 
+Jump Function#11
+
+
+Function 15:
+	CheckMoveInParty 0x800C 127
+	SetVarFromVariable 0x8004 0x800C
+	TextPokeNickname 0 0x800C
+	Message 25
+	CloseMessage 
+	WaterfallAnimation 0x8004
+Jump Function#11
+
+
+Function 16:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#36
+	CutAnimation 0x8000
+	CMD_560 0 0x8005
+Jump Function#17
+
+
+Function 17:
+	WaitTime 7 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#37
+	ReleaseAll 
+End 
+
+
+Function 18:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#38
+	SetVar 0x8007 0
+	CutAnimation 0x8000
+	CMD_560 1 0x8005
+Jump Function#19
+
+
+Function 19:
+	WaitTime 10 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#39
+	ReleaseAll 
+	CMD_753 0x8007 0x800C 0x8006
+Jump Function#40
+
+
+Function 20:
+	Strength 1
+	TextPokeNickname 0 0x8000
+	Message 11
+	CloseMessage 
+	CMD_727 0x8004
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#41
+	CutAnimation 0x8000
+Jump Function#42
+
+
+Function 21:
+	ReleaseAll 
+End 
+
+
+Function 22:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#43
+	CutAnimation 0x8000
+Jump Function#23
+
+
+Function 23:
+	CMD_401 1
+	FlashAnimation 
+	WaitTime 42 0x800C
+Jump Function#21
+
+
+Function 24:
+	Message 34
+	WaitButton 
+	CloseMessage 
+Jump Function#3
+
+
+Function 25:
+	CheckMoveInParty 0x800C 29
+	SetVarFromVariable 0x8004 0x800C
+	CMD_727 0x8005
+	TextPokeNickname 0 0x800C
+	Message 33
+	CloseMessage 
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#44
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+Jump Function#45
+
+
+Function 26:
+	Message 31
+	WaitButton 
+	CloseMessage 
+Jump Function#11
+
+
+Function 27:
+	CheckMoveInParty 0x800C 250
+	SetVarFromVariable 0x8004 0x800C
+	TextPokeNickname 0 0x800C
+	Message 30
+	CloseMessage 
+	WhirlpoolAnimation 0x8004
+Jump Function#11
+
+
+Function 28:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#46
+	CutAnimation 0x8000
+	CMD_560 4 0x8005
+Jump Function#29
+
+
+Function 29:
+	WaitTime 7 0x800C
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#47
+	ReleaseAll 
+	CMD_754 0x800C
+End 
+
+
+Function 30:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#48
+	CutAnimation 0x8004
+	CMD_560 0 0x8005
+Jump Function#31
+
+
+Function 31:
+	WaitTime 7 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#49
+Jump Function#3
+
+
+Function 32:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#50
+	SetVar 0x8007 0
+	CutAnimation 0x8004
+	CMD_560 1 0x8005
+Jump Function#33
+
+
+Function 33:
+	WaitTime 10 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#51
+	ReleaseAll 
+	CMD_753 0x8007 0x800C 0x8006
+Jump Function#40
+
+
+Function 34:
+	Message 9
+	WaitButton 
+	CloseMessage 
+Jump Function#3
+
+
+Function 35:
+	Strength 1
+	CheckMoveInParty 0x800C 70
+	SetVarFromVariable 0x8004 0x800C
+	TextPokeNickname 0 0x800C
+	Message 11
+	CloseMessage 
+	CMD_727 0x8005
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#52
+	CutAnimation 0x8004
+Jump Function#53
+
+
+Function 36:
+	CompareVars 0x8000 0x8004
+	JumpIf EQUAL Function#54
+	CutAnimation 0x8000
+	CMD_560 0 0x8005
+Jump Function#17
+
+
+Function 37:
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#37
+	ReleaseAll 
+End 
+
+
+Function 38:
+	CompareVars 0x8000 0x8004
+	JumpIf EQUAL Function#55
+	SetVar 0x8007 0
+	CutAnimation 0x8000
+	CMD_560 1 0x8005
+Jump Function#19
+
+
+Function 39:
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#39
+	ReleaseAll 
+	CMD_753 0x8007 0x800C 0x8006
+Jump Function#40
+
+
+Function 40:
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#56
+	SetVarFromVariable 0x8004 0x8006
+	SetVar 0x8005 1
+	TextItemLowercase 1 0x8004
+	TextCapitalize 1
+	Message 6
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#57
+	CommonScript 2008
+	CloseMessage 
+End 
+
+
+Function 41:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#58
+	CutAnimation 0x8000
+Jump Function#42
+
+
+Function 42:
+	Message 12
+	WaitButton 
+	CloseMessage 
+Jump Function#21
+
+
+Function 43:
+	CompareVars 0x8000 0x8005
+	JumpIf EQUAL Function#59
+	CutAnimation 0x8000
+Jump Function#23
+
+
+Function 44:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#60
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+Jump Function#45
+
+
+Function 45:
+	WaitTime 7 0x800C
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#61
+	ReleaseAll 
+	CMD_754 0x800C
+End 
+
+
+Function 46:
+	CompareVars 0x8000 0x8004
+	JumpIf EQUAL Function#62
+	CutAnimation 0x8000
+	CMD_560 4 0x8005
+Jump Function#29
+
+
+Function 47:
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#47
+	ReleaseAll 
+	CMD_754 0x800C
+End 
+
+
+Function 48:
+	CompareVars 0x8004 0x8005
+	JumpIf EQUAL Function#63
+	CutAnimation 0x8004
+	CMD_560 0 0x8005
+Jump Function#31
+
+
+Function 49:
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#49
+Jump Function#3
+
+
+Function 50:
+	CompareVars 0x8004 0x8005
+	JumpIf EQUAL Function#64
+	SetVar 0x8007 0
+	CutAnimation 0x8004
+	CMD_560 1 0x8005
+Jump Function#33
+
+
+Function 51:
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#51
+	ReleaseAll 
+	CMD_753 0x8007 0x800C 0x8006
+Jump Function#40
+
+
+Function 52:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#65
+	CutAnimation 0x8004
+Jump Function#53
+
+
+Function 53:
+	Message 12
+	WaitButton 
+	CloseMessage 
+Jump Function#3
+
+
+Function 54:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#66
+	CutAnimation 0x8004
+	CMD_560 0 0x8005
+Jump Function#17
+
+
+Function 55:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#67
+	CutAnimation 0x8004
+	CMD_560 1 0x8005
+Jump Function#19
+
+
+Function 56:
+End 
+
+
+Function 57:
+	CommonScript 2009
+	CloseMessage 
+End 
+
+
+Function 58:
+	CompareVars 0x8000 0x8004
+	JumpIf EQUAL Function#68
+	CutAnimation 0x8000
+Jump Function#42
+
+
+Function 59:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#69
+	CutAnimation 0x8000
+Jump Function#23
+
+
+Function 60:
+	CompareVars 0x8004 0x8005
+	JumpIf EQUAL Function#70
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+Jump Function#45
+
+
+Function 61:
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#61
+	ReleaseAll 
+	CMD_754 0x800C
+End 
+
+
+Function 62:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#71
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+Jump Function#29
+
+
+Function 63:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#72
+	CutAnimation 0x8004
+	CMD_560 0 0x8005
+Jump Function#31
+
+
+Function 64:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#73
+	CutAnimation 0x8004
+	CMD_560 1 0x8005
+Jump Function#33
+
+
+Function 65:
+	CompareVars 0x8004 0x8005
+	JumpIf EQUAL Function#74
+	CutAnimation 0x8004
+Jump Function#53
+
+
+Function 66:
+	CMD_598 1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#75
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_560 3 0x8005
+	WaitTime 7 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#37
+	ReleaseAll 
+End 
+
+
+Function 67:
+	CMD_598 1
+	SetVar 0x8007 1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#76
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_560 2 0x8005
+	WaitTime 10 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#39
+	ReleaseAll 
+	CMD_753 0x8007 0x800C 0x8006
+Jump Function#40
+
+
+Function 68:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#77
+	CutAnimation 0x8000
+Jump Function#42
+
+
+Function 69:
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#78
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_728 16 2
+	CMD_728 16 2
+	CMD_401 1
+	FlashAnimation 
+	WaitTime 42 0x800C
+Jump Function#21
+
+
+Function 70:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#79
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+Jump Function#45
+
+
+Function 71:
+	CMD_829 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#80
+	CMD_598 1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#81
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_560 5 0x8005
+Jump Function#29
+
+
+Function 72:
+	CMD_598 1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#75
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_560 3 0x8005
+	WaitTime 7 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#49
+Jump Function#3
+
+
+Function 73:
+	SetVar 0x8007 1
+	CMD_598 1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#76
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_560 2 0x8005
+	WaitTime 10 0x800C
+	RemoveOW 0x800D
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#51
+	ReleaseAll 
+	CMD_753 0x8007 0x800C 0x8006
+Jump Function#40
+
+
+Function 74:
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#82
+	CutAnimation 0x8004
+Jump Function#53
+
+
+Function 75:
+	CMD_732 20
+	CMD_733 12 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#83
+	CMD_734 2
+	CMD_732 1
+Jump Function#84
+
+
+Function 76:
+	CMD_732 20
+	CMD_733 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#85
+	CMD_734 2
+	CMD_732 1
+Jump Function#86
+
+
+Function 77:
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#87
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_731 
+	Message 12
+	WaitButton 
+	CloseMessage 
+Jump Function#21
+
+
+Function 78:
+	CMD_733 14 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#88
+	CMD_734 2
+	CMD_732 1
+Jump Function#89
+
+
+Function 79:
+	CMD_829 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#90
+	CMD_598 1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#81
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_560 5 0x8005
+Jump Function#45
+
+
+Function 80:
+	SendBackFollowingPoke 
+	BallResetFollowingPoke 
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+	WaitTime 7 0x800C
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#47
+	ReleaseAll 
+	CMD_754 0x800C
+End 
+
+
+Function 81:
+	CMD_732 20
+	CMD_733 0 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#91
+	CMD_734 2
+	CMD_732 1
+Jump Function#92
+
+
+Function 82:
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4000
+	Call Function#87
+	PlayCry 0x4000 0
+	WaitCry 
+	CMD_731 
+	Message 12
+	WaitButton 
+	CloseMessage 
+Jump Function#3
+
+
+Function 83:
+	CMD_734 1
+Return 
+
+
+Function 84:
+Return 
+
+
+Function 85:
+	CMD_734 1
+Return 
+
+
+Function 86:
+Return 
+
+
+Function 87:
+	CMD_733 0 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#93
+	CMD_734 2
+	CMD_732 1
+Jump Function#94
+
+
+Function 88:
+	CMD_734 1
+Return 
+
+
+Function 89:
+Return 
+
+
+Function 90:
+	SendBackFollowingPoke 
+	BallResetFollowingPoke 
+	CutAnimation 0x8004
+	CMD_560 4 0x8005
+	WaitTime 7 0x800C
+	WaitTime 1 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#61
+	ReleaseAll 
+	CMD_754 0x800C
+End 
+
+
+Function 91:
+	CMD_734 1
+Return 
+
+
+Function 92:
+Return 
+
+
+Function 93:
+	CMD_734 1
+Return 
+
+
+Function 94:
+Return 
+
+

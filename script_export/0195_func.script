@@ -1,0 +1,25 @@
+Function 1:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	EndTrade 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

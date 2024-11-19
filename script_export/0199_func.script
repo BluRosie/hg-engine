@@ -1,0 +1,160 @@
+Function 1:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#9
+	Movement Player Action#3
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#10
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 59 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x4000 3
+	JumpIf EQUAL Function#11
+	SetFlag 638
+End 
+
+
+Function 6:
+	SetFlag 795
+	RemoveOW Overworld.15
+	RemoveOW Overworld.16
+	RemoveOW Overworld.17
+	RemoveOW Overworld.18
+	ClearFlag 164
+End 
+
+
+Function 7:
+End 
+
+
+Function 8:
+	PlayCry 143 0
+	Message 3
+	WaitCry 
+	CloseMessage 
+	SetFlag 164
+	WildBattleSp 143 50 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CMD_683 0x4005
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#13
+	SetFlag 249
+	ReleaseAll 
+End 
+
+
+Function 9:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#14
+	Movement Player Action#5
+	Movement Overworld.13 Action#2
+Jump Function#4
+
+
+Function 10:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 59 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	ClearFlag 638
+End 
+
+
+Function 12:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	SetFlag 371
+Return 
+
+
+Function 14:
+	Movement Player Action#6
+	Movement Overworld.13 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#10
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 59 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

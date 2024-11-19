@@ -1,0 +1,19 @@
+Function 1:
+	SetFlag 419
+End 
+
+
+Function 2:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+

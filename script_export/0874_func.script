@@ -1,0 +1,269 @@
+Function 1:
+	ClearFlag 427
+End 
+
+
+Function 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_735 0x8000
+	CompareVarValue 0x8000 0
+	JumpIf DIFFERENT Function#8
+	CMD_738 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_739 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_735 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#10
+	Message 6
+Jump Function#11
+
+
+Function 3:
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	ReleaseAll 
+	RemoveOW Overworld.0
+	WaitSound 
+	SetFlag 119
+	SetFlag 414
+	SetFlag 415
+End 
+
+
+Function 4:
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	GetOWPosition Following 0x4002 0x4003
+	CompareVarValue 0x4002 5
+	JumpIf DIFFERENT Function#12
+	Movement Overworld.0 Action#4
+Jump Function#13
+
+
+Function 5:
+	CheckFlag 123
+	JumpIf EQUAL Function#14
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#15
+	Message 24
+Jump Function#7
+
+
+Function 7:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CheckFlag 2722
+	JumpIf EQUAL Function#16
+	TextPlayerName 0
+	Message 8
+	CMD_737 0x8004
+	CheckItemSpace 0x8004 0x8000 0x800C
+	SetVarFromVariable 0x8005 0x8000
+	CommonScript 2033
+	CMD_736 
+	CompareVarValue 0x413B 10
+	JumpIf GREATER/EQUAL Function#17
+	IncrementVar 0x413B 1
+	CompareVarValue 0x413B 10
+	CallIf GREATER/EQUAL Function#18
+	Message 10
+Jump Function#19
+
+
+Function 9:
+	Message 3
+	CompareVarValue 0x4080 3
+	JumpIf EQUAL Function#20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	SetFlag 2722
+	Message 5
+	WaitButton 
+	CloseMessage 
+	CompareVarValue 0x4080 3
+	JumpIf EQUAL Function#20
+	ReleaseAll 
+End 
+
+
+Function 11:
+	WaitButton 
+	CloseMessage 
+	CompareVarValue 0x4080 3
+	JumpIf EQUAL Function#20
+	ReleaseAll 
+End 
+
+
+Function 12:
+	PlayFanfare 1536
+	Movement Overworld.0 Action#3
+	Movement Player Action#5
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Jump Function#21
+
+
+Function 13:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Jump Function#21
+
+
+Function 14:
+	CMD_147 5 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf EQUAL Function#22
+	CheckFlag 2404
+	JumpIf EQUAL Function#23
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#24
+	Message 24
+Jump Function#7
+
+
+Function 16:
+	Message 7
+Jump Function#19
+
+
+Function 17:
+	Message 10
+Jump Function#19
+
+
+Function 18:
+	SetFlag 295
+Return 
+
+
+Function 19:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	SetVar 0x4080 4
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	Movement Player Action#7
+	WaitMovement 
+	Message 15
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#26
+End 
+
+
+Function 21:
+	ReleaseAll 
+	RemoveOW Overworld.0
+	WaitSound 
+	SetFlag 119
+	SetFlag 414
+	SetFlag 415
+End 
+
+
+Function 22:
+	Message 19
+Jump Function#27
+
+
+Function 23:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 24:
+	Message 23
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	TextPlayerName 0
+	Message 16
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 5
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 26:
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 27:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#26
+End 
+
+

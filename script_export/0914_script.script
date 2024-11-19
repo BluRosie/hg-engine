@@ -1,0 +1,55 @@
+Script 1:
+	SetVar 0x8007 0
+	CommonScript 2002
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	CheckTrainerFlag 728
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4007 77
+	JumpIf EQUAL Function#2
+	PlayFanfare 1500
+	LockAll 
+	Message 3
+	SetVar 0x4007 77
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.7 Action#1
+Jump Function#4
+
+

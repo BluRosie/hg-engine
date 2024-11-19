@@ -1,0 +1,87 @@
+Script 1:
+	SetVar 0x8007 3
+	CommonScript 2002
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 12
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#1
+	CMD_815 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CloseMessage 
+	CMD_493 0x800C 0x8000 0x8001
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 13
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CloseMessage 
+	CMD_815 0
+	CMD_493 0x800C 0x8002 0x8003
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CMD_498 0x800C 0x8000 0x8001 0x8002 0x8003
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+Jump Function#5
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 709
+	JumpIf EQUAL Function#6
+	Message 21
+Jump Function#7
+
+

@@ -81,7 +81,7 @@ def tutordatabuilder(inputPath: str):
                     tutor_data[speciesDict[line.strip()]] |= (1 << tutorId)
                 except KeyError:
                     tutor_data[speciesDict[line.strip()]] = (1 << tutorId)
-    tutorDataFile = open("base/root/fielddata/wazaoshie/waza_oshie.bin", "wb")
+    tutorDataFile = open("base/data/fielddata/wazaoshie/waza_oshie.bin", "wb")
     for elem in range(1, len(speciesDict)):
         data_to_write = [0, 0]
         try:
@@ -101,7 +101,7 @@ def tutordatadumper(outputPath: str):
     GrabMovesDict(movesDict)
     output = open(outputPath, "w", encoding="UTF-8")
     # create a boolean array for each pokémon for tm's
-    tutorDataFile = open("base/root/fielddata/wazaoshie/waza_oshie.bin", "rb")
+    tutorDataFile = open("base/data/fielddata/wazaoshie/waza_oshie.bin", "rb")
     for species in range(1, len(speciesDict)):
         tutorDataFile.seek((species-1)*8)
         tutorArray[species] = 0

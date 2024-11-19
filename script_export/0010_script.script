@@ -1,0 +1,122 @@
+Script 1:
+	SetFlag 664
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#1
+Jump Function#2
+
+
+Script 2:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 1 0x800C
+	CommonScript 2000
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	ClearFlag 664
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#1
+	Movement Overworld.0 Action#2
+	Movement Overworld.1 Action#3
+	Movement Overworld.2 Action#4
+	Movement Overworld.3 Action#5
+	Movement Overworld.4 Action#6
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	PlayCry 35 0
+	Movement Overworld.0 Action#8
+	Movement Overworld.1 Action#9
+	Movement Overworld.2 Action#10
+	Movement Overworld.3 Action#11
+	Movement Overworld.4 Action#12
+	Movement Overworld.5 Action#13
+	WaitMovement 
+	PlayCry 35 0
+	Movement Overworld.0 Action#14
+	Movement Overworld.1 Action#15
+	Movement Overworld.2 Action#16
+	Movement Overworld.3 Action#17
+	Movement Overworld.4 Action#18
+	Movement Overworld.5 Action#19
+	WaitMovement 
+	PlayCry 35 0
+	Movement Overworld.0 Action#20
+	Movement Overworld.1 Action#21
+	Movement Overworld.2 Action#22
+	Movement Overworld.3 Action#23
+	Movement Overworld.4 Action#24
+	Movement Overworld.5 Action#25
+	WaitMovement 
+	PlayCry 35 0
+	Movement Overworld.0 Action#26
+	Movement Overworld.1 Action#27
+	Movement Overworld.2 Action#28
+	Movement Overworld.3 Action#29
+	Movement Overworld.4 Action#30
+	Movement Overworld.5 Action#31
+	WaitMovement 
+	PlayCry 35 0
+	Movement Overworld.0 Action#32
+	Movement Overworld.1 Action#33
+	Movement Overworld.2 Action#34
+	Movement Overworld.3 Action#35
+	Movement Overworld.4 Action#36
+	Movement Overworld.5 Action#37
+	WaitMovement 
+	PlayCry 35 0
+	Movement Overworld.0 Action#38
+	Movement Overworld.1 Action#39
+	Movement Overworld.2 Action#40
+	Movement Overworld.3 Action#41
+	Movement Overworld.4 Action#42
+	Movement Overworld.5 Action#43
+	WaitMovement 
+	AddOW Overworld.6
+	Movement Overworld.3 Action#44
+	Movement Overworld.5 Action#45
+	WaitMovement 
+	RemoveOW Overworld.0
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	RemoveOW Overworld.5
+	SetFlag 622
+	SetVar 0x40F6 1
+	SetFlag 2741
+	Movement Camera Action#46
+	WaitMovement 
+	ReleaseCamera 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	SetVar 0x8008 81
+	SetVar 0x8009 1
+Jump Function#3
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#4
+Jump Function#5
+
+

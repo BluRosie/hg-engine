@@ -1,0 +1,86 @@
+Script 1:
+	CMD_508 2
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	MessageAll 6
+	WaitTime 30 0x800C
+	MessageAll 7
+	PlayFanfare 1501
+	WaitTime 30 0x800C
+	MessageAll 8
+	PlayFanfare 1501
+	WaitTime 30 0x800C
+	MessageAll 9
+	PlayFanfare 1501
+	WaitTime 30 0x800C
+	MessageAll 10
+	PlayFanfare 1602
+	WaitTime 30 0x800C
+	CMD_508 0
+	SetVar 0x4124 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	PlayFanfare 1521
+	TextPlayerName 0
+	Message 4
+	PlayMusic 1002
+	PlaySound 1185
+	WaitSound 
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x4124 1
+	Call Function#1
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Call Function#3
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	SetVar 0x4124 2
+	ReleaseAll 
+	Call Function#1
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Call Function#3
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	SetVar 0x4124 2
+	ReleaseAll 
+	Call Function#1
+End 
+
+

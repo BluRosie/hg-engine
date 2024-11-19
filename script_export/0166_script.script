@@ -1,0 +1,86 @@
+Script 1:
+	MecScript 
+	LockAll 
+	SetVar 0x800C 7
+	ClearFlag 2406
+	SetVar 0x4133 0
+	ReleaseAll 
+End 
+
+
+Script 2:
+End 
+
+
+Script 3:
+End 
+
+
+Script 4:
+	CMD_521 
+	Call Function#1
+	Call Function#2
+End 
+
+
+Script 5:
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4003 0
+	SetVar 0x8007 2
+	Message 3
+Jump Function#3
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4003 1
+	SetVar 0x8007 2
+	Message 7
+Jump Function#3
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4003 2
+	SetVar 0x8004 0
+	Message 111
+Jump Function#4
+
+
+Script 10:
+	UseScript_#9
+
+
+Script 11:
+	UseScript_#9
+
+
+Script 12:
+	UseScript_#9
+
+
+Script 13:
+End 
+
+

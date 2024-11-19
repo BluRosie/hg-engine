@@ -1,0 +1,15 @@
+Action 1:
+	JumpDownSite 0x2
+End
+
+
+Action 2:
+	JumpRightSite 0x3
+End
+
+
+Action 3:
+	WalkDown 0x1
+End
+
+

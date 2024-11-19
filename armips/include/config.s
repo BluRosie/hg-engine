@@ -34,10 +34,10 @@ BATTLE_MODE_FORCE_SET equ 0
 ALWAYS_HAVE_NATIONAL_DEX equ 0
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
-ALWAYS_UNCAPPED_FRAME_RATE equ 0
+ALWAYS_UNCAPPED_FRAME_RATE equ 1
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
-BATTLES_UNCAPPED_FRAME_RATE equ 0
+BATTLES_UNCAPPED_FRAME_RATE equ 1
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
@@ -50,4 +50,4 @@ DELETABLE_HMS equ 0
 
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM
-.definelabel APPLY_ANTIPIRACY, 0
+.definelabel APPLY_ANTIPIRACY, 1

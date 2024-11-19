@@ -65,7 +65,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag =   68, .gfx =  11, .callback_params = 0x0000},
     { .tag =   69, .gfx =  15, .callback_params = 0x0000},
     { .tag =   70, .gfx =  33, .callback_params = 0x0000},
-    { .tag =   71, .gfx =  68, .callback_params = 0x0000},
+    { .tag =   71, .gfx =  68, .callback_params = OVERWORLD_SIZE_SMALL_NO_SHADOW},
     { .tag =   84, .gfx =  91, .callback_params = 0x0420},
     { .tag =   85, .gfx =  92, .callback_params = 0x0820},
     { .tag =   86, .gfx =  93, .callback_params = 0x0020},

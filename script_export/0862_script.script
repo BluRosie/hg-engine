@@ -1,0 +1,105 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.0 Action#1
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 12
+Jump Function#3
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 19
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	Message 20
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	Message 21
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	Message 22
+	CloseMessage 
+	CloseTouchScreen 
+	Movement Overworld.1 Action#2
+	WaitMovement 
+	Message 23
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

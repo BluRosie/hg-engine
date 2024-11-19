@@ -1,0 +1,13 @@
+Script 1:
+	MecScript 
+	LockAll 
+	SetVar 0x40A7 1
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	Movement Player Action#1
+	Movement Following Action#2
+	WaitMovement 
+Jump Function#2
+
+

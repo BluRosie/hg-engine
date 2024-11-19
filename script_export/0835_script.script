@@ -1,0 +1,35 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 400 0 3 3 Right
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	WaitFanfare 1538
+	BallResetFollowingPoke 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 0
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+

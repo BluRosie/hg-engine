@@ -1,0 +1,342 @@
+Script 1:
+	CMD_144 0x4020
+	CheckFlag 393
+	JumpIf LESS Function#1
+	ClearFlag 393
+Jump Function#2
+
+
+Script 2:
+	GetOWPosition Overworld.0 0x4000 0x4001
+	CompareVarValue 0x4000 25
+	JumpIf DIFFERENT Function#3
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 11
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	Message 14
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#6
+	GetPartyPokemonID 0x800C 0x8005
+	SetVarFromFlexible 0x8006 0x800C
+	CompareVarValue 0x8005 0
+	JumpIf EQUAL Function#7
+	CMD_140 0x800C 29 0x8006
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	CMD_656 0x8006 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	Message 16
+	CloseMessage 
+Jump Function#10
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	CompareVarValue 0x4004 1
+	JumpIf EQUAL Function#11
+	SetVar 0x4002 1
+	SetVar 0x4099 2
+	SetVar 0x409B 1
+	GetOWPosition Overworld.0 0x4000 0x4001
+	CompareVarValue 0x4000 25
+	JumpIf DIFFERENT Function#12
+Jump Function#13
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CompareVarValue 0x4004 1
+	JumpIf EQUAL Function#11
+	SetVar 0x4099 1
+	SetVar 0x409B 2
+	SetVar 0x4002 0
+	GetOWPosition Overworld.0 0x4000 0x4001
+	CompareVarValue 0x4000 25
+	JumpIf DIFFERENT Function#14
+Jump Function#15
+
+
+Script 6:
+	GetOWPosition Overworld.2 0x4000 0x4001
+	CompareVarValue 0x4000 41
+	JumpIf DIFFERENT Function#16
+Jump Function#17
+
+
+Script 7:
+	MecScript 
+	LockAll 
+	SetVar 0x4003 0
+	GetOWPosition Overworld.2 0x4000 0x4001
+	CompareVarValue 0x4000 41
+	JumpIf DIFFERENT Function#18
+Jump Function#19
+
+
+Script 8:
+	MecScript 
+	LockAll 
+	SetVar 0x4003 1
+	GetOWPosition Overworld.2 0x4000 0x4001
+	CompareVarValue 0x4000 41
+	JumpIf DIFFERENT Function#20
+Jump Function#21
+
+
+Script 9:
+	MecScript 
+	LockAll 
+	SetVar 0x4003 0
+	GetOWPosition Overworld.2 0x4000 0x4001
+	CompareVarValue 0x4000 41
+	JumpIf DIFFERENT Function#22
+Jump Function#23
+
+
+Script 10:
+	MecScript 
+	LockAll 
+	SetVar 0x4003 0
+	GetOWPosition Overworld.2 0x4000 0x4001
+	CompareVarValue 0x4000 41
+	JumpIf DIFFERENT Function#24
+Jump Function#25
+
+
+Script 11:
+	CheckFlag 125
+	JumpIf EQUAL Function#26
+Jump Function#27
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 128
+	JumpIf EQUAL Function#28
+	Message 6
+	SetVar 0x8004 420
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+	CommonScript 2033
+	SetFlag 128
+	ClearFlag 430
+	ClearFlag 428
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x412B 2
+	JumpIf GREATER/EQUAL Function#31
+	CompareVarValue 0x412B 1
+	JumpIf EQUAL Function#30
+	GetFirstAlivePokemonSlot 0x4000
+	CMD_698 0 0x4000 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#32
+Jump Function#31
+
+
+Script 14:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 27 0x800C
+	CommonScript 2000
+End 
+
+
+Script 15:
+	PlayCry 83 0
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	MecScript 
+	LockAll 
+	CommonScript 2067
+	Movement Overworld.12 Action#1
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8004 40
+	JumpIf DIFFERENT Function#33
+	Movement Overworld.12 Action#2
+Jump Function#34
+
+
+Script 17:
+	MecScript 
+	LockAll 
+	Movement Player Action#3
+	WaitMovement 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	PlayFanfare 1561
+	ShakeCamera 0 2 10 5
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	PlayFanfare 1561
+	ShakeCamera 0 2 10 5
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	SetVar 0x40EA 1
+	ReleaseAll 
+End 
+
+
+Script 18:
+	MecScript 
+	LockAll 
+	Movement Overworld.3 Action#6
+	Movement Player Action#7
+	WaitMovement 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	SetVar 0x40F4 0
+	ReleaseAll 
+End 
+
+
+Script 19:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#35
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#36
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#37
+	Movement Player Action#8
+	Movement Overworld.13 Action#9
+Jump Function#38
+
+
+Script 20:
+	MecScript 
+	LockAll 
+	SetVar 0x4008 1
+	GetPlayerDirection 0x4005
+	CompareVarValue 0x4005 3
+	JumpIf DIFFERENT Function#39
+	Movement Overworld.14 Action#10
+Jump Function#40
+
+
+Script 21:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4008 1
+	Call Function#41
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#42
+	Call Function#43
+Jump Function#44
+
+
+Script 22:
+	CompareVarValue 0x412B 1
+	CallIf EQUAL Function#45
+	CompareVarValue 0x40FE 4
+	CallIf EQUAL Function#46
+End 
+
+
+Script 23:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.16 Action#11
+	Movement Player Action#12
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	GenderMessage 61 60
+	CloseMessage 
+	Movement Overworld.17 Action#13
+	WaitMovement 
+	CommonScript 2029
+	Movement Overworld.16 Action#14
+	WaitMovement 
+	GenderMessage 63 62
+	CloseMessage 
+	Movement Overworld.16 Action#15
+	WaitMovement 
+	GenderMessage 65 64
+	CloseMessage 
+	Movement Overworld.16 Action#16
+	Movement Overworld.17 Action#17
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 67 66
+	CloseMessage 
+	Movement Overworld.16 Action#18
+	Movement Overworld.17 Action#19
+	WaitMovement 
+	CommonScript 2030
+	CloseTouchScreen 
+	SetVar 0x40FE 5
+	RemoveOW Overworld.16
+	RemoveOW Overworld.17
+	SetFlag 784
+	ReleaseAll 
+End 
+
+

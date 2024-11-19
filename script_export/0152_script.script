@@ -1,0 +1,124 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 2404
+	JumpIf LESS Function#1
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#2
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x40CB 7
+	JumpIf GREATER/EQUAL Function#4
+	Message 1
+	CloseMessage 
+	CheckItem 456 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Movement Player Action#1
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x4002 1
+	SetVar 0x40E1 1
+	SetVar 0x40DC 0
+	ClearFlag 235
+	SetFlag 556
+	SetFlag 555
+	ReleaseAll 
+End 
+
+
+Script 2:
+	GetPreviousHeaderID 0x4000
+	CompareVarValue 0x4000 330
+	JumpIf EQUAL Function#6
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	StopMusic 0
+	PlayMusic 1067
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.1 Action#6
+	Movement Player Action#7
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 9 10
+	CloseMessage 
+	Movement Overworld.1 Action#8
+	WaitMovement 
+	NationalDex 1 0x800C
+	TextPlayerName 0
+	PlaySound 1185
+	Message 11
+	WaitSound 
+	CMD_463 
+	Message 12
+	CloseMessage 
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.1 Action#10
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetFlag 593
+	SetVar 0x411A 0
+	FadeOutMusic 0 30
+	StopMusic 0
+	PlayDefaultMusic 
+	ReleaseAll 
+	CompareVarValue 0x40D3 1
+	CallIf EQUAL Function#7
+	CMD_463 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

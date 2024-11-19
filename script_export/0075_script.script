@@ -1,0 +1,199 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TextPlayerName 0
+	Message 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4151 2
+	JumpIf EQUAL Function#2
+	SetVar 0x4009 0
+	CMD_413 0x4009 0 0x8004 0x8005
+	CMD_846 1024 128 0
+	TextMove 1 0x8005
+	CMD_413 0x4009 1 0x8004 0x8005
+	CMD_846 1026 128 0
+	TextMove 3 0x8005
+	Message 6
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4151 2
+	JumpIf EQUAL Function#4
+	SetVar 0x4009 1
+	Call Function#5
+	TextPlayerName 4
+	Message 15
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4151 2
+	JumpIf EQUAL Function#7
+	SetVar 0x4009 2
+	Call Function#5
+	Message 3
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4151 2
+	JumpIf EQUAL Function#9
+	SetVar 0x4009 3
+	Call Function#5
+	Message 12
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4151 2
+	JumpIf EQUAL Function#11
+	SetVar 0x4009 4
+	Call Function#5
+	Message 9
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#13
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 0
+	JumpIf EQUAL Function#14
+	ClearFlag 685
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#15
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 1
+	JumpIf EQUAL Function#16
+	ClearFlag 686
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#17
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 2
+	JumpIf EQUAL Function#18
+	ClearFlag 687
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Script 8:
+	CompareVarValue 0x4151 1
+	CallIf EQUAL Function#23
+	CompareVarValue 0x4151 2
+	JumpIf EQUAL Function#24
+End 
+
+
+Script 9:
+	MecScript 
+	LockAll 
+	SetVar 0x4151 0
+	Call Function#25
+	Message 0
+	CloseMessage 
+	CMD_412 56 0 0
+	ReleaseAll 
+End 
+
+
+Script 10:
+	MecScript 
+	LockAll 
+	SetVar 0x4151 0
+	Message 2
+	CloseMessage 
+	Call Function#26
+	SetVar 0x414D 2
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 266 0 3 6 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

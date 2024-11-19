@@ -1,0 +1,44 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 185
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x40A5 0
+	JumpIf EQUAL Function#2
+	Message 1
+	CloseMessage 
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40A5 2
+	JumpIf LESS Function#3
+	PlayCry 181 0
+	Message 12
+	WaitCry 
+Jump Function#4
+
+
+Script 3:
+End 
+
+
+Script 4:
+	SetVar 0x4125 0
+End 
+
+
+Script 5:
+	CheckFlag 472
+	JumpIf EQUAL Function#5
+	VanishOverworld 4
+End 
+
+

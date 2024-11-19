@@ -1,0 +1,402 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x400A 249
+	PlayCry 0x400A 0
+	Message 4
+	WaitCry 
+	CloseMessage 
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#1
+	SetVar 0x8004 70
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 265
+	JumpIf EQUAL Function#3
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	SetFlag 2458
+	CheckFlag 164
+	JumpIf EQUAL Function#4
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 265
+	JumpIf EQUAL Function#5
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	CheckFlag 579
+	JumpIf EQUAL Function#6
+	VanishOverworld 6
+	VanishOverworld 7
+	VanishOverworld 8
+	VanishOverworld 9
+	VanishOverworld 10
+	CompareVarValue 0x400B 123
+	JumpIf DIFFERENT Function#7
+	StopFanfare 2143
+	SetVar 0x400B 0
+	CheckFlag 265
+	JumpIf EQUAL Function#8
+	CheckFlag 267
+	JumpIf LESS Function#8
+	CompareVarValue 0x4003 111
+	JumpIf DIFFERENT Function#8
+	SetOWPosition Overworld.4 16 1 32 Up
+	SetOWPosition Overworld.2 13 1 33 Up
+	SetOWPosition Overworld.3 13 1 27 Up
+	SetOWPosition Overworld.0 19 1 33 Up
+	SetOWPosition Overworld.1 19 1 27 Up
+	SetVar 0x4003 0
+End 
+
+
+Script 6:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	CMD_805 
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	StopFanfare 2143
+	FadeScreen 4 4 0 0x7FFF
+	WaitFadeScreen 
+	CMD_755 
+	CMD_757 73 2315
+	FadeScreen 4 4 1 0x7FFF
+	WaitFadeScreen 
+	WaitFanfare 2315
+	Movement Overworld.4 Action#3
+	Movement Overworld.2 Action#4
+	Movement Overworld.3 Action#5
+	Movement Overworld.0 Action#6
+	Movement Overworld.1 Action#7
+	WaitMovement 
+	WaitTime 16 0x800C
+	Movement Overworld.4 Action#2
+	Movement Overworld.2 Action#2
+	Movement Overworld.3 Action#2
+	Movement Overworld.0 Action#2
+	Movement Overworld.1 Action#2
+	WaitMovement 
+	WaitTime 16 0x800C
+	StopMusic 0
+	CMD_087 1163
+	WaitTime 18 0x800C
+	Movement Overworld.4 Action#8
+	Movement Overworld.2 Action#8
+	Movement Overworld.3 Action#8
+	Movement Overworld.0 Action#8
+	Movement Overworld.1 Action#8
+	WaitTime 12 0x800C
+	CMD_758 1 73 2316
+	WaitMovement 
+	WaitTime 67 0x800C
+	Movement Overworld.4 Action#8
+	Movement Overworld.2 Action#8
+	Movement Overworld.3 Action#8
+	Movement Overworld.0 Action#8
+	Movement Overworld.1 Action#8
+	WaitTime 12 0x800C
+	CMD_758 1 73 2316
+	WaitMovement 
+	FadeScreen 4 6 1 0x7FFF
+	CMD_765 
+	WaitFadeScreen 
+	WaitTime 6 0x800C
+	Movement Overworld.4 Action#9
+	Movement Overworld.2 Action#9
+	Movement Overworld.3 Action#10
+	Movement Overworld.0 Action#11
+	Movement Overworld.1 Action#12
+	WaitMovement 
+	Movement Overworld.4 Action#13
+	Movement Overworld.2 Action#13
+	Movement Overworld.3 Action#14
+	Movement Overworld.0 Action#15
+	Movement Overworld.1 Action#16
+	WaitTime 12 0x800C
+	CMD_758 1 73 2316
+	WaitMovement 
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#11
+	Movement Overworld.2 Action#9
+	Movement Overworld.3 Action#10
+	Movement Overworld.0 Action#11
+	Movement Overworld.1 Action#12
+	WaitMovement 
+	Movement Overworld.4 Action#15
+	Movement Overworld.2 Action#13
+	Movement Overworld.3 Action#14
+	Movement Overworld.0 Action#15
+	Movement Overworld.1 Action#16
+	WaitTime 12 0x800C
+	CMD_758 1 73 2316
+	WaitMovement 
+	WaitTime 33 0x800C
+	Movement Overworld.4 Action#11
+	Movement Overworld.2 Action#9
+	Movement Overworld.3 Action#10
+	Movement Overworld.0 Action#11
+	Movement Overworld.1 Action#12
+	WaitMovement 
+	Movement Overworld.4 Action#15
+	Movement Overworld.2 Action#17
+	Movement Overworld.3 Action#18
+	Movement Overworld.0 Action#19
+	Movement Overworld.1 Action#20
+	WaitTime 15 0x800C
+	CMD_758 1 73 2316
+	WaitMovement 
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#12
+	Movement Overworld.2 Action#11
+	Movement Overworld.3 Action#9
+	Movement Overworld.0 Action#12
+	Movement Overworld.1 Action#10
+	WaitMovement 
+	Movement Overworld.4 Action#16
+	Movement Overworld.2 Action#15
+	Movement Overworld.3 Action#13
+	Movement Overworld.0 Action#16
+	Movement Overworld.1 Action#14
+	WaitTime 12 0x800C
+	CMD_758 1 73 2316
+	WaitMovement 
+	CMD_766 762 0
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#12
+	Movement Overworld.2 Action#11
+	Movement Overworld.3 Action#9
+	Movement Overworld.0 Action#12
+	Movement Overworld.1 Action#10
+	WaitMovement 
+	Movement Overworld.4 Action#16
+	Movement Overworld.2 Action#15
+	Movement Overworld.3 Action#13
+	Movement Overworld.0 Action#16
+	Movement Overworld.1 Action#14
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	WaitTime 29 0x800C
+	Movement Overworld.4 Action#10
+	Movement Overworld.2 Action#11
+	Movement Overworld.3 Action#9
+	Movement Overworld.0 Action#12
+	Movement Overworld.1 Action#10
+	WaitMovement 
+	Movement Overworld.4 Action#14
+	Movement Overworld.2 Action#19
+	Movement Overworld.3 Action#17
+	Movement Overworld.0 Action#20
+	Movement Overworld.1 Action#18
+	WaitTime 15 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	WaitTime 41 0x800C
+	CMD_763 
+	WaitTime 16 0x800C
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_761 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Overworld.4 Action#14
+	Movement Overworld.2 Action#16
+	Movement Overworld.3 Action#15
+	Movement Overworld.0 Action#14
+	Movement Overworld.1 Action#13
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#10
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#11
+	Movement Overworld.0 Action#10
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	Movement Overworld.4 Action#14
+	Movement Overworld.2 Action#16
+	Movement Overworld.3 Action#15
+	Movement Overworld.0 Action#14
+	Movement Overworld.1 Action#13
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	WaitTime 29 0x800C
+	Movement Overworld.4 Action#9
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#11
+	Movement Overworld.0 Action#10
+	Movement Overworld.1 Action#9
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_761 2
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	WaitMovement 
+	Movement Overworld.4 Action#13
+	Movement Overworld.2 Action#16
+	Movement Overworld.3 Action#15
+	Movement Overworld.0 Action#14
+	Movement Overworld.1 Action#13
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#9
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#11
+	Movement Overworld.0 Action#10
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	Movement Overworld.4 Action#13
+	Movement Overworld.2 Action#16
+	Movement Overworld.3 Action#15
+	Movement Overworld.0 Action#14
+	Movement Overworld.1 Action#13
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	WaitTime 38 0x800C
+	Movement Overworld.4 Action#11
+	Movement Overworld.2 Action#10
+	Movement Overworld.3 Action#12
+	Movement Overworld.0 Action#9
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	Movement Overworld.4 Action#15
+	Movement Overworld.2 Action#14
+	Movement Overworld.3 Action#16
+	Movement Overworld.0 Action#13
+	Movement Overworld.1 Action#15
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	CMD_762 1
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#11
+	Movement Overworld.2 Action#10
+	Movement Overworld.3 Action#12
+	Movement Overworld.0 Action#9
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	Movement Overworld.4 Action#15
+	Movement Overworld.2 Action#14
+	Movement Overworld.3 Action#16
+	Movement Overworld.0 Action#13
+	Movement Overworld.1 Action#15
+	WaitTime 12 0x800C
+	CMD_758 0 73 2327
+	WaitMovement 
+	FadeOutMusic 0 100
+	StopMusic 0
+	WaitTime 32 0x800C
+	Movement Overworld.4 Action#12
+	Movement Overworld.2 Action#10
+	Movement Overworld.3 Action#12
+	Movement Overworld.0 Action#9
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	Movement Overworld.4 Action#16
+	Movement Overworld.2 Action#14
+	Movement Overworld.3 Action#16
+	Movement Overworld.0 Action#13
+	Movement Overworld.1 Action#15
+	WaitTime 12 0x800C
+	WaitMovement 
+	CMD_763 
+	WaitTime 32 0x800C
+	CMD_087 1166
+	WaitTime 48 0x800C
+	ShakeCamera 3 3 15 5
+	WaitTime 10 0x800C
+	WaitTime 70 0x800C
+	CMD_759 
+	WaitTime 26 0x800C
+	CMD_756 
+	SetVar 0x400B 123
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ClearFlag 579
+	AddOW Overworld.5
+	VanishOverworld 5
+	AddOW Overworld.6
+	AddOW Overworld.7
+	AddOW Overworld.8
+	AddOW Overworld.9
+	AddOW Overworld.10
+	Release Overworld.4
+	Release Overworld.2
+	Release Overworld.3
+	Release Overworld.0
+	Release Overworld.1
+	SetOWPosition Overworld.4 16 1 33 Up
+	SetOWPosition Overworld.2 13 1 33 Up
+	SetOWPosition Overworld.3 13 1 27 Up
+	SetOWPosition Overworld.0 19 1 33 Up
+	SetOWPosition Overworld.1 19 1 27 Up
+	CMD_773 1
+	CMD_767 174 6
+	Dummy 
+	Dummy 
+	Nop 
+	WaitFadeScreen 
+	WaitTime 59 0x800C
+	CMD_764 
+	StopMusic 15
+	CMD_769 
+	CMD_768 
+	WaitTime 16 0x800C
+	CMD_726 
+	Movement Overworld.4 Action#21
+	WaitMovement 
+	TextPlayerName 0
+	Message 2
+	CloseMessage 
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	TextPlayerName 0
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 267
+	SetVar 0x40FA 2
+End 
+
+
+Script 7:
+	SetVar 0x4003 111
+	SetFlag 261
+End 
+
+

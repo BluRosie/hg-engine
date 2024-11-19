@@ -1,0 +1,117 @@
+Function 1:
+	SetVar 0x8004 33
+	SetVar 0x8005 0
+	CheckItem 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 999
+	JumpIf DIFFERENT Function#3
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CheckFlag 171
+	JumpIf EQUAL Function#4
+	Message 8
+	WaitAB 
+	SetVar 0x8004 410
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CommonScript 2033
+	SetFlag 171
+Jump Function#4
+
+
+Function 3:
+	ShowMoney 20 2
+	Message 1
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 12 255 1
+	CreateMultiTouchBox 13 255 2
+	CreateMultiTouchBox 14 255 3
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#7
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#8
+	CompareMoneyFlex 0x800C 0x4001
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	SetVar 0x8004 33
+	SetVarFromVariable 0x8005 0x4000
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	TakeMoneyFlex 0x4001
+	UpdateMoney 
+	Message 2
+	CommonScript 2033
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetVar 0x4000 1
+	SetVar 0x4001 500
+Return 
+
+
+Function 8:
+	SetVar 0x4000 12
+	SetVar 0x4001 0x1770
+Return 
+
+
+Function 9:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+

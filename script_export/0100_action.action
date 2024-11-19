@@ -1,0 +1,52 @@
+Action 1:
+	RunUpSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 2:
+	Freeze4 0x3
+	RunUp 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 3:
+	RunDownSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 4:
+	Freeze4 0x3
+	RunDown 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 5:
+	RunLeftSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 6:
+	Freeze4 0x3
+	RunLeft 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 7:
+	RunRightSite 0x4
+	DisappearTrue 0x1
+End
+
+
+Action 8:
+	Freeze4 0x3
+	RunRight 0x1
+	DisappearTrue 0x1
+End
+
+

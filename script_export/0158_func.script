@@ -1,0 +1,96 @@
+Function 1:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#8
+	Movement Player Action#9
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 5
+	CloseMessage 
+	TrainerBattle 238 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 6
+	CloseMessage 
+	Movement Overworld.0 Action#10
+	WaitMovement 
+	SetVar 0x40CB 3
+	RemoveOW Overworld.0
+	SetFlag 538
+	ReleaseAll 
+End 
+
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Movement Player Action#6
+	WaitMovement 
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#5
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CompareVarValue 0x40CB 7
+	JumpIf GREATER/EQUAL Function#6
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CompareVarValue 0x40CB 7
+	JumpIf GREATER/EQUAL Function#6
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CheckFlag 235
+	JumpIf EQUAL Function#7
+	PlayFanfare 1521
+	WaitFanfare 1521
+	SetFlag 235
+	CompareVarValue 0x40E1 1
+	JumpIf DIFFERENT Function#8
+	Message 3
+Jump Function#9
+
+
+Function 7:
+	ReleaseAll 
+End 
+
+
+Function 8:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,67 @@
+Script 1:
+	SetVar 0x8007 0
+	CommonScript 2002
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.4 Action#1
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	Message 1
+	CloseMessage 
+	Movement Overworld.4 Action#3
+	Movement Player Action#4
+	WaitMovement 
+	RemoveOW Overworld.4
+	SetFlag 453
+	ClearFlag 574
+	SetFlag 2422
+	SetVar 0x410D 1
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

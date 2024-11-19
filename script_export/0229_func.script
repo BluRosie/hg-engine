@@ -1,0 +1,183 @@
+Function 1:
+	CheckFlag 108
+	JumpIf EQUAL Function#3
+	CheckFlag 201
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x4107 2
+	JumpIf GREATER/EQUAL Function#5
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 27
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CheckFlag 263
+	JumpIf LESS Function#5
+	Message 7
+	CloseMessage 
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.0 Action#8
+Jump Function#11
+
+
+Function 4:
+	TextPlayerName 0
+	GenderMessage 16 17
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+	SetVar 0x8004 216
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#13
+	CommonScript 2033
+	CloseMessage 
+	SetFlag 108
+	SetVar 0x8004 478
+	SetVar 0x8005 1
+	TakeItem 0x8004 0x8005 0x800C
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	PlayMusic 1067
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	Movement Player Action#10
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 8 9
+	CloseMessage 
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	Message 10
+	CloseMessage 
+	Movement Overworld.1 Action#12
+	WaitMovement 
+	Message 11
+	TextPlayerName 0
+	Message 12
+	GivePokedex 
+	SetFlag 107
+	PlaySound 1185
+	WaitSound 
+	CMD_573 
+	GenderMessage 13 14
+	CloseMessage 
+	TextPlayerName 0
+	Message 15
+	RecordPokegearNumber 2
+	PlaySound 1206
+	WaitSound 
+	CloseMessage 
+	Movement Overworld.1 Action#13
+	WaitMovement 
+	PlayFanfare 1538
+	RemoveOW Overworld.1
+	WaitFanfare 1539
+	FadeOutMusic 0 30
+	StopMusic 0
+	PlayDefaultMusic 
+	ReleaseAll 
+	SetVar 0x4107 1
+	SetLastWarp 2
+	SetFlag 405
+	SetFlag 790
+	ClearFlag 789
+	SetFlag 400
+	SetVar 0x4073 3
+	ClearFlag 412
+	SetVar 0x4108 3
+	ClearFlag 413
+	SetVar 0x408C 2
+End 
+
+
+Function 7:
+	SetVar 0x8004 534
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+	Message 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+	Message 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetOWPosition Overworld.0 5 0 6 Right
+End 
+
+
+Function 10:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.0 Action#14
+Jump Function#11
+
+
+Function 11:
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	Movement Overworld.0 Action#15
+	WaitMovement 
+	ReleaseAll 
+End 
+
+

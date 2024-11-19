@@ -1,0 +1,52 @@
+Function 1:
+End 
+
+
+Function 2:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#4
+Jump Function#5
+
+
+Function 3:
+	GetTimePeriod 0x4001
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#6
+	SetWarpPosition 1 1 7
+	SetWarpPosition 4 5 6
+	SetWarpPosition 2 1 26
+	SetWarpPosition 5 5 25
+Jump Function#7
+
+
+Function 4:
+Jump Function#1
+
+
+Function 5:
+	GetTimePeriod 0x4001
+	CompareVarValue 0x4001 4
+	JumpIf DIFFERENT Function#8
+	SetWarpPosition 1 1 7
+	SetWarpPosition 4 5 6
+	SetWarpPosition 2 1 26
+	SetWarpPosition 5 5 25
+Jump Function#9
+
+
+Function 6:
+Jump Function#1
+
+
+Function 7:
+End 
+
+
+Function 8:
+Jump Function#1
+
+
+Function 9:
+End 
+
+

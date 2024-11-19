@@ -1,0 +1,145 @@
+Script 1:
+	CheckFlag 2509
+	JumpIf EQUAL Function#1
+	SetVar 0x4123 2000
+	ClearFlag 2457
+	SetFlag 2509
+	CompareVarValue 0x4124 0
+	JumpIf DIFFERENT Function#2
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	SetVar 0x4124 0
+	Movement Player Action#1
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	CMD_511 0 0x800C
+	TextNumber 0 0x800C
+	CMD_511 1 0x800C
+	TextNumber 1 0x800C
+	CMD_511 2 0x800C
+	TextNumber 2 0x800C
+	CMD_511 3 0x800C
+	TextNumber 3 0x800C
+	Message 16
+	CMD_511 3 0x800C
+	CompareVars 0x800C 0x4123
+	JumpIf GREATER Function#3
+	Message 18
+	Call Function#4
+Jump Function#5
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	SetVar 0x4124 0
+	Movement Player Action#3
+	WaitMovement 
+	Movement Overworld.6 Action#4
+	WaitMovement 
+	BallResetFollowingPoke 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 310
+	JumpIf EQUAL Function#6
+	SetFlag 310
+	TextPlayerName 0
+	GenderMessage 0 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TextPlayerName 0
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+Jump Function#11
+
+
+Script 6:
+	TextPlayerName 0
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 44
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 45
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 33
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	Call Function#12
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 25
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4009 1
+	JumpIf EQUAL Function#13
+	CheckGBACartidge 0x800C
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#18
+Jump Function#19
+
+

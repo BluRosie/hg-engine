@@ -1,0 +1,66 @@
+Script 1:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 0 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CountPartyBornPokemon 0x800C
+	CMD_514 0x800C
+	CMD_515 23
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Call Function#1
+	CheckItem 456 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	SetVar 0x4106 3
+	SetFlag 2430
+	ClearFlag 716
+	CheckFlag 278
+	CallIf LESS Function#3
+	CheckFlag 279
+	CallIf LESS Function#4
+	CheckFlag 361
+	CallIf LESS Function#5
+	CheckFlag 362
+	CallIf LESS Function#6
+	CheckFlag 363
+	CallIf LESS Function#7
+	CheckFlag 364
+	CallIf LESS Function#8
+	CheckFlag 330
+	CallIf LESS Function#9
+	CheckFlag 365
+	CallIf LESS Function#10
+	CheckFlag 371
+	JumpIf LESS Function#11
+	CheckFlag 373
+	CallIf LESS Function#12
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#13
+Jump Function#14
+
+
+Script 2:
+	StopMusic 0
+End 
+
+

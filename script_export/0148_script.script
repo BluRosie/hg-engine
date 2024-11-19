@@ -1,0 +1,23 @@
+Script 1:
+	Message 15
+Jump Function#1
+
+
+Script 2:
+	TextPlayerName 0
+	Message 57
+	DummyNationalDexCheck 
+	NationalDex 2 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#2
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 17 255 0
+	CreateMultiTouchBox 16 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+

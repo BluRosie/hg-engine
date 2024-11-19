@@ -1,0 +1,125 @@
+Function 1:
+	DummyNationalDexCheck 
+	NationalDex 2 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#2
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 17 255 0
+	CreateMultiTouchBox 16 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+
+Function 2:
+	CheckFlag 2439
+	JumpIf EQUAL Function#5
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 18 255 0
+	CreateMultiTouchBox 19 255 1
+	CreateMultiTouchBox 16 255 2
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+Jump Function#4
+
+
+Function 3:
+	CountJohtoDexSeen 0x8004
+	CountJohtoDexObtained 0x8005
+	TextNumber 5 0x8004
+	TextNumber 6 0x8005
+	Message 20
+	GetDexProgressMsg 0 0x800C 0x8000
+	PlaySound 0x8000
+	TextPlayerName 0
+	MessageFlex 0x800C
+	WaitSound 
+	CheckCompleteJohtoDex 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#7
+	SetFlag 2439
+Jump Function#8
+
+
+Function 4:
+	Message 21
+	WaitButton 
+	CloseMessage 
+	SetVar 0x800C 0
+	LocalScript 
+End 
+
+
+Function 5:
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 19 255 0
+	CreateMultiTouchBox 16 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	Message 21
+	WaitButton 
+	CloseMessage 
+	SetVar 0x800C 0
+	LocalScript 
+End 
+
+
+Function 6:
+	CountNationalDexSeen 0x8004
+	CountNationalDexObtained 0x8005
+	TextNumber 5 0x8004
+	TextNumber 6 0x8005
+	Message 20
+	GetDexProgressMsg 1 0x800C 0x8000
+	PlaySound 0x8000
+	TextPlayerName 0
+	MessageFlex 0x800C
+	WaitSound 
+	CheckCompleteNationalDex 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	Message 21
+	WaitButton 
+	CloseMessage 
+	SetVar 0x800C 2
+	LocalScript 
+End 
+
+
+Function 7:
+	Message 21
+	WaitButton 
+	CloseMessage 
+	SetVar 0x800C 1
+Jump Function#10
+
+
+Function 8:
+	WaitButton 
+	CloseMessage 
+	SetVar 0x800C 1
+Jump Function#10
+
+
+Function 9:
+	SetVar 0x800C 2
+	LocalScript 
+End 
+
+
+Function 10:
+	LocalScript 
+End 
+
+

@@ -1,0 +1,24 @@
+Script 1:
+	SetVar 0x4000 12
+	SetVar 0x4001 12
+Jump Function#1
+
+
+Script 2:
+	SetVar 0x4000 10
+	SetVar 0x4001 21
+Jump Function#1
+
+
+Script 3:
+	SetVar 0x4000 20
+	SetVar 0x4001 10
+Jump Function#1
+
+
+Script 4:
+	SetVar 0x4000 21
+	SetVar 0x4001 23
+Jump Function#1
+
+

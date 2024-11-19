@@ -1,0 +1,65 @@
+Script 1:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 0 0x800C
+	CommonScript 2000
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	CheckPokemonInParty 386 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 386
+	JumpIf EQUAL Function#2
+	SetDeoxysForm 3
+Jump Function#3
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	CheckPokemonInParty 386 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 386
+	JumpIf EQUAL Function#4
+	SetDeoxysForm 2
+Jump Function#5
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	CheckPokemonInParty 386 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 386
+	JumpIf EQUAL Function#6
+	SetDeoxysForm 1
+Jump Function#7
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	CheckPokemonInParty 386 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 386
+	JumpIf EQUAL Function#8
+	SetDeoxysForm 0
+Jump Function#9
+
+

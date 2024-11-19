@@ -1,0 +1,74 @@
+Function 1:
+	TextPlayerName 0
+	GenderMessage 10 11
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+	Message 12
+	WaitButton 
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen
+    CloseMessage
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+End 
+
+
+Function 2:
+	TextPlayerName 0
+	Message 13
+	WaitAB 
+	CloseMessage 
+    ReleaseAll
+End 
+
+
+Function 3:
+	TextPlayerName 0
+    Message 14
+	WaitButton 
+	CloseMessage 
+	GenderMessage 15 16
+	WaitAB 
+	CloseMessage 
+	CheckItemSpace 86 2 0x800C
+	SetVar 0x8004 86
+	SetVar 0x8005 2
+	CommonScript 2033
+	CloseMessage 
+	SetVar 0x4103 8
+    ReleaseAll
+End 
+
+Function 4:
+    GenderMessage 1 3
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+	Message 9
+	WaitButton
+    PlaySound 1120
+    WaitSound
+	CloseMessage  
+	SetVar 0x4103 2
+	ReleaseAll 
+End
+
+Function 5:
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End
+
+
+
+
+
+
+
+
+

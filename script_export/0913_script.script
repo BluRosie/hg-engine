@@ -1,0 +1,127 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	TrainerBattle 33 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	GiveBadge 5
+	IncrementVar 0x4134 1
+	CMD_515 22
+	CompareVarValue 0x4134 3
+	JumpIf DIFFERENT Function#3
+	SetVar 0x4077 1
+	Message 3
+	SetVar 0x8004 350
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CommonScript 2033
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 194
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	Movement Overworld.2 Action#1
+	WaitMovement 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.2 Action#2
+Jump Function#6
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.1 Action#3
+Jump Function#8
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#9
+	Message 20
+Jump Function#10
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Message 22
+Jump Function#12
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#13
+	CompareVarValue 0x410E 0
+	JumpIf DIFFERENT Function#14
+	Message 16
+Jump Function#15
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#16
+	Message 23
+Jump Function#17
+
+
+Script 8:
+	CMD_142 38 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#18
+	CheckFlag 2404
+	JumpIf LESS Function#19
+	ClearFlag 473
+	CMD_147 38 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#20
+	GetHour 0x4000
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#21
+	SetFlag 473
+Jump Function#22
+
+

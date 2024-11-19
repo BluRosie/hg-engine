@@ -1,0 +1,33 @@
+Function 1:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	TextPlayerName 0
+	GenderMessage 4 5
+	Message 6
+	PlaySound 1186
+	WaitSound 
+	SetFlag 287
+	CheckFlag 138
+	JumpIf EQUAL Function#1
+	UpgradePokegear 2
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

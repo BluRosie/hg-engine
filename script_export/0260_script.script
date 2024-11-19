@@ -1,0 +1,85 @@
+Script 1:
+	SetVar 0x40EB 1
+	SetFlag 2505
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#1
+	SetWarpPosition 4 87 385
+	SetWarpPosition 5 87 389
+	SetWarpPosition 6 87 385
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 337
+	JumpIf EQUAL Function#3
+	Message 0
+	WaitButton 
+	CloseMessage 
+	SetFlag 337
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CompareVarValue 0x40F9 5
+	JumpIf GREATER/EQUAL Function#4
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#5
+	SetWarpPosition 4 87 385
+	SetWarpPosition 5 87 389
+	SetWarpPosition 6 87 385
+Jump Function#6
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 343
+	JumpIf EQUAL Function#7
+	Message 2
+	Movement Overworld.5 Action#1
+	WaitMovement 
+	Message 3
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#8
+	Movement Overworld.5 Action#2
+Jump Function#9
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	Message 6
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 91 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

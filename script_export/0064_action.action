@@ -1,0 +1,12 @@
+Action 1:
+	WalkRightVeryFast 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 2:
+	WalkRightVeryFast 0x1
+	DisappearTrue 0x1
+End
+
+

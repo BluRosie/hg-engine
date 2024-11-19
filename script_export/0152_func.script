@@ -1,0 +1,131 @@
+Function 1:
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#12
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.0 Action#13
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#8
+Jump Function#9
+
+
+Function 5:
+	Movement Player Action#14
+	WaitMovement 
+	TextPlayerName 0
+	Message 2
+	CloseMessage 
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	SetOWDefaultDirection Overworld.0 Down
+End 
+
+
+Function 7:
+	ClearFlag 691
+Return 
+
+
+Function 8:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#10
+Jump Function#11
+
+
+Function 9:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#12
+Jump Function#9
+
+
+Function 11:
+	Message 7
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x4002 1
+	SetVar 0x40E1 1
+	SetVar 0x40DC 0
+	ClearFlag 235
+	SetFlag 554
+	ClearFlag 555
+	SetFlag 556
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#13
+Jump Function#9
+
+
+Function 13:
+	CompareVarValue 0x800C 4
+	JumpIf DIFFERENT Function#14
+Jump Function#9
+
+
+Function 14:
+	CompareVarValue 0x800C 5
+	JumpIf DIFFERENT Function#15
+Jump Function#11
+
+
+Function 15:
+Jump Function#9
+
+

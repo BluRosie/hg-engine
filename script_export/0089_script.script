@@ -1,0 +1,445 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	PlayFanfare 2173
+	CMD_709 
+	StopFanfare 2173
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 4
+	JumpIf DIFFERENT Function#1
+	IncrementVar 0x4001 1
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x40AD 0
+	JumpIf DIFFERENT Function#3
+	Message 2
+Jump Function#4
+
+
+Script 3:
+End 
+
+
+Script 4:
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40AC 9
+	JumpIf GREATER/EQUAL Function#5
+	CheckFlag 214
+	JumpIf EQUAL Function#6
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	PlayFanfare 1646
+	Message 7
+	CloseMessage 
+	SetFlag 214
+	CompareVarValue 0x40AD 2
+	JumpIf GREATER/EQUAL Function#9
+	SetVar 0x40AD 1
+	Movement Overworld.0 Action#3
+	CompareVarValue 0x40AE 2
+	JumpIf GREATER/EQUAL Function#10
+	SetVar 0x40AE 1
+	Movement Overworld.2 Action#3
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#11
+	SetVar 0x40AF 1
+	Movement Overworld.3 Action#3
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#12
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#13
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	PlayFanfare 2173
+	CMD_709 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 4
+	JumpIf DIFFERENT Function#14
+	IncrementVar 0x4001 1
+Jump Function#15
+
+
+Script 7:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Movement Overworld.3 Action#2
+	WaitMovement 
+	PlayFanfare 2173
+	CMD_709 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 11
+	JumpIf DIFFERENT Function#16
+	IncrementVar 0x4001 1
+Jump Function#17
+
+
+Script 8:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	PlayFanfare 2173
+	CMD_709 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 29
+	JumpIf DIFFERENT Function#18
+	IncrementVar 0x4001 1
+Jump Function#19
+
+
+Script 9:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Movement Overworld.5 Action#2
+	WaitMovement 
+	PlayFanfare 2173
+	CMD_709 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 29
+	JumpIf DIFFERENT Function#20
+	IncrementVar 0x4001 1
+Jump Function#21
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x40AE 0
+	JumpIf DIFFERENT Function#22
+	Message 2
+Jump Function#4
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x40AF 0
+	JumpIf DIFFERENT Function#23
+	Message 2
+Jump Function#4
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x40B0 0
+	JumpIf DIFFERENT Function#24
+	Message 2
+Jump Function#4
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	CompareVarValue 0x40B1 0
+	JumpIf DIFFERENT Function#25
+	Message 2
+Jump Function#4
+
+
+Script 14:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+	WildBattle 109 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B2 1
+	ReleaseAll 
+End 
+
+
+Script 15:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 0
+	PlayFanfare 2174
+	WildBattle 100 23
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B3 1
+	ReleaseAll 
+End 
+
+
+Script 16:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 2
+	PlayFanfare 2177
+	WildBattle 74 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B4 1
+	ReleaseAll 
+End 
+
+
+Script 17:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 0
+	PlayFanfare 2174
+	WildBattle 100 23
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B5 1
+	ReleaseAll 
+End 
+
+
+Script 18:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 2
+	PlayFanfare 2177
+	WildBattle 74 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B6 1
+	ReleaseAll 
+End 
+
+
+Script 19:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 0
+	PlayFanfare 2174
+	WildBattle 100 23
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B7 1
+	ReleaseAll 
+End 
+
+
+Script 20:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 0
+	PlayFanfare 2174
+	WildBattle 100 23
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B8 1
+	ReleaseAll 
+End 
+
+
+Script 21:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+	WildBattle 109 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40B9 1
+	ReleaseAll 
+End 
+
+
+Script 22:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+	WildBattle 109 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40BA 1
+	ReleaseAll 
+End 
+
+
+Script 23:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 2
+	PlayFanfare 2177
+	WildBattle 74 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40BB 1
+	ReleaseAll 
+End 
+
+
+Script 24:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 2
+	PlayFanfare 2177
+	WildBattle 74 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40BC 1
+	ReleaseAll 
+End 
+
+
+Script 25:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+	WildBattle 109 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40BD 1
+	ReleaseAll 
+End 
+
+
+Script 26:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 0
+	PlayFanfare 2174
+	WildBattle 100 23
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40BE 1
+	ReleaseAll 
+End 
+
+
+Script 27:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 0
+	PlayFanfare 2174
+	WildBattle 100 23
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40BF 1
+	ReleaseAll 
+End 
+
+
+Script 28:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+	WildBattle 109 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40C0 1
+	ReleaseAll 
+End 
+
+
+Script 29:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 2
+	PlayFanfare 2177
+	WildBattle 74 21
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	SetVar 0x40C1 1
+	ReleaseAll 
+End 
+
+
+Script 30:
+	MecScript 
+	LockAll 
+	PlayFanfare 1387
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	Warp 247 0 50 4 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 31:
+	CompareVarValue 0x40AC 9
+	CallIf GREATER/EQUAL Function#27
+	CompareVarValue 0x40AD 2
+	JumpIf DIFFERENT Function#28
+	SetOWPosition Overworld.0 44 0 3 Left
+Jump Function#29
+
+
+Script 32:
+	CompareVarValue 0x40AC 4
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x40AC 5
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x40AC 6
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x40AC 7
+	JumpIf EQUAL Function#30
+End 
+
+
+Script 33:
+End 
+
+

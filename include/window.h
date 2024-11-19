@@ -30,4 +30,25 @@ void LONG_CALL CopyWindowToVram(void*);
 void LONG_CALL ConvertNumToString(void *, u32 msg_id, u32 num, u8 keta, u8 type);
 void LONG_CALL StringPut(void *wk, void *win, u32 col, u32 mode);
 
+// https://github.com/BluRosie/hg-transparent-textbox/compare/main...font-color#diff-b86bd1f6533e38cd34caafcf064f3182d3d844af8b3c0325322dfff699a5d1bbR30
+/*
+void __attribute__((long_call)) GX_BeginLoadBGExtPltt();
+void __attribute__((long_call)) GX_EndLoadBGExtPltt();
+void __attribute__((long_call)) GXS_BeginLoadBGExtPltt();
+void __attribute__((long_call)) GXS_EndLoadBGExtPltt();
+void __attribute__((long_call)) GX_BeginLoadOBJExtPltt();
+void __attribute__((long_call)) GX_EndLoadOBJExtPltt();
+void __attribute__((long_call)) GXS_BeginLoadOBJExtPltt();
+void __attribute__((long_call)) GXS_EndLoadOBJExtPltt();
+*/
+void LONG_CALL GX_BeginLoadBGExtPltt();
+void LONG_CALL GX_EndLoadBGExtPltt();
+void LONG_CALL GXS_BeginLoadBGExtPltt();
+void LONG_CALL GXS_EndLoadBGExtPltt();
+void LONG_CALL GX_BeginLoadOBJExtPltt();
+void LONG_CALL GX_EndLoadOBJExtPltt();
+void LONG_CALL GXS_BeginLoadOBJExtPltt();
+void LONG_CALL GXS_EndLoadOBJExtPltt();
+
+
 #endif

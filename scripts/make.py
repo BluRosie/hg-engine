@@ -260,7 +260,7 @@ def install():
                     offset = int(line[4:13], 16) - 0x02000000 if int(line[4:13], 16) & 0x02000000 else int(line[4:13], 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + openbin + ".bin", 'rb+')
-                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                    with open("base/y9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(openbin)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(line[4:13], 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(line[4:13], 16) & 0x02000000 else int(line[4:13], 16) - 0x08000000
                 try:
@@ -313,7 +313,7 @@ def hook():
                     offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
-                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                    with open("base/y9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 Hook(rom2, code, offset, int(register))
@@ -345,7 +345,7 @@ def hook():
                     offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
-                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                    with open("base/y9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 HookARM(rom2, code, offset, int(register))
@@ -409,7 +409,7 @@ def repoint():
                     offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom2 = open("base/overlay/overlay_" + files + ".bin", 'rb+')
-                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                    with open("base/y9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 Repoint(rom2, code, offset, 1)
@@ -446,7 +446,7 @@ def offset():
                     offset = int(address, 16) - 0x02000000 if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 else:
                     rom = open("base/overlay/overlay_" + files + ".bin", 'rb+')
-                    with open("base/overarm9.bin", 'rb+') as y9Table:
+                    with open("base/y9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
                 Repoint(rom, code, offset, addOffset)
@@ -475,7 +475,7 @@ def decompress():
             shutil.copyfile("build/arm9.bin", "base/arm9.bin")
         rom.close()
         arm9.close()
-    with open("base/overarm9.bin", 'rb+') as rom:
+    with open("base/y9.bin", 'rb+') as rom:
         for n in OVERLAYS_TO_DECOMPRESS:
             rom.seek((n*0x20)+0x1C) #write 00 00 00 00 to (num*0x20)+0x1C to make game consider overlay num decompressed (and call decompress below)
             bunh = bytes([0x0, 0x0, 0x0, 0x0])

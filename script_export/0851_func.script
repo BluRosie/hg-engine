@@ -1,0 +1,15 @@
+Function 1:
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

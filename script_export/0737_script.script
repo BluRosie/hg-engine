@@ -1,0 +1,82 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	PlayFanfare 1547
+	TextPlayerName 0
+	Message 6
+	CloseMessage 
+	CountMail 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	MailScreen 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CompareVarValue 0x4102 3
+	JumpIf EQUAL Function#2
+End 
+
+
+Script 4:
+	LockAll 
+	TextPlayerName 0
+	GenderMessage 0 2
+	WaitButton 
+	CloseMessage 
+	Movement Player Action#1
+	WaitMovement 
+	GenderMessage 1 3
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4102 3
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+

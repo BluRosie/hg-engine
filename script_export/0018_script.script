@@ -1,0 +1,72 @@
+Script 1:
+	ClearFlag 419
+	CheckFlag 120
+	JumpIf EQUAL Function#1
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	SetVar 0x40A4 1
+	Movement Player Action#1
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#2
+	WaitMovement 
+	Movement Overworld.3 Action#3
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	WaitTime 15 0x800C
+	CommonScript 2070
+	TextRivalName 0
+	Movement Overworld.6 Action#4
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	WaitTime 15 0x800C
+	TextRivalName 0
+	Message 2
+	WaitAB 
+	CloseMessage 
+	PlayFanfare 1538
+	Movement Overworld.6 Action#5
+	WaitMovement 
+	RemoveOW Overworld.6
+	SetFlag 120
+	CommonScript 2071
+	Movement Camera Action#6
+	WaitMovement 
+	ReleaseCamera 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 118
+	JumpIf EQUAL Function#2
+	Message 3
+	CloseMessage 
+	TrainerBattle 290 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 4
+	SetVar 0x8004 397
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 118
+	SetFlag 739
+	ClearFlag 740
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

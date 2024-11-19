@@ -1,0 +1,43 @@
+Script 1:
+	SetFlag 439
+	SetFlag 440
+	SetVar 0x4125 0
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#1
+	ClearFlag 439
+	ClearFlag 440
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	CloseMessage 
+	TrainerBattle 485 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 1
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.0
+	PlayFanfare 1538
+	WaitFanfare 1538
+	ClearFlag 2459
+	FadeOutMusic 0 30
+	StopMusic 0
+	WaitTime 15 0x800C
+	PlayDefaultMusic 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetOWPosition Overworld.1 8 1 12 Down
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.1 Action#1
+Jump Function#4
+
+

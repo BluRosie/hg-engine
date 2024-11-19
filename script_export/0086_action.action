@@ -1,0 +1,56 @@
+Action 1:
+	WalkLeftFast 0x6
+	DisappearTrue 0x1
+End
+
+
+Action 2:
+	WalkLeftFast 0x5
+	DisappearTrue 0x1
+End
+
+
+Action 3:
+	WalkLeftFast 0x3
+	WalkUpFast 0x1
+	WalkLeftFast 0x3
+	DisappearTrue 0x1
+End
+
+
+Action 4:
+	WalkLeftFast 0x2
+	WalkUpFast 0x1
+	WalkLeftFast 0x3
+	DisappearTrue 0x1
+End
+
+
+Action 5:
+	RunRight 0x6
+	DisappearFalse 0x1
+	LookLeft 0x1
+End
+
+
+Action 6:
+	RunRight 0x5
+	DisappearFalse 0x1
+End
+
+
+Action 7:
+	RunRight 0x6
+	RunDown 0x1
+	DisappearFalse 0x1
+	LookLeft 0x1
+End
+
+
+Action 8:
+	RunDown 0x1
+	RunRight 0x5
+	DisappearFalse 0x1
+End
+
+

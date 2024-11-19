@@ -1,0 +1,200 @@
+Action 1:
+	WalkLeftFast 0x1
+End
+
+
+Action 2:
+	Exclamation 0x1
+End
+
+
+Action 3:
+	WalkDownFastSite 0x1
+	WalkDownFast 0x3
+	WalkRightFast 0x3
+End
+
+
+Action 4:
+	Freeze8 0x1
+	Freeze2 0x1
+	WalkLeftFast 0x1
+	WalkDownFast 0x3
+	WalkRightFast 0x2
+End
+
+
+Action 5:
+	WalkLeftFast 0x9
+End
+
+
+Action 6:
+	Freeze2 0x1
+	WalkRightFast 0x1
+	WalkLeftFast 0x9
+End
+
+
+Action 7:
+	WalkDownFast 0x9
+	WalkRightFast 0x2
+End
+
+
+Action 8:
+	WalkUpFast 0x5
+	WalkLeftFast 0x1
+	WalkLeftFastSite 0x1
+End
+
+
+Action 9:
+	WalkLeftFast 0x3
+End
+
+
+Action 10:
+	JumpRightSite 0x2
+End
+
+
+Action 11:
+	LookDown 0x1
+	JumpDownSite 0x1
+	WalkDownVeryFast 0xA
+End
+
+
+Action 12:
+	Freeze8 0x1
+	WalkDownFastSite 0x1
+End
+
+
+Action 13:
+	WalkDownFast 0xA
+	WalkRightFast 0x2
+End
+
+
+Action 14:
+	WalkLeftFast 0x2
+End
+
+
+Action 15:
+	WalkRightVeryFast 0x1
+End
+
+
+Action 16:
+	LockDir 0x1
+	WalkRightVeryFast 0x1
+	JumpRight 0x1
+	ReleaseDir 0x1
+End
+
+
+Action 17:
+	RunUpSite 0x1
+	RunLeftSite 0x1
+	Freeze8 0x1
+	WalkLeftFast 0x2
+	WalkUpFast 0x9
+End
+
+
+Action 18:
+	WalkUpFast 0x5
+	WalkLeftFast 0x2
+	WalkLeftFastSite 0x1
+End
+
+
+Action 19:
+	Freeze8 0x4
+	WalkRightFastSite 0x1
+End
+
+
+Action 20:
+	Exclamation 0x1
+	Freeze8 0x2
+End
+
+
+Action 21:
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+End
+
+
+Action 22:
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+End
+
+
+Action 23:
+	LockDir 0x1
+	WalkLeft 0x1
+	ReleaseDir 0x1
+	Freeze8 0x1
+	WalkDownVeryFast 0x5
+	LockDir 0x1
+	JumpUp 0x1
+	ReleaseDir 0x1
+	WalkDownVeryFast 0x1
+	WalkRightVeryFast 0x3
+	WalkDownVeryFast 0x5
+	WalkLeftVeryFast 0x7
+	WalkUpVeryFast 0xC
+	WalkLeftVeryFast 0x4
+End
+
+
+Action 24:
+	WalkDownFast 0x3
+	WalkRightFast 0x2
+	JumpRightSite 0x2
+End
+
+
+Action 25:
+	LookDown 0x1
+	WalkDownVeryFast 0x1
+	WalkRightVeryFast 0x2
+	WalkDownVeryFast 0x9
+	WalkLeftVeryFast 0x7
+	WalkUpVeryFast 0xD
+	WalkLeftVeryFast 0x5
+End
+
+
+Action 26:
+	Freeze8 0x3
+	LookDown 0x1
+	Freeze8 0x3
+	WalkDownFast 0x3
+End
+
+
+Action 27:
+	WalkDownFast 0xB
+	WalkRightFast 0x2
+End
+
+

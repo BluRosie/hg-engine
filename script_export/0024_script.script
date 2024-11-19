@@ -1,0 +1,60 @@
+Script 1:
+	MecScript 
+	LockAll 
+	PlayCry 243 0
+	Release Overworld.2
+	ShakeOverworld 2 2 90 2 0
+	Lock Overworld.2
+	WaitCry 
+	PlayCry 244 0
+	Release Overworld.1
+	ShakeOverworld 1 2 90 2 0
+	Lock Overworld.1
+	WaitCry 
+	PlayCry 245 0
+	Release Overworld.0
+	ShakeOverworld 0 2 90 2 0
+	Lock Overworld.0
+	WaitCry 
+	Movement Overworld.2 Action#1
+	WaitMovement 
+	Movement Overworld.1 Action#2
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	PlayCry 245 0
+	Movement Overworld.0 Action#4
+	WaitCry 
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 245 0
+	WaitCry 
+	SetFlag 164
+	WildBattleSp 245 40 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CMD_683 0x4002
+	CompareVarValue 0x4002 3
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x4002 4
+	CallIf EQUAL Function#5
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CheckFlag 164
+	JumpIf EQUAL Function#6
+End 
+
+

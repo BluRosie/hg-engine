@@ -1,0 +1,130 @@
+Function 1:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#7
+	Message 1
+	GivePokemon 133 5 0 0 0 0x800C
+	SetFlag 149
+	TextPlayerName 0
+	Message 2
+	PlaySound 1187
+	WaitSound 
+	Message 7
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#9
+	CloseMessage 
+	SetVar 0x4000 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 0x8005 0x4000
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 12
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+End 
+
+
+Function 7:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CloseMessage 
+	SetVar 0x4000 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 0x8005 0x4000
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	TextPlayerName 0
+	Message 13
+	RecordPokegearNumber 9
+	PlaySound 1206
+	WaitSound 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

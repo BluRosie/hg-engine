@@ -1,0 +1,18 @@
+Action 1:
+	Exclamation 0x1
+	WalkLeftFast 0x4
+End
+
+
+Action 2:
+	Freeze8 0x4
+	WalkRightFast 0x1
+End
+
+
+Action 3:
+	WalkRightVeryFast 0x5
+	WalkDownVeryFast 0x9
+End
+
+

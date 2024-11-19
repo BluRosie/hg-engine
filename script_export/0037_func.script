@@ -1,0 +1,384 @@
+Function 1:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#10
+	Movement Player Action#3
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 3 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CompareVarValue 0x40FB 9
+	JumpIf GREATER/EQUAL Function#12
+	SetVar 0x40FB 1
+	CheckBadge 2 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#13
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 5
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x4000 6
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#14
+	SetFlag 638
+Jump Function#15
+
+
+Function 6:
+	SetWarpPosition 8 418 284
+	SetWarpPosition 9 419 284
+	SetWarpPosition 11 418 284
+	SetWarpPosition 12 419 284
+End 
+
+
+Function 7:
+	SetWarpPosition 8 418 284
+	SetWarpPosition 9 419 284
+	SetWarpPosition 13 418 284
+	SetWarpPosition 14 419 284
+End 
+
+
+Function 8:
+	CMD_698 1 0x4005 0x4007
+	CompareVarValue 0x4007 0
+	JumpIf EQUAL Function#16
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#16
+	DoorAnimation 13 8 25 29 77
+	OpenDoor 77
+	WaitDoor 77
+	ClearFlag 742
+	AddOW Overworld.9
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	Movement Overworld.9 Action#5
+	Movement Player Action#6
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#17
+	Movement Following Action#7
+Jump Function#18
+
+
+Function 9:
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#16
+	DoorAnimation 13 8 25 29 77
+	OpenDoor 77
+	WaitDoor 77
+	ClearFlag 742
+	AddOW Overworld.9
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	Movement Overworld.9 Action#5
+	Movement Player Action#6
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#17
+	Movement Following Action#7
+Jump Function#18
+
+
+Function 10:
+	Movement Player Action#8
+	Movement Overworld.8 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 3 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 3 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CheckBadge 2 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#13
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 5
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x4000 6
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#14
+	SetFlag 638
+Jump Function#15
+
+
+Function 13:
+	SetFlag 638
+Jump Function#15
+
+
+Function 14:
+	ClearFlag 638
+	CompareVarValue 0x403E 7
+	JumpIf GREATER/EQUAL Function#6
+	CompareVarValue 0x403E 6
+	JumpIf EQUAL Function#7
+Jump Function#19
+
+
+Function 15:
+	CompareVarValue 0x403E 7
+	JumpIf GREATER/EQUAL Function#6
+	CompareVarValue 0x403E 6
+	JumpIf EQUAL Function#7
+Jump Function#19
+
+
+Function 16:
+	ReleaseAll 
+End 
+
+
+Function 17:
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#20
+	Movement Following Action#9
+Jump Function#18
+
+
+Function 18:
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.9 Action#10
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#21
+	Movement Following Action#11
+Jump Function#22
+
+
+Function 19:
+	SetWarpPosition 11 418 284
+	SetWarpPosition 12 419 284
+	SetWarpPosition 13 418 284
+	SetWarpPosition 14 419 284
+End 
+
+
+Function 20:
+	Movement Following Action#12
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.9 Action#10
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#21
+	Movement Following Action#11
+Jump Function#22
+
+
+Function 21:
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#23
+	Movement Following Action#13
+Jump Function#22
+
+
+Function 22:
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#24
+	Movement Overworld.9 Action#14
+Jump Function#25
+
+
+Function 23:
+	Movement Following Action#15
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#24
+	Movement Overworld.9 Action#14
+Jump Function#25
+
+
+Function 24:
+	Movement Overworld.9 Action#16
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.9 Action#17
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.9 Action#18
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.9 Action#19
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	SetVar 0x40FB 2
+	SetFlag 742
+	ClearFlag 743
+	PlayFanfare 1538
+	CompareVarValue 0x403E 6
+	JumpIf DIFFERENT Function#26
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 490 0 15 24 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#16
+
+
+Function 25:
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.9 Action#17
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.9 Action#18
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.9 Action#19
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	SetVar 0x40FB 2
+	SetFlag 742
+	ClearFlag 743
+	PlayFanfare 1538
+	CompareVarValue 0x403E 6
+	JumpIf DIFFERENT Function#26
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 490 0 15 24 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#16
+
+
+Function 26:
+	CompareVarValue 0x403E 7
+	JumpIf DIFFERENT Function#27
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 492 0 15 24 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#16
+
+
+Function 27:
+	CompareVarValue 0x403E 8
+	JumpIf DIFFERENT Function#28
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 492 0 15 24 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#16
+
+
+Function 28:
+	CompareVarValue 0x403E 9
+	JumpIf DIFFERENT Function#29
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 492 0 15 24 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#16
+
+
+Function 29:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 315 0 15 24 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

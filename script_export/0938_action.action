@@ -1,0 +1,11 @@
+Action 1:
+	WalkLeftFastSite 0x1
+	JumpLeftSite 0x2
+End
+
+
+Action 2:
+	WalkDownFastSite 0x1
+End
+
+

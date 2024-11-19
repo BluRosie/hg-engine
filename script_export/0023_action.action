@@ -1,0 +1,34 @@
+Action 1:
+	LookLeft 0x1
+	Exclamation 0x1
+	WalkLeftFast 0x3
+End
+
+
+Action 2:
+	LookDown 0x1
+	Exclamation 0x1
+	WalkDownFast 0x4
+	WalkLeftFast 0x1
+	LookDown 0x1
+End
+
+
+Action 3:
+	WalkDownFast 0x2
+	WalkRightFast 0x1
+	LookLeft 0x1
+End
+
+
+Action 4:
+	WalkDownFast 0x3
+	WalkLeftFast 0x1
+	WalkDownFast 0x1
+	WalkLeftFast 0x3
+	WalkDownFast 0x1
+	WalkLeftFast 0x4
+	WalkDownFast 0x3
+End
+
+

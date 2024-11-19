@@ -1,0 +1,253 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 18
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetVar 0x4007 0
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 298 255 0
+	CreateMultiTouchBox 299 255 1
+	CreateMultiTouchBox 304 255 6
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#14
+
+
+Function 4:
+	SetVar 0x4007 1
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 301 255 3
+	CreateMultiTouchBox 300 255 2
+	CreateMultiTouchBox 307 255 9
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#14
+
+
+Function 5:
+	SetVar 0x4007 2
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 306 255 8
+	CreateMultiTouchBox 307 255 9
+	CreateMultiTouchBox 299 255 1
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#14
+
+
+Function 6:
+	SetVar 0x4007 3
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 305 255 7
+	CreateMultiTouchBox 304 255 6
+	CreateMultiTouchBox 301 255 3
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#14
+
+
+Function 7:
+	SetVar 0x4007 4
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 303 255 5
+	CreateMultiTouchBox 302 255 4
+	CreateMultiTouchBox 298 255 0
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#14
+
+
+Function 8:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	Movement Overworld.3 Action#2
+Jump Function#9
+
+
+Function 9:
+	WaitMovement 
+	PlayCry 85 0
+	Message 24
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 22
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+End 
+
+
+Function 13:
+	SetVar 0x400D 1
+End 
+
+
+Function 14:
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#20
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 6
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 7
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 8
+	JumpIf EQUAL Function#24
+	CompareVarValue 0x8008 9
+	JumpIf EQUAL Function#25
+Jump Function#26
+
+
+Function 15:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#27
+	Movement Overworld.3 Action#3
+Jump Function#9
+
+
+Function 16:
+	Message 8
+Jump Function#28
+
+
+Function 17:
+	Message 9
+Jump Function#28
+
+
+Function 18:
+	Message 10
+Jump Function#28
+
+
+Function 19:
+	Message 11
+Jump Function#28
+
+
+Function 20:
+	Message 12
+Jump Function#28
+
+
+Function 21:
+	Message 13
+Jump Function#28
+
+
+Function 22:
+	Message 14
+Jump Function#28
+
+
+Function 23:
+	Message 15
+Jump Function#28
+
+
+Function 24:
+	Message 16
+Jump Function#28
+
+
+Function 25:
+	Message 17
+Jump Function#28
+
+
+Function 26:
+	Message 6
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 308 255 0
+	CreateMultiTouchBox 309 255 1
+	CreateMultiTouchBox 310 255 2
+	CreateMultiTouchBox 311 255 3
+	CreateMultiTouchBox 312 255 4
+	CreateMultiTouchBox 135 255 5
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#2
+	Message 7
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#6
+Jump Function#7
+
+
+Function 27:
+	Movement Overworld.3 Action#4
+	WaitMovement 
+	PlayCry 85 0
+	Message 24
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 28:
+	Message 7
+	CompareVarValue 0x4007 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x4007 1
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x4007 2
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x4007 3
+	JumpIf EQUAL Function#6
+Jump Function#7
+
+

@@ -1,0 +1,32 @@
+Function 1:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	SetVar 0x40F9 9
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetVar 0x40F9 7
+	SetFlag 379
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetFlag 722
+	RemoveOW Overworld.0
+End 
+
+
+Function 5:
+End 
+
+

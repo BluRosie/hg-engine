@@ -188,7 +188,7 @@
 
 .macro babymon,species,baby
 	.if species == 0
-		.create "base/root/poketool/personal/pms.narc",0
+		.create "base/data/poketool/personal/pms.narc",0
 	.endif
 
 	.org (species * 2)
@@ -205,7 +205,7 @@
 
 .macro tutordata,species,data1,data2
 	.if species == 1
-		.create "base/root/fielddata/wazaoshie/waza_oshie.bin",0
+		.create "base/data/fielddata/wazaoshie/waza_oshie.bin",0
 	.endif
 
 	.org ((species - 1) * 8)

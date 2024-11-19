@@ -1,0 +1,127 @@
+Script 1:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 0 0x800C
+	CommonScript 2000
+End 
+
+
+Script 2:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 1 0x800C
+	CommonScript 2000
+End 
+
+
+Script 3:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 2 0x800C
+	CommonScript 2000
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	Message 27
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	Message 30
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

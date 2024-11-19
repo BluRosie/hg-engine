@@ -1,0 +1,206 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	StopFanfare 2147
+	CommonScript 2036
+	CheckFlag 250
+	JumpIf LESS Function#1
+	Message 1
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 500
+	JumpIf LESS Function#3
+	TextPlayerName 0
+	Message 25
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 51
+	JumpIf LESS Function#5
+	TextPlayerName 0
+	Message 27
+Jump Function#6
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 150
+	JumpIf LESS Function#7
+	TextPlayerName 0
+	Message 29
+Jump Function#8
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 1000
+	JumpIf LESS Function#9
+	TextPlayerName 0
+	Message 31
+Jump Function#10
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 0x2711
+	JumpIf LESS Function#11
+	TextPlayerName 0
+	Message 33
+Jump Function#12
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 75
+	JumpIf LESS Function#13
+	TextPlayerName 0
+	Message 35
+Jump Function#14
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 26
+	JumpIf LESS Function#15
+	TextPlayerName 0
+	GenderMessage 37 38
+Jump Function#16
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 0x4E21
+	JumpIf LESS Function#17
+	TextPlayerName 0
+	Message 40
+Jump Function#18
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 800
+	JumpIf LESS Function#19
+	Message 43
+Jump Function#20
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 800
+	JumpIf LESS Function#21
+	TextPlayerName 0
+	Message 46
+Jump Function#22
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 201
+	JumpIf LESS Function#23
+	TextPlayerName 0
+	Message 48
+Jump Function#24
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 250
+	JumpIf LESS Function#25
+	TextPlayerName 0
+	Message 50
+Jump Function#26
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	CompareVarValue 0x4000 101
+	JumpIf LESS Function#27
+	TextPlayerName 0
+	Message 52
+Jump Function#28
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	PlayCry 19 0
+	CompareVarValue 0x4000 0x3A98
+	JumpIf LESS Function#29
+	TextPlayerName 0
+	Message 19
+Jump Function#30
+
+
+Script 16:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	PlayCry 66 0
+	CompareVarValue 0x4000 0x3A98
+	JumpIf LESS Function#31
+	TextPlayerName 0
+	Message 21
+Jump Function#32
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_724 11 0x4000
+	PlayCry 12 0
+	CompareVarValue 0x4000 0x3A98
+	JumpIf LESS Function#33
+	TextPlayerName 0
+	Message 23
+Jump Function#34
+
+

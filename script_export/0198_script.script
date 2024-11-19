@@ -1,0 +1,18 @@
+Script 1:
+	SetVar 0x4085 0
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 249
+	JumpIf EQUAL Function#1
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

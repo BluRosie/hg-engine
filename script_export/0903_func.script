@@ -1,0 +1,126 @@
+Function 1:
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#8
+	InitTrade 1
+	SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C
+	JumpIf DIFFERENT Function#14
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 141
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	ClearFlag 446
+End 
+
+
+Function 10:
+End 
+
+
+Function 11:
+	Message 6
+	SetFlag 142
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 1
+	SetVar 0x8004 354
+	SetVar 0x8005 1
+	CommonScript 2008
+	CloseMessage 
+Jump Function#11
+
+
+Function 13:
+	Message 4
+	SetVar 0x8004 348
+	SetVar 0x8005 1
+	CommonScript 2008
+	CloseMessage 
+Jump Function#11
+
+
+Function 14:
+	EndTrade 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

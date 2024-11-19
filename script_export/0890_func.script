@@ -1,0 +1,38 @@
+Function 1:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 1
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+End 
+
+
+Function 3:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetVar 0x8004 450
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 137
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+

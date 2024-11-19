@@ -1,0 +1,990 @@
+Function 1:
+	CMD_262 
+	CMD_267 0 0x800C
+	MessageFlex 0x800C
+	WaitAB 
+	CloseMessage 
+	CMD_263 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_262 
+	CMD_267 10 0x800C
+	MessageFlex 0x800C
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CMD_274 0x8004 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#6
+	CMD_269 0x800C 17 0x800C 2
+	JumpIf EQUAL Function#6
+	CMD_267 13 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_159 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+Jump Function#11
+
+
+Function 3:
+	CMD_262 
+	CMD_267 11 0x800C
+	MessageFlex 0x800C
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+	CMD_274 0x8004 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#6
+	CMD_269 0x800C 17 0x800C 2
+	JumpIf EQUAL Function#6
+	CMD_267 14 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_162 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+Jump Function#11
+
+
+Function 4:
+	CMD_262 
+	CMD_267 12 0x800C
+	MessageFlex 0x800C
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#13
+	CountPartyEggs 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CMD_584 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#15
+	CMD_274 0x8004 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#6
+	CMD_269 0x800C 17 0x800C 2
+	JumpIf EQUAL Function#6
+	CMD_267 15 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_629 150
+	FadeScreen 6 1 1 0
+Jump Function#11
+
+
+Function 5:
+	PlayFanfare 1508
+	CMD_264 1
+	CMD_592 7
+	WaitTimeOrAB 30
+Jump Function#8
+
+
+Function 6:
+	Message 38
+	WaitTime 30 0x800C
+	CloseMessage 
+	CMD_263 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	CMD_257 100
+	CMD_267 2 0x800C
+	CMD_592 0x800C
+Jump Function#16
+
+
+Function 8:
+	Message 9
+	CMD_257 100
+	CMD_261 11
+	CMD_273 0x800C
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#20
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 6
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 7
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 8
+	JumpIf EQUAL Function#24
+End 
+
+
+Function 9:
+	CMD_262 
+	CheckFlag 105
+	CallIf EQUAL Function#25
+	OpenTouchScreen 
+	CheckFlag 105
+	CallIf LESS Function#26
+	SetFlag 105
+	MultiTouchStandardText 21 11 0 1 0x800C
+	CreateMultiTouchBox 11 255 0
+	CreateMultiTouchBox 169 255 1
+	CreateMultiTouchBox 24 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#28
+Jump Function#29
+
+
+Function 10:
+	CMD_267 16 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_263 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CMD_267 17 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	CMD_263 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CMD_267 18 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	CMD_267 21 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	CMD_267 26 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	MultiStandardText 31 3 0 1 0x800C
+	CMD_841 1
+	AddMultiOption 168 0
+	AddMultiOption 59 1
+	AddMultiOption 52 2
+	AddMultiOption 23 3
+	AddMultiOption 142 4
+	AddMultiOption 141 5
+	AddMultiOption 24 99
+	CMD_585 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#32
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#33
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#34
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x8008 7
+	JumpIf EQUAL Function#36
+	CMD_271 0 7
+Jump Function#37
+
+
+Function 17:
+	Message 11
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#38
+	CMD_271 1 0
+	CloseMessage 
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#39
+	CMD_576 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 1
+	CloseMessage 
+	CMD_261 5
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_160 
+	ReturnScreen 
+	Call Function#40
+Jump Function#8
+
+
+Function 18:
+	Message 18
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#41
+	CMD_271 1 0
+	CloseMessage 
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#23
+	Message 19
+	WaitTime 30 0x800C
+	CMD_257 4
+	CloseMessage 
+	CMD_261 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_159 
+	ReturnScreen 
+	Call Function#40
+	ReleaseAll 
+End 
+
+
+Function 19:
+	Message 21
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#42
+	CountPokemonUnderLevel 0x800C 30
+	CompareVarValue 0x800C 2
+	JumpIf LESS Function#43
+	CMD_271 1 0
+	CloseMessage 
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#23
+	Message 22
+	WaitTime 30 0x800C
+	CMD_257 2
+	CloseMessage 
+	CMD_261 6
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_350 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 202
+	CMD_257 102
+	CloseMessage 
+	CMD_586 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#44
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#44
+	CMD_230 
+	CMD_261 11
+	Call Function#40
+Jump Function#8
+
+
+Function 20:
+	Message 26
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#45
+	CountPartyBornPokemon 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf LESS Function#46
+	CMD_271 1 0
+	CloseMessage 
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#23
+	Message 27
+	WaitTime 30 0x800C
+	CMD_257 3
+	CloseMessage 
+	CMD_261 7
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_161 
+	ReturnScreen 
+	CMD_261 11
+	Call Function#40
+Jump Function#8
+
+
+Function 21:
+	Message 30
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#42
+	CMD_271 1 0
+	CloseMessage 
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#23
+	Message 31
+	WaitTime 30 0x800C
+	CMD_257 5
+	CloseMessage 
+	CMD_261 2
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_162 
+	ReturnScreen 
+	Call Function#40
+	ReleaseAll 
+End 
+
+
+Function 22:
+	Message 33
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#42
+	CMD_271 1 0
+	CloseMessage 
+	CountPartyEggs 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#47
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#23
+	Message 34
+	WaitTime 30 0x800C
+	CMD_257 6
+	CloseMessage 
+	CMD_261 13
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_629 150
+	Call Function#40
+	ReleaseAll 
+End 
+
+
+Function 23:
+	Message 8
+	WaitTime 30 0x800C
+Jump Function#48
+
+
+Function 24:
+	Message 10
+	WaitTime 30 0x800C
+Jump Function#48
+
+
+Function 25:
+	Message 158
+Return 
+
+
+Function 26:
+	Message 157
+Return 
+
+
+Function 27:
+	Message 159
+	MultiTouchStandardText 24 3 0 1 0x800C
+	CreateMultiTouchBox 52 255 0
+	CreateMultiTouchBox 23 255 1
+	CreateMultiTouchBox 142 255 2
+	CreateMultiTouchBox 59 255 3
+	CreateMultiTouchBox 170 255 4
+	CreateMultiTouchBox 141 255 5
+	CreateMultiTouchBox 13 255 6
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#49
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#50
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#51
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#52
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#53
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#54
+Jump Function#55
+
+
+Function 28:
+	CloseTouchScreen 
+	CMD_260 0x800C
+	MessageFlex 0x800C
+	OpenTouchScreen 
+Jump Function#55
+
+
+Function 29:
+	CloseTouchScreen 
+	CMD_263 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 30:
+	CMD_271 0 1
+	CMD_267 9 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#56
+	MessageFlex 0x800C
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#57
+	CMD_261 5
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 1
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_160 
+	ReturnScreen 
+	Call Function#40
+	MessageAll 16
+Jump Function#58
+
+
+Function 31:
+	CMD_271 0 4
+	CMD_267 9 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#59
+	MessageFlex 0x800C
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#60
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTimeOrAB 30
+	CMD_257 4
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_159 
+	ReturnScreen 
+	Call Function#40
+Jump Function#11
+
+
+Function 32:
+	CountPokemonUnderLevel 0x800C 30
+	CompareVarValue 0x800C 2
+	JumpIf LESS Function#61
+	CMD_271 0 2
+	CMD_267 9 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#62
+	MessageFlex 0x800C
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#63
+	CMD_261 6
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_350 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 202
+	CMD_257 102
+	CloseMessage 
+	CMD_586 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#44
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#44
+	CMD_230 
+	Call Function#40
+Jump Function#58
+
+
+Function 33:
+	CountPartyBornPokemon 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf LESS Function#64
+	CMD_271 0 3
+	CMD_267 9 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#65
+	MessageFlex 0x800C
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#66
+	CMD_261 7
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 3
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_161 
+	ReturnScreen 
+	Call Function#40
+Jump Function#58
+
+
+Function 34:
+	CMD_271 0 5
+	CMD_267 9 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#67
+	MessageFlex 0x800C
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#68
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTimeOrAB 30
+	CMD_257 5
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_162 
+	ReturnScreen 
+	Call Function#40
+Jump Function#11
+
+
+Function 35:
+	CountPartyEggs 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#69
+	CMD_630 0x800C 17 0x800C
+	Nop 
+	JumpIf EQUAL Function#70
+	CMD_271 0 6
+	CMD_267 9 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#71
+	MessageFlex 0x800C
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#72
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTimeOrAB 30
+	CMD_257 6
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_629 150
+	Call Function#40
+Jump Function#11
+
+
+Function 36:
+	CMD_267 24 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 101
+	CloseMessage 
+	CMD_266 
+	ReleaseAll 
+End 
+
+
+Function 37:
+	CMD_267 23 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 101
+	CloseMessage 
+	CMD_266 
+	ReleaseAll 
+End 
+
+
+Function 38:
+	CMD_271 1 1
+	Message 17
+Jump Function#48
+
+
+Function 39:
+	Message 35
+Jump Function#48
+
+
+Function 40:
+	CMD_265 
+	FadeScreen 6 1 1 0
+Return 
+
+
+Function 41:
+	CMD_271 1 1
+	Message 28
+Jump Function#48
+
+
+Function 42:
+	CMD_271 1 1
+	Message 23
+Jump Function#48
+
+
+Function 43:
+	CMD_271 1 1
+	Message 24
+Jump Function#48
+
+
+Function 44:
+	CMD_261 11
+	Message 25
+	WaitTime 30 0x800C
+Jump Function#48
+
+
+Function 45:
+	CMD_271 1 1
+	Message 20
+Jump Function#48
+
+
+Function 46:
+	CMD_271 1 1
+	Message 29
+Jump Function#48
+
+
+Function 47:
+	CMD_271 1 1
+	Message 36
+Jump Function#48
+
+
+Function 48:
+	CMD_257 101
+	CloseMessage 
+	CMD_266 
+	ReleaseAll 
+End 
+
+
+Function 49:
+	CloseTouchScreen 
+	Message 160
+	OpenTouchScreen 
+Jump Function#27
+
+
+Function 50:
+	CloseTouchScreen 
+	Message 161
+	OpenTouchScreen 
+Jump Function#27
+
+
+Function 51:
+	CloseTouchScreen 
+	Message 162
+	OpenTouchScreen 
+Jump Function#27
+
+
+Function 52:
+	CloseTouchScreen 
+	Message 164
+	OpenTouchScreen 
+Jump Function#27
+
+
+Function 53:
+	CloseTouchScreen 
+	Message 165
+	OpenTouchScreen 
+Jump Function#27
+
+
+Function 54:
+	CloseTouchScreen 
+	Message 163
+	OpenTouchScreen 
+Jump Function#27
+
+
+Function 55:
+	CheckFlag 105
+	CallIf LESS Function#26
+	SetFlag 105
+	MultiTouchStandardText 21 11 0 1 0x800C
+	CreateMultiTouchBox 11 255 0
+	CreateMultiTouchBox 169 255 1
+	CreateMultiTouchBox 24 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#28
+Jump Function#29
+
+
+Function 56:
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#57
+	CMD_261 5
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 1
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_160 
+	ReturnScreen 
+	Call Function#40
+	MessageAll 16
+Jump Function#58
+
+
+Function 57:
+	CMD_267 3 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+Jump Function#73
+
+
+Function 58:
+	CMD_257 100
+	CMD_261 11
+	CMD_267 22 0x800C
+	MessageFlex 0x800C
+Jump Function#16
+
+
+Function 59:
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#60
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTimeOrAB 30
+	CMD_257 4
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_159 
+	ReturnScreen 
+	Call Function#40
+Jump Function#11
+
+
+Function 60:
+	CMD_267 4 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+Jump Function#73
+
+
+Function 61:
+	CMD_267 19 0x800C
+	MessageFlex 0x800C
+Jump Function#58
+
+
+Function 62:
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#63
+	CMD_261 6
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_350 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 202
+	CMD_257 102
+	CloseMessage 
+	CMD_586 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#44
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#44
+	CMD_230 
+	Call Function#40
+Jump Function#58
+
+
+Function 63:
+	CMD_267 5 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+Jump Function#73
+
+
+Function 64:
+	CMD_267 20 0x800C
+	MessageFlex 0x800C
+Jump Function#58
+
+
+Function 65:
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#66
+	CMD_261 7
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+	CMD_257 3
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_161 
+	ReturnScreen 
+	Call Function#40
+Jump Function#58
+
+
+Function 66:
+	CMD_267 6 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+Jump Function#73
+
+
+Function 67:
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#68
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTimeOrAB 30
+	CMD_257 5
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_162 
+	ReturnScreen 
+	Call Function#40
+Jump Function#11
+
+
+Function 68:
+	CMD_267 8 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+Jump Function#73
+
+
+Function 69:
+	CMD_267 21 0x800C
+	MessageFlex 0x800C
+Jump Function#58
+
+
+Function 70:
+	Message 218
+Jump Function#58
+
+
+Function 71:
+	CMD_272 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf EQUAL Function#72
+	CMD_267 1 0x800C
+	MessageFlex 0x800C
+	WaitTimeOrAB 30
+	CMD_257 6
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_629 150
+	Call Function#40
+Jump Function#11
+
+
+Function 72:
+	CMD_267 8 0x800C
+	MessageFlex 0x800C
+	WaitTime 30 0x800C
+Jump Function#73
+
+
+Function 73:
+	CMD_257 101
+	CloseMessage 
+	CMD_266 
+	ReleaseAll 
+End 
+
+

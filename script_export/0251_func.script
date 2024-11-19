@@ -1,0 +1,247 @@
+Function 1:
+	Message 8
+	CloseMessage 
+Jump Function#8
+
+
+Function 2:
+	Message 6
+	SetVar 0x8004 434
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 7
+	CloseMessage 
+	SetFlag 256
+Jump Function#8
+
+
+Function 3:
+	Message 4
+	CloseMessage 
+Jump Function#9
+
+
+Function 4:
+	CheckFlag 256
+	JumpIf LESS Function#10
+	Message 1
+	SetVar 0x8004 29
+	SetVar 0x8005 34
+	SetVar 0x8006 39
+	CMD_133 0x8004 0x800C
+	CompareVarValue 0x800C 99
+	JumpIf EQUAL Function#11
+	CMD_133 0x8005 0x800C
+	CompareVarValue 0x800C 99
+	JumpIf EQUAL Function#11
+	CMD_133 0x8006 0x800C
+	CompareVarValue 0x800C 99
+	JumpIf EQUAL Function#11
+	SetVar 0x8000 3
+	SetVar 0x8001 3
+	SetVar 0x8002 3
+	CMD_133 0x8004 0x800C
+	CompareVarValue 0x800C 96
+	JumpIf LESS/EQUAL Function#12
+	DecrementVar 0x800C 96
+	DecrementVar 0x8000 0x800C
+	CMD_133 0x8005 0x800C
+	CompareVarValue 0x800C 96
+	JumpIf LESS/EQUAL Function#12
+	DecrementVar 0x800C 96
+	DecrementVar 0x8001 0x800C
+	CMD_133 0x8006 0x800C
+	CompareVarValue 0x800C 96
+	JumpIf LESS/EQUAL Function#12
+	DecrementVar 0x800C 96
+	DecrementVar 0x8002 0x800C
+	CMD_134 0x8004 0x8000
+	CMD_134 0x8005 0x8001
+	CMD_134 0x8006 0x8002
+	TextSealPlural 0 0x8004
+	Message 20
+	PlaySound 1185
+	WaitSound 
+	TextSealPlural 0 0x8005
+	Message 20
+	PlaySound 1185
+	WaitSound 
+	TextSealPlural 0 0x8006
+	Message 20
+	PlaySound 1185
+	WaitSound 
+	CloseMessage 
+	SetFlag 257
+Jump Function#9
+
+
+Function 5:
+	PlayCry 241 0
+	Message 11
+	WaitCry 
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 10
+	WaitAB 
+	Message 13
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#13
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#14
+End 
+
+
+Function 7:
+	SetFlag 550
+End 
+
+
+Function 8:
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 2
+	CloseMessage 
+Jump Function#9
+
+
+Function 11:
+	Message 3
+	CloseMessage 
+Jump Function#9
+
+
+Function 12:
+	CMD_134 0x8004 0x8000
+	CMD_134 0x8005 0x8001
+	CMD_134 0x8006 0x8002
+	TextSealPlural 0 0x8004
+	Message 20
+	PlaySound 1185
+	WaitSound 
+	TextSealPlural 0 0x8005
+	Message 20
+	PlaySound 1185
+	WaitSound 
+	TextSealPlural 0 0x8006
+	Message 20
+	PlaySound 1185
+	WaitSound 
+	CloseMessage 
+	SetFlag 257
+Jump Function#9
+
+
+Function 13:
+	SetVar 0x8004 155
+	SetVar 0x8005 1
+	CheckItem 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#15
+	TakeItem 0x8004 0x8005 0x800C
+	TextPlayerName 0
+	Message 14
+	WaitButton 
+	CloseMessage 
+	CheckFlag 176
+	JumpIf EQUAL Function#16
+	CheckFlag 175
+	JumpIf EQUAL Function#17
+	CheckFlag 174
+	JumpIf EQUAL Function#18
+	CheckFlag 173
+	JumpIf EQUAL Function#19
+	CheckFlag 172
+	JumpIf EQUAL Function#20
+	CheckFlag 169
+	JumpIf EQUAL Function#21
+	SetFlag 169
+	ReleaseAll 
+End 
+
+
+Function 14:
+	TextPlayerName 0
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	TextPlayerName 0
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	PlaySound 1183
+	WaitSound 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	SetFlag 170
+	ReleaseAll 
+End 
+
+
+Function 17:
+	SetFlag 176
+	ReleaseAll 
+End 
+
+
+Function 18:
+	SetFlag 175
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	SetFlag 174
+	ReleaseAll 
+End 
+
+
+Function 20:
+	SetFlag 173
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	SetFlag 172
+	ReleaseAll 
+End 
+
+

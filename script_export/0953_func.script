@@ -1,0 +1,456 @@
+Function 1:
+	Movement 0x800D Action#1
+	WaitMovement 
+	GetPlayerDirection 0x8000
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#9
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#10
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#11
+	CompareVarValue 0x8000 3
+	CallIf EQUAL Function#12
+Return 
+
+
+Function 2:
+	CompareVarValue 0x4010 255
+	JumpIf EQUAL Function#13
+	CMD_142 0x4010 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#14
+	CMD_614 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#15
+	Call Function#16
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	OpenMessage 
+	TrainerMsgCheck 0x8000 0x8001 0x8002
+	TrainerMessage 0x8004 0x8001
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	TrainerMusic 0x8004
+	OpenMessage 
+	TrainerMsgCheck 0x8000 0x8001 0x8002
+	TrainerMessage 0x8004 0x8000
+Jump Function#18
+
+
+Function 4:
+	TrainerID 0x8004
+	OpenMessage 
+	TrainerMsgCheck 0x8000 0x8001 0x8002
+	TrainerMessage 0x8004 0x8002
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CMD_170 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#8
+End 
+
+
+Function 6:
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	CMD_460 0x8004 0x4010
+	TrainerMusic 0x8004
+	CMD_315 
+	CMD_168 0
+	Call Function#19
+	CMD_316 
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	OpenMessage 
+	TrainerMessage 0x8004 0
+	CloseMessage 
+	TrainerBattle 0x8004 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	SetTrainerFlag 0x8004
+	CMD_317 0
+	Call Function#16
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#21
+	ReleaseAll 
+End 
+
+
+Function 7:
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	CMD_460 0x8004 0x4010
+	CompareVarValue 0x4010 255
+	JumpIf DIFFERENT Function#22
+	CMD_171 1 0x800C
+	CMD_460 0x800C 0x4010
+	TrainerMusic 0x8004
+	CMD_168 0
+	CMD_168 1
+	Call Function#23
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	OpenMessage 
+	TrainerMessage 0x8004 3
+	CloseMessage 
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	OpenMessage 
+	TrainerMessage 0x8005 7
+	CloseMessage 
+	TrainerBattle 0x8004 0x8005 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	SetTrainerFlag 0x8004
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	SetTrainerFlag 0x8005
+	Call Function#16
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#21
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	CMD_460 0x8004 0x4010
+	CompareVarValue 0x4010 255
+	JumpIf DIFFERENT Function#24
+	CMD_171 1 0x800C
+	CMD_460 0x800C 0x4010
+	TrainerMusic 0x8004
+	CMD_168 0
+	Call Function#25
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	OpenMessage 
+	TrainerMessage 0x8004 0
+	CloseMessage 
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	TrainerMusic 0x8005
+	CMD_168 1
+	Call Function#26
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	OpenMessage 
+	TrainerMessage 0x8005 0
+	CloseMessage 
+	TrainerBattle 0x8004 0x8005 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	SetTrainerFlag 0x8004
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	SetTrainerFlag 0x8005
+	Call Function#16
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#21
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetOWMovement 0x800D Move.15
+Return 
+
+
+Function 10:
+	SetOWMovement 0x800D Move.14
+Return 
+
+
+Function 11:
+	SetOWMovement 0x800D Move.17
+Return 
+
+
+Function 12:
+	SetOWMovement 0x800D Move.16
+Return 
+
+
+Function 13:
+	OpenMessage 
+	TrainerMsgCheck 0x8000 0x8001 0x8002
+	TrainerMessage 0x8004 0x8001
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	SetVarFromVariable 0x8007 0x800C
+	TrainerTypeCheck 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#27
+	Check2vs2 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+Jump Function#27
+
+
+Function 15:
+	CMD_461 4 0x8004 0x8005
+	TextPlayerName 0
+	CMD_440 0x8004 0x8005
+	SetVarFromVariable 0x8004 0x800C
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#28
+	CommonScript 2009
+Jump Function#29
+
+
+Function 16:
+	CompareVarValue 0x4010 255
+	JumpIf EQUAL Function#30
+	CMD_147 0x4010 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#30
+	SetVar 0x800C 1
+Return 
+
+
+Function 17:
+	Call Function#31
+	ReleaseAll 
+End 
+
+
+Function 18:
+	CloseMessage 
+	CMD_454 
+	TrainerBattle 0x8004 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	SetVarFromVariable 0x4012 0x8004
+	TrainerID 0x8006
+	CheckTrainerFlag 0x8006
+	JumpIf EQUAL Function#33
+	CMD_317 1
+	Call Function#16
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#21
+	SetTrainerFlag 0x4012
+	ReleaseAll 
+End 
+
+
+Function 19:
+	CMD_169 0 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+Return 
+
+
+Function 20:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	CMD_461 0 0x8004 0x8005
+	CMD_440 0x8004 0x8005
+Jump Function#34
+
+
+Function 22:
+	TrainerMusic 0x8004
+	CMD_168 0
+	CMD_168 1
+	Call Function#23
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	OpenMessage 
+	TrainerMessage 0x8004 3
+	CloseMessage 
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	OpenMessage 
+	TrainerMessage 0x8005 7
+	CloseMessage 
+	TrainerBattle 0x8004 0x8005 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	SetTrainerFlag 0x8004
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	SetTrainerFlag 0x8005
+	Call Function#16
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#21
+	ReleaseAll 
+End 
+
+
+Function 23:
+	CMD_169 0 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#23
+	CMD_169 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#23
+Return 
+
+
+Function 24:
+	TrainerMusic 0x8004
+	CMD_168 0
+	Call Function#25
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	OpenMessage 
+	TrainerMessage 0x8004 0
+	CloseMessage 
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	TrainerMusic 0x8005
+	CMD_168 1
+	Call Function#26
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	OpenMessage 
+	TrainerMessage 0x8005 0
+	CloseMessage 
+	TrainerBattle 0x8004 0x8005 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	CMD_171 0 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	SetTrainerFlag 0x8004
+	CMD_171 1 0x800C
+	SetVarFromVariable 0x8005 0x800C
+	SetTrainerFlag 0x8005
+	Call Function#16
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#21
+	ReleaseAll 
+End 
+
+
+Function 25:
+	CMD_169 0 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+Return 
+
+
+Function 26:
+	CMD_169 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+Return 
+
+
+Function 27:
+	TrainerMusic 0x8004
+	OpenMessage 
+	TrainerRematchMsgCheck 0x8000 0x8001 0x8002
+	TrainerMessage 0x8004 0x8000
+	SetVarFromVariable 0x8004 0x8007
+Jump Function#18
+
+
+Function 28:
+	CommonScript 2008
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 29:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 30:
+	SetVar 0x800C 0
+Return 
+
+
+Function 31:
+	CMD_461 3 0x8004 0x8005
+	CMD_440 0x8004 0x8005
+Jump Function#34
+
+
+Function 32:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 33:
+	SetTrainerFlag 0x4012
+	CMD_462 0x4010
+	CMD_613 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#15
+	ReleaseAll 
+End 
+
+
+Function 34:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#35
+	PlaySound 1206
+	WaitSound 
+	Message 101
+	CMD_461 1 0x8004 0x8005
+	RecordPokegearNumber 0x4010
+Jump Function#36
+
+
+Function 35:
+	CMD_461 2 0x8004 0x8005
+	CMD_440 0x8004 0x8005
+	WaitButton 
+	CloseMessage 
+Return 
+
+
+Function 36:
+	CMD_440 0x8004 0x8005
+	WaitButton 
+	CloseMessage 
+Return 
+
+

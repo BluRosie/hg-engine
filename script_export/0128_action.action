@@ -1,0 +1,39 @@
+Action 1:
+	Exclamation 0x1
+End
+
+
+Action 2:
+	WalkDownFastSite 0x1
+End
+
+
+Action 3:
+	WalkDownFast 0x3
+End
+
+
+Action 4:
+	WalkUpFast 0x3
+	WalkDownFastSite 0x1
+End
+
+
+Action 5:
+	WalkUpFast 0x3
+End
+
+
+Action 6:
+	WalkUp 0x1
+End
+
+
+Action 7:
+	WalkLeftFastSite 0x1
+	LockDir 0x1
+	WalkRight 0x2
+	ReleaseDir 0x1
+End
+
+

@@ -1,0 +1,72 @@
+Function 1:
+	ClearFlagFromVar 0x4001
+	IncrementVar 0x4000 1
+	IncrementVar 0x4001 1
+	CompareVarValue 0x4000 10
+	JumpIf LESS Function#4
+End 
+
+
+Function 2:
+	IncrementVar 0x4000 1
+	IncrementVar 0x4001 1
+	CompareVarValue 0x4000 10
+	JumpIf LESS Function#4
+End 
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4001 2730
+	IncrementVar 0x4001 0x4000
+	FlagStatusToVar 0x4001 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseMessage 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	CMD_784 4
+	CMD_809 0x4000
+	WaitAB 
+	CloseMessage 
+	CMD_784 260
+	CMD_808 0x4000
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#6
+	SetFlagFromVar 0x4001
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CMD_807 0x4000 0x4002
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#1
+	SetFlagFromVar 0x4001
+Jump Function#2
+
+
+Function 5:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 2
+	PlaySound 1185
+	WaitSound 
+	CloseMessage 
+	CMD_555 1
+Return 
+
+

@@ -1,0 +1,241 @@
+Function 1:
+	CheckFlag 2747
+	JumpIf EQUAL Function#6
+	CheckFlag 146
+	JumpIf EQUAL Function#6
+	CheckBadge 15 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf EQUAL Function#7
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Overworld.1 Action#2
+	WaitMovement 
+	GenderMessage 3 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetVar 0x40CB 4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	RemoveOW Overworld.1
+	SetFlag 535
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitMovement 
+	GenderMessage 3 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetVar 0x40CB 4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	RemoveOW Overworld.1
+	SetFlag 535
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	SetFlag 535
+End 
+
+
+Function 6:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 7
+	CloseMessage 
+	CompareVarValue 0x4101 0
+	JumpIf DIFFERENT Function#8
+	SetVar 0x8004 298
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 8:
+	CompareVarValue 0x4101 1
+	JumpIf DIFFERENT Function#10
+	SetVar 0x8004 299
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 9:
+	IncrementVar 0x4101 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2008
+	SetFlag 2747
+	SetFlag 146
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x4101 2
+	JumpIf DIFFERENT Function#12
+	SetVar 0x8004 300
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 11:
+	TextItem 1 0x8004
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CompareVarValue 0x4101 3
+	JumpIf DIFFERENT Function#13
+	SetVar 0x8004 301
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 13:
+	CompareVarValue 0x4101 4
+	JumpIf DIFFERENT Function#14
+	SetVar 0x8004 302
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 14:
+	CompareVarValue 0x4101 5
+	JumpIf DIFFERENT Function#15
+	SetVar 0x8004 303
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 15:
+	CompareVarValue 0x4101 6
+	JumpIf DIFFERENT Function#16
+	SetVar 0x8004 304
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 16:
+	CompareVarValue 0x4101 7
+	JumpIf DIFFERENT Function#17
+	SetVar 0x8004 305
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 17:
+	CompareVarValue 0x4101 8
+	JumpIf DIFFERENT Function#18
+	SetVar 0x8004 306
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 18:
+	CompareVarValue 0x4101 9
+	JumpIf DIFFERENT Function#19
+	SetVar 0x8004 307
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 19:
+	CompareVarValue 0x4101 10
+	JumpIf DIFFERENT Function#20
+	SetVar 0x8004 308
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 20:
+	CompareVarValue 0x4101 11
+	JumpIf DIFFERENT Function#21
+	SetVar 0x8004 309
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 21:
+	CompareVarValue 0x4101 12
+	JumpIf DIFFERENT Function#22
+	SetVar 0x8004 310
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 22:
+	CompareVarValue 0x4101 13
+	JumpIf DIFFERENT Function#23
+	SetVar 0x8004 311
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 23:
+	CompareVarValue 0x4101 14
+	JumpIf DIFFERENT Function#24
+	SetVar 0x8004 312
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 24:
+	CompareVarValue 0x4101 15
+	JumpIf DIFFERENT Function#25
+	SetVar 0x8004 313
+	SetVar 0x8005 1
+Jump Function#9
+
+
+Function 25:
+	SetVar 0x8004 92
+	SetVar 0x8005 1
+Jump Function#26
+
+
+Function 26:
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2008
+	SetFlag 2747
+	SetFlag 146
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

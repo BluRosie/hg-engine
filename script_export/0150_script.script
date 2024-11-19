@@ -1,0 +1,52 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 16
+	CloseMessage 
+	##CheckItem 468 1 0x800C
+	##CompareVarValue 0x800C 0
+	##JumpIf EQUAL Function#1
+	CMD_623 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CMD_624 0x8000
+	SetVar 0x8005 1
+	TextPlayerName 0
+	CMD_626 1 0x8000
+    CompareVarValue 0x8000 0
+    JumpIf EQUAL Function#4
+    CompareVarValue 0x8000 1
+    JumpIf EQUAL Function#5
+    CompareVarValue 0x8000 2
+    JumpIf EQUAL Function#6
+    CompareVarValue 0x8000 3
+    JumpIf EQUAL Function#7
+    CompareVarValue 0x8000 4
+    JumpIf EQUAL Function#8
+    CompareVarValue 0x8000 5
+    JumpIf EQUAL Function#9
+    Jump Function#10
+    ##Cut off
+	Message 1
+	CloseMessage 
+	PlaySound 1185
+	Message 3
+	WaitSound 
+	CMD_625 0x8000 1 0x800C
+	CMD_515 1
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+
+
+
+
+

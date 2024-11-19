@@ -1,0 +1,31 @@
+Function 1:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 2
+	SetVar 0x8004 247
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CommonScript 2033
+	SetFlag 344
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

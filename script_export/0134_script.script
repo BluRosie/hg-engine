@@ -1,0 +1,42 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 382 0
+	Message 0
+	WaitCry 
+	CloseMessage 
+	SetFlag 164
+	WildBattleSp 382 50 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	CMD_683 0x4002
+	CompareVarValue 0x4002 3
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x4002 4
+	JumpIf EQUAL Function#3
+	Message 1
+	WaitButton 
+	CloseMessage 
+	SetFlag 395
+	ReleaseAll 
+End 
+
+
+Script 2:
+	CompareVarValue 0x40F9 4
+	JumpIf GREATER/EQUAL Function#4
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#5
+Jump Function#6
+
+
+Script 3:
+	CheckFlag 164
+	JumpIf EQUAL Function#7
+End 
+
+

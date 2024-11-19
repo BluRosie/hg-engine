@@ -1,0 +1,56 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 235
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#2
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Movement Player Action#2
+Jump Function#3
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40E1 0
+	ClearFlag 146
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CompareVarValue 0x40E1 1
+	JumpIf EQUAL Function#4
+End 
+
+
+Script 4:
+	CheckFlag 360
+	JumpIf EQUAL Function#5
+	SetFlag 2456
+	CMD_804 2
+	SetFlag 360
+	SetFlag 2485
+	CMD_582 54 1309 340
+End 
+
+

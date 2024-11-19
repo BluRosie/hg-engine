@@ -1,0 +1,8 @@
+Action 1:
+	WalkDown 0x3
+	WalkLeft 0x3
+	LookUp 0x1
+End
+
+
+

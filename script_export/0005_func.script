@@ -1,0 +1,324 @@
+Function 1:
+	CMD_147 33 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#6
+	CheckBadge 15 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf EQUAL Function#7
+Jump Function#8
+
+
+Function 2:
+	GetDayOfWeek 0x8004
+	CompareVarValue 0x8004 1
+	JumpIf DIFFERENT Function#9
+	CheckFlag 357
+	JumpIf LESS Function#10
+Jump Function#11
+
+
+Function 3:
+	Message 5
+Jump Function#12
+
+
+Function 4:
+	TextPlayerName 0
+	Message 2
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 33
+	Message 3
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 610
+	RemoveOW Overworld.1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	SetVar 0x4003 1
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CMD_142 33 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#8
+	GetHour 0x4000
+	CompareVarValue 0x4000 17
+	JumpIf DIFFERENT Function#13
+	ClearFlag 610
+Jump Function#14
+
+
+Function 7:
+	GetHour 0x4000
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#15
+	ClearFlag 610
+Jump Function#16
+
+
+Function 8:
+	SetFlag 610
+End 
+
+
+Function 9:
+	CompareVarValue 0x8004 4
+	JumpIf DIFFERENT Function#17
+	CheckFlag 357
+	JumpIf LESS Function#10
+Jump Function#11
+
+
+Function 10:
+	CompareVarValue 0x4000 111
+	JumpIf DIFFERENT Function#18
+	Message 15
+Jump Function#19
+
+
+Function 11:
+	CompareVarValue 0x4000 55
+	JumpIf EQUAL Function#20
+	Message 6
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#21
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#22
+	Message 7
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 86 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#5
+End 
+
+
+Function 13:
+	CompareVarValue 0x4000 18
+	JumpIf DIFFERENT Function#23
+	ClearFlag 610
+Jump Function#14
+
+
+Function 14:
+End 
+
+
+Function 15:
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#24
+	ClearFlag 610
+Jump Function#16
+
+
+Function 16:
+End 
+
+
+Function 17:
+	CompareVarValue 0x8004 6
+	JumpIf DIFFERENT Function#11
+	CheckFlag 357
+	JumpIf LESS Function#10
+	CompareVarValue 0x4000 55
+	JumpIf EQUAL Function#20
+	Message 6
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#21
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#22
+	Message 7
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 86 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	TextPlayerName 0
+	GenderMessage 11 12
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#25
+	Message 13
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#25
+	InitTrade 11
+	SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C
+	JumpIf DIFFERENT Function#26
+	TradePokemonScreen 0x8004
+	EndTrade 
+	CMD_139 0x8004 0 422
+	SetFlag 357
+	SetVar 0x4000 55
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#25
+	Message 13
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#25
+	InitTrade 11
+	SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C
+	JumpIf DIFFERENT Function#26
+	TradePokemonScreen 0x8004
+	EndTrade 
+	CMD_139 0x8004 0 422
+	SetFlag 357
+	SetVar 0x4000 55
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	CompareVarValue 0x4000 19
+	JumpIf DIFFERENT Function#27
+	ClearFlag 610
+Jump Function#14
+
+
+Function 24:
+	CompareVarValue 0x4000 14
+	JumpIf DIFFERENT Function#28
+	ClearFlag 610
+Jump Function#16
+
+
+Function 25:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x4000 111
+End 
+
+
+Function 26:
+	EndTrade 
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 27:
+Jump Function#8
+
+
+Function 28:
+Jump Function#8
+
+

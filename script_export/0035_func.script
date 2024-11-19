@@ -1,0 +1,78 @@
+Function 1:
+	Movement Player Action#1
+	WaitMovement 
+	GetElevatorFloor 0x4113
+	SetVarFromVariable 0x8008 0x4113
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#4
+End 
+
+
+Function 2:
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Following Action#2
+	WaitMovement 
+Jump Function#5
+
+
+Function 3:
+	Message 0
+	CloseMessage 
+	CMD_240 190 0 5 3 1
+	SetVar 0x8004 0
+Jump Function#6
+
+
+Function 4:
+	Message 1
+	CloseMessage 
+	CMD_240 189 1 5 3 1
+	SetVar 0x8004 1
+Jump Function#6
+
+
+Function 5:
+	GetElevatorFloor 0x4113
+	SetVarFromVariable 0x8008 0x4113
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#4
+End 
+
+
+Function 6:
+	WaitFanfare 1500
+	ElevatorAnimation 0x8004 4
+	CompareVarValue 0x4113 0
+	JumpIf DIFFERENT Function#7
+	Message 2
+Jump Function#8
+
+
+Function 7:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4125 1
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4125 1
+	ReleaseAll 
+End 
+
+

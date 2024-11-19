@@ -1,0 +1,119 @@
+Function 1:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	SetFlag 395
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetVar 0x40F9 4
+	SetFlag 378
+	ClearFlag 724
+	AddOW Overworld.1
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#8
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	Movement Player Action#2
+	WaitMovement 
+Jump Function#9
+
+
+Function 4:
+End 
+
+
+Function 5:
+Jump Function#10
+
+
+Function 6:
+	CheckFlag 395
+	JumpIf EQUAL Function#4
+	CheckItem 535 1 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf GREATER/EQUAL Function#11
+Jump Function#10
+
+
+Function 7:
+	SetFlag 721
+	RemoveOW Overworld.0
+	ClearFlag 164
+End 
+
+
+Function 8:
+	Movement Overworld.1 Action#3
+	WaitMovement 
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 2
+	CloseMessage 
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.1 Action#7
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetFlag 724
+	SetFlag 719
+	ReleaseAll 
+End 
+
+
+Function 9:
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 2
+	CloseMessage 
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.1 Action#7
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetFlag 724
+	SetFlag 719
+	ReleaseAll 
+End 
+
+
+Function 10:
+	SetFlag 721
+	SetFlag 724
+End 
+
+
+Function 11:
+	SetFlag 724
+	ClearFlag 721
+End 
+
+

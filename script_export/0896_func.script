@@ -1,0 +1,281 @@
+Function 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	Message 8
+	OpenTouchScreen 
+	ShowMoney 20 2
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 213 470 0
+	CreateMultiTouchBox 214 472 1
+	CreateMultiTouchBox 215 471 2
+	CreateMultiTouchBox 216 473 3
+	CreateMultiTouchBox 217 474 4
+	CloseMultiTouch 
+	SetVarFromVariable 0x8000 0x800C
+	SetVarFromVariable 0x8008 0x8000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#11
+	Message 10
+Jump Function#12
+
+
+Function 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckItem 477 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#13
+	Message 1
+	SetVar 0x8004 477
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2033
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CMD_688 0x800C
+	CMD_492 17 0x800C 255
+	JumpIf EQUAL Function#4
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 492
+	JumpIf DIFFERENT Function#4
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Movement Overworld.1 Action#7
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#15
+	Movement Overworld.1 Action#8
+Jump Function#16
+
+
+Function 6:
+End 
+
+
+Function 7:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x4082 0
+	ReleaseAll 
+End 
+
+
+Function 8:
+	SetVar 0x8001 95
+Jump Function#17
+
+
+Function 9:
+	SetVar 0x8001 96
+Jump Function#17
+
+
+Function 10:
+	SetVar 0x8001 97
+Jump Function#17
+
+
+Function 11:
+	SetVar 0x8001 98
+Jump Function#17
+
+
+Function 12:
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.1 Action#9
+Jump Function#16
+
+
+Function 16:
+	WaitMovement 
+	Message 6
+	SetVar 0x8004 466
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x4002
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#19
+	CommonScript 2033
+	Message 7
+	WaitButton 
+	CloseMessage 
+	SetFlag 349
+	SetVar 0x4082 0
+	ReleaseAll 
+End 
+
+
+Function 17:
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#20
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#21
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#22
+	CompareVarValue 0x8000 3
+	CallIf EQUAL Function#23
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#24
+	CheckItemSpace 0x8001 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#26
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#27
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#28
+	CompareVarValue 0x8000 3
+	CallIf EQUAL Function#29
+	UpdateMoney 
+	PlayFanfare 1603
+	GiveItem 0x8001 1 0x800C
+	TextItem 0 0x8001
+	Message 11
+	Message 9
+Jump Function#12
+
+
+Function 18:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#30
+	Movement Overworld.1 Action#10
+Jump Function#16
+
+
+Function 19:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x4082 0
+	ReleaseAll 
+End 
+
+
+Function 20:
+	CompareMoney 0x800C 200
+Return 
+
+
+Function 21:
+	CompareMoney 0x800C 200
+Return 
+
+
+Function 22:
+	CompareMoney 0x800C 200
+Return 
+
+
+Function 23:
+	CompareMoney 0x800C 200
+Return 
+
+
+Function 24:
+	Message 13
+Jump Function#12
+
+
+Function 25:
+	Message 12
+Jump Function#12
+
+
+Function 26:
+	TakeMoney 200
+Return 
+
+
+Function 27:
+	TakeMoney 200
+Return 
+
+
+Function 28:
+	TakeMoney 200
+Return 
+
+
+Function 29:
+	TakeMoney 200
+Return 
+
+
+Function 30:
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	Message 6
+	SetVar 0x8004 466
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x4002
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#19
+	CommonScript 2033
+	Message 7
+	WaitButton 
+	CloseMessage 
+	SetFlag 349
+	SetVar 0x4082 0
+	ReleaseAll 
+End 
+
+

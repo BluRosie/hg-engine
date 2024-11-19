@@ -1,0 +1,9 @@
+Function 1:
+	Message 5
+	CloseMessage 
+	Movement Overworld.1 Action#2
+	WaitMovement 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,103 @@
+Action 1:
+	LookDown 0x1
+	Exclamation 0x1
+End
+
+
+Action 2:
+	LookRight 0x1
+	Exclamation 0x1
+End
+
+
+Action 3:
+	LockDir 0x1
+	WalkRightVeryFast 0x1
+	ReleaseDir 0x1
+End
+
+
+Action 4:
+	LookLeft 0x1
+	Exclamation 0x1
+End
+
+
+Action 5:
+	LockDir 0x1
+	WalkLeftVeryFast 0x1
+	ReleaseDir 0x1
+End
+
+
+Action 6:
+	WalkLeftVeryFast 0x1
+End
+
+
+Action 7:
+	WalkRightVeryFast 0x1
+End
+
+
+Action 8:
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+End
+
+
+Action 9:
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+End
+
+
+Action 10:
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+End
+
+
+Action 11:
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+End
+
+
+Action 12:
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+End
+
+
+Action 13:
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+	LookUp 0x1
+	LookRight 0x1
+	LookDown 0x1
+	LookLeft 0x1
+End
+
+

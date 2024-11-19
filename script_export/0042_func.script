@@ -1,0 +1,46 @@
+Function 1:
+	SetVar 0x40CE 0
+	ReleaseAll 
+End 
+
+
+Function 2:
+End 
+
+
+Function 3:
+	GetFirstAlivePokemonSlot 0x4005
+	CompareVarValue 0x4102 1
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x4102 2
+	JumpIf EQUAL Function#6
+Jump Function#4
+
+
+Function 4:
+End 
+
+
+Function 5:
+	CMD_698 1 0x4005 0x4007
+	CompareVarValue 0x4007 1
+	CallIf EQUAL Function#7
+	CMD_490 0x4005
+	CMD_490 0x4007
+End 
+
+
+Function 6:
+	CMD_698 2 0x4005 0x4006
+	CompareVarValue 0x4006 1
+	CallIf EQUAL Function#7
+	CMD_490 0x4005
+	CMD_490 0x4006
+End 
+
+
+Function 7:
+	SetVar 0x40FB 11
+Return 
+
+

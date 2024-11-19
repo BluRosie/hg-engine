@@ -1,0 +1,54 @@
+Action 1:
+	WalkLeftFast 0x4
+	Exclamation 0x1
+End
+
+
+Action 2:
+	WalkLeftFast 0x4
+End
+
+
+Action 3:
+	WalkLeftFast 0x4
+End
+
+
+Action 4:
+	WalkLeftFast 0x4
+End
+
+
+Action 5:
+	WalkDownFast 0x3
+	WalkRightFastSite 0x1
+End
+
+
+Action 6:
+	WalkUpFast 0x2
+	WalkLeftFast 0x1
+	WalkUpFast 0x1
+End
+
+
+Action 7:
+	WalkLeftFast 0x1
+	WalkUpFast 0x2
+	WalkLeftFast 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 8:
+	WalkUpFast 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 9:
+	WalkUpFast 0x2
+	DisappearTrue 0x1
+End
+
+

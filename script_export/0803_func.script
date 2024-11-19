@@ -1,0 +1,225 @@
+Function 1:
+	CMD_784 3
+	Message 2
+	OpenTouchScreen 
+	CMD_116 0
+	CommonScript 2
+	ShowMoney 20 7
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 127 255 0
+	CreateMultiTouchBox 128 255 1
+	CreateMultiTouchBox 129 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#20
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#21
+	Message 6
+Jump Function#22
+
+
+Function 2:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	CMD_784 259
+End 
+
+
+Function 3:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	CMD_784 259
+End 
+
+
+Function 4:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	CMD_784 259
+End 
+
+
+Function 5:
+	CheckItem 444 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#23
+	CMD_784 3
+	CMD_532 0x800C 3 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#24
+	CMD_784 259
+	SetVar 0x4001 0
+Return 
+
+
+Function 6:
+	ReleaseAll 
+End 
+
+
+Function 7:
+	ReleaseAll 
+End 
+
+
+Function 8:
+	ReleaseAll 
+End 
+
+
+Function 9:
+	ReleaseAll 
+End 
+
+
+Function 10:
+	ReleaseAll 
+End 
+
+
+Function 11:
+	ReleaseAll 
+End 
+
+
+Function 12:
+	ReleaseAll 
+End 
+
+
+Function 13:
+	ReleaseAll 
+End 
+
+
+Function 14:
+	ReleaseAll 
+End 
+
+
+Function 15:
+	ReleaseAll 
+End 
+
+
+Function 16:
+	ReleaseAll 
+End 
+
+
+Function 17:
+	ReleaseAll 
+End 
+
+
+Function 18:
+	ReleaseAll 
+End 
+
+
+Function 19:
+	ReleaseAll 
+End 
+
+
+Function 20:
+	CompareMoney 0x800C 1000
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CMD_533 0x800C 50 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	TakeMoney 1000
+	GiveCoins 50
+	CMD_118 0
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 3
+Jump Function#27
+
+
+Function 21:
+	CompareMoney 0x800C 0x2710
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CMD_533 0x800C 500 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#26
+	TakeMoney 0x2710
+	GiveCoins 500
+	CMD_118 0
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 3
+Jump Function#27
+
+
+Function 22:
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	CMD_117 
+	HideMoney 
+	CMD_784 259
+	ReleaseAll 
+End 
+
+
+Function 23:
+	Message 21
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4001 1
+Return 
+
+
+Function 24:
+	Message 22
+	WaitButton 
+	CloseMessage 
+	CMD_784 259
+	SetVar 0x4001 1
+Return 
+
+
+Function 25:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	CMD_117 
+	HideMoney 
+	CMD_784 259
+	ReleaseAll 
+End 
+
+
+Function 26:
+	Message 5
+Jump Function#22
+
+
+Function 27:
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 127 255 0
+	CreateMultiTouchBox 128 255 1
+	CreateMultiTouchBox 129 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#20
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#21
+	Message 6
+Jump Function#22
+
+

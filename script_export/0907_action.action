@@ -1,0 +1,31 @@
+Action 1:
+	WalkRightFast 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 2:
+	WalkUpFast 0x2
+End
+
+
+Action 3:
+	WalkUpFast 0x1
+End
+
+
+Action 4:
+	LookDown 0x1
+End
+
+
+Action 5:
+	WalkDownFast 0x1
+End
+
+
+Action 6:
+	WalkDownFast 0x2
+End
+
+

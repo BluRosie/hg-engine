@@ -1,0 +1,65 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_713 0
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CheckFlag 2423
+	JumpIf EQUAL Function#1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	CMD_714 0
+	ReleaseAll 
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	CheckFlag 539
+	JumpIf EQUAL Function#2
+	WaitTime 2 0x8004
+	ShakeCamera 0 2 10 6
+	WaitTime 10 0x8004
+	Movement Player Action#1
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 539
+	PlayFanfare 1570
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 392
+	JumpIf EQUAL Function#3
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+End 
+
+

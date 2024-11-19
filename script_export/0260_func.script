@@ -1,0 +1,152 @@
+Function 1:
+	SetWarpPosition 4 87 389
+	SetWarpPosition 5 87 385
+	SetWarpPosition 6 87 385
+	CompareVarValue 0x40F9 2
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x40F9 3
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x40F9 5
+	JumpIf GREATER/EQUAL Function#13
+	CheckFlag 393
+	JumpIf LESS Function#14
+	ClearFlag 393
+End 
+
+
+Function 2:
+	CompareVarValue 0x40F9 2
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x40F9 3
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x40F9 5
+	JumpIf GREATER/EQUAL Function#13
+	CheckFlag 393
+	JumpIf LESS Function#14
+	ClearFlag 393
+End 
+
+
+Function 3:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetWarpPosition 4 87 385
+	SetWarpPosition 5 87 385
+	SetWarpPosition 6 87 389
+End 
+
+
+Function 5:
+	SetWarpPosition 4 87 389
+	SetWarpPosition 5 87 385
+	SetWarpPosition 6 87 385
+End 
+
+
+Function 6:
+End 
+
+
+Function 7:
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.5 Action#1
+	WaitMovement 
+	SetFlag 343
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#15
+	Movement Overworld.5 Action#3
+Jump Function#9
+
+
+Function 9:
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.5 Action#1
+	WaitMovement 
+	SetFlag 343
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	SetFlag 772
+End 
+
+
+Function 13:
+	SetWarpPosition 4 87 385
+	SetWarpPosition 5 87 385
+	SetWarpPosition 6 87 389
+Jump Function#12
+
+
+Function 14:
+	CheckFlag 2404
+	JumpIf EQUAL Function#16
+Jump Function#12
+
+
+Function 15:
+	Movement Overworld.5 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.5 Action#1
+	WaitMovement 
+	SetFlag 343
+	ReleaseAll 
+End 
+
+
+Function 16:
+	CMD_142 32 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#12
+	GetDayOfWeek 0x4002
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#17
+	ClearFlag 772
+Jump Function#18
+
+
+Function 17:
+	SetFlag 772
+End 
+
+
+Function 18:
+End 
+
+

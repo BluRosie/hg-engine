@@ -1,0 +1,474 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 269
+	JumpIf EQUAL Function#1
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	CMD_142 17 0x4000
+	CMD_142 26 0x4001
+	CMD_142 27 0x4002
+	CMD_142 28 0x4003
+	CMD_142 29 0x4004
+	CMD_142 30 0x4005
+	CMD_142 31 0x4006
+	CMD_142 32 0x4007
+	CMD_142 33 0x4008
+	CMD_142 34 0x4009
+	CMD_142 35 0x400A
+	CMD_142 18 0x400B
+	CMD_142 36 0x400C
+	CMD_142 37 0x400D
+	CMD_142 38 0x400E
+	CMD_142 39 0x400F
+	CompareVarValue 0x4003 0
+	JumpIf DIFFERENT Function#2
+	SetFlag 696
+Jump Function#3
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	CloseMessage 
+	TrainerBattle 714 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	Message 9
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 17
+	SetFlag 693
+	RemoveOW Overworld.1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 30
+	CloseMessage 
+	TrainerBattle 724 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Message 31
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 26
+	SetFlag 694
+	RemoveOW Overworld.2
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 18
+	CloseMessage 
+	TrainerBattle 719 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	Message 19
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 27
+	SetFlag 695
+	RemoveOW Overworld.3
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 24
+	CloseMessage 
+	TrainerBattle 723 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	Message 25
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 28
+	SetFlag 696
+	RemoveOW Overworld.4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 26
+	CloseMessage 
+	TrainerBattle 721 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	Message 27
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 29
+	SetFlag 697
+	RemoveOW Overworld.5
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 32
+	CloseMessage 
+	TrainerBattle 726 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	Message 33
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 30
+	SetFlag 698
+	RemoveOW Overworld.16
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 34
+	CloseMessage 
+	TrainerBattle 727 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Message 35
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 31
+	SetFlag 699
+	RemoveOW Overworld.6
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	CloseMessage 
+	TrainerBattle 718 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	Message 11
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 32
+	SetFlag 700
+	RemoveOW Overworld.7
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 28
+	CloseMessage 
+	TrainerBattle 720 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	Message 29
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 33
+	SetFlag 701
+	RemoveOW Overworld.8
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	CloseMessage 
+	TrainerBattle 713 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#13
+	Message 7
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 34
+	SetFlag 702
+	RemoveOW Overworld.9
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 22
+	CloseMessage 
+	TrainerBattle 725 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	Message 23
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 35
+	SetFlag 703
+	RemoveOW Overworld.10
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	CloseMessage 
+	TrainerBattle 712 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#15
+	Message 5
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 18
+	SetFlag 704
+	RemoveOW Overworld.11
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 20
+	CloseMessage 
+	TrainerBattle 722 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#16
+	Message 21
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 36
+	SetFlag 705
+	RemoveOW Overworld.12
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 14
+	CloseMessage 
+	TrainerBattle 715 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	Message 15
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 37
+	SetFlag 706
+	RemoveOW Overworld.13
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 19:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 12
+	CloseMessage 
+	TrainerBattle 717 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#18
+	Message 13
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 38
+	SetFlag 707
+	RemoveOW Overworld.14
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 20:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 16
+	CloseMessage 
+	TrainerBattle 716 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+	Message 17
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_462 39
+	SetFlag 708
+	RemoveOW Overworld.15
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

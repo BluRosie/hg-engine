@@ -1,0 +1,157 @@
+Function 1:
+	SetVar 0x8004 45
+	SetFlag 164
+	WildBattleSp 0x400A 0x8004 0
+	ClearFlag 164
+	CMD_683 0x4005
+	CompareVarValue 0x4005 2
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#10
+	ReleaseAll 
+	SetFlag 265
+	SetVar 0x4081 3
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	SetFlag 581
+	ClearFlag 572
+	ClearFlag 577
+End 
+
+
+Function 2:
+	SetFlag 164
+	WildBattleSp 0x400A 0x8004 0
+	ClearFlag 164
+	CMD_683 0x4005
+	CompareVarValue 0x4005 2
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#10
+	ReleaseAll 
+	SetFlag 265
+	SetVar 0x4081 3
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	SetFlag 581
+	ClearFlag 572
+	ClearFlag 577
+End 
+
+
+Function 3:
+	CompareVarValue 0x4005 5
+	JumpIf DIFFERENT Function#11
+	Message 8
+Jump Function#12
+
+
+Function 4:
+	SetFlag 579
+	RemoveOW Overworld.5
+	RemoveOW Overworld.6
+	RemoveOW Overworld.7
+	RemoveOW Overworld.8
+	RemoveOW Overworld.9
+	RemoveOW Overworld.10
+	ClearFlag 164
+End 
+
+
+Function 5:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CompareVarValue 0x400B 123
+	JumpIf DIFFERENT Function#7
+	StopFanfare 2143
+	SetVar 0x400B 0
+	CheckFlag 265
+	JumpIf EQUAL Function#8
+	CheckFlag 267
+	JumpIf LESS Function#8
+	CompareVarValue 0x4003 111
+	JumpIf DIFFERENT Function#8
+	SetOWPosition Overworld.4 16 1 32 Up
+	SetOWPosition Overworld.2 13 1 33 Up
+	SetOWPosition Overworld.3 13 1 27 Up
+	SetOWPosition Overworld.0 19 1 33 Up
+	SetOWPosition Overworld.1 19 1 27 Up
+	SetVar 0x4003 0
+End 
+
+
+Function 7:
+	CheckFlag 265
+	JumpIf EQUAL Function#8
+	CheckFlag 267
+	JumpIf LESS Function#8
+	CompareVarValue 0x4003 111
+	JumpIf DIFFERENT Function#8
+	SetOWPosition Overworld.4 16 1 32 Up
+	SetOWPosition Overworld.2 13 1 33 Up
+	SetOWPosition Overworld.3 13 1 27 Up
+	SetOWPosition Overworld.0 19 1 33 Up
+	SetOWPosition Overworld.1 19 1 27 Up
+	SetVar 0x4003 0
+End 
+
+
+Function 8:
+End 
+
+
+Function 9:
+	ClearFlag 579
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	SetFlag 279
+Return 
+
+
+Function 11:
+	CompareVarValue 0x4005 6
+	JumpIf DIFFERENT Function#13
+	Message 8
+Jump Function#12
+
+
+Function 12:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CompareVarValue 0x4005 4
+	JumpIf DIFFERENT Function#14
+	Message 6
+Jump Function#12
+
+
+Function 14:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

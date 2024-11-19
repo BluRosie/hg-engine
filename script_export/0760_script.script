@@ -1,0 +1,153 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 9 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	Message 8
+	CloseMessage 
+	TrainerBattle 254 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	GiveBadge 9
+	IncrementVar 0x4135 1
+	CMD_515 22
+	SetTrainerFlag 297
+	SetTrainerFlag 298
+	SetTrainerFlag 678
+	SetTrainerFlag 676
+	SetTrainerFlag 677
+	Message 9
+	TextPlayerName 0
+	Message 10
+	PlaySound 1189
+	WaitSound 
+	CheckFlag 333
+	CallIf EQUAL Function#3
+	TextPlayerName 0
+	Message 11
+Jump Function#4
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 9 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4088 2
+	JumpIf DIFFERENT Function#6
+	CheckBadge 9 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#7
+	Message 6
+Jump Function#8
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4088 2
+	JumpIf DIFFERENT Function#9
+	CheckBadge 9 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#10
+	Message 6
+Jump Function#11
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	StopMusic 1065
+	PlayMusic 1112
+	Movement Overworld.7 Action#1
+	WaitMovement 
+	PlayFanfare 1537
+	Message 0
+	Movement Overworld.7 Action#2
+	WaitMovement 
+	Message 1
+	Movement Overworld.7 Action#3
+	WaitMovement 
+	Message 2
+	Movement Overworld.7 Action#4
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#13
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TextPlayerName 0
+	Message 16
+	SetVar 0x8004 481
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2008
+	RemoveOW Overworld.8
+	RemoveOW Overworld.9
+	SetFlag 599
+	SetVar 0x4087 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	CMD_814 
+	CheckFlag 599
+	JumpIf EQUAL Function#15
+	VanishOverworld 8
+	VanishOverworld 9
+End 
+
+
+Script 8:
+	CMD_142 29 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#16
+	CheckBadge 15 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x4089 1
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x4089 2
+	JumpIf EQUAL Function#18
+	CMD_147 29 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#19
+	GetHour 0x4000
+	CompareVarValue 0x4000 16
+	JumpIf DIFFERENT Function#20
+	SetFlag 595
+Jump Function#21
+
+

@@ -1,0 +1,131 @@
+Function 1:
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x8000
+	CreateMultiTouchBox 209 255 0
+	CreateMultiTouchBox 210 255 1
+	CreateMultiTouchBox 211 255 2
+	CreateMultiTouchBox 212 255 3
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x8000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#4
+	Message 7
+Jump Function#5
+
+
+Function 2:
+	SetVar 0x8001 30
+Jump Function#6
+
+
+Function 3:
+	SetVar 0x8001 31
+Jump Function#6
+
+
+Function 4:
+	SetVar 0x8001 32
+Jump Function#6
+
+
+Function 5:
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#7
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#8
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#9
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CheckItemSpace 0x8001 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x8000 0
+	CallIf EQUAL Function#12
+	CompareVarValue 0x8000 1
+	CallIf EQUAL Function#13
+	CompareVarValue 0x8000 2
+	CallIf EQUAL Function#14
+	UpdateMoney 
+	TextItem 0 0x8001
+	PlayFanfare 1558
+	TextItem 0 0x8001
+	Message 4
+	SetVarFromVariable 0x8004 0x8001
+	SetVar 0x8005 1
+	CommonScript 2033
+	GetRandom 0x800C 64
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#15
+	PlayFanfare 1558
+	TextItem 0 0x8001
+	Message 5
+	CheckItemSpace 0x8001 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+	Message 3
+Jump Function#1
+
+
+Function 7:
+	CompareMoney 0x800C 200
+Return 
+
+
+Function 8:
+	CompareMoney 0x800C 300
+Return 
+
+
+Function 9:
+	CompareMoney 0x800C 350
+Return 
+
+
+Function 10:
+	Message 6
+Jump Function#5
+
+
+Function 11:
+	CommonScript 2009
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	TakeMoney 200
+Return 
+
+
+Function 13:
+	TakeMoney 300
+Return 
+
+
+Function 14:
+	TakeMoney 350
+Return 
+
+
+Function 15:
+	Message 3
+Jump Function#1
+
+

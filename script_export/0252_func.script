@@ -1,0 +1,114 @@
+Function 1:
+	CompareVarValue 0x8001 173
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.10 Action#9
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	PlayFanfare 1537
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Player Action#10
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 5
+	CloseMessage 
+	Movement Overworld.10 Action#11
+	WaitMovement 
+	SetVar 0x8004 423
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 6
+	CloseMessage 
+	CompareVarValue 0x8001 172
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.10 Action#12
+Jump Function#5
+
+
+Function 3:
+	CompareVarValue 0x8001 174
+	JumpIf DIFFERENT Function#6
+	Movement Overworld.10 Action#13
+Jump Function#2
+
+
+Function 4:
+	CompareVarValue 0x8001 173
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.10 Action#14
+Jump Function#5
+
+
+Function 5:
+	WaitMovement 
+	SetFlag 669
+	RemoveOW Overworld.10
+	SetVar 0x4091 1
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CompareVarValue 0x8001 175
+	JumpIf DIFFERENT Function#8
+	Movement Overworld.10 Action#15
+Jump Function#2
+
+
+Function 7:
+	CompareVarValue 0x8001 174
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.10 Action#16
+Jump Function#5
+
+
+Function 8:
+	Movement Overworld.10 Action#17
+	WaitMovement 
+	PlayFanfare 1537
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Player Action#10
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 5
+	CloseMessage 
+	Movement Overworld.10 Action#11
+	WaitMovement 
+	SetVar 0x8004 423
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 6
+	CloseMessage 
+	CompareVarValue 0x8001 172
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.10 Action#12
+Jump Function#5
+
+
+Function 9:
+	CompareVarValue 0x8001 175
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.10 Action#18
+Jump Function#5
+
+
+Function 10:
+	Movement Overworld.10 Action#19
+	WaitMovement 
+	SetFlag 669
+	RemoveOW Overworld.10
+	SetVar 0x4091 1
+	ReleaseAll 
+End 
+
+

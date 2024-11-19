@@ -1,0 +1,200 @@
+Function 1:
+	CompareVarValue 0x4001 6
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.1 Action#5
+	Movement Overworld.2 Action#6
+Jump Function#5
+
+
+Function 2:
+	CompareVarValue 0x4001 7
+	JumpIf DIFFERENT Function#6
+	Movement Overworld.1 Action#7
+	Movement Overworld.2 Action#8
+Jump Function#3
+
+
+Function 3:
+Jump Function#5
+
+
+Function 4:
+	CompareVarValue 0x4001 7
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.1 Action#9
+	Movement Overworld.2 Action#10
+Jump Function#5
+
+
+Function 5:
+	WaitMovement 
+	Movement Player Action#11
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#8
+	Movement Following Action#11
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 2 3
+	SetVar 0x8004 465
+	SetVar 0x8005 1
+	CommonScript 2033
+	GenderMessage 4 5
+	CloseMessage 
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	GenderMessage 6 7
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	WaitMovement 
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#9
+	CompareVarValue 0x4001 6
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.1 Action#13
+	Movement Overworld.2 Action#14
+Jump Function#11
+
+
+Function 6:
+	Movement Overworld.1 Action#15
+	Movement Overworld.2 Action#16
+Jump Function#5
+
+
+Function 7:
+	Movement Overworld.1 Action#17
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	Movement Player Action#11
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#8
+	Movement Following Action#11
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 2 3
+	SetVar 0x8004 465
+	SetVar 0x8005 1
+	CommonScript 2033
+	GenderMessage 4 5
+	CloseMessage 
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	GenderMessage 6 7
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	WaitMovement 
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#9
+	CompareVarValue 0x4001 6
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.1 Action#13
+	Movement Overworld.2 Action#14
+Jump Function#11
+
+
+Function 8:
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 2 3
+	SetVar 0x8004 465
+	SetVar 0x8005 1
+	CommonScript 2033
+	GenderMessage 4 5
+	CloseMessage 
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	GenderMessage 6 7
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	WaitMovement 
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#9
+	CompareVarValue 0x4001 6
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.1 Action#13
+	Movement Overworld.2 Action#14
+Jump Function#11
+
+
+Function 9:
+	CompareVarValue 0x4001 6
+	JumpIf DIFFERENT Function#12
+	Movement Overworld.1 Action#19
+	Movement Overworld.2 Action#20
+Jump Function#13
+
+
+Function 10:
+	CompareVarValue 0x4001 7
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.1 Action#21
+	Movement Overworld.2 Action#22
+Jump Function#11
+
+
+Function 11:
+Jump Function#13
+
+
+Function 12:
+	CompareVarValue 0x4001 7
+	JumpIf DIFFERENT Function#15
+	Movement Overworld.1 Action#23
+	Movement Overworld.2 Action#24
+Jump Function#13
+
+
+Function 13:
+	WaitTime 16 0x800C
+	Movement Player Action#25
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#16
+	Movement Following Action#25
+	WaitMovement 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetOWPosition Overworld.1 12 0 28 Up
+	SetOWPosition Overworld.2 12 0 28 Up
+	CommonScript 2030
+	ReleaseAll 
+	SetVar 0x4132 1
+End 
+
+
+Function 14:
+	Movement Overworld.1 Action#26
+	Movement Overworld.2 Action#27
+Jump Function#13
+
+
+Function 15:
+	Movement Overworld.1 Action#28
+	Movement Overworld.2 Action#29
+	WaitTime 16 0x800C
+	Movement Player Action#25
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#16
+	Movement Following Action#25
+	WaitMovement 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetOWPosition Overworld.1 12 0 28 Up
+	SetOWPosition Overworld.2 12 0 28 Up
+	CommonScript 2030
+	ReleaseAll 
+	SetVar 0x4132 1
+End 
+
+
+Function 16:
+	WaitMovement 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetOWPosition Overworld.1 12 0 28 Up
+	SetOWPosition Overworld.2 12 0 28 Up
+	CommonScript 2030
+	ReleaseAll 
+	SetVar 0x4132 1
+End 
+
+

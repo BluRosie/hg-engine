@@ -1,0 +1,262 @@
+Function 1:
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#10
+	Message 2
+Jump Function#2
+
+
+Function 2:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#11
+	Message 5
+Jump Function#4
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	ClearFlag 712
+	AddOW Overworld.2
+	ClearFlag 712
+	AddOW Overworld.3
+	Lock Overworld.3
+	CommonScript 2029
+	SetOWPosition Overworld.2 25 0 9 Up
+	PlayFanfare 1538
+	WaitFanfare 1538
+	Movement Player Action#5
+	Movement Overworld.2 Action#6
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#7
+	Movement Overworld.2 Action#8
+	WaitTime 8 0x800C
+	SetOWPosition Overworld.3 25 0 9 Up
+	Movement Overworld.3 Action#9
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 6 9
+	GenderMessage 7 10
+	SetVar 0x8004 435
+	SetVar 0x8005 1
+	CommonScript 2033
+	Call Function#12
+	GenderMessage 8 11
+	CloseMessage 
+	Movement Overworld.2 Action#10
+	Movement Overworld.3 Action#11
+	WaitMovement 
+	PlayFanfare 1538
+	SetFlag 712
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	WaitFanfare 1538
+	CommonScript 2030
+	SetVar 0x40F8 1
+	SetFlag 332
+	ReleaseAll 
+End 
+
+
+Function 6:
+	PlayFanfare 1538
+	Movement Overworld.3 Action#1
+	WaitMovement 
+	WaitTime 8 0x800C
+	PlayCry 183 0
+	WaitCry 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ClearFlag 712
+	AddOW Overworld.2
+	CompareVarValue 0x4001 30
+	JumpIf DIFFERENT Function#7
+	SetOWPosition Overworld.2 9 0 25 Left
+	PlayFanfare 1538
+	CommonScript 2029
+	Movement Overworld.2 Action#3
+	WaitMovement 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	Movement Overworld.3 Action#4
+	Movement Player Action#4
+	Movement Following Action#4
+	WaitMovement 
+Jump Function#9
+
+
+Function 7:
+	PlayFanfare 1538
+	CommonScript 2029
+	Movement Overworld.2 Action#3
+	WaitMovement 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	Movement Overworld.3 Action#4
+	Movement Player Action#4
+	Movement Following Action#4
+	WaitMovement 
+Jump Function#9
+
+
+Function 8:
+	Movement Overworld.3 Action#4
+	Movement Player Action#4
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 6 9
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#13
+	WaitMovement 
+	GenderMessage 7 10
+	SetVar 0x8004 435
+	SetVar 0x8005 1
+	CommonScript 2033
+	Call Function#12
+	GenderMessage 8 11
+	CloseMessage 
+	Movement Overworld.2 Action#14
+	Movement Overworld.3 Action#15
+	WaitMovement 
+	PlayFanfare 1538
+	SetFlag 712
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	WaitFanfare 1538
+	CommonScript 2030
+	SetVar 0x40F8 1
+	SetFlag 332
+	ReleaseAll 
+End 
+
+
+Function 9:
+	TextPlayerName 0
+	GenderMessage 6 9
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#13
+	WaitMovement 
+	GenderMessage 7 10
+	SetVar 0x8004 435
+	SetVar 0x8005 1
+	CommonScript 2033
+	Call Function#12
+	GenderMessage 8 11
+	CloseMessage 
+	Movement Overworld.2 Action#14
+	Movement Overworld.3 Action#15
+	WaitMovement 
+	PlayFanfare 1538
+	SetFlag 712
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	WaitFanfare 1538
+	CommonScript 2030
+	SetVar 0x40F8 1
+	SetFlag 332
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#13
+	Message 1
+Jump Function#2
+
+
+Function 11:
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#14
+	Message 4
+Jump Function#4
+
+
+Function 12:
+	Call Function#15
+	Call Function#15
+	Call Function#15
+	Call Function#15
+	Call Function#15
+	Call Function#16
+	Call Function#16
+	Call Function#16
+	Call Function#16
+	Call Function#16
+	CMD_406 0
+	SetVar 0x4001 0x270F
+	Call Function#17
+	Call Function#17
+Return 
+
+
+Function 13:
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	GetRandom 0x800C 6
+	SetVar 0x8004 0
+	IncrementVar 0x8004 0x800C
+	CMD_403 0x8004 1
+Return 
+
+
+Function 16:
+	GetRandom 0x800C 6
+	SetVar 0x8004 18
+	IncrementVar 0x8004 0x800C
+	CMD_403 0x8004 1
+Return 
+
+
+Function 17:
+	GetRandom 0x800C 8
+	CompareVars 0x4001 0x800C
+	JumpIf EQUAL Function#17
+	SetVarFromVariable 0x4001 0x800C
+	SetVar 0x8004 1
+	IncrementVar 0x8004 0x800C
+	CMD_406 0x8004
+Return 
+
+

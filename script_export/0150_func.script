@@ -1,0 +1,132 @@
+Function 1:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	WaitTime 15 0x800C
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 4:
+    Message 11
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 149
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+
+Function 5:
+    Message 12
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 158
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+
+Function 6:
+    Message 10
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 155
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+
+Function 7:
+    Message 8
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 157
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+
+Function 8:
+    Message 13
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 151
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+
+Function 9:
+    Message 14
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 150
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+
+Function 10:
+    Message 15
+	CloseMessage 
+    WaitTime 6 0x800C
+    SetVar 0x8004 202
+	SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+    CloseMessage
+    ReleaseAll
+End
+    
+Function 11:
+    CommonScript 2009
+    CloseMessage
+    ReleaseAll
+End
+
+
+
+
+

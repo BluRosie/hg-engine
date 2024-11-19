@@ -1,0 +1,495 @@
+Function 1:
+	CMD_682 0
+	CompareVarValue 0x4004 0
+	CallIf EQUAL Function#11
+	CompareVarValue 0x4004 1
+	CallIf EQUAL Function#12
+Jump Function#13
+
+
+Function 2:
+	SetVar 0x4147 255
+Return 
+
+
+Function 3:
+	CMD_345 
+	CMD_254 0x800C
+	CMD_346 
+	PlayFanfare 1562
+	WaitFanfare 1562
+Return 
+
+
+Function 4:
+	CompareVarValue 0x4148 0
+	CallIf EQUAL Function#14
+	CompareVarValue 0x4148 1
+	CallIf EQUAL Function#15
+	CompareVarValue 0x4148 2
+	CallIf EQUAL Function#16
+	PlayFanfare 1538
+Jump Function#17
+
+
+Function 5:
+	SetVar 0x4050 0
+Return 
+
+
+Function 6:
+	SetVar 0x4050 2
+Return 
+
+
+Function 7:
+Jump Function#18
+
+
+Function 8:
+	CMD_680 28 27
+	Message 35
+	TextPlayerName 0
+	Message 37
+	PlaySound 1185
+	WaitSound 
+	SetVar 0x4050 2
+Return 
+
+
+Function 9:
+	Message 35
+	TextPlayerName 0
+	Message 37
+	PlaySound 1185
+	WaitSound 
+	SetVar 0x4050 2
+Return 
+
+
+Function 10:
+	Message 35
+	TextPlayerName 0
+	Message 36
+	PlaySound 1185
+	WaitSound 
+	SetVar 0x4050 4
+	CommonScript 2040
+Return 
+
+
+Function 11:
+	Message 0
+Return 
+
+
+Function 12:
+	Message 3
+Return 
+
+
+Function 13:
+	CompareVarValue 0x4004 0
+	CallIf EQUAL Function#19
+	CompareVarValue 0x4004 1
+	CallIf EQUAL Function#20
+	CreateMultiTouchBox 41 255 2
+	CreateMultiTouchBox 42 255 3
+	CloseMultiTouch 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#24
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 14:
+	Message 32
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#1
+	Movement 0x800D Action#2
+	WaitMovement 
+Return 
+
+
+Function 15:
+	Message 32
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#1
+	Movement 0x800D Action#2
+	WaitMovement 
+Return 
+
+
+Function 16:
+	MessageNoSkip 32
+	WaitTime 10 0x800C
+	CMD_258 257 137
+	CloseMessage 
+	Movement Player Action#3
+	Movement 0x800D Action#4
+	WaitMovement 
+Return 
+
+
+Function 17:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_815 0
+	CompareVarValue 0x4148 0
+	CallIf EQUAL Function#25
+	CompareVarValue 0x4148 1
+	CallIf EQUAL Function#26
+	CompareVarValue 0x4148 2
+	CallIf EQUAL Function#27
+	CMD_420 59
+	CMD_436 
+	CMD_627 11
+	CompareVarValue 0x4148 2
+	CallIf EQUAL Function#28
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_682 1
+End 
+
+
+Function 18:
+	SetVar 0x4147 0
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	Message 1
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 38 255 0
+	CreateMultiTouchBox 39 255 1
+Return 
+
+
+Function 20:
+	Message 4
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 40 255 4
+Return 
+
+
+Function 21:
+	SetVar 0x4148 0
+	CMD_637 0 3 0x800C
+	TextNumber 0 3
+	TextNumber 1 3
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+Jump Function#30
+
+
+Function 22:
+	SetVar 0x4148 1
+	CMD_637 0 3 0x800C
+	TextNumber 0 3
+	TextNumber 1 3
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+Jump Function#30
+
+
+Function 23:
+	CompareVarValue 0x4004 0
+	CallIf EQUAL Function#31
+	CompareVarValue 0x4004 1
+	CallIf EQUAL Function#32
+Jump Function#13
+
+
+Function 24:
+	SetVar 0x4148 2
+	CMD_637 0 2 0x800C
+	TextNumber 0 2
+	TextNumber 1 2
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#33
+Jump Function#30
+
+
+Function 25:
+	Movement Player Action#5
+	Movement 0x800D Action#6
+	WaitMovement 
+Return 
+
+
+Function 26:
+	Movement Player Action#5
+	Movement 0x800D Action#6
+	WaitMovement 
+Return 
+
+
+Function 27:
+	Movement Player Action#7
+	Movement 0x800D Action#8
+	WaitMovement 
+Return 
+
+
+Function 28:
+	CMD_283 
+Return 
+
+
+Function 29:
+	Message 8
+	CMD_444 777 0
+	Nop 
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 30:
+	Message 7
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_637 4 0x4148 0x800C
+	CMD_639 0x4002 0x4005 0x4006
+	CompareVarValue 0x4002 255
+	JumpIf DIFFERENT Function#34
+	CMD_815 0
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x4002 255
+	JumpIf EQUAL Function#7
+	CMD_690 0x4002 0x800C
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#35
+	CMD_690 0x4005 0x800C
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x4148 2
+	JumpIf EQUAL Function#36
+	CMD_690 0x4006 0x800C
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#35
+	GetPartyPokemonID 0x4002 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#37
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 31:
+	Message 2
+Return 
+
+
+Function 32:
+	Message 5
+Return 
+
+
+Function 33:
+	Message 8
+	CMD_444 521 0
+	Nop 
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 34:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x4002 255
+	JumpIf EQUAL Function#7
+	CMD_690 0x4002 0x800C
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#35
+	CMD_690 0x4005 0x800C
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x4148 2
+	JumpIf EQUAL Function#36
+	CMD_690 0x4006 0x800C
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#35
+	GetPartyPokemonID 0x4002 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#37
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 35:
+	CloseTouchScreen 
+	SetVar 0x4147 0
+	CommonScript 2041
+End 
+
+
+Function 36:
+	GetPartyPokemonID 0x4002 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#37
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 37:
+Jump Function#38
+
+
+Function 38:
+Jump Function#39
+
+
+Function 39:
+	CompareVarValue 0x4148 0
+	CallIf EQUAL Function#2
+	CompareVarValue 0x4148 1
+	CallIf EQUAL Function#2
+	SetVar 0x4000 0
+	HealPokemon 
+	CommonScript 2006
+	SetVarFromVariable 0x800C 0x4000
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CloseTouchScreen 
+	CompareVarValue 0x4148 2
+	JumpIf EQUAL Function#40
+Jump Function#4
+
+
+Function 40:
+	Message 43
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 14 255 0
+	CreateMultiTouchBox 15 255 1
+	CreateMultiTouchBox 5 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#41
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#42
+	CloseTouchScreen 
+Jump Function#7
+
+
+Function 41:
+	Message 44
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#40
+	CloseTouchScreen 
+	CloseMessage 
+	CMD_226 31 0 0 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#43
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#44
+Jump Function#45
+
+
+Function 42:
+	Message 44
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#40
+	CloseTouchScreen 
+	CloseMessage 
+	CMD_227 31 0 0 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#46
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#47
+Jump Function#45
+
+
+Function 43:
+Jump Function#40
+
+
+Function 44:
+	CMD_283 
+Jump Function#40
+
+
+Function 45:
+	CMD_258 257 136
+	GetPartyPokemonID 0x4002 0x8000
+	GetPartyPokemonID 0x4005 0x8001
+	CMD_638 0x8000 0x8001 0x800C
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#48
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#49
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#50
+	CMD_258 257 138
+	Message 45
+	CompareVarValue 0x4148 2
+	CallIf EQUAL Function#2
+	Call Function#3
+Jump Function#4
+
+
+Function 46:
+Jump Function#40
+
+
+Function 47:
+	CMD_283 
+Jump Function#40
+
+
+Function 48:
+	Call Function#51
+	TextPartyPokemon 0 0x4002
+	Message 29
+Jump Function#52
+
+
+Function 49:
+	Call Function#51
+	TextPartyPokemon 0 0x4005
+	Message 29
+Jump Function#52
+
+
+Function 50:
+	Call Function#51
+	TextPartyPokemon 0 0x4002
+	TextPartyPokemon 1 0x4005
+	Message 30
+Jump Function#52
+
+
+Function 51:
+	CMD_258 257 139
+	CMD_283 
+Return 
+
+
+Function 52:
+Jump Function#7
+
+

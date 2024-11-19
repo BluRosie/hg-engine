@@ -1,0 +1,164 @@
+Function 1:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.0 Action#3
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+End 
+
+
+Function 3:
+	Message 13
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 24 255 1
+	CreateMultiTouchBox 25 255 2
+	CreateMultiTouchBox 26 255 3
+	CreateMultiTouchBox 27 255 4
+	CreateMultiTouchBox 28 255 5
+	CreateMultiTouchBox 29 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+	Message 14
+Jump Function#3
+
+
+Function 4:
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.0 Action#4
+Jump Function#2
+
+
+Function 6:
+	Message 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+End 
+
+
+Function 7:
+	Message 2
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+End 
+
+
+Function 8:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#13
+	Message 15
+Jump Function#3
+
+
+Function 9:
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+End 
+
+
+Function 10:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 3
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+End 
+
+
+Function 12:
+	Message 4
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+End 
+
+
+Function 13:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#15
+	Message 16
+Jump Function#3
+
+
+Function 14:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	CompareVarValue 0x800C 4
+	JumpIf DIFFERENT Function#16
+	Message 17
+Jump Function#3
+
+
+Function 16:
+	CompareVarValue 0x800C 5
+	JumpIf DIFFERENT Function#17
+	Message 18
+Jump Function#3
+
+
+Function 17:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

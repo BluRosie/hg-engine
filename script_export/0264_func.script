@@ -1,0 +1,111 @@
+Function 1:
+	Call Function#7
+	Call Function#8
+	SetVarFromVariable 0x8008 0x8001
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 0xFFFE
+	JumpIf EQUAL Function#9
+	Call Function#10
+Jump Function#1
+
+
+Function 2:
+	Call Function#7
+	Call Function#8
+	SetVarFromVariable 0x8008 0x8001
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 0xFFFE
+	JumpIf EQUAL Function#9
+	Call Function#10
+Jump Function#2
+
+
+Function 3:
+	Call Function#7
+	Call Function#8
+	SetVarFromVariable 0x8008 0x8001
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 0xFFFE
+	JumpIf EQUAL Function#9
+	Call Function#10
+Jump Function#3
+
+
+Function 4:
+	Call Function#7
+	Call Function#8
+	SetVarFromVariable 0x8008 0x8001
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 0xFFFE
+	JumpIf EQUAL Function#9
+	Call Function#10
+Jump Function#4
+
+
+Function 5:
+	Call Function#7
+	Call Function#8
+	SetVarFromVariable 0x8008 0x8001
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 0xFFFE
+	JumpIf EQUAL Function#9
+	Call Function#10
+Jump Function#5
+
+
+Function 6:
+	Call Function#7
+	Call Function#8
+	SetVarFromVariable 0x8008 0x8001
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 0xFFFE
+	JumpIf EQUAL Function#9
+	Call Function#10
+Jump Function#6
+
+
+Function 7:
+	Message 0
+	OpenTouchScreen 
+Return 
+
+
+Function 8:
+	MultiTouchLocalText 1 1 0 1 0x8001
+	CreateMultiTouchBox 1 255 0
+	CreateMultiTouchBox 2 255 1
+	CreateMultiTouchBox 3 255 2
+	CreateMultiTouchBox 4 255 3
+	CloseMultiTouch 
+Return 
+
+
+Function 9:
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CloseMessage 
+	Call Function#11
+Return 
+
+
+Function 11:
+	CMD_631 0x8001 0x8000 0x8003
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Return 
+
+

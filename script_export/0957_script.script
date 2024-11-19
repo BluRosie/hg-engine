@@ -1,0 +1,104 @@
+Script 1:
+End 
+
+
+Script 2:
+End 
+
+
+Script 3:
+	CMD_270 2
+	PlayFanfare 1500
+	MecScript 
+	LockAll 
+	FacePlayer 
+	CMD_268 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#1
+	CMD_264 0
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#4
+	CMD_274 0x8004 0x800C
+	CMD_268 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#1
+	Message 199
+	CMD_269 0x800C 42 0x8008 0x800C
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#6
+Jump Function#7
+
+
+Script 4:
+	PlayFanfare 1500
+	MecScript 
+	LockAll 
+	FacePlayer 
+	CMD_268 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#1
+	CMD_264 0
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#4
+	CMD_274 0x8004 0x800C
+	CMD_268 0x800C
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#1
+	Message 199
+	CMD_269 0x800C 42 0x8008 0x800C
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#6
+Jump Function#7
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	PlayFanfare 1508
+	CMD_264 1
+	CMD_592 7
+	WaitTimeOrAB 30
+Jump Function#8
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 207
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	MecScript 
+	LockAll 
+	FacePlayer 
+Jump Function#1
+
+
+Script 8:
+	PlayFanfare 1500
+	MecScript 
+	LockAll 
+	FacePlayer 
+Jump Function#9
+
+

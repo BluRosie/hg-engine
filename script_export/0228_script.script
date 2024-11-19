@@ -1,0 +1,19 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 109
+	JumpIf EQUAL Function#1
+	Message 0
+	SetVar 0x8004 468
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 109
+	SetVar 0x408C 1
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

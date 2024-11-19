@@ -1,0 +1,225 @@
+Function 1:
+	Call Function#4
+	TextPlayerName 0
+	GenderMessage 9 10
+	CloseMessage 
+	Call Function#5
+	Message 11
+	CloseMessage 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	TakeItem 479 1 0x800C
+	Message 6
+	ClearFlag 763
+	AddOW Overworld.1
+	SetVar 0x8004 480
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 135
+	SetFlag 2456
+	SetVar 0x40FF 2
+End 
+
+
+Function 3:
+	SetFlag 281
+	Call Function#4
+	TextPlayerName 0
+	GenderMessage 3 4
+	CloseMessage 
+	Call Function#5
+	Message 5
+	CloseMessage 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.0 Action#3
+Jump Function#15
+
+
+Function 5:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#16
+	Movement Overworld.3 Action#3
+Jump Function#17
+
+
+Function 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 354 0
+	Message 13
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.2 Action#4
+Jump Function#8
+
+
+Function 8:
+	WaitMovement 
+	SetVar 0x400A 1
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetVar 0x4020 97
+End 
+
+
+Function 10:
+End 
+
+
+Function 11:
+End 
+
+
+Function 12:
+End 
+
+
+Function 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#19
+	Movement Overworld.0 Action#5
+Jump Function#15
+
+
+Function 15:
+	WaitMovement 
+	AddOW Overworld.3
+	RemoveOW Overworld.0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#20
+	Movement Overworld.3 Action#6
+Jump Function#21
+
+
+Function 16:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#22
+	Movement Overworld.3 Action#5
+Jump Function#17
+
+
+Function 17:
+	WaitMovement 
+	AddOW Overworld.0
+	RemoveOW Overworld.3
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#23
+	Movement Overworld.0 Action#6
+Jump Function#24
+
+
+Function 18:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#25
+	Movement Overworld.2 Action#7
+Jump Function#8
+
+
+Function 19:
+	Movement Overworld.0 Action#8
+	WaitMovement 
+	AddOW Overworld.3
+	RemoveOW Overworld.0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#20
+	Movement Overworld.3 Action#6
+Jump Function#21
+
+
+Function 20:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#26
+	Movement Overworld.3 Action#9
+Jump Function#21
+
+
+Function 21:
+	WaitMovement 
+Return 
+
+
+Function 22:
+	Movement Overworld.3 Action#8
+	WaitMovement 
+	AddOW Overworld.0
+	RemoveOW Overworld.3
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#23
+	Movement Overworld.0 Action#6
+Jump Function#24
+
+
+Function 23:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#27
+	Movement Overworld.0 Action#9
+Jump Function#24
+
+
+Function 24:
+	WaitMovement 
+Return 
+
+
+Function 25:
+	Movement Overworld.2 Action#10
+	WaitMovement 
+	SetVar 0x400A 1
+	ReleaseAll 
+End 
+
+
+Function 26:
+	Movement Overworld.3 Action#11
+	WaitMovement 
+Return 
+
+
+Function 27:
+	Movement Overworld.0 Action#11
+	WaitMovement 
+Return 
+
+

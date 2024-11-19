@@ -1,0 +1,23 @@
+Function 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	UseScript_#16
+
+
+Function 3:
+	UseScript_#17
+
+
+Function 4:
+	UseScript_#18
+
+

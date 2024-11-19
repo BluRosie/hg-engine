@@ -1,0 +1,175 @@
+Function 1:
+	CMD_147 18 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#5
+	CheckBadge 12 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#6
+Jump Function#7
+
+
+Function 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	Message 11
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 2 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	Movement Overworld.3 Action#1
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.3 Action#1
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.3 Action#3
+	WaitMovement 
+	Message 4
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#11
+End 
+
+
+Function 4:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#11
+End 
+
+
+Function 5:
+	CMD_142 18 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#7
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#12
+	ClearFlag 608
+	SetFlag 738
+	SetOWDefaultDirection Overworld.3 Down
+Jump Function#13
+
+
+Function 6:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#14
+	ClearFlag 608
+	ClearFlag 738
+Jump Function#15
+
+
+Function 7:
+	SetFlag 608
+	SetFlag 738
+End 
+
+
+Function 8:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 5
+	RecordPokegearNumber 18
+	TextPlayerName 0
+	Message 6
+	PlaySound 1206
+	WaitSound 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 608
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	SetVar 0x4004 1
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+Jump Function#7
+
+
+Function 13:
+End 
+
+
+Function 14:
+Jump Function#7
+
+
+Function 15:
+End 
+
+

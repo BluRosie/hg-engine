@@ -1,0 +1,162 @@
+Function 1:
+	CompareVarValue 0x8005 463
+	JumpIf DIFFERENT Function#7
+	SetOWPosition Overworld.9 404 0 464 Left
+	Movement Overworld.9 Action#2
+	Movement Player Action#3
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	TextRivalName 0
+	Message 1
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#8
+	TrainerBattle 266 0 0 0
+Jump Function#9
+
+
+Function 3:
+End 
+
+
+Function 4:
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 6
+Jump Function#5
+
+
+Function 7:
+	CompareVarValue 0x8005 464
+	JumpIf DIFFERENT Function#10
+	SetOWPosition Overworld.9 404 0 463 Left
+	Movement Overworld.9 Action#7
+	Movement Player Action#8
+Jump Function#2
+
+
+Function 8:
+	CompareVarValue 0x800C 155
+	JumpIf DIFFERENT Function#11
+	TrainerBattle 269 0 0 0
+Jump Function#9
+
+
+Function 9:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CommonScript 2070
+	TextRivalName 0
+	Message 2
+	CloseMessage 
+	SetVar 0x4075 2
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 462
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.9 Action#9
+Jump Function#14
+
+
+Function 10:
+	CompareVarValue 0x8005 465
+	JumpIf DIFFERENT Function#15
+	SetOWPosition Overworld.9 404 0 464 Left
+	Movement Overworld.9 Action#7
+	Movement Player Action#8
+Jump Function#2
+
+
+Function 11:
+	TrainerBattle 1 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CommonScript 2070
+	TextRivalName 0
+	Message 2
+	CloseMessage 
+	SetVar 0x4075 2
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 462
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.9 Action#9
+Jump Function#14
+
+
+Function 12:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CompareVarValue 0x8005 463
+	JumpIf DIFFERENT Function#16
+	Movement Overworld.9 Action#10
+Jump Function#14
+
+
+Function 14:
+	WaitMovement 
+	RemoveOW Overworld.9
+	CommonScript 2071
+	ReleaseAll 
+End 
+
+
+Function 15:
+	SetOWPosition Overworld.9 404 0 465 Left
+	Movement Overworld.9 Action#7
+	Movement Player Action#8
+	WaitMovement 
+	TextRivalName 0
+	Message 1
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#8
+	TrainerBattle 266 0 0 0
+Jump Function#9
+
+
+Function 16:
+	CompareVarValue 0x8005 464
+	JumpIf DIFFERENT Function#17
+	Movement Overworld.9 Action#9
+Jump Function#14
+
+
+Function 17:
+	CompareVarValue 0x8005 465
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.9 Action#10
+Jump Function#14
+
+
+Function 18:
+	Movement Overworld.9 Action#11
+	WaitMovement 
+	RemoveOW Overworld.9
+	CommonScript 2071
+	ReleaseAll 
+End 
+
+

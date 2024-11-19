@@ -1,0 +1,8 @@
+Script 1:
+	CheckFlag 185
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x40A5 1
+	JumpIf EQUAL Function#2
+Jump Function#1
+
+

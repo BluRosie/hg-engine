@@ -1,0 +1,110 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Movement Player Action#2
+	WaitMovement 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4110 1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 8
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.2 Action#3
+Jump Function#2
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 8
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.1 Action#4
+Jump Function#4
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 300
+	JumpIf EQUAL Function#5
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 299
+	JumpIf EQUAL Function#6
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	CheckFlag 300
+	JumpIf LESS Function#7
+	SetOWPosition Overworld.2 15 0 8 Down
+	CheckFlag 299
+	JumpIf LESS Function#8
+	SetOWPosition Overworld.1 7 0 8 Down
+End 
+
+
+Script 8:
+	SetFlag 2513
+	CheckFlag 393
+	JumpIf LESS Function#9
+	ClearFlag 393
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_147 26 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x4005 1
+	JumpIf GREATER/EQUAL Function#11
+	Message 7
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#13
+End 
+
+

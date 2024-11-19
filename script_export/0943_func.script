@@ -1,0 +1,224 @@
+Function 1:
+	CheckFlag 218
+	JumpIf EQUAL Function#12
+	Message 6
+	SetVar 0x8004 386
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#13
+	CommonScript 2033
+	SetFlag 218
+	Message 7
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetFlag 751
+End 
+
+
+Function 5:
+	CMD_147 27 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#14
+	GetHour 0x4000
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#15
+	SetFlag 751
+Jump Function#16
+
+
+Function 6:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SendBackFollowingPoke 
+	CMD_783 1
+	NoBallResetFollowingPoke 
+	SetOWMovement Following Move.56
+	SetVar 0x4120 1
+	SetVar 0x4120 1
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#17
+	Movement Overworld.6 Action#4
+	Movement Player Action#5
+Jump Function#9
+
+
+Function 9:
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	SetFlag 312
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.6 Action#6
+Jump Function#19
+
+
+Function 10:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	GetHour 0x4000
+	CompareVarValue 0x4000 16
+	JumpIf DIFFERENT Function#20
+	SetFlag 751
+Jump Function#21
+
+
+Function 15:
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#22
+	SetFlag 751
+Jump Function#16
+
+
+Function 16:
+End 
+
+
+Function 17:
+	Movement Overworld.6 Action#7
+	Movement Player Action#8
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	SetFlag 312
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#18
+	Movement Overworld.6 Action#6
+Jump Function#19
+
+
+Function 18:
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#23
+	Movement Overworld.6 Action#9
+Jump Function#19
+
+
+Function 19:
+	WaitMovement 
+	SendBackFollowingPoke 
+	CMD_783 1
+	NoBallResetFollowingPoke 
+	SetOWMovement Following Move.56
+	SetVar 0x4120 1
+	SetVar 0x4120 1
+	ReleaseAll 
+End 
+
+
+Function 20:
+	CompareVarValue 0x4000 17
+	JumpIf DIFFERENT Function#24
+	SetFlag 751
+Jump Function#21
+
+
+Function 21:
+End 
+
+
+Function 22:
+	CompareVarValue 0x4000 8
+	JumpIf DIFFERENT Function#25
+	SetFlag 751
+Jump Function#16
+
+
+Function 23:
+	Movement Overworld.6 Action#10
+	WaitMovement 
+	SendBackFollowingPoke 
+	CMD_783 1
+	NoBallResetFollowingPoke 
+	SetOWMovement Following Move.56
+	SetVar 0x4120 1
+	SetVar 0x4120 1
+	ReleaseAll 
+End 
+
+
+Function 24:
+	CompareVarValue 0x4000 18
+	JumpIf DIFFERENT Function#26
+	SetFlag 751
+Jump Function#21
+
+
+Function 25:
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#27
+	SetFlag 751
+Jump Function#16
+
+
+Function 26:
+	ClearFlag 751
+End 
+
+
+Function 27:
+	ClearFlag 751
+End 
+
+

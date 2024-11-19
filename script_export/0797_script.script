@@ -1,0 +1,25 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	SetVar 0x4125 0
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

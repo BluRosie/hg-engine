@@ -1,0 +1,83 @@
+Function 1:
+	Message 1
+	WaitAB 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#2
+	SetVarFromVariable 0x8005 0x800C
+	GetPartyPokemonID 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CheckTradedPokemon 0x8005 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	TextPokeNickname 0 0x8005
+	Message 2
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+Jump Function#2
+
+
+Function 2:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	TextPokeNickname 0 0x8005
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 3
+	CloseMessage 
+	SetVar 0x800C 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 0x8005 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	TextPokeNickname 0 0x8005
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	TextPokeNickname 0 0x8005
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

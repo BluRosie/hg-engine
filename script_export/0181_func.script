@@ -1,0 +1,99 @@
+Function 1:
+	Message 5
+	CloseMessage 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4001 1
+	SetFlag 356
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 2
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	CheckItemSpace 391 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	TextPlayerName 0
+	Message 3
+	TakeItem 504 1 0x800C
+	Message 4
+	CloseMessage 
+	SetVar 0x8004 391
+	SetVar 0x8005 1
+	CommonScript 2008
+	Message 5
+	CloseMessage 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4001 1
+	SetFlag 356
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 1
+	CloseMessage 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Message 2
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	CheckItemSpace 391 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	TextPlayerName 0
+	Message 3
+	TakeItem 504 1 0x800C
+	Message 4
+	CloseMessage 
+	SetVar 0x8004 391
+	SetVar 0x8005 1
+	CommonScript 2008
+	Message 5
+	CloseMessage 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4001 1
+	SetFlag 356
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x4000 1
+End 
+
+
+Function 6:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

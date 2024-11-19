@@ -1,0 +1,52 @@
+Action 1:
+	LookUp 0x1
+End
+
+
+Action 2:
+	WalkUpFastSite 0x3
+End
+
+
+Action 3:
+	WalkLeftSite 0x4
+End
+
+
+Action 4:
+	WalkDownSite 0x4
+End
+
+
+Action 5:
+	WalkUpVeryFastSite 0x6
+End
+
+
+Action 6:
+	WalkDownFast 0x1
+End
+
+
+Action 7:
+	WalkUpSite 0x4
+End
+
+
+Action 8:
+	WalkUpFast 0x3
+	LookRight 0x1
+End
+
+
+Action 9:
+	WalkLeftFast 0xA
+End
+
+
+Action 10:
+	WalkDownFast 0x2
+	WalkLeftFast 0xA
+End
+
+

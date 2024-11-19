@@ -1,0 +1,192 @@
+Script 1:
+	VermillionGymBin 0 0x800C
+Jump Function#1
+
+
+Script 2:
+	VermillionGymBin 1 0x800C
+Jump Function#1
+
+
+Script 3:
+	VermillionGymBin 2 0x800C
+Jump Function#1
+
+
+Script 4:
+	VermillionGymBin 3 0x800C
+Jump Function#1
+
+
+Script 5:
+	VermillionGymBin 4 0x800C
+Jump Function#1
+
+
+Script 6:
+	VermillionGymBin 5 0x800C
+Jump Function#1
+
+
+Script 7:
+	VermillionGymBin 6 0x800C
+Jump Function#1
+
+
+Script 8:
+	VermillionGymBin 7 0x800C
+Jump Function#1
+
+
+Script 9:
+	VermillionGymBin 8 0x800C
+Jump Function#1
+
+
+Script 10:
+	VermillionGymBin 9 0x800C
+Jump Function#1
+
+
+Script 11:
+	VermillionGymBin 10 0x800C
+Jump Function#1
+
+
+Script 12:
+	VermillionGymBin 11 0x800C
+Jump Function#1
+
+
+Script 13:
+	VermillionGymBin 12 0x800C
+Jump Function#1
+
+
+Script 14:
+	VermillionGymBin 13 0x800C
+Jump Function#1
+
+
+Script 15:
+	VermillionGymBin 14 0x800C
+Jump Function#1
+
+
+Script 16:
+End 
+
+
+Script 17:
+End 
+
+
+Script 18:
+End 
+
+
+Script 19:
+End 
+
+
+Script 20:
+End 
+
+
+Script 21:
+End 
+
+
+Script 22:
+	CheckFlag 794
+	JumpIf EQUAL Function#2
+	ClearFlag 2470
+	CMD_320 142
+	SetTrainerFlag 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#3
+	CheckFlag 330
+	JumpIf LESS Function#4
+	CMD_147 36 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#5
+	GetHour 0x4000
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#6
+	SetFlag 752
+Jump Function#7
+
+
+Script 23:
+	CheckFlag 794
+	JumpIf EQUAL Function#8
+	VanishOverworld 0
+	VanishOverworld 1
+	VanishOverworld 2
+	VanishOverworld 3
+	VanishOverworld 4
+	VanishOverworld 5
+End 
+
+
+Script 24:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 10 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	Message 0
+	CloseMessage 
+	TrainerBattle 255 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	GiveBadge 10
+	IncrementVar 0x4135 1
+	CMD_515 22
+	SetFlag 794
+	RemoveOW Overworld.0
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	RemoveOW Overworld.5
+	SetTrainerFlag 232
+	SetTrainerFlag 337
+	SetTrainerFlag 396
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	Message 3
+Jump Function#11
+
+
+Script 25:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 10 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 26:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 10 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#13
+	Message 13
+Jump Function#14
+
+

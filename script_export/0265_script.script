@@ -1,0 +1,47 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetDaycareNames 
+	GetDaycareStatus 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x408E 4
+	JumpIf EQUAL Function#4
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	ShowMoney 20 2
+	GetDaycareStatus 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#7
+	Message 21
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CloseTouchScreen 
+	Message 26
+	WaitButton 
+	CloseMessage 
+	HideMoney 
+	ReleaseAll 
+End 
+
+

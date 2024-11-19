@@ -1,0 +1,23 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TextPlayerName 0
+	GenderMessage 0 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

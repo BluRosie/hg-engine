@@ -1,0 +1,25 @@
+Script 1:
+End 
+
+
+Script 2:
+	CompareVarValue 0x414E 0
+	CallIf DIFFERENT Function#1
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	Call Function#2
+	GetRandom 0x800C 4
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#5
+Jump Function#6
+
+

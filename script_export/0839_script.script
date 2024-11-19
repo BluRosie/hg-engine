@@ -1,0 +1,24 @@
+Script 1:
+	MecScript 
+	LockAll 
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 479
+	JumpIf DIFFERENT Function#1
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Following Action#2
+	WaitMovement 
+	PlayCry 479 0
+	WaitCry 
+	Message 0
+	CloseMessage 
+Jump Function#2
+
+

@@ -1,0 +1,144 @@
+Function 1:
+	GetFirstAlivePokemonSlot 0x8006
+	CMD_825 0x8006 0x800C
+	CheckFlag 353
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#5
+	TextPlayerName 0
+	GenderMessage 5 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	TextPartyPokemon 1 0x800C
+	GenderMessage 2 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+End 
+
+
+Function 4:
+	SetVarFromVariable 0x8004 0x800C
+	CompareVarValue 0x8004 6
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x8004 5
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x8004 1
+	JumpIf GREATER/EQUAL Function#8
+Jump Function#9
+
+
+Function 5:
+	SetFlag 353
+	TextPlayerName 0
+	GenderMessage 7 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	TextPlayerName 0
+	CMD_727 0x800C
+	TextPokeNickname 1 0x800C
+	GenderMessage 15 16
+	CloseMessage 
+Jump Function#10
+
+
+Function 7:
+	CMD_826 0x8006
+	SetFlag 388
+	TextPlayerName 0
+	GenderMessage 11 12
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_425 2
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	GenderMessage 13 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CompareVarValue 0x8004 1
+	JumpIf DIFFERENT Function#11
+	SetVar 0x8005 4
+Jump Function#12
+
+
+Function 9:
+	TextPlayerName 0
+	GenderMessage 5 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_425 2
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	GenderMessage 13 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CompareVarValue 0x8004 2
+	JumpIf DIFFERENT Function#13
+	SetVar 0x8005 3
+Jump Function#12
+
+
+Function 12:
+	TextPlayerName 0
+	TextNumber 1 0x8004
+	TextNumber 2 0x8005
+	GenderMessage 9 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CompareVarValue 0x8004 3
+	JumpIf DIFFERENT Function#14
+	SetVar 0x8005 2
+Jump Function#12
+
+
+Function 14:
+	SetVar 0x8005 1
+	TextPlayerName 0
+	TextNumber 1 0x8004
+	TextNumber 2 0x8005
+	GenderMessage 9 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

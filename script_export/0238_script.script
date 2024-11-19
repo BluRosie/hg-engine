@@ -1,0 +1,52 @@
+Script 1:
+	CMD_715 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.1 Action#1
+	Movement Overworld.2 Action#2
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 0 10
+	CloseMessage 
+	GenderMessage 1 11
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	GenderMessage 2 12
+	CloseMessage 
+	GenderMessage 3 13
+	CloseMessage 
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	GenderMessage 4 14
+	CloseMessage 
+	Movement Overworld.1 Action#6
+	Movement Overworld.2 Action#7
+	WaitMovement 
+	GenderMessage 5 15
+	CloseMessage 
+	Movement Overworld.1 Action#8
+	Movement Overworld.2 Action#9
+	WaitMovement 
+	Movement Player Action#10
+	WaitMovement 
+	GenderMessage 6 16
+	CloseMessage 
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#1
+	RecordPokegearNumber 4
+Jump Function#2
+
+

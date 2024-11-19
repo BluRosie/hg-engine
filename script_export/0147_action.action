@@ -1,0 +1,103 @@
+Action 1:
+	WalkUpFast 0x7
+	WalkLeftFast 0xB
+End
+
+
+Action 2:
+	WalkUpFast 0x6
+	WalkLeftFast 0xC
+	WalkRightFastSite 0x1
+End
+
+
+Action 3:
+	WalkUpFast 0x7
+	WalkLeftFast 0x9
+End
+
+
+Action 4:
+	WalkUpFast 0x6
+	WalkLeftFast 0xA
+	WalkRightFastSite 0x1
+End
+
+
+Action 5:
+	WalkUpFast 0x7
+	WalkLeftFast 0x7
+End
+
+
+Action 6:
+	WalkUpFast 0x6
+	WalkLeftFast 0x8
+	WalkRightFastSite 0x1
+End
+
+
+Action 7:
+	WalkUpFast 0x7
+	WalkLeftFast 0x5
+End
+
+
+Action 8:
+	WalkUpFast 0x6
+	WalkLeftFast 0x6
+	WalkRightFastSite 0x1
+End
+
+
+Action 9:
+	WalkUpFast 0x7
+	WalkLeftFast 0x3
+End
+
+
+Action 10:
+	WalkUpFast 0x6
+	WalkLeftFast 0x4
+	WalkRightFastSite 0x1
+End
+
+
+Action 11:
+	WalkUpFast 0x1
+	LookLeft 0x1
+	Freeze2 0x1
+	LookDown 0x1
+	Freeze2 0x1
+	LookRight 0x1
+	Freeze2 0x1
+	LookUp 0x1
+	Freeze2 0x1
+	LookLeft 0x1
+	Freeze2 0x1
+	LookDown 0x1
+	Freeze2 0x1
+	LookRight 0x1
+	Freeze2 0x1
+	LookUp 0x1
+	Freeze2 0x1
+	LookLeft 0x1
+	Freeze2 0x1
+	LookDown 0x1
+	Freeze2 0x1
+	LookRight 0x1
+	Freeze2 0x1
+	LookUp 0x1
+End
+
+
+Action 12:
+	WalkUpFastSite 0x1
+End
+
+
+Action 13:
+	TeleportUp 0x1
+End
+
+

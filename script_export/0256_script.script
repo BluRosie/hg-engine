@@ -1,0 +1,49 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	StopMusic 1037
+	PlayMusic 1112
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#1
+Jump Function#2
+
+
+Script 3:
+	CheckFlag 202
+	JumpIf EQUAL Function#3
+	SetVar 0x410F 0
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 206
+	JumpIf EQUAL Function#4
+	Message 4
+	SetVar 0x8004 363
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CommonScript 2008
+	WaitButton 
+	SetFlag 206
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

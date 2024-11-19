@@ -1,0 +1,15 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

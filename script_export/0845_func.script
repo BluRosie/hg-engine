@@ -1,0 +1,293 @@
+Function 1:
+	CheckItem 456 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+Jump Function#2
+
+
+Function 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 167
+	JumpIf EQUAL Function#5
+	CheckBadge 0 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#6
+	Message 15
+Jump Function#7
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 156
+	JumpIf EQUAL Function#8
+	TextPlayerName 0
+	Message 7
+	TextPlayerName 0
+	Message 8
+	SetFlag 156
+	PlaySound 1185
+	WaitSound 
+	Message 9
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#9
+	Message 11
+Jump Function#10
+
+
+Function 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 34
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 20
+	ShowMomMoney 1 1
+	OpenTouchScreen 
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 29 255 0
+	CreateMultiTouchBox 30 255 1
+	CreateMultiTouchBox 31 255 2
+	CreateMultiTouchBox 32 255 3
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#13
+Jump Function#14
+
+
+Function 6:
+	TextPlayerName 0
+	Message 16
+	SetFlag 167
+	SetVar 0x4095 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#15
+	Message 17
+	SetFlag 2438
+Jump Function#16
+
+
+Function 7:
+	SetFlag 167
+	SetVar 0x4095 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#15
+	Message 17
+	SetFlag 2438
+Jump Function#16
+
+
+Function 8:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Message 12
+	Message 13
+	WaitABPad 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 13
+	WaitABPad 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CheckMoneyFull 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	CMD_794 0x800C 1 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#18
+	CMD_793 1 0x800C
+	HideMomMoney 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#20
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CheckMoneyFull 0 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#21
+	CompareMoneyFlex 0x800C 1
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CMD_793 0 0x800C
+	HideMomMoney 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#20
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 25
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	HideMomMoney 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#24
+	TextPlayerName 0
+	Message 17
+	SetFlag 2438
+Jump Function#25
+
+
+Function 14:
+	HideMomMoney 
+	CloseTouchScreen 
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	Message 18
+	ClearFlag 2438
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	CloseTouchScreen 
+	HideMomMoney 
+	Message 28
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	CloseTouchScreen 
+	HideMomMoney 
+	Message 22
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	CloseMessage 
+	WaitTime 8 0x800C
+	PlayFanfare 2334
+	TextPlayerName 0
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	CloseTouchScreen 
+	HideMomMoney 
+	Message 27
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	CloseTouchScreen 
+	HideMomMoney 
+	Message 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	CloseMessage 
+	WaitTime 8 0x800C
+	PlayFanfare 2334
+	Message 23
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 24:
+	Message 18
+	ClearFlag 2438
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

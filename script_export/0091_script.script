@@ -1,0 +1,145 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.5 Action#2
+	WaitMovement 
+	Movement Overworld.5 Action#3
+	Movement Overworld.6 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 0 1
+	CloseMessage 
+	Movement Overworld.5 Action#5
+	Movement Overworld.6 Action#6
+	WaitMovement 
+	RemoveOW Overworld.5
+	RemoveOW Overworld.6
+	SetFlag 486
+	ReleaseAll 
+	SetVar 0x40AC 1
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	Movement Player Action#2
+	WaitMovement 
+	CommonScript 2031
+	ClearFlag 509
+	AddOW Overworld.7
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 17
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.7 Action#7
+Jump Function#2
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	Movement Player Action#2
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 23
+	JumpIf DIFFERENT Function#3
+	Movement Player Action#8
+Jump Function#4
+
+
+Script 5:
+	CompareVarValue 0x40AC 4
+	JumpIf GREATER/EQUAL Function#5
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckTrainerFlag 404
+	JumpIf LESS Function#6
+	CheckTrainerFlag 222
+	JumpIf LESS Function#6
+	TextPlayerName 0
+	Message 12
+	CloseMessage 
+	PlayFanfare 1543
+	Movement Overworld.10 Action#9
+	Movement Overworld.11 Action#9
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 211
+End 
+
+
+Script 7:
+	CheckTrainerFlag 404
+	JumpIf LESS Function#7
+	CheckTrainerFlag 222
+	JumpIf LESS Function#7
+	CompareVarValue 0x40AC 3
+	JumpIf GREATER/EQUAL Function#7
+	SetVar 0x40AC 2
+End 
+
+
+Script 8:
+	MecScript 
+	LockAll 
+	Movement Overworld.16 Action#10
+	WaitMovement 
+	Message 10
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.16 Action#11
+	Movement Player Action#12
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40AC 6
+	RemoveOW Overworld.16
+	SetFlag 588
+	ClearFlag 589
+	ReleaseAll 
+End 
+
+
+Script 9:
+	CompareVarValue 0x40AC 4
+	JumpIf GREATER/EQUAL Function#8
+End 
+
+

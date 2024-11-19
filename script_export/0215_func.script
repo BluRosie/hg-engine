@@ -1,0 +1,86 @@
+Function 1:
+	CompareVarValue 0x4087 3
+	JumpIf DIFFERENT Function#9
+	FacePlayer 
+	Message 5
+Jump Function#10
+
+
+Function 2:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x4087 3
+	JumpIf DIFFERENT Function#11
+	FacePlayer 
+	Message 8
+Jump Function#12
+
+
+Function 4:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Movement Overworld.2 Action#8
+	Movement Overworld.0 Action#6
+	Movement Overworld.1 Action#7
+	WaitMovement 
+	SetVar 0x4087 2
+	ReleaseAll 
+End 
+
+
+Function 7:
+	WaitMovement 
+	SetVar 0x4087 2
+	ReleaseAll 
+End 
+
+
+Function 8:
+	SetVar 0x4087 1
+End 
+
+
+Function 9:
+	FacePlayer 
+	Message 6
+Jump Function#10
+
+
+Function 10:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	FacePlayer 
+	Message 9
+Jump Function#12
+
+
+Function 12:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

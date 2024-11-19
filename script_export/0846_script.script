@@ -1,0 +1,38 @@
+Script 1:
+	MecScript 
+	LockAll 
+	PlayFanfare 1547
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	CountMail 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	MailScreen 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	FadeScreen 1 1 0 0
+	WaitFadeScreen 
+	Warp 49 0 219 326 Left
+	WaitTime 1 0x800C
+End 
+
+

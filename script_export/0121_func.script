@@ -1,0 +1,143 @@
+Function 1:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Movement Overworld.3 Action#2
+	WaitMovement 
+	TextPlayerName 0
+	Message 7
+	CloseMessage 
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.3 Action#3
+Jump Function#10
+
+
+Function 5:
+	WaitMovement 
+	TextPlayerName 0
+	Message 7
+	CloseMessage 
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.3 Action#3
+Jump Function#10
+
+
+Function 6:
+	ClearFlag 718
+End 
+
+
+Function 7:
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 2
+	JumpIf EQUAL Function#11
+	SetOWPosition Overworld.3 19 0 40 Down
+End 
+
+
+Function 8:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Overworld.3 Action#4
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#12
+	Movement Overworld.3 Action#5
+Jump Function#13
+
+
+Function 10:
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#12
+	Movement Overworld.3 Action#5
+Jump Function#13
+
+
+Function 11:
+End 
+
+
+Function 12:
+	Movement Overworld.3 Action#6
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#14
+	Movement Player Action#7
+	Movement Overworld.3 Action#8
+Jump Function#15
+
+
+Function 13:
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#14
+	Movement Player Action#7
+	Movement Overworld.3 Action#8
+Jump Function#15
+
+
+Function 14:
+	Movement Overworld.3 Action#9
+	WaitMovement 
+	PlayFanfare 1538
+	SetFlag 718
+	RemoveOW Overworld.3
+	SetVar 0x40F9 3
+	ReleaseAll 
+End 
+
+
+Function 15:
+	WaitMovement 
+	PlayFanfare 1538
+	SetFlag 718
+	RemoveOW Overworld.3
+	SetVar 0x40F9 3
+	ReleaseAll 
+End 
+
+

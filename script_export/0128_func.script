@@ -1,0 +1,43 @@
+Function 1:
+	ClearFlag 691
+Return 
+
+
+Function 2:
+	CheckPlayerGender 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#3
+	SetOWPosition Overworld.2 28 0 28 Up
+Jump Function#4
+
+
+Function 3:
+	SetOWPosition Overworld.1 28 0 28 Up
+	CompareVarValue 0x400E 1
+	JumpIf DIFFERENT Function#7
+	SetOWPosition Overworld.0 9 0 9 Down
+	SetVar 0x400E 0
+End 
+
+
+Function 4:
+	CompareVarValue 0x400E 1
+	JumpIf DIFFERENT Function#7
+	SetOWPosition Overworld.0 9 0 9 Down
+	SetVar 0x400E 0
+End 
+
+
+Function 5:
+	SetVar 0x400E 0
+End 
+
+
+Function 6:
+End 
+
+
+Function 7:
+End 
+
+

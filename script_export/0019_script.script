@@ -1,0 +1,38 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 278
+	JumpIf EQUAL Function#1
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 8
+	JumpIf EQUAL Function#2
+	CheckFlag 264
+	JumpIf EQUAL Function#3
+	CheckFlag 261
+	JumpIf EQUAL Function#4
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	GetPlayerDirection 0x400A
+	CompareVarValue 0x400A 0
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.0 Action#1
+Jump Function#6
+
+
+Script 3:
+	WaitTime 30 0x800C
+	CompareVarValue 0x400A 0
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.0 Action#2
+Jump Function#8
+
+

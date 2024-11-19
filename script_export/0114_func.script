@@ -1,0 +1,98 @@
+Function 1:
+End 
+
+
+Function 2:
+	SetOWPosition Overworld.4 6 1 6 Down
+	SetOWPosition Overworld.5 5 1 7 Up
+	VanishOverworld 253
+	BallResetFollowingPoke 
+End 
+
+
+Function 3:
+	SetOWPosition Overworld.4 6 1 4 Up
+	SetOWPosition Overworld.5 5 1 8 Down
+End 
+
+
+Function 4:
+	Message 6
+	CloseMessage 
+	Movement Overworld.4 Action#15
+	PlayFanfare 2312
+	FadeScreen 6 6 0 0x7FFF
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	FadeScreen 6 6 1 0x7FFF
+	WaitFadeScreen 
+	WaitMovement 
+	RemoveOW Overworld.4
+	SetFlag 771
+	Message 19
+	CloseMessage 
+	PlayFanfare 2321
+	CMD_810 
+	SetFlag 376
+	SetVar 0x40FE 0
+	SetFlag 784
+	Warp 117 0 16 57 Down
+	FadeScreen 6 15 1 0x7FFF
+	WaitFadeScreen 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	SetVar 0x4003 1
+	Movement Overworld.5 Action#16
+	WaitMovement 
+	GenderMessage 23 22
+	CloseMessage 
+	GenderMessage 25 24
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PlaySound 1183
+	WaitSound 
+	HealPokemon 
+	CMD_436 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Return 
+
+
+Function 6:
+	GenderMessage 18 17
+	CloseMessage 
+	PlayFanfare 2321
+	CMD_810 
+	ClearFlag 784
+	Warp 117 0 16 57 Down
+	FadeScreen 6 15 1 0x7FFF
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	PlayFanfare 2321
+	CMD_810 
+	ClearFlag 784
+	Warp 117 0 16 57 Down
+	FadeScreen 6 15 1 0x7FFF
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

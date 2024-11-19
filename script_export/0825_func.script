@@ -1,0 +1,186 @@
+Function 1:
+	CheckFlag 2404
+	JumpIf EQUAL Function#15
+	SetFlag 2456
+	ClearFlag 607
+Return 
+
+
+Function 2:
+	SetFlag 2430
+	ClearFlag 716
+	CheckFlag 278
+	CallIf LESS Function#3
+	CheckFlag 279
+	CallIf LESS Function#4
+	CheckFlag 361
+	CallIf LESS Function#5
+	CheckFlag 362
+	CallIf LESS Function#6
+	CheckFlag 363
+	CallIf LESS Function#7
+	CheckFlag 364
+	CallIf LESS Function#8
+	CheckFlag 330
+	CallIf LESS Function#9
+	CheckFlag 365
+	CallIf LESS Function#10
+	CheckFlag 371
+	JumpIf LESS Function#11
+	CheckFlag 373
+	CallIf LESS Function#12
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#13
+Jump Function#14
+
+
+Function 3:
+	ClearFlag 578
+Return 
+
+
+Function 4:
+	ClearFlag 579
+Return 
+
+
+Function 5:
+	ClearFlag 450
+Return 
+
+
+Function 6:
+	ClearFlag 483
+Return 
+
+
+Function 7:
+	ClearFlag 773
+Return 
+
+
+Function 8:
+	ClearFlag 774
+Return 
+
+
+Function 9:
+	CheckBadge 15 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#16
+	ClearFlag 663
+Return 
+
+
+Function 10:
+	ClearFlag 775
+Return 
+
+
+Function 11:
+	CheckFlag 249
+	JumpIf EQUAL Function#17
+Jump Function#18
+
+
+Function 12:
+	CompareVarValue 0x4089 3
+	JumpIf DIFFERENT Function#19
+	ClearFlag 782
+Return 
+
+
+Function 13:
+Jump Function#20
+
+
+Function 14:
+	CheckFlag 378
+	JumpIf EQUAL Function#21
+	ClearFlag 395
+Jump Function#21
+
+
+Function 15:
+	ClearFlag 607
+Return 
+
+
+Function 16:
+Return 
+
+
+Function 17:
+	ClearFlag 795
+Jump Function#18
+
+
+Function 18:
+	CheckFlag 373
+	CallIf LESS Function#12
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#13
+Jump Function#14
+
+
+Function 19:
+Return 
+
+
+Function 20:
+	CheckFlag 378
+	JumpIf EQUAL Function#21
+	ClearFlag 395
+Jump Function#21
+
+
+Function 21:
+	CheckFlag 379
+	CallIf LESS Function#22
+	CompareVarValue 0x4046 2
+	CallIf EQUAL Function#23
+	CompareVarValue 0x4045 2
+	CallIf EQUAL Function#24
+	CompareVarValue 0x4047 2
+	CallIf EQUAL Function#25
+	CompareVarValue 0x4048 2
+	CallIf EQUAL Function#26
+	EndGameScreen 0
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	ClearFlag 722
+Return 
+
+
+Function 23:
+	SetVar 0x4046 0
+	AddRoamingPokemon 1
+Return 
+
+
+Function 24:
+	SetVar 0x4045 0
+	AddRoamingPokemon 0
+Return 
+
+
+Function 25:
+	SetVar 0x4047 0
+	AddRoamingPokemon 2
+Return 
+
+
+Function 26:
+	SetVar 0x4048 0
+	AddRoamingPokemon 3
+Return 
+
+

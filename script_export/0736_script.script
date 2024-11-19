@@ -1,0 +1,290 @@
+Script 1
+	LockAll 
+	TextPlayerName 0
+	GenderMessage 0 4
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Overworld.0 Action#1
+	Movement Overworld.0 Action#2
+	Movement Player Action#3
+	GenderMessage 2 5
+	WaitAB 
+	CloseMessage 
+	WaitMovement 
+	WaitTime 6 0x800C
+	GenderMessage 50 6
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 49 65
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#1
+	WaitMovement 
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#2
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#3
+	GenderMessage 3 7
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 51 68
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 52 69
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 53 70
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#4
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Movement Player Action#5
+	Message 43
+	WaitAB 
+	CloseMessage 
+	SetVar 0x4106 1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	LockAll 
+	CompareVarValue 0x4102 1
+	JumpIf LESS Function#5
+	CompareVarValue 0x4102 1
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x4102 2
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x4102 3
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x4102 4
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x4102 9
+	JumpIf EQUAL Function#9
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	Message 41
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 36
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 37
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	Message 38
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	MecScript 
+	LockAll 
+	Movement Player Action#6
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	CommonScript 2036
+	WaitTime 30 0x800C
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	Message 33
+	CloseMessage 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	CommonScript 2038
+	SetVar 0x4106 4
+	ReleaseAll 
+End 
+
+
+Script 8:
+	LockAll 
+	TextPlayerName 0
+	Message 42
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#7
+	ReleaseAll 
+End 
+
+
+Script 9:
+	LockAll 
+	TextPlayerName 0
+    GetPlayerPosition 0x800C 0x800D
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#40
+	CallIf LESS Function#42
+	WaitMovement 
+	GenderMessage 27 31
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 62 77
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 63 78
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 64 79
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GetPlayerPosition 0x800C 0x800D
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x800C 8
+	JumpIf EQUAL Function#13
+	CompareVarValue 0x800C 9
+	JumpIf EQUAL Function#14
+End 
+
+
+Script 10:
+	LockAll 
+	Message 41
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	LockAll 
+	TextPlayerName 0
+	GenderMessage 82 83
+	WaitAB 
+	CloseMessage 
+	GetPlayerPosition 0x800C 0x800D
+	CompareVarValue 0x800C 8
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x800C 9
+	JumpIf EQUAL Function#16
+	ReleaseAll 
+End 
+
+##
+##  Flag 2202 - is default mum [OW 0]
+##  Flag 2203 - is mum after test [OW 1]
+##
+
+## By default the flags are set to 0 (clear) at the beginning of the game
+## OW Flag set = OW disabled
+## OW Flag clear = OW enabled
+
+## So by default we need [OW 0] to appear and [OW 1] to be non existent till
+## the completion of ceremony
+##
+## Hence we have to set the [OW 1] flag so it is disabled in the house
+
+## Default mum will be removed during the execution of below PostTest Cutscene
+
+##PostTest Cutscene
+Script 12:
+    MecScript
+    RemoveOW Overworld.0
+    SetFollowingPokePosition 3 0
+    SendOutFollowingPoke
+	LockAll 
+	TextPlayerName 0
+	## mum exclaims
+    Movement Overworld.1 Action#6
+    WaitMovement
+    Movement Overworld.1 Action#37
+	GenderMessage 90 91
+    WaitAB
+    CloseMessage
+    Movement Overworld.1 Action#1
+    GetPartyPokemonID 0 0x8001
+	CompareVarValue 0x8001 1
+	CallIf EQUAL Function#33
+    CompareVarValue 0x8001 4
+    CallIf EQUAL Function#34
+    CompareVarValue 0x8001 7
+    CallIf EQUAL Function#35
+    CompareVarValue 0x8001 493
+    CallIf EQUAL Function#36
+	##CMD_597
+    Movement Following Action#31
+    WaitMovement 
+    SetFollowingPokePosition 3 0
+    Release Following
+    SetFollowingPokeMovement 48
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#39
+	CompareVarValue 0x800C 1
+    CallIf EQUAL Function#46
+    SetVar 0x4102 8
+
+    FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 9 0 241 280 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+
+	Movement Player Action#42
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#43
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+
+
+
+
+
+
+
+

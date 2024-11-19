@@ -1,0 +1,66 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#1
+	CheckBadge 4 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	Message 0
+	CloseMessage 
+	TrainerBattle 34 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 3
+	SetTrainerFlag 156
+	SetTrainerFlag 157
+	SetTrainerFlag 251
+	SetTrainerFlag 159
+	TextPlayerName 0
+	Message 4
+	GiveBadge 4
+	PlaySound 1189
+	WaitSound 
+	IncrementVar 0x4134 1
+	CMD_515 22
+	SetVar 0x4116 1
+	CompareVarValue 0x4134 3
+	JumpIf DIFFERENT Function#4
+	SetVar 0x4077 1
+	Message 5
+Jump Function#5
+
+
+Script 2:
+	CMD_318 
+	ClearFlag 2433
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#6
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 4 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#7
+	Message 13
+Jump Function#8
+
+

@@ -1,0 +1,83 @@
+Function 1:
+	CMD_520 
+Return 
+
+
+Function 2:
+	SetVar 0x402A 282
+Return 
+
+
+Function 3:
+	SetVar 0x402A 283
+Return 
+
+
+Function 4:
+	SetVar 0x402A 286
+Return 
+
+
+Function 5:
+	Call Function#9
+	ElevatorAnimation 0x4000 3
+	Call Function#10
+Return 
+
+
+Function 6:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_412 43 0 0x800C
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#11
+	CMD_436 
+	CMD_627 5
+	ReturnScreen 
+	Warp 265 0 15 6 Up
+End 
+
+
+Function 7:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_436 
+	CMD_627 6
+	ReturnScreen 
+	Warp 265 0 11 6 Up
+End 
+
+
+Function 8:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 271 0 8 2 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Player Action#1
+	WaitMovement 
+Return 
+
+
+Function 10:
+	Movement Overworld.0 Action#2
+	Movement Player Action#3
+	WaitMovement 
+Return 
+
+
+Function 11:
+	CMD_436 
+	CMD_627 5
+	ReturnScreen 
+	Warp 265 0 19 6 Up
+End 
+
+

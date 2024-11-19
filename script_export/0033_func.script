@@ -1,0 +1,187 @@
+Function 1:
+End 
+
+
+Function 2:
+	CMD_669 476 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#3
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	CloseMessage 
+	WaitTime 16 0x800C
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.0 Action#1
+Jump Function#5
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#6
+	Movement Overworld.0 Action#2
+Jump Function#5
+
+
+Function 5:
+	WaitMovement 
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.0 Action#3
+Jump Function#8
+
+
+Function 6:
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.0 Action#3
+Jump Function#8
+
+
+Function 7:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#8
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.0 Action#6
+Jump Function#10
+
+
+Function 8:
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.0 Action#6
+Jump Function#10
+
+
+Function 9:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	TextPlayerName 0
+	Message 2
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.0 Action#8
+Jump Function#12
+
+
+Function 10:
+	WaitMovement 
+	TextPlayerName 0
+	Message 2
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.0 Action#8
+Jump Function#12
+
+
+Function 11:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.0 Action#9
+Jump Function#12
+
+
+Function 12:
+	WaitMovement 
+	SetFlag 710
+	ClearFlag 711
+	AddOW Overworld.2
+	RemoveOW Overworld.0
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.2 Action#10
+Jump Function#15
+
+
+Function 13:
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	SetFlag 710
+	ClearFlag 711
+	AddOW Overworld.2
+	RemoveOW Overworld.0
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.2 Action#10
+Jump Function#15
+
+
+Function 14:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#16
+	Movement Overworld.2 Action#12
+Jump Function#15
+
+
+Function 15:
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	TrainerBattle 487 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	Message 4
+	SetVar 0x8004 476
+	SetVar 0x8005 1
+	CommonScript 2008
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x40E7 2
+	ClearFlag 567
+End 
+
+
+Function 16:
+	Movement Overworld.2 Action#13
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	TrainerBattle 487 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	Message 4
+	SetVar 0x8004 476
+	SetVar 0x8005 1
+	CommonScript 2008
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x40E7 2
+	ClearFlag 567
+End 
+
+
+Function 17:
+	LostBattle 
+	ClearFlag 710
+	SetFlag 711
+	ReleaseAll 
+End 
+
+

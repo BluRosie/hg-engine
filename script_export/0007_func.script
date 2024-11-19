@@ -1,0 +1,55 @@
+Function 1:
+	CompareVarValue 0x800C 155
+	JumpIf DIFFERENT Function#3
+	TrainerBattle 287 0 0 0
+Jump Function#2
+
+
+Function 2:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CommonScript 2070
+	TextPlayerName 0
+	TextRivalName 1
+	Message 1
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	RemoveOW Overworld.0
+	CommonScript 2071
+	SetFlag 604
+	ClearFlag 736
+	SetVar 0x40FC 1
+	SetVar 0x40F5 1
+	SetFlag 227
+End 
+
+
+Function 3:
+	TrainerBattle 285 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CommonScript 2070
+	TextPlayerName 0
+	TextRivalName 1
+	Message 1
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	RemoveOW Overworld.0
+	CommonScript 2071
+	SetFlag 604
+	ClearFlag 736
+	SetVar 0x40FC 1
+	SetVar 0x40F5 1
+	SetFlag 227
+End 
+
+
+Function 4:
+	LostBattle 
+End 
+
+

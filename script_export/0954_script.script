@@ -1,0 +1,10 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	Message 33
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

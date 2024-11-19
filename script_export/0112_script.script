@@ -1,0 +1,202 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 221
+	JumpIf EQUAL Function#1
+	CheckFlag 220
+	JumpIf EQUAL Function#2
+	CheckFlag 218
+	JumpIf EQUAL Function#3
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#4
+	Message 20
+Jump Function#5
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 25
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 0
+	SetVar 0x8004 0
+	Message 1
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 280 255 0
+	CreateMultiTouchBox 281 255 1
+	CreateMultiTouchBox 282 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	Message 9
+	SetVar 0x8004 1
+	Message 2
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 283 255 0
+	CreateMultiTouchBox 284 255 0
+	CreateMultiTouchBox 285 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	Message 9
+	SetVar 0x8004 2
+	Message 3
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 286 255 1
+	CreateMultiTouchBox 287 255 0
+	CreateMultiTouchBox 288 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	Message 9
+	SetVar 0x8004 3
+	Message 4
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 289 255 0
+	CreateMultiTouchBox 290 255 1
+	CreateMultiTouchBox 291 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	Message 9
+	SetVar 0x8004 4
+	Message 5
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 292 255 1
+	CreateMultiTouchBox 293 255 0
+	CreateMultiTouchBox 294 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	TextPlayerName 0
+	Message 6
+	CloseMessage 
+	SetOWPosition Overworld.3 6 0 21 Up
+	WaitTime 10 0x8004
+	PlayFanfare 1539
+	WaitTime 5 0x8004
+	CommonScript 2044
+	Movement Player Action#2
+	Movement Overworld.3 Action#3
+	WaitMovement 
+	Message 10
+	Movement Overworld.3 Action#4
+	WaitMovement 
+	Message 11
+	Movement Overworld.3 Action#5
+	WaitMovement 
+	Message 12
+	Movement Overworld.0 Action#6
+	WaitMovement 
+	Message 13
+	Movement Overworld.3 Action#7
+	WaitMovement 
+	Message 14
+	Movement Overworld.3 Action#8
+	Movement Overworld.0 Action#9
+	WaitMovement 
+	Message 15
+	TextPlayerName 0
+	Message 16
+	PlaySound 1189
+	WaitSound 
+	GiveBadge 7
+	Message 17
+	Movement Overworld.0 Action#10
+	Movement Player Action#11
+	Movement Overworld.3 Action#12
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	WaitTime 15 0x8005
+	Message 19
+	CloseMessage 
+	Movement Overworld.3 Action#13
+	WaitMovement 
+	RemoveOW Overworld.3
+	CommonScript 2045
+	WaitSound 
+	Movement Overworld.0 Action#14
+	WaitMovement 
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#7
+	Message 20
+Jump Function#8
+
+
+Script 5:
+	CheckFlag 393
+	JumpIf LESS Function#9
+	ClearFlag 393
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#12
+	Movement Player Action#15
+	Movement Overworld.4 Action#16
+Jump Function#13
+
+

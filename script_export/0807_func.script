@@ -1,0 +1,495 @@
+Function 1:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Player Action#2
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#9
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 62 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#9
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 62 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	ClearFlag 329
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 2
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x4000 6
+	JumpIf EQUAL Function#10
+	SetFlag 638
+End 
+
+
+Function 6:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.6 Action#5
+	WaitMovement 
+Jump Function#12
+
+
+Function 7:
+	CheckItem 72 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#13
+	SetVar 0x8000 1
+	SetVar 0x8006 1
+	CheckItem 73 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#14
+	SetVar 0x8001 1
+	SetVar 0x8006 1
+	CheckItem 74 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	SetVar 0x8002 1
+	SetVar 0x8006 1
+	CheckItem 75 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#16
+	SetVar 0x8003 1
+	SetVar 0x8006 1
+Return 
+
+
+Function 8:
+	Message 8
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CompareVarValue 0x8000 1
+	JumpIf DIFFERENT Function#17
+	CreateMultiTouchBox 205 255 0
+	CompareVarValue 0x8001 1
+	JumpIf DIFFERENT Function#18
+	CreateMultiTouchBox 206 255 1
+	CompareVarValue 0x8002 1
+	JumpIf DIFFERENT Function#19
+	CreateMultiTouchBox 207 255 2
+	CompareVarValue 0x8003 1
+	JumpIf DIFFERENT Function#20
+	CreateMultiTouchBox 208 255 3
+	CreateMultiTouchBox 126 255 4
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+Jump Function#25
+
+
+Function 9:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 62 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	ClearFlag 638
+End 
+
+
+Function 11:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#26
+	Movement Overworld.6 Action#6
+	WaitMovement 
+Jump Function#12
+
+
+Function 12:
+Return 
+
+
+Function 13:
+	CheckItem 73 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#14
+	SetVar 0x8001 1
+	SetVar 0x8006 1
+	CheckItem 74 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	SetVar 0x8002 1
+	SetVar 0x8006 1
+	CheckItem 75 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#16
+	SetVar 0x8003 1
+	SetVar 0x8006 1
+Return 
+
+
+Function 14:
+	CheckItem 74 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	SetVar 0x8002 1
+	SetVar 0x8006 1
+	CheckItem 75 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#16
+	SetVar 0x8003 1
+	SetVar 0x8006 1
+Return 
+
+
+Function 15:
+	CheckItem 75 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#16
+	SetVar 0x8003 1
+	SetVar 0x8006 1
+Return 
+
+
+Function 16:
+Return 
+
+
+Function 17:
+	CompareVarValue 0x8001 1
+	JumpIf DIFFERENT Function#18
+	CreateMultiTouchBox 206 255 1
+	CompareVarValue 0x8002 1
+	JumpIf DIFFERENT Function#19
+	CreateMultiTouchBox 207 255 2
+	CompareVarValue 0x8003 1
+	JumpIf DIFFERENT Function#20
+	CreateMultiTouchBox 208 255 3
+	CreateMultiTouchBox 126 255 4
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+Jump Function#25
+
+
+Function 18:
+	CompareVarValue 0x8002 1
+	JumpIf DIFFERENT Function#19
+	CreateMultiTouchBox 207 255 2
+	CompareVarValue 0x8003 1
+	JumpIf DIFFERENT Function#20
+	CreateMultiTouchBox 208 255 3
+	CreateMultiTouchBox 126 255 4
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+Jump Function#25
+
+
+Function 19:
+	CompareVarValue 0x8003 1
+	JumpIf DIFFERENT Function#20
+	CreateMultiTouchBox 208 255 3
+	CreateMultiTouchBox 126 255 4
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+Jump Function#25
+
+
+Function 20:
+	CreateMultiTouchBox 126 255 4
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+Jump Function#25
+
+
+Function 21:
+	Message 11
+	SetVar 0x8004 156
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 164
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 169
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 156
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 164
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 169
+	SetVar 0x8005 1
+	CommonScript 2033
+	TakeItem 72 1 0x800C
+Jump Function#28
+
+
+Function 22:
+	Message 12
+	SetVar 0x8004 165
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 170
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 175
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 165
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 170
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 175
+	SetVar 0x8005 1
+	CommonScript 2033
+	TakeItem 73 1 0x800C
+Jump Function#28
+
+
+Function 23:
+	Message 13
+	SetVar 0x8004 168
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 173
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 178
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 168
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 173
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 178
+	SetVar 0x8005 1
+	CommonScript 2033
+	TakeItem 74 1 0x800C
+Jump Function#28
+
+
+Function 24:
+	Message 14
+	SetVar 0x8004 167
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 172
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 182
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+	SetVar 0x8004 167
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 172
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 182
+	SetVar 0x8005 1
+	CommonScript 2033
+	TakeItem 75 1 0x800C
+Jump Function#28
+
+
+Function 25:
+	Message 10
+	CloseMessage 
+	Call Function#6
+	ReleaseAll 
+End 
+
+
+Function 26:
+	Movement Overworld.6 Action#7
+	WaitMovement 
+Return 
+
+
+Function 27:
+	Message 15
+	CloseMessage 
+	Call Function#6
+	ReleaseAll 
+End 
+
+
+Function 28:
+	SetVar 0x8000 0
+	SetVar 0x8001 0
+	SetVar 0x8002 0
+	SetVar 0x8003 0
+	SetVar 0x8006 0
+	Call Function#7
+	CompareVarValue 0x8006 1
+	JumpIf DIFFERENT Function#29
+	Message 9
+Jump Function#30
+
+
+Function 29:
+Jump Function#25
+
+
+Function 30:
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CompareVarValue 0x8000 1
+	JumpIf DIFFERENT Function#17
+	CreateMultiTouchBox 205 255 0
+	CompareVarValue 0x8001 1
+	JumpIf DIFFERENT Function#18
+	CreateMultiTouchBox 206 255 1
+	CompareVarValue 0x8002 1
+	JumpIf DIFFERENT Function#19
+	CreateMultiTouchBox 207 255 2
+	CompareVarValue 0x8003 1
+	JumpIf DIFFERENT Function#20
+	CreateMultiTouchBox 208 255 3
+	CreateMultiTouchBox 126 255 4
+	CloseMultiTouch 
+	CloseTouchScreen 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#24
+Jump Function#25
+
+

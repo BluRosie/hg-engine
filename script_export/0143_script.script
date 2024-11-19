@@ -1,0 +1,13 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	UnionGroup 0 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	Call Function#2
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+

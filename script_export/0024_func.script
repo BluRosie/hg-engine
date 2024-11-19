@@ -1,0 +1,183 @@
+Function 1:
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	PlayCry 245 0
+	Movement Overworld.0 Action#6
+	WaitCry 
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#7
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetFlag 457
+	SetFlag 458
+	SetFlag 459
+	RemoveOW Overworld.2
+	RemoveOW Overworld.1
+	RemoveOW Overworld.0
+	AddRoamingPokemon 0
+	AddRoamingPokemon 1
+	WaitTime 15 0x800C
+	ClearFlag 456
+	PlayFanfare 1538
+	AddOW Overworld.3
+	Lock Overworld.3
+	WaitFanfare 1538
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.3 Action#8
+Jump Function#8
+
+
+Function 2:
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#7
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetFlag 457
+	SetFlag 458
+	SetFlag 459
+	RemoveOW Overworld.2
+	RemoveOW Overworld.1
+	RemoveOW Overworld.0
+	AddRoamingPokemon 0
+	AddRoamingPokemon 1
+	WaitTime 15 0x800C
+	ClearFlag 456
+	PlayFanfare 1538
+	AddOW Overworld.3
+	Lock Overworld.3
+	WaitFanfare 1538
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.3 Action#8
+Jump Function#8
+
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	ReleaseAll 
+End 
+
+
+Function 5:
+	SetFlag 373
+Return 
+
+
+Function 6:
+	SetFlag 782
+	RemoveOW Overworld.12
+	ClearFlag 164
+End 
+
+
+Function 7:
+	Movement Overworld.3 Action#9
+	Movement Player Action#10
+	WaitMovement 
+	Message 0
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.3 Action#11
+Jump Function#10
+
+
+Function 8:
+	WaitMovement 
+	Message 0
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.3 Action#11
+Jump Function#10
+
+
+Function 9:
+	Movement Overworld.3 Action#12
+	Movement Player Action#10
+	WaitMovement 
+	TextPlayerName 0
+	Message 1
+	CloseMessage 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.3 Action#13
+Jump Function#12
+
+
+Function 10:
+	WaitMovement 
+	TextPlayerName 0
+	Message 1
+	CloseMessage 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 16
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.3 Action#13
+Jump Function#12
+
+
+Function 11:
+	Movement Overworld.3 Action#14
+	WaitMovement 
+	PlayFanfare 1538
+	WaitTime 2 0x800C
+	RemoveOW Overworld.3
+	WaitFanfare 1538
+	SetFlag 456
+	SetFlag 455
+	SetFlag 460
+	SetFlag 478
+	SetFlag 479
+	SetFlag 480
+	ClearFlag 481
+	SetVar 0x40A1 1
+	SetVar 0x4076 1
+	SetVar 0x4079 2
+	SetFlag 583
+	ClearFlag 584
+	ReleaseAll 
+End 
+
+
+Function 12:
+	WaitMovement 
+	PlayFanfare 1538
+	WaitTime 2 0x800C
+	RemoveOW Overworld.3
+	WaitFanfare 1538
+	SetFlag 456
+	SetFlag 455
+	SetFlag 460
+	SetFlag 478
+	SetFlag 479
+	SetFlag 480
+	ClearFlag 481
+	SetVar 0x40A1 1
+	SetVar 0x4076 1
+	SetVar 0x4079 2
+	SetFlag 583
+	ClearFlag 584
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,485 @@
+Function 1:
+	Message 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#13
+End 
+
+
+Function 2:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 350
+End 
+
+
+Function 3:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 27
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+Jump Function#8
+
+
+Function 7:
+	Message 28
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	GetPartyCount 0x4000
+	DecrementVar 0x4000 1
+	GetPartyPokemonID 0x4000 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CMD_497 0x8004 0x8005 0x4000
+	CompareVarValue 0x8004 16
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x8005 16
+	JumpIf EQUAL Function#15
+Jump Function#14
+
+
+Function 9:
+	Message 44
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+Jump Function#11
+
+
+Function 10:
+	Message 45
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8000
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8000 255
+	JumpIf EQUAL Function#11
+	GetPartyPokemonID 0x8000 0x8001
+	CompareVarValue 0x8001 0
+	JumpIf EQUAL Function#16
+	Call Function#17
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#18
+	SetVarFromVariable 0x8002 0x800C
+	Call Function#19
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#20
+	GetPokemonHappiness 0x800C 0x8000
+	CompareVarValue 0x800C 255
+	JumpIf LESS Function#21
+	TextPartyPokemon 0 0x8000
+	CompareVarValue 0x8002 1
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8002 2
+	JumpIf EQUAL Function#23
+Jump Function#24
+
+
+Function 11:
+	Message 46
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 2
+	CloseMessage 
+Jump Function#25
+
+
+Function 13:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#26
+Jump Function#27
+
+
+Function 15:
+	CMD_140 0x800C 434 0x4000
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#28
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#26
+Jump Function#27
+
+
+Function 16:
+	Message 49
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	CompareVarValue 0x8001 6
+	JumpIf EQUAL Function#29
+	CompareVarValue 0x8001 157
+	JumpIf EQUAL Function#29
+	CompareVarValue 0x8001 257
+	JumpIf EQUAL Function#29
+	CompareVarValue 0x8001 392
+	JumpIf EQUAL Function#29
+	CompareVarValue 0x8001 9
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x8001 160
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x8001 260
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x8001 395
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x8001 3
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x8001 154
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x8001 254
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x8001 389
+	JumpIf EQUAL Function#31
+	SetVar 0x800C 0
+Return 
+
+
+Function 18:
+	Message 48
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	CompareVarValue 0x8002 1
+	JumpIf EQUAL Function#32
+	CompareVarValue 0x8002 2
+	JumpIf EQUAL Function#33
+Jump Function#34
+
+
+Function 20:
+	Message 51
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	Message 50
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	Message 52
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	SetVar 0x8003 307
+Jump Function#35
+
+
+Function 23:
+	Message 53
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	SetVar 0x8003 308
+Jump Function#35
+
+
+Function 24:
+	Message 54
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	SetVar 0x8003 338
+Jump Function#35
+
+
+Function 25:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8002
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8002 255
+	JumpIf EQUAL Function#13
+	GetPartyPokemonID 0x8002 0x8001
+	CompareVarValue 0x8001 0
+	JumpIf EQUAL Function#36
+	GetMoveCount 0x800C 0x8002
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#37
+	Message 6
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_394 0x8002
+	CMD_395 0x8001
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8001 255
+	JumpIf EQUAL Function#12
+	TextPartyPokemonMove 0 0x8002 0x8001
+	Message 7
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#38
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+End 
+
+
+Function 26:
+	DecrementVar 0x4000 1
+	GetPartyPokemonID 0x4000 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CMD_497 0x8004 0x8005 0x4000
+	CompareVarValue 0x8004 16
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x8005 16
+	JumpIf EQUAL Function#15
+Jump Function#14
+
+
+Function 27:
+	Message 29
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 28:
+	Message 30
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8000
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8000 255
+	JumpIf EQUAL Function#7
+	GetPartyPokemonID 0x8000 0x8001
+	CompareVarValue 0x8001 0
+	JumpIf EQUAL Function#39
+	Call Function#40
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#41
+	CMD_140 0x800C 434 0x8000
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#42
+	GetPokemonHappiness 0x800C 0x8000
+	CompareVarValue 0x800C 255
+	JumpIf LESS Function#43
+	TextPartyPokemon 0 0x8000
+	Message 62
+	CloseMessage 
+	SetVar 0x8003 434
+Jump Function#44
+
+
+Function 29:
+	SetVar 0x800C 1
+Return 
+
+
+Function 30:
+	SetVar 0x800C 2
+Return 
+
+
+Function 31:
+	SetVar 0x800C 3
+Return 
+
+
+Function 32:
+	CMD_140 0x800C 307 0x8000
+Return 
+
+
+Function 33:
+	CMD_140 0x800C 308 0x8000
+Return 
+
+
+Function 34:
+	CMD_140 0x800C 338 0x8000
+Return 
+
+
+Function 35:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_468 0x8000 0x8003
+	CMD_469 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#11
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 36:
+	Message 5
+	CloseMessage 
+Jump Function#25
+
+
+Function 37:
+	Message 4
+	CloseMessage 
+Jump Function#25
+
+
+Function 38:
+	DeleteMove 0x8002 0x8001
+	PlaySound 1192
+	WaitSound 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 39:
+	Message 33
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 40:
+	CMD_497 0x8004 0x8005 0x8000
+	CompareVarValue 0x8004 16
+	JumpIf EQUAL Function#45
+	CompareVarValue 0x8005 16
+	JumpIf EQUAL Function#45
+	SetVar 0x800C 0
+Return 
+
+
+Function 41:
+	Message 32
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 42:
+	TextMove 0 434
+	Message 34
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 43:
+	Message 31
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 44:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_468 0x8000 434
+	CMD_469 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#7
+	Message 42
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 45:
+	SetVar 0x800C 1
+Return 
+
+

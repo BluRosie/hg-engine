@@ -1,0 +1,159 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	Movement Overworld.0 Action#1
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 1
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	FadeOutMusic 0 30
+	PlayFanfare 2305
+	FadeScreen 6 6 0 0
+	WaitFadeScreen 
+	WaitTime 1 0x800C
+	FadeScreen 6 6 1 0
+	WaitFadeScreen 
+	StopFanfare 2305
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	PlayFanfare 2305
+	FadeScreen 6 6 0 0
+	WaitFadeScreen 
+	WaitTime 1 0x800C
+	FadeScreen 6 6 1 0
+	WaitFadeScreen 
+	StopFanfare 2305
+	SetVar 0x40FB 3
+	SetFlag 742
+	SetFlag 743
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 522 0 16 24 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#5
+	Movement Player Action#6
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Player Action#7
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.0 Action#8
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.0 Action#9
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 743
+	SetVar 0x40FB 10
+	ReleaseAll 
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#10
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 2305
+	FadeScreen 6 6 0 0
+	WaitFadeScreen 
+	WaitTime 1 0x800C
+	FadeScreen 6 6 1 0
+	WaitFadeScreen 
+	StopFanfare 2305
+	Movement Player Action#11
+	WaitMovement 
+	PlayFanfare 2305
+	FadeScreen 6 6 0 0
+	WaitFadeScreen 
+	WaitTime 1 0x800C
+	FadeScreen 6 6 1 0
+	WaitFadeScreen 
+	StopFanfare 2305
+	SetVar 0x40FB 12
+	SetVar 0x4104 1
+	SetFlag 732
+	SetFlag 733
+	SetFlag 731
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 522 0 16 24 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	CMD_490 0x4004
+	CompareVarValue 0x40FB 10
+	JumpIf EQUAL Function#1
+Jump Function#2
+
+
+Script 6:
+	CompareVarValue 0x40CE 1
+	JumpIf DIFFERENT Function#3
+	VanishOverworld 255
+End 
+
+
+Script 7:
+	MecScript 
+	LockAll 
+	PlayFanfare 2180
+	Movement Player Action#12
+	UnvanishOverworld 255
+	WaitMovement 
+	ShakeCamera 0 1 1 8
+	PlayFanfare 1606
+	SetVar 0x40CE 0
+	ReleaseAll 
+End 
+
+

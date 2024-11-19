@@ -1,0 +1,254 @@
+Function 1:
+End 
+
+
+Function 2:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#12
+	SetVar 0x4119 1
+Jump Function#3
+
+
+Function 3:
+End 
+
+
+Function 4:
+	CompareVarValue 0x800C 155
+	JumpIf DIFFERENT Function#13
+	TrainerBattle 491 0 0 0
+Jump Function#5
+
+
+Function 5:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2070
+	TextRivalName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.5 Action#5
+	WaitMovement 
+	SetVar 0x4119 0
+	SetFlag 2729
+	RemoveOW Overworld.5
+	CommonScript 2071
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CompareVarValue 0x40E6 0
+	JumpIf EQUAL Function#15
+	Message 11
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 12 255 0
+	CreateMultiTouchBox 13 255 1
+	CreateMultiTouchBox 14 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#16
+Jump Function#17
+
+
+Function 7:
+	CompareVarValue 0x40E6 0
+	JumpIf EQUAL Function#18
+	Message 11
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 12 255 0
+	CreateMultiTouchBox 13 255 1
+	CreateMultiTouchBox 14 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#19
+Jump Function#20
+
+
+Function 8:
+	CloseTouchScreen 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Movement Overworld.8 Action#6
+	WaitMovement 
+	WaitMovement 
+	SetVar 0x4005 1
+	ReleaseAll 
+End 
+
+
+Function 11:
+	WaitMovement 
+	SetVar 0x4005 1
+	ReleaseAll 
+End 
+
+
+Function 12:
+	SetVar 0x4119 0
+End 
+
+
+Function 13:
+	TrainerBattle 489 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2070
+	TextRivalName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.5 Action#5
+	WaitMovement 
+	SetVar 0x4119 0
+	SetFlag 2729
+	RemoveOW Overworld.5
+	CommonScript 2071
+	ReleaseAll 
+End 
+
+
+Function 14:
+	RemoveOW Overworld.5
+	SetFlag 592
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	Message 15
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 16 255 0
+	CreateMultiTouchBox 17 255 1
+	CreateMultiTouchBox 18 255 2
+	CreateMultiTouchBox 19 255 3
+	CreateMultiTouchBox 26 255 4
+	CloseMultiTouch 
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#21
+	CloseMessage 
+	CMD_378 4 0x800C
+	Message 7
+	OpenTouchScreen 
+Jump Function#20
+
+
+Function 16:
+	Message 15
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 20 255 0
+	CreateMultiTouchBox 21 255 1
+	CreateMultiTouchBox 22 255 2
+	CreateMultiTouchBox 23 255 3
+	CreateMultiTouchBox 24 255 4
+	CreateMultiTouchBox 25 255 5
+	CreateMultiTouchBox 26 255 6
+	CloseMultiTouch 
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#21
+	CloseMessage 
+	CMD_378 3 0x800C
+	Message 7
+	OpenTouchScreen 
+Jump Function#20
+
+
+Function 17:
+	Message 7
+Jump Function#20
+
+
+Function 18:
+	Message 15
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 16 255 0
+	CreateMultiTouchBox 17 255 1
+	CreateMultiTouchBox 18 255 2
+	CreateMultiTouchBox 19 255 3
+	CreateMultiTouchBox 26 255 4
+	CloseMultiTouch 
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#22
+	CloseMessage 
+	CMD_378 1 0x800C
+	Message 7
+	OpenTouchScreen 
+Jump Function#20
+
+
+Function 19:
+	Message 15
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 20 255 0
+	CreateMultiTouchBox 21 255 1
+	CreateMultiTouchBox 22 255 2
+	CreateMultiTouchBox 23 255 3
+	CreateMultiTouchBox 24 255 4
+	CreateMultiTouchBox 25 255 5
+	CreateMultiTouchBox 26 255 6
+	CloseMultiTouch 
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#22
+	CloseMessage 
+	CMD_378 0 0x800C
+	Message 7
+	OpenTouchScreen 
+Jump Function#20
+
+
+Function 20:
+	MultiTouchLocalText 1 1 0 1 0x800C
+	CreateMultiTouchBox 8 255 0
+	CreateMultiTouchBox 9 255 1
+	CreateMultiTouchBox 10 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#7
+Jump Function#8
+
+
+Function 21:
+	CompareVarValue 0x40E6 0
+	JumpIf DIFFERENT Function#23
+	Message 7
+Jump Function#20
+
+
+Function 22:
+	CompareVarValue 0x40E6 0
+	JumpIf DIFFERENT Function#24
+	Message 7
+Jump Function#20
+
+
+Function 23:
+Jump Function#6
+
+
+Function 24:
+Jump Function#7
+
+

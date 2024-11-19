@@ -1,0 +1,15 @@
+Action 1:
+	WalkDown 0x2
+End
+
+
+Action 2:
+	WalkLeft 0x2
+End
+
+
+Action 3:
+	WalkRight 0x2
+End
+
+

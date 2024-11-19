@@ -1,0 +1,71 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 158
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	SetFlag 158
+	CheckBornPokemonInParty 0x800C 493
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40FB 13
+	JumpIf GREATER/EQUAL Function#3
+	CheckFlag 157
+	JumpIf EQUAL Function#4
+	Message 7
+	WaitButton 
+	CloseMessage 
+	SetFlag 157
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#6
+	Message 11
+	CloseMessage 
+	PlayFanfare 1613
+	Movement Player Action#1
+	WaitMovement 
+	CompareVarValue 0x40FB 13
+	JumpIf DIFFERENT Function#7
+	SetVar 0x40FB 10
+Jump Function#8
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 63 0
+	Message 13
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

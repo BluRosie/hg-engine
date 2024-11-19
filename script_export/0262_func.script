@@ -1,0 +1,99 @@
+Function 1:
+	Message 4
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CloseMessage 
+	CMD_717 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#9
+	CMD_718 0 0x800C
+	Message 5
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#10
+	Message 9
+Jump Function#3
+
+
+Function 3:
+	WaitButton 
+Jump Function#8
+
+
+Function 4:
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	SetSafariFlag 1 0
+	CompareVarValue 0x40E3 3
+	JumpIf DIFFERENT Function#11
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 173 0 19 2 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#12
+
+
+Function 7:
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CloseMessage 
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	CloseTouchScreen 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 10
+	WaitButton 
+Jump Function#8
+
+
+Function 11:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 173 0 5 2 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetVar 0x40E3 2
+Return 
+
+
+Function 12:
+	SetVar 0x40E3 2
+Return 
+
+

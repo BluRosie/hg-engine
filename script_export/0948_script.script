@@ -1,0 +1,99 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 1
+	JumpIf EQUAL Function#1
+	Message 0
+	SetFlag 1
+Jump Function#1
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 350
+	JumpIf LESS Function#2
+	CheckItem 93 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 10
+	Message 12
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8005
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8005 255
+	JumpIf EQUAL Function#3
+	GetPartyPokemonID 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CMD_466 0x800C 0x8005
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Message 13
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_467 0x8005
+	CMD_469 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#3
+	TakeItem 93 1 0x800C
+	TextPlayerName 3
+	Message 25
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 390
+	JumpIf EQUAL Function#6
+	SetFlag 390
+	Message 26
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+Jump Function#8
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 391
+	JumpIf EQUAL Function#9
+	SetFlag 391
+	Message 43
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+Jump Function#11
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 61
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

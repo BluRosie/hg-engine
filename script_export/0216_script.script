@@ -1,0 +1,154 @@
+Script 1:
+	MecScript 
+	LockAll 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 40
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.8 Action#1
+	Movement Overworld.9 Action#2
+	Movement Player Action#3
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 290
+	JumpIf EQUAL Function#3
+	Message 11
+	SetVar 0x8004 92
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CommonScript 2033
+	SetFlag 290
+	Message 13
+	CloseMessage 
+	TrainerBattle 361 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 15 0x800C
+	CommonScript 2000
+End 
+
+
+Script 4:
+	CheckFlag 393
+	JumpIf LESS Function#6
+	ClearFlag 393
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	SetFlag 684
+	ClearFlag 674
+	AddOW Overworld.13
+	Movement Player Action#4
+	WaitMovement 
+	PlayCry 245 0
+	Release Overworld.12
+	ShakeOverworld 12 2 90 2 0
+	Lock Overworld.12
+	WaitCry 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 40
+	JumpIf DIFFERENT Function#7
+	Movement Player Action#5
+Jump Function#8
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 245 0
+	Release Overworld.12
+	ShakeOverworld 12 2 90 2 0
+	Lock Overworld.12
+	WaitCry 
+	SetFlag 164
+	WildBattleSp 245 40 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CMD_683 0x4002
+	CompareVarValue 0x4002 3
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x4002 4
+	CallIf EQUAL Function#11
+	CompareVarValue 0x4002 5
+	JumpIf EQUAL Function#12
+	TextPlayerName 0
+	Message 18
+	CloseMessage 
+	CheckFlag 690
+	JumpIf EQUAL Function#13
+Jump Function#14
+
+
+Script 9:
+	CheckFlag 164
+	JumpIf EQUAL Function#15
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_147 29 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#17
+	Message 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#19
+End 
+
+

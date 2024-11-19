@@ -1,7 +1,7 @@
 ./tools/source/dumptools/dumprom.sh
 rm -rf build/pokemonow
 mkdir -p data/graphics/overworlds
-python3 tools/narcpy.py extract base/root/a/0/8/1 -o build/pokemonow
+python3 tools/narcpy.py extract base/data/a/0/8/1 -o build/pokemonow
 if test -s build/pokemonow/1_0000; then
 	for file in $(seq -w 0000 0265); do 
 		python3 tools/overworld-btx.py data/graphics/overworlds/$file.png build/pokemonow/1_$file -d;

@@ -1,0 +1,1051 @@
+Function 1:
+	CMD_784 3
+	Message 2
+	OpenTouchScreen 
+	CMD_116 0
+	CommonScript 2
+	ShowMoney 20 7
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 127 255 0
+	CreateMultiTouchBox 128 255 1
+	CreateMultiTouchBox 129 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#33
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#34
+	Message 6
+Jump Function#35
+
+
+Function 2:
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 39 255 0
+	CreateMultiTouchBox 40 255 1
+	CreateMultiTouchBox 41 255 2
+	CreateMultiTouchBox 42 255 3
+	CreateMultiTouchBox 43 255 4
+	CreateMultiTouchBox 44 255 5
+	CreateMultiTouchBox 36 255 6
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#36
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#37
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#38
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#39
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#40
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#41
+Jump Function#42
+
+
+Function 3:
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 45 255 0
+	CreateMultiTouchBox 46 255 1
+	CreateMultiTouchBox 47 255 2
+	CreateMultiTouchBox 48 255 3
+	CreateMultiTouchBox 36 255 4
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#43
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#44
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#45
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#46
+Jump Function#42
+
+
+Function 4:
+	Message 8
+	WaitButton 
+	CloseMessage 
+Jump Function#47
+
+
+Function 5:
+Jump Function#48
+
+
+Function 6:
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 49 255 0
+	CreateMultiTouchBox 50 255 1
+	CreateMultiTouchBox 51 255 2
+	CreateMultiTouchBox 36 255 3
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#49
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#50
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#51
+Jump Function#4
+
+
+Function 7:
+	Message 29
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CheckItem 444 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#52
+	CMD_784 3
+	CMD_532 0x800C 3 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#53
+	CMD_784 259
+	SetVar 0x4001 0
+Return 
+
+
+Function 9:
+	ReleaseAll 
+End 
+
+
+Function 10:
+	ReleaseAll 
+End 
+
+
+Function 11:
+	ReleaseAll 
+End 
+
+
+Function 12:
+	ReleaseAll 
+End 
+
+
+Function 13:
+	ReleaseAll 
+End 
+
+
+Function 14:
+	ReleaseAll 
+End 
+
+
+Function 15:
+	ReleaseAll 
+End 
+
+
+Function 16:
+	ReleaseAll 
+End 
+
+
+Function 17:
+	ReleaseAll 
+End 
+
+
+Function 18:
+	ReleaseAll 
+End 
+
+
+Function 19:
+	ReleaseAll 
+End 
+
+
+Function 20:
+	ReleaseAll 
+End 
+
+
+Function 21:
+	ReleaseAll 
+End 
+
+
+Function 22:
+	ReleaseAll 
+End 
+
+
+Function 23:
+	ReleaseAll 
+End 
+
+
+Function 24:
+	ReleaseAll 
+End 
+
+
+Function 25:
+	ReleaseAll 
+End 
+
+
+Function 26:
+	ReleaseAll 
+End 
+
+
+Function 27:
+	ReleaseAll 
+End 
+
+
+Function 28:
+	ReleaseAll 
+End 
+
+
+Function 29:
+	ReleaseAll 
+End 
+
+
+Function 30:
+	ReleaseAll 
+End 
+
+
+Function 31:
+Jump Function#54
+
+
+Function 32:
+	GetHour 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#55
+	SetFlag 730
+Jump Function#56
+
+
+Function 33:
+	CompareMoney 0x800C 1000
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#57
+	CMD_533 0x800C 50 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#58
+	TakeMoney 1000
+	GiveCoins 50
+	CMD_118 0
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 3
+Jump Function#59
+
+
+Function 34:
+	CompareMoney 0x800C 0x2710
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#57
+	CMD_533 0x800C 500 0
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#58
+	TakeMoney 0x2710
+	GiveCoins 500
+	CMD_118 0
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 3
+Jump Function#59
+
+
+Function 35:
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	CMD_117 
+	HideMoney 
+	CMD_784 259
+	ReleaseAll 
+End 
+
+
+Function 36:
+	SetVar 0x8004 417
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#61
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 2000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 2000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 37:
+	SetVar 0x8004 402
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#63
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0xFA0
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0xFA0
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 38:
+	SetVar 0x8004 371
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#64
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x1770
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x1770
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 39:
+	SetVar 0x8004 362
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#65
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x2710
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x2710
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 40:
+	SetVar 0x8004 340
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#66
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x2710
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x2710
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 41:
+	SetVar 0x8004 351
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#67
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x2710
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x2710
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 42:
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 37 255 0
+	CreateMultiTouchBox 38 255 1
+	CreateMultiTouchBox 36 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+
+Function 43:
+	SetVar 0x8004 251
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#68
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 44:
+	SetVar 0x8004 265
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#69
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 45:
+	SetVar 0x8004 276
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#70
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 46:
+	SetVar 0x8004 277
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#60
+	TextItem 0 0x8004
+	Message 10
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#71
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 47:
+	CMD_117 
+	CloseTouchScreen 
+	CMD_784 259
+	ReleaseAll 
+End 
+
+
+Function 48:
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 49 255 0
+	CreateMultiTouchBox 52 255 1
+	CreateMultiTouchBox 51 255 2
+	CreateMultiTouchBox 36 255 3
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#49
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#72
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#51
+Jump Function#4
+
+
+Function 49:
+	SetVarFromFlexible 0x4002 63
+Jump Function#73
+
+
+Function 50:
+	SetVarFromFlexible 0x4002 23
+Jump Function#73
+
+
+Function 51:
+	SetVarFromFlexible 0x4002 147
+Jump Function#73
+
+
+Function 52:
+	Message 25
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4001 1
+Return 
+
+
+Function 53:
+	Message 26
+	WaitButton 
+	CloseMessage 
+	CMD_784 259
+	SetVar 0x4001 1
+Return 
+
+
+Function 54:
+	ClearFlag 730
+End 
+
+
+Function 55:
+	CompareVarValue 0x4000 8
+	JumpIf DIFFERENT Function#74
+	SetFlag 730
+Jump Function#56
+
+
+Function 56:
+End 
+
+
+Function 57:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	CMD_117 
+	HideMoney 
+	CMD_784 259
+	ReleaseAll 
+End 
+
+
+Function 58:
+	Message 5
+Jump Function#35
+
+
+Function 59:
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 127 255 0
+	CreateMultiTouchBox 128 255 1
+	CreateMultiTouchBox 129 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#33
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#34
+	Message 6
+Jump Function#35
+
+
+Function 60:
+	Message 12
+	CloseMessage 
+	CompareVarValue 0x8004 417
+	JumpIf DIFFERENT Function#75
+Jump Function#2
+
+
+Function 61:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 2000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 2000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 62:
+	Message 9
+Jump Function#76
+
+
+Function 63:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0xFA0
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0xFA0
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 64:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x1770
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x1770
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 65:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x2710
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x2710
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 66:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x2710
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x2710
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 67:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x2710
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 0x2710
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#2
+
+
+Function 68:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 69:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 70:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 71:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 1000
+	JumpIf LESS Function#62
+	Message 11
+	PlayFanfare 1603
+	TakeCoins 1000
+	CMD_118 0
+	TextItem 0 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 1 0x800C
+	Message 17
+	GiveItem 0x8004 1 0x800C
+Jump Function#3
+
+
+Function 72:
+	SetVarFromFlexible 0x4002 27
+Jump Function#73
+
+
+Function 73:
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf DIFFERENT Function#77
+	Message 13
+	WaitButton 
+	CloseMessage 
+Jump Function#47
+
+
+Function 74:
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#78
+	SetFlag 730
+Jump Function#56
+
+
+Function 75:
+	CompareVarValue 0x8004 402
+	JumpIf DIFFERENT Function#79
+Jump Function#2
+
+
+Function 76:
+	CompareVarValue 0x8004 417
+	JumpIf DIFFERENT Function#75
+Jump Function#2
+
+
+Function 77:
+	TextPokemon 1 0x4002 0 0
+	Message 14
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#80
+	CloseMessage 
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#81
+Jump Function#6
+
+
+Function 78:
+Jump Function#54
+
+
+Function 79:
+	CompareVarValue 0x8004 371
+	JumpIf DIFFERENT Function#82
+Jump Function#2
+
+
+Function 80:
+	CompareVarValue 0x4002 63
+	JumpIf DIFFERENT Function#83
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 200
+	JumpIf LESS Function#84
+Jump Function#85
+
+
+Function 81:
+Jump Function#48
+
+
+Function 82:
+	CompareVarValue 0x8004 362
+	JumpIf DIFFERENT Function#86
+Jump Function#2
+
+
+Function 83:
+	CompareVarValue 0x4002 23
+	JumpIf DIFFERENT Function#87
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 700
+	JumpIf LESS Function#84
+Jump Function#85
+
+
+Function 84:
+	Message 9
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#88
+Jump Function#6
+
+
+Function 85:
+	Message 11
+	PlayFanfare 1603
+	GivePokemon 0x4002 15 0 0 0 0x800C
+	TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+	Message 15
+	CompareVarValue 0x4002 63
+	JumpIf DIFFERENT Function#89
+	TakeCoins 200
+Jump Function#90
+
+
+Function 86:
+	CompareVarValue 0x8004 340
+	JumpIf DIFFERENT Function#91
+Jump Function#2
+
+
+Function 87:
+	CompareVarValue 0x4002 27
+	JumpIf DIFFERENT Function#92
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 700
+	JumpIf LESS Function#84
+Jump Function#85
+
+
+Function 88:
+Jump Function#48
+
+
+Function 89:
+	CompareVarValue 0x4002 23
+	JumpIf DIFFERENT Function#93
+	TakeCoins 700
+Jump Function#90
+
+
+Function 90:
+	CMD_118 0
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#94
+Jump Function#6
+
+
+Function 91:
+	CompareVarValue 0x8004 351
+	JumpIf DIFFERENT Function#95
+Jump Function#2
+
+
+Function 92:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 2100
+	JumpIf LESS Function#84
+	Message 11
+	PlayFanfare 1603
+	GivePokemon 0x4002 15 0 0 0 0x800C
+	TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+	Message 15
+	CompareVarValue 0x4002 63
+	JumpIf DIFFERENT Function#89
+	TakeCoins 200
+Jump Function#90
+
+
+Function 93:
+	CompareVarValue 0x4002 27
+	JumpIf DIFFERENT Function#96
+	TakeCoins 700
+Jump Function#90
+
+
+Function 94:
+Jump Function#48
+
+
+Function 95:
+Jump Function#3
+
+
+Function 96:
+	TakeCoins 2100
+	CMD_118 0
+	CheckVersion 0x4000
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#94
+Jump Function#6
+
+

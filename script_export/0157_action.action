@@ -1,0 +1,14 @@
+Action 1:
+	Exclamation 0x1
+	Freeze8 0x1
+	LookUp 0x2
+End
+
+
+Action 2:
+	Exclamation 0x1
+	Freeze8 0x1
+	LookRight 0x2
+End
+
+

@@ -1,0 +1,93 @@
+Script 1:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 10 0x800C
+	CommonScript 2000
+End 
+
+
+Script 2:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 9 0x800C
+	CommonScript 2000
+End 
+
+
+Script 3:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 7 0x800C
+	CommonScript 2000
+End 
+
+
+Script 4:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 8 0x800C
+	CommonScript 2000
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#3
+	Movement Player Action#1
+	Movement Overworld.8 Action#2
+Jump Function#4
+
+
+Script 6:
+	CheckFlag 393
+	JumpIf LESS Function#5
+	ClearFlag 393
+End 
+
+
+Script 7:
+	CompareVarValue 0x403E 7
+	JumpIf GREATER/EQUAL Function#6
+	CompareVarValue 0x403E 6
+	JumpIf EQUAL Function#7
+	SetWarpPosition 11 418 284
+	SetWarpPosition 12 419 284
+	SetWarpPosition 13 418 284
+	SetWarpPosition 14 419 284
+End 
+
+
+Script 8:
+	MecScript 
+	LockAll 
+	GetFirstAlivePokemonSlot 0x4005
+	CMD_698 2 0x4005 0x4006
+	CompareVarValue 0x4006 0
+	JumpIf EQUAL Function#8
+Jump Function#9
+
+

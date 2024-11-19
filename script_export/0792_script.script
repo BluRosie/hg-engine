@@ -1,0 +1,77 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 21
+	CommonScript 2052
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	CheckFlag 393
+	JumpIf LESS Function#1
+	ClearFlag 393
+End 
+
+
+Script 6:
+	CMD_147 18 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x4004 1
+	JumpIf DIFFERENT Function#3
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+Jump Function#4
+
+
+Script 7:
+	CompareVarValue 0x4004 1
+	JumpIf DIFFERENT Function#3
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

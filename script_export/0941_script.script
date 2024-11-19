@@ -1,0 +1,204 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 209
+	JumpIf EQUAL Function#1
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 2
+	JumpIf DIFFERENT Function#2
+	Message 5
+Jump Function#3
+
+
+Script 6:
+	CompareVarValue 0x40C4 1
+	JumpIf DIFFERENT Function#4
+	SetFlag 521
+	SetVar 0x40C4 2
+	CheckFlag 393
+	JumpIf LESS Function#5
+	ClearFlag 393
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetFirstAlivePokemonSlot 0x8002
+	CheckRibbon 0x800C 0x8002 64
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	CheckFlag 2748
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x4094 7
+	JumpIf EQUAL Function#8
+	CheckFlag 212
+	JumpIf EQUAL Function#9
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#10
+	CMD_438 0 0x800C
+	CMD_440 0x800C 23
+Jump Function#11
+
+
+Script 8:
+	SetVar 0x8004 1
+	SetVar 0x8005 2
+	SetVar 0x8006 3
+	CommonScript 2039
+	SetVar 0x407B 2
+End 
+
+
+Script 9:
+	SetIconBoard 10 0 20 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 10:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 11 0x800C
+	CommonScript 2000
+End 
+
+
+Script 11:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 12 0x800C
+	CommonScript 2000
+End 
+
+
+Script 12:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 13 0x800C
+	CommonScript 2000
+End 
+
+
+Script 13:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 14 0x800C
+	CommonScript 2000
+End 
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#13
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#14
+	Movement Player Action#1
+	Movement Overworld.9 Action#2
+Jump Function#15
+
+

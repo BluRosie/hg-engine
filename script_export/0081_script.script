@@ -1,0 +1,113 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40E5 2
+	JumpIf EQUAL Function#1
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	Message 0
+	CloseMessage 
+	SetOWPosition Overworld.0 14 1 36 Up
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8004 12
+	JumpIf DIFFERENT Function#2
+	Movement Overworld.0 Action#1
+	Movement Player Action#2
+Jump Function#3
+
+
+Script 3:
+	CompareVarValue 0x40E5 2
+	JumpIf EQUAL Function#4
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#7
+	Movement Player Action#3
+	Movement Overworld.1 Action#4
+Jump Function#8
+
+
+Script 5:
+	CheckFlag 393
+	JumpIf LESS Function#9
+	ClearFlag 393
+End 
+
+
+Script 6:
+	CheckFlag 336
+	JumpIf EQUAL Function#10
+	PlayFanfare 1500
+	LockAll 
+	Message 4
+	Movement Overworld.2 Action#5
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	SetFlag 336
+Jump Function#11
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 9 0x800C
+	CommonScript 2000
+End 
+
+

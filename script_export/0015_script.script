@@ -1,0 +1,195 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 14 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	TrainerBattle 259 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	GiveBadge 14
+	IncrementVar 0x4135 1
+	SetFlag 613
+	SetFlag 665
+	ClearFlag 666
+	CMD_515 22
+	SetFlag 319
+	SetFlag 320
+	SetFlag 316
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	Message 3
+Jump Function#3
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 14 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 315
+	JumpIf EQUAL Function#5
+	Message 6
+	CloseMessage 
+	TrainerBattle 689 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 8
+	CloseMessage 
+	Movement Overworld.5 Action#1
+	WaitMovement 
+	SetFlag 315
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 316
+	JumpIf EQUAL Function#6
+	Message 9
+	CloseMessage 
+	TrainerBattle 690 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 11
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#7
+	Movement Overworld.6 Action#2
+Jump Function#8
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 317
+	JumpIf EQUAL Function#9
+	Message 12
+	CloseMessage 
+	TrainerBattle 691 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 14
+	CloseMessage 
+	Movement Overworld.7 Action#3
+	WaitMovement 
+	SetFlag 317
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 318
+	JumpIf EQUAL Function#10
+	Message 15
+	CloseMessage 
+	TrainerBattle 692 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 17
+	CloseMessage 
+	Movement Overworld.2 Action#4
+	WaitMovement 
+	SetFlag 318
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 319
+	JumpIf EQUAL Function#11
+	Message 18
+	CloseMessage 
+	TrainerBattle 693 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 20
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#12
+	Movement Overworld.3 Action#5
+Jump Function#13
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 320
+	JumpIf EQUAL Function#14
+	Message 21
+	CloseMessage 
+	TrainerBattle 694 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 23
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#15
+	Movement Overworld.4 Action#6
+Jump Function#16
+
+
+Script 9:
+	CheckFlag 315
+	CallIf EQUAL Function#17
+	CheckFlag 317
+	CallIf EQUAL Function#18
+	CheckFlag 318
+	CallIf EQUAL Function#19
+End 
+
+
+Script 10:
+	CMD_142 30 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#20
+	CMD_147 30 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#21
+	CheckBadge 15 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf EQUAL Function#22
+	ClearFlag 757
+End 
+
+

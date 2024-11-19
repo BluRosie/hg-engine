@@ -1,0 +1,137 @@
+Function 1:
+	SetVar 0x8004 70
+	SetFlag 164
+	WildBattleSp 0x400A 0x8004 0
+	ClearFlag 164
+	CMD_683 0x4005
+	CompareVarValue 0x4005 2
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#10
+	ReleaseAll 
+	SetFlag 264
+	SetVar 0x4081 3
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	SetFlag 580
+	ClearFlag 572
+	ClearFlag 577
+End 
+
+
+Function 2:
+	SetFlag 164
+	WildBattleSp 0x400A 0x8004 0
+	ClearFlag 164
+	CMD_683 0x4005
+	CompareVarValue 0x4005 2
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 3
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#10
+	ReleaseAll 
+	SetFlag 264
+	SetVar 0x4081 3
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	SetFlag 580
+	ClearFlag 572
+	ClearFlag 577
+End 
+
+
+Function 3:
+	CompareVarValue 0x4005 5
+	JumpIf DIFFERENT Function#11
+	Message 8
+Jump Function#12
+
+
+Function 4:
+	SetFlag 578
+	RemoveOW Overworld.5
+	ClearFlag 164
+End 
+
+
+Function 5:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CheckFlag 264
+	JumpIf EQUAL Function#7
+	CheckFlag 266
+	JumpIf LESS Function#7
+	CompareVarValue 0x4003 111
+	JumpIf DIFFERENT Function#8
+	SetOWPosition Overworld.0 16 1 18 Up
+	SetOWPosition Overworld.1 12 1 18 Up
+	SetOWPosition Overworld.2 12 1 12 Down
+	SetOWPosition Overworld.3 18 1 18 Up
+	SetOWPosition Overworld.4 18 1 12 Down
+	SetVar 0x4003 0
+End 
+
+
+Function 7:
+End 
+
+
+Function 8:
+	SetVar 0x4003 0
+End 
+
+
+Function 9:
+	ClearFlag 578
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	SetFlag 278
+Return 
+
+
+Function 11:
+	CompareVarValue 0x4005 6
+	JumpIf DIFFERENT Function#13
+	Message 8
+Jump Function#12
+
+
+Function 12:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CompareVarValue 0x4005 4
+	JumpIf DIFFERENT Function#14
+	Message 6
+Jump Function#12
+
+
+Function 14:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

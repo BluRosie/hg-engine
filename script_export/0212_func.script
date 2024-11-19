@@ -1,0 +1,130 @@
+Function 1:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#7
+	Movement Player Action#27
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+	Movement Following Action#28
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 71 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CompareVarValue 0x40FE 1
+	JumpIf EQUAL Function#9
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 4
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#10
+	SetFlag 638
+End 
+
+
+Function 6:
+	SetOWPosition Overworld.1 947 1 266 Left
+	SetOWPosition Overworld.2 950 1 266 Left
+	SetOWPosition Overworld.3 952 1 280 Right
+End 
+
+
+Function 7:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#11
+	Movement Player Action#29
+	Movement Overworld.0 Action#2
+Jump Function#4
+
+
+Function 8:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 71 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetFlag 638
+End 
+
+
+Function 10:
+	ClearFlag 638
+End 
+
+
+Function 11:
+	Movement Player Action#30
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+	Movement Following Action#28
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 71 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

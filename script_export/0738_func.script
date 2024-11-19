@@ -1,0 +1,193 @@
+Function 1:
+	CMD_147 31 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+
+Function 2:
+	TextPlayerName 0
+	CheckFlag 2728
+	JumpIf EQUAL Function#5
+	Message 1
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+End 
+
+
+Function 3:
+	TextPlayerName 0
+	GetHour 0x800C
+	CompareVarValue 0x800C 15
+	JumpIf EQUAL Function#2
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	TextPlayerName 0
+	CompareVarValue 0x4004 1
+	JumpIf GREATER/EQUAL Function#9
+	Message 8
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	RecordPokegearNumber 31
+	TextPlayerName 0
+	Message 9
+	PlaySound 1206
+	WaitSound 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	TextPlayerName 0
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	TextPlayerName 0
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetVar 0x8004 0
+Jump Function#11
+
+
+Function 8:
+	TextPlayerName 0
+	Message 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8004
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_490 0x8004
+	CompareVarValue 0x8004 255
+	JumpIf EQUAL Function#6
+	GetPartyPokemonID 0x8004 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#12
+	TextPokeNickname 0 0x8004
+	PlayFanfare 1633
+	Message 3
+	WaitFanfare 1633
+	WaitTime 15 0x800C
+	AddHappiness 10 0x8004
+	CMD_828 0x8004 0x2001 0
+	CMD_828 0x8004 0x1605 0
+	CompareVarValue 0x4122 7
+	JumpIf EQUAL Function#13
+	IncrementVar 0x4122 1
+	SetFlag 2728
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	TextPlayerName 0
+	Message 12
+Jump Function#14
+
+
+Function 10:
+	TextPlayerName 0
+	Message 11
+	WaitButton 
+	CloseMessage 
+	SetVar 0x4004 1
+	ReleaseAll 
+End 
+
+
+Function 11:
+	TextPlayerName 0
+	TextPokeNickname 0 0x8004
+	PlayFanfare 1633
+	Message 3
+	WaitFanfare 1633
+	WaitTime 15 0x800C
+	AddHappiness 10 0x8004
+	CMD_828 0x8004 0x2001 0
+	CMD_828 0x8004 0x1605 0
+	CompareVarValue 0x4122 7
+	JumpIf EQUAL Function#13
+	IncrementVar 0x4122 1
+	SetFlag 2728
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	TextPlayerName 0
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	TextPlayerName 0
+	SetFlag 2728
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	TextPlayerName 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	RecordPokegearNumber 31
+	TextPlayerName 0
+	Message 9
+	PlaySound 1206
+	WaitSound 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

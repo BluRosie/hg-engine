@@ -1,0 +1,23 @@
+Script 1:
+	CheckFlag 199
+	JumpIf EQUAL Function#1
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	SetVar 0x8004 337
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CommonScript 2033
+	SetFlag 199
+	Message 2
+	WaitButton 
+	CloseMessage 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+

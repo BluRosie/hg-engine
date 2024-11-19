@@ -1,0 +1,29 @@
+Action 1:
+	Freeze4 0x1
+	WalkUpFast 0x2
+End
+
+
+Action 2:
+	Freeze4 0x1
+	WalkUpFast 0x2
+End
+
+
+Action 3:
+	WalkUpFast 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 4:
+	WalkUpFast 0x2
+	DisappearTrue 0x1
+End
+
+
+Action 5:
+	LookRight 0x1
+End
+
+

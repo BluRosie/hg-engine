@@ -1,0 +1,30 @@
+Script 1:
+	SetFlag 439
+	SetFlag 440
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#1
+	ClearFlag 439
+	ClearFlag 440
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_669 475 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#2
+	Message 0
+	SetFlag 449
+	SetVar 0x8004 475
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 2
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,88 @@
+Action 1:
+	0069 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 2:
+	006A 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 3:
+	006B 0x1
+	LookRight 0x1
+End
+
+
+Action 4:
+	Freeze4 0x6
+	006C 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 5:
+	006D 0x1
+	LookRight 0x1
+End
+
+
+Action 6:
+	Freeze4 0x6
+	006E 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 7:
+	WalkLeftFast 0x1
+	LookDown 0x1
+End
+
+
+Action 8:
+	WalkDownVeryFast 0x1
+	WalkLeftVeryFast 0x3
+	LookDown 0x1
+End
+
+
+Action 9:
+	WalkLeftVeryFast 0x5
+	WalkDownVeryFast 0x1
+	LookDown 0x1
+End
+
+
+Action 10:
+	Freeze4 0x6
+	LookLeft 0x1
+End
+
+
+Action 11:
+	WalkLeftVeryFast 0x1
+	LookUp 0x1
+End
+
+
+Action 12:
+	LookRight 0x1
+End
+
+
+Action 13:
+	WalkRightVeryFast 0x4
+	WalkUpVeryFast 0x1
+End
+
+
+Action 14:
+	WalkUpVeryFast 0x1
+	WalkRightVeryFast 0x5
+	LookUp 0x1
+End
+
+

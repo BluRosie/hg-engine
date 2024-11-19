@@ -1,0 +1,627 @@
+Function 1:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 96 0 46 50 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Return 
+
+
+Function 2:
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CheckFlag 2727
+	JumpIf EQUAL Function#30
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#31
+	Message 4
+Jump Function#32
+
+
+Function 4:
+	TextPlayerName 0
+	Message 20
+	CheckItemSpace 0x4058 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#33
+	SetVarFromVariable 0x8004 0x4058
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetVar 0x4058 0
+Jump Function#34
+
+
+Function 5:
+	Message 27
+	CloseMessage 
+	SetVar 0x4118 2
+	Call Function#1
+	LocalScript 
+End 
+
+
+Function 6:
+	Message 31
+	PlaySound 1203
+	WaitSound 
+	Message 32
+	CMD_786 1
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#35
+	Message 33
+Jump Function#36
+
+
+Function 7:
+	PlaySound 1203
+	WaitSound 
+	Message 32
+	CMD_786 1
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#35
+	Message 33
+Jump Function#36
+
+
+Function 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 50
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+End 
+
+
+Function 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 53
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+End 
+
+
+Function 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 56
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+End 
+
+
+Function 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 59
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+End 
+
+
+Function 16:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 62
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+End 
+
+
+Function 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 65
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+End 
+
+
+Function 20:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 68
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+End 
+
+
+Function 22:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 71
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+End 
+
+
+Function 24:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 74
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+End 
+
+
+Function 26:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 77
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 27:
+End 
+
+
+Function 28:
+	Message 22
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 29:
+	ReleaseAll 
+End 
+
+
+Function 30:
+	Message 18
+Jump Function#37
+
+
+Function 31:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#38
+	Message 5
+Jump Function#32
+
+
+Function 32:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#39
+	Message 17
+Jump Function#37
+
+
+Function 33:
+	Message 21
+	WaitButton 
+	CloseMessage 
+Return 
+
+
+Function 34:
+	CloseMessage 
+Return 
+
+
+Function 35:
+	Message 34
+	PlaySound 1202
+	WaitSound 
+	Message 32
+	CMD_786 0
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#40
+	SetFlag 321
+	Message 35
+Jump Function#41
+
+
+Function 36:
+	PlaySound 1202
+	WaitSound 
+	Message 32
+	CMD_786 0
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#40
+	SetFlag 321
+	Message 35
+Jump Function#41
+
+
+Function 37:
+	WaitButton 
+	CloseMessage 
+	LocalScript 
+End 
+
+
+Function 38:
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#42
+	Message 6
+Jump Function#32
+
+
+Function 39:
+	CountPCFreeSpace 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#43
+	GetPartyCount 0x8004
+	CompareVarValue 0x8004 6
+	JumpIf EQUAL Function#44
+	CountAlivePokemonExceptFirst 0x8005 6
+	CompareVarValue 0x8005 1
+	JumpIf DIFFERENT Function#45
+	GetPartyCount 0x8004
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#46
+	GetFirstAlivePokemonSlot 0x800C
+	TextPokeNickname 0 0x800C
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#47
+	Message 28
+Jump Function#37
+
+
+Function 40:
+	ClearFlag 321
+	Message 36
+	PlaySound 1201
+	WaitSound 
+	Message 32
+	TextPlayerName 0
+	TextItem 3 0x4001
+	SetVar 0x8004 37
+	IncrementVar 0x8004 0x4000
+	MessageFlex 0x8004
+	SetVarFromVariable 0x8004 0x4001
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#48
+	CommonScript 2033
+Jump Function#49
+
+
+Function 41:
+	PlaySound 1201
+	WaitSound 
+	Message 32
+	TextPlayerName 0
+	TextItem 3 0x4001
+	SetVar 0x8004 37
+	IncrementVar 0x8004 0x4000
+	MessageFlex 0x8004
+	SetVarFromVariable 0x8004 0x4001
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#48
+	CommonScript 2033
+Jump Function#49
+
+
+Function 42:
+	Message 7
+Jump Function#37
+
+
+Function 43:
+	CountAlivePokemonExceptFirst 0x8005 6
+	CompareVarValue 0x8005 1
+	JumpIf DIFFERENT Function#45
+	GetPartyCount 0x8004
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#46
+	GetFirstAlivePokemonSlot 0x800C
+	TextPokeNickname 0 0x800C
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#47
+	Message 28
+Jump Function#37
+
+
+Function 44:
+	Message 16
+Jump Function#37
+
+
+Function 45:
+	GetFirstAlivePokemonSlot 0x800C
+	TextPokeNickname 0 0x800C
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#47
+	Message 28
+Jump Function#37
+
+
+Function 46:
+	FadeOutMusic 0 10
+	PlayMusic 1090
+	TextPlayerName 0
+	Message 14
+	Message 15
+	SetFlag 2451
+	SetFlag 590
+	SetVar 0x4118 1
+	SetVar 0x40F7 1
+	CMD_784 1
+	CMD_785 0 64
+	Call Function#50
+	CMD_784 257
+	SetFlag 2454
+Jump Function#51
+
+
+Function 47:
+	FadeOutMusic 0 10
+	PlayMusic 1090
+	TextPlayerName 0
+	Message 13
+	SetFlag 351
+Jump Function#52
+
+
+Function 48:
+	TextPlayerName 0
+	Message 45
+	SetVarFromVariable 0x4058 0x4001
+	CheckFlag 351
+	CallIf EQUAL Function#53
+	Message 42
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#54
+	CloseMessage 
+Jump Function#55
+
+
+Function 49:
+	CheckFlag 351
+	CallIf EQUAL Function#53
+	Message 42
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#54
+	CloseMessage 
+Jump Function#55
+
+
+Function 50:
+	SetVar 0x8004 0
+	SetVar 0x8005 627
+	CMD_790 0x8004 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#56
+	SetFlagFromVar 0x8005
+	IncrementVar 0x8004 1
+	IncrementVar 0x8005 1
+	CompareVarValue 0x8004 10
+	JumpIf LESS Function#57
+Return 
+
+
+Function 51:
+	CloseMessage 
+	LocalScript 
+End 
+
+
+Function 52:
+	TextPlayerName 0
+	Message 14
+	Message 15
+	SetFlag 2451
+	SetFlag 590
+	SetVar 0x4118 1
+	SetVar 0x40F7 1
+	CMD_784 1
+	CMD_785 0 64
+	Call Function#50
+	CMD_784 257
+	SetFlag 2454
+Jump Function#51
+
+
+Function 53:
+	Message 47
+	CloseMessage 
+Return 
+
+
+Function 54:
+	TextPokemon 1 0x4002 2 1
+	Message 43
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CloseMessage 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#58
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 255 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_788 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#55
+	Message 46
+	CloseMessage 
+	Movement Camera Action#2
+	WaitMovement 
+	FadeOutMusic 0 10
+	PlayMusic 1075
+	ReleaseCamera 
+	Call Function#59
+	SetFlag 2727
+	ClearFlag 2451
+	ClearFlag 590
+	ClearFlag 351
+	CMD_785 1 0
+	CMD_784 257
+	FadeOutMusic 0 30
+	PlayDefaultMusic 
+	ReleaseAll 
+End 
+
+
+Function 55:
+	Movement Camera Action#2
+	WaitMovement 
+	FadeOutMusic 0 10
+	PlayMusic 1075
+	ReleaseCamera 
+	Call Function#59
+	SetFlag 2727
+	ClearFlag 2451
+	ClearFlag 590
+	ClearFlag 351
+	CMD_785 1 0
+	CMD_784 257
+	FadeOutMusic 0 30
+	PlayDefaultMusic 
+	ReleaseAll 
+End 
+
+
+Function 56:
+	IncrementVar 0x8004 1
+	IncrementVar 0x8005 1
+	CompareVarValue 0x8004 10
+	JumpIf LESS Function#57
+Return 
+
+
+Function 57:
+	CMD_790 0x8004 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#56
+	SetFlagFromVar 0x8005
+	IncrementVar 0x8004 1
+	IncrementVar 0x8005 1
+	CompareVarValue 0x8004 10
+	JumpIf LESS Function#57
+Return 
+
+
+Function 58:
+	CMD_788 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#55
+	Message 46
+	CloseMessage 
+	Movement Camera Action#2
+	WaitMovement 
+	FadeOutMusic 0 10
+	PlayMusic 1075
+	ReleaseCamera 
+	Call Function#59
+	SetFlag 2727
+	ClearFlag 2451
+	ClearFlag 590
+	ClearFlag 351
+	CMD_785 1 0
+	CMD_784 257
+	FadeOutMusic 0 30
+	PlayDefaultMusic 
+	ReleaseAll 
+End 
+
+
+Function 59:
+	SetVar 0x8004 0
+	SetVar 0x8005 10
+	SetVar 0x8006 627
+	SetOWMovement 0x8005 Move.2
+	ClearFlagFromVar 0x8006
+	IncrementVar 0x8004 1
+	IncrementVar 0x8005 1
+	IncrementVar 0x8006 1
+	CompareVarValue 0x8004 10
+	JumpIf LESS Function#60
+Return 
+
+
+Function 60:
+	SetOWMovement 0x8005 Move.2
+	ClearFlagFromVar 0x8006
+	IncrementVar 0x8004 1
+	IncrementVar 0x8005 1
+	IncrementVar 0x8006 1
+	CompareVarValue 0x8004 10
+	JumpIf LESS Function#60
+Return 
+
+

@@ -1,0 +1,227 @@
+Function 1:
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+End 
+
+
+Function 2:
+	CMD_320 142
+	SetTrainerFlag 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#3
+	CheckFlag 330
+	JumpIf LESS Function#4
+	CMD_147 36 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#5
+	GetHour 0x4000
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#6
+	SetFlag 752
+Jump Function#7
+
+
+Function 3:
+	SetFlag 752
+End 
+
+
+Function 4:
+	ClearFlag 752
+End 
+
+
+Function 5:
+	CheckFlag 354
+	JumpIf EQUAL Function#20
+	SetFlag 752
+End 
+
+
+Function 6:
+	CompareVarValue 0x4000 10
+	JumpIf DIFFERENT Function#21
+	SetFlag 752
+Jump Function#7
+
+
+Function 7:
+End 
+
+
+Function 8:
+End 
+
+
+Function 9:
+	CheckFlag 385
+	JumpIf LESS Function#11
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	SetVar 0x8004 361
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CommonScript 2033
+	SetFlag 385
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	PlayFanfare 1500
+	LockAll 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	PlayFanfare 1500
+	LockAll 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	VermillionGymAnimation 1
+	SetFlag 2470
+	StopFanfare 2150
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	PlayFanfare 1500
+	LockAll 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	VermillionGymAnimation 0
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	PlayFanfare 1500
+	LockAll 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	VermillionGymAnimation 256
+	CMD_323 97 2
+	PlayFanfare 1500
+	LockAll 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	PlayFanfare 1500
+	LockAll 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#23
+	SetFlag 752
+Jump Function#24
+
+
+Function 21:
+	CompareVarValue 0x4000 11
+	JumpIf DIFFERENT Function#25
+	SetFlag 752
+Jump Function#7
+
+
+Function 22:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#26
+	SetFlag 752
+Jump Function#24
+
+
+Function 24:
+End 
+
+
+Function 25:
+	ClearFlag 752
+End 
+
+
+Function 26:
+	ClearFlag 752
+End 
+
+

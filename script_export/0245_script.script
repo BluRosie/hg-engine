@@ -1,0 +1,58 @@
+Script 1:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4118 1
+	JumpIf DIFFERENT Function#1
+	ClearFlag 452
+	SetFlag 451
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28A5
+	CompareVarValue 0x4118 1
+	JumpIf DIFFERENT Function#3
+	CheckFlag 452
+	JumpIf EQUAL Function#4
+	GetPlayerDirection 0x800C
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#5
+	Movement Player Action#1
+Jump Function#6
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	Movement Player Action#2
+	WaitMovement 
+	CommonScript 0x28A6
+	CompareVarValue 0x4118 1
+	JumpIf DIFFERENT Function#7
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 487 0 75 39 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Lock Following
+	GetFollowingPokeSize 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+	BallResetFollowingPoke 
+Jump Function#9
+
+

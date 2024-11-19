@@ -1,0 +1,26 @@
+Action 1:
+	WalkLeftFastSite 0x1
+End
+
+
+Action 2:
+	WalkDownFast 0x2
+End
+
+
+Action 3:
+	WaitWalkLeftSlow 0x5
+	WaitWalkDownSlow 0xA
+End
+
+
+Action 4:
+	WaitWalkDownSlow 0xA
+End
+
+
+Action 5:
+	LookRight 0x1
+End
+
+

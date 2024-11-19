@@ -1,0 +1,13 @@
+Script 1:
+	MecScript 
+	LockAll 
+	CMD_839 1
+	WaitTime 1 0x800C
+	SetVarFromVariable 0x8005 0x8000
+	CMD_547 0x8000
+	CheckChatotCry 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+Jump Function#2
+
+

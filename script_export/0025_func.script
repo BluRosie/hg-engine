@@ -1,0 +1,352 @@
+Function 1:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetOWPosition Overworld.20 51 0 48 Down
+	SetVar 0x4000 0
+	SetVar 0x4001 10
+	SetVar 0x4002 48
+	CMD_784 1
+	CMD_790 0x4000 0x4004
+	CompareVarValue 0x4004 1
+	JumpIf DIFFERENT Function#12
+	SetOWPosition 0x4001 0x4002 0 50 Up
+	IncrementVar 0x4002 2
+	IncrementVar 0x4000 1
+	IncrementVar 0x4001 1
+	CompareVarValue 0x4000 10
+	JumpIf LESS Function#13
+	CMD_784 257
+Return 
+
+
+Function 4:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#14
+	Movement Player Action#3
+Jump Function#7
+
+
+Function 7:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 16 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#16
+	Movement Player Action#3
+Jump Function#9
+
+
+Function 9:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#17
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 17 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x40F7 1
+	JumpIf EQUAL Function#18
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x4000 3
+	JumpIf EQUAL Function#19
+	CompareVarValue 0x4000 2
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x4000 4
+	JumpIf EQUAL Function#18
+	CompareVarValue 0x4000 5
+	JumpIf EQUAL Function#18
+	SetFlag 638
+	ClearFlag 639
+Jump Function#20
+
+
+Function 11:
+	TextPlayerName 0
+	Message 85
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#21
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#22
+	Message 86
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 7 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 87
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	IncrementVar 0x4000 1
+	IncrementVar 0x4001 1
+	CompareVarValue 0x4000 10
+	JumpIf LESS Function#13
+	CMD_784 257
+Return 
+
+
+Function 13:
+	CMD_790 0x4000 0x4004
+	CompareVarValue 0x4004 1
+	JumpIf DIFFERENT Function#12
+	SetOWPosition 0x4001 0x4002 0 50 Up
+	IncrementVar 0x4002 2
+	IncrementVar 0x4000 1
+	IncrementVar 0x4001 1
+	CompareVarValue 0x4000 10
+	JumpIf LESS Function#13
+	CMD_784 257
+Return 
+
+
+Function 14:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#23
+	Movement Player Action#5
+	Movement Overworld.26 Action#2
+Jump Function#7
+
+
+Function 15:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 16 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#24
+	Movement Player Action#6
+	Movement Overworld.27 Action#2
+Jump Function#9
+
+
+Function 17:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 17 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	SetFlag 638
+	SetFlag 639
+	ClearFlag 2454
+	CheckFlag 2404
+	JumpIf EQUAL Function#25
+	SetFlag 648
+End 
+
+
+Function 19:
+	ClearFlag 638
+	SetFlag 639
+Jump Function#20
+
+
+Function 20:
+	CheckFlag 2404
+	JumpIf EQUAL Function#25
+	SetFlag 648
+End 
+
+
+Function 21:
+	Message 88
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	Message 89
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	Movement Player Action#7
+	Movement Overworld.26 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 16 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 24:
+	Movement Player Action#7
+	Movement Overworld.27 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#17
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 17 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	CMD_142 34 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#26
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x4000 3
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x4000 5
+	JumpIf EQUAL Function#27
+	SetFlag 648
+End 
+
+
+Function 26:
+	SetFlag 648
+End 
+
+
+Function 27:
+	ClearFlag 648
+End 
+
+

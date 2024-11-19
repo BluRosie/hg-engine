@@ -1,0 +1,40 @@
+Action 1:
+	LookDown 0x1
+	DisappearFalse 0x1
+	WalkDownFast 0x2
+End
+
+
+Action 2:
+	WalkDownFast 0x2
+End
+
+
+Action 3:
+	WalkRightFast 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 4:
+	WalkLeftFast 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 5:
+	WalkUpFast 0x2
+End
+
+
+Action 6:
+	WalkUpFast 0x1
+End
+
+
+Action 7:
+	WalkUpFast 0x1
+	DisappearTrue 0x1
+End
+
+

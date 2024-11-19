@@ -1,0 +1,1545 @@
+Script 1:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 2:
+	SetVar 0x8008 18
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 3:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 4:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 5:
+	SetVar 0x8008 4
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 6:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 7:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 8:
+	SetVar 0x8008 22
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 9:
+	SetVar 0x8008 60
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 10:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 11:
+	SetVar 0x8008 78
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 12:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 13:
+	SetVar 0x8008 25
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 14:
+	SetVar 0x8008 36
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 15:
+	SetVar 0x8008 34
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 16:
+	SetVar 0x8008 155
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 17:
+	SetVar 0x8008 151
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 18:
+	SetVar 0x8008 36
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 19:
+	SetVar 0x8008 35
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 20:
+	SetVar 0x8008 158
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 21:
+	SetVar 0x8008 81
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 22:
+	SetVar 0x8008 90
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 23:
+	SetVar 0x8008 91
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 24:
+	SetVar 0x8008 154
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 25:
+	SetVar 0x8008 243
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 26:
+	SetVar 0x8008 37
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 27:
+	SetVar 0x8008 249
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 28:
+	SetVar 0x8008 270
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 29:
+	SetVar 0x8008 154
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 30:
+	SetVar 0x8008 79
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 31:
+	SetVar 0x8008 3
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 32:
+	SetVar 0x8008 336
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 33:
+	SetVar 0x8008 253
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 34:
+	SetVar 0x8008 57
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 35:
+	SetVar 0x8008 3
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 36:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 37:
+	SetVar 0x8008 21
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 38:
+	SetVar 0x8008 58
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 39:
+	SetVar 0x8008 366
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 40:
+	SetVar 0x8008 40
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 41:
+	SetVar 0x8008 25
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 42:
+	SetVar 0x8008 26
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 43:
+	SetVar 0x8008 345
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 44:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 45:
+	SetVar 0x8008 57
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 46:
+	SetVar 0x8008 18
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 47:
+	SetVar 0x8008 38
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 48:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 49:
+	SetVar 0x8008 390
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 50:
+	SetVar 0x8008 409
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 51:
+	SetVar 0x8008 39
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 52:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 53:
+	SetVar 0x8008 19
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 54:
+	SetVar 0x8008 223
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 55:
+	SetVar 0x8008 38
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 56:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 57:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 58:
+	SetVar 0x8008 228
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 59:
+	SetVar 0x8008 444
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 60:
+	SetVar 0x8008 405
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 61:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 62:
+	SetVar 0x8008 393
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 63:
+	SetVar 0x8008 22
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 64:
+	SetVar 0x8008 218
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 65:
+	SetVar 0x8008 355
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 66:
+	SetVar 0x8008 107
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 67:
+	SetVar 0x8008 25
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 68:
+	SetVar 0x8008 18
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 69:
+	SetVar 0x8008 45
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 70:
+	SetVar 0x8008 339
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 71:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 72:
+	SetVar 0x8008 78
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 73:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 74:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 75:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 76:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 77:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 78:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 79:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 80:
+	SetVar 0x8008 41
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 81:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 82:
+	SetVar 0x8008 45
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 83:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 84:
+	SetVar 0x8008 255
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 85:
+	SetVar 0x8008 387
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 86:
+	SetVar 0x8008 384
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 87:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 88:
+	SetVar 0x8008 38
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 89:
+	SetVar 0x8008 414
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 90:
+	SetVar 0x8008 76
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 91:
+	SetVar 0x8008 26
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 92:
+	SetVar 0x8008 415
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 93:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 94:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 95:
+	SetVar 0x8008 78
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 96:
+	SetVar 0x8008 48
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 97:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 98:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 99:
+	SetVar 0x8008 49
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 100:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 101:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 102:
+	SetVar 0x8008 41
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 103:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 104:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 105:
+	SetVar 0x8008 279
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 106:
+	SetVar 0x8008 317
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 107:
+	SetVar 0x8008 69
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 108:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 109:
+	SetVar 0x8008 26
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 110:
+	SetVar 0x8008 324
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 111:
+	SetVar 0x8008 392
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 112:
+	SetVar 0x8008 38
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 113:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 114:
+	SetVar 0x8008 78
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 115:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 116:
+	SetVar 0x8008 278
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 117:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 118:
+	SetVar 0x8008 47
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 119:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 120:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 121:
+	SetVar 0x8008 316
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 122:
+	SetVar 0x8008 321
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 123:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 124:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 125:
+	SetVar 0x8008 367
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 126:
+	SetVar 0x8008 40
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 127:
+	SetVar 0x8008 235
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 128:
+	SetVar 0x8008 78
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 129:
+	SetVar 0x8008 48
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 130:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 131:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 132:
+	SetVar 0x8008 39
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 133:
+	SetVar 0x8008 25
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 134:
+	SetVar 0x8008 25
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 135:
+	SetVar 0x8008 55
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 136:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 137:
+	SetVar 0x8008 373
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 138:
+	SetVar 0x8008 376
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 139:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 140:
+	SetVar 0x8008 46
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 141:
+	SetVar 0x8008 61
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 142:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 143:
+	SetVar 0x8008 39
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 144:
+	SetVar 0x8008 370
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 145:
+	SetVar 0x8008 297
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 146:
+	SetVar 0x8008 67
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 147:
+	SetVar 0x8008 77
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 148:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 149:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 150:
+	SetVar 0x8008 426
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 151:
+	SetVar 0x8008 46
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 152:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 153:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 154:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 155:
+	SetVar 0x8008 246
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 156:
+	SetVar 0x8008 399
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 157:
+	SetVar 0x8008 47
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 158:
+	SetVar 0x8008 49
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 159:
+	SetVar 0x8008 41
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 160:
+	SetVar 0x8008 250
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 161:
+	SetVar 0x8008 40
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 162:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 163:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 164:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 165:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 166:
+	SetVar 0x8008 59
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 167:
+	SetVar 0x8008 381
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 168:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 169:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 170:
+	SetVar 0x8008 25
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 171:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 172:
+	SetVar 0x8008 56
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 173:
+	SetVar 0x8008 68
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 174:
+	SetVar 0x8008 81
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 175:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 176:
+	SetVar 0x8008 329
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 177:
+	SetVar 0x8008 280
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 178:
+	SetVar 0x8008 41
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 179:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 180:
+	SetVar 0x8008 27
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 181:
+	SetVar 0x8008 17
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 182:
+	SetVar 0x8008 353
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 183:
+	SetVar 0x8008 45
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 184:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 185:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 186:
+	SetVar 0x8008 406
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 187:
+	SetVar 0x8008 50
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 188:
+	SetVar 0x8008 319
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 189:
+	SetVar 0x8008 288
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 190:
+	SetVar 0x8008 53
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 191:
+	SetVar 0x8008 315
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 192:
+	SetVar 0x8008 389
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 193:
+	SetVar 0x8008 368
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 194:
+	SetVar 0x8008 396
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 195:
+	SetVar 0x8008 40
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 196:
+	SetVar 0x8008 383
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 197:
+	SetVar 0x8008 47
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 198:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 199:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 200:
+	SetVar 0x8008 110
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 201:
+	SetVar 0x8008 418
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 202:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 203:
+	SetVar 0x8008 269
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 204:
+	SetVar 0x8008 24
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 205:
+	SetVar 0x8008 46
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 206:
+	SetVar 0x8008 219
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 207:
+	SetVar 0x8008 394
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 208:
+	SetVar 0x8008 49
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 209:
+	SetVar 0x8008 66
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 210:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 211:
+	SetVar 0x8008 318
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 212:
+	SetVar 0x8008 413
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 213:
+	SetVar 0x8008 48
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 214:
+	SetVar 0x8008 40
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 215:
+	SetVar 0x8008 56
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 216:
+	SetVar 0x8008 65
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 217:
+	SetVar 0x8008 85
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 218:
+	SetVar 0x8008 404
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 219:
+	SetVar 0x8008 267
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 220:
+	SetVar 0x8008 296
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 221:
+	SetVar 0x8008 45
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 222:
+	SetVar 0x8008 323
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 223:
+	SetVar 0x8008 20
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 224:
+	SetVar 0x8008 286
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 225:
+	SetVar 0x8008 84
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 226:
+	SetVar 0x8008 28
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 227:
+	SetVar 0x8008 89
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 228:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 229:
+	SetVar 0x8008 340
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 230:
+	SetVar 0x8008 382
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 231:
+	SetVar 0x8008 362
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 232:
+	SetVar 0x8008 325
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 233:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 234:
+	SetVar 0x8008 320
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 235:
+	SetVar 0x8008 109
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 236:
+	SetVar 0x8008 78
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 237:
+	SetVar 0x8008 403
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 238:
+	SetVar 0x8008 268
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 239:
+	SetVar 0x8008 41
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 240:
+	SetVar 0x8008 49
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 241:
+	SetVar 0x8008 46
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 242:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 243:
+	SetVar 0x8008 41
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 244:
+	SetVar 0x8008 23
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 245:
+	SetVar 0x8008 92
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 246:
+	SetVar 0x8008 254
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 247:
+	SetVar 0x8008 51
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 248:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 249:
+	SetVar 0x8008 351
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 250:
+	SetVar 0x8008 314
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 251:
+	SetVar 0x8008 29
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 252:
+	SetVar 0x8008 2
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 253:
+	SetVar 0x8008 108
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 254:
+	SetVar 0x8008 322
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 255:
+	SetVar 0x8008 281
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Script 256:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	WaitFanfare 1500
+	SetVarFromVariable 0x8004 0x8008
+	SetVarFromVariable 0x8005 0x8009
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+End 
+
+

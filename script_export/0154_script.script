@@ -1,0 +1,33 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#1
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf EQUAL Function#2
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#3
+Jump Function#4
+
+
+Script 2:
+	GetPreviousHeaderID 0x4000
+	CompareVarValue 0x4000 387
+	JumpIf EQUAL Function#5
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

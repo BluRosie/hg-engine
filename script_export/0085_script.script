@@ -1,0 +1,243 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4003 0
+	SetVar 0x4004 0
+Jump Function#1
+
+
+Script 2:
+	CMD_682 0
+	SetVar 0x4003 1
+	SetVar 0x4145 0
+	Message 11
+	Call Function#2
+	Call Function#3
+Jump Function#4
+
+
+Script 3:
+	Message 12
+	CMD_636 0x4146
+	CompareVarValue 0x404F 1
+	CallIf EQUAL Function#5
+	CompareVarValue 0x404F 3
+	CallIf EQUAL Function#6
+Jump Function#7
+
+
+Script 4:
+	CompareVarValue 0x4146 0
+	CallIf EQUAL Function#8
+	CompareVarValue 0x4146 1
+	CallIf EQUAL Function#8
+	CompareVarValue 0x404F 1
+	CallIf EQUAL Function#9
+	CompareVarValue 0x404F 3
+	CallIf EQUAL Function#10
+Jump Function#7
+
+
+Script 5:
+Jump Function#7
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x4003 0
+	SetVar 0x4004 1
+Jump Function#1
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 59
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 60
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 61
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	WaitFanfare 1500
+	PlayCry 80 0
+	Message 62
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 63
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 64
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 65
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 66
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 67
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	CheckPlayerGender 0x4000
+	CompareVarValue 0x4000 0
+	CallIf EQUAL Function#11
+	CompareVarValue 0x4000 1
+	CallIf EQUAL Function#12
+	Call Function#13
+End 
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 254
+	JumpIf LESS Function#14
+	CMD_692 
+	CMD_513 1027 0x4054 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#17
+	TextPlayerName 0
+	Message 69
+	Message 70
+	PlaySound 1214
+	Message 72
+	WaitSound 
+Jump Function#18
+
+
+Script 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+Jump Function#20
+
+
+Script 19:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#20
+Jump Function#19
+
+
+Script 20:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TextPlayerName 0
+	SetVarFromVariable 0x4001 0x4021
+	CompareVarValue 0x4001 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x4001 97
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x4001 365
+	JumpIf EQUAL Function#23
+	CompareVarValue 0x4001 366
+	JumpIf EQUAL Function#24
+	CompareVarValue 0x4001 354
+	JumpIf EQUAL Function#25
+End 
+
+
+Script 21:
+	CompareVarValue 0x4145 1
+	JumpIf EQUAL Function#26
+End 
+
+
+Script 22:
+	CMD_693 0x4000
+	CompareVarValue 0x4000 11
+	CallIf GREATER/EQUAL Function#27
+	CompareVarValue 0x4000 101
+	CallIf GREATER/EQUAL Function#28
+End 
+
+

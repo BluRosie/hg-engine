@@ -1,0 +1,11 @@
+Action 1:
+	DisappearFalse 0x1
+End
+
+
+Action 2:
+	JumpDownSlow 0x2
+	DisappearTrue 0x1
+End
+
+

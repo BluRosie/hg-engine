@@ -1,0 +1,14 @@
+Function 1:
+	CyclingRoad 1
+	SetVar 0x4129 1
+	SetVar 0x412A 1
+	SetFlag 329
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CyclingRoad 1
+End 
+
+

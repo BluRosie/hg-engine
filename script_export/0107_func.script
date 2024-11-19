@@ -1,0 +1,45 @@
+Function 1:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	SetVar 0x4131 1
+	ClearFlag 766
+	ClearFlag 768
+	ClearFlag 767
+Return 
+
+
+Function 3:
+	GetPartyCount 0x8004
+	SetVar 0x8005 0
+	GetPartyPokemonID 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	GiveRibbon 0x8005 72
+	IncrementVar 0x8005 1
+	CompareVars 0x8005 0x8004
+	JumpIf LESS Function#5
+Return 
+
+
+Function 4:
+	IncrementVar 0x8005 1
+	CompareVars 0x8005 0x8004
+	JumpIf LESS Function#5
+Return 
+
+
+Function 5:
+	GetPartyPokemonID 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	GiveRibbon 0x8005 72
+	IncrementVar 0x8005 1
+	CompareVars 0x8005 0x8004
+	JumpIf LESS Function#5
+Return 
+
+

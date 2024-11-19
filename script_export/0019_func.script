@@ -1,0 +1,257 @@
+Function 1:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x400A 0
+	CallIf EQUAL Function#9
+	CompareVarValue 0x400A 2
+	CallIf EQUAL Function#10
+	CheckFlag 147
+	JumpIf EQUAL Function#11
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	CompareVarValue 0x400A 0
+	JumpIf DIFFERENT Function#12
+	Movement Player Action#4
+Jump Function#13
+
+
+Function 6:
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x400A 0
+	CallIf EQUAL Function#9
+	CompareVarValue 0x400A 2
+	CallIf EQUAL Function#10
+	CheckFlag 147
+	JumpIf EQUAL Function#11
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	CompareVarValue 0x400A 0
+	JumpIf DIFFERENT Function#12
+	Movement Player Action#4
+Jump Function#13
+
+
+Function 7:
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	Message 3
+	WaitButton 
+	CloseMessage 
+End 
+
+
+Function 8:
+	WaitMovement 
+	Message 3
+	WaitButton 
+	CloseMessage 
+End 
+
+
+Function 9:
+	CompareVarValue 0x8004 7
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.0 Action#6
+Jump Function#15
+
+
+Function 10:
+	CompareVarValue 0x8005 7
+	JumpIf DIFFERENT Function#16
+	Movement Overworld.0 Action#7
+Jump Function#17
+
+
+Function 11:
+	Message 2
+	CloseMessage 
+	CMD_774 0 97
+	SetVar 0x40F3 1
+End 
+
+
+Function 12:
+	Movement Overworld.0 Action#8
+	Movement Player Action#8
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#18
+	Message 0
+Jump Function#19
+
+
+Function 13:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#18
+	Message 0
+Jump Function#19
+
+
+Function 14:
+	CompareVarValue 0x8004 8
+	JumpIf DIFFERENT Function#20
+	Movement Overworld.0 Action#9
+Jump Function#15
+
+
+Function 15:
+	WaitMovement 
+Return 
+
+
+Function 16:
+	CompareVarValue 0x8005 8
+	JumpIf DIFFERENT Function#21
+	Movement Overworld.0 Action#10
+Jump Function#17
+
+
+Function 17:
+	WaitMovement 
+Return 
+
+
+Function 18:
+	Message 1
+	CloseMessage 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x400A 0
+	CallIf EQUAL Function#22
+	CompareVarValue 0x400A 2
+	CallIf EQUAL Function#23
+	ReleaseAll 
+End 
+
+
+Function 19:
+	CloseMessage 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x400A 0
+	CallIf EQUAL Function#22
+	CompareVarValue 0x400A 2
+	CallIf EQUAL Function#23
+	ReleaseAll 
+End 
+
+
+Function 20:
+	Movement Overworld.0 Action#11
+	WaitMovement 
+Return 
+
+
+Function 21:
+	CompareVarValue 0x8005 9
+	JumpIf DIFFERENT Function#24
+	Movement Overworld.0 Action#12
+Jump Function#17
+
+
+Function 22:
+	CompareVarValue 0x8004 7
+	JumpIf DIFFERENT Function#25
+	Movement Overworld.0 Action#13
+Jump Function#26
+
+
+Function 23:
+	CompareVarValue 0x8005 7
+	JumpIf DIFFERENT Function#27
+	Movement Overworld.0 Action#14
+Jump Function#28
+
+
+Function 24:
+	Movement Overworld.0 Action#15
+	WaitMovement 
+Return 
+
+
+Function 25:
+	CompareVarValue 0x8004 8
+	JumpIf DIFFERENT Function#29
+	Movement Overworld.0 Action#16
+Jump Function#26
+
+
+Function 26:
+	WaitMovement 
+Return 
+
+
+Function 27:
+	CompareVarValue 0x8005 8
+	JumpIf DIFFERENT Function#30
+	Movement Overworld.0 Action#17
+Jump Function#28
+
+
+Function 28:
+	WaitMovement 
+Return 
+
+
+Function 29:
+	Movement Overworld.0 Action#18
+	WaitMovement 
+Return 
+
+
+Function 30:
+	CompareVarValue 0x8005 9
+	JumpIf DIFFERENT Function#31
+	Movement Overworld.0 Action#19
+Jump Function#28
+
+
+Function 31:
+	Movement Overworld.0 Action#20
+	WaitMovement 
+Return 
+
+

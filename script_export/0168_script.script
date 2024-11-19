@@ -1,0 +1,271 @@
+Script 1:
+	Message 0
+	WaitAB 
+	CloseMessage 
+	GetPlayerPosition 0x800C 0x800D
+	CompareVarValue 0x800C 205
+	CallIf EQUAL Function#1
+	CompareVarValue 0x800D 306
+	CallIf EQUAL Function#2
+	CompareVarValue 0x800D 306
+	CallIf LESS Function#1
+	CompareVarValue 0x800D 306
+	CallIf GREATER Function#2
+	WaitMovement 
+End 
+
+
+Script 2:
+    ## Script 2 handles farmer outside gate for spearow quest
+    ## Initial check if the player can access it tied to nullvar
+    ## Secondary check if they haven't started or have using 4024
+    ## Quick Commit Check
+	FacePlayer 
+    LockAll
+    CompareVarValue 0x4025 0
+    CallIf EQUAL Function#3
+    CompareVarValue 0x4025 0
+    CallIf GREATER Function#4
+    ReleaseAll
+End
+
+
+Script 3:
+End 
+
+
+Script 4:
+    LockAll
+    Movement Player Action#3
+    WaitMovement
+    ReleaseAll
+End
+
+Script 5:
+    LockAll
+    Message 0
+    WaitAB
+    SetVar 0x4025 1
+    CloseMessage
+    ReleaseAll
+End
+
+Script 6:
+    ##Main Questline Handling
+    CompareVarValue 0x4024 0
+    ##Not begun quest
+    JumpIf EQUAL Function#9
+    ##Mid quest, var is 1-4
+    CompareVarValue 0x4024 4
+    JumpIf LESS/EQUAL Function#10
+    ##Near completion, var is 5
+    CompareVarValue 0x4024 5
+    JumpIf EQUAL Function#30
+    ##Beat quest
+    CompareVarValue 0x4024 7
+    JumpIf EQUAL Function#11
+    ##Failed quest
+    CompareVarValue 0x4024 8
+    JumpIf EQUAL Function#12
+End    
+
+Script 7:
+    ## Farmer brother I forgot
+    LockAll
+    FacePlayer
+    CompareVarValue 0x4024 7
+    ## Won quest
+    JumpIf EQUAL Function#14
+    ## Otherwise
+    Call Function#13
+    ReleaseAll
+End
+
+Script 8:
+    ## Farmer wife I also forgot
+    LockAll
+    FacePlayer
+    CompareVarValue 0x4024 7
+    ## Won quest
+    JumpIf EQUAL Function#16
+    ## Otherwise
+    Call Function#15
+    ReleaseAll
+End
+
+Script 9:
+    ## Meowth
+    LockAll
+    FacePlayer
+    PlayCry 52 0
+    Message 59
+    WaitCry
+    WaitAB
+    CloseMessage
+    ReleaseAll
+End
+
+Script 10:
+    ## Spearow non-last lower grass
+    ## Note: There's gotta be a much better way to handle this
+    ## outside of repeated space checks 
+    LockAll
+    FacePlayer
+    PlayCry 21 0
+    Message 60
+    WaitCry
+    WaitAB
+    CloseMessage
+	WildBattleSp 21 3 0
+    SetFlag 2133
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+    RemoveOW Overworld.20
+    IncrementVar 0x4024 1
+    Jump Function#20
+    ReleaseAll
+End
+
+Script 11:
+    ## Spearow non-last rice field
+    LockAll
+    FacePlayer
+    PlayCry 21 0
+    Message 60
+    WaitCry
+    WaitAB
+    CloseMessage
+    SetFlag 2134
+	WildBattleSp 21 3 0
+    ##Experimenting here
+    ClearFlag 2134
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+    RemoveOW Overworld.21
+    IncrementVar 0x4024 1
+    Jump Function#20
+    ReleaseAll
+End
+
+Script 12:
+    ## Spearow non-last left most
+    LockAll
+    FacePlayer
+    PlayCry 21 0
+    Message 60
+    WaitCry
+    WaitAB
+    CloseMessage
+	WildBattleSp 21 3 0
+    SetFlag 2135
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+    RemoveOW Overworld.22
+    IncrementVar 0x4024 1
+    Jump Function#20
+    ReleaseAll
+End
+
+Script 13:
+    ## Spearow non-last upper left
+    LockAll
+    FacePlayer
+    PlayCry 21 0
+    Message 60
+    WaitCry
+    WaitAB
+    CloseMessage
+	WildBattleSp 21 3 0
+    SetFlag 2136
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#19
+    RemoveOW Overworld.23
+    IncrementVar 0x4024 1
+    Jump Function#20
+    ReleaseAll
+End
+
+Script 14:
+    PlayFanfare 1500
+	LockAll 
+    FacePlayer
+    CompareVarValue 0x4024 7
+    ##In prog/not started
+    CallIf LESS Function#40
+    ##Won
+    CompareVarValue 0x4024 7
+    CallIf EQUAL Function#41
+    ##Lost
+    CompareVarValue 0x4024 7
+    CallIf GREATER Function#42
+	ReleaseAll 
+End
+
+Script 15:
+    PlayFanfare 1500
+	LockAll 
+    FacePlayer
+    CompareVarValue 0x4024 7
+    ##In prog/not started
+    CallIf LESS Function#43
+    ##Won
+    CompareVarValue 0x4024 7
+    CallIf EQUAL Function#44
+    ##Lost
+    CompareVarValue 0x4024 7
+    CallIf GREATER Function#45
+	ReleaseAll 
+End
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

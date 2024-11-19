@@ -1,0 +1,37 @@
+Action 1:
+	LookUp 0x1
+End
+
+
+Action 2:
+	LookDown 0x1
+End
+
+
+Action 3:
+	0066 0x1
+End
+
+
+Action 4:
+	WaitMoveForever 0x1
+End
+
+
+Action 5:
+	LookLeft 0x1
+End
+
+
+Action 6:
+	LookDown 0x1
+End
+
+
+Action 7:
+	WaitMoveSite 0x1
+	Freeze4 0x1
+End
+
+
+

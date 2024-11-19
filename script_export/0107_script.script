@@ -1,0 +1,34 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	CloseMessage 
+	TrainerBattle 260 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	Message 1
+	WaitTime 30 0x800C
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CloseMessage 
+	RemoveOW Overworld.0
+	SetFlag 607
+	SetVar 0x40FD 1
+	CompareVarValue 0x4131 0
+	CallIf EQUAL Function#2
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Call Function#3
+	WaitTime 60 0x800C
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	EndGameScreen 1
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

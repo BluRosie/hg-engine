@@ -1,0 +1,39 @@
+Script 1:
+	MecScript 
+	LockAll 
+	CommonScript 2029
+	Movement Overworld.2 Action#1
+	WaitMovement 
+	PlayFanfare 1538
+	SetOWPosition Overworld.1 10 1 7 Left
+	SetOWPosition Overworld.2 10 1 7 Left
+	Movement Overworld.1 Action#2
+	WaitMovement 
+	WaitFanfare 1538
+	GetPlayerPosition 0x4000 0x4001
+	CheckPokemonAlive 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf DIFFERENT Function#1
+	CompareVarValue 0x4001 6
+	JumpIf DIFFERENT Function#2
+	Movement Overworld.1 Action#3
+	Movement Overworld.2 Action#4
+Jump Function#3
+
+
+Script 2:
+	CMD_144 0x4020
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

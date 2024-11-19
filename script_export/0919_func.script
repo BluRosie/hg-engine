@@ -1,0 +1,250 @@
+Function 1:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#10
+	Movement Player Action#3
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 25 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#12
+	SetFlag 638
+Jump Function#13
+
+
+Function 6:
+	Message 9
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#14
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#15
+	Message 10
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 89 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 8
+Jump Function#16
+
+
+Function 8:
+	TextPlayerName 0
+	Message 5
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 38
+	Message 6
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 715
+	RemoveOW Overworld.4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetVar 0x4004 1
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Movement Player Action#5
+	Movement Overworld.3 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 25 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 25 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	SetFlag 638
+	CheckFlag 2404
+	JumpIf LESS Function#17
+	CMD_147 38 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#18
+	GetHour 0x4000
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#19
+	ClearFlag 715
+Jump Function#20
+
+
+Function 13:
+	CheckFlag 2404
+	JumpIf LESS Function#17
+	CMD_147 38 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#18
+	GetHour 0x4000
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#19
+	ClearFlag 715
+Jump Function#20
+
+
+Function 14:
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#9
+End 
+
+
+Function 17:
+	SetFlag 715
+End 
+
+
+Function 18:
+	CMD_142 38 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#17
+	GetHour 0x4000
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#21
+	ClearFlag 715
+Jump Function#22
+
+
+Function 19:
+Jump Function#17
+
+
+Function 20:
+End 
+
+
+Function 21:
+	SetFlag 715
+End 
+
+
+Function 22:
+End 
+
+

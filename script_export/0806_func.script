@@ -1,0 +1,128 @@
+Function 1:
+	Message 10
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	Message 11
+Jump Function#8
+
+
+Function 2:
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	CheckItem 444 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	Message 13
+Jump Function#8
+
+
+Function 3:
+	GetPlayerPosition 0x4002 0x4003
+	GetPlayerPosition 0x4002 0x4003
+	CompareVarValue 0x4002 6
+	JumpIf DIFFERENT Function#10
+	Movement Overworld.0 Action#2
+Jump Function#11
+
+
+Function 4:
+	WaitMovement 
+	CheckItem 444 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	Message 13
+Jump Function#8
+
+
+Function 5:
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#12
+	Message 0
+Jump Function#13
+
+
+Function 6:
+	CompareVarValue 0x4001 1
+	JumpIf DIFFERENT Function#14
+	Message 7
+Jump Function#7
+
+
+Function 7:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x4002 8
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.0 Action#3
+Return 
+
+
+Function 11:
+Return 
+
+
+Function 12:
+	Message 9
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#15
+	Message 3
+	SetVar 0x4001 1
+	SetVar 0x8004 444
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 4
+Jump Function#8
+
+
+Function 13:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#15
+	Message 3
+	SetVar 0x4001 1
+	SetVar 0x8004 444
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 4
+Jump Function#8
+
+
+Function 14:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	SetVar 0x4001 1
+	Message 5
+Jump Function#8
+
+

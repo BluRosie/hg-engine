@@ -1,0 +1,174 @@
+Script 1:
+	SetFlag 159
+	SetVar 0x8004 1
+	SetVar 0x8005 2
+	SetVar 0x8006 1
+	CommonScript 2039
+	SetVar 0x4074 2
+	ClearFlag 407
+	SetFlag 582
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.2 Action#1
+Jump Function#2
+
+
+Script 3:
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Call Function#3
+	Call Function#4
+	CompareVarValue 0x8006 1
+	JumpIf EQUAL Function#5
+	Message 17
+	CloseMessage 
+	Call Function#3
+	ReleaseAll 
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CommonScript 2067
+	Movement Overworld.7 Action#2
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.7 Action#3
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.7 Action#4
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Overworld.7 Action#5
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	Movement Overworld.7 Action#6
+	WaitMovement 
+	CommonScript 2068
+	RemoveOW Overworld.7
+	SetFlag 568
+	ReleaseAll 
+	SetVar 0x4074 4
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 27
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 12 0x800C
+	CommonScript 2000
+End 
+
+
+Script 9:
+	SetIconBoard 9 0 13 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 10:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 10 0x800C
+	CommonScript 2000
+End 
+
+
+Script 11:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 11 0x800C
+	CommonScript 2000
+End 
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

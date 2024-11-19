@@ -1,0 +1,24 @@
+Function 1:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.6 Action#2
+Jump Function#2
+
+
+Function 2:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Overworld.6 Action#3
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,107 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Message 0
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 1
+	SetVar 0x8004 437
+	SetVar 0x8005 1
+	CommonScript 2033
+Jump Function#1
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+Jump Function#3
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_584 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	CheckPlayerForm 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#5
+	GetPartyCount 0x4009
+	SetVar 0x400A 0
+	GetPartyPokemonID 0x400A 0x800C
+	CompareVarValue 0x800C 172
+	JumpIf DIFFERENT Function#6
+	CMD_827 0x400A 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#6
+Jump Function#7
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckPlayerForm 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#8
+	CMD_691 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	GetCurrentHeaderID 0x4056
+	SetVarFromVariable 0x4055 0x800D
+	Message 18
+Jump Function#10
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	DoorAnimation 0 0 5 2 77
+	Call Function#11
+	Movement Player Action#2
+	WaitMovement 
+	Call Function#12
+	DoorAnimation 0 0 5 5 77
+	Call Function#11
+	Movement Player Action#3
+	WaitMovement 
+	Call Function#12
+	BallResetFollowingPoke 
+	SetVar 0x4137 0
+	ReleaseAll 
+End 
+
+
+Script 6:
+	CMD_437 0x4143
+	SetVar 0x414F 0
+	SetVar 0x4150 0
+	SetVar 0x4143 0
+	SetVar 0x4144 0
+	SetVar 0x4148 0
+	SetVar 0x4146 0
+	SetVar 0x4149 0
+	SetVar 0x414B 0
+	SetVar 0x4142 0
+	SetVar 0x4147 0
+	SetVar 0x4145 0
+	SetVar 0x414A 0
+	CMD_437 0x4143
+End 
+
+

@@ -1,0 +1,749 @@
+Function 1:
+	Movement Player Action#1
+Return 
+
+
+Function 2:
+	Movement Player Action#2
+Return 
+
+
+Function 3:
+    ##Cannot begin quest now
+	Message 1
+	WaitAB 
+	CloseMessage 
+Return 
+
+Function 4:
+    ##Checking to see quest progress
+    CompareVarValue 0x4024 0
+    JumpIf EQUAL Function#5
+    JumpIf GREATER Function#6
+Return
+    
+
+
+Function 5:
+    ##Quest not begun yet
+	Message 3
+	WaitAB 
+	CloseMessage 
+    WaitTime 6 0x800C
+    FacePlayer
+    Movement Overworld.1 Action#4
+    WaitMovement
+    Message 4
+	WaitAB 
+	CloseMessage 
+    WaitTime 6 0x800C
+    GetPlayerPosition 0x8004 0x8005
+    CompareVarValue 0x8004 204
+    CallIf EQUAL Function#7
+    CompareVarValue 0x8004 204
+    CallIf LESS Function#8
+    SetFlag 2131
+    RemoveOW Overworld.1
+    ClearFlag 2132
+    AddOW Overworld.17
+Return 
+
+Function 6:
+    ## Quest begun
+    TextPlayerName 0
+    Message 3
+	WaitAB 
+	CloseMessage 
+    WaitTime 6 0x800C
+    FacePlayer
+    Movement Overworld.1 Action#4
+    WaitMovement
+    Message 5
+	WaitAB 
+	CloseMessage 
+    WaitTime 6 0x800C
+    GenderMessage 6 7
+	WaitAB 
+	CloseMessage 
+    WaitTime 6 0x800C
+    Message 8
+	WaitAB 
+	CloseMessage 
+    WaitTime 6 0x800C
+    GetPlayerPosition 0x8004 0x8005
+    CompareVarValue 0x8004 204
+    CallIf EQUAL Function#7
+    CompareVarValue 0x8004 204
+    CallIf LESS Function#8
+    SetFlag 2131
+    RemoveOW Overworld.1
+    ClearFlag 2132
+    AddOW Overworld.17
+Return 
+
+Function 7:
+    ##Approached from the right
+    Movement Overworld.1 Action#6
+    WaitMovement
+Return
+
+Function 8:
+    ##Approached from the left, top, or bottom
+    Movement Overworld.1 Action#5
+    WaitMovement
+Return
+
+Function 9:
+    ##Not started quest, starting it now
+    TextPlayerName 0
+    LockAll
+    Message 10
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    FacePlayer
+    Message 11
+    WaitAB
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+    CompareVarValue 0x800C 1
+    JumpIf EQUAL Function#17
+    CompareVarValue 0x800C 0
+    JumpIf GREATER/EQUAL Function#18
+End
+
+Function 10:
+    ##Middle of quest
+    CompareVarValue 0x4024 1
+    CallIf EQUAL Function#25
+    CompareVarValue 0x4024 2
+    CallIf EQUAL Function#26
+    CompareVarValue 0x4024 3
+    CallIf EQUAL Function#27
+    CompareVarValue 0x4024 4
+    CallIf EQUAL Function#28
+    CompareVarValue 0x4024 5
+    CallIf EQUAL Function#29
+    ReleaseAll
+End
+
+Function 11:
+    ##Won quest
+    Message 54
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+End
+
+Function 12:
+    ##Failed quest
+    Message 41
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+End
+
+Function 13:
+    ##Farmer brother pre-mid-fail quest
+    Message 55
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 14:
+    ##Farmer brother win quest
+    Message 56
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    ReleaseAll
+End
+
+Function 15:
+    ##Farmer wife pre-mid-fail quest
+    Message 57
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 16:
+    ##Farmer wife win quest
+    Message 58
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    ReleaseAll
+End
+
+Function 17:
+    ## Not here for the quest
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 12
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    ReleaseAll
+End
+
+Function 18:
+    ## Yes, here for the quest
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 13
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 14
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 15
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 16
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    IncrementVar 0x4024 1
+    FadeScreen 4 1 0 0
+    WaitFadeScreen
+    ClearFlag 2133
+    ClearFlag 2134
+    ClearFlag 2135
+    ClearFlag 2136
+    AddOW Overworld.20
+    AddOW Overworld.21
+    AddOW Overworld.22
+    AddOW Overworld.23
+    FadeScreen 4 1 1 0
+    WaitFadeScreen 
+    ReleaseAll
+End
+
+Function 19:
+    ## Lost spearow quest
+    LostBattle
+    SetVar 0x4024 8
+    ##Experimental stuff
+    SetFlag 2133
+    SetFlag 2134
+    SetFlag 2135
+    SetFlag 2136
+    RemoveOW Overworld.20
+    RemoveOW Overworld.21
+    RemoveOW Overworld.22
+    RemoveOW Overworld.23
+    ##Experimental Stuff end
+    ReleaseAll
+End
+
+Function 20:
+    ## Spearow Down Check
+    CompareVarValue 0x4024 2
+    CallIf EQUAL Function#21
+    CompareVarValue 0x4024 3
+    CallIf EQUAL Function#22
+    CompareVarValue 0x4024 4
+    CallIf EQUAL Function#23
+    CompareVarValue 0x4024 5
+    CallIf EQUAL Function#24
+    ReleaseAll
+End
+
+Function 21: 
+    ## First Spearow Down
+    Message 22
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 22:
+    ## Second Spearow Down
+    Message 61
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Player Action#7
+    WaitMovement
+    Message 62
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 23:
+    ## Third Spearow Down
+    Message 67
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    GetPlayerPosition 0x8004 0x8005
+    CompareVarValue 0x8004 182
+    CallIf GREATER Function#46
+    CallIf LESS/EQUAL Function#47
+    Message 23
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 24
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 25
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 24:
+    ## Fourth Spearow Down
+    TextPlayerName 0
+    Message 26
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 27
+    WaitAB
+    CloseMessage
+    ClearFlag 2137
+    AddOW Overworld.25
+    ##ClearFlag 2138 
+    ##AddOW Overworld.25
+    WaitTime 6 0x800C
+Return
+
+Function 25:
+    ##Farmer 5 spearow left
+    Message 17
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 26:
+    ##Farmer 4 spearow left
+    Message 18
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 27:
+    ##Farmer 3 spearow left
+    Message 19
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 28:
+    ##Farmer 2 spearow left
+    Message 20
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 29:
+    ##Farmer 1 spearow left
+    Message 21
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 30:
+    ## Last Spearow Left
+    TextPlayerName 0
+    FacePlayer
+    Message 28
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    SendBackFollowingPoke
+    Message 68
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    ## Gotta love position checks
+    GetPlayerPosition 0x8004 0x8005
+    CompareVarValue 0x8004 204
+    ##Either above or below
+    JumpIf EQUAL Function#31
+    ##Directly across
+    JumpIf LESS Function#32
+End
+
+Function 31:
+    ##Check above or below
+    GetPlayerPosition 0x8004 0x8005
+    CompareVarValue 0x8005 271
+    ##Below
+    JumpIf EQUAL Function#33
+    ##Above
+    JumpIf LESS Function#34
+End
+
+Function 32:
+    ##Across the Fearow
+    Movement Player Action#8
+    WaitMovement
+    ##LockFollowingPoke 0
+    ##WaitFollowingPoke 
+    ##SetFollowingPokeMovement 9
+    ##WaitMovement
+    Jump Function#35
+End
+
+Function 33:
+    ##Below farmer
+    Movement Player Action#10
+    WaitMovement
+    ##LockFollowingPoke 0
+    ##WaitFollowingPoke 
+    ##SetFollowingPokeMovement 9
+    ##WaitMovement
+    Movement Overworld.16 Action#9
+    WaitMovement
+    Jump Function#35
+End
+
+Function 34:
+    ##Above farmer
+    Movement Player Action#11
+    WaitMovement
+    ##LockFollowingPoke 0
+    ##WaitFollowingPoke 
+    ##SetFollowingPokeMovement 9
+    ##WaitMovement
+    Movement Overworld.16 Action#9
+    WaitMovement
+    Jump Function#35
+End
+
+Function 35:
+    ##Finally the actual cutscene
+    Message 70
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 69
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    PlayCry 22 0
+    WaitCry
+    StopMusic 0
+    PlayMusic 1112
+    ##ClearFlag 2138 
+    ##WaitTime 1 0x800C
+    ##AddOW Overworld.25
+    SetOWPosition Overworld.25 208 0 266 Down
+    Movement Player Action#19
+    Movement Overworld.16 Action#19
+    WaitMovement
+    Movement Overworld.25 Action#17
+    WaitMovement
+    PlayCry 22 0
+    WaitCry
+    Movement Overworld.25 Action#18
+    WaitMovement
+    PlayCry 22 0
+    WaitCry
+    ##Movement Player Action#12
+    ##Movement Overworld.16 Action#12
+    ##WaitMovement
+    Message 29
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 30
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 31
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Player Action#13
+    WaitMovement
+    BallResetFollowingPoke 
+    ##SetFollowingPokeMovement 17
+    ##WaitMovement
+    ##GetPartyPokemonID 0x8001 0x8002
+    ##PlayCry 0x8001 0
+    ##WaitCry
+    PlayCry 22 0
+    Message 32
+    WaitAB
+    CloseMessage
+    WaitCry
+    TrainerBattle 629 0 1 0
+    ##Check if we won
+    CheckBattleIsLost 0x800C
+    CommonScript 2070
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#36
+    Jump Function#37
+End
+
+Function 36:
+    ##Lost Fearow Fight
+    SetVar 0x4024 8
+    ##SetFlag 2138
+    SetFlag 2137
+    RemoveOW Overworld.25
+    ##RemoveOW Overworld.24
+    Message 64
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 34
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.16 Action#15
+    WaitMovement
+    Message 65
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Player Action#9
+    HealPokemon
+    PlayFanfare 1516
+    WaitFanfare 1516
+    Message 35
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 36
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 37
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Player Action#4
+    WaitMovement
+    Message 38
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 39
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Player Action#14
+    Message 40
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    FadeOutMusic 0 30
+    PlayDefaultMusic
+	##Release Following
+    ReleaseAll
+End
+
+Function 37:
+    ##Won Fearow Fight
+    SetVar 0x4024 7
+    ##SetFlag 2138
+    SetFlag 2137
+    RemoveOW Overworld.25
+    ##RemoveOW Overworld.24
+    Movement Overworld.16 Action#15
+    WaitMovement
+    Movement Player Action#9
+    WaitMovement
+    Message 42
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    GenderMessage 43 44
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 45
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Player Action#14
+    WaitMovement
+    GenderMessage 46 47
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 48
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Movement Overworld.16 Action#16
+    WaitMovement
+    WaitTime 30 0x800C
+    Movement Overworld.16 Action#14
+    WaitMovement
+    Movement Player Action#9
+    WaitMovement
+    Message 49
+    WaitAB
+    OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 498 255 0
+	CreateMultiTouchBox 499 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+    CompareVarValue 0x800C 1
+    JumpIf EQUAL Function#38
+    JumpIf LESS Function#39
+    ##Release Following
+    ReleaseAll
+End
+
+Function 38:
+    ##Reject the reward
+    Movement Player Action#4
+    WaitMovement
+    Message 52
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 53
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    SetVar 0x4024 9
+    FadeOutMusic 0 30
+    PlayDefaultMusic
+    ##Release Following
+    ReleaseAll
+End
+
+Function 39:
+    ##Accept the money
+    CheckItemSpace 90 1 0x8000
+	SetVar 0x8004 81
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+    WaitTime 6 0x800C
+    Message 50
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    Message 51
+    WaitAB
+    CloseMessage
+    WaitTime 6 0x800C
+    FadeOutMusic 0 30
+    PlayDefaultMusic
+    ##Release Following
+    ReleaseAll
+End
+
+##Bottom rice field worker text
+Function 40:
+    Message 71
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+Return
+
+Function 41:
+    Message 74
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+Return
+
+Function 42:
+    Message 72
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+Return
+
+##Upper rice field worker text
+Function 43:
+    Message 73
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+Return
+
+Function 44:
+    Message 76
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+Return
+
+Function 45:
+    Message 75
+	WaitButton 
+	CloseMessage 
+    WaitTime 6 0x800C
+Return
+
+Function 46
+    ##Player near bottom Spearow
+    Movement Player Action#9
+    WaitMovement
+Return
+
+Function 47
+    ##Player elsewhere
+    Movement Player Action#16
+    WaitMovement
+Return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

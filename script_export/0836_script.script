@@ -1,0 +1,14 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	PlayFanfare 2142
+	WaitTime 40 0x8004
+	StopFanfare 2142
+	CMD_722 1 1 198 17 11
+	SetVar 0x411E 0
+	ReleaseAll 
+End 
+
+

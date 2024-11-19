@@ -1,0 +1,176 @@
+Function 1:
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	GetFollowingPokeSize 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#14
+	SendBackFollowingPoke 
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 467 0 7 20 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_582 18 1423 185
+	ReleaseAll 
+End 
+
+
+Function 2:
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 489 0 7 20 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_582 18 1423 185
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CheckFlag 330
+	JumpIf LESS Function#4
+	CMD_147 36 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#4
+	GetHour 0x4000
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#15
+	ClearFlag 612
+Jump Function#16
+
+
+Function 4:
+End 
+
+
+Function 5:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 612
+	RemoveOW Overworld.0
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 4
+Jump Function#17
+
+
+Function 8:
+	TextPlayerName 0
+	Message 1
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 36
+	Message 2
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 612
+	RemoveOW Overworld.0
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetVar 0x4002 1
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	ReleaseAll 
+End 
+
+
+Function 12:
+	SetFlag 330
+Return 
+
+
+Function 13:
+	SetFlag 663
+	RemoveOW Overworld.1
+	ClearFlag 164
+End 
+
+
+Function 14:
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 467 0 7 20 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_582 18 1423 185
+	ReleaseAll 
+End 
+
+
+Function 15:
+	CompareVarValue 0x4000 10
+	JumpIf DIFFERENT Function#18
+	ClearFlag 612
+Jump Function#16
+
+
+Function 16:
+End 
+
+
+Function 17:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#9
+End 
+
+
+Function 18:
+	CompareVarValue 0x4000 11
+	JumpIf DIFFERENT Function#19
+	ClearFlag 612
+Jump Function#16
+
+
+Function 19:
+	SetFlag 612
+End 
+
+

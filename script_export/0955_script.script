@@ -1,0 +1,101 @@
+Script 1:
+	SetVar 0x8000 1
+Jump Function#1
+
+
+Script 2:
+	SetVar 0x8000 2
+Jump Function#1
+
+
+Script 3:
+	SetVar 0x8000 3
+Jump Function#1
+
+
+Script 4:
+	SetVar 0x8000 4
+Jump Function#1
+
+
+Script 5:
+	SetVar 0x8000 5
+Jump Function#1
+
+
+Script 6:
+	SetVar 0x8000 6
+Jump Function#1
+
+
+Script 7:
+	SetVar 0x8000 7
+Jump Function#1
+
+
+Script 8:
+	SetVar 0x8000 8
+Jump Function#1
+
+
+Script 9:
+	SetVar 0x8000 9
+Jump Function#1
+
+
+Script 10:
+	SetVar 0x8000 10
+Jump Function#1
+
+
+Script 11:
+	SetVar 0x8000 11
+Jump Function#1
+
+
+Script 12:
+	SetVar 0x8000 12
+Jump Function#1
+
+
+Script 13:
+	SetVar 0x8000 13
+Jump Function#1
+
+
+Script 14:
+	SetVar 0x8000 14
+Jump Function#1
+
+
+Script 15:
+	CompareVarValue 0x4032 1
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x4032 2
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x4032 3
+	JumpIf EQUAL Function#4
+	SetVar 0x8000 15
+Jump Function#1
+
+
+Script 16:
+	SetVar 0x8000 16
+Jump Function#1
+
+
+Script 17:
+	SetVar 0x8000 17
+Jump Function#1
+
+
+Script 18:
+	SetVar 0x8000 18
+Jump Function#1
+
+
+Script 19:
+	SetVar 0x8000 19
+Jump Function#1
+
+

@@ -1,0 +1,9 @@
+Script 1:
+	SetIconBoard 0 1 3 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+

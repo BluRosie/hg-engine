@@ -1,0 +1,104 @@
+Script 1:
+	CMD_314 
+	CMD_142 37 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#1
+	CheckFlag 2404
+	JumpIf LESS Function#2
+	CMD_147 37 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#3
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#4
+	SetFlag 749
+Jump Function#5
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 3 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	Message 0
+	CloseMessage 
+	TrainerBattle 31 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	Message 1
+	GiveBadge 3
+	IncrementVar 0x4134 1
+	CMD_515 22
+	SetFlag 2456
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	Message 3
+Jump Function#8
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	PlayFanfare 1585
+	Movement Player Action#1
+	WaitMovement 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 80 0 16 49 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 3 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	Movement Overworld.6 Action#3
+	Movement Player Action#4
+	WaitMovement 
+	SetVar 0x4079 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 78 7 376 182 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 3 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#10
+	Message 10
+Jump Function#11
+
+

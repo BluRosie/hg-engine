@@ -1,0 +1,74 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 237
+	JumpIf LESS Function#1
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#2
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#2
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 5
+	CloseMessage 
+	TrainerBattle 238 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 6
+	CloseMessage 
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	SetVar 0x40CB 3
+	RemoveOW Overworld.0
+	SetFlag 538
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	Movement Player Action#5
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PlaySound 1183
+	WaitSound 
+	HealPokemon 
+	CMD_436 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 1
+	CloseMessage 
+	CheckPokemonAlive 0x4002
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#4
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Player Action#6
+	WaitMovement 
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#5
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CompareVarValue 0x40CB 7
+	JumpIf GREATER/EQUAL Function#6
+	ReleaseAll 
+End 
+
+

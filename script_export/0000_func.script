@@ -1,0 +1,18 @@
+Function 1:
+	CMD_151 
+	Message 12
+	CMD_257 94
+	CloseMessage 
+	CMD_587 
+	CMD_449 97 2
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

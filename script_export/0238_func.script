@@ -1,0 +1,57 @@
+Function 1:
+	RecordPokegearNumber 3
+	TextPlayerName 0
+	GenderMessage 7 17
+	PlaySound 1206
+	WaitSound 
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	GenderMessage 8 18
+	CloseMessage 
+	Movement Overworld.1 Action#12
+	Movement Overworld.2 Action#13
+	WaitMovement 
+	GenderMessage 9 19
+	CloseMessage 
+	Movement Overworld.1 Action#14
+	Movement Overworld.2 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	PlayFanfare 1538
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	WaitFanfare 1538
+	SetVar 0x408E 2
+	SetFlag 557
+	ReleaseAll 
+End 
+
+
+Function 2:
+	TextPlayerName 0
+	GenderMessage 7 17
+	PlaySound 1206
+	WaitSound 
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	GenderMessage 8 18
+	CloseMessage 
+	Movement Overworld.1 Action#12
+	Movement Overworld.2 Action#13
+	WaitMovement 
+	GenderMessage 9 19
+	CloseMessage 
+	Movement Overworld.1 Action#14
+	Movement Overworld.2 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	PlayFanfare 1538
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	WaitFanfare 1538
+	SetVar 0x408E 2
+	SetFlag 557
+	ReleaseAll 
+End 
+
+

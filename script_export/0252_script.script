@@ -1,0 +1,98 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	GetPlayerPosition 0x8000 0x8001
+	ClearFlag 669
+	AddOW Overworld.10
+	CompareVarValue 0x8001 172
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.10 Action#2
+Jump Function#2
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	PlayCry 245 0
+	Release Overworld.11
+	ShakeOverworld 11 2 90 2 0
+	Lock Overworld.11
+	WaitCry 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Overworld.11 Action#3
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ClearFlag 675
+	AddOW Overworld.12
+	CommonScript 2042
+	Movement Overworld.12 Action#5
+	WaitMovement 
+	Message 7
+	CloseMessage 
+	Movement Overworld.12 Action#6
+	WaitMovement 
+	TextPlayerName 0
+	Message 8
+	CloseMessage 
+	Movement Overworld.12 Action#7
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	Movement Overworld.12 Action#8
+	WaitMovement 
+	CommonScript 2043
+	RemoveOW Overworld.11
+	RemoveOW Overworld.12
+	SetFlag 670
+	SetFlag 675
+	SetVar 0x4092 0
+	SetVar 0x4070 1
+	SetVar 0x4071 1
+	ClearFlag 671
+	ReleaseAll 
+End 
+
+
+Script 3:
+	SetIconBoard 0 1 1 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 4:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 1 0x800C
+	CommonScript 2000
+End 
+
+
+Script 5:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 2 0x800C
+	CommonScript 2000
+End 
+
+
+Script 6:
+	SetIconBoard 3 1 2 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+

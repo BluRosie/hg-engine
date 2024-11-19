@@ -1,0 +1,46 @@
+Script 1:
+	CompareVarValue 0x414D 0
+	CallIf DIFFERENT Function#1
+	CMD_412 43 0 0x400A
+	Call Function#2
+	CompareVarValue 0x400A 2
+	CallIf EQUAL Function#3
+	CompareVarValue 0x400A 3
+	CallIf EQUAL Function#3
+	CompareVarValue 0x400A 0
+	CallIf EQUAL Function#2
+	CompareVarValue 0x400A 1
+	CallIf EQUAL Function#2
+	CompareVarValue 0x400A 4
+	CallIf EQUAL Function#4
+	CompareVarValue 0x400A 5
+	CallIf EQUAL Function#4
+	CompareVarValue 0x400A 6
+	CallIf EQUAL Function#4
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	SetVar 0x4000 0
+	Call Function#5
+Jump Function#6
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	SetVar 0x4000 0
+	Call Function#5
+Jump Function#7
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	SetVar 0x4000 1
+	Call Function#5
+Jump Function#8
+
+

@@ -1,0 +1,114 @@
+Script 1:
+	CMD_144 0x4021
+	CheckBadge 0 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#1
+	SetFlag 519
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	PlayCry 183 0
+	WaitCry 
+	Movement Overworld.7 Action#1
+	WaitMovement 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	CommonScript 2029
+	GenderMessage 17 18
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	Release Overworld.7
+	CompareVarValue 0x4001 396
+	JumpIf DIFFERENT Function#2
+	Movement Overworld.6 Action#3
+	Movement Overworld.7 Action#4
+Jump Function#3
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetTimePeriod 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#4
+	Message 12
+Jump Function#5
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetFirstAlivePokemonSlot 0x8002
+	CheckRibbon 0x800C 0x8002 60
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	CheckFlag 2748
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x4094 7
+	JumpIf EQUAL Function#8
+	CheckFlag 216
+	JumpIf EQUAL Function#9
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf EQUAL Function#10
+	CMD_438 0 0x800C
+	CMD_440 0x800C 7
+Jump Function#11
+
+
+Script 5:
+	SetIconBoard 16 1 1 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 6:
+	SetIconBoard 15 1 2 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

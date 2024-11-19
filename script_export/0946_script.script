@@ -1,0 +1,38 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4103 1
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4103 7
+	JumpIf LESS Function#2
+	CompareVarValue 0x4103 7
+	JumpIf EQUAL Function#3
+	Message 17
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	TextPlayerName 0
+	PlayCry 147 0
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	WaitCry 
+End 
+
+
+
+
+
+
+
+
+

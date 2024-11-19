@@ -1,0 +1,88 @@
+Script 1:
+	InitVioletGym 
+	CMD_142 18 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#1
+	CMD_147 18 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#2
+	CheckBadge 12 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 0 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+	Message 0
+	CloseMessage 
+	TrainerBattle 20 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	GiveBadge 0
+	CMD_515 22
+	SetTrainerFlag 29
+	SetTrainerFlag 50
+	SetVar 0x4074 1
+	SetFlag 402
+	SetVar 0x4108 6
+	SetFlag 244
+	SetFlag 403
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	Message 3
+Jump Function#7
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 0 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 0 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#9
+	Message 9
+Jump Function#10
+
+
+Script 5:
+	SetVar 0x4000 0
+	VioletGymElevator 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

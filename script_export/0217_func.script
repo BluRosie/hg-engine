@@ -1,0 +1,374 @@
+Function 1:
+	CheckVersion 0x8002
+	CompareVarValue 0x8002 8
+	JumpIf DIFFERENT Function#2
+Jump Function#3
+
+
+Function 2:
+	CompareVarValue 0x412D 0
+	JumpIf DIFFERENT Function#4
+	Message 1
+Jump Function#5
+
+
+Function 3:
+	CompareVarValue 0x412D 0
+	JumpIf DIFFERENT Function#6
+	Message 6
+Jump Function#7
+
+
+Function 4:
+	CompareVarValue 0x412D 1
+	JumpIf DIFFERENT Function#8
+	Message 2
+Jump Function#5
+
+
+Function 5:
+Jump Function#7
+
+
+Function 6:
+	CompareVarValue 0x412D 1
+	JumpIf DIFFERENT Function#9
+	Message 7
+Jump Function#7
+
+
+Function 7:
+	Message 11
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	Message 12
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8000
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8000 255
+	JumpIf EQUAL Function#10
+	GetPartyPokemonID 0x8000 0x8001
+	CompareVarValue 0x8002 8
+	JumpIf DIFFERENT Function#11
+Jump Function#12
+
+
+Function 8:
+	CompareVarValue 0x412D 2
+	JumpIf DIFFERENT Function#13
+	Message 3
+Jump Function#5
+
+
+Function 9:
+	CompareVarValue 0x412D 2
+	JumpIf DIFFERENT Function#14
+	Message 8
+Jump Function#7
+
+
+Function 10:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	SetVarFromVariable 0x8008 0x412D
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#16
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#18
+Jump Function#19
+
+
+Function 12:
+	SetVarFromVariable 0x8008 0x412D
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#20
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#23
+Jump Function#24
+
+
+Function 13:
+	CompareVarValue 0x412D 3
+	JumpIf DIFFERENT Function#25
+	Message 4
+Jump Function#5
+
+
+Function 14:
+	CompareVarValue 0x412D 3
+	JumpIf DIFFERENT Function#26
+	Message 9
+Jump Function#7
+
+
+Function 15:
+	CompareVarValue 0x8001 43
+	JumpIf EQUAL Function#27
+	Message 14
+Jump Function#28
+
+
+Function 16:
+	CompareVarValue 0x8001 58
+	JumpIf EQUAL Function#29
+	Message 14
+Jump Function#28
+
+
+Function 17:
+	CompareVarValue 0x8001 39
+	JumpIf EQUAL Function#30
+	Message 14
+Jump Function#28
+
+
+Function 18:
+	CompareVarValue 0x8001 172
+	JumpIf EQUAL Function#31
+	Message 14
+Jump Function#28
+
+
+Function 19:
+	CompareVarValue 0x8001 183
+	JumpIf EQUAL Function#32
+	Message 14
+Jump Function#28
+
+
+Function 20:
+	CompareVarValue 0x8001 108
+	JumpIf EQUAL Function#33
+	Message 14
+Jump Function#28
+
+
+Function 21:
+	CompareVarValue 0x8001 43
+	JumpIf EQUAL Function#34
+	Message 14
+Jump Function#28
+
+
+Function 22:
+	CompareVarValue 0x8001 120
+	JumpIf EQUAL Function#35
+	Message 14
+Jump Function#28
+
+
+Function 23:
+	CompareVarValue 0x8001 37
+	JumpIf EQUAL Function#36
+	Message 14
+Jump Function#28
+
+
+Function 24:
+	CompareVarValue 0x8001 172
+	JumpIf EQUAL Function#37
+	Message 14
+Jump Function#28
+
+
+Function 25:
+	CompareVarValue 0x412D 4
+	JumpIf DIFFERENT Function#38
+	Message 5
+Jump Function#5
+
+
+Function 26:
+	CompareVarValue 0x412D 4
+	JumpIf DIFFERENT Function#39
+	Message 10
+Jump Function#7
+
+
+Function 27:
+Jump Function#32
+
+
+Function 28:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 29:
+Jump Function#32
+
+
+Function 30:
+Jump Function#32
+
+
+Function 31:
+Jump Function#32
+
+
+Function 32:
+	TextPartyPokemon 0 0x8000
+	Message 15
+	SetVarFromVariable 0x8008 0x412D
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#40
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#41
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#42
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#43
+Jump Function#44
+
+
+Function 33:
+Jump Function#37
+
+
+Function 34:
+Jump Function#37
+
+
+Function 35:
+Jump Function#37
+
+
+Function 36:
+Jump Function#37
+
+
+Function 37:
+	TextPartyPokemon 0 0x8000
+	Message 15
+	SetVarFromVariable 0x8008 0x412D
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#45
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#46
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#47
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#48
+Jump Function#49
+
+
+Function 38:
+Jump Function#50
+
+
+Function 39:
+Jump Function#50
+
+
+Function 40:
+	SetVar 0x8004 85
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 41:
+	SetVar 0x8004 82
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 42:
+	SetVar 0x8004 229
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 43:
+	SetVar 0x8004 83
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 44:
+	SetVar 0x8004 84
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 45:
+	SetVar 0x8004 229
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 46:
+	SetVar 0x8004 85
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 47:
+	SetVar 0x8004 84
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 48:
+	SetVar 0x8004 82
+	SetVar 0x8005 1
+Jump Function#51
+
+
+Function 49:
+	SetVar 0x8004 83
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#52
+	CommonScript 2033
+	IncrementVar 0x412D 1
+	Message 16
+Jump Function#28
+
+
+Function 50:
+	Message 17
+Jump Function#28
+
+
+Function 51:
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#52
+	CommonScript 2033
+	IncrementVar 0x412D 1
+	Message 16
+Jump Function#28
+
+
+Function 52:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

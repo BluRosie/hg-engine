@@ -1,0 +1,107 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#1
+	Message 3
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#3
+	Message 1
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 5
+	ShowMoney 20 2
+Jump Function#5
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	ShowMoney 20 2
+	Message 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	CompareMoney 0x800C 300
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	TakeMoney 300
+	UpdateMoney 
+	PlayFanfare 1603
+	WaitFanfare 1603
+	Message 11
+	GetRandom 0x800C 100
+	CompareVarValue 0x800C 40
+	JumpIf GREATER/EQUAL Function#9
+	CompareVarValue 0x800C 4
+	JumpIf GREATER/EQUAL Function#10
+	CompareVarValue 0x800C 0
+	JumpIf GREATER/EQUAL Function#11
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#12
+	Message 18
+Jump Function#13
+
+
+Script 7:
+	CheckFlag 393
+	JumpIf LESS Function#14
+	ClearFlag 393
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_147 17 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#15
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#16
+	Message 25
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#18
+End 
+
+

@@ -1,0 +1,308 @@
+Function 1:
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#3
+	Movement Player Action#3
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 0 1
+	CloseMessage 
+	CompareVarValue 0x4135 8
+	JumpIf LESS Function#4
+	TrainerBattle 701 0 0 0
+Jump Function#5
+
+
+Function 3:
+	Movement Player Action#5
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 0 1
+	CloseMessage 
+	CompareVarValue 0x4135 8
+	JumpIf LESS Function#4
+	TrainerBattle 701 0 0 0
+Jump Function#5
+
+
+Function 4:
+	TrainerBattle 244 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	TextPlayerName 0
+	GenderMessage 2 3
+	CloseMessage 
+	WaitTime 10 0x8004
+	PlayFanfare 1561
+	RemoveOW Overworld.4
+	SetOWPosition Overworld.2 6 0 20 Up
+	SetOWPosition Overworld.1 6 0 17 Up
+	WaitTime 30 0x8004
+	StopMusic 0
+	PlayMusic 1107
+	Movement Overworld.0 Action#6
+	Movement Player Action#7
+	WaitMovement 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#8
+	Movement Following Action#8
+Jump Function#9
+
+
+Function 5:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	TextPlayerName 0
+	GenderMessage 2 3
+	CloseMessage 
+	WaitTime 10 0x8004
+	PlayFanfare 1561
+	RemoveOW Overworld.4
+	SetOWPosition Overworld.2 6 0 20 Up
+	SetOWPosition Overworld.1 6 0 17 Up
+	WaitTime 30 0x8004
+	StopMusic 0
+	PlayMusic 1107
+	Movement Overworld.0 Action#6
+	Movement Player Action#7
+	WaitMovement 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#8
+	Movement Following Action#8
+Jump Function#9
+
+
+Function 6:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Movement Overworld.2 Action#9
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.1 Action#10
+	Movement Overworld.2 Action#11
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 6 7
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	WaitMovement 
+	Message 8
+	Movement Overworld.0 Action#13
+	Movement Player Action#14
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 9 10
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Movement Following Action#17
+	WaitMovement 
+	PlayFanfare 1538
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	Message 11
+	Movement Overworld.2 Action#19
+	WaitMovement 
+	WaitAB 
+	CloseMessage 
+	CheckFlag 2404
+	JumpIf EQUAL Function#11
+	ClearFlag 593
+	SetVar 0x411A 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 306 0 6 22 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#12
+	Movement Following Action#20
+Jump Function#9
+
+
+Function 9:
+	WaitMovement 
+	Movement Overworld.2 Action#9
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.1 Action#10
+	Movement Overworld.2 Action#11
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 6 7
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	WaitMovement 
+	Message 8
+	Movement Overworld.0 Action#13
+	Movement Player Action#14
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 9 10
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Movement Following Action#17
+	WaitMovement 
+	PlayFanfare 1538
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	Message 11
+	Movement Overworld.2 Action#19
+	WaitMovement 
+	WaitAB 
+	CloseMessage 
+	CheckFlag 2404
+	JumpIf EQUAL Function#11
+	ClearFlag 593
+	SetVar 0x411A 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 306 0 6 22 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	PlayFanfare 1538
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	Message 11
+	Movement Overworld.2 Action#19
+	WaitMovement 
+	WaitAB 
+	CloseMessage 
+	CheckFlag 2404
+	JumpIf EQUAL Function#11
+	ClearFlag 593
+	SetVar 0x411A 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 306 0 6 22 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 306 0 6 22 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Movement Following Action#21
+	WaitMovement 
+	Movement Overworld.2 Action#9
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.1 Action#10
+	Movement Overworld.2 Action#11
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 6 7
+	CloseMessage 
+	Movement Overworld.2 Action#12
+	WaitMovement 
+	Message 8
+	Movement Overworld.0 Action#13
+	Movement Player Action#14
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 9 10
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#15
+	Movement Player Action#16
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Movement Following Action#17
+	WaitMovement 
+	PlayFanfare 1538
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	Message 11
+	Movement Overworld.2 Action#19
+	WaitMovement 
+	WaitAB 
+	CloseMessage 
+	CheckFlag 2404
+	JumpIf EQUAL Function#11
+	ClearFlag 593
+	SetVar 0x411A 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 306 0 6 22 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

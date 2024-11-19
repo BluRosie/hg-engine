@@ -1,0 +1,107 @@
+Script 1:
+	MecScript 
+	LockAll 
+	PlayFanfare 2288
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.10 Action#1
+	Movement Overworld.11 Action#2
+	SetVar 0x4002 1
+Jump Function#2
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	PlayFanfare 2288
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.6 Action#3
+	Movement Overworld.7 Action#4
+	Movement Overworld.31 Action#5
+	SetVar 0x4000 1
+Jump Function#4
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	PlayFanfare 2288
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#5
+	Movement Overworld.8 Action#3
+	Movement Overworld.9 Action#4
+	Movement Overworld.30 Action#5
+	SetVar 0x4001 1
+Jump Function#6
+
+
+Script 4:
+	CheckFlag 155
+	JumpIf EQUAL Function#7
+	MecScript 
+	LockAll 
+	PlayFanfare 2288
+	Movement Overworld.26 Action#6
+	Movement Overworld.27 Action#7
+	Movement Overworld.34 Action#8
+	WaitMovement 
+	SetFlag 155
+	ReleaseAll 
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CommonScript 2031
+	SetOWPosition Overworld.28 28 0 4 Left
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.28 Action#9
+	Movement Player Action#10
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextRivalName 0
+	Message 0
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#8
+	TrainerBattle 289 0 0 0
+Jump Function#9
+
+
+Script 6:
+	VanishOverworld 31
+	VanishOverworld 30
+	VanishOverworld 29
+	VanishOverworld 32
+	VanishOverworld 33
+	VanishOverworld 34
+	CheckFlag 155
+	JumpIf EQUAL Function#10
+End 
+
+
+Script 7:
+	SetFlag 439
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#11
+	ClearFlag 439
+	SetVar 0x4000 0
+	SetVar 0x4001 0
+	SetVar 0x4002 1
+	SetVar 0x4003 0
+	SetVar 0x4004 0
+	SetVar 0x4005 0
+	SetVar 0x4006 0
+	SetVar 0x4007 0
+	SetVar 0x4008 0
+	SetVar 0x4009 1
+End 
+
+

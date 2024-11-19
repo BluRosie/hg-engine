@@ -1,0 +1,91 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 7
+	CommonScript 2052
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#1
+	Message 18
+Jump Function#2
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#3
+	Message 16
+Jump Function#4
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 2409
+	JumpIf EQUAL Function#5
+	CheckFlag 141
+	JumpIf EQUAL Function#6
+	Message 9
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+Jump Function#8
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	SetFlag 446
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#10
+	ClearFlag 446
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 142
+	JumpIf EQUAL Function#11
+	GetFirstAlivePokemonSlot 0x8000
+	TextPartyPokemon 0 0x8000
+	Message 0
+	GetPokemonHappiness 0x800C 0x8000
+	CompareVarValue 0x800C 149
+	JumpIf GREATER/EQUAL Function#12
+	CompareVarValue 0x800C 50
+	JumpIf LESS/EQUAL Function#13
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,197 @@
+Function 1:
+	Message 3
+Jump Function#15
+
+
+Function 2:
+	Message 2
+Jump Function#15
+
+
+Function 3:
+	Message 1
+Jump Function#15
+
+
+Function 4:
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 1
+Jump Function#15
+
+
+Function 5:
+	WaitMovement 
+	Message 1
+Jump Function#15
+
+
+Function 6:
+	Message 17
+Jump Function#15
+
+
+Function 7:
+	CountSeenUnown 0x800C
+	CompareVarValue 0x800C 28
+	JumpIf EQUAL Function#20
+Jump Function#21
+
+
+Function 8:
+	CompareVarValue 0x403E 6
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x40F1 4
+	JumpIf EQUAL Function#22
+	CompareVarValue 0x403E 5
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x40F1 1
+	JumpIf GREATER/EQUAL Function#23
+Jump Function#21
+
+
+Function 9:
+	CompareVarValue 0x40EC 1
+	JumpIf EQUAL Function#24
+	Message 4
+Jump Function#15
+
+
+Function 10:
+	CompareVarValue 0x40EC 0
+	JumpIf EQUAL Function#25
+	CompareVarValue 0x40EC 1
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x403E 4
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x403E 3
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x403E 2
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x403E 1
+	JumpIf EQUAL Function#28
+Jump Function#29
+
+
+Function 11:
+	CompareVarValue 0x403E 3
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x403E 2
+	JumpIf EQUAL Function#27
+	CompareVarValue 0x403E 1
+	JumpIf EQUAL Function#28
+Jump Function#29
+
+
+Function 12:
+	CompareVarValue 0x403E 2
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x403E 1
+	JumpIf EQUAL Function#28
+Jump Function#29
+
+
+Function 13:
+	CompareVarValue 0x403E 1
+	JumpIf EQUAL Function#21
+Jump Function#29
+
+
+Function 14:
+	Message 5
+Jump Function#15
+
+
+Function 15:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	Message 20
+Jump Function#15
+
+
+Function 17:
+	Message 18
+Jump Function#15
+
+
+Function 18:
+	Message 23
+Jump Function#15
+
+
+Function 19:
+	Message 22
+Jump Function#15
+
+
+Function 20:
+	Message 14
+Jump Function#30
+
+
+Function 21:
+	Message 15
+Jump Function#15
+
+
+Function 22:
+	CompareVarValue 0x403E 5
+	JumpIf EQUAL Function#31
+Jump Function#23
+
+
+Function 23:
+	Message 12
+Jump Function#30
+
+
+Function 24:
+	Message 9
+Jump Function#15
+
+
+Function 25:
+	Message 4
+Jump Function#15
+
+
+Function 26:
+	Message 10
+	Message 11
+Jump Function#30
+
+
+Function 27:
+	Message 8
+Jump Function#30
+
+
+Function 28:
+	Message 7
+Jump Function#30
+
+
+Function 29:
+	Message 6
+Jump Function#30
+
+
+Function 30:
+	TextPlayerName 0
+	Message 16
+	PlaySound 1184
+	WaitSound 
+	IncrementVar 0x403E 1
+Jump Function#15
+
+
+Function 31:
+	Message 13
+Jump Function#30
+
+

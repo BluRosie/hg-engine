@@ -1,0 +1,644 @@
+Function 1:
+	MecScript
+	FadeScreen 4 1 0 0
+	WaitFadeScreen 
+	Warp 49 0 219 326 2
+	FadeScreen 4 1 1 0
+	Movement Player Action#13
+	Movement Following Action#13
+	WaitTime 53 0x800C
+	DoorAnimation 6 10 27 16 35
+	OpenDoor 35
+	WaitDoor 35
+	Movement Player Action#14
+	Movement Following Action#14
+	WaitMovement 
+	CloseDoor 35
+	WaitDoor 35
+	FreeDoor 35
+End 
+
+
+Function 2:
+	Movement Player Action#15
+	WaitMovement 
+Return 
+
+
+Function 3:
+	Movement Player Action#16
+	WaitMovement 
+Return 
+
+
+Function 4:
+	Movement Player Action#17
+	WaitMovement 
+Return 
+
+
+Function 5:
+	Movement Player Action#18
+	WaitMovement 
+Return 
+
+
+Function 6:
+	Movement Player Action#19
+	WaitMovement 
+Return 
+
+
+Function 7:
+	Movement Player Action#20
+	WaitMovement 
+Return 
+
+Function 8:
+	Message 31
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 32
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 34
+	WaitAB 
+	CloseMessage 
+Return 
+
+
+Function 9:
+	Message 33
+	WaitAB 
+	CloseMessage 
+Return 
+
+
+Function 10:
+	SetVar 0x8004 0
+	WaitTime 6 0x800C
+	## Instructions
+	Message 54
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 55
+	WaitAB 
+	CloseMessage 
+	ShowPokemonPic 43 0
+	## Here comes the 1st question
+	Message 56
+	WaitAB 
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 477 255 0
+	CreateMultiTouchBox 478 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+	HidePokemonPic 
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#11
+	CallIf DIFFERENT Function#12
+	## Okay here we come 2nd question!!
+	SetVar 0x8004 1
+	Message 61
+	WaitAB 
+	CloseMessage 
+	ShowPokemonPic 99 0
+	Message 62
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 479 255 0
+	CreateMultiTouchBox 480 255 1
+	CloseMultiTouch 
+	CloseTouchScreen 
+	HidePokemonPic 
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#13
+	CallIf DIFFERENT Function#14
+	## And here we call our cutscene!!
+	Call Function#15
+	## That sums up the cutscene
+	## Let's go back to quesions (3)
+	SetVar 0x8004 2
+	Message 74
+	WaitAB 
+	CloseMessage 
+	ShowPokemonPic 33 0
+	Message 75
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 482 255 0
+	CreateMultiTouchBox 481 255 1
+	CreateMultiTouchBox 483 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	HidePokemonPic 
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#16
+	CallIf DIFFERENT Function#17
+	## And now the 4th question
+	SetVar 0x8004 3
+	Message 80
+	WaitAB 
+	CloseMessage 
+	ShowPokemonPic 126 0
+	Message 81
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 484 255 0
+	CreateMultiTouchBox 485 255 1
+	CreateMultiTouchBox 486 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	HidePokemonPic 
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#18
+	CallIf DIFFERENT Function#19
+	## Finally!! The last question
+	SetVar 0x8004 4
+	Message 86
+	WaitAB 
+	CloseMessage 
+	ShowPokemonPic 127 0
+	Message 87
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 0 0x800C
+	CreateMultiTouchBox 487 255 1
+	CreateMultiTouchBox 488 255 0
+	CreateMultiTouchBox 489 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	HidePokemonPic 
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#20
+	CallIf DIFFERENT Function#21
+	## Yay!! we completed the test
+	## Now the Results
+	Movement Overworld.2 Action#10
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#1
+	Message 92
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.4 Action#35
+	Movement Overworld.6 Action#35
+	WaitTime 1 0x800C
+	Movement Overworld.7 Action#35
+	WaitTime 1 0x800C
+	Movement Overworld.1 Action#35
+	WaitMovement 
+	Movement Overworld.2 Action#45
+	WaitMovement 
+	Movement Overworld.0 Action#46
+	WaitMovement 
+	Message 93
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.3 Action#12
+	WaitMovement 
+	WaitTime 6 0x800C
+	Message 94
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 27 0x800C
+	CommonScript 2000 
+	WaitTime 6 0x800C
+	Message 95
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+    ## TODO:
+    ## Blue's animation should be done here
+	Message 96
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#35
+	Movement Overworld.2 Action#35
+	WaitMovement 
+	Movement Overworld.0 Action#10
+	Movement Overworld.2 Action#10
+	WaitMovement 
+	FadeOutMusic 0 30
+	PlayMusic 1107
+	## Here goes our douchebag
+	Movement Overworld.9 Action#47
+	WaitMovement 
+	WaitTime 10 0x800C
+	Movement Overworld.9 Action#48
+	WaitMovement 
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	Message 97
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#49
+	Movement Overworld.9 Action#50
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 2200
+	WaitTime 10 0x800C
+	Movement Overworld.9 Action#8
+	WaitMovement 
+	RemoveOW Overworld.9
+	SetFlag 2201
+	StopMusic 0
+	PlayDefaultMusic 
+	## Well there goes Blue
+	## Now let's get to our protas
+Return
+
+
+Function 11:
+	## 1st question CORRECT
+	PlayFanfare 1521
+	WaitFanfare 1521
+	Message 57
+	WaitAB 
+	CloseMessage 
+	Message 58
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 4
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 2600
+Return
+
+Function 12:
+	## 1st question INCORRECT
+	PlayFanfare 1523
+	WaitFanfare 1523
+	Message 59
+	WaitAB 
+	CloseMessage 
+	Message 60
+	WaitAB 
+	CloseMessage 
+Return
+
+
+Function 13:
+	## 2nd question CORRECT
+	PlayFanfare 1521
+	WaitFanfare 1521
+	Message 63
+	WaitAB 
+	CloseMessage 
+	Message 64
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 4
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 2601
+Return
+
+Function 14:
+	## 2nd question INCORRECT
+	PlayFanfare 1523
+	WaitFanfare 1523
+	Message 65
+	WaitAB 
+	CloseMessage 
+	Message 66
+	WaitAB 
+	CloseMessage 
+Return
+
+
+Function 15:
+	GetPlayerPosition 0x8004 0x8005
+	LockCamera 0x8004 0x8005
+	Movement Camera Action#41
+	Movement Overworld.2 Action#11
+	WaitMovement 
+	Movement Overworld.3 Action#33
+	WaitMovement 
+	Message 67
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Overworld.0 Action#12
+	Movement Overworld.2 Action#12
+	Movement Overworld.3 Action#12
+	Message 68
+	WaitButton 
+	CloseMessage 
+	Movement Camera Action#42
+	WaitMovement 
+	WaitTime 30 0x800C
+	Movement Camera Action#43
+	WaitMovement 
+	Message 69
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 70
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 71
+	WaitButton 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Overworld.0 Action#9
+	Movement Overworld.2 Action#11
+	Movement Overworld.3 Action#10
+	Message 72
+	WaitButton 
+	CloseMessage 
+	Movement Overworld.3 Action#12
+	WaitMovement 
+	Message 73
+	WaitButton 
+	CloseMessage 
+	Movement Overworld.3 Action#10
+	WaitMovement 
+	Movement Camera Action#44
+	WaitMovement 
+	ReleaseCamera 
+Return
+
+
+Function 16:
+	## 3rd question CORRECT
+	PlayFanfare 1521
+	WaitFanfare 1521
+	Message 76
+	WaitAB 
+	CloseMessage 
+	Message 77
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 4
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 2602
+Return
+
+Function 17:
+	## 3rd question INCORRECT
+	PlayFanfare 1523
+	WaitFanfare 1523
+	Message 78
+	WaitAB 
+	CloseMessage 
+	Message 79
+	WaitAB 
+	CloseMessage 
+Return
+
+
+Function 18:
+	## 4th quesion CORRECT
+	PlayFanfare 1521
+	WaitFanfare 1521
+	Message 82
+	WaitAB 
+	CloseMessage 
+	Message 83
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 4
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 2603
+Return
+
+Function 19:
+	## 4th quesion INCORRECT
+	PlayFanfare 1523
+	WaitFanfare 1523
+	Message 84
+	WaitAB 
+	CloseMessage 
+	Message 85
+	WaitAB 
+	CloseMessage 
+Return
+
+
+Function 20:
+	PlayFanfare 1521
+	WaitFanfare 1521
+	Message 88
+	WaitAB 
+	CloseMessage 
+	Message 89
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 4
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 2603
+Return
+
+Function 21:
+	PlayFanfare 1523
+	WaitFanfare 1523
+	Message 90
+	WaitAB 
+	CloseMessage 
+	Message 91
+	WaitAB 
+	CloseMessage 
+Return
+
+
+Function 22:
+	Message 98
+	WaitAB 
+	CloseMessage 
+	Movement Camera Action#2
+	WaitMovement 
+	ReleaseCamera 
+	Message 99
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 100
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#51
+	## Make it Clap
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 101 0x800C
+	Movement Overworld.2 Action#10
+	WaitTime 1 0x800C
+    WaitMovement
+	Message 102
+    WaitAB
+	CloseMessage 
+	WaitTime 6 0x800C
+	## This part is WIP
+	SetPlayerForm 256
+	UpdatePlayerForm
+	Movement Player Action#52
+	WaitMovement 
+	SetPlayerForm 1
+	UpdatePlayerForm
+	## WIP part ends here
+	Message 103
+	GivePokedex 
+	SetFlag 107
+	PlaySound 1185
+	WaitSound 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 104
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 105
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Player Action#53
+	WaitMovement
+	Message 106
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 107
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 108
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 109
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 110
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Player Action#54
+	WaitMovement 
+Return
+
+
+Function 23:
+	Message 111
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.11 Action#55
+	WaitMovement 
+	Movement Overworld.2 Action#10
+	Message 112
+	CloseMessage 
+	WaitTime 6 0x800C
+	## Clap Clap Clap
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 117 0x800C
+	CommonScript 2000
+	WaitTime 1 0x800C
+	Message 113
+	WaitAB 
+	CloseMessage 
+	WaitTime 30 0x800C
+	Movement Overworld.11 Action#56
+	Message 114
+	WaitAB 
+	CloseMessage 
+	WaitMovement 
+	RemoveOW Overworld.11
+	WaitTime 30 0x800C
+	Movement Overworld.2 Action#11
+	WaitMovement 
+	Message 115
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Camera Action#2
+	WaitMovement 
+	ReleaseCamera 
+	Message 116
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#51
+	Movement Overworld.2 Action#10
+	## Make it Clap
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 117 0x800C
+	CommonScript 2000
+	WaitTime 1 0x800C
+	Message 118
+    WaitAB
+	CloseMessage 
+    WaitTime 6 0x800C
+    ##WIP Area##
+    SetPlayerForm 256
+	UpdatePlayerForm
+	Movement Player Action#52
+	WaitMovement 
+	SetPlayerForm 1
+	UpdatePlayerForm
+    ##WIP Area##
+	Message 119
+	GivePokedex 
+	SetFlag 107
+	PlaySound 1185
+	WaitSound 
+	CloseMessage 
+	Message 120
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	TextPlayerName 0
+	Message 121
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#53
+	WaitMovement 
+	Message 122
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 123
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 124
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 125
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#54
+	WaitMovement 
+Return 
+
+
+Function 24:
+	RemoveOW Overworld.1  ## Bug cather
+	RemoveOW Overworld.4  ## Ace trainer
+	RemoveOW Overworld.5  ## TrainerF (IDK)
+	RemoveOW Overworld.6  ## TrainerM (IDK)
+	RemoveOW Overworld.7  ## That suicuine guy
+	RemoveOW Overworld.8  ## TrainerF (IDK)
+	RemoveOW Overworld.9  ## Blue
+	RemoveOW Overworld.11 ## OppositeGender
+Return
+
+
+
+

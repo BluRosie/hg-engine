@@ -1,0 +1,75 @@
+Function 1:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	EndTrade 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 14
+	CloseMessage 
+	TakeItem 481 1 0x800C
+	Movement Overworld.6 Action#8
+	WaitMovement 
+	WaitFanfare 2296
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 467 0 13 7 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Message 15
+	Movement Overworld.6 Action#9
+	WaitMovement 
+	SetFlag 280
+	Message 16
+	SetVar 0x8004 384
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 17
+	WaitButton 
+	CloseMessage 
+	SetFlag 600
+	ClearFlag 601
+	SetFlag 763
+	ClearFlag 764
+	SetVar 0x40FF 1
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+

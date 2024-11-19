@@ -1,0 +1,142 @@
+Function 1:
+	CheckFlag 2404
+	JumpIf EQUAL Function#6
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	Message 3
+	SetVar 0x8004 334
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CommonScript 2033
+	SetFlag 210
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CMD_142 39 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#7
+	CheckFlag 2404
+	JumpIf LESS Function#8
+	CMD_147 39 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#8
+	GetHour 0x4000
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#9
+	SetFlag 750
+Jump Function#10
+
+
+Function 6:
+	Message 6
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#12
+	Message 7
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 40 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetFlag 750
+End 
+
+
+Function 8:
+	ClearFlag 750
+End 
+
+
+Function 9:
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#13
+	SetFlag 750
+Jump Function#10
+
+
+Function 10:
+End 
+
+
+Function 11:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CompareVarValue 0x4000 8
+	JumpIf DIFFERENT Function#14
+	SetFlag 750
+Jump Function#10
+
+
+Function 14:
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#15
+	SetFlag 750
+Jump Function#10
+
+
+Function 15:
+	ClearFlag 750
+End 
+
+

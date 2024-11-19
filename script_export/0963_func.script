@@ -1,0 +1,69 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 251
+End 
+
+
+Function 3:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#9
+	Movement Overworld.0 Action#2
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	SetVar 0x40E5 2
+End 
+
+
+Function 6:
+	SetOWPosition Overworld.0 3 0 3 Up
+End 
+
+
+Function 7:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,125 @@
+Function 1:
+	CompareVarValue 0x4077 5
+	JumpIf DIFFERENT Function#2
+	ClearFlag 440
+End 
+
+
+Function 2:
+End 
+
+
+Function 3:
+Jump Function#11
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	TrainerBattle 200 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	SetTrainerFlag 200
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	TrainerBattle 200 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	SetTrainerFlag 200
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+End 
+
+
+Function 11:
+	CheckFlag 145
+	JumpIf EQUAL Function#13
+	Message 2
+	SetVar 0x8004 213
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#14
+	CommonScript 2033
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 145
+End 
+
+
+Function 12:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

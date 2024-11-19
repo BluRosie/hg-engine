@@ -1,0 +1,132 @@
+Action 1:
+	WalkDownFast 0x2
+	WalkLeftFast 0x1
+	LookRight 0x1
+End
+
+
+Action 2:
+	WalkDownFast 0x2
+End
+
+
+Action 3:
+	WalkRightFast 0x1
+	LookDown 0x1
+End
+
+
+Action 4:
+	LookUp 0x1
+End
+
+
+Action 5:
+	WalkUpFast 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 6:
+	WalkUpFast 0x2
+	DisappearTrue 0x1
+End
+
+
+Action 7:
+	WalkDownVeryFast 0x1
+	WalkLeftVeryFast 0x3
+	WalkUpVeryFast 0x7
+	WalkLeftVeryFast 0x2
+End
+
+
+Action 8:
+	WalkLeftVeryFast 0x1
+	WalkUpVeryFast 0x1
+	WalkLeftVeryFast 0x2
+	WalkUpVeryFast 0x5
+	WalkLeftVeryFast 0x2
+End
+
+
+Action 9:
+	WalkRightVeryFast 0x1
+	WalkUpVeryFast 0x2
+	WalkRightVeryFast 0x3
+End
+
+
+Action 10:
+	WalkUpVeryFast 0x2
+	WalkRightVeryFast 0x4
+End
+
+
+Action 11:
+	WalkLeftVeryFast 0x1
+	WalkUpVeryFast 0x4
+	WalkLeftVeryFast 0x2
+End
+
+
+Action 12:
+	WalkUpVeryFast 0x4
+	WalkLeftVeryFast 0x3
+End
+
+
+Action 13:
+	WalkDownVeryFast 0x1
+	WalkRightVeryFast 0x4
+	WalkUpVeryFast 0x7
+	WalkRightVeryFast 0x2
+End
+
+
+Action 14:
+	WalkUpVeryFast 0x1
+	WalkRightVeryFast 0x4
+	WalkUpVeryFast 0x5
+	WalkRightVeryFast 0x2
+End
+
+
+Action 15:
+	WalkLeftVeryFast 0x1
+	WalkUpVeryFast 0x5
+	WalkRightVeryFast 0x2
+End
+
+
+Action 16:
+	WalkRightVeryFast 0x3
+	WalkUpVeryFast 0x5
+	WalkLeftVeryFast 0x2
+End
+
+
+Action 17:
+	LookUp 0x1
+End
+
+
+Action 18:
+	LookDown 0x1
+	WalkLeftVeryFast 0x1
+	LookRight 0x1
+End
+
+
+Action 19:
+	WalkUpVeryFast 0x2
+	DisappearTrue 0x1
+End
+
+
+Action 20:
+	WalkRightVeryFast 0x1
+	LookDown 0x1
+End
+
+

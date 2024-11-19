@@ -1,0 +1,27 @@
+Script 1:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 0 0x800C
+	CommonScript 2000
+End 
+
+
+Script 2:
+	SetIconBoard 1 1 10 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 3:
+	SetIconBoard 2 1 14 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+

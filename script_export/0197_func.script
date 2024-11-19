@@ -1,0 +1,45 @@
+Function 1:
+	PlayCry 143 0
+	Message 3
+	WaitCry 
+	CloseMessage 
+	SetFlag 164
+	WildBattleSp 143 50 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CMD_683 0x4005
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#5
+	SetFlag 2456
+	SetFlag 249
+	ReleaseAll 
+End 
+
+
+Function 2:
+	SetFlag 609
+	RemoveOW Overworld.4
+	RemoveOW Overworld.8
+	RemoveOW Overworld.7
+	RemoveOW Overworld.9
+	ClearFlag 164
+End 
+
+
+Function 3:
+End 
+
+
+Function 4:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	SetFlag 371
+Return 
+
+

@@ -1,0 +1,17 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_490 0x4122
+	CompareVarValue 0x4122 7
+	JumpIf EQUAL Function#1
+	GetHour 0x800C
+	CompareVarValue 0x800C 15
+	JumpIf EQUAL Function#2
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

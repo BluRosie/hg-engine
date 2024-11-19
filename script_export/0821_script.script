@@ -1,0 +1,41 @@
+Script 1:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1561
+	ClearFlag 524
+	AddOW Overworld.1
+	SetVar 0x4001 1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 229
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	CompareVarValue 0x4135 8
+	JumpIf LESS Function#2
+	TrainerBattle 703 0 0 0
+Jump Function#3
+
+
+Script 3:
+	CheckFlag 229
+	JumpIf EQUAL Function#4
+	VanishOverworld 3
+	VanishOverworld 4
+End 
+
+

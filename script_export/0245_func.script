@@ -1,0 +1,141 @@
+Function 1:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#10
+	ClearFlag 452
+	SetFlag 451
+Jump Function#2
+
+
+Function 2:
+End 
+
+
+Function 3:
+	ReleaseAll 
+End 
+
+
+Function 4:
+	GetPlayerDirection 0x800C
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 487 0 75 39 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Lock Following
+	GetFollowingPokeSize 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	BallResetFollowingPoke 
+Jump Function#12
+
+
+Function 5:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#13
+	Movement Player Action#5
+Jump Function#6
+
+
+Function 6:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Jump Function#14
+
+
+Function 7:
+	ReleaseAll 
+End 
+
+
+Function 8:
+	NoBallResetFollowingPoke 
+	Movement Following Action#6
+	WaitMovement 
+	Release Following
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Following Action#6
+	WaitMovement 
+	Release Following
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#15
+	ClearFlag 452
+	SetFlag 451
+Jump Function#2
+
+
+Function 11:
+	NoBallResetFollowingPoke 
+	Movement Following Action#6
+	WaitMovement 
+	Release Following
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Movement Following Action#6
+	WaitMovement 
+	Release Following
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Movement Player Action#7
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Jump Function#14
+
+
+Function 14:
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 487 0 75 39 Left
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Lock Following
+	GetFollowingPokeSize 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	BallResetFollowingPoke 
+Jump Function#12
+
+
+Function 15:
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#16
+	ClearFlag 452
+	SetFlag 451
+Jump Function#2
+
+
+Function 16:
+	ClearFlag 451
+	SetFlag 452
+End 
+
+

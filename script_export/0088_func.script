@@ -1,0 +1,211 @@
+Function 1:
+	SetOWPosition Overworld.0 9 0 3 Down
+	SetOWPosition Overworld.1 8 0 3 Down
+	SetOWPosition Overworld.2 9 0 4 Down
+	SetOWPosition Overworld.3 8 0 4 Down
+End 
+
+
+Function 2:
+	SetOWPosition Overworld.4 10 0 7 Left
+	SetOWPosition Overworld.5 4 0 3 Down
+	SetOWPosition Overworld.0 9 0 3 Down
+	SetOWPosition Overworld.1 8 0 3 Down
+	SetOWPosition Overworld.2 9 0 4 Down
+	SetOWPosition Overworld.3 8 0 4 Down
+End 
+
+
+Function 3:
+	SetOWPosition Overworld.4 8 0 7 Left
+End 
+
+
+Function 4:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	ClearFlag 640
+	SetFlag 500
+End 
+
+
+Function 7:
+	SetFlag 485
+	SetFlag 499
+End 
+
+
+Function 8:
+	CompareVarValue 0x4077 2
+	JumpIf DIFFERENT Function#10
+	Message 14
+Jump Function#11
+
+
+Function 9:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#12
+	Message 14
+Jump Function#11
+
+
+Function 11:
+Jump Function#9
+
+
+Function 12:
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#13
+	Message 14
+Jump Function#11
+
+
+Function 13:
+Jump Function#14
+
+
+Function 14:
+	GetHour 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#15
+	Message 11
+Jump Function#9
+
+
+Function 15:
+	CompareVarValue 0x4000 1
+	JumpIf DIFFERENT Function#16
+	Message 12
+Jump Function#9
+
+
+Function 16:
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#17
+	Message 11
+Jump Function#9
+
+
+Function 17:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#18
+	Message 12
+Jump Function#9
+
+
+Function 18:
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#19
+	Message 11
+Jump Function#9
+
+
+Function 19:
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#20
+	Message 12
+Jump Function#9
+
+
+Function 20:
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#21
+	Message 11
+Jump Function#9
+
+
+Function 21:
+	CompareVarValue 0x4000 10
+	JumpIf DIFFERENT Function#22
+	Message 12
+Jump Function#9
+
+
+Function 22:
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#23
+	Message 11
+Jump Function#9
+
+
+Function 23:
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#24
+	Message 12
+Jump Function#9
+
+
+Function 24:
+	CompareVarValue 0x4000 15
+	JumpIf DIFFERENT Function#25
+	Message 11
+Jump Function#9
+
+
+Function 25:
+	CompareVarValue 0x4000 16
+	JumpIf DIFFERENT Function#26
+	Message 12
+Jump Function#9
+
+
+Function 26:
+	CompareVarValue 0x4000 18
+	JumpIf DIFFERENT Function#27
+	Message 11
+Jump Function#9
+
+
+Function 27:
+	CompareVarValue 0x4000 19
+	JumpIf DIFFERENT Function#28
+	Message 12
+Jump Function#9
+
+
+Function 28:
+	CompareVarValue 0x4000 21
+	JumpIf DIFFERENT Function#29
+	Message 11
+Jump Function#9
+
+
+Function 29:
+	CompareVarValue 0x4000 22
+	JumpIf DIFFERENT Function#30
+	Message 12
+Jump Function#9
+
+
+Function 30:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

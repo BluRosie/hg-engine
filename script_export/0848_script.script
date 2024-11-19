@@ -1,0 +1,16 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 741
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4108 1
+	JumpIf GREATER/EQUAL Function#2
+	TextPlayerName 0
+	GenderMessage 0 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

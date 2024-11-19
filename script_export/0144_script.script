@@ -1,0 +1,53 @@
+Script 1:
+	MysteryGiftGive 0
+	CMD_813 0x4000
+	CMD_490 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#1
+	SetFlag 680
+Jump Function#2
+
+
+Script 2:
+	MysteryGiftGive 0
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	MysteryGiftGive 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	GetTimePeriod 0x800C
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#5
+Jump Function#6
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_813 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	GetTimePeriod 0x800C
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#9
+Jump Function#10
+
+
+Script 4:
+	MysteryGiftGive 0
+	CMD_813 0x4000
+	CMD_490 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#11
+	SetFlag 680
+Jump Function#12
+
+

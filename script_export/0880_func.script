@@ -1,0 +1,139 @@
+Function 1:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#5
+	Message 4
+Jump Function#6
+
+
+Function 3:
+	Message 6
+Jump Function#6
+
+
+Function 4:
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CloseMessage 
+	CMD_349 
+	GetSelectedPartySlot 0x4000
+	CompareVarValue 0x4000 255
+	JumpIf DIFFERENT Function#8
+	Call Function#9
+Jump Function#7
+
+
+Function 5:
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf DIFFERENT Function#10
+	Message 3
+Jump Function#6
+
+
+Function 6:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 10
+Jump Function#6
+
+
+Function 8:
+	CMD_363 6 0x4000 0x800C
+	CompareVarValue 0x800C 0
+	CallIf DIFFERENT Function#9
+	CMD_490 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Message 8
+Jump Function#12
+
+
+Function 9:
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Return 
+
+
+Function 10:
+	CMD_362 0x1406 75
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1210
+	WaitSound 
+	SetFlag 191
+	SetFlag 2749
+Jump Function#6
+
+
+Function 11:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#13
+	Message 12
+Jump Function#12
+
+
+Function 12:
+Jump Function#6
+
+
+Function 13:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#14
+	Message 13
+Jump Function#12
+
+
+Function 14:
+	CompareVarValue 0x800C 4
+	JumpIf DIFFERENT Function#15
+	Message 14
+Jump Function#12
+
+
+Function 15:
+	GetPokemonHappiness 0x800C 0x4000
+	CompareVarValue 0x800C 149
+	JumpIf LESS/EQUAL Function#16
+	Call Function#9
+Jump Function#17
+
+
+Function 16:
+	DeletePartyPokemon 0x4000
+	Call Function#9
+	Message 7
+	SetFlag 193
+Jump Function#6
+
+
+Function 17:
+	Message 9
+	SetFlag 193
+Jump Function#6
+
+

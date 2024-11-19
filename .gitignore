@@ -18,6 +18,8 @@ dump.py
 dumpitem.py
 *_DSPRE_contents/*
 
+*.tar.gz
+
 # pycache files
 *.pyc
 *.sav
@@ -86,6 +88,14 @@ tools/swav2swar.exe
 
 *.ml*
 
+
 *.gbapal
 *.4bpp
 changelog
+
+.idea/*
+.idea/.gitignore
+.idea/misc.xml
+.idea/vcs.xml
+
+foo.txt

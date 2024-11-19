@@ -1,0 +1,84 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4100 1
+	JumpIf EQUAL Function#1
+	CheckFlag 1111
+	JumpIf EQUAL Function#2
+	Message 1
+	CloseMessage 
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	CheckFlag 393
+	JumpIf LESS Function#3
+	ClearFlag 393
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	CommonScript 2067
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#4
+Jump Function#5
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#8
+	Movement Player Action#2
+	Movement Overworld.5 Action#3
+Jump Function#9
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CheckFlag 1111
+	JumpIf EQUAL Function#10
+	Movement Overworld.1 Action#4
+	Movement Player Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.1 Action#1
+	Movement Player Action#6
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+

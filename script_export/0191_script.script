@@ -1,0 +1,102 @@
+Script 1:
+	MecScript 
+	LockAll 
+	CheckFlag 280
+	JumpIf EQUAL Function#1
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	GetFollowingPokeSize 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#2
+	SendBackFollowingPoke 
+	PlayFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 489 0 7 20 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CMD_582 18 1423 185
+	ReleaseAll 
+End 
+
+
+Script 2:
+	CheckBadge 15 0x4004
+	CompareVarValue 0x4004 1
+	JumpIf EQUAL Function#3
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_147 36 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#5
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	GetFirstAlivePokemonSlot 0x4000
+	GetPartyPokemonID 0x4000 0x4001
+	CompareVarValue 0x4001 25
+	JumpIf DIFFERENT Function#6
+	CompareVarValue 0x4002 1
+	JumpIf GREATER/EQUAL Function#7
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#9
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 145 0
+	WaitCry 
+	SetFlag 164
+	WildBattleSp 145 50 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CMD_683 0x4002
+	CompareVarValue 0x4002 3
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x4002 4
+	CallIf EQUAL Function#12
+	ReleaseAll 
+End 
+
+
+Script 5:
+	CheckFlag 164
+	JumpIf EQUAL Function#13
+End 
+
+
+Script 6:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 8 0x800C
+	CommonScript 2000
+End 
+
+
+Script 7:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 9 0x800C
+	CommonScript 2000
+End 
+
+

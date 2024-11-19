@@ -1,0 +1,48 @@
+Script 1:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#1
+	ClearFlag 451
+Jump Function#2
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetFirstAlivePokemonSlot 0x8002
+	CheckRibbon 0x800C 0x8002 65
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	CheckFlag 2748
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x4094 7
+	JumpIf EQUAL Function#5
+	CheckFlag 165
+	JumpIf EQUAL Function#6
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CMD_438 0 0x800C
+	CMD_440 0x800C 27
+Jump Function#8
+
+
+Script 3:
+	SetIconBoard 0 1 3 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 4:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 1 0x800C
+	CommonScript 2000
+End 
+
+

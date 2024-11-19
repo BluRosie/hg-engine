@@ -1,0 +1,55 @@
+Action 1:
+	WalkRightVeryFast 0x1
+	WalkDownVeryFast 0xA
+End
+
+
+Action 2:
+	LockDir 0x1
+	WalkRightVeryFast 0x1
+	ReleaseDir 0x1
+	LookDown 0x1
+End
+
+
+Action 3:
+	Freeze4 0xC
+	LookLeft 0x1
+End
+
+
+Action 4:
+	Freeze4 0x1
+	LookDown 0x1
+	Freeze4 0xA
+	WalkUpFast 0x1
+	LookLeft 0x1
+End
+
+
+Action 5:
+	Exclamation 0x1
+	WalkLeftVeryFast 0x3
+End
+
+
+Action 6:
+	Freeze16 0x3
+	LookDown 0x1
+End
+
+
+Action 7:
+	Freeze16 0x3
+	WalkDownVeryFast 0x1
+	LookUp 0x1
+End
+
+
+Action 8:
+	LookUp 0x1
+	Exclamation 0x1
+	WalkLeftVeryFast 0x3
+End
+
+

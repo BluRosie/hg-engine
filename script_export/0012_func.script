@@ -1,0 +1,68 @@
+Function 1:
+	CMD_508 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 479 0 7 7 Down
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Return 
+
+
+Function 2:
+	SetVar 0x4124 2
+	ReleaseAll 
+	Call Function#1
+End 
+
+
+Function 3:
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+	TextPlayerName 0
+	Message 2
+	WaitButton 
+	SetVar 0x800C 0
+Return 
+
+
+Function 4:
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 1
+	SetVar 0x800C 1
+Return 
+
+
+Function 7:
+	TextPlayerName 0
+	Message 3
+	WaitButton 
+	SetVar 0x800C 0
+Return 
+
+

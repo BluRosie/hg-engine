@@ -1,0 +1,471 @@
+Function 1:
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x414B 3
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 265 0 11 6 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+End 
+
+
+Function 2:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CMD_412 50 0x4009 0
+	SetVar 0x4151 2
+	Message 8
+	CloseMessage 
+	ReleaseAll 
+	Lock Overworld.1
+Jump Function#27
+
+
+Function 4:
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CMD_413 0x4009 0 0x8004 0x8005
+	TextPokemon 0 0x8004 0 0
+	TextMove 1 0x8005
+	CMD_413 0x4009 1 0x8004 0x8005
+	TextPokemon 2 0x8004 0 0
+	TextMove 3 0x8005
+Return 
+
+
+Function 6:
+	CMD_412 50 0x4009 0
+	SetVar 0x4151 2
+	TextPlayerName 0
+	Message 17
+	CloseMessage 
+	ReleaseAll 
+	Lock Overworld.2
+Jump Function#28
+
+
+Function 7:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CMD_412 50 0x4009 0
+	SetVar 0x4151 2
+	Message 5
+	CloseMessage 
+	ReleaseAll 
+	Lock Overworld.3
+Jump Function#29
+
+
+Function 9:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CMD_412 50 0x4009 0
+	SetVar 0x4151 2
+	Message 14
+	CloseMessage 
+	ReleaseAll 
+	Lock Overworld.4
+Jump Function#30
+
+
+Function 11:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CMD_412 50 0x4009 0
+	SetVar 0x4151 2
+	Message 11
+	CloseMessage 
+	ReleaseAll 
+	Lock Overworld.5
+Jump Function#31
+
+
+Function 13:
+	ClearFlag 685
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#15
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 1
+	JumpIf EQUAL Function#16
+	ClearFlag 686
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#17
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 2
+	JumpIf EQUAL Function#18
+	ClearFlag 687
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 14:
+	SetFlag 685
+Jump Function#32
+
+
+Function 15:
+	ClearFlag 686
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#17
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 2
+	JumpIf EQUAL Function#18
+	ClearFlag 687
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 16:
+	SetFlag 686
+Jump Function#33
+
+
+Function 17:
+	ClearFlag 687
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 18:
+	SetFlag 687
+Jump Function#34
+
+
+Function 19:
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 20:
+	SetFlag 688
+Jump Function#35
+
+
+Function 21:
+	ClearFlag 689
+End 
+
+
+Function 22:
+	SetFlag 689
+Jump Function#36
+
+
+Function 23:
+	VanishOverworld 255
+Return 
+
+
+Function 24:
+	SetOWPosition Overworld.0 8 0 3 Down
+End 
+
+
+Function 25:
+	Call Function#37
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	UnvanishOverworld 255
+	Movement Player Action#2
+	WaitMovement 
+	Call Function#38
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	Movement Player Action#4
+	WaitMovement 
+Return 
+
+
+Function 26:
+	Call Function#37
+	Movement Overworld.0 Action#5
+	Movement Player Action#6
+	WaitMovement 
+	Call Function#38
+Return 
+
+
+Function 27:
+	SetVar 0x4000 1
+	GetPlayerPosition 0x8000 0x8001
+	CompareVarValue 0x8000 12
+	JumpIf EQUAL Function#39
+Jump Function#40
+
+
+Function 28:
+	SetVar 0x4000 2
+	GetPlayerPosition 0x8000 0x8001
+	CompareVarValue 0x8000 4
+	JumpIf EQUAL Function#41
+Jump Function#42
+
+
+Function 29:
+	SetVar 0x4000 3
+	GetPlayerPosition 0x8000 0x8001
+	CompareVarValue 0x8001 7
+	JumpIf EQUAL Function#43
+Jump Function#44
+
+
+Function 30:
+	SetVar 0x4000 4
+	GetPlayerPosition 0x8000 0x8001
+	CompareVarValue 0x8001 9
+	JumpIf EQUAL Function#45
+Jump Function#46
+
+
+Function 31:
+	SetVar 0x4000 5
+	GetPlayerPosition 0x8000 0x8001
+	CompareVarValue 0x8000 8
+	JumpIf EQUAL Function#47
+Jump Function#48
+
+
+Function 32:
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#15
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 1
+	JumpIf EQUAL Function#16
+	ClearFlag 686
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#17
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 2
+	JumpIf EQUAL Function#18
+	ClearFlag 687
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 33:
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#17
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 2
+	JumpIf EQUAL Function#18
+	ClearFlag 687
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 34:
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#19
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 3
+	JumpIf EQUAL Function#20
+	ClearFlag 688
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 35:
+	CompareVarValue 0x4151 2
+	JumpIf DIFFERENT Function#21
+	CMD_412 55 2 0x4009
+	CompareVarValue 0x4009 4
+	JumpIf EQUAL Function#22
+	ClearFlag 689
+End 
+
+
+Function 36:
+End 
+
+
+Function 37:
+	DoorAnimation 0 0 8 2 77
+	OpenDoor 77
+	WaitDoor 77
+Return 
+
+
+Function 38:
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+Return 
+
+
+Function 39:
+	Movement Overworld.1 Action#7
+	WaitMovement 
+Jump Function#49
+
+
+Function 40:
+	Movement Overworld.1 Action#8
+	WaitMovement 
+Jump Function#49
+
+
+Function 41:
+	Movement Overworld.2 Action#9
+	WaitMovement 
+Jump Function#49
+
+
+Function 42:
+	Movement Overworld.2 Action#10
+	WaitMovement 
+Jump Function#49
+
+
+Function 43:
+	Movement Overworld.3 Action#11
+	WaitMovement 
+Jump Function#49
+
+
+Function 44:
+	Movement Overworld.3 Action#12
+	WaitMovement 
+Jump Function#49
+
+
+Function 45:
+	Movement Overworld.4 Action#13
+	WaitMovement 
+Jump Function#49
+
+
+Function 46:
+	Movement Overworld.4 Action#14
+	WaitMovement 
+Jump Function#49
+
+
+Function 47:
+	Movement Overworld.5 Action#15
+	WaitMovement 
+Jump Function#49
+
+
+Function 48:
+	Movement Overworld.5 Action#16
+	WaitMovement 
+Jump Function#49
+
+
+Function 49:
+	Movement 0x4000 Action#17
+	WaitMovement 
+	Movement Overworld.0 Action#18
+	WaitMovement 
+	Call Function#37
+	Movement 0x4000 Action#19
+	WaitMovement 
+	Call Function#38
+	Movement Overworld.0 Action#20
+	WaitMovement 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 271 0 8 4 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,23 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 268
+	JumpIf EQUAL Function#1
+	CheckFlag 269
+	JumpIf EQUAL Function#2
+	Message 0
+	CloseMessage 
+	TrainerBattle 158 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	SetFlag 269
+	Message 1
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf DIFFERENT Function#4
+	Message 4
+Jump Function#5
+
+

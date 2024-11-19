@@ -1,0 +1,127 @@
+Script 1:
+	CompareVarValue 0x40FE 4
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x40FE 3
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x40FE 2
+	JumpIf EQUAL Function#3
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	Movement Overworld.5 Action#2
+	WaitMovement 
+	Movement Following Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Movement Overworld.4 Action#4
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.5 Action#2
+	WaitMovement 
+	GenderMessage 8 7
+	CloseMessage 
+	Movement Overworld.4 Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.5 Action#6
+	WaitMovement 
+	GenderMessage 10 9
+	CloseMessage 
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	GenderMessage 12 11
+	CloseMessage 
+	Movement Overworld.5 Action#8
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 14 13
+	CloseMessage 
+	StopMusic 0
+	PlayFanfare 1432
+	PlayMusic 1094
+	Message 2
+	StopFanfare 1432
+	CloseMessage 
+	Movement Overworld.4 Action#5
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	SetVar 0x40FE 3
+	TrainerBattle 700 0 1 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	SetVar 0x40FE 4
+	Movement Overworld.4 Action#9
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.4 Action#10
+	WaitMovement 
+	RemoveOW Overworld.4
+	SetFlag 771
+	Movement Player Action#11
+	Movement Overworld.5 Action#11
+	WaitMovement 
+	FadeOutMusic 0 30
+	StopMusic 0
+	PlayFanfare 1432
+	Message 5
+	StopFanfare 1432
+	CloseMessage 
+	Movement Overworld.5 Action#12
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 16 15
+	CloseMessage 
+	GetFirstAlivePokemonSlot 0x4002
+	GetPartyPokemonID 0x4002 0x800C
+	CompareVarValue 0x800C 251
+	CallIf DIFFERENT Function#5
+	Movement Following Action#13
+	WaitMovement 
+	PlayFanfare 2312
+	FadeScreen 6 6 0 0x7FFF
+	WaitFadeScreen 
+	WaitTime 15 0x800C
+	FadeScreen 6 6 1 0x7FFF
+	WaitFadeScreen 
+	Movement Player Action#7
+	WaitMovement 
+	Movement Overworld.5 Action#14
+	WaitMovement 
+	CompareVarValue 0x4003 1
+	JumpIf DIFFERENT Function#6
+	GenderMessage 27 26
+	CloseMessage 
+Jump Function#7
+
+
+Script 3:
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40FE 4
+	JumpIf GREATER/EQUAL Function#8
+	Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

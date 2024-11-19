@@ -1,0 +1,47 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	Movement Player Action#1
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CyclingRoad 0
+	SetVar 0x4129 0
+	SetVar 0x412A 0
+	ClearFlag 329
+End 
+
+
+Script 4:
+	CheckFlag 329
+	JumpIf EQUAL Function#2
+End 
+
+

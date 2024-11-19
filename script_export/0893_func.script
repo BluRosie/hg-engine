@@ -1,0 +1,69 @@
+Function 1:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#6
+	Message 5
+	WaitButton 
+	CloseMessage 
+Jump Function#7
+
+
+Function 2:
+	Message 3
+	CloseMessage 
+Jump Function#8
+
+
+Function 3:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	SetVar 0x410B 1
+	SetVar 0x411E 1
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetOWPosition Overworld.0 4 0 6 Right
+End 
+
+
+Function 5:
+	SetVar 0x410B 0
+End 
+
+
+Function 6:
+	Message 7
+	CloseMessage 
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitTime 50 0x8004
+	CheckItem 480 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#3
+	Message 2
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+

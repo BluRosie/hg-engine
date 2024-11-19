@@ -1,0 +1,59 @@
+Function 1:
+Jump Function#3
+
+
+Function 2:
+	CheckItem 474 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#4
+	CheckItem 483 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#5
+Jump Function#6
+
+
+Function 3:
+	CheckItem 503 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#7
+	CheckItem 482 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#8
+Jump Function#6
+
+
+Function 4:
+	Message 3
+Jump Function#9
+
+
+Function 5:
+	Message 1
+Jump Function#9
+
+
+Function 6:
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 4
+Jump Function#9
+
+
+Function 8:
+	Message 2
+Jump Function#9
+
+
+Function 9:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

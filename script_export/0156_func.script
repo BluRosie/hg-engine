@@ -1,0 +1,152 @@
+Function 1:
+Jump Function#10
+
+
+Function 2:
+	CheckFlag 235
+	JumpIf EQUAL Function#11
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CompareVarValue 0x4000 23
+	JumpIf DIFFERENT Function#12
+	SetOWPosition Overworld.3 32 0 0x4001 Left
+Jump Function#6
+
+
+Function 6:
+	Movement Overworld.3 Action#4
+	Movement Player Action#5
+	WaitMovement 
+	Movement Overworld.3 Action#6
+	WaitMovement 
+	Message 7
+	CloseMessage 
+	Movement Overworld.3 Action#7
+	WaitMovement 
+	RemoveOW Overworld.3
+	SetFlag 533
+	SetVar 0x40CB 2
+	StopFanfare 2133
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetWarpPosition 0 27 20
+End 
+
+
+Function 8:
+	SetWarpPosition 12 27 20
+End 
+
+
+Function 9:
+End 
+
+
+Function 10:
+	CheckFlag 235
+	JumpIf EQUAL Function#13
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#14
+	Message 2
+	CloseMessage 
+	Movement Overworld.1 Action#8
+	WaitMovement 
+	SetVar 0x40CB 7
+	SetVar 0x4000 1
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CompareVarValue 0x4000 24
+	JumpIf DIFFERENT Function#15
+	SetOWPosition Overworld.3 33 0 0x4001 Left
+Jump Function#6
+
+
+Function 13:
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#16
+	Message 5
+	CloseMessage 
+	Movement Overworld.1 Action#8
+	WaitMovement 
+	SetVar 0x4000 1
+	ReleaseAll 
+End 
+
+
+Function 14:
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	CompareVarValue 0x4000 25
+	JumpIf DIFFERENT Function#17
+	SetOWPosition Overworld.3 34 0 0x4001 Left
+Jump Function#6
+
+
+Function 16:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	SetOWPosition Overworld.3 35 0 0x4001 Left
+	Movement Overworld.3 Action#4
+	Movement Player Action#5
+	WaitMovement 
+	Movement Overworld.3 Action#6
+	WaitMovement 
+	Message 7
+	CloseMessage 
+	Movement Overworld.3 Action#7
+	WaitMovement 
+	RemoveOW Overworld.3
+	SetFlag 533
+	SetVar 0x40CB 2
+	StopFanfare 2133
+	ReleaseAll 
+End 
+
+

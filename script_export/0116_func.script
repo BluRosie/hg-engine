@@ -1,0 +1,146 @@
+Function 1:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	CompareVarValue 0x400B 0
+	JumpIf DIFFERENT Function#8
+	IncrementVar 0x400B 1
+Jump Function#9
+
+
+Function 2:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	CompareVarValue 0x400B 0
+	JumpIf DIFFERENT Function#8
+	IncrementVar 0x400B 1
+Jump Function#9
+
+
+Function 3:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#10
+	Movement Player Action#3
+Jump Function#6
+
+
+Function 6:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 38 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 2
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x4000 4
+	JumpIf EQUAL Function#12
+	SetFlag 638
+End 
+
+
+Function 8:
+	SetVar 0x400B 0
+End 
+
+
+Function 9:
+End 
+
+
+Function 10:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#13
+	Movement Player Action#5
+	Movement Overworld.12 Action#2
+Jump Function#6
+
+
+Function 11:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 38 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	ClearFlag 638
+End 
+
+
+Function 13:
+	Movement Player Action#6
+	Movement Overworld.12 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 38 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

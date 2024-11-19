@@ -1,0 +1,17 @@
+Action 1:
+	WalkDownFast 0x3
+	WalkRightFast 0x7
+End
+
+
+Action 2:
+	WalkRightFast 0xB
+	WalkDownFast 0x4
+End
+
+
+Action 3:
+	WalkDownFast 0x2
+End
+
+

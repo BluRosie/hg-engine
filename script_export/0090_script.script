@@ -1,0 +1,273 @@
+Script 1:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 0
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PlaySound 1183
+	WaitSound 
+	HealPokemon 
+	CMD_436 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	TextPlayerName 0
+	GenderMessage 1 2
+	CloseMessage 
+	Movement Overworld.0 Action#2
+	Movement Overworld.1 Action#3
+	WaitMovement 
+	RemoveOW Overworld.0
+	RemoveOW Overworld.1
+	SetFlag 485
+	ReleaseAll 
+	SetVar 0x40A9 1
+End 
+
+
+Script 2:
+	CompareVarValue 0x40AC 8
+	JumpIf GREATER/EQUAL Function#1
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 211
+	JumpIf LESS Function#2
+	TextPlayerName 0
+	Message 21
+	CloseMessage 
+	PlayFanfare 1543
+	Movement Overworld.5 Action#4
+	Movement Overworld.6 Action#5
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CMD_710 
+	CompareVarValue 0x40A9 3
+	JumpIf GREATER/EQUAL Function#3
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	Message 3
+	Movement Player Action#6
+	WaitMovement 
+	CloseMessage 
+	ClearFlag 499
+	AddOW Overworld.8
+	AddOW Overworld.7
+	SetOWPosition Overworld.8 32 1 30 Right
+	SetOWPosition Overworld.7 30 1 30 Up
+	StopMusic 0
+	PlayMusic 1112
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 30
+	JumpIf DIFFERENT Function#4
+	Movement Player Action#7
+Jump Function#5
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x400A 1
+	SetFlag 164
+	WildBattleSp 101 23 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CheckDefeatedPokemon 0x4000 0
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#7
+	SetFlag 203
+	CheckFlag 204
+	JumpIf LESS Function#7
+	CheckFlag 205
+	JumpIf LESS Function#7
+Jump Function#8
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x400A 2
+	SetFlag 164
+	WildBattleSp 101 23 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CheckDefeatedPokemon 0x4000 0
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#9
+	SetFlag 204
+	CheckFlag 203
+	JumpIf LESS Function#9
+	CheckFlag 205
+	JumpIf LESS Function#9
+Jump Function#8
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x400A 3
+	SetFlag 164
+	WildBattleSp 101 23 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CheckDefeatedPokemon 0x4000 0
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#10
+	SetFlag 205
+	CheckFlag 203
+	JumpIf LESS Function#10
+	CheckFlag 204
+	JumpIf LESS Function#10
+Jump Function#8
+
+
+Script 8:
+	CheckFlag 164
+	JumpIf EQUAL Function#11
+End 
+
+
+Script 9:
+	MecScript 
+	LockAll 
+	Message 14
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#8
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+
+Script 10:
+	MecScript 
+	LockAll 
+	Movement Overworld.0 Action#9
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#8
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	ReleaseAll 
+End 
+
+
+Script 11:
+	ReleaseAll 
+	CheckFlag 203
+	JumpIf LESS Function#12
+	CheckFlag 204
+	JumpIf LESS Function#12
+	CheckFlag 205
+	JumpIf LESS Function#12
+	Message 23
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 12:
+	MecScript 
+	LockAll 
+	Movement Overworld.18 Action#10
+	WaitMovement 
+	Message 26
+	CloseMessage 
+	Message 27
+	CloseMessage 
+	PlayFanfare 1543
+	Movement Overworld.5 Action#4
+	Movement Overworld.6 Action#5
+	WaitMovement 
+	GetPlayerPosition 0x8000 0x8001
+	CompareVarValue 0x8001 24
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.18 Action#11
+Jump Function#14
+
+
+Script 13:
+Jump Function#15
+
+
+Script 14:
+	MecScript 
+	LockAll 
+	Movement Overworld.16 Action#12
+	WaitMovement 
+	Message 24
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.16 Action#13
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40AC 5
+	RemoveOW Overworld.16
+	SetFlag 587
+	ClearFlag 588
+	ReleaseAll 
+End 
+
+
+Script 15:
+	MecScript 
+	LockAll 
+	Movement Overworld.17 Action#14
+	WaitMovement 
+	Message 25
+	CloseMessage 
+	Movement Overworld.17 Action#15
+	WaitMovement 
+	SetVar 0x40AC 7
+	RemoveOW Overworld.17
+	SetFlag 589
+	ClearFlag 594
+	AddOW Overworld.18
+	ReleaseAll 
+End 
+
+

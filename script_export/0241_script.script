@@ -1,0 +1,49 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4114 1
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4114 2
+	JumpIf GREATER/EQUAL Function#2
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#4
+	Message 3
+	CMD_362 0x1407 101
+	SetVar 0x4114 1
+	TextPlayerName 0
+	Message 4
+	PlaySound 1210
+	WaitSound 
+	CMD_781 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CheckFlag 181
+	JumpIf EQUAL Function#6
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 138
+	JumpIf EQUAL Function#7
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

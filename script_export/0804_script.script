@@ -1,0 +1,85 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 370
+	JumpIf EQUAL Function#1
+	SetFlag 370
+	Message 2
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+Jump Function#3
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_784 3
+	Message 9
+	OpenTouchScreen 
+	CMD_116 0
+	CommonScript 2
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 21 255 0
+	CreateMultiTouchBox 22 255 1
+	CreateMultiTouchBox 20 255 2
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#5
+Jump Function#6
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_784 3
+	Message 18
+	OpenTouchScreen 
+	CMD_116 0
+	CommonScript 2
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 33 255 0
+	CreateMultiTouchBox 34 255 1
+	CreateMultiTouchBox 35 255 2
+	CreateMultiTouchBox 20 255 3
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#9
+Jump Function#6
+
+

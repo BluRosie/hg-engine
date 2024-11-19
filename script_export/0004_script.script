@@ -1,0 +1,138 @@
+Script 1:
+	CompareVarValue 0x4133 2
+	JumpIf EQUAL Function#1
+	CompareVarValue 0x4133 1
+	JumpIf EQUAL Function#1
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_584 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckPlayerForm 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#3
+	Message 0
+Jump Function#4
+
+
+Script 3:
+	CMD_230 
+	CMD_284 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_584 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	CheckPlayerForm 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#5
+	GetPartyCount 0x4009
+	SetVar 0x400A 0
+	GetPartyPokemonID 0x400A 0x800C
+	CompareVarValue 0x800C 172
+	JumpIf DIFFERENT Function#6
+	CMD_827 0x400A 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#6
+Jump Function#7
+
+
+Script 5:
+End 
+
+
+Script 6:
+End 
+
+
+Script 7:
+End 
+
+
+Script 8:
+End 
+
+
+Script 9:
+End 
+
+
+Script 10:
+End 
+
+
+Script 11:
+	CMD_436 
+	CMD_152 
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+End 
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetFlag 102
+	Message 116
+Jump Function#8
+
+
+Script 13:
+	MecScript 
+	LockAll 
+	GetCurrentHeaderID 0x800C
+	CMD_840 0x800C 0x8004
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#9
+Jump Function#10
+
+
+Script 14:
+	MecScript 
+	LockAll 
+	GetCurrentHeaderID 0x800C
+	CMD_840 0x800C 0x8004
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x8004 0
+	JumpIf DIFFERENT Function#11
+Jump Function#10
+
+
+Script 15:
+	UseScript_#13
+
+
+Script 16:
+	UseScript_#13
+
+
+Script 17:
+	Call Function#12
+	LocalScript 
+End 
+
+
+Script 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 149
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

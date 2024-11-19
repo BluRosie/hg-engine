@@ -1,0 +1,80 @@
+Function 1:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#3
+	Movement Player Action#1
+Jump Function#4
+
+
+Function 2:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#5
+	Movement Player Action#1
+	Movement Following Action#2
+Jump Function#6
+
+
+Function 3:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#7
+	Movement Player Action#3
+Jump Function#4
+
+
+Function 4:
+	WaitMovement 
+Jump Function#8
+
+
+Function 5:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#9
+	Movement Player Action#3
+	Movement Following Action#4
+Jump Function#6
+
+
+Function 6:
+	WaitMovement 
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 317 0 11 7 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Movement Player Action#5
+	WaitMovement 
+Jump Function#8
+
+
+Function 8:
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 317 0 11 7 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Player Action#5
+	Movement Following Action#6
+	WaitMovement 
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 317 0 11 7 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

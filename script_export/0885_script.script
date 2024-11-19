@@ -1,0 +1,353 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40DA 1
+	JumpIf DIFFERENT Function#1
+	CompareVarValue 0x40DB 0
+	JumpIf EQUAL Function#2
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 2
+	JumpIf GREATER/EQUAL Function#3
+	Message 4
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 138
+	JumpIf EQUAL Function#5
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40DA 1
+	JumpIf DIFFERENT Function#7
+	CompareVarValue 0x40DB 0
+	JumpIf EQUAL Function#8
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40DA 1
+	JumpIf DIFFERENT Function#9
+	CompareVarValue 0x40DB 0
+	JumpIf EQUAL Function#10
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	Message 13
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.4 Action#1
+	WaitMovement 
+Jump Function#12
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#13
+	Message 17
+Jump Function#14
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#15
+	Message 19
+Jump Function#16
+
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#17
+	Message 21
+Jump Function#18
+
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#19
+	Message 23
+Jump Function#20
+
+
+Script 13:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#21
+	Message 25
+Jump Function#22
+
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#23
+	Message 30
+Jump Function#24
+
+
+Script 15:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 31
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 16:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 32
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 3
+	JumpIf DIFFERENT Function#25
+	Message 34
+Jump Function#26
+
+
+Script 18:
+	MecScript 
+	LockAll 
+	Movement Overworld.15 Action#2
+	WaitMovement 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 354
+	JumpIf DIFFERENT Function#27
+	Movement Overworld.15 Action#3
+Jump Function#28
+
+
+Script 19:
+	SetFlag 441
+	SetFlag 442
+	SetFlag 439
+	SetFlag 443
+	SetFlag 440
+	CompareVarValue 0x4077 0
+	JumpIf DIFFERENT Function#29
+	ClearFlag 440
+	ClearFlag 441
+Jump Function#30
+
+
+Script 20:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 36 0x800C
+	CommonScript 2000
+End 
+
+
+Script 21:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 37 0x800C
+	CommonScript 2000
+End 
+
+
+Script 22:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 38 0x800C
+	CommonScript 2000
+End 
+
+
+Script 23:
+	SetIconBoard 39 0 16 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 24:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 40 0x800C
+	CommonScript 2000
+End 
+
+
+Script 25:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 41 0x800C
+	CommonScript 2000
+End 
+
+
+Script 26:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 42 0x800C
+	CommonScript 2000
+End 
+
+
+Script 27:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 43 0x800C
+	CommonScript 2000
+End 
+
+
+Script 28:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 44 0x800C
+	CommonScript 2000
+End 
+
+
+Script 29:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 45 0x800C
+	CommonScript 2000
+End 
+
+
+Script 30:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 46 0x800C
+	CommonScript 2000
+End 
+
+
+Script 31:
+	PlayFanfare 1500
+	LockAll 
+	Message 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 32:
+	PlayFanfare 1500
+	LockAll 
+	Message 27
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 33:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 28
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

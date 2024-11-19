@@ -1,0 +1,86 @@
+Script 1:
+	CheckFlag 123
+	JumpIf EQUAL Function#1
+	SetFlag 427
+End 
+
+
+Script 2:
+	CheckFlag 124
+	JumpIf EQUAL Function#2
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	TextPlayerName 0
+	Message 0
+	WaitAB 
+	CloseMessage 
+	GetPlayerDirection 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#3
+Jump Function#4
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 119
+	JumpIf EQUAL Function#5
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 79 0
+	Message 20
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	MecScript 
+	LockAll 
+	SetVar 0x4080 3
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	TextPlayerName 0
+	Message 1
+	SetVar 0x8004 492
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetFlag 124
+	ReleaseAll 
+Jump Function#2
+
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4077 2
+	JumpIf DIFFERENT Function#6
+	Message 24
+Jump Function#7
+
+

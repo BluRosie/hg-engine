@@ -1,0 +1,25 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetFlag 394
+	Message 1
+	FreezeMessage 
+	SetVar 0x8004 27
+	CommonScript 2052
+	ClearFlag 394
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,74 @@
+Action 1:
+	WalkLeftFast 0x3
+	WalkUpFast 0x2
+	WalkDownFastSite 0x1
+End
+
+
+Action 2:
+	WalkLeftFastSite 0x1
+End
+
+
+Action 3:
+	LookDown 0x1
+	WalkDownFast 0x2
+	WalkLeftFast 0x1
+	WalkLeftFastSite 0x1
+End
+
+
+Action 4:
+	WalkDownFast 0x2
+	WalkLeftFast 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 5:
+	LookDown 0x1
+	WalkDownFast 0x1
+	WalkLeftFastSite 0x1
+End
+
+
+Action 6:
+	WalkDownFast 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 7:
+	WalkDownFastSite 0x1
+End
+
+
+Action 8:
+	WalkDownFast 0x1
+End
+
+
+Action 9:
+	WalkUpFastSite 0x1
+End
+
+
+Action 10:
+	LookUp 0x1
+	WalkUpFast 0x1
+	WalkLeftFastSite 0x1
+End
+
+
+Action 11:
+	WalkDownFast 0x2
+	WalkRightFast 0x3
+End
+
+
+Action 12:
+	WalkDownFast 0x1
+	WalkLeftFast 0x2
+End
+
+

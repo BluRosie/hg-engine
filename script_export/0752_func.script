@@ -1,0 +1,135 @@
+Function 1:
+	CheckFlag 383
+	JumpIf LESS Function#3
+	TextPlayerName 0
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetVar 0x8004 407
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#11
+	CommonScript 2033
+	SetFlag 383
+	CheckFlag 383
+	JumpIf LESS Function#3
+	TextPlayerName 0
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetFlag 756
+End 
+
+
+Function 8:
+	GetHour 0x4000
+	CompareVarValue 0x4000 17
+	JumpIf DIFFERENT Function#12
+	SetFlag 756
+Jump Function#13
+
+
+Function 9:
+	GetHour 0x4000
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#14
+	SetFlag 756
+Jump Function#15
+
+
+Function 10:
+	ClearFlag 756
+End 
+
+
+Function 11:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CompareVarValue 0x4000 18
+	JumpIf DIFFERENT Function#16
+	SetFlag 756
+Jump Function#13
+
+
+Function 13:
+End 
+
+
+Function 14:
+	CompareVarValue 0x4000 13
+	JumpIf DIFFERENT Function#17
+	SetFlag 756
+Jump Function#15
+
+
+Function 15:
+End 
+
+
+Function 16:
+	CompareVarValue 0x4000 19
+	JumpIf DIFFERENT Function#18
+	SetFlag 756
+Jump Function#13
+
+
+Function 17:
+	CompareVarValue 0x4000 14
+	JumpIf DIFFERENT Function#19
+	SetFlag 756
+Jump Function#15
+
+
+Function 18:
+Jump Function#10
+
+
+Function 19:
+Jump Function#10
+
+

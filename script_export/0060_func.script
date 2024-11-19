@@ -1,0 +1,85 @@
+Function 1:
+	TextPlayerName 0
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Overworld.7 Action#1
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	ClearFlag 414
+	ClearFlag 427
+	SetFlag 123
+	SetVar 0x4075 1
+	SetVar 0x4080 2
+	SetVar 0x4099 1
+	SetVar 0x409B 1
+	SetVar 0x409E 1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 164 0 4 5 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetFlag 426
+	SetFlag 469
+	SetFlag 428
+	ClearFlag 429
+	ClearFlag 423
+	ClearFlag 424
+	SetVar 0x40F4 1
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	ClearFlag 414
+	ClearFlag 427
+	SetFlag 123
+	SetVar 0x4075 1
+	SetVar 0x4080 2
+	SetVar 0x4099 1
+	SetVar 0x409B 1
+	SetVar 0x409E 1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 164 0 4 5 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetFlag 426
+	SetFlag 469
+	SetFlag 428
+	ClearFlag 429
+	ClearFlag 423
+	ClearFlag 424
+	SetVar 0x40F4 1
+	ReleaseAll 
+End 
+
+

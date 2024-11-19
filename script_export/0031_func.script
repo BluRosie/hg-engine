@@ -1,0 +1,102 @@
+Function 1:
+	CompareVarValue 0x4077 5
+	JumpIf DIFFERENT Function#2
+	ClearFlag 440
+End 
+
+
+Function 2:
+End 
+
+
+Function 3:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+Jump Function#10
+
+
+Function 6:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	TextPlayerName 0
+	Message 12
+	CloseMessage 
+	Movement Overworld.7 Action#1
+	Movement Overworld.8 Action#2
+	WaitMovement 
+	ReleaseAll 
+	SetFlag 447
+	RemoveOW Overworld.7
+	RemoveOW Overworld.8
+	SetFlag 144
+End 
+
+
+Function 9:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CheckFlag 143
+	JumpIf EQUAL Function#11
+	Message 5
+	SetVar 0x8004 338
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CommonScript 2033
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 143
+End 
+
+
+Function 11:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

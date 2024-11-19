@@ -1,0 +1,79 @@
+Function 1:
+	TextPlayerName 0
+	GenderMessage 9 10
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+End 
+
+
+Function 2:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 111
+End 
+
+
+Function 3:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 111
+End 
+
+
+Function 4:
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	PlayFanfare 1538
+	RemoveOW Overworld.4
+	WaitFanfare 1538
+	SetFlag 407
+	ReleaseAll 
+	SetVar 0x4074 3
+	ClearFlag 568
+	ClearFlag 582
+	SetVar 0x4108 7
+End 
+
+
+Function 5:
+	WaitMovement 
+	PlayFanfare 1538
+	RemoveOW Overworld.4
+	WaitFanfare 1538
+	SetFlag 407
+	ReleaseAll 
+	SetVar 0x4074 3
+	ClearFlag 568
+	ClearFlag 582
+	SetVar 0x4108 7
+End 
+
+
+Function 6:
+	GetPartyCount 0x800C
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#3
+	CMD_776 
+	SetFlag 112
+	TextPlayerName 0
+	Message 4
+	PlaySound 1200
+	WaitSound 
+	GenderMessage 5 6
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.4 Action#1
+Jump Function#5
+
+

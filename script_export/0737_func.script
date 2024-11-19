@@ -1,0 +1,23 @@
+Function 1:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	LockAll 
+	GiveShoes 
+	PlaySound 1418
+	Message 4
+	WaitAB 
+	WaitSound 
+	CloseMessage 
+	SetFlag 2200
+	SetVar 0x4102 4
+	ReleaseAll 
+End 
+
+
+

@@ -1,0 +1,535 @@
+Function 1:
+	CompareVarValue 0x4000 27
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.0 Action#5
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 0
+	Message 1
+	SetVar 0x8004 386
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CommonScript 2033
+	SetFlag 218
+	Message 3
+	Message 5
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 26
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.0 Action#6
+	Movement Player Action#7
+Jump Function#14
+
+
+Function 3:
+	TextRivalName 1
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CompareVarValue 0x40FC 2
+	JumpIf GREATER/EQUAL Function#15
+	CompareVarValue 0x40FC 1
+	CallIf EQUAL Function#16
+End 
+
+
+Function 5:
+	Message 29
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#18
+	Message 30
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 83 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 31
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 13
+Jump Function#19
+
+
+Function 7:
+	TextPlayerName 0
+	Message 10
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 27
+	Message 11
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 521
+	RemoveOW Overworld.0
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	SetVar 0x4002 1
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Player Action#8
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CommonScript 2031
+	TextRivalName 1
+	Message 14
+	CloseMessage 
+	SetOWPosition Overworld.11 28 0 34 Down
+	SetOWPosition Overworld.12 28 0 33 Down
+	CommonScript 2032
+	Movement Overworld.9 Action#3
+	Movement Player Action#9
+	Movement Overworld.11 Action#10
+	Movement Overworld.12 Action#11
+	Movement Following Action#12
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 15 16
+	Movement Overworld.9 Action#13
+	WaitMovement 
+	TextRivalName 1
+	Message 17
+	Message 18
+	Movement Overworld.9 Action#14
+	WaitMovement 
+	TextPlayerName 0
+	TextRivalName 1
+	Message 19
+	GenderMessage 20 21
+	Movement Overworld.12 Action#15
+	WaitMovement 
+	Message 22
+	TextRivalName 1
+	Message 23
+	Movement Overworld.9 Action#16
+	Movement Overworld.12 Action#17
+	Movement Player Action#18
+	WaitMovement 
+	TextPlayerName 0
+	Message 24
+	CloseMessage 
+	Movement Overworld.9 Action#19
+	Movement Player Action#19
+	Movement Overworld.12 Action#15
+	WaitMovement 
+	CompareVarValue 0x4020 1048
+	JumpIf DIFFERENT Function#20
+	Battle2vs2 736 733 734 1
+Jump Function#21
+
+
+Function 10:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CommonScript 2031
+	TextRivalName 1
+	Message 14
+	CloseMessage 
+	SetOWPosition Overworld.11 28 0 34 Down
+	SetOWPosition Overworld.12 28 0 33 Down
+	CommonScript 2032
+	Movement Overworld.9 Action#3
+	Movement Player Action#9
+	Movement Overworld.11 Action#10
+	Movement Overworld.12 Action#11
+	Movement Following Action#12
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 15 16
+	Movement Overworld.9 Action#13
+	WaitMovement 
+	TextRivalName 1
+	Message 17
+	Message 18
+	Movement Overworld.9 Action#14
+	WaitMovement 
+	TextPlayerName 0
+	TextRivalName 1
+	Message 19
+	GenderMessage 20 21
+	Movement Overworld.12 Action#15
+	WaitMovement 
+	Message 22
+	TextRivalName 1
+	Message 23
+	Movement Overworld.9 Action#16
+	Movement Overworld.12 Action#17
+	Movement Player Action#18
+	WaitMovement 
+	TextPlayerName 0
+	Message 24
+	CloseMessage 
+	Movement Overworld.9 Action#19
+	Movement Player Action#19
+	Movement Overworld.12 Action#15
+	WaitMovement 
+	CompareVarValue 0x4020 1048
+	JumpIf DIFFERENT Function#20
+	Battle2vs2 736 733 734 1
+Jump Function#21
+
+
+Function 11:
+	Movement Overworld.0 Action#20
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 0
+	Message 1
+	SetVar 0x8004 386
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	CommonScript 2033
+	SetFlag 218
+	Message 3
+	Message 5
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 26
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.0 Action#6
+	Movement Player Action#7
+Jump Function#14
+
+
+Function 12:
+	Message 4
+	CloseMessage 
+Jump Function#22
+
+
+Function 13:
+	CompareVarValue 0x4000 27
+	JumpIf DIFFERENT Function#23
+	Movement Overworld.0 Action#21
+	Movement Player Action#7
+Jump Function#14
+
+
+Function 14:
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetVar 0x40C4 2
+	ReleaseAll 
+End 
+
+
+Function 15:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#24
+	ClearFlag 527
+Jump Function#25
+
+
+Function 16:
+	CheckStarter 0x4000
+	CompareVarValue 0x4000 152
+	JumpIf DIFFERENT Function#26
+	SetVar 0x4020 1048
+Jump Function#27
+
+
+Function 17:
+	Message 32
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	Message 33
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#8
+End 
+
+
+Function 20:
+	CompareVarValue 0x4020 1049
+	JumpIf DIFFERENT Function#28
+	Battle2vs2 737 733 734 1
+Jump Function#21
+
+
+Function 21:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+	TextPlayerName 0
+	GenderMessage 25 26
+	CloseMessage 
+	Movement Overworld.11 Action#22
+	WaitMovement 
+	RemoveOW Overworld.11
+	TextPlayerName 0
+	Message 27
+	CloseMessage 
+	Movement Overworld.12 Action#23
+	WaitMovement 
+	RemoveOW Overworld.12
+	Movement Overworld.9 Action#24
+	Movement Player Action#25
+	WaitMovement 
+	TextPlayerName 0
+	TextRivalName 1
+	Message 28
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.9
+	RemoveOW Overworld.10
+	WaitTime 20 0x8004
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Following Action#26
+	WaitMovement 
+	SetVar 0x40FC 2
+	SetVar 0x4119 1
+	ReleaseAll 
+End 
+
+
+Function 22:
+	Message 5
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 26
+	JumpIf DIFFERENT Function#13
+	Movement Overworld.0 Action#6
+	Movement Player Action#7
+Jump Function#14
+
+
+Function 23:
+	Movement Overworld.0 Action#27
+	Movement Player Action#7
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetVar 0x40C4 2
+	ReleaseAll 
+End 
+
+
+Function 24:
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#30
+	ClearFlag 527
+Jump Function#25
+
+
+Function 25:
+	CMD_147 27 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#31
+	GetHour 0x4000
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#32
+	ClearFlag 521
+Jump Function#33
+
+
+Function 26:
+	CompareVarValue 0x4000 155
+	JumpIf DIFFERENT Function#34
+	SetVar 0x4020 1049
+Jump Function#27
+
+
+Function 27:
+Return 
+
+
+Function 28:
+	Battle2vs2 735 733 734 1
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+	TextPlayerName 0
+	GenderMessage 25 26
+	CloseMessage 
+	Movement Overworld.11 Action#22
+	WaitMovement 
+	RemoveOW Overworld.11
+	TextPlayerName 0
+	Message 27
+	CloseMessage 
+	Movement Overworld.12 Action#23
+	WaitMovement 
+	RemoveOW Overworld.12
+	Movement Overworld.9 Action#24
+	Movement Player Action#25
+	WaitMovement 
+	TextPlayerName 0
+	TextRivalName 1
+	Message 28
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.9
+	RemoveOW Overworld.10
+	WaitTime 20 0x8004
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Following Action#26
+	WaitMovement 
+	SetVar 0x40FC 2
+	SetVar 0x4119 1
+	ReleaseAll 
+End 
+
+
+Function 29:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 30:
+	SetFlag 527
+	CMD_147 27 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#31
+	GetHour 0x4000
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#32
+	ClearFlag 521
+Jump Function#33
+
+
+Function 31:
+	CMD_142 27 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#35
+	GetHour 0x4000
+	CompareVarValue 0x4000 16
+	JumpIf DIFFERENT Function#36
+	ClearFlag 521
+Jump Function#37
+
+
+Function 32:
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#38
+	ClearFlag 521
+Jump Function#33
+
+
+Function 33:
+End 
+
+
+Function 34:
+	SetVar 0x4020 1047
+Return 
+
+
+Function 35:
+	SetFlag 521
+End 
+
+
+Function 36:
+	CompareVarValue 0x4000 17
+	JumpIf DIFFERENT Function#39
+	ClearFlag 521
+Jump Function#37
+
+
+Function 37:
+End 
+
+
+Function 38:
+	CompareVarValue 0x4000 8
+	JumpIf DIFFERENT Function#40
+	ClearFlag 521
+Jump Function#33
+
+
+Function 39:
+	CompareVarValue 0x4000 18
+	JumpIf DIFFERENT Function#41
+	ClearFlag 521
+Jump Function#37
+
+
+Function 40:
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#42
+	ClearFlag 521
+Jump Function#33
+
+
+Function 41:
+	SetFlag 521
+End 
+
+
+Function 42:
+	SetFlag 521
+End 
+
+

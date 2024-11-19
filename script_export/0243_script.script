@@ -1,0 +1,130 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	CheckFlag 464
+	JumpIf LESS Function#1
+	CheckItem 477 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#2
+	Movement Overworld.5 Action#1
+	WaitMovement 
+	PlayFanfare 2304
+	Movement Overworld.4 Action#2
+	WaitMovement 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	GetFirstAlivePokemonSlot 0x8002
+	CheckRibbon 0x800C 0x8002 62
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	CheckFlag 2748
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x4094 7
+	JumpIf EQUAL Function#6
+	CheckFlag 177
+	JumpIf EQUAL Function#7
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#8
+	CMD_438 0 0x800C
+	CMD_440 0x800C 15
+Jump Function#9
+
+
+Script 3:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 4
+	JumpIf DIFFERENT Function#10
+	ClearFlag 452
+Jump Function#11
+
+
+Script 4:
+	SetIconBoard 9 1 15 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 5:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 10 0x800C
+	CommonScript 2000
+End 
+
+
+Script 6:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 11 0x800C
+	CommonScript 2000
+End 
+
+
+Script 7:
+	SetTextBoard 3 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 12 0x800C
+	CommonScript 2000
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckItem 477 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#12
+	Message 13
+Jump Function#13
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_669 425 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#14
+	Message 3
+	SetVar 0x8004 425
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 450
+	JumpIf EQUAL Function#15
+	Message 7
+Jump Function#16
+
+
+Script 11:
+	CheckFlag 164
+	JumpIf EQUAL Function#17
+End 
+
+

@@ -1,0 +1,201 @@
+Function 1:
+	CheckFlag 384
+	JumpIf LESS Function#4
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	ClearFlag 673
+	SetVar 0x4089 1
+Return 
+
+
+Function 4:
+	SetVar 0x8004 330
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CommonScript 2033
+	SetFlag 384
+	TextPlayerName 0
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 4
+Jump Function#23
+
+
+Function 7:
+	Message 7
+Jump Function#23
+
+
+Function 8:
+Jump Function#23
+
+
+Function 9:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 7
+Jump Function#23
+
+
+Function 11:
+Jump Function#23
+
+
+Function 12:
+	Movement Overworld.7 Action#5
+	Movement Player Action#6
+	WaitMovement 
+	PlayFanfare 1538
+	RemoveOW Overworld.7
+	WaitFanfare 1538
+	StopMusic 1112
+	PlayMusic 1065
+	SetFlag 596
+	ClearFlag 597
+	ClearFlag 598
+	ClearFlag 777
+	SetVar 0x411C 2
+	SetVar 0x4087 1
+	SetVar 0x4088 1
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Movement Overworld.7 Action#5
+	Movement Player Action#6
+	Movement Following Action#7
+	WaitMovement 
+Jump Function#24
+
+
+Function 14:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+End 
+
+
+Function 16:
+	SetFlag 595
+End 
+
+
+Function 17:
+End 
+
+
+Function 18:
+	ClearFlag 595
+End 
+
+
+Function 19:
+	GetHour 0x4000
+	CompareVarValue 0x4000 14
+	JumpIf DIFFERENT Function#25
+	SetFlag 595
+Jump Function#26
+
+
+Function 20:
+	CompareVarValue 0x4000 17
+	JumpIf DIFFERENT Function#27
+	SetFlag 595
+Jump Function#21
+
+
+Function 21:
+End 
+
+
+Function 22:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 24:
+	PlayFanfare 1538
+	RemoveOW Overworld.7
+	WaitFanfare 1538
+	StopMusic 1112
+	PlayMusic 1065
+	SetFlag 596
+	ClearFlag 597
+	ClearFlag 598
+	ClearFlag 777
+	SetVar 0x411C 2
+	SetVar 0x4087 1
+	SetVar 0x4088 1
+	ReleaseAll 
+End 
+
+
+Function 25:
+	CompareVarValue 0x4000 15
+	JumpIf DIFFERENT Function#28
+	SetFlag 595
+Jump Function#26
+
+
+Function 26:
+End 
+
+
+Function 27:
+	ClearFlag 595
+End 
+
+
+Function 28:
+	ClearFlag 595
+End 
+
+

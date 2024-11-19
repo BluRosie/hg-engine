@@ -1,0 +1,57 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 0 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	TextPlayerName 0
+	CheckFlag 106
+	JumpIf EQUAL Function#2
+	GenderMessage 0 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 4
+	PlayCry 183 0
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CheckFlag 741
+	JumpIf EQUAL Function#3
+	CMD_144 0x4020
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,62 @@
+Function 1:
+	SetFlag 268
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 1
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf DIFFERENT Function#4
+	Message 4
+Jump Function#5
+
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	TextPlayerName 0
+	Message 2
+	PlaySound 1187
+	WaitSound 
+	GivePokemon 236 10 0 0 0 0x800C
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#6
+	CloseTouchScreen 
+	SetFlag 268
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	SetVar 0x4000 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 0x8005 0x4000
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Return 
+
+

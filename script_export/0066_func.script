@@ -1,0 +1,114 @@
+Function 1:
+	Message 2
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#6
+	TakeItem 464 1 0x800C
+	TextPlayerName 0
+	Message 3
+	PlaySound 1185
+	WaitSound 
+	Message 4
+	CloseMessage 
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	PlayCry 181 0
+	Message 6
+	WaitCry 
+	CloseMessage 
+	CMD_459 
+	Movement Overworld.2 Action#3
+	WaitMovement 
+	PlayCry 181 0
+	WaitCry 
+	Message 7
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Player Action#4
+	Movement Overworld.1 Action#5
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	RemoveOW Overworld.1
+	ReleaseAll 
+	SetFlag 2410
+	SetVar 0x40A5 2
+	SetVar 0x410E 1
+	SetFlag 471
+	ClearFlag 473
+	SetFlag 474
+	SetFlag 475
+	ClearFlag 476
+	ClearFlag 477
+	SetFlag 2456
+End 
+
+
+Function 2:
+	Message 0
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 56
+	Movement Player Action#6
+	Movement Overworld.1 Action#7
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayFanfare 1539
+	RemoveOW Overworld.4
+	RemoveOW Overworld.0
+	WaitFanfare 1539
+	Movement Overworld.1 Action#8
+	WaitMovement 
+	ReleaseAll 
+	SetVar 0x40A5 1
+	SetFlag 472
+End 
+
+
+Function 3:
+	PlayCry 181 12
+	Message 10
+	WaitCry 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+End 
+
+
+Function 6:
+	Message 8
+	CloseMessage 
+	Movement Overworld.1 Action#1
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	PlayCry 181 12
+	WaitCry 
+	ReleaseAll 
+End 
+
+

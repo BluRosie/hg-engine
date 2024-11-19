@@ -1,0 +1,149 @@
+Script 1:
+End 
+
+
+Script 2:
+	Lock Overworld.0
+	Movement Overworld.0 Action#1
+	WaitMovement 
+	CommonScript 2037
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4001 397
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.0 Action#2
+Jump Function#2
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	Movement Player Action#3
+	WaitMovement 
+	CommonScript 2037
+	ClearFlag 408
+	AddOW Overworld.0
+	Lock Overworld.0
+	GetPlayerPosition 0x4000 0x4001
+	SetOWPosition Overworld.0 0x4000 1 394 Up
+	CompareVarValue 0x4000 549
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.0 Action#4
+Jump Function#4
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	FadeOutMusic 0 3
+	Movement Player Action#1
+	WaitMovement 
+	CommonScript 2031
+	GetPlayerPosition 0x4000 0x4001
+	SetOWPosition Overworld.4 583 0 0x4001 Left
+	Movement Overworld.4 Action#5
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#5
+	TrainerBattle 496 0 1 0
+Jump Function#6
+
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 243
+	JumpIf EQUAL Function#7
+	Message 20
+	SetVar 0x8004 243
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CommonScript 2033
+	SetFlag 243
+	Message 21
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 6:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 24 0x800C
+	CommonScript 2000
+End 
+
+
+Script 7:
+	SetIconBoard 23 0 12 0x800C
+	ShowBoard 3
+	WaitBoard 
+	CloseBoard 0x800C
+	CommonScript 2000
+End 
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 10:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_438 2 0x800C
+	CMD_440 0x800C 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#9
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CMD_438 2 0x800C
+	CMD_440 0x800C 1
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#11
+	Movement Player Action#6
+	Movement Overworld.5 Action#7
+Jump Function#12
+
+
+Script 11:
+	CheckFlag 393
+	JumpIf LESS Function#13
+	ClearFlag 393
+End 
+
+

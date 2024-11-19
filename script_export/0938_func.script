@@ -1,0 +1,441 @@
+Function 1:
+Jump Function#23
+
+
+Function 2:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetFlag 362
+Return 
+
+
+Function 5:
+	ClearFlag 484
+	RemoveOW Overworld.8
+	RemoveOW Overworld.10
+	ReleaseAll 
+End 
+
+
+Function 6:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	SetFlag 483
+	RemoveOW Overworld.3
+	ClearFlag 484
+	AddOW Overworld.8
+	AddOW Overworld.10
+	ClearFlag 164
+End 
+
+
+Function 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 8
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+End 
+
+
+Function 9:
+	TextPlayerName 0
+	GenderMessage 5 6
+	WaitButton 
+	CloseMessage 
+	Movement Overworld.10 Action#1
+	WaitMovement 
+	Movement Overworld.8 Action#2
+	WaitMovement 
+	CMD_775 8 10
+	SetFlag 484
+	RemoveOW Overworld.8
+	RemoveOW Overworld.10
+	ClearFlag 504
+	SetVar 0x40A8 1
+	ReleaseAll 
+End 
+
+
+Function 10:
+	SetFlag 195
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 37
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 39
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 3
+	JumpIf EQUAL Function#24
+	CMD_438 0 0x800C
+	CMD_440 0x800C 11
+Jump Function#17
+
+
+Function 15:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 8
+	SetVar 0x8004 241
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#25
+	CommonScript 2033
+	SetFlag 213
+	IncrementVar 0x4094 1
+	CMD_438 0 0x800C
+	CMD_440 0x800C 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_784 0
+	TextPokemonRecordSize 0 1 129
+	CMD_784 256
+	TextPlayerName 2
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 32 0x800C
+	CommonScript 2000
+	DummyGetPokemonFootprint 
+	DummyGetPokemonFootprint 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	WaitFanfare 1500
+	SetVarFromVariable 0x8004 0x8008
+	SetVarFromVariable 0x8005 0x8009
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#27
+End 
+
+
+Function 20:
+	Message 17
+Jump Function#28
+
+
+Function 21:
+	TextPlayerName 0
+	Message 14
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 39
+	Message 15
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 716
+	RemoveOW Overworld.20
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 22:
+	SetVar 0x4004 1
+	Message 16
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 23:
+	CMD_147 39 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#29
+	CheckFlag 2404
+	JumpIf EQUAL Function#30
+Jump Function#29
+
+
+Function 24:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 36
+	TextPartyPokemon 0 0x8002
+	CMD_440 0x800C 38
+	GiveRibbon 0x8002 61
+	PlaySound 1185
+	WaitSound 
+	SetFlag 2748
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 26:
+	CommonScript 2001
+	RemoveOW 0x800D
+	CompareVarValue 0x4001 1
+	JumpIf DIFFERENT Function#31
+	SetFlag 326
+Jump Function#32
+
+
+Function 27:
+	TextItem 0 0x8004
+	Message 35
+	WaitButton 
+	SetVar 0x800C 0
+Jump Function#33
+
+
+Function 28:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#21
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#22
+End 
+
+
+Function 29:
+	SetFlag 716
+Jump Function#34
+
+
+Function 30:
+	GetHour 0x4000
+	CompareVarValue 0x4000 6
+	JumpIf DIFFERENT Function#35
+	ClearFlag 716
+Jump Function#36
+
+
+Function 31:
+	CompareVarValue 0x4001 2
+	JumpIf DIFFERENT Function#37
+	SetFlag 327
+Jump Function#32
+
+
+Function 32:
+	GiveItem 0x8004 0x8005 0x800C
+	TextPlayerName 0
+	TextItem 1 0x8004
+	Message 33
+	WaitSound 
+	TextPlayerName 0
+	TextItem 1 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+	Message 34
+	WaitButton 
+	SetVar 0x800C 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 33:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 34:
+	CompareVarValue 0x4037 0xF229
+	JumpIf EQUAL Function#38
+	SetFlag 508
+	SetFlag 510
+	ClearFlag 511
+	SetFlag 17
+	SetFlag 19
+	SetFlag 20
+	SetFlag 21
+	SetFlag 649
+	SetFlag 651
+	SetFlag 652
+End 
+
+
+Function 35:
+	CompareVarValue 0x4000 7
+	JumpIf DIFFERENT Function#39
+	ClearFlag 716
+Jump Function#36
+
+
+Function 36:
+Jump Function#34
+
+
+Function 37:
+	SetFlag 328
+	GiveItem 0x8004 0x8005 0x800C
+	TextPlayerName 0
+	TextItem 1 0x8004
+	Message 33
+	WaitSound 
+	TextPlayerName 0
+	TextItem 1 0x8004
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+	Message 34
+	WaitButton 
+	SetVar 0x800C 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 38:
+	ClearFlag 508
+	ClearFlag 510
+	SetFlag 511
+	ClearFlag 649
+	ClearFlag 651
+	ClearFlag 652
+	CheckFlag 326
+	JumpIf EQUAL Function#40
+Jump Function#41
+
+
+Function 39:
+	CompareVarValue 0x4000 8
+	JumpIf DIFFERENT Function#42
+	ClearFlag 716
+Jump Function#36
+
+
+Function 40:
+	SetFlag 649
+	CheckFlag 327
+	JumpIf EQUAL Function#43
+Jump Function#44
+
+
+Function 41:
+	CheckFlag 327
+	JumpIf EQUAL Function#43
+Jump Function#44
+
+
+Function 42:
+	CompareVarValue 0x4000 9
+	JumpIf DIFFERENT Function#45
+	ClearFlag 716
+Jump Function#36
+
+
+Function 43:
+	SetFlag 651
+	CheckFlag 328
+	JumpIf EQUAL Function#46
+Jump Function#47
+
+
+Function 44:
+	CheckFlag 328
+	JumpIf EQUAL Function#46
+Jump Function#47
+
+
+Function 45:
+Jump Function#29
+
+
+Function 46:
+	SetFlag 652
+End 
+
+
+Function 47:
+End 
+
+

@@ -1,0 +1,14 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 334
+	JumpIf EQUAL Function#1
+	Message 0
+	SetFlag 334
+	CheckVersion 0x8002
+	CompareVarValue 0x8002 8
+	JumpIf DIFFERENT Function#2
+Jump Function#3
+
+

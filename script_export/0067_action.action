@@ -1,0 +1,13 @@
+Action 1:
+	WalkUpFast 0x2
+	WalkDownFastSite 0x1
+End
+
+
+Action 2:
+	WalkRightFast 0x1
+	WalkUpFast 0x1
+	LookDown 0x1
+End
+
+

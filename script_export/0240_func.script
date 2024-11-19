@@ -1,0 +1,134 @@
+Function 1:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 1
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x4000 2
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x4000 5
+	JumpIf EQUAL Function#6
+	SetFlag 638
+Jump Function#7
+
+
+Function 2:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CMD_438 2 0x800C
+	CMD_440 0x800C 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#8
+	Movement Player Action#3
+Jump Function#5
+
+
+Function 5:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#9
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 11 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	ClearFlag 638
+	GetTimePeriod 0x4000
+	CompareVarValue 0x4000 3
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x4000 4
+	JumpIf EQUAL Function#10
+	ClearFlag 461
+	SetFlag 462
+End 
+
+
+Function 7:
+	GetTimePeriod 0x4000
+	CompareVarValue 0x4000 3
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x4000 4
+	JumpIf EQUAL Function#10
+	ClearFlag 461
+	SetFlag 462
+End 
+
+
+Function 8:
+	Movement Player Action#5
+	Movement Overworld.12 Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#9
+	Movement Following Action#4
+	WaitMovement 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 11 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 11 96
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	CMD_438 2 0x800C
+	CMD_440 0x800C 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	ClearFlag 462
+	SetFlag 461
+End 
+
+

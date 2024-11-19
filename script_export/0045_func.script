@@ -1,0 +1,156 @@
+Function 1:
+	WaitTime 2 0x8004
+	ShakeCamera 0 2 10 6
+	WaitTime 10 0x8004
+	Movement Player Action#1
+	WaitMovement 
+	RemoveOW Overworld.1
+	PlayFanfare 1561
+	ClearFlag 273
+	SetFlag 546
+	ClearFlag 565
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#6
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#7
+End 
+
+
+Function 2:
+	ReleaseAll 
+End 
+
+
+Function 3:
+	WaitTime 2 0x8004
+	ShakeCamera 0 2 10 6
+	WaitTime 10 0x8004
+	Movement Player Action#1
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 545
+	PlayFanfare 1570
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Movement Player Action#2
+	WaitMovement 
+Jump Function#8
+
+
+Function 5:
+	Movement Player Action#2
+	Movement Following Action#3
+	WaitMovement 
+	SetVar 0x40CE 1
+	PlayFanfare 2180
+	CompareVarValue 0x403E 7
+	JumpIf GREATER/EQUAL Function#9
+	CompareVarValue 0x403E 6
+	JumpIf EQUAL Function#10
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 315 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Movement Player Action#2
+	WaitMovement 
+Jump Function#11
+
+
+Function 7:
+	Movement Player Action#2
+	Movement Following Action#3
+	WaitMovement 
+	SetVar 0x40CE 1
+	CompareVarValue 0x40EC 1
+	JumpIf GREATER/EQUAL Function#12
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 315 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetVar 0x40E0 1
+	IncrementVar 0x40EC 1
+	ReleaseAll 
+End 
+
+
+Function 8:
+	SetVar 0x40CE 1
+	PlayFanfare 2180
+	CompareVarValue 0x403E 7
+	JumpIf GREATER/EQUAL Function#9
+	CompareVarValue 0x403E 6
+	JumpIf EQUAL Function#10
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 315 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 492 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#13
+
+
+Function 10:
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 490 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#13
+
+
+Function 11:
+	SetVar 0x40CE 1
+	CompareVarValue 0x40EC 1
+	JumpIf GREATER/EQUAL Function#12
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 315 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetVar 0x40E0 1
+	IncrementVar 0x40EC 1
+	ReleaseAll 
+End 
+
+
+Function 12:
+	SetFlag 565
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 315 0 5 24 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetVar 0x40E0 1
+	IncrementVar 0x40EC 1
+	ReleaseAll 
+End 
+
+
+Function 13:
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,22 @@
+Script 1:
+	CommonScript 2031
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.0 Action#1
+	Movement Player Action#2
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	TextRivalName 1
+	Message 0
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#1
+	TrainerBattle 286 0 0 0
+Jump Function#2
+
+

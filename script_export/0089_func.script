@@ -1,0 +1,921 @@
+Function 1:
+	DecrementVar 0x4001 1
+Jump Function#31
+
+
+Function 2:
+	SetOWDefaultPosition Overworld.1 33 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	SetOWPosition Overworld.1 33 0 0x4001 Right
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#6
+	WaitMovement 
+Jump Function#33
+
+
+Function 3:
+	CompareVarValue 0x40AD 1
+	JumpIf DIFFERENT Function#34
+	Message 3
+Jump Function#4
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	Message 6
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	PlayFanfare 1646
+	Message 7
+	CloseMessage 
+	ClearFlag 214
+	CompareVarValue 0x40AD 2
+	JumpIf GREATER/EQUAL Function#36
+	SetVar 0x40AD 0
+	Movement Overworld.0 Action#7
+	CompareVarValue 0x40AE 2
+	JumpIf GREATER/EQUAL Function#37
+	SetVar 0x40AE 0
+	Movement Overworld.2 Action#7
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#38
+	SetVar 0x40AF 0
+	Movement Overworld.3 Action#7
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#39
+	SetVar 0x40B0 0
+	Movement Overworld.4 Action#7
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#40
+	SetVar 0x40B1 0
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	PlayFanfare 1646
+	Message 7
+	CloseMessage 
+	SetFlag 214
+	CompareVarValue 0x40AD 2
+	JumpIf GREATER/EQUAL Function#9
+	SetVar 0x40AD 1
+	Movement Overworld.0 Action#3
+	CompareVarValue 0x40AE 2
+	JumpIf GREATER/EQUAL Function#10
+	SetVar 0x40AE 1
+	Movement Overworld.2 Action#3
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#11
+	SetVar 0x40AF 1
+	Movement Overworld.3 Action#3
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#12
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#13
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	CompareVarValue 0x40AE 2
+	JumpIf GREATER/EQUAL Function#10
+	SetVar 0x40AE 1
+	Movement Overworld.2 Action#3
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#11
+	SetVar 0x40AF 1
+	Movement Overworld.3 Action#3
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#12
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#13
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#11
+	SetVar 0x40AF 1
+	Movement Overworld.3 Action#3
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#12
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#13
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#12
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#13
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#13
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	DecrementVar 0x4001 1
+Jump Function#41
+
+
+Function 15:
+	SetOWDefaultPosition Overworld.1 27 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#8
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#8
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#9
+	WaitMovement 
+Jump Function#42
+
+
+Function 16:
+	DecrementVar 0x4001 1
+Jump Function#43
+
+
+Function 17:
+	SetOWDefaultPosition Overworld.1 33 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#10
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#10
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#11
+	WaitMovement 
+Jump Function#44
+
+
+Function 18:
+	DecrementVar 0x4001 1
+Jump Function#45
+
+
+Function 19:
+	SetOWDefaultPosition Overworld.1 33 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#12
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#13
+	WaitMovement 
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#12
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#13
+	WaitMovement 
+Jump Function#46
+
+
+Function 20:
+	DecrementVar 0x4001 1
+Jump Function#47
+
+
+Function 21:
+	SetOWDefaultPosition Overworld.1 27 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#14
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#15
+	WaitMovement 
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#14
+	WaitMovement 
+	Movement Player Action#5
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#15
+	WaitMovement 
+Jump Function#48
+
+
+Function 22:
+	CompareVarValue 0x40AE 1
+	JumpIf DIFFERENT Function#49
+	Message 3
+Jump Function#4
+
+
+Function 23:
+	CompareVarValue 0x40AF 1
+	JumpIf DIFFERENT Function#50
+	Message 3
+Jump Function#4
+
+
+Function 24:
+	CompareVarValue 0x40B0 1
+	JumpIf DIFFERENT Function#51
+	Message 3
+Jump Function#4
+
+
+Function 25:
+	CompareVarValue 0x40B1 1
+	JumpIf DIFFERENT Function#52
+	Message 3
+Jump Function#4
+
+
+Function 26:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 27:
+	SetVar 0x40AD 2
+	SetVar 0x40AE 2
+	SetVar 0x40AF 2
+	SetVar 0x40B0 2
+	SetVar 0x40B1 2
+Return 
+
+
+Function 28:
+	CompareVarValue 0x40AD 1
+	JumpIf DIFFERENT Function#53
+	SetOWPosition Overworld.0 44 0 3 Down
+Jump Function#29
+
+
+Function 29:
+	CompareVarValue 0x40AE 2
+	JumpIf DIFFERENT Function#54
+	SetOWPosition Overworld.2 18 0 3 Left
+Jump Function#55
+
+
+Function 30:
+	SetVar 0x40AC 8
+	SetVar 0x40A9 2
+	SetFlag 587
+	SetFlag 588
+	SetFlag 589
+	ClearFlag 594
+End 
+
+
+Function 31:
+	SetOWDefaultPosition Overworld.1 33 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#16
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	SetOWPosition Overworld.1 33 0 0x4001 Right
+	Movement Overworld.1 Action#16
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#6
+	WaitMovement 
+	SetOWPosition Overworld.1 37 0 0 Left
+	SetFlag 488
+	SetVar 0x40AD 2
+	Movement Overworld.0 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 32:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 33:
+	SetOWPosition Overworld.1 37 0 0 Left
+	SetFlag 488
+	SetVar 0x40AD 2
+	Movement Overworld.0 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 34:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 35:
+	PlayFanfare 1646
+	Message 7
+	CloseMessage 
+	ClearFlag 214
+	CompareVarValue 0x40AD 2
+	JumpIf GREATER/EQUAL Function#36
+	SetVar 0x40AD 0
+	Movement Overworld.0 Action#7
+	CompareVarValue 0x40AE 2
+	JumpIf GREATER/EQUAL Function#37
+	SetVar 0x40AE 0
+	Movement Overworld.2 Action#7
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#38
+	SetVar 0x40AF 0
+	Movement Overworld.3 Action#7
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#39
+	SetVar 0x40B0 0
+	Movement Overworld.4 Action#7
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#40
+	SetVar 0x40B1 0
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 36:
+	CompareVarValue 0x40AE 2
+	JumpIf GREATER/EQUAL Function#37
+	SetVar 0x40AE 0
+	Movement Overworld.2 Action#7
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#38
+	SetVar 0x40AF 0
+	Movement Overworld.3 Action#7
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#39
+	SetVar 0x40B0 0
+	Movement Overworld.4 Action#7
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#40
+	SetVar 0x40B1 0
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 37:
+	CompareVarValue 0x40AF 2
+	JumpIf GREATER/EQUAL Function#38
+	SetVar 0x40AF 0
+	Movement Overworld.3 Action#7
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#39
+	SetVar 0x40B0 0
+	Movement Overworld.4 Action#7
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#40
+	SetVar 0x40B1 0
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 38:
+	CompareVarValue 0x40B0 2
+	JumpIf GREATER/EQUAL Function#39
+	SetVar 0x40B0 0
+	Movement Overworld.4 Action#7
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#40
+	SetVar 0x40B1 0
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 39:
+	CompareVarValue 0x40B1 2
+	JumpIf GREATER/EQUAL Function#40
+	SetVar 0x40B1 0
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 40:
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 41:
+	SetOWDefaultPosition Overworld.1 27 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#19
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#19
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetFlag 488
+	SetVar 0x40AE 2
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 42:
+	RemoveOW Overworld.1
+	SetFlag 488
+	SetVar 0x40AE 2
+	Movement Overworld.2 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 43:
+	SetOWDefaultPosition Overworld.1 33 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#20
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#20
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#11
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetFlag 488
+	SetVar 0x40AF 2
+	Movement Overworld.3 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 44:
+	RemoveOW Overworld.1
+	SetFlag 488
+	SetVar 0x40AF 2
+	Movement Overworld.3 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 45:
+	SetOWDefaultPosition Overworld.1 33 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#21
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#13
+	WaitMovement 
+	SetOWPosition Overworld.1 33 0 0x4001 Left
+	Movement Overworld.1 Action#21
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#13
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetVar 0x40B0 2
+	Movement Overworld.4 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 46:
+	RemoveOW Overworld.1
+	SetVar 0x40B0 2
+	Movement Overworld.4 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 47:
+	SetOWDefaultPosition Overworld.1 27 0
+	ClearFlag 488
+	AddOW Overworld.1
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#22
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	TrainerBattle 223 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#15
+	WaitMovement 
+	SetOWPosition Overworld.1 27 0 0x4001 Left
+	Movement Overworld.1 Action#22
+	WaitMovement 
+	Movement Player Action#17
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	TrainerBattle 224 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.1 Action#15
+	WaitMovement 
+	RemoveOW Overworld.1
+	SetVar 0x40B1 2
+	Movement Overworld.5 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 48:
+	RemoveOW Overworld.1
+	SetVar 0x40B1 2
+	Movement Overworld.5 Action#18
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 49:
+	Message 4
+Jump Function#4
+
+
+Function 50:
+	Message 4
+Jump Function#4
+
+
+Function 51:
+	Message 4
+Jump Function#4
+
+
+Function 52:
+	Message 4
+Jump Function#4
+
+
+Function 53:
+	SetOWPosition Overworld.0 44 0 3 Up
+	CompareVarValue 0x40AE 2
+	JumpIf DIFFERENT Function#54
+	SetOWPosition Overworld.2 18 0 3 Left
+Jump Function#55
+
+
+Function 54:
+	CompareVarValue 0x40AE 1
+	JumpIf DIFFERENT Function#56
+	SetOWPosition Overworld.2 18 0 3 Down
+Jump Function#55
+
+
+Function 55:
+	CompareVarValue 0x40AF 2
+	JumpIf DIFFERENT Function#57
+	SetOWPosition Overworld.3 44 0 10 Left
+Jump Function#58
+
+
+Function 56:
+	SetOWPosition Overworld.2 18 0 3 Up
+	CompareVarValue 0x40AF 2
+	JumpIf DIFFERENT Function#57
+	SetOWPosition Overworld.3 44 0 10 Left
+Jump Function#58
+
+
+Function 57:
+	CompareVarValue 0x40AF 1
+	JumpIf DIFFERENT Function#59
+	SetOWPosition Overworld.3 44 0 10 Down
+Jump Function#58
+
+
+Function 58:
+	CompareVarValue 0x40B0 2
+	JumpIf DIFFERENT Function#60
+	SetOWPosition Overworld.4 44 0 28 Left
+Jump Function#61
+
+
+Function 59:
+	SetOWPosition Overworld.3 44 0 10 Up
+	CompareVarValue 0x40B0 2
+	JumpIf DIFFERENT Function#60
+	SetOWPosition Overworld.4 44 0 28 Left
+Jump Function#61
+
+
+Function 60:
+	CompareVarValue 0x40B0 1
+	JumpIf DIFFERENT Function#62
+	SetOWPosition Overworld.4 44 0 28 Down
+Jump Function#61
+
+
+Function 61:
+	CompareVarValue 0x40B1 2
+	JumpIf DIFFERENT Function#63
+	SetOWPosition Overworld.5 18 0 28 Left
+Jump Function#64
+
+
+Function 62:
+	SetOWPosition Overworld.4 44 0 28 Up
+	CompareVarValue 0x40B1 2
+	JumpIf DIFFERENT Function#63
+	SetOWPosition Overworld.5 18 0 28 Left
+Jump Function#64
+
+
+Function 63:
+	CompareVarValue 0x40B1 1
+	JumpIf DIFFERENT Function#65
+	SetOWPosition Overworld.5 18 0 28 Down
+Jump Function#64
+
+
+Function 64:
+End 
+
+
+Function 65:
+	SetOWPosition Overworld.5 18 0 28 Up
+End 
+
+

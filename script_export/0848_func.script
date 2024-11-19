@@ -1,0 +1,18 @@
+Function 1:
+	TextPlayerName 0
+	GenderMessage 2 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	TextPlayerName 0
+	GenderMessage 4 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

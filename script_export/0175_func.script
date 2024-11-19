@@ -1,0 +1,217 @@
+Function 1:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	SetDeoxysForm 3
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	GetPlayerPosition 0x8006 0x8007
+	GetPlayerDirection 0x800C
+	Warp 11 0 0x8006 0x8007 0x800C
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#11
+	SetFollowingPokePosition 0 1
+Jump Function#12
+
+
+Function 3:
+	PlayCry 386 0
+	Message 2
+Jump Function#13
+
+
+Function 4:
+	SetDeoxysForm 2
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	GetPlayerPosition 0x8006 0x8007
+	GetPlayerDirection 0x800C
+	Warp 11 0 0x8006 0x8007 0x800C
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#15
+	SetFollowingPokePosition 0 1
+Jump Function#16
+
+
+Function 5:
+	PlayCry 386 0
+	Message 3
+Jump Function#13
+
+
+Function 6:
+	SetDeoxysForm 1
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	GetPlayerPosition 0x8006 0x8007
+	GetPlayerDirection 0x800C
+	Warp 11 0 0x8006 0x8007 0x800C
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	SetFollowingPokePosition 2 3
+	LockFollowingPoke 0
+	SendOutFollowingPoke 
+	WaitTime 10 0x800C
+	LockFollowingPoke 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 4
+Jump Function#13
+
+
+Function 7:
+	PlayCry 386 0
+	Message 4
+Jump Function#13
+
+
+Function 8:
+	SetDeoxysForm 0
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	GetPlayerPosition 0x8006 0x8007
+	GetPlayerDirection 0x800C
+	Warp 11 0 0x8006 0x8007 0x800C
+	CheckBike 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#18
+	SetFollowingPokePosition 3 2
+	LockFollowingPoke 0
+	SendOutFollowingPoke 
+	WaitTime 10 0x800C
+	LockFollowingPoke 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 5
+	WaitButton 
+	WaitCry 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	PlayCry 386 0
+	Message 5
+	WaitButton 
+	WaitCry 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 2
+Jump Function#13
+
+
+Function 11:
+	SetFollowingPokePosition 3 2
+	LockFollowingPoke 0
+	SendOutFollowingPoke 
+	WaitTime 10 0x800C
+	LockFollowingPoke 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 2
+Jump Function#13
+
+
+Function 12:
+	LockFollowingPoke 0
+	SendOutFollowingPoke 
+	WaitTime 10 0x800C
+	LockFollowingPoke 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 2
+Jump Function#13
+
+
+Function 13:
+	WaitButton 
+	WaitCry 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 3
+Jump Function#13
+
+
+Function 15:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#19
+	SetFollowingPokePosition 0 1
+Jump Function#16
+
+
+Function 16:
+	LockFollowingPoke 0
+	SendOutFollowingPoke 
+	WaitTime 10 0x800C
+	LockFollowingPoke 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 3
+Jump Function#13
+
+
+Function 17:
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 4
+Jump Function#13
+
+
+Function 18:
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 5
+	WaitButton 
+	WaitCry 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	SetFollowingPokePosition 3 2
+	LockFollowingPoke 0
+	SendOutFollowingPoke 
+	WaitTime 10 0x800C
+	LockFollowingPoke 1
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	PlayCry 386 0
+	Message 3
+Jump Function#13
+
+

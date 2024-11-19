@@ -1,0 +1,99 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 234
+	JumpIf EQUAL Function#1
+	CheckFlag 209
+	JumpIf EQUAL Function#2
+	Message 3
+	CloseMessage 
+	TrainerBattle 35 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	SetTrainerFlag 110
+	SetTrainerFlag 112
+	SetTrainerFlag 111
+	SetTrainerFlag 119
+	SetTrainerFlag 117
+	CMD_515 22
+	SetFlag 209
+	SetFlag 514
+	ClearFlag 515
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 2:
+	CMD_329 
+	SetVar 0x4120 0
+	CMD_142 27 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#4
+	CompareVarValue 0x40FC 2
+	JumpIf GREATER/EQUAL Function#5
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	PlayFanfare 1585
+	Movement Player Action#1
+	WaitMovement 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 141 0 8 83 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 209
+	JumpIf EQUAL Function#6
+	Message 0
+	SendBackFollowingPoke 
+	CMD_783 1
+	NoBallResetFollowingPoke 
+	SetOWMovement Following Move.56
+	SetVar 0x4120 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CheckFlag 312
+	JumpIf EQUAL Function#7
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 12
+	JumpIf DIFFERENT Function#8
+	Movement Overworld.6 Action#2
+	Movement Player Action#3
+Jump Function#9
+
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 7 0x800C
+	TextPlayerName 0
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#10
+	Message 10
+Jump Function#11
+
+

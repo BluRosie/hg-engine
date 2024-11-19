@@ -1,0 +1,8 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FollowingPokeFacePlayer 
+	TalkFollowingPoke 
+Jump Function#1
+
+

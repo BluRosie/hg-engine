@@ -1,0 +1,78 @@
+Action 1:
+	Exclamation 0x1
+	Freeze8 0x1
+End
+
+
+Action 2:
+	WalkUpVeryFast 0x5
+	WalkUpFastSite 0x2
+End
+
+
+Action 3:
+	WalkUpVeryFast 0x2
+	WalkRightVeryFast 0x1
+	WalkUpVeryFast 0x3
+	WalkUpFastSite 0x2
+End
+
+
+Action 4:
+	WalkUpFast 0x1
+End
+
+
+Action 5:
+	LockDir 0x1
+	WalkUpFast 0x1
+	ReleaseDir 0x1
+End
+
+
+Action 6:
+	WalkDownVeryFast 0x6
+	WalkUpFastSite 0x1
+End
+
+
+Action 7:
+	WalkUpVeryFast 0x2
+	WalkRightVeryFast 0x2
+	WalkUpVeryFast 0x3
+	WalkUpFastSite 0x2
+End
+
+
+Action 8:
+	WalkDownVeryFast 0x3
+	WalkLeftVeryFast 0x1
+	WalkDownVeryFast 0x3
+	WalkUpFastSite 0x1
+End
+
+
+Action 9:
+	WalkUpVeryFast 0x2
+	WalkRightVeryFast 0x3
+	WalkUpVeryFast 0x3
+	WalkUpFastSite 0x2
+End
+
+
+Action 10:
+	WalkDownVeryFast 0x3
+	WalkLeftVeryFast 0x2
+	WalkDownVeryFast 0x3
+	WalkUpFastSite 0x1
+End
+
+
+Action 11:
+	WalkDownVeryFast 0x3
+	WalkLeftVeryFast 0x3
+	WalkDownVeryFast 0x3
+	WalkUpFastSite 0x1
+End
+
+

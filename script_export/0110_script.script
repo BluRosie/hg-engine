@@ -1,0 +1,49 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	ClearFlag 522
+	AddOW Overworld.0
+	CommonScript 2031
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 37
+	JumpIf DIFFERENT Function#1
+	Movement Overworld.0 Action#2
+Jump Function#2
+
+
+Script 2:
+End 
+
+
+Script 3:
+	SetVar 0x4000 57
+	SetVar 0x4001 42
+Jump Function#3
+
+
+Script 4:
+	SetVar 0x4000 28
+	SetVar 0x4001 38
+Jump Function#3
+
+
+Script 5:
+	SetVar 0x4000 31
+	SetVar 0x4001 44
+Jump Function#3
+
+
+Script 6:
+	SetVar 0x4000 22
+	SetVar 0x4001 17
+Jump Function#3
+
+
+Script 7:
+	SetVar 0x4000 58
+	SetVar 0x4001 28
+Jump Function#3
+
+

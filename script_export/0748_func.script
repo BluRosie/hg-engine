@@ -1,0 +1,57 @@
+Function 1:
+	CMD_783 0
+	Message 3
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x412E 3
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Message 6
+	CloseMessage 
+	Movement Player Action#2
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Message 12
+Jump Function#4
+
+
+Function 4:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	CMD_783 1
+	SetVar 0x412E 5
+	CommonScript 2006
+	SetVarFromVariable 0x800C 0x4000
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	CloseTouchScreen 
+	SendBackFollowingPoke 
+	HealPokemon 
+	Message 2
+	CloseMessage 
+	Movement Player Action#2
+	WaitMovement 
+	NoBallResetFollowingPoke 
+	SetOWMovement Following Move.56
+	SetVar 0x412E 4
+	ReleaseAll 
+End 
+
+

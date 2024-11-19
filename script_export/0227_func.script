@@ -1,0 +1,84 @@
+Function 1:
+	CompareVarValue 0x4000 559
+	JumpIf DIFFERENT Function#4
+	Movement Player Action#7
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 6
+	SetVar 0x8004 468
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 8
+	CloseMessage 
+	Movement Overworld.13 Action#8
+	WaitMovement 
+	DoorAnimation 17 11 11 3 77
+	OpenDoor 77
+	WaitDoor 77
+	Movement Overworld.13 Action#9
+	WaitMovement 
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	RemoveOW Overworld.13
+	SetFlag 591
+	ReleaseAll 
+	SetFlag 109
+	SetVar 0x408C 1
+End 
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 3
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CompareVarValue 0x4000 560
+	JumpIf DIFFERENT Function#5
+	Movement Player Action#10
+Jump Function#2
+
+
+Function 5:
+	Movement Player Action#11
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 6
+	SetVar 0x8004 468
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 8
+	CloseMessage 
+	Movement Overworld.13 Action#8
+	WaitMovement 
+	DoorAnimation 17 11 11 3 77
+	OpenDoor 77
+	WaitDoor 77
+	Movement Overworld.13 Action#9
+	WaitMovement 
+	CloseDoor 77
+	WaitDoor 77
+	FreeDoor 77
+	RemoveOW Overworld.13
+	SetFlag 591
+	ReleaseAll 
+	SetFlag 109
+	SetVar 0x408C 1
+End 
+
+

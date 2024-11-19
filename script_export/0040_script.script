@@ -1,0 +1,35 @@
+Script 1:
+	PlayFanfare 2180
+	Movement Player Action#1
+	UnvanishOverworld 255
+	WaitMovement 
+	ShakeCamera 0 1 1 8
+	PlayFanfare 1606
+	SetVar 0x40CD 0
+	CompareVarValue 0x40ED 1
+	JumpIf EQUAL Function#1
+	SetVar 0x40ED 1
+	IncrementVar 0x40F1 1
+End 
+
+
+Script 2:
+	CompareVarValue 0x40CD 1
+	JumpIf DIFFERENT Function#2
+	VanishOverworld 255
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	SetVar 0x40CE 1
+	SetFlag 273
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+End 
+
+

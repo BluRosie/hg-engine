@@ -1,0 +1,45 @@
+Action 1:
+	Exclamation 0x1
+End
+
+
+Action 2:
+	WalkRightFast 0x1
+End
+
+
+Action 3:
+	WalkLeftFast 0x3
+End
+
+
+Action 4:
+	WalkRightFast 0x2
+End
+
+
+Action 5:
+	WalkLeftFastSite 0x1
+End
+
+
+Action 6:
+	WalkLeftFast 0x2
+End
+
+
+Action 7:
+	WalkRightFastSite 0x1
+End
+
+
+Action 8:
+	WalkRightFast 0x3
+End
+
+
+Action 9:
+	WalkLeftFast 0x1
+End
+
+

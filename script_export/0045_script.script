@@ -1,0 +1,37 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_713 3
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CheckFlag 2426
+	JumpIf EQUAL Function#1
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	CMD_714 3
+	CheckBornPokemonInParty 0x800C 250
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#2
+Jump Function#3
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	CheckPokemonAlive 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+End 
+
+

@@ -1,0 +1,124 @@
+Script 1:
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40FB 8
+	JumpIf EQUAL Function#1
+	GetFirstAlivePokemonSlot 0x4005
+	CMD_698 2 0x4005 0x4006
+	CompareVarValue 0x4006 1
+	JumpIf EQUAL Function#2
+	CMD_698 1 0x4005 0x4007
+	CompareVarValue 0x4007 1
+	JumpIf EQUAL Function#2
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	CompareVarValue 0x40FB 7
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x40FB 8
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x40FB 9
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x40FB 12
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x40FB 13
+	JumpIf EQUAL Function#3
+End 
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	CompareVarValue 0x40FB 13
+	JumpIf LESS Function#4
+	CompareVarValue 0x4103 2
+	JumpIf EQUAL Function#5
+	Call Function#6
+	CompareVarValue 0x400A 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x400A 2
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x400A 3
+	JumpIf EQUAL Function#9
+	Message 28
+Jump Function#10
+
+
+Script 5:
+	MecScript 
+	LockAll 
+	CompareVarValue 0x40FB 13
+	JumpIf LESS Function#11
+	CompareVarValue 0x4103 1
+	JumpIf EQUAL Function#5
+	Call Function#6
+	CompareVarValue 0x400A 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x400A 2
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x400A 3
+	JumpIf EQUAL Function#9
+	Message 27
+Jump Function#12
+
+
+Script 6:
+	MecScript 
+	LockAll 
+	CompareVarValue 0x40FB 13
+	JumpIf LESS Function#13
+	CompareVarValue 0x4103 3
+	JumpIf EQUAL Function#5
+	Call Function#6
+	CompareVarValue 0x400A 0
+	JumpIf EQUAL Function#7
+	CompareVarValue 0x400A 2
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x400A 3
+	JumpIf EQUAL Function#9
+	Message 29
+Jump Function#14
+
+
+Script 7:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40FB 4
+	ReleaseAll 
+End 
+
+
+Script 8:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#1
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40FB 13
+	ReleaseAll 
+End 
+
+

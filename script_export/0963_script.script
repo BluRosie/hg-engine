@@ -1,0 +1,32 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	CheckFlag 251
+	JumpIf EQUAL Function#1
+	CheckFlag 2404
+	JumpIf EQUAL Function#2
+	GetPlayerDirection 0x4000
+	CompareVarValue 0x4000 3
+	JumpIf DIFFERENT Function#3
+	Movement Overworld.0 Action#1
+Jump Function#4
+
+
+Script 2:
+	CompareVarValue 0x40E5 1
+	JumpIf GREATER/EQUAL Function#5
+	CheckFlag 2404
+	JumpIf EQUAL Function#6
+End 
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 2404
+	JumpIf EQUAL Function#7
+	Message 3
+Jump Function#8
+
+

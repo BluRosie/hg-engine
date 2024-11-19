@@ -1,0 +1,57 @@
+Script 1:
+	CheckFlag 150
+	JumpIf EQUAL Function#1
+	PlayFanfare 1500
+	LockAll 
+	Message 0
+	CloseMessage 
+	Movement Overworld.1 Action#1
+	Movement Overworld.7 Action#1
+	Movement Overworld.9 Action#1
+	Movement Overworld.10 Action#1
+	Movement Overworld.11 Action#1
+	WaitMovement 
+	SetFlag 150
+	SetOWMovement Overworld.0 Move.9
+	ReleaseAll 
+End 
+
+
+Script 2:
+	GetOWPosition Overworld.4 0x4000 0x4001
+	CompareVarValue 0x4001 15
+	JumpIf DIFFERENT Function#2
+Jump Function#3
+
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	PlayCry 67 0
+	Message 2
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 4:
+	VanishOverworld 9
+	VanishOverworld 10
+	VanishOverworld 11
+	VanishOverworld 12
+	VanishOverworld 13
+	VanishOverworld 14
+	VanishOverworld 15
+	VanishOverworld 16
+	VanishOverworld 17
+	CheckFlag 150
+	JumpIf EQUAL Function#4
+	CheckFlag 151
+	JumpIf EQUAL Function#5
+	CheckFlag 152
+	JumpIf EQUAL Function#6
+End 
+
+

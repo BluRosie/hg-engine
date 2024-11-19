@@ -1,0 +1,127 @@
+Action 1:
+	Exclamation 0x1
+End
+
+
+Action 2:
+	WalkDownVeryFast 0x1
+	WalkLeftVeryFast 0x1
+End
+
+
+Action 3:
+	Freeze4 0x3
+	RunLeft 0x2
+	JumpLeft2 0x1
+	RunLeft 0x2
+	JumpUp2 0x2
+	0070 0x1
+End
+
+
+Action 4:
+	Exclamation 0x1
+	LockDir 0x1
+	WalkUpVeryFast 0x4
+	ReleaseDir 0x1
+	Freeze16 0x1
+	WalkRightFast 0x1
+End
+
+
+Action 5:
+	WalkRightFast 0x4
+	WalkUpFast 0x3
+	WalkRightFast 0x6
+End
+
+
+Action 6:
+	WalkUpFast 0x1
+	LookLeft 0x1
+End
+
+
+Action 7:
+	WalkRightFast 0x1
+End
+
+
+Action 8:
+	WalkRightFast 0x9
+End
+
+
+Action 9:
+	WalkDownVeryFast 0x2
+	WalkLeftVeryFast 0x1
+End
+
+
+Action 10:
+	LookRight 0x1
+	LockDir 0x1
+	JumpLeft2 0x1
+	ReleaseDir 0x1
+End
+
+
+Action 11:
+	WalkLeftFast 0x2
+End
+
+
+Action 12:
+	WalkDownFast 0x1
+	WalkLeftFast 0x5
+	WalkDownFast 0x2
+	WalkLeftFast 0x5
+End
+
+
+Action 13:
+	WalkDownVeryFast 0x3
+	WalkLeftVeryFast 0x1
+End
+
+
+Action 14:
+	WalkDownFast 0x1
+	WalkLeftFast 0x5
+	WalkDownFast 0x1
+	WalkLeftFast 0x5
+End
+
+
+Action 15:
+	WalkDownVeryFast 0x4
+	WalkLeftVeryFast 0x1
+End
+
+
+Action 16:
+	WalkDownFast 0x1
+	WalkLeftFast 0xA
+End
+
+
+Action 17:
+	WalkDownVeryFast 0x5
+	WalkLeftVeryFast 0x1
+End
+
+
+Action 18:
+	WalkDownFast 0x1
+	WalkLeftFast 0x4
+	WalkUpFast 0x1
+	WalkLeftFast 0x5
+End
+
+
+Action 19:
+	WalkUpFast 0x1
+	WalkLeftFast 0xA
+End
+
+

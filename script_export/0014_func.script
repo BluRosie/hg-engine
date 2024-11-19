@@ -1,0 +1,23 @@
+Function 1:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	ReleaseAll 
+End 
+
+
+Function 3:
+	SetFlag 364
+Return 
+
+
+Function 4:
+	SetFlag 774
+	RemoveOW Overworld.2
+	ClearFlag 164
+End 
+
+

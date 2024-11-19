@@ -1,0 +1,93 @@
+Function 1:
+	SetFlag 451
+End 
+
+
+Function 2:
+End 
+
+
+Function 3:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 53
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 55
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	GetDayOfWeek 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CMD_438 0 0x800C
+	CMD_440 0x800C 27
+Jump Function#8
+
+
+Function 6:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 24
+	SetVar 0x8004 242
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CommonScript 2033
+	SetFlag 165
+	IncrementVar 0x4094 1
+	CMD_438 0 0x800C
+	CMD_440 0x800C 25
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	CMD_438 0 0x800C
+	CMD_440 0x800C 52
+	TextPartyPokemon 0 0x8002
+	CMD_440 0x800C 54
+	GiveRibbon 0x8002 65
+	PlaySound 1185
+	WaitSound 
+	SetFlag 2748
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

@@ -1,0 +1,124 @@
+Script 1:
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 1 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	TrainerBattle 21 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 1
+	TextPlayerName 0
+	Message 2
+	PlaySound 1189
+	WaitSound 
+	GiveBadge 1
+	SetTrainerFlag 68
+	SetTrainerFlag 67
+	SetTrainerFlag 69
+	SetTrainerFlag 10
+	CMD_515 22
+	Message 3
+	SetVar 0x8004 416
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CommonScript 2033
+	SetFlag 127
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	AzaleaGym 0
+End 
+
+
+Script 4:
+	AzaleaGym 1
+End 
+
+
+Script 5:
+	AzaleaGym 2
+End 
+
+
+Script 6:
+	AzaleaGym 3
+End 
+
+
+Script 7:
+	AzaleaGym 4
+End 
+
+
+Script 8:
+	AzaleaGym 5
+End 
+
+
+Script 9:
+	AzaleaGym 6
+End 
+
+
+Script 10:
+	AzaleaGym 7
+End 
+
+
+Script 11:
+	AzaleaGym 8
+End 
+
+
+Script 12:
+	AzaleaGym 9
+End 
+
+
+Script 13:
+	AzaleaGym 10
+End 
+
+
+Script 14:
+	AzaleaGym 11
+End 
+
+
+Script 15:
+	AzaleaGym2 0
+End 
+
+
+Script 16:
+	AzaleaGym2 1
+End 
+
+
+Script 17:
+	CMD_326 
+	CMD_142 34 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#4
+	CheckFlag 2404
+	JumpIf EQUAL Function#5
+	ClearFlag 746
+End 
+
+

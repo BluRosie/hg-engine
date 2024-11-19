@@ -1,0 +1,122 @@
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	Movement Overworld.1 Action#8
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#9
+	Movement Following Action#2
+	Movement Player Action#3
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Player Action#3
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	SetFlag 537
+End 
+
+
+Function 5:
+End 
+
+
+Function 6:
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#7
+	Movement Player Action#6
+	Movement Overworld.0 Action#7
+Jump Function#8
+
+
+Function 7:
+	Movement Player Action#10
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#10
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 6
+	CloseMessage 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetVar 0x40CB 5
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 328 0 9 10 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitMovement 
+	CompareVarValue 0x4002 0
+	JumpIf EQUAL Function#10
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 6
+	CloseMessage 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetVar 0x40CB 5
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 328 0 9 10 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Movement Player Action#3
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.1 Action#9
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 6
+	CloseMessage 
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetVar 0x40CB 5
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 328 0 9 10 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

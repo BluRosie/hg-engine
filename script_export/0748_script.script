@@ -1,0 +1,83 @@
+Script 1:
+	MecScript 
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+	CMD_783 1
+	SetVar 0x412E 5
+	CommonScript 2006
+	SetVarFromVariable 0x800C 0x4000
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	CloseTouchScreen 
+	SendBackFollowingPoke 
+	HealPokemon 
+	Message 2
+	CloseMessage 
+	Movement Player Action#2
+	WaitMovement 
+	NoBallResetFollowingPoke 
+	SetOWMovement Following Move.56
+	SetVar 0x412E 4
+	ReleaseAll 
+End 
+
+
+Script 2:
+	MecScript 
+	LockAll 
+	Message 4
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	Message 5
+	CloseMessage 
+	Movement Player Action#3
+	WaitMovement 
+	CMD_783 0
+	BallResetFollowingPoke 
+	SetOWMovement Following Move.48
+	SetVar 0x412E 3
+	ReleaseAll 
+End 
+
+
+Script 3:
+	MecScript 
+	LockAll 
+	SetVar 0x412E 2
+	Message 7
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 8
+	CheckFlag 374
+	JumpIf EQUAL Function#3
+	Message 9
+	SetFlag 603
+	DummyGetPokemonFootprint 
+	SetVar 0x40E5 2
+	Message 11
+	SetFlag 374
+	Message 12
+Jump Function#4
+
+
+Script 4:
+	UseScript_#1
+
+

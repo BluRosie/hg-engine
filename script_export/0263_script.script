@@ -1,0 +1,16 @@
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CMD_784 3
+	CMD_116 1
+	LocalScript 
+	Dummy 
+	CheckFlag 255
+	JumpIf EQUAL Function#1
+	SetFlag 255
+	TextNumber 0 1
+	Message 15
+Jump Function#2
+
+

@@ -1,0 +1,338 @@
+Function 1:
+	Message 5
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#10
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#11
+	Message 6
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 92 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CompareVarValue 0x4135 7
+	JumpIf GREATER/EQUAL Function#12
+	TextNumber 0 0x4135
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	Movement Overworld.0 Action#3
+	WaitMovement 
+	Message 1
+	CompareVarValue 0x4135 7
+	JumpIf GREATER/EQUAL Function#12
+	TextNumber 0 0x4135
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitMovement 
+	Message 1
+	CompareVarValue 0x4135 7
+	JumpIf GREATER/EQUAL Function#12
+	TextNumber 0 0x4135
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	CheckFlag 297
+	JumpIf EQUAL Function#13
+	SetFlag 637
+End 
+
+
+Function 6:
+	Message 15
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#14
+	CheckAlbumPhoto 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#15
+	Message 16
+	CloseMessage 
+	SetFlag 393
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	TakePhoto 85 104
+	LockAll 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ClearFlag 393
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 14
+Jump Function#16
+
+
+Function 8:
+	TextPlayerName 0
+	Message 11
+	PlaySound 1206
+	WaitSound 
+	RecordPokegearNumber 30
+	Message 12
+	WaitButton 
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 637
+	RemoveOW Overworld.1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	SetVar 0x4004 1
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	Message 2
+	CloseMessage 
+	GetPlayerDirection 0x4000
+	GetOWPosition Following 0x8004 0x8005
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#17
+	CompareVarValue 0x8004 1035
+	JumpIf DIFFERENT Function#18
+	Movement Following Action#4
+	WaitMovement 
+Jump Function#19
+
+
+Function 13:
+	SetFlag 602
+	CMD_142 31 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#20
+	CompareVarValue 0x40FD 0
+	JumpIf EQUAL Function#20
+	GetDayOfWeek 0x4002
+	CompareVarValue 0x4002 5
+	JumpIf DIFFERENT Function#21
+	ClearFlag 602
+Jump Function#20
+
+
+Function 14:
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	JumpIf GREATER/EQUAL Function#9
+End 
+
+
+Function 17:
+	CompareVarValue 0x8005 495
+	JumpIf DIFFERENT Function#19
+	Movement Following Action#5
+	WaitMovement 
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#22
+	Movement Overworld.0 Action#6
+Jump Function#23
+
+
+Function 18:
+Jump Function#19
+
+
+Function 19:
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#22
+	Movement Overworld.0 Action#6
+Jump Function#23
+
+
+Function 20:
+	CMD_147 30 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#24
+	CheckBadge 15 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf EQUAL Function#25
+Jump Function#26
+
+
+Function 21:
+	SetFlag 602
+	CMD_147 30 0x4001
+	CompareVarValue 0x4001 1
+	JumpIf EQUAL Function#24
+	CheckBadge 15 0x4002
+	CompareVarValue 0x4002 1
+	JumpIf EQUAL Function#25
+Jump Function#26
+
+
+Function 22:
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#27
+	Movement Overworld.0 Action#8
+	Movement Player Action#9
+	Movement Following Action#9
+Jump Function#28
+
+
+Function 23:
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#27
+	Movement Overworld.0 Action#8
+	Movement Player Action#9
+	Movement Following Action#9
+Jump Function#28
+
+
+Function 24:
+	CMD_142 30 0x4001
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#26
+	GetDayOfWeek 0x4002
+	CompareVarValue 0x4002 4
+	JumpIf DIFFERENT Function#29
+	ClearFlag 637
+Jump Function#30
+
+
+Function 25:
+	GetDayOfWeek 0x4002
+	CompareVarValue 0x4002 2
+	JumpIf DIFFERENT Function#31
+	ClearFlag 637
+Jump Function#32
+
+
+Function 26:
+	SetFlag 637
+End 
+
+
+Function 27:
+	Movement Overworld.0 Action#10
+	Movement Player Action#9
+	Movement Following Action#9
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 602
+	SetFlag 297
+	SetFlag 760
+	ClearFlag 761
+	ReleaseAll 
+End 
+
+
+Function 28:
+	WaitMovement 
+	RemoveOW Overworld.0
+	SetFlag 602
+	SetFlag 297
+	SetFlag 760
+	ClearFlag 761
+	ReleaseAll 
+End 
+
+
+Function 29:
+Jump Function#26
+
+
+Function 30:
+End 
+
+
+Function 31:
+Jump Function#26
+
+
+Function 32:
+End 
+
+

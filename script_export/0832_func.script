@@ -1,0 +1,338 @@
+Function 1:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	ClearFlag 696
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#20
+	SetFlag 693
+Jump Function#21
+
+
+Function 3:
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#20
+	SetFlag 693
+Jump Function#21
+
+
+Function 4:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	ClearFlag 693
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#22
+	SetFlag 694
+Jump Function#23
+
+
+Function 21:
+	CompareVarValue 0x4001 0
+	JumpIf DIFFERENT Function#22
+	SetFlag 694
+Jump Function#23
+
+
+Function 22:
+	ClearFlag 694
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#24
+	SetFlag 695
+Jump Function#25
+
+
+Function 23:
+	CompareVarValue 0x4002 0
+	JumpIf DIFFERENT Function#24
+	SetFlag 695
+Jump Function#25
+
+
+Function 24:
+	ClearFlag 695
+	CompareVarValue 0x4004 0
+	JumpIf DIFFERENT Function#26
+	SetFlag 697
+Jump Function#27
+
+
+Function 25:
+	CompareVarValue 0x4004 0
+	JumpIf DIFFERENT Function#26
+	SetFlag 697
+Jump Function#27
+
+
+Function 26:
+	ClearFlag 697
+	CompareVarValue 0x4005 0
+	JumpIf DIFFERENT Function#28
+	SetFlag 698
+Jump Function#29
+
+
+Function 27:
+	CompareVarValue 0x4005 0
+	JumpIf DIFFERENT Function#28
+	SetFlag 698
+Jump Function#29
+
+
+Function 28:
+	ClearFlag 698
+	CompareVarValue 0x4006 0
+	JumpIf DIFFERENT Function#30
+	SetFlag 699
+Jump Function#31
+
+
+Function 29:
+	CompareVarValue 0x4006 0
+	JumpIf DIFFERENT Function#30
+	SetFlag 699
+Jump Function#31
+
+
+Function 30:
+	ClearFlag 699
+	CompareVarValue 0x4007 0
+	JumpIf DIFFERENT Function#32
+	SetFlag 700
+Jump Function#33
+
+
+Function 31:
+	CompareVarValue 0x4007 0
+	JumpIf DIFFERENT Function#32
+	SetFlag 700
+Jump Function#33
+
+
+Function 32:
+	ClearFlag 700
+	CompareVarValue 0x4008 0
+	JumpIf DIFFERENT Function#34
+	SetFlag 701
+Jump Function#35
+
+
+Function 33:
+	CompareVarValue 0x4008 0
+	JumpIf DIFFERENT Function#34
+	SetFlag 701
+Jump Function#35
+
+
+Function 34:
+	ClearFlag 701
+	CompareVarValue 0x4009 0
+	JumpIf DIFFERENT Function#36
+	SetFlag 702
+Jump Function#37
+
+
+Function 35:
+	CompareVarValue 0x4009 0
+	JumpIf DIFFERENT Function#36
+	SetFlag 702
+Jump Function#37
+
+
+Function 36:
+	ClearFlag 702
+	CompareVarValue 0x400A 0
+	JumpIf DIFFERENT Function#38
+	SetFlag 703
+Jump Function#39
+
+
+Function 37:
+	CompareVarValue 0x400A 0
+	JumpIf DIFFERENT Function#38
+	SetFlag 703
+Jump Function#39
+
+
+Function 38:
+	ClearFlag 703
+	CompareVarValue 0x400B 0
+	JumpIf DIFFERENT Function#40
+	SetFlag 704
+Jump Function#41
+
+
+Function 39:
+	CompareVarValue 0x400B 0
+	JumpIf DIFFERENT Function#40
+	SetFlag 704
+Jump Function#41
+
+
+Function 40:
+	ClearFlag 704
+	CompareVarValue 0x400C 0
+	JumpIf DIFFERENT Function#42
+	SetFlag 705
+Jump Function#43
+
+
+Function 41:
+	CompareVarValue 0x400C 0
+	JumpIf DIFFERENT Function#42
+	SetFlag 705
+Jump Function#43
+
+
+Function 42:
+	ClearFlag 705
+	CompareVarValue 0x400D 0
+	JumpIf DIFFERENT Function#44
+	SetFlag 706
+Jump Function#45
+
+
+Function 43:
+	CompareVarValue 0x400D 0
+	JumpIf DIFFERENT Function#44
+	SetFlag 706
+Jump Function#45
+
+
+Function 44:
+	ClearFlag 706
+	CompareVarValue 0x400E 0
+	JumpIf DIFFERENT Function#46
+	SetFlag 707
+Jump Function#47
+
+
+Function 45:
+	CompareVarValue 0x400E 0
+	JumpIf DIFFERENT Function#46
+	SetFlag 707
+Jump Function#47
+
+
+Function 46:
+	ClearFlag 707
+	CompareVarValue 0x400F 0
+	JumpIf DIFFERENT Function#48
+	SetFlag 708
+Jump Function#49
+
+
+Function 47:
+	CompareVarValue 0x400F 0
+	JumpIf DIFFERENT Function#48
+	SetFlag 708
+Jump Function#49
+
+
+Function 48:
+	ClearFlag 708
+End 
+
+
+Function 49:
+End 
+
+

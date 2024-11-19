@@ -1,0 +1,626 @@
+Function 1:
+	Message 66
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 67
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+Return 
+
+
+Function 2:
+	Movement Overworld.0 Action#6
+Return 
+
+
+Function 3:
+	Movement Player Action#10
+	WaitTime 20 0x800C
+	Movement Player Action#8
+	WaitTime 20 0x800C
+	Movement Player Action#9
+Return 
+
+
+Function 4:
+	Message 54
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 55
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Message 56
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+Return 
+
+
+Function 5:
+	FacePlayer 
+	CompareVarValue 0x4104 2
+	JumpIf EQUAL Function#17
+	GenderMessage 15 16
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#18
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#19
+	SetVar 0x4103 1
+	ReleaseAll 
+End 
+
+
+Function 6:
+	FacePlayer 
+	GenderMessage 49 132
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	FacePlayer 
+	Message 36
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	FacePlayer 
+	GenderMessage 34 35
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	FacePlayer 
+	CompareVarValue 0x4103 2
+	JumpIf LESS Function#20
+	TextPlayerName 0
+	GenderMessage 27 31
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	GenderMessage 29 32
+	WaitAB 
+	CloseMessage 
+	Movement Overworld.0 Action#12
+	WaitMovement 
+	FacePlayer 
+	GenderMessage 30 33
+	WaitAB 
+	CloseMessage 
+	SetVar 0x4102 2
+	ReleaseAll 
+End 
+
+
+Function 10:
+	CompareVarValue 0x800D 10
+	JumpIf EQUAL Function#21
+	Movement Overworld.0 Action#13
+Jump Function#22
+
+
+Function 11:
+	Movement Overworld.0 Action#14
+Jump Function#22
+
+
+Function 12:
+	CompareVarValue 0x800D 10
+	JumpIf EQUAL Function#23
+	Movement Overworld.0 Action#15
+Jump Function#22
+
+
+Function 13:
+	Movement Overworld.0 Action#16
+Jump Function#22
+
+
+Function 14:
+	CompareVarValue 0x800D 3
+	JumpIf EQUAL Function#24
+	Movement Overworld.0 Action#17
+Jump Function#22
+
+
+Function 15:
+	Movement Player Action#18
+	WaitMovement 
+Return 
+
+
+Function 16:
+	Movement Player Action#19
+	WaitMovement 
+Return 
+
+
+Function 17:
+	TextPlayerName 0
+	GenderMessage 23 25
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 57 71
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 59 72
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 58 73
+	WaitAB 
+	CloseMessage 
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#25
+	WaitMovement 
+	GenderMessage 24 74
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 60 75
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 61 76
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetVar 0x4102 1
+	SetVar 0x800C 1
+Return 
+
+
+Function 18:
+	##CheckItem 155 1 0x800C
+    CheckFlag 2130
+    CallIf EQUAL Function#17
+    Call Function#26
+	##CompareVarValue 0x800C 1
+	##CallIf EQUAL Function#17
+	##CompareVarValue 0x800C 0
+	##CallIf EQUAL Function#26
+	SetVar 0x800C 0
+Return 
+
+
+Function 19:
+	TextPlayerName 0
+	GenderMessage 19 20
+	WaitAB 
+	CloseMessage 
+Return 
+
+
+Function 20:
+	ReleaseAll 
+	GenderMessage 39 40
+	WaitAB 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	Movement Overworld.0 Action#20
+Jump Function#22
+
+
+Function 22:
+	Movement Player Action#21
+	WaitMovement 
+	GenderMessage 45 80
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	CheckPlayerGender 0x800C
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#27
+	Message 28
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GenderMessage 44 81
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	GetPlayerPosition 0x800C 0x800D
+	CompareVarValue 0x800C 4
+	JumpIf EQUAL Function#28
+	CompareVarValue 0x800C 5
+	JumpIf EQUAL Function#29
+	CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#30
+	CompareVarValue 0x800C 8
+	JumpIf EQUAL Function#31
+	CompareVarValue 0x800C 9
+	JumpIf EQUAL Function#32
+End 
+
+
+Function 23:
+	Movement Overworld.0 Action#22
+Jump Function#22
+
+
+Function 24:
+	Movement Overworld.0 Action#17
+	Movement Player Action#1
+Jump Function#22
+
+
+Function 25:
+	Movement Overworld.0 Action#6
+Return 
+
+
+Function 26:
+	TextPlayerName 0
+	GenderMessage 21 22
+	WaitAB 
+	CloseMessage 
+Return 
+
+
+Function 27:
+	Movement Overworld.0 Action#23
+	WaitMovement 
+	Message 48
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	Movement Overworld.0 Action#24
+	WaitMovement 
+Return 
+
+
+Function 28:
+	Movement Overworld.0 Action#25
+	WaitMovement 
+	Message 46
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetVar 0x4102 2
+	ReleaseAll 
+End 
+
+
+Function 29:
+	Movement Overworld.0 Action#26
+	WaitMovement 
+	Message 46
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetVar 0x4102 2
+	ReleaseAll 
+End 
+
+
+Function 30:
+	Movement Overworld.0 Action#27
+	WaitMovement 
+	Message 46
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetVar 0x4102 2
+	ReleaseAll 
+End 
+
+
+Function 31:
+	Movement Overworld.0 Action#28
+	WaitMovement 
+	Message 46
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetVar 0x4102 2
+	ReleaseAll 
+End 
+
+
+Function 32:
+	Movement Overworld.0 Action#29
+	WaitMovement 
+	Message 46
+	WaitAB 
+	CloseMessage 
+	WaitTime 6 0x800C
+	SetVar 0x4102 2
+	ReleaseAll 
+End 
+
+Function 33:
+	Movement Following Action#34
+    PlayCry 1 0
+    GenderMessage 93 93
+    WaitAB 
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 34:
+	Movement Following Action#30
+    PlayCry 4 0
+    GenderMessage 94 94
+    WaitAB 
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 35:
+	Movement Following Action#33
+    PlayCry 7 0
+    GenderMessage 95 95
+    WaitAB 
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 36:
+	Movement Following Action#30
+    PlayCry 493 0
+    GenderMessage 96 96
+    WaitAB 
+    CloseMessage
+    WaitTime 6 0x800C
+Return
+
+Function 37:
+	## Block to be executed if starter ceremony is finished
+	SetFlag 2202
+	## Removed Default mum, now make sure to add the post scene mum
+	ClearFlag 2203
+Return
+
+Function 38:
+	## Block to be executed if starter ceremony is not finished
+	SetFlag 2203
+	## Removed Post starter ceremony mum
+	ClearFlag 2202
+Return
+
+
+Function 39:
+    TextPlayerName 0
+    ##
+    ## Male POV of going back into FlashBack
+    ##
+	Message 98
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+	Movement Overworld.1 Action#32
+	Message 99
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+	Message 100
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+	Message 101
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+	Message 102
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+	## Move mum and red to the table
+	Movement Overworld.1 Action#35
+    Movement Player Action#38
+    WaitMovement
+    Movement Following Action#39
+    GetPartyPokemonID 0 0x8001
+	CompareVarValue 0x8001 1
+	CallIf EQUAL Function#43
+    CompareVarValue 0x8001 4
+    CallIf EQUAL Function#44
+    CompareVarValue 0x8001 7
+    CallIf EQUAL Function#45
+	Message 103
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 104
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 105
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Movement Player Action#18
+    Message 106
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    ## Mum looks down
+    Movement Overworld.1 Action#37
+    Message 107
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    ## Mum looks right at red
+    Movement Overworld.1 Action#8
+    Message 108
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 109
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Movement Player Action#40
+    Message 110
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Movement Overworld.1 Action#41
+    Message 111
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 112
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 113
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 114
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 115
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 116
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 117
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 118
+    WaitAB
+    CloseMessage
+	WaitTime 6 0x800C
+    FadeScreen 6 6 0 0
+    WaitFadeScreen
+    FadeScreen 6 6 1 0
+    ##
+    ## Teleport palyer into forest here
+    ## Use level script in that map to continue
+    ##
+    WaitFadeScreen
+Return
+
+
+Function 40:
+    Movement Overworld.0 Action#8
+    Movement Player Action#9
+    CompareVarValue 0x800D 3
+    JumpIf EQUAL Function#41
+Return
+
+Function 41:
+    Movement Player Action#36
+Return
+
+Function 42:
+    Movement Overworld.0 Action#37
+    Movement Player Action#10
+Return
+
+
+Function 43:
+    SetFollowingPokeMovement 18
+Return
+
+Function 44:
+    SetFollowingPokeMovement 49
+Return
+
+Function 45:
+    SetFollowingPokeMovement 10
+Return
+
+
+Function 46:
+    TextPlayerName 0
+    ##
+    ## Female POV of going back into FlashBack
+    ##
+    Message 120
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Movement Overworld.1 Action#32
+    Message 121
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 122
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    ## Move mum and green to the table
+	Movement Overworld.1 Action#35
+    Movement Player Action#38
+    WaitMovement
+    Movement Following Action#39
+    GetPartyPokemonID 0 0x8001
+	CompareVarValue 0x8001 1
+	CallIf EQUAL Function#43
+    CompareVarValue 0x8001 4
+    CallIf EQUAL Function#44
+    CompareVarValue 0x8001 7
+    CallIf EQUAL Function#45
+    Message 123
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 124
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    ## Move green to cake
+    Movement Player Action#18
+    Message 125
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 126
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 127
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 128
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 129
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+    Message 130
+    WaitAB 
+    CloseMessage
+	WaitTime 6 0x800C
+Return
+
+
+
+
+
+
+

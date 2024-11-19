@@ -1,0 +1,276 @@
+Action 1:
+	Exclamation 0x1
+	WalkDownFast 0x1
+	WalkRightFast 0x2
+End
+
+
+Action 2:
+	Freeze8 0x3
+	WalkLeftFastSite 0x1
+End
+
+
+Action 3:
+	WalkLeftFast 0x2
+	WalkUpFast 0x1
+	WalkDownFastSite 0x1
+End
+
+
+Action 4:
+	WalkUpFastSite 0x1
+End
+
+
+Action 5:
+	WalkDownFast 0x6
+	WalkRightFast 0x3
+	WalkDownFast 0x2
+	WalkRightFastSite 0x1
+End
+
+
+Action 6:
+	WalkDownFast 0x7
+	WalkRightFast 0x3
+	WalkDownFast 0x1
+End
+
+
+Action 7:
+	WalkLeftFastSite 0x1
+End
+
+
+Action 8:
+	Exclamation 0x1
+End
+
+
+Action 9:
+	WalkDownFast 0x1
+	WalkRightFastSite 0x1
+End
+
+
+Action 10:
+	WalkDownFast 0x1
+End
+
+
+Action 11:
+	WalkDownFastSite 0x1
+End
+
+
+Action 12:
+	Exclamation 0x1
+	WalkUpFast 0x2
+End
+
+
+Action 13:
+	WalkRightFast 0x1
+	WalkUpFast 0x2
+	WalkLeftFast 0x1
+	WalkUpFast 0x3
+	WalkDownFastSite 0x1
+End
+
+
+Action 14:
+	Freeze8 0x1
+	WalkUpFastSite 0x1
+End
+
+
+Action 15:
+	WalkRightFast 0x1
+	WalkUpFast 0x1
+End
+
+
+Action 16:
+	Exclamation 0x1
+	WalkLeftFast 0x4
+End
+
+
+Action 17:
+	LookRight 0x1
+End
+
+
+Action 18:
+	JumpLeftSite 0x2
+End
+
+
+Action 19:
+	Exclamation 0x1
+	WalkRightFast 0x4
+End
+
+
+Action 20:
+	LookLeft 0x1
+End
+
+
+Action 21:
+	JumpRightSite 0x2
+End
+
+
+Action 22:
+	WalkUpFast 0x3
+	WalkDownFastSite 0x1
+End
+
+
+Action 23:
+	WalkRightFast 0x1
+	WalkUpFast 0x1
+	LookDown 0x1
+End
+
+
+Action 24:
+	WalkDownFastSite 0x1
+End
+
+
+Action 25:
+	WalkUpFast 0x1
+End
+
+
+Action 26:
+	WalkUpFast 0x1
+	WalkRightFast 0x1
+	WalkUpFast 0x3
+	WalkDownFastSite 0x1
+End
+
+
+Action 27:
+	WalkLeftFast 0x1
+	WalkUpFast 0x1
+End
+
+
+Action 28:
+	WalkRightFast 0x1
+	WalkDownFastSite 0x1
+End
+
+
+Action 29:
+	WalkDownFast 0x1
+End
+
+
+Action 30:
+	WalkUpFast 0x1
+	WalkLeftFast 0x1
+	WalkUpFast 0x3
+	WalkDownFastSite 0x1
+End
+
+
+Action 31:
+	WalkLeftFast 0x2
+	WalkUpFast 0x1
+End
+
+
+Action 32:
+	WalkRightFastSite 0x1
+End
+
+
+Action 33:
+	WalkRightFast 0x3
+	WalkUpFastSite 0x1
+End
+
+
+Action 34:
+	WalkRightFast 0x3
+End
+
+
+Action 35:
+	Freeze8 0x1
+	WalkRightFast 0x3
+	WalkUpFastSite 0x1
+End
+
+
+Action 36:
+	WalkLeftFast 0x3
+	WalkUpFast 0x1
+End
+
+
+Action 37:
+	WalkDownFast 0x1
+End
+
+
+Action 38:
+	WalkDownFast 0x1
+End
+
+
+Action 39:
+	WalkUpFast 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 40:
+	WalkRightFast 0x1
+	WalkUpFast 0x1
+	DisappearTrue 0x1
+End
+
+
+Action 41:
+	WalkUpFast 0x2
+	DisappearTrue 0x1
+End
+
+
+Action 42:
+	WalkLeftFast 0x3
+	WalkUpFast 0x1
+End
+
+
+Action 43:
+	WalkRightFast 0x4
+	WalkUpFastSite 0x1
+End
+
+
+Action 44:
+	WalkDownFast 0x1
+	WalkRightFast 0x3
+End
+
+
+Action 45:
+	Freeze8 0x1
+	WalkRightFast 0x4
+	WalkUpFastSite 0x1
+End
+
+
+Action 46:
+	WalkLeftFast 0x4
+	WalkUpFast 0x1
+End
+
+

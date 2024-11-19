@@ -1,0 +1,62 @@
+Function 1:
+	Movement Player Action#1
+	Movement Overworld.0 Action#2
+	WaitMovement 
+Jump Function#6
+
+
+Function 2:
+	Movement Player Action#3
+	Movement Overworld.0 Action#4
+	WaitMovement 
+Jump Function#6
+
+
+Function 3:
+	Movement Player Action#5
+	Movement Overworld.0 Action#6
+	WaitMovement 
+Jump Function#6
+
+
+Function 4:
+	Movement Player Action#7
+	Movement Overworld.0 Action#8
+	WaitMovement 
+Jump Function#6
+
+
+Function 5:
+	Movement Player Action#9
+	Movement Overworld.0 Action#10
+	WaitMovement 
+Jump Function#6
+
+
+Function 6:
+	Message 0
+	WaitAB 
+	CloseMessage 
+	Movement Player Action#11
+	Movement Overworld.0 Action#12
+	WaitMovement 
+	PlayFanfare 1614
+	Movement Player Action#13
+	WaitMovement 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetVar 0x4003 1
+	Warp 0x4056 0 5 2 Down
+	CMD_436 
+	CMD_166 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	CMD_663 0x8004
+	ReturnScreen 
+	SetVar 0x4137 1
+	VanishOverworld 255
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

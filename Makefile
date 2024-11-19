@@ -76,7 +76,7 @@ INCLUDE_SUBDIR = include
 BUILD := build
 BUILD_NARC := $(BUILD)/narc
 BASE := base
-FILESYS := $(BASE)/root
+FILESYS := $(BASE)/data
 
 LINK = $(BUILD)/linked.o
 OUTPUT = $(BUILD)/output.bin
@@ -198,13 +198,20 @@ $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
+#@if [ -f compressed.tar.gz ]; then \
+#		echo "Extracting compressed.tar.gz..."; \
+#		tar -xzf compressed.tar.gz -O > rom.nds; \
+#	fi
+
 	rm -rf $(BASE)
 	@mkdir -p $(BASE) $(BUILD) $(BUILD)/move $(BUILD)/objects $(MOVE_SEQ_DIR) $(MOVE_SEQ_OBJ_DIR) $(BATTLE_EFF_DIR) $(BATTLE_EFF_OBJ_DIR) $(BATTLE_SUB_DIR) $(BATTLE_SUB_OBJ_DIR)
 	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
 	mkdir -p $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim $(BUILD)/pw_pokegra $(BUILD)/pw_pokeicon $(BUILD)/pw_pokegra_int $(BUILD)/pw_pokeicon_int
+	
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
-	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
+
+	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/y9.bin -y7 $(BASE)/y7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
@@ -212,19 +219,11 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
-	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
+	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/y9.bin -y7 $(BASE)/y7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "Done.  See output $(BUILDROM)."
 
-
-####################### Restore clean base ################
-NEWFILE = romOld-`date +%d%b%y`.nds
-CLEANROM = romClean.nds
-restore:
-	mv $(ROMNAME) $(NEWFILE)
-	cp $(CLEANROM) $(ROMNAME)
-
-####################### Restore and build ################
-restore_build: | restore all
+#	@echo "Compressing test.nds to compressed.tar.gz..."
+#	@tar -czf compressed.tar.gz test.nds
 
 ####################### Clean #######################
 clean:

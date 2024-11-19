@@ -1,0 +1,125 @@
+Function 1:
+	UseScript_#256
+
+
+Function 2:
+	CommonScript 2001
+	RemoveOW 0x800D
+	GiveItem 0x8004 0x8005 0x800C
+	CheckItemIsMachine 0x8004 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#4
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+End 
+
+
+Function 3:
+	TextItem 0 0x8004
+	Message 4
+	WaitButton 
+	SetVar 0x800C 0
+Jump Function#6
+
+
+Function 4:
+	TextPlayerName 0
+	TextItemLowercase 1 0x8004
+	TextAttackItem 2 0x8004
+	Message 6
+Jump Function#7
+
+
+Function 5:
+	TextPlayerName 0
+	TextItemLowercase 1 0x8004
+	Message 3
+Jump Function#7
+
+
+Function 6:
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	WaitSound 
+	TextPlayerName 0
+	TextItem 1 0x8004
+	GetItemPocket 0x8004 0x800C
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 7
+	JumpIf EQUAL Function#8
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#9
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#10
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#11
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#12
+	CompareVarValue 0x8008 6
+	JumpIf EQUAL Function#13
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#14
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#15
+End 
+
+
+Function 8:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 9:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 10:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 11:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 12:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 13:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 14:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 15:
+	GetItemPocket 0x8004 0x800C
+	CMD_195 2 0x800C
+Jump Function#16
+
+
+Function 16:
+	Message 9
+	WaitButton 
+	SetVar 0x800C 1
+Jump Function#6
+
+

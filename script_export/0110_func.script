@@ -1,0 +1,172 @@
+Function 1:
+	CompareVarValue 0x4000 38
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.0 Action#3
+Jump Function#2
+
+
+Function 2:
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#5
+	TrainerBattle 268 0 0 0
+Jump Function#6
+
+
+Function 3:
+	MecScript 
+	LockAll 
+	SetVar 0x40CA 1
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#7
+	Movement Player Action#5
+	Movement Following Action#6
+Jump Function#8
+
+
+Function 4:
+	Movement Overworld.0 Action#7
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 152
+	JumpIf DIFFERENT Function#5
+	TrainerBattle 268 0 0 0
+Jump Function#6
+
+
+Function 5:
+	CompareVarValue 0x800C 155
+	JumpIf DIFFERENT Function#9
+	TrainerBattle 272 0 0 0
+Jump Function#6
+
+
+Function 6:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CommonScript 2070
+	Message 1
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 37
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.0 Action#8
+Jump Function#12
+
+
+Function 7:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#13
+	Movement Player Action#9
+	Movement Following Action#10
+Jump Function#8
+
+
+Function 8:
+	WaitMovement 
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 178 0 0x4000 0x4001 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	TrainerBattle 264 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	CommonScript 2070
+	Message 1
+	CloseMessage 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 37
+	JumpIf DIFFERENT Function#11
+	Movement Overworld.0 Action#8
+Jump Function#12
+
+
+Function 10:
+	RemoveOW Overworld.0
+	SetFlag 522
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	CompareVarValue 0x4000 38
+	JumpIf DIFFERENT Function#14
+	Movement Overworld.0 Action#11
+Jump Function#12
+
+
+Function 12:
+	WaitMovement 
+	SetFlag 522
+	RemoveOW Overworld.0
+	CommonScript 2071
+	SetVar 0x40C5 1
+	ReleaseAll 
+End 
+
+
+Function 13:
+	CompareVarValue 0x800C 3
+	JumpIf DIFFERENT Function#15
+	Movement Player Action#12
+	Movement Following Action#13
+Jump Function#8
+
+
+Function 14:
+	Movement Overworld.0 Action#14
+	WaitMovement 
+	SetFlag 522
+	RemoveOW Overworld.0
+	CommonScript 2071
+	SetVar 0x40C5 1
+	ReleaseAll 
+End 
+
+
+Function 15:
+	Movement Player Action#15
+	Movement Following Action#16
+	WaitMovement 
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 178 0 0x4000 0x4001 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

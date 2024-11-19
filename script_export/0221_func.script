@@ -1,0 +1,32 @@
+Function 1:
+	CompareVarValue 0x4001 403
+	JumpIf DIFFERENT Function#4
+	Movement Overworld.0 Action#3
+Jump Function#2
+
+
+Function 2:
+	WaitMovement 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x408A 1
+End 
+
+
+Function 3:
+End 
+
+
+Function 4:
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetVar 0x408A 1
+End 
+
+

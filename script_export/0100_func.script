@@ -1,0 +1,54 @@
+Function 1:
+	MecScript 
+	LockAll 
+	SetVar 0x40AB 1
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#2
+	Movement Player Action#1
+	Movement Following Action#2
+Jump Function#3
+
+
+Function 2:
+	CompareVarValue 0x800C 1
+	JumpIf DIFFERENT Function#4
+	Movement Player Action#3
+	Movement Following Action#4
+Jump Function#3
+
+
+Function 3:
+	WaitMovement 
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 238 0 0x4000 0x4001 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#5
+	Movement Player Action#5
+	Movement Following Action#6
+Jump Function#3
+
+
+Function 5:
+	Movement Player Action#7
+	Movement Following Action#8
+	WaitMovement 
+	PlayFanfare 2180
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 238 0 0x4000 0x4001 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	ReleaseAll 
+End 
+
+

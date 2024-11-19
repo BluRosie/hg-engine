@@ -1,0 +1,61 @@
+Function 1:
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+End 
+
+
+Function 2:
+	FadeOutMusic 42 10
+	Message 8
+	CMD_345 
+	WaitTime 80 0x800C
+	CMD_346 
+	Message 1
+	StartChatotCry 0x800C
+	SetVarFromVariable 0x8004 0x800C
+	WaitTime 30 0x800C
+	FadeInMusic 10
+	WaitTime 10 0x800C
+	CompareVarValue 0x8004 0
+	JumpIf EQUAL Function#4
+	StopChatotCry 
+	WaitTime 1 0x800C
+	SaveChatotCry 
+	WaitTime 1 0x800C
+	CMD_548 
+	TextPokeNickname 0 0x8005
+	Message 2
+	CMD_549 0x800C
+	PlayCry 441 0
+	WaitCry 
+Jump Function#3
+
+
+Function 3:
+	HidePokemonPic 
+	CloseMessage 
+	CMD_839 0
+	ReleaseAll 
+End 
+
+
+Function 4:
+	TextPokeNickname 0 0x8005
+	Message 3
+	Message 4
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+End 
+
+

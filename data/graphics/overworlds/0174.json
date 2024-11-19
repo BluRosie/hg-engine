@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"rocketm.1": {
+		"rocketw.1": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -17,7 +17,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.10": {
+		"rocketw.10": {
 			"frame": 1,
 			"coordTrans": 0,
 			"color0": 1,
@@ -34,7 +34,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.11": {
+		"rocketw.11": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -51,7 +51,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.12": {
+		"rocketw.12": {
 			"frame": 3,
 			"coordTrans": 0,
 			"color0": 1,
@@ -68,7 +68,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.13": {
+		"rocketw.13": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -85,7 +85,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.14": {
+		"rocketw.14": {
 			"frame": 5,
 			"coordTrans": 0,
 			"color0": 1,
@@ -102,7 +102,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.15": {
+		"rocketw.15": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -119,7 +119,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.16": {
+		"rocketw.16": {
 			"frame": 6,
 			"coordTrans": 0,
 			"color0": 1,
@@ -136,7 +136,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.2": {
+		"rocketw.2": {
 			"frame": 7,
 			"coordTrans": 0,
 			"color0": 1,
@@ -153,7 +153,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.3": {
+		"rocketw.3": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -170,7 +170,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.4": {
+		"rocketw.4": {
 			"frame": 8,
 			"coordTrans": 0,
 			"color0": 1,
@@ -187,7 +187,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.5": {
+		"rocketw.5": {
 			"frame": 9,
 			"coordTrans": 0,
 			"color0": 1,
@@ -204,7 +204,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.6": {
+		"rocketw.6": {
 			"frame": 10,
 			"coordTrans": 0,
 			"color0": 1,
@@ -221,7 +221,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.7": {
+		"rocketw.7": {
 			"frame": 9,
 			"coordTrans": 0,
 			"color0": 1,
@@ -238,7 +238,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.8": {
+		"rocketw.8": {
 			"frame": 11,
 			"coordTrans": 0,
 			"color0": 1,
@@ -255,7 +255,7 @@
 			"unk1": 1,
 			"unk2": 128
 		},
-		"rocketm.9": {
+		"rocketw.9": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -274,11 +274,11 @@
 		}
 	},
 	"palettes": {
-		"rocketm": {
+		"rocketw": {
 			"offset": 0,
 			"unk0": 54,
 			"unk1": 1,
-			"fileName": "rocketm.pal"
+			"fileName": "rocketw.pal"
 		}
 	}
 }

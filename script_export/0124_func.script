@@ -1,0 +1,505 @@
+Function 1:
+	Message 0
+	SetFlag 250
+	Message 2
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 272 255 0
+	CreateMultiTouchBox 296 255 1
+	CreateMultiTouchBox 297 255 2
+	CreateMultiTouchBox 12 255 3
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#36
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#37
+Jump Function#38
+
+
+Function 2:
+	Message 2
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 272 255 0
+	CreateMultiTouchBox 296 255 1
+	CreateMultiTouchBox 297 255 2
+	CreateMultiTouchBox 12 255 3
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#36
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#37
+Jump Function#38
+
+
+Function 3:
+	Message 24
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 5:
+	Message 26
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 6:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	Message 28
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	Message 30
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 32
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 13:
+	Message 34
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 14:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 15:
+	Message 36
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 16:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 17:
+	Message 39
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 18:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 19:
+	Message 41
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 20:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 21:
+	Message 45
+	CloseMessage 
+	Movement Overworld.13 Action#1
+	WaitMovement 
+	CompareVarValue 0x4000 800
+	JumpIf LESS Function#39
+	Message 44
+Jump Function#40
+
+
+Function 22:
+	CloseMessage 
+	Movement Overworld.13 Action#1
+	WaitMovement 
+	CompareVarValue 0x4000 800
+	JumpIf LESS Function#39
+	Message 44
+Jump Function#40
+
+
+Function 23:
+	Message 47
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 24:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 25:
+	Message 49
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 26:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 27:
+	Message 51
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 28:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 29:
+	Message 18
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 30:
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 31:
+	Message 20
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 32:
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 33:
+	Message 22
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 34:
+	WaitCry 
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 35:
+	Message 5
+Jump Function#2
+
+
+Function 36:
+	Message 3
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 308 255 0
+	CreateMultiTouchBox 309 255 1
+	CreateMultiTouchBox 310 255 2
+	CreateMultiTouchBox 311 255 3
+	CreateMultiTouchBox 312 255 4
+	CreateMultiTouchBox 13 255 5
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#2
+	Message 4
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#41
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#42
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#43
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#44
+Jump Function#45
+
+
+Function 37:
+	Message 17
+Jump Function#2
+
+
+Function 38:
+	Message 16
+	WaitButton 
+	CloseMessage 
+	CloseTouchScreen 
+	StopMusic 0
+	PlayDefaultMusic 
+	CMD_726 
+	ReleaseAll 
+End 
+
+
+Function 39:
+	Message 42
+	CloseMessage 
+	Movement Overworld.13 Action#2
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 40:
+	CloseMessage 
+	Movement Overworld.13 Action#2
+	WaitMovement 
+	ReleaseAll 
+End 
+
+
+Function 41:
+	SetVar 0x4007 0
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 298 255 0
+	CreateMultiTouchBox 299 255 1
+	CreateMultiTouchBox 304 255 6
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#46
+
+
+Function 42:
+	SetVar 0x4007 1
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 301 255 3
+	CreateMultiTouchBox 300 255 2
+	CreateMultiTouchBox 307 255 9
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#46
+
+
+Function 43:
+	SetVar 0x4007 2
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 306 255 8
+	CreateMultiTouchBox 307 255 9
+	CreateMultiTouchBox 299 255 1
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#46
+
+
+Function 44:
+	SetVar 0x4007 3
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 305 255 7
+	CreateMultiTouchBox 304 255 6
+	CreateMultiTouchBox 301 255 3
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#46
+
+
+Function 45:
+	SetVar 0x4007 4
+	OpenTouchScreen 
+	MultiTouchStandardText 1 1 0 1 0x800C
+	CreateMultiTouchBox 303 255 5
+	CreateMultiTouchBox 302 255 4
+	CreateMultiTouchBox 298 255 0
+	CreateMultiTouchBox 13 255 10
+	CloseMultiTouch 
+Jump Function#46
+
+
+Function 46:
+	SetVarFromVariable 0x8008 0x800C
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#47
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#48
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#49
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#50
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#51
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#52
+	CompareVarValue 0x8008 6
+	JumpIf EQUAL Function#53
+	CompareVarValue 0x8008 7
+	JumpIf EQUAL Function#54
+	CompareVarValue 0x8008 8
+	JumpIf EQUAL Function#55
+	CompareVarValue 0x8008 9
+	JumpIf EQUAL Function#56
+Jump Function#36
+
+
+Function 47:
+	Message 6
+Jump Function#57
+
+
+Function 48:
+	Message 7
+Jump Function#57
+
+
+Function 49:
+	Message 8
+Jump Function#57
+
+
+Function 50:
+	Message 9
+Jump Function#57
+
+
+Function 51:
+	Message 10
+Jump Function#57
+
+
+Function 52:
+	Message 11
+Jump Function#57
+
+
+Function 53:
+	Message 12
+Jump Function#57
+
+
+Function 54:
+	Message 13
+Jump Function#57
+
+
+Function 55:
+	Message 14
+Jump Function#57
+
+
+Function 56:
+	Message 15
+Jump Function#57
+
+
+Function 57:
+	Message 4
+	CompareVarValue 0x4007 0
+	JumpIf EQUAL Function#41
+	CompareVarValue 0x4007 1
+	JumpIf EQUAL Function#42
+	CompareVarValue 0x4007 2
+	JumpIf EQUAL Function#43
+	CompareVarValue 0x4007 3
+	JumpIf EQUAL Function#44
+Jump Function#45
+
+

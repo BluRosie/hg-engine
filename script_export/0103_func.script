@@ -1,0 +1,91 @@
+Function 1:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 2:
+	CheckFlag 262
+	JumpIf EQUAL Function#3
+	CheckFlag 148
+	JumpIf EQUAL Function#4
+	Message 0
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 3:
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 8
+	JumpIf DIFFERENT Function#9
+	CheckFlag 265
+	JumpIf EQUAL Function#10
+	CheckFlag 261
+	JumpIf EQUAL Function#11
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 4:
+	Message 2
+	CloseMessage 
+	CMD_774 1 97
+	SetFlag 262
+End 
+
+
+Function 5:
+	SetVar 0x4003 0
+End 
+
+
+Function 6:
+	SetOWPosition Overworld.0 34 1 29 Right
+	SetVar 0x4003 0
+End 
+
+
+Function 7:
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	WaitTime 30 0x800C
+End 
+
+
+Function 8:
+	WaitMovement 
+	WaitTime 30 0x800C
+End 
+
+
+Function 9:
+	Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

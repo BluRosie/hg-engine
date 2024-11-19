@@ -1,0 +1,105 @@
+Function 1:
+	SetFlag 749
+End 
+
+
+Function 2:
+	ClearFlag 749
+End 
+
+
+Function 3:
+	GetDayOfWeek 0x4000
+	CompareVarValue 0x4000 5
+	JumpIf DIFFERENT Function#12
+	SetFlag 749
+Jump Function#13
+
+
+Function 4:
+	CompareVarValue 0x4000 2
+	JumpIf DIFFERENT Function#14
+	SetFlag 749
+Jump Function#5
+
+
+Function 5:
+End 
+
+
+Function 6:
+	CheckFlag 166
+	JumpIf LESS Function#8
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 7:
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+Function 8:
+	SetVar 0x8004 357
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#15
+	CommonScript 2033
+	SetFlag 166
+	Message 5
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 9:
+	TextPlayerName 0
+	Message 8
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 10:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 11:
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Function 12:
+	ClearFlag 749
+End 
+
+
+Function 13:
+End 
+
+
+Function 14:
+	ClearFlag 749
+End 
+
+
+Function 15:
+	CommonScript 2009
+	CloseMessage 
+	ReleaseAll 
+End 
+
+

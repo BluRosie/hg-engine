@@ -1,0 +1,26 @@
+Action 1:
+	Freeze4 0x1
+	WalkDownFastSite 0x1
+End
+
+
+Action 2:
+	WalkUpFastSite 0x1
+End
+
+
+Action 3:
+	WalkUpFast 0x2
+	WalkLeftFast 0x3
+	WalkUpFast 0x1
+End
+
+
+Action 4:
+	WalkDownFastSite 0x1
+	WalkDownFast 0x3
+	WalkRightFast 0x3
+	WalkUpFastSite 0x1
+End
+
+

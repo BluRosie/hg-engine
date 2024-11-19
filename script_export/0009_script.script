@@ -1,0 +1,30 @@
+Script 1:
+	SetTextBoard 2 0
+	ShowBoard 3
+	WaitBoard 
+	BoardMessage 0 0x800C
+	CommonScript 2000
+End 
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+Script 3:
+	VanishOverworld 0
+	GetTimePeriod 0x4001
+	CompareVarValue 0x4001 3
+	JumpIf DIFFERENT Function#1
+	SetOWPosition Overworld.0 18 0 10 Down
+	SetWarpPosition 2 20 3
+Jump Function#2
+
+
