@@ -2421,6 +2421,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                         ctx->state_client = ctx->attack_client;
                         ctx->battlerIdTemp = ctx->attack_client;
                         ctx->battlemon[ctx->attack_client].form_no = 2;
+                        BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
                         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORM_CHANGE);
                         ctx->next_server_seq_no = ctx->server_seq_no;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
