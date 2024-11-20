@@ -33,35 +33,6 @@ enum {
     SEQ_PARENTAL_BOND_CHECK,
 };
 
-enum {
-    BEFORE_MOVE_START = 0,
-
-    BEFORE_MOVE_STATE_RECHARGE,
-    BEFORE_MOVE_STATE_SLEEP_OR_FROZEN,
-    BEFORE_MOVE_STATE_CHECK_OBEDIENCE,
-    BEFORE_MOVE_STATE_CHECK_PP,
-    BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT,
-    BEFORE_MOVE_STATE_TRUANT,
-    BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS,
-    BEFORE_MOVE_STATE_FLINCH,
-    BEFORE_MOVE_STATE_DISABLED,
-    BEFORE_MOVE_STATE_HEAL_BLOCK,
-    BEFORE_MOVE_STATE_GRAVITY_THROAT_CHOP,
-    BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK,
-    BEFORE_MOVE_STATE_TAUNT,
-    BEFORE_MOVE_STATE_IMPRISION,
-    BEFORE_MOVE_STATE_CONFUSION_SELF_HIT_OR_WEAR_OFF,
-    BEFORE_MOVE_STATE_PARALYSIS,
-    BEFORE_MOVE_STATE_INFATUATION,
-    // BEFORE_MOVE_STATE_SLEEP_TALK_SNORE_ANNOUNCEMENT,
-    BEFORE_MOVE_STATE_ANNOUNCE_SUB_MOVE,
-    BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE,
-    BEFORE_MOVE_STATE_STANCE_CHANGE,
-
-    BEFORE_MOVE_END,
-};
-
-
 enum ObedienceCheckResult {
     OBEY_CHECK_SUCCESS = 0,
     OBEY_CHECK_DO_NOTHING,
@@ -570,7 +541,7 @@ static void BattleController_CheckConfusion(struct BattleSystem *bsys, struct Ba
         ctx->battlemon[ctx->attack_client].condition2 -= 1;
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
             // modernised to 33%
-            if (BattleRand(bsys) & 2) {
+            if (BattleRand(bsys) % 3 != 0) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -700,9 +671,11 @@ static void BattleController_CheckSubmove(struct BattleSystem *bsys, struct Batt
  *  @param sp global battle structure
  */
 void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerWazaBefore\n");
+#endif
 
-    int index = BattleMon_GetMoveIndex(&sp->battlemon[sp->attack_client], sp->moveNoTemp);
+    // int index = BattleMon_GetMoveIndex(&sp->battlemon[sp->attack_client], sp->moveNoTemp);
 
     // debug_printf("pp: %d\n", sp->battlemon[sp->attack_client].pp[index]);
 
@@ -716,7 +689,9 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 
     switch (sp->wb_seq_no) {
         case BEFORE_MOVE_START: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_START\n");
+#endif
 
             sp->battlemon[sp->attack_client].condition2 &= ~STATUS2_DESTINY_BOND;
             sp->battlemon[sp->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
@@ -727,7 +702,9 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
             return;
         }
         case BEFORE_MOVE_STATE_RECHARGE: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_RECHARGE\n");
+#endif
 
             BattleController_CheckRecharge(bw, sp);
             sp->wb_seq_no++;
@@ -735,14 +712,18 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
         }
         // TODO: SYSCTL stuff, Magic Guard
         case BEFORE_MOVE_STATE_SLEEP_OR_FROZEN: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_SLEEP_OR_FROZEN\n");
+#endif
 
             BattleController_CheckSleepOrFrozen(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_CHECK_OBEDIENCE: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHECK_OBEDIENCE\n");
+#endif
 
             int ret;
             int seq_no;
@@ -771,7 +752,9 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
             FALLTHROUGH;
         }
         case BEFORE_MOVE_STATE_CHECK_PP: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHECK_PP\n");
+#endif
 
             BattleController_CheckPP(bw, sp);
             sp->wb_seq_no++;
@@ -779,13 +762,17 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
         }
         // TODO
         case BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT\n");
+#endif
 
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_TRUANT: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_TRUANT\n");
+#endif
 
             BattleController_CheckTruant(bw, sp);
             sp->wb_seq_no++;
@@ -793,20 +780,26 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
         }
         // TODO
         case BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS\n");
+#endif
 
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_FLINCH: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_FLINCH\n");
+#endif
 
             BattleController_CheckFlinch(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_DISABLED: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_DISABLED\n");
+#endif
 
             BattleController_CheckDisabled(bw, sp);
             sp->wb_seq_no++;
@@ -814,14 +807,18 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
         }
         // TODO: Modernise Heal Block mechanics
         case BEFORE_MOVE_STATE_HEAL_BLOCK: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_HEAL_BLOCK\n");
+#endif
 
             BattleController_CheckHealBlock(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_GRAVITY_THROAT_CHOP: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_GRAVITY_THROAT_CHOP\n");
+#endif
 
             BattleController_CheckGravityOrThroatChop(bw, sp);
             sp->wb_seq_no++;
@@ -829,95 +826,84 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
         }
         // TODO
         case BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK\n");
+#endif
 
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_TAUNT: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_TAUNT\n");
+#endif
 
             BattleController_CheckTaunt(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_IMPRISION: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_IMPRISION\n");
+#endif
 
             BattleController_CheckImprison(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_CONFUSION_SELF_HIT_OR_WEAR_OFF: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CONFUSION_SELF_HIT_OR_WEAR_OFF\n");
+#endif
 
             BattleController_CheckConfusion(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_PARALYSIS: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_PARALYSIS\n");
+#endif
 
             BattleController_CheckParalysis(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_INFATUATION: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_INFATUATION\n");
+#endif
 
             BattleController_CheckInfatuation(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_ANNOUNCE_SUB_MOVE: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_ANNOUNCE_SUB_MOVE\n");
+#endif
 
             BattleController_CheckSubmove(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE\n");
+#endif
 
             BattleController_CheckThawOut(bw, sp);
             sp->wb_seq_no++;
             return;
         }
         case BEFORE_MOVE_STATE_STANCE_CHANGE: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_STANCE_CHANGE\n");
+#endif
 
             BattleController_CheckStanceChange(bw, sp);
             sp->wb_seq_no++;
             return;
         }
-        case BEFORE_MOVE_END: {
-            debug_printf("In BEFORE_MOVE_END\n");
-
-            // TODO: move it to the end of TryMove after the entire overhaul, but this works perfectly fine here
-            if (IsValidParentalBondMove(bw, sp, FALSE) &&
-                sp->loop_hit_check != 0xFD) {
-                sp->multi_hit_count = 2;
-                sp->multi_hit_count_temp = 2;
-                sp->loop_hit_check = 0xFD;
-                sp->oneTurnFlag[sp->battlerIdTemp].parental_bond_is_active = TRUE;
-            } else {
-                sp->oneTurnFlag[sp->battlerIdTemp].parental_bond_is_active = FALSE;
-                sp->wb_seq_no = 0;
-            } 
-
-            sp->wb_seq_no = BEFORE_MOVE_START;
-            break;
-        }
     }
-
-    if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
-        sp->server_seq_no = CONTROLLER_COMMAND_26;
-    } else {
-        sp->server_status_flag2 |= BATTLE_STATUS2_MOVE_SUCCEEDED;
-        sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;  // execute the move
-        LoadBattleSubSeqScript(sp, ARC_BATTLE_MOVE_SEQ, sp->current_move_index);
-        sp->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
-        ST_ServerTotteokiCountCalc(bw, sp);              // 801B570h
-    }
-    ST_ServerMetronomeBeforeCheck(bw, sp);  // 801ED20h
 }

@@ -27,6 +27,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
     for (i = 0; i < BattleWorkClientSetMaxGet(bw); i++)
     {
+        // TODO: Refactor this, this is wasting time processing the same thing
         if (sp->checkOnlySpecifiedTarget) {
             sp->battlerIdTemp = sp->checkOnlySpecifiedTargetClient;
         } else {

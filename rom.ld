@@ -680,3 +680,7 @@ LowestFlagNo = 0x020726E0 | 1;
 Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
 GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
 CanSwitchMon = 0x02252890 | 1;
+
+ov12_0224DD74 = 0x0224DD74 | 1;
+ov12_02261258 = 0x02261258 | 1;
+ov12_02252D14 = 0x02252D14 | 1;

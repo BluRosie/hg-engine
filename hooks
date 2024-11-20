@@ -465,6 +465,7 @@ arm9 GF_AssertFail 0202551C 0
 
 0012 ov12_0224D368 0224D368 3
 0012 ov12_0224C4D8 0224C4D8 3
+0012 ov12_0224D03C 0224D03C 3
 
 # fix trainer ai being able to switch illegally when binded
 0010 ai_switch_ban_for_bind_hook 022203B4 2

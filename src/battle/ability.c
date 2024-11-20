@@ -118,7 +118,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle sap sipper
+    // Handle Sap Sipper
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
     {
         if ((movetype == TYPE_GRASS) && (attacker != defender))
@@ -127,7 +127,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle lightning rod
+    // Handle Lightning Rod
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
     {
         if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
@@ -136,7 +136,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle storm drain
+    // Handle Storm Drain
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_STORM_DRAIN) == TRUE)
     {
         if ((movetype == TYPE_WATER) && (attacker != defender))
@@ -145,7 +145,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle well baked body
+    // TODO: Confirm location in-game
+    // Handle Well Baked Body
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
     {
         if ((movetype == TYPE_FIRE) && (attacker != defender))
@@ -154,7 +155,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle earth eater
+    // TODO: Confirm location in-game
+    // Handle Earth Eater
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
     {
         if ((movetype == TYPE_GROUND) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
@@ -164,7 +166,11 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
-    // handle queenly majesty, dazzling & armor tail
+    // TODO
+    // Handle Wonder Guard
+
+    // TODO: Move this to the correct location
+    // Handle queenly majesty, dazzling & armor tail
     if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
       || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
       || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
@@ -178,6 +184,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // TODO: Confirm location in-game
     // handle good as gold
     /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
     {
@@ -186,15 +193,6 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
             scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
         }
     } */
-
-    // Handle Psychic Terrain
-    // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
-    // Courtesy of Dray (https://github.com/Drayano60)
-    if (sp->terrainOverlay.type == PSYCHIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(sp, defender)) {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) {
-            scriptnum = SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION;
-        }
-    }
 
     return scriptnum;
 }
@@ -894,11 +892,11 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         client_no = sp->turnOrder[i];
         if (((sp->waza_status_flag & 0x801FDA49) == 0)
-         && (sp->oneTurnFlag[client_no].yokodori_flag)
+         && (sp->oneTurnFlag[client_no].snatchFlag)
          && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
         {
             sp->battlerIdTemp = client_no;
-            sp->oneTurnFlag[client_no].yokodori_flag=0;
+            sp->oneTurnFlag[client_no].snatchFlag=0;
             if ((sp->server_status_flag & (0x00100000)) == 0)
             {
                 sp->waza_no_mamoru[sp->attack_client] = 0;

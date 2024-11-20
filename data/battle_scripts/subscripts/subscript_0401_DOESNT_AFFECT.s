@@ -6,8 +6,8 @@ _000:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
-    // But {0} can’t use the move!
-    PrintMessage 1485, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER 
+    // It doesn’t affect {0}...
+    PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
     End

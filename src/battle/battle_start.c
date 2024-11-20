@@ -532,13 +532,48 @@ enum {
  *  @param sp global battle structure
  */
 void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+    debug_printf("In ServerWazaBefore\n");
+#endif
     u32 ovyId, offset;
 
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
     UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
 
-    ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
+    // Function is so thicc that we need to split it in 2
+    if (sp->wb_seq_no < BEFORE_MOVE_STATE_MOVE_TYPE_CHANGES) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE\n");
+#endif
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
+    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_PSYCHIC_TERRAIN) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE2\n");
+#endif
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE2;
+    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE3\n");
+#endif
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE3;
+    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_MOVE_FAILURES_3) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE4\n");
+#endif
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE4;
+    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_MOVE_ACCURACY){
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE5\n");
+#endif
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE5;
+    } else {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE6\n");
+#endif
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE6;        
+    }
+
     offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
     internalFunc = (void (*)(void *bw, struct BattleStruct *sp))(offset);

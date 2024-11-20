@@ -33,6 +33,25 @@
 #define TYPE_TYPELESS 0x12
 #define TYPE_STELLAR  0x13
 
+#define NUMBER_OF_MON_TYPES 20
+
+// Type effectiveness
+#define TYPE_MUL_NO_EFFECT       0
+#define TYPE_MUL_NOT_EFFECTIVE   5
+#define TYPE_MUL_NORMAL          10
+#define TYPE_MUL_SUPER_EFFECTIVE 20
+
+// Special type table IDs
+#define TYPE_FORESIGHT 0xFE
+#define TYPE_ENDTABLE  0xFF
+
+// Contest types
+#define COOL   0
+#define BEAUTY 1
+#define CUTE   2
+#define SMART  3
+#define TOUGH  4
+
 #define SELECT_FIGHT_COMMAND 1
 #define SELECT_ITEM_COMMAND 2
 #define SELECT_POKEMON_COMMAND 3
@@ -478,6 +497,9 @@
 #define BATTLERS_ON_SAME_SIDE(battler1, battler2) ((battler1 & 1) == (battler2 & 1))
 #define BATTLERS_ON_DIFFERENT_SIDE(battler1, battler2) !BATTLERS_ON_SAME_SIDE(battler1, battler2)
 
+#define BATTLER_OPPONENT_SIDE_LEFT(client) (BATTLER_IS_PLAYERS(client) ? (1) : (0))
+#define BATTLER_OPPONENT_SIDE_RIGHT(client) (BATTLER_IS_PLAYERS(client) ? (3) : (2))
+
 /**
  *  @brief message tags to tell the string buffer expander how to expand each string buffer
  *  buffered as the msg_tag of a MESSAGE_PARAM
@@ -700,7 +722,7 @@ struct __attribute__((packed)) OneTurnEffect
                u32 mamoru_flag : 1;
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
                u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
-               u32 yokodori_flag : 1;
+               u32 snatchFlag : 1;
                u32 haneyasume_flag : 1;
                u32 escape_flag : 2;
                u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
@@ -1212,7 +1234,7 @@ struct PACKED BattleStruct
     /*0x78*/ int reshuffle_client;
     /*0x7C*/ int reshuffle_client_temp;
     /*0x80*/ int ability_client;
-    /*0x84*/ int magic_cort_client;
+    /*0x84*/ int magic_cort_client;     // battlerIdMagicCoat
 
     /*0x88*/ int addeffect_type;
     /*0x8C*/ int addeffect_param;
@@ -1326,7 +1348,7 @@ struct PACKED BattleStruct
     /*0x30E4*/ int store_damage[CLIENT_MAX];
     /*0x30F4*/ int client_no_hit[CLIENT_MAX];
     /*0x3104*/ int client_no_agi;
-    /*0x3108*/ u8 no_reshuffle_client;
+    /*0x3108*/ u8 no_reshuffle_client;      // switchInFlag
     /*0x3109*/ u8 level_up_pokemon;
     /*0x310A*/ u16 que_check_wait;
     /*0x310C*/ u16 agi_rand[CLIENT_MAX];
@@ -1374,8 +1396,21 @@ struct PACKED BattleStruct
                u8 hasLoadedTerrainOver:1;
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
+               u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
+               // u32 or int?
+               u32 damageForSpreadMoves[CLIENT_MAX];
+               u8 clientLoopForSpreadMoves;
+               BOOL boostedAccuracy;
+               BOOL moveStolen;
+               BOOL moveBounced;
 };
 
+enum {
+    SPREAD_MOVE_LOOP_ALLY = 0,
+    SPREAD_MOVE_LOOP_OPPONENT_LEFT,
+    SPREAD_MOVE_LOOP_OPPONENT_RIGHT,
+    SPREAD_MOVE_LOOP_MAX = SPREAD_MOVE_LOOP_OPPONENT_RIGHT
+};
 
 typedef struct GROUND_WORK {
     void *unk0;
@@ -1717,63 +1752,149 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
 };
 
 enum {
-    TRY_MOVE_START = 0,
+    BEFORE_MOVE_START = 0,
 
-    // TRY_MOVE_STATE_ANNOUNCE_MOVE,    // just handle in each fail
-    TRY_MOVE_STATE_MOVE_TYPE_CHANGES,
-    // TRY_MOVE_STATE_ASSIGN_TARGET,    // TODO: just handle in original function, add Curse modernisation
-    // TRY_MOVE_STATE_ABILITY_REDIRECT_TARGET,
-    TRY_MOVE_STATE_REDIRECT_TARGET,
-    TRY_MOVE_STATE_DECREMENT_PP,
-    TRY_MOVE_STATE_CHOICE_LOCK,
-    TRY_MOVE_STATE_BURN_UP_OR_DOUBLE_SHOCK,
-    TRY_MOVE_STATE_PRIMAL_WEATHER,
-    TRY_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG,
-    TRY_MOVE_STATE_MOVE_FAILURES_1,
-    TRY_MOVE_STATE_ABILITY_FAILURES_1,
-    TRY_MOVE_STATE_INTERRUPTIBLE_MOVES,
-    TRY_MOVE_STATE_PROTEAN_OR_LIBERO,
-    TRY_MOVE_STATE_CHARGING_MOVE_MESSAGE,
-    TRY_MOVE_STATE_CHECK_STOLEN,
-    TRY_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
-    TRY_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
-    TRY_MOVE_STATE_SET_STEEL_BEAM_FLAG,
-    TRY_MOVE_STATE_CHECK_SKY_DROP_TARGET,
-    TRY_MOVE_STATE_SEMI_INVULNERABILITY,
-    TRY_MOVE_STATE_PSYCHIC_TERRAIN,
-    TRY_MOVE_STATE_TEAMMATE_PROTECTION,
-    TRY_MOVE_STATE_PROTECT_AND_FRIENDS,
-    TRY_MOVE_STATE_MAT_BLOCK,
-    TRY_MOVE_STATE_MAX_GUARD,
-    TRY_MOVE_STATE_MAGIC_COAT,
-    TRY_MOVE_STATE_TELEKINESIS_FAILURES,
-    TRY_MOVE_STATE_MAGIC_BOUNCE,
-    TRY_MOVE_STATE_ABILITY_FAILURES_2,
-    TRY_MOVE_STATE_TYPE_CHART_IMMUNITY,
-    TRY_MOVE_STATE_LEVITATE,
-    TRY_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE,
-    TRY_MOVE_STATE_SAFETY_GOGGLES,
-    TRY_MOVE_STATE_ABILITY_FAILURES_3,
-    TRY_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_1,
-    TRY_MOVE_STATE_MOVE_FAILURES_2,
-    TRY_MOVE_STATE_MOVE_FAILURES_3,
-    TRY_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2,
-    TRY_MOVE_STATE_UPROAR_STOPPING_MOVES,
-    TRY_MOVE_STATE_SAFEGUARD,
-    TRY_MOVE_STATE_TERRAIN_BLOCK,
-    TRY_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
-    TRY_MOVE_STATE_MIST,
-    TRY_MOVE_STATE_ABILITY_FAILURES_4,
-    TRY_MOVE_STATE_MOVE_ACCURACY,
-    TRY_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
-    TRY_MOVE_STATE_MIRROR_ARMOR,
-    TRY_MOVE_STATE_ROAR_WHIRLWIND_INTO_DYNAMAXED_TARGET,
-    TRY_MOVE_STATE_MOVE_FAILURES_4,
-    TRY_MOVE_STATE_MOVE_FAILURES_5,
-    TRY_MOVE_STATE_AROMA_VEIL,
+    BEFORE_MOVE_STATE_RECHARGE,
+    BEFORE_MOVE_STATE_SLEEP_OR_FROZEN,
+    BEFORE_MOVE_STATE_CHECK_OBEDIENCE,
+    BEFORE_MOVE_STATE_CHECK_PP,
+    BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT,
+    BEFORE_MOVE_STATE_TRUANT,
+    BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS,
+    BEFORE_MOVE_STATE_FLINCH,
+    BEFORE_MOVE_STATE_DISABLED,
+    BEFORE_MOVE_STATE_HEAL_BLOCK,
+    BEFORE_MOVE_STATE_GRAVITY_THROAT_CHOP,
+    BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK,
+    BEFORE_MOVE_STATE_TAUNT,
+    BEFORE_MOVE_STATE_IMPRISION,
+    BEFORE_MOVE_STATE_CONFUSION_SELF_HIT_OR_WEAR_OFF,
+    BEFORE_MOVE_STATE_PARALYSIS,
+    BEFORE_MOVE_STATE_INFATUATION,
+    // BEFORE_MOVE_STATE_SLEEP_TALK_SNORE_ANNOUNCEMENT,
+    BEFORE_MOVE_STATE_ANNOUNCE_SUB_MOVE,
+    BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE,
+    BEFORE_MOVE_STATE_STANCE_CHANGE,
+    // BEFORE_MOVE_STATE_CHECK_FAIL_MESSAGES,
 
-    TRY_MOVE_END,
+    // BEFORE_MOVE_STATE_ANNOUNCE_MOVE,    // just handle in each fail
+    BEFORE_MOVE_STATE_MOVE_TYPE_CHANGES,
+    // BEFORE_MOVE_STATE_ASSIGN_TARGET,    // TODO: just handle in original function, add Curse modernisation
+    // BEFORE_MOVE_STATE_ABILITY_REDIRECT_TARGET,
+    BEFORE_MOVE_STATE_REDIRECT_TARGET,
+    BEFORE_MOVE_STATE_DECREMENT_PP,
+    BEFORE_MOVE_STATE_CHOICE_LOCK,
+    BEFORE_MOVE_STATE_BURN_UP_OR_DOUBLE_SHOCK,
+    BEFORE_MOVE_STATE_PRIMAL_WEATHER,
+    BEFORE_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_1,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_1,
+    BEFORE_MOVE_STATE_INTERRUPTIBLE_MOVES,
+    BEFORE_MOVE_STATE_PROTEAN_OR_LIBERO,
+    BEFORE_MOVE_STATE_CHARGING_MOVE_MESSAGE,
+    BEFORE_MOVE_STATE_CHECK_STOLEN_BY_SNATCH,
+    BEFORE_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
+    BEFORE_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
+    BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG,
+    BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET,
+    BEFORE_MOVE_STATE_SEMI_INVULNERABILITY,
+    BEFORE_MOVE_STATE_PSYCHIC_TERRAIN,
+    BEFORE_MOVE_STATE_TEAMMATE_PROTECTION,
+    BEFORE_MOVE_STATE_PROTECT_AND_FRIENDS,
+    BEFORE_MOVE_STATE_MAT_BLOCK,
+    BEFORE_MOVE_STATE_MAX_GUARD,
+    BEFORE_MOVE_STATE_MAGIC_COAT,
+    BEFORE_MOVE_STATE_TELEKINESIS_FAILURES,
+    BEFORE_MOVE_STATE_MAGIC_BOUNCE,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_2,
+    BEFORE_MOVE_STATE_TYPE_CHART_IMMUNITY,
+    BEFORE_MOVE_STATE_LEVITATE,
+    BEFORE_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE,
+    BEFORE_MOVE_STATE_SAFETY_GOGGLES,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_3,
+    BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_1,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_2,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_3,
+    BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2,
+    BEFORE_MOVE_STATE_UPROAR_STOPPING_MOVES,
+    BEFORE_MOVE_STATE_SAFEGUARD,
+    BEFORE_MOVE_STATE_TERRAIN_BLOCK,
+    BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
+    BEFORE_MOVE_STATE_MIST,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4,
+    BEFORE_MOVE_STATE_MOVE_ACCURACY,
+    BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
+    BEFORE_MOVE_STATE_MIRROR_ARMOR,
+    BEFORE_MOVE_STATE_ROAR_WHIRLWIND_INTO_DYNAMAXED_TARGET,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_4,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_5,
+    BEFORE_MOVE_STATE_AROMA_VEIL,
+    BEFORE_MOVE_STATE_TRIGGER_STRONG_WINDS,
+    BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY,
+
+    BEFORE_MOVE_END,
 };
+
+// enum {
+//     TRY_MOVE_START = 0,
+
+//     // BEFORE_MOVE_STATE_ANNOUNCE_MOVE,    // just handle in each fail
+//     BEFORE_MOVE_STATE_MOVE_TYPE_CHANGES,
+//     // BEFORE_MOVE_STATE_ASSIGN_TARGET,    // TODO: just handle in original function, add Curse modernisation
+//     // BEFORE_MOVE_STATE_ABILITY_REDIRECT_TARGET,
+//     BEFORE_MOVE_STATE_REDIRECT_TARGET,
+//     BEFORE_MOVE_STATE_DECREMENT_PP,
+//     BEFORE_MOVE_STATE_CHOICE_LOCK,
+//     BEFORE_MOVE_STATE_BURN_UP_OR_DOUBLE_SHOCK,
+//     BEFORE_MOVE_STATE_PRIMAL_WEATHER,
+//     BEFORE_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG,
+//     BEFORE_MOVE_STATE_MOVE_FAILURES_1,
+//     BEFORE_MOVE_STATE_ABILITY_FAILURES_1,
+//     BEFORE_MOVE_STATE_INTERRUPTIBLE_MOVES,
+//     BEFORE_MOVE_STATE_PROTEAN_OR_LIBERO,
+//     BEFORE_MOVE_STATE_CHARGING_MOVE_MESSAGE,
+//     BEFORE_MOVE_STATE_CHECK_STOLEN,
+//     BEFORE_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
+//     BEFORE_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
+//     BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG,
+//     BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET,
+//     BEFORE_MOVE_STATE_SEMI_INVULNERABILITY,
+//     BEFORE_MOVE_STATE_PSYCHIC_TERRAIN,
+//     BEFORE_MOVE_STATE_TEAMMATE_PROTECTION,
+//     BEFORE_MOVE_STATE_PROTECT_AND_FRIENDS,
+//     BEFORE_MOVE_STATE_MAT_BLOCK,
+//     BEFORE_MOVE_STATE_MAX_GUARD,
+//     BEFORE_MOVE_STATE_MAGIC_COAT,
+//     BEFORE_MOVE_STATE_TELEKINESIS_FAILURES,
+//     BEFORE_MOVE_STATE_MAGIC_BOUNCE,
+//     BEFORE_MOVE_STATE_ABILITY_FAILURES_2,
+//     BEFORE_MOVE_STATE_TYPE_CHART_IMMUNITY,
+//     BEFORE_MOVE_STATE_LEVITATE,
+//     BEFORE_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE,
+//     BEFORE_MOVE_STATE_SAFETY_GOGGLES,
+//     BEFORE_MOVE_STATE_ABILITY_FAILURES_3,
+//     BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_1,
+//     BEFORE_MOVE_STATE_MOVE_FAILURES_2,
+//     BEFORE_MOVE_STATE_MOVE_FAILURES_3,
+//     BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2,
+//     BEFORE_MOVE_STATE_UPROAR_STOPPING_MOVES,
+//     BEFORE_MOVE_STATE_SAFEGUARD,
+//     BEFORE_MOVE_STATE_TERRAIN_BLOCK,
+//     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
+//     BEFORE_MOVE_STATE_MIST,
+//     BEFORE_MOVE_STATE_ABILITY_FAILURES_4,
+//     BEFORE_MOVE_STATE_MOVE_ACCURACY,
+//     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
+//     BEFORE_MOVE_STATE_MIRROR_ARMOR,
+//     BEFORE_MOVE_STATE_ROAR_WHIRLWIND_INTO_DYNAMAXED_TARGET,
+//     BEFORE_MOVE_STATE_MOVE_FAILURES_4,
+//     BEFORE_MOVE_STATE_MOVE_FAILURES_5,
+//     BEFORE_MOVE_STATE_AROMA_VEIL,
+//     BEFORE_MOVE_STATE_TRIGGER_STRONG_WINDS,
+//     BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY,
+
+//     TRY_MOVE_END,
+// };
 
 extern u8 TypeEffectivenessTable[][3];
 
@@ -3168,14 +3289,6 @@ BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-/**
- *  @brief checks if the given move should be weakened or not (only prints message)
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return TRUE/FALSE
- */
-BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
-
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3229,5 +3342,58 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type);
 
 BOOL LONG_CALL IfAbilityCanBeReplacedByWorrySeed(struct BattleStruct *ctx, int battlerId);
+
+void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+u8 LONG_CALL ov12_02261258(struct CLIENT_PARAM *opponentData);
+
+void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+#define IS_TARGET_FOES_AND_ALLY_MOVE(ctx) (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_FOES_AND_ALLY)
+#define IS_TARGET_BOTH_MOVE(ctx) (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_BOTH)
+#define IS_VALID_MOVE_TARGET(ctx, battlerId) (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0 && !(ctx->moveStatusFlagForSpreadMoves[battlerId] & WAZA_STATUS_FLAG_NO_OUT))
+
+#define LoopCheckFunctionForSpreadMove(bsys, ctx, functionToBeCalled) \
+{\
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))) {\
+        while (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            switch (ctx->clientLoopForSpreadMoves) {\
+                case SPREAD_MOVE_LOOP_ALLY:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
+                        if (functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client))) {\
+                            return;\
+                        }\
+                    }\
+                    FALLTHROUGH;\
+                case SPREAD_MOVE_LOOP_OPPONENT_LEFT:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
+                        if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
+                            return;\
+                        }\
+                    }\
+                    FALLTHROUGH;\
+                case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
+                        if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
+                            return;\
+                        }\
+                    }\
+            }\
+        }\
+    } else {\
+        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+            if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {\
+                return;\
+            }\
+        }\
+    }\
+    ctx->clientLoopForSpreadMoves = 0;\
+}
 
 #endif // BATTLE_H

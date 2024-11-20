@@ -407,6 +407,12 @@
 #define SUB_SEQ_ALREADY_HAS_SAME_STATUS               (397)
 #define SUB_SEQ_UPROAR_STOPPING_SLEEP_MOVES           (398)
 #define SUB_SEQ_UPROAR_STOPPING_REST                  (399)
+#define SUB_SEQ_PROTECTED                             (400)
+#define SUB_SEQ_DOESNT_AFFECT                         (401)
+#define SUB_SEQ_LEVITATE_FAIL                         (402)
+#define SUB_SEQ_UNAFFECTED                            (403)
+#define SUB_SEQ_BUT_IT_FAILED_SPREAD                  (404)
+#define SUB_SEQ_ATTACK_MISSED                         (405)
 
 
 
