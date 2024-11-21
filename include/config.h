@@ -79,6 +79,15 @@
 // uncomment the line out to get this functionality
 //#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
+// IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
+// Comment the line out to disable this functionality (Gen 6+) 
+#define IMPLEMENT_SEASONS
+
+// IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
+// Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
+// Uncomment this line to enable this functionality
+// #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+
 // EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
 // comment out the line below to keep the max at 18
 #define EXPAND_PC_BOXES

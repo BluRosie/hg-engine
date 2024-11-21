@@ -1056,30 +1056,41 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
 
     switch (species)
     {
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_DEERLING:
         case SPECIES_SAWSBUCK:
             form = GrabCurrentSeason(); // update to the current season
             break;
+#endif
         case SPECIES_UNFEZANT:
         case SPECIES_FRILLISH:
         case SPECIES_JELLICENT:
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_MEOWSTIC:
         case SPECIES_INDEEDEE:
         case SPECIES_OINKOLOGNE:
+#endif
             form = gf_rand() & 1; // 1/2 male
             break;
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_BASCULEGION:
             form = (gf_rand() & 1) ? 3 : 0; // 1/2 male
             break;
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
-        case SPECIES_DUNSPARCE:
-        // case SPECIES_DUDUNSPARCE:    // This is not the case for wild Dudunsparce (including those encountered in Tera Raid Battles), as these will always be in Two-Segment Form regardless of their encryption constant value.
-        case SPECIES_TANDEMAUS:
+#endif
+        case SPECIES_DUNSPARCE: // TODO: move to evolution function
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+        case SPECIES_DUDUNSPARCE:    // This is not the case for wild Dudunsparce (including those encountered in Tera Raid Battles), as these will always be in Two-Segment Form regardless of their encryption constant value.
+#endif
+        case SPECIES_TANDEMAUS: // TODO: move to evolution function
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_MAUSHOLD:
+#endif
             form = (pid % 100 == 0); // 1/100 three seg / family of three
             break;
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_FLABEBE:
         case SPECIES_FLOETTE:
         case SPECIES_FLORGES:
@@ -1101,6 +1112,7 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_TATSUGIRI:
             form = gf_rand() % 3; // equal chance for all forms
             break;
+#endif
         default:
             shouldUpdate = FALSE;
     }
@@ -1121,6 +1133,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
 {
     u32 ret = FALSE;
 
+#ifdef IMPLEMENT_SEASONS
     for (int i = 0; i < party->count; i++)
     {
         struct PartyPokemon *pp = Party_GetMonByIndex(party, i);
@@ -1132,6 +1145,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
             ret = TRUE;
         }
     }
+#endif
 
     return ret;
 }
