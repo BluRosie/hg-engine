@@ -23391,7 +23391,7 @@ trainerdata 697, "Stacey"
         ballseal 0
     endparty
 
-trainerdata 698, "Ellis"
+trainerdata 698, "Test"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     nummons 3
@@ -23407,22 +23407,22 @@ trainerdata 698, "Ellis"
         // mon 0
         ivs 0
         abilityslot 0
-        level 28
-        pokemon SPECIES_WEEDLE
+        level 4
+        pokemon SPECIES_AXEW
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 38
-        pokemon SPECIES_KAKUNA
+        level 6
+        pokemon SPECIES_CATERPIE
         ballseal 0
 
         // mon 2
         ivs 0
         abilityslot 0
-        level 46
-        pokemon SPECIES_BEEDRILL
+        level 6
+        pokemon SPECIES_WEEDLE
         ballseal 0
     endparty
 
