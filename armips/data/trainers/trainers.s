@@ -1507,9 +1507,9 @@ trainerdata 46, "Martha"
         ballseal 0
     endparty
 
-trainerdata 47, "Mikey"
+trainerdata 47, "Blue"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
+    trainerclass CLASS_RIVAL
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -1523,21 +1523,21 @@ trainerdata 47, "Mikey"
         // mon 0
         ivs 0
         abilityslot 0
-        level 2
+        level 8
         pokemon SPECIES_PIDGEY
         ballseal 0
 
         // mon 1
         ivs 0
-        abilityslot 32
-        level 4
-        pokemon SPECIES_RATTATA
+        abilityslot 0
+        level 8
+        pokemon SPECIES_CHARMANDER
         ballseal 0
     endparty
 
-trainerdata 48, "Rob"
+trainerdata 48, "Blue"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
+    trainerclass CLASS_RIVAL
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -1551,21 +1551,21 @@ trainerdata 48, "Rob"
         // mon 0
         ivs 0
         abilityslot 0
-        level 40
-        pokemon SPECIES_BEEDRILL
+        level 8
+        pokemon SPECIES_PIDGEY
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 39
-        pokemon SPECIES_BUTTERFREE
+        level 8
+        pokemon SPECIES_SQUIRTLE
         ballseal 0
     endparty
 
-trainerdata 49, "Albert"
+trainerdata 49, "Blue"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
+    trainerclass CLASS_RIVAL
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -1579,15 +1579,15 @@ trainerdata 49, "Albert"
         // mon 0
         ivs 0
         abilityslot 0
-        level 6
-        pokemon SPECIES_RATTATA
+        level 8
+        pokemon SPECIES_PIDGEY
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
         level 8
-        pokemon SPECIES_ZUBAT
+        pokemon SPECIES_BULBASAUR
         ballseal 0
     endparty
 
