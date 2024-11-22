@@ -2216,29 +2216,29 @@ _1418: // Trainer 260
     trainertextentry 260, TEXT_PLAYER_LOSES, "...\n"
 
 _1420: // Trainer 695
-    trainertextentry 695, TEXT_NOTICE_IN_OVERWORLD, "Welcome to Viridian Forest.\nEnjoy my Bug-type Pokémon!\r"
-    trainertextentry 695, TEXT_DEFEATED_IN_BATTLE, "That’s wonderful...\n"
-    trainertextentry 695, TEXT_DEFEATED_IN_OVERWORLD, "Pretty impressive!\rI’m sure you can go anywhere with\nthat skill!\n"
+    trainertextentry 695, TEXT_NOTICE_IN_OVERWORLD, "Hey!\nYou have Pokémon!\rCome on! Let’s battle’em!\r"
+    trainertextentry 695, TEXT_DEFEATED_IN_BATTLE, "No! CATERPIE can’t cut it!\n"
+    trainertextentry 695, TEXT_DEFEATED_IN_OVERWORLD, "Ssh!\nYou’ll scare the bugs away!\n"
 
 _142C: // Trainer 696
-    trainertextentry 696, TEXT_NOTICE_IN_OVERWORLD, "Shh! Be quiet!\nThe bug Pokémon will run away!\r"
+    trainertextentry 696, TEXT_NOTICE_IN_OVERWORLD, "Someone told me PIKACHU live here.\nHave you seen any?\r"
     trainertextentry 696, TEXT_DEFEATED_IN_BATTLE, "Phew...\n"
-    trainertextentry 696, TEXT_DEFEATED_IN_OVERWORLD, "From Bug-type Pokémon come the sounds\nof munching on grass, walking on\fcrunchy leaves, swimming in puddles...\rFor bug Pokémon fans, knowing how to\ndistinguish these sounds is key!\n"
+    trainertextentry 696, TEXT_DEFEATED_IN_OVERWORLD, "Guess I’ll keep looking, they\ncan zap a Pokémon into paralysis to\fmake’em easier to catch.\rMore bugs for me!\n"
 
 _1438: // Trainer 697
-    trainertextentry 697, TEXT_NOTICE_IN_OVERWORLD, "Wow, that’s a HUGE Pokémon!\r...\n...What kind of Trainer?!\r"
-    trainertextentry 697, TEXT_DEFEATED_IN_BATTLE, "I couldn’t catch it!\n"
-    trainertextentry 697, TEXT_DEFEATED_IN_OVERWORLD, "Has anyone ever told you that from\nbehind you look like a VENONAT?\n"
+    trainertextentry 697, TEXT_NOTICE_IN_OVERWORLD, "Hey!... Wait up...\rWhat’s the hurry?\nGot time for a battle?\r"
+    trainertextentry 697, TEXT_DEFEATED_IN_BATTLE, "Well shoot, I’ll need time\nto recover after that...\n"
+    trainertextentry 697, TEXT_DEFEATED_IN_OVERWORLD, "Today’s not been my day,\nmaybe tomorrow will.\n"
 
 _1444: // Trainer 698
-    trainertextentry 698, TEXT_NOTICE_IN_OVERWORLD, "I’m sure that there’s nothing more\nefficient and beautiful in this world\fthan a Bug-type Pokémon.\r"
-    trainertextentry 698, TEXT_DEFEATED_IN_BATTLE, "I lost beautifully!\n"
-    trainertextentry 698, TEXT_DEFEATED_IN_OVERWORLD, "If this is it, then I don’t mind losing!\n"
+    trainertextentry 698, TEXT_NOTICE_IN_OVERWORLD, "Hey!\nYou have Pokémon!\rCome on! Let’s battle’em!\r"
+    trainertextentry 698, TEXT_DEFEATED_IN_BATTLE, "No! CATERPIE can’t cut it!\n"
+    trainertextentry 698, TEXT_DEFEATED_IN_OVERWORLD, "Ssh!\nYou’ll scare the bugs away!\n"
 
 _1450: // Trainer 699
-    trainertextentry 699, TEXT_NOTICE_IN_OVERWORLD, "There are many people out there who\nprefer solid bug Pokémon over squishy\fbug Pokémon.\r"
+    trainertextentry 699, TEXT_NOTICE_IN_OVERWORLD, "I’m here trying to train up\nto fight Brock, wanna lend a hand?\r"
     trainertextentry 699, TEXT_DEFEATED_IN_BATTLE, "Thanks for your hard work,\nmy lovely Pokémon...\n"
-    trainertextentry 699, TEXT_DEFEATED_IN_OVERWORLD, "Doesn’t matter what kind of Pokémon--\fas long as you like them, they all\nlook cute.\n\n"
+    trainertextentry 699, TEXT_DEFEATED_IN_OVERWORLD, "Word of advice, Rock-type\nPokémon squash Bug and Flying-types.\rIf you’re like me though, \nyou can try to overcome his\fdefenses with poison."
 
 _145C: // Trainer 686
     trainertextentry 686, TEXT_NOTICE_IN_OVERWORLD, "What did you come all the way out here\nfor, I wonder.\r"

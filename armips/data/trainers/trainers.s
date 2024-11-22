@@ -184,9 +184,9 @@ trainerdata 5, "Victoria"
         ballseal 0
     endparty
 
-trainerdata 6, "Keith"
+trainerdata 6, "Dell"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POLICEMAN
+    trainerclass CLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -200,15 +200,15 @@ trainerdata 6, "Keith"
         // mon 0
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_GROWLITHE
+        level 1
+        pokemon SPECIES_MACHOP
         ballseal 0
     endparty
 
-trainerdata 7, "Irwin"
+trainerdata 7, "Saul"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_JUGGLER
-    nummons 4
+    trainerclass CLASS_FISHERMAN
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -221,54 +221,40 @@ trainerdata 7, "Irwin"
         // mon 0
         ivs 0
         abilityslot 0
-        level 2
-        pokemon SPECIES_VOLTORB
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 32
-        level 6
-        pokemon SPECIES_VOLTORB
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 10
-        pokemon SPECIES_VOLTORB
-        ballseal 0
-
-        // mon 3
-        ivs 0
-        abilityslot 32
-        level 14
-        pokemon SPECIES_VOLTORB
+        level 1
+        pokemon SPECIES_GEODUDE
         ballseal 0
     endparty
 
-trainerdata 8, "Joey"
+trainerdata 8, "Saul"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_YOUNGSTER
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype SINGLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 8
         // mon 0
         ivs 0
         abilityslot 0
-        level 4
-        pokemon SPECIES_RATTATA
+        level 3
+        pokemon SPECIES_MACHOP
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level 3
+        pokemon SPECIES_GEODUDE
         ballseal 0
     endparty
 
-trainerdata 9, "Elaine"
+trainerdata 9, "Dell"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_SWIMMER_F
     nummons 1
@@ -284,7 +270,7 @@ trainerdata 9, "Elaine"
         // mon 0
         ivs 0
         abilityslot 32
-        level 21
+        level 3
         pokemon SPECIES_STARYU
         ballseal 0
     endparty
@@ -23335,10 +23321,10 @@ trainerdata 695, "Dane"
         ballseal 0
     endparty
 
-trainerdata 696, "Dion"
+trainerdata 696, "Charlie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -23351,12 +23337,33 @@ trainerdata 696, "Dion"
         // mon 0
         ivs 0
         abilityslot 0
-        level 50
-        pokemon SPECIES_ARIADOS
+        level 6
+        pokemon SPECIES_CATERPIE
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level 6
+        pokemon SPECIES_WEEDLE
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 0
+        level 7
+        pokemon SPECIES_KAKUNA
+        ballseal 0
+
+        // mon 3
+        ivs 0
+        abilityslot 0
+        level 7
+        pokemon SPECIES_METAPOD
         ballseal 0
     endparty
 
-trainerdata 697, "Stacey"
+trainerdata 697, "Anthony"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     nummons 3
@@ -23372,29 +23379,29 @@ trainerdata 697, "Stacey"
         // mon 0
         ivs 0
         abilityslot 0
-        level 52
-        pokemon SPECIES_METAPOD
+        level 5
+        pokemon SPECIES_PIKACHU
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 56
-        pokemon SPECIES_METAPOD
+        level 6
+        pokemon SPECIES_WEEDLE
         ballseal 0
 
         // mon 2
         ivs 0
         abilityslot 0
-        level 60
-        pokemon SPECIES_METAPOD
+        level 6
+        pokemon SPECIES_WEEDLE
         ballseal 0
     endparty
 
-trainerdata 698, "Test"
+trainerdata 698, "Rick"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
-    nummons 3
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -23407,18 +23414,11 @@ trainerdata 698, "Test"
         // mon 0
         ivs 0
         abilityslot 0
-        level 4
-        pokemon SPECIES_AXEW
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
         level 6
         pokemon SPECIES_CATERPIE
         ballseal 0
 
-        // mon 2
+        // mon 1
         ivs 0
         abilityslot 0
         level 6
@@ -23426,7 +23426,7 @@ trainerdata 698, "Test"
         ballseal 0
     endparty
 
-trainerdata 699, "Abner"
+trainerdata 699, "Sammy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_BUG_CATCHER
     nummons 3
@@ -23442,22 +23442,22 @@ trainerdata 699, "Abner"
         // mon 0
         ivs 0
         abilityslot 0
-        level 44
-        pokemon SPECIES_BUTTERFREE
+        level 7
+        pokemon SPECIES_WEEDLE
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 44
-        pokemon SPECIES_BEEDRILL
+        level 8
+        pokemon SPECIES_KAKUNA
         ballseal 0
 
         // mon 2
         ivs 0
         abilityslot 0
-        level 44
-        pokemon SPECIES_PIKACHU
+        level 10
+        pokemon SPECIES_BEEDRILL
         ballseal 0
     endparty
 
