@@ -485,3 +485,8 @@ arm9 080518CA 0B
 
 # sTrainerEncounterMusicParam table range
 arm9 080550D4 2C
+
+# PrizeMoney table range
+0012 0223FBD0 81
+0012 0223FBD4 81
+0012 0223FBDC 81
