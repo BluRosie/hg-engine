@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "io_reg.h"
+#include "debug.h"
 #include "constants/buttons.h"
 
 typedef uint8_t   u8;
@@ -77,7 +78,17 @@ VecFx32;
 #define FALLTHROUGH __attribute__ ((fallthrough))
 #define PACKED __attribute__((packed))
 
+#ifdef NOCASH_GBA_PRINT
+#define NOCASHGBAIDADDR 0x04FFFA00
+#define NOCASHGBAPRINTADDR1 0x04FFFA14 // does not automatically add the newline
+#define NOCASHGBAPRINTADDR2 0x04FFFA18 // does automatically add the newline
+
+extern u8 DebugTextBuf[0xAC];
+
+#define debug_printf(...) { sprintf(DebugTextBuf, __VA_ARGS__); *(volatile u32 *)NOCASHGBAPRINTADDR1 = (u32)DebugTextBuf; }
+#else
 #define debug_printf(...) { u8 buf_assumeunuasedfasdf[128]; sprintf(buf_assumeunuasedfasdf, __VA_ARGS__); debugsyscall(buf_assumeunuasedfasdf); }
+#endif
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)

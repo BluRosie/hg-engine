@@ -361,6 +361,10 @@
 // weather that has indicators on the bottom screen
 #define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)
 
+#define FIELD_CONDITION_UPROAR_SHIFT         8
+#define FIELD_CONDITION_GRAVITY_SHIFT       12
+#define FIELD_CONDITION_TRICK_ROOM_SHIFT    16
+
 /**
  *  @brief absolute battler position constants
  *
@@ -631,7 +635,10 @@ struct __attribute__((packed)) OneTurnEffect
                enum ForceExecutionOrder{EXECUTION_ORDER_NORMAL, EXECUTION_ORDER_AFTER_YOU, EXECUTION_ORDER_QUASH} force_execution_order_flag : 2;
                u32 parental_bond_flag : 2;
                u32 parental_bond_is_active : 1;
-               u32 : 17;
+               u32 rampageProcessedFlag : 1;
+               u32 chargeProcessedFlag : 1;
+               u32 numberOfKOs : 3;
+               u32 : 12;
 
     /* 0x04 */ int physical_damage[4];    /**< [don't use] physical damage as indexed by battler.  Counter doesn't use this, use OneSelfTurnEffect's physical_damage (sp->oneSelfFlag[battler].physical_damage) */
     /* 0x14 */ int physical_damager;      /**< [don't use] last battler that physically damaged this pokémon.  Counter doesn't use this, use OneSelfTurnEffect's physical_damager (sp->oneSelfFlag[battler].physical_damager) */
@@ -814,9 +821,9 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x82 */ u8 sex : 4;                   /**< sex for rivalry purposes etc. */
                u8 oyasex : 4;                /**< original trainer sex */
     /* 0x83 */ u8 get_ball;                  /**< caught ball */
-    /* 0x84 */ u32 effect_of_moves;          /**< move effect trackers (see MOVE_EFFECT_* constants) */
+    /* 0x84 */ u32 effect_of_moves;          /**< move effect trackers (see MOVE_EFFECT_* constants) */ // moveEffectFlags
     /* 0x88 */ u32 effect_of_moves_temp;     /**< storage for effect_of_moves */
-    /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;
+    /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;   // unk88
 }; // size = 0xc0
 
 typedef struct {
@@ -941,13 +948,21 @@ struct __attribute__((packed)) BattleAIWorkTable
 };
 
 
+enum TerrainOverlayType {
+    TERRAIN_NONE,
+    GRASSY_TERRAIN,
+    MISTY_TERRAIN,
+    ELECTRIC_TERRAIN,
+    PSYCHIC_TERRAIN
+};
+
 /**
  *  @brief structure that tracks the terrain type currently present
  */
 typedef struct {
-    enum TerrainOverlayType{TERRAIN_NONE, GRASSY_TERRAIN, MISTY_TERRAIN, ELECTRIC_TERRAIN, PSYCHIC_TERRAIN} type;
+    u8 type; /**< TerrainOverlayType enum */
     u8 numberOfTurnsLeft;
-} __attribute__((packed)) TerrainOverlay;
+} TerrainOverlay;
 
 
 /**
@@ -1003,6 +1018,34 @@ typedef enum ControllerCommand {
     CONTROLLER_COMMAND_MAX
 } ControllerCommand;
 
+typedef enum FutureConditionType {
+    FUTURE_CONDITION_NONE = 0,
+    FUTURE_CONDITION_WISH,
+    FUTURE_CONDITION_FUTURE_SIGHT_OR_DOOM_DESIRE,
+    FUTURE_CONDITION_MAX = FUTURE_CONDITION_FUTURE_SIGHT_OR_DOOM_DESIRE,
+} FutureConditionType;
+
+// Cannonade, Vine Lash, Volcalith, Wildfire) and Pledge Sea of Fire
+typedef enum SideConditionType {
+    SIDE_CONDITION_NONE = 0,
+    SIDE_CONDITION_G_MAX_VINE_LASH,
+    SIDE_CONDITION_G_MAX_CANNONADE,
+    SIDE_CONDITION_G_MAX_WILDFIRE,
+    SIDE_CONDITION_G_MAX_VOLCALITH,
+    SIDE_CONDITION_SEA_OF_FIRE,
+    SIDE_CONDITION_MAX = SIDE_CONDITION_SEA_OF_FIRE,
+} SideConditionType;
+
+typedef union ConditionType
+{
+    FutureConditionType futureConditionType;
+    SideConditionType sideConditionType;
+} ConditionType;
+
+typedef struct FutureCondition {
+    ConditionType conditionType;
+    u8 affectedClient;
+} FutureCondition;
 
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
@@ -1065,16 +1108,16 @@ struct PACKED BattleStruct
     /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
-    /*0xF4*/ MESSAGE_PARAM mp;
-    /*0x118*/ int client_work;
-    /*0x11C*/ int attack_client_work;
-    /*0x120*/ int defence_client_work;
-    /*0x124*/ int waza_work;
-    /*0x128*/ int item_work;
-    /*0x12C*/ int tokusei_work;
-    /*0x130*/ int msg_work;
-    /*0x134*/ int calc_work;
-    /*0x138*/ int temp_work;
+    /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg
+    /*0x118*/ int client_work;          // battlerIdTemp
+    /*0x11C*/ int attack_client_work;   // battlerIdLeechSeedRecv
+    /*0x120*/ int defence_client_work;  // battlerIdLeechSeeded
+    /*0x124*/ int waza_work;            // moveTemp
+    /*0x128*/ int item_work;            // itemTemp
+    /*0x12C*/ int tokusei_work;         // abilityTemp
+    /*0x130*/ int msg_work;             // msgTemp
+    /*0x134*/ int calc_work;            // calcTemp
+    /*0x138*/ int temp_work;            // tempData
     /*0x13C*/ u32 client_status[CLIENT_MAX];
     /*0x14C*/ u32 koban_counter;
     /*0x150*/ int total_turn;
@@ -1083,28 +1126,28 @@ struct PACKED BattleStruct
     /*0x174*/ int me_first_total_turns;
     /*0x178*/ struct tcb_skill_intp_work *tciw;
     /*0x17C*/ void *work;
-    /*0x180*/ u32 field_condition;
-    /*0x184*/ struct field_condition_count fcc;
-    /*0x1BC*/ u32 side_condition[2];
-    /*0x1C4*/ struct side_condition_work scw[2];
-    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[CLIENT_MAX];
-    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX];
+    /*0x180*/ u32 field_condition;                                  // fieldCondition
+    /*0x184*/ struct field_condition_count fcc;                     // fieldConditionData
+    /*0x1BC*/ u32 side_condition[2];                                // fieldSideConditionFlags
+    /*0x1C4*/ struct side_condition_work scw[2];                    // fieldSideConditionData
+    /*0x1D4*/ struct OneTurnEffect oneTurnFlag[CLIENT_MAX];         // turnData
+    /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX];     // selfTurnData
     /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX];
 
     /*0x354*/ struct BattleAIWorkTable aiWorkTable;
     /*0x2134*/ u32 *ai_seq_work;
     /*0x2138*/ u32 ai_seq_address;
 
-    /*0x213C*/ u32 server_status_flag;
-    /*0x2140*/ u32 server_status_flag2;
+    /*0x213C*/ u32 server_status_flag;                              // battleStatus
+    /*0x2140*/ u32 server_status_flag2;                             // battleStatus2
     /*0x2144*/ int damage;
     /*0x2148*/ int hit_damage;
     /*0x214C*/ int critical_count;
     /*0x2150*/ int critical;
     /*0x2154*/ int damage_power;
     /*0x2158*/ int damage_value;
-    /*0x215C*/ int hp_calc_work;
-    /*0x2160*/ int move_type;
+    /*0x215C*/ int hp_calc_work;                                    // hpCalc
+    /*0x2160*/ int move_type;                                       // moveType
     /*0x2164*/ int waza_eff_cnt;
     /*0x2168*/ int money_multiplier;
     /*0x216C*/ u32 waza_status_flag;
@@ -1112,17 +1155,17 @@ struct PACKED BattleStruct
     /*0x2170*/ u32 add_status_flag_direct;
     /*0x2174*/ u32 add_status_flag_indirect;
     /*0x2178*/ u32 add_status_flag_tokusei;
-    /*0x217C*/ u8 multi_hit_count;
-    /*0x217D*/ u8 multi_hit_count_temp;
+    /*0x217C*/ u8 multi_hit_count;  // multiHitCount
+    /*0x217D*/ u8 multi_hit_count_temp; // multiHitCountTemp
     /*0x217E*/ u8 client_loop;
     /*0x217F*/ u8 beat_up_count;
 
     /*0x2180*/ u32 loop_flag;
     /*0x2184*/ u32 waza_out_check_on_off; // multiHitCheckFlags
-    /*0x2188*/ u32 loop_hit_check;
+    /*0x2188*/ u32 loop_hit_check;  // checkMultiHit
 
     /*0x218C*/ u32 condition2_off_req[CLIENT_MAX];
-    /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];
+    /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];  // selectedMonIndex
     /*0x21A0*/ u8 reshuffle_sel_mons_no[CLIENT_MAX];
     /*0x21A4*/ u8 ai_reshuffle_sel_mons_no[CLIENT_MAX];
     /*0x21A8*/ u32 playerActions[4][4]; // client_act_work
@@ -1196,11 +1239,17 @@ struct PACKED BattleStruct
     /*0x    */ int SkillSeqWork[600];
     /*...*/
 
-               TerrainOverlay terrainOverlay;
-               u8 printed_field_message;
-
+               FutureCondition futureConditionQueue[CLIENT_MAX * FUTURE_CONDITION_MAX];
                BOOL checkOnlySpecifiedTarget; // for BattleFormChangeCheck
+               u8 endTurnEventBlockSequenceNumber;
                u8 checkOnlySpecifiedTargetClient;
+
+               TerrainOverlay terrainOverlay; // realign this to u32 boundary lol
+               u8 printed_field_message;
+               u8 original_terrain:7;
+               u8 hasLoadedTerrainOver:1;
+               u8 original_bgId:7;
+               u8 hasLoadedBgIdOver:1;
 };
 
 
@@ -2305,11 +2354,11 @@ extern struct BattleSystem *gBattleSystem;
 enum
 {
     SWITCH_IN_CHECK_WEATHER = 0,
+    SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
     SWITCH_IN_CHECK_ENTRY_EFFECT,
     SWITCH_IN_CHECK_AMULET_COIN,
     SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_HEAL_STATUS,
-    SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
     SWITCH_IN_CHECK_END,
 };
 
@@ -2538,6 +2587,16 @@ BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
 // defined in ability.c
 /**
+ *  @brief check if any specific stat stage is not at the passed value
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose stat stages to check
+ *  @param value to check for.  made flexible for every circumstance, i.e. Moody needs to check if any stat can be raised/lowered
+ *  @return TRUE if there is a stat stage not at the passed value; FALSE otherwise (yes accuracy and evasion count too)
+ */
+BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
+
+/**
  *  @brief check if an ability is present and account for mold breaker
  *
  *  @param sp global battle structure
@@ -2576,6 +2635,15 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
  *  @return TRUE if subseq was loaded; FALSE otherwise
  */
 u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
+
+/**
+ *  @brief grab which of the client's raw stats (excluding HP) are the highest for the ability beast boost
+ *
+ *  @param sp global battle structure
+ *  @param client battler whose stats to compare among themselves for beast boost
+ *  @return the highest raw stat the the client has (excluding HP)
+ */
+u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 
 
 // defined in other_battle_calculators.c
@@ -2891,5 +2959,10 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, str
 
 //Buffer messages related to being unable to select moves?
 BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
+
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+                   u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
+
+int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 #endif // BATTLE_H

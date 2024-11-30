@@ -48,17 +48,22 @@ def process_text(folder):
     onlyfiles.sort(key=sorter)
     with open(folder + '.txt', 'w', encoding='utf-8') as out:
         for file in onlyfiles:
-            with open(os.path.join(folder, file), 'r', encoding='utf-8') as infile:
-                s = infile.read().replace('"','”').replace('\'','’').replace('`','’')
-                if caps:
-                    s = s.upper()
-                if articles:
-                    s = ('an ' if s.upper().startswith('A') or s.upper().startswith('E') or s.upper().startswith('I') or s.upper().startswith('O') or s.upper().startswith('U') else 'a ') + s
-                if s != '':
-                    if force_length != '':
-                        while len(s) < force_lengths[force_length]:
-                            s = ' ' + s
-                out.write(s + '\n')
+            try:
+                infile = open(os.path.join(folder, file), 'r', encoding='utf-8').read()
+            except UnicodeDecodeError:
+                # potentially try and detect it based on sys.platform.startswith('win')?
+                infile = open(os.path.join(folder, file), 'r', encoding='cp1252').read()
+            #with open(os.path.join(folder, file), 'r', encoding='utf-8') as infile:
+            s = infile.replace('"','”').replace('\'','’').replace('`','’')
+            if caps:
+                s = s.upper()
+            if articles:
+                s = ('an ' if s.upper().startswith('A') or s.upper().startswith('E') or s.upper().startswith('I') or s.upper().startswith('O') or s.upper().startswith('U') else 'a ') + s
+            if s != '':
+                if force_length != '':
+                    while len(s) < force_lengths[force_length]:
+                        s = ' ' + s
+            out.write(s + '\n')
 
 
 if __name__ == '__main__':

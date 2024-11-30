@@ -9,7 +9,7 @@
 .include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_414", 0
-
+// earth power
 a010_414:
     initspriteresource
     loadspriteresource 0

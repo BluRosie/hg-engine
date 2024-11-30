@@ -135,25 +135,25 @@ Physical attacks lower\nDefense and raise Speed.
 Doubles the\nPokémon’s weight.
 Halves the\nPokémon’s weight.
 Reduces damage\nwhen HP is full.
-Powers up physical attacks\nwhen poisoned.
-Powers up special attacks\nwhen burned.
+Powers up physical\nattacks when poisoned.
+Powers up special\nattacks when burned.
 May create another Berry\nafter one is used.
 Anticipates an ally’s\nattack and dodges it.
-Raises one stat and\nlowers another.
+Sharply raises one stat\nand lowers another.
 Protects the Pokémon from\ndamage from weather.
 May poison targets when\na Pokémon makes contact.
 Restores a little HP when\nwithdrawn from battle.
 Protects from\nDefense-lowering attacks.
-Boosts the Pokémon’s Speed\nin a sandstorm.
+Boosts the Pokémon’s\nSpeed in a sandstorm.
 Makes status-changing moves\nmore likely to miss.
 Boosts move power when\nthe Pokémon moves last.
-Comes out disguised as the\nPokémon in back.
+Comes out disguised as\nthe Pokémon in back.
 It transforms itself into\nthe Pokémon it is facing.
 Passes through the foe’s\nbarrier and strikes.
 Contact with this Pokémon\nspreads this Ability.
 Boosts Attack after\nknocking out any Pokémon.
 Raises Attack when\nhit by a Dark-type move.
-Some move types\nscare it and boost its Speed.
+Some move types scare\nit and boost its Speed.
 Reflects\nstatus-changing moves.
 Boosts Attack when\nhit by a Grass-type move.
 Gives priority to\na status move.
@@ -184,15 +184,15 @@ Normal-type moves become\nFairy-type and powered up.
 Contact with it lowers the\nattacker’s Speed stat.
 Normal-type moves become\nFlying-type and power up.
 Parent and child\neach attacks.
-Powers up each\nPokémon’s Dark-type moves.
-Powers up each\nPokémon’s Fairy-type moves.
+Powers up each Pokémon’s\nDark-type moves.
+Powers up each Pokémon’s\nFairy-type moves.
 The effects of “Aura”\nAbilities are reversed.
 Changes the weather\nto nullify Fire-type moves.
 Changes the weather\nto nullify Water-type moves.
 Alters weather to\nremove Flying-type’s weaknesses.
 Boosts Defense when\nhit by an attack.
-Cowardly switches out if\nits HP becomes half or less.
-Switches out if\nits HP becomes half or less.
+Wimpily switches out if its\nHP becomes half or less.
+Switches out if its HP\nbecomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.
 Its attacks are critical hits\nwhen it is poisoned.
 Its shell breaks if its\nHP becomes half or less.
@@ -211,7 +211,7 @@ Its shroud protects it\nfrom an attack just once.
 Defeating a foe\nlets it become Ash-Greninja.
 Changes with other Cells\nif HP becomes half or less.
 It can poison Steel- and\nPoison-type targets.
-It’s always drowsing,\nand attacks without waking.
+It’s always drowsing, and\nattacks without waking.
 Makes foes unable to\nuse priority attacks.
 Damages an attacker that\nlands the finishing hit.
 Repeats another Pokémon’s\ndance move immediately.
@@ -235,7 +235,7 @@ Powers up moves that\nare super-effective.
 Boosts Attack when\nentering a battle.
 Boosts Defense when\nentering a battle.
 It changes type to that\nof the move it’s about to use.
-Retrieves the first\nthrown Poké Ball if it failed.
+Retrieves the first thrown\nPoké Ball if it failed.
 Scatters Speed-lowering\ncotton fluff when hit.
 This Pokémon’s\nmoves cannot be redirected.
 Bounces back\nstat-lowering effects.
@@ -247,7 +247,7 @@ Creates a sandstorm\nwhen hit by an attack.
 Halves the damage\ntaken from special moves.
 Ripens Berries and\ndoubles their effect.
 Blocks a physical hit, but\nthe ice head breaks.
-Just being next to\nthe Pokémon powers up moves.
+Just being next to the\nPokémon powers up moves.
 Changes type depending\non the terrain.
 On entering battle, clears\neffects of Reflect, etc.
 Powers up ally Pokémon’s\nSteel-type moves.
@@ -297,3 +297,15 @@ Scatters poison spikes\nif hit by physical moves.
 Makes foes unable to\nuse priority attacks.
 Restores HP if hit by a\nGround-type move.
 Status moves go last\nbut ignore abilities.
+Upon entry, restores\nan allies HP.
+Ignores accuracy changes\nand Ghost type immunities.
+The Teal Mask shines,\nboosting the Speed stat.
+The Wellspring Mask shines,\nboosting the Sp. Def stat.
+The Hearthflame Mask shines,\nboosting the Attack stat.
+The Cornerstone Mask shines,\nboosting the Defense stat.
+May badly poison targets when\na Pokémon makes contact.
+Lowers evasiveness of\nPokémon upon first entry.
+Transforms into its Terastal Form\nupon entering battle.
+Resists all damage when\nHP is full.
+Reduces effects of weather\nand terrain to zero.
+Pokémon poisoned by Pecharunt\nwill also become confused.
