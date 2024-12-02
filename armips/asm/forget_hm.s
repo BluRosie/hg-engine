@@ -6,13 +6,18 @@
 
 .open "base/arm9.bin", 0x02000000
 
-.if REUSABLE_TMS == 1
-.if DELETABLE_HMS == 1
-
 .org 0x02078034
-.byte 0
 
+.if REUSABLE_TMS == 1
+
+.if DELETABLE_HMS == 1
+.byte 0
+.else
+.byte 0x01
 .endif
+
+.else
+.byte 0x01
 .endif
 
 .close

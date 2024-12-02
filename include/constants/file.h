@@ -50,6 +50,7 @@
 #define MEGA_ICON_BLANK_GFX (805)
 
 //heap IDs
+#define HEAPID_DEFAULT 0
 #define HEAPID_MAIN_HEAP 3
 #define HEAPID_WORLD 11
 

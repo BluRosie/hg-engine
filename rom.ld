@@ -211,7 +211,6 @@ SCIO_PSPtoPPCopy = 0x02263B4C | 1;
 SCIO_IncRecord = 0x02263F0C | 1;
 CheckStatusRecoverFromAbilityOnSwitch = 0x0225451C | 1;
 CheckPressureForPPDecrease = 0x02258180 | 1;
-GetBattlePokemonMovePosFromMove = 0x02251C60 | 1;
 CheckBattleAnimationsOption = 0x0223B6D4 | 1;
 SCIO_QueueMoveAnimation = 0x0226340C | 1;
 SCIO_QueueMoveAnimationConsiderAttackerDefender = 0x0226343C | 1;
@@ -245,7 +244,6 @@ BGCallback_Waza = 0x0226748C | 1;
 gf_get_seed = 0x0201FD2C | 1;
 PokeParty_Init = 0x020744DC | 1;
 TT_TrainerPokeDataGet = 0x020735E8 | 1;
-TT_TrainerTypeSexGet = 0x020735F8 | 1;
 TrainerCBSet = 0x02072A44 | 1;
 try_force_gender_maybe = 0x02073A98 | 1;
 TrainerMonHandleFrustration = 0x02073AE4 | 1;
@@ -272,7 +270,6 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
-get_ow_data_file_num = 0x0206A304 | 1;
 does_species_have_dimorphism = 0x0206A338 | 1;
 
 /*first E0 battle script commands*/
@@ -669,6 +666,12 @@ BagApp_GetSaveRoamers = 0x021F992C | 1;
 
 ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
+
+/* Stuff for Battle End Item */
+sPickupTable1 = 0x0226C404;
+sPickupTable2 = 0x0226C30C;
+sPickupWeightTable = 0x0226CA4C;
+sHoneyGatherChanceTable = 0x0226CA58;
 
 BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
 BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;

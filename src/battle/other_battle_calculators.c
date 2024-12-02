@@ -177,7 +177,7 @@ const u16 ParentalBondSingleStrikeMovesList[] = {
     MOVE_BOUNCE,
     MOVE_DIG,
     MOVE_DIVE,
-    // MOVE_ELECTRO_SHOT, // Not implemented yet
+    MOVE_ELECTRO_SHOT,
     MOVE_FLY,
     MOVE_FREEZE_SHOCK,
     MOVE_GEOMANCY,
@@ -356,6 +356,33 @@ const u16 WeightMoveList[] = {
     MOVE_HEAVY_SLAM,
     MOVE_SKY_DROP,
     MOVE_HEAT_CRASH,
+};
+
+const u16 PunchingMovesTable[] = {
+    MOVE_BULLET_PUNCH,
+    MOVE_COMET_PUNCH,
+    MOVE_DIZZY_PUNCH,
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_DRAIN_PUNCH,
+    MOVE_DYNAMIC_PUNCH,
+    MOVE_FIRE_PUNCH,
+    MOVE_FOCUS_PUNCH,
+    MOVE_HAMMER_ARM,
+    MOVE_HEADLONG_RUSH,
+    MOVE_ICE_HAMMER,
+    MOVE_ICE_PUNCH,
+    MOVE_JET_PUNCH,
+    MOVE_MACH_PUNCH,
+    MOVE_MEGA_PUNCH,
+    MOVE_METEOR_MASH,
+    MOVE_PLASMA_FISTS,
+    MOVE_POWER_UP_PUNCH,
+    MOVE_RAGE_FIST,
+    MOVE_SHADOW_PUNCH,
+    MOVE_SKY_UPPERCUT,
+    MOVE_SURGING_STRIKES,
+    MOVE_THUNDER_PUNCH,
+    MOVE_WICKED_BLOW,
 };
 
 // TODO: Tidy up this
@@ -2134,6 +2161,7 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
         case MOVE_SECRET_SWORD:
             *equivalentDefense = rawPhysicalDefense;
             break;
+        case MOVE_PHOTON_GEYSER:
         case MOVE_PRISMATIC_LASER:
             if (tempPhysicalAttack > tempSpecialAttack) {
                 *movesplit = SPLIT_PHYSICAL;
@@ -2393,7 +2421,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             // TODO
                             ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
                             break;
-                        
+
                         default:
                             break;
                         }
@@ -2525,6 +2553,73 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     ctx->clientLoopForSpreadMoves = 0;
     ctx->boostedAccuracy = FALSE;
 }
+
+
+/**
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
+
+    // Attacker abilities
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
+        // Kept in case people add their own
+        // || GetBattlerAbility(sp, sp->attack_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_ATTACK
+        ) {
+            return FALSE;
+        }
+
+    // Defender abilities
+    // Kept in case people add their own
+    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
+    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
+    //     ) {
+    //         return FALSE;
+    //     }
+
+    // Check for items attacker
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // punching gloves prevents contact when attacking with punching moves
+        || (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+            && IsElementInArray(PunchingMovesTable, (u16 *)&sp->current_move_index, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
+        // Kept in case people add their own
+        // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
+        ) {
+            return FALSE;
+    }
+
+    // Check for items defender
+    if (HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // Kept in case people add their own
+        // || HeldItemHoldEffectGet(sp, sp->defence_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_DEFENDER_CONTACT
+        ) {
+            return FALSE;
+    }
+
+    // Does the move make contact vanilla
+    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+enum {
+    TRY_MOVE_START = 0,
+
+    TRY_MOVE_STATE_CHECK_VALID_TARGET = TRY_MOVE_START,
+    TRY_MOVE_STATE_TRIGGER_REDIRECTION_ABILITIES,
+    TRY_MOVE_STATE_CHECK_MOVE_HITS,
+    TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES,
+    TRY_MOVE_STATE_CHECK_TYPE_CHART,
+    TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES,
+    TRY_MOVE_STATE_TRIGGER_STRONG_WINDS,
+
+    TRY_MOVE_END,
+};
+
 
 /**
  * Platinum version as reference
@@ -3010,7 +3105,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             nonSelectableMoves |= No2Bit(movePos);
         }
         if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
-            if (GetBattlePokemonMovePosFromMove(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
+            if (BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
                 ctx->battlemon[battlerId].moveeffect.moveNoChoice = 0;
             } else if (ctx->battlemon[battlerId].moveeffect.moveNoChoice && ctx->battlemon[battlerId].moveeffect.moveNoChoice != ctx->battlemon[battlerId].move[movePos]) {
                 nonSelectableMoves |= No2Bit(movePos);

@@ -323,7 +323,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         ab2 = PokePersonalParaGet(species, PERSONAL_ABILITY_2);
         if (ab2 != 0)
         {
-            if (abilityslot & 1)
+            if (abilityslot & 1 || abilityslot == 32) // abilityslot 32 gives second slot in vanilla
             {
                 SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
             }

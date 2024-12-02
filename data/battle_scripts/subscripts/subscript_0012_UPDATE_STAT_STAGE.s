@@ -14,6 +14,7 @@ _010:
     Wait 
 
 _018:
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_SUCCESSFUL, _023
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_RAPID_SPIN, _075
 
 _023:
@@ -50,5 +51,5 @@ _070:
     End 
 
 _075:
-    RapidSpin 
+    RapidSpin
     GoTo _023

@@ -278,36 +278,7 @@
 #define CONDITION_POISON    2
 #define CONDITION_BURN      3
 #define CONDITION_FREEZE    4
-#define CONDITION_PARALYSIS 
-
-// Status 2
-#define STATUS2_CONFUSION        (7 << 0)
-#define STATUS2_FLINCH           (1 << 3)
-#define STATUS2_UPROAR           (7 << 4)
-#define STATUS2_BIDE_0           (1 << 8)
-#define STATUS2_BIDE_1           (1 << 9)
-#define STATUS2_RAMPAGE          (3 << 10)
-#define STATUS2_LOCKED_INTO_MOVE (1 << 12)
-#define STATUS2_BIND             (7 << 13)
-#define STATUS2_ATTRACT_BATTLER1 (1 << 16)
-#define STATUS2_ATTRACT_BATTLER2 (1 << 17)
-#define STATUS2_ATTRACT_BATTLER3 (1 << 18)
-#define STATUS2_ATTRACT_BATTLER4 (1 << 19)
-#define STATUS2_FOCUS_ENERGY     (1 << 20)
-#define STATUS2_TRANSFORM        (1 << 21)
-#define STATUS2_RECHARGE         (1 << 22)
-#define STATUS2_RAGE             (1 << 23)
-#define STATUS2_SUBSTITUTE       (1 << 24)
-#define STATUS2_DESTINY_BOND     (1 << 25)
-#define STATUS2_MEAN_LOOK        (1 << 26)
-#define STATUS2_NIGHTMARE        (1 << 27)
-#define STATUS2_CURSE            (1 << 28)
-#define STATUS2_FORESIGHT        (1 << 29)
-#define STATUS2_DEFENSE_CURL     (1 << 30)
-#define STATUS2_TORMENT          (1 << 31)
-
-#define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
-#define STATUS2_ATTRACT (STATUS2_ATTRACT_BATTLER1 | STATUS2_ATTRACT_BATTLER2 | STATUS2_ATTRACT_BATTLER3 | STATUS2_ATTRACT_BATTLER4)
+#define CONDITION_PARALYSIS 5
 
 #define STATUS2_UPROAR_SHIFT  4
 #define STATUS2_BIDE_SHIFT    8
@@ -384,6 +355,7 @@
 #define SIDE_STATUS_STEALTH_ROCK (0x80)
 #define SIDE_STATUS_TAILWIND (0x300) // no longer used, see sp->tailwindCount
 #define SIDE_STATUS_TOXIC_SPIKES (0x400)
+#define SIDE_STATUS_STICKY_WEB (0x800)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 /**
@@ -3289,6 +3261,22 @@ BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
+/**
+ *  @brief checks if the given move should be weakened or not (only prints message)
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE/FALSE
+ */
+BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
+
+/**
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3318,7 +3306,14 @@ void LONG_CALL BattleControllerPlayer_PokemonInput(struct BattleSystem *bsys, st
 
 void LONG_CALL BattleControllerPlayer_RunInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-int LONG_CALL BattleMon_GetMoveIndex(struct BattlePokemon *mon, u16 move);
+/**
+ *  @brief grab move position in a BattlePokemon's moves array based on the move index
+ *
+ *  @param battlemon BattlePokemon whose moves to check
+ *  @param move move to look for
+ *  @return move position (if the BattlePokemon has it), 4 if the move is not present
+ */
+ int LONG_CALL BattleMon_GetMoveIndex(struct BattlePokemon *mon, u16 move);
 
 BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
 

@@ -4,6 +4,7 @@
 #include "config.h"
 //#include "save.h"
 #include "types.h"
+#include "trainer_data.h"
 
 #define POKEMON_GENDER_MALE 0
 #define POKEMON_GENDER_FEMALE 1
@@ -1101,14 +1102,6 @@ BOOL LONG_CALL MonHasMove(struct PartyPokemon *mon, u16 move);
 BOOL LONG_CALL does_species_have_dimorphism(u32 species);
 
 /**
- *  @brief grab the base overworld data file number for a species
- *
- *  @param species species index
- *  @return requested base overworld data file number
- */
-u32 LONG_CALL get_ow_data_file_num(u32 species);
-
-/**
  *  @brief intialize various values to a PartyPokemon (location caught, caught ball, etc.)
  *
  *  @param pp PartyPokemon to initialize
@@ -1195,7 +1188,7 @@ void LONG_CALL TT_TrainerPokeDataGet(int tr_id, void *tpd);
  *  @param trtype trainer class
  *  @return trainer sex; 1 if female, 0 if male
  */
-u8 LONG_CALL TT_TrainerTypeSexGet(int trtype);
+TrainerGender LONG_CALL TT_TrainerTypeSexGet(int trtype);
 
 /**
  *  @brief set ball seal on a trainer PartyPokemon

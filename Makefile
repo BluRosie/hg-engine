@@ -215,6 +215,17 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "Done.  See output $(BUILDROM)."
 
+
+####################### Restore clean base ################
+NEWFILE = romOld-`date +%d%b%y`.nds
+CLEANROM = romClean.nds
+restore:
+	mv $(ROMNAME) $(NEWFILE)
+	cp $(CLEANROM) $(ROMNAME)
+
+####################### Restore and build ################
+restore_build: | restore all
+
 ####################### Clean #######################
 clean:
 	rm -rf $(BUILD)
@@ -359,6 +370,9 @@ move_narc: $(NARC_FILES)
 
 	@echo "headbutt trees:"
 	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)
+
+	@echo "trainer gfx:"
+	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
 
 
 	@echo "baby mons:"
