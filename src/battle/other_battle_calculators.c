@@ -2320,7 +2320,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             // TODO
                             ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
                             break;
-                        
+
                         default:
                             break;
                         }
@@ -2476,13 +2476,13 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
     return FALSE;
 }
 
-/** 
+/**
  * @brief checks if contact is being made, checking abilities and items
  * @param bw battle work structure
  * @param sp global battle structure
  * @return TRUE/FALSE
 */
-BOOL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
 
     // Attacker abilities
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
@@ -2494,16 +2494,16 @@ BOOL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp)
 
     // Defender abilities
     // Kept in case people add their own
-    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE             
-    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE   
+    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
+    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
     //     ) {
     //         return FALSE;
-    //     }       
-    
+    //     }
+
     // Check for items attacker
-    if (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
         // punching gloves prevents contact when attacking with punching moves
-        || (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+        || (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
             && IsElementInArray(PunchingMovesTable, (u16 *)&sp->current_move_index, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
         // Kept in case people add their own
         // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
@@ -2512,7 +2512,7 @@ BOOL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp)
     }
 
     // Check for items defender
-    if (HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+    if (HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
         // Kept in case people add their own
         // || HeldItemHoldEffectGet(sp, sp->defence_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_DEFENDER_CONTACT
         ) {

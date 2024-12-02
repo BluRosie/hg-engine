@@ -2963,7 +2963,7 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
  * @param sp global battle structure
  * @return TRUE/FALSE
 */
-BOOL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
 
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
