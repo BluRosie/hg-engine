@@ -9,7 +9,7 @@ _checkAsOne:
 _printAsOneMessage:
     // {0} has two Abilities!
     PrintMessage 1463, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
     WaitButtonABTime 30
     SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
 _checkUnnerve:
@@ -19,7 +19,7 @@ _checkUnnerve:
 _printUnnerveMessage:
     // {0}’s {1} makes the opposing team too nervous to eat Berries!
     PrintMessage 1282, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
     WaitButtonABTime 30
     SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
 _realHazardsCheck:
@@ -42,7 +42,7 @@ _checkSpikes:
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0} is hurt by the spikes!
     PrintMessage 429, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _checkToxicSpikes:
@@ -51,7 +51,7 @@ _checkToxicSpikes:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000001, _regularPoison
     // The poison spikes disappeared from around your team’s feet!
     PrintMessage 1065, TAG_NONE_SIDE, BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
     WaitButtonABTime 30
     GoTo _checkStickyWeb
 
@@ -71,6 +71,8 @@ _badlyPoison:
 // TODO: G-Max Steelsurge Hazard should be here for the correct order
 
 _checkStickyWeb:
+    // Heavy-Duty Boots ignores Sticky Web
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _checkStealthRock
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_ATTACKER, BSCRIPT_VAR_BATTLER_SWITCH
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_SIDE_CONDITION_ATTACKER, SIDE_CONDITION_STICKY_WEB, _checkStealthRock
     // {0} was caught in a sticky web!
@@ -101,8 +103,8 @@ _checkStealthRock:
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // Pointed stones dug into {0}!
     PrintMessage 1079, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _end:
-    End 
+    End

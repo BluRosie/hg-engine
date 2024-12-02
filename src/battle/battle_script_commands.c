@@ -1189,7 +1189,7 @@ BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx) 
     if (ctx->current_move_index != MOVE_METRONOME) {
         ctx->server_status_flag &= ~BATTLE_STATUS_NO_ATTACK_MESSAGE;
     }
-    
+
     ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
 
     ctx->current_move_index = ctx->waza_work;
@@ -3277,7 +3277,6 @@ BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp) {
         IncrementBattleScriptPtr(sp, adrs);
     } else {
         sp->side_condition[side] |= SIDE_STATUS_STICKY_WEB;
-        sp->scw[side].stickyWebBattlerSide = IsClientEnemy(bw, sp->attack_client); // For Court Change and Defiant
     }
 
     return FALSE;

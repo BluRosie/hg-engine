@@ -892,8 +892,7 @@ struct __attribute__((packed)) side_condition_work
 
     u32     spikesLayers            : 2;
     u32     toxicSpikesLayers       : 2;
-    u32     stickyWebBattlerSide    : 2; // For Court Change/Defiant
-    u32                             :26;
+    u32                             :28;
 };
 
 struct __attribute__((packed)) BattleAIWorkTable
@@ -2958,7 +2957,7 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
  */
 BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
 
-/** 
+/**
  * @brief checks if contact is being made, checking abilities and items
  * @param bw battle work structure
  * @param sp global battle structure
