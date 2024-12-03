@@ -25,3 +25,24 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
 
     return FALSE;
 }
+
+BOOL Script_GetPages(SCRIPTCONTEXT *ctx) {
+    debug_printf("GetPages called\n");
+    int additionalPage = 0;
+
+    //u16 *totalOptions = GetVarPointer(ctx->fsys, ScriptReadHalfword(ctx));
+    u16 *totalOptions = ScriptGetVarPointer(ctx);
+    debug_printf("arg0 at %08x --> value: %d\n", totalOptions, *totalOptions);
+
+    u16 maxValuePerPage = ScriptGetVar(ctx);
+    debug_printf("arg1 value: %d\n", maxValuePerPage);
+
+    if(*totalOptions % maxValuePerPage > 0) {
+        additionalPage = 1;
+    }
+
+    *totalOptions = (*totalOptions / maxValuePerPage) + additionalPage;
+    debug_printf("result: %d\n", *totalOptions);
+
+    return FALSE;
+}
