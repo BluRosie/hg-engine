@@ -128,7 +128,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove3(stru
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In BattleController_BeforeMove3\n")
 #endif
-    
+
     switch (ctx->wb_seq_no) {
         case BEFORE_MOVE_STATE_PSYCHIC_TERRAIN: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -232,5 +232,6 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove3(stru
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
+        default:;
     }
 }

@@ -23,6 +23,15 @@ Abilities are only ignored while the move is being executed. They take effect ag
 
 */
 
+/**
+ *  @brief checks if the given move should be weakened or not (only prints message)
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param defender client that is getting targeted
+ *  @return TRUE/FALSE
+ */
+static BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender);
+
 static BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
     if (!(ctx->waza_out_check_on_off & 0x20) && defender != BATTLER_NONE && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index) == TRUE) {
         return FALSE;
@@ -100,7 +109,7 @@ static BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED
                 // Fire-type burn immunity
                 || (attackerCondition & STATUS_PARALYSIS && HasType(ctx, defender, TYPE_ELECTRIC))
                 // Poison / Steel-type poison / badly poison immunity
-                || (attackerCondition & STATUS_POISON_ANY && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)))) {
+                || (attackerCondition & STATUS_POISON_ALL && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)))) {
                 ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
@@ -174,7 +183,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove6(stru
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In BattleController_BeforeMove6\n")
 #endif
-    
+
     switch (ctx->wb_seq_no) {
         case BEFORE_MOVE_STATE_MOVE_ACCURACY: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -271,7 +280,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove6(stru
             } else {
                 ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = FALSE;
                 ctx->wb_seq_no = 0;
-            } 
+            }
 
             ctx->wb_seq_no = BEFORE_MOVE_START;
             break;

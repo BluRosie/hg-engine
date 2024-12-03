@@ -516,7 +516,7 @@ static BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED
                 // Fire-type burn immunity
                 || (attackerCondition & STATUS_PARALYSIS && HasType(ctx, defender, TYPE_ELECTRIC))
                 // Poison / Steel-type poison / badly poison immunity
-                || (attackerCondition & STATUS_POISON_ANY && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)))) {
+                || (attackerCondition & STATUS_POISON_ALL && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)))) {
                 ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
@@ -555,7 +555,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove4(stru
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In BattleController_BeforeMove4\n")
 #endif
-    
+
     switch (ctx->wb_seq_no) {
         case BEFORE_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -579,7 +579,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove4(stru
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_ABILITY_FAILURES_3\n");
 #endif
-            
+
             LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckAbilityFailures3);
             ctx->wb_seq_no++;
             FALLTHROUGH;
@@ -592,7 +592,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove4(stru
             LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckTypeBasedMoveConditionImmunities1);
             ctx->wb_seq_no++;
             FALLTHROUGH;
-        }    
+        }
         case BEFORE_MOVE_STATE_MOVE_FAILURES_2: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_MOVE_FAILURES_2\n");
@@ -601,6 +601,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove4(stru
             LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckMoveFailures2);
             ctx->wb_seq_no++;
             FALLTHROUGH;
-        }  
+        }
+        default:;
     }
 }

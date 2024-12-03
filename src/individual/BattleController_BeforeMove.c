@@ -374,7 +374,7 @@ static void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struc
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         } else if ((ctx->current_move_index != MOVE_SLEEP_TALK && ctx->moveNoTemp == MOVE_SLEEP_TALK) == 0) {
-            int sleepCounterDecrease;
+            u32 sleepCounterDecrease;
 
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_EARLY_BIRD) {
                 sleepCounterDecrease = 2;
@@ -628,8 +628,8 @@ static void BattleController_CheckStanceChange(struct BattleSystem *bsys, struct
     }
 }
 
-// TODO: handle Burn Up edge case 
-static void BattleController_CheckThawOut(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+// TODO: handle Burn Up edge case
+static void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
@@ -644,7 +644,7 @@ static void BattleController_CheckThawOut(struct BattleSystem *bsys, struct Batt
 }
 
 // TODO: make it so that it doesn't do redundant damage calculations
-static void BattleController_CheckSubmove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+static void BattleController_CheckSubmove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     // Include Me First here for now
     if (ctx->current_move_index == MOVE_COPYCAT ||
         ctx->current_move_index == MOVE_METRONOME ||

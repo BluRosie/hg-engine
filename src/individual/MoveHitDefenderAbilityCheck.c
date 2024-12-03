@@ -163,7 +163,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             break;
         case ABILITY_CUTE_CHARM:
             if ((sp->battlemon[sp->attack_client].hp)
-                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_INFATUATION) == 0)
+                && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_ATTRACT) == 0)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)

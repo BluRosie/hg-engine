@@ -562,7 +562,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
-     && (sp->battlemon[defender].condition2 & STATUS2_CONFUSED))
+     && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION))
     {
         accuracy = accuracy * 50 / 100;
     }
@@ -781,7 +781,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     }
     else
     {
-        if (sp->battlemon[client1].condition & STATUS_FLAG_PARALYZED)
+        if (sp->battlemon[client1].condition & STATUS_PARALYSIS)
         {
             speed1 /= 2; // gen 7 on only halves speed for paralysis
         }
@@ -864,7 +864,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     }
     else
     {
-        if (sp->battlemon[client2].condition & STATUS_FLAG_PARALYZED)
+        if (sp->battlemon[client2].condition & STATUS_PARALYSIS)
         {
             speed2 /= 2; // gen 7 on only halves speed for paralysis
         }
@@ -1237,7 +1237,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     if
     (
         BattleRand(bw) % CriticalRateTable[temp] == 0
-        || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
+        || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )
     {
@@ -1438,8 +1438,8 @@ u16 gf_p_rand(const u16 denominator)
 // TODO: Refactor this function
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type) {
     int i = 0;
-    u8 attacker_type_1 = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 attacker_type_2 = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
+    u8 attacker_type_1 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
+    u8 attacker_type_2 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
     u8 defender_type_1 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL);
     u8 defender_type_2 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL);
 
@@ -1508,7 +1508,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     int modifier;
     u32 base_power;
     u8  eqp_a;
-    u8  eqp_d;
+    u8  eqp_d UNUSED;
     u8  atk_a;
     u8  atk_d UNUSED; // not currently used but will be
 
@@ -2364,7 +2364,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
             for (i = 0; i < client_set_max; i++) {
                 client_no = ctx->turnOrder[i];
                 if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
-                && (ctx->battlemon[client_no].condition & STATUS_FLAG_BURNED)
+                && (ctx->battlemon[client_no].condition & STATUS_BURN)
                 && (ctx->battlemon[client_no].hp)) {
                     if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
                         ctx->battlerIdTemp = client_no;
@@ -2383,7 +2383,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
                 if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
                     ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
-                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSED)) {
+                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
                     ctx->state_client = ctx->attack_client;
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
                     ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2687,7 +2687,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
     if (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_BOTH && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
         ctx->waza_out_check_on_off = 13;
         int battlerId;
-        int maxBattlers        = BattleWorkClientSetMaxGet(bsys);
+        int maxBattlers UNUSED        = BattleWorkClientSetMaxGet(bsys);
         struct CLIENT_PARAM *opponent = BattleWorkClientParamGet(bsys, ctx->attack_client);
         u8 flag                = ov12_02261258(opponent);
 
@@ -2712,7 +2712,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
         ctx->waza_out_check_on_off = 13;
 
         int battlerId;
-        int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+        int maxBattlers UNUSED = BattleWorkClientSetMaxGet(bsys);
 
         do {
             battlerId = ctx->turnOrder[ctx->client_loop++];
@@ -3224,11 +3224,11 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 }
 
 /// @brief Get the priority of the client
-/// @param bsys 
-/// @param ctx 
-/// @param battlerId 
+/// @param bsys
+/// @param ctx
+/// @param battlerId
 /// @return Priority
-int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId) {
+int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int battlerId) {
     int command = ctx->playerActions[battlerId][3];
     int move_pos = ctx->waza_no_pos[battlerId];
     int move = MOVE_NONE;
@@ -3266,9 +3266,9 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys, struct BattleSt
 }
 
 /// @brief Checks if a client has the type
-/// @param ctx 
-/// @param battlerId 
-/// @param type 
+/// @param ctx
+/// @param battlerId
+/// @param type
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);

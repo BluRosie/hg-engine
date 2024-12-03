@@ -191,7 +191,7 @@ static BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struc
     // Aurora Veil when it is not hailing
     if ((currentMoveIndex == MOVE_AURORA_VEIL && !(ctx->field_condition & WEATHER_HAIL_ANY || ctx->field_condition & WEATHER_SNOW_ANY))
     // Clangorous Soul when user lacks HP to execute the move
-    || ((currentMoveIndex == MOVE_CLANGOROUS_SOUL) && (attackClient.hp < (attackClient.maxhp / 3)))
+    || ((currentMoveIndex == MOVE_CLANGOROUS_SOUL) && (attackClient.hp < (s32)(attackClient.maxhp / 3)))
     // Fake Out / First Impression / Mat Block after user has already performed an action
     || ((currentMoveIndex == MOVE_FAKE_OUT || currentMoveIndex == MOVE_FIRST_IMPRESSION || currentMoveIndex == MOVE_MAT_BLOCK) && attackClient.moveeffect.fakeOutCount != ctx->total_turn)
     // Follow Me / Rage Powder in singles
@@ -290,7 +290,7 @@ static BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struc
 
     if (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
         // Rest while user is at full HP
-        if (attackClient.hp == attackClient.maxhp) {
+        if (attackClient.hp == (s32)attackClient.maxhp) {
             ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
             ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RESTORE_HP_FULL_FAIL);
@@ -533,8 +533,8 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove2(stru
 
             LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckSemiInvulnerability);
             ctx->wb_seq_no++;
-            // FALLTHROUGH;
-            return;
+            FALLTHROUGH;
         }
+        default:;
     }
 }

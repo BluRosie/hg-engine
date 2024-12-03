@@ -239,17 +239,6 @@
  *  in BattleStruct's battlemon[battler].condition field
  *     or GetMonData(mon, MON_DATA_STATUS, NULL);
  */
-#define STATUS_FLAG_ASLEEP (0x07)
-#define STATUS_FLAG_POISONED (0x08)
-#define STATUS_FLAG_BURNED (0x10)
-#define STATUS_FLAG_FROZEN (0x20)
-#define STATUS_FLAG_PARALYZED (0x40)
-#define STATUS_FLAG_BADLY_POISONED (0x80)
-#define STATUS_FLAG_TOXIC_COUNT (0xf00)
-
-#define STATUS_POISON_ANY (STATUS_FLAG_POISONED | STATUS_FLAG_BADLY_POISONED | STATUS_FLAG_TOXIC_COUNT)
-#define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED)
-
 // Status
 #define STATUS_NONE         0
 #define STATUS_SLEEP_0      (1 << 0)
@@ -262,17 +251,6 @@
 #define STATUS_BAD_POISON   (1 << 7)
 #define STATUS_POISON_COUNT (15 << 8)
 
-#define STATUS_SLEEP      (STATUS_SLEEP_0 | STATUS_SLEEP_1 | STATUS_SLEEP_2)
-#define STATUS_NOT_SLEEP  ~STATUS_SLEEP
-#define STATUS_POISON_ALL (STATUS_POISON | STATUS_BAD_POISON | STATUS_POISON_COUNT)
-
-#define STATUS_ALL             (STATUS_SLEEP | STATUS_POISON | STATUS_BURN | STATUS_FREEZE | STATUS_PARALYSIS | STATUS_BAD_POISON)
-#define STATUS_FACADE_BOOST    (STATUS_POISON | STATUS_BAD_POISON | STATUS_BURN | STATUS_PARALYSIS)
-#define STATUS_CAN_SYNCHRONIZE (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)
-
-#define STATUS_POISON_COUNT_SHIFT 8
-
-// Status Conditions
 #define CONDITION_NONE      0
 #define CONDITION_SLEEP     1
 #define CONDITION_POISON    2
@@ -280,19 +258,22 @@
 #define CONDITION_FREEZE    4
 #define CONDITION_PARALYSIS 5
 
-#define STATUS2_UPROAR_SHIFT  4
-#define STATUS2_BIDE_SHIFT    8
-#define STATUS2_RAMPAGE_SHIFT 10
-#define STATUS2_BINDING_SHIFT 13
-#define STATUS2_ATTRACT_SHIFT 16
+#define STATUS_SLEEP      (STATUS_SLEEP_0 | STATUS_SLEEP_1 | STATUS_SLEEP_2)
+#define STATUS_NOT_SLEEP  ~STATUS_SLEEP
+#define STATUS_POISON_ALL (STATUS_POISON | STATUS_BAD_POISON | STATUS_POISON_COUNT)
 
-#define STATUS2_BATON_PASSABLE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_MEAN_LOOK | STATUS2_CURSE)
+#define STATUS_ALL             (STATUS_SLEEP | STATUS_POISON | STATUS_BURN | STATUS_FREEZE | STATUS_PARALYSIS | STATUS_BAD_POISON)
+#define STATUS_FACADE_BOOST    (STATUS_POISON | STATUS_BAD_POISON | STATUS_BURN | STATUS_PARALYSIS)
+#define STATUS_CAN_SYNCHRONIZE (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)
+#define STATUS_ANY_PERSISTENT  (STATUS_SLEEP | STATUS_POISON_ALL | STATUS_BURN | STATUS_FREEZE | STATUS_PARALYSIS)
+
+#define STATUS_POISON_COUNT_SHIFT 8
 
 // Self Turns Flags
 #define SELF_TURN_FLAG_CLEAR          0
 #define SELF_TURN_FLAG_PLUCK_BERRY    (1 << 1)
 #define SELF_TURN_FLAG_INFATUATED     (1 << 2)
-#define SELF_TURN_FLAG_SUBSTITUTE_HIT (1 << 3
+#define SELF_TURN_FLAG_SUBSTITUTE_HIT (1 << 3)
 
 /**
  *  @brief server status flags (for BattleStruct's server_status_flag)
@@ -321,24 +302,33 @@
  *  @brief volatile status condition flags
  *  accessible in BattleStruct's battlemon[battler].condition2
  */
-#define STATUS2_CONFUSED (0x00000007)
+#define STATUS2_CONFUSION (0x00000007)
 #define STATUS2_FLINCH (0x00000008)
 #define STATUS2_UPROAR (0x00000070)
 #define STATUS2_RAMPAGE_TURNS (0x00000C00)
 #define STATUS2_LOCKED_INTO_MOVE (0x00001000)
 #define STATUS2_BINDING_TURNS (0x0000E000) // no longer used, see sp->binding_turns
-#define STATUS2_INFATUATION (0x000f0000)
+#define STATUS2_ATTRACT (0x000f0000)
 #define STATUS2_FOCUS_ENERGY (0x00100000)
 #define STATUS2_TRANSFORMED (0x00200000)
 #define STATUS2_RECHARGE (0x00400000)
 #define STATUS2_RAGE (0x00800000)
 #define STATUS2_SUBSTITUTE (0x01000000)
+#define STATUS2_DESTINY_BOND (0x02000000)
 #define STATUS2_MEAN_LOOK (0x04000000)
 #define STATUS2_NIGHTMARE (0x08000000)
 #define STATUS2_CURSE (0x10000000)
 #define STATUS2_FORESIGHT (0x20000000)
 #define STATUS2_DEFENCE_CURL (0x40000000)
 #define STATUS2_TORMENT (0x80000000)
+
+#define STATUS2_UPROAR_SHIFT  4
+#define STATUS2_BIDE_SHIFT    8
+#define STATUS2_RAMPAGE_SHIFT 10
+#define STATUS2_BINDING_SHIFT 13
+#define STATUS2_ATTRACT_SHIFT 16
+
+#define STATUS2_BATON_PASSABLE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_MEAN_LOOK | STATUS2_CURSE)
 
 /**
  *  @brief side status flags that apply to one side
@@ -2871,6 +2861,8 @@ BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
 
 // defined in ability.c
+int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
+
 /**
  *  @brief check if any specific stat stage is not at the passed value
  *
@@ -3044,9 +3036,9 @@ BOOL LONG_CALL IsWeightMove(u32 moveIndex);
 BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex);
 
 /// @brief Get the priority of the client
-/// @param bsys 
-/// @param ctx 
-/// @param battlerId 
+/// @param bsys
+/// @param ctx
+/// @param battlerId
 /// @return Priority
 int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
@@ -3262,14 +3254,6 @@ BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx
 BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 /**
- *  @brief checks if the given move should be weakened or not (only prints message)
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return TRUE/FALSE
- */
-BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
-
-/**
  * @brief checks if contact is being made, checking abilities and items
  * @param bw battle work structure
  * @param sp global battle structure
@@ -3330,9 +3314,9 @@ BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx,
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move);
 
 /// @brief Checks if a client has the type
-/// @param ctx 
-/// @param battlerId 
-/// @param type 
+/// @param ctx
+/// @param battlerId
+/// @param type
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type);
 

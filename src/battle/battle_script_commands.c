@@ -2,6 +2,7 @@
 #include "../../include/battle.h"
 #include "../../include/config.h"
 #include "../../include/debug.h"
+#include "../../include/mega.h"
 #include "../../include/overlay.h"
 #include "../../include/save.h"
 #include "../../include/constants/ability.h"
@@ -14,8 +15,6 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
-
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 
 struct EXP_CALCULATOR
 {
@@ -3650,7 +3649,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     //
     //    break;
     case ITEM_DREAM_BALL:
-        if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP))
+        if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP))
         captureRate *= 4;
         break;
     //case ITEM_BEAST_BALL:
@@ -3661,10 +3660,10 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     // = captureRate * ballRate / 10 * (3maxHP - 2curHP) / (3maxHP)
     captureRate = ((captureRate * ballRate) / 10) * (sp->battlemon[sp->defence_client].maxhp * 3  -  sp->battlemon[sp->defence_client].hp * 2) / (sp->battlemon[sp->defence_client].maxhp * 3);
 
-    if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP | STATUS_FLAG_FROZEN))
+    if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP | STATUS_FREEZE))
         captureRate *= 2;
 
-    if (sp->battlemon[sp->defence_client].condition & (STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_PARALYZED))
+    if (sp->battlemon[sp->defence_client].condition & (STATUS_POISON_ALL | STATUS_BURN | STATUS_PARALYSIS))
         captureRate = captureRate * 15 / 10;
 
     if (captureRate > 255)

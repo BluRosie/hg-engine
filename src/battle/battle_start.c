@@ -571,7 +571,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE6\n");
 #endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE6;        
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE6;
     }
 
     offset = 0x023C0400 | 1;

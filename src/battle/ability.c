@@ -18,7 +18,7 @@
 
 // function declarations from this file
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
+//int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 BOOL MummyAbilityCheck(struct BattleStruct *sp);
 BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
@@ -178,7 +178,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
      && GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT
      && GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE)
     {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender)) 
+        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender))
         {
             scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
         }
@@ -207,7 +207,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
  *  @param sp global battle structure
  *  @return script subseq to run if there's one that should be run; 0 if nothing should be run
  */
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
+int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {
     u32 ovyId, offset;
     int ret;
@@ -501,13 +501,13 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 
     if (ret == TRUE)
     {
-        if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ANY) {
+        if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ALL) {
             seq_no = SUB_SEQ_APPLY_POISON;
         }
-        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_FLAG_BURNED) {
+        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_BURN) {
             seq_no = SUB_SEQ_APPLY_BURN;
         }
-        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_FLAG_PARALYZED) {
+        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_PARALYSIS) {
             seq_no = SUB_SEQ_APPLY_PARALYSIS;
         }
         if(seq_no) {
@@ -1023,7 +1023,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 
             if (sp->defence_client != 0xFF)
             {
-                if ((sp->battlemon[sp->defence_client].condition & STATUS_FLAG_FROZEN)
+                if ((sp->battlemon[sp->defence_client].condition & STATUS_FREEZE)
                  && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS) == 0)
                  && (sp->defence_client != sp->attack_client)
                  && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))

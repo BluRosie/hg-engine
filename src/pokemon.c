@@ -1270,7 +1270,7 @@ BOOL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 m
 #if defined(IMPLEMENT_LEVEL_CAP) && defined(UNCAP_CANDIES_FROM_LEVEL_CAP)
     int currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
     if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID))
-    {        
+    {
         if (currentLevel < 100 && itemID == ITEM_RARE_CANDY)
         {
             return TRUE;
@@ -1590,10 +1590,10 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 
     // use this chance to make bad poisoning normal poison at the end of battle
     work = GetMonData(pp, MON_DATA_STATUS, NULL);
-    if (work & STATUS_FLAG_BADLY_POISONED)
+    if (work & STATUS_BAD_POISON)
     {
-        work &= ~(STATUS_FLAG_BADLY_POISONED);
-        work |= STATUS_FLAG_POISONED;
+        work &= ~(STATUS_BAD_POISON);
+        work |= STATUS_POISON;
         SetMonData(pp, MON_DATA_STATUS, &work);
     }
     work = 0; // reset work variable so that the form is fine

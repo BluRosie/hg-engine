@@ -77,7 +77,7 @@ static BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys, struc
 
     // It doesn't affect xxx
     // Dream Eater when target is awake
-    if ((moveEffect == MOVE_EFFECT_RECOVER_DAMAGE_SLEEP && !((ctx->battlemon[defender].condition & STATUS_FLAG_ASLEEP) || GetBattlerAbility(ctx, defender)))
+    if ((moveEffect == MOVE_EFFECT_RECOVER_DAMAGE_SLEEP && !((ctx->battlemon[defender].condition & STATUS_SLEEP) || GetBattlerAbility(ctx, defender)))
     // Endeavor when target has equal or less HP than the user
     || (moveEffect == MOVE_EFFECT_SET_HP_EQUAL_TO_USER && ctx->battlemon[ctx->attack_client].hp <= ctx->battlemon[defender].hp)) {
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
@@ -353,7 +353,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove5(stru
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In BattleController_BeforeMove5\n")
 #endif
-    
+
     switch (ctx->wb_seq_no) {
         case BEFORE_MOVE_STATE_MOVE_FAILURES_3: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -363,7 +363,7 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove5(stru
             LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckMoveFailures3);
             ctx->wb_seq_no++;
             FALLTHROUGH;
-        }  
+        }
         case BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2\n");
@@ -426,5 +426,6 @@ void LONG_CALL __attribute__((optimize("O0"))) BattleController_BeforeMove5(stru
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
+        default:;
     }
 }

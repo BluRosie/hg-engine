@@ -461,7 +461,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #endif
                     // remove effects that happened already
                     // deleteProcessedElements(sp->futureConditionQueue, CLIENT_MAX * FUTURE_CONDITION_MAX);
-                    
+
                     int flag = TRUE;
                     int i;
                     while (flag) {
@@ -512,7 +512,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     //     sp->scc_work++;
                     //     continue;
                     // }
-                    
+
                     switch (sp->endTurnEventBlockSequenceNumber) {
                         // TODO
                         case FIRST_EVENT_BLOCK_SIDE_CONDITION_RESIDUAL_DAMAGE: {
@@ -543,7 +543,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             }
                             sp->endTurnEventBlockSequenceNumber++;
                             break;
-                        }    
+                        }
                         case FIRST_EVENT_BLOCK_ABILITY_HEAL_STATUS: {
                             #ifdef DEBUG_ENDTURN_LOGIC
                             sprintf(buf, "In FIRST_EVENT_BLOCK_ABILITY_HEAL_STATUS\n");
@@ -587,28 +587,28 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 #endif
 
                                 // TODO: why is condition weird here?
-                                if (sp->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
+                                if (sp->battlemon[battlerId].condition & STATUS_SLEEP) {
                                     #ifdef DEBUG_ENDTURN_LOGIC
                                     sprintf(buf, "In STATUS_FLAG_ASLEEP\n");
                                     debugsyscall(buf);
                                     #endif
 
                                     sp->msg_work = MSG_HEAL_SLEEP;
-                                } else if (sp->battlemon[battlerId].condition & STATUS_POISON_ANY) {
+                                } else if (sp->battlemon[battlerId].condition & STATUS_POISON_ALL) {
                                     #ifdef DEBUG_ENDTURN_LOGIC
                                     sprintf(buf, "In STATUS_POISON_ANY\n");
                                     debugsyscall(buf);
                                     #endif
 
                                     sp->msg_work = MSG_HEAL_POISON;
-                                } else if (sp->battlemon[battlerId].condition & STATUS_FLAG_BURNED) {
+                                } else if (sp->battlemon[battlerId].condition & STATUS_BURN) {
                                     #ifdef DEBUG_ENDTURN_LOGIC
                                     sprintf(buf, "In STATUS_FLAG_BURNED\n");
                                     debugsyscall(buf);
                                     #endif
 
                                     sp->msg_work = MSG_HEAL_BURN;
-                                } else if (sp->battlemon[battlerId].condition & STATUS_FLAG_PARALYZED) {
+                                } else if (sp->battlemon[battlerId].condition & STATUS_PARALYSIS) {
                                     #ifdef DEBUG_ENDTURN_LOGIC
                                     sprintf(buf, "In STATUS_FLAG_PARALYZED\n");
                                     debugsyscall(buf);
@@ -620,7 +620,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     sprintf(buf, "In MSG_HEAL_FROZEN\n");
                                     debugsyscall(buf);
                                     #endif
-                                    
+
                                     sp->msg_work = MSG_HEAL_FROZEN;
                                 }
                                 sp->battlerIdTemp = battlerId;
@@ -650,7 +650,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             sprintf(buf, "In FIRST_EVENT_BLOCK_END\n");
                             debugsyscall(buf);
                             #endif
-                            
+
                             sp->endTurnEventBlockSequenceNumber = 0;
                             sp->scc_work++;
                             break;
@@ -684,7 +684,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 while (sp->scc_work < client_set_max) {
                     battlerId = sp->turnOrder[sp->scc_work];
-                
+
                     if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) && (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp && sp->battlemon[battlerId].hp != 0) {
                         if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
                             sp->battlerIdTemp = battlerId;
@@ -781,20 +781,20 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 while (sp->scc_work < client_set_max) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
-                    if ((sp->battlemon[battlerId].condition & STATUS_FLAG_POISONED) && sp->battlemon[battlerId].hp != 0) {
+                    if ((sp->battlemon[battlerId].condition & STATUS_POISON) && sp->battlemon[battlerId].hp != 0) {
                         sp->battlerIdTemp = battlerId;
                         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
-                    } else if ((sp->battlemon[battlerId].condition & STATUS_FLAG_BADLY_POISONED) && sp->battlemon[battlerId].hp != 0) {
+                    } else if ((sp->battlemon[battlerId].condition & STATUS_BAD_POISON) && sp->battlemon[battlerId].hp != 0) {
                         sp->battlerIdTemp = battlerId;
                         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
-                        if ((sp->battlemon[battlerId].condition & STATUS_FLAG_TOXIC_COUNT) != STATUS_FLAG_TOXIC_COUNT) {
+                        if ((sp->battlemon[battlerId].condition & STATUS_POISON_COUNT) != STATUS_POISON_COUNT) {
                             sp->battlemon[battlerId].condition += 1 << 8;
                         }
-                        sp->hp_calc_work *= ((sp->battlemon[battlerId].condition & STATUS_FLAG_TOXIC_COUNT) >> 8);
+                        sp->hp_calc_work *= ((sp->battlemon[battlerId].condition & STATUS_POISON_COUNT) >> 8);
                         sp->hp_calc_work *= -1;
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -821,7 +821,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 while (sp->scc_work < client_set_max) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
-                    if ((sp->battlemon[battlerId].condition & STATUS_FLAG_BURNED) && sp->battlemon[battlerId].hp != 0) {
+                    if ((sp->battlemon[battlerId].condition & STATUS_BURN) && sp->battlemon[battlerId].hp != 0) {
                         sp->battlerIdTemp = battlerId;
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BURN_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -849,7 +849,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
                     if ((sp->battlemon[battlerId].condition2 & STATUS2_NIGHTMARE) && sp->battlemon[battlerId].hp != 0) {
-                        if (sp->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
+                        if (sp->battlemon[battlerId].condition & STATUS_SLEEP) {
                             sp->battlerIdTemp = battlerId;
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_NIGHTMARE_DAMAGE);
                             sp->next_server_seq_no = sp->server_seq_no;
@@ -1097,7 +1097,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_TELEKINESIS_FADING\n");
                 debugsyscall(buf);
                 #endif
-                
+
                 sp->fcc_seq_no++;
                 break;
             }
@@ -1566,7 +1566,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     //     sp->scc_work++;
                     //     continue;
                     // }
-                    
+
                     switch (sp->endTurnEventBlockSequenceNumber) {
                         case THIRD_EVENT_BLOCK_UPROAR: {
 #ifdef DEBUG_ENDTURN_LOGIC
@@ -1576,7 +1576,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
                                 u8 battlerIdSleep;
                                 for (battlerIdSleep = 0; battlerIdSleep < client_set_max; battlerIdSleep++) {
-                                    if ((sp->battlemon[battlerIdSleep].condition & STATUS_FLAG_ASLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
+                                    if ((sp->battlemon[battlerIdSleep].condition & STATUS_SLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
                                         sp->battlerIdTemp = battlerIdSleep;
                                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WAKE_UP);
                                         sp->next_server_seq_no = sp->server_seq_no;
@@ -1693,7 +1693,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 case ABILITY_BAD_DREAMS: {
                                     while (sp->updateMonConditionData < client_set_max) {
                                         if (sp->updateMonConditionData != BATTLER_ALLY(battlerId) &&
-                                        (sp->battlemon[sp->updateMonConditionData].condition & STATUS_FLAG_ASLEEP) &&
+                                        (sp->battlemon[sp->updateMonConditionData].condition & STATUS_SLEEP) &&
                                         GetBattlerAbility(sp, sp->updateMonConditionData) != ABILITY_MAGIC_GUARD &&
                                         sp->battlemon[sp->updateMonConditionData].hp != 0) {
                                             seq_no = SUB_SEQ_BAD_DREAMS;
@@ -1708,7 +1708,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         }
                                         sp->updateMonConditionData++;
                                         break;
-                                    }        
+                                    }
                                 }
                                 default:
                                     break;
