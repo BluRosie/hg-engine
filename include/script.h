@@ -159,7 +159,7 @@ extern FieldSystem *gFieldSysPtr;
 
 
 void* LONG_CALL GetEvScriptWorkMemberAdrs( FieldSystem *fsys, u32 id );
-u16* LONG_CALL GetVarAdrs(void *saveData, u16 var);
+u16* LONG_CALL GetVarAdrs(void *saveData, u16 var); // GetVarPointer works more universally but takes a script context, use this if you don't have it
 void* LONG_CALL EncDataSave_GetSaveDataPtr(void *savedata);
 u16* LONG_CALL GetVarPointer(FieldSystem *fsys, u16 var);
 u16 LONG_CALL VarGet(FieldSystem *fsys, u16 varIdx);
@@ -175,7 +175,7 @@ u32 LONG_CALL Fsys_GetWeather_HandleDiamondDust(FieldSystem *fsys, u32 mapID);
 #define ScriptReadHalfword(ctx) (ScriptReadByte(ctx) | (ScriptReadByte(ctx) << 8))
 #define ScriptReadWord(ctx) (ScriptReadHalfword(ctx) | (ScriptReadHalfword(ctx) << 16))
 
-#define ScriptGetVarPointer(ctx) GetVarAdrs(ctx->fsys, ScriptReadHalfword(ctx))
+#define ScriptGetVarPointer(ctx) GetVarPointer(ctx->fsys, ScriptReadHalfword(ctx))
 #define ScriptGetVar(ctx) VarGet(ctx->fsys, ScriptReadHalfword(ctx))
 
 #endif

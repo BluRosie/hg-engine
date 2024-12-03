@@ -122,6 +122,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
 0012 Link_QueueIsEmpty 0224ED48 1
 0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
+0012 BtlCmd_GoToMoveScript 0223E594 3
 0012 BtlCmd_WeatherHPRecovery 02242380 3
 0012 BtlCmd_CalcWeatherBallParams 022432AC 3
 0012 BtlCmd_EndOfTurnWeatherEffect 02241B30 3
@@ -131,9 +132,12 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryWish 02242B58 3
 0012 BtlCmd_TryFutureSight 02242570 3
 0012 BtlCmd_SetMultiHit 0223EC10 3
+0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
+arm9 TT_TrainerTypeSexGet 020735F8 1 
+
 #fix money calculation -
 0012 fix_money_calc 0800829E 0
 

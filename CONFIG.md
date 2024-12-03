@@ -23,6 +23,10 @@
 
  ``FAST_TEXT_PRINTING`` (``armips/include/config.s`` only) is a toggle that will force text to print at a really fast speed regardless of the setting.  Borderline instant.
 
+ ``REUSABLE_TMS`` (``armips/include/config.s`` only) will make code edits to make TM's reusable.
+
+ ``DELETABLE_HMS`` (``armips/include/config.s`` only) makes code edits to make HM's forgettable.  Strongly recommended at this time to pair with ``REUSABLE_TMS`` in order to preserve the HM's in the bag.
+
  ``APPLY_ANTIPIRACY`` (``armips/include/config.s`` only) is a toggle that will apply the typical anti-piracy code changes to your ROM.  This will allow it to work on hardware (R4, TWLmenu) better, preventing various crashes and softlocks.
 
  ``EXPERIENCE_FORMULA_GEN`` (``include/config.h`` only) is a number that determines whether or not the experience formula used will take into account the difference in levels in experience distribution.  Setting this to 5, 7, or 8 will scale the experience with the level difference.  Setting this to 1, 2, 3, 4, and 6 will use a flat experience rate.
@@ -45,7 +49,7 @@
 
  ``IMPLEMENT_NEW_EV_IV_VIEWER`` (``include/config.h`` only) is a toggle that will enable an EV/IV viewer on the summary screen using the L, R, and Select buttons to swap between the EV's, IV's, and normal stats respectively.  This also adds up and down arrows to the stat names to make it clear which is boosted and which is nerfed.
 
- ``IMPLEMENT_LEVEL_CAP`` (``include/config.h`` only) is a toggle that will enable a hard level cap past which no Pokémon can gain experience or levels via any method.  The level is read from a script variable as defined by ``LEVEL_CAP_VARIABLE``.  If the Pokémon is at or above that level, the experience gain is disabled and Rare Candies stop working.  Make sure to set to level 100 to disable entirely, there is no error correction built in.
+ ``IMPLEMENT_LEVEL_CAP`` (``include/config.h`` only) is a toggle that will enable a hard level cap past which no Pokémon can gain experience or levels via any method.  The level is read from a script variable as defined by ``LEVEL_CAP_VARIABLE``.  If the Pokémon is at or above that level, the experience gain is disabled and Rare Candies stop working.  Make sure to set to level 100 to disable entirely, there is no error correction built in.  ``UNCAP_CANDIES_FROM_LEVEL_CAP`` further decouples Rare Candies from this requirement, allowing Rare Candies to level Pokémon beyond the level cap.
 
  ``UPDATE_OVERWORLD_POISON`` (``include/config.h`` only) is a toggle that disables overworld poison when enabled.  Overworld poison is disabled by default.
 
@@ -56,6 +60,12 @@
  ``FRIENDSHIP_EVOLUTION_THRESHOLD`` (``include/config.h`` only) defines the threshold for evolutions that involve friendship to start happening.  This is vanilla 220, but in modern generations is 160.
 
  ``RESTORE_ITEMS_AT_BATTLE_END`` (``include/config.h`` only) will restore most single-use items at the end of the battle if defined.  This does not include held berries per modern generation standards.
+
+ ``PROTEAN_GENERATION`` (``include/config.h`` only) defines the generation that Protean's behavior is implemented from.  Later generations make Protean only activate once per appearance in battle.
+
+ ``IMPLEMENT_REUSABLE_REPELS`` (``include/config.h`` only) implements reusable repels, queuing up the next repel in the order of max, super, and then normal repels depending on which the player yet has.
+
+ ``UPDATE_VITAMIN_EV_CAPS`` (``include/config.h`` only) updates the EV caps for vitamins from 100 to 252 like later generations.
 
 ### ``scripts\make.py`` and ``linker.ld``
  On line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in overlay 129 with enough free space.  This is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.
