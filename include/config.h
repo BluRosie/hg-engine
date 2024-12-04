@@ -119,4 +119,7 @@
 // UPDATE_VITAMIN_EV_CAPS changes the cap on the vitamins from 100 to 252 per recent generations
 #define UPDATE_VITAMIN_EV_CAPS
 
+// REUSABLE_TMS will make TMs infinite and hide the quantity number.
+#define REUSABLE_TMS 1
+
 #endif

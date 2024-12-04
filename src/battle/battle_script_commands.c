@@ -3442,6 +3442,7 @@ BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
         //&& !IS_ITEM_Z_CRYSTAL(item)
         // mega stones can not be knocked off their own mon
         && !CheckMegaData(species, item)
+        && !(CanUndergoPrimalReversion(sp, sp->defence_client))
         // arceus plate on arceus can not be knocked off
         && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
         // technically this can be knocked off as of SV but the transformation code hasnt been moved to the core as of right now so ill leave it alone for right now
