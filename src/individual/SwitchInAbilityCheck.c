@@ -86,6 +86,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no++;
             }
                 break;
+            case SWITCH_IN_CHECK_FIELD: // TODO come back to this
+                sp->switch_in_check_seq_no++;
+                break;
             // https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
             case SWITCH_IN_CHECK_ENTRY_EFFECT: {
                 for (i = 0; i < client_set_max; i++) {
@@ -96,9 +99,12 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     }
 
-                    // Unnerve
+                    // Unnerve / As One
                     {
-                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_UNNERVE)) {
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp)
+                        && ((GetBattlerAbility(sp, client_no) == ABILITY_AS_ONE_GLASTRIER)
+                        || (GetBattlerAbility(sp, client_no) == ABILITY_AS_ONE_SPECTRIER)
+                        || (GetBattlerAbility(sp, client_no) == ABILITY_UNNERVE))) {
                             sp->battlemon[client_no].ability_activated_flag = 1;
                             sp->client_work = client_no;
                             scriptnum = SUB_SEQ_HANDLE_UNNERVE_MESSAGE;
@@ -194,6 +200,17 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                         if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                             sp->client_work = client_no;
+                            break;
+                        }
+                    }
+
+                    // Cloud Nine/Air Lock
+                    {
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && ((GetBattlerAbility(sp, client_no) == ABILITY_CLOUD_NINE) || (GetBattlerAbility(sp, client_no) == ABILITY_AIR_LOCK))) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            scriptnum = SUB_SEQ_HANDLE_CLOUD_NINE_MESSAGE;
+
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         }
                     }
@@ -709,19 +726,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     sp->switch_in_check_seq_no++;
                 }
             }
-                break;
-            case SWITCH_IN_CHECK_FIELD:; // TODO come back to this
-//                if (sp->printed_field_message == 0) {
-//                    sp->terrainOverlay.type = TERRAIN_NONE;
-//                    sp->terrainOverlay.numberOfTurnsLeft = 0;
-//                    scriptnum = SUB_SEQ_HANDLE_FIELD_EFFECTS_INITIAL_MSG; // currently NULL
-//                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-//
-//                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-//                        sp->printed_field_message = 1;
-//                    }
-//                }
-                sp->switch_in_check_seq_no++;
                 break;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;

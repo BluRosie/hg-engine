@@ -3140,16 +3140,6 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
     if (ctx->battlemon[battlerId].hp) {
         switch (item) {
         case HOLD_EFFECT_HP_RESTORE: //oran berry, berry juice
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
-					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
-				} else {
-					ctx->hp_calc_work = boost;
-				}
-                script = SUB_SEQ_ITEM_HP_RESTORE;
-                ret = TRUE;
-            }
-            break;
         case HOLD_EFFECT_HP_PCT_RESTORE: //sitrus berry
             if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
 				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
@@ -3255,34 +3245,19 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
             break;
         }
         case HOLD_EFFECT_HEAL_INFATUATION: //mental herb
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_INFATUATION) {
+            if ((ctx->battlemon[battlerId].condition2 & STATUS2_INFATUATION) ||
+				(ctx->battlemon[battlerId].moveeffect.tauntTurns != 0) ||
+				(ctx->battlemon[battlerId].moveeffect.encoredTurns != 0) ||
+				(ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT) ||
+				(ctx->battlemon[battlerId].moveeffect.healBlockTurns != 0) ||
+				(ctx->battlemon[battlerId].moveeffect.disabledTurns != 0)) {
                 ctx->msg_work = 6;
-                script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.tauntTurns != 0) {
-                script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.encoredTurns != 0) {
-                script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT) {
-				script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.healBlockTurns != 0) {
-                script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.disabledTurns != 0) {
                 script = SUB_SEQ_ITEM_RECOVER_INF;
                 ret = TRUE;
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_SPICY: //figy berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 0;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 0) == -1) { //FLAVOR_SPICY=0
@@ -3294,7 +3269,7 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_DRY: //wiki berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 1;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 1) == -1) { //FLAVOR_DRY=0
@@ -3306,7 +3281,7 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_SWEET: //mago berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 2;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 2) == -1) { //FLAVOR_SWEET=2
@@ -3318,7 +3293,7 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_BITTER: //aguav berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 3;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 3) == -1) { //FLAVOR_BITTER=3
@@ -3330,7 +3305,7 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_SOUR: //iappapa berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 4;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 4) == -1) { //FLAVOR_SOUR=4
@@ -3445,7 +3420,7 @@ BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ct
     return ret;
 }
 
-BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int *script) {
+BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 *script) {
     BOOL ret = FALSE;
     int item;
     int boost;
@@ -3561,34 +3536,19 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
             break;
         }
         case HOLD_EFFECT_HEAL_INFATUATION: //mental herb
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_INFATUATION) {
+            if ((ctx->battlemon[battlerId].condition2 & STATUS2_INFATUATION) ||
+				(ctx->battlemon[battlerId].moveeffect.tauntTurns != 0) ||
+				(ctx->battlemon[battlerId].moveeffect.encoredTurns != 0) ||
+				(ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT) ||
+				(ctx->battlemon[battlerId].moveeffect.healBlockTurns != 0) ||
+				(ctx->battlemon[battlerId].moveeffect.disabledTurns != 0)) {
                 ctx->msg_work = 6;
-                *script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.tauntTurns != 0) {
-                *script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.encoredTurns != 0) {
-                *script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT) {
-				*script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.healBlockTurns != 0) {
-                *script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-			if (ctx->battlemon[battlerId].moveeffect.disabledTurns != 0) {
                 *script = SUB_SEQ_ITEM_RECOVER_INF;
                 ret = TRUE;
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_SPICY: //figy berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 0;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 0) == -1) { //FLAVOR_SPICY=0
@@ -3600,7 +3560,7 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_DRY: //wiki berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 1;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 1) == -1) { //FLAVOR_DRY=1
@@ -3612,7 +3572,7 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_SWEET: //mago berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 2;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 2) == -1) { //FLAVOR_SWEET=2
@@ -3624,7 +3584,7 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_BITTER: //aguav berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 3;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 3) == -1) { //FLAVOR_BITTER=3
@@ -3636,7 +3596,7 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
             }
             break;
         case HOLD_EFFECT_HP_RESTORE_SOUR: //iappapa berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4-2*(GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
+            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
                 ctx->msg_work = 4;
                 if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 4) == -1) { //FLAVOR_SOUR=4
@@ -3740,7 +3700,7 @@ BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct 
             break;
         }
         if (ret == TRUE) {
-            ctx->item_work  = GetBattleMonItem(ctx, battlerId);
+            ctx->item_work = GetBattleMonItem(ctx, battlerId);
         }
     }
 

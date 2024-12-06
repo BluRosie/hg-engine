@@ -12,7 +12,6 @@
 0012 Sub_PokeIconResourceFree 08030954 1
 0012 ServerBeforeAct 08011A4C 2
 0012 ServerWazaBefore 08014ACC 2
-#0012 set_proper_mega_status 0802E868 4
 0012 set_proper_mega_status 0802E8C4 0
 # 0226762C
 0012 shift_cancel_over 0802FD6C 0
@@ -28,7 +27,6 @@ arm9 ItemDataTableLoad 08078138 1
 #0206DED0+4
 arm9 CreateBoxMonData_hook 0806DED4 5
 arm9 LoadEggMoves 0806C488 2
-#arm9 InheritMoves 0206C510 3 # come back later for egg move expansion
 #02070E34+4
 arm9 GetMonEvolution_hook 08070E38 5
 0007 hook_7_spriteOffsetSpecies 08018A48 3
@@ -68,9 +66,6 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 MoveCheckDamageNegatingAbilities 0801B608 3
 #02253194
 0012 SwitchInAbilityCheck 0801B8D4 2
-## this is no longer needed--handled in
-##02253068
-#0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
 0012 MoveHitDefenderAbilityCheck 0801C544 3
 #0224BCC4+4
@@ -288,8 +283,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 # r0 isn't used, can be burned
 0002 WildEncSingle 02247424 0
 0002 WildWaterEncSingle_hook 022474E4 5
-# can't modify SetFieldBattleParam since it is used for sweet scent and fishing and such
-#0002 TryTriggerWildDoubleBattle 02248284 0
 0002 TryTriggerWildDoubleBattle 02246E0E 0
 0012 KeepPlayerPaletteIntact 022607BC 1
 0012 MakeSureDoublesBitIsSet 0226328E 0
