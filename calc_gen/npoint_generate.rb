@@ -218,7 +218,6 @@ while i < set_data.length
 
 
 
-	# relies on consistent formatting
 	if line[0..4] == "level"
 		level = parse_level set_constants, line
 
@@ -251,19 +250,16 @@ while i < set_data.length
 
 			species = "#{species}-Mega-X" if item[-5..-1] == "ite X"
 			species = "#{species}-Mega-Y" if item[-5..-1] == "ite Y"
-
-
 		else
 			item = ""
 		end
 
-		
+
+		moves = []
 		if has_moves
-			move1 = move_names[parse_move(set_data[i + 3].strip.split("move ")[1])]
-			move2 = move_names[parse_move(set_data[i + 4].strip.split("move ")[1])]
-			move3 = move_names[parse_move(set_data[i + 5].strip.split("move ")[1])]
-			move4 = move_names[parse_move(set_data[i + 6].strip.split("move ")[1])]
-			moves = [move1 || "", move2 || "", move3 || "", move4 || ""]
+			(0..3).each do |n|
+				moves << (move_names[parse_move(set_data[i + n + 2 + (1 if has_items)].strip.split("move ")[1])] || "")
+			end
 		end
 
 		ability = parse_ability set_data[i + 7]
