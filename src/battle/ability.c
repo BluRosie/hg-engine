@@ -388,7 +388,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)
+                && (IsContactBeingMade(bw, sp))
                 && (CheckSubstitute(sp, sp->defence_client) == FALSE)
                 && (BattleRand(bw) % 10 < 3))
             {
@@ -1118,7 +1118,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
 
                 sp->swoak_work++;
 
-                if (HeldItemHealCheck(bw, sp, client_no, &seq_no) == TRUE)
+                if (HeldItemHealStatusCheck(bw, sp, client_no, &seq_no) == TRUE) // will also probably need this one too
                 {
                     sp->client_work = client_no;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);

@@ -327,11 +327,11 @@
 #define MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS         321
 #define MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED     322
 #define MOVE_EFFECT_SET_ABILITY_TO_SIMPLE                   323
+#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
+#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
+#define MOVE_EFFECT_STICKY_WEB                              326
 
 //unused move effects
-#define MOVE_EFFECT_UNUSED_324                              324
-#define MOVE_EFFECT_UNUSED_325                              325
-#define MOVE_EFFECT_UNUSED_326                              326
 #define MOVE_EFFECT_UNUSED_327                              327
 #define MOVE_EFFECT_UNUSED_328                              328
 #define MOVE_EFFECT_UNUSED_329                              329
@@ -910,7 +910,8 @@
 #define MOVE_EFFECT_ELECTRO_BALL                            900
 #define MOVE_EFFECT_SKULK_OUT                               901
 #define MOVE_EFFECT_CACKLE                                  902
-#define MOVE_EFFECT_VENOM_DRENCH                            903
+#define MOVE_EFFECT_BITTER_MALICE                           903
+#define MOVE_EFFECT_HURRICANE                               904
 
 
 #define MOVE_TARGET_SELECTED             0x0000

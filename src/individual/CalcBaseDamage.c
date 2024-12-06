@@ -73,81 +73,57 @@ static const u8 HeldItemPowerUpTable[][2]={
 #endif
 };
 
-static const u16 IronFistMovesTable[] = {
-    MOVE_BULLET_PUNCH,
-    MOVE_COMET_PUNCH,
-    MOVE_DIZZY_PUNCH,
-    MOVE_DOUBLE_IRON_BASH,
-    MOVE_DRAIN_PUNCH,
-    MOVE_DYNAMIC_PUNCH,
-    MOVE_FIRE_PUNCH,
-    MOVE_FOCUS_PUNCH,
-    MOVE_HAMMER_ARM,
-    MOVE_HEADLONG_RUSH,
-    MOVE_ICE_HAMMER,
-    MOVE_ICE_PUNCH,
-    MOVE_JET_PUNCH,
-    MOVE_MACH_PUNCH,
-    MOVE_MEGA_PUNCH,
-    MOVE_METEOR_MASH,
-    MOVE_PLASMA_FISTS,
-    MOVE_POWER_UP_PUNCH,
-    MOVE_RAGE_FIST,
-    MOVE_SHADOW_PUNCH,
-    MOVE_SKY_UPPERCUT,
-    MOVE_SURGING_STRIKES,
-    MOVE_THUNDER_PUNCH,
-    MOVE_WICKED_BLOW,
-};
+// this has been moved to src/battle/other_battle_calculators.c so it can be used in 
+extern const u16 PunchingMovesTable[24];
 
 static const u16 StrongJawMovesTable[] = {
-        MOVE_BITE,
-        MOVE_CRUNCH,
-        MOVE_FIRE_FANG,
-        MOVE_FISHIOUS_REND,
-        MOVE_HYPER_FANG,
-        MOVE_ICE_FANG,
-        MOVE_JAW_LOCK,
-        MOVE_POISON_FANG,
-        MOVE_PSYCHIC_FANGS,
-        MOVE_THUNDER_FANG,
+    MOVE_BITE,
+    MOVE_CRUNCH,
+    MOVE_FIRE_FANG,
+    MOVE_FISHIOUS_REND,
+    MOVE_HYPER_FANG,
+    MOVE_ICE_FANG,
+    MOVE_JAW_LOCK,
+    MOVE_POISON_FANG,
+    MOVE_PSYCHIC_FANGS,
+    MOVE_THUNDER_FANG,
 };
 
 static const u16 MegaLauncherMovesTable[] = {
-        MOVE_AURA_SPHERE,
-        MOVE_DARK_PULSE,
-        MOVE_DRAGON_PULSE,
-        MOVE_HEAL_PULSE,
-        MOVE_ORIGIN_PULSE,
-        MOVE_TERRAIN_PULSE,
-        MOVE_WATER_PULSE,
+    MOVE_AURA_SPHERE,
+    MOVE_DARK_PULSE,
+    MOVE_DRAGON_PULSE,
+    MOVE_HEAL_PULSE,
+    MOVE_ORIGIN_PULSE,
+    MOVE_TERRAIN_PULSE,
+    MOVE_WATER_PULSE,
 };
 
 static const u16 SharpnessMovesTable[] = {
-        MOVE_AERIAL_ACE,
-        MOVE_AIR_CUTTER,
-        MOVE_AIR_SLASH,
-        MOVE_AQUA_CUTTER,
-        MOVE_BEHEMOTH_BLADE,
-        MOVE_BITTER_BLADE,
-        MOVE_CEASELESS_EDGE,
-        MOVE_CROSS_POISON,
-        MOVE_CUT,
-        MOVE_FURY_CUTTER,
-        MOVE_KOWTOW_CLEAVE,
-        MOVE_LEAF_BLADE,
-        MOVE_NIGHT_SLASH,
-        MOVE_POPULATION_BOMB,
-        MOVE_PSYBLADE,
-        MOVE_PSYCHO_CUT,
-        MOVE_RAZOR_SHELL,
-        MOVE_RAZOR_LEAF,
-        MOVE_SACRED_SWORD,
-        MOVE_SECRET_SWORD,
-        MOVE_SLASH,
-        MOVE_SOLAR_BLADE,
-        MOVE_STONE_AXE,
-        MOVE_X_SCISSOR,
+    MOVE_AERIAL_ACE,
+    MOVE_AIR_CUTTER,
+    MOVE_AIR_SLASH,
+    MOVE_AQUA_CUTTER,
+    MOVE_BEHEMOTH_BLADE,
+    MOVE_BITTER_BLADE,
+    MOVE_CEASELESS_EDGE,
+    MOVE_CROSS_POISON,
+    MOVE_CUT,
+    MOVE_FURY_CUTTER,
+    MOVE_KOWTOW_CLEAVE,
+    MOVE_LEAF_BLADE,
+    MOVE_NIGHT_SLASH,
+    MOVE_POPULATION_BOMB,
+    MOVE_PSYBLADE,
+    MOVE_PSYCHO_CUT,
+    MOVE_RAZOR_SHELL,
+    MOVE_RAZOR_LEAF,
+    MOVE_SACRED_SWORD,
+    MOVE_SECRET_SWORD,
+    MOVE_SLASH,
+    MOVE_SOLAR_BLADE,
+    MOVE_STONE_AXE,
+    MOVE_X_SCISSOR,
 };
 
 
@@ -168,6 +144,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     s8 defstate;
     s8 spatkstate;
     s8 spdefstate;
+    u8 level;
     u16 movepower;
     u16 item;
     u32 battle_type;
@@ -177,7 +154,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     struct sDamageCalc DefendingMon;
 
     switch (moveno) {
-        // Handle Body Press - Attack is derived from Defense
+        // handle body press - attack is derived from defense
         case MOVE_BODY_PRESS:
             attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
             atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
@@ -196,6 +173,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
+
+    level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
     DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
@@ -340,12 +319,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_DITTO_DEF_UP) && (DefendingMon.species == SPECIES_DITTO))
         defense *= 2;
 
-    // handle Gorilla Tactics
+    // handle gorilla tactics
     if (AttackingMon.ability == ABILITY_GORILLA_TACTICS) {
         attack = attack * 15 / 10;
     }    
 
-    // Handle Assault Vest
+    // handle assault vest
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES)) {
         sp_defense = sp_defense * 15 / 10;
     }
@@ -414,7 +393,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle punching glove
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0])))
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
     {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
     }
@@ -471,15 +450,15 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle tough claws
-    if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+    if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (IsContactBeingMade(bw, sp)))
     {
         movepower = movepower * 13 / 10;
     }
 
-    // Handle Fluffy
+    // handle fluffy
     if (DefendingMon.ability == ABILITY_FLUFFY) {
-        if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
-            movepower = movepower / 2;
+        if (IsContactBeingMade(bw, sp)) {
+            movepower = movepower * 50 / 100;
         }
 
         if (movetype == TYPE_FIRE) {
@@ -602,6 +581,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         movepower = movepower * 15 / 10;
     }
+
     // handle steely spirit for the attacker--can stack
     if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT)
     {
@@ -742,7 +722,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle iron fist
-    if ((AttackingMon.ability == ABILITY_IRON_FIST) && IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0])))
+    if ((AttackingMon.ability == ABILITY_IRON_FIST) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
     {
         movepower = movepower * 12 / 10;
     }
@@ -788,7 +768,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
       && (DefendingMon.ability != ABILITY_BEADS_OF_RUIN))
         sp_defense = sp_defense * 75 / 100;
 
-    // Handle field effects interacting with their moves
+    // handle field effects interacting with their moves
     if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
         switch (sp->terrainOverlay.type)
         {
@@ -865,7 +845,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     damage = movepower * equivalentAttack / equivalentDefense / 25;
 
-    // Handle Parental Bond
+    // handle parental bond
     if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
         damage /= 4;
     }
@@ -1026,7 +1006,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
       
-    // Handle field effects
+    // handle field effects
     if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
         switch (sp->terrainOverlay.type)
         {

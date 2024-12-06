@@ -49,11 +49,11 @@ void AnimScrCmd_ChangePermanentBattleBackground(ANIM_CMD_STRUCT *animCmdStruct)
 
     if (bg == -1u)
     {
-        bg = bw->bgId;
+        bg = bw->sp->original_bgId;
     }
     if (terrain == -1u)
     {
-        terrain = bw->terrain;
+        terrain = bw->sp->original_terrain;
     }
     LoadDifferentBattleBackground(bw, bg, terrain);
 }

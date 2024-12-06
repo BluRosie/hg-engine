@@ -5,7 +5,12 @@
 
 // Stop TM quantity dropping on use
 .org 0x020825A7
+
+.if REUSABLE_TMS == 1
 .byte 0xE0
+.else
+.byte 0xD1
+.endif
 
 .close
 
@@ -13,6 +18,11 @@
 
 // Dont show quantity for TMs
 .org 0x02207531
+
+.if REUSABLE_TMS == 1
 .byte 0xE0
+.else
+.byte 0xD3
+.endif
 
 .close

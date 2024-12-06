@@ -51,6 +51,7 @@ ArchiveDataLoad = 0x02007509;
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
 NARC_ctor = 0x02007688 | 1;
 ArchiveDataLoadOfs = 0x02007560 | 1;
+/*sqrt = 0x0200048A | 1;*/
 
 /*Pokemon*/
 AllocMonZeroed = 0x0206DD2C | 1;
@@ -197,6 +198,8 @@ BattleRand = 0x0223BD98 | 1;
 ChooseRandomTarget = 0x02253DA0 | 1;
 CountBattlerMoves = 0x02252EA8 | 1;
 AbilityStatusRecoverCheck = 0x022543A0 | 1;
+HeldItemHealCheck = 0x02254E7C | 1;
+/*LoadBattleSubSeqScript = 0x172DC + 0x022378C1;*/
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
@@ -226,11 +229,14 @@ ST_ServerQueCheck = 0x0224ED48 | 1;
 SCIO_StatusEffectSet = 0x02263848 | 1;
 SCIO_LevelUpEffectSet = 0x0226399C | 1;
 BattleWorkPlaceIDGet = 0x0223AB60 | 1;
+TryUseHeldItem = 0x0225471C | 1;
+HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
+/*read_battle_script_param = 0x022454E8 | 1;*/
 CreateNicknameTag = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
@@ -239,7 +245,6 @@ BGCallback_Waza = 0x0226748C | 1;
 gf_get_seed = 0x0201FD2C | 1;
 PokeParty_Init = 0x020744DC | 1;
 TT_TrainerPokeDataGet = 0x020735E8 | 1;
-TT_TrainerTypeSexGet = 0x020735F8 | 1;
 TrainerCBSet = 0x02072A44 | 1;
 try_force_gender_maybe = 0x02073A98 | 1;
 TrainerMonHandleFrustration = 0x02073AE4 | 1;
@@ -265,6 +270,7 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 /*Overworld Code*/
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
+/*get_mon_ow_tag = 0x02069D70 | 1;*/
 does_species_have_dimorphism = 0x0206A338 | 1;
 
 /*first E0 battle script commands*/
@@ -507,17 +513,25 @@ BattleWork_GetTrainerIndex = 0x0223A9AC | 1;
 MIi_CpuClearFast = 0x020D4858;
 SaveDetectFlash = 0x020286F8 | 1;
 SaveData_InitSubstructs = 0x02027E5C | 1;
+//SaveData_InitSlotSpecs = 0x02027EFC | 1;
 Save_GetSaveFilesStatus = 0x020277D4 | 1;
+//Save_LoadDynamicRegion = 0x02027AD4 | 1;
 Save_GetPCBoxModifiedFlags = 0x02027170 | 1;
 Save_CheckFrontierData = 0x020279EC | 1;
+//Save_InitDynamicRegion = 0x020274A8 | 1;
 sSaveDataPtr = 0x021D2228;
 Sys_SetSleepDisableFlag = 0x0201A4BC | 1;
 FlashClobberChunkFooter = 0x02027DF8 | 1;
 FlashWriteChunk = 0x02028758 | 1;
 Sys_ClearSleepDisableFlag = 0x0201A4CC | 1;
 _NowWriteFlash = 0x02027DB4 | 1;
+//Save_PrepareForAsyncWrite = 0x02027550 | 1;
+//Save_WriteFileAsync = 0x02027564 | 1;
 Save_InitDynamicRegion_Internal = 0x02027FA8 | 1;
+//Save_WriteManInit = 0x02027BDC | 1;
+//HandleWriteSaveAsync_PCBoxes = 0x02028968 | 1;
 HandleWriteSaveAsync_NormalData = 0x02027C18 | 1;
+//Save_WriteManFinish = 0x02027CEC | 1;
 CancelAsyncSave = 0x02027D6C | 1;
 SaveArray_CalcCRC16MinusFooter = 0x020275D0 | 1;
 FlashLoadSaveDataFromChunk = 0x02027ABC | 1;
@@ -533,17 +547,26 @@ CARD_TryWaitBackupAsync = 0x020DD1A4;
 CARD_CancelBackupAsync = 0x020DD1B0;
 CARD_UnlockBackup = 0x020DC9B4;
 OS_ReleaseLockID = 0x020D161C;
+//Save_CalcPCBoxModifiedFlags = 0x02028C70 | 1;
+//PCModifiedFlags_CountModifiedBoxes = 0x02028C9C | 1;
 sub_020271A0 = 0x020271A0 | 1;
 Save_SetAllPCBoxesModified = 0x02027190 | 1;
+//Save_WritePCBoxes = 0x02028AB4 | 1;
 WaitFlashWrite = 0x02028874 | 1;
+//Save_WriteNextPCBox = 0x02028BA8 | 1;
+//Save_WritePCFooter = 0x02028BF8 | 1;
+//PCModifiedFlags_GetIndexOfNthModifiedBox = 0x02028CD4 | 1;
 
 NewMsgDataFromNarc = 0x0200BAF8 | 1;
 ReadMsgDataIntoU16Array = 0x0200BBF4 | 1;
 DestroyMsgData = 0x0200BB44 | 1;
 RestoreBoxMonPP = 0x020728C4 | 1;
+//PCStorage_PlaceMonInBoxFirstEmptySlot = 0x02073BFC | 1;
+//PCStorage_SetBoxModified = 0x020740D8 | 1;
 CopyU16ArrayToString = 0x020269A0 | 1;
 CopyStringToU16Array = 0x02026A68 | 1;
 CheckMoveCallsOtherMove = 0x02252698 | 1;
+//StruggleCheck = 0x022517EC | 1;
 
 GfGfxLoader_LoadCharData = 0x020078F0 | 1;
 PaletteData_LoadNarc = 0x02003200 | 1;
@@ -642,12 +665,11 @@ CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
 
-CheckTruant = 0x02252C40 | 1;
-LowestFlagNo = 0x020726E0 | 1;
-CopyBattleMonToPartyMon = 0x02250C40 | 1;
+ov12_022506D4 = 0x022506D4 | 1;
+ov12_02250A18 = 0x02250A18 | 1;
 
-BattleMon_AddVar = 0x0224F7AC | 1;
-
-AcquireMonLock = 0x0206DD40 | 1;
-LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
-ReleaseMonLock = 0x0206DD8C | 1;
+/* Stuff for Battle End Item */
+sPickupTable1 = 0x0226C404;
+sPickupTable2 = 0x0226C30C;
+sPickupWeightTable = 0x0226CA4C;
+sHoneyGatherChanceTable = 0x0226CA58;

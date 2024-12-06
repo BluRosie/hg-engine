@@ -292,6 +292,7 @@
 #define SIDE_STATUS_STEALTH_ROCK (0x80)
 #define SIDE_STATUS_TAILWIND (0x300) // no longer used, see sp->tailwindCount
 #define SIDE_STATUS_TOXIC_SPIKES (0x400)
+#define SIDE_STATUS_STICKY_WEB (0x800)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 /**
@@ -1662,11 +1663,8 @@ int LONG_CALL CreateNicknameTag(struct BattleStruct *sp, int client_no);
 int LONG_CALL BattleWorkClientNoGet(void *bw, int client_type);
 void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species, u32 form);
 
-u16 LONG_CALL BattleSystem_Random(struct BattleSystem *bsys);
-BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
-int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
-void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+
 
 /* new battle engine declarations*/
 /**
@@ -1797,7 +1795,7 @@ u32 LONG_CALL AbilityStatusRecoverCheck(void *bw, struct BattleStruct *sp, int c
  *  @param seq_no pointer to store subscript to if the held item heals
  *  @return TRUE if held item heals and a subscript was stored in seq_no; FALSE otherwise
  */
-BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 *script);
+u32 LONG_CALL HeldItemHealCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
  *  @brief grab the held item effect of the client
@@ -2109,7 +2107,18 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @param client_no is the battler to check
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
-BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
+
+/**
+ *  @brief check if held item effect needs to activate, specifically directly after moves.  for things like status items
+ *
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param client_no is the battler to check
+ *  @param seq_no is the script to run if TRUE is returned; LoadBattleSubSeqScript is used for this one
+ *  @return TRUE if a held item effect is going to happen and *seq_no is assigned that number; FALSE otherwise
+ */
+BOOL LONG_CALL HeldItemHealStatusCheck(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
  *  @brief
@@ -2873,6 +2882,15 @@ typedef enum Terrain {
 // and Battle Frontier.
 #define TERRAIN_OTHERS (TERRAIN_WILL)
 
+
+// Battler IDs
+#define BATTLER_NONE    0xFF
+#define BATTLER_PLAYER  0
+#define BATTLER_ENEMY   1
+#define BATTLER_PLAYER2 2
+#define BATTLER_ENEMY2  3
+#define BATTLER_MAX     4
+
 /**
  *  @brief load in different battle bg and terrain
  *
@@ -2939,6 +2957,14 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
  */
 BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
 
+/**
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -2952,10 +2978,14 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, str
 //Buffer messages related to being unable to select moves?
 BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
 
-void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
+
+// BattleSystem_Defender
+int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
+
+void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 
 #endif // BATTLE_H

@@ -147,7 +147,7 @@ const u16 ParentalBondSingleStrikeMovesList[] = {
     MOVE_BOUNCE,
     MOVE_DIG,
     MOVE_DIVE,
-    // MOVE_ELECTRO_SHOT, // Not implemented yet
+    MOVE_ELECTRO_SHOT,
     MOVE_FLY,
     MOVE_FREEZE_SHOCK,
     MOVE_GEOMANCY,
@@ -317,6 +317,33 @@ const u16 MaxMoveList[] = {
     MOVE_MAX_DARKNESS,
     MOVE_MAX_OVERGROWTH,
     MOVE_MAX_STEELSPIKE,
+};
+
+const u16 PunchingMovesTable[] = {
+    MOVE_BULLET_PUNCH,
+    MOVE_COMET_PUNCH,
+    MOVE_DIZZY_PUNCH,
+    MOVE_DOUBLE_IRON_BASH,
+    MOVE_DRAIN_PUNCH,
+    MOVE_DYNAMIC_PUNCH,
+    MOVE_FIRE_PUNCH,
+    MOVE_FOCUS_PUNCH,
+    MOVE_HAMMER_ARM,
+    MOVE_HEADLONG_RUSH,
+    MOVE_ICE_HAMMER,
+    MOVE_ICE_PUNCH,
+    MOVE_JET_PUNCH,
+    MOVE_MACH_PUNCH,
+    MOVE_MEGA_PUNCH,
+    MOVE_METEOR_MASH,
+    MOVE_PLASMA_FISTS,
+    MOVE_POWER_UP_PUNCH,
+    MOVE_RAGE_FIST,
+    MOVE_SHADOW_PUNCH,
+    MOVE_SKY_UPPERCUT,
+    MOVE_SURGING_STRIKES,
+    MOVE_THUNDER_PUNCH,
+    MOVE_WICKED_BLOW,
 };
 
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
@@ -1989,6 +2016,7 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
         case MOVE_SECRET_SWORD:
             *equivalentDefense = rawPhysicalDefense;
             break;
+        case MOVE_PHOTON_GEYSER:
         case MOVE_PRISMATIC_LASER:
             if (tempPhysicalAttack > tempSpecialAttack) {
                 *movesplit = SPLIT_PHYSICAL;
@@ -2404,6 +2432,57 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
     return FALSE;
 }
 
+/**
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
+
+    // Attacker abilities
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
+        // Kept in case people add their own
+        // || GetBattlerAbility(sp, sp->attack_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_ATTACK
+        ) {
+            return FALSE;
+        }
+
+    // Defender abilities
+    // Kept in case people add their own
+    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
+    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
+    //     ) {
+    //         return FALSE;
+    //     }
+
+    // Check for items attacker
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // punching gloves prevents contact when attacking with punching moves
+        || (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+            && IsElementInArray(PunchingMovesTable, (u16 *)&sp->current_move_index, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
+        // Kept in case people add their own
+        // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
+        ) {
+            return FALSE;
+    }
+
+    // Check for items defender
+    if (HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // Kept in case people add their own
+        // || HeldItemHoldEffectGet(sp, sp->defence_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_DEFENDER_CONTACT
+        ) {
+            return FALSE;
+    }
+
+    // Does the move make contact vanilla
+    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 enum {
     TRY_MOVE_START = 0,
 
@@ -2553,6 +2632,20 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
                 default:
                     type = TYPE_NORMAL;
                     break;
+            }
+            break;
+        case MOVE_HIDDEN_POWER:
+            type = (ctx->battlemon[battlerId].hp_iv & 1) |
+                   ((ctx->battlemon[battlerId].atk_iv & 1) << 1) |
+                   ((ctx->battlemon[battlerId].def_iv & 1) << 2) |
+                   ((ctx->battlemon[battlerId].spe_iv & 1) << 3) |
+                   ((ctx->battlemon[battlerId].spatk_iv & 1) << 4) |
+                   ((ctx->battlemon[battlerId].spdef_iv & 1) << 5);
+
+            type = (type * 15 / 63) + 1;
+
+            if (type >= TYPE_MYSTERY) {
+                type++;
             }
             break;
         case MOVE_WEATHER_BALL:
@@ -2963,745 +3056,6 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         // There’s no PP left for this move!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
-    }
-
-    return ret;
-}
-
-BOOL LONG_CALL ov12_0224B528(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    int ret = 0;
-    
-    do {
-        switch (ctx->ssc_seq_no) {
-        case 0:
-            ctx->battlemon[ctx->attack_client].condition2 &= ~(1 << 25);
-            ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
-            ctx->ssc_seq_no++;
-            break;
-        case 1:
-            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_ASLEEP) {
-                if (BattleRand(bsys) % 4 == 0) {
-                    ctx->moveOutCheck[ctx->attack_client].stoppedFromParalysis = TRUE;
-					LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_SLEEPING);
-					ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-					ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-					ret = 1;
-                }
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 2:
-            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_FROZEN) {
-                if (BattleRand(bsys) % 4 == 0) {
-					ctx->moveOutCheck[ctx->attack_client].stoppedFromParalysis = TRUE;
-					LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FROZEN);
-					ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-					ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-					ret = 1;
-                }
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 3:
-            if (CheckTruant(ctx, ctx->attack_client) == TRUE) {
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_LOAFING);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ret = 1;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 4:
-            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RECHARGE) {
-                ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RECHARGE;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_RECHARGE_TURN);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ret = 1;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 5:
-            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_FLINCH) {
-                ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_FLINCH;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAIL_FLINCHED);
-                ctx->damage /= 2;
-				ctx->next_server_seq_no = ctx->server_seq_no;
-				ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ret = 2;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 6:
-            if (ctx->battlemon[ctx->attack_client].moveeffect.disabledMove == ctx->waza_no_temp) {
-                ctx->moveOutCheck[ctx->attack_client].stoppedFromDisable = TRUE;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_IS_DISABLED);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ret = 1;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 7:
-            if (ctx->battlemon[ctx->attack_client].moveeffect.tauntTurns && ctx->moveTbl[ctx->current_move_index].split == SPLIT_STATUS) {
-                ctx->moveOutCheck[ctx->attack_client].stoppedFromTaunt = TRUE;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAIL_TAUNTED);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ret = 1;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 8:
-            if (BattleContext_CheckMoveImprisoned(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
-                ctx->moveOutCheck[ctx->attack_client].stoppedFromImprison = TRUE;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_IS_IMPRISONED);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ret = 1;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 9:
-            if (BattleContext_CheckMoveHealBlocked(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
-                ctx->moveOutCheck[ctx->attack_client].stoppedFromHealBlock = TRUE;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MOVE_FAILED_HEAL_BLOCK);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ret = 1;
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 10:
-            if (ctx->battlemon[ctx->attack_client].condition2 & 1) {
-				LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED);
-				ctx->next_server_seq_no = ctx->server_seq_no;
-				ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-				ret = 2; 
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 11:
-            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FLAG_PARALYZED) {
-                if (BattleRand(bsys) % 4 == 0) {
-                    ctx->moveOutCheck[ctx->attack_client].stoppedFromParalysis = TRUE;
-                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FULLY_PARALYZED);
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                    ret = 1;
-                }
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 12:
-            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_INFATUATION) {
-                ctx->client_work = LowestFlagNo((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_INFATUATION) >> 16);
-                if (BattleRand(bsys) & 1) {
-                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_INFATUATED);
-                    ctx->next_server_seq_no = ctx->server_seq_no;
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    ret = 2;
-                } else {
-                    ctx->moveOutCheck[ctx->attack_client].stoppedFromAttract = TRUE;
-                    LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_IMMOBILIZED_BY_LOVE);
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                    ret = 1;
-                }
-            }
-            ctx->ssc_seq_no++;
-            break;
-        case 13:
-            ctx->ssc_seq_no = 0;
-            ret = 3;
-            break;
-        }
-    } while (ret == 0);
-    
-    CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
-    
-    if (ret == 1) {
-        ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
-        ctx->waza_status_flag |= (1 << 31);
-    }
-    
-    return ret != 3;
-}
-
-BOOL LONG_CALL TryUseHeldItem(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId) {
-    BOOL ret = FALSE;
-    int script;
-    int item;
-    int boost;
-
-    item = HeldItemHoldEffectGet(ctx, battlerId);
-    boost = HeldItemAtkGet(ctx, battlerId, 0);
-
-    if (ctx->battlemon[battlerId].hp) {
-        switch (item) {
-        case HOLD_EFFECT_HP_RESTORE: //oran berry, berry juice
-        case HOLD_EFFECT_HP_PCT_RESTORE: //sitrus berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
-					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
-				} else {
-					ctx->hp_calc_work = boost;
-				}
-                script = SUB_SEQ_ITEM_HP_RESTORE;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PRZ_RESTORE: //cheri berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_PARALYZED) {
-                script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_SLP_RESTORE: //chesto berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
-                script = SUB_SEQ_ITEM_RECOVER_SLP;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PSN_RESTORE: //pecha berry
-            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ANY) {
-                script = SUB_SEQ_ITEM_RECOVER_PSN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_BRN_RESTORE: //rawst berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_BURNED) {
-                script = SUB_SEQ_ITEM_RECOVER_BRN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_FRZ_RESTORE: //aspear berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_FROZEN) {
-                script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PP_RESTORE: //leppa berry
-        {
-            int index;
-            for (index = 0; index < 4; index++) {
-                if (ctx->battlemon[battlerId].move[index] && !ctx->battlemon[battlerId].pp[index]) {
-                    break;
-                }
-            }
-            if (index != 4) {
-                BattleMon_AddVar(&ctx->battlemon[battlerId], MON_DATA_MOVE1PP + index, boost);
-                CopyBattleMonToPartyMon(bsys, ctx, battlerId);
-                ctx->waza_work = ctx->battlemon[battlerId].move[index];
-                script = SUB_SEQ_ITEM_PP_RESTORE;
-                ret = TRUE;
-            }
-            break;
-        }
-        case HOLD_EFFECT_CONFUSE_RESTORE: //persim berry
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED) {
-                script = SUB_SEQ_ITEM_RECOVER_CNF;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_STATUS_RESTORE: //lum berry
-            if ((ctx->battlemon[battlerId].condition & STATUS_ANY_PERSISTENT) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED)) {
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_PARALYZED) {
-                    script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
-                    script = SUB_SEQ_ITEM_RECOVER_SLP;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_POISON_ANY) {
-                    script = SUB_SEQ_ITEM_RECOVER_PSN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_BURNED) {
-                    script = SUB_SEQ_ITEM_RECOVER_BRN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_FROZEN) {
-                    script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                }
-                if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED) {
-                    script = SUB_SEQ_ITEM_RECOVER_CNF;
-                }
-                if ((ctx->battlemon[battlerId].condition & STATUS_ANY_PERSISTENT) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED)) {
-                    script = SUB_SEQ_ITEM_RECOVER_ALL;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_STATDOWN_RESTORE: //white herb
-        {
-            int stat;
-            for (stat = 0; stat < 8; stat++) {
-                if (ctx->battlemon[battlerId].states[stat] < 6) {
-                    ctx->battlemon[battlerId].states[stat] = 6;
-                    ret = TRUE;
-                }
-            }
-            if (ret == TRUE) {
-                script = SUB_SEQ_ITEM_RECOVER_STAT_DROP;
-            }
-            break;
-        }
-        case HOLD_EFFECT_HEAL_INFATUATION: //mental herb
-            if ((ctx->battlemon[battlerId].condition2 & STATUS2_INFATUATION) ||
-				(ctx->battlemon[battlerId].moveeffect.tauntTurns != 0) ||
-				(ctx->battlemon[battlerId].moveeffect.encoredTurns != 0) ||
-				(ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT) ||
-				(ctx->battlemon[battlerId].moveeffect.healBlockTurns != 0) ||
-				(ctx->battlemon[battlerId].moveeffect.disabledTurns != 0)) {
-                ctx->msg_work = 6;
-                script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_SPICY: //figy berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 0;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 0) == -1) { //FLAVOR_SPICY=0
-                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_DRY: //wiki berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 1;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 1) == -1) { //FLAVOR_DRY=0
-                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_SWEET: //mago berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 2;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 2) == -1) { //FLAVOR_SWEET=2
-                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_BITTER: //aguav berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 3;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 3) == -1) { //FLAVOR_BITTER=3
-                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_SOUR: //iappapa berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 4;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 4) == -1) { //FLAVOR_SOUR=4
-                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_ATK_UP: //liechi berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_ATTACK] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_ATTACK;
-                script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_DEF_UP: //ganlon berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_DEFENSE] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_DEFENSE;
-                script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_SPEED_UP: //salac berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_SPEED] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_SPEED;
-                script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_SPATK_UP: //petaya berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_SPATK] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_SPATK;
-                script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_SPDEF_UP: //apicot berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_SPDEF] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_SPDEF;
-                script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_CRITRATE_UP: //lansat berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && !(ctx->battlemon[battlerId].condition2 & STATUS2_FOCUS_ENERGY)) {
-                script = SUB_SEQ_ITEM_RAISE_CRIT;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_RANDOM_UP: //starf berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost) {
-                int stat;
-                for (stat = 0; stat < 5; stat++) {
-                    if (ctx->battlemon[battlerId].states[1 + stat] < SUB_SEQ_BOOST_STATS) {
-                        break;
-                    }
-                }
-                if (stat != 5) {
-                    do {
-                        stat = BattleRand(bsys) % 5;
-                    } while (ctx->battlemon[battlerId].states[1 + stat] == SUB_SEQ_BOOST_STATS);
-                    ctx->msg_work = stat + 1;
-                    script = SUB_SEQ_ITEM_STAT_BOOST_2;
-                    ret = TRUE;
-                }
-            }
-            break;
-        case HOLD_EFFECT_PINCH_ACC_UP: //micle berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= (ctx->battlemon[battlerId].maxhp / boost)) {
-                script = SUB_SEQ_ITEM_ACC_UP_ONCE;
-                ret = TRUE;
-            }
-            break;
-        default:
-            break;
-        }
-        if (ret == TRUE) {
-            ctx->client_work = battlerId;
-            ctx->item_work = GetBattleMonItem(ctx, battlerId);
-            LoadBattleSubSeqScript(ctx, 1, script);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        }
-    }
-
-    return ret;
-}
-
-BOOL LONG_CALL HeldItemHealCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 *script) {
-    BOOL ret = FALSE;
-    int item;
-    int boost;
-
-    item = HeldItemHoldEffectGet(ctx, battlerId);
-    boost = HeldItemAtkGet(ctx, battlerId, 0);
-
-    if (ctx->battlemon[battlerId].hp) {
-        switch (item) {
-        case HOLD_EFFECT_HP_RESTORE: //oran berry, berry juice
-        case HOLD_EFFECT_HP_PCT_RESTORE: //sitrus berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / 2) {
-				if (boost <= BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100)) {
-					ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
-				} else {
-					ctx->hp_calc_work = boost;
-				}
-				*script = SUB_SEQ_ITEM_HP_RESTORE;
-				ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PRZ_RESTORE: //cheri berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_PARALYZED) {
-                *script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_SLP_RESTORE: //chesto berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
-                *script = SUB_SEQ_ITEM_RECOVER_SLP;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PSN_RESTORE: //pecha berry
-            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ANY) {
-                *script = SUB_SEQ_ITEM_RECOVER_PSN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_BRN_RESTORE: //rawst berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_BURNED) {
-                *script = SUB_SEQ_ITEM_RECOVER_BRN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_FRZ_RESTORE: //aspear berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FLAG_FROZEN) {
-                *script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PP_RESTORE: //leppa berry
-        {
-            int index;
-            for (index = 0; index < 4; index++) {
-                if (ctx->battlemon[battlerId].move[index] && !ctx->battlemon[battlerId].pp[index]) {
-                    break;
-                }
-            }
-            if (index != 4) {
-                BattleMon_AddVar(&ctx->battlemon[battlerId], MON_DATA_MOVE1PP + index, boost);
-                CopyBattleMonToPartyMon(bsys, ctx, battlerId);
-                ctx->waza_work = ctx->battlemon[battlerId].move[index];
-                *script = SUB_SEQ_ITEM_PP_RESTORE;
-                ret = TRUE;
-            }
-            break;
-        }
-        case HOLD_EFFECT_CONFUSE_RESTORE: //persim berry
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED) {
-                *script = SUB_SEQ_ITEM_RECOVER_CNF;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_STATUS_RESTORE: //lum berry
-            if ((ctx->battlemon[battlerId].condition & STATUS_ANY_PERSISTENT) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED)) {
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_PARALYZED) {
-                    *script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_ASLEEP) {
-                    *script = SUB_SEQ_ITEM_RECOVER_SLP;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_POISON_ANY) {
-                    *script = SUB_SEQ_ITEM_RECOVER_PSN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_BURNED) {
-                    *script = SUB_SEQ_ITEM_RECOVER_BRN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FLAG_FROZEN) {
-                    *script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                }
-                if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED) {
-                    *script = SUB_SEQ_ITEM_RECOVER_CNF;
-                }
-                if ((ctx->battlemon[battlerId].condition & STATUS_ANY_PERSISTENT) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSED)) {
-                    *script = SUB_SEQ_ITEM_RECOVER_ALL;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_STATDOWN_RESTORE: //white herb
-        {
-            int stat;
-            for (stat = 0; stat < 8; stat++) {
-                if (ctx->battlemon[battlerId].states[stat] < 6) {
-                    ctx->battlemon[battlerId].states[stat] = 6;
-                    ret = TRUE;
-                }
-            }
-            if (ret == TRUE) {
-                *script = SUB_SEQ_ITEM_RECOVER_STAT_DROP;
-            }
-            break;
-        }
-        case HOLD_EFFECT_HEAL_INFATUATION: //mental herb
-            if ((ctx->battlemon[battlerId].condition2 & STATUS2_INFATUATION) ||
-				(ctx->battlemon[battlerId].moveeffect.tauntTurns != 0) ||
-				(ctx->battlemon[battlerId].moveeffect.encoredTurns != 0) ||
-				(ctx->battlemon[battlerId].condition2 & STATUS2_TORMENT) ||
-				(ctx->battlemon[battlerId].moveeffect.healBlockTurns != 0) ||
-				(ctx->battlemon[battlerId].moveeffect.disabledTurns != 0)) {
-                ctx->msg_work = 6;
-                *script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_SPICY: //figy berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 0;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 0) == -1) { //FLAVOR_SPICY=0
-                    *script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    *script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_DRY: //wiki berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 1;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 1) == -1) { //FLAVOR_DRY=1
-                    *script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    *script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_SWEET: //mago berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 2;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 2) == -1) { //FLAVOR_SWEET=2
-                    *script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    *script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_BITTER: //aguav berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 3;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 3) == -1) { //FLAVOR_BITTER=3
-                    *script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    *script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_HP_RESTORE_SOUR: //iappapa berry
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / (4 - 2 * (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY))) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
-                ctx->msg_work = 4;
-                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, 4) == -1) { //FLAVOR_SOUR=4
-                    *script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
-                } else {
-                    *script = SUB_SEQ_ITEM_HP_RESTORE;
-                }
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_ATK_UP: //liechi berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_ATTACK] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_ATTACK;
-                *script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_DEF_UP: //ganlon berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_DEFENSE] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_DEFENSE;
-                *script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_SPEED_UP: //salac berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_SPEED] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_SPEED;
-                *script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_SPATK_UP: //petaya berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_SPATK] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_SPATK;
-                *script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_SPDEF_UP: //apicot berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && ctx->battlemon[battlerId].states[STAT_SPDEF] < SUB_SEQ_BOOST_STATS) {
-                ctx->msg_work = STAT_SPDEF;
-                *script = SUB_SEQ_ITEM_STAT_BOOST;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_CRITRATE_UP: //lansat berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost && !(ctx->battlemon[battlerId].condition2 & STATUS2_FOCUS_ENERGY)) {
-                *script = SUB_SEQ_ITEM_RAISE_CRIT;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PINCH_RANDOM_UP: //starf berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= ctx->battlemon[battlerId].maxhp / boost) {
-                int stat;
-                for (stat = 0; stat < 5; stat++) {
-                    if (ctx->battlemon[battlerId].states[1 + stat] < SUB_SEQ_BOOST_STATS) {
-                        break;
-                    }
-                }
-                if (stat != 5) {
-                    do {
-                        stat = BattleRand(bsys) % 5;
-                    } while (ctx->battlemon[battlerId].states[1 + stat] == SUB_SEQ_BOOST_STATS);
-                    ctx->msg_work = stat + 1;
-                    *script = SUB_SEQ_ITEM_STAT_BOOST_2;
-                    ret = TRUE;
-                }
-            }
-            break;
-        case HOLD_EFFECT_PINCH_ACC_UP: //micle berry
-            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
-                boost /= 2;
-            }
-            if (ctx->battlemon[battlerId].hp <= (ctx->battlemon[battlerId].maxhp / boost)) {
-                *script = SUB_SEQ_ITEM_ACC_UP_ONCE;
-                ret = TRUE;
-            }
-            break;
-        default:
-            break;
-        }
-        if (ret == TRUE) {
-            ctx->item_work = GetBattleMonItem(ctx, battlerId);
-        }
     }
 
     return ret;

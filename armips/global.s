@@ -22,17 +22,14 @@
 
 .include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
 
-.include "armips/asm/custom/skipinfo.s" // info tutorial skip
-.include "armips/asm/custom/mart_items.s" // edit mart items
-.include "armips/asm/custom/tm_palettes.s" // edit tm palettes
-.include "armips/asm/custom/tutorial.s" // edit tutorial rattata level
-
-.if REUSABLE_TMS == 1
-
+.include "armips/asm/tm_palettes.s" // allows editing of pallete table for TMs 
+.include "armips/asm/hidden_items.s" // allows editing of hidden items for Dowsing Machine 
 .include "armips/asm/tm.s" // make tms infinite
 .include "armips/asm/forget_hm.s" // allows hm to be forgotten
 
-.endif
+.include "armips/asm/custom/skipinfo.s" // info tutorial skip
+.include "armips/asm/custom/mart_items.s" // edit mart items
+.include "armips/asm/custom/tutorial.s" // edit tutorial rattata level
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
