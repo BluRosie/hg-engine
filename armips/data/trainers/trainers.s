@@ -1507,10 +1507,10 @@ trainerdata 46, "Martha"
         ballseal 0
     endparty
 
-trainerdata 47, "Blue"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 47, "Ash"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_RIVAL
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1524,21 +1524,19 @@ trainerdata 47, "Blue"
         ivs 0
         abilityslot 0
         level 8
-        pokemon SPECIES_PIDGEY
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 8
-        pokemon SPECIES_CHARMANDER
+        pokemon SPECIES_PIKACHU
+        item ITEM_LIGHT_BALL
+        move MOVE_THUNDER_SHOCK
+        move MOVE_QUICK_ATTACK
+        move MOVE_TAIL_WHIP
+        move MOVE_GROWL
         ballseal 0
     endparty
 
-trainerdata 48, "Blue"
+trainerdata 48, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_RIVAL
-    nummons 2
+    trainerclass TRAINERCLASS_BUG_CATCHER
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1551,21 +1549,28 @@ trainerdata 48, "Blue"
         // mon 0
         ivs 0
         abilityslot 0
-        level 8
-        pokemon SPECIES_PIDGEY
+        level 7
+        pokemon SPECIES_WEEDLE
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 8
-        pokemon SPECIES_SQUIRTLE
+        level 5
+        pokemon SPECIES_VENONAT
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 0
+        level 6
+        pokemon SPECIES_CATERPIE
         ballseal 0
     endparty
 
-trainerdata 49, "Blue"
+trainerdata 49, "Megan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_RIVAL
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -1580,21 +1585,21 @@ trainerdata 49, "Blue"
         ivs 0
         abilityslot 0
         level 8
-        pokemon SPECIES_PIDGEY
+        pokemon SPECIES_NIDORAN_F
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 8
-        pokemon SPECIES_BULBASAUR
+        level 7
+        pokemon SPECIES_VULPIX
         ballseal 0
     endparty
 
-trainerdata 50, "Abe"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
-    nummons 1
+trainerdata 50, "Capmon"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainerclass TRAINERCLASS_LEADER_PRYCE
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1608,7 +1613,24 @@ trainerdata 50, "Abe"
         ivs 30
         abilityslot 0
         level 9
-        pokemon SPECIES_SPEAROW
+        pokemon SPECIES_RATTATA
+        item ITEM_FOCUS_SASH
+        move MOVE_ENDEAVOR
+        move MOVE_QUICK_ATTACK
+        move MOVE_NONE
+        move MOVE_NONE
+        ballseal 0
+
+        // mon 1
+        ivs 30
+        abilityslot 0
+        level 12
+        pokemon SPECIES_LICKITUNG
+        item ITEM_ORAN_BERRY
+        move MOVE_LICK
+        move MOVE_CURSE
+        move MOVE_SUPERSONIC
+        move MOVE_MUD_SLAP
         ballseal 0
     endparty
 

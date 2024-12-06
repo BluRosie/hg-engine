@@ -731,7 +731,7 @@ _05F4: // Trainer 327
 
 _0600: // Trainer 48
     trainertextentry  48, TEXT_NOTICE_IN_OVERWORLD, "My bug Pokémon are tough.\nPrepare to lose!\r"
-    trainertextentry  48, TEXT_DEFEATED_IN_BATTLE, "I was whipped...\n"
+    trainertextentry  48, TEXT_DEFEATED_IN_BATTLE, "My beautiful bugs...\n"
     trainertextentry  48, TEXT_DEFEATED_IN_OVERWORLD, "I’m going to look for stronger\nbug Pokémon.\n"
     trainertextentry  48, TEXT_REMATCH_IN_OVERWORLD, "My bug Pokémon have been waiting\nfor you!\r"
 
@@ -1166,7 +1166,7 @@ _0A14: // Trainer 8
 
 _0A24: // Trainer 47
     trainertextentry  47, TEXT_NOTICE_IN_OVERWORLD, "You’re a Pokémon Trainer, right?\nThen you have to battle!\r"
-    trainertextentry  47, TEXT_DEFEATED_IN_BATTLE, "That’s strange.\nI won before.\n"
+    trainertextentry  47, TEXT_DEFEATED_IN_BATTLE, "Jeez, you weren't kidding...'\n"
     trainertextentry  47, TEXT_DEFEATED_IN_OVERWORLD, "Becoming a good Trainer is really tough.\nI’m going to battle other people to\fget better.\n"
 
 _0A30: // Trainer 249
