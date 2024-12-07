@@ -41,8 +41,27 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     sp->server_status_flag &= ~(SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE);
 
+    // debug_printf("\naddeffect_param: %d\n", sp->addeffect_param);
+
+    // 3 steps down
+    if (sp->addeffect_param >= ADD_STATE_ATTACK_DOWN_3)
+    {
+        stattochange = sp->addeffect_param - ADD_STATE_ATTACK_DOWN_3;
+        statchange = -3;
+        sp->temp_work = STATUS_EFF_DOWN;
+        // debug_printf("3 steps down\n");
+    }
+        //3 steps up
+    else if (sp->addeffect_param >= ADD_STATE_ATTACK_UP_3)
+    {
+        stattochange = sp->addeffect_param - ADD_STATE_ATTACK_UP_3;
+        statchange = 3;
+        sp->temp_work = STATUS_EFF_UP;
+        // debug_printf("3 steps up\n");
+    }
+
         //2 steps down
-    if (sp->addeffect_param >= ADD_STATE_ATTACK_DOWN_2)
+    else if (sp->addeffect_param >= ADD_STATE_ATTACK_DOWN_2)
     {
         stattochange = sp->addeffect_param - ADD_STATE_ATTACK_DOWN_2;
         statchange = -2;
@@ -103,6 +122,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
     }
 
+    // debug_printf("statchange: %d\n", statchange);
+    // debug_printf("stattochange: %d\n", stattochange);
 
     if (statchange > 0)
     {

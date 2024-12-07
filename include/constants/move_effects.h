@@ -330,6 +330,18 @@
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
 #define MOVE_EFFECT_STICKY_WEB                              326
+#define MOVE_EFFECT_ATK_UP_3                                327
+#define MOVE_EFFECT_DEF_UP_3                                328
+#define MOVE_EFFECT_SPEED_UP_3                              329
+#define MOVE_EFFECT_SP_ATK_UP_3                             330
+#define MOVE_EFFECT_SP_DEF_UP_3                             331
+#define MOVE_EFFECT_ACC_UP_3                                332
+#define MOVE_EFFECT_EVA_UP_3                                333
+#define MOVE_EFFECT_ATK_DOWN_3                              334
+#define MOVE_EFFECT_DEF_DOWN_3                              335
+#define MOVE_EFFECT_SPEED_DOWN_3                            336
+#define MOVE_EFFECT_SP_ATK_DOWN_3                           337
+#define MOVE_EFFECT_SP_DEF_DOWN_3                           338
 
 
 

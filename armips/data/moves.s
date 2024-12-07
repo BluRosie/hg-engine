@@ -4714,7 +4714,7 @@ movedata MOVE_CAMOUFLAGE, "Camouflage"
     movedescription MOVE_CAMOUFLAGE, "The user’s type is\nchanged depending on\nits environment, such\nas at water’s edge, in\ngrass, or in a cave."
 
 movedata MOVE_TAIL_GLOW, "Tail Glow"
-    battleeffect MOVE_EFFECT_SP_ATK_UP_2
+    battleeffect MOVE_EFFECT_SP_ATK_UP_3
     pss SPLIT_STATUS
     basepower 0
     type TYPE_BUG
@@ -8666,7 +8666,7 @@ movedata MOVE_STEAMROLLER, "Steamroller"
     movedescription MOVE_STEAMROLLER, "The user crushes\nthe foe with its\nbody. It may also\nmake the foe flinch."
 
 movedata MOVE_COTTON_GUARD, "Cotton Guard"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_DEF_UP_3
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
