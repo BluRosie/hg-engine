@@ -5754,7 +5754,7 @@ movedata MOVE_WAKE_UP_SLAP, "Wake Up Slap"
     movedescription MOVE_WAKE_UP_SLAP, "This attack flinches and\ndoubles damage on a\nsleeping foe. It\nalso wakes the foe\nup, however."
 
 movedata MOVE_HAMMER_ARM, "Hammer Arm"
-    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_HIT
+    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_2_HIT
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING
@@ -8729,8 +8729,8 @@ movedata MOVE_TAIL_SLAP, "Tail Slap"
     terminatedata
     movedescription MOVE_TAIL_SLAP, "The use attacks by\nhitting the target\nwith its hard tail.\nIt hits up to five\ntimes in a row."
 
-movedata MOVE_HURRICANE, "Hurricane" //Unimplemented
-    battleeffect MOVE_EFFECT_HIT
+movedata MOVE_HURRICANE, "Hurricane"
+    battleeffect MOVE_EFFECT_HURRICANE
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_FLYING
@@ -10698,7 +10698,7 @@ movedata MOVE_SPARKLING_ARIA, "Sparkling Aria"
     movedescription MOVE_SPARKLING_ARIA, "The user bursts into\nsong, emitting many\nbubbles. Any Pokémon\nsuffering from a burn\nwill be cured by the\ntouch of these bubbles."
 
 movedata MOVE_ICE_HAMMER, "Ice Hammer"
-    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_HIT
+    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_2_HIT
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_ICE
@@ -13802,7 +13802,7 @@ movedata MOVE_SPICY_EXTRACT, "Spicy Extract"
     movedescription MOVE_SPICY_EXTRACT, "---"
 
 movedata MOVE_SPIN_OUT, "Spin Out"
-    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_HIT
+    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_2_HIT
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_STEEL

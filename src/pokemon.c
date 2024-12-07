@@ -55,25 +55,23 @@ void LONG_CALL CalcMonStats(struct PartyPokemon *mon) {
 
 	baseStats = (BASE_STATS *)sys_AllocMemory(0, sizeof(BASE_STATS));
 	LoadMonBaseStats_HandleAlternateForm(species, form, baseStats);
-	
-#define a 25
-#define b 24
-	newMaxHp = baseStats->hp * (a - b) / a * hpIv / 31 + baseStats->hp * level / a * (1 - hpIv * (a - b) / 3100);
+
+	newMaxHp = baseStats->hp * level / 50;
 	SetMonData(mon, MON_DATA_MAXHP, &newMaxHp);
 
-	newAtk = baseStats->atk * (a - b) / a * atkIv / 31 + baseStats->atk * level / a * (1 - atkIv * (a - b) / 3100);
+	newAtk = baseStats->atk * level / 50;
 	SetMonData(mon, MON_DATA_ATTACK, &newAtk);
 
-	newDef = baseStats->def * (a - b) / a * defIv / 31 + baseStats->def * level / a * (1 - defIv * (a - b) / 3100);
+	newDef = baseStats->def * level / 50;
 	SetMonData(mon, MON_DATA_DEFENSE, &newDef);
 
-	newSpeed = baseStats->speed * (a - b) / a * speedIv / 31 + baseStats->speed * level / a * (1 - speedIv * (a - b) / 3100);
+	newSpeed = baseStats->speed * level / 50;
 	SetMonData(mon, MON_DATA_SPEED, &newSpeed);
 
-	newSpatk = baseStats->spatk * (a - b) / a * spatkIv / 31 + baseStats->spatk * level / a * (1 - spatkIv * (a - b) / 3100);
+	newSpatk = baseStats->spatk * level / 50;
 	SetMonData(mon, MON_DATA_SPECIAL_ATTACK, &newSpatk);
 
-	newSpdef = baseStats->spdef * (a - b) / a * spdefIv / 31 + baseStats->spdef * level / a * (1 - spdefIv * (a - b) / 3100);
+	newSpdef = baseStats->spdef * level / 50;
 	SetMonData(mon, MON_DATA_SPECIAL_DEFENSE, &newSpdef);
 
 	sys_FreeMemoryEz(baseStats);

@@ -912,6 +912,7 @@
 #define MOVE_EFFECT_CACKLE                                  902
 #define MOVE_EFFECT_BITTER_MALICE                           903
 #define MOVE_EFFECT_HURRICANE                               904
+#define MOVE_EFFECT_USER_SPEED_DOWN_2_HIT                   905
 
 
 #define MOVE_TARGET_SELECTED             0x0000

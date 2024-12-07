@@ -3764,6 +3764,7 @@ u32 LoadCaptureSuccessSPANumEmitters(u32 id)
 
 BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
+
     int adrs = read_battle_script_param(ctx);
 
     if (ctx->waza_no_mamoru[ctx->attack_client] != MOVE_PROTECT &&
@@ -3783,6 +3784,7 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
         }
         ctx->mp.msg_tag = 2;
         ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+
         if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) {
             ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 1;
         }
@@ -3790,11 +3792,9 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
     } else {
         ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
         IncrementBattleScriptPtr(ctx, adrs);
-    if (ctx->waza_no_mamoru[ctx->attack_client] != MOVE_PROTECT &&
-			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_DETECT &&
-			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_ENDURE) {
-        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
-    }
+	}
+	
+	return FALSE;
 }
 
 

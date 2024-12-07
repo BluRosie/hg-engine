@@ -673,3 +673,7 @@ sPickupTable1 = 0x0226C404;
 sPickupTable2 = 0x0226C30C;
 sPickupWeightTable = 0x0226CA4C;
 sHoneyGatherChanceTable = 0x0226CA58;
+
+AcquireMonLock = 0x0206DD40 | 1;
+LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
+ReleaseMonLock = 0x0206DD8C | 1;
