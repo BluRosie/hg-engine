@@ -57,21 +57,27 @@ void LONG_CALL CalcMonStats(struct PartyPokemon *mon) {
 	LoadMonBaseStats_HandleAlternateForm(species, form, baseStats);
 
 	newMaxHp = baseStats->hp * level / 50;
+	if (newMaxHp < 1) newMaxHp = 1;
 	SetMonData(mon, MON_DATA_MAXHP, &newMaxHp);
 
 	newAtk = baseStats->atk * level / 50;
+	if (newAtk < 1) newAtk = 1;
 	SetMonData(mon, MON_DATA_ATTACK, &newAtk);
 
 	newDef = baseStats->def * level / 50;
+	if (newDef < 1) newDef = 1;
 	SetMonData(mon, MON_DATA_DEFENSE, &newDef);
 
 	newSpeed = baseStats->speed * level / 50;
+	if (newSpeed < 1) newSpeed = 1;
 	SetMonData(mon, MON_DATA_SPEED, &newSpeed);
 
 	newSpatk = baseStats->spatk * level / 50;
+	if (newSpatk < 1) newSpatk = 1;
 	SetMonData(mon, MON_DATA_SPECIAL_ATTACK, &newSpatk);
 
 	newSpdef = baseStats->spdef * level / 50;
+	if (newSpdef < 1) newSpdef = 1;
 	SetMonData(mon, MON_DATA_SPECIAL_DEFENSE, &newSpdef);
 
 	sys_FreeMemoryEz(baseStats);
