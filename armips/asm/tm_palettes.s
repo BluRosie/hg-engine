@@ -440,7 +440,7 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM083 NATURAL_GIST
+// TM083 NATURAL_GIFT
 .skip 2
 .halfword PALETTE_NORMAL
 .skip 4
