@@ -1392,4 +1392,11 @@
     .long 254
     .endm
 
+    .macro CheckCanActivateDefiantOrCompetitive arg_0, arg_1, arg_2
+    .long 255
+    .long (((\arg_0 - .) / 4) - 3)
+    .long (((\arg_1 - .) / 4) - 2)
+    .long (((\arg_2 - .) / 4) - 1)
+    .endm
+
 .endif

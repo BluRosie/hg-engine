@@ -84,6 +84,7 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -358,7 +359,8 @@ const u8 *BattleScrCmdNames[] =
     "switchinabilitycheck",
     "trystickyweb",
     "trymegaorultraburstduringpursuit",
-    "calcconfusiondamage"
+    "calcconfusiondamage",
+    "checkcanactivatedefiantorcompetitive",
 };
 
 u32 cmdAddress = 0;
@@ -397,6 +399,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xFC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trystickyweb,
     [0xFD - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FD_trymegaorultraburstduringpursuit,
     [0xFE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FE_calcconfusiondamage,
+    [0xFF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -3012,6 +3015,50 @@ BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
     ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, ctx->attack_client, ctx->attack_client, 1);
     ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
     ctx->hp_calc_work *= -1;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to check whether Defiant or Competitive can activate
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int failAddress = read_battle_script_param(ctx);
+    int handleDefiantAddress = read_battle_script_param(ctx);
+    int handleCompetitiveAddress = read_battle_script_param(ctx);
+    
+    if ((ctx->battlemon[ctx->state_client].hp != 0)
+    && (ctx->oneSelfFlag[ctx->state_client].defiant_flag)
+    && (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12)
+    && ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+    && ((ctx->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+    && ((ctx->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)) {
+        ctx->oneSelfFlag[ctx->state_client].defiant_flag = 0;
+        switch (GetBattlerAbility(ctx, ctx->state_client)) {
+            case ABILITY_DEFIANT:
+                if (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12) {
+                    IncrementBattleScriptPtr(ctx, handleDefiantAddress);
+                    return FALSE;
+                }
+                break;
+            case ABILITY_COMPETITIVE:
+                if (ctx->battlemon[ctx->state_client].states[STAT_SPATK] < 12) {
+                    IncrementBattleScriptPtr(ctx, handleCompetitiveAddress);
+                    return FALSE;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    IncrementBattleScriptPtr(ctx, failAddress);
 
     return FALSE;
 }
