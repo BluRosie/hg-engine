@@ -1382,10 +1382,10 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
             u32 base = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-            totalexp = (base * level) / 5;
+            totalexp = (base * level) * 5;
 
-            u32 top = (2*level + 10) * (2*level + 10) * sqrt(2*level + 10);
-            u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
+            u32 top = level * level * sqrt(level);
+            u32 bottom = (level + Lp) * (level + Lp) * sqrt(level + Lp);
 
             u32 result = top * totalexp;
             // top is at minimum 3 (beat a level 3 mon), don't need to worry about it being 0
@@ -1397,8 +1397,8 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 // max bL*5 * top = 7840980000 (level 1 manages to beat level 100 blissey)
                 // loops around to 3546012704
                 // so now we just need to add the results divided by bottom (and add another 1 to correct for what i'm looking at)
-                totalexp = result + 1;
-                totalexp = (totalexp / bottom) + (-1u / bottom) + 1;
+                totalexp = result;
+                totalexp = (totalexp / bottom) + (-1u / bottom);
             }
             else
             {

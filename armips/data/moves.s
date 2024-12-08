@@ -252,8 +252,8 @@ movedata MOVE_SWORDS_DANCE, "Swords Dance"
 movedata MOVE_CUT, "Cut"
     battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_PHYSICAL
-    basepower 60
-    type TYPE_GRASS
+    basepower 70
+    type TYPE_NORMAL
     accuracy 100
     pp 15
     effectchance 0
@@ -1980,11 +1980,11 @@ movedata MOVE_LICK, "Lick"
 movedata MOVE_SMOG, "Smog"
     battleeffect MOVE_EFFECT_POISON_HIT
     pss SPLIT_SPECIAL
-    basepower 30
+    basepower 40
     type TYPE_POISON
     accuracy 100
     pp 20
-    effectchance 50
+    effectchance 25
     target MOVE_TARGET_SELECTED
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT

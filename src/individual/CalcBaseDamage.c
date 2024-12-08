@@ -465,6 +465,17 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             movepower = movepower * 2;
         }
     }
+	
+	if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MARVEL_SCALE) == FALSE)
+		&& ((DefendingMon.condition & STATUS_FLAG_ASLEEP)|| (DefendingMon.condition & STATUS_FLAG_BURNED)))
+	{
+		defense /= 2;
+	}
+	
+	if ((DefendingMon.condition & STATUS_FLAG_ASLEEP)|| (DefendingMon.condition & STATUS_FLAG_BURNED))
+	{
+		sp_defense /= 2;
+	}
 
     // handle marvel scale
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
@@ -828,12 +839,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             sp_defense = sp_defense * 15 / 10;
         }
     }
-	
-	if (DefendingMon.condition & STATUS_FLAG_ASLEEP)
-	{
-		defense /= 2;
-		sp_defense /= 2;
-	}
 
     u16 equivalentAttack;
     u16 equivalentDefense;
@@ -862,8 +867,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
     {
-        // burns halve physical damage.  this is ignored by guts and facade (as of gen 6)
-        if ((AttackingMon.condition & STATUS_FLAG_BURNED) && (AttackingMon.ability != ABILITY_GUTS) && (moveno != MOVE_FACADE))
+        if ((AttackingMon.condition & STATUS_FLAG_FROZEN) && (AttackingMon.ability != ABILITY_GUTS) && (moveno != MOVE_FACADE))
         {
             damage /= 2;
         }

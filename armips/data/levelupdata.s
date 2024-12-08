@@ -3457,11 +3457,11 @@ levelup SPECIES_FURRET
 levelup SPECIES_HOOTHOOT
 	learnset MOVE_PECK, 1
 	learnset MOVE_TACKLE, 3
-	learnset MOVE_ECHOED_VOICE, 7
+	learnset MOVE_LEER, 7
 	learnset MOVE_CONFUSION, 12
 	learnset MOVE_ROUND, 18
 	learnset MOVE_PSYCHO_SHIFT, 20
-	learnset MOVE_PSYBEAM, 23
+	learnset MOVE_MIRACLE_EYE, 23
 	learnset MOVE_HYPNOSIS, 23
 	learnset MOVE_AIR_SLASH, 26
 	learnset MOVE_UPROAR, 29
