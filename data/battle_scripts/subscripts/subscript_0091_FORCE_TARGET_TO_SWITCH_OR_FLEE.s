@@ -55,12 +55,12 @@ _097:
     End 
 
 _102:
-    // {0} anchors itself with {1}!
+    // {0} is anchored in place with its suction cups!
     BufferMessage 659, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
     GoTo _113
 
 _109:
-    // {0} anchored itself with its roots!
+    // {0} is anchored in place with its roots!
     BufferMessage 542, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
 
 _113:

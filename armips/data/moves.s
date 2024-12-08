@@ -4714,7 +4714,7 @@ movedata MOVE_CAMOUFLAGE, "Camouflage"
     movedescription MOVE_CAMOUFLAGE, "The user’s type is\nchanged depending on\nits environment, such\nas at water’s edge, in\ngrass, or in a cave."
 
 movedata MOVE_TAIL_GLOW, "Tail Glow"
-    battleeffect MOVE_EFFECT_SP_ATK_UP_2
+    battleeffect MOVE_EFFECT_SP_ATK_UP_3
     pss SPLIT_STATUS
     basepower 0
     type TYPE_BUG
@@ -8666,7 +8666,7 @@ movedata MOVE_STEAMROLLER, "Steamroller"
     movedescription MOVE_STEAMROLLER, "The user crushes\nthe foe with its\nbody. It may also\nmake the foe flinch."
 
 movedata MOVE_COTTON_GUARD, "Cotton Guard"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_DEF_UP_3
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -9291,7 +9291,7 @@ movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
     movedescription MOVE_TOPSY_TURVY, "All stat changes\naffecting the target\nturn topsy-turvy and\nbecome the opposite of\nwhat they were."
 
 movedata MOVE_DRAINING_KISS, "Draining Kiss"
-    battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
+    battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT  // Wrong
     pss SPLIT_SPECIAL
     basepower 50
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9867,7 +9867,7 @@ movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     movedescription MOVE_POWER_UP_PUNCH, "Striking opponents\nover and over makes\nthe user's fists\nharder. Hitting a\ntarget raises Attack."
 
 movedata MOVE_OBLIVION_WING, "Oblivion Wing"
-    battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
+    battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT  // Wrong
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_FLYING
@@ -11876,7 +11876,7 @@ movedata MOVE_SAPPY_SEED, "Sappy Seed"
     effectchance 100
     target MOVE_TARGET_SELECTED
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -11930,7 +11930,7 @@ movedata MOVE_VEEVEE_VOLLEY, "Veevee Volley"
     terminatedata
     movedescription MOVE_VEEVEE_VOLLEY, "---"
 
-movedatalongname MOVE_DOUBLE_IRON_BASH, "Dual Iron Bash", "Double Iron Bash"
+movedatalongname MOVE_DOUBLE_IRON_BASH, "Double IronBash", "Double Iron Bash"
     battleeffect MOVE_EFFECT_HIT_TWICE_AND_FLINCH
     pss SPLIT_PHYSICAL
     basepower 60

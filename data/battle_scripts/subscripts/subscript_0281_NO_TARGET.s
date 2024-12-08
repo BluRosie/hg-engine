@@ -6,8 +6,8 @@ _000:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
-    // But there was no target...
-    PrintMessage 1234, TAG_NONE
+    // But it failed!
+    PrintMessage 796, TAG_NONE
     Wait 
     WaitButtonABTime 30
     UnlockMoveChoice BATTLER_CATEGORY_ATTACKER

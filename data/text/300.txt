@@ -51,17 +51,17 @@ If the Mail is removed, its written\nmessage will be lost. Is that OK?
 
 Your PC’s Mailbox is full.\r
 Mail was taken from the\nPokémon.\r
-{STRVAR_1 1, 0, 0} wants to learn the\nmove {STRVAR_1 6, 1, 0}.\rHowever, {STRVAR_1 1, 0, 0} already\nknows four moves.\rShould a move be deleted and\nreplaced with {STRVAR_1 6, 1, 0}?
+{STRVAR_1 1, 0, 0} wants to learn the\nmove {STRVAR_1 6, 1, 0}.\rShould another move be forgotten and\nreplaced with {STRVAR_1 6, 1, 0}?
 
 
 Stop trying to teach\n{STRVAR_1 6, 1, 0}?
 
 
-{STRVAR_1 1, 0, 0} did not learn the\nmove {STRVAR_1 6, 1, 0}.\r
-Which move should be\nforgotten?\r
-1, {PAUSE 20}2, and{PAUSE 20}... {PAUSE 20}... {PAUSE 20}... Poof!{WAIT 3}{WAIT 5}\r{STRVAR_1 1, 0, 0} forgot how to\nuse {STRVAR_1 6, 1, 0}.\rAnd...\r
-{STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!{WAIT 4}{WAIT 2}\r
-{STRVAR_1 1, 0, 0} and {STRVAR_1 6, 1, 0}\nare not compatible.\r{STRVAR_1 6, 1, 0} can’t be learned.\r
+{STRVAR_1 1, 0, 0} did not learn\n{STRVAR_1 6, 1, 0}.\r
+Please choose a move that will be\nreplaced with {STRVAR_1 6, 1, 0}.\r
+One...{PAUSE 20}two...{PAUSE 20}and...{PAUSE 20}ta-da!{WAIT 3}{WAIT 5}\r{STRVAR_1 1, 0, 0} forgot\n{STRVAR_1 6, 1, 0}\r
+and it learned {STRVAR_1 6, 1, 0} instead!{WAIT 4}{WAIT 2}\r
+{STRVAR_1 1, 0, 0} can’t learn\n{STRVAR_1 6, 1, 0}!\rThe two are incompatible!\r
 {STRVAR_1 1, 0, 0} already knows\n{STRVAR_1 6, 1, 0}.\r
 {STRVAR_1 1, 0, 0}’s HP was restored\nby {STRVAR_1 52, 1, 0} point(s).\r
 {STRVAR_1 1, 0, 0} was cured of its\npoisoning.\r
