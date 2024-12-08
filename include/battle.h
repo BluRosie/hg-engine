@@ -106,6 +106,21 @@
 #define ADD_STATE_ACCURACY_DOWN_2 0x33
 #define ADD_STATE_EVASION_DOWN_2 0x34
 
+#define ADD_STATE_ATTACK_UP_3       164
+#define ADD_STATE_DEFENSE_UP_3      165
+#define ADD_STATE_SPEED_UP_3        166
+#define ADD_STATE_SP_ATK_UP_3       167
+#define ADD_STATE_SP_DEF_UP_3       168
+#define ADD_STATE_ACCURACY_UP_3     169
+#define ADD_STATE_EVASION_UP_3      170
+#define ADD_STATE_ATTACK_DOWN_3     171
+#define ADD_STATE_DEFENSE_DOWN_3    172
+#define ADD_STATE_SPEED_DOWN_3      173
+#define ADD_STATE_SP_ATK_DOWN_3     174
+#define ADD_STATE_SP_DEF_DOWN_3     175
+#define ADD_STATE_ACCURACY_DOWN_3   176
+#define ADD_STATE_EVASION_DOWN_3    177
+
 /**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
  *  name is left as source define if not sure what it defines

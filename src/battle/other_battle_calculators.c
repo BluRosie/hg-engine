@@ -2418,8 +2418,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
                             break;
                         case 3:
-                            // TODO
-                            ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
+                            ctx->addeffect_param = ADD_STATE_ATTACK_UP_3 + stat;
                             break;
 
                         default:
@@ -2447,9 +2446,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             case 2:
                                 ctx->addeffect_param = ADD_STATE_ATTACK_UP_2;
                                 break;
-                            // TODO
                             case 3:
-                                ctx->addeffect_param = ADD_STATE_ATTACK_UP_2;
+                                ctx->addeffect_param = ADD_STATE_ATTACK_UP_3;
                                 break;
 
                             default:
@@ -2476,9 +2474,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             case 2:
                                 ctx->addeffect_param = ADD_STATE_SP_ATK_UP_2;
                                 break;
-                            // TODO
                             case 3:
-                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP_2;
+                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP_3;
                                 break;
 
                             default:
@@ -2511,6 +2508,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 }
                 break;
             default:
+                ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
                 break;
         }
 
