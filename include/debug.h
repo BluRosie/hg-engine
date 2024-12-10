@@ -63,7 +63,7 @@
 //#define DEBUG_ENDTURN_LOGIC
 
 // DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
-// #define DEBUG_BEFORE_MOVE_LOGIC
+//#define DEBUG_BEFORE_MOVE_LOGIC
 
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 //#define NOCASH_GBA_PRINT
