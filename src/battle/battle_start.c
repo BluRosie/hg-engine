@@ -531,201 +531,47 @@ enum {
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
+u32 ServerWazaBefore_restoreOverlay = 0;
+
 void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerWazaBefore\n");
 #endif
-    u32 ovyId, offset, restoreOverlay = FALSE;
+    u32 ovyId, offset;
 
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
-    UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
-
-    if (IsOverlayLoaded(0)) { // we are taking overlay 0's place
-        restoreOverlay = TRUE;
-        UnloadOverlayByID(0);
-    } else if (IsOverlayLoaded(18)) {
-        restoreOverlay = 18;
-        UnloadOverlayByID(18);
-    }
+    // if wb_seq_no == BEFORE_MOVE_START before func is called, it is the first call
+    if (sp->wb_seq_no == BEFORE_MOVE_START) {
+        if (IsOverlayLoaded(0)) { // we are taking overlay 0's place
+            ServerWazaBefore_restoreOverlay = TRUE;
+            UnloadOverlayByID(0);
+        } else if (IsOverlayLoaded(18)) {
+            ServerWazaBefore_restoreOverlay = 18;
+            UnloadOverlayByID(18);
+        }
 
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-    debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE\n");
+        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE\n");
 #endif
-    ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
+        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
 
-    //offset = 0x023C0400 | 1;
+        //offset = 0x023C0400 | 1;
+        HandleLoadOverlay(ovyId, 2);
+    }
+
     offset = 0x021E5900 | 1;
-    HandleLoadOverlay(ovyId, 2);
-    internalFunc = (void LONG_CALL (*)(void *bw, struct BattleStruct *sp))(offset);
+    internalFunc = (void (*)(void *bw, struct BattleStruct *sp))(offset);
     internalFunc(bw, sp);
-    UnloadOverlayByID(ovyId);
 
-    HandleLoadOverlay(6, 2); // reload 6 so things are okay
-
-    if (restoreOverlay) {
-        debug_printf("Restoring overlay %d...\n", (restoreOverlay == 1 ? 0 : restoreOverlay));
-        HandleLoadOverlay((restoreOverlay == 1 ? 0 : restoreOverlay), 2);
-    }
-
-/*
-    u32 runMyScriptInstead = 0;
-    switch (sp->wb_seq_no) {
-        case SEQ_MEGA_CHECK: {
-            if (MegaEvolutionOrUltraBurst(bw, sp)) {
-                return;
-            }
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-        case SEQ_SENSEI_CHECK: {
-            ServerSenseiCheck(bw, sp);  /// 先制之爪效果 80143E4h
-            sp->wb_seq_no++;
-            return;
-        }
-        case SEQ_STATUS_CHECK: {
-            if ((sp->waza_out_check_on_off & SYSCTL_SKIP_STATUS_CHECK) == FALSE) {
-                // 异常状态检查
-                if (ServerStatusCheck(bw, sp) == TRUE)  // 8013C68h
-                {
-                    return;
-                }
-            }
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-        case SEQ_BADGE_CHECK: {
-            {
-                int ret;
-                int seq_no;
-
-                if ((sp->waza_out_check_on_off & SYSCTL_SKIP_OBEDIENCE_CHECK) == 0) {
-                    ret = ServerBadgeCheck(bw, sp, &seq_no);  // 8013610h
-                    if (ret) {
-                        switch (ret) {
-                            case OBEY_CHECK_DO_NOTHING:
-                                sp->next_server_seq_no = CONTROLLER_COMMAND_39;
-                                break;
-                            case OBEY_CHECK_DIFFERENT_MOVE:
-                                sp->next_server_seq_no = sp->server_seq_no;
-                                break;
-                            case OBEY_CHECK_HIT_SELF:
-                                sp->next_server_seq_no = CONTROLLER_COMMAND_34;
-                                break;
-                        }
-                        sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                        return;
-                    }
-                }
-            }
-
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-        case SEQ_PP_CHECK: {
-            if ((sp->waza_out_check_on_off & SYSCTL_SKIP_PP_DECREMENT) == 0) {
-                // pp检查
-                if (ServerPPCheck(bw, sp) == TRUE)  // 801393Ch
-                {
-                    return;
-                }
-            }
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-            // 攻击对象检查，包括了蓄力技能
-        case SEQ_DEFENCE_CHECK: {
-            if (ServerDefenceCheck(bw, sp) == TRUE)  // 8013AD8h
-            {
-                return;
-            }
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-            // 防御效果检查，魔法守护等
-        case SEQ_WAZAKOYUU_CHECK: {
-            if ((sp->waza_out_check_on_off & SYSCTL_SKIP_STOLEN_CHECK) == 0) {
-                if (ServerWazaKoyuuCheck(bw, sp) == TRUE)  // 8014944h
-                {
-                    return;
-                }
-            }
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-            // 引水等特性检查
-        case SEQ_DEFENCE_CHANGE_CHECK: {
-            ST_ServerDefenceClientTokuseiCheck(bw, sp, sp->attack_client, sp->current_move_index);  // 8019158h
-            sp->wb_seq_no++;
-            FALLTHROUGH;
-        }
-        case SEQ_PROTEAN_CHECK: {
-            if (sp->battlemon[sp->attack_client].ability == ABILITY_PROTEAN && (sp->battlemon[sp->attack_client].type1 != sp->moveTbl[sp->current_move_index].type  // if either type is not the move's type
-                                                                                || sp->battlemon[sp->attack_client].type2 != sp->moveTbl[sp->current_move_index].type) &&
-                (sp->battlemon[sp->attack_client].ability_activated_flag == 0 || PROTEAN_GENERATION < 9)  // Protean should activate only once per switch-in if gen 9 behavior
-                && sp->moveTbl[sp->current_move_index].power != 0)                                        // the move has to have power in order for it to change the type
-            {
-                sp->battlemon[sp->attack_client].type1 = sp->moveTbl[sp->current_move_index].type;
-                sp->battlemon[sp->attack_client].type2 = sp->moveTbl[sp->current_move_index].type;
-#if PROTEAN_GENERATION >= 9
-                sp->battlemon[sp->attack_client].ability_activated_flag = 1;
+    // if wb_seq_no == BEFORE_MOVE_START after the func is called, it is the last call
+    if (sp->wb_seq_no == BEFORE_MOVE_START) {
+        if (ServerWazaBefore_restoreOverlay) {
+            UnloadOverlayByID(ovyId);
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("Restoring overlay %d...\n", (ServerWazaBefore_restoreOverlay == 1 ? 0 : ServerWazaBefore_restoreOverlay));
 #endif
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
-                sp->msg_work = sp->battlemon[sp->attack_client].type1;
-                sp->battlerIdTemp = sp->attack_client;
-                runMyScriptInstead = 1;
-            } else {
-                sp->wb_seq_no++;
-            }
-            FALLTHROUGH;
-        }
-        case SEQ_STANCE_CHANGE_CHECK: {
-            if (sp->battlemon[sp->attack_client].ability == ABILITY_STANCE_CHANGE && sp->battlemon[sp->attack_client].species == SPECIES_AEGISLASH) {
-                sp->battlerIdTemp = sp->attack_client;
-                if (sp->current_move_index == MOVE_KINGS_SHIELD && sp->battlemon[sp->attack_client].form_no == 1) {
-                    sp->battlemon[sp->battlerIdTemp].form_no = 0;
-                    BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 0);
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
-                    runMyScriptInstead = 1;
-                } else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0) {
-                    sp->battlemon[sp->battlerIdTemp].form_no = 1;
-                    BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 0);
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
-                    runMyScriptInstead = 1;
-                }
-            } else {
-                sp->wb_seq_no++;
-            }
-            FALLTHROUGH;
-        }
-        case SEQ_PARENTAL_BOND_CHECK: {
-            if (IsValidParentalBondMove(bw, sp, FALSE) &&
-                sp->loop_hit_check != 0xFD) {
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARENTAL_BOND);
-                runMyScriptInstead = 1;
-            } else {
-                sp->oneTurnFlag[sp->battlerIdTemp].parental_bond_is_active = FALSE;
-                sp->wb_seq_no = 0;
-            }
-            break;
+            HandleLoadOverlay((ServerWazaBefore_restoreOverlay == 1 ? 0 : ServerWazaBefore_restoreOverlay), 2);
         }
     }
-
-    if (sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
-        sp->server_seq_no = CONTROLLER_COMMAND_26;
-    } else {
-        sp->server_status_flag2 |= BATTLE_STATUS2_MOVE_SUCCEEDED;
-        sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;  // execute protean OR the move
-        if (runMyScriptInstead == 0) {
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_MOVE_SEQ, sp->current_move_index);
-            sp->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
-        } else                                               // might want to move this else to be up before the NO_OUT check above
-        {
-            sp->next_server_seq_no = 23;  // loop back to this one after the protean executes so that it can catch the actual move as well
-        }
-        ST_ServerTotteokiCountCalc(bw, sp);  // 801B570h
-    }
-    ST_ServerMetronomeBeforeCheck(bw, sp);  // 801ED20h
-*/
 }
