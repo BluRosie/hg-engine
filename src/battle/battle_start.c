@@ -535,52 +535,35 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerWazaBefore\n");
 #endif
-    u32 ovyId, offset;
+    u32 ovyId, offset, restoreWireless = FALSE;
 
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
     UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
 
-    // Function is so thicc that we need to split it in 2
-    if (sp->wb_seq_no < BEFORE_MOVE_STATE_MOVE_TYPE_CHANGES) {
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE\n");
-#endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
-    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_PSYCHIC_TERRAIN) {
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE2\n");
-#endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE2;
-    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE) {
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE3\n");
-#endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE3;
-    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_MOVE_FAILURES_3) {
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE4\n");
-#endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE4;
-    } else if (sp->wb_seq_no < BEFORE_MOVE_STATE_MOVE_ACCURACY){
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE5\n");
-#endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE5;
-    } else {
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE6\n");
-#endif
-        ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE6;
+    if (IsOverlayLoaded(0)) { // we are taking overlay 0's place
+        restoreWireless = TRUE;
+        UnloadOverlayByID(0);
     }
 
-    offset = 0x023C0400 | 1;
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+    debug_printf("Load OVERLAY_BATTLECONTROLLER_BEFOREMOVE\n");
+#endif
+    ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE;
+
+    //offset = 0x023C0400 | 1;
+    offset = 0x021E5900 | 1;
     HandleLoadOverlay(ovyId, 2);
     internalFunc = (void (*)(void *bw, struct BattleStruct *sp))(offset);
     internalFunc(bw, sp);
     UnloadOverlayByID(ovyId);
 
     HandleLoadOverlay(6, 2); // reload 6 so things are okay
+
+    if (restoreWireless) {
+        debug_printf("Restoring overlay 0...\n");
+        HandleLoadOverlay(0, 2);
+    }
 
 /*
     u32 runMyScriptInstead = 0;

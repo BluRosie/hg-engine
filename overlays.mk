@@ -6,6 +6,7 @@ LDFLAGS_GETMONEVOLUTION_BATTLE = rom_gen.ld -T linker_pokedex.ld
 LDFLAGS_MOVEHITDEFENDERABILITYCHECK = rom_gen_battle.ld -T src/individual/linker_movehitdefenderabilitycheck.ld
 LDFLAGS_SWITCHINABILITYCHECK = rom_gen_battle.ld -T src/individual/linker_switchinabilitycheck.ld
 LDFLAGS_BATTLEFORMCHANGECHECK = rom_gen_battle.ld -T src/individual/linker_battleformchangecheck.ld
+LDFLAGS_POSTARM9 = rom_gen_battle.ld -T src/individual/linker_postarm9.ld
 
 LINKED_OUTPUTS = build/linked.o
 BATTLE_LINK = $(BUILD)/battle_linked.o
@@ -260,7 +261,7 @@ $(SERVERFIELDCONDITIONCHECK_OUTPUT):$(SERVERFIELDCONDITIONCHECK_LINK)
 	$(OBJCOPY) -O binary $< $@
 
 $(BATTLECONTROLLER_BEFOREMOVE_LINK):$(BATTLECONTROLLER_BEFOREMOVE_OBJS) rom_gen_battle.ld
-	$(LD) $(LDFLAGS_SWITCHINABILITYCHECK) -o $@ $(BATTLECONTROLLER_BEFOREMOVE_OBJS)
+	$(LD) $(LDFLAGS_POSTARM9) -o $@ $(BATTLECONTROLLER_BEFOREMOVE_OBJS)
 
 $(BATTLECONTROLLER_BEFOREMOVE_OUTPUT):$(BATTLECONTROLLER_BEFOREMOVE_LINK)
 	$(OBJCOPY) -O binary $< $@
