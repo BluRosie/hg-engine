@@ -535,15 +535,18 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerWazaBefore\n");
 #endif
-    u32 ovyId, offset, restoreWireless = FALSE;
+    u32 ovyId, offset, restoreOverlay = FALSE;
 
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
     UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
 
     if (IsOverlayLoaded(0)) { // we are taking overlay 0's place
-        restoreWireless = TRUE;
+        restoreOverlay = TRUE;
         UnloadOverlayByID(0);
+    } else if (IsOverlayLoaded(18)) {
+        restoreOverlay = 18;
+        UnloadOverlayByID(18);
     }
 
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -554,15 +557,15 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
     //offset = 0x023C0400 | 1;
     offset = 0x021E5900 | 1;
     HandleLoadOverlay(ovyId, 2);
-    internalFunc = (void (*)(void *bw, struct BattleStruct *sp))(offset);
+    internalFunc = (void LONG_CALL (*)(void *bw, struct BattleStruct *sp))(offset);
     internalFunc(bw, sp);
     UnloadOverlayByID(ovyId);
 
     HandleLoadOverlay(6, 2); // reload 6 so things are okay
 
-    if (restoreWireless) {
-        debug_printf("Restoring overlay 0...\n");
-        HandleLoadOverlay(0, 2);
+    if (restoreOverlay) {
+        debug_printf("Restoring overlay %d...\n", (restoreOverlay == 1 ? 0 : restoreOverlay));
+        HandleLoadOverlay((restoreOverlay == 1 ? 0 : restoreOverlay), 2);
     }
 
 /*

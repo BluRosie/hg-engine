@@ -131,7 +131,7 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, in
  *  @param bsys battle work structure
  *  @param ctx global battle structure
  */
-void UNUSED __attribute__ ((section (".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+void __attribute__((section (".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerWazaBefore\n");
 #endif
@@ -143,6 +143,9 @@ void UNUSED __attribute__ ((section (".init"))) BattleController_BeforeMove(stru
     CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
 
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome");
+#endif
         ctx->server_seq_no = CONTROLLER_COMMAND_26;
         ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
         return;
