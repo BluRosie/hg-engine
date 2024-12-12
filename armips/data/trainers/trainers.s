@@ -1523,7 +1523,7 @@ trainerdata 47, "Ash"
         // mon 0
         ivs 0
         abilityslot 0
-        level 8
+        level 6
         pokemon SPECIES_PIKACHU
         item ITEM_LIGHT_BALL
         move MOVE_THUNDER_SHOCK
