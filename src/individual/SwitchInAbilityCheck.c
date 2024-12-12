@@ -90,14 +90,34 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no++;
                 break;
             // https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
-            case SWITCH_IN_CHECK_ENTRY_EFFECT: {
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_NEUTRALIZING_GAS_TERA_SHIFT: {
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
-                    // Neutralizing Gas
-                    {
+                    switch (GetBattlerAbility(sp, client_no)) {
+                        case ABILITY_NEUTRALIZING_GAS:
+                            break;
+                        case ABILITY_TERA_SHIFT:
+                            break;
 
+                        default:
+                            break;
                     }
+
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
+                    }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            } 
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
 
                     // Unnerve / As One
                     {
@@ -113,15 +133,62 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
+                    }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            }
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+                    
                     // Heal from Healing Wish, Lunar Dance, Z-Memento, or Z-Parting Shot if applicable
                     {
 
                     }
 
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
+                    }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            }
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_HAZARDS: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+
+                    
                     // Entry hazards
                     {
 
                     }
+
+                    
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
+                    }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            }
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
 
                     // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
 
@@ -557,38 +624,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
-                    // Air Balloon is announced, Berries/Berry Juice/White Herb/Mental Herb/terrain seeds can be consumed if applicable
-                    {
-                        if ((sp->battlemon[client_no].air_ballon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
-                            sp->battlemon[client_no].air_ballon_flag = 1;
-                            sp->battlerIdTemp = client_no;
-                            scriptnum = SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE;
-                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            break;
-                        }
-                    }
-
-                    // Ice Face
-                    {
-                        if ((sp->battlemon[client_no].species == SPECIES_EISCUE) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].form_no == 1) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) && (sp->field_condition & WEATHER_HAIL_ANY)  // there is hail this turn
-                            && ((sp->log_hail_for_ice_face & No2Bit(client_no)) == 0)                                                                                                                                                                                                                                                                                   // and hail wasn't here last turn/the mon just switched in
-                            && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)) {
-                            sp->battlerIdTemp = client_no;
-                            BattleFormChange(client_no, 0, bw, sp, TRUE);
-                            sp->battlemon[client_no].form_no = 0;
-                            scriptnum = SUB_SEQ_HANDLE_RESTORE_ICE_FACE;
-                            ret = TRUE;
-                        }
-
-                        if (sp->field_condition & WEATHER_HAIL_ANY)  // update log_hail_for_ice_face
-                            sp->log_hail_for_ice_face |= No2Bit(client_no);
-                        else
-                            sp->log_hail_for_ice_face &= ~No2Bit(client_no);
-
-                        if (ret)
-                            break;
-                    }
-
                     // Surge Abilities
                     {
                         if (sp->battlemon[client_no].ability_activated_flag == 0 &&
@@ -628,32 +663,32 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
-                    // Terrain Seeds
+                    // Air Balloon is announced
+                    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933
                     {
-                        u16 heldItem;
-
-                        heldItem = GetBattleMonItem(sp, client_no);
-                        if (IS_ITEM_TERRAIN_SEED(heldItem) && TerrainSeedShouldActivate(sp, heldItem)) {
-                            sp->state_client = client_no;
-                            scriptnum = SUB_SEQ_HANDLE_TERRAIN_SEEDS;
+                        if ((sp->battlemon[client_no].air_ballon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
+                            sp->battlemon[client_no].air_ballon_flag = 1;
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         }
                     }
 
-                    // Forecast
-                    {
-                        sp->checkOnlySpecifiedTarget = TRUE;
-                        sp->checkOnlySpecifiedTargetClient = client_no;
-                        if (BattleFormChangeCheck(bw, sp, &scriptnum) == TRUE) {
-                            sp->checkOnlySpecifiedTarget = FALSE;
-                            sp->checkOnlySpecifiedTargetClient = 0;
-                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            break;
-                        }
-                        sp->checkOnlySpecifiedTarget = FALSE;
-                        sp->checkOnlySpecifiedTargetClient = 0;
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
                     }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            }
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_PRIMAL_REVERSION_SEEDS_SCHOOLING_SHIELDS_DOWN: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
 
                     // Primal Reversion
                     {
@@ -669,6 +704,28 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 #endif  // PRIMAL_REVERSION
                     }
 
+                    // Terrain Seeds
+                    {
+                        u16 heldItem;
+
+                        heldItem = GetBattleMonItem(sp, client_no);
+                        if (IS_ITEM_TERRAIN_SEED(heldItem) && TerrainSeedShouldActivate(sp, heldItem)) {
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_TERRAIN_SEEDS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
+                    // Schooling
+                    {
+
+                    }
+                    // Shields Down
+                    {
+
+                    }
+
                     // Need to trigger script
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                         break;
@@ -678,7 +735,117 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 if (i == client_set_max) {
                     sp->switch_in_check_seq_no++;
                 }
-            } break;
+            }
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY_EJECT_PACK: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+
+                    // White Herb, etc
+                    {
+                        if (HeldItemHealCheck(bw, sp, client_no, &scriptnum) == TRUE) {
+                            sp->battlerIdTemp = client_no;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
+                    // Flower Gift, Forecast
+                    {
+                        sp->checkOnlySpecifiedTarget = TRUE;
+                        sp->checkOnlySpecifiedTargetClient = client_no;
+                        if (BattleFormChangeCheck(bw, sp, &scriptnum) == TRUE) {
+                            sp->checkOnlySpecifiedTarget = FALSE;
+                            sp->checkOnlySpecifiedTargetClient = 0;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                        sp->checkOnlySpecifiedTarget = FALSE;
+                        sp->checkOnlySpecifiedTargetClient = 0;
+                    }
+
+                    // Ice Face
+                    {
+                        if ((sp->battlemon[client_no].species == SPECIES_EISCUE) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].form_no == 1) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) && (sp->field_condition & WEATHER_HAIL_ANY)  // there is hail this turn
+                            && ((sp->log_hail_for_ice_face & No2Bit(client_no)) == 0)                                                                                                                                                                                                                                                                                   // and hail wasn't here last turn/the mon just switched in
+                            && (GetBattlerAbility(sp, client_no) == ABILITY_ICE_FACE)) {
+                            sp->battlerIdTemp = client_no;
+                            BattleFormChange(client_no, 0, bw, sp, TRUE);
+                            sp->battlemon[client_no].form_no = 0;
+                            scriptnum = SUB_SEQ_HANDLE_RESTORE_ICE_FACE;
+                            ret = TRUE;
+                        }
+
+                        if (sp->field_condition & WEATHER_HAIL_ANY)  // update log_hail_for_ice_face
+                            sp->log_hail_for_ice_face |= No2Bit(client_no);
+                        else
+                            sp->log_hail_for_ice_face &= ~No2Bit(client_no);
+
+                        if (ret)
+                            break;
+                    }
+
+                    // Costar
+                    {
+                        
+                    }
+
+                    // Commander
+                    {
+
+                    }
+
+                    // Protosynthesis
+                    {
+
+                    }
+
+                    // Quark Drive
+                    {
+
+                    }
+
+                    // Hospitality
+                    {
+
+                    }
+
+                    // Eject Pack
+                    {
+
+                    }
+
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
+                    }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            }
+                break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+
+                    // Opportunist
+                    {
+                        
+                    }
+
+                    // Need to trigger script
+                    if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                        break;
+                    }
+                }
+
+                if (i == client_set_max) {
+                    sp->switch_in_check_seq_no++;
+                }
+            }
+                break;
             case SWITCH_IN_CHECK_AMULET_COIN:{
                 for (i = 0; i < client_set_max; i++)
                 {
@@ -708,25 +875,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     sp->switch_in_check_seq_no++;
                 }
             }
-                break;
-                // 02253D38
-            case SWITCH_IN_CHECK_HEAL_STATUS: {
-                for (i = 0; i < client_set_max; i++)
-                {
-                    client_no = sp->turnOrder[i];
-                    if(HeldItemHealCheck(bw, sp, client_no, &scriptnum) == TRUE)
-                    {
-                        sp->battlerIdTemp = client_no;
-                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                        break;
-                    }
-                }
-                if(i == client_set_max)
-                {
-                    sp->switch_in_check_seq_no++;
-                }
-            }
-                break;
+                break;    
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
