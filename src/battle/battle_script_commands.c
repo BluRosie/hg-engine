@@ -670,6 +670,20 @@ int read_battle_script_param(struct BattleStruct *sp)
     return data;
 }
 
+u32 GetLevelCap(void)
+{
+    u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
+    if (levelCap > 100) levelCap = 100;
+    return levelCap;
+}
+
+u32 IsLevelAtLevelCap(u32 level)
+{
+    return (level >= GetLevelCap());
+}
+
+
+
 /**
  *  @brief load battle script to BattleStruct's SkillSeqWork
  *
@@ -1519,8 +1533,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
 #endif
 
-    // distribute effort values to level 100 pokémon who would otherwise not get it
-    if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
+    //distribute effort values to level_cap pokémon who would otherwise not get it
+    //把努力值分配给已经到达等级上限的宝可梦。
+    if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == GetLevelCap())
     {
         DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
                                sel_mons_no,
