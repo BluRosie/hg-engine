@@ -1533,8 +1533,8 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
 #endif
 
-    //distribute effort values to level_cap pokémon who would otherwise not get it
-    //把努力值分配给已经到达等级上限的宝可梦。
+    //distribute Base points to level_cap pokémon who would otherwise not get it
+    //把基础点数分配给已经到达等级上限的宝可梦。
     if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == GetLevelCap())
     {
         DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
