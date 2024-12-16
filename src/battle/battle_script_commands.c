@@ -2,6 +2,7 @@
 #include "../../include/battle.h"
 #include "../../include/config.h"
 #include "../../include/debug.h"
+#include "../../include/mega.h"
 #include "../../include/overlay.h"
 #include "../../include/save.h"
 #include "../../include/constants/ability.h"
@@ -14,8 +15,6 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
-
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 
 struct EXP_CALCULATOR
 {
@@ -83,6 +82,9 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -356,6 +358,9 @@ const u8 *BattleScrCmdNames[] =
     "setabilityactivatedflag",
     "switchinabilitycheck",
     "trystickyweb",
+    "trymegaorultraburstduringpursuit",
+    "calcconfusiondamage",
+    "checkcanactivatedefiantorcompetitive",
 };
 
 u32 cmdAddress = 0;
@@ -392,6 +397,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xFA - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FA_setabilityactivatedflag,
     [0xFB - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FB_switchinabilitycheck,
     [0xFC - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FC_trystickyweb,
+    [0xFD - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FD_trymegaorultraburstduringpursuit,
+    [0xFE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FE_calcconfusiondamage,
+    [0xFF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -930,7 +938,7 @@ s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp,
         break;
     case BTL_PARAM_BATTLER_WORK:
     case BTL_PARAM_BATTLER_x15:
-        client_no = sp->client_work;
+        client_no = sp->battlerIdTemp;
         break;
     }
 
@@ -1976,7 +1984,8 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     u32 item = sp->battlemon[sp->defence_client].item;
 
     // sticky hold and substitute will keep the mon's held item, but the damage boost will still apply
-    if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE)
+    // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
+    if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
         sp->mp.msg_id = BATTLE_MSG_ABILITY_MADE_MOVE_INEFFECTIVE;
         sp->mp.msg_tag = TAG_NICK_ABILITY_MOVE;
@@ -2152,7 +2161,7 @@ BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp)
         {
             u32 form_no = 0;
             sp->battlemon[client_no].form_no = form_no;
-            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
+            BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 1);
             SetMonData(pp, MON_DATA_FORM, (u8 *)&form_no);
         }
 
@@ -2344,12 +2353,38 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no) {
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
     if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
-         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->battlemon[client_no].type1 != TYPE_FLYING && sp->battlemon[client_no].type2 != TYPE_FLYING) ||
+         && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING)) ||
         (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED                             // holding Iron Ball
          || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
          || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
         // not in a semi-vulnerable state
         if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief function to check whether a mon is grounded or not
+ *  @param sp global battle structure
+ *  @param attacker resolved battler attacker
+ *  @param defender resolved battler defender
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker, u32 defender) {
+    u8 holdeffect = HeldItemHoldEffectGet(sp, defender);
+
+    BOOL hasLevitate = attacker == defender ? GetBattlerAbility(sp, defender) == ABILITY_LEVITATE : MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LEVITATE);
+
+    if ((!hasLevitate && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT  // not holding Air Balloon
+         && (sp->battlemon[defender].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, defender, TYPE_FLYING)) ||
+        (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED                             // holding Iron Ball
+         || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)  // is Ingrained
+         || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+        // not in a semi-vulnerable state
+        if ((sp->battlemon[defender].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0) {
             return TRUE;
         }
     }
@@ -2919,6 +2954,116 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp) {
 }
 
 /**
+ *  @brief script command to check if Mega Evolution or Ultra Burst is needed to be queued for the attacker during Pursuit
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    // debug_printf("In trymegaorultraburstduringpursuit\n");
+
+    int script = 0;
+    int failAddress = read_battle_script_param(sp);
+
+    if (newBS.needMega[sp->attack_client] == MEGA_NEED && sp->battlemon[sp->attack_client].hp) {
+        if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
+            if (sp->attack_client == 0 || (sp->attack_client == 2 && sp->battlemon[sp->attack_client].id_no == sp->battlemon[0].id_no))
+                newBS.PlayerMegaed = TRUE;
+        } else if (sp->attack_client == 0 || sp->attack_client == 2) {
+            newBS.PlayerMegaed = TRUE;
+        }
+
+        sp->battlemon[sp->attack_client].form_no = GrabMegaTargetForm(sp->battlemon[sp->attack_client].species, sp->battlemon[sp->attack_client].item);
+        BattleFormChange(sp->attack_client, sp->battlemon[sp->attack_client].form_no, bw, sp, TRUE);
+
+        newBS.needMega[sp->attack_client] = MEGA_NO_NEED;
+        sp->battlerIdTemp = sp->attack_client;
+        if (CheckCanSpeciesMegaEvolveByMove(sp, sp->attack_client)) {
+            script = SUB_SEQ_HANDLE_MOVE_MEGA_EVOLUTION;
+        } else {
+            script = SUB_SEQ_HANDLE_MEGA_EVOLUTION;
+        }
+    }
+
+    if (script) {
+        // debug_printf("script: %d\n", script);
+        sp->temp_work = script;
+    } else {
+        // debug_printf("no script needed\n");
+        IncrementBattleScriptPtr(sp, failAddress);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to calculate confusion damage since we cannot load both overlays at the same time
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->moveOutCheck[ctx->attack_client].stoppedFromConfusion = TRUE;
+    ctx->defence_client = ctx->attack_client;
+    ctx->battlerIdTemp = ctx->defence_client;
+    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, ctx->attack_client, ctx->attack_client, 1);
+    ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+    ctx->hp_calc_work *= -1;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to check whether Defiant or Competitive can activate
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int failAddress = read_battle_script_param(ctx);
+    int handleDefiantAddress = read_battle_script_param(ctx);
+    int handleCompetitiveAddress = read_battle_script_param(ctx);
+    
+    if ((ctx->battlemon[ctx->state_client].hp != 0)
+    && (ctx->oneSelfFlag[ctx->state_client].defiant_flag)
+    && (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12)
+    && ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+    && ((ctx->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+    && ((ctx->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)) {
+        ctx->oneSelfFlag[ctx->state_client].defiant_flag = 0;
+        switch (GetBattlerAbility(ctx, ctx->state_client)) {
+            case ABILITY_DEFIANT:
+                if (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12) {
+                    IncrementBattleScriptPtr(ctx, handleDefiantAddress);
+                    return FALSE;
+                }
+                break;
+            case ABILITY_COMPETITIVE:
+                if (ctx->battlemon[ctx->state_client].states[STAT_SPATK] < 12) {
+                    IncrementBattleScriptPtr(ctx, handleCompetitiveAddress);
+                    return FALSE;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    IncrementBattleScriptPtr(ctx, failAddress);
+
+    return FALSE;
+}
+
+/**
  *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
  *
  *  @param bw battle work structure
@@ -3202,7 +3347,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
     //Binding Moves
     if (sp->binding_turns[sp->attack_client] != 0) {
         sp->binding_turns[sp->attack_client] = 0;
-        sp->client_work = sp->battlemon[sp->attack_client].moveeffect.battlerIdBinding;
+        sp->battlerIdTemp = sp->battlemon[sp->attack_client].moveeffect.battlerIdBinding;
         sp->waza_work = sp->battlemon[sp->attack_client].moveeffect.bindingMove;
         SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BREAK_CLAMP);
         return FALSE;
@@ -3344,6 +3489,7 @@ BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
         //&& !IS_ITEM_Z_CRYSTAL(item)
         // mega stones can not be knocked off their own mon
         && !CheckMegaData(species, item)
+        && !(CanUndergoPrimalReversion(sp, sp->defence_client))
         // arceus plate on arceus can not be knocked off
         && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
         // technically this can be knocked off as of SV but the transformation code hasnt been moved to the core as of right now so ill leave it alone for right now
@@ -3551,7 +3697,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     //
     //    break;
     case ITEM_DREAM_BALL:
-        if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP))
+        if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP))
         captureRate *= 4;
         break;
     //case ITEM_BEAST_BALL:
@@ -3562,10 +3708,10 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     // = captureRate * ballRate / 10 * (3maxHP - 2curHP) / (3maxHP)
     captureRate = ((captureRate * ballRate) / 10) * (sp->battlemon[sp->defence_client].maxhp * 3  -  sp->battlemon[sp->defence_client].hp * 2) / (sp->battlemon[sp->defence_client].maxhp * 3);
 
-    if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP | STATUS_FLAG_FROZEN))
+    if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP | STATUS_FREEZE))
         captureRate *= 2;
 
-    if (sp->battlemon[sp->defence_client].condition & (STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_PARALYZED))
+    if (sp->battlemon[sp->defence_client].condition & (STATUS_POISON_ALL | STATUS_BURN | STATUS_PARALYSIS))
         captureRate = captureRate * 15 / 10;
 
     if (captureRate > 255)

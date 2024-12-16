@@ -186,7 +186,7 @@ _388:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _447
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _447
     WaitButtonABTime 30
-    // {0} is already poisoned.
+    // {0} is already poisoned!
     PrintMessage 76, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _440
 

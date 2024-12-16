@@ -12,6 +12,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/file.h"
+#include "../../include/overlay.h"
 
 
 extern const u8 StatBoostModifiers[][2];
@@ -84,6 +85,35 @@ const u16 TriageMovesList[] = {
     MOVE_SWALLOW,
     MOVE_SYNTHESIS,
     MOVE_WISH,
+};
+
+const u16 BulletproofMoveList[] =
+{
+    MOVE_ACID_SPRAY,
+    MOVE_AURA_SPHERE,
+    MOVE_BARRAGE,
+    MOVE_BEAK_BLAST,
+    MOVE_BULLET_SEED,
+    MOVE_EGG_BOMB,
+    MOVE_ELECTRO_BALL,
+    MOVE_ENERGY_BALL,
+    MOVE_FOCUS_BLAST,
+    MOVE_GYRO_BALL,
+    MOVE_ICE_BALL,
+    MOVE_MAGNET_BOMB,
+    MOVE_MIST_BALL,
+    MOVE_MUD_BOMB,
+    MOVE_OCTAZOOKA,
+    MOVE_POLLEN_PUFF,
+    MOVE_PYRO_BALL,
+    MOVE_ROCK_BLAST,
+    MOVE_ROCK_WRECKER,
+    MOVE_SEARING_SHOT,
+    MOVE_SEED_BOMB,
+    MOVE_SHADOW_BALL,
+    MOVE_SLUDGE_BOMB,
+    MOVE_WEATHER_BALL,
+    MOVE_ZAP_CANNON,
 };
 
 // List of multi-strike moves
@@ -319,6 +349,15 @@ const u16 MaxMoveList[] = {
     MOVE_MAX_STEELSPIKE,
 };
 
+const u16 WeightMoveList[] = {
+    MOVE_LOW_KICK,
+    MOVE_GRASS_KNOT,
+    MOVE_AUTOTOMIZE,
+    MOVE_HEAVY_SLAM,
+    MOVE_SKY_DROP,
+    MOVE_HEAT_CRASH,
+};
+
 const u16 PunchingMovesTable[] = {
     MOVE_BULLET_PUNCH,
     MOVE_COMET_PUNCH,
@@ -346,13 +385,14 @@ const u16 PunchingMovesTable[] = {
     MOVE_WICKED_BLOW,
 };
 
+// TODO: Tidy up this
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
 BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
     u16 accuracy;
     s8 temp;
     s8 stat_stage_acc, stat_stage_evasion;
-    int hold_effect;
+    int hold_effect = HeldItemHoldEffectGet(sp, defender);
     int hold_effect_atk;
     u8 move_type UNUSED; // unused but will be needed
     u8 move_split;
@@ -392,7 +432,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             if
             (
                 (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_GRASS) ||
-                (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_GRASS)
+                (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_GRASS) ||
+                (hold_effect == HOLD_EFFECT_SPORE_POWDER_IMMUNITY)
             )
             {
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
@@ -521,7 +562,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
-     && (sp->battlemon[defender].condition2 & STATUS2_CONFUSED))
+     && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION))
     {
         accuracy = accuracy * 50 / 100;
     }
@@ -547,9 +588,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         accuracy = accuracy * (100 + hold_effect_atk) / 100;
     }
 
-    if (sp->battlemon[attacker].moveeffect.boostedAccuracy)
+    if (sp->boostedAccuracy)
     {
-        sp->battlemon[attacker].moveeffect.boostedAccuracy = 0;
         accuracy = accuracy * 120 / 100;
     }
 
@@ -741,7 +781,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     }
     else
     {
-        if (sp->battlemon[client1].condition & STATUS_FLAG_PARALYZED)
+        if (sp->battlemon[client1].condition & STATUS_PARALYSIS)
         {
             speed1 /= 2; // gen 7 on only halves speed for paralysis
         }
@@ -824,7 +864,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     }
     else
     {
-        if (sp->battlemon[client2].condition & STATUS_FLAG_PARALYZED)
+        if (sp->battlemon[client2].condition & STATUS_PARALYSIS)
         {
             speed2 /= 2; // gen 7 on only halves speed for paralysis
         }
@@ -1197,7 +1237,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     if
     (
         BattleRand(bw) % CriticalRateTable[temp] == 0
-        || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
+        || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )
     {
@@ -1268,7 +1308,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->hit_damage = sp->damage;
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
-            sp->client_work = sp->defence_client;
+            sp->battlerIdTemp = sp->defence_client;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
             sp->server_seq_no = 22;
             sp->next_server_seq_no = 29;
@@ -1363,7 +1403,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
             sp->oneTurnFlag[sp->defence_client].last_damage = sp->damage;
             sp->oneTurnFlag[sp->defence_client].last_damager = sp->attack_client;
 
-            sp->client_work = sp->defence_client;
+            sp->battlerIdTemp = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
@@ -1395,6 +1435,59 @@ u16 gf_p_rand(const u16 denominator)
     }
 }
 
+// TODO: Refactor this function
+int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type) {
+    int i = 0;
+    u8 attacker_type_1 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
+    u8 attacker_type_2 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
+    u8 defender_type_1 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL);
+    u8 defender_type_2 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL);
+
+    u32 type1Effectiveness = 0;
+    u32 type2Effectiveness = 0;
+
+    while (TypeEffectivenessTable[i][0] != 0xff) {
+        if (TypeEffectivenessTable[i][0] == 0xfe)  // handle foresight
+        {
+            if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE)) {
+                break;
+            } else {
+                i++;
+                continue;
+            }
+        }
+        if (TypeEffectivenessTable[i][0] == move_type) {
+            if (TypeEffectivenessTable[i][1] == defender_type_1) {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_1 == TYPE_FLYING)) {
+                    type1Effectiveness = TypeEffectivenessTable[i][2];
+                }
+            }
+            if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2)) {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_2 == TYPE_FLYING)) {
+                    type2Effectiveness = TypeEffectivenessTable[i][2];
+                }
+            }
+            // TODO: Handle type3, Tera Type
+        }
+        i++;
+    }
+
+    // TODO: Refactor!!!
+    if (type1Effectiveness == TYPE_MUL_NO_EFFECT || type2Effectiveness == TYPE_MUL_NO_EFFECT) {
+        return TYPE_MUL_NO_EFFECT;
+    }
+    if ((type1Effectiveness == TYPE_MUL_SUPER_EFFECTIVE && type2Effectiveness == TYPE_MUL_NOT_EFFECTIVE)
+    || (type2Effectiveness == TYPE_MUL_SUPER_EFFECTIVE && type1Effectiveness == TYPE_MUL_NOT_EFFECTIVE)) {
+        return TYPE_MUL_NORMAL;
+    }
+    if (type1Effectiveness == TYPE_MUL_NORMAL) {
+        return type2Effectiveness;
+    }
+    if (type2Effectiveness == TYPE_MUL_NORMAL) {
+        return type1Effectiveness;
+    }
+    return TYPE_MUL_NO_EFFECT;
+}
 
 /**
  *  @brief set move status effects for super effective and calculate modified damage
@@ -1415,7 +1508,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     int modifier;
     u32 base_power;
     u8  eqp_a;
-    u8  eqp_d;
+    u8  eqp_d UNUSED;
     u8  atk_a;
     u8  atk_d UNUSED; // not currently used but will be
 
@@ -1449,39 +1542,39 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         }
     }
 
-    if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_LEVITATE) == TRUE)
-     && (move_type == TYPE_GROUND)
-     && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) // iron ball halves speed and grounds
-    {
-        flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
-        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    }
-    else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
-          && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-          && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-          && (move_type == TYPE_GROUND)
-          && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
-    {
-        flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
-        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    }
-    else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
-          && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-          && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-          && (move_type == TYPE_GROUND)
-          && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
-    {
-        flag[0] |= MOVE_STATUS_FLAG_MISS; // air balloon just misses for the moment
-        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    }
-    else if ((move_no == MOVE_SHEER_COLD) && (defender_type_1 == TYPE_ICE || defender_type_2 == TYPE_ICE))
-    {
-        flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-    }
-    else
+    // if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_LEVITATE) == TRUE)
+    //  && (move_type == TYPE_GROUND)
+    //  && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) // iron ball halves speed and grounds
+    // {
+    //     flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
+    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
+    // }
+    // else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
+    //       && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
+    //       && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+    //       && (move_type == TYPE_GROUND)
+    //       && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
+    // {
+    //     flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
+    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
+    // }
+    // else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
+    //       && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
+    //       && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+    //       && (move_type == TYPE_GROUND)
+    //       && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
+    // {
+    //     flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS; // reuse Magnet Rise message since they are the same
+    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
+    // }
+    // else if ((move_no == MOVE_SHEER_COLD) && (defender_type_1 == TYPE_ICE || defender_type_2 == TYPE_ICE))
+    // {
+    //     flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
+    // }
+    // else
     {
         i = 0;
         while (TypeEffectivenessTable[i][0] != 0xff)
@@ -1770,43 +1863,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *sp, int battlerId) {
  *  @return TRUE if the move has positive priority after adjustments
  */
 BOOL LONG_CALL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
-    BOOL isTriageMove = FALSE;
-
-    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
-        if (TriageMovesList[i] == sp->current_move_index) {
-            isTriageMove = TRUE;
-            break;
-        }
-    }
-
-    // Handle Prankster Metronome, Sleep Talk, Nature Power, Assist, Me First, Copycat
-    if (sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag &&
-        GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) {
-        // reset flag
-        sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag = 0;
-        return TRUE;
-    }
-
-    // reset flag
-    sp->battlemon[attacker].potentially_affected_by_psychic_terrain_move_used_flag = 0;
-
-    if (
-        (sp->moveTbl[sp->current_move_index].priority > 0) ||
-        ((GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER) &&
-         (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS) &&
-         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Prankster is +1
-         ) ||
-        ((GetBattlerAbility(sp, attacker) == ABILITY_GALE_WINGS) &&
-         (sp->moveTbl[sp->current_move_index].type == TYPE_FLYING) &&
-         (sp->moveTbl[sp->current_move_index].priority >= 0)  // Gale Wings is +1
-         ) ||
-        ((GetBattlerAbility(sp, attacker) == ABILITY_TRIAGE) &&
-         (isTriageMove) &&
-         (sp->moveTbl[sp->current_move_index].priority >= -2)  // Triage is +3
-         )) {
-        return TRUE;
-    }
-    return FALSE;
+    return GetClientActionPriority(NULL, sp, attacker) > 0;
 }
 
 /**
@@ -1974,6 +2031,50 @@ BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL c
             GetMoveSplit(sp, moveIndex) != SPLIT_STATUS &&
             !IsBannedParentalBondMove(moveIndex) &&
             !IsBannedSpreadMoveForParentalBond(bw, sp, moveIndex));
+}
+
+/**
+ * @brief Check if the current move is a Powder move
+ * @param moveIndex move index
+ * @return TRUE if it is a Powder move
+*/
+BOOL LONG_CALL IsPowderMove(u32 moveIndex) {
+    u8 output = FALSE;
+    for (u16 i = 0; i < NELEMS(PowderMovesList); i++) {
+        if (moveIndex == PowderMovesList[i]) {
+            output = TRUE;
+            break;
+        }
+    }
+    return output;
+}
+
+/**
+ * @brief Check if the current move is a Weight move
+ * @param moveIndex move index
+ * @return TRUE if it is a Weight move
+*/
+BOOL LONG_CALL IsWeightMove(u32 moveIndex) {
+    for (u16 i = 0; i < NELEMS(WeightMoveList); i++) {
+        if (moveIndex == WeightMoveList[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+/**
+ * @brief Check if the current move is a ball or bomb move
+ * @param moveIndex move index
+ * @return TRUE if it is a Weight move
+*/
+BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex) {
+    for (u16 i = 0; i < NELEMS(BulletproofMoveList); i++) {
+        if (moveIndex == BulletproofMoveList[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }
 
 /**
@@ -2263,10 +2364,10 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
             for (i = 0; i < client_set_max; i++) {
                 client_no = ctx->turnOrder[i];
                 if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
-                && (ctx->battlemon[client_no].condition & STATUS_FLAG_BURNED)
+                && (ctx->battlemon[client_no].condition & STATUS_BURN)
                 && (ctx->battlemon[client_no].hp)) {
                     if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                        ctx->client_work = client_no;
+                        ctx->battlerIdTemp = client_no;
                         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HEAL_TARGET_BURN);
                         ctx->next_server_seq_no = ctx->server_seq_no;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2282,7 +2383,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
                 if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
                     ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
-                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSED)) {
+                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
                     ctx->state_client = ctx->attack_client;
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
                     ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2317,8 +2418,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
                             break;
                         case 3:
-                            // TODO
-                            ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
+                            ctx->addeffect_param = ADD_STATE_ATTACK_UP_3 + stat;
                             break;
 
                         default:
@@ -2346,9 +2446,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             case 2:
                                 ctx->addeffect_param = ADD_STATE_ATTACK_UP_2;
                                 break;
-                            // TODO
                             case 3:
-                                ctx->addeffect_param = ADD_STATE_ATTACK_UP_2;
+                                ctx->addeffect_param = ADD_STATE_ATTACK_UP_3;
                                 break;
 
                             default:
@@ -2375,9 +2474,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                             case 2:
                                 ctx->addeffect_param = ADD_STATE_SP_ATK_UP_2;
                                 break;
-                            // TODO
                             case 3:
-                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP_2;
+                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP_3;
                                 break;
 
                             default:
@@ -2398,8 +2496,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                     if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA && ctx->battlemon[ctx->attack_client].form_no == 1) {
                         ctx->state_client = ctx->attack_client;
-                        ctx->client_work = ctx->attack_client;
+                        ctx->battlerIdTemp = ctx->attack_client;
                         ctx->battlemon[ctx->attack_client].form_no = 2;
+                        BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
                         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORM_CHANGE);
                         ctx->next_server_seq_no = ctx->server_seq_no;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2409,6 +2508,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 }
                 break;
             default:
+                ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
                 break;
         }
 
@@ -2441,40 +2541,17 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 0;
     ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 0;
-}
 
-/**
- *  @brief checks if the given move should be weakened or not (only prints message)
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return TRUE/FALSE
- */
-BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp) {
-    int defender_type_1 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL);
-    int defender_type_2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL);
-    u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
-    int i = 0;
+    int client_set_max = BattleWorkClientSetMaxGet(bsys);
 
-    // TODO: Check type3
-    while (TypeEffectivenessTable[i][0] != 0xff) {
-        if (TypeEffectivenessTable[i][0] == move_type) {
-            if ((TypeEffectivenessTable[i][1] == defender_type_1) || (TypeEffectivenessTable[i][1] == defender_type_2)) {
-                if ((!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
-                && sp->field_condition & WEATHER_STRONG_WINDS
-                && (TypeEffectivenessTable[i][2] == 20)
-                && ((defender_type_1 == TYPE_FLYING) || (defender_type_2 == TYPE_FLYING)))) {
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    return TRUE;
-                }
-            }
-        }
-        i++;
+    for (int i = 0; i < client_set_max; i++) {
+        ctx->moveStatusFlagForSpreadMoves[i] = 0;
+        ctx->damageForSpreadMoves[i] = 0;
     }
-
-    return FALSE;
+    ctx->clientLoopForSpreadMoves = 0;
+    ctx->boostedAccuracy = FALSE;
 }
+
 
 /**
  * @brief checks if contact is being made, checking abilities and items
@@ -2541,65 +2618,119 @@ enum {
     TRY_MOVE_END,
 };
 
+
 /**
  * Platinum version as reference
  * BattleController_TryMove
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3240
  */
 void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    // u8 buf[64];
-    // sprintf(buf, "In BattleController_TryMove\n");
-    // debugsyscall(buf);
+    // u32 ovyId, offset;
 
-    switch (ctx->woc_seq_no) {
-    case TRY_MOVE_STATE_CHECK_VALID_TARGET:
-        ctx->woc_seq_no++;
-        if (ov12_0224B398(bsys, ctx) == TRUE) {
-            return;
-        }
-        //fallthrough
-    case TRY_MOVE_STATE_TRIGGER_REDIRECTION_ABILITIES:
-        ctx->woc_seq_no++;
-        if (ov12_02250BBC(bsys, ctx) == TRUE) {
-            return;
-        }
-        //fallthrough
-    case TRY_MOVE_STATE_CHECK_MOVE_HITS:
-        // BATTLER_NONE
-        if (!(ctx->waza_out_check_on_off & 0x20) && ctx->defence_client != 0xFF && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index) == TRUE) {
-            return;
-        }
-        ctx->woc_seq_no++;
-        //fallthrough
-    case TRY_MOVE_STATE_CHECK_MOVE_HIT_OVERRIDES:
-        if (!(ctx->waza_out_check_on_off & 0x40) && ctx->defence_client != 0xFF && BattleSystem_CheckMoveEffect(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index) == TRUE) {
-            return;
-        }
-        ctx->woc_seq_no++;
-        //fallthrough
-    case TRY_MOVE_STATE_CHECK_TYPE_CHART:
-        if (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != 0xFF && ov12_0224B498(bsys, ctx) == TRUE) {
-            return;
-        }
-        ctx->woc_seq_no++;
-        //fallthrough
-    case TRY_MOVE_STATE_TRIGGER_IMMUNITY_ABILITIES:
-        if (!(ctx->waza_out_check_on_off & 0x10) && ctx->defence_client != 0xFF && ov12_0224BC2C(bsys, ctx) == TRUE) {
-            return;
-        }
-        ctx->woc_seq_no++;
-        //fallthrough
-    case TRY_MOVE_STATE_TRIGGER_STRONG_WINDS:
-        ctx->woc_seq_no++;
-        if (CheckStrongWindsWeaken(bsys, ctx)) {
-            return;
-        }
-        //fallthrough
-    case TRY_MOVE_END:
-        ctx->woc_seq_no = 0;
-        break;
+    // void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+    // UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
+
+    // // Function is so thicc that we need to split it in 2
+    // if (ctx->woc_seq_no < BEFORE_MOVE_STATE_PSYCHIC_TERRAIN) {
+    //     ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE2;
+    // } else {
+    //     ovyId = OVERLAY_BATTLECONTROLLER_TRYMOVE2;
+    // }
+
+    // offset = 0x023C0400 | 1;
+    // HandleLoadOverlay(ovyId, 2);
+    // internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
+    // internalFunc(bsys, ctx);
+    // UnloadOverlayByID(ovyId);
+
+    // HandleLoadOverlay(6, 2); // reload 6 so things are okay
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+    debug_printf("In ov12_0224C4D8\n")
+#endif
+
+    ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ctx->defence_client];
+
+    if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
+        // Skip vanilla fail message printing
+        // ctx->server_seq_no = CONTROLLER_COMMAND_26;
+        ctx->server_seq_no = CONTROLLER_COMMAND_35;
+    } else {
+        ctx->server_status_flag2 |= BATTLE_STATUS2_MOVE_SUCCEEDED;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;  // execute the move
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
+        // ctx->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_25;  // after that
+        ST_ServerTotteokiCountCalc(bsys, ctx);              // 801B570h
     }
-    ctx->server_seq_no = CONTROLLER_COMMAND_25;
+    ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
+}
+
+/**
+ * Platinum version as reference
+ * BattleController_LoopSpreadMoves
+ * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3832
+ */
+void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    debug_printf("In BattleController_LoopSpreadMoves\n");
+
+    if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
+        ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
+        ctx->defence_client   = ctx->attack_client;
+        ctx->attack_client = ctx->magic_cort_client;
+    }
+
+    ov12_0224DD74(bsys, ctx);
+
+    if (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_BOTH && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
+        ctx->waza_out_check_on_off = 13;
+        int battlerId;
+        int maxBattlers UNUSED        = BattleWorkClientSetMaxGet(bsys);
+        struct CLIENT_PARAM *opponent = BattleWorkClientParamGet(bsys, ctx->attack_client);
+        u8 flag                = ov12_02261258(opponent);
+
+        do {
+            battlerId = ctx->turnOrder[ctx->client_loop++];
+            if (ctx->moveStatusFlagForSpreadMoves[battlerId] & MOVE_STATUS_FLAG_FAILURE_ANY) {
+                continue;
+            }
+            if (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0) {
+                opponent = BattleWorkClientParamGet(bsys, battlerId);
+                if (((flag & 1) && !(ov12_02261258(opponent) & 1)) || (!(flag & 1) && ov12_02261258(opponent) & 1)) {
+                    ov12_02252D14(bsys, ctx);
+                    ctx->defence_client = battlerId;
+                    ctx->server_seq_no         = CONTROLLER_COMMAND_23;
+                    break;
+                }
+            }
+        } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
+
+        SCIO_BlankMessage(bsys);
+    } else if (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_FOES_AND_ALLY && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
+        ctx->waza_out_check_on_off = 13;
+
+        int battlerId;
+        int maxBattlers UNUSED = BattleWorkClientSetMaxGet(bsys);
+
+        do {
+            battlerId = ctx->turnOrder[ctx->client_loop++];
+            if (ctx->moveStatusFlagForSpreadMoves[battlerId] & MOVE_STATUS_FLAG_FAILURE_ANY) {
+                continue;
+            }
+            if (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0) {
+                if (battlerId != ctx->attack_client) {
+                    ov12_02252D14(bsys, ctx);
+                    ctx->defence_client = battlerId;
+                    ctx->server_seq_no         = CONTROLLER_COMMAND_23;
+                    break;
+                }
+            }
+        } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
+
+        SCIO_BlankMessage(bsys);
+    } else {
+        ctx->server_seq_no = CONTROLLER_COMMAND_36;
+    }
 }
 
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo) {
@@ -2972,7 +3103,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             nonSelectableMoves |= No2Bit(movePos);
         }
         if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
-            if (GetBattlePokemonMovePosFromMove(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
+            if (BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
                 ctx->battlemon[battlerId].moveeffect.moveNoChoice = 0;
             } else if (ctx->battlemon[battlerId].moveeffect.moveNoChoice && ctx->battlemon[battlerId].moveeffect.moveNoChoice != ctx->battlemon[battlerId].move[movePos]) {
                 nonSelectableMoves |= No2Bit(movePos);
@@ -3088,4 +3219,84 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
 
     return ret;
+}
+
+/// @brief Get the priority of the client
+/// @param bsys
+/// @param ctx
+/// @param battlerId
+/// @return Priority
+int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int battlerId) {
+    int command = ctx->playerActions[battlerId][3];
+    int move_pos = ctx->waza_no_pos[battlerId];
+    int move = MOVE_NONE;
+
+    if (command == SELECT_FIGHT_COMMAND) {
+        if (ctx->oneTurnFlag[battlerId].struggle_flag) {
+            move = MOVE_STRUGGLE;
+        } else {
+            move = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_MOVE_1 + move_pos, NULL);
+        }
+    }
+
+    BOOL isTriageMove = FALSE;
+
+    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
+        if (TriageMovesList[i] == move) {
+            isTriageMove = TRUE;
+            break;
+        }
+    }
+
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_PRANKSTER) && (GetMoveSplit(ctx, move) == SPLIT_STATUS)) {
+        return ctx->moveTbl[move].priority + 1;
+    }
+
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_GALE_WINGS) && (ctx->moveTbl[move].type == TYPE_FLYING)) {
+        return ctx->moveTbl[move].priority + 1;
+    }
+
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_TRIAGE) && (isTriageMove)) {
+        return ctx->moveTbl[move].priority + 3;
+    }
+
+    return ctx->moveTbl[move].priority;
+}
+
+/// @brief Checks if a client has the type
+/// @param ctx
+/// @param battlerId
+/// @param type
+/// @return whether the client has the type
+BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
+    GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
+    struct BattlePokemon client = ctx->battlemon[battlerId];
+    return (client.type1 == type || client.type2 == type || client.type3 == type || client.is_currently_terastallized ? client.tera_type == type : FALSE);
+}
+
+// TODO: Check if there is a more accurate list
+BOOL LONG_CALL IfAbilityCanBeReplacedByWorrySeed(struct BattleStruct *ctx, int battlerId) {
+    switch(GetBattlerAbility(ctx, battlerId)) {
+        case ABILITY_TRUANT:
+        case ABILITY_MULTITYPE:
+        // case ABILITY_MUMMY:
+        // case ABILITY_ZEN_MODE:
+        case ABILITY_STANCE_CHANGE:
+        case ABILITY_SHIELDS_DOWN:
+        case ABILITY_SCHOOLING:
+        case ABILITY_DISGUISE:
+        case ABILITY_BATTLE_BOND:
+        case ABILITY_POWER_CONSTRUCT:
+        case ABILITY_COMATOSE:
+        case ABILITY_RKS_SYSTEM:
+        case ABILITY_GULP_MISSILE:
+        case ABILITY_ICE_FACE:
+        // case ABILITY_AS_ONE_GLASTRIER:
+        // case ABILITY_AS_ONE_SPECTRIER:
+        // case ABILITY_ZERO_TO_HERO:
+        case ABILITY_COMMANDER:
+            return FALSE;
+        default:
+            return TRUE;
+    }
 }
