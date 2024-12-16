@@ -1378,4 +1378,9 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
+    .macro TryStickyWeb arg_0
+    .long 252
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
 .endif

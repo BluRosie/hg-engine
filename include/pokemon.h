@@ -4,6 +4,7 @@
 #include "config.h"
 //#include "save.h"
 #include "types.h"
+#include "trainer_data.h"
 
 #define POKEMON_GENDER_MALE 0
 #define POKEMON_GENDER_FEMALE 1
@@ -1187,7 +1188,7 @@ void LONG_CALL TT_TrainerPokeDataGet(int tr_id, void *tpd);
  *  @param trtype trainer class
  *  @return trainer sex; 1 if female, 0 if male
  */
-u8 LONG_CALL TT_TrainerTypeSexGet(int trtype);
+TrainerGender LONG_CALL TT_TrainerTypeSexGet(int trtype);
 
 /**
  *  @brief set ball seal on a trainer PartyPokemon
