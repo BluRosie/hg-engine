@@ -670,19 +670,6 @@ int read_battle_script_param(struct BattleStruct *sp)
     return data;
 }
 
-u32 GetLevelCap(void)
-{
-    u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
-    if (levelCap > 100) levelCap = 100;
-    return levelCap;
-}
-
-u32 IsLevelAtLevelCap(u32 level)
-{
-    return (level >= GetLevelCap());
-}
-
-
 
 /**
  *  @brief load battle script to BattleStruct's SkillSeqWork
