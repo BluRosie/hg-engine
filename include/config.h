@@ -113,4 +113,9 @@
 // DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
 //#define DISABLE_ITEMS_IN_TRAINER_BATTLE
 
+// USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU allows to use a custom check for the fieldmoves of a pokemon, that appear in the party menu. Up to 4 field moves can be added this way.
+// Vanilla behaviour checks for the TM/HM moves on the Pokemon.
+// Adding the moves in HUD does not eliminate Badge, Tile or Buildings check
+//#define USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU
+
 #endif
