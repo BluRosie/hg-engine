@@ -329,6 +329,7 @@
 #define MOVE_EFFECT_SET_ABILITY_TO_SIMPLE                   323
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
+#define MOVE_EFFECT_STICKY_WEB                              326
 
 
 

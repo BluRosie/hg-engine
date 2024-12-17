@@ -170,6 +170,7 @@
 #define BATTLE_TYPE_ROAMER 0x100
 #define BATTLE_TYPE_POKE_PARK 0x200
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
+#define BATTLE_TYPE_BUG_CONTEST 0x1000
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
 
@@ -292,6 +293,7 @@
 #define SIDE_STATUS_STEALTH_ROCK (0x80)
 #define SIDE_STATUS_TAILWIND (0x300) // no longer used, see sp->tailwindCount
 #define SIDE_STATUS_TOXIC_SPIKES (0x400)
+#define SIDE_STATUS_STICKY_WEB (0x800)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
 
 /**
@@ -963,6 +965,28 @@ typedef struct {
     u8 type; /**< TerrainOverlayType enum */
     u8 numberOfTurnsLeft;
 } TerrainOverlay;
+
+
+typedef enum BattleSelectState {
+    SSI_STATE_SELECT_COMMAND_INIT,
+    SSI_STATE_1,
+    SSI_STATE_2,
+    SSI_STATE_3,
+    SSI_STATE_4,
+    SSI_STATE_5,
+    SSI_STATE_6,
+    SSI_STATE_7,
+    SSI_STATE_8,
+    SSI_STATE_9,
+    SSI_STATE_10,
+    SSI_STATE_11,
+    SSI_STATE_12,
+    SSI_STATE_13,
+    SSI_STATE_14,
+    SSI_STATE_15,
+    SSI_STATE_NO_MOVES,
+    SSI_STATE_END
+} BattleSelectState;
 
 
 /**
@@ -2881,6 +2905,15 @@ typedef enum Terrain {
 // and Battle Frontier.
 #define TERRAIN_OTHERS (TERRAIN_WILL)
 
+
+// Battler IDs
+#define BATTLER_NONE    0xFF
+#define BATTLER_PLAYER  0
+#define BATTLER_ENEMY   1
+#define BATTLER_PLAYER2 2
+#define BATTLER_ENEMY2  3
+#define BATTLER_MAX     4
+
 /**
  *  @brief load in different battle bg and terrain
  *
@@ -2947,6 +2980,14 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
  */
 BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
 
+/**
+ * @brief checks if contact is being made, checking abilities and items
+ * @param bw battle work structure
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -2964,5 +3005,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
+
+// BattleSystem_Defender
+int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
+
+void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 
 #endif // BATTLE_H

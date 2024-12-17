@@ -488,7 +488,7 @@ The opposing {STRVAR_1 1, 0, 0} became\nthe center of attention!
 {STRVAR_1 1, 0, 0} began\ncharging power!
 The wild {STRVAR_1 1, 0, 0} began\ncharging power!
 The opposing {STRVAR_1 1, 0, 0} began\ncharging power!
-{STRVAR_1 6, 0, 0} turned into\n{STRVAR_1 6, 1, 0}!
+Nature Power turned into\n{STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
 The wild {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
 The opposing {STRVAR_1 1, 0, 0}’s status\nreturned to normal!
@@ -1481,3 +1481,9 @@ The opposing {STRVAR_1 1, 0, 0} is\noverflowing with space power!
 {STRVAR_1 1, 0, 0} absorbed\nelectricity!
 The wild {STRVAR_1 1, 0, 0} absorbed\nelectricity!
 The opposing {STRVAR_1 1, 0, 0} absorbed\nelectricity!
+Waggling a finger let it use\n{STRVAR_1 6, 1, 0}!
+A sticky web has been laid out on the\nground around your team!
+A sticky web has been laid out on the\nground around the opposing team!
+{STRVAR_1 1, 0, 0} was caught\nin a sticky web!
+The wild {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
+The opposing {STRVAR_1 1, 0, 0} was caught\nin a sticky web!

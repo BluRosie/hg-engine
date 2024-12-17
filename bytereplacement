@@ -429,7 +429,6 @@ arm9 020902B8 60 B4 C0 46
 # normal as a second type should show up in the dex/pc
 0018 021F21AE C0 46
 0014 021F3DB0 C0 46
-
 #ifndef IMPLEMENT_REUSABLE_REPELS
 0002 0224BAE4 10 B5 0C 1C E1 F5 6C FF
 0015 021F993C 10 B5 0C 1C FF F7 F4 FF
@@ -438,3 +437,56 @@ arm9 020902B8 60 B4 C0 46
 # one of a few terrain limiters, this one at least partially affects nature power/secret power/camouflage
 # need to disable each of their individual ones but i'm not on that computer rn and i'll get to it later
 0012 0223AB46 FF
+
+#ifdef UPDATE_VITAMIN_EV_CAPS
+
+# vitamins are capped at 252 EVs instead of 100 EVs (thanks MeroMero)
+# https://projectpokemon.org/home/forums/topic/33166-tutorialhgss-lift-the-100-ev-limit-on-vitamins/
+arm9 02090034 FC
+arm9 020900A0 FC
+arm9 0209010C FC
+arm9 0209017A FC
+arm9 020901E8 FC
+arm9 02090254 FC
+arm9 02090A96 FC
+arm9 02090ABC FC
+arm9 02090AC0 FC
+
+#else
+
+arm9 02090034 64
+arm9 020900A0 64
+arm9 0209010C 64
+arm9 0209017A 64
+arm9 020901E8 64
+arm9 02090254 64
+arm9 02090A96 64
+arm9 02090ABC 64
+arm9 02090AC0 64
+
+#endif
+
+# stats are capped at 252 EVs instead of 255 EVs (thanks MeroMero)
+# https://projectpokemon.org/home/forums/topic/33166-tutorialhgss-lift-the-100-ev-limit-on-vitamins/
+arm9 0204B948 FC
+arm9 0204B94C FC
+0012 0224655C FC
+0012 02246560 FC
+
+# MainMusicComboTable combo range
+arm9 080517AA 2D
+arm9 080517D4 2D
+
+# TrainerClassToMusicCombo table range
+arm9 08051886 20
+
+# PokemonBattleMusic table range
+arm9 080518CA 0B
+
+# sTrainerEncounterMusicParam table range
+arm9 080550D4 2C
+
+# PrizeMoney table range
+0012 0223FBD0 81
+0012 0223FBD4 81
+0012 0223FBDC 81
