@@ -1,6 +1,7 @@
 #include "../../include/types.h"
 #include "../../include/battle.h"
 #include "../../include/config.h"
+#include "../../include/pokemon.h"
 #include "../../include/debug.h"
 #include "../../include/overlay.h"
 #include "../../include/save.h"
@@ -669,6 +670,7 @@ int read_battle_script_param(struct BattleStruct *sp)
 
     return data;
 }
+
 
 /**
  *  @brief load battle script to BattleStruct's SkillSeqWork
@@ -1519,8 +1521,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
 #endif
 
-    // distribute effort values to level 100 pokémon who would otherwise not get it
-    if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
+    //distribute Base points to level_cap pokémon who would otherwise not get it
+    //把基础点数分配给已经到达等级上限的宝可梦。
+    if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == GetLevelCap())
     {
         DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
                                sel_mons_no,
