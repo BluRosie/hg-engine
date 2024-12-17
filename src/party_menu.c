@@ -8,25 +8,6 @@
 #include "../include/constants/file.h"
 #include "../include/party_menu.h"
 
-#if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
-u8 customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct PartyPokemon *pp, u8 *buf, u8 count)
-{
-    /* example code to add Fly to all flying type Pokemons. Up to 4 field moves can be added this way.
-    u8 fieldMoveIndex = 0;
-    u8 type1 = GetMonData(pp, MON_DATA_TYPE_1, NULL);
-    u8 type2 = GetMonData(pp, MON_DATA_TYPE_2, NULL);
-    if (type1 == TYPE_FLYING || type2 == TYPE_FLYING)
-    {
-        buf[count] = PARTY_MON_CONTEXT_MENU_FLY;
-        ++count;
-        PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
-        ++fieldMoveIndex;
-    }
-    return count;
-    */
-}
-#endif
-
 u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 {
     struct PartyPokemon *pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
@@ -58,9 +39,9 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
             ++count;
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
             ++count;
-#if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
-            count = customFieldMoveCheckInPartyMenu(wk, pp, buf, count);
-#else
+
+            // here is where a custom check would go.  replace the below for loop with your own checks
+
             for (i = 0; i < MAX_MON_MOVES; ++i) 
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
@@ -78,7 +59,6 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
                     ++fieldMoveIndex;
                 }
             }
-#endif
         }
         else
         {
