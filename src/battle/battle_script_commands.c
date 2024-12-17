@@ -1,6 +1,7 @@
 #include "../../include/types.h"
 #include "../../include/battle.h"
 #include "../../include/config.h"
+#include "../../include/pokemon.h"
 #include "../../include/debug.h"
 #include "../../include/overlay.h"
 #include "../../include/save.h"
