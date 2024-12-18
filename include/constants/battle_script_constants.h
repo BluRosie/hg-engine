@@ -393,6 +393,7 @@
 #define SUB_SEQ_ATK_DEF_SPEED_UP                      (383)
 #define SUB_SEQ_HYPERSPACE_FURY                       (384)
 #define SUB_SEQ_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP     (385)
+#define SUB_SEQ_DRAIN_THREE_QUARTERS                  (386)
 
 
 
@@ -566,6 +567,7 @@
 #define ADD_STATUS_EFF_ATK_DEF_SPEED_UP                (165)
 #define ADD_STATUS_EFF_HYPERSPACE_FURY                 (166)
 #define ADD_STATUS_EFF_CLANGOROUS_SOUL                 (167)
+#define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (168)
 
 
 // additional effect constants
