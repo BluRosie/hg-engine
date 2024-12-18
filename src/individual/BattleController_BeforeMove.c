@@ -118,7 +118,7 @@ BOOL IfAllClientsHavePerishSong(struct BattleSystem *bsys, struct BattleStruct *
 BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender);
-
+BOOL CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
 
 // 08014ACC
 
@@ -873,6 +873,15 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
+        case BEFORE_MOVE_STATE_TERA_SHELL: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("In BEFORE_MOVE_STATE_TERA_SHELL\n");
+#endif
+
+            LoopCheckFunctionForSpreadMove(bsys, ctx, CheckTeraShell);
+            ctx->wb_seq_no++;
+            FALLTHROUGH;            
+        }
         case BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY\n");
@@ -903,16 +912,16 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         }
     }
 
-    // TODO: Redirect to original TryMove
-    // ctx->server_seq_no = CONTROLLER_COMMAND_25;
+    // Redirect to original TryMove
     ctx->server_seq_no = CONTROLLER_COMMAND_24;
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
         ctx->server_seq_no = CONTROLLER_COMMAND_26;
     } else {
-        ctx->server_status_flag2 |= BATTLE_STATUS2_MOVE_SUCCEEDED;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;  // execute the move
+        // ctx->server_status_flag2 |= BATTLE_STATUS2_MOVE_SUCCEEDED;
+        // ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;  // execute the move
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
-        ctx->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
+        ctx->server_seq_no = CONTROLLER_COMMAND_24;
+        // ctx->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
         ST_ServerTotteokiCountCalc(bsys, ctx);              // 801B570h
     }
     ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
@@ -1845,6 +1854,11 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
     return FALSE;
 }
 
+// TODO
+BOOL BattlerController_CheckMist(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+    return FALSE;
+}
+
 // TODO: Handle Stat failure success check
 BOOL BattleController_CheckAbilityFailures4(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
@@ -2188,8 +2202,6 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem
  *  @return TRUE/FALSE
  */
 BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender) {
-    debug_printf("In CheckStrongWindsWeaken\n");
-    debug_printf("defender: %d\n", defender);
     int defender_type_1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
     int defender_type_2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
@@ -2213,6 +2225,11 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, in
         i++;
     }
 
+    return FALSE;
+}
+
+// TODO
+BOOL CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
     return FALSE;
 }
 
