@@ -152,10 +152,5 @@ UNCOMPRESSED equ 0x00000000
 .word 140, 0x023C0400, filesize("base/overlay/overlay_0140.bin"), 0x00000000, 0x00000000, 0x00000000, 140, UNCOMPRESSED // CheckDefenderItemEffectOnHit specific overlay
 .word 141, 0x023C0400, filesize("base/overlay/overlay_0141.bin"), 0x00000000, 0x00000000, 0x00000000, 141, UNCOMPRESSED // ServerFieldConditionCheck specific overlay
 .word 142, 0x021E5900, filesize("base/overlay/overlay_0142.bin"), 0x00000000, 0x00000000, 0x00000000, 142, UNCOMPRESSED // BattleController_BeforeMove specific overlay
-.word 143, 0x023C0400, filesize("base/overlay/overlay_0143.bin"), 0x00000000, 0x00000000, 0x00000000, 143, UNCOMPRESSED // BattleController_BeforeMove2 specific overlay
-.word 144, 0x023C0400, filesize("base/overlay/overlay_0144.bin"), 0x00000000, 0x00000000, 0x00000000, 144, UNCOMPRESSED // BattleController_BeforeMove3 specific overlay
-.word 145, 0x023C0400, filesize("base/overlay/overlay_0145.bin"), 0x00000000, 0x00000000, 0x00000000, 145, UNCOMPRESSED // BattleController_BeforeMove4 specific overlay
-.word 146, 0x023C0400, filesize("base/overlay/overlay_0146.bin"), 0x00000000, 0x00000000, 0x00000000, 146, UNCOMPRESSED // BattleController_BeforeMove5 specific overlay
-.word 147, 0x023C0400, filesize("base/overlay/overlay_0147.bin"), 0x00000000, 0x00000000, 0x00000000, 147, UNCOMPRESSED // BattleController_BeforeMove6 specific overlay
 
 .close

@@ -1855,7 +1855,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
 }
 
 // TODO
-BOOL BattlerController_CheckMist(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+BOOL BattlerController_CheckMist(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
     return FALSE;
 }
 

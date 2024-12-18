@@ -3026,7 +3026,7 @@ BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
  *  @param ctx global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx) {
+BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
     int failAddress = read_battle_script_param(ctx);
