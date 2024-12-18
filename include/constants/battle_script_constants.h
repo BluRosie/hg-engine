@@ -394,6 +394,7 @@
 #define SUB_SEQ_HYPERSPACE_FURY                       (384)
 #define SUB_SEQ_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP     (385)
 #define SUB_SEQ_DRAIN_THREE_QUARTERS                  (386)
+#define SUB_SEQ_JAW_LOCK                              (387)
 
 
 
@@ -568,6 +569,7 @@
 #define ADD_STATUS_EFF_HYPERSPACE_FURY                 (166)
 #define ADD_STATUS_EFF_CLANGOROUS_SOUL                 (167)
 #define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (168)
+#define ADD_STATUS_EFF_JAW_LOCK                        (169)
 
 
 // additional effect constants

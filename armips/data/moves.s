@@ -9899,7 +9899,7 @@ movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
     movedescription MOVE_THOUSAND_ARROWS, "---"
 
 movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PREVENT_ESCAPE_HIT
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_GROUND
@@ -9912,7 +9912,7 @@ movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_THOUSAND_WAVES, "---"
+    movedescription MOVE_THOUSAND_WAVES, "The user attacks with\na wave that crawls\nalong the ground.\nThose it hits can't\nflee from battle."
 
 movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     battleeffect MOVE_EFFECT_HIT
@@ -10651,7 +10651,7 @@ movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
     movedescription MOVE_BANEFUL_BUNKER, "---"
 
 movedata MOVE_SPIRIT_SHACKLE, "Spirit Shackle"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PREVENT_ESCAPE_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_GHOST
@@ -10891,7 +10891,7 @@ movedata MOVE_POLLEN_PUFF, "Pollen Puff"
     movedescription MOVE_POLLEN_PUFF, "---"
 
 movedata MOVE_ANCHOR_SHOT, "Anchor Shot"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PREVENT_ESCAPE_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_STEEL
@@ -11995,7 +11995,7 @@ movedata MOVE_SNIPE_SHOT, "Snipe Shot"
     movedescription MOVE_SNIPE_SHOT, "---"
 
 movedata MOVE_JAW_LOCK, "Jaw Lock"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PREVENT_ESCAPE_BOTH_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DARK
@@ -13339,7 +13339,7 @@ movedata MOVE_POWER_SHIFT, "Power Shift"
     movedescription MOVE_POWER_SHIFT, "---"
 
 movedata MOVE_STONE_AXE, "Stone Axe"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_STEALTH_ROCK_HIT
     pss SPLIT_PHYSICAL
     basepower 65
     type TYPE_ROCK
@@ -13579,7 +13579,7 @@ movedata MOVE_INFERNAL_PARADE, "Infernal Parade"
     movedescription MOVE_INFERNAL_PARADE, "---"
 
 movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_SET_SPIKES_HIT
     pss SPLIT_PHYSICAL
     basepower 65
     type TYPE_DARK
