@@ -63,7 +63,7 @@ You can’t dismount your Bike here!
 Oh?
 {STRVAR_1 0, 0, 0} hatched from the Egg!
 Would you like to give a nickname to the\nnewly hatched {STRVAR_1 0, 0, 0}?
-Repel’s effect wore off...
+The repellent’s effect wore off!
              
                    
 I’m very sorry.\rWe are working underground right now.\nIt’s off-limits to the public.\rPlease try later on.
@@ -116,5 +116,5 @@ WHEN YOU LOSE
 WHEN YOU’RE #1
 NOT TELLING
 
-Repel’s effect wore off.\nWould you like to use another one?
+The repellent’s effect wore off!\nWould you like to use another one?
 You used the {STRVAR_1 8, 1, 0}.
