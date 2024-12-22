@@ -403,8 +403,8 @@ trainerdata 13, "Grunt"
 
 trainerdata 14, "Duncan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_BURGLAR
-    nummons 3
+    trainerclass TRAINERCLASS_YOUNGSTER
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -417,29 +417,22 @@ trainerdata 14, "Duncan"
         // mon 0
         ivs 0
         abilityslot 0
-        level 23
-        pokemon SPECIES_KOFFING
+        level 5
+        pokemon SPECIES_RATTATA
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 25
-        pokemon SPECIES_MAGMAR
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 23
-        pokemon SPECIES_KOFFING
+        level 5
+        pokemon SPECIES_PIDGEY
         ballseal 0
     endparty
 
-trainerdata 15, "Otis"
+trainerdata 15, "Simon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_FIREBREATHER
-    nummons 3
+    trainerclass TRAINERCLASS_BUG_CATCHER
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -452,28 +445,21 @@ trainerdata 15, "Otis"
         // mon 0
         ivs 0
         abilityslot 0
-        level 43
-        pokemon SPECIES_MAGMAR
+        level 6
+        pokemon SPECIES_CATERPIE
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 40
-        pokemon SPECIES_WEEZING
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 47
-        pokemon SPECIES_CAMERUPT
+        level 6
+        pokemon SPECIES_METAPOD
         ballseal 0
     endparty
 
-trainerdata 16, "Simon"
+trainerdata 16, "Jen"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SWIMMER_M
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -488,21 +474,21 @@ trainerdata 16, "Simon"
         ivs 0
         abilityslot 0
         level 20
-        pokemon SPECIES_TENTACOOL
+        pokemon SPECIES_ODDISH
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 32
         level 20
-        pokemon SPECIES_TENTACOOL
+        pokemon SPECIES_BELLSPROUT
         ballseal 0
     endparty
 
 trainerdata 17, "Kenji"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_BLACK_BELT
-    nummons 1
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -515,8 +501,22 @@ trainerdata 17, "Kenji"
         // mon 0
         ivs 30
         abilityslot 0
-        level 28
-        pokemon SPECIES_MACHOKE
+        level 5
+        pokemon SPECIES_PSYDUCK
+        ballseal 0
+
+        // mon 0
+        ivs 30
+        abilityslot 0
+        level 6
+        pokemon SPECIES_ZUBAT
+        ballseal 0
+
+        // mon 0
+        ivs 30
+        abilityslot 0
+        level 8
+        pokemon SPECIES_TEDDIURSA
         ballseal 0
     endparty
 

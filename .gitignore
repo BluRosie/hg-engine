@@ -99,3 +99,4 @@ changelog
 .idea/vcs.xml
 
 foo.txt
+armips/asm/custom/mart_items.s

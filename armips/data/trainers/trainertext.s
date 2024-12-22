@@ -747,14 +747,14 @@ _061C: // Trainer 140
     trainertextentry 140, TEXT_REMATCH_IN_OVERWORLD, "Have you come to understand the merits\nof bug Pokémon?\r"
 
 _062C: // Trainer 15
-    trainertextentry  15, TEXT_NOTICE_IN_OVERWORLD, "Ah!\nThe weather’s as fine as ever.\r"
-    trainertextentry  15, TEXT_DEFEATED_IN_BATTLE, "It’s sunny, but in my heart,\nit’s rainy...\n"
-    trainertextentry  15, TEXT_DEFEATED_IN_OVERWORLD, "When it rains, it’s hard to get fired up.\nI just simmer...\n"
+    trainertextentry  15, TEXT_NOTICE_IN_OVERWORLD, "I see a Trainer, that means \na battle!\r"
+    trainertextentry  15, TEXT_DEFEATED_IN_BATTLE, "Squashed!\n"
+    trainertextentry  15, TEXT_DEFEATED_IN_OVERWORLD, "Maybe I should stop challenging \neveryone I see..."
 
 _0638: // Trainer 318
     trainertextentry 318, TEXT_NOTICE_IN_OVERWORLD, "Step right up and take a look!\r"
-    trainertextentry 318, TEXT_DEFEATED_IN_BATTLE, "Yow! That’s hot!\n"
-    trainertextentry 318, TEXT_DEFEATED_IN_OVERWORLD, "The greatest fire-breather in Kanto,\nthat’s me.\rBut not the best Trainer...\n"
+    trainertextentry 318, TEXT_DEFEATED_IN_BATTLE, "Squashed!\n"
+    trainertextentry 318, TEXT_DEFEATED_IN_OVERWORLD, "Maybe I should stop challenging \neveryone I see..."
 
 _0644: // Trainer 378
     trainertextentry 378, TEXT_NOTICE_IN_OVERWORLD, "Hmmm...\nI don’t know what to do...\r"
@@ -1399,9 +1399,9 @@ _0C68: // Trainer 39
     trainertextentry  39, TEXT_DEFEATED_IN_OVERWORLD, "My Pokémon were caught and raised\noverseas. They’re my companions on\fthose long voyages.\n"
 
 _0C74: // Trainer 16
-    trainertextentry  16, TEXT_NOTICE_IN_OVERWORLD, "You have to warm up before going into\nthe water.\rThat’s basic.\r"
-    trainertextentry  16, TEXT_DEFEATED_IN_BATTLE, "OK! I give up!\n"
-    trainertextentry  16, TEXT_DEFEATED_IN_OVERWORLD, "Cianwood City is a good distance away\nfrom here.\n"
+    trainertextentry  16, TEXT_NOTICE_IN_OVERWORLD, "The high cliffs here are great \nto camp out on.\r"
+    trainertextentry  16, TEXT_DEFEATED_IN_BATTLE, "I'm getting vertigo...\n"
+    trainertextentry  16, TEXT_DEFEATED_IN_OVERWORLD, "The mountains here are nothing \ncompared to the ones on mainland."
 
 _0C80: // Trainer 86
     trainertextentry  86, TEXT_NOTICE_IN_OVERWORLD, "Hey, you’re young and fit!\nDon’t ride your Pokémon! Swim!\r"
@@ -1565,7 +1565,7 @@ _0DFC: // Trainer 108
 
 _0E08: // Trainer 17
     trainertextentry  17, TEXT_NOTICE_IN_OVERWORLD, "I was training here alone.\nBehold the result of my hard work!\r"
-    trainertextentry  17, TEXT_DEFEATED_IN_BATTLE, "Waaaargh!\n"
+    trainertextentry  17, TEXT_DEFEATED_IN_BATTLE, "I'm really feeling it!\n"
     trainertextentry  17, TEXT_DEFEATED_IN_OVERWORLD, "This calls for extreme measures. I must\ntake to the hills and train in solitude.\n"
     trainertextentry  17, TEXT_REMATCH_IN_OVERWORLD, "I’ve been studying while waiting for you\nto come back...\rLet me show you the results!\r"
 
@@ -2144,9 +2144,9 @@ _1364: // Trainer 393
     trainertextentry 393, TEXT_DEFEATED_IN_OVERWORLD, "I know all the different types\nof Pokémon.\fBut I only use one type.\n"
 
 _1370: // Trainer 14
-    trainertextentry  14, TEXT_NOTICE_IN_OVERWORLD, "Fork over your goods!\r"
-    trainertextentry  14, TEXT_DEFEATED_IN_BATTLE, "Mercy!\n"
-    trainertextentry  14, TEXT_DEFEATED_IN_OVERWORLD, "Steal and sell!\nThat’s basic in crime, kid!\n"
+    trainertextentry  14, TEXT_NOTICE_IN_OVERWORLD, "I got caught trying to sneak into \nthe Pokemon League. Why don't I make \fthis trip worthwhile and have a \fbattle?\r"
+    trainertextentry  14, TEXT_DEFEATED_IN_BATTLE, "Ah rats! Maybe I didn't stand a \nchance..."
+    trainertextentry  14, TEXT_DEFEATED_IN_OVERWORLD, "Maybe I should try to get some \nGym Badges legit."
 
 _137C: // Trainer 283
     trainertextentry 283, TEXT_NOTICE_IN_OVERWORLD, "They ditched this project before\nthey finished.\fI’m searching for leftover loot.\r"
