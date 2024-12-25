@@ -14264,49 +14264,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 3, 3, 3, 3, 5, 5, 7, 7, 7, 4, 7, 4
+walklevels 3, 3, 5, 5, 4, 4, 5, 5, 4, 4, 5, 9
 
 // morning encounter slots
 pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_LEDYBA
+pokemon SPECIES_SPINARAK
 pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
 pokemon SPECIES_METAPOD
+pokemon SPECIES_KAKUNA
 pokemon SPECIES_PIDGEY
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_BUTTERFREE
-pokemon SPECIES_BUTTERFREE
+pokemon SPECIES_VENONAT
+pokemon SPECIES_VENONAT
 pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_PIKACHU
-pokemon SPECIES_PIKACHU
-pokemon SPECIES_PIKACHU
 
 // day encounter slots
 pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
 pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
 pokemon SPECIES_METAPOD
+pokemon SPECIES_KAKUNA
 pokemon SPECIES_PIDGEY
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
+pokemon SPECIES_BELLSPROUT
 pokemon SPECIES_PIDGEY
+pokemon SPECIES_PIKACHU
+pokemon SPECIES_PIKACHU
 pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_PIKACHU
-pokemon SPECIES_PIKACHU
-pokemon SPECIES_PIKACHU
 
 // night encounter slots
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_METAPOD
+pokemon SPECIES_KAKUNA
+pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_ZUBAT
+pokemon SPECIES_ODDISH
+pokemon SPECIES_EKANS
+pokemon SPECIES_EKANS
 pokemon SPECIES_HOOTHOOT
 pokemon SPECIES_NOCTOWL
-pokemon SPECIES_NOCTOWL
-pokemon SPECIES_NOCTOWL
-pokemon SPECIES_PIKACHU
-pokemon SPECIES_NOCTOWL
-pokemon SPECIES_PIKACHU
 
 // hoenn encounter slots
 pokemon SPECIES_SPOINK

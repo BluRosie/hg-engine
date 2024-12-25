@@ -228,25 +228,18 @@ trainerdata 7, "Saul"
 
 trainerdata 8, "Saul"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_YOUNGSTER
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype DOUBLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 8
         // mon 0
-        ivs 0
-        abilityslot 0
-        level 3
-        pokemon SPECIES_MACHOP
-        ballseal 0
-
-        // mon 1
         ivs 0
         abilityslot 0
         level 3
@@ -256,7 +249,7 @@ trainerdata 8, "Saul"
 
 trainerdata 9, "Dell"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SWIMMER_F
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -271,7 +264,7 @@ trainerdata 9, "Dell"
         ivs 0
         abilityslot 32
         level 3
-        pokemon SPECIES_STARYU
+        pokemon SPECIES_MACHOP
         ballseal 0
     endparty
 
@@ -473,14 +466,14 @@ trainerdata 16, "Jen"
         // mon 0
         ivs 0
         abilityslot 0
-        level 20
+        level 5
         pokemon SPECIES_ODDISH
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 32
-        level 20
+        level 5
         pokemon SPECIES_BELLSPROUT
         ballseal 0
     endparty
@@ -20949,10 +20942,10 @@ trainerdata 628, "Reese"
         ballseal 0
     endparty
 
-trainerdata 629, "Reese"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+trainerdata 629, "Boss"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_BIKER
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -20965,23 +20958,13 @@ trainerdata 629, "Reese"
         // mon 0
         ivs 0
         abilityslot 0
-        level 48
+        level 9
         pokemon SPECIES_ARBOK
-        move MOVE_MUD_BOMB
-        move MOVE_SWALLOW
-        move MOVE_STOCKPILE
-        move MOVE_SPIT_UP
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 50
-        pokemon SPECIES_WEEZING
-        move MOVE_SLUDGE_BOMB
-        move MOVE_DOUBLE_HIT
-        move MOVE_SMOKESCREEN
-        move MOVE_ASSURANCE
+        item ITEM_IRON_BALL
+        move MOVE_GUST
+        move MOVE_GROWL
+        move MOVE_SCARY_FACE
+        move MOVE_FURY_ATTACK
         ballseal 0
     endparty
 
