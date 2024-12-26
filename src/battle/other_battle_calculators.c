@@ -2528,6 +2528,18 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
         ov12_0224DC0C(bsys, ctx);
     }
 
+    ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 0;
+    ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 0;
+
+    int client_set_max = BattleWorkClientSetMaxGet(bsys);
+
+    for (int i = 0; i < client_set_max; i++) {
+        ctx->moveStatusFlagForSpreadMoves[i] = 0;
+        ctx->damageForSpreadMoves[i] = 0;
+    }
+    ctx->clientLoopForSpreadMoves = 0;
+    ctx->boostedAccuracy = FALSE;
+
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
     if (ctx->oneSelfFlag[ctx->attack_client].trickRoomFlag) {
@@ -2541,18 +2553,6 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     BattleStructureInit(ctx);
 
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
-
-    ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 0;
-    ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 0;
-
-    int client_set_max = BattleWorkClientSetMaxGet(bsys);
-
-    for (int i = 0; i < client_set_max; i++) {
-        ctx->moveStatusFlagForSpreadMoves[i] = 0;
-        ctx->damageForSpreadMoves[i] = 0;
-    }
-    ctx->clientLoopForSpreadMoves = 0;
-    ctx->boostedAccuracy = FALSE;
 }
 
 

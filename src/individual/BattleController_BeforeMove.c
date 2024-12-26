@@ -113,7 +113,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
 BOOL BattleController_CheckMoveFailures2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckMoveFailures2_VenomDrench(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
 BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
-BOOL BattleController_CheckMoveFailures3_LowerStats(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
+BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
@@ -233,7 +233,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             return;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_DIctxLAY_Z_DANCE_AND_EFFECT\n");
@@ -251,7 +251,6 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             return;
         }
-        // TODO
         case BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS\n");
@@ -567,7 +566,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG\n");
@@ -576,7 +575,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET\n");
@@ -603,7 +602,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_TEAMMATE_PROTECTION: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_TEAMMATE_PROTECTION\n");
@@ -621,7 +620,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_MAT_BLOCK: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_MAT_BLOCK\n");
@@ -630,7 +629,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_MAX_GUARD: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_MAX_GUARD\n");
@@ -775,7 +774,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_MOVE_FAILURES_3_LOWER_STATS\n");
 #endif
 
-            LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck_StatChanges(bsys, ctx, BattleController_CheckMoveFailures3_LowerStats);
+            LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck_StatChanges(bsys, ctx, BattleController_CheckMoveFailures3_StatsChanges);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -841,7 +840,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO: Status condition-based failures, Raw Speed with non-RNG speed tie
         case BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES\n");
@@ -869,7 +868,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
+        // TODO implement new mechanics
         case BEFORE_MOVE_STATE_MIRROR_ARMOR: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_MIRROR_ARMOR\n");
@@ -932,6 +931,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;            
         }
+        // TODO
         case BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY\n");
@@ -946,6 +946,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #endif
 
             // TODO: move it to the end of TryMove after the entire overhaul, but this works perfectly fine here
+            // Edit: Should be fine after the function merges by Blu
             if (IsValidParentalBondMove(bsys, ctx, FALSE) &&
                 ctx->loop_hit_check != 0xFD) {
                 ctx->multi_hit_count = 2;
@@ -1914,7 +1915,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
     return FALSE;
 }
 
-// TODO
+// TODO: Check message correctness
 BOOL BattleController_CheckMoveFailures2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
@@ -1936,7 +1937,7 @@ BOOL BattleController_CheckMoveFailures2(struct BattleSystem *bsys UNUSED, struc
     return FALSE;
 }
 
-// TODO
+// TODO: implement new mechanics
 int BattleController_CheckMoveFailures2_VenomDrench(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
     // return SUB_SEQ_BUT_IT_FAILED_SPREAD;
     return 0;
@@ -2083,7 +2084,6 @@ int BattlerController_CheckMist(struct BattleSystem *bsys, struct BattleStruct *
     return 0;
 }
 
-// TODO: Handle Stat failure success check, split this function
 BOOL BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL hasClearBodyOrFullMetalBodyOrWhiteSmoke = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_CLEAR_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FULL_METAL_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WHITE_SMOKE);
@@ -2202,8 +2202,6 @@ BOOL BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSyste
         break;
     }
 
-    // TODO: Status condition-based failures, Raw Speed with non-RNG speed tie
-
     if (subscriptToRun) {
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
@@ -2217,6 +2215,7 @@ BOOL BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSyste
     return FALSE;
 }
 
+// TODO: Status condition-based failures, Raw Speed with non-RNG speed tie
 BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     return FALSE;
 }
@@ -2286,7 +2285,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
     return FALSE;
 }
 
-// TODO
+// TODO: implement new mechanics
 BOOL BattleController_CheckAromaVeil(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
     return FALSE;
 }
@@ -2310,7 +2309,7 @@ BOOL IfAllClientsHavePerishSong(struct BattleSystem *bsys, struct BattleStruct *
     return FALSE;
 }
 
-// TODO
+// TODO: implement new mechanics
 BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
@@ -2386,11 +2385,6 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys, struct Battl
         return TRUE;
     }
 
-    // TODO: tbh can just jump to effect script
-    // Clangorous Soul / No Retreat with all stats maxed out
-    // Stat changing moves that can't go any higher
-    // Stat changing moves that can't go any lower
-    // Stuff Cheeks with Defense maxed out
     // TODO: Check fail message in game
     // Synchronoise: non-matching type
 
@@ -2408,10 +2402,131 @@ BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, s
     return FALSE;
 }
 
-// Only return true if no stats are lowered
-BOOL BattleController_CheckMoveFailures3_LowerStats(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
+// TODO: implement new mechanics
+// Only return true if no stats are changed
+BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     switch (moveEffect) {
+        case MOVE_EFFECT_ATK_UP:
+        case MOVE_EFFECT_ATK_UP_2:
+        case MOVE_EFFECT_ATK_UP_3:
+        case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_DEF_UP:
+        case MOVE_EFFECT_DEF_UP_2:
+        case MOVE_EFFECT_DEF_UP_3:
+        case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
+        // TODO: Stuff Cheeks with Defense maxed out
+            if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_SPEED_UP:
+        case MOVE_EFFECT_SPEED_UP_2:
+        case MOVE_EFFECT_SPEED_UP_3:
+            if (ctx->battlemon[defender].states[STAT_SPEED] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_SP_ATK_UP:
+        case MOVE_EFFECT_SP_ATK_UP_2:
+        case MOVE_EFFECT_SP_ATK_UP_3:
+        case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
+            if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_SP_DEF_UP:
+        case MOVE_EFFECT_SP_DEF_UP_2:
+        case MOVE_EFFECT_SP_DEF_UP_3:
+        case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER:
+            if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ACC_UP:
+        case MOVE_EFFECT_ACC_UP_2:
+            if (ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_EVA_UP:
+        case MOVE_EFFECT_EVA_UP_2:
+        case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
+            if (ctx->battlemon[defender].states[STAT_EVASION] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ATK_DEF_UP:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_STOCKPILE:
+        case MOVE_EFFECT_DEF_SP_DEF_UP:
+            if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_SP_ATK_SP_DEF_UP:
+            if (ctx->battlemon[defender].states[STAT_SPATK] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ATK_SPEED_UP:
+        case MOVE_EFFECT_SPEED_UP_2_ATK_UP:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_RANDOM_STAT_UP_2:
+        // TODO: Clangorous Soul / No Retreat with all stats maxed out
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+            && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
+            && ctx->battlemon[defender].states[STAT_SPEED] == 12
+            && ctx->battlemon[defender].states[STAT_SPATK] == 12
+            && ctx->battlemon[defender].states[STAT_SPDEF] == 12
+            && ctx->battlemon[defender].states[STAT_ACCURACY] == 12
+            && ctx->battlemon[defender].states[STAT_EVASION] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ATK_ACC_UP:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP:
+            if (ctx->battlemon[defender].states[STAT_SPEED] == 12
+            && ctx->battlemon[defender].states[STAT_SPATK] == 12
+            && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ATK_DEF_ACC_UP:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+            && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
+            && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN:
+        case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+            && ctx->battlemon[defender].states[STAT_SPEED] == 12
+            && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+                return TRUE;
+            }
+            break;
+        case MOVE_EFFECT_ATK_SP_ATK_UP:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+            && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+                return TRUE;
+            }
+            break;
         case MOVE_EFFECT_ATK_DOWN:
         case MOVE_EFFECT_ATK_DOWN_2:
         case MOVE_EFFECT_ATK_DOWN_3:
@@ -2468,7 +2583,7 @@ BOOL BattleController_CheckMoveFailures3_LowerStats(struct BattleSystem *bsys, s
         default:
             break;
     }
-    return 0;
+    return FALSE;
 }
 
 BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
@@ -2527,7 +2642,7 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, in
     return FALSE;
 }
 
-// TODO
+// TODO: implement new mechanics
 BOOL CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
     return FALSE;
 }
