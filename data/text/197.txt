@@ -179,9 +179,9 @@ The opposing {STRVAR_1 1, 0, 0} was\nblown away!
 {STRVAR_1 1, 0, 0} transformed\ninto the {STRVAR_1 15, 1, 0} type!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto the {STRVAR_1 15, 1, 0} type!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto the {STRVAR_1 15, 1, 0} type!
-{STRVAR_1 1, 0, 0} flinched!
-The wild {STRVAR_1 1, 0, 0} flinched!
-The opposing {STRVAR_1 1, 0, 0} flinched!
+{STRVAR_1 1, 0, 0} flinched\nand couldn’t move!
+The wild {STRVAR_1 1, 0, 0} flinched\nand couldn’t move!
+The opposing {STRVAR_1 1, 0, 0} flinched\nand couldn’t move!
 {STRVAR_1 1, 0, 0}’s HP\nwas restored!
 The wild {STRVAR_1 1, 0, 0}’s HP\nwas restored!
 The opposing {STRVAR_1 1, 0, 0}’s HP\nwas restored!

@@ -452,6 +452,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FOCUS_PUNCH_START);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
+                        sp->oneTurnFlag[client_no].pendingFocusPunchFlag = TRUE;
                         return;
                     }
 

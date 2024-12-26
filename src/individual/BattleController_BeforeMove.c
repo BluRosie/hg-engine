@@ -78,6 +78,7 @@ void BattleController_CheckRecharge(struct BattleSystem *bsys, struct BattleStru
 void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckPP(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckTruant(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BattleController_CheckFocusPunch(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckFlinch(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckDisabled(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -257,7 +258,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #endif
 
             ctx->wb_seq_no++;
-            return;
+            if (BattleController_CheckFocusPunch(bsys, ctx)) {
+                return;
+            }
+            FALLTHROUGH;
         }
         case BEFORE_MOVE_STATE_FLINCH: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -1079,6 +1083,25 @@ void BattleController_CheckTruant(struct BattleSystem *bsys, struct BattleStruct
         ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
     }
+}
+
+BOOL BattleController_CheckFocusPunch(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
+
+    if (
+        ((ctx->oneTurnFlag[ctx->attack_client].physical_damager_bit) || (ctx->oneTurnFlag[ctx->attack_client].special_damager_bit))
+        && (ctx->oneTurnFlag[ctx->attack_client].pendingFocusPunchFlag)
+        && (ctx->current_move_index == MOVE_FOCUS_PUNCH)) {
+            //https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-60#post-8755569
+            // The "Pokemon will flinch" flag and the "Focus Punch will lose focus" flag are dichotomous.
+            // idk what dichotomous means, but this seems to be aligned with the video evidence
+            ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_FLINCH;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LOST_FOCUS);
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            return TRUE;
+    }
+    return FALSE;
 }
 
 void BattleController_CheckFlinch(struct BattleSystem *bsys, struct BattleStruct *ctx) {

@@ -2512,6 +2512,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 break;
         }
 
+        // Reset Focus Punch flag
+        ctx->oneTurnFlag[ctx->attack_client].pendingFocusPunchFlag = FALSE;
+
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);
