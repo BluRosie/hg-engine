@@ -169,21 +169,6 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // TODO
     // Handle Wonder Guard
 
-    // TODO: Move this to the correct location
-    // Handle queenly majesty, dazzling & armor tail
-    if ((CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
-      || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
-      || CheckSideAbility(gBattleSystem, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
-     && GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER
-     && GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT
-     && GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE)
-    {
-        if (adjustedMoveHasPositivePriority(sp, attacker) && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(sp, attacker, defender))
-        {
-            scriptnum = SUB_SEQ_CANNOT_USE_MOVE;
-        }
-    }
-
     // TODO: Confirm location in-game
     // handle good as gold
     /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
@@ -454,9 +439,9 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
     }
     else
     {
-        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].mold_breaker_flag == 0))
+        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].moldBreakerFlag == 0))
         {
-            sp->oneSelfFlag[attacker].mold_breaker_flag = 1;
+            sp->oneSelfFlag[attacker].moldBreakerFlag = 1;
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOLD_BREAKER;
         }
     }

@@ -1523,3 +1523,5 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nseverely fell!
 The {STRVAR_1 8, 1, 0} drastically boosted\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 The {STRVAR_1 8, 1, 0} drastically boosted\nthe wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 The {STRVAR_1 8, 1, 0} drastically boosted\nthe opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
+Your team is no longer\nprotected by mist!
+The opposing team is no longer\nprotected by mist!

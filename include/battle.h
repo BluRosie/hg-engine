@@ -729,12 +729,12 @@ struct __attribute__((packed)) OneTurnEffect
 struct __attribute__((packed)) OneSelfTurnEffect
 {
     /* 0x00 */ u32 no_pressure_flag : 1;         /**< affected by pressure */
-               u32 lightning_rod_flag : 1;       /**< lightning rod activated on this pokémon */
-               u32 storm_drain_flag : 1;         /**< storm drain activated on this pokémon */
-               u32 mold_breaker_flag : 1;        /**< mold breaker activated on this pokémon */
-               u32 trickroom_flag : 1;           /**< trick room is active on this pokémon */
+               u32 lightningRodFlag : 1;       /**< lightning rod activated on this pokémon */
+               u32 stormDrainFlag : 1;         /**< storm drain activated on this pokémon */
+               u32 moldBreakerFlag : 1;        /**< mold breaker activated on this pokémon */
+               u32 trickRoomFlag : 1;           /**< trick room is active on this pokémon */
                u32 prevent_one_hit_ko_item : 1;  /**< a held item prevented OHKO on this pokémon */
-               u32 korogaru_count : 3;           /**< counter for rollout */
+               u32 rolloutCount : 3;           /**< counter for rollout */
                u32 defiant_flag : 1;             /**< flag that signals to activate defiant after a stat is raised */
                u32 : 22;
 
@@ -956,8 +956,8 @@ struct __attribute__((packed)) side_condition_work
     u32     safeguardBattler        : 2;
     u32     safeguardCount          : 3;
 
-    u32     konoyubitomare_flag     : 1;
-    u32     konoyubitomare_client   : 2;
+    u32     followMeFlag            : 1;
+    u32     battlerIdFollowMe       : 2;
     u32     knockoff_item           : 6;
     u32     oikaze_count            : 3;
 
@@ -1380,6 +1380,9 @@ struct PACKED BattleStruct
                BOOL boostedAccuracy;
                BOOL moveStolen;
                BOOL moveBounced;
+               u8 rawSpeedNonRNGClientOrder[4];
+               // idk it's probably not u8?
+               int numberOfTurnsClientHasCurrentAbility[4];
 };
 
 enum {
@@ -1791,14 +1794,18 @@ enum {
     BEFORE_MOVE_STATE_ABILITY_FAILURES_3,
     BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_1,
     BEFORE_MOVE_STATE_MOVE_FAILURES_2,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_2_VENOM_DRENCH,
     BEFORE_MOVE_STATE_MOVE_FAILURES_3,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_3_PERISH_SONG,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_3_LOWER_STATS,
     BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2,
     BEFORE_MOVE_STATE_UPROAR_STOPPING_MOVES,
     BEFORE_MOVE_STATE_SAFEGUARD,
     BEFORE_MOVE_STATE_TERRAIN_BLOCK,
     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
     BEFORE_MOVE_STATE_MIST,
-    BEFORE_MOVE_STATE_ABILITY_FAILURES_4,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES,
     BEFORE_MOVE_STATE_MOVE_ACCURACY,
     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
     BEFORE_MOVE_STATE_MIRROR_ARMOR,
@@ -1860,7 +1867,7 @@ enum {
 //     BEFORE_MOVE_STATE_TERRAIN_BLOCK,
 //     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
 //     BEFORE_MOVE_STATE_MIST,
-//     BEFORE_MOVE_STATE_ABILITY_FAILURES_4,
+//     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES,
 //     BEFORE_MOVE_STATE_MOVE_ACCURACY,
 //     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
 //     BEFORE_MOVE_STATE_MIRROR_ARMOR,
@@ -2983,7 +2990,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no
  *  @param attacker client to check
  *  @return TRUE if the move has positive priority after adjustments
  */
-BOOL LONG_CALL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
+BOOL LONG_CALL AdjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker);
 
 /**
  *  @brief see if the move should NOT be exempted from priority blocking effects
@@ -3396,5 +3403,158 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
     }\
     ctx->clientLoopForSpreadMoves = 0;\
 }
+
+// if all clients fail, then print fail message, otherwise no message is shown
+#define LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck(bsys, ctx, functionToBeCalled) \
+{\
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))) {\
+        BOOL numClientsChecked = 0;\
+        BOOL numClientsFailed = 0;\
+        int failureSubscriptToRun = 0;\
+        while (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            switch (ctx->clientLoopForSpreadMoves) {\
+                case SPREAD_MOVE_LOOP_ALLY:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
+                        numClientsChecked++;\
+                        failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
+                        if (failureSubscriptToRun) {\
+                            ctx->msg_work = BATTLER_ALLY(ctx->attack_client);\
+                            ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
+                            numClientsFailed++;\
+                        }\
+                    }\
+                    FALLTHROUGH;\
+                case SPREAD_MOVE_LOOP_OPPONENT_LEFT:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
+                        numClientsChecked++;\
+                        failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
+                        if (failureSubscriptToRun) {\
+                            ctx->msg_work = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);\
+                            ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
+                            numClientsFailed++;\
+                        }\
+                    }\
+                    FALLTHROUGH;\
+                case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
+                        numClientsChecked++;\
+                        failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
+                        if (failureSubscriptToRun) {\
+                            ctx->msg_work = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);\
+                            ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
+                            numClientsFailed++;\
+                        }\
+                    }\
+            }\
+        }\
+        if (numClientsChecked == 1 && numClientsFailed == numClientsChecked) {\
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
+            ctx->next_server_seq_no = ctx->server_seq_no;\
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+            return;\
+        }\
+        if (numClientsFailed > 0 && numClientsFailed == numClientsChecked) {\
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);\
+            ctx->next_server_seq_no = ctx->server_seq_no;\
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+            return;\
+        }\
+    } else {\
+        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+            int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
+            if (failureSubscriptToRun) {\
+                ctx->msg_work = ctx->defence_client;\
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
+                ctx->next_server_seq_no = ctx->server_seq_no;\
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+                ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_FLAG_FAILED;\
+                return;\
+            }\
+        }\
+    }\
+    ctx->clientLoopForSpreadMoves = 0;\
+}
+
+// if it's a spread move, same as above, otherwise go straight to effect and have statbuffchange do the fail message stuff instead
+#define LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck_StatChanges(bsys, ctx, functionToBeCalled) \
+{\
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))) {\
+        BOOL numClientsChecked = 0;\
+        BOOL numClientsFailed = 0;\
+        int failureSubscriptToRun = 0;\
+        while (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            switch (ctx->clientLoopForSpreadMoves) {\
+                case SPREAD_MOVE_LOOP_ALLY:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
+                        numClientsChecked++;\
+                        failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
+                        if (failureSubscriptToRun) {\
+                            ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
+                            numClientsFailed++;\
+                        }\
+                    }\
+                    FALLTHROUGH;\
+                case SPREAD_MOVE_LOOP_OPPONENT_LEFT:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
+                        numClientsChecked++;\
+                        failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
+                        if (failureSubscriptToRun) {\
+                            ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
+                            numClientsFailed++;\
+                        }\
+                    }\
+                    FALLTHROUGH;\
+                case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:\
+                    ctx->clientLoopForSpreadMoves++;\
+                    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
+                        numClientsChecked++;\
+                        failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
+                        if (failureSubscriptToRun) {\
+                            ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
+                            numClientsFailed++;\
+                        }\
+                    }\
+            }\
+        }\
+        if (numClientsChecked == 1 && numClientsFailed == numClientsChecked) {\
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);\
+            ctx->server_seq_no = CONTROLLER_COMMAND_24;\
+            ST_ServerTotteokiCountCalc(bsys, ctx);\
+            return;\
+        }\
+        if (numClientsFailed > 0 && numClientsFailed == numClientsChecked) {\
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);\
+            ctx->next_server_seq_no = ctx->server_seq_no;\
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+            return;\
+        }\
+    } else {\
+        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+            int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
+            if (failureSubscriptToRun) {\
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);\
+                ctx->server_seq_no = CONTROLLER_COMMAND_24;\
+                ST_ServerTotteokiCountCalc(bsys, ctx);\
+                return;\
+            }\
+        }\
+    }\
+    ctx->clientLoopForSpreadMoves = 0;\
+}
+
+#define CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no) (GetBattlerAbility(ctx, client_no) != ABILITY_MOLD_BREAKER && GetBattlerAbility(ctx, client_no) != ABILITY_TERAVOLT && GetBattlerAbility(ctx, client_no) != ABILITY_TURBOBLAZE)
+
+void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 #endif // BATTLE_H

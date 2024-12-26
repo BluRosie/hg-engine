@@ -1204,7 +1204,9 @@ BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx) 
 
     if (unkA == 0) {
         ctx->defence_client = ov12_022506D4(bsys, ctx, ctx->attack_client, (u16)ctx->waza_work, 1, 0);
-        ov12_02250A18(bsys, ctx, ctx->attack_client, ctx->waza_work);
+        // Handle ourselves later
+        // Handle redirection ourselves
+        // ov12_02250A18(bsys, ctx, ctx->attack_client, ctx->waza_work);
         ctx->playerActions[ctx->attack_client][1] = ctx->defence_client;
     }
 

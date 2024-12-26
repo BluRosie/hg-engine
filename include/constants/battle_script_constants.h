@@ -415,6 +415,7 @@
 #define SUB_SEQ_UNAFFECTED                            (405)
 #define SUB_SEQ_BUT_IT_FAILED_SPREAD                  (406)
 #define SUB_SEQ_ATTACK_MISSED                         (407)
+#define SUB_SEQ_MIST_END                              (408)
 
 
 

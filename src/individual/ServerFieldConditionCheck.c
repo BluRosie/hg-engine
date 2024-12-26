@@ -1343,7 +1343,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 if (--sp->scw[side].mistCount == 0) {
                                     sp->side_condition[side] &= ~(SIDE_STATUS_MIST);
                                     sp->waza_work = MOVE_MIST;
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MIST_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);

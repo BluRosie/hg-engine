@@ -1862,7 +1862,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *sp, int battlerId) {
  *  @param attacker client to check
  *  @return TRUE if the move has positive priority after adjustments
  */
-BOOL LONG_CALL adjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
+BOOL LONG_CALL AdjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
     return GetClientActionPriority(NULL, sp, attacker) > 0;
 }
 
@@ -2527,7 +2527,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
-    if (ctx->oneSelfFlag[ctx->attack_client].trickroom_flag) {
+    if (ctx->oneSelfFlag[ctx->attack_client].trickRoomFlag) {
         SortExecutionOrderBySpeed(bsys, ctx);
         SortMonsBySpeed(bsys, ctx);
         ctx->executionIndex = 0;
@@ -3298,5 +3298,57 @@ BOOL LONG_CALL IfAbilityCanBeReplacedByWorrySeed(struct BattleStruct *ctx, int b
             return FALSE;
         default:
             return TRUE;
+    }
+}
+
+void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int client_set_max;
+    BOOL needToSwap = FALSE;
+    void *pp2;
+    client_set_max = BattleWorkClientSetMaxGet(bsys);
+
+    int rawSpeedArray[4] = {0, 0, 0, 0};
+
+    for (int i = 0; i < client_set_max - 1; i++) {
+        ctx->rawSpeedNonRNGClientOrder[i] = ctx->turnOrder[i];
+
+        // Get the original unmodified speed stat from the party
+        pp2 = BattleWorkPokemonParamGet(bsys, i, ctx->sel_mons_no[i]);
+        rawSpeedArray[i] = GetMonData(pp2, MON_DATA_SPEED, NULL);
+    }
+
+    for (int i = 0; i < client_set_max - 1; i++) {
+        for (int j = 0; j < client_set_max - i - 1; j++) {
+            needToSwap = FALSE;
+            // Compare the raw Speed stats of Pokemon as they are in the summary screen,
+            // without modifiers (no Speed Swap, no Tailwind, no +6 / -6, etc.).
+            if (rawSpeedArray[ctx->rawSpeedNonRNGClientOrder[j]] < rawSpeedArray[ctx->rawSpeedNonRNGClientOrder[j + 1]]) {
+                needToSwap = TRUE;
+            } else if (rawSpeedArray[ctx->rawSpeedNonRNGClientOrder[j]] == rawSpeedArray[ctx->rawSpeedNonRNGClientOrder[j + 1]]) {
+                // If there is a tie, apply the effect to the Pokemon that has had the ability the longest amount of time.
+                if (ctx->numberOfTurnsClientHasCurrentAbility[ctx->rawSpeedNonRNGClientOrder[j]] < ctx->numberOfTurnsClientHasCurrentAbility[ctx->rawSpeedNonRNGClientOrder[j + 1]]) {
+                    needToSwap = TRUE;
+                } else if (ctx->numberOfTurnsClientHasCurrentAbility[ctx->rawSpeedNonRNGClientOrder[j]] == ctx->numberOfTurnsClientHasCurrentAbility[ctx->rawSpeedNonRNGClientOrder[j + 1]]) {
+                    // If both players lead with Speed tying Pokemon, the Pokemon on the side of the player who is the host of the battle (the player with their trainer card on the left of the pre-battle challenge screen) will be considered to have the ability longer.
+                    if (!IsClientEnemy(bsys, ctx->rawSpeedNonRNGClientOrder[j]) && IsClientEnemy(bsys, ctx->rawSpeedNonRNGClientOrder[j + 1])) {
+                        needToSwap = TRUE;
+                    } else if (IsClientEnemy(bsys, ctx->rawSpeedNonRNGClientOrder[j]) == IsClientEnemy(bsys, ctx->rawSpeedNonRNGClientOrder[j + 1])) {
+                        // If the host leads two Pokemon that Speed tie, the Pokemon on the left is considered to have had the ability the longest.
+                        // 3 1
+                        // 0 2
+                        if (ctx->rawSpeedNonRNGClientOrder[j] < ctx->rawSpeedNonRNGClientOrder[j + 1]) {
+                            needToSwap = TRUE;
+                        }
+                    }
+                }
+            }
+
+            if (needToSwap) {
+                // Swap elements
+                u8 temp = ctx->rawSpeedNonRNGClientOrder[j];
+                ctx->rawSpeedNonRNGClientOrder[j] = ctx->rawSpeedNonRNGClientOrder[j + 1];
+                ctx->rawSpeedNonRNGClientOrder[j + 1] = temp;
+            }
+        }
     }
 }
