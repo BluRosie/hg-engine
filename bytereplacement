@@ -24,6 +24,15 @@
 # 02252834
 0012 0801AF74 60 B4 C0 46
 
+# 属性图标的调色版
+arm9 081000A4 01 02 02 02 01 01 02 02 00 00 01 01 01 01 02 02 00 00 00 01 01 02 00
+arm9 08100038 01 00
+
+# Double battle music fix
+# 双打音乐修复
+arm9 08051779 E0
+
+
 # PokePasoParaSet hook setup
 # 0206DED0
 arm9 0806DED0 60 B4 C0 46

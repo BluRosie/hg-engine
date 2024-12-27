@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"middleman1.1": {
+		"towerboss.1": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -11,13 +11,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 613,
+			"unkBlockUnk0": 605,
 			"unkBlockUnk1": 267,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.10": {
+		"towerboss.10": {
 			"frame": 1,
 			"coordTrans": 0,
 			"color0": 1,
@@ -28,13 +28,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 93,
+			"unkBlockUnk0": 85,
 			"unkBlockUnk1": 3,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.11": {
+		"towerboss.11": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -45,13 +45,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1115,
+			"unkBlockUnk0": 1107,
 			"unkBlockUnk1": 3594,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.12": {
+		"towerboss.12": {
 			"frame": 3,
 			"coordTrans": 0,
 			"color0": 1,
@@ -62,13 +62,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1370,
+			"unkBlockUnk0": 1362,
 			"unkBlockUnk1": 2567,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.13": {
+		"towerboss.13": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -79,13 +79,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 601,
+			"unkBlockUnk0": 593,
 			"unkBlockUnk1": 2054,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.14": {
+		"towerboss.14": {
 			"frame": 5,
 			"coordTrans": 0,
 			"color0": 1,
@@ -96,13 +96,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1368,
+			"unkBlockUnk0": 1360,
 			"unkBlockUnk1": 2310,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.15": {
+		"towerboss.15": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -113,13 +113,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 2137,
+			"unkBlockUnk0": 2129,
 			"unkBlockUnk1": 3081,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.16": {
+		"towerboss.16": {
 			"frame": 6,
 			"coordTrans": 0,
 			"color0": 1,
@@ -130,13 +130,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1112,
+			"unkBlockUnk0": 1104,
 			"unkBlockUnk1": 2824,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.2": {
+		"towerboss.2": {
 			"frame": 7,
 			"coordTrans": 0,
 			"color0": 1,
@@ -147,13 +147,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1880,
+			"unkBlockUnk0": 1872,
 			"unkBlockUnk1": 3337,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.3": {
+		"towerboss.3": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -164,13 +164,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 856,
+			"unkBlockUnk0": 848,
 			"unkBlockUnk1": 3850,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.4": {
+		"towerboss.4": {
 			"frame": 8,
 			"coordTrans": 0,
 			"color0": 1,
@@ -181,13 +181,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3170,
+			"unkBlockUnk0": 3162,
 			"unkBlockUnk1": 1295,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.5": {
+		"towerboss.5": {
 			"frame": 9,
 			"coordTrans": 0,
 			"color0": 1,
@@ -198,13 +198,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3425,
+			"unkBlockUnk0": 3417,
 			"unkBlockUnk1": 782,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.6": {
+		"towerboss.6": {
 			"frame": 10,
 			"coordTrans": 0,
 			"color0": 1,
@@ -215,13 +215,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 352,
+			"unkBlockUnk0": 344,
 			"unkBlockUnk1": 525,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.7": {
+		"towerboss.7": {
 			"frame": 9,
 			"coordTrans": 0,
 			"color0": 1,
@@ -232,13 +232,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3168,
+			"unkBlockUnk0": 3160,
 			"unkBlockUnk1": 1038,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.8": {
+		"towerboss.8": {
 			"frame": 11,
 			"coordTrans": 0,
 			"color0": 1,
@@ -249,13 +249,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 4193,
+			"unkBlockUnk0": 4185,
 			"unkBlockUnk1": 1807,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"middleman1.9": {
+		"towerboss.9": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -266,7 +266,7 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 2912,
+			"unkBlockUnk0": 2904,
 			"unkBlockUnk1": 1552,
 			"unk0": 0,
 			"unk1": 1,
@@ -274,11 +274,11 @@
 		}
 	},
 	"palettes": {
-		"middleman1": {
+		"towerboss": {
 			"offset": 0,
-			"unk0": 77,
+			"unk0": 70,
 			"unk1": 1,
-			"fileName": "middleman1.pal"
+			"fileName": "towerboss.pal"
 		}
 	}
 }

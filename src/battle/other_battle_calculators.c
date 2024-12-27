@@ -1199,6 +1199,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ANY))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
+        || (sp->current_move_index == 821)//直接粗暴的判断是否是“水流连打”，然后把水流连打的技能特效变成岩石爆破的多段攻击
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
@@ -2225,6 +2226,8 @@ BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no) 
  * BattleController_MoveEnd
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
+ 
+//定义技能释放完毕后的判断函数
 void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int script;
     u32 battleType = BattleTypeGet(bsys);
@@ -2244,7 +2247,48 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
             return;
         }
 
-        // Handle Sparkling Aria
+                // 致命针刺
+        if (ctx->current_move_index == 568 && 
+            !ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag &&
+            (ctx->defence_client == ctx->fainting_client))//加入防御方倒下的判断
+        {
+            ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] = 
+                (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] + 1 <= 12) ? 
+                (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] + 1) : 12;//攻击力提升1级
+
+            ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 1;  // 设置标记位，防止重复触发
+    
+            ctx->addeffect_param = ADD_STATE_ATTACK_UP_2;//这里攻击力又提升了2级
+            ctx->state_client = ctx->attack_client;
+    
+            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+            ctx->next_server_seq_no = ctx->server_seq_no;  
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+    
+            return;
+        }
+
+        // 棉花防守
+        if (ctx->current_move_index == 541 && 
+            !ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag)
+        {
+            ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 1;  // 设置标记位，防止重复触发
+
+            //这行代码是决定提升什么属性的关键参数，提升2级别
+            ctx->addeffect_param = ADD_STATE_DEFENSE_UP_2;//这里防御力又提升了2级（外面还有一个提升1级的防御效果）
+            ctx->state_client = ctx->attack_client;
+    
+            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+            ctx->next_server_seq_no = ctx->server_seq_no;  
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+    
+            return;
+        }
+
+
+
+
+        // Handle Sparkling Aria 泡影的咏叹调
         if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
             int i;
             int numberOfClientsHitBySparklingAria = 0;
@@ -2276,6 +2320,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
             }
         }
 
+        // 愤怒乱舞
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
                 ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
@@ -2290,6 +2335,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                     return;
                 }
             }
+
+
 
         // If the user's next move is not Electric-type, Charge no longer wears off, and instead remains active for the next move that is.
         // However, if the user attempted to use an Electric-type move,

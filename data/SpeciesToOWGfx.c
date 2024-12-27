@@ -1082,4 +1082,6 @@ const u16 UNUSED sSpeciesToOWGfx[] =
     [SPECIES_IRON_CROWN         ] = 1311,
     [SPECIES_TERAPAGOS          ] = 1312,
     [SPECIES_PECHARUNT          ] = 1313,
+	[SPECIES_ZIGZAGOON_GALARIAN          ] = 299,
+	[SPECIES_URSHIFU_RAPID_STRIKE          ] = 1157,
 };

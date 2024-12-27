@@ -746,6 +746,35 @@ u32 CanUseAbilityCapsule(struct PartyPokemon *pp)
     return (ability2 != 0 && ability1 != ability2);
 }
 
+//金色王冠的使用条件判断
+u32 CanUseGoldBottleCap(struct PartyPokemon *pp)
+{
+    // u32 level;
+    // GetMonData(pp, MON_DATA_LEVEL, &level);
+    // if (level != 100) {
+    //     return FALSE;  // 只能用于100级的Pokemon
+    // }
+
+    u32 iv_values[6];
+    // Get all IV values
+    GetMonData(pp, MON_DATA_HP_IV, &iv_values[0]);
+    GetMonData(pp, MON_DATA_ATK_IV, &iv_values[1]);
+    GetMonData(pp, MON_DATA_DEF_IV, &iv_values[2]);
+    GetMonData(pp, MON_DATA_SPEED_IV, &iv_values[3]);
+    GetMonData(pp, MON_DATA_SPATK_IV, &iv_values[4]);
+    GetMonData(pp, MON_DATA_SPDEF_IV, &iv_values[5]);
+    
+    // Check if any IV is not max (31)
+    // 检查某个体值是否已经是31
+
+    for (int i = 0; i < 6; i++) {
+        if (iv_values[i] != 31) {
+            return TRUE;  // IV 不满才能使用金色王冠
+        }
+    }
+    
+    return FALSE;  // 所有IV值都满了，不能使用
+}
 
 u32 CanUseAbilityPatch(struct PartyPokemon *pp)
 {
@@ -885,6 +914,61 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         return TRUE;
     }
 #endif
+
+    //银色王冠使用效果
+    if (wk->dat->item == ITEM_BOTTLE_CAP)
+    {
+        //void *bag = Sav2_Bag_get(SaveBlock2_get());
+
+        partyMenuSignal = 187; // 如果使用成功，显示文本187行的内容
+
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);   //必须要有这一行，不然就会卡主
+
+        //Bag_TakeItem(bag, ITEM_GOLD_BOTTLE_CAP, 1, 11);
+        return TRUE;
+    }
+
+
+
+    //金色王冠使用效果
+    if (wk->dat->item == ITEM_GOLD_BOTTLE_CAP && CanUseGoldBottleCap(pp) == TRUE)
+    {
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        u32 level;
+        u32 iv_value = 31;
+
+/*         // Check if Pokemon is level 100
+        GetMonData(pp, MON_DATA_LEVEL, &level);
+        if (level != 100)
+        {
+            return FALSE;
+        } */
+
+        // Save current state for animation
+        // 保存现在的状态动画
+        partyMenuSignal = 192; // 如果使用成功，显示文本192行的内容
+        GetMonData(pp, MON_DATA_HP_IV, &wk->dat->after_mons);
+
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+
+        // Set all IVs to max (31)
+        for (u32 i = 0; i < 6; i++)
+        {
+            SetMonData(pp, MON_DATA_HP_IV + i, &iv_value);
+        }
+
+        // Recalculate stats with new IVs
+        // 重新计算新的IV值
+        RecalcPartyPokemonStats(pp);
+
+        // Remove Gold Bottle Cap from bag
+        // 从背包里删除金色王冠
+        Bag_TakeItem(bag, ITEM_GOLD_BOTTLE_CAP, 1, 11);
+
+        return TRUE;
+    }
 
     // handle ability capsule
 

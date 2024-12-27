@@ -6,13 +6,13 @@
 START_ADDRESS equ 0x0
 
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
-// if you do not want this change, then set it to 0
+// 妖精属性  1= 开启
 FAIRY_TYPE_IMPLEMENTED equ 1
 
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
-// 9 or above: Snow
-// Otherwise: Hail
-SNOW_WARNING_GENERATION equ 9
+// 9 or above: Snow 9 = 下雪（不扣血）
+// Otherwise: Hail  8 = 冰雹（会扣血）
+SNOW_WARNING_GENERATION equ 8
 
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.
@@ -22,31 +22,40 @@ SNOW_WARNING_GENERATION equ 9
 CRY_PSEUDOBANK_START equ 778
 
 // DEBUG_NEEDS_TESTING defines in progress implementations that may not necessarily function.
+// 测试模式
 DEBUG_NEEDS_TESTING equ 0
 
 // LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
+// 最大技能数量调整
 LEARNSET_TOTAL_MOVES equ 41 // 40+terminate - currently driven by gallade
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
-BATTLE_MODE_FORCE_SET equ 0
+// 是否默认设置“连续战斗”   1 = 总是连续战斗
+BATTLE_MODE_FORCE_SET equ 1
 
 // ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
-ALWAYS_HAVE_NATIONAL_DEX equ 0
+// 总是拥有国际图鉴的开关   1 = 总是开启全国图鉴 0 = 关闭
+ALWAYS_HAVE_NATIONAL_DEX equ 1
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
+// 全图加速 60fps 1 = 开启 0 = 关闭
 ALWAYS_UNCAPPED_FRAME_RATE equ 0
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
-BATTLES_UNCAPPED_FRAME_RATE equ 0
+// 战斗中加速60fps 1 = 开启 0 = 关闭
+BATTLES_UNCAPPED_FRAME_RATE equ 1
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
+// 强制快速输出文本 1 = 开启 0 = 关闭
 FAST_TEXT_PRINTING equ 0
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
+// 招式机器 数量无限使用  1 = 开启 0 = 关闭
 REUSABLE_TMS equ 1
 
 // DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-DELETABLE_HMS equ 0
+// 允许忘记秘传技  1 = 开启 0 = 关闭
+DELETABLE_HMS equ 1
 
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM

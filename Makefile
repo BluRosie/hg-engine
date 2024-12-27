@@ -46,7 +46,7 @@ endif
 default: all
 
 ROMNAME = rom.nds
-BUILDROM = test.nds
+BUILDROM = Test1.nds
 
 ####################### Tools #######################
 ADPCMXQ := tools/adpcm-xq

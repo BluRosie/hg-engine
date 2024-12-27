@@ -4,6 +4,7 @@
 #include "../../include/debug.h"
 #include "../../include/overlay.h"
 #include "../../include/save.h"
+#include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
@@ -1520,7 +1521,11 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #endif
 
     // distribute effort values to level 100 pokémon who would otherwise not get it
+<<<<<<< Updated upstream
     if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == 100)
+=======
+    if (expcalc->seq_no == 0 && sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no) && GetMonData(BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no), MON_DATA_LEVEL, NULL) == GetLevelCap())
+>>>>>>> Stashed changes
     {
         DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
                                sel_mons_no,

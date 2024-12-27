@@ -673,3 +673,7 @@ sPickupTable1 = 0x0226C404;
 sPickupTable2 = 0x0226C30C;
 sPickupWeightTable = 0x0226CA4C;
 sHoneyGatherChanceTable = 0x0226CA58;
+
+sPlayerBattleCommands = 0x0226CA90;
+BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
+ov12_022639B8 = 0x022639B8 | 1;

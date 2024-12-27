@@ -1767,4 +1767,23 @@ void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **b
 
 BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
 
+<<<<<<< Updated upstream
+=======
+/**
+ *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
+ *
+ *  @return level cap from LEVEL_CAP_VARIABLE script variable
+ */
+u32 LONG_CALL GetLevelCap(void);
+
+/**
+ *  @brief check if the level is at or above the level cap defined in LEVEL_CAP_VARIABLE
+ *
+ *  @param level level to check
+ *  @return TRUE if level >= level cap; FALSE otherwise
+ */
+u32 LONG_CALL IsLevelAtLevelCap(u32 level);
+
+
+>>>>>>> Stashed changes
 #endif

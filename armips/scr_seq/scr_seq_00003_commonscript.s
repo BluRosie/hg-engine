@@ -765,14 +765,14 @@ scr_seq_0003_010:
 
 _0A18:
     scrcmd_500 90
-    scrcmd_501 90
-    scrcmd_308 90
+    //scrcmd_501 90 //播放电脑的闪烁动画
+    //scrcmd_308 90
     return
 
 _0A23:
-    scrcmd_502 90
-    scrcmd_308 90
-    scrcmd_309 90
+    //scrcmd_502 90
+    //scrcmd_308 90
+    //scrcmd_309 90
     return
 
 _0A2E:
@@ -1014,7 +1014,7 @@ _0E02:
 _0E16:
     fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
-    scrcmd_309 90
+    //scrcmd_309 90
     return
 
 scr_seq_0003_014:

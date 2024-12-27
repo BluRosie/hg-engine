@@ -8666,7 +8666,7 @@ movedata MOVE_STEAMROLLER, "Steamroller"
     movedescription MOVE_STEAMROLLER, "The user crushes\nthe foe with its\nbody. It may also\nmake the foe flinch."
 
 movedata MOVE_COTTON_GUARD, "Cotton Guard"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_DEF_UP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -13147,7 +13147,7 @@ movedata MOVE_WICKED_BLOW, "Wicked Blow"
     movedescription MOVE_WICKED_BLOW, "---"
 
 movedata MOVE_SURGING_STRIKES, "Surging Strikes"
-    battleeffect MOVE_EFFECT_ALWAYS_CRITICAL
+    battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
     basepower 25
     type TYPE_WATER
@@ -13339,7 +13339,7 @@ movedata MOVE_POWER_SHIFT, "Power Shift"
     movedescription MOVE_POWER_SHIFT, "---"
 
 movedata MOVE_STONE_AXE, "Stone Axe"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_STONE_AXE_STEALTH_ROCKS
     pss SPLIT_PHYSICAL
     basepower 65
     type TYPE_ROCK
@@ -13579,7 +13579,7 @@ movedata MOVE_INFERNAL_PARADE, "Infernal Parade"
     movedescription MOVE_INFERNAL_PARADE, "---"
 
 movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_CEASELESS_EDGE_SPIKES 
     pss SPLIT_PHYSICAL
     basepower 65
     type TYPE_DARK

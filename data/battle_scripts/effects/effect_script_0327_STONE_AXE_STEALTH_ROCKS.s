@@ -1,0 +1,17 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_SIDE_CONDITION_TARGET, SIDE_CONDITION_STEALTH_ROCKS
+    
+    // 尖锐的岩石飘浮在你队伍附近的空气中
+    // Pointed stones float in the air around your team!
+    BufferMessage 1077, TAG_NONE_SIDE, BATTLER_CATEGORY_ATTACKER_ENEMY
+
+	// 间接副作用标志：BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT
+	// 打印文字+播放动画：MOVE_SUBSCRIPT_PTR_PRINT_MESSAGE_AND_PLAY_ANIMATION
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_PRINT_MESSAGE_AND_PLAY_ANIMATION
+    CalcCrit 
+    CalcDamage 
+    End 

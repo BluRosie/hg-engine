@@ -1666,6 +1666,12 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1795, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_CROWN
     { .tag = 1796, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TERAPAGOS
     { .tag = 1797, .gfx = 1547, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PECHARUNT
+    { .tag = 1798, .gfx = 1550, .callback_params = 0x0000}, // new1 黄毛胖子
+    { .tag = 1799, .gfx = 1551, .callback_params = 0x0000}, // new1 绿毛女孩
+    { .tag = 1800, .gfx = 1552, .callback_params = 0x0000}, // new1 蓝毛女孩
+    { .tag = 1801, .gfx = 1553, .callback_params = 0x0000}, // new1 莉莉艾他妈
+    { .tag = 1802, .gfx = 1554, .callback_params = 0x0000}, // new1 茉莉
+	
     { 0xFFFF, 0, 0},
 };
 
