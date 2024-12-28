@@ -3396,9 +3396,12 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             }\
         }\
     } else {\
-        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
-            if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {\
-                return;\
+        if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
+            if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+                if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {\
+                    return;\
+                }\
             }\
         }\
     }\
@@ -3467,15 +3470,18 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             return;\
         }\
     } else {\
-        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
-            int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
-            if (failureSubscriptToRun) {\
-                ctx->msg_work = ctx->defence_client;\
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
-                ctx->next_server_seq_no = ctx->server_seq_no;\
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
-                ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_FLAG_FAILED;\
-                return;\
+        if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
+            if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+                int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
+                if (failureSubscriptToRun) {\
+                    ctx->msg_work = ctx->defence_client;\
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
+                    ctx->next_server_seq_no = ctx->server_seq_no;\
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+                    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_FLAG_FAILED;\
+                    return;\
+                }\
             }\
         }\
     }\
@@ -3541,13 +3547,16 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             return;\
         }\
     } else {\
-        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
-            int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
-            if (failureSubscriptToRun) {\
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);\
-                ctx->server_seq_no = CONTROLLER_COMMAND_24;\
-                ST_ServerTotteokiCountCalc(bsys, ctx);\
-                return;\
+        if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
+            if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+                int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
+                if (failureSubscriptToRun) {\
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);\
+                    ctx->server_seq_no = CONTROLLER_COMMAND_24;\
+                    ST_ServerTotteokiCountCalc(bsys, ctx);\
+                    return;\
+                }\
             }\
         }\
     }\
@@ -3557,5 +3566,33 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
 #define CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no) (GetBattlerAbility(ctx, client_no) != ABILITY_MOLD_BREAKER && GetBattlerAbility(ctx, client_no) != ABILITY_TERAVOLT && GetBattlerAbility(ctx, client_no) != ABILITY_TURBOBLAZE)
 
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
+
+enum {
+    AFTER_MOVE_MESSAGE_START = 0,
+
+    ONE_HIT_CRITICAL = 0,
+    ONE_HIT_STATUS,
+    ONE_HIT_TRIGGER_SECONDARY,
+    ONE_HIT_FORM_CHANGE,
+    ONE_HIT_RAGE,
+    ONE_HIT_TRIGGER_ABILITY,
+    ONE_HIT_EXTRA_FLINCH,
+
+    MULTI_HIT_CRITICAL = 0,
+    MULTI_HIT_TRIGGER_SECONDARY,
+    MULTI_HIT_FORM_CHANGE,
+    MULTI_HIT_RAGE,
+    MULTI_HIT_TRIGGER_ABILITY,
+    MULTI_HIT_STATUS,
+    MULTI_HIT_EXTRA_FLINCH,
+};
+
+BOOL LONG_CALL ov12_0224DF7C(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL ov12_0224DF98(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL ov12_02250490(struct BattleSystem *bsys, struct BattleStruct *ctx, int *out);
+BOOL LONG_CALL TryBuildRage(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
 #endif // BATTLE_H

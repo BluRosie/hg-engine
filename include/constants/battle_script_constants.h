@@ -269,7 +269,7 @@
 #define SUB_SEQ_LUNAR_DANCE                     (261)
 #define SUB_SEQ_FORM_CHANGE                     (262) // not just used for transform
 #define SUB_SEQ_BAD_DREAMS                      (263)
-#define SUB_SEQ_TYPE_RESIST_BERRIES             (264)
+#define SUB_SEQ_TYPE_RESIST_BERRIES_DAMAGE      (264)
 #define SUB_SEQ_ITEM_ACC_UP_ONCE                (265)
 #define SUB_SEQ_ITEM_DAMAGE_BACK                (266)
 #define SUB_SEQ_BAG_HP_RESTORE                  (267)
@@ -417,6 +417,9 @@
 #define SUB_SEQ_ATTACK_MISSED                         (407)
 #define SUB_SEQ_MIST_END                              (408)
 #define SUB_SEQ_LOST_FOCUS                            (409)
+#define SUB_SEQ_PROTECTED_BY_SAFEGUARD                (410)
+#define SUB_SEQ_PLAY_CONSUME_ITEM_ANIMATION           (411)
+#define SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE           (412)
 
 
 

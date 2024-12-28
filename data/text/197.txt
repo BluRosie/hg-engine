@@ -1129,7 +1129,7 @@ The opposing {STRVAR_1 1, 2, 0} is tormented\nby the opposing {STRVAR_1 1, 0, 0}
 {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
-The {STRVAR_1 8, 0, 0} weakened\n{STRVAR_1 6, 1, 0}’s power!
+(Unused)
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nis hurt by its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nis hurt by its {STRVAR_1 8, 1, 0}!
@@ -1525,3 +1525,6 @@ The {STRVAR_1 8, 1, 0} drastically boosted\nthe wild {STRVAR_1 1, 0, 0}’s {STR
 The {STRVAR_1 8, 1, 0} drastically boosted\nthe opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 Your team is no longer\nprotected by mist!
 The opposing team is no longer\nprotected by mist!
+The {STRVAR_1 6, 1, 0} weakened\nthe damage to {STRVAR_1 8, 0, 0}!
+The {STRVAR_1 6, 1, 0} weakened\nthe damage to the wild {STRVAR_1 8, 0, 0}!
+The {STRVAR_1 6, 1, 0} weakened\nthe damage to the opposing {STRVAR_1 8, 0, 0}!

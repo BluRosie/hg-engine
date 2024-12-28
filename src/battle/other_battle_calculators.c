@@ -2628,26 +2628,6 @@ enum {
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3240
  */
 void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    // u32 ovyId, offset;
-
-    // void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-    // UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
-
-    // // Function is so thicc that we need to split it in 2
-    // if (ctx->woc_seq_no < BEFORE_MOVE_STATE_PSYCHIC_TERRAIN) {
-    //     ovyId = OVERLAY_BATTLECONTROLLER_BEFOREMOVE2;
-    // } else {
-    //     ovyId = OVERLAY_BATTLECONTROLLER_TRYMOVE2;
-    // }
-
-    // offset = 0x023C0400 | 1;
-    // HandleLoadOverlay(ovyId, 2);
-    // internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
-    // internalFunc(bsys, ctx);
-    // UnloadOverlayByID(ovyId);
-
-    // HandleLoadOverlay(6, 2); // reload 6 so things are okay
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ov12_0224C4D8\n")
 #endif
@@ -3354,4 +3334,33 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
             }
         }
     }
+}
+
+const int typeToBerryMapping[] = {
+    [TYPE_NORMAL]   = ITEM_CHILAN_BERRY,
+    [TYPE_FIGHTING] = ITEM_CHOPLE_BERRY,
+    [TYPE_FLYING]   = ITEM_COBA_BERRY,
+    [TYPE_POISON]   = ITEM_KEBIA_BERRY,
+    [TYPE_GROUND]   = ITEM_SHUCA_BERRY,
+    [TYPE_ROCK]     = ITEM_CHARTI_BERRY,
+    [TYPE_BUG]      = ITEM_TANGA_BERRY,
+    [TYPE_GHOST]    = ITEM_KASIB_BERRY,
+    [TYPE_STEEL]    = ITEM_BABIRI_BERRY,
+    [TYPE_FAIRY]    = ITEM_ROSELI_BERRY,
+    [TYPE_FIRE]     = ITEM_OCCA_BERRY,
+    [TYPE_WATER]    = ITEM_PASSHO_BERRY,
+    [TYPE_GRASS]    = ITEM_RINDO_BERRY,
+    [TYPE_ELECTRIC] = ITEM_WACAN_BERRY,
+    [TYPE_PSYCHIC]  = ITEM_PAYAPA_BERRY,
+    [TYPE_ICE]      = ITEM_YACHE_BERRY,
+    [TYPE_DRAGON]   = ITEM_HABAN_BERRY,
+    [TYPE_DARK]     = ITEM_COLBUR_BERRY,
+};
+
+BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
+    if ((ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
+    && !(ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_OHKO_HIT)) {
+        return typeToBerryMapping[ctx->move_type] == GetBattleMonItem(ctx, defender);
+    }
+    return FALSE;
 }

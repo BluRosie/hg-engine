@@ -638,6 +638,7 @@ enum
     SEQ_NORMAL_CRITICAL_MSG = 0,
     SEQ_NORMAL_MOVE_STATUS_MSG,
     SEQ_NORMAL_ADD_STATUS_MSG,
+    SEQ_NORMAL_DAMAGE_REDUCTION_BERRY_MESSAGE,
     SEQ_NORMAL_FORM_CHG_CHECK,
     SEQ_NORMAL_IKARI_CHECK,
     SEQ_NORMAL_ATTACKER_ABILITY_CHECK,
@@ -646,6 +647,7 @@ enum
 
     SEQ_LOOP_CRITICAL_MSG = 0,
     SEQ_LOOP_ADD_STATUS_MSG,
+    SEQ_LOOP_DAMAGE_REDUCTION_BERRY_MESSAGE,
     SEQ_LOOP_FORM_CHG_CHECK,
     SEQ_LOOP_IKARI_CHECK,
     SEQ_LOOP_ATTACKER_ABILITY_CHECK,
@@ -654,6 +656,7 @@ enum
     SEQ_LOOP_FLINCH_CHECK,
 };
 
+// TODO: Come back here for move performance modernisation
 /**
  *  @brief run the end-of-turn checks for everything.  critical hit message, move effectiveness message, call MoveHitAttackerAbilityCheck and MoveHitDefenderAbilityCheck as well
  *
@@ -694,6 +697,13 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
+        case SEQ_NORMAL_DAMAGE_REDUCTION_BERRY_MESSAGE:
+            sp->swoam_seq_no++;
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
             FALLTHROUGH;
         case SEQ_NORMAL_FORM_CHG_CHECK:
             sp->swoam_seq_no++;
@@ -771,6 +781,13 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                     return;
                 }
             }
+            FALLTHROUGH;
+        case SEQ_LOOP_DAMAGE_REDUCTION_BERRY_MESSAGE:
+            sp->swoam_seq_no++;
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
             FALLTHROUGH;
         case SEQ_LOOP_FORM_CHG_CHECK:
             sp->swoam_seq_no++;

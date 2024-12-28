@@ -117,7 +117,9 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys,
 BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
+BOOL BattleController_CheckSafeguard(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
+int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 BOOL BattlerController_CheckMist(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
@@ -126,8 +128,9 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
 BOOL BattleController_CheckAromaVeil(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
 BOOL IfAllClientsHavePerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
-BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender);
-BOOL CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
+BOOL BattleController_CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender);
+BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
+BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 
 // 08014ACC
 
@@ -298,7 +301,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             return;
         }
-        // TODO
+        // TODO: implement new mechanics (Magic Room/Dance before coming back to this)
         case BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK\n");
@@ -357,6 +360,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_ANNOUNCE_SUB_MOVE\n");
 #endif
 
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            // debug_printf("current_move_index: %d\n", ctx->current_move_index);
+            // debug_printf("moveNoTemp: %d\n", ctx->moveNoTemp);
+#endif
+
             BattleController_CheckSubmove(bsys, ctx);
             ctx->wb_seq_no++;
             return;
@@ -402,6 +410,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         case BEFORE_MOVE_STATE_DECREMENT_PP: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_DECREMENT_PP\n");
+#endif
+
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            // debug_printf("current_move_index: %d\n", ctx->current_move_index);
+            // debug_printf("moveNoTemp: %d\n", ctx->moveNoTemp);
 #endif
 
             if ((ctx->waza_out_check_on_off & 0x8) == 0) {
@@ -796,11 +809,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
         case BEFORE_MOVE_STATE_SAFEGUARD: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_SAFEGUARD\n");
 #endif
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckSafeguard);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -813,12 +826,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
-        // TODO
         case BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE\n");
 #endif
-
+            LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck(bsys, ctx, BattlerController_CheckSubstituteBlockingStatDropsOrDecorate)
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -918,7 +930,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_TRIGGER_STRONG_WINDS\n");
 #endif
 
-            LoopCheckFunctionForSpreadMove(bsys, ctx, CheckStrongWindsWeaken);
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckStrongWindsWeaken);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -927,16 +939,16 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_TERA_SHELL\n");
 #endif
 
-            LoopCheckFunctionForSpreadMove(bsys, ctx, CheckTeraShell);
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckTeraShell);
             ctx->wb_seq_no++;
             FALLTHROUGH;            
         }
-        // TODO
         case BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY\n");
 #endif
 
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_TryConsumeDamageReductionBerry);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -1388,7 +1400,10 @@ void BattleController_CheckSubmove(struct BattleSystem *bsys UNUSED, struct Batt
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        ctx->wb_seq_no = BEFORE_MOVE_STATE_HEAL_BLOCK;
+        // Submove announcement guarantees PP deduction.
+        ServerPPCheck(bsys, ctx);
+        // Technically the cases after Heal Block should not be checked again but functionally it should not matter?
+        ctx->wb_seq_no = BEFORE_MOVE_STATE_HEAL_BLOCK - 1;
         return;
     }
 }
@@ -1985,6 +2000,29 @@ BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, s
     return FALSE;
 }
 
+BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+
+    // Electric-type paralysis immunity
+    if ((moveEffect == MOVE_EFFECT_STATUS_PARALYZE && HasType(ctx, defender, TYPE_ELECTRIC))
+    // Fire-type burn immunity
+    || (moveEffect == MOVE_EFFECT_STATUS_BURN && HasType(ctx, defender, TYPE_FIRE))
+    // Grass-type Leech Seed immunity
+    || (moveEffect == MOVE_EFFECT_STATUS_LEECH_SEED && HasType(ctx, defender, TYPE_GRASS))
+    // Poison / Steel-type poison / badly poison immunity
+    || ((moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON) && HasType(ctx, defender, TYPE_POISON) && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_CORROSION)) {
+        ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
+        ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
+        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
+        ctx->msg_work = defender;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
@@ -2008,6 +2046,34 @@ BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UN
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
+    }
+    return FALSE;
+}
+
+BOOL BattleController_CheckSafeguard(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+    if (ctx->side_condition[IsClientEnemy(bsys, defender)] & SIDE_STATUS_SAFEGUARD
+    && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR)) {
+        switch (ctx->moveTbl[ctx->current_move_index].effect) {
+        case MOVE_EFFECT_STATUS_SLEEP:
+        case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
+        case MOVE_EFFECT_STATUS_PARALYZE:
+        case MOVE_EFFECT_STATUS_POISON:
+        case MOVE_EFFECT_STATUS_BADLY_POISON:
+        case MOVE_EFFECT_STATUS_BURN:
+        case MOVE_EFFECT_STATUS_CONFUSE:
+            ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
+            ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
+            ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
+            ctx->msg_work = defender;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED_BY_SAFEGUARD);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+            break;
+        
+        default:
+            break;
+        }
     }
     return FALSE;
 }
@@ -2043,6 +2109,46 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
         }
     }
     return FALSE;
+}
+
+// TODO: Implement mew mechanics
+int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR && ctx->battlemon[defender].condition2 & STATUS2_SUBSTITUTE) {
+        if (ctx->attack_client != defender) {
+            switch (moveEffect) {
+                case MOVE_EFFECT_ATK_DOWN:
+                case MOVE_EFFECT_DEF_DOWN:
+                case MOVE_EFFECT_SPEED_DOWN:
+                case MOVE_EFFECT_SP_ATK_DOWN:
+                case MOVE_EFFECT_SP_DEF_DOWN:
+                case MOVE_EFFECT_ACC_DOWN:
+                case MOVE_EFFECT_EVA_DOWN:
+                case MOVE_EFFECT_ATK_DOWN_2:
+                case MOVE_EFFECT_DEF_DOWN_2:
+                case MOVE_EFFECT_SPEED_DOWN_2:
+                case MOVE_EFFECT_SP_ATK_DOWN_2:
+                case MOVE_EFFECT_SP_DEF_DOWN_2:
+                case MOVE_EFFECT_ACC_DOWN_2:
+                case MOVE_EFFECT_EVA_DOWN_2:
+                case MOVE_EFFECT_ATK_DEF_DOWN:
+                case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
+                case MOVE_EFFECT_ATK_DOWN_3:
+                case MOVE_EFFECT_DEF_DOWN_3:
+                case MOVE_EFFECT_SPEED_DOWN_3:
+                case MOVE_EFFECT_SP_ATK_DOWN_3:
+                case MOVE_EFFECT_SP_DEF_DOWN_3:
+                    return SUB_SEQ_DOESNT_AFFECT;
+                    break;
+
+                default:
+                    return 0;
+                    break;
+            }
+        }
+    }
+
+    return 0;
 }
 
 int BattlerController_CheckMist(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
@@ -2586,36 +2692,13 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys,
     return FALSE;
 }
 
-BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
-
-    // Electric-type paralysis immunity
-    if ((moveEffect == MOVE_EFFECT_STATUS_PARALYZE && HasType(ctx, defender, TYPE_ELECTRIC))
-    // Fire-type burn immunity
-    || (moveEffect == MOVE_EFFECT_STATUS_BURN && HasType(ctx, defender, TYPE_FIRE))
-    // Grass-type Leech Seed immunity
-    || (moveEffect == MOVE_EFFECT_STATUS_LEECH_SEED && HasType(ctx, defender, TYPE_GRASS))
-    // Poison / Steel-type poison / badly poison immunity
-    || ((moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON) && HasType(ctx, defender, TYPE_POISON) && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_CORROSION)) {
-        ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
-        ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
-        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-        ctx->msg_work = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        return TRUE;
-    }
-    return FALSE;
-}
-
 /**
  *  @brief checks if the given move should be weakened or not (only prints message)
  *  @param bw battle work structure
  *  @param sp global battle structure
  *  @return TRUE/FALSE
  */
-BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender) {
+BOOL BattleController_CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender) {
     int defender_type_1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
     int defender_type_2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     u32 move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
@@ -2643,7 +2726,18 @@ BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, in
 }
 
 // TODO: implement new mechanics
-BOOL CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
+BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED) {
     return FALSE;
 }
 
+// Bug: the vanilla script doesn't trigger either
+BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+    if (CanActivateDamageReductionBerry(bsys, ctx, defender)) {
+        ctx->battlerIdTemp = defender;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_CONSUME_ITEM_ANIMATION);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+    return FALSE;
+}
