@@ -110,4 +110,7 @@
 // UPDATE_VITAMIN_EV_CAPS changes the cap on the vitamins from 100 to 252 per recent generations
 #define UPDATE_VITAMIN_EV_CAPS
 
+// FAST_HP_BAR shortens the HP bar increase/decrease animation significantly
+#define FAST_HP_BAR 1
+
 #endif
