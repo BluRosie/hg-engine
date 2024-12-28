@@ -4138,7 +4138,7 @@ movedata MOVE_HEAT_WAVE, "Heat Wave"
     movedescription MOVE_HEAT_WAVE, "The user exhales a\nheated breath on the\nfoe to attack. It may\nalso leave the target\nwith a burn."
 
 movedata MOVE_HAIL, "Hail"
-    battleeffect MOVE_EFFECT_WEATHER_HAIL
+    battleeffect (SNOW_WARNING_GENERATION >= 9) ? MOVE_EFFECT_WEATHER_SNOW : MOVE_EFFECT_WEATHER_HAIL
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE

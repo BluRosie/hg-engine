@@ -8,11 +8,11 @@
 .include "asm/include/species.inc"
 .include "asm/include/moves.inc"
 
-.create "build/move/move_anim/0_886", 0
+.create "build/move/move_sub_anim/1_054", 0
 
-// Snowscape
+// Snow
 
-a010_886:
+a061_020:
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1
@@ -32,10 +32,10 @@ a010_886:
     resetsprite 3
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    repeatse 2052, 0, 3, 9
-    addparticle 0, 1, 4
-    addparticle 0, 2, 4
-    addparticle 0, 0, 4
+    repeatse 2052, 0, 3, 7
+    addparticle 0, 1, 3
+    addparticle 0, 2, 3
+    addparticle 0, 0, 3
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
