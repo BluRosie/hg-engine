@@ -418,7 +418,7 @@
 #define SUB_SEQ_MIST_END                              (408)
 #define SUB_SEQ_LOST_FOCUS                            (409)
 #define SUB_SEQ_PROTECTED_BY_SAFEGUARD                (410)
-#define SUB_SEQ_PLAY_CONSUME_ITEM_ANIMATION           (411)
+#define SUB_SEQ_PLAY_EAT_BERRY_ANIMATION              (411)
 #define SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE           (412)
 
 

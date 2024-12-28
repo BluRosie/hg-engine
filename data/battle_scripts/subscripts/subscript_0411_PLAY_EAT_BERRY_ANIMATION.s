@@ -6,6 +6,6 @@ _000:
     PrintAttackMessage
     Wait 
     WaitButtonABTime 30
-    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
+    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIIMATION_EAT_BERRY
     Wait 
     End

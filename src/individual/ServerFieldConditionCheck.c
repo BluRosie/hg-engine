@@ -188,7 +188,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         // TODO: Reuse same animation for now
-                        sp->temp_work = 20;
+                        sp->temp_work = 54;
                         ret = 1;
                     }
                 }
@@ -247,7 +247,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     // Reuse same animation for now
-                    sp->temp_work = 20;
+                    sp->temp_work = 54;
                     ret = 1;
                 }
 
