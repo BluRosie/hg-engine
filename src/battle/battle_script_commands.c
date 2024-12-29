@@ -1167,6 +1167,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 sp->battlemon[sp->attack_client].sheer_force_flag = 0;
                 break;
         }
+        // moves boosted by sheer force that still maintain their effect
         if ((sp->current_move_index == MOVE_SPARKLING_ARIA) 
          || (sp->current_move_index == MOVE_ELECTRO_SHOT)) {
             sp->battlemon[sp->attack_client].sheer_force_flag = 1;

@@ -1402,7 +1402,7 @@ movedata MOVE_THUNDER_WAVE, "Thunder Wave"
     movedescription MOVE_THUNDER_WAVE, "A weak electric\ncharge is launched at\nthe foe.\nIt causes paralysis if\nit hits."
 
 movedata MOVE_THUNDER, "Thunder"
-    battleeffect MOVE_EFFECT_THUNDER
+    battleeffect MOVE_EFFECT_THUNDER // accuracy in rain & sun handled in other_battle_calculators.c
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_ELECTRIC
@@ -8730,7 +8730,7 @@ movedata MOVE_TAIL_SLAP, "Tail Slap"
     movedescription MOVE_TAIL_SLAP, "The use attacks by\nhitting the target\nwith its hard tail.\nIt hits two to five\ntimes in a row."
 
 movedata MOVE_HURRICANE, "Hurricane"
-    battleeffect MOVE_EFFECT_HURRICANE
+    battleeffect MOVE_EFFECT_HURRICANE // accuracy in rain & sun handled in other_battle_calculators.c
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_FLYING
@@ -13595,7 +13595,7 @@ movedata MOVE_CEASELESS_EDGE, "Ceaseless Edge"
     movedescription MOVE_CEASELESS_EDGE, "---"
 
 movedatalongname MOVE_BLEAKWIND_STORM, "BleakwindStorm","Bleakwind Storm"
-    battleeffect MOVE_EFFECT_LOWER_SPEED_HIT
+    battleeffect MOVE_EFFECT_BLEAKWIND_STORM // accuracy in rain handled in other_battle_calculators.c
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_FLYING
@@ -13611,7 +13611,7 @@ movedatalongname MOVE_BLEAKWIND_STORM, "BleakwindStorm","Bleakwind Storm"
     movedescription MOVE_BLEAKWIND_STORM, "---"
 
 movedatalongname MOVE_WILDBOLT_STORM, "WildboltStorm","Wildbolt Storm"
-    battleeffect MOVE_EFFECT_PARALYZE_HIT
+    battleeffect MOVE_EFFECT_WILDBOLT_STORM // accuracy in rain handled in other_battle_calculators.c
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_ELECTRIC
@@ -13627,7 +13627,7 @@ movedatalongname MOVE_WILDBOLT_STORM, "WildboltStorm","Wildbolt Storm"
     movedescription MOVE_WILDBOLT_STORM, "---"
 
 movedatalongname MOVE_SANDSEAR_STORM, "SandsearStorm","Sandsear Storm"
-    battleeffect MOVE_EFFECT_BURN_HIT
+    battleeffect MOVE_EFFECT_SANDSEAR_STORM // accuracy in rain handled in other_battle_calculators.c
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_GROUND

@@ -439,7 +439,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
      && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
     {
-        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->moveTbl[move_no].effect == 152)) // thunder sucks in the sun
+        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER) // thunder sucks in the sun
+         ||(sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE)) // so does hurricane 
         {
             accuracy = 50;
         }
@@ -2144,7 +2145,10 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
         if ((sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER) 
-         || (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)) {
+         || (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
+         || (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
+         || (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
+         || (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM)) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
         // Blizzard is 100% accurate in Snow also
