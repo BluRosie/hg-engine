@@ -1807,6 +1807,7 @@ enum {
     BEFORE_MOVE_STATE_MIST,
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES,
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_OTHER_AROMA_VEIL_STRUDY,
     BEFORE_MOVE_STATE_MOVE_ACCURACY,
     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
     BEFORE_MOVE_STATE_MIRROR_ARMOR,
@@ -3563,36 +3564,39 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
     ctx->clientLoopForSpreadMoves = 0;\
 }
 
+#define LoopCheckFunctionForSpreadMove_RawSpeedWithNonRNGTie(bsys, ctx, functionToBeCalled) \
+{\
+    SortRawSpeedNonRNGArray(bsys, ctx);\
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))) {\
+        while (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            int defender = ctx->rawSpeedNonRNGClientOrder[ctx->clientLoopForSpreadMoves];\
+            ctx->clientLoopForSpreadMoves++;\
+            if (!(IS_TARGET_FOES_AND_ALLY_MOVE(ctx) && defender == BATTLER_ALLY(ctx->attack_client))) {\
+                continue;\
+            }\
+            if (IS_VALID_MOVE_TARGET(ctx, defender)) {\
+                if (functionToBeCalled(bsys, ctx, defender)) {\
+                    return;\
+                }\
+            }\
+        }\
+    } else {\
+        if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {\
+            ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
+            if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
+                if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {\
+                    return;\
+                }\
+            }\
+        }\
+    }\
+    ctx->clientLoopForSpreadMoves = 0;\
+}
+
 #define CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no) (GetBattlerAbility(ctx, client_no) != ABILITY_MOLD_BREAKER && GetBattlerAbility(ctx, client_no) != ABILITY_TERAVOLT && GetBattlerAbility(ctx, client_no) != ABILITY_TURBOBLAZE)
 
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
-
-enum {
-    AFTER_MOVE_MESSAGE_START = 0,
-
-    ONE_HIT_CRITICAL = 0,
-    ONE_HIT_STATUS,
-    ONE_HIT_TRIGGER_SECONDARY,
-    ONE_HIT_FORM_CHANGE,
-    ONE_HIT_RAGE,
-    ONE_HIT_TRIGGER_ABILITY,
-    ONE_HIT_EXTRA_FLINCH,
-
-    MULTI_HIT_CRITICAL = 0,
-    MULTI_HIT_TRIGGER_SECONDARY,
-    MULTI_HIT_FORM_CHANGE,
-    MULTI_HIT_RAGE,
-    MULTI_HIT_TRIGGER_ABILITY,
-    MULTI_HIT_STATUS,
-    MULTI_HIT_EXTRA_FLINCH,
-};
-
-BOOL LONG_CALL ov12_0224DF7C(struct BattleSystem *bsys, struct BattleStruct *ctx);
-BOOL LONG_CALL ov12_0224DF98(struct BattleSystem *bsys, struct BattleStruct *ctx);
-BOOL LONG_CALL ov12_02250490(struct BattleSystem *bsys, struct BattleStruct *ctx, int *out);
-BOOL LONG_CALL TryBuildRage(struct BattleSystem *bsys, struct BattleStruct *ctx);
-BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
 #endif // BATTLE_H

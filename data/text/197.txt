@@ -1528,3 +1528,6 @@ The opposing team is no longer\nprotected by mist!
 The {STRVAR_1 6, 1, 0} weakened\nthe damage to {STRVAR_1 8, 0, 0}!
 The {STRVAR_1 6, 1, 0} weakened\nthe damage to the wild {STRVAR_1 8, 0, 0}!
 The {STRVAR_1 6, 1, 0} weakened\nthe damage to the opposing {STRVAR_1 8, 0, 0}!
+{STRVAR_1 8, 0, 0} cannot\nbe confused!
+The wild {STRVAR_1 8, 0, 0} cannot\nbe confused!
+The opposing {STRVAR_1 8, 0, 0} cannot\nbe confused!

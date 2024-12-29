@@ -420,6 +420,8 @@
 #define SUB_SEQ_PROTECTED_BY_SAFEGUARD                (410)
 #define SUB_SEQ_PLAY_EAT_BERRY_ANIMATION              (411)
 #define SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE           (412)
+#define SUB_SEQ_DOESNT_AFFECT_ABILITY                 (413)
+#define SUB_SEQ_OWN_TEMPO_FAIL                        (414)
 
 
 
