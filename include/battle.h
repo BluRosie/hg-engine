@@ -345,6 +345,12 @@
 
 #define STATUS2_BATON_PASSABLE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_MEAN_LOOK | STATUS2_CURSE)
 
+// Status 2
+#define STATUS2_BIDE_0           (1 << 8)
+#define STATUS2_BIDE_1           (1 << 9)
+
+#define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
+
 /**
  *  @brief side status flags that apply to one side
  *  accessible in BattleStruct's side_condition[side]
@@ -1769,6 +1775,7 @@ enum {
     BEFORE_MOVE_STATE_PRIMAL_WEATHER,
     BEFORE_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG,
     BEFORE_MOVE_STATE_MOVE_FAILURES_1,
+    BEFORE_MOVE_STATE_BIDE,
     BEFORE_MOVE_STATE_ABILITY_FAILURES_1,
     BEFORE_MOVE_STATE_INTERRUPTIBLE_MOVES,
     BEFORE_MOVE_STATE_PROTEAN_OR_LIBERO,
@@ -3598,5 +3605,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
+
+#define GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, client) (GetBattlerAbility(ctx, client) != ABILITY_KLUTZ ? HeldItemHoldEffectGet(ctx, client) : 0)
 
 #endif // BATTLE_H
