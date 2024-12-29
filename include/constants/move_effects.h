@@ -335,7 +335,18 @@
 #define MOVE_EFFECT_ATK_DEF_SPEED_UP                        329
 #define MOVE_EFFECT_POLTERGEIST                             330
 #define MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP       331
-
+#define MOVE_EFFECT_RECOVER_THREE_QUARTERS_DAMAGE_DEALT     332
+#define MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT      333
+#define MOVE_EFFECT_FICKLE_BEAM	                            334
+#define MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT               335
+#define MOVE_EFFECT_PREVENT_ESCAPE_HIT                      336
+#define MOVE_EFFECT_PREVENT_ESCAPE_BOTH_HIT                 337
+#define MOVE_EFFECT_STEALTH_ROCK_HIT                        338
+#define MOVE_EFFECT_SET_SPIKES_HIT                          339
+#define MOVE_EFFECT_USER_SPEED_DOWN_2_HIT                   340
+#define MOVE_EFFECT_BLEAKWIND_STORM                         341
+#define MOVE_EFFECT_WILDBOLT_STORM                          342
+#define MOVE_EFFECT_SANDSEAR_STORM                          343
 
 
 #define MOVE_TARGET_SELECTED             0x0000
