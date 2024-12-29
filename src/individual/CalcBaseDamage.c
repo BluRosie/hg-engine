@@ -145,6 +145,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     s8 spatkstate;
     s8 spdefstate;
     u8 level;
+	u8 levelDefender;
     u16 movepower;
     u16 item;
     u32 battle_type;
@@ -175,6 +176,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
 
     level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
+	levelDefender = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
     DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
@@ -848,7 +850,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
     //    defense = defense / 2;
 
-    damage = movepower * equivalentAttack / equivalentDefense / 25;
+    damage = equivalentAttack * movepower;
+    damage *= ((level + levelDefender) / 5 + 2);
+
+    damage = damage / equivalentDefense;
+    damage /= 50;
 
     // handle parental bond
     if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {

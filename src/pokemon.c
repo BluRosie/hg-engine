@@ -56,7 +56,7 @@ void LONG_CALL CalcMonStats(struct PartyPokemon *mon) {
 	baseStats = (BASE_STATS *)sys_AllocMemory(0, sizeof(BASE_STATS));
 	LoadMonBaseStats_HandleAlternateForm(species, form, baseStats);
 
-	newMaxHp = baseStats->hp * level / 50 + 900;
+	newMaxHp = baseStats->hp * level / 50;
 	if (newMaxHp < 1) newMaxHp = 1;
 	SetMonData(mon, MON_DATA_MAXHP, &newMaxHp);
 
