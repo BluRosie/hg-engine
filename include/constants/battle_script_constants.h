@@ -395,6 +395,7 @@
 #define SUB_SEQ_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP     (385)
 #define SUB_SEQ_DRAIN_THREE_QUARTERS                  (386)
 #define SUB_SEQ_JAW_LOCK                              (387)
+#define SUB_SEQ_TOXIC_THREAD                          (388)
 
 
 
@@ -570,6 +571,7 @@
 #define ADD_STATUS_EFF_CLANGOROUS_SOUL                 (167)
 #define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (168)
 #define ADD_STATUS_EFF_JAW_LOCK                        (169)
+#define ADD_STATUS_EFF_TOXIC_THREAD                    (170)
 
 
 // additional effect constants

@@ -347,6 +347,7 @@
 #define MOVE_EFFECT_BLEAKWIND_STORM                         341
 #define MOVE_EFFECT_WILDBOLT_STORM                          342
 #define MOVE_EFFECT_SANDSEAR_STORM                          343
+#define MOVE_EFFECT_TOXIC_THREAD                            344
 
 
 #define MOVE_TARGET_SELECTED             0x0000

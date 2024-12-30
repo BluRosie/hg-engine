@@ -1306,7 +1306,7 @@ movedata MOVE_PETAL_DANCE, "Petal Dance"
     movedescription MOVE_PETAL_DANCE, "The user attacks by\nscattering petals for\ntwo to three turns.\nThe user then\nbecomes confused."
 
 movedata MOVE_STRING_SHOT, "String Shot"
-    battleeffect MOVE_EFFECT_SPEED_DOWN
+    battleeffect MOVE_EFFECT_SPEED_DOWN_2
     pss SPLIT_STATUS
     basepower 0
     type TYPE_BUG
@@ -10811,7 +10811,7 @@ movedata MOVE_SPOTLIGHT, "Spotlight"
     movedescription MOVE_SPOTLIGHT, "---"
 
 movedata MOVE_TOXIC_THREAD, "Toxic Thread"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_TOXIC_THREAD
     pss SPLIT_STATUS
     basepower 0
     type TYPE_POISON
@@ -10824,7 +10824,7 @@ movedata MOVE_TOXIC_THREAD, "Toxic Thread"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_TOXIC_THREAD, "---"
+    movedescription MOVE_TOXIC_THREAD, "The user shoots\npoisonous threads\nto poison the target\nand lower the\ntarget's Speed stat."
 
 movedata MOVE_LASER_FOCUS, "Laser Focus"
     battleeffect MOVE_EFFECT_HIT
@@ -12536,7 +12536,7 @@ movedata MOVE_SNAP_TRAP, "Snap Trap"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SNAP_TRAP, "---"
+    movedescription MOVE_SNAP_TRAP, "The user snares the\ntarget in a snap trap\nthat inflicts damage\nfor four to five\nturns."
 
 movedata MOVE_PYRO_BALL, "Pyro Ball"
     battleeffect MOVE_EFFECT_BURN_HIT
@@ -12680,7 +12680,7 @@ movedata MOVE_GRAV_APPLE, "Grav Apple"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_GRAV_APPLE, "---"
+    movedescription MOVE_GRAV_APPLE, "The user inflicts\ndamage by dropping\nan apple from above.\nThis also lowers the\ntarget's Defense stat."
 
 movedata MOVE_SPIRIT_BREAK, "Spirit Break"
     battleeffect MOVE_EFFECT_LOWER_SP_ATK_HIT
@@ -12712,7 +12712,7 @@ movedata MOVE_STRANGE_STEAM, "Strange Steam"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_STRANGE_STEAM, "---"
+    movedescription MOVE_STRANGE_STEAM, "The user attacks the\ntarget by emitting\nsteam.\nThis may also\nconfuse the target."
 
 movedata MOVE_LIFE_DEW, "Life Dew"
     battleeffect MOVE_EFFECT_HIT
@@ -12843,7 +12843,7 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     movedescription MOVE_STEEL_ROLLER, "The user attacks while\ndestroying the terrain.\nThis move fails if the\nground hasn't turned\ninto a terrain."
 
 movedata MOVE_SCALE_SHOT, "Scale Shot"
-    battleeffect MOVE_EFFECT_MULTI_HIT
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 25
     type TYPE_DRAGON
@@ -12856,7 +12856,7 @@ movedata MOVE_SCALE_SHOT, "Scale Shot"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SCALE_SHOT, "---"
+    movedescription MOVE_SCALE_SHOT, "The user attacks by\nshooting scales two to\nfive times in a row.\nThis raises Speed\nbut lowers Defense."
 
 movedata MOVE_METEOR_BEAM, "Meteor Beam"
     battleeffect MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP
@@ -13048,7 +13048,7 @@ movedata MOVE_COACHING, "Coaching"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_COACHING, "---"
+    movedescription MOVE_COACHING, "The user properly\ncoaches its ally\nPokémon, boosting\ntheir Attack and\nDefense stats."
 
 movedata MOVE_FLIP_TURN, "Flip Turn"
     battleeffect MOVE_EFFECT_SWITCH_HIT
@@ -13064,7 +13064,7 @@ movedata MOVE_FLIP_TURN, "Flip Turn"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FLIP_TURN, "---"
+    movedescription MOVE_FLIP_TURN, "After making its\nattack, the user\nrushes back to switch\nplaces with a party\nPokémon in waiting."
 
 movedata MOVE_TRIPLE_AXEL, "Triple Axel"
     battleeffect MOVE_EFFECT_HIT_THREE_TIMES_INCREMENT_BASE_POWER_20
@@ -13080,7 +13080,7 @@ movedata MOVE_TRIPLE_AXEL, "Triple Axel"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_TRIPLE_AXEL, "---"
+    movedescription MOVE_TRIPLE_AXEL, "A consecutive\nthree-kick attack\nthat becomes more\npowerful with each\nsuccessful hit."
 
 movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     battleeffect MOVE_EFFECT_HIT_TWICE
@@ -13096,7 +13096,7 @@ movedata MOVE_DUAL_WINGBEAT, "Dual Wingbeat"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DUAL_WINGBEAT, "---"
+    movedescription MOVE_DUAL_WINGBEAT, "The user slams the\ntarget with its wings\nto inflict damage.\nThe target is hit\ntwice in a row."
 
 movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     battleeffect MOVE_EFFECT_BURN_HIT
@@ -13112,7 +13112,7 @@ movedata MOVE_SCORCHING_SANDS, "Scorching Sands"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SCORCHING_SANDS, "---"
+    movedescription MOVE_SCORCHING_SANDS, "The user throws\nscorching sand at\nthe target to attack.\nThe target may also\nbe left with a burn."
 
 movedata MOVE_JUNGLE_HEALING, "Jungle Healing"
     battleeffect MOVE_EFFECT_HIT
@@ -13144,7 +13144,7 @@ movedata MOVE_WICKED_BLOW, "Wicked Blow"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_WICKED_BLOW, "---"
+    movedescription MOVE_WICKED_BLOW, "The user strikes\nthe target with a\nfierce blow.\nThis move always\nlands a critical hit."
 
 movedata MOVE_SURGING_STRIKES, "Surging Strikes"
     battleeffect MOVE_EFFECT_ALWAYS_CRITICAL
@@ -13803,7 +13803,7 @@ movedata MOVE_SPICY_EXTRACT, "Spicy Extract"
     movedescription MOVE_SPICY_EXTRACT, "---"
 
 movedata MOVE_SPIN_OUT, "Spin Out"
-    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_HIT
+    battleeffect MOVE_EFFECT_USER_SPEED_DOWN_2_HIT
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_STEEL
