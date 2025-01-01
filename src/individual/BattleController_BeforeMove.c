@@ -438,14 +438,25 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             // debug_printf("current_move_index: %d\n", ctx->current_move_index);
             // debug_printf("moveNoTemp: %d\n", ctx->moveNoTemp);
 #endif
-
+            //debug_printf("before pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
             if ((ctx->waza_out_check_on_off & 0x8) == 0) {
-                // pp检查
-                if (ServerPPCheck(bsys, ctx) == TRUE)  // 801393Ch
-                {
-                    return;
+                if (CheckMoveIsChargeMove(ctx, ctx->current_move_index)) {
+                    if (((GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP))
+                    || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
+                        //debug_printf("decrement pp");
+                        // TODO: hook this function to fix the PP issue
+                        ServerPPCheck(bsys, ctx);
+                    }
+                } else {
+                    //debug_printf("decrement pp");
+                    // pp检查
+                    if (ServerPPCheck(bsys, ctx) == TRUE)  // 801393Ch
+                    {
+                        return;
+                    }
                 }
             }
+            //debug_printf("after pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -1780,22 +1791,83 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
+                switch (ctx->current_move_index)
+                {
+                case MOVE_SKY_ATTACK:
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SKY_ATTACK_CHARGE_TURN);
+                    break;
+                case MOVE_FREEZE_SHOCK:
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN);
+                    break;
+                case MOVE_ICE_BURN:
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ICE_BURN_CHARGE_TURN);
+                    break;
+                
+                default:
+                    break;
+                }
+                
+                needToRunScript = TRUE;
+                break;
             case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DEF_UP_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
             case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
+                if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                    if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
+                        needToRunScript = FALSE;
+                    } else {
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_SKIPS_CHARGE_TURN);
+                        needToRunScript = TRUE;
+                    }
+                } else {
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_SKIPS_CHARGE_TURN);
+                    needToRunScript = TRUE;
+                }
+                break;
             case MOVE_EFFECT_FLY:
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FLY_CHARGE_TURN);
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_DIVE:
-            case MOVE_EFFECT_DIG:
-            case MOVE_EFFECT_BOUNCE:
-            case MOVE_EFFECT_SHADOW_FORCE:
-            case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
-            case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
-            case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
-
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DIVE_CHARGE_TURN);
+                needToRunScript = TRUE;
                 break;
-                // case MOVE_EFFECT_SKY_DROP:
+            case MOVE_EFFECT_DIG:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DIG_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_BOUNCE:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOUNCE_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_SHADOW_FORCE:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHADOW_FORCE_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_GEOMANCY_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
+                if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                    if ((ctx->field_condition & WEATHER_RAIN_ANY)) {
+                        needToRunScript = FALSE;
+                    } else {
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELETRO_SHOT_CHARGE_TURN);
+                        needToRunScript = TRUE;
+                    }
+                } else {
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELETRO_SHOT_CHARGE_TURN);
+                    needToRunScript = TRUE;
+                }
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_METEOR_BEAM_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            // case MOVE_EFFECT_SKY_DROP:
                 // break;
 
             default:
@@ -1817,37 +1889,59 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
 
 BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    BOOL needToRunScript = FALSE;
 
     // debug_printf("locked into move: %d\n", (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE));
     // debug_printf("hold effect: %d\n", GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client));
 
     // affected by Power Herb
     switch (moveEffect) {
-    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT:
-    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
-    case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
     case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
+        if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+            needToRunScript = TRUE;
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
+                    needToRunScript = FALSE;
+                }
+            }
+        }
+        break;
+    case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
+        if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+            needToRunScript = TRUE;
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if ((ctx->field_condition & WEATHER_RAIN_ANY)) {
+                    needToRunScript = FALSE;
+                }
+            }
+        }
+        break;
     case MOVE_EFFECT_FLY:
     case MOVE_EFFECT_DIVE:
     case MOVE_EFFECT_DIG:
     case MOVE_EFFECT_BOUNCE:
     case MOVE_EFFECT_SHADOW_FORCE:
     case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
-    case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT:
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
+    case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
     case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
         if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_SKIP_CHARGE_TURN_NEW);
-            return TRUE;
-        } else {
-            return FALSE;
+            needToRunScript = TRUE;
         }
         break;
     
     default:
         break;
     }
+
+    if (needToRunScript) {
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_SKIP_CHARGE_TURN_NEW);
+        return TRUE;
+    }
+
     return FALSE;
 }
 
@@ -1908,7 +2002,7 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct Batt
     if (ctx->oneTurnFlag[defender].mamoru_flag
         && ctx->moveTbl[ctx->current_move_index].flag & (1 << 1)
         && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
-        && (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
+        /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
         UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
         ctx->battlerIdTemp = defender;
         ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_MAMORU_NOHIT;
@@ -2639,6 +2733,7 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
         ctx->waza_status_flag = 0;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_MISS;
+        ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
         ctx->msg_work = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ATTACK_MISSED);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2860,13 +2955,14 @@ BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, s
 // Only return true if no stats are changed
 BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    BOOL result = FALSE;
     switch (moveEffect) {
         case MOVE_EFFECT_ATK_UP:
         case MOVE_EFFECT_ATK_UP_2:
         case MOVE_EFFECT_ATK_UP_3:
         case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_DEF_UP:
@@ -2875,14 +2971,14 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
         // TODO: Stuff Cheeks with Defense maxed out
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SPEED_UP:
         case MOVE_EFFECT_SPEED_UP_2:
         case MOVE_EFFECT_SPEED_UP_3:
             if (ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SP_ATK_UP:
@@ -2890,7 +2986,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_ATK_UP_3:
         case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SP_DEF_UP:
@@ -2898,42 +2994,42 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_DEF_UP_3:
         case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER:
             if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ACC_UP:
         case MOVE_EFFECT_ACC_UP_2:
             if (ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_EVA_UP:
         case MOVE_EFFECT_EVA_UP_2:
         case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
             if (ctx->battlemon[defender].states[STAT_EVASION] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_STOCKPILE:
         case MOVE_EFFECT_DEF_SP_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SP_ATK_SP_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_SPEED_UP:
         case MOVE_EFFECT_SPEED_UP_2_ATK_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_RANDOM_STAT_UP_2:
@@ -2945,26 +3041,26 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12
             && ctx->battlemon[defender].states[STAT_ACCURACY] == 12
             && ctx->battlemon[defender].states[STAT_EVASION] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_ACC_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP:
             if (ctx->battlemon[defender].states[STAT_SPEED] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_DEF_ACC_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
             && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN:
@@ -2972,34 +3068,41 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_SP_ATK_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-                return TRUE;
+                result = TRUE;
+            }
+            break;
+        case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
+            if (ctx->battlemon[defender].states[STAT_SPATK] == 12
+            && ctx->battlemon[defender].states[STAT_SPDEF] == 12
+            && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_DOWN:
         case MOVE_EFFECT_ATK_DOWN_2:
         case MOVE_EFFECT_ATK_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_DEF_DOWN:
         case MOVE_EFFECT_DEF_DOWN_2:
         case MOVE_EFFECT_DEF_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SPEED_DOWN:
         case MOVE_EFFECT_SPEED_DOWN_2:
         case MOVE_EFFECT_SPEED_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_SPEED] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SP_ATK_DOWN:
@@ -3007,37 +3110,38 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
         case MOVE_EFFECT_SP_ATK_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_SP_DEF_DOWN:
         case MOVE_EFFECT_SP_DEF_DOWN_2:
         case MOVE_EFFECT_SP_DEF_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_SPDEF] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ACC_DOWN:
         case MOVE_EFFECT_ACC_DOWN_2:
             if (ctx->battlemon[defender].states[STAT_ACCURACY] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_EVA_DOWN:
         case MOVE_EFFECT_EVA_DOWN_2:
             if (ctx->battlemon[defender].states[STAT_EVASION] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         case MOVE_EFFECT_ATK_DEF_DOWN:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 0 && ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
-                return TRUE;
+                result = TRUE;
             }
             break;
         default:
             break;
     }
-    return FALSE;
+
+    return result;
 }
 
 /**

@@ -1531,3 +1531,9 @@ The {STRVAR_1 6, 1, 0} weakened\nthe damage to the opposing {STRVAR_1 8, 0, 0}!
 {STRVAR_1 8, 0, 0} cannot\nbe confused!
 The wild {STRVAR_1 8, 0, 0} cannot\nbe confused!
 The opposing {STRVAR_1 8, 0, 0} cannot\nbe confused!
+{STRVAR_1 1, 0, 0} became cloaked\nin a freezing light!
+The wild {STRVAR_1 1, 0, 0} became cloaked\nin a freezing light!
+The opposing {STRVAR_1 1, 0, 0} became cloaked\nin a freezing light!
+{STRVAR_1 1, 0, 0} became cloaked\nin freezing air!
+The wild {STRVAR_1 1, 0, 0} became cloaked\nin freezing air!
+The opposing {STRVAR_1 1, 0, 0} became cloaked\nin freezing air!

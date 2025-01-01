@@ -2535,7 +2535,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     // debug_printf("BATTLE_STATUS_CHARGE_MOVE_HIT %d\n", ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT);
 
     // Handle Razor Wind. Why? Beats me
-    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT) {
+    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT || (ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] & MOVE_STATUS_FLAG_FAILURE_ANY)) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
     }
 

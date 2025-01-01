@@ -425,6 +425,18 @@
 #define SUB_SEQ_FLY_CHARGE_TURN                       (415)
 #define SUB_SEQ_ITEM_SKIP_CHARGE_TURN_NEW             (416)
 #define SUB_SEQ_HIGH_CRIT_CHARGE_TURN                 (417)
+#define SUB_SEQ_SKY_ATTACK_CHARGE_TURN                (418)
+#define SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN              (419)
+#define SUB_SEQ_ICE_BURN_CHARGE_TURN                  (420)
+#define SUB_SEQ_DEF_UP_CHARGE_TURN                    (421)
+#define SUB_SEQ_SUN_SKIPS_CHARGE_TURN                 (422)
+#define SUB_SEQ_DIVE_CHARGE_TURN                      (423)
+#define SUB_SEQ_DIG_CHARGE_TURN                       (424)
+#define SUB_SEQ_BOUNCE_CHARGE_TURN                    (425)
+#define SUB_SEQ_SHADOW_FORCE_CHARGE_TURN              (426)
+#define SUB_SEQ_METEOR_BEAM_CHARGE_TURN               (427)
+#define SUB_SEQ_ELETRO_SHOT_CHARGE_TURN               (428)
+#define SUB_SEQ_GEOMANCY_CHARGE_TURN                  (429)
 
 
 
