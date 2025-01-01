@@ -327,10 +327,12 @@
 #define MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS         321
 #define MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED     322
 #define MOVE_EFFECT_SET_ABILITY_TO_SIMPLE                   323
-#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
+#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					          324
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
 #define MOVE_EFFECT_STICKY_WEB                              326
-
+#define MOVE_EFFECT_FROSTBITE_HIT                           327
+#define MOVE_EFFECT_FROSTBITE_BLIZZARD                      328
+#define MOVE_EFFECT_FLINCH_FROSTBITE_HIT                    329
 
 
 #define MOVE_TARGET_SELECTED             0x0000
