@@ -9,6 +9,10 @@ START_ADDRESS equ 0x0
 // if you do not want this change, then set it to 0
 FAIRY_TYPE_IMPLEMENTED equ 1
 
+// FROSTBITE_IMPLEMENTED defines whether or not frostbite is implemented replacing freeze
+// set FROSTBITE_IMPLEMENTED to 0 if you do not want this to happen, or 1 if you would like this change
+FROSTBITE_IMPLEMENTED equ 0
+
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
 // Otherwise: Hail
