@@ -3566,7 +3566,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
     if (sp->battlemon[sp->defence_client].condition & (STATUS_FLAG_ASLEEP | STATUS_FLAG_FROZEN))
         captureRate *= 2;
 
-    if (sp->battlemon[sp->defence_client].condition & (STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_PARALYZED))
+    if (sp->battlemon[sp->defence_client].condition & (STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_PARALYZED | STATUS_FLAG_FROSTBITTEN))
         captureRate = captureRate * 15 / 10;
 
     if (captureRate > 255)
