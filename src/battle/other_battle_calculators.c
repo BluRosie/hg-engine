@@ -2175,7 +2175,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
         // Blizzard is 100% accurate in Snow also
-        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == (MOVE_EFFECT_BLIZZARD| MOVE_EFFECT_FROSTBITE_BLIZZARD)) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
     }
