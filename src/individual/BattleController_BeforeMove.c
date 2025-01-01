@@ -99,6 +99,7 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
 BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattleController_CheckInterruptibleMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct BattleStruct *sp);
 BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
@@ -581,6 +582,17 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 
             ctx->wb_seq_no++;
             if (BattleController_CheckChargeMoves(bsys, ctx)) {
+                return;
+            }
+            FALLTHROUGH;
+        }
+        case BEFORE_MOVE_STATE_CHECK_POWER_HERB: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("In BEFORE_MOVE_STATE_CHECK_POWER_HERB\n");
+#endif
+
+            ctx->wb_seq_no++;
+            if (BattleController_CheckPowerHerb(bsys, ctx)) {
                 return;
             }
             FALLTHROUGH;
@@ -1756,6 +1768,58 @@ BOOL BattleController_CheckInterruptibleMoves(struct BattleSystem *bsys UNUSED, 
 // TODO: Implement new mechanics
 BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    BOOL needToRunScript = FALSE;
+    if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
+        switch (moveEffect) {
+            case MOVE_EFFECT_BIDE:
+                ctx->server_seq_no = CONTROLLER_COMMAND_24;
+                return TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIGH_CRIT_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
+            case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
+            case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
+            case MOVE_EFFECT_FLY:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FLY_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_DIVE:
+            case MOVE_EFFECT_DIG:
+            case MOVE_EFFECT_BOUNCE:
+            case MOVE_EFFECT_SHADOW_FORCE:
+            case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
+            case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
+            case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
+
+                break;
+                // case MOVE_EFFECT_SKY_DROP:
+                // break;
+
+            default:
+                break;
+        }
+    }
+    if (needToRunScript) {
+        if (GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+            ctx->next_server_seq_no = ctx->server_seq_no;
+        } else {
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+            ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        }
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+
+    // debug_printf("locked into move: %d\n", (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE));
+    // debug_printf("hold effect: %d\n", GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client));
 
     // affected by Power Herb
     switch (moveEffect) {
@@ -1771,31 +1835,19 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
     case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
     case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
     case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
-        if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) != HOLD_EFFECT_CHARGE_SKIP) {
-            ctx->server_seq_no = CONTROLLER_COMMAND_24;
-        return TRUE;
+        if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_SKIP_CHARGE_TURN_NEW);
+            return TRUE;
+        } else {
+            return FALSE;
         }
         break;
     
     default:
         break;
     }
-
-    // not affected by Power Herb
-    switch (moveEffect) {
-    case MOVE_EFFECT_BIDE:
-    // case MOVE_EFFECT_SKY_DROP:
-        if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
-            ctx->server_seq_no = CONTROLLER_COMMAND_24;
-        return TRUE;
-        }
-        break;
-    
-    default:
-        break;
-    }
-
-    // need to BATTLE_SUBSCRIPT_CHARGE_MOVE_CLEANUP if fail below checks???
     return FALSE;
 }
 
@@ -1907,7 +1959,7 @@ BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct 
 }
 
 BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
-    if ((ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_USER && ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_USER_SIDE && ctx->moveTbl[ctx->current_move_index].power != 0 && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY) && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN)) || ctx->current_move_index == MOVE_THUNDER_WAVE) {
+    if ((ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_USER && ctx->moveTbl[ctx->current_move_index].target != MOVE_TARGET_USER_SIDE && ctx->moveTbl[ctx->current_move_index].power != 0 && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY) /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) */) || ctx->current_move_index == MOVE_THUNDER_WAVE) {
         // TODO: Probably wrong?
         u32 temp = ctx->moveStatusFlagForSpreadMoves[defender];
         ServerDoTypeCalcMod(bsys, ctx, ctx->current_move_index, ctx->move_type, ctx->attack_client, defender, ctx->damageForSpreadMoves[defender], &temp);

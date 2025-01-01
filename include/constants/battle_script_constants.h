@@ -422,6 +422,9 @@
 #define SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE           (412)
 #define SUB_SEQ_DOESNT_AFFECT_ABILITY                 (413)
 #define SUB_SEQ_OWN_TEMPO_FAIL                        (414)
+#define SUB_SEQ_FLY_CHARGE_TURN                       (415)
+#define SUB_SEQ_ITEM_SKIP_CHARGE_TURN_NEW             (416)
+#define SUB_SEQ_HIGH_CRIT_CHARGE_TURN                 (417)
 
 
 

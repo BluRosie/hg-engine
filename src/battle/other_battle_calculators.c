@@ -2327,6 +2327,7 @@ BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no) 
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
 void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    // debug_printf("In BattleController_MoveEnd\n");
     int script;
     u32 battleType = BattleTypeGet(bsys);
 
@@ -2530,6 +2531,13 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 0;
     ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 0;
+    // debug_printf("locked into move: %d\n", (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE));
+    // debug_printf("BATTLE_STATUS_CHARGE_MOVE_HIT %d\n", ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT);
+
+    // Handle Razor Wind. Why? Beats me
+    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT) {
+        ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
+    }
 
     int client_set_max = BattleWorkClientSetMaxGet(bsys);
 
@@ -2553,6 +2561,7 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     BattleStructureInit(ctx);
 
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
+    // debug_printf("End of BattleController_MoveEnd\n");
 }
 
 
