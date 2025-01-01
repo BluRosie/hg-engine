@@ -67,7 +67,7 @@
 
  ``UPDATE_VITAMIN_EV_CAPS`` (``include/config.h`` only) updates the EV caps for vitamins from 100 to 252 like later generations.
 
- ``FAST_HP_BAR`` (``include/config.h`` only) shortens the HP bar increase/decrease animation significantly.
+ ``STATIC_HP_BAR`` (``include/config.h`` only) updates the HP bar to increase/decrease at a fixed rate like later generations.
 
 ### ``scripts\make.py`` and ``linker.ld``
  On line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in overlay 129 with enough free space.  This is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.
