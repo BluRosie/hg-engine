@@ -1487,3 +1487,19 @@ A sticky web has been laid out on the\nground around the opposing team!
 {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
 The wild {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
 The opposing {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
+{STRVAR_1 1, 0, 0} got\nfrostbite!
+The wild {STRVAR_1 1, 0, 0} got\nfrostbite!
+The opposing {STRVAR_1 1, 0, 0} got\nfrostbite!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ngave {STRVAR_1 1, 2, 0} frostbite!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ngave the wild {STRVAR_1 1, 2, 0} frostbite!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ngave the opposing {STRVAR_1 1, 2, 0} frostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave {STRVAR_1 1, 2, 0}\ffrostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave the wild\f{STRVAR_1 1, 2, 0} frostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave {STRVAR_1 1, 2, 0}\ffrostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave the opposing\f{STRVAR_1 1, 2, 0} frostbite!
+{STRVAR_1 1, 0, 0} is hurt\nby its frostbite!
+The wild {STRVAR_1 1, 0, 0} is hurt\nby its frostbite!
+The opposing {STRVAR_1 1, 0, 0} is hurt\nby its frostbite!
+{STRVAR_1 1, 0, 0} already\nhas frostbite.
+The wild {STRVAR_1 1, 0, 0} already\nhas frostbite.
+The opposing {STRVAR_1 1, 0, 0} already\nhas frostbite.
