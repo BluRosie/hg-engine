@@ -28,6 +28,7 @@ enum EndTurnResolutionOrder {
     ENDTURN_LEECH_SEED,
     ENDTURN_POSION,
     ENDTURN_BURN,
+    ENDTURN_FROSTBITE,
     ENDTURN_NIGHTMARE,
     ENDTURN_CURSE,
     ENDTURN_TRAPPING_DAMAGE,
@@ -824,6 +825,33 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if ((sp->battlemon[battlerId].condition & STATUS_FLAG_BURNED) && sp->battlemon[battlerId].hp != 0) {
                         sp->client_work = battlerId;
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BURN_DAMAGE);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
+
+                    sp->scc_work++;
+                    break;
+                }
+
+                if (sp->scc_work >= client_set_max) {
+                    sp->scc_work = 0;
+                    sp->fcc_seq_no++;
+                }
+                break;
+            }
+            case ENDTURN_FROSTBITE: {
+                #ifdef DEBUG_ENDTURN_LOGIC
+                sprintf(buf, "In ENDTURN_FROSTBITE\n");
+                debugsyscall(buf);
+                #endif
+
+                while (sp->scc_work < client_set_max) {
+                    battlerId = sp->turnOrder[sp->scc_work];
+
+                    if ((sp->battlemon[battlerId].condition & STATUS_FLAG_FROSTBITTEN) && sp->battlemon[battlerId].hp != 0) {
+                        sp->client_work = battlerId;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FROSTBITE_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
