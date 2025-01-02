@@ -171,6 +171,8 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
             case SBA_RESET_DEFIANT: {
                 // debug_printf("In SBA_RESET_DEFIANT\n");
 
+                CalcPriority(bw, sp);
+
                 for (client_no = 0; client_no < client_set_max; client_no++) {
                     sp->oneSelfFlag[client_no].defiant_flag = 0;
                 }
@@ -197,6 +199,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
                 sp->sba_seq_no++;
                 break;
             }
+            // TODO: Check correctness, probably need to move checks out of CalcSpeed
             case SBA_QUICK_CLAW_CUSTAP_BERRY_O_POWER_ACTIVATION: {
                 // debug_printf("In SBA_QUICK_CLAW_CUSTAP_BERRY_O_POWER_ACTIVATION\n");
 

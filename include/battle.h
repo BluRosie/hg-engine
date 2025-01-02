@@ -1387,9 +1387,10 @@ struct PACKED BattleStruct
                BOOL boostedAccuracy;
                BOOL moveStolen;
                BOOL moveBounced;
-               u8 rawSpeedNonRNGClientOrder[4];
+               u8 rawSpeedNonRNGClientOrder[CLIENT_MAX];
                // idk it's probably not u8?
-               int numberOfTurnsClientHasCurrentAbility[4];
+               int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX];
+               u8 clientPriority[CLIENT_MAX];
 };
 
 enum {
@@ -3250,6 +3251,8 @@ void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u3
  *  @param sortTurnOrder whether to sort `turn_order` or not
  */
 void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp, BOOL sortTurnOrder);
+
+void LONG_CALL CalcPriority(void *bsys, struct BattleStruct *ctx);
 
 void LONG_CALL BattleControllerPlayer_CalcExecutionOrder(struct BattleSystem *bw, struct BattleStruct *sp);
 

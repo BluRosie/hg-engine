@@ -634,13 +634,13 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 {
     u8 ret = 0;
     u32 speed1, speed2;
-    u16 move1 = 0, move2 =   0;
+    u16 move1 = 0, move2 = 0;
     u8 hold_effect1;
     u8 hold_atk1;
     u8 hold_effect2;
     u8 hold_atk2;
-    s8 priority1 = 0;
-    s8 priority2 = 0;
+    s8 priority1 = sp->clientPriority[client1];
+    s8 priority2 = sp->clientPriority[client2];
     u8 quick_claw1 = 0, quick_claw2 = 0;
     u8 move_last1 = 0, move_last2 = 0;
     int command1;
@@ -953,59 +953,6 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
                 move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
             }
         }
-        priority1 = sp->moveTbl[move1].priority;
-        priority2 = sp->moveTbl[move2].priority;
-
-        // handle prankster
-        if (GetBattlerAbility(sp, client1) == ABILITY_PRANKSTER && GetMoveSplit(sp, move1) == SPLIT_STATUS)
-        {
-            priority1++;
-        }
-
-        if (GetBattlerAbility(sp, client2) == ABILITY_PRANKSTER && GetMoveSplit(sp, move2) == SPLIT_STATUS)
-        {
-            priority2++;
-        }
-
-        // handle gale wings
-        if
-        (
-            GetBattlerAbility(sp, client1) == ABILITY_GALE_WINGS
-            && sp->moveTbl[move1].type == TYPE_FLYING
-            && sp->battlemon[client1].hp == (s32)sp->battlemon[client1].maxhp
-        ) {
-            priority1++;
-        }
-
-        if
-        (
-            GetBattlerAbility(sp, client2) == ABILITY_GALE_WINGS
-            && sp->moveTbl[move2].type == TYPE_FLYING
-            && sp->battlemon[client2].hp == (s32)sp->battlemon[client2].maxhp
-        ) {
-            priority2++;
-        }
-
-        // handle triage
-        if (GetBattlerAbility(sp, client1) == ABILITY_TRIAGE) {
-            for (i = 0; i < NELEMS(TriageMovesList); i++)
-            {
-                if (TriageMovesList[i] == move1) {
-                    priority1 = priority1 + 3;
-                    break;
-                }
-            }
-        }
-
-        if (GetBattlerAbility(sp, client2) == ABILITY_TRIAGE) {
-            for (i = 0; i < NELEMS(TriageMovesList); i++)
-            {
-                if (TriageMovesList[i] == move2) {
-                    priority2 = priority2 + 3;
-                    break;
-                }
-            }
-        }
     }
 
     if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
@@ -1192,6 +1139,61 @@ void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp
 
     // sprintf(buf, "\n\n");
     // debugsyscall(buf);
+}
+
+void LONG_CALL CalcPriority(void *bsys, struct BattleStruct *ctx) {
+    int move = 0;
+    int priority = 0;
+    int command;
+    int move_pos;
+    int ability;
+    int i;
+
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    for (int client = 0; client < maxBattlers; client++) {
+        ability = GetBattlerAbility(ctx, client);
+
+        command = ctx->playerActions[client][3];
+        move_pos = ctx->waza_no_pos[client];
+
+        if (command == SELECT_FIGHT_COMMAND) {
+            if (ctx->oneTurnFlag[client].struggle_flag) {
+                move = MOVE_STRUGGLE;
+            } else {
+                move = BattlePokemonParamGet(ctx, client, BATTLE_MON_DATA_MOVE_1 + move_pos, NULL);
+            }
+        }
+        priority = ctx->moveTbl[move].priority;
+
+        // Handle Grassy Glide
+        if (move == MOVE_GRASSY_GLIDE && ctx->terrainOverlay.type == GRASSY_TERRAIN) {
+            priority++;
+        }
+
+        // Handle Prankster
+        if (GetBattlerAbility(ctx, client) == ABILITY_PRANKSTER && GetMoveSplit(ctx, move) == SPLIT_STATUS) {
+            priority++;
+        }
+
+        // Handle Gale Wings
+        if (
+            GetBattlerAbility(ctx, client) == ABILITY_GALE_WINGS && ctx->moveTbl[move].type == TYPE_FLYING && ctx->battlemon[client].hp == (s32)ctx->battlemon[client].maxhp) {
+            priority++;
+        }
+
+        // handle Triage
+        if (GetBattlerAbility(ctx, client) == ABILITY_TRIAGE) {
+            for (i = 0; i < NELEMS(TriageMovesList); i++) {
+                if (TriageMovesList[i] == move) {
+                    priority = priority + 3;
+                    break;
+                }
+            }
+        }
+
+        ctx->clientPriority[client] = priority;
+    }
 }
 
 const u8 CriticalRateTable[] =
