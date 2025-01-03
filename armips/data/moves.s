@@ -6,6 +6,7 @@
 .include "armips/include/config.s"
 .include "armips/include/movemacros.s"
 
+.include "asm/include/debug.inc"
 .include "asm/include/moves.inc"
 .include "asm/include/move_effects.inc"
 

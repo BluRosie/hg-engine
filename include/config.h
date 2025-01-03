@@ -119,7 +119,10 @@
 // UPDATE_VITAMIN_EV_CAPS changes the cap on the vitamins from 100 to 252 per recent generations
 #define UPDATE_VITAMIN_EV_CAPS
 
+// DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
+//#define DISABLE_ITEMS_IN_TRAINER_BATTLE
+
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
-#define REUSABLE_TMS 1
+#define REUSABLE_TMS
 
 #endif
