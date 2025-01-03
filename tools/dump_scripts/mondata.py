@@ -26,11 +26,11 @@ def dump_mondata(narc):
 		
 		mondata_armip += f"{DEX_ENTRIES[idx][0]}"
 		mondata_armip += f'    basestats {mon["base_hp"]}, {mon["base_atk"]}, {mon["base_def"]}, {mon["base_speed"]}, {mon["base_spatk"]}, {mon["base_spdef"]}\n'
-		mondata_armip += f'    types {CONSTANTS['TYPE'][mon['type_1']]}, {CONSTANTS['TYPE'][mon['type_2']]}\n'
+		mondata_armip += f'    types {CONSTANTS["TYPE"][mon["type_1"]]}, {CONSTANTS["TYPE"][mon["type_2"]]}\n'
 		mondata_armip += f'    catchrate {mon["catchrate"]}\n'
 		mondata_armip += f'    baseexp 0 // defined in baseexp.s\n'
 		mondata_armip += f'    evyields {mon["hp_yield"]}, {mon["atk_yield"]}, {mon["def_yield"]}, {mon["speed_yield"]}, {mon["spatk_yield"]}, {mon["spdef_yield"]}\n'
-		mondata_armip += f'    items {ITEMS['ITEM'][mon['item_1']]}, {ITEMS['ITEM'][mon['item_2']]}\n'
+		mondata_armip += f'    items {ITEMS["ITEM"][mon["item_1"]]}, {ITEMS["ITEM"][mon["item_2"]]}\n'
 		mondata_armip += f'    genderratio {mon["gender"]}\n'
 		mondata_armip += f'    eggcycles {mon["hatch_cycle"]}\n'
 		mondata_armip += f'    basefriendship {mon["base_happy"]}\n'
@@ -47,7 +47,7 @@ def dump_mondata(narc):
 	return mondata_armip
 
 def get_mon_dex_entries(indexed_mons):
-	with open("../armips/data/mondata.s", 'r') as f:
+	with open("../armips/data/mondata.s", 'r', encoding="utf-8") as f:
 		content = f.readlines()
 
 	dex_entries = {}
