@@ -1,4 +1,5 @@
 import sys
+import os
 
 # Helper methods for reading narcs and parsing .inc files
 from dump_scripts.dump_tools import *
@@ -14,6 +15,8 @@ from dump_scripts.levelupdata import dump_levelupdata
 if __name__ == "__main__":    
 	with open(sys.argv[1], 'rb') as f:
 		rom = ndspy.rom.NintendoDSRom(f.read())
+
+	os.makedirs("dumped_armips", exist_ok=True)
 
 	# Dump mondata
 	
