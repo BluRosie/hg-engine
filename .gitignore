@@ -18,6 +18,7 @@ dump.py
 dumpitem.py
 *_DSPRE_contents/*
 /tools/*.s
+/tools/dumped_armips
 
 # pycache files
 *.pyc

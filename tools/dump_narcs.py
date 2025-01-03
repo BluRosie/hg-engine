@@ -24,37 +24,37 @@ if __name__ == "__main__":
 		print("HG Engine Rom detected") 
 
 
-	with open('mondata.s', 'w') as file:
+	with open('./dumped_armips/mondata.s', 'w') as file:
 		file.write(dump_mondata(mondata_narc))
 
 	# Dump Moves
 
 	moves_narc = dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT)
-	with open('moves.s', 'w') as file:
+	with open('./dumped_armips/moves.s', 'w') as file:
 		file.write(dump_moves(moves_narc))
 
 	# Dump Encounters
 
 	encounters_narc = dump_narc(rom, "a/0/3/7", ENCOUNTER_NARC_FORMAT)
-	with open('encounters.s', 'w') as file:
+	with open('./dumped_armips/encounters.s', 'w') as file:
 		file.write(dump_encounters(encounters_narc, EXPANDED))
 
 	# Dump Evolutions
 
 	evodata_narc = dump_narc(rom, 'a/0/3/4', (EXPANDED_EVO_NARC_FORMAT if EXPANDED else EVO_NARC_FORMAT))
-	with open('evodata.s', 'w') as file:
+	with open('./dumped_armips/evodata.s', 'w') as file:
 		file.write(dump_evodata(evodata_narc))
 
 	# Dump Learnsets
 
 	levelupdata_narc = dump_narc(rom, "a/0/3/3", (EXPANDED_LEARNSET_NARC_FORMAT if EXPANDED else LEARNSET_NARC_FORMAT))
-	with open('levelupdata.s', 'w') as file:
+	with open('./dumped_armips/levelupdata.s', 'w') as file:
 		file.write(dump_levelupdata(levelupdata_narc))
 
 	# Dump Trainers
 
-	trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
-	trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
+	# trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
+	# trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
 
 
 

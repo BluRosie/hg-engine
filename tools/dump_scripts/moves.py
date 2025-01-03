@@ -19,7 +19,6 @@ def dump_moves(narc):
 	moves_armip += ".include \"asm/include/moves.inc\"\n"
 	moves_armip += ".include \"asm/include/move_effects.inc\"\n\n"
 
-	print(narc[922])
 
 	for idx, move in enumerate(narc):
 		# print(MOVE_ENTRIES[idx][0])

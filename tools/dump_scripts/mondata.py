@@ -4,7 +4,6 @@ from dump_scripts.dump_tools import *
 def dump_mondata(narc):
 	DEX_ENTRIES = get_mon_dex_entries(MONS) # => [ "mondata SPECIES_BLASTOISE, "Blastoise"", DEX_ENTRY_INFO ]
 
-	print(len(DEX_ENTRIES))
 
 	mondata_armip = ""
 	mondata_armip += ".nds\n"
