@@ -17,6 +17,7 @@ b.c
 dump.py
 dumpitem.py
 *_DSPRE_contents/*
+/tools/*.s
 
 # pycache files
 *.pyc
