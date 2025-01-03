@@ -358,4 +358,17 @@
 #define MOVE_TARGET_ACUPRESSURE          0x0200
 #define MOVE_TARGET_ME_FIRST             0x0400
 
+#define RANGE_SINGLE_TARGET           0
+#define RANGE_SINGLE_TARGET_SPECIAL   (1 << 0)
+#define RANGE_RANDOM_OPPONENT         (1 << 1)
+#define RANGE_ADJACENT_OPPONENTS      (1 << 2)
+#define RANGE_ALL_ADJACENT            (1 << 3)
+#define RANGE_USER                    (1 << 4)
+#define RANGE_USER_SIDE               (1 << 5)
+#define RANGE_FIELD                   (1 << 6)
+#define RANGE_OPPONENT_SIDE           (1 << 7)
+#define RANGE_ALLY                    (1 << 8)
+#define RANGE_SINGLE_TARGET_USER_SIDE (1 << 9)
+#define RANGE_FRONT                   (1 << 10)
+
 #endif

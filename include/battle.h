@@ -347,6 +347,7 @@
 #define STATUS2_BATON_PASSABLE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_MEAN_LOOK | STATUS2_CURSE)
 
 // Status 2
+#define STATUS2_RAMPAGE          (3 << 10)
 #define STATUS2_BIDE_0           (1 << 8)
 #define STATUS2_BIDE_1           (1 << 9)
 
@@ -3278,7 +3279,7 @@ void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u3
  */
 void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp, BOOL sortTurnOrder);
 
-void LONG_CALL CalcPriority(void *bsys, struct BattleStruct *ctx);
+void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStruct *ctx);
 
 void LONG_CALL BattleControllerPlayer_CalcExecutionOrder(struct BattleSystem *bw, struct BattleStruct *sp);
 

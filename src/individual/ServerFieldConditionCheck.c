@@ -1876,7 +1876,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_ENDTURN_LOGIC
                 sprintf(buf, "In ENDTURN_END\n");
                 debugsyscall(buf);
-                #endif
+#endif
+
+                for (int i = 0; i < client_set_max; i++) {
+                    sp->battlemon[i].moveeffect.quickClawFlag = 0;
+                    sp->battlemon[i].moveeffect.custapBerryFlag = 0;
+                    sp->numberOfTurnsClientHasCurrentAbility[i] = sp->numberOfTurnsClientHasCurrentAbility[i] + 1;
+                }
 
                 ret = 2;
                 break;

@@ -641,7 +641,8 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     u8 hold_atk2;
     s8 priority1 = sp->clientPriority[client1];
     s8 priority2 = sp->clientPriority[client2];
-    u8 quick_claw1 = 0, quick_claw2 = 0;
+    u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag;
+    u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag;
     u8 move_last1 = 0, move_last2 = 0;
     int command1;
     int command2;
@@ -805,34 +806,6 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speed1 *= 2;
     }
 
-    if (hold_effect1 == HOLD_EFFECT_SOMETIMES_PRIORITY)
-    {
-        if ((sp->agi_rand[client1] % (100 / hold_atk1)) == 0)
-        {
-            quick_claw1 = 1;
-            if (flag == 0)
-            {
-                sp->battlemon[client1].moveeffect.quickClawFlag = 1;
-            }
-        }
-    }
-
-    if (hold_effect1 == HOLD_EFFECT_PINCH_PRIORITY)
-    {
-        if (GetBattlerAbility(sp, client1) == ABILITY_GLUTTONY)
-        {
-            hold_atk1 /= 2;
-        }
-        if (sp->battlemon[client1].hp <= (s32)(sp->battlemon[client1].maxhp / hold_atk1))
-        {
-            quick_claw1 = 1;
-            if (flag == 0)
-            {
-                sp->battlemon[client1].moveeffect.custapBerryFlag = 1;
-            }
-        }
-    }
-
     if (hold_effect1 == HOLD_EFFECT_PRIORITY_DOWN)
     {
         move_last1 = 1;
@@ -886,34 +859,6 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     if (sp->tailwindCount[IsClientEnemy(bw, client2)]) // new tailwind handling
     {
         speed2 *= 2;
-    }
-
-    if (hold_effect2 == HOLD_EFFECT_SOMETIMES_PRIORITY)
-    {
-        if ((sp->agi_rand[client2] % (100 / hold_atk2)) == 0)
-        {
-            quick_claw2 = 1;
-            if (flag == 0)
-            {
-                sp->battlemon[client2].moveeffect.quickClawFlag = 1;
-            }
-        }
-    }
-
-    if (hold_effect2 == HOLD_EFFECT_PINCH_PRIORITY)
-    {
-        if (GetBattlerAbility(sp, client2) == ABILITY_GLUTTONY)
-        {
-            hold_atk2 /= 2;
-        }
-        if (sp->battlemon[client2].hp <= (s32)(sp->battlemon[client2].maxhp / hold_atk2))
-        {
-            quick_claw2 = 1;
-            if (flag == 0)
-            {
-                sp->battlemon[client2].moveeffect.custapBerryFlag = 1;
-            }
-        }
     }
 
     if (hold_effect2 == HOLD_EFFECT_PRIORITY_DOWN)
@@ -1141,13 +1086,15 @@ void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp
     // debugsyscall(buf);
 }
 
-void LONG_CALL CalcPriority(void *bsys, struct BattleStruct *ctx) {
+void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStruct *ctx) {
     int move = 0;
     int priority = 0;
     int command;
     int move_pos;
     int ability;
     int i;
+    int hold_effect;
+    int hold_atk;
 
     int maxBattlers = BattleWorkClientSetMaxGet(bsys);
 
@@ -1189,6 +1136,24 @@ void LONG_CALL CalcPriority(void *bsys, struct BattleStruct *ctx) {
                     priority = priority + 3;
                     break;
                 }
+            }
+        }
+
+        hold_effect = GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, client);
+        hold_atk = HeldItemAtkGet(ctx, client, 0);
+
+        if (hold_effect == HOLD_EFFECT_SOMETIMES_PRIORITY) {
+            if ((ctx->agi_rand[client] % (100 / hold_atk)) == 0) {
+                ctx->battlemon[client].moveeffect.quickClawFlag = 1;
+            }
+        }
+
+        if (hold_effect == HOLD_EFFECT_PINCH_PRIORITY) {
+            if (GetBattlerAbility(ctx, client) == ABILITY_GLUTTONY) {
+                hold_atk /= 2;
+            }
+            if (ctx->battlemon[client].hp <= (s32)(ctx->battlemon[client].maxhp / hold_atk)) {
+                ctx->battlemon[client].moveeffect.custapBerryFlag = 1;
             }
         }
 

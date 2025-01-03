@@ -171,7 +171,7 @@ void ServerBeforeAct(void *bw, struct BattleStruct *sp) {
             case SBA_RESET_DEFIANT: {
                 // debug_printf("In SBA_RESET_DEFIANT\n");
 
-                CalcPriority(bw, sp);
+                CalcPriorityAndQuickClawCustapBerry(bw, sp);
 
                 for (client_no = 0; client_no < client_set_max; client_no++) {
                     sp->oneSelfFlag[client_no].defiant_flag = 0;

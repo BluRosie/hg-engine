@@ -90,6 +90,7 @@ void BattleController_CheckParalysis(struct BattleSystem *bsys, struct BattleStr
 void BattleController_CheckInfatuation(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckStanceChange(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 void BattleController_CheckSubmove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BattleController_CheckBurnUpOrDoubleShock(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
@@ -172,8 +173,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_DESTINY_BOND;
             ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
             // reset new stuff here, because subscript is modified
-            ctx->battlemon[ctx->attack_client].moveeffect.custapBerryFlag = 0;
-            ctx->battlemon[ctx->attack_client].moveeffect.quickClawFlag = 0;
+            // ctx->battlemon[ctx->attack_client].moveeffect.custapBerryFlag = 0;
+            // ctx->battlemon[ctx->attack_client].moveeffect.quickClawFlag = 0;
+
+            // debug_printf("quickClawFlag: %d\n", ctx->battlemon[ctx->attack_client].moveeffect.quickClawFlag);
             ctx->wb_seq_no++;
             return;
         }
@@ -438,25 +441,16 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             // debug_printf("current_move_index: %d\n", ctx->current_move_index);
             // debug_printf("moveNoTemp: %d\n", ctx->moveNoTemp);
 #endif
-            //debug_printf("before pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
+            // debug_printf("before pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
             if ((ctx->waza_out_check_on_off & 0x8) == 0) {
-                if (CheckMoveIsChargeMove(ctx, ctx->current_move_index)) {
-                    if (((GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP))
-                    || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
-                        //debug_printf("decrement pp");
-                        // TODO: hook this function to fix the PP issue
-                        ServerPPCheck(bsys, ctx);
-                    }
-                } else {
-                    //debug_printf("decrement pp");
-                    // pp检查
-                    if (ServerPPCheck(bsys, ctx) == TRUE)  // 801393Ch
-                    {
-                        return;
-                    }
+                // debug_printf("Enter BattlerController_DecrementPP\n");
+                //  pp检查
+                if (BattlerController_DecrementPP(bsys, ctx) == TRUE)  // 801393Ch
+                {
+                    return;
                 }
             }
-            //debug_printf("after pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
+            // debug_printf("after pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -466,7 +460,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_CHOICE_LOCK\n");
 #endif
 
-            debug_printf("current_move_index: %d\n", ctx->current_move_index);
+            // debug_printf("current_move_index: %d\n", ctx->current_move_index);
             int itemEffect = GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client);
             if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
                 if (ctx->waza_work != MOVE_STRUGGLE
@@ -1149,6 +1143,10 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
 void BattleController_CheckPP(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int index = BattleMon_GetMoveIndex(&ctx->battlemon[ctx->attack_client], ctx->moveNoTemp);
 
+    if (index >= 4) {
+        return;
+    }
+
     if (ctx->battlemon[ctx->attack_client].pp[index] == 0) {
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_NO_PP_LEFT);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1186,6 +1184,7 @@ BOOL BattleController_CheckFocusPunch(struct BattleSystem *bsys UNUSED, struct B
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
     }
     return FALSE;
@@ -1448,6 +1447,73 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
     return ret;
 }
 
+BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int decreasePP = 1;
+    int index;
+    BOOL needToDecrementPP = TRUE;
+
+    if (!ctx->oneSelfFlag[ctx->attack_client].no_pressure_flag && ctx->defence_client != BATTLER_NONE) {
+        if (ctx->moveNoTemp == MOVE_IMPRISON) {
+            decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, ctx->attack_client, ABILITY_PRESSURE);
+        } else {
+            switch (ctx->moveTbl[ctx->moveNoTemp].target) {
+            case RANGE_ALL_ADJACENT:
+            case RANGE_FIELD:
+                decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP_NOT_USER, ctx->attack_client, ABILITY_PRESSURE);
+                break;
+            case RANGE_ADJACENT_OPPONENTS:
+            case RANGE_OPPONENT_SIDE:
+                decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, ctx->attack_client, ABILITY_PRESSURE);
+                break;
+            case RANGE_USER_SIDE:
+            case RANGE_USER:
+            case RANGE_SINGLE_TARGET_USER_SIDE:
+            case RANGE_ALLY:
+                break;
+            default:
+                if (ctx->attack_client != ctx->defence_client && GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_PRESSURE) {
+                    decreasePP++;
+                }
+                break;
+            }
+        }
+    }
+
+    index = BattleMon_GetMoveIndex(&ctx->battlemon[ctx->attack_client], ctx->moveNoTemp);
+
+    if (CheckMoveIsChargeMove(ctx, ctx->current_move_index)) {
+        if (((GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) && ctx->current_move_index != MOVE_BIDE) || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
+            ctx->oneTurnFlag[ctx->attack_client].pp_dec_flag = 0;
+        } else {
+            needToDecrementPP = FALSE;
+        }
+    }
+
+    debug_printf("pp_dec_flag: %d\n", ctx->oneTurnFlag[ctx->attack_client].pp_dec_flag);
+
+    if (!ctx->oneTurnFlag[ctx->attack_client].pp_dec_flag && !ctx->oneTurnFlag[ctx->attack_client].struggle_flag && needToDecrementPP) {
+        ctx->oneTurnFlag[ctx->attack_client].pp_dec_flag = 1;
+        if (ctx->battlemon[ctx->attack_client].pp[index] && index < 4) {
+            if (ctx->battlemon[ctx->attack_client].pp[index] > decreasePP) {
+                ctx->battlemon[ctx->attack_client].pp[index] -= decreasePP;
+            } else {
+                ctx->battlemon[ctx->attack_client].pp[index] = 0;
+            }
+            CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+        } else {
+            ctx->waza_status_flag |= WAZA_STATUS_FLAG_PP_NONE;
+        }
+
+    } else if (!ctx->battlemon[ctx->attack_client].pp[index]
+               // && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)
+               // && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)
+               && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE) && !(ctx->field_condition & (No2Bit(ctx->attack_client) << FIELD_CONDITION_UPROAR_SHIFT)) && index < 4) {
+        ctx->waza_status_flag |= WAZA_STATUS_FLAG_PP_NONE;
+    }
+
+    return FALSE;
+}
+
 // TODO: handle Burn Up edge case
 void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
@@ -1490,6 +1556,7 @@ BOOL BattleController_CheckPrimalWeather(struct BattleSystem *bsys, struct Battl
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
         }
 
@@ -1498,6 +1565,7 @@ BOOL BattleController_CheckPrimalWeather(struct BattleSystem *bsys, struct Battl
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
         }
     }
@@ -1526,6 +1594,7 @@ BOOL BattleController_CheckBurnUpOrDoubleShock(struct BattleSystem *bsys UNUSED,
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
         return TRUE;
     }
     return FALSE;
@@ -1560,6 +1629,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
         return TRUE;
     }
     // Hyperspace Fury when user is Hoopa Confined
@@ -1572,6 +1642,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
         return TRUE;
     }
 
@@ -1665,6 +1736,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
         return TRUE;
     }
 
@@ -1684,6 +1756,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
         }
         // Rest while user has Insomnia / Vital Spirit
@@ -1696,6 +1769,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
         }
     }
@@ -1740,6 +1814,7 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys UNUSED, st
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
         }
         break;
@@ -1758,6 +1833,7 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys UNUSED, st
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
             return TRUE;
         }
     }
@@ -1880,6 +1956,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
         } else {
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
         }
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2224,7 +2301,7 @@ BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, s
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_SWITCH_FAIL_DYNAMAX);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            ctx->moveStatusFlagForSpreadMoves[defender]= MOVE_STATUS_NO_MORE_WORK;
+            ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_MORE_WORK;
             return TRUE;
         }
 
@@ -2768,6 +2845,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                        ctx->wb_seq_no = BEFORE_MOVE_START;
                         return TRUE;
                                         }
                     break;
@@ -2778,6 +2856,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                     ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                    ctx->wb_seq_no = BEFORE_MOVE_START;
                     return TRUE;
                     break;
 
@@ -2786,6 +2865,73 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                     break;
             }
         }
+    }
+
+    return FALSE;
+}
+
+// TODO
+BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
+    //int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    BOOL butItFailedFlag = FALSE;
+
+    // Ability failures
+    switch (ctx->current_move_index) {
+        case MOVE_ENTRAINMENT: {
+            switch (GetBattlerAbility(ctx, ctx->attack_client)) {
+                case ABILITY_TRACE:
+                case ABILITY_FORECAST:
+                case ABILITY_FLOWER_GIFT:
+                case ABILITY_ZEN_MODE:
+                case ABILITY_ILLUSION:
+                case ABILITY_IMPOSTER:
+                case ABILITY_POWER_OF_ALCHEMY:
+                case ABILITY_RECEIVER:
+                case ABILITY_DISGUISE:
+                case ABILITY_POWER_CONSTRUCT:
+                case ABILITY_ICE_FACE:
+                case ABILITY_HUNGER_SWITCH:
+                case ABILITY_GULP_MISSILE:
+                case ABILITY_NEUTRALIZING_GAS:
+                case ABILITY_ZERO_TO_HERO:
+                case ABILITY_COMMANDER:
+                    butItFailedFlag = TRUE;
+                    break;
+
+                default:
+                    break;
+            }
+            switch (GetBattlerAbility(ctx, ctx->defence_client)) {
+                case ABILITY_TRUANT:
+                case ABILITY_MULTITYPE:
+                case ABILITY_STANCE_CHANGE:
+                case ABILITY_SCHOOLING:
+                case ABILITY_COMATOSE:
+                case ABILITY_SHIELDS_DOWN:
+                case ABILITY_DISGUISE:
+                case ABILITY_RKS_SYSTEM:
+                case ABILITY_BATTLE_BOND:
+                case ABILITY_POWER_CONSTRUCT:
+                case ABILITY_ICE_FACE:
+                case ABILITY_GULP_MISSILE:
+                case ABILITY_ZERO_TO_HERO:
+                case ABILITY_COMMANDER:
+                    butItFailedFlag = TRUE;
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+        }
+        case MOVE_GASTRO_ACID: {
+
+            if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_GASTRO_ACID)
+            break;
+        }
+
+        default:
+            break;
     }
 
     return FALSE;
@@ -2825,6 +2971,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
                 return TRUE;
             }
             break;
@@ -2946,6 +3093,7 @@ BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, s
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
         return TRUE;
     }
     return FALSE;
