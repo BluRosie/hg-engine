@@ -3435,7 +3435,26 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
             break;
         }
         case MOVE_CORROSIVE_GAS: {
-            // TODO
+            if (ctx->battlemon[defender].item == ITEM_NONE
+#if CORROSIVE_GAS_IMPLIED_BEHAVIOUR == TRUE
+            || (ctx->battlemon[defender].species == SPECIES_KYOGRE && ctx->battlemon[defender].item == ITEM_BLUE_ORB)
+            || (ctx->battlemon[defender].species == SPECIES_GROUDON && ctx->battlemon[defender].item == ITEM_RED_ORB)
+            || (CheckMegaData(ctx->battlemon[defender].species, ctx->battlemon[defender].item))
+#endif
+            || (ctx->battlemon[defender].species == SPECIES_GIRATINA && ctx->battlemon[defender].item == ITEM_GRISEOUS_CORE)
+            || (ctx->battlemon[defender].species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(ctx->battlemon[defender].item))
+            || (ctx->battlemon[defender].species == SPECIES_GENESECT && IS_ITEM_GENESECT_DRIVE(ctx->battlemon[defender].item))
+            || (ctx->battlemon[defender].species == SPECIES_SILVALLY && ctx->battlemon[defender].item == ITEM_RUSTED_SHIELD)
+            || (ctx->battlemon[defender].species == SPECIES_ZACIAN && ctx->battlemon[defender].item == ITEM_RUSTED_SWORD)
+            || (ctx->battlemon[defender].species == SPECIES_ZAMAZENTA && ctx->battlemon[defender].item == ITEM_RUSTED_SHIELD)
+            || (ctx->battlemon[defender].species == SPECIES_OGERPON && IS_ITEM_MASK(ctx->battlemon[defender].item))) {
+                ctx->msg_work = defender;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FAILED_TO_AFFECT);
+                ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
             break;
         }
         default:

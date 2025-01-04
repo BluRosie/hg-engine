@@ -1537,3 +1537,6 @@ The opposing {STRVAR_1 1, 0, 0} became cloaked\nin a freezing light!
 {STRVAR_1 1, 0, 0} became cloaked\nin freezing air!
 The wild {STRVAR_1 1, 0, 0} became cloaked\nin freezing air!
 The opposing {STRVAR_1 1, 0, 0} became cloaked\nin freezing air!
+But it failed to affect\n{STRVAR_1 8, 0, 0}!
+But it failed to affect\nthe wild {STRVAR_1 8, 0, 0}!
+But it failed to affect\nthe opposing {STRVAR_1 8, 0, 0}!
