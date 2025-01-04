@@ -1091,7 +1091,6 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
     int priority = 0;
     int command;
     int move_pos;
-    int ability;
     int i;
     int hold_effect;
     int hold_atk;
@@ -1099,7 +1098,6 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
     int maxBattlers = BattleWorkClientSetMaxGet(bsys);
 
     for (int client = 0; client < maxBattlers; client++) {
-        ability = GetBattlerAbility(ctx, client);
 
         command = ctx->playerActions[client][3];
         move_pos = ctx->waza_no_pos[client];
