@@ -1169,7 +1169,13 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         }
         // moves boosted by sheer force that still maintain their effect
         if ((sp->current_move_index == MOVE_SPARKLING_ARIA) 
-         || (sp->current_move_index == MOVE_ELECTRO_SHOT)) {
+        // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
+         || (sp->current_move_index == MOVE_SPIRIT_SHACKLE) 
+         || (sp->current_move_index == MOVE_ANCHOR_SHOT) 
+        // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
+         || (sp->current_move_index == MOVE_CEASELESS_EDGE) 
+         || (sp->current_move_index == MOVE_STONE_AXE) 
+         || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ? 
             sp->battlemon[sp->attack_client].sheer_force_flag = 1;
         }
     }
