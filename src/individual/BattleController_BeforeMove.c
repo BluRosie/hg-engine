@@ -2944,6 +2944,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     BOOL jungleHealingAllySuccess = FALSE;
     int clientPosition = 0;
     int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    int attackerSpecies = ctx->battlemon[ctx->attack_client].species;
+    int defenderSpecies = ctx->battlemon[ctx->defence_client].species;
+    int attackerItem = ctx->battlemon[ctx->attack_client].item;
+    int defenderItem = ctx->battlemon[ctx->defence_client].item;
 
     BOOL flowerShieldSuccessCount = 0;
 
@@ -3032,7 +3036,17 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_POLLEN_PUFF: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].hp == (s32)ctx->battlemon[ctx->defence_client].maxhp) {
+                ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
+                ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
+                ctx->battlerIdTemp = ctx->defence_client;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
+                return TRUE;
+            }
             break;
         }
         case MOVE_BELLY_DRUM: {
@@ -3158,7 +3172,9 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_AQUA_RING: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_BATON_PASS:
@@ -3189,20 +3205,28 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         case MOVE_FOCUS_ENERGY:
         case MOVE_DRAGON_CHEER: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_LOCK_ON:
         case MOVE_MIND_READER: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_MAGNET_RISE: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_SUBSTITUTE: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_TAUNT: {
@@ -3212,7 +3236,9 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_BLOCK:
         case MOVE_MEAN_LOOK:
         case MOVE_SPIDER_WEB: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_MEAN_LOOK) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_WISH: {
@@ -3231,10 +3257,6 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             if (ctx->executionIndex > clientPosition) {
                 butItFailedFlag = TRUE;
             }
-            break;
-        }
-        case MOVE_CORROSIVE_GAS: {
-            // TODO
             break;
         }
         case MOVE_COPYCAT: {
@@ -3376,11 +3398,17 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_PSYCHO_SHIFT: {
-            // TODO
+            if (!(ctx->battlemon[ctx->attack_client].condition & STATUS_ALL)
+            || ctx->battlemon[ctx->attack_client].condition == ctx->battlemon[ctx->defence_client].condition
+            || (ctx->battlemon[ctx->defence_client].condition & STATUS_ALL)) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_PURIFY: {
-            // TODO
+            if (!(ctx->battlemon[ctx->defence_client].condition & STATUS_ALL)) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_ROAR:
@@ -3389,13 +3417,54 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_TRANSFORM: {
-            // TODO
+            if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_TRANSFORMED)
+            || (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_TRANSFORMED)) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_TRICK:
-        case MOVE_SWITCHEROO:
-        case MOVE_BESTOW: {
+        case MOVE_SWITCHEROO: {
             // TODO
+            if ((attackerItem == ITEM_NONE && defenderItem == ITEM_NONE)
+            || IS_ITEM_MAIL(attackerItem) || IS_ITEM_MAIL(defenderItem)
+            // || IS_ITEM_Z_CRYSTAL(attackerItem) || IS_ITEM_Z_CRYSTAL(defenderItem)
+            || ((attackerSpecies == SPECIES_KYOGRE || defenderSpecies == SPECIES_KYOGRE) && (attackerItem == ITEM_BLUE_ORB || defenderItem == ITEM_BLUE_ORB))
+            || ((attackerSpecies == SPECIES_GROUDON || defenderSpecies == SPECIES_GROUDON) && (attackerItem == ITEM_RED_ORB || defenderItem == ITEM_RED_ORB))
+            || (CheckMegaData(attackerSpecies, attackerItem) || CheckMegaData(defenderSpecies, attackerItem) || CheckMegaData(attackerSpecies, defenderItem) || CheckMegaData(defenderSpecies, defenderItem))
+            || ((attackerSpecies == SPECIES_GIRATINA || defenderSpecies == SPECIES_GIRATINA) && (attackerItem == ITEM_GRISEOUS_CORE || defenderItem == ITEM_GRISEOUS_CORE))
+            || ((attackerSpecies == SPECIES_ARCEUS || defenderSpecies == SPECIES_ARCEUS) && (IS_ITEM_ARCEUS_PLATE(attackerItem) || IS_ITEM_ARCEUS_PLATE(defenderItem)))
+            || ((attackerSpecies == SPECIES_GENESECT || defenderSpecies == SPECIES_GENESECT) && (IS_ITEM_GENESECT_DRIVE(attackerItem) || IS_ITEM_GENESECT_DRIVE(defenderItem)))
+            || ((attackerSpecies == SPECIES_SILVALLY || defenderSpecies == SPECIES_SILVALLY) && (IS_ITEM_MEMORY(attackerItem) || IS_ITEM_MEMORY(defenderItem)))
+            || ((attackerSpecies == SPECIES_ZACIAN || defenderSpecies == SPECIES_ZACIAN) && (attackerItem == ITEM_RUSTED_SWORD || defenderItem == ITEM_RUSTED_SWORD))
+            || ((attackerSpecies == SPECIES_ZAMAZENTA || defenderSpecies == SPECIES_ZAMAZENTA) && (attackerItem == ITEM_RUSTED_SHIELD || defenderItem == ITEM_RUSTED_SHIELD))
+            || ((attackerSpecies == SPECIES_OGERPON || defenderSpecies == SPECIES_OGERPON) && (IS_ITEM_MASK(attackerItem) || IS_ITEM_MASK(defenderItem)))
+            ) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_BESTOW: {
+            //TODO
+            if (attackerItem == ITEM_NONE
+            || defenderItem != ITEM_NONE
+            || IS_ITEM_MAIL(attackerItem)
+            // || IS_ITEM_Z_CRYSTAL(attackerItem)
+            || ((attackerSpecies == SPECIES_KYOGRE || defenderSpecies == SPECIES_KYOGRE) && attackerItem == ITEM_BLUE_ORB)
+            || ((attackerSpecies == SPECIES_GROUDON || defenderSpecies == SPECIES_GROUDON) && attackerItem == ITEM_RED_ORB)
+            || (CheckMegaData(defenderSpecies, attackerItem))
+            || ((attackerSpecies == SPECIES_GIRATINA || defenderSpecies == SPECIES_GIRATINA) && attackerItem == ITEM_GRISEOUS_CORE)
+            || ((attackerSpecies == SPECIES_ARCEUS || defenderSpecies == SPECIES_ARCEUS) && IS_ITEM_ARCEUS_PLATE(attackerItem))
+            || ((attackerSpecies == SPECIES_GENESECT || defenderSpecies == SPECIES_GENESECT) && IS_ITEM_GENESECT_DRIVE(attackerItem))
+            || ((attackerSpecies == SPECIES_SILVALLY || defenderSpecies == SPECIES_SILVALLY) && IS_ITEM_MEMORY(attackerItem))
+#if CORROSIVE_GAS_IMPLIED_BEHAVIOUR == TRUE
+            || ((attackerSpecies == SPECIES_ZACIAN || defenderSpecies == SPECIES_ZACIAN) && attackerItem == ITEM_RUSTED_SWORD)
+            || ((attackerSpecies == SPECIES_ZAMAZENTA || defenderSpecies == SPECIES_ZAMAZENTA) && attackerItem == ITEM_RUSTED_SHIELD)
+            || ((attackerSpecies == SPECIES_OGERPON || defenderSpecies == SPECIES_OGERPON) && IS_ITEM_MASK(attackerItem))
+#endif
+            ) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
 
@@ -3403,7 +3472,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
     }
 
-    // For Redundancy failures, we just do it in the effect script /subscript
+    // TODO: For Redundancy failures, we just do it in the effect script /subscript
 
     if (butItFailedFlag) {
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
