@@ -9147,7 +9147,7 @@ movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
     movedescription MOVE_TRICK_OR_TREAT, "The user takes the\ntarget\ntrick-or-treating.\nThis adds Ghost type\nto the target's type."
 
 movedata MOVE_NOBLE_ROAR, "Noble Roar"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ATK_SP_ATK_DOWN
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -11499,7 +11499,7 @@ movedata MOVE_MOONGEIST_BEAM, "Moongeist Beam"
     movedescription MOVE_MOONGEIST_BEAM, "---"
 
 movedata MOVE_TEARFUL_LOOK, "Tearful Look"
-    battleeffect MOVE_EFFECT_TEARFUL_LOOK
+    battleeffect MOVE_EFFECT_ATK_SP_ATK_DOWN
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -13915,13 +13915,13 @@ movedata MOVE_TRIPLE_DIVE, "Triple Dive"
     movedescription MOVE_TRIPLE_DIVE, "The user performs a\nperfectly timed triple\ndive, hitting the target\nwith splashes of water\nthree times in a row."
 
 movedata MOVE_MORTAL_SPIN, "Mortal Spin"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_MORTAL_SPIN
     pss SPLIT_PHYSICAL
     basepower 30
     type TYPE_POISON
     accuracy 100
     pp 15
-    effectchance 0
+    effectchance 100
     target MOVE_TARGET_BOTH
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_CONTACT
