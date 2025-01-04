@@ -2942,6 +2942,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     BOOL butItFailedFlag = FALSE;
     BOOL jungleHealingSelfSuccess = FALSE;
     BOOL jungleHealingAllySuccess = FALSE;
+    int clientPosition = 0;
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    BOOL flowerShieldSuccessCount = 0;
 
     switch (ctx->current_move_index) {
         case MOVE_ENTRAINMENT: {
@@ -3027,10 +3031,208 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             }
             break;
         }
+        case MOVE_POLLEN_PUFF: {
+            // TODO
+            break;
+        }
+        case MOVE_BELLY_DRUM: {
+            if ((ctx->battlemon[ctx->defence_client].hp < (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
+            || ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] == 12) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_FLOWER_SHIELD: {
+            if (HasType(ctx, ctx->attack_client, TYPE_GRASS)) {
+                flowerShieldSuccessCount++;
+            } else {
+                ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FLAG_FAILED;
+            }
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+                if (HasType(ctx, BATTLER_ALLY(ctx->attack_client), TYPE_GRASS)) {
+                    flowerShieldSuccessCount++;
+                } else {
+                    ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;
+                }
+            }
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+                if (HasType(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client), TYPE_GRASS)) {
+                    flowerShieldSuccessCount++;
+                } else {
+                    ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;
+                }
+            }
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+                if (HasType(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client), TYPE_GRASS)) {
+                    flowerShieldSuccessCount++;
+                } else {
+                    ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;
+                }
+            }
+
+            if (flowerShieldSuccessCount == 0) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_STRENGTH_SAP: {
+            if (ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] == 0) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_SWAGGER: {
+            if (ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] == 12
+            && ctx->battlemon[ctx->defence_client].condition2 & STATUS2_CONFUSION) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
+                ctx->server_seq_no = CONTROLLER_COMMAND_24;
+                ST_ServerTotteokiCountCalc(bsys, ctx);
+                return TRUE;
+            }
+            break;
+        }
+        case MOVE_FLATTER: {
+            if (ctx->battlemon[ctx->defence_client].states[STAT_SPATK] == 12
+            && ctx->battlemon[ctx->defence_client].condition2 & STATUS2_CONFUSION) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
+                ctx->server_seq_no = CONTROLLER_COMMAND_24;
+                ST_ServerTotteokiCountCalc(bsys, ctx);
+                return TRUE;
+            }
+            break;
+        }
+        case MOVE_TOPSY_TURVY: {
+            if (ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] == 6
+            && ctx->battlemon[ctx->defence_client].states[STAT_DEFENSE] == 6
+            && ctx->battlemon[ctx->defence_client].states[STAT_SPEED] == 6
+            && ctx->battlemon[ctx->defence_client].states[STAT_SPATK] == 6
+            && ctx->battlemon[ctx->defence_client].states[STAT_SPDEF] == 6
+            && ctx->battlemon[ctx->defence_client].states[STAT_ACCURACY] == 6
+            && ctx->battlemon[ctx->defence_client].states[STAT_EVASION] == 6) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_CONVERSION: {
+            // Handle type3
+            if (ctx->battlemon[ctx->defence_client].type1 == ctx->moveTbl[ctx->battlemon[ctx->defence_client].move[0]].type
+            && ctx->battlemon[ctx->defence_client].type1 == ctx->moveTbl[ctx->battlemon[ctx->defence_client].move[0]].type) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_CONVERSION_2: {
+            // TODO
+            break;
+        }
+        case MOVE_REFLECT_TYPE: {
+            // TODO
+            break;
+        }
+        case MOVE_SOAK: {
+            if (IsPureType(ctx, ctx->defence_client, TYPE_WATER)
+            || ctx->battlemon[ctx->defence_client].species == SPECIES_ARCEUS
+            || ctx->battlemon[ctx->defence_client].species == SPECIES_SILVALLY) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_MAGIC_POWDER: {
+            if (IsPureType(ctx, ctx->defence_client, TYPE_PSYCHIC)
+            || ctx->battlemon[ctx->defence_client].species == SPECIES_ARCEUS
+            || ctx->battlemon[ctx->defence_client].species == SPECIES_SILVALLY) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_TRICK_OR_TREAT: {
+            if (HasType(ctx, ctx->defence_client, TYPE_GHOST)) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_FORESTS_CURSE: {
+            if (HasType(ctx, ctx->defence_client, TYPE_GRASS)) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_AFTER_YOU:
+        case MOVE_ELECTRIFY:
+        case MOVE_QUASH: {
+            for (clientPosition = 0; clientPosition < maxBattlers; clientPosition++) {
+                if (ctx->executionOrder[clientPosition] == ctx->defence_client) {
+                    break;
+                }
+            }
+            // If target has already performed action
+            if (ctx->executionIndex > clientPosition) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_COPYCAT: {
+            // TODO
+            break;
+        }
+        case MOVE_COURT_CHANGE: {
+            // TODO
+            break;
+        }
+        case MOVE_DISABLE: {
+            // TODO
+            break;
+        }
+        case MOVE_ENCORE: {
+            // TODO
+            break;
+        }
+        case MOVE_SKETCH: {
+            // TODO
+            break;
+        }
+        case MOVE_HELPING_HAND:
+        case MOVE_ALLY_SWITCH:
+        case MOVE_AROMATIC_MIST:
+        case MOVE_HOLD_HANDS: {
+            if (!(BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) || ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].hp == 0) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_INSTRUCT: {
+            // TODO
+            break;
+        }
+        case MOVE_MIMIC: {
+            // TODO
+            break;
+        }
+        case MOVE_RAIN_DANCE:
+        case MOVE_SUNNY_DAY:
+        case MOVE_SANDSTORM:
+        case MOVE_HAIL:
+        case MOVE_SNOWSCAPE: {
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+                    ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                    ctx->wb_seq_no = BEFORE_MOVE_START;
+                    return TRUE;
+                }
+            }
+            break;
+        }
 
         default:
             break;
     }
+
+    // For Redundancy failures, we just do it in the effect script /subscript
+
+
 
     if (butItFailedFlag) {
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
@@ -3047,6 +3249,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     return FALSE;
 }
 
+// TODO
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     switch (ctx->current_move_index) {
         case MOVE_LIFE_DEW: {
@@ -3058,6 +3261,10 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
+            break;
+        }
+        case MOVE_CORROSIVE_GAS: {
+            // TODO
             break;
         }
         default:
@@ -3241,7 +3448,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_ATK_UP:
         case MOVE_EFFECT_ATK_UP_2:
         case MOVE_EFFECT_ATK_UP_3:
-        case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
+        // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
                 result = TRUE;
             }
@@ -3265,7 +3472,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_ATK_UP:
         case MOVE_EFFECT_SP_ATK_UP_2:
         case MOVE_EFFECT_SP_ATK_UP_3:
-        case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
+        // case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
                 result = TRUE;
             }
@@ -3273,7 +3480,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_DEF_UP:
         case MOVE_EFFECT_SP_DEF_UP_2:
         case MOVE_EFFECT_SP_DEF_UP_3:
-        case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER:
+        // case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER:
             if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
                 result = TRUE;
             }
