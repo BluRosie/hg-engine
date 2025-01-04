@@ -13499,7 +13499,7 @@ movedata MOVE_BARB_BARRAGE, "Barb Barrage"
     movedescription MOVE_BARB_BARRAGE, "---"
 
 movedata MOVE_ESPER_WING, "Esper Wing"
-    battleeffect MOVE_EFFECT_RAISE_SPEED_HIT
+    battleeffect MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_PSYCHIC

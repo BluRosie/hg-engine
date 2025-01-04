@@ -356,6 +356,7 @@
 #define MOVE_EFFECT_QUARTER_HP                              350
 #define MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL         351
 #define MOVE_EFFECT_TAKE_HEART                              352
+#define MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT           353
 
 #define MOVE_TARGET_SELECTED             0x0000
 #define MOVE_TARGET_DEPENDS              0x0001
