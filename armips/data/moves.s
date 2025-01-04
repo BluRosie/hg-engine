@@ -13659,7 +13659,7 @@ movedata MOVE_LUNAR_BLESSING, "Lunar Blessing"
     movedescription MOVE_LUNAR_BLESSING, "---"
 
 movedata MOVE_TAKE_HEART, "Take Heart"
-    battleeffect MOVE_EFFECT_SP_ATK_SP_DEF_UP
+    battleeffect MOVE_EFFECT_TAKE_HEART
     pss SPLIT_STATUS
     basepower 0
     type TYPE_PSYCHIC

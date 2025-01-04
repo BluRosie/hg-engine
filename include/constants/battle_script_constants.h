@@ -399,6 +399,7 @@
 #define SUB_SEQ_MAKE_IT_RAIN                          (389)
 #define SUB_SEQ_ATK_SP_ATK_SPEED_DOWN                 (390)
 #define SUB_SEQ_ATK_SP_ATK_DOWN                       (391)
+#define SUB_SEQ_TAKE_HEART                            (392)
 
 
 
@@ -578,6 +579,7 @@
 #define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (171)
 #define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (172)
 #define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (173)
+#define ADD_STATUS_EFF_TAKE_HEART                      (174)
 
 
 // additional effect constants
