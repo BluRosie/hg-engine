@@ -9243,7 +9243,7 @@ movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     movedescription MOVE_FREEZE_DRY, "---"
 
 movedata MOVE_DISARMING_VOICE, "Disarming Voice"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BYPASS_ACCURACY
     pss SPLIT_SPECIAL
     basepower 40
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -11003,7 +11003,7 @@ movedata MOVE_SPEED_SWAP, "Speed Swap"
     movedescription MOVE_SPEED_SWAP, "The user exchanges\nSpeed stats with the\ntarget."
 
 movedata MOVE_SMART_STRIKE, "Smart Strike"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BYPASS_ACCURACY
     pss SPLIT_PHYSICAL
     basepower 70
     type TYPE_STEEL
@@ -11403,7 +11403,7 @@ movedata MOVE_SHADOW_BONE, "Shadow Bone"
     movedescription MOVE_SHADOW_BONE, "---"
 
 movedata MOVE_ACCELEROCK, "Accelerock"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PRIORITY_1
     pss SPLIT_PHYSICAL
     basepower 40
     type TYPE_ROCK
@@ -12747,7 +12747,7 @@ movedata MOVE_OBSTRUCT, "Obstruct"
     movedescription MOVE_OBSTRUCT, "---"
 
 movedata MOVE_FALSE_SURRENDER, "False Surrender"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BYPASS_ACCURACY
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DARK
@@ -13771,7 +13771,7 @@ movedata MOVE_ORDER_UP, "Order Up"
     movedescription MOVE_ORDER_UP, "---"
 
 movedata MOVE_JET_PUNCH, "Jet Punch"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PRIORITY_1
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_WATER
