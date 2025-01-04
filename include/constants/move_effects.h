@@ -348,6 +348,9 @@
 #define MOVE_EFFECT_WILDBOLT_STORM                          342
 #define MOVE_EFFECT_SANDSEAR_STORM                          343
 #define MOVE_EFFECT_TOXIC_THREAD                            344
+#define MOVE_EFFECT_MAKE_IT_RAIN                            345
+#define MOVE_EFFECT_VENOM_DRENCH                            346
+#define MOVE_EFFECT_TEARFUL_LOOK                            347
 
 
 #define MOVE_TARGET_SELECTED             0x0000

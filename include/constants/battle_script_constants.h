@@ -396,6 +396,9 @@
 #define SUB_SEQ_DRAIN_THREE_QUARTERS                  (386)
 #define SUB_SEQ_JAW_LOCK                              (387)
 #define SUB_SEQ_TOXIC_THREAD                          (388)
+#define SUB_SEQ_MAKE_IT_RAIN                          (389)
+#define SUB_SEQ_ATK_SP_ATK_SPEED_DOWN                 (390)
+#define SUB_SEQ_ATK_SP_ATK_DOWN                       (391)
 
 
 
@@ -572,6 +575,9 @@
 #define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (168)
 #define ADD_STATUS_EFF_JAW_LOCK                        (169)
 #define ADD_STATUS_EFF_TOXIC_THREAD                    (170)
+#define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (171)
+#define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (172)
+#define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (173)
 
 
 // additional effect constants

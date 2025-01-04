@@ -9643,7 +9643,7 @@ movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
     movedescription MOVE_EERIE_IMPULSE, "---"
 
 movedata MOVE_VENOM_DRENCH, "Venom Drench"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_VENOM_DRENCH
     pss SPLIT_STATUS
     basepower 0
     type TYPE_POISON
@@ -11499,7 +11499,7 @@ movedata MOVE_MOONGEIST_BEAM, "Moongeist Beam"
     movedescription MOVE_MOONGEIST_BEAM, "---"
 
 movedata MOVE_TEARFUL_LOOK, "Tearful Look"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_TEARFUL_LOOK
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -14043,7 +14043,7 @@ movedata MOVE_RAGING_BULL, "Raging Bull"
     movedescription MOVE_RAGING_BULL, "---"
 
 movedata MOVE_MAKE_IT_RAIN, "Make It Rain"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_MAKE_IT_RAIN
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_STEEL
