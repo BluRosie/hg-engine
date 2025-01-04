@@ -8906,7 +8906,7 @@ movedata MOVE_FIERY_DANCE, "Fiery Dance"
     movedescription MOVE_FIERY_DANCE, "Cloaked in flames,\nthe user dances.\nIt may also raise\nthe user’s Sp. Atk."
 
 movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH
+    battleeffect MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT
     pss SPLIT_SPECIAL
     basepower 140
     type TYPE_ICE
@@ -8922,7 +8922,7 @@ movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
     movedescription MOVE_FREEZE_SHOCK, "A two-turn attack\nthat hits the foe\nwith electrically\ncharged ice. It may\nparalyze the foe."
 
 movedata MOVE_ICE_BURN, "Ice Burn"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH
+    battleeffect MOVE_EFFECT_CHARGE_TURN_BURN_HIT
     pss SPLIT_SPECIAL
     basepower 140
     type TYPE_ICE
@@ -11227,7 +11227,7 @@ movedatalongname MOVE_OCEANIC_OPERETTA, "OceanicOperetta", "Oceanic Operetta"
     movedescription MOVE_OCEANIC_OPERETTA, "The user, Primarina,\nsummons a massive\namount of water using its\nZ-Power and attacks the\ntarget with full force."
 
 movedatalongname MOVE_GUARDIAN_OF_ALOLA, "Alolan Guardian", "Guardian of Alola"
-    battleeffect MOVE_EFFECT_HALVE_HP
+    battleeffect MOVE_EFFECT_QUARTER_HP
     pss SPLIT_SPECIAL
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -13147,7 +13147,7 @@ movedata MOVE_WICKED_BLOW, "Wicked Blow"
     movedescription MOVE_WICKED_BLOW, "The user strikes\nthe target with a\nfierce blow.\nThis move always\nlands a critical hit."
 
 movedata MOVE_SURGING_STRIKES, "Surging Strikes"
-    battleeffect MOVE_EFFECT_ALWAYS_CRITICAL
+    battleeffect MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL
     pss SPLIT_PHYSICAL
     basepower 25
     type TYPE_WATER

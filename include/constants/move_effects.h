@@ -351,6 +351,10 @@
 #define MOVE_EFFECT_MAKE_IT_RAIN                            345
 #define MOVE_EFFECT_VENOM_DRENCH                            346
 #define MOVE_EFFECT_TEARFUL_LOOK                            347
+#define MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT                348
+#define MOVE_EFFECT_CHARGE_TURN_BURN_HIT                    349
+#define MOVE_EFFECT_QUARTER_HP                              350
+#define MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL         351
 
 
 #define MOVE_TARGET_SELECTED             0x0000
