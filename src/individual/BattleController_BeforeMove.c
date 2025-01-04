@@ -2936,7 +2936,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
     return FALSE;
 }
 
-// TODO
+// TODO: implement remaining mechanics
 BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     //int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL butItFailedFlag = FALSE;
@@ -3157,6 +3157,68 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             }
             break;
         }
+        case MOVE_AQUA_RING: {
+            // TODO
+            break;
+        }
+        case MOVE_BATON_PASS:
+        case MOVE_HEALING_WISH:
+        case MOVE_LUNAR_DANCE: {
+            // TODO
+            break;
+        }
+        case MOVE_CURSE:{
+            // TODO
+            break;
+        }
+        case MOVE_SPIKES: {
+            // TODO
+            break;
+        }
+        case MOVE_STEALTH_ROCK: {
+            // TODO
+            break;
+        }
+        case MOVE_TOXIC_SPIKES: {
+            // TODO
+            break;
+        }
+        case MOVE_STICKY_WEB: {
+            // TODO
+            break;
+        }
+        case MOVE_FOCUS_ENERGY:
+        case MOVE_DRAGON_CHEER: {
+            // TODO
+            break;
+        }
+        case MOVE_LOCK_ON:
+        case MOVE_MIND_READER: {
+            // TODO
+            break;
+        }
+        case MOVE_MAGNET_RISE: {
+            // TODO
+            break;
+        }
+        case MOVE_SUBSTITUTE: {
+            // TODO
+            break;
+        }
+        case MOVE_TAUNT: {
+            // TODO
+            break;
+        }
+        case MOVE_BLOCK:
+        case MOVE_MEAN_LOOK:
+        case MOVE_SPIDER_WEB: {
+            // TODO
+            break;
+        }
+        case MOVE_WISH: {
+            // TODO
+            break;
+        }
         case MOVE_AFTER_YOU:
         case MOVE_ELECTRIFY:
         case MOVE_QUASH: {
@@ -3169,6 +3231,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             if (ctx->executionIndex > clientPosition) {
                 butItFailedFlag = TRUE;
             }
+            break;
+        }
+        case MOVE_CORROSIVE_GAS: {
+            // TODO
             break;
         }
         case MOVE_COPYCAT: {
@@ -3191,7 +3257,22 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             // TODO
             break;
         }
-        case MOVE_HELPING_HAND:
+        case MOVE_HELPING_HAND: {
+            for (clientPosition = 0; clientPosition < maxBattlers; clientPosition++) {
+                if (ctx->executionOrder[clientPosition] == ctx->defence_client) {
+                    break;
+                }
+            }
+            // If target has already performed action
+            if (ctx->executionIndex > clientPosition) {
+                butItFailedFlag = TRUE;
+            }
+
+            if (!(BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) || ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].hp == 0) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
         case MOVE_ALLY_SWITCH:
         case MOVE_AROMATIC_MIST:
         case MOVE_HOLD_HANDS: {
@@ -3209,20 +3290,112 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_RAIN_DANCE:
-        case MOVE_SUNNY_DAY:
-        case MOVE_SANDSTORM:
-        case MOVE_HAIL:
-        case MOVE_SNOWSCAPE: {
-            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-                if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
-                    ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
-                    ctx->wb_seq_no = BEFORE_MOVE_START;
-                    return TRUE;
-                }
+            if ((ctx->field_condition & WEATHER_RAIN_ANY)
+            || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
+            || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
+            || (ctx->field_condition & WEATHER_HAIL_PERMANENT)
+            || (ctx->field_condition & WEATHER_SNOW_PERMANENT)) {
+                butItFailedFlag = TRUE;
             }
+            if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
+                return TRUE;
+            }
+            break;
+        case MOVE_SUNNY_DAY:
+            if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
+            || (ctx->field_condition & WEATHER_SUNNY_ANY)
+            || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
+            || (ctx->field_condition & WEATHER_HAIL_PERMANENT)
+            || (ctx->field_condition & WEATHER_SNOW_ANY)) {
+                butItFailedFlag = TRUE;
+            }
+            if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
+                return TRUE;
+            }
+            break;
+        case MOVE_SANDSTORM:
+            if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
+            || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
+            || (ctx->field_condition & WEATHER_SANDSTORM_ANY)
+            || (ctx->field_condition & WEATHER_HAIL_PERMANENT)
+            || (ctx->field_condition & WEATHER_SNOW_PERMANENT)) {
+                butItFailedFlag = TRUE;
+            }
+            if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
+                return TRUE;
+            }
+            break;
+        case MOVE_HAIL:
+            if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
+            || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
+            || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
+            || (ctx->field_condition & WEATHER_HAIL_ANY)
+            || (ctx->field_condition & WEATHER_SNOW_PERMANENT)) {
+                butItFailedFlag = TRUE;
+            }
+            if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
+                return TRUE;
+            }
+            break;
+        case MOVE_SNOWSCAPE: {
+            if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
+            || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
+            || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
+            || (ctx->field_condition & WEATHER_HAIL_PERMANENT)
+            || (ctx->field_condition & WEATHER_SNOW_ANY)) {
+                butItFailedFlag = TRUE;
+            }
+            if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                ctx->wb_seq_no = BEFORE_MOVE_START;
+                return TRUE;
+            }
+            break;
+        }
+        case MOVE_PSYCHO_SHIFT: {
+            // TODO
+            break;
+        }
+        case MOVE_PURIFY: {
+            // TODO
+            break;
+        }
+        case MOVE_ROAR:
+        case MOVE_WHIRLWIND: {
+            // TODO
+            break;
+        }
+        case MOVE_TRANSFORM: {
+            // TODO
+            break;
+        }
+        case MOVE_TRICK:
+        case MOVE_SWITCHEROO:
+        case MOVE_BESTOW: {
+            // TODO
             break;
         }
 
@@ -3231,8 +3404,6 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     }
 
     // For Redundancy failures, we just do it in the effect script /subscript
-
-
 
     if (butItFailedFlag) {
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
@@ -3249,7 +3420,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     return FALSE;
 }
 
-// TODO
+// TODO: implement new mechanics
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     switch (ctx->current_move_index) {
         case MOVE_LIFE_DEW: {
