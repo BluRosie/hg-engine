@@ -468,6 +468,7 @@ arm9 GF_AssertFail 0202551C 0
 
 0012 ov12_0224D368 0224D368 3
 0012 ov12_0224C4D8 0224C4D8 3
+0012 ov12_0224D03C 0224D03C 3
 
 # fix trainer ai being able to switch illegally when binded
 0010 ai_switch_ban_for_bind_hook 022203B4 2
@@ -491,8 +492,11 @@ arm9 form_evo_hook_2 0207641C 0
 0015 BagApp_GetRepelStepCountAddr 021F993C 3
 #endif
 
+0012 BattleContext_Main 022486B0 2
+
+arm9 sub_0207B0B0 0207B0B0 2
+arm9 sub_0207AFC4 0207AFC4 1
+
 arm9 CalcMonStats 0206E27C 1
 
 0012 BtlCmd_TryProtection 022413B4 3
-
-0012 ServerStatusCheck 0224B528 3

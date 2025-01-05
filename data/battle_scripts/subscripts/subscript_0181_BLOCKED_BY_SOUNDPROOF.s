@@ -2,6 +2,8 @@
 
 .data
 
+// TODO: modernise message
+
 _000:
     PrintAttackMessage 
     Wait 

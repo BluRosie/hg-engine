@@ -23,6 +23,10 @@
 * Move Expansion with future generation moves
 * Item Expansion with future generation items
 * Mega Evolutions + Primal Reversions
+* New Weathers
+* Dynamic Speed
+* Accurate Turn Sequence
+* Accurate End-turn Resolution Order
 * Much More Customizable Trainers
 * Fairy Type
 * Hidden Abilities

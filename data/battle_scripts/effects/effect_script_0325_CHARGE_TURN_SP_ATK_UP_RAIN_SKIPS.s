@@ -20,6 +20,10 @@ _026:
     GoTo _033
 
 _028:
+    PrintAttackMessage
+    Wait 
+    WaitButtonABTime 30
+    BufferMessage 1480, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Call BATTLE_SUBSCRIPT_SP_ATK_UP_RAIN_SKIP /* Need a separate subscript here so the Power Herb isnt animated and removed. */
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLER_TARGET, BATTLER_NONE, _035
 

@@ -5,7 +5,7 @@
 _000:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_FRONTIER, _191
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_LINK, _188
-    // {0} is out of usable Pokémon!
+    // You have no more Pokémon that can fight!
     PrintMessage 36, TAG_TRNAME, BATTLER_CATEGORY_PLAYER
     Wait 
     WaitButtonABTime 30
@@ -21,30 +21,31 @@ _037:
     PayPrizeMoney 
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MESSAGE, 0, _076
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _068
-    // {0} dropped ${1} in panic!
+    // You panicked and dropped ${0}...
     PrintMessage 34, TAG_TRNAME_NUM, BATTLER_CATEGORY_PLAYER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
     GoTo _076
 
 _068:
-    // {0} paid out ${1} to the winner.
+    // You gave ${1} to the winner...
     PrintMessage 35, TAG_TRNAME_NUM, BATTLER_CATEGORY_PLAYER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
 
 _076:
     // ... ... ... ...
-    PrintMessage 38, TAG_NONE
-    Wait 
-    WaitButtonABTime 30
+    // No longer in SV
+    // PrintMessage 38, TAG_NONE
+    // Wait 
+    // WaitButtonABTime 30
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_AI|BATTLE_TYPE_MULTI|BATTLE_TYPE_DOUBLES|BATTLE_TYPE_TRAINER, _089
     HealthbarSlideOut BATTLER_CATEGORY_PLAYER_SLOT_2
 
 _089:
     COMMAND_DF 0
     Wait 
-    // {0} blacked out!
+    // You were overwhelmed by your defeat!
     PrintMessage 37, TAG_NONE
     Wait 
     WaitButtonABTime 30

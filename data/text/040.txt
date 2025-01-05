@@ -11,10 +11,10 @@ We hope to see you again!
 Your Pokémon may be infected with\nthe Pokérus.\rLittle is known about the Pokérus\nexcept that they are microscopic\flife-forms that attach to Pokémon.\rWhile infected, Pokémon are said to\ngrow exceptionally well.
 {STRVAR_1 3, 0, 0} is out of battle-ready\nPokémon!\r{STRVAR_1 3, 0, 0}’s vision dimmed!
              
-Would you like to save the game? {YESNO 0}
+Would you like to\nsave your adventure so far? {YESNO 0}
 There is already a saved file.\nIs it OK to overwrite it? {YESNO 0}
-Saving...\nDon’t turn off the power.
-{STRVAR_1 3, 0, 0} saved the game.
+Now saving your Pokémon adventure...\nDon’t turn off the power.
+You saved your progress!
                                                                                                                     
 Save error.
                                    
@@ -63,7 +63,7 @@ You can’t dismount your Bike here!
 Oh?
 {STRVAR_1 0, 0, 0} hatched from the Egg!
 Would you like to give a nickname to the\nnewly hatched {STRVAR_1 0, 0, 0}?
-Repel’s effect wore off...
+The repellent’s effect wore off!
              
                    
 I’m very sorry.\rWe are working underground right now.\nIt’s off-limits to the public.\rPlease try later on.
@@ -79,7 +79,7 @@ There is text engraved in the back\nof the obtained Plate...\r“The powers of P
 There is text engraved in the back\nof the obtained Plate...\r“The rightful bearer of a Plate\ndraws from the Plate it holds.”\r
 Ball Capsules can’t be used because\nyou don’t have any Seals.\r
                                          
-Would you like to save the game?
+Would you like to\nsave your adventure so far?
 There is already a saved file.\nIs it OK to overwrite it?
 Good morning!\nWelcome to the Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon? {YESNO 0}
 Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon? {YESNO 0}
@@ -116,5 +116,5 @@ WHEN YOU LOSE
 WHEN YOU’RE #1
 NOT TELLING
 
-Repel’s effect wore off.\nWould you like to use another one?
-{STRVAR_1 3, 0, 0} used the {STRVAR_1 8, 1, 0}.
+The repellent’s effect wore off!\nWould you like to use another one?
+You used the {STRVAR_1 8, 1, 0}.

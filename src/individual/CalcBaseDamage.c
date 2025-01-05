@@ -73,7 +73,7 @@ static const u8 HeldItemPowerUpTable[][2]={
 #endif
 };
 
-// this has been moved to src/battle/other_battle_calculators.c so it can be used in 
+// this has been moved to src/battle/other_battle_calculators.c so it can be used in
 extern const u16 PunchingMovesTable[24];
 
 static const u16 StrongJawMovesTable[] = {
@@ -145,7 +145,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     s8 spatkstate;
     s8 spdefstate;
     u8 level;
-	u8 levelDefender;
     u16 movepower;
     u16 item;
     u32 battle_type;
@@ -176,7 +175,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
 
     level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
-	levelDefender = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
     DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
@@ -324,7 +322,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle gorilla tactics
     if (AttackingMon.ability == ABILITY_GORILLA_TACTICS) {
         attack = attack * 15 / 10;
-    }    
+    }
 
     // handle assault vest
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES)) {
@@ -440,13 +438,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle toxic boost
-    if ((AttackingMon.ability == ABILITY_TOXIC_BOOST) && ((AttackingMon.condition & STATUS_FLAG_BADLY_POISONED) || (AttackingMon.condition & STATUS_FLAG_POISONED)))
+    if ((AttackingMon.ability == ABILITY_TOXIC_BOOST) && ((AttackingMon.condition & STATUS_BAD_POISON) || (AttackingMon.condition & STATUS_POISON)))
     {
         attack = attack * 15 / 10;
     }
 
     // handle flare boost
-    if ((AttackingMon.ability == ABILITY_FLARE_BOOST) && ((AttackingMon.condition & STATUS_FLAG_BURNED)))
+    if ((AttackingMon.ability == ABILITY_FLARE_BOOST) && ((AttackingMon.condition & STATUS_BURN)))
     {
         sp_attack = sp_attack * 15 / 10;
     }
@@ -460,11 +458,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle fluffy
     if (DefendingMon.ability == ABILITY_FLUFFY) {
         if (IsContactBeingMade(bw, sp)) {
-            movepower = movepower * 50 / 100;
+            movepower /= 2;
         }
 
         if (movetype == TYPE_FIRE) {
-            movepower = movepower * 2;
+            movepower *= 2;
         }
     }
 	
@@ -723,21 +721,18 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // handle rivalry
     if ((AttackingMon.ability == ABILITY_RIVALRY) &&
-        (AttackingMon.sex == DefendingMon.sex) && (AttackingMon.sex != POKEMON_GENDER_UNKNOWN) && (DefendingMon.sex != POKEMON_GENDER_UNKNOWN))
+        ((AttackingMon.type1 == DefendingMon.type1) ||
+		(AttackingMon.type1 == DefendingMon.type2) ||
+		(AttackingMon.type2 == DefendingMon.type1) ||
+		(AttackingMon.type2 == DefendingMon.type2)))
     {
-        movepower = movepower * 125 / 100;
-    }
-
-    if ((AttackingMon.ability == ABILITY_RIVALRY) &&
-        (AttackingMon.sex != DefendingMon.sex) && (AttackingMon.sex != POKEMON_GENDER_UNKNOWN) && (DefendingMon.sex != POKEMON_GENDER_UNKNOWN))
-    {
-        movepower = movepower * 75 / 100;
+        movepower = movepower * 13 / 10;
     }
 
     // handle iron fist
     if ((AttackingMon.ability == ABILITY_IRON_FIST) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
     {
-        movepower = movepower * 12 / 10;
+        movepower = movepower * 15 / 10;
     }
 
     // handle strong jaw
@@ -761,25 +756,25 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle water bubble
     if ((AttackingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_WATER))
     {
-        movepower = movepower * 2;
+        movepower *= 2;
     }
-    
+
     // handle ruin abilities
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_VESSEL_OF_RUIN)) 
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_VESSEL_OF_RUIN))
       && (DefendingMon.ability != ABILITY_VESSEL_OF_RUIN))
-        sp_attack = sp_attack * 75 / 100;
+        sp_attack = sp_attack * 3 / 4;
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_SWORD_OF_RUIN)) 
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_SWORD_OF_RUIN))
       && (DefendingMon.ability != ABILITY_SWORD_OF_RUIN))
-        defense = defense * 75 / 100;
+        defense = defense * 3 / 4;
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_TABLETS_OF_RUIN)) 
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_TABLETS_OF_RUIN))
       && (DefendingMon.ability != ABILITY_TABLETS_OF_RUIN))
-        attack = attack * 75 / 100;
-    
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_BEADS_OF_RUIN)) 
+        attack = attack * 3 / 4;
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_BEADS_OF_RUIN))
       && (DefendingMon.ability != ABILITY_BEADS_OF_RUIN))
-        sp_defense = sp_defense * 75 / 100;
+        sp_defense = sp_defense * 3 / 4;
 
     // handle field effects interacting with their moves
     if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
@@ -838,7 +833,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             (AttackingMon.ability != ABILITY_MOLD_BREAKER) &&
             (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_FLOWER_GIFT)))
         {
-            sp_defense = sp_defense * 15 / 10;
+            sp_attack = sp_attack * 15 / 10;
         }
     }
 
@@ -850,8 +845,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
     //    defense = defense / 2;
 
+	u8 levelDefender = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_LEVEL, NULL);
+
     damage = equivalentAttack * movepower;
-    damage *= ((level + levelDefender) / 5 + 2);
+	damage *= (level + levelDefender) / 5;
 
     damage = damage / equivalentDefense;
     damage /= 50;
@@ -873,6 +870,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
     {
+        // burns halve physical damage.  this is ignored by guts and facade (as of gen 6)
         if ((AttackingMon.condition & STATUS_FLAG_FROZEN) && (AttackingMon.ability != ABILITY_GUTS) && (moveno != MOVE_FACADE))
         {
             damage /= 2;
@@ -896,11 +894,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
     else// if (movesplit == SPLIT_SPECIAL) // same as above, handle special moves
     {
-        if (AttackingMon.condition & STATUS_FLAG_FROZEN)
+		if (AttackingMon.condition & STATUS_FLAG_FROZEN)
         {
             damage /= 2;
         }
-
         // handle light screen
         if (((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
          && (critical == 1)
@@ -1015,7 +1012,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         damage /= 2;
     }
-      
+
     // handle field effects
     if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
         switch (sp->terrainOverlay.type)

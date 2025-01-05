@@ -31,11 +31,11 @@
 
 // MEGA_EVOLUTIONS defines whether or not Pokémon that are able to mega evolve will be able to do so.
 // commenting this line out essentially disables mega evolutions and maintains default behavior with respect to them.  leaving this as-is will introduce mega evolutions when applied to the game.
-#define MEGA_EVOLUTIONS
+//#define MEGA_EVOLUTIONS
 
 // PRIMAL_REVERSION defines whether or not Kyogre and Groudon, when holding their orbs, will be able to change form when sent out in battle.
 // commenting this line out essentially disables primal reversion.  leaving this as-is will introduce primal reversions when applied to the game.
-#define PRIMAL_REVERSION
+//#define PRIMAL_REVERSION
 
 // ITEM_POCKET_EXPANSION defines whether or not item pockets will be given extra slots in the save in order to provide space for new items that are implemented
 // commenting this line out will prevent the item pockets from being expanded for the new items
@@ -81,6 +81,15 @@
 // uncomment the line out to get this functionality
 //#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
+// IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
+// Comment the line out to disable this functionality (Gen 6+) 
+#define IMPLEMENT_SEASONS
+
+// IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
+// Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
+// Uncomment this line to enable this functionality
+// #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+
 // EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
 // comment out the line below to keep the max at 18
 #define EXPAND_PC_BOXES
@@ -97,17 +106,26 @@
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
-// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle
-// comment out the line below to keep vanilla behavior
+// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
+// comment out the line below to revert back to Gen 8- behavior
 #define RESTORE_ITEMS_AT_BATTLE_END
 
-// PROTEAN_GENERATION defines the behavior that protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
+// PROTEAN_GENERATION defines the behavior that Protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
 #define PROTEAN_GENERATION 9
+
+// CORROSIVE_GAS_IMPLIED_BEHAVIOUR defines the behavior that Corrosive Gas should exhibit, where it either does it does not affect a Kyogre, a Groudon, or species holding their respective Mega Stones to not lose their Blue Orb, Red Orb, and Mega Stones respectively (TRUE), or affects species in the above cases (FALSE).
+#define CORROSIVE_GAS_IMPLIED_BEHAVIOUR TRUE
 
 // IMPLEMENT_REUSABLE_REPELS defines whether or not a prompt to use another repel automatically appears upon the previous repel being used up
 #define IMPLEMENT_REUSABLE_REPELS
 
 // UPDATE_VITAMIN_EV_CAPS changes the cap on the vitamins from 100 to 252 per recent generations
 #define UPDATE_VITAMIN_EV_CAPS
+
+// DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
+//#define DISABLE_ITEMS_IN_TRAINER_BATTLE
+
+// REUSABLE_TMS will make TMs infinite and hide the quantity number.
+#define REUSABLE_TMS
 
 #endif

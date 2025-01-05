@@ -4,5 +4,5 @@
 
 _000:
     // {0} whipped up a whirlwind!
-    BufferMessage 211, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    // BufferMessage 211, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

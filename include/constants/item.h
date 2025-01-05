@@ -218,6 +218,7 @@
 #define ITEM_ROWAP_BERRY     212
 
 #define IS_ITEM_BERRY(item) ((item >= ITEM_CHERI_BERRY && item <= ITEM_ROWAP_BERRY) || (item >= ITEM_ROSELI_BERRY && item <= ITEM_MARANGA_BERRY))
+#define IS_ITEM_MAIL(item) ((item >= ITEM_GRASS_MAIL && item <= ITEM_BRICK_MAIL))
 
 #define ITEM_BRIGHT_POWDER   213
 #define ITEM_WHITE_HERB      214
@@ -437,6 +438,10 @@
 #define ITEM_HM06            425
 #define ITEM_HM07            426
 #define ITEM_HM08            427
+
+#define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
+#define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
+
 #define ITEM_EXPLORER_KIT    428
 #define ITEM_LOOT_SACK       429
 #define ITEM_RULE_BOOK       430
@@ -863,8 +868,6 @@
 #define ITEM_HEARTHFLAME_MASK   (ITEM_PIXIE_PLATE + 214)
 #define ITEM_METAL_ALLOY        (ITEM_PIXIE_PLATE + 215)
 
-#define ITEM_FAIRY_TM           (ITEM_PIXIE_PLATE + 216)
-
 #define NUM_MEGA_STONES 48 // includes the pixie plate
 
 #define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_PSYCHIC_SEED)
@@ -877,7 +880,12 @@
 #define NEW_ITEM_MAX ITEM_METAL_ALLOY
 
 #define BAG_SLOT_QUANTITY_MAX                    999
+
+#ifdef REUSABLE_TMS
+#define BAG_TMHM_QUANTITY_MAX                      1
+#else
 #define BAG_TMHM_QUANTITY_MAX                     99
+#endif
 
 #define POCKET_ITEMS        0
 #define POCKET_MEDICINE     1

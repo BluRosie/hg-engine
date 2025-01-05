@@ -144,6 +144,9 @@
 .endmacro
 
 .macro evolution,method,parameter,species
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to evolution macro.  If trying to specify an evolution into a form (i.e. SPECIES_ZIGZAGOON_GALARIAN), use the evolutionwithform macro."
+	.endif
 	.halfword method
 	.halfword parameter
 	.halfword species
@@ -151,6 +154,9 @@
 
 // fucking 5-bit forms
 .macro evolutionwithform,method,parameter,species,form
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to evolutionwithform macro.  If trying to specify an evolution into a form, split up the base species and the form (i.e. \"SPECIES_ZIGZAGOON_GALARIAN\" becomes \"SPECIES_ZIGZAGOON, 1\")."
+	.endif
 	.halfword method
 	.halfword parameter
 	.halfword (species | form << 11)
@@ -445,10 +451,16 @@
 .endmacro
 
 .macro monwithform,species,formid
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to monwithform macro.  If trying to specify a form, split up the base species and the form, i.e. \"SPECIES_ZIGZAGOON_GALARIAN\" becomes \"SPECIES_ZIGZAGOON, 1\"."
+	.endif
 	.halfword (species | (formid<<11))
 .endmacro
 
 .macro pokemon,num
+	.if (num > NUM_OF_MONS)
+		.error "Invalid species supplied to pokemon macro.  If trying to specify a mon with a form (i.e. SPECIES_ZIGZAGOON_GALARIAN), use monwithform."
+	.endif
 	monwithform num, 0
 .endmacro
 
@@ -587,11 +599,17 @@
 .endmacro
 
 .macro encounterwithform,species,form,minlevel,maxlevel
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to encounterwithform macro.  If trying to specify a form, split up the base species and the form, i.e. \"SPECIES_ZIGZAGOON_GALARIAN\" becomes \"SPECIES_ZIGZAGOON, 1\"."
+	.endif
 	.byte minlevel, maxlevel
 	.halfword (species | (form << 11))
 .endmacro
 
 .macro encounter,species,minlevel,maxlevel
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to encounter macro.  If trying to specify a form (i.e. \"SPECIES_ZIGZAGOON_GALARIAN\"), use encounterwithform."
+	.endif
 	encounterwithform species, 0, minlevel, maxlevel
 .endmacro
 
@@ -673,11 +691,17 @@
 .endmacro
 
 .macro headbuttencounter, species, minLevel, maxlevel
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to headbuttencounter macro.  If trying to specify a form (i.e. \"SPECIES_ZIGZAGOON_GALARIAN\"), use encounterwithform."
+	.endif
 	.halfword species
 	.byte minLevel, maxlevel
 .endmacro
 
 .macro headbuttencounterwithform, species, form, minLevel, maxlevel
+	.if (species > NUM_OF_MONS)
+		.error "Invalid species supplied to headbuttencounterwithform macro.  If trying to specify a form, split up the base species and the form, i.e. \"SPECIES_ZIGZAGOON_GALARIAN\" becomes \"SPECIES_ZIGZAGOON, 1\"."
+	.endif
 	.halfword species | (form << 11)
 	.byte minLevel, maxlevel
 .endmacro

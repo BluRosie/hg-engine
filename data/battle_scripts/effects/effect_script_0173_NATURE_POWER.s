@@ -17,6 +17,7 @@ _000:
 
 _016:
     GoToMoveScript FALSE
+    End
 
 _018:
     Call BATTLE_SUBSCRIPT_HANDLE_PARENTAL_BOND

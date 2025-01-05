@@ -34,7 +34,7 @@ unloadSecond:
 
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Freed overlay %d.\n", ovyId);
-    debugsyscall(buf);
+    debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
 
     for (i = 0; i < NELEMS(gLinkedOverlayList); i++)
@@ -61,8 +61,19 @@ u32 LONG_CALL HandleLoadOverlay(u32 ovyId, u32 loadType) {
 loadExtension:
     if (!CanOverlayBeLoaded(ovyId)) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
+        overlayRegion = GetOverlayLoadDestination(ovyId);
+        loadedOverlays = GetLoadedOverlaysInRegion(overlayRegion);
         sprintf(buf, "ERROR: Can't load in overlay_%04d.bin.\n", ovyId);
-        debugsyscall(buf);
+        debug_printf(buf);
+        debug_printf("    Loaded overlays: ");
+        for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++)
+        {
+            if (loadedOverlays[i].active == TRUE)
+            {
+                debug_printf("%04d, ", loadedOverlays[i].id);
+            }
+        }
+        debug_printf("\n");
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         return FALSE;
     }
@@ -81,12 +92,12 @@ loadExtension:
 
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Loaded in overlay_%04d.bin. Total of %d overlays loaded.\n", ovyId, i+1);
-    debugsyscall(buf);
+    debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
 
     if (i >= MAX_ACTIVE_OVERLAYS) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
-        debugsyscall("ERROR: Too many overlays!\n");
+        debug_printf("ERROR: Too many overlays!\n");
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;
@@ -118,7 +129,7 @@ loadExtension:
     if (result == FALSE) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
         sprintf(buf, "Failed to load overlay_%04d.bin.\n", ovyId);
-        debugsyscall(buf);
+        debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;
@@ -132,7 +143,7 @@ loadExtension:
             loadType = 2;
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
             sprintf(buf, "Trying to load linked overlay_%04d.bin.\n", ovyId);
-            debugsyscall(buf);
+            debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
             goto loadExtension;
         }

@@ -12079,7 +12079,7 @@ evodata SPECIES_RABSCA
 terminateevodata
 
 evodata SPECIES_FLITTLE
-    evolution EVO_LEVEL, 35, SPECIES_RABSCA
+    evolution EVO_LEVEL, 35, SPECIES_ESPATHRA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

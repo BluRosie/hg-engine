@@ -330,20 +330,20 @@
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
 #define MOVE_EFFECT_STICKY_WEB                              326
-#define MOVE_EFFECT_FROSTBITE_HIT                           327
-#define MOVE_EFFECT_FROSTBITE_BLIZZARD                      328
-#define MOVE_EFFECT_FLINCH_FROSTBITE_HIT                    329
+#define MOVE_EFFECT_ATK_UP_3                                327
+#define MOVE_EFFECT_DEF_UP_3                                328
+#define MOVE_EFFECT_SPEED_UP_3                              329
+#define MOVE_EFFECT_SP_ATK_UP_3                             330
+#define MOVE_EFFECT_SP_DEF_UP_3                             331
+#define MOVE_EFFECT_ACC_UP_3                                332
+#define MOVE_EFFECT_EVA_UP_3                                333
+#define MOVE_EFFECT_ATK_DOWN_3                              334
+#define MOVE_EFFECT_DEF_DOWN_3                              335
+#define MOVE_EFFECT_SPEED_DOWN_3                            336
+#define MOVE_EFFECT_SP_ATK_DOWN_3                           337
+#define MOVE_EFFECT_SP_DEF_DOWN_3                           338
 
 //unused move effects
-#define MOVE_EFFECT_UNUSED_330                              330
-#define MOVE_EFFECT_UNUSED_331                              331
-#define MOVE_EFFECT_UNUSED_332                              332
-#define MOVE_EFFECT_UNUSED_333                              333
-#define MOVE_EFFECT_UNUSED_334                              334
-#define MOVE_EFFECT_UNUSED_335                              335
-#define MOVE_EFFECT_UNUSED_336                              336
-#define MOVE_EFFECT_UNUSED_337                              337
-#define MOVE_EFFECT_UNUSED_338                              338
 #define MOVE_EFFECT_UNUSED_339                              339
 #define MOVE_EFFECT_UNUSED_340                              340
 #define MOVE_EFFECT_UNUSED_341                              341
@@ -927,5 +927,18 @@
 #define MOVE_TARGET_ALLY                 0x0100
 #define MOVE_TARGET_ACUPRESSURE          0x0200
 #define MOVE_TARGET_ME_FIRST             0x0400
+
+#define RANGE_SINGLE_TARGET           0
+#define RANGE_SINGLE_TARGET_SPECIAL   (1 << 0)
+#define RANGE_RANDOM_OPPONENT         (1 << 1)
+#define RANGE_ADJACENT_OPPONENTS      (1 << 2)
+#define RANGE_ALL_ADJACENT            (1 << 3)
+#define RANGE_USER                    (1 << 4)
+#define RANGE_USER_SIDE               (1 << 5)
+#define RANGE_FIELD                   (1 << 6)
+#define RANGE_OPPONENT_SIDE           (1 << 7)
+#define RANGE_ALLY                    (1 << 8)
+#define RANGE_SINGLE_TARGET_USER_SIDE (1 << 9)
+#define RANGE_FRONT                   (1 << 10)
 
 #endif

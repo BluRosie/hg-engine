@@ -11,7 +11,7 @@ BattleWorkZukanWorkGet = 0x307C + 0x022378C1;
 BattleWorkClientSetMaxGet = 0x2F30 + 0x022378C1;
 ST_ServerAgiCalc = 0x18388 + 0x022378C1;
 Sub_GaugeObjHeadGet = 0x2E2F8 + 0x022378C1;
-ST_ServerSelectWazaGet = 0x1AA30 + 0x022378C1;
+GetBattlerSelectedMove = 0x1AA30 + 0x022378C1;
 ST_CheckIfInTruant = 0x1B380 + 0x022378C1;
 SCIO_BlankMessage = 0x2CA30 + 0x022378C1;
 BattleWorkFightMsgGet = 0x0223A930 | 1;
@@ -25,7 +25,7 @@ ServerIkariCheck = 0x1672C + 0x022378C1;
 ST_ServerWazaHitTokuseiCheck_Old = 0x1C544 + 0x022378C1;
 ST_ServerWaruagakiCheck = 0x19F2C + 0x022378C1;
 ServerSenseiCheck = 0x143E4 + 0x022378C1;
-
+ServerStatusCheck = 0x13C68 + 0x022378C1;
 ServerBadgeCheck = 0x13610 + 0x022378C1;
 ServerPPCheck = 0x1393C + 0x022378C1;
 ServerDefenceCheck = 0x13AD8 + 0x022378C1;
@@ -192,7 +192,7 @@ BattleWorkWeatherGet = 0x0223BAF8 | 1;
 BattleWorkEnemyClientGet = 0x32F8 + 0x022378C1;
 TraceClientGet = 0x022585B8 | 1;
 IsClientEnemy = 0x0223AB1C | 1;
-/*TypeCalc = 0x02251D28 | 1;*/
+TypeCalc = 0x02251D28 | 1;
 AnticipateMoveEffectListCheck = 0x0225865C | 1;
 BattleRand = 0x0223BD98 | 1;
 ChooseRandomTarget = 0x02253DA0 | 1;
@@ -211,7 +211,6 @@ SCIO_PSPtoPPCopy = 0x02263B4C | 1;
 SCIO_IncRecord = 0x02263F0C | 1;
 CheckStatusRecoverFromAbilityOnSwitch = 0x0225451C | 1;
 CheckPressureForPPDecrease = 0x02258180 | 1;
-GetBattlePokemonMovePosFromMove = 0x02251C60 | 1;
 CheckBattleAnimationsOption = 0x0223B6D4 | 1;
 SCIO_QueueMoveAnimation = 0x0226340C | 1;
 SCIO_QueueMoveAnimationConsiderAttackerDefender = 0x0226343C | 1;
@@ -674,10 +673,43 @@ sPickupTable2 = 0x0226C30C;
 sPickupWeightTable = 0x0226CA4C;
 sHoneyGatherChanceTable = 0x0226CA58;
 
+sPlayerBattleCommands = 0x0226CA90;
+BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
+ov12_022639B8 = 0x022639B8 | 1;
+
+FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
+MoveId_GetFieldEffectId = 0x0207BCC0 | 1;
+PartyMenu_ContextMenuAddFieldMove = 0x0207D0A0 | 1;
+ClearFrameAndWindow2 = 0x0200E9BC | 1;
+sub_0207B23C = 0x0207B23C | 1;
+PartyMenu_SetContextMenuItems_GiveCapsule = 0x0207B1BC | 1;
+sub_0207B1C8 = 0x0207B1C8 | 1;
+PartyMenu_SetContextMenuItems_SpinTrade = 0x0207B32C | 1;
+PartyMenu_SetContextMenuItems_BattleHallEntry = 0x0207B28C | 1;
+sub_0207B2DC = 0x0207B2DC | 1;
+sub_0207B200 = 0x0207B200 | 1;
+PartyMenu_OpenContextMenu = 0x0207D0E4 | 1;
+sub_0207D1C8 = 0x0207D1C8 | 1;
+PartyMenu_PrintMessageOnWindow33 = 0x0207DAD8 | 1;
+thunk_Sprite_SetPalIndex = 0x0200DD08 | 1;
+
+FreeToHeapExplicit = 0x0201AB80 | 1;
+
+BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
+BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
+BattleControllerPlayer_RunInput = 0x0224AC94 | 1;
+BattleMon_GetMoveIndex = 0x02251C60 | 1;
+CheckTruant = 0x02252C40 | 1;
+CopyBattleMonToPartyMon = 0x02250C40 | 1;
+LowestFlagNo = 0x020726E0 | 1;
+Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
+GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
+CanSwitchMon = 0x02252890 | 1;
+
+ov12_0224DD74 = 0x0224DD74 | 1;
+ov12_02261258 = 0x02261258 | 1;
+ov12_02252D14 = 0x02252D14 | 1;
+
 AcquireMonLock = 0x0206DD40 | 1;
 LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
 ReleaseMonLock = 0x0206DD8C | 1;
-
-CopyBattleMonToPartyMon = 0x02250C40 | 1;
-CheckTruant = 0x02252C40 | 1;
-LowestFlagNo = 0x020726E0 | 1;
